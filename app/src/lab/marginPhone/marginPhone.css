@@ -67,13 +67,19 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
 html[data-eink="true"] .lab .lab-pcard-scrim { background: rgba(255, 255, 255, .82); animation: none; }
 @keyframes lab-pcard-dim { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .lab .lab-pcard-scrim { animation: none; } }
-/* --lab-pcard-room: the height the reader sees (LabPhoneCard, visualViewport). With the keyboard up the card takes
-   the room above it less a small gap, so the field and the latest answer stay on screen. */
+/* The dock: the part of the window the reader sees (LabPhoneCard, visualViewport offsetTop and height), so the card
+   stands on the keyboard's top edge on iOS, where the window's bottom and innerHeight do not say where that is. */
+.lab .lab-pcard-dock {
+  position: fixed; left: 0; right: 0; top: var(--lab-pcard-top, 0px); height: var(--lab-pcard-room, 100dvh); z-index: 330;
+  display: flex; flex-direction: column; justify-content: flex-end; pointer-events: none;
+}
+/* The card is as tall as what it holds (iPhone feedback, 21 Oct 2026: no empty band above the field), at most 70% of
+   what the reader sees; longer content scrolls inside it. With the keyboard up it may take the room above it less a
+   small gap, so the field and the latest answer stay on screen. */
 .lab .lab-pcard {
-  --lab-pcard-gap: 96px;
-  position: fixed; left: 0; right: 0; bottom: var(--lab-keyboard-inset, 0px); z-index: 330;
-  display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;
-  max-height: calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap));
+  position: relative; z-index: 330; pointer-events: auto;
+  display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; flex: 0 1 auto; min-height: 0;
+  max-height: calc(var(--lab-pcard-room, 100dvh) * .7);
   padding: 8px 20px calc(16px + env(safe-area-inset-bottom, 0px));
   border-radius: 22px 22px 0 0; background: var(--lab-pcard-fill); color: var(--lab-ink);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, .18);
@@ -81,11 +87,14 @@ html[data-eink="true"] .lab .lab-pcard-scrim { background: rgba(255, 255, 255, .
   animation: lab-pcard-up .22s cubic-bezier(.2, .8, .2, 1);
   touch-action: pan-y;
 }
-.lab .lab-pcard[data-keyboard] { --lab-pcard-gap: 12px; padding-bottom: 10px; }
+.lab .lab-pcard[data-keyboard] { max-height: calc(var(--lab-pcard-room, 100dvh) - 12px); padding-bottom: 10px; }
 /* Under the card, down past the window's foot: its own paper, so nothing of the page shows below it while it rides
    on the keyboard or slides up. */
 .lab .lab-pcard::after { content: ""; position: absolute; left: 0; right: 0; top: calc(100% - 1px); height: 100vh; background: inherit; pointer-events: none; }
-.lab .lab-pcard.is-tall { height: min(78dvh, calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap))); }
+.lab .lab-pcard.is-tall { height: min(78dvh, calc(var(--lab-pcard-room, 100dvh) - 96px)); max-height: none; }
+.lab .lab-pcard.is-tall[data-keyboard] { height: calc(var(--lab-pcard-room, 100dvh) - 12px); }
+/* A field in a card has the focus: the narration bar is put away (it sat on the keyboard, over the card's room). */
+html[data-pcard-typing] .lab .lab-phone-bar { visibility: hidden; }
 @keyframes lab-pcard-up { from { transform: translateY(100%); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } }
 html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; }
@@ -116,6 +125,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-quiz { display: flex; flex-direction: column; gap: 10px; }
 .lab .lab-pcard-quiz-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .lab .lab-pcard-quiz-foot .lab-pcard-follow { align-self: stretch; }
+.lab .lab-pcard-quiz-writing { display: flex; align-items: center; gap: 10px; }
 .lab .lab-pcard-headword { margin: 0; font-size: 21px; }
 
 /* "Ask a follow-up": the field, the mic and send. */
@@ -132,8 +142,11 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 }
 .lab .lab-pcard-follow-input::placeholder { color: var(--lab-ink-faint); opacity: 1; }
 .lab .lab-pcard-follow-input:focus, .lab .lab-pcard-follow-input:focus-visible { outline: 0 !important; box-shadow: none; }
-.lab .lab-pcard .lab-pcard-mic { display: grid; place-items: center; width: 30px; height: 30px; color: var(--lab-ink-muted); }
-.lab .lab-pcard .lab-pcard-mic[aria-pressed="true"] { color: var(--lab-ink); }
+.lab .lab-pcard-follow button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab .lab-pcard-follow .lab-pcard-mic { display: grid; place-items: center; width: 30px; height: 30px; color: var(--lab-ink-muted); }
+.lab .lab-pcard-follow .lab-pcard-mic[aria-pressed="true"] { color: var(--lab-ink); }
+.lab .lab-pcard-follow .lab-pcard-talkbtn { display: grid; place-items: center; width: 30px; height: 30px; color: var(--lab-ink-muted); }
+.lab .lab-pcard-follow .lab-pcard-talkbtn svg { display: block; }
 .lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 8px !important; background: var(--lab-ink) !important; color: var(--lab-pcard-fill) !important; }
 .lab .lab-pcard-send:disabled { opacity: .3; cursor: default; }
 
@@ -162,7 +175,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard .tc .tc-thread { padding-top: 4px; }
 
 /* Talk in the card: the call's own orb, words and controls, the orb sized from the card's box (PhoneTalkFrame). */
-.lab .lab-pcard[data-kind="talk"] { height: min(60dvh, calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap))); }
+.lab .lab-pcard[data-kind="talk"] { height: min(60dvh, calc(var(--lab-pcard-room, 100dvh) - 96px)); max-height: none; }
 .lab .lab-pcard[data-kind="talk"] .lab-pcard-body { overflow: hidden; }
 .lab .lab-pcard-talk { flex: 1 1 auto; min-height: 0; display: flex; }
 .lab[data-chrome-version="v2"] .lab-pcard .lab-call { position: static; inset: auto; z-index: auto; flex: 1 1 auto; min-height: 0; padding: 0 0 4px; background: transparent; grid-template-rows: 1fr auto; gap: 12px; }
@@ -170,9 +183,14 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab[data-chrome-version="v2"] .lab-pcard .lab-call-status { font-size: 24px; }
 .lab[data-chrome-version="v2"] .lab-pcard .lab-call-notice { font-size: 16px; }
 
-/* Primer, Recap and Catch me up in the card: their own timeline. */
-.lab .lab-pcard .lab-catch-up-body { padding: 0; overflow: visible; }
-.lab .lab-pcard .lab-catch-up-foot { position: static; padding: 0; background: transparent; border: 0; }
+/* Primer, Recap and Catch me up in the card: their own timeline, then any follow-ups. */
+.lab .lab-pcard .lab-v2-sheet-body.lab-catch-up-body { padding: 0; overflow: visible; }
+.lab .lab-pcard .lab-catch-up-timeline { padding-bottom: 0; }
+.lab .lab-pcard .lab-catch-up-timeline > li:last-child { padding-bottom: 0; }
+.lab .lab-pcard-thread { display: flex; flex-direction: column; gap: 12px; padding-top: 4px; font-family: 'EB Garamond', Georgia, serif; }
+/* The phone's Primer, Recap and Catch me up sheets (not margin mode) end with the same field (iPhone feedback, 21 Oct). */
+.lab[data-chrome-version="v2"] .lab-catch-up-foot.is-follow { display: block; border-top: 0; padding-top: 4px; }
+.lab[data-chrome-version="v2"] .lab-catch-up-foot.is-follow .lab-pcard-follow { padding-top: 0; }
 
 /* The open card's passage, underlined on the page in the reader's ink (the desktop margin reader's mark), so the
    card need not quote it (phoneCardPassage.ts). */
@@ -185,4 +203,6 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* At a chapter's start, ✧ Primer · ✧ Catch me up sit on the heading's line, beside it (the header wraps them under a
    long title); at its end, ✧ Recap · ✧ Quiz me · Note with no label above them (iPhone feedback, 20 Oct 2026). */
 .lab[data-chrome-version="v2"] .lab-unit-pills.is-start { flex: 0 1 auto; display: flex; min-width: 0; }
+/* Pills sit 8px apart everywhere (iPhone feedback, 21 Oct 2026: "too much spacing between the pills"); each keeps a
+   44px tap height from its own padding (lab.css .lab-chapter-preview, .lab-chapter-end-actions button). */
 .lab[data-chrome-version="v2"] .lab-unit-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { Section } from '../types'
 import { catchUpPlan, catchUpSeparateWorks, catchUpUnits, type CatchUpEntry } from '../catchUp'
 import type { LabChapter } from './labSource'
@@ -45,6 +45,13 @@ export interface LabCatchUpSheetProps {
   onTopUp?: () => void
   /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard), with this label. */
   card?: { label: string }
+  /**
+   * The last row: the follow-up field with mic, Talk and send, given what the card shows; in
+   * place of the sheet's Chat and Talk buttons (iPhone feedback, 21 Oct 2026).
+   */
+  follow?: (shown: () => string) => ReactNode
+  /** The follow-ups asked from the card and their answers, under the timeline (margin card or phone sheet). */
+  thread?: ReactNode
 }
 
 /**
@@ -60,7 +67,7 @@ interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp, card } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp, card, follow, thread } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
@@ -202,15 +209,16 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
               You are here
             </li>
           </ol>
+          {thread}
         </div>
   )
-  const foot = (
+  const foot = follow ? <div className="lab-catch-up-foot is-follow">{follow(shownText)}</div> : (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
         </div>
   )
-  if (card) return <LabPhoneCard label={card.label} kind="catchup" onClose={onClose} foot={foot} testId="lab-phone-card">{timeline}</LabPhoneCard>
+  if (card) return <LabPhoneCard label={card.label} kind="catchup" onClose={onClose} foot={follow?.(shownText)} testId="lab-phone-card">{timeline}</LabPhoneCard>
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
       <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />

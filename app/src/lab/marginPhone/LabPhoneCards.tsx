@@ -102,19 +102,46 @@ export function PhoneFollowField(props: PhoneFollowProps) {
 }
 
 interface QuizQuestion { q: string; answer: string; why?: string }
+const quizQuestionsOf = (list: unknown[]): QuizQuestion[] => list.flatMap(item => {
+  const q = item as Record<string, unknown>
+  return typeof q?.q === 'string' && typeof q.answer === 'string' ? [{ q: q.q, answer: q.answer, why: typeof q.why === 'string' ? q.why : undefined }] : []
+})
 /** Quiz me's JSON (companion `quiz`): its questions, or null while it is not whole. */
 export function parsePhoneQuiz(text: string): QuizQuestion[] | null {
   const start = text.indexOf('{'), end = text.lastIndexOf('}')
   if (start < 0 || end <= start) return null
   try {
     const parsed = JSON.parse(text.slice(start, end + 1)) as { questions?: unknown }
-    const list = Array.isArray(parsed.questions) ? parsed.questions : []
-    const questions = list.flatMap(item => {
-      const q = item as Record<string, unknown>
-      return typeof q?.q === 'string' && typeof q.answer === 'string' ? [{ q: q.q, answer: q.answer, why: typeof q.why === 'string' ? q.why : undefined }] : []
-    })
+    const questions = quizQuestionsOf(Array.isArray(parsed.questions) ? parsed.questions : [])
     return questions.length ? questions : null
   } catch { return null }
+}
+/**
+ * The questions whole so far in a quiz that is still being written (the stream): each `{…}` in the "questions" array
+ * that has closed. The first question shows as soon as it is whole, not when the last one is (iPhone feedback,
+ * 21 Oct 2026: Quiz me took long to arrive).
+ */
+export function parsePhoneQuizPartial(text: string): QuizQuestion[] {
+  const key = /"questions"\s*:\s*\[/.exec(text)
+  if (!key) return []
+  const found: unknown[] = []
+  let depth = 0, from = -1, inString = false, escaped = false
+  for (let i = key.index + key[0].length; i < text.length; i++) {
+    const c = text[i]
+    if (inString) {
+      if (escaped) escaped = false
+      else if (c === '\\') escaped = true
+      else if (c === '"') inString = false
+      continue
+    }
+    if (c === '"') inString = true
+    else if (c === '{') { if (depth++ === 0) from = i }
+    else if (c === '}') {
+      if (--depth === 0 && from >= 0) { try { found.push(JSON.parse(text.slice(from, i + 1))) } catch { /* not whole yet */ } from = -1 }
+      if (depth < 0) break
+    } else if (c === ']' && depth === 0) break
+  }
+  return quizQuestionsOf(found)
 }
 /** A marked answer (companion `quiz_check`). */
 export function parsePhoneQuizMark(text: string): { verdict: 'right' | 'nearly' | 'not_yet'; feedback: string } | null {
@@ -130,12 +157,17 @@ export function parsePhoneQuizMark(text: string): { verdict: 'right' | 'nearly' 
 type QuizResult = { verdict: 'right' | 'nearly' | 'not_yet' | 'shown'; feedback: string }
 const VERDICT_WORD: Record<QuizResult['verdict'], string> = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not yet.', shown: '' }
 
+/** The questions a phone quiz asks (the companion may write more; the rest are not waited for). */
+export const PHONE_QUIZ_LENGTH = 3
+
 /**
  * Quiz me (the margin reader's quiz card): three questions, one at a time.
  * The reader answers in the field (marked by the companion) or shows the
- * answer, then goes on; the end line counts the right answers.
+ * answer, then goes on; the end line counts the right answers. The card opens
+ * at once ("Writing questions…") and the first question shows as soon as it
+ * is whole in the stream. The end ends with the follow-up field, as every card.
  */
-export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef }: {
+export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef, follow, thread }: {
   request: (onDelta: (text: string) => void) => Promise<string>
   mark: (question: QuizQuestion, answer: string) => Promise<string>
   draft: string
@@ -143,9 +175,13 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   onMic?: () => void
   micOn?: boolean
   inputRef?: MutableRefObject<HTMLTextAreaElement | null>
+  /** The end's follow-up field, given the quiz as text (its questions, answers and marks). */
+  follow?: (summary: string) => ReactNode
+  /** The follow-ups asked from the end and their answers. */
+  thread?: ReactNode
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null)
-  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+  const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
   const [attempt, setAttempt] = useState(0)
   const [index, setIndex] = useState(0)
   const [results, setResults] = useState<(QuizResult | null)[]>([])
@@ -154,15 +190,24 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   requestRef.current = request
   useEffect(() => {
     let active = true
+    let shown = 0
     setStatus('loading'); setQuestions(null); setIndex(0); setResults([])
-    void requestRef.current(() => {}).then(text => {
+    void requestRef.current(text => {
       if (!active) return
-      const parsed = parsePhoneQuiz(text)
-      if (parsed) { setQuestions(parsed.slice(0, 3)); setStatus('ready') } else setStatus('error')
-    }).catch(() => { if (active) setStatus('error') })
+      const partial = parsePhoneQuizPartial(text).slice(0, PHONE_QUIZ_LENGTH)
+      if (partial.length > shown) { shown = partial.length; setQuestions(partial); setStatus(partial.length >= PHONE_QUIZ_LENGTH ? 'ready' : 'streaming') }
+    }).then(text => {
+      if (!active) return
+      const parsed = (parsePhoneQuiz(text) ?? parsePhoneQuizPartial(text)).slice(0, PHONE_QUIZ_LENGTH)
+      if (parsed.length) { setQuestions(parsed); setStatus('ready') } else setStatus('error')
+    }).catch(() => { if (active) setStatus(current => (current === 'streaming' || current === 'ready') && shown ? 'ready' : 'error') })
     return () => { active = false }
   }, [attempt])
-  const done = !!questions && index >= questions.length
+  const writing = status === 'streaming'
+  // While the quiz is still being written its length is the one it will have.
+  const total = writing ? PHONE_QUIZ_LENGTH : questions?.length ?? 0
+  const waitingNext = !!questions && writing && index >= questions.length
+  const done = !!questions && !writing && index >= questions.length
   const result = results[index] ?? null
   const right = results.filter(item => item?.verdict === 'right').length
   const answered = results.filter(item => item && item.verdict !== 'shown').length
@@ -176,12 +221,18 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
       setDraft('')
     }).catch(() => {}).finally(() => setMarking(false))
   }
-  const body = status === 'loading' ? <PhoneWait />
+  const summary = () => (questions ?? []).map((question, i) => {
+    const item = results[i]
+    const mark = !item ? 'not answered' : item.verdict === 'shown' ? 'answer shown' : VERDICT_WORD[item.verdict].replace('.', '')
+    return `${i + 1}. ${question.q}\nExpected: ${question.answer}${question.why ? ` ${question.why}` : ''}\nReader: ${mark}${item?.feedback ? `. ${item.feedback}` : ''}`
+  }).join('\n\n')
+  const body = status === 'loading' || waitingNext
+    ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing"><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
     : status === 'error' || !questions ? <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>
     : done ? <div className="lab-pcard-answer"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
     : (
       <div className="lab-pcard-quiz" data-testid="lab-phone-quiz">
-        <p className="lab-pcard-count">{index + 1} of {questions.length}</p>
+        <p className="lab-pcard-count">{index + 1} of {total}</p>
         <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[index].q}</p>
         {result && <div className="lab-pcard-answer">
           {result.verdict === 'shown'
@@ -191,22 +242,27 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
         {marking && <PhoneWait />}
       </div>
     )
+  const asking = (status === 'ready' || writing) && !!questions && index < questions.length
   return (
     <>
       <div className="lab-pcard-body-inner">
         {body}
+        {done && thread}
       </div>
-      {status === 'ready' && questions && !done && (
+      {asking && (
         <div className="lab-pcard-quiz-foot">
           {!result
             ? <>
                 <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Your answer" label="Your answer" inputRef={inputRef} disabled={marking} />
                 <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-show" onClick={() => setResults(current => { const next = [...current]; next[index] = { verdict: 'shown', feedback: '' }; return next })}>Show answer</button>
               </>
-            : <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => setIndex(value => value + 1)}>{index + 1 < questions.length ? 'Next question →' : 'See your score →'}</button>}
+            : <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => setIndex(value => value + 1)}>{index + 1 < total ? 'Next question →' : 'See your score →'}</button>}
         </div>
       )}
-      {done && <div className="lab-pcard-quiz-foot"><button type="button" className="lab-pcard-link" onClick={() => setAttempt(value => value + 1)}>Try another quiz</button></div>}
+      {done && <div className="lab-pcard-quiz-foot">
+        {follow?.(summary())}
+        <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-again" onClick={() => setAttempt(value => value + 1)}>Try another quiz</button>
+      </div>}
     </>
   )
 }
