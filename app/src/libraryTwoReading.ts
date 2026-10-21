@@ -1,5 +1,4 @@
-import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
-import { ensurePublicBook } from './utils/publicBooks'
+import { isNativeCapacitor } from './utils/nativePlatform'
 import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
@@ -46,6 +45,16 @@ import { hideOwnFromReadingTable, type OwnShelfBook, type OwnShelfReading } from
 import { isUserBookId, ownBookHref, userBookHex } from './lab/userBook/userBookId'
 import { pdfEditionChoice } from './lab/userBook/pdfEditions'
 import { ownReadingNowWithAccount } from './lab/userBook/ownSync'
+
+// The Android app's own books (nativeBooks.ts) and readers' added books (publicBooks.ts) both carry
+// the whole book registry (150 KB). The library's reading engine needs neither to show the desk: the
+// app's books load inside the app only, the registry for an added book only when one opens
+// (2026-10-21, scripts/check-library-speed.mjs: no longer downloaded and parsed before the desk).
+const nativeBooks = () => (isNativeCapacitor() ? import('./utils/nativeBooks') : null)
+async function nativeLibraryCatalogue() { return (await nativeBooks())?.nativeLibraryCatalogue() ?? null }
+async function ensureNativeBook(bookId: string) { await (await nativeBooks())?.ensureNativeBook(bookId) }
+// A book a reader added (pd-…) joins that registry before the reader opens it; only such a book loads it.
+async function ensurePublicBook(bookId: string) { if (isPublicBookId(bookId)) await (await import('./utils/publicBooks')).ensurePublicBook(bookId) }
 
 interface CatalogueBook {
   id: string
