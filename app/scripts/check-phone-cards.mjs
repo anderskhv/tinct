@@ -13,8 +13,15 @@
 // visualViewport (the keyboard) keeps the card inside it; Chat and Talk open as cards; the start pills sit on the
 // heading's line and the end pills have no label, and open their cards; the place is unchanged after each card
 // opens and closes; a reload keeps the place. Screenshots go to OUT.
+// Round 2 (iPhone feedback, 21 Oct 2026): every card is as tall as its content (at most 70% of the visible height, the
+// follow-up row at most 24px under the last line); the card stands on visualViewport offsetTop + height, also when
+// iOS pans (offsetTop > 0) or shrinks innerHeight; the narration bar is hidden while a card's field has the focus;
+// pills sit 8px apart with 44px tap heights; every pill card (Primer, Catch me up, Recap, Quiz me's end) and every
+// passage card ends with the follow-up field (mic, Talk, send) and no round Chat/Talk/Copy buttons, in margin mode
+// and on the normal phone reader's sheets; a follow-up from a pill card is answered in it; Talk from it opens Talk.
 import { chromium, webkit, devices } from 'playwright'
-import { mkdirSync } from 'node:fs'
+import { mkdirSync, readFileSync } from 'node:fs'
+import { build } from 'esbuild'
 import { join, resolve } from 'node:path'
 
 const ORIGIN = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:4811'
@@ -73,12 +80,13 @@ async function boot(engine, search, seed = SEED, keep = null) {
       // A visualViewport the check can shrink as the iOS keyboard does (window.__keyboard(px)).
       const real = window.visualViewport
       const fake = new EventTarget()
-      let keyboard = 0
+      // `top` is iOS's pan to a focused field (offsetTop > 0): the visible part starts that far down the window.
+      let keyboard = 0, top = 0
       for (const key of ['width', 'offsetLeft', 'pageLeft', 'pageTop', 'scale']) Object.defineProperty(fake, key, { get: () => real ? real[key] : 0 })
       Object.defineProperty(fake, 'height', { get: () => (real ? real.height : innerHeight) - keyboard })
-      Object.defineProperty(fake, 'offsetTop', { get: () => 0 })
+      Object.defineProperty(fake, 'offsetTop', { get: () => top })
       Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => fake })
-      window.__keyboard = px => { keyboard = px; fake.dispatchEvent(new Event('resize')) }
+      window.__keyboard = (px, panned = 0) => { keyboard = px; top = panned; fake.dispatchEvent(new Event('resize')); fake.dispatchEvent(new Event('scroll')) }
       const silent = async () => { try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx.createMediaStreamDestination().stream } catch { return new MediaStream() } }
       if (navigator.mediaDevices) Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: silent })
       window.__copied = []
@@ -160,6 +168,26 @@ const cardOf = page => page.evaluate(() => {
     focused: document.activeElement?.closest?.('[data-testid="lab-phone-card"]') ? document.activeElement.tagName + ':' + (document.activeElement.getAttribute('data-testid') || '') : null,
   }
 })
+/** The open card's shape: its height share, the gap between its last line of content and its follow-up row, the row's buttons. */
+const shapeOf = (page, root = '[data-testid="lab-phone-card"]') => page.evaluate(root => {
+  const card = document.querySelector(root)
+  if (!card) return null
+  const r = card.getBoundingClientRect()
+  const follow = card.querySelector('.lab-pcard-follow')
+  const lines = [...card.querySelectorAll('p, li, h3, .lab-pcard-wait, .lab-pcard-question')].filter(el => !follow?.contains(el) && !el.closest('.lab-pcard-follow, .lab-catch-up-foot, .lab-pcard-quiz-foot')).map(el => el.getBoundingClientRect()).filter(b => b.height > 0)
+  const last = lines.length ? Math.max(...lines.map(b => b.bottom)) : null
+  const f = follow?.getBoundingClientRect()
+  const vv = window.visualViewport
+  return {
+    height: Math.round(r.height), share: Math.round(r.height / (vv?.height || innerHeight) * 100), top: Math.round(r.top), bottom: Math.round(r.bottom),
+    gap: f && last != null ? Math.round(f.top - last) : null,
+    field: !!card.querySelector('[data-testid="lab-phone-card-input"]'), mic: !!card.querySelector('[data-testid="lab-phone-card-mic"]'),
+    talk: !!card.querySelector('[data-testid="lab-phone-card-talk"]'), send: !!card.querySelector('[data-testid="lab-phone-card-send"]'),
+    round: card.querySelectorAll('.lab-chapter-notes-tool, [data-testid="lab-chapter-notes-copy"]').length,
+    fontSize: parseFloat(getComputedStyle(card.querySelector('[data-testid="lab-phone-card-input"]') || card).fontSize),
+  }
+}, root)
+const followRow = shape => !!shape && shape.field && shape.mic && shape.talk && shape.send && shape.round === 0 && shape.fontSize >= 16
 async function shot(page, name) { const path = join(OUT, name + '.png'); await page.screenshot({ path }); return path }
 
 async function showControls(page) {
@@ -270,6 +298,9 @@ async function run(engineName) {
   card = await cardOf(page)
   ok(`${tag}: the Explain card streams the answer, its lead sentence bold`, card.text.includes('MOCK lead sentence') && card.lead === 'MOCK lead sentence of the answer.' && /Ask a follow-up/.test(await page.getByTestId('lab-phone-card-input').getAttribute('placeholder')), card)
   shots.push(await shot(page, `${tag}-explain`))
+  const explainShape = await shapeOf(page)
+  ok(`${tag}: the Explain card is as tall as its content (${explainShape?.share}% of the screen, ${explainShape?.gap}px to its field) and its field has mic, Talk and send`,
+    !!explainShape && explainShape.share <= 70 && explainShape.gap !== null && explainShape.gap <= 24 && followRow(explainShape), explainShape)
   // A follow-up in the card: the chat's question, answered in the card.
   await page.getByTestId('lab-phone-card-input').fill('Why here?')
   await page.getByTestId('lab-phone-card-send').click()
@@ -310,6 +341,21 @@ async function run(engineName) {
     return { vv: [vv.offsetTop, vv.height].map(Math.round), card: [c.top, c.bottom].map(Math.round), field: [f.top, f.bottom].map(Math.round), label: Math.round(label.top), focused: document.activeElement?.dataset.testid }
   })
   ok(`${tag}: with the keyboard up the card fits above it (${fits.card.join('–')} in ${fits.vv[1]}px)`, fits.card[0] >= fits.vv[0] && fits.card[1] <= fits.vv[0] + fits.vv[1] + 1 && fits.field[1] <= fits.vv[0] + fits.vv[1] && fits.label >= fits.vv[0] && fits.focused === 'lab-phone-card-input', fits)
+  ok(`${tag}: the card stands on the keyboard's top edge (bottom ${fits.card[1]} = offsetTop + height ${fits.vv[0] + fits.vv[1]})`, Math.abs(fits.card[1] - (fits.vv[0] + fits.vv[1])) <= 1, fits)
+  // iOS pans the window to the focused field (offsetTop > 0): the card follows the visible part, not the window's bottom.
+  for (const [keyboardPx, panned] of [[336, 120], [300, 260]]) {
+    await page.evaluate(([k, t]) => window.__keyboard(k, t), [keyboardPx, panned])
+    await page.waitForTimeout(250)
+    const pan = await page.evaluate(() => {
+      const vv = window.visualViewport, c = document.querySelector('[data-testid="lab-phone-card"]').getBoundingClientRect(), f = document.querySelector('[data-testid="lab-phone-card-input"]').getBoundingClientRect()
+      return { vv: [vv.offsetTop, vv.height].map(Math.round), card: [c.top, c.bottom].map(Math.round), field: [f.top, f.bottom].map(Math.round), typing: document.documentElement.hasAttribute('data-pcard-typing') }
+    })
+    ok(`${tag}: panned ${panned}px with a ${keyboardPx}px keyboard, card and field inside the visible part (${pan.card.join('–')} in ${pan.vv[0]}–${pan.vv[0] + pan.vv[1]})`,
+      Math.abs(pan.card[1] - (pan.vv[0] + pan.vv[1])) <= 1 && pan.card[0] >= pan.vv[0] && pan.field[0] >= pan.vv[0] && pan.field[1] <= pan.vv[0] + pan.vv[1] && pan.typing, pan)
+    if (panned === 120) shots.push(await shot(page, `${tag}-ask-keyboard-panned`))
+  }
+  await page.evaluate(() => window.__keyboard(336, 0))
+  await page.waitForTimeout(200)
   await page.keyboard.type('What does this mean')
   shots.push(await shot(page, `${tag}-ask-keyboard`))
   await page.getByTestId('lab-phone-card-send').click()
@@ -407,18 +453,48 @@ async function run(engineName) {
   })
   ok(`${tag}: the start pills sit on the heading's line, beside it (✧ Primer · ✧ Catch me up), no "Starting" line`, !!startPill && /^✧Primer✧Catch me up$/.test(startPill.text) && startPill.primerChip === 0 && startPill.sameLine && !startPill.starting, startPill)
   shots.push(await shot(sp, `${tag}-start-pills`))
+  const pillGaps = sel => sp.evaluate(sel => {
+    const pills = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().height > 0)
+    const spans = pills.map(el => (el.querySelector(':scope > span') || el).getBoundingClientRect())
+    return { gaps: spans.slice(1).map((b, i) => Math.round(b.left - spans[i].right)), heights: pills.map(el => Math.round(el.getBoundingClientRect().height)) }
+  }, sel)
+  const startGaps = await pillGaps('[data-testid="lab-unit-start"] button')
+  ok(`${tag}: the start pills sit 8px apart (${startGaps.gaps.join(', ')}), each 44px tall to tap`, startGaps.gaps.length >= 1 && startGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && startGaps.heights.every(h => h >= 44), startGaps)
   const pillCard = async (testId, kind, label) => {
     await sp.getByTestId(testId).click()
     await sp.getByTestId('lab-phone-card').waitFor()
     await sp.waitForTimeout(600)
     const c = await cardOf(sp)
     ok(`${tag}: ${label} opens as a card (${c.label})`, c.count === 1 && c.kind.startsWith(kind), c)
+    const shape = await shapeOf(sp)
+    ok(`${tag}: ${label}'s card is as tall as its content (${shape?.share}% of the screen, ${shape?.gap}px to its field) and ends with the field (mic, Talk, send), no round buttons`,
+      !!shape && shape.share <= 70 && shape.gap !== null && shape.gap <= 24 && followRow(shape), shape)
+    shots.push(await shot(sp, `${tag}-${kind}-card`))
     await tapOutside(sp)
     const now = await placeOf(sp)
     ok(`${tag}: ${label}: closed, the place is unchanged`, (await sp.getByTestId('lab-phone-card').count()) === 0 && same(now, startHome), { now, startHome })
     return c
   }
   await pillCard('lab-unit-primer', 'chapter-notes-primer', 'Primer')
+  // A follow-up from the Primer card: the chat's question, answered in the card, with the primer kept first.
+  await sp.getByTestId('lab-unit-primer').click()
+  await sp.getByTestId('lab-phone-card-input').waitFor()
+  await sp.waitForTimeout(500)
+  const asked = startState.log.ai.length
+  await sp.getByTestId('lab-phone-card-input').fill('Who is Beaufort?')
+  await sp.getByTestId('lab-phone-card-send').click()
+  await sp.getByTestId('lab-phone-card-question').waitFor()
+  await sp.waitForTimeout(600)
+  const followed = await cardOf(sp)
+  ok(`${tag}: a follow-up from the Primer card is answered in the card`, followed.kind === 'chapter-notes-primer' && followed.text.includes('Who is Beaufort?') && /MOCK reply/.test(followed.text) && startState.log.ai.length > asked, followed)
+  shots.push(await shot(sp, `${tag}-primer-followup`))
+  // Talk from the card: the voice conversation opens as its card (the session never connects here).
+  await sp.getByTestId('lab-phone-card-talk').click()
+  await sp.waitForTimeout(800)
+  ok(`${tag}: Talk in the Primer card's field opens Talk`, (await cardOf(sp)).kind === 'talk', await cardOf(sp))
+  await tapOutside(sp)
+  await sp.waitForTimeout(300)
+  ok(`${tag}: Primer, follow-up and Talk: the place is unchanged`, same(await placeOf(sp), startHome), await placeOf(sp))
   await pillCard('lab-unit-catchup', 'catchup', 'Catch me up')
   // Turn to the chapter's end.
   for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
@@ -426,6 +502,8 @@ async function run(engineName) {
   const endPill = await sp.evaluate(() => { const el = document.querySelector('[data-testid="lab-chapter-end"]'); return el ? el.textContent.replace(/\s+/g, ' ').trim() : null })
   ok(`${tag}: the end pills (✧ Recap · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Recap✧Quiz meNote/.test(endPill), endPill)
   shots.push(await shot(sp, `${tag}-end-pills`))
+  const endGaps = await pillGaps('[data-testid="lab-chapter-end"] .lab-chapter-recap, [data-testid="lab-chapter-end"] .lab-chapter-note')
+  ok(`${tag}: the end pills sit 8px apart (${endGaps.gaps.join(', ')}), each 44px tall to tap`, endGaps.gaps.length >= 2 && endGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && endGaps.heights.every(h => h >= 44), endGaps)
   const endHome = await placeOf(sp)
   for (const [testId, kind, label] of [['lab-unit-quiz', 'quiz', 'Quiz me (chapter)'], ['lab-chapter-note-open', 'chapter-note', 'Note (chapter)']]) {
     await sp.getByTestId(testId).click()
@@ -434,13 +512,22 @@ async function run(engineName) {
     const c = await cardOf(sp)
     ok(`${tag}: ${label} opens as a card (${c.label})`, c.kind === kind, c)
     if (kind === 'quiz') ok(`${tag}: the chapter's quiz asks the quiz route without a passage`, startState.log.ai.some(a => a.intent === 'quiz' && !a.selection))
+    if (kind === 'quiz') {
+      for (let i = 0; i < 3; i++) { await sp.getByTestId('lab-phone-quiz-show').click(); await sp.getByTestId('lab-phone-quiz-next').click() }
+      await sp.waitForTimeout(300)
+      const end = await shapeOf(sp)
+      ok(`${tag}: Quiz me's end ends with the field (mic, Talk, send) right under the score, Try another quiz below it, ${end?.gap}px from the score`, followRow(end) && end.gap <= 24 && (await sp.getByTestId('lab-phone-quiz-again').count()) === 1, end)
+      shots.push(await shot(sp, `${tag}-quiz-end`))
+    }
     await tapOutside(sp)
     const now = await placeOf(sp)
     ok(`${tag}: ${label}: closed, the place is unchanged`, same(now, endHome), { now, endHome })
   }
   await sp.locator('[data-testid="lab-chapter-end"] .lab-chapter-recap').first().click()
   await sp.getByTestId('lab-phone-card').waitFor()
-  ok(`${tag}: Recap opens as a card`, (await cardOf(sp)).kind === 'chapter-notes-end')
+  await sp.waitForTimeout(500)
+  const recapShape = await shapeOf(sp)
+  ok(`${tag}: Recap opens as a card as tall as its content, ending with the field`, (await cardOf(sp)).kind === 'chapter-notes-end' && recapShape.share <= 70 && recapShape.gap <= 24 && followRow(recapShape), recapShape)
   await tapOutside(sp)
   // A reload keeps the place.
   const before = await placeOf(sp)
@@ -513,9 +600,119 @@ async function talkCard(engineName, w, h) {
   return path
 }
 
+/**
+ * The normal phone reader (not margin mode): Primer and Catch me up are sheets, as tall as what they hold, ending with
+ * the same follow-up field (mic, Talk, send) in place of the round Chat, Talk and Copy buttons.
+ */
+async function sheets(engineName) {
+  const engine = engineName === 'webkit' ? webkit : chromium
+  const tag = `${BOOK}-390x844-${engineName}-sheet`
+  const state = await boot(engine, `?book=${BOOK}`)
+  const { page } = state
+  const home = await placeOf(page)
+  const shots = []
+  for (const [label, open] of [
+    ['Primer', () => page.locator('.lab-passage-header .lab-chapter-preview').first().click()],
+    ['Catch me up', async () => { await showControls(page); await page.getByTestId('lab-super').click(); await page.getByTestId('lab-super-row-catchup').click() }],
+  ]) {
+    await open()
+    await page.waitForSelector('.lab-v2-sheet.lab-catch-up')
+    await page.waitForTimeout(900)
+    const shape = await shapeOf(page, '.lab-v2-sheet.lab-catch-up')
+    ok(`${tag}: the ${label} sheet is as tall as what it holds (${shape?.height}px, ${shape?.gap}px to its field) and ends with the field (mic, Talk, send), no round buttons`,
+      !!shape && shape.gap !== null && shape.gap <= 24 && shape.height < 452 && followRow(shape), shape)
+    shots.push(await shot(page, `${tag}-${label.replace(/\s+/g, '-').toLowerCase()}`))
+    await page.keyboard.press('Escape')
+    await page.waitForTimeout(400)
+    ok(`${tag}: ${label} closed, the place is unchanged`, same(await placeOf(page), home), await placeOf(page))
+  }
+  await close(state)
+  return shots
+}
+
+/**
+ * Narration playing (mocked, silent) and a card's field focused: the narration bar is hidden while the field has the
+ * focus and comes back after; and with innerHeight itself shrunk to the visible part (as iOS may report it), the card
+ * still stands on the visible bottom.
+ */
+async function narrationTyping(engineName) {
+  const engine = engineName === 'webkit' ? webkit : chromium
+  const tag = `${BOOK}-390x844-${engineName}`
+  const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() }, bundle: true, platform: 'node', format: 'esm', write: false })
+  const { chunkNarrationText, narrationTextForParagraph, sha256Hex } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'))
+  const edition = JSON.parse(readFileSync(`public/data/editions/${BOOK}-modern-en.json`, 'utf8'))
+  const browser = await engine.launch()
+  const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' })
+  context.__browser = browser
+  await context.addInitScript(() => {
+    class SilentAudio extends EventTarget {
+      src = ''; currentTime = 0; duration = 30; paused = true; ended = false; playbackRate = 1; autoplay = false; muted = true
+      constructor() { super(); window.__audio = this }
+      play() { this.paused = false; this.ended = false; queueMicrotask(() => this.dispatchEvent(new Event('playing'))); return Promise.resolve() }
+      pause() { this.paused = true; queueMicrotask(() => this.dispatchEvent(new Event('pause'))) }
+      load() {}
+      setAttribute() {}
+      removeAttribute(name) { if (name === 'src') this.src = '' }
+    }
+    window.Audio = SilentAudio
+  })
+  const page = await context.newPage()
+  await page.route('**/api/narration/**', async route => {
+    const url = new URL(route.request().url())
+    if (url.pathname === '/api/narration/voices') return route.fulfill({ json: { enabled: true, provider: 'grok', voices: [{ key: 'f', label: 'Ara', persona: 'female', cacheIdentity: 'a'.repeat(64) }] } })
+    if (url.pathname !== '/api/narration/ensure') return route.fulfill({ status: 404, body: '{}' })
+    const body = route.request().postDataJSON()
+    const chapter = edition.chapters.find(c => c.number === body.chapter) ?? edition.chapters[body.chapter - 1]
+    const paragraphs = await Promise.all(body.paragraphs.map(async item => {
+      const text = chapter?.paragraphs[item.index]
+      if (typeof text !== 'string') return { paragraph: item.index, status: 'failed', reason: 'unknown_paragraph' }
+      const tokens = narrationTextForParagraph(text).split(' ')
+      const chunks = chunkNarrationText(text).map(c => {
+        const words = tokens.slice(c.wordFrom, c.wordTo).map((word, i) => ({ text: word, start: i * 0.3, end: i * 0.3 + 0.28 }))
+        return { ...c, ready: true, duration: words.length * 0.3, hash: 'b'.repeat(64), timingsUsable: true, url: '/api/audio-file?fixture=' + body.chapter + '-' + item.index + '-' + c.index, words }
+      })
+      return { paragraph: item.index, status: 'ready', textHash: await sha256Hex(narrationTextForParagraph(text)), chunkCount: chunks.length, readyChunks: chunks.length, chunks, duration: chunks.reduce((n, c) => n + c.duration, 0), timingsUsable: true }
+    }))
+    return route.fulfill({ json: { paragraphs, generated: 0 } })
+  })
+  const state = await boot(engine, `?book=${BOOK}&margin=1`, SEED, { context, page, log: { ai: [], notes: [], voice: [], errors: [] }, fresh: true })
+  await page.getByTestId('lab-v2-play').click()
+  await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.transport === 'open', null, { timeout: 20000 })
+  await page.waitForTimeout(600)
+  const home = await placeOf(page)
+  const barShown = () => page.evaluate(() => { const bar = document.querySelector('footer.lab-phone-bar'); return bar ? getComputedStyle(bar).visibility : null })
+  ok(`${tag}: narration plays with its bar (${await barShown()})`, (await barShown()) === 'visible')
+  await page.getByTestId('lab-unit-primer').click()
+  await page.getByTestId('lab-phone-card-input').waitFor()
+  await page.waitForTimeout(500)
+  await page.getByTestId('lab-phone-card-input').click()
+  await page.evaluate(() => window.__keyboard(336, 0))
+  await page.waitForTimeout(300)
+  ok(`${tag}: the narration bar is hidden while the card's field has the focus`, (await barShown()) === 'hidden', await barShown())
+  shots_narration.push(await shot(page, `${tag}-narration-typing`))
+  // iOS may report innerHeight already shrunk to the visible part.
+  await page.setViewportSize({ width: 390, height: 508 })
+  await page.evaluate(() => window.__keyboard(0, 0))
+  await page.waitForTimeout(500)
+  const shrunk = await page.evaluate(() => { const c = document.querySelector('[data-testid="lab-phone-card"]').getBoundingClientRect(), f = document.querySelector('[data-testid="lab-phone-card-input"]').getBoundingClientRect(); return { inner: innerHeight, card: [c.top, c.bottom].map(Math.round), field: [f.top, f.bottom].map(Math.round), keyboard: document.querySelector('[data-testid="lab-phone-card"]').hasAttribute('data-keyboard') } })
+  ok(`${tag}: with innerHeight shrunk to ${shrunk.inner}px the card still stands on the visible bottom, its field in view`, Math.abs(shrunk.card[1] - shrunk.inner) <= 1 && shrunk.field[1] <= shrunk.inner && shrunk.card[0] >= 0 && shrunk.keyboard, shrunk)
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.waitForTimeout(400)
+  await page.evaluate(() => document.activeElement?.blur())
+  await page.waitForTimeout(300)
+  ok(`${tag}: the narration bar is back once the field lets go`, (await barShown()) === 'visible', await barShown())
+  await tapOutside(page)
+  ok(`${tag}: narration, a card typed in and closed: the place is unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
+  ok(`${tag}: no page errors (narration)`, state.log.errors.length === 0, state.log.errors)
+  await close(state)
+}
+const shots_narration = []
+
 const all = []
 for (const engine of ENGINES) {
   try { all.push(...await run(engine)) } catch (error) { ok(`${engine}: run`, false, String(error?.stack || error).slice(0, 1200)) }
+  try { all.push(...await sheets(engine)) } catch (error) { ok(`${engine}: sheets`, false, String(error?.stack || error).slice(0, 1200)) }
+  try { await narrationTyping(engine); all.push(...shots_narration.splice(0)) } catch (error) { ok(`${engine}: narration typing`, false, String(error?.stack || error).slice(0, 1200)) }
   for (const [w, h] of [[390, 844], [375, 667]]) {
     try { const path = await talkCard(engine, w, h); if (path) all.push(path) } catch (error) { ok(`${engine} ${w}x${h}: Talk`, false, String(error?.stack || error).slice(0, 1200)) }
   }

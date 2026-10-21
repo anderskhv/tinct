@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { useReaderWindow } from '../useReaderWindow'
 import { LabBalanceEmptyLine } from '../LabAiUsageBar'
 import { CATCH_UP_COOLDOWN_MS, catchUpContextText, catchUpShouldCoolDown } from '../labCatchUp'
@@ -25,6 +25,10 @@ export interface LabOwnCatchUpSheetProps {
   onChat: (text: string) => void
   onTalk: (text: string) => void
   onTopUp?: () => void
+  /** The last row on a phone: the follow-up field with mic, Talk and send, given what the sheet shows (LabCatchUpSheet). */
+  follow?: (shown: () => string) => ReactNode
+  /** The follow-ups asked from the sheet and their answers, under the timeline. */
+  thread?: ReactNode
 }
 
 type State =
@@ -40,7 +44,7 @@ type State =
  * at open, and never writes one.
  */
 export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
-  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp } = props
+  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread } = props
   const [steps] = useState(() => ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed }))
   const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
   const [attempt, setAttempt] = useState(0)
@@ -122,11 +126,12 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
               You are here
             </li>
           </ol>
+          {thread}
         </div>
-        <div className="lab-catch-up-foot lab-chapter-notes-foot">
+        {follow ? <div className="lab-catch-up-foot is-follow">{follow(shownText)}</div> : <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
-        </div>
+        </div>}
       </section>
     </div>
   )

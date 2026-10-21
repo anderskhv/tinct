@@ -4848,8 +4848,11 @@ function addEssays() {
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'lamplit-conjectures.epub', title: 'Lamplit Conjectures, Volume II', author: 'Gale Editor', type: 'epub', size: ESSAYS.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: ESSAYS })
   return sha256.slice(0, 24)
 }
-async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null }) {
+async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null, fontDelay = 0 }) {
   const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: width < 700 })
+  // Late web fonts (a cold cache, a slow connection; CI 21 Oct 2026): every /fonts/ file held back `fontDelay` ms, past the
+  // open's 1.5 s wait for them (reader.js openEpub), on the first open and on each reload (a routed request skips the cache).
+  if (fontDelay) await ctx.route(/\/fonts\/[^?]*\.(woff2?|ttf)(\?|$)/, async r => { await new Promise(z => setTimeout(z, fontDelay)); await r.continue().catch(() => {}) })
   await ctx.addInitScript(([session, look]) => {
     try {
       if (!sessionStorage.getItem('nb-init')) {
@@ -5008,6 +5011,24 @@ async function pdfTextCheck(browser, origin) {
   }
   return results
 }
+/** At `here` (spotNow), then a reload, then a text size and a width step and back: the paragraph and word kept throughout. */
+async function epubPlaceRows(e, ok, tag, here, width, height) {
+  // Back at the place, then a reload: the same paragraph and word.
+  await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+  await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
+  const reloaded = await e.evaluate(spotNow)
+  ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
+  // The text size and the window's width change: the place stays.
+  await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800); await epubSettled(e)
+  const zoomed = await e.evaluate(spotNow)
+  await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800); await epubSettled(e, { width: Math.round(width * 0.8) })
+  const narrowed = await e.evaluate(spotNow)
+  await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800); await epubSettled(e, { width })
+  const sizedBack = await e.evaluate(spotNow)
+  // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
+  const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
+  ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
+}
 async function epubViewCheck(browser, origin) {
   const results = [], ok = okList(results)
   const hex = addEpub(), key = 'epub:' + hex
@@ -5044,21 +5065,7 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
     await shot(e, `${tag}-card`)
     await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
-    // Back at the place, then a reload: the same paragraph and word.
-    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e); await e.evaluate(() => savePlaceNow())
-    await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
-    const reloaded = await e.evaluate(spotNow)
-    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
-    // The text size and the window's width change: the place stays.
-    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800); await epubSettled(e)
-    const zoomed = await e.evaluate(spotNow)
-    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800); await epubSettled(e, { width: Math.round(width * 0.8) })
-    const narrowed = await e.evaluate(spotNow)
-    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800); await epubSettled(e, { width })
-    const sizedBack = await e.evaluate(spotNow)
-    // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
-    const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
-    ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
+    await epubPlaceRows(e, ok, tag, here, width, height)
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
@@ -5076,6 +5083,43 @@ async function epubViewCheck(browser, origin) {
     const back = await e.evaluate(spotNow)
     ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
     void target
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // Late fonts (CI 21 Oct 2026, #519: a reload opened a line or two early, and the size and width steps after it held
+  // that line): the open restores the place with the fallback font, and the fonts' swap (Chrome rescrolls the view to
+  // keep its anchor) must not be taken for the reader's own scroll. The same place, reload and steps, fonts held 2.5 s.
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `epub-view-${width}x${height}-late-fonts`
+    const E = await epubPage(browser, origin, hex, { width, height, fontDelay: 2500 })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    const here = await e.evaluate(spotNow)
+    await epubPlaceRows(e, ok, tag, here, width, height)
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // A second book opened while the first one's fonts are still held (Anders's rule: never lose a place): the first open's
+  // font wait ends at once when the next open begins, and its fonts-ready callback, stale, moves nothing; the second
+  // book's place lands exactly. In place (reader.js openFromUrl, as the shelf and a dropped file open a book), not a new page.
+  {
+    const tag = 'epub-view-1440x900-late-fonts-next-book', hexB = addEssays()
+    const E = await epubPage(browser, origin, hexB, { width: 1440, height: 900, fontDelay: 2500 })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.evaluate(() => { const n = state.pages.findIndex(q => epubParas(q).some(x => x.textContent.length > 400)), el = epubParas(state.pages[n]).find(x => x.textContent.length > 400); goTo({ page: n + 1, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.5; r() }))) })
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    const hereB = await e.evaluate(spotNow)
+    // Book A, its fonts held: its place restored, its font wait on.
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`, { waitUntil: 'commit' })
+    const waiting = await e.waitForFunction(() => typeof epubHold !== 'undefined' && typeof state !== 'undefined' && isEpub() && epubHold.opened === state.token && epubHold.reflow > 0 && document.fonts.status === 'loading', null, { timeout: 15000, polling: 50 }).then(() => true).catch(() => false)
+    // Book B, opened within that wait: A's wait is gone as B's open begins.
+    const handoff = await e.evaluate(h => new Promise(r => { const was = state.token; openFromUrl(h); const look = () => state.token !== was ? r({ reflow: epubHold.reflow, fonts: document.fonts.status }) : setTimeout(look, 0); look() }), hexB)
+    await e.waitForFunction(h => state.key === 'epub:' + h && epubHold.opened === state.token, hexB, { timeout: 30000 }); await epubSettled(e); await e.waitForTimeout(500); await epubSettled(e)
+    const landed = await e.evaluate(spotNow)
+    ok(`${tag}: a book opened while another's late fonts are held ends that wait at once, and lands exactly at its own place`, waiting && handoff.reflow === 0 && hereB.word > 0 && landed.page === hereB.page && landed.para === hereB.para && landed.word === hereB.word, { waiting, handoff, hereB, landed })
     ok(`${tag}: no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()
   }

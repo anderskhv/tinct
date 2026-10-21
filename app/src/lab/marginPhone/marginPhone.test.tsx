@@ -7,9 +7,9 @@ import { LabChapterHeading } from '../LabChapterHeading'
 import { LabChapterEnd } from '../LabChapterEnd'
 import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
 import { labSuperMenuRows } from '../labSuperMenu'
-import { LabPhoneCard, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, phoneCardRoom, splitLead } from './LabPhoneCard'
 import { LabPhoneBar, PHONE_MORE_ROWS, phoneMorePlace } from './LabPhoneBar'
-import { PhoneNoteBody, PhonePassageBody, parsePhoneQuiz, parsePhoneQuizMark } from './LabPhoneCards'
+import { PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, parsePhoneQuiz, parsePhoneQuizMark, parsePhoneQuizPartial } from './LabPhoneCards'
 import { PHONE_CARD_PASSAGE_CLASS, markPhoneCardPassage } from './phoneCardPassage'
 
 const css = readFileSync(resolve(__dirname, 'marginPhone.css'), 'utf8')
@@ -167,10 +167,98 @@ describe('the cards', () => {
   })
 
   it('fit the visible window above the keyboard', () => {
-    expect(phoneCardRoom({ height: 844, offsetTop: 0 }, 844)).toEqual({ height: 844, keyboard: false })
-    expect(phoneCardRoom({ height: 480, offsetTop: 120 }, 844)).toEqual({ height: 480, keyboard: true })
-    expect(phoneCardRoom(null, 700)).toEqual({ height: 700, keyboard: false })
-    expect(css).toMatch(/max-height: calc\(var\(--lab-pcard-room, 100dvh\) - var\(--lab-pcard-gap\)\)/)
+    expect(phoneCardRoom({ height: 844, offsetTop: 0 }, 844)).toEqual({ top: 0, height: 844, keyboard: false })
+    expect(phoneCardRoom({ height: 480, offsetTop: 120 }, 844)).toEqual({ top: 120, height: 480, keyboard: true })
+    expect(phoneCardRoom(null, 700)).toEqual({ top: 0, height: 700, keyboard: false })
+    // iOS may report innerHeight already shrunk to the visible part: the layout's height or a focused field still say
+    // the keyboard is up, and the card stands on offsetTop + height either way.
+    expect(phoneCardRoom({ height: 420, offsetTop: 260 }, 420, 844)).toEqual({ top: 260, height: 420, keyboard: true })
+    expect(phoneCardRoom({ height: 420, offsetTop: 0 }, 420, 420, true)).toEqual({ top: 0, height: 420, keyboard: true })
+    // The dock spans the visual viewport; the card is as tall as its content, at most 70% of it.
+    expect(css).toMatch(/\.lab \.lab-pcard-dock \{[^}]*position: fixed[^}]*top: var\(--lab-pcard-top, 0px\); height: var\(--lab-pcard-room, 100dvh\)[^}]*justify-content: flex-end/)
+    expect(css).toMatch(/\.lab \.lab-pcard \{[^}]*position: relative[^}]*max-height: calc\(var\(--lab-pcard-room, 100dvh\) \* \.7\)/)
+    expect(css).not.toMatch(/\.lab \.lab-pcard \{[^}]*bottom: var\(--lab-keyboard-inset/)
+  })
+
+  it('stand on what the reader sees: the dock follows visualViewport offsetTop and height', () => {
+    let height = 844, offsetTop = 0
+    const viewport = Object.assign(new EventTarget(), {})
+    Object.defineProperty(viewport, 'height', { get: () => height })
+    Object.defineProperty(viewport, 'offsetTop', { get: () => offsetTop })
+    const real = Object.getOwnPropertyDescriptor(window, 'visualViewport')
+    Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => viewport })
+    try {
+      render(<div className="lab"><LabPhoneCard label="Ask" kind="ask" onClose={() => {}} foot={<textarea data-testid="field" />}><p>x</p></LabPhoneCard></div>)
+      const dock = screen.getByTestId('lab-phone-card-dock')
+      expect(dock.style.getPropertyValue('--lab-pcard-top')).toBe('0px')
+      expect(dock.style.getPropertyValue('--lab-pcard-room')).toBe('844px')
+      act(() => { height = 430; offsetTop = 250; viewport.dispatchEvent(new Event('resize')) })
+      expect(dock.style.getPropertyValue('--lab-pcard-top')).toBe('250px')
+      expect(dock.style.getPropertyValue('--lab-pcard-room')).toBe('430px')
+      act(() => { viewport.dispatchEvent(new Event('scroll')); offsetTop = 300; viewport.dispatchEvent(new Event('scroll')) })
+      expect(dock.style.getPropertyValue('--lab-pcard-top')).toBe('300px')
+      // A field in the card has the focus: the keyboard is up and the narration bar is put away.
+      act(() => { screen.getByTestId('field').focus() })
+      expect(document.documentElement.hasAttribute(PHONE_CARD_TYPING_ATTR)).toBe(true)
+      expect(screen.getByTestId('lab-phone-card').hasAttribute('data-keyboard')).toBe(true)
+      expect(css).toMatch(/html\[data-pcard-typing\] \.lab \.lab-phone-bar \{ visibility: hidden; \}/)
+      cleanup()
+      expect(document.documentElement.hasAttribute(PHONE_CARD_TYPING_ATTR)).toBe(false)
+    } finally {
+      if (real) Object.defineProperty(window, 'visualViewport', real)
+      else delete (window as { visualViewport?: unknown }).visualViewport
+    }
+  })
+
+  it('end with the follow-up field: mic, Talk and send', () => {
+    const onTalk = vi.fn(), onMic = vi.fn(), onSend = vi.fn()
+    render(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
+    expect(screen.getByTestId('lab-phone-card-input').getAttribute('placeholder')).toBe('Ask a follow-up')
+    fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
+    fireEvent.click(screen.getByTestId('lab-phone-card-mic'))
+    fireEvent.click(screen.getByTestId('lab-phone-card-send'))
+    expect(onTalk).toHaveBeenCalledTimes(1)
+    expect(onMic).toHaveBeenCalledTimes(1)
+    expect(onSend).toHaveBeenCalledWith('Why?')
+    // 16px or more, so iOS does not zoom into the field.
+    expect(css).toMatch(/\.lab-pcard-follow-input \{[^}]*font: 400 16px/)
+  })
+})
+
+describe('Quiz me arrives fast (iPhone feedback, 21 Oct 2026)', () => {
+  const quiz = '{"ideas":["a","b"],"thesis":"t","questions":[{"idea":0,"q":"Q1 {braces} \\"quoted\\"?","answer":"A1","why":"W1","cite":""},{"idea":1,"q":"Q2","answer":"A2","why":"W2","cite":""},{"idea":1,"q":"Q3","answer":"A3","cite":""},{"idea":0,"q":"Q4","answer":"A4","cite":""}]}'
+  it('reads each question once it is whole in the stream', () => {
+    const at = (needle: string) => quiz.slice(0, quiz.indexOf(needle))
+    expect(parsePhoneQuizPartial(at('"questions"'))).toEqual([])
+    expect(parsePhoneQuizPartial(at('"answer":"A1"'))).toEqual([])
+    expect(parsePhoneQuizPartial(at('{"idea":1,"q":"Q2"')).map(q => q.q)).toEqual(['Q1 {braces} "quoted"?'])
+    expect(parsePhoneQuizPartial(quiz).map(q => q.q)).toEqual(['Q1 {braces} "quoted"?', 'Q2', 'Q3', 'Q4'])
+  })
+
+  it('shows "Writing questions…" at once, then the first question before the rest are written', async () => {
+    let push: (text: string) => void = () => {}
+    let finish: (text: string) => void = () => {}
+    const request = (onDelta: (text: string) => void) => { push = onDelta; return new Promise<string>(resolve => { finish = resolve }) }
+    render(<div className="lab"><PhoneQuizBody request={request} mark={async () => ''} draft="" setDraft={() => {}} /></div>)
+    expect(screen.getByTestId('lab-phone-quiz-writing').textContent).toMatch(/Writing questions…/)
+    act(() => push(quiz.slice(0, quiz.indexOf('{"idea":1,"q":"Q2"'))))
+    expect(screen.getByTestId('lab-phone-quiz-question').textContent).toBe('Q1 {braces} "quoted"?')
+    expect(screen.getByText(/1 of 3/)).toBeTruthy()
+    // Shown, then on: the next is still being written.
+    fireEvent.click(screen.getByTestId('lab-phone-quiz-show'))
+    fireEvent.click(screen.getByTestId('lab-phone-quiz-next'))
+    expect(screen.getByTestId('lab-phone-quiz-writing')).toBeTruthy()
+    await act(async () => { push(quiz); finish(quiz) })
+    expect(screen.getByTestId('lab-phone-quiz-question').textContent).toBe('Q2')
+  })
+
+  it('the end ends with the follow-up field, the quiz as what it carries', async () => {
+    const follow = vi.fn((summary: string) => <p data-testid="follow">{summary.split('\n')[0]}</p>)
+    render(<div className="lab"><PhoneQuizBody request={async onDelta => { onDelta(quiz); return quiz }} mark={async () => ''} draft="" setDraft={() => {}} follow={follow} /></div>)
+    await act(async () => {})
+    for (let i = 0; i < 3; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    expect(screen.getByTestId('follow').textContent).toBe('1. Q1 {braces} "quoted"?')
+    expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
   })
 })
 
