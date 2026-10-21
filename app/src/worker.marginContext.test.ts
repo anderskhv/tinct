@@ -15,6 +15,7 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { COMPANION_MAX_TOKENS } from './companion/companionRequest'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
@@ -586,6 +587,25 @@ describe('the book reader is unchanged', () => {
     askStream: 'e2e6eea181031a8787b859bccb319da0a51bb5cecae15d45468f8d5ac166db6f',
     guestAsk: 'eaa1df445f7df54bb419de8be86b3c1430241e7135ef0d585d02f5eb2ca4badc',
   }
+  // The grounding rules and the reader's place line (Anders, 21 Oct 2026, "go on chat") change the book
+  // reader's prompt on purpose and nothing else: each body is pinned as it is now, and with exactly those
+  // additions taken out it is still the body above.
+  const AFTER: Record<string, string> = {
+    explain: '331fc205d37b9c58dd0cc4cb8d70abf7920cbd95dd741e8b93bc964bf00b7fe4',
+    define: '4ab071f7f29d24b88847ac9ae91561e819b6948192adf9abee9e949059aa04e0',
+    ask: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+    askStream: '04f8f7b58869179b758afd3babf868f7781078c48f6a31ede382a22239fb358e',
+    guestAsk: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+  }
+  const withoutGrounding = (body: Record<string, unknown>) => {
+    const strip = (text: string) => {
+      const rules = `\n\n${LAB_ASK_GROUND_FIRST_RULE}\n${LAB_ASK_CHECKED_SPECIFICS_RULE}\n${LAB_ASK_RECHECK_RULE}`
+      expect(text.split(rules).length - 1).toBeLessThanOrEqual(1)
+      return text.replace(rules, '').replace(/The reader is at: [^\n]*\n\n/, '')
+    }
+    const system = body.system as string | Array<{ text: string }>
+    return { ...body, system: typeof system === 'string' ? strip(system) : system.map(block => ({ ...block, text: strip(block.text) })) }
+  }
   const requests: Record<string, { body: unknown; guest?: boolean }> = {
     explain: { body: { companion: { intent: 'explain', context: bookContext, selection: 'ingenious hero' } } },
     define: { body: { companion: { intent: 'define', context: bookContext, selection: 'muse' } } },
@@ -603,7 +623,10 @@ describe('the book reader is unchanged', () => {
     expect(anthropic).toHaveLength(1)
     const ask = (requests[name].body as { companion: { intent: string } }).companion.intent === 'ask'
     if (ask) expect(anthropic[0].max_tokens).toBe(COMPANION_MAX_TOKENS.ask)
-    expect(sha(ask ? { ...anthropic[0], max_tokens: ASK_MAX_TOKENS_BEFORE } : anthropic[0])).toBe(BEFORE[name])
+    // The Ask bound rose on purpose (#521); every other byte is pinned to the grounded snapshot, and without the grounding to the old one.
+    const asBefore = ask ? { ...anthropic[0], max_tokens: ASK_MAX_TOKENS_BEFORE } : anthropic[0]
+    expect(sha(asBefore)).toBe(AFTER[name])
+    expect(sha(withoutGrounding(asBefore))).toBe(BEFORE[name])
   })
 })
 

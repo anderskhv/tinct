@@ -5,7 +5,7 @@
  * client never sends them. Pure: no browser or Worker APIs.
  */
 import { CONTEXTUAL_LOOKUP_PROMPT } from '../components/reader/contextualLookup'
-import { LAB_ASK_POLICY } from './labAskPrompt'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_POLICY, LAB_ASK_RECHECK_RULE } from './labAskPrompt'
 
 /** Added to every passage action and to `ask`, for a user's PDF only (never a registered book). */
 export const PDF_CITATION_RULE = 'The reader sees printed page numbers and the document\'s own numbering of equations, figures, tables and sections. You may cite them in braces, exactly as printed: {p. 12}, {pp. 12–13}, {eq. 1.2}, {fig. 1.3}, {table 2}, {sec. 2.4}. Cite only numbers that appear in the document. Put a citation after the sentence it supports, at most one per sentence. One number per tag: write {p. 4} and {p. 5}, never {p. 4, p. 5}. Never cite the bracketed paragraph numbers.'
@@ -266,6 +266,12 @@ export const QUIZ_CHECK_ADDITION_RULE = 'Judge anything the answer adds on its m
 export const QUIZ_CHECK_FRAMING_RULE = 'Accept a correct answer in any defensible framing. When the reader answers from a different defensible view than the one the question names, above all the author\'s own position (given in <author_position> and the document), mark it right and add one sentence naming the difference, such as "That is the many-worlds account the essay defends; here the passage is describing collapse."'
 export const QUIZ_CHECK_NO_REREAD_RULE = 'Never tell the reader to reread when their answer is defensible.'
 export const QUIZ_CHECK_GRADES_RULE = 'Mark "right" when the core idea is right and any addition is defensible or partly true; "nearly" only when the core idea is incomplete or partly wrong; "not_yet" (shown as "Not quite.") when the core idea is wrong.'
+/**
+ * A reply under the marking (Anders, 20 Oct 2026: after "Nearly", "so is it because the two instances cancel?"): the reader
+ * may go a few rounds with the grader on one question (companionRequest.ts QUIZ_CHECK_FOLLOW_UPS) before the next one. The
+ * same rules judge the reply; an addition is still judged on its merits.
+ */
+export const QUIZ_CHECK_REPLY_RULE = 'When the reader replies to your marking (<reader_reply> after <your_marking>), mark their newest reply in the light of the whole exchange on this question: answer what it asks or says directly, judge anything it adds on its merits as above, and give the verdict for their understanding of the key idea now. Raise it when the reply supplies what was missing; never lower it only because the reply asks a question. Do not repeat your earlier feedback.'
 export const QUIZ_CHECK_PROMPT = [
   QUIZ_CHECK_BASIS_RULE,
   QUIZ_CHECK_CREDIT_RULE,
@@ -273,6 +279,7 @@ export const QUIZ_CHECK_PROMPT = [
   QUIZ_CHECK_FRAMING_RULE,
   QUIZ_CHECK_GRADES_RULE,
   QUIZ_CHECK_NO_REREAD_RULE,
+  QUIZ_CHECK_REPLY_RULE,
   'Return only JSON: {"verdict":"right"|"nearly"|"not_yet","feedback":"…"}',
   'The feedback is short, at most three sentences: what the answer got right, then a word on any addition or other framing, then what is missing, if anything. For not_yet, point to the idea to reread without simply stating the answer.',
   'Write the feedback to the reader directly, as "you" and "your answer"; never "the reader" or "the reader\'s answer".',
@@ -299,4 +306,13 @@ const LAB_ASK_PAYLOAD_LINE = 'If they ask you to read a paragraph that is in the
 export const MARGIN_READ_LINE = 'If they ask you to read a paragraph that is in the chapter below, read it from there.'
 const LAB_ASK_CHECKED_WORDS = 'distinguish it from text you have checked'
 export const MARGIN_CHECKED_WORDS = 'keep it distinct from what the text says'
-export const MARGIN_LAB_ASK_POLICY = LAB_ASK_POLICY.replace(LAB_ASK_SUPPLIED_PARAGRAPH, MARGIN_CONTEXT_PARAGRAPH).replace(LAB_ASK_PAYLOAD_LINE, MARGIN_READ_LINE).replace(LAB_ASK_CHECKED_WORDS, MARGIN_CHECKED_WORDS)
+/**
+ * The grounding rules (Anders, 21 Oct 2026) in the margin. A margin answer stands alone (STANDS_ALONE_RULE), so
+ * when the reader questions one it re-reads and answers again, without "I was wrong" about an earlier reply.
+ */
+export const MARGIN_RECHECK_RULE = 'When the reader questions an answer, re-read the text, then answer from what it says, plainly and briefly. Never insist on an answer without checking it.'
+/** With the whole document the margin marks the reader's page, not "The reader is at:". */
+export const MARGIN_GROUND_FIRST_RULE = LAB_ASK_GROUND_FIRST_RULE.replace(' (marked "The reader is at:" below)', '')
+/** The margin's grounding rules, in order (marginContext.ts MARGIN_RULES). */
+export const MARGIN_GROUNDING_RULES: readonly string[] = Object.freeze([MARGIN_GROUND_FIRST_RULE, LAB_ASK_CHECKED_SPECIFICS_RULE, MARGIN_RECHECK_RULE])
+export const MARGIN_LAB_ASK_POLICY = LAB_ASK_POLICY.replace(LAB_ASK_SUPPLIED_PARAGRAPH, MARGIN_CONTEXT_PARAGRAPH).replace(LAB_ASK_PAYLOAD_LINE, MARGIN_READ_LINE).replace(LAB_ASK_CHECKED_WORDS, MARGIN_CHECKED_WORDS).replace(LAB_ASK_RECHECK_RULE, MARGIN_RECHECK_RULE)
