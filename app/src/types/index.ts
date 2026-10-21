@@ -211,6 +211,8 @@ export interface ChatMessage {
   chapterDivider?: number
   /** Streaming assistant message is complete and safe to persist */
   isComplete?: boolean
+  /** An answer that stopped on its length bound (stored with isComplete false): Chat offers Continue. */
+  cutOff?: boolean
   /** Spoken turns from the audiobook voice session */
   source?: 'text' | 'voice'
   /** Lab: a quick-model explanation kept in the chat (and its prompt line); sent to the companion as unverified context. */

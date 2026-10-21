@@ -40,6 +40,7 @@ import {
 import {
   LabChatError,
   labChatErrorType,
+  readAnthropicAnswer,
   readAnthropicResponse,
 } from './labCompanion'
 import { buildLabReadingTrail, openingLineOf, recordTrailVisit, type LabReadingTrailEntry, type LabTrailVisit } from './labReadingTrail'
@@ -834,6 +835,8 @@ export function useLabAsk(options: UseLabAskOptions) {
         messages,
       })
       let rawReply = ''
+      // Still cut off after the Worker's own continuation: shown and saved with Continue, never as finished.
+      let cutOff = false
       let firstFailureType: string | null = null
       for (let attempt = 1; attempt <= 2; attempt++) {
         let accumulated = ''
@@ -857,7 +860,7 @@ export function useLabAsk(options: UseLabAskOptions) {
             fail(message, { type, status: response.status, attempts: attempt })
             return
           }
-          rawReply = await readAnthropicResponse(response, (next) => {
+          const answer = await readAnthropicAnswer(response, (next) => {
             accumulated = next
             const content = next.trim()
             if (!content || !stillHere()) return
@@ -884,6 +887,8 @@ export function useLabAsk(options: UseLabAskOptions) {
               return nextTurns
             })
           }, { onStatus: status => { if (stillHere() && !accumulated.trim()) setTypedStatus(status) } })
+          rawReply = answer.text
+          cutOff = answer.cutOff
           if (attempt === 2 && firstFailureType) void trackEvent('chat_request_recovered', {
             book_id: requestBookId,
             chapter_number: requestChapter,
@@ -921,6 +926,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           timestamp: Date.now(),
           chapterNumber: requestChapter,
           paragraphIndex: requestParagraph,
+          ...(cutOff ? { cutOff: true } : {}),
         }
         setTurns(current => {
           if (!stillHere()) return current
@@ -938,7 +944,8 @@ export function useLabAsk(options: UseLabAskOptions) {
           timestamp: Date.now(),
           bookId: requestBookId,
           chapterNumber: requestChapter,
-          isComplete: true,
+          isComplete: !cutOff,
+          ...(cutOff ? { cutOff: true } : {}),
           source: 'text',
           chapterAction: chapterRequest?.action,
         }, requestChapter, requestParagraph)
@@ -977,6 +984,93 @@ export function useLabAsk(options: UseLabAskOptions) {
       setTypedStatus(null)
     }
   }, [askContextNow, gateAiAction, options.authToken, options.conversationId, options.chapterNumber, options.paragraphIndex, readTrail, recordTurn, sessionToken, turns, conversations, viewerId])
+
+  /**
+   * Continue on an answer that stopped on its length bound: the conversation
+   * up to that answer goes to the Worker with `continue`, and the rest streams
+   * on to the same answer, saved under the same id as one joined answer.
+   */
+  const continueAnswer = useCallback(async (turnId: string) => {
+    const requestBookId = chatBookIdRef.current
+    const at = turns.findIndex(turn => turn.id === turnId)
+    const target = at >= 0 ? turns[at] : null
+    if (!target || target.role !== 'assistant' || !target.cutOff || sendingRef.current) return
+    if (target.bookId && target.bookId !== requestBookId) return
+    const stillHere = () => requestBookId === chatBookIdRef.current && viewerId === viewerRef.current
+    if (!gateAiAction('chat', target.content)) return
+    sendingRef.current = true
+    setTypedLoading(true)
+    setTypedStatus(null)
+    setFailedTyped(null)
+    setNotice(null)
+    const base = target.content
+    const chapterNumber = target.chapterNumber ?? optionsRef.current.chapterNumber ?? 1
+    const show = (content: string, cutOff: boolean) => setTurns(current => {
+      if (!stillHere()) return current
+      const next = current.map(turn => (turn.id === turnId ? { ...turn, content, cutOff: cutOff || undefined } : turn))
+      dumpLabTalkTurns(next)
+      return next
+    })
+    try {
+      const authToken = await resolveLabVoiceToken({ override: options.authToken, sessionToken, readSession: readSupabaseAccessToken })
+      if (!stillHere()) return
+      const thread = turns.slice(0, at + 1).filter(turn => !turn.cancelled).slice(-20)
+      const shownSplit = separateShownExplanations(thread)
+      const messages = shownSplit.turns.map(turn => ({
+        role: turn.role,
+        content: turn.id === turnId ? base
+          : turn.role === 'user' && turn.highlightedText
+            ? `[The reader highlighted this passage:\n${turn.highlightedText}]\n\n${chapterChatHistoryContent(turn)}`
+            : chapterChatHistoryContent(turn),
+      }))
+      const companion: CompanionRequest = {
+        intent: 'ask',
+        context: askContextNow([]),
+        ...(shownSplit.shown.length ? { shownExplanations: shownSplit.shown } : {}),
+      }
+      const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
+      if (authToken) headers.Authorization = `Bearer ${authToken}`
+      const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ stream: true, continue: true, companion, messages }),
+      })
+      if (!stillHere()) return
+      if (!response.ok) {
+        setNotice(response.status === 402 ? LAB_COPY.balanceEmpty : LAB_COPY.askUnavailable)
+        return
+      }
+      // The rest as written: it may open with the space the answer stopped before.
+      let more = ''
+      const answer = await readAnthropicAnswer(response, next => {
+        more = next
+        if (next.trim()) show(`${base}${next}`, true)
+      })
+      if (!stillHere()) return
+      const joined = labTypedSkip(labTypedPace(labTypedSpeed(labTypedResume(`${base}${more || answer.text}`).text).text).text).text.trim()
+      show(joined, answer.cutOff)
+      recordTurn({
+        id: turnId,
+        role: 'assistant',
+        content: joined,
+        timestamp: target.timestamp ?? Date.now(),
+        bookId: requestBookId,
+        chapterNumber,
+        isComplete: !answer.cutOff,
+        ...(answer.cutOff ? { cutOff: true } : {}),
+        source: 'text',
+        chapterAction: target.chapterAction,
+      }, chapterNumber, target.paragraphIndex)
+    } catch (error) {
+      // Back to the saved answer, still with Continue.
+      show(base, true)
+      if (stillHere()) setNotice(error instanceof LabChatError ? error.message : LAB_COPY.askUnavailable)
+    } finally {
+      sendingRef.current = false
+      setTypedLoading(false)
+      setTypedStatus(null)
+    }
+  }, [askContextNow, gateAiAction, options.authToken, recordTurn, sessionToken, turns, viewerId])
 
   const recordedExplanationsRef = useRef(new Set<string>())
   const keepExplanation = useCallback((passage: string, answer: string, paragraphIndex: number, origin?: { bookId: string; chapterNumber: number }) => {
@@ -1155,6 +1249,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     warmTrail,
     explainSelection,
     keepExplanation,
+    /** Continue on an answer cut off by its length bound (LabAskTurn.cutOff). */
+    continueAnswer,
     retryTyped: failedTyped && failedTyped.userTurn.bookId === chatBookId ? () => {
       void sendTyped(failedTyped.text, failedTyped.chapterRequest, failedTyped, failedTyped.attachment)
     } : undefined,

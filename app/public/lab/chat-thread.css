@@ -101,6 +101,8 @@
 }
 .tc .tc-quote::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--tc-bar); }
 .tc .tc-quote:disabled { cursor: default; }
+/* Continue under a cut-off answer: the "earlier messages" control, at the answer's start. */
+.tc .tc-continue { align-self: flex-start; padding-left: 0; }
 .tc .tc-note { max-width: 82%; margin-top: 4px; color: var(--tc-faint); font: italic 13px/1.4 var(--tc-gara); text-align: right; }
 .tc .tc-imgs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; margin: 0 0 6px; }
 .tc .tc-imgs img { max-width: 120px; max-height: 90px; border-radius: 8px; }

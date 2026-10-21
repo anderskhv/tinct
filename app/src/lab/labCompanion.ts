@@ -401,14 +401,27 @@ export async function readAnthropicStream(
   return { text, stopReason: data.stop_reason ?? null, sawStop: true }
 }
 
+/**
+ * A finished answer and whether it is whole: `cutOff` when it stopped on its
+ * length bound (stop reason `max_tokens`) even after the Worker's own
+ * continuation. A cut-off answer is shown with Continue, never as finished.
+ */
+export async function readAnthropicAnswer(
+  response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
+  onDelta?: (text: string) => void,
+  options: AnthropicStreamOptions = {},
+): Promise<{ text: string; cutOff: boolean }> {
+  const result = await readAnthropicStream(response, onDelta, options)
+  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
+  return { text: result.text, cutOff: result.stopReason === 'max_tokens' }
+}
+
 export async function readAnthropicResponse(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
   options: AnthropicStreamOptions = {},
 ): Promise<string> {
-  const result = await readAnthropicStream(response, onDelta, options)
-  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
-  return result.text
+  return (await readAnthropicAnswer(response, onDelta, options)).text
 }
 
 async function fetchLabCompanionHop(input: {

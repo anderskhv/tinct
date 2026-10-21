@@ -57,10 +57,10 @@ export type RecapEntry = { kind: 'summary'; summary: string } | { kind: 'empty' 
  * Only `summary` may be shown or cached.
  */
 export function readRecapEntry(message: EntryMessage): RecapEntry {
-  if (message.stop_reason === 'refusal' || !Array.isArray(message.content)) return { kind: 'none' }
+  // A cut-off answer, tool call or free text, is never shown as a whole entry.
+  if (message.stop_reason === 'refusal' || message.stop_reason === 'max_tokens' || !Array.isArray(message.content)) return { kind: 'none' }
   const call = message.content.find(block => block?.type === 'tool_use' && block.name === RECAP_ENTRY_TOOL_NAME)
   if (call) {
-    if (message.stop_reason === 'max_tokens') return { kind: 'none' }
     const input = (call.input && typeof call.input === 'object' ? call.input : {}) as { nothing_to_summarise?: unknown; summary?: unknown }
     if (input.nothing_to_summarise === true) return { kind: 'empty' }
     const summary = typeof input.summary === 'string' ? input.summary.trim() : ''

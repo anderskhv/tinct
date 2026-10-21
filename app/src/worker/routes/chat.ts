@@ -129,6 +129,11 @@ type ParsedChatBody = {
   readingTrail?: unknown
   /** Structured reader context; the Worker builds the prompt from it (see companionRequest.ts). */
   companion?: unknown
+  /**
+   * The reader's Continue on a cut-off Ask answer: the last message is that
+   * answer, and the Worker adds the request for the rest (CUT_OFF_CONTINUE_PROMPT).
+   */
+  continue?: unknown
 }
 
 /** Content is text, except the latest user turn of a signed-in request, which may carry pictures. */
@@ -292,7 +297,10 @@ function validateSystemParam(value: unknown): { system: AnthropicSystemParam; er
   return { system: blocks }
 }
 
-function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter, margin?: CacheLogLabel, chargeable = true): Response {
+/** A streamed book-reader answer that may continue once when cut off (streamCutOffContinuation). */
+type CutOffContinuation = { apiKey: string; payload: (messages: unknown[]) => Record<string, unknown>; messages: readonly unknown[] }
+
+function streamAnthropicResponse(response: Response, request: Request, env: ChatEnv, ctx: ExecutionContext, userId: string | null, timing: ChatRequestTiming, meter?: AiMeter, margin?: CacheLogLabel, chargeable = true, continuation?: CutOffContinuation): Response {
   let charged = false
   const charge = () => {
     // A never-charged feature (define_sense, quiz_check, a speculative Explain) never counts a message.
@@ -305,15 +313,22 @@ function streamAnthropicResponse(response: Response, request: Request, env: Chat
   return chatEventStream(request, ctx, async sink => {
     // A margin request is charged once it has finished without a refusal; a
     // book request, as before, at its first words.
-    const outcome = await consumeStreamedRound(response, margin ? refusalHoldingSink(sink) : sink, {
+    const onUsage = (usage: AnthropicUsage, stopReason: string | null) => meter?.anthropic(usage, undefined, margin && marginStopError(stopReason) ? { neverCharged: true } : undefined)
+    const onText = () => {
+      markFirstChatText(timing)
+      if (!margin) charge()
+    }
+    // A book-reader answer cut off by its bound continues once, into the same answer.
+    const roundSink = margin ? refusalHoldingSink(sink) : continuation ? cutOffHoldingSink(sink) : sink
+    let outcome = await consumeStreamedRound(response, roundSink, {
       firstRound: true,
       cacheLog: margin,
-      onUsage: (usage, stopReason) => meter?.anthropic(usage, undefined, margin && marginStopError(stopReason) ? { neverCharged: true } : undefined),
-      onText: () => {
-        markFirstChatText(timing)
-        if (!margin) charge()
-      },
+      onUsage,
+      onText,
     })
+    if (continuation && !margin && outcome.ok && outcome.stopReason === 'max_tokens') {
+      outcome = await streamCutOffContinuation({ ...continuation, content: outcome.content, sink: roundSink, out: sink, onText, onUsage, timing })
+    }
     const stopError = margin && outcome.ok ? marginStopError(outcome.stopReason) : null
     if (stopError) {
       logChatFailure('stream', stopError)
@@ -416,6 +431,104 @@ function refusalHoldingSink(sink: ClientSink): ClientSink {
       if (data.type === 'message_delta' && marginStopError((data.delta as { stop_reason?: string | null } | undefined)?.stop_reason)) return
       sink.write(event, data)
     },
+  }
+}
+
+// ===== A cut-off answer continues once =====
+
+/**
+ * The user turn after a cut-off answer (stop reason `max_tokens`). These
+ * models take no assistant prefill, so the documented way on is the partial
+ * answer as an assistant turn, then a user turn asking for the rest.
+ */
+export const CUT_OFF_CONTINUE_PROMPT = 'Your last reply was cut off by the length limit. Continue it from exactly where it stopped, mid-word or mid-sentence if that is where it stopped. Do not repeat anything already written, do not start over and do not mention this note.'
+
+/** The conversation for a continuation: the partial answer as the assistant's turn, then the request for the rest. */
+export function cutOffContinuationMessages(messages: readonly unknown[], partial: string): unknown[] {
+  const text = partial.trimEnd()
+  // Nothing written (thinking used the whole bound): ask again.
+  if (!text.trim()) return [...messages]
+  return [...messages, { role: 'assistant', content: text }, { role: 'user', content: CUT_OFF_CONTINUE_PROMPT }]
+}
+
+/** The answer's text as written, untrimmed: the continuation joins on to its last character. */
+function rawTextOf(content: ContentBlock[]): string {
+  return content.filter((block): block is TextBlock => block.type === 'text').map(block => block.text).join('')
+}
+
+/**
+ * The reader's stream for a request that may continue a cut-off answer: the
+ * cut-off round's closing events (`message_delta` with stop reason
+ * `max_tokens`, then `message_stop`) are held back, so the reader's client
+ * keeps reading and the continuation joins the same answer.
+ */
+function cutOffHoldingSink(sink: ClientSink): ClientSink {
+  let holding = false
+  return {
+    write(event, data) {
+      if (data.type === 'message_delta') {
+        holding = (data.delta as { stop_reason?: string | null } | undefined)?.stop_reason === 'max_tokens'
+        if (holding) return
+      }
+      if (data.type === 'message_stop' && holding) return
+      sink.write(event, data)
+    },
+    ...(sink.open ? { open: sink.open } : {}),
+  }
+}
+
+/** Tells the reader the answer is still cut off: the client then offers Continue. */
+function writeCutOffStop(sink: ClientSink): void {
+  sink.write('message_delta', { type: 'message_delta', delta: { stop_reason: 'max_tokens', stop_sequence: null }, usage: {} })
+  sink.write('message_stop', { type: 'message_stop' })
+}
+
+/**
+ * One continuation of a streamed answer that stopped on `max_tokens`, with the
+ * same model, bound, effort and meter as the answer. Its text streams into
+ * the same answer. Still cut off, or the continuation failed: the reader gets
+ * the `max_tokens` stop and the answer so far.
+ */
+async function streamCutOffContinuation(input: {
+  apiKey: string
+  /** The request body for a conversation: the cut-off round's own, messages replaced. */
+  payload: (messages: unknown[]) => Record<string, unknown>
+  /** The conversation the cut-off round answered. */
+  messages: readonly unknown[]
+  /** The cut-off round's content. */
+  content: ContentBlock[]
+  /** The reader's stream behind cutOffHoldingSink. */
+  sink: ClientSink
+  /** The reader's stream itself, for the final cut-off stop. */
+  out: ClientSink
+  onText: () => void
+  onUsage?: (usage: AnthropicUsage, stopReason: string | null) => void
+  timing: ChatRequestTiming
+}): Promise<RoundOutcome> {
+  const partial = rawTextOf(input.content)
+  const cutOff: RoundOutcome = { ok: true, content: input.content, stopReason: 'max_tokens', message: null }
+  console.log(JSON.stringify({ event: 'chat_cut_off_continue', request_id: input.timing.requestId, partial_chars: partial.length }))
+  try {
+    const providerStartedAt = Date.now()
+    const response = await fetchAnthropic(input.apiKey, input.payload(cutOffContinuationMessages(input.messages, partial)))
+    input.timing.providerRounds += 1
+    input.timing.providerHeadersMs += Date.now() - providerStartedAt
+    if (!response.ok) {
+      await response.body?.cancel().catch(() => {})
+      logChatFailure('stream', 'continuation_failed', response)
+      writeCutOffStop(input.out)
+      return cutOff
+    }
+    const outcome = await consumeStreamedRound(response, input.sink, { firstRound: false, onText: input.onText, onUsage: input.onUsage })
+    const joined: ContentBlock[] = [{ type: 'text', text: `${partial}${outcome.ok ? rawTextOf(outcome.content) : ''}` }]
+    if (outcome.ok && outcome.stopReason !== 'max_tokens') return { ...outcome, content: joined }
+    if (outcome.ok) console.log(JSON.stringify({ event: 'chat_cut_off_again', request_id: input.timing.requestId }))
+    writeCutOffStop(input.out)
+    return { ...cutOff, content: joined }
+  } catch (error) {
+    logChatFailure('stream', error instanceof ChatUpstreamError ? error.errorType : 'continuation_failed')
+    writeCutOffStop(input.out)
+    return cutOff
   }
 }
 
@@ -742,6 +855,8 @@ interface ToolLoopInput {
   prefetchSource?: () => Promise<ToolOutcome>
   prefetchedSourceQuery?: string
   meter?: AiMeter
+  /** A streamed book-reader answer cut off by its bound continues once, into the same answer (never a margin request). */
+  continueCutOff?: boolean
   /**
    * Fact-check's doc-first opening (streamed only, approved 15 Oct 2026): a first round with no
    * tools writes the opening from the document while the prefetched search runs; the rounds after
@@ -889,16 +1004,18 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
   // a new paragraph instead of running on from the last word.
   let textShown = false
   let breakBeforeNextText = false
-  const sink: ClientSink | null = outerSink ? {
+  const continueCutOff = Boolean(input.continueCutOff && input.stream && !input.margin && outerSink)
+  const readerSink = outerSink && continueCutOff ? cutOffHoldingSink(outerSink) : outerSink
+  const sink: ClientSink | null = readerSink ? {
     write(event, data) {
       if (textDelta(data)) {
         if (breakBeforeNextText) {
           breakBeforeNextText = false
-          outerSink.write('content_block_delta', { type: 'content_block_delta', index: data.index, delta: { type: 'text_delta', text: '\n\n' } })
+          readerSink.write('content_block_delta', { type: 'content_block_delta', index: data.index, delta: { type: 'text_delta', text: '\n\n' } })
         }
         textShown = true
       }
-      outerSink.write(event, data)
+      readerSink.write(event, data)
     },
   } : null
   const writeStatus = (text: string) => sink?.write(TINCT_STATUS_EVENT, { type: TINCT_STATUS_EVENT, text })
@@ -1083,6 +1200,30 @@ async function runToolLoop(input: ToolLoopInput, outerSink: ClientSink | null, f
       if (!forceText && sink) {
         if (textOf(outcome.content)) noteText()
         for (const { event, data } of held.splice(0)) sink.write(event, data)
+      }
+      if (continueCutOff && sink && outerSink && outcome.stopReason === 'max_tokens') {
+        // The continuation only writes: no tool call, the same tools (one cached prefix).
+        return await streamCutOffContinuation({
+          apiKey: input.apiKey,
+          payload: continuationMessages => roundPayload({
+            model: input.model,
+            system,
+            messages: continuationMessages,
+            maxTokens: input.maxTokens,
+            stream: true,
+            forceText: true,
+            effort: roundEffort,
+            tools: input.tools,
+            thinking: input.thinking,
+          }),
+          messages,
+          content: outcome.content,
+          sink,
+          out: outerSink,
+          onText: noteText,
+          onUsage: usage => input.meter?.anthropic(usage),
+          timing: input.timing,
+        })
       }
       return outcome
     }
@@ -1391,6 +1532,18 @@ export async function handleChat(
       if (parsedBody.bytes > (imageCount === 0 ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES) + (companion?.document ? MARGIN_DOCUMENT_BODY_BYTES : 0)) {
         return jsonResponse({ error: 'Request too large' }, 413, request)
       }
+      // The reader's Continue: only a book-reader Ask, whose last turn is the cut-off answer.
+      if (body.continue === true) {
+        const last = safeMessages[safeMessages.length - 1]
+        if (!companion || companion.intent !== 'ask' || marginRoute || companion.pdf || !stream
+          || last?.role !== 'assistant' || typeof last.content !== 'string' || !last.content.trim()) {
+          return jsonResponse({ error: 'Invalid continuation' }, 400, request)
+        }
+        safeMessages.push({ role: 'user', content: CUT_OFF_CONTINUE_PROMPT })
+      }
+      // A streamed book-reader answer (never a margin card, which shows its own retry) cut off by its
+      // bound continues once, with the same model, bound, effort and meter (Bible chat, 21 Oct 2026).
+      const continueCutOff = stream && Boolean(companion) && !marginRoute
       timing.images = imageCount
       timing.imageTokens = imageTokens
 
@@ -1457,6 +1610,7 @@ export async function handleChat(
           request, env, ctx, apiKey, book: null, system, safeMessages, maxTokens, stream, effort, charge,
           timing,
           meter,
+          continueCutOff,
           ...(marginRoute ? { model, margin: marginLabel, ...(marginRoute.thinking ? { thinking: marginRoute.thinking } : {}) } : {}),
           trailChapters: [],
           researchKey: env.OPENAI_API_KEY,
@@ -1493,6 +1647,7 @@ export async function handleChat(
           request, env, ctx, apiKey, book, system: groundedSystem, safeMessages, maxTokens, stream, effort, charge,
           timing,
           meter,
+          continueCutOff,
           trailChapters,
           researchKey: userId ? env.OPENAI_API_KEY : undefined,
           researchGate: userId && env.OPENAI_API_KEY
@@ -1508,16 +1663,17 @@ export async function handleChat(
       // (Before you start, Quiz me and its marking) carry the same tool, never callable (tool_choice none): one cached
       // prefix, as before.
       const searchPrefix = Boolean(marginRoute && companion?.pdf && marginRoute.model === MARGIN_SONNET_MODEL && userId && env.OPENAI_API_KEY)
-      const response = await fetchAnthropic(apiKey, {
+      const plainPayload = (messages: unknown[]): Record<string, unknown> => ({
         model,
         max_tokens: maxTokens,
         ...thinkingConfig(marginRoute?.thinking),
         ...(searchPrefix ? { tools: [SOURCE_SEARCH_TOOL], tool_choice: { type: 'none' } } : {}),
         system,
-        messages: safeMessages,
+        messages,
         ...effortConfig(effort),
         ...(stream ? { stream: true } : {}),
       })
+      const response = await fetchAnthropic(apiKey, plainPayload(safeMessages))
       timing.providerRounds += 1
       timing.providerHeadersMs += Date.now() - providerStartedAt
 
@@ -1528,7 +1684,8 @@ export async function handleChat(
           if (marginLabel) logMarginFailure(request, timing, marginLabel, { status: response.status, errorType: bodyErrorType(data), phase: 'before_answer', stream: true })
           return jsonResponse(data, response.status, request)
         }
-        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel, chargeable)
+        return streamAnthropicResponse(response, request, env, ctx, userId, timing, meter, marginLabel, chargeable,
+          continueCutOff ? { apiKey, payload: plainPayload, messages: safeMessages } : undefined)
       }
 
       const data = await response.json() as { usage?: AnthropicUsage; stop_reason?: string | null }
@@ -1605,6 +1762,8 @@ async function handleBookGroundedChat(input: {
   thinking?: MarginThinking
   /** Fact-check's doc-first opening (ToolLoopInput.opening). */
   opening?: FactcheckOpening
+  /** A cut-off answer continues once (ToolLoopInput.continueCutOff). */
+  continueCutOff?: boolean
 }): Promise<Response> {
   const { request, env, ctx } = input
   const retrieval = input.book
@@ -1637,6 +1796,7 @@ async function handleBookGroundedChat(input: {
     timing: input.timing,
     meter: input.meter,
     ...(input.opening ? { opening: input.opening } : {}),
+    ...(input.continueCutOff ? { continueCutOff: true } : {}),
   }
   if (input.researchKey) {
     let used = false

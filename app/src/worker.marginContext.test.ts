@@ -17,6 +17,7 @@ import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRule
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
 import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
+import { COMPANION_MAX_TOKENS } from './companion/companionRequest'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 
@@ -612,13 +613,20 @@ describe('the book reader is unchanged', () => {
     askStream: { body: { stream: true, companion: { intent: 'ask', context: { ...bookContext, bookId: undefined, editionKey: undefined } }, messages: [{ role: 'user', content: 'Who is speaking?' }] } },
     guestAsk: { guest: true, body: { companion: { intent: 'ask', context: bookContext }, messages: [{ role: 'user', content: 'Who is speaking?' }] } },
   }
+  // The one deliberate change since: Ask's output bound rose from 1024 to COMPANION_MAX_TOKENS.ask, to leave
+  // its thinking room (Bible chat cut off mid-word, 21 Oct 2026). Every other byte is held to the hash above.
+  const ASK_MAX_TOKENS_BEFORE = 1024
   it.each(Object.keys(requests))('%s: same model, same body, same prompt', async name => {
     vi.useFakeTimers({ now: new Date('2026-10-15T09:30:00Z'), toFake: ['Date'] })
     const { anthropic } = stubFetch()
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
-    expect(sha(anthropic[0])).toBe(AFTER[name])
-    expect(sha(withoutGrounding(anthropic[0]))).toBe(BEFORE[name])
+    const ask = (requests[name].body as { companion: { intent: string } }).companion.intent === 'ask'
+    if (ask) expect(anthropic[0].max_tokens).toBe(COMPANION_MAX_TOKENS.ask)
+    // The Ask bound rose on purpose (#521); every other byte is pinned to the grounded snapshot, and without the grounding to the old one.
+    const asBefore = ask ? { ...anthropic[0], max_tokens: ASK_MAX_TOKENS_BEFORE } : anthropic[0]
+    expect(sha(asBefore)).toBe(AFTER[name])
+    expect(sha(withoutGrounding(asBefore))).toBe(BEFORE[name])
   })
 })
 
