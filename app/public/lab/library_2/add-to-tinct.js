@@ -778,15 +778,18 @@ export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&
  * `progress`: under Currently reading, how far through it the reader is (read on this device
  * or another of the account), under the cover where Tinct's books show theirs.
  * `onDelete`: the cover's ••• menu with Delete (shelfMenu), called with the book and the ••• button.
+ * `actions`: the menu's other items, above Delete (`{label,onChoose(book,more)}`: Currently
+ * reading's Read later and Remove from Currently reading).
  */
-export function ownBookCard(book,el,{onRemove=null,onDelete=null,cover=null,progress=false}={}){
+export function ownBookCard(book,el,{onRemove=null,onDelete=null,actions=[],cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
  let face=open;
  if(onDelete){
   face=el('div','card-wrap');
-  face.append(open,shelfMenu(book.title,{own:true,onChoose:from=>onDelete(book,from)}));
+  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
+  face.append(open,shelfMenu(book.title,{own:true,items}));
  }else if(onRemove){
   face=el('div','card-wrap');
   const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=book.title;x.setAttribute('aria-label','Remove from My shelf: '+book.title);
@@ -834,29 +837,56 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  return added;
 }
 
-// ---- My shelf's ••• menu: each book's one action (Anders, 2026-10-20) ----
+// ---- My shelf's ••• menu (Anders, 2026-10-20; Read later and its place, 2026-10-21) ----
 /**
- * What the one action on a shelf book says: an own book (PDF, EPUB) is deleted from
- * Tinct; a Tinct book leaves the reader's books, its place and notes kept.
+ * What the last action on a shelf book says: an own book (PDF, EPUB) is deleted from
+ * Tinct; a Tinct book leaves the reader's shelf, its place and notes kept.
  */
 export function shelfAction(own){
  return own
   ?{item:'Delete',title:t=>`Delete ${t}?`,body:'Deletes the file, its notes and its place from Tinct on all your devices.',confirm:'Delete'}
-  :{item:'Remove from my books',title:t=>`Remove ${t}?`,body:'Removes it from your books. Your notes stay if you add it again.',confirm:'Remove'};
+  :{item:'Remove from shelf',title:t=>`Remove ${t}?`,body:'Removes it from your shelf. Your place and notes stay if you add it again.',confirm:'Remove'};
+}
+/** Currently reading's other actions: off the reading row, the place, highlights and notes kept. */
+export const READ_LATER='Read later',OFF_READING='Remove from Currently reading';
+/**
+ * Where a ••• menu opens (all in viewport pixels): just below the button (`gap`), its right edge
+ * on the button's; above the button when below would leave the viewport (and above fits better),
+ * and starting at the button's left edge when right-aligned would leave it on the left. Kept
+ * `margin` inside the viewport either way.
+ */
+export function shelfMenuPlace(button,menu,view,{gap=4,margin=8}={}){
+ let left=button.right-menu.width,top=button.bottom+gap,above=false,flipped=false;
+ if(left<margin){left=button.left;flipped=true;}
+ if(top+menu.height>view.height-margin&&button.top-gap-menu.height>=margin){top=button.top-gap-menu.height;above=true;}
+ left=Math.max(margin,Math.min(left,view.width-margin-menu.width));
+ top=Math.max(margin,Math.min(top,view.height-margin-menu.height));
+ return {left,top,above,flipped};
+}
+/** Place an open menu (absolute, inside the card) at shelfMenuPlace, from the button's and its container's boxes. */
+function placeShelfMenu(menu,more){
+ const box=menu.offsetParent?.getBoundingClientRect?.()||{left:0,top:0};
+ const r=more.getBoundingClientRect(),m=menu.getBoundingClientRect();
+ const view={width:document.documentElement.clientWidth||innerWidth,height:innerHeight};
+ const at=shelfMenuPlace(r,{width:m.width,height:m.height},view);
+ menu.style.left=(at.left-box.left)+'px';menu.style.top=(at.top-box.top)+'px';
+ menu.dataset.place=(at.above?'above':'below')+(at.flipped?' start':' end');
 }
 let openMenu=null;
 function closeShelfMenu({focus=false}={}){
- if(!openMenu)return;const {menu,more,away}=openMenu;openMenu=null;
+ if(!openMenu)return;const {menu,more,away,onResize}=openMenu;openMenu=null;
  menu.remove();more.setAttribute('aria-expanded','false');more.classList.remove('is-open');
- removeEventListener('pointerdown',away,true);removeEventListener('keydown',away,true);
+ removeEventListener('pointerdown',away,true);removeEventListener('keydown',away,true);removeEventListener('resize',onResize);
  if(focus)more.focus({preventScroll:true});
 }
 /**
- * The quiet ••• on a shelf cover (on hover with a mouse, always shown on touch): a menu
- * with the book's one action. `onChoose(more)` runs once the menu has closed.
+ * The quiet ••• on a shelf cover (on hover with a mouse, always shown on touch): a small menu
+ * anchored to it (shelfMenuPlace). `items`: `{label,onChoose(more),danger?}` in order, the
+ * destructive one last; without them, the book's one action (shelfAction) runs `onChoose(more)`.
+ * Each runs once the menu has closed.
  */
-export function shelfMenu(title,{own=false,onChoose}){
- const action=shelfAction(own);
+export function shelfMenu(title,{own=false,onChoose,items=null}){
+ const list=items||[{label:shelfAction(own).item,danger:own,onChoose}];
  const more=button('shelf-more');more.dataset.shelfMore=own?'own':'tinct';
  more.setAttribute('aria-label',`More for ${title}`);more.setAttribute('aria-haspopup','menu');more.setAttribute('aria-expanded','false');
  more.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>';
@@ -865,14 +895,26 @@ export function shelfMenu(title,{own=false,onChoose}){
   if(openMenu?.more===more){closeShelfMenu();return;}
   closeShelfMenu();
   const menu=make('div','shelf-menu');menu.setAttribute('role','menu');menu.dataset.testid='shelf-menu';
-  const item=button('shelf-menu-item',action.item);item.setAttribute('role','menuitem');if(own)item.classList.add('is-delete');
-  item.onclick=e=>{e.preventDefault();e.stopPropagation();closeShelfMenu();onChoose(more);};
-  menu.append(item);menu.addEventListener('click',e=>e.stopPropagation());
-  const away=e=>{if(e.type==='keydown'){if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeShelfMenu({focus:true});}return;}if(!menu.contains(e.target)&&e.target!==more&&!more.contains(e.target))closeShelfMenu();};
+  const buttons=list.map(entry=>{
+   const item=button('shelf-menu-item',entry.label);item.setAttribute('role','menuitem');if(entry.danger)item.classList.add('is-delete');
+   item.onclick=e=>{e.preventDefault();e.stopPropagation();closeShelfMenu();entry.onChoose(more);};
+   return item;
+  });
+  menu.append(...buttons);menu.addEventListener('click',e=>e.stopPropagation());
+  const away=e=>{
+   if(e.type==='keydown'){
+    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeShelfMenu({focus:true});}
+    else if((e.key==='ArrowDown'||e.key==='ArrowUp')&&menu.contains(document.activeElement)){e.preventDefault();const i=buttons.indexOf(document.activeElement);buttons[(i+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length].focus({preventScroll:true});}
+    return;
+   }
+   if(!menu.contains(e.target)&&e.target!==more&&!more.contains(e.target))closeShelfMenu();
+  };
+  const onResize=()=>closeShelfMenu();
   more.after(menu);more.setAttribute('aria-expanded','true');more.classList.add('is-open');
-  openMenu={menu,more,away};
-  addEventListener('pointerdown',away,true);addEventListener('keydown',away,true);
-  item.focus({preventScroll:true});
+  placeShelfMenu(menu,more);
+  openMenu={menu,more,away,onResize};
+  addEventListener('pointerdown',away,true);addEventListener('keydown',away,true);addEventListener('resize',onResize);
+  buttons[0].focus({preventScroll:true});
  };
  return more;
 }
