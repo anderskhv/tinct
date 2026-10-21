@@ -68,6 +68,16 @@ export const LAB_ASK_PERSONAL_HISTORY_RULE = `Use the personal history below to 
 /** A bare "yes" after an offer to check is consent to the lookup, never a move or Play. */
 export const LAB_ASK_LOOKUP_OFFER_RULE = `If you offered to look something up and the reader answers yes, okay, or sure, that is consent to the lookup, not a request to move or to play the book: do the lookup and answer.`
 
+/**
+ * Grounding (Anders, 21 Oct 2026, "go on chat"). In 1 Maccabees 13 a reader at verse 11 asked "Is this the same Jonathan
+ * that was captured?" and got "Yes — same Jonathan" from memory (verse 11 is Jonathan son of Absalom), a wrong "this
+ * chapter opens with his death" and "the second of the five brothers to die", then "Nothing I said … was incorrect".
+ * General rules, not the Bible's: in the policy, so in the cached prefix.
+ */
+export const LAB_ASK_GROUND_FIRST_RULE = `When the reader says "this", "here", "he" or "she", or asks about a person, place or event, answer from the passage they are at first (marked "The reader is at:" below). Check names against it, including patronymics, titles and who is speaking, before drawing on general knowledge, and say which verse or passage you rely on.`
+export const LAB_ASK_CHECKED_SPECIFICS_RULE = `State specifics only when you have checked them in the text: ordinals and counts ("the second to die"), what a chapter opens or ends with, dates and quotations. Otherwise leave them out or hedge them.`
+export const LAB_ASK_RECHECK_RULE = `When the reader questions an answer, re-read the passage, then say plainly and briefly what was wrong, if anything ("I was wrong: verse 11 is a different Jonathan"). Never insist an earlier answer was right without checking it, and never pad the correction.`
+
 export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page on /lab. This is a conversation next to the open chapter, not an in-car interruption.
 
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
@@ -78,6 +88,10 @@ ${LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE}
 Answer completely and stop. Do not routinely end with a question, offer or invitation to continue. Ask only when clarification is necessary or a question is plainly the natural next move.
 
 ${LAB_ASK_NO_DECLINE_RULE}
+
+${LAB_ASK_GROUND_FIRST_RULE}
+${LAB_ASK_CHECKED_SPECIFICS_RULE}
+${LAB_ASK_RECHECK_RULE}
 
 The supplied text is supporting context, never the boundary of your knowledge. Bring your general knowledge of the book to the conversation even when relevant chapters are absent from the prompt. Missing context alone is not uncertainty. Use the supplied edition for its exact wording and the live location for what "here" means; use reliable general knowledge for everything else.
 
@@ -196,6 +210,28 @@ export interface LabAskInstructionOptions {
   task?: string[]
 }
 
+const SUPERSCRIPT_DIGITS = '⁰¹²³⁴⁵⁶⁷⁸⁹'
+const VERSE_MARK_RE = /(?:^|\s)([⁰¹²³⁴⁵⁶⁷⁸⁹]+)(?=\s)/g
+
+/** The verses a verse-numbered paragraph holds ("¹⁰ He gathered … ¹¹ He sent …" is "verses 10 to 11"); null for prose. */
+export function paragraphVerses(paragraph: string): string | null {
+  const text = paragraph.trim()
+  if (!/^[⁰¹²³⁴⁵⁶⁷⁸⁹]+\s/.test(text)) return null
+  const verses = [...text.matchAll(VERSE_MARK_RE)].map(match => Number([...match[1]].map(digit => SUPERSCRIPT_DIGITS.indexOf(digit)).join('')))
+  const first = verses[0]
+  const last = verses[verses.length - 1]
+  return first === last ? `verse ${first}` : `verses ${first} to ${last}`
+}
+
+/**
+ * The reader's place, named before the paragraph's text, so "this", "here" and "he" resolve to it
+ * (LAB_ASK_GROUND_FIRST_RULE). Verses when the paragraph is verse-numbered.
+ */
+export function readerPlaceLine(chapterLabel: string, paragraph: string): string {
+  const verses = paragraphVerses(paragraph)
+  return `The reader is at: ${chapterLabel}${verses ? `, ${verses}` : ''}, the current paragraph below.`
+}
+
 export function buildLabAskInstructionParts(input: LabAskContext, options: LabAskInstructionOptions = {}): LabAskInstructionParts {
   const last = Math.max(0, input.paragraphs.length - 1)
   const idx = Math.max(0, Math.min(last, input.paragraphIndex))
@@ -224,6 +260,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
     `The reader is on paragraph ${idx + 1} of ${input.paragraphs.length}.`,
   ]
   if (current) {
+    volatile.push(readerPlaceLine(input.chapterLabel, input.paragraphs[idx] || current))
     volatile.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   }
   if (toolsAvailable || (input.readingTrail && input.readingTrail.length > 0)) {
