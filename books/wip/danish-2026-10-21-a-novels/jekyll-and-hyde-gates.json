@@ -1,0 +1,123 @@
+{
+ "book": "jekyll-and-hyde",
+ "source": "app/public/data/editions/jekyll-and-hyde-modern-en.json",
+ "source_blob": "6f4786b170aaf7aa94de70aa92d13bfe9b21b600",
+ "source_main_commit": "e8b2703325370882e3b8f22915b74839f295fb23",
+ "alignment": {
+  "pass": true,
+  "chapters": 10,
+  "paragraphs": 339
+ },
+ "english_left": {
+  "pass": true,
+  "english_like": [],
+  "identical_to_en": [],
+  "empty": []
+ },
+ "length_ratio": {
+  "pass": true,
+  "measure": "characters da/en per chapter",
+  "book_char_ratio": 1.02,
+  "outliers": [],
+  "chapters": [
+   {
+    "chapter": 1,
+    "title_da": "Historien om døren",
+    "char_ratio": 1.021,
+    "word_ratio": 1.015,
+    "en_words": 2346,
+    "da_words": 2381
+   },
+   {
+    "chapter": 2,
+    "title_da": "Jagten på mr. Hyde",
+    "char_ratio": 1.034,
+    "word_ratio": 1.009,
+    "en_words": 2885,
+    "da_words": 2911
+   },
+   {
+    "chapter": 3,
+    "title_da": "Dr. Jekyll var ganske rolig",
+    "char_ratio": 1.078,
+    "word_ratio": 1.094,
+    "en_words": 776,
+    "da_words": 849
+   },
+   {
+    "chapter": 4,
+    "title_da": "Mordsagen Carew",
+    "char_ratio": 0.999,
+    "word_ratio": 0.983,
+    "en_words": 1615,
+    "da_words": 1588
+   },
+   {
+    "chapter": 5,
+    "title_da": "Hændelsen med brevet",
+    "char_ratio": 1.036,
+    "word_ratio": 0.998,
+    "en_words": 1613,
+    "da_words": 1610
+   },
+   {
+    "chapter": 6,
+    "title_da": "Den mærkelige hændelse med doktor Lanyon",
+    "char_ratio": 1.004,
+    "word_ratio": 0.99,
+    "en_words": 1478,
+    "da_words": 1463
+   },
+   {
+    "chapter": 7,
+    "title_da": "Hændelsen ved vinduet",
+    "char_ratio": 0.991,
+    "word_ratio": 1.006,
+    "en_words": 543,
+    "da_words": 546
+   },
+   {
+    "chapter": 8,
+    "title_da": "Den sidste nat",
+    "char_ratio": 1.017,
+    "word_ratio": 1.014,
+    "en_words": 4278,
+    "da_words": 4339
+   },
+   {
+    "chapter": 9,
+    "title_da": "Dr. Lanyons beretning",
+    "char_ratio": 1.003,
+    "word_ratio": 0.985,
+    "en_words": 2745,
+    "da_words": 2703
+   },
+   {
+    "chapter": 10,
+    "title_da": "Henry Jekylls fulde redegørelse for sagen",
+    "char_ratio": 1.022,
+    "word_ratio": 0.995,
+    "en_words": 6981,
+    "da_words": 6946
+   }
+  ]
+ },
+ "danish_lint": {
+  "pass": true,
+  "raw_issues": 0,
+  "emphasis_markup_false_positives": 0,
+  "real_issues": [],
+  "emphasis_hits": []
+ },
+ "house_style_scan": {
+  "hits": 1,
+  "items": [
+   {
+    "loc": "9.9",
+    "check": "broken word or double space",
+    "excerpt": "tod døren åben. Skabet mærket E var ikke låst; jeg tog skuffen ud"
+   }
+  ]
+ },
+ "all_pass": true
+}
