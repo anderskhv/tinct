@@ -1,0 +1,377 @@
+{
+ "book": "jane-eyre",
+ "source": "app/public/data/editions/jane-eyre-modern-en.json",
+ "source_blob": "131080c575426a6beb381597099d094cbc2ccc0c",
+ "source_main_commit": "e8b2703325370882e3b8f22915b74839f295fb23",
+ "alignment": {
+  "pass": true,
+  "chapters": 38,
+  "paragraphs": 4034
+ },
+ "english_left": {
+  "pass": true,
+  "english_like": [],
+  "identical_to_en": [],
+  "empty": []
+ },
+ "length_ratio": {
+  "pass": true,
+  "measure": "characters da/en per chapter",
+  "book_char_ratio": 1.052,
+  "outliers": [],
+  "chapters": [
+   {
+    "chapter": 1,
+    "title_da": "Kapitel 1",
+    "char_ratio": 1.024,
+    "word_ratio": 1.036,
+    "en_words": 1854,
+    "da_words": 1921
+   },
+   {
+    "chapter": 2,
+    "title_da": "Kapitel 2",
+    "char_ratio": 1.08,
+    "word_ratio": 1.083,
+    "en_words": 2593,
+    "da_words": 2807
+   },
+   {
+    "chapter": 3,
+    "title_da": "Kapitel 3",
+    "char_ratio": 1.048,
+    "word_ratio": 1.052,
+    "en_words": 3048,
+    "da_words": 3206
+   },
+   {
+    "chapter": 4,
+    "title_da": "Kapitel 4",
+    "char_ratio": 1.063,
+    "word_ratio": 1.073,
+    "en_words": 5496,
+    "da_words": 5896
+   },
+   {
+    "chapter": 5,
+    "title_da": "Kapitel 5",
+    "char_ratio": 1.016,
+    "word_ratio": 1.038,
+    "en_words": 4610,
+    "da_words": 4783
+   },
+   {
+    "chapter": 6,
+    "title_da": "Kapitel 6",
+    "char_ratio": 1.067,
+    "word_ratio": 1.091,
+    "en_words": 2705,
+    "da_words": 2951
+   },
+   {
+    "chapter": 7,
+    "title_da": "Kapitel 7",
+    "char_ratio": 1.042,
+    "word_ratio": 1.051,
+    "en_words": 3316,
+    "da_words": 3486
+   },
+   {
+    "chapter": 8,
+    "title_da": "Kapitel 8",
+    "char_ratio": 1.061,
+    "word_ratio": 1.075,
+    "en_words": 2829,
+    "da_words": 3042
+   },
+   {
+    "chapter": 9,
+    "title_da": "Kapitel 9",
+    "char_ratio": 1.035,
+    "word_ratio": 1.062,
+    "en_words": 3041,
+    "da_words": 3231
+   },
+   {
+    "chapter": 10,
+    "title_da": "Kapitel 10",
+    "char_ratio": 1.035,
+    "word_ratio": 1.051,
+    "en_words": 3902,
+    "da_words": 4100
+   },
+   {
+    "chapter": 11,
+    "title_da": "Kapitel 11",
+    "char_ratio": 1.051,
+    "word_ratio": 1.072,
+    "en_words": 5888,
+    "da_words": 6309
+   },
+   {
+    "chapter": 12,
+    "title_da": "Kapitel 12",
+    "char_ratio": 1.05,
+    "word_ratio": 1.068,
+    "en_words": 3906,
+    "da_words": 4170
+   },
+   {
+    "chapter": 13,
+    "title_da": "Kapitel 13",
+    "char_ratio": 1.058,
+    "word_ratio": 1.071,
+    "en_words": 3891,
+    "da_words": 4168
+   },
+   {
+    "chapter": 14,
+    "title_da": "Kapitel 14",
+    "char_ratio": 1.062,
+    "word_ratio": 1.095,
+    "en_words": 4744,
+    "da_words": 5195
+   },
+   {
+    "chapter": 15,
+    "title_da": "Kapitel 15",
+    "char_ratio": 1.051,
+    "word_ratio": 1.056,
+    "en_words": 4807,
+    "da_words": 5078
+   },
+   {
+    "chapter": 16,
+    "title_da": "Kapitel 16",
+    "char_ratio": 1.046,
+    "word_ratio": 1.069,
+    "en_words": 3612,
+    "da_words": 3863
+   },
+   {
+    "chapter": 17,
+    "title_da": "Kapitel 17",
+    "char_ratio": 1.045,
+    "word_ratio": 1.054,
+    "en_words": 7739,
+    "da_words": 8155
+   },
+   {
+    "chapter": 18,
+    "title_da": "Kapitel 18",
+    "char_ratio": 1.041,
+    "word_ratio": 1.066,
+    "en_words": 5493,
+    "da_words": 5855
+   },
+   {
+    "chapter": 19,
+    "title_da": "Kapitel 19",
+    "char_ratio": 1.059,
+    "word_ratio": 1.077,
+    "en_words": 3626,
+    "da_words": 3905
+   },
+   {
+    "chapter": 20,
+    "title_da": "Kapitel 20",
+    "char_ratio": 1.062,
+    "word_ratio": 1.079,
+    "en_words": 5613,
+    "da_words": 6057
+   },
+   {
+    "chapter": 21,
+    "title_da": "Kapitel 21",
+    "char_ratio": 1.056,
+    "word_ratio": 1.066,
+    "en_words": 8434,
+    "da_words": 8988
+   },
+   {
+    "chapter": 22,
+    "title_da": "Kapitel 22",
+    "char_ratio": 1.049,
+    "word_ratio": 1.059,
+    "en_words": 2759,
+    "da_words": 2922
+   },
+   {
+    "chapter": 23,
+    "title_da": "Kapitel 23",
+    "char_ratio": 1.068,
+    "word_ratio": 1.096,
+    "en_words": 3819,
+    "da_words": 4187
+   },
+   {
+    "chapter": 24,
+    "title_da": "Kapitel 24",
+    "char_ratio": 1.047,
+    "word_ratio": 1.034,
+    "en_words": 7297,
+    "da_words": 7545
+   },
+   {
+    "chapter": 25,
+    "title_da": "Kapitel 25",
+    "char_ratio": 1.036,
+    "word_ratio": 1.025,
+    "en_words": 5104,
+    "da_words": 5230
+   },
+   {
+    "chapter": 26,
+    "title_da": "Kapitel 26",
+    "char_ratio": 1.04,
+    "word_ratio": 1.026,
+    "en_words": 4391,
+    "da_words": 4503
+   },
+   {
+    "chapter": 27,
+    "title_da": "Kapitel 27",
+    "char_ratio": 1.068,
+    "word_ratio": 1.07,
+    "en_words": 11015,
+    "da_words": 11781
+   },
+   {
+    "chapter": 28,
+    "title_da": "Kapitel 28",
+    "char_ratio": 1.057,
+    "word_ratio": 1.064,
+    "en_words": 6775,
+    "da_words": 7206
+   },
+   {
+    "chapter": 29,
+    "title_da": "Kapitel 29",
+    "char_ratio": 1.037,
+    "word_ratio": 1.049,
+    "en_words": 4472,
+    "da_words": 4693
+   },
+   {
+    "chapter": 30,
+    "title_da": "Kapitel 30",
+    "char_ratio": 1.051,
+    "word_ratio": 1.069,
+    "en_words": 3604,
+    "da_words": 3851
+   },
+   {
+    "chapter": 31,
+    "title_da": "Kapitel 31",
+    "char_ratio": 1.052,
+    "word_ratio": 1.053,
+    "en_words": 3044,
+    "da_words": 3206
+   },
+   {
+    "chapter": 32,
+    "title_da": "Kapitel 32",
+    "char_ratio": 1.047,
+    "word_ratio": 1.053,
+    "en_words": 4521,
+    "da_words": 4759
+   },
+   {
+    "chapter": 33,
+    "title_da": "Kapitel 33",
+    "char_ratio": 1.063,
+    "word_ratio": 1.096,
+    "en_words": 4685,
+    "da_words": 5133
+   },
+   {
+    "chapter": 34,
+    "title_da": "Kapitel 34",
+    "char_ratio": 1.036,
+    "word_ratio": 1.034,
+    "en_words": 9500,
+    "da_words": 9824
+   },
+   {
+    "chapter": 35,
+    "title_da": "Kapitel 35",
+    "char_ratio": 1.07,
+    "word_ratio": 1.103,
+    "en_words": 4027,
+    "da_words": 4442
+   },
+   {
+    "chapter": 36,
+    "title_da": "Kapitel 36",
+    "char_ratio": 1.053,
+    "word_ratio": 1.077,
+    "en_words": 3627,
+    "da_words": 3906
+   },
+   {
+    "chapter": 37,
+    "title_da": "Kapitel 37",
+    "char_ratio": 1.071,
+    "word_ratio": 1.106,
+    "en_words": 7137,
+    "da_words": 7896
+   },
+   {
+    "chapter": 38,
+    "title_da": "Kapitel 38 – Afslutning",
+    "char_ratio": 1.04,
+    "word_ratio": 1.057,
+    "en_words": 1752,
+    "da_words": 1852
+   }
+  ]
+ },
+ "danish_lint": {
+  "pass": true,
+  "raw_issues": 1,
+  "emphasis_markup_false_positives": 1,
+  "real_issues": [],
+  "emphasis_hits": [
+   {
+    "loc": "ch34 p130",
+    "found": "»_Du"
+   }
+  ]
+ },
+ "house_style_scan": {
+  "hits": 6,
+  "items": [
+   {
+    "loc": "11.93",
+    "check": "broken word or double space",
+    "excerpt": "»Å ja. Familien har altid været res"
+   },
+   {
+    "loc": "16.73",
+    "check": "capitalised honorific mid-text?",
+    "excerpt": "frem og sammenlign dem. Sig: ›Mr. Rochester kunne sikkert vinde"
+   },
+   {
+    "loc": "18.8",
+    "check": "capitalised honorific mid-text?",
+    "excerpt": "»Brud!« Mr. Rochester bukkede, og forhæng"
+   },
+   {
+    "loc": "26.41",
+    "check": "capitalised honorific mid-text?",
+    "excerpt": "»Gerne.« Mr. Briggs tog roligt et papir op"
+   },
+   {
+    "loc": "30.20",
+    "check": "broken word or double space",
+    "excerpt": "»Å nej, for det er et arbejde som ku"
+   },
+   {
+    "loc": "37.24",
+    "check": "capitalised honorific mid-text?",
+    "excerpt": "am og sagde sagte: »Læg dig!« Mr. Rochester vendte sig mekanisk"
+   }
+  ]
+ },
+ "all_pass": true
+}

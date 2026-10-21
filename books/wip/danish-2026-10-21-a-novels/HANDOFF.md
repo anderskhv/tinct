@@ -2,14 +2,14 @@
 
 **Assignment.** Anders reopened Danish for this run on 21 Oct 2026 (content only): new `modern-da` editions of pride-and-prejudice, jane-eyre, frankenstein and jekyll-and-hyde, translated from the current `modern-en` on origin/main. `STRATEGY.md` (Language scope, 21 Sep 2026) still says Danish is closed; it has not been updated, so this assignment is recorded here. Updating the strategy is Anders's call.
 
-**Status.** Content package in progress. Nothing is integrated, registered or live. The live `*-modern-da.json` files, `app/**` and the registry are untouched.
+**Status.** Content package complete for all four books. Nothing is integrated, registered or live. The live `*-modern-da.json` files, `app/**` and the registry are untouched.
 
 | Book | Status | Edition | Source blob (modern-en) | Gates |
 |---|---|---|---|---|
 | jekyll-and-hyde | Content complete, gates pass | `jekyll-and-hyde-modern-da.json` | `6f4786b170aaf7aa94de70aa92d13bfe9b21b600` | all pass |
 | pride-and-prejudice | Content complete, gates pass | `pride-and-prejudice-modern-da.json` | `e518b504c7c54d7f1b508ef55efdf5f6afff7d48` | all pass |
 | frankenstein | Content complete, gates pass | `frankenstein-modern-da.json` | `11e3c871e84661d118becfb3ca65cef5f9d59b02` | all pass |
-| jane-eyre | Not started | | `131080c575426a6beb381597099d094cbc2ccc0c` | |
+| jane-eyre | Content complete, gates pass | `jane-eyre-modern-da.json` | `131080c575426a6beb381597099d094cbc2ccc0c` | all pass |
 
 Source blobs are `git rev-parse origin/main:app/public/data/editions/{book}-modern-en.json` at origin/main `e8b2703325370882e3b8f22915b74839f295fb23`. If modern-en changes after that, the Danish edition is stale for the changed paragraphs.
 
@@ -64,6 +64,20 @@ House conventions (all books): »…« for dialogue, ›…‹ nested; lowercase
 - Creature terms per the glossary: creature »skabning«, monster »uhyre«, fiend »djævel«, daemon »dæmon«, wretch »usling«/»stakkel« (the latter where the creature pities himself).
 - House-style scan: 12 hits, all expected (»17—« year blanks in letter datelines; »mil« for leagues).
 
+### jane-eyre
+- 38 chapters, 4,034 paragraphs, 178,676 English words. 75 chunks, 552 reviewer fixes applied (stiff 287, meaning 122, grammar 106, omission 13, addition 9, punctuation 8, register 6, english 2).
+- Gates: alignment pass; English left in: none; length ratio pass (chapters 1.016–1.080, book 1.052); danish-lint: 0 real issues.
+- Editor overrides (19, all in the review log):
+  - 18.15 Bridewell: the translator glossed the English charade words (»bride, brud, og well, brønd«), which the English does not do; the gloss was removed, the same policy as the Jekyll and Hyde Seek pun. **For Anders:** both puns now stand unexplained in Danish, as in the English. If you would rather gloss puns for Danish readers, that is a one-line override each.
+  - 18.12, 29.14, 29.68, 34.40: capital »De« after a colon meant "they"; lowercased so it cannot read as the polite "you".
+  - 22.23, 22.31, 22.32: »stentet« → »stenten« (common gender).
+  - 3.52, 21.97, 24.57, 25.23, 26.85, 33.37: correct Danish that danish-lint flags as DOUBLE-FILLER (»det det«, »i i«), rephrased with the same meaning.
+  - 1.18, 4.21, 4.43, 21.179: thoughts or a letter line that the English puts in quotation marks were unquoted; »…« added.
+- Forms of address follow the glossary: De between non-intimates; Jane says du to Adèle; Jane and St. John switch to du at the cousin reveal (33.107 onwards); Rochester says du to Jane once they are intimate, while she keeps De and »sir«.
+- Verse: Rochester's song in 24 is rendered as new Danish ballad verse (ABAB, a few near-rhymes); Bible echoes follow the 1992 Danish Bible wording.
+- Known residual: comma style before subordinate and relative clauses is not fully uniform across chunks, as in the other books.
+- House-style scan: 6 hits, all false positives (»Å ja«/»Å nej« read as split words; »Mr.« capitalised at the start of a sentence).
+
 ## Throughput
 
 | Book | English words | Wall clock | Words per hour |
@@ -71,8 +85,10 @@ House conventions (all books): »…« for dialogue, ›…‹ nested; lowercase
 | jekyll-and-hyde | 25,260 | 12:41–12:53 UTC (glossary start to gates passing), ~12 min | ~126,000 |
 | frankenstein | 65,020 | 13:00–13:13 UTC (first chunk launched to gates passing), ~13 min | ~300,000 |
 | pride-and-prejudice | 114,391 | 12:47–13:06 UTC (first chunk launched to gates passing), ~19 min | ~360,000 |
+| jane-eyre | 178,676 | 13:08–13:25 UTC (first chunk launched to gates passing), ~17 min | ~630,000 |
+| **Batch total** | **383,347** | **12:41–13:25 UTC (glossary start to last gates passing), ~44 min** | **~525,000** |
 
-Wall clock overlaps: from 12:51 Pride and Prejudice chunks ran in parallel on the same subagent pool (limit 20 concurrent), so per-book figures overstate the cost of each book alone. The batch total is given at the end.
+Wall clock overlaps: from 12:51 Pride and Prejudice chunks ran in parallel on the same subagent pool (limit 20 concurrent), so per-book figures overstate the cost of each book alone; the batch total is the honest figure. All translation and review ran as subagents of this session (at most 20 at once); no script called the Anthropic API.
 
 ## Integration requirements (separate, assigned step)
 

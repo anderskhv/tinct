@@ -26,5 +26,5 @@ If the chunk is long you may write the output in consecutive part files instead:
 2. Translate, paragraph by paragraph.
 3. Re-read your Danish against the English, paragraph by paragraph: fix omissions, meaning slips, English left in, stiff or translated-sounding sentences.
 4. Run: cd S && python3 tools.py check_chunk {book} {cid}
-   It must report OK (all paragraphs present, nothing English-looking). The chunk's da/en character ratio should normally be 0.95–1.20; investigate paragraph outliers it lists (very short = likely omission).
+   It must report OK (all paragraphs present, nothing English-looking). The English-looking test is a crude word count; if it flags a paragraph that is genuinely Danish, leave the Danish as it is and mention it in your reply – never reword good Danish to satisfy the checker. The chunk's da/en character ratio should normally be 0.95–1.20; investigate paragraph outliers it lists (very short = likely omission).
 5. Reply in at most 3 lines: "{cid} done, N paragraphs, ratio X" plus any real doubts (names, ambiguous meaning).
