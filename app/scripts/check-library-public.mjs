@@ -185,7 +185,10 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  assert.equal(await shelfCard.locator('.save-toggle').count(),0,'saved refresh must not repaint the shelf remove as a plus/check');
  assert.equal(await shelfRemove.count(),1,'saved refresh keeps the shelf remove');
  await p.screenshot({path:out+'/my-shelf-'+engine.name()+'.png'});
- await shelfRemove.click();const removeItem=shelfCard.locator('[role="menuitem"]');assert.equal(await removeItem.innerText(),'Remove from my books');await removeItem.click();
+ await shelfRemove.click();const removeItem=shelfCard.locator('[role="menuitem"]');assert.deepEqual(await removeItem.allInnerTexts(),['Remove from shelf'],'a saved book\'s ••• offers Remove from shelf');
+ // The menu opens anchored to its •••: just below it, right edges aligned (or from its left edge at the viewport's), inside the viewport.
+ {const [bb,mb]=[await shelfRemove.boundingBox(),await shelfCard.locator('.shelf-menu').boundingBox()],vw=await p.evaluate(()=>innerWidth);assert(mb.y>=bb.y+bb.height-.5&&mb.y-(bb.y+bb.height)<10,'menu just below its button');assert(Math.abs(mb.x+mb.width-(bb.x+bb.width))<1.5||Math.abs(mb.x-bb.x)<1.5,'menu aligned to its button');assert(mb.x>=0&&mb.x+mb.width<=vw,'menu inside the viewport');}
+ await removeItem.click();
  await p.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click();
  await p.waitForFunction(()=>!document.querySelector('#collection-books article.collection-card[data-book="frankenstein"]'));
  assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')).books),before.books);

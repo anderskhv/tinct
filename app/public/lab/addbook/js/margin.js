@@ -727,6 +727,16 @@
     const pages = o.pages ? ` <small class="mr-unit__pages">${esc(o.pages)}</small>` : '';
     return `<span class="mr-unit__k">${where === 'start' ? 'Starting' : 'End of'}</span><span class="mr-unit__n">${esc(o.name || '')}${pages}</span><div class="mr-unit__acts">${pillsHtml(where, { open: o.open, name: o.phrase, line: o.line })}</div>`;
   }
+  /**
+   * A unit's pills beside its heading in the text (Anders, 21 Oct 2026; replaces the wide column's Starting / End of marks):
+   * Primer, Catch me up, Recap, Quiz me and Note (the reader's own note on it, no ✧), shown on hover or focus. They sit inside the heading, so their words are drawn by
+   * CSS (data-label) and are never text in the book: an EPUB's places and highlights are character offsets in its text.
+   * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
+   */
+  function headPillsHtml(ids, o = {}) {
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
+  }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
   function unitName(unit, whole = '') {
     if (!unit || unit.key === 'all' || !unit.title) return whole;
@@ -777,6 +787,8 @@
     if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
     if (card.data?.unit) return `${PILLS[card.data.pill] || KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    // A paragraph's Recap (its ✧ in the gutter): an Explain card on the paragraph, named as the reader chose it.
+    if (card.data?.recap) return `${PILLS.recap}${pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : ''}`;
     // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
     // (No unit: the place names itself, as a chapter title does.)
     const at = pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : '';
@@ -819,17 +831,21 @@
     minimise: svg('<path d="M4.5 9h9"/>'),
     // Send: the selection bar's up-arrow, in the same stroke (Anders, 19 Oct 2026, as Gloss's follow-up field).
     send: ICONS.up,
+    // Talk: the reader's "ılı" bars (src/lab/LabReaderIcons.tsx TalkIcon), filled (21 Oct 2026).
+    talk: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="is-filled"><rect x="4.2" y="9" width="2.6" height="6" rx="1.1"/><rect x="10.7" y="5" width="2.6" height="14" rx="1.1"/><rect x="17.2" y="8" width="2.6" height="8" rx="1.1"/></svg>',
   };
   /**
    * The follow-up line: a rounded, bordered field that is always visible, with its placeholder ("Ask a follow-up"),
    * the mic inside it on the right and then the send button, an up-arrow that is enabled once there is text (Anders,
    * 19 Oct 2026: "it's too hidden that this is indeed a chat field. Gloss does better"). Enter sends, as before; the
    * caret shows only when the field has the focus (15 Oct). An optional link ("Show answer") goes under the field.
-   * A card's bin is in its action row under the answer, beside copy (cardHtml), not here.
+   * A card's bin is in its head, beside minimise (cardHtml), not here. Talk (21 Oct 2026: every card's field has it,
+   * as the phone's) starts Chat with Talk on about what the card shows; a quiz's answer field has none (`talk: false`).
    */
-  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up' } = {}) {
+  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up', talk = true } = {}) {
     if (!field && !link) return '';
-    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
+    const talkBtn = talk ? `<button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this">${CARD_ICONS.talk}</button>` : '';
+    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>${talkBtn}<button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
     return `<div class="mr-follow${field ? ' has-field' : ''}">${box}${link}</div>`;
   }
   /**
@@ -846,25 +862,28 @@
     // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
     const total = !o.writing ? q.questions?.length : q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : 0;
     const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1}${total ? ` of ${total}` : ''}</span>` : '';
-    // Its top-right control minimises it (folds it, as a click outside does). The phone's bottom card has none (Anders,
-    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet).
-    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}</div>`;
+    // Its top-right controls: minimise (folds it, as a click outside does) and the bin (Anders, 21 Oct 2026: the same two
+    // on every margin card, the pill cards and Before you start too). The phone's bottom card has no minimise (Anders,
+    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet). A note being written has no bin yet.
+    const bin = card.kind === 'note' && card.free && card.draft ? '' : deleteHtml(card);
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}${bin}</div>`;
     // The phone's card quotes its passage (Ask and a note, before anything is written in them).
     const quote = o.sheet && card.text ? `<div class="mr-quote">“${esc(cut(String(card.text).trim().replace(/^["“‘']+|["”’']+$/g, '')))}”</div>` : '';
     // The phone's Ask (reader.js phoneAsk): the passage and an empty field, the question not yet sent.
-    if (card.asking) return head + `<div class="mr-card__body">${quote}<div class="mr-card__acts">${deleteHtml(card)}</div></div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
-    // The action row under the answer, as Gloss's: copy, once there is something to copy, then the bin (Anders,
-    // 19 Oct 2026: the bin moved out of the follow-up line into this row). There is no regenerate action for a card.
-    const acts = withCopy => `<div class="mr-card__acts">${withCopy ? `<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button>` : ''}${deleteHtml(card)}</div>`;
+    if (card.asking) return head + `<div class="mr-card__body">${quote}</div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
+    // The action row under a passage card's answer, as Gloss's: copy, once there is something to copy (the bin is in
+    // the head). A pill card (Recap, Catch me up) has none: its follow-up field is its only row (21 Oct 2026).
+    const acts = withCopy => (withCopy && !q.pill ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
       let body = '', foot = '';
       if (!qs.length) body = status;
       else if (q.done) {
-        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit.
+        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit;
+        // the follow-up field under the score, as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
         body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
-        foot = followHtml({ field: false, link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
+        foot = followHtml({ link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
@@ -885,13 +904,13 @@
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
           // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
-          foot = followHtml({ field: o.pending == null && quizCanReply(r), link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
-        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
+        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', talk: false, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
-      // A quiz has nothing to copy; its action row holds the bin, unless an answer is being marked.
-      return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
+      // A quiz has nothing to copy and no action row (its bin is in the head).
+      return head + `<div class="mr-card__body">${body}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
     // Anders, 19 Oct 2026, night: on the wide column the figure is right beside its card (the leader line joins them), so
@@ -905,11 +924,11 @@
     // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
     // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
     if (card.kind === 'note' && !card.free && o.sheet) {
-      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea><div class="mr-card__acts">${deleteHtml(card)}</div></div>`;
+      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea></div>`;
     }
     if (card.kind === 'note' && card.free) {
       const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
-      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button>${card.draft ? '' : deleteHtml(card)}</div></div>`;
+      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button></div></div>`;
     }
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
@@ -1382,11 +1401,12 @@
    *      unit (the unit's name, "Chapter 1: Introduction to Information Theory", shown under the title) }.
    */
   function primerHtml(p, o = {}) {
-    const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
+    // Minimise (folds it back to its pill, nothing lost) and the bin, as every margin card's head (Anders, 21 Oct 2026: no ×).
+    const close = o.close === false ? '' : `<span class="mr-primer__ctl"><button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button><button type="button" class="mr-card__delete mr-primer__delete" data-c="delete" aria-label="Delete">${CARD_ICONS.trash}</button></span>`;
     const head = `<h4 class="mr-primer__title"${o.id ? ` id="${esc(o.id)}"` : ''}>Before you start${close}</h4>`;
     if (!p) {
       if (o.wait) return head + '<p class="mr-status mr-wait" role="status"></p>';
-      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
+      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>`;
     }
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
@@ -1411,8 +1431,8 @@
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
       + sections
       + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
-      + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
-      + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
+      + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
+      + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
 
   /* ---------- Figures (FIXES-2026-10-15, items 4–7): detection, captions, the chip and the figure's card ----------
@@ -1822,7 +1842,77 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, pillsHtml, headPillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  /*
+   * Catch me up in the margin reader, by the book reader's rules (src/catchUp.ts; Anders, 21 Oct 2026): never past the
+   * reader's place, every part its own header ("too much condensation, need at least one header per book"), the most
+   * recent reading in the most detail, and the chat's grounding (src/companion/labAskPrompt.ts LAB_RECAP_GROUNDING_RULE,
+   * kept equal by a test).
+   */
+  const CATCH_UP_GROUNDING = 'Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.';
+  /** The longest stretch one Catch me up entry of the timeline covers; a longer chapter is split into bands this long. */
+  const CATCH_UP_BAND = 40;
+  /**
+   * The pages (an EPUB's chapters) a unit's Catch me up card covers: those before the unit, but never the page the
+   * reader is on or later when they are before it (a later unit's mark tapped ahead). A unit at the document's start
+   * covers the pages up to the reader's, as before. At most `max` pages, the most recent. -> { from, to }
+   */
+  function catchUpSpan(unitFrom, place, max = 200) {
+    const u = Math.max(1, Math.floor(Number(unitFrom) || 1)), p = Math.max(1, Math.floor(Number(place) || 1));
+    const end = u > 1 ? Math.max(1, p >= u ? u - 1 : p - 1) : p;
+    return { from: Math.max(1, end - max + 1), to: end };
+  }
+  /**
+   * The parts a span runs through, each clipped to it: the contents' top-level entries (no parent), each from its page
+   * to the page before the next one's, when two or more meet the span and one of them is a part (has entries under it).
+   * entries: [{ id, label, page, parent? }]; count: the pages. -> [{ label, from, to }], [] within one part or none.
+   */
+  function catchUpParts(entries, span, count) {
+    const list = (entries || []).filter(e => e && Number.isFinite(e.page));
+    const tops = list.filter(e => !e.parent).sort((a, b) => a.page - b.page);
+    const isPart = e => list.some(c => c.parent === e.id);
+    const out = [];
+    tops.forEach((e, i) => {
+      const from = Math.max(span.from, i ? e.page : 1), to = Math.min(span.to, (tops[i + 1]?.page ?? (Number(count) || span.to) + 1) - 1);
+      if (from <= to) out.push({ label: String(e.label || '').trim(), from, to, part: isPart(e) });
+    });
+    return out.length > 1 && out.some(p => p.part) ? out.map(({ label, from, to }) => ({ label, from, to })) : [];
+  }
+  /** Whether a header already names its part ("The Window · 3" names "Part I — The Window"; "Chapter 3" does not name "Part One"). */
+  function namesPart(title, part) {
+    const name = String(part || '').replace(/^(?:part|book|volume)\s+[\divxlc]+\s*[—–:.,-]?\s*/i, '').trim().toLowerCase();
+    return String(title || '').toLowerCase().includes(name || String(part || '').toLowerCase());
+  }
+  /**
+   * The timeline's entries up to the reader's page: each chapter to its end or the reader's page, a long one in bands
+   * of CATCH_UP_BAND pages (before: its first 40 pages only), headed by its part when its own title does not name it;
+   * with no chapters, bands of `band` pages. The entry holding the reader's page is `partial` (its text is cut at the
+   * place, seenText). chapters: [{ label, from, to, part? }] in order. -> [{ from, to, partial, label? }]
+   */
+  function catchUpBlocks(chapters, page, band = 20) {
+    const p = Math.max(1, Math.floor(Number(page) || 1)), blocks = [];
+    const list = (chapters || []).filter(c => c.from <= p);
+    if (list.length) {
+      for (const c of list) {
+        const to = Math.min(p, c.to), name = c.part && !namesPart(c.label, c.part) ? `${c.part}: ${c.label}` : c.label;
+        for (let from = c.from; from <= to; from += CATCH_UP_BAND) {
+          const end = Math.min(to, from + CATCH_UP_BAND - 1), split = to - c.from + 1 > CATCH_UP_BAND;
+          blocks.push({ from, to: end, partial: end === p, label: split ? `${name}, pages ${from}–${end}` : name });
+        }
+      }
+      return blocks;
+    }
+    for (let start = 1; start <= p; start += band) blocks.push({ from: start, to: Math.min(p, start + band - 1), partial: start + band - 1 >= p });
+    return blocks;
+  }
+  /** The part of the reader's page they have read: its text up to `frac` of it, cut at a word. */
+  function seenText(text, frac) {
+    const t = String(text || ''), f = Math.max(0, Math.min(1, Number(frac) || 0));
+    if (f >= 1) return t;
+    const cut = t.slice(0, Math.floor(t.length * f));
+    const space = cut.search(/\s\S*$/);
+    return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
+  }
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
 });
