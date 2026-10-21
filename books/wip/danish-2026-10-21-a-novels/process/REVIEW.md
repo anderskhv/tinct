@@ -14,8 +14,9 @@ Both files use markers: "@@ TITLE" (chapter title) and "@@ N" (paragraph N), one
 2. Omissions and additions: every sentence, clause, image and detail present; nothing added.
 3. English left in (words or phrases that should be Danish; names/titles and deliberate French excepted).
 4. Stiff or translated-sounding Danish: anglicisms, English word order, noun-heavy phrasing where Danish would use a verb, calques, unidiomatic collocations, wrong prepositions.
-5. Danish grammar, spelling, inflection, sin/hans, der/som, commas; »…« for dialogue (›…‹ nested), speech-tag comma outside the quote (»Ja«, sagde han), spaced en dash ( – ) not em dash; _emphasis_ markers kept.
+5. Danish grammar, spelling, inflection, sin/hans, der/som, commas; »…« for dialogue (›…‹ nested), (speech-tag comma placement ,« → «, and »allesammen« are normalised automatically at assembly — do not spend fixes on them), spaced en dash ( – ) not em dash; _emphasis_ markers kept.
 6. Register: plain where the English is plain, formal where formal.
+Foreign-language passages that are foreign in the English source (e.g. French) stay as they are.
 Units: English miles stay »engelsk(e) mil«, feet »fod«, inches »tommer«, yards »alen«/»skridt«, leagues »mil«; a conversion to metric (meter, kilometer) is a meaning error — fix it. Write »alle sammen« (two words).
 Keep the translator’s conventions for forms of address (du/De), honorifics (lowercase mr./mrs./miss in running text) and names unless they are inconsistent within the chunk. Do not rewrite for taste: fix real problems, but do look hard at every paragraph.
 

@@ -8,7 +8,7 @@
 |---|---|---|---|---|
 | jekyll-and-hyde | Content complete, gates pass | `jekyll-and-hyde-modern-da.json` | `6f4786b170aaf7aa94de70aa92d13bfe9b21b600` | all pass |
 | pride-and-prejudice | Content complete, gates pass | `pride-and-prejudice-modern-da.json` | `e518b504c7c54d7f1b508ef55efdf5f6afff7d48` | all pass |
-| frankenstein | Not started | | `11e3c871e84661d118becfb3ca65cef5f9d59b02` | |
+| frankenstein | Content complete, gates pass | `frankenstein-modern-da.json` | `11e3c871e84661d118becfb3ca65cef5f9d59b02` | all pass |
 | jane-eyre | Not started | | `131080c575426a6beb381597099d094cbc2ccc0c` | |
 
 Source blobs are `git rev-parse origin/main:app/public/data/editions/{book}-modern-en.json` at origin/main `e8b2703325370882e3b8f22915b74839f295fb23`. If modern-en changes after that, the Danish edition is stale for the changed paragraphs.
@@ -55,11 +55,21 @@ House conventions (all books): »…« for dialogue, ›…‹ nested; lowercase
 - Known residual: comma style before subordinate clauses is not fully uniform across chunks (mostly no start comma; a few chunks use it before »at«). Both are accepted Danish; a uniformity pass would be cosmetic.
 - House-style scan: 10 hits, all false positives (»Å ja« read as a split word; »Mr.« capitalised at the start of a sentence inside a quote).
 
+### frankenstein
+- 28 chapters (Letters 1–4, Chapters 1–24), 764 paragraphs, 65,020 English words. 30 chunks, 173 reviewer fixes applied (stiff 87, meaning 47, grammar 29, punctuation 9, omission 1).
+- Gates: alignment pass; English left in: none; length ratio pass (chapters 1.022–1.095, book 1.050); danish-lint: 0 real issues (19 `STRAY-UNDERSCORE` hits are paired `_emphasis_` markers, e.g. the letter address lines).
+- Assembly normalisation: 33 speech-tag commas moved outside the closing quote.
+- Editor overrides: 4.12 »løjtnanten« → »styrmanden« (Walton's lieutenant is »styrmand« in Letter 2); 9.26 »Er det det hele« → »Er det alt« (same danish-lint DOUBLE-FILLER case as Pride and Prejudice).
+- Units: the first Frankenstein glossary told translators to convert to metric; this was corrected to the batch rule before most chunks were written, and the reviewers fixed the early slips (8.6 »otte fod«, 6.12 »tyve alen«). The house-style scan finds no metric units left. Leagues are »mil«, the traditional Danish rendering.
+- Creature terms per the glossary: creature »skabning«, monster »uhyre«, fiend »djævel«, daemon »dæmon«, wretch »usling«/»stakkel« (the latter where the creature pities himself).
+- House-style scan: 12 hits, all expected (»17—« year blanks in letter datelines; »mil« for leagues).
+
 ## Throughput
 
 | Book | English words | Wall clock | Words per hour |
 |---|---|---|---|
 | jekyll-and-hyde | 25,260 | 12:41–12:53 UTC (glossary start to gates passing), ~12 min | ~126,000 |
+| frankenstein | 65,020 | 13:00–13:13 UTC (first chunk launched to gates passing), ~13 min | ~300,000 |
 | pride-and-prejudice | 114,391 | 12:47–13:06 UTC (first chunk launched to gates passing), ~19 min | ~360,000 |
 
 Wall clock overlaps: from 12:51 Pride and Prejudice chunks ran in parallel on the same subagent pool (limit 20 concurrent), so per-book figures overstate the cost of each book alone. The batch total is given at the end.

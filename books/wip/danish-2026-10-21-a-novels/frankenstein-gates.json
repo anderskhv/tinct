@@ -1,0 +1,399 @@
+{
+ "book": "frankenstein",
+ "source": "app/public/data/editions/frankenstein-modern-en.json",
+ "source_blob": "11e3c871e84661d118becfb3ca65cef5f9d59b02",
+ "source_main_commit": "e8b2703325370882e3b8f22915b74839f295fb23",
+ "alignment": {
+  "pass": true,
+  "chapters": 28,
+  "paragraphs": 764
+ },
+ "english_left": {
+  "pass": true,
+  "english_like": [],
+  "identical_to_en": [],
+  "empty": []
+ },
+ "length_ratio": {
+  "pass": true,
+  "measure": "characters da/en per chapter",
+  "book_char_ratio": 1.05,
+  "outliers": [],
+  "chapters": [
+   {
+    "chapter": 1,
+    "title_da": "Brev 1",
+    "char_ratio": 1.043,
+    "word_ratio": 1.052,
+    "en_words": 1038,
+    "da_words": 1092
+   },
+   {
+    "chapter": 2,
+    "title_da": "Brev 2",
+    "char_ratio": 1.083,
+    "word_ratio": 1.114,
+    "en_words": 1153,
+    "da_words": 1284
+   },
+   {
+    "chapter": 3,
+    "title_da": "Brev 3",
+    "char_ratio": 1.076,
+    "word_ratio": 1.108,
+    "en_words": 250,
+    "da_words": 277
+   },
+   {
+    "chapter": 4,
+    "title_da": "Brev 4",
+    "char_ratio": 1.061,
+    "word_ratio": 1.082,
+    "en_words": 2380,
+    "da_words": 2575
+   },
+   {
+    "chapter": 5,
+    "title_da": "Kapitel 1",
+    "char_ratio": 1.022,
+    "word_ratio": 1.042,
+    "en_words": 1572,
+    "da_words": 1638
+   },
+   {
+    "chapter": 6,
+    "title_da": "Kapitel 2",
+    "char_ratio": 1.024,
+    "word_ratio": 1.006,
+    "en_words": 1916,
+    "da_words": 1928
+   },
+   {
+    "chapter": 7,
+    "title_da": "Kapitel 3",
+    "char_ratio": 1.034,
+    "word_ratio": 1.017,
+    "en_words": 2326,
+    "da_words": 2365
+   },
+   {
+    "chapter": 8,
+    "title_da": "Kapitel 4",
+    "char_ratio": 1.055,
+    "word_ratio": 1.03,
+    "en_words": 2150,
+    "da_words": 2215
+   },
+   {
+    "chapter": 9,
+    "title_da": "Kapitel 5",
+    "char_ratio": 1.072,
+    "word_ratio": 1.082,
+    "en_words": 2036,
+    "da_words": 2202
+   },
+   {
+    "chapter": 10,
+    "title_da": "Kapitel 6",
+    "char_ratio": 1.048,
+    "word_ratio": 1.058,
+    "en_words": 2319,
+    "da_words": 2453
+   },
+   {
+    "chapter": 11,
+    "title_da": "Kapitel 7",
+    "char_ratio": 1.042,
+    "word_ratio": 1.051,
+    "en_words": 3144,
+    "da_words": 3304
+   },
+   {
+    "chapter": 12,
+    "title_da": "Kapitel 8",
+    "char_ratio": 1.055,
+    "word_ratio": 1.048,
+    "en_words": 2756,
+    "da_words": 2887
+   },
+   {
+    "chapter": 13,
+    "title_da": "Kapitel 9",
+    "char_ratio": 1.046,
+    "word_ratio": 1.036,
+    "en_words": 2007,
+    "da_words": 2080
+   },
+   {
+    "chapter": 14,
+    "title_da": "Kapitel 10",
+    "char_ratio": 1.069,
+    "word_ratio": 1.038,
+    "en_words": 2108,
+    "da_words": 2188
+   },
+   {
+    "chapter": 15,
+    "title_da": "Kapitel 11",
+    "char_ratio": 1.033,
+    "word_ratio": 1.038,
+    "en_words": 2395,
+    "da_words": 2486
+   },
+   {
+    "chapter": 16,
+    "title_da": "Kapitel 12",
+    "char_ratio": 1.037,
+    "word_ratio": 1.051,
+    "en_words": 1683,
+    "da_words": 1769
+   },
+   {
+    "chapter": 17,
+    "title_da": "Kapitel 13",
+    "char_ratio": 1.028,
+    "word_ratio": 1.028,
+    "en_words": 1774,
+    "da_words": 1823
+   },
+   {
+    "chapter": 18,
+    "title_da": "Kapitel 14",
+    "char_ratio": 1.04,
+    "word_ratio": 1.057,
+    "en_words": 1532,
+    "da_words": 1620
+   },
+   {
+    "chapter": 19,
+    "title_da": "Kapitel 15",
+    "char_ratio": 1.071,
+    "word_ratio": 1.084,
+    "en_words": 2598,
+    "da_words": 2815
+   },
+   {
+    "chapter": 20,
+    "title_da": "Kapitel 16",
+    "char_ratio": 1.051,
+    "word_ratio": 1.049,
+    "en_words": 2728,
+    "da_words": 2863
+   },
+   {
+    "chapter": 21,
+    "title_da": "Kapitel 17",
+    "char_ratio": 1.095,
+    "word_ratio": 1.082,
+    "en_words": 1682,
+    "da_words": 1820
+   },
+   {
+    "chapter": 22,
+    "title_da": "Kapitel 18",
+    "char_ratio": 1.046,
+    "word_ratio": 1.055,
+    "en_words": 2452,
+    "da_words": 2588
+   },
+   {
+    "chapter": 23,
+    "title_da": "Kapitel 19",
+    "char_ratio": 1.046,
+    "word_ratio": 1.052,
+    "en_words": 2183,
+    "da_words": 2296
+   },
+   {
+    "chapter": 24,
+    "title_da": "Kapitel 20",
+    "char_ratio": 1.041,
+    "word_ratio": 1.03,
+    "en_words": 3043,
+    "da_words": 3133
+   },
+   {
+    "chapter": 25,
+    "title_da": "Kapitel 21",
+    "char_ratio": 1.052,
+    "word_ratio": 1.067,
+    "en_words": 3176,
+    "da_words": 3390
+   },
+   {
+    "chapter": 26,
+    "title_da": "Kapitel 22",
+    "char_ratio": 1.062,
+    "word_ratio": 1.063,
+    "en_words": 2996,
+    "da_words": 3185
+   },
+   {
+    "chapter": 27,
+    "title_da": "Kapitel 23",
+    "char_ratio": 1.066,
+    "word_ratio": 1.054,
+    "en_words": 2276,
+    "da_words": 2398
+   },
+   {
+    "chapter": 28,
+    "title_da": "Kapitel 24",
+    "char_ratio": 1.046,
+    "word_ratio": 1.051,
+    "en_words": 7347,
+    "da_words": 7720
+   }
+  ]
+ },
+ "danish_lint": {
+  "pass": true,
+  "raw_issues": 19,
+  "emphasis_markup_false_positives": 19,
+  "real_issues": [],
+  "emphasis_hits": [
+   {
+    "loc": "ch1 p0",
+    "found": "_Til"
+   },
+   {
+    "loc": "ch2 p0",
+    "found": "_Til"
+   },
+   {
+    "loc": "ch3 p0",
+    "found": "_Til"
+   },
+   {
+    "loc": "ch4 p0",
+    "found": "_Til"
+   },
+   {
+    "loc": "ch9 p17",
+    "found": "»_Han"
+   },
+   {
+    "loc": "ch11 p28",
+    "found": " _Han"
+   },
+   {
+    "loc": "ch13 p11",
+    "found": " _Jeg"
+   },
+   {
+    "loc": "ch16 p8",
+    "found": " _Agatha"
+   },
+   {
+    "loc": "ch16 p8",
+    "found": " _Felix"
+   },
+   {
+    "loc": "ch17 p13",
+    "found": " _Rigernes"
+   },
+   {
+    "loc": "ch19 p2",
+    "found": " _Det"
+   },
+   {
+    "loc": "ch19 p2",
+    "found": " _Plutarks"
+   },
+   {
+    "loc": "ch19 p2",
+    "found": " _Den"
+   },
+   {
+    "loc": "ch19 p3",
+    "found": " _Den"
+   },
+   {
+    "loc": "ch19 p5",
+    "found": " _Plutarks"
+   },
+   {
+    "loc": "ch19 p5",
+    "found": " _Den"
+   },
+   {
+    "loc": "ch19 p6",
+    "found": " _Det"
+   },
+   {
+    "loc": "ch24 p17",
+    "found": "»_Jeg"
+   },
+   {
+    "loc": "ch26 p18",
+    "found": "»_Jeg"
+   }
+  ]
+ },
+ "house_style_scan": {
+  "hits": 12,
+  "items": [
+   {
+    "loc": "1.1",
+    "check": "em dash",
+    "excerpt": "Petersborg den 11. december 17—."
+   },
+   {
+    "loc": "2.1",
+    "check": "em dash",
+    "excerpt": "Arkhangelsk den 28. marts 17—."
+   },
+   {
+    "loc": "3.1",
+    "check": "em dash",
+    "excerpt": "7. juli 17—."
+   },
+   {
+    "loc": "4.1",
+    "check": "em dash",
+    "excerpt": "5. august 17—."
+   },
+   {
+    "loc": "4.25",
+    "check": "em dash",
+    "excerpt": "13. august 17—."
+   },
+   {
+    "loc": "4.34",
+    "check": "em dash",
+    "excerpt": "19. august 17—."
+   },
+   {
+    "loc": "10.12",
+    "check": "em dash",
+    "excerpt": "»Genève den 18. marts 17—.«"
+   },
+   {
+    "loc": "11.13",
+    "check": "em dash",
+    "excerpt": "»Genève den 12. maj 17—.«"
+   },
+   {
+    "loc": "18.8",
+    "check": "bare »mil« (no »engelsk« in paragraph)",
+    "excerpt": " fra fængslet. Om morgenen var han mange mil fra Paris. Feli"
+   },
+   {
+    "loc": "18.19",
+    "check": "bare »mil« (no »engelsk« in paragraph)",
+    "excerpt": " velbeholden frem til en by omkring tyve mil fra familien De"
+   },
+   {
+    "loc": "26.17",
+    "check": "em dash",
+    "excerpt": "»Genève den 18. maj 17—«"
+   },
+   {
+    "loc": "28.27",
+    "check": "em dash",
+    "excerpt": "26. august 17—."
+   }
+  ]
+ },
+ "all_pass": true
+}
