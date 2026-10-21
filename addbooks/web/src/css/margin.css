@@ -600,10 +600,11 @@ html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); 
 /* A unit's pills beside its heading (Anders, 21 Oct 2026; replaces the Starting / End of marks on the wide column):
    small and quiet, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
    heading has the focus, then faded. Their words come from data-label: the heading's text stays the book's own. A
-   touch-only screen shows them all the time. On a PDF's page they sit over the page at the heading's line (.is-page). */
+   touch-only screen shows them all the time. On a PDF's page they sit over the page at the heading's line (.is-page).
+   Pills sit 8px apart, as everywhere (Anders, 21 Oct 2026). */
 .mr-hp-head { position: relative; outline: none; }
 .mr-hp.is-page { z-index: 4; }   /* over a PDF page's text layer (z-index 2), so its pills take the click */
-.mr-hp { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font: 400 13px/1 var(--mr-gara); font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; text-indent: 0; user-select: none; -webkit-user-select: none;
+.mr-hp { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font: 400 13px/1 var(--mr-gara); font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; text-indent: 0; user-select: none; -webkit-user-select: none;
   opacity: 0; visibility: hidden; transition: opacity .25s ease .6s, visibility 0s linear .85s; }
 .mr-hp-head:hover > .mr-hp, .mr-hp-head:focus-within > .mr-hp, .mr-hp:hover, .mr-hp.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
 @media (hover: none) { .mr-hp { opacity: 1; visibility: visible; transition: none; } }
@@ -704,3 +705,21 @@ html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .
 .mr-card__body > .mr-card__acts:last-child { padding-bottom: 3px; }
 /* A quiz card's answer bubble and feedback are set as its question (Anders, 20 Oct 2026: the bubble was smaller). */
 :is(.mr-card, .mr-sheet):has(.mr-question) :is(.mr-you, .mr-answer) { font-family: inherit; font-size: 18px; line-height: 1.45; }
+
+/* ---------- Cards, round 2 (Anders, 21 Oct 2026) ----------
+   Every card's head: minimise, then the bin (28px targets round 14px icons); Before you start's too, in place of its ×.
+   Every follow-up field: the mic, Talk (the reader's filled bars) and send. Before you start is as tall as what it
+   holds in the column, ending with the field. */
+.mr-card__label > .mr-card__delete { flex: none; min-width: 28px; min-height: 28px; display: grid; place-items: center; color: var(--mr-faint); }
+.mr-card__close + .mr-card__delete { margin-left: 0; }
+.mr-card__name + .mr-card__delete, .mr-card__count + .mr-card__delete { margin-left: auto; }
+.mr-card__label > .mr-card__delete svg, .mr-primer__ctl svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mr-primer__ctl { display: inline-flex; align-items: center; margin: -1px 0 -1px auto; color: var(--mr-faint); }
+.mr-primer__ctl button { min-width: 28px; min-height: 28px; display: grid; place-items: center; }
+.mr-primer .mr-primer__ctl .mr-primer__close { margin: 0; }
+.mr-follow__talk { flex: none; position: relative; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; background: none; color: var(--mr-muted); cursor: pointer; --mr-min: 28px; }
+.mr-follow .mr-follow__talk svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.mr-follow__talk:hover { color: var(--mr-ink); }
+.mr-col:not(.mr-doc) .mr-primer { bottom: auto; max-height: calc(100% - 86px); }
+.mr-primer > .mr-follow { margin-top: 0; }
+:where(.mr-card__delete) { --mr-min: 28px; }

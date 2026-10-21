@@ -135,20 +135,22 @@ describe('3. The highlighter and the pencil in the selection bar', () => {
 
 describe('4. Delete on every margin item', () => {
   const kinds = ['explain', 'simplify', 'define', 'factcheck', 'counterpoint', 'related', 'quiz', 'ask', 'figure']
-  it('every card has a bin, in its action row under the answer beside copy (19 Oct 2026, as Gloss), never in the follow-up line; open on desktop and on the phone', () => {
+  it('every card has a bin, in its head beside Minimise (21 Oct 2026: the same on every card), never in the follow-up line; open on desktop and on the phone', () => {
     for (const kind of kinds) {
       const c = card(kind, kind === 'quiz' ? { turns: [], data: { questions: [{ q: 'Q?', answer: 'A', why: '', cite: '' }], i: 0, results: [] } } : kind === 'define' ? { turns: [], data: { word: 'w', senses: [{ text: 'A sense.' }] } } : {})
       const html = M.html.cardHtml(c, { open: true, P })
-      expect(html, kind).toMatch(/<div class="mr-card__acts">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).toMatch(/^<div class="mr-card__label">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).not.toMatch(/<div class="mr-card__acts">(?:(?!<\/div>).)*mr-card__delete/)
       expect(html, kind).not.toMatch(/<div class="mr-follow[^"]*">.*mr-card__delete/)
     }
     const note = M.html.cardHtml({ id: 'n-m1', kind: 'note', mark: 'm1', page: 3, rects: [[3, 0, 0, 1, 0.02]], text: 'T', note: 'My note.', at: 1 }, { open: true, P })
     expect(note).toContain('<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">')
     expect(note).toContain('data-c="delete" aria-label="Delete note"')
-    // While an answer streams there is nothing to copy yet; delete is there, alone in the action row.
+    // While an answer streams there is nothing to copy yet: no action row; delete is in the head.
     const streaming = M.html.cardHtml(card('explain', { turns: [] }), { open: true, P, live: 'Partial' })
     expect(streaming).not.toContain('mr-card__copy')
-    expect(streaming).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__delete" data-c="delete"/)
+    expect(streaming).not.toContain('mr-card__acts')
+    expect(streaming).toMatch(/^<div class="mr-card__label">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete"/)
     expect(streaming).not.toMatch(/<div class="mr-follow[^"]*">.*mr-card__delete/)
     // The phone's card hides copy only.
     expect(css).toContain('.mr-sheet .mr-card__copy { display: none; }')

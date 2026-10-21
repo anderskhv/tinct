@@ -30,6 +30,9 @@ describe('the follow-up field', () => {
   it('is a box with the field, the mic and then send (disabled until there is text); placeholder "Ask a follow-up"', () => {
     const f = M.html.followHtml()
     expect(f).toMatch(/^<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up" spellcheck="false" autocorrect="off" autocomplete="off"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false"><svg[^]*?<\/svg><\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled><svg[^]*?<\/svg><\/button><\/div><\/div>$/)
+    // Mic, Talk (21 Oct 2026: every card's field), send, in that order; a quiz's answer field passes talk: false.
+    expect(f).toMatch(/data-c="mic"[^]*?<\/button><button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this"><svg[^>]*><rect[^]*?<\/svg><\/button><button type="button" class="mr-follow__send"/)
+    expect(M.html.followHtml({ talk: false })).not.toContain('data-c="talk"')
     // The send icon is the selection bar's up-arrow, in the icons' stroke.
     expect(f).toContain('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>')
     expect(f).not.toContain('mr-card__delete')
@@ -49,10 +52,18 @@ describe('the follow-up field', () => {
     expect(writing).toContain('Writing the next question')
     expect(writing).not.toContain('mr-follow')
     expect(writing).toContain('class="mr-card__delete"')
+    // A quiz's answer field has no Talk (it is an answer, not a question).
+    expect(quiz).not.toContain('data-c="talk"')
   })
-  it('the action row under the answer: copy, then the bin', () => {
+  it('the action row under the answer: copy alone; the bin in the head beside Minimise (21 Oct 2026)', () => {
     const html = M.html.cardHtml(card('explain'), { open: true, P })
-    expect(html).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy"><svg[^]*?<\/svg><\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete"><svg[^]*?<\/svg><\/button><\/div>/)
+    expect(html).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy"><svg[^]*?<\/svg><\/button><\/div>/)
+    expect(html).toMatch(/aria-label="Minimise"><svg[^]*?<\/svg><\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete"><svg[^]*?<\/svg><\/button><\/div>/)
+    // A pill card (a recap) has no action row at all: its field is its only row.
+    const recap = M.html.cardHtml(card('ask', { data: { pill: 'recap' } }), { open: true, P })
+    expect(recap).not.toContain('mr-card__acts')
+    expect(recap).not.toContain('data-c="copy"')
+    expect(recap).toContain('data-c="talk"')
   })
   it('is drawn visible in every look: a border and radius from the look\'s tokens, the placeholder in the hint colour', () => {
     expect(css).toMatch(/\.mr-follow__box \{[^}]*border: 1px solid var\(--mr-field-line\); border-radius: 12px; background: var\(--mr-field\);/)
