@@ -76,7 +76,13 @@ export const LAB_ASK_LOOKUP_OFFER_RULE = `If you offered to look something up an
  */
 export const LAB_ASK_GROUND_FIRST_RULE = `When the reader says "this", "here", "he" or "she", or asks about a person, place or event, answer from the passage they are at first (marked "The reader is at:" below). Check names against it, including patronymics, titles and who is speaking, before drawing on general knowledge, and say which verse or passage you rely on.`
 export const LAB_ASK_CHECKED_SPECIFICS_RULE = `State specifics only when you have checked them in the text: ordinals and counts ("the second to die"), what a chapter opens or ends with, dates and quotations. Otherwise leave them out or hedge them.`
-export const LAB_ASK_RECHECK_RULE = `When the reader questions an answer, re-read the passage, then say plainly and briefly what was wrong, if anything ("I was wrong: verse 11 is a different Jonathan"). Never insist an earlier answer was right without checking it, and never pad the correction.`
+/**
+ * The same grounding for a recap of a span (Catch me up, own-book catch-up; Anders, 21 Oct 2026): a recap of
+ * To the Lighthouse read "leaving Lily on shore unable to paint" (she paints, and finishes the picture) and "the
+ * Ramsays finally set out" (Mr Ramsay goes, with James and Cam) from a thinly sampled span.
+ */
+export const LAB_RECAP_GROUNDING_RULE = `Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.`
+export const LAB_ASK_RECHECK_RULE =`When the reader questions an answer, re-read the passage, then say plainly and briefly what was wrong, if anything ("I was wrong: verse 11 is a different Jonathan"). Never insist an earlier answer was right without checking it, and never pad the correction.`
 
 export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page on /lab. This is a conversation next to the open chapter, not an in-car interruption.
 

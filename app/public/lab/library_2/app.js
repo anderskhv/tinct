@@ -15,7 +15,7 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
@@ -577,7 +577,7 @@ let layerSkipPop=false;
 addEventListener('popstate',()=>{if(layerSkipPop){layerSkipPop=false;return;}layerFromPop=true;try{if(activeBook){if(reading)$('reader-back').click();closeBook();}else if(collectionChoice!=='home')selectCollection('home');}finally{layerFromPop=false;}});
 function selectCollection(value){const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
-// Remove from my books (Anders, 2026-10-20): confirmed in the page, then off My shelf, the
+// Remove from shelf (Anders, 2026-10-20; was "Remove from my books"): confirmed in the page, then off My shelf, the
 // reading table and Continue, from every group (Finished too). Its place, highlights and
 // notes are kept: the shelf's own tombstone (libraryTwoSaved.ts), so adding it again brings them back.
 async function removeFromMyShelf(id,{title='',from=null}={}){
@@ -593,6 +593,28 @@ async function removeFromMyShelf(id,{title='',from=null}={}){
   renderMyBooks();
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
  }catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
+}
+/**
+ * Currently reading's Read later and (an own book's) Remove from Currently reading (Anders,
+ * 2026-10-21): off the reading row with the desk's own hide (hideFromReadingNow), the place,
+ * highlights and notes kept. Read later lists the book under Saved for later; an own book removed
+ * from Currently reading stays under My private uploads only.
+ */
+async function offCurrentlyReading(id,{own=null,later=true}={}){
+ const leave=leaveShelf([own?'own-reading:'+own.key:'reading:'+id]);
+ try{
+  const api=await readingApi();
+  await Promise.all([api.hideFromReadingNow(id,{saved:later}),leave.faded]);
+  leave.done();
+  if(!own)receiveSaved([...savedBooks,id]);
+  dropFromReading(id);
+  if(own){const at=Date.now();refreshOwnShelf(list=>list.map(b=>b.key===own.key?{...b,readingAt:null,savedAt:later?at:null}:b));}else renderMyBooks();
+ }catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
+}
+/** A Tinct book's ••• on My shelf: Read later under Currently reading, then Remove from shelf. */
+function tinctShelfMenu(id,title,reading){
+ const remove={label:shelfAction(false).item,onChoose:from=>void removeFromMyShelf(id,{title,from})};
+ return shelfMenu(title,{items:reading?[{label:READ_LATER,onChoose:()=>void offCurrentlyReading(id)},remove]:[remove]});
 }
 let ownShelf=null,ownShelfLoading=null;
 /** Forget the listed own books (their covers, places and membership changed) and list them again. */
@@ -630,7 +652,7 @@ function readingRowCard(row,group='reading'){
  const src=bookCoverSrc({bookId:row.bookId,art:row.cover});
  if(src){const img=el('img','cover');img.src=src;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
  open.onclick=()=>openInReader({id:row.bookId});
- wrap.append(open,shelfMenu(row.title,{onChoose:from=>void removeFromMyShelf(row.bookId,{title:row.title,from})}));card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
+ wrap.append(open,tinctShelfMenu(row.bookId,row.title,group==='reading'));card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
 }
 /**
  * A Currently reading card for one of the reader's own books, from its reading-table row: the same
@@ -642,7 +664,8 @@ function ownReadingCard(row,ownList){
  const key=row.ownKey||listed?.key;if(!key)return null;
  const book={key,kind:row.kind||listed?.kind||(key.startsWith('pdf:')?'pdf':'epub'),title:row.title||listed?.title||'',author:row.author||listed?.author||'',cover:row.cover||listed?.cover||null,href:row.href||listed?.href||'',percent:row.percent??listed?.percent??null};
  if(!book.href)return null;
- const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),progress:true});card.dataset.shelfGroup='own-reading';return card;
+ const actions=[{label:READ_LATER,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own})},{label:OFF_READING,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own,later:false})}];
+ const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),actions,progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
@@ -687,9 +710,10 @@ function drawMyBooks(){
    if(item instanceof Node){grid.append(item);return;}
    const book=item.book;
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;card.dataset.book=book.id;
-   // Every book here, Finished too, has the cover's ••• with Remove from my books (Anders,
-   // 2026-10-20; it replaces the shelf's ×, and the 2026-10-07 rule that Finished books stay).
-   open.querySelector('.save-toggle')?.replaceWith(shelfMenu(book.title,{onChoose:from=>void removeFromMyShelf(book.id,{title:book.title,from})}));
+   // Every book here, Finished too, has the cover's ••• with Remove from shelf (Anders,
+   // 2026-10-20; it replaces the shelf's ×, and the 2026-10-07 rule that Finished books stay),
+   // after Read later under Currently reading (2026-10-21).
+   open.querySelector('.save-toggle')?.replaceWith(tinctShelfMenu(book.id,book.title,kind==='reading'));
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
     b.addEventListener('click',e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();void openInReader(book);},{capture:true});
