@@ -1,8 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, type ReactNode, type MutableRefObject } from 'react'
 import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
-import { useLabKeyboardDock } from '../useLabKeyboardDock'
 import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
+import { TalkIcon } from '../LabReaderIcons'
 import './marginPhone.css'
 
 /** The margin reader's card icons (public/lab/addbook/js/margin.js ICONS), drawn on an 18px grid. */
@@ -38,21 +38,26 @@ export interface LabPhoneCardProps {
 /**
  * The phone's bottom card (the margin reader's `.mr-sheet`): a drag handle, the
  * label, the body and the follow-up line. One at a time; it slides up, closes
- * on a drag down or on a tap outside it, and rides above the software keyboard
- * (visualViewport). It is fixed over the page and never moves it.
+ * on a drag down or on a tap outside it, and stands on the bottom of the visual
+ * viewport, so it rides above the software keyboard. As tall as its content, at
+ * most 70% of the visible height. It is fixed over the page and never moves it.
  */
 export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
-  useLabKeyboardDock(ref, true)
+  const dockRef = useRef<HTMLDivElement | null>(null)
   useLayoutEffect(() => {
     const el = ref.current
-    if (!el || typeof window === 'undefined') return
+    const dock = dockRef.current
+    if (!el || !dock || typeof window === 'undefined') return
     let keyboard = false
-    // The card fits the part of the window the reader sees (visualViewport): with the keyboard up it shrinks to the
-    // room above it, and the latest answer and the field stay in view.
+    // The card stands on the bottom of what the reader sees (visualViewport): its dock spans offsetTop to
+    // offsetTop + height in the window's fixed frame. iOS pans that frame when a field takes the focus and may
+    // report innerHeight already shrunk, so neither the window's bottom nor innerHeight places the card.
     const fit = () => {
-      const room = phoneCardRoom(window.visualViewport, window.innerHeight)
-      el.style.setProperty('--lab-pcard-room', `${room.height}px`)
+      const typing = phoneCardTyping(el)
+      const room = phoneCardRoom(window.visualViewport, window.innerHeight, document.documentElement?.clientHeight, typing)
+      dock.style.setProperty('--lab-pcard-top', `${room.top}px`)
+      dock.style.setProperty('--lab-pcard-room', `${room.height}px`)
       el.toggleAttribute('data-keyboard', room.keyboard)
       if (room.keyboard && !keyboard) {
         const body = el.querySelector<HTMLElement>('.lab-pcard-body')
@@ -61,12 +66,22 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       }
       keyboard = room.keyboard
     }
+    // While a field in the card has the focus, the narration bar is put away (it would sit on the keyboard).
+    const root = document.documentElement
+    const focus = () => { root.toggleAttribute(PHONE_CARD_TYPING_ATTR, phoneCardTyping(el)); fit() }
+    const blur = () => { requestAnimationFrame(focus) }
     fit()
     const viewport = window.visualViewport
     viewport?.addEventListener('resize', fit)
     viewport?.addEventListener('scroll', fit)
     window.addEventListener('resize', fit)
-    return () => { viewport?.removeEventListener('resize', fit); viewport?.removeEventListener('scroll', fit); window.removeEventListener('resize', fit) }
+    el.addEventListener('focusin', focus)
+    el.addEventListener('focusout', blur)
+    return () => {
+      viewport?.removeEventListener('resize', fit); viewport?.removeEventListener('scroll', fit); window.removeEventListener('resize', fit)
+      el.removeEventListener('focusin', focus); el.removeEventListener('focusout', blur)
+      root.removeAttribute(PHONE_CARD_TYPING_ATTR)
+    }
   }, [])
   const closeRef = useRef(onClose)
   closeRef.current = onClose
@@ -106,6 +121,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
   return (<>
     {/* The page behind the card is dimmed, so none of its words read beside or under the card. */}
     <div className="lab-pcard-scrim" data-testid="lab-phone-card-scrim" aria-hidden="true" />
+    <div ref={dockRef} className="lab-pcard-dock" data-testid="lab-phone-card-dock">
     <section
       ref={ref}
       className={`lab-pcard${tall ? ' is-tall' : ''}`}
@@ -126,19 +142,38 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       <div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>
       {foot}
     </section>
+    </div>
   </>)
 }
 
 /** Less than this between the window and what the reader sees is the software keyboard, not the browser's bars. */
 const KEYBOARD_MIN_PX = 80
 
+/** Set on <html> while a field in a phone card has the focus: the narration bar is hidden (marginPhone.css). */
+export const PHONE_CARD_TYPING_ATTR = 'data-pcard-typing'
+
+/** Whether a text field inside the card has the focus (the software keyboard is up on a phone). */
+export function phoneCardTyping(card: Element): boolean {
+  const active = typeof document !== 'undefined' ? document.activeElement as HTMLElement | null : null
+  if (!active || !card.contains(active)) return false
+  return active.tagName === 'TEXTAREA' || (active.tagName === 'INPUT' && !/^(button|checkbox|radio|range|submit)$/i.test((active as HTMLInputElement).type)) || active.isContentEditable === true
+}
+
 /**
- * The height the card may fill: what the visual viewport shows (the window less the keyboard), and whether the
- * keyboard is up.
+ * Where the card may stand: the part of the window the reader sees (the visual viewport), as its top in the
+ * window's fixed frame (offsetTop: iOS pans to a focused field) and its height, and whether the keyboard is up
+ * (a field in the card has the focus, or the visible height is well short of the layout's).
  */
-export function phoneCardRoom(viewport: { height?: number; offsetTop?: number } | null | undefined, innerHeight: number): { height: number; keyboard: boolean } {
-  const visible = typeof viewport?.height === 'number' && viewport.height > 0 ? viewport.height : innerHeight
-  return { height: Math.round(Math.min(innerHeight, visible)), keyboard: innerHeight - visible > KEYBOARD_MIN_PX }
+export function phoneCardRoom(
+  viewport: { height?: number; offsetTop?: number } | null | undefined,
+  innerHeight: number,
+  layoutHeight?: number,
+  typing = false,
+): { top: number; height: number; keyboard: boolean } {
+  const layout = Math.max(innerHeight || 0, layoutHeight || 0)
+  const visible = typeof viewport?.height === 'number' && viewport.height > 0 ? viewport.height : (innerHeight || layout)
+  const top = typeof viewport?.offsetTop === 'number' && viewport.offsetTop > 0 ? viewport.offsetTop : 0
+  return { top: Math.round(top), height: Math.round(visible), keyboard: typing || layout - visible > KEYBOARD_MIN_PX }
 }
 
 /** The first sentence of the first paragraph, and what follows it. */
@@ -176,14 +211,20 @@ export interface PhoneFollowProps {
   onSend: (value: string) => void
   onMic?: () => void
   micOn?: boolean
+  /** Talk about this card: the voice conversation, carrying what the card shows. */
+  onTalk?: () => void
   placeholder?: string
   label?: string
   inputRef?: MutableRefObject<HTMLTextAreaElement | null>
   disabled?: boolean
 }
 
-/** "Ask a follow-up": the field, the mic and send (the margin reader's `.mr-follow`). */
-export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, placeholder = 'Ask a follow-up', label = 'Follow up', inputRef, disabled = false }: PhoneFollowProps) {
+/**
+ * "Ask a follow-up": the field, the mic, Talk and send (the margin reader's `.mr-follow`). Every card ends with it
+ * (iPhone feedback, 21 Oct 2026): a follow-up joins the card's conversation in the chat; Talk starts a voice
+ * conversation about the card.
+ */
+export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onTalk, placeholder = 'Ask a follow-up', label = 'Follow up', inputRef, disabled = false }: PhoneFollowProps) {
   const own = useRef<HTMLTextAreaElement | null>(null)
   const field = inputRef ?? own
   useLayoutEffect(() => {
@@ -210,6 +251,8 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, pla
         />
         {onMic && <button type="button" className="lab-pcard-mic" data-testid="lab-phone-card-mic" aria-label="Dictate" aria-pressed={micOn}
           onPointerDown={event => event.preventDefault()} onClick={onMic}><PhoneIcon name="mic" /></button>}
+        {onTalk && <button type="button" className="lab-pcard-talkbtn" data-testid="lab-phone-card-talk" aria-label="Talk about this"
+          onPointerDown={event => event.preventDefault()} onClick={onTalk}><TalkIcon size={18} /></button>}
         <button type="button" className="lab-pcard-send" data-testid="lab-phone-card-send" aria-label="Send" disabled={!value.trim() || disabled}
           onPointerDown={event => event.preventDefault()} onClick={send}><PhoneIcon name="up" /></button>
       </div>
