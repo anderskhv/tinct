@@ -303,3 +303,49 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
     expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBeNull()
   })
 })
+
+// Follow requests made visible (Anders, 20 Oct 2026): a dot on the picture until the requests were shown here.
+describe('the follow-request dot on the library picture', () => {
+  const profileAnswer = { enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility: 'friends', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } }
+  const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+  const reply = (body: unknown) => Promise.resolve(new Response(JSON.stringify(body), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+  const ellen = { handle: 'ellen', name: 'Ellen Ravn', link: 'tinct.app/@ellen', picture: { src: null, pos: '', cover: false, private: false, initial: 'E' }, relation: 'followed', book: null }
+  let asked: string[] = []
+  async function visit(followingYou: unknown[]) {
+    vi.resetModules()
+    asked = []
+    localStorage.setItem(`tinct:findable-notice-dismissed:${USER}`, '1')
+    document.head.innerHTML = '<meta name="tinct-social" content="1"><meta name="tinct-friends" content="1">'
+    document.documentElement.classList.add('signed-in')
+    vi.stubGlobal('fetch', vi.fn((url: string) => {
+      asked.push(String(url))
+      if (String(url).startsWith('/api/profile')) return reply(profileAnswer)
+      if (String(url).startsWith('/api/social/find?only=following-you')) return reply({ followingYou })
+      return new Promise<Response>(() => {})
+    }))
+    await import('./libraryCards')
+    await settle()
+    return document.querySelector<HTMLElement>('#sign-in [data-testid="request-dot"]')
+  }
+  afterEach(() => { document.head.innerHTML = '' })
+
+  it('shows while a request has not been shown on this device, asking for Following you alone', async () => {
+    storeSession(3600)
+    const dot = await visit([ellen])
+    expect(dot).toBeTruthy()
+    expect(dot?.getAttribute('aria-hidden')).toBe('true')
+    expect(asked.filter(url => url.startsWith('/api/social/find'))).toEqual(['/api/social/find?only=following-you'])
+    // Shown on the You card (followRequests.markRequestsSeen): the dot goes at once.
+    const { markRequestsSeen } = await import('../social/followRequests')
+    markRequestsSeen(USER, [ellen as never])
+    expect(document.querySelector('#sign-in [data-testid="request-dot"]')).toBeNull()
+    // And stays gone on the next visit.
+    document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
+    expect(await visit([ellen])).toBeNull()
+  })
+
+  it('no dot for a friend already followed back', async () => {
+    storeSession(3600)
+    expect(await visit([{ ...ellen, relation: 'friend' }])).toBeNull()
+  })
+})

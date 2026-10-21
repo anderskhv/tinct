@@ -5284,6 +5284,16 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   line-height: 1;
 }
 
+/* The Profile row's dot: someone asks to be friends (20 Oct 2026). */
+.lab[data-chrome-version="v2"] .lab-super-row-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--lab-accent, #1f4a5c);
+}
+
 /* The menu's Librarian row: the body opens the default mode, the two icons
    open Chat or Talk directly. Same 44px row and 40px gutter as every row. */
 .lab[data-chrome-version="v2"] .lab-super-row.is-librarian { padding-right: 4px; cursor: default; }

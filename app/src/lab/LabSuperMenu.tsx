@@ -11,6 +11,8 @@ export interface LabSuperMenuProps {
   privateBook?: boolean
   /** A reader's own PDF: Book editions holds its Tinct text and its Original pages. */
   ownPdf?: boolean
+  /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
+  profileDot?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -86,7 +88,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, ownPdf, noCatchUp, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, ownPdf, noCatchUp, profileDot, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -181,6 +183,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, noCatchUp, onSe
           >
             <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
             <span className="lab-super-row-label">{row.label}</span>
+            {row.id === 'account' && profileDot && <span className="lab-super-row-dot" data-testid="request-dot" aria-hidden="true" />}
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>
         ))}
