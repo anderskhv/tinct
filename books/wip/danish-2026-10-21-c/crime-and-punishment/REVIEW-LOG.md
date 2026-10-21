@@ -4,7 +4,7 @@ Source: `app/public/data/editions/crime-and-punishment-modern-en.json` on origin
 Glossary only: old live `crime-and-punishment-modern-da.json` (names and terms, see GLOSSARY.md). No sentences copied.
 
 ## Review method actually used
-- Translator pass: paragraph by paragraph, chapter by chapter, by Claude (this session). 41 chapters, 4,066 paragraphs, about 200,500 Danish words.
+- Translator pass: paragraph by paragraph, chapter by chapter, by Claude (this session). 41 chapters, 3,904 paragraphs, about 200,500 Danish words.
 - Second pass: **not independent.** This run had no subagent tool, so the required independent reviewer (sees only EN + DA) could not be run. Second pass done by the same translator: automated per-paragraph checks after every chapter (alignment, English-residue detector, per-paragraph length-ratio flag <0.70 or >1.60 for paragraphs over 150 chars — zero flags), danish-lint after every chapter, and re-reading while drafting. **Independent review remains outstanding** before acceptance.
 
 ## Editorial decisions
