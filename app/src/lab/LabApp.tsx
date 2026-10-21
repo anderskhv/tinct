@@ -171,6 +171,7 @@ import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
+import { withTextRetries } from './labTextRetry'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
 import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './useLabPositionSync'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
@@ -1951,7 +1952,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const hyphensSettled = hyphenLang
       ? Promise.race([loadHyphenator(hyphenLang), new Promise<void>(resolve => window.setTimeout(resolve, LAB_HYPHENATION_WAIT_MS))])
       : null
-    loadLabBookSource({
+    withTextRetries(() => loadLabBookSource({
         readingFirst: true,
       bookId: activeBookId,
       chapterNumber: wanted,
@@ -1959,7 +1960,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       compareEditionKey,
       compareAfterFirstPage: !firstPageShownRef.current && !compareOnScreenRef.current,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
-    }).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
+    }), () => !cancelled && navigation === chapterNavigationRef.current).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
       // Bible's legacy loader has a Genesis fallback for network failures;
       // never let that replace a requested Bible chapter. Generic books may
@@ -5075,7 +5076,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setChapterNotes(null)
     if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, chapterNotes, handleChat, handleTalk])
 
   // Catch me up hands what it showed to Chat or Talk the way Explain and
@@ -5085,7 +5086,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet(null)
     if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
@@ -6582,7 +6583,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
-            // Let the explanation enter the hook's context before starting voice.
+            // Let the explanation enter the hook's context before starting voice;
+            // the microphone is asked for now, in the tap (Safari).
+            ask.primeVoice()
             requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta, text, intent) => {
