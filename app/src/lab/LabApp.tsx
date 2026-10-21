@@ -18,7 +18,7 @@ import { useLabAutoOffline } from './useLabAutoOffline'
 import { offlineEditionKeys } from './labOfflineBook'
 import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
 import { LabFootnote, type OpenFootnote } from './LabFootnote'
-import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
+import { namesakesAt, resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
@@ -3782,6 +3782,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // meaningless. A fresh drag has just expressed a different intent, so it
     // always keeps what was dragged even where it overlaps a highlight.
     const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    // A shared name that no reviewed mention claims is named as shared, not guessed at.
+    const namesakes = offsets && !character && !existing && pickedOneWord ? namesakesAt(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph) : null
     const clickedWordText = pickedOneWord ? lookupWordAtPoint(range.text, range.paragraphIndex, range.fromWord, clientX, clientY, side === 'compare', Boolean(context)) : range.text
     const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
       || highlight.endParagraphIndex !== range.endParagraphIndex
@@ -3829,6 +3831,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       existingNote: highlight?.note,
       homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
+      namesakes: namesakes ?? undefined,
       editionKey,
       side,
       range: subject,
@@ -3842,7 +3845,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if(parts.length<2)return
     const first=parts[0]
     handleSelectRange(first.range,x,y,undefined,undefined,undefined,first)
-    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,homeMode:'main'}:current)
+    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,namesakes:undefined,homeMode:'main'}:current)
     setPopupMode('main')
     setCrossSelecting(null)
   }
@@ -5072,7 +5075,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setChapterNotes(null)
     if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, chapterNotes, handleChat, handleTalk])
 
   // Catch me up hands what it showed to Chat or Talk the way Explain and
@@ -5082,7 +5085,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet(null)
     if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
@@ -5388,7 +5391,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (kind === 'define') {
       const word = selection.defineText || selection.text
       define.begin(word)
-      openPhoneCard({ kind: 'define', passage, word, openedAt: Date.now() })
+      openPhoneCard({ kind: 'define', passage, word, namesakes: selection.namesakes, openedAt: Date.now() })
       return
     }
     if (kind === 'quiz') { openPhoneCard({ kind: 'quiz', passage, chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, openedAt: Date.now() }); return }
@@ -5519,7 +5522,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
           {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword">{define.result?.word || card.word}</p>}
-          <DefinitionFallback key={card.word} word={card.word}
+          <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
         </div>
@@ -6579,7 +6582,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
-            // Let the explanation enter the hook's context before starting voice.
+            // Let the explanation enter the hook's context before starting voice;
+            // the microphone is asked for now, in the tap (Safari).
+            ask.primeVoice()
             requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta, text, intent) => {

@@ -16,6 +16,7 @@ import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONN
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
 import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -586,9 +587,27 @@ describe('the book reader is unchanged', () => {
     askStream: 'e2e6eea181031a8787b859bccb319da0a51bb5cecae15d45468f8d5ac166db6f',
     guestAsk: 'eaa1df445f7df54bb419de8be86b3c1430241e7135ef0d585d02f5eb2ca4badc',
   }
-  // The lookup's grounding line (Anders, 21 Oct 2026) changes Define's turn on purpose and nothing else: its
-  // body is pinned as it is now, and with exactly that line taken out it is still the body above.
-  const AFTER: Record<string, string> = { ...BEFORE, define: '7df66c824adb9bc3c064e8b9be698266a64514f6fef6ea8aab0565a2c8ac139d' }
+  // The grounding rules and the reader's place line (Anders, 21 Oct 2026, "go on chat") change the book
+  // reader's prompt on purpose and nothing else: each body is pinned as it is now, and with exactly those
+  // additions taken out it is still the body above.
+  const GROUNDED: Record<string, string> = {
+    explain: '331fc205d37b9c58dd0cc4cb8d70abf7920cbd95dd741e8b93bc964bf00b7fe4',
+    define: '4ab071f7f29d24b88847ac9ae91561e819b6948192adf9abee9e949059aa04e0',
+    ask: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+    askStream: '04f8f7b58869179b758afd3babf868f7781078c48f6a31ede382a22239fb358e',
+    guestAsk: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+  }
+  const withoutGrounding = (body: Record<string, unknown>) => {
+    const strip = (text: string) => {
+      const rules = `\n\n${LAB_ASK_GROUND_FIRST_RULE}\n${LAB_ASK_CHECKED_SPECIFICS_RULE}\n${LAB_ASK_RECHECK_RULE}`
+      expect(text.split(rules).length - 1).toBeLessThanOrEqual(1)
+      return text.replace(rules, '').replace(/The reader is at: [^\n]*\n\n/, '')
+    }
+    const system = body.system as string | Array<{ text: string }>
+    return { ...body, system: typeof system === 'string' ? strip(system) : system.map(block => ({ ...block, text: strip(block.text) })) }
+  }
+  // The lookup grounding line (#525) adds to Define's turn on top of that, and nothing else.
+  const AFTER: Record<string, string> = { ...GROUNDED, define: '678ebd2ba093d613aca66be8340a006bd94ba533da2af6293a91d6e62dc115d3' }
   const withoutLookupGrounding = (body: Record<string, unknown>) => {
     const line = `${CONTEXTUAL_LOOKUP_GROUNDING_LINE}\n`
     const messages = body.messages as Array<{ role: string; content: unknown }>
@@ -607,7 +626,8 @@ describe('the book reader is unchanged', () => {
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
     expect(sha(anthropic[0])).toBe(AFTER[name])
-    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(BEFORE[name])
+    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(GROUNDED[name])
+    expect(sha(withoutGrounding(withoutLookupGrounding(anthropic[0])))).toBe(BEFORE[name])
   })
 })
 

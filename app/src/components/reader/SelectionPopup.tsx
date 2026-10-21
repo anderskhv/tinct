@@ -1,7 +1,7 @@
 import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react'
 import { flushSync } from 'react-dom'
-import type { CharacterSelection } from '../../services/characters/characterCards'
+import type { CharacterSelection, NamesakeNotice } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import type { DictResult } from '../../services/dictionary'
@@ -21,6 +21,8 @@ export type PopupMode = 'main' | 'colors' | 'issue' | 'note' | 'define' | 'chara
 // owned by Reader.tsx and passed in. Extracted from Reader.tsx (slice 4).
 export interface SelectionInfo {
   character?: CharacterSelection
+  /** A tapped name several cards share, with no reviewed mention to say which. */
+  namesakes?: NamesakeNotice
   x: number
   y: number
   text: string
@@ -445,7 +447,7 @@ export function SelectionPopup({
           )}
           {/* The passage lookup starts with the dictionary, not after it (Anders, 2026-10-06). */}
           {contextualLookup ? (
-            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} />
+            <DefinitionFallback word={defineQuery} request={onRequestExplanation!} dictionaryDefinitions={defineLoading ? undefined : defineResult?.definitions} onChat={text => onExplain(text)} onTalk={onTalkExplanation} namesakes={selection.namesakes} />
           ) : !defineLoading && defineNotFound && (
             <div className="popup-define-status popup-define-empty">
               No definition found for &ldquo;{defineQuery}&rdquo;.
