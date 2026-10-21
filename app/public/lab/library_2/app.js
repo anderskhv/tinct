@@ -4,7 +4,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261020open';
+import {mountBookshelf} from './bookshelf.js?v=20261021deskopen';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
@@ -548,7 +548,7 @@ function ambient(now){
 // book the room shows through, so it keeps moving there. Anything else that changes the picture (a
 // scene arriving or crossfading, the canvas size, the featured book, its place and cover) still draws at once.
 let lifeStarted=reduced.matches,heldSceneKey=null;
-function heroCovered(){return searchOpen||collectionChoice!=='home'||openingReader||leaving||(innerWidth<700&&mode!=='minimized');}
+function heroCovered(){return searchOpen||collectionChoice!=='home'||openingReader||leaving||document.body.classList.contains('leaving')||(innerWidth<700&&mode!=='minimized');}
 function lifeHeld(now){return !reduced.matches&&!sceneFrom&&(!lifeStarted||heroCovered());}
 function sceneKey(){const c=$('scene'),r=$('hero-book').getBoundingClientRect();return [sceneTo,c.clientWidth,c.clientHeight,c.width,Object.keys(images).length,document.documentElement.className,Math.round(r.left),Math.round(r.top),Math.round(r.width),Math.round(r.height),featured.id,textures.has(featured.id),textureWidths.get(featured.id),sourceCanvas?.parentElement?.id||''].join('|');}
 {const since=performance.now();const startLife=()=>{lifeStarted=true;};const waitForLife=()=>{const c=document.documentElement.classList;if((c.contains('library-ready')&&!c.contains('returning-pending')&&!c.contains('returning-scene-pending'))||performance.now()-since>4000){(window.requestIdleCallback||setTimeout)(startLife,{timeout:800});return;}setTimeout(waitForLife,150);};if(!lifeStarted)waitForLife();}

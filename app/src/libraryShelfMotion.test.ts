@@ -150,12 +150,14 @@ describe('every removal path uses the motion', () => {
     // The library's memory on a phone (20261021memory) changed app.js and styles.css; the book's flap drawn
     // flat once turned (20261021flap) changed them again. The room's life holding still while the page
     // arrives, a touch answers and a full-screen layer covers it (20261021speed) changed app.js alone.
+    // A desk book's tap answered at once with the fade to the reader's paper (20261021deskopen) changed
+    // bookshelf.js and app.js.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
-    expect(lib('index.html')).toContain('app.js?v=20261021speed')
+    expect(lib('index.html')).toContain('app.js?v=20261021deskopen')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261021flap')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
-    expect(lib('app.js')).toContain(`bookshelf.js?v=${latest}`)
+    expect(lib('app.js')).toContain('bookshelf.js?v=20261021deskopen')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)

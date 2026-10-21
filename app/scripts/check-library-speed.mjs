@@ -402,12 +402,12 @@ async function deskToReaderAndBack(page, { early = false } = {}) {
   let secondTap = false
   if (!left) { secondTap = true; await page.locator('.rt-b.is-current, .rt-b').first().tap().catch(() => {}); await page.waitForURL(/\/reader/, { timeout: 15000 }) }
   await page.waitForFunction(() => window.__speed?.marks.readerText != null, null, { timeout: 60000 })
-  const reader = await page.evaluate(() => ({ text: window.__speed.marks.readerText, origin: performance.timeOrigin, longTasks: (window.__speed.noLongTask ? window.__speed.gaps : window.__speed.longTasks).filter(t => t.start < window.__speed.marks.readerText), fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime, resources: performance.getEntriesByType('resource').filter(r => r.startTime < window.__speed.marks.readerText).map(r => `${Math.round(r.startTime)}–${Math.round(r.responseEnd)}${r.transferSize === 0 && r.decodedBodySize > 0 ? ' (cache)' : ''} ${r.name.replace(location.origin, '').slice(0, 80)}`) }))
+  const reader = await page.evaluate(() => ({ place: { book: document.querySelector('.lab')?.dataset.bookId, chapter: document.querySelector('.lab')?.dataset.chapter }, text: window.__speed.marks.readerText, origin: performance.timeOrigin, longTasks: (window.__speed.noLongTask ? window.__speed.gaps : window.__speed.longTasks).filter(t => t.start < window.__speed.marks.readerText), fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime, resources: performance.getEntriesByType('resource').filter(r => r.startTime < window.__speed.marks.readerText).map(r => `${Math.round(r.startTime)}–${Math.round(r.responseEnd)}${r.transferSize === 0 && r.decodedBodySize > 0 ? ' (cache)' : ''} ${r.name.replace(location.origin, '').slice(0, 80)}`) }))
   const toReaderText = Math.round(reader.origin + reader.text - tappedAt)
   const leavingAt = await answered
   // A frame time can precede the event that began it by a few ms: an answer in that frame reads 0.
   const tapAnswer = Math.max(0, Math.round(Math.min(leavingAt ?? Infinity, reader.origin) - tappedAt))
-  const steps = { tapToNavigation: Math.round(reader.origin - tappedAt), navigationToFcp: reader.fcp ? Math.round(reader.fcp) : null, navigationToText: Math.round(reader.text), resources: reader.resources }
+  const steps = { place: reader.place, tapToNavigation: Math.round(reader.origin - tappedAt), navigationToFcp: reader.fcp ? Math.round(reader.fcp) : null, navigationToText: Math.round(reader.text), resources: reader.resources }
   await sleep(2500)
   // Back: the phone's t menu, then Library (desktop has its own button).
   const menu = page.locator('[data-testid="lab-super-button"], .lab-super-button, button[aria-label^="Open menu"], button[aria-label*="menu" i]').first()
@@ -519,6 +519,7 @@ function print(summary, runs) {
   if (reader) console.log(`Reader Library → library desk:   ${ms(reader.backToLibrary)}${reader.error ? ` (${reader.error})` : ''}`)
   const steps = runs[0].reader2?.steps || runs[0].reader?.steps
   if (steps) {
+    console.log(`  (run 1, second open) opened ${steps.place?.book} at chapter ${steps.place?.chapter} (the fixture's place: frankenstein, chapter 3)`)
     console.log(`  (run 1, second open) tap → reader page requested ${steps.tapToNavigation} ms; then first paint ${steps.navigationToFcp} ms, first text ${steps.navigationToText} ms; requests before the text:`)
     for (const r of steps.resources) console.log(`    ${r}`)
   }
