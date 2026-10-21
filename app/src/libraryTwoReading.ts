@@ -677,13 +677,17 @@ export async function removeFromShelf(bookId: string) {
   return result
 }
 
-/** Explicit shelf action: only a hide timestamp changes; saved places stay intact. */
-export async function hideFromReadingNow(bookId: string): Promise<void> {
+/**
+ * Explicit shelf action: only a hide timestamp changes; saved places stay intact. A Tinct book
+ * goes to Saved for later (Read later). An own book does too unless `saved: false` (My shelf's
+ * "Remove from Currently reading", Anders 2026-10-21): then it stays only under My private uploads.
+ */
+export async function hideFromReadingNow(bookId: string, { saved = true }: { saved?: boolean } = {}): Promise<void> {
   if (!bookId || bookId.length > 80) throw new Error('Invalid book')
   const auth = await readAuth()
   // An own book is hidden on this device only: its id never reaches the account.
   if (isUserBookId(bookId)) {
-    hideOwnFromReadingTable(userBookHex(bookId)!)
+    hideOwnFromReadingTable(userBookHex(bookId)!, Date.now(), { saved })
     storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
     return
   }

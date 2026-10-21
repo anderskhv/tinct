@@ -606,8 +606,8 @@ test.describe('My shelf', () => {
     await page.waitForURL(/\/sign-in\?mode=account/)
   })
 
-  /** A shelf card's ••• (shown on hover with a mouse, always on touch), opened: its menu's one item. */
-  const openMore = async (page: Page, card: ReturnType<Page['locator']>) => {
+  /** A shelf card's ••• (shown on hover with a mouse, always on touch), opened: the menu's item `label` (Remove from shelf by default). */
+  const openMore = async (page: Page, card: ReturnType<Page['locator']>, label = 'Remove from shelf') => {
     const more = card.locator('.shelf-more')
     if (!test.info().project.use.hasTouch) {
       await expect(more).toHaveCSS('opacity', '0')
@@ -615,12 +615,12 @@ test.describe('My shelf', () => {
     }
     await expect(more).toHaveCSS('opacity', /^0\.9/)
     await more.click()
-    const items = card.locator('[role="menuitem"]')
-    await expect(items).toHaveCount(1)
-    return items.first()
+    const item = card.getByRole('menuitem', { name: label, exact: true })
+    await expect(item).toHaveCount(1)
+    return item
   }
 
-  test('every book on My shelf, Finished too, has the cover\'s ••• with Remove from my books', async ({ page }) => {
+  test('every book on My shelf, Finished too, has the cover\'s ••• with Remove from shelf', async ({ page }) => {
     // The sample returning reader: five books being read, two finished.
     await prepare(page, { internal: false, signedIn: true, query: 'demo=reading' })
     await openShelf(page)
@@ -633,11 +633,33 @@ test.describe('My shelf', () => {
     const finished = grid.locator('[data-shelf-group="finished"]').first()
     await expect(finished.locator('.shelf-more')).toHaveAttribute('aria-label', /^More for /)
     const item = await openMore(page, finished)
-    await expect(item).toHaveText('Remove from my books')
+    await expect(item).toHaveText('Remove from shelf')
     await shot(page, 'myshelf-more-menu')
     await page.keyboard.press('Escape')
     await expect(grid.locator('.shelf-menu')).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  })
+
+  test('Currently reading\'s ••• offers Read later, then Remove from shelf, in a small menu just below the button, right-aligned to it', async ({ page }) => {
+    await prepare(page, { internal: false, signedIn: true, query: 'demo=reading' })
+    await openShelf(page)
+    const card = page.locator('#collection-books [data-shelf-group="reading"]:not(.own-book)').first()
+    const more = card.locator('.shelf-more')
+    if (!test.info().project.use.hasTouch) await card.locator('.card-wrap').hover()
+    await more.click()
+    const menu = card.locator('.shelf-menu')
+    await expect(menu.locator('[role="menuitem"]')).toHaveText(['Read later', 'Remove from shelf'])
+    const [b, m] = [await more.boundingBox(), await menu.boundingBox()]
+    expect(m!.y).toBeGreaterThanOrEqual(b!.y + b!.height)
+    expect(m!.y - (b!.y + b!.height)).toBeLessThan(10)
+    // Right edges aligned; a cover too near the left edge (a phone's first) starts at the button's left edge instead.
+    const rightAligned = Math.abs(m!.x + m!.width - (b!.x + b!.width)) < 1.5, startAligned = Math.abs(m!.x - b!.x) < 1.5
+    expect(rightAligned || (startAligned && b!.x + b!.width - m!.width < 8)).toBe(true)
+    expect(m!.x).toBeGreaterThanOrEqual(0)
+    expect(m!.x + m!.width).toBeLessThanOrEqual(page.viewportSize()!.width)
+    await shot(page, 'myshelf-reading-menu')
+    await page.keyboard.press('Escape')
+    await expect(menu).toHaveCount(0)
   })
 
   test('a finished book removed before 2026-10-20 is shown again; a book saved for later has its •••', async ({ page }) => {
@@ -658,7 +680,7 @@ test.describe('My shelf', () => {
     expect(await page.evaluate(() => localStorage.getItem('tinct:library-2-saved:guest'))).toBe(removal)
   })
 
-  test('Remove from my books asks first in the page: Cancel keeps it, Remove takes it off Finished too', async ({ page }) => {
+  test('Remove from shelf asks first in the page: Cancel keeps it, Remove takes it off Finished too', async ({ page }) => {
     await page.addInitScript(() => { try { localStorage.setItem('tinct:book-completed:hamlet', JSON.stringify({ bookId: 'hamlet' })) } catch { /* private */ } })
     await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)
@@ -668,7 +690,7 @@ test.describe('My shelf', () => {
     const dialog = page.locator('[data-testid="own-delete-dialog"]')
     await expect(dialog).toBeVisible()
     await expect(dialog.locator('h2')).toHaveText('Remove Hamlet?')
-    await expect(dialog.locator('.tui-dialog__body')).toHaveText('Removes it from your books. Your notes stay if you add it again.')
+    await expect(dialog.locator('.tui-dialog__body')).toHaveText('Removes it from your shelf. Your place and notes stay if you add it again.')
     await expect(dialog.locator('.own-delete-cancel')).toHaveText('Cancel')
     await expect(dialog.locator('.own-delete-confirm')).toHaveText('Remove')
     await page.waitForTimeout(400)
@@ -685,6 +707,30 @@ test.describe('My shelf', () => {
     await page.waitForTimeout(1500)
     await expect(page.locator('#collection-books [data-shelf-group="finished"]')).toHaveCount(0)
     expect(await page.evaluate(() => localStorage.getItem('tinct:book-completed:hamlet'))).not.toBeNull()
+  })
+
+  test('Read later moves a book being read to Saved for later, off the reading table, its place kept', async ({ page }) => {
+    const at = Date.now() - 120_000
+    const place = { bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 3, sequentialChapter: 3, paragraphIndex: 5, wordIndex: 0, pageIndex: 0, primaryEditionKey: 'original-en', updatedAt: at, deviceId: 'device-e2e', rev: 1 }
+    const record = JSON.stringify({ books: { frankenstein: place }, finished: {}, owner: null, hidden: {}, lastSettledBookId: 'frankenstein', lastSettledAt: at, updatedAt: at, deviceId: 'device-e2e' })
+    await page.addInitScript(value => { try { if (!localStorage.getItem('tinct-lab-position')) localStorage.setItem('tinct-lab-position', value) } catch { /* private */ } }, record)
+    await prepare(page, { internal: false, signedIn: false, query: 'x=1' })
+    const tableIds = () => page.evaluate(() => (window as unknown as { __library2Reading?: { reading: Array<{ bookId: string }> } }).__library2Reading?.reading.map(b => b.bookId) ?? null)
+    await expect.poll(tableIds, { timeout: 30_000 }).toContain('frankenstein')
+    await openShelf(page)
+    const reading = page.locator('#collection-books [data-shelf-group="reading"][data-book="frankenstein"]')
+    await expect(reading).toHaveCount(1)
+    await (await openMore(page, reading, 'Read later')).click()
+    // No confirm: nothing is lost.
+    await expect(page.locator('[data-testid="own-delete-dialog"]')).toHaveCount(0)
+    await expect(reading).toHaveCount(0)
+    await expect(page.locator('#collection-books [data-shelf-group="want"][data-book="frankenstein"]')).toHaveCount(1)
+    await expect.poll(tableIds).not.toContain('frankenstein')
+    expect(JSON.parse(await page.evaluate(() => localStorage.getItem('tinct-lab-position') || '{}')).books.frankenstein).toMatchObject({ chapterNumber: 3, paragraphIndex: 5 })
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await openShelf(page)
+    await expect(page.locator('#collection-books [data-shelf-group="want"][data-book="frankenstein"]')).toHaveCount(1, { timeout: 20_000 })
+    await expect(reading).toHaveCount(0)
   })
 
   test('removing a book being read takes it off My shelf and the reading table; adding it again brings back its place', async ({ page }) => {
