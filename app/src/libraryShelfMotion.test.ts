@@ -145,8 +145,10 @@ describe('every removal path uses the motion', () => {
     // Continue opens the latest thing read, with "Also reading" (20261020continue), changed the reading
     // table, bookshelf.js and styles.css, and every module above them on the way to index.html.
     // My shelf's ••• menu (20261020shelfmenu) changed app.js and styles.css; Finished's held books (20261020finished) app.js.
-    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020continue'
-    expect(lib('index.html')).toContain('app.js?v=20261020finished')
+    // A book being read opens in the reader or says it could not (20261020open, reader-href.js) changed
+    // app.js and the reading table, and every module above them on the way to index.html.
+    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
+    expect(lib('index.html')).toContain('app.js?v=20261020open')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261020shelfmenu')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
