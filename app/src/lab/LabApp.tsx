@@ -18,7 +18,7 @@ import { useLabAutoOffline } from './useLabAutoOffline'
 import { offlineEditionKeys } from './labOfflineBook'
 import { useChapterFootnotes, type PlacedFootnote } from './labFootnotes'
 import { LabFootnote, type OpenFootnote } from './LabFootnote'
-import { resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
+import { namesakesAt, resolveCharacter, wordSelectionOffsets } from '../services/characters/characterCards'
 import { LabBookSwitcher } from './LabBookSwitcher'
 import { LabWait } from './LabWait'
 import { LabChapterEnd } from './LabChapterEnd'
@@ -3782,6 +3782,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // meaningless. A fresh drag has just expressed a different intent, so it
     // always keeps what was dragged even where it overlaps a highlight.
     const pickedOneWord = range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord <= 1
+    // A shared name that no reviewed mention claims is named as shared, not guessed at.
+    const namesakes = offsets && !character && !existing && pickedOneWord ? namesakesAt(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph) : null
     const clickedWordText = pickedOneWord ? lookupWordAtPoint(range.text, range.paragraphIndex, range.fromWord, clientX, clientY, side === 'compare', Boolean(context)) : range.text
     const widerHighlight = highlight && (highlight.paragraphIndex !== range.paragraphIndex
       || highlight.endParagraphIndex !== range.endParagraphIndex
@@ -3829,6 +3831,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       existingNote: highlight?.note,
       homeMode: character ? 'main' : defaultPopupMode(subject.text, existing?.id),
       character: character ?? undefined,
+      namesakes: namesakes ?? undefined,
       editionKey,
       side,
       range: subject,
@@ -3842,7 +3845,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if(parts.length<2)return
     const first=parts[0]
     handleSelectRange(first.range,x,y,undefined,undefined,undefined,first)
-    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,homeMode:'main'}:current)
+    setSelectionPopup(current=>current?{...current,chapterRanges:parts,text:parts.map(p=>p.range.text).join(' '),existingHighlightId:undefined,existingNote:undefined,character:undefined,namesakes:undefined,homeMode:'main'}:current)
     setPopupMode('main')
     setCrossSelecting(null)
   }
@@ -5388,7 +5391,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (kind === 'define') {
       const word = selection.defineText || selection.text
       define.begin(word)
-      openPhoneCard({ kind: 'define', passage, word, openedAt: Date.now() })
+      openPhoneCard({ kind: 'define', passage, word, namesakes: selection.namesakes, openedAt: Date.now() })
       return
     }
     if (kind === 'quiz') { openPhoneCard({ kind: 'quiz', passage, chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, openedAt: Date.now() }); return }
@@ -5519,7 +5522,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
           {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword">{define.result?.word || card.word}</p>}
-          <DefinitionFallback key={card.word} word={card.word}
+          <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
         </div>
