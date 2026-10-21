@@ -54,7 +54,9 @@ beforeAll(() => {
 
 describe('1. one name for the whole-document chat', () => {
   it('the PDF reader’s t menu says Chat (the margin card’s name) and opens the chat', () => {
-    expect(READER).toMatch(/const MENU = \[\['chat', 'Chat'\],/)
+    // Since 21 Oct 2026 the first row is Chat · Talk (Tinct's normal t menu): its first half is Chat.
+    expect(READER).toMatch(/const MENU_GROUPS = \[\['chat', 'summarize', 'catchup'\],/)
+    expect(READER).toContain("${half('chat', 'Chat')}${half('talk', 'Talk', true)}")
     expect(READER).toContain("if (id === 'chat') return openChat();")
     expect(READER).not.toMatch(/\['librarian', 'Librarian'\]/)
   })

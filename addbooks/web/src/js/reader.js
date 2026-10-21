@@ -264,13 +264,15 @@ const urlHex = () => { const v = new URLSearchParams(location.search).get('userB
 const SHELF_URL = '/library#my-shelf';
 // The back arrow of every own book: the library's reading table, as from Tinct's books (Anders, 2026-10-12).
 const LIBRARY_URL = '/library';
+// Profile from a reader's own book: the library opens its account cards (src/cards/libraryCards.ts, ?card=).
+const PROFILE_URL = '/library?card=you';
 let leavingToShelf = false;
-async function leaveToShelf() {
+async function leaveToShelf(url = LIBRARY_URL) {
   if (leavingToShelf) return;
   leavingToShelf = true;
   leavePlace(); stopNarration();
   await accountCopySent();
-  previewWindow().location.assign(LIBRARY_URL);
+  previewWindow().location.assign(url);
 }
 // Back on this page from My shelf (restored as it was left): the way back works again.
 addEventListener('pageshow', () => { leavingToShelf = false });
@@ -2338,22 +2340,45 @@ const ICON = {
   attach: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="m20.5 16-5-5-8 8"></path></svg>',
   copy: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" stroke-width="1.5"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.5"></path></svg>',
 };
-// The reader's rows (src/lab/labSuperMenu.ts: Summarize, Catch me up, Settings, Library on the phone),
-// with this viewer's own: Snip a figure, Export notes, Open another book. The whole-document chat is
-// "Chat" here, the name its margin card has (the PM's full battery, 15 Oct 2026; the book reader keeps Librarian).
-const MENU = [['chat', 'Chat'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['snip', 'Snip a figure'], ['export', 'Export notes', true], ['settings', 'Settings', false, true], ['open', 'Open another book', true], ['library', 'Library', true]];
-// Settings holds read aloud's voice and speed (the look is the Aa panel's), so an EPUB, which has no read aloud here, has none.
-const menuItems = () => MENU.filter(([id]) => (id !== 'snip' || state.kind === 'pdf') && (id !== 'settings' || !isEpub()) && (id !== 'library' || isPhone()) && (id !== 'open' || !state.preview)).map(([id, label, rule, chevron]) => id === 'settings' ? [id, label, true, chevron] : [id, label, rule, chevron]);
+/*
+ * The t menu, Tinct's normal menu (Anders, 21 Oct 2026; the approved design of 20 Oct, the phone's
+ * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up (not on a book's first unit), Reading
+ * settings; then this reader's own, Snip a figure (a PDF), Export notes and Open another book (a reader's own book);
+ * then Library and Profile. Text, theme and layout are the Aa panel's. Each group after the first opens with a rule.
+ */
+const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['settings'], ['snip', 'export', 'open'], ['library', 'account']];
+const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', settings: 'Reading settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
+const MENU_CHEVRON = new Set(['settings', 'account']);
+ICON.account = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.2-3.2 3.8-4.8 7-4.8s5.8 1.6 7 4.8"></path></svg>';
+/** The page that frames this one (src/lab/marginPreview/MarginPreview.tsx), for a Tinct book's preview: its menu and player. */
+function previewHost() {
+  if (!state.preview) return null;
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === state.preview.bookId ? p : null } catch { return null }
+}
+/** Reading settings has something to offer: a Tinct book's editions and voice, a PDF's voice and speed or its Tinct text. */
+const readingSettingsApply = () => !!state.preview || !isEpub() || isPdfText();
+function menuShows(id) {
+  // Not on a book's first unit (nor, without units, on its first page): nothing has been read to catch up on.
+  if (id === 'catchup') { const u = currentUnit(); return u ? !nothingBefore(u) : placePage() > 1 }
+  if (id === 'settings') return readingSettingsApply();
+  if (id === 'snip') return state.kind === 'pdf';
+  if (id === 'open') return !state.preview;
+  return true;
+}
+/** The rows to draw, each with its rule (the first of a group after the first). -> [[id, rule]] */
+const menuItems = () => MENU_GROUPS.flatMap((group, g) => group.filter(menuShows).map((id, i) => [id, g > 0 && i === 0]));
 function openMenu() {
   if (document.querySelector('.lab-super-layer')) return closeMenu();
   closeAllPopups();
   const layer = document.createElement('div');
   layer.className = 'lab-super-layer';
   const textless = hasNoText();
-  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close menu"></button><nav class="lab-super-panel" aria-label="Menu">${menuItems().map(([id, label, rule, chevron]) =>
-    `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span>${chevron ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
+  const half = (id, label, second) => `<button type="button" class="lab-super-row-half${second ? ' is-second' : ''}" data-row="${id}"><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span></button>`;
+  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close menu"></button><nav class="lab-super-panel" aria-label="Menu">${menuItems().map(([id, rule]) => id === 'chat'
+    ? `<div class="lab-super-row is-pair" data-row="conversation" role="group" aria-label="Chat or Talk">${half('chat', 'Chat')}${half('talk', 'Talk', true)}</div>`
+    : `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${MENU_LABEL[id]}</span>${MENU_CHEVRON.has(id) ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
   layer.querySelector('.lab-super-scrim').onclick = closeMenu;
-  layer.querySelectorAll('.lab-super-row').forEach(b => b.onclick = () => { closeMenu(); menuAction(b.dataset.row) });
+  layer.querySelectorAll('button[data-row]').forEach(b => b.onclick = () => { closeMenu(); menuAction(b.dataset.row) });
   root.appendChild(layer);
   root.dataset.superMenu = 'open';
   $('superBtn').dataset.open = 'true'; $('superBtn').setAttribute('aria-expanded', 'true');
@@ -2366,8 +2391,11 @@ function closeMenu() {
 $('superBtn').onclick = openMenu;
 function menuAction(id) {
   if (id === 'library') { leaveToShelf(); return }
+  if (id === 'account') return openProfile();
   if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
   if (id === 'chat') return openChat();
+  // Talk: Chat with Talk on (answers read aloud), the margin's whole-file Chat where the margin is on (as a card's Talk).
+  if (id === 'talk') { setTalk(true); return openChat() }
   if ((id === 'summarize' || id === 'catchup') && hasNoText()) return;
   if (id === 'summarize') return summarize();
   if (id === 'catchup') return catchUp();
@@ -2375,6 +2403,12 @@ function menuAction(id) {
   if (id === 'export') return exportNotes();
   if (id === 'settings') return openSettings();
   if (id === 'open') return $('fileInput').click();
+}
+/** Profile: the account cards. In a Tinct book's preview the framing page opens them over the reader; here, the library does. */
+function openProfile() {
+  const host = previewHost();
+  if (host?.menu?.openProfile) { host.menu.openProfile({ dark: root.classList.contains('is-night') }); return }
+  leaveToShelf(PROFILE_URL);
 }
 
 /* Page jump: the chapter pill becomes the page pill */
@@ -2506,31 +2540,65 @@ function closeDisplay({ focus = false } = {}) {
   if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
 }
 $('aaBtn').onclick = openDisplay;
-/* Settings: the reader's Settings sheet (src/lab/LabV2Sheet.tsx), with the rows that apply here: read
-   aloud's voice and speed (the look is the Aa panel's, above). */
-function openSettings() {
+/* Reading settings (the t menu): the reader's Reading settings sheet (src/lab/LabV2Sheet.tsx), with the rows that
+   apply here (the look is the Aa panel's, above). A reader's own PDF: its edition (Margin view or its Tinct text, when
+   it has text) and read aloud's voice and speed. A Tinct book's preview: the book reader's Main version and Compare
+   version, and its narration's voice and speed (the framing page's, previewHost). */
+async function openSettings() {
   closeAllPopups();
-  const voices = bookVoices();
-  const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
+  const host = previewHost();
+  const rows = [];
+  let note = '';
+  if (state.preview) {
+    const ed = await host?.menu?.reading?.().catch(() => null);
+    if (ed && ed.editions.length > 1) {
+      rows.push(selectRow('editionSel', 'Main version', ed.edition, ed.editions.map(o => [o.value, o.label])));
+      rows.push(selectRow('compareSel', 'Compare version', ed.compareEdition, ed.compareEditions.map(o => [o.value, o.label])));
+    }
+    const listen = host?.listen, snap = listen?.snapshot?.();
+    if (listen?.voices && snap && snap.available !== false) {
+      const v = listen.voices(), speed = Number(snap.speed) || 1;
+      rows.push(selectRow('voiceSel', 'Voice', v.value, v.options.map(o => [o.value, o.label])));
+      rows.push(selectRow('rateSel', 'Speed', String(speed), [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, speed])].sort((a, b) => a - b).map(r => [String(r), r + '×'])));
+    }
+  } else {
+    if ((state.kind === 'pdf' && hasText()) || isPdfText()) rows.push(selectRow('editionSel', 'Edition', isPdfText() ? 'text' : 'pages', [['pages', 'Margin view'], ['text', 'Tinct text']]));
+    if (!isEpub()) {
+      const voices = bookVoices();
+      const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
+      rows.push(selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...voices.map(v => [v.name, v.name])]));
+      rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rates.map(r => [String(r), r + '×'])));
+      note = 'Read aloud uses this device’s own voice; nothing is recorded. ';
+    }
+    note += imgNote;
+  }
+  document.querySelector('.byob-reading-settings')?.remove();
   const layer = document.createElement('div');
-  layer.className = 'lab-v2-sheet-layer byob-settings'; layer.dataset.testid = 'lab-v2-sheet-layer';
+  layer.className = 'lab-v2-sheet-layer byob-settings byob-reading-settings'; layer.dataset.testid = 'lab-v2-sheet-layer';
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Settings">
-      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Settings</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Reading settings">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Reading settings</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
       <div class="lab-v2-sheet-body">
-        <div class="lab-v2-rows">
-          ${isEpub() ? '' : selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...voices.map(v => [v.name, v.name])])}
-          ${isEpub() ? '' : selectRow('rateSel', 'Speed', String(prefs.rate), rates.map(r => [String(r), r + '×']))}
-        </div>
-        <p class="lab-v2-note">${isEpub() ? '' : 'Read aloud uses this device’s own voice; nothing is recorded. '}${esc(imgNote)}</p>
+        <div class="lab-v2-rows">${rows.join('')}</div>
+        ${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}
       </div>
     </section>`;
   const close = () => layer.remove();
   layer.querySelector('.lab-super-scrim').onclick = close;
   layer.querySelector('.lab-v2-dismiss').onclick = close;
+  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close() } });
   const sync = (sel, fn) => { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); layer.querySelector(`[data-value="${sel}"]`).textContent = e.target.selectedOptions[0]?.textContent || '' } };
-  sync('rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
-  sync('voiceSel', v => { prefs.voice = v; savePrefs() });
+  if (state.preview) {
+    // Another main version: the preview opens again at this chapter, paragraph and word (the place kept first).
+    sync('editionSel', v => { close(); const at = previewSpot(); leavePlace(); stopNarration(); host?.menu?.setEdition(v, at) });
+    sync('compareSel', v => host?.menu?.setCompareEdition(v));
+    sync('voiceSel', v => host?.listen?.setVoice?.(v));
+    sync('rateSel', v => host?.listen?.setSpeed?.(Number(v)));
+  } else {
+    sync('editionSel', v => { close(); if (v === 'text') readAsText(); else if (isPdfText()) pdfTextToPages() });
+    sync('rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
+    sync('voiceSel', v => { prefs.voice = v; savePrefs() });
+  }
   root.appendChild(layer);
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
