@@ -53,6 +53,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   page.on('requestfailed', request => networkFailures.push({url:request.url().split('?')[0],error:request.failure()?.errorText}))
   page.on('response', response => { if(response.status()>=400) networkFailures.push({url:response.url().split('?')[0],status:response.status()}) })
   page.on('pageerror', error => errors.push(error.message))
+  // The reader's own warnings (why a text did not load: editionLoader, labReader), for a boot failure's report only.
+  const warnings = []
+  page.on('console', message => { if (message.type() === 'warning' || message.type() === 'error') warnings.push(message.text().slice(0, 400)) })
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
@@ -103,7 +106,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:await visibleText(page,3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
@@ -920,8 +923,15 @@ async function menuRedesign(engine,name,phone) {
     assert(requests.some(body=>body.chapterNotes?.kind==='end'),'summary asks for the whole chapter')
     assert(!requests.some(body=>body.chapterNotes?.kind==='sofar'),'summary never asks for a so-far card')
     assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
-    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
-    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
+    // The phone's summary ends with the follow-up field (mic, Talk, send; 21 Oct 2026); the desktop keeps Chat and Talk.
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),phone?0:1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),phone?0:1)
+    if(phone){
+      const sheet=page.getByTestId('lab-chapter-notes')
+      for(const id of ['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'])assert.equal(await sheet.locator(`[data-testid="${id}"]`).count(),1,id+' in the summary sheet')
+      const fit=await sheet.evaluate(node=>{const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect(),last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom));return {height:s.height,gap:f.top-last}})
+      assert(fit.gap<=24&&fit.height<452,'the summary sheet is as tall as its content: '+JSON.stringify(fit))
+    }
     await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])

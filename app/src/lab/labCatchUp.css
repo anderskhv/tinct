@@ -3,6 +3,9 @@
    chrome. The timeline mirrors the menu icon: small filled dots for what has
    been read, an open ring for "You are here". */
 
+/* As tall as what it holds, up to the sheet height (iPhone feedback, 21 Oct 2026: no empty band above the last row). */
+.lab[data-chrome-version="v2"] .lab-v2-sheet.lab-catch-up { height: auto; max-height: var(--lab-v2-sheet-height); }
+
 .lab[data-chrome-version="v2"] .lab-catch-up .lab-catch-up-body {
   padding: 4px 16px 8px;
   overscroll-behavior: contain;
