@@ -266,6 +266,12 @@ export const QUIZ_CHECK_ADDITION_RULE = 'Judge anything the answer adds on its m
 export const QUIZ_CHECK_FRAMING_RULE = 'Accept a correct answer in any defensible framing. When the reader answers from a different defensible view than the one the question names, above all the author\'s own position (given in <author_position> and the document), mark it right and add one sentence naming the difference, such as "That is the many-worlds account the essay defends; here the passage is describing collapse."'
 export const QUIZ_CHECK_NO_REREAD_RULE = 'Never tell the reader to reread when their answer is defensible.'
 export const QUIZ_CHECK_GRADES_RULE = 'Mark "right" when the core idea is right and any addition is defensible or partly true; "nearly" only when the core idea is incomplete or partly wrong; "not_yet" (shown as "Not quite.") when the core idea is wrong.'
+/**
+ * A reply under the marking (Anders, 20 Oct 2026: after "Nearly", "so is it because the two instances cancel?"): the reader
+ * may go a few rounds with the grader on one question (companionRequest.ts QUIZ_CHECK_FOLLOW_UPS) before the next one. The
+ * same rules judge the reply; an addition is still judged on its merits.
+ */
+export const QUIZ_CHECK_REPLY_RULE = 'When the reader replies to your marking (<reader_reply> after <your_marking>), mark their newest reply in the light of the whole exchange on this question: answer what it asks or says directly, judge anything it adds on its merits as above, and give the verdict for their understanding of the key idea now. Raise it when the reply supplies what was missing; never lower it only because the reply asks a question. Do not repeat your earlier feedback.'
 export const QUIZ_CHECK_PROMPT = [
   QUIZ_CHECK_BASIS_RULE,
   QUIZ_CHECK_CREDIT_RULE,
@@ -273,6 +279,7 @@ export const QUIZ_CHECK_PROMPT = [
   QUIZ_CHECK_FRAMING_RULE,
   QUIZ_CHECK_GRADES_RULE,
   QUIZ_CHECK_NO_REREAD_RULE,
+  QUIZ_CHECK_REPLY_RULE,
   'Return only JSON: {"verdict":"right"|"nearly"|"not_yet","feedback":"…"}',
   'The feedback is short, at most three sentences: what the answer got right, then a word on any addition or other framing, then what is missing, if anything. For not_yet, point to the idea to reread without simply stating the answer.',
   'Write the feedback to the reader directly, as "you" and "your answer"; never "the reader" or "the reader\'s answer".',

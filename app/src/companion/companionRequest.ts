@@ -67,6 +67,19 @@ export interface QuizCheck {
   /** The key idea this question tests, and the passage quizzed (a passage quiz): what the grader marks against. */
   idea?: string
   passage?: string
+  /**
+   * A reply under the marking (Anders, 20 Oct 2026): the earlier turns on this question, oldest first, the reader's first
+   * answer, then the grader's marking and the reader's reply in turn, ending with a marking; `answer` is then the reader's
+   * newest reply. At most QUIZ_CHECK_FOLLOW_UPS replies per question.
+   */
+  turns?: QuizTurn[]
+}
+
+export interface QuizTurn {
+  role: 'reader' | 'grader'
+  text: string
+  /** A marking's verdict. */
+  verdict?: 'right' | 'nearly' | 'not_yet'
 }
 
 export interface CompanionRequest {
@@ -138,6 +151,28 @@ export const QUIZ_ASKED_MAX = 24
 export const QUIZ_ASKED_CHARS = 300
 /** The passage a quiz answer is marked against, at most this long. */
 export const QUIZ_CHECK_PASSAGE_CHARS = 4000
+/** A reader may reply under a marking this many times per question; each earlier turn is kept to QUIZ_TURN_CHARS. */
+export const QUIZ_CHECK_FOLLOW_UPS = 3
+export const QUIZ_TURN_CHARS = 600
+const QUIZ_VERDICT_NAMES: ReadonlySet<string> = new Set(['right', 'nearly', 'not_yet'])
+/**
+ * The earlier turns of a reply under the marking: reader, grader, reader, …, grader (an even number, at most two per
+ * reply allowed before this one). -> [] for none, or null when they are malformed (the request is refused).
+ */
+function quizTurns(raw: unknown): QuizTurn[] | null {
+  if (raw == null) return []
+  if (!Array.isArray(raw) || raw.length % 2 !== 0 || raw.length > 2 * QUIZ_CHECK_FOLLOW_UPS) return null
+  const turns: QuizTurn[] = []
+  for (const [i, item] of raw.entries()) {
+    const t = item && typeof item === 'object' ? item as Record<string, unknown> : null
+    const role = i % 2 === 0 ? 'reader' : 'grader'
+    const said = t ? text(t.text, QUIZ_TURN_CHARS) : undefined
+    if (!t || t.role !== role || !said) return null
+    const verdict = role === 'grader' && typeof t.verdict === 'string' && QUIZ_VERDICT_NAMES.has(t.verdict) ? t.verdict as QuizTurn['verdict'] : undefined
+    turns.push({ role, text: said, ...(verdict ? { verdict } : {}) })
+  }
+  return turns
+}
 
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
@@ -504,7 +539,10 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const idea = text(q!.idea, QUIZ_ASKED_CHARS)
     const passage = text(q!.passage, QUIZ_CHECK_PASSAGE_CHARS)
     const ideas = Array.isArray(q!.ideas) ? (q!.ideas as unknown[]).slice(0, 8).map(item => text(item, 200)).filter((item): item is string => Boolean(item)) : []
-    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}), ...(idea ? { idea } : {}), ...(passage ? { passage } : {}) }, ...pdf }
+    // A reply under the marking carries the earlier turns on this question (at most QUIZ_CHECK_FOLLOW_UPS replies).
+    const turns = quizTurns(q!.turns)
+    if (!turns) return null
+    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}), ...(idea ? { idea } : {}), ...(passage ? { passage } : {}), ...(turns.length ? { turns } : {}) }, ...pdf }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null
@@ -626,7 +664,7 @@ export function buildCompanionSystemParts(request: CompanionRequest, extras: Com
 
 /** The reader's data inside our own wrapper tags cannot close or open one of them. */
 function tagData(value: string): string {
-  return value.replace(/<\/?(?:selected_passage|word|senses|question|expected|why|reader_answer)\s*>/gi, '')
+  return value.replace(/<\/?(?:selected_passage|word|senses|question|expected|why|reader_answer|reader_reply|your_marking)(?:\s[^<>]*)?\s*>/gi, '')
 }
 
 /** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
@@ -662,7 +700,11 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
       // Marked against the key idea and the passage, the expected answer only a hint (Anders, 20 Oct 2026).
       const passage = q.passage ? `<passage>\n${tagData(q.passage)}\n</passage>\n` : ''
       const idea = q.idea ? `<key_idea>${tagData(q.idea)}</key_idea>\n` : ''
-      return `${position}${ideas}${passage}${idea}<question>${tagData(q.question)}</question>\n<one_acceptable_answer>${tagData(q.expected)}</one_acceptable_answer>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
+      // A reply under the marking: the first answer, each marking and reply in turn, then the newest reply.
+      const thread = q.turns?.length
+        ? `<reader_answer>${tagData(q.turns[0].text)}</reader_answer>\n${q.turns.slice(1).map(t => (t.role === 'grader' ? `<your_marking${t.verdict ? ` verdict="${t.verdict}"` : ''}>${tagData(t.text)}</your_marking>` : `<reader_reply>${tagData(t.text)}</reader_reply>`)).join('\n')}\n<reader_reply>${tagData(q.answer)}</reader_reply>`
+        : `<reader_answer>${tagData(q.answer)}</reader_answer>`
+      return `${position}${ideas}${passage}${idea}<question>${tagData(q.question)}</question>\n<one_acceptable_answer>${tagData(q.expected)}</one_acceptable_answer>\n<why>${tagData(q.why ?? '')}</why>\n${thread}`
     }
     default:
       return null
