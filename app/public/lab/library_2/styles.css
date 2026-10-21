@@ -538,3 +538,10 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 .cover-back::after{top:0;bottom:0;width:calc(41% + 10px);filter:none;background:linear-gradient(90deg,#0000 20%,#312d2240 calc(100% - 22px),#312d224a calc(100% - 14px),#312d2222 calc(100% - 7px),#0000)}
 .binding-seam{box-shadow:3px 0 0 #00000026,6px 0 0 #00000017,10px 0 0 #0000000d}
 .book-slip{box-shadow:1px 0 0 #fff6,3px 1px 0 #30281b10,6px 2px 0 #30281b0b,10px 2px 0 #30281b07}
+/* Variant B (mock, 2026-10-21), on top of A: the cheapest book flap. The flap lies flat on the page
+   (no 3D tilt, so no compositing layer of its own) with a 1px edge for its shadow; the paper's soft
+   shadow image becomes a 1px edge; the seam's shadow and the cover's soft fold go. */
+#paper{border-image:none;box-shadow:0 0 0 1px #0003}
+.cover-back::after{display:none}
+.binding-seam{box-shadow:none}
+.book-slip{transform:none;box-shadow:1px 0 0 #30281b26}
