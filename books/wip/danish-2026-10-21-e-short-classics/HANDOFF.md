@@ -34,7 +34,7 @@ Each book folder holds four files:
 ## Gates (all five books pass)
 - **1:1 alignment with modern-en:** same chapters, the same number of paragraphs per chapter, the same order and the same keys. Chapter titles are translated.
 - **Zero paragraphs left in English.** Three Prince paragraphs are identical to the English because they hold only names: »Ramiro d'Orco: Ramiro de Lorqua.«, »Christopher Pitt.« and »Edward Dacre, 1640.«.
-- **da/en length ratio (characters) between 0.85 and 1.25 for every chapter.** There are no outliers. The lowest chapter is 0.97 (Manifesto ch2) and the highest is about 1.05.
+- **da/en length ratio (characters) between 0.85 and 1.25 for every chapter.** There are no outliers. The lowest chapter is 0.949 (Prince, chapter entry 5) and the highest is 1.056.
 - **`books/danish-lint.py` clean.**
   - The script hard-codes a Mac path, so it was run unmodified by importing it with its `EDITIONS_DIR` pointed at a temporary copy of the live modern-da corpus, with the candidate in place of the old file.
   - It reports 0 real issues.
