@@ -4,6 +4,7 @@ import { isAiRestingError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
 import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
+import type { NamesakeNotice } from '../../services/characters/characterCards'
 
 /** The passage a card is about: the words, where they are, and the chapter around them. */
 export interface PhonePassage {
@@ -23,7 +24,7 @@ export type PhoneAnswerKind = 'explain' | 'simplify' | 'factcheck' | 'counterpoi
 
 export type PhoneCard =
   | { kind: PhoneAnswerKind; passage: PhonePassage; openedAt: number }
-  | { kind: 'define'; passage: PhonePassage; word: string; openedAt: number }
+  | { kind: 'define'; passage: PhonePassage; word: string; namesakes?: NamesakeNotice; openedAt: number }
   | { kind: 'ask'; passage: PhonePassage; openedAt: number }
   | { kind: 'quiz'; passage: PhonePassage | null; chapterNumber: number; chapterLabel: string; openedAt: number }
   | { kind: 'note'; passage: PhonePassage; highlightId: string; created: boolean }

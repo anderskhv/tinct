@@ -10,6 +10,7 @@ import { resolve } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 import { chooseEpubMargin, epubView, epubViewHere, findQuote, quoteKey, readEpubPlace, writeEpubViewChoice } from './epubView'
 import { ownBookHref } from './userBookId'
+import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
 import { writeUserBookPlace } from './userBookPlace'
 import { USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
@@ -119,18 +120,6 @@ describe('the place, by its words', () => {
 })
 
 describe('the Tinct reader sends an EPUB read in Margin view on to the margin reader', () => {
-  function fakeIndexedDb(records: Map<string, Record<string, unknown>>) {
-    const db = {
-      objectStoreNames: { contains: () => true }, createObjectStore() {}, close() {},
-      transaction() {
-        const tx: Record<string, unknown> & { oncomplete?: () => void } = {}
-        setTimeout(() => tx.oncomplete?.(), 5)
-        tx.objectStore = () => ({ get(key: string) { const request: { result?: unknown; onsuccess?: () => void } = {}; setTimeout(() => { request.result = records.get(key); request.onsuccess?.() }, 0); return request }, put(value: Record<string, unknown>) { records.set(String(value.key), value) } })
-        return tx
-      },
-    }
-    return { open() { const request: { result?: unknown; onsuccess?: () => void } = {}; setTimeout(() => { request.result = db; request.onsuccess?.() }, 0); return request } }
-  }
   afterEach(() => { delete (globalThis as { indexedDB?: unknown }).indexedDB })
 
   it('before any conversion (an EPUB here, or a book not on this device yet); a PDF and the Tinct reader\'s own view are unchanged', async () => {
