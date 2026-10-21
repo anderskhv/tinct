@@ -293,6 +293,47 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  'much-ado-about-nothing': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '3b92db2e6ffc9d6b06eb0e3e6b15edaba45f2ed3495ddb2cb999c5b10eddf1af',
+        after: 'e93fb1e66e2c9dc2d7266357fe143cf44c4943847f81009b9b507425dd2859f1',
+      },
+    },
+  },
+  'romeo-and-juliet': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '47fdf4f9a1b309f6747b48d00add73181cff9cd0a4c0063f81774a1a8a95bae6',
+        after: '0f7f2f2fbfb6e17d1c070228df6ec190d05bac150eeb16b1d12dc99a24efe04b',
+      },
+    },
+  },
+  'the-republic': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57',
+        after: '2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277',
+      },
+    },
+  },
+  phaedrus: {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c',
+        after: '5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b',
+      },
+    },
+  },
   // Rights replacements: the whole English text of each book was replaced by an
   // unrelated public-domain translation (paragraph structure and wording both new).
   // The maps are proportional and low confidence: places land approximately,
