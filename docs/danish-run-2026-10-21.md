@@ -1,5 +1,7 @@
 # Danish run, 21 October 2026: session prompts
 
+**Scope cut on 21 Oct, after Coder's review, agreed with Anders:** run only Session 0 (the audit) and batches A and E. The output is content branches that never go live. English stays the strategy, and every queued English fix would mean redoing Danish. The other batches stay listed for later.
+
 This uses Anders's spare usage before his free reset expires. Plan and background are in `docs/danish-plan-2026-10-19.md`.
 
 Content only: each session produces a reviewed package on its own branch, and nothing is published. Publishing is one later integration session that adds each passing book to `OFFERED_DANISH_EDITIONS`.
