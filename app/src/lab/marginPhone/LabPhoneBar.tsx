@@ -37,6 +37,19 @@ export function phoneMorePlace(
   return { left: Math.round(left), above: below < menu.height && (above >= menu.height || above > below) }
 }
 
+/** The least room the bar keeps from a side of the window. */
+const BAR_EDGE_PX = 10
+
+/**
+ * Where the bar goes across the window: only as wide as its buttons, its tip (the selection's start, kept
+ * 26px in from a side) about 30px in from the bar's left, moved in to stay whole inside the window.
+ */
+export function phoneBarLeft(tipX: number, barWidth: number, viewWidth: number): { left: number; tip: number } {
+  const x = Math.max(26, Math.min(viewWidth - 26, tipX))
+  const left = Math.max(BAR_EDGE_PX, Math.min(viewWidth - BAR_EDGE_PX - barWidth, x - 30))
+  return { left: Math.floor(left), tip: Math.round(x - Math.floor(left)) }
+}
+
 const LAST_COLOR_KEY = 'tinct-highlight-color'
 export function lastHighlightColor(): HighlightColor {
   try { const saved = localStorage.getItem(LAST_COLOR_KEY); return HIGHLIGHT_COLORS.find(c => c.key === saved)?.key ?? 'gold' } catch { return 'gold' }
@@ -64,8 +77,8 @@ export interface LabPhoneBarProps {
 }
 
 /**
- * The phone's selection bar (the margin reader's `.mr-pbar`): dark, the width
- * of the page less 10px a side, 12px below the selection's last line (above
+ * The phone's selection bar (the margin reader's `.mr-pbar`): dark, only as
+ * wide as its buttons and placed at the selection, 12px below the selection's last line (above
  * its first line when there is no room), its tip at the selection. Ask ·
  * Explain · Simplify · ••• · highlight · note; a highlight shows Ask · Explain,
  * its colours, its note and ✕ (remove it).
@@ -74,7 +87,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
   const { text, existingColor, noted = false, fallbackY } = props
   const ref = useRef<HTMLDivElement | null>(null)
   const [moreOpen, setMoreOpen] = useState(false)
-  const [place, setPlace] = useState<{ top: number; tip: number; below: boolean } | null>(null)
+  const [place, setPlace] = useState<{ top: number; left: number; tip: number; below: boolean } | null>(null)
   useReaderSelectionCopy(text)
   useLayoutEffect(() => {
     const at = () => {
@@ -89,7 +102,8 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       const tip = first ? first.left + Math.min(first.width / 2, 24) : window.innerWidth / 2
       const low = window.innerHeight - 16
       const below = bottom + 12 + height <= low || top - 12 - height < header + 8
-      setPlace({ top: below ? Math.min(low - height, bottom + 12) : Math.max(header + 8, top - 12 - height), tip: Math.max(26, Math.min(window.innerWidth - 26, tip)) - 10, below })
+      const across = phoneBarLeft(tip, Math.ceil(ref.current?.getBoundingClientRect().width || 0), window.innerWidth)
+      setPlace({ top: below ? Math.min(low - height, bottom + 12) : Math.max(header + 8, top - 12 - height), ...across, below })
     }
     at()
     window.addEventListener('resize', at)
@@ -139,7 +153,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       data-state={existingColor ? 'existing' : 'menu'}
       role="toolbar"
       aria-label="Selection"
-      style={{ top: place?.top ?? -999, ['--tip' as string]: `${place?.tip ?? 0}px` }}
+      style={{ top: place?.top ?? -999, left: place?.left ?? 10, ['--tip' as string]: `${place?.tip ?? 0}px` }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
@@ -165,7 +179,6 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-explain" onClick={props.onExplain}>Explain</button>
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-simplify" onClick={props.onSimplify}>Simplify</button>
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
-          <span className="lab-pbar-grow" aria-hidden="true" />
           {sep}
           <button type="button" className="lab-pbar-item is-hl" data-testid="lab-pbar-highlight" aria-label={`Highlight in ${current.label}`}
             onClick={() => props.onHighlight(current.key)}>

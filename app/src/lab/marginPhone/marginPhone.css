@@ -22,7 +22,8 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
 
 /* ---------- the bar ---------- */
 .lab .lab-pbar {
-  position: fixed; left: 10px; right: 10px; z-index: 320;
+  /* Only as wide as its buttons (LabPhoneBar places it at the selection), never past the window less 10px a side. */
+  position: fixed; left: 10px; width: max-content; max-width: calc(100vw - 20px); z-index: 320;
   display: flex; align-items: center; height: 48px; padding: 0 6px; box-sizing: border-box;
   border-radius: 14px; background: var(--lab-pbar); color: var(--lab-pbar-ink);
   font: 400 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
@@ -39,7 +40,6 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
 .lab .lab-pbar-item.is-text { padding: 0 8px; }
 .lab .lab-pbar-item:active, .lab .lab-pbar-item[aria-expanded="true"] { background: rgba(255, 255, 255, .12); }
 .lab .lab-pbar-sep { flex: none; width: 1px; height: 22px; background: var(--lab-pbar-sep); }
-.lab .lab-pbar-grow { flex: 1; }
 .lab .lab-pbar .lab-picon { width: 18px; height: 18px; fill: none !important; stroke: var(--lab-pbar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .lab .lab-pbar-item:first-child .lab-picon { stroke: var(--lab-pbar-soft); }
 .lab .lab-pbar-hl { position: relative; display: block; }
