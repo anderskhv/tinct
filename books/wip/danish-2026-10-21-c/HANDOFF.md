@@ -57,3 +57,16 @@ Early in the run, the shared-scratchpad symlinks pointed into /home/user/wt-da-b
 - **Fix:** the scratchpad tooling now writes only to /home/user/wt-da-c and a private lint directory.
 - I reported this to the coordinator. The coordinator said it would handle any revert in wt-da-b, so I made no changes there.
 - Since the fix, all writes have stayed inside `books/wip/danish-2026-10-21-c/`.
+
+## Independent review (21 Oct 2026, branch `claude/danish-1021-c-review`)
+The independent review is done. It was a side-by-side reading of the first and last chapters plus a ≥10% seeded sample per book. Reports:
+- `notes-from-underground/INDEPENDENT-REVIEW.md`
+- `crime-and-punishment/INDEPENDENT-REVIEW.md`
+- `moby-dick/INDEPENDENT-REVIEW.md`
+
+Verdicts:
+- **NFU:** ready after fixes.
+- **C&P:** ready after fixes.
+- **Moby-Dick:** ready after fixes, provided Anders decides the units question. The review recommends restoring Melville's units; the remaining sites are listed in Appendix A of that review.
+
+All fixes are applied in both the JSON and `chapters/*.txt`. Structure is unchanged and the gates pass. Visual page-by-page QA in the reader is still outstanding.
