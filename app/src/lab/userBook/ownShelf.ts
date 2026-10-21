@@ -22,6 +22,11 @@ export const OWN_COVER_MAX_WIDTH = 900
 export const OWN_COVER_VERSION = 2
 /** Removed from the library's reading table at this time (the place is kept); reading on brings it back. */
 export const OWN_TABLE_HIDDEN_PREFIX = 'tinct-addbook:table-hidden:'
+/**
+ * Taken off Currently reading without Read later (Anders, 2026-10-21: "Remove from Currently
+ * reading"), at this time: not listed under Saved for later. Read later clears it. This device only.
+ */
+export const OWN_SHELF_UNSAVED_PREFIX = 'tinct-addbook:table-unsaved:'
 const PLACE_PREFIX = 'tinct-addbook:place:'
 /** Add a book's PDF viewer keeps its place here: `{ page, frac, zoom, pages?, at? }`. */
 export const PDF_PLACE_PREFIX = 'tinct-addbook:pos:pdf:'
@@ -136,6 +141,18 @@ export function ownSavedAt(hex: string, read: (key: string) => unknown = readJso
   return Number.isFinite(at) && at > 0 ? at : null
 }
 
+/**
+ * When an own book went to Saved for later (Read later, or the desk's ×), or null: off Currently
+ * reading with "Remove from Currently reading" since then, it is not saved. Continue still uses
+ * ownSavedAt: either way the book was taken off what the reader is reading.
+ */
+export function ownShelfSavedAt(hex: string, read: (key: string) => unknown = readJson): number | null {
+  const at = ownSavedAt(hex, read)
+  if (at === null) return null
+  const unsaved = Number(read(OWN_SHELF_UNSAVED_PREFIX + hex))
+  return Number.isFinite(unsaved) && unsaved > 0 && unsaved >= at ? null : at
+}
+
 export function ownReading(hex: string, chapters: UserBookChapter[] | null, openedAt: number, read: (key: string) => unknown = readJson): OwnShelfReading | null {
   const raw = read(PLACE_PREFIX + hex) as RawPlace | null
   if (!raw || typeof raw !== 'object') return null
@@ -212,9 +229,17 @@ export function pdfReading(hex: string, record: { pages?: unknown; scan?: { entr
   }
 }
 
-/** Hide an own book from the library's reading table (on this device); its place is kept. */
-export function hideOwnFromReadingTable(hex: string, at = Date.now()): void {
-  try { localStorage.setItem(OWN_TABLE_HIDDEN_PREFIX + hex, String(at)) } catch { /* full or private */ }
+/**
+ * Hide an own book from the library's reading table (on this device); its place, highlights and
+ * notes are kept. `saved` (the default, Read later): it is listed under Saved for later; false
+ * (Remove from Currently reading): only under My private uploads.
+ */
+export function hideOwnFromReadingTable(hex: string, at = Date.now(), { saved = true }: { saved?: boolean } = {}): void {
+  try {
+    localStorage.setItem(OWN_TABLE_HIDDEN_PREFIX + hex, String(at))
+    if (saved) localStorage.removeItem(OWN_SHELF_UNSAVED_PREFIX + hex)
+    else localStorage.setItem(OWN_SHELF_UNSAVED_PREFIX + hex, String(at))
+  } catch { /* full or private */ }
 }
 
 function summarize(record: StoredRecord): OwnShelfBook | null {

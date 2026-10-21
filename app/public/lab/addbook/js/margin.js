@@ -727,6 +727,16 @@
     const pages = o.pages ? ` <small class="mr-unit__pages">${esc(o.pages)}</small>` : '';
     return `<span class="mr-unit__k">${where === 'start' ? 'Starting' : 'End of'}</span><span class="mr-unit__n">${esc(o.name || '')}${pages}</span><div class="mr-unit__acts">${pillsHtml(where, { open: o.open, name: o.phrase, line: o.line })}</div>`;
   }
+  /**
+   * A unit's pills beside its heading in the text (Anders, 21 Oct 2026; replaces the wide column's Starting / End of marks):
+   * Primer, Catch me up, Recap, Quiz me and Note (the reader's own note on it, no ✧), shown on hover or focus. They sit inside the heading, so their words are drawn by
+   * CSS (data-label) and are never text in the book: an EPUB's places and highlights are character offsets in its text.
+   * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
+   */
+  function headPillsHtml(ids, o = {}) {
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
+  }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
   function unitName(unit, whole = '') {
     if (!unit || unit.key === 'all' || !unit.title) return whole;
@@ -777,6 +787,8 @@
     if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
     if (card.data?.unit) return `${PILLS[card.data.pill] || KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    // A paragraph's Recap (its ✧ in the gutter): an Explain card on the paragraph, named as the reader chose it.
+    if (card.data?.recap) return `${PILLS.recap}${pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : ''}`;
     // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
     // (No unit: the place names itself, as a chapter title does.)
     const at = pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : '';
@@ -1394,7 +1406,7 @@
     const head = `<h4 class="mr-primer__title"${o.id ? ` id="${esc(o.id)}"` : ''}>Before you start${close}</h4>`;
     if (!p) {
       if (o.wait) return head + '<p class="mr-status mr-wait" role="status"></p>';
-      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
+      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>`;
     }
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
@@ -1419,8 +1431,8 @@
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
       + sections
       + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
-      + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
-      + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
+      + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
+      + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
 
   /* ---------- Figures (FIXES-2026-10-15, items 4–7): detection, captions, the chip and the figure's card ----------
@@ -1830,7 +1842,77 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, pillsHtml, headPillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  /*
+   * Catch me up in the margin reader, by the book reader's rules (src/catchUp.ts; Anders, 21 Oct 2026): never past the
+   * reader's place, every part its own header ("too much condensation, need at least one header per book"), the most
+   * recent reading in the most detail, and the chat's grounding (src/companion/labAskPrompt.ts LAB_RECAP_GROUNDING_RULE,
+   * kept equal by a test).
+   */
+  const CATCH_UP_GROUNDING = 'Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.';
+  /** The longest stretch one Catch me up entry of the timeline covers; a longer chapter is split into bands this long. */
+  const CATCH_UP_BAND = 40;
+  /**
+   * The pages (an EPUB's chapters) a unit's Catch me up card covers: those before the unit, but never the page the
+   * reader is on or later when they are before it (a later unit's mark tapped ahead). A unit at the document's start
+   * covers the pages up to the reader's, as before. At most `max` pages, the most recent. -> { from, to }
+   */
+  function catchUpSpan(unitFrom, place, max = 200) {
+    const u = Math.max(1, Math.floor(Number(unitFrom) || 1)), p = Math.max(1, Math.floor(Number(place) || 1));
+    const end = u > 1 ? Math.max(1, p >= u ? u - 1 : p - 1) : p;
+    return { from: Math.max(1, end - max + 1), to: end };
+  }
+  /**
+   * The parts a span runs through, each clipped to it: the contents' top-level entries (no parent), each from its page
+   * to the page before the next one's, when two or more meet the span and one of them is a part (has entries under it).
+   * entries: [{ id, label, page, parent? }]; count: the pages. -> [{ label, from, to }], [] within one part or none.
+   */
+  function catchUpParts(entries, span, count) {
+    const list = (entries || []).filter(e => e && Number.isFinite(e.page));
+    const tops = list.filter(e => !e.parent).sort((a, b) => a.page - b.page);
+    const isPart = e => list.some(c => c.parent === e.id);
+    const out = [];
+    tops.forEach((e, i) => {
+      const from = Math.max(span.from, i ? e.page : 1), to = Math.min(span.to, (tops[i + 1]?.page ?? (Number(count) || span.to) + 1) - 1);
+      if (from <= to) out.push({ label: String(e.label || '').trim(), from, to, part: isPart(e) });
+    });
+    return out.length > 1 && out.some(p => p.part) ? out.map(({ label, from, to }) => ({ label, from, to })) : [];
+  }
+  /** Whether a header already names its part ("The Window · 3" names "Part I — The Window"; "Chapter 3" does not name "Part One"). */
+  function namesPart(title, part) {
+    const name = String(part || '').replace(/^(?:part|book|volume)\s+[\divxlc]+\s*[—–:.,-]?\s*/i, '').trim().toLowerCase();
+    return String(title || '').toLowerCase().includes(name || String(part || '').toLowerCase());
+  }
+  /**
+   * The timeline's entries up to the reader's page: each chapter to its end or the reader's page, a long one in bands
+   * of CATCH_UP_BAND pages (before: its first 40 pages only), headed by its part when its own title does not name it;
+   * with no chapters, bands of `band` pages. The entry holding the reader's page is `partial` (its text is cut at the
+   * place, seenText). chapters: [{ label, from, to, part? }] in order. -> [{ from, to, partial, label? }]
+   */
+  function catchUpBlocks(chapters, page, band = 20) {
+    const p = Math.max(1, Math.floor(Number(page) || 1)), blocks = [];
+    const list = (chapters || []).filter(c => c.from <= p);
+    if (list.length) {
+      for (const c of list) {
+        const to = Math.min(p, c.to), name = c.part && !namesPart(c.label, c.part) ? `${c.part}: ${c.label}` : c.label;
+        for (let from = c.from; from <= to; from += CATCH_UP_BAND) {
+          const end = Math.min(to, from + CATCH_UP_BAND - 1), split = to - c.from + 1 > CATCH_UP_BAND;
+          blocks.push({ from, to: end, partial: end === p, label: split ? `${name}, pages ${from}–${end}` : name });
+        }
+      }
+      return blocks;
+    }
+    for (let start = 1; start <= p; start += band) blocks.push({ from: start, to: Math.min(p, start + band - 1), partial: start + band - 1 >= p });
+    return blocks;
+  }
+  /** The part of the reader's page they have read: its text up to `frac` of it, cut at a word. */
+  function seenText(text, frac) {
+    const t = String(text || ''), f = Math.max(0, Math.min(1, Number(frac) || 0));
+    if (f >= 1) return t;
+    const cut = t.slice(0, Math.floor(t.length * f));
+    const space = cut.search(/\s\S*$/);
+    return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
+  }
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
 });

@@ -46,6 +46,7 @@ import { corsHeaders, jsonResponse } from '../lib/responses'
 import { isValidUUID } from '../lib/security'
 import type { CheckRateLimit } from '../lib/rateLimit'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_RECAP_GROUNDING_RULE } from '../../companion/labAskPrompt'
 import { ownedBookHex, ownRecapPrefix } from './userBooks'
 
 export type OwnCatchUpEnv = LedgerEnv & {
@@ -78,6 +79,9 @@ export const OWN_CATCH_UP_SYSTEM_PROMPT = [
   'You keep the running "catch me up" recap of a book a reader is reading, one chapter at a time. A returning reader reads it before they continue.',
   'You are given the recap so far (it may be empty) and the next chapter, which ends where the reader has read to.',
   'Write the updated recap of everything read so far: the recap so far, condensed where needed, followed by what this chapter adds. Plain declarative sentences in the present tense, at most 120 words in all.',
+  // The chat's grounding (#520), as the built-in Catch me up has it.
+  LAB_RECAP_GROUNDING_RULE,
+  LAB_ASK_CHECKED_SPECIFICS_RULE,
   'Use only the recap so far and the chapter. Do not go beyond them: no later events, no outcomes, no foreshadowing, and nothing you know about this book from elsewhere.',
   'A long chapter is sampled: part of it is left out. Cover it evenly, not only its opening.',
   'For non-narrative text (proverbs, letters, essays, laws, poems) state the main points instead of events.',

@@ -13,7 +13,7 @@
  */
 export const OWN_CATCH_UP_ROUTE = '/api/own-catch-up'
 /** Part of every stored key: a new prompt starts a new chain. */
-export const OWN_CATCH_UP_PROMPT_VERSION = 'own-catch-up-v1'
+export const OWN_CATCH_UP_PROMPT_VERSION = 'own-catch-up-v2'
 /** One request carries one chapter, at most this many characters (sampled when longer). */
 export const OWN_CATCH_UP_MAX_CHAPTER_CHARS = 32_000
 /** The cumulative recap sent back with the next chapter. */

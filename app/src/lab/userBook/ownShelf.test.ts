@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { ownReading, ownReadingNow, pdfReading, readOwnShelf, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
+import { hideOwnFromReadingTable, ownReading, ownReadingNow, ownSavedAt, ownShelfSavedAt, pdfReading, readOwnShelf, OWN_SHELF_UNSAVED_PREFIX, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
 import { ownBookHref } from './userBookId'
 import { ownQuickBookRows, withOwnBookRows, type QuickBookRow } from '../../preReader/quickBookSwitcher'
 import { ownTableBook, withOwnReading, type ReadingTableBook } from '../../libraryTwoReading'
@@ -34,6 +34,51 @@ describe('an own book being read', () => {
   it('without its text on this device, keeps the place time and claims no progress line', () => {
     const reading = ownReading(HEX, null, 7, store({ [`tinct-addbook:place:${HEX}`]: { chapterNumber: 4, paragraphIndex: 0, wordIndex: 0 } }))!
     expect(reading).toMatchObject({ chapterLabel: '', headline: '', percent: null, wordCount: null, lastActiveAt: 7 })
+  })
+})
+
+describe('My shelf’s Read later and Remove from Currently reading for an own book (2026-10-21)', () => {
+  afterEach(() => { localStorage.clear() })
+  const kept = () => ({
+    place: localStorage.getItem(`tinct-addbook:place:${HEX}`),
+    pdf: localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`),
+    highlights: localStorage.getItem(`tinct-addbook:highlights:${HEX}`),
+  })
+  const seed = () => {
+    localStorage.setItem(`tinct-addbook:place:${HEX}`, JSON.stringify({ chapterNumber: 2, paragraphIndex: 1, updatedAt: 500 }))
+    localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 4, at: 500 }))
+    localStorage.setItem(`tinct-addbook:highlights:${HEX}`, '[{"id":"h1"}]')
+    return kept()
+  }
+
+  it('Read later takes it off the reading table onto Saved for later, its place and highlights untouched', () => {
+    const before = seed()
+    hideOwnFromReadingTable(HEX, 600)
+    expect(kept()).toEqual(before)
+    expect(ownReading(HEX, chapters, 1)).toBeNull()
+    expect(pdfReading(HEX, { pages: 8 }, 1)).toBeNull()
+    expect(ownSavedAt(HEX)).toBe(600)
+    expect(ownShelfSavedAt(HEX)).toBe(600)
+    expect(localStorage.getItem(OWN_SHELF_UNSAVED_PREFIX + HEX)).toBeNull()
+  })
+
+  it('Remove from Currently reading takes it off the table but not onto Saved for later; Continue still skips it', () => {
+    const before = seed()
+    hideOwnFromReadingTable(HEX, 600, { saved: false })
+    expect(kept()).toEqual(before)
+    expect(ownReading(HEX, chapters, 1)).toBeNull()
+    // Continue reads ownSavedAt: the book stays off it.
+    expect(ownSavedAt(HEX)).toBe(600)
+    expect(ownShelfSavedAt(HEX)).toBeNull()
+  })
+
+  it('a later Read later (or the desk’s ×) lists it under Saved for later again; reading on brings it back to the table', () => {
+    seed()
+    hideOwnFromReadingTable(HEX, 600, { saved: false })
+    hideOwnFromReadingTable(HEX, 700)
+    expect(ownShelfSavedAt(HEX)).toBe(700)
+    localStorage.setItem(`tinct-addbook:place:${HEX}`, JSON.stringify({ chapterNumber: 3, paragraphIndex: 0, updatedAt: 800 }))
+    expect(ownReading(HEX, chapters, 1)?.chapterLabel).toBe('Chapter 2')
   })
 })
 

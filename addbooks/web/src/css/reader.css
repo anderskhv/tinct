@@ -228,6 +228,9 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* The settings sheet in the design system's faces: UI in the system face (title, rows, values,
    theme names; never mono), the swatches' "Aa" in the reading face. Sized to its rows. */
 .lab.byob .byob-settings .lab-v2-sheet { height: auto !important; min-height: 0 !important; max-height: calc(100dvh - 48px); }
+/* The Aa panel on the desktop (Anders, 21 Oct 2026: "can't see the full menu"): a pop-over just below the Aa button, its
+   right edge under the button's (--aa-right, reader.js openDisplay), never past the window's foot; its rows scroll inside. */
+.lab.byob:not(.is-phone) .byob-aa-panel .lab-v2-sheet { top: calc(var(--pdf-top, 64px) + 8px); bottom: auto; left: auto; right: var(--aa-right, 16px); transform: none; max-height: calc(100dvh - var(--pdf-top, 64px) - 24px); border-radius: 16px; box-shadow: 0 12px 36px #140f0833, 0 1px 3px #140f081f; }
 .lab.byob .byob-settings :is(.lab-v2-title, .lab-v2-row-label, .lab-v2-row-select, button, .lab-v2-value, .lab-v2-theme-label, .lab-v2-note, .lab-v2-size-small, .lab-v2-size-large, .lab-v2-dismiss) { font-family: var(--pdf-ui) !important; letter-spacing: 0 !important; text-transform: none !important; }
 .lab.byob .byob-settings .lab-v2-title { font-weight: 600; }
 .lab.byob .byob-settings .lab-v2-value { font-variant-numeric: tabular-nums; }

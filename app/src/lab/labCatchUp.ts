@@ -3,7 +3,7 @@
  * which entries are fetched, and a per-tab memory of what came back so
  * reopening the sheet costs nothing. Nothing here touches the DOM.
  */
-import { CATCH_UP_ROUTE, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
+import { CATCH_UP_ROUTE, catchUpBeforePlace, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
 import { isUsableRecapSummary } from '../recapSummary'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
@@ -23,8 +23,9 @@ export type CatchUpEntryResult =
    * `empty`: nothing to summarise there yet; the sheet leaves the entry out instead of offering Retry.
    * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
    * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the entry says so above Retry.
+   * `beyond`: the entry, or what came back for it, reaches the reader's place; it is never shown (and never asked for).
    */
-  | { ok: false; status: number; empty?: boolean; allowanceUsed?: true; resting?: true }
+  | { ok: false; status: number; empty?: boolean; allowanceUsed?: true; resting?: true; beyond?: true }
 
 type FetchLike = (input: string, init: RequestInit) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>
 
@@ -82,6 +83,9 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
     remember(entry, result.response.summary)
     return { ok: true, summary: result.response.summary }
   }
+  // Hard guard: an entry that reaches the reader's chapter is never asked for.
+  const place = entry.request.placeChapter
+  if (typeof place === 'number' && !catchUpBeforePlace(entry, place)) return { ok: false, status: 0, beyond: true }
   try {
     const response = await fetchImpl(CATCH_UP_ROUTE, {
       method: 'POST',
@@ -90,6 +94,10 @@ export async function fetchCatchUpEntry(entry: CatchUpEntry, options: { token?: 
     })
     if (!response.ok) return await refusal(response)
     const data = await response.json() as Partial<CatchUpResponse> | null
+    // ...and an answer covering anything the entry did not ask for, or at or past the place, is dropped.
+    if (Array.isArray(data?.chapters) && data.chapters.some(n => typeof n !== 'number' || !entry.chapters.includes(n) || (typeof place === 'number' && n >= place))) {
+      return { ok: false, status: response.status, beyond: true }
+    }
     const summary = typeof data?.summary === 'string' ? data.summary.trim() : ''
     if (data?.empty === true || (summary && !isUsableRecapSummary(summary))) return { ok: false, status: response.status, empty: true }
     if (!summary) return { ok: false, status: response.status }
