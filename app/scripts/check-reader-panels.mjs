@@ -920,8 +920,15 @@ async function menuRedesign(engine,name,phone) {
     assert(requests.some(body=>body.chapterNotes?.kind==='end'),'summary asks for the whole chapter')
     assert(!requests.some(body=>body.chapterNotes?.kind==='sofar'),'summary never asks for a so-far card')
     assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
-    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
-    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
+    // The phone's summary ends with the follow-up field (mic, Talk, send; 21 Oct 2026); the desktop keeps Chat and Talk.
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),phone?0:1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),phone?0:1)
+    if(phone){
+      const sheet=page.getByTestId('lab-chapter-notes')
+      for(const id of ['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'])assert.equal(await sheet.locator(`[data-testid="${id}"]`).count(),1,id+' in the summary sheet')
+      const fit=await sheet.evaluate(node=>{const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect(),last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom));return {height:s.height,gap:f.top-last}})
+      assert(fit.gap<=24&&fit.height<452,'the summary sheet is as tall as its content: '+JSON.stringify(fit))
+    }
     await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
