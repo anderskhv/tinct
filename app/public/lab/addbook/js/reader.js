@@ -387,7 +387,7 @@ async function openEpub(bytes, name, key, rec = null) {
     if (token !== state.token) return;
   }
   // A first open begins at the first section of the text (the Preface, not the title page; epub.js classify).
-  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600) });
+  requestAnimationFrame(() => { if (!epubRestore(saved)) { if (saved) goTo({ page: saved.page, frac: saved.frac }); else if (book.start > 0 && !state.preview) epubGoSpot(book.start + 1, 0, 0); else $('scroll').scrollTop = 0 } onScroll(); if (state.preview) setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 600); epubHold.opened = token });
 }
 function applyEpubScale() { root.style.setProperty('--epub-scale', String(state.zoom)) }
 /**
@@ -7525,13 +7525,21 @@ function epubGoSpot(n, para, word = 0) {
   const room = () => { const prev = epubParas(p)[para - 1], top = el.getBoundingClientRect().top; return prev ? Math.max(0, Math.min(10, top - prev.getBoundingClientRect().bottom - 2)) : 10 };
   // The word itself, while the view stays where it was brought (the preview hands it on: previewSpot).
   const exact = state.preview ? (epubHold.exact = { page: n, para, word, top: null }) : null;
-  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop });
+  // While the view is on its way there, the spot held is this one: the settle's own scrolls (through chapters still
+  // measuring as they come near) never stand in for it, so a reflow meanwhile (text size, width, a late font) comes
+  // back here, not to a line passed on the way.
+  epubHold.settling++;
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop })
+    .finally(() => { epubHold.settling = Math.max(0, epubHold.settling - 1) });
   return true;
 }
 /* A change of width (the window, Full width) or text size reflows the chapters: the paragraph and word at the
    top of the view stay there. The spot is read as the reader scrolls (not while the text reflows) and gone back to. */
-const epubHold = { spot: null, page: 0, raf: 0, reflow: 0, exact: null };
-function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
+// settling: epubGoSpot's ways there under way; opened: the open (state.token) whose place has been gone back to.
+// Until then the view is not the reader's place yet (the top of the book while the fonts load), so no scroll is
+// held as it; the margin check waits for it too (margin-check.mjs epubSettled).
+const epubHold = { spot: null, page: 0, raf: 0, reflow: 0, exact: null, settling: 0, opened: 0 };
+function epubHoldNow() { if (!isEpub() || !state.pages.length || epubHold.reflow || epubHold.settling || epubHold.opened !== state.token) return; const s = epubSpot(); if (s.para != null) Object.assign(epubHold, { spot: s, page: currentPlace().page }) }
 $('scroll').addEventListener('scroll', () => { if (isEpub() && !epubHold.raf) epubHold.raf = requestAnimationFrame(() => { epubHold.raf = 0; epubHoldNow() }) }, { passive: true });
 /** Around a reflow: `change()` reflows; the held spot is gone back to. */
 function epubReflow(change) {
