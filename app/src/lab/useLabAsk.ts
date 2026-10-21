@@ -592,12 +592,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     setNotice(null)
   }, [isVoiceV2, voice.userSpeechStarted, voice.activity])
 
+  // Talk started a frame after the tap (from Explain, chapter notes, Catch me
+  // up) asks for the microphone in the tap itself; startVoice takes it.
+  const primeVoice = useCallback(() => {
+    if (voice.isActive || starting || (!signedIn && talkTrialUsedToday())) return
+    voice.prime()
+  }, [signedIn, starting, voice.isActive, voice.prime])
+
   const startVoice = useCallback(async (greeting?: string): Promise<boolean | 'cancelled'> => {
     if (voice.isActive || starting) return true
     // Signed out: one guest Talk trial a day on this device (the Worker holds
     // the same line per IP). Used today, the host shows the account sheet (or,
     // with no host, the sign-in notice); no session is requested.
     if (!signedIn && talkTrialUsedToday()) {
+      voice.releasePrimed()
       if (optionsRef.current.onAccountPrompt) optionsRef.current.onAccountPrompt({ action: 'voice' })
       else setNotice(LAB_COPY.signInVoice)
       return false
@@ -610,7 +618,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
     const request = ++voiceStartRequestRef.current
     guestTrialClosedRef.current = false
-    voice.unlockAudio()
+    // In the tap, before any await (the session token, Talk's code): the
+    // microphone request and the audio unlock (useVoiceSession.prime).
+    voice.prime()
     setNotice(null)
     if (!signedIn) {
       setStarting(true)
@@ -630,7 +640,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
-    if (request !== voiceStartRequestRef.current) return 'cancelled'
+    if (request !== voiceStartRequestRef.current) { voice.releasePrimed(); return 'cancelled' }
     if (!knownToken) setStarting(true)
     const snapshot = await voice.start({ authToken, greeting })
     if (request !== voiceStartRequestRef.current) return 'cancelled'
@@ -644,20 +654,22 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return true
-  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start])
+  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start, voice.prime, voice.releasePrimed])
 
   const stopVoice = useCallback(() => {
     voiceStartRequestRef.current++
     setStarting(false)
+    voice.releasePrimed(true)
     voice.stop()
-  }, [voice.stop])
+  }, [voice.stop, voice.releasePrimed])
 
   const failStart = useCallback((message?: string) => {
     voiceStartRequestRef.current++
     setStarting(false)
+    voice.releasePrimed()
     voice.stop()
     setNotice(current => current || message || LAB_COPY.voiceStartFailed)
-  }, [voice.stop])
+  }, [voice.stop, voice.releasePrimed])
 
   const toggleInChatVoice = useCallback(async () => {
     if (voice.isActive || starting) {
@@ -1148,6 +1160,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     getAssistantLevel: voice.getAssistantLevel,
     userSpeechStarted: voice.userSpeechStarted,
     startVoice,
+    primeVoice,
     stopVoice,
     failStart,
     toggleInChatVoice,

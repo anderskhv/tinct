@@ -1,3 +1,4 @@
+import type { PendingMicrophone } from './microphoneRequest'
 import type { AssistantPace, LabPlaybackSkip } from '../lab/labAsk'
 import type { LabPlaybackNavigationOutcome } from '../lab/labVoiceControls'
 import type { VoiceActivityPhase } from './v2/voiceV2'
@@ -94,6 +95,12 @@ export interface StartVoiceSessionInput {
   /** Talk's saved speaking speed (0.7-1.5); wins over `assistantPace`. */
   assistantSpeed?: number
   voicePersona?: 'female' | 'male'
+  /**
+   * The microphone request made synchronously in the reader's tap
+   * (microphoneRequest.ts). The session owns it from start: it awaits it,
+   * and cancels it when the start ends early.
+   */
+  microphone?: PendingMicrophone
 }
 
 export const IDLE_VOICE_SNAPSHOT: VoiceUiSnapshot = {
