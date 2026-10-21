@@ -181,3 +181,33 @@ Cases: recipe-page.
 - **Q21 Very long sections.** Split a 14k-word section for the margin view (by scene breaks or ~4–5k words), or keep chapters whole like built-in editions?
 - **Q22 Verse indentation.** Needed for poems (indented lines carry meaning); the `line` kind has no indent today.
 - **Q23 Source URL.** Use the source URL when the browser provides it (CF_HTML `SourceURL`, `text/x-moz-url`) to fill title/author, and store it with the book?
+
+## Answers (Anders, 21 October 2026: "agree to your recc")
+
+| # | Answer |
+|---|---|
+| Q1 | Keep note calls as small tappable markers that open the note, using the source's numbering, and collect the notes at the end of the section. When a paste has calls but no note bodies (Google Docs), show "Footnotes didn't come along". |
+| Q2 | Refuse a link-only paste with "Paste the text itself". No fetching. |
+| Q3 | Drop only pull quotes that repeat body text; keep every other short display quote. |
+| Q4 | Download images into the private book at paste time, as EPUB figures are, up to about 20 images or 10 MB. Drop pictures that only have alt text. |
+| Q5 | Keep the intro and method of a recipe; no special case. |
+| Q6 | Title is the issue headline, else the masthead plus the issue number. A sign-off name is not the author unless there is a byline. |
+| Q7 | Keep the post and its comments as replies, with usernames. Drop votes, avatars and buttons. Keep "Edit:" paragraphs. |
+| Q8 | Highlights in the source arrive as plain text, not Tinct marks. |
+| Q9 | Missing embeds become a small "[Embedded note not included]" line. |
+| Q10 | The header row of a table is optional. |
+| Q11 | Use the HTML flavour by default, falling back to plain text automatically when the HTML has no real structure. Add a "Paste as plain text" switch on the preview. |
+| Q12 | No primer and no quiz under about 1,000 words. |
+| Q13 | Keep typography exactly as pasted. |
+| Q14 | Paragraphs get `dir="auto"` (the browser decides the direction); the format does not change. Nothing more for now. |
+| Q15 | Keep two list levels. |
+| Q16 | Keep a reference list as a final section for papers. Drop Wikipedia's References, See also and External links. |
+| Q17 | Keep links to other sites; drop links within Wikipedia. |
+| Q18 | English phrase lists, plus structure-based rules that work in any language. |
+| Q19 | Show the TeX source in monospace. Rendering it later needs a new dependency and Anders's approval. |
+| Q20 | Normalise a drop-cap lead-in only when the source marks it as a drop cap; otherwise leave it as printed. |
+| Q21 | Keep sections whole; the margin reader sizes units for primer and quiz. |
+| Q22 | Verse lines get an indent level. |
+| Q23 | Use the source URL, when the clipboard has one, to fill in title and author. Store it with the book and show it as "Source". |
+
+Expected results that conflict with these answers (Q1 calls removed, Q7 comments, Q16, Q17) are updated when the paste feature is built. The render check (`RENDER-CHECK.md`) shows which reader changes these need.
