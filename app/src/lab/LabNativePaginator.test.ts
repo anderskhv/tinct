@@ -79,6 +79,19 @@ describe('native phone pagination', () => {
     expect(unit?.querySelectorAll('[data-native-word="true"]')).toHaveLength(2)
   })
 
+  it('keeps the space before a word that opens with a straight quote', () => {
+    const paragraph = "I can find no rhyme to 'lady' but 'baby,' an innocent rhyme; for 'scorn,' 'horn,' a hard rhyme; 'tis o'er, rock 'n' roll, the Joneses' house."
+    const view = render(createElement(LabNativePaginator, {
+      chapterTitle: 'Act 5, Scene 2',
+      paragraphs: [paragraph],
+      layoutKey: 'test',
+      onPages: vi.fn(),
+    }))
+    const words = [...view.container.querySelectorAll('[data-native-word="true"]')]
+    expect(words.map(word => word.textContent)).toEqual(tokenizeHearingWords(paragraph).map(word => word.text))
+    expect(words[0].closest('p')?.textContent).toBe(paragraph)
+  })
+
   it('sets a verse number off by a narrow no-break space, which justification never stretches', () => {
     // Browsers stretch U+0020 and U+00A0 on a justified line; U+202F they leave alone.
     expect(LAB_VERSE_SEPARATOR).toBe(' ')

@@ -3,7 +3,7 @@ import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
@@ -14,7 +14,6 @@ import {
   cutPageTailTo,
   applyPaintShrink,
   isLabVerseMarker,
-  LAB_VERSE_SEPARATOR,
   labVerseMarkerDisplay,
   sameChapterPages,
   snapShrinkEndToSentence,
@@ -212,17 +211,6 @@ export function nativePagesFromPlacements(
   return balanceNativeChapterTail(pages)
 }
 
-function nativeWordSpacing(
-  word: { text: string },
-  wordIndex: number,
-  previous?: { text: string },
-): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // Mirrors LabPassage.wordSpacing exactly: the paginator must measure the same
-  // characters the reading column renders, or pages break in different places.
-  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
-}
-
 function NativeWord({
   text,
   paragraphIndex,
@@ -267,7 +255,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         text={word.text}
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
-        spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1])}
         paragraph={text}
       />
     )
@@ -275,7 +263,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
       const nextIndex = wordIndex + 1
       rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
-          {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {labWordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
             <NativeWord
               text={word.text}
@@ -287,7 +275,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing={nativeWordSpacing(words[nextIndex], nextIndex, word)}
+              spacing={labWordSpacing(words[nextIndex], nextIndex, word)}
             />
           </span>
         </Fragment>
