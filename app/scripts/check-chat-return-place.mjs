@@ -176,12 +176,18 @@ async function openSummarizeChat(page) {
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-summarize').click()
   await page.getByTestId('lab-chapter-notes-beat').first().waitFor()
-  await page.getByTestId('lab-chapter-notes-chat').click()
-  await page.getByTestId('lab-ask-pane').waitFor()
+  // The summary ends with the follow-up field (21 Oct 2026): a question asked there joins the chat's conversation,
+  // answered in the sheet; Chat then opens on it.
+  await page.getByTestId('lab-phone-card-input').fill('What changes here?')
+  await page.getByTestId('lab-phone-card-send').click()
+  await page.getByTestId('lab-phone-card-question').waitFor()
   await page.waitForTimeout(400)
+  await page.keyboard.press('Escape')
+  await page.getByTestId('lab-chapter-notes').waitFor({ state: 'detached' })
+  await openChat(page)
 }
 
-const entries = { menu: openChat, 'ask-about-selection': openAskAbout, 'summarize-chat': openSummarizeChat }
+const entries = { menu: openChat, 'ask-about-selection': openAskAbout, 'summarize-follow-up': openSummarizeChat }
 const returns = {
   done: async page => page.getByTestId('lab-ask-done').click(),
   escape: async page => page.keyboard.press('Escape'),

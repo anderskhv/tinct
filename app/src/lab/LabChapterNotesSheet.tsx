@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
 import { chapterNotesPlainText, fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
 import { RowIcon } from './LabSuperMenu.tsx'
@@ -21,6 +21,13 @@ export interface LabChapterNotesSheetProps {
   onTopUp?: () => void
   /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard). */
   card?: boolean
+  /**
+   * The last row: the follow-up field with mic, Talk and send, given the beats shown; in place
+   * of the Chat, Talk and Copy buttons (iPhone feedback, 21 Oct 2026: the card's text can still be selected).
+   */
+  follow?: (beats: ChapterNotesBeat[] | null) => ReactNode
+  /** The follow-ups asked from the card and their answers, under the beats (margin card or phone sheet). */
+  thread?: ReactNode
 }
 
 /**
@@ -28,7 +35,7 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).
@@ -99,9 +106,10 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
             ))}
             {request.kind === 'sofar' && <li className="lab-catch-up-here"><span className="lab-catch-up-dot" aria-hidden="true" />You are here</li>}
           </ol>
+          {thread}
         </div>
   )
-  const foot = (
+  const foot = follow ? <div className="lab-catch-up-foot is-follow">{follow(state === 'ok' ? beats : null)}</div> : (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-chat" aria-label="Chat" onClick={() => onChat(title, beats)}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-chapter-notes-talk" aria-label="Talk" onClick={() => onTalk(title, beats)}><RowIcon id="talk" /></button>
@@ -112,7 +120,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
           )}
         </div>
   )
-  if (card) return <LabPhoneCard label={title} kind={`chapter-notes-${request.kind}`} onClose={onClose} foot={foot}>{timeline}</LabPhoneCard>
+  if (card) return <LabPhoneCard label={title} kind={`chapter-notes-${request.kind}`} onClose={onClose} foot={follow?.(state === 'ok' ? beats : null)}>{timeline}</LabPhoneCard>
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-chapter-notes-layer">
       <button type="button" className="lab-super-scrim" aria-label="Close" onClick={onClose} />
