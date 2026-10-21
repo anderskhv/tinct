@@ -6895,7 +6895,8 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   padding: 0; margin: 16px 0 0; color: var(--lab-ink-muted); user-select: none;
   border: 0; border-radius: 0; background: transparent;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 20px; }
+/* 8px between pills, as at the chapter's head (iPhone feedback, 21 Oct 2026); each keeps its 44px tap height. */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 8px; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 44px; padding: 8px 0; border: 0; border-radius: 0;

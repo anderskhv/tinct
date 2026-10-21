@@ -21,18 +21,25 @@ export interface MeasurableWord {
 }
 
 /**
- * Spacing belongs outside the word span, exactly as `renderWordGroups` in
- * `LabPassage` composes it. A word that follows a verse marker carries no
- * space: the marker's own trailing no-break space already separates them.
+ * The separator painted before word `wordIndex`: the one spacing rule for the
+ * reading column (LabPassage), the phone paginator (LabNativePaginator) and
+ * this measurement DOM, which must hold the same characters the reader paints
+ * or pages break in the wrong places.
+ *
+ * Words are a whitespace split, so every word after the first had whitespace
+ * before it in the source. A word that opens with a straight quote keeps its
+ * space: it is a quotation ('lady') or a separate elided word ('tis, 'n',
+ * for 't); elisions inside a word (o'er, Joneses') are never split off. Gluing
+ * quote-led words painted "rhyme to'lady'" (2026-10-21). After a verse marker
+ * the separator is the narrow no-break LAB_VERSE_SEPARATOR, which belongs to
+ * this word so a highlight starting here has no unpainted notch.
  */
-export function labMeasuredWordSpacing(
+export function labWordSpacing(
   word: MeasurableWord,
   wordIndex: number,
   previous?: MeasurableWord,
 ): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // Mirrors LabPassage.wordSpacing exactly: the measured paragraph has to hold
-  // the same characters the reader paints, or pages break in the wrong places.
+  if (wordIndex <= 0 || word.text.startsWith(',') || word.text.startsWith('.')) return ''
   return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
 }
 
@@ -145,11 +152,11 @@ export function labMeasureParagraphInto(
   const children: Array<{ at: number; node: Node }> = []
   for (let index = 0; index < words.length; index += 1) {
     const group = document.createDocumentFragment()
-    group.append(labMeasuredWordSpacing(words[index], index, words[index - 1]))
+    group.append(labWordSpacing(words[index], index, words[index - 1]))
     if (isLabVerseMarker(words[index].text) && words[index + 1]) {
       const unit = document.createElement('span')
       unit.className = 'lab-verse-unit'
-      unit.append(makeWord(index), makeWord(index + 1, labMeasuredWordSpacing(words[index + 1], index + 1, words[index])))
+      unit.append(makeWord(index), makeWord(index + 1, labWordSpacing(words[index + 1], index + 1, words[index])))
       group.append(unit)
       children.push({ at: index, node: group })
       index += 1

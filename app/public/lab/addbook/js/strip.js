@@ -90,15 +90,29 @@
   /* ---------- Geometry: pages down the lane ---------- */
   const S = { left: 14, width: 34, x: 18, len: 16, dotX: 40, dot: 5, pitch: 3, dotGap: 6, gap: 6, inset: 14, foot: 16, plain: 4, plainLen: 12 };
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  /** Pages spread evenly from `top` to `bottom` with 6px gaps (smaller when a page would get under 20px). */
-  function geometry(N, top, bottom) {
+  /**
+   * Pages spread evenly from `top` to `bottom` with 6px gaps (smaller when a page would get under 20px). With `weights`
+   * (an EPUB's chapters, by their height on the page; 21 Oct 2026) each page's band is its share of the lane, no gaps.
+   */
+  function geometry(N, top, bottom, weights = null) {
     const H = Math.max(0, bottom - top), n = Math.max(1, N);
+    if (weights && weights.length === n) {
+      const sum = weights.reduce((a, w) => a + Math.max(0, w), 0) || 1, tops = [], bands = [];
+      let y = top;
+      for (const w of weights) { tops.push(y); const b = H * Math.max(0, w) / sum; bands.push(b); y += b }
+      return { N: n, top, bottom, gap: 0, band: H / n, tops, bands };
+    }
     const gap = n > 1 ? Math.min(S.gap, (H / n) * 0.3) : 0;
     return { N: n, top, bottom, gap, band: (H - (n - 1) * gap) / n };
   }
-  const yOf = (G, n, f) => G.top + (clamp(n, 1, G.N) - 1) * (G.band + G.gap) + clamp(f, 0, 1) * G.band;
+  const yOf = (G, n, f) => G.tops ? G.tops[clamp(n, 1, G.N) - 1] + clamp(f, 0, 1) * G.bands[clamp(n, 1, G.N) - 1] : G.top + (clamp(n, 1, G.N) - 1) * (G.band + G.gap) + clamp(f, 0, 1) * G.band;
   /** The page and the fraction down it at strip y. */
   function atY(G, y) {
+    if (G.tops) {
+      let n = 1; while (n < G.N && G.tops[n] <= y) n++;
+      while (n > 1 && !G.bands[n - 1] && G.tops[n - 1] >= y) n--;
+      return { n, f: G.bands[n - 1] > 0 ? clamp((y - G.tops[n - 1]) / G.bands[n - 1], 0, 1) : 0 };
+    }
     const n = clamp(Math.floor((y - G.top) / (G.band + G.gap)) + 1, 1, G.N);
     return { n, f: G.band > 0 ? clamp((y - yOf(G, n, 0)) / G.band, 0, 1) : 0 };
   }
@@ -168,7 +182,8 @@
   const idle = cb => (global.requestIdleCallback ? global.requestIdleCallback(cb, { timeout: 600 }) : setTimeout(cb, 40));
   /**
    * opts: root, scroll, header, enabled(), count(), sheet(n), text(n) -> Promise<{ items, view }>,
-   * highlights(), cards(), cardLabel(card), label(n), goTo(place).
+   * highlights(), cards(), cardLabel(card), label(n), goTo(place); for an EPUB also blocks(n) (its chapter's blocks, as
+   * pageBlocks gives them, or null), weights() (each chapter's share of the lane), name() and spot(n) (the words for n; none, a PDF's "p. 12 of 40").
    */
   function create(opts) {
     const el = document.createElement('div');
@@ -180,7 +195,7 @@
     el.append(svg, tip);
     let gen = 0, raf = 0, G = null, lines = null, dots = null, win = null, hover = null, drag = false;
     let pages = [], prio = [], cursor = 1, busy = false;
-    const geoKey = () => G ? `${G.N}:${G.top}:${G.bottom}` : '';
+    const geoKey = () => G ? `${G.N}:${G.top}:${G.bottom}:${G.tops ? G.tops.map(Math.round).join(',') : ''}` : '';
 
     /* -- Lazy lines: near the window first, the rest when idle -- */
     async function pump() {
@@ -201,7 +216,8 @@
           }
           pages[n - 1] = null;   // asked for
           let blocks = { body: { x0: 0.15, w: 0.7 }, blocks: [] };
-          try { const t = await opts.text(n); if (my !== gen) break; blocks = pageBlocks(t.items, t.view) } catch { if (my !== gen) break }
+          // An EPUB's chapter gives its blocks directly (opts.blocks, from its laid-out paragraphs); a PDF's page its text.
+          try { const own = opts.blocks ? opts.blocks(n) : null; if (own) blocks = own; else { const t = await opts.text(n); if (my !== gen) break; blocks = pageBlocks(t.items, t.view) } } catch { if (my !== gen) break }
           pages[n - 1] = blocks; lines = null; schedule();
         }
       } finally { busy = false; if (my !== gen) pump() }
@@ -236,7 +252,7 @@
       el.hidden = false;
       const top = Math.ceil(opts.header.getBoundingClientRect().bottom) + S.inset, bottom = innerHeight - S.foot;
       const before = geoKey();
-      G = geometry(N, top, bottom);
+      G = geometry(N, top, bottom, opts.weights ? opts.weights() : null);
       if (geoKey() !== before) { lines = null; dots = null }
       el.style.top = top + 'px'; el.style.height = Math.max(0, bottom - top) + 'px';
       win = windowNow();
@@ -256,11 +272,12 @@
       svg.innerHTML = out;
       const now = atY(G, (win.y0 + win.y1) / 2).n;
       el.setAttribute('aria-valuemin', '1'); el.setAttribute('aria-valuemax', String(N)); el.setAttribute('aria-valuenow', String(win.a.n));
-      el.setAttribute('aria-valuetext', `p. ${opts.label(win.a.n)} of ${N}`);
+      el.setAttribute('aria-label', opts.name ? opts.name() : 'Pages');
+      el.setAttribute('aria-valuetext', opts.spot?.(win.a.n) || `p. ${opts.label(win.a.n)} of ${N}`);
       el.dataset.page = String(now);
       if (hover) {
         const near = hover.x >= S.dotX - 4 ? dots.find(d => Math.abs(d.y - hover.y) <= 4) : null;
-        tip.textContent = near ? near.label : 'p. ' + opts.label(hover.n);
+        tip.textContent = near ? near.label : opts.spot?.(hover.n) || 'p. ' + opts.label(hover.n);
         tip.style.top = (clamp(near ? near.y : hover.y, top + 8, bottom - 8) - top) + 'px';
         tip.hidden = false;
       } else tip.hidden = true;
