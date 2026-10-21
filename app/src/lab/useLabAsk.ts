@@ -185,6 +185,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
   const voiceStartRequestRef = useRef(0)
+  // A Talk start still awaiting its token or session when the reader unmounts ends as cancelled, never setting state after.
+  useEffect(() => () => { voiceStartRequestRef.current++ }, [])
   /** The guest trial was refused or ran out: the account sheet, not a failure notice. */
   const guestTrialClosedRef = useRef(false)
   // Talk's speaking speed: the host's saved value when it keeps one, else
