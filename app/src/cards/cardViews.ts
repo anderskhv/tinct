@@ -901,13 +901,13 @@ export function findCard(env: CardsEnv): CardSpec {
           }) as HTMLButtonElement
           remove.addEventListener('click', async event => {
             event.stopPropagation()
-            remove.disabled = true
-            const result = await socialAction(token, 'remove-follower', person.handle)
-            if (result.ok) {
-              removed.add(person.handle)
-              env.reloadFind()
-            } else status = CARDS_COPY.actionFailed
+            // Gone at once; back with a line if the Worker says no.
+            removed.add(person.handle)
             card.refresh()
+            const result = await socialAction(token, 'remove-follower', person.handle)
+            if (result.ok) env.reloadFind()
+            else { removed.delete(person.handle); status = CARDS_COPY.actionFailed }
+            if (!card.stack.isClosed) card.refresh()
           })
           extra.push(remove)
         }
@@ -996,69 +996,109 @@ async function shareLink(url: string, clipboard?: (text: string) => Promise<bool
   return (await (clipboard ?? copyText)(url)) ? 'copied' : 'failed'
 }
 
-/** 5 · A reader's profile (from Find readers); Unblock for a reader the viewer blocked. */
+/**
+ * Readers' profiles this page has read, in memory only (like the boards: they
+ * describe other readers, so they are never written to this device's storage;
+ * sign-out forgets them). A profile opened again paints at once and refreshes
+ * behind (21 Oct 2026: its figures took a round trip every time).
+ */
+const knownProfiles = new Map<string, ProfilePageData>()
+const profileKey = (env: CardsEnv, handle: string) => `${env.session.userId ?? ''}:${handle}`
+
+/** Sign-out, and tests. */
+export function forgetProfiles(): void {
+  knownProfiles.clear()
+}
+
+/** 5 · A reader's profile (from the Leaderboard or Find readers); Unblock for a reader the viewer blocked. */
 export function profileCard(env: CardsEnv, handle: string, name: string, picture: CardPicture | null): CardSpec {
-  let data: ProfilePageData | null | undefined
+  const key = profileKey(env, handle)
+  /** undefined: not known yet; null: not visible (missing, Only me, hidden, blocked). */
+  let data: ProfilePageData | null | undefined = knownProfiles.get(key)
+  let asked = false
   /** The relation while the profile cannot be seen (follow from a link still works). */
   let unseen: Relation | null = null
+  /** A follow or unfollow on its way: the button already says what it leads to. */
+  let pending: Relation | null = null
   let expanded = false
   let status = ''
   /** Set while the viewer has blocked this reader (their profile answers 404): the card offers Unblock. */
   let blockedId: string | null = null
+  const read = async (card: CardHandle) => {
+    const result = await fetchProfile(env.session.token, handle)
+    data = result?.profile ?? null
+    if (data) knownProfiles.set(key, data)
+    else {
+      knownProfiles.delete(key)
+      blockedId = await blockedReaderId(env.session.token, handle)
+    }
+    if (!card.stack.isClosed) card.refresh()
+  }
   return {
     id: 'profile',
     label: name,
     render: card => {
       const token = env.session.token
-      if (data === undefined) {
-        data = null
-        void fetchProfile(token, handle).then(async result => {
-          data = result?.profile ?? null
-          if (!data) blockedId = await blockedReaderId(token, handle)
-          if (!card.stack.isClosed) card.refresh()
-        })
-      }
-      const current = data
+      if (!asked) { asked = true; void read(card) }
+      const current = data ?? null
+      // Not known yet: no guessed button and no figures, only their places (nothing moves when they come).
+      const loading = data === undefined
       const bg = el('div', { className: 'tc-hero-bg' })
       paintBanner(bg, current?.banner ?? { src: LIBRARY_BACKGROUND }, token)
       const back = el('button', { type: 'button', className: 'tc-disc is-b', 'aria-label': 'Back', html: ICONS.back, dataset: { testid: 'card-back' }, onclick: () => card.stack.back() })
       const pic = el('span', { className: 'tc-av', 'aria-hidden': 'true' })
       paintPicture(pic, current?.picture ?? picture, current?.name ?? name, token)
-      const relation: Relation | null = current ? current.relation : unseen ?? 'stranger'
+      const relation: Relation | null = pending ?? (current ? current.relation : unseen ?? 'stranger')
       const who = el('div', { className: 'tc-who' }, pic,
         el('span', { className: 'tc-nm' }, el('b', { text: current?.name ?? name }), current?.followsYou ? el('span', { text: CARDS_COPY.followsYou }) : null))
       const spec = followButton(relation)
       if (blockedId) {
         const id = blockedId
         const unblock = button(CARDS_COPY.unblock, 'line', async () => {
-          unblock.disabled = true
-          if (await unblockReader(token, id)) {
-            blockedId = null
-            data = (await fetchProfile(token, handle))?.profile ?? null
-          } else status = CARDS_COPY.actionFailed
+          // At once: the card is no longer blocked; back to Unblock if the Worker says no.
+          blockedId = null
           card.refresh()
+          if (await unblockReader(token, id)) await read(card)
+          else { blockedId = id; status = CARDS_COPY.actionFailed; card.refresh() }
         }, 'profile-unblock')
         who.append(unblock)
+      } else if (loading) {
+        // The button's place, kept for it: never "Follow" for a friend while their profile loads.
+        const placeholder = button(followButton('stranger')!.label, 'line', null, 'profile-follow-pending')
+        placeholder.style.visibility = 'hidden'
+        placeholder.setAttribute('aria-hidden', 'true')
+        who.append(placeholder)
       } else if (spec) {
         const action = spec.action
         const btn = button(spec.label, spec.style, action ? async () => {
-          btn.disabled = true
-          const result = await socialAction(token, action, handle)
-          if (!result.ok) status = CARDS_COPY.actionFailed
-          else {
-            unseen = result.relation ?? relationAfter(relation, action === 'follow')
-            // Following may open a Friends profile, unfollowing may close it: read it again.
-            data = (await fetchProfile(token, handle))?.profile ?? null
-            env.reloadFind()
-          }
+          // At once: the button says what the tap leads to; the Worker's answer settles it.
+          const before = relation
+          pending = relationAfter(before, action === 'follow')
           card.refresh()
+          const result = await socialAction(token, action, handle)
+          if (!result.ok) {
+            pending = null
+            status = CARDS_COPY.actionFailed
+          } else {
+            unseen = result.relation ?? pending
+            if (current) { current.relation = unseen; knownProfiles.set(key, current) }
+            pending = null
+            env.reloadFind()
+            // Following may open a Friends profile, unfollowing may close it: read it again, behind.
+            void read(card)
+          }
+          if (!card.stack.isClosed) card.refresh()
         } : null, 'profile-follow')
+        if (pending) btn.setAttribute('aria-busy', 'true')
         who.append(btn)
       }
       const hero = el('div', { className: 'tc-hero' }, bg, back, heroClose(card), who)
       const body = el('div', { className: 'tc-body is-under-hero', dataset: { testid: 'profile-body' } })
       const view = current ? readerCardView(current) : null
-      if (view && !view.limited) {
+      if (loading) {
+        body.append(el('div', { className: 'tc-g', dataset: { testid: 'profile-facts-skeleton' }, 'aria-busy': 'true' },
+          el('div', { className: 'tc-three' }, ...[0, 1, 2].map(() => el('div', {}, el('b', {}, el('i', { className: 'tc-skel', 'aria-hidden': 'true' })), el('span', { html: '&nbsp;' }))))))
+      } else if (view && !view.limited) {
         const facts = factsRow(view.facts, false)
         if (facts) body.append(el('div', { className: 'tc-g' }, facts))
         if (view.readingNow) {

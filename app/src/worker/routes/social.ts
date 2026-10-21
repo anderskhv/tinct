@@ -677,7 +677,8 @@ export async function buildProfile(ctx: Context, handle: string, viewerId: strin
     const last7 = readingTimeStats(rows, utcDay(ctx.now)).last7Seconds
     const year = String(new Date(ctx.now).getUTCFullYear())
     const yearSeconds = rows.filter(row => row.day.startsWith(`${year}-`)).reduce((sum, row) => sum + row.read + row.listen, 0)
-    data.time = { last7: formatDuration(last7), year: formatDuration(yearSeconds) }
+    // The seconds too, so the account cards write them as the Leaderboard row does ("12 h 34", not "12 h").
+    data.time = { last7: formatDuration(last7), year: formatDuration(yearSeconds), last7Seconds: last7, yearSeconds }
   }
   if (view.shows.reading) {
     const [catalogue, position] = await shelfData
