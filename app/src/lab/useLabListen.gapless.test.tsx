@@ -260,3 +260,54 @@ describe('a recording that stalls mid-clip (iPhone, 20 Oct 2026: stopped on "say
     expect(h.result.current.buffering).toBe(false)
   })
 })
+
+describe('a stall on a locked phone (iPhone, 20 Oct 2026, 18:38: stopped until the app came forward)', () => {
+  let session: { playbackState: string; metadata: unknown; setActionHandler: () => void; setPositionState: () => void }
+  const setVisibility = (state: 'visible' | 'hidden') => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => state })
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => state === 'hidden' })
+  }
+  beforeEach(() => {
+    session = { playbackState: 'none', metadata: null, setActionHandler: () => {}, setPositionState: () => {} }
+    Object.defineProperty(navigator, 'mediaSession', { configurable: true, value: session })
+  })
+  afterEach(() => {
+    setVisibility('visible')
+    delete (navigator as { mediaSession?: unknown }).mediaSession
+  })
+
+  it('never pauses: silence holds the element, the lock screen stays playing, and the recording comes back from a hold event', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const { h, audio } = await playing({ speed: 1.5 })
+    audio.currentTime = 7
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    setVisibility('hidden')
+    const pauses = audio.pause.mock.calls.length
+    // The element underruns: WebKit says `waiting`, then `stalled`; no timer is needed to notice.
+    await act(async () => { vi.advanceTimersByTime(1_900) })
+    act(() => { audio.dispatchEvent(new Event('stalled')) })
+    expect(audio.pause.mock.calls.length).toBe(pauses)
+    expect(audio.loop).toBe(true)
+    expect(clipUrlOfSource(audio.src)).not.toBe(clipUrl(1, 0))
+    expect(session.playbackState).toBe('playing')
+    expect(h.result.current.playing).toBe(true)
+    // The buffer fetches the stalled recording itself; the hold's clock is the heartbeat.
+    await waitFor(() => expect(fetched).toContain(clipUrl(1, 0)))
+    await settle()
+    const plays = audio.play.mock.calls.length
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    // Swapped back inside the hold's event, from memory, at the stalled second and the one speed.
+    expect(audio.pause.mock.calls.length).toBe(pauses)
+    expect(audio.src).toMatch(/^blob:/)
+    expect(clipUrlOfSource(audio.src)).toBe(clipUrl(1, 0))
+    expect(audio.loop).toBe(false)
+    expect(audio.currentTime).toBe(7)
+    expect(audio.playbackRate).toBe(1.5)
+    expect(audio.play.mock.calls.length).toBeGreaterThan(plays)
+    await settle()
+    audio.currentTime = 7.5
+    act(() => { audio.dispatchEvent(new Event('timeupdate')) })
+    expect(h.result.current.buffering).toBe(false)
+    expect(session.playbackState).toBe('playing')
+  })
+})

@@ -1,5 +1,5 @@
 import { parseChapterChatAction } from './labChapterChat'
-import type { ChatConversation, ChatMessage } from '../types'
+import type { ChatCard, ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
 import { localStorageProvider } from '../services/storage'
 import { supabase } from '../services/supabase'
@@ -84,11 +84,52 @@ function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: numbe
   }
 }
 
+/** A margin card's data is kept only while it is small (each write rewrites the book's whole row). */
+export const LAB_CHAT_CARD_DATA_CHARS = 8_000
+const CARD_KIND = /^[a-z][a-z0-9-]{0,23}$/
+
+/** Sanitize a conversation's margin card (see ChatConversation.card). Never throws; a bad one reads as none. */
+export function parseChatCard(raw: unknown): ChatCard | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined
+  const src = raw as Record<string, unknown>
+  if (typeof src.id !== 'string' || !src.id || src.id.length > 120) return undefined
+  if (typeof src.kind !== 'string' || !CARD_KIND.test(src.kind)) return undefined
+  if (!isFiniteInt(src.chapterNumber, 0, 5000) || !isFiniteInt(src.u, 1, 1e15)) return undefined
+  const at = isFiniteInt(src.at, 1, 1e15) ? src.at : src.u
+  if (src.gone === true) return { id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u, gone: true }
+  const a = src.anchor as Record<string, unknown> | undefined
+  const anchor = a && typeof a === 'object' && typeof a.editionKey === 'string' && a.editionKey && a.editionKey.length <= 80
+    && isFiniteInt(a.chapterNumber, 0, 5000) && ['paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord'].every(k => isFiniteInt(a[k], 0, 10_000_000))
+    ? { editionKey: a.editionKey, chapterNumber: a.chapterNumber as number, paragraphIndex: a.paragraphIndex as number, fromWord: a.fromWord as number, endParagraphIndex: a.endParagraphIndex as number, toWord: a.toWord as number }
+    : undefined
+  const rects = Array.isArray(src.rects)
+    ? src.rects.filter((r): r is number[] => Array.isArray(r) && r.length <= 5 && r.every(v => typeof v === 'number' && Number.isFinite(v))).slice(0, 24)
+    : undefined
+  let data: unknown
+  if (src.data !== undefined) {
+    try { const text = JSON.stringify(src.data); if (text && text.length <= LAB_CHAT_CARD_DATA_CHARS) data = JSON.parse(text) } catch { data = undefined }
+  }
+  return {
+    id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u,
+    ...(anchor ? { anchor } : {}),
+    ...(typeof src.text === 'string' && src.text ? { text: src.text.slice(0, 2000) } : {}),
+    ...(rects?.length ? { rects } : {}),
+    ...(data !== undefined ? { data } : {}),
+  }
+}
+
+/** A deleted margin card: it keeps only its card, with no messages. */
+export function isCardTombstone(conversation: Pick<ChatConversation, 'card'>): boolean {
+  return conversation.card?.gone === true
+}
+
 function parseConversation(raw: unknown, bookId: string): ChatConversation | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
+  const card = parseChatCard(src.card)
+  if (card?.gone) return { id: src.id, bookId, chapterNumber: Math.max(1, card.chapterNumber), startTimestamp: card.u, endTimestamp: card.u, messages: [], preview: '', card }
   if (!Array.isArray(src.messages)) return null
   let fallback = isFiniteInt(src.startTimestamp, 1, 1e15) ? src.startTimestamp : isFiniteInt(src.endTimestamp, 1, 1e15) ? src.endTimestamp : 1
   const messages: ChatMessage[] = []
@@ -111,6 +152,7 @@ function parseConversation(raw: unknown, bookId: string): ChatConversation | nul
     ...(typeof src.summary === 'string' && src.summary ? { summary: src.summary } : {}),
     ...(typeof src.summaryPrompt === 'string' && src.summaryPrompt ? { summaryPrompt: src.summaryPrompt } : {}),
     ...(isFiniteInt(src.summaryCreatedAt, 1, 1e15) ? { summaryCreatedAt: src.summaryCreatedAt } : {}),
+    ...(card ? { card } : {}),
   }
 }
 
@@ -130,11 +172,13 @@ export function parseChatConversations(raw: unknown, bookId: string): ChatConver
 function trimConversations(conversations: ChatConversation[]): ChatConversation[] {
   const total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
   if (total <= LAB_CHAT_MAX_MESSAGES_PER_BOOK) return conversations
+  // A deleted card's tombstone has no messages to trim, and must stay so the card stays deleted.
   const all = conversations.flatMap((conversation, c) => conversation.messages.map((message, m) => ({ c, m, at: message.timestamp })))
   all.sort((x, y) => y.at - x.at || y.c - x.c || y.m - x.m)
   const keep = new Set(all.slice(0, LAB_CHAT_MAX_MESSAGES_PER_BOOK).map(({ c, m }) => `${c}:${m}`))
   const next: ChatConversation[] = []
   conversations.forEach((conversation, c) => {
+    if (isCardTombstone(conversation)) { next.push(conversation); return }
     const messages = conversation.messages.filter((_, m) => keep.has(`${c}:${m}`))
     if (messages.length === 0) return
     next.push(messages.length === conversation.messages.length ? conversation : {
@@ -172,10 +216,12 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       const current = messages.get(message.id)
       messages.set(message.id, current ? preferMessage(current, message) : message)
     }
-    const ordered = [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
+    const card = newerCard(existing.card, conversation.card)
+    const ordered = card?.gone ? [] : [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
     byId.set(conversation.id, {
       ...existing,
       ...conversation,
+      ...(card ? { card } : {}),
       summary: conversation.summary ?? existing.summary,
       summaryPrompt: conversation.summaryPrompt ?? existing.summaryPrompt,
       summaryCreatedAt: conversation.summaryCreatedAt ?? existing.summaryCreatedAt,
@@ -193,10 +239,18 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       seen.add(message.id)
       return true
     })
-    if (messages.length === 0) continue
+    if (messages.length === 0 && !isCardTombstone(conversation)) continue
     result.push({ ...conversation, messages })
   }
   return trimConversations(result)
+}
+
+/** Two copies of one margin card: the newer edit wins; at the same moment a deletion wins. */
+function newerCard(a: ChatCard | undefined, b: ChatCard | undefined): ChatCard | undefined {
+  if (!a || !b) return a ?? b
+  if (a.u !== b.u) return a.u > b.u ? a : b
+  if (!!a.gone !== !!b.gone) return a.gone ? a : b
+  return b
 }
 
 export function sameChatConversations(a: ChatConversation[], b: ChatConversation[]): boolean {
@@ -305,6 +359,8 @@ function appendTurnToConversations(
     last
     && last.bookId === bookId
     && last.chapterNumber === chapterNumber
+    // A margin card's conversation is the card's own: a chat turn never joins it.
+    && !last.card
     && (continued || now - last.endTimestamp < CONVERSATION_GAP_MS)
   ) {
     if (last.messages.some(item => item.id === enriched.id)) return current

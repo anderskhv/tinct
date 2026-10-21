@@ -78,6 +78,14 @@ const outageAtSeconds = Number(option('outage-at', '0'))
  * cuts the element's own download mid-recording: the stall the iPhone hit.
  */
 const longOpening = Number(option('long-opening', '0'))
+/**
+ * `--ios-background`: while the page is hidden, behave like a locked iPhone:
+ * timers do not fire (their callbacks wait for the page to show again), and
+ * an element the page paused itself refuses play() without a gesture.
+ */
+const iosBackground = flag('ios-background')
+/** `--clip-seconds 4`: every sentence group lasts this long (short dialogue paragraphs, as in To the Lighthouse). */
+const clipSeconds = Number(option('clip-seconds', '0'))
 const outageMs = Number(option('outage-ms', '0'))
 const BOOK = 'frankenstein'
 const EDITION = 'original-en'
@@ -116,7 +124,7 @@ async function chapterLayout(chapter) {
       chunks: chunks.map(chunk => {
         const spoken = tokens.slice(chunk.wordFrom, chunk.wordTo).join(' ')
         const natural = Math.max(1, Math.round((spoken.length / CHARS_PER_SECOND) * 2) / 2)
-        const duration = longOpening > 0 && chapter === 1 && index === 0 && chunk.index === 0 ? longOpening : natural
+        const duration = longOpening > 0 && chapter === 1 && index === 0 && chunk.index === 0 ? longOpening : clipSeconds > 0 ? clipSeconds : natural
         return { index: chunk.index, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo, duration }
       }),
     }
@@ -204,6 +212,7 @@ function startOutage() {
 
 // ---- Server -----------------------------------------------------------------
 const fetchLog = []
+const ensureLog = []
 let ensureCalls = 0
 const generated = new Set()
 const making = new Map()
@@ -218,6 +227,8 @@ async function readBody(req) {
 async function handleEnsure(req, res) {
   ensureCalls += 1
   const body = JSON.parse(await readBody(req) || '{}')
+  const ensureEntry = { start: Date.now(), chapter: body.chapter, asked: (body.paragraphs || []).map(item => `${item.index}:${item.fromChunk ?? '-'}`), text: (body.paragraphs || []).some(item => item.textHash) }
+  ensureLog.push(ensureEntry)
   await wait(profile.rttMs + ensureCachedMs)
   const layout = await chapterLayout(Number(body.chapter))
   const paragraphs = []
@@ -256,6 +267,8 @@ async function handleEnsure(req, res) {
       source: 'cache',
     })
   }
+  ensureEntry.end = Date.now()
+  ensureEntry.ready = paragraphs.map(item => `${item.paragraph}:${item.readyChunks ?? item.status}`)
   const json = Buffer.from(JSON.stringify({ paragraphs, generated: 0 }))
   res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Content-Length': json.length })
   res.end(json)
@@ -331,6 +344,39 @@ function initScript(config) {
   // The margin preview's frame shares this page's storage; the player and its element are this page's.
   if (window.top !== window) return
   window.__narr = { events: [], hidden: false }
+  const realSetInterval = window.setInterval.bind(window)
+  // When the page itself asks for narration (client clock), next to the server's log.
+  window.__narr.ensureClient = []
+  const realFetch = window.fetch.bind(window)
+  window.fetch = (input, init) => {
+    const url = typeof input === 'string' ? input : input?.url || ''
+    if (url.includes('/api/narration/ensure')) window.__narr.ensureClient.push({ t: performance.timeOrigin + performance.now(), body: init?.body ? JSON.parse(init.body).paragraphs?.map(item => `${item.index}:${item.fromChunk ?? '-'}`) : null })
+    return realFetch(input, init)
+  }
+  if (config.iosBackground) {
+    const rawTimeout = window.setTimeout.bind(window)
+    const rawInterval = window.setInterval.bind(window)
+    const waiting = []
+    window.__narr.deferredTimers = 0
+    window.setTimeout = (fn, ms, ...rest) => rawTimeout(() => {
+      if (window.__narr.hidden) { window.__narr.deferredTimers += 1; waiting.push(() => typeof fn === 'function' && fn(...rest)) } else if (typeof fn === 'function') fn(...rest)
+    }, ms)
+    window.setInterval = (fn, ms, ...rest) => rawInterval(() => { if (!window.__narr.hidden && typeof fn === 'function') fn(...rest) }, ms)
+    document.addEventListener('visibilitychange', () => { if (!window.__narr.hidden) waiting.splice(0).forEach(run => run()) })
+    const nativePause = HTMLMediaElement.prototype.pause
+    const nativePlayForGesture = HTMLMediaElement.prototype.play
+    HTMLMediaElement.prototype.pause = function () {
+      if (window.__narr.hidden) this.__idledHidden = true
+      return nativePause.call(this)
+    }
+    HTMLMediaElement.prototype.play = function () {
+      if (window.__narr.hidden && this.__idledHidden) {
+        window.__narr.refusedPlays = (window.__narr.refusedPlays || 0) + 1
+        return Promise.reject(new DOMException('The request is not allowed by the user agent in the current context.', 'NotAllowedError'))
+      }
+      return nativePlayForGesture.call(this)
+    }
+  }
   const realVisibility = Object.getOwnPropertyDescriptor(Document.prototype, 'visibilityState')
   Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => (window.__narr.hidden ? 'hidden' : realVisibility.get.call(document)) })
   Object.defineProperty(document, 'hidden', { configurable: true, get: () => window.__narr.hidden })
@@ -341,7 +387,7 @@ function initScript(config) {
     seen.add(audio)
     audio.__narrId = (window.__narrIds = (window.__narrIds || 0) + 1)
     window.__narr.lastAudio = audio
-    for (const type of ['loadstart', 'canplay', 'playing', 'waiting', 'stalled', 'pause', 'ended', 'error', 'emptied']) {
+    for (const type of ['loadstart', 'loadedmetadata', 'canplay', 'playing', 'waiting', 'stalled', 'pause', 'ended', 'error', 'emptied', 'seeking', 'seeked', 'ratechange', 'suspend']) {
       audio.addEventListener(type, () => window.__narr.events.push({
         type, t: now(), element: audio.__narrId, src: audio.currentSrc || audio.src || '', loop: audio.loop,
         currentTime: audio.currentTime, duration: audio.duration, readyState: audio.readyState, rate: audio.playbackRate,
@@ -361,7 +407,7 @@ function initScript(config) {
   window.__narr.signals = []
   window.addEventListener('tinct:narration-buffer', event => window.__narr.signals.push({ ...event.detail, t: now() }))
   window.__narr.samples = []
-  setInterval(() => {
+  realSetInterval(() => {
     const audio = [...document.querySelectorAll('audio')][0] || window.__narr.lastAudio
     const transport = document.querySelector('[data-testid="lab-v2-play"]') || document.querySelector('iframe[data-testid="margin-preview-frame"]')?.contentDocument?.getElementById('playBtn')
     window.__narr.samples.push({
@@ -426,12 +472,13 @@ function boundaries(events, startOrder) {
 async function runCase(browser, engine, profileName, visibility) {
   profile = PROFILES[profileName]
   fetchLog.length = 0
+  ensureLog.length = 0
   ensureCalls = 0
   generated.clear()
   making.clear()
   outage = null
   const caseLabel = [engine, surface === 'margin' ? 'margin' : null, viewport, profileName, visibility, serviceWorkers === 'allow' ? 'sw' : null, generateMs > 0 ? `cold${generateMs}` : null,
-    speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
+    speed !== 1 ? `x${speed}` : null, longOpening ? `opening${longOpening}s` : null, iosBackground ? 'ios-bg' : null, clipSeconds ? `clips${clipSeconds}s` : null, outageMs > 0 ? `outage${outageAtSeconds}s+${outageMs}ms` : null].filter(Boolean).join('-')
   const context = await browser.newContext({
     viewport: viewport === 'phone' ? { width: 390, height: 844 } : { width: 1440, height: 900 },
     hasTouch: viewport === 'phone', serviceWorkers,
@@ -439,7 +486,7 @@ async function runCase(browser, engine, profileName, visibility) {
   const page = await context.newPage()
   const errors = []
   page.on('pageerror', error => errors.push(error.message))
-  await page.addInitScript(initScript, { speed, startParagraph, startPage })
+  await page.addInitScript(initScript, { speed, startParagraph, startPage, iosBackground })
   const result = { label: caseLabel, engine, profile: profileName, visibility, errors }
   try {
     const margin = surface === 'margin'
@@ -468,6 +515,9 @@ async function runCase(browser, engine, profileName, visibility) {
     const state = await page.evaluate(() => ({
       events: window.__narr.events,
       signals: window.__narr.signals,
+      refusedPlays: window.__narr.refusedPlays || 0,
+      ensureClient: window.__narr.ensureClient,
+      deferredTimers: window.__narr.deferredTimers || 0,
       samples: window.__narr.samples,
       transport: (document.querySelector('[data-testid="lab-v2-play"]') || document.querySelector('iframe[data-testid="margin-preview-frame"]')?.contentDocument?.getElementById('playBtn'))?.getAttribute('aria-label'),
       buffering: !!document.querySelector('[data-testid="lab-audio-buffering"]'),
@@ -498,9 +548,13 @@ async function runCase(browser, engine, profileName, visibility) {
       audioRequests: audioFetches.length,
       audioBytes: audioFetches.reduce((sum, entry) => sum + (entry.bytes || 0), 0),
       ensureCalls,
+      ensureClient: state.ensureClient.map(entry => ({ ...entry, t: Math.round(entry.t - startedAt) })),
+      ensures: ensureLog.map(entry => ({ ...entry, start: entry.start - startedAt, end: entry.end ? entry.end - startedAt : null })),
       fetches: audioFetches.map(entry => ({ path: entry.path.split('/').pop(), range: entry.range, dest: entry.purpose, start: entry.start - startedAt, end: entry.end ? entry.end - startedAt : null, bytes: entry.bytes, aborted: entry.aborted || false })),
       transport: state.transport,
       // Only after the first sound: the wait for Play to start is not a gap.
+      refusedPlays: state.refusedPlays,
+      deferredTimers: state.deferredTimers,
       silences: silences(state.samples.filter(sample => sample.t >= (state.events.find(e => e.type === 'playing' && !e.loop && !/unlock-silence/.test(e.src))?.t ?? Infinity))),
     })
     // A clip that never followed the one before it: keep the element's own story for diagnosis.
@@ -527,7 +581,7 @@ async function runCase(browser, engine, profileName, visibility) {
   } finally {
     await context.close().catch(() => {})
   }
-  console.log(JSON.stringify({ label: caseLabel, count: result.count, p50: result.p50, p95: result.p95, max: result.max, held: result.held, minDownloadedAhead: result.minDownloadedAhead, maxSilenceMs: result.maxSilenceMs, outage: result.outage && { detectMs: result.outage.detectMs, kind: result.outage.detectKind, ahead: result.outage.aheadAtDetection, retried: result.outage.retriedRequests, ranges: result.outage.rangeResumes, silences: result.outage.silencesDuringOrAfter.map(item => [item.ms, item.spinnerShown, item.sessionPlayingThroughout]) }, error: result.error?.split('\n')[0] }))
+  console.log(JSON.stringify({ label: caseLabel, count: result.count, p50: result.p50, p95: result.p95, max: result.max, held: result.held, minDownloadedAhead: result.minDownloadedAhead, maxSilenceMs: result.maxSilenceMs, refusedPlays: result.refusedPlays, deferredTimers: result.deferredTimers, outage: result.outage && { detectMs: result.outage.detectMs, kind: result.outage.detectKind, ahead: result.outage.aheadAtDetection, retried: result.outage.retriedRequests, ranges: result.outage.rangeResumes, silences: result.outage.silencesDuringOrAfter.map(item => [item.ms, item.spinnerShown, item.sessionPlayingThroughout]) }, error: result.error?.split('\n')[0] }))
   return result
 }
 

@@ -8,6 +8,7 @@
 // book moves every box in one transition, so nothing is ever stretched. Each
 // box takes its own cover's shape (bookBox), so no cover is squeezed or cropped.
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014talkwake';
+import { opensReader } from './reader-href.js?v=20261020open';
 import { coverAsset } from './cover-assets.js?v=20261009owncover';
 import { paintedCoverAt } from '../book-cover.js?v=20261009owncover';
 
@@ -474,7 +475,13 @@ function wire(view, table, demo, keepBookId, options={}) {
     if(options.onOpen){try{await options.onOpen(b.bookId,b.linked?'linked':'reading',books[index].querySelector('.rt-front img'));}catch{options.onError?.('This book could not open. Please try again.');}return;}
     document.body.classList.add('leaving');
     const destination = demo || !view.api ? Promise.resolve(`/library?book=${encodeURIComponent(b.bookId)}&view=book-detail`) : view.api.readerDestination(b.bookId, null);
-    const [href] = await Promise.all([destination, new Promise(r => setTimeout(r, 240))]);
+    const [href] = await Promise.all([destination.catch(() => null), new Promise(r => setTimeout(r, 240))]);
+    // Only the demo goes to the book page; a reader's book opens in the reader or says it could not (reader-href.js).
+    if (!demo && view.api && !opensReader(href)) {
+      document.body.classList.remove('leaving');
+      options.onError?.('This book could not open. Please try again.');
+      return;
+    }
     location.assign(href);
   }
 
