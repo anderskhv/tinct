@@ -194,8 +194,10 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr { --mr-accent: #1f4a5c; --mr-bar-accent: #8cbccd; }   /* Tinct's accent; the same on the dark bar */
 .lab.is-night .mr { --mr-accent: #8cbccd; }
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-accent: #111; --mr-bar-accent: #fff; }
-@keyframes mr-blink { 0%, 30% { opacity: 1 } 55%, 80% { opacity: .15 } 100% { opacity: 1 } }
-.mr-bar__caret { display: inline-block; border-radius: 1px; background: var(--mr-bar-accent); animation: mr-blink 1.4s ease-in-out infinite; }
+/* The hint after "Ask" (Anders, 21 Oct 2026: the blue blinking line was too jarring): the bar's own ink, 1px by 13px, a
+   slow soft pulse that never goes out. */
+@keyframes mr-blink-soft { 0%, 55% { opacity: .7 } 75%, 90% { opacity: .3 } 100% { opacity: .7 } }
+.mr-bar__caret { display: inline-block; width: 1px; height: 13px; border-radius: 1px; background: var(--mr-bar-ink); opacity: .7; animation: mr-blink-soft 2.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .mr-bar__caret { animation: none; } }
 .mr-bar__item.is-ask { gap: 4px; }
 .mr-bar__sep { flex: none; }
