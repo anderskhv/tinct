@@ -15,6 +15,7 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
+import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -585,6 +586,14 @@ describe('the book reader is unchanged', () => {
     askStream: 'e2e6eea181031a8787b859bccb319da0a51bb5cecae15d45468f8d5ac166db6f',
     guestAsk: 'eaa1df445f7df54bb419de8be86b3c1430241e7135ef0d585d02f5eb2ca4badc',
   }
+  // The lookup's grounding line (Anders, 21 Oct 2026) changes Define's turn on purpose and nothing else: its
+  // body is pinned as it is now, and with exactly that line taken out it is still the body above.
+  const AFTER: Record<string, string> = { ...BEFORE, define: '7df66c824adb9bc3c064e8b9be698266a64514f6fef6ea8aab0565a2c8ac139d' }
+  const withoutLookupGrounding = (body: Record<string, unknown>) => {
+    const line = `${CONTEXTUAL_LOOKUP_GROUNDING_LINE}\n`
+    const messages = body.messages as Array<{ role: string; content: unknown }>
+    return { ...body, messages: messages.map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(line, '') } : message) }
+  }
   const requests: Record<string, { body: unknown; guest?: boolean }> = {
     explain: { body: { companion: { intent: 'explain', context: bookContext, selection: 'ingenious hero' } } },
     define: { body: { companion: { intent: 'define', context: bookContext, selection: 'muse' } } },
@@ -597,7 +606,8 @@ describe('the book reader is unchanged', () => {
     const { anthropic } = stubFetch()
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
-    expect(sha(anthropic[0])).toBe(BEFORE[name])
+    expect(sha(anthropic[0])).toBe(AFTER[name])
+    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(BEFORE[name])
   })
 })
 

@@ -142,6 +142,8 @@ For a term, including one named after a person (Parzen window, Bayes' theorem, G
 
 Round 3 (16 October, re-check 2): the earlier line ("A proper noun used as a term or in one … is a word, not a person") came back as a label, "Proper noun used as a term (adjective-like modifier…)", on "Parzen" and "minimax". The line now asks for the term and its meaning first, and the PDF reader drops a leading grammar label from a Define answer (`parseLookup`, margin.js).
 
+**Grounding (Anders, 21 October 2026).** In the book reader a tapped "Jonathan the son of Absalom" (1 Maccabees 13:11) got Jonathan Maccabeus's card, because 13:8 and 13:12 name the famous one. `CONTEXTUAL_LOOKUP_PROMPT`, and so the PDF reader's Define, now has a second line (`CONTEXTUAL_LOOKUP_GROUNDING_LINE`): identify a named person from the selected occurrence itself, in the current paragraph, and its own qualifiers ("son of X", a title, an epithet), never from another person of that name nearby or from fame; if the text does not settle who it is, say the identity is unclear and use uncertain rather than name the famous namesake. It is in the define turn, which is not cached; the route caches only the system prompt.
+
 ## Fact-check — new intent `factcheck`
 
 Model: `COMPANION_MODEL`. Max tokens: 900. Effort: typed. Tools: `search_reading_sources`, prefetched with a query built from the passage. This is the only action that searches the web. Charge it like Ask.
