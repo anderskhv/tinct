@@ -8,6 +8,7 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import {
   blockedReaderId,
@@ -101,8 +102,12 @@ export interface CardsEnv {
 /** A picture: the reader's own ({ kind, value, url }) or the social API's ProfilePicture. */
 export type CardPicture = Partial<ProfilePicture> & { kind?: PictureKind; value?: string | null; url?: string | null }
 
-/** Draw a picture into a round element. Stored photos load with the reader's token. */
-export function paintPicture(node: HTMLElement, picture: CardPicture | null | undefined, name: string, token: string | null): void {
+/**
+ * Draw a picture into a round element. Stored photos load with the reader's token.
+ * A painted picture is drawn from its disc-sized crop (avatarCrops.ts): `s` for a
+ * row (36 px), `l` for a hero (76 px), instead of the whole painting.
+ */
+export function paintPicture(node: HTMLElement, picture: CardPicture | null | undefined, name: string, token: string | null, size: AvatarCropSize = 'l'): void {
   // No name, no letter: never a stand-in initial.
   const initial = (name.trim()[0] || '').toUpperCase()
   let view: { src: string | null; pos: string; cover: boolean; private: boolean; initial: string }
@@ -114,6 +119,7 @@ export function paintPicture(node: HTMLElement, picture: CardPicture | null | un
   } else {
     view = { src: null, pos: '', cover: false, private: false, initial: picture?.initial || initial }
   }
+  if (view.src) view = croppedPicture(view, size)
   node.textContent = ''
   node.style.backgroundImage = ''
   if (!view.src) {
@@ -155,11 +161,12 @@ export function smallAvatarSrc(src: string): string {
   return match && AVATAR_480_IDS.includes(match[1]) ? `/lab/library_2/assets/covers/${match[1]}-480.webp` : src
 }
 
-/** A small row avatar (Leaderboard, Find readers): the small copy, painted once it scrolls near view. */
+/** A small row avatar (Leaderboard, Find readers): the row-sized crop, painted once it scrolls near view. */
 function avatar(picture: CardPicture | null | undefined, name: string, token: string): HTMLElement {
   const node = el('span', { className: 'tc-av is-s', 'aria-hidden': 'true' })
-  const small = picture?.src ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
-  const paint = () => paintPicture(node, small, name, token)
+  // No crop for it (a painting added since): the small copy, as before.
+  const small = picture?.src && !hasAvatarCrop(picture.src, picture.pos) ? { ...picture, src: smallAvatarSrc(picture.src) } : picture
+  const paint = () => paintPicture(node, small, name, token, 's')
   if (!small?.src || typeof IntersectionObserver === 'undefined') { paint(); return node }
   const seen = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return
