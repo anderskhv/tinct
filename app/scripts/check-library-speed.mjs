@@ -24,6 +24,7 @@
 //   - a book on the desk: the tap's visible answer, the reader's first text (once with the reader's
 //     code not yet cached, once cached and tapped as soon as the desk shows), and the reader's
 //     Library back to the library's desk;
+//   - at rest: the main thread's busy share, long tasks, and each frame's script work (mean, p95);
 //   - long tasks over 50 ms per phase (WebKit: frame gaps over 50 ms instead), the requests made
 //     before the first useful paint (count, bytes, waterfall), image bytes with each shown image's
 //     size against its displayed size, and the JavaScript loaded for the library.
@@ -161,6 +162,10 @@ function instrument({ ref, session, record, user, latency, signedIn }) {
   }
   try { new PerformanceObserver(list => { for (const e of list.getEntries()) S.longTasks.push({ start: Math.round(e.startTime), duration: Math.round(e.duration) }) }).observe({ type: 'longtask', buffered: true }) } catch { S.noLongTask = true }
   try { new PerformanceObserver(list => { for (const e of list.getEntries()) S.events.push({ name: e.name, start: e.startTime, duration: e.duration, processing: e.processingEnd - e.processingStart, delay: e.processingStart - e.startTime, id: e.interactionId || 0 }) }).observe({ type: 'event', durationThreshold: 16, buffered: true }) } catch { S.noEventTiming = true }
+  // The script work of each frame (every requestAnimationFrame callback run for one frame time, summed).
+  S.frameWork = []
+  const raf0 = window.requestAnimationFrame.bind(window)
+  window.requestAnimationFrame = cb => raf0(t => { const start = now(); try { cb(t) } finally { const last = S.frameWork.at(-1), spent = now() - start; if (last && last.t === t) last.ms += spent; else { S.frameWork.push({ t, ms: spent }); if (S.frameWork.length > 4000) S.frameWork.splice(0, 2000) } } })
   // Frame gaps (a long task where the browser has no Long Tasks API) and the library's milestones, by frame.
   const visible = el => { if (!el) return false; const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2 || r.bottom < 0 || r.top > innerHeight) return false; const s = getComputedStyle(el); return s.visibility !== 'hidden' && s.display !== 'none' && Number(s.opacity) > 0.05 }
   const mark = (name, test) => { if (S.marks[name] == null && test()) S.marks[name] = Math.round(now()) }
@@ -431,7 +436,7 @@ async function deskToReaderAndBack(page, { early = false } = {}) {
 
 /** The library at rest for 3 s: how busy its main thread stays (an animation that never stops delays every tap). */
 async function idleBusy(page, cdp) {
-  await page.evaluate(() => { window.__speed.longTasks.length = 0; window.__speed.gaps.length = 0 })
+  await page.evaluate(() => { window.__speed.longTasks.length = 0; window.__speed.gaps.length = 0; window.__speed.frameWork.length = 0 })
   const metric = async () => cdp ? Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(m => [m.name, m.value])).TaskDuration : null
   if (cdp) await cdp.send('Performance.enable')
   const profile = cdp && process.env.LIBRARY_SPEED_PROFILE === '1'
@@ -447,7 +452,10 @@ async function idleBusy(page, cdp) {
     for (const [k, v] of [...self].sort((a, b) => b[1] - a[1]).slice(0, 25)) console.log(`  ${String(Math.round(v / 1000)).padStart(6)}  ${k}`)
   }
   const tasks = await page.evaluate(() => (window.__speed.noLongTask ? window.__speed.gaps : window.__speed.longTasks).map(t => t.duration))
-  return { busyPercent: before != null ? Math.round(((after - before) / 3) * 100) : null, longTasks: tasks.length, longTaskMs: tasks.reduce((a, b) => a + b, 0) }
+  // Frames: how many in the 3 s, and the script work of each (mean and 95th percentile, ms).
+  const work = (await page.evaluate(() => window.__speed.frameWork.map(f => f.ms))).sort((a, b) => a - b)
+  const frames = { count: work.length, meanMs: work.length ? Math.round(work.reduce((a, b) => a + b, 0) / work.length * 10) / 10 : null, p95Ms: work.length ? Math.round(work[Math.min(work.length - 1, Math.floor(work.length * 0.95))] * 10) / 10 : null }
+  return { busyPercent: before != null ? Math.round(((after - before) / 3) * 100) : null, longTasks: tasks.length, longTaskMs: tasks.reduce((a, b) => a + b, 0), frames }
 }
 
 async function runOnce(browser, engine, fixture, run) {
@@ -493,7 +501,7 @@ function summarise(engine, runs) {
   const taps = {}
   for (const r of runs) for (const t of [...(r.guestTaps || []).map(t => ({ ...t, name: `${t.name} (guest)` })), ...(r.taps || [])]) (taps[t.name] ||= []).push(t)
   const tapSummary = Object.fromEntries(Object.entries(taps).map(([name, list]) => [name, list.some(t => t.error) && list.every(t => t.error) ? { error: list[0].error } : { nextPaint: median(list.map(t => t.nextPaint)), response: median(list.map(t => t.response)), longestTask: median(list.map(t => t.longestTask)), parts: list.find(t => t.parts)?.parts || null, fetched: list[0].fetched || [] }]))
-  const idle = { busyPercent: pick(r => r.idle.busyPercent), longTasks: pick(r => r.idle.longTasks), longTaskMs: pick(r => r.idle.longTaskMs) }
+  const idle = { busyPercent: pick(r => r.idle.busyPercent), longTasks: pick(r => r.idle.longTasks), longTaskMs: pick(r => r.idle.longTaskMs), frames: pick(r => r.idle.frames?.count), frameMeanMs: pick(r => r.idle.frames?.meanMs), frameP95Ms: pick(r => r.idle.frames?.p95Ms) }
   const reader = runs[0].reader ? { tapAnswer: pick(r => r.reader.tapAnswer), tapAnswerEarly: pick(r => r.reader2?.tapAnswer), toReaderTextWarm: pick(r => r.reader2?.toReaderText), backToLibraryWarm: pick(r => r.reader2?.backToLibrary), toReaderText: pick(r => r.reader.toReaderText), backToLibrary: pick(r => r.reader.backToLibrary), readerLongest: pick(r => r.reader.readerLongest), secondTap: runs.some(r => r.reader.secondTap), error: runs.map(r => r.reader.error || r.reader.backError).find(Boolean) || null } : null
   return { engine, loads, taps: tapSummary, reader, idle }
 }
@@ -508,7 +516,7 @@ function print(summary, runs) {
     if (!l) continue
     console.log(`${label.padEnd(22)} ${ms(l.fcp).padEnd(8)} ${ms(l.useful).padEnd(8)} ${ms(l.ready).padEnd(8)} ${ms(l.interactive).padEnd(9)} ${String(l.longTasksOver50).padEnd(8)} ${ms(l.longestTask).padEnd(8)} ${String(l.critical.requests).padStart(4)} (${l.critical.fetched}) ${String(l.critical.kb).padStart(6)}  ${String(l.scripts.kb).padStart(5)}  ${String(l.images.kb).padStart(6)}  ${l.images.oversized}`)
   }
-  console.log(`At rest (signed-in, 3 s): main thread ${idle.busyPercent ?? '—'}% busy, ${idle.longTasks} long tasks (${idle.longTaskMs} ms)`)
+  console.log(`At rest (signed-in, 3 s): main thread ${idle.busyPercent ?? '—'}% busy, ${idle.longTasks} long tasks (${idle.longTaskMs} ms); ${idle.frames ?? '—'} frames, script per frame ${idle.frameMeanMs ?? '—'} ms (p95 ${idle.frameP95Ms ?? '—'} ms)`)
   console.log('Tap                                next paint  response  longest task  (run 1 worst event: input delay / handlers / to paint)')
   for (const [name, t] of Object.entries(taps)) {
     console.log(`${name.padEnd(34)} ${t.error ? `error: ${t.error}` : `${ms(t.nextPaint).padEnd(11)} ${ms(t.response).padEnd(9)} ${ms(t.longestTask).padEnd(13)} ${t.parts ? `${t.parts.event}: ${t.parts.delay} / ${t.parts.processing} / ${t.parts.presentation}` : ''}`}`)

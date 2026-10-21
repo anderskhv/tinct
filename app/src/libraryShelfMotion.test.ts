@@ -152,8 +152,11 @@ describe('every removal path uses the motion', () => {
     // arrives, a touch answers and a full-screen layer covers it (20261021speed) changed app.js alone.
     // A desk book's tap answered at once with the fade to the reader's paper (20261021deskopen) changed
     // bookshelf.js and app.js; a book opening from its painting's 960 px copy (20261021opencover) app.js again.
+    // The room drawn once with only its moving parts repainted each frame (20261021still) changed
+    // scene-life.js and app.js.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
-    expect(lib('index.html')).toContain('app.js?v=20261021opencover')
+    expect(lib('index.html')).toContain('app.js?v=20261021still')
+    expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261021flap')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
