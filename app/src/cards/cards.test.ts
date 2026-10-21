@@ -1425,6 +1425,26 @@ describe('a stable Leaderboard (21 October 2026: "We want stable leaderboards")'
     expect([...top().querySelectorAll('[data-testid="board-row"]')].map(row => row.textContent)).toEqual([expect.stringContaining('Ida'), expect.stringContaining('Mette')])
   })
 
+  it('after switching tabs, the Leaderboard reopens on the tab the You card ranks on (21 Oct 2026: "5th of 8" over an Everyone board)', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="friends"]'))
+    await flush()
+    closeAccountCards()
+    await openAccountCards({ dark: false, session, social: true })
+    expect(byTest('you-leaderboard')?.textContent).toContain('2nd of 2')
+    click(byTest('you-leaderboard'))
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+    expect(byTest('board-me')?.querySelector('.tc-rank')?.textContent).toBe('2')
+    await flush()
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.friends)
+  })
+
   it('a first open on this device keeps the Leaderboard and Find readers rows in place while the profile is on its way', async () => {
     boards = { friends: friendsBoard, everyone: everyoneBoard }
     profile = ownProfile({ onLeaderboard: true })

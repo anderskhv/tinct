@@ -740,7 +740,8 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
   // Opens on the board the cards read on open (boardMemory loadDefaultBoard):
   // the tab picked on this page; else Friends with a mutual friend (19 Oct
   // 2026); else Everyone while it is open (Anders, 15 Oct 2026); else Friends.
-  const first = env.data.board ?? knownDefaultBoard(userId)
+  // This page's board for the tab the cards open on first (the one the You card's rank reads), then the open's.
+  const first = knownDefaultBoard(userId) ?? env.data.board
   let tab: BoardTab = tabOf(first)
   /** undefined: not asked yet; 'loading'; null: not available. */
   let board: BoardData | null | 'loading' | undefined
@@ -816,8 +817,9 @@ export function leaderboardCard(env: CardsEnv): CardSpec {
         body.append(segmented(CARDS_COPY.leaderboard, [{ value: 'friends', label: CARDS_COPY.friends }, { value: 'everyone', label: CARDS_COPY.everyone }], tab, value => {
           tab = value
           rememberPickedBoard(userId, value)
-          // The You card's rank follows the tab the cards now open on.
+          // The You card's rank, and the board the cards open on, follow the tab.
           env.data.rank = shownRank(env)
+          env.data.board = knownBoard(userId, value) ?? env.data.board
           board = undefined
           card.refresh()
         }, { wide: true, testid: 'board-tabs' }))
