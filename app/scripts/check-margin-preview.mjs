@@ -179,6 +179,27 @@ try {
         await frame.evaluate(() => document.getElementById('notebookBtn').click())
       }
 
+      // 3a. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk, Summarize, Catch me up (not in chapter 1),
+      // Reading settings (the book reader's Main version and Compare version, through the page), Export notes, Library,
+      // Profile; no Snip a figure (a PDF's) or Open another book (a reader's own). The Aa label is never selected as text.
+      if (!phone) {
+        await frame.click('#superBtn'); await frame.waitForSelector('.lab-super-panel')
+        const rows = await frame.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row))
+        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Reading settings, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'settings', 'export', 'library', 'account']), rows)
+        ok(`${tag}: the top bar's Aa is never selected as text`, await frame.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect) === 'none')
+        shots.push(join(OUT, `${tag}-tmenu.png`)); await page.screenshot({ path: shots.at(-1) })
+        await frame.click('.lab-super-row[data-row="settings"]')
+        await frame.waitForSelector('.byob-reading-settings', { timeout: 5000 }).catch(() => null); await page.waitForTimeout(800)
+        const reading = await frame.evaluate(() => [...document.querySelectorAll('.byob-reading-settings .lab-v2-row-label')].map(l => l.textContent))
+        ok(`${tag}: Reading settings offers Main version and Compare version (${reading.join(', ')})`, reading.includes('Main version') && reading.includes('Compare version'), reading)
+        shots.push(join(OUT, `${tag}-reading-settings.png`)); await page.screenshot({ path: shots.at(-1) })
+        await frame.click('.byob-reading-settings .lab-v2-dismiss')
+        // Talk: the margin Chat with Talk on.
+        await frame.click('#superBtn'); await frame.click('.lab-super-row-half[data-row="talk"]')
+        ok(`${tag}: the t menu's Talk opens Chat with Talk on`, await frame.waitForFunction(() => chat.talk === true && col.open === 'whole', null, { timeout: 5000 }).then(() => true, () => false))
+        await frame.evaluate(() => { setTalk(false); if (col.open) openCard(null) })
+      }
+
       // 3b. Every margin action reaches the companion for a registered book (desktop, the first book): the bar's
       // Ask and Simplify, More's Define, Fact-check, Counterpoint and Quiz me, and the chapter pills.
       if (!phone && bookId === BOOKS[0]) {

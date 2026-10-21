@@ -261,7 +261,7 @@ describe('the answer in a card', () => {
     const old = M.html.factcheckHtml('Holds. The standard form.\n\nNote. Context.', P)
     expect(old.answer.startsWith('<div class="mr-answer"><p><span class="is-bottom-line">Holds. The standard form.</span>')).toBe(true)
   })
-  it('open cards: label and Minimise, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy and the bin under the answer, the follow-up field', () => {
+  it('open cards: label, Minimise and the bin, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy under the answer, the follow-up field with mic, Talk and send', () => {
     const base = { id: 'c1', page: 12, rects: [[12, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'x'.repeat(200) }
     const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
     expect(ask).toContain('<span class="mr-card__name">Ask · p. 12</span>')
@@ -271,10 +271,12 @@ describe('the answer in a card', () => {
     expect(ask).not.toContain('mr-quote')
     expect(ask).toMatch(/<span class="mr-card__about" hidden>x{119}…<\/span>/)
     expect(ask).toContain('aria-label="Minimise"')
-    // The action row under the answer: copy, then the bin (19 Oct 2026, as Gloss); the follow-up field has no bin.
-    expect(ask).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">.*?<\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*?<\/button><\/div><\/div><div class="mr-follow has-field">/)
+    // The head: Minimise, then the bin (Anders, 21 Oct 2026: the same on every card); the action row under the answer:
+    // copy alone (19 Oct 2026, as Gloss); the follow-up field has no bin.
+    expect(ask).toMatch(/^<div class="mr-card__label"><span class="mr-card__name">Ask · p\. 12<\/span><button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">.*?<\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*?<\/button><\/div>/)
+    expect(ask).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">.*?<\/button><\/div><\/div><div class="mr-follow has-field">/)
     expect(ask).toContain('data-c="copy"')
-    expect(ask).toMatch(/<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up" spellcheck="false" autocorrect="off" autocomplete="off"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">.*?<\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>.*?<\/button><\/div><\/div>$/)
+    expect(ask).toMatch(/<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up" spellcheck="false" autocorrect="off" autocomplete="off"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">.*?<\/button><button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this">.*?<\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>.*?<\/button><\/div><\/div>$/)
     expect(ask.slice(ask.indexOf('class="mr-follow'))).not.toContain('mr-card__delete')
     const simplify = M.html.cardHtml({ ...base, kind: 'simplify', turns: [{ role: 'assistant', content: 'Plainly. Words.' }] }, { open: true, P, pageLabel: '12' })
     expect(simplify).not.toContain('mr-you')
@@ -306,11 +308,14 @@ describe('the answer in a card', () => {
     expect(M.quizReread({ questions, results: [{ verdict: 'nearly' }, { verdict: 'not_yet' }, { shown: true }] })).toBe(1)
     expect(M.quizReread({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }] })).toBe(-1)
     const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
-    // Anders, 20 Oct 2026: the end card is minimal, "2/3" and Try new questions; no question to reread, no answer field.
+    // Anders, 20 Oct 2026: the end card is minimal, "2/3" and Try new questions; no question to reread. Since 21 Oct
+    // it ends with the follow-up field (mic, Talk, send) as every card does: a question about the quiz, not an answer.
     expect(doneHtml).toContain('<span class="is-bottom-line">2/3</span>')
     expect(doneHtml).not.toContain('Q two?')
     expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>')
-    expect(doneHtml).not.toContain('mr-follow__input')
+    expect(doneHtml).toContain('placeholder="Ask a follow-up"')
+    expect(doneHtml).toContain('data-c="talk"')
+    expect(doneHtml).not.toContain('placeholder="Your answer"')
   })
   it('the "more" row: "{n} more on this page" and the kinds that fit', () => {
     expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }, { kind: 'note' }])).toBe('<span>3 more on this page</span><span>Your note · Counterpoint</span>')

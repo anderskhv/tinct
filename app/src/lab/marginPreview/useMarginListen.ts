@@ -30,7 +30,7 @@ import { readLabDeviceId, readLabPositionLocal, writeLabPositionLocal } from '..
 import { readNarrationReplay, storeNarrationReplay } from '../narrationReplayCache'
 import { narrationBridgeUrls, useLabListen } from '../useLabListen'
 import { useLabListenReport } from '../useLabListenReport'
-import { heardPlace, marginListenSnapshot, marginNarrationPlan, withAudioPlace, type MarginListenAt, type MarginListenSnapshot } from './marginListenModel'
+import { heardPlace, marginListenSnapshot, marginNarrationPlan, marginVoiceChoices, withAudioPlace, withMarginVoice, type MarginListenAt, type MarginListenSnapshot, type MarginVoiceChoices } from './marginListenModel'
 
 /** The frame's way to the player (MarginPreview.tsx puts it on window.TinctMarginPreview). */
 export interface MarginListenApi {
@@ -47,6 +47,9 @@ export interface MarginListenApi {
   /** To this many seconds into the chapter (the transport's slider). */
   seekChapter: (seconds: number) => void
   setSpeed: (rate: number) => void
+  /** Reading settings' Voice: the choices and the one chosen, as the book reader offers them. */
+  voices: () => MarginVoiceChoices
+  setVoice: (value: string) => void
   /** Put the transport away; the place is kept. */
   stop: () => void
 }
@@ -147,6 +150,8 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     nextChapterAudio: () => nextChapterAudioRef.current(),
   })
   const listenRef = useRef(listen)
+  const infoRef = useRef(info)
+  infoRef.current = info
   listenRef.current = listen
   const sourceRef = useRef(source)
   sourceRef.current = source
@@ -267,6 +272,12 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     skip: (seconds) => { listenRef.current.seek(seconds) },
     seekChapter: (seconds) => { listenRef.current.seekChapter(seconds) },
     setSpeed: (rate) => { listenRef.current.setSpeed(rate) },
+    voices: () => marginVoiceChoices(readPrefs(), infoRef.current?.provider),
+    setVoice: (value) => {
+      const next = withMarginVoice(readPrefs(), value)
+      writeLabPrefs(next, 'desktop')
+      setPrefs(next)
+    },
     stop: () => {
       const l = listenRef.current
       if (l.playing || l.isPending()) l.pause()

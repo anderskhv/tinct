@@ -14,6 +14,7 @@
 import type { OwnProfile, ProfilePageData } from './cardsApi'
 import type { Relation } from '../social/profileRules'
 import { CARDS_COPY } from './cardsCopy'
+import { durationShort } from './cardsFormat'
 
 export type PrivacyFields = Pick<OwnProfile, 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard'>
 
@@ -92,7 +93,9 @@ export interface ReaderCardView {
 export function readerCardView(data: ProfilePageData): ReaderCardView {
   if (data.limited) return { limited: true, facts: [], readingNow: null, finished: null }
   const facts: ReaderCardView['facts'] = []
-  if (data.time) facts.push({ value: data.time.last7, label: 'last 7 days' }, { value: data.time.year, label: 'this year' })
+  // Written as the Leaderboard writes the same reader's row ("12 h 34"), when the Worker sends the seconds.
+  const time = (seconds: number | undefined, text: string) => (typeof seconds === 'number' && Number.isFinite(seconds) ? durationShort(seconds) : text)
+  if (data.time) facts.push({ value: time(data.time.last7Seconds, data.time.last7), label: 'last 7 days' }, { value: time(data.time.yearSeconds, data.time.year), label: 'this year' })
   if (data.finished) facts.push({ value: String(data.finished.length), label: 'finished' })
   return {
     limited: false,
