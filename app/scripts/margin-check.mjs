@@ -5490,6 +5490,14 @@ async function deskPolishCheck(browser, origin) {
     const rows = await e.evaluate(typeRows)
     ok(`${tag}: D1 the Aa panel has Text size and Line width (100%), no size slider`, JSON.stringify(rows) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !(await e.$('.byob-aa-panel [data-testid="lab-v2-size"]')), rows)
     await shotTo(e, `desk-${tag}-D1-aa-panel`)
+    // 21 Oct 2026 (D): the panel hangs just below the Aa button, its right edge under the button's, whole in the window;
+    // in a short window its rows scroll inside it.
+    const aaAt = () => e.evaluate(() => { const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), b = document.getElementById('aaBtn').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body'); return { top: s.top - b.bottom, right: s.right - b.right, bottom: innerHeight - s.bottom, scrolls: body.scrollHeight > body.clientHeight + 1 && getComputedStyle(body).overflowY === 'auto' } })
+    const aa1 = await aaAt()
+    await e.setViewportSize({ width, height: 460 }); await e.waitForTimeout(400)
+    const aa2 = await aaAt()
+    await e.setViewportSize({ width, height }); await e.waitForTimeout(600)
+    ok(`${tag}: D the Aa panel hangs just below the Aa button (its right edge under it), whole in the window; 460px tall, its rows scroll inside`, aa1.top >= 4 && aa1.top <= 24 && Math.abs(aa1.right - 8) <= 2 && aa1.bottom >= 8 && aa2.bottom >= 8 && aa2.scrolls, { aa1, aa2 })
     const here = await e.evaluate(spotNow)
     await e.click('.byob-type[data-type="size"] [data-type-step="1"]'); await e.waitForTimeout(500)
     await e.click('.byob-type[data-type="width"] [data-type-step="1"]'); await e.waitForTimeout(500)

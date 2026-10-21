@@ -2421,12 +2421,17 @@ function setLayout(next) {
     save: () => { savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }) },
   });
 }
+/** The Aa panel's right edge under the Aa button's (the desktop; css/reader.css), again as the window resizes. */
+function hangAa(layer) { const r = $('aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
+addEventListener('resize', () => { const l = document.querySelector('.byob-aa-panel'); if (l) hangAa(l) });
 function openDisplay() {
   if (document.querySelector('.byob-aa-panel')) return closeDisplay();
   closeAllPopups();
   const eink = pageTheme === 'eink';
   const layer = document.createElement('div');
   layer.className = 'lab-v2-sheet-layer byob-settings byob-aa-panel'; layer.dataset.testid = 'lab-v2-sheet-layer';
+  // The desktop: the panel hangs from the Aa button, its right edge under the button's (css/reader.css).
+  hangAa(layer);
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
     <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Layout and themes">
       <div class="lab-v2-head"><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
