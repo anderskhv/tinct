@@ -33,9 +33,10 @@ afterEach(() => {
   resetLabChapterTextCache()
 })
 
+/** The phone's Text and theme row: the settings layer (themes, size, Advanced settings). */
 function openReading() {
   fireEvent.click(screen.getByTestId('lab-super'))
-  fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+  fireEvent.click(screen.getByTestId('lab-super-row-text'))
   return screen.getByTestId('lab-v2-sheet')
 }
 
@@ -61,7 +62,7 @@ describe('the sheet', () => {
     expect(screen.getByTestId('lab-v2-sheet')).toBe(sheet)
     fireEvent.click(screen.getByTestId('lab-v2-sheet-back'))
     expect(layer()).toBe('advanced')
-    // Advanced settings returns to Settings rather than closing the sheet.
+    // Advanced settings returns to Text and theme rather than closing the sheet.
     fireEvent.click(screen.getByTestId('lab-v2-sheet-back'))
     expect(layer()).toBe('reading')
     expect(screen.getByTestId('lab-v2-sheet')).toBe(sheet)
@@ -103,13 +104,15 @@ describe('reading settings', () => {
     expect(readLabPrefs().fontSize).toBeCloseTo(1.8)
 
     expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    // On the phone the voice and speed are in Reading settings, with the editions.
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-reading'))
     fireEvent.change(screen.getByTestId('lab-v2-narration-voice'), { target: { value: 'male' } })
     expect(readLabPrefs().voicePersona).toBe('male')
     fireEvent.change(screen.getByTestId('lab-v2-audio-speed'), { target: { value: '1.25' } })
     expect(readLabPrefs().audioSpeed).toBe(1.25)
-    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
     const option = screen.getByTestId('lab-v2-sheet').querySelector<HTMLButtonElement>('[data-edition]')!
     const other = option.dataset.edition
@@ -215,7 +218,7 @@ it('makes audiobook following an explicit setting in the current reader menu', (
   openSheet()
   fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
   fireEvent.click(screen.getByTestId('lab-super'))
-  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  fireEvent.click(screen.getByTestId('lab-super-row-reading'))
   fireEvent.click(screen.getByTestId('lab-v2-audio-edition'))
   expect(screen.getByRole('button', { name: 'Follow main version' }).getAttribute('aria-pressed')).toBe('true')
 })
@@ -226,8 +229,24 @@ it('restores a non-Bible audiobook before opening reader settings', () => {
   openReading()
   fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
   fireEvent.click(screen.getByTestId('lab-super'))
-  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  fireEvent.click(screen.getByTestId('lab-super-row-reading'))
   expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct Modern English')
   fireEvent.click(screen.getByTestId('lab-v2-audio-edition'))
   expect(screen.getByTestId('lab-v2-sheet').querySelector('[data-edition="original-en"]')?.getAttribute('aria-pressed')).toBe('true')
+})
+
+describe('the phone grouping (t menu, 20 Oct 2026)', () => {
+  it('Reading settings: editions, then voice and speed, then offline; a reader’s own book: voice and speed only', async () => {
+    const { LabV2Sheet } = await import('./LabV2Sheet.tsx')
+    const base = { bookId: THE_HISTORIES.id, onLayer: () => {}, onClose: () => {}, prefs: DEFAULT_LAB_PREFS, onPrefs: () => {}, editions: THE_HISTORIES.editions, grouped: true }
+    const { unmount } = render(<LabV2Sheet {...base} layer="editions" />)
+    expect(screen.getByTestId('lab-v2-sheet').getAttribute('aria-label')).toBe('Reading settings')
+    const labels = [...screen.getByTestId('lab-v2-sheet').querySelectorAll('.lab-v2-row-label')].map(node => node.textContent)
+    expect(labels.slice(0, 5)).toEqual(['Main version', 'Audiobook version', 'Compare version', 'Voice', 'Speed'])
+    unmount()
+    render(<LabV2Sheet {...base} bookId="user-0123456789abcdef01234567" editionRows={false} layer="editions" />)
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    expect(screen.getByTestId('lab-v2-narration-voice')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
+  })
 })

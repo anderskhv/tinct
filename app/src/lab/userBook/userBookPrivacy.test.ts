@@ -52,9 +52,11 @@ describe('a user book stays on this device', () => {
   })
 
   it('menu: Talk and Catch me up are offered, editions are not; Library is Your books', () => {
+    // The phone's Reading settings holds an own book's voice and speed only (LabV2Sheet editionRows).
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
-      ['librarian', 'Librarian'], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['settings', 'Settings'], ['library', 'Your books'], ['account', 'Profile'],
+      ['conversation', ''], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['text', 'Text and theme'], ['reading', 'Reading settings'], ['library', 'Your books'], ['account', 'Profile'],
     ])
+    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).not.toContain('editions')
     expect(labSuperMenuRows({ phone: true, privateBook: true })[0].modes).toEqual(['chat', 'talk'])
     expect(labSuperMenuRows({ phone: true })[0].modes).toContain('talk')
   })

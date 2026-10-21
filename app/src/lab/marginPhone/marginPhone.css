@@ -5,7 +5,6 @@
   --lab-pbar-ink: #f1ece2;
   --lab-pbar-soft: #a59c8e;
   --lab-pbar-sep: rgba(241, 236, 226, .16);
-  --lab-pbar-accent: #8cbccd;
   --lab-pcard-fill: color-mix(in srgb, var(--lab-paper) 62%, #fff);
   --lab-pcard-hair: color-mix(in srgb, var(--lab-border) 80%, transparent);
   --lab-pcard-bubble: color-mix(in srgb, var(--lab-surface) 70%, transparent);
@@ -19,7 +18,7 @@
   --lab-pcard-fill: var(--lab-surface);
   --lab-pcard-field: color-mix(in srgb, var(--lab-paper) 70%, var(--lab-surface));
 }
-html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc; --lab-pcard-fill: #fff; --lab-pbar-accent: #fff; }
+html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc; --lab-pcard-fill: #fff; }
 
 /* ---------- the bar ---------- */
 .lab .lab-pbar {
@@ -39,10 +38,6 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
 .lab .lab-pbar-item { display: flex; align-items: center; gap: 7px; height: 40px; padding: 0 8px; border-radius: 8px; }
 .lab .lab-pbar-item.is-text { padding: 0 8px; }
 .lab .lab-pbar-item:active, .lab .lab-pbar-item[aria-expanded="true"] { background: rgba(255, 255, 255, .12); }
-.lab .lab-pbar-item.is-ask { gap: 4px; }
-.lab .lab-pbar-caret { display: inline-block; width: 1.5px; height: 17px; border-radius: 1px; background: var(--lab-pbar-accent); animation: lab-pbar-blink 1.4s ease-in-out infinite; }
-@keyframes lab-pbar-blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .lab .lab-pbar-caret { animation: none; } }
 .lab .lab-pbar-sep { flex: none; width: 1px; height: 22px; background: var(--lab-pbar-sep); }
 .lab .lab-pbar-grow { flex: 1; }
 .lab .lab-pbar .lab-picon { width: 18px; height: 18px; fill: none !important; stroke: var(--lab-pbar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -51,20 +46,34 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
 .lab .lab-pbar-dot { position: absolute; right: -1px; bottom: 0; width: 7px; height: 7px; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--lab-pbar); }
 .lab .lab-pbar-swatch { flex: none; width: 20px; height: 20px; margin: 0 4px !important; border-radius: 50% !important; }
 .lab .lab-pbar-swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--lab-pbar), 0 0 0 3.5px var(--lab-pbar-ink); }
+/* The ••• menu: as wide as its longest name, placed by LabPhoneBar (phoneMorePlace) so it is always whole on screen. */
 .lab .lab-pmore {
-  position: absolute; left: 0; top: calc(100% + 8px); width: 210px; padding: 6px; box-sizing: border-box;
-  border-radius: 14px; background: var(--lab-pbar); color: var(--lab-pbar-ink); font-size: 15px;
+  position: absolute; left: 0; top: calc(100% + 8px); width: max-content; max-width: calc(100vw - 20px); padding: 4px; box-sizing: border-box;
+  border-radius: 12px; background: var(--lab-pbar); color: var(--lab-pbar-ink); font-size: 15px;
   box-shadow: 0 14px 34px rgba(0, 0, 0, .3); display: grid;
 }
 .lab .lab-pmore.is-above { top: auto; bottom: calc(100% + 8px); }
-.lab .lab-pmore button { display: block; width: 100%; padding: 10px 12px; border-radius: 8px; text-align: left; }
+.lab .lab-pmore button { display: block; width: 100%; min-height: 40px; padding: 0 14px; border-radius: 8px; text-align: left; }
 .lab .lab-pmore button:active { background: rgba(255, 255, 255, .10); }
 
 /* ---------- the bottom card ---------- */
+/* The page behind an open card is dimmed (iPhone feedback, 20 Oct 2026): taps outside still close the card
+   (LabPhoneCard's own listener), so the dim takes none. */
+.lab .lab-pcard-scrim {
+  position: fixed; inset: -50vh 0; z-index: 329; pointer-events: none;
+  background: rgba(24, 20, 16, .34); animation: lab-pcard-dim .22s ease-out;
+}
+.lab.is-night .lab-pcard-scrim { background: rgba(0, 0, 0, .5); }
+html[data-eink="true"] .lab .lab-pcard-scrim { background: rgba(255, 255, 255, .82); animation: none; }
+@keyframes lab-pcard-dim { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lab .lab-pcard-scrim { animation: none; } }
+/* --lab-pcard-room: the height the reader sees (LabPhoneCard, visualViewport). With the keyboard up the card takes
+   the room above it less a small gap, so the field and the latest answer stay on screen. */
 .lab .lab-pcard {
+  --lab-pcard-gap: 96px;
   position: fixed; left: 0; right: 0; bottom: var(--lab-keyboard-inset, 0px); z-index: 330;
   display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;
-  max-height: calc(100dvh - var(--lab-keyboard-inset, 0px) - 96px);
+  max-height: calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap));
   padding: 8px 20px calc(16px + env(safe-area-inset-bottom, 0px));
   border-radius: 22px 22px 0 0; background: var(--lab-pcard-fill); color: var(--lab-ink);
   box-shadow: 0 -10px 30px rgba(0, 0, 0, .18);
@@ -72,7 +81,11 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
   animation: lab-pcard-up .22s cubic-bezier(.2, .8, .2, 1);
   touch-action: pan-y;
 }
-.lab .lab-pcard.is-tall { height: min(78dvh, calc(100dvh - var(--lab-keyboard-inset, 0px) - 96px)); }
+.lab .lab-pcard[data-keyboard] { --lab-pcard-gap: 12px; padding-bottom: 10px; }
+/* Under the card, down past the window's foot: its own paper, so nothing of the page shows below it while it rides
+   on the keyboard or slides up. */
+.lab .lab-pcard::after { content: ""; position: absolute; left: 0; right: 0; top: calc(100% - 1px); height: 100vh; background: inherit; pointer-events: none; }
+.lab .lab-pcard.is-tall { height: min(78dvh, calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap))); }
 @keyframes lab-pcard-up { from { transform: translateY(100%); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } }
 html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; }
@@ -85,8 +98,6 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-picon { width: 16px; height: 16px; fill: none !important; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
 .lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; }
 .lab .lab-pcard-body-inner { display: flex; flex-direction: column; gap: 12px; }
-.lab .lab-pcard-quote { position: relative; margin: 0; padding-left: 12px; font-size: 14px; font-style: italic; line-height: 1.4; color: var(--lab-ink-muted); overflow-wrap: anywhere; }
-.lab .lab-pcard-quote::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; border-radius: 1px; background: var(--lab-pcard-hair); }
 .lab .lab-pcard-answer { font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
 .lab .lab-pcard-answer p, .lab .lab-pcard-answer .lab-markdown p { margin: 0 0 .55em; }
 .lab .lab-pcard-answer > :last-child, .lab .lab-pcard-answer .lab-markdown > :last-child { margin-bottom: 0; }
@@ -151,7 +162,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard .tc .tc-thread { padding-top: 4px; }
 
 /* Talk in the card: the call's own orb, words and controls, the orb sized from the card's box (PhoneTalkFrame). */
-.lab .lab-pcard[data-kind="talk"] { height: min(60dvh, calc(100dvh - var(--lab-keyboard-inset, 0px) - 96px)); }
+.lab .lab-pcard[data-kind="talk"] { height: min(60dvh, calc(var(--lab-pcard-room, 100dvh) - var(--lab-pcard-gap))); }
 .lab .lab-pcard[data-kind="talk"] .lab-pcard-body { overflow: hidden; }
 .lab .lab-pcard-talk { flex: 1 1 auto; min-height: 0; display: flex; }
 .lab[data-chrome-version="v2"] .lab-pcard .lab-call { position: static; inset: auto; z-index: auto; flex: 1 1 auto; min-height: 0; padding: 0 0 4px; background: transparent; grid-template-rows: 1fr auto; gap: 12px; }
@@ -163,8 +174,15 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard .lab-catch-up-body { padding: 0; overflow: visible; }
 .lab .lab-pcard .lab-catch-up-foot { position: static; padding: 0; background: transparent; border: 0; }
 
+/* The open card's passage, underlined on the page in the reader's ink (the desktop margin reader's mark), so the
+   card need not quote it (phoneCardPassage.ts). */
+.lab .lab-passage .lab-hearing-word.is-card-passage {
+  text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--lab-ink) 45%, transparent);
+  text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-skip-ink: auto;
+}
+
 /* ---------- the chapter pills ---------- */
-.lab[data-chrome-version="v2"] .lab-unit-pills.is-start { flex: 1 0 100%; display: grid; gap: 2px; margin-top: 6px; }
-.lab .lab-unit-k { margin: 0; font: italic 14px/1.4 'EB Garamond', Georgia, serif; color: var(--lab-ink-faint); }
+/* At a chapter's start, ✧ Primer · ✧ Catch me up sit on the heading's line, beside it (the header wraps them under a
+   long title); at its end, ✧ Recap · ✧ Quiz me · Note with no label above them (iPhone feedback, 20 Oct 2026). */
+.lab[data-chrome-version="v2"] .lab-unit-pills.is-start { flex: 0 1 auto; display: flex; min-width: 0; }
 .lab[data-chrome-version="v2"] .lab-unit-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }
-.lab[data-chrome-version="v2"] .lab-chapter-end > .lab-unit-k { margin-bottom: -4px; }

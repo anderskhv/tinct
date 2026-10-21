@@ -7,7 +7,35 @@ import './marginPhone.css'
 
 export type PhoneMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'copy'
 /** The margin reader's ••• on a phone (margin.js MORE_ROWS, names only); Related is a PDF's alone. */
-export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Fact-check'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy quote']]
+export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Fact-check'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
+
+/** The part of the window the reader can see (above the software keyboard), in layout coordinates. */
+function visibleWindow(): { top: number; bottom: number; width: number } {
+  const viewport = window.visualViewport
+  const top = viewport ? Math.max(0, viewport.offsetTop) : 0
+  return { top, bottom: viewport ? top + viewport.height : window.innerHeight, width: viewport?.width || window.innerWidth }
+}
+
+/** The gap between the bar and its ••• menu, and the least room the menu keeps from a window edge. */
+const MORE_GAP_PX = 8
+const MORE_EDGE_PX = 10
+
+/**
+ * Where the ••• menu goes, relative to the bar: its left edge under the •••, moved in to stay whole inside the
+ * window; below the bar when it fits there, else above it when it fits, else on the side with more room.
+ */
+export function phoneMorePlace(
+  bar: { left: number; top: number; bottom: number },
+  button: { left: number },
+  menu: { width: number; height: number },
+  view: { top: number; bottom: number; width: number },
+): { left: number; above: boolean } {
+  const lowest = view.width - MORE_EDGE_PX - menu.width
+  const left = Math.max(MORE_EDGE_PX, Math.min(lowest, button.left)) - bar.left
+  const below = view.bottom - MORE_EDGE_PX - (bar.bottom + MORE_GAP_PX)
+  const above = bar.top - MORE_GAP_PX - (view.top + MORE_EDGE_PX)
+  return { left: Math.round(left), above: below < menu.height && (above >= menu.height || above > below) }
+}
 
 const LAST_COLOR_KEY = 'tinct-highlight-color'
 export function lastHighlightColor(): HighlightColor {
@@ -67,6 +95,23 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
     window.addEventListener('resize', at)
     return () => window.removeEventListener('resize', at)
   }, [text, existingColor, fallbackY])
+  // The ••• menu: as wide as its longest name, under the ••• when it fits below the bar, else above it, and
+  // never past an edge of the visible window.
+  const moreRef = useRef<HTMLDivElement | null>(null)
+  const [morePlace, setMorePlace] = useState<{ left: number; above: boolean } | null>(null)
+  useLayoutEffect(() => {
+    if (!moreOpen) { setMorePlace(null); return }
+    const at = () => {
+      const bar = ref.current, menu = moreRef.current
+      const button = bar?.querySelector('[data-testid="lab-pbar-more"]')
+      if (!bar || !menu || !button) return
+      setMorePlace(phoneMorePlace(bar.getBoundingClientRect(), button.getBoundingClientRect(), { width: menu.offsetWidth, height: menu.offsetHeight }, visibleWindow()))
+    }
+    at()
+    window.addEventListener('resize', at)
+    window.visualViewport?.addEventListener('resize', at)
+    return () => { window.removeEventListener('resize', at); window.visualViewport?.removeEventListener('resize', at) }
+  }, [moreOpen, place])
   const dismissRef = useRef(props.onDismiss)
   dismissRef.current = props.onDismiss
   useEffect(() => {
@@ -115,7 +160,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
         </>
       ) : (
         <>
-          <button type="button" className="lab-pbar-item is-ask" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask<span className="lab-pbar-caret" aria-hidden="true" /></button>
+          <button type="button" className="lab-pbar-item is-ask" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask</button>
           {sep}
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-explain" onClick={props.onExplain}>Explain</button>
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-simplify" onClick={props.onSimplify}>Simplify</button>
@@ -130,7 +175,8 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
         </>
       )}
       {moreOpen && !existingColor && (
-        <div className={`lab-pmore${place?.below === false ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more">
+        <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
+          style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
           {PHONE_MORE_ROWS.map(([id, name]) => (
             <button key={id} type="button" role="menuitem" data-testid={`lab-pmore-${id}`} onClick={() => { setMoreOpen(false); props.onMore(id) }}>{name}</button>
           ))}

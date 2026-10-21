@@ -5308,6 +5308,16 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   -webkit-tap-highlight-color: transparent;
 }
 .lab[data-chrome-version="v2"] .lab-super-row-mode svg { display: block; }
+/* The phone's Chat · Talk row: two halves of one 44px row, a hairline between them. */
+.lab[data-chrome-version="v2"] .lab-super-row.is-pair { padding: 0; cursor: default; }
+.lab[data-chrome-version="v2"] .lab-super-row-half {
+  display: flex; align-items: center; flex: 1 1 50%; min-width: 0; min-height: 44px;
+  padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
+.lab[data-chrome-version="v2"] .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+.lab[data-chrome-version="v2"] .lab-super-row-aa { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 18px; }
 .lab[data-chrome-version="v2"] .lab-super-row-mode:focus-visible,
 .lab[data-chrome-version="v2"] .lab-super-row-main:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
 
