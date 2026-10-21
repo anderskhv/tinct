@@ -15,6 +15,7 @@ import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { marginPreviewMenu, type MarginPreviewMenuApi } from './marginPreviewMenu'
 import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
 import { useMarginListen, type MarginListenApi } from './useMarginListen'
 import {
@@ -44,6 +45,8 @@ declare global {
       sync?: MarginPreviewSyncBridge | null
       /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
       listen?: MarginListenApi
+      /** The t menu's Profile and Reading settings (marginPreviewMenu.ts). */
+      menu?: MarginPreviewMenuApi
     }
   }
 }
@@ -61,6 +64,7 @@ export function marginPreviewBridge(bookId: string, pending: Promise<MarginPrevi
     bookId,
     ...(listen ? { listen } : {}),
     load: () => pending,
+    menu: marginPreviewMenu(bookId, pending),
     paper: width => marginPreviewPaper(desktopPrefs(), width, { shakespeare: book?.author === 'William Shakespeare' }),
     layoutHref: (view, place) => marginPreviewLayoutHref(bookId, view, place, book ? marginPreviewCompareEdition(book, desktopPrefs(), place.editionKey) : undefined),
   }

@@ -8,7 +8,7 @@ import { LabChapterEnd } from '../LabChapterEnd'
 import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
 import { labSuperMenuRows } from '../labSuperMenu'
 import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, phoneCardRoom, splitLead } from './LabPhoneCard'
-import { LabPhoneBar, PHONE_MORE_ROWS, phoneMorePlace } from './LabPhoneBar'
+import { LabPhoneBar, PHONE_MORE_ROWS, phoneBarLeft, phoneMorePlace } from './LabPhoneBar'
 import { PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, parsePhoneQuiz, parsePhoneQuizMark, parsePhoneQuizPartial } from './LabPhoneCards'
 import { PHONE_CARD_PASSAGE_CLASS, markPhoneCardPassage } from './phoneCardPassage'
 
@@ -117,6 +117,24 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     // As wide as its longest name: no fixed width.
     expect(css).toMatch(/\.lab \.lab-pmore \{[^}]*width: max-content/)
     expect(css).not.toMatch(/\.lab \.lab-pmore \{[^}]*width: 210px/)
+  })
+})
+
+// Anders, iPhone, Frankenstein 6 (21 Oct 2026): "Pop up didn't fit the content - still too broad - cut the black space".
+describe('the selection bar fits its buttons', () => {
+  it('is only as wide as its buttons: no stretch, no spacer', () => {
+    expect(css).toMatch(/\.lab \.lab-pbar \{[^}]*width: max-content/)
+    expect(css).not.toMatch(/\.lab \.lab-pbar \{[^}]*right: 10px/)
+    expect(css).not.toMatch(/lab-pbar-grow/)
+  })
+  it('sits at the selection, its tip over the first word', () => {
+    expect(phoneBarLeft(150, 300, 390)).toEqual({ left: 80, tip: 70 })
+  })
+  it('stays whole inside the window at either side', () => {
+    expect(phoneBarLeft(40, 300, 390)).toEqual({ left: 10, tip: 30 })
+    const right = phoneBarLeft(370, 300, 390)
+    expect(right.left + 300).toBeLessThanOrEqual(380)
+    expect(right.left + right.tip).toBe(364)
   })
 })
 

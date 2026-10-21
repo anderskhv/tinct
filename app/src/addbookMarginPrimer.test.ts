@@ -109,19 +109,23 @@ describe('the trigger and the primer’s markup', () => {
     div.innerHTML = M.html.triggerHtml({ key: 'all', title: '', from: 1, start: 1, to: 15 })
     expect(div.textContent).toBe('Before you startThe gist and a map of the whole PDF.')
   })
-  it('a primer stored before kinds still renders as it did: title and close, gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
+  it('a primer stored before kinds still renders as it did: title with Minimise and the bin (21 Oct 2026, no ×), gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
     const div = document.createElement('div')
     div.innerHTML = M.html.primerHtml(primer, { P, resolve: resolveCite })
-    expect(div.querySelector('h4')?.textContent).toBe('Before you start×')
-    expect(div.querySelector('.mr-primer__close')?.getAttribute('aria-label')).toBe('Close')
+    expect(div.querySelector('h4')?.textContent).toBe('Before you start')
+    expect(div.querySelector('.mr-primer__close')?.getAttribute('aria-label')).toBe('Minimise')
+    expect(div.querySelector('h4 .mr-primer__delete')?.getAttribute('data-c')).toBe('delete')
     expect([...div.querySelectorAll('.mr-primer__head')].map(h => h.textContent)).toEqual(['Key claims', 'Keep in mind', 'Map'])
     expect([...div.querySelectorAll('.mr-primer__claims li')].map(li => li.textContent)).toEqual(['1Variances add. p. 12', '2Stirling holds. p. 13', '3No page.'])
     expect([...div.querySelectorAll('.mr-primer__claims .mr-cite')].map(b => (b as HTMLElement).dataset.page)).toEqual(['12', '13'])
     expect(div.querySelector('.mr-primer__keep')?.textContent).toBe('Natural logs, then base 2.')
     const rows = [...div.querySelectorAll('.mr-map__row')]
     expect(rows.map(r => [r.tagName, (r as HTMLElement).dataset.page ?? null])).toEqual([['BUTTON', '9'], ['BUTTON', '19'], ['DIV', null]])
-    expect(div.querySelector('.mr-quiz-row')?.textContent).toBe('Quiz me on this chapter3 questions →')
-    expect(div.querySelector('.mr-primer__foot')?.textContent).toBe('Made when you opened the fileRedo')
+    // No count until a quiz on the unit knows it (questions scale with the unit's length); the footer is Redo alone.
+    expect(div.querySelector('.mr-quiz-row')?.textContent).toBe('Quiz me on this chapter→')
+    expect(div.querySelector('.mr-primer__foot')?.textContent).toBe('Redo')
+    div.innerHTML = M.html.primerHtml(primer, { P, resolve: resolveCite, quizCount: 5 })
+    expect(div.querySelector('.mr-quiz-row')?.textContent).toBe('Quiz me on this chapter5 questions →')
   })
   // Each kind's sections (PROMPTS.md, chapter action `primer`), as the parser gives them.
   const map = primer.map
@@ -140,7 +144,7 @@ describe('the trigger and the primer’s markup', () => {
       // The order: title, the unit's name, the gist, the sections, the map, the quiz row, the footer.
       expect([...div.children].map(c => c.className || c.tagName).slice(0, 3), kind).toEqual(['mr-primer__title', 'mr-primer__unit', 'mr-primer__gist'])
       expect(div.querySelector('.mr-primer__unit')?.textContent).toBe('Chapter 1: Introduction to Information Theory')
-      expect(div.querySelector('.mr-quiz-row')?.textContent, kind).toBe('Quiz me on this chapter3 questions →')
+      expect(div.querySelector('.mr-quiz-row')?.textContent, kind).toBe('Quiz me on this chapter→')
       // A paper's, a textbook's or other's first section is numbered, as Key claims always was; a story's situation and a guide's scope are not; steps are.
       expect([...div.querySelectorAll('ol.mr-primer__claims')].map(ol => ol.querySelectorAll('li').length), kind).toEqual({ paper: [2], textbook: [2], narrative: [], practical: [2], other: [2] }[kind])
     }

@@ -200,6 +200,7 @@ button.tc-av { padding: 0; }
 /* A quiet skeleton while nothing is known yet: no stand-in words. */
 .tc-skel { display: inline-block; width: 56px; height: 12px; border-radius: 6px; background: var(--tc-track); vertical-align: middle; }
 .tc-skel.is-name { display: block; width: 132px; height: 22px; margin-bottom: 10px; }
+.tc-skel.is-row { width: 120px; }
 .tc-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 16px; }
 .tc-grid4 button { aspect-ratio: 1; border-radius: 50%; background-repeat: no-repeat; background-size: 260% auto; background-color: var(--tc-track); }
 .tc-grid4 button[aria-checked="true"] { box-shadow: 0 0 0 3px var(--tc-cell), 0 0 0 5px var(--tc-fill); }
