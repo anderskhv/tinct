@@ -16,7 +16,8 @@ Both files use markers: "@@ TITLE" (chapter title) and "@@ N" (paragraph N), one
 4. Stiff or translated-sounding Danish: anglicisms, English word order, noun-heavy phrasing where Danish would use a verb, calques, unidiomatic collocations, wrong prepositions.
 5. Danish grammar, spelling, inflection, sin/hans, der/som, commas; »…« for dialogue (›…‹ nested), speech-tag comma outside the quote (»Ja«, sagde han), spaced en dash ( – ) not em dash; _emphasis_ markers kept.
 6. Register: plain where the English is plain, formal where formal.
-Keep the translator's conventions for forms of address (du/De), honorifics (lowercase mr./mrs./miss in running text) and names unless they are inconsistent within the chunk. Do not rewrite for taste: fix real problems, but do look hard at every paragraph.
+Units: English miles stay »engelsk(e) mil«, feet »fod«, inches »tommer«, yards »alen«/»skridt«, leagues »mil«; a conversion to metric (meter, kilometer) is a meaning error — fix it. Write »alle sammen« (two words).
+Keep the translator’s conventions for forms of address (du/De), honorifics (lowercase mr./mrs./miss in running text) and names unless they are inconsistent within the chunk. Do not rewrite for taste: fix real problems, but do look hard at every paragraph.
 
 ## Output format (S/work/{book}/rev/{cid}.txt)
 For each paragraph that needs a change, one block:

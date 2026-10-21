@@ -7,7 +7,7 @@
 | Book | Status | Edition | Source blob (modern-en) | Gates |
 |---|---|---|---|---|
 | jekyll-and-hyde | Content complete, gates pass | `jekyll-and-hyde-modern-da.json` | `6f4786b170aaf7aa94de70aa92d13bfe9b21b600` | all pass |
-| pride-and-prejudice | In progress | | `e518b504c7c54d7f1b508ef55efdf5f6afff7d48` | |
+| pride-and-prejudice | Content complete, gates pass | `pride-and-prejudice-modern-da.json` | `e518b504c7c54d7f1b508ef55efdf5f6afff7d48` | all pass |
 | frankenstein | Not started | | `11e3c871e84661d118becfb3ca65cef5f9d59b02` | |
 | jane-eyre | Not started | | `131080c575426a6beb381597099d094cbc2ccc0c` | |
 
@@ -46,11 +46,21 @@ House conventions (all books): »…« for dialogue, ›…‹ nested; lowercase
 - Editor override: 2.14 — the translator added a gloss to the Hyde/Seek pun (»han gemmer sig, jeg leder«) that is not in the English; removed, as the brief forbids additions.
 - House-style scan: one false positive (»Skabet mærket E var«).
 
+### pride-and-prejudice
+- 61 chapters, 2,053 paragraphs, 114,391 English words. 64 chunks, 465 reviewer fixes applied (stiff 249, meaning 93, grammar 64, punctuation 45, addition 6, omission 5, register 2).
+- Gates: alignment pass; English left in: none; length ratio pass (chapters 0.995–1.073, book 1.040); danish-lint: 0 real issues (41 `STRAY-UNDERSCORE` hits are paired `_emphasis_` markers, listed in the gates file).
+- Assembly normalisation: 185 speech-tag commas moved outside the closing quote; 8 »allesammen« → »alle sammen«.
+- Editor overrides: 8.9 and 32.17 English miles → »engelske mil«; 28.13 »Og er det det hele?« → »Og er det alt?« (correct Danish, but danish-lint flags »det det« as DOUBLE-FILLER, so it was rephrased with the same meaning).
+- Forms of address: De between non-intimates; Darcy and Elizabeth switch to du at her acceptance (58.7–58.8), with her old words quoted in De in 58.13.
+- Known residual: comma style before subordinate clauses is not fully uniform across chunks (mostly no start comma; a few chunks use it before »at«). Both are accepted Danish; a uniformity pass would be cosmetic.
+- House-style scan: 10 hits, all false positives (»Å ja« read as a split word; »Mr.« capitalised at the start of a sentence inside a quote).
+
 ## Throughput
 
 | Book | English words | Wall clock | Words per hour |
 |---|---|---|---|
 | jekyll-and-hyde | 25,260 | 12:41–12:53 UTC (glossary start to gates passing), ~12 min | ~126,000 |
+| pride-and-prejudice | 114,391 | 12:47–13:06 UTC (first chunk launched to gates passing), ~19 min | ~360,000 |
 
 Wall clock overlaps: from 12:51 Pride and Prejudice chunks ran in parallel on the same subagent pool (limit 20 concurrent), so per-book figures overstate the cost of each book alone. The batch total is given at the end.
 
