@@ -8,8 +8,8 @@
 |---|---|---|
 | 0. Founder | Who is Anders, and what does Anders believe? | Agreed 2026-10-21 |
 | 1. Mission | Why does Tinct exist? | Close, 2026-10-21; refine through Anders's own posts |
-| 2. Tinct's belief | What does Tinct believe about reading? | In progress |
-| 3. Promise | What is Tinct, and what do you get? | Agreed (the core, below) |
+| 2. Tinct's belief | What does Tinct believe about reading? | Agreed 2026-10-21 (below, under Behind the core) |
+| 3. Promise | What is Tinct, and what do you get? | Agreed 2026-10-21 (the core, below) |
 | 4. Execution | Voice, funnel, community | Voice agreed; the rest to come |
 
 ## 0. Founder (in Anders's voice)
@@ -34,14 +34,29 @@ Novels to understand people, filtered by time. Papers to understand the world, a
 
 Tinct carries Anders's roots (the Enlightenment, optimism, Christianity) by making the texts readable and letting them make the case, never by preaching.
 
-## The core
+## The core (level 3, agreed 2026-10-21)
 
-> **Understand the texts that fight back.**
+> **The best way to read the texts that fight back.**
 > Tap any line to explain, simplify, fact-check or argue with it, right on the page.
+>
+> **No text is out of your league anymore.**
 
-These are the two lines to remember and repeat everywhere. The headline gives the feeling; the subhead says what Tinct is.
+The two headline lines appear everywhere; only their order changes with the channel. Landing page: lead with "The best way to read…", because a visitor who clicked through must know what Tinct is in five seconds. Posts, ads and video: lead with "No text is out of your league anymore", because a feed gives one line to make someone stop. Which leads where is the first thing the ad test checks.
 
-Under the screenshot on the landing page: **You'll notice the fun. You won't notice it changing you.**
+Under the screenshot on the landing page: **Tinct takes the tedium out of hard texts, and leaves the joy in.**
+
+Launch post (the shape of Gloss's launch: one claim, three arrows, one hook):
+
+> Introducing Tinct.
+> No text is out of your league anymore.
+>
+> → Tap any line to explain, simplify, fact-check or argue with it
+> → Read the classics beside a modern version
+> → Add your own books and papers
+>
+> The best way to read the texts that fight back. Free to read.
+
+Adding your own books is Premium; either say so or swap the third arrow for the social one (→ Read with friends, and see who's ahead), which is free and gives readers a reason to come back.
 
 Hero image: one hard line with the margin open (Explain answering, Simplify and Fact-check beside it). The side-by-side modern edition is shown further down, as one feature among others.
 
@@ -50,7 +65,7 @@ Hero image: one hard line with the margin open (Explain answering, Simplify and 
 | | |
 |---|---|
 | **Category** | Deep reading, with a guide. "Tinct is a deep reading app." |
-| **Belief** | Hard texts were never meant to be read unguided. Guidance used to mean footnotes, a professor or a book club; most readers never had them. |
+| **Belief** (level 2) | Tinct takes the tedium out of hard texts, and leaves the joy in. Hard texts have barriers that should go (old language, missing context, nobody to ask, losing your place, the feed) and mountains worth climbing (the ideas, the meaning, the prose itself). Nobody can climb for you. Internal test for every feature: barrier or mountain? |
 | **Stance** | Discussing is reading; summarizing is skipping. |
 | **For** | Curious people with a hard text they keep meaning to read: Popper, the *Iliad*, the Bible, a physics paper. |
 | **Not for** | People who want the summary instead, people who prefer paper, purists who see any help as cheating. |
@@ -61,7 +76,7 @@ Hero image: one hard line with the margin open (Explain answering, Simplify and 
 | **Measure** | Minutes in the text chosen over the feed. Time in chat and tools is a health check, not a target: if it grows faster than reading time, Tinct is drifting toward a summary app. |
 | **Product rule** | A reader should never stop because they did not understand. |
 
-**Voice:** use "read" in public lines; it already includes understanding ("I can't read Kant"). Do not lead with "AI" or call Tinct a chatbot; show what the help does.
+**Voice:** use "read" in public lines (the headline does); it already includes understanding ("I can't read Kant"). Do not lead with "AI" or call Tinct a chatbot; show what the help does.
 
 **Founder vs brand:** the renaissance thesis (people need depth; the West has forgotten how to defend its values) is Anders's own voice, not Tinct's. Tinct's belief must work for any curious reader.
 
@@ -71,12 +86,12 @@ Hero image: one hard line with the margin open (Explain answering, Simplify and 
 
 | | |
 |---|---|
-| **Founder voice** | Anders on X as @FallibleMusings, under his real name and face, with video. About 90% of the effort while Tinct is small. |
-| **What he posts** | Reading hard things in public (where a text fought back, what clicked, Tinct visible in the screenshot); building Tinct in public with real numbers; the depth thesis. The renaissance and western-values thesis comes as an occasional argued essay (about one post in ten), never as a sneer at people. |
+| **Founder voice** | Anders on X as @FallibleMusings, under a real name and face, with video. About 90% of the effort while Tinct is small. |
+| **What Anders posts** | Reading hard things in public (where a text fought back, what clicked, Tinct visible in the screenshot); building Tinct in public with real numbers; the depth thesis. The renaissance and western-values thesis comes as an occasional argued essay (about one post in ten), never as a sneer at people. |
 | **Brand account** | Tinct's X account (few followers) stays quiet: passage cards, product updates, "you said, we fixed", reposts of Anders. |
 | **Honesty** | Complete for Anders's own data and for Tinct's totals. Other readers' data only as totals large enough not to identify anyone, or with their consent (see `AGENTS.md`). |
 
-Anders writes the founder posts himself.
+Anders writes the founder posts.
 
 ## Ask readers
 
@@ -90,7 +105,8 @@ A new in-product prompt or drop-off survey collects personal data: update `app/p
 
 ## Open
 
-- **First group:** the people at 9¾, the CritRats, or the readers who never get round to the *Iliad*. Decide by testing.
+- **First group:** the people at 9¾, the CritRats, the readers who never get round to the *Iliad*, or families who want their children reading the great books (Anders's own family are the only regular readers so far; Ben Sasse's family classics curriculum is worth finding). Decide by testing.
+- **Social features:** what keeps Anders's son reading is the leaderboard. Friends and the leaderboard are why readers come back, not why they arrive: they belong in the arrows and in retention, not the headline.
 - **Proof:** Anders is the only confirmed before-and-after. Collect five more.
 - **Product truth:** Simplify, Fact-check and Quiz me exist today only in the uploaded-PDF margin; the library reader has Explain, Define, chat and Summarize. Make the subhead true on every page a visitor reaches before ads use it (the desktop margin-reader port, 2026-10-20, moves this way). "Summarize" in the library reader needs reconciling with the stance.
 - **Front door:** a visitor who arrives on "texts that fight back" lands on a classics shelf; reading "anything" mostly means uploading a file.
@@ -98,4 +114,4 @@ A new in-product prompt or drop-off survey collects personal data: update `app/p
 ## Tests
 
 1. **Clarity:** five people at 9¾ see the top of the landing page for five seconds, then answer "What is this, and who is it for?"
-2. **Pull and group:** small paid test (about $400–600, within the growth plan's monthly cap). Headlines: "Understand the texts that fight back", "Fall for the texts that fight back", "Now you can read anything", and the old "Fall in love with the classics" as control. Then the winner across the three groups (Reddit communities target groups most cleanly). Tagged links only, read by Tinct's own analytics; no ad pixels. Score by readers who come back on day 2, not by clicks.
+2. **Pull and group:** small paid test (about $400–600, within the growth plan's monthly cap). First, which line leads: "No text is out of your league anymore" against "The best way to read the texts that fight back", with the old "Fall in love with the classics" as control. Then the same ad with and without the social arrow. Then the winner across the groups (Reddit communities target groups most cleanly). Tagged links only, read by Tinct's own analytics; no ad pixels. Score by readers who come back on day 2, not by clicks.
