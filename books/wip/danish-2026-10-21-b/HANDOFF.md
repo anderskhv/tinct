@@ -46,3 +46,13 @@ Words-per-hour figures are wall clock for one agent writing in-conversation; the
 ## Files in this worktree changed by someone else
 
 Three live edition files in this worktree were modified by another process while this run worked: `app/public/data/editions/notes-from-underground-modern-da.json` (changed 13:06 UTC, minified, 477 paragraphs differ from HEAD), `app/public/data/editions/crime-and-punishment-modern-da.json` (changed 14:28 UTC, about 4,200 lines) and `app/public/data/editions/moby-dick-modern-da.json` (changed 15:40 UTC). I did not create, edit, revert or commit any of them; they are left as found for whoever owns them.
+
+## Independent review (21 Oct 2026, branch `claude/danish-1021-b-review`)
+
+A separate Claude session reviewed all three books EN vs DA: the first and last chapters in full plus a fixed-seed sample of at least 12% per book. It applied 84 targeted fixes and normalised the dash to the live house style (` — `). The gates were re-run and pass. Each book has a `{book}-INDEPENDENT-REVIEW.md` with the paragraphs read, error rates, every fix and the open questions. The candidate hashes in the `{book}-gates.md` files are superseded:
+
+| Book | Verdict | Meaning / grammar / style errors per 100 paragraphs (before fixes) | New candidate blob |
+|---|---|---|---|
+| alice-in-wonderland | ready after fixes (applied) | 0.0 / 1.6 / 3.7 (191 read) | `ecb81f192b7c1aa61dfc2bf1460ad96b440a3b33` |
+| wuthering-heights | ready after fixes (applied) | 0.6 / 2.9 / 7.0 (343 read) | `e71116938c37e760ae4f810ddda9596ed66ef751` |
+| sense-and-sensibility | ready after fixes (applied) | 0.0 / 2.4 / 3.6 (252 read) | `cd2c5ea7b08ee95b9ba5bab92efe501512f9752a` |
