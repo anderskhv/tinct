@@ -53,6 +53,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   page.on('requestfailed', request => networkFailures.push({url:request.url().split('?')[0],error:request.failure()?.errorText}))
   page.on('response', response => { if(response.status()>=400) networkFailures.push({url:response.url().split('?')[0],status:response.status()}) })
   page.on('pageerror', error => errors.push(error.message))
+  // The reader's own warnings (why a text did not load: editionLoader, labReader), for a boot failure's report only.
+  const warnings = []
+  page.on('console', message => { if (message.type() === 'warning' || message.type() === 'error') warnings.push(message.text().slice(0, 400)) })
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
@@ -103,7 +106,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:await visibleText(page,3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
