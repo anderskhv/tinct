@@ -54,7 +54,16 @@ async function boot(page, scenario) {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en', compareEdition: 'modern-en' }, phone: appearance, desktop: appearance }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
-  await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
+  // A transport error before any page loads (the runner's connection reset,
+  // 21 Oct 2026 deploy run 39683857823) is retried once; nothing of the
+  // reader ran, so nothing it is checked for is excused. A timeout or any
+  // later failure is not retried.
+  try { await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' }) } catch (error) {
+    if (!/net::ERR_(CONNECTION_RESET|CONNECTION_CLOSED|CONNECTION_REFUSED|NETWORK_CHANGED|EMPTY_RESPONSE|HTTP2_PROTOCOL_ERROR)|Could not connect|Connection reset|The network connection was lost/.test(String(error?.message))) throw error
+    console.log('RETRY goto after transport error:', String(error.message).split('\n')[0])
+    await page.waitForTimeout(2000)
+    await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
+  }
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
