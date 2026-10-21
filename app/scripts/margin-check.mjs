@@ -350,10 +350,10 @@ async function mockChat(body, res) {
    As the Worker after PR D: a book not stored yet has status { state: 'none', stored: false } (with
    `scanMock.legacy` set, the 404 it answered before); pages sent are recognised at the next status
    call, from `scanMock.recognised` (hex -> the recognised pages); the edition and the pages follow. */
-export const scanMock = { uploadDelay: 0, legacy: false, recognised: new Map(), jobs: new Map(), log: [] }
+export const scanMock = { uploadDelay: 0, legacy: false, failStart: false, recognised: new Map(), jobs: new Map(), log: [] }
 async function ocrRoute(req, res, [, hex, part, n]) {
   const book = account.books.find(b => b.sha256.startsWith(hex)), month = { used: 12, limit: 1500 }
-  const job = scanMock.jobs.get(hex), method = req.method
+  let job = scanMock.jobs.get(hex); const method = req.method
   if (method === 'PUT' || method === 'POST') await readBody(req)
   scanMock.log.push([method, part || 'job', hex, !!book])
   if (!book) return !part && method === 'GET' && !scanMock.legacy ? json(res, 200, { state: 'none', pages: 0, uploaded: 0, done: 0, failed: 0, blank: 0, month, stored: false, tier: 'premium' }) : json(res, 404, { error: 'Not found' })
@@ -366,7 +366,10 @@ async function ocrRoute(req, res, [, hex, part, n]) {
   const pages = () => (scanMock.recognised.get(hex) || []).filter(pg => job?.done.has(pg.page))
   if (!part && method === 'GET') return json(res, 200, status())
   if (!part && method === 'POST') {
-    if (!job) scanMock.jobs.set(hex, { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() })
+    // The account busy as the reader says yes (scanMock.failStart): the job is not started.
+    if (scanMock.failStart) return json(res, 503, { error: 'busy' })
+    // The new job's status, as the Worker answers its POST (uploading, every page missing).
+    if (!job) { job = { pages: (scanMock.recognised.get(hex) || []).length, missing: new Set((scanMock.recognised.get(hex) || []).map(pg => pg.page)), ready: new Set(), done: new Set() }; scanMock.jobs.set(hex, job) }
     return json(res, 202, status())
   }
   if (part === 'pages' && n && method === 'PUT') { if (!job?.missing.delete(Number(n))) return json(res, 409, { error: 'not_expected' }); job.ready.add(Number(n)); return json(res, 200, { ok: true }) }
@@ -883,15 +886,15 @@ async function behaviour(browser, origin) {
   const after = account.marks.get(hex).marks.filter(m => !m.gone)
   ok('an offline edit and another device\'s edit both survive (409, merge, write again)', after.length === 4 && (await hl(a)).length === 4, { after: after.length, a: (await hl(a)).length })
   await B.ctx.close()
-  // Copy quote.
+  // Copy.
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy quote, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy quote With the title and page number', moreText)
+  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
   const printed = await a.evaluate(() => pageLabel(mr?.info?.page || currentPlace().page))
-  ok('Copy quote copies the passage with the title and the printed page label', /^“.+”\n— .+, p\. \S+$/s.test(clip) && clip.includes(sel.slice(0, 15)) && clip.endsWith('p. ' + printed), { clip, printed })
+  ok('Copy copies the passage with the title and the printed page label', /^“.+”\n— .+, p\. \S+$/s.test(clip) && clip.includes(sel.slice(0, 15)) && clip.endsWith('p. ' + printed), { clip, printed })
   // Define: dictionary senses with the network off (after the one-time download to the offline cache).
   ok('the dictionary is kept for offline use', await a.evaluate(() => TinctDictionary.warm()))
   await A.ctx.setOffline(true)
@@ -2104,8 +2107,17 @@ async function scanChecks(browser, origin) {
   scanMock.recognised.set(hex, made.recognised)
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const spans = (page, n = 1) => page.evaluate(k => document.querySelectorAll(`.pdf-sheet[data-page="${k}"] .text-layer span`).length, n)
+  // Every line the recognition note shows, as it shows it, kept here across the page's navigations.
+  const ocrLines = []
   const fresh = async ({ width, height, legacy }) => {
     const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1, hasTouch: width < 700 })
+    // The Tinct reader (not served here): where a recognised scan goes on to as its Tinct text.
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    await ctx.exposeBinding('__ocrLine', (_, text) => { if (ocrLines.at(-1) !== text) ocrLines.push(text) })
+    await ctx.addInitScript(() => {
+      new MutationObserver(() => { const n = document.querySelector('.byob-ocr'); if (n?.textContent) window.__ocrLine?.(n.textContent) })
+        .observe(document, { subtree: true, childList: true, characterData: true })
+    })
     await ctx.addInitScript(([session]) => {
       try {
         localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
@@ -2131,11 +2143,23 @@ async function scanChecks(browser, origin) {
     return { ctx, page, problems }
   }
   const noText = page => page.evaluate(() => (window.__toasts || []).some(t => /scan without text/.test(t)))
+  // The tap on "Recognise text", timed in the page: how soon "Recognising text…" and its bar show.
+  const tapStart = page => page.evaluate(() => new Promise(resolve => {
+    const t = performance.now()
+    document.querySelector('.byob-ocr [data-ocr="start"]').click()
+    const look = () => {
+      const el = document.querySelector('.byob-ocr[data-kind="progress"]'), bar = el?.querySelector('.byob-ocr-bar[role="progressbar"]')
+      if (el && /Recognising text…/.test(el.textContent)) resolve({ ms: Math.round(performance.now() - t), bar: !!bar, max: Number(bar?.getAttribute('aria-valuemax')), now: Number(bar?.getAttribute('aria-valuenow')), pages: state.pdf.numPages, button: !!el.querySelector('[data-ocr="start"]') })
+      else if (performance.now() - t > 3000) resolve({ ms: null })
+      else requestAnimationFrame(look)
+    }
+    look()
+  }))
+  const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
 
   // 1. The first-open race against an account that answers 404 until the copy is stored (the Worker before
   //    PR D): asked again once the copy is in, and the offer comes; the "can't be read aloud" line never shows.
   {
-    const removeAll = () => { account.books = account.books.filter(b => !b.sha256.startsWith(hex)); scanMock.jobs.delete(hex) }
     removeAll()
     const { ctx, page, problems } = await fresh({ width: 1440, height: 900, legacy: true })
     const offer = await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).then(() => true).catch(() => false)
@@ -2144,6 +2168,18 @@ async function scanChecks(browser, origin) {
     ok('...and "This PDF is a scan without text" never shows meanwhile', !await noText(page) && !problems.length, { toasts: await page.evaluate(() => window.__toasts), problems })
     await ctx.close()
     removeAll()
+  }
+  // 1b. The yes answered at once, and rolled back with a short line when the account cannot start the job (r, 20 Oct 2026).
+  {
+    removeAll(); scanMock.failStart = true
+    const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
+    await page.waitForSelector('.byob-ocr[data-kind="offer"]', { timeout: 30000 }).catch(() => {})
+    const tap = await tapStart(page)
+    ok('r: "Recognise text" answers within 100 ms: "Recognising text…" with a determinate bar of the book\'s pages, before the account is asked', tap.ms !== null && tap.ms < 100 && tap.bar && tap.max === tap.pages && tap.now === 0 && !tap.button, tap)
+    const back = await page.waitForFunction(() => document.querySelector('.byob-ocr[data-kind="offer"] [data-ocr="start"]') && (window.__toasts || []).includes('Could not start recognising the text. Try again.'), null, { timeout: 20000 }).then(() => true).catch(() => false)
+    ok('r: the account cannot start the job: the offer comes back, with "Could not start recognising the text. Try again."', back && !problems.length, { toasts: await page.evaluate(() => window.__toasts), kind: await page.evaluate(() => document.querySelector('.byob-ocr')?.dataset.kind), problems })
+    await ctx.close()
+    scanMock.failStart = false; removeAll(); ocrLines.length = 0
   }
   // 2. The same against PR D's Worker ({ state: 'none', stored: false }), then recognised, on the desktop.
   const { ctx, page, problems } = await fresh({ width: 1440, height: 900 })
@@ -2160,10 +2196,23 @@ async function scanChecks(browser, origin) {
   const noPrimer = await page.evaluate(() => ({ trigger: !!document.querySelector('.mr-trigger'), primer: !!document.querySelector('.mr-primer'), marks: document.querySelectorAll('.mr-mark.is-trigger, [data-trigger]').length }))
   ok('a scan with no text yet: no "Before you start" trigger, and B opens and asks nothing', !noPrimer.trigger && !noPrimer.primer && !noPrimer.marks && !chats().slice(q0).some(r => r.body?.companion?.intent === 'chapter'), { noPrimer, asked: chats().slice(q0).map(r => r.body?.companion?.intent) })
   await shot(page, 'scan-1440x900-offer')
-  // Started before the copy is stored: it waits for it, then sends the pages.
-  await page.click('.byob-ocr [data-ocr="start"]')
-  const layered = await page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
-  ok('recognised (mocked): the scan stays in the PDF reader, never the book reader, and its words are laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
+  // Started before the copy is stored: it waits for it, then sends the pages. The tap is answered at once.
+  const tap = await tapStart(page)
+  const askedYet = scanMock.log.some(([m, part, h]) => m === 'POST' && part === 'job' && h === hex)
+  ok('r: the yes shows "Recognising text…" and a bar at 0 of the pages within 100 ms, while the account copy is still on its way', tap.ms !== null && tap.ms < 100 && tap.bar && tap.max === tap.pages && !askedYet, { tap, askedYet })
+  const bars = []
+  const watchBar = setInterval(() => page.evaluate(() => Number(document.querySelector('.byob-ocr-bar')?.getAttribute('aria-valuenow'))).then(n => { if (Number.isFinite(n) && bars.at(-1) !== n) bars.push(n) }).catch(() => {}), 60)
+  // Recognised while the book is open: the desktop shows its Tinct text in Margin view at the same place (items r and s), no "ready" line.
+  const switched = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 60000 }).then(() => true).catch(() => false)
+  clearInterval(watchBar)
+  await page.waitForTimeout(800)
+  const kept = await page.evaluate(() => { const s = epubSpot(), at = currentPlace(); return { url: location.pathname + location.search, edition: store.get('edition:' + hexOf(state.key)), at: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), words: document.querySelectorAll('.pt-chapter p').length } })
+  ok('r: recognised while open (mocked job): the desktop switches to the Tinct text by itself, inside Margin view (no /reader), at the page it was on', switched && kept.url.startsWith('/lab/addbook/?userBook=' + hex) && kept.at?.page === 1 && kept.words > 2 && kept.edition === 'text', kept)
+  ok('r: no "Tinct text is ready" line on the way; the bar went up as pages were prepared', !ocrLines.some(t => /is ready/.test(t)) && bars.length >= 2 && bars.at(-1) > bars[0], { ocrLines, bars })
+  // The way back: Original pages, the scan with its words over its pages.
+  await page.evaluate(() => pdfTextToPages())
+  const layered = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 60000 }).then(() => true).catch(() => false)
+  ok('recognised (mocked), and switched back to Original pages: the PDF reader, its words laid over page 1', layered && new URL(page.url()).pathname === '/lab/addbook/' && (await spans(page)) > 10, { url: page.url(), spans: await spans(page) })
   const puts = scanMock.log.filter(([m, part]) => m === 'PUT' && part === 'pages')
   ok('the pages were sent after the account copy was stored, every one', puts.length === made.recognised.length && puts.every(([, , , stored]) => stored), puts)
   // Placement: each line's span over its printed words (the fixture's own boxes), within 1% of the page.
@@ -2223,6 +2272,20 @@ async function scanChecks(browser, origin) {
   ok('no page errors on the desktop', !problems.length, problems)
   await ctx.close()
 
+  // 2b. Recognised while the book was not open (r): the next open on a phone is its Tinct text (its default, kept as
+  //     the phone's); on the desktop, its pages with the margin, as its rule says.
+  {
+    const P = await fresh({ width: 390, height: 844 })
+    const went = await P.page.waitForURL(`**/reader?userBook=${hex}**`, { timeout: 30000 }).then(() => true).catch(() => false)
+    const auto = await P.page.evaluate(h => JSON.parse(localStorage.getItem('tinct-addbook:phone-edition:' + h) || 'null'), hex)
+    ok('r: recognised while away, the phone opens it as its Tinct text, kept as the phone\'s default (not a choice)', went && auto?.edition === 'text' && !P.problems.length, { url: P.page.url(), auto, problems: P.problems })
+    await P.ctx.close()
+    const D = await fresh({ width: 1440, height: 900 })
+    const here = await D.page.waitForFunction(() => document.querySelectorAll('.pdf-sheet[data-page="1"] .text-layer span').length > 10, null, { timeout: 30000 }).then(() => true).catch(() => false)
+    await D.page.waitForTimeout(800)
+    ok('r: recognised while away, the desktop opens its pages with its words over them (its rule), no "ready" line', here && new URL(D.page.url()).pathname === '/lab/addbook/' && !(await D.page.evaluate(() => document.querySelector('.byob-ocr')?.textContent || '')).includes('ready') && !D.problems.length, { url: D.page.url(), problems: D.problems })
+    await D.ctx.close()
+  }
   // 3. The phone, opening the recognised scan from the account (its recognised pages fetched again).
   {
     const ph = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' }).catch(e => ({ error: String(e.message || e) }))
@@ -2933,12 +2996,13 @@ async function phoneKindCheck(browser, origin) {
     const page = await ctx.newPage(), errors = []
     page.on('pageerror', e => errors.push(e.message))
     await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
-    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20), null, { timeout: 30000 }).catch(() => {})
+    await page.waitForFunction(() => location.pathname !== '/lab/addbook/' || (typeof state !== 'undefined' && ((state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20) || (state.pdfText && document.querySelector('.pt-chapter')))), null, { timeout: 30000 }).catch(() => {})
     await page.waitForTimeout(1200)
     const where = await page.evaluate(() => location.pathname + location.search)
+    const textView = where.startsWith('/lab/addbook/') && await page.evaluate(() => typeof isPdfText === 'function' && isPdfText() && !!document.querySelector('.pt-chapter'))
     const kept = await page.evaluate(hex => { const g = k => { try { return JSON.parse(localStorage.getItem('tinct-addbook:' + k)) } catch { return null } }; return { edition: g('edition:' + hex), auto: g('phone-edition:' + hex), desk: g('desk-edition:' + hex), rule: g('open-rule:' + hex), pos: g('pos:pdf:' + hex) } }, hex)
     if (!keep) await ctx.close()
-    return { where, kept, errors, ctx, page }
+    return { where, kept, errors, ctx, page, textView }
   }
   const views = SAMPLE ? [[390, 844, 'paper'], [360, 740, rotate(LOOKS, 2)]] : VIEWPORTS.filter(([w]) => w < 700).flatMap(([w, h]) => LOOKS.map(l => [w, h, l]))
   for (const [width, height, look] of views) {
@@ -3002,16 +3066,16 @@ async function phoneKindCheck(browser, origin) {
   // A desktop whose old default (16 Oct) kept running prose as Tinct text: a default, no choice; its pages now.
   const oldDefault = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'text', ['desk-edition:' + prose]: { edition: 'text', kind: 'narrative', by: 'text', v: 1 }, ['open-rule:' + prose]: 2 } })
   ok('desk-pages: a desktop default kept as Tinct text under the rule of 16 Oct opens as its pages', oldDefault.where === `/lab/addbook/?userBook=${prose}` && oldDefault.kept.edition === 'pages' && oldDefault.kept.desk?.edition === 'pages', oldDefault)
-  // Convert to Tinct book, the reader's choice on this desktop, still opens the Tinct reader.
+  // Convert to Tinct book, the reader's choice on this desktop: its Tinct text here, in Margin view (item s, 20 Oct 2026), not the Tinct reader.
   const converted = await open(prose, { width: 1440, height: 900, seed: { ['edition:' + prose]: 'text' } })
-  ok('desk-pages: the reader\'s choice of Tinct text on the desktop (Convert to Tinct book) opens the Tinct reader', converted.where.startsWith('/reader?userBook=' + prose) && !converted.kept.desk, converted)
+  ok('desk-pages: the reader\'s choice of Tinct text on the desktop (Convert to Tinct book) opens its Tinct text in Margin view', converted.where === `/lab/addbook/?userBook=${prose}` && converted.textView && !converted.kept.desk, converted)
   // Read as Tinct text under the old default (a place in Tinct text from before the rule, nothing chosen): its pages now, at the same spot.
   const OLD = Date.UTC(2026, 9, 16, 9), NEW = Date.UTC(2026, 9, 17, 9)
   const legacy = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't', chapterNumber: 1, paragraphIndex: 2, wordIndex: 0 } } })
   ok('desk-pages: a place read in Tinct text under the old default (no choice) opens as its pages, the spot kept', legacy.where.startsWith('/lab/addbook/') && legacy.kept.edition === 'pages' && legacy.kept.pos?.page === 1 && legacy.kept.pos?.frac === 0.3 && legacy.kept.pos?.paragraphIndex === 2, legacy)
   // The reader's own choice of Tinct text stands; a place read in Tinct text since the rule began (here or on another device) is no choice (19 Oct).
   const chose = await open(mackay, { width: 1440, height: 900, seed: { ['edition:' + mackay]: 'text', ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: OLD, edition: 't' } } })
-  ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text', chose.where.startsWith('/reader?userBook=' + mackay) && chose.kept.edition === 'text' && !chose.kept.desk, chose)
+  ok('desk-pages: the reader\'s choice of Tinct text opens it as Tinct text (in Margin view)', chose.where === `/lab/addbook/?userBook=${mackay}` && chose.textView && chose.kept.edition === 'text' && !chose.kept.desk, chose)
   const since = await open(mackay, { width: 1440, height: 900, seed: { ['pos:pdf:' + mackay]: { page: 1, frac: 0.3, at: NEW, edition: 't' } } })
   ok('desk-pages: a place read in Tinct text since the rule began (on a phone) opens as its pages on the desktop', since.where.startsWith('/lab/addbook/') && since.kept.desk?.edition === 'pages' && since.kept.pos?.page === 1, since)
   const inPages = await open(prose, { width: 1440, height: 900, seed: { ['pos:pdf:' + prose]: { page: 2, frac: 0.1, at: OLD, edition: 'p' } } })
@@ -4279,10 +4343,11 @@ async function zoomPanel(browser, origin) {
   await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
   ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
   await P.ctx.close()
-  // Tinct text (an EPUB here): the size slider stays a text-size control.
+  // Tinct text (an EPUB here) on the desktop: text controls, never Zoom (since 20 Oct 2026, desk-polish D1: Text size and
+  // Line width in place of the size slider).
   const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
   await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
-  ok('zoom-panel-epub: 6. in Tinct text the size slider stays a text-size control', await E.page.evaluate(() => document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]')?.getAttribute('aria-label') === 'Text size' && !document.querySelector('.byob-zoom')))
+  ok('zoom-panel-epub: 6. in Tinct text the Aa panel has text controls (Text size, Line width), no Zoom', await E.page.evaluate(() => JSON.stringify([...document.querySelectorAll('.byob-aa-panel .byob-type .lab-v2-row-label')].map(l => l.textContent)) === '["Text size","Line width"]' && !document.querySelector('.byob-zoom')))
   await E.ctx.close()
   return results
 }
@@ -4781,8 +4846,11 @@ function addEssays() {
   if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'lamplit-conjectures.epub', title: 'Lamplit Conjectures, Volume II', author: 'Gale Editor', type: 'epub', size: ESSAYS.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: ESSAYS })
   return sha256.slice(0, 24)
 }
-async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null }) {
+async function epubPage(browser, origin, hex, { width, height, look = 'paper', init = null, fontDelay = 0 }) {
   const ctx = await browser.newContext({ viewport: { width, height }, hasTouch: width < 700 })
+  // Late web fonts (a cold cache, a slow connection; CI 21 Oct 2026): every /fonts/ file held back `fontDelay` ms, past the
+  // open's 1.5 s wait for them (reader.js openEpub), on the first open and on each reload (a routed request skips the cache).
+  if (fontDelay) await ctx.route(/\/fonts\/[^?]*\.(woff2?|ttf)(\?|$)/, async r => { await new Promise(z => setTimeout(z, fontDelay)); await r.continue().catch(() => {}) })
   await ctx.addInitScript(([session, look]) => {
     try {
       if (!sessionStorage.getItem('nb-init')) {
@@ -4801,6 +4869,164 @@ async function epubPage(browser, origin, hex, { width, height, look = 'paper', i
 }
 // The paragraph and word at the top of the view, by the words there (they never move with the width or size).
 const spotNow = () => { const s = epubSpot(), place = currentPlace(); return { page: place.page, para: s.para, word: s.word, quote: s.quote } }
+// The EPUB reader at rest: this open's place gone back to (reader.js epubHold.opened), no way there (settling) or
+// reflow (a text size, a width, a late font) under way, its fonts in. What the place checks mean by "then": a fixed
+// wait read the place before a slow runner had restored it (CI, 20 Oct 2026: a reload read a line early, and the
+// zoom that followed held that line). `width`: a window resize, whose reflow starts on its resize event.
+async function epubSettled(page, { width } = {}) {
+  if (width) await page.waitForFunction(w => innerWidth === w, width, { timeout: 10000 })
+  const frames = () => page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))))
+  const rest = () => page.waitForFunction(() => isEpub() && epubHold.opened === state.token && !epubHold.settling && !epubHold.reflow && document.fonts.status === 'loaded', null, { timeout: 20000 })
+  await frames(); await rest(); await frames(); await rest()
+}
+/* A PDF's Tinct text in Margin view (Anders, 20 Oct 2026, item s; mockup 2b): on the desktop "Tinct text" reflows the PDF
+   here, on Tinct paper beside the margin, never the Tinct reader; "Original pages" goes back to the same place. */
+async function pdfTextCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const [label, file] of [['prose', join(REPO, 'addbooks/web/test/pdf-fixtures/prose_book.pdf')], ['figures', MARGIN_PAPER]]) {
+    const hex = addBook(file), tag = `pdf-text-${label}`
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } })
+    await ctx.addInitScript(([session, hex]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'dark' }))
+        localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('pages'))
+      } catch {}
+    }, [SESSION, hex])
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    const page = await ctx.newPage(), problems = [], navs = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    page.on('framenavigated', f => { if (f === page.mainFrame()) navs.push(new URL(f.url()).pathname) })
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    await page.waitForFunction(() => state.scan && toc.ready && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 })
+    await page.waitForTimeout(800)
+    // Read to page 2, a third of the way down; a highlight made there on the PDF.
+    const before = await page.evaluate(() => { goTo({ page: Math.min(2, state.pages.length), frac: 0.3 }); onScroll(); savePlaceNow(); return currentPlace() })
+    await page.waitForTimeout(600)
+    const marked = await page.evaluate(() => {
+      const p = state.pages[Math.min(2, state.pages.length) - 1], spans = [...(p.layer?.querySelectorAll('span') || [])].filter(s => (s.textContent || '').trim().split(/\s+/).length >= 6)
+      const sp = spans[Math.floor(spans.length / 2)]; if (!sp) return null
+      const r = document.createRange(); r.selectNodeContents(sp); getSelection().removeAllRanges(); getSelection().addRange(r)
+      const text = getSelection().toString().replace(/\s+/g, ' ').trim()
+      const ids = addHighlight({ text }); getSelection().removeAllRanges()
+      return { text, ids }
+    })
+    const navsBefore = navs.length
+    // Read in its pages, its Tinct text is prepared in idle time and kept on its record with its crops (20 Oct 2026, speed).
+    let prepared = false
+    for (let k = 0; k < 80 && !prepared; k++) {
+      prepared = await page.evaluate(async () => { const r = await library.get(state.key); return !!(r?.edition && TinctPdfText.usable(r.edition) && (r.figureData || !r.edition.chapters.some(c => c.figures?.length))) })
+      if (!prepared) await page.waitForTimeout(250)
+    }
+    ok(`${tag}: read in its pages, its Tinct text is prepared in idle time and kept before Tinct text is chosen`, prepared)
+    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    const chosen = Date.now()
+    await page.click('.byob-aa-panel [data-layout="text"]')
+    const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 30000 }).then(() => true).catch(() => false)
+    console.log(`     ${tag}: Tinct text shown ${Date.now() - chosen} ms after it was chosen (prepared)`)
+    await page.waitForTimeout(1500)
+    const view = await page.evaluate(() => {
+      const sheet = document.querySelector('.epub-sheet'), cs = sheet && getComputedStyle(sheet), pg = document.querySelector('.epub-pg'), font = pg && getComputedStyle(pg).fontFamily
+      const s = epubSpot(), at = currentPlace(), pos = store.get('pos:pdf:' + hexOf(state.key))
+      return { url: location.pathname + location.search, kind: state.kind, paper: root.classList.contains('is-paper'), sheetBg: cs?.backgroundColor, shadow: cs?.boxShadow, font, column: col.mode, pdfSheets: document.querySelectorAll('.pdf-sheet').length, heads: document.querySelectorAll('.pt-chapter .tb-title, .pt-chapter h3.pt-h').length, figs: [...document.querySelectorAll('.pt-fig img')].map(i => ({ w: i.naturalWidth, h: i.naturalHeight, shown: i.getBoundingClientRect().width })), at, spot: s, pdfPage: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), pos, hl: highlights().filter(h => h.via === 'pdf').map(h => h.text), aa: null }
+    })
+    ok(`${tag}: "Tinct text" on the desktop reflows the PDF inside Margin view, with no navigation to /reader`, shown && !navs.slice(navsBefore).some(p => p.startsWith('/reader')) && view.url.startsWith('/lab/addbook/?userBook=' + hex) && view.kind === 'epub' && view.pdfSheets === 0, { shown, navs, view })
+    ok(`${tag}: Tinct paper (no white sheet or shadow), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && /rgba\(0, 0, 0, 0\)|transparent/.test(view.sheetBg) && (view.shadow === 'none' || !view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
+    ok(`${tag}: it opens at the same place: the PDF's page ${before.page} at the top of the view`, view.pdfPage?.page === before.page, { before, pdfPage: view.pdfPage, spot: view.spot })
+    if (marked) ok(`${tag}: the highlight made on the PDF's page shows in the Tinct text (found by its words)`, view.hl.includes(marked.text) && await page.evaluate(() => [...CSS.highlights.keys()].some(k => k.startsWith('tinct-hl-'))), { marked, hl: view.hl })
+    if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
+    // A request from here reads the document as the PDF's pages, and its answer cites them.
+    const r0 = account.requests.length
+    await page.evaluate(() => {
+      const p = state.pages.find(q => epubParas(q).some(el => el.textContent.split(/\s+/).length > 12)), el = epubParas(p).find(el => el.textContent.split(/\s+/).length > 12)
+      el.scrollIntoView({ block: 'center' })
+      const t = el.firstChild
+      document.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerType: 'mouse' })); getSelection().setBaseAndExtent(t, 0, t, Math.min(t.length, 60))
+      document.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'mouse' }))
+    })
+    await page.waitForSelector('.mr-bar [data-m="explain"]', { timeout: 8000 }).catch(() => {})
+    await page.click('.mr-bar [data-m="explain"]').catch(() => {})
+    await page.waitForTimeout(1500)
+    const req = account.requests.slice(r0).find(r => r.body?.companion?.intent === 'explain')
+    const doc = req?.body?.companion?.document
+    ok(`${tag}: Explain in the Tinct text sends the document as the PDF's pages (kind pdf, its page numbers)`, doc?.kind === 'pdf' && doc.units?.length === await page.evaluate(() => state.pdfText.pages) && doc.units[0].n === '1', { kind: doc?.kind, units: doc?.units?.map(u => u.n) })
+    const label0 = await page.evaluate(() => { const c = keptCards().filter(c => !c.gone).at(-1); return c ? cardName(c) : null })
+    ok(`${tag}: its card names the PDF page its passage is printed on`, /· p\. \d+$/.test(label0 || ''), label0)
+    if (process.env.EPUB_SHOTS && label === 'figures') { mkdirSync(process.env.EPUB_SHOTS, { recursive: true }); await page.screenshot({ path: join(process.env.EPUB_SHOTS, 'pdf-tinct-text.png') }) }
+    await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
+    // Back: "Original pages", at the same place.
+    const spotNowText = await page.evaluate(() => { const at = currentPlace(), s = epubSpot(); return PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0) })
+    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="pages"]')
+    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.dataset.layout))
+    await page.click('.byob-aa-panel [data-layout="pages"]')
+    const back = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true).catch(() => false)
+    await page.waitForTimeout(1200)
+    const after = await page.evaluate(() => ({ at: currentPlace(), edition: store.get('edition:' + hexOf(state.key)), url: location.pathname + location.search }))
+    ok(`${tag}: the Aa panel offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
+    ok(`${tag}: no page errors`, !problems.length, problems)
+    await ctx.close()
+  }
+  // Chosen at once, before any idle time (20 Oct 2026, speed): the text opens before its crops are drawn, each standing at its
+  // size until it comes; the place does not move as they come, and the text is kept with all of them.
+  {
+    const hex = addBook(FIGURE_PAPER), tag = 'pdf-text-at-once'
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
+    await ctx.addInitScript(([session, hex]) => {
+      try {
+        if (sessionStorage.getItem('seeded')) return
+        sessionStorage.setItem('seeded', '1')
+        localStorage.setItem('sb-local-auth-token', JSON.stringify(session))
+        localStorage.setItem('tinct-addbook:edition:' + hex, JSON.stringify('text'))
+        localStorage.setItem('tinct-addbook:pos:pdf:' + hex, JSON.stringify({ page: 3, frac: 0.2, at: Date.now() }))
+      } catch {}
+      // Each crop a while in coming, so the text is read while they are drawn.
+      const toBlob = HTMLCanvasElement.prototype.toBlob
+      HTMLCanvasElement.prototype.toBlob = function (...a) { setTimeout(() => toBlob.apply(this, a), 700) }
+    }, [SESSION, hex])
+    await ctx.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
+    const page = await ctx.newPage(), problems = []
+    page.on('pageerror', e => problems.push('pageerror: ' + e.message))
+    const started = Date.now()
+    await page.goto(`${origin}/lab/addbook/?userBook=${hex}`)
+    const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter .pt-fig'), null, { timeout: 30000 }).then(() => true).catch(() => false)
+    const opened = Date.now() - started
+    await page.waitForTimeout(600)
+    const first = await page.evaluate(() => ({ waiting: document.querySelectorAll('.pt-fig img[data-wait]').length, figs: document.querySelectorAll('.pt-fig').length, spot: epubSpot(), boxes: [...document.querySelectorAll('.pt-fig img')].map(i => [i.offsetWidth, i.offsetHeight]) }))
+    console.log(`     ${tag}: Tinct text shown ${opened} ms after the page was asked for; 0.6 s later ${first.waiting} of ${first.figs} crops still being drawn`)
+    let all = null
+    for (let k = 0; k < 80; k++) {
+      all = await page.evaluate(async () => { const r = await library.get(PT().pdfKey(state.key)); return {  waiting: document.querySelectorAll('.pt-fig img[data-wait]').length, kept: !!r?.figureData && Object.keys(r.figureData).length, spot: epubSpot(), boxes: [...document.querySelectorAll('.pt-fig img')].map(i => [i.offsetWidth, i.offsetHeight]), drawn: [...document.querySelectorAll('.pt-fig img')].every(i => i.src.startsWith('blob:') && i.naturalWidth > 0) } })
+      if (!all.waiting && all.kept && all.drawn) break
+      await page.waitForTimeout(250)
+    }
+    ok(`${tag}: chosen at once, the Tinct text opens with its crops standing at their size while they are drawn`, shown && first.figs >= 1 && first.waiting >= 1, first)
+    ok(`${tag}: every crop comes in, at the size it stood at, and the text is kept with them`, !all.waiting && all.drawn && all.kept === first.figs && JSON.stringify(all.boxes) === JSON.stringify(first.boxes), { first, all })
+    ok(`${tag}: the place does not move as the crops come`, JSON.stringify(all.spot) === JSON.stringify(first.spot), { first: first.spot, after: all.spot })
+    ok(`${tag}: no page errors`, !problems.length, problems)
+    await ctx.close()
+  }
+  return results
+}
+/** At `here` (spotNow), then a reload, then a text size and a width step and back: the paragraph and word kept throughout. */
+async function epubPlaceRows(e, ok, tag, here, width, height) {
+  // Back at the place, then a reload: the same paragraph and word.
+  await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+  await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
+  const reloaded = await e.evaluate(spotNow)
+  ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
+  // The text size and the window's width change: the place stays.
+  await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800); await epubSettled(e)
+  const zoomed = await e.evaluate(spotNow)
+  await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800); await epubSettled(e, { width: Math.round(width * 0.8) })
+  const narrowed = await e.evaluate(spotNow)
+  await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800); await epubSettled(e, { width })
+  const sizedBack = await e.evaluate(spotNow)
+  // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
+  const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
+  ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
+}
 async function epubViewCheck(browser, origin) {
   const results = [], ok = okList(results)
   const hex = addEpub(), key = 'epub:' + hex
@@ -4809,6 +5035,7 @@ async function epubViewCheck(browser, origin) {
     const E = await epubPage(browser, origin, hex, { width, height })
     const e = E.page
     await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    await epubSettled(e); await e.waitForFunction(() => col.mode != null, null, { timeout: 10000 }).catch(() => {})
     const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
     ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
     // The Aa panel: Margin view, and Convert to Tinct book.
@@ -4818,7 +5045,7 @@ async function epubViewCheck(browser, origin) {
     await e.keyboard.press('Escape')
     // A place: chapter 3's third paragraph, some way in.
     await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
-    await e.waitForTimeout(400); await e.evaluate(() => savePlaceNow())
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
     const here = await e.evaluate(spotNow)
     const kept = await e.evaluate(k => store.get('pos:' + k), key)
     ok(`${tag}: the place is kept by paragraph and word, with its words`, here.page === 3 && here.para === 3 && kept.para === 3 && kept.word === here.word && kept.word > 0 && kept.quote === here.quote && kept.quote.split(' ').length >= 10, { here, kept })
@@ -4831,27 +5058,14 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: the Notebook lists an EPUB's card by chapter and paragraph`, entry.entries.length === 1 && entry.entries[0].chip === '2 Candles Considered ¶ 3' && entry.entries[0].kind === 'Explain', entry.entries)
     await shot(e, `${tag}-notebook`)
     await e.click('.nb-entry .nb-kind'); await e.waitForTimeout(1500)
+    await e.waitForFunction(() => !!document.querySelector('.mr-card.is-open'), null, { timeout: 10000 }).catch(() => {})
     const jump = await e.evaluate(() => { const c = (store.get('cards:' + state.key) || [])[0], r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], sr = document.getElementById('scroll').getBoundingClientRect(); return { open: col.open === c.id, inView: r.top > sr.top && r.bottom < sr.bottom, card: !!document.querySelector('.mr-card.is-open') } })
     ok(`${tag}: its entry jumps to the passage and opens the card`, jump.open && jump.inView && jump.card, jump)
     await shot(e, `${tag}-card`)
     await e.keyboard.press('Escape'); await e.evaluate(() => { openCard(null) })
-    // Back at the place, then a reload: the same paragraph and word.
-    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await e.evaluate(() => savePlaceNow())
-    await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
-    const reloaded = await e.evaluate(spotNow)
-    ok(`${tag}: a reload opens at the same paragraph and word`, reloaded.page === here.page && reloaded.para === here.para && reloaded.word === here.word, { here, reloaded })
-    // The text size and the window's width change: the place stays.
-    await e.evaluate(() => setZoom(1.3)); await e.waitForTimeout(800)
-    const zoomed = await e.evaluate(spotNow)
-    await e.setViewportSize({ width: Math.round(width * 0.8), height }); await e.waitForTimeout(800)
-    const narrowed = await e.evaluate(spotNow)
-    await e.evaluate(() => setZoom(1)); await e.setViewportSize({ width, height }); await e.waitForTimeout(800)
-    const sizedBack = await e.evaluate(spotNow)
-    // The same paragraph, its line at the top (the word's line may start a word or two earlier once the lines wrap anew).
-    const near = x => x.page === here.page && x.para === here.para && x.word <= here.word && here.word - x.word <= 12
-    ok(`${tag}: a text size or width change keeps the paragraph and word at the top`, near(zoomed) && near(narrowed) && near(sizedBack), { here, zoomed, narrowed, sizedBack })
+    await epubPlaceRows(e, ok, tag, here, width, height)
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
-    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600)
+    await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
     await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
     await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
@@ -4863,10 +5077,47 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: chosen, the Tinct reader is where it opens on this device`, e.url().includes(`/reader?userBook=${hex}`), e.url())
     const target = await e.evaluate(() => 'Lamplight has always posed questions about the nature of the evening')
     await e.evaluate(([k, h, q]) => { localStorage.setItem('tinct-addbook:epub-view:' + h, JSON.stringify('margin')); const pos = JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)); localStorage.setItem('tinct-addbook:pos:' + k, JSON.stringify({ ...pos, via: 't', quote: q, at: Date.now() })) }, [key, hex, 'If we really do live in a lamplit household, then where does electricity fit'])
-    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500); await epubSettled(e)
     const back = await e.evaluate(spotNow)
     ok(`${tag}: from the Tinct reader's Margin view, the EPUB opens here at the words it was at`, back.page === 2 && back.para === 1 && back.word === 0 && /^If we really do live/.test(back.quote), back)
     void target
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // Late fonts (CI 21 Oct 2026, #519: a reload opened a line or two early, and the size and width steps after it held
+  // that line): the open restores the place with the fallback font, and the fonts' swap (Chrome rescrolls the view to
+  // keep its anchor) must not be taken for the reader's own scroll. The same place, reload and steps, fonts held 2.5 s.
+  for (const [width, height] of [[1440, 900], [2000, 1066]]) {
+    const tag = `epub-view-${width}x${height}-late-fonts`
+    const E = await epubPage(browser, origin, hex, { width, height, fontDelay: 2500 })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    const here = await e.evaluate(spotNow)
+    await epubPlaceRows(e, ok, tag, here, width, height)
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  // A second book opened while the first one's fonts are still held (Anders's rule: never lose a place): the first open's
+  // font wait ends at once when the next open begins, and its fonts-ready callback, stale, moves nothing; the second
+  // book's place lands exactly. In place (reader.js openFromUrl, as the shelf and a dropped file open a book), not a new page.
+  {
+    const tag = 'epub-view-1440x900-late-fonts-next-book', hexB = addEssays()
+    const E = await epubPage(browser, origin, hexB, { width: 1440, height: 900, fontDelay: 2500 })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.evaluate(() => { const n = state.pages.findIndex(q => epubParas(q).some(x => x.textContent.length > 400)), el = epubParas(state.pages[n]).find(x => x.textContent.length > 400); goTo({ page: n + 1, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.5; r() }))) })
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    const hereB = await e.evaluate(spotNow)
+    // Book A, its fonts held: its place restored, its font wait on.
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`, { waitUntil: 'commit' })
+    const waiting = await e.waitForFunction(() => typeof epubHold !== 'undefined' && typeof state !== 'undefined' && isEpub() && epubHold.opened === state.token && epubHold.reflow > 0 && document.fonts.status === 'loading', null, { timeout: 15000, polling: 50 }).then(() => true).catch(() => false)
+    // Book B, opened within that wait: A's wait is gone as B's open begins.
+    const handoff = await e.evaluate(h => new Promise(r => { const was = state.token; openFromUrl(h); const look = () => state.token !== was ? r({ reflow: epubHold.reflow, fonts: document.fonts.status }) : setTimeout(look, 0); look() }), hexB)
+    await e.waitForFunction(h => state.key === 'epub:' + h && epubHold.opened === state.token, hexB, { timeout: 30000 }); await epubSettled(e); await e.waitForTimeout(500); await epubSettled(e)
+    const landed = await e.evaluate(spotNow)
+    ok(`${tag}: a book opened while another's late fonts are held ends that wait at once, and lands exactly at its own place`, waiting && handoff.reflow === 0 && hereB.word > 0 && landed.page === hereB.page && landed.para === hereB.para && landed.word === hereB.word, { waiting, handoff, hereB, landed })
     ok(`${tag}: no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()
   }
@@ -4926,9 +5177,11 @@ async function epubOpenCheck(browser, origin) {
     const centred = [...document.querySelectorAll('.epub-sheet.is-front .epub-body p')].every(p => getComputedStyle(p).textAlign === 'center')
     const plain = sheets.every(s => { const cs = getComputedStyle(s); return cs.boxShadow === 'none' && /rgba\(0, 0, 0, 0\)|transparent/.test(cs.backgroundColor) })
     const text = sheets.slice(1).map(s => s.getBoundingClientRect().height)
-    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, centred, plain }
+    // Each piece's height scales with the text size (Margin view's own since 20 Oct 2026, desk-polish D1; 340px was set at 19.22px).
+    const scale = parseFloat(getComputedStyle(state.pages[8].pg).fontSize) / 19.22
+    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, scale, centred, plain }
   })
-  ok('1. the front matter (title, copyright, dedication, supporters) is one compact centred block, not a sheet per file: under 1.4 screens', front.centred && front.plain && front.block < 900 * 1.4 && front.text.every(h => h < 340), front)
+  ok('1. the front matter (title, copyright, dedication, supporters) is one compact centred block, not a sheet per file: under 1.4 screens', front.centred && front.plain && front.block < 900 * 1.4 && front.text.every(h => h < 340 * front.scale), front)
   const cover = await e.evaluate(async () => {
     const img = state.pages[0].pg.querySelector('img'); await img.decode().catch(() => {})
     const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight; const g = c.getContext('2d'); g.drawImage(img, 0, 0)
@@ -4952,9 +5205,10 @@ async function epubOpenCheck(browser, origin) {
     return { color: cs.color, text: getComputedStyle(p).color, underline: cs.textDecorationLine, contrast: Math.round((Math.max(L1, L2) + 0.05) / (Math.min(L1, L2) + 0.05) * 10) / 10 }
   })
   ok('2. a link in the book is readable in Night: the text\'s ink, underlined, contrast at least 4.5:1', link.color === link.text && /underline/.test(link.underline) && link.contrast >= 4.5, link)
-  // 4. Tinct paper: no sheets, the book reader's size and measure, the margin column beside the text.
-  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.paper(localStorage.getItem('tinct-lab-prefs'), innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
-  ok('4. Tinct paper: no sheet (transparent, no shadow), the book reader\'s text size and measure, the margin column beside it', /rgba\(0, 0, 0, 0\)|transparent/.test(paper.bg) && paper.shadow === 'none' && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
+  // 4. Tinct paper: no sheets, Margin view's own text size and measure (desk-polish D1, 20 Oct 2026: TinctReaderLayout.marginText,
+  // this device's Text size and Line width at 100%), the margin column beside the text.
+  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.marginText(innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
+  ok('4. Tinct paper: no sheet (transparent, no shadow), Margin view\'s text size and measure, the margin column beside it', /rgba\(0, 0, 0, 0\)|transparent/.test(paper.bg) && paper.shadow === 'none' && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
   return results
@@ -5080,7 +5334,14 @@ async function epubQuizCheck(browser, origin) {
   // q (20 Oct 2026): deleting the book from the reader leaves nothing of it on this device (place, highlights, cards, chats, primers).
   await e.evaluate(() => { savePlaceNow(); const p = state.pages[8], t = epubParas(p)[3].firstChild, r = document.createRange(); r.setStart(t, 0); r.setEnd(t, 30); addHighlight({ text: r.toString(), page: 9, range: r }, { range: r, color: 'yellow' }); store.set('chat:' + state.key, [{ role: 'user', content: 'x' }]) })
   const before = await e.evaluate(h => Object.keys(localStorage).filter(k => k.includes(h)), E.hex)
-  await e.evaluate(k => TinctReader.removeBook(k), E.key); await e.waitForTimeout(800)
+  // Removing the open book closes it, forgets its keys, then replaces this page with My shelf (reader.js removeBook,
+  // start.js toShelf): a navigation. Waiting a fixed time and evaluating raced it ("Execution context was destroyed",
+  // 20 Oct 2026). The call is started without awaiting its promise across the navigation, and the keys are read on
+  // the shelf page, once it has loaded (same origin and tab: the same localStorage and sessionStorage).
+  const toShelf = e.waitForURL(u => new URL(u).pathname === '/library', { timeout: 20000, waitUntil: 'load' })
+  await e.evaluate(k => { window.__removing = TinctReader.removeBook(k) }, E.key)
+  const shelf = await toShelf.then(() => true, () => false)
+  ok('q. deleting the open book closes it and shows My shelf', shelf && new URL(e.url()).hash === '#my-shelf', e.url())
   const left = await e.evaluate(h => [...Object.keys(localStorage), ...Object.keys(sessionStorage)].filter(k => k.includes(h)), E.hex)
   ok('q. deleting the book from the reader leaves no key of it on this device (its place, highlights, cards, chat, primers)', before.length >= 4 && left.length === 0, { before, left })
   ok('no page errors', !E.problems.length, E.problems)
@@ -5149,6 +5410,170 @@ async function epubAskCheck(browser, origin) {
   }
   return results
 }
+
+/* desk-polish (Anders's desktop feedback of 20 Oct 2026 on an EPUB in Margin view, "Bold Conjectures II"): D1 a larger default
+   text and a wider column on wide screens, Text size and Line width in the Aa panel, kept per device with the place kept;
+   D2 Quiz me on a selection never scrolls the page; D3 a click on a card (its label, its text, its field) never scrolls to
+   its passage; D4 a quiz answer's bubble set as the question and the feedback; D5 a reply under "Nearly" or a wrong answer's
+   feedback, a few rounds (at most 3), "Next question →" in view throughout (the grader mocked); D6 figure captions set
+   apart. At 2000×1050 and 1440×900, Night. Screenshots in EPUB_SHOTS (desk-*.png). */
+const ESSAYS_FIGURE = makeEssayEpub({ title: 'Lamplit Conjectures, Volume III', figure: true })
+function addEssaysFigure() {
+  const sha256 = createHash('sha256').update(ESSAYS_FIGURE).digest('hex')
+  if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: 'lamplit-conjectures-3.epub', title: 'Lamplit Conjectures, Volume III', author: 'Gale Editor', type: 'epub', size: ESSAYS_FIGURE.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes: ESSAYS_FIGURE })
+  return sha256.slice(0, 24)
+}
+// The text as set on the page: its size, the column's width, characters per line (by the font's average letter) and the side room.
+const typeNow = () => {
+  const p = [...document.querySelectorAll('.epub-sheet:not(.is-toc):not(.is-front) .epub-pg p')].find(el => el.textContent.length > 300), cs = getComputedStyle(p), r = p.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect()
+  // Characters on each full line (spaces counted): the offsets where the line's top changes, its last line left out.
+  const t = [...p.childNodes].find(n => n.nodeType === 3 && n.length > 300), range = document.createRange(), tops = []
+  for (let i = 0; i < t.length; i++) { range.setStart(t, i); range.setEnd(t, i + 1); const b = range.getBoundingClientRect(); if (b.width) tops.push(Math.round(b.top)) }
+  const starts = tops.reduce((a, top, i) => (i && top > tops[i - 1] + 2 ? [...a, i] : a), [0]), lines = starts.slice(1).map((s, i) => s - starts[i])
+  return { size: Math.round(parseFloat(cs.fontSize) * 100) / 100, width: Math.round(r.width), cpl: Math.round(lines.reduce((a, b) => a + b, 0) / Math.max(1, lines.length)), left: Math.round(r.left - sr.left), win: innerWidth }
+}
+const typeRows = () => [...document.querySelectorAll('.byob-aa-panel .byob-type')].map(r => [r.querySelector('.lab-v2-row-label').textContent, r.querySelector('.byob-zoom-pct').textContent])
+async function deskPolishCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const shotTo = (page, name) => page.screenshot({ path: join(EPUB_SHOTS, name + '.png') })
+  for (const [width, height] of [[2000, 1050], [1440, 900]]) {
+    const tag = `${width}x${height}`
+    let E = await essaysOpen(browser, origin, { width, height }), e = E.page
+    // D1. The default: larger and wider than the book reader's leaf was here (2000: 24.5px over 881px; 1440: 19.2px over 618px).
+    const t0 = await e.evaluate(typeNow)
+    const want = width >= 2000 ? { size: 25.5, width: 950 } : { size: 20.5, width: 740 }
+    ok(`${tag}: D1 the default text is larger and its column wider, about 65–80 characters a line`, t0.size >= want.size && t0.width >= want.width && t0.cpl >= 65 && t0.cpl <= 80, t0)
+    await shotTo(e, `desk-${tag}-D1-default`)
+    // The Aa panel: Text size and Line width, each "100%" with − and +.
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    const rows = await e.evaluate(typeRows)
+    ok(`${tag}: D1 the Aa panel has Text size and Line width (100%), no size slider`, JSON.stringify(rows) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !(await e.$('.byob-aa-panel [data-testid="lab-v2-size"]')), rows)
+    await shotTo(e, `desk-${tag}-D1-aa-panel`)
+    const here = await e.evaluate(spotNow)
+    await e.click('.byob-type[data-type="size"] [data-type-step="1"]'); await e.waitForTimeout(500)
+    await e.click('.byob-type[data-type="width"] [data-type-step="1"]'); await e.waitForTimeout(500)
+    const t1 = await e.evaluate(typeNow), rows1 = await e.evaluate(typeRows), after = await e.evaluate(spotNow)
+    const stored = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
+    const near = x => x.page === here.page && x.para === here.para && Math.abs(here.word - x.word) <= 14
+    ok(`${tag}: D1 Text size + and Line width + set the text larger and the line wider, kept as this device's, the place kept`, t1.size > t0.size * 1.05 && t1.width > t0.width && JSON.stringify(rows1) === JSON.stringify([['Text size', '110%'], ['Line width', '110%']]) && stored.textSize === 1.1 && stored.lineWidth === 1.1 && near(after), { t0, t1, rows1, stored, here, after })
+    await e.keyboard.press('Escape')
+    await shotTo(e, `desk-${tag}-D1-larger`)
+    await e.evaluate(() => savePlaceNow()); await e.reload(); await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const t2 = await e.evaluate(typeNow), back = await e.evaluate(spotNow)
+    ok(`${tag}: D1 a reload keeps this device's Text size and Line width, at the same place`, Math.abs(t2.size - t1.size) < 0.1 && Math.abs(t2.width - t1.width) <= 1 && near(back), { t1, t2, here, back })
+    // Back to the default for what follows (the − steps).
+    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await e.click('.byob-type[data-type="size"] [data-type-step="-1"]'); await e.click('.byob-type[data-type="width"] [data-type-step="-1"]'); await e.waitForTimeout(400)
+    const rows2 = await e.evaluate(typeRows), prefs2 = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
+    ok(`${tag}: D1 − steps back to 100%, the default stored as no choice; the other per-device choices kept`, JSON.stringify(rows2) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !('textSize' in prefs2) && !('lineWidth' in prefs2) && prefs2.dock === 'docked', { rows2, prefs2 })
+    await e.keyboard.press('Escape')
+
+    // D2. Quiz me on a selection whose start is above the view, and on one starting just inside its top: the page stays.
+    const n = await essayPage(e, '1 The Fate')
+    const quizAt = async (para, below, label) => {
+      await essayScrollTo(e, n, para, -below)
+      await essaySelect(e, n, para, 170); await e.waitForSelector('.mr-bar')
+      await e.click('.mr-bar [data-m="more"]'); await e.waitForSelector('.mr-more')
+      const s0 = await scrollTop(e)
+      await e.click('.mr-more [data-m="quiz"]'); await e.waitForTimeout(1600)
+      const s1 = await scrollTop(e)
+      const card = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(); return el && { top: Math.round(r.top), bottom: Math.round(r.bottom), inView: r.bottom > sr.top && r.top < sr.bottom, name: el.querySelector('.mr-card__name')?.textContent } })
+      ok(`${tag}: D2 Quiz me (${label}) leaves the page where it was, its card open beside the passage`, Math.abs(s1 - s0) <= 1 && card?.inView && /^Quiz me/.test(card.name || ''), { s0, s1, card })
+      return { s0, s1 }
+    }
+    const d2a = await quizAt(3, 60, 'the selection starting above the view')
+    await shotTo(e, `desk-${tag}-D2-quiz-above`)
+    const d2b = await quizAt(5, -20, 'the selection starting at the view\'s top')
+    await shotTo(e, `desk-${tag}-D2-quiz-top`)
+    console.log(`${tag} D2 scroll before/after: above ${d2a.s0}→${d2a.s1}, top ${d2b.s0}→${d2b.s1}`)
+
+    // D4 + D5. Answer: "Nearly." (mocked); the bubble set as the question and the feedback; a reply under it, two rounds.
+    const r0 = account.requests.length
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'nearly', feedback: 'MOCK: you have the two kinds; say why they are kept apart.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('Ideas and facts are known in different ways'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    const fonts = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), f = s => { const cs = getComputedStyle(el.querySelector(s)); return [cs.fontFamily, cs.fontSize] }; return { question: f('.mr-question'), you: f('.mr-you'), feedback: f('.mr-answer') } })
+    ok(`${tag}: D4 the answer bubble has the question's and the feedback's font family and size`, JSON.stringify(fonts.you) === JSON.stringify(fonts.question) && JSON.stringify(fonts.feedback) === JSON.stringify(fonts.question), fonts)
+    const nearly = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { text: el.innerText, field: !!el.querySelector('.mr-follow__input'), placeholder: el.querySelector('.mr-follow__input')?.placeholder, next: el.querySelector('[data-c="next"]')?.textContent } })
+    ok(`${tag}: D5 under "Nearly." a reply field ("Ask a follow-up") and "Next question →" both show`, /Nearly\./.test(nearly.text) && nearly.field && nearly.placeholder === 'Ask a follow-up' && nearly.next === 'Next question →', nearly)
+    await e.screenshot({ path: join(EPUB_SHOTS, `desk-${tag}-D4-bubble.png`), clip: await e.evaluate(() => { const r = document.querySelector('.mr-card.is-open').getBoundingClientRect(); return { x: Math.max(0, r.left - 16), y: Math.max(0, r.top - 16), width: Math.min(innerWidth - Math.max(0, r.left - 16), r.width + 32), height: Math.min(innerHeight - Math.max(0, r.top - 16), r.height + 32) } }) })
+    const f0 = await scrollTop(e)
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'nearly', feedback: 'MOCK: closer; the two kinds differ in how they are known, not in what they are about.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('so is it because the two instances cancel?'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    mock.nextFor.quiz_check = JSON.stringify({ verdict: 'right', feedback: 'MOCK: yes, that is the reason.' })
+    await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+    await e.keyboard.type('one is certain by thought, the other needs experience'); await e.keyboard.press('Enter'); await e.waitForTimeout(1000)
+    const f1 = await scrollTop(e)
+    const checks = account.requests.slice(r0).filter(r => r.body?.companion?.intent === 'quiz_check').map(r => r.body.companion.quiz)
+    const turnsOk = checks.length === 3 && !checks[0].turns && JSON.stringify(checks[1].turns?.map(t => [t.role, t.verdict || ''])) === JSON.stringify([['reader', ''], ['grader', 'nearly']]) && checks[1].answer === 'so is it because the two instances cancel?' && checks[2].turns?.length === 4 && checks[2].turns[2].text === 'so is it because the two instances cancel?'
+    ok(`${tag}: D5 each reply goes to the grader with the earlier turns on this question (the answer, each marking and reply)`, turnsOk, checks.map(c => ({ answer: c.answer, turns: c.turns })))
+    const thread = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { bubbles: [...el.querySelectorAll('.mr-you')].map(b => b.textContent), marks: [...el.querySelectorAll('.mr-answer .is-bottom-line')].map(b => b.textContent), field: !!el.querySelector('.mr-follow__input'), next: el.querySelector('[data-c="next"]')?.textContent, count: el.querySelector('.mr-card__count')?.textContent } })
+    ok(`${tag}: D5 the thread shows each reply and its marking; Right ends the replies; "Next question →" still there; the page never moved`, thread.bubbles.length === 3 && thread.marks.join('|') === 'Nearly.|Nearly.|Right.' && !thread.field && thread.next === 'Next question →' && /^1 of/.test(thread.count || '') && Math.abs(f1 - f0) <= 1, { thread, f0, f1 })
+    await e.screenshot({ path: join(EPUB_SHOTS, `desk-${tag}-D5-follow-ups.png`), clip: await e.evaluate(() => { const r = document.querySelector('.mr-card.is-open').getBoundingClientRect(); return { x: Math.max(0, r.left - 16), y: Math.max(0, r.top - 16), width: Math.min(innerWidth - Math.max(0, r.left - 16), r.width + 32), height: Math.min(innerHeight - Math.max(0, r.top - 16), r.height + 32) } }) })
+    // The second question, wrong three times: three replies, then only "Next question →".
+    await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(400)
+    for (let k = 0; k < 4; k++) {
+      mock.nextFor.quiz_check = JSON.stringify({ verdict: 'not_yet', feedback: `MOCK: not yet (${k}).` })
+      const has = await e.evaluate(() => !!document.querySelector('.mr-card.is-open .mr-follow__input'))
+      if (!has) break
+      await e.evaluate(() => document.querySelector('.mr-card.is-open .mr-follow__input').focus({ preventScroll: true }))
+      await e.keyboard.type(`guess ${k}`); await e.keyboard.press('Enter'); await e.waitForTimeout(900)
+    }
+    delete mock.nextFor.quiz_check
+    const capped = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { bubbles: el.querySelectorAll('.mr-you').length, field: !!el.querySelector('.mr-follow__input'), next: el.querySelector('[data-c="next"]')?.textContent } })
+    ok(`${tag}: D5 a wrong answer takes replies too, at most 3, then "Next question →" alone`, capped.bubbles === 4 && !capped.field && capped.next === 'Next question →', capped)
+    // The score keeps the first answers' marks; the thread is kept with the card (saved).
+    const saved = await e.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz' && x.data?.results?.[0]?.thread); return c && c.data.results.map(r => r && [r.verdict, (r.thread || []).length]) })
+    ok(`${tag}: D5 the replies are kept with the quiz (its card), the questions' own marks unchanged`, JSON.stringify(saved?.slice(0, 2)) === JSON.stringify([['nearly', 2], ['not_yet', 3]]), saved)
+
+    // D3. A folded card clicked (its label, then its text) and an open card's text and field: the page never scrolls.
+    await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+    const folded = await e.evaluate(() => { const el = [...document.querySelectorAll('.mr-card.is-folded')].find(c => /Quiz me/.test(c.textContent)); return el?.dataset.id })
+    // Its passage near the foot of the view (where opening once scrolled it up into view).
+    // The reader's own scroll (a wheel lets go of the place held for the answers, holdPlace), then the page moved there.
+    await e.evaluate(id => { dispatchEvent(new WheelEvent('wheel')); const c = keptCards().find(x => x.id === id), r = rangeFromOffsets(state.pages[c.span[0] - 1].pg, c.span[1], c.span[2]).getClientRects()[0], s = document.getElementById('scroll'), sr = s.getBoundingClientRect(); s.scrollTop += r.top - (sr.bottom - 100) }, folded)
+    await e.waitForTimeout(500)
+    const clickAt = async sel => { const b = await e.evaluate(sel => { const el = document.querySelector(sel); if (!el) return null; const r = el.getBoundingClientRect(); return { x: r.left + Math.min(40, r.width / 2), y: r.top + Math.min(8, r.height / 2), h: innerHeight } }, sel); if (!b || b.y > b.h - 2) return null; const s0 = await scrollTop(e); await e.mouse.click(b.x, b.y); await e.waitForTimeout(900); return { s0, s1: await scrollTop(e) } }
+    const viaLabel = await clickAt(`.mr-card.is-folded[data-id="${folded}"] .mr-card__label`)
+    const opened = await e.evaluate(id => col.open === id, folded)
+    ok(`${tag}: D3 a click on a folded card's label opens it with the page where it was (its passage near the foot of the view)`, viaLabel && Math.abs(viaLabel.s1 - viaLabel.s0) <= 1 && opened, { viaLabel, opened })
+    const viaText = await clickAt(`.mr-card.is-open[data-id="${folded}"] .mr-question`)
+    const viaField = await clickAt(`.mr-card.is-open[data-id="${folded}"] .mr-card__body`)
+    ok(`${tag}: D3 a click on an open card's text or body never scrolls`, viaText && viaField && Math.abs(viaText.s1 - viaText.s0) <= 1 && Math.abs(viaField.s1 - viaField.s0) <= 1, { viaText, viaField })
+    // The passage at the view's top edge: a folded Explain card there, clicked by its text.
+    await e.evaluate(() => openCard(null)); await e.keyboard.press('Escape'); await e.waitForTimeout(200)
+    await e.evaluate(() => dispatchEvent(new WheelEvent('wheel'))); await essayScrollTo(e, n, 9, 0); await essaySelect(e, n, 9, 80); await e.waitForSelector('.mr-bar'); await e.click('.mr-bar [data-m="explain"]'); await e.waitForTimeout(1300)
+    const ex = await e.evaluate(() => col.open)
+    await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+    await e.evaluate(() => { dispatchEvent(new WheelEvent('wheel')); const s = document.getElementById('scroll'); s.scrollTop += 24 }); await e.waitForTimeout(400)
+    const viaFold = await clickAt(`.mr-card.is-folded[data-id="${ex}"] .mr-card__text`)
+    ok(`${tag}: D3 a folded Explain card whose passage starts at the view's top opens in place (no scroll)`, viaFold && Math.abs(viaFold.s1 - viaFold.s0) <= 1 && (await e.evaluate(id => col.open === id, ex)), viaFold)
+    await shotTo(e, `desk-${tag}-D3-card-click`)
+    console.log(`${tag} D3 scroll before/after: label ${viaLabel?.s0}→${viaLabel?.s1}, text ${viaText?.s0}→${viaText?.s1}, folded explain ${viaFold?.s0}→${viaFold?.s1}`)
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+
+    // D6. Figure captions: "Figure 2: …" after a picture is set apart; "Figure 3 of …" in running text is not.
+    const hex = addEssaysFigure()
+    E = await epubPage(browser, origin, hex, { width, height, look: 'night' }); e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1500)
+    const fig = await e.evaluate(() => {
+      const caps = [...document.querySelectorAll('.epub-pg .ep-caption')], cap = caps[0]
+      const body = [...document.querySelectorAll('.epub-pg p')].find(p => p.textContent.startsWith('Figure 3 of'))
+      if (!cap || !body) return { caps: caps.length, body: !!body }
+      cap.scrollIntoView({ block: 'center' })
+      const c = getComputedStyle(cap), b = getComputedStyle(body)
+      return { caps: caps.length, text: cap.textContent.slice(0, 20), capSize: parseFloat(c.fontSize), bodySize: parseFloat(b.fontSize), capColor: c.color, bodyColor: b.color, above: Math.round(cap.getBoundingClientRect().top - cap.previousElementSibling.getBoundingClientRect().bottom), bodyCaption: body.classList.contains('ep-caption') }
+    })
+    ok(`${tag}: D6 a figure's caption is smaller, muted, with space above; running text that starts "Figure 3" is not`, fig.caps === 1 && fig.text.startsWith('Figure 2:') && fig.capSize < fig.bodySize * 0.9 && fig.capColor !== fig.bodyColor && fig.above >= 6 && !fig.bodyCaption, fig)
+    await e.waitForTimeout(400)
+    await shotTo(e, `desk-${tag}-D6-caption`)
+    ok(`${tag}: D6 no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  return results
+}
 function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Number) || [0, 0, 0]; return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
 
 const RUNS = {
@@ -5204,13 +5629,31 @@ const RUNS = {
   'epub-marks': [epubMarksCheck, rows => rows.some(r => !r.pass)],
   'epub-quiz': [epubQuizCheck, rows => rows.some(r => !r.pass)],
   'epub-ask': [epubAskCheck, rows => rows.some(r => !r.pass)],
+  'pdf-text': [pdfTextCheck, rows => rows.some(r => !r.pass)],
+  'desk-polish': [deskPolishCheck, rows => rows.some(r => !r.pass)],
+}
+/* MARGIN_SHARD=i/n (CI, verify.yml margin-layout): this run takes the i-th of n parts of `sample`/`full`, so the
+   parts run side by side on separate runners. Every check is in exactly one part: the same greedy split (longest
+   first, onto the part with least time so far, by each check's seconds in CI's sample run of 20 Oct 2026; a check
+   not listed counts 20 s) is worked out from RUNS in every part. Without MARGIN_SHARD: every check, as before. */
+const SAMPLE_SECONDS = { column: 105, behaviour: 87, layout: 77, 'phone-ui': 41, long: 39, notebook: 37, polish: 35, 'phone-kind': 35, reader: 33, 'epub-ask': 24, primer: 23, 'column-page': 23 }
+function marginShard(names) {
+  const m = /^(\d+)\/(\d+)$/.exec(process.env.MARGIN_SHARD || '')
+  if (!m) return { index: 1, of: 1, names }
+  const index = Number(m[1]), of = Number(m[2])
+  if (!(of >= 1 && index >= 1 && index <= of)) throw new Error('MARGIN_SHARD must be i/n with 1 <= i <= n: ' + process.env.MARGIN_SHARD)
+  const parts = Array.from({ length: of }, () => ({ seconds: 0, names: [] }))
+  const order = names.map((name, at) => ({ name, at, seconds: SAMPLE_SECONDS[name] ?? 20 })).sort((a, b) => b.seconds - a.seconds || a.at - b.at)
+  for (const item of order) { const part = parts.reduce((low, p) => (p.seconds < low.seconds ? p : low)); part.seconds += item.seconds; part.names.push(item.name) }
+  return { index, of, names: parts[index - 1].names }
 }
 try {
   if (mode === 'sample' || mode === 'full') {
     // Every check in one run; each writes {name}-results.json. A failure in one does not stop the rest.
     SAMPLE = mode === 'sample'
-    const started = Date.now(), summary = []
-    for (const [name, [run, bad]] of Object.entries(RUNS)) {
+    const started = Date.now(), summary = [], shard = marginShard(Object.keys(RUNS))
+    if (shard.of > 1) console.log(`== shard ${shard.index}/${shard.of}: ${shard.names.join(', ')}`)
+    for (const [name, [run, bad]] of Object.entries(RUNS).filter(([name]) => shard.names.includes(name))) {
       // Each check starts from an empty account, as it does when run on its own.
       account.marks.clear(); account.cards.clear(); account.primers.clear(); account.requests.length = 0
       const t = Date.now(), rows = await run(browser, origin), fail = bad(rows)
@@ -5219,7 +5662,7 @@ try {
       console.log(`== ${name}: ${rows.length} row(s), ${fail ? 'FAILED' : 'clean'}, ${Math.round((Date.now() - t) / 1000)}s`)
       failed ||= fail
     }
-    writeFileSync(join(OUT, `${mode}-summary.json`), JSON.stringify({ mode, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
+    writeFileSync(join(OUT, `${mode}-summary${shard.of > 1 ? `-${shard.index}of${shard.of}` : ''}.json`), JSON.stringify({ mode, shard: shard.of > 1 ? `${shard.index}/${shard.of}` : null, seconds: Math.round((Date.now() - started) / 1000), summary }, null, 2))
   }
   else if (mode === 'contrast') { const rows = await contrast(browser, origin); failed = rows.some(r => r.required && !r.pass); writeFileSync(join(OUT, 'contrast-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'keys') { const rows = await keysAndAccess(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'keys-results.json'), JSON.stringify(rows, null, 2)) }
@@ -5244,7 +5687,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

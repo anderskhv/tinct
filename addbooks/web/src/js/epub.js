@@ -451,6 +451,7 @@
     await Promise.all(pending);
     // Empty wrappers and stray whitespace-only blocks add nothing.
     for (const el of [...out.querySelectorAll('div, span, p')]) if (!el.children.length && !el.textContent.trim() && !el.querySelector('img')) el.remove();
+    markCaptions(out);
     const heading = out.querySelector('h1, h2, h3');
     const text = out.textContent.replace(/\s+/g, ' ').trim();
     // Opens on a heading: the first block with words is a heading (a section of the text, not a title page).
@@ -461,5 +462,20 @@
     return { index, href: path, title: (heading?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 140), node: out, text, type: fileType, headed, images, coverRef };
   }
 
-  global.TinctEpub = { parse, metadata, openZip, resolve, bookStyles, trimmedImage };
+  /*
+   * Figure captions (Anders, 20 Oct 2026, "Bold Conjectures II": "Figure 2: …" read as body text): a figcaption, a table's
+   * caption, and a paragraph that starts "Figure 2" or "Fig. 2" right after a picture (an image, a figure, or a block
+   * holding only a picture) or inside a figure, set apart as ep-caption (css/addbook.css: smaller, muted, space above).
+   */
+  const CAPTION_START = /^\s*(?:figure|fig\.?)\s*\d+[a-z]?\b/i;
+  const pictureOnly = el => !!el && (el.localName === 'img' || el.localName === 'figure' || el.localName === 'svg' || (!!el.querySelector?.('img, svg') && !el.textContent.trim()));
+  function markCaptions(root) {
+    for (const el of root.querySelectorAll('figcaption, caption')) el.classList.add('ep-caption');
+    for (const el of root.querySelectorAll('p, div')) {
+      if (el.classList.contains('ep-caption') || el.querySelector('p, div, h1, h2, h3, h4, h5, h6, li, table') || !CAPTION_START.test(el.textContent || '')) continue;
+      if (pictureOnly(el.previousElementSibling) || (el.parentElement?.localName === 'figure' && el.parentElement.querySelector('img, svg'))) el.classList.add('ep-caption');
+    }
+  }
+
+  global.TinctEpub = { parse, metadata, openZip, resolve, bookStyles, trimmedImage, markCaptions };
 })(typeof window !== 'undefined' ? window : globalThis);

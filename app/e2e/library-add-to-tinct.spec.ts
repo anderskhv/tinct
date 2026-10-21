@@ -762,6 +762,25 @@ test.describe('My shelf', () => {
     await expect(page.locator(`#collection-books [data-own-key="pdf:${hex}"]`)).toHaveCount(0)
   })
 
+  test('Finished lists every finished book, held from the shelves or not (Symposium, War and Peace), never the Bible', async ({ page }) => {
+    // One reader's account rows (2026-10-20), as the library mirrors them on this device.
+    const rows = {
+      'book-completed:symposium': { bookId: 'symposium', source: 'text', completedAt: 1785548118551 },
+      'progress:war-and-peace': { bookId: 'war-and-peace', percent: 100, totalChapters: 365, positionPercent: 100, highestCompletedChapter: 364 },
+      'progress:the-awakening': { bookId: 'the-awakening', percent: 97, totalChapters: 39, positionPercent: 100, highestCompletedChapter: 38 },
+      'progress:bible': { bookId: 'bible', percent: 96, totalChapters: 1189, positionPercent: 72, highestCompletedChapter: 1146 },
+      'progress:paradise-lost': { bookId: 'paradise-lost', percent: 33, totalChapters: 12, positionPercent: 33, highestCompletedChapter: 4 },
+    }
+    await page.addInitScript(value => { try { for (const [key, row] of Object.entries(value)) localStorage.setItem('tinct:' + key, JSON.stringify(row)) } catch { /* private */ } }, rows)
+    await prepare(page, { internal: false, signedIn: false })
+    await openShelf(page)
+    const finished = page.locator('#collection-books [data-shelf-group="finished"]')
+    await expect(finished).toHaveCount(3, { timeout: 20_000 })
+    expect((await finished.locator('h2').allTextContents()).sort()).toEqual(['Symposium', 'The Awakening', 'War and Peace'])
+    await expect(finished.locator('.shelf-more')).toHaveCount(3)
+    await shot(page, 'myshelf-finished-three')
+  })
+
   test('signed out: My shelf as before', async ({ page }) => {
     await prepare(page, { internal: false, signedIn: false })
     await openShelf(page)

@@ -27,7 +27,7 @@ describe('wait-ring.js: the library’s and Add a book’s wait indicator (the r
     expect(lib.indexOf('wait-ring.js')).toBeGreaterThan(lib.indexOf('src="boot.js'))
     expect(lib.indexOf('wait-ring.js')).toBeLessThan(lib.indexOf('src="app.js'))
     for (const html of [addbook, mirror]) {
-      expect(html).toContain('<script src="/lab/wait-ring.js?v=20261014talkwake"></script>\n<script src="js/reader.js?v=20261020epub"></script>')
+      expect(html).toContain('<script src="/lab/wait-ring.js?v=20261014talkwake"></script>\n<script src="js/reader.js?v=20261021fontwait"></script>')
     }
     expect(api().DELAY_MS).toBe(150)
   })

@@ -3,11 +3,17 @@ import { parseContextualLookup, parsePartialContextualLookup, type PartialContex
 import { isAiRestingError } from '../../lab/labCompanion'
 import { LAB_COPY } from '../../lab/labCopy'
 import { RowIcon } from '../../lab/LabSuperMenu.tsx'
+import type { NamesakeNotice } from '../../services/characters/characterCards'
 
 /** An unknown name is resolved in its passage before falling back to a lexical
  * definition. Late answers never replace a newer selection. */
-export function DefinitionFallback({ word, request, dictionaryDefinitions, onChat, onTalk }: {
+export function DefinitionFallback({ word, request, dictionaryDefinitions, onChat, onTalk, namesakes }: {
   word: string
+  /**
+   * The tapped name is shared by several cards and no reviewed mention says
+   * which one this is: say so and list them instead of asking for a guess.
+   */
+  namesakes?: NamesakeNotice
   request: (onDelta: (text: string) => void, word: string, intent: 'define') => Promise<string>
   /** Dictionary senses; undefined while the dictionary is still loading. */
   dictionaryDefinitions?: string[]
@@ -20,7 +26,9 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   const [answer, setAnswer] = useState<PartialContextualLookup | null>(null)
   const [status, setStatus] = useState<'loading' | 'ready' | 'resting' | 'error'>('loading')
   const [attempt, setAttempt] = useState(0)
+  const shared = namesakes && namesakes.name === word.trim().replace(/^[^\p{L}]+|[^\p{L}]+$/gu, '').replace(/[’']s$/, '') ? namesakes : null
   useEffect(() => {
+    if (shared) return
     let active = true
     setAnswer(null); setStatus('loading')
     // The card fills in as the answer streams, like Explain (Anders, 2026-10-06).
@@ -30,7 +38,11 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
       if (active) { setAnswer(result); setStatus('ready') }
     }).catch((error) => { if (active) setStatus(isAiRestingError(error) ? 'resting' : 'error') })
     return () => { active = false }
-  }, [word, attempt])
+  }, [word, attempt, shared])
+  if (shared) return <div className="popup-character popup-namesakes" data-testid="popup-namesakes">
+    <p className="popup-character-subtitle">Several people are called {shared.name} in this book.</p>
+    <ul className="popup-character-gallery popup-namesakes-list">{shared.candidates.map(card => <li key={card.id}><strong>{card.name}</strong>{card.subtitle && <span>{card.subtitle}</span>}</li>)}</ul>
+  </div>
   // An ordinary lower-case word shows its dictionary senses at once; a name
   // waits for the passage to say who or what it is.
   const dictionaryFirst = !!dictionaryDefinitions?.length && !/^\p{Lu}/u.test(word.trim())

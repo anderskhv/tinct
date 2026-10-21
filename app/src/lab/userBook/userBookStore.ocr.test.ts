@@ -12,40 +12,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { assembleOcrEdition, type OcrPage } from './ocrEdition'
 import { fetchOcrEdition } from './ownAccount'
 import { choosePdfPages } from './pdfEditions'
+import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
 import type { UserBookEdition } from './userEdition'
 
 const OWNER = 'owner-1'
 const HEX = 'cd'.repeat(12)
 const SCAN = { v: 5, title: 'A Scanned Book', author: 'Jo', pages: 3, textPages: 0, nav: 'pages', entries: [], layout: { default: 'pages-only' } }
-
-function fakeIndexedDb(records: Map<string, Record<string, unknown>>) {
-  const db = {
-    objectStoreNames: { contains: () => true },
-    createObjectStore() {},
-    close() {},
-    transaction() {
-      const tx: Record<string, unknown> & { oncomplete?: () => void } = {}
-      setTimeout(() => tx.oncomplete?.(), 5)
-      tx.objectStore = () => ({
-        get(key: string) {
-          const request: { result?: unknown; onsuccess?: () => void } = {}
-          setTimeout(() => { request.result = records.get(key); request.onsuccess?.() }, 0)
-          return request
-        },
-        put(value: Record<string, unknown>) { records.set(String(value.key), value) },
-      })
-      return tx
-    },
-  }
-  return {
-    open() {
-      const request: { result?: unknown; onsuccess?: () => void } = {}
-      setTimeout(() => { request.result = db; request.onsuccess?.() }, 0)
-      return request
-    },
-  }
-}
 
 const prose = (): UserBookEdition => assembleOcrEdition({ title: 'A Scanned Book', author: 'Jo', pageCount: 3, pages: [1, 2, 3].map(n => ({ page: n, blocks: [{ t: 'p', x: `The text of page ${n}.` }] })) })
 const paper = (): UserBookEdition => assembleOcrEdition({ title: 'A Paper', author: 'Jo', pageCount: 3, pages: [1, 2, 3].map((n): OcrPage => ({ page: n, columns: 2, blocks: [{ t: 'p', x: `Results ${n}.` }, { t: 'eq', x: 'x = 1' }] })) })

@@ -6,14 +6,17 @@
  * (`window.TinctMarginPreview.load()`, js/tinct-book.js) and leaves through
  * the top window ("Back to normal reader", the library).
  *
- * The book reader (LabApp) is not mounted: nothing of it runs or writes.
+ * The book reader (LabApp) is not mounted. What the margin view keeps goes through the book reader's own stores
+ * (MarginPreviewSync, mounted once the book is loaded): the place, highlights and notes, cards.
  */
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
+import { useMarginListen, type MarginListenApi } from './useMarginListen'
 import {
   marginPreviewCompareEdition,
   marginPreviewLayoutHref,
@@ -37,6 +40,10 @@ declare global {
       paper: (viewportWidth: number) => MarginPreviewPaper
       /** Two-page or Compare: the book reader at this place, in that layout. */
       layoutHref: (view: MarginPreviewView, place: MarginPreviewPlace) => string
+      /** The account's sync (MarginPreviewSync), once the book is loaded; null before and after. */
+      sync?: MarginPreviewSyncBridge | null
+      /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
+      listen?: MarginListenApi
     }
   }
 }
@@ -48,10 +55,11 @@ function desktopPrefs() {
   return parseLabPrefs(raw, 'desktop')
 }
 
-export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>): NonNullable<Window['TinctMarginPreview']> {
+export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi): NonNullable<Window['TinctMarginPreview']> {
   const book = getBook(bookId)
   return {
     bookId,
+    ...(listen ? { listen } : {}),
     load: () => pending,
     paper: width => marginPreviewPaper(desktopPrefs(), width, { shakespeare: book?.author === 'William Shakespeare' }),
     layoutHref: (view, place) => marginPreviewLayoutHref(bookId, view, place, book ? marginPreviewCompareEdition(book, desktopPrefs(), place.editionKey) : undefined),
@@ -70,12 +78,27 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
     task.catch(() => setFailed(true))
     return task
   }, [bookId, load])
+  // The sync outlives the bridge object (rebuilt as Listen changes): kept here and put on each one.
+  const syncRef = useRef<MarginPreviewSyncBridge | null>(null)
+  const onBridge = useCallback((sync: MarginPreviewSyncBridge | null) => {
+    syncRef.current = sync
+    if (window.TinctMarginPreview?.bookId === bookId) window.TinctMarginPreview.sync = sync
+  }, [bookId])
+  const [shown, setShown] = useState<MarginPreviewBook | null>(null)
   useEffect(() => {
-    window.TinctMarginPreview = marginPreviewBridge(bookId, pending)
+    let current = true
+    pending.then(model => { if (current) setShown(model) }, () => {})
+    return () => { current = false }
+  }, [pending])
+  const chapterTitles = useMemo(() => new Map((shown?.chapters ?? []).map(c => [c.number, c.title])), [shown])
+  // The edition the frame shows is the one heard.
+  const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
+  useEffect(() => {
+    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen), sync: syncRef.current }
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending])
+  }, [bookId, pending, listen])
   if (failed) {
     return (
       <main data-testid="margin-preview-error" style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
@@ -85,6 +108,8 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
     )
   }
   return (
+    <>
+    {shown && shown.bookId === bookId ? <MarginPreviewSync model={shown} onBridge={onBridge} /> : null}
     <iframe
       data-testid="margin-preview-frame"
       title="Margin preview"
@@ -92,5 +117,6 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
       allow="fullscreen; clipboard-write"
       style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, display: 'block', background: 'var(--paper, #ece7db)' }}
     />
+    </>
   )
 }

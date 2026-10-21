@@ -3,8 +3,11 @@
 // /reader?book=<id>&margin=1 shows this page (book.html) in a frame at /lab/addbook/book?tinctBook=<id> and hands it the book's
 // main edition, already loaded and checked (src/lab/marginPreview/: the edition loader, the book reader's place,
 // read only). Here it becomes an EPUB's chapters (reader.js openRegistered): one <p> per edition paragraph, so a
-// place is the same (chapter, paragraph, word) in both readers. The preview keeps its own place, highlights,
-// notes and cards on this device (tinct-addbook:*:preview:<id>) and never writes the book reader's.
+// place is the same (chapter, paragraph, word) in both readers.
+// Sync (21 Oct 2026, margin view as the desktop's default): the place is reported to the page, which writes it through
+// the book reader's position path (src/lab/marginPreview/useMarginPreviewPlace.ts); this frame keeps a copy of it on
+// this device (pos:preview:<id>) only to open where it was. Highlights and notes are the book reader's own
+// (useMarginPreviewMarks), and cards live in the book's chat history (useMarginPreviewCards), held here in memory only.
 (function () {
   const id = new URLSearchParams(location.search).get('tinctBook');
   if (!id || !/^[a-z0-9][a-z0-9-]{0,80}$/.test(id)) return;
@@ -182,6 +185,126 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     return Promise.race([Promise.all(wanted), new Promise(r => setTimeout(r, FONT_WAIT_MS))]);
   }
 
+  /* ---------- Sync with the page (21 Oct 2026): the place ----------
+     The page (MarginPreviewSync) writes the place through the book reader's store, with its guards: it is told
+     where the view is and decides what of that is a place (marginPreviewPlace.ts). `open`: the book is open and its
+     place restored (the word it was restored to: the target); `move`: the view moved (each place kept here,
+     reader.js savePlaceNow). The reader's own actions are counted (a restore is the reader's place only once it has
+     landed, or once they act). Uses reader.js's globals (state, epubHold, epubSpot, epubGoSpot, currentPlace). */
+  const POS_KEY = 'pos:' + KEY;
+  let interactions = 0, sync = null, lastActive = 0, goes = 0;
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, () => {
+    interactions++;
+    const now = Date.now(); if (now - lastActive > 1000) { lastActive = now; try { sync?.place?.active?.() } catch {} }
+  }, { capture: true, passive: true });
+  /** The page's sync, once it is there (it mounts as the book loads), or null. */
+  async function syncOf(host) {
+    for (let i = 0; i < 40; i++) { try { if (host?.sync) return host.sync } catch { return null } await new Promise(r => setTimeout(r, 75)) }
+    return null;
+  }
+  /** Where the view is: the word it was brought to while it has not moved since (previewSpot), else the top of the view; null in the space at a chapter's end. */
+  function spotNow() {
+    try {
+      const page = currentPlace().page, s = document.getElementById('scroll'), x = epubHold.exact;
+      if (x && x.top != null && x.page === page && Math.abs(s.scrollTop - x.top) <= 2) return { page, para: x.para, word: x.word };
+      const e = epubSpot();
+      return Number.isInteger(e.para) ? { page, para: e.para, word: e.word || 0 } : null;
+    } catch { return null }
+  }
+  /** The screen of its chapter the view is on (the reading year's pages). */
+  function screenNow() {
+    try {
+      const s = document.getElementById('scroll'), p = state.pages[currentPlace().page - 1];
+      return Math.max(0, Math.floor((s.getBoundingClientRect().top - p.sheet.getBoundingClientRect().top) / Math.max(1, s.clientHeight)));
+    } catch { return 0 }
+  }
+  function reportPlace(kind, extra = {}) {
+    try { sync?.place?.report({ kind, spot: spotNow(), interactions, screen: screenNow(), ...extra }, document.visibilityState === 'hidden') } catch {}
+  }
+  /** Once a restore has settled (epubGoSpot's word at the top: epubHold.exact.top), or a moment for one without a word. -> its target */
+  async function settled(want = null) {
+    const t0 = Date.now();
+    for (;;) {
+      await new Promise(r => requestAnimationFrame(() => setTimeout(r, 30)));
+      const x = typeof epubHold !== 'undefined' ? epubHold.exact : null;
+      if (x && x.top != null && (!want || (x.page === want.page && x.para === want.para && x.word === want.word))) return { page: x.page, para: x.para, word: x.word };
+      if (Date.now() - t0 > (x || want ? 3000 : 700)) return want || (x ? { page: x.page, para: x.para, word: x.word } : null);
+    }
+  }
+  function watchPlace() {
+    // A place kept here is a move when its time changes (savePlaceNow stamps `at` only for a move).
+    const set = store.set;
+    let at = (store.get(POS_KEY) || {}).at || 0;
+    store.set = (k, v) => {
+      set(k, v);
+      if (k !== POS_KEY || !v || v.at === at) return;
+      at = v.at;
+      reportPlace('move');
+    };
+    sync.place.listen(spot => {
+      goes++;
+      if (!epubGoSpot(spot.page, spot.para, spot.word)) { reportPlace('open', { target: spot }); return }
+      settled(spot).then(target => reportPlace('open', { target }));
+    });
+  }
+
+  /* ---------- Sync with the page: highlights and notes (21 Oct 2026) ----------
+     The book's marks are the book reader's own (the page's useMarginPreviewMarks: its list, its tombstones, its
+     account rows). Here reader.js's store keeps them in memory under the preview's keys, filled from the page and
+     handed back to it after each change; nothing of them is written to this device's own keys any more (the page
+     moved what was there into the book reader's list once). */
+  /* Cards too (21 Oct 2026): Explain, Simplify, Define, Ask, quizzes, primers, recaps… are kept in the book's chat
+     history (the page's useMarginPreviewCards), held here in memory as `cards:<key>`. */
+  const CARD_KEY = 'cards:' + KEY;
+  const MARK_KEYS = new Set(['hl:' + KEY, 'hl-gone:' + KEY, CARD_KEY]);
+  const memory = new Map();
+  let marksTimer = 0, cardsTimer = 0;
+  function pushCards() {
+    clearTimeout(cardsTimer); cardsTimer = 0;
+    try { sync?.cards?.put(JSON.parse(memory.get(CARD_KEY) || '[]')) } catch {}
+  }
+  function redrawMarks() {
+    try { renderEpubHighlights() } catch {}
+    try { marginLayout({ fresh: true }) } catch {}
+    try { window.TinctNotebook?.changed() } catch {}
+  }
+  function pushMarks() {
+    clearTimeout(marksTimer); marksTimer = 0;
+    try { sync?.marks?.put(JSON.parse(memory.get('hl:' + KEY) || '[]')) } catch {}
+  }
+  function keepMarks() {
+    const { get, set, del } = store;
+    store.get = k => (MARK_KEYS.has(k) ? (memory.has(k) ? JSON.parse(memory.get(k)) : null) : get(k));
+    store.del = k => (MARK_KEYS.has(k) ? void memory.delete(k) : del(k));
+    store.set = (k, v) => {
+      if (!MARK_KEYS.has(k)) return set(k, v);
+      const text = JSON.stringify(v);
+      if (memory.get(k) === text) return;
+      memory.set(k, text);
+      try { window.TinctNotebook?.changed() } catch {}
+      if (k === 'hl:' + KEY) { clearTimeout(marksTimer); marksTimer = setTimeout(pushMarks, 400) }
+      if (k === CARD_KEY && sync?.cards) { clearTimeout(cardsTimer); cardsTimer = setTimeout(pushCards, 800) }
+    };
+    try { memory.set('hl:' + KEY, JSON.stringify(sync.marks.list() || [])) } catch { memory.set('hl:' + KEY, '[]') }
+    try { memory.set(CARD_KEY, JSON.stringify(sync.cards?.list() || [])) } catch { memory.set(CARD_KEY, '[]') }
+    sync.cards?.listen(list => {
+      const text = JSON.stringify(list || []);
+      if (cardsTimer || memory.get(CARD_KEY) === text) return; // a change here is on its way: it wins
+      memory.set(CARD_KEY, text);
+      if (state.key === 'preview:' + id) { try { marginLayout({ fresh: true }) } catch {} try { window.TinctNotebook?.changed() } catch {} }
+    });
+    sync.marks.listen(list => {
+      const text = JSON.stringify(list || []);
+      if (marksTimer || memory.get('hl:' + KEY) === text) return; // a change of the reader's is on its way: it wins
+      memory.set('hl:' + KEY, text);
+      if (state.key === 'preview:' + id) redrawMarks();
+    });
+    // Leaving: what is waiting goes now.
+    const leaving = () => { if (marksTimer) pushMarks(); if (cardsTimer) pushCards() };
+    addEventListener('pagehide', leaving);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leaving() });
+  }
+
   async function open() {
     const R = window.TinctReader; if (!R?.openRegistered) return;
     const style = document.createElement('style'); style.textContent = STYLE; document.head.appendChild(style);
@@ -198,6 +321,10 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
       say(`This preview opens from the reader. <a href="/reader?book=${encodeURIComponent(id)}&amp;margin=1" target="_top">Open the margin preview</a>`);
       return;
     }
+    // The page's sync first (it mounts as the book loads), so the book opens with its marks and cards, and the later
+    // chapters' layout (laterChapters) is timed from the open as before.
+    sync = await syncOf(host);
+    if (sync?.marks) keepMarks();
     seedPlace(model);
     let from = 1;
     try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
@@ -207,7 +334,16 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     const layoutHref = typeof host.layoutHref === 'function'
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
-    await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
+    const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
+    if (!opened || !sync?.place) return;
+    watchPlace();
+    const target = await settled();
+    reportPlace('open', { target });
+    // A reflow just after the restore (a font, the top bar's controls) can leave the view off its word as it is
+    // reported, and the page then holds the place (marginPreviewPlace). reader.js brings the view back to the held
+    // word; the restore is told again a few times while the reader has not acted, so it is written once it holds.
+    const before = interactions;
+    for (const ms of [1200, 2500, 5000]) setTimeout(() => { if (interactions === before && !goes && state.key === 'preview:' + id) reportPlace('open', { target }) }, ms);
   }
   window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });

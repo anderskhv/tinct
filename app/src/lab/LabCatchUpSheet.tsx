@@ -18,6 +18,7 @@ import {
 } from './labCatchUp'
 import './labCatchUp.css'
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
+import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 
 export const CATCH_UP_TITLE = 'Catch me up'
 
@@ -42,6 +43,8 @@ export interface LabCatchUpSheetProps {
   onTalk: (text: string) => void
   /** Opens where the reader can top up (the account sheet); links the balance line shown at zero. */
   onTopUp?: () => void
+  /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard), with this label. */
+  card?: { label: string }
 }
 
 /**
@@ -57,7 +60,7 @@ interface EntryState { state: CatchUpLoadState; summary?: string; allowanceUsed?
  * move the reader.
  */
 export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
-  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp } = props
+  const { bookId, editionKey, bookTitle, chapters, sections, chapterNumber, paragraphIndex, completed, paragraphs, form, readToken, onClose, onChat, onTalk, onTopUp, card } = props
   // The place is captured once, when the sheet opens.
   const [entries] = useState<CatchUpEntry[]>(() => catchUpPlan({
     bookId, editionKey, bookTitle,
@@ -161,14 +164,7 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
     summary: states[entry.key]?.state === 'ok' ? states[entry.key]?.summary : undefined,
   })))
 
-  return (
-    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
-      <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" aria-label={CATCH_UP_TITLE}>
-        <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{CATCH_UP_TITLE}</h2>
-          <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
-        </div>
+  const timeline = (
         <div ref={bodyRef} className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body">
           <ol className="lab-catch-up-timeline">
             {entries.map(entry => {
@@ -207,10 +203,24 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
             </li>
           </ol>
         </div>
+  )
+  const foot = (
         <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
         </div>
+  )
+  if (card) return <LabPhoneCard label={card.label} kind="catchup" onClose={onClose} foot={foot} testId="lab-phone-card">{timeline}</LabPhoneCard>
+  return (
+    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
+      <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" aria-label={CATCH_UP_TITLE}>
+        <div className="lab-v2-head is-titled" data-reader-window-handle>
+          <h2 className="lab-v2-title">{CATCH_UP_TITLE}</h2>
+          <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
+        </div>
+        {timeline}
+        {foot}
       </section>
     </div>
   )

@@ -39,6 +39,20 @@ export interface OwnShelfReading {
   percent: number | null
   wordCount: number | null
   lastActiveAt: number
+  /**
+   * The place is at the end of the book (ownFinished): its last chapter or page, at least
+   * OWN_FINISHED_PERCENT through. Read from the place the account already keeps (chapter or
+   * page, and how far through), so finishing adds nothing stored.
+   */
+  finished?: boolean
+}
+
+/** How far through (percent) an own book's place must be, in its last chapter or on its last page, to be finished. */
+export const OWN_FINISHED_PERCENT = 95
+
+/** Whether a place is the end of an own book: in its last chapter (or on its last page) and far enough through. */
+export function ownFinished(input: { last: boolean | null; percent: number | null }): boolean {
+  return input.last !== false && typeof input.percent === 'number' && Number.isFinite(input.percent) && input.percent >= OWN_FINISHED_PERCENT
 }
 
 export interface OwnShelfBook {
@@ -136,7 +150,8 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     const first = list[0]
     const label = first?.title || ''
     const kept = !list.length && typeof raw.percent === 'number' && Number.isFinite(raw.percent) ? Math.max(0, Math.min(100, raw.percent)) : null
-    return { bookId, chapterNumber: first?.number ?? (Number.isInteger(raw.chapterNumber) ? raw.chapterNumber as number : 1), chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : kept, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
+    // Without the text here (an account copy), the place's own percent decides: its chapters are unknown.
+    return { bookId, chapterNumber: first?.number ?? (Number.isInteger(raw.chapterNumber) ? raw.chapterNumber as number : 1), chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : kept, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt, finished: !list.length && ownFinished({ last: null, percent: kept }) }
   }
   const chapter = list[at]
   const paragraphIndex = Number.isInteger(raw.paragraphIndex) ? Math.max(0, Math.min(chapter.paragraphs.length - 1, raw.paragraphIndex as number)) : 0
@@ -144,14 +159,16 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
   const total = list.reduce((sum, item) => sum + item.paragraphs.reduce((n, p) => n + words(p), 0), 0)
   const label = chapter.title || ''
   const progress = chapterProgress({ paragraphIndex, paragraphCount: chapter.paragraphs.length, finished: false })
+  const percent = placePercent(list, { chapterNumber: chapter.number, paragraphIndex, wordIndex })
   return {
     bookId,
     chapterNumber: chapter.number,
     chapterLabel: label,
     headline: label ? positionLine(progress, conciseChapterLabel(label)) : '',
-    percent: placePercent(list, { chapterNumber: chapter.number, paragraphIndex, wordIndex }),
+    percent,
     wordCount: total > 0 ? total : null,
     lastActiveAt: updatedAt,
+    finished: ownFinished({ last: at === list.length - 1, percent }),
   }
 }
 
@@ -190,6 +207,8 @@ export function pdfReading(hex: string, record: { pages?: unknown; scan?: { entr
     percent: count ? Math.max(0, Math.min(100, ((page - 1 + frac) / count) * 100)) : null,
     wordCount: null,
     lastActiveAt: updatedAt,
+    // The last page, far enough down it; a PDF whose page count is not known here is never finished.
+    finished: !!count && ownFinished({ last: page >= count, percent: Math.max(0, Math.min(100, ((page - 1 + frac) / count) * 100)) }),
   }
 }
 

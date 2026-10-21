@@ -185,6 +185,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const dismissNotice = useCallback(() => setNotice(null), [])
   const [starting, setStarting] = useState(false)
   const voiceStartRequestRef = useRef(0)
+  // A Talk start still awaiting its token or session when the reader unmounts ends as cancelled, never setting state after.
+  useEffect(() => () => { voiceStartRequestRef.current++ }, [])
   /** The guest trial was refused or ran out: the account sheet, not a failure notice. */
   const guestTrialClosedRef = useRef(false)
   // Talk's speaking speed: the host's saved value when it keeps one, else
@@ -592,12 +594,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     setNotice(null)
   }, [isVoiceV2, voice.userSpeechStarted, voice.activity])
 
+  // Talk started a frame after the tap (from Explain, chapter notes, Catch me
+  // up) asks for the microphone in the tap itself; startVoice takes it.
+  const primeVoice = useCallback(() => {
+    if (voice.isActive || starting || (!signedIn && talkTrialUsedToday())) return
+    voice.prime()
+  }, [signedIn, starting, voice.isActive, voice.prime])
+
   const startVoice = useCallback(async (greeting?: string): Promise<boolean | 'cancelled'> => {
     if (voice.isActive || starting) return true
     // Signed out: one guest Talk trial a day on this device (the Worker holds
     // the same line per IP). Used today, the host shows the account sheet (or,
     // with no host, the sign-in notice); no session is requested.
     if (!signedIn && talkTrialUsedToday()) {
+      voice.releasePrimed()
       if (optionsRef.current.onAccountPrompt) optionsRef.current.onAccountPrompt({ action: 'voice' })
       else setNotice(LAB_COPY.signInVoice)
       return false
@@ -610,7 +620,9 @@ export function useLabAsk(options: UseLabAskOptions) {
     }
     const request = ++voiceStartRequestRef.current
     guestTrialClosedRef.current = false
-    voice.unlockAudio()
+    // In the tap, before any await (the session token, Talk's code): the
+    // microphone request and the audio unlock (useVoiceSession.prime).
+    voice.prime()
     setNotice(null)
     if (!signedIn) {
       setStarting(true)
@@ -630,7 +642,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       sessionToken,
       readSession: readSupabaseAccessToken,
     })
-    if (request !== voiceStartRequestRef.current) return 'cancelled'
+    if (request !== voiceStartRequestRef.current) { voice.releasePrimed(); return 'cancelled' }
     if (!knownToken) setStarting(true)
     const snapshot = await voice.start({ authToken, greeting })
     if (request !== voiceStartRequestRef.current) return 'cancelled'
@@ -644,20 +656,22 @@ export function useLabAsk(options: UseLabAskOptions) {
       return false
     }
     return true
-  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start])
+  }, [signedIn, options.authToken, sessionToken, starting, voice.isActive, voice.start, voice.prime, voice.releasePrimed])
 
   const stopVoice = useCallback(() => {
     voiceStartRequestRef.current++
     setStarting(false)
+    voice.releasePrimed(true)
     voice.stop()
-  }, [voice.stop])
+  }, [voice.stop, voice.releasePrimed])
 
   const failStart = useCallback((message?: string) => {
     voiceStartRequestRef.current++
     setStarting(false)
+    voice.releasePrimed()
     voice.stop()
     setNotice(current => current || message || LAB_COPY.voiceStartFailed)
-  }, [voice.stop])
+  }, [voice.stop, voice.releasePrimed])
 
   const toggleInChatVoice = useCallback(async () => {
     if (voice.isActive || starting) {
@@ -1014,13 +1028,20 @@ export function useLabAsk(options: UseLabAskOptions) {
     chapterNumber?: number
     chapterLabel?: string
     speculative?: boolean
-    intent?: 'define'
+    /**
+     * Define, or one of the margin's passage actions on the same routes (the phone's
+     * margin mode, marginPhone/): Simplify, Fact-check, Counterpoint, Quiz me (no text:
+     * the whole chapter) and a quiz answer marked (`quiz`).
+     */
+    intent?: 'define' | 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
+    quiz?: { question: string; expected: string; why?: string; answer: string }
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
-    if (!text || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
+    const textless = input.intent === 'quiz' || input.intent === 'quiz_check'
+    if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -1079,7 +1100,10 @@ export function useLabAsk(options: UseLabAskOptions) {
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
+          companion: input.intent && input.intent !== 'define'
+            // The margin's actions: the Worker builds each prompt from its intent (companionRequest.ts).
+            ? { intent: input.intent, context, ...(text && input.intent !== 'quiz_check' ? { selection: text } : {}), ...(input.intent === 'quiz_check' && input.quiz ? { quiz: input.quiz } : {}) }
+            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
         }),
       })
       progress()
@@ -1138,6 +1162,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     getAssistantLevel: voice.getAssistantLevel,
     userSpeechStarted: voice.userSpeechStarted,
     startVoice,
+    primeVoice,
     stopVoice,
     failStart,
     toggleInChatVoice,

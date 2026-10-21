@@ -3,12 +3,16 @@ import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './l
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 
 export interface LabSuperMenuProps {
+  /** The phone's margin mode on a book's first chapter or its front matter: no Catch me up (labSuperMenuRows). */
+  noCatchUp?: boolean
   open: boolean
   phone?: boolean
   /** A reader's own book: the rows that apply to it only. */
   privateBook?: boolean
   /** A reader's own PDF: Book editions holds its Tinct text and its Original pages. */
   ownPdf?: boolean
+  /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
+  profileDot?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -58,7 +62,9 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  if (id === 'settings') {
+  // Text and theme: the letters the theme buttons show, set in the book's face.
+  if (id === 'text') return <span className="lab-super-row-aa">Aa</span>
+  if (id === 'settings' || id === 'reading') {
     return (
       <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
         <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
@@ -82,7 +88,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, ownPdf, noCatchUp, profileDot, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -109,7 +115,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf, noCatchUp })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">
@@ -123,7 +129,24 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
         {/* The Librarian row is the one way to the librarian (2026-10-08): its
             body opens Chat, its icons open Chat or Talk directly. */}
-        {rows.map(row => row.modes ? (
+        {rows.map(row => row.modes && row.id === 'conversation' ? (
+          // The phone: Chat · Talk, one row, each half its own button.
+          <div key={row.id} className="lab-super-row is-pair" data-row={row.id} role="group" aria-label="Chat or Talk">
+            {row.modes.map((mode, index) => (
+              <button
+                key={mode}
+                type="button"
+                className={`lab-super-row-half${index ? ' is-second' : ''}`}
+                data-mode={mode}
+                data-testid={`lab-super-row-${mode}`}
+                onClick={() => onSelect(mode)}
+              >
+                <span className="lab-super-row-icon" aria-hidden="true">{mode === 'chat' ? <ChatIcon size={18} /> : <TalkIcon size={18} />}</span>
+                <span className="lab-super-row-label">{mode === 'chat' ? 'Chat' : 'Talk'}</span>
+              </button>
+            ))}
+          </div>
+        ) : row.modes ? (
           <div key={row.id} className={`lab-super-row is-librarian${row.ruleBefore ? ' has-rule' : ''}`} data-row={row.id} role="group" aria-label={row.label}>
             <button
               type="button"
@@ -160,6 +183,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
           >
             <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
             <span className="lab-super-row-label">{row.label}</span>
+            {row.id === 'account' && profileDot && <span className="lab-super-row-dot" data-testid="request-dot" aria-hidden="true" />}
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>
         ))}

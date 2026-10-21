@@ -214,7 +214,9 @@ describe('4. Escape closes the Aa panel', () => {
 describe('5. a link with &pages', () => {
   it('is read once when the PDF opens, so a first open’s late scan does not send it to the Tinct reader', () => {
     expect(READER).toContain("const pagesAsked = new URLSearchParams(location.search).has('pages');")
-    expect(READER).toContain("if (!scan || !(scan.textPages > 0) || state.pagesAsked || editionChoice(scan) !== 'text') return false;")
+    // A recognised scan forwards too (Anders, 20 Oct 2026, item r): the &pages guard comes first for both.
+    expect(READER).toContain("if (!scan || state.pagesAsked) return false;")
+    expect(READER).toContain("const text = scan.textPages > 0 ? editionChoice(scan) === 'text' : isOcrText() && (ownEdition() === 'text' || (isPhone() && editionChoice(scan) === 'text'));")
     // The address the reader pushes keeps it, so a reload stays in the pages too.
     // (Since 19 Oct 2026 an EPUB in Margin view has its own address too, without &pages.)
     expect(READER).toContain("const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : epubMargin() ? bookUrl(key) : null;")

@@ -257,7 +257,7 @@
   const shown = (id, all) => all || !LATER[id];
   // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
   const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
-  const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
+  const MORE_ROWS_2 = [['copy', 'Copy', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
     const c = colorOf(colors, current);
@@ -569,6 +569,24 @@
   const QUIZ_ANSWER_CHARS = 2000;
   /** At most this many questions in one quiz, one per key idea (the Worker's QUIZ_MAX_IDEAS; Anders, 20 Oct 2026). */
   const QUIZ_MAX_QUESTIONS = 8;
+  /**
+   * A reply under a quiz answer's marking (Anders, 20 Oct 2026): after "Nearly." or "Not quite." the reader may answer back
+   * ("so is it because the two instances cancel?") and go a few rounds with the grader before the next question; at most
+   * QUIZ_FOLLOW_UPS replies per question (the Worker's QUIZ_CHECK_FOLLOW_UPS), each kept to QUIZ_REPLY_CHARS (its
+   * QUIZ_TURN_CHARS). A question's result keeps them as `thread`: [{ reply, verdict, feedback }].
+   */
+  const QUIZ_FOLLOW_UPS = 3;
+  const QUIZ_REPLY_CHARS = 600;
+  /** The newest marking of a question's result: its last reply's, else the answer's. */
+  const quizLatest = r => (r?.thread?.length ? r.thread[r.thread.length - 1] : r) || null;
+  /** Whether the reader can still reply under this result: marked (not shown), not Right, fewer than QUIZ_FOLLOW_UPS replies. */
+  const quizCanReply = r => !!r && !r.shown && !!r.verdict && quizLatest(r).verdict !== 'right' && (r.thread?.length || 0) < QUIZ_FOLLOW_UPS;
+  /** The earlier turns sent with a reply (the Worker's quiz.turns): the answer, then each marking and reply, ending with a marking. */
+  function quizTurns(r) {
+    const mark = m => ({ role: 'grader', text: String(m.feedback || QUIZ_VERDICT_WORDS[m.verdict] || '').slice(0, QUIZ_REPLY_CHARS), ...(m.verdict ? { verdict: m.verdict } : {}) });
+    return [{ role: 'reader', text: String(r.answer || '').slice(0, QUIZ_REPLY_CHARS) }, mark(r), ...(r.thread || []).flatMap(t => [{ role: 'reader', text: String(t.reply || '').slice(0, QUIZ_REPLY_CHARS) }, mark(t)])];
+  }
+  const QUIZ_VERDICT_WORDS = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not quite.' };
   /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
   function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
     const r = v => Math.round(v * 10000) / 10000;
@@ -856,12 +874,18 @@
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
         body = `<div class="mr-question">${esc(item.q)}</div>`;
         if (r) {
+          // Each marking under the answer or reply it marks (a reply under the marking: Anders, 20 Oct 2026).
+          const marked = (m, c = '') => `<div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[m.verdict])}</span>${m.feedback ? ' ' + esc(m.feedback) : ''}${c}</p></div>`;
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
-            : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
+            : `<div class="mr-you">${esc(r.answer)}</div>${marked(r, cite)}${(r.thread || []).map(t => `<div class="mr-you">${esc(t.reply)}</div>${marked(t)}`).join('')}`;
+          // A reply being marked: its bubble and the wait; a reply whose marking failed: the error (the reply back in the field).
+          if (o.pending != null) body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`;
+          else body += status;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
-          foot = followHtml({ field: false, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
+          foot = followHtml({ field: o.pending == null && quizCanReply(r), link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
         else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
@@ -1800,5 +1824,5 @@
 
   const html = { esc, cut, ICONS, LATER, pillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
 });

@@ -20,6 +20,7 @@ import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCach
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
+import { addPending, readPending, resetLedgerSends, resetReadingTimeSwitch } from '../lab/labReadingTime'
 import { preparePhoto } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 
@@ -90,6 +91,7 @@ function api() {
       return Response.json({ ok: true })
     }
     if (url.startsWith('/api/social/follow')) return Response.json({ relation: 'friend', followsYou: true })
+    if (url.startsWith('/api/social/remove-follower')) return Response.json({ ok: true, relation: 'stranger', followsYou: false })
     if (url.startsWith('/api/social/profile/')) return readerProfile ? Response.json({ profile: readerProfile }) : Response.json({ error: 'Not found' }, { status: 404 })
     if (url.startsWith('/api/social/board')) {
       const tab = new URL(url, 'https://tinct.app').searchParams.get('tab') === 'everyone' ? 'everyone' : 'friends'
@@ -474,6 +476,45 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(top().querySelectorAll('.tc-g').length).toBe(0)
   })
 
+  it('a request waiting shows at the top of the You card, opens Following you, and counts as seen here (20 Oct 2026)', async () => {
+    const seen = vi.fn()
+    window.addEventListener('tinct:follow-requests-seen', seen)
+    await open('you')
+    const line = byTest('you-requests')
+    expect(line?.textContent).toContain('Ellen Ravn wants to be friends')
+    expect(line?.querySelector('.tc-av')).toBeTruthy()
+    // The first block on the card, above the notice and Your reading.
+    expect(top().querySelector('.tc-body > .tc-g')?.contains(line!)).toBe(true)
+    expect(JSON.parse(localStorage.getItem(`tinct:follow-requests-seen:${session.userId}`) || '[]')).toEqual(['ellen'])
+    expect(seen).toHaveBeenCalled()
+    window.removeEventListener('tinct:follow-requests-seen', seen)
+    click(line)
+    expect(top().dataset.card).toBe('find')
+    expect(byTest('following-you-row')?.textContent).toContain('Ellen Ravn')
+    expect(byTest('following-you-row-button')?.textContent).toBe('Follow back')
+    expect(byTest('following-you-row-remove')?.getAttribute('aria-label')).toBe('Remove')
+  })
+
+  it('Remove declines a request with the existing remove-follower action and hides the row', async () => {
+    await open('find')
+    click(byTest('following-you-row-remove'))
+    await flush()
+    expect(posts).toContainEqual({ url: '/api/social/remove-follower', body: { handle: 'ellen' } })
+    expect(byTest('following-you-row')).toBeNull()
+  })
+
+  it('a reader followed back is a friend, not a request: no row on the You card, no Remove', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/social/find') && !url.includes('?q=')) return Response.json({ followingYou: [person('ellen', 'Ellen Ravn', 'friend')], alsoReading: [], link: 'tinct.app/@anders' })
+      return api()(input, init)
+    }))
+    await open('you')
+    expect(byTest('you-requests')).toBeNull()
+    click(byTest('you-find'))
+    expect(byTest('following-you-row-remove')).toBeNull()
+  })
+
   it('the You card shows the notice once to a Friends profile; Dismiss keeps it away for this account', async () => {
     await open('you')
     const notice = byTest('findable-notice')
@@ -571,6 +612,97 @@ describe('reading time: one figure per label (Anders, 10 October 2026)', () => {
     expect(byTest('card-facts')!.querySelector('b')?.textContent).toBe('45 m')
     click(byTest('card-back'))
     expect(byTest('you-reading')?.textContent).toContain('45 m')
+  })
+})
+
+describe('pending time is flushed before the board and figures are read (21 October 2026: You 16 m, board 12 m)', () => {
+  const userId = '77777777-7777-4777-8777-777777777721'
+  let ledgerSeconds = 0
+  let flushFails = false
+  let order: string[] = []
+
+  /** The Worker's ledger and board for one reader: the board reads the ledger, as social.ts buildBoard does. */
+  function ledgerWorker() {
+    const rest = api()
+    return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/reading-time/status')) return Response.json({ enabled: true })
+      if (url.startsWith('/api/reading-time/flush')) {
+        order.push('flush')
+        if (flushFails) return Response.json({ error: 'unavailable' }, { status: 503 })
+        const body = JSON.parse(String(init?.body)) as { entries: Array<{ read: number; listen: number }> }
+        for (const entry of body.entries) ledgerSeconds += entry.read + entry.listen
+        return Response.json({ enabled: true, credited: ledgerSeconds })
+      }
+      if (url.startsWith('/api/reading-time')) {
+        order.push('reading')
+        return Response.json({ enabled: true, rows: [{ day: today(), bookId: 'frankenstein', read: ledgerSeconds, listen: 0 }] })
+      }
+      if (url.startsWith('/api/social/board')) {
+        order.push('board')
+        return Response.json({ tab: 'friends', total: 1, meShown: true, me: null, entries: [{ rank: 1, name: 'Anders', picture: pic('A'), seconds: ledgerSeconds, duration: '', me: true }] })
+      }
+      return rest(input, init)
+    })
+  }
+
+  beforeEach(() => {
+    ledgerSeconds = 12 * 60
+    flushFails = false
+    order = []
+    resetReadingTimeSwitch()
+    resetLedgerSends()
+    // Four minutes read on this device since its last heartbeat.
+    addPending(userId, today(), 'frankenstein', { read: 4 * 60 })
+    vi.stubGlobal('fetch', ledgerWorker())
+  })
+
+  async function openYou() {
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false })).toBe(true)
+    await flush()
+  }
+
+  it('the flush goes first; then Your reading, the rank and the Leaderboard all say 16 m, counted once', async () => {
+    await openYou()
+    expect(order[0]).toBe('flush')
+    expect(order.slice(1).sort()).toEqual(['board', 'reading'])
+    expect(readPending(userId)).toEqual({})
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
+    click(byTest('you-leaderboard'))
+    expect(byTest('board-me')?.textContent).toContain('16 m')
+  })
+
+  it('the Leaderboard opened later sends what was read since before it asks again', async () => {
+    await openYou()
+    closeAccountCards()
+    forgetBoards()
+    addPending(userId, today(), 'frankenstein', { read: 60 })
+    order = []
+    expect(await openAccountCards({ session: { ...session, userId }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    await flush()
+    expect(order[0]).toBe('flush')
+    expect(order).toContain('board')
+    expect(byTest('board-me')?.textContent).toContain('17 m')
+  })
+
+  it('a failed flush: the board still loads (12 m, the ledger) and Your reading keeps this device’s time (16 m)', async () => {
+    flushFails = true
+    await openYou()
+    expect(order[0]).toBe('flush')
+    expect(order).toContain('board')
+    expect(readPending(userId)).not.toEqual({})
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}16 m`)
+    expect(byTest('you-leaderboard')?.textContent).toContain('1st of 1')
+    click(byTest('you-leaderboard'))
+    expect(byTest('board-me')?.textContent).toContain('12 m')
+  })
+
+  it('nothing pending: no flush is sent', async () => {
+    localStorage.clear()
+    await openYou()
+    expect(order).not.toContain('flush')
+    expect(byTest('you-reading')?.textContent).toBe(`${CARDS_COPY.yourReading}12 m`)
   })
 })
 
