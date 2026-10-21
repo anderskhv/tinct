@@ -1277,7 +1277,7 @@ export function useLabListen(options: UseLabListenOptions) {
       if (switchingRef.current && !ownError) return
       // A downloaded copy that will not play: drop it and stream the recording itself, same place.
       const failingUrl = failing ? clipSourceUrl(failing) : null
-      if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src) {
+      if (playingRef.current && failingUrl && audio.src.startsWith('blob:') && sourcePlaysClip(audio.src, failingUrl) && clipBufferRef.current?.sourceFor(failingUrl) === audio.src.split('#')[0]) {
         clipBufferRef.current.forget(failingUrl)
         const live = Number.isFinite(audio.currentTime) ? audio.currentTime : 0
         const index = clipIndexRef.current
@@ -1586,14 +1586,22 @@ export function useLabListen(options: UseLabListenOptions) {
     if (!continuousBoundary) {
       try { audio.pause() } catch { /* ignore */ }
     }
+    // A copy in memory starting part-way is given its start as a media
+    // fragment (#t=): WebKit left a seek on a fresh blob: source pending for
+    // good (harness, 20 Oct 2026: a locked-phone recovery that never sounded).
+    let fragmentStart = false
     if (!sameSrc) {
       // Downloaded ahead: the swap plays from memory, with no request at the boundary.
-      setAudioSource(audio, elementSource(url))
-      try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
+      const source = elementSource(url)
+      fragmentStart = source.startsWith('blob:') && offsetSeconds > 0
+      setAudioSource(audio, fragmentStart ? `${source}#t=${offsetSeconds.toFixed(3)}` : source)
+      if (!fragmentStart) { try { audio.currentTime = offsetSeconds } catch { /* ignore */ } }
     }
     const expectedSrc = audio.src
     const applyOffset = () => {
       if (!requestIsCurrent(request)) return
+      // The fragment already starts there; a seek on top is the one WebKit leaves pending.
+      if (fragmentStart && Math.abs((audio.currentTime || 0) - offsetSeconds) < 0.25) return
       if (offsetSeconds > 0 || audio.currentTime !== offsetSeconds) {
         try { audio.currentTime = offsetSeconds } catch { /* ignore */ }
       }

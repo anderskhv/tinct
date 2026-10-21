@@ -387,7 +387,7 @@ function initScript(config) {
     seen.add(audio)
     audio.__narrId = (window.__narrIds = (window.__narrIds || 0) + 1)
     window.__narr.lastAudio = audio
-    for (const type of ['loadstart', 'canplay', 'playing', 'waiting', 'stalled', 'pause', 'ended', 'error', 'emptied']) {
+    for (const type of ['loadstart', 'loadedmetadata', 'canplay', 'playing', 'waiting', 'stalled', 'pause', 'ended', 'error', 'emptied', 'seeking', 'seeked', 'ratechange', 'suspend']) {
       audio.addEventListener(type, () => window.__narr.events.push({
         type, t: now(), element: audio.__narrId, src: audio.currentSrc || audio.src || '', loop: audio.loop,
         currentTime: audio.currentTime, duration: audio.duration, readyState: audio.readyState, rate: audio.playbackRate,
