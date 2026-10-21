@@ -4952,7 +4952,7 @@ async function pdfTextCheck(browser, origin) {
       return { url: location.pathname + location.search, kind: state.kind, paper: root.classList.contains('is-paper'), sheetBg: cs?.backgroundColor, shadow: cs?.boxShadow, font, column: col.mode, pdfSheets: document.querySelectorAll('.pdf-sheet').length, heads: document.querySelectorAll('.pt-chapter .tb-title, .pt-chapter h3.pt-h').length, figs: [...document.querySelectorAll('.pt-fig img')].map(i => ({ w: i.naturalWidth, h: i.naturalHeight, shown: i.getBoundingClientRect().width })), at, spot: s, pdfPage: PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0), pos, hl: highlights().filter(h => h.via === 'pdf').map(h => h.text), aa: null }
     })
     ok(`${tag}: "Tinct text" on the desktop reflows the PDF inside Margin view, with no navigation to /reader`, shown && !navs.slice(navsBefore).some(p => p.startsWith('/reader')) && view.url.startsWith('/lab/addbook/?userBook=' + hex) && view.kind === 'epub' && view.pdfSheets === 0, { shown, navs, view })
-    ok(`${tag}: Tinct paper (no white sheet or shadow), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && /rgba\(0, 0, 0, 0\)|transparent/.test(view.sheetBg) && (view.shadow === 'none' || !view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
+    ok(`${tag}: Tinct paper (one sheet edged at its sides, 21 Oct), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && SHEET_SIDES(view.sheetBg, view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
     ok(`${tag}: it opens at the same place: the PDF's page ${before.page} at the top of the view`, view.pdfPage?.page === before.page, { before, pdfPage: view.pdfPage, spot: view.spot })
     if (marked) ok(`${tag}: the highlight made on the PDF's page shows in the Tinct text (found by its words)`, view.hl.includes(marked.text) && await page.evaluate(() => [...CSS.highlights.keys()].some(k => k.startsWith('tinct-hl-'))), { marked, hl: view.hl })
     if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
@@ -5138,6 +5138,9 @@ async function essayScrollTo(page, n, para, above = 260) {
 
 /* epub-open (items 1, 2, 4): the first open at the Preface; the front matter one compact centred block; the cover without
    its black strip; the book's small caps as it sets them; its contents page hidden; links readable in Night; Tinct paper. */
+// 21 Oct 2026 (Anders: "the page edges have disappeared"): Tinct paper is one continuous sheet with edged sides, the
+// PDF paper's colour, the measure kept inside it (--paper-pad); never the old per-file sheet with a shadow all round.
+const SHEET_SIDES = (bg, shadow) => !/rgba\(0, 0, 0, 0\)|transparent/.test(bg || '') && /-12px 0px|inset/.test(shadow || '') && !/ 0px 1px 2px/.test(shadow || '')
 async function epubOpenCheck(browser, origin) {
   const results = [], ok = okList(results)
   const E = await essaysOpen(browser, origin), e = E.page
@@ -5153,12 +5156,23 @@ async function epubOpenCheck(browser, origin) {
   const front = await e.evaluate(() => {
     const sheets = state.pages.slice(0, 6).map(p => p.sheet), first = sheets[0].getBoundingClientRect(), last = sheets[5].getBoundingClientRect()
     const centred = [...document.querySelectorAll('.epub-sheet.is-front .epub-body p')].every(p => getComputedStyle(p).textAlign === 'center')
-    const plain = sheets.every(s => { const cs = getComputedStyle(s); return cs.boxShadow === 'none' && /rgba\(0, 0, 0, 0\)|transparent/.test(cs.backgroundColor) })
+    // (21 Oct 2026: on the one continuous paper, edged at its sides, the files meeting with no gap.)
+    const shown = sheets.filter(s => s.offsetHeight > 0 && !s.classList.contains('is-toc'))
+    const looks = shown.map(s => { const cs = getComputedStyle(s); return [cs.backgroundColor, cs.boxShadow] }), joined = shown.every((s, i) => !i || Math.abs(s.getBoundingClientRect().top - shown[i - 1].getBoundingClientRect().bottom) <= 1)
     const text = sheets.slice(1).map(s => s.getBoundingClientRect().height)
     // Each piece's height scales with the text size (Margin view's own since 20 Oct 2026, desk-polish D1; 340px was set at 19.22px).
     const scale = parseFloat(getComputedStyle(state.pages[8].pg).fontSize) / 19.22
-    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, scale, centred, plain }
+    return { block: Math.round(last.bottom - sheets[1].getBoundingClientRect().top), cover: Math.round(first.height), text, scale, centred, looks, joined }
   })
+  // 21 Oct 2026 (C): the position strip at the paper's left, the chapters by length; a click there moves the reading place.
+  const stripAt = () => e.evaluate(() => { const el = document.querySelector('.pdf-strip'), sh = [...document.querySelectorAll('.epub-sheet:not(.is-toc)')].find(s => s.offsetHeight)?.getBoundingClientRect(), r = el && !el.hidden ? el.getBoundingClientRect() : null; return { shown: !!r && r.height > 100, right: r?.right, sheet: sh?.left, label: el?.getAttribute('aria-label'), text: el?.getAttribute('aria-valuetext'), lines: el?.querySelectorAll('line').length || 0, win: !!el?.querySelector('.pdf-strip__win'), page: currentPlace().page } })
+  const st0 = await stripAt()
+  ok('C. the position strip at the paper\'s left (Chapters, its lines and the reader\'s window), clear of the sheet', st0.shown && st0.right <= st0.sheet - 4 && st0.label === 'Chapters' && st0.lines > 20 && st0.win, st0)
+  const sb = await (await e.$('.pdf-strip')).boundingBox(); await e.mouse.click(sb.x + 20, sb.y + sb.height * 0.85); await e.waitForTimeout(900)
+  const st1 = await stripAt()
+  ok('C. a click low on the strip takes the reader there (a later chapter)', st1.page > st0.page, { from: st0.page, to: st1.page, text: st1.text })
+  await e.evaluate(() => { document.getElementById('scroll').scrollTop = 0 }); await e.waitForTimeout(600)
+  front.plain = front.looks.every(([bg, sh]) => SHEET_SIDES(bg, sh)) && front.joined
   ok('1. the front matter (title, copyright, dedication, supporters) is one compact centred block, not a sheet per file: under 1.4 screens', front.centred && front.plain && front.block < 900 * 1.4 && front.text.every(h => h < 340 * front.scale), front)
   const cover = await e.evaluate(async () => {
     const img = state.pages[0].pg.querySelector('img'); await img.decode().catch(() => {})
@@ -5185,8 +5199,8 @@ async function epubOpenCheck(browser, origin) {
   ok('2. a link in the book is readable in Night: the text\'s ink, underlined, contrast at least 4.5:1', link.color === link.text && /underline/.test(link.underline) && link.contrast >= 4.5, link)
   // 4. Tinct paper: no sheets, Margin view's own text size and measure (desk-polish D1, 20 Oct 2026: TinctReaderLayout.marginText,
   // this device's Text size and Line width at 100%), the margin column beside the text.
-  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.marginText(innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
-  ok('4. Tinct paper: no sheet (transparent, no shadow), Margin view\'s text size and measure, the margin column beside it', /rgba\(0, 0, 0, 0\)|transparent/.test(paper.bg) && paper.shadow === 'none' && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
+  const paper = await e.evaluate(() => { const s = state.pages[8].sheet, cs = getComputedStyle(s), pg = getComputedStyle(state.pages[8].pg), p = TinctReaderLayout.marginText(innerWidth); return { bg: cs.backgroundColor, shadow: cs.boxShadow, width: Math.round(state.pages[8].pg.getBoundingClientRect().width), sheet: Math.round(s.getBoundingClientRect().width), measure: Math.round(p.measure), size: parseFloat(pg.fontSize), want: Math.round(p.fontSize * 100) / 100, mode: col.mode, paper: root.classList.contains('is-paper'), h1: getComputedStyle(state.pages[8].pg.querySelector('h1')).fontFamily } })
+  ok('4. Tinct paper: one sheet edged at its sides (21 Oct), Margin view\'s text size and measure inside it, the margin column beside it', SHEET_SIDES(paper.bg, paper.shadow) && paper.sheet > paper.width + 40 && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
   return results

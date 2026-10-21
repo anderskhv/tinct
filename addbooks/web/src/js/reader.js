@@ -366,6 +366,7 @@ async function openEpub(bytes, name, key, rec = null) {
   }
   toc.entries = book.toc.slice().sort((a, b) => a.page - b.page || 0);
   toc.ready = true;
+  strip?.open();
   noteSession();
   renderEpubHighlights();
   // With EPUB_MARGIN on, an EPUB read here has the margin too (FIXES-2026-10-15 PR C): its column, marks
@@ -1340,10 +1341,34 @@ function onScroll() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(savePlaceNow, 250);
 }
-/* The position strip at the pages' left (desktop, PDFs; js/strip.js): the whole PDF, its window, highlights and cards. */
+/** Room for the strip at the left of an EPUB's text: its paper starts clear of the lane (14–48px). */
+function stripRoom() {
+  const p = state.pages.find(q => q.sheet.offsetHeight > 0 && !q.sheet.classList.contains('is-toc'));
+  return !!p && p.sheet.getBoundingClientRect().left - $('scroll').getBoundingClientRect().left >= 56;
+}
+/** An EPUB chapter's paragraphs as the strip's blocks (TinctStrip.pageBlocks' shape): fractions of its sheet. */
+function epubStripBlocks(n) {
+  const p = state.pages[n - 1]; if (!p) return null;
+  const sr = p.sheet.getBoundingClientRect(), pr = p.pg.getBoundingClientRect();
+  if (!sr.height || !pr.width) return { body: { x0: 0, w: 1 }, blocks: [] };
+  const blocks = [];
+  for (const el of epubParas(p)) {
+    const r = el.getBoundingClientRect(); if (!r.height) continue;
+    const lh = parseFloat(getComputedStyle(el).lineHeight) || r.height, lines = Math.max(1, Math.round(r.height / lh));
+    blocks.push({ y0: (r.top - sr.top) / sr.height, y1: (r.bottom - sr.top) / sr.height, x0: (r.left - pr.left) / pr.width, x1: (r.right - pr.left) / pr.width, n: lines, last: lines > 1 ? 0.6 : 1 });
+  }
+  return { body: { x0: 0, w: 1 }, blocks };
+}
+/* The position strip at the pages' left (desktop; js/strip.js): the whole PDF, its window, highlights and cards. An EPUB
+   (and a Tinct text) has it too since 21 Oct 2026 (Anders: "the left-hand indicator of where you are in the text"): its
+   chapters down the lane by their length, a line per paragraph, where the reader is; shown when the page leaves it room. */
 const strip = window.TinctStrip ? TinctStrip.create({
   root, scroll: $('scroll'), header: $('hdr'),
-  enabled: () => state.kind === 'pdf' && readerShown() && !isPhone(),
+  enabled: () => readerShown() && !isPhone() && (state.kind === 'pdf' || (isEpub() && stripRoom())),
+  blocks: n => (isEpub() ? epubStripBlocks(n) : null),
+  weights: () => (isEpub() ? state.pages.map(p => p.sheet.offsetHeight) : null),
+  name: () => (isEpub() ? 'Chapters' : 'Pages'),
+  spot: n => (isEpub() ? chapterPlace(n) : `p. ${pageLabel(n)}`),
   count: () => state.pages.length,
   sheet: n => state.pages[n - 1].sheet,
   // Text content the reader has read already, else read for the strip only (not kept).
