@@ -95,6 +95,42 @@ it('My shelf’s × takes any book off the shelf (a Tinct book or an added one) 
   expect(calls.putPosition).not.toHaveBeenCalled()
 })
 
+it('My shelf’s Read later and Remove from Currently reading on an own book hide it on this device only, its place and notes kept (2026-10-21)', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
+  const hex = 'ab12cd34ef56ab12cd34ef56'
+  const { hideFromReadingNow } = await import('./libraryTwoReading')
+  for (const saved of [true, false]) {
+    localStorage.setItem('tinct:library-2-table:viewer-a', `{"reading":[{"bookId":"userbook-${hex}"}]}`)
+    localStorage.setItem(`tinct-addbook:place:${hex}`, '{"chapterNumber":2,"updatedAt":5}')
+    localStorage.setItem(`tinct-addbook:highlights:${hex}`, '[{"id":"h"}]')
+    await hideFromReadingNow(`userbook-${hex}`, { saved })
+    expect(Number(localStorage.getItem(`tinct-addbook:table-hidden:${hex}`))).toBeGreaterThan(0)
+    expect(localStorage.getItem(`tinct-addbook:table-unsaved:${hex}`) !== null).toBe(!saved)
+    expect(localStorage.getItem(`tinct-addbook:place:${hex}`)).toBe('{"chapterNumber":2,"updatedAt":5}')
+    expect(localStorage.getItem(`tinct-addbook:highlights:${hex}`)).toBe('[{"id":"h"}]')
+    expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
+  }
+  // Its id never reaches the account, and no Tinct place is written.
+  expect(calls.saved).not.toHaveBeenCalled()
+  expect(calls.writePosition).not.toHaveBeenCalled()
+  expect(calls.putPosition).not.toHaveBeenCalled()
+})
+
+it('My shelf’s Read later on a Tinct book is the desk’s hide: saved for later, its place untouched', async () => {
+  calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
+  const state = emptyLabPositionState('device-a', 'viewer-a')
+  state.books.hamlet = { bookId: 'hamlet', headerBook: 'Hamlet', chapterNumber: 3, sequentialChapter: 3, paragraphIndex: 11, wordIndex: 23, pageIndex: 4, primaryEditionKey: 'original-en', updatedAt: 100, deviceId: 'device-a', rev: 2 }
+  const before = structuredClone(state.books)
+  calls.readPosition.mockReturnValue(state)
+  calls.putPosition.mockResolvedValue(true)
+  const { hideFromReadingNow } = await import('./libraryTwoReading')
+  await hideFromReadingNow('hamlet', { saved: true })
+  expect(calls.saved).toHaveBeenCalledWith('hamlet', true, { tableHidden: true })
+  const written = calls.writePosition.mock.calls[0][0]
+  expect(written.hidden.hamlet).toBeGreaterThan(100)
+  expect(written.books).toEqual(before)
+})
+
 it('does not remove a previous account’s book after an account switch', async () => {
   calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-b' }, access_token: 'token-b' } } })
   calls.readPosition.mockReturnValue(emptyLabPositionState('device-a', 'viewer-a'))

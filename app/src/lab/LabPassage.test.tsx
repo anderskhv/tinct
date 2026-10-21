@@ -125,6 +125,38 @@ describe('word highlight boundaries', () => {
   })
 })
 
+/**
+ * Real paragraphs whose words open with a straight single quote. Words are a
+ * whitespace split, so every word after the first had a space before it in the
+ * source; the reader painted "rhyme to'lady'" and "call'my own'" (Oct 2026).
+ */
+const QUOTE_LED_PARAGRAPHS = [
+  // Much Ado About Nothing, modern English (Benedick, 5.2)
+  "I can find no rhyme to 'lady' but 'baby,' an innocent rhyme; for 'scorn,' 'horn,' a hard rhyme; for 'school,' 'fool,' a babbling rhyme; very ominous endings.",
+  // The Republic, modern English
+  "And they'll have a shared interest in what they each call 'my own' \u2014 and this shared interest will produce shared feelings of pleasure and pain?",
+  // Poetics, modern English
+  "so in the arts mentioned above, the imitation is produced by rhythm, language, or 'harmony' \u2014 either singly or in combination.",
+  // Elisions and contractions keep exactly the source's spacing.
+  "'Tis o'er now, and 'twas rock 'n' roll at the Joneses' house.",
+  "\"If you please, 'm\u2014it's me,\" she said. To die for 't!",
+]
+
+describe('words that open with a straight quote', () => {
+  it.each(QUOTE_LED_PARAGRAPHS)('paints the source text exactly: %s', (paragraph) => {
+    const words = tokenizeHearingWords(paragraph)
+    const { container } = render(<LabPassage {...passageProps([paragraph], { paragraphIndex: 0, from: 0, to: words.length })} />)
+    expect(container.querySelector('.lab-hearing-line')?.textContent).toBe(paragraph)
+    expect([...container.querySelectorAll('[data-testid="lab-word"]')].map(word => word.textContent))
+      .toEqual(words.map(word => word.text))
+  })
+
+  it.each(QUOTE_LED_PARAGRAPHS)('measures the source text exactly: %s', (paragraph) => {
+    const measured = labMeasureParagraphInto(document.createElement('p'), tokenizeHearingWords(paragraph))
+    expect(measured.textContent).toBe(paragraph)
+  })
+})
+
 describe('continued page tails', () => {
   const paragraphs = ['one two three four five', 'six seven eight']
 

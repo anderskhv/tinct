@@ -194,8 +194,10 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr { --mr-accent: #1f4a5c; --mr-bar-accent: #8cbccd; }   /* Tinct's accent; the same on the dark bar */
 .lab.is-night .mr { --mr-accent: #8cbccd; }
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-accent: #111; --mr-bar-accent: #fff; }
-@keyframes mr-blink { 0%, 30% { opacity: 1 } 55%, 80% { opacity: .15 } 100% { opacity: 1 } }
-.mr-bar__caret { display: inline-block; border-radius: 1px; background: var(--mr-bar-accent); animation: mr-blink 1.4s ease-in-out infinite; }
+/* The hint after "Ask" (Anders, 21 Oct 2026: the blue blinking line was too jarring): the bar's own ink, 1px by 13px, a
+   slow soft pulse that never goes out. */
+@keyframes mr-blink-soft { 0%, 55% { opacity: .7 } 75%, 90% { opacity: .3 } 100% { opacity: .7 } }
+.mr-bar__caret { display: inline-block; width: 1px; height: 13px; border-radius: 1px; background: var(--mr-bar-ink); opacity: .7; animation: mr-blink-soft 2.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .mr-bar__caret { animation: none; } }
 .mr-bar__item.is-ask { gap: 4px; }
 .mr-bar__sep { flex: none; }
@@ -386,7 +388,7 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 .mr-quiz-row small { font: 12px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; margin-left: 12px; }
 /* Redo: the footer's 11.5px word with a 28px target; the footer reaches 7px into the primer's
    padding so its words sit where the mockup's do. */
-.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; }
+.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; justify-content: flex-end; }
 .mr-primer__foot button { min-height: 28px; padding: 0 0 0 12px; }
 .mr-primer .mr-status { margin: 0; }
 /* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
@@ -595,6 +597,37 @@ html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr
 .mr-unit__acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }
 .mr-leads path.is-rule { stroke: var(--mr-hair); }
 html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); }
+/* A unit's pills beside its heading (Anders, 21 Oct 2026; replaces the Starting / End of marks on the wide column):
+   small and quiet, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
+   heading has the focus, then faded. Their words come from data-label: the heading's text stays the book's own. A
+   touch-only screen shows them all the time. On a PDF's page they sit over the page at the heading's line (.is-page).
+   Pills sit 8px apart, as everywhere (Anders, 21 Oct 2026). */
+.mr-hp-head { position: relative; outline: none; }
+.mr-hp.is-page { z-index: 4; }   /* over a PDF page's text layer (z-index 2), so its pills take the click */
+.mr-hp { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font: 400 13px/1 var(--mr-gara); font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; text-indent: 0; user-select: none; -webkit-user-select: none;
+  opacity: 0; visibility: hidden; transition: opacity .25s ease .6s, visibility 0s linear .85s; }
+.mr-hp-head:hover > .mr-hp, .mr-hp-head:focus-within > .mr-hp, .mr-hp:hover, .mr-hp.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
+@media (hover: none) { .mr-hp { opacity: 1; visibility: visible; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .mr-hp, .mr-hp-head:hover > .mr-hp, .mr-hp.is-shown { transition: none; } }
+.mr-hp .mr-pill { min-height: 28px; font: 13px/1.3 var(--mr-gara); }
+.mr-hp .mr-pill > span, .mr-hp .mr-pill::after { display: none; }
+.mr-hp .mr-pill::before { content: attr(data-label); border: 1px solid var(--mr-hair); border-radius: 999px; padding: 1px 9px; background: var(--mr-room); }
+.mr-hp .mr-pill:not([data-pill="note"])::before { content: "\2727\00a0" attr(data-label); }
+.mr-hp .mr-pill:hover::before, .mr-hp .mr-pill[aria-expanded="true"]::before { background: var(--mr-card); color: var(--mr-ink); }
+.mr-hp .mr-pill[aria-expanded="true"]::before { border-color: var(--mr-lead); }
+.mr-hp .mr-pill:focus-visible::before { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
+.mr-hp-head:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 4px; border-radius: 2px; }
+:root[data-mr-input="pointer"] .mr-hp-head:focus-visible, :root[data-mr-input="pointer"] .mr-hp .mr-pill:focus-visible::before { outline: none; }
+/* A paragraph's ✧ in the margin beside its first line (desktop, a pointer that hovers), and its menu: Quiz me, Recap. */
+.mr-pspark { position: absolute; z-index: 3; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--mr-faint); font: 14px/1 var(--mr-gara); cursor: pointer;
+  opacity: 0; visibility: hidden; transition: opacity .2s ease .3s, visibility 0s linear .5s; }
+.mr-pspark::before { content: "\2727"; }
+.mr-pspark.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
+.mr-pspark:hover, .mr-pspark[aria-expanded="true"] { color: var(--mr-ink); background: var(--mr-card); }
+.mr-pmenu { position: absolute; z-index: 4; display: flex; align-items: center; height: 40px; padding: 0 5px; border-radius: 10px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); white-space: nowrap; }
+.mr-pmenu button { height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.mr-pmenu button:hover, .mr-pmenu button:focus-visible { background: rgba(255, 255, 255, .10); outline: none; }
+.mr-pmenu__sep { width: 1px; height: 18px; background: var(--mr-bar-sep); margin: 0 3px; }
 .mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
 .mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
 .mr-pill:hover { color: var(--mr-ink); }
@@ -611,6 +644,11 @@ html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
 .byob-unit-now__name { margin: 0; font-size: 16px; color: var(--mr-ink, inherit); font-variant-numeric: tabular-nums; }
 .byob-unit-now__acts { display: flex; flex-wrap: wrap; gap: 0 8px; }
 /* The figure large (a figure card's picture, a picture in the chat): over the reader, the page's room behind it. */
+/* A figure named in an EPUB's text, on hover (21 Oct 2026; reader.js figPeek): its picture and caption beside the words. */
+.mr-figpeek { position: fixed; z-index: 70; box-sizing: border-box; width: max-content; max-width: min(380px, calc(100vw - 24px)); padding: 10px; border-radius: 12px; background: var(--mr-card); color: var(--mr-ink); box-shadow: var(--mr-card-shadow); pointer-events: none; }
+.mr-figpeek > img, .mr-figpeek > svg { display: block; max-width: 100%; width: auto; height: auto; max-height: 260px; margin: 0 auto; border-radius: 4px; background: #fff; }
+.mr-figpeek > svg { width: 340px; }
+.mr-figpeek__cap { margin: 8px 2px 0; font: 12.5px/1.4 var(--mr-ui); color: var(--mr-muted); }
 .mr-figview { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 56px 16px 24px; background: color-mix(in srgb, var(--mr-room) 92%, transparent); }
 .mr-figview__fig { margin: 0; max-width: 100%; max-height: 100%; display: grid; place-items: center; }
 .mr-figview__fig img { display: block; max-width: min(100%, 1100px); max-height: calc(100vh - 96px); object-fit: contain; background: #fff; border-radius: 6px; box-shadow: var(--mr-card-shadow); }
@@ -667,3 +705,21 @@ html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .
 .mr-card__body > .mr-card__acts:last-child { padding-bottom: 3px; }
 /* A quiz card's answer bubble and feedback are set as its question (Anders, 20 Oct 2026: the bubble was smaller). */
 :is(.mr-card, .mr-sheet):has(.mr-question) :is(.mr-you, .mr-answer) { font-family: inherit; font-size: 18px; line-height: 1.45; }
+
+/* ---------- Cards, round 2 (Anders, 21 Oct 2026) ----------
+   Every card's head: minimise, then the bin (28px targets round 14px icons); Before you start's too, in place of its ×.
+   Every follow-up field: the mic, Talk (the reader's filled bars) and send. Before you start is as tall as what it
+   holds in the column, ending with the field. */
+.mr-card__label > .mr-card__delete { flex: none; min-width: 28px; min-height: 28px; display: grid; place-items: center; color: var(--mr-faint); }
+.mr-card__close + .mr-card__delete { margin-left: 0; }
+.mr-card__name + .mr-card__delete, .mr-card__count + .mr-card__delete { margin-left: auto; }
+.mr-card__label > .mr-card__delete svg, .mr-primer__ctl svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mr-primer__ctl { display: inline-flex; align-items: center; margin: -1px 0 -1px auto; color: var(--mr-faint); }
+.mr-primer__ctl button { min-width: 28px; min-height: 28px; display: grid; place-items: center; }
+.mr-primer .mr-primer__ctl .mr-primer__close { margin: 0; }
+.mr-follow__talk { flex: none; position: relative; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; background: none; color: var(--mr-muted); cursor: pointer; --mr-min: 28px; }
+.mr-follow .mr-follow__talk svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.mr-follow__talk:hover { color: var(--mr-ink); }
+.mr-col:not(.mr-doc) .mr-primer { bottom: auto; max-height: calc(100% - 86px); }
+.mr-primer > .mr-follow { margin-top: 0; }
+:where(.mr-card__delete) { --mr-min: 28px; }
