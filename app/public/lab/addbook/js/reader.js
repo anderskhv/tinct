@@ -5490,9 +5490,17 @@ function pillRules(card) {
   const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() && !isPdfText() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
   if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
+  // The book reader's Catch me up rules (TinctMargin.catchUpSpan, catchUpParts): only what the reader has read, a
+  // paragraph for each part it runs through, the most recent reading in the most detail, and the chat's grounding.
+  const parts = TinctMargin.catchUpParts(toc.entries, before, state.pages.length);
+  const shape = parts.length > 1
+    ? `It runs through ${parts.length} parts: ${parts.map(part => `${part.label} (${pages(part)})`).join('; ')}. Write one short paragraph for each part, in order, opening with the part's name: the earlier parts briefly, the most recent in the most detail. Plain prose, no headings, lists or preamble, at most ${160 + 60 * (parts.length - 1)} words in all.`
+    : 'Give the most recent pages the most detail and the earlier ones more briefly. Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all.';
+  const ground = `${TinctMargin.CATCH_UP_GROUNDING} ${isEpub() && !isPdfText() ? 'Cite no pages.' : 'Cite its pages as you do elsewhere.'} ${NAME_THE_TEXT}`;
+  const ahead = unit.from > 1 && before.to < unit.from - 1;
   return unit.from > 1
-    ? `${head} They are about to start ${name}.\nCatch them up on what has happened or been argued in the document so far, before ${name} (${pages(before)}): the main thread and where it stands now, so they can go on. ${form}`
-    : `${head} They are at the start of the document, on page ${pageLabel(before.to)}.\nCatch them up on what the document has set up so far: its subject and what it has said up to here, so they can go on. ${form}`;
+    ? `${head} ${ahead ? `They are on ${pages({ from: before.to + 1, to: before.to + 1 })}, before ${name}.` : `They are about to start ${name}.`}\nCatch them up on what has happened or been argued in the document so far (${pages(before)}): the main thread and where it stands now, so they can go on. Use only that text: nothing after it. ${shape} ${ground}`
+    : `${head} They are at the start of the document, on page ${pageLabel(before.to)}.\nCatch them up on what the document has set up so far: its subject and what it has said up to here, so they can go on. ${shape} ${ground}`;
 }
 /** A figure's card: its thread is about this one figure (item 4), seen in its picture, else from its caption, labels and a sketch. */
 function figureRules(card, image, sketch) {
@@ -6381,10 +6389,10 @@ function pillAction(pill, key) {
   openCard(card.id); runCard(card.id);
 }
 /** The pages a unit's catch-up covers: everything before it (at most the 200 pages before), or the opening so far in the first unit. */
+/** What a unit's Catch me up covers: the pages before it, never the reader's page or later (TinctMargin.catchUpSpan). */
 function catchRange(unit) {
-  const end = unit.from > 1 ? unit.from - 1 : Math.max(1, placePage());
-  const from = Math.max(1, end - 199);
-  return { key: unit.key, from, start: from, to: end };
+  const { from, to } = TinctMargin.catchUpSpan(unit.from, placePage());
+  return { key: unit.key, from, start: from, to };
 }
 function quizUnit(at = null) {
   const unit = at || primer.unit || currentUnit(); if (!unit) return;
@@ -7323,11 +7331,11 @@ async function askSummary(display, prompt, pdf = null) {
 /* Catch me up: a timeline of 20-page stretches, ending at "You are here" */
 const BLOCK = 20;
 async function catchUp() {
-  const page = currentPlace().page;
-  const blocks = [];
-  const chapters = leafEntries().filter(e => e.kind === 'chapter' && e.page <= page);
-  if (chapters.length) for (const e of chapters) { const r = chapterRange(e); blocks.push({ from: r.from, to: Math.min(page, r.to, r.from + 39), partial: page <= r.to, label: e.label }) }
-  else for (let start = 1; start <= page; start += BLOCK) blocks.push({ from: start, to: Math.min(page, start + BLOCK - 1), partial: start + BLOCK - 1 > page });
+  // Never past the reader's place (Anders, 21 Oct 2026): the page they are on only as far as they are on it (seenText).
+  const place = currentPlace(), page = place.page;
+  const partOf = e => { const parent = e.parent && toc.entries.find(p => p.id === e.parent); return parent ? parent.label : '' };
+  const chapters = leafEntries().filter(e => e.kind === 'chapter' && e.page <= page).map(e => ({ ...chapterRange(e), label: e.label, part: partOf(e) }));
+  const blocks = TinctMargin.catchUpBlocks(chapters, page, BLOCK);
   const since = store.get('session:' + state.key)?.previousPage;
   const layer = sheet('Catch me up', `<ol class="lab-catch-up-timeline">${blocks.map((b, i) => `
     <li class="lab-catch-up-entry is-${b.partial ? 'current' : 'chapter'}" data-i="${i}"><span class="lab-catch-up-dot" aria-hidden="true"></span>
@@ -7348,9 +7356,14 @@ async function catchUp() {
     const cached = !b.partial && store.get(cacheKey);
     if (cached) return show(cached);
     try {
+      // The reader's own page only as far as they have read it.
+      const seen = b.partial ? TinctMargin.seenText((await pageText(page)).text, place.frac) : null;
+      if (b.partial && b.from === b.to && (seen || '').length < 200) { li.remove(); return }
       const pdf = marginOn() ? await pdfPages(b.from, { before: 0, after: b.to - b.from, budget: Math.floor(70000 / (b.to - b.from + 1)) }) : null;
-      const text = pdf ? '' : await contextText(b.from, b.to, 70000);
-      const r = await s.json(`You are Tinct's reading companion. ${bookLine()}\nSummarize pages ${b.from} to ${b.to} for a reader catching up: reply with only JSON {"title": "3 to 6 word name for this stretch", "summary": "2 to 3 plain sentences on what happens or is argued"}.${text ? '\n\n' + text : ''}`, { cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}) });
+      const last = pdf?.pages[pdf.pages.length - 1];
+      if (pdf && b.partial && last && last.n === pageLabel(page)) last.text = seen || ' ';
+      const text = pdf ? '' : b.partial ? (await contextText(b.from, b.to - 1, 70000)) + `\n[${isEpub() ? (toc.entries.find(e => e.page === page)?.label || 'Section ' + page) : 'Page ' + page}]\n` + seen : await contextText(b.from, b.to, 70000);
+      const r = await s.json(`You are Tinct's reading companion. ${bookLine()}\nSummarize pages ${b.from} to ${b.to} for a reader catching up: reply with only JSON {"title": "3 to 6 word name for this stretch", "summary": "2 to 3 plain sentences on what happens or is argued"}. Use only this text: it ends where the reader is. ${TinctMargin.CATCH_UP_GROUNDING}${text ? '\n\n' + text : ''}`, { cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}) });
       const rec = { title: String(r?.title || '').slice(0, 80), summary: String(r?.summary || '').slice(0, 900) };
       if (!b.partial) store.set(cacheKey, rec);
       show(rec);

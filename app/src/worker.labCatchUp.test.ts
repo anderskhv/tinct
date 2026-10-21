@@ -15,6 +15,8 @@ import {
   parseCatchUpRequest,
 } from './worker/routes/labCatchUp'
 import type { RecapCache } from './worker/routes/labRecap'
+import { OWN_CATCH_UP_SYSTEM_PROMPT } from './worker/routes/ownCatchUp'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_RECAP_GROUNDING_RULE } from './companion/labAskPrompt'
 
 /** A three-part novel: Part 1 = ch 1–2, Part 2 = ch 3–5. */
 const chapters: Record<number, ChapterText> = {
@@ -83,8 +85,12 @@ afterEach(() => { vi.unstubAllGlobals(); resetBookRetrievalCache() })
 
 describe('parseCatchUpRequest', () => {
   it('accepts ids only and rejects anything malformed', () => {
-    expect(parseCatchUpRequest(partOne)).toEqual({ ...partOne, throughChapter: null })
+    expect(parseCatchUpRequest(partOne)).toEqual({ ...partOne, throughChapter: null, placeChapter: null })
     expect(parseCatchUpRequest({ ...partOne, throughChapter: 4 })).toMatchObject({ throughChapter: 4 })
+    expect(parseCatchUpRequest({ ...partOne, placeChapter: 3 })).toMatchObject({ placeChapter: 3 })
+    expect(parseCatchUpRequest({ ...partOne, placeChapter: 0 })).toBeNull()
+    expect(parseCatchUpRequest({ ...partOne, placeChapter: 2.5 })).toBeNull()
+    expect(parseCatchUpRequest({ ...partOne, placeChapter: '3' })).toBeNull()
     expect(parseCatchUpRequest(null)).toBeNull()
     expect(parseCatchUpRequest({ ...partOne, bookId: '../etc' })).toBeNull()
     expect(parseCatchUpRequest({ ...partOne, editionKey: 'A B' })).toBeNull()
@@ -137,9 +143,9 @@ describe('POST /api/lab-catch-up', () => {
     })
     const [payload, apiKey] = fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>, string]
     expect(apiKey).toBe('k')
-    expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, max_tokens: CATCH_UP_MAX_TOKENS })
+    // A part of several chapters is a group: the block prompt.
+    expect(payload).toMatchObject({ model: RECAP_FAST_MODEL, max_tokens: CATCH_UP_BLOCK_MAX_TOKENS, system: CATCH_UP_BLOCK_SYSTEM_PROMPT })
     expect(payload).not.toHaveProperty('output_config')
-    expect(String(payload.system)).toMatch(/two short plain declarative sentences in the present tense, at most 40 words/)
     const content = (payload.messages as Array<{ content: string }>)[0].content
     expect(content).toContain('Anna Karenina, Part 1')
     expect(content).toContain('snow is falling')
@@ -191,32 +197,69 @@ describe('POST /api/lab-catch-up', () => {
   it('a compact block (`chs-<from>-<to>`) covers exactly those chapters in one call, with the block prompt; nothing after it is read', async () => {
     const { ctx, pending } = makeContext()
     const cache = fakeCache()
-    const fetchAnthropic = anthropicOk('Anna arrives; Levin mows; the races begin.')
+    const fetchAnthropic = anthropicOk('The races begin; Vronsky falls.')
     const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets() }
-    const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'chs-1-3' }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
+    const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'chs-3-4' }), env, ctx, allow, { reserveGuestSpend: spend, cache, fetchAnthropic })
     expect(response.status).toBe(200)
-    expect(await response.json()).toMatchObject({ unitId: 'chs-1-3', title: 'Part 1, Chapter 1 – Part 2, Chapter 1', chapters: [1, 2, 3], complete: true })
+    expect(await response.json()).toMatchObject({ unitId: 'chs-3-4', title: 'Part 2, Chapter 1 – Part 2, Chapter 2', chapters: [3, 4], complete: true })
     expect(fetchAnthropic).toHaveBeenCalledTimes(1)
     const payload = (fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>])[0]
     expect(payload.system).toBe(CATCH_UP_BLOCK_SYSTEM_PROMPT)
     expect(payload.max_tokens).toBe(CATCH_UP_BLOCK_MAX_TOKENS)
     const content = (payload.messages as Array<{ content: string }>)[0].content
-    expect(content).toContain('Anna arrives')
     expect(content).toContain('The races begin')
-    expect(content).not.toContain('Vronsky')
+    expect(content).toContain('Vronsky falls')
+    expect(content).not.toContain('Anna arrives')
     expect(content).not.toContain('LATER SECRET')
-    expect(env.ASSETS.fetched.some(path => path.endsWith('ch0004.json') || path.endsWith('ch0005.json'))).toBe(false)
+    expect(env.ASSETS.fetched.some(path => path.endsWith('ch0002.json') || path.endsWith('ch0005.json'))).toBe(false)
     await Promise.all(pending)
-    expect([...cache.entries.keys()]).toEqual([`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/chs-1-3/end`])
+    expect([...cache.entries.keys()]).toEqual([`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/chs-3-4/end`])
     // Single chapters keep the short entry prompt.
     const single = anthropicOk('Vronsky falls from his horse.')
     await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-4' }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic: single })
     expect((single.mock.calls[0] as unknown as [Record<string, unknown>])[0]).toMatchObject({ system: CATCH_UP_SYSTEM_PROMPT, max_tokens: CATCH_UP_MAX_TOKENS })
-    // A reversed or unknown range is refused, never widened.
-    for (const unitId of ['chs-3-1', 'chs-1-99', 'chs-0-2']) {
+    // A reversed or unknown range is refused, never widened; so is one across a part (every part has its own entry).
+    for (const unitId of ['chs-3-1', 'chs-1-99', 'chs-0-2', 'chs-1-3', 'chs-2-5']) {
       expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId }), env, ctx, allow, { reserveGuestSpend: spend, cache: null, fetchAnthropic })).status).toBe(400)
     }
     expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+  })
+
+  it('hard guard: nothing at or after the reader\'s chapter is served, from the model, the cache or a prepared file', async () => {
+    const { ctx, pending } = makeContext()
+    const cache = fakeCache()
+    const fetchAnthropic = anthropicOk('The races begin.')
+    const staticFile = { version: 1, units: { 'ch-4': { summary: 'Vronsky falls from his horse at the races.' }, 'part-part-2': { summary: 'The races, the fall and a later secret.' } } }
+    const env = { ANTHROPIC_API_KEY: 'k', ASSETS: fakeAssets({ staticFile }) }
+    const deps = { reserveGuestSpend: spend, cache, fetchAnthropic }
+    // Reader in chapter 4: chapter 3 is served, chapter 4 and anything reaching it never are.
+    expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-3', placeChapter: 4 }), env, ctx, allow, deps)).status).toBe(200)
+    for (const unitId of ['ch-4', 'ch-5', 'chs-3-4', 'part-part-2']) {
+      const response = await handleLabCatchUp(catchUpRequest({ ...partOne, unitId, placeChapter: 4 }), env, ctx, allow, deps)
+      expect(response.status).toBe(400)
+      expect(JSON.stringify(await response.json())).not.toMatch(/Vronsky|secret/i)
+    }
+    // A unit the reader is in, through a chapter at the place, is refused too.
+    expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'part-part-2', throughChapter: 4, placeChapter: 4 }), env, ctx, allow, deps)).status).toBe(400)
+    // An unknown place is refused rather than trusted.
+    expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-3', placeChapter: 99 }), env, ctx, allow, deps)).status).toBe(400)
+    await Promise.all(pending)
+    // A cached entry for a later chapter (another reader's) is not served to a reader before it.
+    cache.entries.set(`https://tinct.app/__lab-catch-up/${CATCH_UP_PROMPT_VERSION}/anna/original-en/ch-5/end`, JSON.stringify({ summary: 'A later secret is revealed to everyone.' }))
+    expect((await handleLabCatchUp(catchUpRequest({ ...partOne, unitId: 'ch-5', placeChapter: 5 }), env, ctx, allow, deps)).status).toBe(400)
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+    const content = ((fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>])[0].messages as Array<{ content: string }>)[0].content
+    expect(content).not.toContain('Vronsky')
+    expect(env.ASSETS.fetched.some(path => path.endsWith('ch0004.json') || path.endsWith('ch0005.json'))).toBe(false)
+  })
+
+  it('every catch-up prompt carries the chat\'s grounding: only what the span says, never an outcome it does not show', () => {
+    for (const prompt of [CATCH_UP_SYSTEM_PROMPT, CATCH_UP_BLOCK_SYSTEM_PROMPT, OWN_CATCH_UP_SYSTEM_PROMPT]) {
+      expect(prompt).toContain(LAB_RECAP_GROUNDING_RULE)
+      expect(prompt).toContain(LAB_ASK_CHECKED_SPECIFICS_RULE)
+    }
+    expect(LAB_RECAP_GROUNDING_RULE).toMatch(/^Only state what the text says\. Never state an outcome/)
+    expect(LAB_RECAP_GROUNDING_RULE).toMatch(/not in the span/)
   })
 
   it('a through chapter that ends the unit is the whole unit (one cache entry)', async () => {
