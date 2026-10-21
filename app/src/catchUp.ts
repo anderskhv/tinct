@@ -16,18 +16,30 @@
  * order; for a collection of separate works (the Bible, a short-story
  * collection; `catchUpSeparateWorks`) only those of the work the reader is in
  * (earlier works are other books and are never recapped). Of those:
- *  - the last CATCH_UP_RECENT_CHAPTERS (two) get an entry each, chapter by chapter;
- *  - everything before them is one compact block (a `range` unit, `chs-<from>-<to>`),
- *    or a plain chapter entry when it is a single chapter.
+ *  - the last CATCH_UP_RECENT_CHAPTERS (two) get an entry each, chapter by
+ *    chapter (a chapter under a page joins its neighbour in the same part, so
+ *    it never vanishes as "nothing to summarise");
+ *  - everything before them is grouped by the book's structure (Anders,
+ *    21 Oct 2026: "too much condensation, need at least one header per
+ *    book"): a group NEVER crosses a part, book or volume, so every part gets
+ *    at least its own entry; inside a part, consecutive chapters are grouped
+ *    by size, about CATCH_UP_GROUP_MIN_PAGES–CATCH_UP_GROUP_NEAR_PAGES pages
+ *    in the part the reader is in (or the last pages of a book without parts)
+ *    and up to CATCH_UP_GROUP_FAR_PAGES further back, so recent reading has
+ *    more detail and older reading is more compressed (the 3–25-page aim of
+ *    DECISIONS 2026-10-19). A group is a `range` unit (`chs-<from>-<to>`), a
+ *    whole part by its id, or one chapter.
  * The current chapter and anything after it are never included or requested:
- * the timeline ends at "You are here" (Anders, 8 Oct 2026).
+ * the timeline ends at "You are here" (Anders, 8 Oct 2026). Each request
+ * names the reader's chapter (`placeChapter`); the Worker refuses coverage at
+ * or after it and the client drops any entry that reaches it.
  */
 import type { Section } from './types'
 import type { LabRecapRequest } from './recapSummary'
 import { contentsBooks } from './lab/labContents'
 
 export const CATCH_UP_ROUTE = '/api/lab-catch-up'
-export const CATCH_UP_PROMPT_VERSION = 'catch-up-v3'
+export const CATCH_UP_PROMPT_VERSION = 'catch-up-v4'
 export const CATCH_UP_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 /** Unit ids are slugs: `book-2-kings`, `part-book-two-1805`, `ch-12`. */
 export const CATCH_UP_UNIT_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,95}$/
@@ -38,7 +50,22 @@ export type CatchUpUnitKind = 'book' | 'part' | 'chapter' | 'range'
 /** The chapters just before the current one that keep an entry each; earlier ones are one block. */
 export const CATCH_UP_RECENT_CHAPTERS = 2
 
-export interface CatchUpChapter { number: number; title: string }
+/** Sizes are optional: a chapter list without them is grouped by chapter count (CATCH_UP_FALLBACK_CHAPTER_WORDS). */
+export interface CatchUpChapter { number: number; title: string; wordCount?: number; paragraphCount?: number }
+
+/** Grouping sizes, in printed pages of CATCH_UP_WORDS_PER_PAGE words. */
+export const CATCH_UP_WORDS_PER_PAGE = 300
+export const CATCH_UP_GROUP_MIN_PAGES = 3
+/** In the part the reader is in (or the last CATCH_UP_NEAR_PAGES of a book without parts). */
+export const CATCH_UP_GROUP_NEAR_PAGES = 25
+/** Further back: more compressed. */
+export const CATCH_UP_GROUP_FAR_PAGES = 50
+/** A book without parts: how far back from the reader's chapter counts as near. */
+export const CATCH_UP_NEAR_PAGES = 120
+/** A chapter with no size at all counts as this many words. */
+export const CATCH_UP_FALLBACK_CHAPTER_WORDS = 3_000
+/** Under this, a recent chapter joins its neighbour in the same part instead of standing alone. */
+export const CATCH_UP_TINY_CHAPTER_WORDS = 250
 
 export interface CatchUpUnit {
   id: string
@@ -59,6 +86,12 @@ export interface CatchUpRequest {
   throughChapter?: number
   /** Shown to the model for context only; not part of the cache key. */
   bookTitle?: string
+  /**
+   * The reader's chapter (the place the sheet was opened at). Not part of the
+   * cache key: the Worker refuses any coverage at or after it, so nothing
+   * past the reader's place is ever summarised or sent.
+   */
+  placeChapter?: number
 }
 
 export interface CatchUpResponse {
@@ -192,10 +225,67 @@ export function catchUpFindUnit(units: CatchUpUnit[], chapters: CatchUpChapter[]
   return chapter ? { id: unitId, kind: 'chapter', title: chapter.title, chapters: [chapter.number] } : null
 }
 
+/** The top-level part (a `part` or biblical `book` unit) each chapter belongs to; chapters outside one are absent. */
+function partOf(units: CatchUpUnit[]): Map<number, CatchUpUnit> {
+  const map = new Map<number, CatchUpUnit>()
+  for (const unit of units) if (unit.kind === 'part' || unit.kind === 'book') for (const n of unit.chapters) map.set(n, unit)
+  return map
+}
+
+/** Which part a chapter is in, as a key: the part's id, or '' for a chapter outside any part. */
+export function catchUpPartKey(units: CatchUpUnit[], chapterNumber: number): string {
+  return partOf(units).get(chapterNumber)?.id ?? ''
+}
+
 /**
- * The timeline, oldest first (scope: see the header): one compact block for
- * the earlier chapters, then the last CATCH_UP_RECENT_CHAPTERS before the
- * current one, chapter by chapter. Never the current chapter or later.
+ * Whether a run of chapters crosses a part, book or volume (or runs from one
+ * into chapters outside any). A catch-up group never does; the Worker refuses one.
+ */
+export function catchUpCrossesParts(units: CatchUpUnit[], chapterNumbers: readonly number[]): boolean {
+  const parts = partOf(units)
+  return new Set(chapterNumbers.map(n => parts.get(n)?.id ?? '')).size > 1
+}
+
+/**
+ * Each chapter's size in words: its word count, else its paragraphs at the
+ * book's own words per paragraph (from the chapters that carry both), else
+ * CATCH_UP_FALLBACK_CHAPTER_WORDS.
+ */
+export function catchUpChapterWords(chapters: readonly CatchUpChapter[]): (chapter: CatchUpChapter) => number {
+  let words = 0, paragraphs = 0
+  for (const chapter of chapters) {
+    if (chapter.wordCount && chapter.wordCount > 0 && chapter.paragraphCount && chapter.paragraphCount > 0) {
+      words += chapter.wordCount
+      paragraphs += chapter.paragraphCount
+    }
+  }
+  const perParagraph = paragraphs > 0 ? words / paragraphs : 100
+  return chapter => {
+    if (chapter.wordCount && chapter.wordCount > 0) return chapter.wordCount
+    if (chapter.paragraphCount && chapter.paragraphCount > 0) return Math.round(chapter.paragraphCount * perParagraph)
+    return CATCH_UP_FALLBACK_CHAPTER_WORDS
+  }
+}
+
+/** "Part I — The Window" is named by "The Window · 1 – The Window · 5"; "Part One" is not named by "Chapter 1 – Chapter 5". */
+function namesPart(title: string, part: string): boolean {
+  const name = part.replace(/^(?:part|book|volume)\s+[\divxlc]+\s*[—–:.,-]?\s*/i, '').trim().toLowerCase()
+  return title.toLowerCase().includes(name || part.toLowerCase())
+}
+
+/**
+ * The places the sheet may show an entry for: chapters strictly before the
+ * reader's (chapter numbers are sequential, in reading order). The sheet
+ * filters by this and the client never sends a request beyond it.
+ */
+export function catchUpBeforePlace(entry: CatchUpEntry, placeChapter: number): boolean {
+  if (entry.kind !== 'unit') return entry.request.chapterNumber < placeChapter
+  return entry.chapters.length > 0 && entry.chapters.every(n => n < placeChapter)
+}
+
+/**
+ * The timeline, oldest first (scope and grouping: see the header). Never the
+ * current chapter or later.
  */
 export function catchUpPlan(input: {
   bookId: string
@@ -216,7 +306,11 @@ export function catchUpPlan(input: {
 }): CatchUpEntry[] {
   const here = input.chapters.findIndex(chapter => chapter.number === input.chapterNumber)
   if (here < 0) return []
-  const base = { bookId: input.bookId, editionKey: input.editionKey, ...(input.bookTitle ? { bookTitle: input.bookTitle } : {}) }
+  const base = {
+    bookId: input.bookId, editionKey: input.editionKey,
+    ...(input.bookTitle ? { bookTitle: input.bookTitle } : {}),
+    placeChapter: input.chapterNumber,
+  }
   // Strictly before the current chapter, in reading order.
   let earlier = input.chapters.slice(0, here)
   if (input.separateWorks) {
@@ -227,23 +321,80 @@ export function catchUpPlan(input: {
     while (start > 0 && inWork.has(earlier[start - 1].number)) start--
     earlier = earlier.slice(start)
   }
+  if (!earlier.length) return []
+  const parts = partOf(input.units)
+  const partKey = (chapter: CatchUpChapter) => parts.get(chapter.number)?.id ?? ''
+  const words = catchUpChapterWords(input.chapters)
+  const page = CATCH_UP_WORDS_PER_PAGE
+  const herePart = parts.get(input.chapterNumber)?.id ?? ''
+
+  // Near: in the reader's part; outside any part, within CATCH_UP_NEAR_PAGES of the reader's chapter.
+  const near = new Set<number>()
+  let behind = 0
+  for (let i = earlier.length - 1; i >= 0; i--) {
+    const chapter = earlier[i], key = partKey(chapter)
+    behind += words(chapter)
+    if (key ? key === herePart : behind <= CATCH_UP_NEAR_PAGES * page) near.add(chapter.number)
+  }
+
   const recentCount = Math.max(0, Math.floor(input.recent ?? CATCH_UP_RECENT_CHAPTERS))
   const split = Math.max(0, earlier.length - recentCount)
-  const block = earlier.slice(0, split)
-  const recent = earlier.slice(split)
-  const chapterEntry = (chapter: CatchUpChapter): CatchUpEntry => {
-    const unitId = catchUpChapterUnitId(chapter.number)
-    return { key: unitId, kind: 'unit', title: chapter.title, chapters: [chapter.number], request: { ...base, unitId } }
+  const older = earlier.slice(0, split)
+  const groups: CatchUpChapter[][] = []
+  // Older chapters: first the runs inside one part (a group never crosses one), then each run cut by size.
+  const runs: CatchUpChapter[][] = []
+  for (const chapter of older) {
+    const run = runs[runs.length - 1]
+    if (run && partKey(run[0]) === partKey(chapter)) run.push(chapter)
+    else runs.push([chapter])
   }
-  const entries: CatchUpEntry[] = []
-  if (block.length === 1) entries.push(chapterEntry(block[0]))
-  else if (block.length > 1) {
-    const first = block[0], last = block[block.length - 1]
+  const min = CATCH_UP_GROUP_MIN_PAGES * page
+  for (const run of runs) {
+    const cut: CatchUpChapter[][] = []
+    let group: CatchUpChapter[] = [], size = 0
+    for (const chapter of run) {
+      const w = words(chapter)
+      const last = group[group.length - 1]
+      const cap = (near.has(chapter.number) ? CATCH_UP_GROUP_NEAR_PAGES : CATCH_UP_GROUP_FAR_PAGES) * page
+      // A new group where the reach changes (far to near) or the group is full.
+      if (last && (near.has(last.number) !== near.has(chapter.number) || (size + w > cap && size >= min))) {
+        cut.push(group); group = []; size = 0
+      }
+      group.push(chapter)
+      size += w
+    }
+    // The part's last group under the minimum joins the one before it.
+    if (cut.length && size < min) cut[cut.length - 1].push(...group)
+    else cut.push(group)
+    groups.push(...cut)
+  }
+  // The most recent chapters, one each; a chapter under a page joins its neighbour in the same part.
+  const recent = earlier.slice(split).map(chapter => [chapter])
+  for (let i = 0; i < recent.length; i++) {
+    const [chapter] = recent[i]
+    if (recent[i].length !== 1 || words(chapter) >= CATCH_UP_TINY_CHAPTER_WORDS) continue
+    const next = recent[i + 1], previous = i > 0 ? recent[i - 1] : groups[groups.length - 1]
+    if (next && partKey(next[0]) === partKey(chapter)) { next.unshift(chapter); recent.splice(i, 1); i-- }
+    else if (previous && partKey(previous[previous.length - 1]) === partKey(chapter)) { previous.push(chapter); recent.splice(i, 1); i-- }
+  }
+  groups.push(...recent)
+
+  return groups.map(group => {
+    const first = group[0], last = group[group.length - 1]
+    const numbers = group.map(chapter => chapter.number)
+    const part = parts.get(first.number)
+    // The header names the part when the chapters' own titles do not ("Part One: Chapter 6").
+    const named = (title: string) => part && part.kind === 'part' && !namesPart(title, part.title) ? `${part.title}: ${title}` : title
+    if (group.length === 1) {
+      const unitId = catchUpChapterUnitId(first.number)
+      return { key: unitId, kind: 'unit' as const, title: named(first.title), chapters: numbers, request: { ...base, unitId } }
+    }
+    if (part && part.chapters.length === numbers.length && part.chapters.every((n, i) => n === numbers[i])) {
+      return { key: part.id, kind: 'unit' as const, title: part.title, chapters: numbers, request: { ...base, unitId: part.id } }
+    }
     const unitId = catchUpRangeUnitId(first.number, last.number)
-    entries.push({ key: unitId, kind: 'unit', title: catchUpRangeTitle(first, last), chapters: block.map(chapter => chapter.number), request: { ...base, unitId } })
-  }
-  for (const chapter of recent) entries.push(chapterEntry(chapter))
-  return entries
+    return { key: unitId, kind: 'unit' as const, title: named(catchUpRangeTitle(first, last)), chapters: numbers, request: { ...base, unitId } }
+  })
 }
 
 /** Cache key for one entry; the prompt version is part of it so a prompt change never serves a stale entry. */
