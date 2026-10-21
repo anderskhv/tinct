@@ -5075,7 +5075,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setChapterNotes(null)
     if (notes && beats) ask.keepExplanation(title, chapterNotesText(title, beats), Math.max(0, placeRef.current.paragraphIndex), { bookId: notes.request.bookId, chapterNumber: notes.request.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, chapterNotes, handleChat, handleTalk])
 
   // Catch me up hands what it showed to Chat or Talk the way Explain and
@@ -5085,7 +5085,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperSheet(null)
     if (text) ask.keepExplanation(CATCH_UP_TITLE, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber })
     if (mode === 'chat') handleChat()
-    else requestAnimationFrame(() => handleTalk())
+    else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
@@ -6582,7 +6582,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onTalkExplanation={(answer) => {
             ask.keepExplanation(selectionPopup.text, answer, selectionPopup.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber })
             dismissSelectionPopup()
-            // Let the explanation enter the hook's context before starting voice.
+            // Let the explanation enter the hook's context before starting voice;
+            // the microphone is asked for now, in the tap (Safari).
+            ask.primeVoice()
             requestAnimationFrame(() => handleTalk())
           }}
           onRequestExplanation={(onDelta, text, intent) => {
