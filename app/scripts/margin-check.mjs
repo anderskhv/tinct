@@ -2866,11 +2866,15 @@ async function phoneUi(browser, origin) {
     const D = await readerPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' })
     const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
     ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
-    // 1. The t menu's whole-document chat is Chat, and it opens the chat.
+    // 1. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk on one row (Chat opens the whole-document
+    // chat), Summarize, Catch me up off on the first unit, Reading settings, this reader's own rows, Library, Profile.
     await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
-    const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
-    ok('the t menu names the whole-document chat "Chat" (no Librarian)', rows[0] === 'chat:Chat' && !rows.some(r => /librarian/i.test(r)), rows)
-    await D.page.click('.lab-super-row[data-row="chat"]'); await D.page.waitForTimeout(500)
+    const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
+    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'settings:Reading settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
+    ok('the t menu is Chat · Talk, Summarize, Reading settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
+    const sel = await D.page.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect)
+    ok('the top bar\'s Aa is never selected as text', sel === 'none', sel)
+    await D.page.click('.lab-super-row-half[data-row="chat"]'); await D.page.waitForTimeout(500)
     ok('the t menu\'s Chat opens the whole-document chat (the margin\'s Whole PDF card)', await D.page.evaluate(() => !!document.querySelector('.mr-col .mr-card.is-whole.is-open')))
     // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
     // (A PDF's size control on the desktop is Zoom's − and + since 19 Oct 2026, evening; the phone keeps the slider.)

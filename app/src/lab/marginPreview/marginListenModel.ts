@@ -188,3 +188,25 @@ export function marginListenSnapshot(input: {
     message: error,
   }
 }
+
+/** Reading settings' Voice in the preview: the book reader's own choices (LabV2Sheet's voice row). */
+export interface MarginVoiceChoices { value: string; options: Array<{ value: string; label: string }> }
+
+export function marginVoiceChoices(prefs: Pick<LabPrefs, 'audiobookVoice' | 'voicePersona'>, provider: string | undefined): MarginVoiceChoices {
+  if (provider !== 'grok') return { value: prefs.voicePersona, options: [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }] }
+  return {
+    value: prefs.audiobookVoice || prefs.voicePersona,
+    options: [
+      { value: 'female', label: 'Ara · Female' },
+      { value: 'male', label: 'Helios · Male' },
+      { value: 'orion', label: 'Orion · Male' },
+      { value: 'eve', label: 'Eve · Female' },
+    ],
+  }
+}
+
+/** The preferences with this voice chosen, as the book reader's voice row writes them. */
+export function withMarginVoice<P extends LabPrefs>(prefs: P, value: string): P {
+  if (value === 'orion' || value === 'eve') return { ...prefs, audiobookVoice: value, voicePersonaChosen: true }
+  return { ...prefs, audiobookVoice: null, voicePersona: value === 'male' ? 'male' : 'female', voicePersonaChosen: true }
+}
