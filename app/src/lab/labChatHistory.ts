@@ -79,6 +79,7 @@ function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: numbe
     paragraphIndex: isFiniteInt(src.paragraphIndex, 0, 10_000) ? src.paragraphIndex : undefined,
     ...(typeof src.highlightedText === 'string' && src.highlightedText ? { highlightedText: src.highlightedText.slice(0, MAX_CONTENT) } : {}),
     ...(src.isComplete === false ? { isComplete: false } : src.isComplete === true ? { isComplete: true } : {}),
+    ...(src.cutOff === true && src.role === 'assistant' && src.isComplete === false ? { cutOff: true } : {}),
     ...(source ? { source } : {}),
     ...(src.shownExplanation === true ? { shownExplanation: true } : {}),
   }
@@ -293,7 +294,8 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
       chapterNumber: message.chapterNumber ?? conversation.chapterNumber,
       paragraphIndex: message.paragraphIndex ?? conversation.paragraphIndex,
       highlightedText: message.highlightedText,
-      cancelled: message.isComplete === false,
+      // A cut-off answer is incomplete but not cancelled: it is shown with Continue.
+      ...(message.cutOff ? { cutOff: true } : { cancelled: message.isComplete === false }),
       ...(message.shownExplanation ? { shownExplanation: true } : {}),
     }))
 }
@@ -413,6 +415,28 @@ function appendTurnToConversations(
   }]
 }
 
+/**
+ * The history with a stored cut-off answer replaced by `incoming`, its
+ * continuation (the same id, the answer so far and more), or null when
+ * `incoming` continues no stored cut-off answer. The answer keeps its place,
+ * time and chapter; only its text and completeness change.
+ */
+function continuedCutOffAnswer(current: ChatConversation[], incoming: ChatMessage): ChatConversation[] | null {
+  if (incoming.role !== 'assistant') return null
+  for (const [index, conversation] of current.entries()) {
+    const at = conversation.messages.findIndex(message => message.id === incoming.id)
+    if (at < 0) continue
+    const stored = conversation.messages[at]
+    if (!stored.cutOff || stored.role !== 'assistant' || incoming.content.length <= stored.content.length) return null
+    const replaced: ChatMessage = { ...stored, content: incoming.content, isComplete: incoming.isComplete !== false }
+    if (incoming.cutOff) replaced.cutOff = true
+    else delete replaced.cutOff
+    const messages = conversation.messages.map((message, position) => (position === at ? replaced : message))
+    return current.map((item, position) => (position === index ? { ...conversation, messages } : item))
+  }
+  return null
+}
+
 /** The device copy, plus anything `base` holds that it lacks (normally nothing: then the copy itself, in its stored order). */
 function withUnsaved(local: ChatConversation[], base: ChatConversation[] | undefined): ChatConversation[] {
   if (!base || base.length === 0) return local
@@ -457,7 +481,9 @@ export function appendLabChatTurn(
     paragraphIndex,
     timestamp: now,
   }
-  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+  // Continue on a cut-off answer: the joined answer replaces it, under its id and in its place.
+  const continued = continuedCutOffAnswer(current, enriched)
+  const next = continued ?? trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next

@@ -5464,6 +5464,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               handleTalk()
             }}
             onRetry={ask.retryTyped}
+            onContinue={ask.continueAnswer}
             notice={dictation.notice || ask.notice}
             onDone={marginPhone ? undefined : () => { dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}

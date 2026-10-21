@@ -34,6 +34,8 @@ interface LabAskPaneProps {
   /** Absent: no voice conversation is offered (a reader's own book). */
   onVoiceMode?: () => void
   onRetry?: () => void
+  /** Continue on an answer cut off by its length bound (LabAskTurn.cutOff). */
+  onContinue?: (turnId: string) => void
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
@@ -110,6 +112,7 @@ export function LabAskPane({
   onMic,
   onVoiceMode,
   onRetry,
+  onContinue,
   notice,
   onDone,
   phoneSheet = false,
@@ -663,6 +666,10 @@ export function LabAskPane({
             ) : (
               <div key={turn.id} className={`tc-turn tc-a${live ? ' is-streaming' : ''}`} data-chat-row data-testid="lab-ask-turn-assistant" data-turn-id={turn.id}>
                 <div className="tc-answer"><div className="tc-md"><LabMarkdown words={live}>{turn.content}</LabMarkdown></div></div>
+                {turn.cutOff && !live && onContinue && (
+                  // Cut off by its length bound: never shown as finished (Bible chat, 21 Oct 2026).
+                  <button type="button" className="tc-older tc-continue" data-testid="lab-ask-continue" disabled={typedLoading} onClick={() => onContinue(turn.id)}>Continue</button>
+                )}
                 {acts}
               </div>
             )

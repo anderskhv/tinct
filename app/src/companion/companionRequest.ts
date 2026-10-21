@@ -141,10 +141,14 @@ export const QUIZ_CHECK_PASSAGE_CHARS = 4000
 
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
-  ask: 1024,
+  // Ask and the chapter actions run on the companion model, whose adaptive thinking (on by default, at the
+  // `medium` effort below) counts toward this bound: at 1024 a long Bible answer stopped mid-word once the
+  // thinking had used its share (21 Oct 2026). 3072 leaves room for both; a rarer overrun continues once
+  // (worker/routes/chat.ts streamCutOffContinuation). Only tokens written are paid for, never the bound.
+  ask: 3072,
   explain: 450,
   define: 450,
-  chapter: 1024,
+  chapter: 3072,
   library: 900,
   simplify: 450,
   define_sense: 60,

@@ -22,6 +22,8 @@ export interface LabAskTurn {
   /** Passage the reader attached to this question. Kept separate from the visible question. */
   highlightedText?: string
   cancelled?: boolean
+  /** The answer stopped on its length bound: shown with Continue, never as finished. */
+  cutOff?: boolean
   /** A quick-model explanation (Explain, or a chapter-notes card) carried into
    *  the conversation. Shown as before; the companion receives it as unverified
    *  context, never as its own earlier answer (see separateShownExplanations). */
