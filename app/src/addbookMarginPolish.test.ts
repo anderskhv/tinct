@@ -279,9 +279,10 @@ describe('7. Before you start opens in place', () => {
   })
   // Since 19 Oct 2026, night, its trigger on the wide column is the Primer of its unit's start mark (level with the
   // unit's heading): it opens under the mark.
-  it('in the column it is part of the page (19 Oct 2026): under its unit\'s start mark, growing in place, no easing or scrolling of its own', () => {
-    expect(reader).toContain("const ey = Y(pr.top + at.head.y * pr.height), el = unitMark(u, 'start', doc); seenMarks.add(el);")
-    expect(reader).toContain('items.push({ el, ey, top: ey, order: -1, rule: true,')
+  // (Since 21 Oct 2026 the unit's pills sit beside its heading on the page: the primer opens in the column level with it.)
+  it('in the column it is part of the page (19 Oct 2026): level with its unit\'s heading, growing in place, no easing or scrolling of its own', () => {
+    expect(reader).toContain('const ey = Y(pr.top + at.head.y * pr.height);')
+    expect(reader).toContain('const hp = headPills(u, p, at);')
     expect(reader).toContain('items.push({ el: pe, ey, top: ey, order: -0.9 });')
     expect(reader).not.toMatch(/is-growing|is-opening|primerInColumn/)
     expect(css).not.toMatch(/\.mr-primer\.is-(?:opening|growing)/)

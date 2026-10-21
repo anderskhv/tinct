@@ -3890,7 +3890,7 @@ const dictation = {
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
 const mpReady = import('/lab/margin/margin-parse.js?v=20261020epub').then(m => (MP.P = m)).catch(() => null);
-const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map() };
+const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map(), heads: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
 const undo = { el: null, timer: 0, rect: null, restore: null };
@@ -4558,7 +4558,7 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
-    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear() }
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills(); paraSparkHide(true) }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
@@ -4692,43 +4692,36 @@ function layoutColumn() {
   // Chat: open, its own panel (fixed); folded, at the document's top.
   if (col.open === 'whole') { const el = take('whole', col.el); drawWhole(el); el.style.top = '0px' }
   else if (chat.turns.length || chat.live) { const el = take('whole'); drawWhole(el); items.push({ el, ey: docTop, top: docTop, order: -2 }) }
-  // Each unit's marks (Anders's mockup, 19 Oct 2026, night): in the column and scrolling with the page, never pinned.
-  // The start mark's rule level with the top of the unit's heading on the page ("Starting", Primer, Catch me up),
-  // Before you start and the catch-up opening under it; the end mark's level with the top of its last line ("End of",
-  // Recap, Quiz me, Note), their cards under it. A short tick runs out to the page; a mark pushed down by the one
-  // before it keeps its tick at the heading, slanting to the mark (as a card's leader line). Units near the reader's
-  // place are drawn (their pages are), and the unit of an open unit card.
+  // Each unit's pills sit beside its heading in the text, shown on hover or focus (Anders, 21 Oct 2026: the column's
+  // Starting / End of marks and their lines are gone): Primer, Catch me up, Recap, Quiz me (headPills). Its cards open in
+  // the column level with the heading's top: Before you start, the catch-up, the recap, the quiz, the reader's notes on
+  // it. Units near the reader's place are drawn (their pages are), and the unit of an open unit card. The whole book's
+  // Before you start keeps its own mark at the very top of the first page (it has no heading of its own).
   const units = primerHasText() ? markUnits() : [];
   // The whole book's Before you start, at the very top of the first page (an EPUB of the reader's own): its own mark.
   const bookUnit = primer.book && primerHasText() && placePage() <= Math.max(3, primer.units?.[0]?.start || 1) ? primer.book : null;
   if (bookUnit) units.unshift(bookUnit);
-  const seenMarks = new Set();
+  const seenMarks = new Set(), seenHeads = new Set();
   if (!units.some(u => primer.open && primer.unit?.key === u.key)) { if (!primer.open) { primer.el?.remove(); primer.el = null } }
   for (const u of units) {
     const at = unitPlaceNow(u); if (!at) continue;
     const p = state.pages[at.head.page - 1], pr = p?.pg.getBoundingClientRect();
-    if (pr) {
-      const ey = Y(pr.top + at.head.y * pr.height), el = unitMark(u, 'start', doc); seenMarks.add(el);
-      items.push({ el, ey, top: ey, order: -1, rule: true, mark: 'start', unit: u.key, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot });
-      if (primer.open && primer.unit?.key === u.key) {
-        const pe = primerEl(); pe.classList.remove('is-floating');
-        if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
-        drawPrimer(pe);
-        items.push({ el: pe, ey, top: ey, order: -0.9 });
-      }
-      const cu = u.key === BOOK_UNIT ? null : unitCard(u, 'catchup');
-      if (cu) { const ce = take(cu.id); drawCard(ce, cu, col.open === cu.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 }) }
+    if (!pr) continue;
+    const ey = Y(pr.top + at.head.y * pr.height);
+    if (u.key === BOOK_UNIT) { const el = unitMark(u, 'start', doc); seenMarks.add(el); items.push({ el, ey, top: ey, order: -1 }) }
+    else { const hp = headPills(u, p, at); if (hp) seenHeads.add(hp) }
+    if (primer.open && primer.unit?.key === u.key) {
+      const pe = primerEl(); pe.classList.remove('is-floating');
+      if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
+      drawPrimer(pe);
+      items.push({ el: pe, ey, top: ey, order: -0.9 });
     }
-    const q = state.pages[at.end.page - 1], qr = u.key === BOOK_UNIT ? null : q?.pg.getBoundingClientRect();
-    if (qr) {
-      const ey = Y(qr.top + at.end.y * qr.height), el = unitMark(u, 'end', doc); seenMarks.add(el);
-      // Before the next unit's start mark when they meet.
-      items.push({ el, ey, top: ey, order: -1.6, rule: true, mark: 'end', unit: u.key, x0: X(Math.min(pageEdge(q), sr.left + area)) + C.dot });
-      const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
-      [...['recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -1.59 + k * 0.001, endOf: u.key }) });
-    }
+    if (u.key === BOOK_UNIT) continue;
+    const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
+    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 + k * 0.001 }) });
   }
   for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
+  for (const [k, el] of col.heads) if (!seenHeads.has(el)) dropHeadPill(k);
   if (primer.open && !units.some(u => u.key === primer.unit?.key)) { primer.el?.remove(); primer.el = null }
   // The cards, each at its passage's line.
   for (const card of viewCards()) {
@@ -4755,25 +4748,9 @@ function layoutColumn() {
   const lines = [];
   for (let i = 0; i < items.length; i++) {
     const it = items[i];
-    let want = Math.round(it.top);
-    // A unit's end meeting the next unit's start (Anders, 19 Oct 2026, night: the start rule sits exactly above the
-    // heading): the end mark, with its cards, moves up so it ends clear of the start rule, its tick slanting from the
-    // last line; only with no room above does the start mark go down instead.
-    if (it.mark === 'end') {
-      let j = i + 1, h = it.el.offsetHeight;
-      while (j < items.length && items[j].endOf === it.unit) { h += C.cardGap + items[j].el.offsetHeight; j++ }
-      const next = items[j], at = next && next.mark === 'start' ? Math.round(next.top) : null;
-      if (at != null && Math.max(want, floor) + h + C.cardGap > at && at - C.cardGap - h >= floor) {
-        want = at - C.cardGap - h;
-        // Its cards follow it directly.
-        for (let k = i + 1; k < j; k++) items[k].top = 0;
-      }
-    }
-    const top = Math.max(want, floor);
+    const top = Math.max(Math.round(it.top), floor);
     if (it.el.style.top !== top + 'px') it.el.style.top = top + 'px';
     floor = top + it.el.offsetHeight + C.cardGap;
-    // A unit mark's rule: a tick from the page to the column, level with the heading (or the last line); moved, slanting to the mark.
-    if (it.rule) { lines.push(`<path class="is-rule" d="${Math.abs(top - it.ey) <= 1 ? `M${it.x0} ${it.ey} H${left}` : `M${it.x0} ${it.ey} H${it.x0 + 12} L${left - 12} ${top} H${left}`}"/>`); continue }
     // A note with no passage (a margin note, a unit's note) has no line to a passage.
     if (!it.card || it.card.free) continue;
     const cy = top + it.mid, x0 = it.x0, x1 = left - 6, folded = it.card.id === col.open ? '' : ' class="is-folded"';
@@ -5643,7 +5620,7 @@ function quizEnded(live, questions, stopped) {
 /** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
 const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
 /** An action from the bar or More on the held passage: a new card, opened, its answer on the way. */
-function cardAction(kind, { question = '' } = {}) {
+function cardAction(kind, { question = '', data = null } = {}) {
   if (!mr) return;
   const info = mr.info, anchor = mr.anchor;
   marginClose(); getSelection().removeAllRanges();
@@ -5659,7 +5636,7 @@ function cardAction(kind, { question = '' } = {}) {
       return;
     }
   }
-  const card = withSpan(TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : null }), info);
+  const card = withSpan(TinctMargin.newCard({ kind, page: info.page, anchor, text: info.text, turns: kind === 'ask' ? [{ role: 'user', content: question, at: Date.now() }] : [], data: kind === 'quiz' ? { questions: [], i: 0, results: [] } : data }), info);
   store.set('cards:' + state.key, [...keptCards(), card]); cardsSync.changed();
   col.view = null;
   // A new card is always the open one: never folded to a row or gathered into "N more", and it has the focus.
@@ -5782,7 +5759,7 @@ document.addEventListener('pointerdown', e => { if (col.sheet && marginMode() ==
 document.addEventListener('pointerdown', e => {
   const mode = marginMode();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
-  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
+  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-pspark, .mr-pmenu, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);
 }, true);
 // "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
@@ -5820,7 +5797,7 @@ function primerReset() {
   Object.assign(primer, { units: null, parts: null, book: null, open: false, unit: null, data: null, wait: false, status: '' });
   primer.away.clear(); primer.places.clear();
   primer.el?.remove(); primer.trig?.remove(); primer.el = null; primer.trig = null;
-  for (const el of col.pills.values()) el.remove(); col.pills.clear();
+  for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills();
 }
 /**
  * The units, from the outline: each top-level entry resolved to its page, with a part's own entries
@@ -6084,8 +6061,8 @@ function closePrimer() {
   primer.el?.remove(); primer.el = null;
   if (col.sheet?.dataset.id === 'primer') { col.sheet.remove(); col.sheet = null }
   marginLayout();
-  // The focus goes back to the unit's Primer pill (the wide column), else the pages.
-  const pill = key && col.pills.get(key + ':start')?.querySelector('[data-pill="primer"]');
+  // The focus goes back to the unit's Primer pill (beside its heading, or the whole book's mark), else the pages.
+  const pill = key && (col.heads.get(key) || col.pills.get(key + ':start'))?.querySelector('[data-pill="primer"]');
   if (had) requestAnimationFrame(() => (pill?.isConnected ? pill : $('scroll')).focus?.({ preventScroll: true }));
 }
 const togglePrimer = opts => (primer.open ? closePrimer() : openPrimer(undefined, opts));
@@ -6194,6 +6171,158 @@ function unitMark(unit, where, doc) {
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
 }
+/** An EPUB's (or a Tinct text's) unit heading: the chapter's title, else its first heading; none for the whole book. */
+function unitHeadEl(u) {
+  const p = state.pages[u.start - 1]; if (!p || u.key === BOOK_UNIT) return null;
+  return p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
+}
+/*
+ * A unit's pills beside its heading (Anders, 21 Oct 2026; the desktop's wide column): Primer · Catch me up · Recap ·
+ * Quiz me, small, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
+ * heading has the focus, then faded (CSS). Catch me up is left out where nothing came before. A touch-only screen shows
+ * them all the time (CSS, hover: none). In an EPUB they sit inside the heading (no text of their own); on a PDF's page,
+ * over it at the end of the heading's line, shown by the pointer's place (headHover).
+ */
+function headPills(u, p, at) {
+  let el = col.heads.get(u.key);
+  if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(u.key, el) }
+  const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open) || '';
+  const ids = nothingBefore(u) ? ['primer', 'recap', 'quiz'] : ['primer', 'catchup', 'recap', 'quiz'];
+  const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, open, phrase]);
+  if (el.dataset.sig !== sig) {
+    el.dataset.sig = sig;
+    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: Primer, Recap, Quiz me`);
+    el.innerHTML = TinctMargin.html.headPillsHtml(ids, { open, name: phrase, line: TinctMargin.triggerLine(u) });
+  }
+  if (isEpub()) {
+    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return null }
+    if (el.parentElement !== head) { el.classList.remove('is-page'); head.append(el) }
+    if (!head.classList.contains('mr-hp-head')) { head.classList.add('mr-hp-head'); if (!head.hasAttribute('tabindex')) { head.tabIndex = 0; head.dataset.mrTab = '1' } }
+    placeHeadPills(el, head);
+  } else {
+    if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
+    placePagePills(el, p, at.head.y);
+  }
+  return el;
+}
+const setPos = (el, left, top) => { const l = Math.round(left) + 'px', t = Math.round(top) + 'px'; if (el.style.left !== l) el.style.left = l; if (el.style.top !== t) el.style.top = t };
+/** In the heading: just after its last word, centred on that line; with no room left in the column, under its first line's start. */
+function placeHeadPills(el, head) {
+  const r = document.createRange(); r.selectNodeContents(head);
+  const lines = textRects(r).filter(b => b.height > 0 && b.width > 0); if (!lines.length) return;
+  const hb = head.getBoundingClientRect(), last = lines.reduce((a, b) => (b.bottom > a.bottom + 1 || (Math.abs(b.bottom - a.bottom) <= 1 && b.right > a.right) ? b : a));
+  const w = el.offsetWidth, h = el.offsetHeight, room = head.closest('.epub-pg')?.getBoundingClientRect().right ?? hb.right;
+  if (last.right + 12 + w <= room) setPos(el, last.right - hb.left + 12, last.top - hb.top + (last.height - h) / 2);
+  else setPos(el, lines[0].left - hb.left, last.bottom - hb.top + 2);
+}
+/** On a PDF's page: the heading's line from the text layer (its right end), measured once per page size. */
+function placePagePills(el, p, y) {
+  el._p = p; el._y = y;
+  const b = p.pg.getBoundingClientRect(), key = [Math.round(b.width), Math.round(b.height), y, p.pg.querySelectorAll('.text-layer span').length].join('|');
+  if (el.dataset.at !== key) {
+    el.dataset.at = key;
+    const top = b.top + y * b.height;
+    const spans = [...p.pg.querySelectorAll('.text-layer span')].map(s => s.getBoundingClientRect()).filter(r => r.width > 0 && r.height > 0 && Math.abs(r.top - top) <= Math.max(3, r.height * 0.6));
+    const band = spans.length
+      ? { left: Math.min(...spans.map(r => r.left)), right: Math.max(...spans.map(r => r.right)), top: Math.min(...spans.map(r => r.top)), bottom: Math.max(...spans.map(r => r.bottom)) }
+      : { left: b.left + b.width * 0.1, right: b.left + b.width * 0.5, top, bottom: top + b.height * 0.03 };
+    el._band = { x0: (band.left - b.left) / b.width, x1: (band.right - b.left) / b.width, y0: (band.top - b.top) / b.height, y1: (band.bottom - b.top) / b.height };
+  }
+  const f = el._band, h = el.offsetHeight, w = el.offsetWidth;
+  const left = Math.min(f.x1 * b.width + 12, b.width - w - 8), mid = (f.y0 + f.y1) / 2 * b.height;
+  setPos(el, Math.max(8, left), mid - h / 2);
+}
+function dropHeadPill(key) {
+  const el = col.heads.get(key); if (!el) return;
+  const head = el.closest('.mr-hp-head');
+  if (head) { head.classList.remove('mr-hp-head'); if (head.dataset.mrTab) { head.removeAttribute('tabindex'); delete head.dataset.mrTab } }
+  el.remove(); col.heads.delete(key);
+}
+function dropHeadPills() { for (const k of [...col.heads.keys()]) dropHeadPill(k) }
+// A pill beside a heading: its unit's card (pillAction); the press never starts a selection in the heading.
+$('scroll').addEventListener('mousedown', e => { if (e.target.closest?.('.mr-hp, .mr-pspark, .mr-pmenu')) e.preventDefault() });
+$('scroll').addEventListener('click', e => {
+  const pill = e.target.closest?.('.mr-hp .mr-pill'); if (!pill) return;
+  e.preventDefault(); e.stopPropagation();
+  pillAction(pill.dataset.pill, pill.closest('.mr-hp').dataset.unit);
+});
+/* A PDF's headings are its text layer's spans: the pointer over a heading's line (or its pills) shows them. */
+function headHover(e) {
+  if (isEpub() || !col.heads.size) return;
+  for (const el of col.heads.values()) {
+    if (!el.classList.contains('is-page') || !el._p) continue;
+    placePagePills(el, el._p, el._y); // its line again once the page's text layer is drawn
+    const b = el.parentElement?.getBoundingClientRect(); if (!b) continue;
+    const f = el._band, over = e.clientX >= b.left + f.x0 * b.width - 6 && e.clientX <= b.left + f.x1 * b.width + 6 && e.clientY >= b.top + f.y0 * b.height - 6 && e.clientY <= b.top + f.y1 * b.height + 6;
+    el.classList.toggle('is-shown', over || el.contains(e.target));
+  }
+}
+/*
+ * A paragraph's ✧ (Anders, 21 Oct 2026; the desktop's wide column, a pointer that hovers): at the paragraph's left edge,
+ * in the margin beside the text, while the pointer is over it. Clicked, it offers Quiz me and Recap on that paragraph,
+ * the selection's own Quiz me and Explain (cardAction) with the paragraph as the passage: the quiz asks as many questions
+ * as the paragraph holds key ideas (one or two for most), the recap is an Explain card named Recap.
+ */
+const spark = { el: null, menu: null, para: null, timer: 0 };
+const SPARK_PARAS = 'p, li, blockquote, dd';
+const hoverPointer = matchMedia('(hover: hover) and (pointer: fine)');
+function paraSparkHide(now = false) {
+  clearTimeout(spark.timer);
+  const go = () => { spark.el?.classList.remove('is-shown'); spark.el?.setAttribute('aria-expanded', 'false'); spark.menu?.remove(); spark.menu = null; spark.para = null };
+  if (now) go(); else spark.timer = setTimeout(() => { if (!spark.menu) go() }, 450);
+}
+function paraSparkAt(para) {
+  clearTimeout(spark.timer);
+  if (spark.para === para && spark.el?.classList.contains('is-shown')) return;
+  spark.menu?.remove(); spark.menu = null;
+  const sc = $('scroll'); if (!para.closest('.epub-pg')) return;
+  if (!spark.el) {
+    spark.el = document.createElement('button'); spark.el.type = 'button'; spark.el.className = 'mr mr-pspark';
+    spark.el.setAttribute('aria-label', 'Quiz me or Recap on this paragraph'); spark.el.setAttribute('aria-haspopup', 'menu');
+    spark.el.addEventListener('click', e => { e.stopPropagation(); if (spark.menu) { spark.menu.remove(); spark.menu = null; spark.el.setAttribute('aria-expanded', 'false') } else paraMenu() });
+  }
+  // In the scroller (the page's sheet clips what leaves it), in its coordinates: it scrolls with the paragraph.
+  if (spark.el.parentElement !== sc) sc.append(spark.el);
+  spark.para = para;
+  const r = document.createRange(); r.selectNodeContents(para);
+  const first = textRects(r).find(b => b.height > 0) || para.getBoundingClientRect(), sr = sc.getBoundingClientRect(), h = spark.el.offsetHeight || 28;
+  setPos(spark.el, para.getBoundingClientRect().left - sr.left + sc.scrollLeft - 34, first.top - sr.top + sc.scrollTop + (first.height - h) / 2);
+  spark.el.classList.add('is-shown');
+}
+function paraMenu() {
+  if (!spark.para || !spark.el) return;
+  const m = spark.menu = document.createElement('div');
+  m.className = 'mr mr-pmenu'; m.setAttribute('role', 'menu');
+  m.innerHTML = '<button type="button" role="menuitem" data-pa="quiz">Quiz me</button><span class="mr-pmenu__sep" aria-hidden="true"></span><button type="button" role="menuitem" data-pa="recap">Recap</button>';
+  m.addEventListener('click', e => { const b = e.target.closest('[data-pa]'); if (!b) return; e.stopPropagation(); paraAction(spark.para, b.dataset.pa) });
+  spark.el.after(m); spark.el.setAttribute('aria-expanded', 'true');
+  setPos(m, parseFloat(spark.el.style.left), parseFloat(spark.el.style.top) + spark.el.offsetHeight + 6);
+  m.querySelector('button').focus({ preventScroll: true });
+}
+/** Quiz me or Recap on a whole paragraph: the selection's path (cardAction), the paragraph as the passage. */
+function paraAction(para, what) {
+  const r = document.createRange(); r.selectNodeContents(para);
+  const info = rangeInfo(r); paraSparkHide(true);
+  if (!info) return;
+  marginClose();
+  mr = { info, anchor: anchorOf(info.rects), ids: [], held: false, own: true, mode: null, el: null, moreEl: null, base: null, before: '' };
+  sel = info;
+  cardAction(what === 'quiz' ? 'quiz' : 'explain', what === 'recap' ? { data: { recap: true } } : {});
+}
+document.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse' || e.buttons || marginMode() !== 'column') return;
+  headHover(e);
+  if (!isEpub() || !hoverPointer.matches) return;
+  const t = e.target;
+  if (t.closest?.('.mr-pspark, .mr-pmenu')) { clearTimeout(spark.timer); return }
+  const para = t.closest?.(SPARK_PARAS);
+  const ok = para && para.closest('.epub-pg') && !para.closest('.epub-sheet.is-front, .epub-sheet.is-toc, .mr-hp-head, figure') && para.textContent.trim().length >= 40;
+  if (ok) paraSparkAt(para); else if (spark.para) paraSparkHide();
+}, { passive: true });
+$('scroll').addEventListener('scroll', () => { if (spark.para && !spark.menu) paraSparkHide(true) }, { passive: true });
+// The paragraph's menu closes on a press elsewhere or Escape (the focus back on its ✧).
+document.addEventListener('pointerdown', e => { if (spark.menu && !e.target.closest?.('.mr-pspark, .mr-pmenu')) paraSparkHide(true) }, true);
+addEventListener('keydown', e => { if (e.key === 'Escape' && spark.menu) { e.preventDefault(); e.stopImmediatePropagation(); spark.menu.remove(); spark.menu = null; spark.el?.setAttribute('aria-expanded', 'false'); spark.el?.focus({ preventScroll: true }) } }, true);
 /** A unit's pages as printed: "pp. 10–18", "p. 4"; none for a band, whose name says them. */
 function unitPagesLabel(unit) {
   // An EPUB's units are its chapters (the preview's too): no pages to name.
@@ -6220,7 +6349,7 @@ function previewUnitPlace(u) {
   const p = state.pages[u.start - 1], q = state.pages[u.to - 1]; if (!p || !q) return null;
   const at = (pg, y) => { const r = pg.getBoundingClientRect(); return r.height > 0 ? (y - r.top) / r.height : 0 };
   // An EPUB of the reader's own: the unit's first heading in its first chapter (the book's own <h1>…); none, the chapter's top.
-  const head = u.key === BOOK_UNIT ? null : p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
+  const head = unitHeadEl(u);
   const last = [...epubParas(q)].reverse().find(el => el.textContent.trim().replace(/\u200b/g, ''));
   let y = null;
   if (last) { const r = document.createRange(); r.selectNodeContents(last); const lines = textRects(r).filter(b => b.height > 0); y = lines.length ? lines[lines.length - 1].top : last.getBoundingClientRect().top }
