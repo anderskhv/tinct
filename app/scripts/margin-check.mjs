@@ -5099,6 +5099,28 @@ async function epubViewCheck(browser, origin) {
     ok(`${tag}: no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()
   }
+  // A second book opened while the first one's fonts are still held (Anders's rule: never lose a place): the first open's
+  // font wait ends at once when the next open begins, and its fonts-ready callback, stale, moves nothing; the second
+  // book's place lands exactly. In place (reader.js openFromUrl, as the shelf and a dropped file open a book), not a new page.
+  {
+    const tag = 'epub-view-1440x900-late-fonts-next-book', hexB = addEssays()
+    const E = await epubPage(browser, origin, hexB, { width: 1440, height: 900, fontDelay: 2500 })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.evaluate(() => { const n = state.pages.findIndex(q => epubParas(q).some(x => x.textContent.length > 400)), el = epubParas(state.pages[n]).find(x => x.textContent.length > 400); goTo({ page: n + 1, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.5; r() }))) })
+    await e.waitForTimeout(400); await epubSettled(e); await e.evaluate(() => savePlaceNow())
+    const hereB = await e.evaluate(spotNow)
+    // Book A, its fonts held: its place restored, its font wait on.
+    await e.goto(`${origin}/lab/addbook/?userBook=${hex}`, { waitUntil: 'commit' })
+    const waiting = await e.waitForFunction(() => typeof epubHold !== 'undefined' && typeof state !== 'undefined' && isEpub() && epubHold.opened === state.token && epubHold.reflow > 0 && document.fonts.status === 'loading', null, { timeout: 15000, polling: 50 }).then(() => true).catch(() => false)
+    // Book B, opened within that wait: A's wait is gone as B's open begins.
+    const handoff = await e.evaluate(h => new Promise(r => { const was = state.token; openFromUrl(h); const look = () => state.token !== was ? r({ reflow: epubHold.reflow, fonts: document.fonts.status }) : setTimeout(look, 0); look() }), hexB)
+    await e.waitForFunction(h => state.key === 'epub:' + h && epubHold.opened === state.token, hexB, { timeout: 30000 }); await epubSettled(e); await e.waitForTimeout(500); await epubSettled(e)
+    const landed = await e.evaluate(spotNow)
+    ok(`${tag}: a book opened while another's late fonts are held ends that wait at once, and lands exactly at its own place`, waiting && handoff.reflow === 0 && hereB.word > 0 && landed.page === hereB.page && landed.para === hereB.para && landed.word === hereB.word, { waiting, handoff, hereB, landed })
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
   // A phone keeps the Tinct reader.
   const P = await epubPage(browser, origin, hex, { width: 390, height: 844 })
   await P.page.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
