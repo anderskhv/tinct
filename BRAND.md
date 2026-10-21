@@ -2,6 +2,38 @@
 
 **Part 1 agreed with Anders, 2026-10-20.** Positioning only: what Tinct says and to whom. It supersedes the classics-only framing in [STRATEGY.md](STRATEGY.md) and [ELEVATOR-PITCH.md](ELEVATOR-PITCH.md) where they differ. Part 2 (voice) agreed the same day. Parts 3–5 (funnel and channels, community, plan) are still to come.
 
+## Hierarchy
+
+| Level | Question | Status |
+|---|---|---|
+| 0. Founder | Who is Anders, and what does he believe? | Agreed 2026-10-21 |
+| 1. Mission | Why does Tinct exist? | Close, 2026-10-21; refine through Anders's own posts |
+| 2. Tinct's belief | What does Tinct believe about reading? | In progress |
+| 3. Promise | What is Tinct, and what do you get? | Agreed (the core, below) |
+| 4. Execution | Voice, funnel, community | Voice agreed; the rest to come |
+
+## 0. Founder (in Anders's voice)
+
+> I'm an optimist in Deutsch's sense: knowledge is the most powerful force there is, every evil comes from a lack of it, and everything depends on us.
+>
+> Anyone can understand anything; people are universal explainers. But nobody can do it for you. Knowledge doesn't come from authorities; you build it yourself, by guessing and criticizing.
+>
+> The best knowledge is hard to read. About people, it's in the novels and scripture that time has tested. About the world, it's in the papers at the frontier.
+>
+> I believe in the Enlightenment, in optimism and in Christianity. Western civilization is the best by far, and we've lost touch with it because we no longer understand it.
+
+Novels to understand people, filtered by time. Papers to understand the world, at the frontier.
+
+## 1. Mission (in Anders's voice)
+
+> For years the texts I most wanted to read beat me: Popper, Deutsch, the Bible, *Pale Fire*. The moment I stopped understanding, I stopped reading.
+>
+> Now I read hard texts for pleasure. I can finally grasp some of Deutsch's denser work and some of the most challenging classics. I use Tinct's features constantly to get there, and I still fail sometimes, so I keep improving it. With today's tools and my interest, there's no reason I can't build the best reader there is.
+>
+> I want to remove every barrier between people and the texts they want to read, so all that's left are the fun mountains to climb: understanding and appreciating them.
+
+Tinct carries Anders's roots (the Enlightenment, optimism, Christianity) by making the texts readable and letting them make the case, never by preaching.
+
 ## The core
 
 > **Understand the texts that fight back.**
