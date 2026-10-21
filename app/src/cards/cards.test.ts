@@ -1383,3 +1383,84 @@ describe('Find readers above the iPhone keyboard (15 October 2026)', () => {
     stack.closeAll()
   })
 })
+
+describe('a stable Leaderboard (21 October 2026: "We want stable leaderboards")', () => {
+  const entry = (rank: number, name: string, seconds: number, me = false, handle?: string) => ({ rank, name, picture: pic(name[0]), seconds, duration: '', me, ...(handle ? { handle } : {}) })
+  const friendsBoard = { ...FRIENDS_BOARD, everyoneOpen: true, friends: 1, total: 2, entries: [entry(1, 'Mette', 7200, false, 'mette'), entry(2, 'You', 60, true)] }
+  const everyoneBoard = { tab: 'everyone', total: 3, meShown: true, everyoneOpen: true, friends: 1, me: null, entries: [entry(1, 'Ida', 9000, false, 'ida'), entry(2, 'Mette', 7200, false, 'mette'), entry(3, 'You', 60, true)] }
+
+  /** The Everyone board held until released. */
+  function holdEveryone(): () => void {
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const inner = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).includes('/api/social/board?tab=everyone')) await gate
+      return inner(input, init)
+    }))
+    return release
+  }
+
+  it('a tab not read yet shows rows the size of the board at once, never an empty card; the rows replace them in place', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    const release = holdEveryone()
+    await open('you')
+    click(byTest('you-leaderboard'))
+    await flush()
+    expect(top().querySelectorAll('[data-testid="board-me"]')).toHaveLength(1)
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    // At once: the tab is chosen, the heading and placeholder rows stand where the rows will be, Find readers below them.
+    expect(top().querySelector('[data-testid="board-tabs"] [aria-checked="true"]')?.textContent).toBe(CARDS_COPY.everyone)
+    const skeleton = byTest('board-skeleton')
+    expect(skeleton?.getAttribute('aria-busy')).toBe('true')
+    expect(skeleton?.querySelectorAll('.tc-r.is-av .tc-av.is-s')).toHaveLength(5)
+    expect(top().querySelector('.tc-gh')?.textContent).toBe(CARDS_COPY.lastSevenDays)
+    expect(top().querySelector('[data-testid="board-skeleton"] ~ * [data-testid="board-find"]')).toBeTruthy()
+    // No row of the other tab is shown under this one.
+    expect(top().querySelectorAll('[data-testid="board-row"], [data-testid="board-me"]')).toHaveLength(0)
+    release()
+    await flush()
+    expect(byTest('board-skeleton')).toBeNull()
+    expect([...top().querySelectorAll('[data-testid="board-row"]')].map(row => row.textContent)).toEqual([expect.stringContaining('Ida'), expect.stringContaining('Mette')])
+  })
+
+  it('a first open on this device keeps the Leaderboard and Find readers rows in place while the profile is on its way', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    let release: () => void = () => {}
+    profileGate = new Promise<void>(resolve => { release = resolve })
+    // An account this page has not shown yet (nothing in memory or on the device for it).
+    await openAccountCards({ dark: false, session: { ...session, userId: '99999999-9999-4999-8999-999999999999' }, social: true })
+    await flush()
+    const order = () => [...top().querySelectorAll<HTMLElement>('.tc-body [data-testid]')].map(node => node.dataset.testid!.replace(/-skeleton$/, '')).filter(id => /^you-(reading|leaderboard|find|settings)$/.test(id))
+    expect(byTest('you-leaderboard-skeleton')).toBeTruthy()
+    expect(byTest('you-find-skeleton')).toBeTruthy()
+    const before = order()
+    release()
+    await flush()
+    expect(byTest('you-leaderboard-skeleton')).toBeNull()
+    expect(order()).toEqual(before)
+  })
+
+  it('the You card ranks on the tab the Leaderboard opens on: it changes with the tab, and a reopened You card shows that rank first', async () => {
+    boards = { friends: friendsBoard, everyone: everyoneBoard }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    expect(byTest('you-leaderboard')?.textContent).toContain('2nd of 2')
+    click(byTest('you-leaderboard'))
+    await flush()
+    click(top().querySelector('[data-testid="board-tabs"] [data-value="everyone"]'))
+    await flush()
+    click(byTest('board-me'))
+    await flush()
+    expect(top().dataset.card).toBe('you')
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+    closeAccountCards()
+    // Reopened: the first frame already says the Everyone rank (no "2nd of 2" first).
+    await openAccountCards({ dark: false, session, social: true })
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+    await flush()
+    expect(byTest('you-leaderboard')?.textContent).toContain('3rd of 3')
+  })
+})
