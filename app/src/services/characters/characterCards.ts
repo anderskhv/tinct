@@ -33,7 +33,9 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   // 2026-09-30.1 — every appearance linked in four editions. The 16.5 MB package
   // is served as one sidecar per edition (see characterAssetPath) so a reader
   // downloads only the edition that is open.
-  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-09-30.1', perEdition: true },
+  // 2026-10-21.1 — own cards for the sons of Absalom (1 Macc 11:70, 13:11), whose
+  // unlinked names drew a confident namesake from the contextual lookup.
+  bible: { editions: ['kjv-en', 'web-en', 'bsb-en', 'webc-en'], revision: '2026-10-21.1', perEdition: true },
   // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
   hamlet: { editions: EN, revision: '2026-09-10.1' },
   macbeth: { editions: EN, revision: '2026-09-30.1' },
@@ -244,6 +246,32 @@ export function resolveCharacter(data: VerifiedCharacters | null, chapterNumber:
     return entry ? [{ card: entry, inPassage: mentions.some(m => m.characterId === c.id && m.endOffset <= cutoff.offset) }] : []
   })
   return { card, cutoff, gallery }
+}
+/** A tapped name that two or more cards in this book carry, with the cards released at that point. */
+export interface NamesakeNotice { name: string; candidates: ReleasedCard[] }
+const mentionName = (text: string) => text.replace(/[’']s$/, '')
+/**
+ * For a name no reviewed mention claims on its own (an unlinked namesake such as
+ * "Jonathan the son of Absalom", or a tie between two spans): the cards that
+ * carry the same name, so the reader is told the name is shared instead of a
+ * guess at which one it is. Only capitalised names, only people (not a nation
+ * or a place that shares the name), and only cards already
+ * released at the tap, so the notice reveals nothing the cards would not.
+ */
+export function namesakesAt(data: VerifiedCharacters | null, chapterNumber: number, paragraphIndex: number, start: number, end: number, text: string): NamesakeNotice | null {
+  if (!data || start < 0 || end <= start || normalizeParagraph(text) !== data.paragraphs[chapterNumber]?.[paragraphIndex]) return null
+  if (resolveCharacter(data, chapterNumber, paragraphIndex, start, end, text)) return null
+  const name = mentionName(normalizeParagraph(text).slice(start, end))
+  if (!/^\p{Lu}\p{Ll}/u.test(name)) return null
+  const people = new Set(data.edition.characters.filter(c => ['person', 'spirit', 'deity'].includes(c.kind)).map(c => c.id))
+  const ids = new Set(data.edition.mentions.filter(m => people.has(m.characterId) && mentionName(m.text) === name).map(m => m.characterId))
+  if (ids.size < 2) return null
+  const cutoff = { chapterNumber, paragraphIndex, offset: end }
+  const candidates = data.edition.characters.flatMap(c => {
+    const card = ids.has(c.id) ? releasedCard(data.edition, c.id, cutoff) : null
+    return card ? [card] : []
+  })
+  return candidates.length >= 2 ? { name, candidates } : null
 }
 /** Word anchors in the current reader are exclusive at the end; punctuation is not part of a name. */
 export function wordSelectionOffsets(text: string, from: number, to: number): [number, number] | null {

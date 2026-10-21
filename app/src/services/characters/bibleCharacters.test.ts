@@ -105,9 +105,12 @@ describe.each(bibleEditions)('Bible cards: %s', key => {
   })
 })
 
-it('adds the 46 Catholic-only cards to webc-en only', async () => {
+// 46 from the September package, plus the two sons of Absalom (1 Macc 11:70, 13:11) added 21 Oct 2026.
+it('adds the 48 Catholic-only cards to webc-en only', async () => {
   const [kjv, webc] = await Promise.all([loadBible('kjv-en'), loadBible('webc-en')])
   const kjvIds = new Set(kjv.edition.characters.map(c => c.id))
-  expect(webc.edition.characters.filter(c => !kjvIds.has(c.id))).toHaveLength(46)
+  const catholic = webc.edition.characters.filter(c => !kjvIds.has(c.id)).map(c => c.id)
+  expect(catholic).toHaveLength(48)
+  expect(catholic).toEqual(expect.arrayContaining(['mattathias-son-of-absalom', 'jonathan-son-of-absalom']))
   expect(kjv.edition.characters.some(c => c.id === 'israel-the-people')).toBe(true)
 })
