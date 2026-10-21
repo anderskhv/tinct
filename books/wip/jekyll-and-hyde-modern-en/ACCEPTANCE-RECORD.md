@@ -56,3 +56,16 @@ Targeted re-render of chapters 1, 2, 5, 7, 8 and 9 (about 260 paragraphs), 1:1 w
 4. **modern-da is stale** relative to the new modern-en (Danish is withdrawn; no new Danish was made). Do not present it as tracking the new modern-en.
 5. **Audio.** Changed paragraphs invalidate prepared narration for this edition (see RELEASE-PACKET.md).
 6. **Tooling.** `books/classify-modern-en.py` raises a NameError on misaligned paragraph counts; `books/audit-truncation.py` has a hard-coded local path. Neither affected this package (counts are aligned; the gate ran in a scratch mirror).
+
+## Integration (2026-10-21, release text-2026-10-21.2)
+
+Integrated into the app data on branch `claude/jekyll-modern-en`; see
+`books/wip/modern-en-release-20261021/RELEASE-2.md` for method, checks and card rulings. Release 1 held this package
+because the 2026-09-24 followups release pinned the served text. Anders approved moving the pin on 2026-10-21 ("why
+not? is the new not better?"), and `verify-followups.yml` now verifies this candidate (`640dc4ea…`) against
+`release-2-jekyll-and-hyde.json` with the same checks plus the whole-book gate and the card rulings. Package verified
+against `origin/main` (candidate hash, baseline = live, 1:1 structure, card pin). 228 of 232 moved mentions equal the
+proposals. The other 4 (girl-doctor 1:7 twice, jekyll 2:49, locksmith 9:9) are ruled in RELEASE-2.md, and none were dropped.
+Gate on the integrated file: PASS. Coordinate maps and a `CONTENT_RELEASES` entry carry saved places and highlights.
+Narration re-prepares changed paragraphs by text hash on the next Play; no generation was run. Status: integrated, PR
+open, not yet published.
