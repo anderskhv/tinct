@@ -119,6 +119,14 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .lab.byob :is(.mr-card.is-popup.is-open, .mr-primer.is-popup) { border-color: #111; background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
 /* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
 .lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
+/* The t menu's Chat · Talk row (Tinct's normal menu, 21 Oct 2026): two halves of one 44px row, a hairline between
+   them, as the phone's (src/lab/lab.css .lab-super-row.is-pair). */
+.lab.byob .lab-super-row.is-pair { padding: 0; cursor: default; }
+.lab.byob .lab-super-row-half { display: flex; align-items: center; flex: 1 1 50%; min-width: 0; min-height: 44px; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab.byob .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
+.lab.byob .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+/* The top bar's buttons are never selected as text (the Aa glyph took a selection highlight, 21 Oct 2026). */
+.lab.byob .lab-header button { -webkit-user-select: none; user-select: none; }
 /* The phone has the back arrow too, whatever the PDF shows (a scanned page fills the screen):
    a way back to My shelf always in view, at the left of the top bar (Library stays in the t menu). */
 .lab.byob.is-phone .lab-header { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 4px; }
