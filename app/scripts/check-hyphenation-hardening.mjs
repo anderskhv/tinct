@@ -355,7 +355,8 @@ async function languageAcceptance(name, viewport) {
   const before = await pageState(page)
   assert(patternRequests.some(value => value.includes('/en-us-')), 'English patterns must be requested lazily')
   await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-editions').click()
+  // The phone's t menu holds the editions in Reading settings (20 Oct 2026); the desktop keeps Book editions.
+  await page.getByTestId(name === 'phone' ? 'lab-super-row-reading' : 'lab-super-row-editions').click()
   await page.getByTestId('lab-v2-main-edition').click()
   assert.equal(await page.locator('[data-edition$="-da"]').count(), 0, 'withdrawn Danish editions must not be offered')
   assert(await page.locator('[data-edition="original-en"]').count(), 'the available English edition remains selectable')

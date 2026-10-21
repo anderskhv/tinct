@@ -99,7 +99,9 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         // Use actual settings once to verify persistence and no font-triggered switching.
         if (index === 0 || tablet || scenario.width === 1440) {
           await page.getByTestId('lab-super').click({ force: true })
-          await page.getByTestId('lab-super-row-settings').click()
+          await page.getByTestId('lab-super-menu').waitFor()
+          // The phone's t menu (20 Oct 2026): Text and theme holds the themes, size and Advanced settings; the desktop keeps Settings.
+          await page.getByTestId((await page.getByTestId('lab-super-row-text').count() ? 'lab-super-row-text' : 'lab-super-row-settings')).click()
           await page.getByTestId('lab-v2-advanced').click()
           const choice = page.getByLabel('Shakespeare layout')
           assert.equal(await choice.count(), scenario.phone ? 1 : 0)
