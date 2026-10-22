@@ -1,0 +1,208 @@
+{
+ "package": "app/public/data/characters/genealogy-of-morals.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "72ca79453b9a485fa0a8277df452809dba80b87ecaf6985121e020ef51d30a9c",
+ "candidateSha256": "f108ea298f97f055749347e71a5bfbe55398409c79b4162e7691735331677c6f",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 14,
+ "unchanged": 1,
+ "moved": 11,
+ "needsRuling": 2,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "paul-ree",
+   "chapter": 1,
+   "paragraph": 5,
+   "oldStartOffset": 483,
+   "oldEndOffset": 495,
+   "oldText": "Dr. Paul Rée",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 482,
+    "endOffset": 494,
+    "text": "Dr. Paul Rée",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "paul-ree",
+   "chapter": 1,
+   "paragraph": 5,
+   "oldStartOffset": 1943,
+   "oldEndOffset": 1950,
+   "oldText": "Dr. Rée",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1915,
+    "endOffset": 1922,
+    "text": "Dr. Rée",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "immanuel-kant",
+   "chapter": 2,
+   "paragraph": 18,
+   "oldStartOffset": 2658,
+   "oldEndOffset": 2683,
+   "oldText": "Kantian \"Thing-in-itself\"",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2447,
+    "endOffset": 2472,
+    "text": "Kantian \"Thing-in-itself\"",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "eugen-duhring",
+   "chapter": 3,
+   "paragraph": 13,
+   "oldStartOffset": 1811,
+   "oldEndOffset": 1833,
+   "oldText": "Dühring, Value of Life",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1658,
+    "endOffset": 1680,
+    "text": "Dühring, Value of Life",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "eugen-duhring",
+   "chapter": 3,
+   "paragraph": 13,
+   "oldStartOffset": 1947,
+   "oldEndOffset": 1956,
+   "oldText": "Dühring's",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1773,
+    "endOffset": 1782,
+    "text": "Dühring's",
+    "note": "2 occurrences in the paragraph; nearest to the old offset chosen, needs a look"
+   }
+  },
+  {
+   "characterId": "ressentiment",
+   "chapter": 2,
+   "paragraph": 14,
+   "oldStartOffset": 71,
+   "oldEndOffset": 99,
+   "oldText": "resentment becoming creative",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "good-and-evil-good-and-bad",
+   "chapter": 2,
+   "paragraph": 36,
+   "oldStartOffset": 776,
+   "oldEndOffset": 789,
+   "oldText": "Good and Evil",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 720,
+    "endOffset": 733,
+    "text": "Good and Evil",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "bad-conscience",
+   "chapter": 3,
+   "paragraph": 3,
+   "oldStartOffset": 88,
+   "oldEndOffset": 105,
+   "oldText": "\"bad conscience,\"",
+   "proposed": {
+    "status": "NEEDS_RULING",
+    "note": "the mention text no longer occurs in this paragraph of the candidate"
+   }
+  },
+  {
+   "characterId": "the-ascetic-ideal",
+   "chapter": 4,
+   "paragraph": 1,
+   "oldStartOffset": 26,
+   "oldEndOffset": 40,
+   "oldText": "ascetic ideals",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 11,
+    "endOffset": 25,
+    "text": "ascetic ideals",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "the-ascetic-priest",
+   "chapter": 4,
+   "paragraph": 13,
+   "oldStartOffset": 3028,
+   "oldEndOffset": 3056,
+   "oldText": "the ascetic priest has taken",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 2840,
+    "endOffset": 2868,
+    "text": "the ascetic priest has taken",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "the-ascetic-priest",
+   "chapter": 4,
+   "paragraph": 15,
+   "oldStartOffset": 27,
+   "oldEndOffset": 61,
+   "oldText": "caught sight of the ascetic priest",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 25,
+    "endOffset": 59,
+    "text": "caught sight of the ascetic priest",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "the-sovereign-individual",
+   "chapter": 3,
+   "paragraph": 1,
+   "oldStartOffset": 1064,
+   "oldEndOffset": 1084,
+   "oldText": "sovereign individual",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 1043,
+    "endOffset": 1063,
+    "text": "sovereign individual",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  },
+  {
+   "characterId": "the-blond-beast",
+   "chapter": 2,
+   "paragraph": 16,
+   "oldStartOffset": 6096,
+   "oldEndOffset": 6107,
+   "oldText": "blond beast",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 5539,
+    "endOffset": 5550,
+    "text": "blond beast",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}
