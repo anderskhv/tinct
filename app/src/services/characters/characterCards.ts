@@ -103,7 +103,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'moby-dick': { editions: EN, revision: '2026-09-30.1' },
   'crime-and-punishment': { editions: EN, revision: '2026-09-24.1' },
   'anna-karenina': { editions: EN, revision: '2026-09-12.1' },
-  'brothers-karamazov': { editions: EN, revision: '2026-09-12.1' },
+  'brothers-karamazov': { editions: EN, revision: 'text-2026-10-21.4' },
   'don-quixote': { editions: EN, revision: '2026-09-12.1' },
   'war-and-peace': { editions: EN, revision: 'text-2026-10-07.1' },
   ulysses: { editions: EN, revision: '2026-09-12.1' },
