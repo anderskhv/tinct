@@ -263,8 +263,11 @@ async function runBook(browser, key, { width, height }) {
   await page.waitForTimeout(1500)
 
   // Audio settings: Tinct's voices and speed, the book reader's own; no device voice.
+  const beforeSettings = await framePlace(frame)
   const settings = await frame.evaluate(() => { openAudioSettings(); const sel = document.getElementById('voiceSel'), out = { voices: sel ? [...sel.options].map(o => o.textContent) : null, rate: !!document.getElementById('rateSel'), text: document.querySelector('.byob-settings, [data-layer="audio"]')?.textContent || '' }; document.querySelector('.lab-v2-dismiss')?.click(); return out })
   ok(`${tag}: Audio settings offers Tinct's voices and speed, no device voice`, settings.voices?.includes('Ara · Female') && settings.rate && !/device/i.test(settings.text), settings)
+  const afterSettings = await framePlace(frame)
+  ok(`${tag}: opening and closing Audio settings keeps the place`, afterSettings.page === beforeSettings.page && Math.abs(afterSettings.frac - beforeSettings.frac) < 0.002, { beforeSettings, afterSettings })
 
   // A reload opens at the place.
   const kept = await framePlace(frame)
