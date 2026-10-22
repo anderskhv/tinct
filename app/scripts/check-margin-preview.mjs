@@ -382,6 +382,31 @@ try {
       // book's chat history (signed out, its device copy), never the preview's own key.
       ok(`${tag}: the place is kept under the preview's key, the cards in the book's chat history`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !localStorage.getItem(`tinct-addbook:cards:preview:${id}`) && JSON.parse(localStorage.getItem(`tinct:chat-history:${id}`) || '[]').some(c => c.card?.kind === 'explain'), bookId), kept)
 
+      // 4b. A chapter's start (paragraph 0, word 0) reopens with its heading and its pills in view, not under the top
+      // bar (stream D, 22 Oct 2026: a reload at "Letter 1" came back with "To Mrs. Saville" first and the heading at
+      // 4 px, behind the 50 px bar); the place still reads back as paragraph 0, word 0.
+      if (!phone) {
+        const startOf = () => frame.evaluate(() => {
+          const page = currentPlace().page, p = state.pages[page - 1], head = p.pg.querySelector('.tb-head'), top = document.getElementById('scroll').getBoundingClientRect().top
+          const r = head?.getBoundingClientRect(), first = epubParas(p)[0].getBoundingClientRect()
+          return { page, ...epubSpot(), headTop: r ? Math.round(r.top - top) : null, headBottom: r ? Math.round(r.bottom - top) : null, firstTop: Math.round(first.top - top) }
+        })
+        const chapter = back.page < (await frame.evaluate(() => state.pages.length)) ? back.page + 1 : back.page - 1
+        await frame.evaluate(n => { epubGoSpot(n, 0, 0) }, chapter)
+        await frame.waitForFunction(() => !epubHold.settling, null, { timeout: 10000 }).catch(() => {})
+        await page.waitForTimeout(800)
+        const went = await startOf()
+        await frame.evaluate(() => savePlaceNow())
+        await page.reload()
+        frame = await frameOf(page)
+        await frame.waitForFunction(() => typeof epubHold !== 'undefined' && epubHold.opened === state.token && !epubHold.settling, null, { timeout: 15000 }).catch(() => {})
+        await page.waitForTimeout(800)
+        const reopened = await startOf()
+        const shown = at => at.page === chapter && at.para === 0 && at.word === 0 && at.headTop != null && at.headTop >= 0 && at.headBottom <= at.firstTop
+        ok(`${tag}: a chapter's start shows its heading and pills (heading ${went.headTop} px below the bar), the place paragraph 0, word 0`, shown(went), went)
+        ok(`${tag}: reloaded at a chapter's start, the heading is still in view (${reopened.headTop} px) and the place is paragraph 0, word 0`, shown(reopened), reopened)
+      }
+
       // 5. The preview writes through the book reader's stores and nothing else (21 Oct 2026, margin sync): the place in
       // its position record (src/lab/marginPreview/useMarginPreviewPlace.ts), highlights and notes in its highlight
       // list, cards in the book's chat history; besides them only the frame's own copy of its place and its device
