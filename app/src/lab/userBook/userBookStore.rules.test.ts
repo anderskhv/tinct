@@ -103,8 +103,8 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.worker.min.js')
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.min.js')
     console.log = quiet
-    require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-    require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
     const g = globalThis as unknown as Record<string, never>
     engine = async () => ({ pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText })
     fixtures = (pdfFixtures as () => Record<string, Buffer>)()

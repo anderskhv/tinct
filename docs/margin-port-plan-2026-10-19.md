@@ -139,7 +139,7 @@ Total: about 3–4 weeks of focused work, with the Phase 3 and Phase 5 decisions
 - `app/src/lab/marginPreview/marginPreviewLoad.ts`: read-only load.
 - `app/src/lab/marginPreview/MarginPreview.tsx`: the frame.
 - `app/src/main.tsx`: one hook before the book reader renders.
-- `app/public/lab/addbook/js/tinct-book.js`, mirrored in `addbooks/web/src/js/`.
+- `app/public/lab/addbook/js/tinct-book.js` (the mirror in `addbooks/web/src` was removed on 22 Oct 2026).
 - Small hooks in `reader.js`, `route.js` and `start.js`, plus `index.html` cache tags.
 - `app/scripts/check-margin-preview.mjs`: the Playwright check.
 - `app/vite.config.ts`: dev serving of `/lab/addbook/`.

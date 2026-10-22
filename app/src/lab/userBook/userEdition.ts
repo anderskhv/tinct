@@ -28,7 +28,7 @@ export const LEGACY_EDITION_CONVERTER = 5
 export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, USER_EDITION_CONVERTER]
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
- * absent), a text PDF's text layer (addbooks/web/src/js/pdf-text.js, "Tinct
+ * absent), a text PDF's text layer (public/lab/addbook/js/pdf-text.js, "Tinct
  * text"), or text recognised from a scanned PDF's page images (OCR, R2).
  */
 export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
