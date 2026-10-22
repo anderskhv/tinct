@@ -27,7 +27,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build
-      - run: npx playwright install --with-deps chromium
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium
       - if: github.event_name != 'workflow_run'
         run: node scripts/check-direct-audio-cache.mjs
       - if: github.event_name == 'workflow_run'

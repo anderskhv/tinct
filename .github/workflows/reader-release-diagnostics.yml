@@ -23,7 +23,7 @@ jobs:
       - run: npm run build
         env:
           CI: true
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - run: node scripts/check-warmup-navigation.mjs
       - run: node scripts/check-omarchy.mjs
       - uses: actions/upload-artifact@v4

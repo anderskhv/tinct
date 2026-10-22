@@ -9,8 +9,8 @@ import { LabMarkdown } from './LabMarkdown'
 // keys, press-and-hold and look live in public/lab/chat-thread.{js,css}, which
 // the PDF reader for a reader's own books loads too.
 import {
-  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, HINT_TEXT, ICONS, keptCopyIndex, lastQuestion, latestPill,
-  questionTop, scrollToLatest, takeHint, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
+  bindPress, composerKey, COMPOSER_LINES, cutQuote, fitComposer, fitSpacer, ICONS, keptCopyIndex, lastQuestion, latestPill,
+  questionTop, scrollToLatest, threadRows, timeLabel, WAIT_HTML, BACK_TO_BOOK_HTML,
 } from '../../public/lab/chat-thread.js'
 import '../../public/lab/chat-thread.css'
 
@@ -137,15 +137,6 @@ export function LabAskPane({
     const field = textareaRef.current
     if (field) fitComposer(field)
   }, [draft])
-  // The keyboard hint, once per session, on the desktop only.
-  // (An effect, not a state initializer: React's strict mode runs initializers twice.)
-  const [hint, setHint] = useState(false)
-  useEffect(() => {
-    if (phoneSheet) return
-    let storage: Storage | null = null
-    try { storage = window.sessionStorage } catch { /* blocked */ }
-    if (takeHint(storage)) setHint(true)
-  }, [])
   // The "Latest" pill: the reader scrolled up and something new arrived below (latestPill).
   const [away, setAway] = useState(false)
   const latestRef = useRef<ReturnType<typeof latestPill> | null>(null)
@@ -428,7 +419,6 @@ export function LabAskPane({
       return
     }
     setLocalError(null)
-    setHint(false)
     if (phoneSheet) {
       textareaRef.current?.blur()
       onKeyboardOpenChange?.(false)
@@ -581,7 +571,6 @@ export function LabAskPane({
           dangerouslySetInnerHTML={{ __html: ICONS.send }}
         />
       </div>
-      {hint && !phoneSheet && <p className="tc-hint" data-testid="lab-ask-hint">{HINT_TEXT}</p>}
     </form>
   )
   const latestNode = (

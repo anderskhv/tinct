@@ -31,7 +31,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build
-      - run: npx playwright install --with-deps chromium
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium
       - run: node scripts/check-eink-browser.mjs
         env:
           EINK_LIVE: ${{ github.event_name == 'workflow_run' && '1' || '0' }}

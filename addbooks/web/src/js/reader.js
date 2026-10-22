@@ -289,7 +289,8 @@ async function openFromUrl(hex) {
   return false;
 }
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-$('bookBtn').onclick = () => (state.preview ? openContents() : openSwitcher());
+// A Tinct book's preview: the book reader's Reading now (previewNav); a reader's own book: its switcher here.
+$('bookBtn').onclick = () => (state.preview ? previewNav('switcher') : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -348,7 +349,7 @@ async function openEpub(bytes, name, key, rec = null) {
   state.zoom = saved?.zoom || 1;
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   $('bookTitle').textContent = state.title;
-  $('bookBtn').setAttribute('aria-label', `Contents of ${state.title}`);
+  $('bookBtn').setAttribute('aria-label', state.preview ? `Switch books, currently ${state.title}` : `Contents of ${state.title}`);
   document.title = `${state.title} · Tinct`;
   $('column').innerHTML = '';
   applyEpubScale();
@@ -2412,6 +2413,31 @@ function openProfile() {
   if (host?.menu?.openProfile) { host.menu.openProfile({ dark: root.classList.contains('is-night') }); return }
   leaveToShelf(PROFILE_URL);
 }
+/**
+ * A Tinct book's title and chapter pill do what the book reader's do (Anders, 22 Oct 2026): the framing page
+ * (src/lab/marginPreview/MarginPreviewNav.tsx) draws the book reader's Reading now (`switcher`) or Contents over this
+ * reader. A chapter or passage picked there comes back as `go`; a book picked has this place written first (`leave`).
+ * -> it opened (false: not a preview, or no framing page)
+ */
+function previewNav(kind) {
+  const host = previewHost();
+  if (!host?.nav?.open || !hasBook()) return false;
+  closeAllPopups();
+  savePlaceNow();
+  // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
+  const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
+  const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : 'light';
+  host.nav.open({
+    kind, theme, page: reading, percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: ch ? ch.label : '',
+    // A chapter: its top, the heading in view and inside the chapter (goTo's room above a page would read back as the
+    // chapter before's end, and that would be the place kept); a passage: its word, held as a restore holds it.
+    go: at => { primer.held = false; if (!(at.para || at.word) || !epubGoSpot(at.page, at.para, at.word)) goTo({ page: at.page, frac: 0.0001 }) },
+    leave: () => { leavePlace(); stopNarration() },
+    library: () => leaveToShelf(),
+    closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+  });
+  return true;
+}
 
 /* Page jump: the chapter pill becomes the page pill */
 function openJump() {
@@ -2430,7 +2456,7 @@ function openJump() {
   box.querySelector('form').onsubmit = e => { e.preventDefault(); const v = input.value; closeJump(); jumpToLabel(v) };
 }
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
-$('pageBtn').onclick = () => openContents();
+$('pageBtn').onclick = () => { if (!previewNav('contents')) openContents() };
 
 /* The Aa panel (Anders, 15 Oct 2026): every setting for how the book looks, in one sheet from the top
    bar's Aa. Layout first (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which leaves for the Tinct
@@ -4662,7 +4688,7 @@ function layoutNow() {
     if (mode !== 'column') { col.els.forEach(e => e.remove()); col.els.clear(); col.leads.replaceChildren(); dropDocLayer() }
     if (mode !== 'marks') { col.marks?.replaceChildren(); closeFloat() }
     if (mode !== 'phone') closeSheet2();
-    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills(); paraSparkHide(true) }
+    if (mode !== 'column') { primer.trig?.remove(); primer.trig = null; for (const el of col.pills.values()) el.remove(); col.pills.clear(); dropHeadPills() }
     if (primer.el && (mode === 'phone' || !mode)) { primer.el.remove(); primer.el = null }
     if (mode === 'phone' && primer.open) openSheet2('primer');
     if (col.el) col.el.hidden = mode !== 'column';
@@ -4813,7 +4839,7 @@ function layoutColumn() {
     if (!pr) continue;
     const ey = Y(pr.top + at.head.y * pr.height);
     if (u.key === BOOK_UNIT) { const el = unitMark(u, 'start', doc); seenMarks.add(el); items.push({ el, ey, top: ey, order: -1 }) }
-    else { const hp = headPills(u, p, at); if (hp) seenHeads.add(hp) }
+    else headPills(u, p, at, seenHeads)
     if (primer.open && primer.unit?.key === u.key) {
       const pe = primerEl(); pe.classList.remove('is-floating');
       if (pe.parentElement !== doc) { pe.removeAttribute('style'); doc.appendChild(pe) }
@@ -4822,7 +4848,10 @@ function layoutColumn() {
     }
     if (u.key === BOOK_UNIT) continue;
     const notes = viewCards().filter(c => c.unitNote && (c.page === u.to || c.unit === u.key));
-    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id); drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey, top: ey, order: -0.8 + k * 0.001 }) });
+    // A text unit's Recap, Quiz me and notes open level with its end's pills (22 Oct 2026: they belong to the chapter's
+    // end, and the view never leaves the place the reader pressed them); its catch-up with its heading.
+    const endEl = col.heads.get(u.key + ':end'), endY = endEl?.isConnected ? Y(endEl.getBoundingClientRect().top) : ey;
+    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id), y = c.data?.pill === 'catchup' ? ey : endY; drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey: y, top: y, order: -0.8 + k * 0.001 }) });
   }
   for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
   for (const [k, el] of col.heads) if (!seenHeads.has(el)) dropHeadPill(k);
@@ -5940,9 +5969,9 @@ document.addEventListener('pointerdown', e => {
   const mode = marginMode();
   // Before you start folds back to its pill the same way (Anders, 21 Oct 2026); it is kept, one click from open. Like a
   // card, it stays open for a press on a heading's pills or a paragraph's ✧ and its menu (#542).
-  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-hp, .mr-pspark, .mr-pmenu, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
+  if (primer.open && mode && mode !== 'phone' && e.button <= 0 && !e.target.closest?.('.mr-primer, .mr-pill, .mr-hp, .mr-mark, .mr-trigger, .mr-card, .mr-float, .mr-more, .mr-pmore, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) closePrimer();
   if (!col.open || col.open === 'whole' || !mode || mode === 'phone' || e.button > 0) return;
-  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-pspark, .mr-pmenu, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
+  if (e.target.closest?.('.mr-card, .mr-float, .mr-more, .mr-pmore, .mr-mark, .mr-stack, .mr-trigger, .mr-unit, .mr-hp, .mr-primer, .mr-undo, .lab-header, .byob-toast, [role="dialog"], .selection-popup')) return;
   openCard(null);
 }, true);
 // "/" opens Chat (about the whole PDF), its field ready; Escape folds the open card (after the bar and its menus).
@@ -6374,27 +6403,56 @@ function unitHeadEl(u) {
  * them all the time (CSS, hover: none). In an EPUB they sit inside the heading (no text of their own); on a PDF's page,
  * over it at the end of the heading's line, shown by the pointer's place (headHover).
  */
-function headPills(u, p, at) {
-  let el = col.heads.get(u.key);
-  if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(u.key, el) }
-  const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open)
-    || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === u.to || c.unit === u.key)) ? 'note' : '');
-  const ids = nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'];
-  const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, open, phrase]);
-  if (el.dataset.sig !== sig) {
-    el.dataset.sig = sig;
-    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: Primer, Recap, Quiz me, Note`);
-    el.innerHTML = TinctMargin.html.headPillsHtml(ids, { open, name: phrase, line: TinctMargin.triggerLine(u) });
-  }
-  if (isEpub()) {
-    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return null }
-    if (el.parentElement !== head) { el.classList.remove('is-page'); head.append(el) }
-    if (!head.classList.contains('mr-hp-head')) { head.classList.add('mr-hp-head'); if (!head.hasAttribute('tabindex')) { head.tabIndex = 0; head.dataset.mrTab = '1' } }
+function headPills(u, p, at, seen) {
+  // Text (an EPUB, a Tinct text or book; Anders, 22 Oct 2026): as on the phone, Primer · Catch me up on the heading's
+  // line and Recap · Quiz me · Note after the chapter's last paragraph, both always shown. A PDF's page: all five over
+  // its heading's line, shown by the pointer (headHover).
+  const text = isEpub();
+  const el = headPillEl(u, text ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : (nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note']), u.key);
+  if (text) {
+    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); dropHeadPill(u.key + ':end'); return null }
+    if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
+    head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
     placeHeadPills(el, head);
+    seen?.add(el);
+    const end = endPills(u); if (end) seen?.add(end);
   } else {
     if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
     placePagePills(el, p, at.head.y);
+    seen?.add(el);
   }
+  return el;
+}
+/** A unit's pills (its group, drawn again only when what it shows changed). key: its unit's, or its end's (unit:end). */
+function headPillEl(u, ids, key) {
+  let el = col.heads.get(key);
+  if (!el) { el = document.createElement('span'); el.className = 'mr mr-hp'; el.setAttribute('role', 'group'); el.dataset.unit = u.key; col.heads.set(key, el) }
+  const open = primer.open && primer.unit?.key === u.key ? 'primer' : ['catchup', 'recap', 'quiz'].find(k => col.open && unitCard(u, k)?.id === col.open)
+    || (col.open && viewCards().some(c => c.id === col.open && c.unitNote && (c.page === u.to || c.unit === u.key)) ? 'note' : '');
+  const phrase = TinctMargin.unitPhrase(u), sig = JSON.stringify([ids, ids.includes(open) ? open : '', phrase]);
+  if (el.dataset.sig !== sig) {
+    el.dataset.sig = sig;
+    el.setAttribute('aria-label', `${TinctMargin.html.unitName(u, state.title)}: ${ids.map(id => TinctMargin.html.PILLS[id]).join(', ')}`);
+    el.innerHTML = TinctMargin.html.headPillsHtml(ids, { open, name: phrase, line: TinctMargin.triggerLine(u) });
+  }
+  return el;
+}
+/*
+ * A text unit's end (Anders, 22 Oct 2026: "quiz and potentially recap … should belong to the previous chapter"): Recap ·
+ * Quiz me · Note just under its last paragraph, in the room before the next chapter (placed over it: the text never
+ * moves, so the reader's place does not). No text of its own: an EPUB's places are character offsets in its text.
+ */
+function endPills(u) {
+  const q = state.pages[u.to - 1]; if (!q) { dropHeadPill(u.key + ':end'); return null }
+  const last = epubParas(q).filter(e => !e.closest('.mr-hp')).at(-1); if (!last) { dropHeadPill(u.key + ':end'); return null }
+  const el = headPillEl(u, ['recap', 'quiz', 'note'], u.key + ':end');
+  el.classList.add('is-inline', 'is-end');
+  const host = last.closest('.epub-pg') || q.pg;
+  if (el.parentElement !== host) host.append(el);
+  const r = document.createRange(); r.selectNodeContents(last);
+  const lines = textRects(r).filter(b => b.height > 0 && b.width > 0), hb = host.getBoundingClientRect(), lb = last.getBoundingClientRect();
+  const bottom = lines.length ? Math.max(...lines.map(b => b.bottom)) : lb.bottom, left = lines.length ? Math.min(...lines.map(b => b.left)) : lb.left;
+  setPos(el, Math.min(left, lb.left) - hb.left, bottom - hb.top + 8);
   return el;
 }
 const setPos = (el, left, top) => { const l = Math.round(left) + 'px', t = Math.round(top) + 'px'; if (el.style.left !== l) el.style.left = l; if (el.style.top !== t) el.style.top = t };
@@ -6432,7 +6490,7 @@ function dropHeadPill(key) {
 }
 function dropHeadPills() { for (const k of [...col.heads.keys()]) dropHeadPill(k) }
 // A pill beside a heading: its unit's card (pillAction); the press never starts a selection in the heading.
-$('scroll').addEventListener('mousedown', e => { if (e.target.closest?.('.mr-hp, .mr-pspark, .mr-pmenu')) e.preventDefault() });
+$('scroll').addEventListener('mousedown', e => { if (e.target.closest?.('.mr-hp')) e.preventDefault() });
 $('scroll').addEventListener('click', e => {
   const pill = e.target.closest?.('.mr-hp .mr-pill'); if (!pill) return;
   e.preventDefault(); e.stopPropagation();
@@ -6449,72 +6507,13 @@ function headHover(e) {
     el.classList.toggle('is-shown', over || el.contains(e.target));
   }
 }
-/*
- * A paragraph's ✧ (Anders, 21 Oct 2026; the desktop's wide column, a pointer that hovers): at the paragraph's left edge,
- * in the margin beside the text, while the pointer is over it. Clicked, it offers Quiz me and Recap on that paragraph,
- * the selection's own Quiz me and Explain (cardAction) with the paragraph as the passage: the quiz asks as many questions
- * as the paragraph holds key ideas (one or two for most), the recap is an Explain card named Recap.
- */
-const spark = { el: null, menu: null, para: null, timer: 0 };
-const SPARK_PARAS = 'p, li, blockquote, dd';
 const hoverPointer = matchMedia('(hover: hover) and (pointer: fine)');
-function paraSparkHide(now = false) {
-  clearTimeout(spark.timer);
-  const go = () => { spark.el?.classList.remove('is-shown'); spark.el?.setAttribute('aria-expanded', 'false'); spark.menu?.remove(); spark.menu = null; spark.para = null };
-  if (now) go(); else spark.timer = setTimeout(() => { if (!spark.menu) go() }, 450);
-}
-function paraSparkAt(para) {
-  clearTimeout(spark.timer);
-  if (spark.para === para && spark.el?.classList.contains('is-shown')) return;
-  spark.menu?.remove(); spark.menu = null;
-  const sc = $('scroll'); if (!para.closest('.epub-pg')) return;
-  if (!spark.el) {
-    spark.el = document.createElement('button'); spark.el.type = 'button'; spark.el.className = 'mr mr-pspark';
-    spark.el.setAttribute('aria-label', 'Quiz me or Recap on this paragraph'); spark.el.setAttribute('aria-haspopup', 'menu');
-    spark.el.addEventListener('click', e => { e.stopPropagation(); if (spark.menu) { spark.menu.remove(); spark.menu = null; spark.el.setAttribute('aria-expanded', 'false') } else paraMenu() });
-  }
-  // In the scroller (the page's sheet clips what leaves it), in its coordinates: it scrolls with the paragraph.
-  if (spark.el.parentElement !== sc) sc.append(spark.el);
-  spark.para = para;
-  const r = document.createRange(); r.selectNodeContents(para);
-  const first = textRects(r).find(b => b.height > 0) || para.getBoundingClientRect(), sr = sc.getBoundingClientRect(), h = spark.el.offsetHeight || 28;
-  setPos(spark.el, para.getBoundingClientRect().left - sr.left + sc.scrollLeft - 34, first.top - sr.top + sc.scrollTop + (first.height - h) / 2);
-  spark.el.classList.add('is-shown');
-}
-function paraMenu() {
-  if (!spark.para || !spark.el) return;
-  const m = spark.menu = document.createElement('div');
-  m.className = 'mr mr-pmenu'; m.setAttribute('role', 'menu');
-  m.innerHTML = '<button type="button" role="menuitem" data-pa="quiz">Quiz me</button><span class="mr-pmenu__sep" aria-hidden="true"></span><button type="button" role="menuitem" data-pa="recap">Recap</button>';
-  m.addEventListener('click', e => { const b = e.target.closest('[data-pa]'); if (!b) return; e.stopPropagation(); paraAction(spark.para, b.dataset.pa) });
-  spark.el.after(m); spark.el.setAttribute('aria-expanded', 'true');
-  setPos(m, parseFloat(spark.el.style.left), parseFloat(spark.el.style.top) + spark.el.offsetHeight + 6);
-  m.querySelector('button').focus({ preventScroll: true });
-}
-/** Quiz me or Recap on a whole paragraph: the selection's path (cardAction), the paragraph as the passage. */
-function paraAction(para, what) {
-  const r = document.createRange(); r.selectNodeContents(para);
-  const info = rangeInfo(r); paraSparkHide(true);
-  if (!info) return;
-  marginClose();
-  mr = { info, anchor: anchorOf(info.rects), ids: [], held: false, own: true, mode: null, el: null, moreEl: null, base: null, before: '' };
-  sel = info;
-  cardAction(what === 'quiz' ? 'quiz' : 'explain', what === 'recap' ? { data: { recap: true } } : {});
-}
+// No paragraph ✧ (Anders, 22 Oct 2026: "paragraph by paragraph should be left to the highlight motion"): a paragraph's
+// Quiz me and Explain are the selection bar's. Only a PDF page's heading pills follow the pointer.
 document.addEventListener('pointermove', e => {
   if (e.pointerType !== 'mouse' || e.buttons || marginMode() !== 'column') return;
   headHover(e);
-  if (!isEpub() || !hoverPointer.matches) return;
-  const t = e.target;
-  if (t.closest?.('.mr-pspark, .mr-pmenu')) { clearTimeout(spark.timer); return }
-  const para = t.closest?.(SPARK_PARAS);
-  const ok = para && para.closest('.epub-pg') && !para.closest('.epub-sheet.is-front, .epub-sheet.is-toc, .mr-hp-head, figure') && para.textContent.trim().length >= 40;
-  if (ok) paraSparkAt(para); else if (spark.para) paraSparkHide();
 }, { passive: true });
-$('scroll').addEventListener('scroll', () => { if (spark.para && !spark.menu) paraSparkHide(true) }, { passive: true });
-// The paragraph's menu closes on a press elsewhere or Escape (the focus back on its ✧).
-document.addEventListener('pointerdown', e => { if (spark.menu && !e.target.closest?.('.mr-pspark, .mr-pmenu')) paraSparkHide(true) }, true);
-addEventListener('keydown', e => { if (e.key === 'Escape' && spark.menu) { e.preventDefault(); e.stopImmediatePropagation(); spark.menu.remove(); spark.menu = null; spark.el?.setAttribute('aria-expanded', 'false'); spark.el?.focus({ preventScroll: true }) } }, true);
 /** A unit's pages as printed: "pp. 10–18", "p. 4"; none for a band, whose name says them. */
 function unitPagesLabel(unit) {
   // An EPUB's units are its chapters (the preview's too): no pages to name.
@@ -7405,7 +7404,6 @@ function openChat(opts = {}) {
           <button type="button" class="tc-mark byob-attach" id="attachBtn" aria-label="Attach an image" title="Attach an image (or paste one)" hidden>${TC.ICONS.attach}</button>
           <button type="submit" class="tc-mark tc-send" aria-label="Send" hidden>${TC.ICONS.send}</button>
         </div>
-        <p class="tc-hint" id="chatHint" hidden>${esc(TC.HINT_TEXT)}</p>
       </form>`;
     el.querySelector('[data-x]').onmousedown = e => e.preventDefault();
     el.querySelector('[data-x]').onclick = closeChat;
@@ -7437,13 +7435,12 @@ function openChat(opts = {}) {
     el.addEventListener('dragover', e => { if ([...(e.dataTransfer?.items || [])].some(i => i.kind === 'file')) { e.preventDefault(); el.classList.add('byob-drop-over') } });
     el.addEventListener('dragleave', e => { if (!el.contains(e.relatedTarget)) el.classList.remove('byob-drop-over') });
     el.addEventListener('drop', e => { el.classList.remove('byob-drop-over'); const files = [...(e.dataTransfer?.files || [])].filter(f => f.type.startsWith('image/')); if (files.length) { e.preventDefault(); addAttachments(files) } });
-    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); el.querySelector('#chatHint').hidden = true; ask(q) };
+    el.querySelector('form').onsubmit = e => { e.preventDefault(); const q = input.value.trim() || (chat.attach.length ? (chat.attach.length > 1 ? 'Explain these images.' : chat.attach[0].snip ? 'Explain this figure.' : 'Explain this image.') : ''); if (!q) return; input.value = ''; input.dispatchEvent(new Event('input')); ask(q) };
     chat.el = el;
   }
   const el = chat.el;
   el.className = `lab-ask tc ${isPhone() ? 'is-phone-sheet byob-phone-chat' : 'is-desktop-companion is-chat byob-dock'}`;
   // The keyboard hint, once per session, on the desktop.
-  if (!isPhone() && TC.takeHint((() => { try { return sessionStorage } catch { return null } })())) el.querySelector('#chatHint').hidden = false;
   el.removeAttribute('style');
   if (isPhone()) el.removeAttribute('data-reader-window'); else { el.dataset.readerWindow = 'true'; el.dataset.companion = 'chat' }
   if (!el.isConnected) root.appendChild(el);

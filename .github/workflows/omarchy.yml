@@ -33,7 +33,7 @@ jobs:
         env:
           CI: true
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - run: node scripts/check-omarchy.mjs
         env:
           TINCT_DESKTOP_VISUAL: '1'
