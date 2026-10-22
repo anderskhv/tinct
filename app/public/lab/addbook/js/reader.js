@@ -289,8 +289,9 @@ async function openFromUrl(hex) {
   return false;
 }
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-// A Tinct book's preview: the book reader's Reading now (previewNav); a reader's own book: its switcher here.
-$('bookBtn').onclick = () => (state.preview ? previewNav('switcher') : openSwitcher());
+// In the reader's frame (a Tinct book, or a reader's own book at /reader?userBook=): the book reader's Reading now
+// (previewNav); this page on its own (a phone's PDF pages): its switcher here.
+$('bookBtn').onclick = () => (navHost() ? previewNav('switcher') : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -662,6 +663,8 @@ function textOf(items, view) {
   return { roles, text: RO.pageText(items, roles) };
 }
 async function pageText(n) {
+  // A Tinct book opened at its chapter first: the other chapters' text is waited for, never sent empty (openRegistered).
+  if (state.whole && state.whole.key === state.key) await state.whole.done.catch(() => null);
   if (state.texts.has(n)) return state.texts.get(n);
   if (isEpub()) return { text: '', items: [] };
   // A recognised scan's page: its recognised text; its items are laid out once the page is drawn (ocrItems).
@@ -2417,14 +2420,47 @@ function openProfile() {
  * reader. A chapter or passage picked there comes back as `go`; a book picked has this place written first (`leave`).
  * -> it opened (false: not a preview, or no framing page)
  */
+/**
+ * The page that frames this one and draws Reading now and Contents over it: a Tinct book's preview (previewHost), or
+ * a reader's own book at its one address (/reader?userBook=<hex>, src/lab/marginPreview/MarginPreview.tsx
+ * MarginOwnBook; Anders, 22 Oct 2026, "One Tinct"). -> it, or null (this page on its own)
+ */
+function navHost() {
+  const preview = previewHost();
+  if (preview || state.preview || !hasBook()) return preview;
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === 'userbook-' + hexOf(state.key) ? p : null } catch { return null }
+}
+/** An own book's chapters as Reading now and Contents show them: its contents' entries, numbered 1, 2, … in order. */
+function ownNavChapters() {
+  const leaves = leafEntries();
+  return { leaves, chapters: leaves.map((e, i) => ({ number: i + 1, title: e.label, ...(e.parent ? { section: toc.entries.find(p => p.id === e.parent)?.label || undefined } : {}) })) };
+}
 function previewNav(kind) {
-  const host = previewHost();
+  const host = navHost();
   if (!host?.nav?.open || !hasBook()) return false;
+  // An own book's Contents is the book reader's where it reads as text (an EPUB, a PDF's Tinct text) and has
+  // chapters; a PDF's pages keep this page's own, with Go to page and the page list.
+  const own = !state.preview;
+  if (own && kind === 'contents' && (!isEpub() || !toc.ready || !leafEntries().length)) return false;
   closeAllPopups();
   savePlaceNow();
   // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
   const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
   const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : 'light';
+  if (own) {
+    const { leaves, chapters } = ownNavChapters(), at = ch ? leaves.indexOf(ch) + 1 : 1;
+    const label = ch ? ch.label : isEpub() ? '' : `p. ${place.page} of ${state.pages.length}`;
+    library.get(state.key).then(rec => rec, () => null).then(rec => host.nav.open({
+      kind, theme, page: Math.max(1, at), percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: label,
+      book: { title: state.title, chapters, cover: rec?.cover || '' },
+      // A chapter of the contents: its entry (an anchor inside a file, a split heading, is found as the contents finds it).
+      go: to => { const e = leaves[to.page - 1]; if (e) goToEntry(e) },
+      leave: () => { leavePlace(); stopNarration() },
+      library: () => leaveToShelf(),
+      closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+    }));
+    return true;
+  }
   host.nav.open({
     kind, theme, page: reading, percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: ch ? ch.label : '',
     // A chapter: its top, the heading in view and inside the chapter (goTo's room above a page would read back as the
@@ -6389,10 +6425,56 @@ function unitMark(unit, where, doc) {
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
 }
-/** An EPUB's (or a Tinct text's) unit heading: the chapter's title, else its first heading; none for the whole book. */
+// A title's numbering ("1", "1.", "IV", "Chapter 3:", "Part One –"): the words the number line of a split heading holds.
+const TITLE_NUMBER = /^\s*(?:(?:chapter|part|book|section|lecture|essay)\s+[\p{L}\p{N}]+|\p{N}{1,3}(?!\p{N})|(?=[ivxlcdm])m{0,3}(?:cm|cd|d?c{0,3})(?:xc|xl|l?x{0,3})(?:ix|iv|v?i{0,3})(?=[.:)]|\s*$))\s*[.:)]?\s*[-–—:]?\s*/iu;
+/*
+ * An EPUB's (or a Tinct text's) unit heading: a Tinct book's or text's chapter title; in an EPUB of the reader's own, the
+ * line its contents names (Anders, 22 Oct 2026: a trade book's "1" over "The Reach of Explanations", set as two paragraphs
+ * with no <h1>, showed no pills at all). A heading split into its number and its title gives the title's line; else the
+ * chapter's first heading element. None for the whole book, or when nothing reads as its heading (its end pills stay).
+ */
 function unitHeadEl(u) {
   const p = state.pages[u.start - 1]; if (!p || u.key === BOOK_UNIT) return null;
-  return p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
+  const tb = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head'); if (tb) return tb;
+  p.heads ??= new Map();
+  const had = p.heads.get(u.key); if (had?.isConnected) return had;
+  const el = epubTitleLine(p, u.head || u.title) || headLine(p, p.pg.querySelector('.epub-body :is(h1, h2, h3, h4, h5, h6)'))
+    || headLine(p, epubParas(p).find(b => !b.closest('.mr-hp, .epub-sheet.is-front, .epub-sheet.is-toc')) || null, true);
+  if (el) p.heads.set(u.key, el);
+  return el;
+}
+/** A heading line (`el`); a number line alone ("1", "IV") gives the title's line under it. `strict`: a chapter's first line, taken only when it reads as a heading (short, no closing stop). */
+function headLine(p, el, strict = false) {
+  const short = b => { const t = b?.textContent.trim() || ''; return !!t && t.length <= 120 && !/[.!?;,"”’]$/.test(t) };
+  if (!el || (strict && !short(el))) return null;
+  if (String(el.textContent).replace(TITLE_NUMBER, '').trim()) return el;
+  const paras = epubParas(p), next = paras[paras.indexOf(el) + 1];
+  return short(next) ? next : el;
+}
+/** The block naming `title` in a chapter (its contents' label): the line itself, or the last of the two or three short lines that spell it together. */
+function epubTitleLine(p, title) {
+  const full = compactText(title), bare = compactText(String(title || '').replace(TITLE_NUMBER, ''));
+  if (!full) return null;
+  const blocks = epubParas(p).filter(el => !el.closest('.mr-hp') && el.textContent.length <= 200);
+  for (let i = 0; i < blocks.length; i++) {
+    const t = compactText(blocks[i].textContent); if (!t) continue;
+    if (t === full || (bare && t === bare)) return headLine(p, blocks[i]);
+    // A heading set as lines ("1", then the title): together they spell the label; the title's line is the last.
+    if (full.startsWith(t)) {
+      let run = t;
+      for (let j = i + 1; j < Math.min(blocks.length, i + 3) && full.startsWith(run); j++) {
+        run += compactText(blocks[j].textContent);
+        if (run === full) return blocks[j];
+      }
+    }
+  }
+  // A heading longer than its label ("Introduction: the long evening" for "Introduction"), among the chapter's first lines.
+  const longer = blocks.slice(0, 4).find(el => (bare || full).length >= 4 && compactText(el.textContent).startsWith(bare || full));
+  if (longer) return longer;
+  // A label that is its number alone ("Chapter 1", "1"): its number's line, then the title's under it (headLine).
+  const num = !bare && compactText(String(title).match(/[\p{N}]+|\b[ivxlcdm]{1,7}\b/iu)?.[0] || '');
+  const line = num && blocks.slice(0, 4).find(el => compactText(el.textContent) === num || compactText(el.textContent) === full);
+  return line ? headLine(p, line) : null;
 }
 /*
  * A unit's pills beside its heading (Anders, 21 Oct 2026; the desktop's wide column): Primer · Catch me up · Recap ·
@@ -6405,20 +6487,21 @@ function headPills(u, p, at, seen) {
   // Text (an EPUB, a Tinct text or book; Anders, 22 Oct 2026): as on the phone, Primer · Catch me up on the heading's
   // line and Recap · Quiz me · Note after the chapter's last paragraph, both always shown. A PDF's page: all five over
   // its heading's line, shown by the pointer (headHover).
-  const text = isEpub();
-  const el = headPillEl(u, text ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : (nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note']), u.key);
-  if (text) {
-    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); dropHeadPill(u.key + ':end'); return null }
+  if (isEpub()) {
+    // Its end pills never wait on its heading: a chapter whose heading is not found still has its end (22 Oct 2026).
+    const end = endPills(u); if (end) seen?.add(end);
+    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return end }
+    const el = headPillEl(u, nothingBefore(u) ? ['primer'] : ['primer', 'catchup'], u.key);
     if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
     head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
     placeHeadPills(el, head);
     seen?.add(el);
-    const end = endPills(u); if (end) seen?.add(end);
-  } else {
-    if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
-    placePagePills(el, p, at.head.y);
-    seen?.add(el);
+    return el;
   }
+  const el = headPillEl(u, nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'], u.key);
+  if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
+  placePagePills(el, p, at.head.y);
+  seen?.add(el);
   return el;
 }
 /** A unit's pills (its group, drawn again only when what it shows changed). key: its unit's, or its end's (unit:end). */
@@ -8149,9 +8232,60 @@ const previewWindow = () => (state.preview && window.top) || window;
 /** `book`: TinctEpub.parse's shape (js/tinct-book.js builds it); `preview`: { bookId, editionLabel, normalHref }. -> opened */
 async function openRegistered(book, preview) {
   showReader();
+  // The first chapter first: the chapters still on their way are waited for by what reads their text (pageText).
+  state.whole = preview.whole ? { key: 'preview:' + preview.bookId, done: preview.whole } : null;
   await openEpub(null, book.title, 'preview:' + preview.bookId, { parsed: book, preview });
   return hasBook() && state.preview === preview;
 }
+/*
+ * The first chapter first (Anders, 22 Oct 2026: "when we do the switch we also need to do the first chapter trick"):
+ * a Tinct book opens with the chapters at its place (js/tinct-book.js), the others drawn as placeholders of about
+ * their length, and they are drawn in here as the whole book arrives, a few at a time. The view holds to the pixel:
+ * the paragraph at its top stands where it stood (a chapter above it that grows or shrinks moves the scroll by as
+ * much, before anything is painted), so neither the place nor the page moves. `list`: [{ page, node, text }].
+ */
+function viewAnchor() {
+  const top = $('scroll').getBoundingClientRect().top + 1, p = state.pages[currentPlace().page - 1]; if (!p) return null;
+  const paras = epubParas(p), i = firstPast(paras.length, k => paras[k].getBoundingClientRect().bottom, top);
+  return paras[i] || p.sheet;
+}
+const fillHold = { el: null, top: 0, scroll: -1 };
+function fillRegistered(list) {
+  if (!state.preview || !isEpub() || !state.pages.length) return false;
+  const s = $('scroll'), anchor = viewAnchor();
+  // Held across the batches while the view is still where the last one left it: a scroll is whole pixels in Safari,
+  // and the fractions left by each batch would add up.
+  const before = !anchor ? 0 : anchor === fillHold.el && s.scrollTop === fillHold.scroll ? fillHold.top : anchor.getBoundingClientRect().top;
+  // The word a restore brought the view to stays the place while the view stays there (previewSpot): its scroll moves
+  // with the view, whether moved here or by the browser's own scroll anchoring (Chrome) as the chapters grow.
+  const x = epubHold.exact, held = x?.top != null && Math.abs(s.scrollTop - x.top) <= 2;
+  epubHold.reflow++;
+  for (const { page, node, text } of list) {
+    const p = state.pages[page - 1]; if (!p) continue;
+    p.pg.replaceChildren(node);
+    delete p.paras; delete p.paraStarts;
+    state.texts.set(page, { text, items: [] });
+  }
+  if (anchor?.isConnected) {
+    const d = anchor.getBoundingClientRect().top - before;
+    if (Math.abs(d) >= 0.5) s.scrollTop += d;
+    Object.assign(fillHold, { el: anchor, top: before, scroll: s.scrollTop });
+  }
+  if (held && epubHold.exact === x) x.top = s.scrollTop;
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 150);
+  return true;
+}
+/** Every chapter drawn in: the marks, the margin and the strip see the whole book. */
+function wholeRegistered() {
+  if (!state.preview) return;
+  state.whole = null;
+  flowMarks();
+  try { renderEpubHighlights() } catch {}
+  strip?.open();
+  marginLayout({ fresh: true });
+}
+window.TinctReader.fillRegistered = fillRegistered;
+window.TinctReader.wholeRegistered = wholeRegistered;
 /** Before you start, Catch me up, Recap and Quiz me work on chapters: one unit per chapter. */
 for (const type of ['touchmove', 'wheel', 'keydown']) addEventListener(type, () => { if (primer.held) { primer.held = false; requestAnimationFrame(marginLayout) } }, { capture: true, passive: true });
 function previewUnits() {

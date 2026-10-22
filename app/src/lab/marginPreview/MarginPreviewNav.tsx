@@ -6,6 +6,9 @@
  * stores. Another book opens as the book reader's switcher opens it (a reader hand-off to /reader, after the frame has
  * written its place); a chapter or passage picked moves the frame there, and the frame keeps that place as it keeps
  * any other.
+ *
+ * A reader's own book (22 Oct 2026, "One Tinct": MarginPreview.tsx MarginOwnBook) gets the same two: its chapters
+ * come with the request (the frame's contents), its row and cover from My shelf, and no Introduction.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { BOOKS, getBook } from '../../data/bookRegistry'
@@ -31,6 +34,7 @@ import { readLabPositionLocal } from '../labPositionStore'
 import { labLibraryIntroductionUrl } from '../labPrefs'
 import { LAB_READER_HANDOFF_KEY } from '../labReaderHandoff'
 import { ownReadingNow, readOwnShelf } from '../userBook/ownShelf'
+import { isUserBookId } from '../userBook/userBookId'
 import { ownReadingNowWithAccount } from '../userBook/ownSync'
 import type { MarginFramePlace } from './marginPreviewMenu'
 import type { MarginPreviewBook, MarginPreviewChapter } from './marginPreviewModel'
@@ -53,12 +57,30 @@ export interface MarginNavRequest {
   library: () => void
   /** The overlay closed without leaving: focus back to the frame's button. */
   closed?: () => void
+  /**
+   * A reader's own book: what Reading now and Contents show of it, from the frame. Its chapters are the frame's
+   * contents entries in order (`number`: 1, 2, …), and `page`/`go` count in them.
+   */
+  book?: { title: string; chapters: MarginNavChapter[]; cover?: string }
+}
+
+export type MarginNavChapter = Pick<MarginPreviewChapter, 'number' | 'title' | 'section'>
+
+/** The book the two show: a registered book's loaded edition, or an own book's contents (MarginPreview.tsx marginOwnNavBook). */
+export interface MarginNavBook {
+  bookId: string
+  title: string
+  editionKey: string
+  editionLabel: string
+  chapters: MarginNavChapter[]
+  /** An own book's cover (the frame's); a registered book's comes from its id. */
+  cover?: string
 }
 
 export interface MarginNavApi { open: (request: MarginNavRequest) => void }
 
 /** The edition's parts as the book reader's Contents groups them: each part's chapters, in order. */
-export function marginContentsSections(chapters: MarginPreviewChapter[]): Section[] | undefined {
+export function marginContentsSections(chapters: MarginNavChapter[]): Section[] | undefined {
   const parts: Section[] = []
   for (const chapter of chapters) {
     if (!chapter.section) continue
@@ -70,7 +92,7 @@ export function marginContentsSections(chapters: MarginPreviewChapter[]): Sectio
 }
 
 /** Built-in books only, as LabApp's quickCatalogueFallback: added books come with their own entries. */
-function catalogueFallback(model: MarginPreviewBook): QuickBookCatalogueEntry[] {
+function catalogueFallback(model: MarginNavBook): QuickBookCatalogueEntry[] {
   return BOOKS.filter(book => !isPublicBookId(book.id)).map(book => ({
     id: book.id,
     title: book.title,
@@ -80,7 +102,7 @@ function catalogueFallback(model: MarginPreviewBook): QuickBookCatalogueEntry[] 
   }))
 }
 
-export function MarginPreviewNav({ model, request, onDone }: { model: MarginPreviewBook; request: MarginNavRequest; onDone: () => void }) {
+export function MarginPreviewNav({ model, request, onDone }: { model: MarginNavBook | MarginPreviewBook; request: MarginNavRequest; onDone: () => void }) {
   const { user } = useAuth()
   const [view, setView] = useState<'switcher' | 'contents'>(request.kind)
   const [rows, setRows] = useState<QuickBookRow[]>([])
@@ -193,7 +215,10 @@ export function MarginPreviewNav({ model, request, onDone }: { model: MarginPrev
     }
   }, [bookId, model.chapters, view, viewer])
 
-  const cover = resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
+  const own = isUserBookId(bookId)
+  const cover = own
+    ? { src: ('cover' in model && model.cover) || '', srcSet: null }
+    : resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
   const theme = request.theme === 'dark' ? ' is-night' : request.theme === 'book' ? ' is-book-theme' : ''
   return <div
     className={`lab is-desktop margin-preview-nav${theme}`}
@@ -233,7 +258,7 @@ export function MarginPreviewNav({ model, request, onDone }: { model: MarginPrev
       onSelectChapter={number => go({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 })}
       onOpenPassage={place => go(place)}
       onContinueConversation={conversation => go({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 })}
-      onOpenIntroduction={() => { request.leave(); onDone(); window.location.assign(labLibraryIntroductionUrl(bookId, model.editionKey, readerPreviewSearch(window.location.search))) }}
+      onOpenIntroduction={own ? undefined : () => { request.leave(); onDone(); window.location.assign(labLibraryIntroductionUrl(bookId, model.editionKey, readerPreviewSearch(window.location.search))) }}
       onWarmChapter={() => {}}
       onClose={close}
     />}

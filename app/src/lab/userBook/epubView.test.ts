@@ -54,11 +54,11 @@ describe('where an EPUB opens (epubView)', () => {
     expect(epubViewHere(HEX)).toBe('text')
   })
 
-  it('links an EPUB to its view: the margin reader, else the Tinct reader (a PDF as before)', () => {
-    expect(ownBookHref(HEX, 'epub', 'margin')).toBe(`/lab/addbook/?userBook=${HEX}`)
+  it('links every own book to its one address, whatever its view (22 Oct 2026: the reader opens the margin reader there)', () => {
+    expect(ownBookHref(HEX, 'epub', 'margin')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'epub', 'text')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'epub', null)).toBe(`/reader?userBook=${HEX}`)
-    expect(ownBookHref(HEX, 'pdf', 'pages')).toBe(`/lab/addbook/?userBook=${HEX}`)
+    expect(ownBookHref(HEX, 'pdf', 'pages')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'pdf', 'text')).toBe(`/reader?userBook=${HEX}`)
   })
 

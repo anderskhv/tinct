@@ -135,10 +135,11 @@ try {
       // Round 2: the frame is book.html, without pdf.js and the PDF-only scripts (the phone's first page came 0.3 s later with them).
       ok(`${tag}: the frame is the preview's page (book.html) and asks for no PDF script`, new URL(frame.url()).pathname === '/lab/addbook/book' && pdfAsked.length === 0 && await frame.evaluate(() => typeof window.pdfjsLib === 'undefined' && !window.TinctPdfScan), pdfAsked)
       // Round 2: chapters after the place and the next are laid out later (.tb-later), and the place stays where it opened while they are.
-      const later = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
+      // The first chapter first (22 Oct 2026): a chapter whose text is still on its way (.tb-pending) waits too.
+      const later = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later, .tb-chapter.tb-pending').length, all: document.querySelectorAll('.tb-chapter').length }))
       ok(`${tag}: the chapters after the place wait to be laid out (${later.later} of ${later.all})`, later.later > 0 && later.later < later.all, later)
       await page.waitForTimeout(3500)
-      const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later').length)
+      const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later, .tb-chapter.tb-pending').length)
       ok(`${tag}: the place stays put while later chapters are laid out (${later.later} → ${fewer} waiting)`, still.page === at.page && still.para === at.para && still.word === at.word && fewer < later.later, { at, still, fewer })
       // 22 Oct 2026 (Anders: "for books/epubs we should place chapter pills in the text like we do on mobile"): the
       // chapter's ✧ Primer · ✧ Catch me up on its heading's line and ✧ Recap · ✧ Quiz me · Note under its last

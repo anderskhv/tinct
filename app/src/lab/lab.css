@@ -2686,9 +2686,8 @@
   justify-content: space-between;
   padding: 15px 16px 10px;
   color: var(--lab-ink-muted);
-  font: 600 0.72rem/1.2 system-ui, sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /* Sentence case, as every label (design-system.md): "Reading now", never capitals (22 Oct 2026). */
+  font: 600 0.82rem/1.2 system-ui, sans-serif;
 }
 .lab-book-switcher-head button {
   width: 32px;
