@@ -72,14 +72,9 @@ export interface LabV2SheetProps {
    * under the main-version choices (labModernEdition.ts). Absent when not offered.
    */
   modernOffer?: { price: string; busy?: boolean; onBuy: () => void }
-  /** A reader's own PDF: Book editions picks between its Tinct text and its Original pages only. */
+  /** A reader's own PDF: Book settings picks between its Tinct text and its Original pages only. */
   ownPdf?: boolean
-  /**
-   * The phone's grouping (t menu, 20 Oct 2026): the settings layer is Text and theme (themes, size, Advanced
-   * settings) and the editions layer is Reading settings, which also holds the voice and speed.
-   */
-  grouped?: boolean
-  /** False for a reader's own book with one edition: its Reading settings holds the voice and speed only. */
+  /** False for a reader's own book with one edition: no Book settings, and no Audiobook version in Audio settings. */
   editionRows?: boolean
 }
 
@@ -202,7 +197,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, classic = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, grouped = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, classic = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -227,7 +222,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
   if (!layer || layer === 'catchup' || layer === 'account') return null
 
   const font = labReadingFont(prefs.fontFamily)
-  const title = labV2SheetTitle(layer, grouped)
+  const title = labV2SheetTitle(layer)
   const editionName = (key: string) => {
     const edition = editions.find(item => item.key === key)
     return edition ? readerEditionLabel(edition) : key
@@ -242,7 +237,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     if (layer === 'mainEdition') onPrefs(labPrefsForMainEdition(prefs, key, bookId, editions, getBook(bookId)?.year))
     else if (layer === 'audioEdition') onPrefs({ ...prefs, audioEdition: key || prefs.primaryEdition, audioFollowsPrimary: key === '' })
     else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '', compareChosen: true })
-    onLayer('editions')
+    onLayer(layer === 'audioEdition' ? 'audio' : 'editions')
   }
   const editionRow = (label: string, target: LabV2SheetLayer, value: string, testId: string) => (
     <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid={testId} onClick={() => onLayer(target)}>
@@ -251,7 +246,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     </button>
   )
 
-  // Voice and speed: in Settings on the desktop, in Reading settings on the phone (grouped).
+  // Voice and speed: Audio settings, on the phone and the desktop.
   const voiceRows = (
     <div className="lab-v2-rows">
       <SelectRow
@@ -279,7 +274,18 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
   )
 
 
-  const head = layer === 'reading' || layer === 'editions'
+  // A play's layout (the phone): Book settings, the book's own layout.
+  const shakespeareRow = (
+    <div className="lab-v2-row is-select">
+      <span className="lab-v2-row-label">Shakespeare layout</span>
+      <Value>{prefs.shakespeareLayout === 'flowing' ? 'Flowing text' : 'Verse lines'}</Value>
+      <select className="lab-v2-row-select" aria-label="Shakespeare layout" value={prefs.shakespeareLayout || 'verse'} onChange={event => onPrefs({ ...prefs, shakespeareLayout: event.target.value as 'verse' | 'flowing' })}>
+        <option value="verse">Verse lines</option><option value="flowing">Flowing text</option>
+      </select>
+    </div>
+  )
+
+  const head = layer === 'reading' || layer === 'editions' || layer === 'audio'
     ? (
       <div className="lab-v2-head is-titled" data-reader-window-handle>
         <h2 className="lab-v2-title">{title}</h2>
@@ -289,11 +295,11 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     : (
       <div className="lab-v2-head is-centred" data-reader-window-handle>
         {picker ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('editions')}>{grouped ? '‹ Reading settings' : '‹ Editions'}</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : '‹ Book settings'}</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : layer === 'advanced' ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>{grouped ? '‹ Text and theme' : '‹ Settings'}</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Aa</button>
         ) : (
           <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
         )}
@@ -357,7 +363,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>
-              {!grouped && voiceRows}
               <div className="lab-v2-foot">
                 <button
                   type="button"
@@ -377,7 +382,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
               {editionRows && <>
               {editionRow('Main version', 'mainEdition', editionName(prefs.primaryEdition), 'lab-v2-main-edition')}
               {!ownPdf && <>
-              {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
               <div className="lab-v2-edition-divider" />
               {editionRow('Compare version', 'compareEdition', prefs.compareOpen ? editionName(prefs.compareEdition) : 'None', 'lab-v2-compare-edition')}
               {compare && prefs.compareOpen && (
@@ -406,9 +410,9 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 </p>
               )}
               </>}
-              {grouped && <>
+              {phoneShakespeare && <>
                 <div className="lab-v2-edition-divider" />
-                {voiceRows}
+                <div className="lab-v2-rows">{shakespeareRow}</div>
               </>}
               {bookId && !ownPdf && !isUserBookId(bookId) && <>
                 <div className="lab-v2-edition-divider" />
@@ -417,7 +421,16 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   hasVerseLines={editions.some(edition => edition.hasVerseLines)} />
               </>}
               </>}
-              {grouped && !editionRows && voiceRows}
+            </div>
+          )}
+
+          {layer === 'audio' && (
+            <div className="lab-v2-editions">
+              {editionRows && !ownPdf && <>
+                {editionRow('Audiobook version', 'audioEdition', prefs.audioFollowsPrimary === false ? editionName(prefs.audioEdition) : 'Follow main version', 'lab-v2-audio-edition')}
+                <div className="lab-v2-edition-divider" />
+              </>}
+              {voiceRows}
             </div>
           )}
           {picker && (
@@ -483,16 +496,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   </select>
                 </div>
               </Group>
-              {phoneShakespeare && <Group label="Shakespeare">
-                <div className="lab-v2-row is-select">
-                  <span className="lab-v2-row-icon" aria-hidden="true"><ParagraphIcon /></span>
-                  <span className="lab-v2-row-label">Shakespeare layout</span>
-                  <Value>{prefs.shakespeareLayout === 'flowing' ? 'Flowing text' : 'Verse lines'}</Value>
-                  <select className="lab-v2-row-select" aria-label="Shakespeare layout" value={prefs.shakespeareLayout || 'verse'} onChange={event => onPrefs({ ...prefs, shakespeareLayout: event.target.value as 'verse' | 'flowing' })}>
-                    <option value="verse">Verse lines</option><option value="flowing">Flowing text</option>
-                  </select>
-                </div>
-              </Group>}
               <Group label="Line spacing">
                 <LayoutSlider label="Line spacing" testId="lab-v2-line-spacing" icon={<LineIcon />}
                   value={labLineHeight(prefs.lineSpacing)} min={1.25} max={1.9} step={.01}

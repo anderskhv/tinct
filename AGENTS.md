@@ -188,6 +188,10 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 
 Preview URLs are enabled in code (`"workers_dev": true, "preview_urls": true` in `app/wrangler.jsonc`), but Cloudflare returns none for a Worker with Durable Objects (confirmed on the first staged run, 2026-09-30). A staged request that gets no preview URL warns and deploys directly (after restoring the files the upload's build regenerated), so releases never stall. Staged becomes useful if the Durable Objects move to their own Worker.
 
+### Cache tags
+
+`app/public/lab/addbook` (the margin reader and Add a book) is the only source of those pages; the old `addbooks/web/src` mirror is gone. Its `?v=` tags are all the literal `?v=__TINCT_BUILD__`: never hand-bump them. `npm run build` (`scripts/stamp-lab-entry-tags.cjs`) replaces it with the build's `index-*.js` hash, references to built `/lab` entries get content-derived tags, and `verify-bundle` fails if a placeholder is left in `dist/`. Other `/lab` files (library_2, `tinct-ui.css`) still carry hand tags.
+
 ### Rollback
 
 ```bash

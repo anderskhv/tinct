@@ -3,11 +3,11 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import worker from './worker'
 
-// The Add-a-book page (addbooks/web, installed to public/lab/addbook) is a static
+// The Add-a-book page (public/lab/addbook, its only source) is a static
 // page: the Worker must serve it as itself, under the production CSP, unindexed.
-const PAGE = readFileSync(join(__dirname, '../../addbooks/web/src/index.html'), 'utf8')
+const PAGE = readFileSync(join(__dirname, '../public/lab/addbook/index.html'), 'utf8')
 // The margin preview's page (/lab/addbook/book, from book.html): the same page without the PDF-only scripts.
-const BOOK_PAGE = readFileSync(join(__dirname, '../../addbooks/web/src/book.html'), 'utf8')
+const BOOK_PAGE = readFileSync(join(__dirname, '../public/lab/addbook/book.html'), 'utf8')
 const ROBOTS = readFileSync(join(__dirname, '../public/robots.txt'), 'utf8')
 
 function env() {

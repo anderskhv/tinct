@@ -1,6 +1,5 @@
 /**
- * A text PDF's Tinct text (addbooks/web/src/js/pdf-text.js, installed as
- * public/lab/addbook/js/pdf-text.js): chapters and paragraphs from the PDF's
+ * A text PDF's Tinct text (public/lab/addbook/js/pdf-text.js): chapters and paragraphs from the PDF's
  * own text layer, read with the pdf.js the viewer ships, on PDFs written by
  * addbooks/web/test/make-pdf.mjs. The same file converts the same way every time.
  */
@@ -46,8 +45,8 @@ beforeAll(async () => {
   require(VENDOR + 'pdf.min.js')
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
   scanApi = (globalThis as unknown as { TinctPdfScan: typeof scanApi }).TinctPdfScan
   text = (globalThis as unknown as { TinctPdfText: PdfTextApi }).TinctPdfText
   const maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href) as { pdfFixtures: () => Record<string, Buffer>; makePdf: MakePdf; prose: Prose; proseBook: typeof proseBook }
@@ -258,14 +257,5 @@ describe('Tinct text: pages read several at a time', () => {
       let reads = 0
       expect(await text.convert(pdf, { scan, live: () => ++reads < 3 })).toBeNull()
     } finally { await pdf.destroy() }
-  })
-})
-
-describe('Tinct text: the installed copy', () => {
-  it('ships the text script the tests cover, with the scan and viewer scripts it works with', () => {
-    for (const file of ['pdf-text.js', 'pdf-scan.js', 'reader.js', 'pdf-regions.js', 'pdf-regions-worker.js', 'pdf-text-view.js']) {
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/js/' + file, 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/' + file, 'utf8'))
-    }
-    expect(readFileSync(ROOT + 'app/public/lab/addbook/css/reader.css', 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/css/reader.css', 'utf8'))
   })
 })

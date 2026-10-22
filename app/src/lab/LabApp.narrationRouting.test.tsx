@@ -90,7 +90,7 @@ it('narrates a signed-out reader with a stored Orion in Helios, keeps the choice
  fireEvent.click(screen.getByRole('button',{name:'Keep reading'}))
  expect(JSON.parse(localStorage.getItem('tinct-lab-prefs')||'{}').audiobookVoice).toBe('orion')
  fireEvent.click(screen.getByTestId('lab-super'))
- fireEvent.click(screen.getByTestId('lab-super-row-reading'))
+ fireEvent.click(screen.getByTestId('lab-super-row-audio'))
  const voice=screen.getByTestId('lab-v2-narration-voice') as HTMLSelectElement
  expect(voice.value).toBe('male')
  fireEvent.change(voice,{target:{value:'eve'}})

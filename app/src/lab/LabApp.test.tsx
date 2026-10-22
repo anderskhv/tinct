@@ -866,6 +866,8 @@ describe('lab passage headline pages', () => {
   /**
    * A click inside an existing highlight is a question about the thing the
    * reader marked, not about the word under the cursor.
+   * (Design change, 22 Oct 2026: on desktop the menu is the margin reader's dark bar, so the highlighter is
+   * "Highlight in <colour>" and Copy is under •••; what each action takes is unchanged.)
    */
   describe('a click inside an existing highlight acts on the whole highlight', () => {
     const selectWords = async (from: number, to: number, id: number) => {
@@ -885,7 +887,7 @@ describe('lab passage headline pages', () => {
       const words = screen.getAllByTestId('lab-word')
       const whole = [1, 2, 3].map(i => words[i].textContent?.trim()).join(' ')
       await selectWords(1, 3, 51)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 52, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -903,7 +905,8 @@ describe('lab passage headline pages', () => {
       })
       // The subject the actions operate on is the whole highlight.
       expect(popup.textContent).toBeTruthy()
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe(whole)
       expect(copied[0].split(/\s+/).length).toBeGreaterThan(1)
@@ -915,7 +918,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 61)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 62, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -939,7 +942,7 @@ describe('lab passage headline pages', () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')
       await selectWords(1, 2, 71)
-      fireEvent.click(screen.getByRole('button', { name: 'Highlight', exact: true }))
+      fireEvent.click(screen.getByRole('button', { name: /^Highlight in / }))
       await waitFor(() => expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(1))
       fireEvent.pointerDown(document.body, { pointerId: 72, pointerType: 'mouse', clientX: 10, clientY: 10 })
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
@@ -951,7 +954,8 @@ describe('lab passage headline pages', () => {
       })
       await selectWords(0, 4, 73)
       await waitFor(() => expect(document.querySelector('.selection-popup')).toBeTruthy())
-      fireEvent.click(screen.getByRole('button', { name: /copy/i }))
+      fireEvent.click(screen.getByRole('button', { name: 'More' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: /copy/i }))
       await waitFor(() => expect(copied).toHaveLength(1))
       expect(copied[0]).toBe([0, 1, 2, 3, 4].map(i => words[i].textContent?.trim()).join(' '))
     })

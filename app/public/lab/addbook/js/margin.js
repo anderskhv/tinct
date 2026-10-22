@@ -289,9 +289,11 @@
         + `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight" title="Remove highlight">${ICONS.remove}</button>`;
     }
     if (state === 'asking') {
-      // Gloss's field (Anders, 20 Oct 2026): one pill, a placeholder, the mic and a round send. No spelling marks or
-      // autocorrect bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
+      // A3 (Anders, 22 Oct 2026): the dark bar itself becomes the field, 440px wide on the desktop, with an Esc hint
+      // (Esc goes back to the actions); a placeholder, the mic and a round send. No spelling marks or autocorrect
+      // bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
       return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" placeholder="Ask about this passage" aria-label="Ask about this passage" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="sentences">${esc(o.question || '')}</textarea></label>`
+        + (o.phone ? '' : '<kbd class="mr-bar__esc" aria-hidden="true">esc</kbd>')
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
         + `<button type="button" class="mr-bar__send" data-m="send" aria-label="Send"${o.question ? '' : ' disabled'}>${ICONS.up}</button>`;
     }
@@ -345,21 +347,12 @@
       + `<div class="mr-note__foot"><button type="button" class="mr-bar__item is-quiet" data-m="remove">Remove highlight</button><button type="button" class="mr-bar__item" data-m="save"${note ? '' : ' disabled'}>Save note</button></div>`;
   }
   /**
-   * The question field's size (mockup 1B): at least 330px, growing with the words to 520px (or the
-   * room there is), then wrapping to three lines. Desktop only for the width; the phone bar keeps
-   * its width. Measures with a canvas in the field's own font.
+   * The question field's size (A3, Anders 22 Oct 2026): on the desktop the bar is 440px wide as soon as it is the
+   * field (or the room there is), and a long question wraps upward to three lines. The phone bar keeps its width.
    */
-  function sizeAsk(el, { phone = false, room = 520 } = {}) {
+  function sizeAsk(el, { phone = false, room = 440 } = {}) {
     const t = el.querySelector('.mr-ask'); if (!t) return;
-    if (!phone) {
-      const max = Math.min(520, room);
-      const g = (sizeAsk.ctx ||= el.ownerDocument.createElement('canvas').getContext('2d'));
-      g.font = getComputedStyle(t).font;
-      const words = Math.max(0, ...t.value.split('\n').map(l => g.measureText(l).width));
-      el.style.width = '';
-      const chrome = el.offsetWidth - t.clientWidth;
-      el.style.width = Math.max(Math.min(330, max), Math.min(max, Math.ceil(words + chrome + 6))) + 'px';
-    }
+    if (!phone) el.style.width = Math.max(0, Math.min(440, room)) + 'px';
     t.style.height = 'auto';
     t.style.height = Math.min(t.scrollHeight, 60) + 'px';
   }

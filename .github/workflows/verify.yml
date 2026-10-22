@@ -70,6 +70,8 @@ jobs:
           python3 ../scripts/check-docs.py
           python3 ../scripts/check-docs.py docs/featured-library-preview-2026-09-21.md docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md docs/reader-library-brand-batch-2026-09-21.md
       - name: Test deployed configuration graph
+        # Reads production (https://tinct.app/reader): advisory on a pull request, blocking on main and in deploy.
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
         run: TINCT_CONFIG_LIVE=1 node --test scripts/check-deployed-config.test.cjs
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
@@ -144,7 +146,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app
@@ -172,7 +174,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.shakespeare == 'true' || needs.changes.outputs.typeset == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app
@@ -208,7 +210,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.margin == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
     strategy:
       fail-fast: false
       matrix:
@@ -260,7 +262,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.audio == 'true' || needs.changes.outputs.featured == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app

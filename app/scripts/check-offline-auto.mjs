@@ -136,7 +136,7 @@ try {
       let page = await context.newPage()
       page.on('pageerror', error => errors.push(error.message))
       try {
-        await page.goto(`${origin}/reader?book=${bookId}&chapter=1`, { waitUntil: 'domcontentloaded' })
+        await page.goto(`${origin}/reader?book=${bookId}&chapter=1&margin=0`, { waitUntil: 'domcontentloaded' })
         await ready(page)
         await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 45000 })
         builtVersion ??= await page.evaluate(() => [...performance.getEntriesByType('resource')].map(e => new URL(e.name).searchParams.get('v')).find(Boolean))
@@ -162,11 +162,11 @@ try {
           // The manual row agrees: nothing to tap.
           await page.getByTestId('lab-super').click()
           await page.getByTestId('lab-super-menu').waitFor()
-          // The phone's t menu (20 Oct 2026): Reading settings holds the editions, voice, speed and offline row; the desktop keeps Book editions.
-          await page.getByTestId((await page.getByTestId('lab-super-row-reading').count() ? 'lab-super-row-reading' : 'lab-super-row-editions')).click()
+          // Book settings holds the editions and the offline row, on the phone and the desktop (22 Oct 2026).
+          await page.getByTestId('lab-super-row-editions').click()
           const row = page.getByTestId('lab-v2-offline')
           await row.waitFor()
-          assert.equal(await row.getAttribute('data-offline-state'), 'saved', 'the Book editions row says Available offline')
+          assert.equal(await row.getAttribute('data-offline-state'), 'saved', 'the Book settings row says Available offline')
           await page.screenshot({ path: `${output}/${label}-1-row-saved.png` })
           await page.keyboard.press('Escape')
           await page.waitForFunction(() => !document.querySelector('[data-testid="lab-v2-offline"]'))

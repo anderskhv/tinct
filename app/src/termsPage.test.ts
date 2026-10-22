@@ -78,7 +78,7 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 20 October 2026')
+    expect(privacy).toContain('Last updated: 22 October 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
@@ -90,7 +90,7 @@ describe('own books and the AI features', () => {
 
   // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
   it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
-    expect(privacy).toContain('Last updated: 20 October 2026')
+    expect(privacy).toContain('Last updated: 22 October 2026')
     expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
     expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
     expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')
@@ -165,8 +165,10 @@ describe('privacy: account deletion', () => {
 
 describe('privacy: retention', () => {
   const privacyText = text(privacy)
-  it('says the email send record and the reader-data change history are deleted after 24 months, like analytics', () => {
-    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records, the record of the emails we have sent you and the history of changes to your reading data are kept for 24 months and then deleted automatically.')
+  // The change history is kept for one month since 22 Oct 2026 (Disk IO; routes/retention.ts AUDIT_RETENTION_MONTHS).
+  it('says the email send record is deleted after 24 months like analytics, and the reader-data change history after one month', () => {
+    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records and the record of the emails we have sent you are kept for 24 months, and the history of changes to your reading data for one month; then they are deleted automatically.')
     expect(privacyText).not.toContain('Analytics events and usage records are kept for 24 months')
+    expect(privacyText).not.toContain('the history of changes to your reading data are kept for 24 months')
   })
 })

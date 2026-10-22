@@ -68,8 +68,10 @@ function layoutOf(chapter: MarginPreviewChapter): ChapterLayout {
   for (const paragraph of chapter.paragraphs) {
     starts.push(at)
     const text = paragraph.text || ''
-    // The book reader's words; an empty paragraph has none (its zero-width space is not one).
-    words.push(text.trim() ? [...text.matchAll(/\S+/g)].map(m => [m.index!, m.index! + m[0].length] as [number, number]) : [])
+    // The book reader's words; an empty paragraph has none (its zero-width space is not one). A figure is one word
+    // as the book reader counts it (its token), drawn as its caption: that whole caption, or its zero-width space.
+    if (paragraph.figure) words.push([[0, drawnParagraphText(text).length]])
+    else words.push(text.trim() ? [...text.matchAll(/\S+/g)].map(m => [m.index!, m.index! + m[0].length] as [number, number]) : [])
     at += drawnParagraphText(text).length
   }
   const layout = { head, starts, words, length: at }
@@ -188,7 +190,8 @@ export function rangeText(chapter: MarginPreviewChapter, range: Omit<BookRange, 
     const words = layoutOf(chapter).words[p] || []
     const from = p === range.paragraphIndex ? range.fromWord : 0
     const to = p === range.endParagraphIndex ? range.toWord : words.length
-    for (const [a, b] of words.slice(from, to)) parts.push(text.slice(a, b))
+    // (A figure without a caption is a word with no text.)
+    for (const [a, b] of words.slice(from, to)) if (text.slice(a, b)) parts.push(text.slice(a, b))
   }
   return parts.join(' ')
 }

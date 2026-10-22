@@ -105,6 +105,7 @@ import { LabFigureCard } from './LabFigure'
 import { figureReadingText, type LabFigure } from './labFigures'
 import { figureImageBlock } from './labFigureImage'
 import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
+import type { OwnChapterNotesSource } from './userBook/ownChapterNotes'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
 import { chapterNotesText, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
@@ -529,8 +530,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
-  // The phone's margin mode: a registered book on the phone reader only (not the Bible, even after an in-reader switch to it).
-  const marginPhoneSurface = marginPhoneRequested && showPhoneChrome && !userBook
+  // The phone's margin mode on the phone reader: a registered book, and a reader's own book as Tinct's books (22 Oct 2026).
+  const marginPhoneSurface = marginPhoneRequested && showPhoneChrome
   // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
   const ownPdf = userBook?.kind === 'pdf'
   // A user book opens at its own saved place (userBookStore.ts), never the
@@ -547,7 +548,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   })
   const boot = userBookBoot ?? bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
-  const marginPhone = marginPhoneSurface && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+  // Not the Bible or a play, even after an in-reader switch to one (the launch, 22 Oct 2026); an own book always.
+  const marginPhone = marginPhoneSurface && (privateBook || isMarginPreviewBook(getBook(book.bookId || 'bible')))
   const userBookEditionKey = userBookBoot ? userBookBoot.book.editions![0].key : null
   // Stored prefs keep the reader's own edition choices: a user book writes appearance only.
   const persistPrefs = useCallback((next: LabPrefs, profile: LabAppearanceProfile) => {
@@ -772,6 +774,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
+  // The phone's Notebook row (t menu, 22 Oct 2026): the Contents opened at its Highlights & notes, closed back to the book.
+  const [contentsNotebook, setContentsNotebook] = useState(false)
+  useEffect(() => { if (!tocOpen) setContentsNotebook(false) }, [tocOpen])
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
   const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
@@ -780,7 +785,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
-  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string } | null>(null)
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource } | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
@@ -5047,16 +5052,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
-  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber) => {
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu') => {
     if (initialResolving || book.chaptersProvisional) return
-    if (privateBook) {
-      // Chapter notes are made and cached on the server from Tinct's own
-      // editions; a user book's summary is a recap in the chat instead.
+    const chapter = book.chapters.find(item => item.number === chapterNumber)
+    // A reader's own book: Primer and Recap are made from this device's text of the chapter (userBook/ownChapterNotes.ts),
+    // as the margin reader's own-book pills are; Tinct's chapter notes are made and cached on the server from its own
+    // editions. The pills only: Summarize in the t menu stays a recap in the chat (One Tinct, 22 Oct 2026).
+    const ownParagraphs = privateBook && chapterNumber === book.chapterNumber ? book.paragraphs : null
+    if (privateBook && (kind === 'sofar' || (kind === 'end' && from !== 'pill') || !ownParagraphs?.length)) {
       setSuperMenuOpen(false)
       if (kind !== 'primer' && chapterNumber === book.chapterNumber) handleChapterChat('discuss')
       return
     }
-    const chapter = book.chapters.find(item => item.number === chapterNumber)
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
     // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
     const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Recap · ${label} so far`
@@ -5068,6 +5075,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
+      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs } } : {}),
     })
   }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat])
 
@@ -5094,15 +5102,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperMenuOpen(false)
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { handleChat(); return }
+    // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
+    if (id === 'notebook') { setReaderControlsVisible(true); setContentsNotebook(true); setTocOpen(true); return }
     if (privateBook) {
       // Back to Add a book's Your books; one edition (a PDF two), so no editions layer but a PDF's.
       // Catch me up builds its recap from this device's text, signed in only.
       if (id === 'talk') handleTalk()
       else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
       else if (id === 'summarize') openChapterNotes('end')
-      else if (id === 'settings' || id === 'text') setSuperSheet('reading')
-      // The phone's Reading settings: a PDF's editions with the voice and speed; an EPUB's voice and speed.
-      else if (id === 'reading') setSuperSheet('editions')
+      // Aa and Audio settings as for any book; Book settings only for a PDF (its Tinct text and Original pages).
+      else if (id === 'text') setSuperSheet('reading')
+      else if (id === 'audio') setSuperSheet('audio')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'editions' && ownEditions) setSuperSheet('editions')
       // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
@@ -5114,10 +5124,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // so far is Catch me up's job.
     if (id === 'summarize') { openChapterNotes('end'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
-    // The phone's Reading settings is the editions layer with the voice and speed (LabV2Sheet grouped); its Text
-    // and theme is the settings layer without them.
-    if (id === 'editions' || id === 'reading') { setSuperSheet('editions'); return }
-    if (id === 'settings' || id === 'text') { setSuperSheet('reading'); return }
+    // The settings groups (22 Oct 2026), the same on the phone and the desktop: Aa, Book settings, Audio settings.
+    if (id === 'text') { setSuperSheet('reading'); return }
+    if (id === 'editions') { setSuperSheet('editions'); return }
+    if (id === 'audio') { setSuperSheet('audio'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
@@ -5433,13 +5443,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'next-chapter', label: 'Next chapter', key: ']', enabled: () => canTurnCommand() && nextLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=nextLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
       { id: 'previous-chapter', label: 'Previous chapter', key: '[', enabled: () => canTurnCommand() && prevLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=prevLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
       { id: 'contents', label: 'Contents, highlights and notes', key: 'i', enabled: canReadCommand, run: () => { setReaderControlsVisible(true); setTocOpen(true) } },
-      { id: 'editions', label: 'Book editions', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
+      { id: 'editions', label: 'Book settings', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
       { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
-      { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
+      { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
+      { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
@@ -5813,7 +5824,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           phoneShakespeare={phoneShakespeare}
           onPrefs={sheetPrefs}
           ownPdf={ownEditions}
-          grouped={showPhoneChrome}
           editionRows={!privateBook || ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
@@ -5885,6 +5895,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <LabChapterNotesSheet
           key={JSON.stringify(chapterNotes.request)}
           request={chapterNotes.request}
+          own={chapterNotes.own}
           title={chapterNotes.title}
           onClose={() => setChapterNotes(null)}
           onChat={(title, beats) => continueChapterNotes('chat', title, beats)}
@@ -5987,13 +5998,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           ) : <LabPassage
             plannedHyphens={measuredPaging && !desktopPaging}
             pendingLayout={measuredPaging && ((nativeMeasuredContent !== readerParagraphs && nativeHeadContent !== readerParagraphs) || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
-            onPreviewChapter={privateBook ? undefined : () => openChapterNotes('primer')}
+            onPreviewChapter={() => openChapterNotes('primer', book.chapterNumber, 'pill')}
             chapterActionsBusy={ask.typedLoading}
             chapterEnd={showChapterEnd ? <LabChapterEnd
               chapterTitle={book.chapterTitle}
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
-              busy={false} onDiscuss={() => openChapterNotes('end')}
+              busy={false} onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
               onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
               finishedCard={finishedCard}
             /> : undefined}
@@ -6527,6 +6538,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
+        notebook={contentsNotebook}
         onClose={() => setTocOpen(false)}
       />
       {callFullScreen && !marginPhone && (
@@ -6701,6 +6713,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           dismissPopup={dismissSelectionPopup}
           lab
           keyboardDock={isPhone || showPhoneChrome}
+          darkBar={!(isPhone || showPhoneChrome)}
         />
       )}
 

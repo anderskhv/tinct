@@ -2,6 +2,20 @@ const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const origin='https://tinct.app',baseline=process.env.OPENING_BASELINE==='1',built=process.env.READER_BUILT!=='0';
 const out=process.env.ARTIFACT_DIR||'artifacts/opening-highlights';fs.mkdirSync(out,{recursive:true});
+// The desktop selection bar is the margin reader's dark bar (22 Oct 2026): one click on the highlighter highlights,
+// a second shows the colours, named by themselves. The older light palette said "Highlight Sage".
+async function pickColour(p,name){
+ const light=p.getByRole('button',{name:'Highlight '+name,exact:true});
+ if(await light.count())return light.click();
+ if(await p.getByTestId('lab-desk-bar').count()){
+  const swatch=p.getByRole('button',{name,exact:true});
+  if(!await swatch.count()){await p.getByRole('button',{name:/^Highlight in /}).click();await p.getByRole('button',{name:/^Highlight in /}).click();}
+  await swatch.click();return;
+ }
+ const highlight=p.getByRole('button',{name:'Highlight',exact:true});
+ if(await highlight.count())await highlight.click();else await p.getByRole('button',{name:'Highlight this passage',exact:true}).click();
+ await light.click();
+}
 async function ready(p){await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(500);}
 (async()=>{const results=[];
 for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'chromium,webkit').split(',').includes(e.name()))){
@@ -42,12 +56,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   await p.mouse.move(start.x+start.width/2,start.y+start.height/2);await p.mouse.down();
   await p.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:12});await p.mouse.up();
   const popup=p.locator('.selection-popup');await popup.waitFor();
-  const direct=p.getByRole('button',{name:'Highlight Sage',exact:true});
-  if(!await direct.count()){
-   const highlight=p.getByRole('button',{name:'Highlight',exact:true});
-   if(await highlight.count())await highlight.click();else await p.getByRole('button',{name:'Highlight this passage',exact:true}).click();
-  }
-  await direct.click();
+  await pickColour(p,'Sage');
   await p.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]').some(h=>h.chapterNumber===918));
   const saved=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')));
   assert.equal(saved.length,2);assert.deepEqual(saved.find(h=>h.id==='preserve'),older);
@@ -78,9 +87,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
    await p.mouse.move(start.x+start.width/2,start.y+start.height/2);await p.mouse.down();
    await p.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:16});await p.mouse.up();
    await p.locator('.selection-popup').waitFor();
-   const colour=p.getByRole('button',{name:'Highlight Rose',exact:true});
-   if(!await colour.count())await p.getByRole('button',{name:'Highlight',exact:true}).click();
-   await colour.click();
+   await pickColour(p,'Rose');
    const marks=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')));
    const cross=marks.find(h=>h.chapterNumber===918&&h.paragraphIndex===aPlace.p&&h.fromWord===aPlace.w);
    assert.ok(cross,'Cross-spread selection saved');assert.equal(cross.endParagraphIndex,bPlace.p);assert.equal(cross.toWord,bPlace.w+1);

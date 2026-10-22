@@ -9,7 +9,7 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabAskPane } from './LabAskPane'
 import type { LabAskTurn } from './labAsk'
-import { HINT_SESSION_KEY, HINT_TEXT, PRESS_FADE_MS, PRESS_HOLD_MS, threadHtml } from '../../public/lab/chat-thread.js'
+import { HINT_TEXT, PRESS_FADE_MS, PRESS_HOLD_MS, threadHtml } from '../../public/lab/chat-thread.js'
 
 afterEach(() => {
   cleanup()
@@ -246,16 +246,14 @@ describe('no header, no labels, no empty-state copy', () => {
 })
 
 describe('composer', () => {
-  it('↑ in an empty composer recalls the last question; Return sends; the hint shows once a session on the desktop', () => {
+  // Anders, 22 Oct 2026: no keyboard hint under the composer ("we should delete that").
+  it('↑ in an empty composer recalls the last question; Return sends; no keyboard hint under the composer', () => {
     const onDraftChange = vi.fn()
     render(pane({ onDraftChange, desktopCompanion: 'chat' }))
-    expect(screen.getByTestId('lab-ask-hint').textContent).toBe(HINT_TEXT)
-    expect(sessionStorage.getItem(HINT_SESSION_KEY)).toBe('1')
+    expect(screen.queryByTestId('lab-ask-hint')).toBeNull()
+    expect(document.body.textContent).not.toContain(HINT_TEXT)
     fireEvent.keyDown(screen.getByTestId('lab-ask-input'), { key: 'ArrowUp' })
     expect(onDraftChange).toHaveBeenCalledWith('Why “up with the lark”?')
-    cleanup()
-    render(pane({ desktopCompanion: 'chat' }))
-    expect(screen.queryByTestId('lab-ask-hint')).toBeNull()
   })
   it('mic and Talk are bare marks until there is text; then the send arrow replaces them', () => {
     const { rerender } = render(pane())

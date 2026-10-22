@@ -93,7 +93,7 @@ interface StoredRecord {
   addedAt?: unknown
   openedAt?: unknown
   cover?: unknown
-  /** A PDF's page count and its scan (addbooks/web/src/js/pdf-scan.js): the chapters with their pages. */
+  /** A PDF's page count and its scan (public/lab/addbook/js/pdf-scan.js): the chapters with their pages. */
   pages?: unknown
   scan?: { entries?: unknown; textPages?: unknown; layout?: { default?: unknown } | null } | null
   /** A PDF's default edition (pdf-scan.js layout), kept with its Tinct text. */
@@ -153,10 +153,19 @@ export function ownShelfSavedAt(hex: string, read: (key: string) => unknown = re
   return Number.isFinite(unsaved) && unsaved > 0 && unsaved >= at ? null : at
 }
 
+/** Where the margin reader keeps an EPUB's place on this device (reader.js `pos:epub:<hex>`; epubView.ts). */
+export const EPUB_MARGIN_PLACE_PREFIX = 'tinct-addbook:pos:epub:'
+
 export function ownReading(hex: string, chapters: UserBookChapter[] | null, openedAt: number, read: (key: string) => unknown = readJson): OwnShelfReading | null {
-  const raw = read(PLACE_PREFIX + hex) as RawPlace | null
-  if (!raw || typeof raw !== 'object') return null
-  const updatedAt = typeof raw.updatedAt === 'number' && raw.updatedAt > 0 ? raw.updatedAt : openedAt
+  const place = read(PLACE_PREFIX + hex) as RawPlace | null
+  // An EPUB read only in Margin view (the desktop's default) has no Tinct reader place: the margin reader's own
+  // place still makes it a book being read, last read when the margin reader kept it (D's matrix, 22 Oct 2026:
+  // such a book was missing from Reading now). Its chapter is then the one the Tinct reader's place names, if any.
+  const margin = read(EPUB_MARGIN_PLACE_PREFIX + hex) as { at?: unknown } | null
+  const marginAt = margin && typeof margin === 'object' && typeof margin.at === 'number' && margin.at > 0 ? margin.at : 0
+  const raw: RawPlace | null = place && typeof place === 'object' ? place : marginAt ? {} : null
+  if (!raw) return null
+  const updatedAt = Math.max(typeof raw.updatedAt === 'number' && raw.updatedAt > 0 ? raw.updatedAt : openedAt, marginAt)
   const hiddenAt = Number(read(OWN_TABLE_HIDDEN_PREFIX + hex))
   if (Number.isFinite(hiddenAt) && hiddenAt > 0 && hiddenAt >= updatedAt) return null
   const bookId = userBookId(hex)

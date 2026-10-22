@@ -1,6 +1,5 @@
 /**
- * The PDF viewer's fast scan (addbooks/web/src/js/pdf-scan.js, installed as
- * public/lab/addbook/js/pdf-scan.js): title, author and chapters from the
+ * The PDF viewer's fast scan (public/lab/addbook/js/pdf-scan.js): title, author and chapters from the
  * document itself, on small PDFs written by addbooks/web/test/make-pdf.mjs and
  * read with the same pdf.js the viewer ships (public/lab/addbook/vendor/pdfjs).
  */
@@ -43,7 +42,7 @@ beforeAll(async () => {
   require(VENDOR + 'pdf.min.js')
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
   scanApi = (globalThis as unknown as { TinctPdfScan: PdfScanApi }).TinctPdfScan
   const maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href) as { makePdf: MakePdf; prose: Prose; pdfFixtures: () => Record<string, Buffer> }
   makePdf = maker.makePdf
@@ -252,13 +251,5 @@ describe('PDF scan: the rules', () => {
       { y: 590, size: 11, text: 'All the objects of human reason', words: 6 },
     ]
     expect([...scanApi.epigraphRows(rows)].sort()).toEqual([1, 2, 3])
-  })
-})
-
-describe('PDF scan: the installed copy', () => {
-  it('ships the scan and theme scripts the tests cover', () => {
-    for (const file of ['pdf-scan.js', 'pdf-theme.js']) {
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/js/' + file, 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/' + file, 'utf8'))
-    }
   })
 })
