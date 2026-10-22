@@ -9,8 +9,10 @@
  */
 import {
   backgroundView,
+  cleanReadingLanguages,
   pictureView,
   type BackgroundKind,
+  type ReadingLanguage,
   type NewBooksOpenIn,
   type PictureKind,
   type PictureView,
@@ -36,6 +38,10 @@ export interface OwnProfile {
   showTime: boolean
   onLeaderboard: boolean
   newBooksOpenIn: NewBooksOpenIn
+  /** English and/or Danish (Settings › I read in). Absent from an older Worker: English. */
+  readingLanguages?: ReadingLanguage[]
+  /** An account more than 30 days old: the library's What's-new card is for it. Absent: false. */
+  returning?: boolean
   setUp: boolean
   needsSetup: boolean
   shouldPrompt: boolean
@@ -68,6 +74,7 @@ async function readResult(res: Response): Promise<ProfileResult> {
   const profile = data.profile as OwnProfile | undefined
   if (!profile || typeof profile.handle !== 'string') return { ok: false, reason: 'failed' }
   rememberNewBooksOpenIn(profile.newBooksOpenIn)
+  if (Array.isArray(profile.readingLanguages)) rememberReadingLanguages(profile.readingLanguages)
   return { ok: true, profile }
 }
 
@@ -199,6 +206,27 @@ export function newBooksOpenIn(doc: Document | null = typeof document === 'undef
   try {
     const value = localStorage.getItem(NEW_BOOKS_KEY)
     return value === 'modern' || value === 'human' ? value : null
+  } catch {
+    return null
+  }
+}
+
+// ===== "I read in" =====
+
+/** Device copy of the profile's reading languages, so the library can put Danish editions first without waiting. */
+export const READING_LANGUAGES_KEY = 'tinct:reading-languages'
+
+export function rememberReadingLanguages(value: readonly ReadingLanguage[] | null): void {
+  const clean = cleanReadingLanguages(value)
+  if (!clean) return
+  try { localStorage.setItem(READING_LANGUAGES_KEY, clean.join(',')) } catch { /* private mode */ }
+}
+
+/** The reader's languages on this device; null when profiles are off or nothing was chosen. */
+export function readingLanguages(doc: Document | null = typeof document === 'undefined' ? null : document): ReadingLanguage[] | null {
+  if (!socialProfilesOn(doc)) return null
+  try {
+    return cleanReadingLanguages((localStorage.getItem(READING_LANGUAGES_KEY) || '').split(','))
   } catch {
     return null
   }

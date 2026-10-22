@@ -2,7 +2,7 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
-import { isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
+import { freeMonthUntil, isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
 import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 
 type VerifiedUser = { id: string; email: string }
@@ -565,7 +565,7 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start,created_at`)
   const profiles = await profileRes.json() as Record<string, unknown>[]
   const profile = profiles?.[0]
   if (!profile) return jsonResponse({ error: 'Profile not found' }, 404, request)
@@ -597,6 +597,12 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
     message_balance: profile.message_balance,
     period_start: profile.period_start,
     stripe: stripeSubscription,
+    // "Premium · first month free" while the trial or the first-month grant lasts (aiAllowance.ts freeMonthUntil).
+    free_month_until: freeMonthUntil({
+      subscription_status: (profile.subscription_status as string | null) ?? null,
+      subscription_period_end: (profile.subscription_period_end as string | null) ?? null,
+      created_at: (profile.created_at as string | null) ?? null,
+    }, new Date())?.toISOString() ?? null,
     intervals: availablePremiumIntervals(env),
   }, 200, request)
 }

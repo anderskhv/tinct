@@ -152,6 +152,28 @@ export function isSubscribed(profile: AllowanceProfile, now: Date): boolean {
  */
 export const TRIAL_RESET_AT = new Date('2026-10-15T00:00:00Z')
 
+/**
+ * Premium's first month free for existing readers (Anders, 22 Oct 2026). Every
+ * non-paying, non-internal account is given Premium by grant from the release
+ * on 23 October for 30 days: `subscription_status = 'canceled'` with
+ * `subscription_period_end = FREE_MONTH_END`, so it lapses back to Free by
+ * itself (app/supabase/migrations/20261023_premium_first_month.sql, run by
+ * Anders). The exact end marks the grant: no Stripe period ends on this
+ * second. The grant's allowance window is [FREE_MONTH_START, FREE_MONTH_END),
+ * so earlier AI use never counts against it: every granted reader starts with
+ * the full allowance. If the release moves, move both dates here and in the
+ * SQL together.
+ */
+export const FREE_MONTH_START = new Date('2026-10-23T05:00:00Z')
+export const FREE_MONTH_END = new Date(FREE_MONTH_START.getTime() + 30 * 86_400_000)
+
+/** The first-month grant: canceled, paid through exactly FREE_MONTH_END. */
+export function isFreeMonthGrant(profile: Pick<AllowanceProfile, 'subscription_status' | 'subscription_period_end'>): boolean {
+  if (profile.subscription_status !== 'canceled') return false
+  const end = validDate(profile.subscription_period_end)
+  return !!end && end.getTime() === FREE_MONTH_END.getTime()
+}
+
 /** When the account's trial starts: sign-up, or the reset for an older account once the reset has come. */
 export function trialStartsAt(profile: AllowanceProfile, now: Date): Date | null {
   const created = validDate(profile.created_at)
@@ -197,7 +219,8 @@ export async function loadPremiumAccess(env: SupabaseEnv, userId: string, now: D
 export type PremiumTier = 'premium' | 'trial' | 'none'
 
 export function premiumTier(profile: AllowanceProfile, now: Date): PremiumTier {
-  if (isSubscribed(profile, now)) return 'premium'
+  // The first month free has the trial's ceilings: it is a trial by grant, not a paid plan.
+  if (isSubscribed(profile, now)) return isFreeMonthGrant(profile) ? 'trial' : 'premium'
   const end = trialEndsAt(profile, now)
   return end && now.getTime() < end.getTime() ? 'trial' : 'none'
 }
@@ -213,6 +236,18 @@ export async function loadPremiumTier(env: SupabaseEnv, userId: string, now: Dat
   } catch {
     return null
   }
+}
+
+/**
+ * Until when the reader's Premium is the first month free (Settings and the
+ * You card say "Premium · first month free"): the 30-day trial of a new
+ * account, or the first-month grant of an existing one. Null otherwise,
+ * including for a paid plan.
+ */
+export function freeMonthUntil(profile: AllowanceProfile, now: Date): Date | null {
+  if (isFreeMonthGrant(profile)) return now.getTime() < FREE_MONTH_END.getTime() ? FREE_MONTH_END : null
+  if (premiumTier(profile, now) !== 'trial') return null
+  return trialEndsAt(profile, now)
 }
 
 /**
@@ -234,6 +269,8 @@ export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd
   const allowanceMicros = usdToMicros(allowanceUsd)
   const periodEnd = validDate(profile.subscription_period_end)
   if (isSubscribed(profile, now)) {
+    // The first month free: one window from the grant, so earlier use never counts (a fresh allowance).
+    if (isFreeMonthGrant(profile)) return { kind: 'subscription', start: FREE_MONTH_START, end: FREE_MONTH_END, allowanceMicros }
     if (periodEnd) return { kind: 'subscription', ...monthWindowAround(periodEnd, now), allowanceMicros }
     // Active with no known period end: calendar months from the account's creation.
     const anchor = validDate(profile.created_at) ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))

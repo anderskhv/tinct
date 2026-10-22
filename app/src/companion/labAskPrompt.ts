@@ -233,6 +233,18 @@ export function paragraphVerses(paragraph: string): string | null {
  * The reader's place, named before the paragraph's text, so "this", "here" and "he" resolve to it
  * (LAB_ASK_GROUND_FIRST_RULE). Verses when the paragraph is verse-numbered.
  */
+/**
+ * The companion's language (Anders, 22 Oct 2026): it answers in the language
+ * the reader writes in, and in Danish when the reader reads a Danish edition.
+ */
+export const LAB_ASK_LANGUAGE_RULE = 'Answer in the language the reader writes in.'
+export const LAB_ASK_DANISH_EDITION_NOTE = 'The reader is reading a Danish edition: answer in Danish unless the reader writes in another language.'
+
+/** The Danish-edition note for a `-da` edition key, else null. */
+export function editionLanguageNote(editionKey: string | undefined): string | null {
+  return editionKey && /-da$/.test(editionKey) ? LAB_ASK_DANISH_EDITION_NOTE : null
+}
+
 export function readerPlaceLine(chapterLabel: string, paragraph: string): string {
   const verses = paragraphVerses(paragraph)
   return `The reader is at: ${chapterLabel}${verses ? `, ${verses}` : ''}, the current paragraph below.`
@@ -258,6 +270,7 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
   if (authorship) stable.push(authorship)
   const numberingNote = editionNumberingNote(input.bookId, input.editionKey)
   if (numberingNote) stable.push(numberingNote)
+  stable.push(editionLanguageNote(input.editionKey) ?? LAB_ASK_LANGUAGE_RULE)
   if (input.readingAngle) {
     stable.push(`Reading angle: ${input.readingAngle}`)
   }

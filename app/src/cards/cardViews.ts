@@ -8,6 +8,7 @@
  * on You and Your reading comes from one readingTimeStats.
  */
 import { CARDS_COPY } from './cardsCopy'
+import type { Plan } from './planLabel'
 import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
 import {
@@ -30,8 +31,8 @@ import {
 } from './cardsApi'
 import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
-import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, READING_LANGUAGES, READING_LANGUAGE_COPY, backgroundView, pictureView, toggleReadingLanguage, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type ReadingLanguage, type Relation, type Visibility } from '../social/profileRules'
+import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
@@ -50,7 +51,7 @@ export interface CardsData {
   /** The ledger's figures and the books (null while reading time is off or unavailable). */
   reading: ReadingLoad | null
   allowance: AiAllowance | null
-  plan: 'premium' | 'free' | null
+  plan: Plan | null
   /** Premium intervals on sale to this reader (free readers only). */
   intervals: PremiumInterval[]
   /** "3rd of 5" among friends (/api/social/rank). */
@@ -191,7 +192,8 @@ function ownName(env: CardsEnv): string {
 }
 
 function planWord(env: CardsEnv): string {
-  return env.data.plan === 'premium' ? CARDS_COPY.premium : env.data.plan === 'free' ? CARDS_COPY.free : ''
+  const plan = env.data.plan
+  return plan === 'premium' ? CARDS_COPY.premium : plan === 'free_month' ? CARDS_COPY.premiumFreeMonth : plan === 'free' ? CARDS_COPY.free : ''
 }
 
 // ===== Small parts =====
@@ -216,6 +218,25 @@ function segmented<T extends string>(label: string, options: Array<{ value: T; l
     }))
   }
   return seg
+}
+
+/**
+ * Settings › I read in: one chip per language, ticked when chosen (V2Settings
+ * mockup, 22 Oct 2026). At least one stays chosen: the last one does not turn off.
+ */
+function languageChips(chosen: readonly ReadingLanguage[], choose: (next: ReadingLanguage[]) => void): HTMLElement {
+  const chips = el('div', { className: 'tc-chips', role: 'group', 'aria-label': CARDS_COPY.iReadIn, dataset: { testid: 'settings-languages' } })
+  for (const language of READING_LANGUAGES) {
+    const on = chosen.includes(language)
+    chips.append(el('button', {
+      type: 'button', 'aria-pressed': String(on), dataset: { value: language },
+      onclick: () => {
+        const next = toggleReadingLanguage(chosen, language)
+        if (next.join() !== chosen.join()) choose(next)
+      },
+    }, on ? el('span', { className: 'tc-tick', 'aria-hidden': 'true', text: '✓' }) : null, READING_LANGUAGE_COPY[language]))
+  }
+  return chips
 }
 
 function toggle(label: string, on: boolean, enabled: boolean, flip: () => void, testid: string): HTMLElement {
@@ -493,7 +514,7 @@ function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; dra
         field?.focus()
         field?.select()
       },
-    }, el('b', { text: name }))
+    }, el('b', { text: name }), el('span', { className: 'tc-pen', html: ICONS.pen, 'aria-hidden': 'true' }))
   }
   const input = el('input', {
     type: 'text', className: 'tc-nm-in', name: 'profileName', value: naming.draft, maxLength: '40', autocomplete: 'name', enterkeyhint: 'done',
@@ -1188,7 +1209,18 @@ export function settingsCard(env: CardsEnv): CardSpec {
           env.changed()
           void post({ newBooksOpenIn: value }, () => { env.data.profile = before; rememberNewBooksOpenIn(before.newBooksOpenIn) })
         }
-        body.append(group(row({ label: CARDS_COPY.newBooksOpenIn, className: 'is-seg', extra: [segmented<NewBooksOpenIn>(CARDS_COPY.newBooksOpenIn, [{ value: 'modern', label: CARDS_COPY.modern }, { value: 'human', label: CARDS_COPY.original }], profile.newBooksOpenIn, chooseNewBooks, { testid: 'settings-new-books' })] }))!,
+        const chooseLanguages = (next: ReadingLanguage[]) => {
+          const before = env.data.profile
+          if (!before) return
+          env.data.profile = { ...before, readingLanguages: next }
+          rememberReadingLanguages(next)
+          env.changed()
+          void post({ readingLanguages: next }, () => { env.data.profile = before; rememberReadingLanguages(before.readingLanguages ?? ['en']) })
+        }
+        body.append(group(
+          row({ label: CARDS_COPY.iReadIn, className: 'is-seg', testid: 'settings-languages-row', extra: [languageChips(profile.readingLanguages ?? ['en'], chooseLanguages)] }),
+          row({ label: CARDS_COPY.newBooksOpenIn, className: 'is-seg', extra: [segmented<NewBooksOpenIn>(CARDS_COPY.newBooksOpenIn, [{ value: 'modern', label: CARDS_COPY.modern }, { value: 'human', label: CARDS_COPY.original }], profile.newBooksOpenIn, chooseNewBooks, { testid: 'settings-new-books' })] }),
+        )!,
           el('p', { className: 'tc-foot', text: CARDS_COPY.newBooksFoot }))
       }
       const password = env.session.email ? row({
@@ -1256,7 +1288,8 @@ export function accountCard(env: CardsEnv): CardSpec {
             try { env.navigate(await startPremiumCheckout(token, interval)) } catch { status = CARDS_COPY.paymentFailed; card.refresh() }
           },
         }))
-      body.append(group(row({ label: premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
+      const planRow = premium ? CARDS_COPY.premiumAccount : env.data.plan === 'free_month' ? CARDS_COPY.premiumFreeMonth : CARDS_COPY.freeAccount
+      body.append(group(row({ label: planRow, testid: 'account-plan' }), ...plans)!)
       if (confirming) {
         body.append(
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),

@@ -2,7 +2,7 @@ import { isNativeCapacitor } from './utils/nativePlatform'
 import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
-import { editionHold, isEditionLanguageOffered } from './data/editionAvailability'
+import { editionHold, isEditionLanguageOffered, isOfferedDanishEdition } from './data/editionAvailability'
 /**
  * Returning-reader data for the library_2 design (public/lab/library_2).
  *
@@ -31,7 +31,7 @@ import { trackFunnel, trackFunnelOnce } from './utils/funnel'
 import { productionPlaces, withProductionPlaces } from './preReader/productionPositions'
 import { migrateWithheldEdition } from './data/withheldEditions'
 import { humanPrimaryEditionKey, isMachineMadeOriginal } from './data/editionDefaults'
-import { newBooksOpenIn } from './social/socialClient'
+import { newBooksOpenIn, readingLanguages } from './social/socialClient'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
@@ -306,7 +306,12 @@ export async function readerDestination(
   const human = !place && !choice?.explicit && newBooksOpenIn() === 'human'
     ? humanPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never) ?? null
     : null
-  const order = choice?.explicit ? [preferred, saved] : [saved, human, preferred]
+  // "I read in" Dansk (Anders, 22 Oct 2026): a never-opened book with an offered
+  // Danish edition opens in it first. Only without an explicit pick.
+  const danish = !place && !choice?.explicit && readingLanguages()?.includes('da')
+    ? readable.find(edition => isOfferedDanishEdition(bookId, edition.key))?.key ?? null
+    : null
+  const order = choice?.explicit ? [preferred, saved] : [saved, danish, human, preferred]
   const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null

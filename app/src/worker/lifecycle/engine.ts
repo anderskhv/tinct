@@ -12,6 +12,7 @@
 import { isBookFinished } from '../../preReader/bookFinished'
 import { finishedChaptersFor, libraryBookIdForPlace, libraryResumePlace, type LabPositionState } from '../../lab/labPosition'
 import { EMAIL_ART_BOOK_IDS } from './emailArt.generated'
+import { isFreeMonthGrant } from '../lib/aiAllowance'
 import { chooseNextBook, type Acclaim, type CatalogueBook } from './nextBook'
 import { renderEmail, TemplateFillError, type EmailVars, type RenderedEmail } from './render'
 import { confirmUrl, EMAIL_ORIGIN, unsubscribeHeaders, unsubscribeUrl } from './links'
@@ -115,7 +116,9 @@ export function profileConfirmed(profile: Profile): boolean | null {
 }
 
 export function profileSubscribed(profile: Profile): boolean {
+  // The first month free (aiAllowance.ts) runs past the trial: no trial notice during it.
   return profile.subscription_status === 'active' || profile.subscription_status === 'trialing'
+    || isFreeMonthGrant({ subscription_status: typeof profile.subscription_status === 'string' ? profile.subscription_status : null, subscription_period_end: typeof profile.subscription_period_end === 'string' ? profile.subscription_period_end : null })
 }
 
 export function profileTimeZone(profile: Profile): string {

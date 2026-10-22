@@ -17,6 +17,8 @@ export const CARDS_COPY = {
   settings: 'Settings',
   premium: 'Premium',
   free: 'Free',
+  // A new account's trial, or the month granted to existing readers (Anders, 22 Oct 2026).
+  premiumFreeMonth: 'Premium · first month free',
   uploadPicture: 'Upload a picture',
   choosePicture: 'Choose a picture',
   changeBackground: 'Change background',
@@ -44,6 +46,8 @@ export const CARDS_COPY = {
   more: (n: number) => `${n} more`,
   profile: 'Profile',
   newBooksOpenIn: 'New books open in',
+  // The reading languages (V2Settings mockup, 22 Oct 2026)
+  iReadIn: 'I read in',
   modern: 'Modern',
   original: 'Original',
   newBooksFoot: 'Modern is Tinct’s English rewrite; Original is the source text or a published translation.',

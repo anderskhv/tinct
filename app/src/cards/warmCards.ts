@@ -12,6 +12,7 @@
  */
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo } from '../lab/labPremiumOffer'
+import { planOf } from './planLabel'
 import { socialFriendsOn } from '../social/friendsClient'
 import { currentBookHint } from '../social/socialClient'
 import { networkSpare, whenReaderSettled } from '../utils/libraryPreviewWarmup'
@@ -44,14 +45,11 @@ export function warmAccountCards(): void {
       if (stopped) return
       const known = readCardsCache(userId)
       const me = board ? (board.entries.find(entry => entry.me) ?? board.me) : null
-      const status = info?.subscription_status ?? null
-      const paying = Boolean(info) && (status === 'active' || status === 'trialing' || status === 'past_due'
-        || (status === 'canceled' && Boolean(info!.subscription_period_end) && new Date(info!.subscription_period_end!).getTime() > Date.now()))
       writeCardsCache(userId, {
         profile: profile?.ok ? profile.profile : known?.profile ?? null,
         reading: reading ?? known?.reading ?? null,
         rank: board ? rankOf(me?.rank, board.total) : known?.rank ?? null,
-        plan: info ? (paying ? 'premium' : 'free') : known?.plan ?? null,
+        plan: info ? planOf(info) : known?.plan ?? null,
         billing: info ? Boolean(info.stripe) : known?.billing ?? false,
         allowance: allowance ?? known?.allowance ?? null,
       })

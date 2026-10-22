@@ -34,6 +34,7 @@ import {
   COVER_BOOK_IDS,
   VISIBILITIES,
   cleanDisplayName,
+  cleanReadingLanguages,
   effectiveVisibility,
   handleBase,
   handleCandidates,
@@ -161,8 +162,19 @@ export function imageUrl(userId: string, slot: 'picture' | 'background', token: 
  */
 export const FINDABLE_PROFILES_AT = Date.parse('2026-10-19T20:11:56Z')
 
+/**
+ * A returning reader (the What's-new card, Anders 22 Oct 2026): an account
+ * more than 30 days old. A new reader never gets the card.
+ */
+export const RETURNING_AFTER_MS = 30 * 86_400_000
+
+export function isReturningAccount(user: ProfileAuthUser, now: Date): boolean {
+  const created = Date.parse(String(user.created_at ?? ''))
+  return Number.isFinite(created) && now.getTime() - created > RETURNING_AFTER_MS
+}
+
 /** The reader's own profile as the client sees it. */
-function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser, uploads: boolean) {
+function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser, uploads: boolean, now: Date) {
   const stored = row.picture_kind === 'upload' || row.picture_kind === 'google'
   return {
     handle: row.handle,
@@ -176,6 +188,10 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     showTime: row.show_time,
     onLeaderboard: row.on_leaderboard,
     newBooksOpenIn: row.new_books_open_in,
+    /** English and/or Danish; English until the reader chooses (and before 20261023_reading_languages.sql). */
+    readingLanguages: cleanReadingLanguages(row.reading_languages) ?? ['en'],
+    /** More than 30 days old: the library's one What's-new card is for this account. */
+    returning: isReturningAccount(user, now),
     setUp: Boolean(row.set_up_at),
     /** An account from before profiles that has not chosen anything yet. */
     needsSetup: row.auto_created && !row.set_up_at,
@@ -304,6 +320,7 @@ async function ownProfile(store: ProfileStore, user: ProfileAuthUser, bookHint: 
       show_time: true,
       on_leaderboard: false,
       new_books_open_in: 'modern',
+      reading_languages: ['en'],
       auto_created: true,
       set_up_at: null,
       prompted_at: null,
@@ -381,6 +398,12 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
   if ('newBooksOpenIn' in body) {
     if (body.newBooksOpenIn !== 'modern' && body.newBooksOpenIn !== 'human') return { error: 'Choose a version.', field: 'newBooksOpenIn', status: 422 }
     patch.new_books_open_in = body.newBooksOpenIn
+  }
+  if ('readingLanguages' in body) {
+    // At least one language, English or Danish.
+    const languages = cleanReadingLanguages(body.readingLanguages)
+    if (!languages || !Array.isArray(body.readingLanguages) || languages.length !== new Set(body.readingLanguages).size) return { error: 'Choose at least one language.', field: 'readingLanguages', status: 422 }
+    patch.reading_languages = languages
   }
   // Skip for now = Only me, and the reader has made their choice.
   if (body.skip === true) {
@@ -502,7 +525,7 @@ export async function handleProfiles(
         if (deps.defer) deps.defer(confirmation)
         else await confirmation
       }
-      return reply({ enabled: true, available: true, profile: selfView(row, account, user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(row, account, user, photoUploadsOn(env), now) }, 200, request)
     }
 
     if (url.pathname === '/api/profile' && request.method === 'POST') {
@@ -542,7 +565,7 @@ export async function handleProfiles(
       else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false, email_opt_out_at: now.toISOString() })
       const next = await store.getOwn(user.id) ?? { ...row, ...patch }
       const account = await accountState(store, user, now)
-      return reply({ enabled: true, available: true, profile: selfView(next, account, user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, account, user, photoUploadsOn(env), now) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/handle' && request.method === 'GET') {
@@ -569,7 +592,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env), now) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/google-photo' && request.method === 'POST') {
@@ -587,7 +610,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, 'picture', bytes, type, 'google', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env), now) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/confirm-link' && request.method === 'POST') {

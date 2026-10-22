@@ -8,6 +8,7 @@
 import type { AiAllowance } from '../lab/labAiAllowance'
 import type { OwnProfile } from '../social/socialClient'
 import type { ReadingLoad } from './cardsApi'
+import { isPlan, type Plan } from './planLabel'
 
 export const CARDS_CACHE_PREFIX = 'tinct:account-cards:'
 // 2: the allowance joined the cache (11 Oct 2026); older entries are dropped rather than trusted.
@@ -17,7 +18,7 @@ export interface CardsCache {
   profile: OwnProfile | null
   reading: ReadingLoad | null
   rank: string | null
-  plan: 'premium' | 'free' | null
+  plan: Plan | null
   billing: boolean
   /** The AI credits as last shown, so the credits rows paint with the card (they arrived a second late, 11 Oct 2026). */
   allowance?: AiAllowance | null
@@ -40,7 +41,7 @@ export function readCardsCache(userId: string | null): CardsCache | null {
       profile,
       reading,
       rank: typeof data.rank === 'string' ? data.rank : null,
-      plan: data.plan === 'premium' || data.plan === 'free' ? data.plan : null,
+      plan: isPlan(data.plan) ? data.plan : null,
       billing: data.billing === true,
       allowance: data.allowance && typeof data.allowance.usedFraction === 'number' && Array.isArray(data.allowance.topUps)
         // Cached before hasAllowance existed: a period with no reset date has no allowance (labAiAllowance.parseAiAllowance).

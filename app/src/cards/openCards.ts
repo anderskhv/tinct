@@ -15,7 +15,8 @@ import { LAB_AUTH_CALLBACK_PATH } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
-import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
+import { fetchSubscriptionInfo } from '../lab/labPremiumOffer'
+import { planIntervals, planOf } from './planLabel'
 import { socialFriendsOn } from '../social/friendsClient'
 import { fetchFind, fetchOwnProfile, flushForFigures, loadReading } from './cardsApi'
 import { forgetBoards, knownDefaultBoard, loadDefaultBoard, noteOwnSeconds, onBoardsChanged } from './boardMemory'
@@ -142,12 +143,9 @@ function load(env: CardsEnv, social: boolean): void {
   void fetchAiAllowance(token).then(allowance => set({ allowance }))
   void fetchSubscriptionInfo(token).then(info => {
     if (!info) return
-    const status = info.subscription_status ?? null
-    const paying = status === 'active' || status === 'trialing' || status === 'past_due'
-      || (status === 'canceled' && Boolean(info.subscription_period_end) && new Date(info.subscription_period_end!).getTime() > Date.now())
     // Stripe's portal only for an account with a Stripe subscription to manage
     // (not Premium by grant, whose portal would be empty).
-    set({ plan: paying ? 'premium' : 'free', intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
+    set({ plan: planOf(info), intervals: planIntervals(info), billing: Boolean(info.stripe) })
   })
 }
 

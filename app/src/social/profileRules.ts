@@ -34,7 +34,39 @@ export const VISIBILITY_COPY: Record<Visibility, { label: string; line: string; 
 
 export const NEW_BOOKS_COPY: Record<NewBooksOpenIn, { label: string; line: string }> = {
   modern: { label: 'Modern English', line: 'The same book, in today’s English.' },
-  human: { label: 'Human translations', line: 'A published translation. Books written in English open as written.' },
+  // Renamed for the reading step (Anders, 22 Oct 2026).
+  human: { label: 'Human originals or translations', line: 'The original text, or a published translation.' },
+}
+
+/**
+ * The languages a reader reads in (the reading step and Settings › I read in,
+ * Anders 22 Oct 2026): English and Danish, at least one. Stored on the profile
+ * as reading_languages. Dansk puts the offered Danish editions first; nothing
+ * else changes yet.
+ */
+export type ReadingLanguage = 'en' | 'da'
+export const READING_LANGUAGES: readonly ReadingLanguage[] = ['en', 'da']
+export const READING_LANGUAGE_COPY: Record<ReadingLanguage, string> = { en: 'English', da: 'Dansk' }
+
+/** A stored or sent list, cleaned: known languages, in order, no repeats; null when none is left. */
+export function cleanReadingLanguages(raw: unknown): ReadingLanguage[] | null {
+  if (!Array.isArray(raw)) return null
+  const chosen = READING_LANGUAGES.filter(language => raw.includes(language))
+  return chosen.length ? chosen : null
+}
+
+/** The reading step's starting choice: English, and Dansk too for a browser set to Danish. */
+export function defaultReadingLanguages(browserLanguages: readonly string[] = []): ReadingLanguage[] {
+  return browserLanguages.some(language => /^da\b/i.test(language)) ? ['en', 'da'] : ['en']
+}
+
+/**
+ * Turns one language on or off, keeping at least one: switching off the only
+ * language chosen leaves the list as it was.
+ */
+export function toggleReadingLanguage(current: readonly ReadingLanguage[], language: ReadingLanguage): ReadingLanguage[] {
+  const next = current.includes(language) ? current.filter(item => item !== language) : [...current, language]
+  return next.length ? READING_LANGUAGES.filter(item => next.includes(item)) : [...current]
 }
 
 /**

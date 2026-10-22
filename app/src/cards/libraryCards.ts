@@ -22,7 +22,8 @@ import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, pa
 import type { PictureView } from '../social/profileRules'
 import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
 import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown } from '../social/findableNotice'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
+import { WHATS_NEW_ATTR, WHATS_NEW_COPY, checkWhatsNewAccount, dismissWhatsNew, markWhatsNewShown, whatsNewDue, whatsNewFor } from '../social/whatsNew'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
 export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
@@ -33,8 +34,9 @@ export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
  * Choosing Continue or Skip there marks the profile set up, so it never comes
  * back; the device mark covers leaving the step without either.
  */
-export function legacyProfileStepDue(profile: Pick<OwnProfile, 'needsSetup' | 'name'>, userId: string | null): boolean {
-  if (!profile.needsSetup || profile.name !== NEUTRAL_READER_NAME || !userId) return false
+export function legacyProfileStepDue(profile: Pick<OwnProfile, 'needsSetup' | 'name'> & { shouldPrompt?: boolean }, userId: string | null): boolean {
+  // Offered once per account: a profile that was offered the step (or skipped it, 22 Oct 2026) is not sent back.
+  if (!profile.needsSetup || profile.name !== NEUTRAL_READER_NAME || !userId || profile.shouldPrompt === false) return false
   try { return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + userId) === null } catch { return false }
 }
 
@@ -60,6 +62,16 @@ const STYLE = `
 .social-prompt p{margin:0;color:#b1bba4;font-size:16px;line-height:1.4}
 .social-prompt .go{display:block;width:100%;margin-top:14px;padding:11px;border:0;border-radius:999px;background:#eee7d0;color:#10150f;text-align:center;font:600 15px system-ui,-apple-system,sans-serif;cursor:pointer}
 .social-prompt .later{display:block;width:100%;min-height:40px;margin-top:4px;border:0;background:transparent;color:#b1bba4;font:15px Georgia,serif;cursor:pointer}
+.whats-new{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 28px),560px);box-sizing:border-box;z-index:60;display:flex;flex-direction:column;gap:16px;padding:20px 20px 10px;border-radius:18px;background:#1c261e;color:#f3ead8;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+@media(min-width:700px){.whats-new{bottom:28px;padding:24px 26px 12px}}
+.whats-new h2{margin:0;font:700 26px/1.2 "Playfair Display",Georgia,serif;color:#f3ead8}
+.whats-new ul{display:flex;flex-direction:column;gap:16px;margin:0;padding:0;list-style:none}
+.whats-new li{display:flex;gap:12px;align-items:flex-start}
+.whats-new li::before{content:"";flex:none;width:6px;height:6px;margin-top:11px;border-radius:50%;background:#e8dcc0}
+.whats-new li b{display:block;font:600 19px/1.3 "EB Garamond",Georgia,serif;color:#f3ead8}
+.whats-new li span{display:block;font:17px/1.4 "EB Garamond",Georgia,serif;color:#cfc6b2}
+.whats-new .go{min-height:50px;border:0;border-radius:25px;background:#efe6d2;color:#111;font:600 17px system-ui,-apple-system,sans-serif;cursor:pointer}
+.whats-new .later{min-height:40px;border:0;background:transparent;color:#cfc6b2;font:17px "EB Garamond",Georgia,serif;cursor:pointer}
 `
 
 function signedIn(): boolean {
@@ -176,6 +188,15 @@ async function start(pending: CardName | null): Promise<void> {
     else clearAvatarCache(userId)
   }
   if (socialFriendsOn()) void showRequestDot(token, userId, mount)
+  // Returning readers (accounts more than 30 days old): the What's-new card, once,
+  // in place of the findable notice and before any profile prompt (22 Oct 2026).
+  if (socialFriendsOn() && userId && whatsNewFor(result.profile)) {
+    await checkWhatsNewAccount(userId)
+    if (storedSession()?.session.userId === userId && whatsNewDue(result.profile, userId)) {
+      showWhatsNew(token, userId, result.profile, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
+      return
+    }
+  }
   if (userId && legacyProfileStepDue(result.profile, userId)) {
     offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
     return
@@ -247,6 +268,68 @@ export function showFindableNotice(userId: string, visibility: OwnProfile['visib
   card.append(line, go, later)
   document.body.append(card)
   markFindableNoticeShown(userId)
+}
+
+/**
+ * The What's-new card for a returning reader (whatsNew.ts; WhatsNew mockups),
+ * where the findable notice sat. Showing it marks it seen for the account and
+ * retires the findable notice too. Continue opens the profile step when the
+ * profile was never set up, else just closes; Later closes it for good.
+ */
+export function showWhatsNew(token: string, userId: string, profile: Pick<OwnProfile, 'needsSetup' | 'visibility'> & { setUpBeforeFindable?: boolean }, returnTo: string): void {
+  if (document.querySelector(`[${WHATS_NEW_ATTR}]`)) return
+  if (!document.querySelector('link[data-social-fonts]')) {
+    const fonts = document.createElement('link')
+    fonts.rel = 'stylesheet'
+    fonts.href = '/fonts/tinct-fonts.css'
+    fonts.dataset.socialFonts = ''
+    document.head.append(fonts)
+  }
+  const card = document.createElement('section')
+  card.className = 'whats-new'
+  card.setAttribute('role', 'dialog')
+  card.setAttribute('aria-labelledby', 'whats-new-title')
+  card.setAttribute(WHATS_NEW_ATTR, '')
+  card.dataset.testid = 'whats-new'
+  const title = document.createElement('h2')
+  title.id = 'whats-new-title'
+  title.textContent = WHATS_NEW_COPY.title
+  const list = document.createElement('ul')
+  for (const item of WHATS_NEW_COPY.items) {
+    const entry = document.createElement('li')
+    const text = document.createElement('div')
+    const head = document.createElement('b')
+    head.textContent = item.title
+    const line = document.createElement('span')
+    line.textContent = item.line
+    text.append(head, line)
+    entry.append(text)
+    list.append(entry)
+  }
+  const go = document.createElement('button')
+  go.type = 'button'
+  go.className = 'go'
+  go.textContent = WHATS_NEW_COPY.continue
+  go.dataset.testid = 'whats-new-continue'
+  go.addEventListener('click', () => {
+    dismissWhatsNew(userId)
+    if (!profile.needsSetup) return
+    // A profile never set up goes on to the profile step (brief: auto_created && !set_up_at).
+    try { localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + userId, '1') } catch { /* the account's prompted mark covers it */ }
+    void saveProfile(token, { prompted: true })
+    location.assign(legacyProfileStepUrl(returnTo))
+  })
+  const later = document.createElement('button')
+  later.type = 'button'
+  later.className = 'later'
+  later.textContent = WHATS_NEW_COPY.later
+  later.dataset.testid = 'whats-new-later'
+  later.addEventListener('click', () => dismissWhatsNew(userId))
+  card.append(title, list, go, later)
+  document.body.append(card)
+  markWhatsNewShown(userId)
+  // In place of the findable notice: it is not shown as well.
+  if (findableNoticeFor(profile as Parameters<typeof findableNoticeFor>[0])) void recordFindableNoticeSeen(userId)
 }
 
 /** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */

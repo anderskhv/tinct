@@ -32,6 +32,8 @@ export const ICONS = {
   back: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5 4.5 7 9 11.5"/></svg>',
   chev: '<svg viewBox="0 0 8 14" aria-hidden="true"><path d="M1.5 1.5 6.5 7l-5 5.5"/></svg>',
   cam: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 4.5h2.2l1.1-1.6h3.4l1.1 1.6H12v6.5H2z"/><circle cx="7" cy="7.6" r="2"/></svg>',
+  // The pencil beside a name that edits in place (the You card, the sign-up profile step; 22 Oct 2026).
+  pen: '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9.6 2.4l2 2L5 11l-2.6.6L3 9z"/><path d="M8.4 3.6l2 2"/></svg>',
   search: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.6"/><path d="M10.4 10.4 14 14"/></svg>',
 } as const
 

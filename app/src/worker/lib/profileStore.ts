@@ -4,11 +4,23 @@
  * so the routes can be tested with an in-memory store and so a missing table
  * (SQL not yet run) becomes one typed error the routes turn into "unavailable".
  */
-import type { BackgroundKind, PictureKind, Review, Visibility, NewBooksOpenIn } from '../../social/profileRules'
+import type { BackgroundKind, PictureKind, Review, Visibility, NewBooksOpenIn, ReadingLanguage } from '../../social/profileRules'
 import type { SupabaseEnv } from './supabase'
 
 export class ProfilesUnavailable extends Error {
+  /** The database's own error text, when it sent one (kept out of the message). */
+  body = ''
   constructor(detail: string, readonly status = 0) { super(`profiles unavailable: ${detail}`) }
+}
+
+/** The database's error text for a failed request; '' when it cannot be read. */
+async function errorBody(res: Response): Promise<string> {
+  try { return (await res.text()).slice(0, 500) } catch { return '' }
+}
+
+/** A 400 that names the reading_languages column: the SQL that adds it has not run. */
+function missingLanguagesColumn(error: unknown): boolean {
+  return error instanceof ProfilesUnavailable && error.status === 400 && error.body.includes('reading_languages')
 }
 
 /** One reader_profiles row, in the database's own column names. */
@@ -27,6 +39,11 @@ export interface ReaderProfileRow {
   show_time: boolean
   on_leaderboard: boolean
   new_books_open_in: NewBooksOpenIn
+  /**
+   * The languages the reader reads in (20261023_reading_languages.sql). Absent
+   * until that SQL has run: the store then reads and writes without it.
+   */
+  reading_languages?: ReadingLanguage[]
   auto_created: boolean
   set_up_at: string | null
   prompted_at: string | null
@@ -95,6 +112,12 @@ export interface ProfileStore {
 }
 
 const OWN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,show_reading,show_time,on_leaderboard,new_books_open_in,auto_created,set_up_at,prompted_at,updated_at'
+/** Added by 20261023_reading_languages.sql; the profile works without it until that has run. */
+const LANGUAGES_COLUMN = 'reading_languages'
+/** Whether this isolate has seen the column missing (a 400 naming it): then it is left out. */
+let languagesColumnMissing = false
+/** For tests: forget what this isolate learned about the column. */
+export function resetLanguagesColumnProbe(): void { languagesColumnMissing = false }
 const CARD_COLUMNS = 'id,handle,display_name,picture_kind,picture_value,background_kind,background_value,visibility,show_reading,show_time,on_leaderboard'
 
 function headers(env: SupabaseEnv, extra: Record<string, string> = {}): Record<string, string> {
@@ -114,7 +137,11 @@ async function rows<T>(env: SupabaseEnv, path: string): Promise<T[]> {
     throw new ProfilesUnavailable('network')
   }
   // A missing table, view or column answers 404/400: the SQL has not run yet.
-  if (!res.ok) throw new ProfilesUnavailable(`${path.split('?')[0]} ${res.status}`, res.status)
+  if (!res.ok) {
+    const error = new ProfilesUnavailable(`${path.split('?')[0]} ${res.status}`, res.status)
+    error.body = await errorBody(res)
+    throw error
+  }
   return await res.json() as T[]
 }
 
@@ -128,7 +155,9 @@ async function write(env: SupabaseEnv, method: 'POST' | 'PATCH', path: string, b
   if (res.ok) return 'ok'
   // 23505 unique_violation: a handle someone else took in the meantime.
   if (res.status === 409) return 'taken'
-  throw new ProfilesUnavailable(`${method} ${path.split('?')[0]} ${res.status}`)
+  const error = new ProfilesUnavailable(`${method} ${path.split('?')[0]} ${res.status}`, res.status)
+  error.body = await errorBody(res)
+  throw error
 }
 
 const list = (values: string[]) => values.map(value => `"${value.replace(/"/g, '')}"`).join(',')
@@ -136,6 +165,15 @@ const list = (values: string[]) => values.map(value => `"${value.replace(/"/g, '
 export function supabaseProfileStore(env: SupabaseEnv): ProfileStore {
   return {
     async getOwn(id) {
+      if (!languagesColumnMissing) {
+        try {
+          return (await rows<ReaderProfileRow>(env, `reader_profiles?id=eq.${id}&select=${OWN_COLUMNS},${LANGUAGES_COLUMN}&limit=1`))[0] ?? null
+        } catch (error) {
+          // 400: the column is not there yet (the SQL has not run). Read without it.
+          if (!missingLanguagesColumn(error)) throw error
+          languagesColumnMissing = true
+        }
+      }
       return (await rows<ReaderProfileRow>(env, `reader_profiles?id=eq.${id}&select=${OWN_COLUMNS}&limit=1`))[0] ?? null
     },
     async getAccount(id) {
@@ -147,10 +185,23 @@ export function supabaseProfileStore(env: SupabaseEnv): ProfileStore {
       return new Set(found.map(row => row.handle))
     },
     async create(row) {
-      return write(env, 'POST', 'reader_profiles', row)
+      // The column's default ({en}) fills a new row; it is never sent, so creating works before the SQL.
+      const { reading_languages: _languages, ...rest } = row
+      return write(env, 'POST', 'reader_profiles', rest)
     },
     async update(id, patch) {
-      return write(env, 'PATCH', `reader_profiles?id=eq.${id}`, { ...patch, updated_at: new Date().toISOString() })
+      const body = { ...patch, updated_at: new Date().toISOString() }
+      const languages = 'reading_languages' in body
+      if (languages && languagesColumnMissing) delete body.reading_languages
+      try {
+        return await write(env, 'PATCH', `reader_profiles?id=eq.${id}`, body)
+      } catch (error) {
+        // The column is not there yet: everything else is still saved.
+        if (!languages || languagesColumnMissing || !missingLanguagesColumn(error)) throw error
+        languagesColumnMissing = true
+        delete body.reading_languages
+        return write(env, 'PATCH', `reader_profiles?id=eq.${id}`, body)
+      }
     },
     async updateAccount(id, patch) {
       await write(env, 'PATCH', `profiles?id=eq.${id}`, patch)
