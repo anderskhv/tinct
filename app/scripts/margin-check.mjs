@@ -5917,10 +5917,10 @@ async function settingsCheck(browser, origin) {
     ok(`${tag}: no page errors`, !R.problems.length, R.problems)
     await R.ctx.close()
   }
-  // A reader's own EPUB: no read aloud, so no Audio settings; on the desktop Book settings holds Margin view and Convert to
-  // Tinct book; a phone has nothing of a layout to offer, so no Book settings either (empty groups hidden).
+  // A reader's own EPUB on the desktop: no read aloud, so no Audio settings; Book settings holds Margin view and Convert to
+  // Tinct book. (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
   const ehex = addEpub()
-  for (const [width, height] of [[1440, 900], [390, 844]]) {
+  for (const [width, height] of [[1440, 900]]) {
     const phone = width < 700, tag = `settings-epub-${width}x${height}`
     const E = await epubPage(browser, origin, ehex, { width, height })
     const e = E.page

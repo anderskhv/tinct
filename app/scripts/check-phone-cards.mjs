@@ -442,7 +442,7 @@ async function run(engineName) {
   await showControls(page)
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-menu').waitFor()
-  await page.getByTestId('lab-super-scrim').click()
+  await page.getByTestId('lab-super-scrim').click({ position: { x: 20, y: 420 } })
   await page.waitForTimeout(200)
   await showControls(page)
   await page.getByTestId('lab-super').click()
