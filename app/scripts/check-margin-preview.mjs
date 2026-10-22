@@ -392,6 +392,40 @@ try {
       // book's chat history (signed out, its device copy), never the preview's own key.
       ok(`${tag}: the place is kept under the preview's key, the cards in the book's chat history`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !localStorage.getItem(`tinct-addbook:cards:preview:${id}`) && JSON.parse(localStorage.getItem(`tinct:chat-history:${id}`) || '[]').some(c => c.card?.kind === 'explain'), bookId), kept)
 
+      // 4a. A word inside a paragraph's first line survives a reload (22 Oct 2026: a restore to ch. 5 ¶3 word 4 was kept
+      // as ¶3 word 0, because a paragraph whose first line is at the top reads back as word 0; the reload opened there and
+      // wrote 3:0 to the device and the account). Kept by the frame, by the book reader's record, and shown after the reload.
+      {
+        const target = await frame.evaluate(() => {
+          const page = currentPlace().page, paras = epubParas(state.pages[page - 1])
+          for (let para = 1; para < paras.length; para++) {
+            const el = paras[para], w = wordRect(el, 4), w0 = wordRect(el, 0)
+            if (w && w0 && Math.abs(w.top - w0.top) < 2) return { page, para, word: 4 }
+          }
+          return null
+        })
+        ok(`${tag}: a paragraph with five words on its first line to restore to`, !!target, target)
+        if (target) {
+          await frame.evaluate(t => { epubGoSpot(t.page, t.para, t.word) }, target)
+          await frame.waitForFunction(() => !epubHold.settling && epubHold.exact?.top != null, null, { timeout: 10000 }).catch(() => {})
+          await page.waitForTimeout(800)
+          await frame.evaluate(() => savePlaceNow())
+          await page.waitForTimeout(600)
+          const keptMid = await page.evaluate(id => JSON.parse(localStorage.getItem(`tinct-addbook:pos:preview:${id}`) || 'null'), bookId)
+          ok(`${tag}: the frame keeps the word it was brought to (¶${target.para} word 4), not its line's first word`, keptMid?.para === target.para && keptMid?.word === 4, keptMid)
+          await page.reload()
+          frame = await frameOf(page)
+          await frame.waitForFunction(() => typeof epubHold !== 'undefined' && epubHold.opened === state.token && !epubHold.settling, null, { timeout: 15000 }).catch(() => {})
+          await page.waitForTimeout(1500)
+          // The view's word as margin view hands it over (previewSpot: the restored word while the view holds it).
+          const again = await frame.evaluate(() => previewSpot())
+          const record = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.[id] || null, bookId)
+          const chapterNumber = await page.evaluate(async n => (await window.TinctMarginPreview.load()).chapters[n - 1]?.number, target.page)
+          ok(`${tag}: a reload reopens at the same paragraph and word (¶${target.para} word 4)`, again.page === target.page && again.para === target.para && again.word === 4, { target, again })
+          ok(`${tag}: and the book reader's record holds that paragraph and word after the reload`, record?.chapterNumber === chapterNumber && record?.paragraphIndex === target.para && record?.wordIndex === 4, { record, chapterNumber, target })
+        }
+      }
+
       // 4b. A chapter's start (paragraph 0, word 0) reopens with its heading and its pills in view, not under the top
       // bar (stream D, 22 Oct 2026: a reload at "Letter 1" came back with "To Mrs. Saville" first and the heading at
       // 4 px, behind the 50 px bar); the place still reads back as paragraph 0, word 0.
@@ -452,7 +486,7 @@ try {
       // 6. Back to normal reader (Book settings, 22 Oct 2026): the book reader for the same book, the Classic reader chosen on this device.
       await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
       const back2 = await frame.waitForSelector('.byob-book-settings [data-layout="text"]', { timeout: 5000 }).catch(() => null)
-      ok(`${tag}: Book settings offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
+      ok(`${tag}: Book settings offers the Classic reader`, !!back2 && (await back2.textContent()).trim() === 'Classic reader')
       shots.push(join(OUT, `${tag}-book-settings-layout.png`)); await page.screenshot({ path: shots.at(-1) })
       if (back2) await Promise.all([page.waitForURL(u => u.pathname === '/reader' && !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), back2.click()])
       const lab = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
@@ -571,11 +605,11 @@ try {
       await page.waitForTimeout(1200)
       const here = await previewPlace(frame)
       ok(`${tag}: the preview holds the word it was taken to`, here.para === target.para && here.word === target.word, { here, target })
-      // Book settings (22 Oct 2026; Aa's until then): Layout, Margin · Two-page · Compare (then Back to normal reader).
+      // Book settings (22 Oct 2026; Aa's until then): Layout, Margin · Two-page · Compare (then Classic reader, the book reader; "Back to normal reader" until 22 Oct 2026).
       await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
       await frame.waitForSelector('[data-bs="layout"] [data-layout="two-page"]', { timeout: 5000 }).catch(() => null)
       const layouts = await frame.evaluate(() => ({ label: document.getElementById('bsLayoutLabel')?.textContent, rows: [...document.querySelectorAll('[data-bs="layout"] [data-layout]')].map(b => [b.dataset.layout, b.textContent.replace(/✓/g, '').trim(), b.getAttribute('aria-pressed')]) }))
-      ok(`${tag}: Book settings' Layout offers Margin (on), Two-page, Compare and Back to normal reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Back to normal reader', 'false']]), layouts)
+      ok(`${tag}: Book settings' Layout offers Margin (on), Two-page, Compare and Classic reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Classic reader', 'false']]), layouts)
       if (first) await deskShot(page, `aa-layout-${w}x${h}.png`)
       // Two-page: the book reader at the same chapter, paragraph and word; the opt-in kept.
       await Promise.all([page.waitForURL(u => !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), frame.click('[data-layout="two-page"]')])
