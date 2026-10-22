@@ -23,14 +23,23 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
-import { ensureNarration, fetchNarrationPilotInfo, type NarrationPilotInfo } from '../labNarration'
+import { ensureNarration, ensureOwnNarration, fetchNarrationPilotInfo, type NarrationPilotInfo } from '../labNarration'
 import { LAB_PREFS_KEY, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
 import { loadLabBookSource, nextLabChapter, type LabSource } from '../labSource'
 import { readLabDeviceId, readLabPositionLocal, writeLabPositionLocal } from '../labPositionStore'
 import { readNarrationReplay, storeNarrationReplay } from '../narrationReplayCache'
 import { narrationBridgeUrls, useLabListen } from '../useLabListen'
 import { useLabListenReport } from '../useLabListenReport'
-import { heardPlace, marginListenSnapshot, marginNarrationPlan, marginVoiceChoices, withAudioPlace, withMarginVoice, type MarginListenAt, type MarginListenSnapshot, type MarginVoiceChoices } from './marginListenModel'
+import { heardPlace, marginListenSnapshot, marginNarrationPlan, marginOwnNarrationPlan, marginOwnSource, marginVoiceChoices, withAudioPlace, withMarginVoice, type MarginListenAt, type MarginListenSnapshot, type MarginOwnChapter, type MarginVoiceChoices } from './marginListenModel'
+
+/**
+ * An own book's chapters, as the margin reader in the frame reads them (reader.js ownListen): its chapters (an EPUB's,
+ * or a PDF's pages) and, for one of them, its paragraphs. The text stays on this device but for what is read aloud.
+ */
+export interface MarginOwnListenSource {
+  chapters: () => Array<{ number: number; title: string }>
+  chapter: (number: number) => Promise<MarginOwnChapter | null>
+}
 
 /** The frame's way to the player (MarginPreview.tsx puts it on window.TinctMarginPreview). */
 export interface MarginListenApi {
@@ -52,6 +61,8 @@ export interface MarginListenApi {
   setVoice: (value: string) => void
   /** Put the transport away; the place is kept. */
   stop: () => void
+  /** An own book: the frame hands over where its text comes from (only for a player made with `own`). */
+  attachOwn?: (source: MarginOwnListenSource) => void
 }
 
 /** How often the place heard is kept while listening (the book reader keeps its place at least this often). */
@@ -65,14 +76,24 @@ function readPrefs(): LabPrefs {
   return parseLabPrefs(raw, 'desktop')
 }
 
-export function useMarginListen(input: { bookId: string; editionKey: string | null; chapterTitles?: Map<number, string> }): MarginListenApi {
+type ListenSource = Pick<LabSource, 'chapterNumber' | 'chapterLabel' | 'paragraphs' | 'followParagraphs' | 'chapters' | 'audioTitle'>
+
+/**
+ * `own`: a reader's own book (MarginOwnBook): its text comes from the frame (attachOwn), it is read aloud through the
+ * own-book route (ensureOwnNarration: the text and the book's hex, to that route only, as the book reader sends them),
+ * nothing is kept in the replay cache, no listening time is reported with its id, and the place stays the frame's
+ * (it is the only writer of an own book's place in the margin reader).
+ */
+export function useMarginListen(input: { bookId: string; editionKey: string | null; chapterTitles?: Map<number, string>; own?: { hex: string } | null }): MarginListenApi {
   const { bookId, editionKey } = input
+  const ownHex = input.own?.hex ?? null
+  const ownSourceRef = useRef<MarginOwnListenSource | null>(null)
   const book = getBook(bookId)
   const editions = useMemo(() => book?.editions ?? [], [book])
   const [prefs, setPrefs] = useState(readPrefs)
   const [token, setToken] = useState<string | null | undefined>(undefined)
   const [info, setInfo] = useState<NarrationPilotInfo | null>(null)
-  const [source, setSource] = useState<LabSource | null>(null)
+  const [source, setSource] = useState<ListenSource | null>(null)
   const [request, setRequest] = useState<Request | null>(null)
   const [dismissed, setDismissed] = useState(false)
 
@@ -86,9 +107,11 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   // The chapter asked for decides the plan (a chapter outside the narration's scope cannot be heard).
   const chapterNumber = request?.chapterNumber ?? source?.chapterNumber ?? 1
   // Until the server's narration configuration is known nothing is decided (the book reader waits the same way).
-  const plan = useMemo(() => editionKey && info
-    ? marginNarrationPlan({ bookId, editions, editionKey, chapterNumber, prefs, info, signedIn: Boolean(token) })
-    : null, [bookId, editions, editionKey, chapterNumber, prefs, info, token])
+  const plan = useMemo(() => editionKey && info && (!ownHex || token !== undefined)
+    ? ownHex
+      ? marginOwnNarrationPlan({ prefs, info, signedIn: Boolean(token) })
+      : marginNarrationPlan({ bookId, editions, editionKey, chapterNumber, prefs, info, signedIn: Boolean(token) })
+    : null, [bookId, editions, editionKey, chapterNumber, prefs, info, token, ownHex])
 
   // The chapter the player holds: loaded as the book reader loads it (its follow timings, its title clip).
   const loadingRef = useRef<string | null>(null)
@@ -98,31 +121,49 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     const key = `${editionKey}:${plan.audioEdition}:${request.chapterNumber}`
     if (loadingRef.current === key) return
     loadingRef.current = key
+    if (ownHex) {
+      const own = ownSourceRef.current
+      if (!own) { loadingRef.current = null; setRequest(null); return }
+      void own.chapter(request.chapterNumber)
+        .then(chapter => {
+          if (loadingRef.current !== key) return
+          if (!chapter) { loadingRef.current = null; setRequest(null); return }
+          // A chapter (a PDF's page) without text to read is passed over: the next one with text starts from its top.
+          if (chapter.number !== request.chapterNumber) setRequest({ chapterNumber: chapter.number, paragraphIndex: 0, wordIndex: 0, mode: request.mode })
+          setSource(marginOwnSource(chapter, own.chapters()))
+        })
+        .catch(() => { if (loadingRef.current === key) { loadingRef.current = null; setRequest(null) } })
+      return
+    }
     void loadLabBookSource({ bookId, primaryEditionKey: editionKey, audioEditionKey: plan.narration ? undefined : plan.audioEdition, chapterNumber: request.chapterNumber })
       .then(loaded => { if (loadingRef.current === key) setSource(loaded) })
       .catch(() => { if (loadingRef.current === key) { loadingRef.current = null; setRequest(null) } })
-  }, [request, source, editionKey, plan, bookId])
+  }, [request, source, editionKey, plan, bookId, ownHex])
 
   const voice = plan?.voice ?? null
   const identity = info?.voices.find(v => v.key === voice)?.cacheIdentity ?? null
   const contextRef = useRef({ bookId, editionKey: editionKey ?? '', chapter: chapterNumber, paragraphs: source?.paragraphs ?? [], voice, identity, token })
   contextRef.current = { bookId, editionKey: editionKey ?? '', chapter: source?.chapterNumber ?? chapterNumber, paragraphs: source?.paragraphs ?? [], voice, identity, token }
   const prepared = useCallback(() => {
+    // An own book's recordings are private links: nothing is kept in the replay cache (as the book reader).
+    if (ownHex) return []
     const c = contextRef.current
     return readNarrationReplay(c)
-  }, [])
+  }, [ownHex])
   const ensure = useCallback(async (indexes: number[], signal: AbortSignal, mode?: 'next' | 'all', fromChunks?: Record<number, number>) => {
     const c = contextRef.current
     if (!c.voice) return []
     const authToken = c.token ?? await readSupabaseAccessToken()
+    const paragraphs = indexes.filter(i => i >= 0 && i < c.paragraphs.length).map(index => ({ index, text: c.paragraphs[index], fromChunk: fromChunks?.[index] }))
+    if (ownHex) return ensureOwnNarration({ bookHex: ownHex, voice: c.voice, paragraphs, mode: mode ?? 'next' }, { signal, authToken })
     const results = await ensureNarration({
       bookId: c.bookId, editionKey: c.editionKey, chapter: c.chapter, voice: c.voice,
-      paragraphs: indexes.filter(i => i >= 0 && i < c.paragraphs.length).map(index => ({ index, text: c.paragraphs[index], fromChunk: fromChunks?.[index] })),
+      paragraphs,
       mode: mode ?? 'next',
     }, { signal, authToken })
     if (!signal.aborted) storeNarrationReplay(c, results)
     return results
-  }, [])
+  }, [ownHex])
   const narration = useMemo(() => (plan?.narration && voice ? { voice, ensure, prepared } : null), [plan?.narration, voice, ensure, prepared])
 
   const chapterCompleteRef = useRef<() => boolean>(() => false)
@@ -133,7 +174,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     bookId,
     bookTitle: book?.title,
     chapterTitle: source?.chapterLabel,
-    coverSrc: `/covers/v2/${bookId}.webp`,
+    coverSrc: ownHex ? undefined : `/covers/v2/${bookId}.webp`,
     paragraphs: source?.paragraphs ?? EMPTY,
     followParagraphs: source?.followParagraphs ?? EMPTY_FOLLOW,
     chapterNumber: source?.chapterNumber,
@@ -166,7 +207,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     return true
   }
   nextChapterAudioRef.current = () => {
-    if (!narration || !source) return null
+    if (!narration || !source || ownHex) return null
     const next = nextLabChapter(source.chapters, source.chapterNumber)
     if (next == null) return null
     const scope = { ...contextRef.current, chapter: next }
@@ -200,12 +241,12 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   // gives up), while it plays, and as the page goes away.
   const writePlace = useCallback(() => {
     const at = heardRef.current
-    if (!at || !editionKey) return
+    if (!at || !editionKey || ownHex) return
     try {
       const deviceId = readLabDeviceId()
       writeLabPositionLocal(withAudioPlace(readLabPositionLocal(deviceId), { bookId, editionKey, at, now: Date.now(), deviceId }))
     } catch { /* storage unavailable: the book reader keeps its own place */ }
-  }, [bookId, editionKey])
+  }, [bookId, editionKey, ownHex])
   const wasPlayingRef = useRef(false)
   useEffect(() => {
     if (wasPlayingRef.current && !listen.playing) writePlace()
@@ -218,7 +259,8 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     return () => { clearInterval(timer); removeEventListener('pagehide', writePlace); document.removeEventListener('visibilitychange', hide) }
   }, [listen.playing, writePlace])
 
-  useLabListenReport(listen.playing, bookId)
+  // An own book's id is never reported (the book reader reports none either).
+  useLabListenReport(listen.playing && !ownHex, bookId)
 
   const snapshot = marginListenSnapshot({
     available: plan && info ? !plan.unavailable : null,
@@ -284,7 +326,9 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
       writePlace()
       setDismissed(true)
     },
-  }), [writePlace])
+    // The frame's text (again, when another text of the book opens there): whatever was loaded from the last one goes.
+    ...(ownHex ? { attachOwn: (own: MarginOwnListenSource) => { ownSourceRef.current = own; loadingRef.current = null; startedRef.current = null; setSource(null); setRequest(null) } } : {}),
+  }), [writePlace, ownHex])
 }
 
 const EMPTY: string[] = []

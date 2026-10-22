@@ -6,6 +6,10 @@
 // follow highlight from the player's snapshots, and hands it places: the paragraph and word at the top of the view,
 // or the start of a selection. A place is the same (chapter, paragraph, word) in both readers: one <p class="tb-p">
 // per edition paragraph, words as `\S+` of its text (src/lab/marginPreview/marginPreviewModel.ts).
+// A reader's own EPUB or PDF is heard the same way (Anders, 22 Oct 2026: Tinct's voice for every book, never the
+// browser's): the page that frames it (MarginOwnBook) runs the same player through the own-book route, and its
+// chapters and paragraphs come from reader.js (window.TinctOwnListen: an EPUB's chapters or a PDF's pages, each
+// paragraph with the text nodes it is drawn in), handed to the player here (attachOwn).
 (function (global) {
   /** [start, end) of each `\S+` word of a text. */
   function wordOffsets(text) {
@@ -31,6 +35,23 @@
   function pointAt(nodes, offset) {
     for (let i = nodes.length - 1; i >= 0; i--) if (nodes[i].at <= offset) return [nodes[i].node, Math.min(offset - nodes[i].at, nodes[i].node.nodeValue.length)];
     return nodes.length ? [nodes[0].node, 0] : null;
+  }
+  /** A Range over characters [a, b) of text drawn in `nodes` ({ node, at }), or null. */
+  function rangeOver(nodes, a, b) {
+    const start = pointAt(nodes, a), end = pointAt(nodes, b);
+    if (!start || !end) return null;
+    const r = start[0].ownerDocument.createRange();
+    try { r.setStart(start[0], start[1]); r.setEnd(end[0], end[1]) } catch { return null }
+    return r;
+  }
+  /** A Range over words [from, to) of an own book's paragraph ({ text, nodes() }); the whole paragraph without `from`. */
+  function paraRange(para, from, to = from + 1) {
+    if (!para) return null;
+    const nodes = para.nodes(); if (!nodes.length) return null;
+    if (from == null) return rangeOver(nodes, 0, para.text.length);
+    const words = wordOffsets(para.text); if (!words.length) return null;
+    const a = words[Math.max(0, Math.min(from, words.length - 1))], b = words[Math.max(0, Math.min(to - 1, words.length - 1))];
+    return rangeOver(nodes, a[0], b[1]);
   }
   /** A Range over words [from, to) of a paragraph, or null. */
   function wordsRange(el, from, to = from + 1) {
@@ -77,21 +98,27 @@
     if (browsing || !rect) return false;
     return rect.top < band[0] || rect.bottom > band[1];
   }
-  const api = { wordOffsets, wordIndexAt, wordsRange, placeOfPoint, paragraphsOf, topPlace, needsScroll };
+  const api = { wordOffsets, wordIndexAt, wordsRange, placeOfPoint, paragraphsOf, topPlace, needsScroll, rangeOver, paraRange };
   global.TinctBookListen = api;
 
   /* ---------- The page: only in the preview's frame (js/tinct-book.js), only once the reader has the book ---------- */
   const doc = global.document;
   if (!doc || !global.location) return;
-  const id = new URLSearchParams(global.location.search).get('tinctBook');
-  if (!id || !/^[a-z0-9][a-z0-9-]{0,80}$/.test(id)) return;
+  const params = new URLSearchParams(global.location.search);
+  const id = params.get('tinctBook'), ownHex = params.get('userBook');
+  const tinct = !!id && /^[a-z0-9][a-z0-9-]{0,80}$/.test(id);
+  // A reader's own book, in the frame of MarginOwnBook (its host names the book by `userbook-<hex>`).
+  const ownMode = !tinct && !!ownHex && /^[0-9a-f]{24,64}$/.test(ownHex);
+  if (!tinct && !ownMode) return;
+  const OWN = () => global.TinctOwnListen || null;
   const $ = k => doc.getElementById(k);
   // reader.js's own helpers (its top-level bindings are this page's globals): read only when it defines them.
   /* global ICON, SKIP, toast */
   const readerIcons = () => (typeof ICON !== 'undefined' ? ICON : {});
   const readerSkip = () => (typeof SKIP === 'function' ? SKIP : null);
   const readerToast = () => (typeof toast === 'function' ? toast : null);
-  const player = () => { try { const p = global.parent !== global && global.parent.TinctMarginPreview; return p && p.bookId === id ? p.listen || null : null } catch { return null } };
+  const hostOf = () => { try { const p = global.parent !== global && global.parent.TinctMarginPreview; return p && (ownMode ? p.own && String(p.bookId || '').endsWith(ownHex) : p.bookId === id) ? p : null } catch { return null } };
+  const player = () => hostOf()?.listen || null;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   let model = null, snap = null, chosen = null, browsing = false, selfScrollUntil = 0, toldError = '';
@@ -107,12 +134,49 @@
 .tb-listen-dock [data-a="play"]{position:relative}
 @keyframes tb-listen-spin{to{transform:rotate(1turn)}}
 ::highlight(tinct-listen){background-color:color-mix(in srgb,var(--lab-surface,#f4efe4) 82%,#d9c69d 18%);color:var(--lab-ink,#0b0b0b)}
+::highlight(tinct-listen-para){background-color:color-mix(in srgb,var(--lab-surface,#f4efe4) 92%,#d9c69d 8%)}
 .tb-chapter p.tb-p.tb-heard{position:relative}
 .tb-chapter p.tb-p.tb-heard:not(.has-word)::before{content:"";position:absolute;left:-12px;top:.25em;bottom:.25em;width:3px;border-radius:2px;background:color-mix(in srgb,var(--lab-ink,#0b0b0b) 24%,transparent);pointer-events:none}
 @media (prefers-reduced-motion:reduce){.lab.tb-can-listen #playBtn[data-loading="true"]::after,.tb-listen-dock [data-a="play"][data-loading="true"]::after{animation:none}}`;
 
+  /* ---------- An own book's paragraphs (reader.js TinctOwnListen), kept per chapter for the text drawn now ---------- */
+  let ownCache = new Map(), ownVersion = -1;
+  function ownParas(n) {
+    const O = OWN(); if (!O) return Promise.resolve([]);
+    if (O.version !== ownVersion) { ownVersion = O.version; ownCache = new Map() }
+    if (!ownCache.has(n)) { const v = { list: null }; v.done = Promise.resolve(O.paragraphs(n)).then(list => (v.list = Array.isArray(list) ? list : [])).catch(() => (v.list = [])); ownCache.set(n, v) }
+    return ownCache.get(n).done;
+  }
+  const ownParasNow = n => (OWN()?.version === ownVersion ? ownCache.get(n)?.list : null) || null;
+  /** The chapter (page), paragraph and word at the top of the view, in an own book. */
+  async function ownTopPlace() {
+    const O = OWN(), s = $('scroll'); if (!O || !s) return null;
+    const top = s.getBoundingClientRect().top + 1, first = O.pageAt();
+    for (let n = first; n <= Math.min(O.lastPage(), first + 2); n++) {
+      const paras = await ownParas(n);
+      const bottom = r => { const q = r ? [...r.getClientRects()].filter(x => x.height > 0) : []; return q.length ? q[q.length - 1].bottom : -Infinity };
+      const p = firstPast(paras.length, i => bottom(paraRange(paras[i])), top);
+      if (p >= paras.length) continue;
+      const words = wordOffsets(paras[p].text);
+      const w = firstPast(words.length, i => bottom(paraRange(paras[p], i)), top);
+      return { chapterNumber: n, paragraphIndex: p, wordIndex: Math.min(w, Math.max(0, words.length - 1)) };
+    }
+    return { chapterNumber: first, paragraphIndex: 0, wordIndex: 0 };
+  }
+  /** An own book's place of a DOM point (a selection's start), when its chapter's paragraphs are known. */
+  function ownPointPlace(node, offset) {
+    const O = OWN(), n = O?.pageOf(node); if (!n) return null;
+    const paras = ownParasNow(n); if (!paras) return null;
+    for (let i = 0; i < paras.length; i++) {
+      const hit = paras[i].nodes().find(x => x.node === node);
+      if (hit) return { chapterNumber: n, paragraphIndex: i, wordIndex: wordIndexAt(paras[i].text, hit.at + offset) };
+    }
+    return null;
+  }
+
   /** Where Play starts: the start of a selection in the text, else the paragraph and word at the top of the view. */
   function readingPlace() {
+    if (ownMode) { const pick = chosen; chosen = null; return pick || ownTopPlace() }
     if (!model) return null;
     const els = chapterEls();
     const pick = chosen; chosen = null;
@@ -126,6 +190,7 @@
   /** The start of the selection, read as Play is pressed (before the press can move it). */
   function selectionPlace() {
     const sel = global.getSelection?.(); if (!sel || sel.isCollapsed || !sel.rangeCount || !model) return null;
+    if (ownMode) { const r = sel.getRangeAt(0); return ownPointPlace(r.startContainer, r.startOffset) }
     const r = sel.getRangeAt(0), els = chapterEls();
     const i = els.findIndex(el => el.contains(r.startContainer)); if (i < 0) return null;
     const at = placeOfPoint(els[i], r.startContainer, r.startOffset); if (!at) return null;
@@ -133,17 +198,34 @@
   }
   /** The paragraph element heard, or null. */
   function heardEl(s = snap) {
-    if (!s?.follow || s.chapterNumber == null) return null;
+    if (!s?.follow || s.chapterNumber == null || ownMode) return null;
     const i = chapterIndexOf(s.chapterNumber), el = chapterEls()[i];
     return el ? paragraphsOf(el)[s.follow.paragraphIndex] || null : null;
   }
+  /** An own book's paragraph heard ({ text, nodes() }), when its chapter's paragraphs are known. */
+  function heardPara(s = snap) {
+    if (!ownMode || !s?.follow || s.chapterNumber == null) return null;
+    return ownParasNow(s.chapterNumber)?.[s.follow.paragraphIndex] || null;
+  }
   function heardRange(s = snap) {
+    if (ownMode) {
+      const para = heardPara(s); if (!para || s.follow.wordIndex == null) return null;
+      return s.follow.from != null && s.follow.to != null ? paraRange(para, s.follow.from, s.follow.to) : paraRange(para, s.follow.wordIndex);
+    }
     const el = heardEl(s); if (!el || s.follow.wordIndex == null) return null;
     return s.follow.from != null && s.follow.to != null ? wordsRange(el, s.follow.from, s.follow.to) : wordsRange(el, s.follow.wordIndex);
   }
   function heardRect(s = snap) {
     const r = heardRange(s), rects = r ? [...r.getClientRects()].filter(q => q.height > 0) : [];
     if (rects.length) return { top: rects[0].top, bottom: rects[rects.length - 1].bottom };
+    if (ownMode) {
+      // The paragraph (no word timed yet), else its page (a PDF page not drawn yet: going there draws it).
+      const pr = heardPara(s) ? paraRange(heardPara(s)) : null, q = pr ? [...pr.getClientRects()].filter(x => x.height > 0) : [];
+      if (q.length) return { top: q[0].top, bottom: Math.min(q[q.length - 1].bottom, q[0].top + 60) };
+      const sheet = s?.chapterNumber != null ? OWN()?.sheet(s.chapterNumber) : null; if (!sheet) return null;
+      const b = sheet.getBoundingClientRect();
+      return { top: b.top, bottom: b.top + 60 };
+    }
     const el = heardEl(s); if (!el) return null;
     const b = el.getBoundingClientRect();
     return { top: b.top, bottom: Math.min(b.bottom, b.top + 60) };
@@ -168,8 +250,22 @@
 
   /* ---------- The follow highlight: the word (or sentence) heard, else its paragraph ---------- */
   const highlights = global.CSS && global.CSS.highlights && typeof global.Highlight === 'function' ? global.CSS.highlights : null;
-  let mark = null, markedEl = null;
+  let mark = null, markedEl = null, paraMark = null;
   function paint() {
+    if (ownMode) {
+      // An own book: the word heard, else (no word timed yet) its paragraph, lightly; the page's DOM is not touched.
+      if (!highlights) return;
+      const on = snap && (snap.playing || snap.status === 'paused' || snap.pending) && snap.open;
+      if (!mark) { mark = new global.Highlight(); highlights.set('tinct-listen', mark) }
+      if (!paraMark) { paraMark = new global.Highlight(); highlights.set('tinct-listen-para', paraMark) }
+      mark.clear(); paraMark.clear();
+      if (!on) return;
+      const range = heardRange();
+      if (range) { mark.add(range); return }
+      const para = heardPara(); const pr = para ? paraRange(para) : null;
+      if (pr) paraMark.add(pr);
+      return;
+    }
     const el = snap && (snap.playing || snap.status === 'paused' || snap.pending) && snap.open ? heardEl() : null;
     if (markedEl && markedEl !== el) markedEl.classList.remove('tb-heard', 'has-word');
     markedEl = el;
@@ -258,8 +354,7 @@
     if (snap?.playing || snap?.pending) { p.pause(); return }
     browsing = false;
     if (snap?.open && snap.status === 'paused' && inView() && !chosen && p.resume()) return;
-    const at = readingPlace(); if (!at) return;
-    p.play(at);
+    Promise.resolve(readingPlace()).then(at => { if (at) p.play(at) });
   }
   /** The transport's Play: pause, or go on from the sentence heard. */
   function transportPlay() {
@@ -268,7 +363,7 @@
     browsing = false;
     if (p.resume()) { scrollToHeard(true); return }
     const at = snap?.chapterNumber != null && snap.follow ? { chapterNumber: snap.chapterNumber, paragraphIndex: snap.follow.paragraphIndex, wordIndex: snap.follow.wordIndex || 0 } : readingPlace();
-    if (at) p.play(at);
+    Promise.resolve(at).then(place => { if (place) p.play(place) });
   }
 
   function onSnapshot(next) {
@@ -298,7 +393,9 @@
     rootEl()?.classList.add('tb-can-listen');
     const b = $('playBtn');
     if (b) {
-      b.disabled = false; b.removeAttribute('aria-disabled');
+      // An own scan without text has nothing to read (reader.js hasNoText): Play stays off for it.
+      const off = ownMode && OWN() && !OWN().canPlay();
+      b.disabled = !!off; if (off) b.setAttribute('aria-disabled', 'true'); else b.removeAttribute('aria-disabled');
       // The selection is read before the press can collapse it.
       b.addEventListener('pointerdown', () => { chosen = selectionPlace() }, true);
       b.onclick = e => { e.preventDefault(); if (!chosen) chosen = selectionPlace(); topPlay() };
@@ -313,7 +410,40 @@
     global.addEventListener('pagehide', () => { try { off() } catch {} });
   }
 
+  /** An own book: its chapters and paragraphs, handed to the player (useMarginListen attachOwn) as the text it reads. */
+  const ownTitle = n => OWN()?.chapters().find(c => c.number === n)?.title || '';
+  function attachOwn(p) {
+    const O = OWN();
+    model = { title: O.title(), chapters: O.chapters() };
+    p.attachOwn({
+      chapters: () => OWN()?.chapters() || [],
+      // The chapter asked for, or the next one with text to read (a page or chapter without any is passed over).
+      chapter: async n => {
+        const O2 = OWN(); if (!O2) return null;
+        for (let m = n; m <= O2.lastPage(); m++) {
+          const paras = await ownParas(m);
+          if (paras.length) return { number: m, title: ownTitle(m), paragraphs: paras.map(x => x.text.replace(/\s+/g, ' ').trim()) };
+        }
+        return null;
+      },
+    });
+  }
+  async function bootOwn() {
+    // A long PDF can take a while to open: its book is waited for up to five minutes.
+    for (let i = 0; i < 3000; i++) {
+      const host = hostOf(), O = OWN();
+      if (host?.listen?.attachOwn && O?.ready()) {
+        attachOwn(host.listen);
+        mount(model);
+        // Another text of the book opened in place (a PDF's pages and its Tinct text): the player reads that one now.
+        global.addEventListener('tinct-own-listen', () => { const h = hostOf(); if (h?.listen?.attachOwn && OWN()?.ready()) { attachOwn(h.listen); const b = $('playBtn'); if (b) { const off = !OWN().canPlay(); b.disabled = off; if (off) b.setAttribute('aria-disabled', 'true'); else b.removeAttribute('aria-disabled') } paint() } });
+        return;
+      }
+      await new Promise(r => setTimeout(r, 100));
+    }
+  }
   async function boot() {
+    if (ownMode) return bootOwn();
     // The book drawn by the reader (reader.js openRegistered, from js/tinct-book.js), and the framing page's player.
     for (let i = 0; i < 600; i++) {
       let host = null;

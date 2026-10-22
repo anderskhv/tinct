@@ -203,10 +203,15 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
     // The reading year hears the reader's actions on this window; the frame's are its own (as useMarginPreviewPlace).
     active: () => { window.dispatchEvent(new Event('pointerdown')) },
   }), [])
+  // Listen: the book reader's player and Tinct's voice for an own book too (Anders, 22 Oct 2026), its text handed over by
+  // the frame (js/tinct-listen.js, reader.js ownListen); its listening counts as reading time, as in the book reader.
+  const ownListen = useMemo(() => ({ hex }), [hex])
+  const listen = useMarginListen({ bookId, editionKey: 'own', own: ownListen })
+  useEffect(() => listen.subscribe(snapshot => { listeningRef.current = snapshot.playing }), [listen])
   useEffect(() => {
-    window.TinctMarginPreview = { bookId, nav, own }
+    window.TinctMarginPreview = { bookId, nav, own, listen }
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, nav, own])
+  }, [bookId, nav, own, listen])
   // The address is the book's one address; what only the first open needed is dropped (a reload keeps the place).
   useEffect(() => {
     try {
