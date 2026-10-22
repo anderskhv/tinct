@@ -7525,15 +7525,15 @@ function openChat(opts = {}) {
 }
 function closeChat() {
   if (marginOn()) { if (col.open === 'whole') { if (col.sheet) closeSheet2(); else openCard(null) } return }
-  chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+  chat.ctl?.abort(); chat.live = null; chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;
   chat.el.classList.toggle('byob-talk-on', on);
   const note = chat.el.querySelector('#chatNotice');
   note.hidden = !on;
-  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak; answers are read aloud.' : 'Talk: answers are read aloud. Speak with your system’s dictation, or type.') : '';
-  if (!on) speechSynthesis?.cancel?.();
+  // Answers come in text: never the browser's voice (Anders, 22 Oct 2026).
+  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak.' : 'Talk: speak with your system’s dictation, or type.') : '';
 }
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {
@@ -7668,23 +7668,12 @@ async function ask(question, display) {
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text + note, at: Date.now() });
     saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
     chat.turns[chat.turns.length - 1].failed = errorCopy(e);
     if (e?.text) chat.turns.push({ role: 'assistant', content: e.text + '\n\n(Interrupted.)', at: Date.now() });
     saveTurns(); renderThread();
-  }
-}
-function speak(text) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
-  for (const part of text.replace(/[*_#`]/g, '').split(/(?<=[.!?])\s+/)) {
-    if (!part.trim()) continue;
-    const u = new SpeechSynthesisUtterance(part);
-    u.rate = prefs.rate; const v = pickVoice(); if (v) u.voice = v;
-    speechSynthesis.speak(u);
   }
 }
 
@@ -7714,7 +7703,6 @@ async function askSummary(display, prompt, pdf = null) {
     const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}), onText: ({ text }) => liveText(text) });
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text, at: Date.now() }); saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
@@ -7906,13 +7894,6 @@ function ownChapterTitle(n) {
   return `${ch ? ch.label + ' · ' : ''}p. ${pageLabel(n)}`;
 }
 const ownListenChanged = () => { window.TinctOwnListen.version++; dispatchEvent(new Event('tinct-own-listen')) };
-// Talk (Chat's spoken answers) still uses this device's voice: its voice and speed are the reader's own settings.
-const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === String(lang || '').toLowerCase().split(/[-_]/)[0];
-function pickVoice() {
-  const vs = speechSynthesis.getVoices(), fits = speaks(bookLang());
-  const chosen = vs.find(v => v.name === prefs.voice);
-  return (chosen && fits(chosen) ? chosen : null) || vs.find(v => fits(v) && v.default) || vs.find(fits) || chosen || null;
-}
 // While a book is read aloud, a click on the page does not open its cards (as before, for an own book).
 const listening = () => !state.preview && root.dataset.playing === 'true';
 // Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.

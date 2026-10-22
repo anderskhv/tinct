@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from '../services/supabase'
@@ -150,6 +150,8 @@ function metricCard(label: string, value: number | string, target?: number, sub?
 
 export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboardProps) {
   const [days, setDays] = useState<WindowDays>(14)
+  const accessTokenRef = useRef(session?.access_token)
+  accessTokenRef.current = session?.access_token
   const [rows, setRows] = useState<AnalyticsRow[]>([])
   const [accountMetrics, setAccountMetrics] = useState<AccountMetricsResponse | null>(null)
   const [loading, setLoading] = useState(false)
@@ -230,7 +232,11 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session])
+    // Keyed by the account, not the session object: a token refresh (hourly,
+    // and on every return to the tab) must not re-read up to 10,000 analytics
+    // rows (Disk IO, 22 Oct 2026). The client carries the fresh token itself.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   useEffect(() => {
     if (!session?.access_token) return
@@ -239,7 +245,7 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
     setAccountsError(null)
 
     fetch(apiUrl(`/api/admin/metrics-users?days=${days}`), {
-      headers: { Authorization: `Bearer ${session.access_token}` },
+      headers: { Authorization: `Bearer ${accessTokenRef.current ?? session.access_token}` },
     })
       .then(async res => {
         const body = await res.json().catch(() => null)
@@ -260,7 +266,9 @@ export function AdminMetricsDashboard({ session, onSignIn }: AdminMetricsDashboa
       })
 
     return () => { cancelled = true }
-  }, [days, session?.access_token])
+    // Same as above: a refreshed token alone does not reload the accounts.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days, session?.user?.id])
 
   const metrics = useMemo(() => {
     const pageviews = rows.filter(r => r.event_type === 'pageview')
