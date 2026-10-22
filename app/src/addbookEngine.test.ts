@@ -278,10 +278,4 @@ describe('Add a book’s classic scripts parse together', () => {
       expect(() => new Function(readFileSync(join(ADDBOOK, file), 'utf8')), file).not.toThrow()
     }
   })
-  it('the source copy (addbooks/web/src) matches the installed scripts', () => {
-    const SRC = join(__dirname, '../../addbooks/web/src')
-    for (const file of ['js/reader.js', 'js/add-engine.js', 'js/route.js', 'js/start.js', 'js/pdf-scan.js', 'js/pdf-theme.js', 'css/reader.css']) {
-      expect(readFileSync(join(SRC, file), 'utf8'), file).toBe(readFileSync(join(ADDBOOK, file), 'utf8'))
-    }
-  })
 })

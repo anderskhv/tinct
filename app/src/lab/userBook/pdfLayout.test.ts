@@ -29,7 +29,7 @@ beforeAll(async () => {
   require(VENDOR + 'pdf.min.js')
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
   scanApi = (globalThis as unknown as { TinctPdfScan: typeof scanApi }).TinctPdfScan
   const maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href) as { pdfFixtures: () => Record<string, Buffer>; makePdf: typeof makePdf; prose: typeof prose }
   fixtures = maker.pdfFixtures()

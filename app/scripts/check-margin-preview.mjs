@@ -94,8 +94,6 @@ async function selectInView(frame) {
   ok('book.html: index.html without the PDF-only scripts', book.replace(/^<!-- The margin preview of a Tinct book.*-->\n/m, '') === index.split('\n').filter(l => !listed.some(src => l === `<script src="${src}"></script>`)).join('\n'), listed)
   ok('reader.js PDF_SCRIPTS: every one in index.html, in its order, with its tag', pdfOnly.length === listed.length && pdfOnly.every((src, i) => src === listed[i]) && listed.includes('vendor/pdfjs/pdf.min.js'), { listed, pdfOnly })
   ok('book.html has the margin reader (reader.js, tinct-book.js, margin.js) and no pdf.js', /js\/reader\.js/.test(book) && /js\/tinct-book\.js/.test(book) && /js\/margin\.js/.test(book) && !/pdf\.min\.js|pdf-scan\.js/.test(book))
-  const mirror = f => readFileSync(resolve('../addbooks/web/src/' + f), 'utf8') === readFileSync(resolve('public/lab/addbook/' + f), 'utf8')
-  ok('book.html, index.html and the changed scripts are mirrored in addbooks/web/src', ['book.html', 'index.html', 'js/reader.js', 'js/tinct-book.js', 'js/reader-layout.js', 'css/reader.css'].every(mirror))
 }
 
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] })

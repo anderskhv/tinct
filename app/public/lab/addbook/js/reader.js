@@ -454,7 +454,7 @@ async function downloadChecked(id, key) {
  * no PDF and leaves them out (round 2: the phone's first page came about 0.3 s later with them); a PDF opened
  * there after all loads them here first, in the same order, with the same cache tags (scripts/check-margin-preview.mjs).
  */
-const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=20261016train6', 'js/pdf-regions.js?v=20261020pdfspeed', 'js/pdf-text.js?v=20261020pdfspeed', 'js/pdf-ocr.js?v=20261020epub', 'js/reading-order.js?v=20261016round4', 'js/printed-pages.js?v=20261016round4', 'js/doc-search.js?v=20261015retesth', 'js/pdf-text-view.js?v=20261021dpolish'];
+const PDF_SCRIPTS = ['vendor/pdfjs/pdf.min.js', 'js/pdf-scan.js?v=__TINCT_BUILD__', 'js/pdf-regions.js?v=__TINCT_BUILD__', 'js/pdf-text.js?v=__TINCT_BUILD__', 'js/pdf-ocr.js?v=__TINCT_BUILD__', 'js/reading-order.js?v=__TINCT_BUILD__', 'js/printed-pages.js?v=__TINCT_BUILD__', 'js/doc-search.js?v=__TINCT_BUILD__', 'js/pdf-text-view.js?v=__TINCT_BUILD__'];
 let pdfScripts = null;
 function pdfReady() {
   if (window.pdfjsLib && window.TinctPdfScan) return Promise.resolve();
@@ -2689,7 +2689,7 @@ const toc = { entries: [], ready: false, expanded: new Set(), nav: 'pages', task
 let chapterTitles = null;
 /** The shared house-style rule for chapter titles; titles stay as written if it cannot load. */
 function chapterTitleStyle() {
-  chapterTitles ??= import('/lab/chapter-title.js?v=20261009rel10').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
+  chapterTitles ??= import('/lab/chapter-title.js?v=__TINCT_BUILD__').then(m => (label, language) => m.normalizeChapterTitle(label, { language: language || 'en' })).catch(() => label => label);
   return chapterTitles;
 }
 async function buildContents() {
@@ -2858,7 +2858,7 @@ function pageList(current) {
 /* ---------- Switch books: the reader's book switcher (src/lab/LabBookSwitcher.tsx) ---------- */
 // Reading now: Tinct's books and the reader's own, from this device (/lab/library-add.js,
 // src/lab/userBook/ownSwitcher.ts); Library goes to My shelf.
-const SWITCHER_ENGINE = '/lab/library-add.js?v=20261014talkwake';
+const SWITCHER_ENGINE = '/lab/library-add.js?v=__TINCT_BUILD__';
 let switcherEngine = null;
 function switcherApi() {
   switcherEngine ??= import(SWITCHER_ENGINE).then(() => { const api = window.__tinctLibraryAdd; if (!api?.switcherRows) throw new Error('switcher unavailable'); return api });
@@ -2868,7 +2868,7 @@ function switcherApi() {
 function closeSwitcher() { const el = document.querySelector('.byob-switcher'); if (!el) return; el.remove(); $('bookBtn').focus({ preventScroll: true }) }
 // The switcher's covers and titles follow the library's rules (/lab/book-cover.js, /lab/book-title.js):
 // a book's image (a painting's small file at 32 px), else its paper cover; the short title in the one-line row.
-const SWITCHER_LOOKS = '?v=20261009owncover';
+const SWITCHER_LOOKS = '?v=__TINCT_BUILD__';
 let switcherLooks = null;
 function loadSwitcherLooks() {
   switcherLooks ??= Promise.all([import('/lab/book-cover.js' + SWITCHER_LOOKS), import('/lab/book-title.js' + SWITCHER_LOOKS)])
@@ -4017,7 +4017,7 @@ const dictation = {
    column's foot. Markup, placement and parsing are TinctMargin's (js/margin.js) and margin-parse.js. */
 const MP = { P: null };
 // Tagged so a cached copy without parseQuizPartial (Quiz me streaming) is never paired with this reader.
-const mpReady = import('/lab/margin/margin-parse.js?v=20261020epub').then(m => (MP.P = m)).catch(() => null);
+const mpReady = import('/lab/margin/margin-parse.js?v=__TINCT_BUILD__').then(m => (MP.P = m)).catch(() => null);
 const col = { el: null, stack: null, leads: null, marks: null, float: null, sheet: null, mode: null, open: null, els: new Map(), live: new Map(), pending: new Map(), drafts: new Map(), ctl: new Map(), quiz: new Map(), raf: 0, view: null, viewAt: 0, whole: { away: false }, draft: null, defs: new Map(), defToken: null, pills: new Map(), heads: new Map() };
 // Delete's "Deleted · Undo" line (deleteCard).
 const UNDO_MS = 6000;
@@ -6001,7 +6001,7 @@ addEventListener('keydown', e => {
    book (/api/user-books/primers/{bookHex}?unit=…), so reopening never makes it again. Redo makes
    a new one and stores it. "Quiz me on this chapter" is Quiz me on the whole unit, as a quiz card. */
 const primer = { units: null, parts: null, places: new Map(), unitsTask: null, open: false, anchor: null, unit: null, data: null, wait: false, status: '', token: 0, away: new Set(), el: null, trig: null, keyed: false, held: false };
-const ppReady = import('/lab/margin/primer-parse.js?v=20261015kinds').catch(() => null);
+const ppReady = import('/lab/margin/primer-parse.js?v=__TINCT_BUILD__').catch(() => null);
 function primerReset() {
   primer.token++;
   Object.assign(primer, { units: null, parts: null, book: null, open: false, unit: null, data: null, wait: false, status: '' });
@@ -7377,7 +7377,7 @@ function saveTurns() { store.set('chat:' + state.key, chat.turns.slice(-40)) }
    docs/chat/mockup.html): no header, the reader's words in a bubble, answers as
    plain text, one divider when the page or the day changes, copy and time on hover
    or press, a hairline-and-caret composer. */
-const CHAT_THREAD = '/lab/chat-thread.js?v=20261012latest';
+const CHAT_THREAD = '/lab/chat-thread.js?v=__TINCT_BUILD__';
 let TC = null;
 const tcReady = import(CHAT_THREAD).then(m => (TC = m)).catch(() => null);
 function openChat(opts = {}) {
