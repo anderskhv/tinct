@@ -234,6 +234,27 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  'war-and-peace': {
+    revision: 'text-2026-10-21.6',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '93fb7594ee1e617095818f93da10ed3fbdc0d0e6abcf76280e0fb1ee3097e496',
+        after: '65c253aa95e1e4cb21112e5d4aec5344364cd658a596264710d5b48d2bacfcd8',
+      },
+    },
+  },
+  'democracy-in-america': {
+    revision: 'text-2026-10-21.6',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '347cc8f0729f7fe0520163d153554a78e36d82e87b8c59777f4745a74e545662',
+        after: 'cfd05256d4621d8a9f803ec1ede208469bc051ea3ed9a0ef508feea7caba6eb6',
+      },
+    },
+  },
   'notes-from-underground': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),

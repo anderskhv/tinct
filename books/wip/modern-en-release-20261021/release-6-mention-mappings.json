@@ -1,0 +1,14 @@
+{
+  "_note": "Reviewed same-sentence character-card rulings for modern-en release text-2026-10-21.6 (War and Peace, Democracy in America), applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each maps a mention to the same figure or phrase in the repaired version of the same sentence. Rulings and the mentions left dropped are listed in RELEASE-6.md.",
+  "war-and-peace": [
+    { "characterId": "napoleon", "from": "Napoleon", "to": "Napoleon", "occurrenceOverrides": [
+      { "chapterNumber": 169, "paragraphIndex": 0, "oldOccurrence": 0, "newOccurrence": 0 } ] },
+    { "characterId": "princess-mary", "from": "Princess Mary", "to": "Princess Mary", "occurrenceOverrides": [
+      { "chapterNumber": 269, "paragraphIndex": 12, "oldOccurrence": 0, "newOccurrence": 0 } ] }
+  ],
+  "democracy-in-america": [
+    { "characterId": "alexander-hamilton", "from": "Alexander Hamilton, who was one of the principal founders", "to": "Alexander Hamilton, one of the chief founders" },
+    { "characterId": "native-american-peoples", "from": "nor black like the negroes", "to": "nor black, as Black people are" },
+    { "characterId": "enslaved-african-americans", "from": "the Negroes is in some measure interwoven", "to": "Black people is to some extent interwoven" }
+  ]
+}

@@ -1,0 +1,12 @@
+democracy-in-america original-en -> modern-en  (96 chapters)
+  weighted similarity : 0.726   (gate: <= 0.75)
+  light+mechanical    : 0/96 = 0.0%   (gate: <= 5%)
+  identical long paras: 73/2112 = 3.5%   (gate: <= 5%)
+  buckets: REAL-HEAVY 3  REAL 93  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+$ audit-truncation (en), local-path copy of books/audit-truncation.py (its EDITIONS_DIR is hard-coded to a Mac path)
+== democracy-in-america: modern-en vs original-en ==
+  TOTAL: 0
