@@ -348,3 +348,48 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
   window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
 })();
+
+/*
+ * A reader's own book in the reader's shell (Anders, 22 Oct 2026, "One Tinct"): /reader?userBook=<hex> shows this page
+ * in a frame at /lab/addbook/book?userBook=<hex> on the desktop (src/lab/marginPreview/MarginPreview.tsx MarginOwnBook).
+ * The book is this page's as before (start.js opens it; reader.js keeps its place, marks and cards). Two things go to
+ * the framing page:
+ * - leaving: every navigation of this frame away from its page (Library, Profile, Back, another book, Convert to Tinct
+ *   book, a file chosen) is made by the top window instead, so the address is always the reader's;
+ * - reading time: the book opened (once its place is restored), then each of the reader's actions and reading aloud
+ *   (the framing page counts them as the book reader counts an own book's time; it never reads the place).
+ */
+(function () {
+  const hex = new URLSearchParams(location.search).get('userBook');
+  if (!hex || !/^[0-9a-f]{8,64}$/.test(hex) || window.parent === window) return;
+  /** The framing page's bridge for this book, or null (this page on its own, or another page's frame). */
+  const host = () => { try { const p = window.parent.TinctMarginPreview; return p && p.bookId === 'userbook-' + hex ? p : null } catch { return null } };
+  const ownPage = path => path === '/lab/addbook/book';
+  // Leaving goes through the top window (where the Navigation API is missing, the framing page follows a frame that left).
+  window.navigation?.addEventListener('navigate', e => {
+    if (!host() || !e.cancelable || e.destination.sameDocument || e.downloadRequest != null || e.navigationType === 'reload' || e.navigationType === 'traverse') return;
+    let to;
+    try { to = new URL(e.destination.url) } catch { return }
+    if (!/^https?:$/.test(to.protocol) || to.origin !== location.origin || ownPage(to.pathname)) return;
+    e.preventDefault();
+    try { window.top.location[e.navigationType === 'replace' ? 'replace' : 'assign'](to.href) } catch { /* the framing page follows the frame */ }
+  });
+  // Reading time: from the open, once the place is restored (reader.js epubHold.opened for an EPUB; a PDF's pages once drawn).
+  let opened = false, lastActive = 0;
+  const ready = () => { try { return typeof hasBook === 'function' && hasBook() && (!isEpub() || epubHold.opened === state.token) } catch { return false } };
+  const active = () => {
+    if (!opened) return;
+    const now = Date.now(); if (now - lastActive < 1000) return;
+    lastActive = now;
+    try { host()?.own?.active() } catch {}
+  };
+  const watch = setInterval(() => {
+    if (!ready()) return;
+    clearInterval(watch);
+    opened = true;
+    try { host()?.own?.opened() } catch {}
+  }, 300);
+  for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, active, { capture: true, passive: true });
+  // Reading aloud is reading too, without a tap (the book reader counts its narration as time).
+  setInterval(() => { try { if (narr.active) { lastActive = 0; active() } } catch {} }, 20000);
+})();

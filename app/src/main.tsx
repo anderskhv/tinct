@@ -72,9 +72,20 @@ if (pathname === '/reader') {
   warmAccountCards()
 }
 
+// The reader's surface (phone or desktop), as Tinct's books are decided below: an own book's phone reader or margin frame.
+const phoneSurface = () => isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
+/**
+ * The reader inside the margin reader's frame (an own book's or a Tinct book's, MarginPreview.tsx): a navigation
+ * the frame made itself (a link, the switcher) that should have gone through the top window. It goes there now,
+ * before anything is drawn or kept here, so the reader is never mounted twice.
+ */
+function framedByMarginHost(): boolean {
+  try { return window.parent !== window && Boolean((window.parent as Window).TinctMarginPreview) } catch { return false }
+}
+
 const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp marginPhone={marginPhone || undefined} />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp marginPhone={marginPhone || undefined} />}
   </React.StrictMode>,
 )
 
@@ -83,6 +94,7 @@ const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementB
 // reader holding such data waits, and never for more than a few seconds.
 async function begin() {
   if (nativeDestination) { window.location.replace(nativeDestination); return }
+  if (pathname === '/reader' && framedByMarginHost()) { window.top!.location.replace(window.location.href); return }
   if (isCapacitor) await initializeNativeBooks()
   // Desktop /reader with no book: an own PDF/EPUB read later than the registered
   // book opens instead, decided before anything paints (lab/continueLatest.ts).
@@ -106,7 +118,7 @@ async function begin() {
   // margin view keeps the place, highlights and notes through the book reader's stores (MarginPreviewSync),
   // so the stored-data migrations run first, as they do for the book reader. On a phone the preview is
   // the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
-  const phone = isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
+  const phone = phoneSurface()
   const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])

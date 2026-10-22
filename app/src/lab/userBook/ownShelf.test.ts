@@ -96,11 +96,11 @@ describe('a PDF being read', () => {
   })
   it('stands on the reading table and in Reading now like an EPUB, opening at its own address', () => {
     const reading = pdfReading(HEX, { pages: 8 }, 1, store({ [`tinct-addbook:pos:pdf:${HEX}`]: { page: 3, frac: 0.4, pages: 8, at: 900 } }))!
-    const book: OwnShelfBook & { reading: typeof reading } = { key: `pdf:${HEX}`, kind: 'pdf', hex: HEX, title: 'Beyond Reward and Punishment', author: 'David Deutsch', cover: 'data:image/jpeg;base64,AAAA', at: 1, href: `/lab/addbook/?userBook=${HEX}`, reading }
+    const book: OwnShelfBook & { reading: typeof reading } = { key: `pdf:${HEX}`, kind: 'pdf', hex: HEX, title: 'Beyond Reward and Punishment', author: 'David Deutsch', cover: 'data:image/jpeg;base64,AAAA', at: 1, href: `/reader?userBook=${HEX}`, reading }
     const row = ownTableBook(book)
     expect(row).toMatchObject({ bookId: `userbook-${HEX}`, title: 'Beyond Reward and Punishment', chapterLabel: 'p. 3 of 8', own: true, wordCount: null, lastActiveAt: 900 })
     expect(row.percent).toBeCloseTo(30)
-    expect(ownQuickBookRows([book])[0]).toMatchObject({ chapterLabel: 'p. 3 of 8', href: `/lab/addbook/?userBook=${HEX}` })
+    expect(ownQuickBookRows([book])[0]).toMatchObject({ chapterLabel: 'p. 3 of 8', href: `/reader?userBook=${HEX}` })
   })
   it('is not being read before a page is kept, and an older place (no time, no page count) still counts', () => {
     expect(pdfReading(HEX, { pages: 8 }, 1, store({}))).toBeNull()
@@ -192,17 +192,18 @@ describe('where an own book opens', () => {
     // Convert to Tinct book, chosen on this device.
     localStorage.setItem(`tinct-addbook:edition:${chosen}`, '"text"')
     const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+    // One address for every own book since 22 Oct 2026 ("One Tinct"): the reader there opens the view below.
     expect(hrefs).toEqual({
       // Running prose opened as Tinct text by the desktop's default of 16 Oct; its pages since 19 Oct 2026.
-      [prose]: `/lab/addbook/?userBook=${prose}`,
-      [paper]: `/lab/addbook/?userBook=${paper}`,
-      [legacy]: `/lab/addbook/?userBook=${legacy}`,
+      [prose]: `/reader?userBook=${prose}`,
+      [paper]: `/reader?userBook=${paper}`,
+      [legacy]: `/reader?userBook=${legacy}`,
       // Not scanned on this device yet: the viewer, which forwards once it has classified it.
-      [unknown]: `/lab/addbook/?userBook=${unknown}`,
-      [switched]: `/lab/addbook/?userBook=${switched}`,
+      [unknown]: `/reader?userBook=${unknown}`,
+      [switched]: `/reader?userBook=${switched}`,
       [chosen]: `/reader?userBook=${chosen}`,
       // An EPUB on the desktop (19 Oct 2026, epubView.ts): Add a book's margin reader.
-      [HEX]: `/lab/addbook/?userBook=${HEX}`,
+      [HEX]: `/reader?userBook=${HEX}`,
     })
   })
 
@@ -217,9 +218,9 @@ describe('where an own book opens', () => {
     try {
       Object.defineProperty(window, 'innerWidth', { configurable: true, value: 1440 })
       expect(Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))).toEqual({
-        [plain]: `/lab/addbook/?userBook=${plain}`,
+        [plain]: `/reader?userBook=${plain}`,
         [converted]: `/reader?userBook=${converted}`,
-        [back]: `/lab/addbook/?userBook=${back}`,
+        [back]: `/reader?userBook=${back}`,
       })
       Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
       expect(Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))).toEqual({
@@ -239,9 +240,10 @@ describe('where an own book opens', () => {
     localStorage.setItem(`tinct-addbook:pos:pdf:${chosen}`, JSON.stringify({ page: 5, frac: 0.2, at: 9, edition: 't' }))
     localStorage.setItem(`tinct-addbook:edition:${chosen}`, JSON.stringify('text'))
     const hrefs = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
+    // One address for every own book since 22 Oct 2026 ("One Tinct"): the reader there opens the view below.
     expect(hrefs).toEqual({
-      [prose]: `/lab/addbook/?userBook=${prose}`,
-      [read]: `/lab/addbook/?userBook=${read}`,
+      [prose]: `/reader?userBook=${prose}`,
+      [read]: `/reader?userBook=${read}`,
       [chosen]: `/reader?userBook=${chosen}`,
     })
     // Told by the viewer: on the desktop its pages, running prose too (19 Oct 2026; Tinct text by the default
@@ -252,8 +254,8 @@ describe('where an own book opens', () => {
     localStorage.setItem(`tinct-addbook:edition:${read}`, JSON.stringify('text'))
     localStorage.setItem(`tinct-addbook:desk-edition:${read}`, JSON.stringify({ edition: 'text', kind: 'paper', by: 'text', v: 1 }))
     const again = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book.href]))
-    expect(again[prose]).toBe(`/lab/addbook/?userBook=${prose}`)
-    expect(again[read]).toBe(`/lab/addbook/?userBook=${read}`)
+    expect(again[prose]).toBe(`/reader?userBook=${prose}`)
+    expect(again[read]).toBe(`/reader?userBook=${read}`)
     expect(again[chosen]).toBe(`/reader?userBook=${chosen}`)
     const width = window.innerWidth
     try {
@@ -275,7 +277,7 @@ describe('where an own book opens', () => {
     // The recognised text reached this device: it opens as Tinct text from now on (pdfEditions.ts adoptOcrEditionChoice).
     localStorage.setItem(`tinct-addbook:edition:${recognised}`, '"text"')
     const books = Object.fromEntries((await readOwnShelf('me')).map(book => [book.hex, book]))
-    expect(books[scan]).toMatchObject({ scan: true, href: `/lab/addbook/?userBook=${scan}` })
+    expect(books[scan]).toMatchObject({ scan: true, href: `/reader?userBook=${scan}` })
     expect(books[recognised].scan).toBeUndefined()
     expect(books[recognised].href).toBe(`/reader?userBook=${recognised}`)
     expect(books[prose].scan).toBeUndefined()
@@ -283,7 +285,7 @@ describe('where an own book opens', () => {
 
   it('opens a book of unknown kind in the reader, unless it is a PDF read in its pages', () => {
     expect(ownBookHref(HEX, null, null)).toBe(`/reader?userBook=${HEX}`)
-    expect(ownBookHref(HEX, null, 'pages')).toBe(`/lab/addbook/?userBook=${HEX}`)
+    expect(ownBookHref(HEX, null, 'pages')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'epub', 'pages')).toBe(`/reader?userBook=${HEX}`)
     expect(ownBookHref(HEX, 'pdf', 'text')).toBe(`/reader?userBook=${HEX}`)
   })

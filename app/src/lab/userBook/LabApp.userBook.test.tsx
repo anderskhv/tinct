@@ -395,7 +395,8 @@ describe('a PDF read as its Tinct text', () => {
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     fireEvent.click(await screen.findByTestId('lab-v2-main-edition'))
     fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view (original pages)'))!)
-    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}&page=4`)
+    // One address (22 Oct 2026): the reader there opens the margin reader's pages at that page.
+    expect(assign).toHaveBeenCalledWith(`/reader?userBook=${HEX}&page=4`)
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`) || 'null')).toMatchObject({ page: 4, chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, converter: 1, edition: 'p' })
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${HEX}`) || 'null')).toBe('pages')
     expect(ownSync.notePdf).toHaveBeenCalledWith(HEX, { now: true })
@@ -441,7 +442,7 @@ describe('a PDF read as its Tinct text', () => {
     expect(options).toEqual([['EPUB', 'true'], ['Margin view', 'false']])
     expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
     fireEvent.click([...document.querySelectorAll('.lab-v2-edition-option')].find(option => option.textContent?.includes('Margin view'))!)
-    expect(assign).toHaveBeenCalledWith(`/lab/addbook/?userBook=${HEX}`)
+    expect(assign).toHaveBeenCalledWith(`/reader?userBook=${HEX}`)
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`) || 'null')).toBe('margin')
     const words = book.edition.chapters.find(chapter => chapter.number === 2)!.paragraphs[0].split(/\s+/).slice(0, 14).join(' ')
     expect(JSON.parse(localStorage.getItem(`tinct-addbook:pos:epub:${HEX}`) || 'null')).toMatchObject({ via: 't', quote: words })
@@ -450,14 +451,42 @@ describe('a PDF read as its Tinct text', () => {
 })
 
 describe('UserBookReader', () => {
-  it('sends a PDF read in its pages, or one without text to reflow, on to the viewer (a scan never back here)', async () => {
+  // One Tinct (22 Oct 2026): the margin reader's books open at /reader?userBook=<hex> in the reader's shell on a
+  // desktop (the frame); a phone goes on to the margin reader's page, as before.
+  it('opens a PDF read in its pages, or one without text to reflow, in the margin reader: framed on a desktop, its page on a phone (a scan never back here)', async () => {
     const forward = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages', message: '' })} forward={forward} />)
-    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'pages', message: '' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX))
     cleanup()
     const scan = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={scan} />)
-    await waitFor(() => expect(scan).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX + '&pages=1'))
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={scan} />)
+    await waitFor(() => expect(scan).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX + '&pages=1'))
+    cleanup()
+    const desk = vi.fn()
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={desk} />)
+    const frame = await screen.findByTestId('margin-preview-frame')
+    expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX + '&pages=1')
+    expect(desk).not.toHaveBeenCalled()
+  })
+
+  it('frames an EPUB in Margin view on a desktop at the reader\u2019s address, writing no place of its own', async () => {
+    const before = JSON.stringify({ ...localStorage })
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'margin', message: '' })} forward={() => { throw new Error('no forward') }} />)
+    const frame = await screen.findByTestId('margin-preview-frame')
+    expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX)
+    await waitFor(() => expect(window.TinctMarginPreview?.bookId).toBe('userbook-' + HEX))
+    expect(Object.keys(localStorage).filter(key => key.includes(HEX))).toEqual(Object.keys(JSON.parse(before)).filter(key => key.includes(HEX)))
+  })
+
+  it('carries a link\u2019s Original pages request (&page, &frac, &pages) to the margin reader without opening the book here', async () => {
+    vi.stubGlobal('location', { ...window.location, search: `?userBook=${HEX}&page=7&frac=0.5&pages`, href: `http://localhost/reader?userBook=${HEX}&page=7&frac=0.5&pages` })
+    const open = vi.fn(async () => ({ ok: true as const, book: loaded() }))
+    render(<UserBookReader hex={HEX} owner="me" open={open} />)
+    const frame = await screen.findByTestId('margin-preview-frame')
+    expect(frame.getAttribute('src')).toBe(`/lab/addbook/book?userBook=${HEX}&page=7&frac=0.5&pages=`)
+    expect(open).not.toHaveBeenCalled()
+    // The host tidies the address it was opened at (page and frac only); this test's own address goes back.
+    window.history.replaceState(null, '', '/')
   })
 
   it('opens a PDF\u2019s Tinct text at the place last read in its pages, found from the page', async () => {
@@ -474,10 +503,10 @@ describe('UserBookReader', () => {
     expect(screen.getByRole('link').getAttribute('href')).toBe('/library#my-shelf')
   })
 
-  it('sends a book that is not an EPUB on this device (a PDF, an account copy) on to Add a book’s page for it', async () => {
+  it('sends a book that is not on this device yet (a PDF, an account copy) on to the margin reader, which fetches it', async () => {
     const forward = vi.fn()
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
-    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/?userBook=' + HEX))
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: false, reason: 'missing', message: 'That book is no longer on this device. Open the file again.' })} forward={forward} />)
+    await waitFor(() => expect(forward).toHaveBeenCalledWith('/lab/addbook/book?userBook=' + HEX))
   })
 
   it('opens at the place read later on another device of the account, taken before the first page is drawn', async () => {

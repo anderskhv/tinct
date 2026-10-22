@@ -289,8 +289,9 @@ async function openFromUrl(hex) {
   return false;
 }
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-// A Tinct book's preview: the book reader's Reading now (previewNav); a reader's own book: its switcher here.
-$('bookBtn').onclick = () => (state.preview ? previewNav('switcher') : openSwitcher());
+// In the reader's frame (a Tinct book, or a reader's own book at /reader?userBook=): the book reader's Reading now
+// (previewNav); this page on its own (a phone's PDF pages): its switcher here.
+$('bookBtn').onclick = () => (navHost() ? previewNav('switcher') : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -2417,14 +2418,47 @@ function openProfile() {
  * reader. A chapter or passage picked there comes back as `go`; a book picked has this place written first (`leave`).
  * -> it opened (false: not a preview, or no framing page)
  */
+/**
+ * The page that frames this one and draws Reading now and Contents over it: a Tinct book's preview (previewHost), or
+ * a reader's own book at its one address (/reader?userBook=<hex>, src/lab/marginPreview/MarginPreview.tsx
+ * MarginOwnBook; Anders, 22 Oct 2026, "One Tinct"). -> it, or null (this page on its own)
+ */
+function navHost() {
+  const preview = previewHost();
+  if (preview || state.preview || !hasBook()) return preview;
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === 'userbook-' + hexOf(state.key) ? p : null } catch { return null }
+}
+/** An own book's chapters as Reading now and Contents show them: its contents' entries, numbered 1, 2, … in order. */
+function ownNavChapters() {
+  const leaves = leafEntries();
+  return { leaves, chapters: leaves.map((e, i) => ({ number: i + 1, title: e.label, ...(e.parent ? { section: toc.entries.find(p => p.id === e.parent)?.label || undefined } : {}) })) };
+}
 function previewNav(kind) {
-  const host = previewHost();
+  const host = navHost();
   if (!host?.nav?.open || !hasBook()) return false;
+  // An own book's Contents is the book reader's where it reads as text (an EPUB, a PDF's Tinct text) and has
+  // chapters; a PDF's pages keep this page's own, with Go to page and the page list.
+  const own = !state.preview;
+  if (own && kind === 'contents' && (!isEpub() || !toc.ready || !leafEntries().length)) return false;
   closeAllPopups();
   savePlaceNow();
   // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
   const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
   const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : 'light';
+  if (own) {
+    const { leaves, chapters } = ownNavChapters(), at = ch ? leaves.indexOf(ch) + 1 : 1;
+    const label = ch ? ch.label : isEpub() ? '' : `p. ${place.page} of ${state.pages.length}`;
+    library.get(state.key).then(rec => rec, () => null).then(rec => host.nav.open({
+      kind, theme, page: Math.max(1, at), percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: label,
+      book: { title: state.title, chapters, cover: rec?.cover || '' },
+      // A chapter of the contents: its entry (an anchor inside a file, a split heading, is found as the contents finds it).
+      go: to => { const e = leaves[to.page - 1]; if (e) goToEntry(e) },
+      leave: () => { leavePlace(); stopNarration() },
+      library: () => leaveToShelf(),
+      closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+    }));
+    return true;
+  }
   host.nav.open({
     kind, theme, page: reading, percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: ch ? ch.label : '',
     // A chapter: its top, the heading in view and inside the chapter (goTo's room above a page would read back as the
