@@ -94,8 +94,8 @@ describe('a user book in the Tinct reader', () => {
     expect(document.title).toBe('My Own Notebook · Tinct')
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    // Book editions: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
-    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
+    // Book settings: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
+    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
     // The Librarian row offers Chat and Talk, as for any book (2026-10-08).
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
@@ -369,13 +369,13 @@ function pdfBook(place: { chapterNumber: number; paragraphIndex: number; wordInd
 }
 
 describe('a PDF read as its Tinct text', () => {
-  it('offers Book editions with its two editions, and nothing else of an edition', async () => {
+  it('offers Book settings with its two editions, and nothing else of an edition', async () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={pdfBook({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 45 })} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'account'])
+    expect(rows).toEqual(['librarian', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-    const sheet = await screen.findByText('Book editions')
+    const sheet = await screen.findByRole('heading', { name: 'Book settings' })
     const body = sheet.closest('section, [role="dialog"], .lab-v2-sheet') ?? document.body
     expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct text')
     expect(screen.queryByTestId('lab-v2-audio-edition')).toBeNull()
@@ -418,8 +418,8 @@ describe('a PDF read as its Tinct text', () => {
   })
 
   // Anders, 19 Oct 2026: on the desktop an EPUB reads in Add a book's margin reader unless the reader chose the
-  // Tinct reader there; from here, "Margin view" goes back. A phone keeps one edition and no Book editions row.
-  it('an EPUB on a phone keeps one edition and no Book editions row', () => {
+  // Tinct reader there; from here, "Margin view" goes back. A phone keeps one edition and no Book settings row.
+  it('an EPUB on a phone keeps one edition and no Book settings row', () => {
     const width = window.innerWidth
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: 390 })
     try {

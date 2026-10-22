@@ -5316,7 +5316,6 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 .lab[data-chrome-version="v2"] .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
 .lab[data-chrome-version="v2"] .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
-.lab[data-chrome-version="v2"] .lab-super-row-aa { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 18px; }
 .lab[data-chrome-version="v2"] .lab-super-row-mode:focus-visible,
 .lab[data-chrome-version="v2"] .lab-super-row-main:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
 
@@ -5350,7 +5349,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 
 /* ── The V2 sheet ────────────────────────────────────────────────────────
-   Reading settings, Advanced settings, the font picker and Account: one box,
+   Aa, Book settings, Audio settings, Advanced settings, the font picker and Account: one box,
    four layers, one height. Switching layer must never resize the window, so
    the height is a constant — capped against a short viewport, but capped
    identically for all four, so they stay the same height as each other. */
@@ -7076,7 +7075,7 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
   /* The sheets already scroll inside themselves, so nothing was unreachable;
      they just showed two rows at a time. A taller sheet and shorter theme
-     cards put the whole of Reading settings and Account on one screen. */
+     cards put the whole of Aa and Account on one screen. */
   .lab[data-chrome-version="v2"] {
     --lab-v2-sheet-height: min(452px, 94vh);
   }
