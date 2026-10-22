@@ -101,7 +101,7 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
   owner?: string | null
   /** The phone's reader (main.tsx: the same surface test as Tinct's books). A desktop shows the margin reader here. */
   phone?: boolean
-  open?: (hex: string, options: { owner?: string | null; page?: number | null; epubView?: EpubView }) => Promise<UserBookOpenResult>
+  open?: (hex: string, options: { owner?: string | null; page?: number | null; epubView?: EpubView; desktop?: boolean }) => Promise<UserBookOpenResult>
   forward?: (url: string) => void
   /** Bring this device's place in line with the account's (bounded; never rejects the open). */
   reconcile?: (hex: string, book: LoadedUserBook) => Promise<void>
@@ -124,7 +124,7 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
     if (pagesAsked() && owner) { toMargin(); return () => { live = false } }
     // An EPUB read in Margin view on this device (the desktop's default) goes on to the margin reader.
     const epubView = epubViewHere(hex)
-    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}), epubView }).then(async result => {
+    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}), epubView, ...(phone ? {} : { desktop: true }) }).then(async result => {
       if (!live) return
       // A book not on this device yet, an EPUB in Margin view, a PDF read in its pages, or one without text to
       // reflow (a scan: the margin reader does not send it back here).
