@@ -543,5 +543,5 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
   }, 300);
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, active, { capture: true, passive: true });
   // Reading aloud is reading too, without a tap (the book reader counts its narration as time).
-  setInterval(() => { try { if (narr.active) { lastActive = 0; active() } } catch {} }, 20000);
+  setInterval(() => { try { if (document.querySelector('.lab')?.dataset.playing === 'true') { lastActive = 0; active() } } catch {} }, 20000);
 })();

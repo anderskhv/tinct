@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { getBook } from '../../data/bookRegistry'
 import { DEFAULT_LAB_PREFS } from '../labPrefs'
 import { emptyLabPositionState, type LabBookPlace } from '../labPosition'
-import { heardPlace, marginListenSnapshot, marginNarrationPlan, withAudioPlace } from './marginListenModel'
+import { heardPlace, marginListenSnapshot, marginNarrationPlan, marginOwnNarrationPlan, marginOwnSource, withAudioPlace } from './marginListenModel'
 
 const frankenstein = getBook('frankenstein')!
 const grok = { enabled: true, provider: 'grok', voices: [{ key: 'f', label: 'Ara', persona: 'female' as const }, { key: 'm', label: 'Helios', persona: 'male' as const }] }
@@ -20,6 +20,25 @@ describe('marginNarrationPlan: what the book reader would play for the edition s
   it('narration switched off on the server: an English edition cannot be heard (no fallback to old recordings)', () => {
     const plan = marginNarrationPlan({ bookId: 'frankenstein', editions: frankenstein.editions, editionKey: 'modern-en', chapterNumber: 1, prefs: DEFAULT_LAB_PREFS, info: { enabled: false, provider: 'grok', voices: [] }, signedIn: false })
     expect(plan).toMatchObject({ narration: false, voice: null, unavailable: true })
+  })
+})
+
+describe('marginOwnNarrationPlan: an own book is read with Tinct\'s voice, as the book reader reads it', () => {
+  it('signed in, with the server reading own books: the reader\'s Audio settings voice', () => {
+    expect(marginOwnNarrationPlan({ prefs: { ...DEFAULT_LAB_PREFS, voicePersona: 'male' }, info: { ...grok, ownBooks: true }, signedIn: true }))
+      .toEqual({ voice: 'm', narration: true, audioEdition: 'own', unavailable: false })
+  })
+  it('nothing plays signed out, or when the server does not read own books', () => {
+    expect(marginOwnNarrationPlan({ prefs: DEFAULT_LAB_PREFS, info: { ...grok, ownBooks: true }, signedIn: false })).toMatchObject({ voice: null, unavailable: true })
+    expect(marginOwnNarrationPlan({ prefs: DEFAULT_LAB_PREFS, info: grok, signedIn: true })).toMatchObject({ voice: null, unavailable: true })
+    expect(marginOwnNarrationPlan({ prefs: DEFAULT_LAB_PREFS, info: null, signedIn: true })).toMatchObject({ unavailable: true })
+  })
+  it('a chapter from the frame is the player\'s source: its paragraphs, one follow entry each', () => {
+    expect(marginOwnSource({ number: 3, title: 'p. 3', paragraphs: ['One two.', 'Three.'] }, [{ number: 3, title: 'p. 3' }, { number: 4, title: 'p. 4' }])).toEqual({
+      chapterNumber: 3, chapterLabel: 'p. 3', paragraphs: ['One two.', 'Three.'],
+      followParagraphs: [{ index: 0, text: 'One two.' }, { index: 1, text: 'Three.' }],
+      chapters: [{ number: 3, title: 'p. 3' }, { number: 4, title: 'p. 4' }],
+    })
   })
 })
 
