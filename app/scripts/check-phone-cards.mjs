@@ -611,7 +611,8 @@ async function talkCard(engineName, w, h) {
 async function sheets(engineName) {
   const engine = engineName === 'webkit' ? webkit : chromium
   const tag = `${BOOK}-390x844-${engineName}-sheet`
-  const state = await boot(engine, `?book=${BOOK}`)
+  // The Classic reader (margin=0): margin mode is the default since the launch (22 Oct 2026).
+  const state = await boot(engine, `?book=${BOOK}&margin=0`)
   const { page } = state
   const home = await placeOf(page)
   const shots = []
