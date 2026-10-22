@@ -107,7 +107,7 @@ async function begin() {
   // so the stored-data migrations run first, as they do for the book reader. On a phone the preview is
   // the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
   const phone = isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
-  const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
+  const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id), { phone }), phone) : null
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   if (preview?.mount === 'frame' && preview.bookId) {

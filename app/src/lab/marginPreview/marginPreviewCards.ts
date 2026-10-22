@@ -13,7 +13,7 @@
 import type { ChatCard, ChatConversation, ChatMessage } from '../../types'
 import { LAB_CHAT_CARD_DATA_CHARS } from '../labChatHistory'
 import { chapterOfPage, offsetsOfRange, pageOfChapter, rangeOfOffsets } from './marginPreviewAnchors'
-import type { MarginPreviewChapter } from './marginPreviewModel'
+import { isPendingChapter, type MarginPreviewChapter } from './marginPreviewModel'
 
 export interface MarginCardTurn { role: string; content?: string; at?: number; [key: string]: unknown }
 export interface MarginCard {
@@ -79,7 +79,8 @@ export function conversationOfCard(card: MarginCard, scope: MarginCardScope): Ch
     const meta: ChatCard = { id: card.id, kind: kindOf(card.kind), chapterNumber: chapter?.number ?? 0, at: Number(card.at) || u, u, gone: true }
     return { id, bookId: scope.bookId, chapterNumber: Math.max(1, meta.chapterNumber), startTimestamp: u, endTimestamp: u, messages: [], preview: '', card: meta }
   }
-  if (!chapter) return null
+  // A chapter whose text has not loaded (the Bible's) cannot place a passage: the stored card stands as it is.
+  if (!chapter || isPendingChapter(chapter)) return null
   const range = Array.isArray(card.span) && card.span[0] === card.page ? rangeOfOffsets(chapter, card.span[1], card.span[2]) : null
   const anchor = range ? { editionKey: scope.editionKey, chapterNumber: chapter.number, paragraphIndex: range.paragraphIndex, fromWord: range.fromWord, endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } : undefined
   const at = Number(card.at) || u
@@ -123,6 +124,8 @@ export function cardOfConversation(conversation: ChatConversation, scope: Margin
   if (meta.gone) return { id: meta.id, gone: true, u: meta.u, at: meta.at, ...(page ? { page } : {}) }
   if (!page) return null
   const chapter = chapterOfPage(scope.chapters, page)!
+  // Shown once its chapter's text has loaded (the Bible's chapters load on demand).
+  if (isPendingChapter(chapter)) return null
   const sameEdition = meta.anchor?.editionKey === scope.editionKey
   const offsets = meta.anchor && sameEdition ? offsetsOfRange(chapter, meta.anchor) : null
   const turns = conversation.messages

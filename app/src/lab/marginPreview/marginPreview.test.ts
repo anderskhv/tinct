@@ -11,6 +11,7 @@ import type { EditionData } from '../../types'
 
 const isPreviewBook = (id: string) => isMarginPreviewBook(getBook(id))
 const decide = (search: string, sticky = false, handoffBookId: string | null = null) => decideMarginPreview({ search, sticky, handoffBookId, isPreviewBook })
+const decidePhone = (search: string, sticky = false, handoffBookId: string | null = null) => decideMarginPreview({ search, sticky, handoffBookId, isPreviewBook: id => isMarginPreviewBook(getBook(id), { phone: true }) })
 
 describe('the margin preview flag', () => {
   it('is off without the flag and without the opt-in: the book reader, unchanged, nothing stored', () => {
@@ -26,15 +27,18 @@ describe('the margin preview flag', () => {
     expect(decide('?book=frankenstein&margin=0', true)).toEqual({ bookId: null, sticky: 'off', search: '?book=frankenstein', consumeHandoff: false })
     expect(decide('?book=frankenstein&margin=0', false)).toEqual({ bookId: null, sticky: null, search: '?book=frankenstein', consumeHandoff: false })
   })
-  it('never previews the Bible, an unknown book, or a link with its own rules', () => {
-    expect(decide('?book=bible&margin=1').bookId).toBeNull()
+  it('previews the Bible on a desktop only (22 Oct 2026); never an unknown book, or a link with its own rules', () => {
+    expect(decide('?book=bible&margin=1').bookId).toBe('bible')
+    expect(decidePhone('?book=bible&margin=1').bookId).toBeNull()
+    expect(decidePhone('?book=frankenstein&margin=1').bookId).toBe('frankenstein')
     expect(decide('?book=no-such-book&margin=1').bookId).toBeNull()
     for (const extra of ['&chapter=2', '&share=abcdefg', '&heldBook=x', '&modern=paid', '&userBook=abc']) expect(decide('?book=frankenstein' + extra, true).bookId).toBeNull()
   })
   it('with the opt-in, a book handed over from the library opens in the preview, and the hand-off is used up', () => {
     expect(decide('', true, 'frankenstein')).toEqual({ bookId: 'frankenstein', sticky: null, search: '?book=frankenstein', consumeHandoff: true })
     expect(decide('', false, 'frankenstein')).toEqual(NO_PREVIEW)
-    expect(decide('', true, 'bible').bookId).toBeNull()
+    expect(decide('', true, 'bible').bookId).toBe('bible')
+    expect(decidePhone('', true, 'bible').bookId).toBeNull()
     expect(handoffBookIdOf(JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein' }))).toBe('frankenstein')
     expect(handoffBookIdOf('{')).toBeNull()
   })
@@ -176,7 +180,7 @@ describe('loading the preview', () => {
     expect(none).not.toHaveBeenCalled()
     expect(slot.__tinctPositionPrefetch).toBeUndefined()
   })
-  it('refuses the Bible', async () => {
-    await expect(loadMarginPreviewBook('bible', { readToken: async () => null })).rejects.toThrow()
+  it('refuses a book it cannot open (marginPreviewBible.test.ts: the Bible, chapters on demand)', async () => {
+    await expect(loadMarginPreviewBook('no-such-book', { readToken: async () => null })).rejects.toThrow()
   })
 })

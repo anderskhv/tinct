@@ -705,6 +705,14 @@ export async function loadLabBibleOutline(editionKey = LAB_EDITION_KEY): Promise
   return { chapters: manifest.chapters, sections: manifest.sections }
 }
 
+/**
+ * One Bible chapter's paragraphs exactly as the Bible reader loads them (the same shard, cache and poetry
+ * registration), for the desktop margin view, which loads the chapters near the reader on demand. [] when it failed.
+ */
+export async function loadLabBibleChapterParagraphs(editionKey: string, entry: { number: number; path?: string }): Promise<string[]> {
+  return loadBibleChapterText(migrateWithheldEdition('bible', editionKey), entry)
+}
+
 /** Validate resume against the actual edition without waiting for audio/cast or chapter text. */
 export async function loadLabChapterList(bookId: string, requestedEditionKey: string): Promise<LabChapter[]> {
   if (isUserBookId(bookId)) {

@@ -24,8 +24,12 @@ export const previewCardsKey = (bookId: string) => `tinct-addbook:cards:preview:
 export interface MarginCardsBridge {
   list(): MarginCard[]
   put(list: MarginCard[]): void
-  listen(cb: (list: MarginCard[]) => void): () => void
+  /** The frame returns false when it keeps its own list for now (a change of its own on the way). */
+  listen(cb: (list: MarginCard[]) => boolean | void): () => void
 }
+
+const loadedChapters = (model: MarginPreviewBook) => new Set(model.chapters.filter(c => !c.pending).map(c => c.number))
+const sameSet = (a: Set<number>, b: Set<number>) => a.size === b.size && [...a].every(n => b.has(n))
 
 /** Once: the preview's own cards (kept on this device before) join the book's chat history; the local key goes. */
 export function migratePreviewCardsLocal(scope: MarginCardScope, storage: Storage = localStorage): number {
@@ -44,17 +48,24 @@ export function useMarginPreviewCards(model: MarginPreviewBook, userId: string |
   const bookId = model.bookId
   const migrated = useRef(false)
   if (!migrated.current) { migrated.current = true; migratePreviewCardsLocal(scope) }
-  const listeners = useRef(new Set<(list: MarginCard[]) => void>())
+  const listeners = useRef(new Set<(list: MarginCard[]) => boolean | void>())
   const writerRef = useRef<ReturnType<typeof createLabChatCloudWriter> | null>(null)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const shownRef = useRef('')
+  // Chapters on demand (the Bible): the chapters loaded when the frame last took a list. Cards in chapters loaded
+  // since are handed to it (once it has no change of its own waiting).
+  const coveredRef = useRef<Set<number> | null>(model.lazy ? loadedChapters(model) : null)
 
   const tell = (conversations: ChatConversation[]) => {
     const list = marginCards(conversations, scope)
     const text = JSON.stringify(list)
-    if (text === shownRef.current) return
+    const loaded = coveredRef.current ? loadedChapters(model) : null
+    const grown = !!loaded && !sameSet(loaded, coveredRef.current!)
+    if (text === shownRef.current && !grown) return
     shownRef.current = text
-    for (const cb of listeners.current) cb(list)
+    let taken = true
+    for (const cb of listeners.current) if (cb(list) === false) taken = false
+    if (loaded && taken) coveredRef.current = loaded
   }
   const tellRef = useRef(tell)
   tellRef.current = tell
@@ -92,6 +103,9 @@ export function useMarginPreviewCards(model: MarginPreviewBook, userId: string |
     }
   }, [bookId, userId])
 
+  // Chapters loaded (the Bible): the cards in them go to the frame.
+  useEffect(() => model.lazy?.subscribe(() => tellRef.current(readLabBookChat(bookId))), [bookId, model])
+
   // The book reader in another tab of this device.
   useEffect(() => {
     const key = `tinct:chat-history:${bookId}`
@@ -104,11 +118,14 @@ export function useMarginPreviewCards(model: MarginPreviewBook, userId: string |
     list() {
       const list = marginCards(readLabBookChat(bookId), scope)
       shownRef.current = JSON.stringify(list)
+      if (coveredRef.current) coveredRef.current = loadedChapters(model)
       return list
     },
     put(list) {
       const current = readLabBookChat(bookId)
       const changed = changedCardConversations(current, list, scope)
+      const covered = coveredRef.current
+      if (covered && !sameSet(loadedChapters(model), covered)) queueMicrotask(() => tellRef.current(readLabBookChat(bookId)))
       if (!changed.length) return
       const next = mergeChatConversations(current, changed)
       if (sameChatConversations(current, next)) return
@@ -121,5 +138,5 @@ export function useMarginPreviewCards(model: MarginPreviewBook, userId: string |
       listeners.current.add(cb)
       return () => { listeners.current.delete(cb) }
     },
-  }), [bookId, scope])
+  }), [bookId, model, scope])
 }

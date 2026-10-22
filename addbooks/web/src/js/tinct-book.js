@@ -64,8 +64,12 @@
 
   const partNamed = (part, title) => { const name = String(part).replace(/^part\s+[\divxlc]+\s*[—–:.-]?\s*/i, '').trim().toLowerCase(); return !!name && String(title).toLowerCase().includes(name) };
 
+  /** A chapter's text as the reader keeps it (state.texts): its title, then its paragraphs. */
+  const chapterText = c => [c.title, ...c.paragraphs.map(p => p.text)].join('\n\n');
+
   /** The model as TinctEpub.parse returns a book: { title, authors, language, chapters: [{ index, title, node, text }], toc }.
-   * `from`: the chapter (1-based) the reader opens at. The chapters after the next one are laid out later (laterChapters). */
+   * `from`: the chapter (1-based) the reader opens at. The chapters after the next one are laid out later (laterChapters).
+   * A pending chapter (the Bible's, loaded on demand: lazyChapters) is its heading and a space of about its height. */
   function asEpub(model, from = 1) {
     const toc = [], parts = new Map();
     const chapters = model.chapters.map((c, index) => {
@@ -77,15 +81,16 @@
       // The phone shows the heading as the book reader does, its chapter's title alone, when that names the part
       // ("The Window · 1" under "Part I — The Window"); a part the title does not name keeps its line.
       if (c.section && partNamed(c.section, c.title)) head.classList.add('is-named');
-      node.append(head, ...c.paragraphs.map(paragraphEl));
-      if (index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
+      if (c.pending) node.append(head, waitEl(c));
+      else node.append(head, ...c.paragraphs.map(paragraphEl));
+      if (!model.lazy && index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
       let parent = null;
       if (c.section) {
         if (!parts.has(c.section)) { const e = { id: 'p' + parts.size, label: c.section, page: index + 1, anchor: '', depth: 0, parent: null, kind: 'part' }; parts.set(c.section, e); toc.push(e) }
         parent = parts.get(c.section).id;
       }
       toc.push({ id: 'c' + index, label: c.title, page: index + 1, anchor: '', depth: parent ? 1 : 0, parent, kind: 'chapter', number: c.number });
-      return { index, href: '', title: c.title, node, text: [c.title, ...c.paragraphs.map(p => p.text)].join('\n\n') };
+      return { index, href: '', title: c.title, node, text: c.pending ? c.title : chapterText(c) };
     });
     return { title: model.title, authors: model.author ? [model.author] : [], language: model.language || 'en', chapters, toc, cover: null };
   }
@@ -103,6 +108,7 @@
   const charsOf = c => c.paragraphs.reduce((n, p) => n + String(p.text || '').length + 60, 200);
   const estimate = c => Math.round(charsOf(c) * (pxPerChar || LINE_PX()));
   function laterChapters(model) {
+    if (model.lazy) return; // its chapters are drawn as they load (lazyChapters)
     const nodes = [...document.querySelectorAll('.tb-chapter')];
     const measured = nodes.findIndex((n, i) => !n.classList.contains('tb-later') && n.offsetHeight > 0 && model.chapters[i]?.paragraphs.length > 3);
     if (measured >= 0) {
@@ -127,20 +133,138 @@
    * that chapter, paragraph and word (reader.js epubRestore, from pos:<key>), and keeps its own place from there.
    */
   function seedPlace(model) {
-    const s = model.start; if (!s || !s.updatedAt) return;
     let own = null;
     try { own = JSON.parse(localStorage.getItem(POS) || 'null') } catch {}
+    // The Bible's editions order their chapters differently (the Catholic one): a place kept here in another edition is
+    // not this one's, and the book reader's place (the page's) is used instead.
+    if (model.lazy && own && own.ed !== model.editionKey) { own = null; try { localStorage.removeItem(POS) } catch {} }
+    const s = model.start; if (!s || !s.updatedAt) return;
     if ((Number(own?.at) || 0) >= s.updatedAt) return;
     const page = model.chapters.findIndex(c => c.number === s.chapterNumber) + 1;
     if (page < 1) return;
     const { via: _v, quote: _q, ...rest } = own || {};
-    try { localStorage.setItem(POS, JSON.stringify({ ...rest, page, frac: 0, para: s.paragraphIndex, word: s.wordIndex, at: s.updatedAt, from: 'reader' })) } catch {}
+    try { localStorage.setItem(POS, JSON.stringify({ ...rest, page, frac: 0, para: s.paragraphIndex, word: s.wordIndex, at: s.updatedAt, from: 'reader', ...(model.lazy ? { ed: model.editionKey } : {}) })) } catch {}
+  }
+
+  /*
+   * The Bible (Anders, 22 Oct 2026; src/lab/marginPreview/marginPreviewBible.ts): 1,189 chapters, loaded as the Bible
+   * reader loads them, the chapter being read and its neighbours, more as the reader moves; never the whole book. Every
+   * chapter is in the reader from the start (its page number, heading, contents entry and unit stay those of a book
+   * loaded whole), a pending one as a space of about its height. Chapters near the view are asked for as it moves and
+   * drawn when they come; a chapter drawn above the view keeps the view where it was (the page the reader is on stays
+   * put on the screen), so nothing moves under the reader. Text asked for elsewhere (Catch me up, a card) loads without
+   * being drawn (previewText).
+   */
+  const WAIT_PX_PER_PARA = 72; // a paragraph's height before one chapter is measured
+  let pxPerPara = 0;
+  const waitHeight = c => Math.max(160, Math.round((c.paragraphCount || 8) * (pxPerPara || WAIT_PX_PER_PARA)) + 40);
+  function waitEl(c) {
+    const el = document.createElement('div');
+    el.className = 'tb-wait'; el.setAttribute('aria-hidden', 'true');
+    el.style.height = waitHeight(c) + 'px';
+    return el;
+  }
+  const NEAR_SCREENS = 1.5, MAX_ASK = 12;
+  function lazyChapters(model) {
+    const lazy = model.lazy, s = document.getElementById('scroll');
+    const waiting = new Set();
+    model.chapters.forEach((c, i) => { if (c.pending) waiting.add(i + 1) });
+    // Pending chapters have no text yet: none is kept for them (pageText asks for it: previewText).
+    for (const n of waiting) state.texts.delete(n);
+    /** Draw these pages' loaded text in place of their spaces, the view held where it is. */
+    function fill(pages) {
+      pages = pages.filter(n => waiting.has(n) && model.chapters[n - 1] && !model.chapters[n - 1].pending);
+      if (!pages.length || state.key !== 'preview:' + id) return;
+      const at = state.pages[currentPlace().page - 1]?.sheet, top = at ? at.getBoundingClientRect().top : 0, was = s.scrollTop;
+      for (const n of pages) {
+        const c = model.chapters[n - 1], p = state.pages[n - 1], wait = p?.pg.querySelector('.tb-chapter > .tb-wait');
+        waiting.delete(n);
+        if (!wait) continue;
+        wait.replaceWith(...c.paragraphs.map(paragraphEl));
+        p.paras = null; // reader.js epubParas: read again
+        state.texts.set(n, { text: chapterText(c), items: [] });
+        try { strip?.pageChanged?.(n) } catch {}
+      }
+      if (at) {
+        const moved = at.getBoundingClientRect().top - top;
+        if (Math.abs(moved) > 0.5) {
+          s.scrollTop += moved;
+          const x = epubHold.exact; if (x && x.top != null && Math.abs(x.top - was) <= 2) x.top = s.scrollTop;
+        }
+      }
+      redrawMarks();
+    }
+    /** The pages in or near the view: the reader's page and its neighbours, and every page up to a screen and a half away. */
+    function near() {
+      const n = state.pages.length, cur = currentPlace().page, r = s.getBoundingClientRect();
+      const lo = r.top - r.height * NEAR_SCREENS, hi = r.bottom + r.height * NEAR_SCREENS, out = new Set();
+      for (const k of [cur - 1, cur, cur + 1]) if (k >= 1 && k <= n) out.add(k);
+      for (let k = cur; k >= 1 && out.size < 40; k--) { if (state.pages[k - 1].sheet.getBoundingClientRect().bottom < lo) break; out.add(k) }
+      for (let k = cur; k <= n && out.size < 40; k++) { if (state.pages[k - 1].sheet.getBoundingClientRect().top > hi) break; out.add(k) }
+      return [...out].sort((a, b) => Math.abs(a - cur) - Math.abs(b - cur));
+    }
+    let busy = false, again = false;
+    async function want() {
+      if (busy) { again = true; return }
+      if (state.key !== 'preview:' + id || !waiting.size) return;
+      busy = true;
+      try {
+        const pages = near().filter(n => waiting.has(n));
+        fill(pages);
+        const ask = pages.filter(n => model.chapters[n - 1]?.pending).slice(0, MAX_ASK);
+        if (ask.length) { await lazy.load(ask.map(n => model.chapters[n - 1].number)); fill(near()) }
+      } catch { /* asked again as the view moves */ }
+      finally { busy = false }
+      if (again) { again = false; want() }
+    }
+    // The spaces' height from the chapters drawn so far (once), so the scroll bar and the percentage are about right.
+    const drawn = model.chapters.map((c, i) => [c, state.pages[i]]).filter(([c, p]) => !c.pending && p && c.paragraphs.length > 3);
+    const paras = drawn.reduce((a, [c]) => a + c.paragraphs.length, 0), height = drawn.reduce((a, [, p]) => a + p.pg.querySelector('.tb-chapter').offsetHeight, 0);
+    if (paras && height) {
+      pxPerPara = height / paras;
+      const at = state.pages[currentPlace().page - 1]?.sheet, top = at ? at.getBoundingClientRect().top : 0;
+      for (const n of waiting) { const w = state.pages[n - 1]?.pg.querySelector('.tb-chapter > .tb-wait'); if (w) w.style.height = waitHeight(model.chapters[n - 1]) + 'px' }
+      if (at) { const moved = at.getBoundingClientRect().top - top; if (Math.abs(moved) > 0.5) s.scrollTop += moved }
+    }
+    let raf = 0, timer = 0;
+    const soon = () => { if (raf) return; raf = requestAnimationFrame(() => { raf = 0; clearTimeout(timer); timer = setTimeout(want, 80) }) };
+    s.addEventListener('scroll', soon, { passive: true });
+    addEventListener('resize', soon);
+    // After the place is restored (reader.js, a frame after the open): the chapters round it, not round the top.
+    setTimeout(want, 600);
+    /** Loads and draws the chapter at `page` and its neighbours (a move the page asks for: another device's place). */
+    async function ensure(page) {
+      const c = model.chapters[page - 1]; if (!c) return;
+      const i = page - 1, nums = model.chapters.slice(Math.max(0, i - 1), i + 2).map(x => x.number);
+      await lazy.load(nums).catch(() => []);
+      fill([page - 1, page, page + 1]);
+    }
+    return { ensure, waiting };
+  }
+  /** What reader.js asks of a book loaded on demand (state.preview): a chapter's text, a run of them, its part. */
+  function lazyPreview(model) {
+    const lazy = model.lazy;
+    return {
+      async text(n) {
+        const c = model.chapters[n - 1]; if (!c) return null;
+        if (c.pending) await lazy.load([c.number]);
+        const d = model.chapters[n - 1];
+        return d && !d.pending ? chapterText(d) : null;
+      },
+      async textRange(from, to) {
+        const nums = model.chapters.slice(Math.max(0, from - 1), Math.max(0, to)).filter(c => c.pending).map(c => c.number);
+        if (nums.length) await lazy.load(nums);
+      },
+      scope: page => lazy.scope(page),
+    };
   }
 
   const STYLE = `.tb-chapter .tb-head{display:block;margin:0 0 1.6em;text-align:center}
 .tb-chapter .tb-part{display:block;font-size:.9em;font-style:italic;opacity:.7;margin-bottom:.4em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
+.tb-chapter .tb-wait{display:block}
+.lab.tb-lazy .pdf-scroll{overflow-anchor:none}
 .lab.byob .epub-sheet{content-visibility:visible}
 .lab.byob .tb-chapter.tb-later{content-visibility:auto}
 .tb-mark{display:none}
@@ -192,7 +316,7 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
      reader.js savePlaceNow). The reader's own actions are counted (a restore is the reader's place only once it has
      landed, or once they act). Uses reader.js's globals (state, epubHold, epubSpot, epubGoSpot, currentPlace). */
   const POS_KEY = 'pos:' + KEY;
-  let interactions = 0, sync = null, lastActive = 0, goes = 0;
+  let interactions = 0, sync = null, lastActive = 0, goes = 0, lazyView = null;
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) addEventListener(type, () => {
     interactions++;
     const now = Date.now(); if (now - lastActive > 1000) { lastActive = now; try { sync?.place?.active?.() } catch {} }
@@ -243,8 +367,12 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     };
     sync.place.listen(spot => {
       goes++;
-      if (!epubGoSpot(spot.page, spot.para, spot.word)) { reportPlace('open', { target: spot }); return }
-      settled(spot).then(target => reportPlace('open', { target }));
+      const go = () => {
+        if (!epubGoSpot(spot.page, spot.para, spot.word)) { reportPlace('open', { target: spot }); return }
+        settled(spot).then(target => reportPlace('open', { target }));
+      };
+      // The Bible: the chapter is drawn first (it may not be loaded yet).
+      if (lazyView && lazyView.waiting.has(spot.page)) lazyView.ensure(spot.page).then(go); else go();
     });
   }
 
@@ -289,15 +417,19 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     try { memory.set(CARD_KEY, JSON.stringify(sync.cards?.list() || [])) } catch { memory.set(CARD_KEY, '[]') }
     sync.cards?.listen(list => {
       const text = JSON.stringify(list || []);
-      if (cardsTimer || memory.get(CARD_KEY) === text) return; // a change here is on its way: it wins
+      if (cardsTimer) return false; // a change here is on its way: it wins (the page hands the list again after it)
+      if (memory.get(CARD_KEY) === text) return true;
       memory.set(CARD_KEY, text);
       if (state.key === 'preview:' + id) { try { marginLayout({ fresh: true }) } catch {} try { window.TinctNotebook?.changed() } catch {} }
+      return true;
     });
     sync.marks.listen(list => {
       const text = JSON.stringify(list || []);
-      if (marksTimer || memory.get('hl:' + KEY) === text) return; // a change of the reader's is on its way: it wins
+      if (marksTimer) return false; // a change of the reader's is on its way: it wins (the page hands the list again after it)
+      if (memory.get('hl:' + KEY) === text) return true;
       memory.set('hl:' + KEY, text);
       if (state.key === 'preview:' + id) redrawMarks();
+      return true;
     });
     // Leaving: what is waiting goes now.
     const leaving = () => { if (marksTimer) pushMarks(); if (cardsTimer) pushCards() };
@@ -328,13 +460,21 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     seedPlace(model);
     let from = 1;
     try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
+    // The Bible: the chapter its own place is in, and its neighbours, are drawn from the start (the place is found in
+    // real lines). The page loaded the book reader's place already.
+    if (model.lazy && model.chapters[from - 1]?.pending) {
+      const i = from - 1;
+      try { await model.lazy.load(model.chapters.slice(Math.max(0, i - 1), i + 2).map(c => c.number)) } catch {}
+    }
     const book = asEpub(model, from);
     setTimeout(() => laterChapters(model), 1200);
     // Two-page and Compare (the desktop's Layout): the book reader at this chapter, paragraph and word, in that layout.
     const layoutHref = typeof host.layoutHref === 'function'
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
-    const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
+    if (model.lazy) document.querySelector('.lab')?.classList.add('tb-lazy');
+    const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref, ...(model.lazy ? lazyPreview(model) : {}) });
+    if (opened && model.lazy) lazyView = lazyChapters(model);
     if (!opened || !sync?.place) return;
     watchPlace();
     const target = await settled();
@@ -345,6 +485,6 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     const before = interactions;
     for (const ms of [1200, 2500, 5000]) setTimeout(() => { if (interactions === before && !goes && state.key === 'preview:' + id) reportPlace('open', { target }) }, ms);
   }
-  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
+  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed, waitHeight };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
 })();

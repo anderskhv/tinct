@@ -320,6 +320,8 @@
       update: schedule,
       /** Highlights or cards changed. */
       marksChanged() { dots = null; schedule() },
+      /** Page n was drawn again (a chapter loaded on demand: the preview's Bible): its lines are read afresh. */
+      pageChanged(n) { if (pages[n - 1] !== undefined) { pages[n - 1] = undefined; lines = null; schedule() } },
     };
   }
 

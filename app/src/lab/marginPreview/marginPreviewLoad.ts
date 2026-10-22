@@ -18,6 +18,8 @@ import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import type { EditionData } from '../../types'
 import type { MarginPreviewAt } from './marginPreviewFlag'
 import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from '../readerBoot'
+import { loadLabBibleChapterParagraphs, loadLabBibleOutline } from '../labSource'
+import { bibleLinkPlace, bibleSavedPlace, bibleWindow, createBibleLazy, MARGIN_BIBLE_ID, pendingBibleChapter, type BibleManifestEntry } from './marginPreviewBible'
 import {
   isMarginPreviewBook,
   marginPreviewChapters,
@@ -45,6 +47,9 @@ export interface MarginPreviewDeps {
    */
   at?: MarginPreviewAt | null
   now?: () => number
+  /** The Bible: its chapter manifest, and one chapter's paragraphs (labSource, as the Bible reader loads them). */
+  loadBibleOutline?: (editionKey: string) => Promise<{ chapters: BibleManifestEntry[] }>
+  loadBibleChapter?: (editionKey: string, entry: { number: number; path?: string }) => Promise<string[]>
 }
 
 const registeredId = (bookId: string) => getBook(bookId)?.id
@@ -110,6 +115,7 @@ function linkPlace(bookId: string, at: MarginPreviewAt, now: number): LabBookPla
 export async function loadMarginPreviewBook(bookId: string, deps: MarginPreviewDeps = {}): Promise<MarginPreviewBook> {
   const book = getBook(bookId)
   if (!isMarginPreviewBook(book)) throw new Error(`${bookId} cannot open in the margin preview`)
+  if (book.id === MARGIN_BIBLE_ID) return loadMarginPreviewBible(book, deps)
   const storage = deps.storage === undefined ? (typeof localStorage === 'undefined' ? null : localStorage) : deps.storage
   const devicePlace = deviceMainPlace(bookId, storage)
   const prefs = parseLabPrefs(readJson(storage, LAB_PREFS_KEY), 'desktop')
@@ -139,5 +145,64 @@ export async function loadMarginPreviewBook(bookId: string, deps: MarginPreviewD
     chapters,
     start: marginPreviewStart(place, chapters, { editionKey, aligned }),
     normalHref: normalReaderHref(bookId),
+  }
+}
+
+/**
+ * The Bible (marginPreviewBible.ts): its manifest, then the chapter it opens at and its neighbours; the rest load as
+ * the frame asks. The place is the newest of this device's and the account's biblical-book pins (or the link's),
+ * checked against the manifest as the Bible reader checks one.
+ */
+async function loadMarginPreviewBible(book: NonNullable<ReturnType<typeof getBook>>, deps: MarginPreviewDeps): Promise<MarginPreviewBook> {
+  const bookId = book.id
+  const storage = deps.storage === undefined ? (typeof localStorage === 'undefined' ? null : localStorage) : deps.storage
+  const prefs = parseLabPrefs(readJson(storage, LAB_PREFS_KEY), 'desktop')
+  const keyFor = (place: LabBookPlace | null) => marginPreviewEditionKey(book, { placeEdition: place?.primaryEditionKey, prefsEdition: prefs.primaryEdition })
+  const outline = deps.loadBibleOutline ?? loadLabBibleOutline
+  const fetchChapter = deps.loadBibleChapter ?? loadLabBibleChapterParagraphs
+  const devicePlace = deviceMainPlace(bookId, storage)
+  // The edition of a link, else of this device's place, is asked for while the account's place is.
+  const guess = (deps.at?.editionKey && book.editions.some(e => e.key === deps.at!.editionKey) ? deps.at.editionKey : null) ?? keyFor(devicePlace)
+  const early = guess ? outline(guess) : null
+  early?.catch(() => {})
+  const account = deps.at ? null : await accountMainPlace(bookId, deps)
+  const firstKey = deps.at ? guess : keyFor(newerPlace(devicePlace, account))
+  if (!firstKey) throw new Error(`${bookId} has no edition to read`)
+  const manifest = await (firstKey === guess && early ? early : outline(firstKey))
+  let entries = manifest.chapters || []
+  let chapters = entries.map(pendingBibleChapter)
+  if (!chapters.length) throw new Error(`${bookId} ${firstKey} has no chapters`)
+  const now = deps.now?.() ?? Date.now()
+  const place = deps.at
+    ? bibleLinkPlace(chapters, deps.at, now)
+    : newerPlace(bibleSavedPlace(devicePlace, chapters), bibleSavedPlace(account, chapters))
+  // A place read in another edition opens in that one, as other books do (its own manifest).
+  let editionKey = firstKey
+  const placeKey = keyFor(place)
+  if (!deps.at && placeKey && placeKey !== firstKey) {
+    editionKey = placeKey
+    entries = (await outline(placeKey)).chapters || []
+    chapters = entries.map(pendingBibleChapter)
+    if (!chapters.length) throw new Error(`${bookId} ${placeKey} has no chapters`)
+  }
+  const edition = book.editions.find(e => e.key === editionKey)!
+  const aligned = (key: string) => book.editions.find(e => e.key === key)?.aligned !== false
+  const lazy = createBibleLazy(chapters, entry => fetchChapter(editionKey, entry), new Map(entries.map(entry => [entry.number, entry.path])))
+  const opening = marginPreviewStart(place, chapters, { editionKey, aligned, sequential: true })
+  // The chapter it opens at and its neighbours, before the frame draws it (the place is found in real lines).
+  await lazy.load(bibleWindow(chapters, opening.chapterNumber))
+  if (chapters.find(c => c.number === opening.chapterNumber)?.pending) throw new Error(`${bookId} ${editionKey} chapter ${opening.chapterNumber} did not load`)
+  return {
+    bookId,
+    editionKey,
+    editionLabel: edition.label,
+    title: book.title,
+    author: book.author,
+    language: edition.language || 'en',
+    chapters,
+    // Checked again now that its chapter's text is in (its word).
+    start: marginPreviewStart(place, chapters, { editionKey, aligned, sequential: true }),
+    normalHref: normalReaderHref(bookId),
+    lazy,
   }
 }

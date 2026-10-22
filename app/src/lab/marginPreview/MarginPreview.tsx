@@ -95,14 +95,16 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
     return () => { current = false }
   }, [pending])
   const chapterTitles = useMemo(() => new Map((shown?.chapters ?? []).map(c => [c.number, c.title])), [shown])
-  // The edition the frame shows is the one heard.
-  const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
+  // The edition the frame shows is the one heard. Not the Bible yet (Anders, 22 Oct 2026, first round): its player
+  // keeps the place heard under the book's own id, and the Bible's places are its biblical books'.
+  const listens = bookId !== 'bible'
+  const listen = useMarginListen({ bookId, editionKey: listens ? shown?.editionKey ?? null : null, chapterTitles })
   useEffect(() => {
-    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen), sync: syncRef.current }
+    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listens ? listen : undefined), sync: syncRef.current }
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending, listen])
+  }, [bookId, pending, listen, listens])
   if (failed) {
     return (
       <main data-testid="margin-preview-error" style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>

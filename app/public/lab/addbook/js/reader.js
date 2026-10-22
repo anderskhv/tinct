@@ -662,7 +662,14 @@ function textOf(items, view) {
 }
 async function pageText(n) {
   if (state.texts.has(n)) return state.texts.get(n);
-  if (isEpub()) return { text: '', items: [] };
+  if (isEpub()) {
+    // The preview's Bible loads its chapters on demand (js/tinct-book.js): one not drawn yet is asked for by its text.
+    const key = state.key, more = state.preview?.text ? await state.preview.text(n).catch(() => null) : null;
+    if (typeof more !== 'string' || !more || state.key !== key) return { text: '', items: [] };
+    const value = { text: more, items: [] };
+    state.texts.set(n, value);
+    return value;
+  }
   // A recognised scan's page: its recognised text; its items are laid out once the page is drawn (ocrItems).
   const recognised = state.ocrPages?.get(n);
   if (recognised) { const value = { text: TinctPdfOcr.pageText(recognised), items: [], ocr: true }; state.texts.set(n, value); return value }
@@ -4225,7 +4232,9 @@ async function marginDocument(page) {
   if (isEpub()) {
     // Too long to send whole: the chapter the reader is in, and the contents.
     const text = (await pageText(page)).text || '';
-    return { kind: 'epub', units: [{ n: pageLabel(page), text: text.slice(0, read.limit) }], part: { toc: toc.entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, ...(state.preview ? { library: true } : {}) };
+    // The preview's Bible: the contents of the biblical book being read, not all 1,189 chapters (previewScope).
+    const scope = previewScope(page), entries = scope ? toc.entries.filter(e => e.page >= scope.from && e.page <= scope.to) : toc.entries;
+    return { kind: 'epub', units: [{ n: pageLabel(page), text: text.slice(0, read.limit) }], part: { toc: entries.map(e => ({ title: e.label, n: pageLabel(e.page) })), total: state.pages.length }, ...(state.preview ? { library: true } : {}) };
   }
   const [r, contents] = await Promise.all([docRange(page), contentsSoon()]);
   if (state.key !== key) return null;
@@ -6086,6 +6095,8 @@ const unitTitle = unit => (unit.key === 'all' || !unit.title ? state.title : uni
  */
 async function unitPages(unit) {
   const pages = [], from = Math.max(unit.from, Math.min(unit.start || unit.from, unit.to)), to = Math.min(unit.to, from + 199);
+  // The preview's Bible: the chapters' text, loaded together (pageText would ask for them one by one).
+  if (state.preview?.textRange) await state.preview.textRange(from, to).catch(() => {});
   for (let n = from; n <= to; n++) pages.push({ n: pageLabel(n), text: ((await pageText(n)).text || ' ').slice(0, 6000) });
   // An EPUB's units (the preview's chapters) go as chapters, as pdfPages sends them.
   return { pages, at: 0, ...(isEpub() ? { kind: 'epub' } : {}) };
@@ -6633,7 +6644,16 @@ function pillAction(pill, key) {
 /** What a unit's Catch me up covers: the pages before it, never the reader's page or later (TinctMargin.catchUpSpan). */
 function catchRange(unit) {
   const { from, to } = TinctMargin.catchUpSpan(unit.from, placePage());
-  return { key: unit.key, from, start: from, to };
+  // The preview's Bible: never before the biblical book being read (previewScope).
+  const part = previewScope(unit.from), first = part ? Math.max(from, part.from) : from;
+  return { key: unit.key, from: first, start: first, to };
+}
+/**
+ * The part a page belongs to that Catch me up and the companion's contents stay inside: the preview's Bible gives its
+ * biblical book (js/tinct-book.js, Anders 22 Oct 2026: "Catch me up should be scoped sensibly"). null: the whole book.
+ */
+function previewScope(page) {
+  try { const s = state.preview?.scope?.(page); return s && s.from >= 1 && s.to >= s.from ? s : null } catch { return null }
 }
 function quizUnit(at = null) {
   const unit = at || primer.unit || currentUnit(); if (!unit) return;
@@ -7671,7 +7691,8 @@ async function catchUp() {
   // Never past the reader's place (Anders, 21 Oct 2026): the page they are on only as far as they are on it (seenText).
   const place = currentPlace(), page = place.page;
   const partOf = e => { const parent = e.parent && toc.entries.find(p => p.id === e.parent); return parent ? parent.label : '' };
-  const chapters = leafEntries().filter(e => e.kind === 'chapter' && e.page <= page).map(e => ({ ...chapterRange(e), label: e.label, part: partOf(e) }));
+  const scope = previewScope(page);
+  const chapters = leafEntries().filter(e => e.kind === 'chapter' && e.page <= page && (!scope || e.page >= scope.from)).map(e => ({ ...chapterRange(e), label: e.label, part: partOf(e) }));
   const blocks = TinctMargin.catchUpBlocks(chapters, page, BLOCK);
   const since = store.get('session:' + state.key)?.previousPage;
   const layer = sheet('Catch me up', `<ol class="lab-catch-up-timeline">${blocks.map((b, i) => `
@@ -8185,6 +8206,9 @@ function epubOwnUnits(book) {
 }
 /** True for the first real unit and any front matter before it: nothing has been read before it to catch up on. */
 function nothingBefore(unit) {
+  // The preview's Bible: a biblical book's first chapter has nothing before it in that book (previewScope).
+  const part = unit && unit.key !== BOOK_UNIT ? previewScope(unit.from) : null;
+  if (part && unit.from <= part.from) return true;
   const units = primer.units || [], i = units.findIndex(u => u.key === unit?.key);
   if (i < 0) return unit?.key === BOOK_UNIT;
   const first = units.findIndex(u => !u.matter);

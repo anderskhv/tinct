@@ -19,6 +19,7 @@ import {
   type LabHighlightCloudWriter,
 } from '../labHighlightSync'
 import { applyMarginMarks, marginMarks, migratePreviewMarks, type MarginMark, type MarginMarkScope } from './marginPreviewMarks'
+import { isLabChapterNote } from '../labHighlights'
 import type { MarginPreviewBook } from './marginPreviewModel'
 
 /** The preview's own keys from before (js/tinct-book.js, reader.js's store: `tinct-addbook:` + key). */
@@ -30,9 +31,16 @@ export interface MarginMarksBridge {
   list(): MarginMark[]
   /** The margin's whole list for the book, after a change there. */
   put(list: MarginMark[]): void
-  /** Marks changed elsewhere (the account, another tab): the margin's new list. -> stop listening */
-  listen(cb: (list: MarginMark[]) => void): () => void
+  /**
+   * Marks changed elsewhere (the account, another tab), or chapters loaded (the Bible): the margin's new list. The
+   * frame returns false when it keeps its own list for now (a change of its own on the way). -> stop listening
+   */
+  listen(cb: (list: MarginMark[]) => boolean | void): () => void
 }
+
+/** The chapters whose text is loaded (all of them for a book loaded whole). */
+const loadedChapters = (model: MarginPreviewBook) => new Set(model.chapters.filter(c => !c.pending).map(c => c.number))
+const sameSet = (a: Set<number>, b: Set<number>) => a.size === b.size && [...a].every(n => b.has(n))
 
 /** Once: the preview's own marks join the book reader's; the local keys go (any whose words no longer match stay). */
 export function migratePreviewMarksLocal(scope: MarginMarkScope, storage: Storage = localStorage): LabHighlight[] {
@@ -58,16 +66,23 @@ export function useMarginPreviewMarks(model: MarginPreviewBook, userId: string |
   const bookId = model.bookId
   const allRef = useRef<LabHighlight[] | null>(null)
   if (!allRef.current) { migratePreviewMarksLocal(scope); allRef.current = readLabHighlights() }
-  const listeners = useRef(new Set<(list: MarginMark[]) => void>())
+  const listeners = useRef(new Set<(list: MarginMark[]) => boolean | void>())
   const writerRef = useRef<LabHighlightCloudWriter | null>(null)
   const shownRef = useRef('')
+  // A book that loads chapters on demand (the Bible): the chapters the frame's list was made with. A mark in a chapter
+  // loaded since is not in that list, and must never be read as removed by it (applyMarginMarks `covered`).
+  const coveredRef = useRef<Set<number> | null>(model.lazy ? loadedChapters(model) : null)
 
   const tell = () => {
     const list = marginMarks(allRef.current!, scope)
     const text = JSON.stringify(list)
-    if (text === shownRef.current) return
+    const loaded = coveredRef.current ? loadedChapters(model) : null
+    const grown = !!loaded && !sameSet(loaded, coveredRef.current!)
+    if (text === shownRef.current && !grown) return
     shownRef.current = text
-    for (const cb of listeners.current) cb(list)
+    let taken = true
+    for (const cb of listeners.current) if (cb(list) === false) taken = false
+    if (loaded && taken) coveredRef.current = loaded
   }
   const tellRef = useRef(tell)
   tellRef.current = tell
@@ -112,25 +127,32 @@ export function useMarginPreviewMarks(model: MarginPreviewBook, userId: string |
     return () => window.removeEventListener('storage', onStorage)
   }, [])
 
+  // Chapters loaded (the Bible): their marks go to the frame.
+  useEffect(() => model.lazy?.subscribe(() => tellRef.current()), [model])
+
   return useMemo<MarginMarksBridge>(() => ({
     list() {
       const list = marginMarks(allRef.current!, scope)
       shownRef.current = JSON.stringify(list)
+      if (coveredRef.current) coveredRef.current = loadedChapters(model)
       return list
     },
     put(list) {
-      const { next, removed, changed } = applyMarginMarks(allRef.current!, list, scope)
-      if (!changed) return
+      const covered = coveredRef.current
+      const { next, removed, changed } = applyMarginMarks(allRef.current!, list, scope, Date.now(), covered ? { covered: h => isLabChapterNote(h) || covered.has(h.chapterNumber) } : {})
+      // Chapters loaded since the frame's list was made: it is given the whole list now (it has no change waiting).
+      if (!changed) { if (covered && !sameSet(loadedChapters(model), covered)) tellRef.current(); return }
       // Tombstones first, so the push that follows carries the deletion.
       if (removed.length) recordLabHighlightDeletions(removed)
       allRef.current = next
       writeLabHighlights(next)
       shownRef.current = JSON.stringify(marginMarks(next, scope))
       writerRef.current?.push(bookId, labHighlightSetFor(bookId, next, readLabHighlightTombstones()))
+      if (covered && !sameSet(loadedChapters(model), covered)) tellRef.current()
     },
     listen(cb) {
       listeners.current.add(cb)
       return () => { listeners.current.delete(cb) }
     },
-  }), [bookId, scope])
+  }), [bookId, model, scope])
 }

@@ -31,6 +31,29 @@ export interface MarginPreviewChapter {
   /** The part the chapter belongs to ("Part I — The Window"), when the edition has parts. */
   section?: string
   paragraphs: MarginPreviewParagraph[]
+  /**
+   * The Bible (marginPreviewBible.ts): its text is not loaded yet (`paragraphs` is empty). A chapter is loaded on
+   * demand and then replaced in the book's list by its loaded copy; nothing is read from or written to a pending one.
+   */
+  pending?: true
+  /** The paragraphs the edition's manifest counts for a pending chapter. */
+  paragraphCount?: number
+}
+
+/** A pending chapter (MarginPreviewChapter.pending): its text is still to be loaded. */
+export const isPendingChapter = (chapter: MarginPreviewChapter | null | undefined): boolean => !!chapter?.pending
+
+/**
+ * A book whose chapters load on demand (the Bible, marginPreviewBible.ts): the chapter being read and its
+ * neighbours, never the whole book. Same-origin: the frame (js/tinct-book.js) calls it directly.
+ */
+export interface MarginPreviewLazy {
+  /** Loads these chapters (by number) into the book's chapter list. -> the numbers loaded now or before */
+  load(numbers: number[]): Promise<number[]>
+  /** The pages (1-based, inclusive) of the part a page belongs to (a biblical book): Catch me up stays inside it. */
+  scope(page: number): { from: number; to: number }
+  /** Called with the chapter numbers just loaded. -> stop listening */
+  subscribe(listener: (numbers: number[]) => void): () => void
 }
 
 /** Where the preview opens when it has no newer place of its own: the book reader's place, read only. */
@@ -53,6 +76,8 @@ export interface MarginPreviewBook {
   start: MarginPreviewStart
   /** The book reader for the same book, with the preview turned off. */
   normalHref: string
+  /** Chapters loaded on demand (the Bible); absent for a book loaded whole. */
+  lazy?: MarginPreviewLazy
 }
 
 /** The book reader for this book, the opt-in turned off (marginPreviewFlag.ts). */
@@ -60,9 +85,13 @@ export function normalReaderHref(bookId: string): string {
   return `/reader?book=${encodeURIComponent(bookId)}&margin=0`
 }
 
-/** Registered, readable books only: never the Bible (1,189 chapters, its own reader) or a reader's own book. */
-export function isMarginPreviewBook(book: Book | undefined): book is Book {
-  return !!book && book.id !== 'bible' && !book.localOnly && book.editions.some(edition => !editionHold(book.id, edition.key))
+/**
+ * Registered, readable books only, never a reader's own book. The Bible opens on the desktop only (Anders, 22 Oct
+ * 2026: its chapters load on demand, marginPreviewBible.ts); a phone keeps the Bible's own reader.
+ */
+export function isMarginPreviewBook(book: Book | undefined, opts: { phone?: boolean } = {}): book is Book {
+  if (!book || book.localOnly || (book.id === 'bible' && opts.phone)) return false
+  return book.editions.some(edition => !editionHold(book.id, edition.key))
 }
 
 /**
@@ -114,14 +143,21 @@ const words = (text: string) => text.match(/\S+/g)?.length ?? 0
  * keeps its paragraph only when that edition aligns paragraph by paragraph,
  * and its word is not carried over.
  */
-export function marginPreviewStart(place: LabBookPlace | null, chapters: MarginPreviewChapter[], opts: { editionKey: string; aligned: (key: string) => boolean }): MarginPreviewStart {
+export function marginPreviewStart(place: LabBookPlace | null, chapters: MarginPreviewChapter[], opts: { editionKey: string; aligned: (key: string) => boolean; sequential?: boolean }): MarginPreviewStart {
   const first = chapters[0]?.number ?? 1
   if (!place) return { chapterNumber: first, paragraphIndex: 0, wordIndex: 0, updatedAt: 0 }
-  const chapter = chapters.find(c => c.number === place.chapterNumber)
+  // The Bible's places name a biblical book's chapter (Psalms 23); its chapter list counts them through (Psalms 23 = 501).
+  const number = opts.sequential ? place.sequentialChapter : place.chapterNumber
+  const chapter = chapters.find(c => c.number === number)
   if (!chapter) return { chapterNumber: first, paragraphIndex: 0, wordIndex: 0, updatedAt: place.updatedAt }
   const sameEdition = !place.primaryEditionKey || place.primaryEditionKey === opts.editionKey
   const carries = sameEdition || (opts.aligned(place.primaryEditionKey!) && opts.aligned(opts.editionKey))
   const paragraph = carries ? place.paragraphIndex : 0
+  // A pending chapter is checked against its manifest's count; its word, once its text has loaded (anchorOfSpot).
+  if (chapter.pending) {
+    const ok = paragraph >= 0 && paragraph < (chapter.paragraphCount ?? 0)
+    return { chapterNumber: chapter.number, paragraphIndex: ok ? paragraph : 0, wordIndex: ok && sameEdition ? Math.max(0, place.wordIndex) : 0, updatedAt: place.updatedAt }
+  }
   if (paragraph < 0 || paragraph >= chapter.paragraphs.length) return { chapterNumber: chapter.number, paragraphIndex: 0, wordIndex: 0, updatedAt: place.updatedAt }
   const count = words(chapter.paragraphs[paragraph].text)
   const word = sameEdition ? Math.max(0, Math.min(place.wordIndex, Math.max(0, count - 1))) : 0

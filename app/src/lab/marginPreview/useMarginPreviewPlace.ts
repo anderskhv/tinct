@@ -6,7 +6,7 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
-import type { LabBookPlace, LabReaderStateSnapshot } from '../labPosition'
+import { libraryResumePlace, parseBiblicalPlaceTitle, type LabBookPlace, type LabReaderStateSnapshot } from '../labPosition'
 import { readLabPositionLocal } from '../labPositionStore'
 import { useLabReadingYear } from '../useLabReadingYear'
 import { useLabPositionSync } from '../useLabPositionSync'
@@ -24,10 +24,27 @@ export interface MarginPlaceBridge {
   active(): void
 }
 
+const isBible = (model: MarginPreviewBook) => model.bookId === 'bible'
+
+/**
+ * The chapter a place is written in, on the source: its number and title, and for the Bible its biblical book and
+ * chapter in it (placeFromLabBook keys a Bible place by its book: "Psalms" 23, never "The Bible").
+ */
+export function setSourceChapter(source: LabSource, model: MarginPreviewBook, chapter: { number: number; title: string }): void {
+  source.chapterNumber = chapter.number
+  source.chapterTitle = source.chapterLabel = chapter.title
+  if (isBible(model)) {
+    const parsed = parseBiblicalPlaceTitle(chapter.title)
+    source.headerBook = parsed.book
+    source.headerChapter = parsed.chapter
+  } else source.headerChapter = chapter.title
+}
+
 /** The preview's book as the position path's source: the book, its edition's chapter list, the chapter being read. */
 export function marginPreviewSource(model: MarginPreviewBook): LabSource {
   const book = getBook(model.bookId)
   const chapter = model.chapters.find(c => c.number === model.start.chapterNumber) ?? model.chapters[0]
+  const bible = isBible(model) ? parseBiblicalPlaceTitle(chapter.title) : null
   return {
     bookId: model.bookId,
     editions: book?.editions,
@@ -37,8 +54,8 @@ export function marginPreviewSource(model: MarginPreviewBook): LabSource {
     chapterLabel: chapter.title,
     chapterTitle: chapter.title,
     chapterNumber: chapter.number,
-    headerBook: model.title,
-    headerChapter: chapter.title,
+    headerBook: bible ? bible.book : model.title,
+    headerChapter: bible ? bible.chapter : chapter.title,
     paragraphs: [],
     compareParagraphs: [],
     followParagraphs: [],
@@ -63,7 +80,10 @@ export function useMarginPreviewPlace(model: MarginPreviewBook, userId: string |
   const sourceRef = useRef<LabSource | null>(null)
   if (!sourceRef.current) sourceRef.current = marginPreviewSource(model)
   const placeRef = useRef({ paragraphIndex: model.start.paragraphIndex, wordIndex: model.start.wordIndex })
-  const readerStateRef = useRef<LabReaderStateSnapshot>(marginReaderState(model, readLabPositionLocal().books[bookId]))
+  // The book's last place (the Bible's: its newest biblical-book pin) for its compare edition and mode.
+  const readerStateRef = useRef<LabReaderStateSnapshot>(marginReaderState(model, isBible(model)
+    ? libraryResumePlace(readLabPositionLocal(), bookId, id => getBook(id)?.id)
+    : readLabPositionLocal().books[bookId]))
   const interactedRef = useRef(false)
   const gate = useMemo(() => createMarginPlaceGate({ bookId, chapters: model.chapters }), [bookId, model.chapters])
   const goRef = useRef<((spot: MarginSpot) => void) | null>(null)
@@ -80,7 +100,7 @@ export function useMarginPreviewPlace(model: MarginPreviewBook, userId: string |
   /** The account holds a newer place: the frame goes there (the first answer only before the reader has acted). */
   const follow = (place: LabBookPlace) => {
     if (!initialDoneRef.current && interactedRef.current) return
-    const start = marginPreviewStart(place, model.chapters, { editionKey: model.editionKey, aligned })
+    const start = marginPreviewStart(place, model.chapters, { editionKey: model.editionKey, aligned, sequential: isBible(model) })
     const spot = { page: pageOfChapter(model.chapters, start.chapterNumber), para: start.paragraphIndex, word: start.wordIndex }
     if (!spot.page || !goRef.current || sameSpot(spot, shownRef.current) || sameSpot(spot, gate.last())) return
     // Reports about the view being left behind are about a place no longer shown.
@@ -111,13 +131,12 @@ export function useMarginPreviewPlace(model: MarginPreviewBook, userId: string |
     if (!note) { if (leaving) notePlace('hide'); return }
     const source = sourceRef.current!
     const chapter = model.chapters.find(c => c.number === note.at.chapterNumber)!
-    source.chapterNumber = chapter.number
-    source.chapterTitle = source.chapterLabel = source.headerChapter = chapter.title
+    setSourceChapter(source, model, chapter)
     placeRef.current = { paragraphIndex: note.at.paragraphIndex, wordIndex: note.at.wordIndex }
     if (note.finished) markChapterFinished(note.finished)
     notePlace(note.reason, { sequentialChapter: chapter.number, paragraphIndex: note.at.paragraphIndex, wordIndex: note.at.wordIndex })
     if (leaving) notePlace('hide')
-  }, [gate, markChapterFinished, model.chapters, notePlace])
+  }, [gate, markChapterFinished, model, notePlace])
   const decideRef = useRef(decide)
   decideRef.current = decide
 

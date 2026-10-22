@@ -18,7 +18,7 @@
 import { highlightOffCurrentText } from '../labHighlightContentMigration'
 import { isLabChapterNote, type LabHighlight, type LabHighlightColor } from '../labHighlights'
 import { chapterOfPage, fractionOfParagraph, offsetsOfRange, pageOfChapter, paragraphAtFraction, rangeOfOffsets, rangeText } from './marginPreviewAnchors'
-import type { MarginPreviewChapter } from './marginPreviewModel'
+import { isPendingChapter, type MarginPreviewChapter } from './marginPreviewModel'
 
 export interface MarginMark {
   id: string
@@ -57,8 +57,11 @@ const stamp = (h: LabHighlight) => (typeof h.updatedAt === 'number' ? h.updatedA
 /** Is this book reader mark one the margin view shows (this book; this edition, or a chapter note; current text)? */
 export function marginShows(h: LabHighlight, scope: MarginMarkScope): boolean {
   if (h.bookId !== scope.bookId || highlightOffCurrentText(h)) return false
-  if (!pageOfChapter(scope.chapters, h.chapterNumber)) return false
-  return isLabChapterNote(h) || h.editionKey === scope.editionKey
+  const page = pageOfChapter(scope.chapters, h.chapterNumber)
+  if (!page) return false
+  if (isLabChapterNote(h)) return true
+  // A chapter whose text has not loaded (the Bible's): its passages and notes have no place yet, and are left alone.
+  return h.editionKey === scope.editionKey && !isPendingChapter(chapterOfPage(scope.chapters, page))
 }
 
 /** A book reader mark as the margin's, or null when it has no place in this edition's text. */
@@ -90,6 +93,7 @@ export function labMarkOf(m: MarginMark, scope: MarginMarkScope): Omit<LabHighli
   if (!m || typeof m.id !== 'string' || !m.id || m.id.length > 160 || m.gone) return null
   const chapter = chapterOfPage(scope.chapters, m.page)
   if (!chapter) return null
+  const pending = isPendingChapter(chapter)
   const revision = scope.contentRevision ? { contentRevision: scope.contentRevision } : {}
   const common = { id: m.id, bookId: scope.bookId, chapterNumber: chapter.number, color: colorOf(m.color) }
   const note = typeof m.note === 'string' && m.note.trim() ? m.note.slice(0, 4000) : undefined
@@ -97,10 +101,11 @@ export function labMarkOf(m: MarginMark, scope: MarginMarkScope): Omit<LabHighli
   if (spot) {
     if (!note) return null
     if (spot.unit) return { ...common, editionKey: scope.editionKey, kind: 'chapter', paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, note }
+    if (pending) return null
     const p = paragraphAtFraction(chapter, spot.y)
     return { ...common, editionKey: scope.editionKey, ...revision, paragraphIndex: p, fromWord: 0, endParagraphIndex: p, toWord: 0, text: '', note, margin: 'note' } as unknown as Omit<LabHighlight, 'updatedAt'>
   }
-  const range = rangeOfOffsets(chapter, Number(m.start), Number(m.end))
+  const range = pending ? null : rangeOfOffsets(chapter, Number(m.start), Number(m.end))
   if (!range) return null
   return {
     ...common,
@@ -126,7 +131,13 @@ export function marginMarks(all: LabHighlight[], scope: MarginMarkScope): Margin
  * (stamped now, their other fields kept), the ones it no longer has removed (returned, for their tombstones).
  * Marks the margin does not show (other books, other editions, text since replaced) are untouched.
  */
-export function applyMarginMarks(all: LabHighlight[], incoming: MarginMark[], scope: MarginMarkScope, now = Date.now()): { next: LabHighlight[]; removed: LabHighlight[]; changed: boolean } {
+export function applyMarginMarks(all: LabHighlight[], incoming: MarginMark[], scope: MarginMarkScope, now = Date.now(), opts: {
+  /**
+   * Whether the margin's list could hold this mark (a book that loads chapters on demand: the list the frame was
+   * last given held only the chapters loaded then). A mark it could not hold is never taken as removed.
+   */
+  covered?: (h: LabHighlight) => boolean
+} = {}): { next: LabHighlight[]; removed: LabHighlight[]; changed: boolean } {
   const shown = new Map(all.filter(h => marginMarkOf(h, scope)).map(h => [h.id, h]))
   const seen = new Set<string>()
   const replaced = new Map<string, LabHighlight>()
@@ -146,7 +157,7 @@ export function applyMarginMarks(all: LabHighlight[], incoming: MarginMark[], sc
     if (all.some(h => h.id === m.id)) continue
     added.push({ ...lab, updatedAt: Number(m.u || m.at) || now } as LabHighlight)
   }
-  const removed = [...shown.values()].filter(h => !seen.has(h.id))
+  const removed = [...shown.values()].filter(h => !seen.has(h.id) && (!opts.covered || opts.covered(h)))
   const gone = new Set(removed.map(h => h.id))
   const next = [...all.filter(h => !gone.has(h.id)).map(h => replaced.get(h.id) ?? h), ...added]
   return { next, removed, changed: removed.length > 0 || replaced.size > 0 || added.length > 0 }
