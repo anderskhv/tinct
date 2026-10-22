@@ -52,6 +52,8 @@ import { dumpLabTalkTurns, fetchLabChatHistoryCloud, LAB_CHAT_BOOK_ID } from './
 import {
   appendLabChatTurn,
   createLabChatCloudWriter,
+  LAB_CHAT_COMMIT_COALESCE_MS,
+  labChatHistoryKey,
   createLabChatHistoryCloud,
   mergeChatConversations,
   migrateLegacyLabChatHistoryCloud,
@@ -319,10 +321,24 @@ export function useLabAsk(options: UseLabAskOptions) {
   const cloudWriter = useMemo(() => {
     if (!viewerId) return null
     const cloud = createLabChatHistoryCloud(viewerId)
-    return cloud ? createLabChatCloudWriter(cloud) : null
+    return cloud ? createLabChatCloudWriter(cloud, undefined, { coalesceMs: LAB_CHAT_COMMIT_COALESCE_MS }) : null
   }, [viewerId])
   const cloudWriterRef = useRef(cloudWriter)
   cloudWriterRef.current = cloudWriter
+  // Turns waiting for their shared commit leave with the page: hide, pagehide,
+  // and the writer being replaced (account change) or unmounted.
+  useEffect(() => {
+    if (!cloudWriter) return
+    const flush = () => cloudWriter.flush()
+    const onVisibility = () => { if (document.visibilityState === 'hidden') flush() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', flush)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', flush)
+      flush()
+    }
+  }, [cloudWriter])
 
   const voiceSourcesRef = useRef<VoiceSource[]>([])
   const voiceResearchTurnRef = useRef(0)
@@ -341,7 +357,11 @@ export function useLabAsk(options: UseLabAskOptions) {
       conversationsRef.current = next
       setConversations(next)
     }
-    cloudWriterRef.current?.push(bookId, next)
+    // A turn the device could not store (a full localStorage on a phone) has
+    // no other copy: it goes to the account row at once.
+    let stored = false
+    try { stored = localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) === JSON.stringify(next) } catch { stored = false }
+    cloudWriterRef.current?.push(bookId, next, { now: !stored })
   }, [])
 
   // Open / sign-in / book change: fold the retired KV blob in once per
