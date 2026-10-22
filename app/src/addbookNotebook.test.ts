@@ -138,9 +138,4 @@ describe('how the reader wires it', () => {
     expect(css).toContain('.lab.byob.is-phone .byob-nb, .lab.byob.is-phone .nb { display: none !important; }')
     expect(css).not.toMatch(/monospace|uppercase|letter-spacing:\s*[1-9]/)
   })
-  it('ships byte for byte in the mirror', () => {
-    for (const f of ['js/notebook.js', 'css/notebook.css', 'js/reader.js', 'js/reader-layout.js', 'js/add-engine.js', 'index.html']) {
-      expect(readFileSync(ROOT + 'addbooks/web/src/' + f, 'utf8')).toBe(readFileSync(ROOT + 'app/public/lab/addbook/' + f, 'utf8'))
-    }
-  })
 })

@@ -202,8 +202,6 @@ describe('the EPUB margin switch', () => {
     expect(reader).toContain('const EPUB_MARGIN = true;')
     expect(reader).toContain("const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));")
     expect(reader).toContain("const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubMargin === true;")
-    // The mirror ships the same switch.
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toContain('const EPUB_MARGIN = true;')
   })
 })
 

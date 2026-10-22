@@ -286,7 +286,7 @@ export const OCR_PAGES_EQUATION_SHARE = 0.2
  * The edition a scanned PDF opens in once its text is recognised: Tinct text,
  * unless the job found two or more columns on at least 30% of its pages and
  * equations on at least 20% (the same rule as TinctPdfText.ocrDefault in
- * addbooks/web/src/js/pdf-text.js).
+ * public/lab/addbook/js/pdf-text.js).
  */
 export function ocrDefaultEdition(edition: Pick<UserBookEdition, 'ocrLayout'> | null | undefined): 'text' | 'pages' {
   const layout = edition?.ocrLayout

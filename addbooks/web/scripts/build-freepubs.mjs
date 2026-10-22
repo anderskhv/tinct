@@ -255,7 +255,7 @@ for (const [path, html] of files) { const file = join(OUT, path); mkdirSync(dirn
 // Search: the same worker and ranking as the Add-a-book page, plus each book's page path.
 mkdirSync(join(OUT, 'js'), { recursive: true }); mkdirSync(join(OUT, 'data'), { recursive: true });
 cpSync(join(REPO, 'addbooks/site/search.js'), join(OUT, 'js/search.js'));
-cpSync(join(WEB, 'src/js/search-worker.js'), join(OUT, 'js/search-worker.js'));
+cpSync(join(REPO, 'app/public/lab/addbook/js/search-worker.js'), join(OUT, 'js/search-worker.js'));
 cpSync(join(WEB, 'freepubs/find.js'), join(OUT, 'js/find.js'));
 cpSync(join(WEB, 'freepubs/site.css'), join(OUT, 'site.css'));
 cpSync(join(WEB, 'freepubs/favicon.svg'), join(OUT, 'favicon.svg'));
