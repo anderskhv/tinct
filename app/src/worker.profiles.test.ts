@@ -334,6 +334,16 @@ describe('names and links never come from the email (Anders, 9 Oct 2026)', () =>
     await save(store, E, { showTime: false })
     expect(store.profiles.get(E)).toMatchObject({ display_name: 'Qa Ux Desk A Cs', handle: 'qauxdeska9cs927', show_time: false })
   })
+
+  it('setUpBeforeFindable (Anders, 21 Oct 2026): set up before findable profiles (#488), not after, never when not set up', async () => {
+    const store = seeded()
+    store.profiles.set(E, legacyRow({ set_up_at: '2026-10-12T08:00:00Z', visibility: 'friends' }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: true })
+    store.profiles.set(E, legacyRow({ set_up_at: '2026-10-20T08:00:00Z', visibility: 'friends' }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: false })
+    store.profiles.set(E, legacyRow({ set_up_at: null }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: false })
+  })
 })
 
 describe('sign-up step 2', () => {

@@ -35,7 +35,7 @@ import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, remem
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, dismissFindableNotice, findableNoticeDue, findableNoticeText } from '../social/findableNotice'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
@@ -446,15 +446,22 @@ function requestsGroup(env: CardsEnv, card: CardHandle): HTMLElement | null {
 
 /**
  * The one-time notice about findable profiles (social/findableNotice.ts) at
- * the top of the You card, unless the library already showed it and it was
- * dismissed: Settings opens the Settings card; either row ends it.
+ * the top of the You card, unless the account has seen it already: shown, it
+ * is marked seen for the account; Settings opens the Settings card; either
+ * row ends it.
  */
 function findableNotice(env: CardsEnv, card: CardHandle): HTMLElement | null {
   const userId = env.session.userId
   const profile = env.data.profile
-  if (!env.social || !profile || !findableNoticeDue(profile, userId)) return null
+  if (!env.social || !profile || !userId || !findableNoticeFor(profile)) return null
   const text = findableNoticeText(profile.visibility)
   if (!text) return null
+  if (!findableNoticeDue(profile, userId)) {
+    // Not known yet on this device: ask the account, and paint it if it was never seen.
+    void checkFindableNoticeAccount(userId).then(() => { if (findableNoticeDue(env.data.profile, userId)) env.changed() })
+    return null
+  }
+  markFindableNoticeShown(userId)
   const notice = group(
     el('p', { text, style: { margin: '0', padding: '12px 16px', fontSize: '15px', lineHeight: '1.4' } }),
     row({ label: FINDABLE_NOTICE_COPY.settings, chevron: true, testid: 'findable-notice-settings', onClick: () => { dismissFindableNotice(userId); card.stack.push(settingsCard(env)); env.changed() } }),
@@ -1140,6 +1147,8 @@ export function settingsCard(env: CardsEnv): CardSpec {
         env.changed()
       }
       if (profile) {
+        // Profile visibility is chosen here, so the findable-profiles notice has done its job.
+        if (env.social && findableNoticeFor(profile)) void recordFindableNoticeSeen(env.session.userId)
         const setPrivacy = (change: Partial<PrivacyFields>) => {
           const before = env.data.profile
           if (!before) return

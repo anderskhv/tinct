@@ -9,9 +9,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const getSession = vi.fn(() => new Promise<never>(() => {}))
-vi.mock('../services/supabase', () => ({
-  supabase: { auth: { storageKey: 'sb-test-auth-token', getSession: () => getSession(), signOut: vi.fn() } },
-}))
+/** The account's user_data rows (the findable notice's preferences row), kept across visits like the real table. */
+const { accountRows } = vi.hoisted(() => ({ accountRows: new Map<string, { value: Record<string, unknown> | null; rev: number }>() }))
+vi.mock('../services/supabase', async () => {
+  const { fakeUserData } = await import('../social/fakeUserData.test-helpers')
+  return { supabase: { auth: { storageKey: 'sb-test-auth-token', getSession: () => getSession(), signOut: vi.fn() }, ...fakeUserData(accountRows) } }
+})
 
 const tracked: Array<[string, Record<string, unknown> | undefined]> = []
 vi.mock('../utils/funnel', () => ({ trackFunnel: (name: string, props?: Record<string, unknown>) => { tracked.push([name, props]) } }))
@@ -27,6 +30,7 @@ function storeSession(expiresInSeconds: number) {
 
 beforeEach(() => {
   localStorage.clear()
+  accountRows.clear()
   tracked.length = 0
   document.documentElement.className = ''
   document.body.innerHTML = '<header id="header"><nav><button id="search-toggle"></button><button id="sign-in" class="sign-in">Account</button></nav></header>'
@@ -267,14 +271,14 @@ describe('the profile step for an older account (Anders, 15 October 2026)', () =
 })
 
 describe('the findable-profiles notice in the library (Anders, 19 October 2026)', () => {
-  const answer = (visibility: string) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } })
+  const answer = (visibility: string, setUpBeforeFindable = true) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUpBeforeFindable } })
   const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
-  async function visit(visibility: string, friendsOn = true) {
+  async function visit(visibility: string, friendsOn = true, setUpBefore = true, signedIn = true) {
     vi.resetModules()
     document.head.innerHTML = friendsOn ? '<meta name="tinct-social" content="1"><meta name="tinct-friends" content="1">' : ''
-    document.documentElement.classList.add('signed-in')
+    document.documentElement.classList.toggle('signed-in', signedIn)
     vi.stubGlobal('fetch', vi.fn((url: string) => String(url).startsWith('/api/profile')
-      ? Promise.resolve(new Response(JSON.stringify(answer(visibility)), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+      ? Promise.resolve(new Response(JSON.stringify(answer(visibility, setUpBefore)), { status: 200, headers: { 'Content-Type': 'application/json' } }))
       : new Promise<Response>(() => {})))
     await import('./libraryCards')
     await settle()
@@ -282,18 +286,42 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
   }
   afterEach(() => { document.head.innerHTML = '' })
 
-  it('shows once to a Friends profile, in the prompt\'s style, until dismissed', async () => {
+  it('shows once to a Friends profile, in the prompt\'s style, and marks the account as it shows', async () => {
     storeSession(3600)
     const notice = await visit('friends')
     expect(notice?.classList.contains('social-prompt')).toBe(true)
     expect(notice?.textContent).toContain('Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.')
     expect(notice?.querySelector('.go')?.textContent).toBe('Settings')
+    // Written on show, before any tap, into the account's preferences row.
+    expect(accountRows.get(`${USER}:preferences`)?.value).toEqual({ findableNoticeSeen: true })
     notice!.querySelector<HTMLElement>('[data-testid="findable-notice-dismiss"]')!.click()
     expect(document.querySelector('[data-testid="findable-notice"]')).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBe('1')
     // The next visit: not again.
     document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
     expect(await visit('friends')).toBeNull()
+  })
+
+  it('shown and never tapped, it does not come back on another device, browser or private window', async () => {
+    storeSession(3600)
+    expect(await visit('friends')).toBeTruthy()
+    // A new device: nothing on it but the session.
+    localStorage.clear()
+    storeSession(3600)
+    document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
+    expect(await visit('friends')).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBe('2')
+  })
+
+  it('never for a profile set up since findable profiles shipped, and nothing is written', async () => {
+    storeSession(3600)
+    expect(await visit('friends', true, false)).toBeNull()
+    expect(accountRows.size).toBe(0)
+  })
+
+  it('signed out: never, and the account is not asked', async () => {
+    // No stored session on this device.
+    expect(await visit('friends', true, true, false)).toBeNull()
+    expect(accountRows.size).toBe(0)
   })
 
   it('never for Only me, nor while Friends is switched off', async () => {

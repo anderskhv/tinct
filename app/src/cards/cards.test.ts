@@ -23,12 +23,21 @@ import { readingTimeStats } from '../readingTime/model'
 import { addPending, readPending, resetLedgerSends, resetReadingTimeSwitch } from '../lab/labReadingTime'
 import { preparePhoto } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
+import { resetFindableNoticeVisit } from '../social/findableNotice'
 
 // The photo resize needs a real canvas; the cards' upload path is what is tested here.
 vi.mock('../social/socialClient', async importOriginal => ({
   ...(await importOriginal<typeof import('../social/socialClient')>()),
   resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
   preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
+}))
+
+// The account's preferences row for the findable notice (the real read and commit are tested in social/findableNotice.test.ts).
+const accountNotice = vi.hoisted(() => ({ seen: new Set<string>(), writes: [] as string[] }))
+vi.mock('../social/findableNoticeAccount', async importOriginal => ({
+  ...(await importOriginal<typeof import('../social/findableNoticeAccount')>()),
+  readAccountNoticeSeen: vi.fn(async (userId: string) => accountNotice.seen.has(userId)),
+  writeAccountNoticeSeen: vi.fn(async (userId: string) => { accountNotice.writes.push(userId); accountNotice.seen.add(userId); return true }),
 }))
 
 const session = { token: 'tok', userId: '11111111-1111-4111-8111-111111111111', email: 'anders@example.com', accountName: 'Anders' }
@@ -39,7 +48,7 @@ function ownProfile(overrides: Record<string, unknown> = {}) {
     picture: { kind: 'set', value: 'stoic', url: null, review: 'none' },
     background: { kind: 'set', value: 'stoic', url: null, review: 'none' },
     visibility: 'friends', effectiveVisibility: 'friends', showReading: true, showTime: true, onLeaderboard: true,
-    newBooksOpenIn: 'modern', setUp: true, needsSetup: false, shouldPrompt: false, emailConfirmed: true, emailOptIn: false, googlePhoto: false,
+    newBooksOpenIn: 'modern', setUp: true, needsSetup: false, shouldPrompt: false, setUpBeforeFindable: true, emailConfirmed: true, emailOptIn: false, googlePhoto: false,
     ...overrides,
   }
 }
@@ -131,6 +140,9 @@ beforeEach(() => {
   boardCalls = []
   forgetBoards()
   localStorage.clear()
+  accountNotice.seen.clear()
+  accountNotice.writes = []
+  resetFindableNoticeVisit()
   document.body.innerHTML = '<main id="page"><p id="place">Chapter 14, page 3</p></main>'
   vi.stubGlobal('fetch', api())
 })
@@ -462,6 +474,8 @@ describe('Find readers and a reader\'s profile', () => {
 // Findable profiles (Anders, 19 Oct 2026): a follow is a request; the one-time notice on the You card.
 describe('findable profiles and follow requests (19 October 2026)', () => {
   const NOTICE = 'Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.'
+  // Let each test's account reads settle before the next test resets the account.
+  afterEach(flush)
 
   it('a one-way follow reads Requested; Following you counts the requests waiting to be followed back', async () => {
     await open('find')
@@ -531,18 +545,32 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(byTest('following-you-row-remove')).toBeNull()
   })
 
-  it('the You card shows the notice once to a Friends profile; Dismiss keeps it away for this account', async () => {
+  it('the You card shows the notice once per account: marked seen in the account as it shows, gone after Dismiss', async () => {
     await open('you')
     const notice = byTest('findable-notice')
     expect(notice?.textContent).toContain(NOTICE)
     expect(notice?.textContent).toContain('Settings')
+    // Shown is enough: the account has it before any tap.
+    expect(accountNotice.writes).toEqual([session.userId])
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
     click(byTest('findable-notice-dismiss'))
     await flush()
     expect(byTest('findable-notice')).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('1')
     closeAccountCards()
     await open('you')
     expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('another device, browser or private window never shows it once the account has seen it', async () => {
+    await open('you')
+    expect(byTest('findable-notice')).toBeTruthy()
+    closeAccountCards()
+    // A fresh device: nothing stored here, a new page.
+    localStorage.clear()
+    resetFindableNoticeVisit()
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
   })
 
   it('Settings in the notice opens Settings and ends the notice', async () => {
@@ -552,6 +580,29 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(top().dataset.card).toBe('settings')
     click(byTest('card-back'))
     expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('opening Settings any other way marks it seen, so it never shows after', async () => {
+    await open('settings')
+    await flush()
+    expect(accountNotice.seen.has(session.userId)).toBe(true)
+    closeAccountCards()
+    localStorage.clear()
+    resetFindableNoticeVisit()
+    await open('you')
+    expect(byTest('findable-notice')).toBeNull()
+  })
+
+  it('a profile set up since findable profiles shipped never gets it, and nothing is written', async () => {
+    profile = ownProfile({ setUpBeforeFindable: false })
+    // Another account, so the page's last paint (the earlier tests' profile) is not reused.
+    const later = { ...session, userId: '33333333-3333-4333-8333-333333333333' }
+    expect(await openAccountCards({ session: later, social: true, dark: false, start: 'you' })).toBe(true)
+    await flush()
+    expect(byTest('findable-notice')).toBeNull()
+    click(byTest('you-settings'))
+    await flush()
+    expect(accountNotice.writes).toEqual([])
   })
 
   it('an Only me profile never gets it; an Everyone profile gets a line that is true for it', async () => {
