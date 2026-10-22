@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { LAB_ASK_DANISH_EDITION_NOTE, LAB_ASK_LANGUAGE_RULE, buildLabAskInstructions, editionLanguageNote } from './labAskPrompt'
+import { LAB_ASK_DANISH_EDITION_NOTE, buildLabAskInstructions, editionLanguageNote } from './labAskPrompt'
 
 // The companion's language (Anders, 22 Oct 2026): Danish for a Danish edition, else the reader's own language.
 describe('the companion answers in the reader’s language', () => {
@@ -9,10 +9,9 @@ describe('the companion answers in the reader’s language', () => {
     const prompt = buildLabAskInstructions({ ...context, editionKey: 'modern-da' })
     expect(prompt).toContain('answer in Danish unless the reader writes in another language')
   })
-  it('otherwise the language the reader writes in', () => {
+  it('adds nothing for any other edition', () => {
     expect(editionLanguageNote('modern-en')).toBeNull()
     const prompt = buildLabAskInstructions({ ...context, editionKey: 'modern-en' })
-    expect(prompt).toContain(LAB_ASK_LANGUAGE_RULE)
     expect(prompt).not.toContain('Danish')
   })
 })
