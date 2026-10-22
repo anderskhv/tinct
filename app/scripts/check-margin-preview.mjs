@@ -59,6 +59,10 @@ const frameOf = async page => {
   const handle = await page.waitForSelector('iframe[data-testid="margin-preview-frame"]', { timeout: 30000 })
   const frame = await handle.contentFrame()
   await frame.waitForFunction(() => typeof state !== 'undefined' && state.preview && state.pages.length > 0 && document.querySelector('.epub-sheet'), null, { timeout: 60000 })
+  // The chapters still waiting to be laid out, read the moment the book is ready: tinct-book.js lays them out one by one
+  // while the reader is idle, so on a fast machine they could all be done by the time the 1.2 s settle below was over
+  // (a harness race, not the product: the check read 0 waiting and failed).
+  frame.laterAtOpen = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
   await page.waitForTimeout(1200)
   return frame
 }
@@ -135,7 +139,7 @@ try {
       // Round 2: the frame is book.html, without pdf.js and the PDF-only scripts (the phone's first page came 0.3 s later with them).
       ok(`${tag}: the frame is the preview's page (book.html) and asks for no PDF script`, new URL(frame.url()).pathname === '/lab/addbook/book' && pdfAsked.length === 0 && await frame.evaluate(() => typeof window.pdfjsLib === 'undefined' && !window.TinctPdfScan), pdfAsked)
       // Round 2: chapters after the place and the next are laid out later (.tb-later), and the place stays where it opened while they are.
-      const later = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later').length, all: document.querySelectorAll('.tb-chapter').length }))
+      const later = frame.laterAtOpen
       ok(`${tag}: the chapters after the place wait to be laid out (${later.later} of ${later.all})`, later.later > 0 && later.later < later.all, later)
       await page.waitForTimeout(3500)
       const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later').length)
@@ -224,7 +228,10 @@ try {
         const sent = async (label, act, intent) => {
           const n = log.ai.length
           await act()
-          const got = await frame.waitForFunction(() => true, null, { timeout: 100 }).then(async () => { for (let i = 0; i < 60 && !log.ai.slice(n).some(r => r.intent === intent); i++) await page.waitForTimeout(150); return log.ai.slice(n).find(r => r.intent === intent) })
+          // Polls the mocked requests from Node (up to 9 s). It used to start with a 100 ms waitForFunction in the frame,
+          // which timed out on a busy machine before any request was looked at and threw (a harness flake, not a product failure).
+          for (let i = 0; i < 60 && !log.ai.slice(n).some(r => r.intent === intent); i++) await page.waitForTimeout(150)
+          const got = log.ai.slice(n).find(r => r.intent === intent)
           ok(`${tag}: ${label} asks the companion (${intent}) with the book's text`, !!got && got.kind === 'epub', log.ai.slice(n))
           await page.waitForTimeout(500)
           await fold()
@@ -352,8 +359,11 @@ try {
 
       // 3d. Type: a part's name is not set in capitals; a chapter's Before you start names it as its contents do.
       const type = await frame.evaluate(() => ({ part: [...document.querySelectorAll('.tb-part')].map(e => getComputedStyle(e).textTransform)[0] ?? null, phrases: (primer.units || []).slice(0, 30).map(u => TinctMargin.unitPhrase(u)) }))
-      // A chapter's marks in the margin name it without pages ("p. 3" was its place in the file).
-      const marks = await frame.evaluate(() => [...document.querySelectorAll('.mr-unit__n, .byob-unit-now__name')].map(e => e.textContent.trim()))
+      // A chapter's marks name it without pages ("p. 3" was its place in the file). Since #542 (9a7c3f4cef, 21 Oct) a
+      // chapter has no "Starting / End of" mark in the margin (only the whole book's Before you start keeps one), and since
+      // #570 (612f3a538e, 22 Oct) its marks are the pills in the text (.mr-hp), which name it in their labels ("Recap
+      // Letter 1"); a margin mark's name is still read where one is drawn.
+      const marks = await frame.evaluate(() => [...[...document.querySelectorAll('.mr-unit__n, .byob-unit-now__name')].map(e => e.textContent.trim()), ...[...document.querySelectorAll('.mr-hp .mr-pill')].map(e => e.getAttribute('aria-label') || '')].filter(Boolean))
       ok(`${tag}: chapter marks name no pages`, (phone || marks.length > 0) && marks.every(t => !/\bpp?\. \d/.test(t)), marks)
       ok(`${tag}: part names are not in capitals`, type.part === null || type.part === 'none', type.part)
       ok(`${tag}: Before you start names chapters as the contents do ("chapter 1", "Letter 2", "The Window · 2")`, type.phrases.length > 0 && type.phrases.every(p => /^chapter \d+$|^Letter \d+$|^(The Window|Time Passes|The Lighthouse) · \d+$/.test(p)), type.phrases.slice(0, 6))
@@ -474,28 +484,36 @@ try {
       let frame = await frameOf(page)
       const look = await frame.evaluate(([keys, paper]) => {
         const p = [...document.querySelectorAll('.tb-p')].find(el => { const r = el.getBoundingClientRect(); return r.top > 60 && r.bottom < innerHeight && el.textContent.trim().length > 40 }) || document.querySelector('.tb-p'), s = getComputedStyle(p)
-        const sheets = [...document.querySelectorAll('.epub-sheet')].map(e => getComputedStyle(e))
-        return { ...Object.fromEntries(keys.map(k => [k, s[k]])), measure: p.getBoundingClientRect().width, paper: new Function('el', `return (${paper})(el)`)(p), white: sheets.filter(c => !/rgba\(0, 0, 0, 0\)|transparent/.test(c.backgroundColor) || c.boxShadow !== 'none' || c.borderTopWidth !== '0px').length, sheets: sheets.length }
+        // Since #542 (9a7c3f4cef, 21 Oct 2026, Anders: "the page edges have disappeared") Tinct paper is one continuous
+        // sheet: each chapter's sheet is the paper's own colour with only its sides edged (addbook.css), never a white
+        // page with a shadow all round or a border. The hidden contents page stays out of it.
+        const paperColour = new Function('el', `return (${paper})(el)`)(p)
+        const sheets = [...document.querySelectorAll('.pdf-column > .epub-sheet:not(.is-toc)')].map(e => getComputedStyle(e))
+        const edged = sh => /-12px 0px|inset/.test(sh) && !/ 0px 1px 2px/.test(sh)
+        return { ...Object.fromEntries(keys.map(k => [k, s[k]])), measure: p.getBoundingClientRect().width, paper: paperColour, white: sheets.filter(c => c.backgroundColor !== paperColour || !edged(c.boxShadow) || c.borderTopWidth !== '0px').length, sheets: sheets.length, sample: sheets[0] && { bg: sheets[0].backgroundColor, shadow: sheets[0].boxShadow, border: sheets[0].borderTopWidth } }
       }, [TEXT_KEYS, paperOf.toString()])
-      ok(`${tag}: no white page sheets (paper, no shadow or border) on any of ${look.sheets} chapters`, look.white === 0, look)
+      ok(`${tag}: no white page sheets (the paper's colour, its sides edged, no border) on any of ${look.sheets} chapters`, look.sheets > 0 && look.white === 0, look)
       const differs = TEXT_KEYS.filter(k => look[k] !== normal[k])
       ok(`${tag}: the text is set as the book reader's (${TEXT_KEYS.join(', ')})`, differs.length === 0, { differs, normal, look })
       ok(`${tag}: the measure is the book reader's leaf (${Math.round(normal.measure)}px) and the paper its colour`, Math.abs(look.measure - normal.measure) <= 1 && look.paper === normal.paper, { normal: [normal.measure, normal.paper], look: [look.measure, look.paper] })
       if (first) await deskShot(page, `preview-${w}x${h}.png`)
-      // The chapter's marks: the start mark level with the heading, the end mark with the last line.
+      // The chapter's marks. Since #570 (612f3a538e, 22 Oct 2026) a chapter's marks are its pills in the text, no longer
+      // marks in the margin: ✧ Primer · ✧ Catch me up on the heading's line, ✧ Recap · ✧ Quiz me · Note just under its last
+      // paragraph (the same bounds as the 1440 check above: within 3 px of the heading's last line; -12 to 24 px under).
       const unitAt = await frame.evaluate(async () => {
         const n = currentPlace().page
         epubGoSpot(n, 0, 0); await new Promise(r => setTimeout(r, 700))
         document.getElementById('scroll').scrollBy(0, -120); await new Promise(r => setTimeout(r, 700))
-        const key = primer.units.find(u => u.start === n)?.key, mark = document.querySelector(`.mr-unit.is-start[data-unit="${key}"]`), head = state.pages[n - 1].pg.querySelector('.tb-title')
-        const start = mark && head ? { mark: mark.getBoundingClientRect().top, head: head.getBoundingClientRect().top } : null
-        const last = [...epubParas(state.pages[n - 1])].reverse().find(el => el.textContent.trim().length > 1)
+        const key = primer.units.find(u => u.start === n)?.key, mark = document.querySelector(`.mr-hp.is-inline:not(.is-end)[data-unit="${key}"]`), head = mark?.closest('.tb-title, .tb-head, h1, h2, h3')
+        let start = null
+        if (mark && head) { const r = document.createRange(); r.selectNodeContents(head); const l = [...r.getClientRects()].filter(b => b.width).at(-1), b = mark.getBoundingClientRect(); start = l ? { mark: Math.round((b.top + b.bottom) / 2), head: Math.round((l.top + l.bottom) / 2) } : null }
+        const last = [...epubParas(state.pages[n - 1])].filter(el => !el.closest('.mr-hp')).reverse().find(el => el.textContent.trim().length > 1)
         last.scrollIntoView({ block: 'center' }); await new Promise(r => setTimeout(r, 900))
-        const endMark = document.querySelector(`.mr-unit.is-end[data-unit="${key}"]`), r = document.createRange(); r.selectNodeContents(last); const lines = [...r.getClientRects()].filter(b => b.height > 0)
-        return { start, end: endMark ? { mark: endMark.getBoundingClientRect().top, line: lines[lines.length - 1].top } : null }
+        const endMark = document.querySelector(`.mr-hp.is-end[data-unit="${key}"]`), lb = last.getBoundingClientRect()
+        return { key, start, end: endMark ? { mark: Math.round(endMark.getBoundingClientRect().top), line: Math.round(lb.bottom) } : null }
       })
-      ok(`${tag}: the chapter's start mark is level with its heading`, !!unitAt.start && Math.abs(unitAt.start.mark - unitAt.start.head) <= 6, unitAt)
-      ok(`${tag}: the chapter's end mark is level with its last line`, !!unitAt.end && Math.abs(unitAt.end.mark - unitAt.end.line) <= 6, unitAt)
+      ok(`${tag}: the chapter's start pills are on its heading's line`, !!unitAt.start && Math.abs(unitAt.start.mark - unitAt.start.head) <= 3, unitAt)
+      ok(`${tag}: the chapter's end pills are just under its last line`, !!unitAt.end && unitAt.end.mark - unitAt.end.line >= -12 && unitAt.end.mark - unitAt.end.line <= 24, unitAt)
       if (first) {
         await frame.evaluate(async () => { const n = currentPlace().page; epubGoSpot(n, 0, 0); await new Promise(r => setTimeout(r, 600)); document.getElementById('scroll').scrollBy(0, -90) })
         await page.waitForTimeout(800); await deskShot(page, `unit-start-${w}x${h}.png`)
