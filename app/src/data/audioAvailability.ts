@@ -61,6 +61,9 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'jungle-book/modern-da',
   'grimms-fairy-tales/modern-da',
   'arabian-nights/modern-da',
+  'alice-in-wonderland/modern-da', // Danish rollout, run B (2026-10-22)
+  'wuthering-heights/modern-da',
+  'sense-and-sensibility/modern-da',
 ])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
 export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !TEXT_ONLY_EDITIONS.has(`${bookId}/${editionKey}`)

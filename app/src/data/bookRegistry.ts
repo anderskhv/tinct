@@ -3309,6 +3309,9 @@ export const ALICE_IN_WONDERLAND: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated 1:1 from
+    // modern-en, books/wip/danish-2026-10-21-b. Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3324,6 +3327,9 @@ export const WUTHERING_HEIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated 1:1 from
+    // modern-en, books/wip/danish-2026-10-21-b. Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3363,6 +3369,9 @@ export const SENSE_AND_SENSIBILITY: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Austen (Original)', year: 1811, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated 1:1 from
+    // modern-en, books/wip/danish-2026-10-21-b. Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 

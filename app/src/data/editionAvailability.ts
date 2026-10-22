@@ -17,6 +17,10 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jungle-book/modern-da',
   'grimms-fairy-tales/modern-da',
   'arabian-nights/modern-da',
+  // Danish rollout (Anders, 2026-10-22: "plan is to roll it out entirely"), run B.
+  'alice-in-wonderland/modern-da',
+  'wuthering-heights/modern-da',
+  'sense-and-sensibility/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)

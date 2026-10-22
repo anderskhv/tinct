@@ -3,6 +3,7 @@ const fs = require('node:fs')
 const { createHash } = require('node:crypto')
 const manifest = require('../src/data/editionAvailability.json')
 const { checkHeaders } = require('./lib/internalTraffic.cjs')
+const { offeredDanishBooks } = require('./lib/offeredDanish.cjs')
 const origin = 'https://tinct.app'
 const version = process.env.EXPECTED_BUILD_SHA
 assert.ok(version, 'Pin production evidence to the deployed commit')
@@ -46,7 +47,7 @@ const get = async path => {
    assert.equal(book.editions.find(e=>e.key===key)?.discoveryAvailable,true)
    assert.ok(!(await (await get('/read/'+id+'?edition='+key)).text()).includes('<h2>Temporarily unavailable</h2>'))
  }
- // Danish stays withdrawn everywhere except the one offered edition (OFFERED_DANISH_EDITIONS).
+ // Danish stays withdrawn everywhere except the offered editions (OFFERED_DANISH_EDITIONS).
  for(const identity of ['jane-eyre/modern-da','odyssey/modern-da']){
    const [bookId,editionKey]=identity.split('/')
    assert.equal(catalogue.books.find(b=>b.id===bookId)?.editions.find(e=>e.key===editionKey)?.discoveryAvailable,false,identity)
@@ -54,7 +55,7 @@ const get = async path => {
    assert.ok(html.includes('Temporarily unavailable')&&html.includes('heldEdition='+editionKey),identity+' still held')
    results.push({identity,discovery:false,held:true})
  }
- for(const bookId of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book','grimms-fairy-tales','arabian-nights']){
+ for(const bookId of offeredDanishBooks()){
    const identity=bookId+'/modern-da',book=catalogue.books.find(b=>b.id===bookId)
    assert.equal(book.editions.find(e=>e.key==='modern-da')?.discoveryAvailable,true,identity+' offered')
    assert.equal(book.defaultEditionKey,'modern-en',identity+' not a new-reader default')

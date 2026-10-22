@@ -54,6 +54,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "peloponnesian-war-modern-da",
   "peloponnesian-war-modern-en",
   "peloponnesian-war-original-en",
+  "sense-and-sensibility-modern-da",
   "sense-and-sensibility-modern-en",
   "sense-and-sensibility-original-en",
   "symposium-modern-en",
@@ -74,6 +75,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "war-and-peace-original-en",
   "wealth-of-nations-modern-en",
   "wealth-of-nations-original-en",
+  "wuthering-heights-modern-da",
   "wuthering-heights-modern-en",
   "wuthering-heights-original-en"
 ] as const

@@ -6,7 +6,7 @@ const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(proc
 const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights']
 // Text-only editions published beside the English pair: To the Lighthouse in
 // Danish (OFFERED_DANISH_EDITIONS, 2026-10-10). No narration, no character cards.
-const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da']}[book]||[]
+const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da'],'alice-in-wonderland':['modern-da'],'wuthering-heights':['modern-da'],'sense-and-sensibility':['modern-da']}[book]||[]
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
