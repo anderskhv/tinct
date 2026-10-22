@@ -44,15 +44,19 @@ const reconcilePlace = (hex: string, book: LoadedUserBook) => book.kind === 'pdf
   : reconcileOpenPlace(hex, { chapters: book.edition.chapters })
 
 /**
- * The phone's margin mode for an own book (the bar, the bottom cards, the chapter pills: LabApp `marginPhone`), on
+ * The phone's margin mode for an own book (the dark bar and the bottom cards: LabApp `marginPhone`; chapter pills stay a Tinct book's), on
  * the rule a Tinct book follows on this phone (marginPreviewMount.ts): `margin=1` / `margin=0` in the link, else
  * this device's opt-in. Own books follow it as Tinct books do (Anders, 22 Oct 2026).
  */
-export function ownMarginPhone(search: string, read: (key: string) => string | null = key => { try { return localStorage.getItem(key) } catch { return null } }): boolean {
+export function ownMarginPhone(
+  search: string,
+  read: (key: string) => string | null = key => { try { return localStorage.getItem(key) } catch { return null } },
+  write: (key: string, on: boolean) => void = (key, on) => { try { if (on) localStorage.setItem(key, '1'); else localStorage.removeItem(key) } catch { /* a device convenience only */ } },
+): boolean {
   let flag: string | null = null
   try { flag = new URLSearchParams(search).get(MARGIN_PREVIEW_PARAM) } catch { /* the device's choice */ }
-  if (flag === '1') return true
-  if (flag === '0') return false
+  // A link's choice is this device's from now on, as for a Tinct book (marginPreviewMount.ts stores the opt-in).
+  if (flag === '1' || flag === '0') { write(MARGIN_PREVIEW_KEY, flag === '1'); return flag === '1' }
   return read(MARGIN_PREVIEW_KEY) === '1'
 }
 
@@ -87,6 +91,8 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
   reconcile?: (hex: string, book: LoadedUserBook) => Promise<void>
 }) {
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
+  // The phone's margin mode, decided once for the page (the link's choice is kept as the device's).
+  const [marginPhone] = useState(() => phone && typeof window !== 'undefined' && ownMarginPhone(window.location.search))
   const [marginSearch, setMarginSearch] = useState(() => typeof window === 'undefined' ? '' : window.location.search)
   useEffect(() => {
     let live = true
@@ -136,7 +142,7 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
     return () => registerFigureAssets(null)
   }, [images])
 
-  if (state.status === 'ready') return <LabApp userBook={state.book} marginPhone={(phone && ownMarginPhone(window.location.search)) || undefined} />
+  if (state.status === 'ready') return <LabApp userBook={state.book} marginPhone={marginPhone || undefined} />
   if (state.status === 'margin') return <Suspense fallback={null}><MarginOwnBook hex={hex} search={marginSearch} /></Suspense>
   return (
     <div className="lab is-desktop" data-testid="user-book-status" style={{ minHeight: '100vh' }}>

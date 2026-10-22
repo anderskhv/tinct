@@ -50,9 +50,13 @@ describe("a reader's own book in the reader's shell (One Tinct, 22 Oct 2026)", (
 
   it('gives own books the phone margin mode on the rule Tinct books follow there', () => {
     const none = () => null, on = (key: string) => (key === 'tinct:margin-preview' ? '1' : null)
-    expect(ownMarginPhone('', none)).toBe(false)
-    expect(ownMarginPhone('', on)).toBe(true)
-    expect(ownMarginPhone('?margin=1', none)).toBe(true)
-    expect(ownMarginPhone('?margin=0', on)).toBe(false)
+    const kept: Array<[string, boolean]> = [], keep = (key: string, value: boolean) => { kept.push([key, value]) }
+    expect(ownMarginPhone('', none, keep)).toBe(false)
+    expect(ownMarginPhone('', on, keep)).toBe(true)
+    expect(kept).toEqual([])
+    expect(ownMarginPhone('?margin=1', none, keep)).toBe(true)
+    expect(ownMarginPhone('?margin=0', on, keep)).toBe(false)
+    // The link's choice is kept on this device, as a Tinct book's is.
+    expect(kept).toEqual([['tinct:margin-preview', true], ['tinct:margin-preview', false]])
   })
 })
