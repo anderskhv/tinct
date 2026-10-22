@@ -40,7 +40,7 @@ export interface MarginTalkApi {
 declare global {
   interface Window {
     /** The margin reader's side of Talk (reader.js): a spoken turn for its Chat thread, and the call's end. */
-    TinctReaderTalk?: { turn: (role: 'user' | 'assistant', text: string) => void; ended: () => void }
+    TinctReaderTalk?: { turn: (role: 'user' | 'assistant', text: string) => void; ended: () => void; failed?: (message: string | null) => void }
   }
 }
 
@@ -111,6 +111,16 @@ export function useMarginTalk(input: { bookId: string; editionKey: string | null
     setNotice(null)
     try { inputRef.current.frame()?.TinctReaderTalk?.ended() } catch { /* the frame went away */ }
   }, [])
+  // Grok's voice failed (setup, the connection, the account: any error): the call goes and Chat answers in text, never in
+  // the browser's voice (Anders, 22 Oct 2026); the frame says why.
+  const failure = context ? (notice ?? voice.error) : null
+  useEffect(() => {
+    if (!failure) return
+    voiceRef.current.stop()
+    setContext(null)
+    setNotice(null)
+    try { inputRef.current.frame()?.TinctReaderTalk?.failed?.(failure) } catch { /* the frame went away */ }
+  }, [failure])
   // The call starts once the session has the reader's place (the context is set first, then start reads it).
   const startPending = useRef(false)
   useEffect(() => {

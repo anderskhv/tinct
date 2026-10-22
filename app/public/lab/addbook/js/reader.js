@@ -7535,16 +7535,18 @@ function closeChat() {
 function talkApi() { try { return frameHost()?.talk || null } catch { return null } }
 function setTalk(on) {
   const was = chat.talk, t = talkApi();
-  chat.talk = on && !!t;
-  if (chat.el) {
-    chat.el.classList.toggle('byob-talk-on', chat.talk);
-    const note = chat.el.querySelector('#chatNotice');
-    note.hidden = !(on && !t);
-    note.textContent = on && !t ? 'Talk is not available here; type your question.' : '';
-  }
-  if (on && !t) toast('Talk is not available here; type your question.');
-  if (chat.talk && !was) t.start(talkContext());
-  if (!on && was) { try { t?.stop() } catch {} }
+  chat.talk = on;
+  // The call when the framing page has Talk; otherwise (or once it failed) Talk is Chat with the microphone, answers in text.
+  if (on && !was && t) { chat.voice = true; t.start(talkContext()) }
+  if (!on && was && chat.voice) { chat.voice = false; try { t?.stop() } catch {} }
+  talkNote();
+}
+function talkNote() {
+  if (!chat.el) return;
+  chat.el.classList.toggle('byob-talk-on', chat.talk);
+  const note = chat.el.querySelector('#chatNotice');
+  const text = chat.talk && !chat.voice ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak.' : 'Talk: speak with your system’s dictation, or type.') : '';
+  note.hidden = !text; note.textContent = text;
 }
 /** What Talk is told the reader is on: the book, the chapter (a PDF's page) in view, its paragraphs and the one at the top, the recent Chat. */
 async function talkContext() {
@@ -7568,7 +7570,9 @@ window.TinctReaderTalk = {
     saveTurns();
     if (marginOn() || chat.el) renderThread();
   },
-  ended() { if (chat.talk) { chat.talk = false; setTalk(false) } },
+  ended() { chat.voice = false; if (chat.talk) setTalk(false) },
+  // Grok's voice failed (Anders, 22 Oct 2026: then text only, never the browser's voice): Talk goes on as Chat, answers in text.
+  failed(message) { chat.voice = false; talkNote(); toast(message ? `${String(message).trim().replace(/([^.!?])$/, '$1.')} Answers come in text.` : 'Voice is not available right now. Answers come in text.') },
 };
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {

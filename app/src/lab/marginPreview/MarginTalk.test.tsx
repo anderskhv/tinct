@@ -7,12 +7,12 @@
 import { act, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-const voice = vi.hoisted(() => ({ options: null as null | Record<string, unknown>, calls: [] as string[] }))
+const voice = vi.hoisted(() => ({ options: null as null | Record<string, unknown>, calls: [] as string[], error: null as string | null }))
 vi.mock('../../hooks/useVoiceSession', () => ({
   useVoiceSession: (options: Record<string, unknown>) => {
     voice.options = options
     const call = (name: string) => () => { voice.calls.push(name) }
-    return { connection: 'idle', activity: 'idle', micMuted: false, isActive: false, error: null, getAssistantLevel: () => null, setMicMuted: call('mute'),
+    return { connection: 'idle', activity: 'idle', micMuted: false, isActive: false, error: voice.error, getAssistantLevel: () => null, setMicMuted: call('mute'),
       start: async () => { voice.calls.push('start') }, stop: call('stop'), prime: call('prime'), unlockAudio: call('unlock'), releasePrimed: call('release') }
   },
 }))
@@ -21,10 +21,10 @@ vi.mock('../labAuth', () => ({ readSupabaseAccessToken: () => Promise.resolve('t
 const { useMarginTalk } = await import('./MarginTalk')
 const context = { bookTitle: 'Own', bookAuthor: 'A', chapterNumber: 3, chapterLabel: 'Three', paragraphs: ['One.', 'Two.', 'Three.'], paragraphIndex: 1, turns: [{ role: 'user' as const, content: 'Hello' }] }
 
-afterEach(() => { voice.calls = []; voice.options = null })
+afterEach(() => { voice.calls = []; voice.options = null; voice.error = null })
 
 function mount(privateBook: boolean) {
-  const frame = { TinctReaderTalk: { turn: vi.fn(), ended: vi.fn() }, document } as unknown as Window
+  const frame = { TinctReaderTalk: { turn: vi.fn(), ended: vi.fn(), failed: vi.fn() }, document } as unknown as Window
   const pauseListen = vi.fn(), onAccount = vi.fn()
   const hook = renderHook(() => useMarginTalk({ bookId: privateBook ? 'userbook-abab' : 'frankenstein', editionKey: privateBook ? null : 'original-en', privateBook, frame: () => frame, signedIn: true, onAccount, pauseListen }))
   return { ...hook, frame, pauseListen, onAccount }
@@ -54,6 +54,18 @@ describe('useMarginTalk', () => {
     act(() => result.current.api.stop())
     expect(voice.calls).toContain('stop')
     expect(frame.TinctReaderTalk!.ended).toHaveBeenCalled()
+    expect(result.current.surface).toBeNull()
+  })
+
+  it('Grok\u2019s voice failing ends the call and leaves Chat in text, never another voice', async () => {
+    const { result, rerender, frame } = mount(true)
+    act(() => result.current.api.start(context))
+    await waitFor(() => expect(voice.calls).toContain('start'))
+    voice.error = 'Voice could not reach Tinct.'
+    rerender()
+    expect(voice.calls).toContain('stop')
+    expect(frame.TinctReaderTalk!.failed).toHaveBeenCalledWith('Voice could not reach Tinct.')
+    expect(frame.TinctReaderTalk!.ended).not.toHaveBeenCalled()
     expect(result.current.surface).toBeNull()
   })
 

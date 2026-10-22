@@ -65,7 +65,7 @@ const BOOKS = {
 for (const b of Object.values(BOOKS)) { b.sha256 = sha(b.bytes); b.hex = b.sha256.slice(0, 24) }
 
 /** Every page of the app from dist/, the account and the narration answered here; anything else refused. */
-async function serve(context, { book, log, premium = true, fail = 0 }) {
+async function serve(context, { book, log, premium = true, fail = 0, voiceFail = 0 }) {
   const json = (route, status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
   await context.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
@@ -77,7 +77,11 @@ async function serve(context, { book, log, premium = true, fail = 0 }) {
     if (url.origin !== origin) return route.abort()
     const p = url.pathname
     if (p === '/qa-seed') return route.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>seed</title>' })
-    if (p === '/api/voice-session') { log.voice.push({ auth: req.headers().authorization, body: req.postData() || '' }); return json(route, 200, { value: 'qa-secret', model: 'grok-voice-qa' }) }
+    if (p === '/api/voice-session') { log.voice.push({ auth: req.headers().authorization, body: req.postData() || '' }); return voiceFail ? json(route, voiceFail, { error: 'Voice unavailable' }) : json(route, 200, { value: 'qa-secret', model: 'grok-voice-qa' }) }
+    if (p === '/api/chat' || p === '/api/lab-chat') {
+      const sse = [['content_block_delta', { type: 'content_block_delta', delta: { type: 'text_delta', text: 'A typed answer.' } }], ['message_stop', { type: 'message_stop' }]]
+      return route.fulfill({ status: 200, headers: { 'Content-Type': 'text/event-stream' }, body: sse.map(([e, d]) => `event: ${e}\ndata: ${JSON.stringify(d)}\n\n`).join('') })
+    }
     if (p === '/api/narration/voices') return json(route, 200, { enabled: true, provider: 'grok', model: 'mock', voices: [{ key: 'f', label: 'Ara', persona: 'female' }, { key: 'm', label: 'Helios', persona: 'male' }], ownBooks: true })
     if (p === '/api/narration/own/ensure') {
       const body = JSON.parse(req.postData() || '{}')
@@ -363,6 +367,30 @@ async function talk(browser, key) {
   await context.close()
 }
 
+/** Grok's voice failing (the session route answers 500): the call goes, Talk is Chat answering in text, no browser voice. */
+async function talkFailing(browser) {
+  const book = BOOKS.epub, tag = 'talk, voice failing (500)', log = { requests: [], ensures: [], audio: [], voice: [] }
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', permissions: ['microphone'] })
+  await serve(context, { book, log, voiceFail: 500 })
+  await context.addInitScript(spies)
+  await context.addInitScript(fakeGrok)
+  const page = await context.newPage(), errors = []
+  page.on('pageerror', e => errors.push(e.message))
+  await seed(page, book)
+  const frame = await openFrame(page, book)
+  await frame.evaluate(() => { setTalk(true); openChat() })
+  await frame.waitForFunction(() => chat.voice === false, null, { timeout: 30000 }).catch(() => null)
+  await page.waitForTimeout(600)
+  const after = await frame.evaluate(() => ({ talk: chat.talk, voice: chat.voice, note: document.getElementById('chatNotice')?.textContent || '', toast: [...document.querySelectorAll('.byob-toast')].map(t => t.textContent).join(' ') }))
+  ok(`${tag}: the call goes and Talk is Chat in text, said so`, log.voice.length >= 1 && after.talk === true && after.voice === false && !(await page.isVisible('[data-testid="margin-talk"]')) && /Answers come in text/.test(after.toast) && !/read aloud/i.test(after.note), after)
+  await frame.evaluate(() => ask('What happens next?'))
+  const answered = await frame.waitForFunction(() => chat.turns.some(t => t.role === 'assistant' && t.content.includes('A typed answer.')), null, { timeout: 15000 }).then(() => true, () => false)
+  const speech = await Promise.all(page.frames().map(f => f.evaluate(() => window.__speech || 0).catch(() => 0)))
+  ok(`${tag}: a question is answered in text, and no browser voice speaks it`, answered && speech.every(n => n === 0), { answered, speech })
+  ok(`${tag}: no page errors`, errors.length === 0, errors)
+  await context.close()
+}
+
 /** Talk on a Tinct book in the margin view: the same session and call, its edition's text in view. */
 async function talkTinct(browser) {
   const tag = 'talk Tinct book (frankenstein) 1440×900', log = { requests: [], ensures: [], audio: [], voice: [] }
@@ -451,7 +479,7 @@ const browser = await markInternal(await chromium.launch({ headless: true, args:
 try {
   for (const key of (process.env.BOOKS ?? 'epub,pdf').split(',').filter(Boolean)) for (const size of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) await runBook(browser, key, size)
   for (const key of (process.env.TALK ?? 'epub,pdf').split(',').filter(Boolean)) await talk(browser, key)
-  if (process.env.TALK !== '') await talkTinct(browser)
+  if (process.env.TALK !== '') { await talkTinct(browser); await talkFailing(browser) }
   await failing(browser, 503)
   await failing(browser, 500)
   await notPremium(browser)
