@@ -662,6 +662,8 @@ export async function syncLabBookChatWithCloud(input: {
   revs?: Map<string, number>
   onUnavailable?: () => void
   isCurrent?: () => boolean
+  /** Called with the thread the account row is known to hold after this sync. */
+  onCloudHolds?: (conversations: ChatConversation[]) => void
 }): Promise<ChatConversation[]> {
   const { bookId } = input
   const cloud = guardedCloud(input.cloud)
@@ -675,14 +677,18 @@ export async function syncLabBookChatWithCloud(input: {
       if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
       if (row && sameChatConversations(row.conversations, merged)) {
         input.revs?.set(bookId, row.rev)
+        input.onCloudHolds?.(merged)
         return merged
       }
+      // Nothing on either side: opening a book never creates an empty row.
+      if (!row && merged.length === 0) return merged
       // No row yet: expect rev 0 (insert only). NULL would overwrite a row
       // another device created meanwhile instead of conflicting.
       const result = await cloud.commit(bookId, merged, row?.rev ?? 0)
       if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
+        input.onCloudHolds?.(merged)
         return mergeChatConversations(merged, readLabBookChat(bookId))
       }
       if (!result.conflict || !result.row) return merged
@@ -699,16 +705,56 @@ export async function syncLabBookChatWithCloud(input: {
 }
 
 /**
+ * How long the reader's chat waits before its turns go to the account row
+ * (Disk IO, 22 Oct 2026). Every commit rewrites the book's whole thread (up
+ * to 600 messages), and a question and its answer used to be two commits;
+ * a Talk conversation one per spoken turn. Turns that arrive within the
+ * window share one commit. The device copy is written at once as before;
+ * hide, pagehide and unmount send what is waiting (`flush`), and a turn the
+ * device could not store is sent at once (`push(..., { now: true })`).
+ */
+export const LAB_CHAT_COMMIT_COALESCE_MS = 20_000
+
+/**
  * Serialized cloud writer for chat rows: one commit in flight per book, the
  * newest queued value wins, a conflict re-reads, merges and retries once.
  * Offline or failed writes stay in the local mirror and are folded in by the
  * next `syncLabBookChatWithCloud` on open or reconnect.
+ *
+ * With `coalesceMs` (the reader passes LAB_CHAT_COMMIT_COALESCE_MS) a push
+ * waits up to that long for later turns; the waiting value is then merged
+ * with the device copy (so a sync that ran meanwhile is never undone) and
+ * skipped when the row already holds exactly that. Without it every push
+ * commits straight away.
  */
-export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Map<string, number> = new Map()) {
+export function createLabChatCloudWriter(
+  rawCloud: LabChatHistoryCloud,
+  revs: Map<string, number> = new Map(),
+  options: { coalesceMs?: number } = {},
+) {
   const cloud = guardedCloud(rawCloud)
+  const coalesceMs = options.coalesceMs ?? 0
   const queued = new Map<string, ChatConversation[]>()
   const inFlight = new Set<string>()
+  /** Pushes waiting for the coalescing window, per book. */
+  const waiting = new Map<string, ChatConversation[]>()
+  const timers = new Map<string, ReturnType<typeof setTimeout>>()
+  /** Serialized thread the account row is known to hold, per book. */
+  const known = new Map<string, string>()
   let dirty = false
+
+  const release = (bookId: string) => {
+    const timer = timers.get(bookId)
+    if (timer !== undefined) clearTimeout(timer)
+    timers.delete(bookId)
+    const value = waiting.get(bookId)
+    waiting.delete(bookId)
+    if (!value) return
+    const merged = mergeChatConversations(readLabBookChat(bookId), value)
+    if (known.get(bookId) === JSON.stringify(merged)) return
+    queued.set(bookId, merged)
+    if (!inFlight.has(bookId)) void run(bookId)
+  }
 
   const run = async (bookId: string) => {
     inFlight.add(bookId)
@@ -724,6 +770,7 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
           const result = await cloud.commit(bookId, value, revs.get(bookId) ?? 0)
           if (result.applied) {
             if (result.row) revs.set(bookId, result.row.rev)
+            known.set(bookId, JSON.stringify(value))
             dirty = false
             continue
           }
@@ -736,6 +783,7 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
             const retry = await cloud.commit(bookId, merged, result.row.rev)
             if (retry.applied && retry.row) {
               revs.set(bookId, retry.row.rev)
+              known.set(bookId, JSON.stringify(merged))
               dirty = false
               continue
             }
@@ -752,16 +800,32 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
   }
 
   return {
-    push(bookId: string, conversations: ChatConversation[]) {
+    push(bookId: string, conversations: ChatConversation[], pushOptions: { now?: boolean } = {}) {
       // A reader's own book keeps its chat on this device (lab/userBook).
       if (isUserBookId(bookId)) return
-      queued.set(bookId, conversations)
-      if (!inFlight.has(bookId)) void run(bookId)
+      if (coalesceMs <= 0) {
+        queued.set(bookId, conversations)
+        if (!inFlight.has(bookId)) void run(bookId)
+        return
+      }
+      const earlier = waiting.get(bookId)
+      waiting.set(bookId, earlier ? mergeChatConversations(earlier, conversations) : conversations)
+      if (pushOptions.now) { release(bookId); return }
+      if (!timers.has(bookId)) timers.set(bookId, setTimeout(() => release(bookId), coalesceMs))
     },
+    /** Send every waiting push now (hide, pagehide, unmount). */
+    flush() {
+      for (const bookId of [...waiting.keys()]) release(bookId)
+    },
+    /** Pushes still waiting for their window (tests and diagnostics). */
+    pending: () => [...waiting.keys()],
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
     sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
       if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
-      return syncLabBookChatWithCloud({ bookId, cloud: rawCloud, revs, onUnavailable, isCurrent })
+      return syncLabBookChatWithCloud({
+        bookId, cloud: rawCloud, revs, onUnavailable, isCurrent,
+        onCloudHolds: conversations => { known.set(bookId, JSON.stringify(conversations)) },
+      })
     },
     isDirty: () => dirty,
     revs,
