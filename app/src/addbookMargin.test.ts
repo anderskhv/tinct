@@ -288,10 +288,6 @@ describe('the offline dictionary loader (mirrors services/dictionary.ts)', () =>
 })
 
 describe('the installed copy', () => {
-  it('app/public/lab/addbook ships the margin files of addbooks/web/src unchanged', () => {
-    for (const file of ['js/margin.js', 'js/dictionary.js', 'js/margin-fixture.js', 'css/margin.css', 'margin-fixture.html'])
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/' + file, 'utf8'), file).toBe(readFileSync(ROOT + 'addbooks/web/src/' + file, 'utf8'))
-  })
   it('css/margin.css keeps the reference stylesheet, its values and its guards block, unchanged', () => {
     const css = readFileSync(ROOT + 'app/public/lab/addbook/css/margin.css', 'utf8')
     const reference = readFileSync(ROOT + 'docs/margin/margin-reference.css', 'utf8')

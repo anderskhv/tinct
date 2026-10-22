@@ -1,5 +1,5 @@
 /**
- * The PDF viewer follows the reader's theme (addbooks/web/src/js/pdf-theme.js):
+ * The PDF viewer follows the reader's theme (public/lab/addbook/js/pdf-theme.js):
  * the same stored setting as the reader (labPrefs.ts), and pages recoloured
  * for the dark theme with pictures kept as drawn.
  */
@@ -22,7 +22,7 @@ interface PdfThemeApi {
 }
 let theme: PdfThemeApi
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-theme.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-theme.js')
   theme = (globalThis as unknown as { TinctPdfTheme: PdfThemeApi }).TinctPdfTheme
 })
 
