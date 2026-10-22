@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'text' | 'reading' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'text' | 'editions' | 'audio' | 'library' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -24,19 +24,26 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * The phone's t menu, the approved design (iPhone feedback, 20 Oct 2026):
- * Chat · Talk on one row; Summarize and Catch me up; Text and theme (the
- * themes, size and Advanced settings); Reading settings (edition, compare
- * edition, voice and speed, the controls Book editions and Settings held);
- * then Library and Profile. Every destination of the old rows is still here.
+ * The three settings groups, named and filled the same on every platform (Anders, 22 Oct 2026): Aa (themes,
+ * size and Advanced settings: font, alignment, spacing, margins), Book settings (main and compare version,
+ * Show compare, Margin, a play's layout, offline) and Audio settings (audiobook version, voice, speed).
+ */
+const SETTINGS_ROWS: LabSuperMenuRow[] = [
+  { id: 'text', label: 'Aa', chevron: true, ruleBefore: true },
+  { id: 'editions', label: 'Book settings', chevron: true },
+  { id: 'audio', label: 'Audio settings', chevron: true },
+]
+
+/**
+ * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
+ * Summarize and Catch me up; Aa, Book settings and Audio settings; then Library and Profile.
  */
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'text', label: 'Text and theme', chevron: true, ruleBefore: true },
-    { id: 'reading', label: 'Reading settings', chevron: true },
+    ...SETTINGS_ROWS,
     { id: 'library', label: privateBook ? 'Your books' : 'Library', ruleBefore: true },
     { id: 'account', label: 'Profile', chevron: true },
   ]
@@ -44,31 +51,28 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
 
 /**
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
- * Summarize), reading choices, then library (phone only) and account.
+ * Summarize), the settings groups, then library (phone only) and account.
  */
 export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
   /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
   noCatchUp?: boolean
 } = {}): LabSuperMenuRow[] {
-  // A reader's own book keeps Reading settings on the phone: its voice and speed are there (and a PDF's editions).
-  if (phone) return phoneRows(privateBook).filter(row => !(noCatchUp && row.id === 'catchup'))
-  const all: LabSuperMenuRow[] = [
+  const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // One row for both conversations (Anders, 2026-10-07): always here, so
     // the only way to the librarian since the margin tab went (2026-10-08).
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
-    { id: 'settings', label: 'Settings', chevron: true },
+    ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
   const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition, except a PDF: its Tinct text and its
-  // Original pages (2026-10-09).
+  // at a time), but one edition, so no Book settings, except a PDF's: its
+  // Tinct text and its Original pages (2026-10-09). Its Audio settings stay.
   return privateBook ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')) : rows
 }
 

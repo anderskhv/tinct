@@ -32,7 +32,7 @@ addEventListener('pointerdown', () => { document.documentElement.dataset.mrInput
 /* What a press found open before anything folded it (registered first, so it sees the margin as it was): a click on the
    empty margin column then only folds what was open (a card, Before you start, the bar), and writes no note. */
 const marginPress = { busy: false };
-const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-aa-panel, .lab-super-layer')) } catch { return false } };
+const marginBusy = () => { try { return !!(col.open || primer.open || mr || document.querySelector('.byob-settings, .lab-super-layer')) } catch { return false } };
 addEventListener('keydown', e => { if (!e.metaKey && !e.ctrlKey) document.documentElement.dataset.mrInput = 'keys' }, true);
 // The figure view (figureView) closes on Escape before anything else hears it (an open card under it stays open).
 addEventListener('keydown', e => { const v = e.key === 'Escape' && document.querySelector('.mr-figview'); if (v) { e.preventDefault(); e.stopImmediatePropagation(); v.close?.() } }, true);
@@ -1748,7 +1748,7 @@ function textHighlightsOn(p) {
   }
   return out;
 }
-// The Tinct text is offered in the Aa panel (openDisplay) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
+// The Tinct text is offered in Book settings (openBookSettings) as "Convert to Tinct book": under Layout, or as its own row (TinctReaderLayout.TINCT_TEXT).
 // A PDF's text known after the panel opened (the scan, a recognised scan) shows there at once.
 function showEditions() { drawLayoutChoices() }
 
@@ -2342,25 +2342,42 @@ const ICON = {
 };
 /*
  * The t menu, Tinct's normal menu (Anders, 21 Oct 2026; the approved design of 20 Oct, the phone's
- * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up (not on a book's first unit), Reading
- * settings; then this reader's own, Snip a figure (a PDF), Export notes and Open another book (a reader's own book);
- * then Library and Profile. Text, theme and layout are the Aa panel's. Each group after the first opens with a rule.
+ * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up (not on a book's first unit); the settings
+ * groups (Anders, 22 Oct 2026, named and filled as the book reader's): Aa (the phone's; the desktop has its own button),
+ * Book settings and Audio settings, each shown where it has something to offer; then this reader's own, Snip a figure
+ * (a PDF), Export notes and Open another book (a reader's own book); then Library and Profile. Each group after the
+ * first opens with a rule.
  */
-const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['settings'], ['snip', 'export', 'open'], ['library', 'account']];
-const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', settings: 'Reading settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
-const MENU_CHEVRON = new Set(['settings', 'account']);
+const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['aa', 'book', 'audio'], ['snip', 'export', 'open'], ['library', 'account']];
+const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Aa', book: 'Book settings', audio: 'Audio settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
+const MENU_CHEVRON = new Set(['aa', 'book', 'audio', 'account']);
+// The settings groups' glyphs, as the book reader's t menu draws them (src/lab/LabSuperMenu.tsx RowIcon): a small and a large A
+// (the row's own name is Aa), Book editions' books, a speaker.
+ICON.aa = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19 8 5l5.5 14M4.6 14h6.8"></path><path d="m14.5 19 3.5-9 3.5 9M15.7 16h4.6"></path></svg>';
+ICON.book = ICON.editions;
+ICON.audio = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"></path><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.6a7.6 7.6 0 0 1 0 10.8"></path></svg>';
 ICON.account = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.2-3.2 3.8-4.8 7-4.8s5.8 1.6 7 4.8"></path></svg>';
 /** The page that frames this one (src/lab/marginPreview/MarginPreview.tsx), for a Tinct book's preview: its menu and player. */
 function previewHost() {
   if (!state.preview) return null;
   try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === state.preview.bookId ? p : null } catch { return null }
 }
-/** Reading settings has something to offer: a Tinct book's editions and voice, a PDF's voice and speed or its Tinct text. */
-const readingSettingsApply = () => !!state.preview || !isEpub() || isPdfText();
+/** Book settings has something to offer: a layout to choose (Margin view, Focus view, Convert to Tinct book; a Tinct text's
+    Original pages; a preview's views) or a Tinct book's editions. An EPUB on a phone has none. */
+const bookSettingsApply = () => !!state.preview || layoutOptions().length > 0 || (RL.TINCT_TEXT === 'row' && hasText());
+/** Audio settings has something to offer: read aloud's voice and speed (a PDF's pages), or a Tinct book's narration (the preview's). */
+function audioSettingsApply() {
+  if (!state.preview) return !isEpub();
+  const listen = previewHost()?.listen, snap = listen?.snapshot?.();
+  return !!(listen?.voices && snap && snap.available !== false);
+}
 function menuShows(id) {
   // Not on a book's first unit (nor, without units, on its first page): nothing has been read to catch up on.
   if (id === 'catchup') { const u = currentUnit(); return u ? !nothingBefore(u) : placePage() > 1 }
-  if (id === 'settings') return readingSettingsApply();
+  // Aa is the top bar's own button on the desktop, a t menu row on the phone (Anders, 22 Oct 2026).
+  if (id === 'aa') return isPhone();
+  if (id === 'book') return bookSettingsApply();
+  if (id === 'audio') return audioSettingsApply();
   if (id === 'snip') return state.kind === 'pdf';
   if (id === 'open') return !state.preview;
   return true;
@@ -2392,7 +2409,7 @@ $('superBtn').onclick = openMenu;
 function menuAction(id) {
   if (id === 'library') { leaveToShelf(); return }
   if (id === 'account') return openProfile();
-  if (!hasBook() && id !== 'open' && id !== 'settings') { toast('Open a book first.'); return }
+  if (!hasBook() && !['open', 'aa', 'book', 'audio'].includes(id)) { toast('Open a book first.'); return }
   if (id === 'chat') return openChat();
   // Talk: Chat with Talk on (answers read aloud), the margin's whole-file Chat where the margin is on (as a card's Talk).
   if (id === 'talk') { setTalk(true); return openChat() }
@@ -2401,7 +2418,9 @@ function menuAction(id) {
   if (id === 'catchup') return catchUp();
   if (id === 'snip') return startSnip();
   if (id === 'export') return exportNotes();
-  if (id === 'settings') return openSettings();
+  if (id === 'aa') return openDisplay();
+  if (id === 'book') return openBookSettings();
+  if (id === 'audio') return openAudioSettings();
   if (id === 'open') return $('fileInput').click();
 }
 /** Profile: the account cards. In a Tinct book's preview the framing page opens them over the reader; here, the library does. */
@@ -2430,22 +2449,28 @@ function openJump() {
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
 $('pageBtn').onclick = () => openContents();
 
-/* The Aa panel (Anders, 15 Oct 2026): every setting for how the book looks, in one sheet from the top
-   bar's Aa. Layout first (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which leaves for the Tinct
-   reader; an EPUB has one way to read here, so no Layout), then the reader's themes (src/lab/LabV2Sheet.tsx),
-   the page or text size, full width, page-margin trim and full screen. Settings (the t menu) keeps
-   read aloud's voice and speed. The theme is the reader's own setting (applyTheme). */
+/* The settings groups (Anders, 22 Oct 2026), named and filled as the book reader's (src/lab/LabV2Sheet.tsx):
+   Aa: how the text looks, from the top bar's Aa on the desktop and the t menu on the phone: the reader's themes, the
+   page or text size, page-margin trim, full screen and the passage mark (the Aa panel of 15 Oct 2026, its Layout gone
+   to Book settings). The theme is the reader's own setting (applyTheme).
+   Book settings (the t menu): Layout (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which
+   leaves for the Tinct reader; a Tinct text: its Original pages; a preview: its views) and a Tinct book's Main version
+   and Compare version.
+   Audio settings (the t menu): read aloud's voice and speed, or a Tinct book's narration's.
+   On the desktop each hangs from its button (Aa) or the t menu's (the other two); on the phone each is the sheet. */
 const toggleRow = (id, label, on, hidden) => `<button type="button" class="lab-v2-row is-toggle" role="switch" aria-checked="${on}" data-t="${id}"${hidden ? ' hidden' : ''}><span class="lab-v2-row-label">${label}</span><span class="lab-v2-switch" aria-hidden="true"><span class="lab-v2-switch-knob"></span></span></button>`;
 const selectRow = (id, label, value, options) => `<div class="lab-v2-row is-select"><span class="lab-v2-row-label">${label}</span><span class="lab-v2-value"><span data-value="${id}">${esc((options.find(o => o[0] === value) || options[0])[1])}</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></span><select class="lab-v2-row-select" id="${id}" aria-label="${label}">${options.map(([v, l]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>`;
 const RL = window.TinctReaderLayout;
 /** The layout this book reads in on this device: Margin view (the default) or Focus view; an EPUB, its one way. */
 const viewLayout = () => RL.layoutOf(prefs, state.kind);
 const layoutChoice = o => `<button type="button" class="lab-v2-edition-option" data-layout="${o.id}" aria-pressed="${o.on}"><span class="lab-v2-edition-name">${esc(o.label)}</span><span class="lab-v2-edition-check" aria-hidden="true">${o.on ? '✓' : ''}</span></button>`;
-/** The panel's Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
+/** The Layout choices this book offers here (Book settings). */
+const layoutOptions = () => previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn(), pdfText: isPdfText() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
+/** Book settings' Layout choices, drawn (again) into an open panel: Tinct text appears once the PDF's text is known. */
 function drawLayoutChoices() {
-  const panel = document.querySelector('.byob-aa-panel'); if (!panel) return;
-  const opts = previewLayouts() || RL.options(state.kind, { layout: viewLayout(), hasText: hasText(), epubMargin: isEpub() && marginOn(), pdfText: isPdfText() }).map(o => (state.preview && o.id === 'text' ? { ...o, label: PREVIEW_NORMAL } : o));
-  const box = panel.querySelector('[data-aa="layout"]'), row = panel.querySelector('[data-t="text"]');
+  const panel = document.querySelector('.byob-book-settings'); if (!panel) return;
+  const opts = layoutOptions();
+  const box = panel.querySelector('[data-bs="layout"]'), row = panel.querySelector('[data-bs-text]');
   if (box) { box.hidden = !opts.length; box.querySelector('.lab-v2-edition-choices').innerHTML = opts.map(layoutChoice).join('') }
   if (row) row.hidden = !(RL.TINCT_TEXT === 'row' && hasText());
 }
@@ -2459,9 +2484,12 @@ function setLayout(next) {
     save: () => { savePlaceNow(); if (marginOn()) marginLayout({ fresh: true }) },
   });
 }
-/** The Aa panel's right edge under the Aa button's (the desktop; css/reader.css), again as the window resizes. */
-function hangAa(layer) { const r = $('aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
-addEventListener('resize', () => { const l = document.querySelector('.byob-aa-panel'); if (l) hangAa(l) });
+/** A settings panel's right edge under its button's: Aa's, or the t menu's for Book settings and Audio settings (the
+    desktop; css/reader.css), again as the window resizes. */
+function hangAa(layer) { const r = $(layer.dataset.hang || 'aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
+addEventListener('resize', () => { for (const l of document.querySelectorAll('.byob-settings')) hangAa(l) });
+/** What a settings panel gives the focus back to: its button on the desktop, the t menu's on the phone. */
+const settingsOpener = id => $(isPhone() ? 'superBtn' : id);
 function openDisplay() {
   if (document.querySelector('.byob-aa-panel')) return closeDisplay();
   closeAllPopups();
@@ -2471,17 +2499,15 @@ function openDisplay() {
   // The desktop: the panel hangs from the Aa button, its right edge under the button's (css/reader.css).
   hangAa(layer);
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Layout and themes">
-      <div class="lab-v2-head"><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Aa">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Aa</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
       <div class="lab-v2-sheet-body">
-        <div class="byob-aa-layout" data-aa="layout" role="group" aria-labelledby="aaLayoutLabel"><p class="lab-v2-group-label" id="aaLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
         <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
         ${zoomPanel() ? zoomRowHtml() : typePanel() ? typeRowsHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}
           ${toggleRow('screen', 'Full screen', !!document.fullscreenElement)}
           ${marginOn() ? selectRow('passageMarkSel', 'Passage mark', passageMark(), [['underline', 'Underline'], ['tint', 'Highlight'], ['off', 'Off']]) : ''}
-          <button type="button" class="lab-v2-row is-link" data-t="text" hidden><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button>
         </div>
       </div>
     </section>`;
@@ -2489,15 +2515,6 @@ function openDisplay() {
   layer.querySelector('.lab-v2-dismiss').onclick = () => closeDisplay({ focus: true });
   // Escape closes it from anywhere in it, the size slider too (the page's own Escape skips inputs).
   layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeDisplay({ focus: true }) } });
-  layer.querySelector('[data-aa="layout"]').addEventListener('click', e => {
-    const b = e.target.closest('[data-layout]'); if (!b) return;
-    if (b.dataset.layout === 'text') { closeDisplay(); readAsText(); return }
-    if (isPdfText()) { if (b.dataset.layout === 'pages') { closeDisplay(); pdfTextToPages() } return }
-    if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { closeDisplay(); previewView(b.dataset.layout); return }
-    keepPagesHere();
-    setLayout(b.dataset.layout);
-    drawLayoutChoices();
-  });
   layer.querySelectorAll('[data-theme-choice]').forEach(b => b.onclick = () => {
     setTheme(b.dataset.themeChoice);
     layer.querySelectorAll('[data-theme-choice]').forEach(o => { const on = o.dataset.themeChoice === pageTheme; o.classList.toggle('is-active', on); o.setAttribute('aria-pressed', String(on)) });
@@ -2518,7 +2535,6 @@ function openDisplay() {
   layer.querySelector("[data-convert]")?.addEventListener('click', () => { closeDisplay(); readAsText() });
   layer.querySelectorAll('[data-t]').forEach(b => b.onclick = () => {
     const t = b.dataset.t;
-    if (t === 'text') { closeDisplay(); readAsText(); return }
     if (t === 'screen') { toggleFullscreen().then(on => b.setAttribute('aria-checked', String(on))); return }
     if (t === 'trim') setTrim(!state.trim);
     b.setAttribute('aria-checked', String(t === 'trim' ? state.trim : !!prefs[t]));
@@ -2527,77 +2543,101 @@ function openDisplay() {
   const markSel = layer.querySelector('#passageMarkSel');
   if (markSel) markSel.onchange = e => { prefs.passageMark = e.target.value; savePrefs(); layer.querySelector('[data-value="passageMarkSel"]').textContent = e.target.selectedOptions[0]?.textContent || ''; marginLayout({ fresh: true }) };
   root.appendChild(layer);
-  drawLayoutChoices(); syncZoomRow(); syncTypeRows();
+  syncZoomRow(); syncTypeRows();
   $('aaBtn').setAttribute('aria-expanded', 'true');
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
 }
 function closeDisplay({ focus = false } = {}) {
   const panel = document.querySelector('.byob-aa-panel');
-  // Closed from inside it (Escape, ×, the scrim): focus goes back to the Aa button.
+  // Closed from inside it (Escape, ×, the scrim): focus goes back to the Aa button (the phone's: the t menu's).
   const inside = !!panel && panel.contains(document.activeElement);
   panel?.remove();
   $('aaBtn').setAttribute('aria-expanded', 'false');
-  if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
+  if (panel && (focus || inside)) settingsOpener('aaBtn').focus({ preventScroll: true });
 }
 $('aaBtn').onclick = openDisplay;
-/* Reading settings (the t menu): the reader's Reading settings sheet (src/lab/LabV2Sheet.tsx), with the rows that
-   apply here (the look is the Aa panel's, above). A reader's own PDF: its edition (Margin view or its Tinct text, when
-   it has text) and read aloud's voice and speed. A Tinct book's preview: the book reader's Main version and Compare
-   version, and its narration's voice and speed (the framing page's, previewHost). */
-async function openSettings() {
+/** A settings panel from the t menu (Book settings, Audio settings): the Aa panel's look, hung from the t button on the
+    desktop, the sheet on the phone. Escape, × and the scrim close it; focus goes back to the t button. -> the layer */
+function settingsPanel(kind, title, body) {
   closeAllPopups();
+  const layer = document.createElement('div');
+  layer.className = `lab-v2-sheet-layer byob-settings byob-anchored byob-${kind}-settings`; layer.dataset.testid = 'lab-v2-sheet-layer';
+  layer.dataset.hang = 'superBtn'; hangAa(layer);
+  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="${kind}" aria-label="${esc(title)}">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">${esc(title)}</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+      <div class="lab-v2-sheet-body">${body}</div>
+    </section>`;
+  const close = ({ focus = false } = {}) => { const inside = layer.contains(document.activeElement); layer.remove(); if (focus || inside) $('superBtn')?.focus({ preventScroll: true }) };
+  layer.close = close;
+  layer.querySelector('.lab-super-scrim').onclick = () => close({ focus: true });
+  layer.querySelector('.lab-v2-dismiss').onclick = () => close({ focus: true });
+  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close({ focus: true }) } });
+  return layer;
+}
+/** Wire a select row: its value shown beside its label as it changes. */
+function syncSelect(layer, sel, fn) { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); const v = layer.querySelector(`[data-value="${sel}"]`); if (v) v.textContent = e.target.selectedOptions[0]?.textContent || '' } }
+/* Book settings (the t menu): Layout (Margin view or Focus view, Convert to Tinct book; a Tinct text's Original pages; a
+   preview's views) and a Tinct book's preview's Main version and Compare version (the framing page's, previewHost). */
+async function openBookSettings() {
   const host = previewHost();
   const rows = [];
-  let note = '';
   if (state.preview) {
     const ed = await host?.menu?.reading?.().catch(() => null);
     if (ed && ed.editions.length > 1) {
       rows.push(selectRow('editionSel', 'Main version', ed.edition, ed.editions.map(o => [o.value, o.label])));
       rows.push(selectRow('compareSel', 'Compare version', ed.compareEdition, ed.compareEditions.map(o => [o.value, o.label])));
     }
+  }
+  const layer = settingsPanel('book', 'Book settings', `
+        <div class="byob-layout" data-bs="layout" role="group" aria-labelledby="bsLayoutLabel"><p class="lab-v2-group-label" id="bsLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
+        ${rows.length ? `<div class="lab-v2-rows">${rows.join('')}</div>` : ''}
+        <div class="lab-v2-rows" data-bs-text hidden><button type="button" class="lab-v2-row is-link"><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button></div>
+        ${!state.preview && imgNote ? `<p class="lab-v2-note">${esc(imgNote)}</p>` : ''}`);
+  const close = () => layer.close();
+  layer.querySelector('[data-bs="layout"]').addEventListener('click', e => {
+    const b = e.target.closest('[data-layout]'); if (!b) return;
+    if (b.dataset.layout === 'text') { close(); readAsText(); return }
+    if (isPdfText()) { if (b.dataset.layout === 'pages') { close(); pdfTextToPages() } return }
+    if (state.preview && PREVIEW_VIEWS[b.dataset.layout]) { close(); previewView(b.dataset.layout); return }
+    keepPagesHere();
+    setLayout(b.dataset.layout);
+    drawLayoutChoices();
+  });
+  layer.querySelector('[data-bs-text] button').onclick = () => { close(); readAsText() };
+  // Another main version: the preview opens again at this chapter, paragraph and word (the place kept first).
+  syncSelect(layer, 'editionSel', v => { close(); const at = previewSpot(); leavePlace(); stopNarration(); host?.menu?.setEdition(v, at) });
+  syncSelect(layer, 'compareSel', v => host?.menu?.setCompareEdition(v));
+  root.appendChild(layer);
+  drawLayoutChoices();
+  layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });
+}
+/* Audio settings (the t menu): read aloud's voice and speed (a reader's own PDF), or a Tinct book's preview's narration
+   voice and speed (the framing page's player, previewHost). */
+function openAudioSettings() {
+  const host = previewHost();
+  const rows = [];
+  let note = '';
+  const rateRows = rate => [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, rate])].sort((a, b) => a - b).map(r => [String(r), r + '×']);
+  if (state.preview) {
     const listen = host?.listen, snap = listen?.snapshot?.();
     if (listen?.voices && snap && snap.available !== false) {
       const v = listen.voices(), speed = Number(snap.speed) || 1;
       rows.push(selectRow('voiceSel', 'Voice', v.value, v.options.map(o => [o.value, o.label])));
-      rows.push(selectRow('rateSel', 'Speed', String(speed), [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, speed])].sort((a, b) => a - b).map(r => [String(r), r + '×'])));
+      rows.push(selectRow('rateSel', 'Speed', String(speed), rateRows(speed)));
     }
-  } else {
-    if ((state.kind === 'pdf' && hasText()) || isPdfText()) rows.push(selectRow('editionSel', 'Edition', isPdfText() ? 'text' : 'pages', [['pages', 'Margin view'], ['text', 'Tinct text']]));
-    if (!isEpub()) {
-      const voices = bookVoices();
-      const rates = [...new Set([0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, prefs.rate])].sort((a, b) => a - b);
-      rows.push(selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...voices.map(v => [v.name, v.name])]));
-      rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rates.map(r => [String(r), r + '×'])));
-      note = 'Read aloud uses this device’s own voice; nothing is recorded. ';
-    }
-    note += imgNote;
+  } else if (!isEpub()) {
+    rows.push(selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...bookVoices().map(v => [v.name, v.name])]));
+    rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rateRows(prefs.rate)));
+    note = 'Read aloud uses this device’s own voice; nothing is recorded.';
   }
-  document.querySelector('.byob-reading-settings')?.remove();
-  const layer = document.createElement('div');
-  layer.className = 'lab-v2-sheet-layer byob-settings byob-reading-settings'; layer.dataset.testid = 'lab-v2-sheet-layer';
-  layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Reading settings">
-      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Reading settings</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
-      <div class="lab-v2-sheet-body">
-        <div class="lab-v2-rows">${rows.join('')}</div>
-        ${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}
-      </div>
-    </section>`;
-  const close = () => layer.remove();
-  layer.querySelector('.lab-super-scrim').onclick = close;
-  layer.querySelector('.lab-v2-dismiss').onclick = close;
-  layer.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close() } });
-  const sync = (sel, fn) => { const el = layer.querySelector('#' + sel); if (!el) return; el.onchange = e => { fn(e.target.value); layer.querySelector(`[data-value="${sel}"]`).textContent = e.target.selectedOptions[0]?.textContent || '' } };
+  const layer = settingsPanel('audio', 'Audio settings', `<div class="lab-v2-rows">${rows.join('')}</div>${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}`);
   if (state.preview) {
-    // Another main version: the preview opens again at this chapter, paragraph and word (the place kept first).
-    sync('editionSel', v => { close(); const at = previewSpot(); leavePlace(); stopNarration(); host?.menu?.setEdition(v, at) });
-    sync('compareSel', v => host?.menu?.setCompareEdition(v));
-    sync('voiceSel', v => host?.listen?.setVoice?.(v));
-    sync('rateSel', v => host?.listen?.setSpeed?.(Number(v)));
+    syncSelect(layer, 'voiceSel', v => host?.listen?.setVoice?.(v));
+    syncSelect(layer, 'rateSel', v => host?.listen?.setSpeed?.(Number(v)));
   } else {
-    sync('editionSel', v => { close(); if (v === 'text') readAsText(); else if (isPdfText()) pdfTextToPages() });
-    sync('rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
-    sync('voiceSel', v => { prefs.voice = v; savePrefs() });
+    syncSelect(layer, 'rateSel', v => { prefs.rate = Number(v); savePrefs(); renderTransport() });
+    syncSelect(layer, 'voiceSel', v => { prefs.voice = v; savePrefs() });
   }
   root.appendChild(layer);
   layer.querySelector('.lab-v2-dismiss').focus({ preventScroll: true });

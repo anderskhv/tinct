@@ -9,7 +9,7 @@ export interface LabSuperMenuProps {
   phone?: boolean
   /** A reader's own book: the rows that apply to it only. */
   privateBook?: boolean
-  /** A reader's own PDF: Book editions holds its Tinct text and its Original pages. */
+  /** A reader's own PDF: Book settings holds its Tinct text and its Original pages. */
   ownPdf?: boolean
   /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
   profileDot?: boolean
@@ -62,14 +62,21 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  // Text and theme: the letters the theme buttons show, set in the book's face.
-  if (id === 'text') return <span className="lab-super-row-aa">Aa</span>
-  if (id === 'settings' || id === 'reading') {
+  // Aa: a small and a large A (the row's own name is Aa).
+  if (id === 'text') {
     return (
-      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-        <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
-        <circle cx="13" cy="7" r="2" />
-        <circle cx="11" cy="17" r="2" />
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" data-icon="text-size">
+        <path d="M2.5 19 8 5l5.5 14M4.6 14h6.8" />
+        <path d="m14.5 19 3.5-9 3.5 9M15.7 16h4.6" />
+      </svg>
+    )
+  }
+  // Audio settings: a speaker.
+  if (id === 'audio') {
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" />
+        <path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.6a7.6 7.6 0 0 1 0 10.8" />
       </svg>
     )
   }

@@ -5826,6 +5826,122 @@ async function cardsRound2(browser, origin) {
 }
 function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Number) || [0, 0, 0]; return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2] }
 
+/* settings (Anders, 22 Oct 2026): "Aa (desktop its own button, mobile part of t), Book settings, Audio settings. And do that
+   consistently." The three groups, named as the book reader names them (src/lab/labSuperMenu.ts): on the desktop Aa is the
+   top bar's button and Book settings and Audio settings are t menu rows; on the phone all three are t menu rows. Every
+   panel opens in place (the desktop: hung from its button or the t button, never at the screen's foot; the phone: its
+   sheet), holds its group's controls and no other's, and opening or closing it never moves the reading place. A group
+   with nothing to offer is not shown (an EPUB has no read aloud; a phone's EPUB no layout). Screenshots to OUT. */
+const SETTINGS_SECTIONS = {
+  aa: { title: 'Aa', panel: '.byob-aa-panel' },
+  book: { title: 'Book settings', panel: '.byob-book-settings' },
+  audio: { title: 'Audio settings', panel: '.byob-audio-settings' },
+}
+async function settingsCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  const rowsOf = page => page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
+  // The place as the reader keeps it, and the scroller's offset: neither may move while a menu or panel opens or closes.
+  const where = page => page.evaluate(() => { const p = currentPlace(); return { page: p.page, frac: Math.round(p.frac * 1e4) / 1e4, top: Math.round($('scroll').scrollTop), left: Math.round($('scroll').scrollLeft) } })
+  const panelState = (page, sel) => page.evaluate(sel => {
+    const layer = document.querySelector(sel), s = layer?.querySelector('.lab-v2-sheet')
+    if (!s) return null
+    const r = s.getBoundingClientRect(), hdr = $('hdr').getBoundingClientRect(), t = $('superBtn').getBoundingClientRect(), aa = $('aaBtn').getBoundingClientRect()
+    return {
+      title: s.querySelector('.lab-v2-title')?.textContent, label: s.getAttribute('aria-label'), top: Math.round(r.top), bottom: Math.round(r.bottom), right: Math.round(r.right), left: Math.round(r.left),
+      hdr: Math.round(hdr.bottom), tRight: Math.round(t.right), aaRight: Math.round(aa.right), vh: innerHeight, vw: innerWidth,
+      layout: [...s.querySelectorAll('[data-layout]')].map(b => b.dataset.layout),
+      rows: [...s.querySelectorAll('.lab-v2-row:not([hidden]) .lab-v2-row-label, .byob-zoom-label')].map(l => l.textContent),
+      themes: !!s.querySelector('.lab-v2-themes'), size: !!s.querySelector('[data-testid="lab-v2-size"], .byob-zoom, .byob-type'),
+    }
+  }, sel)
+  const openFromMenu = async (page, id) => { await page.click('#superBtn'); await page.waitForSelector('.lab-super-panel'); await page.click(`.lab-super-row[data-row="${id}"]`); await page.waitForSelector(SETTINGS_SECTIONS[id].panel + ' .lab-v2-sheet', { timeout: 5000 }); await page.waitForTimeout(250) }
+  // Each group's own controls, and none of another's.
+  const holdsItsOwn = (id, p) => id === 'aa' ? p.themes && p.size && !p.layout.length && !p.rows.some(l => /Voice|Speed|Convert/.test(l))
+    : id === 'book' ? !p.themes && !p.size && p.layout.length > 0 && !p.rows.some(l => /Voice|Speed/.test(l))
+    : !p.themes && !p.size && !p.layout.length && p.rows.includes('Voice') && p.rows.includes('Speed')
+  const hex = addBook(PDFS[0])
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const phone = width < 700, tag = `settings-pdf-${width}x${height}`
+    const R = await readerPage(browser, origin, hex, { width, height, look: 'paper', startPage: 3 })
+    const a = R.page
+    await prefetchSettled(a)
+    await a.waitForTimeout(500)
+    const before = await where(a)
+    // The t menu.
+    await a.click('#superBtn'); await a.waitForSelector('.lab-super-panel')
+    const rows = await rowsOf(a)
+    await shot(a, `${tag}-t-menu`)
+    const want = phone ? ['aa:Aa›', 'book:Book settings›', 'audio:Audio settings›'] : ['book:Book settings›', 'audio:Audio settings›']
+    const groups = rows.filter(r => /^(aa|book|audio|settings):/.test(r))
+    ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')}, in that order, after Chat · Talk, Summarize and Catch me up`, JSON.stringify(groups) === JSON.stringify(want) && rows.indexOf(groups[0]) === rows.findIndex(r => r.startsWith('summarize:')) + 1 + (rows.some(r => r.startsWith('catchup:')) ? 1 : 0), rows)
+    ok(`${tag}: no Reading settings, Text and theme or Book editions anywhere in the t menu`, !rows.some(r => /Reading settings|Text and theme|Book editions/.test(r)), rows)
+    ok(`${tag}: the first settings row opens the group with a rule`, await a.evaluate(id => document.querySelector(`.lab-super-row[data-row="${id}"]`)?.classList.contains('has-rule'), phone ? 'aa' : 'book'))
+    await a.keyboard.press('Escape'); await a.click('#superBtn').catch(() => {}); await a.evaluate(() => closeMenu()); await a.waitForTimeout(200)
+    const aaShown = await a.evaluate(() => getComputedStyle($('aaBtn')).display !== 'none' && $('aaBtn').getBoundingClientRect().width > 0)
+    ok(`${tag}: the top bar's Aa is ${phone ? 'not there (Aa is a t menu row)' : 'its own button'}`, aaShown === !phone, { aaShown })
+    for (const id of ['aa', 'book', 'audio']) {
+      if (id === 'aa' && !phone) { await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel .lab-v2-sheet'); await a.waitForTimeout(250) }
+      else await openFromMenu(a, id)
+      const p = await panelState(a, SETTINGS_SECTIONS[id].panel)
+      await shot(a, `${tag}-${id}`)
+      ok(`${tag}: ${SETTINGS_SECTIONS[id].title} opens, named "${SETTINGS_SECTIONS[id].title}"`, p && p.title === SETTINGS_SECTIONS[id].title && p.label === SETTINGS_SECTIONS[id].title, p)
+      ok(`${tag}: ${SETTINGS_SECTIONS[id].title} holds its own controls and no other group's`, p && holdsItsOwn(id, p), p)
+      if (!phone) ok(`${tag}: ${SETTINGS_SECTIONS[id].title} hangs just under ${id === 'aa' ? 'Aa' : 'the t button'}, its right edge under the button's, never at the screen's foot`,
+        p && p.top >= p.hdr - 1 && p.top <= p.hdr + 24 && Math.abs(p.right - ((id === 'aa' ? p.aaRight : p.tRight) + 8)) <= 2 && p.bottom < p.vh - 40, p)
+      else ok(`${tag}: ${SETTINGS_SECTIONS[id].title} is the phone's sheet, whole on screen`, p && p.left >= -0.5 && p.right <= p.vw + 0.5 && p.bottom <= p.vh + 0.5 && p.top >= 0, p)
+      const open = await where(a)
+      // Closed with Escape: focus goes back to the button it came from (the phone's Aa: the t button).
+      await a.keyboard.press('Escape'); await a.waitForTimeout(250)
+      const closed = await a.evaluate(sel => ({ gone: !document.querySelector(sel), focus: document.activeElement?.id }), SETTINGS_SECTIONS[id].panel)
+      ok(`${tag}: Escape closes ${SETTINGS_SECTIONS[id].title}; focus returns to ${id === 'aa' && !phone ? 'Aa' : 't'}`, closed.gone && closed.focus === (id === 'aa' && !phone ? 'aaBtn' : 'superBtn'), closed)
+      const after = await where(a)
+      ok(`${tag}: opening and closing ${SETTINGS_SECTIONS[id].title} never moves the reading place`, JSON.stringify(open) === JSON.stringify(before) && JSON.stringify(after) === JSON.stringify(before), { before, open, after })
+    }
+    // A tap on the page behind closes a panel too, the place kept.
+    await openFromMenu(a, 'book')
+    await a.click('.byob-book-settings .lab-super-scrim', { position: { x: 20, y: phone ? 120 : height - 20 } }); await a.waitForTimeout(250)
+    ok(`${tag}: a tap beside Book settings closes it, the place kept`, !(await a.$('.byob-book-settings')) && JSON.stringify(await where(a)) === JSON.stringify(before), await where(a))
+    // Book settings' Layout still works: Focus view and back, the place kept (the Aa panel's Layout of 15 Oct, moved here).
+    if (!phone) {
+      await openFromMenu(a, 'book'); await a.click('.byob-book-settings [data-layout="focus"]'); await a.waitForTimeout(600)
+      const focus = await a.evaluate(() => ({ layout: root.dataset.readerLayout, open: !!document.querySelector('.byob-book-settings'), on: document.querySelector('.byob-book-settings [data-layout][aria-pressed="true"]')?.dataset.layout }))
+      await a.click('.byob-book-settings [data-layout="margin"]'); await a.waitForTimeout(600)
+      const back = await a.evaluate(() => root.dataset.readerLayout)
+      await a.keyboard.press('Escape'); await a.waitForTimeout(250)
+      const kept = await where(a)
+      ok(`${tag}: Book settings' Focus view and Margin view switch the layout in place, the panel open, the page kept`, focus.layout === 'focus' && focus.open && focus.on === 'focus' && back === 'margin' && kept.page === before.page && Math.abs(kept.frac - before.frac) < 0.02, { focus, back, before, kept })
+    }
+    ok(`${tag}: no page errors`, !R.problems.length, R.problems)
+    await R.ctx.close()
+  }
+  // A reader's own EPUB: no read aloud, so no Audio settings; on the desktop Book settings holds Margin view and Convert to
+  // Tinct book; a phone has nothing of a layout to offer, so no Book settings either (empty groups hidden).
+  const ehex = addEpub()
+  for (const [width, height] of [[1440, 900], [390, 844]]) {
+    const phone = width < 700, tag = `settings-epub-${width}x${height}`
+    const E = await epubPage(browser, origin, ehex, { width, height })
+    const e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await e.waitForTimeout(1200)
+    await epubSettled(e)
+    await e.click('#superBtn'); await e.waitForSelector('.lab-super-panel')
+    const groups = (await rowsOf(e)).filter(r => /^(aa|book|audio|settings):/.test(r))
+    const want = phone ? ['aa:Aa›'] : ['book:Book settings›']
+    ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')} (no Audio settings: an EPUB has no read aloud here${phone ? '; no layout to choose on a phone' : ''})`, JSON.stringify(groups) === JSON.stringify(want), groups)
+    if (!phone) {
+      const before = await e.evaluate(spotNow)
+      await e.click('.lab-super-row[data-row="book"]'); await e.waitForSelector('.byob-book-settings .lab-v2-sheet'); await e.waitForTimeout(250)
+      const p = await panelState(e, '.byob-book-settings')
+      ok(`${tag}: Book settings holds Margin view and Convert to Tinct book`, JSON.stringify(p?.layout) === '["margin","text"]', p)
+      await e.keyboard.press('Escape'); await e.waitForTimeout(250)
+      const after = await e.evaluate(spotNow)
+      ok(`${tag}: opening and closing Book settings keeps the paragraph and word at the top`, after.page === before.page && after.para === before.para && after.word === before.word, { before, after })
+    }
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
+  return results
+}
+
 const RUNS = {
   fixture: [fixtureRows, rows => rows.some(r => r.problems)],
   reader: [readerMatrix, rows => rows.some(r => r.problems)],
@@ -5873,6 +5989,7 @@ const RUNS = {
   'cards-round2': [cardsRound2, rows => rows.some(r => !r.pass)],
   'table-crop': [tableCrop, rows => rows.some(r => !r.pass)],
   notebook: [notebookCheck, rows => rows.some(r => !r.pass)],
+  settings: [settingsCheck, rows => rows.some(r => !r.pass)],
   'epub-view': [epubViewCheck, rows => rows.some(r => !r.pass)],
   // 20 Oct 2026 (Anders, "Bold Conjectures, Volume II"): an essay collection of the reader's own on the desktop.
   'epub-open': [epubOpenCheck, rows => rows.some(r => !r.pass)],
@@ -5938,7 +6055,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -260,20 +260,23 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat · Talk, Summarize, Text and theme, Reading settings, Library and Profile — and no Play row', () => {
+  it('lists Chat · Talk, Summarize, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
     // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Text and theme', 'Reading settings', 'Library', 'Profile'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
     expect([...pair.querySelectorAll('button')].map(button => button.getAttribute('data-testid'))).toEqual(['lab-super-row-chat', 'lab-super-row-talk'])
     expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
-    // Text and theme wears the theme buttons' Aa.
-    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon')?.textContent).toBe('Aa')
+    // Aa wears a small and a large A, so the row reads "Aa" once.
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-text').textContent).toBe('Aa')
+    // Audio settings wears a speaker, not Talk's bars.
+    expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
     // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
     const talkGlyph = screen.getByTestId('lab-super-row-talk').querySelector('svg')!
     expect(talkGlyph.querySelectorAll('rect')).toHaveLength(3)
@@ -285,14 +288,14 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['conversation', 'summarize', 'catchup', 'text', 'reading', 'library', 'account'])
+      .toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('keeps Compare out of the menu once a second version is picked; the switch is in Reading settings', () => {
+  it('keeps Compare out of the menu once a second version is picked; the switch is in Book settings', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
@@ -306,36 +309,63 @@ describe('the super-menu', () => {
     />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-super-row-reading'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
   })
 
-  it('opens Text and theme (themes, size, Advanced) and Reading settings (editions, voice, speed) from their rows', () => {
+  it('opens Aa (themes, size, Advanced), Book settings (editions) and Audio settings (voice, speed) from their rows', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
     const sheet = screen.getByTestId('lab-v2-sheet')
     expect(sheet.getAttribute('data-layer')).toBe('reading')
-    expect(sheet.getAttribute('aria-label')).toBe('Text and theme')
+    expect(sheet.getAttribute('aria-label')).toBe('Aa')
     expect(screen.getByTestId('lab-v2-themes')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-size')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-advanced')).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
-    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Text and theme')
+    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Aa')
     fireEvent.click(screen.getByTestId('lab-v2-sheet-confirm'))
 
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-reading'))
-    const reading = screen.getByTestId('lab-v2-sheet')
-    expect(reading.getAttribute('data-layer')).toBe('editions')
-    expect(reading.getAttribute('aria-label')).toBe('Reading settings')
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    const book = screen.getByTestId('lab-v2-sheet')
+    expect(book.getAttribute('data-layer')).toBe('editions')
+    expect(book.getAttribute('aria-label')).toBe('Book settings')
     expect(screen.getByTestId('lab-v2-main-edition')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-compare-edition')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-audio'))
+    const audio = screen.getByTestId('lab-v2-sheet')
+    expect(audio.getAttribute('data-layer')).toBe('audio')
+    expect(audio.getAttribute('aria-label')).toBe('Audio settings')
+    expect(screen.getByTestId('lab-v2-audio-edition')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-narration-voice')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+  })
+
+  it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const open = (row: string) => {
+      fireEvent.click(screen.getByTestId('lab-super'))
+      fireEvent.click(screen.getByTestId(`lab-super-row-${row}`))
+      const sheet = screen.getByTestId('lab-v2-sheet')
+      return { layer: sheet.getAttribute('data-layer'), label: sheet.getAttribute('aria-label'), themes: !!screen.queryByTestId('lab-v2-themes'), main: !!screen.queryByTestId('lab-v2-main-edition'), voice: !!screen.queryByTestId('lab-v2-narration-voice') }
+    }
+    expect(open('text')).toEqual({ layer: 'reading', label: 'Aa', themes: true, main: false, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('editions')).toEqual({ layer: 'editions', label: 'Book settings', themes: false, main: true, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('audio')).toEqual({ layer: 'audio', label: 'Audio settings', themes: false, main: false, voice: true })
   })
 
   it('has no Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
@@ -347,7 +377,7 @@ describe('the super-menu', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Profile'])
+      .toEqual(['Librarian', 'Summarize', 'Catch me up', 'Aa', 'Book settings', 'Audio settings', 'Profile'])
   })
 
   it('puts Catch me up right under Summarize, with its timeline icon', () => {
@@ -473,7 +503,7 @@ describe('the desktop', () => {
 
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
@@ -683,7 +713,7 @@ describe('the Margins preference on the desktop leaves', () => {
 
   function openAdvanced() {
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
   }
 

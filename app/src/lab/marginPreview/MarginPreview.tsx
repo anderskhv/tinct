@@ -45,7 +45,7 @@ declare global {
       sync?: MarginPreviewSyncBridge | null
       /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
       listen?: MarginListenApi
-      /** The t menu's Profile and Reading settings (marginPreviewMenu.ts). */
+      /** The t menu's Profile and Book settings (marginPreviewMenu.ts). */
       menu?: MarginPreviewMenuApi
     }
   }

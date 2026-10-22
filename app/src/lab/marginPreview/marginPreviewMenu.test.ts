@@ -9,7 +9,7 @@ import type { MarginPreviewBook } from './marginPreviewModel'
 const book = getBook('frankenstein')!
 const main = book.editions[0].key
 
-describe('the margin preview t menu: Reading settings', () => {
+describe('the margin preview t menu: Book settings', () => {
   it('offers the book’s editions as Main version and the others (or None) as Compare version', () => {
     const c = marginReadingChoices(book, main, { compareOpen: false, compareEdition: '' })
     expect(c.edition).toBe(main)

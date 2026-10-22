@@ -5099,9 +5099,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (id === 'talk') handleTalk()
       else if (id === 'catchup') { if (signedIn) setSuperSheet('catchup'); else setAccountPrompt({ action: 'chat' }) }
       else if (id === 'summarize') openChapterNotes('end')
-      else if (id === 'settings' || id === 'text') setSuperSheet('reading')
-      // The phone's Reading settings: a PDF's editions with the voice and speed; an EPUB's voice and speed.
-      else if (id === 'reading') setSuperSheet('editions')
+      // Aa and Audio settings as for any book; Book settings only for a PDF (its Tinct text and Original pages).
+      else if (id === 'text') setSuperSheet('reading')
+      else if (id === 'audio') setSuperSheet('audio')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'editions' && ownEditions) setSuperSheet('editions')
       // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
@@ -5113,10 +5113,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // so far is Catch me up's job.
     if (id === 'summarize') { openChapterNotes('end'); return }
     if (id === 'catchup') { setSuperSheet('catchup'); return }
-    // The phone's Reading settings is the editions layer with the voice and speed (LabV2Sheet grouped); its Text
-    // and theme is the settings layer without them.
-    if (id === 'editions' || id === 'reading') { setSuperSheet('editions'); return }
-    if (id === 'settings' || id === 'text') { setSuperSheet('reading'); return }
+    // The settings groups (22 Oct 2026), the same on the phone and the desktop: Aa, Book settings, Audio settings.
+    if (id === 'text') { setSuperSheet('reading'); return }
+    if (id === 'editions') { setSuperSheet('editions'); return }
+    if (id === 'audio') { setSuperSheet('audio'); return }
     if (id === 'account') { setSuperSheet('account'); return }
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
@@ -5432,13 +5432,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'next-chapter', label: 'Next chapter', key: ']', enabled: () => canTurnCommand() && nextLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=nextLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
       { id: 'previous-chapter', label: 'Previous chapter', key: '[', enabled: () => canTurnCommand() && prevLabChapter(book.chapters, book.chapterNumber) != null, run: () => { const n=prevLabChapter(book.chapters,book.chapterNumber); if(n!=null)void (listen.playing?browseToChapter(n,'start'):goToChapter(n,'start')) } },
       { id: 'contents', label: 'Contents, highlights and notes', key: 'i', enabled: canReadCommand, run: () => { setReaderControlsVisible(true); setTocOpen(true) } },
-      { id: 'editions', label: 'Book editions', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
+      { id: 'editions', label: 'Book settings', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
       { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
-      { id: 'settings', label: 'Reading settings', key: 's', run: () => handleSuperMenuSelect('settings') },
+      { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
+      { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
@@ -5812,7 +5813,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           phoneShakespeare={phoneShakespeare}
           onPrefs={sheetPrefs}
           ownPdf={ownEditions}
-          grouped={showPhoneChrome}
           editionRows={!privateBook || ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
