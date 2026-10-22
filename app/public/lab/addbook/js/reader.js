@@ -2374,7 +2374,7 @@ const bookSettingsApply = () => !!state.preview || layoutOptions().length > 0 ||
 /** Audio settings has something to offer: read aloud's voice and speed (a reader's own PDF or EPUB), or a Tinct book's
     narration (the preview's). */
 function audioSettingsApply() {
-  if (!state.preview) return true;
+  if (!state.preview) return !!synth();
   const listen = previewHost()?.listen, snap = listen?.snapshot?.();
   return !!(listen?.voices && snap && snap.available !== false);
 }
@@ -7592,15 +7592,17 @@ function openChat(opts = {}) {
 }
 function closeChat() {
   if (marginOn()) { if (col.open === 'whole') { if (col.sheet) closeSheet2(); else openCard(null) } return }
-  chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+  chat.ctl?.abort(); chat.live = null; synth()?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
 function setTalk(on) {
   chat.talk = on;
   if (!chat.el) return;
   chat.el.classList.toggle('byob-talk-on', on);
   const note = chat.el.querySelector('#chatNotice');
   note.hidden = !on;
-  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak; answers are read aloud.' : 'Talk: answers are read aloud. Speak with your system’s dictation, or type.') : '';
-  if (!on) speechSynthesis?.cancel?.();
+  // (Answers are read aloud only with a voice: synth(); without one Talk is Chat with the microphone.)
+  const aloud = !!synth();
+  note.textContent = on ? (isPhone() ? `Talk: use your keyboard’s microphone to speak${aloud ? '; answers are read aloud' : ''}.` : `Talk: ${aloud ? 'answers are read aloud. ' : ''}Speak with your system’s dictation, or type.`) : '';
+  if (!on) synth()?.cancel?.();
 }
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {
@@ -7745,13 +7747,13 @@ async function ask(question, display) {
   }
 }
 function speak(text) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
+  const speech = synth(); if (!speech) return;
+  speech.cancel();
   for (const part of text.replace(/[*_#`]/g, '').split(/(?<=[.!?])\s+/)) {
     if (!part.trim()) continue;
     const u = new SpeechSynthesisUtterance(part);
     u.rate = prefs.rate; const v = pickVoice(); if (v) u.voice = v;
-    speechSynthesis.speak(u);
+    speech.speak(u);
   }
 }
 
@@ -7845,6 +7847,11 @@ async function catchUp() {
 }
 
 /* ---------- Read aloud: streamed by the device, nothing stored ---------- */
+// The browser's own voice is off (Anders, 22 Oct 2026: "I don't want to lose people trying voice in their own book and
+// being unimpressed"): an own book's Play, its dock and Audio settings are hidden, and Talk answers in text only, until
+// Tinct's narration and Talk reach own books. A Tinct book's Play is its own narration (js/tinct-listen.js), unchanged.
+// Every use of speechSynthesis goes through synth(), which is null while this is off.
+function synth() { const BROWSER_VOICE = false; return BROWSER_VOICE && 'speechSynthesis' in window ? window.speechSynthesis : null }
 const narr = { active: false, page: 1, sentences: [], index: 0, spans: [], word: null, gen: 0 };
 // Read aloud for an own EPUB (and a PDF's Tinct text) on the desktop; a Tinct book's preview has its own narration.
 const ownReadAloud = () => !state.preview && !isPhone();
@@ -7852,11 +7859,11 @@ const ownReadAloud = () => !state.preview && !isPhone();
 // An EPUB names its language with a region ("en-GB"); a voice is matched by the language alone.
 const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === String(lang || '').toLowerCase().split(/[-_]/)[0];
 function bookVoices() {
-  const vs = speechSynthesis?.getVoices?.() || [], fits = vs.filter(speaks(bookLang()));
+  const vs = synth()?.getVoices?.() || [], fits = vs.filter(speaks(bookLang()));
   return fits.length ? fits : vs.filter(speaks('en'));
 }
 function pickVoice() {
-  const vs = speechSynthesis.getVoices(), fits = speaks(bookLang());
+  const vs = synth()?.getVoices?.() || [], fits = speaks(bookLang());
   const chosen = vs.find(v => v.name === prefs.voice);
   return (chosen && fits(chosen) ? chosen : null) || vs.find(v => fits(v) && v.default) || vs.find(fits) || chosen || null;
 }
@@ -8006,7 +8013,7 @@ function paintNarration(charIndex) {
   }
 }
 async function startNarration() {
-  if (!('speechSynthesis' in window)) { toast('Read-aloud is not available in this browser.'); return }
+  if (!synth()) return;
   const gen = ++narr.gen;
   narr.active = true; narr.paused = false; setPlay(true); renderTransport();
   // A PDF starts at the top of the page in view; an EPUB's chapter is long, so it starts at the sentence at the view's top.
@@ -8028,7 +8035,7 @@ async function startNarration() {
       const offsetInText = narr.prep.text.slice(s.from, s.to).indexOf(s.text[0]);
       u.onboundary = e => { if (gen === narr.gen) paintNarration(e.charIndex + Math.max(0, offsetInText)) };
       u.onend = () => resolve(true); u.onerror = () => resolve(false);
-      speechSynthesis.speak(u);
+      synth().speak(u);
     });
     if (!ok || gen !== narr.gen || !narr.active) return;
     narr.index++;
@@ -8036,9 +8043,10 @@ async function startNarration() {
   }
   if (gen === narr.gen) { narr.active = false; setPlay(false); renderTransport() }
 }
-function pauseNarration() { narr.active = false; narr.paused = true; narr.gen++; try { speechSynthesis.cancel() } catch {}; setPlay(false); renderTransport() }
-function stopNarration() { narr.active = false; narr.paused = false; narr.prep = null; narr.gen++; try { speechSynthesis.cancel() } catch {}; setPlay(false); clearPaint(); renderTransport() }
+function pauseNarration() { narr.active = false; narr.paused = true; narr.gen++; try { synth()?.cancel() } catch {}; setPlay(false); renderTransport() }
+function stopNarration() { narr.active = false; narr.paused = false; narr.prep = null; narr.gen++; try { synth()?.cancel() } catch {}; setPlay(false); clearPaint(); renderTransport() }
 function togglePlay() {
+  if (!synth()) return;
   if (!hasBook()) { toast('Open a book first.'); return }
   // A Tinct book in the margin preview is heard with its own narration (tinct-listen.js), an EPUB on a phone not yet.
   if (isEpub() && !ownReadAloud()) { toast('Read aloud works in PDFs for now.'); return }
@@ -8051,7 +8059,7 @@ function togglePlay() {
 }
 async function jumpNarration(page, index) {
   const wasPlaying = narr.active || narr.paused;
-  narr.gen++; try { speechSynthesis.cancel() } catch {}
+  narr.gen++; try { synth()?.cancel() } catch {}
   narr.page = page; narr.prep = await preparePage(page); narr.index = Math.max(0, Math.min(index, narr.prep.sentences.length - 1)); narr.fromView = false;
   // An EPUB's chapter is not turned to its top: the sentence is brought into view (when it is out of it).
   if (narr.prep.epub) followNarration(); else goTo({ page, frac: 0 }, true);
@@ -8611,7 +8619,7 @@ applyLayout();
 document.fonts?.ready.then(applyLayout);
 applyTheme(); state.trim = !!prefs.trim;
 pdfWorker();
-if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
+if (synth()) synth().onvoiceschanged = () => {};
 if (window.TinctAI) TinctAI.onSignedOut = () => toast('Your Tinct sign-in has expired, so this answer used the guest allowance. Sign in again to use your own.');
 document.body.dataset.view = 'start';
 // A book's own address opens straight into the reader (start.js boot opens the book).

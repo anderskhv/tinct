@@ -2941,8 +2941,9 @@ async function phoneUi(browser, origin) {
     // bar's button here), this reader's own rows, Library, Profile.
     await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
     const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
-    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'book:Book settings›', 'audio:Audio settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
-    ok('the t menu is Chat · Talk, Summarize, Book settings, Audio settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
+    // (No Audio settings: an own book has no read aloud while the browser's voice is off, reader.js synth().)
+    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'book:Book settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
+    ok('the t menu is Chat · Talk, Summarize, Book settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
     const sel = await D.page.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect)
     ok('the top bar\'s Aa is never selected as text', sel === 'none', sel)
     await D.page.click('.lab-super-row-half[data-row="chat"]'); await D.page.waitForTimeout(500)
@@ -5958,7 +5959,9 @@ async function settingsCheck(browser, origin) {
     await a.click('#superBtn'); await a.waitForSelector('.lab-super-panel')
     const rows = await rowsOf(a)
     await shot(a, `${tag}-t-menu`)
-    const want = phone ? ['aa:Aa›', 'book:Book settings›', 'audio:Audio settings›'] : ['book:Book settings›', 'audio:Audio settings›']
+    // An own book has no Audio settings while the browser's voice is off (reader.js synth(), Anders 22 Oct 2026: no read
+    // aloud for own books until Tinct's narration reaches them).
+    const want = phone ? ['aa:Aa›', 'book:Book settings›'] : ['book:Book settings›']
     const groups = rows.filter(r => /^(aa|book|audio|settings):/.test(r))
     ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')}, in that order, after Chat · Talk, Summarize and Catch me up`, JSON.stringify(groups) === JSON.stringify(want) && rows.indexOf(groups[0]) === rows.findIndex(r => r.startsWith('summarize:')) + 1 + (rows.some(r => r.startsWith('catchup:')) ? 1 : 0), rows)
     ok(`${tag}: no Reading settings, Text and theme or Book editions anywhere in the t menu`, !rows.some(r => /Reading settings|Text and theme|Book editions/.test(r)), rows)
@@ -5966,7 +5969,7 @@ async function settingsCheck(browser, origin) {
     await a.keyboard.press('Escape'); await a.click('#superBtn').catch(() => {}); await a.evaluate(() => closeMenu()); await a.waitForTimeout(200)
     const aaShown = await a.evaluate(() => getComputedStyle($('aaBtn')).display !== 'none' && $('aaBtn').getBoundingClientRect().width > 0)
     ok(`${tag}: the top bar's Aa is ${phone ? 'not there (Aa is a t menu row)' : 'its own button'}`, aaShown === !phone, { aaShown })
-    for (const id of ['aa', 'book', 'audio']) {
+    for (const id of ['aa', 'book']) {
       if (id === 'aa' && !phone) { await openAa(a); await a.waitForSelector('.byob-aa-panel .lab-v2-sheet'); await a.waitForTimeout(250) }
       else await openFromMenu(a, id)
       const p = await panelState(a, SETTINGS_SECTIONS[id].panel)
@@ -6001,8 +6004,8 @@ async function settingsCheck(browser, origin) {
     ok(`${tag}: no page errors`, !R.problems.length, R.problems)
     await R.ctx.close()
   }
-  // A reader's own EPUB on the desktop: Book settings holds Margin view and Convert to Tinct book; Audio settings its read
-  // aloud's Voice and Speed (#591, 22 Oct 2026). (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
+  // A reader's own EPUB on the desktop: Book settings holds Margin view and Convert to Tinct book; no Audio settings while
+  // the browser's voice is off (reader.js synth(), 22 Oct 2026). (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
   const ehex = addEpub()
   for (const [width, height] of [[1440, 900]]) {
     const phone = width < 700, tag = `settings-epub-${width}x${height}`
@@ -6012,8 +6015,8 @@ async function settingsCheck(browser, origin) {
     await epubSettled(e)
     await e.click('#superBtn'); await e.waitForSelector('.lab-super-panel')
     const groups = (await rowsOf(e)).filter(r => /^(aa|book|audio|settings):/.test(r))
-    const want = ['book:Book settings›', 'audio:Audio settings›']
-    ok(`${tag}: the t menu's settings are Book settings and Audio settings`, JSON.stringify(groups) === JSON.stringify(want), groups)
+    const want = ['book:Book settings›']
+    ok(`${tag}: the t menu's settings are Book settings (no Audio settings without a voice)`, JSON.stringify(groups) === JSON.stringify(want), groups)
     if (!phone) {
       const before = await e.evaluate(spotNow)
       await e.click('.lab-super-row[data-row="book"]'); await e.waitForSelector('.byob-book-settings .lab-v2-sheet'); await e.waitForTimeout(250)
@@ -6022,12 +6025,6 @@ async function settingsCheck(browser, origin) {
       await e.keyboard.press('Escape'); await e.waitForTimeout(250)
       const after = await e.evaluate(spotNow)
       ok(`${tag}: opening and closing Book settings keeps the paragraph and word at the top`, after.page === before.page && after.para === before.para && after.word === before.word, { before, after })
-      await e.click('#superBtn'); await e.click('.lab-super-row[data-row="audio"]'); await e.waitForSelector('.byob-audio-settings .lab-v2-sheet'); await e.waitForTimeout(250)
-      const a = await panelState(e, '.byob-audio-settings')
-      ok(`${tag}: Audio settings holds Voice and Speed`, !!a && a.rows.includes('Voice') && a.rows.includes('Speed'), a)
-      await e.keyboard.press('Escape'); await e.waitForTimeout(250)
-      const after2 = await e.evaluate(spotNow)
-      ok(`${tag}: opening and closing Audio settings keeps the paragraph and word at the top`, after2.page === before.page && after2.para === before.para && after2.word === before.word, { before, after2 })
     }
     ok(`${tag}: no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()
