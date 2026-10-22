@@ -20,6 +20,20 @@ import type { PdfLayoutDefault } from './pdfEditions'
  * carry `?v=__TINCT_BUILD__`, stamped at build (scripts/stamp-lab-entry-tags.cjs).
  */
 export const ADDBOOK_SCRIPT_TAG = typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
+
+/**
+ * The tag Add a book's own pages load these scripts with: the build stamp (scripts/stamp-lab-entry-tags.cjs
+ * replaces `__TINCT_BUILD__` with the hash of the `/assets/index-<hash>.js` app.html loads). Read from this page's
+ * own bundle script, so the reader and the viewer ask for the same URL and a file is fetched once, kept once in the
+ * Worker's day cache (D's trace, 22 Oct 2026: pdf-scan, pdf-text… were downloaded twice on a hop between them).
+ * Without that script (tests, dev): the build version.
+ */
+export function addbookScriptTag(doc: Pick<Document, 'querySelector'> | null = typeof document === 'undefined' ? null : document): string {
+  try {
+    const src = doc?.querySelector('script[src*="/assets/index-"]')?.getAttribute('src') || ''
+    return /\/assets\/index-([A-Za-z0-9_-]+)\.js/.exec(src)?.[1] || ADDBOOK_SCRIPT_TAG
+  } catch { return ADDBOOK_SCRIPT_TAG }
+}
 const BASE = '/lab/addbook/'
 
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }
@@ -53,6 +67,9 @@ interface Engine {
   text: { convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf }) => Promise<UserBookEdition | null> }
   /** pdf-regions.js and margin.js (findFigures): where a page's formulas, figures and tables are. Absent: no crops. */
   regions?: RegionsApi
+  /** reading-order.js and reader-layout.js: the phone's open rule (phoneKindOf). Absent: the rule is left to the viewer. */
+  order?: ReadingOrderApi
+  layout?: ReaderLayoutApi
   margin?: { findFigures: (input: { ink: Uint8Array; W: number; H: number; spans: unknown[]; formulas: unknown[] }) => { figures: unknown[]; captions: unknown[] } }
 }
 interface RegionsApi {
@@ -73,7 +90,17 @@ interface FindInput {
   vp: { width: number; height: number }
 }
 
-type Global = typeof globalThis & { pdfjsLib?: Engine['pdfjs']; TinctPdfScan?: Engine['scan']; TinctPdfText?: Engine['text']; TinctPdfRegions?: RegionsApi; TinctMargin?: Engine['margin'] }
+/** reading-order.js: a page's text as the viewer reads it (reader.js textOf). */
+interface ReadingOrderApi { roles: (items: unknown[], view?: number[] | null) => unknown[]; pageText: (items: unknown[], roles: unknown[]) => string }
+/** reader-layout.js: the open rule's kind of document and the edition it opens in on a phone (the viewer's own rule). */
+export interface ReaderLayoutApi {
+  KINDS: readonly string[]
+  kindPages: (count: number) => number[]
+  docKind: (input: { scan: PdfScan | null; pages: Array<{ n: number; text: string }>; count: number; primerKind?: string | null }) => { kind: string; sure: boolean; by: string }
+  phoneEdition: (kind: string, layout?: PdfLayout | null) => 'text' | 'pages'
+}
+
+type Global = typeof globalThis & { pdfjsLib?: Engine['pdfjs']; TinctPdfScan?: Engine['scan']; TinctPdfText?: Engine['text']; TinctPdfRegions?: RegionsApi; TinctMargin?: Engine['margin']; TinctReadingOrder?: ReadingOrderApi; TinctReaderLayout?: ReaderLayoutApi }
 
 function script(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
@@ -90,15 +117,19 @@ let loading: Promise<Engine> | null = null
 export function loadPdfEngine(): Promise<Engine> {
   loading ??= (async () => {
     const g = globalThis as Global
+    const tag = addbookScriptTag()
     if (!g.pdfjsLib) await script(`${BASE}vendor/pdfjs/pdf.min.js`)
-    if (!g.TinctPdfScan) await script(`${BASE}js/pdf-scan.js?v=${ADDBOOK_SCRIPT_TAG}`)
-    if (!g.TinctPdfText) await script(`${BASE}js/pdf-text.js?v=${ADDBOOK_SCRIPT_TAG}`)
+    if (!g.TinctPdfScan) await script(`${BASE}js/pdf-scan.js?v=${tag}`)
+    if (!g.TinctPdfText) await script(`${BASE}js/pdf-text.js?v=${tag}`)
+    // The phone's open rule, the viewer's own (reader.js phoneKind): applied here, so a phone does not go to the viewer and back.
+    if (!g.TinctReadingOrder) await script(`${BASE}js/reading-order.js?v=${tag}`).catch(() => {})
+    if (!g.TinctReaderLayout) await script(`${BASE}js/reader-layout.js?v=${tag}`).catch(() => {})
     // The crops' rules, shared with the viewer (its figure chips, a formula selected whole). Without them the text converts as before.
-    if (!g.TinctPdfRegions) await script(`${BASE}js/pdf-regions.js?v=${ADDBOOK_SCRIPT_TAG}`).catch(() => {})
-    if (!g.TinctMargin) await script(`${BASE}js/margin.js?v=${ADDBOOK_SCRIPT_TAG}`).catch(() => {})
+    if (!g.TinctPdfRegions) await script(`${BASE}js/pdf-regions.js?v=${tag}`).catch(() => {})
+    if (!g.TinctMargin) await script(`${BASE}js/margin.js?v=${tag}`).catch(() => {})
     if (!g.pdfjsLib || !g.TinctPdfScan || !g.TinctPdfText) throw new Error('PDF engine unavailable')
     if (!g.pdfjsLib.GlobalWorkerOptions.workerSrc) g.pdfjsLib.GlobalWorkerOptions.workerSrc = `${BASE}vendor/pdfjs/pdf.worker.min.js`
-    return { pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText, regions: g.TinctPdfRegions, margin: g.TinctMargin }
+    return { pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText, regions: g.TinctPdfRegions, margin: g.TinctMargin, order: g.TinctReadingOrder, layout: g.TinctReaderLayout }
   })()
   loading.catch(() => { loading = null })
   return loading
@@ -117,13 +148,37 @@ export interface ConvertedPdf {
   /** The scan used: the stored one, or a new one (`fresh`), to keep with the book. */
   scan: PdfScan
   fresh: boolean
+  /**
+   * Asked for (`phoneKind`): the document's kind, told as the viewer tells it on a phone (reader.js phoneKind:
+   * TinctReaderLayout.docKind from the kind pages' text, or the kept primer's kind), and the edition the phone's
+   * rule opens it in (phoneEdition). Absent when the rule's scripts did not load or the PDF has no text.
+   */
+  phone?: { kind: string; by: string; edition: 'text' | 'pages' }
+}
+
+/** A PDF page's text as the viewer reads it (reader.js textOf: reading-order.js, else the items joined). */
+async function viewerPageText(pdf: PdfDocument, n: number, order: ReadingOrderApi | undefined): Promise<string> {
+  const page = await (pdf as PdfDocument & { getPage: (n: number) => Promise<{ view: number[]; getTextContent: () => Promise<{ items: Array<{ str: string; hasEOL?: boolean }> }> }> }).getPage(n)
+  const items = (await page.getTextContent()).items
+  if (order) return order.pageText(items, order.roles(items, page.view))
+  return items.map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ').trim()
+}
+
+/** The phone's open rule for this PDF (reader.js phoneKind), with the viewer's own rule (reader-layout.js). */
+export async function phoneKindOf(pdf: PdfDocument, engine: Pick<Engine, 'order' | 'layout'>, scan: PdfScan, primerKind: string | null = null): Promise<ConvertedPdf['phone'] | undefined> {
+  const rule = engine.layout
+  if (!rule || !(scan.textPages > 0)) return undefined
+  const pages: Array<{ n: number; text: string }> = []
+  if (!primerKind) for (const n of rule.kindPages(pdf.numPages)) { try { pages.push({ n, text: await viewerPageText(pdf, n, engine.order) }) } catch { /* skipped, as the viewer skips it */ } }
+  const found = rule.docKind({ scan, pages, count: pdf.numPages, primerKind })
+  return { kind: found.kind, by: found.by, edition: rule.phoneEdition(found.kind, scan.layout ?? null) }
 }
 
 /**
  * Convert a PDF's bytes to its Tinct text. `stored`: the scan kept with the
  * book, used when it is of the current version.
  */
-export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown; engine?: () => Promise<Engine>; crops?: CropOptions | false } = {}): Promise<ConvertedPdf> {
+export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown; engine?: () => Promise<Engine>; crops?: CropOptions | false; phoneKind?: { primer: (kinds: readonly string[]) => string | null } } = {}): Promise<ConvertedPdf> {
   const engine = await (options.engine ?? loadPdfEngine)()
   // pdf.js takes over (detaches) the buffer it is given: it reads a copy.
   const pdf = await engine.pdfjs.getDocument({ data: new Uint8Array(bytes.slice(0)), isEvalSupported: false, verbosity: 0 }).promise
@@ -140,7 +195,8 @@ export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: strin
     // Only the crops the text names are kept.
     const named = new Set((edition?.chapters ?? []).flatMap(chapter => (chapter.figures ?? []).map(figure => figure.id)))
     for (const id of [...images.keys()]) if (!named.has(id)) images.delete(id)
-    return { edition, scan, fresh: !kept, images }
+    const phone = options.phoneKind && edition ? await phoneKindOf(pdf, engine, scan, engine.layout ? options.phoneKind.primer(engine.layout.KINDS) : null).catch(() => undefined) : undefined
+    return { edition, scan, fresh: !kept, images, ...(phone ? { phone } : {}) }
   } finally {
     await pdf.destroy().catch(() => {})
   }
@@ -186,7 +242,7 @@ function cropper(engine: Engine, images: Map<string, UserBookImage>, options: Cr
   if (!options || !api || !margin || !util || typeof document === 'undefined') return null
   // Where the regions are: worked out off the main thread while the next page is drawn (js/pdf-regions-worker.js).
   const find = api.finder
-    ? api.finder(`${BASE}js/pdf-regions-worker.js?v=${ADDBOOK_SCRIPT_TAG}`, margin)
+    ? api.finder(`${BASE}js/pdf-regions-worker.js?v=${addbookScriptTag()}`, margin)
     : async (input: FindInput): Promise<PdfRegion[]> => {
       const blocks = api.displayFormulas(input.body, input.vp).blocks
       const found = margin.findFigures({ ink: input.ink, W: input.W, H: input.H, spans: input.spans, formulas: blocks })
