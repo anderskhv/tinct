@@ -265,91 +265,55 @@ export function drawSceneFilm(ctx,id,film,img,crop,w,h,alpha) {
   if(graded){ctx.globalAlpha=GRADE_ALPHA*a;ctx.fillStyle=GRADE;ctx.fillRect(0,0,w,h);}
   ctx.restore();
 }
-// Each moving part of a scene, in drawing order, with the box it can touch (source-image
-// coordinates). The library keeps the still room on its canvas and repaints only these boxes on
-// each frame (app.js drawScene), so a tap no longer waits behind a repaint of the whole room.
-const lifeLists=new Map();
-function lifeOf(id){
-  if(lifeLists.has(id))return lifeLists.get(id);
-  const spec=SCENES[id]?.phone,list=[];lifeLists.set(id,list);if(!spec)return list;
-  const add=(box,draw)=>list.push({box,draw});
-  const disc=(x,y,rx,ry)=>[x-rx,y-ry,x+rx,y+ry];
-  // A little breeze in the painted foliage, confined inside the glass panes.
-  // Reuse the painting itself; neither the mullions nor the bridge can move.
-  (spec.foliage||[]).forEach((polygon,i)=>add(bounds(polygon),(ctx,img,alpha,time)=>{
-    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.85;
-    const dx=Math.sin(time*.00065+i*1.7)*2.4,dy=Math.sin(time*.00041+i)*.65;
-    ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
-  }));
-  (spec.flames||[]).forEach(([x,y,h],i)=>{
-    const w=Math.ceil(h*1.8),height=Math.ceil(h*2.1),base=h*1.6,r=h*3.4;
-    add([Math.min(x-w/2,x-r),Math.min(y-base,y-h*.4-r),Math.max(x+w/2,x+r),Math.max(y-base+height,y-h*.4+r)],(ctx,img,alpha,time)=>flame(ctx,img,x,y,h,time,x*.01+i,alpha));
-  });
-  if(spec.hearth){const [x,y,w,h]=spec.hearth;add([x,y,x+w,y+h],(ctx,img,alpha,time)=>hearth(ctx,img,spec.hearth,time,alpha));}
-  if(spec.lamp){
-    const [x,y,rx,ry]=spec.lamp;
-    add(disc(x,y,rx,ry),(ctx,img,alpha,time)=>{
-      // A quiet change in the lamp's light; its shade and brass never wobble.
-      const light=heatNoise(17,time*.0012);
-      ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);
-      glow(ctx,0,0,rx,'255,193,111',(.018+.065*light)*alpha);ctx.restore();
-    });
-  }
-  if(spec.reflection){
-    const [x,y,rx,ry]=spec.reflection;
-    add(disc(x,y,rx,ry),(ctx,img,alpha,time)=>{
-      const f=spec.hearth ? .35+.65*heatNoise(3,time*.0011) : flicker(time,x*.01);
-      ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
-    });
-  }
-  (spec.lights||[]).forEach(([x,y],i)=>add(disc(x,y,4,4),(ctx,img,alpha,time)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha)));
-  const tileBox=polygon=>{const [x0,y0,x1,y1]=bounds(polygon);return [x0,y0,x0+Math.ceil(x1-x0),y0+Math.ceil(y1-y0)];};
-  if(spec.water)add(tileBox(spec.water),(ctx,img,alpha,time)=>movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha));
-  if(spec.clouds)add(tileBox(spec.clouds),(ctx,img,alpha,time)=>movingPaint(ctx,img,spec.clouds,time,alpha,true));
-  (spec.branches||[]).forEach(p=>add(tileBox(p),(ctx,img,alpha,time)=>movingPaint(ctx,img,p,time,alpha,false,true)));
-  // The particles are drawn under a clip of their panes: they never leave the panes' box.
-  if(spec.pollen)add(bounds(spec.pollen.flat()),(ctx,img,alpha,time)=>pollen(ctx,spec.pollen,id+false+'pollen',time,alpha,spec.pollenCount,spec.pollenSize));
-  if(spec.rainPanes)add(bounds(spec.rainPanes.flat()),(ctx,img,alpha,time)=>rain(ctx,spec.rainPanes,id+false+'rain',time,alpha));
-  if(spec.snow||spec.snowPanes){
-    const panes=spec.snowPanes||[spec.snow];
-    const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
-    add([x0,y0,x1,y1],(ctx,img,alpha,time)=>{
-      ctx.save();ctx.beginPath();panes.forEach(p=>{p.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();});ctx.clip();
-      field(id+false+'snow',65).forEach(p=>{
-        const speed=.012+p.s*.021;
-        const y=y0+((p.y*h+time*speed)%h),x=x0+((p.x*w+time*speed*.16+Math.sin(time*.0004+p.p)*7)%w);
-        ctx.strokeStyle=`rgba(221,231,242,${(.17+p.s*.3)*alpha})`;ctx.lineWidth=.45+p.s*.75;
-        ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1-p.s,y-2-p.s*2);ctx.stroke();
-      });ctx.restore();
-    });
-  }
-  if(spec.sun){
-    const [x,y,rx,ry]=spec.sun;
-    add([x-7-rx,y-ry,x+7+rx,y+ry],(ctx,img,alpha,time)=>{
-      // Slow changes in window light and its reflected pool. No orange sky pulse.
-      const drift=Math.sin(time*.00021)*7;
-      ctx.save();ctx.translate(x+drift,y);ctx.scale(1,ry/rx);
-      glow(ctx,0,0,rx,'212,224,175',(.015+.012*Math.sin(time*.00033))*alpha);ctx.restore();
-    });
-  }
-  return list;
-}
-const onCanvas=(box,crop,w,h)=>{const s=crop.scale;return [(box[0]-crop.x)*s,(box[1]-crop.y)*s,(box[2]-crop.x)*s,(box[3]-crop.y)*s];};
-const seen=(r,w,h)=>r[2]>0&&r[3]>0&&r[0]<w&&r[1]<h;
-/** The canvas boxes (CSS px) the scene's life can touch inside a w×h canvas; none for a wide painting. */
-export function sceneLifeBoxes(id,wide,img,crop,w,h){
-  if(wide||!img||!SCENES[id]?.phone)return [];
-  return lifeOf(id).map(e=>onCanvas(e.box,crop,w,h)).filter(r=>seen(r,w,h));
-}
-// `w`×`h` is the canvas (CSS px): a part wholly outside it (the phone crop leaves the hearth out)
-// draws nothing that could be seen, so it is not drawn at all.
-export function drawSceneLife(ctx,id,wide,img,crop,alpha,time,w=Infinity,h=Infinity) {
+export function drawSceneLife(ctx,id,wide,img,crop,alpha,time) {
   // Drawn candles, water and rain read as artificial on large screens (Anders,
   // 2026-09-30): wide scenes stay as the still painting, animated on desktop
   // only by their filmed loops (drawSceneFilm).
   if(wide)return;
   const spec=SCENES[id]?.phone;if(!spec||alpha<=0||!img)return;
   ctx.save();ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);
-  for(const e of lifeOf(id))if(seen(onCanvas(e.box,crop,w,h),w,h))e.draw(ctx,img,alpha,time);
+  // A little breeze in the painted foliage, confined inside the glass panes.
+  // Reuse the painting itself; neither the mullions nor the bridge can move.
+  (spec.foliage||[]).forEach((polygon,i)=>{
+    ctx.save();clip(ctx,polygon);ctx.globalAlpha=alpha*.85;
+    const dx=Math.sin(time*.00065+i*1.7)*2.4,dy=Math.sin(time*.00041+i)*.65;
+    ctx.drawImage(scenePainting(img,id),dx,dy);ctx.restore();
+  });
+  (spec.flames||[]).forEach(([x,y,h],i)=>flame(ctx,img,x,y,h,time,x*.01+i,alpha));
+  if(spec.hearth)hearth(ctx,img,spec.hearth,time,alpha);
+  if(spec.lamp){
+    // A quiet change in the lamp's light; its shade and brass never wobble.
+    const [x,y,rx,ry]=spec.lamp,light=heatNoise(17,time*.0012);
+    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);
+    glow(ctx,0,0,rx,'255,193,111',(.018+.065*light)*alpha);ctx.restore();
+  }
+  if(spec.reflection){
+    const [x,y,rx,ry]=spec.reflection,f=spec.hearth ? .35+.65*heatNoise(3,time*.0011) : flicker(time,x*.01);
+    ctx.save();ctx.translate(x,y);ctx.scale(1,ry/rx);glow(ctx,0,0,rx,'231,160,87',(.02+.045*f)*alpha);ctx.restore();
+  }
+  (spec.lights||[]).forEach(([x,y],i)=>glow(ctx,x,y,4,'255,177,102',(.04+.1*flicker(time,i))*alpha));
+  if(spec.water)movingPaint(ctx,scenePainting(img,id),spec.water,time,alpha);
+  if(spec.clouds)movingPaint(ctx,img,spec.clouds,time,alpha,true);
+  (spec.branches||[]).forEach(p=>movingPaint(ctx,img,p,time,alpha,false,true));
+  if(spec.pollen)pollen(ctx,spec.pollen,id+wide+'pollen',time,alpha,spec.pollenCount,spec.pollenSize);
+  if(spec.rainPanes)rain(ctx,spec.rainPanes,id+wide+'rain',time,alpha);
+  if(spec.snow||spec.snowPanes){
+    const panes=spec.snowPanes||[spec.snow];
+    const [x0,y0,x1,y1]=bounds(panes.flat()),w=x1-x0,h=y1-y0;
+    ctx.save();ctx.beginPath();panes.forEach(p=>{p.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();});ctx.clip();
+    field(id+wide+'snow',65).forEach(p=>{
+      const speed=.012+p.s*.021;
+      const y=y0+((p.y*h+time*speed)%h),x=x0+((p.x*w+time*speed*.16+Math.sin(time*.0004+p.p)*7)%w);
+      ctx.strokeStyle=`rgba(221,231,242,${(.17+p.s*.3)*alpha})`;ctx.lineWidth=.45+p.s*.75;
+      ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1-p.s,y-2-p.s*2);ctx.stroke();
+    });ctx.restore();
+  }
+  if(spec.sun){
+    // Slow changes in window light and its reflected pool. No orange sky pulse.
+    const [x,y,rx,ry]=spec.sun,drift=Math.sin(time*.00021)*7;
+    ctx.save();ctx.translate(x+drift,y);ctx.scale(1,ry/rx);
+    glow(ctx,0,0,rx,'212,224,175',(.015+.012*Math.sin(time*.00033))*alpha);ctx.restore();
+  }
+
   ctx.restore();
 }

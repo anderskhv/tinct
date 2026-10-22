@@ -14,9 +14,7 @@
 // LIBRARY_MEMORY_ORIGIN=http://127.0.0.1:<port> measures a library already served there instead
 // (a local server of another build; never production).
 // LIBRARY_MEMORY_ARTIFACTS=<dir> also writes the report and a screenshot of each state.
-// LIBRARY_MEMORY_WEBKIT=1 also samples Linux WebKit's process memory through the opening (local only).
-import { chromium, webkit } from '@playwright/test'
-import { readFileSync, readdirSync } from 'node:fs'
+import { chromium } from '@playwright/test'
 import { createServer } from 'node:http'
 import fs from 'node:fs/promises'
 import path from 'node:path'
@@ -32,15 +30,6 @@ const BUDGET = {
   ipad: { restPixelsMB: 85, scrolledPixelsMB: 120 },
   restHeapMB: 16, // measured 6-7 MB
   openAddedPixelsMB: 25, // measured 6-8 MB
-  // Chromium's layer and image memory (tiles, decoded images at raster, canvases, GPU images), its
-  // highest while the cover turns, less before the tap. Sampled from memory dumps, so it varies a lot
-  // between runs (2-85 MB on the same build); the budget catches only a gross regression.
-  openPeakGraphicsMB: 150,
-  // With LIBRARY_MEMORY_WEBKIT=1 (Linux WebKit, iPhone signed in): the WebContent process's resident
-  // memory, its highest while the book opens, less before the tap. Measured 165-205 MB before and after
-  // the 2026-10-21 flap change (Linux WebKit paints in software, so this overstates an iPhone); a local
-  // measurement, not run in CI.
-  webkitOpenPeakMB: 260,
 }
 const DIST = path.resolve('dist')
 const ARTIFACTS = process.env.LIBRARY_MEMORY_ARTIFACTS || ''
@@ -126,29 +115,8 @@ async function measure(page, cdp) {
   return { pixelsMB: +(pixels / MB).toFixed(1), heapMB: +(metrics.JSHeapUsedSize / MB).toFixed(1), nodes: metrics.Nodes, top: items.slice(0, 12).map(item => `${item.kind} ${item.w}×${item.h} ${(item.bytes / MB).toFixed(1)} MB ${item.src}`) }
 }
 
-/** Chromium's graphics memory in MB, from a memory dump: tiles, decoded images at raster, canvases, GPU images. */
-async function graphicsMB(browserCdp) {
-  const events = []
-  const collect = event => events.push(...event.value)
-  browserCdp.on('Tracing.dataCollected', collect)
-  const done = new Promise(resolve => browserCdp.once('Tracing.tracingComplete', resolve))
-  await browserCdp.send('Tracing.start', { traceConfig: { includedCategories: ['disabled-by-default-memory-infra'], excludedCategories: ['*'], memoryDumpConfig: { triggers: [] } }, transferMode: 'ReportEvents' })
-  await browserCdp.send('Tracing.requestMemoryDump', { deterministic: false, levelOfDetail: 'light' })
-  await browserCdp.send('Tracing.end')
-  await done
-  browserCdp.off('Tracing.dataCollected', collect)
-  const size = dump => (dump?.attrs?.size ? parseInt(dump.attrs.size.value, 16) : 0)
-  let bytes = 0
-  for (const event of events) {
-    const allocators = event.args?.dumps?.allocators
-    if (allocators) for (const name of ['cc/tile_memory', 'cc/image_memory', 'canvas', 'gpu/shared_images', 'gpu/gl']) bytes += size(allocators[name])
-  }
-  return +(bytes / MB).toFixed(1)
-}
-
-/** A context showing /library as a guest or as a faked signed-in reader; nothing leaves this machine. */
-async function libraryContext(browser, origin, size, signedIn, supabase) {
-  const context = await browser.newContext({ ...SIZES[size], ...(browser.browserType().name() === 'chromium' ? {} : { isMobile: false }), baseURL: origin, serviceWorkers: 'block', reducedMotion: 'no-preference' })
+async function run(browser, origin, size, signedIn, supabase) {
+  const context = await browser.newContext({ ...SIZES[size], baseURL: origin, serviceWorkers: 'block', reducedMotion: 'no-preference' })
   await context.route(url => /^https?:$/.test(url.protocol) && url.origin !== origin && url.hostname !== supabase?.host, route => route.abort())
   await context.route(`${origin}/api/**`, route => route.fulfill({ status: 204, body: '' }))
   if (signedIn) {
@@ -165,79 +133,31 @@ async function libraryContext(browser, origin, size, signedIn, supabase) {
     await context.route(`${origin}/api/lab-position**`, route => route.request().method() === 'GET' ? route.fulfill({ json: record }) : route.fulfill({ status: 204, body: '' }))
     await context.route(`https://${supabase.host}/**`, route => new URL(route.request().url()).pathname.startsWith('/auth/v1/user') ? route.fulfill({ json: user }) : route.fulfill({ json: [] }))
   }
-  return context
-}
-
-/** Loads the library and waits for it to settle. */
-async function settle(page, signedIn) {
+  await context.addInitScript(track)
+  const page = await context.newPage()
+  const cdp = await context.newCDPSession(page)
+  await cdp.send('Performance.enable')
   await page.goto('/library', { waitUntil: 'load' })
   await page.waitForFunction(() => document.querySelectorAll('#shelves .shelf').length > 5 && document.documentElement.classList.contains('library-ready'), null, { timeout: 60000 })
   if (signedIn) await page.waitForFunction(() => window.__library2Reading?.reading?.length > 0, null, { timeout: 30000 })
   await page.waitForLoadState('networkidle').catch(() => {})
   await sleep(6000)
-}
-
-/** The Jungle Book on its shelf, brought on screen as the reader had it. */
-async function jungleBook(page) {
+  const label = `${size}-${signedIn ? 'signed-in' : 'signed-out'}`
+  const rest = await measure(page, cdp)
+  if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-rest.png`) })
+  // Open The Jungle Book from its shelf, as the reader did.
   const book = page.locator('#shelves .book-card[aria-label^="Open The Jungle Book"]').first()
   await book.evaluate(el => el.closest('.shelf').scrollIntoView({ block: 'center' }))
   await book.scrollIntoViewIfNeeded()
   await sleep(1500)
-  return book
-}
-
-async function run(browser, origin, size, signedIn, supabase) {
-  const context = await libraryContext(browser, origin, size, signedIn, supabase)
-  await context.addInitScript(track)
-  const page = await context.newPage()
-  const cdp = await context.newCDPSession(page)
-  const browserCdp = await browser.newBrowserCDPSession()
-  await cdp.send('Performance.enable')
-  await settle(page, signedIn)
-  const label = `${size}-${signedIn ? 'signed-in' : 'signed-out'}`
-  const rest = await measure(page, cdp)
-  if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-rest.png`) })
-  // Open The Jungle Book from its shelf, as the reader did, sampling memory through the opening.
-  const book = await jungleBook(page)
   const scrolled = await measure(page, cdp)
-  const graphicsBefore = await graphicsMB(browserCdp)
   await book.click()
   await page.waitForFunction(() => !document.getElementById('book-overlay').hidden, null, { timeout: 30000 })
-  let graphicsPeak = graphicsBefore
-  for (const until = Date.now() + 2500; Date.now() < until;) graphicsPeak = Math.max(graphicsPeak, await graphicsMB(browserCdp))
-  await sleep(2500)
+  await sleep(5000)
   const open = await measure(page, cdp)
   if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${label}-open.png`) })
-  await browserCdp.detach()
   await context.close()
-  return { label, rest, scrolled, open, openAddedPixelsMB: +(open.pixelsMB - scrolled.pixelsMB).toFixed(1), openPeakGraphicsMB: +(graphicsPeak - graphicsBefore).toFixed(1) }
-}
-
-/** Resident memory (MB) of the WebKit web content processes under `pid` (Linux /proc). */
-function webContentMB(pid) {
-  const children = parent => readdirSync('/proc').filter(entry => /^\d+$/.test(entry)).filter(entry => { try { const stat = readFileSync(`/proc/${entry}/stat`, 'utf8'); return +stat.slice(stat.lastIndexOf(')') + 2).split(' ')[1] === parent } catch { return false } }).map(Number)
-  const tree = root => [root, ...children(root).flatMap(tree)]
-  let kb = 0
-  for (const process of tree(pid)) { try { const status = readFileSync(`/proc/${process}/status`, 'utf8'); if (/^Name:\s+\S*WebProcess/m.test(status)) kb += +(status.match(/^VmRSS:\s+(\d+)/m)?.[1] || 0) } catch { /* gone */ } }
-  return Math.round(kb / 1024)
-}
-
-/** Linux WebKit, iPhone, signed in: WebContent memory before the tap and its peak while the book opens. */
-async function webkitOpening(origin, supabase) {
-  const server = await webkit.launchServer({ headless: true })
-  const pid = server.process().pid
-  const browser = await markInternal(await webkit.connect(server.wsEndpoint()))
-  try {
-    const context = await libraryContext(browser, origin, 'iphone', true, supabase)
-    const page = await context.newPage()
-    await settle(page, true)
-    const book = await jungleBook(page)
-    const before = webContentMB(pid)
-    await book.click()
-    let peak = before
-    for (const until = Date.now() + 5000; Date.now() < until; await sleep(100)) peak = Math.max(peak, webContentMB(pid))
-    return { before, peak, openPeakMB: peak - before }
-  } finally { await browser.close(); await server.close() }
+  return { label, rest, scrolled, open, openAddedPixelsMB: +(open.pixelsMB - scrolled.pixelsMB).toFixed(1) }
 }
 
 const external = process.env.LIBRARY_MEMORY_ORIGIN || ''
@@ -246,7 +166,6 @@ const server = external ? null : await serve()
 const origin = external || `http://127.0.0.1:${server.address().port}`
 const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio'], ...(process.env.PW_CHROMIUM_EXECUTABLE ? { executablePath: process.env.PW_CHROMIUM_EXECUTABLE } : {}) }))
 const failures = [], results = []
-let webkitResult = null
 try {
   if (ARTIFACTS) await fs.mkdir(ARTIFACTS, { recursive: true })
   const supabase = await supabaseHost()
@@ -258,15 +177,9 @@ try {
     over(result.scrolled.pixelsMB, BUDGET[size].scrolledPixelsMB, 'pixels held scrolled to The Jungle Book')
     over(result.rest.heapMB, BUDGET.restHeapMB, 'JavaScript heap at rest')
     over(result.openAddedPixelsMB, BUDGET.openAddedPixelsMB, 'pixels added by opening a book')
-    over(result.openPeakGraphicsMB, BUDGET.openPeakGraphicsMB, 'graphics memory added at the peak of the opening')
-    console.log(`${result.label}: at rest ${result.rest.pixelsMB} MB of pixels, ${result.rest.heapMB} MB heap; scrolled ${result.scrolled.pixelsMB} MB; a book open ${result.open.pixelsMB} MB (+${result.openAddedPixelsMB}); graphics peak while opening +${result.openPeakGraphicsMB} MB`)
+    console.log(`${result.label}: at rest ${result.rest.pixelsMB} MB of pixels, ${result.rest.heapMB} MB heap; scrolled ${result.scrolled.pixelsMB} MB; a book open ${result.open.pixelsMB} MB (+${result.openAddedPixelsMB})`)
   }
-  if (process.env.LIBRARY_MEMORY_WEBKIT === '1') {
-    webkitResult = await webkitOpening(origin, supabase)
-    if (webkitResult.openPeakMB > BUDGET.webkitOpenPeakMB) failures.push(`webkit iphone-signed-in: opening peak +${webkitResult.openPeakMB} MB is over its ${BUDGET.webkitOpenPeakMB} MB budget`)
-    console.log(`webkit iphone-signed-in: ${webkitResult.before} MB before the tap, ${webkitResult.peak} MB at the opening's peak (+${webkitResult.openPeakMB})`)
-  }
-  if (ARTIFACTS) await fs.writeFile(path.join(ARTIFACTS, 'library-memory.json'), JSON.stringify({ budget: BUDGET, results, webkit: webkitResult }, null, 2))
+  if (ARTIFACTS) await fs.writeFile(path.join(ARTIFACTS, 'library-memory.json'), JSON.stringify({ budget: BUDGET, results }, null, 2))
 } finally {
   await browser.close()
   server?.close()
