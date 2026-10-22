@@ -172,7 +172,9 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.shakespeare == 'true' || needs.changes.outputs.typeset == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 30, as deploy's check jobs: on 22 Oct 2026 apt fetched the browsers' packages at 132 kB/s (15 min)
+    # and the job was cancelled at 20 with every check still progressing (the three checks take ~7 min).
+    timeout-minutes: 30
     defaults:
       run:
         working-directory: app
