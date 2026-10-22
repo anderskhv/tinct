@@ -93,7 +93,7 @@ interface StoredRecord {
   addedAt?: unknown
   openedAt?: unknown
   cover?: unknown
-  /** A PDF's page count and its scan (addbooks/web/src/js/pdf-scan.js): the chapters with their pages. */
+  /** A PDF's page count and its scan (public/lab/addbook/js/pdf-scan.js): the chapters with their pages. */
   pages?: unknown
   scan?: { entries?: unknown; textPages?: unknown; layout?: { default?: unknown } | null } | null
   /** A PDF's default edition (pdf-scan.js layout), kept with its Tinct text. */

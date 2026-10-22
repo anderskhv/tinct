@@ -30,8 +30,8 @@ let textRows: (items: unknown[]) => unknown[]
 let converter: number
 
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
   const g = globalThis as unknown as { TinctPdfScan: { textRows: typeof textRows }; TinctPdfText: { fromPages: typeof fromPages; PDF_TEXT_CONVERTER: number } }
   textRows = g.TinctPdfScan.textRows
   fromPages = g.TinctPdfText.fromPages

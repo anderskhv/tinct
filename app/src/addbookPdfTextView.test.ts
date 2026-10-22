@@ -21,8 +21,8 @@ type View = {
 }
 let V: View
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text-view.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text-view.js')
   V = (globalThis as unknown as { TinctPdfTextView: View }).TinctPdfTextView
 })
 const words = (w: string, n: number) => Array.from({ length: n }, (_, i) => `${w}${i}`).join(' ')

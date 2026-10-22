@@ -134,3 +134,38 @@ describe('check-lab-bundle', () => {
     })
   })
 })
+
+describe('Add a book’s one build stamp', () => {
+  const { stampBuild, bundleHash } = require('../scripts/stamp-lab-entry-tags.cjs') as {
+    stampBuild: (files: Files, stamp: string) => { files: Files; stamped: string[] }
+    bundleHash: (appHtml: string) => string | null
+  }
+  const files = (): Files => ({
+    'app.html': '<script type="module" crossorigin src="/assets/index-AbC_12-x.js"></script>',
+    'lab/addbook/book.html': '<script src="js/reader.js?v=__TINCT_BUILD__"></script><script src="/lab/wait-ring.js?v=__TINCT_BUILD__"></script>',
+    'lab/addbook/js/reader.js': "const SWITCHER_ENGINE = '/lab/library-add.js?v=__TINCT_BUILD__';import('/lab/chat-thread.js?v=__TINCT_BUILD__')",
+    'lab/library-add.js': ENGINE,
+    'lab/library_2/app.js': "import'./catalogue.js?v=__TINCT_BUILD__'",
+  })
+
+  it('takes the hash of the index bundle app.html loads', () => {
+    expect(bundleHash(files()['app.html'])).toBe('AbC_12-x')
+    expect(bundleHash('<html></html>')).toBeNull()
+  })
+  it('replaces the placeholder in Add a book’s html and js only', () => {
+    const { files: out, stamped } = stampBuild(files(), 'AbC_12-x')
+    expect(stamped).toEqual(['lab/addbook/book.html', 'lab/addbook/js/reader.js'])
+    expect(out['lab/addbook/book.html']).toBe('<script src="js/reader.js?v=AbC_12-x"></script><script src="/lab/wait-ring.js?v=AbC_12-x"></script>')
+    expect(out['lab/library_2/app.js']).toBe(files()['lab/library_2/app.js'])
+  })
+  it('then leaves a reference to a built entry to its content tag', () => {
+    const { files: out } = stampTags(stampBuild(files(), 'AbC_12-x').files, ['lab/library-add.js'])
+    expect(out['lab/addbook/js/reader.js']).toBe(`const SWITCHER_ENGINE = '/lab/library-add.js?v=${sha10(ENGINE)}';import('/lab/chat-thread.js?v=AbC_12-x')`)
+    expect(out['lab/addbook/book.html']).toContain(`js/reader.js?v=${sha10(out['lab/addbook/js/reader.js'])}`)
+    expect(out['lab/addbook/book.html']).toContain('/lab/wait-ring.js?v=AbC_12-x')
+  })
+  it('refuses a stamp that is not a cache tag', () => {
+    expect(() => stampBuild(files(), '')).toThrow()
+    expect(() => stampBuild(files(), 'a b')).toThrow()
+  })
+})
