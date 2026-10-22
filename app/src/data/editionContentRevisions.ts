@@ -193,6 +193,37 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  utilitarianism: {
+    revision: 'text-2026-10-21.5',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361',
+        after: '534c43afa8af1f7dea12997361cd568a0569261d241e72c3fd6f961950a26fa1',
+      },
+    },
+  },
+  poetics: {
+    revision: 'text-2026-10-21.5',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e',
+        after: 'c14bf2d099284fad9b2801ba2272ef92ce9be3ba3e1eb43dfa789febd2f17323',
+      },
+    },
+  },
+  'genealogy-of-morals': {
+    revision: 'text-2026-10-21.5',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '72ca79453b9a485fa0a8277df452809dba80b87ecaf6985121e020ef51d30a9c',
+        after: 'f108ea298f97f055749347e71a5bfbe55398409c79b4162e7691735331677c6f',
+      },
+    },
+  },
   'kant-groundwork': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
