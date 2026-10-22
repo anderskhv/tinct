@@ -31,7 +31,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Generate Lighthouse share card from its approved cover
         run: |
           BOOK_IDS=to-the-lighthouse node scripts/generate-brand-cards.mjs
