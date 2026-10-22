@@ -6,7 +6,7 @@ Requests to **add, onboard, prepare, translate, modernize or repair a book** act
 
 This is task-specific: Claude may implement and release code when Anders explicitly assigns a coding/release task, following current repository rules and serialized release ownership. Do not infer that assignment from a book request.
 
-> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+> **Language scope — 2026-09-21, Danish updated 2026-10-22:** English is the current delivery strategy. Danish is work in progress, with the plan to roll it out across the library: `modern-da` editions are translated 1:1 from `modern-en`, independently reviewed, visually QA'd and published one book at a time, in the [Danish house style](books/DANISH-STYLE.md). Danish narration, onboarding and marketing still need Anders's decision, and older Danish tasks below stay superseded. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 ## Scope
 

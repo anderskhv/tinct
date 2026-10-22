@@ -11,7 +11,7 @@ Read `AGENTS.md` first: it holds current state, the deploy flow, privacy rules, 
 
 ## Language
 
-English is the strategy. Danish is optional, not a launch, QA or marketing requirement ([STRATEGY.md](STRATEGY.md#language-scope)). Keep future localization easy.
+English is the strategy. Danish is work in progress, with the plan to roll it out across the library ([STRATEGY.md](STRATEGY.md#language-scope)); it never blocks English work, and each Danish edition ships only after review and visual QA, in the [Danish house style](books/DANISH-STYLE.md). Keep future localization easy.
 
 ## Hard bans
 

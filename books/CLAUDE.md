@@ -2,7 +2,7 @@
 
 > **Book assignments — 2026-09-24:** First read [BOOK-TASK-WORKFLOW.md](BOOK-TASK-WORKFLOW.md) and [README.md](README.md). Claude writes only isolated content artifacts in the content stage; integration (code, registry, live paths and publication) is a separately assigned step, owned by Claude since 2026-10-08 (Codex retired). This task-specific rule overrides broader path/permission lists below.
 
-> **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
+> **Language scope — 2026-09-21, Danish updated 2026-10-22:** English is the current delivery strategy. Danish is work in progress, with the plan to roll it out across the library: `modern-da` editions are translated 1:1 from `modern-en`, independently reviewed, visually QA'd and published one book at a time, in the [Danish house style](DANISH-STYLE.md). Danish narration, onboarding and marketing still need Anders's decision, and older Danish tasks below stay superseded. See [the approved language strategy](../STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
 Use this guide from the current cloud checkout. Start with [Adding books](README.md); historical Mac paths are not cloud-accessible work destinations.
 
@@ -171,7 +171,7 @@ Follow the [adding-book guide](README.md), [audio architecture](../docs/audioboo
 
 Opening prewarming and real-provider checks follow their separately approved scope and budget. A new book does not automatically join the featured-ten preparation job. Preserve legacy assets pending separately authorized cleanup. Record changed paragraph coordinates in release packets; do not prescribe retired-engine regeneration.
 
-Danish translation, narration and onboarding remain out of scope unless Anders reopens them.
+Danish reading editions follow the rollout in the [language strategy](../STRATEGY.md#language-scope) and the [Danish house style](DANISH-STYLE.md); Danish narration and onboarding remain out of scope unless Anders decides otherwise.
 
 ## Registry And Publishing
 
