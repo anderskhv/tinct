@@ -213,4 +213,8 @@ override.
 - **Data on the reader's own devices** (browser storage, the Android app):
   stays until the reader signs out, clears site data or uninstalls. Say so in
   the confirmation reply.
+- **Leaderboards kept in other readers' browsers** (`tinct:account-board:<their
+  id>`, `app/src/cards/boardMemory.ts`, since 22 Oct 2026): a reader who saw the
+  deleted reader on a board can still see that row until their Leaderboard
+  refreshes, moments after they next open it, and never for more than 7 days.
 - **Backups:** Supabase point-in-time backups roll off on their own schedule.

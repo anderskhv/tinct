@@ -97,7 +97,7 @@ function firstData(session: CardsSession): CardsData {
   const stored = readCardsCache(session.userId)
   const data = emptyData()
   if (stored) Object.assign(data, stored)
-  // The board the idle warm-up read on this page, if any (memory only).
+  // The board this page read (the idle warm-up), else this device's last one for this account (boardMemory.ts).
   data.board = knownDefaultBoard(session.userId)
   data.loading = { profile: !data.profile, reading: !data.reading }
   return data
@@ -134,7 +134,7 @@ function load(env: CardsEnv, social: boolean): void {
     // The leaderboard now, beside the flush rather than after it (21 Oct 2026):
     // the You row's rank comes from it (one request, not /api/social/rank as
     // well, which computes the same board again: 1-2 s each, 10 Oct 2026), and
-    // Leaderboard opens without a wait. Kept in memory only. The board the
+    // Leaderboard opens without a wait. Kept per account (boardMemory.ts). The board the
     // Leaderboard opens on (boardMemory loadDefaultBoard), so its rank is the one shown.
     void loadDefaultBoard(token, userId).then(board => { if (board) showBoard(env, set) })
     loadFind(env, set)

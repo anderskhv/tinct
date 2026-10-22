@@ -13,6 +13,9 @@
 //   cold     the library just loaded, nothing cached; tap the picture, then Leaderboard
 //   reopen   the cards closed and opened again on the same page
 //   revisit  the library opened again (HTTP cache and this device's storage kept)
+//   quick    a cold start: the library opened again and the picture tapped as soon as it is there,
+//            before the idle warm-up has read anything, with the board answering 3 s late
+//            (QUICK_BOARD_EXTRA; 22 Oct 2026: the board kept on the device)
 // and measures, from the tap (in-page, per frame):
 //   - time to the You card, its name, its rank, and to the first and the final leaderboard rows;
 //   - jumps: an element already on screen moving inside its card, the sheet resizing, a painted
@@ -136,7 +139,10 @@ const MARKERS = '<meta name="tinct-social" content="1"><meta name="tinct-friends
 const log = []
 let phase = 'boot'
 const sleep = ms => new Promise(r => setTimeout(r, ms))
+/** Quick: the board answers slowly (a phone on a poor network, a cold Worker), so what the Leaderboard shows meanwhile is seen. */
+const QUICK_BOARD_EXTRA = Number(process.env.QUICK_BOARD_EXTRA || 3000)
 function latencyOf(path) {
+  if (path === '/api/social/board' && phase === 'quick') return LATENCY[path] + QUICK_BOARD_EXTRA
   if (path.startsWith('/api/social/profile/')) return LATENCY['/api/social/profile']
   return LATENCY[path] ?? 30
 }
@@ -234,6 +240,8 @@ function pageProbe({ ref, userId }) {
   } catch { window.__shift = null }
   window.__tapAt = 0
   for (const type of ['pointerdown', 'touchstart', 'mousedown']) addEventListener(type, () => { if (!window.__tapAt) window.__tapAt = performance.now() }, true)
+  window.__taps = []
+  addEventListener('pointerdown', () => { window.__taps.push(performance.now()) }, true)
   const top = () => document.querySelector('.tc-card:not(.is-under)')
   const q = sel => top()?.querySelector(sel)
   const text = sel => q(sel)?.textContent?.trim() ?? null
@@ -251,6 +259,7 @@ function pageProbe({ ref, userId }) {
   /** Watch named predicates from the next tap (or now): first-true times, jumps, flicker, the values rows showed. */
   window.__watch = names => {
     window.__tapAt = 0
+    window.__taps = []
     if (window.__shift) window.__shift = { total: 0, input: 0 }
     const started = performance.now()
     const state = { names, times: {}, jumps: [], sheet: [], flicker: 0, values: { me: [], youReading: [], youRank: [], buttons: [] }, done: false, frames: 0 }
@@ -303,7 +312,7 @@ function pageProbe({ ref, userId }) {
     state.done = true
     const from = window.__tapAt || window.__watchStarted
     const times = Object.fromEntries(state.names.map(n => [n, n in state.times ? Math.round(state.times[n] - from) : null]))
-    return { times, jumps: state.jumps, sheet: state.sheet, flicker: state.flicker, values: state.values, shift: window.__shift ? { ...window.__shift } : null }
+    return { times, taps: window.__taps.map(t => Math.round(t - from)), jumps: state.jumps, sheet: state.sheet, flicker: state.flicker, values: state.values, shift: window.__shift ? { ...window.__shift } : null }
   }
   /** Avatars on the top card: drawn size (device px), the image behind and its own size. */
   window.__avatars = async () => {
@@ -372,17 +381,19 @@ async function run(engineName) {
   if (engineName === 'chromium') { const cdp = await context.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }) }
   const out = { phases: {}, buttons: {}, avatars: null, consistency: null, errors, protocol: null }
 
-  async function openLibrary(reload = false) {
-    phase = reload ? 'revisit' : 'cold'
+  async function openLibrary(reload = false, quick = false) {
+    phase = quick ? 'quick' : reload ? 'revisit' : 'cold'
     // A returning visit is a new navigation (a reload asks for every file again).
-    if (reload) await page.goto(`${ORIGIN}/library?again=1`, { waitUntil: 'domcontentloaded' }); else await page.goto(`${ORIGIN}/library`, { waitUntil: 'domcontentloaded' })
+    if (reload) await page.goto(`${ORIGIN}/library?again=${quick ? 2 : 1}`, { waitUntil: 'domcontentloaded' }); else await page.goto(`${ORIGIN}/library`, { waitUntil: 'domcontentloaded' })
     await page.waitForSelector('#sign-in.cards-you', { timeout: 30000 })
     // The library's own loading first (shelves, covers, catalogue): the cards' cost on its own.
-    await settled()
+    // Quick: tapped at once, as a reader who opens the app to look at the board does.
+    if (!quick) await settled()
   }
   /** Tap the picture, then Leaderboard as soon as its row is there. */
   async function measureOpen(name) {
     phase = name
+    if (name === 'quick') return measureQuick(name)
     const t0 = Date.now()
     await page.evaluate(() => window.__watch(['youCard', 'youName', 'youReading', 'youRank']))
     await page.tap('#sign-in')
@@ -402,6 +413,29 @@ async function run(engineName) {
       requestsAfterBoardTap: brief(since(t1), t1),
       wavesToBoard: Math.max(0, ...waves(since(t0)).filter(e => e.path.startsWith('/api/social/board')).map(e => e.wave)),
       avatarDownloads: all.filter(e => /\/lab\/library_2\/assets\/|\/api\/profile\/image/.test(e.path) && e.start >= t1).map(e => `${shortPath(e.path.split('/').pop())} ${Math.round(e.bytes / 1024)} KB`),
+    }
+  }
+  /**
+   * Quick: one watch from the picture tap, and Leaderboard tapped the moment its row shows (not
+   * after the You card has settled), so every time here is from the picture tap.
+   */
+  async function measureQuick(name) {
+    const t0 = Date.now()
+    await page.evaluate(() => window.__watch(['youCard', 'youRank', 'boardCard', 'boardRows', 'boardPainted']))
+    await page.tap('#sign-in')
+    await page.waitForSelector('[data-testid="you-leaderboard"]', { timeout: 10000 })
+    const t1 = Date.now()
+    await page.tap('[data-testid="you-leaderboard"]')
+    const r = await page.evaluate(() => window.__watchResult(8000))
+    out.phases[name] = {
+      you: { youCard: r.times.youCard, youName: '-', youRank: r.times.youRank }, board: { boardCard: r.times.boardCard, boardRows: r.times.boardRows, boardPainted: r.times.boardPainted },
+      jumps: r.jumps, sheet: r.sheet, flicker: r.flicker,
+      values: { youReading: r.values.youReading, youRank: r.values.youRank, boardMe: r.values.me },
+      shift: r.shift, requestsAfterYouTap: brief(since(t0).filter(e => e.start < t1), t0), requestsAfterBoardTap: brief(since(t1), t1),
+      wavesToBoard: Math.max(0, ...waves(since(t0)).filter(e => e.path.startsWith('/api/social/board')).map(e => e.wave)),
+      avatarDownloads: [],
+      leaderboardTapAt: r.taps[1] ?? null,
+      rowsAfterLeaderboardTap: r.taps[1] != null && r.times.boardRows != null ? r.times.boardRows - r.taps[1] : null,
     }
   }
   async function closeCards() {
@@ -530,6 +564,10 @@ async function run(engineName) {
   await openLibrary(true)
   await measureOpen('revisit')
   await closeCards()
+  // Quick: a cold start of the page, the cards opened before the idle warm-up.
+  await openLibrary(true, true)
+  await measureOpen('quick')
+  await closeCards()
   await browser.close()
   return out
 }
@@ -543,6 +581,7 @@ for (const name of ENGINES) {
     results.engines[name] = r
     for (const [phaseName, p] of Object.entries(r.phases)) {
       console.log(`${phaseName.padEnd(7)} You card ${p.you.youCard} ms · name ${p.you.youName} · rank ${p.you.youRank} | Leaderboard card ${p.board.boardCard} · first rows ${p.board.boardRows} · avatars painted ${p.board.boardPainted} | board waves ${p.wavesToBoard} | jumps ${p.jumps.length} sheet ${p.sheet.length} flicker ${p.flicker}${p.shift ? ` CLS ${p.shift.total.toFixed(3)} (+${p.shift.input.toFixed(3)} after input)` : ''}`)
+      if (p.leaderboardTapAt !== undefined) console.log(`        (times from the picture tap; Leaderboard tapped at ${p.leaderboardTapAt} ms; its rows ${p.rowsAfterLeaderboardTap} ms after that tap)`)
       console.log(`        values: you ${JSON.stringify(p.values.youReading)} rank ${JSON.stringify(p.values.youRank)} board-me ${JSON.stringify(p.values.boardMe)}`)
       console.log(`        after You tap: ${p.requestsAfterYouTap.join(', ') || '-'}`)
       console.log(`        after Leaderboard tap: ${p.requestsAfterBoardTap.join(', ') || '-'}`)

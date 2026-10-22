@@ -4,7 +4,8 @@
  * paint from the device cache first and refresh behind; a first open on a
  * device had nothing to paint). The same reads the cards make on open,
  * written to the same cache (cardsCache.ts): the reader's own profile,
- * reading figures, leaderboard rank, plan, AI credits. Nothing new is collected or kept.
+ * reading figures, leaderboard rank, plan, AI credits; the leaderboard itself goes
+ * to boardMemory.ts's per-account copy. Nothing new is collected.
  *
  * Only with a stored session whose token is still good (never a token
  * refresh), only when the network is spare, and only once the reader has
@@ -36,7 +37,7 @@ export function warmAccountCards(): void {
     void Promise.all([
       fetchOwnProfile(token, currentBookHint()).catch(() => null),
       loadReading(token, userId).catch(() => null),
-      // Kept in memory for the Leaderboard card (boardMemory.ts), never in the device cache.
+      // Kept for the Leaderboard card in boardMemory.ts (its own per-account copy), never in the cards cache.
       social ? loadDefaultBoard(token, userId) : Promise.resolve(null),
       fetchSubscriptionInfo(token).catch(() => null),
       fetchAiAllowance(token).catch(() => null),

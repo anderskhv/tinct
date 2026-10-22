@@ -36,7 +36,7 @@ import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
 import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
-import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
+import { forgetBoards, knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
 
@@ -57,8 +57,8 @@ export interface CardsData {
   rank: string | null
   /**
    * The Friends board, asked for when the cards open so the Leaderboard card
-   * paints at once (it refreshes behind). In memory only: it names other
-   * readers, so it is never written to this device's storage.
+   * paints at once (it refreshes behind). Kept per account on this device
+   * for up to 7 days (boardMemory.ts), so a cold start paints it too.
    */
   board?: BoardData | null
   /** Find readers: Following you, Also reading your books, the invite link. */
@@ -1004,9 +1004,9 @@ async function shareLink(url: string, clipboard?: (text: string) => Promise<bool
 }
 
 /**
- * Readers' profiles this page has read, in memory only (like the boards: they
- * describe other readers, so they are never written to this device's storage;
- * sign-out forgets them). A profile opened again paints at once and refreshes
+ * Readers' profiles this page has read, in memory only (they describe other
+ * readers, so they are never written to this device's storage; sign-out
+ * forgets them). A profile opened again paints at once and refreshes
  * behind (21 Oct 2026: its figures took a round trip every time).
  */
 const knownProfiles = new Map<string, ProfilePageData>()
@@ -1269,7 +1269,8 @@ export function accountCard(env: CardsEnv): CardSpec {
                 deleting = true
                 const deleted = await deleteOwnAccount(token, env.session.userId)
                 deleting = false
-                if (deleted) { await env.signOut('/'); return }
+                // The boards kept on this device name other readers: gone with the account, whatever sign-out does.
+                if (deleted) { forgetBoards(); await env.signOut('/'); return }
                 status = CARDS_COPY.actionFailed
                 card.refresh()
               },

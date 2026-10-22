@@ -18,7 +18,7 @@ import { dayMonthShort, readingFigures } from './cardsFormat'
 import { allowanceView, billingPeriod } from '../worker/lib/aiAllowance'
 import { CARDS_CACHE_PREFIX, readCardsCache, writeCardsCache } from './cardsCache'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
-import { forgetBoards } from './boardMemory'
+import { BOARD_STORE_PREFIX, boardMemoryNewPage, forgetBoards } from './boardMemory'
 import { readingTimeStats } from '../readingTime/model'
 import { addPending, readPending, resetLedgerSends, resetReadingTimeSwitch } from '../lab/labReadingTime'
 import { preparePhoto } from '../social/socialClient'
@@ -342,6 +342,7 @@ describe('Delete account', () => {
   }
 
   it('asks in the card first, then deletes the account and signs out to the front page', async () => {
+    localStorage.setItem(BOARD_STORE_PREFIX + session.userId, '{}')
     const { signOut, stack } = accountOnly()
     click(byTest('account-delete'))
     expect(top().textContent).toContain(CARDS_COPY.deleteConfirm)
@@ -355,6 +356,8 @@ describe('Delete account', () => {
     // Exactly what the Worker requires (worker/routes/accountDelete.ts).
     expect(deletePosts()).toEqual([{ url: ACCOUNT_DELETE_PATH, body: { confirm: ACCOUNT_DELETE_CONFIRM, userId: session.userId } }])
     expect(signOut).toHaveBeenCalledWith('/')
+    // The leaderboard kept on this device goes with the account (22 Oct 2026).
+    expect(localStorage.getItem(BOARD_STORE_PREFIX + session.userId)).toBeNull()
     stack.closeAll()
   })
 
@@ -390,6 +393,16 @@ describe('Delete account', () => {
     expect(deletePosts()).toHaveLength(1)
     expect(localStorage.getItem('tinct:highlights')).toBeNull()
     expect(localStorage.getItem('tinct:device-preferences')).toBe('{}')
+  })
+
+  it('sign-out removes the leaderboard kept on this device', async () => {
+    boards = { friends: { ...FRIENDS_BOARD, window: { start: '2026-10-16', end: '2026-10-23' }, refreshedAt: null }, everyone: null }
+    await open('you')
+    expect(localStorage.getItem(BOARD_STORE_PREFIX + session.userId)).not.toBeNull()
+    await open('settings')
+    click(byTest('settings-sign-out'))
+    await flush()
+    expect(localStorage.getItem(BOARD_STORE_PREFIX + session.userId)).toBeNull()
   })
 })
 
@@ -1490,6 +1503,42 @@ describe('a stable Leaderboard (21 October 2026: "We want stable leaderboards")'
     await flush()
     expect(byTest('board-skeleton')).toBeNull()
     expect([...top().querySelectorAll('[data-testid="board-row"]')].map(row => row.textContent)).toEqual([expect.stringContaining('Ida'), expect.stringContaining('Mette')])
+  })
+
+  it('a cold start shows the board this device kept for the account at once, then refreshes it in place (22 Oct 2026: "3. yes.")', async () => {
+    const week = { window: { start: '2026-10-16', end: '2026-10-23' }, refreshedAt: null }
+    boards = { friends: { ...friendsBoard, ...week }, everyone: null }
+    profile = ownProfile({ onLeaderboard: true })
+    await open('you')
+    closeAccountCards()
+    // A new page on this device: nothing in memory, the board fetch held.
+    boardMemoryNewPage()
+    let release: () => void = () => {}
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const inner = api()
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).includes('/api/social/board')) await gate
+      return inner(input, init)
+    }))
+    boards = { friends: { ...friendsBoard, ...week, entries: [entry(1, 'You', 3600, true), entry(2, 'Mette', 600, false, 'mette')] }, everyone: null }
+    expect(await openAccountCards({ session, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    // At once, before any board answer: the kept rows, no placeholders.
+    expect(byTest('board-skeleton')).toBeNull()
+    expect([...top().querySelectorAll('[data-testid="board-rows"] .tc-r')].map(node => node.querySelector('.tc-rank')?.textContent)).toEqual(['1', '2'])
+    expect(byTest('board-row')?.textContent).toContain('Mette')
+    const rows = byTest('board-rows')
+    release()
+    await flush()
+    // Refreshed in place: the same number of rows where they were, the new order in them.
+    expect(byTest('board-skeleton')).toBeNull()
+    expect(byTest('board-rows')?.querySelectorAll('.tc-r')).toHaveLength(rows!.querySelectorAll('.tc-r').length)
+    expect(byTest('board-me')?.querySelector('.tc-rank')?.textContent).toBe('1')
+    // Another account on this device never sees it.
+    closeAccountCards()
+    boardMemoryNewPage()
+    vi.stubGlobal('fetch', vi.fn(async () => new Promise<Response>(() => {})))
+    expect(await openAccountCards({ session: { ...session, userId: '99999999-9999-4999-8999-999999999999' }, social: true, dark: false, start: 'leaderboard' })).toBe(true)
+    expect(top().querySelectorAll('[data-testid="board-row"], [data-testid="board-me"]')).toHaveLength(0)
   })
 
   it('after switching tabs, the Leaderboard reopens on the tab the You card ranks on (21 Oct 2026: "5th of 8" over an Everyone board)', async () => {
