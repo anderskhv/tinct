@@ -1,0 +1,16 @@
+{
+  "_note": "Reviewed same-sentence character-card rulings for modern-en release text-2026-10-21.5 (Utilitarianism, Poetics, Genealogy of Morals), applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each maps a mention to the same figure or concept in the repaired version of the same sentence. Rulings and the mentions left dropped are listed in RELEASE-5.md.",
+  "utilitarianism": [
+    { "characterId": "god", "from": "God", "to": "God", "occurrenceOverrides": [
+      { "chapterNumber": 2, "paragraphIndex": 21, "oldOccurrence": 5, "newOccurrence": 4 },
+      { "chapterNumber": 2, "paragraphIndex": 21, "oldOccurrence": 6, "newOccurrence": 5 } ] }
+  ],
+  "poetics": [
+    { "characterId": "iphigenia", "from": "Iphigenia", "to": "Iphigenia", "occurrenceOverrides": [
+      { "chapterNumber": 16, "paragraphIndex": 2, "oldOccurrence": 0, "newOccurrence": 0 } ] }
+  ],
+  "genealogy-of-morals": [
+    { "characterId": "ressentiment", "from": "resentment becoming creative", "to": "resentment itself becomes creative" },
+    { "characterId": "bad-conscience", "from": "\"bad conscience,\"", "to": "\"bad conscience\"" }
+  ]
+}

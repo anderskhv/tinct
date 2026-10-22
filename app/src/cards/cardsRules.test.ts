@@ -3,7 +3,8 @@ import { boardHiddenLine, chapterFraction, followBackCount, followButton, leader
 import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, ordinal, rankOf, shortEmail, weekHeights, chartWeeks, dayMonthShortDate } from './cardsFormat'
 import { accountPageRedirect, cardUrl, isCardName } from './cardRoutes'
 import type { ProfilePageData } from './cardsApi'
-import { hasFriends } from './boardMemory'
+import { hasFriends, withOwnSeconds } from './boardMemory'
+import type { BoardData } from './cardsApi'
 import { CARDS_COPY } from './cardsCopy'
 
 const privacy = { visibility: 'friends' as const, showReading: true, showTime: true, onLeaderboard: true }
@@ -170,5 +171,37 @@ describe('the leaderboard for a reader friends cannot see (19 Oct 2026)', () => 
     expect(hasFriends(board(1, 0))).toBe(true)
     expect(hasFriends(board(undefined, 0))).toBe(false)
     expect(hasFriends(board(undefined, 1))).toBe(true)
+  })
+})
+
+describe('the viewer\'s own row after a flush (boardMemory withOwnSeconds, 21 Oct 2026)', () => {
+  const pic = { src: null, pos: '', cover: false, private: false, initial: 'x' }
+  const row = (rank: number, name: string, minutes: number, me = false) => ({ rank, name, picture: pic, seconds: minutes * 60, duration: '', me })
+  const board = (entries: BoardData['entries'], total = entries.length, me: BoardData['me'] = entries.find(entry => entry.me) ?? null): BoardData =>
+    ({ tab: 'friends', window: { start: '', end: '' }, refreshedAt: null, total, me, meShown: true, friends: 2, everyoneOpen: false, entries })
+
+  it('takes the new seconds and re-ranks by the Worker\'s rule: most time first, equal time equal rank', () => {
+    const before = board([row(1, 'Bea', 14), row(2, 'Carl', 13), row(3, 'You', 12, true)])
+    const after = withOwnSeconds(before, 16 * 60, 'Anders')
+    expect(after.entries.map(entry => [entry.rank, entry.name, entry.seconds])).toEqual([[1, 'You', 960], [2, 'Bea', 840], [3, 'Carl', 780]])
+    expect(after.me).toMatchObject({ rank: 1, seconds: 960, me: true })
+    expect(after.entries[0].duration).toBe('16 m')
+    const tie = withOwnSeconds(before, 14 * 60, 'Anders')
+    // Ties by name, as social.ts ranks them (Anders before Bea), and share the rank.
+    expect(tie.entries.map(entry => [entry.rank, entry.name])).toEqual([[1, 'You'], [1, 'Bea'], [3, 'Carl']])
+    // Other readers' rows are the Worker's.
+    expect(after.entries.filter(entry => !entry.me).map(entry => entry.seconds)).toEqual([840, 780])
+  })
+
+  it('leaves the board as it is when nothing changed, or when it is cut off (the rank among unlisted readers is unknown)', () => {
+    const same = board([row(1, 'Bea', 14), row(2, 'You', 12, true)])
+    expect(withOwnSeconds(same, 12 * 60)).toBe(same)
+    const cut = board([row(1, 'Bea', 14), row(2, 'Carl', 13)], 60, row(60, 'You', 1, true))
+    expect(withOwnSeconds(cut, 30 * 60)).toBe(cut)
+    // Every reader listed but the viewer's row sent alone: it goes in its place.
+    const below = board([row(1, 'Bea', 14)], 2, row(2, 'You', 12, true))
+    const moved = withOwnSeconds(below, 20 * 60)
+    expect(moved.entries.map(entry => [entry.rank, entry.name])).toEqual([[1, 'You'], [2, 'Bea']])
+    expect(moved.me).toMatchObject({ rank: 1, seconds: 1200 })
   })
 })

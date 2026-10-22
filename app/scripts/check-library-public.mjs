@@ -188,6 +188,12 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  await shelfRemove.click();const removeItem=shelfCard.locator('[role="menuitem"]');assert.deepEqual(await removeItem.allInnerTexts(),['Remove from shelf'],'a saved book\'s ••• offers Remove from shelf');
  // The menu opens anchored to its •••: just below it, right edges aligned (or from its left edge at the viewport's), inside the viewport.
  {const [bb,mb]=[await shelfRemove.boundingBox(),await shelfCard.locator('.shelf-menu').boundingBox()],vw=await p.evaluate(()=>innerWidth);assert(mb.y>=bb.y+bb.height-.5&&mb.y-(bb.y+bb.height)<10,'menu just below its button');assert(Math.abs(mb.x+mb.width-(bb.x+bb.width))<1.5||Math.abs(mb.x-bb.x)<1.5,'menu aligned to its button');assert(mb.x>=0&&mb.x+mb.width<=vw,'menu inside the viewport');}
+ // What arrives late (the catalogue, the account's reading table: a resize event, then library2:reading)
+ // must not take an open ••• away: the deploy check lost it in WebKit when the table landed just after the tap (2026-10-22).
+ await p.evaluate(()=>{dispatchEvent(new Event('resize'));dispatchEvent(new CustomEvent('library2:reading',{detail:{...window.__library2Reading,mode:'new'}}));});
+ await p.waitForTimeout(150);
+ assert.equal(await shelfCard.locator('.shelf-menu').count(),1,'a late refresh keeps the open ••• menu');
+ assert.equal(await shelfRemove.getAttribute('aria-expanded'),'true','a late refresh keeps the ••• expanded');
  await removeItem.click();
  await p.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click();
  await p.waitForFunction(()=>!document.querySelector('#collection-books article.collection-card[data-book="frankenstein"]'));

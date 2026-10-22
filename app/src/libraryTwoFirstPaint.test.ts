@@ -50,7 +50,8 @@ describe('library first paint: the module graph is fetched with the page', () =>
   })
   it('shelf covers wait for the desk while it is pending, and never wait forever', () => {
     const app = read('lab/library_2/app.js')
-    expect(app).toContain("function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book)):ensureCover(book)).catch(()=>{});}")
+    // A shelf asks for its painting at the pixels its covers draw (shelfNeed, 2026-10-21).
+    expect(app).toContain("function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book,shelfNeed(book.id))):ensureCover(book,shelfNeed(book.id))).catch(()=>{});}")
     // The desk's own cover goes straight through ensureCover, never through the wait.
     expect(app).toMatch(/prepareCover:async\(id,canvas\)=>\{[^\n]*?await ensureCover\(book\);paintCover\(canvas,id/)
     expect(app).not.toContain('await deskRevealed')

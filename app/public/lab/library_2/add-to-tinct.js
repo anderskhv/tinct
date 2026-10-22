@@ -872,13 +872,25 @@ function placeShelfMenu(menu,more){
  menu.style.left=(at.left-box.left)+'px';menu.style.top=(at.top-box.top)+'px';
  menu.dataset.place=(at.above?'above':'below')+(at.flipped?' start':' end');
 }
-let openMenu=null;
+let openMenu=null;const afterMenu=[];
 function closeShelfMenu({focus=false}={}){
  if(!openMenu)return;const {menu,more,away,onResize}=openMenu;openMenu=null;
  menu.remove();more.setAttribute('aria-expanded','false');more.classList.remove('is-open');
  removeEventListener('pointerdown',away,true);removeEventListener('keydown',away,true);removeEventListener('resize',onResize);
  if(focus)more.focus({preventScroll:true});
+ // After the chosen item has run (it is called right after this), not before it.
+ if(afterMenu.length)queueMicrotask(()=>{for(const fn of afterMenu.splice(0))fn();});
 }
+/**
+ * Whether a shelf cover's ••• menu is open inside `root`. A page that redraws `root` while one is
+ * open would take the menu away under the reader's finger (My shelf redrew itself when the
+ * catalogue or the account's table arrived late: 2026-10-22, check-library-public in WebKit), so
+ * it waits: `afterShelfMenu(fn)` runs `fn` once the menu has closed and its choice has run.
+ */
+export function shelfMenuOpenIn(root){return !!openMenu&&!!root?.contains(openMenu.more);}
+export function afterShelfMenu(fn){if(openMenu)afterMenu.push(fn);else fn();}
+/** Close an open ••• menu: the view it belongs to is going away (another collection, Back). */
+export function closeShelfMenus(){closeShelfMenu();}
 /**
  * The quiet ••• on a shelf cover (on hover with a mouse, always shown on touch): a small menu
  * anchored to it (shelfMenuPlace). `items`: `{label,onChoose(more),danger?}` in order, the
@@ -909,7 +921,10 @@ export function shelfMenu(title,{own=false,onChoose,items=null}){
    }
    if(!menu.contains(e.target)&&e.target!==more&&!more.contains(e.target))closeShelfMenu();
   };
-  const onResize=()=>closeShelfMenu();
+  // A real change of the viewport's size closes the menu; a resize event that changes nothing
+  // (the library sends one whenever the reading table arrives) only places it again.
+  const size=()=>`${document.documentElement.clientWidth}x${innerHeight}`,openSize=size();
+  const onResize=()=>{if(size()!==openSize)closeShelfMenu();else placeShelfMenu(menu,more);};
   more.after(menu);more.setAttribute('aria-expanded','true');more.classList.add('is-open');
   placeShelfMenu(menu,more);
   openMenu={menu,more,away,onResize};
