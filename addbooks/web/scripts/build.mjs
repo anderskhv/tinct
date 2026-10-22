@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Builds the Add-a-book page for tinct.app/lab/addbook/ into addbooks/web/dist/lab-addbook/.
+// Builds the Add-a-book page for tinct.app/lab/addbook/ into addbooks/web/dist/lab-addbook/,
+// from its only source, app/public/lab/addbook (with a fresh catalogue and search.js).
 //   node addbooks/web/scripts/build.mjs [--catalog <index.json[.gz]>]
 // Needs the search catalogue (./addbooks/scripts/build-index) unless a committed
 // catalogue (addbooks/web/data/catalog.json.gz, else the installed
@@ -17,9 +18,9 @@ const opt = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] 
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
-cpSync(join(WEB, 'src'), OUT, { recursive: true });
+cpSync(join(REPO, 'app/public/lab/addbook'), OUT, { recursive: true });
 
-// Tinct's own stylesheet: the current app build when there is one, else the snapshot.
+// Tinct's own stylesheet: the current app build when there is one, else the installed copy.
 const appAssets = join(REPO, 'app/dist/assets');
 let appCss = null;
 if (existsSync(appAssets)) {
@@ -27,8 +28,7 @@ if (existsSync(appAssets)) {
   if (css) appCss = readFileSync(css, 'utf8').replace(/@font-face\{font-family:Inter[^}]*\}/g, '');
 }
 mkdirSync(join(OUT, 'css'), { recursive: true });
-writeFileSync(join(OUT, 'css/tinct-app.css'), appCss ?? readFileSync(join(WEB, 'src/vendor/tinct-app.css'), 'utf8'));
-rmSync(join(OUT, 'vendor/tinct-app.css'), { force: true });
+writeFileSync(join(OUT, 'css/tinct-app.css'), appCss ?? readFileSync(join(REPO, 'app/public/lab/addbook/css/tinct-app.css'), 'utf8'));
 
 // The search engine's ranking, unchanged.
 cpSync(join(REPO, 'addbooks/site/search.js'), join(OUT, 'js/search.js'));

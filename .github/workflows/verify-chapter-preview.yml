@@ -27,7 +27,7 @@ jobs:
       - run: npx vitest run src/lab/labChapterEndPaging.test.ts src/lab/LabChapterEnd.test.tsx src/lab/labChapterChat.test.ts
       - run: npm run build
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Check chapter actions and complete source coverage
         env:
           TEST_ORIGIN: https://tinct.app
@@ -62,7 +62,7 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: bash ../scripts/cloud-setup.sh
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Check live chapter actions silently
         env:
           TEST_ORIGIN: https://tinct.app

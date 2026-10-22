@@ -476,10 +476,10 @@ describe('own books removed on another device', () => {
     expect(listed()).toMatchObject({ href: `/reader?userBook=${'d'.repeat(24)}` })
     Object.defineProperty(window, 'innerWidth', { configurable: true, value: width })
     const book = listed()
-    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/lab/addbook/?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
+    expect(book).toMatchObject({ key: `epub:${'d'.repeat(24)}`, href: `/reader?userBook=${'d'.repeat(24)}`, title: 'River Notes', cover: null })
     expect(book.reading).toMatchObject({ bookId: `userbook-${'d'.repeat(24)}`, percent: 41.5, lastActiveAt: 700 })
     const pdf = accountOnlyBook({ id: 'e'.repeat(32), type: 'pdf', sha256: 'a'.repeat(64), title: '', name: 'notes.pdf', author: '', size: 1, createdAt: '' })
-    expect(pdf).toMatchObject({ title: 'notes', href: `/lab/addbook/?userBook=${'a'.repeat(24)}`, reading: null })
+    expect(pdf).toMatchObject({ title: 'notes', href: `/reader?userBook=${'a'.repeat(24)}`, reading: null })
   })
 })
 

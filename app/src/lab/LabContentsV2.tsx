@@ -3,7 +3,9 @@ import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
 import type { LabChapter } from './labSource'
 import { isLabChapterNote, type LabHighlight } from './labHighlights'
-import { labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
+import { highlightCreatedAt, labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
+import { LAB_NOTEBOOK_LABEL } from './labSuperMenu'
+import { isCardTombstone } from './labChatHistory'
 import type { LabChapterStatus } from './labChapterStatus'
 import { contentsExcerpt, contentsQuestion, contentsQuote, searchContents, type ContentsPlace } from './labContents'
 import './labContentsV2.css'
@@ -14,7 +16,10 @@ import { LabWait } from './LabWait'
 
 import { contentsTree, flattenContents, contentsPercent, type ContentsNode } from './labContentsTree'
 
-type View = 'search' | 'highlights' | 'chats' | 'highlight' | 'older'
+type View = 'search' | 'highlights' | 'chats' | 'highlight' | 'older' | 'notebook'
+/** The Notebook's filters, named as the desktop margin reader's (public/lab/addbook/js/notebook.js FILTERS). */
+type NotebookFilter = 'all' | 'mine' | 'ai'
+const NOTEBOOK_FILTERS: Array<[NotebookFilter, string]> = [['all', 'All'], ['mine', 'My notes'], ['ai', 'AI']]
 type Scope = 'all' | 'book' | 'chats'
 interface Props {
   open: boolean; bookId: string; title: string; editionKey: string; editionLabel: string
@@ -29,6 +34,12 @@ interface Props {
   /** While an added book's Modern English edition is being written: each chapter's state (labModernEdition.ts). */
   modernStates?: Record<string, 'ready' | 'preparing' | 'queued'>
   onSwitchBook?: () => void
+  /**
+   * Opened as the phone's Notebook (t menu, 22 Oct 2026): one list, newest first, of this book's cards (its saved
+   * conversations) and the reader's highlights and notes, as the desktop margin reader's Notebook lists them, with
+   * its filters (All · My notes · AI). Closing it returns to the book.
+   */
+  notebook?: boolean
   /** The book's introduction (in the library). Omitted when there is none to open. */
   onOpenIntroduction?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
@@ -73,6 +84,7 @@ export function LabContentsV2(props: Props) {
   const [limit, setLimit] = useState(30)
   const [order, setOrder] = useState<LabHighlightOrder>('oldest')
   const [notesFilter, setNotesFilter] = useState(false)
+  const [notebookFilter, setNotebookFilter] = useState<NotebookFilter>('all')
   const panelRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const returnFocus = useRef<HTMLElement | null>(null)
@@ -90,7 +102,10 @@ export function LabContentsV2(props: Props) {
     return (n: number) => places.get(n) ?? chapters.length + n
   }, [chapters])
   const results = useMemo(() => searchContents(query, chapters, data, chats, highlights), [query, chapters, data, chats, props.highlights])
-  const needsText = open && (view === 'search' || view === 'highlights' || view === 'highlight')
+  // The Notebook loads the book's text only for a mark that does not carry its own words (a reader's own book's
+  // text is not an edition the loader has).
+  const needsText = open && (view === 'search' || view === 'highlights' || view === 'highlight'
+    || (view === 'notebook' && notebookFilter !== 'ai' && highlights.some(h => !h.text && !isLabChapterNote(h))))
   const chapterTitle = (n: number) => chapters.find(ch => ch.number === n)?.title || 'Chapter ' + n
   const quote = (h: LabHighlight) => h.text || contentsQuote(h, data)
   const showOverlay = (next: View, chapter: number | null = null) => {
@@ -101,17 +116,18 @@ export function LabContentsV2(props: Props) {
   const closeOverlay = () => { setView(null); setSelection(null); requestAnimationFrame(() => returnFocus.current?.focus({ preventScroll: true })) }
   const closeAction = useRef(() => {})
   closeAction.current = () => {
-    if (view === 'highlight') { setView('highlights'); setSelection(null) }
+    if (view === 'highlight') { setView(props.notebook ? 'notebook' : 'highlights'); setSelection(null) }
+    else if (view === 'notebook') onClose()
     else if (view) closeOverlay()
     else onClose()
   }
 
   useEffect(() => {
     if (!open) return
-    setExpanded(new Set(current?.parents.map(n => n.id))); setView(null)
+    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : null); setChapterFilter(null); setNotebookFilter('all')
     setCrumbs([]); reveal.current = true
-  }, [open, bookId, currentChapter, props.chaptersReady])
-  useEffect(() => { setLoadedText(null); setLoadError(false); setView(null); setTab('chapters') }, [bookId, editionKey])
+  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook])
+  useEffect(() => { setLoadedText(null); setLoadError(false); setView(open && props.notebook ? 'notebook' : null); setTab('chapters') }, [bookId, editionKey])
   useEffect(() => {
     if (!needsText || data) return
     let cancelled = false
@@ -236,6 +252,11 @@ export function LabContentsV2(props: Props) {
     : <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
       <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{noteText(h)}
     </button>
+  // The Notebook: the same rows as Chats and Highlights & notes, in one list, newest first.
+  const notebookRows = view !== 'notebook' ? [] : [
+    ...(notebookFilter !== 'ai' ? [...highlights, ...chapterNotes].map(h => ({ at: highlightCreatedAt(h), row: () => highlightRow(h) })) : []),
+    ...(notebookFilter !== 'mine' ? chats.filter(chat => !isCardTombstone(chat)).map(chat => ({ at: chat.endTimestamp, row: () => chatRow(chat) })) : []),
+  ].sort((a, b) => b.at - a.at)
   const more = (count: number) => count > limit && <button className="more" onClick={() => setLimit(n => n + 30)}>Show more · {count - limit} remaining</button>
   const textStatus = needsText && !data && (loadError
     ? <p className="status" role="status">Text could not be loaded. <button onClick={() => setRetry(n => n + 1)}>Retry</button></p>
@@ -271,15 +292,18 @@ export function LabContentsV2(props: Props) {
         {historyStatus}
       </div>
       </>}
-      {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : 'Highlights & notes'}>
+      {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : view === 'notebook' ? LAB_NOTEBOOK_LABEL : 'Highlights & notes'}>
         <div className="overlay-head">
-          {view === 'search' ? <><Icon name="search" /><input type="search" aria-label={'Search ' + title} placeholder="Search book or chats…" value={query} onChange={event => setQuery(event.target.value)} /></> : <span className="overlay-title">{view === 'chats' ? 'Chats' : view === 'highlight' ? (selection && isLabChapterNote(selection) ? 'Chapter note' : 'Highlight') : 'Highlights & notes'}</span>}
+          {view === 'search' ? <><Icon name="search" /><input type="search" aria-label={'Search ' + title} placeholder="Search book or chats…" value={query} onChange={event => setQuery(event.target.value)} /></> : <span className="overlay-title">{view === 'notebook' ? LAB_NOTEBOOK_LABEL : view === 'chats' ? 'Chats' : view === 'highlight' ? (selection && isLabChapterNote(selection) ? 'Chapter note' : 'Highlight') : 'Highlights & notes'}</span>}
           <button data-close aria-label="Close overlay" onClick={() => closeAction.current()}><Icon name="close" /></button>
         </div>
         {view === 'highlights' && <nav className="scopes" aria-label="Highlights shown">
           <button aria-pressed={!notesFilter} onClick={() => setNotesFilter(false)}>All</button>
           <button aria-pressed={notesFilter} onClick={() => setNotesFilter(true)}>Notes only</button>
           <button className="order" aria-pressed={order === 'newest'} onClick={() => setOrder(value => value === 'newest' ? 'oldest' : 'newest')}>Newest first</button>
+        </nav>}
+        {view === 'notebook' && <nav className="scopes" aria-label="Notebook shown">
+          {NOTEBOOK_FILTERS.map(([value, label]) => <button key={value} aria-pressed={notebookFilter === value} data-testid={'contents-notebook-' + value} onClick={() => { setNotebookFilter(value); setLimit(30) }}>{label}</button>)}
         </nav>}
         {view === 'search' && <nav className="scopes" aria-label="Search scope">{(['all','book','chats'] as Scope[]).map(value => <button key={value} aria-pressed={scope === value} onClick={() => setScope(value)}>{value[0].toUpperCase() + value.slice(1)}</button>)}</nav>}
         <div className="results" aria-live="polite">
@@ -290,6 +314,7 @@ export function LabContentsV2(props: Props) {
             {scope !== 'book' && <>{results.chats.slice(0,limit).map(chatRow)}{more(results.chats.length)}</>}
             {(scope === 'chats' || data) && (scope === 'book' || props.historyStatus === 'ready') && !shownResults && <p className="status">No matches.</p>}
           </>)}
+          {view === 'notebook' && <>{notebookRows.slice(0, limit).map(item => item.row())}{more(notebookRows.length)}{!notebookRows.length && props.historyStatus !== 'loading' && <p className="status">{notebookFilter === 'ai' ? 'No saved conversations.' : notebookFilter === 'mine' ? 'No highlights or notes saved for this edition.' : 'Nothing saved in this book yet.'}</p>}</>}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
           {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{notesFilter && relevantHighlights.length > 0 && <p className="status note-count">{relevantHighlights.length === 1 ? '1 note' : `${relevantHighlights.length} notes`} in {title}</p>}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}

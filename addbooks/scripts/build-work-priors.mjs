@@ -10,7 +10,7 @@
 //
 // Reads the slim catalogue (default: the installed app/public/lab/addbook/data/catalog.json.gz),
 // caches every Wikidata answer under addbooks/.cache/wikidata/ (rerun with --offline to rebuild
-// from the cache) and writes addbooks/web/src/data/work-priors.json, which build.mjs ships next to
+// from the cache) and writes app/public/lab/addbook/data/work-priors.json, which ships next to
 // the catalogue. Wikidata is CC0. No paid API is called.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
@@ -24,7 +24,7 @@ const opt = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] 
 const OFFLINE = args.includes('--offline');
 const CATALOG = opt('--catalog') || join(REPO, 'app/public/lab/addbook/data/catalog.json.gz');
 const CACHE = join(REPO, 'addbooks/.cache/wikidata');
-const OUT = join(REPO, 'addbooks/web/src/data/work-priors.json');
+const OUT = join(REPO, 'app/public/lab/addbook/data/work-priors.json');
 // A work needs at least this many sitelinks to be kept: below it the signal is noise, and the file stays small.
 const MIN_SITELINKS = 3;
 const BATCH = 200;

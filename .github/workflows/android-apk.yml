@@ -44,7 +44,7 @@ jobs:
         env:
           CI: true
           VITE_NATIVE_AUTH_DIAGNOSTICS: '1'
-      - run: npx playwright install --with-deps chromium
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium
       - name: Verify e-ink reader and library without provider calls
         run: node scripts/android/check-eink.mjs
       - name: Compile installable review APK

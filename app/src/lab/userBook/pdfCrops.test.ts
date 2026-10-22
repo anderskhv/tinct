@@ -33,9 +33,9 @@ let fromPages: (pages: unknown[], scan: unknown) => UserBookEdition | null
 let textRows: (items: unknown[]) => unknown[]
 
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-regions.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-regions.js')
   const g = globalThis as unknown as { TinctPdfScan: { textRows: typeof textRows }; TinctPdfText: { fromPages: typeof fromPages }; TinctPdfRegions: Regions }
   regions = g.TinctPdfRegions
   textRows = g.TinctPdfScan.textRows

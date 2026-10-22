@@ -75,7 +75,7 @@ const phoneNow = () => typeof window !== 'undefined' && window.innerWidth < PHON
 
 /**
  * The edition a PDF opens in (see above), or null when nothing is known yet.
- * The same rule as `TinctPdfText.choice` in addbooks/web/src/js/pdf-text.js.
+ * The same rule as `TinctPdfText.choice` in public/lab/addbook/js/pdf-text.js.
  * On the desktop (Anders, 19 Oct 2026: Margin view is the main desktop
  * experience) every PDF opens in its pages unless the reader chose Tinct
  * text on this device: a kept default (phone-edition / desk-edition, such as

@@ -89,15 +89,12 @@ describe('auto-scroll keeps the word heard in view without fighting the reader',
 })
 
 describe('the preview page loads it', () => {
-  for (const file of ['app/public/lab/addbook/book.html', 'app/public/lab/addbook/index.html', 'addbooks/web/src/book.html', 'addbooks/web/src/index.html']) {
+  for (const file of ['app/public/lab/addbook/book.html', 'app/public/lab/addbook/index.html']) {
     it(`${file}: after tinct-book.js, before start.js`, () => {
       const html = readFileSync(ROOT + file, 'utf8')
-      const book = html.indexOf('src="js/tinct-book.js'), listen = html.indexOf('src="js/tinct-listen.js?v=20261021listen"'), start = html.indexOf('src="js/start.js')
+      const book = html.indexOf('src="js/tinct-book.js'), listen = html.indexOf('src="js/tinct-listen.js?v=__TINCT_BUILD__"'), start = html.indexOf('src="js/start.js')
       expect(listen).toBeGreaterThan(book)
       expect(start).toBeGreaterThan(listen)
     })
   }
-  it('the mirror is byte for byte', () => {
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/tinct-listen.js', 'utf8')).toBe(readFileSync(ROOT + 'app/public/lab/addbook/js/tinct-listen.js', 'utf8'))
-  })
 })

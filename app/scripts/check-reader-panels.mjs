@@ -115,13 +115,12 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   await page.waitForTimeout(700)
   return {context,page,requests,errors}
 }
-// The phone's t menu (20 Oct 2026) groups the desktop's Settings and Book editions rows as Text and theme
-// (themes, size, Advanced settings) and Reading settings (editions, compare, voice, speed). 'theme' names the
-// layer with the themes on either layout: the desktop's Settings, the phone's Text and theme.
+// The settings groups (22 Oct 2026), the same rows on the phone and the desktop: Aa ('text': themes, size,
+// Advanced settings), Book settings ('editions': editions, compare) and Audio settings ('audio': voice, speed).
+// 'theme' names the layer with the themes.
 async function clickMenu(page,id) {
   await page.getByTestId('lab-super').click()
-  const phone=await page.getByTestId('lab-super-row-text').count()>0
-  const row=id==='theme'?(phone?'text':'settings'):id
+  const row=id==='theme'?'text':id
   await page.getByTestId('lab-super-row-'+row).click()
 }
 // Compare the ink of each character, not span-fragment bookkeeping:
@@ -214,14 +213,17 @@ async function run(engine,name,phone) {
     }
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-explanation.png'})
     await page.getByRole('button',{name:'Highlight this passage'}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    // Desktop: the margin reader's dark bar (22 Oct 2026) names a colour by itself and stays open after it; the
+    // phone's palette says "Highlight Sage" and closes.
+    await page.getByRole('button',{name:/^(Highlight )?Sage$/}).click()
+    if(await page.getByTestId('lab-desk-bar').count())await page.keyboard.press('Escape')
     await page.waitForTimeout(300)
     const recoloured=await wordBoxes(page)
     assert.deepEqual(recoloured,before,'saving a highlight must not move text')
     // Every word in a saved mark must expose deletion, not a dictionary.
     for(const index of [0,9,18]){
       await page.getByTestId('lab-word').nth(index).click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
       assert.equal(await page.locator('.popup-define').count(),0)
       await page.keyboard.press('Escape')
     }
@@ -269,7 +271,7 @@ async function run(engine,name,phone) {
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
       // Menus must remain clickable while a floating companion is open.
-      await clickMenu(page,'settings')
+      await clickMenu(page,'text')
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-desktop-companion-close').click()
     }
@@ -361,11 +363,14 @@ async function compareLabel(engine,name){
     assert.equal(await page.getByTestId('lab-page-wrap').evaluate(node=>getComputedStyle(node,'::after').content),'none')
     await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
     await select(page)
-    await page.getByRole('button',{name:'Highlight',exact:true}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    // The dark bar: one click highlights, a second opens the colours.
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:'Sage',exact:true}).click()
+    await page.keyboard.press('Escape')
     const comparisonWord=page.locator('.lab-book-col-compare [data-testid="lab-word"].is-hl-sage').first()
     await comparisonWord.click()
-    await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+    await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
     await page.keyboard.press('Escape')
     result.passed=true
   }catch(error){
@@ -672,7 +677,7 @@ async function highlightRegression(engine,name){
       for(const index of chosen){
         const text=await marked.nth(index).innerText()
         await marked.nth(index).click()
-        await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+        await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
         assert.equal(await page.locator('.popup-define').count(),0)
         result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
         await page.keyboard.press('Escape')
@@ -687,7 +692,7 @@ async function highlightRegression(engine,name){
         })
       })
       await marked.first().click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).click()
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).click()
       assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
       assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
       await page.reload({waitUntil:'domcontentloaded'})
@@ -868,23 +873,23 @@ async function menuRedesign(engine,name,phone) {
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
-    // chapter (this is chapter 1); Text and theme and Reading settings in place of Book editions and Settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Text and theme','Reading settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Book editions','Settings',accountRow])
+    // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Aa','Book settings','Audio settings',accountRow])
     // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
     // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
     if(phone)assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
-    if(phone)assert.equal((await page.getByTestId('lab-super-row-text').locator('.lab-super-row-icon').innerText()).trim(),'Aa')
+    assert.equal(await page.getByTestId('lab-super-row-text').locator('svg[data-icon="text-size"]').count(),1)
     assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
     if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
     assert((await page.getByTestId('lab-super-menu').boundingBox()).width<=215)
     assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
-    await page.getByTestId(phone?'lab-super-row-reading':'lab-super-row-editions').click()
-    if(phone)assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Reading settings')
+    await page.getByTestId('lab-super-row-editions').click()
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Book settings')
     await page.getByTestId('lab-v2-main-edition').click()
     const modern=page.locator('[data-edition="modern-en"]')
     assert.match(await modern.innerText(),/Tinct Modern English.*Easy.*AI-generated/s)
@@ -899,23 +904,22 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-v2-sheet-back').click()
     await page.getByTestId('lab-v2-sheet-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
-    // Voice and speed: in Settings on the desktop (without the editions); on the phone in Reading settings,
-    // with the editions, and Text and theme holds the themes, size and Advanced settings without them.
-    await clickMenu(page,phone?'reading':'settings')
+    // Voice and speed (and the audiobook version) are Audio settings' on both layouts, without the editions;
+    // Aa holds the themes, size and Advanced settings without either.
+    await clickMenu(page,'audio')
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Audio settings')
     await page.getByTestId('lab-v2-narration-voice').selectOption('male')
     await page.getByTestId('lab-v2-audio-speed').selectOption('1.25')
-    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),phone?1:0)
+    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
-    if(phone){
-      await clickMenu(page,'text')
-      assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Text and theme')
-      assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
-      assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
-      assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
-      assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
-      await page.getByTestId('lab-v2-sheet-close').click()
-    }
+    await clickMenu(page,'text')
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Aa')
+    assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
+    assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
+    assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
+    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
+    await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
     // Summarize is a card of beats in its own sheet, not a chat answer.
     await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
@@ -978,7 +982,7 @@ async function panelsOpenNearSource(engine,name) {
     state=await boot(browser,false,'odyssey','original-en',2)
     const {page}=state
     const menu=await page.getByTestId('lab-super').boundingBox()
-    for(const id of ['settings','editions','catchup']){
+    for(const id of ['text','editions','audio','catchup']){
       await clickMenu(page,id);await page.waitForTimeout(700)
       const sheet=await page.locator('section.lab-v2-sheet').first().boundingBox()
       assert(Math.abs(sheet.x+sheet.width-(menu.x+menu.width))<=40,`${id} opens right-aligned under the Menu button: ${JSON.stringify(sheet)}`)
