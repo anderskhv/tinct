@@ -7,7 +7,9 @@ const asset=JSON.parse(fs.readFileSync(`public/data/characters/${book}.v1.json`,
 const reviewedCases = {
   'the-prince': [['cyrus',17,'cyrus',3],['hannibal',18,'hannibal',9],['chiron',19,'chiron',1]],
   'julius-caesar': [['brutus',4,'brutus',7],['antony',9,'antony',35]],
-  'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23]],
+  // Optional fifth element: which of the character's mentions in that paragraph (default the first).
+  // 2026-10-21 card rulings: Sawbones 1:7 and the locksmith 9:9 are each the second mention in both editions.
+  'jekyll-and-hyde': [['hyde',10,'hyde',23],['lanyon',10,'lanyon',23],['poole',10,'poole',23],['sawbones-ruling',1,'girl-doctor',7,1],['locksmith-ruling',9,'locksmith',9,1]],
   meditations: [['verus',1,'verus',0],['rusticus',1,'rusticus',6],['ruling-faculty',2,'the-ruling-part',1]],
   'jane-eyre': [['mrs-reed',1,'mrs-reed',0],['scatcherd',5,'miss-scatcherd',97],['grace-poole',11,'grace-poole',113]],
   'pride-and-prejudice': [['darcy',3,'darcy',4],['lady-catherine',13,'lady-catherine',14],['fitzwilliam',30,'colonel-fitzwilliam',6]],
@@ -41,10 +43,10 @@ if (book === 'crime-and-punishment') {
  reviewedCases[book]=selected.map(([label,m])=>[label,m.chapterNumber,m.characterId,m.paragraphIndex])
 }
 const cases=reviewedCases[book];assert.ok(cases,`No reviewed browser cases for ${book}`)
-;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await markInternal(await engine.launch());try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi] of cases){
+;(async()=>{const results=[];for(const [device,engine] of [['phone',webkit],['desktop',chromium]]){const b=await markInternal(await engine.launch());try{for(const edition of ['original-en','modern-en']){const source=JSON.parse(fs.readFileSync(`public/data/editions/${book}-${edition}.json`,'utf8'));for(const [label,ch,id,pi,occ] of cases){
 if(process.env.TEST_CASE&&`${device}-${edition}-${label}`!==process.env.TEST_CASE)continue
 
-const e=asset.editions[edition];if(edition==='modern-en'&&['caesar','chu'].includes(id)&&!e.characters.some(c=>c.id===id)){results.push({device,edition,label,omitted:true});continue}const mention=e.mentions.find(m=>m.chapterNumber===ch&&m.characterId===id&&(label!=='new-cawdor'||m.resolution==='reviewed-title-transfer')&&(pi===undefined||m.paragraphIndex===pi));assert.ok(mention,label)
+const e=asset.editions[edition];if(edition==='modern-en'&&['caesar','chu'].includes(id)&&!e.characters.some(c=>c.id===id)){results.push({device,edition,label,omitted:true});continue}const mention=e.mentions.filter(m=>m.chapterNumber===ch&&m.characterId===id&&(label!=='new-cawdor'||m.resolution==='reviewed-title-transfer')&&(pi===undefined||m.paragraphIndex===pi))[occ??0];assert.ok(mention,label)
 const text=source.chapters.find(c=>c.number===ch).paragraphs[mention.paragraphIndex].replace(/\n/g,' ').replace(/ {2,}/g,' '),wordIndex=[...text.matchAll(/\S+/g)].findIndex(w=>w.index<mention.endOffset&&w.index+w[0].length>mention.startOffset);assert.ok(wordIndex>=0)
 const p=await b.newPage({serviceWorkers:'block',viewport:device==='phone'?{width:390,height:844}:{width:1440,height:950},isMobile:device==='phone',hasTouch:device==='phone'});p.setDefaultTimeout(15000);
 const diagnostics=[];p.on('pageerror',e=>diagnostics.push({error:e.message}));await p.context().tracing.start({screenshots:true,snapshots:true,sources:true});

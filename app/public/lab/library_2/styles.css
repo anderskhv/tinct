@@ -521,3 +521,9 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
    width and 2:3 shape alone, so skipping it never moves anything; app.js also empties the canvases
    of shelves far from the screen (shelfMemory). */
 .book-row .book-card{content-visibility:auto;contain-intrinsic-size:auto 106px auto 159px}
+/* The book drawn flat once its cover has fully turned (app.js drawBook, 2026-10-21): the same picture
+   without the 3D layers. rotateY(-180deg) about the cover's left edge after the back's own
+   rotateY(180deg) about its centre moves the back one flap width left. */
+#book-overlay.book-flat #book-shape,#book-overlay.book-flat #turning-cover{transform-style:flat;will-change:auto}
+#book-overlay.book-flat #turning-cover>.cover-front{display:none!important}
+#book-overlay.book-flat #turning-cover>.cover-back{transform:translateX(-100%)}
