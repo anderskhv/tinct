@@ -663,37 +663,18 @@ html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
 .mr-sheet .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
 .mr-sheet .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
 
-/* ---------- Ask, the bar's question field: Gloss's pill (Anders, 20 Oct 2026, screenshots 176 and 177) ----------
-   One light pill floating just above the passage, its small tip pointing at it; the words, the mic and a round accent
-   send disc inside. A matching pill in the dark looks. No box round the words (the caret is the focus), no spelling
-   marks or correction chip (margin.js barHtml), the UI font, no capitals. Desktop only: the phone keeps its bar. */
-.mr {
-  --mr-ask-bg: #f6f2ea; --mr-ask-ink: #1b1a17; --mr-ask-hint: #6a6256; --mr-ask-line: rgba(32, 26, 19, .16);
-  --mr-ask-send: #1f4a5c; --mr-ask-send-ink: #fff; --mr-ask-shadow: 0 0 0 1px var(--mr-ask-line), 0 10px 26px rgba(40, 34, 20, .16);
-}
-.lab.is-book-theme .mr { --mr-ask-bg: #f3ead7; --mr-ask-ink: #201a13; --mr-ask-hint: #675b4b; }
-.lab.is-night .mr {
-  --mr-ask-bg: #37312a; --mr-ask-ink: #efe8dc; --mr-ask-hint: #b3a998; --mr-ask-line: rgba(233, 225, 212, .16);
-  --mr-ask-send: #7fb0c2; --mr-ask-send-ink: #12100d; --mr-ask-shadow: 0 0 0 1px var(--mr-ask-line), 0 12px 30px rgba(0, 0, 0, .45);
-}
-html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
-  --mr-ask-bg: #fff; --mr-ask-ink: #111; --mr-ask-hint: #444; --mr-ask-line: #111; --mr-ask-send: #111; --mr-ask-send-ink: #fff; --mr-ask-shadow: 0 0 0 1px #111;
-}
-.mr-bar.is-asking { min-height: 50px; padding: 6px 7px 6px 8px; border-radius: 25px; align-items: flex-end; gap: 2px;
-  min-width: min(440px, calc(100% - 32px)); background: var(--mr-ask-bg); color: var(--mr-ask-ink); box-shadow: var(--mr-ask-shadow); }
-.mr-bar.is-asking::after { background: var(--mr-ask-bg); box-shadow: 1px 1px 0 0 var(--mr-ask-line); }
-.mr-bar.is-asking.is-below::after { box-shadow: -1px -1px 0 0 var(--mr-ask-line); }
-.mr-bar.is-asking .mr-bar__field { padding: 9px 4px 9px 10px; }
+/* ---------- Ask, the bar's question field: A3 (Anders, 22 Oct 2026, margin mocks "A · Typing in the bar") ----------
+   The dark bar itself becomes the field: its colour, 44px height, 12px radius and tip; 440px wide (margin.js sizeAsk),
+   a long question wrapping upward to three lines. The words, an Esc hint, the mic and the round send. No box round the
+   words (the caret is the focus), no spelling marks or correction chip (margin.js barHtml), the UI font, no capitals.
+   Desktop only: the phone keeps its bar (.mr-pbar). */
+.mr-bar.is-asking { min-width: min(440px, calc(100% - 32px)); max-width: min(440px, calc(100% - 32px)); }
 .mr-bar.is-asking .mr-ask, .mr-bar.is-asking .mr-ask:focus, .mr-bar.is-asking .mr-ask:focus-visible { outline: 0 !important; border: 0 !important; box-shadow: none !important; background: transparent; }
-.mr-bar.is-asking .mr-ask { color: var(--mr-ask-ink); caret-color: var(--mr-ask-send); font: 400 15px/20px var(--mr-ui); text-transform: none; letter-spacing: normal; }
-.mr-bar.is-asking .mr-ask::placeholder { color: var(--mr-ask-hint); opacity: 1; }
-.mr-bar.is-asking .mr-bar__item.is-mic { width: 36px; height: 36px; padding: 0; margin: 0; justify-content: center; border-radius: 50%; }
-.mr-bar.is-asking .mr-bar__item.is-mic svg { stroke: var(--mr-ask-hint); width: 17px; height: 17px; }
-.mr-bar.is-asking .mr-bar__item.is-mic:hover, .mr-bar.is-asking .mr-bar__item.is-mic[aria-pressed="true"] { background: color-mix(in srgb, var(--mr-ask-ink) 8%, transparent); }
-.mr-bar.is-asking .mr-bar__send { width: 36px; height: 36px; margin: 0; background: var(--mr-ask-send); }
-.mr-bar.is-asking .mr-bar__send svg { stroke: var(--mr-ask-send-ink); width: 16px; height: 16px; stroke-width: 2; }
-.mr-bar.is-asking .mr-bar__send:disabled { opacity: .4; }
-.mr-bar.is-asking button:focus-visible { outline: 2px solid var(--mr-ask-send); outline-offset: 2px; }
+.mr-bar.is-asking .mr-ask { text-transform: none; letter-spacing: normal; }
+.mr-bar.is-asking .mr-ask::placeholder { color: var(--mr-bar-soft); opacity: 1; }
+.mr-bar.is-asking .mr-bar__item.is-mic svg { stroke: var(--mr-bar-soft); }
+.mr-bar__esc { flex: none; box-sizing: border-box; display: inline-flex; align-items: center; height: 20px; margin: 0 4px 12px 6px; padding: 0 6px;
+  border: 1px solid var(--mr-bar-sep); border-radius: 5px; color: var(--mr-bar-soft); font: 500 11.5px/1 var(--mr-ui); }
 /* The unit marks' pills keep their 32px target in e-ink too (its display profile resets buttons' min-height). */
 html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .mr-pill { min-height: 32px; }
 /* The action row's buttons reach 3px below it (their 28px target): room for that when the row ends the body, so a card
