@@ -1,0 +1,13 @@
+{
+  "_note": "Reviewed same-paragraph character-card ruling for the Jekyll and Hyde modern-en repair (release text-2026-10-21.2), applied by app/scripts/prepare-modern-en-repairs.py --mappings. 'Sawbones' is a reviewed spelling for girl-doctor; the repair renders 'according to the doctor' (1:7) as 'according to the Sawbones'.",
+  "jekyll-and-hyde": [
+    {
+      "characterId": "girl-doctor",
+      "from": "doctor",
+      "to": "Sawbones",
+      "occurrenceOverrides": [
+        { "chapterNumber": 1, "paragraphIndex": 7, "oldOccurrence": 1, "newOccurrence": 0 }
+      ]
+    }
+  ]
+}
