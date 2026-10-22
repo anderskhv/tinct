@@ -289,7 +289,8 @@ async function openFromUrl(hex) {
   return false;
 }
 $('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
-$('bookBtn').onclick = () => (state.preview ? openContents() : openSwitcher());
+// A Tinct book's preview: the book reader's Reading now (previewNav); a reader's own book: its switcher here.
+$('bookBtn').onclick = () => (state.preview ? previewNav('switcher') : openSwitcher());
 let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
@@ -348,7 +349,7 @@ async function openEpub(bytes, name, key, rec = null) {
   state.zoom = saved?.zoom || 1;
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
   $('bookTitle').textContent = state.title;
-  $('bookBtn').setAttribute('aria-label', `Contents of ${state.title}`);
+  $('bookBtn').setAttribute('aria-label', state.preview ? `Switch books, currently ${state.title}` : `Contents of ${state.title}`);
   document.title = `${state.title} · Tinct`;
   $('column').innerHTML = '';
   applyEpubScale();
@@ -2410,6 +2411,31 @@ function openProfile() {
   if (host?.menu?.openProfile) { host.menu.openProfile({ dark: root.classList.contains('is-night') }); return }
   leaveToShelf(PROFILE_URL);
 }
+/**
+ * A Tinct book's title and chapter pill do what the book reader's do (Anders, 22 Oct 2026): the framing page
+ * (src/lab/marginPreview/MarginPreviewNav.tsx) draws the book reader's Reading now (`switcher`) or Contents over this
+ * reader. A chapter or passage picked there comes back as `go`; a book picked has this place written first (`leave`).
+ * -> it opened (false: not a preview, or no framing page)
+ */
+function previewNav(kind) {
+  const host = previewHost();
+  if (!host?.nav?.open || !hasBook()) return false;
+  closeAllPopups();
+  savePlaceNow();
+  // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
+  const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
+  const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : 'light';
+  host.nav.open({
+    kind, theme, page: reading, percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: ch ? ch.label : '',
+    // A chapter: its top, the heading in view and inside the chapter (goTo's room above a page would read back as the
+    // chapter before's end, and that would be the place kept); a passage: its word, held as a restore holds it.
+    go: at => { primer.held = false; if (!(at.para || at.word) || !epubGoSpot(at.page, at.para, at.word)) goTo({ page: at.page, frac: 0.0001 }) },
+    leave: () => { leavePlace(); stopNarration() },
+    library: () => leaveToShelf(),
+    closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
+  });
+  return true;
+}
 
 /* Page jump: the chapter pill becomes the page pill */
 function openJump() {
@@ -2428,7 +2454,7 @@ function openJump() {
   box.querySelector('form').onsubmit = e => { e.preventDefault(); const v = input.value; closeJump(); jumpToLabel(v) };
 }
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
-$('pageBtn').onclick = () => openContents();
+$('pageBtn').onclick = () => { if (!previewNav('contents')) openContents() };
 
 /* The Aa panel (Anders, 15 Oct 2026): every setting for how the book looks, in one sheet from the top
    bar's Aa. Layout first (a PDF: Margin view or Focus view, and Convert to Tinct book, its Tinct text, which leaves for the Tinct

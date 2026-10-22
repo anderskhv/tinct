@@ -257,13 +257,66 @@ try {
         ok(`${tag}: Before you start is about the chapter (one unit per chapter)`, !!primerReq, primerReq)
       }
 
-      // 3c. The chapter controls: the header's pill opens the book's chapters (parts and chapters).
+      // 3c. The chapter pill and the book title do what the book reader's do (Anders, 22 Oct 2026): the pill opens the
+      // book reader's own Contents (this page's, over the frame) at the chapter on view, and a chapter picked there is
+      // where the frame goes and the place kept; the title opens its Reading now. The margin's own contents card (its
+      // unit box with Recap · Quiz me · Catch me up) opens from neither.
       await frame.evaluate(() => { getSelection().removeAllRanges(); closeAllPopups(); if (col.open) openCard(null); closeSheet2() })
-      await frame.click('#pageBtn')
-      const toc = await frame.waitForSelector('[data-testid="lab-toc"] .tree', { timeout: 5000 }).catch(() => null)
-      ok(`${tag}: the chapter pill opens the book's chapters`, !!toc && (await frame.$$('[data-testid="lab-toc"] [data-go]')).length > 1)
-      shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
-      await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
+      {
+        const NAV = '[data-testid="margin-preview-nav"]'
+        const chapterOfPage = n => page.evaluate(async n => (await window.TinctMarginPreview.load()).chapters[n - 1]?.number ?? null, n)
+        const onView = await frame.evaluate(() => readingPage()), onViewChapter = await chapterOfPage(onView)
+        await frame.click('#pageBtn')
+        const contents = await page.waitForSelector(`${NAV} [data-testid="lab-contents-v2"]`, { timeout: 8000 }).catch(() => null)
+        const toc = await page.evaluate(nav => ({ rows: document.querySelectorAll(`${nav} [data-testid^="lab-tree-chapter-"]`).length, current: document.querySelector(`${nav} [data-testid^="lab-tree-chapter-"][aria-current="page"]`)?.dataset.testid || null, title: document.querySelector(`${nav} .lab-contents-v2 .title`)?.textContent }), NAV)
+        const frameCard = await frame.evaluate(() => !!document.querySelector('.lab-contents-v2, .byob-unit-now'))
+        ok(`${tag}: the chapter pill opens the book reader's Contents, at the chapter on view (${toc.current})`, !!contents && toc.rows > 1 && toc.current === `lab-tree-chapter-${onViewChapter}` && !frameCard, { toc, onView, onViewChapter, frameCard })
+        shots.push(join(OUT, `${tag}-chapters.png`)); await page.screenshot({ path: shots.at(-1) })
+        // An earlier chapter (a backward move: the reader's own pick), as the book reader's Contents goes there.
+        const target = await page.evaluate(([nav, cur]) => {
+          const rows = [...document.querySelectorAll(`${nav} [data-testid^="lab-tree-chapter-"]`)].filter(b => b.getClientRects().length).map(b => Number(b.dataset.testid.replace('lab-tree-chapter-', '')))
+          return rows.filter(n => n < cur).at(-1) ?? rows.find(n => n !== cur) ?? null
+        }, [NAV, onViewChapter])
+        await page.click(`${NAV} [data-testid="lab-tree-chapter-${target}"]`)
+        await page.waitForTimeout(1500)
+        const targetPage = await page.evaluate(async n => (await window.TinctMarginPreview.load()).chapters.findIndex(c => c.number === n) + 1, target)
+        const went = { ...(await spotOf(frame)), open: !!(await page.$(NAV)), focus: await frame.evaluate(() => document.activeElement?.id) }
+        let record = null
+        for (let i = 0; i < 20; i++) { record = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-position') || 'null')?.books?.[id] ?? null, bookId); if (record?.sequentialChapter === target) break; await page.waitForTimeout(500) }
+        ok(`${tag}: a chapter picked in Contents is where the frame goes (chapter ${target}), the overlay closed`, went.page === targetPage && !went.open && went.focus === 'pageBtn', { went, targetPage })
+        ok(`${tag}: and it is the place kept (the book reader's record: chapter ${target})`, record?.sequentialChapter === target && record.bookId === bookId, record)
+        // The title: Reading now, this book checked first, Library at the bottom.
+        await frame.click('#bookBtn')
+        const sw = await page.waitForSelector(`${NAV} [data-testid="lab-book-switcher"]`, { timeout: 8000 }).catch(() => null)
+        await page.waitForFunction(nav => document.querySelectorAll(`${nav} .lab-book-switcher-row`).length > 1, NAV, { timeout: 8000 }).catch(() => null)
+        const swNow = await page.evaluate(nav => {
+          const el = document.querySelector(`${nav} .lab-book-switcher`), rows = [...(el?.querySelectorAll('.lab-book-switcher-row') || [])]
+          return { head: el?.querySelector('.lab-book-switcher-head span')?.textContent, first: rows[0]?.querySelector('strong')?.getAttribute('title'), checked: !!rows[0]?.querySelector('.lab-book-switcher-check') && rows[0].getAttribute('aria-current') === 'true', rows: rows.map(r => r.querySelector('strong')?.getAttribute('title')), library: el?.lastElementChild?.textContent?.replace('→', '').trim() }
+        }, NAV)
+        const title = await frame.evaluate(() => state.title)
+        const frameCard2 = await frame.evaluate(() => !!document.querySelector('.lab-contents-v2, .byob-unit-now'))
+        ok(`${tag}: the book title opens Reading now (this book checked first, Library at the bottom), not the margin's contents card`, !!sw && swNow.head === 'Reading now' && swNow.first === title && swNow.checked && swNow.library === 'Library' && !frameCard2, { swNow, title, frameCard2 })
+        shots.push(join(OUT, `${tag}-reading-now.png`)); await page.screenshot({ path: shots.at(-1) })
+        await page.keyboard.press('Escape'); await page.waitForTimeout(300)
+        ok(`${tag}: Escape closes Reading now, back on the title`, !(await page.$(NAV)) && await frame.evaluate(() => document.activeElement?.id) === 'bookBtn')
+        // Switching keeps each book's place: to the other book at its own place, and back here at the chapter picked.
+        if (bookId === BOOKS[0] && BOOKS[1]) {
+          const other = BOOKS[1], otherWant = PLACES[other]
+          const pick = async name => {
+            await frame.click('#bookBtn')
+            await page.waitForFunction(([nav, name]) => [...document.querySelectorAll(`${nav} .lab-book-switcher-row strong`)].some(s => s.getAttribute('title') === name), [NAV, name], { timeout: 10000 })
+            await Promise.all([page.waitForNavigation({ timeout: 20000 }).catch(() => null), page.evaluate(([nav, name]) => [...document.querySelectorAll(`${nav} .lab-book-switcher-row`)].find(r => r.querySelector('strong')?.getAttribute('title') === name).click(), [NAV, name])])
+            return frameOf(page)
+          }
+          const otherName = await page.evaluate(async id => (await import('/src/data/bookRegistry.ts')).getBook(id)?.title, other)
+          frame = await pick(otherName)
+          const there = { ...(await spotOf(frame)), url: await page.evaluate(() => location.pathname + location.search) }
+          ok(`${tag}: picking ${other} in Reading now opens it in the margin reader at its own place (chapter ${otherWant.chapterNumber}, paragraph ${otherWant.paragraphIndex})`, there.key === `preview:${other}` && there.page === chapterIndex(other, otherWant.chapterNumber) + 1 && there.para === otherWant.paragraphIndex, there)
+          frame = await pick(title)
+          const home = await spotOf(frame)
+          ok(`${tag}: and Reading now there brings ${bookId} back at the chapter picked (${target})`, home.key === `preview:${bookId}` && home.page === targetPage, { home, targetPage })
+        }
+      }
 
       // 3f. Round 3: the note editor quotes a passage that opens on its own quotation mark once (““Yes, of course”).
       const noteQuote = await frame.evaluate(() => { const d = document.createElement('div'); d.innerHTML = TinctMargin.html.noteHtml({ quote: '“Yes, of course, if”' }); return d.querySelector('.mr-note__quote').textContent })
@@ -279,10 +332,11 @@ try {
         now.want = await frame.evaluate(n => toc.entries.filter(e => e.kind === 'chapter' && e.page <= n).at(-1)?.label, next)
         ok(`${tag}: a heading a third down the screen is the chapter being read (pill "${now.label}", want "${now.want}")`, now.top === next - 1 && now.reading === now.want && (phone ? now.label === now.want || now.want.includes(now.label) : true), now)
         await frame.click('#pageBtn')
-        await frame.waitForSelector('[data-testid="lab-toc"] .tree', { timeout: 5000 }).catch(() => null)
-        const cur = await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [aria-current="page"] .text')?.textContent || null)
-        ok(`${tag}: the contents mark that chapter as the one being read ("${cur}")`, cur === now.want, { cur, want: now.want })
-        await frame.evaluate(() => document.querySelector('[data-testid="lab-toc"] [data-close]')?.click())
+        await page.waitForSelector('[data-testid="margin-preview-nav"] [data-testid="lab-contents-v2"]', { timeout: 8000 }).catch(() => null)
+        const cur = await page.evaluate(() => document.querySelector('[data-testid="margin-preview-nav"] [data-testid^="lab-tree-chapter-"][aria-current="page"]')?.dataset.testid || null)
+        const wantCur = `lab-tree-chapter-${await page.evaluate(async n => (await window.TinctMarginPreview.load()).chapters[n - 1]?.number, next)}`
+        ok(`${tag}: the Contents mark that chapter as the one being read (${cur})`, cur === wantCur, { cur, want: wantCur })
+        await page.keyboard.press('Escape'); await page.waitForTimeout(300)
         if (phone) {
           shots.push(join(OUT, `${tag}-heading.png`)); await page.screenshot({ path: shots.at(-1) })
           await frame.evaluate(() => { primer.away.clear(); dispatchEvent(new Event('touchmove')); document.getElementById('scroll').scrollBy(0, 2) })
