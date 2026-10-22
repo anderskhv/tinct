@@ -29,7 +29,7 @@ Structure check (scratch script, not committed): all three editions have 45 chap
 
 ## Decisions for Anders
 
-- **Racial term in Huckleberry Finn:** kept verbatim in the English editions (including the title of chapter 33) and rendered *neger/negre* in Danish. Confirm keep, replace or add a content note before this book is published.
+- **Racial term in Huckleberry Finn:** kept verbatim in the English editions (including the title of chapter 33). In `modern-da` it is rendered *sort / de sorte* (and *slave / slaver* where a person is property or on the run; chapter 33 is *En slavetyv*), per Anders's decision of 22 Oct 2026 that Danish modern editions use *de sorte* so readers understand. Confirm a content note before this book is published.
 - Shelf: existing shelf proposed (see taxonomy.md).
 - Open Bible Stories (unfoldingWord) was **not** produced: its CC BY-SA 4.0 licence is share-alike and would bind the derivative editions, so it needs your decision.
 
