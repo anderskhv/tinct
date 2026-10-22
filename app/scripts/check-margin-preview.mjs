@@ -142,6 +142,25 @@ try {
       await page.waitForTimeout(3500)
       const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later').length)
       ok(`${tag}: the place stays put while later chapters are laid out (${later.later} → ${fewer} waiting)`, still.page === at.page && still.para === at.para && still.word === at.word && fewer < later.later, { at, still, fewer })
+      // 22 Oct 2026 (Anders: "for books/epubs we should place chapter pills in the text like we do on mobile"): the
+      // chapter's ✧ Primer · ✧ Catch me up on its heading's line and ✧ Recap · ✧ Quiz me · Note under its last
+      // paragraph, shown with the pointer away; no paragraph ✧ on hover; the place never moves for them.
+      if (!phone) {
+        const pills = await frame.evaluate(n => {
+          const u = primer.units?.find(x => x.start === n), s = u && document.querySelector(`.mr-hp.is-inline:not(.is-end)[data-unit="${u.key}"]`), e = u && document.querySelector(`.mr-hp.is-end[data-unit="${u.key}"]`)
+          const vis = el => !!el && getComputedStyle(el).visibility === 'visible' && Number(getComputedStyle(el).opacity) > 0.95
+          const last = u && epubParas(state.pages[u.to - 1]).at(-1), lb = last?.getBoundingClientRect()
+          return { unit: u?.key, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label), shown: vis(s) && vis(e), inHead: !!s?.closest('.tb-head, h1, h2, h3'), under: e && lb ? Math.round(e.getBoundingClientRect().top - lb.bottom) : null, headText: s?.closest('.tb-head, h1, h2, h3')?.textContent.trim().slice(0, 60) }
+        }, still.page)
+        ok(`${tag}: the chapter's heading carries ✧ Primer · ✧ Catch me up inline, its end ✧ Recap · ✧ Quiz me · Note under its last paragraph, both shown`, pills.start?.join('|') === 'Primer|Catch me up' && pills.end?.join('|') === 'Recap|Quiz me|Note' && pills.shown && pills.inHead && pills.under != null && pills.under >= -12 && pills.under <= 24, pills)
+        const fb = await (await page.$('iframe[data-testid="margin-preview-frame"]')).boundingBox()
+        const box = await frame.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => { const r = q.getBoundingClientRect(); return r.top > 150 && r.bottom < innerHeight - 60 && q.textContent.length > 120 }); const r = p?.getBoundingClientRect(); return r && { x: r.left + 120, y: r.top + 8 } })
+        if (box) { await page.mouse.move(fb.x + box.x, fb.y + box.y); await page.waitForTimeout(400); await page.mouse.move(fb.x + box.x + 30, fb.y + box.y + 2); await page.waitForTimeout(400) }
+        const hover = await frame.evaluate(() => ({ spark: document.querySelectorAll('.mr-pspark, .mr-pmenu').length }))
+        const kept = await spotOf(frame)
+        ok(`${tag}: a paragraph under the pointer shows no ✧; the place has not moved`, !!box && hover.spark === 0 && kept.page === still.page && kept.para === still.para && kept.word === still.word, { box, hover, still, kept })
+        shots.push(join(OUT, `${tag}-pills.png`)); await page.screenshot({ path: shots.at(-1) })
+      }
       // Round 2: the phone's chapter pill names the chapter (cut with an ellipsis if need be), not the percent alone, and the title stays whole.
       if (phone) {
         const pill = await pillNow(frame)

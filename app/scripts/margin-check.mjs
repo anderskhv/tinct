@@ -197,8 +197,9 @@ const asideOutOfView = () => {
   return n
 }
 const restoreAside = () => { for (const el of document.querySelectorAll('[data-mc-aside]')) { el.style.visibility = el.dataset.mcAside; delete el.dataset.mcAside } }
-// 21 Oct 2026: a unit's pills sit beside its heading in the text, shown while the pointer is over the heading (an EPUB's
-// heading element; a PDF's heading line, its band on the page) or the pills. hoverHead puts the pointer there (the unit
+// 21 Oct 2026: a unit's pills sit beside its heading in the text, shown while the pointer is over the heading's line (a PDF's
+// heading line, its band on the page) or the pills. Since 22 Oct 2026 a text unit's (EPUB, Tinct text or book) are inline
+// and always shown: Primer · Catch me up on the heading's line, Recap · Quiz me · Note under the last paragraph. hoverHead puts the pointer there (the unit
 // `key`'s, else the first heading in view); clickPill then clicks one of its pills, as a reader does.
 async function hoverHead(page, key = null) {
   const found = await page.evaluate(key => {
@@ -225,11 +226,14 @@ async function hoverHead(page, key = null) {
   for (let i = 0; i < 3; i++) {
     const pt = await page.evaluate(sel => {
       const el = document.querySelector(sel); if (!el) return null
+      // (22 Oct 2026: a text unit's pills are inline and always shown, as on the phone: nothing to hover.)
+      if (el.classList.contains('is-inline')) return 'inline'
       if (el._p) placePagePills(el, el._p, el._y) // (its line measured now that the page's text is drawn)
       if (el._band) { const b = el.parentElement.getBoundingClientRect(), f = el._band; return [b.left + f.x0 * b.width + 3, b.top + (f.y0 + f.y1) / 2 * b.height] }
       const h = el.closest('.mr-hp-head').getBoundingClientRect(); return [h.left + 6, h.top + Math.min(h.height / 2, 12)]
     }, sel)
     if (!pt) return false
+    if (pt === 'inline') return true
     await page.mouse.move(pt[0] + i, pt[1]); await page.waitForTimeout(120)
     // Until its fade-in has ended (a slow runner: the transition still under way when read, CI 21 Oct 2026).
     const shown = await page.waitForFunction(sel => { const el = document.querySelector(sel), cs = el && getComputedStyle(el); return !el || (cs.visibility === 'visible' && Number(cs.opacity) > 0.95) }, sel, { timeout: i < 2 ? 1500 : 3000 }).then(() => true, () => false)
@@ -5298,70 +5302,57 @@ async function epubUnitsCheck(browser, origin) {
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // (Since 21 Oct 2026 a unit's pills sit beside its heading, shown while the pointer is over it; no marks in the column.)
   const pillsOf = ([n, k]) => { const m = document.querySelector(`.mr-hp[data-unit="${k}"]`), h = state.pages[n - 1].pg.querySelector('h1'); if (!m) return null; const r = m.getBoundingClientRect(), hr = document.createRange(); hr.selectNodeContents(h); const line = textRects(hr).filter(b => b.width).at(-1), cs = getComputedStyle(m); return { mid: (r.top + r.bottom) / 2, lineMid: (line.top + line.bottom) / 2, after: r.left - line.right, inHead: h.contains(m), headText: h.textContent, shown: cs.visibility === 'visible', pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), marks: document.querySelectorAll('.mr-doc .mr-unit:not(.is-book)').length, rules: document.querySelectorAll('.mr-doc-leads path.is-rule').length } }
+  // 22 Oct 2026 (Anders: "place chapter pills in the text like we do on mobile"): replaces 21 Oct's hover-only pills. The
+  // start's Primer (and Catch me up) on the heading's line, shown with the pointer away; the end's under the last paragraph.
+  const endOf = ([n, k]) => { const m = document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`), paras = epubParas(state.pages[n - 1]), last = paras.at(-1); if (!m || !last) return null; const r = m.getBoundingClientRect(), lr = document.createRange(); lr.selectNodeContents(last); const lines = textRects(lr).filter(b => b.width), cs = getComputedStyle(m); return { top: r.top, lastBottom: Math.max(...lines.map(b => b.bottom)), left: r.left, textLeft: Math.min(...lines.map(b => b.left)), shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), textFree: !m.textContent.trim(), paraCount: epubParas(state.pages[n - 1]).length } }
   await e.mouse.move(1300, 700); await e.waitForTimeout(1100)
-  const hidden = await e.evaluate(pillsOf, [n, key])
-  await hoverHead(e, key)
   const start = await e.evaluate(pillsOf, [n, key])
   // The first section offers no Catch me up (item l, Anders, 20 Oct 2026): nothing has been read before it.
-  ok('3/l. the first essay\'s heading, hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note right after its last word, on its line (hidden before); no marks or rules in the column', hidden && !hidden.shown && start && start.shown && start.pills.join('|') === 'Primer|Recap|Quiz me|Note' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { hidden, start })
+  ok('3/l. the first essay\'s heading: ✧ Primer alone right after its last word, on its line, shown with the pointer away; no marks or rules in the column', start && start.shown && start.pills.join('|') === 'Primer' && Math.abs(start.mid - start.lineMid) <= 3 && start.after >= 6 && start.after <= 20 && start.marks === 0 && start.rules === 0, { start })
   ok('3. the pills add no text to the heading (an EPUB\'s places are offsets in its text)', start && start.inHead && start.headText === '1 The Fate of Lamplight', start?.headText)
-  await epubShot(e, 'unit-pills-hover')
+  const paras0 = await e.evaluate(n => { const p = state.pages[n - 1]; p.paras = null; return epubParas(p).length }, n)
+  await e.evaluate(n => { const p = state.pages[n - 1]; const last = epubParas(p).at(-1); last.scrollIntoView({ block: 'center' }) }, n); await e.waitForTimeout(700)
+  const end = await e.evaluate(endOf, [n, key])
+  ok('1. the first essay\'s end: ✧ Recap · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, shown with the pointer away', end && end.shown && end.pills.join('|') === 'Recap|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
+  ok('1. the end pills add no text and no paragraph to the chapter', end && end.textFree && end.paraCount === paras0, { end, paras0 })
+  await epubShot(e, 'unit-pills-end')
+  await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
+  await epubShot(e, 'unit-pills-start')
   await e.evaluate(() => openContents()); await e.waitForTimeout(300)
   const menu1 = await e.evaluate(() => [...document.querySelectorAll('.lab-contents-v2 [data-unit-act]')].map(b => b.dataset.unitAct))
   await e.keyboard.press('Escape'); await e.evaluate(() => document.querySelector('.lab-contents-v2')?.remove())
   ok('l. the chapter menu offers no Catch me up in the first section', menu1.length > 0 && !menu1.includes('catchup'), menu1)
   const n2 = await essayPage(e, '2 Controversial'), key2 = await e.evaluate(n => primer.units.find(u => u.start === n).key, n2)
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
-  await hoverHead(e, key2)
   const second = await e.evaluate(pillsOf, [n2, key2])
-  ok('3. the next essay\'s heading offers ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note', second?.shown && second.pills.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note', second)
-  // Keyboard: the heading takes the focus (Tab) and shows its pills; the next Tab is its Primer.
-  await e.mouse.move(1300, 700); await e.waitForTimeout(1100)
-  await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"]`).closest('.mr-hp-head').focus(), key2); await e.waitForTimeout(200)
-  const focused = await e.evaluate(pillsOf, [n2, key2])
+  ok('1. the next essay\'s heading offers ✧ Primer · ✧ Catch me up, shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer|Catch me up', second)
+  // Keyboard: the pills are in the tab order (the heading no longer needs the focus to show them).
+  await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).focus(), key2); await e.waitForTimeout(100)
   await e.keyboard.press('Tab')
   const tabbed = await e.evaluate(() => document.activeElement?.dataset?.pill || document.activeElement?.tagName)
-  ok('3. a focused heading shows its pills; Tab goes on to its Primer', focused?.shown && tabbed === 'primer', { shown: focused?.shown, tabbed })
+  ok('1. Tab goes from its Primer to its Catch me up', tabbed === 'catchup', { tabbed })
   await e.evaluate(() => document.activeElement?.blur())
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // 21 Oct 2026 (A): Recap, then Quiz me in the same row, clicked as a hand does (a pause between press and release):
-  // the press never folds Recap first and moves the pills away from under the pointer (Quiz me did nothing).
+  // the press never folds Recap first and moves the pills away from under the pointer (Quiz me did nothing). Since 22
+  // Oct 2026 the row is the chapter's end, under its last paragraph; its cards still open in the column.
   const press = async sel => { const b = await (await e.$(sel)).boundingBox(); await e.mouse.move(b.x + b.width / 2, b.y + b.height / 2); await e.mouse.down(); await e.waitForTimeout(160); await e.mouse.up() }
-  const rowSel = `.mr-hp[data-unit="${key}"]`
-  await hoverHead(e, key)
+  const rowSel = `.mr-hp.is-end[data-unit="${key}"]`
+  await e.evaluate(n => epubParas(state.pages[n - 1]).at(-1).scrollIntoView({ block: 'center' }), n); await e.waitForTimeout(700)
   await press(`${rowSel} [data-pill="recap"]`); await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
-  const recap = await e.evaluate(([n, k]) => { const el = document.querySelector('.mr-card.is-open'), h = state.pages[n - 1].pg.querySelector('h1'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, head: h.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp[data-unit="${k}"]`).getBoundingClientRect().top } }, [n, key])
-  ok('3. Recap from the heading opens its card in the column level with the heading (within 12 px)', /^Recap/.test(recap.name) && Math.abs(recap.top - recap.head) <= 12, recap)
+  const recap = await e.evaluate(k => { const el = document.querySelector('.mr-card.is-open'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key } }, key)
+  ok('1. Recap from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Recap/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
   await press(`${rowSel} [data-pill="quiz"]`); await e.waitForTimeout(1200)
-  const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp[data-unit="${k}"]`).getBoundingClientRect().top }), key)
-  ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens; the pills never moved', /^Quiz me/.test(quiz.name) && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
+  const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key }), key)
+  ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens, on that chapter; the pills never moved', /^Quiz me/.test(quiz.name) && quiz.unit === key && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
   await epubShot(e, 'recap-then-quiz')
   await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
-  // 21 Oct 2026: a paragraph's ✧ in the margin beside its first line while the pointer is over it; clicked, Quiz me or
-  // Recap on the paragraph: the selection's own Quiz me and Explain (named Recap), the paragraph as the passage.
-  await e.evaluate(() => openCard(null)); await e.waitForTimeout(300)
+  // 22 Oct 2026 (Anders: "paragraph by paragraph should be left to the highlight motion"): replaces 21 Oct's paragraph ✧
+  // checks. A paragraph hovered (the pointer still, then scrolling over it) shows no ✧ and no menu.
   const paraBox = await e.evaluate(n => { const el = epubParas(state.pages[n - 1]).find(p => p.tagName === 'P' && p.textContent.length > 300); el.scrollIntoView({ block: 'center' }); const r = el.getBoundingClientRect(); return { x: r.left + 200, y: r.top + 12 } }, n)
-  await e.waitForTimeout(400); await e.mouse.move(paraBox.x, paraBox.y + 1); await e.waitForTimeout(300)
-  const sp = await e.evaluate(() => { const s = document.querySelector('.mr-pspark'), cs = s && getComputedStyle(s), r = s?.getBoundingClientRect(), p = window.spark?.para || null; const pr = document.elementFromPoint(r.right + 60, r.top + r.height / 2)?.closest('p'); return s && { shown: cs.visibility === 'visible', right: r.right, mid: (r.top + r.bottom) / 2, paraLeft: pr?.getBoundingClientRect().left, text: pr?.textContent.slice(0, 40) } })
-  ok('¶. a paragraph hovered shows its ✧ in the margin at its left edge, level with its first line', sp && sp.shown && sp.paraLeft != null && sp.right <= sp.paraLeft - 4 && sp.paraLeft - sp.right <= 20, sp)
-  await epubShot(e, 'para-spark')
-  const ask = async what => {
-    const r0 = account.requests.length
-    const b = await (await e.$('.mr-pspark')).boundingBox(); await e.mouse.move(b.x + 12, b.y + 12); await e.mouse.click(b.x + 12, b.y + 12); await e.waitForTimeout(200)
-    const menu = await e.evaluate(() => [...document.querySelectorAll('.mr-pmenu [data-pa]')].map(x => x.textContent))
-    if (what === 'quiz') await epubShot(e, 'para-menu')
-    await e.click(`.mr-pmenu [data-pa="${what}"]`); await e.waitForTimeout(1300)
-    const card = await e.evaluate(() => { const c = cardById(col.open || ''); return c && { kind: c.kind, name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent, text: c.text } })
-    const req = account.requests.slice(r0).find(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
-    return { menu, card, sel: req?.body?.companion?.selection?.text || req?.body?.companion?.selection || '' }
-  }
-  const pq = await ask('quiz')
-  const paraText = await e.evaluate(() => [...document.querySelectorAll('p')].find(p => p.matches(':hover'))?.textContent.replace(/\s+/g, ' ').trim() || '')
-  ok('¶. its menu: Quiz me · Recap; Quiz me opens a quiz on the whole paragraph', pq.menu.join('|') === 'Quiz me|Recap' && pq.card?.kind === 'quiz' && pq.card.text.length > 300 && JSON.stringify(pq.sel).includes(pq.card.text.slice(0, 60)), { ...pq, paraText: paraText.slice(0, 60) })
-  await e.evaluate(() => openCard(null)); await e.mouse.move(1300, 700); await e.waitForTimeout(300); await e.mouse.move(paraBox.x, paraBox.y); await e.waitForTimeout(300)
-  const pr = await ask('recap')
-  ok('¶. Recap opens an Explain card on the paragraph, named Recap', pr.card?.kind === 'explain' && /^Recap · /.test(pr.card.name || '') && pr.card.text === pq.card?.text, pr)
-  await epubShot(e, 'para-recap')
+  await e.waitForTimeout(400); await e.mouse.move(paraBox.x, paraBox.y + 1); await e.waitForTimeout(300); await e.mouse.wheel(0, 120); await e.waitForTimeout(400)
+  const sp = await e.evaluate(() => ({ spark: document.querySelectorAll('.mr-pspark').length, menu: document.querySelectorAll('.mr-pmenu').length, hp: [...document.querySelectorAll('.mr-hp')].filter(m => m.closest('p') && !m.closest('.mr-hp-head')).length }))
+  ok('4. a paragraph hovered or scrolled under the pointer shows no ✧ and no paragraph menu', sp.spark === 0 && sp.menu === 0 && sp.hp === 0, sp)
   // The whole book: Before you start at the very top.
   await e.evaluate(() => { document.getElementById('scroll').scrollTop = 0 }); await e.waitForTimeout(800)
   const book = await e.evaluate(() => { const m = document.querySelector('.mr-doc .mr-unit.is-book'), pg = state.pages[0].pg.getBoundingClientRect(); return m && { k: m.querySelector('.mr-unit__k').textContent, name: m.querySelector('.mr-unit__n').textContent, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.textContent.trim()), top: Math.round(m.getBoundingClientRect().top - pg.top) } })

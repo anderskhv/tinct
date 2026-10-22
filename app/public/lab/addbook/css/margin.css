@@ -607,6 +607,8 @@ html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); 
 .mr-hp { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font: 400 13px/1 var(--mr-gara); font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; text-indent: 0; user-select: none; -webkit-user-select: none;
   opacity: 0; visibility: hidden; transition: opacity .25s ease .6s, visibility 0s linear .85s; }
 .mr-hp-head:hover > .mr-hp, .mr-hp-head:focus-within > .mr-hp, .mr-hp:hover, .mr-hp.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
+/* A text unit's pills (Anders, 22 Oct 2026): always shown, as on the phone. */
+.mr-hp.is-inline { opacity: 1; visibility: visible; transition: none; }
 @media (hover: none) { .mr-hp { opacity: 1; visibility: visible; transition: none; } }
 @media (prefers-reduced-motion: reduce) { .mr-hp, .mr-hp-head:hover > .mr-hp, .mr-hp.is-shown { transition: none; } }
 .mr-hp .mr-pill { min-height: 28px; font: 13px/1.3 var(--mr-gara); }
@@ -619,15 +621,6 @@ html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); 
 .mr-hp-head:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 4px; border-radius: 2px; }
 :root[data-mr-input="pointer"] .mr-hp-head:focus-visible, :root[data-mr-input="pointer"] .mr-hp .mr-pill:focus-visible::before { outline: none; }
 /* A paragraph's ✧ in the margin beside its first line (desktop, a pointer that hovers), and its menu: Quiz me, Recap. */
-.mr-pspark { position: absolute; z-index: 3; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--mr-faint); font: 14px/1 var(--mr-gara); cursor: pointer;
-  opacity: 0; visibility: hidden; transition: opacity .2s ease .3s, visibility 0s linear .5s; }
-.mr-pspark::before { content: "\2727"; }
-.mr-pspark.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
-.mr-pspark:hover, .mr-pspark[aria-expanded="true"] { color: var(--mr-ink); background: var(--mr-card); }
-.mr-pmenu { position: absolute; z-index: 4; display: flex; align-items: center; height: 40px; padding: 0 5px; border-radius: 10px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); white-space: nowrap; }
-.mr-pmenu button { height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
-.mr-pmenu button:hover, .mr-pmenu button:focus-visible { background: rgba(255, 255, 255, .10); outline: none; }
-.mr-pmenu__sep { width: 1px; height: 18px; background: var(--mr-bar-sep); margin: 0 3px; }
 .mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
 .mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
 .mr-pill:hover { color: var(--mr-ink); }
