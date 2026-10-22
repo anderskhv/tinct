@@ -31,6 +31,12 @@ export interface MarginPreviewChapter {
   /** The part the chapter belongs to ("Part I — The Window"), when the edition has parts. */
   section?: string
   paragraphs: MarginPreviewParagraph[]
+  /**
+   * The first chapter first (22 Oct 2026): a chapter whose text is still on its way (the book opened with the chapters
+   * at its place, `MarginPreviewBook.partial`); its paragraphs are empty and `chars` estimates its length.
+   */
+  pending?: true
+  chars?: number
 }
 
 /** Where the preview opens when it has no newer place of its own: the book reader's place, read only. */
@@ -53,6 +59,8 @@ export interface MarginPreviewBook {
   start: MarginPreviewStart
   /** The book reader for the same book, with the preview turned off. */
   normalHref: string
+  /** Only the chapters at the place have their text (marginPreviewWindowChapters); the whole book follows. */
+  partial?: true
 }
 
 /** The book reader for this book, the opt-in turned off (marginPreviewFlag.ts). */
@@ -96,6 +104,23 @@ export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[]
         paragraphs: chapter.paragraphs.map(marginPreviewParagraph),
       }
     })
+}
+
+/**
+ * The first chapter first (Anders, 22 Oct 2026): a chapter window of the edition (editionLoader loadEditionWindow:
+ * every chapter's number and title, the text of the chapters around the place) as the preview's chapters. A chapter
+ * not in the window is `pending`, with its length estimated from the manifest's counts. -> null when the data is not a window
+ */
+export function marginPreviewWindowChapters(data: EditionData): MarginPreviewChapter[] | null {
+  if (data.windowed?.complete !== false) return null
+  const loaded = new Set(data.windowed.loadedChapters ?? [])
+  const byNumber = new Map(data.chapters.map((c, i) => [Number(c.number) || i + 1, c]))
+  return marginPreviewChapters(data).map(chapter => {
+    if (loaded.has(chapter.number)) return chapter
+    const source = byNumber.get(chapter.number)
+    const words = Number(source?.wordCount) || 0, paragraphs = Number(source?.paragraphCount) || 0
+    return { ...chapter, paragraphs: [], pending: true, chars: Math.round(words * 5.8) + paragraphs * 60 }
+  })
 }
 
 /** The newer of two places (by when they were saved), either may be missing. */

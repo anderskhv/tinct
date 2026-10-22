@@ -662,6 +662,8 @@ function textOf(items, view) {
   return { roles, text: RO.pageText(items, roles) };
 }
 async function pageText(n) {
+  // A Tinct book opened at its chapter first: the other chapters' text is waited for, never sent empty (openRegistered).
+  if (state.whole && state.whole.key === state.key) await state.whole.done.catch(() => null);
   if (state.texts.has(n)) return state.texts.get(n);
   if (isEpub()) return { text: '', items: [] };
   // A recognised scan's page: its recognised text; its items are laid out once the page is drawn (ocrItems).
@@ -8149,9 +8151,60 @@ const previewWindow = () => (state.preview && window.top) || window;
 /** `book`: TinctEpub.parse's shape (js/tinct-book.js builds it); `preview`: { bookId, editionLabel, normalHref }. -> opened */
 async function openRegistered(book, preview) {
   showReader();
+  // The first chapter first: the chapters still on their way are waited for by what reads their text (pageText).
+  state.whole = preview.whole ? { key: 'preview:' + preview.bookId, done: preview.whole } : null;
   await openEpub(null, book.title, 'preview:' + preview.bookId, { parsed: book, preview });
   return hasBook() && state.preview === preview;
 }
+/*
+ * The first chapter first (Anders, 22 Oct 2026: "when we do the switch we also need to do the first chapter trick"):
+ * a Tinct book opens with the chapters at its place (js/tinct-book.js), the others drawn as placeholders of about
+ * their length, and they are drawn in here as the whole book arrives, a few at a time. The view holds to the pixel:
+ * the paragraph at its top stands where it stood (a chapter above it that grows or shrinks moves the scroll by as
+ * much, before anything is painted), so neither the place nor the page moves. `list`: [{ page, node, text }].
+ */
+function viewAnchor() {
+  const top = $('scroll').getBoundingClientRect().top + 1, p = state.pages[currentPlace().page - 1]; if (!p) return null;
+  const paras = epubParas(p), i = firstPast(paras.length, k => paras[k].getBoundingClientRect().bottom, top);
+  return paras[i] || p.sheet;
+}
+const fillHold = { el: null, top: 0, scroll: -1 };
+function fillRegistered(list) {
+  if (!state.preview || !isEpub() || !state.pages.length) return false;
+  const s = $('scroll'), anchor = viewAnchor();
+  // Held across the batches while the view is still where the last one left it: a scroll is whole pixels in Safari,
+  // and the fractions left by each batch would add up.
+  const before = !anchor ? 0 : anchor === fillHold.el && s.scrollTop === fillHold.scroll ? fillHold.top : anchor.getBoundingClientRect().top;
+  // The word a restore brought the view to stays the place while the view stays there (previewSpot): its scroll moves
+  // with the view, whether moved here or by the browser's own scroll anchoring (Chrome) as the chapters grow.
+  const x = epubHold.exact, held = x?.top != null && Math.abs(s.scrollTop - x.top) <= 2;
+  epubHold.reflow++;
+  for (const { page, node, text } of list) {
+    const p = state.pages[page - 1]; if (!p) continue;
+    p.pg.replaceChildren(node);
+    delete p.paras; delete p.paraStarts;
+    state.texts.set(page, { text, items: [] });
+  }
+  if (anchor?.isConnected) {
+    const d = anchor.getBoundingClientRect().top - before;
+    if (Math.abs(d) >= 0.5) s.scrollTop += d;
+    Object.assign(fillHold, { el: anchor, top: before, scroll: s.scrollTop });
+  }
+  if (held && epubHold.exact === x) x.top = s.scrollTop;
+  setTimeout(() => { epubHold.reflow = Math.max(0, epubHold.reflow - 1) }, 150);
+  return true;
+}
+/** Every chapter drawn in: the marks, the margin and the strip see the whole book. */
+function wholeRegistered() {
+  if (!state.preview) return;
+  state.whole = null;
+  flowMarks();
+  try { renderEpubHighlights() } catch {}
+  strip?.open();
+  marginLayout({ fresh: true });
+}
+window.TinctReader.fillRegistered = fillRegistered;
+window.TinctReader.wholeRegistered = wholeRegistered;
 /** Before you start, Catch me up, Recap and Quiz me work on chapters: one unit per chapter. */
 for (const type of ['touchmove', 'wheel', 'keydown']) addEventListener(type, () => { if (primer.held) { primer.held = false; requestAnimationFrame(marginLayout) } }, { capture: true, passive: true });
 function previewUnits() {
