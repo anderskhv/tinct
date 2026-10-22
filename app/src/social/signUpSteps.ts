@@ -138,7 +138,7 @@ const STYLE = `
 .tinct-avatar[data-kind=initial]{background-image:linear-gradient(150deg,#2a3a2a,#18241a)}
 .social-upload{display:block;min-height:40px;margin-top:6px;padding:0;border:0;background:transparent;color:#5e574e;font-size:13px;text-decoration:underline;cursor:pointer}
 .social-upload:disabled{opacity:.55;cursor:default}
-.social-picker input[type=file]{display:none}
+.social-step input[type=file]{display:none}
 .social-ticks{margin:0;padding:0;border:0;border-bottom:1px solid rgba(30,27,22,.12)}
 .social-tick{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:56px;padding:14px 4px;border:0;border-top:1px solid rgba(30,27,22,.12);background:transparent;color:#1e1b16;text-align:left;font-size:18px;cursor:pointer}
 .social-tick small{display:block;margin-top:3px;color:#6f675b;font-size:15px;line-height:1.35}

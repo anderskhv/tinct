@@ -62,7 +62,8 @@ const STYLE = `
 .social-prompt p{margin:0;color:#b1bba4;font-size:16px;line-height:1.4}
 .social-prompt .go{display:block;width:100%;margin-top:14px;padding:11px;border:0;border-radius:999px;background:#eee7d0;color:#10150f;text-align:center;font:600 15px system-ui,-apple-system,sans-serif;cursor:pointer}
 .social-prompt .later{display:block;width:100%;min-height:40px;margin-top:4px;border:0;background:transparent;color:#b1bba4;font:15px Georgia,serif;cursor:pointer}
-.whats-new{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 28px),560px);box-sizing:border-box;z-index:60;display:flex;flex-direction:column;gap:16px;padding:20px 20px 10px;border-radius:18px;background:#1c261e;color:#f3ead8;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+/* Above the librarian orb (110), which otherwise sat on the card on a phone. */
+.whats-new{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 28px),560px);box-sizing:border-box;z-index:111;display:flex;flex-direction:column;gap:16px;padding:20px 20px 10px;border-radius:18px;background:#1c261e;color:#f3ead8;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 @media(min-width:700px){.whats-new{bottom:28px;padding:24px 26px 12px}}
 .whats-new h2{margin:0;font:700 26px/1.2 "Playfair Display",Georgia,serif;color:#f3ead8}
 .whats-new ul{display:flex;flex-direction:column;gap:16px;margin:0;padding:0;list-style:none}
