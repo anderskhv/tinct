@@ -1,8 +1,8 @@
 /**
  * Retention cleanup: keeps the privacy notice's promises that analytics events,
- * usage records, the email send log and the reader-data audit history are kept
- * for 24 months (app/public/privacy.html#retention) and that a report about a
- * profile is kept for up to 12 months.
+ * usage records and the email send log are kept for 24 months, the history of
+ * changes to reader data for one month (app/public/privacy.html#retention),
+ * and that a report about a profile is kept for up to 12 months.
  *
  * Runs on its own Cloudflare cron (RETENTION_CRON, wrangler.jsonc), separate
  * from the daily email cron so each run has its own subrequest budget and the
@@ -30,6 +30,13 @@ export const RETENTION_SUBREQUEST_BUDGET = 40
 export const PROFILE_REPORT_RETENTION_MONTHS = 12
 
 /**
+ * The history of changes to reader data (user_data_audit) is kept for one
+ * month (Disk IO, 22 Oct 2026; privacy notice, retention). It exists to
+ * recover a mark or setting lost to a bad write, which is noticed within days.
+ */
+export const AUDIT_RETENTION_MONTHS = 1
+
+/**
  * Tables with a retention promise, their timestamp column and period in months.
  * profile_reports comes first (small, shorter promise), then the small email
  * log and reader-data audit, then the large analytics and usage tables, so a
@@ -42,8 +49,9 @@ export const RETENTION_TABLES: ReadonlyArray<{ table: string; column: string; mo
   // The lifecycle rules never plan an email whose earlier send could be this old
   // (lifecycle/rules.ts LOG_HORIZON_MS), so a deleted row cannot cause a re-send.
   { table: 'email_log', column: 'sent_at', months: RETENTION_MONTHS },
-  // Old/new values of reader-data writes (supabase/user_data_audit.sql).
-  { table: 'user_data_audit', column: 'created_at', months: RETENTION_MONTHS },
+  // What changed in reader-data writes (supabase/user_data_audit.sql,
+  // migrations/20261022_disk_io_audit.sql).
+  { table: 'user_data_audit', column: 'created_at', months: AUDIT_RETENTION_MONTHS },
   { table: 'analytics_events', column: 'created_at', months: RETENTION_MONTHS },
   { table: 'ai_usage_events', column: 'created_at', months: RETENTION_MONTHS },
   // Legacy per-reader token ledger (supabase/migration.sql); no longer written.
