@@ -888,3 +888,67 @@ describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
     expect(calls[calls.length - 1].init?.method).toBe('DELETE')
   })
 })
+
+// The profile-flow brief (Anders, 22 Oct 2026): reading languages, returning accounts, Public / Private.
+describe('reading languages and returning accounts', () => {
+  it('a new profile reads in English; the reader can choose Danish too, and at least one stays', async () => {
+    const store = new MemoryStore()
+    seed(store)
+    const first = await (await call(store, '/api/profile', { as: A })).json() as { profile: { readingLanguages: string[]; returning: boolean } }
+    expect(first.profile.readingLanguages).toEqual(['en'])
+    expect(store.profiles.get(A)!.reading_languages).toEqual(['en'])
+    const both = await (await post(store, A, { readingLanguages: ['da', 'en'] })).json() as { profile: { readingLanguages: string[] } }
+    expect(both.profile.readingLanguages).toEqual(['en', 'da'])
+    for (const bad of [[], ['de'], ['en', 'en'], 'en', null]) {
+      const res = await post(store, A, { readingLanguages: bad })
+      expect(res.status).toBe(422)
+    }
+    expect(store.profiles.get(A)!.reading_languages).toEqual(['en', 'da'])
+  })
+
+  it('a row from before the column reads as English', async () => {
+    const store = new MemoryStore()
+    seed(store)
+    await call(store, '/api/profile', { as: A })
+    delete store.profiles.get(A)!.reading_languages
+    const view = await (await call(store, '/api/profile', { as: A })).json() as { profile: { readingLanguages: string[] } }
+    expect(view.profile.readingLanguages).toEqual(['en'])
+  })
+
+  it('returning: only an account more than 30 days old', async () => {
+    const store = new MemoryStore()
+    seed(store)
+    users[C].created_at = '2026-09-07T09:59:59Z'
+    users[D].created_at = '2026-09-08T10:00:00Z'
+    try {
+      const old = await (await call(store, '/api/profile', { as: C })).json() as { profile: { returning: boolean } }
+      const fresh = await (await call(store, '/api/profile', { as: D })).json() as { profile: { returning: boolean } }
+      expect(old.profile.returning).toBe(true)
+      expect(fresh.profile.returning).toBe(false)
+    } finally {
+      delete users[C].created_at
+      delete users[D].created_at
+    }
+  })
+
+  it('Public saves Everyone with the three switches on; an unconfirmed email counts as Friends', async () => {
+    const store = new MemoryStore()
+    seed(store)
+    await call(store, '/api/profile', { as: A })
+    const view = await (await post(store, A, { visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true })).json() as { profile: { visibility: string; effectiveVisibility: string; showReading: boolean; showTime: boolean; onLeaderboard: boolean; setUp: boolean } }
+    expect(view.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends', showReading: true, showTime: true, onLeaderboard: true, setUp: true })
+    const priv = await (await post(store, A, { visibility: 'only_me', showReading: false, showTime: false, onLeaderboard: false, setUp: true })).json() as { profile: Record<string, unknown> }
+    expect(priv.profile).toMatchObject({ visibility: 'only_me', showReading: false, showTime: false, onLeaderboard: false })
+  })
+
+  it('Skip (prompted only) changes no profile choice and leaves the profile not set up', async () => {
+    const store = new MemoryStore()
+    seed(store)
+    await call(store, '/api/profile', { as: A })
+    const before = { ...store.profiles.get(A)! }
+    await post(store, A, { prompted: true })
+    const after = store.profiles.get(A)!
+    expect({ ...after, prompted_at: null }).toEqual({ ...before, prompted_at: null })
+    expect(after.set_up_at).toBeNull()
+  })
+})

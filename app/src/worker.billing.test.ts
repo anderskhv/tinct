@@ -258,6 +258,23 @@ describe('billing routes', () => {
       expect(stripeCalls).toBe(0)
     })
 
+    it('says until when Premium is the first month free: the trial, or the first-month grant (22 Oct 2026)', async () => {
+      const now = Date.now()
+      const ask = async (row: Record<string, unknown>) => {
+        vi.stubGlobal('fetch', vi.fn(async () => Response.json([{ stripe_customer_id: null, ...row }])))
+        return (await handleSubscriptionInfo(new Request('https://tinct.app/api/subscription-info'), stripeEnv, reader)).json() as Promise<{ free_month_until: string | null }>
+      }
+      // A new account: its 30-day trial.
+      const created = new Date(now - 2 * 86_400_000).toISOString()
+      expect((await ask({ subscription_status: null, subscription_period_end: null, created_at: created })).free_month_until).toBe(new Date(Date.parse(created) + 30 * 86_400_000).toISOString())
+      // A paid plan is not the free month.
+      expect((await ask({ subscription_status: 'active', subscription_period_end: new Date(now + 9 * 86_400_000).toISOString(), created_at: created })).free_month_until).toBeNull()
+      // The first-month grant, while it lasts.
+      const grant = await ask({ subscription_status: 'canceled', subscription_period_end: '2026-11-22T05:00:00+00:00', created_at: created })
+      if (now < Date.parse('2026-11-22T05:00:00Z')) expect(grant.free_month_until).toBe('2026-11-22T05:00:00.000Z')
+      else expect(grant.free_month_until).toBeNull()
+    })
+
     it('lists the intervals on sale in subscription info', async () => {
       vi.stubGlobal('fetch', vi.fn(async () => Response.json([{ subscription_status: null, stripe_customer_id: null }])))
       const info = async (env: Record<string, string>) => (await handleSubscriptionInfo(new Request('https://tinct.app/api/subscription-info'), { ...stripeEnv, ...env }, reader)).json() as Promise<{ intervals: string[] }>

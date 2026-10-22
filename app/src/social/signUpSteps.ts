@@ -413,7 +413,11 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
           () => {
             picture = { kind: option.kind, value: option.value }
             photos.picture = null
-            if (!backgroundChosen && option.kind === 'set') { background = { kind: 'set', value: option.value }; paintBanner() }
+            // Until the reader picks a background, a set brings its own and anything else keeps the profile's.
+            if (!backgroundChosen) {
+              background = option.kind === 'set' ? { kind: 'set', value: option.value } : { kind: profile.background.kind, value: profile.background.value }
+              paintBanner()
+            }
             paintPicture()
           })
       }

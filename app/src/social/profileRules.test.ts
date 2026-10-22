@@ -234,3 +234,23 @@ describe('New books open in', () => {
     expect(humanPrimaryEditionKey('some-book', modernOnly)).toBe('modern-en')
   })
 })
+
+describe('reading languages (Anders, 22 Oct 2026)', async () => {
+  const { cleanReadingLanguages, defaultReadingLanguages, toggleReadingLanguage } = await import('./profileRules')
+  it('keeps known languages in order, at least one', () => {
+    expect(cleanReadingLanguages(['da', 'en'])).toEqual(['en', 'da'])
+    expect(cleanReadingLanguages(['de'])).toBeNull()
+    expect(cleanReadingLanguages([])).toBeNull()
+    expect(cleanReadingLanguages('en')).toBeNull()
+  })
+  it('starts with English, and Dansk too in a Danish browser', () => {
+    expect(defaultReadingLanguages(['en-US'])).toEqual(['en'])
+    expect(defaultReadingLanguages(['da-DK', 'en'])).toEqual(['en', 'da'])
+    expect(defaultReadingLanguages(['da'])).toEqual(['en', 'da'])
+  })
+  it('the last language does not turn off', () => {
+    expect(toggleReadingLanguage(['en'], 'da')).toEqual(['en', 'da'])
+    expect(toggleReadingLanguage(['en', 'da'], 'en')).toEqual(['da'])
+    expect(toggleReadingLanguage(['da'], 'da')).toEqual(['da'])
+  })
+})

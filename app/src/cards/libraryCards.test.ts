@@ -332,6 +332,75 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
   })
 })
 
+// The What's-new card for returning readers (Anders, 22 Oct 2026; the WhatsNew mockups).
+describe('the What\'s-new card in the library', () => {
+  const answer = (profile: Record<string, unknown>) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility: 'friends', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUpBeforeFindable: true, returning: true, ...profile } })
+  const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
+  const posts: Record<string, unknown>[] = []
+  const assign = vi.fn()
+  async function visit(profile: Record<string, unknown> = {}) {
+    vi.resetModules()
+    document.head.innerHTML = '<meta name="tinct-social" content="1"><meta name="tinct-friends" content="1">'
+    document.documentElement.classList.add('signed-in')
+    document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
+    vi.stubGlobal('fetch', vi.fn((url: string, init?: RequestInit) => {
+      if (String(url).startsWith('/api/profile') && init?.method === 'POST') posts.push(JSON.parse(String(init.body)))
+      return String(url).startsWith('/api/profile')
+        ? Promise.resolve(new Response(JSON.stringify(answer(profile)), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+        : new Promise<Response>(() => {})
+    }))
+    vi.stubGlobal('location', { ...window.location, pathname: '/library', search: '', assign })
+    await import('./libraryCards')
+    await settle()
+    return document.querySelector<HTMLElement>('[data-testid="whats-new"]')
+  }
+  beforeEach(() => { posts.length = 0; assign.mockClear() })
+  afterEach(() => { document.head.innerHTML = '' })
+
+  it('shows once to an account older than 30 days, with the mockup\'s words, in place of the findable notice', async () => {
+    storeSession(3600)
+    const card = await visit()
+    expect(card).toBeTruthy()
+    expect(card!.querySelector('h2')!.textContent).toBe('Tinct has grown up a lot')
+    expect([...card!.querySelectorAll('li b')].map(item => item.textContent)).toEqual(['Your own books and PDFs', 'Read with friends', 'AI in the text'])
+    expect(card!.textContent).toContain('You can now explain, simplify and fact-check as you read, by highlighting the text.')
+    expect(document.querySelector('[data-testid="findable-notice"]')).toBeNull()
+    // Marked seen as it shows; the findable notice is retired with it.
+    expect(accountRows.get(`${USER}:preferences`)?.value).toMatchObject({ whatsNewSeen: true })
+    await settle()
+    expect(accountRows.get(`${USER}:preferences`)?.value).toMatchObject({ findableNoticeSeen: true })
+    card!.querySelector<HTMLElement>('[data-testid="whats-new-later"]')!.click()
+    expect(document.querySelector('[data-testid="whats-new"]')).toBeNull()
+    // Later sticks: not on the next visit, and the findable notice does not follow it.
+    expect(await visit()).toBeNull()
+    expect(document.querySelector('[data-testid="findable-notice"]')).toBeNull()
+  })
+
+  it('never to a new account', async () => {
+    storeSession(3600)
+    expect(await visit({ returning: false, setUpBeforeFindable: false })).toBeNull()
+    expect(accountRows.get(`${USER}:preferences`)?.value?.whatsNewSeen).toBeUndefined()
+  })
+
+  it('Continue opens the profile step for a profile never set up', async () => {
+    storeSession(3600)
+    const card = await visit({ needsSetup: true, name: 'Reader', shouldPrompt: true })
+    card!.querySelector<HTMLElement>('[data-testid="whats-new-continue"]')!.click()
+    expect(document.querySelector('[data-testid="whats-new"]')).toBeNull()
+    expect(assign).toHaveBeenCalledWith('/sign-in?mode=profile&returnTo=%2Flibrary')
+    await settle()
+    expect(posts).toContainEqual({ prompted: true })
+  })
+
+  it('Continue only closes the card for a profile already set up', async () => {
+    storeSession(3600)
+    const card = await visit()
+    card!.querySelector<HTMLElement>('[data-testid="whats-new-continue"]')!.click()
+    expect(document.querySelector('[data-testid="whats-new"]')).toBeNull()
+    expect(assign).not.toHaveBeenCalled()
+  })
+})
+
 // Follow requests made visible (Anders, 20 Oct 2026): a dot on the picture until the requests were shown here.
 describe('the follow-request dot on the library picture', () => {
   const profileAnswer = { enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility: 'friends', picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false } }

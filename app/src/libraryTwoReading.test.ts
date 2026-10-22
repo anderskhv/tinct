@@ -551,3 +551,26 @@ it('keeps the library page signed-in class in step with Supabase and tells the p
     document.documentElement.classList.remove('signed-in')
   }
 })
+
+// "I read in" Dansk (Anders, 22 Oct 2026): offered Danish editions first, only for those readers.
+it('opens a never-read book in its offered Danish edition only for a reader who chose Dansk', async () => {
+  calls.auth.mockResolvedValue({data:{session:null}})
+  calls.memory.mockResolvedValue(null)
+  calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+  calls.readMemory.mockReturnValue({version:1,sessions:{},updatedAt:0})
+  calls.readingList.mockReturnValue({readingNow:[],finished:[]})
+  document.head.innerHTML = '<meta name="tinct-social" content="1">'
+  const api=await import('./libraryTwoReading')
+  const book={id:'to-the-lighthouse',title:'To the Lighthouse',author:'Virginia Woolf',defaultEditionKey:'modern-en',editions:[{key:'original-en',language:'en',style:'original'},{key:'modern-en',language:'en',style:'modern'},{key:'modern-da',language:'da',style:'modern'}],readingStructure:{chapters:[{number:1,title:'The Window',paragraphCount:40}]}}
+  await api.loadReadingTable({catalogue:Promise.resolve({books:[book]})})
+  const opened = async () => { await api.readerDestination('to-the-lighthouse','modern-en'); return JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).primaryEditionKey }
+  // English only (the default): as before.
+  expect(await opened()).toBe('modern-en')
+  localStorage.setItem('tinct:reading-languages','en,da')
+  expect(await opened()).toBe('modern-da')
+  // An explicit pick in the introduction still wins.
+  await api.readerDestination('to-the-lighthouse','modern-en',{explicit:true})
+  expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).primaryEditionKey).toBe('modern-en')
+  localStorage.removeItem('tinct:reading-languages')
+  document.head.innerHTML = ''
+})

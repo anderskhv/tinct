@@ -519,3 +519,51 @@ describe('trial reset (Anders, 15 Oct 2026: every free account gets a fresh mont
     expect((await loadAllowanceView(env, userId, new Date('2026-10-14T12:00:00Z')))?.resetsAt).toBeNull()
   })
 })
+
+describe('Premium first month free (22 Oct 2026)', async () => {
+  const { FREE_MONTH_END, FREE_MONTH_START, billingPeriod, freeMonthUntil, hasPremiumAccess, isFreeMonthGrant, isSubscribed, premiumTier } = await import('./aiAllowance')
+  const grant = { subscription_status: 'canceled', subscription_period_end: '2026-11-22T05:00:00+00:00', created_at: '2026-03-01T10:00:00Z' }
+  const during = new Date('2026-10-30T12:00:00Z')
+  const after = new Date('2026-11-22T05:00:01Z')
+
+  it('the grant is 30 days from 07:00 Copenhagen on 23 October, and the SQL uses the same end', () => {
+    expect(FREE_MONTH_START.toISOString()).toBe('2026-10-23T05:00:00.000Z')
+    expect(FREE_MONTH_END.toISOString()).toBe('2026-11-22T05:00:00.000Z')
+    const sql = readFileSync(new URL('../../../supabase/migrations/20261023_premium_first_month.sql', import.meta.url), 'utf8')
+    expect(sql).toContain("subscription_period_end = timestamptz '2026-11-22 05:00:00+00'")
+  })
+
+  it('is recognised by its exact end, and only for a canceled row', () => {
+    expect(isFreeMonthGrant(grant)).toBe(true)
+    expect(isFreeMonthGrant({ ...grant, subscription_status: 'active' })).toBe(false)
+    expect(isFreeMonthGrant({ ...grant, subscription_period_end: '2026-11-22T05:00:01Z' })).toBe(false)
+  })
+
+  it('is Premium while it lasts, with the trial’s ceilings, and lapses back to Free', () => {
+    expect(isSubscribed(grant, during)).toBe(true)
+    expect(hasPremiumAccess(grant, during)).toBe(true)
+    expect(premiumTier(grant, during)).toBe('trial')
+    expect(freeMonthUntil(grant, during)?.toISOString()).toBe(FREE_MONTH_END.toISOString())
+    expect(isSubscribed(grant, after)).toBe(false)
+    expect(premiumTier(grant, after)).toBe('none')
+    expect(freeMonthUntil(grant, after)).toBeNull()
+    expect(billingPeriod(grant, after).kind).toBe('standard')
+    expect(billingPeriod(grant, after).allowanceMicros).toBe(0)
+  })
+
+  it('starts with the full allowance: its window opens at the grant, so earlier use does not count', () => {
+    const period = billingPeriod(grant, during)
+    expect(period).toMatchObject({ kind: 'subscription', start: FREE_MONTH_START, end: FREE_MONTH_END })
+    expect(period.allowanceMicros).toBe(3_000_000)
+    // A calendar month back from the end would have reached into 22 October.
+    expect(period.start.getTime()).toBeGreaterThan(new Date('2026-10-22T05:00:00Z').getTime())
+  })
+
+  it('a paid plan is never the free month; a trial is', () => {
+    const paid = { subscription_status: 'active', subscription_period_end: '2026-11-10T00:00:00Z', created_at: '2026-03-01T10:00:00Z' }
+    expect(freeMonthUntil(paid, during)).toBeNull()
+    expect(premiumTier(paid, during)).toBe('premium')
+    const fresh = { subscription_status: null, subscription_period_end: null, created_at: '2026-10-28T10:00:00Z' }
+    expect(freeMonthUntil(fresh, during)?.toISOString()).toBe('2026-11-27T10:00:00.000Z')
+  })
+})

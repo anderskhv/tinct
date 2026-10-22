@@ -1653,3 +1653,56 @@ describe('a reader\'s profile shows at once and answers a tap at once (21 Octobe
     expect(top().querySelector('.tc-status')?.textContent).toBe(CARDS_COPY.actionFailed)
   })
 })
+
+// The profile-flow brief (Anders, 22 Oct 2026).
+describe('Premium · first month free, I read in, and the name pencil', () => {
+  it('shows "Premium · first month free" on the You card, in Settings and on the Account card, and offers the plans', async () => {
+    subscription = { subscription_status: 'canceled', subscription_period_end: '2026-11-22T05:00:00Z', free_month_until: new Date(Date.now() + 86_400_000).toISOString(), stripe: null, intervals: ['month', 'year'] }
+    await open('you')
+    expect(top().querySelector('.tc-nm')?.textContent).toContain('Premium · first month free')
+    click(byTest('you-settings'))
+    await flush()
+    expect(byTest('settings-account')?.textContent).toContain('Premium · first month free')
+    click(byTest('settings-account'))
+    await flush()
+    expect(byTest('account-plan')?.textContent).toBe('Premium · first month free')
+    expect(byTest('account-plan-month')).toBeTruthy()
+    expect(byTest('account-manage')).toBeNull()
+  })
+
+  it('once the free month has passed: Free again', async () => {
+    subscription = { subscription_status: 'canceled', subscription_period_end: '2026-10-01T05:00:00Z', free_month_until: null, stripe: null, intervals: ['month'] }
+    await open('settings')
+    expect(byTest('settings-account')?.textContent).toContain(CARDS_COPY.free)
+    expect(byTest('settings-account')?.textContent).not.toContain('first month')
+  })
+
+  it('I read in: English and Dansk, saved at once, at least one stays', async () => {
+    await open('settings')
+    const chips = () => [...byTest('settings-languages')!.querySelectorAll('button')]
+    expect(chips().map(chip => [chip.textContent, chip.getAttribute('aria-pressed')])).toEqual([['✓English', 'true'], ['Dansk', 'false']])
+    click(chips()[1])
+    await flush()
+    expect(posts[posts.length - 1]).toEqual({ url: '/api/profile', body: { readingLanguages: ['en', 'da'] } })
+    expect(localStorage.getItem('tinct:reading-languages')).toBe('en,da')
+    click(chips()[0])
+    await flush()
+    expect(posts[posts.length - 1]).toEqual({ url: '/api/profile', body: { readingLanguages: ['da'] } })
+    const count = posts.length
+    // The last language does not turn off.
+    click(chips()[1])
+    await flush()
+    expect(posts.length).toBe(count)
+    expect(chips()[1].getAttribute('aria-pressed')).toBe('true')
+    // The row sits above New books open in, whose footnote stays.
+    expect(byTest('settings-languages-row')!.nextElementSibling?.querySelector('[data-testid="settings-new-books"]')).toBeTruthy()
+  })
+
+  it('the You card’s name has a pencil and edits in place', async () => {
+    await open('you')
+    const name = byTest('you-name')!
+    expect(name.querySelector('.tc-pen svg')).toBeTruthy()
+    click(name)
+    expect(byTest('you-name-input')).toBeTruthy()
+  })
+})

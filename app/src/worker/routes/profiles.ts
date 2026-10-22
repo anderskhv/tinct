@@ -402,7 +402,7 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
   if ('readingLanguages' in body) {
     // At least one language, English or Danish.
     const languages = cleanReadingLanguages(body.readingLanguages)
-    if (!languages || !Array.isArray(body.readingLanguages) || languages.length !== new Set(body.readingLanguages).size) return { error: 'Choose at least one language.', field: 'readingLanguages', status: 422 }
+    if (!languages || !Array.isArray(body.readingLanguages) || languages.length !== body.readingLanguages.length) return { error: 'Choose at least one language.', field: 'readingLanguages', status: 422 }
     patch.reading_languages = languages
   }
   // Skip for now = Only me, and the reader has made their choice.

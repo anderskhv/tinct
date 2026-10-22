@@ -193,3 +193,12 @@ describe('next-book after finishing, idempotent per template and book', () => {
     expect(readingCandidates(facts({ finished: [finished], places: [], log: [sent('next-book', 'odyssey', NOW - 9 * DAY)] }), NOW)).toEqual([])
   })
 })
+
+describe('the first month free (22 Oct 2026)', async () => {
+  const { profileSubscribed } = await import('./engine')
+  it('counts as subscribed, so no trial notice runs during it', () => {
+    expect(profileSubscribed({ id: 'a', email: null, created_at: '2026-10-16T00:00:00Z', subscription_status: 'canceled', subscription_period_end: '2026-11-22T05:00:00+00:00' })).toBe(true)
+    expect(profileSubscribed({ id: 'a', email: null, created_at: '2026-10-16T00:00:00Z', subscription_status: 'canceled', subscription_period_end: '2026-11-10T00:00:00Z' })).toBe(false)
+    expect(profileSubscribed({ id: 'a', email: null, created_at: '2026-10-16T00:00:00Z', subscription_status: null })).toBe(false)
+  })
+})

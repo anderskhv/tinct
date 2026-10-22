@@ -29,7 +29,7 @@ const profile = {
 }
 
 let posts: Record<string, unknown>[] = []
-const api = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+const defaultApi = async (input: RequestInfo | URL, init?: RequestInit) => {
   const url = String(input)
   if (url.startsWith('/api/profile') && init?.method === 'POST') {
     const body = JSON.parse(String(init.body))
@@ -38,7 +38,8 @@ const api = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
   }
   if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile })
   return Response.json({})
-})
+}
+const api = vi.fn(defaultApi)
 
 function mount(social: boolean, search = '?mode=create&returnTo=%2Freader%3Fbook%3Dodyssey') {
   history.replaceState(null, '', '/sign-in' + search)
@@ -72,6 +73,8 @@ beforeEach(() => {
   auth.signUp.mockClear()
   vi.stubGlobal('fetch', api)
   api.mockClear()
+  api.mockImplementation(defaultApi)
+  URL.createObjectURL = vi.fn(() => 'blob:preview')
 })
 afterEach(() => {
   document.body.innerHTML = ''
@@ -113,7 +116,9 @@ describe('sign-up with profiles on', () => {
     expect((document.querySelector('[name=password]') as HTMLInputElement).type).toBe('text')
   })
 
-  it('steps 2 and 3: Skip = Only me, consent saved with its version, the reading question, back to the book, no toast', async () => {
+  // Redrawn by the profile-flow brief and its mockups (Anders, 22 Oct 2026): the
+  // design changed, so these replace the 7 October picture-row and Only-me tests.
+  it('steps 2 and 3: the You-card top, Public preselected, Skip saves no profile choice, the reading step, back to the book', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
@@ -121,61 +126,134 @@ describe('sign-up with profiles on', () => {
     expect(auth.signUp.mock.calls[0][0]).toMatchObject({ options: { data: { email_opt_in: true, email_consent_version: EMAIL_CONSENT_VERSION } } })
     expect(mode()).toBe('profile')
     expect(document.querySelector('[data-social-steps]')!.textContent).toBe('2 of 3')
-    expect(document.querySelector<HTMLInputElement>('[name=profileName]')!.value).toBe('New')
-    // No uploads while the Worker does not accept them (no profile.uploads): stock pictures and the initial.
-    expect(document.querySelector('[data-social-uploads]')).toBeNull()
-    expect(document.querySelector('.social-step input[type=file]')).toBeNull()
-    expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
-    // Three sets, two pictures of women (Longbourn, The Awakening; 14 October 2026) and the initial.
-    expect(document.querySelectorAll('.social-pictures button').length).toBe(6)
-    // Only me is preselected: a new profile is Only me until the reader changes it (privacy notice).
-    expect(document.querySelector('.social-tick[data-value="only_me"]')!.getAttribute('aria-checked')).toBe('true')
-    expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('false')
+    // Built like the You card: the background and the picture, each with its camera, and the name.
+    expect(document.querySelector('[data-social-banner] [data-social-camera="background"]')).not.toBeNull()
+    expect(document.querySelector('[data-social-camera="picture"] .tinct-avatar')).not.toBeNull()
+    // A set name shows as text with a pencil.
+    expect(document.querySelector('[data-social-name]')!.textContent).toBe('New')
+    expect(document.querySelector('[data-social-name] svg')).not.toBeNull()
+    expect(document.querySelector('[data-mode-copy="profile"] .social-q')!.textContent).toBe('Who can see you?')
+    expect(document.querySelector('.social-tick[data-value="public"]')!.getAttribute('aria-checked')).toBe('true')
+    expect(document.querySelector('.social-tick[data-value="public"]')!.textContent).toContain('Your profile, reading and place on the leaderboard.')
+    expect(document.querySelector('.social-tick[data-value="private"]')!.textContent).toContain('Only you.')
+    // The email is not confirmed: the line says when others see you.
+    expect(document.querySelector<HTMLElement>('[data-mode-copy="profile"] .social-note')!.hidden).toBe(false)
+    // No uploads while the Worker does not accept them.
+    document.querySelector<HTMLButtonElement>('[data-social-camera="picture"]')!.click()
+    expect(document.querySelector('[data-social-upload]')).toBeNull()
+    // Nothing is saved before Continue.
+    expect(posts).toEqual([])
     document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
     await flush()
-    expect(posts[0]).toEqual({ consent: { optIn: true, version: EMAIL_CONSENT_VERSION }, skip: true })
+    // Skip: no name, picture or visibility; only the consent and that the step was offered.
+    expect(posts[0]).toEqual({ consent: { optIn: true, version: EMAIL_CONSENT_VERSION }, prompted: true })
     expect(mode()).toBe('reading')
     expect(document.querySelector('[data-social-steps]')!.textContent).toBe('3 of 3')
+    expect(document.querySelector('[data-mode-copy="reading"] h1')!.textContent).toBe('Your reading')
+    // English preselected (the browser is English); the renamed second version.
+    const languages = [...document.querySelectorAll<HTMLButtonElement>('.social-lang')]
+    expect(languages.map(box => [box.textContent, box.getAttribute('aria-checked')])).toEqual([['✓English', 'true'], ['Dansk', 'false']])
+    expect(document.querySelector('.social-tick[data-value="human"]')!.textContent).toContain('Human originals or translations')
     document.querySelector<HTMLButtonElement>('.social-tick[data-value="human"]')!.click()
     document.querySelector<HTMLButtonElement>('[data-social-start]')!.click()
     await flush()
-    expect(posts[1]).toEqual({ newBooksOpenIn: 'human' })
+    expect(posts[1]).toEqual({ newBooksOpenIn: 'human', readingLanguages: ['en'] })
     expect(localStorage.getItem('tinct:new-books-open-in')).toBe('human')
     expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
     expect(document.body.textContent).not.toContain('Your place is saved')
   })
 
-  it('Continue saves the picture, name and who can see you', async () => {
+  it('Public turns on exactly the four settings and marks the profile set up', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    document.querySelector<HTMLInputElement>('[name=profileName]')!.value = 'Newton'
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    // Continue without a choice keeps Only me.
-    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'only_me', setUp: true, picture: { kind: 'set' } })
+    expect(posts[0]).toMatchObject({ visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true, picture: { kind: 'set' } })
+    // The name was not changed: it is not sent.
+    expect(posts[0]).not.toHaveProperty('name')
     expect(mode()).toBe('reading')
   })
 
-  it('Friends is saved only when the reader chooses it', async () => {
+  it('Private turns them all off', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    document.querySelector<HTMLButtonElement>('.social-tick[data-value="friends"]')!.click()
+    document.querySelector<HTMLButtonElement>('.social-tick[data-value="private"]')!.click()
+    // The confirm-your-email line is about others seeing you: not for Private.
+    expect(document.querySelector<HTMLElement>('[data-mode-copy="profile"] .social-note')!.hidden).toBe(true)
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    expect(posts[0]).toMatchObject({ visibility: 'friends', setUp: true })
+    expect(posts[0]).toMatchObject({ visibility: 'only_me', showReading: false, showTime: false, onLeaderboard: false, setUp: true })
   })
 
-  it('offers two stock pictures of women, saved as any other choice', async () => {
+  it('the name is empty for the neutral Reader, never prefilled, and saved when typed', async () => {
+    api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      const reader = { ...profile, name: 'Reader', emailConfirmed: true }
+      if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: reader }) }
+      if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: reader })
+      return Response.json({})
+    })
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    const labels = [...document.querySelectorAll('.social-pictures button')].map(button => button.getAttribute('aria-label'))
-    expect(labels).toEqual(expect.arrayContaining(['Picture: Longbourn', 'Picture: The Awakening']))
+    const field = document.querySelector<HTMLInputElement>('[name=profileName]')!
+    expect(field.value).toBe('')
+    expect(field.placeholder).toBe('Your name')
+    // A confirmed email: no line.
+    expect(document.querySelector<HTMLElement>('[data-mode-copy="profile"] .social-note')!.hidden).toBe(true)
+    field.value = 'Newton'
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'everyone', setUp: true })
+  })
+
+  it('the pencil edits a set name in place', async () => {
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    expect(document.querySelector('[name=profileName]')).toBeNull()
+    document.querySelector<HTMLButtonElement>('[data-social-name]')!.click()
+    const field = document.querySelector<HTMLInputElement>('[name=profileName]')!
+    expect(field.value).toBe('New')
+    expect(document.activeElement).toBe(field)
+    field.value = 'Nova'
+    field.dispatchEvent(new Event('blur'))
+    expect(document.querySelector('[data-social-name]')!.textContent).toBe('Nova')
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ name: 'Nova' })
+  })
+
+  it('the picture camera offers the stock pictures, two of women among them, saved on Continue', async () => {
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    document.querySelector<HTMLButtonElement>('[data-social-camera="picture"]')!.click()
+    const labels = [...document.querySelectorAll('[data-social-picker] .social-pictures button')].map(button => button.getAttribute('aria-label'))
+    expect(labels).toHaveLength(6)
+    expect(labels).toEqual(expect.arrayContaining(['Picture: Longbourn', 'Picture: The Awakening', 'Picture: your initial']))
+    document.querySelector<HTMLButtonElement>('[aria-label="Picture: The Awakening"]')!.click()
+    expect(document.querySelector<HTMLElement>('[data-social-picker]')!.hidden).toBe(true)
+    document.querySelector<HTMLButtonElement>('[data-social-camera="background"]')!.click()
+    document.querySelector<HTMLButtonElement>('[aria-label="Background: Longbourn"]')!.click()
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(posts[0]).toMatchObject({ picture: { kind: 'cover', value: 'the-awakening' }, background: { kind: 'set', value: 'longbourn' } })
+  })
+
+  it('a cover picture keeps the profile’s background when none was chosen', async () => {
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    document.querySelector<HTMLButtonElement>('[data-social-camera="picture"]')!.click()
     document.querySelector<HTMLButtonElement>('[aria-label="Picture: The Awakening"]')!.click()
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
@@ -183,16 +261,15 @@ describe('sign-up with profiles on', () => {
     expect(posts[0]).not.toHaveProperty('background')
   })
 
-  it('offers Upload a picture and Upload a background while the Worker accepts uploads', async () => {
+  it('uploads a chosen picture and background only when the reader presses Continue', async () => {
     const images: string[] = []
     const uploaded = { ...profile, uploads: true }
     api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
-      if (url.startsWith('/api/profile/image/')) return new Response(new Blob(['x']))
       if (url.startsWith('/api/profile/image')) {
         const slot = new URL(url, 'https://tinct.app').searchParams.get('slot')!
         images.push(slot)
-        return Response.json({ enabled: true, available: true, profile: { ...uploaded, [slot]: { kind: 'upload', value: null, url: `/api/profile/image/${slot}`, review: 'pending' } } })
+        return Response.json({ enabled: true, available: true, profile: { ...uploaded, [slot]: { kind: 'upload', value: null, url: `/api/profile/image/${slot}`, review: 'approved' } } })
       }
       if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
       if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
@@ -200,73 +277,71 @@ describe('sign-up with profiles on', () => {
     })
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
-      resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
       preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    const uploadButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-social-uploads] button')]
-    expect(uploadButtons.map(button => button.textContent)).toEqual(['Upload a picture', 'Upload a background'])
-    const fields = [...document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')]
-    expect(fields).toHaveLength(2)
     const choose = (field: HTMLInputElement) => {
       Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'me.jpg', { type: 'image/jpeg' })] })
       field.dispatchEvent(new Event('change'))
     }
-    choose(fields[1])
-    await flush()
+    const fields = [...document.querySelectorAll<HTMLInputElement>('[data-mode-copy="profile"] input[type=file]')]
+    expect(fields).toHaveLength(2)
+    document.querySelector<HTMLButtonElement>('[data-social-camera="picture"]')!.click()
+    expect(document.querySelector('[data-social-upload="picture"]')!.textContent).toBe('Upload a picture')
     choose(fields[0])
     await flush()
-    expect(images).toEqual(['background', 'picture'])
-    // The reader's own picture joins the choices, chosen.
-    const own = document.querySelector<HTMLButtonElement>('.social-pictures button[aria-label="Upload a picture"]')!
-    expect(own.getAttribute('aria-pressed')).toBe('true')
+    document.querySelector<HTMLButtonElement>('[data-social-camera="background"]')!.click()
+    expect(document.querySelector('[data-social-upload="background"]')!.textContent).toBe('Upload a background')
+    choose(fields[1])
+    await flush()
+    // Shown, not stored: nothing is sent before Continue.
+    expect(images).toEqual([])
+    expect(document.querySelector<HTMLElement>('[data-social-camera="picture"] .tinct-avatar')!.style.backgroundImage).toContain('blob:preview')
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    // Both are saved already (pending review): Continue sends neither.
-    expect(posts[0]).toMatchObject({ visibility: 'only_me', setUp: true })
+    expect(images).toEqual(['picture', 'background'])
+    expect(posts[0]).toMatchObject({ visibility: 'everyone', setUp: true })
     expect(posts[0]).not.toHaveProperty('picture')
     expect(posts[0]).not.toHaveProperty('background')
     vi.doUnmock('./socialClient')
   })
 
-  it('keeps an uploaded background when a stock set is chosen after it', async () => {
+  it('Skip after choosing a photo uploads nothing', async () => {
+    const images: string[] = []
     const uploaded = { ...profile, uploads: true }
     api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
-      if (url.startsWith('/api/profile/image')) return Response.json({ enabled: true, available: true, profile: { ...uploaded, background: { kind: 'upload', value: null, url: '/api/profile/image/background', review: 'pending' } } })
+      if (url.startsWith('/api/profile/image')) { images.push(url); return Response.json({ enabled: true, available: true, profile: uploaded }) }
       if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
       if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
       return Response.json({})
     })
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
-      resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
       preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    const field = document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')[1]
-    Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'bg.jpg', { type: 'image/jpeg' })] })
+    const field = document.querySelectorAll<HTMLInputElement>('[data-mode-copy="profile"] input[type=file]')[0]
+    Object.defineProperty(field, 'files', { configurable: true, value: [new File(['x'], 'me.jpg', { type: 'image/jpeg' })] })
     field.dispatchEvent(new Event('change'))
     await flush()
-    document.querySelector<HTMLButtonElement>('[aria-label="Picture: Longbourn"]')!.click()
-    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
     await flush()
-    expect(posts[0]).toMatchObject({ picture: { kind: 'set', value: 'longbourn' } })
-    expect(posts[0]).not.toHaveProperty('background')
+    expect(images).toEqual([])
+    expect(posts).toEqual([{ consent: { optIn: true, version: EMAIL_CONSENT_VERSION }, prompted: true }])
     vi.doUnmock('./socialClient')
   })
 
-  it('reads the chosen photo before clearing the input, waits while preparing, and adds no approval line (iPad, 19 Oct 2026)', async () => {
+  it('reads the chosen photo before clearing the input and waits while preparing (iPad, 19 Oct 2026)', async () => {
     const uploaded = { ...profile, uploads: true }
     api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input)
-      if (url.startsWith('/api/profile/image')) return Response.json({ enabled: true, available: true, profile: { ...uploaded, background: { kind: 'upload', value: null, url: '/api/profile/image/background', review: 'pending' } } })
       if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
       if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
       return Response.json({})
@@ -288,7 +363,8 @@ describe('sign-up with profiles on', () => {
     await import('../labSignIn')
     await flush()
     await createAccount()
-    const field = document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')[1]
+    document.querySelector<HTMLButtonElement>('[data-social-camera="background"]')!.click()
+    const field = document.querySelectorAll<HTMLInputElement>('[data-mode-copy="profile"] input[type=file]')[1]
     const trigger = document.querySelector<HTMLButtonElement>('[data-social-upload="background"]')!
     const file = new File([new Uint8Array([4, 5, 6])], 'IMG_0002.heic', { type: 'image/heic' })
     const read = file.arrayBuffer.bind(file)
@@ -306,9 +382,45 @@ describe('sign-up with profiles on', () => {
     expect(order.indexOf('clear')).toBeGreaterThan(order.indexOf('prepared'))
     expect(trigger.disabled).toBe(false)
     expect(trigger.hasAttribute('aria-busy')).toBe(false)
-    // No approval line: uploads show to others at once (changed on request, 19 Oct 2026).
     expect(document.querySelector('[data-auth-status]')?.textContent ?? '').not.toContain('approved')
     vi.doUnmock('./socialClient')
+  })
+
+  it('languages: Dansk can be added, at least one stays, and a Danish browser starts with both', async () => {
+    vi.spyOn(navigator, 'language', 'get').mockReturnValue('da-DK')
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
+    await flush()
+    const box = (value: string) => document.querySelector<HTMLButtonElement>(`.social-lang[data-value="${value}"]`)!
+    expect(box('en').getAttribute('aria-checked')).toBe('true')
+    expect(box('da').getAttribute('aria-checked')).toBe('true')
+    box('en').click()
+    expect(box('en').getAttribute('aria-checked')).toBe('false')
+    // The last one does not turn off.
+    box('da').click()
+    expect(box('da').getAttribute('aria-checked')).toBe('true')
+    document.querySelector<HTMLButtonElement>('[data-social-start]')!.click()
+    await flush()
+    expect(posts[1]).toEqual({ newBooksOpenIn: 'modern', readingLanguages: ['da'] })
+    expect(localStorage.getItem('tinct:reading-languages')).toBe('da')
+    vi.restoreAllMocks()
+  })
+
+  it('a returning reader sent from the library counts two steps', async () => {
+    auth.getSession.mockResolvedValueOnce({ data: { session: { access_token: 'tok', user: { ...newUser, created_at: '2026-08-01T09:00:00Z' } } } })
+    mount(true, '?mode=profile&returnTo=%2Flibrary')
+    await import('../labSignIn')
+    await flush()
+    expect(mode()).toBe('profile')
+    expect(document.querySelector('[data-social-steps]')!.textContent).toBe('1 of 2')
+    document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
+    await flush()
+    expect(document.querySelector('[data-social-steps]')!.textContent).toBe('2 of 2')
+    expect(posts[0]).toMatchObject({ visibility: 'everyone', setUp: true })
+    expect(posts[0]).not.toHaveProperty('consent')
   })
 
   it('falls back to today’s welcome when profiles are unavailable', async () => {
