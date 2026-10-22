@@ -50,7 +50,7 @@ try{
   await page.locator('#menu-close').click()
   await page.screenshot({path:output+'/eink-library-'+width+'.png'})
   await page.evaluate(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:2,wordIndex:0,page:0}})))
-  await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+  await page.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.evaluate(()=>document.fonts.ready)
   assert.equal(await page.evaluate(()=>document.documentElement.dataset.eink),'true','profile follows into reader')

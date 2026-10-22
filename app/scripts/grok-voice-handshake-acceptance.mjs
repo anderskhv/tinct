@@ -69,7 +69,7 @@ async function appVoiceWithoutProvider(forPersona) {
     }
   }, { forPersona, handoff })
   try {
-    await standInPage.goto(origin + '/reader?layout=phone', { waitUntil: 'domcontentloaded' })
+    await standInPage.goto(origin + '/reader?layout=phone&margin=0', { waitUntil: 'domcontentloaded' })
     await standInPage.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45_000 })
     await standInPage.getByTestId('lab-super').click()
     await standInPage.getByTestId('lab-super-row-talk').click()
@@ -123,7 +123,7 @@ try {
     report.appMaleVoice = await appVoiceWithoutProvider('male')
     assert.equal(report.appMaleVoice, 'helios')
   }
-  await page.goto(origin + '/reader?layout=phone', { waitUntil: 'domcontentloaded' })
+  await page.goto(origin + '/reader?layout=phone&margin=0', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45_000 })
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-talk').click()

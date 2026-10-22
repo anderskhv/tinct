@@ -47,7 +47,7 @@ async function boot(browser,phone,ed,fixture={}){
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices)Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
  },{book,ed,fixture})
- await page.goto(origin+(phone?'/reader?layout=phone':'/reader'),{waitUntil:'domcontentloaded'})
+ await page.goto(origin+(phone?'/reader?layout=phone&margin=0':'/reader?margin=0'),{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:60000})
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
  const bundle=await page.locator('script[src]').evaluateAll(ns=>ns.map(n=>new URL(n.src).pathname).find(x=>/\/assets\/index-.*\.js$/.test(x)))

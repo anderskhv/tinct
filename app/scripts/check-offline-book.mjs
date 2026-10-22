@@ -134,7 +134,7 @@ try {
       }, { session })
       let page = await context.newPage()
       page.on('pageerror', error => errors.push(error.message))
-      await page.goto(`${origin}/reader?book=${bookId}&chapter=${book.firstChapter}`, { waitUntil: 'domcontentloaded' })
+      await page.goto(`${origin}/reader?book=${bookId}&chapter=${book.firstChapter}&margin=0`, { waitUntil: 'domcontentloaded' })
       await ready(page)
       await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 45000 })
 

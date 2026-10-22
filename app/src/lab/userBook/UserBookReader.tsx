@@ -19,7 +19,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { LabApp } from '../LabApp'
 import { LabWait } from '../LabWait'
 import { ownBookFrameUrl, USER_BOOKS_SHELF_URL } from './userBookId'
-import { MARGIN_PREVIEW_KEY, MARGIN_PREVIEW_PARAM } from '../marginPreview/marginPreviewFlag'
+import { CLASSIC_READER_KEY, MARGIN_PREVIEW_PARAM } from '../marginPreview/marginPreviewFlag'
 import { registerUserBook } from './userBookSource'
 import { openUserBook, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
 import { reconcileOpenPlace, reconcilePdfPlace } from './ownSync'
@@ -45,8 +45,9 @@ const reconcilePlace = (hex: string, book: LoadedUserBook) => book.kind === 'pdf
 
 /**
  * The phone's margin mode for an own book (the dark bar and the bottom cards: LabApp `marginPhone`; chapter pills stay a Tinct book's), on
- * the rule a Tinct book follows on this phone (marginPreviewMount.ts): `margin=1` / `margin=0` in the link, else
- * this device's opt-in. Own books follow it as Tinct books do (Anders, 22 Oct 2026).
+ * the rule a Tinct book follows on this phone (marginPreviewMount.ts, the launch of 22 Oct 2026): on unless this device chose the
+ * Classic reader (`tinct:classic-reader`); `margin=0` in the link stores that choice, `margin=1` clears it. Own books follow it as
+ * Tinct books do (Anders, 22 Oct 2026).
  */
 export function ownMarginPhone(
   search: string,
@@ -55,9 +56,9 @@ export function ownMarginPhone(
 ): boolean {
   let flag: string | null = null
   try { flag = new URLSearchParams(search).get(MARGIN_PREVIEW_PARAM) } catch { /* the device's choice */ }
-  // A link's choice is this device's from now on, as for a Tinct book (marginPreviewMount.ts stores the opt-in).
-  if (flag === '1' || flag === '0') { write(MARGIN_PREVIEW_KEY, flag === '1'); return flag === '1' }
-  return read(MARGIN_PREVIEW_KEY) === '1'
+  // A link's choice is this device's from now on, as for a Tinct book (marginPreviewFlag.ts stores the Classic reader choice).
+  if (flag === '1' || flag === '0') { write(CLASSIC_READER_KEY, flag === '0'); return flag === '1' }
+  return read(CLASSIC_READER_KEY) !== '1'
 }
 
 /** The same query with `pages` (a scan: the margin reader shows its pages and never sends it back here). */

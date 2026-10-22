@@ -282,16 +282,18 @@ describe('reading face and e-ink', () => {
 describe('readerBootMarginPreview (round 3)', () => {
   const placed = (key: string) => JSON.stringify({ books: { frankenstein: { bookId: 'frankenstein', primaryEditionKey: key } } })
   const urls = (key: string, id = 'frankenstein') => [`/data/editions/${id}-${key}.json?v=v1`, `/api/edition-patches?bookId=${id}&editionKey=${key}`]
-  const at = (search: string, o: { sticky?: string; position?: string; prefs?: string } = {}, exceptions: Record<string, string> = {}) =>
-    readerBootMarginPreview(search, key => ({ 'tinct:margin-preview': o.sticky, 'tinct-lab-position': o.position } as Record<string, string | undefined>)[key] ?? null, o.prefs ?? null, exceptions, 'v1')
+  const at = (search: string, o: { classic?: string; position?: string; prefs?: string } = {}, exceptions: Record<string, string> = {}) =>
+    readerBootMarginPreview(search, key => ({ 'tinct:classic-reader': o.classic, 'tinct-lab-position': o.position } as Record<string, string | undefined>)[key] ?? null, o.prefs ?? null, exceptions, 'v1')
   it('the edition the preview will read, only when the boot can be sure', () => {
     expect(at('?book=frankenstein&margin=1')).toEqual(urls('modern-en'))
-    expect(at('?book=frankenstein', { sticky: '1' })).toEqual(urls('modern-en'))
+    // Launch (22 Oct 2026): margin view is the default, so a plain book link preloads it; margin=1 overrides the Classic reader.
+    expect(at('?book=frankenstein')).toEqual(urls('modern-en'))
+    expect(at('?book=frankenstein&margin=1', { classic: '1' })).toEqual(urls('modern-en'))
     expect(at('?book=frankenstein&margin=1', { position: placed('original-en') })).toEqual(urls('original-en'))
     expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ primaryEdition: 'modern-en' }) })).toEqual(urls('modern-en'))
-    // Off: nothing.
-    expect(at('?book=frankenstein')).toEqual([])
-    expect(at('?book=frankenstein&margin=0', { sticky: '1' })).toEqual([])
+    // Classic reader (the device's choice, or margin=0): nothing.
+    expect(at('?book=frankenstein', { classic: '1' })).toEqual([])
+    expect(at('?book=frankenstein&margin=0')).toEqual([])
     expect(at('?book=bible&margin=1', {}, readerBootPrimaryExceptions())).toEqual([])
     expect(at('?margin=1')).toEqual([])
     // In doubt: another chosen main edition, a book whose default is not Modern English, a place without a usable edition, unreadable storage.

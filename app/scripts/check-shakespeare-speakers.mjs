@@ -37,7 +37,7 @@ async function boot(page, scenario) {
     localStorage.setItem('tinct:reader-compare-view', JSON.stringify({ ['phone:' + s.book]: false, ['desktop:' + s.book]: false }))
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: s.book, primaryEditionKey: s.edition, compareEditionKey: s.edition === 'original-en' ? 'modern-en' : 'original-en', savedPlace: { bookId: s.book, chapterNumber: s.chapter, paragraphIndex: s.paragraph, wordIndex: 0, page: 0 } }))
   }, scenario)
-  await page.goto(origin + '/reader?qaLayoutTrace=1', { waitUntil: 'domcontentloaded' })
+  await page.goto(origin + '/reader?qaLayoutTrace=1&margin=0', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)

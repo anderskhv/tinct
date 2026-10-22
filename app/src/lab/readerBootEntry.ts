@@ -76,7 +76,7 @@ try {
         shardWindowDisabled: read(() => localStorage, 'tinct:chapter-sharded-editions') === '0',
       })) preload(href, 'fetch')
     } else {
-      // The margin preview reads its whole edition (marginPreviewLoad): started here, not after the app bundle.
+      // Margin view reads its whole edition (marginPreviewLoad): started here, not after the app bundle.
       for (const href of readerBootMarginPreview(location.search, key => read(() => localStorage, key), prefs, __READER_BOOT_PRIMARY_EXCEPTIONS__, __BUILD_VERSION__)) preload(href, 'fetch')
     }
     if (readerBootUsesDefaultFace(prefs)) preload(READER_BOOT_DEFAULT_FACE_URL, 'font')

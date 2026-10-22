@@ -78,7 +78,7 @@ async function run(browser,engine,entry,voice,{cold=false,continuous=false,chapt
   Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
  },{entry,voice,chapter,paragraph,word})
  try{
-  await page.goto(origin+'/reader?layout=phone',{waitUntil:'domcontentloaded'})
+  await page.goto(origin+'/reader?layout=phone&margin=0',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.waitForTimeout(600)
   assert.equal(calls.length,0)

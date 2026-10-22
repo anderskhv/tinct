@@ -152,7 +152,7 @@ for (const viewport of viewports) for (const item of chapters) {
   await routeBuild(page)
   const query = new URLSearchParams({ book: item.book, chapter: String(item.chapter), layout: 'phone' })
   if (item.edition) query.set('edition', item.edition)
-  await page.goto(`${origin}/reader?${query}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?${query}&margin=0`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(1500)

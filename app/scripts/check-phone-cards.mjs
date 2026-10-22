@@ -201,7 +201,8 @@ async function run(engineName) {
   const tag = `${BOOK}-390x844-${engineName}`
   const shots = []
   // 1. The normal reader and the margin mode, at the same place.
-  const normal = await boot(engine, `?book=${BOOK}`)
+  // Launch (22 Oct 2026): margin mode is the default, so the normal reader is asked for with margin=0 (the Classic reader).
+  const normal = await boot(engine, `?book=${BOOK}&margin=0`)
   const normalPlace = await placeOf(normal.page)
   const normalHeader = await headerOf(normal.page)
   const normalTop = await normal.page.screenshot({ clip: { x: 0, y: 0, width: 390, height: normalHeader.box[1] + normalHeader.box[3] } })
@@ -209,10 +210,10 @@ async function run(engineName) {
   ok(`${tag}: the normal reader has no margin mode`, await normal.page.evaluate(() => !document.querySelector('.lab.is-margin-phone') && !document.querySelector('[data-testid="lab-unit-start"], [data-testid="lab-unit-end"]')))
   await close(normal)
 
-  const state = await boot(engine, `?book=${BOOK}&margin=1`)
+  const state = await boot(engine, `?book=${BOOK}`)
   const { page, log } = state
-  const mode = await page.evaluate(() => ({ margin: !!document.querySelector('.lab.is-margin-phone'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), layout: document.querySelector('[data-testid="lab-root"]')?.dataset.labLayout, optIn: localStorage.getItem('tinct:margin-preview') }))
-  ok(`${tag}: margin=1 opens today's phone reader in margin mode (no frame), opt-in stored`, mode.margin && !mode.frame && mode.layout === 'phone' && mode.optIn === '1', mode)
+  const mode = await page.evaluate(() => ({ margin: !!document.querySelector('.lab.is-margin-phone'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), layout: document.querySelector('[data-testid="lab-root"]')?.dataset.labLayout, classic: localStorage.getItem('tinct:classic-reader') }))
+  ok(`${tag}: a plain book link opens today's phone reader in margin mode (no frame) by default`, mode.margin && !mode.frame && mode.layout === 'phone' && mode.classic === null, mode)
   let home = await placeOf(page)
   ok(`${tag}: same place as the normal reader (${home.chapter} ${home.place} ${home.first})`, same(home, normalPlace), { home, normalPlace })
   const header = await headerOf(page)
@@ -662,7 +663,8 @@ async function talkCard(engineName, w, h) {
 async function sheets(engineName) {
   const engine = engineName === 'webkit' ? webkit : chromium
   const tag = `${BOOK}-390x844-${engineName}-sheet`
-  const state = await boot(engine, `?book=${BOOK}`)
+  // The Classic reader (margin=0): margin mode is the default since the launch (22 Oct 2026).
+  const state = await boot(engine, `?book=${BOOK}&margin=0`)
   const { page } = state
   const home = await placeOf(page)
   const shots = []

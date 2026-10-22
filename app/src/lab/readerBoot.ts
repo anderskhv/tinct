@@ -150,7 +150,8 @@ export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBo
 }
 
 /**
- * The margin preview's text (`/reader?book=<id>&margin=1`, or the device's opt-in `tinct:margin-preview`; round 3):
+ * Margin view's text (the default reader since 22 Oct 2026 for `/reader?book=<id>`, unless the device chose the
+ * Classic reader, `tinct:classic-reader`; `margin=1` overrides that):
  * the whole edition and its patches, as `marginPreviewLoad` reads them, started before the app bundle runs. Only
  * when the boot can be sure of the edition (`marginPreviewEditionKey`): the book's place on this device names it,
  * or there is none, the book's default is Modern English and no other main edition was chosen.
@@ -158,7 +159,7 @@ export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBo
  */
 export function readerBootMarginPreview(search: string, stored: (key: string) => string | null, prefs: string | null, primaryExceptions: Readonly<Record<string, string>>, version: string): string[] {
   const params = new URLSearchParams(search), bookId = params.get('book') || '', flag = params.get('margin')
-  if (flag === '0' || (flag !== '1' && stored('tinct:margin-preview') !== '1') || !ID.test(bookId)) return []
+  if (flag === '0' || (flag !== '1' && stored('tinct:classic-reader') === '1') || !ID.test(bookId)) return []
   try {
     const place = (JSON.parse(stored('tinct-lab-position') || '{}').books || {})[bookId]
     const key = place ? place.primaryEditionKey || '' : (primaryExceptions[bookId] || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'

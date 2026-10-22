@@ -49,14 +49,15 @@ describe("a reader's own book in the reader's shell (One Tinct, 22 Oct 2026)", (
   })
 
   it('gives own books the phone margin mode on the rule Tinct books follow there', () => {
-    const none = () => null, on = (key: string) => (key === 'tinct:margin-preview' ? '1' : null)
+    // The launch (22 Oct 2026): on by default; off while this device chose the Classic reader.
+    const none = () => null, classic = (key: string) => (key === 'tinct:classic-reader' ? '1' : null)
     const kept: Array<[string, boolean]> = [], keep = (key: string, value: boolean) => { kept.push([key, value]) }
-    expect(ownMarginPhone('', none, keep)).toBe(false)
-    expect(ownMarginPhone('', on, keep)).toBe(true)
+    expect(ownMarginPhone('', none, keep)).toBe(true)
+    expect(ownMarginPhone('', classic, keep)).toBe(false)
     expect(kept).toEqual([])
-    expect(ownMarginPhone('?margin=1', none, keep)).toBe(true)
-    expect(ownMarginPhone('?margin=0', on, keep)).toBe(false)
-    // The link's choice is kept on this device, as a Tinct book's is.
-    expect(kept).toEqual([['tinct:margin-preview', true], ['tinct:margin-preview', false]])
+    expect(ownMarginPhone('?margin=1', classic, keep)).toBe(true)
+    expect(ownMarginPhone('?margin=0', none, keep)).toBe(false)
+    // The link's choice is kept on this device, as a Tinct book's is: margin=1 clears the Classic reader, margin=0 stores it.
+    expect(kept).toEqual([['tinct:classic-reader', false], ['tinct:classic-reader', true]])
   })
 })

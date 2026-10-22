@@ -70,7 +70,7 @@ for(const config of configs){
    sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',...(config.compare?{compareEditionKey:'web-en'}:{}),savedPlace:{bookId:'bible',chapterNumber:config.chapter,paragraphIndex:0,wordIndex:0,page:0}}))
    localStorage.setItem('tinct-lab-highlights',JSON.stringify([highlight]))
   },{config,highlight})
-  await p.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+  await p.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
   await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
   await p.evaluate(()=>document.fonts.ready);await pause(1000)
   if(config.compare){

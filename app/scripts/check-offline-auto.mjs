@@ -136,7 +136,7 @@ try {
       let page = await context.newPage()
       page.on('pageerror', error => errors.push(error.message))
       try {
-        await page.goto(`${origin}/reader?book=${bookId}&chapter=1`, { waitUntil: 'domcontentloaded' })
+        await page.goto(`${origin}/reader?book=${bookId}&chapter=1&margin=0`, { waitUntil: 'domcontentloaded' })
         await ready(page)
         await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 45000 })
         builtVersion ??= await page.evaluate(() => [...performance.getEntriesByType('resource')].map(e => new URL(e.name).searchParams.get('v')).find(Boolean))

@@ -1414,7 +1414,7 @@ function savePlaceNow() {
   const moved = !sameSpot(place, state.lastPlace) || (isEpub() && !Number.isInteger(prev.para) && epubSpot().para != null);
   if (moved) state.lastPlace = place;
   // A move in a PDF is read in Original pages, at this spot in its Tinct text when this device has it.
-  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubSpot() : {};
+  const read = moved && state.kind === 'pdf' ? { edition: 'p', ...textSpot(place) } : moved && isEpub() ? epubPlace() : {};
   // A PDF's zoom on a phone is kept apart (phoneZoom), and only once the reader chose it: until then the column fit is worked out again.
   const zoom = state.kind === 'pdf' && isPhone() ? (state.fit ? {} : { phoneZoom: state.zoom }) : { zoom: state.zoom };
   store.set('pos:' + state.key, moved ? { ...prev, ...place, ...read, ...zoom, pages: state.pages.length, at: Date.now() } : { ...prev, ...zoom, pages: state.pages.length });
@@ -1674,7 +1674,7 @@ async function openPdfText() {
 /** The PDF's place from the text view's: the page and how far down it, with the spot in the text (the Tinct reader's too). */
 function pdfTextShare() {
   const t = state.pdfText; if (!t) return;
-  const place = currentPlace(), spot = epubSpot();
+  const place = currentPlace(), spot = epubPlace();
   const pg = PT().pageAt(t.edition, place.page, spot.para || 0, spot.word || 0); if (!pg) return;
   pdfTextCrops?.near(pg.page);
   const c = t.edition.chapters[place.page - 1], prev = store.get('pos:' + t.key) || {};
@@ -8217,6 +8217,24 @@ function epubSpot() {
   const word = el.getBoundingClientRect().top >= top ? 0 : Math.min(words.length - 1, firstPast(wordSpans(el).length, k => wordRect(el, k)?.bottom ?? -Infinity, top));
   return { para: i, word: Math.max(0, word), quote: words.slice(Math.max(0, word), Math.max(0, word) + 14).join(' ').slice(0, 120) };
 }
+/*
+ * The place to keep (pos:<key>, the Tinct text's place, the margin view's): epubSpot, but the word the view was brought
+ * to while it is still on the top line (the same rule as epubHoldNow). epubSpot alone reads a line's first word, and a
+ * paragraph whose first line is at the top as its word 0: a restore to word 4 of a paragraph was kept as word 0, and a
+ * reload opened there and wrote 3:0 back to the account (22 Oct 2026).
+ */
+function epubPlace() {
+  const s = epubSpot(); if (s.para == null) return s;
+  const page = currentPlace().page, h = epubHold, x = h.exact;
+  const held = x && x.top != null && x.page === page && x.para === s.para && Math.abs($('scroll').scrollTop - x.top) <= 2 ? x
+    : h.spot && h.page === page && h.spot.para === s.para ? h.spot : null;
+  const word = held ? held.word || 0 : 0;
+  if (!held || word <= s.word) return s;
+  const a = epubSpotTop(page, { para: s.para, word }), b = epubSpotTop(page, s);
+  if (a == null || b == null || Math.abs(a - b) >= 2) return s;
+  const el = state.pages[page - 1] && epubParas(state.pages[page - 1])[s.para], words = el ? wordsOf(el.textContent) : [];
+  return { para: s.para, word, quote: words.slice(word, word + 14).join(' ').slice(0, 120) };
+}
 /** Scroll until `measure()` (a client y, or null) stands `at` of the way down the view; the chapters measure as they come near. */
 function epubSettle(measure, at = 0, tries = 6) {
   return new Promise(resolve => {
@@ -8378,7 +8396,7 @@ function epubShare() {
 async function epubToTinct() {
   const hex = hexOf(state.key);
   savePlaceNow();
-  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubSpot(), at: Date.now() });
+  store.set('pos:' + state.key, { ...(store.get('pos:' + state.key) || {}), ...currentPlace(), ...epubPlace(), at: Date.now() });
   epubShare();
   store.set('epub-view:' + hex, 'text');
   leavePlace(); stopNarration();
@@ -8394,7 +8412,8 @@ async function epubToTinct() {
    place, highlights, notes and cards. EPUBs never sync, so nothing reaches the account, the book reader's
    place or its highlights. Its units are the book's chapters; each request sends the passage with its chapter
    and the contents (marginDocument's EPUB part). Leaving goes through the top window. */
-const PREVIEW_NORMAL = 'Back to normal reader';
+// The book reader, named as the book reader's Book settings names it (its Classic reader switch, 22 Oct 2026).
+const PREVIEW_NORMAL = 'Classic reader';
 const previewWindow = () => (state.preview && window.top) || window;
 /** `book`: TinctEpub.parse's shape (js/tinct-book.js builds it); `preview`: { bookId, editionLabel, normalHref }. -> opened */
 async function openRegistered(book, preview) {

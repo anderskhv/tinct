@@ -80,7 +80,7 @@ for(const engine of [chromium,webkit]){
   },{authKey,user,token,exp,position,note,phone,oldChat,newChat})
   const page=await context.newPage()
   page.setDefaultTimeout(30000)
-  await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+  await page.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(500)

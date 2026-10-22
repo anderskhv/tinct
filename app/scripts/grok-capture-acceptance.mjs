@@ -67,7 +67,7 @@ async function open(){
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-voice-panel"]')?.dataset.connection==='connected',null,{timeout:30000})
 }
 try{
-  await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+  await page.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-chat').click()
