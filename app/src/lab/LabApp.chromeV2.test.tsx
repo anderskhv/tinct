@@ -353,21 +353,22 @@ describe('the super-menu', () => {
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
   })
 
-  it('the phone’s Notebook opens the Contents at Highlights & notes; its close goes straight back to the book', () => {
+  it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
     renderPhone()
     const place = screen.getByTestId('lab-root').getAttribute('data-place')
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
     expect(screen.getByTestId('lab-toc')).toBeTruthy()
-    expect(screen.getByLabelText('Highlights & notes')).toBeTruthy()
+    expect(screen.getByLabelText('Notebook')).toBeTruthy()
+    expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
     fireEvent.click(screen.getByLabelText('Close overlay'))
     expect(screen.queryByTestId('lab-toc')).toBeNull()
     expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
     // The chapter's own way into Contents still opens the tree, not the notebook.
     fireEvent.click(screen.getByTestId('lab-header-chapter'))
     expect(screen.getByTestId('lab-toc')).toBeTruthy()
-    expect(screen.queryByLabelText('Highlights & notes')).toBeNull()
+    expect(screen.queryByLabelText('Notebook')).toBeNull()
   })
 
   it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {

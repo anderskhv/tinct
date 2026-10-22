@@ -79,3 +79,30 @@ it('a chapter note opens its chapter, and the chapter’s tag counts it', async 
   fireEvent.click(screen.getByRole('button', { name: 'Open chapter' }))
   expect(p.onOpenPassage).toHaveBeenCalledWith({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
 })
+
+// The phone's Notebook (22 Oct 2026): one list, newest first, of the book's cards and the reader's marks, as the
+// desktop margin reader's Notebook lists them, with its filters All · My notes · AI.
+it('as the Notebook, lists cards and highlights and notes newest first, filters them, and opens each', async () => {
+  const card = (id: string, at: number, extra: object = {}) => ({ id, bookId: 'emma', chapterNumber: 1, paragraphIndex: 1, startTimestamp: at, endTimestamp: at, preview: 'Why the youngest?', messages: [
+    { role: 'user' as const, content: 'Why the youngest?', timestamp: at }, { role: 'assistant' as const, content: 'Because she is indulged.', timestamp: at }], ...extra })
+  const explain = card('mc_explain', T + 5), gone = card('mc_gone', T + 6, { messages: [], card: { id: 'gone', kind: 'explain', chapterNumber: 1, at: T, u: T + 6, gone: true } })
+  const p = { ...props(), notebook: true, conversations: [explain, gone, card('other-book', T + 7, { bookId: 'persuasion' })] }
+  render(<LabContentsV2 {...p} />)
+  expect(screen.getByText('Notebook')).toBeTruthy()
+  await screen.findByText('Emma Woodhouse,')
+  expect(rows()).toEqual(['contents-chat-mc_explain', `contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`])
+  fireEvent.click(screen.getByTestId('contents-notebook-ai'))
+  expect(rows()).toEqual(['contents-chat-mc_explain'])
+  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
+  expect(rows()).toEqual([`contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`])
+  // A mark opens its detail; back returns to the Notebook, and the Notebook's close returns to the book.
+  fireEvent.click(screen.getByTestId(`contents-highlight-hl-${T + 2}-emma`))
+  expect(screen.getByRole('button', { name: 'Open passage' })).toBeTruthy()
+  fireEvent.click(screen.getByLabelText('Close overlay'))
+  expect(screen.getByText('Notebook')).toBeTruthy()
+  fireEvent.click(screen.getByTestId('contents-notebook-all'))
+  fireEvent.click(screen.getByTestId('contents-chat-mc_explain'))
+  expect(p.onContinueConversation).toHaveBeenCalledWith(explain)
+  fireEvent.click(screen.getByLabelText('Close overlay'))
+  expect(p.onClose).toHaveBeenCalled()
+})
