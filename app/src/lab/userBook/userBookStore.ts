@@ -212,7 +212,7 @@ const refusalCode = (result: Converted): string | undefined => 'error' in result
  * account's private copy is downloaded and kept here instead; only a book in
  * neither place (or a PDF, which Add a book's viewer opens) is 'missing'.
  */
-export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; epubView?: EpubView } = {}): Promise<UserBookOpenResult> {
+export async function openUserBook(hex: string, options: { owner?: string | null; account?: AccountCopyLoader; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; epubView?: EpubView; desktop?: boolean } = {}): Promise<UserBookOpenResult> {
   const owner = options.owner !== undefined ? options.owner : userBookOwner()
   if (!owner) return { ok: false, reason: 'signed_out', message: MISSING_MESSAGE }
   if (typeof indexedDB === 'undefined') return { ok: false, reason: 'storage', message: STORAGE_MESSAGE }
@@ -328,10 +328,14 @@ const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('.
  * from now on (adoptOcrEditionChoice): Tinct text, unless the job found a
  * paper (ocrDefaultEdition).
  */
-async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null } = {}): Promise<UserBookOpenResult> {
+async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; desktop?: boolean } = {}): Promise<UserBookOpenResult> {
   const key = 'pdf:' + hex
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
   let layout = (record.layout as { default?: string } | undefined)?.default ?? scan?.layout?.default ?? null
+  // The desktop reads every PDF in the margin reader (its pages, or its Tinct text beside the margin, made there when
+  // the reader picks it): on to it at once, nothing converted here (D's trace, 22 Oct 2026: the whole PDF was
+  // converted first, then the margin reader loaded pdf.js again). A scan without text keeps its pages.
+  if (options.desktop) return scan?.textPages === 0 || layout === 'pages-only' ? { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE } : { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   let edition = usableUserEdition(record.edition, 'pdf') ? record.edition : null
   let figureData = storedImages(record.figureData)
   // A conversion kept under earlier rules: converted again below; the place read in it moves by its page.

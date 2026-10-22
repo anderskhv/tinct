@@ -158,7 +158,10 @@ async function chooseFile(file) {
 // `known`: the record already read from this device (openFromUrl), so a large file is read once (FIXES item 12).
 async function openStored(key, known = null) {
   if (needsAccount()) return false;
-  await pdfReady();
+  // pdf.js and the PDF scripts are a PDF's: an EPUB opens without waiting for them (D's trace, 22 Oct 2026: they held
+  // an own EPUB's first text by seconds); they still come, after the EPUB is open, for what may use them later.
+  const epub = String(key).startsWith('epub:');
+  if (!epub) await pdfReady();
   let rec = known || await library.get(key);
   if (!rec) {
     // On the account but not on this device yet: download it, then keep it here too.
@@ -183,6 +186,7 @@ async function openStored(key, known = null) {
   const pending = !rec.cloudId && cloud.usable() ? new Blob([rec.bytes]) : null;
   if (rec.kind === 'epub' && !epubHere(key) && (rec.opened ? (await library.touch(key, { openedAt: rec.opened }), true) : await library.get(key))) { await openInTinct(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   await openBook(rec.kind, new Uint8Array(rec.bytes), rec.name, key, rec);
+  if (epub) setTimeout(() => pdfReady().catch(() => {}), 1500);
   // An EPUB read here: named and drawn on the shelf, and its account copy sent, as the Tinct reader's way does (once).
   if (rec.kind === 'epub') { if (pending || !(Number(rec.coverV) >= 2)) epubShelved(new Uint8Array(rec.bytes), rec.name, key, pending, { quiet: true }); return true }
   if (!pending) return true;
@@ -279,7 +283,7 @@ addEventListener('pageshow', () => { leavingToShelf = false });
 // /lab/addbook/?userBook=<hex>: this book, from this device, else from the account.
 async function openFromUrl(hex) {
   if (needsAccount()) return false;
-  await pdfReady();
+  // pdf.js only for a PDF (openStored waits for it there).
   showReader();
   waitStatus('Opening…');
   for (const kind of ['pdf', 'epub']) { const rec = await library.get(kind + ':' + hex); if (rec) return openStored(kind + ':' + hex, rec) }
@@ -2452,6 +2456,18 @@ function navHost() {
   if (preview || state.preview || !hasBook()) return preview;
   try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === 'userbook-' + hexOf(state.key) ? p : null } catch { return null }
 }
+/**
+ * Where a contents entry of an own EPUB starts, as a place: its page (the file) and the first paragraph at or after
+ * its anchor (a split heading inside a file), else the file's first. -> { page, para } | null (not an EPUB's page)
+ */
+function ownEntrySpot(e) {
+  const p = isEpub() ? state.pages[e.page - 1] : null; if (!p) return null;
+  const el = e.anchor && document.getElementById('c' + (e.page - 1) + '-' + e.anchor.replace(/[^\w-]/g, '_'));
+  if (!el) return { page: e.page, para: 0 };
+  const paras = epubParas(p);
+  const i = paras.findIndex(q => q === el || q.contains(el) || el.contains(q) || !!(el.compareDocumentPosition(q) & Node.DOCUMENT_POSITION_FOLLOWING));
+  return { page: e.page, para: Math.max(0, i) };
+}
 /** An own book's chapters as Reading now and Contents show them: its contents' entries, numbered 1, 2, … in order. */
 function ownNavChapters() {
   const leaves = leafEntries();
@@ -2475,8 +2491,10 @@ function previewNav(kind) {
     library.get(state.key).then(rec => rec, () => null).then(rec => host.nav.open({
       kind, theme, page: Math.max(1, at), percent: reading === place.page ? Math.round((place.frac || 0) * 100) : 0, chapterLabel: label,
       book: { title: state.title, chapters, cover: rec?.cover || '' },
-      // A chapter of the contents: its entry (an anchor inside a file, a split heading, is found as the contents finds it).
-      go: to => { const e = leaves[to.page - 1]; if (e) goToEntry(e) },
+      // A chapter of the contents: its first paragraph (an anchor inside a file, a split heading: the paragraph it
+      // marks), held as a restore holds it, its heading in view (epubGoSpot). Scrolled to (goToEntry), the view's top
+      // sat in the room above the chapter and the place read back as the end of the one before (D, 22 Oct 2026).
+      go: to => { const e = leaves[to.page - 1]; if (!e) return; primer.held = false; const at = ownEntrySpot(e); if (!at || !epubGoSpot(at.page, at.para, 0)) goToEntry(e) },
       leave: () => { leavePlace(); stopNarration() },
       library: () => leaveToShelf(),
       closed: () => $(kind === 'switcher' ? 'bookBtn' : 'pageBtn').focus({ preventScroll: true }),
