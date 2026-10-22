@@ -67,6 +67,9 @@ beforeEach(() => {
   localStorage.clear()
   resetReadingTimeSwitch()
   vi.useFakeTimers({ toFake: ['setInterval', 'clearInterval', 'setTimeout', 'clearTimeout', 'Date'] })
+  // Local noon: a test that reads for 16 minutes must not cross midnight into a new reading day
+  // (it did when the suite ran at 23:44 UTC, 21 Oct 2026).
+  vi.setSystemTime(new Date(2026, 9, 21, 12, 0, 0))
 })
 
 afterEach(() => {

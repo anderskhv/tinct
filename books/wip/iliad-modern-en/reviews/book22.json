@@ -1,0 +1,75 @@
+{
+ "book": 22,
+ "reviewed": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33
+ ],
+ "findings": [
+  {
+   "p": 6,
+   "severity": "minor",
+   "type": "clarity",
+   "issue": "Source: \"I dare not look Trojan men and Trojan women in the face, lest a worse man should say\"; candidate drops the \"lest\" link and writes \"A worse man might say\", so the fear-of-reproach reason is lost.",
+   "fix": "\u201cAlas,\u201d he said to himself, with a heavy heart, \u201cif I go inside the gates, Polydamas will be the first to heap reproach on me. He was the one who urged me to lead the Trojans back to the city on that awful night when Achilles came out against us again. I would not listen, though it would have been far better if I had. Now my folly has destroyed the army, and I dare not look Trojan men and Trojan women in the face, for fear that a worse man might say, \u2018Hector has ruined us by his self-confidence.\u2019 Surely it would be better for me to go back after fighting Achilles and killing him, or else to die gloriously here in front of the city. But what if I were to lay down my shield and helmet, lean my spear against the wall, and walk straight up to noble Achilles? What if I promised to give up Helen, who was the source of all this war, and all the treasure that Paris brought to Troy in his ships, and even to let the Achaeans divide half of everything the city holds? I might make the Trojans, through their princes, swear a solemn oath that they would hide nothing, and would split everything inside the city into two shares. But why argue with myself like this? If I went up to him, he would show me no mercy at all. Once I had taken off my armor, he would kill me on the spot as easily as if I were a woman. There is no talking with him from behind some rock or oak tree, the way young men and maidens chatter with one another. It is better to fight him at once, and find out which of us Zeus will grant victory.\u201d"
+  },
+  {
+   "p": 23,
+   "severity": "major",
+   "type": "reversal",
+   "issue": "Source: \"would that I could be as sure of being able to cut your flesh into pieces and eat it raw ... as I am that nothing shall save you from the dogs\"; candidate: \"I wish I had the strength to cut your flesh ... That is how sure I am\", which drops the as-sure-as comparison and turns it into a wish about strength.",
+   "fix": "Achilles glared at him and answered, \u201cDog, do not talk to me of knees or parents. I wish I could be as sure of having the strength to cut your flesh into pieces and eat it raw, for the harm you have done me, as I am that nothing will save you from the dogs. It will not happen, though they bring ten or twenty times the ransom and weigh it out for me on the spot, with a promise of more to come. Even if Priam son of Dardanus tells them to offer me your weight in gold, your mother will still never lay you out and mourn the son she bore. Dogs and vultures will eat you up completely.\u201d"
+  },
+  {
+   "p": 29,
+   "severity": "minor",
+   "type": "archaism",
+   "issue": "Candidate keeps British \"grovelled\" (STYLE-NOTE requires American spelling; p13 has \"groveling\"); \"Let me be\" for \"Let be\" also reads as \"leave me alone\" rather than \"let it be/let go\".",
+   "fix": "So the head of Hector was dishonored in the dust. His mother tore her hair and flung her veil away with a loud cry when she saw her son. His father groaned piteously, and all through the city the people began to weep and wail. It was as if the whole of frowning Ilium were smoldering in fire. The people could hardly hold Priam back, so hot was his haste to rush out of the city gates. He groveled in the mire and begged them, calling each one by name. \u201cLet it be, my friends,\u201d he cried, \u201cand for all your sorrow, allow me to go alone to the ships of the Achaeans. Let me plead with this cruel and terrible man. Perhaps he will respect the feelings of his fellow men and have pity on my old age. His own father is just such another as I am\u2014Peleus, who bred him and raised him to be the bane of us Trojans, and of me more than of all others. He has killed many a son of mine in the flower of his youth. Yet however I grieve for those, I grieve for one\u2014Hector\u2014more than for them all, and the bitterness of my sorrow will bring me down to the house of Hades. I wish he had died in my arms. Then both his ill-starred mother who bore him and I would have had the comfort of weeping and mourning over him.\u201d"
+  },
+  {
+   "p": 30,
+   "severity": "minor",
+   "type": "addition",
+   "issue": "Source: \"Hecuba then raised the cry of wailing among the Trojans\"; candidate says \"among the Trojan women\", which the source does not state.",
+   "fix": "So he spoke with many tears, and all the people of the city joined in his lament. Then Hecuba started the cry of wailing among the Trojans. \u201cAlas, my son,\u201d she cried, \u201cwhat do I have left to live for, now that you are gone? Night and day I took glory in you throughout the city. You were a tower of strength to everyone in Troy, and men and women alike hailed you as a god. While you lived you were their pride, but now death and destruction have come upon you.\u201d"
+  },
+  {
+   "p": 32,
+   "severity": "note",
+   "type": "addition",
+   "issue": "Source: \"then one whose parents are alive will drive him from the table\"; candidate says \"a boy whose parents are alive\". Reasonable inference, not stated."
+  }
+ ]
+}

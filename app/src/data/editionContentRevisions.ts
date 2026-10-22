@@ -284,6 +284,27 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  iliad: {
+    revision: 'text-2026-10-21.3',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'd424a2e68fd2e302781a4f2ecd4ce3f85ff84c7b80f35b066a32f342cd59fa75',
+        after: '5719267ee36dca311bb8d74f25ff58994b8dd84fb12cd2f958ece794bb5dc880',
+      },
+    },
+  },
+  'federalist-papers': {
+    revision: 'text-2026-10-21.3',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d',
+        after: '1f123f52d66f4f4df3c4b8e2e47dd8d561bc10fd914c7ef90bed6db51327c7fa',
+      },
+    },
+  },
   walden: {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
@@ -301,6 +322,47 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       'modern-en': {
         before: '12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7',
         after: 'cb1b3de53726abe48a58157067c78c72a7f8c99bc9708ad9a804f485a2d00ebb',
+      },
+    },
+  },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  'much-ado-about-nothing': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '3b92db2e6ffc9d6b06eb0e3e6b15edaba45f2ed3495ddb2cb999c5b10eddf1af',
+        after: 'e93fb1e66e2c9dc2d7266357fe143cf44c4943847f81009b9b507425dd2859f1',
+      },
+    },
+  },
+  'romeo-and-juliet': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '47fdf4f9a1b309f6747b48d00add73181cff9cd0a4c0063f81774a1a8a95bae6',
+        after: '0f7f2f2fbfb6e17d1c070228df6ec190d05bac150eeb16b1d12dc99a24efe04b',
+      },
+    },
+  },
+  'the-republic': {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57',
+        after: '2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277',
+      },
+    },
+  },
+  phaedrus: {
+    revision: 'text-2026-10-21.1',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c',
+        after: '5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b',
       },
     },
   },

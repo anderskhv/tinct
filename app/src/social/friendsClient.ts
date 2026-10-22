@@ -79,7 +79,8 @@ async function postJson<T>(path: string, token: string, body: unknown, fetchImpl
 }
 
 // `today` is this device's date, so your own row counts the same 7 days as Your reading (20 Oct 2026).
-export const fetchBoard = (token: string, tab: 'friends' | 'everyone', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}&today=${localDay()}`, token, fetchImpl)
+/** `default`: the board the cards open on, chosen by the Worker (social.ts); the answer's `tab` says which. */
+export const fetchBoard = (token: string, tab: 'friends' | 'everyone' | 'default', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}&today=${localDay()}`, token, fetchImpl)
 export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ rank: number | null; total: number; seconds: number }>(`/api/social/rank?today=${localDay()}`, token, fetchImpl)
 export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null; everyoneOpen?: boolean }>('/api/social/find', token, fetchImpl)
 /** Following you alone, for the follow-request dot (no ledger reads on the Worker). */
