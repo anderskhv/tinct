@@ -24,6 +24,7 @@ import { continueLatestDestination } from './lab/continueLatest'
 import './index.css'
 import { loadDesktopExperience } from './desktopCommands'
 import { installStaleChunkRecovery } from './utils/staleChunkRecovery'
+import { startMarginPreviewFrame } from './lab/marginPreview/marginPreviewFrame'
 installStaleChunkRecovery()
 loadDesktopExperience()
 
@@ -120,11 +121,15 @@ async function begin() {
   // the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
   const phone = phoneSurface()
   const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
+  // The margin view's frame and code start now, not after the migrations and MarginPreview's chunk (the first
+  // chapter first, 22 Oct 2026): the frame only asks this page for the book once MarginPreview is there.
+  const frame = preview?.mount === 'frame' && preview.bookId ? startMarginPreviewFrame(preview.bookId) : null
+  if (frame) void import('./lab/marginPreview/MarginPreview').catch(() => {})
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
   if (preview?.mount === 'frame' && preview.bookId) {
     const previewBookId = preview.bookId
-    ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} /></React.Suspense>)
+    ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} frame={frame} /></React.Suspense>)
     return
   }
   render(preview?.mount === 'phone')

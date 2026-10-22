@@ -19,9 +19,10 @@
   const column = () => document.getElementById('column');
   const say = html => { const c = column(); if (c) c.innerHTML = `<div class="pdf-status" role="alert">${html}</div>` };
 
-  /** The page that framed this one (MarginPreview.tsx: load, paper, layoutHref), waited for briefly. -> it, or null */
+  /** The page that framed this one (MarginPreview.tsx: load, paper, layoutHref), waited for. The page starts this frame
+   * before its margin code has loaded (marginPreviewFrame.ts), so on a slow connection the wait is longer. -> it, or null */
   async function bridge() {
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 200; i++) {
       try { const p = window.parent !== window && window.parent.TinctMarginPreview; if (p && p.bookId === id) return p } catch { return null }
       await new Promise(r => setTimeout(r, 100));
     }
@@ -46,10 +47,34 @@
   }
   addEventListener('resize', applyPaper);
 
-  /** A paragraph as the book reader shows it: its text, emphasised ranges in <em>. An empty one keeps its index. */
+  /*
+   * A figure (22 Oct 2026, launch): the picture at its paragraph, its caption under it, as the book reader shows it and as
+   * a PDF's Tinct text draws its crops here (pdf-text-view.js: .pt-fig, its CSS, the figure peek on "Figure 2"). One
+   * block whose text is the caption, or a zero-width space, so it is one paragraph (reader.js epubParas) at its index and
+   * its drawn text is the model's (marginPreviewAnchors drawnParagraphText). Its size is set before the image loads.
+   */
+  function figureEl(p) {
+    const fig = p.figure || {}, el = document.createElement('div');
+    el.className = 'pt-fig tb-fig' + (fig.large ? ' is-large' : '');
+    el.dataset.figure = String(fig.id || ''); el.dataset.kind = 'figure';
+    if (fig.src) {
+      const img = document.createElement('img');
+      img.src = fig.src; img.alt = fig.alt || p.text || `Figure ${fig.number || ''}`.trim(); img.decoding = 'async'; img.loading = 'lazy';
+      if (fig.width > 0 && fig.height > 0) { img.width = fig.width; img.height = fig.height; img.style.aspectRatio = `${fig.width} / ${fig.height}` }
+      el.append(img);
+    }
+    const cap = document.createElement('span');
+    cap.className = 'pt-cap';
+    cap.textContent = String(p.text || '').trim() ? p.text : '\u200b';
+    el.append(cap);
+    return el;
+  }
+
+  /** A paragraph as the book reader shows it: its text, emphasised ranges in <em>, its kind (a subheading, an item, a line). An empty one keeps its index. */
   function paragraphEl(p) {
+    if (p.figure) return figureEl(p);
     const el = document.createElement('p');
-    el.className = 'tb-p';
+    el.className = 'tb-p' + (p.kind ? ' tb-' + p.kind : '');
     const text = String(p.text || '');
     if (!text.trim()) { el.textContent = '​'; return el }
     let at = 0;
@@ -64,30 +89,79 @@
 
   const partNamed = (part, title) => { const name = String(part).replace(/^part\s+[\divxlc]+\s*[—–:.-]?\s*/i, '').trim().toLowerCase(); return !!name && String(title).toLowerCase().includes(name) };
 
+  /** One chapter's node: its heading and paragraphs; `from`: the page the reader opens at (a chapter after the next one
+   * is laid out later, laterChapters). A chapter still on its way (the first chapter first) is its heading and the room
+   * its text will take, about (estimate). */
+  function chapterNode(c, index, from) {
+    const node = document.createElement('div');
+    node.className = 'tb-chapter';
+    const head = document.createElement('header');
+    head.className = 'tb-head';
+    head.innerHTML = (c.section ? `<span class="tb-part">${esc(c.section)}</span>` : '') + `<span class="tb-title">${esc(c.title)}</span>`;
+    // The phone shows the heading as the book reader does, its chapter's title alone, when that names the part
+    // ("The Window · 1" under "Part I — The Window"); a part the title does not name keeps its line.
+    if (c.section && partNamed(c.section, c.title)) head.classList.add('is-named');
+    if (c.pending) {
+      const room = document.createElement('div');
+      room.className = 'tb-room'; room.style.height = estimate(c) + 'px';
+      node.classList.add('tb-pending'); node.append(head, room);
+      return node;
+    }
+    node.append(head, ...c.paragraphs.map(paragraphEl));
+    if (index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
+    return node;
+  }
+  const chapterText = c => [c.title, ...c.paragraphs.map(p => p.text)].join('\n\n');
+
   /** The model as TinctEpub.parse returns a book: { title, authors, language, chapters: [{ index, title, node, text }], toc }.
    * `from`: the chapter (1-based) the reader opens at. The chapters after the next one are laid out later (laterChapters). */
   function asEpub(model, from = 1) {
     const toc = [], parts = new Map();
     const chapters = model.chapters.map((c, index) => {
-      const node = document.createElement('div');
-      node.className = 'tb-chapter';
-      const head = document.createElement('header');
-      head.className = 'tb-head';
-      head.innerHTML = (c.section ? `<span class="tb-part">${esc(c.section)}</span>` : '') + `<span class="tb-title">${esc(c.title)}</span>`;
-      // The phone shows the heading as the book reader does, its chapter's title alone, when that names the part
-      // ("The Window · 1" under "Part I — The Window"); a part the title does not name keeps its line.
-      if (c.section && partNamed(c.section, c.title)) head.classList.add('is-named');
-      node.append(head, ...c.paragraphs.map(paragraphEl));
-      if (index + 1 > from + 1) { node.classList.add('tb-later'); node.style.containIntrinsicBlockSize = `auto ${estimate(c)}px` }
+      const node = chapterNode(c, index, from);
       let parent = null;
       if (c.section) {
         if (!parts.has(c.section)) { const e = { id: 'p' + parts.size, label: c.section, page: index + 1, anchor: '', depth: 0, parent: null, kind: 'part' }; parts.set(c.section, e); toc.push(e) }
         parent = parts.get(c.section).id;
       }
       toc.push({ id: 'c' + index, label: c.title, page: index + 1, anchor: '', depth: parent ? 1 : 0, parent, kind: 'chapter', number: c.number });
-      return { index, href: '', title: c.title, node, text: [c.title, ...c.paragraphs.map(p => p.text)].join('\n\n') };
+      return { index, href: '', title: c.title, node, text: chapterText(c) };
     });
     return { title: model.title, authors: model.author ? [model.author] : [], language: model.language || 'en', chapters, toc, cover: null };
+  }
+
+  /**
+   * The first chapter first (Anders, 22 Oct 2026: "when we do the switch we also need to do the first chapter trick"):
+   * the book opened with the chapters at its place (the page's `first`), and the whole book is drawn into the others as
+   * it arrives, nearest first, a few at a time (reader.js fillRegistered holds the view to the pixel). A chapter at the
+   * place whose text differs in the whole book (a patch that came late) is drawn again too.
+   * -> true once all are in; false when the whole book is not the same chapters, or another book opened meanwhile.
+   */
+  const sameText = (a, b) => a.paragraphs.length === b.paragraphs.length && a.paragraphs.every((p, i) => p.text === b.paragraphs[i].text);
+  async function stitch(first, full, opened = 1) {
+    const R = window.TinctReader;
+    if (!R?.fillRegistered || full.chapters.length !== first.chapters.length || full.chapters.some((c, i) => c.number !== first.chapters[i].number)) return false;
+    // The open's restore goes first (it runs in the next frame): the chapters are then drawn round the place.
+    await new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
+    // A chapter above the view is never left to lay out later (its real height would move the view then): the view's
+    // chapter, or the one the book opened at while the view is still on its way there.
+    const pageNow = () => { let page = 1; try { page = currentPlace().page } catch {} return Math.max(page, epubHold.opened === state.token ? 0 : opened) };
+    const at = pageNow();
+    const todo = first.chapters.map((c, i) => (c.pending || !sameText(c, full.chapters[i]) ? i : -1)).filter(i => i >= 0)
+      .sort((a, b) => Math.abs(a + 1 - at) - Math.abs(b + 1 - at));
+    while (todo.length) {
+      if (state.key !== KEY) return false;
+      const t0 = performance.now(), from = pageNow(), batch = [];
+      while (todo.length && (!batch.length || performance.now() - t0 < 12)) {
+        const i = todo.shift(), c = full.chapters[i];
+        batch.push({ page: i + 1, node: chapterNode(c, i, from), text: chapterText(c) });
+      }
+      R.fillRegistered(batch);
+      await new Promise(r => setTimeout(r, 0));
+    }
+    if (state.key !== KEY) return false;
+    R.wholeRegistered?.();
+    return true;
   }
 
   /**
@@ -100,11 +174,11 @@
    */
   const LINE_PX = () => (innerWidth < 700 ? 1.1 : 0.75); // px of height per character, before one chapter is measured
   let pxPerChar = 0;
-  const charsOf = c => c.paragraphs.reduce((n, p) => n + String(p.text || '').length + 60, 200);
+  const charsOf = c => (c.pending ? (Number(c.chars) || 0) + 200 : c.paragraphs.reduce((n, p) => n + String(p.text || '').length + 60, 200));
   const estimate = c => Math.round(charsOf(c) * (pxPerChar || LINE_PX()));
   function laterChapters(model) {
     const nodes = [...document.querySelectorAll('.tb-chapter')];
-    const measured = nodes.findIndex((n, i) => !n.classList.contains('tb-later') && n.offsetHeight > 0 && model.chapters[i]?.paragraphs.length > 3);
+    const measured = nodes.findIndex((n, i) => !n.classList.contains('tb-later') && !n.classList.contains('tb-pending') && n.offsetHeight > 0 && model.chapters[i]?.paragraphs.length > 3);
     if (measured >= 0) {
       pxPerChar = nodes[measured].offsetHeight / charsOf(model.chapters[measured]);
       nodes.forEach((n, i) => { if (n.classList.contains('tb-later')) n.style.containIntrinsicBlockSize = `auto ${estimate(model.chapters[i])}px` });
@@ -141,6 +215,11 @@
 .tb-chapter .tb-part{display:block;font-size:.9em;font-style:italic;opacity:.7;margin-bottom:.4em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
+.tb-chapter .tb-fig img{width:auto;height:auto;max-width:100%;max-height:min(78vh,900px)}
+html .lab.byob .epub-pg p.tb-p.tb-heading{font-weight:600;text-align:left;margin-top:1.1em;-webkit-hyphens:manual;hyphens:manual;text-wrap:balance}
+html .lab.byob .epub-pg p.tb-p.tb-label,html .lab.byob .epub-pg p.tb-p.tb-line{text-align:left;-webkit-hyphens:manual;hyphens:manual}
+html .lab.byob .epub-pg p.tb-p.tb-subtitle,html .lab.byob .epub-pg p.tb-p.tb-byline{font-style:italic;text-align:left;color:var(--lab-ink-muted);-webkit-hyphens:manual;hyphens:manual}
+html .lab.byob .epub-pg p.tb-p.tb-item{padding-left:1.2em;text-indent:-1.2em}
 .lab.byob .epub-sheet{content-visibility:visible}
 .lab.byob .tb-chapter.tb-later{content-visibility:auto}
 .tb-mark{display:none}
@@ -199,7 +278,10 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
   }, { capture: true, passive: true });
   /** The page's sync, once it is there (it mounts as the book loads), or null. */
   async function syncOf(host) {
-    for (let i = 0; i < 40; i++) { try { if (host?.sync) return host.sync } catch { return null } await new Promise(r => setTimeout(r, 75)) }
+    // The page's bridge as it is now: it is rebuilt as Listen changes (MarginPreview.tsx), and only the current one
+    // carries the sync (the frame now starts before the page's margin code, 22 Oct 2026, so it held an older one).
+    const now = () => { try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === id ? p : host } catch { return host } };
+    for (let i = 0; i < 40; i++) { try { const sync = now()?.sync; if (sync) return sync } catch { return null } await new Promise(r => setTimeout(r, 75)) }
     return null;
   }
   /** Where the view is: the word it was brought to while it has not moved since (previewSpot), else the top of the view; null in the space at a chapter's end. */
@@ -272,8 +354,13 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     clearTimeout(marksTimer); marksTimer = 0;
     try { sync?.marks?.put(JSON.parse(memory.get('hl:' + KEY) || '[]')) } catch {}
   }
-  function keepMarks() {
-    const { get, set, del } = store;
+  /* The store's marks and cards held in memory from the open (holdMarks), before the page's sync is there: the book now
+     opens with its chapter first, ahead of the whole book and the sync. What is made meanwhile joins the page's list
+     when it comes (keepMarks); without a sync at all they go back to this device's store as before (releaseMarks). */
+  let own = null;
+  function holdMarks() {
+    if (own) return;
+    const { get, set, del } = own = { get: store.get, set: store.set, del: store.del };
     store.get = k => (MARK_KEYS.has(k) ? (memory.has(k) ? JSON.parse(memory.get(k)) : null) : get(k));
     store.del = k => (MARK_KEYS.has(k) ? void memory.delete(k) : del(k));
     store.set = (k, v) => {
@@ -285,8 +372,31 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
       if (k === 'hl:' + KEY) { clearTimeout(marksTimer); marksTimer = setTimeout(pushMarks, 400) }
       if (k === CARD_KEY && sync?.cards) { clearTimeout(cardsTimer); cardsTimer = setTimeout(pushCards, 800) }
     };
-    try { memory.set('hl:' + KEY, JSON.stringify(sync.marks.list() || [])) } catch { memory.set('hl:' + KEY, '[]') }
-    try { memory.set(CARD_KEY, JSON.stringify(sync.cards?.list() || [])) } catch { memory.set(CARD_KEY, '[]') }
+  }
+  function releaseMarks() {
+    if (!own) return;
+    const { get, set, del } = own; own = null;
+    Object.assign(store, { get, set, del });
+    for (const [k, text] of memory) { try { set(k, JSON.parse(text)) } catch {} }
+    memory.clear();
+  }
+  /** The page's list, with what was made here before it came (by id). -> { list, added } */
+  function joined(key, list) {
+    let mine = [];
+    try { mine = JSON.parse(memory.get(key) || '[]') } catch {}
+    const ids = new Set((list || []).map(x => x?.id));
+    const added = Array.isArray(mine) ? mine.filter(x => x && x.id != null && !ids.has(x.id)) : [];
+    return { list: [...(list || []), ...added], added: added.length };
+  }
+  function keepMarks() {
+    holdMarks();
+    let marks = { list: [], added: 0 }, cards = { list: [], added: 0 };
+    try { marks = joined('hl:' + KEY, sync.marks.list() || []) } catch {}
+    try { cards = joined(CARD_KEY, sync.cards?.list() || []) } catch {}
+    memory.set('hl:' + KEY, JSON.stringify(marks.list));
+    memory.set(CARD_KEY, JSON.stringify(cards.list));
+    if (marks.added) pushMarks();
+    if (cards.added && sync.cards) pushCards();
     sync.cards?.listen(list => {
       const text = JSON.stringify(list || []);
       if (cardsTimer || memory.get(CARD_KEY) === text) return; // a change here is on its way: it wins
@@ -314,38 +424,80 @@ html .lab.byob:not(.is-phone) .tb-chapter .tb-title{font-family:'EB Garamond',Ge
     paperOf = typeof host?.paper === 'function' ? host.paper : null;
     applyPaper();
     const fonts = fontsSoon();
-    let model = null;
-    try { model = host ? await host.load() : null } catch { model = null }
+    const whole = host ? Promise.resolve().then(() => host.load()) : Promise.resolve(null);
+    whole.catch(() => {});
+    // The first chapter first (22 Oct 2026): the chapters at the place, when the page has them before the whole book.
+    let first = null;
+    try { first = typeof host?.first === 'function' ? await Promise.race([host.first(), whole.then(() => null, () => null)]) : null } catch { first = null }
+    if (!first?.partial || !Array.isArray(first.chapters) || !first.chapters.length) first = null;
+    let model = first;
+    if (!model) { try { model = await whole } catch { model = null } }
     await fonts;
     if (!model || !Array.isArray(model.chapters) || !model.chapters.length) {
       say(`This preview opens from the reader. <a href="/reader?book=${encodeURIComponent(id)}&amp;margin=1" target="_top">Open the margin preview</a>`);
       return;
     }
-    // The page's sync first (it mounts as the book loads), so the book opens with its marks and cards, and the later
-    // chapters' layout (laterChapters) is timed from the open as before.
-    sync = await syncOf(host);
-    if (sync?.marks) keepMarks();
+    // The whole book: the page's sync first (it mounts as the book loads), so the book opens with its marks and cards,
+    // and the later chapters' layout (laterChapters) is timed from the open as before. The chapters first: the marks
+    // are held here until the sync comes with the whole book.
+    if (first) holdMarks();
+    else { sync = await syncOf(host); if (sync?.marks) keepMarks() }
     seedPlace(model);
     let from = 1;
     try { from = Math.max(1, Number(JSON.parse(localStorage.getItem(POS) || 'null')?.page) || 1) } catch {}
     const book = asEpub(model, from);
-    setTimeout(() => laterChapters(model), 1200);
+    if (!first) setTimeout(() => laterChapters(model), 1200);
     // Two-page and Compare (the desktop's Layout): the book reader at this chapter, paragraph and word, in that layout.
     const layoutHref = typeof host.layoutHref === 'function'
       ? (view, at) => { const c = model.chapters[at.page - 1]; return c ? host.layoutHref(view, { editionKey: model.editionKey, chapterNumber: c.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }) : null }
       : null;
-    const opened = await R.openRegistered(book, { bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref });
-    if (!opened || !sync?.place) return;
-    watchPlace();
-    const target = await settled();
-    reportPlace('open', { target });
+    let wholeIn = () => {};
+    const wholeDone = first ? new Promise(resolve => { wholeIn = resolve }) : null;
+    const preview = extra => ({ bookId: id, editionLabel: model.editionLabel || 'edition', normalHref: model.normalHref || `/reader?book=${encodeURIComponent(id)}&margin=0`, layoutHref, ...extra });
+    const opened = await R.openRegistered(book, preview(wholeDone ? { whole: wholeDone } : {}));
+    if (!opened) { wholeIn(); return }
+    const opening = interactions;
+    if (first) {
+      let full = null;
+      try { full = await whole } catch { full = null }
+      const stitched = !!full && await stitch(first, full, from);
+      wholeIn();
+      if (!full || state.key !== KEY) { releaseMarks(); return }
+      if (!stitched) {
+        // Not the chapters it opened with (never expected): the whole book opens at the chapter, paragraph and word in view.
+        const spot = spotNow(), number = first.chapters[(spot?.page || 1) - 1]?.number;
+        const page = Math.max(1, full.chapters.findIndex(c => c.number === number) + 1);
+        try { store.set(POS_KEY, { ...(store.get(POS_KEY) || {}), page, frac: 0, para: spot?.para || 0, word: spot?.word || 0 }) } catch {}
+        model = full;
+        if (!await R.openRegistered(asEpub(full, page), preview({}))) { releaseMarks(); return }
+      }
+      model = full;
+      setTimeout(() => laterChapters(full), 1200);
+      sync = await syncOf(host);
+      if (sync?.marks) { keepMarks(); redrawMarks() } else releaseMarks();
+    }
+    if (!sync?.place) return;
+    let target = null;
+    if (first) {
+      // The chapters first: the restore landed long before the sync came, so it is told first, then the page is
+      // listened to (as when the whole book opens, the account's own place then reads as the one on view, not as a
+      // move to make). Read on meanwhile: where the reader is now is the place.
+      target = await settled();
+      reportPlace('open', { target });
+      if (interactions !== opening) reportPlace('move');
+      watchPlace();
+    } else {
+      watchPlace();
+      target = await settled();
+      reportPlace('open', { target });
+    }
     // A reflow just after the restore (a font, the top bar's controls) can leave the view off its word as it is
     // reported, and the page then holds the place (marginPreviewPlace). reader.js brings the view back to the held
     // word; the restore is told again a few times while the reader has not acted, so it is written once it holds.
     const before = interactions;
     for (const ms of [1200, 2500, 5000]) setTimeout(() => { if (interactions === before && !goes && state.key === 'preview:' + id) reportPlace('open', { target }) }, ms);
   }
-  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed };
+  window.TinctBookPreview = { asEpub, seedPlace, KEY, estimate, partNamed, stitch };
   if (window.TinctReader) open(); else addEventListener('tinct-reader-ready', open, { once: true });
 })();
 

@@ -16,13 +16,39 @@ import { editionHold } from '../../data/editionAvailability'
 import { defaultCompareEditionKey, defaultPrimaryEditionKey } from '../../data/editionDefaults'
 import type { LabBookPlace } from '../labPosition'
 import { labDesktopDefaultFontSize, labFontFamilyCss, labLineHeight, labMarginScale, labParagraphGap, labReadingFont, labReadingFontSize, type LabPrefs } from '../labPrefs'
-import type { Book, EditionData } from '../../types'
+import type { Book, Chapter, EditionData, ParagraphKind } from '../../types'
+
+/**
+ * A picture standing in the text (types ChapterFigure), as the margin view draws it: the image, then its caption
+ * (tinct-book.js figureEl). Built-in editions only, so `src` is a same-origin path (labFigures.ts holdFigureUrl).
+ */
+export interface MarginPreviewFigure {
+  id: string
+  number: number
+  /** Same-origin image path, or '' when there is nothing to draw (the caption stands alone). */
+  src: string
+  alt?: string
+  width?: number
+  height?: number
+  /** A map or plate: drawn no taller than the window. */
+  large?: boolean
+}
 
 export interface MarginPreviewParagraph {
-  /** The paragraph as shown: the edition's text with `_emphasis_` delimiters taken out. */
+  /**
+   * The paragraph as shown: the edition's text with `_emphasis_` delimiters taken out. A figure's is its caption
+   * ('' without one), the words the margin view draws under the picture.
+   */
   text: string
   /** Emphasised character ranges of `text`, [start, end). */
   em?: Array<[number, number]>
+  /** What the paragraph is beyond prose (a subheading, a list item, a line set apart), as the book reader paints it. */
+  kind?: ParagraphKind
+  /**
+   * A figure (its edition text is `\uFFFC` + id, labFigures.ts): one item at its own paragraph index, one word as the
+   * book reader counts it (marginPreviewAnchors), so places and highlights around it keep their indices.
+   */
+  figure?: MarginPreviewFigure
 }
 
 export interface MarginPreviewChapter {
@@ -31,6 +57,12 @@ export interface MarginPreviewChapter {
   /** The part the chapter belongs to ("Part I — The Window"), when the edition has parts. */
   section?: string
   paragraphs: MarginPreviewParagraph[]
+  /**
+   * The first chapter first (22 Oct 2026): a chapter whose text is still on its way (the book opened with the chapters
+   * at its place, `MarginPreviewBook.partial`); its paragraphs are empty and `chars` estimates its length.
+   */
+  pending?: true
+  chars?: number
 }
 
 /** Where the preview opens when it has no newer place of its own: the book reader's place, read only. */
@@ -53,6 +85,8 @@ export interface MarginPreviewBook {
   start: MarginPreviewStart
   /** The book reader for the same book, with the preview turned off. */
   normalHref: string
+  /** Only the chapters at the place have their text (marginPreviewWindowChapters); the whole book follows. */
+  partial?: true
 }
 
 /** The book reader for this book, the opt-in turned off (marginPreviewFlag.ts). */
@@ -60,9 +94,22 @@ export function normalReaderHref(bookId: string): string {
   return `/reader?book=${encodeURIComponent(bookId)}&margin=0`
 }
 
-/** Registered, readable books only: never the Bible (1,189 chapters, its own reader) or a reader's own book. */
+/**
+ * A play or a book whose verse the book reader sets from its own data (launch, 22 Oct 2026): Shakespeare's plays
+ * (the book reader's own test, LabApp `isShakespeare`: speakers as labels, verse lineation) and any book with a
+ * verse sidecar (`/data/editions/<book>-lines.json`, Edition.hasVerseLines, read only by labVerseLines.ts). The
+ * margin view has neither yet, so these open in the classic book reader.
+ */
+export function readsInClassicReader(book: Pick<Book, 'author' | 'editions'>): boolean {
+  return book.author === 'William Shakespeare' || book.editions.some(edition => edition.hasVerseLines)
+}
+
+/**
+ * Registered, readable books only: never the Bible (1,189 chapters, its own reader), a reader's own book, or a
+ * play or verse-sidecar book (readsInClassicReader).
+ */
 export function isMarginPreviewBook(book: Book | undefined): book is Book {
-  return !!book && book.id !== 'bible' && !book.localOnly && book.editions.some(edition => !editionHold(book.id, edition.key))
+  return !!book && book.id !== 'bible' && !book.localOnly && !readsInClassicReader(book) && book.editions.some(edition => !editionHold(book.id, edition.key))
 }
 
 /**
@@ -81,6 +128,25 @@ export function marginPreviewParagraph(raw: unknown): MarginPreviewParagraph {
   return ranges.length ? { text, em: ranges.map(([a, b]) => [a, b] as [number, number]) } : { text }
 }
 
+const FIGURE_MARK = '\uFFFC'
+const PARAGRAPH_KINDS = new Set<ParagraphKind>(['heading', 'label', 'item', 'subtitle', 'byline', 'line'])
+const positive = (n: unknown) => typeof n === 'number' && Number.isFinite(n) && n > 0 ? n : undefined
+
+/** A figure paragraph (`\uFFFC` + id, labFigures.ts isFigureToken) as the margin view draws it, or null for any other. */
+export function marginPreviewFigureParagraph(raw: unknown, figures: Chapter['figures']): MarginPreviewParagraph | null {
+  if (typeof raw !== 'string' || raw.length < 2 || raw[0] !== FIGURE_MARK || /\s/.test(raw)) return null
+  const id = raw.slice(1)
+  const f = (figures ?? []).find(figure => figure.id === id)
+  const src = f && !f.unavailable && /^\/(?!\/)/.test(f.src || '') ? f.src : ''
+  const figure: MarginPreviewFigure = {
+    id, number: Number(f?.number) || 0, src,
+    ...(f?.alt ? { alt: f.alt } : {}),
+    ...(positive(f?.width) && positive(f?.height) ? { width: f!.width, height: f!.height } : {}),
+    ...(f?.large ? { large: true } : {}),
+  }
+  return { text: String(f?.caption || '').replace(/\s+/g, ' ').trim(), figure }
+}
+
 export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[] {
   const sectionOf = new Map<number, string>()
   for (const section of data.sections ?? []) for (const n of section.chapters ?? []) sectionOf.set(Number(n), section.title)
@@ -93,9 +159,32 @@ export function marginPreviewChapters(data: EditionData): MarginPreviewChapter[]
         number,
         title: String(chapter.title || `Chapter ${number}`).replace(/\s+/g, ' ').trim(),
         ...(section ? { section } : {}),
-        paragraphs: chapter.paragraphs.map(marginPreviewParagraph),
+        paragraphs: chapter.paragraphs.map((raw, p) => {
+          const figure = marginPreviewFigureParagraph(raw, chapter.figures)
+          if (figure) return figure
+          const paragraph = marginPreviewParagraph(raw)
+          const kind = chapter.kinds?.[p]
+          return kind && PARAGRAPH_KINDS.has(kind) ? { ...paragraph, kind } : paragraph
+        }),
       }
     })
+}
+
+/**
+ * The first chapter first (Anders, 22 Oct 2026): a chapter window of the edition (editionLoader loadEditionWindow:
+ * every chapter's number and title, the text of the chapters around the place) as the preview's chapters. A chapter
+ * not in the window is `pending`, with its length estimated from the manifest's counts. -> null when the data is not a window
+ */
+export function marginPreviewWindowChapters(data: EditionData): MarginPreviewChapter[] | null {
+  if (data.windowed?.complete !== false) return null
+  const loaded = new Set(data.windowed.loadedChapters ?? [])
+  const byNumber = new Map(data.chapters.map((c, i) => [Number(c.number) || i + 1, c]))
+  return marginPreviewChapters(data).map(chapter => {
+    if (loaded.has(chapter.number)) return chapter
+    const source = byNumber.get(chapter.number)
+    const words = Number(source?.wordCount) || 0, paragraphs = Number(source?.paragraphCount) || 0
+    return { ...chapter, paragraphs: [], pending: true, chars: Math.round(words * 5.8) + paragraphs * 60 }
+  })
 }
 
 /** The newer of two places (by when they were saved), either may be missing. */
@@ -123,7 +212,8 @@ export function marginPreviewStart(place: LabBookPlace | null, chapters: MarginP
   const carries = sameEdition || (opts.aligned(place.primaryEditionKey!) && opts.aligned(opts.editionKey))
   const paragraph = carries ? place.paragraphIndex : 0
   if (paragraph < 0 || paragraph >= chapter.paragraphs.length) return { chapterNumber: chapter.number, paragraphIndex: 0, wordIndex: 0, updatedAt: place.updatedAt }
-  const count = words(chapter.paragraphs[paragraph].text)
+  // A figure is one word, as the book reader counts it (its caption's words are not).
+  const count = chapter.paragraphs[paragraph].figure ? 1 : words(chapter.paragraphs[paragraph].text)
   const word = sameEdition ? Math.max(0, Math.min(place.wordIndex, Math.max(0, count - 1))) : 0
   return { chapterNumber: chapter.number, paragraphIndex: paragraph, wordIndex: word, updatedAt: place.updatedAt }
 }
