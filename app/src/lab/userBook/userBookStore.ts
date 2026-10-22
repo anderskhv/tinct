@@ -15,7 +15,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { userBookId } from './userBookId'
 import { readUserBookPlace, storedPlaceConverter, type UserBookPlace } from './userBookPlace'
 import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_EDITION_FORMAT, editionSource, usableUserEdition, type UserBookEdition, type UserEditionSource } from './userEdition'
-import { adoptOcrEditionChoice, pdfEditionChoice, pdfEditionUntold, readPdfTextPlace } from './pdfEditions'
+import { adoptOcrEditionChoice, applyPhoneOpenRule, keptPdfPrimerKind, pdfEditionChoice, pdfEditionUntold, phoneNow, readPdfTextPlace } from './pdfEditions'
 import type { EpubView } from './epubView'
 import { ocrDefaultEdition } from './ocrEdition'
 import type { ConvertedPdf } from './pdfEdition'
@@ -312,7 +312,7 @@ const PAGES_ONLY_MESSAGE = ''
 /** The account's recognised (OCR) Tinct text of a scanned PDF (ownAccount.ts fetchOcrEdition); injectable for tests. */
 export type OcrEditionLoader = (hex: string) => Promise<UserBookEdition | null>
 const loadOcrEdition: OcrEditionLoader = async hex => fetchOcrEdition(hex, await ownBookToken())
-export type PdfConverter = (bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown }) => Promise<ConvertedPdf>
+export type PdfConverter = (bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown; phoneKind?: { primer: (kinds: readonly string[]) => string | null } }) => Promise<ConvertedPdf>
 const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('./pdfEdition')).convertPdf(bytes, options)
 
 /**
@@ -352,11 +352,15 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
   // The desktop's own rule (its pages, 19 Oct 2026) is applied below, after the Tinct text is made and kept for a switch.
   const beforeOpen = { desktopPages: false }
-  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || pdfEditionUntold(hex, layout, undefined, beforeOpen))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  // Not told yet on a phone: converted here, and the phone's rule told with it (below), rather than in the viewer.
+  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || (!phoneNow() && pdfEditionUntold(hex, layout, undefined, beforeOpen)))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
-    try { made = await (options.convert ?? convertPdfBytes)(record.bytes, { fileName: record.name, stored: record.scan }) } catch { made = null }
+    // On a phone with nothing told yet, the converter tells the document's kind too (the viewer's rule), so the
+    // phone's open rule is applied below without a trip to the viewer and back.
+    const tell = phoneNow() && pdfEditionUntold(hex, layout ?? 'text') ? { phoneKind: { primer: (kinds: readonly string[]) => keptPdfPrimerKind(hex, kinds) } } : {}
+    try { made = await (options.convert ?? convertPdfBytes)(record.bytes, { fileName: record.name, stored: record.scan, ...tell }) } catch { made = null }
     // Its pages still open in the viewer, which says what it can of a damaged file.
     if (!made) return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
     layout = made.scan.layout?.default ?? layout
@@ -370,6 +374,8 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     // Its crops (formulas, figures, tables drawn from its pages) are kept beside it, as an EPUB's pictures are: on this device, for this owner.
     figureData = made.images ?? new Map()
     await keepFields(key, owner, { edition, layout: made.scan.layout, figureData: Object.fromEntries(figureData), ...(made.fresh ? { scan: made.scan, pages: made.scan.pages } : {}) }).catch(() => {})
+    // The phone's open rule, as the viewer applies it (reader.js phoneKind, openKind): its pages go on to the viewer.
+    if (made.phone && editionSource(edition) !== 'ocr' && phoneNow() && pdfEditionUntold(hex, layout)) applyPhoneOpenRule(hex, made.phone)
   }
   // Recognised text opens by its own default (the scan's is its pages only).
   if (editionSource(edition) === 'ocr') layout = ocrDefaultEdition(edition)
