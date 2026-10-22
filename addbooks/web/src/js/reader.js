@@ -6389,10 +6389,56 @@ function unitMark(unit, where, doc) {
   if (el.parentElement !== doc) doc.appendChild(el);
   return el;
 }
-/** An EPUB's (or a Tinct text's) unit heading: the chapter's title, else its first heading; none for the whole book. */
+// A title's numbering ("1", "1.", "IV", "Chapter 3:", "Part One –"): the words the number line of a split heading holds.
+const TITLE_NUMBER = /^\s*(?:(?:chapter|part|book|section|lecture|essay)\s+[\p{L}\p{N}]+|\p{N}{1,3}(?!\p{N})|(?=[ivxlcdm])m{0,3}(?:cm|cd|d?c{0,3})(?:xc|xl|l?x{0,3})(?:ix|iv|v?i{0,3})(?=[.:)]|\s*$))\s*[.:)]?\s*[-–—:]?\s*/iu;
+/*
+ * An EPUB's (or a Tinct text's) unit heading: a Tinct book's or text's chapter title; in an EPUB of the reader's own, the
+ * line its contents names (Anders, 22 Oct 2026: a trade book's "1" over "The Reach of Explanations", set as two paragraphs
+ * with no <h1>, showed no pills at all). A heading split into its number and its title gives the title's line; else the
+ * chapter's first heading element. None for the whole book, or when nothing reads as its heading (its end pills stay).
+ */
 function unitHeadEl(u) {
   const p = state.pages[u.start - 1]; if (!p || u.key === BOOK_UNIT) return null;
-  return p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head') || p.pg.querySelector('.epub-body :is(h1, h2, h3)');
+  const tb = p.pg.querySelector('.tb-head .tb-title') || p.pg.querySelector('.tb-head'); if (tb) return tb;
+  p.heads ??= new Map();
+  const had = p.heads.get(u.key); if (had?.isConnected) return had;
+  const el = epubTitleLine(p, u.head || u.title) || headLine(p, p.pg.querySelector('.epub-body :is(h1, h2, h3, h4, h5, h6)'))
+    || headLine(p, epubParas(p).find(b => !b.closest('.mr-hp, .epub-sheet.is-front, .epub-sheet.is-toc')) || null, true);
+  if (el) p.heads.set(u.key, el);
+  return el;
+}
+/** A heading line (`el`); a number line alone ("1", "IV") gives the title's line under it. `strict`: a chapter's first line, taken only when it reads as a heading (short, no closing stop). */
+function headLine(p, el, strict = false) {
+  const short = b => { const t = b?.textContent.trim() || ''; return !!t && t.length <= 120 && !/[.!?;,"”’]$/.test(t) };
+  if (!el || (strict && !short(el))) return null;
+  if (String(el.textContent).replace(TITLE_NUMBER, '').trim()) return el;
+  const paras = epubParas(p), next = paras[paras.indexOf(el) + 1];
+  return short(next) ? next : el;
+}
+/** The block naming `title` in a chapter (its contents' label): the line itself, or the last of the two or three short lines that spell it together. */
+function epubTitleLine(p, title) {
+  const full = compactText(title), bare = compactText(String(title || '').replace(TITLE_NUMBER, ''));
+  if (!full) return null;
+  const blocks = epubParas(p).filter(el => !el.closest('.mr-hp') && el.textContent.length <= 200);
+  for (let i = 0; i < blocks.length; i++) {
+    const t = compactText(blocks[i].textContent); if (!t) continue;
+    if (t === full || (bare && t === bare)) return headLine(p, blocks[i]);
+    // A heading set as lines ("1", then the title): together they spell the label; the title's line is the last.
+    if (full.startsWith(t)) {
+      let run = t;
+      for (let j = i + 1; j < Math.min(blocks.length, i + 3) && full.startsWith(run); j++) {
+        run += compactText(blocks[j].textContent);
+        if (run === full) return blocks[j];
+      }
+    }
+  }
+  // A heading longer than its label ("Introduction: the long evening" for "Introduction"), among the chapter's first lines.
+  const longer = blocks.slice(0, 4).find(el => (bare || full).length >= 4 && compactText(el.textContent).startsWith(bare || full));
+  if (longer) return longer;
+  // A label that is its number alone ("Chapter 1", "1"): its number's line, then the title's under it (headLine).
+  const num = !bare && compactText(String(title).match(/[\p{N}]+|\b[ivxlcdm]{1,7}\b/iu)?.[0] || '');
+  const line = num && blocks.slice(0, 4).find(el => compactText(el.textContent) === num || compactText(el.textContent) === full);
+  return line ? headLine(p, line) : null;
 }
 /*
  * A unit's pills beside its heading (Anders, 21 Oct 2026; the desktop's wide column): Primer · Catch me up · Recap ·
@@ -6405,20 +6451,21 @@ function headPills(u, p, at, seen) {
   // Text (an EPUB, a Tinct text or book; Anders, 22 Oct 2026): as on the phone, Primer · Catch me up on the heading's
   // line and Recap · Quiz me · Note after the chapter's last paragraph, both always shown. A PDF's page: all five over
   // its heading's line, shown by the pointer (headHover).
-  const text = isEpub();
-  const el = headPillEl(u, text ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : (nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note']), u.key);
-  if (text) {
-    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); dropHeadPill(u.key + ':end'); return null }
+  if (isEpub()) {
+    // Its end pills never wait on its heading: a chapter whose heading is not found still has its end (22 Oct 2026).
+    const end = endPills(u); if (end) seen?.add(end);
+    const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return end }
+    const el = headPillEl(u, nothingBefore(u) ? ['primer'] : ['primer', 'catchup'], u.key);
     if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
     head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
     placeHeadPills(el, head);
     seen?.add(el);
-    const end = endPills(u); if (end) seen?.add(end);
-  } else {
-    if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
-    placePagePills(el, p, at.head.y);
-    seen?.add(el);
+    return el;
   }
+  const el = headPillEl(u, nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'], u.key);
+  if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
+  placePagePills(el, p, at.head.y);
+  seen?.add(el);
   return el;
 }
 /** A unit's pills (its group, drawn again only when what it shows changed). key: its unit's, or its end's (unit:end). */
