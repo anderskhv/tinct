@@ -346,6 +346,8 @@ async function openEpub(bytes, name, key, rec = null) {
   // The book's Tinct text, when this device converted it in the Tinct reader: the place is shared with it (epubShare).
   state.epubEdition = Array.isArray(rec?.edition?.chapters) ? rec.edition : null;
   root.classList.add('is-epub'); root.classList.remove('is-pdf');
+  // Play reads an own EPUB aloud as it does a PDF (addbook.css shows it; a Tinct book's preview is heard with tinct-listen.js).
+  root.classList.toggle('has-read-aloud', !state.preview);
   const saved = store.get('pos:' + state.key);
   state.zoom = saved?.zoom || 1;
   state.lastPlace = saved?.page ? { page: saved.page, frac: saved.frac || 0 } : { page: 1, frac: 0 };
@@ -522,7 +524,7 @@ async function openPdf(bytes, name, key, known = null) {
   Object.assign(state, { pdfText: null });
   Object.assign(state, { kind: 'pdf', pdf, epub: null, key, name, title: scan?.title || rec?.title || TinctPdfScan.cleanFileName(name), author: scan ? scan.author : rec?.author || '', scan, textEdition, textCrops: !!rec?.figureData, ocrPages, texts: new Map(), figs: new Map(), pagesAsked, fit: null, docKind: null });
   if (token !== state.token) return;
-  root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper');
+  root.classList.add('is-pdf'); root.classList.remove('is-epub', 'is-paper', 'has-read-aloud');
   root.style.removeProperty('--epub-scale');
   const first = (await pdf.getPage(1)).getViewport({ scale: 1 });
   state.base = { w: first.width, h: first.height };
@@ -7844,8 +7846,11 @@ async function catchUp() {
 
 /* ---------- Read aloud: streamed by the device, nothing stored ---------- */
 const narr = { active: false, page: 1, sentences: [], index: 0, spans: [], word: null, gen: 0 };
+// Read aloud for an own EPUB (and a PDF's Tinct text) on the desktop; a Tinct book's preview has its own narration.
+const ownReadAloud = () => !state.preview && !isPhone();
 // A voice for the book's language: the chosen one when it speaks it, else the device's own for it.
-const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === lang;
+// An EPUB names its language with a region ("en-GB"); a voice is matched by the language alone.
+const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === String(lang || '').toLowerCase().split(/[-_]/)[0];
 function bookVoices() {
   const vs = speechSynthesis?.getVoices?.() || [], fits = vs.filter(speaks(bookLang()));
   return fits.length ? fits : vs.filter(speaks('en'));
@@ -7887,7 +7892,77 @@ function joinItems(text, prev, it) {
   if (/\p{L}-$/u.test(text) && /^\p{Ll}/u.test(it.str)) return { text: text.slice(0, -1), join: '' };
   return { text, join: ' ' };
 }
+// A sentence ends at . ! or ? followed by a space (so 2.5 and e.g. stay whole), or at the end of the text.
+// -> [{ from, to, text }] of `text` from `base` on, without the ones that are not prose (a table's numbers)
+function splitSentences(text, base = 0) {
+  const sentences = [], re = /[\s\S]+?(?:[.!?]+["’”)\]]*(?=\s+[^a-z0-9\s])|$)/g; let m;
+  const spoken = t => { const toks = t.split(/\s+/).filter(Boolean); return toks.length < 4 || toks.filter(w => /[A-Za-z]{3,}/.test(w)).length / toks.length >= 0.4 };
+  while ((m = re.exec(text))) { const s = m[0]; if (s.trim().length > 1 && spoken(s)) sentences.push({ from: base + m.index, to: base + m.index + s.length, text: s.trim() }) ; if (m.index === re.lastIndex) re.lastIndex++ }
+  return sentences;
+}
+/* An EPUB's chapter is read aloud as a PDF's page is (one read-aloud for every own book, Anders 22 Oct 2026): its shown
+   text nodes stand for the page's text items (`offsets`: each node's place in `text`), a sentence never runs across a
+   block (a heading is read on its own), and what is heard is drawn with the Custom Highlight API, so the chapter's DOM,
+   its highlights' offsets and the reading place are untouched. The book's own contents page (hidden) is not read. */
+const NARR_BLOCK = 'p, h1, h2, h3, h4, h5, h6, li, blockquote, figcaption, caption, dt, dd, td, th, pre, div, section, aside, header, footer, figure, body';
+const chapterPreps = new WeakMap();
+function prepareChapter(n) {
+  const p = state.pages[n - 1], empty = { text: '', offsets: [], sentences: [] };
+  if (!p?.pg || p.kind !== 'epub' || p.sheet.classList.contains('is-toc')) return empty;
+  if (chapterPreps.has(p.pg)) return chapterPreps.get(p.pg);
+  const walker = document.createTreeWalker(p.pg, NodeFilter.SHOW_TEXT), offsets = [], sentences = [];
+  let text = '', block = null, from = 0;
+  const end = () => { if (block && text.length > from) sentences.push(...splitSentences(text.slice(from), from)) };
+  for (let node; (node = walker.nextNode());) {
+    const el = node.parentElement, v = node.nodeValue;
+    if (!el || !v || el.closest('script, style, rt, [hidden], [aria-hidden="true"]') || el.checkVisibility?.() === false) continue;
+    // A note's number ("12" set in superscript) is not read.
+    if (el.closest('sup') && /^\W*[\dívxlc*†‡§]+\W*$/i.test(v)) continue;
+    const b = el.closest(NARR_BLOCK) || p.pg;
+    if (b !== block) {
+      if (!v.trim()) continue;
+      end(); if (text && !/\s$/.test(text)) text += ' ';
+      block = b; from = text.length;
+    }
+    offsets.push({ node, from: text.length, to: text.length + v.length });
+    text += v;
+  }
+  end();
+  const prep = { text, offsets, sentences, epub: true };
+  chapterPreps.set(p.pg, prep);
+  return prep;
+}
+/** A Range over [from, to) of a chapter's read-aloud text (prepareChapter), or null. */
+function narrRange(prep, from, to) {
+  const a = prep.offsets.find(o => o.to > from), b = prep.offsets.findLast(o => o.from < to);
+  if (!a || !b) return null;
+  const r = document.createRange();
+  try { r.setStart(a.node, Math.max(0, from - a.from)); r.setEnd(b.node, Math.min(b.node.nodeValue.length, to - b.from)) } catch { return null }
+  return r;
+}
+/** The first sentence of a chapter that begins in the view (below its top, under the header), or -1 when none does. */
+function sentenceInView(prep) {
+  const sr = $('scroll').getBoundingClientRect(), top = Math.max(sr.top, $('hdr')?.getBoundingClientRect().bottom || sr.top);
+  const first = i => { const r = narrRange(prep, prep.sentences[i].from, prep.sentences[i].to)?.getClientRects()[0]; return r ? r.top : -Infinity };
+  let lo = 0, hi = prep.sentences.length;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (first(mid) >= top) hi = mid; else lo = mid + 1 }
+  return lo < prep.sentences.length ? lo : -1;
+}
+/** The box of the line read now (its sentence's first), for following it. */
+function narrRect() {
+  const s = narr.prep?.sentences[narr.index]; if (!s) return null;
+  if (narr.prep.epub) return narrRange(narr.prep, s.from, s.to)?.getClientRects()[0] || null;
+  const span = state.pages[narr.page - 1]?.spans?.[narr.prep.offsets.find(o => o.to > s.from)?.i];
+  return span ? span.getBoundingClientRect() : null;
+}
+// The page follows what is heard: the line read is kept between the view's top and its lower part.
+function followNarration() {
+  const r = narrRect(); if (!r) return;
+  const sr = $('scroll').getBoundingClientRect();
+  if (r.top < sr.top + 40 || r.bottom > sr.bottom - 120) $('scroll').scrollBy({ top: r.top - sr.top - sr.height * 0.3, behavior: 'smooth' });
+}
 async function preparePage(n) {
+  if (isEpub()) return prepareChapter(n);
   const { items } = await pageText(n);
   const skip = await Promise.all(items.map(it => isFurniture(n, it.str)));
   // One string per page with each item's offsets, split into sentences.
@@ -7901,17 +7976,26 @@ async function preparePage(n) {
     text += it.str; prev = it;
   });
   text += ' ';
-  const sentences = [];
-  // A sentence ends at . ! or ? followed by a space (so 2.5 and e.g. stay whole), or at the end of the page.
-  const re = /[\s\S]+?(?:[.!?]+["’”)\]]*(?=\s+[^a-z0-9\s])|$)/g; let m;
-  const spoken = t => { const toks = t.split(/\s+/).filter(Boolean); return toks.length < 4 || toks.filter(w => /[A-Za-z]{3,}/.test(w)).length / toks.length >= 0.4 };
-  while ((m = re.exec(text))) { const s = m[0]; if (s.trim().length > 1 && spoken(s)) sentences.push({ from: m.index, to: m.index + s.length, text: s.trim() }) ; if (m.index === re.lastIndex) re.lastIndex++ }
-  return { text, offsets, sentences };
+  return { text, offsets, sentences: splitSentences(text) };
 }
 function setPlay(playing) { $('playBtn').innerHTML = playing ? ICON.pause : ICON.play; $('playBtn').setAttribute('aria-label', playing ? 'Pause' : 'Play'); root.dataset.playing = String(playing) }
-function clearPaint() { document.querySelectorAll('.text-layer .is-reading, .text-layer .is-word').forEach(s => s.classList.remove('is-reading', 'is-word')) }
+const NARR_MARKS = ['tinct-read', 'tinct-read-word'];
+function clearPaint() {
+  document.querySelectorAll('.text-layer .is-reading, .text-layer .is-word').forEach(s => s.classList.remove('is-reading', 'is-word'));
+  if (window.CSS?.highlights) for (const k of NARR_MARKS) CSS.highlights.delete(k);
+}
 function paintNarration(charIndex) {
   clearPaint();
+  if (narr.prep?.epub) {
+    // An EPUB: the sentence and the word heard as highlights over the chapter's text (its DOM is not touched).
+    const s = narr.prep.sentences[narr.index]; if (!s || !window.CSS?.highlights || typeof Highlight === 'undefined') return;
+    const r = narrRange(narr.prep, s.from, s.to); if (r) CSS.highlights.set('tinct-read', new Highlight(r));
+    if (charIndex != null) {
+      const at = s.from + charIndex, rest = narr.prep.text.slice(at, s.to), len = rest.search(/\s|$/);
+      const w = len > 0 && narrRange(narr.prep, at, at + len); if (w) CSS.highlights.set('tinct-read-word', new Highlight(w));
+    }
+    return;
+  }
   const p = state.pages[narr.page - 1]; if (!p?.spans || !narr.prep) return;
   const s = narr.prep.sentences[narr.index]; if (!s) return;
   for (const o of narr.prep.offsets) {
@@ -7925,15 +8009,18 @@ async function startNarration() {
   if (!('speechSynthesis' in window)) { toast('Read-aloud is not available in this browser.'); return }
   const gen = ++narr.gen;
   narr.active = true; narr.paused = false; setPlay(true); renderTransport();
-  if (!narr.prep) { const place = currentPlace(); narr.page = place.page; narr.index = 0 }
+  // A PDF starts at the top of the page in view; an EPUB's chapter is long, so it starts at the sentence at the view's top.
+  if (!narr.prep) { const place = currentPlace(); narr.page = place.page; narr.index = 0; narr.fromView = isEpub() }
   while (narr.active && gen === narr.gen && narr.page <= state.pages.length) {
     if (!narr.prep) narr.prep = await preparePage(narr.page);
     if (gen !== narr.gen) return;
-    if (narr.index >= narr.prep.sentences.length) { narr.page++; narr.index = 0; narr.prep = null; if (narr.page <= state.pages.length) goTo({ page: narr.page, frac: 0 }, true); renderTransport(); continue }
+    // (The sentence found there is in view already: the page does not move for it.)
+    let still = false;
+    if (narr.fromView) { const i = sentenceInView(narr.prep); if (i >= 0) { narr.index = i; narr.fromView = false; const r = narrRect(); still = !!r && r.bottom <= $('scroll').getBoundingClientRect().bottom - 120 } else narr.index = narr.prep.sentences.length }
+    // The next page (chapter): a PDF turns to it; an EPUB's runs on below, followed as it is read.
+    if (narr.index >= narr.prep.sentences.length) { narr.page++; narr.index = 0; narr.prep = null; if (narr.page <= state.pages.length && !isEpub()) goTo({ page: narr.page, frac: 0 }, true); renderTransport(); continue }
     const s = narr.prep.sentences[narr.index];
-    const pg = state.pages[narr.page - 1];
-    const span = pg?.spans?.[narr.prep.offsets.find(o => o.to > s.from)?.i];
-    if (span) { const r = span.getBoundingClientRect(), sr = $('scroll').getBoundingClientRect(); if (r.top < sr.top + 40 || r.bottom > sr.bottom - 120) $('scroll').scrollBy({ top: r.top - sr.top - sr.height * 0.3, behavior: 'smooth' }) }
+    if (!still) followNarration();
     paintNarration();
     const ok = await new Promise(resolve => {
       const u = new SpeechSynthesisUtterance(s.text);
@@ -7953,18 +8040,21 @@ function pauseNarration() { narr.active = false; narr.paused = true; narr.gen++;
 function stopNarration() { narr.active = false; narr.paused = false; narr.prep = null; narr.gen++; try { speechSynthesis.cancel() } catch {}; setPlay(false); clearPaint(); renderTransport() }
 function togglePlay() {
   if (!hasBook()) { toast('Open a book first.'); return }
-  if (isEpub()) { toast('Read aloud works in PDFs for now.'); return }
+  // A Tinct book in the margin preview is heard with its own narration (tinct-listen.js), an EPUB on a phone not yet.
+  if (isEpub() && !ownReadAloud()) { toast('Read aloud works in PDFs for now.'); return }
   if (hasNoText() && !narr.active) return;
   if (narr.active) return pauseNarration();
-  // Resume where it paused while the page is still in view; otherwise start at the page on screen.
-  if (narr.prep) { const place = currentPlace(); if (Math.abs(place.page - narr.page) > 1) { narr.prep = null } }
+  // Resume where it paused while the page (an EPUB's sentence) is still in view; otherwise start at the place on screen.
+  if (narr.prep && !narr.prep.epub) { const place = currentPlace(); if (Math.abs(place.page - narr.page) > 1) { narr.prep = null } }
+  if (narr.prep?.epub) { const r = narrRect(), sr = $('scroll').getBoundingClientRect(); if (!r || r.bottom < sr.top || r.top > sr.bottom) narr.prep = null }
   startNarration();
 }
 async function jumpNarration(page, index) {
   const wasPlaying = narr.active || narr.paused;
   narr.gen++; try { speechSynthesis.cancel() } catch {}
-  narr.page = page; narr.prep = await preparePage(page); narr.index = Math.max(0, Math.min(index, narr.prep.sentences.length - 1));
-  goTo({ page, frac: 0 }, true);
+  narr.page = page; narr.prep = await preparePage(page); narr.index = Math.max(0, Math.min(index, narr.prep.sentences.length - 1)); narr.fromView = false;
+  // An EPUB's chapter is not turned to its top: the sentence is brought into view (when it is out of it).
+  if (narr.prep.epub) followNarration(); else goTo({ page, frac: 0 }, true);
   if (wasPlaying) startNarration(); else { paintNarration(); renderTransport() }
 }
 async function skip(dir) {
@@ -8026,6 +8116,17 @@ document.addEventListener('click', e => {
   const span = e.target.closest?.('.text-layer span'); if (!span || !(narr.active || narr.paused) || !getSelection().isCollapsed) return;
   const page = Number(span.closest('.pdf-sheet').dataset.page), i = Number(span.dataset.i);
   preparePage(page).then(prep => { const o = prep.offsets.find(x => x.i === i); jumpNarration(page, Math.max(0, prep.sentences.findIndex(s => s.to > (o?.from || 0)))) });
+});
+// ...and in an EPUB: the word under the click, as a place in its chapter's read-aloud text.
+document.addEventListener('click', e => {
+  if (!isEpub() || !(narr.active || narr.paused) || !getSelection().isCollapsed) return;
+  const sheet = e.target.closest?.('.epub-sheet'); if (!sheet) return;
+  const c = document.caretPositionFromPoint?.(e.clientX, e.clientY), r = c ? null : document.caretRangeFromPoint?.(e.clientX, e.clientY);
+  const node = c ? c.offsetNode : r?.startContainer, offset = c ? c.offset : r?.startOffset;
+  const page = Number(sheet.dataset.page), prep = prepareChapter(page), o = prep.offsets.find(x => x.node === node);
+  if (!o) return;
+  const at = o.from + offset, i = prep.sentences.findIndex(s => s.to > at);
+  if (i >= 0) jumpNarration(page, i);
 });
 
 /* ---------- Files out ---------- */
