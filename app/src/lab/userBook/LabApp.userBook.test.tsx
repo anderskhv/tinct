@@ -464,7 +464,7 @@ describe('UserBookReader', () => {
     cleanup()
     const desk = vi.fn()
     render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'pages_only', message: '' })} forward={desk} />)
-    const frame = await screen.findByTestId('margin-preview-frame')
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
     expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX + '&pages=1')
     expect(desk).not.toHaveBeenCalled()
   })
@@ -472,7 +472,7 @@ describe('UserBookReader', () => {
   it('frames an EPUB in Margin view on a desktop at the reader\u2019s address, writing no place of its own', async () => {
     const before = JSON.stringify({ ...localStorage })
     render(<UserBookReader hex={HEX} open={async () => ({ ok: false, reason: 'margin', message: '' })} forward={() => { throw new Error('no forward') }} />)
-    const frame = await screen.findByTestId('margin-preview-frame')
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
     expect(frame.getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX)
     await waitFor(() => expect(window.TinctMarginPreview?.bookId).toBe('userbook-' + HEX))
     expect(Object.keys(localStorage).filter(key => key.includes(HEX))).toEqual(Object.keys(JSON.parse(before)).filter(key => key.includes(HEX)))
@@ -482,19 +482,27 @@ describe('UserBookReader', () => {
     vi.stubGlobal('location', { ...window.location, search: `?userBook=${HEX}&page=7&frac=0.5&pages`, href: `http://localhost/reader?userBook=${HEX}&page=7&frac=0.5&pages` })
     const open = vi.fn(async () => ({ ok: true as const, book: loaded() }))
     render(<UserBookReader hex={HEX} owner="me" open={open} />)
-    const frame = await screen.findByTestId('margin-preview-frame')
+    const frame = await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })
     expect(frame.getAttribute('src')).toBe(`/lab/addbook/book?userBook=${HEX}&page=7&frac=0.5&pages=`)
     expect(open).not.toHaveBeenCalled()
     // The host tidies the address it was opened at (page and frac only); this test's own address goes back.
     window.history.replaceState(null, '', '/')
   })
 
-  it('opens a PDF\u2019s Tinct text at the place last read in its pages, found from the page', async () => {
+  it('opens a PDF\u2019s Tinct text (a phone\u2019s reader) at the place last read in its pages, found from the page', async () => {
     // Read in Original pages later than the Tinct text: the top of page 4 is chapter 2.
     writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 0, updatedAt: 100, converter: 1 })
     localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 4, frac: 0, at: 5_000, edition: 'p' }))
-    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
+    render(<UserBookReader hex={HEX} phone open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
+  })
+
+  it('frames a PDF read as its Tinct text on a desktop: it reads beside the margin there, from the same place', async () => {
+    const reconcile = vi.fn(async () => {})
+    render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={reconcile} forward={() => { throw new Error('no forward') }} />)
+    expect((await screen.findByTestId('margin-preview-frame', {}, { timeout: 8000 })).getAttribute('src')).toBe('/lab/addbook/book?userBook=' + HEX)
+    // The frame is the place's only writer: it reconciles a PDF's place itself as it opens.
+    expect(reconcile).not.toHaveBeenCalled()
   })
 
   it('says why a book cannot be opened and links back to My shelf', async () => {

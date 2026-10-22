@@ -109,6 +109,9 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
       if (!result.ok && (result.reason === 'missing' || result.reason === 'pages' || result.reason === 'margin')) { toMargin(); return }
       if (!result.ok && result.reason === 'pages_only') { toMargin(true); return }
       if (!result.ok) { setState({ status: 'failed', message: result.message }); return }
+      // A PDF's Tinct text on a desktop reads beside the margin, in the margin reader (reader.js openPdfText; Anders,
+      // 20 Oct 2026, mockup 2b: never the Tinct reader there), which takes the same place from its pages or text.
+      if (!phone && result.book.kind === 'pdf') { toMargin(); return }
       // A place read later on another device of the account opens here.
       await reconcile(hex, result.book).catch(() => {})
       if (!live) return
