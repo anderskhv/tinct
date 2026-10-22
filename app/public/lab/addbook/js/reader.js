@@ -8044,13 +8044,19 @@ function epubGoSpot(n, para, word = 0) {
   // A little room above the paragraph, never as much as reaches the paragraph before (the phone's gap is small): its
   // last line would then be at the top, and the place read back as that paragraph's end.
   const room = () => { const prev = epubParas(p)[para - 1], top = el.getBoundingClientRect().top; return prev ? Math.max(0, Math.min(10, top - prev.getBoundingClientRect().bottom - 2)) : 10 };
+  // A chapter's start (paragraph 0, word 0): its heading and its pills stay in view above it, as a first open shows
+  // them (a reload at "Letter 1" came back with the heading under the top bar). A Tinct book's heading is the
+  // chapter's .tb-head, above paragraph 0; an EPUB's own heading is paragraph 0 itself. The place still reads back as
+  // paragraph 0, word 0: that paragraph is the first one in view.
+  const head = !para && !word ? p.pg.querySelector('.tb-head') : null;
+  const headTop = () => { const r = head?.isConnected ? head.getBoundingClientRect() : null; return r && r.height && r.top < el.getBoundingClientRect().top ? r.top - 24 : null };
   // The word itself, while the view stays where it was brought (the preview hands it on: previewSpot).
   const exact = state.preview ? (epubHold.exact = { page: n, para, word, top: null }) : null;
   // While the view is on its way there, the spot held is this one: the settle's own scrolls (through chapters still
   // measuring as they come near) never stand in for it, so a reflow meanwhile (text size, width, a late font) comes
   // back here, not to a line passed on the way.
   epubHold.settling++;
-  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop })
+  epubSettle(() => (word ? wordRect(el, word)?.top ?? el.getBoundingClientRect().top : headTop() ?? el.getBoundingClientRect().top - room())).then(() => { if (exact && epubHold.exact === exact) exact.top = $('scroll').scrollTop })
     .finally(() => { epubHold.settling = Math.max(0, epubHold.settling - 1) });
   return true;
 }
