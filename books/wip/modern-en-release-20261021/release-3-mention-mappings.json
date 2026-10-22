@@ -1,0 +1,16 @@
+{
+  "_note": "Reviewed same-paragraph character-card rulings for modern-en release text-2026-10-21.3 (Iliad, Federalist Papers), applied by app/scripts/prepare-modern-en-repairs.py --mappings. Each maps a mention to the same figure or idea in the same sentence of the repaired paragraph. Rulings and the mentions left dropped are listed in RELEASE-3.md.",
+  "iliad": [
+    {
+      "characterId": "paris",
+      "from": "Alexandrus",
+      "to": "Paris",
+      "occurrenceOverrides": [
+        { "chapterNumber": 3, "paragraphIndex": 32, "oldOccurrence": 1, "newOccurrence": 1 }
+      ]
+    }
+  ],
+  "federalist-papers": [
+    { "characterId": "faction", "from": "By a faction, I mean", "to": "By a faction, I understand" }
+  ]
+}

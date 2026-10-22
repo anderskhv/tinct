@@ -273,6 +273,27 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
+  iliad: {
+    revision: 'text-2026-10-21.3',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'd424a2e68fd2e302781a4f2ecd4ce3f85ff84c7b80f35b066a32f342cd59fa75',
+        after: '5719267ee36dca311bb8d74f25ff58994b8dd84fb12cd2f958ece794bb5dc880',
+      },
+    },
+  },
+  'federalist-papers': {
+    revision: 'text-2026-10-21.3',
+    releasedAt: Date.parse('2026-10-21T12:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: '1974574ebce6859b2c7fdde48b524360b6348e0492e425861e8259076297278d',
+        after: '1f123f52d66f4f4df3c4b8e2e47dd8d561bc10fd914c7ef90bed6db51327c7fa',
+      },
+    },
+  },
   walden: {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),

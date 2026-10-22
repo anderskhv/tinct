@@ -110,7 +110,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'niels-lyhne': { editions: EN, revision: '2026-10-01.1' },
   walden: { editions: EN, revision: 'text-2026-10-01.1' },
   // 2026-09-12.1 — epics, plays, histories and ancient works
-  iliad: { editions: EN, revision: '2026-09-12.1' },
+  iliad: { editions: EN, revision: 'text-2026-10-21.3' },
   odyssey: { editions: EN, revision: '2026-09-12.1' },
   'the-aeneid': { editions: EN, revision: '2026-09-12.1' },
   'divine-comedy': { editions: EN, revision: '2026-09-12.1' },
@@ -136,7 +136,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'genealogy-of-morals': { editions: EN, revision: '2026-09-12.1' },
   'democracy-in-america': { editions: EN, revision: '2026-09-12.1' },
   'essays-montaigne': { editions: EN, revision: '2026-09-12.1' },
-  'federalist-papers': { editions: EN, revision: '2026-09-12.1' },
+  'federalist-papers': { editions: EN, revision: 'text-2026-10-21.3' },
   'wealth-of-nations': { editions: EN, revision: '2026-09-12.1' },
   'vindication-rights-of-woman': { editions: EN, revision: '2026-09-30.2' },
   'imitation-of-christ': { editions: EN, revision: '2026-09-12.1' },
