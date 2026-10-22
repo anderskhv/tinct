@@ -121,12 +121,11 @@ export function loadPdfEngine(): Promise<Engine> {
     if (!g.pdfjsLib) await script(`${BASE}vendor/pdfjs/pdf.min.js`)
     if (!g.TinctPdfScan) await script(`${BASE}js/pdf-scan.js?v=${tag}`)
     if (!g.TinctPdfText) await script(`${BASE}js/pdf-text.js?v=${tag}`)
-    // The phone's open rule, the viewer's own (reader.js phoneKind): applied here, so a phone does not go to the viewer and back.
-    if (!g.TinctReadingOrder) await script(`${BASE}js/reading-order.js?v=${tag}`).catch(() => {})
-    if (!g.TinctReaderLayout) await script(`${BASE}js/reader-layout.js?v=${tag}`).catch(() => {})
-    // The crops' rules, shared with the viewer (its figure chips, a formula selected whole). Without them the text converts as before.
-    if (!g.TinctPdfRegions) await script(`${BASE}js/pdf-regions.js?v=${tag}`).catch(() => {})
-    if (!g.TinctMargin) await script(`${BASE}js/margin.js?v=${tag}`).catch(() => {})
+    // Each on its own, so fetched together: the phone's open rule, the viewer's own (reader.js phoneKind: applied
+    // here, so a phone does not go to the viewer and back), and the crops' rules, shared with the viewer (its figure
+    // chips, a formula selected whole). Without them the text converts as before.
+    const optional = (ready: unknown, file: string) => (ready ? Promise.resolve() : script(`${BASE}js/${file}?v=${tag}`).catch(() => {}))
+    await Promise.all([optional(g.TinctReadingOrder, 'reading-order.js'), optional(g.TinctReaderLayout, 'reader-layout.js'), optional(g.TinctPdfRegions, 'pdf-regions.js'), optional(g.TinctMargin, 'margin.js')])
     if (!g.pdfjsLib || !g.TinctPdfScan || !g.TinctPdfText) throw new Error('PDF engine unavailable')
     if (!g.pdfjsLib.GlobalWorkerOptions.workerSrc) g.pdfjsLib.GlobalWorkerOptions.workerSrc = `${BASE}vendor/pdfjs/pdf.worker.min.js`
     return { pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText, regions: g.TinctPdfRegions, margin: g.TinctMargin, order: g.TinctReadingOrder, layout: g.TinctReaderLayout }
@@ -190,12 +189,14 @@ export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: strin
     const images = new Map<string, UserBookImage>()
     const regions = options.crops !== false ? cropper(engine, images, options.crops || deviceCrops()) : null
     const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}) }) : null
+    // The phone's rule reads a few pages' text while the last crops are drawn.
+    const telling = options.phoneKind && edition ? phoneKindOf(pdf, engine, scan, engine.layout ? options.phoneKind.primer(engine.layout.KINDS) : null).catch(() => undefined) : undefined
     // Its crops, drawn while the converter read on: a text naming one that could not be drawn has its picture missing.
     if (regions) await regions.drawn()
     // Only the crops the text names are kept.
     const named = new Set((edition?.chapters ?? []).flatMap(chapter => (chapter.figures ?? []).map(figure => figure.id)))
     for (const id of [...images.keys()]) if (!named.has(id)) images.delete(id)
-    const phone = options.phoneKind && edition ? await phoneKindOf(pdf, engine, scan, engine.layout ? options.phoneKind.primer(engine.layout.KINDS) : null).catch(() => undefined) : undefined
+    const phone = await telling
     return { edition, scan, fresh: !kept, images, ...(phone ? { phone } : {}) }
   } finally {
     await pdf.destroy().catch(() => {})
