@@ -663,6 +663,9 @@ describe('a reader’s own books are private', () => {
     expect(books.map(book => book.title)).toEqual(['a private book', 'Frankenstein'])
     expect(books[0]).toMatchObject({ bookId: 'private', cover: null, progress: null })
     expect(data.profile.time.last7).toBe('2 h')
+    // The seconds as well, so the account cards write them as the Leaderboard row does (21 Oct 2026).
+    expect(data.profile.time.last7Seconds).toBe(120 * 60)
+    expect(data.profile.time.yearSeconds).toBeGreaterThanOrEqual(120 * 60)
     expect(JSON.stringify(data)).not.toContain('userbook-')
     const page = await serveProfilePage(new Request('https://tinct.app/@bea'), on as never, deps(world), 'bea')
     const html = await page.text()
@@ -995,6 +998,17 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect(seen[seen.length - 1]).not.toContain('internal')
   })
 
+  it('the Supabase store: following and followers in one request, split by direction', async () => {
+    const seen: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      seen.push(String(input))
+      return Response.json([{ follower: A, followed: B }, { follower: C, followed: A }, { follower: A, followed: C }])
+    }))
+    const store = supabaseSocialStore({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' } as never)
+    expect(await store.followsEitherWay!(A)).toEqual({ following: [B, C], followers: [C] })
+    expect(seen).toEqual([`https://example.supabase.co/rest/v1/follows?or=(follower.eq.${A},followed.eq.${A})&select=follower,followed&limit=4000`])
+  })
+
   it('the Supabase store: the live 7 days by the (user_id, day) index, 50 readers a request, never a cut-off list; test accounts by flag or address', async () => {
     const seen: string[] = []
     let full = false
@@ -1118,6 +1132,20 @@ describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to 
     })
   }
 
+  /** How long `work` takes on vitest's fake clock: the store's waits alone, never this machine's load. */
+  async function onFakeClock<T>(work: () => Promise<T>): Promise<{ value: T; elapsed: number }> {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
+    try {
+      const started = Date.now()
+      let done = false
+      const running = work().finally(() => { done = true })
+      while (!done) await vi.advanceTimersByTimeAsync(1)
+      return { value: await running, elapsed: Date.now() - started }
+    } finally {
+      vi.useRealTimers()
+    }
+  }
+
   it('the Friends board is two store round trips after sign-in (was six), with the same rows', async () => {
     const ms = Number(process.env.BOARD_RTT_MS) || 40
     const world = everyoneWorld()
@@ -1127,13 +1155,79 @@ describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to 
     const expected = await board(world, A, 'friends')
     const calls: string[] = []
     const store = slow(world, ms, calls)
-    const started = Date.now()
-    const response = await handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store })
-    const elapsed = Date.now() - started
+    const { value: response, elapsed } = await onFakeClock(() => handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store }))
     if (process.env.BOARD_RTT_MS) process.stderr.write(`board: ${elapsed} ms at ${ms} ms per store round trip; reads: ${calls.join(', ')}\n`)
     expect(await response.json()).toEqual(expected)
     // The Everyone count (cached per isolate) runs beside the board; at most three waits in a row.
     expect(elapsed).toBeLessThan(ms * 3.5)
+  })
+
+  it('the same reader again in this isolate: one store round trip (the guess), the same rows (21 Oct 2026)', async () => {
+    const ms = Number(process.env.BOARD_RTT_MS) || 40
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 60); world.read(C, 0, 30); world.read(A, 0, 10)
+    const expected = await board(world, A, 'friends')
+    const calls: string[] = []
+    const store = slow(world, ms, calls)
+    const ask = () => handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store })
+    await onFakeClock(ask)
+    calls.length = 0
+    const { value: response, elapsed } = await onFakeClock(ask)
+    if (process.env.BOARD_RTT_MS) process.stderr.write(`board (guessed): ${elapsed} ms at ${ms} ms per store round trip; reads: ${calls.join(', ')}\n`)
+    expect(await response.json()).toEqual(expected)
+    // One wait, not two.
+    expect(elapsed).toBeLessThan(ms * 1.5)
+  })
+
+  it('the guess never shows a reader the fresh read does not: unfollowed, blocked, and a new friend all as without it', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 60); world.read(C, 0, 30); world.read(D, 0, 20)
+    expect(names(await board(world, A, 'friends'))).toEqual(['Bea', 'Carl', 'You'])
+    await world.unfollow(C, A)
+    await world.block(B, A)
+    world.befriend(A, D)
+    const after = await board(world, A, 'friends')
+    expect(names(after)).toEqual(['Dora', 'You'])
+    expect(after.friends).toBe(1)
+    // And a reader who leaves the leaderboard is gone at once, guessed or not.
+    world.profiles.get(D)!.on_leaderboard = false
+    expect(names(await board(world, A, 'friends'))).toEqual(['You'])
+  })
+
+  it('tab=default is the board the cards open on, in one request: Everyone without a friend while open, else Friends', async () => {
+    const world = everyoneWorld()
+    world.read(B, 0, 60); world.read(C, 0, 30)
+    const lonely = await json(await api(world, '/api/social/board?tab=default', A))
+    expect(lonely.tab).toBe('everyone')
+    expect(lonely).toEqual({ ...await board(world, A, 'everyone') })
+    world.befriend(A, C)
+    const friendly = await json(await api(world, '/api/social/board?tab=default', A))
+    expect(friendly.tab).toBe('friends')
+    expect(names(friendly)).toEqual(['Carl', 'You'])
+    // Everyone closed: Friends, as before.
+    const closed = new World()
+    closed.add(A, { visibility: 'friends' })
+    const quiet = await json(await api(closed, '/api/social/board?tab=default', A, {}, { everyoneMinReaders: 5 }))
+    expect(quiet).toMatchObject({ tab: 'friends', everyoneOpen: false })
+  })
+
+  it('Server-Timing on the board and the rank says where the time went, and names no reader', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B)
+    world.read(B, 0, 60)
+    for (const path of ['/api/social/board?tab=friends', '/api/social/board?tab=everyone', '/api/social/board?tab=default', '/api/social/rank']) {
+      const response = await api(world, path, A)
+      expect(response.status).toBe(200)
+      const timing = response.headers.get('Server-Timing') ?? ''
+      for (const phase of ['auth', 'circle', 'own', 'cards', 'ledger', 'total']) expect(timing).toMatch(new RegExp(`(^|, )${phase};dur=\\d+`))
+      expect(timing).toMatch(/guess;desc="(hit|miss|partial)"/)
+      for (const id of [A, B]) expect(timing).not.toContain(id)
+      expect(timing).not.toMatch(/Bea|Anders/i)
+    }
+    // Other social routes carry none.
+    expect((await api(world, '/api/social/find', A)).headers.get('Server-Timing')).toBeNull()
   })
 
   it('when the live read fails, a stale cache is rebuilt before its seconds are read, as before', async () => {

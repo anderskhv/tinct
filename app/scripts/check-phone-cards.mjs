@@ -236,9 +236,12 @@ async function run(engineName) {
       bg: s.backgroundColor, owns: !!word?.closest('.lab-passage.owns-text-selection'),
       callout: w ? (w.webkitTouchCallout || w.getPropertyValue('-webkit-touch-callout') || null) : null,
       native: String(getSelection()?.toString() || ''), popup: !!document.querySelector('.selection-popup'), r: bar.getBoundingClientRect().toJSON(),
+      content: [...bar.children].filter(c => !c.matches('[role="menu"]')).reduce((sum, c) => sum + c.getBoundingClientRect().width, 0),
     }
   })
   ok(`${tag}: a selection shows the dark bar (Ask · Explain · Simplify · ••• · highlight · note), not the old popup`, bar.items.join('|') === 'Ask|Explain|Simplify|More|' + bar.items[4] + '|Add note' && /^Highlight in /.test(bar.items[4]) && !bar.popup && /rgb\(29, 26, 23\)/.test(bar.bg), bar)
+  // Anders, 21 Oct: "cut the black space": the bar is only as wide as its buttons, whole inside the window.
+  ok(`${tag}: the bar is only as wide as its buttons`, bar.r.width <= bar.content + 16 && bar.r.left >= 10 && bar.r.right <= 380, bar)
   // The passage owns the selection (lab.css .owns-text-selection: -webkit-touch-callout none); iOS draws no menu of its own.
   ok(`${tag}: no native callout or selection under the bar`, bar.owns && (bar.callout === 'none' || bar.callout === null) && bar.native === '', bar)
   shots.push(await shot(page, `${tag}-bar`))

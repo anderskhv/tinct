@@ -45,7 +45,8 @@ export interface ProfilePageData {
   followsYou: boolean
   /** Friends-only profile seen by a non-friend: the card only. */
   limited: boolean
-  time: { last7: string; year: string } | null
+  /** The strings for the public page; the seconds (from 21 Oct 2026) for the account cards. */
+  time: { last7: string; year: string; last7Seconds?: number; yearSeconds?: number } | null
   readingNow: ProfileBook[] | null
   finished: ProfileBook[] | null
 }
