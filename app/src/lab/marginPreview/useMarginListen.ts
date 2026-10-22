@@ -84,7 +84,7 @@ type ListenSource = Pick<LabSource, 'chapterNumber' | 'chapterLabel' | 'paragrap
  * nothing is kept in the replay cache, no listening time is reported with its id, and the place stays the frame's
  * (it is the only writer of an own book's place in the margin reader).
  */
-export function useMarginListen(input: { bookId: string; editionKey: string | null; chapterTitles?: Map<number, string>; own?: { hex: string } | null }): MarginListenApi {
+export function useMarginListen(input: { bookId: string; editionKey: string | null; chapterTitles?: Map<number, string>; own?: { hex: string; onPremiumRequired?: () => void } | null }): MarginListenApi {
   const { bookId, editionKey } = input
   const ownHex = input.own?.hex ?? null
   const ownSourceRef = useRef<MarginOwnListenSource | null>(null)
@@ -196,6 +196,18 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   listenRef.current = listen
   const sourceRef = useRef(source)
   sourceRef.current = source
+
+  // An own book read aloud needs Premium (trial included): as in the book reader (LabApp), the request is put away and
+  // the account, with its Premium offer, is opened (MarginOwnBook: the account cards).
+  const premiumRequired = Boolean(ownHex) && listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
+  const onPremiumRequired = input.own?.onPremiumRequired
+  useEffect(() => {
+    if (!premiumRequired) return
+    listenRef.current.dismissNarration()
+    listenRef.current.pause()
+    setRequest(null)
+    onPremiumRequired?.()
+  }, [premiumRequired, onPremiumRequired])
 
   // The chapter heard to its end: the next one plays from its start, on the same element (handoffChapter).
   chapterCompleteRef.current = () => {

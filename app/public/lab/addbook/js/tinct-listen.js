@@ -135,6 +135,7 @@
 @keyframes tb-listen-spin{to{transform:rotate(1turn)}}
 ::highlight(tinct-listen){background-color:color-mix(in srgb,var(--lab-surface,#f4efe4) 82%,#d9c69d 18%);color:var(--lab-ink,#0b0b0b)}
 ::highlight(tinct-listen-para){background-color:color-mix(in srgb,var(--lab-surface,#f4efe4) 92%,#d9c69d 8%)}
+.text-layer ::highlight(tinct-listen){color:transparent}
 .tb-chapter p.tb-p.tb-heard{position:relative}
 .tb-chapter p.tb-p.tb-heard:not(.has-word)::before{content:"";position:absolute;left:-12px;top:.25em;bottom:.25em;width:3px;border-radius:2px;background:color-mix(in srgb,var(--lab-ink,#0b0b0b) 24%,transparent);pointer-events:none}
 @media (prefers-reduced-motion:reduce){.lab.tb-can-listen #playBtn[data-loading="true"]::after,.tb-listen-dock [data-a="play"][data-loading="true"]::after{animation:none}}`;

@@ -205,7 +205,15 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
   }), [])
   // Listen: the book reader's player and Tinct's voice for an own book too (Anders, 22 Oct 2026), its text handed over by
   // the frame (js/tinct-listen.js, reader.js ownListen); its listening counts as reading time, as in the book reader.
-  const ownListen = useMemo(() => ({ hex }), [hex])
+  // Not Premium (402): the account cards, with their Premium offer, open over the book (the book reader's account sheet).
+  const ownListen = useMemo(() => ({
+    hex,
+    onPremiumRequired: () => {
+      let dark = false
+      try { dark = !!frameRef.current?.contentDocument?.querySelector('.lab.is-night') } catch { /* the frame's look stays unknown */ }
+      void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you', dark, deskTop: 76 })).catch(() => { /* offline: nothing opened */ })
+    },
+  }), [hex])
   const listen = useMarginListen({ bookId, editionKey: 'own', own: ownListen })
   useEffect(() => listen.subscribe(snapshot => { listeningRef.current = snapshot.playing }), [listen])
   useEffect(() => {
