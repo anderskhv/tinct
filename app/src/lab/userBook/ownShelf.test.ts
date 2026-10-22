@@ -37,6 +37,19 @@ describe('an own book being read', () => {
   })
 })
 
+describe('an own EPUB read only in Margin view (22 Oct 2026)', () => {
+  it('is being read from the margin reader\u2019s own place, last read when that place was kept', () => {
+    const margin = { [`tinct-addbook:pos:epub:${HEX}`]: { page: 3, frac: 0.2, para: 1, word: 0, quote: 'words', at: 900 } }
+    expect(ownReading(HEX, null, 7, store(margin))).toMatchObject({ bookId: `userbook-${HEX}`, lastActiveAt: 900, percent: null })
+    // Opened only (no move kept): not being read.
+    expect(ownReading(HEX, null, 7, store({ [`tinct-addbook:pos:epub:${HEX}`]: { page: 1, frac: 0 } }))).toBeNull()
+    // The later of the two places is when it was last read; the Tinct reader's place still names the chapter.
+    const both = { ...margin, [`tinct-addbook:place:${HEX}`]: { chapterNumber: 2, paragraphIndex: 0, wordIndex: 0, updatedAt: 500 } }
+    expect(ownReading(HEX, chapters, 1, store(both))).toMatchObject({ chapterNumber: 2, lastActiveAt: 900 })
+    expect(ownReading(HEX, null, 7, store({ ...margin, [OWN_TABLE_HIDDEN_PREFIX + HEX]: '950' }))).toBeNull()
+  })
+})
+
 describe('My shelf’s Read later and Remove from Currently reading for an own book (2026-10-21)', () => {
   afterEach(() => { localStorage.clear() })
   const kept = () => ({

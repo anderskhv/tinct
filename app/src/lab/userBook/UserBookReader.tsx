@@ -72,6 +72,22 @@ function pagesAsked(): boolean {
   try { return new URLSearchParams(window.location.search).has('pages') } catch { return false }
 }
 
+/**
+ * Takes what only the first open needed (`page`, `frac`) off the address, in place: the place read from here on is
+ * the book's own, so a reload must not go back to the page the link named (D's matrix, 22 Oct 2026: a phone's PDF
+ * reopened at its link's page after the reader had moved on).
+ */
+export function dropOpenParams(): void {
+  try {
+    const params = new URLSearchParams(window.location.search)
+    if (!params.has('page') && !params.has('frac')) return
+    params.delete('page')
+    params.delete('frac')
+    const query = params.toString()
+    window.history.replaceState(window.history.state, '', `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`)
+  } catch { /* the address stays */ }
+}
+
 /** A link's `&page=<n>` (Original pages' "Tinct text" button): the page to open the text at. */
 function pageParam(): number | null {
   try {
@@ -122,6 +138,8 @@ export function UserBookReader({ hex, owner, phone = false, open = openUserBook,
       await reconcile(hex, result.book).catch(() => {})
       if (!live) return
       const book = { ...result.book, place: (result.book.kind === 'pdf' ? readPdfTextPlace(hex, result.book.edition, { page }) : readEpubPlace(hex, result.book.edition)) ?? result.book.place }
+      // The link's page (Original pages' "Tinct text") has been used: a reload opens at the kept place, not there again.
+      dropOpenParams()
       registerUserBook(book.bookId, book.edition)
       // The pictures are handed over before the reader draws its first page.
       const images = book.images

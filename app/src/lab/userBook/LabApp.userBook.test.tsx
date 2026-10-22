@@ -497,6 +497,15 @@ describe('UserBookReader', () => {
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
   })
 
+  it('opens at a link\u2019s page once: the page leaves the address, so a reload opens at the kept place', async () => {
+    window.history.replaceState(null, '', `/reader?userBook=${HEX}&page=4&margin=1`)
+    try {
+      render(<UserBookReader hex={HEX} phone open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={async () => {}} />)
+      await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+      expect(window.location.search).toBe(`?userBook=${HEX}&margin=1`)
+    } finally { window.history.replaceState(null, '', '/') }
+  })
+
   it('frames a PDF read as its Tinct text on a desktop: it reads beside the margin there, from the same place', async () => {
     const reconcile = vi.fn(async () => {})
     render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) })} reconcile={reconcile} forward={() => { throw new Error('no forward') }} />)
