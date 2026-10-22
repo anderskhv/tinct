@@ -117,7 +117,7 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'paradise-lost': { editions: EN, revision: '2026-09-12.1' },
   'faust-part-1': { editions: EN, revision: '2026-09-30.1' },
   'the-histories': { editions: EN, revision: '2026-09-12.1' },
-  'peloponnesian-war': { editions: EN, revision: '2026-09-12.1' },
+  'peloponnesian-war': { editions: EN, revision: 'text-2026-10-22.1' },
   'the-republic': { editions: EN, revision: 'text-2026-10-21.1' },
   // 2026-09-12.2 — re-anchored onto the re-based Meditations text (Long 1862,
   // 487 paragraphs). Figures and descriptions unchanged; hashes, offsets and
