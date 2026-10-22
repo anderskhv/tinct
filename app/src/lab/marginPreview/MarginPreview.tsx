@@ -9,13 +9,14 @@
  * The book reader (LabApp) is not mounted. What the margin view keeps goes through the book reader's own stores
  * (MarginPreviewSync, mounted once the book is loaded): the place, highlights and notes, cards.
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
 import { marginPreviewMenu, type MarginPreviewMenuApi } from './marginPreviewMenu'
+import type { MarginNavApi, MarginNavRequest } from './MarginPreviewNav'
 import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
 import { useMarginListen, type MarginListenApi } from './useMarginListen'
 import {
@@ -32,6 +33,9 @@ import {
 // book.html (served as /lab/addbook/book): the margin reader's page without the PDF-only scripts (round 2).
 export const MARGIN_PREVIEW_FRAME_SRC = '/lab/addbook/book?tinctBook='
 
+// The book reader's Reading now and Contents over the frame (the title and the chapter pill), fetched on first use.
+const MarginPreviewNav = lazy(() => import('./MarginPreviewNav'))
+
 declare global {
   interface Window {
     TinctMarginPreview?: {
@@ -45,8 +49,10 @@ declare global {
       sync?: MarginPreviewSyncBridge | null
       /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
       listen?: MarginListenApi
-      /** The t menu's Profile and Book settings (marginPreviewMenu.ts). */
+      /** The t menu's Profile and Reading settings (marginPreviewMenu.ts). */
       menu?: MarginPreviewMenuApi
+      /** The title and the chapter pill: the book reader's Reading now and Contents (MarginPreviewNav.tsx). */
+      nav?: MarginNavApi
     }
   }
 }
@@ -97,12 +103,15 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
   const chapterTitles = useMemo(() => new Map((shown?.chapters ?? []).map(c => [c.number, c.title])), [shown])
   // The edition the frame shows is the one heard.
   const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
+  const [navRequest, setNavRequest] = useState<MarginNavRequest | null>(null)
+  const nav = useMemo<MarginNavApi>(() => ({ open: request => setNavRequest(request) }), [])
+  const closeNav = useCallback(() => setNavRequest(null), [])
   useEffect(() => {
-    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen), sync: syncRef.current }
+    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen), sync: syncRef.current, nav }
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending, listen])
+  }, [bookId, pending, listen, nav])
   if (failed) {
     return (
       <main data-testid="margin-preview-error" style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
@@ -121,6 +130,7 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
       allow="fullscreen; clipboard-write"
       style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, display: 'block', background: 'var(--paper, #ece7db)' }}
     />
+    {navRequest && shown && shown.bookId === bookId ? <Suspense fallback={null}><MarginPreviewNav model={shown} request={navRequest} onDone={closeNav} /></Suspense> : null}
     </>
   )
 }

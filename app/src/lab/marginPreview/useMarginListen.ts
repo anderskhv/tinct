@@ -47,7 +47,7 @@ export interface MarginListenApi {
   /** To this many seconds into the chapter (the transport's slider). */
   seekChapter: (seconds: number) => void
   setSpeed: (rate: number) => void
-  /** Audio settings' Voice: the choices and the one chosen, as the book reader offers them. */
+  /** Reading settings' Voice: the choices and the one chosen, as the book reader offers them. */
   voices: () => MarginVoiceChoices
   setVoice: (value: string) => void
   /** Put the transport away; the place is kept. */

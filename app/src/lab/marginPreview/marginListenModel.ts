@@ -189,7 +189,7 @@ export function marginListenSnapshot(input: {
   }
 }
 
-/** Audio settings' Voice in the preview: the book reader's own choices (LabV2Sheet's voice row). */
+/** Reading settings' Voice in the preview: the book reader's own choices (LabV2Sheet's voice row). */
 export interface MarginVoiceChoices { value: string; options: Array<{ value: string; label: string }> }
 
 export function marginVoiceChoices(prefs: Pick<LabPrefs, 'audiobookVoice' | 'voicePersona'>, provider: string | undefined): MarginVoiceChoices {

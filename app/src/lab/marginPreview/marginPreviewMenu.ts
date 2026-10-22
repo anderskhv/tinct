@@ -2,7 +2,7 @@
  * The margin preview's t menu, the part the page answers (Anders, 21 Oct 2026: the desktop t menu is Tinct's
  * normal menu, Library and Profile included). The frame (public/lab/addbook/js/reader.js) reaches it through
  * `window.TinctMarginPreview.menu`: Profile opens the account cards over this page (openCards.ts, as the book
- * reader opens them), and Book settings reads and sets the book reader's edition choices. Voice and speed
+ * reader opens them), and Reading settings reads and sets the book reader's edition choices. Voice and speed
  * are the player's (useMarginListen.ts). Library is a plain top-window visit to /library, made by the frame.
  */
 import { getBook } from '../../data/bookRegistry'
@@ -13,7 +13,7 @@ import { marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPrevie
 
 export interface MarginMenuChoice { value: string; label: string }
 
-/** Book settings' edition rows: the edition read here, and the one Compare shows beside it ('' for none). */
+/** Reading settings' edition rows: the edition read here, and the one Compare shows beside it ('' for none). */
 export interface MarginReadingChoices {
   edition: string
   editions: MarginMenuChoice[]
