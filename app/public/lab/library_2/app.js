@@ -15,7 +15,7 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
@@ -643,7 +643,7 @@ function pushLayer(kind){if(layerFromPop)return;const top=history.state?.library
 function dropLayer(kind){if(layerFromPop||history.state?.libraryLayer!==kind)return;layerSkipPop=true;history.back();}
 let layerSkipPop=false;
 addEventListener('popstate',()=>{if(layerSkipPop){layerSkipPop=false;return;}layerFromPop=true;try{if(activeBook){if(reading)$('reader-back').click();closeBook();}else if(collectionChoice!=='home')selectCollection('home');}finally{layerFromPop=false;}});
-function selectCollection(value){const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
+function selectCollection(value){closeShelfMenus();const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
 // Remove from shelf (Anders, 2026-10-20; was "Remove from my books"): confirmed in the page, then off My shelf, the
 // reading table and Continue, from every group (Finished too). Its place, highlights and
@@ -749,7 +749,16 @@ function leaveShelf(keys){
  const forget=()=>keys.forEach(key=>leavingShelf.delete(key));
  return {faded:Promise.all(cards.map(card=>fadeOut(card,{reduced:reduced.matches}))),done:forget,cancel(){forget();if(collectionChoice==='saved')renderMyBooks();}};
 }
+// A redraw that arrives while a cover's ••• menu is open (the catalogue or the account's table
+// landing late) waits for it to close, then draws the view as it is then (2026-10-22).
+let collectionRedrawHeld=false;
+function holdCollectionRedraw(){
+ if(!shelfMenuOpenIn($('collection-books')))return false;
+ if(!collectionRedrawHeld){collectionRedrawHeld=true;afterShelfMenu(()=>{collectionRedrawHeld=false;if(collectionChoice!=='home')renderCollection();});}
+ return true;
+}
 function renderMyBooks(){
+ if(holdCollectionRedraw())return;
  const shown=collectionChoice==='saved'&&!$('collection').hidden,before=shown?recordRects(shelfNodes(),shelfKey):null,y=scrollY;
  drawMyBooks();
  if(!before)return;
@@ -817,6 +826,7 @@ function collectionCard(book){
  return card;
 }
 function renderCollection(){
+ if(holdCollectionRedraw())return;
  const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
  if(kind==='saved'){renderMyBooks();return;}
  const shelfAdd=document.querySelector('#collection .shelf-add');if(shelfAdd)shelfAdd.hidden=true;
