@@ -214,14 +214,17 @@ async function run(engine,name,phone) {
     }
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-explanation.png'})
     await page.getByRole('button',{name:'Highlight this passage'}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    // Desktop: the margin reader's dark bar (22 Oct 2026) names a colour by itself and stays open after it; the
+    // phone's palette says "Highlight Sage" and closes.
+    await page.getByRole('button',{name:/^(Highlight )?Sage$/}).click()
+    if(await page.getByTestId('lab-desk-bar').count())await page.keyboard.press('Escape')
     await page.waitForTimeout(300)
     const recoloured=await wordBoxes(page)
     assert.deepEqual(recoloured,before,'saving a highlight must not move text')
     // Every word in a saved mark must expose deletion, not a dictionary.
     for(const index of [0,9,18]){
       await page.getByTestId('lab-word').nth(index).click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
       assert.equal(await page.locator('.popup-define').count(),0)
       await page.keyboard.press('Escape')
     }
@@ -361,11 +364,14 @@ async function compareLabel(engine,name){
     assert.equal(await page.getByTestId('lab-page-wrap').evaluate(node=>getComputedStyle(node,'::after').content),'none')
     await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
     await select(page)
-    await page.getByRole('button',{name:'Highlight',exact:true}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    // The dark bar: one click highlights, a second opens the colours.
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:'Sage',exact:true}).click()
+    await page.keyboard.press('Escape')
     const comparisonWord=page.locator('.lab-book-col-compare [data-testid="lab-word"].is-hl-sage').first()
     await comparisonWord.click()
-    await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+    await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
     await page.keyboard.press('Escape')
     result.passed=true
   }catch(error){
@@ -672,7 +678,7 @@ async function highlightRegression(engine,name){
       for(const index of chosen){
         const text=await marked.nth(index).innerText()
         await marked.nth(index).click()
-        await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+        await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
         assert.equal(await page.locator('.popup-define').count(),0)
         result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
         await page.keyboard.press('Escape')
@@ -687,7 +693,7 @@ async function highlightRegression(engine,name){
         })
       })
       await marked.first().click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).click()
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).click()
       assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
       assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
       await page.reload({waitUntil:'domcontentloaded'})
