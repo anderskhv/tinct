@@ -6000,8 +6000,8 @@ async function settingsCheck(browser, origin) {
     ok(`${tag}: no page errors`, !R.problems.length, R.problems)
     await R.ctx.close()
   }
-  // A reader's own EPUB on the desktop: no read aloud, so no Audio settings; Book settings holds Margin view and Convert to
-  // Tinct book. (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
+  // A reader's own EPUB on the desktop: Book settings holds Margin view and Convert to Tinct book; Audio settings its read
+  // aloud's Voice and Speed (#591, 22 Oct 2026). (A phone opens an EPUB in the Tinct reader, whose groups are labSuperMenu.ts's.)
   const ehex = addEpub()
   for (const [width, height] of [[1440, 900]]) {
     const phone = width < 700, tag = `settings-epub-${width}x${height}`
@@ -6011,8 +6011,8 @@ async function settingsCheck(browser, origin) {
     await epubSettled(e)
     await e.click('#superBtn'); await e.waitForSelector('.lab-super-panel')
     const groups = (await rowsOf(e)).filter(r => /^(aa|book|audio|settings):/.test(r))
-    const want = phone ? ['aa:Aa›'] : ['book:Book settings›']
-    ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')} (no Audio settings: an EPUB has no read aloud here${phone ? '; no layout to choose on a phone' : ''})`, JSON.stringify(groups) === JSON.stringify(want), groups)
+    const want = ['book:Book settings›', 'audio:Audio settings›']
+    ok(`${tag}: the t menu's settings are Book settings and Audio settings`, JSON.stringify(groups) === JSON.stringify(want), groups)
     if (!phone) {
       const before = await e.evaluate(spotNow)
       await e.click('.lab-super-row[data-row="book"]'); await e.waitForSelector('.byob-book-settings .lab-v2-sheet'); await e.waitForTimeout(250)
@@ -6021,6 +6021,12 @@ async function settingsCheck(browser, origin) {
       await e.keyboard.press('Escape'); await e.waitForTimeout(250)
       const after = await e.evaluate(spotNow)
       ok(`${tag}: opening and closing Book settings keeps the paragraph and word at the top`, after.page === before.page && after.para === before.para && after.word === before.word, { before, after })
+      await e.click('#superBtn'); await e.click('.lab-super-row[data-row="audio"]'); await e.waitForSelector('.byob-audio-settings .lab-v2-sheet'); await e.waitForTimeout(250)
+      const a = await panelState(e, '.byob-audio-settings')
+      ok(`${tag}: Audio settings holds Voice and Speed`, !!a && a.rows.includes('Voice') && a.rows.includes('Speed'), a)
+      await e.keyboard.press('Escape'); await e.waitForTimeout(250)
+      const after2 = await e.evaluate(spotNow)
+      ok(`${tag}: opening and closing Audio settings keeps the paragraph and word at the top`, after2.page === before.page && after2.para === before.para && after2.word === before.word, { before, after2 })
     }
     ok(`${tag}: no page errors`, !E.problems.length, E.problems)
     await E.ctx.close()

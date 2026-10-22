@@ -2368,9 +2368,10 @@ function previewHost() {
 /** Book settings has something to offer: a layout to choose (Margin view, Focus view, Convert to Tinct book; a Tinct text's
     Original pages; a preview's views) or a Tinct book's editions. An EPUB on a phone has none. */
 const bookSettingsApply = () => !!state.preview || layoutOptions().length > 0 || (RL.TINCT_TEXT === 'row' && hasText());
-/** Audio settings has something to offer: read aloud's voice and speed (a PDF's pages), or a Tinct book's narration (the preview's). */
+/** Audio settings has something to offer: read aloud's voice and speed (a reader's own PDF or EPUB), or a Tinct book's
+    narration (the preview's). */
 function audioSettingsApply() {
-  if (!state.preview) return !isEpub();
+  if (!state.preview) return true;
   const listen = previewHost()?.listen, snap = listen?.snapshot?.();
   return !!(listen?.voices && snap && snap.available !== false);
 }
@@ -2655,7 +2656,7 @@ function openAudioSettings() {
       rows.push(selectRow('voiceSel', 'Voice', v.value, v.options.map(o => [o.value, o.label])));
       rows.push(selectRow('rateSel', 'Speed', String(speed), rateRows(speed)));
     }
-  } else if (!isEpub()) {
+  } else {
     rows.push(selectRow('voiceSel', 'Voice', prefs.voice, [['', 'Device voice'], ...bookVoices().map(v => [v.name, v.name])]));
     rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rateRows(prefs.rate)));
     note = 'Read aloud uses this device’s own voice; nothing is recorded.';
