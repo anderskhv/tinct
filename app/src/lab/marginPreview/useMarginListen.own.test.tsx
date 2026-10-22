@@ -114,6 +114,20 @@ describe('useMarginListen with an own book', () => {
     expect(player.calls).toContainEqual(['pause'])
   })
 
+  it('any other failure (5xx, a timeout): no read aloud for the book from then on, never another voice', async () => {
+    const { result, rerender, onPremiumRequired } = mount()
+    await ready()
+    expect(result.current.snapshot().available).toBe(true)
+    player.state = { ...player.state, src: 'blob:clip', narration: { status: 'error', paragraphIndex: 0, message: 'x', reason: 'http' } }
+    rerender()
+    expect(onPremiumRequired).not.toHaveBeenCalled()
+    expect(player.calls).toContainEqual(['dismissNarration'])
+    expect(player.calls).toContainEqual(['pause'])
+    player.state = { ...player.state, narration: { status: 'idle' } }
+    rerender()
+    expect(result.current.snapshot()).toMatchObject({ available: false, open: false })
+  })
+
   it('another text opened in the frame: what was loaded from the last one goes', async () => {
     const { result } = mount()
     await ready()

@@ -368,7 +368,20 @@
     Promise.resolve(at).then(place => { if (place) p.play(place) });
   }
 
+  let ownGone = false;
   function onSnapshot(next) {
+    // An own book whose narration failed (not a 402: that opens the account): no Play and no dock for it from now on,
+    // never the browser's voice instead (Anders, 22 Oct 2026). Said once.
+    if (ownMode && next.available === false) {
+      const tried = !!(snap && (snap.open || snap.pending || snap.playing));
+      snap = next;
+      rootEl()?.classList.remove('tb-can-listen');
+      doc.querySelector('.tb-listen-dock')?.remove(); doc.querySelector('.tb-listen-speed')?.remove();
+      const root = rootEl(); if (root) { root.dataset.transport = 'closed'; root.dataset.playing = 'false' }
+      paint();
+      if (tried && !ownGone) { ownGone = true; say('Read aloud is not available for this book right now.') }
+      return;
+    }
     const prev = snap;
     snap = next;
     setPlayButton();

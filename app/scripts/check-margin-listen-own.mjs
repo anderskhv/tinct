@@ -65,7 +65,7 @@ const BOOKS = {
 for (const b of Object.values(BOOKS)) { b.sha256 = sha(b.bytes); b.hex = b.sha256.slice(0, 24) }
 
 /** Every page of the app from dist/, the account and the narration answered here; anything else refused. */
-async function serve(context, { book, log, premium = true }) {
+async function serve(context, { book, log, premium = true, fail = 0 }) {
   const json = (route, status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
   await context.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
@@ -83,6 +83,7 @@ async function serve(context, { book, log, premium = true }) {
       const body = JSON.parse(req.postData() || '{}')
       log.ensures.push({ book: body.book, voice: body.voice, auth: req.headers().authorization, paragraphs: (body.paragraphs || []).map(x => ({ index: x.index, text: x.text })) })
       if (!premium) return json(route, 402, { error: 'Premium required', reason: 'premium_required' })
+      if (fail) return json(route, fail, { error: 'Narration unavailable' })
       const paragraphs = await Promise.all((body.paragraphs || []).map(async ({ index, text }) => {
         const tokens = core.narrationTokens(text)
         const chunks = core.chunkNarrationTokens(tokens).map(chunk => {
@@ -390,6 +391,26 @@ async function talkTinct(browser) {
   await context.close()
 }
 
+/** The own-book route failing (a 5xx): no Play and no dock for the book from then on, and no browser voice. */
+async function failing(browser, status) {
+  const book = BOOKS.epub, tag = `narration ${status}`, log = { requests: [], ensures: [], audio: [], voice: [] }
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
+  await serve(context, { book, log, fail: status })
+  await context.addInitScript(spies)
+  const page = await context.newPage(), errors = []
+  page.on('pageerror', e => errors.push(e.message))
+  await seed(page, book)
+  const frame = await openFrame(page, book)
+  await frame.click('#playBtn')
+  await frame.waitForFunction(() => !document.querySelector('.lab').classList.contains('tb-can-listen'), null, { timeout: 30000 }).catch(() => null)
+  await page.waitForTimeout(800)
+  const state = await frame.evaluate(() => { const b = document.getElementById('playBtn'); return { display: getComputedStyle(b).display, dock: !!document.querySelector('.tb-listen-dock, .byob-transport'), toast: [...document.querySelectorAll('.byob-toast')].map(t => t.textContent).join(' ') } })
+  const speech = await Promise.all(page.frames().map(f => f.evaluate(() => window.__speech || 0).catch(() => 0)))
+  ok(`${tag}: the route failed, so Play and the dock are gone for the book, said once, no browser voice`, log.ensures.length > 0 && log.audio.length === 0 && state.display === 'none' && !state.dock && /not available/.test(state.toast) && speech.every(n => n === 0), { ensures: log.ensures.length, state, speech })
+  ok(`${tag}: no page errors`, errors.length === 0, errors)
+  await context.close()
+}
+
 async function notPremium(browser) {
   const book = BOOKS.epub, log = { requests: [], ensures: [], audio: [], voice: [] }
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
@@ -431,6 +452,8 @@ try {
   for (const key of (process.env.BOOKS ?? 'epub,pdf').split(',').filter(Boolean)) for (const size of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) await runBook(browser, key, size)
   for (const key of (process.env.TALK ?? 'epub,pdf').split(',').filter(Boolean)) await talk(browser, key)
   if (process.env.TALK !== '') await talkTinct(browser)
+  await failing(browser, 503)
+  await failing(browser, 500)
   await notPremium(browser)
   await phone(browser)
 } finally {
