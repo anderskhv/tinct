@@ -34,7 +34,7 @@ jobs:
         working-directory: app
         env:
           CI: true
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
         working-directory: app
       - run: node scripts/check-edition-holds.cjs
         working-directory: app
@@ -61,7 +61,7 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify served catalogue, links and unchanged held assets
         env:
           EXPECTED_BUILD_SHA: ${{ github.event.workflow_run.head_sha }}

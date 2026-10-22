@@ -34,7 +34,7 @@ jobs:
         run: CI=true npm run build
       - if: github.event_name != 'workflow_run'
         run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - run: node scripts/check-reviewed-introductions.mjs
         env:
           LIBRARY_LIVE: ${{ github.event_name == 'workflow_run' && '1' || '0' }}

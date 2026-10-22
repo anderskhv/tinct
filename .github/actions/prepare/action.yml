@@ -35,4 +35,8 @@ runs:
       if: ${{ inputs.browsers != '' }}
       shell: bash
       working-directory: app
-      run: npx playwright install --with-deps ${{ inputs.browsers }}
+      # packages.microsoft.com answered 403 on 22 Oct 2026 and broke apt for every deploy; the browsers
+      # need only Ubuntu's own packages, so that source is dropped before installing them.
+      run: |
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources
+        npx playwright install --with-deps ${{ inputs.browsers }}

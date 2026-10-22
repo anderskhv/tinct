@@ -35,7 +35,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify both editions and cards on phone and desktop
         env:
           TEST_BOOK: to-the-lighthouse

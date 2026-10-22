@@ -30,7 +30,7 @@ jobs:
         run: |
           npx esbuild scripts/warm-grok-openings.mjs --bundle --platform=node --format=esm --outfile=/tmp/tinct-warm-openings.mjs
           node /tmp/tinct-warm-openings.mjs
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify real muted Grok reader playback
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}

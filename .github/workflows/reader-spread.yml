@@ -36,7 +36,7 @@ jobs:
       - run: bash ../scripts/cloud-setup.sh
       - if: github.event_name != 'workflow_run'
         run: CI=true npm run build && npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify next-chapter highlight selection and persistence
         run: node scripts/check-opening-highlights.cjs
         env:

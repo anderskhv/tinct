@@ -285,7 +285,7 @@ describe('7. Before you start opens in place', () => {
   // (Since 21 Oct 2026 the unit's pills sit beside its heading on the page: the primer opens in the column level with it.)
   it('in the column it is part of the page (19 Oct 2026): level with its unit\'s heading, growing in place, no easing or scrolling of its own', () => {
     expect(reader).toContain('const ey = Y(pr.top + at.head.y * pr.height);')
-    expect(reader).toContain('const hp = headPills(u, p, at);')
+    expect(reader).toContain('else headPills(u, p, at, seenHeads)')
     expect(reader).toContain('items.push({ el: pe, ey, top: ey, order: -0.9 });')
     expect(reader).not.toMatch(/is-growing|is-opening|primerInColumn/)
     expect(css).not.toMatch(/\.mr-primer\.is-(?:opening|growing)/)
