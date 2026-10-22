@@ -5577,10 +5577,11 @@ async function deskPolishCheck(browser, origin) {
     // in a short window its rows scroll inside it.
     const aaAt = () => e.evaluate(() => { const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), b = document.getElementById('aaBtn').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body'); return { top: s.top - b.bottom, right: s.right - b.right, bottom: innerHeight - s.bottom, scrolls: body.scrollHeight > body.clientHeight + 1 && getComputedStyle(body).overflowY === 'auto' } })
     const aa1 = await aaAt()
-    await e.setViewportSize({ width, height: 460 }); await e.waitForTimeout(400)
+    // 360px tall: shorter than the panel since its Layout went to Book settings (22 Oct 2026; 460px fitted it then).
+    await e.setViewportSize({ width, height: 360 }); await e.waitForTimeout(400)
     const aa2 = await aaAt()
     await e.setViewportSize({ width, height }); await e.waitForTimeout(600)
-    ok(`${tag}: D the Aa panel hangs just below the Aa button (its right edge under it), whole in the window; 460px tall, its rows scroll inside`, aa1.top >= 4 && aa1.top <= 24 && Math.abs(aa1.right - 8) <= 2 && aa1.bottom >= 8 && aa2.bottom >= 8 && aa2.scrolls, { aa1, aa2 })
+    ok(`${tag}: D the Aa panel hangs just below the Aa button (its right edge under it), whole in the window; 360px tall, its rows scroll inside`, aa1.top >= 4 && aa1.top <= 24 && Math.abs(aa1.right - 8) <= 2 && aa1.bottom >= 8 && aa2.bottom >= 8 && aa2.scrolls, { aa1, aa2 })
     const here = await e.evaluate(spotNow)
     await e.click('.byob-type[data-type="size"] [data-type-step="1"]'); await e.waitForTimeout(500)
     await e.click('.byob-type[data-type="width"] [data-type-step="1"]'); await e.waitForTimeout(500)
