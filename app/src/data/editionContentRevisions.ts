@@ -255,6 +255,18 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
       },
     },
   },
+  // Text-only modern-en repair (held from text-2026-10-21.5; names fixed): paragraphs unchanged.
+  // releasedAt is past the deploy: unstamped records written before it are migrated.
+  'peloponnesian-war': {
+    revision: 'text-2026-10-22.1',
+    releasedAt: Date.parse('2026-10-23T00:00:00Z'),
+    editions: {
+      'modern-en': {
+        before: 'c035038d032ca4ec110b18df43b68d5a15c33cfef7c934170699a51313b90f75',
+        after: '200accc13036976e0cb5c4fcaddcf3e6203feff9d9a80aa4e9279ef7c2d08081',
+      },
+    },
+  },
   'notes-from-underground': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
