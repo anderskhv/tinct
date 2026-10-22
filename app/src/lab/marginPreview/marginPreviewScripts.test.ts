@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 // The preview frame needs tinct-book.js loaded after reader.js and before start.js.
 // A merge dropped it once (#492) and the preview could not open a book.
 describe('margin preview: the addbook page loads tinct-book.js', () => {
-  for (const file of ['public/lab/addbook/index.html', '../addbooks/web/src/index.html']) {
+  for (const file of ['public/lab/addbook/index.html', 'public/lab/addbook/book.html']) {
     it(file, () => {
       const html = readFileSync(resolve(__dirname, '../../..', file), 'utf8')
       const reader = html.indexOf('src="js/reader.js')

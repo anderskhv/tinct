@@ -14,8 +14,12 @@ import type { UserBookEdition } from './userEdition'
 import type { UserBookImage } from './epubEdition'
 import type { PdfLayoutDefault } from './pdfEditions'
 
-/** The cache tag of Add a book's scripts (its index.html). */
-export const ADDBOOK_SCRIPT_TAG = '20261021q539'
+/**
+ * The cache tag of Add a book's scripts: the build version (as readerBoot's
+ * loaders append it), so it changes on every deploy. Add a book's own pages
+ * carry `?v=__TINCT_BUILD__`, stamped at build (scripts/stamp-lab-entry-tags.cjs).
+ */
+export const ADDBOOK_SCRIPT_TAG = typeof __BUILD_VERSION__ === 'string' ? __BUILD_VERSION__ : 'dev'
 const BASE = '/lab/addbook/'
 
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }

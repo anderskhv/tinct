@@ -137,7 +137,7 @@ export function setAnonymousMode(restricted: boolean): void {
  * and journals — and the sign-in migration would copy them into the new
  * account's cloud row. Auth tokens (`sb-*`) are owned by Supabase and untouched.
  */
-/** IndexedDB database of the Add-a-book page (addbooks/web/src/js/reader.js). */
+/** IndexedDB database of the Add-a-book page (public/lab/addbook/js/reader.js). */
 export const ADD_BOOK_IDB_NAME = 'tinct-addbook'
 /** IndexedDB database of own books' covers read from the account (lab/userBook/ownCovers.ts). */
 export const ADD_BOOK_COVERS_IDB_NAME = 'tinct-addbook-covers'
