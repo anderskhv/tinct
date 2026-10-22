@@ -66,19 +66,25 @@ describe('reader boot script', () => {
     )
   })
 
-  it('preloads the margin preview’s whole edition and its patches (round 3), not for the book reader', () => {
+  it('preloads margin view’s whole edition and its patches (the default reader), not for the Classic reader', () => {
+    const whole = ['/data/editions/war-and-peace-modern-en.json?v=v-test', '/api/edition-patches?bookId=war-and-peace&editionKey=modern-en']
     page('/reader?book=war-and-peace&margin=1')
     runBootScript()
-    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual([
-      '/data/editions/war-and-peace-modern-en.json?v=v-test', '/api/edition-patches?bookId=war-and-peace&editionKey=modern-en',
-    ])
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(whole)
+    // Launch (22 Oct 2026): a plain book link is margin view too.
     page('/reader?book=war-and-peace')
     runBootScript()
-    expect(preloads().filter(link => link.as === 'fetch')).toEqual([])
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(whole)
     page('/reader?book=war-and-peace&margin=0')
-    localStorage.setItem('tinct:margin-preview', '1')
     runBootScript()
     expect(preloads().filter(link => link.as === 'fetch')).toEqual([])
+    page('/reader?book=war-and-peace')
+    localStorage.setItem('tinct:classic-reader', '1')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch')).toEqual([])
+    page('/reader?book=war-and-peace&margin=1')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(whole)
   })
 
   it('a library handoff wins over the address', () => {

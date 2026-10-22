@@ -58,11 +58,11 @@ async function boot(page, scenario) {
   // 21 Oct 2026 deploy run 39683857823) is retried once; nothing of the
   // reader ran, so nothing it is checked for is excused. A timeout or any
   // later failure is not retried.
-  try { await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' }) } catch (error) {
+  try { await page.goto(origin + '/reader?margin=0', { waitUntil: 'domcontentloaded' }) } catch (error) {
     if (!/net::ERR_(CONNECTION_RESET|CONNECTION_CLOSED|CONNECTION_REFUSED|NETWORK_CHANGED|EMPTY_RESPONSE|HTTP2_PROTOCOL_ERROR)|Could not connect|Connection reset|The network connection was lost/.test(String(error?.message))) throw error
     console.log('RETRY goto after transport error:', String(error.message).split('\n')[0])
     await page.waitForTimeout(2000)
-    await page.goto(origin + '/reader', { waitUntil: 'domcontentloaded' })
+    await page.goto(origin + '/reader?margin=0', { waitUntil: 'domcontentloaded' })
   }
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)

@@ -4,7 +4,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { decideMarginPreview, MARGIN_PREVIEW_KEY, marginPreviewAtForPage, marginPreviewBookForPage } from './marginPreviewFlag'
+import { CLASSIC_READER_KEY, decideMarginPreview, marginPreviewAtForPage, marginPreviewBookForPage } from './marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewCompareEdition, marginPreviewLayoutHref, marginPreviewPaper, marginPreviewReturnHref } from './marginPreviewModel'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
 import { getBook } from '../../data/bookRegistry'
@@ -13,7 +13,7 @@ import { deepLinkView, readerHandoffFromUrlParams } from '../labReaderHandoff'
 import type { EditionData } from '../../types'
 
 const isPreviewBook = (id: string) => isMarginPreviewBook(getBook(id))
-const decide = (search: string, sticky = false) => decideMarginPreview({ search, sticky, handoffBookId: null, isPreviewBook })
+const decide = (search: string, classic = false) => decideMarginPreview({ search, classic, handoffBookId: null, isPreviewBook })
 const prefs = (over: Partial<LabPrefs> = {}): LabPrefs => ({ ...DEFAULT_LAB_PREFS, ...over } as LabPrefs)
 
 describe('Tinct paper: the book reader’s desktop leaf', () => {
@@ -44,26 +44,29 @@ describe('the Layout switch', () => {
     expect(deepLinkView(params)).toBe('compare')
     expect(readerHandoffFromUrlParams(params)).toMatchObject({ bookId: 'frankenstein', primaryEditionKey: 'modern-en', compareEditionKey: 'original-en', savedPlace: { chapterNumber: 5, paragraphIndex: 3, wordIndex: 7 }, startAtSavedPlace: true })
   })
-  it('leaves the opt-in alone for Two-page and Compare: their link keeps the book reader for that visit', () => {
-    for (const view of ['two-page', 'compare'] as const) {
-      const search = marginPreviewLayoutHref('frankenstein', view, place, 'original-en').split('?')[1]
-      expect(decide('?' + search, true)).toMatchObject({ bookId: null, sticky: null })
+  it('leaves the Classic reader choice alone for Two-page and Compare: their link keeps the book reader for that visit', () => {
+    for (const classic of [false, true]) {
+      for (const view of ['two-page', 'compare'] as const) {
+        const search = marginPreviewLayoutHref('frankenstein', view, place, 'original-en').split('?')[1]
+        expect(decide('?' + search, classic)).toMatchObject({ bookId: null, classic: null })
+      }
+      expect(decide('?book=frankenstein&view=two-page', classic)).toMatchObject({ bookId: null, classic: null })
     }
-    expect(decide('?book=frankenstein&view=two-page', true)).toMatchObject({ bookId: null, sticky: null })
   })
-  it('Margin from the book reader: the preview at that place, read once and dropped from the address', () => {
+  it('Margin from the book reader: margin view at that place, read once and dropped from the address', () => {
     const href = marginPreviewReturnHref('frankenstein', place)
     expect(href).toBe('/reader?book=frankenstein&margin=1&edition=modern-en&chapter=5&paragraph=3&word=7')
-    expect(decide('?' + href.split('?')[1], true)).toEqual({ bookId: 'frankenstein', sticky: null, search: '?book=frankenstein&margin=1', consumeHandoff: false, at: { editionKey: 'modern-en', chapterNumber: 5, paragraphIndex: 3, wordIndex: 7 } })
-    // Without margin=1 a chapter link is still the book reader's own.
+    expect(decide('?' + href.split('?')[1], true)).toEqual({ bookId: 'frankenstein', classic: 'clear', search: '?book=frankenstein&margin=1', consumeHandoff: false, at: { editionKey: 'modern-en', chapterNumber: 5, paragraphIndex: 3, wordIndex: 7 } })
+    // Launch (22 Oct 2026): a plain chapter link opens margin view at the chapter too; the Classic reader keeps the book reader's own.
+    expect(decide('?book=frankenstein&chapter=5').at).toEqual({ editionKey: null, chapterNumber: 5, paragraphIndex: 0, wordIndex: 0 })
     expect(decide('?book=frankenstein&chapter=5', true).bookId).toBeNull()
   })
-  it('applies it on the page: the address loses the place, the opt-in stays, the place is handed to the load', () => {
-    localStorage.setItem(MARGIN_PREVIEW_KEY, '1')
+  it('applies it on the page: the address loses the place, the Classic reader is cleared, the place is handed to the load', () => {
+    localStorage.setItem(CLASSIC_READER_KEY, '1')
     window.history.replaceState(null, '', marginPreviewReturnHref('frankenstein', place))
     expect(marginPreviewBookForPage(isPreviewBook)).toBe('frankenstein')
     expect(window.location.search).toBe('?book=frankenstein&margin=1')
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBe('1')
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBeNull()
     expect(marginPreviewAtForPage()).toEqual({ editionKey: 'modern-en', chapterNumber: 5, paragraphIndex: 3, wordIndex: 7 })
   })
   it('keeps the reader’s compare edition, else the book’s pair', () => {

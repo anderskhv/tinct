@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { decideMarginPreview, handoffBookIdOf, marginPreviewBookForPage, MARGIN_PREVIEW_KEY, NO_PREVIEW } from './marginPreviewFlag'
+import { CLASSIC_READER_KEY, classicReaderChosen, decideMarginPreview, handoffBookIdOf, lastBookIdOf, marginPreviewBookForPage, NO_PREVIEW, setClassicReader } from './marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewChapters, marginPreviewEditionKey, marginPreviewStart, normalReaderHref } from './marginPreviewModel'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
 import { getBook } from '../../data/bookRegistry'
@@ -10,40 +10,64 @@ import { LAB_POSITION_STORAGE_KEY, type LabBookPlace } from '../labPosition'
 import type { EditionData } from '../../types'
 
 const isPreviewBook = (id: string) => isMarginPreviewBook(getBook(id))
-const decide = (search: string, sticky = false, handoffBookId: string | null = null) => decideMarginPreview({ search, sticky, handoffBookId, isPreviewBook })
+const decide = (search: string, classic = false, handoffBookId: string | null = null, lastBookId: string | null = null) => decideMarginPreview({ search, classic, handoffBookId, lastBookId, isPreviewBook })
 
-describe('the margin preview flag', () => {
-  it('is off without the flag and without the opt-in: the book reader, unchanged, nothing stored', () => {
+// Launch (Anders, 22 Oct 2026): margin view is the default reader. Before, these read "off without the opt-in";
+// the assumption that changed is only the default. Bible, own books and own-rule links are unchanged.
+describe('the margin view decision', () => {
+  it('opens every registered book in margin view by default, storing nothing', () => {
+    expect(decide('?book=frankenstein')).toEqual({ bookId: 'frankenstein', classic: null, search: null, consumeHandoff: false })
+    expect(decide('?book=to-the-lighthouse&layout=phone').bookId).toBe('to-the-lighthouse')
+  })
+  it('the Classic reader keeps the book reader, unchanged, nothing stored', () => {
     for (const search of ['', '?book=frankenstein', '?book=frankenstein&chapter=3', '?userBook=abc', '?layout=phone'])
-      expect(decide(search)).toEqual(NO_PREVIEW)
+      expect(decide(search, true, 'frankenstein', 'frankenstein')).toEqual(NO_PREVIEW)
   })
-  it('opens a registered book with margin=1 and stores the opt-in', () => {
-    expect(decide('?book=frankenstein&margin=1')).toEqual({ bookId: 'frankenstein', sticky: 'on', search: null, consumeHandoff: false })
-    expect(decide('?book=to-the-lighthouse&margin=1', true)).toEqual({ bookId: 'to-the-lighthouse', sticky: null, search: null, consumeHandoff: false })
+  it('margin=0 stores the Classic reader; margin=1 clears it and opens margin view; both leave the address', () => {
+    expect(decide('?book=frankenstein&margin=0')).toEqual({ bookId: null, classic: 'set', search: '?book=frankenstein', consumeHandoff: false })
+    expect(decide('?book=frankenstein&margin=0', true)).toEqual({ bookId: null, classic: null, search: '?book=frankenstein', consumeHandoff: false })
+    expect(decide('?book=frankenstein&margin=1', true)).toEqual({ bookId: 'frankenstein', classic: 'clear', search: null, consumeHandoff: false })
+    expect(decide('?book=frankenstein&margin=1')).toEqual({ bookId: 'frankenstein', classic: null, search: null, consumeHandoff: false })
   })
-  it('with the opt-in, a book link opens in the preview; margin=0 turns it off and opens the book reader', () => {
-    expect(decide('?book=frankenstein', true).bookId).toBe('frankenstein')
-    expect(decide('?book=frankenstein&margin=0', true)).toEqual({ bookId: null, sticky: 'off', search: '?book=frankenstein', consumeHandoff: false })
-    expect(decide('?book=frankenstein&margin=0', false)).toEqual({ bookId: null, sticky: null, search: '?book=frankenstein', consumeHandoff: false })
-  })
-  it('never previews the Bible, an unknown book, or a link with its own rules', () => {
+  it('never opens the Bible, an unknown book, or a link with its own rules in margin view', () => {
+    expect(decide('?book=bible').bookId).toBeNull()
     expect(decide('?book=bible&margin=1').bookId).toBeNull()
-    expect(decide('?book=no-such-book&margin=1').bookId).toBeNull()
-    for (const extra of ['&chapter=2', '&share=abcdefg', '&heldBook=x', '&modern=paid', '&userBook=abc']) expect(decide('?book=frankenstein' + extra, true).bookId).toBeNull()
+    expect(decide('?book=bible&chapter=3').bookId).toBeNull()
+    expect(decide('?chapter=3').bookId).toBeNull()
+    expect(decide('?book=no-such-book').bookId).toBeNull()
+    for (const extra of ['&share=abcdefg', '&heldBook=x', '&modern=paid', '&userBook=abc', '&session_id=cs_1', '&view=two-page', '&chapter=2&view=compare'])
+      expect(decide('?book=frankenstein' + extra)).toEqual(NO_PREVIEW)
   })
-  it('with the opt-in, a book handed over from the library opens in the preview, and the hand-off is used up', () => {
-    expect(decide('', true, 'frankenstein')).toEqual({ bookId: 'frankenstein', sticky: null, search: '?book=frankenstein', consumeHandoff: true })
-    expect(decide('', false, 'frankenstein')).toEqual(NO_PREVIEW)
-    expect(decide('', true, 'bible').bookId).toBeNull()
+  it('a chapter deep link opens margin view at that chapter, once (the place leaves the address)', () => {
+    expect(decide('?book=frankenstein&chapter=4')).toEqual({ bookId: 'frankenstein', classic: null, search: '?book=frankenstein', consumeHandoff: false, at: { editionKey: null, chapterNumber: 4, paragraphIndex: 0, wordIndex: 0 } })
+    expect(decide('?book=frankenstein&chapter=4&edition=original-en&paragraph=6&word=2').at).toEqual({ editionKey: 'original-en', chapterNumber: 4, paragraphIndex: 6, wordIndex: 2 })
+    // Not a chapter: margin view's own place, the address left alone.
+    expect(decide('?book=frankenstein&chapter=0')).toEqual({ bookId: 'frankenstein', classic: null, search: null, consumeHandoff: false })
+  })
+  it('a book handed over from the library opens in margin view, and the hand-off is used up', () => {
+    expect(decide('', false, 'frankenstein')).toEqual({ bookId: 'frankenstein', classic: null, search: '?book=frankenstein', consumeHandoff: true })
+    expect(decide('', true, 'frankenstein')).toEqual(NO_PREVIEW)
+    expect(decide('', false, 'bible').bookId).toBeNull()
+    // The hand-off names the Bible: never the last book instead.
+    expect(decide('', false, 'bible', 'frankenstein').bookId).toBeNull()
     expect(handoffBookIdOf(JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein' }))).toBe('frankenstein')
     expect(handoffBookIdOf('{')).toBeNull()
+  })
+  it('a bare /reader resumes the last book read here in margin view, unless it is the Bible', () => {
+    expect(decide('', false, null, 'frankenstein')).toEqual({ bookId: 'frankenstein', classic: null, search: '?book=frankenstein', consumeHandoff: false })
+    expect(decide('', false, null, 'bible')).toEqual(NO_PREVIEW)
+    expect(decide('')).toEqual(NO_PREVIEW)
+    expect(lastBookIdOf(JSON.stringify({ books: {}, lastSettledBookId: 'frankenstein' }))).toBe('frankenstein')
+    expect(lastBookIdOf('{')).toBeNull()
+    expect(lastBookIdOf(null)).toBeNull()
   })
 })
 
 describe('the page wrapper', () => {
   beforeEach(() => { localStorage.clear(); sessionStorage.clear() })
   afterEach(() => { window.history.replaceState(null, '', '/') })
-  it('reads nothing more and writes nothing on a normal /reader visit', () => {
+  it('the Classic reader: reads nothing more and writes nothing on a /reader visit', () => {
+    localStorage.setItem(CLASSIC_READER_KEY, '1')
     window.history.replaceState(null, '', '/reader?book=frankenstein')
     const set = vi.spyOn(Storage.prototype, 'setItem'), remove = vi.spyOn(Storage.prototype, 'removeItem')
     expect(marginPreviewBookForPage(isPreviewBook)).toBeNull()
@@ -51,15 +75,33 @@ describe('the page wrapper', () => {
     expect(window.location.search).toBe('?book=frankenstein')
     set.mockRestore(); remove.mockRestore()
   })
-  it('stores the opt-in on margin=1 and removes it on margin=0, leaving the address without the flag', () => {
-    window.history.replaceState(null, '', '/reader?book=frankenstein&margin=1')
-    expect(marginPreviewBookForPage(isPreviewBook)).toBe('frankenstein')
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBe('1')
+  it('a default visit writes nothing and opens margin view', () => {
     window.history.replaceState(null, '', '/reader?book=frankenstein')
+    const set = vi.spyOn(Storage.prototype, 'setItem')
     expect(marginPreviewBookForPage(isPreviewBook)).toBe('frankenstein')
+    expect(set).not.toHaveBeenCalled()
+    set.mockRestore()
+  })
+  it('stores the Classic reader on margin=0 and clears it on margin=1, leaving the address without the flag', () => {
     window.history.replaceState(null, '', '/reader?book=frankenstein&margin=0')
     expect(marginPreviewBookForPage(isPreviewBook)).toBeNull()
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBeNull()
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBe('1')
+    expect(window.location.search).toBe('?book=frankenstein')
+    expect(marginPreviewBookForPage(isPreviewBook)).toBeNull()
+    expect(classicReaderChosen()).toBe(true)
+    window.history.replaceState(null, '', '/reader?book=frankenstein&margin=1')
+    expect(marginPreviewBookForPage(isPreviewBook)).toBe('frankenstein')
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBeNull()
+    expect(window.location.search).toBe('?book=frankenstein&margin=1')
+    setClassicReader(true)
+    expect(classicReaderChosen()).toBe(true)
+    setClassicReader(false)
+    expect(classicReaderChosen()).toBe(false)
+  })
+  it('a bare /reader names the last book in the address', () => {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ books: {}, lastSettledBookId: 'frankenstein' }))
+    window.history.replaceState(null, '', '/reader')
+    expect(marginPreviewBookForPage(isPreviewBook)).toBe('frankenstein')
     expect(window.location.search).toBe('?book=frankenstein')
   })
 })

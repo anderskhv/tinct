@@ -43,10 +43,11 @@ export interface LabV2SheetProps {
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
   /**
-   * The margin preview's layout (Anders, 2026-10-20), on the desktop while this device has opted in: opens
-   * the book in Margin at the same place.
+   * The Classic reader setting (launch, Anders 2026-10-22): margin view is the default reader for registered
+   * books; on, this device opens the book reader instead. Toggling reopens the book in the other reader at the
+   * same place.
    */
-  margin?: { onOpen: () => void } | null
+  classic?: { on: boolean; onToggle: () => void } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
@@ -201,7 +202,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, grouped = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, classic = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, grouped = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -386,10 +387,11 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
               )}
-              {margin && (
-                <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid="lab-v2-margin" onClick={margin.onOpen}>
-                  <span className="lab-v2-row-label">Margin</span>
-                  <span aria-hidden="true">›</span>
+              {classic && (
+                <button type="button" className="lab-v2-row is-toggle" role="switch" aria-checked={classic.on}
+                  data-testid="lab-v2-classic" onClick={classic.onToggle}>
+                  <span className="lab-v2-row-label">Classic reader</span>
+                  <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
               )}
               {compareUnavailable && (

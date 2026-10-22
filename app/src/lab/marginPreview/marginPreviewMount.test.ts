@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { marginPreviewMount, marginPreviewMountForPage } from './marginPreviewMount'
-import { MARGIN_PREVIEW_KEY } from './marginPreviewFlag'
+import { CLASSIC_READER_KEY } from './marginPreviewFlag'
 import { isMarginPreviewBook } from './marginPreviewModel'
 import { getBook } from '../../data/bookRegistry'
 import { LAB_READER_HANDOFF_KEY } from '../labReaderHandoff'
@@ -22,44 +22,55 @@ describe('where the margin preview opens', () => {
     expect(marginPreviewMount({ bookId: null, phone: false })).toBeNull()
   })
 
-  it('phone with the opt-in: the normal reader in marginPhone mode, the address and the hand-off left for it', () => {
-    go('?book=frankenstein&margin=1')
+  // Launch (22 Oct 2026): margin view is the default; these read "with the opt-in" before. Only the default changed.
+  it('phone by default: the normal reader in marginPhone mode, the address and the hand-off left for it', () => {
+    go('?book=frankenstein&chapter=3')
     expect(marginPreviewMountForPage(isPreviewBook, true)).toEqual({ mount: 'phone', bookId: 'frankenstein' })
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBe('1')
-    expect(window.location.search).toBe('?book=frankenstein&margin=1')
-    // The sticky opt-in alone, from the library's hand-off: the hand-off is not used up.
+    expect(window.location.search).toBe('?book=frankenstein&chapter=3')
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBeNull()
+    // From the library's hand-off: the hand-off is not used up.
     go('')
     const handoff = JSON.stringify({ kind: 'open-reader', bookId: 'frankenstein' })
     sessionStorage.setItem(LAB_READER_HANDOFF_KEY, handoff)
     expect(marginPreviewMountForPage(isPreviewBook, true)).toEqual({ mount: 'phone', bookId: 'frankenstein' })
     expect(sessionStorage.getItem(LAB_READER_HANDOFF_KEY)).toBe(handoff)
     expect(window.location.search).toBe('')
+    // margin=1 leaves the address too.
+    go('?book=frankenstein&margin=1')
+    expect(marginPreviewMountForPage(isPreviewBook, true)).toEqual({ mount: 'phone', bookId: 'frankenstein' })
+    expect(window.location.search).toBe('?book=frankenstein&margin=1')
   })
 
-  it('desktop with the opt-in: the frame, as before', () => {
-    go('?book=frankenstein&margin=1')
+  it('desktop by default: the frame', () => {
+    go('?book=frankenstein')
     expect(marginPreviewMountForPage(isPreviewBook, false)).toEqual({ mount: 'frame', bookId: 'frankenstein' })
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBe('1')
-    go('?book=to-the-lighthouse')
+    go('?book=to-the-lighthouse&margin=1')
     expect(marginPreviewMountForPage(isPreviewBook, false)).toEqual({ mount: 'frame', bookId: 'to-the-lighthouse' })
   })
 
-  it('no opt-in: unchanged on both, nothing stored', () => {
+  it('the Classic reader, the Bible or no book: unchanged on both, nothing stored', () => {
     for (const phone of [true, false]) {
-      for (const search of ['', '?book=frankenstein', '?layout=phone']) {
+      for (const search of ['', '?book=bible', '?layout=phone']) {
         go(search)
         expect(marginPreviewMountForPage(isPreviewBook, phone)).toEqual({ mount: null, bookId: null })
         expect(window.location.search).toBe(search)
       }
+      localStorage.setItem(CLASSIC_READER_KEY, '1')
+      go('?book=frankenstein')
+      expect(marginPreviewMountForPage(isPreviewBook, phone)).toEqual({ mount: null, bookId: null })
+      expect(window.location.search).toBe('?book=frankenstein')
+      localStorage.clear()
     }
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBeNull()
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBeNull()
   })
 
-  it('margin=0 on a phone turns the opt-in off and opens the book reader unchanged', () => {
-    localStorage.setItem(MARGIN_PREVIEW_KEY, '1')
+  it('margin=0 on a phone stores the Classic reader and opens the book reader unchanged; margin=1 clears it', () => {
     go('?book=frankenstein&margin=0')
     expect(marginPreviewMountForPage(isPreviewBook, true)).toEqual({ mount: null, bookId: null })
-    expect(localStorage.getItem(MARGIN_PREVIEW_KEY)).toBeNull()
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBe('1')
+    go('?book=frankenstein&margin=1')
+    expect(marginPreviewMountForPage(isPreviewBook, true)).toEqual({ mount: 'phone', bookId: 'frankenstein' })
+    expect(localStorage.getItem(CLASSIC_READER_KEY)).toBeNull()
   })
 
   it('main.tsx mounts the frame only on a desktop and passes marginPhone to the book reader on a phone', () => {

@@ -178,7 +178,7 @@ import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderP
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
-import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
+import { setClassicReader } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
 import { isResumeListenCommand, resolveLabPlaybackSkip, type LabPlaybackSkip } from './labAsk'
@@ -529,8 +529,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
-  // The phone's margin mode: a registered book on the phone reader only.
-  const marginPhone = marginPhoneRequested && showPhoneChrome && !userBook
+  // The phone's margin mode: a registered book on the phone reader only (not the Bible, even after an in-reader switch to it).
+  const marginPhoneSurface = marginPhoneRequested && showPhoneChrome && !userBook
   // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
   const ownPdf = userBook?.kind === 'pdf'
   // A user book opens at its own saved place (userBookStore.ts), never the
@@ -547,6 +547,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   })
   const boot = userBookBoot ?? bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
+  const marginPhone = marginPhoneSurface && isMarginPreviewBook(getBook(book.bookId || 'bible'))
   const userBookEditionKey = userBookBoot ? userBookBoot.book.editions![0].key : null
   // Stored prefs keep the reader's own edition choices: a user book writes appearance only.
   const persistPrefs = useCallback((next: LabPrefs, profile: LabAppearanceProfile) => {
@@ -5819,11 +5820,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
-          margin={!showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
-            ? { onOpen: () => {
+          classic={!userBook && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+            ? { on: !showPhoneChrome || !marginPhone, onToggle: () => {
+                // The Classic reader setting (launch, 22 Oct 2026): this device's choice, kept place first.
                 const bookId = book.bookId!
+                const classicOn = !showPhoneChrome || !marginPhone
                 notePlace('hide')
-                window.location.assign(marginPreviewReturnHref(bookId, { editionKey: prefs.primaryEdition, chapterNumber: book.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }))
+                setClassicReader(!classicOn)
+                window.location.assign(!classicOn
+                  ? `/reader?book=${encodeURIComponent(bookId)}&margin=0`
+                  : showPhoneChrome
+                    ? `/reader?book=${encodeURIComponent(bookId)}&margin=1`
+                    : marginPreviewReturnHref(bookId, { editionKey: prefs.primaryEdition, chapterNumber: book.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }))
               } }
             : null}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}

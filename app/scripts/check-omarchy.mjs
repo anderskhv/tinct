@@ -120,7 +120,7 @@ for(const engine of [chromium,webkit]) {
     await shot('library-persia')
 
     await page.evaluate(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:2,wordIndex:0,page:0}})))
-    await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+    await page.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
     await page.evaluate(()=>document.fonts.ready)
     await page.waitForFunction(()=>window.__tinctDesktopCommands?.commands.length>10)
@@ -230,7 +230,7 @@ for(const engine of [chromium,webkit]) {
     assert.equal(await first(),settledParagraph,'Talk keeps its reading anchor even when microphone is unavailable')
     assert.equal(requests.filter(x=>/chat$|voice-session$/.test(x)).length,0,'no real AI calls during keyboard verification')
     await page.setViewportSize({width:390,height:844})
-    await page.goto(origin+'/reader?layout=phone',{waitUntil:'domcontentloaded'})
+    await page.goto(origin+'/reader?layout=phone&margin=0',{waitUntil:'domcontentloaded'})
     await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'themed phone reader fits the viewport')
     await shot('phone-persia')

@@ -38,7 +38,7 @@ for (const [chapter, paragraph, name] of [[648, 12, 'proverbs'], [918, 4, 'zecha
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices) navigator.mediaDevices.getUserMedia=async()=>{throw Error('Microphone disabled')}
  },{chapter,paragraph})
- await page.goto(origin+'/reader?layout=phone',{waitUntil:'domcontentloaded'})
+ await page.goto(origin+'/reader?layout=phone&margin=0',{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
  await page.evaluate(()=>document.fonts.ready)
  await page.waitForTimeout(1100)

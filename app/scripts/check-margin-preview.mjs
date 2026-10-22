@@ -117,12 +117,12 @@ try {
       const before = await mainKeys(page), beforeAll = await allKeys(page)
 
       // 1. Opens in the margin reader at the book reader's place. A phone opens the book reader in its margin mode
-      // instead (check-phone-cards.mjs has its checks): no frame, the sticky opt-in stored, nothing else here.
+      // instead (check-phone-cards.mjs has its checks): no frame, the Classic reader not chosen, nothing else here.
       await page.goto(`${ORIGIN}/reader?book=${bookId}&margin=1`)
       if (phone) {
         await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
-        const mode = await page.evaluate(() => ({ margin: !!document.querySelector('.lab.is-margin-phone'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), optIn: localStorage.getItem('tinct:margin-preview') }))
-        ok(`${tag}: a phone opens today's phone reader in its margin mode, not the frame`, mode.margin && !mode.frame && mode.optIn === '1', mode)
+        const mode = await page.evaluate(() => ({ margin: !!document.querySelector('.lab.is-margin-phone'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), classic: localStorage.getItem('tinct:classic-reader') }))
+        ok(`${tag}: a phone opens today's phone reader in its margin mode, not the frame`, mode.margin && !mode.frame && mode.classic === null, mode)
         shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
         ok(`${tag}: no page errors`, errors.length === 0, errors)
         await context.close()
@@ -132,7 +132,7 @@ try {
       const want = PLACES[bookId], at = await spotOf(frame)
       ok(`${tag}: opens in the margin reader (${at.mode}), key ${at.key}`, at.key === `preview:${bookId}` && at.mode === (phone ? 'phone' : 'column'), at)
       ok(`${tag}: at the book reader's place (chapter ${want.chapterNumber}, paragraph ${want.paragraphIndex})`, at.page === chapterIndex(bookId, want.chapterNumber) + 1 && at.para === want.paragraphIndex && at.word <= want.wordIndex, { at, want })
-      ok(`${tag}: the sticky opt-in is stored`, await page.evaluate(() => localStorage.getItem('tinct:margin-preview')) === '1')
+      ok(`${tag}: the Classic reader is not chosen`, await page.evaluate(() => localStorage.getItem('tinct:classic-reader')) === null)
       shots.push(join(OUT, `${tag}-open.png`)); await page.screenshot({ path: shots.at(-1) })
       // Round 2: the frame is book.html, without pdf.js and the PDF-only scripts (the phone's first page came 0.3 s later with them).
       ok(`${tag}: the frame is the preview's page (book.html) and asks for no PDF script`, new URL(frame.url()).pathname === '/lab/addbook/book' && pdfAsked.length === 0 && await frame.evaluate(() => typeof window.pdfjsLib === 'undefined' && !window.TinctPdfScan), pdfAsked)
@@ -314,7 +314,7 @@ try {
       // conveniences (theme, primers, the opt-in) under the margin's `tinct-addbook:` and margin keys. Signed out, as
       // here, all of it stays on this device.
       const READER_STORES = /^(tinct-lab-position|tinct-lab-position-dirty|tinct-lab-device-id|tinct-lab-highlights|tinct-lab-highlight-tombstones|tinct-lab-highlights-tap-cleanup-v1|tinct:reading-year:.+|tinct:chat-history:.+)$/
-      const PREVIEW_OWN = /^(tinct-addbook:(pos|read|session|prefs|primer|primers|edition|dict|units|whole|turns|view)[:\w-]*.*|tinct:margin-preview|tinct-lab-prefs|tinct:internal)$/
+      const PREVIEW_OWN = /^(tinct-addbook:(pos|read|session|prefs|primer|primers|edition|dict|units|whole|turns|view)[:\w-]*.*|tinct:margin-preview|tinct:classic-reader|tinct-lab-prefs|tinct:internal)$/
       const afterAll = await allKeys(page)
       const written = Object.keys(afterAll).filter(k => afterAll[k] !== beforeAll[k])
       const elsewhere = written.filter(k => !READER_STORES.test(k) && !PREVIEW_OWN.test(k))
@@ -338,20 +338,29 @@ try {
       await frame.click('[data-theme-choice="light"]'); await frame.evaluate(() => closeDisplay()); await page.waitForTimeout(300)
 
 
-      // 6. Back to normal reader (the Aa panel): the book reader for the same book, the opt-in off.
+      // 6. Back to normal reader (the Aa panel): the book reader for the same book, the Classic reader chosen on this device.
       await frame.click('#aaBtn')
       const back2 = await frame.waitForSelector('[data-layout="text"]', { timeout: 5000 }).catch(() => null)
       ok(`${tag}: the Aa panel offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
       shots.push(join(OUT, `${tag}-aa.png`)); await page.screenshot({ path: shots.at(-1) })
       if (back2) await Promise.all([page.waitForURL(u => u.pathname === '/reader' && !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), back2.click()])
       const lab = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
-      const plain = await page.evaluate(() => ({ url: location.pathname + location.search, frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), sticky: localStorage.getItem('tinct:margin-preview') }))
-      ok(`${tag}: Back to normal reader opens the book reader, the opt-in off`, !!lab && !plain.frame && plain.sticky === null, plain)
+      const plain = await page.evaluate(() => ({ url: location.pathname + location.search, frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), classic: localStorage.getItem('tinct:classic-reader') }))
+      ok(`${tag}: Back to normal reader opens the book reader and chooses the Classic reader`, !!lab && !plain.frame && plain.classic === '1', plain)
 
-      // 7. /reader without the flag: the book reader, unchanged.
+      // 7. Launch (22 Oct 2026): with the Classic reader chosen, /reader without the flag is the book reader, unchanged;
+      // without it, margin view is the default.
       await page.goto(`${ORIGIN}/reader?book=${bookId}`)
       const lab2 = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
-      ok(`${tag}: /reader without the flag is the book reader`, !!lab2 && !(await page.$('iframe[data-testid="margin-preview-frame"]')))
+      ok(`${tag}: the Classic reader keeps /reader the book reader`, !!lab2 && !(await page.$('iframe[data-testid="margin-preview-frame"]')))
+      if (!phone) {
+        await page.evaluate(() => localStorage.removeItem('tinct:classic-reader'))
+        await page.goto(`${ORIGIN}/reader?book=${bookId}`)
+        const byDefault = await page.waitForSelector('iframe[data-testid="margin-preview-frame"]', { timeout: 30000 }).catch(() => null)
+        ok(`${tag}: without the Classic reader, /reader?book= opens margin view (the default)`, !!byDefault)
+        await page.goto(`${ORIGIN}/reader?book=${bookId}&margin=0`)
+        await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
+      }
       if (phone || bookId === BOOKS[0]) { await page.waitForTimeout(1500); shots.push(join(OUT, `${tag}-normal.png`)); await page.screenshot({ path: shots.at(-1) }) }
       // Round 2: a PDF opened in the preview after all loads the PDF scripts then (pdfReady), once.
       if (!phone && bookId === BOOKS[0]) {
@@ -380,7 +389,7 @@ try {
   const deskShot = async (page, name) => { const path = join(DESK_SHOTS || OUT, name); shots.push(path); await page.screenshot({ path }) }
   const TEXT_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle', 'lineHeight', 'color', 'textAlign', 'hyphens', 'letterSpacing', 'wordSpacing', 'textIndent', 'marginBottom']
   const paperOf = el => { for (let e = el; e; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (c && !/rgba\(0, 0, 0, 0\)|transparent/.test(c)) return c } return getComputedStyle(document.body).backgroundColor }
-  const normalPlace = page => page.evaluate(() => { const r = document.querySelector('[data-testid="lab-root"]'); const [para, word] = (r?.dataset.place || '').split(':').map(Number); return { chapter: Number(r?.dataset.chapter), para, word, view: r?.dataset.desktopView, url: location.pathname + location.search, sticky: localStorage.getItem('tinct:margin-preview'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]') } })
+  const normalPlace = page => page.evaluate(() => { const r = document.querySelector('[data-testid="lab-root"]'); const [para, word] = (r?.dataset.place || '').split(':').map(Number); return { chapter: Number(r?.dataset.chapter), para, word, view: r?.dataset.desktopView, url: location.pathname + location.search, classic: localStorage.getItem('tinct:classic-reader'), frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]') } })
   const previewPlace = frame => frame.evaluate(() => { const s = previewSpot(); return { chapter: toc.entries.find(e => e.page === s.page && e.kind === 'chapter')?.number, para: s.para, word: s.word } })
   const waitNormal = async page => { await page.waitForSelector('[data-testid="lab-root"][data-position-resolving="false"]', { timeout: 40000 }).catch(() => null); await page.waitForTimeout(2500) }
   for (const bookId of BOOKS) {
@@ -454,19 +463,19 @@ try {
       await waitNormal(page)
       const two = await normalPlace(page)
       ok(`${tag}: Two-page opens the book reader in two pages at the same place (chapter ${here.chapter}, ¶ ${here.para}, word ${here.word})`, !two.frame && two.view === 'read' && two.chapter === here.chapter && two.para === here.para && two.word === here.word, { here, two })
-      ok(`${tag}: the opt-in survives Two-page, and the link's place leaves the address`, two.sticky === '1' && !/chapter=|view=/.test(two.url), two)
+      ok(`${tag}: Two-page leaves the Classic reader unchosen, and the link's place leaves the address`, two.classic === null && !/chapter=|view=/.test(two.url), two)
       if (first) await deskShot(page, `two-page-${w}x${h}.png`)
-      // Margin from the book reader (Book editions): back to the preview at the same place.
+      // Classic reader off (Book editions): back to margin view at the same place.
       await page.click('[data-testid="lab-super"]'); await page.click('[data-testid="lab-super-row-editions"]')
-      const marginRow = await page.waitForSelector('[data-testid="lab-v2-margin"]', { timeout: 8000 }).catch(() => null)
-      ok(`${tag}: the book reader offers Margin while the opt-in is on`, !!marginRow && (await marginRow.textContent()).includes('Margin'))
+      const marginRow = await page.waitForSelector('[data-testid="lab-v2-classic"]', { timeout: 8000 }).catch(() => null)
+      ok(`${tag}: the book reader offers the Classic reader switch, on`, !!marginRow && (await marginRow.textContent()).includes('Classic reader') && (await marginRow.getAttribute('aria-checked')) === 'true')
       if (marginRow) await marginRow.click()
       frame = await frameOf(page)
       await page.waitForTimeout(800)
       const back = await previewPlace(frame)
-      const backUrl = await page.evaluate(() => ({ url: location.pathname + location.search, sticky: localStorage.getItem('tinct:margin-preview') }))
-      ok(`${tag}: Margin from the book reader returns to the same place`, back.chapter === here.chapter && back.para === here.para && back.word === here.word, { here, back })
-      ok(`${tag}: the return link's place leaves the address; the opt-in on`, backUrl.sticky === '1' && !/chapter=/.test(backUrl.url) && /margin=1/.test(backUrl.url), backUrl)
+      const backUrl = await page.evaluate(() => ({ url: location.pathname + location.search, classic: localStorage.getItem('tinct:classic-reader') }))
+      ok(`${tag}: Classic reader off returns to margin view at the same place`, back.chapter === here.chapter && back.para === here.para && back.word === here.word, { here, back })
+      ok(`${tag}: the return link's place leaves the address; the Classic reader not chosen`, backUrl.classic === null && !/chapter=/.test(backUrl.url) && /margin=1/.test(backUrl.url), backUrl)
       if (first) await deskShot(page, `back-to-margin-${w}x${h}.png`)
       // Compare: the same place, side by side; the opt-in kept. Then Margin again.
       await frame.click('#aaBtn'); await frame.waitForSelector('[data-layout="compare"]', { timeout: 5000 })
@@ -474,9 +483,9 @@ try {
       await waitNormal(page)
       const cmp = await normalPlace(page)
       ok(`${tag}: Compare opens the book reader side by side at the same place`, !cmp.frame && cmp.view === 'compare' && cmp.chapter === here.chapter && cmp.para === here.para && cmp.word === here.word, { here, cmp })
-      ok(`${tag}: the opt-in survives Compare`, cmp.sticky === '1', cmp)
+      ok(`${tag}: Compare leaves the Classic reader unchosen`, cmp.classic === null, cmp)
       await page.click('[data-testid="lab-super"]'); await page.click('[data-testid="lab-super-row-editions"]')
-      await (await page.waitForSelector('[data-testid="lab-v2-margin"]', { timeout: 8000 })).click()
+      await (await page.waitForSelector('[data-testid="lab-v2-classic"]', { timeout: 8000 })).click()
       frame = await frameOf(page)
       await page.waitForTimeout(800)
       const again = await previewPlace(frame)
