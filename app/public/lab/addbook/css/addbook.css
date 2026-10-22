@@ -139,10 +139,9 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-sage) { background-color: rgba(108, 178, 108, .34); }
 ::highlight(tinct-hl-sky) { background-color: rgba(96, 148, 226, .32); }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
-.lab.is-epub:not(.has-read-aloud) #playBtn, .lab.is-epub.is-phone #playBtn { display: none !important; }
-/* Read aloud in an EPUB: the sentence and the word heard, as a PDF's text layer draws them (reader.css .is-reading, .is-word). */
-::highlight(tinct-read) { background-color: rgba(214, 186, 112, .22); }
-::highlight(tinct-read-word) { background-color: rgba(214, 186, 112, .85); }
+/* Play is Tinct's narration, played by the page that frames this one (js/tinct-listen.js adds .tb-can-listen once it
+   has it): never the browser's own voice, so without that page there is no Play. */
+.lab:not(.tb-can-listen) #playBtn { display: none !important; }
 .pdf-status { padding: 40px 16px; text-align: center; font: 16px/1.5 var(--ab-ui); color: #4a443b; max-width: 52ch; margin: 0 auto; }
 /* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field whose text is under 16px and does not zoom back. Fields stay at 16px or more here; zoom itself stays allowed and desktop keeps its look. */
 @media (pointer: coarse), (max-width: 520px) {
