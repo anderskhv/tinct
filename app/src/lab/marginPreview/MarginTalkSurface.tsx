@@ -1,10 +1,11 @@
 /**
- * Talk's call over the margin reader (MarginTalk.tsx): the book reader's call surface (LabVoiceCall: the orb, one
- * status line, mute, end and reconnect), in a panel at the foot of the window, in the reader's own look (Paper or
- * Night). Loaded the first time Talk opens, with the book reader's styles.
+ * Talk's call over the margin reader (MarginTalk.tsx): the book reader's own desktop Talk window (LabVoiceDesktopPanel:
+ * the orb, its status line, mute or reconnect, Talk's speed and End, minimised to LabVoicePill), drawn in the reader's
+ * look (Paper or Night). Loaded the first time Talk opens, with the book reader's styles. No surface of its own.
  */
 import '../lab.css'
-import { LabVoiceCall } from '../LabVoiceCall.tsx'
+import { useState } from 'react'
+import { LabVoiceDesktopPanel, LabVoicePill } from '../LabVoiceDesktop.tsx'
 import type { LabCallView } from '../labVoiceCall'
 
 export default function MarginTalkSurface(props: {
@@ -12,19 +13,20 @@ export default function MarginTalkSurface(props: {
   dark: boolean
   getAssistantLevel: () => number | null
   notice: string | null
+  talkSpeed: number
+  onTalkSpeedChange: (speed: number) => void
   onMuteToggle: () => void
   onEnd: () => void
   onReconnect: () => void
 }) {
-  const { dark, ...call } = props
+  const { dark, talkSpeed, onTalkSpeedChange, ...call } = props
+  const [minimized, setMinimized] = useState(false)
+  const reducedMotion = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   return (
-    <div className={`lab${dark ? ' is-night' : ''}`} data-chrome-version="v2" style={{ minHeight: 0, background: 'transparent' }}>
-      {/* The phone's full-screen call, held in this panel (as the library's Talk holds it in its own). */}
-      <style>{'.lab[data-chrome-version="v2"] .lab-margin-talk .lab-call{position:relative;inset:auto;z-index:auto;min-height:0;height:auto;width:100%;padding:8px 0;background:transparent}'}</style>
-      <section className="lab-margin-talk" role="dialog" aria-label="Talk" data-testid="margin-talk"
-        style={{ position: 'fixed', right: 24, bottom: 24, width: 320, minHeight: 300, zIndex: 40, display: 'grid', placeItems: 'center', borderRadius: 18, background: 'var(--lab-call-panel, rgba(249, 245, 236, 0.96))', border: '1px solid var(--lab-call-panel-border, rgba(123, 108, 85, 0.22))', boxShadow: 'var(--lab-call-pill-shadow, 0 14px 36px rgba(53, 43, 30, 0.14))', padding: 16 }}>
-        <LabVoiceCall orbSize={140} {...call} />
-      </section>
+    <div className={`lab is-desktop${dark ? ' is-night' : ''}`} data-chrome-version="v2" data-testid="margin-talk" style={{ minHeight: 0, background: 'transparent', position: 'relative', zIndex: 40 }}>
+      {minimized
+        ? <LabVoicePill {...call} reducedMotion={reducedMotion} onExpand={() => setMinimized(false)} />
+        : <LabVoiceDesktopPanel {...call} reducedMotion={reducedMotion} onMinimize={() => setMinimized(true)} talkSpeed={talkSpeed} onTalkSpeedChange={onTalkSpeedChange} />}
     </div>
   )
 }

@@ -356,8 +356,15 @@ async function talk(browser, key) {
   const thread = await frame.evaluate(() => ({ turns: chat.turns.slice(-2).map(t => [t.role, t.content]), shown: document.body.textContent.includes('It is about lamps') }))
   ok(`${tag}: each spoken turn lands in Chat`, JSON.stringify(thread.turns) === JSON.stringify([['user', 'What is this chapter about?'], ['assistant', 'It is about lamps and the accounts we give of them.']]) && thread.shown, thread)
   await page.screenshot({ path: path.join(output, `talk-${key}.png`) })
+  // The book reader's Talk window: its status line, and Talk's speed, saved with the reader's prefs and sent to the session.
+  const status = await page.textContent('[data-testid="lab-voice-panel-status"]').catch(() => null)
+  await page.click('[data-testid="lab-voice-panel-speed"]')
+  await page.click('[data-testid="lab-voice-panel-speed-1.25"]')
+  await page.waitForTimeout(300)
+  const speed = await page.evaluate(() => ({ saved: JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}').shared?.talkSpeed, sent: window.__grok.sent.filter(m => m.type === 'session.update').map(m => m.session?.audio?.output?.speed).filter(Boolean).at(-1) }))
+  ok(`${tag}: the book reader's Talk window, its status line and Talk's speed (saved, applied to the session)`, !!status && speed.saved === 1.25 && speed.sent === 1.25, { status, speed })
   // End: the call goes, Talk is off in Chat.
-  await page.click('[data-testid="margin-talk"] button[aria-label*="End" i]')
+  await page.click('[data-testid="lab-voice-panel-end"]')
   await page.waitForTimeout(600)
   const after = await frame.evaluate(() => chat.talk)
   ok(`${tag}: End closes the call and turns Talk off`, !(await page.isVisible('[data-testid="margin-talk"]')) && after === false)

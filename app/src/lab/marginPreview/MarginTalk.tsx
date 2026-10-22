@@ -13,7 +13,9 @@ import { readSupabaseAccessToken } from '../labAuth'
 import { gateLabAiAction } from '../labAccountPrompt'
 import { LAB_COPY } from '../labCopy'
 import { buildLabTalkReference } from '../labDirectVoice'
-import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
+import { LAB_PREFS_KEY, parseLabPrefs, writeLabPrefs } from '../labPrefs'
+import { ASSISTANT_PACE_SPEED, clampTalkSpeed } from '../labAsk'
+import { labConversationStateV2 } from '../labVoiceV2'
 import { labCallView } from '../labVoiceCall'
 import type { ChatMessage } from '../../types'
 
@@ -44,9 +46,12 @@ declare global {
   }
 }
 
+function readPrefs() { return parseLabPrefs(JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || 'null'), 'desktop') }
 function voicePersona(): 'female' | 'male' {
-  try { return parseLabPrefs(JSON.parse(localStorage.getItem(LAB_PREFS_KEY) || 'null'), 'desktop').voicePersona === 'male' ? 'male' : 'female' } catch { return 'female' }
+  try { return readPrefs().voicePersona === 'male' ? 'male' : 'female' } catch { return 'female' }
 }
+/** Talk's speaking speed, saved with the reader's prefs as the book reader saves it (LabApp applyTalkSpeed). */
+function savedTalkSpeed(): number { try { return clampTalkSpeed(readPrefs().talkSpeed ?? 1) } catch { return 1 } }
 
 const MarginTalkSurface = lazy(() => import('./MarginTalkSurface'))
 
@@ -61,6 +66,14 @@ export function useMarginTalk(input: { bookId: string; editionKey: string | null
   const [context, setContext] = useState<MarginTalkContext | null>(null)
   const [token, setToken] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
+  const [talkSpeed, setTalkSpeedState] = useState(savedTalkSpeed)
+  const [starting, setStarting] = useState(false)
+  const rememberTalkSpeed = useCallback((speed: number) => {
+    const next = clampTalkSpeed(speed)
+    setTalkSpeedState(next)
+    try { writeLabPrefs({ ...readPrefs(), talkSpeed: next }, 'desktop') } catch { /* storage unavailable: this call keeps it */ }
+    return next
+  }, [])
   const inputRef = useRef(input)
   inputRef.current = input
   useEffect(() => { void readSupabaseAccessToken().then(t => setToken(t ?? null), () => setToken(null)) }, [signedIn])
@@ -100,12 +113,15 @@ export function useMarginTalk(input: { bookId: string; editionKey: string | null
     onEndConversation: () => end(),
     mode: 'conversation',
     reference,
+    assistantSpeed: talkSpeed,
+    onSetAssistantPace: pace => { rememberTalkSpeed(ASSISTANT_PACE_SPEED[pace]) },
     voicePersona: voicePersona(),
     warm: false,
   })
   const voiceRef = useRef(voice)
   voiceRef.current = voice
   const end = useCallback(() => {
+    setStarting(false)
     voiceRef.current.stop()
     setContext(null)
     setNotice(null)
@@ -139,13 +155,16 @@ export function useMarginTalk(input: { bookId: string; editionKey: string | null
       voiceRef.current.unlockAudio()
       voiceRef.current.prime()
       startPending.current = true
+      setStarting(true)
       void Promise.resolve(next).then(ctx => setContext({ ...ctx, turns: ctx.turns.slice(-8) }), () => { startPending.current = false; voiceRef.current.releasePrimed() })
     },
     stop: () => end(),
     active: () => voiceRef.current.isActive,
   }), [end])
 
-  const view = labCallView({ connection: voice.connection, activity: voice.activity as never, micMuted: voice.micMuted, fullDuplex: true })
+  // The book reader's call view (LabApp callView): connecting until the session reports, then what it is doing.
+  useEffect(() => { if (voice.connection !== 'idle') setStarting(false) }, [voice.connection])
+  const view = labCallView({ connection: starting && voice.connection === 'idle' ? 'connecting' : voice.connection, activity: labConversationStateV2({ activity: voice.activity, starting }), fullDuplex: false, micMuted: voice.micMuted })
   let dark = false
   try { dark = !!input.frame()?.document.querySelector('.lab.is-night') } catch { /* the frame's look stays unknown */ }
   const surface = context ? (
@@ -155,6 +174,8 @@ export function useMarginTalk(input: { bookId: string; editionKey: string | null
         dark={dark}
         getAssistantLevel={voice.getAssistantLevel}
         notice={notice ?? voice.error}
+        talkSpeed={talkSpeed}
+        onTalkSpeedChange={speed => { voice.setAssistantSpeed(rememberTalkSpeed(speed)) }}
         onMuteToggle={() => voice.setMicMuted(!voice.micMuted)}
         onEnd={end}
         onReconnect={() => void voice.start({ authToken: token })}

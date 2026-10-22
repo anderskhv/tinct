@@ -13,7 +13,7 @@ vi.mock('../../hooks/useVoiceSession', () => ({
     voice.options = options
     const call = (name: string) => () => { voice.calls.push(name) }
     return { connection: 'idle', activity: 'idle', micMuted: false, isActive: false, error: voice.error, getAssistantLevel: () => null, setMicMuted: call('mute'),
-      start: async () => { voice.calls.push('start') }, stop: call('stop'), prime: call('prime'), unlockAudio: call('unlock'), releasePrimed: call('release') }
+      start: async () => { voice.calls.push('start') }, stop: call('stop'), setAssistantSpeed: (speed: number) => { voice.calls.push(`speed:${speed}`) }, prime: call('prime'), unlockAudio: call('unlock'), releasePrimed: call('release') }
   },
 }))
 vi.mock('../labAuth', () => ({ readSupabaseAccessToken: () => Promise.resolve('token') }))
@@ -67,6 +67,17 @@ describe('useMarginTalk', () => {
     expect(frame.TinctReaderTalk!.failed).toHaveBeenCalledWith('Voice could not reach Tinct.')
     expect(frame.TinctReaderTalk!.ended).not.toHaveBeenCalled()
     expect(result.current.surface).toBeNull()
+  })
+
+  it('Talk\u2019s speed is the reader\u2019s saved one, and a new one is saved and applied', async () => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ talkSpeed: 1.25 }))
+    const { result } = mount(false)
+    act(() => result.current.api.start(context))
+    await waitFor(() => expect(voice.calls).toContain('start'))
+    expect(voice.options).toMatchObject({ assistantSpeed: 1.25 })
+    act(() => (voice.options!.onSetAssistantPace as (p: string) => void)('slower'))
+    expect(JSON.parse(localStorage.getItem('tinct-lab-prefs')!)).toMatchObject({ shared: expect.objectContaining({ talkSpeed: expect.any(Number) }) })
+    localStorage.clear()
   })
 
   it('a guest whose trial is used is sent to the account', () => {
