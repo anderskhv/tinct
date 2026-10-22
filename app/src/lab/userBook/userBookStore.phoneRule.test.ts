@@ -93,6 +93,20 @@ describe("the phone's open rule in the Tinct reader", () => {
     expect(kept()).toEqual({ phone: null, edition: null, rule: null })
   })
 
+  it('on the desktop hands a PDF to the margin reader at once, converting nothing (a scan keeps its pages)', async () => {
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 1440 })
+    keep('prose_book.pdf')
+    const convert = converter()
+    expect(await openUserBook(HEX, { owner: OWNER, convert, desktop: true })).toMatchObject({ ok: false, reason: 'pages' })
+    // Even a PDF this desktop reads as its Tinct text: the margin reader makes and shows it.
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
+    expect(await openUserBook(HEX, { owner: OWNER, convert, desktop: true })).toMatchObject({ ok: false, reason: 'pages' })
+    expect(convert).not.toHaveBeenCalled()
+    records.set(`pdf:${HEX}`, { ...records.get(`pdf:${HEX}`)!, scan: { v: 6, textPages: 0, layout: { default: 'pages-only' } } })
+    expect(await openUserBook(HEX, { owner: OWNER, convert, desktop: true })).toMatchObject({ ok: false, reason: 'pages_only' })
+    expect(kept()).toEqual({ phone: null, edition: 'text', rule: null })
+  })
+
   it('a reader’s own choice on this phone stands: nothing is told over it', async () => {
     keep('two_column_paper.pdf')
     localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
