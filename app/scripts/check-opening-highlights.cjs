@@ -25,7 +25,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   for(const height of [879,813,940,740]){
    await p.setViewportSize({width:1450,height});
    await p.evaluate(()=>sessionStorage.removeItem('opening-seeded')).catch(()=>{});
-   await p.goto(origin+'/reader');await ready(p);
+   await p.goto(origin+'/reader?margin=0');await ready(p);
    for(let i=0;i<15&&!await p.locator('.lab-next-chapter-opening').count();i++){await p.keyboard.press('ArrowRight');await ready(p);}
    if(await p.locator('.lab-next-chapter-opening').count()&&await p.locator('.lab').getAttribute('data-chapter')==='917')break;
   }

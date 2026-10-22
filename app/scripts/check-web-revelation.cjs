@@ -46,7 +46,7 @@ assert.ok(wordIndex >= 0)
     sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify({ kind: 'open-reader', bookId: 'bible', primaryEditionKey: 'web-en', compareEditionKey: 'kjv-en', savedPlace: { bookId: 'bible', chapterNumber: 1189, paragraphIndex: 4, wordIndex, page: 0 } }))
    }, { wordIndex })
    try {
-    await page.goto(origin + '/reader')
+    await page.goto(origin + '/reader?margin=0')
     await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
     const word = page.locator(`.lab-page-wrap [data-paragraph-index="4"][data-word-index="${wordIndex}"]`).first()
     await word.waitFor()

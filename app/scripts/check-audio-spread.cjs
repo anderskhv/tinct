@@ -58,7 +58,7 @@ for(const engine of [chromium,webkit].filter(e=>(process.env.READER_ENGINES||'ch
   // actual mixed spread, without assuming a fixed page count.
   for(const height of [813,879,940,740]){
    await p.setViewportSize({width:1450,height});
-   await p.goto(origin+'/reader');await ready(p);
+   await p.goto(origin+'/reader?margin=0');await ready(p);
    for(let i=0;i<30 && !await p.getByTestId('lab-next-chapter-opening').count();i++){
     if(await p.locator('.lab-page-wrap > .lab-passage .lab-chapter-end').count())break;
     await p.keyboard.press('ArrowRight');await ready(p);

@@ -29,7 +29,7 @@ try{
  const page=await context.newPage()
  await page.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort())
  await page.addInitScript(()=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'frankenstein',primaryEditionKey:'original-en',savedPlace:{bookId:'frankenstein',chapterNumber:3,paragraphIndex:0,wordIndex:0,page:0}})))
- await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+ await page.goto(origin+'/reader?margin=0',{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>!!navigator.serviceWorker.controller,null,{timeout:45000})
  const url='/api/audio-file?path=narration%2Fgrok%2Fblob%2F'+'a'.repeat(64)+'.mp3'
  assert.equal(await page.evaluate(async url=>(await fetch(url)).text(),url),bytes)

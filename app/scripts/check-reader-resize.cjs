@@ -143,7 +143,7 @@ async function resize(page, from, to, steps) {
       page.setDefaultTimeout(30000)
       const record = { name, checks: [] }
       try {
-        await page.goto(origin + '/reader')
+        await page.goto(origin + '/reader?margin=0')
         await ready(page)
         // A few pages in, as in the report ("3 / 275 of book").
         for (let turn = 0; turn < 2; turn += 1) {
