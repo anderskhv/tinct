@@ -200,6 +200,17 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   // An own book read aloud needs Premium (trial included): as in the book reader (LabApp), the request is put away and
   // the account, with its Premium offer, is opened (MarginOwnBook: the account cards).
   const premiumRequired = Boolean(ownHex) && listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
+  // Any other failure of an own book's narration (the route's error, 5xx, a timeout, a stall): the book has no read aloud
+  // on this page from then on (Anders, 22 Oct 2026: never the browser's voice instead); the frame takes Play and the dock away.
+  const ownFailed = Boolean(ownHex) && listen.narration.status === 'error' && listen.narration.reason !== 'own_book_premium'
+  const [ownBroken, setOwnBroken] = useState(false)
+  useEffect(() => {
+    if (!ownFailed) return
+    listenRef.current.dismissNarration()
+    listenRef.current.pause()
+    setRequest(null)
+    setOwnBroken(true)
+  }, [ownFailed])
   const onPremiumRequired = input.own?.onPremiumRequired
   useEffect(() => {
     if (!premiumRequired) return
@@ -275,7 +286,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
   useLabListenReport(listen.playing && !ownHex, bookId)
 
   const snapshot = marginListenSnapshot({
-    available: plan && info ? !plan.unavailable : null,
+    available: ownBroken ? false : plan && info ? !plan.unavailable : null,
     playing: listen.playing,
     pending: listen.pending,
     buffering: listen.buffering,
@@ -288,7 +299,7 @@ export function useMarginListen(input: { bookId: string; editionKey: string | nu
     chapterDuration: listen.chapterDuration,
     narration: listen.narration,
     starting: Boolean(request && startedRef.current !== request),
-    dismissed,
+    dismissed: dismissed || ownBroken,
   })
   const snapshotRef = useRef(snapshot)
   snapshotRef.current = snapshot
