@@ -5820,7 +5820,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
-          classic={!userBook && isMarginPreviewBook(getBook(book.bookId || 'bible'))
+          classic={!showPhoneChrome && !userBook && isMarginPreviewBook(getBook(book.bookId || 'bible'))
             ? { on: !showPhoneChrome || !marginPhone, onToggle: () => {
                 // The Classic reader setting (launch, 22 Oct 2026): this device's choice, kept place first.
                 const bookId = book.bookId!
