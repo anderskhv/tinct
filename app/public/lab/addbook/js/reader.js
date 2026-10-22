@@ -7525,16 +7525,51 @@ function openChat(opts = {}) {
 }
 function closeChat() {
   if (marginOn()) { if (col.open === 'whole') { if (col.sheet) closeSheet2(); else openCard(null) } return }
-  chat.ctl?.abort(); chat.live = null; speechSynthesis?.cancel?.(); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+  chat.ctl?.abort(); chat.live = null; if (chat.talk) setTalk(false); chat.el?.remove(); const t = document.querySelector('.byob-toast.is-in-chat') || chat.el?.querySelector('.byob-toast'); if (t) placeToast(t); root.classList.remove('chat-open'); root.dataset.desktopPanel = 'none'; if (!isPhone()) setDock('closed') }
+/**
+ * Talk (Anders, 22 Oct 2026: the book reader's Talk, Grok's voice, never the browser's): a spoken conversation with the
+ * book reader's voice session and call, run by the page that frames this one (MarginTalk.tsx), about what the reader
+ * is on; each turn heard lands in this Chat's thread. Without that page (a phone opening this page by itself) there is
+ * no Talk, and Chat says so.
+ */
+function talkApi() { try { return frameHost()?.talk || null } catch { return null } }
 function setTalk(on) {
-  chat.talk = on;
-  if (!chat.el) return;
-  chat.el.classList.toggle('byob-talk-on', on);
-  const note = chat.el.querySelector('#chatNotice');
-  note.hidden = !on;
-  note.textContent = on ? (isPhone() ? 'Talk: use your keyboard’s microphone to speak; answers are read aloud.' : 'Talk: answers are read aloud. Speak with your system’s dictation, or type.') : '';
-  if (!on) speechSynthesis?.cancel?.();
+  const was = chat.talk, t = talkApi();
+  chat.talk = on && !!t;
+  if (chat.el) {
+    chat.el.classList.toggle('byob-talk-on', chat.talk);
+    const note = chat.el.querySelector('#chatNotice');
+    note.hidden = !(on && !t);
+    note.textContent = on && !t ? 'Talk is not available here; type your question.' : '';
+  }
+  if (on && !t) toast('Talk is not available here; type your question.');
+  if (chat.talk && !was) t.start(talkContext());
+  if (!on && was) { try { t?.stop() } catch {} }
 }
+/** What Talk is told the reader is on: the book, the chapter (a PDF's page) in view, its paragraphs and the one at the top, the recent Chat. */
+async function talkContext() {
+  const n = readingPage(), p = state.pages[n - 1];
+  let paras = [];
+  if (state.preview) paras = p ? [...p.sheet.querySelectorAll('p.tb-p')].map(el => ({ text: el.textContent, rect: () => el.getBoundingClientRect() })) : [];
+  else paras = (await ownParagraphs(n)).map(x => ({ text: x.text, rect: () => { const r = TinctBookListen?.paraRange(x); return r ? r.getBoundingClientRect() : null } }));
+  const top = $('scroll').getBoundingClientRect().top + 1;
+  const index = Math.max(0, paras.findIndex(x => { const r = x.rect(); return r && r.height && r.bottom > top }));
+  return {
+    bookTitle: state.title || '', bookAuthor: state.author || '', chapterNumber: n, chapterLabel: chapterAt(n)?.label || (isEpub() ? state.title : `Page ${pageLabel(n)}`),
+    paragraphs: paras.map(x => x.text.replace(/\s+/g, ' ').trim()), paragraphIndex: index,
+    turns: chat.turns.filter(x => x.content).slice(-8).map(x => ({ role: x.role === 'user' ? 'user' : 'assistant', content: String(x.display || x.content) })),
+  };
+}
+/** Talk's side in this page (MarginTalk.tsx): each turn heard goes into Chat's thread; the call's end turns Talk off. */
+window.TinctReaderTalk = {
+  turn(role, text) {
+    if (!text?.trim()) return;
+    chat.turns.push({ role, content: text.trim(), at: Date.now(), voice: true });
+    saveTurns();
+    if (marginOn() || chat.el) renderThread();
+  },
+  ended() { if (chat.talk) { chat.talk = false; setTalk(false) } },
+};
 function placeOf(t) { return t.page ? (isEpub() ? (toc.entries.find(e => e.page === t.page)?.label || 'Section ' + t.page) : 'Page ' + t.page) : null }
 function renderAttached() {
   if (marginOn()) return;
@@ -7668,23 +7703,12 @@ async function ask(question, display) {
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text + note, at: Date.now() });
     saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
     chat.turns[chat.turns.length - 1].failed = errorCopy(e);
     if (e?.text) chat.turns.push({ role: 'assistant', content: e.text + '\n\n(Interrupted.)', at: Date.now() });
     saveTurns(); renderThread();
-  }
-}
-function speak(text) {
-  if (!('speechSynthesis' in window)) return;
-  speechSynthesis.cancel();
-  for (const part of text.replace(/[*_#`]/g, '').split(/(?<=[.!?])\s+/)) {
-    if (!part.trim()) continue;
-    const u = new SpeechSynthesisUtterance(part);
-    u.rate = prefs.rate; const v = pickVoice(); if (v) u.voice = v;
-    speechSynthesis.speak(u);
   }
 }
 
@@ -7714,7 +7738,6 @@ async function askSummary(display, prompt, pdf = null) {
     const res = await s(`You are Tinct's reading companion. ${bookLine()}\n\n${prompt}`, { signal: ctl.signal, cache: { gcTime: 86400000 }, ...(pdf ? { pdf } : {}), onText: ({ text }) => liveText(text) });
     chat.live = null;
     chat.turns.push({ role: 'assistant', content: res.text, at: Date.now() }); saveTurns(); renderThread();
-    if (chat.talk) speak(res.text);
   } catch (e) {
     chat.live = null;
     if (e?.code === 'cancelled') return;
@@ -7879,12 +7902,14 @@ function ownParagraphs(n) {
   if (!ownParas.has(p)) ownParas.set(p, p.kind === 'epub' ? Promise.resolve(epubParagraphs(p)) : pdfParagraphs(p).catch(() => []));
   return ownParas.get(p);
 }
-/** The page that frames this one, when it plays this book: a Tinct book's preview (previewHost) or a reader's own book. */
-function listenHost() {
+/** The page that frames this one: a Tinct book's preview (previewHost) or a reader's own book's (MarginOwnBook). */
+function frameHost() {
   if (state.preview) return previewHost();
   const hex = new URLSearchParams(location.search).get('userBook');
-  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return hex && p?.own && p.listen && String(p.bookId || '').endsWith(hex) ? p : null } catch { return null }
+  try { const p = window.parent !== window && window.parent.TinctMarginPreview; return hex && p?.own && String(p.bookId || '').endsWith(hex) ? p : null } catch { return null }
 }
+/** ...when it plays this book. */
+function listenHost() { const p = frameHost(); return p?.listen ? p : null }
 /** Leaving the book, or its text changing (a PDF's pages and its Tinct text): an own book's narration is put away. */
 function stopNarration() { if (!state.preview) try { listenHost()?.listen?.stop?.() } catch {} }
 /** For js/tinct-listen.js: an own book's chapters and paragraphs. `version` changes when another text is opened. */
@@ -7906,13 +7931,6 @@ function ownChapterTitle(n) {
   return `${ch ? ch.label + ' · ' : ''}p. ${pageLabel(n)}`;
 }
 const ownListenChanged = () => { window.TinctOwnListen.version++; dispatchEvent(new Event('tinct-own-listen')) };
-// Talk (Chat's spoken answers) still uses this device's voice: its voice and speed are the reader's own settings.
-const speaks = lang => v => String(v.lang || '').toLowerCase().split(/[-_]/)[0] === String(lang || '').toLowerCase().split(/[-_]/)[0];
-function pickVoice() {
-  const vs = speechSynthesis.getVoices(), fits = speaks(bookLang());
-  const chosen = vs.find(v => v.name === prefs.voice);
-  return (chosen && fits(chosen) ? chosen : null) || vs.find(v => fits(v) && v.default) || vs.find(fits) || chosen || null;
-}
 // While a book is read aloud, a click on the page does not open its cards (as before, for an own book).
 const listening = () => !state.preview && root.dataset.playing === 'true';
 // Clicking a saved highlight offers Explain, Chat, Remove highlight and Copy.

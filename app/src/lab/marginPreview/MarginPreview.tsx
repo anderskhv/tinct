@@ -22,6 +22,7 @@ import { marginPreviewMenu, type MarginPreviewMenuApi } from './marginPreviewMen
 import type { MarginNavApi, MarginNavBook, MarginNavRequest } from './MarginPreviewNav'
 import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
 import { useMarginListen, type MarginListenApi } from './useMarginListen'
+import { useMarginTalk, type MarginTalkApi } from './MarginTalk'
 import {
   marginPreviewCompareEdition,
   marginPreviewLayoutHref,
@@ -60,6 +61,8 @@ declare global {
       sync?: MarginPreviewSyncBridge | null
       /** Listen: the book reader's player, run in this page (useMarginListen.ts; the frame's js/tinct-listen.js). */
       listen?: MarginListenApi
+      /** Talk: the book reader's voice session and call, run in this page (MarginTalk.tsx); the frame's Chat keeps the turns. */
+      talk?: MarginTalkApi
       /** The t menu's Profile and Reading settings (marginPreviewMenu.ts). */
       menu?: MarginPreviewMenuApi
       /** The title and the chapter pill: the book reader's Reading now and Contents (MarginPreviewNav.tsx). */
@@ -96,6 +99,15 @@ export function marginPreviewBridge(bookId: string, pending: Promise<MarginPrevi
   }
 }
 
+/** The margin reader's window in this page, for Talk's turns. */
+const frameWindow = () => (document.querySelector('iframe[data-testid="margin-preview-frame"]') as HTMLIFrameElement | null)?.contentWindow ?? null
+/** The account cards (with Premium and sign-in) over the book: what the book reader's account sheet is. */
+function openAccount() {
+  let dark = false
+  try { dark = !!frameWindow()?.document.querySelector('.lab.is-night') } catch { /* the frame's look stays unknown */ }
+  void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you', dark, deskTop: 76 })).catch(() => { /* offline: nothing opened */ })
+}
+
 export function MarginPreview({ bookId, load = loadMarginPreviewBookParts, frame = null }: { bookId: string; load?: (bookId: string, deps: Parameters<typeof loadMarginPreviewBookParts>[1]) => MarginPreviewParts; frame?: HTMLIFrameElement | null }) {
   const [failed, setFailed] = useState(false)
   // One load per page, shared with the frame (it may ask before or after this renders): the chapters at the place
@@ -121,15 +133,17 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBookParts, frame
   const chapterTitles = useMemo(() => new Map((shown?.chapters ?? []).map(c => [c.number, c.title])), [shown])
   // The edition the frame shows is the one heard.
   const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
+  const { user: talkUser } = useAuth()
+  const talk = useMarginTalk({ bookId, editionKey: shown?.editionKey ?? null, privateBook: false, frame: frameWindow, signedIn: Boolean(talkUser), onAccount: openAccount, pauseListen: () => listen.pause() })
   const [navRequest, setNavRequest] = useState<MarginNavRequest | null>(null)
   const nav = useMemo<MarginNavApi>(() => ({ open: request => setNavRequest(request) }), [])
   const closeNav = useCallback(() => setNavRequest(null), [])
   useEffect(() => {
-    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen, parts.first), sync: syncRef.current, nav }
+    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen, parts.first), sync: syncRef.current, nav, talk: talk.api }
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending, listen, parts.first, nav])
+  }, [bookId, pending, listen, parts.first, nav, talk.api])
   // The frame main.tsx started before this chunk loaded (marginPreviewFrame.ts) is this one's; it goes with an error.
   useEffect(() => { if (failed) frame?.remove() }, [failed, frame])
   if (failed) {
@@ -143,6 +157,7 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBookParts, frame
   return (
     <>
     {shown && shown.bookId === bookId ? <MarginPreviewSync model={shown} onBridge={onBridge} /> : null}
+    {talk.surface}
     {frame ? null : <iframe
       data-testid="margin-preview-frame"
       title="Margin preview"
@@ -208,18 +223,16 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
   // Not Premium (402): the account cards, with their Premium offer, open over the book (the book reader's account sheet).
   const ownListen = useMemo(() => ({
     hex,
-    onPremiumRequired: () => {
-      let dark = false
-      try { dark = !!frameRef.current?.contentDocument?.querySelector('.lab.is-night') } catch { /* the frame's look stays unknown */ }
-      void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you', dark, deskTop: 76 })).catch(() => { /* offline: nothing opened */ })
-    },
+    onPremiumRequired: openAccount,
   }), [hex])
   const listen = useMarginListen({ bookId, editionKey: 'own', own: ownListen })
   useEffect(() => listen.subscribe(snapshot => { listeningRef.current = snapshot.playing }), [listen])
+  // Talk: the book reader's, on the passage on screen only (no id, no edition goes out).
+  const talk = useMarginTalk({ bookId, editionKey: null, privateBook: true, frame: frameWindow, signedIn: Boolean(user), onAccount: openAccount, pauseListen: () => listen.pause() })
   useEffect(() => {
-    window.TinctMarginPreview = { bookId, nav, own, listen }
+    window.TinctMarginPreview = { bookId, nav, own, listen, talk: talk.api }
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, nav, own, listen])
+  }, [bookId, nav, own, listen, talk.api])
   // The address is the book's one address; what only the first open needed is dropped (a reload keeps the place).
   useEffect(() => {
     try {
@@ -253,6 +266,7 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
       style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, display: 'block', background: 'var(--paper, #ece7db)' }}
     />
     {navRequest && navBook ? <Suspense fallback={null}><MarginPreviewNav model={navBook} request={navRequest} onDone={closeNav} /></Suspense> : null}
+    {talk.surface}
     </>
   )
 }

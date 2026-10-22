@@ -16,6 +16,9 @@
 // keeps the place; Play goes on from there; a reload opens at the place; Audio settings offers Tinct's voices (no
 // device voice); no request but the own-book route and the account's carries the hex; speechSynthesis is never
 // called, in either page. Then: not Premium (402) opens the account cards and plays nothing; the phone is unchanged.
+// Talk (MarginTalk.tsx): from Chat, the book reader's voice session (/api/voice-session, a stand-in Grok socket here:
+// nothing is sent to xAI) about the passage in view, its call over the book, each turn in Chat, no id or hex sent,
+// and no browser voice.
 import { chromium } from '@playwright/test'
 import fs from 'node:fs/promises'
 import { existsSync, readFileSync } from 'node:fs'
@@ -74,6 +77,7 @@ async function serve(context, { book, log, premium = true }) {
     if (url.origin !== origin) return route.abort()
     const p = url.pathname
     if (p === '/qa-seed') return route.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>seed</title>' })
+    if (p === '/api/voice-session') { log.voice.push({ auth: req.headers().authorization, body: req.postData() || '' }); return json(route, 200, { value: 'qa-secret', model: 'grok-voice-qa' }) }
     if (p === '/api/narration/voices') return json(route, 200, { enabled: true, provider: 'grok', model: 'mock', voices: [{ key: 'f', label: 'Ara', persona: 'female' }, { key: 'm', label: 'Helios', persona: 'male' }], ownBooks: true })
     if (p === '/api/narration/own/ensure') {
       const body = JSON.parse(req.postData() || '{}')
@@ -196,11 +200,34 @@ const sample = frame => frame.evaluate(async () => {
   return { playing: snap.playing, status: snap.status, chapter: snap.chapterNumber, follow: snap.follow, word: range ? range.toString() : null, expected, inView: !!r && r.top >= s.top && r.bottom <= s.bottom }
 })
 // The player plays its recordings from blobs it fetched (the private links, log.audio): the element is playing.
+/** A stand-in for Grok's realtime socket in the top page (MarginTalk runs there): it answers the session's setup and
+    lets the check say a turn for each side; every frame the session sends is kept. */
+function fakeGrok() {
+  if (window.top !== window) return
+  const Native = window.WebSocket
+  window.__grok = { sent: [], urls: [] }
+  function Fake(url, protocols) {
+    if (!/api\.x\.ai|relay/.test(String(url))) return new Native(url, protocols)
+    const listeners = {}, ws = {
+      url: String(url), readyState: 0, binaryType: 'blob',
+      addEventListener(type, fn) { (listeners[type] ||= []).push(fn) }, removeEventListener() {},
+      send(data) { let m = null; try { m = JSON.parse(data) } catch { return } if (m.type === 'input_audio_buffer.append') return; window.__grok.sent.push(m); if (m.type === 'session.update') setTimeout(() => emit({ type: 'session.updated' }), 10) },
+      close() { if (ws.readyState === 3) return; ws.readyState = 3; (listeners.close || []).forEach(f => f({ code: 1000 })) },
+    }
+    const emit = ev => (listeners.message || []).forEach(f => f({ data: JSON.stringify(ev) }))
+    window.__grok.urls.push(String(url)); window.__grok.emit = emit
+    setTimeout(() => { ws.readyState = 1; (listeners.open || []).forEach(f => f({})); emit({ type: 'session.created' }) }, 20)
+    return ws
+  }
+  Fake.CONNECTING = 0; Fake.OPEN = 1; Fake.CLOSING = 2; Fake.CLOSED = 3
+  window.WebSocket = Fake
+}
+
 const playingOwnAudio = page => page.waitForFunction(() => window.__narr.audio && !window.__narr.audio.paused, null, { timeout: 30000 })
 
 async function runBook(browser, key, { width, height }) {
   const book = BOOKS[key], tag = `${key} ${width}×${height}`
-  const log = { requests: [], ensures: [], audio: [] }
+  const log = { requests: [], ensures: [], audio: [], voice: [] }
   const context = await browser.newContext({ viewport: { width, height }, serviceWorkers: 'block' })
   await serve(context, { book, log })
   await context.addInitScript(spies)
@@ -283,8 +310,85 @@ async function runBook(browser, key, { width, height }) {
   await context.close()
 }
 
+async function talk(browser, key) {
+  const book = BOOKS[key], tag = `talk ${key} 1440×900`, log = { requests: [], ensures: [], audio: [], voice: [] }
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', permissions: ['microphone'] })
+  await serve(context, { book, log })
+  await context.addInitScript(spies)
+  await context.addInitScript(fakeGrok)
+  const page = await context.newPage(), errors = []
+  page.on('pageerror', e => errors.push(e.message))
+  await seed(page, book)
+  const frame = await openFrame(page, book)
+  if (key === 'epub') await frame.evaluate(() => { const s = document.getElementById('scroll'), sheet = [...document.querySelectorAll('.epub-sheet')].find(x => /Span of Accounts/.test(x.textContent) && x.querySelectorAll('p').length > 8), ps = [...sheet.querySelectorAll('p')], t = ps[Math.floor(ps.length / 2)]; s.scrollTop += t.getBoundingClientRect().top - s.getBoundingClientRect().top - 120 })
+  else await frame.evaluate(() => goTo({ page: 2, frac: 0.15 }))
+  await page.waitForTimeout(1200)
+  const expect = await expectedTop(frame)
+  // Talk from the t menu's row, as the reader starts it.
+  await frame.evaluate(() => { setTalk(true); openChat() })
+  await page.waitForSelector('[data-testid="margin-talk"]', { timeout: 15000 })
+  await page.waitForFunction(() => window.__grok?.sent.some(m => m.type === 'session.update'), null, { timeout: 15000 })
+  await page.waitForTimeout(500)
+  const sent = JSON.stringify(await page.evaluate(() => window.__grok.sent))
+  ok(`${tag}: Talk opens the book reader's voice session, signed in, with its call over the book`, log.voice.length === 1 && log.voice[0].auth === 'Bearer qa' && await page.isVisible('[data-testid="margin-talk"]'), log.voice)
+  const shownTitle = await frame.evaluate(() => state.title)
+  const heardText = !!expect && sent.includes(JSON.stringify(expect.text.slice(0, 40)).slice(1, -1))
+  ok(`${tag}: the session hears the book and the passage in view`, sent.includes(shownTitle) && heardText, { title: shownTitle, hasTitle: sent.includes(shownTitle), heardText, expect: expect?.text.slice(0, 60) })
+  ok(`${tag}: no id or hex goes to the session`, !sent.includes(book.hex) && !sent.includes('userbook-') && !log.voice.some(v => v.body.includes(book.hex)))
+  // A turn each way: both land in Chat's thread.
+  await page.evaluate(() => {
+    const g = window.__grok
+    g.emit({ type: 'input_audio_buffer.speech_started' }); g.emit({ type: 'input_audio_buffer.speech_stopped' })
+    g.emit({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'What is this chapter about?' })
+    g.emit({ type: 'response.created', response: { id: 'r1' } })
+    g.emit({ type: 'response.output_audio_transcript.delta', response_id: 'r1', delta: 'It is about lamps and the accounts we give of them.' })
+    g.emit({ type: 'response.done', response: { id: 'r1', status: 'completed' } })
+  })
+  await page.waitForTimeout(800)
+  const thread = await frame.evaluate(() => ({ turns: chat.turns.slice(-2).map(t => [t.role, t.content]), shown: document.body.textContent.includes('It is about lamps') }))
+  ok(`${tag}: each spoken turn lands in Chat`, JSON.stringify(thread.turns) === JSON.stringify([['user', 'What is this chapter about?'], ['assistant', 'It is about lamps and the accounts we give of them.']]) && thread.shown, thread)
+  await page.screenshot({ path: path.join(output, `talk-${key}.png`) })
+  // End: the call goes, Talk is off in Chat.
+  await page.click('[data-testid="margin-talk"] button[aria-label*="End" i]')
+  await page.waitForTimeout(600)
+  const after = await frame.evaluate(() => chat.talk)
+  ok(`${tag}: End closes the call and turns Talk off`, !(await page.isVisible('[data-testid="margin-talk"]')) && after === false)
+  const speech = await Promise.all(page.frames().map(f => f.evaluate(() => window.__speech || 0).catch(() => 0)))
+  ok(`${tag}: speechSynthesis is never used`, speech.every(n => n === 0), speech)
+  ok(`${tag}: no page errors`, errors.length === 0, errors)
+  await context.close()
+}
+
+/** Talk on a Tinct book in the margin view: the same session and call, its edition's text in view. */
+async function talkTinct(browser) {
+  const tag = 'talk Tinct book (frankenstein) 1440×900', log = { requests: [], ensures: [], audio: [], voice: [] }
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', permissions: ['microphone'] })
+  await serve(context, { book: BOOKS.epub, log })
+  await context.addInitScript(spies)
+  await context.addInitScript(fakeGrok)
+  const page = await context.newPage(), errors = []
+  page.on('pageerror', e => errors.push(e.message))
+  await seed(page, BOOKS.epub)
+  await page.goto(`${origin}/reader?book=frankenstein&margin=1`, { waitUntil: 'domcontentloaded' })
+  const frame = await (await page.waitForSelector('iframe[data-testid="margin-preview-frame"]', { timeout: 45000 })).contentFrame()
+  await frame.waitForFunction(() => typeof state !== 'undefined' && state.preview && document.querySelector('.tb-chapter p.tb-p'), null, { timeout: 60000 })
+  await page.waitForTimeout(1500)
+  await frame.evaluate(() => { setTalk(true); openChat() })
+  await page.waitForFunction(() => window.__grok?.sent.some(m => m.type === 'session.update'), null, { timeout: 15000 }).catch(() => null)
+  const sent = JSON.stringify(await page.evaluate(() => window.__grok?.sent || []))
+  const para = await frame.evaluate(() => { const top = document.getElementById('scroll').getBoundingClientRect().top + 1; const p = [...document.querySelectorAll('p.tb-p')].find(el => el.getBoundingClientRect().bottom > top); return p ? p.textContent.replace(/\s+/g, ' ').trim().slice(0, 40) : '' })
+  ok(`${tag}: Talk opens the voice session with the book and the paragraph in view`, log.voice.length === 1 && sent.includes('Frankenstein') && !!para && sent.includes(JSON.stringify(para).slice(1, -1)), { voice: log.voice.length, para })
+  await page.evaluate(() => { const g = window.__grok; g.emit({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'Who is speaking here?' }) })
+  await page.waitForTimeout(500)
+  ok(`${tag}: a spoken turn lands in Chat`, await frame.evaluate(() => chat.turns.at(-1)?.content === 'Who is speaking here?'))
+  const speech = await Promise.all(page.frames().map(f => f.evaluate(() => window.__speech || 0).catch(() => 0)))
+  ok(`${tag}: speechSynthesis is never used`, speech.every(n => n === 0), speech)
+  ok(`${tag}: no page errors`, errors.length === 0, errors)
+  await context.close()
+}
+
 async function notPremium(browser) {
-  const book = BOOKS.epub, log = { requests: [], ensures: [], audio: [] }
+  const book = BOOKS.epub, log = { requests: [], ensures: [], audio: [], voice: [] }
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
   await serve(context, { book, log, premium: false })
   await context.addInitScript(spies)
@@ -305,7 +409,7 @@ async function notPremium(browser) {
 }
 
 async function phone(browser) {
-  const book = BOOKS.epub, log = { requests: [], ensures: [], audio: [] }
+  const book = BOOKS.epub, log = { requests: [], ensures: [], audio: [], voice: [] }
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, serviceWorkers: 'block' })
   await serve(context, { book, log })
   await context.addInitScript(spies)
@@ -319,9 +423,11 @@ async function phone(browser) {
   await context.close()
 }
 
-const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=no-user-gesture-required'] }))
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=no-user-gesture-required', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'] }))
 try {
   for (const key of (process.env.BOOKS ?? 'epub,pdf').split(',').filter(Boolean)) for (const size of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) await runBook(browser, key, size)
+  for (const key of (process.env.TALK ?? 'epub,pdf').split(',').filter(Boolean)) await talk(browser, key)
+  if (process.env.TALK !== '') await talkTinct(browser)
   await notPremium(browser)
   await phone(browser)
 } finally {
