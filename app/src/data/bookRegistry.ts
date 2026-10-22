@@ -808,12 +808,16 @@ export const CRIME_AND_PUNISHMENT: Book = {
       aligned: true,
       hasAudio: true,
     },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated
+    // 1:1 from modern-en, books/wip/danish-2026-10-21-c. Text only: Danish
+    // narration is disabled.
     {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1505,12 +1509,16 @@ export const MOBY_DICK: Book = {
       aligned: true,
       hasAudio: true,
     },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated
+    // 1:1 from modern-en, books/wip/danish-2026-10-21-c. Text only: Danish
+    // narration is disabled.
     {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1742,12 +1750,16 @@ export const NOTES_FROM_UNDERGROUND: Book = {
       aligned: true,
       hasAudio: true,
     },
+    // Offered (OFFERED_DANISH_EDITIONS, Danish rollout 2026-10-22): translated
+    // 1:1 from modern-en, books/wip/danish-2026-10-21-c. Text only: Danish
+    // narration is disabled.
     {
       key: 'modern-da',
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }

@@ -56,6 +56,9 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
  */
 export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'to-the-lighthouse/modern-da',
+  'notes-from-underground/modern-da', // Danish rollout, run C (2026-10-22)
+  'crime-and-punishment/modern-da',
+  'moby-dick/modern-da',
   'a-little-princess/modern-da',
   'around-the-world-80-days/modern-da',
   'jungle-book/modern-da',

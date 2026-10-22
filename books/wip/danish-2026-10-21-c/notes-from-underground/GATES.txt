@@ -1,0 +1,34 @@
+WROTE /home/user/wt-da-c/books/wip/danish-2026-10-21-c/notes-from-underground-modern-da.json
+ch  1 paras   11 en_chars    6056 da_chars    6549 ratio 1.081 english_paras []
+ch  2 paras    4 en_chars    6329 da_chars    6469 ratio 1.022 english_paras []
+ch  3 paras    7 en_chars    8415 da_chars    8180 ratio 0.972 english_paras []
+ch  4 paras    2 en_chars    3452 da_chars    3453 ratio 1.000 english_paras []
+ch  5 paras    1 en_chars    5256 da_chars    5364 ratio 1.021 english_paras []
+ch  6 paras    2 en_chars    2548 da_chars    2649 ratio 1.040 english_paras []
+ch  7 paras    2 en_chars   11611 da_chars   11817 ratio 1.018 english_paras []
+ch  8 paras    6 en_chars    9621 da_chars   10096 ratio 1.049 english_paras []
+ch  9 paras    3 en_chars    5619 da_chars    6112 ratio 1.088 english_paras []
+ch 10 paras    5 en_chars    3036 da_chars    3152 ratio 1.038 english_paras []
+ch 11 paras   14 en_chars    6099 da_chars    6745 ratio 1.106 english_paras []
+ch 12 paras   30 en_chars   25410 da_chars   26402 ratio 1.039 english_paras []
+ch 13 paras    6 en_chars    8812 da_chars    9146 ratio 1.038 english_paras []
+ch 14 paras   40 en_chars   17997 da_chars   18838 ratio 1.047 english_paras []
+ch 15 paras   99 en_chars   18554 da_chars   19341 ratio 1.042 english_paras []
+ch 16 paras   26 en_chars    9002 da_chars    9287 ratio 1.032 english_paras []
+ch 17 paras  120 en_chars   19294 da_chars   19940 ratio 1.033 english_paras []
+ch 18 paras   13 en_chars   14295 da_chars   15100 ratio 1.056 english_paras []
+ch 19 paras   46 en_chars   19025 da_chars   20108 ratio 1.057 english_paras []
+ch 20 paras   35 en_chars   13144 da_chars   13644 ratio 1.038 english_paras []
+ch 21 paras   23 en_chars    9738 da_chars   10482 ratio 1.076 english_paras []
+chapters done 21 / 21 | da words 41906 | gates_ok True
+LINT issues 6
+  STRAY-UNDERSCORE ch6 p0 ' _Som' | …nne«. En forfatter har skrevet _Som I vil_: straks drikker j…
+  STRAY-UNDERSCORE ch12 p20 ' _Otetjestvennyje' | …elt og sendte fortællingen til _Otetjestvennyje Zapiski_. De…
+  STRAY-UNDERSCORE ch15 p54 '»_Stille' | »_Stille!_« råbte Ferfitjkin. …
+  STRAY-UNDERSCORE ch15 p83 ' _De' | »Fornærmede? _De_ fornærme _mig?_ Forstå d…
+  STRAY-UNDERSCORE ch16 p17 ' _Silvio' | …de lånt alt dette fra Pusjkins _Silvio_ og Lermontovs _Maske…
+  STRAY-UNDERSCORE ch16 p17 ' _Maskerade' | …usjkins _Silvio_ og Lermontovs _Maskerade_. Pludselig overvæ…
+
+== Follow-up re-run 2026-10-21 (claude/danish-1021-c-review, scratch gate re-implementation, base c9029f4470) ==
+notes-from-underground: chapters 21/21 paras 495 ratio 0.970-1.105 english_paras [] da_words 41985 changed_paras_vs_c9029f4470 24 gates_ok True
+LINT notes-from-underground        6       0      6       0      0      0     0
