@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
-import { chapterNotesPlainText, fetchChapterNotes, storedChapterNotes } from './labChapterNotes'
+import { chapterNotesPlainText, fetchChapterNotes, keepChapterNotes, storedChapterNotes, type ChapterNotesResult } from './labChapterNotes'
+import { isUserBookId } from './userBook/userBookId'
+import { fetchOwnChapterNotes, isOwnChapterNotesKind, type OwnChapterNotesSource } from './userBook/ownChapterNotes'
 import { RowIcon } from './LabSuperMenu.tsx'
 import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
@@ -28,6 +30,11 @@ export interface LabChapterNotesSheetProps {
   follow?: (beats: ChapterNotesBeat[] | null) => ReactNode
   /** The follow-ups asked from the card and their answers, under the beats (margin card or phone sheet). */
   thread?: ReactNode
+  /**
+   * A reader's own book: its Primer or Recap is made from this chapter's text, sent from this device with no book id
+   * (userBook/ownChapterNotes.ts), never from the server's chapter notes. Kept on this device as any notes are.
+   */
+  own?: OwnChapterNotesSource
 }
 
 /**
@@ -35,7 +42,7 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).
@@ -69,11 +76,16 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
 
   const load = useCallback(() => {
     setState('loading')
-    void fetchChapterNotes(request, { readToken }).then(result => {
+    const notes = own && isOwnChapterNotesKind(request.kind)
+      ? fetchOwnChapterNotes(request.kind, own, { readToken }).then(result => { if (result.ok) keepChapterNotes(request, result.beats); return result })
+      // An own book's id never leaves the device: without its text here there is nothing to ask for.
+      : isUserBookId(request.bookId) ? Promise.resolve<ChapterNotesResult>({ ok: false, status: 0 })
+      : fetchChapterNotes(request, { readToken })
+    void notes.then(result => {
       if (!mounted.current) return
       if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setState('error') }
     })
-  }, [request, readToken])
+  }, [request, readToken, own])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

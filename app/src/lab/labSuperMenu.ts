@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'text' | 'reading' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -24,19 +24,37 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * The phone's t menu, the approved design (iPhone feedback, 20 Oct 2026):
- * Chat · Talk on one row; Summarize and Catch me up; Text and theme (the
- * themes, size and Advanced settings); Reading settings (edition, compare
- * edition, voice and speed, the controls Book editions and Settings held);
- * then Library and Profile. Every destination of the old rows is still here.
+ * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
+ * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
+ * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
+ * - Aa: font, size, alignment, spacing, margins, theme. The desktop margin reader's own top-bar button.
+ * - Book settings: main and compare version, a play's layout, Margin or Classic reader, Convert to Tinct book,
+ *   a PDF's Original pages (whichever apply to the book).
+ * - Audio settings: voice, speed, audiobook version.
+ */
+export const LAB_SETTINGS_GROUPS = [
+  { id: 'text', frame: 'aa', layer: 'reading', label: 'Aa' },
+  { id: 'editions', frame: 'book', layer: 'editions', label: 'Book settings' },
+  { id: 'audio', frame: 'audio', layer: 'audio', label: 'Audio settings' },
+] as const satisfies ReadonlyArray<{ id: LabSuperMenuId; frame: string; layer: string; label: string }>
+
+/** The reader's highlights, notes and cards: the desktop margin reader's top-bar button, the phone's t menu row. */
+export const LAB_NOTEBOOK_LABEL = 'Notebook'
+
+const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) }))
+
+/**
+ * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
+ * Summarize, Catch me up and Notebook (the Contents' highlights and notes); Aa, Book settings and Audio settings;
+ * then Library and Profile. The phone has no top-bar Aa or Notebook, so everything is here.
  */
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'text', label: 'Text and theme', chevron: true, ruleBefore: true },
-    { id: 'reading', label: 'Reading settings', chevron: true },
+    { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
+    ...SETTINGS_ROWS,
     { id: 'library', label: privateBook ? 'Your books' : 'Library', ruleBefore: true },
     { id: 'account', label: 'Profile', chevron: true },
   ]
@@ -44,31 +62,28 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
 
 /**
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
- * Summarize), reading choices, then library (phone only) and account.
+ * Summarize), the settings groups, then library (phone only) and account.
  */
 export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
   /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
   noCatchUp?: boolean
 } = {}): LabSuperMenuRow[] {
-  // A reader's own book keeps Reading settings on the phone: its voice and speed are there (and a PDF's editions).
-  if (phone) return phoneRows(privateBook).filter(row => !(noCatchUp && row.id === 'catchup'))
-  const all: LabSuperMenuRow[] = [
+  const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // One row for both conversations (Anders, 2026-10-07): always here, so
     // the only way to the librarian since the margin tab went (2026-10-08).
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
-    { id: 'settings', label: 'Settings', chevron: true },
+    ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
   const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition, except a PDF: its Tinct text and its
-  // Original pages (2026-10-09).
+  // at a time), but one edition, so no Book settings, except a PDF's: its
+  // Tinct text and its Original pages (2026-10-09). Its Audio settings stay.
   return privateBook ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')) : rows
 }
 

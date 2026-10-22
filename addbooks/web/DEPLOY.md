@@ -10,6 +10,12 @@ This package builds two static outputs from one catalogue and one search engine
 
 No npm dependencies. Node 22+ and Python 3.10+. Nothing here calls a paid API at build time.
 
+**`app/public/lab/addbook` is the single source of the Add-a-book page and the margin reader**
+(HTML, `js/`, `css/`, `vendor/`, `data/`): edit it there. The old `addbooks/web/src` mirror was
+removed on 22 Oct 2026; this package is tooling only (catalogue, freepubs, test fixtures). Its
+`?v=` tags are the literal `?v=__TINCT_BUILD__`, stamped by `npm run build` in `app/`; never
+hand-bump them.
+
 ## 1. Build the catalogue (once, then refresh monthly)
 
 From the repository root:
@@ -25,8 +31,8 @@ The output is `addbooks/site/data/index.json.gz`. It is gitignored.
 Work priors (search ranking): `NODE_USE_ENV_PROXY=1 node addbooks/scripts/build-work-priors.mjs`
 asks Wikidata (CC0, about 450 small SPARQL queries, cached in `addbooks/.cache/wikidata/`) which
 work each Wikisource or Gutenberg-linked catalogue work is an edition of, how many Wikimedia sites
-have a page on it, and its English name. It writes `addbooks/web/src/data/work-priors.json`
-(~300 KB, committed), which `build.mjs` ships beside the catalogue; the search worker ranks with it
+have a page on it, and its English name. It writes `app/public/lab/addbook/data/work-priors.json`
+(~300 KB, committed), which ships beside the catalogue; the search worker ranks with it
 (`applyPriors` in `search.js`) and searches without it if it is missing. Rebuild it when the
 catalogue is rebuilt. Copyright gate: every
 creator died more than 70 years ago, or the text is anonymous and from before 1900.
@@ -123,7 +129,7 @@ the app build: `npm run build` in `app/`, served by `test/serve.mjs` at `/reader
 
 ### PDFs: the viewer as a Tinct book
 
-Code: `src/js/reader.js` with `src/js/pdf-scan.js` and `src/js/pdf-theme.js` (unit tests in
+Code: `app/public/lab/addbook/js/reader.js` with `js/pdf-scan.js` and `js/pdf-theme.js` (unit tests in
 `app/src/lab/userBook/pdfScan.test.ts`, `pdfTheme.test.ts`; browser checks in
 `test/pdf-polish.mjs`, fixtures written by `test/make-pdf.mjs` into `test/pdf-fixtures/`).
 
@@ -194,7 +200,7 @@ is `404`.
 
 Signed in, a figure the reader snips from a PDF, or an image they attach, paste or drop
 into the chat, goes to `/api/chat` with the question (`IMAGES_ENABLED = true` in
-`src/js/reader.js`). `src/js/tinct-api.js` redraws each picture as PNG (JPEG for photos,
+`app/public/lab/addbook/js/reader.js`). `js/tinct-api.js` redraws each picture as PNG (JPEG for photos,
 or when PNG is too large) of at most 1568 px on its long side and ≤ 1.2 MB, and sends the
 last turn as `[...image blocks, {type: 'text', text}]`. Earlier turns stay text.
 
@@ -257,7 +263,6 @@ tinct.app first, or build freepubs with `--tinct https://tinct.app/` until it is
 
 ```
 addbooks/web/
-  src/              lab page source (index.html, js/, css/, vendor/)
   freepubs/         freepubs.fyi assets (site.css, find.js, favicon.svg)
   scripts/          build.mjs, install.mjs, build-freepubs.mjs, catalog.mjs
   test/             e2e.mjs, freepubs.mjs, serve.mjs (CSP + mocked chat), make-epub.mjs

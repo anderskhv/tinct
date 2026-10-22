@@ -56,13 +56,18 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
     }
     const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }
-    const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)
-    map[chapterNotesKey(request)] = { beats, at: Date.now() }
-    writeMap(CHAPTER_NOTES_STORAGE_KEY, map, NOTES_MAX)
+    keepChapterNotes(request, beats)
     return { ok: true, beats }
   } catch {
     return { ok: false, status: 0 }
   }
+}
+
+/** Keep a chapter's notes on this device, so a reopen is instant (also an own book's: userBook/ownChapterNotes.ts). */
+export function keepChapterNotes(request: ChapterNotesRequest, beats: ChapterNotesBeat[]): void {
+  const map = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)
+  map[chapterNotesKey(request)] = { beats, at: Date.now() }
+  writeMap(CHAPTER_NOTES_STORAGE_KEY, map, NOTES_MAX)
 }
 
 export interface StoredExplanation { bookId: string; chapterNumber: number; paragraphIndex: number; passage: string; answer: string; at: number }

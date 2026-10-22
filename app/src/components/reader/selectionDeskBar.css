@@ -1,0 +1,91 @@
+/* The classic desktop reader's dark selection bar (SelectionDeskBar): the phone's `.lab-pbar` at the margin reader's
+   desktop size (public/lab/addbook/css/margin.css .mr-bar, .mr-more). The container keeps `.selection-popup.is-lab`
+   (one popup open, one dismissal), so the light popup's look is reset here first. */
+.lab .selection-popup.is-lab.is-desk-bar,
+.lab.is-night .selection-popup.is-lab.is-desk-bar {
+  position: fixed; z-index: 320; transform: none; animation: none; transition: none;
+  display: flex; flex-direction: row; align-items: center; gap: 0;
+  width: max-content; min-width: 0; max-width: calc(100vw - 32px); height: 44px; max-height: none;
+  padding: 0 6px; box-sizing: border-box; overflow: visible;
+  border: 0; border-radius: 12px; background: var(--lab-pbar); color: var(--lab-pbar-ink);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .25);
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  font: 400 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  white-space: nowrap;
+}
+/* The tip: below the bar when the bar is above the selection, on top when it is below. */
+.lab .lab-pbar.is-desk::after { top: auto; bottom: -6px; }
+.lab .lab-pbar.is-desk.is-below::after { top: -6px; bottom: auto; }
+.lab .lab-pbar.is-desk .lab-pbar-item { height: 34px; padding: 0 10px; }
+.lab .lab-pbar.is-desk .lab-pbar-item.is-text { padding: 0 11px; }
+.lab .lab-pbar.is-desk .lab-pbar-item.is-ask { gap: 4px; }
+.lab .lab-pbar.is-desk .lab-pbar-item:hover,
+.lab .lab-pbar.is-desk .lab-pbar-item[aria-expanded="true"] { background: rgba(255, 255, 255, .10); }
+.lab .lab-pbar.is-desk .lab-pbar-item:focus-visible,
+.lab .lab-pbar.is-desk .lab-pbar-swatch:focus-visible,
+.lab .lab-dmore-row:focus-visible { outline: 2px solid var(--lab-pbar-ink); outline-offset: -2px; }
+.lab .lab-pbar.is-desk .lab-pbar-sep { height: 20px; margin: 0 4px; }
+.lab .lab-pbar.is-desk .lab-picon { width: 16px; height: 16px; }
+.lab .lab-pbar.is-desk .lab-pbar-hl .lab-picon { width: 18px; height: 18px; }
+.lab .lab-pbar.is-desk .lab-pbar-swatch { margin: 0 5px !important; padding: 0; border: 0; }
+/* After "Ask": the margin reader's soft caret, blinking. */
+.lab .lab-dbar-caret { display: inline-block; width: 1px; height: 13px; border-radius: 1px; background: var(--lab-pbar-ink); opacity: .7; animation: lab-dbar-blink 2.4s ease-in-out infinite; }
+@keyframes lab-dbar-blink { 0%, 45% { opacity: .7; } 55%, 95% { opacity: 0; } 100% { opacity: .7; } }
+@media (prefers-reduced-motion: reduce) { .lab .lab-dbar-caret { animation: none; } }
+
+/* ••• (desktop): 300px, each action named with the line under it. */
+.lab .lab-dmore {
+  position: absolute; width: 300px; padding: 8px; box-sizing: border-box; border-radius: 14px;
+  background: var(--lab-pbar); color: var(--lab-pbar-ink); box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+  font: 400 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; white-space: normal; text-align: left;
+}
+.lab .lab-dmore.is-measuring { visibility: hidden; }
+.lab .lab-dmore-row { display: block; width: 100%; margin: 0; padding: 8px 12px; border: 0; border-radius: 8px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.lab .lab-dmore-row:hover { background: rgba(255, 255, 255, .08); }
+.lab .lab-dmore-row b { display: block; font-weight: 500; font-size: 14px; white-space: nowrap; }
+.lab .lab-dmore-row span { display: block; font-size: 12.5px; line-height: 1.35; color: var(--lab-pbar-soft); }
+.lab .lab-dmore hr { border: 0; border-top: 1px solid var(--lab-pbar-sep); margin: 6px 10px; }
+
+/* The note editor and the Define card on the dark bar's colours (margin.css .mr-note, .mr-define). */
+.lab .selection-popup.is-lab.is-compact.is-dark,
+.lab.is-night .selection-popup.is-lab.is-compact.is-dark {
+  background: var(--lab-pbar); color: var(--lab-pbar-ink); border: 0; border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .3); backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.lab .selection-popup.is-lab.is-compact.is-dark[data-popup-mode="note"] {
+  width: 360px !important; min-width: 0 !important; max-width: calc(100vw - 32px) !important; padding: 0 !important; overflow: hidden;
+}
+.lab .selection-popup.is-dark .lab-dnote-body { padding: 14px 16px 12px; font-family: 'EB Garamond', Georgia, serif; }
+.lab .selection-popup.is-dark .lab-dnote-quote { display: block; margin: 0 0 8px; font: italic 400 15px/1.3 'EB Garamond', Georgia, serif; color: var(--lab-pbar-soft); white-space: normal; overflow-wrap: anywhere; }
+.lab .selection-popup.is-dark .lab-dnote-field {
+  display: block; box-sizing: border-box; width: 100%; min-height: 72px; max-height: 30vh; margin: 0; padding: 10px 12px;
+  border: 1px solid var(--lab-pbar-sep); border-radius: 8px; background: transparent; color: var(--lab-pbar-ink); caret-color: var(--lab-pbar-ink);
+  font: 18px/1.4 'EB Garamond', Georgia, serif; resize: none; overflow-wrap: anywhere;
+}
+.lab .selection-popup.is-dark .lab-dnote-field::placeholder { color: var(--lab-pbar-soft); opacity: 1; }
+.lab .selection-popup.is-dark .lab-dnote-field:focus { outline: none; border-color: var(--lab-pbar-soft); }
+.lab .selection-popup.is-dark .lab-dnote-foot {
+  display: flex; align-items: center; justify-content: space-between; padding: 4px 6px; border-top: 1px solid var(--lab-pbar-sep);
+  font: 400 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+.lab .selection-popup.is-dark .lab-dnote-foot button {
+  height: 34px; margin: 0; padding: 0 10px; border: 0; border-radius: 8px; background: none; color: var(--lab-pbar-ink); font: inherit; white-space: nowrap; cursor: pointer;
+}
+.lab .selection-popup.is-dark .lab-dnote-foot button.is-quiet { color: var(--lab-pbar-soft); }
+.lab .selection-popup.is-dark .lab-dnote-foot button:hover:not(:disabled) { background: rgba(255, 255, 255, .10); }
+.lab .selection-popup.is-dark .lab-dnote-foot button:disabled { opacity: .45; cursor: default; }
+.lab .selection-popup.is-dark .lab-dnote-foot button:focus-visible { outline: 2px solid var(--lab-pbar-ink); outline-offset: -2px; }
+
+/* Define: the headword in Garamond, the senses soft, the controls on the bar's ink. */
+.lab .selection-popup.is-lab.is-dark .popup-define,
+.lab .selection-popup.is-lab.is-dark .popup-define-word,
+.lab .selection-popup.is-lab.is-dark .lab-window-control,
+.lab .selection-popup.is-lab.is-dark .popup-define-status { color: var(--lab-pbar-ink); background: transparent; }
+.lab .selection-popup.is-lab.is-dark .popup-define-list,
+.lab .selection-popup.is-lab.is-dark .popup-define-note,
+.lab .selection-popup.is-lab.is-dark .popup-define-empty { color: var(--lab-pbar-soft); }
+.lab .selection-popup.is-lab.is-dark .popup-define-input { color: var(--lab-pbar-ink); background: transparent; border-color: var(--lab-pbar-sep); }
+.lab .selection-popup.is-lab.is-dark .lab-window-control:hover { background: rgba(255, 255, 255, .10); }
+.lab .selection-popup.is-lab.is-dark .lab-window-control svg { stroke: currentColor; }
+.lab[data-chrome-version] .selection-popup.is-lab.is-dark .popup-define-word { font-size: 21px; font-style: normal; }
+.lab .selection-popup.is-lab.is-dark .popup-define-list { font-size: 15.5px; line-height: 1.42; }

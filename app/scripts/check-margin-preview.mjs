@@ -59,6 +59,10 @@ const frameOf = async page => {
   const handle = await page.waitForSelector('iframe[data-testid="margin-preview-frame"]', { timeout: 30000 })
   const frame = await handle.contentFrame()
   await frame.waitForFunction(() => typeof state !== 'undefined' && state.preview && state.pages.length > 0 && document.querySelector('.epub-sheet'), null, { timeout: 60000 })
+  // The chapters still waiting to be laid out, read the moment the book is ready: tinct-book.js lays them out one by one
+  // while the reader is idle, so on a fast machine they could all be done by the time the 1.2 s settle below was over
+  // (a harness race, not the product: the check read 0 waiting and failed).
+  frame.laterAtOpen = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later, .tb-chapter.tb-pending').length, all: document.querySelectorAll('.tb-chapter').length }))
   await page.waitForTimeout(1200)
   return frame
 }
@@ -94,8 +98,6 @@ async function selectInView(frame) {
   ok('book.html: index.html without the PDF-only scripts', book.replace(/^<!-- The margin preview of a Tinct book.*-->\n/m, '') === index.split('\n').filter(l => !listed.some(src => l === `<script src="${src}"></script>`)).join('\n'), listed)
   ok('reader.js PDF_SCRIPTS: every one in index.html, in its order, with its tag', pdfOnly.length === listed.length && pdfOnly.every((src, i) => src === listed[i]) && listed.includes('vendor/pdfjs/pdf.min.js'), { listed, pdfOnly })
   ok('book.html has the margin reader (reader.js, tinct-book.js, margin.js) and no pdf.js', /js\/reader\.js/.test(book) && /js\/tinct-book\.js/.test(book) && /js\/margin\.js/.test(book) && !/pdf\.min\.js|pdf-scan\.js/.test(book))
-  const mirror = f => readFileSync(resolve('../addbooks/web/src/' + f), 'utf8') === readFileSync(resolve('public/lab/addbook/' + f), 'utf8')
-  ok('book.html, index.html and the changed scripts are mirrored in addbooks/web/src', ['book.html', 'index.html', 'js/reader.js', 'js/tinct-book.js', 'js/reader-layout.js', 'css/reader.css'].every(mirror))
 }
 
 const browser = await chromium.launch({ executablePath: EXEC, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] })
@@ -138,7 +140,7 @@ try {
       ok(`${tag}: the frame is the preview's page (book.html) and asks for no PDF script`, new URL(frame.url()).pathname === '/lab/addbook/book' && pdfAsked.length === 0 && await frame.evaluate(() => typeof window.pdfjsLib === 'undefined' && !window.TinctPdfScan), pdfAsked)
       // Round 2: chapters after the place and the next are laid out later (.tb-later), and the place stays where it opened while they are.
       // The first chapter first (22 Oct 2026): a chapter whose text is still on its way (.tb-pending) waits too.
-      const later = await frame.evaluate(() => ({ later: document.querySelectorAll('.tb-chapter.tb-later, .tb-chapter.tb-pending').length, all: document.querySelectorAll('.tb-chapter').length }))
+      const later = frame.laterAtOpen
       ok(`${tag}: the chapters after the place wait to be laid out (${later.later} of ${later.all})`, later.later > 0 && later.later < later.all, later)
       await page.waitForTimeout(3500)
       const still = await spotOf(frame), fewer = await frame.evaluate(() => document.querySelectorAll('.tb-chapter.tb-later, .tb-chapter.tb-pending').length)
@@ -200,20 +202,22 @@ try {
       }
 
       // 3a. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk, Summarize, Catch me up (not in chapter 1),
-      // Reading settings (the book reader's Main version and Compare version, through the page), Export notes, Library,
-      // Profile; no Snip a figure (a PDF's) or Open another book (a reader's own). The Aa label is never selected as text.
+      // Book settings (the book reader's Main version and Compare version, through the page, and the Layout) and Audio
+      // settings where the narration offers a voice (22 Oct 2026), Export notes, Library, Profile; no Snip a figure (a PDF's)
+      // or Open another book (a reader's own); Aa is the top bar's button. The Aa label is never selected as text.
       if (!phone) {
         await frame.click('#superBtn'); await frame.waitForSelector('.lab-super-panel')
         const rows = await frame.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row))
-        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Reading settings, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'settings', 'export', 'library', 'account']), rows)
+        const audio = await frame.evaluate(() => audioSettingsApply())
+        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Book settings${audio ? ', Audio settings' : ''}, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'book', ...(audio ? ['audio'] : []), 'export', 'library', 'account']), rows)
         ok(`${tag}: the top bar's Aa is never selected as text`, await frame.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect) === 'none')
         shots.push(join(OUT, `${tag}-tmenu.png`)); await page.screenshot({ path: shots.at(-1) })
-        await frame.click('.lab-super-row[data-row="settings"]')
-        await frame.waitForSelector('.byob-reading-settings', { timeout: 5000 }).catch(() => null); await page.waitForTimeout(800)
-        const reading = await frame.evaluate(() => [...document.querySelectorAll('.byob-reading-settings .lab-v2-row-label')].map(l => l.textContent))
-        ok(`${tag}: Reading settings offers Main version and Compare version (${reading.join(', ')})`, reading.includes('Main version') && reading.includes('Compare version'), reading)
-        shots.push(join(OUT, `${tag}-reading-settings.png`)); await page.screenshot({ path: shots.at(-1) })
-        await frame.click('.byob-reading-settings .lab-v2-dismiss')
+        await frame.click('.lab-super-row[data-row="book"]')
+        await frame.waitForSelector('.byob-book-settings', { timeout: 5000 }).catch(() => null); await page.waitForTimeout(800)
+        const reading = await frame.evaluate(() => [...document.querySelectorAll('.byob-book-settings .lab-v2-row-label')].map(l => l.textContent))
+        ok(`${tag}: Book settings offers Main version and Compare version (${reading.join(', ')})`, reading.includes('Main version') && reading.includes('Compare version'), reading)
+        shots.push(join(OUT, `${tag}-book-settings.png`)); await page.screenshot({ path: shots.at(-1) })
+        await frame.click('.byob-book-settings .lab-v2-dismiss')
         // Talk: the margin Chat with Talk on.
         await frame.click('#superBtn'); await frame.click('.lab-super-row-half[data-row="talk"]')
         ok(`${tag}: the t menu's Talk opens Chat with Talk on`, await frame.waitForFunction(() => chat.talk === true && col.open === 'whole', null, { timeout: 5000 }).then(() => true, () => false))
@@ -227,7 +231,10 @@ try {
         const sent = async (label, act, intent) => {
           const n = log.ai.length
           await act()
-          const got = await frame.waitForFunction(() => true, null, { timeout: 100 }).then(async () => { for (let i = 0; i < 60 && !log.ai.slice(n).some(r => r.intent === intent); i++) await page.waitForTimeout(150); return log.ai.slice(n).find(r => r.intent === intent) })
+          // Polls the mocked requests from Node (up to 9 s). It used to start with a 100 ms waitForFunction in the frame,
+          // which timed out on a busy machine before any request was looked at and threw (a harness flake, not a product failure).
+          for (let i = 0; i < 60 && !log.ai.slice(n).some(r => r.intent === intent); i++) await page.waitForTimeout(150)
+          const got = log.ai.slice(n).find(r => r.intent === intent)
           ok(`${tag}: ${label} asks the companion (${intent}) with the book's text`, !!got && got.kind === 'epub', log.ai.slice(n))
           await page.waitForTimeout(500)
           await fold()
@@ -355,8 +362,11 @@ try {
 
       // 3d. Type: a part's name is not set in capitals; a chapter's Before you start names it as its contents do.
       const type = await frame.evaluate(() => ({ part: [...document.querySelectorAll('.tb-part')].map(e => getComputedStyle(e).textTransform)[0] ?? null, phrases: (primer.units || []).slice(0, 30).map(u => TinctMargin.unitPhrase(u)) }))
-      // A chapter's marks in the margin name it without pages ("p. 3" was its place in the file).
-      const marks = await frame.evaluate(() => [...document.querySelectorAll('.mr-unit__n, .byob-unit-now__name')].map(e => e.textContent.trim()))
+      // A chapter's marks name it without pages ("p. 3" was its place in the file). Since #542 (9a7c3f4cef, 21 Oct) a
+      // chapter has no "Starting / End of" mark in the margin (only the whole book's Before you start keeps one), and since
+      // #570 (612f3a538e, 22 Oct) its marks are the pills in the text (.mr-hp), which name it in their labels ("Recap
+      // Letter 1"); a margin mark's name is still read where one is drawn.
+      const marks = await frame.evaluate(() => [...[...document.querySelectorAll('.mr-unit__n, .byob-unit-now__name')].map(e => e.textContent.trim()), ...[...document.querySelectorAll('.mr-hp .mr-pill')].map(e => e.getAttribute('aria-label') || '')].filter(Boolean))
       ok(`${tag}: chapter marks name no pages`, (phone || marks.length > 0) && marks.every(t => !/\bpp?\. \d/.test(t)), marks)
       ok(`${tag}: part names are not in capitals`, type.part === null || type.part === 'none', type.part)
       ok(`${tag}: Before you start names chapters as the contents do ("chapter 1", "Letter 2", "The Window · 2")`, type.phrases.length > 0 && type.phrases.every(p => /^chapter \d+$|^Letter \d+$|^(The Window|Time Passes|The Lighthouse) · \d+$/.test(p)), type.phrases.slice(0, 6))
@@ -382,6 +392,31 @@ try {
       // book's chat history (signed out, its device copy), never the preview's own key.
       ok(`${tag}: the place is kept under the preview's key, the cards in the book's chat history`, !!kept && Number.isInteger(kept.para) && await page.evaluate(id => !localStorage.getItem(`tinct-addbook:cards:preview:${id}`) && JSON.parse(localStorage.getItem(`tinct:chat-history:${id}`) || '[]').some(c => c.card?.kind === 'explain'), bookId), kept)
 
+      // 4b. A chapter's start (paragraph 0, word 0) reopens with its heading and its pills in view, not under the top
+      // bar (stream D, 22 Oct 2026: a reload at "Letter 1" came back with "To Mrs. Saville" first and the heading at
+      // 4 px, behind the 50 px bar); the place still reads back as paragraph 0, word 0.
+      if (!phone) {
+        const startOf = () => frame.evaluate(() => {
+          const page = currentPlace().page, p = state.pages[page - 1], head = p.pg.querySelector('.tb-head'), top = document.getElementById('scroll').getBoundingClientRect().top
+          const r = head?.getBoundingClientRect(), first = epubParas(p)[0].getBoundingClientRect()
+          return { page, ...epubSpot(), headTop: r ? Math.round(r.top - top) : null, headBottom: r ? Math.round(r.bottom - top) : null, firstTop: Math.round(first.top - top) }
+        })
+        const chapter = back.page < (await frame.evaluate(() => state.pages.length)) ? back.page + 1 : back.page - 1
+        await frame.evaluate(n => { epubGoSpot(n, 0, 0) }, chapter)
+        await frame.waitForFunction(() => !epubHold.settling, null, { timeout: 10000 }).catch(() => {})
+        await page.waitForTimeout(800)
+        const went = await startOf()
+        await frame.evaluate(() => savePlaceNow())
+        await page.reload()
+        frame = await frameOf(page)
+        await frame.waitForFunction(() => typeof epubHold !== 'undefined' && epubHold.opened === state.token && !epubHold.settling, null, { timeout: 15000 }).catch(() => {})
+        await page.waitForTimeout(800)
+        const reopened = await startOf()
+        const shown = at => at.page === chapter && at.para === 0 && at.word === 0 && at.headTop != null && at.headTop >= 0 && at.headBottom <= at.firstTop
+        ok(`${tag}: a chapter's start shows its heading and pills (heading ${went.headTop} px below the bar), the place paragraph 0, word 0`, shown(went), went)
+        ok(`${tag}: reloaded at a chapter's start, the heading is still in view (${reopened.headTop} px) and the place is paragraph 0, word 0`, shown(reopened), reopened)
+      }
+
       // 5. The preview writes through the book reader's stores and nothing else (21 Oct 2026, margin sync): the place in
       // its position record (src/lab/marginPreview/useMarginPreviewPlace.ts), highlights and notes in its highlight
       // list, cards in the book's chat history; besides them only the frame's own copy of its place and its device
@@ -405,18 +440,20 @@ try {
 
       // 5b. Dark (Aa): the chapters turn dark with the rest of the reader. (The theme is the device's, shared with the
       // book reader by design, tinct-lab-prefs: so after the check above.)
-      await frame.click('#aaBtn'); await frame.waitForSelector('[data-theme-choice="dark"]', { timeout: 5000 }); await frame.click('[data-theme-choice="dark"]'); await page.waitForTimeout(400)
+      if (await frame.evaluate(() => document.getElementById('aaBtn').getBoundingClientRect().width > 0)) await frame.click('#aaBtn')
+      else { await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="aa"]') }  // the phone's Aa is a t menu row (22 Oct 2026)
+      await frame.waitForSelector('[data-theme-choice="dark"]', { timeout: 5000 }); await frame.click('[data-theme-choice="dark"]'); await page.waitForTimeout(400)
       const dark = await frame.evaluate(() => { const s = [...document.querySelectorAll('.epub-sheet')].find(e => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight }); const lum = c => { const m = c.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255 }; let paper = getComputedStyle(document.body).backgroundColor; for (let e = s; e; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (!/rgba\(0, 0, 0, 0\)|transparent/.test(c)) { paper = c; break } } return { bg: lum(paper), ink: lum(getComputedStyle(s.querySelector('.tb-p')).color) } })
       ok(`${tag}: Dark turns the chapters dark (light text on dark paper)`, dark.bg < 0.2 && dark.ink > 0.6, dark)
       shots.push(join(OUT, `${tag}-dark.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.click('[data-theme-choice="light"]'); await frame.evaluate(() => closeDisplay()); await page.waitForTimeout(300)
 
 
-      // 6. Back to normal reader (the Aa panel): the book reader for the same book, the opt-in off.
-      await frame.click('#aaBtn')
-      const back2 = await frame.waitForSelector('[data-layout="text"]', { timeout: 5000 }).catch(() => null)
-      ok(`${tag}: the Aa panel offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
-      shots.push(join(OUT, `${tag}-aa.png`)); await page.screenshot({ path: shots.at(-1) })
+      // 6. Back to normal reader (Book settings, 22 Oct 2026): the book reader for the same book, the opt-in off.
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
+      const back2 = await frame.waitForSelector('.byob-book-settings [data-layout="text"]', { timeout: 5000 }).catch(() => null)
+      ok(`${tag}: Book settings offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
+      shots.push(join(OUT, `${tag}-book-settings-layout.png`)); await page.screenshot({ path: shots.at(-1) })
       if (back2) await Promise.all([page.waitForURL(u => u.pathname === '/reader' && !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), back2.click()])
       const lab = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
       const plain = await page.evaluate(() => ({ url: location.pathname + location.search, frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), sticky: localStorage.getItem('tinct:margin-preview') }))
@@ -477,28 +514,36 @@ try {
       let frame = await frameOf(page)
       const look = await frame.evaluate(([keys, paper]) => {
         const p = [...document.querySelectorAll('.tb-p')].find(el => { const r = el.getBoundingClientRect(); return r.top > 60 && r.bottom < innerHeight && el.textContent.trim().length > 40 }) || document.querySelector('.tb-p'), s = getComputedStyle(p)
-        const sheets = [...document.querySelectorAll('.epub-sheet')].map(e => getComputedStyle(e))
-        return { ...Object.fromEntries(keys.map(k => [k, s[k]])), measure: p.getBoundingClientRect().width, paper: new Function('el', `return (${paper})(el)`)(p), white: sheets.filter(c => !/rgba\(0, 0, 0, 0\)|transparent/.test(c.backgroundColor) || c.boxShadow !== 'none' || c.borderTopWidth !== '0px').length, sheets: sheets.length }
+        // Since #542 (9a7c3f4cef, 21 Oct 2026, Anders: "the page edges have disappeared") Tinct paper is one continuous
+        // sheet: each chapter's sheet is the paper's own colour with only its sides edged (addbook.css), never a white
+        // page with a shadow all round or a border. The hidden contents page stays out of it.
+        const paperColour = new Function('el', `return (${paper})(el)`)(p)
+        const sheets = [...document.querySelectorAll('.pdf-column > .epub-sheet:not(.is-toc)')].map(e => getComputedStyle(e))
+        const edged = sh => /-12px 0px|inset/.test(sh) && !/ 0px 1px 2px/.test(sh)
+        return { ...Object.fromEntries(keys.map(k => [k, s[k]])), measure: p.getBoundingClientRect().width, paper: paperColour, white: sheets.filter(c => c.backgroundColor !== paperColour || !edged(c.boxShadow) || c.borderTopWidth !== '0px').length, sheets: sheets.length, sample: sheets[0] && { bg: sheets[0].backgroundColor, shadow: sheets[0].boxShadow, border: sheets[0].borderTopWidth } }
       }, [TEXT_KEYS, paperOf.toString()])
-      ok(`${tag}: no white page sheets (paper, no shadow or border) on any of ${look.sheets} chapters`, look.white === 0, look)
+      ok(`${tag}: no white page sheets (the paper's colour, its sides edged, no border) on any of ${look.sheets} chapters`, look.sheets > 0 && look.white === 0, look)
       const differs = TEXT_KEYS.filter(k => look[k] !== normal[k])
       ok(`${tag}: the text is set as the book reader's (${TEXT_KEYS.join(', ')})`, differs.length === 0, { differs, normal, look })
       ok(`${tag}: the measure is the book reader's leaf (${Math.round(normal.measure)}px) and the paper its colour`, Math.abs(look.measure - normal.measure) <= 1 && look.paper === normal.paper, { normal: [normal.measure, normal.paper], look: [look.measure, look.paper] })
       if (first) await deskShot(page, `preview-${w}x${h}.png`)
-      // The chapter's marks: the start mark level with the heading, the end mark with the last line.
+      // The chapter's marks. Since #570 (612f3a538e, 22 Oct 2026) a chapter's marks are its pills in the text, no longer
+      // marks in the margin: ✧ Primer · ✧ Catch me up on the heading's line, ✧ Recap · ✧ Quiz me · Note just under its last
+      // paragraph (the same bounds as the 1440 check above: within 3 px of the heading's last line; -12 to 24 px under).
       const unitAt = await frame.evaluate(async () => {
         const n = currentPlace().page
         epubGoSpot(n, 0, 0); await new Promise(r => setTimeout(r, 700))
         document.getElementById('scroll').scrollBy(0, -120); await new Promise(r => setTimeout(r, 700))
-        const key = primer.units.find(u => u.start === n)?.key, mark = document.querySelector(`.mr-unit.is-start[data-unit="${key}"]`), head = state.pages[n - 1].pg.querySelector('.tb-title')
-        const start = mark && head ? { mark: mark.getBoundingClientRect().top, head: head.getBoundingClientRect().top } : null
-        const last = [...epubParas(state.pages[n - 1])].reverse().find(el => el.textContent.trim().length > 1)
+        const key = primer.units.find(u => u.start === n)?.key, mark = document.querySelector(`.mr-hp.is-inline:not(.is-end)[data-unit="${key}"]`), head = mark?.closest('.tb-title, .tb-head, h1, h2, h3')
+        let start = null
+        if (mark && head) { const r = document.createRange(); r.selectNodeContents(head); const l = [...r.getClientRects()].filter(b => b.width).at(-1), b = mark.getBoundingClientRect(); start = l ? { mark: Math.round((b.top + b.bottom) / 2), head: Math.round((l.top + l.bottom) / 2) } : null }
+        const last = [...epubParas(state.pages[n - 1])].filter(el => !el.closest('.mr-hp')).reverse().find(el => el.textContent.trim().length > 1)
         last.scrollIntoView({ block: 'center' }); await new Promise(r => setTimeout(r, 900))
-        const endMark = document.querySelector(`.mr-unit.is-end[data-unit="${key}"]`), r = document.createRange(); r.selectNodeContents(last); const lines = [...r.getClientRects()].filter(b => b.height > 0)
-        return { start, end: endMark ? { mark: endMark.getBoundingClientRect().top, line: lines[lines.length - 1].top } : null }
+        const endMark = document.querySelector(`.mr-hp.is-end[data-unit="${key}"]`), lb = last.getBoundingClientRect()
+        return { key, start, end: endMark ? { mark: Math.round(endMark.getBoundingClientRect().top), line: Math.round(lb.bottom) } : null }
       })
-      ok(`${tag}: the chapter's start mark is level with its heading`, !!unitAt.start && Math.abs(unitAt.start.mark - unitAt.start.head) <= 6, unitAt)
-      ok(`${tag}: the chapter's end mark is level with its last line`, !!unitAt.end && Math.abs(unitAt.end.mark - unitAt.end.line) <= 6, unitAt)
+      ok(`${tag}: the chapter's start pills are on its heading's line`, !!unitAt.start && Math.abs(unitAt.start.mark - unitAt.start.head) <= 3, unitAt)
+      ok(`${tag}: the chapter's end pills are just under its last line`, !!unitAt.end && unitAt.end.mark - unitAt.end.line >= -12 && unitAt.end.mark - unitAt.end.line <= 24, unitAt)
       if (first) {
         await frame.evaluate(async () => { const n = currentPlace().page; epubGoSpot(n, 0, 0); await new Promise(r => setTimeout(r, 600)); document.getElementById('scroll').scrollBy(0, -90) })
         await page.waitForTimeout(800); await deskShot(page, `unit-start-${w}x${h}.png`)
@@ -517,11 +562,11 @@ try {
       await page.waitForTimeout(1200)
       const here = await previewPlace(frame)
       ok(`${tag}: the preview holds the word it was taken to`, here.para === target.para && here.word === target.word, { here, target })
-      // Aa: Layout, Margin · Two-page · Compare (then Back to normal reader).
-      await frame.click('#aaBtn')
-      await frame.waitForSelector('[data-aa="layout"] [data-layout="two-page"]', { timeout: 5000 }).catch(() => null)
-      const layouts = await frame.evaluate(() => ({ label: document.getElementById('aaLayoutLabel')?.textContent, rows: [...document.querySelectorAll('[data-aa="layout"] [data-layout]')].map(b => [b.dataset.layout, b.textContent.replace(/✓/g, '').trim(), b.getAttribute('aria-pressed')]) }))
-      ok(`${tag}: Aa's Layout offers Margin (on), Two-page, Compare and Back to normal reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Back to normal reader', 'false']]), layouts)
+      // Book settings (22 Oct 2026; Aa's until then): Layout, Margin · Two-page · Compare (then Back to normal reader).
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
+      await frame.waitForSelector('[data-bs="layout"] [data-layout="two-page"]', { timeout: 5000 }).catch(() => null)
+      const layouts = await frame.evaluate(() => ({ label: document.getElementById('bsLayoutLabel')?.textContent, rows: [...document.querySelectorAll('[data-bs="layout"] [data-layout]')].map(b => [b.dataset.layout, b.textContent.replace(/✓/g, '').trim(), b.getAttribute('aria-pressed')]) }))
+      ok(`${tag}: Book settings' Layout offers Margin (on), Two-page, Compare and Back to normal reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Back to normal reader', 'false']]), layouts)
       if (first) await deskShot(page, `aa-layout-${w}x${h}.png`)
       // Two-page: the book reader at the same chapter, paragraph and word; the opt-in kept.
       await Promise.all([page.waitForURL(u => !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), frame.click('[data-layout="two-page"]')])
@@ -530,7 +575,7 @@ try {
       ok(`${tag}: Two-page opens the book reader in two pages at the same place (chapter ${here.chapter}, ¶ ${here.para}, word ${here.word})`, !two.frame && two.view === 'read' && two.chapter === here.chapter && two.para === here.para && two.word === here.word, { here, two })
       ok(`${tag}: the opt-in survives Two-page, and the link's place leaves the address`, two.sticky === '1' && !/chapter=|view=/.test(two.url), two)
       if (first) await deskShot(page, `two-page-${w}x${h}.png`)
-      // Margin from the book reader (Book editions): back to the preview at the same place.
+      // Margin from the book reader (Book settings): back to the preview at the same place.
       await page.click('[data-testid="lab-super"]'); await page.click('[data-testid="lab-super-row-editions"]')
       const marginRow = await page.waitForSelector('[data-testid="lab-v2-margin"]', { timeout: 8000 }).catch(() => null)
       ok(`${tag}: the book reader offers Margin while the opt-in is on`, !!marginRow && (await marginRow.textContent()).includes('Margin'))
@@ -543,7 +588,7 @@ try {
       ok(`${tag}: the return link's place leaves the address; the opt-in on`, backUrl.sticky === '1' && !/chapter=/.test(backUrl.url) && /margin=1/.test(backUrl.url), backUrl)
       if (first) await deskShot(page, `back-to-margin-${w}x${h}.png`)
       // Compare: the same place, side by side; the opt-in kept. Then Margin again.
-      await frame.click('#aaBtn'); await frame.waitForSelector('[data-layout="compare"]', { timeout: 5000 })
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]'); await frame.waitForSelector('[data-layout="compare"]', { timeout: 5000 })
       await Promise.all([page.waitForURL(u => !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), frame.click('[data-layout="compare"]')])
       await waitNormal(page)
       const cmp = await normalPlace(page)
