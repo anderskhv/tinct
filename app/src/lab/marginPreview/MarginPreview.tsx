@@ -14,7 +14,7 @@ import { getBook } from '../../data/bookRegistry'
 import { readSupabaseAccessToken } from '../labAuth'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
-import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { loadMarginPreviewBookParts, type MarginPreviewParts } from './marginPreviewLoad'
 import { marginPreviewMenu, type MarginPreviewMenuApi } from './marginPreviewMenu'
 import { MarginPreviewSync, type MarginPreviewSyncBridge } from './MarginPreviewSync'
 import { useMarginListen, type MarginListenApi } from './useMarginListen'
@@ -29,14 +29,19 @@ import {
   type MarginPreviewView,
 } from './marginPreviewModel'
 
-// book.html (served as /lab/addbook/book): the margin reader's page without the PDF-only scripts (round 2).
-export const MARGIN_PREVIEW_FRAME_SRC = '/lab/addbook/book?tinctBook='
+import { marginPreviewFrameSrc } from './marginPreviewFrame'
+export { MARGIN_PREVIEW_FRAME_SRC, marginPreviewFrameSrc } from './marginPreviewFrame'
 
 declare global {
   interface Window {
     TinctMarginPreview?: {
       bookId: string
       load: () => Promise<MarginPreviewBook>
+      /**
+       * The first chapter first (22 Oct 2026): the chapters at the place, as soon as they are in, the others pending
+       * (MarginPreviewBook.partial); null when the book opens whole. `load` stays the whole book.
+       */
+      first?: () => Promise<MarginPreviewBook | null>
       /** The desktop paper for a window this wide: the book reader's text, as it sets it now. */
       paper: (viewportWidth: number) => MarginPreviewPaper
       /** Two-page or Compare: the book reader at this place, in that layout. */
@@ -58,30 +63,29 @@ function desktopPrefs() {
   return parseLabPrefs(raw, 'desktop')
 }
 
-export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi): NonNullable<Window['TinctMarginPreview']> {
+export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi, first?: Promise<MarginPreviewBook | null>): NonNullable<Window['TinctMarginPreview']> {
   const book = getBook(bookId)
   return {
     bookId,
     ...(listen ? { listen } : {}),
     load: () => pending,
+    first: () => first ?? Promise.resolve(null),
     menu: marginPreviewMenu(bookId, pending),
     paper: width => marginPreviewPaper(desktopPrefs(), width, { shakespeare: book?.author === 'William Shakespeare' }),
     layoutHref: (view, place) => marginPreviewLayoutHref(bookId, view, place, book ? marginPreviewCompareEdition(book, desktopPrefs(), place.editionKey) : undefined),
   }
 }
 
-export function marginPreviewFrameSrc(bookId: string): string {
-  return MARGIN_PREVIEW_FRAME_SRC + encodeURIComponent(bookId)
-}
-
-export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId: string; load?: typeof loadMarginPreviewBook }) {
+export function MarginPreview({ bookId, load = loadMarginPreviewBookParts, frame = null }: { bookId: string; load?: (bookId: string, deps: Parameters<typeof loadMarginPreviewBookParts>[1]) => MarginPreviewParts; frame?: HTMLIFrameElement | null }) {
   const [failed, setFailed] = useState(false)
-  // One load per page, shared with the frame (it may ask before or after this renders).
-  const pending = useMemo(() => {
+  // One load per page, shared with the frame (it may ask before or after this renders): the chapters at the place
+  // first, then the whole book (the first chapter first, 22 Oct 2026).
+  const parts = useMemo(() => {
     const task = load(bookId, { readToken: readSupabaseAccessToken, at: marginPreviewAtForPage() })
-    task.catch(() => setFailed(true))
+    task.full.catch(() => setFailed(true))
     return task
   }, [bookId, load])
+  const pending = parts.full
   // The sync outlives the bridge object (rebuilt as Listen changes): kept here and put on each one.
   const syncRef = useRef<MarginPreviewSyncBridge | null>(null)
   const onBridge = useCallback((sync: MarginPreviewSyncBridge | null) => {
@@ -98,11 +102,13 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
   // The edition the frame shows is the one heard.
   const listen = useMarginListen({ bookId, editionKey: shown?.editionKey ?? null, chapterTitles })
   useEffect(() => {
-    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen), sync: syncRef.current }
+    window.TinctMarginPreview = { ...marginPreviewBridge(bookId, pending, listen, parts.first), sync: syncRef.current }
     const title = getBook(bookId)?.title
     if (title) document.title = `${title} · Margin preview · Tinct`
     return () => { if (window.TinctMarginPreview?.bookId === bookId) delete window.TinctMarginPreview }
-  }, [bookId, pending, listen])
+  }, [bookId, pending, listen, parts.first])
+  // The frame main.tsx started before this chunk loaded (marginPreviewFrame.ts) is this one's; it goes with an error.
+  useEffect(() => { if (failed) frame?.remove() }, [failed, frame])
   if (failed) {
     return (
       <main data-testid="margin-preview-error" style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
@@ -114,13 +120,13 @@ export function MarginPreview({ bookId, load = loadMarginPreviewBook }: { bookId
   return (
     <>
     {shown && shown.bookId === bookId ? <MarginPreviewSync model={shown} onBridge={onBridge} /> : null}
-    <iframe
+    {frame ? null : <iframe
       data-testid="margin-preview-frame"
       title="Margin preview"
       src={marginPreviewFrameSrc(bookId)}
       allow="fullscreen; clipboard-write"
       style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', border: 0, display: 'block', background: 'var(--paper, #ece7db)' }}
-    />
+    />}
     </>
   )
 }
