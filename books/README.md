@@ -9,7 +9,7 @@ This is the starting guide for adding a book. Follow [book instructions](AGENTS.
 ## Current scope
 
 - Prepare the original/source edition and an authoritative public-domain human English translation where the work is not originally English, then the reviewed modern-English edition.
-- Do not generate Danish translations, Danish narration, or Danish onboarding. Danish is not a publication requirement or an automatically queued next step. Preserve existing assets.
+- Danish is work in progress, with the plan to roll it out across the library ([language strategy](../STRATEGY.md#language-scope), 2026-10-22). Danish reading editions (`modern-da`) are translated 1:1 from the current `modern-en` only when assigned, follow the [Danish house style](DANISH-STYLE.md), and never block an English package. Do not generate Danish narration or Danish onboarding. Preserve existing assets.
 - English narration uses Grok streaming with shared caching under the [current audio architecture](../docs/audiobook-architecture-2026-09-21.md) and [Grok release contract](../docs/grok-narration-2026-09-23.md).
 - There is no book-by-book Kokoro, Edge TTS, RunPod or GPU generation step. A complete prerecorded audiobook, legacy manifests and legacy word timings are not prerequisites for adding a book.
 - Opening prewarming is a separately scoped optimization. The approved featured-ten preparation does not automatically authorize prewarming every new book.

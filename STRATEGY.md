@@ -8,11 +8,11 @@ The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md
 
 ## Language scope
 
-**Approved by Anders, 2026-09-21.** English is the current product and delivery strategy. Danish is no longer the strategy, a launch requirement or an automatically queued next language. This supersedes older EN/DA plans, Danish onboarding handoffs, translation/audio follow-ups, QA requirements, SEO mirrors and Danish-language launch campaigns.
+**Approved by Anders, 2026-09-21; Danish updated 2026-10-22.** English is the current product and delivery strategy. This supersedes older EN/DA plans, Danish onboarding handoffs, translation/audio follow-ups, QA requirements, SEO mirrors and Danish-language launch campaigns.
 
 - Prioritize English reading editions, modern-English renderings, narration, interface, onboarding and marketing. Original-language source texts and their provenance remain valid parts of the library.
-- Do not commission new Danish translations, narration, localized onboarding, QA or SEO pages unless Anders explicitly reopens that scope. Finishing English work does not automatically reopen Danish. No next language or rollout date is committed.
-- Preserve existing Danish/source-language texts, recordings and historical evidence. This decision does not authorize deleting assets, removing existing reader functionality or declaring old assets current and verified.
+- **Danish is work in progress, and the plan is to roll it out across the whole library** (Anders, 2026-10-22: "say we are working on danish as a WIP plan is to roll it out entirely"). Danish reading editions (`modern-da`) are translated 1:1 from the current `modern-en`, independently reviewed, visually QA'd page by page and then published one book at a time through the explicit allowlist (`OFFERED_DANISH_EDITIONS`). They follow the [Danish house style](books/DANISH-STYLE.md). English stays the default edition, and Danish work never blocks English work. Danish narration, onboarding, interface copy, SEO pages and marketing are not yet part of the rollout; they need Anders's decision. No rollout date is committed.
+- Preserve existing Danish/source-language texts, recordings and historical evidence. This decision does not authorize deleting assets, removing existing reader functionality or declaring old assets current and verified: an existing Danish edition is offered only after it passes the same review and QA.
 
 **Make later localization and translation easy as we do current work:**
 
@@ -28,7 +28,7 @@ This is a design direction for current work, not a request to implement a locali
 
 **Updated 2026-09-24.** Follow [Adding books](books/README.md): validate the source, prepare and independently review English editions, complete onboarding and character compatibility, then hand the accepted package to the coding agent for integration and publication.
 
-Grok streaming and shared caching replace the former full-book audio-generation step. New books do not require Kokoro, Edge TTS, RunPod/GPU jobs, prerecorded audio, or legacy manifests/timings. Runtime narration eligibility and cache compatibility still require verification. Opening prewarming is separately scoped, not an automatic task for every book. Danish translation, narration and onboarding are not part of the current pipeline; preserve existing assets.
+Grok streaming and shared caching replace the former full-book audio-generation step. New books do not require Kokoro, Edge TTS, RunPod/GPU jobs, prerecorded audio, or legacy manifests/timings. Runtime narration eligibility and cache compatibility still require verification. Opening prewarming is separately scoped, not an automatic task for every book. Danish reading editions follow the rollout in [Language scope](#language-scope); Danish narration and onboarding are not part of the current pipeline. Preserve existing assets.
 
 ## Edition selection and reader defaults
 
@@ -170,7 +170,7 @@ No competitor offers a reading experience purpose-built for classics + AI + mult
 
 ## 6. Library
 
-**Current language scope:** original/authoritative English editions and modern-English reading editions, with aligned reading and narration where available. Danish coverage is not a publication requirement. Use the current registry and inventory tooling for book and audio coverage; the former April count and universal EN/DA completion claim are not a current inventory.
+**Current language scope:** original/authoritative English editions and modern-English reading editions, with aligned reading and narration where available. Danish coverage is work in progress (see [Language scope](#language-scope)), not a requirement for publishing an English book. Use the current registry and inventory tooling for book and audio coverage; the former April count and universal EN/DA completion claim are not a current inventory.
 
 **End of 2026: 100+ titles.** Expansion across the Western canon — more Plato, more Shakespeare, additional 19th-century fiction (Flaubert, Austen, Dickens), more devotional/philosophical works (Calvin, Aquinas, early Christian writings), more 20th-century modernists where public domain permits.
 
