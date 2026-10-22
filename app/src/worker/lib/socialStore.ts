@@ -38,6 +38,8 @@ export type AdminProfileRow = Pick<ReaderProfileRow,
 export interface SocialStore {
   following(userId: string): Promise<string[]>
   followers(userId: string): Promise<string[]>
+  /** Both of the above in one request (the board's first round trip); optional, the two calls otherwise. */
+  followsEitherWay?(userId: string): Promise<{ following: string[]; followers: string[] }>
   /** Everyone this reader blocked, and everyone who blocked this reader. */
   blockedEitherWay(userId: string): Promise<Set<string>>
   blockedByMe(userId: string): Promise<string[]>
@@ -156,6 +158,14 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
     },
     async followers(userId) {
       return (await rows<{ follower: string }>(env, `follows?followed=eq.${userId}&select=follower&limit=2000`)).map(row => row.follower)
+    },
+    async followsEitherWay(userId) {
+      // One request by the primary key (follower, …) and follows_followed, as the two above use.
+      const list = await rows<{ follower: string; followed: string }>(env, `follows?or=(follower.eq.${userId},followed.eq.${userId})&select=follower,followed&limit=4000`)
+      return {
+        following: list.filter(row => row.follower === userId).map(row => row.followed),
+        followers: list.filter(row => row.followed === userId).map(row => row.follower),
+      }
     },
     async blockedEitherWay(userId) {
       const list = await rows<{ blocker: string; blocked: string }>(env, `blocks?or=(blocker.eq.${userId},blocked.eq.${userId})&select=blocker,blocked&limit=5000`)
