@@ -102,6 +102,8 @@
 //                                                     page hidden; links readable; Tinct paper (no sheets) with the margin column
 //   node scripts/margin-check.mjs epub-units          20 Oct 2026: one unit per essay, Starting / End of marks at the heading and last line,
 //                                                     a whole-book Before you start at the very top, its primer the whole book's
+//   node scripts/margin-check.mjs epub-heads          22 Oct 2026: a trade book's split numbered headings ("1", then the title, an epigraph):
+//                                                     start pills on the title's line, end pills under the last paragraph, no text added
 //   node scripts/margin-check.mjs epub-marks          20 Oct 2026: a passage mark over a heading and whole paragraphs sits under each line's
 //                                                     words, never through a line or past its last word
 //   node scripts/margin-check.mjs epub-quiz           20 Oct 2026: the quiz card named by the chapter, no page references, "2/3" and Try new
@@ -315,7 +317,7 @@ const EPUB = anthologyEpub()
 // 20 Oct 2026: an essay collection shaped like Anders's "Bold Conjectures, Volume II" (make-epub.mjs makeEssayEpub): cover,
 // half title and title in the book's own small caps, copyright, dedication, supporters, its own contents page, a preface
 // and essays with author lines.
-const { makeEssayEpub } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
+const { makeEssayEpub, makeNumberedEpub } = await import(pathToFileURL(join(REPO, 'addbooks/web/test/make-epub.mjs')).href)
 const ESSAYS = makeEssayEpub()
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
@@ -5010,6 +5012,18 @@ async function pdfTextCheck(browser, origin) {
     ok(`${tag}: Tinct paper (one sheet edged at its sides, 21 Oct), the reader's font, the margin's column beside it, chapter titles as headings`, view.paper && SHEET_SIDES(view.sheetBg, view.shadow) && !/mono/i.test(view.font) && view.column === 'column' && view.heads >= 1, view)
     ok(`${tag}: it opens at the same place: the PDF's page ${before.page} at the top of the view`, view.pdfPage?.page === before.page, { before, pdfPage: view.pdfPage, spot: view.spot })
     if (marked) ok(`${tag}: the highlight made on the PDF's page shows in the Tinct text (found by its words)`, view.hl.includes(marked.text) && await page.evaluate(() => [...CSS.highlights.keys()].some(k => k.startsWith('tinct-hl-'))), { marked, hl: view.hl })
+    // 22 Oct 2026: a Tinct text's chapters carry their pills in the text, as an EPUB's and a Tinct book's do: Primer on the
+    // heading's line, Recap · Quiz me · Note under the last paragraph (a PDF's pages keep the pills on heading hover).
+    const unitPills = await page.evaluate(async () => {
+      const u = (primer.units || []).find(x => !x.matter && state.pages[x.start - 1]); if (!u) return { units: (primer.units || []).length }
+      const wait = () => new Promise(r => setTimeout(r, 700))
+      goTo({ page: u.start, frac: 0 }); await wait()
+      const s = document.querySelector(`.mr-hp:not(.is-end)[data-unit="${u.key}"]`), head = s?.closest('.mr-hp-head')
+      epubParas(state.pages[u.to - 1]).at(-1)?.scrollIntoView({ block: 'center' }); await wait()
+      const e = document.querySelector(`.mr-hp.is-end[data-unit="${u.key}"]`)
+      return { unit: u.title, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), head: head?.textContent.trim().slice(0, 60), inline: !!s?.classList.contains('is-inline'), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label) }
+    })
+    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Recap · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Recap|Quiz me|Note', unitPills)
     if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
     // A request from here reads the document as the PDF's pages, and its answer cites them.
     const r0 = account.requests.length
@@ -5378,6 +5392,74 @@ async function epubUnitsCheck(browser, origin) {
   await epubShot(e, 'book-primer')
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
+  return results
+}
+
+/* epub-heads (22 Oct 2026; Anders's own EPUB showed no chapter pills at all): a trade book's numbered chapters, each heading two
+   lines (the number, then the title) and an italic epigraph, set as paragraphs with the book's classes (no <h1>) or as an
+   <h1> number over an <h2> title. Each unit's start pills sit on its title's line, its end pills under its last paragraph,
+   as a Tinct book's do; the pills add no text, move no paragraph and leave the reader's place where it was. */
+async function epubHeadsCheck(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const heads of ['p', 'h']) {
+    const bytes = makeNumberedEpub({ heads }), sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24), tag = `heads-${heads}`
+    if (!account.books.some(b => b.sha256 === sha256)) account.books.push({ id: sha256.slice(0, 32), name: `span-of-accounts-${heads}.epub`, title: 'The Span of Accounts', author: 'Gale Editor', type: 'epub', size: bytes.length, sha256, createdAt: new Date().toISOString(), cover: null, bytes })
+    const E = await epubPage(browser, origin, hex, { width: 1440, height: 900, look: 'paper' }), e = E.page
+    await e.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 }); await epubSettled(e)
+    await e.waitForFunction(() => primer.units?.length > 1, null, { timeout: 8000 }).catch(() => {})
+    const units = await e.evaluate(() => (primer.units || []).map(u => ({ key: u.key, title: u.title, start: u.start, to: u.to, matter: u.matter || '' })))
+    ok(`${tag}: the units are the Introduction and each numbered chapter`, ['Introduction', '1. The Span of Accounts', '2. Nearer the Lamp', '3. The Patient Wick'].every(t => units.some(u => u.title === t && !u.matter)), units)
+    const texts0 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
+    const go = async (n, end) => {
+      await e.evaluate(([n, end]) => { const p = state.pages[n - 1]; if (end) epubParas(p).at(-1).scrollIntoView({ block: 'center' }); else { goTo({ page: n, frac: 0 }); document.getElementById('scroll').scrollBy(0, -200) } }, [n, end])
+      await e.waitForTimeout(900)
+    }
+    const startOf = k => e.evaluate(k => {
+      const m = document.querySelector(`.mr-hp:not(.is-end)[data-unit="${k}"]`); if (!m) return null
+      const h = m.closest('.mr-hp-head'), r = m.getBoundingClientRect(), hr = document.createRange(); hr.selectNodeContents(h)
+      const line = textRects(hr).filter(b => b.width).at(-1), cs = getComputedStyle(m)
+      return { headText: h.textContent, tag: h.tagName, mid: (r.top + r.bottom) / 2, lineMid: (line.top + line.bottom) / 2, after: r.left - line.right, shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), textFree: !m.textContent.trim() }
+    }, k)
+    const endOf = ([n, k]) => e.evaluate(([n, k]) => {
+      const m = document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`), last = epubParas(state.pages[n - 1]).at(-1); if (!m || !last) return null
+      const r = m.getBoundingClientRect(), lr = document.createRange(); lr.selectNodeContents(last); const lines = textRects(lr).filter(b => b.width), cs = getComputedStyle(m)
+      return { gap: r.top - Math.max(...lines.map(b => b.bottom)), left: r.left - Math.min(...lines.map(b => b.left)), shown: cs.visibility === 'visible' && Number(cs.opacity) > 0.95, pills: [...m.querySelectorAll('.mr-pill')].map(b => b.dataset.label), inSheet: r.bottom <= (m.closest('.epub-sheet')?.getBoundingClientRect().bottom ?? -1) - 2, textFree: !m.textContent.trim() }
+    }, [n, k])
+    const intro = units.find(u => u.title === 'Introduction'), ch1 = units.find(u => u.title === '1. The Span of Accounts'), ch2 = units.find(u => u.title === '2. Nearer the Lamp')
+    if (intro && ch1 && ch2) {
+      await go(intro.start, false)
+      const s0 = await startOf(intro.key)
+      ok(`${tag}: the Introduction's heading${heads === 'p' ? ' (a paragraph, no <h1>)' : ''}: ✧ Primer on its line`, s0 && s0.shown && s0.headText === 'Introduction' && s0.pills[0] === 'Primer' && Math.abs(s0.mid - s0.lineMid) <= 3 && s0.textFree, s0)
+      await go(intro.to, true)
+      const e0 = await endOf([intro.to, intro.key])
+      ok(`${tag}: the Introduction's end: Recap · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Recap|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
+      await epubShot(e, `${tag}-intro-end`)
+      await go(ch1.start, false)
+      const s1 = await startOf(ch1.key)
+      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer · ✧ Catch me up after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer|Catch me up' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
+      await epubShot(e, `${tag}-chapter1-start`)
+      await go(ch1.to, true)
+      const e1 = await endOf([ch1.to, ch1.key])
+      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Recap|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
+      // The place: the reader's spot at chapter 2's start, read before and after its pills are drawn again (a layout).
+      await go(ch2.start, false)
+      const spot0 = await e.evaluate(() => JSON.stringify(epubSpot()))
+      await e.evaluate(() => { marginLayout() }); await e.waitForTimeout(400)
+      const spot1 = await e.evaluate(() => JSON.stringify(epubSpot()))
+      ok(`${tag}: drawing the pills leaves the reader's place where it was`, spot0 === spot1, { spot0, spot1 })
+      // Clicked, chapter 1's Recap opens that chapter's card.
+      await go(ch1.to, true)
+      await e.click(`.mr-hp.is-end[data-unit="${ch1.key}"] [data-pill="recap"]`, { timeout: 5000 }).catch(() => {})
+      await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
+      const recap = await e.evaluate(() => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', unit: cardById(col.open || '')?.data?.unit?.key }))
+      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Recap/.test(recap.name) && recap.unit === ch1.key, recap)
+      await e.evaluate(() => openCard(null))
+    }
+    const texts1 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
+    ok(`${tag}: the pills add no text and no paragraph to any chapter (an EPUB's places are offsets in its text)`, JSON.stringify(texts0) === JSON.stringify(texts1), { chapters: texts0.length })
+    ok(`${tag}: no page errors`, !E.problems.length, E.problems)
+    await E.ctx.close()
+  }
   return results
 }
 
@@ -5998,6 +6080,7 @@ const RUNS = {
   // 20 Oct 2026 (Anders, "Bold Conjectures, Volume II"): an essay collection of the reader's own on the desktop.
   'epub-open': [epubOpenCheck, rows => rows.some(r => !r.pass)],
   'epub-units': [epubUnitsCheck, rows => rows.some(r => !r.pass)],
+  'epub-heads': [epubHeadsCheck, rows => rows.some(r => !r.pass)],
   'epub-marks': [epubMarksCheck, rows => rows.some(r => !r.pass)],
   'epub-quiz': [epubQuizCheck, rows => rows.some(r => !r.pass)],
   'epub-ask': [epubAskCheck, rows => rows.some(r => !r.pass)],
@@ -6059,7 +6142,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-heads', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

@@ -5,6 +5,7 @@
 // in this process; nothing leaves the machine.
 //
 //   SKIP_ENV_CHECK=1 npm run build && node scripts/check-margin-sync.mjs [place|marks|cards|all]
+//   WHOLE_DELAY_MS=2500 …   the same with the whole edition held back: margin view opens with its chapters first
 //
 // place: margin view opens at the account's place and writes it back at the exact word; a scroll is written;
 //        the normal reader reloads at the same chapter, paragraph and word; and the other way round.
@@ -17,6 +18,7 @@ import assert from 'node:assert/strict'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const MODE = process.argv[2] || 'all'
+const WHOLE_DELAY_MS = Number(process.env.WHOLE_DELAY_MS || 0)
 const origin = 'https://tinct.app', OUT = path.resolve(process.env.OUT || 'artifacts/margin-sync')
 fs.mkdirSync(OUT, { recursive: true })
 const EXEC = process.env.CHROMIUM_PATH || (fs.existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined)
@@ -89,6 +91,8 @@ async function route(context) {
     const dist = path.resolve('dist')
     const want = u.pathname === '/reader' ? '/app.html' : u.pathname === '/lab/addbook/book' ? '/lab/addbook/book.html' : u.pathname.endsWith('/') ? u.pathname + 'index.html' : u.pathname
     const file = path.resolve(dist, '.' + want)
+    // WHOLE_DELAY_MS: the whole edition comes that much later, so margin view opens with its chapters first.
+    if (WHOLE_DELAY_MS && /^\/data\/editions\/[\w-]+\.json$/.test(u.pathname)) await new Promise(resolve => setTimeout(resolve, WHOLE_DELAY_MS))
     if (file.startsWith(dist + '/') && fs.existsSync(file) && fs.statSync(file).isFile()) return r.fulfill({ path: file })
     return r.fulfill({ status: 404, body: '' })
   })
