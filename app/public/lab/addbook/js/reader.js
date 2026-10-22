@@ -2475,7 +2475,9 @@ function openJump() {
 function closeJump() { document.querySelector('.byob-jumpbox')?.remove() }
 $('pageBtn').onclick = () => { if (!previewNav('contents')) openContents() };
 
-/* The settings groups (Anders, 22 Oct 2026), named and filled as the book reader's (src/lab/LabV2Sheet.tsx):
+/* The Aa panel (Anders, 15 Oct 2026): every setting for how the book looks, in one sheet from the top
+   bar's Aa. Since 22 Oct 2026 it is one of the settings groups, named and filled as the book reader's (the model:
+   src/lab/labSuperMenu.ts LAB_SETTINGS_GROUPS; MENU_LABEL above holds the same names):
    Aa: how the text looks, from the top bar's Aa on the desktop and the t menu on the phone: the reader's themes, the
    page or text size, page-margin trim, full screen and the passage mark (the Aa panel of 15 Oct 2026, its Layout gone
    to Book settings). The theme is the reader's own setting (applyTheme).
@@ -2514,8 +2516,6 @@ function setLayout(next) {
     desktop; css/reader.css), again as the window resizes. */
 function hangAa(layer) { const r = $(layer.dataset.hang || 'aaBtn')?.getBoundingClientRect(); if (r?.width) layer.style.setProperty('--aa-right', Math.max(12, Math.round(innerWidth - r.right - 8)) + 'px') }
 addEventListener('resize', () => { for (const l of document.querySelectorAll('.byob-settings')) hangAa(l) });
-/** What a settings panel gives the focus back to: its button on the desktop, the t menu's on the phone. */
-const settingsOpener = id => $(isPhone() ? 'superBtn' : id);
 function openDisplay() {
   if (document.querySelector('.byob-aa-panel')) return closeDisplay();
   closeAllPopups();
@@ -2525,8 +2525,8 @@ function openDisplay() {
   // The desktop: the panel hangs from the Aa button, its right edge under the button's (css/reader.css).
   hangAa(layer);
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close"></button>
-    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="Aa">
-      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">Aa</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
+    <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="${MENU_LABEL.aa}">
+      <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">${MENU_LABEL.aa}</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
       <div class="lab-v2-sheet-body">
         <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
         ${zoomPanel() ? zoomRowHtml() : typePanel() ? typeRowsHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
@@ -2579,7 +2579,8 @@ function closeDisplay({ focus = false } = {}) {
   const inside = !!panel && panel.contains(document.activeElement);
   panel?.remove();
   $('aaBtn').setAttribute('aria-expanded', 'false');
-  if (panel && (focus || inside)) settingsOpener('aaBtn').focus({ preventScroll: true });
+  if (panel && (focus || inside) && isPhone()) $('superBtn').focus({ preventScroll: true });
+  else if (panel && (focus || inside)) $('aaBtn').focus({ preventScroll: true });
 }
 $('aaBtn').onclick = openDisplay;
 /** A settings panel from the t menu (Book settings, Audio settings): the Aa panel's look, hung from the t button on the
@@ -2615,7 +2616,7 @@ async function openBookSettings() {
       rows.push(selectRow('compareSel', 'Compare version', ed.compareEdition, ed.compareEditions.map(o => [o.value, o.label])));
     }
   }
-  const layer = settingsPanel('book', 'Book settings', `
+  const layer = settingsPanel('book', MENU_LABEL.book, `
         <div class="byob-layout" data-bs="layout" role="group" aria-labelledby="bsLayoutLabel"><p class="lab-v2-group-label" id="bsLayoutLabel">Layout</p><div class="lab-v2-edition-choices"></div></div>
         ${rows.length ? `<div class="lab-v2-rows">${rows.join('')}</div>` : ''}
         <div class="lab-v2-rows" data-bs-text hidden><button type="button" class="lab-v2-row is-link"><span class="lab-v2-row-label">Convert to Tinct book</span><span class="lab-v2-value-chevron" aria-hidden="true">›</span></button></div>
@@ -2657,7 +2658,7 @@ function openAudioSettings() {
     rows.push(selectRow('rateSel', 'Speed', String(prefs.rate), rateRows(prefs.rate)));
     note = 'Read aloud uses this device’s own voice; nothing is recorded.';
   }
-  const layer = settingsPanel('audio', 'Audio settings', `<div class="lab-v2-rows">${rows.join('')}</div>${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}`);
+  const layer = settingsPanel('audio', MENU_LABEL.audio, `<div class="lab-v2-rows">${rows.join('')}</div>${note ? `<p class="lab-v2-note">${esc(note)}</p>` : ''}`);
   if (state.preview) {
     syncSelect(layer, 'voiceSel', v => host?.listen?.setVoice?.(v));
     syncSelect(layer, 'rateSel', v => host?.listen?.setSpeed?.(Number(v)));

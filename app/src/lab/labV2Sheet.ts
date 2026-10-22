@@ -20,6 +20,7 @@ import {
   type LabTheme,
 } from './labPrefs'
 import { defaultCompareEditionKey } from '../data/editionDefaults'
+import { LAB_SETTINGS_GROUPS } from './labSuperMenu'
 import type { Edition } from '../types'
 
 export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'audio' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
@@ -107,14 +108,16 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
   { label: 'Accessibility', fonts: LAB_ACCESSIBILITY_FONTS },
 ]
 
+const groupTitle = (layer: 'reading' | 'editions' | 'audio') => LAB_SETTINGS_GROUPS.find(group => group.layer === layer)!.label
+
 /**
- * The settings groups (Anders, 22 Oct 2026), named the same on the phone and the desktop: Aa ('reading': the
- * themes, size and Advanced settings), Book settings ('editions') and Audio settings ('audio').
+ * The settings groups (Anders, 22 Oct 2026), named by the one model (labSuperMenu.ts LAB_SETTINGS_GROUPS): Aa
+ * ('reading': the themes, size and Advanced settings), Book settings ('editions') and Audio settings ('audio').
  */
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: 'Aa',
-  editions: 'Book settings',
-  audio: 'Audio settings',
+  reading: groupTitle('reading'),
+  editions: groupTitle('editions'),
+  audio: groupTitle('audio'),
   mainEdition: 'Main version',
   audioEdition: 'Audiobook version',
   compareEdition: 'Compare version',

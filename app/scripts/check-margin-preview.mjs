@@ -199,20 +199,22 @@ try {
       }
 
       // 3a. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk, Summarize, Catch me up (not in chapter 1),
-      // Reading settings (the book reader's Main version and Compare version, through the page), Export notes, Library,
-      // Profile; no Snip a figure (a PDF's) or Open another book (a reader's own). The Aa label is never selected as text.
+      // Book settings (the book reader's Main version and Compare version, through the page, and the Layout) and Audio
+      // settings where the narration offers a voice (22 Oct 2026), Export notes, Library, Profile; no Snip a figure (a PDF's)
+      // or Open another book (a reader's own); Aa is the top bar's button. The Aa label is never selected as text.
       if (!phone) {
         await frame.click('#superBtn'); await frame.waitForSelector('.lab-super-panel')
         const rows = await frame.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row))
-        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Reading settings, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'settings', 'export', 'library', 'account']), rows)
+        const audio = await frame.evaluate(() => audioSettingsApply())
+        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Book settings${audio ? ', Audio settings' : ''}, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'book', ...(audio ? ['audio'] : []), 'export', 'library', 'account']), rows)
         ok(`${tag}: the top bar's Aa is never selected as text`, await frame.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect) === 'none')
         shots.push(join(OUT, `${tag}-tmenu.png`)); await page.screenshot({ path: shots.at(-1) })
-        await frame.click('.lab-super-row[data-row="settings"]')
-        await frame.waitForSelector('.byob-reading-settings', { timeout: 5000 }).catch(() => null); await page.waitForTimeout(800)
-        const reading = await frame.evaluate(() => [...document.querySelectorAll('.byob-reading-settings .lab-v2-row-label')].map(l => l.textContent))
-        ok(`${tag}: Reading settings offers Main version and Compare version (${reading.join(', ')})`, reading.includes('Main version') && reading.includes('Compare version'), reading)
-        shots.push(join(OUT, `${tag}-reading-settings.png`)); await page.screenshot({ path: shots.at(-1) })
-        await frame.click('.byob-reading-settings .lab-v2-dismiss')
+        await frame.click('.lab-super-row[data-row="book"]')
+        await frame.waitForSelector('.byob-book-settings', { timeout: 5000 }).catch(() => null); await page.waitForTimeout(800)
+        const reading = await frame.evaluate(() => [...document.querySelectorAll('.byob-book-settings .lab-v2-row-label')].map(l => l.textContent))
+        ok(`${tag}: Book settings offers Main version and Compare version (${reading.join(', ')})`, reading.includes('Main version') && reading.includes('Compare version'), reading)
+        shots.push(join(OUT, `${tag}-book-settings.png`)); await page.screenshot({ path: shots.at(-1) })
+        await frame.click('.byob-book-settings .lab-v2-dismiss')
         // Talk: the margin Chat with Talk on.
         await frame.click('#superBtn'); await frame.click('.lab-super-row-half[data-row="talk"]')
         ok(`${tag}: the t menu's Talk opens Chat with Talk on`, await frame.waitForFunction(() => chat.talk === true && col.open === 'whole', null, { timeout: 5000 }).then(() => true, () => false))
@@ -404,18 +406,20 @@ try {
 
       // 5b. Dark (Aa): the chapters turn dark with the rest of the reader. (The theme is the device's, shared with the
       // book reader by design, tinct-lab-prefs: so after the check above.)
-      await frame.click('#aaBtn'); await frame.waitForSelector('[data-theme-choice="dark"]', { timeout: 5000 }); await frame.click('[data-theme-choice="dark"]'); await page.waitForTimeout(400)
+      if (await frame.evaluate(() => document.getElementById('aaBtn').getBoundingClientRect().width > 0)) await frame.click('#aaBtn')
+      else { await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="aa"]') }  // the phone's Aa is a t menu row (22 Oct 2026)
+      await frame.waitForSelector('[data-theme-choice="dark"]', { timeout: 5000 }); await frame.click('[data-theme-choice="dark"]'); await page.waitForTimeout(400)
       const dark = await frame.evaluate(() => { const s = [...document.querySelectorAll('.epub-sheet')].find(e => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight }); const lum = c => { const m = c.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]) / 255 }; let paper = getComputedStyle(document.body).backgroundColor; for (let e = s; e; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (!/rgba\(0, 0, 0, 0\)|transparent/.test(c)) { paper = c; break } } return { bg: lum(paper), ink: lum(getComputedStyle(s.querySelector('.tb-p')).color) } })
       ok(`${tag}: Dark turns the chapters dark (light text on dark paper)`, dark.bg < 0.2 && dark.ink > 0.6, dark)
       shots.push(join(OUT, `${tag}-dark.png`)); await page.screenshot({ path: shots.at(-1) })
       await frame.click('[data-theme-choice="light"]'); await frame.evaluate(() => closeDisplay()); await page.waitForTimeout(300)
 
 
-      // 6. Back to normal reader (the Aa panel): the book reader for the same book, the opt-in off.
-      await frame.click('#aaBtn')
-      const back2 = await frame.waitForSelector('[data-layout="text"]', { timeout: 5000 }).catch(() => null)
-      ok(`${tag}: the Aa panel offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
-      shots.push(join(OUT, `${tag}-aa.png`)); await page.screenshot({ path: shots.at(-1) })
+      // 6. Back to normal reader (Book settings, 22 Oct 2026): the book reader for the same book, the opt-in off.
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
+      const back2 = await frame.waitForSelector('.byob-book-settings [data-layout="text"]', { timeout: 5000 }).catch(() => null)
+      ok(`${tag}: Book settings offers Back to normal reader`, !!back2 && (await back2.textContent()).includes('Back to normal reader'))
+      shots.push(join(OUT, `${tag}-book-settings-layout.png`)); await page.screenshot({ path: shots.at(-1) })
       if (back2) await Promise.all([page.waitForURL(u => u.pathname === '/reader' && !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), back2.click()])
       const lab = await page.waitForSelector('[data-testid="lab-root"]', { timeout: 30000 }).catch(() => null)
       const plain = await page.evaluate(() => ({ url: location.pathname + location.search, frame: !!document.querySelector('iframe[data-testid="margin-preview-frame"]'), sticky: localStorage.getItem('tinct:margin-preview') }))
@@ -516,11 +520,11 @@ try {
       await page.waitForTimeout(1200)
       const here = await previewPlace(frame)
       ok(`${tag}: the preview holds the word it was taken to`, here.para === target.para && here.word === target.word, { here, target })
-      // Aa: Layout, Margin · Two-page · Compare (then Back to normal reader).
-      await frame.click('#aaBtn')
-      await frame.waitForSelector('[data-aa="layout"] [data-layout="two-page"]', { timeout: 5000 }).catch(() => null)
-      const layouts = await frame.evaluate(() => ({ label: document.getElementById('aaLayoutLabel')?.textContent, rows: [...document.querySelectorAll('[data-aa="layout"] [data-layout]')].map(b => [b.dataset.layout, b.textContent.replace(/✓/g, '').trim(), b.getAttribute('aria-pressed')]) }))
-      ok(`${tag}: Aa's Layout offers Margin (on), Two-page, Compare and Back to normal reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Back to normal reader', 'false']]), layouts)
+      // Book settings (22 Oct 2026; Aa's until then): Layout, Margin · Two-page · Compare (then Back to normal reader).
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]')
+      await frame.waitForSelector('[data-bs="layout"] [data-layout="two-page"]', { timeout: 5000 }).catch(() => null)
+      const layouts = await frame.evaluate(() => ({ label: document.getElementById('bsLayoutLabel')?.textContent, rows: [...document.querySelectorAll('[data-bs="layout"] [data-layout]')].map(b => [b.dataset.layout, b.textContent.replace(/✓/g, '').trim(), b.getAttribute('aria-pressed')]) }))
+      ok(`${tag}: Book settings' Layout offers Margin (on), Two-page, Compare and Back to normal reader`, layouts.label === 'Layout' && JSON.stringify(layouts.rows) === JSON.stringify([['margin', 'Margin', 'true'], ['two-page', 'Two-page', 'false'], ['compare', 'Compare', 'false'], ['text', 'Back to normal reader', 'false']]), layouts)
       if (first) await deskShot(page, `aa-layout-${w}x${h}.png`)
       // Two-page: the book reader at the same chapter, paragraph and word; the opt-in kept.
       await Promise.all([page.waitForURL(u => !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), frame.click('[data-layout="two-page"]')])
@@ -529,7 +533,7 @@ try {
       ok(`${tag}: Two-page opens the book reader in two pages at the same place (chapter ${here.chapter}, ¶ ${here.para}, word ${here.word})`, !two.frame && two.view === 'read' && two.chapter === here.chapter && two.para === here.para && two.word === here.word, { here, two })
       ok(`${tag}: the opt-in survives Two-page, and the link's place leaves the address`, two.sticky === '1' && !/chapter=|view=/.test(two.url), two)
       if (first) await deskShot(page, `two-page-${w}x${h}.png`)
-      // Margin from the book reader (Book editions): back to the preview at the same place.
+      // Margin from the book reader (Book settings): back to the preview at the same place.
       await page.click('[data-testid="lab-super"]'); await page.click('[data-testid="lab-super-row-editions"]')
       const marginRow = await page.waitForSelector('[data-testid="lab-v2-margin"]', { timeout: 8000 }).catch(() => null)
       ok(`${tag}: the book reader offers Margin while the opt-in is on`, !!marginRow && (await marginRow.textContent()).includes('Margin'))
@@ -542,7 +546,7 @@ try {
       ok(`${tag}: the return link's place leaves the address; the opt-in on`, backUrl.sticky === '1' && !/chapter=/.test(backUrl.url) && /margin=1/.test(backUrl.url), backUrl)
       if (first) await deskShot(page, `back-to-margin-${w}x${h}.png`)
       // Compare: the same place, side by side; the opt-in kept. Then Margin again.
-      await frame.click('#aaBtn'); await frame.waitForSelector('[data-layout="compare"]', { timeout: 5000 })
+      await frame.click('#superBtn'); await frame.click('.lab-super-row[data-row="book"]'); await frame.waitForSelector('[data-layout="compare"]', { timeout: 5000 })
       await Promise.all([page.waitForURL(u => !u.searchParams.has('margin'), { timeout: 20000 }).catch(() => null), frame.click('[data-layout="compare"]')])
       await waitNormal(page)
       const cmp = await normalPlace(page)

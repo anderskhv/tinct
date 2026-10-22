@@ -71,6 +71,15 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
+  // Notebook: the margin reader's Notebook button's glyph (public/lab/addbook/js/notebook.js ICONS.book).
+  if (id === 'notebook') {
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6.6 3.8h10.1a1.8 1.8 0 0 1 1.8 1.8v12.8a1.8 1.8 0 0 1-1.8 1.8H6.6z" />
+        <path d="M6.6 3.8v16.4M4.7 7.6h3.8M4.7 12h3.8M4.7 16.4h3.8M11.2 8.4h4.4M11.2 11.6h4.4" />
+      </svg>
+    )
+  }
   // Audio settings: a speaker.
   if (id === 'audio') {
     return (

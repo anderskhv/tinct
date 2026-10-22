@@ -771,6 +771,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const [tocOpen, setTocOpen] = useState(false)
+  // The phone's Notebook row (t menu, 22 Oct 2026): the Contents opened at its Highlights & notes, closed back to the book.
+  const [contentsNotebook, setContentsNotebook] = useState(false)
+  useEffect(() => { if (!tocOpen) setContentsNotebook(false) }, [tocOpen])
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
   const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
@@ -5093,6 +5096,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSuperMenuOpen(false)
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { handleChat(); return }
+    // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
+    if (id === 'notebook') { setReaderControlsVisible(true); setContentsNotebook(true); setTocOpen(true); return }
     if (privateBook) {
       // Back to Add a book's Your books; one edition (a PDF two), so no editions layer but a PDF's.
       // Catch me up builds its recap from this device's text, signed in only.
@@ -6519,6 +6524,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
+        notebook={contentsNotebook}
         onClose={() => setTocOpen(false)}
       />
       {callFullScreen && !marginPhone && (

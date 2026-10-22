@@ -138,8 +138,8 @@ await page.mouse.click(195, 420)
 await page.getByTestId('lab-super').waitFor({ timeout: 10000 })
 await page.getByTestId('lab-super').click()
 await page.getByTestId('lab-super-menu').waitFor()
-// The phone's t menu (20 Oct 2026): Reading settings holds the editions, voice, speed and offline row; the desktop keeps Settings.
-await page.getByTestId((await page.getByTestId('lab-super-row-reading').count() ? 'lab-super-row-reading' : 'lab-super-row-settings')).click()
+// Audio settings holds the voice and speed, on the phone and the desktop (22 Oct 2026).
+await page.getByTestId('lab-super-row-audio').click()
 const row = page.getByTestId('lab-v2-narration-voice')
 await row.waitFor({ timeout: 10000 })
 const options = await row.locator('option').allTextContents()

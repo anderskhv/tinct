@@ -78,8 +78,8 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         if (scenario.compare) {
           await page.getByTestId('lab-super').click()
           await page.getByTestId('lab-super-menu').waitFor()
-          // The phone's t menu holds Show compare in Reading settings (20 Oct 2026); the desktop keeps Book editions.
-          await page.getByTestId(await page.getByTestId('lab-super-row-reading').count() ? 'lab-super-row-reading' : 'lab-super-row-editions').click()
+          // Book settings holds Show compare, on the phone and the desktop (22 Oct 2026).
+          await page.getByTestId('lab-super-row-editions').click()
           await page.getByTestId('lab-v2-show-compare').click()
           await page.waitForFunction(edition => {
             const root=document.querySelector('[data-testid="lab-root"]')

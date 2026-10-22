@@ -29,6 +29,8 @@ interface Props {
   /** While an added book's Modern English edition is being written: each chapter's state (labModernEdition.ts). */
   modernStates?: Record<string, 'ready' | 'preparing' | 'queued'>
   onSwitchBook?: () => void
+  /** Opened as the phone's Notebook (t menu, 22 Oct 2026): straight to Highlights & notes; closing it returns to the book. */
+  notebook?: boolean
   /** The book's introduction (in the library). Omitted when there is none to open. */
   onOpenIntroduction?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
@@ -102,15 +104,16 @@ export function LabContentsV2(props: Props) {
   const closeAction = useRef(() => {})
   closeAction.current = () => {
     if (view === 'highlight') { setView('highlights'); setSelection(null) }
+    else if (view === 'highlights' && props.notebook) onClose()
     else if (view) closeOverlay()
     else onClose()
   }
 
   useEffect(() => {
     if (!open) return
-    setExpanded(new Set(current?.parents.map(n => n.id))); setView(null)
+    setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'highlights' : null); setChapterFilter(null)
     setCrumbs([]); reveal.current = true
-  }, [open, bookId, currentChapter, props.chaptersReady])
+  }, [open, bookId, currentChapter, props.chaptersReady, props.notebook])
   useEffect(() => { setLoadedText(null); setLoadError(false); setView(null); setTab('chapters') }, [bookId, editionKey])
   useEffect(() => {
     if (!needsText || data) return

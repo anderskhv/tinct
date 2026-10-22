@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'text' | 'editions' | 'audio' | 'library' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -24,25 +24,36 @@ export interface LabSuperMenuRow {
 }
 
 /**
- * The three settings groups, named and filled the same on every platform (Anders, 22 Oct 2026): Aa (themes,
- * size and Advanced settings: font, alignment, spacing, margins), Book settings (main and compare version,
- * Show compare, Margin, a play's layout, offline) and Audio settings (audiobook version, voice, speed).
+ * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
+ * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
+ * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
+ * - Aa: font, size, alignment, spacing, margins, theme. The desktop margin reader's own top-bar button.
+ * - Book settings: main and compare version, a play's layout, Margin or Classic reader, Convert to Tinct book,
+ *   a PDF's Original pages (whichever apply to the book).
+ * - Audio settings: voice, speed, audiobook version.
  */
-const SETTINGS_ROWS: LabSuperMenuRow[] = [
-  { id: 'text', label: 'Aa', chevron: true, ruleBefore: true },
-  { id: 'editions', label: 'Book settings', chevron: true },
-  { id: 'audio', label: 'Audio settings', chevron: true },
-]
+export const LAB_SETTINGS_GROUPS = [
+  { id: 'text', frame: 'aa', layer: 'reading', label: 'Aa' },
+  { id: 'editions', frame: 'book', layer: 'editions', label: 'Book settings' },
+  { id: 'audio', frame: 'audio', layer: 'audio', label: 'Audio settings' },
+] as const satisfies ReadonlyArray<{ id: LabSuperMenuId; frame: string; layer: string; label: string }>
+
+/** The reader's highlights, notes and cards: the desktop margin reader's top-bar button, the phone's t menu row. */
+export const LAB_NOTEBOOK_LABEL = 'Notebook'
+
+const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) }))
 
 /**
  * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
- * Summarize and Catch me up; Aa, Book settings and Audio settings; then Library and Profile.
+ * Summarize, Catch me up and Notebook (the Contents' highlights and notes); Aa, Book settings and Audio settings;
+ * then Library and Profile. The phone has no top-bar Aa or Notebook, so everything is here.
  */
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
+    { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
     ...SETTINGS_ROWS,
     { id: 'library', label: privateBook ? 'Your books' : 'Library', ruleBefore: true },
     { id: 'account', label: 'Profile', chevron: true },

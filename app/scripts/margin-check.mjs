@@ -487,6 +487,16 @@ function start(port) {
 /* ---------- The reader, signed in, with a PDF from the account ---------- */
 const SESSION = { access_token: 'test-token', refresh_token: 'x', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000, user: { id: '00000000-0000-4000-8000-000000000001', email: 'reader@example.com', user_metadata: {} } }
 // `at`: open the PDF at that page (the reader's ?page= link), for a book whose first pages carry little text.
+/* The settings groups (22 Oct 2026): Aa is the top bar's button on the desktop and a t menu row on the phone; Book
+   settings (the Layout choices, Convert to Tinct book, Original pages) and Audio settings are t menu rows. */
+async function openAa(page) {
+  if (await page.evaluate(() => (document.getElementById('aaBtn')?.getBoundingClientRect().width || 0) > 0)) return page.click('#aaBtn')
+  await page.click('#superBtn'); await page.waitForSelector('.lab-super-row[data-row="aa"]'); await page.click('.lab-super-row[data-row="aa"]')
+}
+async function openBookPanel(page, wait = '.lab-v2-sheet') {
+  await page.click('#superBtn'); await page.waitForSelector('.lab-super-row[data-row="book"]'); await page.click('.lab-super-row[data-row="book"]')
+  await page.waitForSelector('.byob-book-settings ' + wait, { timeout: 5000 })
+}
 async function readerPage(browser, origin, hex, { width, height, look, startPage = 1, zoom = 1, minSpans = 20, at = 0 }) {
   // Browser zoom: the CSS viewport shrinks by the zoom and each CSS pixel takes `zoom` device pixels.
   const phone = width < 700
@@ -2285,8 +2295,8 @@ async function scanChecks(browser, origin) {
   }, made.recognised[0].blocks.filter(b => b.t === 'p'))
   const off = placed.filter(q => q.missing || q.dl > 0.01 || q.dt > 0.012 || q.dr > 0.015)
   ok('every recognised line of page 1 sits over its printed words: left, top and right within about 1% of the page', placed.length > 10 && !off.length, off.slice(0, 5))
-  // Tinct text is offered in the Aa panel (under Layout, or its own row: TinctReaderLayout.TINCT_TEXT).
-  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is in the Aa panel', await page.evaluate(() => { openDisplay(); const offered = !!document.querySelector('.byob-aa-panel [data-layout="text"], .byob-aa-panel [data-t="text"]:not([hidden])'); closeDisplay(); return !document.getElementById('playBtn').disabled && !hasNoText() && offered }))
+  // Tinct text is offered in Book settings (under Layout, or its own row: TinctReaderLayout.TINCT_TEXT).
+  ok('the scan now reads aloud and summarizes (its recognised text), and the Tinct text is in Book settings', await page.evaluate(async () => { await openBookSettings(); const offered = !!document.querySelector('.byob-book-settings [data-layout="text"], .byob-book-settings [data-bs-text]:not([hidden])'); document.querySelector('.byob-book-settings')?.close(); return !document.getElementById('playBtn').disabled && !hasNoText() && offered }))
   // Selection on the scan opens the margin's bar.
   const selected = await selectText(page)
   const bar = await page.waitForSelector('.mr-bar, .mr-pbar', { timeout: 8000 }).then(() => true).catch(() => false)
@@ -2768,18 +2778,19 @@ async function focusMatrix(browser, origin) {
         await page.evaluate(seedCards, { lines: 3, pairs: false, open: 1 }); await settle(page)
         const margin0 = await page.evaluate(focusState)
         await snap('margin')
-        // The Aa panel: inside the screen, Layout first with the two PDF layouts, Margin view chosen.
-        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="focus"]', { timeout: 4000 })
+        // Book settings (22 Oct 2026; the Aa panel's Layout of 15 Oct): inside the screen, Layout first with the two PDF
+        // layouts, Margin view chosen, and none of Aa's themes.
+        await openBookPanel(page, '[data-layout="focus"]')
         await check('panel', () => {
-          const s = document.querySelector('.byob-aa-panel .lab-v2-sheet').getBoundingClientRect(), body = document.querySelector('.byob-aa-panel .lab-v2-sheet-body')
-          const names = [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.querySelector('.lab-v2-edition-name').textContent)
-          const first = body.firstElementChild.dataset.aa
-          const on = document.querySelector('.byob-aa-panel [data-layout][aria-pressed="true"]')?.dataset.layout
-          return { ok: s.left >= 0 && s.right <= innerWidth + 0.5 && s.top >= 0 && s.bottom <= innerHeight + 0.5 && first === 'layout' && names[0] === 'Margin view (default)' && names[1] === 'Focus view' && on === 'margin' && !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-themes"]'), names, first, on }
+          const s = document.querySelector('.byob-book-settings .lab-v2-sheet').getBoundingClientRect(), body = document.querySelector('.byob-book-settings .lab-v2-sheet-body')
+          const names = [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => b.querySelector('.lab-v2-edition-name').textContent)
+          const first = body.firstElementChild.dataset.bs
+          const on = document.querySelector('.byob-book-settings [data-layout][aria-pressed="true"]')?.dataset.layout
+          return { ok: s.left >= 0 && s.right <= innerWidth + 0.5 && s.top >= 0 && s.bottom <= innerHeight + 0.5 && first === 'layout' && names[0] === 'Margin view (default)' && names[1] === 'Focus view' && on === 'margin' && !document.querySelector('.byob-book-settings [data-testid="lab-v2-themes"]'), names, first, on }
         })
         const place0 = await page.evaluate(() => currentPlace())
-        await page.click('.byob-aa-panel [data-layout="focus"]'); await page.waitForTimeout(250)
-        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        await page.click('.byob-book-settings [data-layout="focus"]'); await page.waitForTimeout(250)
+        await page.click('.byob-book-settings .lab-v2-dismiss')
         // On the phone a tap outside the bottom card (here, in the panel) closes it, as it always has: the card opens again.
         await page.evaluate(() => { if (!col.open) openCard((store.get('cards:' + state.key) || [])[1]?.id) })
         // Focus view: centred, as wide as in Margin view, nothing beside it, the open card in the pop-up, the place kept.
@@ -2821,9 +2832,9 @@ async function focusMatrix(browser, origin) {
         if (!near(placeR, placeR2)) found.push({ state: 'reload', kind: 'place moved', el: JSON.stringify([placeR, placeR2]) })
         // Back to Margin view: the place stays, the cards are there again, the default is stored as no choice.
         const place1 = await page.evaluate(() => currentPlace())
-        await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="margin"]', { timeout: 4000 })
-        await page.click('.byob-aa-panel [data-layout="margin"]'); await page.waitForTimeout(250)
-        await page.click('.byob-aa-panel .lab-v2-dismiss')
+        await openBookPanel(page, '[data-layout="margin"]')
+        await page.click('.byob-book-settings [data-layout="margin"]'); await page.waitForTimeout(250)
+        await page.click('.byob-book-settings .lab-v2-dismiss')
         await check('margin-again', () => { const f = focusState(), cards = (store.get('cards:' + state.key) || []).length; return { ok: f.mode !== 'focus' && f.layout === 'margin' && f.stored === null && cards > 0 && (f.mode !== 'column' || (f.colShown && visibleCards().length > 0)), cards, ...f } })
         const place2 = await page.evaluate(() => currentPlace())
         if (!near(place1, place2)) found.push({ state: 'margin-again', kind: 'place moved', el: JSON.stringify([place1, place2]) })
@@ -2862,7 +2873,7 @@ function headerState() {
   const chevron = btn.querySelector('.lab-header-chevron')
   return {
     title: box('bookTitle'), titleWhole: t.scrollWidth <= t.clientWidth + 1, pill: box('pageBtn'), label: label.textContent.trim(), labelWhole: label.scrollWidth <= label.clientWidth + 1,
-    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', aa: box('aaBtn'), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
+    chevron: !!chevron && getComputedStyle(chevron).display !== 'none', controls: (() => { const c = [...document.querySelectorAll('.lab-header-controls > *')].find(n => n.getBoundingClientRect().width > 0)?.getBoundingClientRect(); return c ? { left: c.left, right: c.right, w: c.width } : null })(), pillShown: getComputedStyle(btn).display !== 'none' && btn.getBoundingClientRect().width > 0,
   }
 }
 async function phoneUi(browser, origin) {
@@ -2906,7 +2917,7 @@ async function phoneUi(browser, origin) {
     // 3. The header: a long title gets the room, the pill shortens and is never empty.
     await a.evaluate(t => { setBookTitle(t, ''); onScroll() }, TITLE); await a.waitForTimeout(300)
     const h = await a.evaluate(headerState)
-    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.aa.left + 0.5
+    const overlap = h.title.right > h.pill.left + 0.5 || h.pill.right > h.controls.left + 0.5
     ok(`${tag}: the header gives the title its room (${Math.round(h.title.w)}px), the pill shows "${h.label}", never empty, nothing overlapping`, h.pillShown && h.label.length > 0 && h.labelWhole && /^p\. \S+$/.test(h.label) && h.title.w >= (width >= 390 ? 125 : 95) && !overlap, h)
     await a.evaluate(() => { setBookTitle('Short', ''); onScroll() }); await a.waitForTimeout(300)
     const hs = await a.evaluate(headerState)
@@ -2924,11 +2935,12 @@ async function phoneUi(browser, origin) {
     const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
     ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
     // 1. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk on one row (Chat opens the whole-document
-    // chat), Summarize, Catch me up off on the first unit, Reading settings, this reader's own rows, Library, Profile.
+    // chat), Summarize, Catch me up off on the first unit, Book settings and Audio settings (22 Oct 2026; Aa is the top
+    // bar's button here), this reader's own rows, Library, Profile.
     await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
     const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
-    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'settings:Reading settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
-    ok('the t menu is Chat · Talk, Summarize, Reading settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
+    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'book:Book settings›', 'audio:Audio settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
+    ok('the t menu is Chat · Talk, Summarize, Book settings, Audio settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
     const sel = await D.page.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect)
     ok('the top bar\'s Aa is never selected as text', sel === 'none', sel)
     await D.page.click('.lab-super-row-half[data-row="chat"]'); await D.page.waitForTimeout(500)
@@ -2936,7 +2948,7 @@ async function phoneUi(browser, origin) {
     // 4. Escape closes the Aa panel, from its close button and from the size slider; focus returns to Aa.
     // (A PDF's size control on the desktop is Zoom's − and + since 19 Oct 2026, evening; the phone keeps the slider.)
     for (const from of ['.byob-aa-panel .lab-v2-dismiss', '.byob-aa-panel [data-z="-"]']) {
-      await D.page.keyboard.press('Escape'); await D.page.click('#aaBtn'); await D.page.waitForSelector('.byob-aa-panel')
+      await D.page.keyboard.press('Escape'); await openAa(D.page); await D.page.waitForSelector('.byob-aa-panel')
       await D.page.focus(from); await D.page.keyboard.press('Escape'); await D.page.waitForTimeout(200)
       const esc = await D.page.evaluate(() => ({ open: !!document.querySelector('.byob-aa-panel'), focus: document.activeElement?.id, expanded: document.getElementById('aaBtn').getAttribute('aria-expanded') }))
       ok(`Escape closes the Aa panel (focus in ${from.includes('data-z') ? 'Zoom' : 'the panel'}) and focus returns to Aa`, !esc.open && esc.focus === 'aaBtn' && esc.expanded === 'false', esc)
@@ -4103,7 +4115,7 @@ async function passageMark(browser, origin) {
     await a.keyboard.press('Escape'); await a.evaluate(() => getSelection().removeAllRanges())
     // The Aa panel: Passage mark → Highlight (a soft tint of each line's band), then Off.
     await openOn(a)
-    await a.click('#aaBtn'); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
+    await openAa(a); await a.waitForSelector('#passageMarkSel', { timeout: 4000 }).catch(() => {})
     const row = await a.evaluate(() => { const s = document.querySelector('#passageMarkSel'); return s && { value: s.value, options: [...s.options].map(o => o.textContent), label: s.closest('.lab-v2-row')?.querySelector('.lab-v2-row-label')?.textContent } })
     ok(`10. ${label}: the Aa panel has "Passage mark": Underline (default), Highlight, Off`, row && row.value === 'underline' && row.options.join('|') === 'Underline|Highlight|Off' && row.label === 'Passage mark', row)
     await a.selectOption('#passageMarkSel', 'tint'); await a.waitForTimeout(400)
@@ -4376,7 +4388,7 @@ async function zoomPanel(browser, origin) {
     const a = A.page
     await prefetchSettled(a)
     if (layout === 'focus') { await a.evaluate(() => setLayout('focus')); await a.waitForTimeout(700) }
-    await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
+    await openAa(a); await a.waitForSelector('.byob-aa-panel', { timeout: 4000 }).catch(() => {})
     const panel = await a.evaluate(() => { const p = document.querySelector('.byob-aa-panel'); return p && { zoom: !!p.querySelector('.byob-zoom'), label: p.querySelector('.byob-zoom-label')?.textContent, slider: !!p.querySelector('[data-testid="lab-v2-size"]'), full: [...p.querySelectorAll('.lab-v2-row-label')].some(l => /Full width/.test(l.textContent)), fit: p.querySelector('[data-z="fit"]')?.getAttribute('aria-pressed'), note: p.querySelector('.byob-zoom-note')?.textContent.trim() || null, pct: p.querySelector('.byob-zoom-pct')?.textContent } })
     ok(`${tag}: 6. Zoom (−, 100%, +, Fit width pressed) replaces the size slider; no "Full width"`, panel && panel.zoom && panel.label === 'Zoom' && !panel.slider && !panel.full && panel.fit === 'true' && panel.pct === '100%', panel)
     ok(`${tag}: 6. one line points to Convert to Tinct book for larger text that reflows`, panel?.note === 'For larger text that reflows, use Convert to Tinct book.', panel?.note)
@@ -4393,7 +4405,7 @@ async function zoomPanel(browser, origin) {
     const keys = await room(a)
     ok(`${tag}: 6. Ctrl + and a pinch never take it further`, keys.right <= keys.colLeft + 1 && keys.sideways <= 1 && Math.abs(keys.zoom - most.zoom) < 0.011, { most, keys })
     // − and Fit width.
-    await a.click('#aaBtn'); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
+    await openAa(a); await a.waitForSelector('.byob-zoom'); await a.click('[data-z="-"]'); await a.waitForTimeout(300)
     const less = await room(a)
     await a.click('[data-z="fit"]'); await a.waitForTimeout(400)
     const fit = await room(a)
@@ -4403,13 +4415,13 @@ async function zoomPanel(browser, origin) {
   }
   // A phone keeps its size slider.
   const P = await readerPage(browser, origin, hex, { width: 390, height: 844, look: 'paper' })
-  await P.page.click('#aaBtn'); await P.page.waitForTimeout(400)
+  await openAa(P.page); await P.page.waitForTimeout(400)
   ok('zoom-panel-390x844: 6. the phone keeps its size slider (phones unchanged)', await P.page.evaluate(() => !!document.querySelector('.byob-aa-panel [data-testid="lab-v2-size"]') && !document.querySelector('.byob-zoom')))
   await P.ctx.close()
   // Tinct text (an EPUB here) on the desktop: text controls, never Zoom (since 20 Oct 2026, desk-polish D1: Text size and
   // Line width in place of the size slider).
   const E = await openEpubHere(browser, origin, { width: 1440, height: 900, look: 'paper', margin: false })
-  await E.page.click('#aaBtn'); await E.page.waitForTimeout(400)
+  await openAa(E.page); await E.page.waitForTimeout(400)
   ok('zoom-panel-epub: 6. in Tinct text the Aa panel has text controls (Text size, Line width), no Zoom', await E.page.evaluate(() => JSON.stringify([...document.querySelectorAll('.byob-aa-panel .byob-type .lab-v2-row-label')].map(l => l.textContent)) === '["Text size","Line width"]' && !document.querySelector('.byob-zoom')))
   await E.ctx.close()
   return results
@@ -4983,9 +4995,9 @@ async function pdfTextCheck(browser, origin) {
       if (!prepared) await page.waitForTimeout(250)
     }
     ok(`${tag}: read in its pages, its Tinct text is prepared in idle time and kept before Tinct text is chosen`, prepared)
-    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="text"]')
+    await openBookPanel(page, '[data-layout="text"]')
     const chosen = Date.now()
-    await page.click('.byob-aa-panel [data-layout="text"]')
+    await page.click('.byob-book-settings [data-layout="text"]')
     const shown = await page.waitForFunction(() => isPdfText() && document.querySelector('.pt-chapter') && marginOn(), null, { timeout: 30000 }).then(() => true).catch(() => false)
     console.log(`     ${tag}: Tinct text shown ${Date.now() - chosen} ms after it was chosen (prepared)`)
     await page.waitForTimeout(1500)
@@ -5020,13 +5032,13 @@ async function pdfTextCheck(browser, origin) {
     await page.keyboard.press('Escape'); await page.mouse.click(5, 895)
     // Back: "Original pages", at the same place.
     const spotNowText = await page.evaluate(() => { const at = currentPlace(), s = epubSpot(); return PT().pageAt(state.pdfText.edition, at.page, s.para || 0, s.word || 0) })
-    await page.click('#aaBtn'); await page.waitForSelector('.byob-aa-panel [data-layout="pages"]')
-    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => b.dataset.layout))
-    await page.click('.byob-aa-panel [data-layout="pages"]')
+    await openBookPanel(page, '[data-layout="pages"]')
+    const aa = await page.evaluate(() => [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => b.dataset.layout))
+    await page.click('.byob-book-settings [data-layout="pages"]')
     const back = await page.waitForFunction(() => state.kind === 'pdf' && document.querySelectorAll('.pdf-sheet .text-layer span').length > 20, null, { timeout: 30000 }).then(() => true).catch(() => false)
     await page.waitForTimeout(1200)
     const after = await page.evaluate(() => ({ at: currentPlace(), edition: store.get('edition:' + hexOf(state.key)), url: location.pathname + location.search }))
-    ok(`${tag}: the Aa panel offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
+    ok(`${tag}: Book settings offers Tinct text (chosen) and Original pages, and Original pages goes back to the same page`, JSON.stringify(aa) === '["margin","pages"]' && back && after.at.page === spotNowText?.page && Math.abs(after.at.frac - spotNowText.frac) < 0.2 && after.edition === 'pages', { aa, spotNowText, after })
     ok(`${tag}: no page errors`, !problems.length, problems)
     await ctx.close()
   }
@@ -5100,10 +5112,10 @@ async function epubViewCheck(browser, origin) {
     await epubSettled(e); await e.waitForFunction(() => col.mode != null, null, { timeout: 10000 }).catch(() => {})
     const opened = await e.evaluate(() => ({ url: location.pathname + location.search, kind: state.kind, margin: marginOn(), mode: col.mode, dock: !!document.querySelector('.byob-dock'), nb: getComputedStyle(document.getElementById('notebookBtn')).display !== 'none' }))
     ok(`${tag}: the EPUB opens here, in Margin view (its column), at its own address, with the Notebook`, opened.url === `/lab/addbook/?userBook=${hex}` && opened.kind === 'epub' && opened.margin && opened.mode === 'column' && !opened.dock && opened.nb, opened)
-    // The Aa panel: Margin view, and Convert to Tinct book.
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel')
-    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-aa-panel [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
-    ok(`${tag}: the Aa panel offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
+    // Book settings: Margin view, and Convert to Tinct book.
+    await openBookPanel(e)
+    const aa = await e.evaluate(() => [...document.querySelectorAll('.byob-book-settings [data-layout]')].map(b => [b.dataset.layout, b.textContent.trim(), b.getAttribute('aria-pressed')]))
+    ok(`${tag}: Book settings offers Margin view (chosen) and Convert to Tinct book`, JSON.stringify(aa) === JSON.stringify([['margin', 'Margin view (default)✓', 'true'], ['text', 'Convert to Tinct book', 'false']]), aa)
     await e.keyboard.press('Escape')
     // A place: chapter 3's third paragraph, some way in.
     await e.evaluate(() => { const p = state.pages[2], el = epubParas(p)[3]; goTo({ page: 3, frac: 0 }); return new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => { const s = document.getElementById('scroll'), b = el.getBoundingClientRect(); s.scrollTop += b.top - s.getBoundingClientRect().top + b.height * 0.4; r() }))) })
@@ -5129,8 +5141,8 @@ async function epubViewCheck(browser, origin) {
     // The view switch: Convert to Tinct book leaves for the Tinct reader at this place, and is this device's choice.
     await e.evaluate(p => { epubGoSpot(p.page, p.para, p.word) }, here); await e.waitForTimeout(600); await epubSettled(e)
     await e.route('**/reader?userBook=*', r => r.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Tinct reader</title>' }))
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel [data-layout="text"]')
-    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-aa-panel [data-layout="text"]')])
+    await openBookPanel(e, '[data-layout="text"]')
+    await Promise.all([e.waitForURL(`**/reader?userBook=${hex}`), e.click('.byob-book-settings [data-layout="text"]')])
     const left = await e.evaluate(([k, h]) => ({ view: JSON.parse(localStorage.getItem('tinct-addbook:epub-view:' + h)), pos: JSON.parse(localStorage.getItem('tinct-addbook:pos:' + k)) }), [key, hex])
     ok(`${tag}: Convert to Tinct book opens the Tinct reader, kept as this device's choice, the place sent by its words`, left.view === 'text' && left.pos.quote === here.quote && left.pos.para === here.para, left)
     // With that choice, this address goes on to the Tinct reader; the Tinct reader's "Margin view" comes back to the same words.
@@ -5557,7 +5569,7 @@ async function deskPolishCheck(browser, origin) {
     ok(`${tag}: D1 the default text is larger and its column wider, about 65–80 characters a line`, t0.size >= want.size && t0.width >= want.width && t0.cpl >= 65 && t0.cpl <= 80, t0)
     await shotTo(e, `desk-${tag}-D1-default`)
     // The Aa panel: Text size and Line width, each "100%" with − and +.
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await openAa(e); await e.waitForSelector('.byob-aa-panel .byob-type')
     const rows = await e.evaluate(typeRows)
     ok(`${tag}: D1 the Aa panel has Text size and Line width (100%), no size slider`, JSON.stringify(rows) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !(await e.$('.byob-aa-panel [data-testid="lab-v2-size"]')), rows)
     await shotTo(e, `desk-${tag}-D1-aa-panel`)
@@ -5582,7 +5594,7 @@ async function deskPolishCheck(browser, origin) {
     const t2 = await e.evaluate(typeNow), back = await e.evaluate(spotNow)
     ok(`${tag}: D1 a reload keeps this device's Text size and Line width, at the same place`, Math.abs(t2.size - t1.size) < 0.1 && Math.abs(t2.width - t1.width) <= 1 && near(back), { t1, t2, here, back })
     // Back to the default for what follows (the − steps).
-    await e.click('#aaBtn'); await e.waitForSelector('.byob-aa-panel .byob-type')
+    await openAa(e); await e.waitForSelector('.byob-aa-panel .byob-type')
     await e.click('.byob-type[data-type="size"] [data-type-step="-1"]'); await e.click('.byob-type[data-type="width"] [data-type-step="-1"]'); await e.waitForTimeout(400)
     const rows2 = await e.evaluate(typeRows), prefs2 = await e.evaluate(() => JSON.parse(localStorage.getItem('tinct-addbook:prefs')))
     ok(`${tag}: D1 − steps back to 100%, the default stored as no choice; the other per-device choices kept`, JSON.stringify(rows2) === JSON.stringify([['Text size', '100%'], ['Line width', '100%']]) && !('textSize' in prefs2) && !('lineWidth' in prefs2) && prefs2.dock === 'docked', { rows2, prefs2 })
@@ -5871,7 +5883,7 @@ async function settingsCheck(browser, origin) {
     const aaShown = await a.evaluate(() => getComputedStyle($('aaBtn')).display !== 'none' && $('aaBtn').getBoundingClientRect().width > 0)
     ok(`${tag}: the top bar's Aa is ${phone ? 'not there (Aa is a t menu row)' : 'its own button'}`, aaShown === !phone, { aaShown })
     for (const id of ['aa', 'book', 'audio']) {
-      if (id === 'aa' && !phone) { await a.click('#aaBtn'); await a.waitForSelector('.byob-aa-panel .lab-v2-sheet'); await a.waitForTimeout(250) }
+      if (id === 'aa' && !phone) { await openAa(a); await a.waitForSelector('.byob-aa-panel .lab-v2-sheet'); await a.waitForTimeout(250) }
       else await openFromMenu(a, id)
       const p = await panelState(a, SETTINGS_SECTIONS[id].panel)
       await shot(a, `${tag}-${id}`)

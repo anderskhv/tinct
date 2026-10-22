@@ -64,8 +64,8 @@ try{
   // Settings opens from the reader menu, the way a reader reaches it. Letter
   // shortcuts are for opted-in desktops only (#321), so `s` does nothing here.
   await page.getByTestId('lab-super-menu').waitFor()
-  // The phone's t menu (20 Oct 2026): Text and theme holds the themes, size and Advanced settings; the desktop keeps Settings.
-  await page.getByTestId((await page.getByTestId('lab-super-row-text').count() ? 'lab-super-row-text' : 'lab-super-row-settings')).click()
+  // Aa holds the themes, size and Advanced settings, on the phone and the desktop (22 Oct 2026).
+  await page.getByTestId('lab-super-row-text').click()
   await page.getByTestId('lab-v2-theme-eink').waitFor()
   assert.equal(await page.getByTestId('lab-v2-theme-eink').getAttribute('aria-pressed'),'true')
   await page.getByTestId('lab-v2-theme-book').click()

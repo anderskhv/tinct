@@ -260,13 +260,13 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat · Talk, Summarize, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
+  it('lists Chat · Talk, Summarize, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
     // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Notebook', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
@@ -274,7 +274,7 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
     // Aa wears a small and a large A, so the row reads "Aa" once.
     expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
-    expect(screen.getByTestId('lab-super-row-text').textContent).toBe('Aa')
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Aa')
     // Audio settings wears a speaker, not Talk's bars.
     expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
     // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
@@ -288,7 +288,7 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'library', 'account'])
+      .toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -351,6 +351,23 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+  })
+
+  it('the phone’s Notebook opens the Contents at Highlights & notes; its close goes straight back to the book', () => {
+    renderPhone()
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.getByLabelText('Highlights & notes')).toBeTruthy()
+    fireEvent.click(screen.getByLabelText('Close overlay'))
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    // The chapter's own way into Contents still opens the tree, not the notebook.
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.queryByLabelText('Highlights & notes')).toBeNull()
   })
 
   it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {
