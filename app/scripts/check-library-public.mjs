@@ -25,7 +25,14 @@ const watchdog=setInterval(()=>{if(Date.now()-stageAt>180000){console.error('LIB
 // report support to exercise the real gate; the request itself proves the src.
 async function checkSceneFilm(b,engine,label,options,expected){
  const c=await b.newContext({serviceWorkers:'block',...options});
- await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
+ await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};
+  // The page's own idle, the moment scene-video.js may first ask for a film: window load, then the
+  // browser's next idle callback (same 3 s timeout). This listener and callback are queued before the
+  // page's, so they run first; a film the page asks for earlier is stamped before them.
+  const gate=window.__filmGate={load:0,idle:0,films:[]};
+  addEventListener('load',()=>{gate.load=Date.now();const idle=()=>{gate.idle=Date.now();};window.requestIdleCallback?requestIdleCallback(idle,{timeout:3000}):setTimeout(idle,250);},{once:true});
+  const src=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,'src');
+  Object.defineProperty(HTMLMediaElement.prototype,'src',{...src,set(v){if(/\.mp4/.test(String(v)))gate.films.push({at:Date.now(),load:gate.load,idle:gate.idle});return src.set.call(this,v);}});});
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
  const pending=new Set(),errors=[];p.on('request',r=>pending.add(r));p.on('requestfinished',r=>pending.delete(r));p.on('requestfailed',r=>pending.delete(r));p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
@@ -38,12 +45,21 @@ async function checkSceneFilm(b,engine,label,options,expected){
   const state=await p.evaluate(()=>{const chain=[];for(let n=document.getElementById('read-featured');n&&n!==document;n=n.parentElement){const s=getComputedStyle(n);chain.push(`${n.tagName.toLowerCase()}#${n.id}.${String(n.className).replace(/ /g,'.')} display=${s.display} visibility=${s.visibility} height=${Math.round(n.getBoundingClientRect().height)}`);}return {readyState:document.readyState,url:location.href,html:document.documentElement.className,style:document.documentElement.getAttribute('style'),chain};}).catch(e=>String(e));
   await p.screenshot({path:`${out}/stall-${label}.png`}).catch(()=>{});
   console.log('LIBRARY_STALL '+JSON.stringify({label,state,pending:[...pending].map(r=>r.url()),errors}));throw error;});
- assert.equal(films.length,0,label+': no film before the page is idle');
+ // Whether a film came before the page's idle is measured in the page, against its own load and
+ // idle callback. Waiting for #read-featured was a proxy for "not idle yet" that stopped holding
+ // once #567 made load follow DOMContentLoaded closely: on a fast runner the page reached idle and
+ // asked for the film before Playwright saw the button (deploys of 22 Oct: failed 04:02, 13:55 and
+ // 14:34 UTC, passed between them; #580's site was byte-for-byte #575's, which passed).
+ const filmsAfterIdle=async()=>{const gate=await p.evaluate(()=>window.__filmGate);
+  assert(gate.films.every(f=>f.idle>0&&f.at>=f.idle)&&(films.length===0||gate.films.length>0),label+': no film before the page is idle '+JSON.stringify({gate,films}));};
  if(expected){
-  await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
+  // A fast page may already have asked for it while the button was awaited.
+  if(!films.length)await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
+  await filmsAfterIdle();
   assert.deepEqual(films[0],{path:'/lab/library_2/'+expected,type:'media'},label+': film for the visible scene');
  }else{
   await p.waitForTimeout(5000);
+  await filmsAfterIdle();
   assert.equal(await p.locator('video').count(),0,label+': no video element');
   assert.deepEqual(films,[],label+': no film requested');
  }
