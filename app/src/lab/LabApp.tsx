@@ -6704,6 +6704,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           dismissPopup={dismissSelectionPopup}
           lab
           keyboardDock={isPhone || showPhoneChrome}
+          darkBar={!(isPhone || showPhoneChrome)}
         />
       )}
 
