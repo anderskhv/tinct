@@ -47,10 +47,34 @@
   }
   addEventListener('resize', applyPaper);
 
-  /** A paragraph as the book reader shows it: its text, emphasised ranges in <em>. An empty one keeps its index. */
+  /*
+   * A figure (22 Oct 2026, launch): the picture at its paragraph, its caption under it, as the book reader shows it and as
+   * a PDF's Tinct text draws its crops here (pdf-text-view.js: .pt-fig, its CSS, the figure peek on "Figure 2"). One
+   * block whose text is the caption, or a zero-width space, so it is one paragraph (reader.js epubParas) at its index and
+   * its drawn text is the model's (marginPreviewAnchors drawnParagraphText). Its size is set before the image loads.
+   */
+  function figureEl(p) {
+    const fig = p.figure || {}, el = document.createElement('div');
+    el.className = 'pt-fig tb-fig' + (fig.large ? ' is-large' : '');
+    el.dataset.figure = String(fig.id || ''); el.dataset.kind = 'figure';
+    if (fig.src) {
+      const img = document.createElement('img');
+      img.src = fig.src; img.alt = fig.alt || p.text || `Figure ${fig.number || ''}`.trim(); img.decoding = 'async'; img.loading = 'lazy';
+      if (fig.width > 0 && fig.height > 0) { img.width = fig.width; img.height = fig.height; img.style.aspectRatio = `${fig.width} / ${fig.height}` }
+      el.append(img);
+    }
+    const cap = document.createElement('span');
+    cap.className = 'pt-cap';
+    cap.textContent = String(p.text || '').trim() ? p.text : '\u200b';
+    el.append(cap);
+    return el;
+  }
+
+  /** A paragraph as the book reader shows it: its text, emphasised ranges in <em>, its kind (a subheading, an item, a line). An empty one keeps its index. */
   function paragraphEl(p) {
+    if (p.figure) return figureEl(p);
     const el = document.createElement('p');
-    el.className = 'tb-p';
+    el.className = 'tb-p' + (p.kind ? ' tb-' + p.kind : '');
     const text = String(p.text || '');
     if (!text.trim()) { el.textContent = '​'; return el }
     let at = 0;
@@ -191,6 +215,11 @@
 .tb-chapter .tb-part{display:block;font-size:.9em;font-style:italic;opacity:.7;margin-bottom:.4em}
 .tb-chapter .tb-title{display:block;font-family:'Playfair Display','EB Garamond',Georgia,serif;font-size:1.45em;line-height:1.25}
 .tb-chapter .tb-p{white-space:pre-line}
+.tb-chapter .tb-fig img{width:auto;height:auto;max-width:100%;max-height:min(78vh,900px)}
+html .lab.byob .epub-pg p.tb-p.tb-heading{font-weight:600;text-align:left;margin-top:1.1em;-webkit-hyphens:manual;hyphens:manual;text-wrap:balance}
+html .lab.byob .epub-pg p.tb-p.tb-label,html .lab.byob .epub-pg p.tb-p.tb-line{text-align:left;-webkit-hyphens:manual;hyphens:manual}
+html .lab.byob .epub-pg p.tb-p.tb-subtitle,html .lab.byob .epub-pg p.tb-p.tb-byline{font-style:italic;text-align:left;color:var(--lab-ink-muted);-webkit-hyphens:manual;hyphens:manual}
+html .lab.byob .epub-pg p.tb-p.tb-item{padding-left:1.2em;text-indent:-1.2em}
 .lab.byob .epub-sheet{content-visibility:visible}
 .lab.byob .tb-chapter.tb-later{content-visibility:auto}
 .tb-mark{display:none}
