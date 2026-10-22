@@ -6384,6 +6384,7 @@ function headPills(u, p, at, seen) {
   if (text) {
     const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); dropHeadPill(u.key + ':end'); return null }
     if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
+    head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
     placeHeadPills(el, head);
     seen?.add(el);
     const end = endPills(u); if (end) seen?.add(end);
