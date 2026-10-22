@@ -139,7 +139,9 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-sage) { background-color: rgba(108, 178, 108, .34); }
 ::highlight(tinct-hl-sky) { background-color: rgba(96, 148, 226, .32); }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
-.lab.is-epub:not(.has-read-aloud) #playBtn, .lab.is-epub.is-phone #playBtn { display: none !important; }
+/* Play: a Tinct book's own narration (js/tinct-listen.js adds .tb-can-listen). An own book's would be the browser's voice,
+   which is off (reader.js synth(), Anders 22 Oct 2026), so it has none. */
+.lab:not(.tb-can-listen) #playBtn { display: none !important; }
 /* Read aloud in an EPUB: the sentence and the word heard, as a PDF's text layer draws them (reader.css .is-reading, .is-word). */
 ::highlight(tinct-read) { background-color: rgba(214, 186, 112, .22); }
 ::highlight(tinct-read-word) { background-color: rgba(214, 186, 112, .85); }
