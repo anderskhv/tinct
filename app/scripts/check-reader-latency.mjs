@@ -142,6 +142,10 @@ function instrument({ mockMs, realAsk }) {
 async function newContext(browser, device) {
   const context = await browser.newContext({ ...device, serviceWorkers: 'block' })
   await context.addInitScript(instrument, { mockMs: MOCK_MS, realAsk: REAL_ASK })
+  if (process.env.LATENCY_DEBUG === '1') context.on('page', page => {
+    page.on('pageerror', e => console.log(`  [pageerror] ${e.message.slice(0, 200)}`))
+    page.on('requestfailed', r => console.log(`  [failed] ${r.url().slice(0, 120)} ${r.failure()?.errorText}`))
+  })
   return context
 }
 async function throttle(page) {
@@ -195,7 +199,19 @@ async function sentenceInView(page, frame, nth) {
   const fb = await (await page.$('iframe[data-testid="margin-preview-frame"]')).boundingBox()
   const box = await frame.evaluate(n => {
     const top = (document.getElementById('hdr')?.getBoundingClientRect().bottom || 60) + 40
-    const paras = [...document.querySelectorAll('p.tb-p, .epub-pg p')].filter(p => { const r = p.getBoundingClientRect(); return r.top > top && r.bottom < innerHeight - 120 && p.textContent.split(/\s+/).length > 12 })
+    // A line in the middle of the view: the words under a point of the column (caretRangeFromPoint), six of them.
+    const col = document.querySelector('.epub-pg p, p.tb-p')?.getBoundingClientRect()
+    if (col) for (const fy of [0.42, 0.5, 0.58, 0.35, 0.65].map(f => f + n * 0.01)) {
+      const c = document.caretRangeFromPoint?.(col.left + 40, innerHeight * fy)
+      const node = c?.startContainer
+      if (!node || node.nodeType !== 3 || !node.parentElement?.closest('p.tb-p, .epub-pg p')) continue
+      const words = [...node.nodeValue.matchAll(/\S+/g)].filter(w => w.index + w[0].length >= c.startOffset)
+      if (words.length < 4) continue
+      const range = document.createRange(); range.setStart(node, words[0].index); range.setEnd(node, words[Math.min(5, words.length - 1)].index + words[Math.min(5, words.length - 1)][0].length)
+      const rects = [...range.getClientRects()].filter(r => r.width > 2); if (!rects.length) continue
+      return { x1: rects[0].left + 2, y1: rects[0].top + rects[0].height / 2, x2: rects[0].right - 2, y2: rects[0].top + rects[0].height / 2 }
+    }
+    const paras = [...document.querySelectorAll('p.tb-p, .epub-pg p')].filter(p => { const r = p.getBoundingClientRect(); return r.top > top && r.top < innerHeight - 200 && p.textContent.split(/\s+/).length > 12 })
     const p = paras[n % Math.max(1, paras.length)]
     if (!p) return null
     const node = [...p.childNodes].find(x => x.nodeType === 3 && x.nodeValue.trim().split(/\s+/).length > 6)
@@ -208,7 +224,7 @@ async function sentenceInView(page, frame, nth) {
   }, nth)
   return box && { x1: fb.x + box.x1, y1: fb.y + box.y1, x2: fb.x + box.x2, y2: fb.y + box.y2 }
 }
-const clearFrame = frame => frame.evaluate(() => { getSelection().removeAllRanges(); try { closeAllPopups() } catch {} try { if (col.open) openCard(null) } catch {} document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })) }).catch(() => {})
+const clearFrame = frame => frame.evaluate(() => { getSelection().removeAllRanges(); try { closeAllPopups() } catch {} try { if (col.open) openCard(null) } catch {} document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })) }).catch(() => {})
 
 const BAR_TEST = () => [...document.querySelectorAll('.mr-bar')].some(b => window.__latVisible(b) && b.querySelector('[data-m]'))
 const CARD_TEST = () => [...document.querySelectorAll('.mr-card.is-open, .mr-sheet, .mr-float, .mr-primer')].some(c => window.__latVisible(c))
@@ -244,7 +260,7 @@ async function desktopBook(browser, bookId) {
         await shot(page, `${bookId}-desktop-open`)
         for (let i = 0; i < 4; i++) {
           const at = await sentenceInView(page, frame, i)
-          if (!at) { out.bar.push(null); continue }
+          if (!at) { out.barNoTarget = (out.barNoTarget || 0) + 1; continue }
           const ms = await step(frame, `bar${i}`, 'mouseup', BAR_TEST, async () => {
             await page.mouse.move(at.x1, at.y1); await page.mouse.down(); await page.mouse.move((at.x1 + at.x2) / 2, (at.y1 + at.y2) / 2, { steps: 4 }); await page.mouse.move(at.x2, at.y2, { steps: 4 }); await page.mouse.up()
           })
