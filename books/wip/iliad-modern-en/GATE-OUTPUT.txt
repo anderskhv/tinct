@@ -1,0 +1,172 @@
+# Gate output: iliad modern-en candidate (scratch runner pointing at candidate.json; live files untouched)
+# Runner: books/classify-modern-en.py and books/audit-truncation.py, copied to a scratch location with only the edition directory changed to hold source-original-en.json (as iliad-original-en.json) and candidate.json (as iliad-modern-en.json).
+
+## Whole poem
+  ch    1  sim 0.645  REAL        Book 1
+  ch    2  sim 0.698  REAL        Book 2
+  ch    3  sim 0.692  REAL        Book 3
+  ch    4  sim 0.649  REAL        Book 4
+  ch    5  sim 0.690  REAL        Book 5
+  ch    6  sim 0.673  REAL        Book 6
+  ch    7  sim 0.658  REAL        Book 7
+  ch    8  sim 0.621  REAL        Book 8
+  ch    9  sim 0.679  REAL        Book 9
+  ch   10  sim 0.691  REAL        Book 10
+  ch   11  sim 0.711  REAL        Book 11
+  ch   12  sim 0.685  REAL        Book 12
+  ch   13  sim 0.698  REAL        Book 13
+  ch   14  sim 0.721  REAL        Book 14
+  ch   15  sim 0.699  REAL        Book 15
+  ch   16  sim 0.660  REAL        Book 16
+  ch   17  sim 0.723  REAL        Book 17
+  ch   18  sim 0.711  REAL        Book 18
+  ch   19  sim 0.647  REAL        Book 19
+  ch   20  sim 0.691  REAL        Book 20
+  ch   21  sim 0.687  REAL        Book 21
+  ch   22  sim 0.670  REAL        Book 22
+  ch   23  sim 0.658  REAL        Book 23
+  ch   24  sim 0.656  REAL        Book 24
+iliad original-en -> modern-en  (24 chapters)
+  weighted similarity : 0.681   (gate: <= 0.75)
+  light+mechanical    : 0/24 = 0.0%   (gate: <= 5%)
+  identical long paras: 3/1124 = 0.3%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 24  LIGHT 0  MECHANICAL 0
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE PASS
+
+## Per Book (--chapters N)
+--- Book 1
+  weighted similarity : 0.645   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/55 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 2
+  weighted similarity : 0.698   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 3/84 = 3.6%   (gate: <= 5%)
+GATE PASS
+--- Book 3
+  weighted similarity : 0.692   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/41 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 4
+  weighted similarity : 0.649   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/40 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 5
+  weighted similarity : 0.690   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/68 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 6
+  weighted similarity : 0.673   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/35 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 7
+  weighted similarity : 0.658   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/36 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 8
+  weighted similarity : 0.621   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/42 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 9
+  weighted similarity : 0.679   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/34 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 10
+  weighted similarity : 0.691   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/49 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 11
+  weighted similarity : 0.711   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/56 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 12
+  weighted similarity : 0.685   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/21 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 13
+  weighted similarity : 0.698   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/54 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 14
+  weighted similarity : 0.721   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/41 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 15
+  weighted similarity : 0.699   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/55 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 16
+  weighted similarity : 0.660   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/55 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 17
+  weighted similarity : 0.723   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/50 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 18
+  weighted similarity : 0.711   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/48 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 19
+  weighted similarity : 0.647   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/30 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 20
+  weighted similarity : 0.691   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/37 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 21
+  weighted similarity : 0.687   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/40 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 22
+  weighted similarity : 0.670   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/33 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 23
+  weighted similarity : 0.658   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/65 = 0.0%   (gate: <= 5%)
+GATE PASS
+--- Book 24
+  weighted similarity : 0.656   (gate: <= 0.75)
+  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)
+  identical long paras: 0/55 = 0.0%   (gate: <= 5%)
+GATE PASS
+
+## Truncation audit (audit-truncation.py iliad en)
+== iliad: modern-en vs original-en ==
+  TOTAL: 0
+
+## Before: live served modern-en against original-en (main 791d2802)
+iliad original-en -> modern-en  (24 chapters)
+  weighted similarity : 0.922   (gate: <= 0.75)
+  light+mechanical    : 22/24 = 91.7%   (gate: <= 5%)
+  identical long paras: 56/1124 = 5.0%   (gate: <= 5%)
+  buckets: REAL-HEAVY 0  REAL 2  LIGHT 17  MECHANICAL 5
+  wrapped scaffolding : 0   (gate: 0)
+  truncated quotations: 0   (gate: 0)
+GATE FAIL

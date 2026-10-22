@@ -516,3 +516,8 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 .shelf-menu-item:hover,.shelf-menu-item:focus-visible{background:#eee7d01a;outline:none}
 .shelf-menu-item.is-delete{color:#f0b9a8}
 @media(max-width:699px){.shelf-menu-item{font-size:13px;padding:8px 10px}}
+/* A shelf cover not near the screen is not painted (2026-10-21): every reel kept all its covers'
+   pixels painted, and an iPhone ran out of memory opening a book. The cover's size comes from its
+   width and 2:3 shape alone, so skipping it never moves anything; app.js also empties the canvases
+   of shelves far from the screen (shelfMemory). */
+.book-row .book-card{content-visibility:auto;contain-intrinsic-size:auto 106px auto 159px}

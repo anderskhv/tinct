@@ -106,12 +106,13 @@ describe('2. The caret', () => {
     expect(css).toMatch(/\.mr-follow__input \{[^}]*caret-color: var\(--mr-accent\);/)
     expect(css).not.toMatch(/\.mr-follow__field \.mr-caret \{[^}]*animation/)
   })
-  it('the type-to-ask hint after "Ask" is thin, in the accent, with a gentle blink, and still with reduced motion', () => {
+  // (21 Oct 2026: in the bar's own ink, 1px by 13px, a slow soft pulse; before, a 1.5px accent line with a full blink.)
+  it('the type-to-ask hint after "Ask" is thin, in the bar\'s ink, with a soft pulse, and still with reduced motion', () => {
     expect(M.html.barHtml('menu', { colors: COLORS, current: 'gold' })).toContain('<span class="mr-bar__caret" aria-hidden="true"></span>')
     expect(css).toMatch(/\.mr-bar__caret \{ width: 1\.5px;/)
-    expect(css).toMatch(/\.mr-bar__caret \{ display: inline-block; border-radius: 1px; background: var\(--mr-bar-accent\); animation: mr-blink 1\.4s ease-in-out infinite; \}/)
+    expect(css).toMatch(/\.mr-bar__caret \{ display: inline-block; width: 1px; height: 13px; border-radius: 1px; background: var\(--mr-bar-ink\); opacity: \.7; animation: mr-blink-soft 2\.4s ease-in-out infinite; \}/)
     expect(css).toContain('@media (prefers-reduced-motion: reduce) { .mr-bar__caret { animation: none; } }')
-    expect(css).toMatch(/@keyframes mr-blink \{ 0%, 30% \{ opacity: 1 \} 55%, 80% \{ opacity: \.15 \}/)
+    expect(css).toMatch(/@keyframes mr-blink-soft \{ 0%, 55% \{ opacity: \.7 \} 75%, 90% \{ opacity: \.3 \}/)
   })
 })
 
@@ -134,20 +135,22 @@ describe('3. The highlighter and the pencil in the selection bar', () => {
 
 describe('4. Delete on every margin item', () => {
   const kinds = ['explain', 'simplify', 'define', 'factcheck', 'counterpoint', 'related', 'quiz', 'ask', 'figure']
-  it('every card has a bin, in its action row under the answer beside copy (19 Oct 2026, as Gloss), never in the follow-up line; open on desktop and on the phone', () => {
+  it('every card has a bin, in its head beside Minimise (21 Oct 2026: the same on every card), never in the follow-up line; open on desktop and on the phone', () => {
     for (const kind of kinds) {
       const c = card(kind, kind === 'quiz' ? { turns: [], data: { questions: [{ q: 'Q?', answer: 'A', why: '', cite: '' }], i: 0, results: [] } } : kind === 'define' ? { turns: [], data: { word: 'w', senses: [{ text: 'A sense.' }] } } : {})
       const html = M.html.cardHtml(c, { open: true, P })
-      expect(html, kind).toMatch(/<div class="mr-card__acts">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).toMatch(/^<div class="mr-card__label">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">/)
+      expect(html, kind).not.toMatch(/<div class="mr-card__acts">(?:(?!<\/div>).)*mr-card__delete/)
       expect(html, kind).not.toMatch(/<div class="mr-follow[^"]*">.*mr-card__delete/)
     }
     const note = M.html.cardHtml({ id: 'n-m1', kind: 'note', mark: 'm1', page: 3, rects: [[3, 0, 0, 1, 0.02]], text: 'T', note: 'My note.', at: 1 }, { open: true, P })
     expect(note).toContain('<button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">')
     expect(note).toContain('data-c="delete" aria-label="Delete note"')
-    // While an answer streams there is nothing to copy yet; delete is there, alone in the action row.
+    // While an answer streams there is nothing to copy yet: no action row; delete is in the head.
     const streaming = M.html.cardHtml(card('explain', { turns: [] }), { open: true, P, live: 'Partial' })
     expect(streaming).not.toContain('mr-card__copy')
-    expect(streaming).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__delete" data-c="delete"/)
+    expect(streaming).not.toContain('mr-card__acts')
+    expect(streaming).toMatch(/^<div class="mr-card__label">(?:(?!<\/div>).)*<button type="button" class="mr-card__delete" data-c="delete"/)
     expect(streaming).not.toMatch(/<div class="mr-follow[^"]*">.*mr-card__delete/)
     // The phone's card hides copy only.
     expect(css).toContain('.mr-sheet .mr-card__copy { display: none; }')
@@ -279,9 +282,10 @@ describe('7. Before you start opens in place', () => {
   })
   // Since 19 Oct 2026, night, its trigger on the wide column is the Primer of its unit's start mark (level with the
   // unit's heading): it opens under the mark.
-  it('in the column it is part of the page (19 Oct 2026): under its unit\'s start mark, growing in place, no easing or scrolling of its own', () => {
-    expect(reader).toContain("const ey = Y(pr.top + at.head.y * pr.height), el = unitMark(u, 'start', doc); seenMarks.add(el);")
-    expect(reader).toContain('items.push({ el, ey, top: ey, order: -1, rule: true,')
+  // (Since 21 Oct 2026 the unit's pills sit beside its heading on the page: the primer opens in the column level with it.)
+  it('in the column it is part of the page (19 Oct 2026): level with its unit\'s heading, growing in place, no easing or scrolling of its own', () => {
+    expect(reader).toContain('const ey = Y(pr.top + at.head.y * pr.height);')
+    expect(reader).toContain('const hp = headPills(u, p, at);')
     expect(reader).toContain('items.push({ el: pe, ey, top: ey, order: -0.9 });')
     expect(reader).not.toMatch(/is-growing|is-opening|primerInColumn/)
     expect(css).not.toMatch(/\.mr-primer\.is-(?:opening|growing)/)

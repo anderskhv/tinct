@@ -1,0 +1,34 @@
+{
+ "package": "app/public/data/characters/the-republic.v1.json",
+ "edition": "modern-en",
+ "pinnedLiveModernEnSha256": "02082bbef9bf9026cdcdb11c0bc60e0e518a832d63f19dcbcab65ca794078f57",
+ "candidateSha256": "2bc78ba1f33b207c52ee98dd47954c82c07afb11b3b70d60f6a41af18b675277",
+ "pinMatchesServedLive": true,
+ "offsetUnit": "utf16",
+ "mentionsTotal": 193,
+ "unchanged": 192,
+ "moved": 1,
+ "needsRuling": 0,
+ "notes": [
+  "Proposals are content suggestions; the integration owner re-runs the card verifier. No character file was edited.",
+  "Mentions in unchanged text keep their offsets; speaker-label mentions are copied verbatim and normally stay UNCHANGED.",
+  "The snapshots, roleVisibleAt and firstMention coordinates of the characters were not re-derived here; check them against the proposed spans."
+ ],
+ "mentions": [
+  {
+   "characterId": "the-den",
+   "chapter": 7,
+   "paragraph": 34,
+   "oldStartOffset": 126,
+   "oldEndOffset": 129,
+   "oldText": "den",
+   "proposed": {
+    "status": "MOVED",
+    "startOffset": 98,
+    "endOffset": 101,
+    "text": "den",
+    "note": "proposed re-anchor; text equals candidate slice (unique occurrence)"
+   }
+  }
+ ]
+}
