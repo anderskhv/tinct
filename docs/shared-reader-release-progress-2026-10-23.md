@@ -88,6 +88,70 @@ dependency unless the relevant failure reproduces. #521's provider budget and
 automatic continuation changes are outside this implementation; interrupted
 answers must still remain visibly incomplete and must not be lost by new cards.
 
+## Combined build 7 checkpoint
+
+The complete working graph built and passed bundle verification as
+`index-DgdLzuiZ.js`. A frozen 87-file source snapshot was taken before further
+repairs. This checkpoint brings continuous React reading, private source entry,
+owner/generation-qualified marks and cards, legacy recovery, original PDF
+rendering/services, shared Notebook and browser checks together on the draft
+integration branch. It is not final acceptance.
+
+The original PDF shell now uses shared appearance preferences and real PDF
+outline or verified scan reading units. It reuses existing narration and Talk
+services. Talk transcripts remain device-only, owner-qualified and available
+through Notebook Copy/Download; no new cloud transcript store was introduced.
+Routed narration/Talk/word-follow acceptance and common phone/unit-action parity
+are still being completed.
+
+Known findings after this snapshot remain assigned for repair and retest:
+
+- Remote deletion must retain ownership proof whenever a hash-only legacy
+  projection survives; otherwise another account could be offered it for
+  adoption. Malformed data and failed removal need the same protection.
+- A confirmed missing server generation must fence active text controllers;
+  offline/transient errors must preserve recoverable local data.
+- Distinct human Explain actions must receive distinct card identities while
+  duplicate subscribers to one request remain coalesced. The reader owner has
+  since repaired this and passed the actual two-action browser regression.
+- A PDF unit action must not silently omit a later dense page or text-limit
+  overflow and present the answer as covering the whole unit.
+- Final quiet six-source performance, routed PDF service checks, full guarded
+  tests, visual review and browser rollback coverage must use the final source
+  revision. Earlier passing evidence does not accept later changes.
+
+Build 7's isolated Chromium journey passed account A highlight/sync, account B
+same-hash isolation and separate highlight, return to A, real Library deletion
+of A only, same-hash reupload with a new file ID and no resurrection, and B's
+retained highlight. WebKit passed the account-isolation portion. Later cleanup
+repairs still require their own combined browser regression.
+
+The compatible-backend rollback candidate is preserved separately on
+`codex/shared-reader-compatible-rollback-20261023` at
+`2282f8503b4ae84cded60933311422f54d42efc1`. See the
+[rollback record](shared-reader-rollback-2026-10-23.md). It is not deployed.
+The final release sequence must establish and verify a compatible rollback
+floor before new records can be written publicly; the automatic rollback target
+must be that floor. Both promotions remain subject to Anders's approval.
+
+After connection recovery, the parent runtime reported Sol as its model. An
+explicit `gpt-6-astra` / `high` read-only oversight agent audited release gates;
+the existing Sol High implementation and independent review agents resumed.
+No named Work Cloud attachment or unattended persistence is inferred from this.
+
+Quiet build 7 performance passed all agreed median targets for six cases, three
+runs each, with gzip/cache semantics matching the existing latency harness.
+Other agents paused builds, browsers and tests during measurement. Slow-profile
+cold first-text medians were 1,573/1,605/1,570/1,687/2,618/2,775 ms for
+Frankenstein/War and Peace/Bible/Macbeth/private EPUB/original PDF. Selection
+medians were 79/91/82/80/96/30 ms, and card-shell medians were
+51/51/53/56/59/46 ms. Desktop warm text medians were
+140/306/200/164/274/318 ms. The private EPUB selection maximum was 104 ms in one
+run; its median passed at 96 ms. Maximum slow PDF first text was 2,831 ms.
+No external HTTP, HTTPS CONNECT or WebSocket attempt was observed. This is
+provider-independent evidence for immutable `index-DgdLzuiZ.js`, not acceptance
+of subsequent fixes or a real Grok connection.
+
 Pre-existing concurrency hazards in other private auxiliary stores (place,
 cover, narration, recap, primer and OCR) are distinguished from changed
 marks/cards/metadata. Their historical hash-only keys are not made race-safe by

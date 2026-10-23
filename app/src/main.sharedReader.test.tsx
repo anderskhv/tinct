@@ -83,6 +83,7 @@ it('keeps an own-book link on the existing UserBookReader route even with the pr
   expect(mocks.preview).not.toHaveBeenCalled()
   expect(mocks.prepare).not.toHaveBeenCalled()
   expect(child.props.children.props.hex).toBe('abcdef')
+  expect(child.props.children.props.sharedReader).toBe(true)
   expect(window.location.search).toBe('?userBook=abcdef&sharedReader=1&pages=1')
 })
 

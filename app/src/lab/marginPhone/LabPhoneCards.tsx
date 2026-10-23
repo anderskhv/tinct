@@ -167,7 +167,7 @@ export const PHONE_QUIZ_LENGTH = 3
  * at once ("Writing questions…") and the first question shows as soon as it
  * is whole in the stream. The end ends with the follow-up field, as every card.
  */
-export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef, follow, thread }: {
+export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef, follow, thread, onComplete }: {
   request: (onDelta: (text: string) => void) => Promise<string>
   mark: (question: QuizQuestion, answer: string) => Promise<string>
   draft: string
@@ -179,6 +179,8 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   follow?: (summary: string) => ReactNode
   /** The follow-ups asked from the end and their answers. */
   thread?: ReactNode
+  /** One completed result, after the reader has marked or revealed every question. */
+  onComplete?: (summary: string) => void
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null)
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error'>('loading')
@@ -226,6 +228,14 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
     const mark = !item ? 'not answered' : item.verdict === 'shown' ? 'answer shown' : VERDICT_WORD[item.verdict].replace('.', '')
     return `${i + 1}. ${question.q}\nExpected: ${question.answer}${question.why ? ` ${question.why}` : ''}\nReader: ${mark}${item?.feedback ? `. ${item.feedback}` : ''}`
   }).join('\n\n')
+  const completedAttempt = useRef(-1)
+  useEffect(() => {
+    if (!done || completedAttempt.current === attempt) return
+    completedAttempt.current = attempt
+    onComplete?.(summary())
+  // Completion has one summary per attempt. A new callback does not resave it.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done, attempt])
   const body = status === 'loading' || waitingNext
     ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing"><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
     : status === 'error' || !questions ? <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>

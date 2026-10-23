@@ -6,6 +6,9 @@ import { projectHighlight } from './labHighlightProjection'
 import { currentContentRevision } from '../data/editionContentRevisions'
 import { highlightOffCurrentText } from './labHighlightContentMigration'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { isUserBookId, userBookHex } from './userBook/userBookId'
+import { importOwnTextMarks, listenOwnTextMarks, mergeIncomingLabMarks, noteOwnTextMarks, ownTextMarksBelongTo, ownTextMarksGuarded, ownTextMarksCanonical, readOwnedTextMarks } from './userBook/ownTextMarksSync'
+import { userBookOwner } from './userBook/userBookStore'
 import {
   createLabChapterNote,
   createLabHighlight,
@@ -53,16 +56,24 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   /** A highlight from a shared link (/q/{id}): shown on its passage, never saved. */
   shared?: LabHighlight | null
 }) {
-  const [highlights, setHighlights] = useState<LabHighlight[]>(() => readLabHighlights())
+  const [highlights, setHighlights] = useState<LabHighlight[]>(() => {
+    const all = readLabHighlights()
+    const hex = scope?.bookId && isUserBookId(scope.bookId) ? userBookHex(scope.bookId) : null
+    if (hex && ownTextMarksCanonical(hex)) return [...all.filter(mark => mark.bookId !== scope?.bookId), ...readOwnedTextMarks(hex, userBookOwner())]
+    return hex && ownTextMarksGuarded(hex) && !ownTextMarksBelongTo(hex, userBookOwner()) ? all.filter(mark => mark.bookId !== scope?.bookId) : all
+  })
+  const privateHex = scope?.bookId && isUserBookId(scope.bookId) ? userBookHex(scope.bookId) : null
+  const ownerProof = !privateHex || !ownTextMarksGuarded(privateHex) || ownTextMarksBelongTo(privateHex, userBookOwner())
+  const safeHighlights = ownerProof ? highlights : highlights.filter(mark => mark.bookId !== scope?.bookId)
   const highlightsRef = useRef(highlights)
-  highlightsRef.current = highlights
+  highlightsRef.current = safeHighlights
   const userId = scope?.userId ?? null
   const bookId = scope?.bookId
   const [sources, setSources] = useState<Record<string, string[]>>({})
   useEffect(() => {
     if (!scope) return
     let active = true
-    const keys = [...new Set(highlights.filter(h => h.bookId === scope.bookId && h.chapterNumber === chapterNumber && h.editionKey).map(h => h.editionKey!))]
+    const keys = [...new Set(safeHighlights.filter(h => h.bookId === scope.bookId && h.chapterNumber === chapterNumber && h.editionKey).map(h => h.editionKey!))]
     for (const editionKey of keys) {
       const key = `${scope.bookId}:${chapterNumber}:${editionKey}`
       if (sources[key]) continue
@@ -71,7 +82,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
       }).catch(() => {})
     }
     return () => { active = false }
-  }, [highlights, chapterNumber, scope?.bookId, sources])
+  }, [safeHighlights, chapterNumber, scope?.bookId, sources])
   const projected = (editionKey = scope?.editionKey) => {
     if (!scope) return highlightsRef.current
     const target = editionKey === scope.editionKey ? scope.paragraphs : editionKey === scope.compareEditionKey ? scope.compareParagraphs : undefined
@@ -92,7 +103,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     })
   }
   const inScope = (highlight: LabHighlight, editionKey = scope?.editionKey) => !scope || (highlight.bookId === scope.bookId && highlight.editionKey === editionKey)
-  const visibleHighlights = useMemo(() => projected(), [highlights, sources, chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs])
+  const visibleHighlights = useMemo(() => projected(), [highlights, ownerProof, sources, chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs])
 
   // Signed in: one serialized writer per account. Merges that may carry marks
   // from another device fold into the list here.
@@ -103,7 +114,10 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     const cloud = userId ? createLabHighlightCloud(userId) : null
     if (!cloud) { setCloudWriter(null); return }
     const writer = createLabHighlightCloudWriter(cloud, {
-      onMerged: (bucket: string, set: LabHighlightSet) => setHighlights(current => applyLabHighlightSet(current, bucket, set)),
+      onMerged: (bucket: string, set: LabHighlightSet) => {
+        if (isUserBookId(bucket)) return
+        setHighlights(current => applyLabHighlightSet(current, bucket, set))
+      },
     })
     setCloudWriter(writer)
     return () => writer.dispose()
@@ -111,16 +125,32 @@ export function useLabHighlights(chapterNumber: number, scope?: {
 
   const savedRef = useRef<Map<string, string> | null>(null)
   useEffect(() => {
+    const hex = bookId && isUserBookId(bookId) ? userBookHex(bookId) : null
+    if (hex && ownTextMarksCanonical(hex)) { noteOwnTextMarks(hex, highlights); return }
+    if (hex && ownTextMarksGuarded(hex) && !ownTextMarksBelongTo(hex, userBookOwner())) return
     writeLabHighlights(highlights)
+    if (hex) noteOwnTextMarks(hex, highlights)
     const next = bucketSignatures(highlights)
     const previous = savedRef.current
     savedRef.current = next
     if (!cloudWriter || !previous) return
     const tombstones = readLabHighlightTombstones()
     for (const bucket of new Set([...previous.keys(), ...next.keys()])) {
-      if (previous.get(bucket) !== next.get(bucket)) cloudWriter.push(bucket, labHighlightSetFor(bucket, highlights, tombstones))
+      if (!isUserBookId(bucket) && previous.get(bucket) !== next.get(bucket)) cloudWriter.push(bucket, labHighlightSetFor(bucket, highlights, tombstones))
     }
   }, [highlights, cloudWriter])
+
+  // Private EPUB sync can receive a newer revision while this reader remains open.
+  // Only records in this one owned book are merged; unrelated marks retain their identities.
+  useEffect(() => {
+    if (!bookId || !isUserBookId(bookId)) return
+    const hex = userBookHex(bookId)
+    if (!hex) return
+    return listenOwnTextMarks(bookId, (items, edition) => {
+      setHighlights(current => !ownTextMarksBelongTo(hex, userBookOwner())
+        ? current.filter(mark => mark.bookId !== bookId) : mergeIncomingLabMarks(current, items, hex, edition))
+    })
+  }, [bookId])
 
   // On sign-in: bring every book this device holds marks for into the
   // account (a merge, never an overwrite), so nothing is lost when sign-out
@@ -128,7 +158,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   useEffect(() => {
     if (!cloudWriter) return
     for (const bucket of localLabHighlightBuckets()) {
-      if (bucket !== bookId) void cloudWriter.sync(bucket)
+      if (bucket !== bookId && !isUserBookId(bucket)) void cloudWriter.sync(bucket)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cloudWriter])
@@ -136,7 +166,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   // The open book (and marks without a recorded book, listed in Contents):
   // on open, book change, reconnect and return to the tab.
   useEffect(() => {
-    if (!cloudWriter || !bookId) return
+    if (!cloudWriter || !bookId || isUserBookId(bookId)) return
     const run = () => {
       void cloudWriter.sync(bookId)
       void cloudWriter.sync(LAB_HIGHLIGHTS_UNASSIGNED)
@@ -154,11 +184,11 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   // Notes on whole chapters of this book. They belong to the chapter, so they
   // show in every edition of it (a Bible edition whose chapters do not carry
   // highlights across keeps its own).
-  const chapterNotes = useMemo(() => (scope ? highlights.filter(h => (
+  const chapterNotes = useMemo(() => (scope ? safeHighlights.filter(h => (
     isLabChapterNote(h)
     && h.bookId === scope.bookId
     && (!h.editionKey || h.editionKey === scope.editionKey || scope.bookId !== 'bible' || bibleHighlightsCarryAcross(h.editionKey, scope.editionKey, h.chapterNumber))
-  )) : []), [highlights, scope?.bookId, scope?.editionKey])
+  )) : []), [highlights, ownerProof, scope?.bookId, scope?.editionKey])
   const chapterNotesRef = useRef(chapterNotes)
   chapterNotesRef.current = chapterNotes
 
@@ -238,6 +268,8 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     if (existing) {
       if (!text) {
         recordLabHighlightDeletions([existing])
+        const hex = scope?.bookId && isUserBookId(scope.bookId) ? userBookHex(scope.bookId) : null
+        if (hex) noteOwnTextMarks(hex, highlightsRef.current.filter(h => h.id !== existing.id))
         setHighlights(current => current.filter(h => h.id !== existing.id))
         return null
       }
@@ -259,16 +291,42 @@ export function useLabHighlights(chapterNumber: number, scope?: {
 
   const remove = useCallback((id: string) => {
     const group = highlightsRef.current.find(h => h.id === id)?.groupId
+    const hex = bookId && isUserBookId(bookId) ? userBookHex(bookId) : null
+    const next = highlightsRef.current.filter(h => h.id !== id && (!group || h.groupId !== group))
+    if (hex && ownTextMarksCanonical(hex)) {
+      if (!noteOwnTextMarks(hex, next)) return false
+      setHighlights(next)
+      return true
+    }
     // Tombstones first, so the push that follows carries the deletion.
     recordLabHighlightDeletions(highlightsRef.current.filter(h => h.id === id || (group && h.groupId === group)))
+    if (hex) noteOwnTextMarks(hex, next)
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.filter(h=>h.id!==id && (!group || h.groupId!==group))})
-  }, [])
+    return true
+  }, [bookId])
+
+  const restore = useCallback((saved: LabHighlight[]) => {
+    const hex = bookId && isUserBookId(bookId) ? userBookHex(bookId) : null
+    const updatedAt = Math.max(Date.now() + 1, ...saved.map(entry => (entry.updatedAt || 0) + 1))
+    const entries = saved.map(entry => ({ ...entry, updatedAt }))
+    if (hex && ownTextMarksCanonical(hex)) {
+      const owner = userBookOwner()
+      if (!owner || !importOwnTextMarks(hex, owner, entries)) return false
+      const actual = new Map(readOwnedTextMarks(hex, owner).map(mark => [mark.id, mark]))
+      if (entries.some(entry => !actual.has(entry.id))) return false
+      setHighlights(current => [...current.filter(entry => !saved.some(prior => prior.id === entry.id)),
+        ...entries.map(entry => actual.get(entry.id)!)])
+      return true
+    }
+    setHighlights(current => [...current.filter(entry => !saved.some(prior => prior.id === entry.id)), ...entries])
+    return true
+  }, [bookId])
 
   return {
     highlights: shownHighlights,
-    allHighlights: highlights,
+    allHighlights: safeHighlights,
     compareHighlights: projected(scope?.compareEditionKey).filter(h => h.chapterNumber === chapterNumber),
-    unassignedHighlights: highlights.filter(h => (!h.bookId || !h.editionKey) && !isLabChapterNote(h)),
+    unassignedHighlights: safeHighlights.filter(h => (!h.bookId || !h.editionKey) && !isLabChapterNote(h)),
     chapterHighlights,
     chapterNotes,
     setChapterNote,
@@ -280,6 +338,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     setNote,
     keep,
     remove,
+    restore,
     setHighlights,
   }
 }

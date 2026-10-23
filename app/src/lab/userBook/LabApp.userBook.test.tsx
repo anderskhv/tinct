@@ -451,6 +451,45 @@ describe('a PDF read as its Tinct text', () => {
 })
 
 describe('UserBookReader', () => {
+  it('hides the old private source synchronously when the mounted reader changes account', async () => {
+    const book = { ...loaded(), kind: 'epub' as const, images: new Map<string, string>() }
+    let resolveNext: ((value: { ok: true; book: typeof book }) => void) | undefined
+    const open = vi.fn((_hex: string, options: { owner?: string | null }) => options.owner === 'account-a'
+      ? Promise.resolve({ ok: true as const, book })
+      : new Promise<{ ok: true; book: typeof book }>(resolve => { resolveNext = resolve }))
+    const { rerender } = render(<UserBookReader hex={HEX} owner="account-a" sharedReader open={open} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    rerender(<UserBookReader hex={HEX} owner="account-b" sharedReader open={open} reconcile={async () => {}} />)
+    expect(screen.queryByTestId('lab-root')).toBeNull()
+    expect(screen.getByTestId('user-book-opening')).toBeTruthy()
+    resolveNext?.({ ok: true, book })
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+  })
+
+  it('opens a stored Margin EPUB in the shared React reader without changing the stored view preference', async () => {
+    localStorage.setItem(`tinct-addbook:epub-view:${HEX}`, '"margin"')
+    localStorage.setItem('tinct:margin-preview', '1')
+    const open = vi.fn(async () => ({ ok: true as const, book: { ...loaded(), images: new Map() } }))
+    render(<UserBookReader hex={HEX} owner="me" sharedReader open={open} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ epubView: 'text', sharedReader: true }))
+    expect(open.mock.lastCall?.[1]).not.toHaveProperty('desktop')
+    expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`)).toBe('"margin"')
+    expect(localStorage.getItem('tinct:margin-preview')).toBe('1')
+  })
+
+  it('opens selected PDF Tinct text in the shared reader and reconciles its PDF place first', async () => {
+    const reconcile = vi.fn(async () => {})
+    const open = vi.fn(async () => ({ ok: true as const, book: pdfBook({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }) }))
+    render(<UserBookReader hex={HEX} sharedReader open={open} reconcile={reconcile} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ sharedReader: true }))
+    expect(open.mock.lastCall?.[1]).not.toHaveProperty('desktop')
+    expect(reconcile).toHaveBeenCalledOnce()
+    expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
+  })
+
   // One Tinct (22 Oct 2026): the margin reader's books open at /reader?userBook=<hex> in the reader's shell on a
   // desktop (the frame); a phone goes on to the margin reader's page, as before.
   it('opens a PDF read in its pages, or one without text to reflow, in the margin reader: framed on a desktop, its page on a phone (a scan never back here)', async () => {

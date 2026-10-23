@@ -21,6 +21,7 @@ import {
   pickLabCoverLine,
   playbackToolForUtterance,
   queryLabCompanion,
+  readAnthropicResponse,
   remainderAfterSpeakable,
   remainingCompanionSpeech,
   runEscalatedCompanionTurn,
@@ -41,6 +42,13 @@ const CONTEXT = {
   paragraphIndex: 0,
   readingAngle: 'homecoming',
 }
+
+it('rejects an interrupted answer for a saved card without dropping the existing public stream behavior', async () => {
+  const truncated = 'data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A complete-looking but cut-off thought"}}\n\ndata: {"type":"message_delta","delta":{"stop_reason":"max_tokens"}}\n\n'
+  const response = () => new Response(new TextEncoder().encode(truncated), { headers: { 'content-type': 'text/event-stream' } })
+  expect(await readAnthropicResponse(response())).toBe('A complete-looking but cut-off thought')
+  await expect(readAnthropicResponse(response(), undefined, { requireComplete: true })).rejects.toThrow()
+})
 
 describe('lab escalate gate', () => {
   it('keeps only playback commands, tiny confirms, greetings and goodbyes on Realtime', () => {

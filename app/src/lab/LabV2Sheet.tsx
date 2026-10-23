@@ -47,6 +47,8 @@ export interface LabV2SheetProps {
    * the book in Margin at the same place.
    */
   margin?: { onOpen: () => void } | null
+  /** Private shared-reader layout, keeping the same book and source anchor. */
+  readerLayout?: { active: 'margin' | 'classic'; onChoose: (layout: 'margin' | 'classic') => void } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
@@ -196,7 +198,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, readerLayout = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -396,6 +398,15 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <span aria-hidden="true">›</span>
                 </button>
               )}
+              {readerLayout && <>
+                <div className="lab-v2-edition-divider" />
+                {(['margin', 'classic'] as const).map(layout => <button type="button" key={layout}
+                  className="lab-v2-row lab-v2-edition-link" data-testid={`lab-v2-layout-${layout}`}
+                  aria-pressed={readerLayout.active === layout} onClick={() => readerLayout.onChoose(layout)}>
+                  <span className="lab-v2-row-label">{layout === 'margin' ? 'Margin' : 'Classic reader'}</span>
+                  <span aria-hidden="true">{readerLayout.active === layout ? '✓' : '›'}</span>
+                </button>)}
+              </>}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
                   {compareUnavailable === 'verses'

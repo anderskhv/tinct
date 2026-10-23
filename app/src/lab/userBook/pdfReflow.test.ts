@@ -202,16 +202,20 @@ describe('A place read under the earlier rules', () => {
 })
 
 describe('Registered books are untouched', () => {
-  // The reflow rules live in Add a book's converter (pdf-text.js), which runs only on a reader's
-  // own PDF: the library's books never pass through it, and the reader's shared renderer is unchanged.
-  it('only a reader’s own PDF loads the converter', async () => {
+  // Conversion and Original page rendering both use pdf.js, but only the
+  // owned-file conversion path loads the source-to-prose rules (pdf-text.js).
+  it('limits PDF conversion and page-engine entry points to the reader’s own file paths', async () => {
     const { readdirSync, statSync } = await import('node:fs')
     const SRC = fileURLToPath(new URL('../../', import.meta.url))
     const files: string[] = []
     const walk = (dir: string) => { for (const name of readdirSync(dir)) { const path = dir + '/' + name; if (statSync(path).isDirectory()) { if (name !== '__fixtures__' && name !== 'node_modules') walk(path) } else if (/\.(ts|tsx)$/.test(name) && !/\.test\.tsx?$/.test(name)) files.push(path) } }
     walk(SRC.replace(/\/$/, ''))
-    const users = files.filter(path => /js\/pdf-text\.js\?v=|\bconvertPdf\(|\bloadPdfEngine\(|import\('\.\/pdfEdition'\)/.test(readFileSync(path, 'utf8'))).map(path => path.slice(SRC.length).replace(/^\//, '')).sort()
-    expect(users).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
+    const source = (pattern: RegExp) => files.filter(path => pattern.test(readFileSync(path, 'utf8')))
+      .map(path => path.slice(SRC.length).replace(/^\//, '')).sort()
+    expect(source(/js\/pdf-text\.js\?v=|\bconvertPdf\(|import\('\.\/pdfEdition'\)/)).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
+    expect(source(/\bloadPdfEngine\(/)).toEqual([
+      'lab/sharedReader/pdf/PdfOriginalSurface.tsx', 'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
+    ])
   })
 })
 

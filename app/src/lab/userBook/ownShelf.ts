@@ -361,8 +361,46 @@ export async function forgetRemovedOwnBooks(owner: string | null | undefined, in
     for (const item of [PLACE_PREFIX + hex, PDF_PLACE_PREFIX + hex, OWN_TABLE_HIDDEN_PREFIX + hex]) {
       try { localStorage.removeItem(item) } catch { /* private */ }
     }
+    forgetOwnedReaderLocalState(owner, hex)
   }
   return gone
+}
+
+/** Remote deletion removes this owner's annotation generation, never another account's same-hash backup. */
+export function forgetOwnedReaderLocalState(owner: string, hex: string): void {
+  if (!owner || !/^[0-9a-f]{24}$/.test(hex)) return
+  const prefixes = [
+    'text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
+    'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:',
+    'legacy-epub-annotations:', 'legacy-epub-migrated:',
+  ]
+  for (const prefix of prefixes) {
+    try { localStorage.removeItem(`tinct-addbook:${prefix}${owner}:${hex}`) } catch { /* keep the file deletion even if storage is blocked */ }
+  }
+  for (const marker of ['legacy-epub-owner:', 'text-marks-owner:', 'text-cards-owner:']) {
+    try {
+      const item = `tinct-addbook:${marker}${hex}`
+      if (localStorage.getItem(item) === owner) localStorage.removeItem(item)
+    } catch { /* leave a recoverable marker on storage failure */ }
+  }
+  try {
+    for (const kind of ['text-marks-canonical:', 'text-cards-canonical:']) {
+      const stem = `tinct-addbook:${kind}${owner}:${hex}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && /^[0-9a-f]{32}$/.test(item.slice(stem.length))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
+  try {
+    for (const kind of ['pdf-original-marks:', 'pdf-original-cards:']) {
+      const stem = `tinct-addbook:${kind}${owner}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && item.endsWith(':' + hex) && /^[0-9a-f]{32}$/.test(item.slice(stem.length, -hex.length - 1))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
 }
 
 /** Own books being read (EPUBs and PDFs), most recently read first. */

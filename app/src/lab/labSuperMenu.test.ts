@@ -75,6 +75,12 @@ describe('labSuperMenuRows', () => {
     expect(desktop[0]).toEqual({ id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] })
   })
 
+  it('puts Notebook in the private desktop menu without changing the public menu', () => {
+    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'notebook', 'text', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: false }).some(row => row.id === 'notebook')).toBe(false)
+  })
+
   it('gives a reader’s own book Catch me up, Aa and Audio settings (no Book settings but a PDF’s), Your books for Library', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
       ['conversation', ''], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Aa'], ['audio', 'Audio settings'], ['library', 'Your books'], ['account', 'Profile'],

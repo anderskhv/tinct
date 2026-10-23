@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { hideOwnFromReadingTable, ownReading, ownReadingNow, ownSavedAt, ownShelfSavedAt, pdfReading, readOwnShelf, OWN_SHELF_UNSAVED_PREFIX, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
+import { forgetOwnedReaderLocalState, forgetRemovedOwnBooks, hideOwnFromReadingTable, ownReading, ownReadingNow, ownSavedAt, ownShelfSavedAt, pdfReading, readOwnShelf, OWN_SHELF_UNSAVED_PREFIX, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
 import { ownBookHref } from './userBookId'
 import { ownQuickBookRows, withOwnBookRows, type QuickBookRow } from '../../preReader/quickBookSwitcher'
 import { ownTableBook, withOwnReading, type ReadingTableBook } from '../../libraryTwoReading'
@@ -13,6 +13,69 @@ const chapters = [
   { number: 3, title: 'Chapter 2', paragraphs: [words(400)] },
 ]
 const store = (values: Record<string, unknown>) => (key: string) => values[key] ?? null
+
+describe('owner-qualified reader data on remote deletion', () => {
+  afterEach(() => localStorage.clear())
+  it('removes only the deleted owner’s same-hash generation', () => {
+    const prefixes = ['text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
+      'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:', 'legacy-epub-annotations:', 'legacy-epub-migrated:']
+    for (const prefix of prefixes) for (const owner of ['owner-a', 'owner-b']) localStorage.setItem(`tinct-addbook:${prefix}${owner}:${HEX}`, owner)
+    localStorage.setItem(`tinct-addbook:text-cards-unassigned:${HEX}`, 'unknown')
+    localStorage.setItem(`tinct-addbook:legacy-epub-owner:${HEX}`, 'owner-a')
+    for (const owner of ['owner-a', 'owner-b']) for (const kind of ['text-marks', 'text-cards']) localStorage.setItem(`tinct-addbook:${kind}-canonical:${owner}:${HEX}:${'f'.repeat(32)}`, owner)
+    for (const owner of ['owner-a', 'owner-b']) for (const kind of ['marks', 'cards']) localStorage.setItem(`tinct-addbook:pdf-original-${kind}:${owner}:${'f'.repeat(32)}:${HEX}`, owner)
+    forgetOwnedReaderLocalState('owner-a', HEX)
+    for (const prefix of prefixes) {
+      expect(localStorage.getItem(`tinct-addbook:${prefix}owner-a:${HEX}`)).toBeNull()
+      expect(localStorage.getItem(`tinct-addbook:${prefix}owner-b:${HEX}`)).toBe('owner-b')
+    }
+    expect(localStorage.getItem(`tinct-addbook:text-cards-unassigned:${HEX}`)).toBe('unknown')
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${HEX}`)).toBeNull()
+    for (const kind of ['text-marks', 'text-cards']) {
+      expect(localStorage.getItem(`tinct-addbook:${kind}-canonical:owner-a:${HEX}:${'f'.repeat(32)}`)).toBeNull()
+      expect(localStorage.getItem(`tinct-addbook:${kind}-canonical:owner-b:${HEX}:${'f'.repeat(32)}`)).toBe('owner-b')
+    }
+    for (const kind of ['marks', 'cards']) {
+      expect(localStorage.getItem(`tinct-addbook:pdf-original-${kind}:owner-a:${'f'.repeat(32)}:${HEX}`)).toBeNull()
+      expect(localStorage.getItem(`tinct-addbook:pdf-original-${kind}:owner-b:${'f'.repeat(32)}:${HEX}`)).toBe('owner-b')
+    }
+  })
+  it('remote account deletion clears its journal before the same bytes can be reuploaded', async () => {
+    const owner = 'owner-a', fileId = 'f'.repeat(32)
+    const aKey = `tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`
+    const bKey = `tinct-addbook:text-cards-canonical:owner-b:${HEX}:${fileId}`
+    localStorage.setItem(aKey, 'old private cards')
+    localStorage.setItem(bKey, 'other owner cards')
+    const records = [{ key: `epub:${HEX}`, owner, cloudId: fileId }, { key: `epub:${HEX}`, owner: 'owner-b', cloudId: fileId }]
+    vi.stubGlobal('indexedDB', { databases: async () => [{ name: 'tinct-addbook' }], open: () => {
+      const request: { result?: unknown; onsuccess?: () => void } = {}
+      setTimeout(() => {
+        const tx: { oncomplete?: () => void; onerror?: () => void; onabort?: () => void } = {}
+        const db = { close() {}, transaction: () => tx }
+        Object.assign(tx, { objectStore: () => ({ openCursor: () => {
+          const cursorRequest: { result?: unknown; onsuccess?: () => void } = {}
+          let index = 0
+          const next = () => setTimeout(() => {
+            const row = records[index]
+            cursorRequest.result = row ? { value: row, delete: () => { records.splice(index, 1) }, continue: () => { if (records[index] === row) index++; next() } } : null
+            cursorRequest.onsuccess?.()
+            if (!row) tx.oncomplete?.()
+          }, 0)
+          next()
+          return cursorRequest
+        } }) })
+        request.result = db
+        request.onsuccess?.()
+      }, 0)
+      return request
+    } })
+    expect(await forgetRemovedOwnBooks(owner, new Set())).toEqual([`epub:${HEX}`])
+    expect(localStorage.getItem(aKey)).toBeNull()
+    expect(localStorage.getItem(bKey)).toBe('other owner cards')
+    expect(records).toContainEqual(expect.objectContaining({ owner: 'owner-b' }))
+    vi.unstubAllGlobals()
+  })
+})
 
 describe('an own book being read', () => {
   it('names its chapter, how far through the book it is and its length, from this device', () => {

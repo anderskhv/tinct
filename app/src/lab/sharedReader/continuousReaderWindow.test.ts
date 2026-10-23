@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { tokenizeHearingWords } from '../labHearing'
-import { continuousReaderWindow } from './continuousReaderWindow'
+import { continuousReaderWindow, type ContinuousReaderWindow } from './continuousReaderWindow'
 
 describe('continuousReaderWindow', () => {
   it('keeps original paragraph and word anchors when the window shifts', () => {
@@ -37,7 +37,7 @@ describe('continuousReaderWindow', () => {
     const visited: number[] = []
     let anchor: { paragraphIndex: number; wordIndex: number } | null = { paragraphIndex: 0, wordIndex: 0 }
     while (anchor) {
-      const window = continuousReaderWindow(paragraphs, anchor, { maxWords: 80 })!
+      const window: ContinuousReaderWindow = continuousReaderWindow(paragraphs, anchor, { maxWords: 80 })!
       expect(window.wordCount).toBeLessThanOrEqual(80)
       const [segment] = window.page.segments!
       expect(segment.from).toBe(anchor.wordIndex)
@@ -55,7 +55,7 @@ describe('continuousReaderWindow', () => {
     const visited: string[] = []
     let anchor: { paragraphIndex: number; wordIndex: number } | null = { paragraphIndex: 0, wordIndex: 0 }
     while (anchor) {
-      const window = continuousReaderWindow(paragraphs, anchor, { maxParagraphs: 2, maxWords: 3 })!
+      const window: ContinuousReaderWindow = continuousReaderWindow(paragraphs, anchor, { maxParagraphs: 2, maxWords: 3 })!
       expect(window.page.segments!.length).toBeLessThanOrEqual(2)
       expect(window.wordCount).toBeLessThanOrEqual(3)
       for (const segment of window.page.segments!) {
@@ -71,11 +71,11 @@ describe('continuousReaderWindow', () => {
     const visited: string[] = []
     let anchor: { paragraphIndex: number; wordIndex: number } | null = { paragraphIndex: 0, wordIndex: 0 }
     while (anchor) {
-      const window = continuousReaderWindow(paragraphs, anchor, { maxParagraphs: 2, maxWords: 2 })!
+      const window: ContinuousReaderWindow = continuousReaderWindow(paragraphs, anchor, { maxParagraphs: 2, maxWords: 2 })!
       expect(window.wordCount).toBeLessThanOrEqual(2)
       for (const segment of window.page.segments!) {
         const words = tokenizeHearingWords(paragraphs[segment.paragraphIndex]).slice(segment.from, segment.to).map(w => w.text)
-        expect(words.at(-1)).not.toMatch(/^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/u)
+        expect(words[words.length - 1]).not.toMatch(/^[⁰¹²³⁴⁵⁶⁷⁸⁹]+$/u)
         visited.push(...words)
       }
       anchor = window.nextAnchor

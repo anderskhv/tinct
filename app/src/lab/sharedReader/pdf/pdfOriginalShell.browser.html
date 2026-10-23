@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Original PDF shared shell fixture</title>
+<style>html, body, #app { height: 100%; margin: 0 }</style>
+<div id="app"></div>
+<script type="module">
+  import React from 'react'
+  import { createRoot } from 'react-dom/client'
+  import { PdfOriginalReaderShell } from './PdfOriginalReaderShell.tsx'
+
+  const raw = Uint8Array.from(atob(window.__pdfFixture || ''), char => char.charCodeAt(0)).buffer
+  const listeners = new Set()
+  const notify = () => listeners.forEach(listener => listener())
+  window.__pdfCalls = []
+  const services = {
+    marks: [], cards: [], subscribe: listener => { listeners.add(listener); return () => listeners.delete(listener) },
+    saveHighlight: (selection, color) => {
+      window.__pdfCalls.push({ kind: 'highlight', selection, color })
+      services.marks.push({ id: 'mark-1', page: selection.page, text: selection.text, rects: selection.rects.map(([, x, y, w, h]) => [x, y, w, h]), color, at: Date.now() })
+      notify(); return true
+    },
+    saveNote: () => false, removeMark: () => null, removeCard: () => null,
+    ask: async (selection, intent, question, _signal, onDelta) => {
+      window.__pdfCalls.push({ kind: 'ask', selection, intent, question })
+      const answer = intent === 'quiz' ? JSON.stringify({ questions: [{ q: 'What is the selected idea?', answer: 'Source words.' }] }) : 'A local source-page answer.'
+      onDelta?.(answer); return answer
+    },
+    askQuizCheck: async () => JSON.stringify({ verdict: 'right', feedback: 'Right.' }),
+    saveCard: (selection, kind, answer, options) => {
+      window.__pdfCalls.push({ kind: 'card', selection, intent: kind, answer, options })
+      services.cards.push({ id: `card-${services.cards.length + 1}`, page: selection.page, text: selection.text, rects: selection.rects, kind,
+        turns: [...(options?.question ? [{ role: 'user', content: options.question }] : []), { role: 'assistant', content: answer }], at: Date.now() })
+      notify(); return true
+    },
+  }
+  createRoot(document.getElementById('app')).render(React.createElement(PdfOriginalReaderShell, {
+    title: 'Local original PDF', bytes: async () => raw, services, onVisiblePlace: () => {},
+  }))
+</script>
+</html>
