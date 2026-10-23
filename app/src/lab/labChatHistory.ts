@@ -211,12 +211,19 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       byId.set(conversation.id, { ...conversation, messages: [...conversation.messages] })
       continue
     }
+    const card = newerCard(existing.card, conversation.card)
+    // A card revision is the complete card (including its thread), not a
+    // collection of independent chat turns. A shorter corrected answer must
+    // replace an older longer one when its card.u is newer. Ordinary chats and
+    // same-revision cards still union turns by id as before.
+    const newerCardMessages = existing.card && conversation.card && existing.card.u !== conversation.card.u
+      ? (existing.card.u > conversation.card.u ? existing.messages : conversation.messages)
+      : null
     const messages = new Map<string, ChatMessage>()
-    for (const message of [...existing.messages, ...conversation.messages]) {
+    for (const message of newerCardMessages ?? [...existing.messages, ...conversation.messages]) {
       const current = messages.get(message.id)
       messages.set(message.id, current ? preferMessage(current, message) : message)
     }
-    const card = newerCard(existing.card, conversation.card)
     const ordered = card?.gone ? [] : [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
     byId.set(conversation.id, {
       ...existing,
@@ -422,10 +429,33 @@ function withUnsaved(local: ChatConversation[], base: ChatConversation[] | undef
 }
 
 /**
- * Record a finalized Chat/Talk turn under the registry book and write the
- * local mirror. The message's `bookId` is set to the target book: a voice
- * session tags its transcripts with the session id (`lab`), never a book.
+ * Pure turn append for a caller-owned conversation list. The message's `bookId`
+ * is set to the target book: a voice session tags transcripts with `lab`.
+ * This path never reads or writes the device's global chat key.
  */
+export function appendLabChatTurnTo(
+  conversations: ChatConversation[],
+  bookId: string,
+  message: ChatMessage,
+  chapterNumber = 1,
+  paragraphIndex?: number,
+  conversationId?: string,
+): ChatConversation[] {
+  let current = conversations
+  if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
+  if (conversationId) {
+    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    if (!target) return current
+    current = [...current.filter(item => item.id !== target.id), target]
+  }
+  const content = (message.content || '').trim()
+  if (!content) return current
+  const now = message.timestamp || Date.now()
+  const enriched: ChatMessage = { ...message, content, bookId, chapterNumber, paragraphIndex, timestamp: now }
+  return trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+}
+
+/** The device-backed companion path; private owner adapters use appendLabChatTurnTo and their own store. */
 export function appendLabChatTurn(
   bookId: string,
   message: ChatMessage,
@@ -439,25 +469,8 @@ export function appendLabChatTurn(
    */
   base?: ChatConversation[],
 ): ChatConversation[] {
-  let current = withUnsaved(readLabBookChat(bookId), base)
-  if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
-  if (conversationId) {
-    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
-    if (!target) return current
-    current = [...current.filter(item => item.id !== target.id), target]
-  }
-  const content = (message.content || '').trim()
-  if (!content) return current
-  const now = message.timestamp || Date.now()
-  const enriched: ChatMessage = {
-    ...message,
-    content,
-    bookId,
-    chapterNumber,
-    paragraphIndex,
-    timestamp: now,
-  }
-  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+  const current = withUnsaved(readLabBookChat(bookId), base)
+  const next = appendLabChatTurnTo(current, bookId, message, chapterNumber, paragraphIndex, conversationId)
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next

@@ -106,3 +106,97 @@ it('as the Notebook, lists cards and highlights and notes newest first, filters 
   fireEvent.click(screen.getByLabelText('Close overlay'))
   expect(p.onClose).toHaveBeenCalled()
 })
+
+it('preserves unmappable original EPUB annotations in the Notebook without a false passage link', () => {
+  const p = { ...props(), bookId: 'epub:abc123', notebook: true, highlights: [], chapterNotes: [],
+    legacyOwnEpubItems: [
+      { id: 'old-mark', kind: 'highlight' as const, text: 'The exact original quotation.', note: 'My original note.', page: 12, at: T + 2 },
+      { id: 'old-card', kind: 'card' as const, text: 'A question from the old page.', note: 'Original margin note.', page: 17, at: T + 3,
+        turns: [{ role: 'user' as const, content: 'Why this line?' }, { role: 'assistant' as const, content: 'The saved answer.' }], data: { answer: 2 } },
+    ] }
+  render(<LabContentsV2 {...p} />)
+  expect(rows()).toEqual(['contents-legacy-epub-old-card', 'contents-legacy-epub-old-mark'])
+  const markRow = screen.getByTestId('contents-legacy-epub-old-mark')
+  expect(within(markRow).getByText('Original EPUB page 12 · Saved highlight')).toBeTruthy()
+  expect(within(markRow).getByText('The exact original quotation.')).toBeTruthy()
+  expect(within(markRow).getByText('My original note.')).toBeTruthy()
+  expect(markRow.tagName).toBe('ARTICLE')
+  expect(markRow.querySelector('button')).toBeNull()
+  fireEvent.click(markRow)
+  expect(p.onOpenPassage).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
+  expect(rows()).toEqual(['contents-legacy-epub-old-mark'])
+  fireEvent.click(screen.getByTestId('contents-notebook-ai'))
+  expect(rows()).toEqual(['contents-legacy-epub-old-card'])
+  expect(screen.getByText('Original EPUB page 17 · Saved AI card')).toBeTruthy()
+  expect(Array.from(screen.getByTestId('contents-legacy-epub-old-card').querySelectorAll('.legacy-turn')).map(row => row.textContent)).toEqual(['Q. Why this line?', 'A. The saved answer.'])
+  fireEvent.click(screen.getByText('Saved card details'))
+  expect(screen.getByText(/"answer": 2/)).toBeTruthy()
+})
+
+it('does not show original EPUB records outside the Notebook', () => {
+  render(<LabContentsV2 {...props()} legacyOwnEpubItems={[{ id: 'old', kind: 'highlight', text: 'Old quote', page: 3, at: T }]} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlights', exact: true }))
+  expect(screen.queryByTestId('contents-legacy-epub-old')).toBeNull()
+})
+
+it('private Notebook copies all entries and deletes with undo through its existing-store callback', async () => {
+  const restore = vi.fn()
+  const onDeleteNotebookItem = vi.fn(() => restore)
+  const writeText = vi.fn(async (_value: string) => {})
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
+  const p = { ...props(), notebook: true, sharedNotebook: true, onDeleteNotebookItem, highlights: [highlights[1]], chapterNotes: [],
+    legacyOwnEpubItems: [{ id: 'old', kind: 'card' as const, text: 'Old page passage.', note: 'Old page answer.', page: 15, at: T + 2 }] }
+  render(<LabContentsV2 {...p} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Copy all Notebook entries' }))
+  await screen.findByText('Notebook copied.')
+  expect(writeText).toHaveBeenCalledTimes(1)
+  expect(writeText.mock.calls[0][0]).toContain('Original EPUB page 15')
+  expect(writeText.mock.calls[0][0]).toContain('Old page answer.')
+  expect(writeText.mock.calls[0][0]).toContain('Youngest, and so the indulged one.')
+  expect(screen.queryByRole('button', { name: 'Delete Notebook entry old' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: `Delete Notebook entry hl-${T + 1}-daughter` }))
+  expect(onDeleteNotebookItem).toHaveBeenCalledWith({ kind: 'highlight', id: `hl-${T + 1}-daughter` })
+  expect(screen.queryByTestId(`contents-highlight-hl-${T + 1}-daughter`)).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Copy all Notebook entries' }))
+  await screen.findByText('Notebook copied.')
+  expect(writeText.mock.calls.slice(-1)[0]?.[0]).not.toContain('Youngest, and so the indulged one.')
+  fireEvent.click(screen.getByRole('button', { name: 'Undo' }))
+  expect(restore).toHaveBeenCalledTimes(1)
+  expect(screen.getByTestId(`contents-highlight-hl-${T + 1}-daughter`)).toBeTruthy()
+})
+
+it('the private Notebook reopens on its last filter, but starts All for a different book', () => {
+  const p = { ...props(), notebook: true, sharedNotebook: true }
+  const rendered = render(<LabContentsV2 {...p} />)
+  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
+  const results = document.querySelector<HTMLElement>('.overlay .results')!
+  results.scrollTop = 115
+  fireEvent.scroll(results)
+  expect(screen.getByTestId('contents-notebook-mine').getAttribute('aria-pressed')).toBe('true')
+  rendered.rerender(<LabContentsV2 {...p} open={false} />)
+  rendered.rerender(<LabContentsV2 {...p} open />)
+  expect(screen.getByTestId('contents-notebook-mine').getAttribute('aria-pressed')).toBe('true')
+  expect(document.querySelector<HTMLElement>('.overlay .results')?.scrollTop).toBe(115)
+  rendered.rerender(<LabContentsV2 {...p} bookId="different-book" />)
+  expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
+  expect(document.querySelector<HTMLElement>('.overlay .results')?.scrollTop).toBe(0)
+})
+
+it('only saved cards get card deletion; an ordinary chat stays readable, and undo survives a chapter turn', () => {
+  const restore = vi.fn(), onDeleteNotebookItem = vi.fn(() => restore)
+  const chat = (id: string, withCard: boolean) => ({ id, bookId: 'emma', chapterNumber: 1, startTimestamp: T + 7, endTimestamp: T + 8,
+    preview: 'Why?', messages: [{ id: id + '-q', role: 'user' as const, content: 'Why?', timestamp: T + 7 }],
+    ...(withCard ? { card: { id: 'saved-card', kind: 'explain', chapterNumber: 1, at: T + 7, u: T + 8 } } : {}) })
+  const p = { ...props(), notebook: true, sharedNotebook: true, conversations: [chat('normal', false), chat('mc_saved-card', true)],
+    onDeleteNotebookItem }
+  const rendered = render(<LabContentsV2 {...p} />)
+  expect(screen.getByTestId('contents-chat-normal')).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'Delete Notebook entry normal' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Delete Notebook entry mc_saved-card' }))
+  expect(onDeleteNotebookItem).toHaveBeenCalledWith({ kind: 'card', id: 'mc_saved-card' })
+  rendered.rerender(<LabContentsV2 {...p} currentChapter={2} />)
+  expect(screen.getByRole('button', { name: 'Undo' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Undo' }))
+  expect(restore).toHaveBeenCalledOnce()
+})
