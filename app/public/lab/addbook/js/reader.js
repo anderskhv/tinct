@@ -9,7 +9,7 @@ const root = document.querySelector('.lab');
 const STORE_PREFIX = 'tinct-addbook:';
 const store = {
   get(k) { try { return JSON.parse(localStorage.getItem(STORE_PREFIX + k)) } catch { return null } },
-  set(k, v) { try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} },
+  set(k, v) { if (/^(hl|cards):epub:[0-9a-f]{24}$/.test(k)) return window.TinctAddEngine?.legacyEpubAnnotations.set(k, v); try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} },
   del(k) { try { localStorage.removeItem(STORE_PREFIX + k) } catch {} },
 };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
