@@ -2,7 +2,47 @@
 
 This is the live execution record for the [agreed release plan](shared-reader-consolidation-2026-10-23.md). A checkpoint is not completion. The coordinating agent owns integration, regression repair, and acceptance. Anders has explicitly approved the floor-to-reader merge and deployment sequence, and separately one muted synthetic-input guest Grok Talk call, at most 120 seconds, no retry, budget $0.25, with no new narration generation.
 
-**Current execution status:** the compatible old-reader floor is deployed from
+**Current execution status: complete.** The approved shared reader is live and
+accepted. PR #607 merged as `14314a5d03cf285a548d9c40c2b59fe835b694de`,
+with the exact reviewed tree `6a7c830c2ecdeb189ca2d1a237d815ca7ed741c8`.
+Its required PR verification (`40033118627`) and main verification
+(`40034252899`) passed every job. The corrected source passed 7,148 tests
+(six skipped), build and bundle verification, all 120 Shakespeare cases,
+and Linux/Mac spread checks. The enabled-reader local audit also passed all
+120 cases against its exact verified bundle.
+
+The reviewed one-time continuation (`40035289700`) launched reader run
+`40035310387` once. That entire first-attempt direct release succeeded at
+22:58:39 UTC: all six live acceptance groups passed, including all 120
+Shakespeare speaker cases against the exact deployed bundle. Production serves
+Worker `1bdaf83e-e30f-44bf-954c-46dc2edf66db`, bundle `index-B_Jdu6u2.js`.
+The featured preview passed all eight production cases. Independent isolated,
+muted Chromium and WebKit checks passed default continuous reading, exact
+settled semantic-place restoration after reload, Classic and explicit opt-out,
+with no unhandled browser errors. The extra WebKit check initially sampled an
+unfinished wheel scroll; instrumentation confirmed that the settled, saved and
+restored coordinates match exactly. No runtime change was needed.
+
+The continuation then launched exactly one approved voice run, `40036966171`.
+The real verification step and entire workflow succeeded. The provider
+acknowledged the requested Ara voice and subsequent Helios switch; the delayed
+lookup acknowledgement returned 45,603 audio bytes and the transcript
+"One moment." There were no application or provider errors. The continuation
+independently verified this report and finished successfully at 23:00:59 UTC.
+No retry or narration generation was performed. This records the approved
+$0.25 budget, not a measured billing total.
+
+The compatible rollback floor remains
+`f9521101-aa25-4d2c-ab44-b0d1c9e149bf`; its pin and format proof are unchanged.
+The pending release guard remains deliberate: an ordinary push cannot silently
+replace the accepted ON reader with an OFF build. The one-time continuation
+is inert for later unrelated merges and cannot dispatch beyond the original
+03:01:25 UTC cutoff. A future release still needs its own reviewed compatibility
+decision. The new full speaker gate currently supports this approved direct
+reader route; a staged reader request fails closed against the production
+origin before promotion.
+
+**Accepted floor checkpoint (before the reader cutover):** the compatible old-reader floor was deployed from
 `dcc2dca562b9c05f252a532f6d5e6a839aa5199b` in manual run
 `40024003699`. Its 6888 tests, build and bundle verification pass, and production
 serves `index-CQIECQfJ.js`. All six live acceptance groups passed, and the whole
