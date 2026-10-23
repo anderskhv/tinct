@@ -492,6 +492,34 @@ describe('admin account routes', () => {
     expect(w.userBooks.objects.has(`u/${otherUser}/places/${pdfHex}`)).toBe(true)
   })
 
+  it('exports private PDF source-word sets beside page geometry and purges both on account deletion', async () => {
+    const w = world()
+    const hex = 'ab'.repeat(12), fileId = 'a'.repeat(32)
+    const anchor = { kind: 'range', editionKey: 'own-en', converter: 6, chapterNumber: 1,
+      paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 3 }
+    const textMark = { v: 'text-v1', id: 'hl-pdf_123', anchor, text: 'Source words', color: 'gold', at: 1000 }
+    const textCard = { v: 'text-v1', id: 'card-pdf_123', kind: 'ask', anchor, text: 'Source words',
+      turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'An answer.' }], at: 1000 }
+    const pageMark = { id: 'abcd1', page: 1, rects: [[0, 0, 1, 1]], text: 'Printed words', color: 'rose', at: 1000 }
+    const put = (owner: string, kind: string, list: unknown[]) => w.userBooks.bucket.put(`u/${owner}/${kind}/${hex}/${fileId}`,
+      JSON.stringify({ rev: 1, list }), { customMetadata: { rev: '1' } })
+    await put(userId, 'marks', [pageMark])
+    await put(userId, 'text-marks', [textMark, { id: 'hl-gone_1', gone: true, u: 2000 }])
+    await put(userId, 'text-cards', [textCard])
+    await put(otherUser, 'text-marks', [{ ...textMark, id: 'hl-other_123' }])
+    const exported = await (await handleAdminExportUser(post('/api/admin/export-user', { userId }), w.env, admin)).json() as Record<string, any>
+    expect(exported.complete).toBe(true)
+    expect(exported.r2.ownBookMarks).toEqual({
+      [`${hex}/${fileId}`]: { highlights: [pageMark], removed: 0, rev: 1 },
+      [`text/${hex}/${fileId}`]: { highlights: [textMark], removed: 1, rev: 1 },
+    })
+    expect(exported.r2.ownBookCards).toEqual({ [`text/${hex}/${fileId}`]: { cards: [textCard], removed: 0, rev: 1 } })
+    const deleted = await (await handleAdminDeleteUser(post('/api/admin/delete-user', { userId, confirmEmail: email }), w.env, admin)).json() as { ok: boolean }
+    expect(deleted.ok).toBe(true)
+    expect([...w.userBooks.objects.keys()].filter(key => key.startsWith(`u/${userId}/text-`))).toEqual([])
+    expect(w.userBooks.objects.has(`u/${otherUser}/text-marks/${hex}/${fileId}`)).toBe(true)
+  })
+
   it('exports own-book cover images (listed, never the bytes) and deletes them with the account prefix', async () => {
     const w = world()
     const hex = 'c3'.repeat(12)

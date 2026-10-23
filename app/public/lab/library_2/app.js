@@ -15,7 +15,7 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
@@ -703,6 +703,9 @@ async function deleteOwnBook(book,from){
   dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
  }catch{leave.cancel();notice('This book could not be deleted. Please try again.');}
 }
+function editOwnBook(book,from){
+ void editOwnBookDetails(book,{from,onSaved:updated=>refreshOwnShelf(list=>list.map(item=>item.key===updated.key?{...item,title:updated.title,author:updated.author}:item))});
+}
 /** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
 /**
  * A Finished card: one of the reader's own books (finished by its place), a book the shelves list
@@ -711,7 +714,7 @@ async function deleteOwnBook(book,from){
  * than the reader had finished (Anders, 2026-10-20).
  */
 function finishedCard(row){
- if(row.own){if(!row.ownKey||!row.href||!addEnabled())return null;const card=ownBookCard({key:row.ownKey,kind:row.kind||(row.ownKey.startsWith('pdf:')?'pdf':'epub'),title:row.title||'',author:row.author||'',cover:row.cover||ownShelf?.find(own=>own.key===row.ownKey)?.cover||null,href:row.href},el,{onDelete:(own,from)=>void deleteOwnBook(own,from)});card.dataset.shelfGroup='finished';return card;}
+ if(row.own){if(!row.ownKey||!row.href||!addEnabled())return null;const card=ownBookCard({key:row.ownKey,kind:row.kind||(row.ownKey.startsWith('pdf:')?'pdf':'epub'),title:row.title||'',author:row.author||'',cover:row.cover||ownShelf?.find(own=>own.key===row.ownKey)?.cover||null,href:row.href},el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook});card.dataset.shelfGroup='finished';return card;}
  const book=bookById(row.bookId);return book?{book}:readingRowCard(row,'finished');
 }
 function readingRowCard(row,group='reading'){
@@ -733,7 +736,7 @@ function ownReadingCard(row,ownList){
  const book={key,kind:row.kind||listed?.kind||(key.startsWith('pdf:')?'pdf':'epub'),title:row.title||listed?.title||'',author:row.author||listed?.author||'',cover:row.cover||listed?.cover||null,href:row.href||listed?.href||'',percent:row.percent??listed?.percent??null};
  if(!book.href)return null;
  const actions=[{label:READ_LATER,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own})},{label:OFF_READING,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own,later:false})}];
- const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),actions,progress:true});card.dataset.shelfGroup='own-reading';return card;
+ const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook,actions,progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
@@ -777,7 +780,7 @@ function drawMyBooks(){
  const readingCards=reading.map(row=>row.own?(showOwn?ownReadingCard(row,ownShelf):null):byId(row.bookId)?{book:byId(row.bookId)}:readingRowCard(row)).filter(Boolean);
  // An own book taken off Currently reading (its place kept) is saved for later, as Tinct's are
  // (Anders, 2026-10-12); its ••• deletes it, as under My private uploads.
- const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),progress:true});card.dataset.shelfGroup='want';return card;}):[];
+ const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook,progress:true});card.dataset.shelfGroup='want';return card;}):[];
  const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(finishedCard).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
@@ -805,7 +808,7 @@ function drawMyBooks(){
   if(ownShelf===null)void loadOwnShelf();
   // The reading table's own rows carry each cover at full size (read fresh with the table).
   const covers=new Map(reading.filter(r=>r.own&&r.cover).map(r=>[r.bookId,r.cover]));
-  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,currentlyReading:false,onDelete:(book,from)=>void deleteOwnBook(book,from)});
+  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,currentlyReading:false,onDelete:(book,from)=>void deleteOwnBook(book,from),onEdit:editOwnBook});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
  for(const node of grid.children){

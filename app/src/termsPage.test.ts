@@ -72,13 +72,21 @@ describe('/terms', () => {
 // Talk and Catch me up on a reader's own book (2026-10-08, after legal review).
 describe('own books and the AI features', () => {
   const privacyText = text(privacy)
+  it('privacy: pasted drafts become owned EPUBs only on Add, with the existing export listing and deletion path', () => {
+    expect(privacyText).toContain('If you choose Paste text, the text you type or paste (including supported HTML or Markdown), and any title or author you enter are converted into an EPUB in your browser; you can review the result before adding it and edit its display title and author later.')
+    expect(privacyText).toContain('Only when you choose Add to my books is that EPUB saved to your account with Cloudflare (R2); the editable draft is not saved separately or sent to an AI provider for rewriting.')
+    expect(privacyText).toContain('The resulting book follows the same private access, account export listing (its title, author, file type, size and date, not the file bytes) and deletion rules as an EPUB you chose as a file.')
+    const accounts = readFileSync('src/worker/routes/adminAccounts.ts', 'utf8')
+    expect(accounts).toContain('listUserBooks(env.USER_BOOKS!, account.userId)')
+    expect(accounts).toContain('await purgeUserBooks(env.USER_BOOKS, userId)')
+  })
   it('privacy: names what of an own book each AI feature sends, where the recap is kept, and no training', () => {
     expect(privacyText).not.toContain('Only the passages you ask about are sent to the AI companion, as with any question.')
     expect(privacyText).toContain('Your place in a PDF or EPUB you added (the chapter and paragraph in its source text, or the page of a PDF when you read its original pages, and how far through you are, never its title or text) is kept privately in your account too, so it opens where you left off on your other devices; it is deleted with the book.')
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 22 October 2026')
+    expect(privacy).toContain('Last updated: 23 October 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
@@ -90,7 +98,7 @@ describe('own books and the AI features', () => {
 
   // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
   it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
-    expect(privacy).toContain('Last updated: 22 October 2026')
+    expect(privacy).toContain('Last updated: 23 October 2026')
     expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
     expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
     expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')

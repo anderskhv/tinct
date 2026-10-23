@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace } from './ownSync'
+import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace, withAccountBookMetadata } from './ownSync'
 import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
@@ -43,6 +43,14 @@ beforeEach(() => { localStorage.clear(); forget.mockClear() })
 afterEach(() => { vi.useRealTimers() })
 
 describe('own-book places across devices', () => {
+  it('takes revised account metadata without changing local reading progress or cover', () => {
+    const accountBook = { id: 'f'.repeat(32), type: 'epub' as const, sha256: HEX + '0'.repeat(40), title: 'Renamed on another device', author: '', name: 'original.epub', size: 12, createdAt: '', metadataRev: 2 }
+    const local = { ...accountOnlyBook(accountBook), title: 'Old title', author: 'Old author', cover: 'data:image/jpeg;base64,AAAA', reading: { chapterNumber: 2 } } as ReturnType<typeof accountOnlyBook>
+    const merged = withAccountBookMetadata(local, accountBook)
+    expect(merged).toMatchObject({ title: 'Renamed on another device', author: '', cover: local.cover, reading: local.reading })
+    expect(withAccountBookMetadata(local, undefined)).toBe(local)
+    expect(withAccountBookMetadata(local, { ...accountBook, metadataRev: 0 })).toBe(local)
+  })
   it('takes an account place read later on another device, and keeps this device\'s newer one', async () => {
     writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 0, updatedAt: 100 })
     const { fetchImpl } = account({ [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200, percent: 75, rev: 4 } })

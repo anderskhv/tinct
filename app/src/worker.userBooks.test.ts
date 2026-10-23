@@ -314,7 +314,7 @@ describe('/api/user-books/places', () => {
     const listed = await (await call('/api/user-books/places', { token: 'token-a' })).json()
     expect(listed).toEqual({ places: { [hex]: { ...place(4, 2_000), percent: 13.3, rev: 2 } } })
     const key = `u/${A}/places/${hex}`
-    expect(r2.objects.get(key)?.bytes.byteLength).toBe(0)
+    expect(new TextDecoder().decode(r2.objects.get(key)?.bytes)).toBe('2')
     expect(JSON.stringify(r2.objects.get(key)?.customMetadata)).not.toContain('Private')
     // The book list is unchanged by places beside it.
     const books = await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }
@@ -340,12 +340,43 @@ describe('/api/user-books/places', () => {
     let raced = false
     ;(r2.bucket as unknown as { head: typeof original }).head = async key => {
       const head = await original(key)
-      if (!raced && key.includes('/places/')) { raced = true; await r2.bucket.put(key, '', { customMetadata: { ...head!.customMetadata, chapterNumber: '9', rev: '2' } }) }
+      if (!raced && key.includes('/places/')) { raced = true; await r2.bucket.put(key, '2', { customMetadata: { ...head!.customMetadata, chapterNumber: '9', rev: '2' } }) }
       return head
     }
     const lost = await put(call, 'token-a', hex, { place: place(5, 6_000), rev: 1 })
     expect(lost.status).toBe(409)
     expect((await lost.json() as { place: { chapterNumber: number; rev: number } }).place).toMatchObject({ chapterNumber: 9, rev: 2 })
+  })
+
+  it('an unchanged place update advances the body ETag before a stale different place writes', async () => {
+    const { env, call, hex } = await withBook()
+    const url = `/api/user-books/places/${hex}`
+    const save = (paragraphIndex: number, rev: number) => call(url, { method: 'PUT', token: 'token-a', body: JSON.stringify({ place: { ...place(3), paragraphIndex }, rev }) })
+    expect((await save(0, 0)).status).toBe(200)
+    const key = `u/${A}/places/${hex}`, actual = env.USER_BOOKS
+    let entered!: () => void
+    let release!: () => void
+    const atRead = new Promise<void>(resolve => { entered = resolve })
+    const resume = new Promise<void>(resolve => { release = resolve })
+    let held = false
+    env.USER_BOOKS = new Proxy(actual, {
+      get(target, property) {
+        if (property === 'head') return (requested: string) => {
+          const snapshot = target.head(requested)
+          if (requested !== key || held) return snapshot
+          held = true; entered()
+          return resume.then(() => snapshot)
+        }
+        const member = Reflect.get(target, property)
+        return typeof member === 'function' ? member.bind(target) : member
+      },
+    })
+    const stale = save(8, 1)
+    await atRead
+    expect((await save(0, 1)).status).toBe(200)
+    release()
+    expect((await stale).status).toBe(409)
+    expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toMatchObject({ places: { [hex]: { paragraphIndex: 0, rev: 2 } } })
   })
 
   it('has no place for a book the account does not own, another account\'s, or a malformed one', async () => {
@@ -384,7 +415,7 @@ describe('/api/user-books/places', () => {
     expect(await first.json()).toEqual({ place: { ...page(12), percent: 29.4, rev: 1 } })
     expect(await (await call('/api/user-books/places', { token: 'token-a' })).json()).toEqual({ places: { [hex]: { ...page(12), percent: 29.4, rev: 1 } } })
     const key = `u/${A}/places/${hex}`
-    expect(r2.objects.get(key)?.bytes.byteLength).toBe(0)
+    expect(new TextDecoder().decode(r2.objects.get(key)?.bytes)).toBe('1')
     expect(JSON.stringify(r2.objects.get(key)?.customMetadata)).not.toContain('Private')
     // The newer place, read on another device, names the revision it saw.
     const second = await put(call, 'token-a', hex, { place: { page: 20, updatedAt: 2_000 }, rev: 1 })
@@ -1139,6 +1170,168 @@ describe('private EPUB source marks and cards', () => {
   })
 })
 
+describe('PDF source-word marks and cards beside Original-page geometry', () => {
+  const anchor = { kind: 'range', editionKey: 'own-en', converter: 6, chapterNumber: 2,
+    paragraphIndex: 3, fromWord: 4, endParagraphIndex: 3, toWord: 7 }
+  const textMark = { v: 'text-v1', id: 'hl-pdf_123', anchor, text: 'PDF source words', color: 'gold', at: 1000 }
+  const textCard = { v: 'text-v1', id: 'card-pdf_123', kind: 'ask', anchor, text: 'PDF source words',
+    turns: [{ role: 'user', content: 'Why?', at: 1000 }, { role: 'assistant', content: 'Because.', at: 1001 }], at: 1000 }
+  const pageMark = { id: 'abcd1', page: 2, rects: [[0.1, 0.2, 0.5, 0.02]], text: 'printed words', color: 'rose', at: 1000 }
+  const pageCard = { id: 'abcde', kind: 'explain', page: 2, rects: [[2, 0.1, 0.2, 0.5, 0.02]], text: 'printed words', turns: [], at: 1000 }
+  const get = (call: ReturnType<typeof setup>['call'], route: string, hex: string, token = 'token-a') => call(`/api/user-books/${route}/${hex}`, { token })
+  const put = (call: ReturnType<typeof setup>['call'], route: string, hex: string, entries: unknown, rev = 0, token = 'token-a') => {
+    const field = route.endsWith('marks') ? 'marks' : 'cards'
+    return call(`/api/user-books/${route}/${hex}`, { method: 'PUT', token, body: JSON.stringify({ [field]: entries, rev }) })
+  }
+
+  it('keeps independent page and text sets, exports both with tombstones, and deletes both', async () => {
+    const { env, r2, call, upload } = setup()
+    const { book } = await (await upload('token-a', pdfBytes('both layouts'))).json() as { book: UserBook }
+    const hex = book.sha256.slice(0, 24)
+    for (const [route, entries] of [['marks', [pageMark]], ['cards', [pageCard]], ['text-marks', [textMark]], ['text-cards', [textCard]]] as const) {
+      expect((await put(call, route, hex, entries)).status).toBe(200)
+      expect(await (await get(call, route, hex)).json()).toEqual({ [route.endsWith('marks') ? 'marks' : 'cards']: entries, rev: 1 })
+    }
+    const gone = { id: textMark.id, gone: true, u: 2000 }
+    expect((await put(call, 'text-marks', hex, [gone], 1)).status).toBe(200)
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({
+      [`${hex}/${book.id}`]: { highlights: [pageMark], removed: 0, rev: 1 },
+      [`text/${hex}/${book.id}`]: { highlights: [], removed: 1, rev: 2 },
+    })
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({
+      [`${hex}/${book.id}`]: { cards: [pageCard], removed: 0, rev: 1 },
+      [`text/${hex}/${book.id}`]: { cards: [textCard], removed: 0, rev: 1 },
+    })
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    for (const route of ['marks', 'cards', 'text-marks', 'text-cards']) {
+      expect(r2.objects.has(`u/${A}/${route}/${hex}/${book.id}`)).toBe(false)
+      expect((await get(call, route, hex)).status).toBe(404)
+    }
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({})
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({})
+  })
+
+  it('rejects another owner, EPUB files, and either format in the other surface', async () => {
+    const { call, upload } = setup()
+    const { book: pdf } = await (await upload('token-a', pdfBytes('isolated text'))).json() as { book: UserBook }
+    const { book: epub } = await (await upload('token-a', epubBytes())).json() as { book: UserBook }
+    const hex = pdf.sha256.slice(0, 24), epubHex = epub.sha256.slice(0, 24)
+    expect((await get(call, 'text-marks', hex, 'token-b')).status).toBe(404)
+    expect((await put(call, 'text-cards', hex, [textCard], 0, 'token-b')).status).toBe(404)
+    expect((await get(call, 'text-marks', epubHex)).status).toBe(404)
+    expect((await put(call, 'text-cards', epubHex, [textCard])).status).toBe(404)
+    for (const [route, entries] of [['text-marks', [pageMark]], ['text-cards', [pageCard]], ['marks', [textMark]], ['cards', [textCard]]] as const)
+      expect((await put(call, route, hex, entries)).status).toBe(400)
+  })
+
+  it('isolates a deleted generation from a same-byte reupload across before/after PUT barriers', async () => {
+    for (const route of ['text-marks', 'text-cards'] as const) for (const phase of ['before', 'after'] as const) {
+      const { r2, env, call, upload } = setup()
+      const bytes = pdfBytes(`same text ${route} ${phase}`)
+      const { book: old } = await (await upload('token-a', bytes)).json() as { book: UserBook }
+      const hex = old.sha256.slice(0, 24), oldKey = `u/${A}/${route}/${hex}/${old.id}`
+      const entries = route === 'text-marks' ? [textMark] : [textCard]
+      const freshEntries = route === 'text-marks' ? [{ ...textMark, id: 'hl-fresh_123' }] : [{ ...textCard, id: 'card-fresh_123' }]
+      const actual = env.USER_BOOKS
+      let entered!: () => void
+      let release!: () => void
+      const atPut = new Promise<void>(resolve => { entered = resolve })
+      const resume = new Promise<void>(resolve => { release = resolve })
+      env.USER_BOOKS = new Proxy(actual, {
+        get(target, property) {
+          if (property === 'put') return async (key: string, value: Uint8Array | ArrayBuffer | string, opts: R2PutOptions) => {
+            if (key !== oldKey) return target.put(key, value, opts)
+            if (phase === 'before') { entered(); await resume; return target.put(key, value, opts) }
+            const stored = await target.put(key, value, opts)
+            entered(); await resume
+            return stored
+          }
+          const member = Reflect.get(target, property)
+          return typeof member === 'function' ? member.bind(target) : member
+        },
+      })
+      const pending = put(call, route, hex, entries)
+      await atPut
+      expect((await call(`/api/user-books/${old.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+      const { book: fresh } = await (await upload('token-a', bytes)).json() as { book: UserBook }
+      expect(fresh.id).not.toBe(old.id)
+      expect((await put(call, route, hex, freshEntries)).status).toBe(200)
+      release()
+      expect((await pending).status, `${route} ${phase}`).toBe(404)
+      expect(r2.objects.has(oldKey)).toBe(false)
+      expect(await (await get(call, route, hex)).json()).toEqual({ [route === 'text-marks' ? 'marks' : 'cards']: freshEntries, rev: 1 })
+      const exported = route === 'text-marks' ? await listOwnMarks(env.USER_BOOKS, A) : await listOwnCards(env.USER_BOOKS, A)
+      expect(Object.keys(exported)).toEqual([`text/${hex}/${fresh.id}`])
+    }
+  })
+
+  it('rejects a stale distinct write after an identical-list revision advances', async () => {
+    for (const route of ['marks', 'text-marks', 'text-cards'] as const) {
+      const { env, r2, call, upload } = setup()
+      const { book } = await (await upload('token-a', pdfBytes(`identical list ${route}`))).json() as { book: UserBook }
+      const hex = book.sha256.slice(0, 24), key = `u/${A}/${route}/${hex}/${book.id}`
+      const entries = route === 'marks' ? [pageMark] : route === 'text-marks' ? [textMark] : [textCard]
+      const changed = route === 'marks' ? [{ ...pageMark, id: 'abcde' }]
+        : route === 'text-marks' ? [{ ...textMark, id: 'hl-changed_123' }] : [{ ...textCard, id: 'card-changed_123' }]
+      expect((await put(call, route, hex, entries)).status).toBe(200)
+      const firstEtag = r2.objects.get(key)?.etag
+      const actual = env.USER_BOOKS
+      let entered!: () => void
+      let release!: () => void
+      const atRead = new Promise<void>(resolve => { entered = resolve })
+      const resume = new Promise<void>(resolve => { release = resolve })
+      let held = false
+      env.USER_BOOKS = new Proxy(actual, {
+        get(target, property) {
+          if (property === 'get') return (requested: string) => {
+            const snapshot = target.get(requested)
+            if (requested !== key || held) return snapshot
+            held = true; entered()
+            return resume.then(() => snapshot)
+          }
+          const member = Reflect.get(target, property)
+          return typeof member === 'function' ? member.bind(target) : member
+        },
+      })
+      const stale = put(call, route, hex, changed, 1)
+      await atRead
+      expect((await put(call, route, hex, entries, 1)).status).toBe(200)
+      const latest = r2.objects.get(key)!
+      expect(latest.etag).not.toBe(firstEtag)
+      expect(JSON.parse(new TextDecoder().decode(latest.bytes))).toEqual({ rev: 2, list: entries })
+      release()
+      expect(await (await stale).json()).toEqual({ error: 'conflict', [route.endsWith('marks') ? 'marks' : 'cards']: entries, rev: 2 })
+      expect(await (await get(call, route, hex)).json()).toEqual({ [route.endsWith('marks') ? 'marks' : 'cards']: entries, rev: 2 })
+    }
+  })
+
+  it('fails closed on corrupted text sets and orphan export', async () => {
+    const { r2, env, call, upload } = setup()
+    const { book } = await (await upload('token-a', pdfBytes('corrupt source words'))).json() as { book: UserBook }
+    const hex = book.sha256.slice(0, 24)
+    expect((await put(call, 'text-marks', hex, [textMark])).status).toBe(200)
+    const key = `u/${A}/text-marks/${hex}/${book.id}`
+    r2.objects.get(key)!.bytes = new TextEncoder().encode(JSON.stringify([pageMark]))
+    expect((await get(call, 'text-marks', hex)).status).toBe(503)
+    expect((await put(call, 'text-marks', hex, [textMark], 1)).status).toBe(503)
+    r2.objects.delete(`u/${A}/${book.id}`)
+    await expect(listOwnMarks(env.USER_BOOKS, A)).rejects.toThrow(/Corrupt own marks/)
+  })
+
+  it('reads historical bare-array sets but refuses a body/metadata revision mismatch', async () => {
+    const { r2, call, upload } = setup()
+    const { book } = await (await upload('token-a', pdfBytes('legacy text format'))).json() as { book: UserBook }
+    const hex = book.sha256.slice(0, 24), key = `u/${A}/text-marks/${hex}/${book.id}`
+    await r2.bucket.put(key, JSON.stringify([textMark]), { customMetadata: { rev: '5' } })
+    expect(await (await get(call, 'text-marks', hex)).json()).toEqual({ marks: [textMark], rev: 5 })
+    expect((await put(call, 'text-marks', hex, [textMark], 5)).status).toBe(200)
+    expect(JSON.parse(new TextDecoder().decode(r2.objects.get(key)!.bytes))).toEqual({ rev: 6, list: [textMark] })
+    r2.objects.get(key)!.customMetadata.rev = '7'
+    expect((await get(call, 'text-marks', hex)).status).toBe(503)
+    expect((await put(call, 'text-marks', hex, [textMark], 7)).status).toBe(503)
+  })
+})
+
 describe('/api/user-books/metadata', () => {
   const get = (call: ReturnType<typeof setup>['call'], hex: string, token = 'token-a') =>
     call(`/api/user-books/metadata/${hex}`, { token })
@@ -1153,6 +1346,7 @@ describe('/api/user-books/metadata', () => {
     const fileKey = `u/${A}/${book.id}`
     const initial = r2.objects.get(fileKey)!
     const originalMeta = { ...initial.customMetadata }
+    expect((await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }).books[0].metadataRev).toBeUndefined()
     expect(await (await get(call, hex)).json()).toEqual({ title: 'Original', author: 'Writer', rev: 0, fileId: book.id })
     expect((await get(call, hex, 'token-b')).status).toBe(404)
     const edited = await patch(call, hex, { title: 'A Better Title', author: 'É. Writer', rev: 0, expectedFileId: book.id })
@@ -1162,7 +1356,7 @@ describe('/api/user-books/metadata', () => {
     expect(stored.bytes).toEqual(bytes)
     expect(stored.customMetadata).toEqual(originalMeta)
     expect(r2.objects.get(`u/${A}/metadata/${book.id}`)?.customMetadata).toMatchObject({ rev: '1', sha256: book.sha256 })
-    expect((await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }).books[0]).toMatchObject({ id: book.id, name: 'Original.epub', title: 'A Better Title', author: 'É. Writer', sha256: book.sha256 })
+    expect((await (await call('/api/user-books', { token: 'token-a' })).json() as { books: UserBook[] }).books[0]).toMatchObject({ id: book.id, name: 'Original.epub', title: 'A Better Title', author: 'É. Writer', metadataRev: 1, sha256: book.sha256 })
     const stale = await patch(call, hex, { title: 'Stale', author: 'Old', rev: 0, expectedFileId: book.id })
     expect(stale.status).toBe(409)
     expect(await stale.json()).toEqual({ error: 'conflict', title: 'A Better Title', author: 'É. Writer', rev: 1, fileId: book.id })

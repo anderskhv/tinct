@@ -145,8 +145,29 @@
     for (const s of storages) {
       try {
         if (!s) continue;
+        // The React reader's highlights share one array across books/accounts.
+        // Delete its projection only when the owner marker and exact owner backup
+        // agree; a failed account switch must never attribute another person's
+        // same-hash marks to the account being deleted.
+        const ownerId = accountId(), bookId = 'userbook-' + hex;
+        if (ownerId && s.getItem('tinct-addbook:text-marks-owner:' + hex) === ownerId) {
+          const backup = s.getItem('tinct-addbook:text-marks-local:' + ownerId + ':' + hex);
+          try {
+            const all = JSON.parse(s.getItem('tinct-lab-highlights') || '[]');
+            if (backup !== null && Array.isArray(all) && backup === JSON.stringify(all.filter(mark => mark?.bookId === bookId))) {
+              s.setItem('tinct-lab-highlights', JSON.stringify(all.filter(mark => mark?.bookId !== bookId)));
+            }
+          } catch { /* uncertain ownership or blocked storage: preserve marks */ }
+        }
         const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
         for (const k of keys) {
+          const scoped = /^tinct-addbook:text-marks-(?:local|sync|adopted):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (scoped && scoped[2] === hex && (!accountId() || scoped[1] !== accountId())) continue;
+          const legacy = /^tinct-addbook:legacy-epub-(?:annotations|migrated):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (legacy && legacy[2] === hex && (!accountId() || legacy[1] !== accountId())) continue;
+          if (k === 'tinct-addbook:legacy-epub-owner:' + hex && (!accountId() || s.getItem(k) !== accountId())) continue;
+          if (k === 'tinct-addbook:text-marks-unassigned:' + hex) continue;
+          if (k === 'tinct-addbook:text-marks-owner:' + hex && (!accountId() || s.getItem(k) !== accountId())) continue;
           const mine = (k.startsWith(STORE_PREFIX) || k.startsWith('tinct:')) && k.includes(hex);
           const names = !mine && SNAPSHOT_KEYS.test(k) && String(s.getItem(k) || '').includes(hex);
           if (mine || names) { s.removeItem(k); gone++ }

@@ -22,6 +22,8 @@ export interface AccountBook {
   size: number
   sha256: string
   createdAt: string
+  /** Positive only after a reader edited the display metadata; upload defaults do not replace parsed OPF labels. */
+  metadataRev?: number
   /** The small image of its cover kept with the account copy (`/api/user-books/covers/<hex>?v=…`), or null. */
   cover?: string | null
 }

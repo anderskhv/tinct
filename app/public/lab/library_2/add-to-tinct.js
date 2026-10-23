@@ -12,6 +12,7 @@ import {eraLabel} from './book-metadata.js?v=20261009rel10';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
+import {pasteEpub,preview as pastePreview,suggestedTitle} from './paste-text.js?v=20261023paste1';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -24,6 +25,9 @@ export const ADD_FILE_PAGE=MY_SHELF_URL;
 export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
+const pasteEnabled=()=>new URLSearchParams(location.search).get('sharedReader')==='1';
+const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
+const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -103,6 +107,7 @@ export function addEngine(){
 // ---- Premium: adding books (Add, a PDF or EPUB) is Premium or the 30-day trial (Anders, 2026-10-07) ----
 /** The account page with its Premium offer: where a free account's Add and file entries lead. */
 export const PREMIUM_PAGE=`/sign-in?mode=account&returnTo=${encodeURIComponent('/library')}`;
+const premiumForEntry=()=>pasteEnabled()?`/sign-in?mode=account&returnTo=${encodeURIComponent(pasteShelf())}`:PREMIUM_PAGE;
 let access=null;
 /** Whether this account may add books: true, false, or null when it cannot be told (asked once per account). */
 export function canAdd(){
@@ -125,7 +130,7 @@ const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this de
 export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019batch'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019batch'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -172,8 +177,10 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  api().catch(()=>{});
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
+ let pastePending=null,pasteDraft=null;
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
+  title.textContent=OWN_BOOK_COPY.title;
   const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
   choose.onclick=()=>input.click();
@@ -181,6 +188,10 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   const row=actions(choose);
   const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
   if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
+  if(pasteEnabled()){
+   const paste=button('tui-btn tui-btn--secondary own-file-paste','Paste text');
+   paste.onclick=()=>{pasteDraft=null;pasteStep();};row.append(paste);
+  }
   step('choose',...parts,row);
   choose.focus({preventScroll:true});
  };
@@ -209,6 +220,67 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   step('rights',intro,label,actions(no,ok));
   check.focus({preventScroll:true});
  });
+ // Keep this draft only in the dialog. Pasting rich clipboard HTML is opt-in to this private
+ // switch; preview is rebuilt from the editable source, never rendered from raw clipboard HTML.
+ function pasteStep(message=''){
+  delete box.dataset.busy;
+  title.textContent='Paste text';
+  const source=make('textarea','own-paste-source');source.rows=9;source.placeholder='Paste your text here';source.setAttribute('aria-label','Text to add');
+  const titleField=make('input','own-paste-title');titleField.type='text';titleField.placeholder='Pasted text';titleField.maxLength=200;titleField.setAttribute('aria-label','Title');
+  const author=make('input','own-paste-author');author.type='text';author.placeholder='Author (optional)';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
+  const start=make('input','own-paste-trim-start');start.type='number';start.min='0';start.value='0';start.setAttribute('aria-label','Lines to trim from beginning');
+  const end=make('input','own-paste-trim-end');end.type='number';end.min='0';end.value='0';end.setAttribute('aria-label','Lines to trim from end');
+  const alert=make('p','own-paste-error',message);alert.setAttribute('role','alert');
+  const sample=make('div','own-paste-preview');sample.setAttribute('aria-label','Preview of text to add');
+  const richNotice=make('p','tui-dialog__fine own-paste-rich-note','Rich formatting was found. Review the preview before adding; the text box shows the words.');richNotice.hidden=true;
+  let richHtml=null,titleEdited=false;
+  const parsed=()=>richHtml!==null?{source:richHtml,format:'html'}:{source:source.value,format:'auto'};
+  const render=()=>{try{const data=parsed();const html=pastePreview(data.source,data.format,Number(start.value),Number(end.value));const fragment=document.createElement('template');fragment.innerHTML=html;sample.replaceChildren(fragment.content);alert.textContent='';}catch(error){sample.replaceChildren();alert.textContent=source.value?error.message:'';}};
+  source.addEventListener('paste',event=>{const html=event.clipboardData?.getData('text/html'),plain=event.clipboardData?.getData('text/plain');if(html&&!source.value&&plain){event.preventDefault();source.value=plain;richHtml=html;richNotice.hidden=false;details.open=true;if(!titleEdited)titleField.value=suggestedTitle(html,'html');render();}});
+  source.addEventListener('input',()=>{if(richHtml!==null){richHtml=null;richNotice.hidden=true;}if(!titleEdited)titleField.value=suggestedTitle(source.value);render();});
+  titleField.addEventListener('input',()=>{titleEdited=true;});
+  for(const field of [start,end])field.addEventListener('input',render);
+  const save=button('tui-btn tui-btn--primary own-paste-save','Add to my books');
+  save.onclick=async()=>{
+   if(save.disabled)return;
+   save.disabled=true;
+   let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
+   const signature=JSON.stringify(details);
+   try{
+    if(pastePending?.signature!==signature)pastePending={signature,file:pasteEpub(details),account:null};
+    file=pastePending.file;
+    if(file.size>50*1024*1024)throw new Error('This text exceeds the private book size limit. Trim it before adding.');
+   }
+   catch(error){alert.textContent=error.message;save.disabled=false;return;}
+   const draft={source:source.value,richHtml,title:titleField.value,author:author.value,start:start.value,end:end.value};
+   progress(.08);
+   try{
+    const engineApi=await api();
+    if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,draft.title))return;
+    progress(.3);
+    const read=await engineApi.readFile(file);if(read.error)throw new Error(read.error);
+    // Parse with the actual EPUB engine before creating an account object. Otherwise
+    // a malformed generated package would be saved while the dialog said it failed.
+    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
+    // Account persistence is required for Paste. Unlike the existing file flow, an
+    // offline/failed upload stays in the editable dialog and cannot look "saved".
+    const account=pastePending.account||await window.TinctAI.books.upload(file,{kind:'epub',name:file.name,title:details.title.trim(),author:draft.author.trim(),rights:engineApi.store.get('rights:'+engineApi.accountId())});
+    if(!account?.id||account.sha256?.slice(0,24)!==read.key.slice(5))throw new Error('The account could not confirm this book. Try again.');
+    pastePending.account=account;
+    engineApi.cloud.mine().set(read.key,account);
+    progress(.7);
+    if(await engineApi.keepFile(file,read,details.title.trim()))await engineApi.library.touch(read.key,{cloudId:account.id});
+    // Validation and metadata use the same EPUB path as a selected private file.
+    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
+    progress(1);go('/reader?userBook='+encodeURIComponent(read.key.slice(5))+'&sharedReader=1');
+   }catch(error){pasteDraft=draft;pasteStep(error?.message||'This text could not be added. Try again.');}
+  };
+  const field=(label,control)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),control);return wrap;};
+  const details=make('details','own-paste-details');const summary=make('summary','','Review details');details.append(summary,field('Title',titleField),field('Author',author),make('p','tui-dialog__fine','Optional: remove lines from the beginning or end before adding.'),field('Trim beginning (lines)',start),field('Trim end (lines)',end),sample);
+  step('paste',alert,field('Text',source),richNotice,details,actions(save));
+  if(pasteDraft){source.value=pasteDraft.source;richHtml=pasteDraft.richHtml;richNotice.hidden=!richHtml;details.open=!!richHtml;titleField.value=pasteDraft.title;author.value=pasteDraft.author;start.value=pasteDraft.start;end.value=pasteDraft.end;titleEdited=!!pasteDraft.title;render();alert.textContent=message;}
+  source.focus({preventScroll:true});
+ }
  async function addFile(file){
   progress(.08);
   let engineApi;
@@ -238,8 +310,8 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  * device signed out), the Premium offer for a free account, exactly as before.
  */
 export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
- if((await access())===false){go(PREMIUM_PAGE);return null;}
- if(!signedIn()){go(SIGN_IN_FOR_FILE);return null;}
+ if((await access())===false){go(premiumForEntry());return null;}
+ if(!signedIn()){go(signInForEntry());return null;}
  return openFileDialog({from,go,...options});
 }
 function fileEntry(link){
@@ -781,14 +853,14 @@ export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&
  * `actions`: the menu's other items, above Delete (`{label,onChoose(book,more)}`: Currently
  * reading's Read later and Remove from Currently reading).
  */
-export function ownBookCard(book,el,{onRemove=null,onDelete=null,actions=[],cover=null,progress=false}={}){
+export function ownBookCard(book,el,{onRemove=null,onDelete=null,onEdit=null,actions=[],cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
  let face=open;
  if(onDelete){
   face=el('div','card-wrap');
-  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
+  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),...(onEdit&&pasteEnabled()?[{label:'Edit title and author',onChoose:from=>onEdit(book,from)}]:[]),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
   face.append(open,shelfMenu(book.title,{own:true,items}));
  }else if(onRemove){
   face=el('div','card-wrap');
@@ -822,7 +894,7 @@ export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,
  * the + beside My shelf's heading. Returns how many cards were added. `currentlyReading: false`:
  * the library's My shelf, whose Currently reading is the reading table's list (own books in it).
  */
-export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null,currentlyReading=true}={}){
+export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,onEdit=null,covers=null,currentlyReading=true}={}){
  const {reading,own}=ownShelfGroups(list);let added=0;
  const coverFor=book=>covers?.get?.(ownTableId(book.key))||null;
  if(currentlyReading&&reading.length){
@@ -832,7 +904,7 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  }
  if(own.length){
   grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));
-  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,cover:coverFor(book)}));added++;}
+  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,onEdit,cover:coverFor(book)}));added++;}
  }
  return added;
 }
@@ -974,6 +1046,41 @@ export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}
  forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined);
  return gone;
 }
+/** Display details only: the owned file, its SHA and source anchors are untouched. */
+export async function editOwnBookDetails(book,{from=null,engine=loadFileEngine,onSaved=()=>{}}={}){
+ const hex=String(book.key||'').replace(/^(epub|pdf):/,'');
+ if(!/^[0-9a-f]{24}$/.test(hex))return null;
+ const layer=make('div','tui-scrim own-file-layer');layer.dataset.tuiTheme='dark';layer.dataset.testid='own-metadata-dialog';
+ const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-metadata-title');
+ const heading=make('h2','tui-dialog__title','Edit book details');heading.id='own-metadata-title';
+ const status=make('p','tui-dialog__body own-file-message','Loading…');status.setAttribute('role','status');
+ const title=make('input','own-paste-title');title.type='text';title.maxLength=200;title.setAttribute('aria-label','Title');
+ const author=make('input','own-paste-author');author.type='text';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
+ const field=(label,input)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),input);return wrap;};
+ const cancel=button('tui-btn tui-btn--secondary','Cancel'),save=button('tui-btn tui-btn--primary','Save details');save.disabled=true;
+ const actions=make('div','tui-dialog__actions own-file-actions');actions.append(cancel,save);
+ box.append(heading,status,field('Title',title),field('Author',author),actions);layer.append(box);document.body.append(layer);
+ let busy=false,closed=false,current=null;
+ const close=()=>{if(busy||closed)return;closed=true;removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});};
+ const onKey=e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();}};
+ addEventListener('keydown',onKey,true);cancel.onclick=close;layer.onclick=e=>{if(e.target===layer)close();};
+ let api;
+ try{api=await engine();current=await window.TinctAI.books.metadata(hex);if(closed)return null;title.value=current.title;author.value=current.author;status.textContent='';save.disabled=false;title.focus({preventScroll:true});}
+ catch{if(!closed)status.textContent='Could not load these details. Close and try again.';return layer;}
+ save.onclick=async()=>{
+  if(!title.value.trim()){status.textContent='Give this book a title.';title.focus();return;}
+  busy=true;save.disabled=true;status.textContent='Saving…';
+  try{
+   const next=await window.TinctAI.books.editMetadata(hex,{title:title.value.trim(),author:author.value.trim(),rev:current.rev,fileId:current.fileId});
+   // The account PATCH has already committed. A blocked local IndexedDB write
+   // cannot turn that success into a retry with a stale revision.
+   try{await api.library.touch(book.key,{title:next.title,author:next.author,metadataRev:next.rev});}catch{/* account metadata remains authoritative */}
+   const remote=api.cloud.get(book.key);if(remote)Object.assign(remote,{title:next.title,author:next.author});
+   busy=false;close();onSaved({...book,title:next.title,author:next.author});
+  }catch(error){busy=false;save.disabled=false;status.textContent=error?.status===409?'This book changed on another device. Close and reopen to edit its latest details.':error?.status===404?'This book was removed from your account.':'Could not save these details. Try again.';}
+ };
+ return layer;
+}
 /** This page's fast-paint snapshots: rebuilt on the next load, so one that names a deleted book is dropped whole. */
 const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
 /**
@@ -984,12 +1091,23 @@ const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-
  */
 export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage]){
  if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
- const id='userbook-'+hex;let gone=0;
+ const id='userbook-'+hex;let gone=0,owner=globalThis.TinctAI?.session()?.userId||null;
  for(const store of storages){
   if(!store)continue;
   try{
+   if(owner&&store.getItem(`tinct-addbook:text-marks-owner:${hex}`)===owner){
+    const backup=store.getItem(`tinct-addbook:text-marks-local:${owner}:${hex}`);
+    try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
+   }
    const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
    for(const key of keys){
+    const scoped=/^tinct-addbook:text-marks-(?:local|sync|adopted):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
+    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
+    if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    if(key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
+    if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
     const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
     const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
     if(mine||names){store.removeItem(key);gone++;}
