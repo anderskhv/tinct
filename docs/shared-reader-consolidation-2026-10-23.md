@@ -44,6 +44,14 @@ The backlog's proposed monospace exception for preformatted text is not an appro
 
 ## Verified baseline
 
+Execution update, 23 October: a remote runtime has now cloned this branch,
+installed dependencies, passed 6,861 tests, built and verified a clean bundle,
+and run Chromium/WebKit checks. See the
+[cloud baseline record](shared-reader-cloud-baseline-2026-10-23.md) for exact
+commands, limits, and reproduced auxiliary failures. This is execution evidence,
+not approval to merge or deploy. The named Work Cloud launcher's account access
+and persistence after the conversation stops remain unverified.
+
 Source inspection pinned to main d8b667e659009b590bb5e5c9218081c935f74927 (22 October). No app changes or fresh runtime tests have been performed for this audit.
 
 - Main still opts eligible catalogue books into Margin through a browser-local preference set by margin=1. The default-launch PR #571 is open and unmerged.
@@ -161,10 +169,10 @@ The new private switch must not reuse today's margin=1 opt-in: readers already u
 - #587 (profile/Premium/billing/migrations), #569 (book release), Danish and unrelated content releases stay outside this coordinated reader update.
 - Keep one serialized production release owner. Anders confirmed on 23 October that Claude is stopped. Check the relevant scheduled workflows before the final cutover; do not resume unrelated queues.
 - Local Codex reader/content release heartbeats inspected on 23 October were paused. That does not establish the state of Claude's cloud triggers.
-- Current repository instruction requires cloud development. GitHub read/write access is available, but an executable cloud workspace is not connected to this chat; the documented local fallback path is absent. Anders selected cloud development and will help connect it; no local fallback is authorized. Resolve the workspace before implementation/tests. Preserve historical checkouts and unrelated work.
+- The handoff lacked an executable cloud workspace. The current session has since verified remote execution and delegated agents, as recorded above. Direct shell push credentials are absent; use connected GitHub tools to preserve reviewed changes. Do not claim the named Work Cloud launcher or unattended task persistence is available. No Mac fallback is authorized. Preserve historical checkouts and unrelated work.
 
 ## Planning status
 
-Initial source/CI inspection and this plan are complete. Implementation, runtime reproduction, visual previews and new acceptance remain to be done.
+Initial source/CI inspection and the runnable cloud baseline are complete. The cross-chapter check's obsolete locator has been reproduced and corrected, with all four Chromium/WebKit cases passing. Theme/paste previews and an isolated structural renderer prototype are in progress on a bounded child branch. Full implementation, migrations, performance and release acceptance remain open.
 
 The earlier 3–5-day estimate preceded the all-book and paste-text scope and is not a commitment. Re-estimate after the runnable baseline, structural prototype and private-file storage contracts are established. Use milestone evidence, not the stale one-night or 3–4-week figures in previous handoffs.

@@ -50,6 +50,7 @@ import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
+import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { leaveForLibrary } from './labLeaveForLibrary'
 import { LAB_COPY } from './labCopy'
 import {
@@ -450,6 +451,8 @@ export interface LabAppProps {
    * selection bar, bottom cards in place of every pop-up, and the chapter pills.
    */
   marginPhone?: boolean
+  /** URL-only shared-reader entry; the initial slice retains this reader's layout and single position owner. */
+  sharedReader?: boolean
 }
 
 function readOnline(override?: boolean): boolean {
@@ -502,7 +505,7 @@ function userBookPrefs(prefs: LabPrefs, editionKey: string): LabPrefs {
   return { ...prefs, primaryEdition: editionKey, compareEdition: editionKey, audioEdition: editionKey, audioFollowsPrimary: true, compareOpen: false }
 }
 
-export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const voiceVersion = 'v2'
@@ -1787,7 +1790,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       notePlace('hide')
       rememberLibraryPlace()
       setBookSwitcherOpen(false)
-      window.location.assign(row.href)
+      window.location.assign(sharedReader ? sharedReaderDestination(row.href) : row.href)
       return
     }
     const intent = continueHandoff(row.target)
@@ -1804,8 +1807,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       return
     }
     setBookSwitcherOpen(false)
-    window.location.assign(`/reader${readerPreviewSearch(window.location.search)}`)
-  }, [notePlace, rememberLibraryPlace])
+    const destination = `/reader${readerPreviewSearch(window.location.search)}`
+    window.location.assign(sharedReader ? sharedReaderDestination(destination) : destination)
+  }, [notePlace, rememberLibraryPlace, sharedReader])
 
   useEffect(() => {
     const root = labRootRef.current
@@ -5614,6 +5618,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       lang={userBook ? userBookLangAttribute(userBook.edition) : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
+      data-shared-reader={sharedReader ? 'true' : undefined}
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
       data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
