@@ -9,6 +9,15 @@ workflow passed at 21:20:38 UTC. Its actual Worker version
 recorded in the reader floor manifest. The earlier candidate inspection and
 workflow contract below remain the compatibility evidence and constraints.
 
+The first reader attempt, run `40028070875` at main
+`fafc518d8d6284c2e9406aba68c478ff0ad37980`, deployed
+`d7ca8cf9-0d69-46a8-8bc0-8c88dd0a00f9` (`index-BkDbfbHd.js`) but failed
+two stale desktop Notebook expectations and a featured-preview keyboard
+timeout. Four other live groups passed. Automatic rollback job `120676461588`
+restored `f9521101-aa25-4d2c-ab44-b0d1c9e149bf` successfully; a fresh internal
+GET confirms floor bundle `index-CQIECQfJ.js`. Keep that exact floor pin for
+the corrected reader attempt. No paid voice check ran.
+
 The old Worker alone is not a safe rollback target after new private reader
 records have been written. It does not understand revision-bearing annotation
 envelopes, file-generation keys, EPUB text/page variants or the distinct PDF
