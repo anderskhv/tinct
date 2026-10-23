@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest'
 import { createRequire } from 'node:module'
-import { pdfCatchUpPages, pdfOriginalUnits, pdfPrimerPages, pdfUnitAt, pdfUnitKey, type PdfOriginalUnitRules } from './pdfOriginalUnits'
+import { pdfCatchUpPages, pdfCompleteUnitPages, pdfOriginalUnits, pdfPrimerPages, pdfUnitAt, pdfUnitKey, type PdfOriginalUnitRules } from './pdfOriginalUnits'
 
 const require = createRequire(import.meta.url)
 require('../../../../public/lab/addbook/js/margin.js')
@@ -15,6 +15,8 @@ it('uses real PDF outline headings to size units, preserving source page ranges'
   expect(pdfPrimerPages(units[1])).toEqual(Array.from({ length: 20 }, (_, i) => i + 11))
   expect(pdfCatchUpPages(margin, units[1], 14)).toEqual(Array.from({ length: 10 }, (_, i) => i + 1))
   expect(pdfCatchUpPages(margin, units[0], 5)).toEqual([1, 2, 3, 4])
+  expect(pdfCompleteUnitPages(units[1])).toEqual(Array.from({ length: 20 }, (_, i) => i + 11))
+  expect(pdfCompleteUnitPages(units[2])).toEqual([]) // 30-page unit cannot be recapped as a whole under a 20-page source bound.
 })
 
 it('uses verified stored scan headings when outline is absent and page bands otherwise', () => {

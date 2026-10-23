@@ -1,7 +1,10 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { forgetOwnedReaderLocalState, forgetRemovedOwnBooks, hideOwnFromReadingTable, ownReading, ownReadingNow, ownSavedAt, ownShelfSavedAt, pdfReading, readOwnShelf, OWN_SHELF_UNSAVED_PREFIX, OWN_TABLE_HIDDEN_PREFIX, type OwnShelfBook } from './ownShelf'
-import { ownBookHref } from './userBookId'
+import { ownBookHref, userBookId } from './userBookId'
+import { unclaimedLegacyEpubCount } from './legacyEpubMarks'
+import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
+import { unassignedOwnTextMarkCount } from './ownTextMarksSync'
 import { ownQuickBookRows, withOwnBookRows, type QuickBookRow } from '../../preReader/quickBookSwitcher'
 import { ownTableBook, withOwnReading, type ReadingTableBook } from '../../libraryTwoReading'
 
@@ -16,6 +19,96 @@ const store = (values: Record<string, unknown>) => (key: string) => values[key] 
 
 describe('owner-qualified reader data on remote deletion', () => {
   afterEach(() => localStorage.clear())
+  it('removes only exact A-owned legacy projections, retaining catalogue highlights', () => {
+    const owner = 'owner-a', bookId = userBookId(HEX), fileId = 'f'.repeat(32)
+    const mark = { id: 'old-mark', bookId, editionKey: 'own-en', chapterNumber: 1, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 2, color: 'gold', text: 'Old text', updatedAt: 100 }
+    const catalogue = { ...mark, id: 'catalogue-mark', bookId: 'frankenstein' }
+    localStorage.setItem('tinct-lab-highlights', JSON.stringify([catalogue, mark]))
+    localStorage.setItem(`tinct-addbook:text-marks-owner:${HEX}`, owner)
+    localStorage.setItem(`tinct-addbook:text-marks-local:${owner}:${HEX}`, JSON.stringify([mark]))
+    const oldMark = { id: 'static-mark', page: 1, start: 0, end: 8, text: 'Old text', color: 'gold', at: 100 }
+    const oldCard = { id: 'static-card', page: 1, text: 'Old text', kind: 'explain', turns: [{ role: 'assistant', content: 'Answer' }], at: 100 }
+    localStorage.setItem(`tinct-addbook:hl:epub:${HEX}`, JSON.stringify([oldMark]))
+    localStorage.setItem(`tinct-addbook:cards:epub:${HEX}`, JSON.stringify([oldCard]))
+    localStorage.setItem(`tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`, JSON.stringify({ marks: [oldMark], cards: [oldCard] }))
+    localStorage.setItem(`tinct-addbook:legacy-epub-owner:${HEX}`, owner)
+    const oldTalk = { id: 'old-talk', bookId, chapterNumber: 1, startTimestamp: 100, endTimestamp: 100, preview: 'Old', messages: [{ id: 'old-turn', bookId, role: 'user', content: 'Old', timestamp: 100 }] }
+    localStorage.setItem(`tinct:chat-history:${bookId}`, JSON.stringify([oldTalk]))
+    localStorage.setItem(`tinct-addbook:text-cards-owner:${HEX}`, owner)
+    localStorage.setItem(`tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`, JSON.stringify({ conversations: [oldTalk], items: [], rev: 0, dirty: false }))
+    forgetOwnedReaderLocalState(owner, HEX)
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights')!)).toEqual([catalogue])
+    for (const key of [`tinct-addbook:hl:epub:${HEX}`, `tinct-addbook:cards:epub:${HEX}`, `tinct:chat-history:${bookId}`,
+      `tinct-addbook:legacy-epub-owner:${HEX}`, `tinct-addbook:text-marks-owner:${HEX}`, `tinct-addbook:text-cards-owner:${HEX}`]) expect(localStorage.getItem(key)).toBeNull()
+  })
+
+  it('keeps ambiguous raw copies owner-labelled, never offering A records for B to attach', () => {
+    const owner = 'owner-a', other = 'owner-b', bookId = userBookId(HEX), fileId = 'b'.repeat(32)
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: other } }))
+    const oldMark = { id: 'static-a', page: 1, text: 'A', at: 1 }
+    const unmatched = { id: 'later-write', page: 1, text: 'Later', at: 2 }
+    localStorage.setItem(`tinct-addbook:hl:epub:${HEX}`, JSON.stringify([oldMark, unmatched]))
+    localStorage.setItem(`tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`, JSON.stringify({ marks: [oldMark], cards: [] }))
+    localStorage.setItem(`tinct-addbook:legacy-epub-owner:${HEX}`, owner)
+    const oldTalk = { id: 'old-a', bookId, chapterNumber: 1, startTimestamp: 1, endTimestamp: 1, preview: 'A', messages: [{ id: 'turn-a', bookId, role: 'user', content: 'A', timestamp: 1 }] }
+    localStorage.setItem(`tinct:chat-history:${bookId}`, JSON.stringify([oldTalk]))
+    localStorage.setItem(`tinct-addbook:text-cards-owner:${HEX}`, owner)
+    localStorage.setItem(`tinct-addbook:text-marks-owner:${HEX}`, owner)
+    localStorage.setItem('tinct-lab-highlights', JSON.stringify([{ id: 'react-a', bookId }]))
+    localStorage.setItem(`tinct-addbook:text-marks-local:${owner}:${HEX}`, JSON.stringify([{ id: 'old-react-a', bookId }]))
+    localStorage.setItem(`tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`, JSON.stringify({ conversations: [], items: [], rev: 0, dirty: false }))
+    forgetOwnedReaderLocalState(owner, HEX)
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${HEX}`)).toBe(owner)
+    expect(localStorage.getItem(`tinct-addbook:text-cards-owner:${HEX}`)).toBe(owner)
+    expect(localStorage.getItem(`tinct-addbook:text-marks-owner:${HEX}`)).toBe(owner)
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`)).not.toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:text-marks-local:${owner}:${HEX}`)).not.toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`)).not.toBeNull()
+    expect(unclaimedLegacyEpubCount(HEX, other)).toBe(0)
+    const b = new OwnTextCardsSync(HEX, other, null, async () => null, undefined, fileId)
+    expect(unassignedOwnTextCardCount(HEX, other, fileId)).toBe(0)
+    expect(unassignedOwnTextMarkCount(HEX, other)).toBe(0)
+    b.dispose()
+  })
+  it('retains owner provenance and raw bytes when old projection JSON is malformed', () => {
+    const owner = 'owner-a', fileId = 'a'.repeat(32)
+    for (const [raw, marker, backup] of [
+      [`tinct-addbook:hl:epub:${HEX}`, `tinct-addbook:legacy-epub-owner:${HEX}`, `tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`],
+      ['tinct-lab-highlights', `tinct-addbook:text-marks-owner:${HEX}`, `tinct-addbook:text-marks-local:${owner}:${HEX}`],
+      [`tinct:chat-history:${userBookId(HEX)}`, `tinct-addbook:text-cards-owner:${HEX}`, `tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`],
+    ]) {
+      localStorage.setItem(raw, '{malformed')
+      localStorage.setItem(marker, owner)
+      localStorage.setItem(backup, 'owner proof')
+    }
+    forgetOwnedReaderLocalState(owner, HEX)
+    for (const [raw, marker, backup] of [
+      [`tinct-addbook:hl:epub:${HEX}`, `tinct-addbook:legacy-epub-owner:${HEX}`, `tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`],
+      ['tinct-lab-highlights', `tinct-addbook:text-marks-owner:${HEX}`, `tinct-addbook:text-marks-local:${owner}:${HEX}`],
+      [`tinct:chat-history:${userBookId(HEX)}`, `tinct-addbook:text-cards-owner:${HEX}`, `tinct-addbook:text-cards-canonical:${owner}:${HEX}:${fileId}`],
+    ]) {
+      expect(localStorage.getItem(raw)).toBe('{malformed')
+      expect(localStorage.getItem(marker)).toBe(owner)
+      expect(localStorage.getItem(backup)).toBe('owner proof')
+    }
+  })
+  it('retains the claim and backup if removing a proven old copy fails', () => {
+    const owner = 'owner-a', raw = `tinct-addbook:hl:epub:${HEX}`
+    localStorage.setItem(raw, '[]')
+    localStorage.setItem(`tinct-addbook:legacy-epub-owner:${HEX}`, owner)
+    localStorage.setItem(`tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`, JSON.stringify({ marks: [], cards: [] }))
+    const remove = Storage.prototype.removeItem
+    const fail = vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(function (this: Storage, key: string) {
+      if (key === raw) throw new DOMException('blocked', 'QuotaExceededError')
+      return remove.call(this, key)
+    })
+    try {
+      forgetOwnedReaderLocalState(owner, HEX)
+      expect(localStorage.getItem(raw)).toBe('[]')
+      expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${HEX}`)).toBe(owner)
+      expect(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:${owner}:${HEX}`)).not.toBeNull()
+    } finally { fail.mockRestore() }
+  })
   it('removes only the deleted owner’s same-hash generation', () => {
     const prefixes = ['text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
       'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:', 'legacy-epub-annotations:', 'legacy-epub-migrated:']

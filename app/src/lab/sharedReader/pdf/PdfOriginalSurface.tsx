@@ -35,6 +35,8 @@ export interface PdfOriginalSurfaceProps {
   onDocument?: (pages: number) => void
   onOutline?: (entries: PdfOriginalOutlineEntry[]) => void
   onPageText?: (page: number, text: string) => void
+  /** Whether the reader has reached the visible end of this rendered page. */
+  onPageEnd?: (page: number, atEnd: boolean) => void
   onSelection?: (selection: PdfOriginalSelection) => void
   highlights?: PdfOriginalHighlight[]
   /** The heard word only when the own narration paragraph equals this rendered page extraction. */
@@ -185,7 +187,7 @@ function drawTextLayer(layer: HTMLElement, content: { items: TextItem[] }, viewp
   }
 }
 
-export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onSelection, highlights = [], follow = null, openDocument = openExistingPdf }: PdfOriginalSurfaceProps) {
+export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd, onSelection, highlights = [], follow = null, openDocument = openExistingPdf }: PdfOriginalSurfaceProps) {
   const [documentPdf, setDocumentPdf] = useState<PdfOriginalDocument | null>(null)
   const [page, setPage] = useState(() => Math.max(1, Math.floor(initialPlace?.page || 1)))
   const [width, setWidth] = useState(720)
@@ -200,6 +202,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
   const placeCallback = useRef(onVisiblePlace)
   const selectionCallback = useRef(onSelection)
   const pageTextCallback = useRef(onPageText)
+  const pageEndCallback = useRef(onPageEnd)
   const bytesCallback = useRef(bytes)
   const documentCallback = useRef(onDocument)
   const outlineCallback = useRef(onOutline)
@@ -207,6 +210,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
   placeCallback.current = onVisiblePlace
   selectionCallback.current = onSelection
   pageTextCallback.current = onPageText
+  pageEndCallback.current = onPageEnd
   bytesCallback.current = bytes
   documentCallback.current = onDocument
   outlineCallback.current = onOutline
@@ -215,7 +219,11 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
   const opened = useRef(false)
   const requested = useRef<PdfOriginalPlace | null>(null)
   const lastRequest = useRef<PdfOriginalPlace | null>(null)
+  const emitPageEnd = (currentPage: number, target: HTMLElement) => {
+    pageEndCallback.current?.(currentPage, target.scrollTop + target.clientHeight >= target.scrollHeight - 2)
+  }
   const invalidatePage = () => {
+    pageEndCallback.current?.(page, false)
     renderedPage.current = null
     textItems.current = []
     setFollowRect(null)
@@ -266,6 +274,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
     if (target && rendered && canvasHeight > 0) {
       target.scrollTop = next.frac * canvasHeight
       placeCallback.current({ page, frac: pdfPageFraction(target.scrollTop, canvasHeight) })
+      emitPageEnd(page, target)
       requested.current = null
     }
   }, [requestedPlace, documentPdf, page, rendered])
@@ -276,6 +285,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
     let task: ReturnType<PdfOriginalPage['render']> | null = null
     let textTask: ReturnType<NonNullable<PdfOriginalDocument['renderTextLayer']>> | null = null
     renderedPage.current = null
+    pageEndCallback.current?.(page, false)
     setRendered(false)
     const surface = canvas.current, text = layer.current
     void documentPdf.getPage(page).then(async pdfPage => {
@@ -313,6 +323,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
         requested.current = null
         opened.current = true
         placeCallback.current({ page, frac: pdfPageFraction(target.scrollTop, viewport.height) })
+        emitPageEnd(page, target)
       }
       renderedPage.current = page
       setRendered(true)
@@ -353,6 +364,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
     <div className="pdf-original__scroll" ref={scroller} onScroll={event => {
       if (!rendered || renderedPage.current !== page || !canvas.current) return
       placeCallback.current({ page, frac: pdfPageFraction(event.currentTarget.scrollTop, canvasPageHeight(canvas.current)) })
+      emitPageEnd(page, event.currentTarget)
     }} onKeyDown={event => {
       if (event.key === 'PageDown' && scroller.current && scroller.current.scrollTop + scroller.current.clientHeight >= scroller.current.scrollHeight - 2) { event.preventDefault(); go(page + 1) }
       if (event.key === 'PageUp' && scroller.current?.scrollTop === 0) { event.preventDefault(); go(page - 1) }

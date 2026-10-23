@@ -18,6 +18,7 @@ const dist = path.resolve(process.env.SHARED_SPEED_DIST || 'dist'), runs = Math.
 const cases = (process.env.SHARED_SPEED_CASES || 'frankenstein,war-and-peace,bible').split(',').filter(Boolean)
 const profiles = (process.env.SHARED_SPEED_PROFILES || 'desktop,slow').split(',').filter(Boolean)
 const out = process.env.SHARED_SPEED_OUT || ''
+const remoteFirst = process.env.SHARED_SPEED_REMOTE === '1'
 const targets = { desktopFirstText: 1500, slowFirstText: 3000, selection: 100, card: 150 }
 const caseInfo = { frankenstein: { edition: 'original-en', chapter: 3 }, 'war-and-peace': { edition: 'original-en', chapter: 2 }, bible: { edition: 'kjv-en', chapter: 1 }, macbeth: { edition: 'original-en', chapter: 2 } }
 const prose = Array.from({length: 60}, (_, i) => `<p>Paragraph ${i + 1}. The reader kept a careful record of every chapter, the day it was read, and each note it inspired. At dawn the library opened again, and the same familiar pages waited in their proper order.</p>`).join('')
@@ -30,7 +31,7 @@ const ownEpubBytes = zip([
 const ownPdfBytes = await fs.readFile('../addbooks/web/test/pdf-fixtures/prose_book.pdf')
 const ownFixtures = Object.fromEntries([['own-epub', 'epub', ownEpubBytes], ['own-pdf', 'pdf', ownPdfBytes]].map(([caseId, type, bytes]) => {
   const sha256 = createHash('sha256').update(bytes).digest('hex'), id = sha256.slice(0, 24)
-  return [caseId, { id, type, bytes, sha256, fileId: 'a'.repeat(32), name: `Local ${type.toUpperCase()} fixture.${type}`, title: `Private ${type.toUpperCase()} fixture`, author: 'A Local Author', size: bytes.length, createdAt: '2026-10-23T00:00:00.000Z', metadataRev: 0 }]
+  return [caseId, { id, type, bytes, sha256, fileId: (type === 'pdf' ? 'd' : 'a').repeat(32), name: `Local ${type.toUpperCase()} fixture.${type}`, title: `Private ${type.toUpperCase()} fixture`, author: 'A Local Author', size: bytes.length, createdAt: '2026-10-23T00:00:00.000Z', metadataRev: 0 }]
 }))
 for (const [caseId, fixture] of Object.entries(ownFixtures)) caseInfo[caseId] = { own: fixture }
 const ownBooks = Object.values(ownFixtures).map(({bytes,fileId,...book}) => ({...book,id:fileId}))
@@ -41,22 +42,26 @@ const mime = file => ({ '.html': 'text/html', '.js': 'text/javascript', '.css': 
 const fileCache = new Map()
 let origin
 const denied = []
+const fileDownloads = new Map()
+const ownApiCalls = []
 const server = createServer(async (req, res) => {
   const target = new URL(req.url || '/', origin || 'http://127.0.0.1')
   if (target.origin !== origin) { denied.push(target.href); res.writeHead(403); res.end(); return }
   const p = target.pathname
   if (p === '/qa-seed') { res.setHeader('Content-Type', 'text/html'); res.setHeader('Cache-Control', 'no-store'); res.end('<!doctype html><title>Reader speed cache warmup</title>'); return }
   if (p.startsWith('/api/')) {
+    if (remoteFirst && /\/api\/user-books/.test(p)) ownApiCalls.push({path:p,method:req.method,auth:req.headers.authorization?.startsWith('Bearer '),range:req.headers.range})
     res.setHeader('Cache-Control', 'no-store')
     res.setHeader('Content-Type', 'application/json')
     if (p === '/api/public-books') res.end('{"books":[]}')
     else if (p === '/api/user-books') res.end(JSON.stringify({books:ownBooks}))
     else if (p === '/api/user-books/places') res.end('{"places":{}}')
-    else if (/^\/api\/user-books\/(?:text-)?(?:marks|cards)\/[0-9a-f]{24}$/.test(p)) res.end('{"marks":[],"cards":[],"rev":0,"fileId":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}')
+    else if (/^\/api\/user-books\/(?:text-)?(?:marks|cards)\/[0-9a-f]{24}$/.test(p)) res.end(JSON.stringify({marks:[],cards:[],rev:0,fileId:Object.values(ownFixtures).find(book=>p.endsWith(book.id))?.fileId||'a'.repeat(32)}))
     else if (/^\/api\/user-books\/(?:places|covers)\/[0-9a-f]{24}$/.test(p)) res.end('{"place":null,"cover":null}')
     else if (/^\/api\/user-books\/primers\/[0-9a-f]{24}$/.test(p)) res.end('{"primer":null}')
     else if (Object.values(ownFixtures).some(book => p === `/api/user-books/${book.fileId}` || p === `/api/user-books/${book.id}`)) {
       const book = Object.values(ownFixtures).find(item => p === `/api/user-books/${item.fileId}` || p === `/api/user-books/${item.id}`)
+      fileDownloads.set(book.id, (fileDownloads.get(book.id) || 0) + 1)
       res.setHeader('Content-Type', book.type === 'pdf' ? 'application/pdf' : 'application/epub+zip')
       res.end(book.bytes)
     }
@@ -127,7 +132,7 @@ function clock({ bookId, edition, chapter, ownPdf, ownEpub }) {
   for (const type of ['pointerup', 'mouseup']) addEventListener(type, () => { if (score.selectUp == null) score.selectUp = performance.now() }, true)
   addEventListener('click', event => { if (event.target.closest('[data-testid="lab-dbar-ask"], [role="menuitem"], .selection-popup button, .pdf-original-reader__phone-actions button')) score.cardTap = performance.now() }, true)
   const frame = () => {
-    afterPaint('firstText', () => { const passage = document.querySelector('.lab-page-wrap'), pdfText = passage?.querySelector('.pdf-original__text'); return visible(passage) && (ownPdf ? visible(pdfText?.querySelector('span')) && pdfText.textContent.trim().length > 40 : passage.textContent.trim().length > 40) })
+    afterPaint('firstText', () => { const passage = document.querySelector('.lab-page-wrap'), pdfText = passage?.querySelector('.pdf-original__text'), pdfCanvas = passage?.querySelector('.pdf-original__page canvas'); return visible(passage) && (ownPdf ? visible(pdfCanvas) && pdfCanvas.width > 1 && pdfCanvas.height > 1 && visible(pdfText?.querySelector('span')) && pdfText.textContent.trim().length > 40 : passage.textContent.trim().length > 40) })
     if (score.selectUp != null) afterPaint('selectionBar', () => visible(document.querySelector('[data-testid="lab-desk-bar"]')) || visible(document.querySelector('.selection-popup.is-shared-reader')) || visible(document.querySelector('.pdf-original-reader__phone-actions')))
     if (score.cardTap != null) afterPaint('cardShell', () => visible(document.querySelector('.lab-pcard, .selection-popup.is-contextual-explain')))
     requestAnimationFrame(frame)
@@ -172,7 +177,7 @@ async function sample(bookId, profile, index) {
   try {
     if (info.own) {
       await page.goto(`${origin}/qa-seed`, {waitUntil:'domcontentloaded'})
-      await page.evaluate(({book,bytes}) => new Promise((resolve,reject) => {
+      if (!remoteFirst) await page.evaluate(({book,bytes}) => new Promise((resolve,reject) => {
         const open = indexedDB.open('tinct-addbook',1)
         open.onupgradeneeded = () => { if (!open.result.objectStoreNames.contains('books')) open.result.createObjectStore('books',{keyPath:'key'}) }
         open.onerror = () => reject(open.error)
@@ -186,13 +191,16 @@ async function sample(bookId, profile, index) {
     // Same context, same book and device: cache fonts, JavaScript and chapter
     // payload first. The timed navigation below still fetches its HTML fresh.
     const readerUrl = `${origin}/reader?sharedReader=1${info.own ? `&userBook=${info.own.id}` : ''}${info.own?.type === 'pdf' ? '&pages=1&page=2' : ''}${profile === 'slow' ? '&layout=phone' : ''}${process.env.SHARED_SPEED_TRACE === '1' && info.own?.type === 'epub' ? '&traceOwnDrag=1' : ''}`
+    const downloadsBefore = info.own ? fileDownloads.get(info.own.id) || 0 : 0
     const ready = () => window.__readerSpeed?.firstText != null && (document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true' || document.querySelector('.pdf-original__text')?.textContent?.trim().length > 40)
     await page.goto(readerUrl, { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(ready, null, { timeout: 45000 }).catch(async error => {
       const state=await page.evaluate(() => ({clock:window.__readerSpeed,body:document.body?.innerText.slice(0,500),pdf:!!document.querySelector('.pdf-original'),pdfText:document.querySelector('.pdf-original__text')?.textContent?.slice(0,120),page:document.querySelector('.pdf-original__page')?.getAttribute('data-page'),root:document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady,alert:document.querySelector('[role="alert"]')?.textContent}))
-      throw new Error(`cold reader opening failed ${JSON.stringify({bookId,profile,state,errors,denied})}`,{cause:error})
+      throw new Error(`cold reader opening failed ${JSON.stringify({bookId,profile,state,errors,denied,ownApiCalls:ownApiCalls.slice(-30)})}`,{cause:error})
     })
     const coldFirstText = await page.evaluate(() => window.__readerSpeed.firstText)
+    const coldFileDownloads = info.own ? (fileDownloads.get(info.own.id) || 0) - downloadsBefore : 0
+    const downloadsBeforeWarm = info.own ? fileDownloads.get(info.own.id) || 0 : 0
     await page.goto(`${origin}/qa-seed`, { waitUntil: 'domcontentloaded' })
     await page.goto(readerUrl, { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(ready, null, { timeout: 45000 }).catch(async error => {
@@ -235,7 +243,7 @@ async function sample(bookId, profile, index) {
     })
     const marks = await page.evaluate(() => ({ ...window.__readerSpeed, edition: document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition, format:document.querySelector('.pdf-original') ? 'original-pdf' : 'react-text' }))
     assert.deepEqual(errors, [], 'no uncaught reader errors')
-    return { bookId, profile, index, coldFirstText: Math.round(coldFirstText), firstText: Math.round(firstText), selection: Math.round(marks.selectionBar - marks.selectUp), card: Math.round(marks.cardShell - marks.cardTap), edition: marks.edition, format:marks.format }
+    return { bookId, profile, index, coldFirstText: Math.round(coldFirstText), coldFileDownloads, warmFileDownloads: info.own ? (fileDownloads.get(info.own.id) || 0) - downloadsBeforeWarm : 0, firstText: Math.round(firstText), selection: Math.round(marks.selectionBar - marks.selectUp), card: Math.round(marks.cardShell - marks.cardTap), edition: marks.edition, format:marks.format }
   } finally { await context.close() }
 }
 try {
@@ -254,7 +262,7 @@ try {
     if (card > targets.card) failures.push(`${bookId} ${profile} card ${card}`)
   }
   assert.deepEqual(denied, [], 'proxy never saw an external host')
-  if (out) { await fs.mkdir(path.dirname(out), { recursive: true }); await fs.writeFile(out, JSON.stringify({ bundle: dist, origin: 'loopback', paint: 'next rAF after visible DOM', cache: 'HTML no-store; hashed assets immutable; tagged scripts one day; other files revalidate via ETag; text gzip >1 KiB; cold first navigation, warmed static cache second navigation in same fresh context', profiles: { desktop: '1440x900', slow: '390x844, Chromium 4x CPU, 60ms RTT, 9Mbps down' }, targets, results, failures }, null, 2)) }
+  if (out) { await fs.mkdir(path.dirname(out), { recursive: true }); await fs.writeFile(out, JSON.stringify({ bundle: dist, origin: 'loopback', paint: 'next rAF after visible DOM', cache: 'HTML no-store; hashed assets immutable; tagged scripts one day; other files revalidate via ETag; text gzip >1 KiB; cold first navigation, warmed static cache second navigation in same fresh context', ownSource: remoteFirst ? 'empty IDB then mocked private account download' : 'byte-identical owner-bound IndexedDB record seeded before cold navigation', fixtures: Object.fromEntries(Object.entries(ownFixtures).map(([id,fixture]) => [id,{ sizeBytes:fixture.bytes.length, sha256:fixture.sha256, description:id==='own-epub'?'one synthetic chapter, 60 paragraphs': 'local prose_book.pdf original page and text layer' }])), profiles: { desktop: '1440x900', slow: '390x844, Chromium 4x CPU, 60ms RTT, 9Mbps down' }, targets, results, failures }, null, 2)) }
   console.log(failures.length ? `MISSED ${failures.join('; ')}` : 'All shared reader speed targets met')
   if (failures.length) process.exitCode = 1
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)) }

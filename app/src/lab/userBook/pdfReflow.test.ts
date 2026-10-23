@@ -214,7 +214,8 @@ describe('Registered books are untouched', () => {
       .map(path => path.slice(SRC.length).replace(/^\//, '')).sort()
     expect(source(/js\/pdf-text\.js\?v=|\bconvertPdf\(|import\('\.\/pdfEdition'\)/)).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
     expect(source(/\bloadPdfEngine\(/)).toEqual([
-      'lab/sharedReader/pdf/PdfOriginalSurface.tsx', 'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
+      'lab/sharedReader/pdf/PdfOriginalReaderShell.tsx', 'lab/sharedReader/pdf/PdfOriginalSurface.tsx',
+      'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
     ])
   })
 })

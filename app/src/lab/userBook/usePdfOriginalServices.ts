@@ -1,5 +1,5 @@
 /** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
-import { createElement, useEffect, useState } from 'react'
+import { createElement, useEffect, useRef, useState } from 'react'
 import type { HighlightColor } from '../../types'
 import type { OwnCard, OwnMark, OwnMarkGone } from '../../worker/routes/userBooks'
 import type { PdfOriginalReaderServices } from '../sharedReader/pdf/PdfOriginalReaderShell'
@@ -39,7 +39,7 @@ const unitFields = (data: unknown, page: number): boolean => {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return false
   const d = data as Record<string, unknown>
   if (d.action === 'recap' && Object.keys(d).length === 1) return true // older page recap
-  if (!['primer', 'catchup', 'recap'].includes(String(d.action))
+  if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(d.action))
     || Object.keys(d).some(field => !['action', 'unit', 'source'].includes(field))
     || !d.unit || typeof d.unit !== 'object' || Array.isArray(d.unit)
     || !d.source || typeof d.source !== 'object' || Array.isArray(d.source)) return false
@@ -70,7 +70,8 @@ const validItem = (name: SetName, item: unknown): item is Item => {
   if (!Number.isSafeInteger(row.page) || (row.page as number) < 1 || !Number.isSafeInteger(row.at) || (row.at as number) < 1
     || row.u !== undefined && (!Number.isSafeInteger(row.u) || (row.u as number) < 1)
     || !atMost(row.text, 2000) || !Array.isArray(row.rects) || row.rects.length > 400
-    || (!row.rects.length && !(name === 'cards' && row.pageOnly === true && row.kind === 'ask'
+    || (!row.rects.length && !(name === 'cards' && row.pageOnly === true
+      && row.kind === ((row.data as { action?: string } | undefined)?.action === 'quiz' ? 'quiz' : 'ask')
       && unitFields(row.data, row.page as number)))) return false
   if (!row.rects.every((rect: unknown) => Array.isArray(rect) && rect.length === (name === 'marks' ? 4 : 5)
     && rect.slice(name === 'marks' ? 0 : 1).every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)
@@ -85,7 +86,8 @@ const validItem = (name: SetName, item: unknown): item is Item => {
       && (row.withNote === undefined || row.withNote === true)
     : typeof row.kind === 'string' && ['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'].includes(row.kind)
       && Object.keys(row).every(field => ['id', 'kind', 'page', 'pageOnly', 'rects', 'text', 'turns', 'data', 'at', 'u'].includes(field))
-      && (row.pageOnly === undefined || row.pageOnly === true && row.rects.length === 0 && row.kind === 'ask'
+      && (row.pageOnly === undefined || row.pageOnly === true && row.rects.length === 0
+        && row.kind === ((row.data as { action?: string } | undefined)?.action === 'quiz' ? 'quiz' : 'ask')
         && unitFields(row.data, row.page as number))
       && (row.rects.length !== 0 || row.pageOnly === true)
       && Array.isArray(row.turns) && row.turns.length <= 40 && row.turns.every((turn: unknown) => !!turn && typeof turn === 'object'
@@ -95,6 +97,11 @@ const validItem = (name: SetName, item: unknown): item is Item => {
         && ((turn as { at?: unknown }).at === undefined || Number.isSafeInteger((turn as { at?: unknown }).at) && (turn as { at: number }).at > 0)
         && ((turn as { display?: unknown }).display === undefined || atMost((turn as { display?: unknown }).display, 2000)))
       && (row.data === undefined || !!row.data && typeof row.data === 'object' && !Array.isArray(row.data) && JSON.stringify(row.data).length <= 16_000)
+      && (!row.pageOnly || (row.data as { action?: string } | undefined)?.action !== 'quiz'
+        || row.turns.length >= 2 && row.turns[0].role === 'assistant' && !!row.turns[0].content.trim()
+          && row.turns[1].role === 'assistant' && !!row.turns[1].content.trim())
+      && (!row.pageOnly || (row.data as { action?: string } | undefined)?.action !== 'note'
+        || row.turns.some(turn => turn.role === 'user' && !!turn.content.trim()))
 }
 const parse = <T extends Item>(name: SetName, raw: string | null): SavedSet<T> | null => {
   if (!raw) return fresh<T>()
@@ -111,7 +118,8 @@ const parse = <T extends Item>(name: SetName, raw: string | null): SavedSet<T> |
 /** One atomic owner/file-generation journal per set, including tombstones and the server revision. */
 export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private talkComponent: NonNullable<PdfOriginalReaderServices['TalkCard']> = props => createElement(PdfOriginalTalkCard,
-    { ...props, hex: this.hex, owner: this.owner, fileId: this.fileId, chat: this.chat! })
+    { ...props, hex: this.hex, owner: this.owner, fileId: this.fileId, chat: this.chat!,
+      title: this.bookMetadata.title, author: this.bookMetadata.author })
   get TalkCard(): PdfOriginalReaderServices['TalkCard'] { return this.trusted() && this.chat ? this.talkComponent : undefined }
   readonly chat: OwnTextCardsSync | null
   private marksSet: SavedSet<OwnMark | OwnMarkGone>
@@ -124,13 +132,20 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private retries: Record<SetName, number> = { marks: 0, cards: 0 }
   private pageTexts = new Map<number, string>()
   private lastUnitAnswer: { source: string; action: PdfOriginalUnitAction; answer: string } | null = null
+  private lastUnitQuiz: { source: string; answer: string } | null = null
+  private bookMetadata: { title: string; author: string } = { title: 'Your PDF', author: '' }
   private savedCardId: string | null = null
   private pages = 0
   private unsubscribePlayer: (() => void) | null = null
   private unsubscribeChat: (() => void) | null = null
   constructor(readonly hex: string, readonly owner: string, readonly fileId: string,
     private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
-    private readonly player?: Pick<MarginListenApi, 'attachOwn' | 'play' | 'snapshot'> & Partial<Pick<MarginListenApi, 'subscribe' | 'pause' | 'resume' | 'setSpeed'>>) {
+    private readonly player?: Pick<MarginListenApi, 'attachOwn' | 'play' | 'snapshot'> & Partial<Pick<MarginListenApi, 'subscribe' | 'pause' | 'resume' | 'setSpeed'>>,
+    metadata?: { title: string; author: string }) {
+    // Native window.fetch needs Window as its receiver. Calling this.fetchImpl()
+    // otherwise throws before any marks/cards or companion request is sent.
+    this.fetchImpl = fetchImpl.bind(globalThis) as FetchLike
+    this.setBookMetadata(metadata)
     if (!HEX.test(hex) || !FILE_ID.test(fileId) || userBookOwner() !== owner) throw new Error('PDF owner unavailable')
     const marks = parse<OwnMark | OwnMarkGone>('marks', localStorage.getItem(key('marks', owner, fileId, hex)))
     const cards = parse<OwnCard | OwnMarkGone>('cards', localStorage.getItem(key('cards', owner, fileId, hex)))
@@ -178,7 +193,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
     for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return null
-    const context = { kind: 'pdf', bookTitle: 'Your PDF', bookAuthor: '', chapterLabel: source.unit.title,
+    const context = { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
       pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false }
     const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
       : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
@@ -209,6 +224,62 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   }
   saveUnitCardWithId = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, answer: string): string | null =>
     this.saveUnitCard(source, action, answer) ? this.savedCardId : null
+  private verifiedUnitPages = async (source: PdfOriginalUnitSource): Promise<boolean> => {
+    if (!this.trusted() || !validUnitSource(source, 'recap') || source.atPage !== source.unit.to
+      || source.pages[0].n !== source.unit.from || source.pages[source.pages.length - 1].n !== source.unit.to) return false
+    for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return false
+    return true
+  }
+  askUnitQuiz = async (source: PdfOriginalUnitSource, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
+    this.lastUnitQuiz = null
+    if (!await this.verifiedUnitPages(source)) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token) || signal?.aborted) return null
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
+          companion: { intent: 'quiz', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false } } }) })
+      if (!response.ok || !this.trusted()) return null
+      const answer = await readAnthropicResponse(response, onDelta)
+      if (!answer?.trim() || signal?.aborted || !this.trusted()) return null
+      this.lastUnitQuiz = { source: JSON.stringify(source), answer }
+      return answer
+    } catch { return null }
+  }
+  askUnitQuizCheck = async (source: PdfOriginalUnitSource, quiz: { question: string; expected: string; why?: string; answer: string }): Promise<string | null> => {
+    if (this.lastUnitQuiz?.source !== JSON.stringify(source) || !await this.verifiedUnitPages(source)) return null
+    const token = await this.token()
+    if (!token || !await this.currentGeneration(token)) return null
+    try {
+      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
+          companion: { intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false }, quiz } }) })
+      if (!response.ok || !this.trusted()) return null
+      return await readAnthropicResponse(response)
+    } catch { return null }
+  }
+  saveUnitQuizCardWithId = (source: PdfOriginalUnitSource, summary: string, generatedQuiz: string): string | null => {
+    if (!this.trusted() || !validUnitSource(source, 'recap') || source.atPage !== source.unit.to
+      || source.pages[0].n !== source.unit.from || source.pages[source.pages.length - 1].n !== source.unit.to
+      || this.lastUnitQuiz?.source !== JSON.stringify(source) || this.lastUnitQuiz.answer !== generatedQuiz
+      || !summary.trim() || summary.length > 12_000 || generatedQuiz.length > 12_000) return null
+    this.lastUnitQuiz = null
+    return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'quiz', summary, {
+      turns: [{ role: 'assistant', content: generatedQuiz }, { role: 'assistant', content: summary }],
+      data: { action: 'quiz', unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n } },
+    })
+  }
+  saveUnitNote = (source: { unit: PdfOriginalUnitSource['unit']; atPage: number; source: { from: number; to: number } }, note: string): string | null => {
+    if (!this.trusted() || source.atPage !== source.unit.to || !unitFields({ action: 'note', unit: source.unit, source: source.source }, source.atPage)
+      || !note.trim() || note.length > 4000) return null
+    return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'note', note, {
+      turns: [{ role: 'user', content: note }], data: { action: 'note', unit: source.unit, source: source.source },
+    })
+  }
   get listen(): PdfOriginalReaderServices['listen'] {
     if (!this.trusted() || !this.player || this.player.snapshot().available === false) return undefined
     return (page, text) => {
@@ -237,6 +308,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       ? { page, wordIndex: wordIndex!, text } : null
   }
   private trusted() { return this.live && !this.staleGeneration && userBookOwner() === this.owner }
+  setBookMetadata(metadata?: { title: string; author: string }) {
+    this.bookMetadata = { title: typeof metadata?.title === 'string' && metadata.title.trim() ? metadata.title.trim().slice(0, 200) : 'Your PDF',
+      author: typeof metadata?.author === 'string' ? metadata.author.trim().slice(0, 200) : '' }
+  }
   get marks() { return this.trusted() ? this.marksSet.items.filter((m): m is OwnMark => !gone(m)) : [] }
   get cards() { return this.trusted() ? this.cardsSet.items.filter((c): c is OwnCard => !gone(c)).map(c => ({
     id: c.id, page: c.page, text: c.text, kind: typeof c.data?.action === 'string' ? c.data.action : c.kind,
@@ -293,12 +368,12 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   }
   saveCard: PdfOriginalReaderServices['saveCard'] = (selection, kind, answer, options) => {
     this.savedCardId = null
-    const mapped = kind === 'recap' || kind === 'catchup' || kind === 'primer' ? 'ask' : kind
+    const mapped = kind === 'recap' || kind === 'catchup' || kind === 'primer' || kind === 'note' ? 'ask' : kind
     if (!['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'].includes(mapped)
       || !answer.trim() || !Number.isInteger(selection.page) || selection.page < 1) return false
     const rects = selection.rects.filter(rect => rect[0] === selection.page && rect.slice(1).every(Number.isFinite))
       .map(([page, ...box]) => [page, ...box.map(n => Math.round(n * 10_000) / 10_000)])
-    const pageOnly = ['primer', 'catchup', 'recap'].includes(kind) && selection.rects.length === 0
+    const pageOnly = ['primer', 'catchup', 'recap', 'quiz', 'note'].includes(kind) && selection.rects.length === 0
     const time = Date.now(), id = crypto.randomUUID().replace(/-/g, '').slice(0, 24)
     const turns = options?.turns?.length ? options.turns : [
       { role: 'user' as const, content: options?.question || selection.text || `Original PDF page ${selection.page}` },
@@ -337,7 +412,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: question }],
-          companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: 'Your PDF', bookAuthor: '',
+          companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: `Original PDF page ${card.page}`, pageNumber: card.page, pages, paragraphIndex: 0, lookups: false },
             selection: card.pageOnly ? undefined : card.text.slice(0, 4000) } }) })
       if (!response.ok || !this.trusted()) return null
@@ -388,6 +463,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     }
     try {
       const incoming = await call('GET')
+      if (incoming.status === 404 && this.trusted()) { this.staleGeneration = true; this.changed(); return }
       if (incoming.status === 409 && incoming.data.error === 'generation_conflict' || incoming.status === 200 && incoming.data.fileId && incoming.data.fileId !== this.fileId) {
         this.staleGeneration = true; this.changed(); return
       }
@@ -405,6 +481,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
         if (result.data.error === 'generation_conflict' || result.data.fileId && result.data.fileId !== this.fileId) {
           this.staleGeneration = true; this.changed(); return
         }
+        if (result.status === 404) { this.staleGeneration = true; this.changed(); return }
         if (result.data.fileId !== this.fileId) return
         if (result.status === 200 && Number.isInteger(result.data.rev)) {
           // A note made while PUT was awaiting must not be overwritten by its older snapshot.
@@ -428,7 +505,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const request = {
       stream: true,
       messages: [{ role: 'user', content: question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
-      companion: { intent: action, context: { kind: 'pdf', bookTitle: 'Your PDF', bookAuthor: '', chapterLabel: `Original PDF page ${selection.page}`,
+      companion: { intent: action, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
         pageNumber: selection.page, pages: [{ n: selection.page, text }], paragraphIndex: 0, lookups: false },
         selection: text },
     }
@@ -446,7 +523,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: {
-          intent: 'quiz_check', context: { kind: 'pdf', bookTitle: 'Your PDF', bookAuthor: '', chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
+          intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
             pages: [{ n: selection.page, text: selection.text.slice(0, 9000) }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
         } }),
       })
@@ -459,9 +536,13 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
 }
 
 /** The shell only sees a service after its local file ID or account copy proves the generation. */
-export function usePdfOriginalServices(hex: string, owner: string | null, enabled: boolean): PdfOriginalReaderServices | null {
+export function usePdfOriginalServices(hex: string, owner: string | null, enabled: boolean,
+  metadata?: { title: string; author: string }): PdfOriginalReaderServices | null {
   const [service, setService] = useState<PdfOriginalGeometry | null>(null)
+  const metadataRef = useRef(metadata)
+  metadataRef.current = metadata
   const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own: enabled ? { hex } : null })
+  useEffect(() => { service?.setBookMetadata(metadata) }, [service, metadata?.title, metadata?.author])
   useEffect(() => {
     if (!enabled || !owner || !HEX.test(hex) || userBookOwner() !== owner) { setService(null); return }
     let live = true, active: PdfOriginalGeometry | null = null
@@ -474,12 +555,12 @@ export function usePdfOriginalServices(hex: string, owner: string | null, enable
       // A successful account listing is authoritative: it may reveal delete/reupload.
       const fileId = account ? file?.id : localId
       if (!fileId || !FILE_ID.test(fileId)) return
-      active = new PdfOriginalGeometry(hex, owner, fileId, ownBookToken, fetch, player)
+      active = new PdfOriginalGeometry(hex, owner, fileId, ownBookToken, fetch, player, metadataRef.current)
       setService(active)
       void active.open()
     })().catch(() => { if (live) setService(null) })
     return () => { live = false; active?.dispose(); setService(null) }
     // The player's command interface is stable through re-renders; reopening it would reset narration.
   }, [hex, owner, enabled])
-  return service
+  return enabled && service?.hex === hex && service.owner === owner ? service : null
 }

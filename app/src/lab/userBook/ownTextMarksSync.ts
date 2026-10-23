@@ -302,6 +302,8 @@ export class OwnTextMarksSync {
   constructor(readonly hex: string, readonly owner: string, readonly edition: UserBookEdition,
     private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
     readonly fileId?: string | null) {
+    // Native Window.fetch requires its Window receiver when invoked from a class.
+    this.fetchImpl = fetchImpl.bind(globalThis) as FetchLike
     if (fileId) {
       if (!/^[0-9a-f]{32}$/.test(fileId) || userBookOwner() !== owner) throw new Error('private mark generation unavailable')
       const key = canonicalKey(hex, owner, fileId), raw = localStorage.getItem(key)
@@ -527,6 +529,7 @@ export class OwnTextMarksSync {
     }
     try {
       const initial = await call('GET')
+      if (initial.status === 404) { this.invalidateCanonical(); return }
       if (initial.status !== 200 || !Array.isArray(initial.data.marks) || !Number.isInteger(initial.data.rev) || !this.isTrusted()) return
       if (initial.data.fileId !== this.fileId) { this.invalidateCanonical(); return }
       if (!integrate(initial.data.marks, initial.data.rev!)) return

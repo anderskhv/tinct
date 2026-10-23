@@ -150,7 +150,29 @@
         // agree; a failed account switch must never attribute another person's
         // same-hash marks to the account being deleted.
         const ownerId = accountId(), bookId = 'userbook-' + hex;
-        if (ownerId && s.getItem('tinct-addbook:text-marks-owner:' + hex) === ownerId) {
+        const legacyClaim = 'tinct-addbook:legacy-epub-owner:' + hex;
+        const legacyBackup = 'tinct-addbook:legacy-epub-annotations:' + ownerId + ':' + hex;
+        const legacyMarks = 'tinct-addbook:hl:epub:' + hex, legacyCards = 'tinct-addbook:cards:epub:' + hex;
+        const claimedByOwner = !!ownerId && s.getItem(legacyClaim) === ownerId;
+        // Hash-only static annotations may belong to a different browser user.
+        // Remove them only when both raw arrays exactly match this account's
+        // claim backup. An incomplete write keeps the claim and backup in place
+        // so a later account cannot treat the raw records as unassigned.
+        let legacyRawProven = false;
+        if (claimedByOwner) try {
+          const rawMarks = s.getItem(legacyMarks), rawCards = s.getItem(legacyCards);
+          if (rawMarks === null && rawCards === null) legacyRawProven = true;
+          else {
+            const backup = JSON.parse(s.getItem(legacyBackup) || 'null');
+            legacyRawProven = !!backup && Array.isArray(backup.marks) && Array.isArray(backup.cards)
+              && (rawMarks === null || JSON.stringify(JSON.parse(rawMarks)) === JSON.stringify(backup.marks))
+              && (rawCards === null || JSON.stringify(JSON.parse(rawCards)) === JSON.stringify(backup.cards));
+          }
+        } catch { legacyRawProven = false }
+        if (legacyRawProven) for (const key of [legacyMarks, legacyCards]) try { s.removeItem(key) } catch { /* keep owner claim if raw remains */ }
+        const preserveLegacyClaim = claimedByOwner && (s.getItem(legacyMarks) !== null || s.getItem(legacyCards) !== null);
+        const marksMarker = 'tinct-addbook:text-marks-owner:' + hex;
+        if (ownerId && s.getItem(marksMarker) === ownerId) {
           const backup = s.getItem('tinct-addbook:text-marks-local:' + ownerId + ':' + hex);
           try {
             const all = JSON.parse(s.getItem('tinct-lab-highlights') || '[]');
@@ -159,12 +181,32 @@
             }
           } catch { /* uncertain ownership or blocked storage: preserve marks */ }
         }
+        const marksStillClaimed = ownerId && s.getItem(marksMarker) === ownerId && (() => {
+          const raw = s.getItem('tinct-lab-highlights');
+          if (raw === null) return false;
+          try { const rows = JSON.parse(raw); return !Array.isArray(rows) || rows.some(mark => mark?.bookId === bookId) } catch { return true }
+        })();
         const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
         const chatKey = 'tinct:chat-history:userbook-' + hex;
-        const foreignChat = keys.some(k => { const m = /^tinct-addbook:text-cards-(?:canonical|local|sync|adopted|previous|quarantine):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k); return m && m[2] === hex && m[1] !== ownerId });
-        if (ownerId && s.getItem('tinct-addbook:text-cards-owner:' + hex) === ownerId && !foreignChat && !s.getItem('tinct-addbook:text-cards-unassigned:' + hex) && s.getItem(chatKey) !== null) { s.removeItem(chatKey); gone++ }
+        const chatMarker = 'tinct-addbook:text-cards-owner:' + hex;
+        if (ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null) try {
+          const raw = JSON.parse(s.getItem(chatKey));
+          const canonical = keys.filter(k => k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex
+            || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'));
+          if (Array.isArray(raw) && raw.length && canonical.some(k => {
+            try {
+              const copy = JSON.parse(s.getItem(k) || 'null');
+              const known = new Set(Array.isArray(copy?.conversations) ? copy.conversations.map(row => JSON.stringify(row)) : []);
+              return raw.every(row => known.has(JSON.stringify(row)));
+            } catch { return false }
+          })) { s.removeItem(chatKey); if (s.getItem(chatKey) === null) gone++ }
+        } catch { /* malformed or ambiguous hash-only chat remains claimed */ }
+        const chatStillClaimed = ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null;
         for (const k of keys) {
-          if (k === chatKey) continue; // Only the verified case above may remove the hash-only projection.
+          if (k === chatKey || k === legacyMarks || k === legacyCards) continue; // Only proven hash-only projections are removed above.
+          if (preserveLegacyClaim && (k === legacyClaim || k === legacyBackup || k === 'tinct-addbook:legacy-epub-migrated:' + ownerId + ':' + hex)) continue;
+          if (marksStillClaimed && (k === marksMarker || k === 'tinct-addbook:text-marks-local:' + ownerId + ':' + hex || k === 'tinct-addbook:text-marks-previous:' + ownerId + ':' + hex)) continue;
+          if (chatStillClaimed && (k === chatMarker || k === 'tinct-addbook:text-cards-adopted:' + ownerId + ':' + hex || k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'))) continue;
           const scoped = /^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k);
           if (scoped && scoped[2] === hex && (!ownerId || scoped[1] !== ownerId)) continue;
           const pdfScoped = /^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(k);

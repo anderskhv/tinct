@@ -120,23 +120,23 @@ async function until(assertion, message, timeout = 6000) {
 async function run(engine, browserType, complete) {
   const browser = await markInternal(await browserType.launch({ headless: true, proxy: { server: originRef.value }, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
-  const page = await context.newPage(), errors = []
+  const page = await context.newPage(), errors = [], authIntercepts = []
   page.on('pageerror', error => errors.push(error.message))
-  await page.addInitScript(() => {
-    const original = window.fetch
-    window.fetch = (input, init) => {
-      const url = new URL(typeof input === 'string' ? input : input.url, location.href)
-      if (url.hostname.endsWith('.supabase.co')) {
-        const stored = Object.keys(localStorage).find(key => /^sb-.*-auth-token$/.test(key)), user = JSON.parse(localStorage.getItem(stored) || '{}').user
-        if (url.pathname === '/auth/v1/user') return Promise.resolve(new Response(JSON.stringify(user || {}), { status: 200, headers: { 'Content-Type': 'application/json' } }))
-        if (url.pathname.startsWith('/rest/v1/')) return Promise.resolve(new Response('[]', { status: 200, headers: { 'Content-Type': 'application/json' } }))
-        return Promise.resolve(new Response('{}', { status: 404, headers: { 'Content-Type': 'application/json' } }))
-      }
-      return original.call(window, input, init)
+  await context.route(/^https:\/\/[a-z0-9]+\.supabase\.co\//, async route => {
+    const url = new URL(route.request().url()), method = route.request().method()
+    authIntercepts.push({ path:url.pathname, method })
+    const headers = { 'Access-Control-Allow-Origin': originRef.value, 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Methods': 'GET,POST,PATCH,OPTIONS', 'Access-Control-Allow-Headers': 'authorization,apikey,content-type,x-client-info,prefer', 'Content-Type':'application/json' }
+    if (method === 'OPTIONS') return route.fulfill({ status:204, headers })
+    if (url.pathname === '/auth/v1/user') {
+      const owner = route.request().headers().authorization?.endsWith('isolation-b') ? owners.b : owners.a
+      return route.fulfill({ status:200, headers, body:JSON.stringify({ id:owner, email:`${owner}@example.test`, aud:'authenticated' }) })
     }
+    if (url.pathname.startsWith('/rest/v1/')) return route.fulfill({ status:200, headers, body:'[]' })
+    return route.fulfill({ status:404, headers, body:'{}' })
   })
   try {
     await seed(page, 'a', fileIds.a); await open(page)
+    assert.equal(await page.evaluate(() => Function.prototype.toString.call(window.fetch).includes('[native code]')), true, 'browser fetch remains native')
     assert.equal((await observed(page)).highlights, 0, 'A begins without a mark')
     await highlight(page)
     await page.waitForFunction(() => document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"][class*="is-hl-"]').length > 0)
@@ -170,8 +170,8 @@ async function run(engine, browserType, complete) {
     await page.getByTestId('own-delete-dialog').waitFor()
     const beforeDelete = await page.evaluate(hex => ({ owner:window.TinctAI?.session()?.userId, keys:Object.keys(localStorage).filter(key => key.includes(hex) && /text-(marks|cards)/.test(key)) }),hex)
     await page.locator('.own-delete-confirm').click()
+    await until(() => !store.a.present, `A file deleted from account; ${JSON.stringify({ requests:requests.slice(-15), errors })}`)
     await page.waitForFunction(() => !document.querySelector('.own-delete-dialog'))
-    assert.equal(store.a.present, false, 'A file deleted from account')
     const deleted = await observed(page)
     assert.equal(deleted.global, 0, 'deleted A active mark removed from projection')
     assert(deleted.ownKeys.some(key => key.includes('private-owner-b:')), `deleting A keeps B backup: ${JSON.stringify({ beforeDelete, deleted, requests:requests.slice(-12) })}`)

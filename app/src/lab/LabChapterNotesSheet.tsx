@@ -97,13 +97,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
           <ol className="lab-catch-up-timeline">
-            {state === 'ok' && beats ? beats.map((beat, index) => (
-              <li key={index} className="lab-catch-up-entry" data-state="ok" data-testid="lab-chapter-notes-beat">
-                <span className="lab-catch-up-dot" aria-hidden="true" />
-                <h3 className="lab-catch-up-title">{beat.title}</h3>
-                <p className="lab-catch-up-text">{beat.text}</p>
-              </li>
-            )) : state === 'error' ? (
+            {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
                 {allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-chapter-notes-balance" />}
@@ -146,6 +140,15 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
       </section>
     </div>
   )
+}
+
+/** Shared completed-beat presentation for chapter sheets and original PDF unit cards. */
+export function LabChapterNotesEntries({ beats }: { beats: ChapterNotesBeat[] }) {
+  return <>{beats.map((beat, index) => <li key={index} className="lab-catch-up-entry" data-state="ok" data-testid="lab-chapter-notes-beat">
+    <span className="lab-catch-up-dot" aria-hidden="true" />
+    <h3 className="lab-catch-up-title">{beat.title}</h3>
+    <p className="lab-catch-up-text">{beat.text}</p>
+  </li>)}</>
 }
 
 /** Older browsers without the async clipboard: copy from an off-screen field

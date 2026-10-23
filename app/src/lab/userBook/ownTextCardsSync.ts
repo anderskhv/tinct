@@ -171,6 +171,8 @@ export class OwnTextCardsSync {
   constructor(readonly hex: string, readonly owner: string, readonly edition: UserBookEdition | null,
     private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
     readonly fileId?: string | null) {
+    // Native Window.fetch requires its Window receiver when invoked from a class.
+    this.fetchImpl = fetchImpl.bind(globalThis) as FetchLike
     if (fileId && !/^[0-9a-f]{32}$/.test(fileId)) throw new Error('private book generation unavailable')
     if (userBookOwner() !== owner) throw new Error('private chat owner changed')
     archiveLegacy(hex, owner)
@@ -303,6 +305,7 @@ export class OwnTextCardsSync {
     }
     try {
       const initial = await call('GET')
+      if (initial.status === 404) { this.invalidateGeneration(); return }
       if (initial.status !== 200 || !Array.isArray(initial.data.cards) || !Number.isInteger(initial.data.rev) || !this.isTrusted()) return
       if (this.fileId && initial.data.fileId !== this.fileId) { this.invalidateGeneration(); return }
       const merged = mergeOwnTextCards(this.state.items, initial.data.cards)

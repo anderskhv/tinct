@@ -22,6 +22,21 @@ beforeEach(() => {
 afterEach(() => { localStorage.clear(); vi.restoreAllMocks() })
 
 describe('owned EPUB text marks', () => {
+  it('calls a Window-brand-checked fetch with the global receiver for GET and PUT', async () => {
+    const fileId = 'f'.repeat(32), methods: string[] = []
+    const strict = async function (this: typeof globalThis, _url: RequestInfo | URL, init?: RequestInit) {
+      if (this !== globalThis) throw new TypeError('Illegal invocation')
+      methods.push(init?.method ?? 'GET')
+      return init?.method === 'PUT' ? json({ rev: 1, fileId }) : json({ marks: [], rev: 0, fileId })
+    }
+    const controller = new OwnTextMarksSync(HEX, OWNER, edition, async () => 'token', strict as typeof fetch, fileId)
+    expect(controller.changed([mark()])).toBe(true)
+    await controller.open()
+    await controller.sync()
+    expect(methods).toContain('GET')
+    expect(methods).toContain('PUT')
+    controller.dispose()
+  })
   it('hides hash-only marks when the owner file generation is missing', () => {
     writeLabHighlights([mark()]); trust()
     guardOwnTextMarks(HEX)
@@ -49,6 +64,20 @@ describe('owned EPUB text marks', () => {
     expect(another.read()).toEqual([])
     expect(localStorage.getItem(`tinct-addbook:text-marks-canonical:${OWNER}:${HEX}:${fileId}`)).toContain(mine.id)
     another.dispose()
+  })
+  it('fences a mounted marks generation after a confirmed account 404 without erasing its raw record', async () => {
+    const fileId = 'd'.repeat(32), fetchImpl = vi.fn(async () => json({ error: 'not_found' }, 404))
+    const sync = new OwnTextMarksSync(HEX, OWNER, edition, async () => 'token', fetchImpl as typeof fetch, fileId)
+    expect(sync.changed([mark()])).toBe(true)
+    const raw = localStorage.getItem(`tinct-addbook:text-marks-canonical:${OWNER}:${HEX}:${fileId}`)
+    await sync.open()
+    expect(sync.isTrusted()).toBe(false)
+    expect(readOwnedTextMarks(HEX, OWNER)).toEqual([])
+    expect(sync.changed([mark('hl-2000-another')])).toBe(false)
+    await sync.sync()
+    expect(fetchImpl).toHaveBeenCalledTimes(1)
+    expect(localStorage.getItem(`tinct-addbook:text-marks-canonical:${OWNER}:${HEX}:${fileId}`)).toBe(raw)
+    sync.dispose()
   })
 
   it('does not journal a deletion if its single canonical storage write fails', async () => {

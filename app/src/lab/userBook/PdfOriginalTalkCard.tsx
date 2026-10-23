@@ -17,8 +17,9 @@ export function pdfTalkConversations(rows: ChatConversation[]) {
         .map(message => ({ role: message.role as 'user' | 'assistant', content: message.content })), localOnly: true as const }))
 }
 
-export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, onClose }: {
-  hex: string; owner: string; fileId: string; chat: OwnTextCardsSync; page: number; text: string; onClose: () => void
+export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, title = 'Your PDF', author = '', onClose }: {
+  hex: string; owner: string; fileId: string; chat: OwnTextCardsSync; page: number; text: string;
+  title?: string; author?: string; onClose: () => void
 }) {
   const [token, setToken] = useState<string | null>(null)
   const [ready, setReady] = useState(false)
@@ -69,7 +70,7 @@ export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, onCl
     }
   }
   const voice = useVoiceSession({
-    authToken: token, isAnonymous: !token, bookId: userBookId(hex), bookTitle: 'Your PDF', bookAuthor: '',
+    authToken: token, isAnonymous: !token, bookId: userBookId(hex), bookTitle: title, bookAuthor: author,
     chapterNumber: page, chapterTitle: `Original PDF page ${page}`, chapterParagraphs: [text.slice(0, 9000)],
     paragraphIndex: 0, pageNumber: page, visibleText: '', isAudioPlaying: false,
     pausePlayback: () => null, resumePlayback: () => {}, recordMessage: record, appendLocalMessage: () => {},

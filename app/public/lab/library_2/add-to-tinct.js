@@ -12,6 +12,7 @@ import {eraLabel} from './book-metadata.js?v=20261009rel10';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
+import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
 import {pasteEpub,preview as pastePreview,suggestedTitle} from './paste-text.js?v=20261023paste1';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -25,7 +26,7 @@ export const ADD_FILE_PAGE=MY_SHELF_URL;
 export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
-const pasteEnabled=()=>new URLSearchParams(location.search).get('sharedReader')==='1';
+const pasteEnabled=()=>sharedReaderEnabled(location.search);
 const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
 const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
@@ -1095,16 +1096,49 @@ export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalTh
  for(const store of storages){
   if(!store)continue;
   try{
-   if(owner&&store.getItem(`tinct-addbook:text-marks-owner:${hex}`)===owner){
+   const legacyClaim=`tinct-addbook:legacy-epub-owner:${hex}`;
+   const legacyBackup=`tinct-addbook:legacy-epub-annotations:${owner}:${hex}`;
+   const legacyMarks=`tinct-addbook:hl:epub:${hex}`,legacyCards=`tinct-addbook:cards:epub:${hex}`;
+   const claimedByOwner=!!owner&&store.getItem(legacyClaim)===owner;
+   // Old EPUB annotations use hash-only keys. Exact agreement with this
+   // owner's backup is the proof needed to delete them. Preserve a mismatched
+   // claim and backup, otherwise another account could adopt the raw records.
+   let legacyRawProven=false;
+   if(claimedByOwner)try{
+    const marks=store.getItem(legacyMarks),cards=store.getItem(legacyCards);
+    if(marks===null&&cards===null)legacyRawProven=true;
+    else{const backup=JSON.parse(store.getItem(legacyBackup)||'null');legacyRawProven=!!backup&&Array.isArray(backup.marks)&&Array.isArray(backup.cards)
+     &&(marks===null||JSON.stringify(JSON.parse(marks))===JSON.stringify(backup.marks))
+     &&(cards===null||JSON.stringify(JSON.parse(cards))===JSON.stringify(backup.cards));}
+   }catch{legacyRawProven=false;}
+   if(legacyRawProven)for(const key of [legacyMarks,legacyCards])try{store.removeItem(key);}catch{/* keep claim if raw remains */}
+   const preserveLegacyClaim=claimedByOwner&&(store.getItem(legacyMarks)!==null||store.getItem(legacyCards)!==null);
+   const marksMarker=`tinct-addbook:text-marks-owner:${hex}`;
+   if(owner&&store.getItem(marksMarker)===owner){
     const backup=store.getItem(`tinct-addbook:text-marks-local:${owner}:${hex}`);
     try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
    }
+   const marksStillClaimed=owner&&store.getItem(marksMarker)===owner&&(()=>{
+    const raw=store.getItem('tinct-lab-highlights');if(raw===null)return false;
+    try{const rows=JSON.parse(raw);return !Array.isArray(rows)||rows.some(mark=>mark?.bookId===id);}catch{return true;}
+   })();
    const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
    const chatKey=`tinct:chat-history:${id}`;
-   const foreignChat=keys.some(key=>{const match=/^tinct-addbook:text-cards-(?:canonical|local|sync|adopted|previous|quarantine):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);return match&&match[2]===hex&&match[1]!==owner;});
-   if(owner&&store.getItem(`tinct-addbook:text-cards-owner:${hex}`)===owner&&!foreignChat&&!store.getItem(`tinct-addbook:text-cards-unassigned:${hex}`)&&store.getItem(chatKey)!==null){store.removeItem(chatKey);gone++;}
+   const chatMarker=`tinct-addbook:text-cards-owner:${hex}`;
+   if(owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null)try{
+    const raw=JSON.parse(store.getItem(chatKey));
+    const canonical=keys.filter(key=>key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`));
+    if(Array.isArray(raw)&&raw.length&&canonical.some(key=>{
+     try{const copy=JSON.parse(store.getItem(key)||'null');const known=new Set(Array.isArray(copy?.conversations)?copy.conversations.map(row=>JSON.stringify(row)):[]);
+      return raw.every(row=>known.has(JSON.stringify(row)));}catch{return false;}
+    })){store.removeItem(chatKey);if(store.getItem(chatKey)===null)gone++;}
+   }catch{/* malformed or ambiguous hash-only chat remains claimed */}
+   const chatStillClaimed=owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null;
    for(const key of keys){
-    if(key===chatKey)continue;
+    if(key===chatKey||key===legacyMarks||key===legacyCards)continue;
+    if(preserveLegacyClaim&&(key===legacyClaim||key===legacyBackup||key===`tinct-addbook:legacy-epub-migrated:${owner}:${hex}`))continue;
+    if(marksStillClaimed&&(key===marksMarker||key===`tinct-addbook:text-marks-local:${owner}:${hex}`||key===`tinct-addbook:text-marks-previous:${owner}:${hex}`))continue;
+    if(chatStillClaimed&&(key===chatMarker||key===`tinct-addbook:text-cards-adopted:${owner}:${hex}`||key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`)))continue;
     const scoped=/^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);
     if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
     const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);

@@ -4,7 +4,9 @@ import { marginPreviewMountForPage } from '../marginPreview/marginPreviewMount'
 import { MARGIN_PREVIEW_KEY } from '../marginPreview/marginPreviewFlag'
 import { readerHandoffFromUrlParams } from '../labReaderHandoff'
 import { readerNamesNoBook } from '../continueLatest'
-import { sharedReaderContinueSearch, sharedReaderDestination, sharedReaderEnabled } from './sharedReaderFlag'
+import { SHARED_READER_DEFAULT, sharedReaderContinueSearch, sharedReaderDestination, sharedReaderEnabled } from './sharedReaderFlag'
+// @ts-expect-error -- public development bridge for the static Library module
+import { sharedReaderEnabled as librarySharedReaderEnabled } from '../../../public/lab/shared-reader-activation.js'
 
 afterEach(() => {
   localStorage.clear()
@@ -13,12 +15,17 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-it('accepts only an explicit URL value and never persists a private preference', () => {
+it('uses one build default in React and Library with absolute URL overrides and no persisted preference', () => {
   const write = vi.spyOn(Storage.prototype, 'setItem')
-  for (const search of ['', '?sharedReader=0', '?sharedReader=true', '?book=frankenstein', '?sharedReader'])
-    expect(sharedReaderEnabled(search)).toBe(false)
-  expect(sharedReaderEnabled('?book=frankenstein&sharedReader=1')).toBe(true)
-  expect(sharedReaderEnabled('?book=frankenstein&margin=1&sharedReader=1')).toBe(true)
+  expect(librarySharedReaderEnabled).toBe(sharedReaderEnabled)
+  expect(sharedReaderEnabled('')).toBe(SHARED_READER_DEFAULT)
+  for (const enabled of [false, true]) {
+    for (const search of ['', '?sharedReader=true', '?book=frankenstein', '?sharedReader'])
+      expect(sharedReaderEnabled(search, enabled)).toBe(enabled)
+    expect(sharedReaderEnabled('?book=frankenstein&sharedReader=0', enabled)).toBe(false)
+    expect(sharedReaderEnabled('?book=frankenstein&sharedReader=1', enabled)).toBe(true)
+    expect(sharedReaderEnabled('?book=frankenstein&margin=1&sharedReader=1', enabled)).toBe(true)
+  }
   expect(write).not.toHaveBeenCalled()
 })
 

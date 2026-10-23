@@ -3857,6 +3857,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [selectionPopup, readerEditionKey, prefs.compareEdition, prefs.primaryEdition, speculateExplanation])
 
   const dismissSelectionPopup = useCallback(() => {
+    // An explicit new selection may ask the same question again. Keep the
+    // in-flight request object in its promise closures, but never reuse its
+    // Notebook identity for a later popup.
+    desktopCardRequestRef.current = null
     setSelectionPopup(null)
     setPopupMode('colors')
     setNoteInput('')
@@ -3939,6 +3943,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const floatingY = anchorY - estimatedHeight - 12
     const hasRoomAboveSelection = floatingY >= safeTop
     const shouldFloatAbove = mobile && anchorY > bottomSheetTop - bottomInset && hasRoomAboveSelection
+    desktopCardRequestRef.current = null
     setSelectionPopup({
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
@@ -6764,7 +6769,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
         sharedNotebook={sharedReader}
-        legacyOwnEpubItems={sharedReader && userBook?.kind === 'epub' ? legacyOwnEpubItems : undefined}
+        legacyOwnEpubItems={sharedReader && userBook && userBook.kind !== 'pdf' ? legacyOwnEpubItems : undefined}
         onDeleteNotebookItem={sharedReader ? item => {
           if (item.kind === 'card') return ask.deleteCard(item.id)
           const mark = highlightsApi.allHighlights.find(entry => entry.id === item.id)
@@ -6922,7 +6927,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             const cardKey = JSON.stringify([book.bookId, selected.chapterNumber ?? book.chapterNumber, editionKey,
               selected.paragraphIndex, selected.range?.fromWord, selected.range?.toWord, intent, text ?? selected.text])
             let cardRequest = desktopCardRequestRef.current
-            if (!cardRequest || cardRequest.key !== cardKey || requestAt - cardRequest.at >= 60_000) {
+            if (!cardRequest || cardRequest.key !== cardKey) {
               cardRequest = { key: cardKey, id: `react_desk_${requestAt}`, at: requestAt }
               desktopCardRequestRef.current = cardRequest
             }

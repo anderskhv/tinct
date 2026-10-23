@@ -74,6 +74,23 @@ it('merges a revision conflict without losing remote marks and refuses an old ge
   replacement.dispose()
 })
 
+it('hides a stale PDF geometry journal when deletion races after its account-list ownership check', async () => {
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    if (init?.method === 'GET') return json({ error: 'not_found' }, 404)
+    throw new Error('A deleted generation must not be rewritten')
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  expect(service.saveHighlight(selection, 'gold')).toBe(true)
+  const raw = localStorage.getItem(`tinct-addbook:pdf-original-marks:${OWNER}:${FILE}:${HEX}`)
+  await service.sync('marks')
+  expect(api.mock.calls.some(([, init]) => init?.method === 'PUT')).toBe(false)
+  expect(service.marks).toEqual([])
+  expect(service.saveHighlight(selection, 'rose')).toBe(false)
+  expect(localStorage.getItem(`tinct-addbook:pdf-original-marks:${OWNER}:${FILE}:${HEX}`)).toBe(raw)
+  service.dispose()
+})
+
 it('does not reveal or mutate a prior owner’s same-hash journals after an account switch', async () => {
   const api = vi.fn(async () => json({ books: [] }))
   const old = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
@@ -163,13 +180,18 @@ it('sends only the selected private page with its citation marker in a valid Wor
     requests.push(body.companion)
     return json({ content: [{ text: 'The page explains this point.' }], stop_reason: 'end_turn' })
   })
-  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch,
+    undefined, { title: 'My annotated original', author: 'Its author' })
   expect(await service.ask(selection, 'factcheck')).toContain('page')
+  expect(requests[0]).toMatchObject({ context: { bookTitle: 'My annotated original', bookAuthor: 'Its author' } })
   const parsed = parseCompanionRequest(requests[0])
   expect(parsed).toMatchObject({ intent: 'factcheck', pdf: true, context: { pageNumber: 3 } })
   expect(parsed?.context?.paragraphs).toEqual(['<page n="3">\nThe selected original words\n</page>'])
   expect(await service.askQuizCheck?.(selection, { question: 'What?', expected: 'A point.', answer: 'A point.' })).toContain('page')
   expect(parseCompanionRequest(requests[1])).toMatchObject({ intent: 'quiz_check', pdf: true, quizCheck: { answer: 'A point.' } })
+  service.setBookMetadata({ title: 'Renamed original', author: 'Edited author' })
+  expect(await service.ask(selection, 'define')).toContain('page')
+  expect(requests[2]).toMatchObject({ context: { bookTitle: 'Renamed original', bookAuthor: 'Edited author' } })
   service.dispose()
 })
 
@@ -303,6 +325,58 @@ it('asks a bounded unit with actual extracted page text and saves a truthful pag
   service.setPdfPageText(2, 'D'.repeat(6001), 3)
   expect(await service.askUnit({ ...source, pages: [{ n: 2, text: 'D'.repeat(6001) }, source.pages[1]] }, 'primer')).toBeNull()
   expect(requests).toHaveLength(1)
+  service.dispose()
+})
+
+it('grounds a full-unit quiz and marking in extracted pages, then preserves quiz and note without fake boxes', async () => {
+  const requests: unknown[] = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    const companion = JSON.parse(String(init?.body)).companion
+    requests.push(companion)
+    return json({ content: [{ text: companion.intent === 'quiz' ? 'What is the key claim?' : 'You identified the claim.' }], stop_reason: 'end_turn' })
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(2, 'Actual second page.', 3)
+  service.setPdfPageText(3, 'Actual third page.', 3)
+  const source = { unit: { key: 'chapter-2', title: 'Actual chapter', from: 2, to: 3 },
+    pages: [{ n: 2, text: 'Actual second page.' }, { n: 3, text: 'Actual third page.' }], atPage: 3 }
+  expect(await service.askUnitQuiz(source)).toBe('What is the key claim?')
+  expect(parseCompanionRequest(requests[0])).toMatchObject({ intent: 'quiz', pdf: true, context: { pageNumber: 3 } })
+  expect(await service.askUnitQuizCheck(source, { question: 'What?', expected: 'The claim.', answer: 'The claim.' })).toBe('You identified the claim.')
+  expect(parseCompanionRequest(requests[1])).toMatchObject({ intent: 'quiz_check', pdf: true, context: { pageNumber: 3 },
+    quizCheck: { answer: 'The claim.' } })
+  const quizId = service.saveUnitQuizCardWithId(source, 'I identified the claim.', 'What is the key claim?')
+  expect(quizId).toMatch(/^[0-9a-z]{24}$/)
+  expect(service.cards.find(card => card.id === quizId)).toMatchObject({ kind: 'quiz', page: 3, rects: [], data: {
+    action: 'quiz', unit: source.unit, source: { from: 2, to: 3 },
+  }, turns: [{ role: 'assistant', content: 'What is the key claim?' }, { role: 'assistant', content: 'I identified the claim.' }] })
+  expect(service.saveUnitQuizCardWithId(source, 'A changed summary.', 'What is the key claim?')).toBeNull()
+  const noteId = service.saveUnitNote({ unit: source.unit, atPage: 3, source: { from: 2, to: 3 } }, 'My full-unit observation.')
+  expect(noteId).toMatch(/^[0-9a-z]{24}$/)
+  expect(service.cards.find(card => card.id === noteId)).toMatchObject({ kind: 'note', page: 3, rects: [],
+    turns: [{ role: 'user', content: 'My full-unit observation.' }], data: { action: 'note' } })
+  expect(service.saveUnitNote({ unit: source.unit, atPage: 3, source: { from: 2, to: 3 } }, 'x'.repeat(4001))).toBeNull()
+  expect(requests).toHaveLength(2)
+  service.dispose()
+  const reopened = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null)
+  expect(reopened.cards.find(card => card.id === quizId)?.turns).toEqual([
+    { role: 'assistant', content: 'What is the key claim?' }, { role: 'assistant', content: 'I identified the claim.' },
+  ])
+  expect(reopened.cards.find(card => card.id === noteId)?.turns[0].content).toBe('My full-unit observation.')
+  reopened.dispose()
+})
+
+it('does not ask or save a unit quiz when a page is invented or too dense', async () => {
+  const api = vi.fn(async () => json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] }))
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(1, 'Actual words.', 2)
+  service.setPdfPageText(2, 'D'.repeat(6001), 2)
+  const unit = { key: 'unit-1', title: 'The unit', from: 1, to: 2 }
+  expect(await service.askUnitQuiz({ unit, pages: [{ n: 1, text: 'Invented.' }], atPage: 2 })).toBeNull()
+  expect(await service.askUnitQuiz({ unit, pages: [{ n: 1, text: 'Actual words.' }, { n: 2, text: 'D'.repeat(6001) }], atPage: 2 })).toBeNull()
+  expect(api).not.toHaveBeenCalled()
+  expect(service.saveUnitQuizCardWithId({ unit, pages: [{ n: 1, text: 'Actual words.' }], atPage: 2 }, 'Summary', 'Quiz')).toBeNull()
   service.dispose()
 })
 

@@ -41,7 +41,7 @@ const MarginOwnBook = lazy(() => import('../marginPreview/MarginPreview').then(m
 type ReaderIdentity = { hex: string; owner: string | null; sharedReader: boolean }
 type ReaderState = { status: 'opening' } | (ReaderIdentity & (
   { status: 'ready'; book: LoadedUserBook; marks: OwnTextMarksSync | null; cards: OwnTextCardsSync | null; fileId: string | null }
-  | { status: 'original'; title: string; place: OriginalPagePlace | null; hasText: boolean; scanOutline: Awaited<ReturnType<typeof readOwnedPdfScanEntries>> }
+  | { status: 'original'; title: string; author: string; place: OriginalPagePlace | null; hasText: boolean; scanOutline: Awaited<ReturnType<typeof readOwnedPdfScanEntries>> }
   | { status: 'margin' } | { status: 'failed'; message: string }))
 
 /**
@@ -131,7 +131,8 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   const [pdfPages, setPdfPages] = useState<number | undefined>()
   const identity: ReaderIdentity = { hex, owner: owner ?? null, sharedReader }
   const matches = state.status !== 'opening' && state.hex === hex && state.owner === identity.owner && state.sharedReader === sharedReader
-  const pdfServices = usePdfOriginalServices(hex, owner ?? null, sharedReader && matches && state.status === 'original')
+  const pdfServices = usePdfOriginalServices(hex, owner ?? null, sharedReader && matches && state.status === 'original',
+    matches && state.status === 'original' ? { title: state.title, author: state.author } : undefined)
   useEffect(() => {
     let live = true
     let marks: OwnTextMarksSync | null = null
@@ -149,7 +150,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       const [place, account, hasText, scanOutline] = await Promise.all([openPdfOriginalPlace(hex, owner), metadata, hasOwnedPdfText(hex, owner), readOwnedPdfScanEntries(hex, owner)])
       if (!live) return
       const title = account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF'
-      setState({ status: 'original', title, place: page ? { page, frac: 0 } : place, hasText, scanOutline, ...identity })
+      setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: 0 } : place, hasText, scanOutline, ...identity })
       dropOpenParams()
     }
     // A look at a page (&pages): the margin reader's pages at once, for a signed-in reader (the frame needs the account).

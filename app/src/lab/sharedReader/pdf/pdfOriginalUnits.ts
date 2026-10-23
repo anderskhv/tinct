@@ -44,6 +44,12 @@ export function pdfPrimerPages(unit: PdfOriginalUnit): number[] {
   return Array.from({ length: Math.min(20, unit.to - unit.start + 1) }, (_, index) => unit.start + index)
 }
 
+/** After-unit actions require every page of the finished unit, without pretending a partial recap is complete. */
+export function pdfCompleteUnitPages(unit: PdfOriginalUnit): number[] {
+  if (unit.matter || unit.from < 1 || unit.to < unit.from || unit.to - unit.from + 1 > 20) return []
+  return Array.from({ length: unit.to - unit.from + 1 }, (_, index) => unit.from + index)
+}
+
 /** The recent *earlier* pages: never turn the current or a future page into a catch-up. */
 export function pdfCatchUpPages(rules: Pick<PdfOriginalUnitRules, 'catchUpSpan'>, unit: PdfOriginalUnit, page: number): number[] {
   if (unit.matter || !Number.isInteger(page) || page < 1 || page < unit.from || page > unit.to) return []

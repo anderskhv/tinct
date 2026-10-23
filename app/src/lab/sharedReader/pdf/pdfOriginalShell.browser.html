@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><meta charset="utf-8"><title>Original PDF shared shell fixture</title>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Original PDF shared shell fixture</title>
 <style>html, body, #app { height: 100%; margin: 0 }</style>
 <div id="app"></div>
 <script type="module">
@@ -9,6 +9,7 @@
 
   const raw = Uint8Array.from(atob(window.__pdfFixture || ''), char => char.charCodeAt(0)).buffer
   const listeners = new Set()
+  const pageTexts = new Map()
   const notify = () => listeners.forEach(listener => listener())
   window.__pdfCalls = []
   const services = {
@@ -19,9 +20,25 @@
       notify(); return true
     },
     saveNote: () => false, removeMark: () => null, removeCard: () => null,
+    setPdfPageText: (page, text) => pageTexts.set(page, text),
+    getPageText: async page => pageTexts.get(page) || '',
+    askUnit: async (source, action) => { window.__pdfCalls.push({ kind: 'unit-ask', source, action }); return action === 'primer'
+      ? JSON.stringify({ gist: 'The original page introduces an idea to follow.', claims: ['The first point.', 'The second point.', 'The third point.'], keepInMind: ['Look at the source wording.'], map: [{ title: 'Opening', pages: 'p. 1' }, { title: 'Continuation', pages: 'p. 2' }, { title: 'Close', pages: 'p. 2' }] })
+      : `A local ${action} grounded in original pages.` },
+    saveUnitCard: () => false,
+    saveUnitCardWithId: (source, action, answer) => {
+      window.__pdfCalls.push({ kind: 'unit-card', source, action, answer })
+      const id = `unit-${services.cards.length + 1}`
+      services.cards.push({ id, page: source.atPage, text: source.unit.title, rects: [], kind: action,
+        data: { action, unit: source.unit, source: { from: source.pages[0].n, to: source.pages.at(-1).n } },
+        turns: [{ role: 'user', content: `Prepare me to read ${source.unit.title}.` }, { role: 'assistant', content: answer }], at: Date.now() })
+      notify(); return id
+    },
+    saveUnitNote: (source, note) => { window.__pdfCalls.push({ kind: 'unit-note', source, note }); return 'note-1' },
     ask: async (selection, intent, question, _signal, onDelta) => {
       window.__pdfCalls.push({ kind: 'ask', selection, intent, question })
-      const answer = intent === 'quiz' ? JSON.stringify({ questions: [{ q: 'What is the selected idea?', answer: 'Source words.' }] }) : 'A local source-page answer.'
+      const answer = intent === 'quiz' ? JSON.stringify({ questions: [{ q: 'What is the selected idea?', answer: 'Source words.' }] })
+        : intent === 'define' ? JSON.stringify({ kind: 'definition', definition: 'Noun. An idea named by this original PDF passage.' }) : 'A local source-page answer.'
       onDelta?.(answer); return answer
     },
     askQuizCheck: async () => JSON.stringify({ verdict: 'right', feedback: 'Right.' }),
@@ -31,6 +48,12 @@
         turns: [...(options?.question ? [{ role: 'user', content: options.question }] : []), { role: 'assistant', content: answer }], at: Date.now() })
       notify(); return true
     },
+    saveCardWithId: (selection, kind, answer, options) => {
+      const saved = services.saveCard(selection, kind, answer, options)
+      return saved ? services.cards.at(-1).id : null
+    },
+    askCardFollow: async (id, question) => { window.__pdfCalls.push({ kind: 'follow-ask', id, question }); return 'A local follow-up answer.' },
+    appendCardTurn: (id, question, answer) => { window.__pdfCalls.push({ kind: 'follow-save', id, question, answer }); const card = services.cards.find(row => row.id === id); if (!card) return false; card.turns.push({ role: 'user', content: question }, { role: 'assistant', content: answer }); notify(); return true },
   }
   createRoot(document.getElementById('app')).render(React.createElement(PdfOriginalReaderShell, {
     title: 'Local original PDF', bytes: async () => raw, services, onVisiblePlace: () => {},

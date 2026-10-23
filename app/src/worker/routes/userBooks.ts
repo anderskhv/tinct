@@ -1235,13 +1235,15 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
     if (c.pageOnly !== undefined && !pageOnly) return null
     if (!Array.isArray(c.rects) || pageOnly !== (c.rects.length === 0)) return null
     if (pageOnly) {
-      if (c.kind !== 'ask' || !c.data || typeof c.data !== 'object' || Array.isArray(c.data)
+      if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)
         || typeof c.text !== 'string' || !c.text.trim()) return null
       const data = c.data as Record<string, unknown>
       if (data.action === 'recap' && Object.keys(data).length === 1) {
         // Existing whole-page recaps precede unit metadata; keep them readable.
+        if (c.kind !== 'ask') return null
       } else {
-        if (!['primer', 'catchup', 'recap'].includes(String(data.action))
+        if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(data.action))
+          || c.kind !== (data.action === 'quiz' ? 'quiz' : 'ask')
           || Object.keys(data).some(key => !['action', 'unit', 'source'].includes(key))
           || !data.unit || typeof data.unit !== 'object' || Array.isArray(data.unit)
           || !data.source || typeof data.source !== 'object' || Array.isArray(data.source)) return null
@@ -1276,6 +1278,11 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
         turns.push({ role: turn.role, content: turn.content.slice(0, CARD_CONTENT), ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: (turn.display as string).slice(0, MARK_TEXT) } : {}) })
       }
     }
+    if (pageOnly && (c.data as Record<string, unknown>).action === 'note'
+      && !turns.some(turn => turn.role === 'user' && turn.content.trim())) return null
+    if (pageOnly && (c.data as Record<string, unknown>).action === 'quiz'
+      && (turns.length < 2 || turns[0].role !== 'assistant' || !turns[0].content.trim()
+        || turns[1].role !== 'assistant' || !turns[1].content.trim())) return null
     const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number,
       ...(pageOnly ? { pageOnly: true as const } : {}), rects, text: c.text.slice(0, MARK_TEXT), turns, at: c.at as number }
     if (c.u !== undefined) card.u = c.u as number

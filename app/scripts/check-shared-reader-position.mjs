@@ -16,6 +16,8 @@ await fs.mkdir(output, { recursive: true })
 const observations = []
 const errors = []
 const chapterActions = []
+const macbethLines = JSON.parse(await fs.readFile('public/data/editions/macbeth-lines.json', 'utf8'))
+const macbethSource = JSON.parse(await fs.readFile('public/data/editions/macbeth-original-en.json', 'utf8'))
 
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
 const page = await context.newPage()
@@ -160,7 +162,29 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.goto(`${origin}/reader?book=macbeth&edition=original-en&chapter=1&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await host.locator('.lab-verse-line').first().waitFor({ timeout: 15000 })
+  const verseText = macbethSource.chapters[0].paragraphs[1]
+  const sidecarWord = verseText.slice(0, macbethLines.chapters['1']['1'][0]).trim().split(/\s+/).length
+  const verseLineStarts = await host.evaluate(node => [...node.querySelectorAll('.lab-verse-line')]
+    .map(line => line.querySelector('[data-testid="lab-word"][data-paragraph-index="1"]')?.getAttribute('data-word-index'))
+    .filter(Boolean).map(Number))
+  assert(verseLineStarts.includes(sidecarWord), `actual Shakespeare sidecar line break at source word ${sidecarWord}`)
   await observe('macbeth-verse', 'macbeth')
+  await page.getByTestId('lab-chapter-note-open').first().click()
+  await page.getByTestId('lab-chapter-note-field').fill('A local note on Macbeth’s first scene.')
+  await page.getByRole('button', { name: 'Save note' }).click()
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
+    .some(mark => mark.bookId === 'macbeth' && mark.chapterNumber === 1 && mark.kind === 'chapter' && mark.note === 'A local note on Macbeth’s first scene.'))
+  // BSB stores each poetic half-line as a source paragraph. The visual poem
+  // joins those lines while each painted word keeps its original paragraph.
+  await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'bsb-en', audioEdition: 'bsb-en', compareOpen: false })))
+  await page.goto(`${origin}/reader?book=bible&edition=bsb-en&chapter=629&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await host.waitFor({ timeout: 45000 })
+  await page.waitForFunction(() => {
+    const lines = document.querySelectorAll('.continuous-reader .lab-hearing-line')
+    return [...lines].some(line => line.querySelector('[data-paragraph-index="0"]') && line.querySelector('[data-paragraph-index="1"]'))
+  }, null, { timeout: 15000 })
+  assert((await host.locator('.lab-prose-join [data-paragraph-index="1"]').count()) > 0, 'poetry line joins retain second source paragraph coordinates')
+  await observe('bsb-proverbs-poetry', 'proverbs')
   await page.goto(`${origin}/reader?book=lords-of-the-cosmos&edition=original-en&chapter=2&paragraph=2&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await host.waitFor({ timeout: 45000 })
   await page.getByTestId('lab-figure').first().waitFor()
@@ -236,14 +260,24 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.equal(await page.locator('.lab').getAttribute('data-lab-layout'), 'phone')
   assert.equal(await host.count(), 0, 'phone keeps the familiar paged React reader')
   await observe('frankenstein-phone', 'frankenstein')
-  await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'web-en', compareOpen: true })))
-  await page.goto(`${origin}/reader?book=bible&chapter=1&sharedReader=1&layout=phone`, { waitUntil: 'domcontentloaded' })
+  await page.evaluate(() => {
+    const prefs = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}')
+    prefs.shared = { ...prefs.shared, primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'web-en', compareOpen: true, compareChosen: true }
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify(prefs))
+  })
+  await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=1&sharedReader=1&layout=phone`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
-  await page.getByTestId('lab-phone-compare').click()
-  assert.equal(await page.getByTestId('lab-phone-compare').getAttribute('aria-pressed'), 'true', 'phone Compare opens paired edition')
-  assert.equal(await page.getByTestId('lab-listen').getAttribute('data-reader-action'), 'read', 'phone primary control returns to Read')
-  await page.getByTestId('lab-listen').click()
-  assert.equal(await page.getByTestId('lab-phone-compare').getAttribute('aria-pressed'), 'false', 'phone Read returns from Compare')
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-editions').click()
+  await page.getByTestId('lab-v2-show-compare').waitFor({ timeout: 15000 })
+  await page.getByTestId('lab-v2-show-compare').click()
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.compareActive === 'true')
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'phone Compare closes settings and opens paired edition')
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-editions').click()
+  assert.equal(await page.getByTestId('lab-v2-show-compare').getAttribute('aria-checked'), 'true', 'phone Compare is selected in book settings')
+  await page.getByTestId('lab-v2-show-compare').click()
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.compareActive === 'false')
   assert.equal(await host.count(), 0, 'phone Read and Compare retain the paged surface')
   await observe('bible-phone-read-after-compare', 'genesis')
   await page.goto(`${origin}/reader?book=frankenstein&sharedReader=0`, { waitUntil: 'domcontentloaded' })

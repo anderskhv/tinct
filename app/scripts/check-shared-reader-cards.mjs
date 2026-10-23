@@ -19,7 +19,10 @@ await page.route('**/*', route => {
   const url = new URL(route.request().url())
   if (url.origin !== origin) return route.abort()
   if (url.pathname === '/api/lab-chat' || url.pathname === '/api/chat') {
-    const answer = interrupted ? 'An incomplete local answer still visible while interrupted.' : 'A complete local explanation saved in the reader Notebook.'
+    const request = route.request().postDataJSON()
+    const answer = request?.intent === 'quiz'
+      ? JSON.stringify({ questions: [1, 2, 3].map(n => ({ q: `Question ${n} from this source?`, answer: `Answer ${n}`, why: 'From the selected passage.' })) })
+      : interrupted ? 'An incomplete local answer still visible while interrupted.' : 'A complete local explanation saved in the reader Notebook.'
     return route.fulfill({ contentType: 'text/event-stream', body: `data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: answer } })}\n\ndata: ${interrupted ? '{"type":"message_delta","delta":{"stop_reason":"max_tokens"}}' : '{"type":"message_stop"}'}\n\n` })
   }
   if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
@@ -46,6 +49,33 @@ try {
   const card = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')).find(item => item.card?.kind === 'explain'))
   assert(card.card.anchor?.fromWord > 0, 'card keeps a nonzero source-word anchor')
   await page.keyboard.press('Escape')
+  // Repeating an intentional Explain at the same source range must create a
+  // second card; two subscribers to the *first* response created only one.
+  await page.mouse.move(first.x + first.width / 2, first.y + first.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
+  await page.mouse.up()
+  await page.getByTestId('lab-dbar-explain').click()
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
+    .filter(item => item.card?.kind === 'explain' && !item.card.gone).length === 2, null, { timeout: 15000 })
+  const repeatedCards = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
+    .filter(item => item.card?.kind === 'explain' && !item.card.gone))
+  assert.equal(new Set(repeatedCards.map(item => item.id)).size, 2, 'separate explicit actions preserve both Notebook identities')
+  await page.keyboard.press('Escape')
+  await page.mouse.move(first.x + first.width / 2, first.y + first.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
+  await page.mouse.up()
+  await page.getByTestId('lab-dbar-more').click()
+  await page.getByTestId('lab-dmore-quiz').click()
+  for (let number = 1; number <= 3; number++) {
+    await page.getByTestId('lab-phone-quiz-question').getByText(`Question ${number} from this source?`).waitFor()
+    await page.getByTestId('lab-phone-quiz-show').click()
+    await page.getByTestId('lab-phone-quiz-next').click()
+  }
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
+    .some(item => item.card?.kind === 'quiz' && item.card.anchor?.fromWord > 0 && item.messages?.at(-1)?.content?.includes('Question 3 from this source?')), null, { timeout: 15000 })
+  await page.keyboard.press('Escape')
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-menu').waitFor()
   await page.getByTestId('lab-super-row-notebook').click()
@@ -67,7 +97,7 @@ try {
   await page.getByText('The explanation couldn’t be loaded. Your passage is still here.').waitFor()
   await page.waitForTimeout(300)
   const cardsAfterInterrupted = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').filter(item => item.card?.kind === 'explain' && !item.card.gone).map(item => ({ id: item.id, answer: item.messages?.at(-1)?.content?.slice(0, 80) })))
-  assert.equal(cardsAfterInterrupted.length, 1, `a max_tokens interruption offers retry without marking a second card complete: ${JSON.stringify(cardsAfterInterrupted)}`)
+  assert.equal(cardsAfterInterrupted.length, 2, `a max_tokens interruption offers retry without marking a third card complete: ${JSON.stringify(cardsAfterInterrupted)}`)
   await page.keyboard.press('Escape')
   interrupted = false
   await page.evaluate(() => {
@@ -88,7 +118,7 @@ try {
   await page.getByText('This answer is here for now, but it could not be saved to Notebook.').waitFor()
   await page.screenshot({ path: `${output}/unsaved-full-answer.png` })
   const cardsAfterQuota = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').filter(item => item.card?.kind === 'explain' && !item.card.gone).length)
-  assert.equal(cardsAfterQuota, 1, 'quota failure keeps full answer on screen without claiming a durable card')
+  assert.equal(cardsAfterQuota, 2, 'quota failure keeps full answer on screen without claiming a durable card')
   assert.deepEqual(errors, [])
   console.log('Shared reader completed Explain card, Notebook Delete/Undo, interruption retry, and quota unsaved full answer passed')
 } finally { await browser.close() }

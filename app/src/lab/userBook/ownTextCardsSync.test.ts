@@ -19,6 +19,21 @@ beforeEach(() => { localStorage.clear(); auth(A) })
 afterEach(() => { vi.restoreAllMocks(); localStorage.clear() })
 
 describe('owner-scoped private source-word cards and Talk', () => {
+  it('calls a Window-brand-checked fetch with the global receiver for GET and PUT', async () => {
+    const fileId = 'f'.repeat(32), methods: string[] = []
+    const strict = async function (this: typeof globalThis, _url: RequestInfo | URL, init?: RequestInit) {
+      if (this !== globalThis) throw new TypeError('Illegal invocation')
+      methods.push(init?.method ?? 'GET')
+      return init?.method === 'PUT' ? json({ rev: 1, fileId }) : json({ cards: [], rev: 0, fileId })
+    }
+    const controller = new OwnTextCardsSync(HEX, A, edition, async () => 'token', strict as typeof fetch, fileId)
+    await controller.open()
+    expect(controller.saveCard(card())).toHaveLength(1)
+    await controller.sync()
+    expect(methods).toContain('GET')
+    expect(methods).toContain('PUT')
+    controller.dispose()
+  })
   it('saves complete answer with exact source anchor, revises and tombstones through account route', async () => {
     const calls: Array<{ url: string; body?: { cards: unknown[]; rev: number } }> = []
     let rev = 0
@@ -225,6 +240,20 @@ describe('owner-scoped private source-word cards and Talk', () => {
     await next.sync()
     expect(calls.filter(call => call.method === 'PUT')[0].body?.expectedFileId).toBe(secondId)
     next.dispose()
+  })
+  it('fences a mounted card generation on confirmed 404 while preserving its canonical bytes', async () => {
+    const fileId = 'd'.repeat(32), fetchImpl = vi.fn(async () => json({ error: 'not_found' }, 404))
+    const controller = new OwnTextCardsSync(HEX, A, edition, async () => 'token', fetchImpl as typeof fetch, fileId)
+    expect(controller.saveCard(card())).toHaveLength(1)
+    const key = `tinct-addbook:text-cards-canonical:${A}:${HEX}:${fileId}`, raw = localStorage.getItem(key)
+    await controller.open()
+    expect(controller.isTrusted()).toBe(false)
+    expect(controller.read()).toEqual([])
+    expect(controller.saveCard(card('next-card'))).toBeNull()
+    await controller.sync()
+    expect(fetchImpl).toHaveBeenCalledTimes(1)
+    expect(localStorage.getItem(key)).toBe(raw)
+    controller.dispose()
   })
 
   it('keeps an edit made during an in-flight PUT dirty and sends it in the next revision', async () => {

@@ -35,6 +35,10 @@ describe('Add a book’s engine (add-engine.js)', () => {
     const engine = loadEngine({ userId: 'u1' })
     const hex = 'a1b2c3d4e5f60718293a4b5c', other = 'ffffffffffffffffffffffff'
     for (const k of [`pos:epub:${hex}`, `hl:epub:${hex}`, `cards:epub:${hex}`, `chat:epub:${hex}`, `primer:epub:${hex}:outline-1`, `catchup:epub:${hex}:1-3`, `epub-view:${hex}`, `place:${hex}`, `pos:epub:${other}`]) localStorage.setItem('tinct-addbook:' + k, '1')
+    localStorage.setItem(`tinct-addbook:hl:epub:${hex}`, '[]')
+    localStorage.setItem(`tinct-addbook:cards:epub:${hex}`, '[]')
+    localStorage.setItem(`tinct-addbook:legacy-epub-owner:${hex}`, 'u1')
+    localStorage.setItem(`tinct-addbook:legacy-epub-annotations:u1:${hex}`, JSON.stringify({ marks: [], cards: [] }))
     localStorage.setItem('tinct:library-2-table:u1', JSON.stringify([{ key: 'epub:' + hex }]))
     localStorage.setItem('tinct:library-2-first-paint', 'other books only')
     sessionStorage.setItem('tinct-addbook:pos:epub:' + hex, '1')
@@ -96,17 +100,68 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')).toEqual([other])
     expect(localStorage.getItem(`tinct-addbook:text-marks-local:u2:${hex}`)).toBe('other-account')
   })
+  it('retains the owner marker and backup while a mismatched or malformed global mark projection survives', () => {
+    const engine=loadEngine({userId:'u1'}),hex='a'.repeat(24),marker=`tinct-addbook:text-marks-owner:${hex}`,backup=`tinct-addbook:text-marks-local:u1:${hex}`
+    localStorage.setItem(marker,'u1');localStorage.setItem(backup,'[]')
+    const foreign=[{id:'other-mark',bookId:'userbook-'+hex}]
+    localStorage.setItem('tinct-lab-highlights',JSON.stringify(foreign))
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(marker)).toBe('u1')
+    expect(localStorage.getItem(backup)).toBe('[]')
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')).toEqual(foreign)
+    localStorage.setItem('tinct-lab-highlights','{damaged')
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(marker)).toBe('u1')
+    expect(localStorage.getItem(backup)).toBe('[]')
+    expect(localStorage.getItem('tinct-lab-highlights')).toBe('{damaged')
+  })
   it('removes its sole claimed legacy chat projection, but preserves an ambiguous one', () => {
     const engine=loadEngine({userId:'u1'}),hex='a'.repeat(24),global=`tinct:chat-history:userbook-${hex}`
-    localStorage.setItem(global,'owned chat')
+    const owned=[{id:'chat-one',bookId:'userbook-'+hex,messages:[]}]
+    localStorage.setItem(global,JSON.stringify(owned))
     localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'u1')
+    localStorage.setItem(`tinct-addbook:text-cards-canonical:u1:${hex}:${'f'.repeat(32)}`,JSON.stringify({conversations:owned,items:[],rev:0,dirty:false}))
     engine.forgetBookHere(hex)
     expect(localStorage.getItem(global)).toBeNull()
-    localStorage.setItem(global,'ambiguous chat')
+    localStorage.setItem(global,JSON.stringify([{id:'edited-by-other',bookId:'userbook-'+hex,messages:[]}]))
     localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'u1')
+    localStorage.setItem(`tinct-addbook:text-cards-canonical:u1:${hex}:${'f'.repeat(32)}`,JSON.stringify({conversations:owned,items:[],rev:0,dirty:false}))
     localStorage.setItem(`tinct-addbook:text-cards-canonical:u2:${hex}`,'other owner')
     engine.forgetBookHere(hex)
-    expect(localStorage.getItem(global)).toBe('ambiguous chat')
+    expect(JSON.parse(localStorage.getItem(global) || '[]')[0].id).toBe('edited-by-other')
+    expect(localStorage.getItem(`tinct-addbook:text-cards-owner:${hex}`)).toBe('u1')
+    expect(localStorage.getItem(`tinct-addbook:text-cards-canonical:u1:${hex}:${'f'.repeat(32)}`)).not.toBeNull()
+    localStorage.setItem(global,'{malformed')
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(global)).toBe('{malformed')
+    expect(localStorage.getItem(`tinct-addbook:text-cards-owner:${hex}`)).toBe('u1')
+  })
+
+  it('requires exact legacy EPUB backup proof before clearing raw annotations or their ownership claim', () => {
+    const engine=loadEngine({userId:'u1'}),hex='a'.repeat(24)
+    const claim=`tinct-addbook:legacy-epub-owner:${hex}`,backup=`tinct-addbook:legacy-epub-annotations:u1:${hex}`
+    const marks=`tinct-addbook:hl:epub:${hex}`,cards=`tinct-addbook:cards:epub:${hex}`
+    const mine={id:'my-mark'},foreign={id:'other-mark'},chat={id:'my-card'}
+    localStorage.setItem(claim,'u1')
+    localStorage.setItem(backup,JSON.stringify({marks:[mine],cards:[chat]}))
+    localStorage.setItem(marks,JSON.stringify([foreign]))
+    localStorage.setItem(cards,JSON.stringify([chat]))
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(claim)).toBe('u1')
+    expect(localStorage.getItem(backup)).toBe(JSON.stringify({marks:[mine],cards:[chat]}))
+    expect(localStorage.getItem(marks)).toBe(JSON.stringify([foreign]))
+    expect(localStorage.getItem(cards)).toBe(JSON.stringify([chat]))
+    localStorage.setItem(marks,'{malformed')
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(claim)).toBe('u1')
+    expect(localStorage.getItem(backup)).not.toBeNull()
+    expect(localStorage.getItem(marks)).toBe('{malformed')
+    localStorage.setItem(marks,JSON.stringify([mine]))
+    engine.forgetBookHere(hex)
+    for(const key of [claim,backup,marks,cards])expect(localStorage.getItem(key)).toBeNull()
+    localStorage.setItem(marks,JSON.stringify([foreign]))
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(marks)).toBe(JSON.stringify([foreign]))
   })
 
   it('reads a PDF or EPUB with its key (kind + the first 24 hex digits of its SHA-256) and refuses anything else, as Add a book did', async () => {

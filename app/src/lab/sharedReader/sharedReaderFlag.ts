@@ -1,8 +1,10 @@
-/** Private, per-URL entry for the shared reader rollout. Never persisted. */
+/** Build default is OFF; a release candidate can opt in with VITE_SHARED_READER_DEFAULT=1. */
 export const SHARED_READER_PARAM = 'sharedReader'
+export const SHARED_READER_DEFAULT = import.meta.env.VITE_SHARED_READER_DEFAULT === '1'
 
-export function sharedReaderEnabled(search: string): boolean {
-  return new URLSearchParams(search).get(SHARED_READER_PARAM) === '1'
+export function sharedReaderEnabled(search: string, defaultOn = SHARED_READER_DEFAULT): boolean {
+  const override = new URLSearchParams(search).get(SHARED_READER_PARAM)
+  return override === '1' ? true : override === '0' ? false : defaultOn
 }
 
 /** Let the existing no-book Continue decision see its ordinary query. */

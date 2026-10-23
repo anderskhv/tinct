@@ -124,6 +124,36 @@ it('invalidates the old page text selection before the next page has rendered', 
   await screen.findByText('New page words')
 })
 
+it('reports page completion only after the rendered page reaches its visible end', async () => {
+  vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(624)
+  vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(400)
+  vi.spyOn(HTMLElement.prototype, 'scrollHeight', 'get').mockReturnValue(900)
+  vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({ setTransform: vi.fn() } as unknown as CanvasRenderingContext2D)
+  let releaseNext!: (page: PdfOriginalPage) => void
+  const delayed = new Promise<PdfOriginalPage>(resolve => { releaseNext = resolve })
+  const pdf: PdfOriginalDocument = { numPages: 2, getPage: n => n === 1 ? Promise.resolve(makePage('Page one')) : delayed, destroy: async () => {} }
+  const onPageEnd = vi.fn()
+  const { container, rerender } = render(<PdfOriginalSurface bytes={async () => new Uint8Array([1]).buffer}
+    openDocument={async () => pdf} onVisiblePlace={() => {}} onPageEnd={onPageEnd} />)
+  await screen.findByText('Page one')
+  await waitFor(() => expect(onPageEnd).toHaveBeenLastCalledWith(1, false))
+  const scroll = container.querySelector('.pdf-original__scroll') as HTMLElement
+  scroll.scrollTop = 497
+  fireEvent.scroll(scroll)
+  expect(onPageEnd).toHaveBeenLastCalledWith(1, false)
+  scroll.scrollTop = 498
+  fireEvent.scroll(scroll)
+  expect(onPageEnd).toHaveBeenLastCalledWith(1, true)
+  fireEvent.click(screen.getByRole('button', { name: 'Next PDF page' }))
+  expect(onPageEnd).toHaveBeenLastCalledWith(2, false)
+  releaseNext(makePage('Page two'))
+  await screen.findByText('Page two')
+  expect(onPageEnd).toHaveBeenLastCalledWith(2, false)
+  rerender(<PdfOriginalSurface bytes={async () => new Uint8Array([1]).buffer} openDocument={async () => pdf}
+    requestedPlace={{ page: 2, frac: .8 }} onVisiblePlace={() => {}} onPageEnd={onPageEnd} />)
+  await waitFor(() => expect(onPageEnd).toHaveBeenLastCalledWith(2, true))
+})
+
 it('resolves actual outline destinations once into bounded page entries without inventing page numbers', async () => {
   const documentPdf: PdfOriginalDocument = { numPages: 5, getPage: async () => makePage('Printed words'), destroy: async () => {},
     getOutline: vi.fn(async () => [{ title: 'Introduction', dest: 'intro', items: [{ title: 'Section', dest: [{ num: 2, gen: 0 }], items: [] }] },

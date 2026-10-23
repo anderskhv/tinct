@@ -832,35 +832,55 @@ describe('/api/user-books/cards', () => {
     expect(r2.objects.has(`u/${A}/cards/${hex}/${book.id}`)).toBe(false)
   })
 
-  it('keeps bounded, truthful PDF unit Primer and Catch-up page cards through export and deletion', async () => {
+  it('keeps bounded, truthful PDF unit Primer, Catch-up, Quiz and Note cards through export and deletion', async () => {
     const { env, r2, call, book, hex } = await withPdf()
     const unit = { key: 'chapter-4', title: 'Chapter 4', from: 7, to: 12 }
     const primer = card('primer1', { kind: 'ask', page: 7, pageOnly: true, rects: [], text: 'Chapter 4',
       data: { action: 'primer', unit, source: { from: 7, to: 10 } } })
     const catchup = card('catchup1', { kind: 'ask', page: 7, pageOnly: true, rects: [], text: 'Before Chapter 4',
       data: { action: 'catchup', unit, source: { from: 2, to: 6 } } })
+    const quiz = card('unitquiz1', { kind: 'quiz', page: 12, pageOnly: true, rects: [], text: 'Chapter 4',
+      turns: [{ role: 'assistant', content: 'Generated unit questions.' }, { role: 'assistant', content: 'Completed quiz feedback.' }],
+      data: { action: 'quiz', unit, source: { from: 7, to: 12 } } })
+    const note = card('unitnote1', { kind: 'ask', page: 12, pageOnly: true, rects: [], text: 'Chapter 4',
+      turns: [{ role: 'user', content: 'My note about Chapter 4.' }],
+      data: { action: 'note', unit, source: { from: 7, to: 12 } } })
     for (const bad of [
       { ...primer, page: 13 }, { ...primer, data: { action: 'primer', unit, source: { from: 1, to: 8 } } },
       { ...catchup, data: { action: 'catchup', unit, source: { from: 6, to: 7 } } },
       { ...catchup, data: { action: 'catchup', unit: { ...unit, title: '' }, source: { from: 2, to: 6 } } },
       { ...catchup, data: { action: 'catchup', unit, source: { from: 2, to: 6 }, invented: true } },
       { ...primer, text: '  ' },
+      { ...quiz, kind: 'ask' }, { ...note, kind: 'quiz' },
+      { ...quiz, turns: [] }, { ...quiz, turns: [{ role: 'assistant', content: 'Unfinished quiz.' }] },
+      { ...quiz, turns: [{ role: 'user', content: 'No questions.' }, quiz.turns[1]] },
+      { ...quiz, data: { action: 'quiz', unit, source: { from: 6, to: 12 } } },
+      { ...note, page: 13 }, { ...note, rects: [[12, .1, .2, .5, .02]] },
+      { ...note, turns: [] }, { ...note, turns: [{ role: 'user', content: '   ' }] },
+      { ...quiz, data: { action: 'quiz', unit, source: { from: 7, to: 12 }, invented: true } },
     ]) expect((await put(call, 'token-a', hex, { cards: [bad], rev: 0, expectedFileId: book.id })).status).toBe(400)
-    expect((await put(call, 'token-a', hex, { cards: [primer, catchup], rev: 0, expectedFileId: book.id })).status).toBe(200)
-    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards: [primer, catchup], rev: 1, fileId: book.id })
-    expect((await listOwnCards(env.USER_BOOKS, A))[`${hex}/${book.id}`]).toEqual({ cards: [primer, catchup], removed: 0, rev: 1 })
+    const cards = [primer, catchup, quiz, note]
+    expect((await put(call, 'token-a', hex, { cards, rev: 0, expectedFileId: book.id })).status).toBe(200)
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards, rev: 1, fileId: book.id })
+    expect((await listOwnCards(env.USER_BOOKS, A))[`${hex}/${book.id}`]).toEqual({ cards, removed: 0, rev: 1 })
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
     expect(r2.objects.has(`u/${A}/cards/${hex}/${book.id}`)).toBe(false)
   })
 
-  it('keeps a new page-only recap when the shipped older PDF client merges and writes geometry cards', async () => {
+  it('keeps new page-only actions when the shipped older PDF client merges and writes geometry cards', async () => {
     const { env, call, upload, book, hex } = await withPdf()
     const recap = card('recap1', { kind: 'ask', pageOnly: true, rects: [], data: { action: 'recap' }, text: 'Whole page.',
       turns: [{ role: 'assistant', content: 'The page in brief.' }] })
+    const unit = { key: 'chapter-1', title: 'Chapter 1', from: 1, to: 3 }
+    const quiz = card('unitquiz1', { kind: 'quiz', page: 3, pageOnly: true, rects: [], text: 'Chapter 1',
+      turns: [{ role: 'assistant', content: 'Generated quiz.' }, { role: 'assistant', content: 'Completed feedback.' }],
+      data: { action: 'quiz', unit, source: { from: 1, to: 3 } } })
+    const note = card('unitnote1', { kind: 'ask', page: 3, pageOnly: true, rects: [], text: 'Chapter 1',
+      turns: [{ role: 'user', content: 'My after-unit note.' }], data: { action: 'note', unit, source: { from: 1, to: 3 } } })
     const textMark = { v: 'text-v1', id: 'hl-source_1', anchor: { kind: 'range', editionKey: 'own-en', converter: 6,
       chapterNumber: 1, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 2 },
       text: 'Source words', color: 'gold', at: 1000 }
-    expect((await put(call, 'token-a', hex, { cards: [recap], rev: 0, expectedFileId: book.id })).status).toBe(200)
+    expect((await put(call, 'token-a', hex, { cards: [recap, quiz, note], rev: 0, expectedFileId: book.id })).status).toBe(200)
     expect((await call(`/api/user-books/text-marks/${hex}`, { method: 'PUT', token: 'token-a',
       body: JSON.stringify({ marks: [textMark], rev: 0, expectedFileId: book.id }) })).status).toBe(200)
     const { book: epub } = await (await upload('token-a', epubBytes())).json() as { book: UserBook }
@@ -873,6 +893,8 @@ describe('/api/user-books/cards', () => {
     const geometry = card('oldpdf1')
     const merged = staticMargin.mergeCards([geometry], oldClientGet.cards)
     expect(merged).toContainEqual(recap)
+    expect(merged).toContainEqual(quiz)
+    expect(merged).toContainEqual(note)
     // Shipped static PDF clients know neither expectedFileId nor pageOnly;
     // they preserve unrecognized fields when re-sending the complete merged set.
     const oldClientPut = await put(call, 'token-a', hex, { cards: merged, rev: oldClientGet.rev })
