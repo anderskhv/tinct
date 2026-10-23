@@ -241,7 +241,8 @@ async function putRecord(record: UserBookRecord): Promise<void> {
 
 /** The account copy of one EPUB (ownAccount.ts); injectable for tests. */
 export type AccountCopyLoader = (hex: string) => Promise<AccountCopy>
-const loadAccountCopy: AccountCopyLoader = async hex => fetchAccountCopy(hex, await ownBookToken())
+const loadAccountCopy: AccountCopyLoader = async hex => fetchAccountCopy(hex, await ownBookToken(), fetch,
+  () => { void import('./epubEdition').catch(() => {}) })
 
 /**
  * The account's copy as this device's record: downloaded, checked against the

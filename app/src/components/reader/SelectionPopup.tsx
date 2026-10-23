@@ -252,6 +252,7 @@ export function SelectionPopup({
   useLayoutEffect(() => {
     if (!lab || !popupRef.current) return
     const el = popupRef.current
+    let placedBox: { width: number; height: number } | null = null
     const place = () => {
       // An expanding explanation grows in place: the edge that faces the
       // selection stays put, it widens to one leaf, and it moves only as far
@@ -266,8 +267,10 @@ export function SelectionPopup({
         if (room >= 280) el.style.setProperty('max-height', `${room}px`, 'important')
         else el.style.removeProperty('max-height')
         const height = el.offsetHeight
+        const width = el.offsetWidth
+        placedBox = { width, height }
         const y = Math.max(76, Math.min(low - height, anchor.edge === 'below' ? anchor.y : anchor.y + anchor.height - height))
-        const x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, anchor.x))
+        const x = Math.max(12, Math.min(window.innerWidth - width - 12, anchor.x))
         el.style.setProperty('--anchored-popup-x', `${x}px`)
         el.style.setProperty('--anchored-popup-y', `${y}px`)
         return
@@ -277,15 +280,17 @@ export function SelectionPopup({
       const top = pointerY ?? bounds?.top ?? selection.y
       const bottom = pointerY ?? bounds?.bottom ?? selection.y
       const height = el.offsetHeight
+      const width = el.offsetWidth
+      placedBox = { width, height }
       const low = window.innerHeight - 32
       const above = top - 12 - height
       const below = bottom + 12
       let y = below + height <= low ? below : above >= 76 ? above
         : Math.max(76, Math.min(low - height, top - height - 12))
-      let x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, selection.x - el.offsetWidth / 2))
+      let x = Math.max(12, Math.min(window.innerWidth - width - 12, selection.x - width / 2))
       const saved = compactAnchor.current
       if (popupMode === 'colors' && saved?.selectionX === selection.x && saved.selectionY === selection.y) {
-        x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, saved.x))
+        x = Math.max(12, Math.min(window.innerWidth - width - 12, saved.x))
         y = Math.max(76, Math.min(low - height, saved.y))
       }
       if (popupMode === 'main' || popupMode === 'define') {
@@ -304,7 +309,17 @@ export function SelectionPopup({
       el.style.setProperty('--anchored-popup-y', `${y}px`)
     }
     place()
-    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(place) : null
+    // observe() delivers the current box even when it has not changed. Its
+    // duplicate placement would remeasure the selected words and force layout
+    // while the toolbar is trying to appear. A genuinely changed box still
+    // repositions the popup; window resize always does too.
+    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(entries => {
+      const size = entries.find(entry => entry.target === el)?.borderBoxSize
+      const box = (Array.isArray(size) ? size[0] : size) as ResizeObserverSize | undefined
+      if (box && placedBox && Math.abs(box.inlineSize - placedBox.width) < 0.75
+        && Math.abs(box.blockSize - placedBox.height) < 0.75) return
+      place()
+    }) : null
     observer?.observe(el)
     window.addEventListener('resize', place)
     return () => { observer?.disconnect(); window.removeEventListener('resize', place) }

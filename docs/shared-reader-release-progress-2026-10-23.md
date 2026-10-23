@@ -373,3 +373,15 @@ estimate rather than a measured completion metric. Implementation and
 functional acceptance are substantially complete. Performance, approved
 deployment and live provider acceptance remain. No unattended execution
 guarantee was made when he said he would be offline.
+
+Candidate16 (`index-Co9oahaE.js`) now builds ON and passes verify-bundle with
+the narrow repairs. The popup caches its measured box and skips an unchanged
+initial ResizeObserver delivery; changed size, window resize and older APIs
+still reposition. Its regression passes in the 28-case SelectionPopup suite.
+Owned marks/cards open together with independent catches and 2500 ms bounds,
+then both settle before paint. The converter's public module warms only after
+an account EPUB row is matched, overlapping verified download; PDF never warms
+it and normal conversion still determines success. Deferred old-owner/parallel
+opening and EPUB/PDF/hash checks pass with the 81-case focused group.
+Independent read-only review accepts source safety. The complete quiet
+candidate16 performance matrix is running; no result is claimed yet.

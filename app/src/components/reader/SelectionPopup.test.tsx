@@ -297,6 +297,47 @@ it('bounds a long private selection with its two endpoint words', () => {
   } finally { rects.mockRestore() }
 })
 
+it('skips duplicate resize delivery but repositions a long selection for a changed box, window, or older observer', () => {
+  let notify!: ResizeObserverCallback
+  class TestResizeObserver {
+    constructor(callback: ResizeObserverCallback) { notify = callback }
+    observe() {}
+    disconnect() {}
+  }
+  vi.stubGlobal('ResizeObserver', TestResizeObserver)
+  let width = 280
+  const widthRead = vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockImplementation(() => width)
+  const heightRead = vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(80)
+  const rects = vi.spyOn(Element.prototype, 'getClientRects').mockImplementation(function(this: Element) {
+    if (!this.classList.contains('is-selecting')) return [] as unknown as DOMRectList
+    return [new DOMRect(30, Number(this.getAttribute('data-top')), 24, 16)] as unknown as DOMRectList
+  })
+  try {
+    const words = Array.from({ length: 20 }, (_, index) => <span className="lab-hearing-word is-selecting" data-top={120 + index * 9} key={index}>word </span>)
+    const input = props({ lab: true, sharedReader: true, popupMode: 'main', selection: selection({ x: 350, y: 310, text: 'A long selected passage whose words span several lines of the visible reading page.' }) })
+    const view = render(<div className="lab">{words}<SelectionPopup {...input} /></div>)
+    const popup = view.container.querySelector<HTMLElement>('.selection-popup')!
+    const selectedReads = () => rects.mock.instances.filter(node => node instanceof Element && node.classList.contains('is-selecting')).length
+    const y = popup.style.getPropertyValue('--anchored-popup-y'), x = popup.style.getPropertyValue('--anchored-popup-x')
+    expect(selectedReads()).toBe(2)
+    const deliver = (size?: { inlineSize: number; blockSize: number }) => notify([{ target: popup, borderBoxSize: size ? [size] : undefined } as unknown as ResizeObserverEntry], {} as ResizeObserver)
+    deliver({ inlineSize: 280, blockSize: 80 })
+    expect(selectedReads()).toBe(2)
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBe(y)
+    width = 320
+    deliver({ inlineSize: 320, blockSize: 80 })
+    expect(selectedReads()).toBe(4)
+    expect(popup.style.getPropertyValue('--anchored-popup-x')).not.toBe(x)
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBe(y)
+    deliver({ inlineSize: 320, blockSize: 80 })
+    expect(selectedReads()).toBe(4)
+    window.dispatchEvent(new Event('resize'))
+    expect(selectedReads()).toBe(6)
+    deliver()
+    expect(selectedReads()).toBe(8)
+  } finally { rects.mockRestore(); widthRead.mockRestore(); heightRead.mockRestore(); vi.unstubAllGlobals() }
+})
+
 it('shows a contextual person card for a name missing from the released cards', async () => {
   const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'A person identified in the selected passage',body:'Contextual test answer.'}))
   render(<SelectionPopup {...props({lab:true,defineQuery:'Jehohanan',defineLoading:false,defineNotFound:true,onRequestExplanation:request})} />)

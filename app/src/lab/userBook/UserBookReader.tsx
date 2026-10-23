@@ -189,20 +189,24 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       const book = { ...sourceBook, place: (sourceBook.kind === 'pdf' ? readPdfTextPlace(hex, sourceBook.edition, { page }) : readEpubPlace(hex, sourceBook.edition, undefined, { requireUniqueQuote: sharedReader })) ?? sourceBook.place }
       if (sharedReader && owner) {
         guardOwnTextMarks(hex)
-        try {
-          if (fileId) marks = startOwnTextMarksSync(hex, owner, book.edition, fileId)
-          // Sync is bounded for first paint. A later response is still delivered to the mounted reader.
-          if (marks) await Promise.race([marks.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
-        } catch { marks?.dispose(); marks = null /* book still opens; owner-unsafe marks remain hidden */ }
+        // Both owner-qualified controllers reconcile before first paint, but their
+        // account requests are independent. Start each even while the other waits.
+        const marksOpening = (async () => {
+          try {
+            if (fileId) marks = startOwnTextMarksSync(hex, owner, book.edition, fileId)
+            // A later response is still delivered to the mounted reader.
+            if (marks) await Promise.race([marks.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
+          } catch { marks?.dispose(); marks = null /* book still opens; owner-unsafe marks remain hidden */ }
+        })()
+        const cardsOpening = (async () => {
+          try {
+            if (fileId) cards = new OwnTextCardsSync(hex, owner, book.edition, undefined, undefined, fileId)
+            if (cards) await Promise.race([cards.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
+          } catch { cards?.dispose(); cards = null }
+        })()
+        await Promise.all([marksOpening, cardsOpening])
         if (!live) return
         setRecoverableMarks(unassignedOwnTextMarkCount(hex, owner))
-        try {
-          if (fileId) cards = new OwnTextCardsSync(hex, owner, book.edition, undefined, undefined, fileId)
-          if (cards) {
-          await Promise.race([cards.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
-          }
-        } catch { cards?.dispose(); cards = null }
-        if (!live) return
         setRecoverableCards(cards ? unassignedOwnTextCardCount(hex, owner, fileId) : 0)
         if (book.kind !== 'pdf') {
           setUnclaimedEpubMarks(unclaimedLegacyEpubCount(hex, owner))
