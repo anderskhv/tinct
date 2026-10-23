@@ -521,7 +521,9 @@ async function upload(request: Request, bucket: R2Bucket, userId: string, checkR
     author: encodeMeta(headerText(request, 'x-book-author'), META_CAPS.author),
     type,
     sha256,
-    annotationGeneration: ANNOTATION_GENERATION,
+    // Rollback-floor uploads remain readable by the shipped PDF reader and
+    // writable at the old bare annotation keys. Modern files retain their
+    // existing marker; this branch only creates a new, legacy-generation file.
     createdAt: new Date().toISOString(),
     ...rightsAttestation(request),
   }
@@ -566,6 +568,9 @@ async function handleMetadata(
   const fileKey = `${userBooksPrefix(user.id)}${book.id}`
   const file = await bucket.head(fileKey)
   if (!file || file.customMetadata?.sha256 !== book.sha256 || file.customMetadata?.type !== book.type) return notFound(request)
+  if (request.method === 'PATCH' && file.customMetadata?.annotationGeneration !== ANNOTATION_GENERATION) {
+    return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
+  }
   const key = ownBookMetadataKey(user.id, book.id)
   const override = await bucket.head(key)
   const metadata = override?.customMetadata
@@ -614,7 +619,9 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
   const key = `${userBooksPrefix(userId)}${fileId}`
   const head = await bucket.head(key)
   if (!head) return notFound(request)
-  await bucket.delete(key)
+  // Keep the owned file visible until shared hash-key cleanup finishes. A
+  // same-hash upload deduplicates against it, rather than creating a fresh
+  // file whose bare annotations a late cleanup would delete.
   // Its narration, Catch me up recap, primers and recognised text go with it (the same file is stored once per account).
   const sha256 = head.customMetadata?.sha256 ?? ''
   if (/^[0-9a-f]{64}$/.test(sha256)) {
@@ -630,6 +637,7 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
     if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
     await purgePrefix(bucket, ownOcrPrefix(userId, bookHex))
   }
+  await bucket.delete(key)
   return reply({ ok: true }, 200, request)
 }
 
@@ -1235,13 +1243,15 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
     if (c.pageOnly !== undefined && !pageOnly) return null
     if (!Array.isArray(c.rects) || pageOnly !== (c.rects.length === 0)) return null
     if (pageOnly) {
-      if (c.kind !== 'ask' || !c.data || typeof c.data !== 'object' || Array.isArray(c.data)
+      if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)
         || typeof c.text !== 'string' || !c.text.trim()) return null
       const data = c.data as Record<string, unknown>
       if (data.action === 'recap' && Object.keys(data).length === 1) {
         // Existing whole-page recaps precede unit metadata; keep them readable.
+        if (c.kind !== 'ask') return null
       } else {
-        if (!['primer', 'catchup', 'recap'].includes(String(data.action))
+        if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(data.action))
+          || c.kind !== (data.action === 'quiz' ? 'quiz' : 'ask')
           || Object.keys(data).some(key => !['action', 'unit', 'source'].includes(key))
           || !data.unit || typeof data.unit !== 'object' || Array.isArray(data.unit)
           || !data.source || typeof data.source !== 'object' || Array.isArray(data.source)) return null
@@ -1276,6 +1286,11 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
         turns.push({ role: turn.role, content: turn.content.slice(0, CARD_CONTENT), ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: (turn.display as string).slice(0, MARK_TEXT) } : {}) })
       }
     }
+    if (pageOnly && (c.data as Record<string, unknown>).action === 'note'
+      && !turns.some(turn => turn.role === 'user' && turn.content.trim())) return null
+    if (pageOnly && (c.data as Record<string, unknown>).action === 'quiz'
+      && (turns.length < 2 || turns[0].role !== 'assistant' || !turns[0].content.trim()
+        || turns[1].role !== 'assistant' || !turns[1].content.trim())) return null
     const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number,
       ...(pageOnly ? { pageOnly: true as const } : {}), rects, text: c.text.slice(0, MARK_TEXT), turns, at: c.at as number }
     if (c.u !== undefined) card.u = c.u as number
@@ -1300,9 +1315,25 @@ const TEXT_CARDS_SET: OwnSet = { key: ownCardsKey, read: readEpubCards, field: '
 const PDF_TEXT_MARKS_SET: OwnSet = { key: ownPdfTextMarksKey, read: readTextMarks, field: 'marks', pdfText: true }
 const PDF_TEXT_CARDS_SET: OwnSet = { key: ownPdfTextCardsKey, read: readTextCards, field: 'cards', pdfText: true }
 
-async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown, dropped?: { count: number }) => T[] | null): Promise<{ list: T[]; rev: number; etag: string | null; corrupt: boolean }> {
+/** Old clients require an array root. Encode the advancing revision as bounded
+ * JSON whitespace so a repeat write still changes R2's body-derived ETag. */
+function legacyArrayBody(list: OwnSetItem[], rev: number, fileId: string): string {
+  const digits = [' ', '\t', '\n', '\r']
+  let value = rev
+  let suffix = ''
+  do { suffix = digits[value % 4] + suffix; value = Math.floor(value / 4) } while (value > 0)
+  // The file ID keeps two successive uploads of identical bytes distinct,
+  // even when both write the same list and revision at the shared bare key.
+  const generation = [...fileId].map(nibble => {
+    const n = parseInt(nibble, 16)
+    return digits[Math.floor(n / 4)] + digits[n % 4]
+  }).join('')
+  return `${JSON.stringify(list)}\n${generation}\r${suffix}`
+}
+
+async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown, dropped?: { count: number }) => T[] | null): Promise<{ list: T[]; rev: number; etag: string | null; corrupt: boolean; sealed: boolean; enveloped: boolean; fileId: string | null }> {
   const object = await bucket.get(key)
-  if (!object) return { list: [], rev: 0, etag: null, corrupt: false }
+  if (!object) return { list: [], rev: 0, etag: null, corrupt: false, sealed: false, enveloped: false, fileId: null }
   const rev = Number(object.customMetadata?.rev)
   let list: T[] | null = null
   let bodyRev: unknown = undefined
@@ -1321,7 +1352,9 @@ async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown
   } catch { list = null }
   const corrupt = !list || dropped.count > 0 || !Number.isInteger(rev) || rev < 1 || !object.etag
     || enveloped && bodyRev !== rev
-  return { list: list ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag, corrupt }
+  return { list: list ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag, corrupt,
+    sealed: object.customMetadata?.annotationMigration === 'sealed-v1', enveloped,
+    fileId: object.customMetadata?.fileId ?? null }
 }
 
 /** File metadata may be gone while a valid set remains for account export. */
@@ -1440,36 +1473,66 @@ async function handleMarks(
   const legacyKey = activeSet.key(user.id, bookHex)
   const key = ownSetGenerationKey(legacyKey, book.id)
   const generated = await storedSet(bucket, key, activeSet.read)
+  const legacyFile = file.customMetadata?.annotationGeneration !== ANNOTATION_GENERATION && !generated.etag
   // Existing files have no generation marker. Read their old set until a first
   // write copies the complete set to this file's generation; a newly uploaded
   // copy of identical bytes must never inherit that old reader data.
-  const current = !set.pdfText && !generated.etag && file.customMetadata?.annotationGeneration !== ANNOTATION_GENERATION
-    ? await storedSet(bucket, legacyKey, activeSet.read) : generated
+  const bare = !set.pdfText && legacyFile ? await storedSet(bucket, legacyKey, activeSet.read) : null
+  // A delayed old-generation PUT can recreate a bare key after deletion. Its
+  // stamped file ID is never a source for the new upload of identical bytes.
+  // Keep its ETag for conditional replacement, not its list or revision.
+  const current = bare && bare.fileId && bare.fileId !== book.id && !bare.sealed
+    ? { ...bare, list: [] as OwnSetItem[], rev: 0, corrupt: false, enveloped: false }
+    : bare ?? generated
+  if (legacyFile && bare?.sealed && bare.fileId && bare.fileId !== book.id) {
+    return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
+  }
   if (current.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
+  if (legacyFile && (set.pdfText || book.type !== 'pdf')) {
+    return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
+  }
   if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev, fileId: book.id }, 200, request)
+  // A sealed bare key is the full Worker's migration fence: an older in-flight
+  // conditional PUT fails its changed ETag, and a later floor request stops here.
+  // An unexpected envelope at the bare key must not be overwritten by a bare
+  // array either. The full Worker completes migration on retry.
+  if (legacyFile && (current.sealed || current.enveloped)) {
+    return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
+  }
   // Cards too large even when trimmed are left out of the set, not a reason to refuse it; the reader is told how many.
   const dropped = { count: 0 }
   const list = activeSet.read(body?.[set.field], dropped)
   const expected = body?.rev
   if (!list || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
+  if (legacyFile && set.field === 'cards' && list.some(item => 'pageOnly' in item)) {
+    return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
+  }
   if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev, fileId: book.id }, 409, request)
   const rev = current.rev + 1
   // Conditional on the object read above: a write that landed in between wins, and this one is told.
   // A complete revision-bearing envelope avoids an identical-list ETag and
   // lets readers detect disagreement between body and metadata. The planned
   // rollback floor keeps this reader while restoring the old UI.
-  const stored = await bucket.put(key, JSON.stringify({ rev, list }), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) },
-    onlyIf: generated.etag ? { etagMatches: generated.etag } : new Headers({ 'If-None-Match': '*' }) })
+  // Bare arrays remain the source of truth for a floor-created/legacy file.
+  // JSON whitespace encodes the revision in base four, so identical lists
+  // still change the body-derived R2 ETag with logarithmic overhead. The full
+  // reader and the old main reader both parse this as a bare array.
+  const target = legacyFile ? legacyKey : key
+  const encoded = legacyFile ? legacyArrayBody(list, rev, book.id) : JSON.stringify({ rev, list })
+  const stored = await bucket.put(target, encoded, { httpMetadata: { contentType: 'application/json' },
+    customMetadata: { rev: String(rev), ...(legacyFile ? { fileId: book.id } : {}) },
+    onlyIf: (legacyFile ? current.etag : generated.etag) ? { etagMatches: (legacyFile ? current.etag : generated.etag)! } : new Headers({ 'If-None-Match': '*' }) })
   if (!stored) {
-    const latest = await storedSet(bucket, key, activeSet.read)
+    const latest = await storedSet(bucket, target, activeSet.read)
     if (latest.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
+    if (legacyFile && (latest.sealed || latest.enveloped)) return reply({ error: 'temporarily_unavailable', retryable: true }, 503, request)
     return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev, fileId: book.id }, 409, request)
   }
   const stillOwned = await bucket.head(fileKey)
   if (!stillOwned || stillOwned.customMetadata?.sha256 !== book.sha256 || stillOwned.customMetadata?.type !== book.type) {
     // A concurrent deletion may have removed the set before this PUT landed.
     // Only remove our own result; never knowingly delete a newer set write.
-    if ((await bucket.head(key))?.etag === stored.etag) await bucket.delete(key)
+    if ((await bucket.head(target))?.etag === stored.etag) await bucket.delete(target)
     return notFound(request)
   }
   return reply({ rev, fileId: book.id, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)

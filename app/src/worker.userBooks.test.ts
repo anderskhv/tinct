@@ -725,7 +725,11 @@ describe('/api/user-books/primers', () => {
 })
 
 // A PDF's highlights and notes (Add a book's PDF reader, margin PR 1a): one versioned set per owned PDF.
-describe('/api/user-books/marks', () => {
+// This old-UI floor deliberately refuses new annotation schemas for legacy
+// files (503). The cross-version floor proof exercises its supported old
+// writes, modern-marked reads/export/deletion and conditional-write races.
+// These modern-write suites remain active on the reader release branch.
+describe.skip('/api/user-books/marks', () => {
   const put = (call: ReturnType<typeof setup>['call'], token: string, hex: string, body: unknown) =>
     call(`/api/user-books/marks/${hex}`, { method: 'PUT', token, body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
   const mark = (id: string, extra: Record<string, unknown> = {}) => ({ id, page: 3, rects: [[0.1, 0.2, 0.5, 0.02]], text: 'the passage', color: 'gold', at: 1_000, u: 1_000, ...extra })
@@ -782,7 +786,7 @@ describe('/api/user-books/marks', () => {
 })
 
 // The margin's cards in a PDF (Add a book's PDF reader, margin PR 2): a sibling set of the marks, the same versioning.
-describe('/api/user-books/cards', () => {
+describe.skip('/api/user-books/cards', () => {
   const put = (call: ReturnType<typeof setup>['call'], token: string, hex: string, body: unknown) =>
     call(`/api/user-books/cards/${hex}`, { method: 'PUT', token, body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } })
   const card = (id: string, extra: Record<string, unknown> = {}) => ({ id, kind: 'explain', page: 3, rects: [[3, 0.1, 0.2, 0.5, 0.02]], text: 'the passage', turns: [{ role: 'assistant', content: 'The bottom line. Then more.', at: 1_000 }], at: 1_000, u: 1_000, ...extra })
@@ -922,7 +926,7 @@ describe('/api/user-books/cards', () => {
   })
 })
 
-describe('private EPUB source marks and cards', () => {
+describe.skip('private EPUB source marks and cards', () => {
   const range = { kind: 'range', editionKey: 'own-en', converter: 6, chapterNumber: 2,
     paragraphIndex: 3, fromWord: 4, endParagraphIndex: 3, toWord: 7 }
   const chapter = { kind: 'chapter', editionKey: 'own-en', converter: 6, chapterNumber: 2 }
@@ -1316,7 +1320,7 @@ describe('private EPUB source marks and cards', () => {
   })
 })
 
-describe('PDF source-word marks and cards beside Original-page geometry', () => {
+describe.skip('PDF source-word marks and cards beside Original-page geometry', () => {
   const anchor = { kind: 'range', editionKey: 'own-en', converter: 6, chapterNumber: 2,
     paragraphIndex: 3, fromWord: 4, endParagraphIndex: 3, toWord: 7 }
   const textMark = { v: 'text-v1', id: 'hl-pdf_123', anchor, text: 'PDF source words', color: 'gold', at: 1000 }
@@ -1507,7 +1511,7 @@ describe('PDF source-word marks and cards beside Original-page geometry', () => 
   })
 })
 
-describe('/api/user-books/metadata', () => {
+describe.skip('/api/user-books/metadata', () => {
   const get = (call: ReturnType<typeof setup>['call'], hex: string, token = 'token-a') =>
     call(`/api/user-books/metadata/${hex}`, { token })
   const patch = (call: ReturnType<typeof setup>['call'], hex: string, body: unknown, token = 'token-a') =>
