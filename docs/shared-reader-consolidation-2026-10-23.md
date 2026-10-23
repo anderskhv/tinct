@@ -81,6 +81,15 @@ LabApp and LabPassage already understand poetry, Bible verse alignment, speakers
 - Current first-window loading is useful, but does not prove bounded DOM rendering for a Bible-sized work.
 - Private books have their own ownership and sync contracts. Shared UI/controller logic must retain these distinctions instead of writing private uploads into catalogue-book stores.
 
+### Concrete identity and storage contracts
+
+- Bible catalogue identity is bible, but positions are keyed by biblical book (for example genesis) with an internal chapter number and separate sequentialChapter. labPosition.ts rejects a literal bible position ID. Preserve this mapping.
+- Own text positions use tinct-addbook:place:<hex> and conversion/revision metadata; PDF original/text positions share tinct-addbook:pos:pdf:<hex>. Account writes use the revision-checked /api/user-books/places/{hex}, not /api/lab-position.
+- React own-book highlights currently disable catalogue-account highlight sync. Static PDF marks/cards use private R2 sets; /api/user-books/marks/{hex} and /cards/{hex} currently validate PDF ownership specifically. EPUB and pasted text cannot simply be sent to those endpoints.
+- Catalogue Margin cards map to ChatConversation.card plus message turns; deleted cards become tombstone conversations. Explain caches, chapter notes and highlight notes are distinct records. Notebook should reconcile them without duplication or silently turning every cache entry into a conversation.
+- Own export already covers metadata, places, marks, cards, covers, recaps, primers and OCR; deletion purges the private per-user namespace. Extend coverage alongside any supported source changes.
+- Shared controllers must dispatch through explicit source/storage capabilities. Identify whether parity needs a route/type extension or schema change; review the concrete change before implementation if it crosses an approval boundary.
+
 ## Implementation sequence
 
 Every slice stays on the integration branch or bounded child branches until the coordinated cutover. Do not merge partial UI to main just to use the existing deploy flow.
@@ -150,9 +159,9 @@ The new private switch must not reuse today's margin=1 opt-in: readers already u
 - #600: handoff says included in #597; confirm equivalence before closing it.
 - #521: assess whether chat continuation is necessary for the agreed interactions; avoid unrelated scope.
 - #587 (profile/Premium/billing/migrations), #569 (book release), Danish and unrelated content releases stay outside this coordinated reader update.
-- Keep one serialized production release owner. Existing Claude jobs and external schedules need an ownership confirmation before shared integration/release activity.
+- Keep one serialized production release owner. Anders confirmed on 23 October that Claude is stopped. Check the relevant scheduled workflows before the final cutover; do not resume unrelated queues.
 - Local Codex reader/content release heartbeats inspected on 23 October were paused. That does not establish the state of Claude's cloud triggers.
-- Current repository instruction requires cloud development. GitHub read/write access is available, but an executable cloud workspace is not connected to this chat; the documented local fallback path is absent. Resolve the workspace before implementation/tests. Preserve historical checkouts and unrelated work.
+- Current repository instruction requires cloud development. GitHub read/write access is available, but an executable cloud workspace is not connected to this chat; the documented local fallback path is absent. Anders selected cloud development and will help connect it; no local fallback is authorized. Resolve the workspace before implementation/tests. Preserve historical checkouts and unrelated work.
 
 ## Planning status
 
