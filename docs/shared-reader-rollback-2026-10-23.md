@@ -9,6 +9,17 @@ workflow passed at 21:20:38 UTC. Its actual Worker version
 recorded in the reader floor manifest. The earlier candidate inspection and
 workflow contract below remain the compatibility evidence and constraints.
 
+The corrected reader release is now accepted: PR #607 merged as
+`14314a5d03cf285a548d9c40c2b59fe835b694de`; manual reader run `40035310387`
+passed all six live groups, including the exact-bundle 120-case speaker audit,
+and the complete first-attempt workflow. The current production Worker is
+`1bdaf83e-e30f-44bf-954c-46dc2edf66db`, bundle `index-B_Jdu6u2.js`.
+The one approved real voice run `40036966171` and its actual provider/audio
+verification passed. The independently guarded continuation `40035289700`
+completed successfully. Retain the exact accepted compatible floor above for
+rollback; do not substitute the original incompatible Worker. The pending
+ordinary-push guard and floor manifest remain unchanged.
+
 The first reader attempt, run `40028070875` at main
 `fafc518d8d6284c2e9406aba68c478ff0ad37980`, deployed
 `d7ca8cf9-0d69-46a8-8bc0-8c88dd0a00f9` (`index-BkDbfbHd.js`) but failed
@@ -16,7 +27,7 @@ two stale desktop Notebook expectations and a featured-preview keyboard
 timeout. Four other live groups passed. Automatic rollback job `120676461588`
 restored `f9521101-aa25-4d2c-ab44-b0d1c9e149bf` successfully; a fresh internal
 GET confirms floor bundle `index-CQIECQfJ.js`. Keep that exact floor pin for
-the corrected reader attempt. No paid voice check ran.
+the corrected reader attempt. No paid voice check ran during that failed attempt.
 
 The old Worker alone is not a safe rollback target after new private reader
 records have been written. It does not understand revision-bearing annotation
