@@ -3,11 +3,12 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { chromium } from '@playwright/test'
+import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:3001'
 const output = 'artifacts/shared-reader-menu'
 await fs.mkdir(output, { recursive: true })
-const browser = await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] })
+const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
 
 async function open(theme, phone = false) {
   const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, serviceWorkers: 'block', reducedMotion: 'reduce' })

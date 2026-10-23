@@ -38,6 +38,24 @@ surfaces, not evidence that consolidation is complete.
 
 ## Paste text
 
+### Revised after Anders's feedback
+
+The multi-step concept below is superseded. The working private Add flow now
+starts with one text box and **Add to my books**. Format detection and a
+conservative title suggestion happen automatically. **Review details** is
+optional; title and author can also be edited later from the book's menu.
+Metadata edits keep the source bytes and reading anchors unchanged.
+
+These screenshots show the actual dialog and styles with a synthetic shelf
+background. Save/reopen and multi-device acceptance are tracked separately;
+the pictures alone do not prove those journeys.
+
+![Simplified Paste text, 390x844](assets/paste-simple-390x844.png)
+
+[Smaller phone, 360x740](assets/paste-simple-360x740.png)
+
+### Original concept, retained for decision history
+
 This is proposed UI using the current Tinct dialog styles and existing PDF/EPUB
 entry copy. Its library background is illustrative. Plain text, Markdown, and
 HTML sample states, editable title/author, paragraph start/end trimming, and a

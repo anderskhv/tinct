@@ -8,6 +8,7 @@ This is the live execution record for the [agreed release plan](shared-reader-co
 - PR #604 remains draft, targeting #603's branch, initially at `5f9a46ffb0027e6427d616d920a4163f9cd6c3ea`.
 - GitHub Actions run `39926979982` failed only the three `termsPage.test.ts` assertions that still named PDF-only storage after the notice was made accurate for EPUB. The other completed verify jobs passed, including reader panels, library, page layout, and four Margin layout shards. This does not establish acceptance of subsequent changes.
 - The privacy regression repair is independently reviewed and saved in #604 as `9925229305eae070a636aa420e666b26123aa8b4`. It retains checks for source/PDF locations, availability-qualified EPUB support, private R2/browser storage, and deletion. The focused terms suites pass 23 tests. The broader initial focused run passes 135 tests across 11 files.
+- All four GitHub workflows for `9925229` subsequently passed: verify, cross-chapter highlighting, direct reader audio cache, and Shakespeare speaker acceptance.
 - The active remote checkout was reconciled with #604 without discarding worktree files. The remote runtime, GitHub writes, and delegated execution are available. Named Work Cloud attachment and unattended continuation remain unverified.
 
 ## Ownership
@@ -54,3 +55,18 @@ optional corrections. The earlier screenshot is superseded for that flow.
 | Public release | Coherent preview and explicit release approval, then serialized deployment and exact-bundle production acceptance |
 
 The original production experience is preserved until the complete release is ready. Remaining gates must be resolved, not relabelled as completed by a passing isolated component test.
+
+## Integration evidence in progress
+
+- Independently reviewed storage/menu changes were saved as `a22f42a0b91479c2a2e19ed1dc1cfdd94db8d7bb`. Marks/cards now use owned file generations, with legacy reads, revision conflicts, tombstones, dual-generation export and delete/re-upload race tests. Later title/author edits use a small versioned metadata object, leaving source bytes immutable. Two simultaneous edits cannot both win the same revision. Focused Worker tests: 58 passed at that review.
+- A combined clean build and bundle verification passed with `index-CsEacs8W.js`. More changes followed, so this is an integration snapshot rather than the final release bundle.
+- The new menu browser check exercised actual private selection controls: Light/Book/Dark computed colours, More keyboard navigation, 440px Ask and Escape, selected passage in a mocked chat request, a contained desktop Quiz, and phone/e-ink actions. Providers were mocked or blocked.
+- Automatic approval review blocked collection of an earlier full-test result, reporting potential external Supabase contact. Inspection found the production URL in an explicitly mocked internal-traffic fixture; that is not proof of what the blocked run did. A persistent unit-test boundary now rejects real fetch/socket connections while allowing explicit mocks. The first guarded full run had 6,926 passing tests, six skipped and four integration failures, with no unmocked network attempts. Authors are repairing these failures before the next combined run.
+- Review found and sent back real issues: narration using stale paged coordinates in continuous view, invalid window rebases, programmatic scrolling overwriting a restored word, owner-scoped private mark migration under quota failure, and preserving another account's local data when deleting the same-content book. Passing isolated checks do not close these findings; regression and combined evidence are required.
+
+Pre-existing concurrency hazards in other private auxiliary stores (place,
+cover, narration, recap, primer and OCR) are distinguished from changed
+marks/cards/metadata. Their historical hash-only keys are not made race-safe by
+this work's annotation tests. Do not claim a blanket guarantee for all private
+writers. Any new regression or unfulfilled release contract is a blocker;
+unrelated baseline deficiencies remain explicit follow-up work.
