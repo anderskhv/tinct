@@ -130,10 +130,10 @@ function clock({ bookId, edition, chapter, ownPdf, ownEpub }) {
     requestAnimationFrame(() => { pending.delete(field); if (score[field] == null && ready()) score[field] = performance.now() })
   }
   for (const type of ['pointerup', 'mouseup']) addEventListener(type, () => { if (score.selectUp == null) score.selectUp = performance.now() }, true)
-  addEventListener('click', event => { if (event.target.closest('[data-testid="lab-dbar-ask"], [role="menuitem"], .selection-popup button, .pdf-original-reader__phone-actions button')) score.cardTap = performance.now() }, true)
+  addEventListener('click', event => { if (event.target.closest('[data-testid="lab-dbar-ask"], [role="menuitem"], .selection-popup button, .lab-pbar button')) score.cardTap = performance.now() }, true)
   const frame = () => {
     afterPaint('firstText', () => { const passage = document.querySelector('.lab-page-wrap'), pdfText = passage?.querySelector('.pdf-original__text'), pdfCanvas = passage?.querySelector('.pdf-original__page canvas'); return visible(passage) && (ownPdf ? visible(pdfCanvas) && pdfCanvas.width > 1 && pdfCanvas.height > 1 && visible(pdfText?.querySelector('span')) && pdfText.textContent.trim().length > 40 : passage.textContent.trim().length > 40) })
-    if (score.selectUp != null) afterPaint('selectionBar', () => visible(document.querySelector('[data-testid="lab-desk-bar"]')) || visible(document.querySelector('.selection-popup.is-shared-reader')) || visible(document.querySelector('.pdf-original-reader__phone-actions')))
+    if (score.selectUp != null) afterPaint('selectionBar', () => visible(document.querySelector('[data-testid="lab-desk-bar"]')) || visible(document.querySelector('.selection-popup.is-shared-reader')) || visible(document.querySelector('.lab-pbar')))
     if (score.cardTap != null) afterPaint('cardShell', () => visible(document.querySelector('.lab-pcard, .selection-popup.is-contextual-explain')))
     requestAnimationFrame(frame)
   }
@@ -232,7 +232,7 @@ async function sample(bookId, profile, index) {
       console.log('SELECTION_PROFILE ' + JSON.stringify({bookId,profile,top}))
       if (out) { await fs.mkdir(path.dirname(out), {recursive:true}); await fs.writeFile(out.replace(/\.json$/,'-selection.cpuprofile'), JSON.stringify(cpu)) }
     }
-    const bar = profile === 'desktop' ? page.getByTestId('lab-desk-bar') : page.locator(pdf ? '.pdf-original-reader__phone-actions' : '.selection-popup.is-shared-reader')
+    const bar = profile === 'desktop' ? page.getByTestId('lab-desk-bar') : page.locator(pdf ? '.lab-pbar' : '.selection-popup.is-shared-reader')
     await bar.waitFor()
     if (profile === 'desktop' && pdf) await page.getByTestId('lab-dbar-explain').click()
     else if (profile === 'desktop') { await page.getByTestId('lab-dbar-more').click(); await page.getByRole('menuitem', { name: /Quiz me/ }).click() }
