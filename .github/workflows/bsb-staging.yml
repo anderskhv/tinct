@@ -1,0 +1,42 @@
+name: BSB staging validation
+on:
+  pull_request:
+    paths:
+      - 'books/staged-replacements/bible-bsb/**'
+      - '.github/workflows/bsb-staging.yml'
+permissions:
+  contents: read
+concurrency:
+  group: bsb-staging-${{ github.head_ref }}
+  cancel-in-progress: true
+jobs:
+  stage:
+    if: github.head_ref == 'codex/bsb-staging-20260921'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test importer and mapping invariants
+        run: python -m unittest discover -s books/staged-replacements/bible-bsb -p 'test_*.py' -v
+      - name: Check project documentation
+        run: python scripts/check-docs.py
+      - name: Import and validate in staging only
+        run: python books/staged-replacements/bible-bsb/stage.py --repo . --output /tmp/bsb-staged
+      - name: Independently read back generated text and mappings
+        run: python books/staged-replacements/bible-bsb/verify_artifact.py /tmp/bsb-staged
+      - name: Verify input files remained unchanged
+        if: always()
+        run: git diff --exit-code
+      - name: Save complete source, candidate and validation package
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bsb-staged-${{ github.event.pull_request.head.sha }}
+          path: /tmp/bsb-staged
+          retention-days: 90
