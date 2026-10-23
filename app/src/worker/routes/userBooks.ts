@@ -17,11 +17,12 @@
  *   GET    /api/user-books/marks/{bookHex}
  *   PUT    /api/user-books/marks/{bookHex}
  *                                     an own PDF's page marks or EPUB's source-text
- *                                     marks, versioned the
+ *                                     and claimed original-page marks, versioned the
  *                                     same way (the reader merges on a 409)
  *   GET    /api/user-books/cards/{bookHex}
  *   PUT    /api/user-books/cards/{bookHex}
- *                                     the margin's kept answers in a PDF or EPUB,
+ *                                     the margin's kept answers in a PDF or EPUB
+ *                                     (including claimed original EPUB pages),
  *                                     versioned the same way
  *   GET/PUT /api/user-books/text-marks/{bookHex}
  *   GET/PUT /api/user-books/text-cards/{bookHex}
@@ -67,12 +68,14 @@
  * highlight's id, page, its boxes on the page, the passage text, colour,
  * when it was made and changed, and the reader's note; a removed highlight
  * stays as a tombstone (id and when) so every device loses it. The revision
- * is in customMetadata; a write naming an older revision is refused (409)
+ * is in the body and customMetadata; a write naming an older revision is refused (409)
  * with the stored set, which the reader merges with its own (a union by id,
  * the newer edit winning) and writes again, so nothing is lost. Only a PDF
  * this account keeps has PDF page marks; an owned EPUB uses a distinct text-v1
- * source anchor in the same private key. Deleting the book deletes them, and account
- * deletion takes the whole `u/{userId}/` prefix (account export lists them).
+ * source anchor or a validated epub-page-v1 original-page record in the same
+ * private key, without guessing an anchor for unresolved legacy passages.
+ * Deleting the book deletes them, and account deletion takes the whole
+ * `u/{userId}/` prefix (account export lists them).
  *
  * The margin's cards in an own PDF or EPUB (docs/margin/BRIEF.md §3: the answers the
  * reader kept beside a passage: Explain, Simplify, Ask threads, Define,
@@ -933,6 +936,18 @@ export type OwnTextCard = {
   v: 'text-v1'; id: string; kind: OwnCardKind | 'primer' | 'recap' | 'catchup' | 'note'; anchor: OwnTextAnchor
   text: string; turns: OwnCard['turns']; data?: Record<string, unknown>; at: number; u?: number
 }
+/** An owner-claimed original EPUB page whose source-word anchor was not proven. */
+export type OwnEpubPageMark = {
+  v: 'epub-page-v1'; id: string; page: number; start?: number; end?: number
+  text: string; color: string; at: number; u?: number; note?: string
+}
+export type OwnEpubPageCard = {
+  v: 'epub-page-v1'; id: string; page: number; text: string; kind: OwnTextCard['kind']
+  turns: OwnCard['turns']; data?: Record<string, unknown>; at: number; u?: number
+  note?: string; color?: string; mark?: string; rects?: number[][]
+  span?: [page: number, start: number, end: number]
+  free?: boolean; unitNote?: boolean; unit?: string
+}
 /** Mark writes per account per rate-limit window (the reader sends a change after a pause of 1.5 s). */
 export const MARK_WRITES_PER_MINUTE = 30
 /** Highlights and removals per book. */
@@ -1038,6 +1053,96 @@ export function readTextCards(value: unknown): Array<OwnTextCard | OwnMarkGone> 
   })
 }
 
+const EPUB_PAGE_FIELDS = new Set(['v', 'id', 'page', 'start', 'end', 'text', 'color', 'at', 'u', 'note'])
+const EPUB_CARD_FIELDS = new Set(['v', 'id', 'page', 'text', 'kind', 'turns', 'data', 'at', 'u', 'note', 'color', 'mark', 'rects', 'span', 'free', 'unitNote', 'unit'])
+const knownFields = (record: Record<string, unknown>, allowed: Set<string>) => Object.keys(record).every(field => allowed.has(field))
+
+/** An EPUB set may contain both proven source-word records and claimed original-page records. */
+export function readEpubMarks(value: unknown): Array<OwnTextMark | OwnEpubPageMark | OwnMarkGone> | null {
+  return readTextSet(value, MAX_MARKS, m => {
+    if (m.v === 'text-v1') {
+      const parsed = readTextMarks([m])?.[0]
+      return parsed && !('gone' in parsed) ? parsed : null
+    }
+    if (m.v !== 'epub-page-v1' || !knownFields(m, EPUB_PAGE_FIELDS)
+      || !wholeNumber(m.page, 1_000_000) || m.page < 1
+      || (m.start === undefined) !== (m.end === undefined)
+      || m.start !== undefined && (!wholeNumber(m.start, 100_000_000) || !wholeNumber(m.end, 100_000_000) || m.end <= m.start)
+      || typeof m.text !== 'string' || m.text.length > MARK_TEXT
+      || typeof m.color !== 'string' || !MARK_COLORS.has(m.color)
+      || !markTime(m.at) || m.u !== undefined && !markTime(m.u)
+      || m.note !== undefined && (typeof m.note !== 'string' || m.note.length > MARK_NOTE)) return null
+    return { v: 'epub-page-v1', id: m.id as string, page: m.page, text: m.text, color: m.color, at: m.at as number,
+      ...(m.start !== undefined ? { start: m.start as number, end: m.end as number } : {}),
+      ...(m.u !== undefined ? { u: m.u as number } : {}), ...(m.note !== undefined ? { note: m.note as string } : {}) }
+  })
+}
+
+export function readEpubCards(value: unknown): Array<OwnTextCard | OwnEpubPageCard | OwnMarkGone> | null {
+  return readTextSet(value, MAX_CARDS, c => {
+    if (c.v === 'text-v1') {
+      const parsed = readTextCards([c])?.[0]
+      return parsed && !('gone' in parsed) ? parsed : null
+    }
+    if (c.v !== 'epub-page-v1' || !knownFields(c, EPUB_CARD_FIELDS)
+      || !wholeNumber(c.page, 1_000_000) || c.page < 1
+      || typeof c.text !== 'string' || c.text.length > MARK_TEXT
+      || typeof c.kind !== 'string' || !TEXT_CARD_KINDS.has(c.kind)
+      || !markTime(c.at) || c.u !== undefined && !markTime(c.u)
+      || c.note !== undefined && (typeof c.note !== 'string' || c.note.length > MARK_NOTE)
+      || c.color !== undefined && (typeof c.color !== 'string' || !MARK_COLORS.has(c.color))
+      || c.mark !== undefined && (typeof c.mark !== 'string' || !TEXT_ID.test(c.mark))
+      || c.free !== undefined && typeof c.free !== 'boolean'
+      || c.unitNote !== undefined && typeof c.unitNote !== 'boolean'
+      || c.unit !== undefined && (typeof c.unit !== 'string' || c.unit.length > 120)
+      || c.rects !== undefined && (!Array.isArray(c.rects) || c.rects.length > MARK_RECTS)
+      || c.span !== undefined && (!Array.isArray(c.span) || c.span.length !== 3
+        || !wholeNumber(c.span[0], 1_000_000) || c.span[0] < 1
+        || !wholeNumber(c.span[1], 100_000_000) || !wholeNumber(c.span[2], 100_000_000)
+        || c.span[2] <= c.span[1])
+      || !Array.isArray(c.turns) || c.turns.length > CARD_TURNS) return null
+    const rects: number[][] = []
+    if (Array.isArray(c.rects)) for (const raw of c.rects) {
+      if (!Array.isArray(raw) || (raw.length !== 4 && raw.length !== 5)) return null
+      const box = raw.length === 5 ? raw.slice(1) : raw
+      if (raw.length === 5 && (!wholeNumber(raw[0], 1_000_000) || raw[0] < 1)
+        || !box.every(n => typeof n === 'number' && Number.isFinite(n) && n >= -1 && n <= 2)) return null
+      rects.push(raw)
+    }
+    const turns: OwnCard['turns'] = []
+    for (const raw of c.turns) {
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null
+      const turn = raw as Record<string, unknown>
+      if (!knownFields(turn, new Set(['role', 'content', 'at', 'display']))
+        || (turn.role !== 'user' && turn.role !== 'assistant')
+        || typeof turn.content !== 'string' || turn.content.length > CARD_CONTENT
+        || turn.at !== undefined && !markTime(turn.at)
+        || turn.display !== undefined && (typeof turn.display !== 'string' || turn.display.length > MARK_TEXT)) return null
+      turns.push({ role: turn.role, content: turn.content,
+        ...(turn.at !== undefined ? { at: turn.at as number } : {}),
+        ...(turn.display !== undefined ? { display: turn.display as string } : {}) })
+    }
+    const card: OwnEpubPageCard = { v: 'epub-page-v1', id: c.id as string, page: c.page, text: c.text,
+      kind: c.kind as OwnEpubPageCard['kind'], turns, at: c.at as number,
+      ...(c.u !== undefined ? { u: c.u as number } : {}),
+      ...(c.note !== undefined ? { note: c.note as string } : {}),
+      ...(c.color !== undefined ? { color: c.color as string } : {}),
+      ...(c.mark !== undefined ? { mark: c.mark as string } : {}),
+      ...(c.rects !== undefined ? { rects } : {}),
+      ...(c.span !== undefined ? { span: c.span as OwnEpubPageCard['span'] } : {}),
+      ...(c.free !== undefined ? { free: c.free as boolean } : {}),
+      ...(c.unitNote !== undefined ? { unitNote: c.unitNote as boolean } : {}),
+      ...(c.unit !== undefined ? { unit: c.unit as string } : {}) }
+    if (c.data !== undefined) {
+      if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)) return null
+      const json = JSON.stringify(c.data)
+      if (json.length > CARD_DATA_BYTES) return null
+      card.data = JSON.parse(json) as Record<string, unknown>
+    }
+    return card
+  })
+}
+
 /** A set of marks from a request body or the store, normalised to the stored shape; null when any is out of shape. */
 export function readMarks(value: unknown): Array<OwnMark | OwnMarkGone> | null {
   if (!Array.isArray(value) || value.length > MAX_MARKS) return null
@@ -1083,6 +1188,8 @@ export type OwnCard = {
   id: string
   kind: OwnCardKind
   page: number
+  /** A recap of the whole Original PDF page has no invented selection boxes. */
+  pageOnly?: true
   rects: number[][]
   text: string
   turns: Array<{ role: 'user' | 'assistant'; content: string; at?: number; display?: string }>
@@ -1124,7 +1231,11 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
     if (typeof c.kind !== 'string' || !CARD_KINDS.has(c.kind)) return null
     if (!wholeNumber(c.page) || (c.page as number) < 1 || !time(c.at)) return null
     if (c.u !== undefined && !time(c.u)) return null
-    if (!Array.isArray(c.rects) || !c.rects.length) return null
+    const pageOnly = c.pageOnly === true
+    if (c.pageOnly !== undefined && !pageOnly) return null
+    if (!Array.isArray(c.rects) || pageOnly !== (c.rects.length === 0)) return null
+    if (pageOnly && (c.kind !== 'ask' || !c.data || typeof c.data !== 'object'
+      || Array.isArray(c.data) || (c.data as Record<string, unknown>).action !== 'recap')) return null
     const rects: number[][] = []
     for (const r of c.rects.slice(0, MARK_RECTS)) {
       if (!Array.isArray(r) || r.length !== 5 || !wholeNumber(r[0]) || r[0] < 1) return null
@@ -1145,7 +1256,8 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
         turns.push({ role: turn.role, content: turn.content.slice(0, CARD_CONTENT), ...(turn.at !== undefined ? { at: turn.at as number } : {}), ...(turn.display !== undefined ? { display: (turn.display as string).slice(0, MARK_TEXT) } : {}) })
       }
     }
-    const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number, rects, text: c.text.slice(0, MARK_TEXT), turns, at: c.at as number }
+    const card: OwnCard = { id: c.id, kind: c.kind as OwnCardKind, page: c.page as number,
+      ...(pageOnly ? { pageOnly: true as const } : {}), rects, text: c.text.slice(0, MARK_TEXT), turns, at: c.at as number }
     if (c.u !== undefined) card.u = c.u as number
     if (c.data !== undefined) {
       if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)) return null
@@ -1159,12 +1271,12 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
 }
 
 /** One versioned set per book: the highlights (marks) or the margin's cards. */
-type OwnSetItem = OwnMark | OwnTextMark | OwnCard | OwnTextCard | OwnMarkGone
+type OwnSetItem = OwnMark | OwnTextMark | OwnEpubPageMark | OwnCard | OwnTextCard | OwnEpubPageCard | OwnMarkGone
 interface OwnSet { key: (userId: string, bookHex: string) => string; read: (value: unknown, dropped?: { count: number }) => OwnSetItem[] | null; field: 'marks' | 'cards'; pdfText?: boolean }
 const MARKS_SET: OwnSet = { key: ownMarksKey, read: readMarks, field: 'marks' }
 const CARDS_SET: OwnSet = { key: ownCardsKey, read: readCards, field: 'cards' }
-const TEXT_MARKS_SET: OwnSet = { key: ownMarksKey, read: readTextMarks, field: 'marks' }
-const TEXT_CARDS_SET: OwnSet = { key: ownCardsKey, read: readTextCards, field: 'cards' }
+const TEXT_MARKS_SET: OwnSet = { key: ownMarksKey, read: readEpubMarks, field: 'marks' }
+const TEXT_CARDS_SET: OwnSet = { key: ownCardsKey, read: readEpubCards, field: 'cards' }
 const PDF_TEXT_MARKS_SET: OwnSet = { key: ownPdfTextMarksKey, read: readTextMarks, field: 'marks', pdfText: true }
 const PDF_TEXT_CARDS_SET: OwnSet = { key: ownPdfTextCardsKey, read: readTextCards, field: 'cards', pdfText: true }
 
@@ -1210,8 +1322,8 @@ function readOrphanSet<T>(
 }
 
 /** Every private cards set for export, including distinct PDF source-word sets. */
-export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }>> {
-  const out: Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }> = {}
+export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: Array<OwnCard | OwnTextCard | OwnEpubPageCard>; removed: number; rev: number }>> {
+  const out: Record<string, { cards: Array<OwnCard | OwnTextCard | OwnEpubPageCard>; removed: number; rev: number }> = {}
   const types = new Map((await listUserBooks(bucket, userId)).map(book => [book.sha256.slice(0, USER_BOOK_HEX_LENGTH), book.type]))
   for (const { prefix, text } of [{ prefix: ownCardsKey(userId, ''), text: false }, { prefix: ownPdfTextCardsKey(userId, ''), text: true }]) {
     let cursor: string | undefined
@@ -1224,12 +1336,12 @@ export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Re
         const hex = match[1]
         const type = types.get(hex)
         // Retained sets outlive missing file metadata in historical exports.
-        const reader: (value: unknown, dropped?: { count: number }) => Array<OwnCard | OwnTextCard | OwnMarkGone> | null = text ? readTextCards
-          : type === 'epub' ? readTextCards : type === 'pdf' ? readCards
-            : (value, dropped) => readOrphanSet<OwnCard | OwnTextCard | OwnMarkGone>(value, dropped, readTextCards, readCards)
+        const reader: (value: unknown, dropped?: { count: number }) => Array<OwnCard | OwnTextCard | OwnEpubPageCard | OwnMarkGone> | null = text ? readTextCards
+          : type === 'epub' ? readEpubCards : type === 'pdf' ? readCards
+            : (value, dropped) => readOrphanSet<OwnCard | OwnTextCard | OwnEpubPageCard | OwnMarkGone>(value, dropped, readEpubCards, readCards)
         const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
         if (corrupt) throw new Error(`Corrupt own cards: ${hex}`)
-        out[`${text ? 'text/' : ''}${storageId}`] = { cards: list.filter((c): c is OwnCard | OwnTextCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
+        out[`${text ? 'text/' : ''}${storageId}`] = { cards: list.filter((c): c is OwnCard | OwnTextCard | OwnEpubPageCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
       }
       cursor = page.truncated ? page.cursor : undefined
     } while (cursor)
@@ -1238,8 +1350,8 @@ export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Re
 }
 
 /** Every private marks set for export, including distinct PDF source-word sets. */
-export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }>> {
-  const out: Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }> = {}
+export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: Array<OwnMark | OwnTextMark | OwnEpubPageMark>; removed: number; rev: number }>> {
+  const out: Record<string, { highlights: Array<OwnMark | OwnTextMark | OwnEpubPageMark>; removed: number; rev: number }> = {}
   const types = new Map((await listUserBooks(bucket, userId)).map(book => [book.sha256.slice(0, USER_BOOK_HEX_LENGTH), book.type]))
   for (const { prefix, text } of [{ prefix: ownMarksKey(userId, ''), text: false }, { prefix: ownPdfTextMarksKey(userId, ''), text: true }]) {
     let cursor: string | undefined
@@ -1251,12 +1363,12 @@ export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Re
         if (!match || (text && !match[2])) continue
         const hex = match[1]
         const type = types.get(hex)
-        const reader: (value: unknown, dropped?: { count: number }) => Array<OwnMark | OwnTextMark | OwnMarkGone> | null = text ? readTextMarks
-          : type === 'epub' ? readTextMarks : type === 'pdf' ? readMarks
-            : (value, dropped) => readOrphanSet<OwnMark | OwnTextMark | OwnMarkGone>(value, dropped, readTextMarks, readMarks)
+        const reader: (value: unknown, dropped?: { count: number }) => Array<OwnMark | OwnTextMark | OwnEpubPageMark | OwnMarkGone> | null = text ? readTextMarks
+          : type === 'epub' ? readEpubMarks : type === 'pdf' ? readMarks
+            : (value, dropped) => readOrphanSet<OwnMark | OwnTextMark | OwnEpubPageMark | OwnMarkGone>(value, dropped, readEpubMarks, readMarks)
         const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
         if (corrupt) throw new Error(`Corrupt own marks: ${hex}`)
-        out[`${text ? 'text/' : ''}${storageId}`] = { highlights: list.filter((m): m is OwnMark | OwnTextMark => !('gone' in m)), removed: list.filter(m => 'gone' in m).length, rev }
+        out[`${text ? 'text/' : ''}${storageId}`] = { highlights: list.filter((m): m is OwnMark | OwnTextMark | OwnEpubPageMark => !('gone' in m)), removed: list.filter(m => 'gone' in m).length, rev }
       }
       cursor = page.truncated ? page.cursor : undefined
     } while (cursor)
@@ -1264,7 +1376,8 @@ export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Re
   return out
 }
 
-/** `/api/user-books/marks/{bookHex}` and `/cards/{bookHex}`: GET the stored set and its revision; PUT `{ marks | cards, rev }`. */
+/** Annotation routes: GET `{ marks | cards, rev, fileId }`; PUT `{ marks | cards, rev, expectedFileId? }`.
+ * New readers bind the exact file generation. The optional token preserves older PDF clients. */
 async function handleMarks(
   request: Request,
   env: UserBooksEnv,
@@ -1278,7 +1391,7 @@ async function handleMarks(
   if (!BOOK_HEX.test(bookHex)) return notFound(request)
   const bucket = env.USER_BOOKS
   if (!bucket) return reply({ error: 'Not configured' }, 503, request)
-  let body = null as { marks?: unknown; cards?: unknown; rev?: unknown } | null
+  let body = null as { marks?: unknown; cards?: unknown; rev?: unknown; expectedFileId?: unknown } | null
   if (request.method === 'PUT') {
     const lengthHeader = request.headers.get('content-length')
     const declared = lengthHeader !== null && /^\d+$/.test(lengthHeader.trim()) ? Number(lengthHeader) : null
@@ -1297,6 +1410,12 @@ async function handleMarks(
   const file = await bucket.head(fileKey)
   if (!file || file.customMetadata?.sha256 !== book.sha256 || file.customMetadata?.type !== book.type) return notFound(request)
   if (set.pdfText && book.type !== 'pdf') return notFound(request)
+  // A request made against a deleted generation must never attach its stale
+  // local annotations to a later upload of identical bytes and hash.
+  if (request.method === 'PUT' && body?.expectedFileId !== undefined) {
+    if (typeof body.expectedFileId !== 'string' || !FILE_ID.test(body.expectedFileId)) return reply({ error: 'bad_request' }, 400, request)
+    if (body.expectedFileId !== book.id) return reply({ error: 'generation_conflict', fileId: book.id }, 409, request)
+  }
   const activeSet = !set.pdfText && book.type === 'epub' ? (set.field === 'marks' ? TEXT_MARKS_SET : TEXT_CARDS_SET) : set
   const legacyKey = activeSet.key(user.id, bookHex)
   const key = ownSetGenerationKey(legacyKey, book.id)
@@ -1307,13 +1426,13 @@ async function handleMarks(
   const current = !set.pdfText && !generated.etag && file.customMetadata?.annotationGeneration !== ANNOTATION_GENERATION
     ? await storedSet(bucket, legacyKey, activeSet.read) : generated
   if (current.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
-  if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev }, 200, request)
+  if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev, fileId: book.id }, 200, request)
   // Cards too large even when trimmed are left out of the set, not a reason to refuse it; the reader is told how many.
   const dropped = { count: 0 }
   const list = activeSet.read(body?.[set.field], dropped)
   const expected = body?.rev
   if (!list || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
-  if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev }, 409, request)
+  if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev, fileId: book.id }, 409, request)
   const rev = current.rev + 1
   // Conditional on the object read above: a write that landed in between wins, and this one is told.
   // A complete revision-bearing envelope avoids an identical-list ETag and
@@ -1324,7 +1443,7 @@ async function handleMarks(
   if (!stored) {
     const latest = await storedSet(bucket, key, activeSet.read)
     if (latest.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
-    return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev }, 409, request)
+    return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev, fileId: book.id }, 409, request)
   }
   const stillOwned = await bucket.head(fileKey)
   if (!stillOwned || stillOwned.customMetadata?.sha256 !== book.sha256 || stillOwned.customMetadata?.type !== book.type) {
@@ -1333,7 +1452,7 @@ async function handleMarks(
     if ((await bucket.head(key))?.etag === stored.etag) await bucket.delete(key)
     return notFound(request)
   }
-  return reply({ rev, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)
+  return reply({ rev, fileId: book.id, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)
 }
 
 // ===== Covers =====
