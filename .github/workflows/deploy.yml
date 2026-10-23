@@ -380,6 +380,12 @@ jobs:
           HYPHENATION_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-hyphenation-hardening.mjs
+      - name: Verify every Shakespeare edition and reported passage
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'reader' }}
+        env:
+          SHAKESPEARE_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-shakespeare-speakers.mjs
 
       # -- production and library: what only production can prove (direct mode only here; staged: production-checks)
       - name: Smoke test production

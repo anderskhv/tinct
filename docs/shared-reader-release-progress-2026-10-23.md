@@ -38,6 +38,9 @@ also passes both browsers locally after its CI job timed out installing
 browsers. The corrected full ON panel matrix passes all 36 scenarios. Changes
 to the panel/spread acceptance scripts now also trigger the full Shakespeare
 audit, including its exact-source live release gate on main.
+The reader deployment's page-layout group also runs the full 120-case live
+audit, checking its exact deployed bundle in every scenario. It is therefore
+inside automatic rollback protection and must pass before any paid voice call.
 
 The initial floor run `40020741706` stopped before deployment: a unit case
 modelling an unapproved caller inherited its parent's approved dispatch
