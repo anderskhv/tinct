@@ -166,6 +166,20 @@ it('private Notebook copies all entries and deletes with undo through its existi
   expect(screen.getByTestId(`contents-highlight-hl-${T + 1}-daughter`)).toBeTruthy()
 })
 
+it('keeps a deleted Notebook row hidden and Undo available when owner storage cannot restore it', () => {
+  const restore = vi.fn().mockReturnValueOnce(false).mockReturnValueOnce(true)
+  render(<LabContentsV2 {...props()} notebook sharedNotebook highlights={[highlights[1]]} chapterNotes={[]}
+    onDeleteNotebookItem={() => restore} />)
+  const row = `contents-highlight-hl-${T + 1}-daughter`
+  fireEvent.click(screen.getByRole('button', { name: `Delete Notebook entry hl-${T + 1}-daughter` }))
+  fireEvent.click(screen.getByRole('button', { name: 'Undo' }))
+  expect(screen.getByText('Could not restore entry.')).toBeTruthy()
+  expect(screen.queryByTestId(row)).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Undo' }))
+  expect(screen.getByTestId(row)).toBeTruthy()
+  expect(restore).toHaveBeenCalledTimes(2)
+})
+
 it('the private Notebook reopens on its last filter, but starts All for a different book', () => {
   const p = { ...props(), notebook: true, sharedNotebook: true }
   const rendered = render(<LabContentsV2 {...p} />)

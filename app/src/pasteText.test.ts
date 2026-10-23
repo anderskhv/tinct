@@ -191,7 +191,16 @@ describe('private Paste entry', () => {
   localStorage.setItem(`tinct-addbook:text-marks-sync:owner-b:${hex}`,'B')
   localStorage.setItem(`tinct-addbook:text-marks-adopted:owner-a:${hex}`,'A')
   localStorage.setItem(`tinct-addbook:text-marks-adopted:owner-b:${hex}`,'B')
+  for(const owner of ['owner-a','owner-b']){
+   for(const kind of ['previous','quarantine'])localStorage.setItem(`tinct-addbook:text-marks-${kind}:${owner}:${hex}`,owner)
+   for(const kind of ['canonical','local','sync','adopted','previous','quarantine'])localStorage.setItem(`tinct-addbook:text-cards-${kind}:${owner}:${hex}`,owner)
+   for(const kind of ['marks','cards'])localStorage.setItem(`tinct-addbook:text-${kind}-canonical:${owner}:${hex}:${'f'.repeat(32)}`,owner)
+   for(const kind of ['marks','cards','talk'])localStorage.setItem(`tinct-addbook:pdf-original-${kind}:${owner}:${'f'.repeat(32)}:${hex}`,owner)
+  }
   localStorage.setItem(`tinct-addbook:text-marks-unassigned:${hex}`,'legacy')
+  localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'owner-b')
+  localStorage.setItem(`tinct-addbook:text-cards-unassigned:${hex}`,'legacy chat')
+  localStorage.setItem(`tinct:chat-history:userbook-${hex}`,'B chat projection')
   for(const owner of ['owner-a','owner-b'])for(const kind of ['annotations','migrated'])localStorage.setItem(`tinct-addbook:legacy-epub-${kind}:${owner}:${hex}`,owner)
   localStorage.setItem(`tinct-addbook:legacy-epub-owner:${hex}`,'owner-b')
   add.forgetOwnBookHere(hex,[localStorage])
@@ -203,6 +212,13 @@ describe('private Paste entry', () => {
   expect(localStorage.getItem(`tinct-addbook:text-marks-adopted:owner-b:${hex}`)).toBe('B')
   expect(localStorage.getItem(`tinct-addbook:text-marks-owner:${hex}`)).toBe('owner-b')
   expect(localStorage.getItem(`tinct-addbook:text-marks-unassigned:${hex}`)).toBe('legacy')
+  for(const kind of ['previous','quarantine']){expect(localStorage.getItem(`tinct-addbook:text-marks-${kind}:owner-a:${hex}`)).toBeNull();expect(localStorage.getItem(`tinct-addbook:text-marks-${kind}:owner-b:${hex}`)).toBe('owner-b')}
+  for(const kind of ['canonical','local','sync','adopted','previous','quarantine']){expect(localStorage.getItem(`tinct-addbook:text-cards-${kind}:owner-a:${hex}`)).toBeNull();expect(localStorage.getItem(`tinct-addbook:text-cards-${kind}:owner-b:${hex}`)).toBe('owner-b')}
+  for(const kind of ['marks','cards']){expect(localStorage.getItem(`tinct-addbook:text-${kind}-canonical:owner-a:${hex}:${'f'.repeat(32)}`)).toBeNull();expect(localStorage.getItem(`tinct-addbook:text-${kind}-canonical:owner-b:${hex}:${'f'.repeat(32)}`)).toBe('owner-b')}
+  for(const kind of ['marks','cards','talk']){expect(localStorage.getItem(`tinct-addbook:pdf-original-${kind}:owner-a:${'f'.repeat(32)}:${hex}`)).toBeNull();expect(localStorage.getItem(`tinct-addbook:pdf-original-${kind}:owner-b:${'f'.repeat(32)}:${hex}`)).toBe('owner-b')}
+  expect(localStorage.getItem(`tinct-addbook:text-cards-owner:${hex}`)).toBe('owner-b')
+  expect(localStorage.getItem(`tinct-addbook:text-cards-unassigned:${hex}`)).toBe('legacy chat')
+  expect(localStorage.getItem(`tinct:chat-history:userbook-${hex}`)).toBe('B chat projection')
   expect(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:owner-a:${hex}`)).toBeNull()
   expect(localStorage.getItem(`tinct-addbook:legacy-epub-migrated:owner-a:${hex}`)).toBeNull()
   expect(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:owner-b:${hex}`)).toBe('owner-b')
@@ -231,6 +247,20 @@ describe('private Paste entry', () => {
   localStorage.setItem(`tinct-addbook:text-marks-local:owner-a:${hex}`,'[]')
   add.forgetOwnBookHere(hex,[localStorage])
   expect(JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')).toEqual([mark])
+  localStorage.clear();vi.unstubAllGlobals()
+ })
+ it('removes only an unambiguous claimed legacy chat projection',()=>{
+  const hex='a'.repeat(24),global=`tinct:chat-history:userbook-${hex}`
+  vi.stubGlobal('TinctAI',{session:()=>({userId:'owner-a'})})
+  localStorage.setItem(global,'owned chat')
+  localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'owner-a')
+  add.forgetOwnBookHere(hex,[localStorage])
+  expect(localStorage.getItem(global)).toBeNull()
+  localStorage.setItem(global,'ambiguous')
+  localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'owner-a')
+  localStorage.setItem(`tinct-addbook:text-cards-canonical:owner-b:${hex}`,'other account')
+  add.forgetOwnBookHere(hex,[localStorage])
+  expect(localStorage.getItem(global)).toBe('ambiguous')
   localStorage.clear();vi.unstubAllGlobals()
  })
 })

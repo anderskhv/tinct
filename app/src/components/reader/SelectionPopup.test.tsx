@@ -262,6 +262,41 @@ it('keeps the palette at the action menu anchor when its shorter height would fi
   } finally { height.mockRestore(); width.mockRestore() }
 })
 
+it('places the private popup from its pointer anchor without measuring every selected word', () => {
+  const query = vi.spyOn(document, 'querySelectorAll')
+  try {
+    const input = props({ lab: true, sharedReader: true, selection: selection({ x: 220, y: 510, showBelow: true }) })
+    const view = render(<SelectionPopup {...input} />)
+    const popup = view.container.querySelector<HTMLElement>('.selection-popup')!
+    expect(popup.style.getPropertyValue('--anchored-popup-y')).toBeTruthy()
+    expect(query.mock.calls.some(([selector]) => selector === '.lab .lab-hearing-word.is-selecting')).toBe(false)
+  } finally { query.mockRestore() }
+})
+
+it('measures selected words when the private pointer anchor is invalid', () => {
+  const query = vi.spyOn(document, 'querySelectorAll')
+  try {
+    render(<SelectionPopup {...props({ lab: true, sharedReader: true, selection: selection({ x: -1, y: -1 }) })} />)
+    expect(query.mock.calls.some(([selector]) => selector === '.lab .lab-hearing-word.is-selecting')).toBe(true)
+  } finally { query.mockRestore() }
+})
+
+it('bounds a long private selection with its two endpoint words', () => {
+  const rects = vi.spyOn(Element.prototype, 'getClientRects').mockImplementation(function(this: Element) {
+    if (!this.classList.contains('is-selecting')) return [] as unknown as DOMRectList
+    const top = Number(this.getAttribute('data-top'))
+    return [new DOMRect(30, top, 24, 16)] as unknown as DOMRectList
+  })
+  try {
+    const words = Array.from({ length: 20 }, (_, index) => <span className="lab-hearing-word is-selecting" data-top={120 + index * 9} key={index}>word </span>)
+    const input = props({ lab: true, sharedReader: true,
+      selection: selection({ x: 220, y: 310, text: 'A long selected passage whose words span several lines of the visible reading page.' }) })
+    const view = render(<div className="lab">{words}<SelectionPopup {...input} /></div>)
+    expect(view.container.querySelector<HTMLElement>('.selection-popup')!.style.getPropertyValue('--anchored-popup-y')).toBeTruthy()
+    expect(rects.mock.instances.filter(node => node instanceof Element && node.classList.contains('is-selecting'))).toHaveLength(2)
+  } finally { rects.mockRestore() }
+})
+
 it('shows a contextual person card for a name missing from the released cards', async () => {
   const request = vi.fn().mockResolvedValue(JSON.stringify({kind:'person',name:'Jehohanan',importance:'minor',subtitle:'A person identified in the selected passage',body:'Contextual test answer.'}))
   render(<SelectionPopup {...props({lab:true,defineQuery:'Jehohanan',defineLoading:false,defineNotFound:true,onRequestExplanation:request})} />)

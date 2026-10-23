@@ -1100,13 +1100,20 @@ export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalTh
     try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
    }
    const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
+   const chatKey=`tinct:chat-history:${id}`;
+   const foreignChat=keys.some(key=>{const match=/^tinct-addbook:text-cards-(?:canonical|local|sync|adopted|previous|quarantine):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);return match&&match[2]===hex&&match[1]!==owner;});
+   if(owner&&store.getItem(`tinct-addbook:text-cards-owner:${hex}`)===owner&&!foreignChat&&!store.getItem(`tinct-addbook:text-cards-unassigned:${hex}`)&&store.getItem(chatKey)!==null){store.removeItem(chatKey);gone++;}
    for(const key of keys){
-    const scoped=/^tinct-addbook:text-marks-(?:local|sync|adopted):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(key===chatKey)continue;
+    const scoped=/^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);
     if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
+    const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);
+    if(pdfScoped&&pdfScoped[2]===hex&&(!owner||pdfScoped[1]!==owner))continue;
+    if(key===`tinct-addbook:text-cards-unassigned:${hex}`||key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
+    if(key===`tinct-addbook:text-cards-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
     const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated):([^:]+):([0-9a-f]{24})$/.exec(key);
     if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
     if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
-    if(key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
     if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
     const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
     const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);

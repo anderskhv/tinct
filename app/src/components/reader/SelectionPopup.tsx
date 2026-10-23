@@ -112,6 +112,25 @@ function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
   return selection.homeMode ?? defaultPopupMode(selection.text, selection.existingHighlightId)
 }
 
+/** Pointer-up already supplies a viewport anchor in the private reader. Keep
+ * keyboard/invalid anchors on the measured-word path. */
+function sharedPointerY(selection: SelectionInfo, sharedReader: boolean, keyboardDock: boolean): number | null {
+  if (!sharedReader || keyboardDock || !Number.isFinite(selection.x) || !Number.isFinite(selection.y)
+    || selection.x < 0 || selection.x > window.innerWidth || selection.y < 0 || selection.y > window.innerHeight
+    || selection.text.length > 56 || /[\r\n]/.test(selection.text)) return null
+  return selection.y + (selection.showBelow ? -12 : 12)
+}
+
+function selectedWordBounds(sharedReader: boolean, keyboardDock: boolean, topLimit: number, bottomLimit: number) {
+  const words = document.querySelectorAll('.lab .lab-hearing-word.is-selecting')
+  // A long private selection may span lines. The first and last words bound
+  // the reading-order extent without forcing a layout read for every word.
+  const nodes = sharedReader && !keyboardDock && words.length > 2 ? [words[0], words[words.length - 1]] : Array.from(words)
+  const boxes = nodes.flatMap(node => Array.from(node.getClientRects()))
+    .filter(box => box.width && box.height && box.bottom > topLimit && box.top < bottomLimit)
+  return boxes.length ? { top: Math.min(...boxes.map(box => box.top)), bottom: Math.max(...boxes.map(box => box.bottom)) } : null
+}
+
 export function ShareIcon() {
   return <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 10V2M5 5l3-3 3 3M3 9v4.5h10V9" /></svg>
 }
@@ -221,11 +240,10 @@ export function SelectionPopup({
   const openContextualExplanation = (intent?: ExplainIntent) => {
     setExplainIntent(intent)
     // Position beside the selected passage without moving the reader or its place.
-    const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
-      .map(node => node.getBoundingClientRect())
-      .filter(box => box.width && box.height && box.bottom > 0 && box.top < window.innerHeight)
-    const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
-    const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+    const pointerY = sharedPointerY(selection, sharedReader, keyboardDock)
+    const bounds = pointerY === null ? selectedWordBounds(sharedReader, keyboardDock, 0, window.innerHeight) : null
+    const top = pointerY ?? bounds?.top ?? selection.y
+    const bottom = pointerY ?? bounds?.bottom ?? selection.y
     const above = top - 92
     const below = window.innerHeight - bottom - 100
     setExplainPlacement({ edge: above > below ? 'top' : 'bottom', available: Math.max(230, above > below ? above : below) })
@@ -254,11 +272,10 @@ export function SelectionPopup({
         el.style.setProperty('--anchored-popup-y', `${y}px`)
         return
       }
-      const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
-        .flatMap(node => Array.from(node.getClientRects()))
-        .filter(box => box.width && box.height && box.bottom > 76 && box.top < window.innerHeight - 32)
-      const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
-      const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+      const pointerY = sharedPointerY(selection, sharedReader, keyboardDock)
+      const bounds = pointerY === null ? selectedWordBounds(sharedReader, keyboardDock, 76, window.innerHeight - 32) : null
+      const top = pointerY ?? bounds?.top ?? selection.y
+      const bottom = pointerY ?? bounds?.bottom ?? selection.y
       const height = el.offsetHeight
       const low = window.innerHeight - 32
       const above = top - 12 - height
@@ -291,7 +308,7 @@ export function SelectionPopup({
     observer?.observe(el)
     window.addEventListener('resize', place)
     return () => { observer?.disconnect(); window.removeEventListener('resize', place) }
-  }, [lab, popupMode, selection.x, selection.y, popupRef])
+  }, [lab, popupMode, selection.x, selection.y, selection.showBelow, popupRef, sharedReader, keyboardDock])
   const homeMode = homeModeFor(selection)
   const [galleryId, setGalleryId] = useState<string | null>(null)
   useEffect(() => { setGalleryId(null) }, [selection.character])

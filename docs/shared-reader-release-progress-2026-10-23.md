@@ -19,7 +19,8 @@ The user selected Astra High for orchestration. Six bounded subagents were expli
 | --- | --- | --- |
 | Continuous reader and location ownership | Reader agent: LabApp and continuous renderer/controller modules | Review agent, integration checks |
 | Paste text | Paste agent: library Add flow, new paste converter/UI and tests | Review agent, private-source integration |
-| Regression repair and private storage races | Test agent: privacy assertions, userBooks Worker and tests | Review agent |
+| Private storage routes and compatibility | Review agent: userBooks Worker and tests | Test agent |
+| Offline test boundary and original PDF services | Test agent: regression harnesses, PDF surface and owner service adapter | Review agent, menu integration |
 | Shared selection menu and themes | Menu agent: SelectionPopup/SelectionDeskBar/LabPhoneBar and scoped styles/tests | Review agent |
 | Private source entry and adapters | Private-source agent: main/UserBookReader and own-book modules/tests | Review agent |
 | Integration, commits, acceptance and durable record | Coordinator | Cross-author review and combined gates |
@@ -29,9 +30,10 @@ No agent may merge, deploy, call a paid provider, or independently mutate the in
 ## Active implementation
 
 Anders reviewed the initial Paste preview and requested a simpler default:
-paste once, let Tinct infer format/metadata, and allow changes later. The paste
-agent is replacing the required multi-step setup with a single entry and
-optional corrections. The earlier screenshot is superseded for that flow.
+paste once, let Tinct infer format/metadata, and allow changes later. The actual
+flow now has one textarea and **Add to my books**, with optional **Review
+details**. Title and author can be edited later without changing source bytes.
+The earlier multi-step screenshot is superseded.
 
 - Continuous desktop reading is being connected to the existing `placeRef`/`notePlace` owner with source/edition/chapter/navigation identity guards. Inactive paginators and delayed layout writers must not persist a competing place. Classic/Compare and familiar phone reading remain available.
 - Paste text is being implemented in the real library Add flow, gated by the private URL flag, using an EPUB package and the existing private upload/storage lifecycle. HTML is untrusted; saving must preserve source wording and must not fetch remote resources.
@@ -63,6 +65,28 @@ The original production experience is preserved until the complete release is re
 - The new menu browser check exercised actual private selection controls: Light/Book/Dark computed colours, More keyboard navigation, 440px Ask and Escape, selected passage in a mocked chat request, a contained desktop Quiz, and phone/e-ink actions. Providers were mocked or blocked.
 - Automatic approval review blocked collection of an earlier full-test result, reporting potential external Supabase contact. Inspection found the production URL in an explicitly mocked internal-traffic fixture; that is not proof of what the blocked run did. A persistent unit-test boundary now rejects real fetch/socket connections while allowing explicit mocks. The first guarded full run had 6,926 passing tests, six skipped and four integration failures, with no unmocked network attempts. Authors are repairing these failures before the next combined run.
 - Review found and sent back real issues: narration using stale paged coordinates in continuous view, invalid window rebases, programmatic scrolling overwriting a restored word, owner-scoped private mark migration under quota failure, and preserving another account's local data when deleting the same-content book. Passing isolated checks do not close these findings; regression and combined evidence are required.
+- Commit `90486f8e286660d77b60899ae1112995709f3fec` saves the reviewed simple Paste implementation and latest private Worker/storage compatibility. The Paste browser check passed Chromium and WebKit on desktop and phone against loopback fixtures: actual React reader open, identical-byte upload retry, reload, metadata conflict and successful edit, source-byte preservation, and signed-out rejection. Worker/fake-bucket/export checks passed 142 tests in independent review. Realistic body-derived ETags exposed a concurrency flaw; explicit revision-bearing bodies now protect unchanged annotation and place writes, with legacy reads preserved.
+- Commit `eba67da6c0e61ef3e489261f9956308bd802273b` passed all four GitHub workflows: verify, cross-chapter highlighting, direct reader audio cache, and Shakespeare speaker acceptance. Later saved changes require their own CI result.
+- Continuous-reader browser acceptance currently passes 16 observations: exact nonzero-word resume/reload, font and viewport changes, Classic/Margin round trips, Genesis/Exodus boundary, KJV/WEB Compare return, original Macbeth verse, a source figure, and long forward/reverse scroll. The column and footer were visually inspected. Saved-card, narration/Talk and full private-source journeys remain open.
+- Latest combined build and bundle check passed with `index-C8P-XSFH.js`; subsequent reader/private changes are not covered by that build. The latest guarded full test run had 6,934 passes, six skips and one in-flight metadata-helper failure. That helper now passes its 25 focused tests; a new full combined run is still required.
+- Private client review is actively checking owner-qualified canonical state, quota/partial-write behavior, legacy annotation recovery and explicit card tombstones. A passing earlier review does not accept later controller edits. Original PDF controls, persisted geometry and provider-independent narration/Talk integration are still being completed.
+- Saved component commit `452725d3becba529966fe2509a67e2dd3a0016b5` shares card/Notebook rendering, complete exports and the pure chat append helper. Later integration and Undo failure handling remain in the working checkout until reviewed together.
+- Saved backend commit `986c7d3a68e97b62f631c4fd56a85151861b946a` preserves claimed legacy EPUB page anchors, adds file-generation tokens for new clients, and supports honest page-only PDF recap cards. The independent combined Worker/admin/PDF checks passed 121 tests. New clients must send the captured file ID and stop on generation mismatch rather than merge into a re-upload.
+- The next guarded full run passed 7,007 tests, skipped six, and failed two PDF tests during active integration. Both failures were reproduced and repaired in the owning agent's focused checks: the PDF-engine caller inventory now distinguishes conversion from original-page rendering, and the new page-text narration method is present. A stable final full run remains required.
+- Clean build 5 and bundle verification passed with `index-BVQpkkUi.js`. Performance uses an immutable copy so subsequent builds cannot change a measurement mid-run. A separate old-UI/main plus compatible-backend candidate passed 113 focused tests, build and bundle verification (`index-By9mGwgg.js`); it still needs the final backend variants and rollback round-trip acceptance. It has not been deployed.
+- Performance instrumentation found repeated word geometry measurement during selection. The first fix reduced War and Peace's slow-phone selection median from 588 ms to 110 ms. The initial local server served uncompressed assets, unlike the existing #581 harness; those numbers are retained as an uncompressed stress test. With #581's gzip/cache semantics on the same build, cold slow-profile first text medians were 1,488/1,779/1,682/1,657 ms for Frankenstein/War and Peace/Bible/Macbeth. Warm desktop and card-shell medians passed. Selection medians were 102/95/100/79 ms; Frankenstein still missed the 100 ms target, and a second geometry fix awaits measurement. Each profile used three runs, 4x CPU/60 ms/9 Mbps for slow phone, and a painted-frame opportunity; HTTP, HTTPS CONNECT and WebSocket requests outside loopback were blocked. No external requests were observed.
+
+## Related PR continuity
+
+PRs #598, #581, #602 and #521 remain open and unmerged at this inspection.
+The shared React reader reuses the existing Grok Talk path and desktop panel;
+#598's separate iframe bridge is reference evidence, not a shortcut to launch.
+The latency check follows #581's distinction between warm desktop and throttled
+cold first text, and measures painted controls separately from AI response.
+#602's readiness repair is limited to a browser check and is not a release
+dependency unless the relevant failure reproduces. #521's provider budget and
+automatic continuation changes are outside this implementation; interrupted
+answers must still remain visibly incomplete and must not be lost by new cards.
 
 Pre-existing concurrency hazards in other private auxiliary stores (place,
 cover, narration, recap, primer and OCR) are distinguished from changed

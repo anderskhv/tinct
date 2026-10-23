@@ -1234,8 +1234,28 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
     const pageOnly = c.pageOnly === true
     if (c.pageOnly !== undefined && !pageOnly) return null
     if (!Array.isArray(c.rects) || pageOnly !== (c.rects.length === 0)) return null
-    if (pageOnly && (c.kind !== 'ask' || !c.data || typeof c.data !== 'object'
-      || Array.isArray(c.data) || (c.data as Record<string, unknown>).action !== 'recap')) return null
+    if (pageOnly) {
+      if (c.kind !== 'ask' || !c.data || typeof c.data !== 'object' || Array.isArray(c.data)
+        || typeof c.text !== 'string' || !c.text.trim()) return null
+      const data = c.data as Record<string, unknown>
+      if (data.action === 'recap' && Object.keys(data).length === 1) {
+        // Existing whole-page recaps precede unit metadata; keep them readable.
+      } else {
+        if (!['primer', 'catchup', 'recap'].includes(String(data.action))
+          || Object.keys(data).some(key => !['action', 'unit', 'source'].includes(key))
+          || !data.unit || typeof data.unit !== 'object' || Array.isArray(data.unit)
+          || !data.source || typeof data.source !== 'object' || Array.isArray(data.source)) return null
+        const unit = data.unit as Record<string, unknown>, source = data.source as Record<string, unknown>
+        if (Object.keys(unit).some(key => !['key', 'title', 'from', 'to'].includes(key))
+          || Object.keys(source).some(key => !['from', 'to'].includes(key))
+          || typeof unit.key !== 'string' || !unit.key || unit.key.length > 120
+          || typeof unit.title !== 'string' || !unit.title.trim() || unit.title.length > 300
+          || !wholeNumber(unit.from) || unit.from < 1 || !wholeNumber(unit.to) || unit.to < unit.from
+          || !wholeNumber(source.from) || source.from < 1 || !wholeNumber(source.to) || source.to < source.from
+          || c.page < unit.from || c.page > unit.to
+          || (data.action === 'catchup' ? source.to >= c.page : source.from < unit.from || source.to > unit.to)) return null
+      }
+    }
     const rects: number[][] = []
     for (const r of c.rects.slice(0, MARK_RECTS)) {
       if (!Array.isArray(r) || r.length !== 5 || !wholeNumber(r[0]) || r[0] < 1) return null

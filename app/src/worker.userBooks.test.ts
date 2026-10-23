@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { createRequire } from 'node:module'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book e2e tests
 import { makeEpub, zip } from '../../addbooks/web/test/make-epub.mjs'
 import worker from './worker'
@@ -24,6 +25,10 @@ import {
 const A = '11111111-1111-4111-8111-111111111111'
 const B = '22222222-2222-4222-8222-222222222222'
 const USERS: Record<string, string> = { 'Bearer token-a': A, 'Bearer token-b': B }
+createRequire(import.meta.url)('../public/lab/addbook/js/margin.js')
+const staticMargin = (globalThis as unknown as { TinctMargin: {
+  mergeCards: (...sets: Array<Array<Record<string, unknown>>>) => Array<Record<string, unknown>>
+} }).TinctMargin
 
 const pdfBytes = (extra = '') => new TextEncoder().encode(`%PDF-1.7\n1 0 obj << >> endobj\n${extra}\n%%EOF\n`)
 const epubBytes = () => new Uint8Array(makeEpub({ title: 'Mine' }))
@@ -825,6 +830,57 @@ describe('/api/user-books/cards', () => {
     expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({ [`${hex}/${book.id}`]: { cards: [recap], removed: 0, rev: 1 } })
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
     expect(r2.objects.has(`u/${A}/cards/${hex}/${book.id}`)).toBe(false)
+  })
+
+  it('keeps bounded, truthful PDF unit Primer and Catch-up page cards through export and deletion', async () => {
+    const { env, r2, call, book, hex } = await withPdf()
+    const unit = { key: 'chapter-4', title: 'Chapter 4', from: 7, to: 12 }
+    const primer = card('primer1', { kind: 'ask', page: 7, pageOnly: true, rects: [], text: 'Chapter 4',
+      data: { action: 'primer', unit, source: { from: 7, to: 10 } } })
+    const catchup = card('catchup1', { kind: 'ask', page: 7, pageOnly: true, rects: [], text: 'Before Chapter 4',
+      data: { action: 'catchup', unit, source: { from: 2, to: 6 } } })
+    for (const bad of [
+      { ...primer, page: 13 }, { ...primer, data: { action: 'primer', unit, source: { from: 1, to: 8 } } },
+      { ...catchup, data: { action: 'catchup', unit, source: { from: 6, to: 7 } } },
+      { ...catchup, data: { action: 'catchup', unit: { ...unit, title: '' }, source: { from: 2, to: 6 } } },
+      { ...catchup, data: { action: 'catchup', unit, source: { from: 2, to: 6 }, invented: true } },
+      { ...primer, text: '  ' },
+    ]) expect((await put(call, 'token-a', hex, { cards: [bad], rev: 0, expectedFileId: book.id })).status).toBe(400)
+    expect((await put(call, 'token-a', hex, { cards: [primer, catchup], rev: 0, expectedFileId: book.id })).status).toBe(200)
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toEqual({ cards: [primer, catchup], rev: 1, fileId: book.id })
+    expect((await listOwnCards(env.USER_BOOKS, A))[`${hex}/${book.id}`]).toEqual({ cards: [primer, catchup], removed: 0, rev: 1 })
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect(r2.objects.has(`u/${A}/cards/${hex}/${book.id}`)).toBe(false)
+  })
+
+  it('keeps a new page-only recap when the shipped older PDF client merges and writes geometry cards', async () => {
+    const { env, call, upload, book, hex } = await withPdf()
+    const recap = card('recap1', { kind: 'ask', pageOnly: true, rects: [], data: { action: 'recap' }, text: 'Whole page.',
+      turns: [{ role: 'assistant', content: 'The page in brief.' }] })
+    const textMark = { v: 'text-v1', id: 'hl-source_1', anchor: { kind: 'range', editionKey: 'own-en', converter: 6,
+      chapterNumber: 1, paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 2 },
+      text: 'Source words', color: 'gold', at: 1000 }
+    expect((await put(call, 'token-a', hex, { cards: [recap], rev: 0, expectedFileId: book.id })).status).toBe(200)
+    expect((await call(`/api/user-books/text-marks/${hex}`, { method: 'PUT', token: 'token-a',
+      body: JSON.stringify({ marks: [textMark], rev: 0, expectedFileId: book.id }) })).status).toBe(200)
+    const { book: epub } = await (await upload('token-a', epubBytes())).json() as { book: UserBook }
+    const epubHex = epub.sha256.slice(0, 24)
+    const originalEpub = { v: 'epub-page-v1', id: 'card-old_1', page: 4, text: 'Original EPUB page.', kind: 'ask',
+      turns: [{ role: 'assistant', content: 'Original answer.' }], at: 1000 }
+    expect((await call(`/api/user-books/cards/${epubHex}`, { method: 'PUT', token: 'token-a',
+      body: JSON.stringify({ cards: [originalEpub], rev: 0, expectedFileId: epub.id }) })).status).toBe(200)
+    const oldClientGet = await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json() as { cards: Array<Record<string, unknown>>; rev: number }
+    const geometry = card('oldpdf1')
+    const merged = staticMargin.mergeCards([geometry], oldClientGet.cards)
+    expect(merged).toContainEqual(recap)
+    // Shipped static PDF clients know neither expectedFileId nor pageOnly;
+    // they preserve unrecognized fields when re-sending the complete merged set.
+    const oldClientPut = await put(call, 'token-a', hex, { cards: merged, rev: oldClientGet.rev })
+    expect(oldClientPut.status).toBe(200)
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toMatchObject({ cards: merged, rev: 2, fileId: book.id })
+    expect(await (await call(`/api/user-books/text-marks/${hex}`, { token: 'token-a' })).json()).toEqual({ marks: [textMark], rev: 1, fileId: book.id })
+    expect(await (await call(`/api/user-books/cards/${epubHex}`, { token: 'token-a' })).json()).toEqual({ cards: [originalEpub], rev: 1, fileId: epub.id })
+    expect((await listOwnCards(env.USER_BOOKS, A))[`${hex}/${book.id}`]).toEqual({ cards: merged, removed: 0, rev: 2 })
   })
 
   it('refuses cards out of shape', async () => {

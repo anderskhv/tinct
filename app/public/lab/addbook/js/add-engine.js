@@ -160,14 +160,21 @@
           } catch { /* uncertain ownership or blocked storage: preserve marks */ }
         }
         const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
+        const chatKey = 'tinct:chat-history:userbook-' + hex;
+        const foreignChat = keys.some(k => { const m = /^tinct-addbook:text-cards-(?:canonical|local|sync|adopted|previous|quarantine):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k); return m && m[2] === hex && m[1] !== ownerId });
+        if (ownerId && s.getItem('tinct-addbook:text-cards-owner:' + hex) === ownerId && !foreignChat && !s.getItem('tinct-addbook:text-cards-unassigned:' + hex) && s.getItem(chatKey) !== null) { s.removeItem(chatKey); gone++ }
         for (const k of keys) {
-          const scoped = /^tinct-addbook:text-marks-(?:local|sync|adopted):([^:]+):([0-9a-f]{24})$/.exec(k);
-          if (scoped && scoped[2] === hex && (!accountId() || scoped[1] !== accountId())) continue;
+          if (k === chatKey) continue; // Only the verified case above may remove the hash-only projection.
+          const scoped = /^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k);
+          if (scoped && scoped[2] === hex && (!ownerId || scoped[1] !== ownerId)) continue;
+          const pdfScoped = /^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(k);
+          if (pdfScoped && pdfScoped[2] === hex && (!ownerId || pdfScoped[1] !== ownerId)) continue;
+          if ((k === 'tinct-addbook:text-marks-unassigned:' + hex || k === 'tinct-addbook:text-cards-unassigned:' + hex)) continue;
+          if (k === 'tinct-addbook:text-cards-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
           const legacy = /^tinct-addbook:legacy-epub-(?:annotations|migrated):([^:]+):([0-9a-f]{24})$/.exec(k);
-          if (legacy && legacy[2] === hex && (!accountId() || legacy[1] !== accountId())) continue;
-          if (k === 'tinct-addbook:legacy-epub-owner:' + hex && (!accountId() || s.getItem(k) !== accountId())) continue;
-          if (k === 'tinct-addbook:text-marks-unassigned:' + hex) continue;
-          if (k === 'tinct-addbook:text-marks-owner:' + hex && (!accountId() || s.getItem(k) !== accountId())) continue;
+          if (legacy && legacy[2] === hex && (!ownerId || legacy[1] !== ownerId)) continue;
+          if (k === 'tinct-addbook:legacy-epub-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          if (k === 'tinct-addbook:text-marks-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
           const mine = (k.startsWith(STORE_PREFIX) || k.startsWith('tinct:')) && k.includes(hex);
           const names = !mine && SNAPSHOT_KEYS.test(k) && String(s.getItem(k) || '').includes(hex);
           if (mine || names) { s.removeItem(k); gone++ }

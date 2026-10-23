@@ -57,7 +57,7 @@ interface Props {
   /** The private shared reader's Notebook tools; omitted in the public reader. */
   sharedNotebook?: boolean
   /** Delete using the existing highlight/card store and return an undo operation using its revision rules. */
-  onDeleteNotebookItem?: (item: { kind: 'highlight' | 'card'; id: string }) => (() => void) | null
+  onDeleteNotebookItem?: (item: { kind: 'highlight' | 'card'; id: string }) => (() => boolean | void) | null
   /** The book's introduction (in the library). Omitted when there is none to open. */
   onOpenIntroduction?: () => void
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
@@ -105,7 +105,7 @@ export function LabContentsV2(props: Props) {
   const [notesFilter, setNotesFilter] = useState(false)
   const [notebookFilter, setNotebookFilter] = useState<NotebookFilter>('all')
   const [hiddenNotebook, setHiddenNotebook] = useState<Set<string>>(new Set())
-  const [undoNotebook, setUndoNotebook] = useState<{ restore: () => void; id: string } | null>(null)
+  const [undoNotebook, setUndoNotebook] = useState<{ restore: () => boolean | void; id: string } | null>(null)
   const [notebookFeedback, setNotebookFeedback] = useState('')
   const panelRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
@@ -312,7 +312,9 @@ export function LabContentsV2(props: Props) {
   }
   const undoNotebookDelete = () => {
     if (!undoNotebook) return
-    undoNotebook.restore()
+    let restored: boolean | void
+    try { restored = undoNotebook.restore() } catch { restored = false }
+    if (restored === false) { setNotebookFeedback('Could not restore entry.'); return }
     setHiddenNotebook(current => { const next = new Set(current); next.delete(undoNotebook.id); return next })
     setUndoNotebook(null)
     setNotebookFeedback('Entry restored.')
