@@ -26,6 +26,18 @@ on:
           - direct
           - staged
         default: direct
+      release_phase:
+        description: 'normal (existing deploy); floor (old UI/write-old backend); reader (pinned compatible floor required)'
+        type: choice
+        options:
+          - normal
+          - floor
+          - reader
+        default: normal
+      approved_reader_release:
+        description: 'Explicit release approval has been recorded for the selected floor or reader phase'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -43,6 +55,9 @@ jobs:
       CI: true
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TINCT_RELEASE_PHASE: ${{ inputs.release_phase }}
+      TINCT_RELEASE_APPROVED: ${{ inputs.approved_reader_release }}
+      VITE_SHARED_READER_DEFAULT: ${{ inputs.release_phase == 'reader' && '1' || '0' }}
       # Origin the acceptance scripts hit. Points at the version preview URL until
       # promotion, then at production. Scripts default to https://tinct.app.
       TINCT_ORIGIN: https://tinct.app
@@ -53,13 +68,15 @@ jobs:
     outputs:
       # 'true' once the new build serves production (direct deploy): from then on a failure rolls back.
       live: ${{ steps.deploy.outputs.live }}
+      deploy_attempted: ${{ steps.deploy.outputs.attempted }}
       # staged = a preview to test before promotion; direct = acceptance runs on production.
       staged: ${{ steps.plan.outputs.mode == 'staged' && steps.preview.outputs.fallback != 'true' }}
       origin: ${{ steps.handoff.outputs.origin }}
       bundle: ${{ steps.bundle.outputs.path }}
       previous_version: ${{ steps.previous.outputs.version_id }}
-      version_id: ${{ steps.upload.outputs.version_id }}
+      version_id: ${{ steps.deploy.outputs.version_id || steps.upload.outputs.version_id }}
       groups: ${{ steps.handoff.outputs.groups }}
+      release_phase: ${{ steps.release-phase.outputs.phase }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -73,6 +90,31 @@ jobs:
 
       - name: Set up cloud checkout
         run: bash ../scripts/cloud-setup.sh
+
+      - name: Check release phase before a Worker upload or deploy
+        id: release-phase
+        env:
+          REQUESTED_PHASE: ${{ inputs.release_phase }}
+          APPROVED_READER_RELEASE: ${{ inputs.approved_reader_release }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          phase=${REQUESTED_PHASE:-normal}
+          case "$phase" in
+            normal) node scripts/release-tools.cjs assert-normal-release ;;
+            floor)
+              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_READER_RELEASE" = true
+              node scripts/release-tools.cjs assert-floor-source
+              # The old UI/backend floor must continue writing the legacy format.
+              npx vitest run src/worker.rollbackFloor.test.ts src/worker.userBooks.test.ts src/worker.adminAccounts.test.ts
+              ;;
+            reader)
+              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_READER_RELEASE" = true
+              test "$VITE_SHARED_READER_DEFAULT" = 1
+              ;;
+            *) echo "::error::unknown release phase $phase"; exit 1 ;;
+          esac
+          echo "phase=$phase" >> "$GITHUB_OUTPUT"
+          echo "Release phase: **$phase**" >> "$GITHUB_STEP_SUMMARY"
       - run: npm test
 
       - name: Choose release mode
@@ -108,8 +150,13 @@ jobs:
 
       - name: Record the version currently serving production
         id: previous
-        continue-on-error: true
         run: node scripts/release-tools.cjs current-version >> "$GITHUB_OUTPUT"
+
+      - name: Require the actual compatible floor before reader release
+        if: steps.release-phase.outputs.phase == 'reader'
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+        run: node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"
 
       - name: Upload new Worker Version (serves no traffic)
         if: steps.plan.outputs.mode == 'staged'
@@ -140,11 +187,23 @@ jobs:
       - name: Deploy to Cloudflare Workers (direct mode)
         if: steps.plan.outputs.mode == 'direct' || steps.preview.outputs.fallback == 'true'
         id: deploy
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+          RELEASE_PHASE: ${{ steps.release-phase.outputs.phase }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-direct-deploy.ndjson
         run: |
           # A staged upload that fell back has already built; the build rewrites
           # generated files, which the clean-checkout guard would refuse.
           if [ "${{ steps.preview.outputs.fallback }}" = true ]; then git checkout -- .; fi
-          npm run deploy
+          if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          status=0
+          npm run deploy || status=$?
+          if [ -f "$WRANGLER_OUTPUT_FILE_PATH" ]; then
+            node scripts/release-tools.cjs parse-deploy "$WRANGLER_OUTPUT_FILE_PATH" >> "$GITHUB_OUTPUT"
+          fi
+          test "$status" -eq 0
           echo 'live=true' >> "$GITHUB_OUTPUT"
 
       - name: Record deployed bundle hash
@@ -153,6 +212,19 @@ jobs:
           bundle=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
           test -n "$bundle"
           echo "path=$bundle" >> "$GITHUB_OUTPUT"
+
+      - name: Verify approved reader build has public activation ON
+        if: steps.release-phase.outputs.phase == 'reader'
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict'
+          import { readFileSync } from 'node:fs'
+          const source = readFileSync('dist/lab/shared-reader-activation.js')
+          const module = await import(`data:text/javascript;base64,${source.toString('base64')}`)
+          assert.equal(module.SHARED_READER_DEFAULT, true)
+          assert.equal(module.sharedReaderEnabled(''), true)
+          assert.equal(module.sharedReaderEnabled('?sharedReader=0'), false)
+          NODE
 
       # Confirm the exact build we uploaded, not any previously served bundle.
       - name: Wait for the new bundle to be served
@@ -355,9 +427,14 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TINCT_RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
+      TINCT_RELEASE_APPROVED: ${{ inputs.approved_reader_release }}
+      VITE_SHARED_READER_DEFAULT: ${{ needs.deploy.outputs.release_phase == 'reader' && '1' || '0' }}
     defaults:
       run:
         working-directory: app
+    outputs:
+      attempted: ${{ steps.promote-version.outputs.attempted }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
@@ -365,7 +442,24 @@ jobs:
           build: 'false'
           browsers: ''
       - name: Promote the version to 100% of production traffic
-        run: npm run release:promote -- "${{ needs.deploy.outputs.version_id }}"
+        id: promote-version
+        env:
+          PREVIOUS_VERSION: ${{ needs.deploy.outputs.previous_version }}
+          RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
+        run: |
+          if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
+          npm run release:promote -- "${{ needs.deploy.outputs.version_id }}"
+
+  # Keep confirmation outside promote: if propagation fails after a successful
+  # promotion, promote stays successful and the rollback job knows it went live.
+  confirm-promote:
+    needs: [deploy, promote]
+    if: ${{ needs.deploy.outputs.staged == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
       - name: Confirm production serves the new bundle
         env:
           EXPECTED: ${{ needs.deploy.outputs.bundle }}
@@ -383,7 +477,7 @@ jobs:
           exit 1
 
   production-checks:
-    needs: [deploy, promote]
+    needs: [deploy, confirm-promote]
     if: ${{ needs.deploy.outputs.staged == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -457,8 +551,8 @@ jobs:
   # check, a check cut off by its time limit, or the deploy job failing after its deploy step). The run still
   # ends red; this just stops users staying on a bad version.
   rollback:
-    needs: [deploy, checks, promote, production-checks]
-    if: ${{ always() && (needs.deploy.outputs.live == 'true' || needs.promote.result == 'success') && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
+    needs: [deploy, checks, promote, confirm-promote, production-checks]
+    if: ${{ always() && (needs.deploy.outputs.live == 'true' || needs.promote.result == 'success' || (needs.deploy.outputs.deploy_attempted == 'true' && needs.deploy.result == 'failure') || (needs.promote.outputs.attempted == 'true' && needs.promote.result == 'failure')) && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -476,7 +570,21 @@ jobs:
       - name: Roll production back to the previous version
         env:
           PREVIOUS_VERSION: ${{ needs.deploy.outputs.previous_version }}
+          EXPECTED_NEW_VERSION: ${{ needs.deploy.outputs.version_id }}
         run: |
-          echo "::error::a check failed after the new version went live; rolling back to ${PREVIOUS_VERSION:-the previous deployment}"
+          if [ -z "$PREVIOUS_VERSION" ]; then
+            echo '::error::automatic rollback has no recorded version; refusing an implicit previous deployment'
+            exit 1
+          fi
+          node scripts/release-tools.cjs validate-version "$PREVIOUS_VERSION"
+          current=$(node scripts/release-tools.cjs current-version)
+          current=${current#version_id=}
+          decision=$(node scripts/release-tools.cjs rollback-decision "$PREVIOUS_VERSION" "$current" "$EXPECTED_NEW_VERSION")
+          if [ "$decision" = 'rollback=false' ]; then
+            echo 'Production still serves the recorded previous version; no rollback is needed.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          test "$decision" = 'rollback=true'
+          echo "::error::a check failed after the new version went live; rolling back to $PREVIOUS_VERSION"
           npm run rollback -- "$PREVIOUS_VERSION"
-          echo "Rolled back to ${PREVIOUS_VERSION:-the previous deployment}. Fix forward, then push again." >> "$GITHUB_STEP_SUMMARY"
+          echo "Rolled back to $PREVIOUS_VERSION. Fix forward, then push again." >> "$GITHUB_STEP_SUMMARY"

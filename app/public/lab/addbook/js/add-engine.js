@@ -18,12 +18,79 @@
   // them so a different reader on the same browser does not see them. Signed in, each is
   // also kept privately in that account (below, `cloud`) so it opens on other devices.
   const owner = () => global.TinctAI?.session().userId || 'guest';
+  // This old reader keeps reading/writing its historic hash-only EPUB keys.
+  // When the current account already owns an exact copy (or both keys are new),
+  // advance the owner backup with each write so the shared reader can recover
+  // marks made during a rollback. Unknown and foreign raw data stays visible
+  // here but is never silently claimed for this account.
+  const legacyEpubAnnotations = {
+    keys(hex) {
+      const id = accountId();
+      return { id, claim: STORE_PREFIX + 'legacy-epub-owner:' + hex,
+        backup: STORE_PREFIX + 'legacy-epub-annotations:' + id + ':' + hex,
+        marks: STORE_PREFIX + 'hl:epub:' + hex, cards: STORE_PREFIX + 'cards:epub:' + hex };
+    },
+    rawCopy(s, keys) {
+      try {
+        const marks = JSON.parse(s.getItem(keys.marks) || '[]');
+        const cards = JSON.parse(s.getItem(keys.cards) || '[]');
+        return Array.isArray(marks) && Array.isArray(cards) ? { marks, cards } : null;
+      } catch { return null }
+    },
+    proven(s, keys) {
+      if (s.getItem(keys.claim) !== keys.id) return false;
+      const raw = this.rawCopy(s, keys);
+      try {
+        const backup = JSON.parse(s.getItem(keys.backup) || 'null');
+        return !!raw && backup && Array.isArray(backup.marks) && Array.isArray(backup.cards)
+          && JSON.stringify(raw) === JSON.stringify(backup);
+      } catch { return false }
+    },
+    set(key, value) {
+      const found = /^(hl|cards):epub:([0-9a-f]{24})$/.exec(key);
+      if (!found) return;
+      try {
+        const s = global.localStorage, keys = this.keys(found[2]);
+        const kind = found[1] === 'hl' ? 'marks' : 'cards';
+        const fresh = keys.id && s.getItem(keys.claim) === null && s.getItem(keys.backup) === null
+          && s.getItem(keys.marks) === null && s.getItem(keys.cards) === null;
+        if (fresh) {
+          s.setItem(keys.backup, JSON.stringify({ marks: [], cards: [] }));
+          s.setItem(keys.claim, keys.id);
+        }
+        if (keys.id && Array.isArray(value) && this.proven(s, keys)) {
+          const next = this.rawCopy(s, keys);
+          next[kind] = value;
+          // Backup first: a failed raw write leaves a mismatch, never a false
+          // claim over a different account's later same-hash write.
+          s.setItem(keys.backup, JSON.stringify(next));
+        }
+        s.setItem(keys[kind], JSON.stringify(value));
+      } catch { /* blocked storage keeps the older copy */ }
+    },
+  };
   const library = {
     open() { return new Promise((res, rej) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) },
     async tx(mode, fn) { const db = await this.open(); return new Promise((res, rej) => { const t = db.transaction('books', mode); const out = fn(t.objectStore('books')); t.oncomplete = () => res(out?.result ?? out); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error) }) },
     async put(rec) { try { await this.tx('readwrite', s => s.put(rec)); return true } catch { return false } },
     async get(key) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === owner() ? rec : null } catch { return null } },
-    async remove(key) { try { await this.tx('readwrite', s => s.delete(key)) } catch {} },
+    async remove(key, expectedOwner = owner()) {
+      // The hash is shared across accounts. Recheck its owner in the same
+      // transaction as the delete, including after an awaited open/get.
+      let removed = false;
+      try {
+        await this.tx('readwrite', s => {
+          const r = s.get(key);
+          r.onsuccess = () => {
+            if (r.result?.owner === expectedOwner && owner() === expectedOwner) {
+              s.delete(key);
+              removed = true;
+            }
+          };
+        });
+        return removed;
+      } catch { return false }
+    },
     async list() {
       try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, edition, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
       catch { return [] }
@@ -41,7 +108,14 @@
     get(key) { return this.mine().get(key) || null },
     async refresh() {
       if (!this.usable()) return false;
-      try { const list = await global.TinctAI.books.list(); const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true }
+      const initial = global.TinctAI?.session();
+      const initialOwner = initial?.userId || 'guest', initialToken = initial?.token;
+      try {
+        const list = await global.TinctAI.books.list();
+        const current = global.TinctAI?.session();
+        if ((current?.userId || 'guest') !== initialOwner || current?.token !== initialToken) return false;
+        const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true;
+      }
       catch { return false }
     },
   };
@@ -138,15 +212,96 @@
    * The same rule as the library's delete (lab/library_2 forgetOwnBookHere). -> the number of keys removed
    */
   const SNAPSHOT_KEYS = /^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
-  function forgetBookHere(hex, storages = [global.localStorage, global.sessionStorage]) {
+  function forgetBookHere(hex, storages = [global.localStorage, global.sessionStorage], { preserveHashOnly = false } = {}) {
     hex = String(hex || '').replace(/^(epub|pdf):/, '');
     if (!/^[0-9a-f]{24}$/.test(hex)) return 0;
     let gone = 0;
     for (const s of storages) {
       try {
         if (!s) continue;
+        // The React reader's highlights share one array across books/accounts.
+        // Delete its projection only when the owner marker and exact owner backup
+        // agree; a failed account switch must never attribute another person's
+        // same-hash marks to the account being deleted.
+        const ownerId = accountId(), bookId = 'userbook-' + hex;
+        const legacyClaim = 'tinct-addbook:legacy-epub-owner:' + hex;
+        const legacyBackup = 'tinct-addbook:legacy-epub-annotations:' + ownerId + ':' + hex;
+        const legacyMarks = 'tinct-addbook:hl:epub:' + hex, legacyCards = 'tinct-addbook:cards:epub:' + hex;
+        const claimedByOwner = !!ownerId && s.getItem(legacyClaim) === ownerId;
+        // Hash-only static annotations may belong to a different browser user.
+        // Remove them only when both raw arrays exactly match this account's
+        // claim backup. An incomplete write keeps the claim and backup in place
+        // so a later account cannot treat the raw records as unassigned.
+        let legacyRawProven = false;
+        if (claimedByOwner) try {
+          const rawMarks = s.getItem(legacyMarks), rawCards = s.getItem(legacyCards);
+          if (rawMarks === null && rawCards === null) legacyRawProven = true;
+          else {
+            const backup = JSON.parse(s.getItem(legacyBackup) || 'null');
+            legacyRawProven = !!backup && Array.isArray(backup.marks) && Array.isArray(backup.cards)
+              && (rawMarks === null || JSON.stringify(JSON.parse(rawMarks)) === JSON.stringify(backup.marks))
+              && (rawCards === null || JSON.stringify(JSON.parse(rawCards)) === JSON.stringify(backup.cards));
+          }
+        } catch { legacyRawProven = false }
+        if (legacyRawProven) for (const key of [legacyMarks, legacyCards]) try { s.removeItem(key) } catch { /* keep owner claim if raw remains */ }
+        const preserveLegacyClaim = claimedByOwner && (s.getItem(legacyMarks) !== null || s.getItem(legacyCards) !== null);
+        const marksMarker = 'tinct-addbook:text-marks-owner:' + hex;
+        if (ownerId && s.getItem(marksMarker) === ownerId) {
+          const backup = s.getItem('tinct-addbook:text-marks-local:' + ownerId + ':' + hex);
+          try {
+            const all = JSON.parse(s.getItem('tinct-lab-highlights') || '[]');
+            if (backup !== null && Array.isArray(all) && backup === JSON.stringify(all.filter(mark => mark?.bookId === bookId))) {
+              s.setItem('tinct-lab-highlights', JSON.stringify(all.filter(mark => mark?.bookId !== bookId)));
+            }
+          } catch { /* uncertain ownership or blocked storage: preserve marks */ }
+        }
+        const marksStillClaimed = ownerId && s.getItem(marksMarker) === ownerId && (() => {
+          const raw = s.getItem('tinct-lab-highlights');
+          if (raw === null) return false;
+          try { const rows = JSON.parse(raw); return !Array.isArray(rows) || rows.some(mark => mark?.bookId === bookId) } catch { return true }
+        })();
         const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
+        const chatKey = 'tinct:chat-history:userbook-' + hex;
+        const chatMarker = 'tinct-addbook:text-cards-owner:' + hex;
+        if (ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null) try {
+          const raw = JSON.parse(s.getItem(chatKey));
+          const canonical = keys.filter(k => k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex
+            || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'));
+          if (Array.isArray(raw) && raw.length && canonical.some(k => {
+            try {
+              const copy = JSON.parse(s.getItem(k) || 'null');
+              const known = new Set(Array.isArray(copy?.conversations) ? copy.conversations.map(row => JSON.stringify(row)) : []);
+              return raw.every(row => known.has(JSON.stringify(row)));
+            } catch { return false }
+          })) { s.removeItem(chatKey); if (s.getItem(chatKey) === null) gone++ }
+        } catch { /* malformed or ambiguous hash-only chat remains claimed */ }
+        const chatStillClaimed = ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null;
         for (const k of keys) {
+          const tableOwner = /^tinct:library-2-table:([^:]+)$/.exec(k)?.[1];
+          if (tableOwner && (!ownerId || tableOwner !== ownerId)) continue;
+          if (k === chatKey || k === legacyMarks || k === legacyCards) continue; // Only proven hash-only projections are removed above.
+          if (preserveLegacyClaim && (k === legacyClaim || k === legacyBackup || k === 'tinct-addbook:legacy-epub-migrated:' + ownerId + ':' + hex)) continue;
+          if (marksStillClaimed && (k === marksMarker || k === 'tinct-addbook:text-marks-local:' + ownerId + ':' + hex || k === 'tinct-addbook:text-marks-previous:' + ownerId + ':' + hex)) continue;
+          if (chatStillClaimed && (k === chatMarker || k === 'tinct-addbook:text-cards-adopted:' + ownerId + ':' + hex || k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'))) continue;
+          const scoped = /^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k);
+          if (scoped && scoped[2] === hex && (!ownerId || scoped[1] !== ownerId)) continue;
+          const pdfScoped = /^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(k);
+          if (pdfScoped && pdfScoped[2] === hex && (!ownerId || pdfScoped[1] !== ownerId)) continue;
+          if ((k === 'tinct-addbook:text-marks-unassigned:' + hex || k === 'tinct-addbook:text-cards-unassigned:' + hex)) continue;
+          if (k === 'tinct-addbook:text-cards-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          const legacy = /^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (legacy && legacy[2] === hex && (!ownerId || legacy[1] !== ownerId)) continue;
+          if (k === 'tinct-addbook:legacy-epub-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          if (k === 'tinct-addbook:text-marks-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          const staticScoped = /^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (staticScoped && staticScoped[2] === hex && (!ownerId || staticScoped[1] !== ownerId)) continue;
+          if (/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(k) && ownerId) continue;
+          // A cloud-only delete may share these 24 hash digits with another
+          // account's local file. Only current-owner evidence can be cleared.
+          if (preserveHashOnly && !(ownerId && ((scoped && scoped[1] === ownerId)
+            || (pdfScoped && pdfScoped[1] === ownerId) || (legacy && legacy[1] === ownerId)
+            || (staticScoped && staticScoped[1] === ownerId)
+            || ((k === legacyClaim || k === marksMarker || k === chatMarker) && s.getItem(k) === ownerId)))) continue;
           const mine = (k.startsWith(STORE_PREFIX) || k.startsWith('tinct:')) && k.includes(hex);
           const names = !mine && SNAPSHOT_KEYS.test(k) && String(s.getItem(k) || '').includes(hex);
           if (mine || names) { s.removeItem(k); gone++ }
@@ -156,16 +311,33 @@
     return gone;
   }
   async function removeBook(key, { notify = quiet } = {}) {
+    const initial = global.TinctAI?.session();
+    const initiatingOwner = initial?.userId || 'guest';
+    const initiatingToken = initial?.token;
+    const sameSession = () => {
+      const now = global.TinctAI?.session();
+      return (now?.userId || 'guest') === initiatingOwner && now?.token === initiatingToken;
+    };
     const rec = await library.get(key);
+    if (!sameSession()) return false;
     const id = rec?.cloudId || cloud.get(key)?.id;
-    await library.remove(key);
-    store.del('place:' + key.replace(/^epub:/, ''));
-    // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
-    store.del('ocr:' + key.slice(key.indexOf(':') + 1));
+    if (rec) {
+      if (!await library.remove(key, initiatingOwner) || !sameSession()) return false;
+      store.del('place:' + key.replace(/^epub:/, ''));
+      // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
+      store.del('ocr:' + key.slice(key.indexOf(':') + 1));
+    }
+    if (!sameSession()) return false;
     // And every other key this device keeps for it (highlights, cards, chats, primers, its place).
-    forgetBookHere(key);
+    forgetBookHere(key, undefined, { preserveHashOnly: !rec });
     if (!id) return true;
-    try { await global.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
+    if (!sameSession()) return false;
+    try {
+      await global.TinctAI.books.remove(id);
+      if (!sameSession()) return false;
+      cloud.mine().delete(key);
+      return true;
+    }
     catch { notify('Removed from this device, but not from your account. Try again.'); return false }
   }
 
@@ -310,7 +482,7 @@
   const pdfHref = key => '/lab/addbook/?userBook=' + encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
 
   global.TinctAddEngine = {
-    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook, forgetBookHere,
+    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook, forgetBookHere, legacyEpubAnnotations,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
     kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
   };

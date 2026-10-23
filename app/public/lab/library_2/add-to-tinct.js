@@ -125,7 +125,7 @@ const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this de
 export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019batch'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261023floorown1'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -966,12 +966,41 @@ export function confirmDeleteUpload(book,{from=null,own=true}={}){
  * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
  * gone from both.
  */
+// The file engine loads tinct-api.js lazily on a cold Library page. Read the
+// same stored session it will expose, so installing the bridge is not mistaken
+// for an account change. This fingerprint never authorizes a request itself.
+function deleteSession(){
+ const bridged=globalThis.TinctAI?.session?.();
+ if(bridged)return {userId:bridged.userId??null,token:bridged.token??null};
+ try{
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);
+   if(!/^sb-.*-auth-token$/.test(key))continue;
+   const value=JSON.parse(localStorage.getItem(key)||'null');
+   const session=value&&(value.currentSession||value);
+   if(!session?.access_token)continue;
+   const expired=session.expires_at&&session.expires_at*1000<Date.now()+30000;
+   return {userId:session.user?.id||null,token:expired?null:session.access_token};
+  }
+ }catch{}
+ return {userId:null,token:null};
+}
 export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
+ const initial=deleteSession();
+ const initiatingUser=initial.userId,initiatingToken=initial.token;
+ const sameSession=()=>{const now=deleteSession();return now.userId===initiatingUser&&now.token===initiatingToken;};
  const api=await engine();
+ if(!sameSession())return false;
  // An account copy not on this device is found by the account's list.
- if(!(await api.library.get(book.key)))await api.cloud.refresh();
+ const local=await api.library.get(book.key);
+ if(!sameSession())return false;
+ if(!local){await api.cloud.refresh();if(!sameSession())return false;}
  const gone=await api.removeBook(book.key);
- forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined);
+ if(!sameSession())return false;
+ // The engine rechecks local ownership after this earlier lookup. Its own
+ // proven-local path did full cleanup; this second pass must stay conservative
+ // if an account switch happened between the two awaits.
+ forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined,{preserveHashOnly:true});
  return gone;
 }
 /** This page's fast-paint snapshots: rebuilt on the next load, so one that names a deleted book is dropped whole. */
@@ -982,14 +1011,73 @@ const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-
  * library's small cover copy, and any snapshot naming it. Keys are matched by the book's own
  * 24-hex-digit id, so no other book's keys can match.
  */
-export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage]){
+export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage],{preserveHashOnly=false}={}){
  if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
- const id='userbook-'+hex;let gone=0;
+ const id='userbook-'+hex;let gone=0,owner=globalThis.TinctAI?.session()?.userId||null;
  for(const store of storages){
   if(!store)continue;
   try{
+   const legacyClaim=`tinct-addbook:legacy-epub-owner:${hex}`;
+   const legacyBackup=`tinct-addbook:legacy-epub-annotations:${owner}:${hex}`;
+   const legacyMarks=`tinct-addbook:hl:epub:${hex}`,legacyCards=`tinct-addbook:cards:epub:${hex}`;
+   const claimedByOwner=!!owner&&store.getItem(legacyClaim)===owner;
+   // Old EPUB annotations use hash-only keys. Exact agreement with this
+   // owner's backup is the proof needed to delete them. Preserve a mismatched
+   // claim and backup, otherwise another account could adopt the raw records.
+   let legacyRawProven=false;
+   if(claimedByOwner)try{
+    const marks=store.getItem(legacyMarks),cards=store.getItem(legacyCards);
+    if(marks===null&&cards===null)legacyRawProven=true;
+    else{const backup=JSON.parse(store.getItem(legacyBackup)||'null');legacyRawProven=!!backup&&Array.isArray(backup.marks)&&Array.isArray(backup.cards)
+     &&(marks===null||JSON.stringify(JSON.parse(marks))===JSON.stringify(backup.marks))
+     &&(cards===null||JSON.stringify(JSON.parse(cards))===JSON.stringify(backup.cards));}
+   }catch{legacyRawProven=false;}
+   if(legacyRawProven)for(const key of [legacyMarks,legacyCards])try{store.removeItem(key);}catch{/* keep claim if raw remains */}
+   const preserveLegacyClaim=claimedByOwner&&(store.getItem(legacyMarks)!==null||store.getItem(legacyCards)!==null);
+   const marksMarker=`tinct-addbook:text-marks-owner:${hex}`;
+   if(owner&&store.getItem(marksMarker)===owner){
+    const backup=store.getItem(`tinct-addbook:text-marks-local:${owner}:${hex}`);
+    try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
+   }
+   const marksStillClaimed=owner&&store.getItem(marksMarker)===owner&&(()=>{
+    const raw=store.getItem('tinct-lab-highlights');if(raw===null)return false;
+    try{const rows=JSON.parse(raw);return !Array.isArray(rows)||rows.some(mark=>mark?.bookId===id);}catch{return true;}
+   })();
    const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
+   const chatKey=`tinct:chat-history:${id}`;
+   const chatMarker=`tinct-addbook:text-cards-owner:${hex}`;
+   if(owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null)try{
+    const raw=JSON.parse(store.getItem(chatKey));
+    const canonical=keys.filter(key=>key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`));
+    if(Array.isArray(raw)&&raw.length&&canonical.some(key=>{
+     try{const copy=JSON.parse(store.getItem(key)||'null');const known=new Set(Array.isArray(copy?.conversations)?copy.conversations.map(row=>JSON.stringify(row)):[]);
+      return raw.every(row=>known.has(JSON.stringify(row)));}catch{return false;}
+    })){store.removeItem(chatKey);if(store.getItem(chatKey)===null)gone++;}
+   }catch{/* malformed or ambiguous hash-only chat remains claimed */}
+   const chatStillClaimed=owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null;
    for(const key of keys){
+    const tableOwner=/^tinct:library-2-table:([^:]+)$/.exec(key)?.[1];
+    if(tableOwner&&(!owner||tableOwner!==owner))continue;
+    if(key===chatKey||key===legacyMarks||key===legacyCards)continue;
+    if(preserveLegacyClaim&&(key===legacyClaim||key===legacyBackup||key===`tinct-addbook:legacy-epub-migrated:${owner}:${hex}`))continue;
+    if(marksStillClaimed&&(key===marksMarker||key===`tinct-addbook:text-marks-local:${owner}:${hex}`||key===`tinct-addbook:text-marks-previous:${owner}:${hex}`))continue;
+    if(chatStillClaimed&&(key===chatMarker||key===`tinct-addbook:text-cards-adopted:${owner}:${hex}`||key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`)))continue;
+    const scoped=/^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);
+    if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
+    const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);
+    if(pdfScoped&&pdfScoped[2]===hex&&(!owner||pdfScoped[1]!==owner))continue;
+    const staticScoped=/^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(staticScoped&&staticScoped[2]===hex&&(!owner||staticScoped[1]!==owner))continue;
+    if(/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(key)&&owner)continue;
+    if(key===`tinct-addbook:text-cards-unassigned:${hex}`||key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
+    if(key===`tinct-addbook:text-cards-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
+    if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    if(preserveHashOnly&&!(owner&&((scoped&&scoped[1]===owner)||(pdfScoped&&pdfScoped[1]===owner)
+      ||(staticScoped&&staticScoped[1]===owner)||(legacy&&legacy[1]===owner)
+      ||((key===legacyClaim||key===marksMarker||key===chatMarker)&&store.getItem(key)===owner))))continue;
     const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
     const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
     if(mine||names){store.removeItem(key);gone++;}
