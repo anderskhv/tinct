@@ -72,7 +72,7 @@ it('bypasses the old preview before its sticky opt-in or chapter handoff can be 
 })
 
 it('keeps flag-off routing through the old preview entry', async () => {
-  const child = await enter('?book=frankenstein&margin=1')
+  const child = await enter('?book=frankenstein&margin=1&sharedReader=0')
   expect(mocks.preview).toHaveBeenCalledOnce()
   expect(mocks.migrate).toHaveBeenCalledOnce()
   expect(child.props.sharedReader).toBeUndefined()

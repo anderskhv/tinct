@@ -118,11 +118,11 @@ describe('release rollback guards (offline)', () => {
   })
 
   it('refuses a reader release without a real pinned floor, and distinguishes UUID equality from format proof', () => {
-    expect(run(['verify-reader-floor', previous]).stderr).toContain('reviewed shared-reader-floor.json')
     const dir = mkdtempSync(join(tmpdir(), 'tinct-floor-test-'))
     const file = join(dir, 'floor.json')
     const fixture = { v: 1, floorVersionId: previous, floorCommit: 'a'.repeat(40), proof: 'src/worker.rollbackFloor.test.ts' }
     try {
+      expect(run(['verify-reader-floor', previous, join(dir, 'missing-floor.json')]).stderr).toContain('reviewed shared-reader-floor.json')
       writeFileSync(file, JSON.stringify(fixture))
       expect(run(['verify-reader-floor', previous, file]).stdout).toContain(`floor_version_id=${previous}`)
       expect(run(['verify-reader-floor', promoted, file]).stderr).toContain('not the pinned compatible floor')

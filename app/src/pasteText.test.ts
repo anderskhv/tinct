@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { epubToEdition } from './lab/userBook/epubEdition'
+import { SHARED_READER_DEFAULT } from './lab/sharedReader/sharedReaderFlag'
 // @ts-expect-error -- shared browser module
 import { detectFormat, markdownHtml, pasteEpub, preview, sanitizeHtml, suggestedTitle, trimSource } from '../public/lab/library_2/paste-text.js'
 import '../public/lab/wait-ring.js'
@@ -80,9 +81,9 @@ describe('private Paste entry', () => {
   const go = vi.fn(); add.openFileDialog({engine: async () => engine, go})
   return {go, upload, engine}
  }
- it('is URL gated, keeps default Add dialog unchanged, and opens the common private reader after confirmed account save', async () => {
+ it('follows the build default and URL overrides, and opens the common private reader after confirmed account save', async () => {
   open('')
-  expect(dialog().querySelector('.own-file-paste')).toBeNull(); add.closeFileDialog()
+  expect(Boolean(dialog().querySelector('.own-file-paste'))).toBe(SHARED_READER_DEFAULT); add.closeFileDialog()
   open('?sharedReader=0')
   expect(dialog().querySelector('.own-file-paste')).toBeNull(); add.closeFileDialog()
   const {go,upload} = open('?sharedReader=1')

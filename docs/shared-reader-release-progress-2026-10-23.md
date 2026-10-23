@@ -1,19 +1,53 @@
 # Shared reader release progress, 23 October 2026
 
-This is the live execution record for the [agreed release plan](shared-reader-consolidation-2026-10-23.md). A checkpoint is not completion. The coordinating agent owns integration, regression repair, and release readiness. Anders must explicitly approve merge and deployment. Paid provider checks require a separate agreed scope and budget.
+This is the live execution record for the [agreed release plan](shared-reader-consolidation-2026-10-23.md). A checkpoint is not completion. The coordinating agent owns integration, regression repair, and acceptance. Anders has explicitly approved the floor-to-reader merge and deployment sequence, and separately one muted synthetic-input guest Grok Talk call, at most 120 seconds, no retry, budget $0.25, with no new narration generation.
 
-**Current status:** candidate16 release preparation is complete. Runtime source
+**Current execution status:** the compatible old-reader floor is deployed from
+`dcc2dca562b9c05f252a532f6d5e6a839aa5199b` in manual run
+`40024003699`. Its 6888 tests, build and bundle verification pass, and production
+serves `index-CQIECQfJ.js`. All six live acceptance groups must pass before its
+actual Worker UUID can be pinned for the reader cutover. Reader production has
+not been enabled and the paid voice check has not run.
+
+The initial floor run `40020741706` stopped before deployment: a unit case
+modelling an unapproved caller inherited its parent's approved dispatch
+environment. PR #606 isolates the child environment without changing a runtime
+guard or the old UI; its complete verify run `40022633622` passed. The approved
+Mac helper is running from immutable commit
+`1ffffe7480dd086018c0f350b7e62db13a60b041`; it waits for reviewed merges and
+existing acceptance gates, detects duplicate dispatches, stops on failures and
+has a six-hour polling bound. Credentials remain in the Mac's existing gh login.
+
+The resolved reader/floor integration preserves the reviewed reader runtime
+exactly and retains both histories. Its local ON build `index-DpYH2EkA.js`
+passes bundle verification and the full approved reader-dispatch environment
+passes 7132 tests (six skipped). Old unit fixtures now specify explicit URL
+opt-out or test both modes instead of assuming an OFF build. The missing-floor
+unit case uses its own absent fixture so it also works after a real floor
+manifest is checked in. The live Shakespeare gate now recognises an exact-source
+manual deploy beside the deliberately blocked automatic push, with six offline
+gate tests. These integration changes still need their exact-source CI and the
+accepted floor's real manifest before reader deployment.
+
+Independent release review requires the Shakespeare gate to wait for the whole
+release to succeed, because a passed smoke step can precede a later rollback.
+The running pinned Mac helper has a polling deadline rather than a deadline at
+every dispatch, and accepts workflow-level voice success without proving its
+verification step ran. The coordinator must merge the exact reviewed reader
+tree with at least an hour remaining in the helper window and independently
+verify the actual paid step and provider evidence before declaring completion.
+Updating the repository helper would not update the already running Mac copy.
+
+**Preparation checkpoint:** candidate16 release preparation was completed. Runtime source
 `a2d3d1a8fa5e81d8539483c232276a515a9f67a0`, ON bundle
 `index-Co9oahaE.js`, passes 7125 tests (six skipped), required source CI,
 Chromium/WebKit functional and rollback journeys, the 120-case local
 Shakespeare audit and every final strict performance median target. The
 compatible OFF floor is `eac7e63f65557627652ff6fddeab5c85fab18ce1`,
 `index-CFF78Pcz.js`, with 6888 passing tests (43 skipped). See the
-[final result](#final-strict-candidate16-result) below. Production is unchanged.
-Remaining work requires release approval and the separately proposed bounded
-paid-provider scope/budget. The auxiliary CI Shakespeare browser installation
-is still pending; its exact static script passed locally and is not relabelled
-as a completed CI run.
+[final result](#final-strict-candidate16-result) below. The later source CI also
+completed its Shakespeare audit successfully in run `39964506332`; the earlier
+installation wait is retained below as history, not a current blocker.
 
 ## Verified starting state for continued implementation
 

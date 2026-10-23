@@ -953,7 +953,7 @@ describe('Removing one of My private uploads', () => {
 })
 
 describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add a PDF or EPUB")', () => {
-  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear() })
+  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear(); window.history.replaceState(null, '', '/') })
   const entry = () => { const link = document.createElement('a'); link.href = '/library#my-shelf'; document.body.append(link); return link }
   const dialog = () => document.querySelector('[data-testid="own-file-dialog"]')
   const choose = (file: File) => {
@@ -1098,22 +1098,27 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(go).toHaveBeenCalledWith('/lab/addbook/?mode=file&handoff=1')
   })
 
-  it('keeps the gating: a free account past its trial gets the Premium offer, signed out signs in first, never the pop-up', async () => {
+  it.each(['0', '1'])('keeps Premium/sign-in gating and the return destination with sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     const go = vi.fn()
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => false, go })
-    expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
+    const shelf = shared === '1' ? '/library?sharedReader=1#my-shelf' : '/library#my-shelf'
+    expect(go).toHaveBeenCalledWith(shared === '1' ? `/sign-in?mode=account&returnTo=${encodeURIComponent(shelf)}` : addToTinct.PREMIUM_PAGE)
     document.documentElement.classList.remove('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => null, go })
-    expect(go).toHaveBeenLastCalledWith('/sign-in?returnTo=%2Flibrary%23my-shelf')
+    expect(go).toHaveBeenLastCalledWith(`/sign-in?returnTo=${encodeURIComponent(shelf)}`)
     expect(dialog()).toBeNull()
   })
 
-  it('closes on its × and Escape; only the file button, no Cancel (Anders, 15 Oct)', async () => {
+  it.each(['0', '1'])('closes on its × and Escape, with no Cancel and Paste only for sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     expect(dialog()!.querySelector('.own-file-cancel')).toBeNull()
-    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(['tui-btn tui-btn--primary own-file-choose'])
+    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(shared === '1'
+      ? ['tui-btn tui-btn--primary own-file-choose', 'tui-btn tui-btn--secondary own-file-paste']
+      : ['tui-btn tui-btn--primary own-file-choose'])
     const close = dialog()!.querySelector('.tui-dialog__head .own-file-close') as HTMLButtonElement
     expect(close.getAttribute('aria-label')).toBe('Close')
     close.click()
