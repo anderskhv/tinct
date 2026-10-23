@@ -4,6 +4,8 @@ on:
     paths:
       - 'app/src/lab/**'
       - 'app/scripts/check-shakespeare-speakers.mjs'
+      - 'app/scripts/check-reader-panels.mjs'
+      - 'app/scripts/check-reader-spread.cjs'
       - 'app/scripts/wait-for-release-smoke.mjs'
       - '.github/workflows/shakespeare-speakers.yml'
   push:
@@ -11,6 +13,8 @@ on:
     paths:
       - 'app/src/lab/**'
       - 'app/scripts/check-shakespeare-speakers.mjs'
+      - 'app/scripts/check-reader-panels.mjs'
+      - 'app/scripts/check-reader-spread.cjs'
       - 'app/scripts/wait-for-release-smoke.mjs'
       - '.github/workflows/shakespeare-speakers.yml'
 permissions:
