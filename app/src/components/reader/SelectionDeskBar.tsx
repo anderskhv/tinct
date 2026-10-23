@@ -10,13 +10,14 @@ import './selectionDeskBar.css'
  * it is highlighted ('colors'), and a saved highlight clicked ('existing').
  */
 export type DeskBarState = 'menu' | 'colors' | 'existing'
-export type DeskMoreId = 'define' | 'factcheck' | 'counterpoint' | 'gallery' | 'copy' | 'share' | 'page'
+export type DeskMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'gallery' | 'copy' | 'share' | 'page'
 
 /** The margin reader's ••• rows on desktop (margin.js MORE_ROWS and MORE_ROWS_2), with the lines it shows under them. */
 export const DESK_MORE_ROWS: Record<DeskMoreId, [string, string]> = {
   define: ['Define', 'The word, as this text uses it'],
   factcheck: ['Fact-check', 'Does it still hold? Searches the web'],
   counterpoint: ['Counterpoint', 'The strongest objection to it'],
+  quiz: ['Quiz me', 'A question about this passage'],
   gallery: ['Character gallery', 'Everyone in this passage'],
   copy: ['Copy', 'The passage, to paste elsewhere'],
   share: ['Share as image', 'The quote as a card to post'],
@@ -29,6 +30,7 @@ export const DESK_SWATCH: Record<HighlightColor, string> = {
 }
 
 export interface SelectionDeskBarProps {
+  sharedReader?: boolean
   state: DeskBarState
   /** The colour a click on the highlighter uses, or the saved highlight's colour. */
   color: HighlightColor
@@ -40,6 +42,8 @@ export interface SelectionDeskBarProps {
   /** Where the press ended, used only when no selected word is painted. */
   fallback: { x: number; y: number }
   onAsk: () => void
+  /** Only the private shared reader uses the in-place Ask field. */
+  onAskQuestion?: (question: string) => void
   onExplain: () => void
   onSimplify: () => void
   onMore: (id: DeskMoreId) => void
@@ -69,6 +73,10 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   }
   const [place, setPlace] = useState<{ left: number; top: number; below: boolean; tip: number } | null>(null)
   const [moreOpen, setMoreOpen] = useState(false)
+  const [askOpen, setAskOpen] = useState(false)
+  const [question, setQuestion] = useState('')
+  const askRef = useRef<HTMLInputElement | null>(null)
+  const askButtonRef = useRef<HTMLButtonElement | null>(null)
   const [morePlace, setMorePlace] = useState<{ left: number; top: number } | null>(null)
   const moreRef = useRef<HTMLDivElement | null>(null)
   const frame = (): DeskBox => ({ left: 0, right: window.innerWidth, top: document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 60, bottom: window.innerHeight })
@@ -86,7 +94,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     at()
     window.addEventListener('resize', at)
     return () => window.removeEventListener('resize', at)
-  }, [state, marked, fallback.x, fallback.y])
+  }, [state, marked, askOpen, fallback.x, fallback.y])
   useLayoutEffect(() => {
     if (!moreOpen || !place) { setMorePlace(null); return }
     const bar = ref.current, menu = moreRef.current
@@ -96,8 +104,21 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     // The menu is drawn inside the bar (it shares its dismissal): its place is relative to the bar.
     setMorePlace({ left: at.left - place.left, top: at.top - place.top })
   }, [moreOpen, place])
+  useLayoutEffect(() => { if (props.sharedReader && moreOpen && morePlace) moreRef.current?.querySelector<HTMLButtonElement>('[role="menuitem"]')?.focus({ preventScroll: true }) }, [props.sharedReader, moreOpen, morePlace])
   // A new state (highlighted, the colours) closes the menu.
-  useLayoutEffect(() => { setMoreOpen(false) }, [state])
+  useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion('') }, [state])
+  useLayoutEffect(() => { if (askOpen) askRef.current?.focus({ preventScroll: true }) }, [askOpen])
+
+  const closeAsk = () => {
+    setAskOpen(false)
+    setQuestion('')
+    requestAnimationFrame(() => askButtonRef.current?.focus({ preventScroll: true }))
+  }
+  const openAsk = () => {
+    if (!props.onAskQuestion) { props.onAsk(); return }
+    setMoreOpen(false)
+    setAskOpen(true)
+  }
 
   const keep = (event: React.PointerEvent | React.MouseEvent) => event.preventDefault()
   const sep = <span className="lab-pbar-sep" aria-hidden="true" />
@@ -113,7 +134,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   let body: ReactNode
   if (state === 'existing') {
     body = <>
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={props.onAsk}>Ask</button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={openAsk}>Ask</button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
       {more(moreRows)}
@@ -133,7 +154,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
-      <button type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={props.onAsk}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={openAsk}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>
@@ -153,15 +174,35 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       className={`selection-popup is-lab is-desk-bar lab-pbar is-desk${place?.below ? ' is-below' : ''}`}
       data-testid="lab-desk-bar"
       data-bar-state={state}
+      data-ask-open={askOpen ? 'true' : undefined}
       role="toolbar"
       aria-label="Selection"
       style={{ position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
-      {body}
+      {askOpen ? <form className="lab-dbar-ask-form" onSubmit={event => {
+        event.preventDefault()
+        const text = question.trim()
+        if (text && props.onAskQuestion) props.onAskQuestion(text)
+      }}>
+        <label className="lab-dbar-ask-label" htmlFor="lab-dbar-ask-field">Ask about this passage</label>
+        <input ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question}
+          onChange={event => setQuestion(event.target.value)} placeholder="Ask about this passage…" autoComplete="off"
+          onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeAsk() } }} />
+        <button type="submit" className="lab-dbar-ask-send" aria-label="Send question" disabled={!question.trim()}>↑</button>
+      </form> : body}
       {moreOpen && (
-        <div ref={moreRef} className={`lab-dmore${morePlace ? '' : ' is-measuring'}`} role="menu" aria-label="More" data-testid="lab-desk-more"
+        <div ref={moreRef} className={`lab-dmore${morePlace ? '' : ' is-measuring'}`} role="menu" aria-label="More" data-testid="lab-desk-more" data-shared-reader-menu=""
+          onKeyDown={event => {
+            if (!props.sharedReader) return
+            if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); setMoreOpen(false); ref.current?.querySelector<HTMLButtonElement>('[data-testid="lab-dbar-more"]')?.focus(); return }
+            if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return
+            event.preventDefault()
+            const items = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="menuitem"]'))
+            const index = items.indexOf(document.activeElement as HTMLButtonElement)
+            items[(index + (event.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length]?.focus()
+          }}
           style={{ left: morePlace?.left ?? 0, top: morePlace?.top ?? 0 }}>
           {groups.map((group, index) => (
             <div key={index} className="lab-dmore-group">

@@ -74,6 +74,10 @@ export interface SelectionPopupProps {
   onExplanationReady?: (answer: string) => void
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
+  /** Private shared reader: submit a newly typed passage question through the existing chat service. */
+  onAskQuestion?: (question: string) => void
+  /** Private shared reader: start the existing passage quiz flow. */
+  onQuizPassage?: () => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
   onCopy: () => void
@@ -92,6 +96,8 @@ export interface SelectionPopupProps {
    * card (Anders, 22 Oct 2026: one selection pop-up everywhere). Answers still open where they did.
    */
   darkBar?: boolean
+  /** Gates the consolidated AI actions and theme preview until the private reader is ready. */
+  sharedReader?: boolean
 }
 
 /** A passage quoted in the note editor, cut at 120 characters with … (margin.js cut). */
@@ -189,6 +195,8 @@ export function SelectionPopup({
   onUpdateHighlightNote,
   onRequestNote,
   onExplain,
+  onAskQuestion,
+  onQuizPassage,
   onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
@@ -200,6 +208,7 @@ export function SelectionPopup({
   lab = false,
   keyboardDock = false,
   darkBar = false,
+  sharedReader = false,
 }: SelectionPopupProps) {
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
@@ -359,11 +368,16 @@ export function SelectionPopup({
       consumeDismissGesture(event)
       dismissRef.current()
     }
-    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current() } }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      // The private Ask field and More menu close one level inside the bar.
+      if (sharedReader && (event.target as Element | null)?.closest?.('.lab-dbar-ask-field, [data-shared-reader-menu]')) return
+      event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current()
+    }
     window.addEventListener('keydown', onKey, true)
     window.addEventListener('pointerdown', outside, { capture: true, passive: false })
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
-  }, [popupRef])
+  }, [popupRef, sharedReader])
   const headword = defineResult?.word || defineQuery
   const contextualLookup = !character && contextualExplain
     && (typeof navigator === 'undefined' || navigator.onLine !== false)
@@ -371,7 +385,10 @@ export function SelectionPopup({
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
   const trapKeys = (event: React.KeyboardEvent<HTMLDivElement>) => {
     event.stopPropagation()
-    if (event.key === 'Escape') { event.preventDefault(); dismissRef.current() }
+    if (event.key === 'Escape') {
+      if (sharedReader && (event.target as Element | null)?.closest?.('.lab-dbar-ask-field, [data-shared-reader-menu]')) return
+      event.preventDefault(); dismissRef.current()
+    }
     if (event.key === 'Tab') {
       const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button, input, textarea, [tabindex="0"]')).filter(el => !el.hasAttribute('disabled'))
       const index = controls.indexOf(document.activeElement as HTMLElement)
@@ -391,7 +408,7 @@ export function SelectionPopup({
     const markId = selection.existingHighlightId
     const ask = contextualExplain
     const moreRows: DeskMoreId[][] = [
-      ['define', ...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
+      ['define', ...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(sharedReader && onQuizPassage ? ['quiz'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
       ['copy', ...(markId && onShareHighlight ? ['share'] as DeskMoreId[] : []), ...(onShowPage ? ['page'] as DeskMoreId[] : [])],
     ]
     const remember = (color: HighlightColor) => {
@@ -401,6 +418,7 @@ export function SelectionPopup({
     return (
       <SelectionDeskBar
         ref={combinedRef}
+        sharedReader={sharedReader}
         state={barState}
         color={currentHighlightColor ?? lastColor}
         marked={!!markId}
@@ -409,11 +427,13 @@ export function SelectionPopup({
         fallback={{ x: selection.x, y: selection.y }}
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
+        onAskQuestion={sharedReader ? onAskQuestion : undefined}
         onExplain={() => (ask ? openContextualExplanation() : onExplain())}
         onSimplify={() => (ask ? openContextualExplanation('simplify') : onExplain())}
         onMore={id => {
           if (id === 'define') onDefine()
           else if (id === 'factcheck' || id === 'counterpoint') openContextualExplanation(id)
+          else if (id === 'quiz') onQuizPassage?.()
           else if (id === 'copy') onCopy()
           else if (id === 'share' && markId) onShareHighlight?.(markId)
           else if (id === 'page') onShowPage?.()
@@ -440,7 +460,7 @@ export function SelectionPopup({
       aria-label={popupMode === 'explain' ? 'Explain this passage' : character ? 'People at this passage' : undefined}
       onKeyDown={trapKeys}
       {...(docked ? { [LAB_KEYBOARD_SHEET_ATTR]: '' } : {})}
-      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''}${docked ? ' is-keyboard-docked' : ''}${darkDesk && (popupMode === 'note' || popupMode === 'define') ? ' is-dark' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''}${docked ? ' is-keyboard-docked' : ''}${darkDesk && (popupMode === 'note' || popupMode === 'define') ? ' is-dark' : ''}${sharedReader ? ' is-shared-reader' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-explain-edge={explainPlacement.edge}
       data-explain-side={selection.x < window.innerWidth / 2 ? 'right' : 'left'}
       data-explain-origin={selection.x < window.innerWidth / 2 ? 'left' : 'right'}
@@ -659,6 +679,13 @@ export function SelectionPopup({
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation()}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
+              {sharedReader && <>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('simplify')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Simplify</span></button>
+                <button type="button" className="popup-menu-action" onClick={onDefine}><span className="popup-highlight-symbol" aria-hidden="true">⌕</span><span>Define</span></button>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('factcheck')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Fact-check</span></button>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('counterpoint')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Counterpoint</span></button>
+                {onQuizPassage && <button type="button" className="popup-menu-action" onClick={onQuizPassage}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Quiz me</span></button>}
+              </>}
               <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
               <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>

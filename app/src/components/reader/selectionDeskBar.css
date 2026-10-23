@@ -33,6 +33,20 @@
 @keyframes lab-dbar-blink { 0%, 45% { opacity: .7; } 55%, 95% { opacity: 0; } 100% { opacity: .7; } }
 @media (prefers-reduced-motion: reduce) { .lab .lab-dbar-caret { animation: none; } }
 
+/* Ask expands at its original selection anchor; the input carries a complete
+   question while Enter hands it to LabApp's existing chat service. */
+.lab .lab-pbar.is-desk[data-ask-open="true"] { width: min(440px, calc(100vw - 32px)); max-width: calc(100vw - 32px); }
+.lab .lab-dbar-ask-form { display: flex; align-items: center; width: 100%; min-width: 0; gap: 6px; }
+.lab .lab-dbar-ask-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lab .lab-dbar-ask-field { flex: 1; min-width: 0; height: 34px; padding: 0 10px; border: 0; border-radius: 7px; outline: none;
+  background: transparent; color: var(--lab-pbar-ink); caret-color: var(--lab-pbar-ink); font: inherit; }
+.lab .lab-dbar-ask-field::placeholder { color: var(--lab-pbar-soft); opacity: 1; }
+.lab .lab-dbar-ask-field:focus-visible { box-shadow: inset 0 0 0 1px var(--lab-pbar-soft); }
+.lab .lab-pbar.is-desk .lab-dbar-ask-send { display: grid; place-items: center; flex: none; width: 32px; height: 32px; padding: 0;
+  border: 0; border-radius: 8px; background: none; color: var(--lab-pbar-ink); font-size: 20px; line-height: 1; }
+.lab .lab-dbar-ask-send:disabled { opacity: .4; cursor: default; }
+.lab .lab-dbar-ask-send:focus-visible { outline: 2px solid var(--lab-pbar-ink); outline-offset: -2px; }
+
 /* ••• (desktop): 300px, each action named with the line under it. */
 .lab .lab-dmore {
   position: absolute; width: 300px; padding: 8px; box-sizing: border-box; border-radius: 14px;
@@ -89,3 +103,28 @@
 .lab .selection-popup.is-lab.is-dark .lab-window-control svg { stroke: currentColor; }
 .lab[data-chrome-version] .selection-popup.is-lab.is-dark .popup-define-word { font-size: 21px; font-style: normal; }
 .lab .selection-popup.is-lab.is-dark .popup-define-list { font-size: 15.5px; line-height: 1.42; }
+
+.lab[data-shared-reader="true"] .selection-popup.is-lab.is-desk-bar,
+.lab[data-shared-reader="true"] .selection-popup.is-lab.is-compact.is-dark,
+.lab[data-shared-reader="true"] .lab-dmore { border: 1px solid var(--lab-pbar-sep); }
+html[data-eink="true"] .lab[data-shared-reader="true"] .selection-popup.is-lab.is-desk-bar,
+html[data-eink="true"] .lab[data-shared-reader="true"] .selection-popup.is-lab.is-compact.is-dark,
+html[data-eink="true"] .lab[data-shared-reader="true"] .lab-dmore { box-shadow: none; border-color: #fff; }
+
+/* Keep the familiar phone popup and its keyboard-docked note. Only the private
+   action menu takes the theme's selection-bar surface. */
+.lab[data-shared-reader="true"] .selection-popup.is-lab.is-compact.is-shared-reader[data-popup-mode="main"] {
+  background: var(--lab-pbar); color: var(--lab-pbar-ink); border: 1px solid var(--lab-pbar-sep);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .2); backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.lab[data-shared-reader="true"] .selection-popup.is-shared-reader[data-popup-mode="main"] .popup-menu-action {
+  font: 400 14px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+.lab[data-shared-reader="true"] .selection-popup.is-shared-reader[data-popup-mode="main"] .popup-menu-action svg { opacity: .72; }
+.lab[data-shared-reader="true"] .selection-popup.is-shared-reader[data-popup-mode="main"] .popup-menu-secondary { border-color: var(--lab-pbar-sep); }
+.lab[data-shared-reader="true"] .selection-popup.is-shared-reader[data-popup-mode="main"] button:not(.popup-color-dot):hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+html[data-eink="true"] .lab[data-shared-reader="true"] .selection-popup.is-lab.is-compact.is-shared-reader[data-popup-mode="main"] {
+  box-shadow: none; border-color: #fff;
+}

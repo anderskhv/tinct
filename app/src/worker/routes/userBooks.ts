@@ -7,6 +7,9 @@
  *                                     Premium or the 30-day trial only (402 otherwise)
  *   GET    /api/user-books/{fileId}   the file's bytes, to its owner only
  *   DELETE /api/user-books/{fileId}   delete it (with its place, narration and recap)
+ *   GET/PATCH /api/user-books/metadata/{bookHex}
+ *                                     read/edit its displayed title and author,
+ *                                     revision-checked without changing file identity
  *   GET    /api/user-books/places     the reader's place in each own book
  *   PUT    /api/user-books/places/{bookHex}
  *                                     save one place: versioned (`rev`), a stale
@@ -54,7 +57,9 @@
  * overwrite a newer place blindly. Deleting the book deletes its place.
  *
  * The highlights and notes the reader made in an own PDF (Add a book's PDF
- * reader) are one JSON object per book, `u/{userId}/marks/{bookHex}`: each
+ * reader) are one JSON object per file generation,
+ * `u/{userId}/marks/{bookHex}/{fileId}` (older files may have a bare
+ * `marks/{bookHex}` set): each
  * highlight's id, page, its boxes on the page, the passage text, colour,
  * when it was made and changed, and the reader's note; a removed highlight
  * stays as a tombstone (id and when) so every device loses it. The revision
@@ -68,7 +73,8 @@
  * The margin's cards in an own PDF or EPUB (docs/margin/BRIEF.md §3: the answers the
  * reader kept beside a passage: Explain, Simplify, Ask threads, Define,
  * Fact-check, Counterpoint and Quiz me) are kept the same way, one JSON object
- * per book at `u/{userId}/cards/{bookHex}`: each card's id, kind, page, its
+ * per file generation at `u/{userId}/cards/{bookHex}/{fileId}` (older files
+ * may have a bare set): each card's id, kind, page, its
  * passage's boxes and text, its turns (the reader's questions and the answers)
  * and the action's own data (a quiz's questions and marks, a definition's
  * senses); removals as tombstones. Deleted with the book and with the account.
@@ -209,6 +215,11 @@ export function ownCardsKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}cards/${bookHex}`
 }
 
+/** New sets are isolated by the random file ID, so a later upload of identical bytes cannot inherit them. */
+const ownSetGenerationKey = (legacyKey: string, fileId: string): string => `${legacyKey}/${fileId}`
+const ANNOTATION_GENERATION = 'file-id-v1'
+const ownBookMetadataKey = (userId: string, fileId: string): string => `${userBooksPrefix(userId)}metadata/${fileId}`
+
 /** Where the small image of one own book's cover lives: inside the owner's private prefix only. */
 export function ownCoverKey(userId: string, bookHex: string): string {
   return `${userBooksPrefix(userId)}covers/${bookHex}`
@@ -317,6 +328,24 @@ export async function listUserBooks(bucket: R2Bucket, userId: string): Promise<U
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
+  // Title/author edits sit in small versioned objects; the source file and its
+  // body-derived ETag stay immutable. One paginated metadata listing overlays
+  // display fields without fetching every book's bytes.
+  const byId = new Map(books.map(book => [book.id, book]))
+  let metaCursor: string | undefined
+  do {
+    const page = await bucket.list({ prefix: `${userBooksPrefix(userId)}metadata/`, cursor: metaCursor, limit: 1000, include: ['customMetadata'] })
+    for (const object of page.objects) {
+      const id = object.key.slice(ownBookMetadataKey(userId, '').length)
+      const book = byId.get(id)
+      const meta = object.customMetadata
+      if (book && meta?.sha256 === book.sha256 && Number.isSafeInteger(Number(meta.rev)) && Number(meta.rev) > 0) {
+        book.title = decodeMeta(meta.title)
+        book.author = decodeMeta(meta.author)
+      }
+    }
+    metaCursor = page.truncated ? page.cursor : undefined
+  } while (metaCursor)
   return books.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
 }
 
@@ -468,6 +497,7 @@ async function upload(request: Request, bucket: R2Bucket, userId: string, checkR
     author: encodeMeta(headerText(request, 'x-book-author'), META_CAPS.author),
     type,
     sha256,
+    annotationGeneration: ANNOTATION_GENERATION,
     createdAt: new Date().toISOString(),
     ...rightsAttestation(request),
   }
@@ -494,6 +524,68 @@ async function download(request: Request, bucket: R2Bucket, userId: string, file
   })
 }
 
+/** The editable display metadata is independent of the immutable book bytes and rights record. */
+async function handleMetadata(
+  request: Request,
+  env: UserBooksEnv,
+  verifyUser: (request: Request) => Promise<VerifiedUser | null>,
+  bookHex: string,
+): Promise<Response> {
+  if (!['GET', 'PATCH'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
+  const user = await verifyUser(request)
+  if (!user || !isValidUUID(user.id)) return reply({ error: 'Unauthorized' }, 401, request)
+  if (!BOOK_HEX.test(bookHex)) return notFound(request)
+  const bucket = env.USER_BOOKS
+  if (!bucket) return reply({ error: 'Not configured' }, 503, request)
+  const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
+  if (!book) return notFound(request)
+  const fileKey = `${userBooksPrefix(user.id)}${book.id}`
+  const file = await bucket.head(fileKey)
+  if (!file || file.customMetadata?.sha256 !== book.sha256 || file.customMetadata?.type !== book.type) return notFound(request)
+  const key = ownBookMetadataKey(user.id, book.id)
+  const override = await bucket.head(key)
+  const metadata = override?.customMetadata
+  const rev = override ? Number(metadata?.rev) : 0
+  if (override && (metadata?.sha256 !== book.sha256 || !Number.isSafeInteger(rev) || rev < 1 || !override.etag)) return reply({ error: 'stored_data_unavailable' }, 503, request)
+  const current = { title: override ? decodeMeta(metadata?.title) : decodeMeta(file.customMetadata?.title),
+    author: override ? decodeMeta(metadata?.author) : decodeMeta(file.customMetadata?.author), rev, fileId: book.id }
+  if (request.method === 'GET') return reply(current, 200, request)
+  const lengthHeader = Number(request.headers.get('content-length'))
+  if (Number.isFinite(lengthHeader) && lengthHeader > 2048) return reply({ error: 'too_large' }, 413, request)
+  const bytes = await readCapped(request.body, 2048, null)
+  if (!bytes) return reply({ error: 'too_large' }, 413, request)
+  let body: { title?: unknown; author?: unknown; rev?: unknown; expectedFileId?: unknown } | null
+  try { body = JSON.parse(new TextDecoder().decode(bytes)) as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
+  const title = typeof body?.title === 'string' ? body.title.trim() : null
+  const author = typeof body?.author === 'string' ? body.author.trim() : null
+  if (!title || title.length > 200 || author === null || author.length > 200 || !Number.isSafeInteger(body?.rev) || (body?.rev as number) < 0 || typeof body?.expectedFileId !== 'string' || !FILE_ID.test(body.expectedFileId)) return reply({ error: 'bad_request' }, 400, request)
+  const encodedTitle = encodeMeta(title, META_CAPS.title)
+  const encodedAuthor = encodeMeta(author, META_CAPS.author)
+  if (decodeMeta(encodedTitle) !== title || decodeMeta(encodedAuthor) !== author) return reply({ error: 'bad_request' }, 400, request)
+  if (body.expectedFileId !== book.id) return reply({ error: 'conflict', ...current }, 409, request)
+  if (body!.rev !== rev) return reply({ error: 'conflict', ...current }, 409, request)
+  // The small object's body changes on every revision, giving R2 a new ETag
+  // for concurrent edit CAS while leaving the (up to 50 MB) file immutable.
+  const stored = await bucket.put(key, String(rev + 1), {
+    httpMetadata: { contentType: 'text/plain' },
+    customMetadata: { title: encodedTitle, author: encodedAuthor, sha256: book.sha256, rev: String(rev + 1) },
+    onlyIf: override ? { etagMatches: override.etag } : new Headers({ 'If-None-Match': '*' }),
+  })
+  if (!stored) {
+    if (!await bucket.head(fileKey)) return notFound(request)
+    const latest = await bucket.head(key)
+    const meta = latest?.customMetadata
+    return reply({ error: 'conflict', title: latest ? decodeMeta(meta?.title) : current.title,
+      author: latest ? decodeMeta(meta?.author) : current.author, rev: latest ? Number(meta?.rev) : 0, fileId: book.id }, 409, request)
+  }
+  const stillOwned = await bucket.head(fileKey)
+  if (!stillOwned || stillOwned.customMetadata?.sha256 !== book.sha256 || stillOwned.customMetadata?.type !== book.type) {
+    if ((await bucket.head(key))?.etag === stored.etag) await bucket.delete(key)
+    return notFound(request)
+  }
+  return reply({ title, author, rev: rev + 1, fileId: book.id }, 200, request)
+}
+
 async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, userId: string, fileId: string): Promise<Response> {
   const key = `${userBooksPrefix(userId)}${fileId}`
   const head = await bucket.head(key)
@@ -506,7 +598,9 @@ async function remove(request: Request, env: UserBooksEnv, bucket: R2Bucket, use
     await purgePrefix(bucket, ownNarrationPrefix(userId, bookHex))
     await purgePrefix(bucket, ownRecapPrefix(userId, bookHex))
     await purgePrefix(bucket, ownPrimerPrefix(userId, bookHex))
-    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownMarksKey(userId, bookHex), ownCardsKey(userId, bookHex)])
+    await bucket.delete([ownPlaceKey(userId, bookHex), ownCoverKey(userId, bookHex), ownBookMetadataKey(userId, fileId),
+      ownMarksKey(userId, bookHex), ownCardsKey(userId, bookHex),
+      ownSetGenerationKey(ownMarksKey(userId, bookHex), fileId), ownSetGenerationKey(ownCardsKey(userId, bookHex), fileId)])
     // An OCR job stops and gives back what it held (with job.json gone it would stop on its own too).
     if (env.OWN_OCR) await env.OWN_OCR.getByName(await ocrCoordinatorName(userId, bookHex)).cancel().catch(() => null)
     await purgePrefix(bucket, ownOcrPrefix(userId, bookHex))
@@ -1075,7 +1169,7 @@ function readOrphanSet<T>(
   return pdfReader(value, dropped)
 }
 
-/** Every own PDF/EPUB's cards, by book hex (account export): full answers and removal count. */
+/** Every private cards set for export: legacy hex or hex/fileId generation, never silently collapsed. */
 export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }>> {
   const prefix = ownCardsKey(userId, '')
   const out: Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }> = {}
@@ -1084,8 +1178,10 @@ export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Re
   do {
     const page = await bucket.list({ prefix, cursor, limit: 1000 })
     for (const object of page.objects) {
-      const hex = object.key.slice(prefix.length)
-      if (!BOOK_HEX.test(hex)) continue
+      const storageId = object.key.slice(prefix.length)
+      const match = /^([0-9a-f]{24})(?:\/([0-9a-f]{32}))?$/.exec(storageId)
+      if (!match) continue
+      const hex = match[1]
       const type = types.get(hex)
       // Retained sets outlive missing file metadata in historical exports.
       const reader: (value: unknown, dropped?: { count: number }) => Array<OwnCard | OwnTextCard | OwnMarkGone> | null =
@@ -1093,14 +1189,14 @@ export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Re
           : (value, dropped) => readOrphanSet(value, dropped, readTextCards, readCards)
       const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
       if (corrupt) throw new Error(`Corrupt own cards: ${hex}`)
-      out[hex] = { cards: list.filter((c): c is OwnCard | OwnTextCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
+      out[storageId] = { cards: list.filter((c): c is OwnCard | OwnTextCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
   return out
 }
 
-/** Every own PDF/EPUB's marks, by book hex (account export). */
+/** Every private marks set for export: legacy hex or hex/fileId generation, never silently collapsed. */
 export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }>> {
   const prefix = ownMarksKey(userId, '')
   const out: Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }> = {}
@@ -1109,15 +1205,17 @@ export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Re
   do {
     const page = await bucket.list({ prefix, cursor, limit: 1000 })
     for (const object of page.objects) {
-      const hex = object.key.slice(prefix.length)
-      if (!BOOK_HEX.test(hex)) continue
+      const storageId = object.key.slice(prefix.length)
+      const match = /^([0-9a-f]{24})(?:\/([0-9a-f]{32}))?$/.exec(storageId)
+      if (!match) continue
+      const hex = match[1]
       const type = types.get(hex)
       const reader: (value: unknown, dropped?: { count: number }) => Array<OwnMark | OwnTextMark | OwnMarkGone> | null =
         type === 'epub' ? readTextMarks : type === 'pdf' ? readMarks
           : (value, dropped) => readOrphanSet(value, dropped, readTextMarks, readMarks)
       const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
       if (corrupt) throw new Error(`Corrupt own marks: ${hex}`)
-      out[hex] = { highlights: list.filter((m): m is OwnMark | OwnTextMark => !('gone' in m)), removed: list.filter(m => 'gone' in m).length, rev }
+      out[storageId] = { highlights: list.filter((m): m is OwnMark | OwnTextMark => !('gone' in m)), removed: list.filter(m => 'gone' in m).length, rev }
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
@@ -1151,9 +1249,20 @@ async function handleMarks(
   // The file's owned type selects its own validator; PDF page records never mix with EPUB source anchors.
   const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
   if (!book) return notFound(request)
+  // Tie this write to the exact file generation that authorised it. The same
+  // bytes can later be uploaded again under a different random file ID.
+  const fileKey = `${userBooksPrefix(user.id)}${book.id}`
+  const file = await bucket.head(fileKey)
+  if (!file || file.customMetadata?.sha256 !== book.sha256 || file.customMetadata?.type !== book.type) return notFound(request)
   const activeSet = book.type === 'epub' ? (set.field === 'marks' ? TEXT_MARKS_SET : TEXT_CARDS_SET) : set
-  const key = activeSet.key(user.id, bookHex)
-  const current = await storedSet(bucket, key, activeSet.read)
+  const legacyKey = activeSet.key(user.id, bookHex)
+  const key = ownSetGenerationKey(legacyKey, book.id)
+  const generated = await storedSet(bucket, key, activeSet.read)
+  // Existing files have no generation marker. Read their old set until a first
+  // write copies the complete set to this file's generation; a newly uploaded
+  // copy of identical bytes must never inherit that old reader data.
+  const current = !generated.etag && file.customMetadata?.annotationGeneration !== ANNOTATION_GENERATION
+    ? await storedSet(bucket, legacyKey, activeSet.read) : generated
   if (current.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
   if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev }, 200, request)
   // Cards too large even when trimmed are left out of the set, not a reason to refuse it; the reader is told how many.
@@ -1165,11 +1274,18 @@ async function handleMarks(
   const rev = current.rev + 1
   // Conditional on the object read above: a write that landed in between wins, and this one is told.
   const stored = await bucket.put(key, JSON.stringify(list), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) },
-    onlyIf: current.etag ? { etagMatches: current.etag } : new Headers({ 'If-None-Match': '*' }) })
+    onlyIf: generated.etag ? { etagMatches: generated.etag } : new Headers({ 'If-None-Match': '*' }) })
   if (!stored) {
     const latest = await storedSet(bucket, key, activeSet.read)
     if (latest.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
     return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev }, 409, request)
+  }
+  const stillOwned = await bucket.head(fileKey)
+  if (!stillOwned || stillOwned.customMetadata?.sha256 !== book.sha256 || stillOwned.customMetadata?.type !== book.type) {
+    // A concurrent deletion may have removed the set before this PUT landed.
+    // Only remove our own result; never knowingly delete a newer set write.
+    if ((await bucket.head(key))?.etag === stored.etag) await bucket.delete(key)
+    return notFound(request)
   }
   return reply({ rev, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)
 }
@@ -1371,6 +1487,7 @@ export async function handleUserBooks(
   const url = new URL(request.url)
   const rest = url.pathname.slice('/api/user-books'.length)
   if (rest === '/ocr' || rest.startsWith('/ocr/')) return handleOcr(request, env, deps, rest.slice('/ocr/'.length))
+  if (rest.startsWith('/metadata/')) return handleMetadata(request, env, deps.verifyUser, rest.slice('/metadata/'.length))
   const placeHex = rest === '/places' ? '' : rest.startsWith('/places/') ? rest.slice('/places/'.length) : null
   if (placeHex !== null) return handlePlaces(request, env, deps, placeHex)
   if (rest.startsWith('/marks/')) return handleMarks(request, env, deps, rest.slice('/marks/'.length), MARKS_SET)
