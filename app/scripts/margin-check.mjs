@@ -5314,6 +5314,22 @@ async function epubOpenCheck(browser, origin) {
   ok('4. Tinct paper: one sheet edged at its sides (21 Oct), Margin view\'s text size and measure inside it, the margin column beside it', SHEET_SIDES(paper.bg, paper.shadow) && paper.sheet > paper.width + 40 && Math.abs(paper.width - paper.measure) <= 1 && Math.abs(paper.size - paper.want) < 0.05 && paper.mode === 'column' && paper.paper && /EB Garamond/.test(paper.h1), paper)
   ok('no page errors', !E.problems.length, E.problems)
   await E.ctx.close()
+  // A pre-owner static record cannot be shown as this account's annotation.
+  // The Classic menu offers a deliberate handoff to the shared Attach flow.
+  const R = await epubPage(browser, origin, E.hex, { width: 1440, height: 900, look: 'night', init: () => {
+    const hex = new URLSearchParams(location.search).get('userBook')
+    if (hex) localStorage.setItem(`tinct-addbook:hl:epub:${hex}`, JSON.stringify([{ id: 'unclaimed', page: 1, text: 'Older words' }]))
+  } })
+  await R.page.waitForSelector('.epub-sheet:not(.is-toc) .epub-pg', { timeout: 30000 })
+  await R.page.click('#superBtn')
+  const review = R.page.locator('.lab-super-panel [data-row="review-epub"]')
+  ok('older unclaimed EPUB annotation offers Review instead of silently adopting it', await review.isVisible()
+    && await R.page.evaluate(h => TinctAddEngine.legacyEpubAnnotations.get('hl:epub:' + h) === null, E.hex))
+  await review.click()
+  ok('Review older annotations hands the current file to the shared reader attach flow', new URL(R.page.url()).pathname === '/reader'
+    && new URL(R.page.url()).searchParams.get('userBook') === E.hex
+    && new URL(R.page.url()).searchParams.get('sharedReader') === '1', R.page.url())
+  await R.ctx.close()
   return results
 }
 

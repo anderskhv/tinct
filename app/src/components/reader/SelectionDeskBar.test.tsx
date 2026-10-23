@@ -107,6 +107,47 @@ describe('the classic desktop reader\'s dark selection bar', () => {
     expect(screen.queryByTestId('lab-desk-bar')).toBeNull()
     expect(screen.getByRole('button', { name: 'Explain' })).toBeTruthy()
   })
+
+  it('morphs Ask into the private 440px question field, submits trimmed text, and Escape restores the bar', () => {
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...input} />)
+    fireEvent.click(screen.getByTestId('lab-dbar-ask'))
+    const field = screen.getByTestId('lab-dbar-ask-field') as HTMLInputElement
+    expect(document.activeElement).toBe(field)
+    expect(screen.getByTestId('lab-desk-bar').dataset.askOpen).toBe('true')
+    fireEvent.change(field, { target: { value: '  Why here?  ' } })
+    fireEvent.submit(field.closest('form')!)
+    expect(input.onAskQuestion).toHaveBeenCalledWith('Why here?')
+    expect(input.onExplain).not.toHaveBeenCalled()
+    fireEvent.keyDown(field, { key: 'Escape' })
+    expect(screen.queryByTestId('lab-dbar-ask-field')).toBeNull()
+    expect(input.dismissPopup).not.toHaveBeenCalled()
+  })
+
+  it('offers the shared AI actions on desktop and keeps menu Escape local', () => {
+    const input = props({ sharedReader: true, onQuizPassage: vi.fn() })
+    render(<Harness {...input} />)
+    fireEvent.click(screen.getByTestId('lab-dbar-more'))
+    expect(screen.getAllByRole('menuitem').map(row => row.querySelector('b')?.textContent)).toEqual(['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy'])
+    const menu = screen.getByTestId('lab-desk-more')
+    fireEvent.keyDown(menu, { key: 'Escape' })
+    expect(screen.queryByTestId('lab-desk-more')).toBeNull()
+    expect(input.dismissPopup).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByTestId('lab-dbar-more'))
+    fireEvent.click(screen.getByRole('menuitem', { name: /Quiz me/ }))
+    expect(input.onQuizPassage).toHaveBeenCalledOnce()
+  })
+
+  it('adds the same AI intents in the private phone menu without replacing its popup', () => {
+    const input = props({ sharedReader: true, keyboardDock: true, onQuizPassage: vi.fn() })
+    render(<Harness {...input} />)
+    expect(screen.queryByTestId('lab-desk-bar')).toBeNull()
+    for (const name of ['Explain', 'Simplify', 'Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Chat']) {
+      expect(screen.getByRole('button', { name })).toBeTruthy()
+    }
+    fireEvent.click(screen.getByRole('button', { name: 'Quiz me' }))
+    expect(input.onQuizPassage).toHaveBeenCalledOnce()
+  })
 })
 
 describe('where the dark bar sits (margin.js placeBar, desktop)', () => {

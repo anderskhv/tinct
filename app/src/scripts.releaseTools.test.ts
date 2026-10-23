@@ -9,7 +9,6 @@ const helper = fileURLToPath(new URL('../scripts/release-tools.cjs', import.meta
 const activationCheck = fileURLToPath(new URL('../scripts/check-release-activation.mjs', import.meta.url))
 const deploy = readFileSync(fileURLToPath(new URL('../../.github/workflows/deploy.yml', import.meta.url)), 'utf8')
 const voice = readFileSync(fileURLToPath(new URL('../../.github/workflows/voice-lab-acceptance.yml', import.meta.url)), 'utf8')
-const floorSource = readFileSync(fileURLToPath(new URL('../release/shared-reader-rollout.json', import.meta.url)), 'utf8').includes('floor-pending')
 const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
 const foreign = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
@@ -62,11 +61,11 @@ describe('release rollback guards (offline)', () => {
   it('gates local npm release entry points while the rollout is pending', () => {
     expect(run(['assert-release-command']).stderr).toContain('blocks deploy/upload')
     expect(run(['assert-release-command'], {
-      GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'workflow_dispatch', TINCT_RELEASE_PHASE: floorSource ? 'floor' : 'reader', TINCT_RELEASE_APPROVED: 'true', VITE_SHARED_READER_DEFAULT: floorSource ? '0' : '1',
+      GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'workflow_dispatch', TINCT_RELEASE_PHASE: 'reader', TINCT_RELEASE_APPROVED: 'true', VITE_SHARED_READER_DEFAULT: '1',
     }).status).toBe(0)
     expect(run(['assert-release-command'], {
-      GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'workflow_dispatch', TINCT_RELEASE_PHASE: floorSource ? 'floor' : 'reader', TINCT_RELEASE_APPROVED: 'true', VITE_SHARED_READER_DEFAULT: floorSource ? '1' : '0',
-    }).stderr).toContain(`requires VITE_SHARED_READER_DEFAULT=${floorSource ? '0' : '1'}`)
+      GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'workflow_dispatch', TINCT_RELEASE_PHASE: 'reader', TINCT_RELEASE_APPROVED: 'true', VITE_SHARED_READER_DEFAULT: '0',
+    }).stderr).toContain('requires VITE_SHARED_READER_DEFAULT=1')
     const pkg = readFileSync(fileURLToPath(new URL('../package.json', import.meta.url)), 'utf8')
     const release = readFileSync(fileURLToPath(new URL('../scripts/release.sh', import.meta.url)), 'utf8')
     expect(JSON.parse(pkg).scripts.deploy).toMatch(/^node scripts\/release-tools.cjs assert-release-command &&/)
@@ -119,15 +118,11 @@ describe('release rollback guards (offline)', () => {
   })
 
   it('refuses a reader release without a real pinned floor, and distinguishes UUID equality from format proof', () => {
-    if (floorSource) {
-      expect(run(['verify-reader-floor', previous]).stderr).toContain('pending rollout state')
-      return
-    }
-    expect(run(['verify-reader-floor', previous]).stderr).toContain('reviewed shared-reader-floor.json')
     const dir = mkdtempSync(join(tmpdir(), 'tinct-floor-test-'))
     const file = join(dir, 'floor.json')
     const fixture = { v: 1, floorVersionId: previous, floorCommit: 'a'.repeat(40), proof: 'src/worker.rollbackFloor.test.ts' }
     try {
+      expect(run(['verify-reader-floor', previous, join(dir, 'missing-floor.json')]).stderr).toContain('reviewed shared-reader-floor.json')
       writeFileSync(file, JSON.stringify(fixture))
       expect(run(['verify-reader-floor', previous, file]).stdout).toContain(`floor_version_id=${previous}`)
       expect(run(['verify-reader-floor', promoted, file]).stderr).toContain('not the pinned compatible floor')
@@ -145,8 +140,7 @@ describe('release rollback guards (offline)', () => {
 
   it('requires an explicit approved phase and the write-old floor proof before any Worker upload', () => {
     expect(run(['assert-normal-release']).stderr).toContain('rollout is pending')
-    if (floorSource) expect(run(['assert-floor-source']).stdout).toContain('worker.rollbackFloor.test.ts')
-    else expect(run(['assert-floor-source']).stderr).toContain('gated old-UI backend-only checkout')
+    expect(run(['assert-floor-source']).stderr).toContain('gated old-UI backend-only checkout')
     const phase = deploy.indexOf('id: release-phase')
     const previousVersion = deploy.indexOf('id: previous')
     const upload = deploy.indexOf('id: upload')

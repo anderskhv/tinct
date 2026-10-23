@@ -87,6 +87,53 @@ it('installs its stylesheet once and keeps its class when React rewrites the pas
   expect(registry.size).toBe(0)
 })
 
+it('does not remeasure unchanged ranges on popup renders, but repaints changed marks and reflow', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  const originalRects = Object.getOwnPropertyDescriptor(Range.prototype, 'getClientRects')
+  const measure = vi.fn(() => [{ left: 0, right: 35, top: 0, bottom: 24, height: 24 }] as unknown as DOMRectList)
+  Object.defineProperty(Range.prototype, 'getClientRects', { configurable: true, value: measure })
+  try {
+    function Painted({ popup, marked, layout }: { popup: boolean; marked: boolean; layout: string }) {
+      const ref = useRef<HTMLElement>(null)
+      useTextRangeHighlights(ref, layout)
+      return <article ref={ref} data-popup={popup}><p className="lab-hearing-line"><span data-testid="lab-word" data-paragraph-index="0" data-word-index="0" className="is-hl-sage">word</span><span data-testid="lab-word" data-paragraph-index="0" data-word-index="1" className={marked ? 'is-hl-sage' : ''}> next</span></p></article>
+    }
+    const view = render(<Painted popup={false} marked={false} layout="font-1" />)
+    expect(measure).toHaveBeenCalled()
+    const firstPaint = measure.mock.calls.length
+    view.rerender(<Painted popup marked={false} layout="font-1" />)
+    expect(measure).toHaveBeenCalledTimes(firstPaint)
+    view.rerender(<Painted popup marked layout="font-1" />)
+    expect(measure.mock.calls.length).toBeGreaterThan(firstPaint)
+    const changedMarkPaint = measure.mock.calls.length
+    view.rerender(<Painted popup marked layout="font-2" />)
+    expect(measure.mock.calls.length).toBeGreaterThan(changedMarkPaint)
+  } finally {
+    if (originalRects) Object.defineProperty(Range.prototype, 'getClientRects', originalRects)
+    else Reflect.deleteProperty(Range.prototype, 'getClientRects')
+  }
+})
+
+it('skips the text-node scan when only reader chrome rerenders a passage', () => {
+  vi.stubGlobal('CSS', { highlights: new Map() })
+  vi.stubGlobal('Highlight', class { constructor(..._ranges: Range[]) {} })
+  const source = ['a marked word']
+  function Painted({ popup, selection }: { popup: boolean; selection: number }) {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref, 'layout-1', [source, selection])
+    return <article ref={ref} data-popup={popup}><p className="lab-hearing-line"><span data-testid="lab-word" data-paragraph-index="0" data-word-index="0" className="is-hl-sage">a</span></p></article>
+  }
+  const view = render(<Painted popup={false} selection={0} />)
+  const article = view.container.querySelector('article')!
+  const scan = vi.spyOn(article, 'querySelectorAll')
+  view.rerender(<Painted popup selection={0} />)
+  expect(scan).not.toHaveBeenCalled()
+  view.rerender(<Painted popup selection={1} />)
+  expect(scan).toHaveBeenCalled()
+})
+
 it('paints only the looked-up lexeme inside an unchanged audio token', () => {
   const registry = new Map<string, { ranges: Range[] }>()
   vi.stubGlobal('CSS', { highlights: registry })

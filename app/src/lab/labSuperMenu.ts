@@ -64,8 +64,10 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), the settings groups, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false }: {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false, sharedReader = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
+  /** Private shared desktop reader exposes its Notebook beside the named settings. */
+  sharedReader?: boolean
   /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
   noCatchUp?: boolean
 } = {}): LabSuperMenuRow[] {
@@ -75,6 +77,7 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
+    ...(sharedReader ? [{ id: 'notebook' as const, label: LAB_NOTEBOOK_LABEL }] : []),
     ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },

@@ -74,6 +74,10 @@ export interface SelectionPopupProps {
   onExplanationReady?: (answer: string) => void
   onTalkExplanation?: (answer: string) => void
   onExplain: (answer?: string) => void
+  /** Private shared reader: submit a newly typed passage question through the existing chat service. */
+  onAskQuestion?: (question: string) => void
+  /** Private shared reader: start the existing passage quiz flow. */
+  onQuizPassage?: () => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
   onCopy: () => void
@@ -92,6 +96,8 @@ export interface SelectionPopupProps {
    * card (Anders, 22 Oct 2026: one selection pop-up everywhere). Answers still open where they did.
    */
   darkBar?: boolean
+  /** Gates the consolidated AI actions and theme preview until the private reader is ready. */
+  sharedReader?: boolean
 }
 
 /** A passage quoted in the note editor, cut at 120 characters with … (margin.js cut). */
@@ -104,6 +110,25 @@ function cutQuote(text: string, max = 120): string {
 
 function homeModeFor(selection: SelectionInfo): SelectionPopupHomeMode {
   return selection.homeMode ?? defaultPopupMode(selection.text, selection.existingHighlightId)
+}
+
+/** Pointer-up already supplies a viewport anchor in the private reader. Keep
+ * keyboard/invalid anchors on the measured-word path. */
+function sharedPointerY(selection: SelectionInfo, sharedReader: boolean, keyboardDock: boolean): number | null {
+  if (!sharedReader || keyboardDock || !Number.isFinite(selection.x) || !Number.isFinite(selection.y)
+    || selection.x < 0 || selection.x > window.innerWidth || selection.y < 0 || selection.y > window.innerHeight
+    || selection.text.length > 56 || /[\r\n]/.test(selection.text)) return null
+  return selection.y + (selection.showBelow ? -12 : 12)
+}
+
+function selectedWordBounds(sharedReader: boolean, keyboardDock: boolean, topLimit: number, bottomLimit: number) {
+  const words = document.querySelectorAll('.lab .lab-hearing-word.is-selecting')
+  // A long private selection may span lines. The first and last words bound
+  // the reading-order extent without forcing a layout read for every word.
+  const nodes = sharedReader && !keyboardDock && words.length > 2 ? [words[0], words[words.length - 1]] : Array.from(words)
+  const boxes = nodes.flatMap(node => Array.from(node.getClientRects()))
+    .filter(box => box.width && box.height && box.bottom > topLimit && box.top < bottomLimit)
+  return boxes.length ? { top: Math.min(...boxes.map(box => box.top)), bottom: Math.max(...boxes.map(box => box.bottom)) } : null
 }
 
 export function ShareIcon() {
@@ -189,6 +214,8 @@ export function SelectionPopup({
   onUpdateHighlightNote,
   onRequestNote,
   onExplain,
+  onAskQuestion,
+  onQuizPassage,
   onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
@@ -200,6 +227,7 @@ export function SelectionPopup({
   lab = false,
   keyboardDock = false,
   darkBar = false,
+  sharedReader = false,
 }: SelectionPopupProps) {
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
@@ -212,11 +240,10 @@ export function SelectionPopup({
   const openContextualExplanation = (intent?: ExplainIntent) => {
     setExplainIntent(intent)
     // Position beside the selected passage without moving the reader or its place.
-    const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
-      .map(node => node.getBoundingClientRect())
-      .filter(box => box.width && box.height && box.bottom > 0 && box.top < window.innerHeight)
-    const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
-    const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+    const pointerY = sharedPointerY(selection, sharedReader, keyboardDock)
+    const bounds = pointerY === null ? selectedWordBounds(sharedReader, keyboardDock, 0, window.innerHeight) : null
+    const top = pointerY ?? bounds?.top ?? selection.y
+    const bottom = pointerY ?? bounds?.bottom ?? selection.y
     const above = top - 92
     const below = window.innerHeight - bottom - 100
     setExplainPlacement({ edge: above > below ? 'top' : 'bottom', available: Math.max(230, above > below ? above : below) })
@@ -225,6 +252,7 @@ export function SelectionPopup({
   useLayoutEffect(() => {
     if (!lab || !popupRef.current) return
     const el = popupRef.current
+    let placedBox: { width: number; height: number } | null = null
     const place = () => {
       // An expanding explanation grows in place: the edge that faces the
       // selection stays put, it widens to one leaf, and it moves only as far
@@ -239,27 +267,30 @@ export function SelectionPopup({
         if (room >= 280) el.style.setProperty('max-height', `${room}px`, 'important')
         else el.style.removeProperty('max-height')
         const height = el.offsetHeight
+        const width = el.offsetWidth
+        placedBox = { width, height }
         const y = Math.max(76, Math.min(low - height, anchor.edge === 'below' ? anchor.y : anchor.y + anchor.height - height))
-        const x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, anchor.x))
+        const x = Math.max(12, Math.min(window.innerWidth - width - 12, anchor.x))
         el.style.setProperty('--anchored-popup-x', `${x}px`)
         el.style.setProperty('--anchored-popup-y', `${y}px`)
         return
       }
-      const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
-        .flatMap(node => Array.from(node.getClientRects()))
-        .filter(box => box.width && box.height && box.bottom > 76 && box.top < window.innerHeight - 32)
-      const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : selection.y
-      const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : selection.y
+      const pointerY = sharedPointerY(selection, sharedReader, keyboardDock)
+      const bounds = pointerY === null ? selectedWordBounds(sharedReader, keyboardDock, 76, window.innerHeight - 32) : null
+      const top = pointerY ?? bounds?.top ?? selection.y
+      const bottom = pointerY ?? bounds?.bottom ?? selection.y
       const height = el.offsetHeight
+      const width = el.offsetWidth
+      placedBox = { width, height }
       const low = window.innerHeight - 32
       const above = top - 12 - height
       const below = bottom + 12
       let y = below + height <= low ? below : above >= 76 ? above
         : Math.max(76, Math.min(low - height, top - height - 12))
-      let x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, selection.x - el.offsetWidth / 2))
+      let x = Math.max(12, Math.min(window.innerWidth - width - 12, selection.x - width / 2))
       const saved = compactAnchor.current
       if (popupMode === 'colors' && saved?.selectionX === selection.x && saved.selectionY === selection.y) {
-        x = Math.max(12, Math.min(window.innerWidth - el.offsetWidth - 12, saved.x))
+        x = Math.max(12, Math.min(window.innerWidth - width - 12, saved.x))
         y = Math.max(76, Math.min(low - height, saved.y))
       }
       if (popupMode === 'main' || popupMode === 'define') {
@@ -278,11 +309,21 @@ export function SelectionPopup({
       el.style.setProperty('--anchored-popup-y', `${y}px`)
     }
     place()
-    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(place) : null
+    // observe() delivers the current box even when it has not changed. Its
+    // duplicate placement would remeasure the selected words and force layout
+    // while the toolbar is trying to appear. A genuinely changed box still
+    // repositions the popup; window resize always does too.
+    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(entries => {
+      const size = entries.find(entry => entry.target === el)?.borderBoxSize
+      const box = (Array.isArray(size) ? size[0] : size) as ResizeObserverSize | undefined
+      if (box && placedBox && Math.abs(box.inlineSize - placedBox.width) < 0.75
+        && Math.abs(box.blockSize - placedBox.height) < 0.75) return
+      place()
+    }) : null
     observer?.observe(el)
     window.addEventListener('resize', place)
     return () => { observer?.disconnect(); window.removeEventListener('resize', place) }
-  }, [lab, popupMode, selection.x, selection.y, popupRef])
+  }, [lab, popupMode, selection.x, selection.y, selection.showBelow, popupRef, sharedReader, keyboardDock])
   const homeMode = homeModeFor(selection)
   const [galleryId, setGalleryId] = useState<string | null>(null)
   useEffect(() => { setGalleryId(null) }, [selection.character])
@@ -359,11 +400,16 @@ export function SelectionPopup({
       consumeDismissGesture(event)
       dismissRef.current()
     }
-    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current() } }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      // The private Ask field and More menu close one level inside the bar.
+      if (sharedReader && (event.target as Element | null)?.closest?.('.lab-dbar-ask-field, [data-shared-reader-menu]')) return
+      event.preventDefault(); event.stopImmediatePropagation(); dismissRef.current()
+    }
     window.addEventListener('keydown', onKey, true)
     window.addEventListener('pointerdown', outside, { capture: true, passive: false })
     return () => { window.removeEventListener('pointerdown', outside, true); window.removeEventListener('keydown', onKey, true) }
-  }, [popupRef])
+  }, [popupRef, sharedReader])
   const headword = defineResult?.word || defineQuery
   const contextualLookup = !character && contextualExplain
     && (typeof navigator === 'undefined' || navigator.onLine !== false)
@@ -371,7 +417,10 @@ export function SelectionPopup({
   const showDefineInput = popupMode === 'define' && !headword && !defineLoading
   const trapKeys = (event: React.KeyboardEvent<HTMLDivElement>) => {
     event.stopPropagation()
-    if (event.key === 'Escape') { event.preventDefault(); dismissRef.current() }
+    if (event.key === 'Escape') {
+      if (sharedReader && (event.target as Element | null)?.closest?.('.lab-dbar-ask-field, [data-shared-reader-menu]')) return
+      event.preventDefault(); dismissRef.current()
+    }
     if (event.key === 'Tab') {
       const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button, input, textarea, [tabindex="0"]')).filter(el => !el.hasAttribute('disabled'))
       const index = controls.indexOf(document.activeElement as HTMLElement)
@@ -391,7 +440,7 @@ export function SelectionPopup({
     const markId = selection.existingHighlightId
     const ask = contextualExplain
     const moreRows: DeskMoreId[][] = [
-      ['define', ...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
+      ['define', ...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(sharedReader && onQuizPassage ? ['quiz'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
       ['copy', ...(markId && onShareHighlight ? ['share'] as DeskMoreId[] : []), ...(onShowPage ? ['page'] as DeskMoreId[] : [])],
     ]
     const remember = (color: HighlightColor) => {
@@ -401,6 +450,7 @@ export function SelectionPopup({
     return (
       <SelectionDeskBar
         ref={combinedRef}
+        sharedReader={sharedReader}
         state={barState}
         color={currentHighlightColor ?? lastColor}
         marked={!!markId}
@@ -409,11 +459,13 @@ export function SelectionPopup({
         fallback={{ x: selection.x, y: selection.y }}
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
+        onAskQuestion={sharedReader ? onAskQuestion : undefined}
         onExplain={() => (ask ? openContextualExplanation() : onExplain())}
         onSimplify={() => (ask ? openContextualExplanation('simplify') : onExplain())}
         onMore={id => {
           if (id === 'define') onDefine()
           else if (id === 'factcheck' || id === 'counterpoint') openContextualExplanation(id)
+          else if (id === 'quiz') onQuizPassage?.()
           else if (id === 'copy') onCopy()
           else if (id === 'share' && markId) onShareHighlight?.(markId)
           else if (id === 'page') onShowPage?.()
@@ -440,7 +492,7 @@ export function SelectionPopup({
       aria-label={popupMode === 'explain' ? 'Explain this passage' : character ? 'People at this passage' : undefined}
       onKeyDown={trapKeys}
       {...(docked ? { [LAB_KEYBOARD_SHEET_ATTR]: '' } : {})}
-      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''}${docked ? ' is-keyboard-docked' : ''}${darkDesk && (popupMode === 'note' || popupMode === 'define') ? ' is-dark' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
+      className={`selection-popup is-compact${popupMode === 'explain' ? ' is-contextual-explain' : ''}${lab ? ' is-lab' : ''}${docked ? ' is-keyboard-docked' : ''}${darkDesk && (popupMode === 'note' || popupMode === 'define') ? ' is-dark' : ''}${sharedReader ? ' is-shared-reader' : ''} ${selection.showBelow ? 'selection-popup-below' : ''} ${selection.mobilePlacement === 'above-selection' ? 'selection-popup-mobile-float' : ''}`}
       data-explain-edge={explainPlacement.edge}
       data-explain-side={selection.x < window.innerWidth / 2 ? 'right' : 'left'}
       data-explain-origin={selection.x < window.innerWidth / 2 ? 'left' : 'right'}
@@ -659,6 +711,13 @@ export function SelectionPopup({
             <>
               {selection.existingHighlightId && <button type="button" className="popup-menu-action" onClick={() => { (selection.highlightIds ?? [selection.existingHighlightId!]).forEach(id => onDeleteHighlight?.(id)); dismissPopup() }}><DeleteIcon /><span>Delete highlight</span></button>}
               <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation()}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Explain</span></button>
+              {sharedReader && <>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('simplify')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Simplify</span></button>
+                <button type="button" className="popup-menu-action" onClick={onDefine}><span className="popup-highlight-symbol" aria-hidden="true">⌕</span><span>Define</span></button>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('factcheck')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Fact-check</span></button>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('counterpoint')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Counterpoint</span></button>
+                {onQuizPassage && <button type="button" className="popup-menu-action" onClick={onQuizPassage}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Quiz me</span></button>}
+              </>}
               <button type="button" className="popup-menu-action" onClick={() => onExplain()}><ChatIcon /><span>Chat</span></button>
               <button type="button" className="popup-menu-action" onClick={() => applyColor(lastColor)}><HighlightIcon /><span>Highlight</span></button>
               <button type="button" className="popup-menu-action" onClick={onCopy}><CopyIcon /><span>Copy</span></button>

@@ -1,0 +1,13 @@
+.pdf-original { display: flex; flex-direction: column; min-height: 0; height: 100%; color: inherit; }
+.pdf-original__controls { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 8px 12px; }
+.pdf-original__controls button { font: inherit; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 4px; padding: 4px 12px; cursor: pointer; }
+.pdf-original__controls button:disabled { opacity: .35; cursor: default; }
+.pdf-original__scroll { flex: 1; min-height: 0; overflow: auto; outline-offset: -3px; }
+.pdf-original__page { position: relative; width: fit-content; margin: 0 auto 24px; background: white; box-shadow: 0 5px 24px rgba(0, 0, 0, .16); }
+.pdf-original__page canvas { display: block; }
+.pdf-original__highlights { position: absolute; inset: 0; pointer-events: none; }
+.pdf-original__highlight { position: absolute; pointer-events: none; }
+.pdf-original__follow { position: absolute; pointer-events: none; background: rgba(77, 152, 210, .34); border-radius: 2px; }
+.pdf-original__text { position: absolute; left: 0; top: 0; overflow: hidden; user-select: text; }
+.pdf-original__text span { position: absolute; white-space: pre; color: transparent; line-height: 1; transform-origin: 0 0; }
+.pdf-original__text span::selection { background: rgba(45, 105, 163, .38); }

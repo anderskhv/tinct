@@ -340,6 +340,12 @@ export function accountOnlyBook(book: AccountBook): OwnShelfBook {
   }
 }
 
+/** Metadata is mutable on the account; keep local cover and reading place when it changes on another device. */
+export function withAccountBookMetadata(local: OwnShelfBook, account: AccountBook | undefined): OwnShelfBook {
+  if (!account || accountBookKey(account) !== local.key || !(account.metadataRev && account.metadataRev > 0)) return local
+  return { ...local, title: account.title || account.name.replace(/\.(pdf|epub)$/i, '') || local.title, author: account.author }
+}
+
 /**
  * Every own book of this account, as My shelf and the reading table list it:
  * this device's (after reconcileOwnBooks), then the account's not on it, each
@@ -353,10 +359,11 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
   const out: OwnShelfBook[] = []
   const here = new Set<string>()
   const local = await readOwnShelf(owner)
+  const accountByKey = new Map((account ?? []).map(book => [accountBookKey(book), book]))
   for (const book of local) {
     if (here.has(book.key)) continue
     here.add(book.key)
-    out.push(book)
+    out.push(withAccountBookMetadata(book, accountByKey.get(book.key)))
   }
   for (const book of account ?? []) {
     const listed = accountOnlyBook(book)

@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace } from './ownSync'
+import { accountOnlyBook, flushOwnPlaces, flushPdfPlaces, noteOwnPlace, notePdfPlace, pullAccountPlaces, pushOwnPlace, pushPdfPlace, reconcileOpenPlace, reconcileOwnBooks, reconcilePdfPlace, withAccountBookMetadata } from './ownSync'
 import { fetchAccountCopy, fetchAccountPlaces, type AccountPagePlace, type AccountPlace } from './ownAccount'
 import { readUserBookPlace, storedPlaceConverter, writeUserBookPlace } from './userBookPlace'
 import type { UserBookEdition } from './userEdition'
@@ -43,6 +43,14 @@ beforeEach(() => { localStorage.clear(); forget.mockClear() })
 afterEach(() => { vi.useRealTimers() })
 
 describe('own-book places across devices', () => {
+  it('takes revised account metadata without changing local reading progress or cover', () => {
+    const accountBook = { id: 'f'.repeat(32), type: 'epub' as const, sha256: HEX + '0'.repeat(40), title: 'Renamed on another device', author: '', name: 'original.epub', size: 12, createdAt: '', metadataRev: 2 }
+    const local = { ...accountOnlyBook(accountBook), title: 'Old title', author: 'Old author', cover: 'data:image/jpeg;base64,AAAA', reading: { chapterNumber: 2 } } as ReturnType<typeof accountOnlyBook>
+    const merged = withAccountBookMetadata(local, accountBook)
+    expect(merged).toMatchObject({ title: 'Renamed on another device', author: '', cover: local.cover, reading: local.reading })
+    expect(withAccountBookMetadata(local, undefined)).toBe(local)
+    expect(withAccountBookMetadata(local, { ...accountBook, metadataRev: 0 })).toBe(local)
+  })
   it('takes an account place read later on another device, and keeps this device\'s newer one', async () => {
     writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 1, wordIndex: 0, updatedAt: 100 })
     const { fetchImpl } = account({ [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200, percent: 75, rev: 4 } })
@@ -501,5 +509,32 @@ describe('an account copy downloaded to this device', () => {
     expect((await fetchAccountCopy(sha.slice(0, 24), null, ok)).status).toBe('unavailable')
     const pdfList = vi.fn(async () => Response.json({ books: [{ ...list.books[0], type: 'pdf' }] })) as unknown as typeof fetch
     expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', pdfList)).status).toBe('pdf')
+  })
+
+  it('warms the public EPUB converter only after a matching account row, before downloading its verified file', async () => {
+    const sha = await hexOf(bytes)
+    const book = { id: 'a'.repeat(32), type: 'epub', sha256: sha, title: 'T', name: 't.epub', author: '', size: 12, createdAt: '' }
+    const order: string[] = []
+    const request = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input) === '/api/user-books') { order.push('list'); return Response.json({ books: [book] }) }
+      order.push('file')
+      return new Response(bytes)
+    }) as unknown as typeof fetch
+    const warm = vi.fn(() => { order.push('converter'); throw new Error('prefetch unavailable') })
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', request, warm)).status).toBe('found')
+    expect(order).toEqual(['list', 'converter', 'file'])
+    expect(warm).toHaveBeenCalledOnce()
+
+    const changedFile = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [book] }) : new Response('altered private bytes')) as unknown as typeof fetch
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', changedFile, warm)).status).toBe('unavailable')
+    expect(warm).toHaveBeenCalledTimes(2)
+
+    warm.mockClear()
+    expect((await fetchAccountCopy('0'.repeat(24), 'tok', request, warm)).status).toBe('gone')
+    expect(warm).not.toHaveBeenCalled()
+    const pdfList = vi.fn(async () => Response.json({ books: [{ ...book, type: 'pdf' }] })) as unknown as typeof fetch
+    expect((await fetchAccountCopy(sha.slice(0, 24), 'tok', pdfList, warm)).status).toBe('pdf')
+    expect(warm).not.toHaveBeenCalled()
   })
 })

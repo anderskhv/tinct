@@ -148,6 +148,18 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     expect((await openUserBook(HEX, { owner: OWNER })).ok).toBe(true)
   })
 
+  it('opens selected text in the shared reader on desktop while preserving original pages and scans', async () => {
+    keep('prose_book.pdf')
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
+    const text = await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })
+    expect(text).toMatchObject({ ok: true, book: { kind: 'pdf', pdfPages: 21 } })
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"pages"')
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
+    keep('IMG_20240512_scan.pdf')
+    localStorage.removeItem(`tinct-addbook:edition:${HEX}`)
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })).toMatchObject({ ok: false, reason: 'pages_only' })
+  })
+
   it('keeps a PDF read in its pages before Tinct text existed in its pages, prose or not', async () => {
     keep('prose_book.pdf')
     localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 7, frac: 0.4, zoom: 1, at: 99 }))

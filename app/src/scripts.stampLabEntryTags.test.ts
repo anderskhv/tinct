@@ -4,6 +4,8 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
+// @ts-expect-error -- local build-time ES module helper
+import { buildSharedReaderActivation } from '../scripts/build-shared-reader-activation.mjs'
 
 const require = createRequire(import.meta.url)
 type Files = Record<string, string>
@@ -36,6 +38,37 @@ const dist = (): Files => ({
 const ENTRIES = ['lab/library-add.js', 'lab/library-2-reading.js']
 
 describe('stamp-lab-entry-tags', () => {
+  it('emits both named exports from the canonical helper in each built default', async () => {
+    const offSource: string = await buildSharedReaderActivation(false)
+    const onSource: string = await buildSharedReaderActivation(true)
+    expect(onSource).not.toBe(offSource)
+    for (const [source, enabled] of [[offSource, false], [onSource, true]] as const) {
+      const module = await import(/* @vite-ignore */ `data:text/javascript,${encodeURIComponent(source)}`)
+      expect(Object.keys(module).sort()).toEqual(['SHARED_READER_DEFAULT', 'sharedReaderEnabled'])
+      expect(module.SHARED_READER_DEFAULT).toBe(enabled)
+      expect(module.sharedReaderEnabled('')).toBe(enabled)
+      expect(module.sharedReaderEnabled('?sharedReader=1')).toBe(true)
+      expect(module.sharedReaderEnabled('?sharedReader=0')).toBe(false)
+      expect(source).not.toContain('../../src/')
+    }
+  })
+  it('retags the Library activation import and entry chain when the default changes', () => {
+    const fixture = (on: boolean) => ({
+      'lab/shared-reader-activation.js': `export const SHARED_READER_DEFAULT=${on};`,
+      'lab/library_2/add-to-tinct.js': "import {SHARED_READER_DEFAULT} from '../shared-reader-activation.js?v=old';export const enabled=()=>SHARED_READER_DEFAULT",
+      'lab/library_2/app.js': "import './add-to-tinct.js?v=old'",
+      'lab/library_2/index.html': '<base href="/lab/library_2/"><link rel="modulepreload" href="/lab/shared-reader-activation.js?v=old"><script type="module" src="app.js?v=old"></script>',
+    })
+    const entries = ['lab/shared-reader-activation.js']
+    const off = stampTags(fixture(false), entries), on = stampTags(fixture(true), entries)
+    for (const name of ['lab/shared-reader-activation.js', 'lab/library_2/add-to-tinct.js', 'lab/library_2/app.js'])
+      expect(on.tags[name]).not.toBe(off.tags[name])
+    expect(off.files['lab/library_2/add-to-tinct.js']).toContain(`shared-reader-activation.js?v=${off.tags['lab/shared-reader-activation.js']}`)
+    expect(on.files['lab/library_2/index.html']).toContain(`/lab/shared-reader-activation.js?v=${on.tags['lab/shared-reader-activation.js']}`)
+    expect(on.files['lab/library_2/index.html']).toContain(`app.js?v=${on.tags['lab/library_2/app.js']}`)
+    expect(staleTags(off.files, entries)).toEqual([])
+    expect(staleTags(on.files, entries)).toEqual([])
+  })
   it('tags each reference to a built entry with the hash of the emitted file', () => {
     const { files, tags } = stampTags(dist(), ENTRIES)
     expect(tags['lab/library-add.js']).toBe(sha10(ENGINE))

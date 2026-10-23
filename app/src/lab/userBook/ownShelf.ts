@@ -361,8 +361,105 @@ export async function forgetRemovedOwnBooks(owner: string | null | undefined, in
     for (const item of [PLACE_PREFIX + hex, PDF_PLACE_PREFIX + hex, OWN_TABLE_HIDDEN_PREFIX + hex]) {
       try { localStorage.removeItem(item) } catch { /* private */ }
     }
+    forgetOwnedReaderLocalState(owner, hex)
   }
   return gone
+}
+
+/** Remote deletion removes this owner's annotation generation, never another account's same-hash backup. */
+export function forgetOwnedReaderLocalState(owner: string, hex: string): void {
+  if (!owner || !/^[0-9a-f]{24}$/.test(hex)) return
+  // Older readers wrote hash-only projections. Clear them only when the
+  // deleted owner's saved copy proves their exact contents. A surviving
+  // projection keeps its owner marker, so the next account cannot claim it.
+  const prefix = 'tinct-addbook:', bookId = userBookId(hex)
+  const get = (key: string): unknown => { try { return JSON.parse(localStorage.getItem(key) || 'null') } catch { return null } }
+  const exact = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
+  const legacyKey = prefix + 'legacy-epub-owner:' + hex
+  if (localStorage.getItem(legacyKey) === owner) {
+    const backup = get(prefix + 'legacy-epub-annotations:' + owner + ':' + hex) as { marks?: unknown[]; cards?: unknown[] } | null
+    for (const [name, field] of [['hl:epub:', 'marks'], ['cards:epub:', 'cards']] as const) {
+      const rawKey = prefix + name + hex, raw = get(rawKey)
+      if (Array.isArray(raw) && Array.isArray(backup?.[field]) && exact(raw, backup[field])) {
+        try { localStorage.removeItem(rawKey) } catch { /* retain the marker below */ }
+      }
+    }
+  }
+  const marksMarker = prefix + 'text-marks-owner:' + hex
+  if (localStorage.getItem(marksMarker) === owner) {
+    const raw = get('tinct-lab-highlights')
+    if (Array.isArray(raw)) {
+      const scoped = raw.filter(row => row?.bookId === bookId)
+      const backed = get(prefix + 'text-marks-local:' + owner + ':' + hex)
+      if (scoped.length && Array.isArray(backed) && exact(scoped, backed)) {
+        try { localStorage.setItem('tinct-lab-highlights', JSON.stringify(raw.filter(row => row?.bookId !== bookId))) } catch { /* retain marker */ }
+      }
+    }
+  }
+  const chatMarker = prefix + 'text-cards-owner:' + hex, chatKey = 'tinct:chat-history:' + bookId
+  if (localStorage.getItem(chatMarker) === owner) {
+    const raw = get(chatKey)
+    if (Array.isArray(raw) && raw.length) {
+      let proven = false
+      try {
+        const stem = prefix + 'text-cards-canonical:' + owner + ':' + hex
+        for (let i = 0; i < localStorage.length && !proven; i++) {
+          const key = localStorage.key(i)
+          if (key !== stem && !key?.startsWith(stem + ':')) continue
+          const candidate = get(key) as { conversations?: unknown[] } | null
+          if (Array.isArray(candidate?.conversations)) {
+            const known = new Set(candidate.conversations.map(row => JSON.stringify(row)))
+            proven = raw.every(row => known.has(JSON.stringify(row)))
+          }
+        }
+      } catch { /* no exact owner proof */ }
+      if (proven) try { localStorage.removeItem(chatKey) } catch { /* retain marker */ }
+    }
+  }
+  const legacyStillClaimed = localStorage.getItem(legacyKey) === owner
+    && ['hl:epub:', 'cards:epub:'].some(name => localStorage.getItem(prefix + name + hex) !== null)
+  const marksStillClaimed = localStorage.getItem(marksMarker) === owner && (() => {
+    const raw = localStorage.getItem('tinct-lab-highlights'), rows = get('tinct-lab-highlights')
+    return raw !== null && (!Array.isArray(rows) || rows.some(row => row?.bookId === bookId))
+  })()
+  const chatStillClaimed = localStorage.getItem(chatMarker) === owner && localStorage.getItem(chatKey) !== null
+  const prefixes = [
+    'text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
+    'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:',
+    'legacy-epub-annotations:', 'legacy-epub-migrated:', 'legacy-epub-backup-quarantine:', 'static-epub-marks:', 'static-epub-cards:',
+  ]
+  for (const prefix of prefixes) {
+    if (legacyStillClaimed && (prefix === 'legacy-epub-annotations:' || prefix === 'legacy-epub-migrated:')) continue
+    if (marksStillClaimed && (prefix === 'text-marks-local:' || prefix === 'text-marks-previous:')) continue
+    if (chatStillClaimed && (prefix === 'text-cards-canonical:' || prefix === 'text-cards-adopted:')) continue
+    try { localStorage.removeItem(`tinct-addbook:${prefix}${owner}:${hex}`) } catch { /* keep the file deletion even if storage is blocked */ }
+  }
+  for (const [marker, stillPresent] of [
+    [legacyKey, () => ['hl:epub:', 'cards:epub:'].some(name => localStorage.getItem(prefix + name + hex) !== null)],
+    [marksMarker, () => { const raw = localStorage.getItem('tinct-lab-highlights'), rows = get('tinct-lab-highlights'); return raw !== null && (!Array.isArray(rows) || rows.some(row => row?.bookId === bookId)) }],
+    [chatMarker, () => localStorage.getItem(chatKey) !== null],
+  ] as const) {
+    try { if (localStorage.getItem(marker) === owner && !stillPresent()) localStorage.removeItem(marker) } catch { /* retain ownership boundary */ }
+  }
+  try {
+    for (const kind of ['text-marks-canonical:', 'text-cards-canonical:']) {
+      if (kind === 'text-cards-canonical:' && chatStillClaimed) continue
+      const stem = `tinct-addbook:${kind}${owner}:${hex}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && /^[0-9a-f]{32}$/.test(item.slice(stem.length))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
+  try {
+    for (const kind of ['pdf-original-marks:', 'pdf-original-cards:']) {
+      const stem = `tinct-addbook:${kind}${owner}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && item.endsWith(':' + hex) && /^[0-9a-f]{32}$/.test(item.slice(stem.length, -hex.length - 1))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
 }
 
 /** Own books being read (EPUBs and PDFs), most recently read first. */

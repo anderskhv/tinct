@@ -5,28 +5,30 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
-import { handleUserBooks as floor, listOwnCards, listOwnMarks } from './worker/routes/userBooks'
+import { handleUserBooks as modernRoute, type listOwnCards, type listOwnMarks } from './worker/routes/userBooks'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const routeDirectory = resolve(dirname(fileURLToPath(import.meta.url)), 'worker/routes')
-type Handler = typeof floor
+type Handler = typeof modernRoute
+type Route = { handleUserBooks: Handler; listOwnMarks: typeof listOwnMarks; listOwnCards: typeof listOwnCards }
 
-// Checked-in, content-pinned route snapshots make this proof runnable in an
-// isolated Actions checkout after the floor itself has become HEAD/main.
-// Bundle against the same dependency tree used by the floor route.
+// Checked-in, content-pinned route snapshots preserve the old main and
+// compatible floor when the reader branch is merged. The live route is the
+// modern reader candidate under review; bundle snapshots against its dependency tree.
 const fixtures = {
   old: ['old-userBooks.ts.txt', '191e4e1c793c781ca2547f7eee98b56d0185959057ae572caab01a0ad608d1c9'],
   modern: ['modern-userBooks.ts.txt', 'c25b0b48d7bf45ec2e74d2d981aaf8593e19a80660948d45642a789dcd8ee69b'],
+  floor: ['floor-userBooks.ts.txt', 'a7f55e0d4670e995cf40510e2ea961b81a590283dd2fdc6785225a9308b44e7d'],
 } as const
-const handlers: Partial<Record<keyof typeof fixtures, Promise<Handler>>> = {}
-function snapshot(kind: keyof typeof fixtures): Promise<Handler> {
+const handlers: Partial<Record<keyof typeof fixtures, Promise<Route>>> = {}
+function snapshot(kind: keyof typeof fixtures): Promise<Route> {
   return handlers[kind] ??= (async () => {
     const [name, digest] = fixtures[kind]
     const source = readFileSync(resolve(routeDirectory, '../../test/fixtures/rollback-floor', name), 'utf8')
     expect(createHash('sha256').update(source).digest('hex')).toBe(digest)
     const compiled = await build({ stdin: { contents: source, sourcefile: 'userBooks.ts', resolveDir: routeDirectory, loader: 'ts' },
       bundle: true, write: false, platform: 'node', format: 'esm', target: 'es2022' })
-    return (await import(`data:text/javascript;base64,${Buffer.from(compiled.outputFiles[0].text).toString('base64')}`)).handleUserBooks as Handler
+    return await import(`data:text/javascript;base64,${Buffer.from(compiled.outputFiles[0].text).toString('base64')}`) as Route
   })()
 }
 
@@ -66,9 +68,21 @@ function harness() {
 }
 
 describe('source-fixed rollback-floor storage policy on one R2 bucket', () => {
+  it('pins all three historical routes and tests the pending reader branch as the live modern route', async () => {
+    const rollout = JSON.parse(readFileSync(resolve(routeDirectory, '../../../release/shared-reader-rollout.json'), 'utf8'))
+    expect(rollout.phase).toBe('pending')
+    const current = readFileSync(resolve(routeDirectory, 'userBooks.ts'), 'utf8')
+    expect(createHash('sha256').update(current).digest('hex')).toBe(fixtures.modern[1])
+    for (const kind of Object.keys(fixtures) as Array<keyof typeof fixtures>) {
+      expect((await snapshot(kind)).handleUserBooks).toBeTypeOf('function')
+    }
+    expect(modernRoute).toBeTypeOf('function')
+  })
+
   it('crosses actual old main → floor → full → floor for PDF place, marks, cards, export and deletion', async () => {
-    const main = await snapshot('old')
-    const full = await snapshot('modern')
+    const { handleUserBooks: main } = await snapshot('old')
+    const { handleUserBooks: floor, listOwnMarks: floorMarks, listOwnCards: floorCards } = await snapshot('floor')
+    const full = modernRoute
     const h = harness()
     const book = await h.upload(main)
     const hex = book.sha256.slice(0, 24)
@@ -104,14 +118,15 @@ describe('source-fixed rollback-floor storage policy on one R2 bucket', () => {
     expect(await h.get(floor, 'cards', hex)).toMatchObject({ cards: [card], rev: 5 })
     expect((await h.put(floor, 'marks', hex, [mark, secondMark], 3)).status).toBe(200)
     expect(JSON.parse(new TextDecoder().decode(h.objects.get(`${marksKey}/${book.id}`)!.bytes))).toMatchObject({ rev: 4, list: [mark, secondMark] })
-    expect(await listOwnMarks(h.bucket, A)).toMatchObject({ [hex]: { removed: 0, rev: 2 }, [`${hex}/${book.id}`]: { removed: 0, rev: 4 } })
-    expect(await listOwnCards(h.bucket, A)).toMatchObject({ [hex]: { removed: 0, rev: 4 }, [`${hex}/${book.id}`]: { removed: 0, rev: 5 } })
+    expect(await floorMarks(h.bucket, A)).toMatchObject({ [hex]: { removed: 0, rev: 2 }, [`${hex}/${book.id}`]: { removed: 0, rev: 4 } })
+    expect(await floorCards(h.bucket, A)).toMatchObject({ [hex]: { removed: 0, rev: 4 }, [`${hex}/${book.id}`]: { removed: 0, rev: 5 } })
     expect((await h.call(floor, `/${book.id}`, { method: 'DELETE' })).status).toBe(200)
     expect([...h.objects.keys()].filter(key => key.startsWith(`${prefix}marks/${hex}`) || key.startsWith(`${prefix}cards/${hex}`))).toEqual([])
   })
 
   it('floor-created files write old arrays; legacy-only writes reject new schemas while modern uploads retain them', async () => {
-    const full = await snapshot('modern')
+    const { handleUserBooks: floor } = await snapshot('floor')
+    const full = modernRoute
     const h = harness()
     const legacy = await h.upload(floor)
     const hex = legacy.sha256.slice(0, 24)
@@ -150,6 +165,7 @@ describe('source-fixed rollback-floor storage policy on one R2 bucket', () => {
   })
 
   it('a changed-ETag sealed bare key rejects a stale floor CAS and keeps the complete tombstone list visible', async () => {
+    const { handleUserBooks: floor } = await snapshot('floor')
     const h = harness()
     const book = await h.upload(floor)
     const hex = book.sha256.slice(0, 24)

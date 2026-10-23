@@ -79,6 +79,26 @@ export function findQuote(chapters: ReadonlyArray<ReadonlyArray<string>>, quote:
   return null
 }
 
+/** A legacy margin quote has no source coordinates. Never choose the first of several identical passages on migration. */
+export function findUniqueQuote(chapters: ReadonlyArray<ReadonlyArray<string>>, quote: string): { chapter: number; para: number; word: number } | null {
+  const q = quoteKey(quote)
+  if (q.length < 6) return null
+  const keys = chapters.map(list => list.map(quoteKey))
+  for (const size of [60, 30, 16]) {
+    if (q.length < size && size !== 16) continue
+    const cut = q.length <= size ? q : q.slice(0, q.lastIndexOf(' ', size) > 5 ? q.lastIndexOf(' ', size) : size)
+    let hit: { chapter: number; para: number; word: number } | null = null
+    for (let c = 0; c < keys.length; c++) for (let p = 0; p < keys[c].length; p++) {
+      const k = keys[c][p], at = (' ' + k).indexOf(' ' + cut)
+      if (at < 0) continue
+      if (hit || (' ' + k).indexOf(' ' + cut, at + 1) >= 0) return null
+      hit = { chapter: c, para: p, word: at === 0 ? 0 : k.slice(0, at).split(' ').filter(Boolean).length }
+    }
+    if (hit) return hit
+  }
+  return null
+}
+
 function readPos(hex: string, read: Read = localRead): Record<string, unknown> | null {
   try {
     const raw = JSON.parse(read(EPUB_POS_PREFIX + hex) || 'null') as unknown
@@ -91,12 +111,12 @@ function readPos(hex: string, read: Read = localRead): Record<string, unknown> |
  * that is newer (read in Margin view since), found by its words. The place
  * chosen is kept as the reader's own.
  */
-export function readEpubPlace(hex: string, edition: UserBookEdition, read: Read = localRead): UserBookPlace | null {
+export function readEpubPlace(hex: string, edition: UserBookEdition, read: Read = localRead, { requireUniqueQuote = false }: { requireUniqueQuote?: boolean } = {}): UserBookPlace | null {
   const own = readUserBookPlace(hex, edition)
   const pos = readPos(hex, read)
   const at = typeof pos?.at === 'number' ? pos.at : 0
   if (!pos || typeof pos.quote !== 'string' || !(at > (own?.updatedAt ?? 0))) return own
-  const hit = findQuote(edition.chapters.map(chapter => chapter.paragraphs), pos.quote)
+  const hit = (requireUniqueQuote ? findUniqueQuote : findQuote)(edition.chapters.map(chapter => chapter.paragraphs), pos.quote)
   if (!hit) return own
   const place: UserBookPlace = { chapterNumber: edition.chapters[hit.chapter].number, paragraphIndex: hit.para, wordIndex: hit.word, updatedAt: at, ...(typeof edition.converter === 'number' ? { converter: edition.converter } : {}) }
   writeUserBookPlace(hex, place)

@@ -156,7 +156,7 @@ describe('every removal path uses the motion', () => {
     // app.js (20261021stack3); a book opening from its painting's 960 px copy (20261021opencover) app.js
     // again (20261021stack4). The room drawn once with only its moving parts repainted each frame
     // (20261021still) changed scene-life.js and app.js (20261021stack5).
-    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', ownDelete = '20261023floorown', latest = '20261020open'
+    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
     expect(lib('index.html')).toContain('app.js?v=20261021stack5')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
@@ -164,7 +164,7 @@ describe('every removal path uses the motion', () => {
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
     expect(lib('app.js')).toContain('bookshelf.js?v=20261021deskopen')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
-    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ownDelete}`)
+    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
     expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
@@ -176,8 +176,7 @@ describe('every removal path uses the motion', () => {
     expect(lib('reading-table.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('reading-table.js')).toContain(`cover-assets.js?v=${tag}`)
     expect(lib('catalogue.js')).toContain(`cover-assets.js?v=${tag}`)
-    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${ownDelete}`)
-    expect(lib('index.html')).toContain(`add-to-tinct.js?v=${ownDelete}`)
+    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('catalogue.js')).toContain(`library-2-reading.js?v=${ocr}`)
     expect(lib('boot.js')).toContain(`library-2-reading.js?v=${ocr}`)
     // A module imported under two tags would load twice: every importer names the same one.

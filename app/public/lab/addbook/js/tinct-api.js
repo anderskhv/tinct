@@ -381,6 +381,15 @@
       } });
       return (await r.json()).book;
     },
+    // Editable display details leave the owned EPUB/PDF bytes, SHA and reading anchors intact.
+    async metadata(hex) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex))) throw err('bad_request');
+      return (await (await booksFetch('/metadata/' + hex)).json());
+    },
+    async editMetadata(hex, { title, author, rev, fileId }) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex))) throw err('bad_request');
+      return (await (await booksFetch('/metadata/' + hex, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, author, rev, expectedFileId: fileId }) })).json());
+    },
     async download(id) { return new Uint8Array(await (await booksFetch('/' + encodeURIComponent(id))).arrayBuffer()) },
     // The small copy of a book's cover (a JPEG or WebP Blob under 64 KB), kept with its account copy.
     // `hex`: the first 24 hex digits of the file's SHA-256. -> the stored cover's URL.

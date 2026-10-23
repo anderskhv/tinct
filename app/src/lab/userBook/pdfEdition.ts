@@ -70,8 +70,17 @@ interface Engine {
   /** reading-order.js and reader-layout.js: the phone's open rule (phoneKindOf). Absent: the rule is left to the viewer. */
   order?: ReadingOrderApi
   layout?: ReaderLayoutApi
-  margin?: { findFigures: (input: { ink: Uint8Array; W: number; H: number; spans: unknown[]; formulas: unknown[] }) => { figures: unknown[]; captions: unknown[] } }
+  margin?: {
+    PRIMER: { units: number }
+    findFigures: (input: { ink: Uint8Array; W: number; H: number; spans: unknown[]; formulas: unknown[] }) => { figures: unknown[]; captions: unknown[] }
+    sizeUnits: (entries: PdfUnitEntry[], count: number) => PdfSizedUnit[]
+    scanTree: (entries: PdfScan['entries']) => PdfUnitEntry[]
+    scanEntries: (entries: PdfScan['entries'], nav: string, count: number) => PdfUnitEntry[]
+    catchUpSpan: (unitFrom: number, page: number, max?: number) => { from: number; to: number }
+  }
 }
+export interface PdfUnitEntry { title: string; page: number | null; items?: PdfUnitEntry[]; kind?: string }
+export interface PdfSizedUnit { key: string; title: string; from: number; start: number; to: number; matter?: string; label?: string; pages?: boolean }
 interface RegionsApi {
   displayFormulas: (body: Array<{ x: number; base: number; size: number; w: number; str: string }>, vp: { width: number; height: number }) => { blocks: Array<{ x: number; y: number; w: number; h: number }> }
   pageRegions: (input: { figures: unknown[]; captions: unknown[]; blocks: unknown[] }) => PdfRegion[]

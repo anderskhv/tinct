@@ -577,10 +577,13 @@ export function LabPassage({
     : null
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
-  useTextRangeHighlights(articleRef)
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const selectionPaintKey = activeSelecting
+    ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
+    : ''
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey])
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])

@@ -66,6 +66,8 @@ export interface LabPhoneBarProps {
   noted?: boolean
   /** Where the press ended, used only when no selected word is painted. */
   fallbackY: number
+  /** PDF text-layer selections provide a native rect rather than painted lab-hearing-word nodes. */
+  fallbackX?: number
   onAsk: () => void
   onExplain: () => void
   onSimplify: () => void
@@ -99,7 +101,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       const top = boxes.length ? Math.min(...boxes.map(box => box.top)) : fallbackY
       const bottom = boxes.length ? Math.max(...boxes.map(box => box.bottom)) : fallbackY
       const first = boxes[0]
-      const tip = first ? first.left + Math.min(first.width / 2, 24) : window.innerWidth / 2
+      const tip = first ? first.left + Math.min(first.width / 2, 24) : props.fallbackX ?? window.innerWidth / 2
       const low = window.innerHeight - 16
       const below = bottom + 12 + height <= low || top - 12 - height < header + 8
       const across = phoneBarLeft(tip, Math.ceil(ref.current?.getBoundingClientRect().width || 0), window.innerWidth)
@@ -108,7 +110,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
     at()
     window.addEventListener('resize', at)
     return () => window.removeEventListener('resize', at)
-  }, [text, existingColor, fallbackY])
+  }, [text, existingColor, fallbackY, props.fallbackX])
   // The ••• menu: as wide as its longest name, under the ••• when it fits below the bar, else above it, and
   // never past an edge of the visible window.
   const moreRef = useRef<HTMLDivElement | null>(null)

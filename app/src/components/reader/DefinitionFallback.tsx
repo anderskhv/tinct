@@ -45,32 +45,37 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   </div>
   // An ordinary lower-case word shows its dictionary senses at once; a name
   // waits for the passage to say who or what it is.
-  const dictionaryFirst = !!dictionaryDefinitions?.length && !/^\p{Lu}/u.test(word.trim())
-  if (answer?.kind === 'person') {
-    const done = status === 'ready'
-    return <div className="popup-character" data-testid="popup-contextual-character" aria-busy={!done}>
-      <small>{answer.importance === 'major' ? 'Major character' : answer.importance === 'minor' ? 'Minor character' : answer.importance === 'uncertain' ? 'Person in this passage' : '\u00a0'}</small>
-      {answer.subtitle && <p className="popup-character-subtitle">{answer.subtitle}</p>}
-      {answer.body && <p>{answer.body}</p>}
-      {done && actions(personText(answer as PersonCard), answer.name, onChat, onTalk)}
-    </div>
-  }
-  if (answer?.kind === 'place') {
-    const done = status === 'ready'
-    return <div className="popup-character popup-place" data-testid="popup-contextual-place" aria-busy={!done}>
-      <small>Place</small>
-      {answer.description && <p className="popup-character-subtitle">{answer.description}</p>}
-      {done && actions(`${answer.name}: ${answer.description}`, answer.name, onChat, onTalk)}
-    </div>
-  }
-  if (dictionaryFirst || (status === 'ready' && answer?.kind === 'definition')) {
-    return <div className="popup-define-result"><ol className="popup-define-list">{(dictionaryDefinitions?.length ? dictionaryDefinitions : [answer?.kind === 'definition' ? answer.definition : '']).slice(0, 3).map((definition, index) => <li key={index}>{definition}</li>)}</ol></div>
-  }
+  const dictionaryFirst = !!dictionaryDefinitions?.length && (!/^\p{Lu}/u.test(word.trim()) || (status === 'ready' && answer?.kind === 'definition'))
+  if (answer?.kind === 'person' || answer?.kind === 'place' || dictionaryFirst || (status === 'ready' && answer?.kind === 'definition'))
+    return <ContextualLookupView answer={answer} ready={status === 'ready'} dictionaryDefinitions={dictionaryFirst ? dictionaryDefinitions : undefined} onChat={onChat} onTalk={onTalk} />
   if (status === 'resting') return <div className="popup-define-status">{LAB_COPY.aiResting}</div>
   if (status === 'error') return dictionaryDefinitions?.length
-    ? <div className="popup-define-result"><ol className="popup-define-list">{dictionaryDefinitions.slice(0, 3).map((definition, index) => <li key={index}>{definition}</li>)}</ol></div>
+    ? <ContextualLookupView answer={null} dictionaryDefinitions={dictionaryDefinitions} />
     : <div className="popup-define-status">Lookup unavailable. <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button></div>
   return <div className="popup-define-status" role="status">Looking up…</div>
+}
+
+/** The same already-resolved contextual card in a passage popup or a saved original-page card. */
+export function ContextualLookupView({ answer, ready = true, dictionaryDefinitions, onChat, onTalk }: {
+  answer: PartialContextualLookup | null
+  ready?: boolean
+  dictionaryDefinitions?: string[]
+  onChat?: (text: string) => void
+  onTalk?: (text: string) => void
+}) {
+  if (answer?.kind === 'person') return <div className="popup-character" data-testid="popup-contextual-character" aria-busy={!ready}>
+    <small>{answer.importance === 'major' ? 'Major character' : answer.importance === 'minor' ? 'Minor character' : answer.importance === 'uncertain' ? 'Person in this passage' : '\u00a0'}</small>
+    {answer.subtitle && <p className="popup-character-subtitle">{answer.subtitle}</p>}
+    {answer.body && <p>{answer.body}</p>}
+    {ready && actions(personText(answer as PersonCard), answer.name, onChat, onTalk)}
+  </div>
+  if (answer?.kind === 'place') return <div className="popup-character popup-place" data-testid="popup-contextual-place" aria-busy={!ready}>
+    <small>Place</small>
+    {answer.description && <p className="popup-character-subtitle">{answer.description}</p>}
+    {ready && actions(`${answer.name}: ${answer.description}`, answer.name, onChat, onTalk)}
+  </div>
+  const definitions = dictionaryDefinitions?.length ? dictionaryDefinitions : answer?.kind === 'definition' ? [answer.definition] : []
+  return definitions.length ? <div className="popup-define-result"><ol className="popup-define-list">{definitions.slice(0, 3).map((definition, index) => <li key={index}>{definition}</li>)}</ol></div> : null
 }
 
 type PersonCard = { name: string; subtitle: string; body: string }

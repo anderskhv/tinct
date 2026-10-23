@@ -8,7 +8,7 @@ const $ = id => document.getElementById(id);
 const root = document.querySelector('.lab');
 const STORE_PREFIX = 'tinct-addbook:';
 const store = {
-  get(k) { try { return JSON.parse(localStorage.getItem(STORE_PREFIX + k)) } catch { return null } },
+  get(k) { if (/^(hl|cards):epub:[0-9a-f]{24}$/.test(k)) return window.TinctAddEngine?.legacyEpubAnnotations.get(k); try { return JSON.parse(localStorage.getItem(STORE_PREFIX + k)) } catch { return null } },
   set(k, v) { if (/^(hl|cards):epub:[0-9a-f]{24}$/.test(k)) return window.TinctAddEngine?.legacyEpubAnnotations.set(k, v); try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} },
   del(k) { try { localStorage.removeItem(STORE_PREFIX + k) } catch {} },
 };
@@ -2402,7 +2402,7 @@ function openMenu() {
   const half = (id, label, second) => `<button type="button" class="lab-super-row-half${second ? ' is-second' : ''}" data-row="${id}"><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${label}</span></button>`;
   layer.innerHTML = `<button type="button" class="lab-super-scrim" aria-label="Close menu"></button><nav class="lab-super-panel" aria-label="Menu">${menuItems().map(([id, rule]) => id === 'chat'
     ? `<div class="lab-super-row is-pair" data-row="conversation" role="group" aria-label="Chat or Talk">${half('chat', 'Chat')}${half('talk', 'Talk', true)}</div>`
-    : `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${MENU_LABEL[id]}</span>${MENU_CHEVRON.has(id) ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}</nav>`;
+    : `<button type="button" class="lab-super-row${rule ? ' has-rule' : ''}" data-row="${id}"${textless && (id === 'summarize' || id === 'catchup') ? ' disabled aria-disabled="true"' : ''}><span class="lab-super-row-icon" aria-hidden="true">${ICON[id]}</span><span class="lab-super-row-label">${MENU_LABEL[id]}</span>${MENU_CHEVRON.has(id) ? '<span class="lab-super-row-chevron" aria-hidden="true">›</span>' : ''}</button>`).join('')}${isEpub() && engine.legacyEpubAnnotations.needsReview(hexOf(state.key)) ? '<button type="button" class="lab-super-row has-rule" data-row="review-epub"><span class="lab-super-row-icon" aria-hidden="true"></span><span class="lab-super-row-label">Review older annotations</span><span class="lab-super-row-chevron" aria-hidden="true">›</span></button>' : ''}</nav>`;
   layer.querySelector('.lab-super-scrim').onclick = closeMenu;
   layer.querySelectorAll('button[data-row]').forEach(b => b.onclick = () => { closeMenu(); menuAction(b.dataset.row) });
   root.appendChild(layer);
@@ -2416,6 +2416,12 @@ function closeMenu() {
 }
 $('superBtn').onclick = openMenu;
 function menuAction(id) {
+  if (id === 'review-epub') {
+    const target = '/reader?userBook=' + encodeURIComponent(hexOf(state.key)) + '&sharedReader=1';
+    leavePlace();
+    location.assign(accountId() ? target : '/sign-in?returnTo=' + encodeURIComponent(target));
+    return;
+  }
   if (id === 'library') { leaveToShelf(); return }
   if (id === 'account') return openProfile();
   if (!hasBook() && !['open', 'aa', 'book', 'audio'].includes(id)) { toast('Open a book first.'); return }

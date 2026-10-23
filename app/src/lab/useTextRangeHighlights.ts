@@ -37,8 +37,11 @@ type Mounted = {
   root: HTMLElement
   style: HTMLStyleElement
   observer: ResizeObserver | null
+  onReflow: () => void
   frame: number
   signature: string
+  layoutKey: string
+  inputs: readonly unknown[] | null
   runs: Run[]
   layers: HTMLElement[]
   registry: Registry
@@ -54,7 +57,7 @@ type Mounted = {
  * per word and held the main thread for ~300 ms on a long chapter: the follow
  * wash then lit only every third word (2026-09-25).
  */
-export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
+export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layoutKey = '', inputs?: readonly unknown[]) {
   const prefix = 'tinct' + useId().replace(/[^a-zA-Z0-9]/g, '')
   const mountedRef = useRef<Mounted | null>(null)
   useLayoutEffect(() => () => { unmount(mountedRef.current, prefix); mountedRef.current = null }, [prefix])
@@ -74,15 +77,25 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
       }).join('\n')
       document.head.append(style)
       root.classList.add('has-text-range-highlights')
-      const created: Mounted = { root, style, observer: null, frame: 0, signature: '', runs: [], layers: [], registry }
+      const created: Mounted = { root, style, observer: null, onReflow: () => {}, frame: 0, signature: '', layoutKey, inputs: null, runs: [], layers: [], registry }
       // Continued-tail alignment and reflow move the rows: measure them again.
-      created.observer = typeof ResizeObserver === 'function' ? new ResizeObserver(() => schedulePaint(created)) : null
+      created.onReflow = () => schedulePaint(created)
+      created.observer = typeof ResizeObserver === 'function' ? new ResizeObserver(created.onReflow) : null
       created.observer?.observe(root)
+      window.addEventListener('resize', created.onReflow)
+      document.fonts?.addEventListener?.('loadingdone', created.onReflow)
       mounted = mountedRef.current = created
     }
     // React rewrites the class attribute whenever the passage's own classes
     // change; keep ours (a no-op, and no restyle, while it is there).
     if (!root.classList.contains('has-text-range-highlights')) root.classList.add('has-text-range-highlights')
+    // The passage knows precisely which source, page, marks and selected
+    // source words can change range membership. Skip even the DOM scan when
+    // a popup, transport tick or unrelated reader chrome rerenders it.
+    if (inputs && mounted.layoutKey === layoutKey && mounted.inputs?.length === inputs.length
+      && inputs.every((input, index) => Object.is(input, mounted.inputs![index]))
+      && mounted.runs.every(run => run.range.startContainer.isConnected && run.range.endContainer.isConnected)) return
+    mounted.inputs = inputs ? [...inputs] : null
     const ranges: Record<string, Range[]> = {}
     const runs: Run[] = []
     const signature: string[] = []
@@ -131,13 +144,18 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>) {
     const current = mounted.runs.every(run => run.range.startContainer.isConnected && run.range.endContainer.isConnected)
     // Nothing highlighted, before or now: nothing to register or paint.
     if (!runs.length && !mounted.runs.length) return
-    // Same words, same elements: the registered ranges stand. The painted rows
-    // are still measured again, since lines can settle after the words do.
-    if (key !== mounted.signature || !current) {
+    const rangesChanged = key !== mounted.signature || !current
+    const layoutChanged = mounted.layoutKey !== layoutKey
+    // Popup and narration state can rerender a chapter without moving a single
+    // text node. Its painted layers are positioned inside their own lines, so
+    // an ancestor scroll changes neither their local geometry nor their colour.
+    if (rangesChanged) {
       mounted.signature = key
       mounted.runs = runs
       for (const color of Object.keys(COLORS)) registry.set(`${prefix}-${color}`, new HighlightClass(...(ranges[color] ?? [])))
     }
+    mounted.layoutKey = layoutKey
+    if (!rangesChanged && !layoutChanged) return
     // Paint immediately so a render never exposes an unpainted frame, and
     // again after the later layout effects have placed the lines.
     paintRanges(mounted)
@@ -198,6 +216,8 @@ function unmount(mounted: Mounted | null, prefix: string): void {
   if (!mounted) return
   cancelAnimationFrame(mounted.frame)
   mounted.observer?.disconnect()
+  window.removeEventListener('resize', mounted.onReflow)
+  document.fonts?.removeEventListener?.('loadingdone', mounted.onReflow)
   mounted.layers.forEach(layer => layer.remove())
   mounted.root.classList.remove('has-text-range-highlights')
   for (const color of Object.keys(COLORS)) mounted.registry.delete(`${prefix}-${color}`)

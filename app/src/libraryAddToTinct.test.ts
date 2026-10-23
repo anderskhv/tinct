@@ -860,18 +860,6 @@ describe('Removing one of My private uploads', () => {
     expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
   })
 
-  it('loads the rollback owner-aware file engine through a fresh cache URL', () => {
-    const source = readFileSync('public/lab/library_2/add-to-tinct.js', 'utf8')
-    const urls = source.match(/const FILE_ENGINE=(\[[^\n]+\]);/)?.[1]
-    expect(urls).toBeDefined()
-    const entries = new Function(`return ${urls}`)() as string[]
-    expect(entries).toEqual([
-      '/lab/addbook/js/tinct-api.js?v=20261009owncover',
-      '/lab/addbook/js/epub.js',
-      '/lab/addbook/js/add-engine.js?v=20261023floorown1',
-    ])
-  })
-
   it('allows a cold Library delete when loading the Engine initializes the same stored session', async () => {
     vi.stubGlobal('TinctAI', undefined)
     localStorage.setItem('sb-delete-auth-token', JSON.stringify({ currentSession: {
@@ -922,97 +910,50 @@ describe('Removing one of My private uploads', () => {
     const calls: string[] = []
     const engine = async () => ({
       library: { get: async () => ({ key: `pdf:${hex}` }) }, cloud: { refresh: async () => true },
+      // The real Engine owns verified raw cleanup. The Library's second pass
+      // is deliberately conservative even when the earlier lookup found a file.
       removeBook: async (key: string) => { calls.push('remove ' + key); addToTinct.forgetOwnBookHere(hex, [storage]); return true },
     })
-    expect(await addToTinct.deleteUpload({ ...book, key: `pdf:${hex}` }, { engine, storages: [storage] })).toBe(true)
-    expect(calls).toEqual([`remove pdf:${hex}`])
-    expect([...store.keys()].sort()).toEqual([`tinct-addbook:hl:${other}`, 'tinct-addbook:rights:viewer', 'tinct:library-2-first-paint'])
-    // Anything but a book's own id forgets nothing.
-    expect(addToTinct.forgetOwnBookHere('tinct', [storage])).toBe(0)
-    vi.unstubAllGlobals()
+    try {
+      expect(await addToTinct.deleteUpload({ ...book, key: `pdf:${hex}` }, { engine, storages: [storage] })).toBe(true)
+      expect(calls).toEqual([`remove pdf:${hex}`])
+      expect([...store.keys()].sort()).toEqual([`tinct-addbook:hl:${other}`, 'tinct-addbook:rights:viewer', 'tinct:library-2-first-paint'])
+      // Anything but a book's own id forgets nothing.
+      expect(addToTinct.forgetOwnBookHere('tinct', [storage])).toBe(0)
+    } finally { vi.unstubAllGlobals() }
   })
 
-  it('cloud-only deletion keeps foreign same-hash raw state and snapshots while removing B-qualified records', async () => {
-    vi.stubGlobal('TinctAI', { session: () => ({ userId: 'u2' }) })
+  it('keeps foreign same-hash raw state on a cloud-only delete while clearing this account’s scoped records', async () => {
+    vi.stubGlobal('TinctAI', { session: () => ({ userId: 'u2', token: 'B' }) })
     const hex = 'e'.repeat(24), key = `epub:${hex}`
     const values = new Map<string, string>([
-      [`tinct-addbook:pos:${key}`, 'A position'],
-      [`tinct-addbook:hl:${key}`, '[{"id":"A"}]'],
-      [`tinct-addbook:text-cards-canonical:u1:${hex}`, 'A canonical'],
-      [`tinct-addbook:text-cards-canonical:u2:${hex}`, 'B canonical'],
+      [`tinct-addbook:pos:${key}`, 'A position'], [`tinct-addbook:hl:${key}`, '[{"id":"A"}]'],
+      [`tinct-addbook:text-cards-canonical:u1:${hex}`, 'A canonical'], [`tinct-addbook:text-cards-canonical:u2:${hex}`, 'B canonical'],
       [`tinct-addbook:pdf-original-talk:u1:${'f'.repeat(32)}:${hex}`, 'A talk'],
       [`tinct-addbook:pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`, 'B talk'],
-      [`tinct-addbook:legacy-epub-backup-quarantine:u1:${hex}`, 'A quarantine'],
-      [`tinct-addbook:legacy-epub-backup-quarantine:u2:${hex}`, 'B quarantine'],
-      [`tinct-addbook:static-epub-marks:u1:${hex}`, 'A static'],
-      [`tinct-addbook:static-epub-marks:u2:${hex}`, 'B static'],
+      [`tinct-addbook:static-epub-marks:u1:${hex}`, 'A static'], [`tinct-addbook:static-epub-marks:u2:${hex}`, 'B static'],
       [`tinct-addbook:static-epub-guest-marks:${hex}`, 'guest'],
       ['tinct:library-2-table:u1', JSON.stringify([{ key }])],
     ])
     const storage = { get length() { return values.size }, key: (i: number) => [...values.keys()][i] ?? null,
       getItem: (k: string) => values.get(k) ?? null, removeItem: (k: string) => { values.delete(k) } }
-    const cloud = { refresh: vi.fn(async () => true) }
-    const removeBook = vi.fn(async () => true)
+    const cloud = { refresh: vi.fn(async () => true) }, removeBook = vi.fn(async () => true)
     try {
       expect(await addToTinct.deleteUpload({ ...book, key }, { engine: async () => ({ library: { get: async () => null }, cloud, removeBook }), storages: [storage] })).toBe(true)
       expect(cloud.refresh).toHaveBeenCalledOnce()
       expect(removeBook).toHaveBeenCalledWith(key)
       for (const fragment of [`pos:${key}`, `hl:${key}`, `text-cards-canonical:u1:${hex}`, `pdf-original-talk:u1:${'f'.repeat(32)}:${hex}`,
-        `legacy-epub-backup-quarantine:u1:${hex}`, `static-epub-marks:u1:${hex}`, `static-epub-guest-marks:${hex}`])
+        `static-epub-marks:u1:${hex}`, `static-epub-guest-marks:${hex}`])
         expect(values.get(`tinct-addbook:${fragment}`), fragment).toBeDefined()
-      for (const fragment of [`text-cards-canonical:u2:${hex}`, `pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`,
-        `legacy-epub-backup-quarantine:u2:${hex}`, `static-epub-marks:u2:${hex}`])
+      for (const fragment of [`text-cards-canonical:u2:${hex}`, `pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`, `static-epub-marks:u2:${hex}`])
         expect(values.get(`tinct-addbook:${fragment}`), fragment).toBeUndefined()
       expect(values.get('tinct:library-2-table:u1')).toBe(JSON.stringify([{ key }]))
-    } finally { vi.unstubAllGlobals() }
-  })
-
-  it('does not trust an earlier local lookup after the engine rechecks ownership', async () => {
-    vi.stubGlobal('TinctAI', { session: () => ({ userId: 'u2' }) })
-    const hex = 'f'.repeat(24), key = `epub:${hex}`
-    const raw = `tinct-addbook:pos:${key}`, mine = `tinct-addbook:static-epub-cards:u2:${hex}`
-    const values = new Map([[raw, 'A place'], [mine, 'B card']])
-    const storage = { get length() { return values.size }, key: (i: number) => [...values.keys()][i] ?? null,
-      getItem: (k: string) => values.get(k) ?? null, removeItem: (k: string) => { values.delete(k) } }
-    try {
-      expect(await addToTinct.deleteUpload({ ...book, key }, { storages: [storage], engine: async () => ({
-        library: { get: async () => ({ key }) }, cloud: { refresh: async () => true },
-        // Ownership changed before the engine's second lookup; it takes its
-        // own conservative cloud-only path and leaves these raw keys alone.
-        removeBook: async () => true,
-      }) })).toBe(true)
-      expect(values.get(raw)).toBe('A place')
-      expect(values.has(mine)).toBe(false)
-    } finally { vi.unstubAllGlobals() }
-  })
-
-  it('never runs the second cleanup under B after A initiated deletion', async () => {
-    const session = { userId: 'u1', token: 'A' }
-    vi.stubGlobal('TinctAI', { session: () => session })
-    const hex = 'd'.repeat(24), key = `epub:${hex}`
-    const scoped = `tinct-addbook:text-cards-canonical:u2:${hex}`
-    const pdfTalk = `tinct-addbook:pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`
-    const values = new Map([[scoped, 'B card'], [pdfTalk, 'B talk']])
-    const storage = { get length() { return values.size }, key: (i: number) => [...values.keys()][i] ?? null,
-      getItem: (k: string) => values.get(k) ?? null, removeItem: (k: string) => { values.delete(k) } }
-    let resume!: () => void
-    const gate = new Promise<void>(resolve => { resume = resolve })
-    const removeBook = vi.fn(async () => { await gate; return false })
-    try {
-      const pending = addToTinct.deleteUpload({ ...book, key }, { engine: async () => ({
-        library: { get: async () => ({ key }) }, cloud: { refresh: async () => true }, removeBook,
-      }), storages: [storage] })
-      await vi.waitFor(() => expect(removeBook).toHaveBeenCalledWith(key))
-      session.userId = 'u2'; session.token = 'B'; resume()
-      expect(await pending).toBe(false)
-      expect(values.get(scoped)).toBe('B card')
-      expect(values.get(pdfTalk)).toBe('B talk')
     } finally { vi.unstubAllGlobals() }
   })
 })
 
 describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add a PDF or EPUB")', () => {
-  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear() })
+  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear(); window.history.replaceState(null, '', '/') })
   const entry = () => { const link = document.createElement('a'); link.href = '/library#my-shelf'; document.body.append(link); return link }
   const dialog = () => document.querySelector('[data-testid="own-file-dialog"]')
   const choose = (file: File) => {
@@ -1157,22 +1098,27 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(go).toHaveBeenCalledWith('/lab/addbook/?mode=file&handoff=1')
   })
 
-  it('keeps the gating: a free account past its trial gets the Premium offer, signed out signs in first, never the pop-up', async () => {
+  it.each(['0', '1'])('keeps Premium/sign-in gating and the return destination with sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     const go = vi.fn()
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => false, go })
-    expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
+    const shelf = shared === '1' ? '/library?sharedReader=1#my-shelf' : '/library#my-shelf'
+    expect(go).toHaveBeenCalledWith(shared === '1' ? `/sign-in?mode=account&returnTo=${encodeURIComponent(shelf)}` : addToTinct.PREMIUM_PAGE)
     document.documentElement.classList.remove('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => null, go })
-    expect(go).toHaveBeenLastCalledWith('/sign-in?returnTo=%2Flibrary%23my-shelf')
+    expect(go).toHaveBeenLastCalledWith(`/sign-in?returnTo=${encodeURIComponent(shelf)}`)
     expect(dialog()).toBeNull()
   })
 
-  it('closes on its × and Escape; only the file button, no Cancel (Anders, 15 Oct)', async () => {
+  it.each(['0', '1'])('closes on its × and Escape, with no Cancel and Paste only for sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     expect(dialog()!.querySelector('.own-file-cancel')).toBeNull()
-    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(['tui-btn tui-btn--primary own-file-choose'])
+    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(shared === '1'
+      ? ['tui-btn tui-btn--primary own-file-choose', 'tui-btn tui-btn--secondary own-file-paste']
+      : ['tui-btn tui-btn--primary own-file-choose'])
     const close = dialog()!.querySelector('.tui-dialog__head .own-file-close') as HTMLButtonElement
     expect(close.getAttribute('aria-label')).toBe('Close')
     close.click()

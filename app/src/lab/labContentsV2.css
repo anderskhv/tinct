@@ -67,6 +67,7 @@
 /* Final Design 1 geometry; the reader supplies the anchor and active theme. */
 .lab-contents-v2 { position:absolute; inset:0; z-index:500; padding:0; --width:360px; --row:42px; }
 .lab.is-night .lab-contents-v2 { color-scheme:dark; --paper:#23221e; --ink:#ece5d8; --muted:#aca495; --line:#514d43; --gold:#d3b57a; --wash:#3e3524; }
+.lab[data-shared-reader="true"] .lab-contents-v2 { --paper:var(--lab-paper); --ink:var(--lab-ink); --muted:var(--lab-ink-muted); --line:var(--lab-border); --wash:var(--lab-surface); }
 .lab-contents-v2 .lc-scrim { position:absolute; inset:0; width:100%; height:100%; cursor:default; }
 .lab-contents-v2 .menu { position:absolute; top:82px; left:50%; transform:translateX(-50%); width:calc(100% - 24px); max-height:calc(100dvh - 114px); display:flex; flex-direction:column; box-shadow:0 8px 30px #0001; }
 .lab-contents-v2 header { flex:none; }
@@ -87,6 +88,17 @@
 /* index.css has a legacy global .note-source (uppercase, tracked); the quoted passage is the book's own words, never all-caps. */
 .lab-contents-v2 .result .note-source { margin:6px 0 0; color:var(--muted); font:italic 400 15px/1.35 'EB Garamond',Georgia,serif; text-transform:none; letter-spacing:normal; }
 .lab-contents-v2 .note-count { margin-top:6px; }
+.lab-contents-v2 .notebook-tools { display:flex; gap:8px; flex:none; align-items:center; font-size:11px; color:var(--muted); }
+.lab-contents-v2 .notebook-tools button { min-height:34px; padding:0 3px; }
+.lab-contents-v2 .notebook-tools button:hover { color:var(--gold); }
+.lab-contents-v2 .notebook-entry { display:flex; align-items:stretch; border-bottom:1px solid var(--line); }
+.lab-contents-v2 .notebook-entry .result { min-width:0; flex:1; border-bottom:0; }
+.lab-contents-v2 .notebook-delete { flex:none; align-self:flex-start; margin-top:7px; padding:8px 2px 8px 8px; font-size:11px; color:var(--muted); }
+.lab-contents-v2 .notebook-delete:hover { color:var(--gold); }
+.lab-contents-v2 .result .legacy-turn { margin-top:6px; white-space:pre-wrap; overflow-wrap:anywhere; }
+.lab-contents-v2 .result .legacy-turn strong { font:500 11px Inter,system-ui,sans-serif; color:var(--muted); }
+.lab-contents-v2 .legacy-card-state { margin-top:8px; color:var(--muted); overflow-wrap:anywhere; }
+.lab-contents-v2 .legacy-card-state pre { overflow:auto; white-space:pre-wrap; font-size:11px; }
 .lab-contents-v2 .scopes .order { margin-left:auto; }
 .lab-contents-v2 .status { margin:8px 0; font:inherit; color:var(--muted); }
 .lab-contents-v2 .status button,.lab-contents-v2 .more { color:var(--gold); }

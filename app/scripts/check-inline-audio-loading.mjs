@@ -131,7 +131,10 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled') } })
   }, { theme, stored })
   try {
-    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
+    // The desktop case asserts the existing paged inline-audio geometry;
+    // explicitly choose Classic under a default-ON shared reader. Phone is
+    // already paged and keeps its ordinary Read/Compare route.
+    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page'), { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     await page.evaluate(() => document.fonts.ready)
     await page.waitForTimeout(500)

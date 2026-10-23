@@ -20,6 +20,30 @@
 }
 html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc; --lab-pcard-fill: #fff; }
 
+/* The shared-reader candidate uses the colours measured in the actual reader previews.
+   The switch is URL-only; production's unflagged bars retain their established palette. */
+.lab[data-shared-reader="true"][data-theme="light"] {
+  --lab-pbar: #252525; --lab-pbar-ink: #f4f2ed; --lab-pbar-soft: #b5b0a8;
+  --lab-pbar-sep: rgba(244, 242, 237, .19); --lab-selection-tint: #e4d4a9;
+}
+.lab[data-shared-reader="true"][data-theme="book"] {
+  --lab-pbar: #382a20; --lab-pbar-ink: #f2e5ce; --lab-pbar-soft: #c2b4a0;
+  --lab-pbar-sep: rgba(242, 229, 206, .2); --lab-selection-tint: #d9bf86;
+}
+.lab[data-shared-reader="true"][data-theme="dark"] {
+  --lab-pbar: #363431; --lab-pbar-ink: #f3eee5; --lab-pbar-soft: #c0b8ae;
+  --lab-pbar-sep: rgba(243, 238, 229, .18); --lab-selection-tint: #5c4a2e;
+}
+html[data-eink="true"] .lab[data-shared-reader="true"] {
+  --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar-soft: #ccc;
+  --lab-pbar-sep: #fff; --lab-selection-tint: #ddd;
+}
+.lab[data-shared-reader="true"] .lab-passage.is-reading .lab-hearing-word.is-selecting,
+.lab[data-shared-reader="true"] .lab-passage.is-reading .lab-highlight-gap.is-selecting { background: var(--lab-selection-tint); }
+.lab[data-shared-reader="true"] .lab-passage ::selection { background: var(--lab-selection-tint); color: var(--lab-ink); }
+html[data-eink="true"] .lab[data-shared-reader="true"] .lab-pbar,
+html[data-eink="true"] .lab[data-shared-reader="true"] .lab-pmore { box-shadow: none; border: 1px solid #fff; }
+
 /* ---------- the bar ---------- */
 .lab .lab-pbar {
   /* Only as wide as its buttons (LabPhoneBar places it at the selection), never past the window less 10px a side. */
@@ -91,6 +115,15 @@ html[data-eink="true"] .lab .lab-pcard-scrim { background: rgba(255, 255, 255, .
 /* Under the card, down past the window's foot: its own paper, so nothing of the page shows below it while it rides
    on the keyboard or slides up. */
 .lab .lab-pcard::after { content: ""; position: absolute; left: 0; right: 0; top: calc(100% - 1px); height: 100vh; background: inherit; pointer-events: none; }
+/* The shared reader reuses the passage card service for Quiz on desktop.
+   Keep its existing phone sheet on phones; on desktop it is a contained card. */
+.lab[data-shared-reader="true"].is-desktop .lab-pcard-dock { padding: 24px; box-sizing: border-box; align-items: flex-end; }
+.lab[data-shared-reader="true"].is-desktop .lab-pcard {
+  width: min(440px, 100%); max-height: min(70vh, 680px); margin: 0; border: 1px solid var(--lab-pcard-hair);
+  border-radius: 18px; padding: 12px 20px 18px;
+}
+.lab[data-shared-reader="true"].is-desktop .lab-pcard::after { content: none; }
+html[data-eink="true"] .lab[data-shared-reader="true"].is-desktop .lab-pcard { box-shadow: none; }
 .lab .lab-pcard.is-tall { height: min(78dvh, calc(var(--lab-pcard-room, 100dvh) - 96px)); max-height: none; }
 .lab .lab-pcard.is-tall[data-keyboard] { height: calc(var(--lab-pcard-room, 100dvh) - 12px); }
 /* A field in a card has the focus: the narration bar is put away (it sat on the keyboard, over the card's room). */

@@ -182,7 +182,11 @@ function readDist(dist, publicDir) {
   const files = {}
   for (const name of all) if (TEXT_FILE.test(name) && !name.startsWith('assets/')) files[name] = fs.readFileSync(path.join(dist, name), 'utf8')
   // A fixed-name lab/*.js with no file in public/ is one of Vite's entries (vite.config.ts entryFileNames).
-  const entries = all.filter(name => /^lab\/[^/]+\.js$/.test(name) && !fs.existsSync(path.join(publicDir, name))).sort()
+  // This entry has a public development/Vitest bridge at the same URL. The
+  // emitted production module overwrites that bridge and must still receive a
+  // content-derived tag through the Library's static import chain.
+  const entries = all.filter(name => /^lab\/[^/]+\.js$/.test(name)
+    && (name === 'lab/shared-reader-activation.js' || !fs.existsSync(path.join(publicDir, name)))).sort()
   return { files, entries }
 }
 
