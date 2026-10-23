@@ -125,7 +125,7 @@ const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this de
 export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261019batch'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261023floorown1'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */

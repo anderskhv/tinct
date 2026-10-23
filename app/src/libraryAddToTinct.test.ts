@@ -860,6 +860,18 @@ describe('Removing one of My private uploads', () => {
     expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
   })
 
+  it('loads the rollback owner-aware file engine through a fresh cache URL', () => {
+    const source = readFileSync('public/lab/library_2/add-to-tinct.js', 'utf8')
+    const urls = source.match(/const FILE_ENGINE=(\[[^\n]+\]);/)?.[1]
+    expect(urls).toBeDefined()
+    const entries = new Function(`return ${urls}`)() as string[]
+    expect(entries).toEqual([
+      '/lab/addbook/js/tinct-api.js?v=20261009owncover',
+      '/lab/addbook/js/epub.js',
+      '/lab/addbook/js/add-engine.js?v=20261023floorown1',
+    ])
+  })
+
   it('allows a cold Library delete when loading the Engine initializes the same stored session', async () => {
     vi.stubGlobal('TinctAI', undefined)
     localStorage.setItem('sb-delete-auth-token', JSON.stringify({ currentSession: {
