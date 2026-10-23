@@ -88,8 +88,10 @@ function archiveLegacy(hex: string, owner: string): void {
     const seen = new Set(old.map(row => JSON.stringify(row)))
     localStorage.setItem(UNASSIGNED + hex, JSON.stringify([...old, ...raw.filter(row => !seen.has(JSON.stringify(row)))]))
   }
-  // Only a navigation hint for the flag-off reader; private React never trusts it.
-  try { localStorage.setItem(LEGACY_OWNER + hex, owner) } catch { /* canonical owner record is authoritative */ }
+  // A hash-only copy with someone else's marker, or no ownership proof at all,
+  // cannot acquire this account's label merely because it opened the same file.
+  // The canonical record, rather than this hint, authorizes private React reads.
+  if (!raw.length && !prior) try { localStorage.setItem(LEGACY_OWNER + hex, owner) } catch { /* optional hint */ }
 }
 
 export function unassignedOwnTextCardCount(hex: string, owner: string, fileId?: string | null): number {

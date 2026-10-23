@@ -54,7 +54,11 @@ async function boot(page, handoff) {
     if (document.documentElement) observeMedia()
     else addEventListener('DOMContentLoaded', observeMedia, { once: true })
   }, handoff)
-  await page.goto(`${origin}/reader`, { waitUntil: 'domcontentloaded' })
+  // Split-fragment ownership is a paged-layout contract. Keep the desktop
+  // case in shared Classic after public Margin becomes the default; phone
+  // continues to use its familiar paged surface.
+  const classic = (page.viewportSize()?.width ?? 0) > 600 ? '?view=two-page' : ''
+  await page.goto(`${origin}/reader${classic}`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-root').waitFor({ timeout: 45000 })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)

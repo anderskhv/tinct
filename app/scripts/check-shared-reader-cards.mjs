@@ -20,7 +20,7 @@ await page.route('**/*', route => {
   if (url.origin !== origin) return route.abort()
   if (url.pathname === '/api/lab-chat' || url.pathname === '/api/chat') {
     const request = route.request().postDataJSON()
-    const answer = request?.intent === 'quiz'
+    const answer = request?.companion?.intent === 'quiz'
       ? JSON.stringify({ questions: [1, 2, 3].map(n => ({ q: `Question ${n} from this source?`, answer: `Answer ${n}`, why: 'From the selected passage.' })) })
       : interrupted ? 'An incomplete local answer still visible while interrupted.' : 'A complete local explanation saved in the reader Notebook.'
     return route.fulfill({ contentType: 'text/event-stream', body: `data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: answer } })}\n\ndata: ${interrupted ? '{"type":"message_delta","delta":{"stop_reason":"max_tokens"}}' : '{"type":"message_stop"}'}\n\n` })
@@ -120,5 +120,5 @@ try {
   const cardsAfterQuota = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').filter(item => item.card?.kind === 'explain' && !item.card.gone).length)
   assert.equal(cardsAfterQuota, 2, 'quota failure keeps full answer on screen without claiming a durable card')
   assert.deepEqual(errors, [])
-  console.log('Shared reader completed Explain card, Notebook Delete/Undo, interruption retry, and quota unsaved full answer passed')
+  console.log('Shared reader separate Explain cards, completed source Quiz, Notebook Delete/Undo, interruption retry, and quota unsaved full answer passed')
 } finally { await browser.close() }

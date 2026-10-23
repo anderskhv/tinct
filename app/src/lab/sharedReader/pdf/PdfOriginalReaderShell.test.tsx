@@ -60,6 +60,7 @@ it('keeps page/rect source context in selection actions, saves a completed card 
   expect(saveCard.mock.calls[0][3]).toEqual({ question: 'Why?' })
   fireEvent.keyDown(window, { key: 'Escape' })
   fireEvent.click(screen.getByText('Notebook'))
+  expect(screen.getByRole('dialog', { name: 'Notebook' }).querySelector('.pdf-original-reader__notebook')?.firstChild?.nodeType).toBe(Node.ELEMENT_NODE)
   expect(screen.getByText('Original PDF page 1 · ask')).toBeTruthy()
   fireEvent.click(screen.getByText('Original PDF page 1 · ask'))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('1')
@@ -376,6 +377,26 @@ it('appends a saved PDF card follow-up to the same source card and reopens its o
   expect(screen.getByLabelText('Follow up')).toBeTruthy()
   expect(screen.getByText('And why?')).toBeTruthy()
   expect(screen.getByText('The follow-up answer.')).toBeTruthy()
+})
+
+it('explains why a saved unit follow-up was not sent when its full source is unavailable', async () => {
+  const askCardFollow = vi.fn(async () => { throw Object.assign(new Error('Incomplete source'), { code: 'pdf_original_incomplete_source' }) })
+  const appendCardTurn = vi.fn(() => true)
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [{ id: 'unit-recap', page: 1, text: 'Complete section', kind: 'recap', rects: [], at: 12,
+      data: { action: 'recap', unit: { key: 'unit', title: 'Complete section', from: 1, to: 2 }, source: { from: 1, to: 2 } },
+      turns: [{ role: 'user', content: 'Summarize.' }, { role: 'assistant', content: 'The saved recap.' }] }],
+    saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null),
+    ask: vi.fn(async () => null), saveCard: vi.fn(() => false), askCardFollow, appendCardTurn,
+  }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Notebook'))
+  fireEvent.click(screen.getByText('Original PDF page 1 · recap'))
+  fireEvent.change(screen.getByLabelText('Follow up'), { target: { value: 'What was on page two?' } })
+  fireEvent.click(screen.getByTestId('lab-phone-card-send'))
+  expect(await screen.findByText('The full source for this saved answer is unavailable. This follow-up was not sent.')).toBeTruthy()
+  expect(askCardFollow).toHaveBeenCalledOnce()
+  expect(appendCardTurn).not.toHaveBeenCalled()
 })
 
 it('offers after-unit Recap and Note on the finished source unit, retaining its complete page range', async () => {

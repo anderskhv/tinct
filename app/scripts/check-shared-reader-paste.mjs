@@ -5,6 +5,9 @@
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { createServer as createTcpServer } from 'node:net'
+import { createServer as createHttpServer } from 'node:http'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import { chromium, webkit } from '@playwright/test'
 import { createServer } from 'vite'
 import { markInternal } from './lib/internalTraffic.cjs'
@@ -13,34 +16,68 @@ import { markInternal } from './lib/internalTraffic.cjs'
 // guards. The fake auth project is a distinct loopback port, also intercepted.
 const port = await new Promise((resolve, reject) => { const socket = createTcpServer(); socket.once('error', reject); socket.listen(0, '127.0.0.1', () => { const address = socket.address(); socket.close(() => resolve(address.port)) }) })
 const origin = `http://127.0.0.1:${port}`
-const fakeAuthOrigin = origin
+const dist = process.env.SHARED_PASTE_DIST ? path.resolve(process.env.SHARED_PASTE_DIST) : null
+const defaultOn = process.env.PASTE_DEFAULT_ON === '1'
 // A fixed fake Supabase project makes the real auth client read our local-only
 // session. It never connects to an actual account or uses a repository key.
-process.env.VITE_SUPABASE_URL = fakeAuthOrigin
-process.env.VITE_SUPABASE_ANON_KEY = 'synthetic-public-key'
-const supabaseHost = '127'
-const vite = await createServer({ logLevel: 'silent', server: { host: '127.0.0.1', port, strictPort: true, hmr: false, watch: { ignored: ['**/public/data/**', '**/dist/**'] } } })
-await vite.listen()
+if (!dist) { process.env.VITE_SUPABASE_URL = origin; process.env.VITE_SUPABASE_ANON_KEY = 'synthetic-public-key' }
+const supabaseBundle = dist && (await fs.readdir(path.join(dist, 'assets'))).find(name => /^supabase-.*\.js$/.test(name))
+const supabaseText = supabaseBundle ? await fs.readFile(path.join(dist, 'assets', supabaseBundle), 'utf8') : ''
+const supabaseHost = dist ? /https:\/\/([a-z0-9]+)\.supabase\.co/.exec(supabaseText)?.[1] || 'local-only' : '127'
+let activeState = null
+function uploaded(state, bytes, headers) {
+  assert(bytes?.length > 100, `account receives a generated EPUB (${bytes?.length || 0} bytes)`)
+  state.uploads.push(Buffer.from(bytes))
+  if (state.failures-- > 0) return { status:503, body:{ error:'offline' } }
+  const sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
+  state.book = { id:hex, sha256, type:'epub', size:bytes.length, name:decodeURIComponent(headers['x-book-name'] || 'Paste.epub'), title:decodeURIComponent(headers['x-book-title'] || 'Pasted text'), author:decodeURIComponent(headers['x-book-author'] || ''), createdAt:new Date(0).toISOString(), fileId:'original-generation', rev:0, metadataRev:0, bytes:Buffer.from(bytes) }
+  return { status:201, body:{ book:{...state.book,bytes:undefined} } }
+}
+let closeServer
+if (dist) {
+  const mime = file => ({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.woff2':'font/woff2','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp'}[path.extname(file)] || 'application/octet-stream')
+  const server = createHttpServer(async (req, res) => {
+    const url = new URL(req.url || '/', origin)
+    if (url.pathname === '/api/user-books' && req.method === 'POST' && activeState) {
+      const chunks = [];for await (const chunk of req) chunks.push(chunk)
+      const result = uploaded(activeState,Buffer.concat(chunks),req.headers)
+      res.writeHead(result.status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(result.body));return
+    }
+    const name = url.pathname === '/library' || url.pathname === '/' ? '/lab/library_2/index.html' : url.pathname === '/reader' ? '/app.html' : url.pathname === '/sign-in' ? '/lab/sign-in/index.html' : url.pathname === '/qa-seed' ? null : url.pathname
+    if (name === null) { res.writeHead(200, {'Content-Type':'text/html','Cache-Control':'no-store'});res.end('<!doctype html><title>Paste built fixture</title>');return }
+    const file = path.resolve(dist, '.' + name)
+    if (!file.startsWith(dist + path.sep)) { res.writeHead(403);res.end();return }
+    try { const body = await fs.readFile(file);res.writeHead(200, {'Content-Type':mime(file),'Cache-Control':'no-store'});res.end(body) }
+    catch { res.writeHead(404);res.end() }
+  })
+  await new Promise(resolve => server.listen(port, '127.0.0.1', resolve))
+  closeServer = () => new Promise(resolve => server.close(resolve))
+} else {
+  const vite = await createServer({ logLevel: 'silent', server: { host: '127.0.0.1', port, strictPort: true, hmr: false, watch: { ignored: ['**/public/data/**', '**/dist/**'] } } })
+  await vite.listen();closeServer = () => vite.close()
+}
 const userId = 'paste-check-owner', source = '# Morning Notes\n\nA café wakes beneath the rain.\n\n- First idea\n- Second idea\n\n> Keep the original words.'
 const json = (route, status, value) => route.fulfill({ status, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': origin }, body: JSON.stringify(value) })
 const bytesEqual = (a, b) => Buffer.compare(a, b) === 0
 
 async function fixture(context) {
-  const state = { book: null, uploads: [], captured: [], failures: 0, blocked: [], calls: [], conflict: false }
-  await context.exposeBinding('__pasteCapture', (_source, bytes) => { state.captured.push(Buffer.from(bytes)) })
-  await context.addInitScript(() => {
-    const original = window.fetch
-    window.fetch = async function (input, init) {
-      const url = new URL(typeof input === 'string' ? input : input.url, location.href)
-      if (url.pathname === '/api/user-books' && init?.method === 'POST' && init.body?.arrayBuffer) {
-        await window.__pasteCapture([...new Uint8Array(await init.body.arrayBuffer())])
+  const state = { book: null, uploads: [], failures: 0, blocked: [], calls: [], conflict: false }
+  activeState = state
+  if (!dist) {
+    state.captured = []
+    await context.exposeBinding('__pasteCapture', (_source, bytes) => { state.captured.push(Buffer.from(bytes)) })
+    await context.addInitScript(() => {
+      const original = window.fetch
+      window.fetch = async function (input, init) {
+        const url = new URL(typeof input === 'string' ? input : input.url, location.href)
+        if (url.pathname === '/api/user-books' && init?.method === 'POST' && init.body?.arrayBuffer) await window.__pasteCapture([...new Uint8Array(await init.body.arrayBuffer())])
+        return original.call(this, input, init)
       }
-      return original.call(this, input, init)
-    }
-  })
+    })
+  }
   await context.route('**/*', async route => {
     const request = route.request(), url = new URL(request.url()), p = url.pathname, method = request.method()
-    if (url.origin === fakeAuthOrigin && (p.startsWith('/auth/v1/') || p.startsWith('/rest/v1/'))) {
+    if ((dist ? url.hostname.endsWith('.supabase.co') : url.origin === origin) && (p.startsWith('/auth/v1/') || p.startsWith('/rest/v1/'))) {
       const headers = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS', 'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info, prefer' }
       if (method === 'OPTIONS') return route.fulfill({ status: 204, headers })
       if (url.pathname === '/auth/v1/user') return route.fulfill({ status: 200, contentType: 'application/json', headers, body: JSON.stringify({ id: userId, email: 'paste@example.test', aud: 'authenticated' }) })
@@ -54,14 +91,9 @@ async function fixture(context) {
       if (p === '/api/public-books/import/access') return json(route, 200, { canAdd: true })
       if (p === '/api/public-books') return json(route, 200, { books: [] })
       if (p === '/api/user-books' && method === 'POST') {
-        const bytes = request.postDataBuffer()?.length ? request.postDataBuffer() : state.captured[state.uploads.length]
-        assert(bytes?.length > 100, `account receives a generated EPUB (engine=${context.browser()?.browserType().name()}, captured=${state.captured.length})`)
-        state.uploads.push(Buffer.from(bytes))
-        if (state.failures-- > 0) return json(route, 503, { error: 'offline' })
-        const sha256 = createHash('sha256').update(bytes).digest('hex')
-        const hex = sha256.slice(0, 24)
-        state.book = { id: hex, sha256, type: 'epub', size: bytes.length, name: decodeURIComponent(request.headers()['x-book-name'] || 'Paste.epub'), title: decodeURIComponent(request.headers()['x-book-title'] || 'Pasted text'), author: decodeURIComponent(request.headers()['x-book-author'] || ''), createdAt: new Date(0).toISOString(), fileId: 'original-generation', rev: 0, metadataRev: 0, bytes: Buffer.from(bytes) }
-        return json(route, 201, { book: { ...state.book, bytes: undefined } })
+        if (dist) return route.continue() // Node receives WebKit's streamed Blob without touching browser fetch.
+        const result = uploaded(state,request.postDataBuffer()?.length ? request.postDataBuffer() : state.captured[state.uploads.length],request.headers())
+        return json(route,result.status,result.body)
       }
       if (p === '/api/user-books' && method === 'GET') return json(route, 200, { books: state.book ? [{ ...state.book, bytes: undefined }] : [] })
       if (p === '/api/user-books/places') return json(route, 200, { places: {} })
@@ -100,7 +132,7 @@ async function seed(page, signedIn) {
 }
 
 async function library(page, privateFlag = true) {
-  await page.goto(`${origin}/library${privateFlag ? '?sharedReader=1' : ''}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/library${privateFlag === true ? '?sharedReader=1' : privateFlag === '0' ? '?sharedReader=0' : ''}`, { waitUntil: 'domcontentloaded' })
   await page.locator('#library-add:visible').waitFor({ timeout: 45000 })
   await page.locator('#library-add').click()
   await page.locator('.own-file-dialog').waitFor()
@@ -116,11 +148,18 @@ async function run(engine, type, phone) {
   try {
     await seed(page, true)
     await library(page, false)
-    assert.equal(await page.getByRole('button', { name: 'Paste text' }).count(), 0, 'public Library keeps Paste hidden')
+    assert.equal(await page.getByRole('button', { name: 'Paste text' }).count(), defaultOn ? 1 : 0, 'unflagged Library follows build default')
     await page.getByRole('button', { name: 'Close' }).click()
-    await library(page)
+    await library(page, '0')
+    assert.equal(await page.getByRole('button', { name: 'Paste text' }).count(), 0, 'explicit sharedReader=0 keeps Paste hidden')
+    await page.getByRole('button', { name: 'Close' }).click()
+    await library(page, defaultOn ? false : true)
     await page.getByRole('button', { name: 'Paste text' }).click()
     await page.getByRole('textbox', { name: 'Text to add' }).fill(source)
+    if (process.env.PASTE_SCREENSHOT_DIR) {
+      await fs.mkdir(process.env.PASTE_SCREENSHOT_DIR, { recursive:true })
+      await page.screenshot({ path:path.join(process.env.PASTE_SCREENSHOT_DIR, `paste-${engine}-${phone ? 'phone-390x844' : 'desktop-1440x900'}.png`) })
+    }
     state.failures = 1
     await page.getByRole('button', { name: 'Add to my books' }).click()
     if (await page.locator('.own-file-rights-box').isVisible().catch(() => false)) {
@@ -141,7 +180,7 @@ async function run(engine, type, phone) {
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 60000 })
     await page.getByText('A café wakes beneath the rain.', { exact: false }).first().waitFor()
-    await page.goto(`${origin}/library?sharedReader=1#my-shelf`, { waitUntil: 'domcontentloaded' })
+    await page.goto(`${origin}/library${defaultOn ? '' : '?sharedReader=1'}#my-shelf`, { waitUntil: 'domcontentloaded' })
     await page.getByText('Morning Notes', { exact: true }).first().waitFor({ timeout: 20000 }).catch(async error => {
       const local = await page.evaluate(async () => { const db = await new Promise((resolve, reject) => { const r = indexedDB.open('tinct-addbook'); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error) }); const records = await new Promise((resolve, reject) => { const r = db.transaction('books').objectStore('books').getAll(); r.onsuccess = () => resolve(r.result.map(({ key, title, owner, cloudId }) => ({ key, title, owner, cloudId }))); r.onerror = () => reject(r.error) }); db.close(); return { records, ownBooks: await window.__tinctLibraryAdd?.ownBooks(), signed: document.documentElement.className, auth: Object.keys(localStorage).filter(k => /^sb-/.test(k)) } }).catch(e => String(e))
       console.log('SHELF_DIAGNOSTIC', JSON.stringify({ title: await page.title(), url: page.url(), books: state.book && { title: state.book.title, id: state.book.id }, collection: (await page.locator('#collection').innerText().catch(() => '')).slice(0, 1800), local, calls: state.calls.slice(-30), errors }))
@@ -178,7 +217,14 @@ async function run(engine, type, phone) {
     // WebKit sometimes reports an in-flight background profile/places fetch as
     // an access-control error when the test navigates between full documents.
     // Those requests are unrelated to Paste and are fulfilled locally here.
-    const appErrors = errors.filter(error => !/^Fetch API cannot load http:\/\/127\.0\.0\.1:\d+\/(?:rest\/v1\/|api\/user-books\/places)\b.*due to access control checks\./.test(error))
+    const appErrors = errors.filter(error => {
+      // A private file without an uploaded cover deliberately falls back from
+      // this hashed cover URL. WebKit also aborts background account reads when
+      // this test immediately leaves a whole document for the next route.
+      if (/^HTTP 404 http:\/\/127\.0\.0\.1:\d+\/covers\/v2\/userbook-[0-9a-f]{24}\.webp$/.test(error)) return false
+      if (engine === 'webkit' && /^Fetch API cannot load (?:http:\/\/127\.0\.0\.1:\d+\/api\/user-books(?:\/places)?|https:\/\/[a-z0-9]+\.supabase\.co\/rest\/v1\/(?:profiles|user_data|rpc\/commit_user_data))\b[\s\S]*due to access control checks\./.test(error)) return false
+      return true
+    })
     assert.deepEqual(appErrors, [], 'browser has no uncaught app errors')
     assert.deepEqual(state.blocked, [], 'no third-party requests, including clipboard URLs')
     assert(state.calls.filter(call => call.method === 'POST' && call.path === '/api/user-books').every(call => call.internal), 'uploads are marked internal')
@@ -188,4 +234,4 @@ async function run(engine, type, phone) {
 
 const engines = new Set((process.env.PASTE_ENGINES || 'chromium,webkit').split(','))
 try { for (const [name, type] of [['chromium', chromium], ['webkit', webkit]].filter(([name]) => engines.has(name))) for (const phone of [false, true]) await run(name, type, phone) }
-finally { await vite.close() }
+finally { await closeServer() }

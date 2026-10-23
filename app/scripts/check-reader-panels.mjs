@@ -102,7 +102,10 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber,fixture})
-  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), {waitUntil:'domcontentloaded'})
+  // These legacy spread/foot/Next regressions intentionally exercise the
+  // shared reader's Classic layout after the public default moves to Margin.
+  // Phone keeps its familiar paged Read/Compare surface.
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page'), {waitUntil:'domcontentloaded'})
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {

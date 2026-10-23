@@ -20,8 +20,10 @@ shift || true
 
 case "$cmd" in
   upload)
+    node scripts/release-tools.cjs assert-release-command
     npm run build
     npm run verify-bundle
+    node scripts/check-release-activation.mjs
     node scripts/check-deploy-source.cjs --head-only
     npx wrangler versions upload \
       --tag "$(git rev-parse --short=12 HEAD)" \
@@ -29,6 +31,12 @@ case "$cmd" in
     ;;
   promote)
     id="${1:?usage: release.sh promote <version-id>}"
+    node scripts/release-tools.cjs assert-release-command
+    node scripts/check-deploy-source.cjs
+    if [ "${TINCT_RELEASE_PHASE:-}" = reader ]; then
+      serving=$(node scripts/release-tools.cjs current-version)
+      node scripts/release-tools.cjs verify-reader-floor "${serving#version_id=}"
+    fi
     npx wrangler versions deploy "${id}@100%" --yes --message "promote $(git rev-parse --short=12 HEAD)"
     ;;
   rollback)

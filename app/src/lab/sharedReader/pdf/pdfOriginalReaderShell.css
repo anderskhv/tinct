@@ -42,7 +42,7 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__unit-actions button { border:1px solid var(--lab-border); border-radius:99px; background:var(--lab-surface); color:var(--lab-ink); padding:6px 10px; cursor:pointer; }
 .pdf-original-reader__source-range { color:var(--lab-ink-muted); font:12px system-ui,sans-serif; }
 .pdf-original-reader__thread > div { border-top:1px solid var(--lab-border); padding:10px 0; }
-.pdf-original-reader__thread strong { color:var(--lab-ink-muted); font:600 12px system-ui,sans-serif; }
+.pdf-original-reader__thread strong { display:block; margin-bottom:4px; color:var(--lab-ink-muted); font:600 12px system-ui,sans-serif; }
 .pdf-original-reader .lab-pcard-dock { z-index:101; }
 .pdf-original-reader .lab-pcard blockquote { margin:0 0 12px; font:italic 16px Georgia,serif; }
 .pdf-original-reader .lab-pcard textarea { display:block; width:100%; min-height:90px; margin:8px 0; padding:8px; font:16px Georgia,serif; }

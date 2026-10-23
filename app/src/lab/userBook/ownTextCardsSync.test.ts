@@ -91,6 +91,29 @@ describe('owner-scoped private source-word cards and Talk', () => {
     controller.dispose()
   })
 
+  it('keeps A’s proven hash-only owner marker through a same-hash B visit and return to A', () => {
+    const fileId = 'f'.repeat(32), marker = `tinct-addbook:text-cards-owner:${HEX}`
+    const legacyKey = `tinct:chat-history:${userBookId(HEX)}`
+    const raw = JSON.stringify([{ id: 'old-A', bookId: userBookId(HEX), chapterNumber: 1, startTimestamp: 1,
+      endTimestamp: 1, preview: 'A private note', messages: [{ id: 'turn-A', bookId: userBookId(HEX), chapterNumber: 1,
+        role: 'user', content: 'A private note', timestamp: 1 }] }])
+    localStorage.setItem(legacyKey, raw)
+    localStorage.setItem(marker, A)
+    const a = new OwnTextCardsSync(HEX, A, null, async () => null, undefined, fileId)
+    a.dispose()
+    auth(B)
+    const b = new OwnTextCardsSync(HEX, B, null, async () => null, undefined, fileId)
+    expect(b.readAll()).toEqual([])
+    expect(unassignedOwnTextCardCount(HEX, B, fileId)).toBe(0)
+    expect(localStorage.getItem(marker)).toBe(A)
+    b.dispose()
+    auth(A)
+    const returned = new OwnTextCardsSync(HEX, A, null, async () => null, undefined, fileId)
+    expect(localStorage.getItem(marker)).toBe(A)
+    expect(localStorage.getItem(legacyKey)).toBe(raw)
+    returned.dispose()
+  })
+
   it('fails closed if the projected chat write fails after the owner backup changed', () => {
     const a = new OwnTextCardsSync(HEX, A, edition, async () => null)
     const original = Storage.prototype.setItem

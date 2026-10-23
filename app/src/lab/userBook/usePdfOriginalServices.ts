@@ -404,16 +404,34 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!this.trusted() || !card || !question.trim() || question.length > 4000) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token) || signal?.aborted) return null
-    const raw = await this.getPageText(card.page)
-    if (!raw.trim() || raw.length > 6000 || !this.trusted()) return null
-    const pages = [{ n: card.page, text: raw }]
+    const source = card.pageOnly && card.data && 'source' in card.data
+      ? card.data.source as { from?: number; to?: number } : null
+    const incomplete = () => Object.assign(new Error('The full source for this saved answer is unavailable. This follow-up was not sent.'),
+      { code: 'pdf_original_incomplete_source' })
+    if (source && (!unitFields(card.data, card.page) || !Number.isSafeInteger(source.from) || !Number.isSafeInteger(source.to)
+      || source.from! < 1 || source.to! < source.from! || source.to! - source.from! + 1 > 20)) throw incomplete()
+    const first = source?.from ?? card.page, last = source?.to ?? card.page
+    const pages: Array<{ n: number; text: string }> = []
+    let chars = 0
+    for (let n = first; n <= last; n++) {
+      let text: string
+      try { text = await this.getPageText(n) } catch { if (source) throw incomplete(); return null }
+      if (!this.trusted() || signal?.aborted) return null
+      chars += text.length
+      if (!text.trim() || text.length > 6000 || chars > 36_000) {
+        if (source) throw incomplete()
+        return null
+      }
+      pages.push({ n, text })
+    }
     const prior = card.turns.slice(-8).map(turn => ({ role: turn.role, content: turn.content.slice(0, 4000) }))
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: question }],
           companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
-            chapterLabel: `Original PDF page ${card.page}`, pageNumber: card.page, pages, paragraphIndex: 0, lookups: false },
+            chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
+            pageNumber: card.page, pages, paragraphIndex: 0, lookups: false },
             selection: card.pageOnly ? undefined : card.text.slice(0, 4000) } }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)

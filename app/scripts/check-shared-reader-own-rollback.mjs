@@ -11,6 +11,7 @@ import { zip } from '../../addbooks/web/test/make-epub.mjs'
 
 const dist = path.resolve(process.env.SHARED_UPGRADE_DIST || 'dist')
 const oldDist = path.resolve(process.env.SHARED_ROLLBACK_DIST || '../../tinct-rollback-floor/app/dist')
+const legacyPreOwnerFloor = process.env.ROLLBACK_LEGACY_PREOWNER === '1'
 let activeDist = dist
 const prose = Array.from({ length: 12 }, (_, n) => `<p>Paragraph ${n + 1}. The private reader preserved each familiar page and every careful annotation.</p>`).join('')
 const bytes = zip([
@@ -49,6 +50,8 @@ const server = createServer(async (req, res) => {
       res.end('event: content_block_delta\ndata: {"type":"content_block_delta","delta":{"type":"text_delta","text":"The old reader kept this complete answer."}}\n\nevent: message_stop\ndata: {"type":"message_stop"}\n\n')
       return
     }
+    if (p === '/api/voice-session') { json(res, 200, { value: 'rollback-synthetic-ticket', model: 'grok-voice', relay: '/api/voice-relay' }); return }
+    if (p === '/api/voice-usage') { json(res, 200, { ok: true }); return }
     if (p === '/api/public-books') { json(res, 200, { books: [] }); return }
     if (p === '/api/narration/voices') { json(res, 200, { enabled: false, voices: [] }); return }
     if (!account) { json(res, 401, { error: 'unauthorized' }); return }
@@ -198,18 +201,46 @@ async function until(assertion, message, timeout = 6000) {
   assert(assertion(), message)
 }
 async function run() {
-  const browser = await markInternal(await chromium.launch({ headless: true, proxy: { server: originRef.value }, args: ['--mute-audio'] }))
+  const engine = process.env.ROLLBACK_BROWSER === 'webkit' ? webkit : chromium
+  const browser = await markInternal(await engine.launch({ headless: true, proxy: { server: originRef.value },
+    ...(engine === chromium ? { args: ['--mute-audio'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
-  const page = await context.newPage(), errors = []
-  page.on('pageerror', error => errors.push(error.message))
+  const page = await context.newPage(), errors = [], failed = []
+  page.on('pageerror', error => errors.push({ message: error.message, page: page.url() }))
+  page.on('requestfailed', request => failed.push({ url: request.url(), failure: request.failure()?.errorText }))
   // Playwright fulfills auth SDK requests outside the page. Window.fetch stays
   // native, so receiver/brand errors in reader controllers remain observable.
   await context.route(/^https:\/\/[^/]+\.supabase\.co\//, route => {
     const url = new URL(route.request().url())
-    const body = url.pathname === '/auth/v1/user' ? { id: owners.a, email: `${owners.a}@example.test`, aud: 'authenticated' }
+    const owner = route.request().headers().authorization?.endsWith('isolation-b') ? owners.b : owners.a
+    const body = url.pathname === '/auth/v1/user' ? { id: owner, email: `${owner}@example.test`, aud: 'authenticated' }
       : url.pathname.startsWith('/rest/v1/') ? [] : {}
     return route.fulfill({ status: url.pathname === '/auth/v1/user' || url.pathname.startsWith('/rest/v1/') ? 200 : 404,
       contentType: 'application/json', body: JSON.stringify(body) })
+  })
+  await page.addInitScript(() => {
+    const node = () => ({ connect() {}, disconnect() {} })
+    window.AudioContext = class {
+      constructor() { this.state = 'running'; this.sampleRate = 48000; this.destination = node() }
+      resume() { this.state = 'running'; return Promise.resolve() }
+      close() { this.state = 'closed'; return Promise.resolve() }
+      createMediaStreamSource() { return node() }
+      createGain() { return { ...node(), gain: { value: 1 } } }
+      createScriptProcessor() { return { ...node(), onaudioprocess: null } }
+    }
+    Object.defineProperty(navigator, 'mediaDevices', { configurable: true, value: { getUserMedia: async () => ({
+      getTracks: () => [{ stop() {}, readyState: 'live' }], getAudioTracks: () => [{ stop() {}, readyState: 'live' }],
+    }) } })
+    window.__rollbackVoiceSockets = []
+    window.WebSocket = class extends EventTarget {
+      static OPEN = 1
+      constructor(url, protocols) { super(); this.url = url; this.protocols = protocols; this.readyState = 1; this.sent = []
+        window.__rollbackVoiceSockets.push(this)
+        queueMicrotask(() => { this.dispatchEvent(new Event('open')); this.emit({ type: 'session.created' }); this.emit({ type: 'session.updated' }) }) }
+      send(value) { this.sent.push(JSON.parse(value)) }
+      emit(event) { this.dispatchEvent(new MessageEvent('message', { data: JSON.stringify(event) })) }
+      close() { this.readyState = 3; this.dispatchEvent(new Event('close')) }
+    }
   })
   try {
     await seed(page, 'a', fileIds.a)
@@ -235,12 +266,28 @@ async function run() {
       .find(row => row.turns?.some(turn => turn.role === 'assistant')), hex)
     assert(oldMark?.text && Number.isInteger(oldMark.start), 'prior static reader saved original chapter/character mark')
     assert(oldCard?.text && oldCard.turns.some(turn => turn.role === 'assistant'), 'prior static reader saved complete answer card')
+    const floorProof = await page.evaluate(hex => {
+      const owner = localStorage.getItem(`tinct-addbook:legacy-epub-owner:${hex}`)
+      const backup = localStorage.getItem(`tinct-addbook:legacy-epub-annotations:${owner}:${hex}`)
+      const marks = JSON.parse(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`) || '[]')
+      const cards = JSON.parse(localStorage.getItem(`tinct-addbook:cards:epub:${hex}`) || '[]')
+      return { owner, backup: backup ? JSON.parse(backup) : null, marks, cards }
+    }, hex)
+    if (legacyPreOwnerFloor) assert.equal(floorProof.owner, null, 'explicit pre-owner floor leaves annotations unclaimed')
+    else {
+      assert.equal(floorProof.owner, owners.a, 'compatible floor claims fresh A annotations')
+      assert.deepEqual(floorProof.backup, { marks: floorProof.marks, cards: floorProof.cards },
+        'compatible floor backup exactly proves A’s static mark and card')
+    }
     console.log('Prior static reader saved original mark and card', oldMark.id, oldCard.id)
 
     activeDist = dist
     await open(page)
-    await page.getByRole('button', { name: 'Attach older EPUB annotations' }).click()
-    await open(page)
+    if (legacyPreOwnerFloor) {
+      await page.getByRole('button', { name: 'Attach older EPUB annotations' }).click()
+      await open(page)
+    } else assert.equal(await page.getByRole('button', { name: 'Attach older EPUB annotations' }).count(), 0,
+      'proven A floor annotations import directly without an ambiguous recovery prompt')
     await page.waitForFunction(id => Object.keys(localStorage).some(key => key.includes('text-marks-canonical:') && (localStorage.getItem(key) || '').includes(id)), oldMark.id)
     await page.waitForFunction(id => Object.keys(localStorage).some(key => key.includes('text-cards-canonical:') && (localStorage.getItem(key) || '').includes(id)), oldCard.id)
     await until(() => store.a.marks.some(item => item.id === oldMark.id), 'original page mark account sync')
@@ -259,17 +306,15 @@ async function run() {
     await until(() => store.a.marks.some(item => item.id === textMark.id && item.gone), 'EPUB source-word deletion sync')
     await page.getByRole('button', { name: 'Undo' }).click()
     await until(() => store.a.marks.some(item => item.id === textMark.id && !item.gone), 'EPUB source-word Undo sync')
-    if (!process.env.ROLLBACK_SKIP_LEGACY_UI) await page.getByText('The old reader kept this complete answer.', { exact: false }).first().waitFor({ timeout: 10000 }).catch(async error => {
+    await page.getByText('The old reader kept this complete answer.', { exact: false }).first().waitFor({ timeout: 10000 }).catch(async error => {
       const notebook = await page.getByTestId('lab-contents-v2').innerText().catch(() => '(Notebook closed)')
       throw new Error(`${error.message}\nNotebook: ${notebook.slice(0, 4000)}`)
     })
-    if (!process.env.ROLLBACK_SKIP_LEGACY_UI) {
-      const downloaded = page.waitForEvent('download')
-      await page.getByRole('button', { name: 'Download Notebook' }).click()
-      const markdown = await fs.readFile(await (await downloaded).path(), 'utf8')
-      assert(markdown.includes('The old reader kept this complete answer.') && markdown.includes('A note saved before the rollback'),
-        'claimed old EPUB answer and note remain in Notebook export')
-    }
+    const downloaded = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Download Notebook' }).click()
+    const markdown = await fs.readFile(await (await downloaded).path(), 'utf8')
+    assert(markdown.includes('The old reader kept this complete answer.') && markdown.includes('A note saved before the rollback'),
+      'claimed old EPUB answer and note remain in Notebook export')
 
     // The original PDF page geometry remains a separate owned generation.
     // A pre-owner voice transcript has no safe account attribution. Its prior
@@ -287,6 +332,33 @@ async function run() {
     await page.goto(`${originRef.value}/reader?userBook=${pdfHex}&sharedReader=1&pages=1`, { waitUntil: 'domcontentloaded' })
     await page.locator('[data-pdf-original="true"]').waitFor({ timeout: 45000 })
     await page.locator('.pdf-original__page, .pdf-original__canvas').first().waitFor({ timeout: 30000 })
+    await page.waitForLoadState('networkidle')
+    // Make a new, owner-qualified Talk through the real PDF reader control and
+    // the synthetic voice transport before switching to the old assets.
+    const freshTalk = 'A fresh owner-bound Talk answer before rollback.'
+    await page.getByTestId('lab-super').click()
+    await page.getByRole('button', { name: 'Talk', exact: true }).click()
+    await page.getByRole('button', { name: 'Start Talk' }).click()
+    await page.waitForFunction(() => window.__rollbackVoiceSockets[0]?.sent.some(item => item.type === 'session.update'), null, { timeout: 15000 })
+    await page.evaluate(answer => {
+      const socket = window.__rollbackVoiceSockets[0]
+      socket.emit({ type: 'input_audio_buffer.speech_started' })
+      socket.emit({ type: 'input_audio_buffer.speech_stopped' })
+      socket.emit({ type: 'conversation.item.input_audio_transcription.completed', transcript: 'What does this original PDF say?' })
+      socket.emit({ type: 'response.created', response: { id: 'rollback-fresh-answer' } })
+      socket.emit({ type: 'response.output_audio_transcript.delta', delta: answer })
+      socket.emit({ type: 'response.done', response: { id: 'rollback-fresh-answer', status: 'completed' } })
+    }, freshTalk)
+    await page.getByText(freshTalk).waitFor({ timeout: 15000 })
+    const freshTalkBefore = await page.evaluate(({ owner, fileId, pdfHex, answer }) => {
+      const raw = localStorage.getItem(`tinct-addbook:text-cards-canonical:${owner}:${pdfHex}:${fileId}`)
+      const matches = raw ? JSON.parse(raw).conversations.filter(row => row.id.startsWith('pdf-original-')
+        && row.messages.some(message => message.content === answer)) : []
+      return { id: matches[0]?.id, count: matches.length }
+    }, { owner: owners.a, fileId: pdfFileId, pdfHex, answer: freshTalk })
+    assert.equal(freshTalkBefore.count, 1, 'new PDF Talk saved exactly once in A’s owner/file-generation canonical journal')
+    assert(freshTalkBefore.id, 'new PDF Talk has a stable canonical conversation ID')
+    await page.getByRole('button', { name: 'End Talk' }).click()
     activeDist = oldDist
     await page.goto(`${originRef.value}/lab/addbook/book?userBook=${pdfHex}`, { waitUntil: 'domcontentloaded' })
     await page.locator('.pdf-sheet .text-layer span').first().waitFor({ timeout: 30000 })
@@ -302,10 +374,25 @@ async function run() {
     await page.getByText(/Original PDF page/).first().waitFor({ timeout: 10000 })
     await page.getByRole('button', { name: 'Attach older Talk conversations' }).click()
     await page.getByText('A complete older voice answer.').waitFor({ timeout: 10000 })
+    await page.getByText(freshTalk).waitFor({ timeout: 10000 })
     const talkDownload = page.waitForEvent('download')
     await page.locator('.pdf-original-reader__notebook-tools').getByRole('button', { name: 'Download' }).click()
-    assert((await fs.readFile(await (await talkDownload).path(), 'utf8')).includes('A complete older voice answer.'),
-      'claimed local Talk remains in PDF Notebook export')
+    const talkMarkdown = await fs.readFile(await (await talkDownload).path(), 'utf8')
+    assert(talkMarkdown.includes('A complete older voice answer.'), 'claimed old Talk remains in PDF Notebook export')
+    assert.equal(talkMarkdown.split(freshTalk).length - 1, 1, 'new owner-bound Talk appears exactly once in PDF Notebook export')
+    const freshTalkAfter = await page.evaluate(({ owner, other, fileId, pdfHex, answer }) => {
+      const raw = localStorage.getItem(`tinct-addbook:text-cards-canonical:${owner}:${pdfHex}:${fileId}`)
+      const matches = raw ? JSON.parse(raw).conversations.filter(row => row.id.startsWith('pdf-original-')
+        && row.messages.some(message => message.content === answer)) : []
+      return { id: matches[0]?.id, count: matches.length,
+        unassigned: localStorage.getItem(`tinct-addbook:text-cards-unassigned:${pdfHex}`) || '[]',
+        foreign: Object.keys(localStorage).filter(key => key.startsWith(`tinct-addbook:text-cards-canonical:${other}:${pdfHex}`))
+          .some(key => localStorage.getItem(key)?.includes(answer)) }
+    }, { owner: owners.a, other: owners.b, fileId: pdfFileId, pdfHex, answer: freshTalk })
+    assert.deepEqual({ id: freshTalkAfter.id, count: freshTalkAfter.count }, { id: freshTalkBefore.id, count: 1 },
+      'new Talk keeps its one owner-qualified identity through old UI and return')
+    assert(!freshTalkAfter.unassigned.includes(freshTalk), 'new owner-qualified Talk was not demoted to unassigned recovery')
+    assert.equal(freshTalkAfter.foreign, false, 'new owner-qualified Talk was not projected into B’s canonical journal')
     assert(pdfAccount.marks.some(item => item.id === originalPdfMark.id), 'original geometry mark survives rollback and reopen')
     await page.locator('.pdf-original-reader__saved').filter({ hasText: /Original PDF page/ }).first().getByRole('button', { name: /^Delete/ }).click()
     await until(() => pdfAccount.marks.some(item => item.id === originalPdfMark.id && item.gone), 'PDF original-page deletion sync')
@@ -315,6 +402,7 @@ async function run() {
     await page.locator('[data-pdf-original="true"]').waitFor({ timeout: 45000 })
     await page.getByRole('button', { name: 'Notebook' }).first().click()
     await page.getByText(/Original PDF page/).first().waitFor({ timeout: 10000 })
+    await page.waitForLoadState('networkidle')
     await page.evaluate(hex => localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('text')), pdfHex)
     await page.goto(`${originRef.value}/reader?userBook=${pdfHex}&sharedReader=1`, { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
@@ -323,9 +411,41 @@ async function run() {
     await until(() => pdfAccount.textMarks.some(item => item.v === 'text-v1'), 'PDF Tinct text mark account sync')
     assert(pdfAccount.puts.some(item => item.route === 'text-marks' && item.expectedFileId === pdfFileId), 'PDF Tinct text uses generation-bound text route')
     assert(pdfAccount.marks.some(item => item.id === originalPdfMark.id), 'PDF original geometry remains separate from Tinct text marks')
-    assert.deepEqual(errors, [], 'no uncaught reader exceptions')
+    if (!legacyPreOwnerFloor) {
+      // The compatibility floor must not relabel B's raw same-hash edit as A's
+      // proven backup, and the returned shared reader must not import it for B.
+      await seed(page, 'b', fileIds.b)
+      activeDist = oldDist
+      await page.goto(`${originRef.value}/lab/addbook/book?userBook=${hex}`, { waitUntil: 'domcontentloaded' })
+      await page.locator('.epub-pg .epub-body p').first().waitFor({ timeout: 10000 })
+      await page.waitForFunction(owner => window.TinctAI?.session()?.userId === owner, owners.b)
+      const bRaw = await page.evaluate(({ hex, ownerA, mark, card }) => {
+        const engine = window.TinctAddEngine.legacyEpubAnnotations
+        const marks = JSON.parse(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`) || '[]')
+        const cards = JSON.parse(localStorage.getItem(`tinct-addbook:cards:epub:${hex}`) || '[]')
+        engine.set(`hl:epub:${hex}`, [...marks, { ...mark, id: 'foreign-floor-mark', u: Date.now() }])
+        engine.set(`cards:epub:${hex}`, [...cards, { ...card, id: 'foreign-floor-card', u: Date.now() }])
+        return {
+          claim: localStorage.getItem(`tinct-addbook:legacy-epub-owner:${hex}`),
+          backup: JSON.parse(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:${ownerA}:${hex}`)),
+          marks: JSON.parse(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`)),
+          cards: JSON.parse(localStorage.getItem(`tinct-addbook:cards:epub:${hex}`)),
+        }
+      }, { hex, ownerA: owners.a, mark: oldMark, card: oldCard })
+      assert.equal(bRaw.claim, owners.a, 'B old-floor writes cannot relabel A’s owner claim')
+      assert.deepEqual(bRaw.backup, floorProof.backup, 'B old-floor writes cannot advance A’s exact backup')
+      assert(bRaw.marks.some(item => item.id === 'foreign-floor-mark') && bRaw.cards.some(item => item.id === 'foreign-floor-card'),
+        'the old floor retained B’s ambiguous raw edits for explicit recovery')
+      activeDist = dist
+      await open(page)
+      assert.equal((await observed(page)).highlights, 0, 'B shared reader cannot see A’s or ambiguous floor marks')
+      assert(!store.b.marks.some(item => item.id === oldMark.id || item.id === 'foreign-floor-mark')
+        && !store.b.cards.some(item => item.id === oldCard.id || item.id === 'foreign-floor-card'),
+      'B account does not automatically import A’s backup or ambiguous raw floor edits')
+    }
+    assert.deepEqual(errors, [], `no uncaught reader exceptions; requests=${JSON.stringify(failed.slice(-15))}`)
     assert.deepEqual(denied, [], 'no external provider traffic')
-    console.log('PASS rollback/reopen EPUB word/page marks+card and PDF Original geometry/Tinct text; same-origin account routes')
+    console.log(`PASS ${engine === webkit ? 'WebKit' : 'Chromium'} rollback/reopen EPUB word/page marks+card${legacyPreOwnerFloor ? '' : ', B ambiguous raw isolation'}, PDF Original geometry/Tinct text and local Talk; same-origin account routes`)
   } finally { await context.close(); await browser.close() }
 }
 try { await run() } finally { await new Promise(resolve => server.close(resolve)) }

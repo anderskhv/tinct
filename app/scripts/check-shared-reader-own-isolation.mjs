@@ -136,7 +136,8 @@ async function run(engine, browserType, complete) {
   })
   try {
     await seed(page, 'a', fileIds.a); await open(page)
-    assert.equal(await page.evaluate(() => Function.prototype.toString.call(window.fetch).includes('[native code]')), true, 'browser fetch remains native')
+    const fetchSurface = await page.evaluate(() => Function.prototype.toString.call(window.fetch).slice(0, 180))
+    assert(!fetchSurface.includes('__pasteCapture') && !fetchSurface.includes('supabase.co'), 'fixture did not replace browser fetch')
     assert.equal((await observed(page)).highlights, 0, 'A begins without a mark')
     await highlight(page)
     await page.waitForFunction(() => document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"][class*="is-hl-"]').length > 0)

@@ -15,10 +15,11 @@ type Engine = {
   readFile(file: File): Promise<{ kind?: string; key?: string; bytes?: Uint8Array; error?: string }>
   removeBook(key: string, options?: { notify?: (text: string) => void }): Promise<boolean>
   forgetBookHere(hex: string, storages?: Storage[]): number
+  legacyEpubAnnotations: { get(key: string): unknown; set(key: string, value: unknown[]): void }
   preparePdf(file: File, key: string): Promise<{ href: string }>
   pdfHref(key: string): string
-  library: { get(key: string): Promise<unknown>; remove(key: string): Promise<void>; touch(key: string, patch: object): Promise<void> }
-  cloud: { mine(): Map<string, { id: string }> }
+  library: { get(key: string, expectedOwner?: string): Promise<unknown>; remove(key: string, expectedOwner?: string): Promise<boolean | void>; touch(key: string, patch: object): Promise<void> }
+  cloud: { mine(): Map<string, { id: string }>; refresh(): Promise<boolean> }
 }
 const win = window as unknown as { TinctAddEngine?: Engine; TinctAI?: unknown }
 function loadEngine(session: { userId: string | null; token?: string | null }, books: Record<string, unknown> = {}) {
@@ -34,18 +35,22 @@ describe('Add a book’s engine (add-engine.js)', () => {
   it('deleting a book forgets every key this device keeps for it, and no other book\'s (20 Oct 2026: the privacy notice says they go)', async () => {
     const engine = loadEngine({ userId: 'u1' })
     const hex = 'a1b2c3d4e5f60718293a4b5c', other = 'ffffffffffffffffffffffff'
+    engine.library.get = async () => ({ key: 'epub:' + hex, owner: 'u1' })
+    engine.library.remove = async () => {}
     for (const k of [`pos:epub:${hex}`, `hl:epub:${hex}`, `cards:epub:${hex}`, `chat:epub:${hex}`, `primer:epub:${hex}:outline-1`, `catchup:epub:${hex}:1-3`, `epub-view:${hex}`, `place:${hex}`, `pos:epub:${other}`]) localStorage.setItem('tinct-addbook:' + k, '1')
     localStorage.setItem(`tinct-addbook:hl:epub:${hex}`, '[]')
     localStorage.setItem(`tinct-addbook:cards:epub:${hex}`, '[]')
     localStorage.setItem(`tinct-addbook:legacy-epub-owner:${hex}`, 'u1')
     localStorage.setItem(`tinct-addbook:legacy-epub-annotations:u1:${hex}`, JSON.stringify({ marks: [], cards: [] }))
     localStorage.setItem('tinct:library-2-table:u1', JSON.stringify([{ key: 'epub:' + hex }]))
+    localStorage.setItem('tinct:library-2-table:u2', JSON.stringify([{ key: 'epub:' + hex }]))
     localStorage.setItem('tinct:library-2-first-paint', 'other books only')
     sessionStorage.setItem('tinct-addbook:pos:epub:' + hex, '1')
     await engine.removeBook('epub:' + hex)
     const keys = [...Object.keys(localStorage), ...Object.keys(sessionStorage)]
     expect(keys.filter(k => k.includes(hex))).toEqual([])
     expect(localStorage.getItem('tinct:library-2-table:u1')).toBeNull()
+    expect(localStorage.getItem('tinct:library-2-table:u2')).toBe(JSON.stringify([{ key: 'epub:' + hex }]))
     expect(localStorage.getItem('tinct-addbook:pos:epub:' + other)).toBe('1')
     expect(localStorage.getItem('tinct:library-2-first-paint')).toBe('other books only')
     expect(engine.forgetBookHere('not-a-book')).toBe(0)
@@ -66,7 +71,7 @@ describe('Add a book’s engine (add-engine.js)', () => {
     localStorage.setItem(`tinct-addbook:text-cards-owner:${hex}`,'u2')
     localStorage.setItem(`tinct-addbook:text-cards-unassigned:${hex}`,'legacy chat')
     localStorage.setItem(`tinct:chat-history:userbook-${hex}`,'B chat projection')
-    for (const owner of ['u1','u2']) for (const kind of ['annotations','migrated']) localStorage.setItem(`tinct-addbook:legacy-epub-${kind}:${owner}:${hex}`,owner)
+    for (const owner of ['u1','u2']) for (const kind of ['annotations','migrated','backup-quarantine']) localStorage.setItem(`tinct-addbook:legacy-epub-${kind}:${owner}:${hex}`,owner)
     localStorage.setItem(`tinct-addbook:legacy-epub-owner:${hex}`,'u2')
     engine.forgetBookHere(hex)
     expect(localStorage.getItem(`tinct-addbook:text-marks-local:u1:${hex}`)).toBeNull()
@@ -88,6 +93,8 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(localStorage.getItem(`tinct-addbook:legacy-epub-migrated:u1:${hex}`)).toBeNull()
     expect(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:u2:${hex}`)).toBe('u2')
     expect(localStorage.getItem(`tinct-addbook:legacy-epub-migrated:u2:${hex}`)).toBe('u2')
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-backup-quarantine:u1:${hex}`)).toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-backup-quarantine:u2:${hex}`)).toBe('u2')
     expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${hex}`)).toBe('u2')
   })
   it('removes verified active-owner React marks but keeps other books and foreign backups', () => {
@@ -164,6 +171,62 @@ describe('Add a book’s engine (add-engine.js)', () => {
     expect(localStorage.getItem(marks)).toBe(JSON.stringify([foreign]))
   })
 
+  it('claims fresh static EPUB writes, updates the exact backup, and deletes both arrays', () => {
+    const engine = loadEngine({ userId: 'u1' }), hex = 'b'.repeat(24)
+    const marks = [{ id: 'mine' }], cards = [{ id: 'answer' }]
+    engine.legacyEpubAnnotations.set(`hl:epub:${hex}`, marks)
+    engine.legacyEpubAnnotations.set(`cards:epub:${hex}`, cards)
+    expect(engine.legacyEpubAnnotations.get(`cards:epub:${hex}`)).toEqual(cards)
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${hex}`)).toBe('u1')
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:legacy-epub-annotations:u1:${hex}`)!)).toEqual({ marks, cards })
+    engine.forgetBookHere(hex)
+    expect(Object.keys(localStorage).filter(key => key.includes(hex))).toEqual([])
+  })
+
+  it('isolates a second account and unclaimed old EPUB arrays from new static writes', () => {
+    const engine = loadEngine({ userId: 'u1' }), hex = 'c'.repeat(24)
+    const a = [{ id: 'a' }], b = [{ id: 'b' }]
+    engine.legacyEpubAnnotations.set(`hl:epub:${hex}`, a)
+    win.TinctAI = { session: () => ({ userId: 'u2', token: null }) }
+    expect(engine.legacyEpubAnnotations.get(`hl:epub:${hex}`)).toBeNull()
+    engine.legacyEpubAnnotations.set(`hl:epub:${hex}`, b)
+    expect(engine.legacyEpubAnnotations.get(`hl:epub:${hex}`)).toEqual(b)
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`)!)).toEqual(a)
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(`tinct-addbook:static-epub-marks:u2:${hex}`)).toBeNull()
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`)!)).toEqual(a)
+    win.TinctAI = { session: () => ({ userId: 'u1', token: null }) }
+    expect(engine.legacyEpubAnnotations.get(`hl:epub:${hex}`)).toEqual(a)
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`)).toBeNull()
+    localStorage.setItem(`tinct-addbook:cards:epub:${hex}`, JSON.stringify(a))
+    engine.legacyEpubAnnotations.set(`cards:epub:${hex}`, b)
+    expect(JSON.parse(localStorage.getItem(`tinct-addbook:cards:epub:${hex}`)!)).toEqual(a)
+    expect(engine.legacyEpubAnnotations.get(`cards:epub:${hex}`)).toEqual(b)
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(`tinct-addbook:cards:epub:${hex}`)).toBe(JSON.stringify(a))
+  })
+
+  it('keeps guest static marks/cards separate from foreign raw records, then deletes only guest data', () => {
+    const engine = loadEngine({ userId: 'u1' }), hex = 'd'.repeat(24)
+    const mark = [{ id: 'private-mark' }]
+    engine.legacyEpubAnnotations.set(`hl:epub:${hex}`, mark)
+    win.TinctAI = { session: () => ({ userId: null, token: null }) }
+    expect(engine.legacyEpubAnnotations.get(`hl:epub:${hex}`)).toBeNull()
+    const guestMark = [{ id: 'guest-mark' }], guestCard = [{ id: 'guest-card' }]
+    engine.legacyEpubAnnotations.set(`hl:epub:${hex}`, guestMark)
+    engine.legacyEpubAnnotations.set(`cards:epub:${hex}`, guestCard)
+    expect(engine.legacyEpubAnnotations.get(`hl:epub:${hex}`)).toEqual(guestMark)
+    expect(engine.legacyEpubAnnotations.get(`cards:epub:${hex}`)).toEqual(guestCard)
+    expect(localStorage.getItem(`tinct-addbook:static-epub-guest-marks:${hex}`)).toBe(JSON.stringify(guestMark))
+    engine.forgetBookHere(hex)
+    expect(localStorage.getItem(`tinct-addbook:hl:epub:${hex}`)).toBe(JSON.stringify(mark))
+    expect(localStorage.getItem(`tinct-addbook:legacy-epub-owner:${hex}`)).toBe('u1')
+    expect(localStorage.getItem(`tinct-addbook:static-epub-guest-marks:${hex}`)).toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:static-epub-guest-cards:${hex}`)).toBeNull()
+    expect(Object.keys(localStorage).some(key => key.includes(':null:' + hex))).toBe(false)
+  })
+
   it('reads a PDF or EPUB with its key (kind + the first 24 hex digits of its SHA-256) and refuses anything else, as Add a book did', async () => {
     const engine = loadEngine({ userId: 'u1' })
     const epub = await engine.readFile(new File(['PK book'], 'The Sovereign Child.epub', { type: 'application/epub+zip' }))
@@ -207,6 +270,88 @@ describe('Add a book’s engine (add-engine.js)', () => {
     // Every other book's place, and the reader's own positions, are untouched.
     expect(localStorage.getItem('tinct-addbook:place:bb')).toBe('{"chapterNumber":5}')
     expect(localStorage.getItem('tinct-lab-position')).toBe('{"books":{}}')
+  })
+
+  it('deletes a cloud-only same-hash book without removing another account’s local file or hash-only state', async () => {
+    const hex = 'e'.repeat(24), key = 'epub:' + hex, remove = vi.fn(async () => {})
+    const engine = loadEngine({ userId: 'u1', token: 't' }, { remove })
+    // library.get rejects the foreign owner's IndexedDB record; its direct
+    // delete operation must never run just because the key hashes match.
+    engine.library.get = async () => null
+    const localRemove = vi.fn(async () => {})
+    engine.library.remove = localRemove
+    engine.cloud.mine().set(key, { id: 'cloud-u1' })
+    for (const prefix of ['place:', 'ocr:', 'epub-view:']) localStorage.setItem(`tinct-addbook:${prefix}${hex}`, 'foreign browser state')
+    localStorage.setItem(`tinct-addbook:pos:${key}`, 'foreign reading place')
+    localStorage.setItem(`tinct-addbook:static-epub-marks:u1:${hex}`, '[{"id":"mine"}]')
+    localStorage.setItem(`tinct-addbook:static-epub-marks:u2:${hex}`, '[{"id":"foreign"}]')
+    localStorage.setItem('tinct:library-2-table:u2', JSON.stringify([{ key }]))
+    expect(await engine.removeBook(key)).toBe(true)
+    expect(localRemove).not.toHaveBeenCalled()
+    expect(remove).toHaveBeenCalledWith('cloud-u1')
+    for (const prefix of ['place:', 'ocr:', 'epub-view:']) expect(localStorage.getItem(`tinct-addbook:${prefix}${hex}`)).toBe('foreign browser state')
+    expect(localStorage.getItem(`tinct-addbook:pos:${key}`)).toBe('foreign reading place')
+    expect(localStorage.getItem(`tinct-addbook:static-epub-marks:u1:${hex}`)).toBeNull()
+    expect(localStorage.getItem(`tinct-addbook:static-epub-marks:u2:${hex}`)).toBe('[{"id":"foreign"}]')
+    expect(localStorage.getItem('tinct:library-2-table:u2')).toBe(JSON.stringify([{ key }]))
+  })
+
+  it('aborts deletion when the account changes during the awaited local lookup', async () => {
+    const key = 'epub:' + 'e'.repeat(24), cloudRemove = vi.fn(async () => {})
+    const engine = loadEngine({ userId: 'u1', token: 't1' }, { remove: cloudRemove })
+    let finish!: (record: unknown) => void
+    engine.library.get = () => new Promise(resolve => { finish = resolve })
+    const localRemove = vi.fn(async () => true)
+    engine.library.remove = localRemove
+    localStorage.setItem(`tinct-addbook:place:${'e'.repeat(24)}`, 'A or B place')
+    const deleting = engine.removeBook(key)
+    win.TinctAI = { session: () => ({ userId: 'u2', token: 't2' }), books: { remove: cloudRemove } }
+    finish({ key, owner: 'u1', cloudId: 'cloud-u1' })
+    expect(await deleting).toBe(false)
+    expect(localRemove).not.toHaveBeenCalled()
+    expect(cloudRemove).not.toHaveBeenCalled()
+    expect(localStorage.getItem(`tinct-addbook:place:${'e'.repeat(24)}`)).toBe('A or B place')
+  })
+
+  it('checks record and live owner inside the IndexedDB removal transaction', async () => {
+    const engine = loadEngine({ userId: 'u1', token: 't1' })
+    const deleteRow = vi.fn(), request: { result?: unknown; onsuccess?: () => void } = {}
+    ;(engine.library as unknown as { tx: (mode: string, fn: (store: unknown) => unknown) => Promise<unknown> }).tx = async (_mode, fn) => {
+      fn({ get: () => request, delete: deleteRow })
+      request.result = { owner: 'u1' }
+      win.TinctAI = { session: () => ({ userId: 'u2', token: 't2' }) }
+      request.onsuccess?.()
+    }
+    expect(await engine.library.remove('epub:' + 'f'.repeat(24), 'u1')).toBe(false)
+    expect(deleteRow).not.toHaveBeenCalled()
+  })
+
+  it('does not delete the next account’s same-hash cloud map entry after an in-flight request', async () => {
+    const key = 'epub:' + 'f'.repeat(24)
+    let finish!: () => void
+    const remove = vi.fn(() => new Promise<void>(resolve => { finish = resolve }))
+    const engine = loadEngine({ userId: 'u1', token: 't1' }, { remove })
+    engine.library.get = async () => null
+    engine.cloud.mine().set(key, { id: 'cloud-u1' })
+    const deleting = engine.removeBook(key)
+    await vi.waitFor(() => expect(remove).toHaveBeenCalledWith('cloud-u1'))
+    win.TinctAI = { session: () => ({ userId: 'u2', token: 't2' }), books: { remove } }
+    engine.cloud.mine().set(key, { id: 'cloud-u2' })
+    finish()
+    expect(await deleting).toBe(false)
+    expect(engine.cloud.mine().get(key)?.id).toBe('cloud-u2')
+  })
+
+  it('discards an old account’s delayed cloud list before it can replace the next account’s cache', async () => {
+    const hex = 'a'.repeat(24), key = 'epub:' + hex
+    let finish!: (books: unknown[]) => void
+    const engine = loadEngine({ userId: 'u1', token: 't1' }, { list: () => new Promise(resolve => { finish = resolve }) })
+    const refreshing = engine.cloud.refresh()
+    win.TinctAI = { session: () => ({ userId: 'u2', token: 't2' }) }
+    engine.cloud.mine().set(key, { id: 'cloud-u2' })
+    finish([{ id: 'cloud-u1', type: 'epub', sha256: hex + 'f'.repeat(40) }])
+    expect(await refreshing).toBe(false)
+    expect([...engine.cloud.mine().entries()]).toEqual([[key, { id: 'cloud-u2' }]])
   })
 
   it('says so when the account copy could not be deleted', async () => {

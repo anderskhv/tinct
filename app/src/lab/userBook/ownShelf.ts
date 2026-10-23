@@ -426,7 +426,7 @@ export function forgetOwnedReaderLocalState(owner: string, hex: string): void {
   const prefixes = [
     'text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
     'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:',
-    'legacy-epub-annotations:', 'legacy-epub-migrated:',
+    'legacy-epub-annotations:', 'legacy-epub-migrated:', 'legacy-epub-backup-quarantine:', 'static-epub-marks:', 'static-epub-cards:',
   ]
   for (const prefix of prefixes) {
     if (legacyStillClaimed && (prefix === 'legacy-epub-annotations:' || prefix === 'legacy-epub-migrated:')) continue

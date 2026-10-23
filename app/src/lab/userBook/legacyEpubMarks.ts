@@ -11,6 +11,9 @@ const PREFIX = 'tinct-addbook:'
 const CLAIM = PREFIX + 'legacy-epub-owner:'
 const BACKUP = PREFIX + 'legacy-epub-annotations:'
 const MIGRATED = PREFIX + 'legacy-epub-migrated:'
+const STATIC = PREFIX + 'static-epub-'
+const GUEST = STATIC + 'guest-'
+const QUARANTINE = PREFIX + 'legacy-epub-backup-quarantine:'
 type LegacyRecord = { id: string; page?: number; start?: number; end?: number; text?: string; note?: string; color?: string; at?: number; u?: number; kind?: string; gone?: boolean;
   turns?: Array<{ role?: string; content?: string; at?: number; display?: string }>; data?: unknown; rects?: unknown; span?: unknown;
   mark?: unknown; free?: unknown; unitNote?: unknown; unit?: unknown }
@@ -24,15 +27,47 @@ function readArray(key: string): LegacyRecord[] {
 function local(hex: string): LegacyCopy {
   return { marks: readArray(PREFIX + 'hl:epub:' + hex), cards: readArray(PREFIX + 'cards:epub:' + hex) }
 }
+function exactRaw(hex: string): LegacyCopy | null {
+  try {
+    const marks = JSON.parse(localStorage.getItem(PREFIX + 'hl:epub:' + hex) || '[]')
+    const cards = JSON.parse(localStorage.getItem(PREFIX + 'cards:epub:' + hex) || '[]')
+    return Array.isArray(marks) && Array.isArray(cards) ? { marks, cards } : null
+  } catch { return null }
+}
+function ownerBackup(hex: string, owner: string): LegacyCopy | null {
+  try {
+    const saved = JSON.parse(localStorage.getItem(BACKUP + owner + ':' + hex) || 'null')
+    return saved && Array.isArray(saved.marks) && Array.isArray(saved.cards) ? saved : null
+  } catch { return null }
+}
+function changedClaimedRaw(hex: string, owner: string): { backup: LegacyCopy; raw: LegacyCopy } | null {
+  if (localStorage.getItem(CLAIM + hex) !== owner) return null
+  const backup = ownerBackup(hex, owner), raw = exactRaw(hex)
+  return backup && raw && JSON.stringify(backup) !== JSON.stringify(raw) ? { backup, raw } : null
+}
+function recoverableClaimedRaw(hex: string, owner: string): LegacyCopy | null {
+  if (localStorage.getItem(CLAIM + hex) !== owner || ownerBackup(hex, owner)) return null
+  const raw = exactRaw(hex)
+  return raw && (raw.marks.length || raw.cards.length) ? raw : null
+}
+function mergeRows<T extends { id?: string; u?: number; at?: number }>(older: T[], newer: T[]): T[] {
+  const rows = new Map<string, T>()
+  for (const row of [...older, ...newer]) {
+    const key = typeof row?.id === 'string' ? row.id : JSON.stringify(row), prior = rows.get(key)
+    if (!prior || Number(row?.u ?? row?.at ?? 0) >= Number(prior?.u ?? prior?.at ?? 0)) rows.set(key, row)
+  }
+  return [...rows.values()]
+}
 function claimed(hex: string, owner: string): boolean {
-  try { return userBookOwner() === owner && localStorage.getItem(CLAIM + hex) === owner } catch { return false }
+  try { return userBookOwner() === owner && (localStorage.getItem(CLAIM + hex) === owner
+    || localStorage.getItem(STATIC + 'marks:' + owner + ':' + hex) !== null
+    || localStorage.getItem(STATIC + 'cards:' + owner + ':' + hex) !== null) } catch { return false }
 }
 function copy(hex: string, owner: string): LegacyCopy {
   if (!claimed(hex, owner)) return { marks: [], cards: [] }
-  try {
-    const saved = JSON.parse(localStorage.getItem(BACKUP + owner + ':' + hex) || 'null')
-    return saved && Array.isArray(saved.marks) && Array.isArray(saved.cards) ? saved : { marks: [], cards: [] }
-  } catch { return { marks: [], cards: [] } }
+  const backup = localStorage.getItem(CLAIM + hex) === owner ? ownerBackup(hex, owner) : null
+  return { marks: mergeRows(backup?.marks ?? [], readArray(STATIC + 'marks:' + owner + ':' + hex)),
+    cards: mergeRows(backup?.cards ?? [], readArray(STATIC + 'cards:' + owner + ':' + hex)) }
 }
 function migratedIds(hex: string, owner: string): string[] {
   try {
@@ -44,17 +79,56 @@ function migratedIds(hex: string, owner: string): string[] {
 /** Ambiguous pre-owner records require an explicit choice before any account can see/import them. */
 export function unclaimedLegacyEpubCount(hex: string, owner: string): number {
   if (userBookOwner() !== owner) return 0
-  try { return localStorage.getItem(CLAIM + hex) ? 0 : local(hex).marks.length + local(hex).cards.length } catch { return 0 }
+  try { return (localStorage.getItem(CLAIM + hex) ? 0 : local(hex).marks.length + local(hex).cards.length)
+    + (changedClaimedRaw(hex, owner) ? 1 : 0)
+    + (recoverableClaimedRaw(hex, owner) ? 1 : 0)
+    + readArray(GUEST + 'marks:' + hex).length + readArray(GUEST + 'cards:' + hex).length } catch { return 0 }
 }
 export function claimLegacyEpubAnnotations(hex: string, owner: string): boolean {
   if (userBookOwner() !== owner) return false
   try {
     const existing = localStorage.getItem(CLAIM + hex)
-    if (existing && existing !== owner) return false
+    let attached = false
+    // Guest rows are a separate, explicitly chosen source. Even when another
+    // account owns the old hash-only projection, attaching these rows never
+    // changes that account's claim or backup.
+    for (const kind of ['marks', 'cards'] as const) {
+      const guestKey = GUEST + kind + ':' + hex, guest = readArray(guestKey)
+      if (!guest.length) continue
+      const scoped = STATIC + kind + ':' + owner + ':' + hex, owned = readArray(scoped)
+      const known = new Set(owned.map(row => JSON.stringify(row)))
+      localStorage.setItem(scoped, JSON.stringify([...owned, ...guest.filter(row => !known.has(JSON.stringify(row)))]))
+      localStorage.removeItem(guestKey)
+      attached = true
+    }
+    const changed = changedClaimedRaw(hex, owner)
+    if (changed) {
+      // This is only called after the reader chose to attach uncertain older
+      // annotations. Keep the former exact backup and the changed raw rows in
+      // the owner's scoped copy before establishing a new exact raw backup.
+      for (const kind of ['marks', 'cards'] as const) {
+        const scoped = STATIC + kind + ':' + owner + ':' + hex
+        localStorage.setItem(scoped, JSON.stringify(mergeRows(readArray(scoped),
+          mergeRows(changed.backup[kind], changed.raw[kind]))))
+      }
+      localStorage.setItem(BACKUP + owner + ':' + hex, JSON.stringify(changed.raw))
+      attached = true
+    }
+    const recovered = recoverableClaimedRaw(hex, owner)
+    if (recovered) {
+      const before = localStorage.getItem(BACKUP + owner + ':' + hex)
+      if (before !== null) localStorage.setItem(QUARANTINE + owner + ':' + hex, before)
+      localStorage.setItem(BACKUP + owner + ':' + hex, JSON.stringify(recovered))
+      attached = true
+    }
+    if (existing && existing !== owner) return attached
     const records = local(hex)
-    localStorage.setItem(BACKUP + owner + ':' + hex, JSON.stringify(records))
-    localStorage.setItem(CLAIM + hex, owner)
-    return true
+    if (!existing && (records.marks.length || records.cards.length)) {
+      localStorage.setItem(BACKUP + owner + ':' + hex, JSON.stringify(records))
+      localStorage.setItem(CLAIM + hex, owner)
+      attached = true
+    }
+    return attached
   } catch { return false }
 }
 
@@ -124,7 +198,8 @@ export async function migrateVerifiedLegacyEpubMarks(hex: string, owner: string,
   const ids = new Map(current.map(mark => [mark.id, mark]))
   // Existing same IDs can be locally edited. Never replace those changes with the old static copy.
   const additions = imported.filter(mark => !ids.has(mark.id))
-  const accepted = imported.filter(mark => !ids.has(mark.id) || ids.get(mark.id)?.bookId === userBookId(hex))
+  const accepted = imported.filter(mark => !ids.has(mark.id) || (ids.get(mark.id)?.bookId === userBookId(hex)
+    && ids.get(mark.id)?.text === mark.text && ids.get(mark.id)?.color === mark.color && (ids.get(mark.id)?.note ?? '') === (mark.note ?? '')))
   if (!additions.length && !accepted.length) return 0
   try {
     if (!importOwnTextMarks(hex, owner, additions)) return 0
@@ -208,7 +283,19 @@ export function allLegacyEpubNotebookItems(hex: string, owner: string, marks: Ow
 export function unresolvedLegacyEpubItems(hex: string, owner: string): LegacyOwnEpubItem[] {
   const records = copy(hex, owner)
   const migrated = new Set(migratedIds(hex, owner))
-  return [...records.marks.filter(mark => !mark.gone && !migrated.has(mark.id)).map(mark => ({ ...mark, kind: 'highlight' as const })),
+  const current = new Map((ownTextMarksCanonical(hex) ? readOwnedTextMarks(hex, owner) : readLabHighlights())
+    .filter(mark => mark.bookId === userBookId(hex)).map(mark => [mark.id, mark]))
+  // A cached older static reader may edit a mark after its ID was migrated.
+  // The existing source-word mark stays untouched; show the newer page note
+  // as an explicit Notebook conflict instead of silently treating its ID as
+  // proof that the changed content was imported.
+  const needsReview = (mark: LegacyRecord) => {
+    if (!migrated.has(mark.id)) return true
+    const saved = current.get(mark.id)
+    return !saved || (mark.u ?? mark.at ?? 0) > (saved.updatedAt ?? 0)
+      && (saved.text !== mark.text || saved.color !== mark.color || (saved.note ?? '') !== (mark.note ?? ''))
+  }
+  return [...records.marks.filter(mark => !mark.gone && needsReview(mark)).map(mark => ({ ...mark, kind: 'highlight' as const })),
     ...records.cards.filter(card => !card.gone).map(card => ({ ...card, kind: 'card' as const }))]
     .filter(record => typeof record.id === 'string' && Number.isInteger(record.page) && (record.page ?? 0) > 0)
     .map(record => {

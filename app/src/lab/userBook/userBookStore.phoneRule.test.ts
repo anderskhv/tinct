@@ -115,9 +115,38 @@ describe("the phone's open rule in the Tinct reader", () => {
   })
 
   it('writes exactly the keys and values reader.js phoneKind and openKind write', () => {
-    // The viewer's writes, as the source has them (store.set: 'tinct-addbook:' + key, JSON).
+    // Exercise the viewer's actual store methods: PDF choices remain JSON under
+    // their historic keys, while only EPUB annotations use the owner adapter.
     expect(READER).toContain("const STORE_PREFIX = 'tinct-addbook:';")
-    expect(READER).toContain('set(k, v) { try { localStorage.setItem(STORE_PREFIX + k, JSON.stringify(v)) } catch {} }')
+    const source = READER.match(/const store = (\{[\s\S]*?\n\});\nconst esc =/)?.[1]
+    expect(source).toBeTruthy()
+    const values = new Map<string, string>()
+    const storage = {
+      getItem: (key: string) => values.get(key) ?? null,
+      setItem: (key: string, value: string) => { values.set(key, value) },
+      removeItem: (key: string) => { values.delete(key) },
+    }
+    const epubGet = vi.fn(() => [{ id: 'epub-mark' }]), epubSet = vi.fn()
+    const viewer = { TinctAddEngine: { legacyEpubAnnotations: { get: epubGet, set: epubSet } } }
+    const store = new Function('window', 'localStorage', 'STORE_PREFIX', `return (${source})`)(
+      viewer, storage, 'tinct-addbook:',
+    ) as { get(key: string): unknown; set(key: string, value: unknown): void }
+    store.set(`phone-edition:${HEX}`, { edition: 'text', kind: 'narrative', by: 'text', v: 1 })
+    store.set(`edition:${HEX}`, 'text')
+    store.set(`open-rule:${HEX}`, 2)
+    expect(store.get(`phone-edition:${HEX}`)).toEqual({ edition: 'text', kind: 'narrative', by: 'text', v: 1 })
+    expect(store.get(`edition:${HEX}`)).toBe('text')
+    expect(store.get(`open-rule:${HEX}`)).toBe(2)
+    expect(Object.fromEntries(values)).toEqual({
+      [`tinct-addbook:phone-edition:${HEX}`]: JSON.stringify({ edition: 'text', kind: 'narrative', by: 'text', v: 1 }),
+      [`tinct-addbook:edition:${HEX}`]: JSON.stringify('text'),
+      [`tinct-addbook:open-rule:${HEX}`]: JSON.stringify(2),
+    })
+    store.set(`hl:epub:${HEX}`, [{ id: 'epub-mark' }])
+    expect(store.get(`hl:epub:${HEX}`)).toEqual([{ id: 'epub-mark' }])
+    expect(epubSet).toHaveBeenCalledWith(`hl:epub:${HEX}`, [{ id: 'epub-mark' }])
+    expect(epubGet).toHaveBeenCalledWith(`hl:epub:${HEX}`)
+    expect(values.has(`tinct-addbook:hl:epub:${HEX}`)).toBe(false)
     expect(READER).toContain('const KIND_V = 1;')
     expect(READER).toContain('const OPEN_RULE = 2;')
     expect(READER).toContain("store.set('phone-edition:' + hex, { edition, kind: found.kind, by: found.by, v: KIND_V });")

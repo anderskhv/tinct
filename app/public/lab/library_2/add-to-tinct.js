@@ -1040,11 +1040,24 @@ export function confirmDeleteUpload(book,{from=null,own=true}={}){
  * gone from both.
  */
 export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
+ const initiating=globalThis.TinctAI?.session?.();
+ const userId=initiating?.userId??null,token=initiating?.token??null;
+ const sameSession=()=>{
+  const current=globalThis.TinctAI?.session?.();
+  return (current?.userId??null)===userId&&(current?.token??null)===token;
+ };
  const api=await engine();
+ if(!sameSession())return false;
  // An account copy not on this device is found by the account's list.
- if(!(await api.library.get(book.key)))await api.cloud.refresh();
+ const local=await api.library.get(book.key);
+ if(!sameSession())return false;
+ if(!local){await api.cloud.refresh();if(!sameSession())return false;}
  const gone=await api.removeBook(book.key);
- forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined);
+ if(!sameSession())return false;
+ // Engine already removed the verified local file. This second pass may run
+ // after a stale shelf lookup, so it must not erase another owner's hash-only
+ // state merely because their local file has identical bytes.
+ forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined,{preserveHashOnly:true});
  return gone;
 }
 /** Display details only: the owned file, its SHA and source anchors are untouched. */
@@ -1090,7 +1103,7 @@ const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-
  * library's small cover copy, and any snapshot naming it. Keys are matched by the book's own
  * 24-hex-digit id, so no other book's keys can match.
  */
-export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage]){
+export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage],{preserveHashOnly=false}={}){
  if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
  const id='userbook-'+hex;let gone=0,owner=globalThis.TinctAI?.session()?.userId||null;
  for(const store of storages){
@@ -1143,12 +1156,20 @@ export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalTh
     if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
     const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);
     if(pdfScoped&&pdfScoped[2]===hex&&(!owner||pdfScoped[1]!==owner))continue;
+    const staticScoped=/^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(staticScoped&&staticScoped[2]===hex&&(!owner||staticScoped[1]!==owner))continue;
+    if(/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(key)&&owner)continue;
     if(key===`tinct-addbook:text-cards-unassigned:${hex}`||key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
     if(key===`tinct-addbook:text-cards-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
-    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated):([^:]+):([0-9a-f]{24})$/.exec(key);
+    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(key);
     if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
     if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
     if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const tableOwner=/^tinct:library-2-table:([^:]+)$/.exec(key);
+    if(tableOwner&&(!owner||tableOwner[1]!==owner))continue;
+    if(preserveHashOnly&&!(owner&&((scoped&&scoped[1]===owner)||(pdfScoped&&pdfScoped[1]===owner)
+     ||(legacy&&legacy[1]===owner)||(staticScoped&&staticScoped[1]===owner)
+     ||([legacyClaim,marksMarker,chatMarker].includes(key)&&store.getItem(key)===owner))))continue;
     const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
     const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
     if(mine||names){store.removeItem(key);gone++;}

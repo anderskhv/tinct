@@ -45,7 +45,7 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   </div>
   // An ordinary lower-case word shows its dictionary senses at once; a name
   // waits for the passage to say who or what it is.
-  const dictionaryFirst = !!dictionaryDefinitions?.length && !/^\p{Lu}/u.test(word.trim())
+  const dictionaryFirst = !!dictionaryDefinitions?.length && (!/^\p{Lu}/u.test(word.trim()) || (status === 'ready' && answer?.kind === 'definition'))
   if (answer?.kind === 'person' || answer?.kind === 'place' || dictionaryFirst || (status === 'ready' && answer?.kind === 'definition'))
     return <ContextualLookupView answer={answer} ready={status === 'ready'} dictionaryDefinitions={dictionaryFirst ? dictionaryDefinitions : undefined} onChat={onChat} onTalk={onTalk} />
   if (status === 'resting') return <div className="popup-define-status">{LAB_COPY.aiResting}</div>

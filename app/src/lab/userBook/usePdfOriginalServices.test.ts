@@ -405,3 +405,31 @@ it('keeps a follow-up under the original saved card ID with ordered private turn
   expect(service.cards[0].turns).toHaveLength(4)
   service.dispose()
 })
+
+it('grounds a saved unit follow-up in every cited page and refuses incomplete source before sending', async () => {
+  const requests: Array<Record<string, unknown>> = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)))
+    return json({ content: [{ text: 'Grounded answer.' }], stop_reason: 'end_turn' })
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(2, 'The claim starts here.', 3)
+  service.setPdfPageText(3, 'The claim ends here.', 3)
+  const source = { unit: { key: 'unit-2', title: 'The whole chapter', from: 2, to: 3 },
+    pages: [{ n: 2, text: 'The claim starts here.' }, { n: 3, text: 'The claim ends here.' }], atPage: 3 }
+  expect(await service.askUnit(source, 'recap')).toBe('Grounded answer.')
+  const id = service.saveUnitCardWithId(source, 'recap', 'Grounded answer.')
+  expect(id).toMatch(/^[0-9a-z]{24}$/)
+  expect(await service.askCardFollow(id!, 'What began on page two?')).toBe('Grounded answer.')
+  const parsed = parseCompanionRequest(requests[1].companion)
+  expect(parsed).toMatchObject({ intent: 'ask', pdf: true, context: { pageNumber: 3 } })
+  expect(parsed?.context?.paragraphs).toEqual([
+    '<page n="2">\nThe claim starts here.\n</page>', '<page n="3">\nThe claim ends here.\n</page>',
+  ])
+  expect(requests[1].companion).toMatchObject({ context: { chapterLabel: 'The whole chapter' } })
+  service.setPdfPageText(2, 'D'.repeat(6001), 3)
+  await expect(service.askCardFollow(id!, 'What began on page two?')).rejects.toMatchObject({ code: 'pdf_original_incomplete_source' })
+  expect(requests).toHaveLength(2)
+  service.dispose()
+})
