@@ -13,7 +13,14 @@ const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
 const foreign = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
 const run = (args: string[], env: Record<string, string> = {}) => spawnSync(process.execPath, [helper, ...args], {
-  encoding: 'utf8', env: { ...process.env, ...env },
+  encoding: 'utf8', env: {
+    ...process.env,
+    // Each case models its own caller, including when the parent test process
+    // runs inside an approved production dispatch. Never inherit its approval.
+    GITHUB_ACTIONS: '', GITHUB_EVENT_NAME: '', TINCT_RELEASE_PHASE: '',
+    TINCT_RELEASE_APPROVED: '', VITE_SHARED_READER_DEFAULT: '',
+    ...env,
+  },
 })
 
 describe('release rollback guards (offline)', () => {
