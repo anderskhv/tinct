@@ -2,6 +2,19 @@
 
 This is the live execution record for the [agreed release plan](shared-reader-consolidation-2026-10-23.md). A checkpoint is not completion. The coordinating agent owns integration, regression repair, and release readiness. Anders must explicitly approve merge and deployment. Paid provider checks require a separate agreed scope and budget.
 
+**Current status:** candidate16 release preparation is complete. Runtime source
+`a2d3d1a8fa5e81d8539483c232276a515a9f67a0`, ON bundle
+`index-Co9oahaE.js`, passes 7125 tests (six skipped), required source CI,
+Chromium/WebKit functional and rollback journeys, the 120-case local
+Shakespeare audit and every final strict performance median target. The
+compatible OFF floor is `eac7e63f65557627652ff6fddeab5c85fab18ce1`,
+`index-CFF78Pcz.js`, with 6888 passing tests (43 skipped). See the
+[final result](#final-strict-candidate16-result) below. Production is unchanged.
+Remaining work requires release approval and the separately proposed bounded
+paid-provider scope/budget. The auxiliary CI Shakespeare browser installation
+is still pending; its exact static script passed locally and is not relabelled
+as a completed CI run.
+
 ## Verified starting state for continued implementation
 
 - PR #603 remains draft, targeting main, at `dd83b07725d7a260927df28c2e11e09ab7004e68`.
@@ -208,12 +221,12 @@ compatible old-UI floor in draft PR #605, and the original plan in draft PR #603
 
 | Candidate | Reviewed source | Frozen bundle | Build configuration |
 | --- | --- | --- | --- |
-| Reader candidate15 | `1ad6d9458e6a2e4bb435323d9f9e0ce1a0589f1a` | `index-tUVfbMdS.js` | `CI=1 VITE_SHARED_READER_DEFAULT=1` |
+| Reader candidate16 | `a2d3d1a8fa5e81d8539483c232276a515a9f67a0` | `index-Co9oahaE.js` | `CI=1 VITE_SHARED_READER_DEFAULT=1` |
 | Compatible old-UI floor | `eac7e63f65557627652ff6fddeab5c85fab18ce1` | `index-CFF78Pcz.js` | `CI=1 VITE_SHARED_READER_DEFAULT=0` |
 
 Both clean builds and bundle verification passed under Node 24.19.0. GitHub
 Actions pins Node 24.13.0. The reader's emitted-file hashes are recorded in
-`docs/assets/shared-reader-2026-10-23/candidate15-manifest.json`.
+`docs/assets/shared-reader-2026-10-23/candidate16-manifest.json`.
 
 Final review repaired actual static EPUB annotation writers and cleanup paths.
 Fresh writes have exact owner proof and a recovery backup; foreign, guest,
@@ -385,3 +398,80 @@ it and normal conversion still determines success. Deferred old-owner/parallel
 opening and EPUB/PDF/hash checks pass with the 81-case focused group.
 Independent read-only review accepts source safety. The complete quiet
 candidate16 performance matrix is running; no result is claimed yet.
+
+The initial complete candidate16 probe improved cold EPUB opening to a 2829 ms
+median; selection medians were 98/103/81/79/82/38 ms for Frankenstein/War and
+Peace/Bible/Macbeth/private EPUB/original PDF. Only War missed, at 103 ms.
+Preservation commands for source blobs and local hashes overlapped its samples,
+so a final strict run is scheduled after all browser/capture/file work closes.
+The probe is retained as `candidate16-probe-speed.json`; it is not called a
+passing matrix and no sample is removed. The stricter run keeps exactly the
+same source, fixture, network/CPU profile, sample count, paint rule and limits,
+with no other local commands while it runs.
+
+Candidate16's Chromium/WebKit functional batch passes public activation and
+opt-out, account isolation and real deletion/re-upload, the exact floor
+upgrade/rollback/reopen journey, four Paste modes and six Original PDF
+variants. Its source is saved remotely at
+`a2d3d1a8fa5e81d8539483c232276a515a9f67a0`. The full source CI and final menu
+capture remain in progress at this record. No merge, deployment or provider
+call has occurred.
+
+### Final strict candidate16 result
+
+The final strict matrix completed all 36 samples and **passed every agreed
+median target**. It used the unchanged frozen `index-Co9oahaE.js`, the same
+three runs per case/profile, gzip/cache rules, Chromium 4x CPU, 60 ms RTT,
+9 Mbps, empty-IDB private downloads and next-frame paint opportunity. All
+other browser, build, test, capture, upload and local command work was stopped
+for this run. The earlier 103 ms probe is retained separately; no individual
+sample was removed or combined with a different run.
+
+| Case | Desktop warm text median, ms | Slow cold text median, ms | Slow selection median, ms | Slow card median, ms |
+| --- | ---: | ---: | ---: | ---: |
+| Frankenstein | 152 | 1641 | 91 | 50 |
+| War and Peace | 320 | 1648 | 95 | 57 |
+| Bible | 192 | 1655 | 93 | 58 |
+| Macbeth | 170 | 1609 | 81 | 53 |
+| Private EPUB | 263 | 2644 | 81 | 56 |
+| Original PDF | 312 | 2620 | 37 | 33 |
+
+Targets are medians: warm desktop <=1500 ms, cold slow <=3000 ms, selection
+<=100 ms and card <=150 ms. Maximum observed cold slow text was 2753 ms;
+maximum desktop warm text was 328 ms. Individual selection samples reached
+139 ms, so this does not claim every gesture is below 100 ms. Complete raw
+samples and the empty failure list are in `candidate16-speed.json`; its
+earlier probe is `candidate16-probe-speed.json`. The loopback proxy observed
+no external HTTP, CONNECT or socket attempt.
+
+The exact source's full CI now passes **7,125 tests, six skipped**, in 570
+passing files and one skipped file, followed by build/bundle verification.
+Verify run `39960469858` is fully green, including every reader, library,
+page-layout and Margin shard. Device sync, cross-chapter highlighting, audio
+cache, memory and introduction/image workflows also passed. The auxiliary
+Shakespeare workflow is still installing browser dependencies at this record;
+it is not called passed. A local equivalent audit is checking that coverage
+against the frozen candidate without production or providers.
+
+Final menu capture passes three desktop themes, Ask/Escape/submit, More
+keyboard controls, Quiz containment and four phone looks. All thirteen
+selected menu/selection/Paste/PDF screenshots are pixel-identical to the prior
+capture, confirming that the performance changes preserved those layouts.
+They are refreshed from candidate16 and saved with its emitted-file manifest.
+
+Implementation, required source CI, exact frozen functional journeys and the
+strict performance contract are complete. Remaining work is the explicitly
+approved floor-to-reader production sequence and bounded real-provider
+acceptance. Production remains on the original main version; the floor UUID
+will only exist after its actual approved deployment. No paid call has run.
+
+The equivalent frozen-source Shakespeare audit subsequently passed **120/120
+scenarios**, 60 each in Chromium and WebKit: 23 published books in both
+editions plus 14 Hamlet layout/reported-passage cases per browser. Speaker
+labels, visible words, saved quotation/note and page-return assertions pass.
+It ran the PR's exact `check-shakespeare-speakers.mjs` in static mode, with an
+ephemeral copy changing only origin to loopback, dist to candidate16 and output
+paths. External/API requests were aborted; no production or provider call was
+made. The copy was removed and both browsers closed. Full results are preserved
+in `candidate16-shakespeare.json`. The CI job's browser-dependency installation
+and push-only deployed-site smoke gate remain distinct from this local audit.

@@ -20,7 +20,7 @@ text sets. Keep the compatible storage reader and exporter when reverting UI.
   37 are modern-write cases intentionally inapplicable to the floor's old-write
   policy; the dedicated portable proof exercises old writes, modern reads and
   exports, deletion, revision conflicts and cross-version round trips.
-  The final floor's focused cleanup/session/phone suites also pass 120 tests. Its clean
+  Its final loader/Library/phone/cache focused group also passes 90 tests. Its clean
   OFF build and bundle verification pass as `index-CFF78Pcz.js`.
 
 The compatibility test runs the shipped static PDF client's real
@@ -49,6 +49,13 @@ reader restores them without duplication or deletion. The proven floor's
 fresh A records import directly with exact owner proof and backup; B's
 ambiguous same-hash raw records remain isolated for explicit recovery. This
 browser evidence supplements the portable account-export/format proof.
+
+The final frozen reader/floor browser pair is reader source
+`a2d3d1a8fa5e81d8539483c232276a515a9f67a0` (`index-Co9oahaE.js`) and floor
+source `eac7e63f65557627652ff6fddeab5c85fab18ce1`
+(`index-CFF78Pcz.js`). Reader source CI passes 7125 tests with six skipped;
+the floor passes 6888 with 43 skipped. These are preparation artifacts, not
+production Worker UUIDs or approved deployments.
 
 Private ordinary Ask/Talk is device-only in the existing implementation. The
 shared release preserves that contract using an owner-qualified journal and
