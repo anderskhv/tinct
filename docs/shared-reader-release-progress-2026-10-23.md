@@ -5,8 +5,9 @@ This is the live execution record for the [agreed release plan](shared-reader-co
 **Current execution status:** the compatible old-reader floor is deployed from
 `dcc2dca562b9c05f252a532f6d5e6a839aa5199b` in manual run
 `40024003699`. Its 6888 tests, build and bundle verification pass, and production
-serves `index-CQIECQfJ.js`. All six live acceptance groups must pass before its
-actual Worker UUID can be pinned for the reader cutover. Reader production has
+serves `index-CQIECQfJ.js`. All six live acceptance groups passed, and the whole
+workflow completed successfully at 21:20:38 UTC. The accepted production Worker
+`f9521101-aa25-4d2c-ab44-b0d1c9e149bf` is now pinned for reader cutover. Reader production has
 not been enabled and the paid voice check has not run.
 
 The initial floor run `40020741706` stopped before deployment: a unit case
@@ -26,8 +27,8 @@ opt-out or test both modes instead of assuming an OFF build. The missing-floor
 unit case uses its own absent fixture so it also works after a real floor
 manifest is checked in. The live Shakespeare gate now recognises an exact-source
 manual deploy beside the deliberately blocked automatic push, with six offline
-gate tests. These integration changes still need their exact-source CI and the
-accepted floor's real manifest before reader deployment.
+gate tests. The real floor manifest is recorded after successful acceptance;
+the final exact-source CI remains required before reader deployment.
 
 Independent release review requires the Shakespeare gate to wait for the whole
 release to succeed, because a passed smoke step can precede a later rollback.

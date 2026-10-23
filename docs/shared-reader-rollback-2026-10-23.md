@@ -3,9 +3,10 @@
 Anders explicitly approved the floor-to-reader merge and deployment sequence
 on 23 October 2026. The compatible old-reader floor is deployed from
 `dcc2dca562b9c05f252a532f6d5e6a839aa5199b` in run `40024003699`, with
-bundle `index-CQIECQfJ.js`. Its live acceptance is still running; a deployed
-version is not yet an accepted rollback target. Do not add the reader floor
-manifest until all acceptance passes. The earlier candidate inspection and
+bundle `index-CQIECQfJ.js`. All six live acceptance groups and the complete
+workflow passed at 21:20:38 UTC. Its actual Worker version
+`f9521101-aa25-4d2c-ab44-b0d1c9e149bf` is the accepted rollback target, now
+recorded in the reader floor manifest. The earlier candidate inspection and
 workflow contract below remain the compatibility evidence and constraints.
 
 The old Worker alone is not a safe rollback target after new private reader
