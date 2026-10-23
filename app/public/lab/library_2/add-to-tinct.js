@@ -1039,12 +1039,31 @@ export function confirmDeleteUpload(book,{from=null,own=true}={}){
  * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
  * gone from both.
  */
+// The file engine loads tinct-api.js lazily on a cold Library page. Read the
+// same Supabase session it will expose, so installing the bridge is not mistaken
+// for an account change. This is an identity check, never a separate auth source.
+function deleteSession(){
+ const bridged=globalThis.TinctAI?.session?.();
+ if(bridged)return {userId:bridged.userId??null,token:bridged.token??null};
+ try{
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);
+   if(!/^sb-.*-auth-token$/.test(key))continue;
+   const value=JSON.parse(localStorage.getItem(key)||'null');
+   const session=value&&(value.currentSession||value);
+   if(!session?.access_token)continue;
+   const expired=session.expires_at&&session.expires_at*1000<Date.now()+30000;
+   return {userId:session.user?.id||null,token:expired?null:session.access_token};
+  }
+ }catch{}
+ return {userId:null,token:null};
+}
 export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
- const initiating=globalThis.TinctAI?.session?.();
- const userId=initiating?.userId??null,token=initiating?.token??null;
+ const initiating=deleteSession();
+ const userId=initiating.userId,token=initiating.token;
  const sameSession=()=>{
-  const current=globalThis.TinctAI?.session?.();
-  return (current?.userId??null)===userId&&(current?.token??null)===token;
+  const current=deleteSession();
+  return current.userId===userId&&current.token===token;
  };
  const api=await engine();
  if(!sameSession())return false;
