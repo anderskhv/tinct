@@ -30,6 +30,13 @@ The 23 October clarification is theme-aware styling, not a separate colour for e
 
 ### Paste text
 
+**23 October preview correction:** Anders found the first flow too complex.
+The default is one paste field and **Add to my books**, with format detection
+and conservative metadata suggestions. Title and author remain editable later.
+Preview/trim and manual corrections are optional, never a required setup wizard.
+Keep the original wording unchanged. This correction supersedes any mandatory
+multi-step flow implied by the list below or the initial preview images.
+
 Build on the existing [Paste any text backlog concept](../BACKLOG.md):
 
 1. + Add -> Paste text.
