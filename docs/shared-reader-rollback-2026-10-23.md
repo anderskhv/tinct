@@ -11,13 +11,17 @@ text sets. Keep the compatible storage reader and exporter when reverting UI.
 ## Candidate inspected
 
 - UI baseline: main `d8b667e659009b590bb5e5c9218081c935f74927`.
-- Compatible backend: the reviewed `userBooks.ts`, its fake bucket and route/
-  account tests saved through `8721c5065df06d248174a6fc13f530ff0538c0ff`.
+- Reviewed floor source: `eac7e63f65557627652ff6fddeab5c85fab18ce1` on
+  `codex/shared-reader-compatible-rollback-20261023`. It contains the old UI,
+  compatible backend, guarded workflow, and portable format proof.
 - Keep the accurate privacy notice and its assertions, plus the offline unit
   test boundary. No migrations, providers or production bindings change.
-- In a separate checkout, 121 Worker/account/privacy tests pass against that
-  composition. The old UI built and passed bundle verification as
-  `index-By9mGwgg.js`; later backend-only additions pass the updated tests.
+- The final floor's complete guarded suite passes 6,888 tests with 43 skipped. Of those,
+  37 are modern-write cases intentionally inapplicable to the floor's old-write
+  policy; the dedicated portable proof exercises old writes, modern reads and
+  exports, deletion, revision conflicts and cross-version round trips.
+  The final floor's focused cleanup/session/phone suites also pass 120 tests. Its clean
+  OFF build and bundle verification pass as `index-CFF78Pcz.js`.
 
 The compatibility test runs the shipped static PDF client's real
 `TinctMargin.mergeCards`, then writes its result without the new optional file
@@ -28,16 +32,23 @@ by the same route suites.
 
 ## Limits and remaining acceptance
 
+The floor intentionally retains the old static EPUB reader's hash-only raw
+visibility. It is a compatibility writer seam, not a claim that old UI gains
+the shared reader's account isolation. Fresh/proven writes advance exact owner
+proof and backup; foreign, unclaimed or divergent raw records are never newly
+claimed. The shared reader requires explicit recovery for uncertain records.
+
 The old static margin column omits a card with no geometry. Its Notebook reads
 the complete stored card list, so page-only cards remain accessible there.
 This is a temporary presentation difference, not permission to drop records.
 
-The backend candidate does not, by itself, establish old-UI compatibility for
-the new owner-qualified browser journals. Before public cutover, verify that
-rollback retains new private text annotations, claimed legacy records and
-device-only Talk transcripts, and that returning to the new reader restores
-them without duplication or deletion. Do not substitute an account export test
-for this browser upgrade/rollback/reopen journey.
+The exact final reader/floor pair passes the browser upgrade/rollback/reopen
+journey in Chromium and WebKit. It retains new private text annotations,
+claimed legacy records and device-only Talk transcripts; returning to the new
+reader restores them without duplication or deletion. The proven floor's
+fresh A records import directly with exact owner proof and backup; B's
+ambiguous same-hash raw records remain isolated for explicit recovery. This
+browser evidence supplements the portable account-export/format proof.
 
 Private ordinary Ask/Talk is device-only in the existing implementation. The
 shared release preserves that contract using an owner-qualified journal and
@@ -48,3 +59,88 @@ deletion must honor the existing cleanup contract.
 The release owner must select a tested compatible rollback version when the
 eventual deployment is approved. Never let the automatic rollback choose an
 incompatible pre-floor Worker after new records can be written publicly.
+
+## Release workflow contract
+
+The old-UI floor source carries `app/release/shared-reader-rollout.json` with
+`phase: floor-pending`; the reader source carries it with `phase: pending`.
+Both states stop ordinary pushes to `main` before upload, including the floor
+merge push. The npm deploy/upload commands also refuse pending states outside
+an explicitly approved matching GitHub Actions dispatch. The source guard
+requires exact current `origin/main`, so merge the reviewed floor before
+dispatching it. Do not change a pending gate merely to bypass it; a subsequent
+reviewed release change must define when normal deploys resume.
+
+After explicit approval of this release sequence, merge the backend-only,
+old-UI floor commit to main,
+confirm its push stopped at the pending gate, then dispatch `deploy` at that
+exact main commit with `release_phase: floor` and
+`approved_reader_release: true`. The
+workflow checks that the old reader entry point is still in source and runs
+`src/worker.rollbackFloor.test.ts` together with the Worker route/account
+suites before any upload or traffic change. This proof must demonstrate that
+old clients still write the old format while the backend reads and exports the
+new format. Old and modern route snapshots are SHA-256-pinned repository-owned
+fixtures, independent of sibling worktrees and the moving floor `HEAD`.
+Build and production acceptance still run normally. A floor
+dispatch from the new reader checkout is rejected.
+
+Record the floor's actual 100%-serving Cloudflare Worker Version UUID only
+after its approved deployment and acceptance. Then add a reviewed
+`app/release/shared-reader-floor.json` with exactly:
+
+```json
+{
+  "v": 1,
+  "floorVersionId": "<actual Worker Version UUID>",
+  "floorCommit": "<40-character reviewed floor commit SHA>",
+  "proof": "src/worker.rollbackFloor.test.ts"
+}
+```
+
+No placeholder UUID is checked in. The explicit `release_phase: reader`
+dispatch requires its own release approval input and this manifest. It checks
+that production serves the pinned floor at 100% before upload and again
+immediately before direct deploy or staged promotion. If production changes,
+the workflow stops before changing traffic. The recorded UUID is the exact
+automatic rollback target; it does not, by itself, prove format compatibility.
+The reviewed floor source and its format test establish that separate proof.
+The reader dispatch bakes `VITE_SHARED_READER_DEFAULT=1` into React and the
+static Library activation; floor dispatch sets it to `0`. The npm release
+commands check the emitted reader activation before Worker mutation. Direct
+deployment records its new Worker Version UUID, and automatic rollback refuses
+an unrelated current UUID instead of guessing.
+The proposed sequence is one old-UI/OFF floor and one ON reader cutover with
+verified exact source and production versions. One explicit user approval can
+cover both steps when it names this sequence; the dispatch approval input must
+then be set for each approved step. A subsequent release needs a new reviewed
+compatibility/rollback decision.
+
+## Prepared floor-to-reader integration
+
+The floor and reader branches have overlapping implementation histories; their
+combination is not an automatic conflict-free merge. Read-only projection used
+the actual main source `d8b667e659009b590bb5e5c9218081c935f74927` as the
+explicit base because the local plan commit is a shallow boundary. That plan
+commit differs from main only in the plan and DECISIONS.md. This is a source
+projection, not a claim that GitHub has merged either PR.
+
+After approval, preserve floor ancestry with a real merge commit. Retain the
+reviewed reader versions of `add-engine.js`, `reader.js`, Library
+`add-to-tinct.js`, `app.js`, `catalogue.js`, `index.html`, reader rollout
+`phase: pending`, and their corresponding Engine, Library, phone-rule,
+cache-tag, release-tools and Worker tests. Retain the reader's modern
+`worker/routes/userBooks.ts`; replacing it with the floor's old-write policy
+would break the new client. Keep the Library import/preload URLs coherent.
+The emitted build derives a single content tag for the shared module chain.
+
+The floor's portable proof and pinned old/modern route fixtures must also
+survive reader integration. Its reader variant additionally pins the reviewed
+floor route and tests that fixture against the current modern route. The floor
+variant continues to prove the actual shipped floor route. A proof that calls
+the modern route "floor" after the cutover is invalid.
+
+Verify the resolved tree and required tests/build before either approved
+dispatch. These are routine integration steps within an approved sequence;
+they do not authorize an unrelated source change or bypass the exact-main and
+actual-floor-UUID guards.

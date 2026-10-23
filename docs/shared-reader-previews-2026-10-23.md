@@ -4,6 +4,36 @@ These are design candidates, not a shipped release. The actual reader screenshot
 use synthetic local state with API/provider/external requests blocked. No user
 account data or paid calls were used.
 
+## Final built candidate15
+
+These captures use the actual implementation from source
+`1ad6d9458e6a2e4bb435323d9f9e0ce1a0589f1a`, frozen ON bundle
+`index-tUVfbMdS.js`. The browser loads loopback assets with synthetic account
+responses and blocked external/provider requests. No styles are injected into
+these final captures. They are a release candidate, not a deployed release.
+
+![Actual Paste dialog on phone, 390×844](assets/shared-reader-2026-10-23/paste-chromium-phone-390x844.png)
+
+![Actual Book selection controls on phone, 390×844](assets/shared-reader-2026-10-23/candidate15-phone-book-selection-390x844.png)
+
+- Desktop 1440×900 reader menu: [Light](assets/shared-reader-2026-10-23/candidate15-desktop-light-reader-menu-1440x900.png), [Book](assets/shared-reader-2026-10-23/candidate15-desktop-book-reader-menu-1440x900.png), [Dark](assets/shared-reader-2026-10-23/candidate15-desktop-dark-reader-menu-1440x900.png).
+- Desktop contextual selection: [Light](assets/shared-reader-2026-10-23/candidate15-desktop-light-selection-1440x900.png), [Book](assets/shared-reader-2026-10-23/candidate15-desktop-book-selection-1440x900.png), [Dark](assets/shared-reader-2026-10-23/candidate15-desktop-dark-selection-1440x900.png).
+- Paste: [Chromium desktop](assets/shared-reader-2026-10-23/paste-chromium-desktop-1440x900.png), [WebKit phone](assets/shared-reader-2026-10-23/paste-webkit-phone-390x844.png). The actual save/retry/reopen and metadata/source-byte checks pass in both engines on desktop and phone.
+- Original PDF: [Primer](assets/shared-reader-2026-10-23/pdf-original-primer.png), [Define](assets/shared-reader-2026-10-23/pdf-original-define.png), [Notebook](assets/shared-reader-2026-10-23/pdf-original-notebook.png). These use real pdf.js rendering of a synthetic PDF and structured mocked responses. The old adjacent You label/empty 0 are absent. Normal, success and dense/incomplete-source journeys pass Chromium and WebKit; real-provider acceptance remains separate.
+
+The menu capture also checks computed theme colours, desktop Ask/Escape/submit,
+More keyboard controls, Quiz containment and four phone looks. Capture sources:
+`app/scripts/capture-shared-reader-build8.mjs`,
+`app/scripts/check-shared-reader-paste.mjs`, and
+`app/scripts/check-shared-reader-pdf-original.mjs`.
+See the [execution record](shared-reader-release-progress-2026-10-23.md) for
+exact-source unit, browser, rollback, performance and release status.
+
+## Earlier design studies
+
+The sections below are retained decision history. Their injected-colour and
+illustrative-harness qualifications do not describe the final captures above.
+
 ## Selection popup
 
 The desktop screenshots are the actual React reader at 1440x900. Only provisional

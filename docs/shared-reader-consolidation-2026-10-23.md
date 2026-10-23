@@ -51,6 +51,11 @@ The backlog's proposed monospace exception for preformatted text is not an appro
 
 ## Verified baseline
 
+This section records the starting audit. Current implementation, exact candidate
+revisions and outstanding release gates are maintained in the
+[execution record](shared-reader-release-progress-2026-10-23.md). Initial audit
+statements below do not describe the later implementation or production status.
+
 Execution update, 23 October: a remote runtime has now cloned this branch,
 installed dependencies, passed 6,861 tests, built and verified a clean bundle,
 and run Chromium/WebKit checks. See the

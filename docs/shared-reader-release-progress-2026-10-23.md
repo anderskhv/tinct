@@ -158,3 +158,218 @@ marks/cards/metadata. Their historical hash-only keys are not made race-safe by
 this work's annotation tests. Do not claim a blanket guarantee for all private
 writers. Any new regression or unfulfilled release contract is a blocker;
 unrelated baseline deficiencies remain explicit follow-up work.
+
+## Resumed final review
+
+The remote workspace was recovered without discarding unfinished files. PR
+#604 remains draft at `aac0435a80b2ac69ac78cca248da0726786ebe71`; #603 is
+unchanged. The local integration branch was reconciled to that saved head
+while preserving its worktree. Production remains untouched.
+
+The complete guarded unit run finished with **7,090 passed, six skipped**
+across 567 passing test files and one skipped file. This precedes the final
+review repairs below and must not be described as their full-suite result.
+The frozen default-ON candidate `index-Dg5WNcFO.js` passed public activation,
+explicit opt-out, Classic/Compare and exact word resume, plus Paste save/retry/
+reopen/metadata in Chromium and WebKit. Additional browser smoke covered 24
+route/viewport combinations at 1440×900, 1280×800, 390×844 and 360×740.
+
+Three Sol High agents resumed bounded acceptance, PDF/private-data review and
+independent release review. A fourth Sol High agent owns release-safety
+repairs. An explicitly requested Astra High oversight agent checked remaining
+scope and independently reviewed the new canonical Talk rollback regression.
+These are requested tool configurations, not independent backend attestation.
+
+Independent review found and repaired a multi-page PDF follow-up that supplied
+only its terminal page, and an account switch that could relabel a surviving
+hash-only Talk projection. Focused service, shell and card-sync tests pass
+60 cases. The follow-up now sends its complete cited range or explicitly says
+it was not sent when that source cannot be supplied. Final routed acceptance
+is extending the PDF journey and the new owner-qualified Talk rollback journey.
+
+Release review also found that the old-UI floor lacked the new workflow gates,
+its compatibility proof depended on a sibling checkout and mutable HEAD, and
+direct deployment/rollback paths needed exact-version and phase guards. These
+remain release blockers until the repaired floor and reader workflow pass
+portable tests and independent review. The approved reader phase must bake
+`VITE_SHARED_READER_DEFAULT=1`; the floor must keep it off. No release manifest
+may invent a production Worker UUID.
+
+Final candidate rebuilding and browser checks are in progress. Mocked services
+prove UI/context contracts only; no paid provider check, merge or deployment
+has occurred. The next report must name the exact frozen bundle and clearly
+separate completed readiness evidence from remaining approval-dependent work.
+
+## Final candidate ledger
+
+This section supersedes earlier candidate status above. None of these candidates
+has been merged or deployed. The implementation remains in draft PR #604, the
+compatible old-UI floor in draft PR #605, and the original plan in draft PR #603.
+
+| Candidate | Reviewed source | Frozen bundle | Build configuration |
+| --- | --- | --- | --- |
+| Reader candidate15 | `1ad6d9458e6a2e4bb435323d9f9e0ce1a0589f1a` | `index-tUVfbMdS.js` | `CI=1 VITE_SHARED_READER_DEFAULT=1` |
+| Compatible old-UI floor | `eac7e63f65557627652ff6fddeab5c85fab18ce1` | `index-CFF78Pcz.js` | `CI=1 VITE_SHARED_READER_DEFAULT=0` |
+
+Both clean builds and bundle verification passed under Node 24.19.0. GitHub
+Actions pins Node 24.13.0. The reader's emitted-file hashes are recorded in
+`docs/assets/shared-reader-2026-10-23/candidate15-manifest.json`.
+
+Final review repaired actual static EPUB annotation writers and cleanup paths.
+Fresh writes have exact owner proof and a recovery backup; foreign, guest,
+unclaimed and divergent surviving raw records retain their identity. The shared
+reader uses explicit recovery instead of silently adopting uncertain records.
+Account deletion cannot clear another owner's same-hash records or snapshots.
+Async deletion and refresh retain the initiating account/token across awaits.
+
+Candidate13 browser acceptance caught a real cold-Library regression: lazy
+loading installed the auth bridge after the deletion guard had captured an
+empty session. Candidate14 reads the same stored session fingerprint before
+loading, then checks it after every await. It permits A-to-A initialization and
+aborts A-to-B switches. Independent review accepted the narrow fix; 69 main
+Library tests and 120 floor-focused tests passed. The prior full-suite fixture
+incorrectly mocked verified Engine cleanup as a no-op; its replacement checks
+both verified cleanup and preservation of foreign same-hash state.
+
+The PDF follow-up now supplies its whole cited reading unit within the declared
+20-page, 6,000-character/page and 36,000-character total bounds, or explicitly
+refuses before requesting an answer. Its focused service/shell/card tests pass
+60 cases. A surviving hash-only Talk projection cannot be relabelled on an
+account switch.
+
+Release guards are independently reviewed. Both branches stop ordinary main
+pushes before mutation. An approved exact-main floor dispatch keeps the old UI
+and runs the portable, repository-pinned compatibility proof. Only after its
+actual deployment and acceptance may the release owner record the real Worker
+UUID in the floor manifest. The approved reader dispatch requires that exact
+floor to serve 100% before upload and again before traffic changes. Direct
+deploy records the new UUID; rollback refuses an unrelated or missing current
+UUID. No floor UUID has been invented and no pending gate has been bypassed.
+
+The preceding candidate14 full guarded suite passes **7,117 tests, six skipped**, across
+567 passing files and one skipped file, both locally and in the exact source's
+GitHub Actions app job. The local run used `npm test -- --maxWorkers=2` and
+finished in 276.17 seconds with no unmocked network access. Browser, visual and
+quiet performance results are being collected against these frozen candidates.
+The floor's exact-source GitHub Actions app job passes **6,887 tests, 43
+skipped**, then build and bundle verification. Of the skips, 37 modern-write
+cases are intentionally inapplicable to old-UI writes; the portable proof
+covers modern read/export compatibility.
+
+The candidate14/floor pair passed the complete targeted loopback browser batch:
+
+- Default ON, explicit opt-out, Classic/Compare and exact nonzero-word resume.
+- Chromium A/B isolation, actual fresh-Library A deletion, same-content
+  re-upload without resurrected marks, and retained B backup; WebKit A/B
+  isolation.
+- Chromium and WebKit upgrade/rollback/reopen, including proven floor writes,
+  direct owned legacy import, ambiguous B raw recovery and device-only Talk.
+- Paste save/retry/reopen/metadata editing with immutable source bytes in
+  Chromium and WebKit on desktop and phone.
+- Original PDF normal, success and dense-source paths in both engines:
+  complete-page Recap/Quiz/Note, saved follow-up and Notebook, source-grounded
+  mocked narration/word-follow/Talk, scans and explicit dense/incomplete-source
+  refusal without a chat request.
+
+All browser sessions were isolated and muted, with external HTTP/CONNECT/socket
+traffic blocked. Candidate15 repeats the full targeted browser batch after the cache-only runtime change. Its final evidence is recorded below.
+Real-provider narration/Talk remains
+unverified: all candidate UI journeys use mocked or blocked providers. No paid
+call, merge or deployment has occurred. The approved scope requires explicit
+merge/deployment approval and a separately agreed paid-provider scope/budget.
+
+### Final cache and compatibility preparation
+
+Emitted-cache inspection found a real returning-reader gap after candidate14:
+the Library requested the changed Engine under the old cacheable
+`20261019batch` URL. Candidate15's reader and floor use distinct new
+`20261023readerown1` and `20261023floorown1` URLs. Browser checks on the frozen
+builds observe those actual cold-Library requests and boot the shipped API,
+EPUB and owner-aware Engine. The content-derived Library module chain itself
+already had coherent tags. Main loader/Library tests pass 70 cases; floor
+loader/Library/phone/cache tests pass 90 cases.
+
+The reader now carries a portable compatibility proof using SHA-256-pinned old,
+modern and floor route snapshots, with the current reader route tested as
+modern. All four cases pass. The floor continues to test its actual shipped
+route as floor. Its source and dependencies remain auditable after integration;
+the reader does not accidentally label its new route as the old floor.
+
+The complete final15/floor15 browser batch passes default ON, native account
+isolation/deletion/re-upload, Chromium/WebKit upgrade/rollback, four
+desktop/phone Paste modes, and six Original PDF variants. All sessions closed
+before final performance measurement. Fresh screenshots use these actual
+frozen bytes and synthetic fixtures.
+
+Candidate14's preliminary speed run is not a passing final result. Its slow
+War and Peace selection median was 101 ms against the 100 ms limit, and the
+PDF fixture still searched for a removed phone toolbar class. Diagnostic event
+traces found no unintended click or AI request in either source. The benchmark
+now measures the actual shared `.lab-pbar` using the same painted-frame timing
+contract; a bounded PDF check passed. Profiled/instrumented War timings are
+diagnostics, not substitute gate samples. Long-selection popup placement is
+preserved. Candidate15 receives a fresh, complete, unprofiled quiet matrix.
+
+### Approval-dependent execution
+
+The prepared sequence is one old-UI/OFF compatible floor, followed by one ON
+reader cutover. After explicit approval, preserve merge ancestry, use the
+documented conflict resolutions, run the resolved-tree checks, and dispatch the
+guarded floor release at exact main. Only after successful exact-bundle
+production acceptance may the actual floor Worker UUID be recorded. The
+reader release then requires that pinned floor at 100%, followed by its own
+exact-bundle production acceptance and automatic rollback protection.
+
+Paid checks remain off. A separate proposed bounded provider check is one
+manual `voice-lab-acceptance` guest Talk session after exact reader production
+verification, using synthetic microphone input and muted output, no retry,
+with a 120-second server limit and a proposed $0.25 budget. Tinct's checked-in
+ledger reserves $0.16 for that maximum duration; this is its accounting
+estimate, not a provider invoice guarantee. No new narration generation is
+included. The existing workflow's approval input defaults to false. This
+proposal is not approval and has not been run.
+
+### Candidate15 completed gates and remaining performance work
+
+The exact reader source's GitHub Actions app job passes **7,122 tests, six
+skipped**, across 569 passing files and one skipped file, then build and bundle
+verification. The exact floor source passes **6,888 tests, 43 skipped** and its
+complete verify workflow. Reader verify, device sync, cross-chapter, audio cache
+and Shakespeare workflows also passed at this checkpoint; auxiliary workflows
+still in progress are not described as passed.
+
+The final15 unprofiled quiet matrix completed all 36 samples. The declared
+gzip/cache, 4x CPU, 60 ms RTT, 9 Mbps and painted-frame semantics remain
+unchanged; own sources start with empty IndexedDB and a synthetic account
+download. Its complete results are saved as `candidate15-speed.json`.
+
+| Slow phone case | Cold text median, ms | Selection median, ms | Card median, ms |
+| --- | ---: | ---: | ---: |
+| Frankenstein | 1831 | 120 | 68 |
+| War and Peace | 1759 | 101 | 71 |
+| Bible | 1931 | 137 | 95 |
+| Macbeth | 1758 | 100 | 65 |
+| Private EPUB | 3243 | 81 | 67 |
+| Original PDF | 2687 | 43 | 36 |
+
+Targets remain cold text <=3000 ms, selection <=100 ms and card <=150 ms.
+Desktop warm text medians are all <=339 ms. Candidate15 therefore **does not
+pass the performance gate**: three selection medians and cold EPUB opening
+miss it. No threshold is relaxed and no passing run is selected in its place.
+The comparable remote-empty-IDB EPUB baseline was 2841 ms in build7 and
+2886 ms in candidate14; build7's 2618 ms figure above used a seeded local
+record and is a different condition.
+
+The next narrow fixes are in progress: avoid the popup observer's duplicate
+initial geometry measurement while preserving long-selection placement, and
+overlap independent owned marks/cards opening plus public EPUB converter
+loading with the source download. Owner, token, generation, late-response and
+first-paint safety checks must remain. These changes require their own tests,
+frozen build and performance verification; they are not accepted by the
+candidate15 results.
+
+Anders was told the overall task is approximately 90% complete, an effort
+estimate rather than a measured completion metric. Implementation and
+functional acceptance are substantially complete. Performance, approved
+deployment and live provider acceptance remain. No unattended execution
+guarantee was made when he said he would be offline.
