@@ -10,6 +10,33 @@ workflow completed successfully at 21:20:38 UTC. The accepted production Worker
 `f9521101-aa25-4d2c-ab44-b0d1c9e149bf` is now pinned for reader cutover. Reader production has
 not been enabled and the paid voice check has not run.
 
+**First reader cutover and correction:** PR #604 merged as
+`fafc518d8d6284c2e9406aba68c478ff0ad37980`, preserving reviewed tree
+`302393bfdccfa65c8b304fd0d167b21fbb02055f`. Manual reader run `40028070875`
+passed 7133 tests (six skipped), build and bundle verification, verified the
+pinned floor before mutation, and deployed Worker
+`d7ca8cf9-0d69-46a8-8bc0-8c88dd0a00f9`, `index-BkDbfbHd.js`.
+Production, audio, publication and page-layout groups passed. Of 36 panel
+scenarios, the two desktop menu cases failed because the old expectation
+omitted the shared reader's Notebook row. The featured preview also timed out
+on its WebKit iframe Home-key check. Its runtime and test source are identical
+to the accepted floor; a local eight-case reproduction passed.
+
+Automatic rollback job `120676461588` restored the exact accepted floor UUID
+at 21:57:13 UTC; a fresh internal GET confirms `index-CQIECQfJ.js` again.
+The reader workflow completed as failure, so the Mac helper cannot advance to
+voice. No paid voice call ran. Production is on the compatible floor.
+
+Corrections preserve runtime code and every assertion: panel expectations read
+the exact artifact's release-specific activation default; iframe keyboard
+actions target the carousel scroller explicitly and record Home diagnostics
+without increasing timeouts. The corrected featured matrix passed all eight
+cases three times. Four paginated spread scripts now select Classic with
+`view=two-page`, retaining shared-reader activation; their complete Chromium
+and WebKit suites pass on the verified ON build. The exact device-sync script
+also passes both browsers locally after its CI job timed out installing
+browsers. The corrected full ON panel matrix is still running at this record.
+
 The initial floor run `40020741706` stopped before deployment: a unit case
 modelling an unapproved caller inherited its parent's approved dispatch
 environment. PR #606 isolates the child environment without changing a runtime

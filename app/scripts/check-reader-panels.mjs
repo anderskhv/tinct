@@ -2,12 +2,15 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-panels'
+// Checks use the exact built artifact, including its release-specific default.
+const { SHARED_READER_DEFAULT } = await import(pathToFileURL(path.resolve('dist/lab/shared-reader-activation.js')).href)
 await fs.mkdir(output, { recursive: true })
 const results = []
 const explanation = 'A compact opening grounded in the selected passage.\n\nA second paragraph adds useful context and interpretation without filling the entire screen.'
@@ -877,7 +880,7 @@ async function menuRedesign(engine,name,phone) {
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Aa','Book settings','Audio settings',accountRow])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
     // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
     // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
