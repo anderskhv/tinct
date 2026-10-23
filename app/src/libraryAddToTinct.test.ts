@@ -860,6 +860,43 @@ describe('Removing one of My private uploads', () => {
     expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
   })
 
+  it('allows a cold Library delete when loading the Engine initializes the same stored session', async () => {
+    vi.stubGlobal('TinctAI', undefined)
+    localStorage.setItem('sb-delete-auth-token', JSON.stringify({ currentSession: {
+      access_token: 'session-A', expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'owner-a' },
+    } }))
+    const calls: string[] = []
+    try {
+      const engine = async () => {
+        vi.stubGlobal('TinctAI', { session: () => ({ userId: 'owner-a', token: 'session-A' }) })
+        return {
+          library: { get: async (key: string) => { calls.push('get ' + key); return { key } } },
+          cloud: { refresh: async () => { calls.push('refresh') } },
+          removeBook: async (key: string) => { calls.push('remove ' + key); return true },
+        }
+      }
+      expect(await addToTinct.deleteUpload(book, { engine })).toBe(true)
+      expect(calls).toEqual(['get epub:aa', 'remove epub:aa'])
+    } finally { vi.unstubAllGlobals(); localStorage.removeItem('sb-delete-auth-token') }
+  })
+
+  it('aborts a cold Library delete if A changes to B while the Engine loads', async () => {
+    vi.stubGlobal('TinctAI', undefined)
+    const authKey = 'sb-delete-auth-token'
+    localStorage.setItem(authKey, JSON.stringify({ access_token: 'session-A', user: { id: 'owner-a' } }))
+    const get = vi.fn(async () => ({ key: book.key })), removeBook = vi.fn(async () => true)
+    try {
+      const engine = async () => {
+        localStorage.setItem(authKey, JSON.stringify({ access_token: 'session-B', user: { id: 'owner-b' } }))
+        vi.stubGlobal('TinctAI', { session: () => ({ userId: 'owner-b', token: 'session-B' }) })
+        return { library: { get }, cloud: { refresh: async () => true }, removeBook }
+      }
+      expect(await addToTinct.deleteUpload(book, { engine })).toBe(false)
+      expect(get).not.toHaveBeenCalled()
+      expect(removeBook).not.toHaveBeenCalled()
+    } finally { vi.unstubAllGlobals(); localStorage.removeItem(authKey) }
+  })
+
   it('then forgets this device’s other keys for the book (highlights, margin answers, chats, snapshots), never another book’s', async () => {
     vi.stubGlobal('TinctAI', { session: () => ({ userId: 'viewer' }) })
     const hex = 'a1b2c3d4e5f6a1b2c3d4e5f6', other = 'ffffffffffffffffffffffff'

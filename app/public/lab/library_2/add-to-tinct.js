@@ -966,10 +966,29 @@ export function confirmDeleteUpload(book,{from=null,own=true}={}){
  * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
  * gone from both.
  */
+// The file engine loads tinct-api.js lazily on a cold Library page. Read the
+// same stored session it will expose, so installing the bridge is not mistaken
+// for an account change. This fingerprint never authorizes a request itself.
+function deleteSession(){
+ const bridged=globalThis.TinctAI?.session?.();
+ if(bridged)return {userId:bridged.userId??null,token:bridged.token??null};
+ try{
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);
+   if(!/^sb-.*-auth-token$/.test(key))continue;
+   const value=JSON.parse(localStorage.getItem(key)||'null');
+   const session=value&&(value.currentSession||value);
+   if(!session?.access_token)continue;
+   const expired=session.expires_at&&session.expires_at*1000<Date.now()+30000;
+   return {userId:session.user?.id||null,token:expired?null:session.access_token};
+  }
+ }catch{}
+ return {userId:null,token:null};
+}
 export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
- const initial=globalThis.TinctAI?.session();
- const initiatingUser=initial?.userId||null,initiatingToken=initial?.token||null;
- const sameSession=()=>{const now=globalThis.TinctAI?.session();return (now?.userId||null)===initiatingUser&&(now?.token||null)===initiatingToken;};
+ const initial=deleteSession();
+ const initiatingUser=initial.userId,initiatingToken=initial.token;
+ const sameSession=()=>{const now=deleteSession();return now.userId===initiatingUser&&now.token===initiatingToken;};
  const api=await engine();
  if(!sameSession())return false;
  // An account copy not on this device is found by the account's list.
