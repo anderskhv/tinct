@@ -71,6 +71,59 @@ candidate that restores the prior UI while retaining compatible backend reads,
 export support, and local compatibility projections. The ordinary automatic
 previous-version rollback is not yet a sufficient compatibility proof.
 
+## Private EPUB backend checkpoint
+
+The server-only slice extends existing owned-file marks/cards routes with
+validated `text-v1` range/chapter anchors for EPUB. PDF record shapes remain
+separate. Existing private keys, revision/ETag conflicts, tombstones, and export
+helpers are retained. The new variant preserves grouped marks, rejects oversized
+material instead of silently truncating it, fails closed on corrupt stored sets,
+and conditionally creates the first record so simultaneous initial writes cannot
+both win. No client starts writing this variant yet.
+
+Focused worker tests cover private ownership, EPUB round trips, revision conflicts,
+tombstones, grouped notes, invalid source anchors, byte/content limits, concurrent
+first writes, corrupt-store protection, and exports. The policy change only makes
+existing-provider private PDF/EPUB wording accurate where features are available;
+it does not claim that Paste text upload or EPUB client sync has shipped.
+
+The final worker file passed 49 tests. Architecture review additionally found an
+orphan-EPUB export case, which was corrected with complete-format discrimination
+when file metadata is absent, while retaining orphan PDF and tombstone exports
+and rejecting mixed/malformed sets. Owned-book GET/PUT still require file ownership.
+The wider six-file checkpoint run passed 93 tests before that additional export
+regression was added.
+
+This is provider-independent validation using test storage. It does not prove
+real R2 operation, migration of existing client records, or deletion races with
+already in-flight writes. The delete-after-ownership-check race needs explicit
+acceptance before release; deletion followed by a new request returning 404 is
+insufficient evidence of that race being solved.
+
+The Worker module graph also compiled with platform/WASM imports external. That
+is a compilation check, not a deployed Worker or provider connection.
+
+## Exact next integration seam
+
+The next slice should keep `placeRef` and `notePlace` as the existing storage
+dispatch, and introduce an active-layout/source-epoch guard before accepting any
+continuous visible anchor. Audit entry points include:
+
+- `LabApp` restore references and incoming remote restore around the catalogue
+  `useLabPositionSync`, plus private `writeUserBookPlace`/`noteOwnPlace` dispatch.
+- Chapter/content map, font-budget reflow, measured native/desktop maps, delayed
+  landing/overflow effects, and both paginators. Inactive layout callbacks must
+  not write a visible location.
+- Page/Compare navigation, chapter jumps/Contents, narration seek/follow and
+  browsing suspension, overlays, font/edition changes, and late cloud results.
+
+Use source identity, edition/chapter, navigation epoch, readiness and restore
+suspension checks. Verify nonzero-word resume after font/viewport changes, stale
+outgoing callbacks, exactly one active writer, Bible sub-book mapping, Compare's
+primary anchor, narration versus browsing, private revision keys, and PDF
+original/text positions. Do not mount continuous mode by merely hiding the old
+paginator UI.
+
 Theme and paste previews are isolated from production entry points and require visual review. Faithful selection screenshots use the actual reader with provisional CSS injected only into the isolated browser. The standalone harness uses the real bars but illustrative surrounding pages; its Paste text flow is proposed and saving is disabled. No full reader consolidation, private-source integration, persistence migration, paid narration/Talk check, or production verification is complete.
 
 The historical narration acceptance failure remains unresolved; no real provider test was started. Source inspection explains a possible audio-audit failure: currently held English editions deliberately return manifest 503, and the census includes them and aborts before emitting ledgers. This does not verify the body or cause of the historical failed request. Preserve that distinction and repair the audit deliberately, not by dismissing 503s.

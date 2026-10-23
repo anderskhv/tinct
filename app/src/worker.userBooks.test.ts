@@ -15,6 +15,8 @@ import {
   UPLOADS_PER_MINUTE,
   encodeMeta,
   handleUserBooks,
+  listOwnCards,
+  listOwnMarks,
   sniffBookType,
   type UserBook,
 } from './worker/routes/userBooks'
@@ -42,7 +44,19 @@ function setup(options: { pageSize?: number } = {}) {
   const premiumAccess = async (id: string) => (access.has(id) ? access.get(id)! : true)
   const r2 = fakeUserBooksBucket(options)
   const checkRateLimit = limiter()
-  const env = { USER_BOOKS: r2.bucket }
+  // The shared fake only models etagMatches; enforce R2's If-None-Match:* as
+  // one synchronous check before put so two first writers cannot both win.
+  const bucket = new Proxy(r2.bucket, {
+    get(target, property) {
+      if (property === 'put') return (key: string, value: Uint8Array | ArrayBuffer | string, opts: R2PutOptions = {}) => {
+        if (opts.onlyIf instanceof Headers && opts.onlyIf.get('If-None-Match') === '*' && r2.objects.has(key)) return Promise.resolve(null)
+        return target.put(key, value, opts)
+      }
+      const member = Reflect.get(target, property)
+      return typeof member === 'function' ? member.bind(target) : member
+    },
+  })
+  const env = { USER_BOOKS: bucket }
   const verifyUser = async (request: Request) => {
     const id = USERS[request.headers.get('authorization') ?? '']
     return id ? { id, email: `${id}@example.com` } : null
@@ -707,7 +721,7 @@ describe('/api/user-books/marks', () => {
     expect((await call(`/api/user-books/marks/${hex}`)).status).toBe(401)
   })
 
-  it('refuses marks out of shape, an EPUB, and an unknown book', async () => {
+  it('refuses PDF marks out of shape, and an unknown book', async () => {
     const { call, upload, hex } = await withPdf()
     for (const bad of [
       [mark('ab')], [mark('abcd1'), mark('abcd1')], [mark('abcd1', { color: 'teal' })], [mark('abcd1', { rects: [[0, 0, 1]] })],
@@ -719,7 +733,7 @@ describe('/api/user-books/marks', () => {
     expect((await call(`/api/user-books/marks/${'0'.repeat(24)}`, { token: 'token-a' })).status).toBe(404)
     expect((await call('/api/user-books/marks/not-hex', { token: 'token-a' })).status).toBe(404)
     const { book } = await (await upload('token-a', epubBytes(), { Title: 'An EPUB' })).json() as { book: UserBook }
-    expect((await call(`/api/user-books/marks/${book.sha256.slice(0, 24)}`, { token: 'token-a' })).status).toBe(404)
+    expect(await (await call(`/api/user-books/marks/${book.sha256.slice(0, 24)}`, { token: 'token-a' })).json()).toEqual({ marks: [], rev: 0 })
   })
 
   it('deletes the marks with the book', async () => {
@@ -802,5 +816,172 @@ describe('/api/user-books/cards', () => {
     expect(r2.objects.has(`u/${A}/cards/${hex}`)).toBe(true)
     expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
     expect(r2.objects.has(`u/${A}/cards/${hex}`)).toBe(false)
+  })
+})
+
+describe('private EPUB source marks and cards', () => {
+  const range = { kind: 'range', editionKey: 'own-en', converter: 6, chapterNumber: 2,
+    paragraphIndex: 3, fromWord: 4, endParagraphIndex: 3, toWord: 7 }
+  const chapter = { kind: 'chapter', editionKey: 'own-en', converter: 6, chapterNumber: 2 }
+  const mark = { v: 'text-v1', id: 'hl-123_abc', anchor: range, text: 'one passage', color: 'gold',
+    note: 'A note', groupId: 'hg-123_abc', groupText: 'one passage and its continuation', at: 1000, u: 1000 }
+  const card = { v: 'text-v1', id: 'card-123_abc', kind: 'ask', anchor: range, text: 'one passage',
+    turns: [{ role: 'user', content: 'Why?', at: 1000 }, { role: 'assistant', content: 'Because.', at: 1001 }], data: { context: 'own' }, at: 1000 }
+  async function withEpub() {
+    const env = setup()
+    const { book } = await (await env.upload('token-a', epubBytes(), { Title: 'Private EPUB' })).json() as { book: UserBook }
+    return { ...env, book, hex: book.sha256.slice(0, 24) }
+  }
+  const put = (call: ReturnType<typeof setup>['call'], field: 'marks' | 'cards', hex: string, entries: unknown, rev: number, token = 'token-a') =>
+    call(`/api/user-books/${field}/${hex}`, { method: 'PUT', token, body: JSON.stringify({ [field]: entries, rev }) })
+  const get = (call: ReturnType<typeof setup>['call'], field: 'marks' | 'cards', hex: string, token = 'token-a') =>
+    call(`/api/user-books/${field}/${hex}`, { token })
+
+  it('round-trips owned EPUB ranges, grouped notes, chapter cards and tombstones through revision and export', async () => {
+    const { env, call, book, hex } = await withEpub()
+    expect(await (await get(call, 'marks', hex)).json()).toEqual({ marks: [], rev: 0 })
+    expect((await put(call, 'marks', hex, [mark], 0)).status).toBe(200)
+    expect((await put(call, 'cards', hex, [card, { ...card, id: 'primer-1', kind: 'primer', anchor: chapter }], 0)).status).toBe(200)
+    expect(await (await get(call, 'marks', hex)).json()).toEqual({ marks: [mark], rev: 1 })
+    const stale = await put(call, 'marks', hex, [], 0)
+    expect(stale.status).toBe(409)
+    expect(await stale.json()).toEqual({ error: 'conflict', marks: [mark], rev: 1 })
+    const gone = { id: mark.id, gone: true, u: 2000 }
+    expect(await (await put(call, 'marks', hex, [gone], 1)).json()).toEqual({ rev: 2 })
+    expect(await (await put(call, 'cards', hex, [{ id: card.id, gone: true, u: 2001 }, { ...card, id: 'primer-1', kind: 'primer', anchor: chapter }], 1)).json()).toEqual({ rev: 2 })
+    expect(await (await get(call, 'marks', hex)).json()).toEqual({ marks: [gone], rev: 2 })
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({ [hex]: { highlights: [], removed: 1, rev: 2 } })
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({ [hex]: { cards: [{ ...card, id: 'primer-1', kind: 'primer', anchor: chapter }], removed: 1, rev: 2 } })
+    expect((await get(call, 'marks', hex, 'token-b')).status).toBe(404)
+    expect((await get(call, 'cards', hex, 'token-b')).status).toBe(404)
+    expect((await put(call, 'cards', hex, [card], 0, 'token-b')).status).toBe(404)
+    expect((await call(`/api/user-books/marks/${hex}`)).status).toBe(401)
+    expect((await call(`/api/user-books/cards/${hex}`)).status).toBe(401)
+    expect((await call(`/api/user-books/${book.id}`, { method: 'DELETE', token: 'token-a' })).status).toBe(200)
+    expect((await get(call, 'marks', hex)).status).toBe(404)
+    expect((await get(call, 'cards', hex)).status).toBe(404)
+  })
+
+  it('rejects PDF records on EPUB and EPUB records on PDF, malformed source anchors and oversized content', async () => {
+    const { call, upload, hex } = await withEpub()
+    const pdf = { id: 'abcd1', page: 1, rects: [[0, 0, 1, 1]], text: 'page', color: 'gold', at: 1000 }
+    expect((await put(call, 'marks', hex, [pdf], 0)).status).toBe(400)
+    expect((await put(call, 'cards', hex, [{ ...pdf, kind: 'ask', turns: [] }], 0)).status).toBe(400)
+    for (const anchor of [
+      { ...range, chapterNumber: 0 }, { ...range, converter: NaN }, { ...range, paragraphIndex: -1 },
+      { ...range, toWord: 4 }, { ...range, endParagraphIndex: 2 }, { ...range, editionKey: 'other-en' },
+      { ...chapter, fromWord: 0 }, { ...range, toWord: 100001 },
+    ]) expect((await put(call, 'marks', hex, [{ ...mark, anchor }], 0)).status, JSON.stringify(anchor)).toBe(400)
+    expect((await put(call, 'marks', hex, [{ ...mark, note: 'x'.repeat(4001) }], 0)).status).toBe(400)
+    expect((await put(call, 'marks', hex, [{ ...mark, groupText: 'x'.repeat(4001) }], 0)).status).toBe(400)
+    for (const long of [
+      { ...card, text: 'x'.repeat(2001) }, { ...card, turns: Array.from({ length: 41 }, () => ({ role: 'user', content: 'x' })) },
+      { ...card, turns: [{ role: 'user', content: 'x'.repeat(12001) }] },
+      { ...card, data: { huge: 'x'.repeat(16000) } },
+    ]) expect((await put(call, 'cards', hex, [long], 0)).status).toBe(400)
+    const { book: pdfBook } = await (await upload('token-a', pdfBytes('separate PDF'))).json() as { book: UserBook }
+    expect((await put(call, 'marks', pdfBook.sha256.slice(0, 24), [mark], 0)).status).toBe(400)
+    expect((await put(call, 'cards', pdfBook.sha256.slice(0, 24), [card], 0)).status).toBe(400)
+  })
+
+  it('makes simultaneous first writes conditional for both private sets', async () => {
+    for (const field of ['marks', 'cards'] as const) {
+      const { env, call, hex } = await withEpub()
+      const key = `u/${A}/${field}/${hex}`
+      const actual = env.USER_BOOKS
+      let seen = 0
+      let release!: () => void
+      const bothRead = new Promise<void>(resolve => { release = resolve })
+      env.USER_BOOKS = new Proxy(actual, {
+        get(target, property) {
+          if (property === 'get') return (requested: string) => {
+            const snapshot = target.get(requested)
+            if (requested !== key || ++seen > 2) return snapshot
+            if (seen === 2) release()
+            return bothRead.then(() => snapshot)
+          }
+          const member = Reflect.get(target, property)
+          return typeof member === 'function' ? member.bind(target) : member
+        },
+      })
+      const entries = field === 'marks' ? [mark] : [card]
+      const other = field === 'marks' ? [{ ...mark, id: 'hl-other' }] : [{ ...card, id: 'card-other' }]
+      const [one, two] = await Promise.all([put(call, field, hex, entries, 0), put(call, field, hex, other, 0)])
+      expect([one.status, two.status].sort()).toEqual([200, 409])
+      const winner = one.status === 200 ? entries : other
+      expect(await (await get(call, field, hex)).json()).toEqual({ [field]: winner, rev: 1 })
+      const loser = one.status === 409 ? one : two
+      expect(await loser.json()).toEqual({ error: 'conflict', [field]: winner, rev: 1 })
+    }
+  })
+
+  it('fails closed on malformed stored sets and never overwrites them', async () => {
+    for (const field of ['marks', 'cards'] as const) {
+      const { r2, env, call, hex } = await withEpub()
+      const entries = field === 'marks' ? [mark] : [card]
+      expect((await put(call, field, hex, entries, 0)).status).toBe(200)
+      const key = `u/${A}/${field}/${hex}`
+      const stored = r2.objects.get(key)!
+      const bytes = new TextEncoder().encode(JSON.stringify([{ ...entries[0], anchor: { ...range, chapterNumber: -1 } }]))
+      stored.bytes = bytes
+      expect((await get(call, field, hex)).status).toBe(503)
+      expect((await put(call, field, hex, entries, 1)).status).toBe(503)
+      expect(r2.objects.get(key)?.bytes).toEqual(bytes)
+      await expect(field === 'marks' ? listOwnMarks(env.USER_BOOKS, A) : listOwnCards(env.USER_BOOKS, A)).rejects.toThrow(/Corrupt own/)
+    }
+  })
+
+  it('preserves historical PDF exports when a file is missing but its valid sets remain', async () => {
+    const { r2, env, call, upload } = setup()
+    const { book } = await (await upload('token-a', pdfBytes('retained export'))).json() as { book: UserBook }
+    const hex = book.sha256.slice(0, 24)
+    const pdfMark = { id: 'abcd1', page: 1, rects: [[0, 0, 1, 1]], text: 'page', color: 'gold', at: 1000 }
+    const pdfCard = { id: 'abcd1', page: 1, rects: [[1, 0, 0, 1, 1]], text: 'page',
+      kind: 'ask', turns: [{ role: 'user', content: 'Why?' }], at: 1000 }
+    expect((await put(call, 'marks', hex, [pdfMark], 0)).status).toBe(200)
+    expect((await put(call, 'cards', hex, [pdfCard], 0)).status).toBe(200)
+    r2.objects.delete(`u/${A}/${book.id}`)
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({ [hex]: { highlights: [pdfMark], removed: 0, rev: 1 } })
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({ [hex]: { cards: [pdfCard], removed: 0, rev: 1 } })
+    expect((await get(call, 'marks', hex)).status).toBe(404)
+  })
+
+  it('exports valid orphan EPUB text-v1 sets and tombstones without restoring route access', async () => {
+    const { r2, env, call, book, hex } = await withEpub()
+    const gone = { id: 'hl-removed_1', gone: true, u: 2000 }
+    expect((await put(call, 'marks', hex, [mark, gone], 0)).status).toBe(200)
+    expect((await put(call, 'cards', hex, [card, { id: 'card-removed_1', gone: true, u: 2000 }], 0)).status).toBe(200)
+    r2.objects.delete(`u/${A}/${book.id}`)
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({ [hex]: { highlights: [mark], removed: 1, rev: 1 } })
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({ [hex]: { cards: [card], removed: 1, rev: 1 } })
+    expect((await get(call, 'marks', hex)).status).toBe(404)
+    expect((await put(call, 'cards', hex, [card], 1)).status).toBe(404)
+
+    r2.objects.get(`u/${A}/marks/${hex}`)!.bytes = new TextEncoder().encode(JSON.stringify([gone]))
+    r2.objects.get(`u/${A}/cards/${hex}`)!.bytes = new TextEncoder().encode(JSON.stringify([{ id: 'card-removed_1', gone: true, u: 2000 }]))
+    expect(await listOwnMarks(env.USER_BOOKS, A)).toEqual({ [hex]: { highlights: [], removed: 1, rev: 1 } })
+    expect(await listOwnCards(env.USER_BOOKS, A)).toEqual({ [hex]: { cards: [], removed: 1, rev: 1 } })
+
+    // Even without file metadata, the versioned records cannot be reinterpreted
+    // as a PDF set when a corrupt or mixed record appears.
+    const key = `u/${A}/marks/${hex}`
+    r2.objects.get(key)!.bytes = new TextEncoder().encode(JSON.stringify([mark, {
+      id: 'abcd1', page: 1, rects: [[0, 0, 1, 1]], text: 'page', color: 'gold', at: 1000,
+    }]))
+    await expect(listOwnMarks(env.USER_BOOKS, A)).rejects.toThrow(/Corrupt own marks/)
+  })
+
+  it('does not treat corrupt existing PDF marks as an empty set to overwrite', async () => {
+    const { r2, call, upload } = setup()
+    const { book } = await (await upload('token-a', pdfBytes('corrupt PDF marks'))).json() as { book: UserBook }
+    const hex = book.sha256.slice(0, 24)
+    const key = `u/${A}/marks/${hex}`
+    const pdfMark = { id: 'abcd1', page: 1, rects: [[0, 0, 1, 1]], text: 'page', color: 'gold', at: 1000 }
+    expect((await put(call, 'marks', hex, [pdfMark], 0)).status).toBe(200)
+    const badBytes = new TextEncoder().encode('{broken json')
+    r2.objects.get(key)!.bytes = badBytes
+    expect((await get(call, 'marks', hex)).status).toBe(503)
+    expect((await put(call, 'marks', hex, [pdfMark], 1)).status).toBe(503)
+    expect(r2.objects.get(key)!.bytes).toEqual(badBytes)
   })
 })

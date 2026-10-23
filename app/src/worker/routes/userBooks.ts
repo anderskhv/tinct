@@ -13,11 +13,12 @@
  *                                     write gets 409 and the stored place back
  *   GET    /api/user-books/marks/{bookHex}
  *   PUT    /api/user-books/marks/{bookHex}
- *                                     a PDF's highlights and notes, versioned the
+ *                                     an own PDF's page marks or EPUB's source-text
+ *                                     marks, versioned the
  *                                     same way (the reader merges on a 409)
  *   GET    /api/user-books/cards/{bookHex}
  *   PUT    /api/user-books/cards/{bookHex}
- *                                     the margin's kept answers in a PDF (cards),
+ *                                     the margin's kept answers in a PDF or EPUB,
  *                                     versioned the same way
  *
  * Storage is the private R2 bucket USER_BOOKS (never AUDIO_BUCKET, which is
@@ -60,10 +61,11 @@
  * is in customMetadata; a write naming an older revision is refused (409)
  * with the stored set, which the reader merges with its own (a union by id,
  * the newer edit winning) and writes again, so nothing is lost. Only a PDF
- * this account keeps has marks; deleting the book deletes them, and account
+ * this account keeps has PDF page marks; an owned EPUB uses a distinct text-v1
+ * source anchor in the same private key. Deleting the book deletes them, and account
  * deletion takes the whole `u/{userId}/` prefix (account export lists them).
  *
- * The margin's cards in an own PDF (docs/margin/BRIEF.md §3: the answers the
+ * The margin's cards in an own PDF or EPUB (docs/margin/BRIEF.md §3: the answers the
  * reader kept beside a passage: Explain, Simplify, Ask threads, Define,
  * Fact-check, Counterpoint and Quiz me) are kept the same way, one JSON object
  * per book at `u/{userId}/cards/{bookHex}`: each card's id, kind, page, its
@@ -790,7 +792,7 @@ async function handlePlaces(
   return savePlace(request, bucket, user.id, bookHex, deps.checkRateLimit)
 }
 
-// ===== Highlights and notes in an own PDF =====
+// ===== Private highlights and cards in an own PDF or EPUB =====
 
 /** A highlight in an own PDF as stored: its boxes are fractions of the page ([x, y, w, h]). */
 export type OwnMark = {
@@ -801,6 +803,17 @@ export type OwnMark = {
 }
 /** A highlight the reader removed: kept so the removal reaches every device. */
 export type OwnMarkGone = { id: string; gone: true; u: number }
+/** EPUB marks address the converted source text, never a PDF page rectangle. */
+export type OwnTextAnchor = { editionKey: string; converter: number; chapterNumber: number }
+  & ({ kind: 'chapter' } | { kind: 'range'; paragraphIndex: number; fromWord: number; endParagraphIndex: number; toWord: number })
+export type OwnTextMark = {
+  v: 'text-v1'; id: string; anchor: OwnTextAnchor; text: string; color: string; at: number; u?: number
+  note?: string; withNote?: true; groupId?: string; groupText?: string
+}
+export type OwnTextCard = {
+  v: 'text-v1'; id: string; kind: OwnCardKind | 'primer' | 'recap' | 'catchup' | 'note'; anchor: OwnTextAnchor
+  text: string; turns: OwnCard['turns']; data?: Record<string, unknown>; at: number; u?: number
+}
 /** Mark writes per account per rate-limit window (the reader sends a change after a pause of 1.5 s). */
 export const MARK_WRITES_PER_MINUTE = 30
 /** Highlights and removals per book. */
@@ -808,11 +821,103 @@ export const MAX_MARKS = 5000
 /** The stored set's size limit, in bytes of JSON. */
 export const MAX_MARKS_BYTES = 2 * 1024 * 1024
 const MARK_ID = /^[0-9a-z]{4,32}$/
+// Lab's hl-<time>-<suffix> IDs and card IDs use hyphens/underscores. PDF keeps MARK_ID.
+const TEXT_ID = /^[A-Za-z0-9_-]{4,120}$/
 const MARK_COLORS = new Set(['gold', 'rose', 'sage', 'sky', 'lavender'])
 const MARK_KINDS = new Set(['figure', 'formula', 'snip'])
 const MARK_TEXT = 2000
 const MARK_NOTE = 4000
 const MARK_RECTS = 400
+const markTime = (v: unknown) => wholeNumber(v, Number.MAX_SAFE_INTEGER) && v > 0
+
+function readTextAnchor(value: unknown): OwnTextAnchor | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null
+  const a = value as Record<string, unknown>
+  if (typeof a.editionKey !== 'string' || !/^(?:own|own-en|own-da)$/.test(a.editionKey)
+    || !wholeNumber(a.converter, 1000) || a.converter < 1
+    || !wholeNumber(a.chapterNumber, 5000) || a.chapterNumber < 1) return null
+  const base = { editionKey: a.editionKey, converter: a.converter, chapterNumber: a.chapterNumber }
+  if (a.kind === 'chapter') {
+    if (['paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord'].some(field => a[field] !== undefined)) return null
+    return { ...base, kind: 'chapter' }
+  }
+  if (a.kind !== 'range' || !wholeNumber(a.paragraphIndex, 100_000) || !wholeNumber(a.fromWord, 100_000)
+    || !wholeNumber(a.endParagraphIndex, 100_000) || !wholeNumber(a.toWord, 100_000)
+    || a.endParagraphIndex < a.paragraphIndex
+    || a.endParagraphIndex === a.paragraphIndex && a.toWord <= a.fromWord
+    || a.endParagraphIndex > a.paragraphIndex && a.toWord < 1) return null
+  return { ...base, kind: 'range', paragraphIndex: a.paragraphIndex, fromWord: a.fromWord, endParagraphIndex: a.endParagraphIndex, toWord: a.toWord }
+}
+
+function readTextSet<T>(value: unknown, max: number, item: (record: Record<string, unknown>) => T | null): Array<T | OwnMarkGone> | null {
+  if (!Array.isArray(value) || value.length > max) return null
+  const out: Array<T | OwnMarkGone> = []
+  const seen = new Set<string>()
+  for (const raw of value) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null
+    const record = raw as Record<string, unknown>
+    if (typeof record.id !== 'string' || !TEXT_ID.test(record.id) || seen.has(record.id)) return null
+    seen.add(record.id)
+    if (record.gone === true) {
+      if (!markTime(record.u)) return null
+      out.push({ id: record.id, gone: true, u: record.u as number })
+    } else {
+      const parsed = item(record)
+      if (!parsed) return null
+      out.push(parsed)
+    }
+  }
+  return out
+}
+
+export function readTextMarks(value: unknown): Array<OwnTextMark | OwnMarkGone> | null {
+  return readTextSet(value, MAX_MARKS, m => {
+    const anchor = readTextAnchor(m.anchor)
+    if (m.v !== 'text-v1' || !anchor || typeof m.text !== 'string' || m.text.length > MARK_TEXT
+      || typeof m.color !== 'string' || !MARK_COLORS.has(m.color) || !markTime(m.at)
+      || m.u !== undefined && !markTime(m.u)
+      || m.note !== undefined && (typeof m.note !== 'string' || m.note.length > MARK_NOTE)
+      || m.withNote !== undefined && m.withNote !== true
+      || m.groupId !== undefined && (typeof m.groupId !== 'string' || !TEXT_ID.test(m.groupId))
+      || m.groupText !== undefined && (typeof m.groupText !== 'string' || m.groupText.length > MARK_NOTE)
+      || m.groupText !== undefined && m.groupId === undefined) return null
+    return { v: 'text-v1', id: m.id as string, anchor, text: m.text, color: m.color, at: m.at as number,
+      ...(m.u !== undefined ? { u: m.u as number } : {}), ...(m.note ? { note: m.note as string } : {}),
+      ...(m.withNote === true && m.note ? { withNote: true as const } : {}),
+      ...(m.groupId !== undefined ? { groupId: m.groupId as string } : {}),
+      ...(m.groupText !== undefined ? { groupText: m.groupText as string } : {}) }
+  })
+}
+
+const TEXT_CARD_KINDS = new Set(['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure', 'primer', 'recap', 'catchup', 'note'])
+export function readTextCards(value: unknown): Array<OwnTextCard | OwnMarkGone> | null {
+  return readTextSet(value, MAX_CARDS, c => {
+    const anchor = readTextAnchor(c.anchor)
+    if (c.v !== 'text-v1' || !anchor || typeof c.kind !== 'string' || !TEXT_CARD_KINDS.has(c.kind)
+      || typeof c.text !== 'string' || c.text.length > MARK_TEXT || !markTime(c.at) || c.u !== undefined && !markTime(c.u)
+      || !Array.isArray(c.turns) || c.turns.length > CARD_TURNS) return null
+    const turns: OwnCard['turns'] = []
+    for (const raw of c.turns) {
+      if (!raw || typeof raw !== 'object') return null
+      const turn = raw as Record<string, unknown>
+      if ((turn.role !== 'user' && turn.role !== 'assistant') || typeof turn.content !== 'string' || turn.content.length > CARD_CONTENT
+        || turn.at !== undefined && !markTime(turn.at)
+        || turn.display !== undefined && (typeof turn.display !== 'string' || turn.display.length > MARK_TEXT)) return null
+      turns.push({ role: turn.role, content: turn.content,
+        ...(turn.at !== undefined ? { at: turn.at as number } : {}),
+        ...(turn.display !== undefined ? { display: turn.display as string } : {}) })
+    }
+    const card: OwnTextCard = { v: 'text-v1', id: c.id as string, kind: c.kind as OwnTextCard['kind'], anchor,
+      text: c.text, turns, at: c.at as number, ...(c.u !== undefined ? { u: c.u as number } : {}) }
+    if (c.data !== undefined) {
+      if (!c.data || typeof c.data !== 'object' || Array.isArray(c.data)) return null
+      const json = JSON.stringify(c.data)
+      if (json.length > CARD_DATA_BYTES) return null
+      card.data = JSON.parse(json) as Record<string, unknown>
+    }
+    return card
+  })
+}
 
 /** A set of marks from a request body or the store, normalised to the stored shape; null when any is out of shape. */
 export function readMarks(value: unknown): Array<OwnMark | OwnMarkGone> | null {
@@ -935,53 +1040,84 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
 }
 
 /** One versioned set per book: the highlights (marks) or the margin's cards. */
-interface OwnSet<T> { key: (userId: string, bookHex: string) => string; read: (value: unknown, dropped?: { count: number }) => T[] | null; field: 'marks' | 'cards' }
-const MARKS_SET: OwnSet<OwnMark | OwnMarkGone> = { key: ownMarksKey, read: readMarks, field: 'marks' }
-const CARDS_SET: OwnSet<OwnCard | OwnMarkGone> = { key: ownCardsKey, read: readCards, field: 'cards' }
+type OwnSetItem = OwnMark | OwnTextMark | OwnCard | OwnTextCard | OwnMarkGone
+interface OwnSet { key: (userId: string, bookHex: string) => string; read: (value: unknown, dropped?: { count: number }) => OwnSetItem[] | null; field: 'marks' | 'cards' }
+const MARKS_SET: OwnSet = { key: ownMarksKey, read: readMarks, field: 'marks' }
+const CARDS_SET: OwnSet = { key: ownCardsKey, read: readCards, field: 'cards' }
+const TEXT_MARKS_SET: OwnSet = { key: ownMarksKey, read: readTextMarks, field: 'marks' }
+const TEXT_CARDS_SET: OwnSet = { key: ownCardsKey, read: readTextCards, field: 'cards' }
 
-async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown) => T[] | null): Promise<{ list: T[]; rev: number; etag: string | null }> {
+async function storedSet<T>(bucket: R2Bucket, key: string, read: (value: unknown, dropped?: { count: number }) => T[] | null): Promise<{ list: T[]; rev: number; etag: string | null; corrupt: boolean }> {
   const object = await bucket.get(key)
-  if (!object) return { list: [], rev: 0, etag: null }
+  if (!object) return { list: [], rev: 0, etag: null, corrupt: false }
   const rev = Number(object.customMetadata?.rev)
   let list: T[] | null = null
-  try { list = read(await object.json()) } catch { list = null }
-  return { list: list ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag }
-}
-async function storedMarks(bucket: R2Bucket, key: string): Promise<{ marks: Array<OwnMark | OwnMarkGone>; rev: number; etag: string | null }> {
-  const { list, rev, etag } = await storedSet(bucket, key, readMarks)
-  return { marks: list, rev, etag }
+  const dropped = { count: 0 }
+  try { list = read(await object.json(), dropped) } catch { list = null }
+  const corrupt = !list || dropped.count > 0 || !Number.isInteger(rev) || rev < 1 || !object.etag
+  return { list: list ?? [], rev: Number.isInteger(rev) && rev > 0 ? rev : 0, etag: object.etag, corrupt }
 }
 
-/** Every own PDF's cards, by book hex (account export): the kept answers in full; removals counted. */
-export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: OwnCard[]; removed: number; rev: number }>> {
+/** File metadata may be gone while a valid set remains for account export. */
+function readOrphanSet<T>(
+  value: unknown, dropped: { count: number } | undefined,
+  textReader: (value: unknown) => T[] | null,
+  pdfReader: (value: unknown, dropped?: { count: number }) => T[] | null,
+): T[] | null {
+  if (!Array.isArray(value)) return null
+  // A live text record declares its version. Never try a PDF interpretation
+  // if one of these records is malformed or mixed with another format.
+  if (value.some(item => item && typeof item === 'object' && !Array.isArray(item) && 'v' in item)) return textReader(value)
+  // A set containing only tombstones has no live variant. A hyphenated ID is
+  // text-only; PDF-compatible IDs have identical tombstone export semantics.
+  if (value.some(item => item && typeof item === 'object' && !Array.isArray(item)
+    && typeof item.id === 'string' && !MARK_ID.test(item.id))) return textReader(value)
+  return pdfReader(value, dropped)
+}
+
+/** Every own PDF/EPUB's cards, by book hex (account export): full answers and removal count. */
+export async function listOwnCards(bucket: R2Bucket, userId: string): Promise<Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }>> {
   const prefix = ownCardsKey(userId, '')
-  const out: Record<string, { cards: OwnCard[]; removed: number; rev: number }> = {}
+  const out: Record<string, { cards: Array<OwnCard | OwnTextCard>; removed: number; rev: number }> = {}
+  const types = new Map((await listUserBooks(bucket, userId)).map(book => [book.sha256.slice(0, USER_BOOK_HEX_LENGTH), book.type]))
   let cursor: string | undefined
   do {
     const page = await bucket.list({ prefix, cursor, limit: 1000 })
     for (const object of page.objects) {
       const hex = object.key.slice(prefix.length)
       if (!BOOK_HEX.test(hex)) continue
-      const { list, rev } = await storedSet(bucket, object.key, readCards)
-      out[hex] = { cards: list.filter((c): c is OwnCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
+      const type = types.get(hex)
+      // Retained sets outlive missing file metadata in historical exports.
+      const reader: (value: unknown, dropped?: { count: number }) => Array<OwnCard | OwnTextCard | OwnMarkGone> | null =
+        type === 'epub' ? readTextCards : type === 'pdf' ? readCards
+          : (value, dropped) => readOrphanSet(value, dropped, readTextCards, readCards)
+      const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
+      if (corrupt) throw new Error(`Corrupt own cards: ${hex}`)
+      out[hex] = { cards: list.filter((c): c is OwnCard | OwnTextCard => !('gone' in c)), removed: list.filter(c => 'gone' in c).length, rev }
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
   return out
 }
 
-/** Every own PDF's marks, by book hex (account export). */
-export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: OwnMark[]; removed: number; rev: number }>> {
+/** Every own PDF/EPUB's marks, by book hex (account export). */
+export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }>> {
   const prefix = ownMarksKey(userId, '')
-  const out: Record<string, { highlights: OwnMark[]; removed: number; rev: number }> = {}
+  const out: Record<string, { highlights: Array<OwnMark | OwnTextMark>; removed: number; rev: number }> = {}
+  const types = new Map((await listUserBooks(bucket, userId)).map(book => [book.sha256.slice(0, USER_BOOK_HEX_LENGTH), book.type]))
   let cursor: string | undefined
   do {
     const page = await bucket.list({ prefix, cursor, limit: 1000 })
     for (const object of page.objects) {
       const hex = object.key.slice(prefix.length)
       if (!BOOK_HEX.test(hex)) continue
-      const { marks, rev } = await storedMarks(bucket, object.key)
-      out[hex] = { highlights: marks.filter((m): m is OwnMark => !('gone' in m)), removed: marks.filter(m => 'gone' in m).length, rev }
+      const type = types.get(hex)
+      const reader: (value: unknown, dropped?: { count: number }) => Array<OwnMark | OwnTextMark | OwnMarkGone> | null =
+        type === 'epub' ? readTextMarks : type === 'pdf' ? readMarks
+          : (value, dropped) => readOrphanSet(value, dropped, readTextMarks, readMarks)
+      const { list, rev, corrupt } = await storedSet(bucket, object.key, reader)
+      if (corrupt) throw new Error(`Corrupt own marks: ${hex}`)
+      out[hex] = { highlights: list.filter((m): m is OwnMark | OwnTextMark => !('gone' in m)), removed: list.filter(m => 'gone' in m).length, rev }
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
@@ -989,12 +1125,12 @@ export async function listOwnMarks(bucket: R2Bucket, userId: string): Promise<Re
 }
 
 /** `/api/user-books/marks/{bookHex}` and `/cards/{bookHex}`: GET the stored set and its revision; PUT `{ marks | cards, rev }`. */
-async function handleMarks<T>(
+async function handleMarks(
   request: Request,
   env: UserBooksEnv,
   deps: { verifyUser: (request: Request) => Promise<VerifiedUser | null>; checkRateLimit: CheckRateLimit },
   bookHex: string,
-  set: OwnSet<T>,
+  set: OwnSet,
 ): Promise<Response> {
   if (!['GET', 'PUT'].includes(request.method)) return reply({ error: 'Method not allowed' }, 405, request)
   const user = await deps.verifyUser(request)
@@ -1012,23 +1148,27 @@ async function handleMarks<T>(
     if (!bytes) return reply({ error: 'too_large', maxBytes: MAX_MARKS_BYTES }, 413, request)
     try { body = JSON.parse(new TextDecoder().decode(bytes)) as typeof body } catch { return reply({ error: 'bad_request' }, 400, request) }
   }
-  // Only a PDF this account keeps has marks and cards.
+  // The file's owned type selects its own validator; PDF page records never mix with EPUB source anchors.
   const book = (await listUserBooks(bucket, user.id)).find(item => item.sha256.slice(0, USER_BOOK_HEX_LENGTH) === bookHex)
-  if (!book || book.type !== 'pdf') return notFound(request)
-  const key = set.key(user.id, bookHex)
-  const current = await storedSet(bucket, key, set.read)
+  if (!book) return notFound(request)
+  const activeSet = book.type === 'epub' ? (set.field === 'marks' ? TEXT_MARKS_SET : TEXT_CARDS_SET) : set
+  const key = activeSet.key(user.id, bookHex)
+  const current = await storedSet(bucket, key, activeSet.read)
+  if (current.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
   if (request.method === 'GET') return reply({ [set.field]: current.list, rev: current.rev }, 200, request)
   // Cards too large even when trimmed are left out of the set, not a reason to refuse it; the reader is told how many.
   const dropped = { count: 0 }
-  const list = set.read(body?.[set.field], dropped)
+  const list = activeSet.read(body?.[set.field], dropped)
   const expected = body?.rev
   if (!list || !Number.isInteger(expected) || (expected as number) < 0) return reply({ error: 'bad_request' }, 400, request)
   if (current.rev !== expected) return reply({ error: 'conflict', [set.field]: current.list, rev: current.rev }, 409, request)
   const rev = current.rev + 1
   // Conditional on the object read above: a write that landed in between wins, and this one is told.
-  const stored = await bucket.put(key, JSON.stringify(list), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) }, ...(current.etag ? { onlyIf: { etagMatches: current.etag } } : {}) })
+  const stored = await bucket.put(key, JSON.stringify(list), { httpMetadata: { contentType: 'application/json' }, customMetadata: { rev: String(rev) },
+    onlyIf: current.etag ? { etagMatches: current.etag } : new Headers({ 'If-None-Match': '*' }) })
   if (!stored) {
-    const latest = await storedSet(bucket, key, set.read)
+    const latest = await storedSet(bucket, key, activeSet.read)
+    if (latest.corrupt) return reply({ error: 'stored_data_unavailable' }, 503, request)
     return reply({ error: 'conflict', [set.field]: latest.list, rev: latest.rev }, 409, request)
   }
   return reply({ rev, ...(dropped.count ? { dropped: dropped.count } : {}) }, 200, request)

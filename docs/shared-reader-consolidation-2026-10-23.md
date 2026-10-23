@@ -173,6 +173,6 @@ The new private switch must not reuse today's margin=1 opt-in: readers already u
 
 ## Planning status
 
-Initial source/CI inspection and the runnable cloud baseline are complete. The cross-chapter check's obsolete locator has been reproduced and corrected, with all four Chromium/WebKit cases passing. Theme/paste previews and an isolated structural renderer prototype are in progress on a bounded child branch. Full implementation, migrations, performance and release acceptance remain open.
+Initial source/CI inspection and the runnable cloud baseline are complete. The cross-chapter check's obsolete locator has been reproduced and corrected, with all four Chromium/WebKit cases passing. Draft child PR #604 contains faithful theme/paste previews, the URL-only private entry and isolated structural renderer prototype. A server-only EPUB text-anchor persistence extension is also being preserved there; client migration/sync and deletion-race acceptance are not complete. Full implementation, continuous-layout position ownership, PDF/paste integration, performance, rollback and release acceptance remain open. No merge, deployment or paid provider check is authorized by this checkpoint.
 
 The earlier 3–5-day estimate preceded the all-book and paste-text scope and is not a commitment. Re-estimate after the runnable baseline, structural prototype and private-file storage contracts are established. Use milestone evidence, not the stale one-night or 3–4-week figures in previous handoffs.
