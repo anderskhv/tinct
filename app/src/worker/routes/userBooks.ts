@@ -1,3 +1,4 @@
+import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
 /**
  * "Bring your own book", release 2: private cloud copies of a signed-in
  * reader's own PDF and EPUB files, so a book follows them across devices.
@@ -1241,10 +1242,13 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
       if (data.action === 'recap' && Object.keys(data).length === 1) {
         // Existing whole-page recaps precede unit metadata; keep them readable.
         if (c.kind !== 'ask') return null
+      } else if (isPdfFreeNoteData(data)) {
+        if (c.kind !== 'ask') return null
       } else {
+        if (data.sourceAnchor !== undefined && !isPdfSourceAnchor(data.sourceAnchor)) return null
         if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(data.action))
           || c.kind !== (data.action === 'quiz' ? 'quiz' : 'ask')
-          || Object.keys(data).some(key => !['action', 'unit', 'source'].includes(key))
+          || Object.keys(data).some(key => !['action', 'unit', 'source', 'sourceAnchor'].includes(key))
           || !data.unit || typeof data.unit !== 'object' || Array.isArray(data.unit)
           || !data.source || typeof data.source !== 'object' || Array.isArray(data.source)) return null
         const unit = data.unit as Record<string, unknown>, source = data.source as Record<string, unknown>
@@ -1254,6 +1258,7 @@ export function readCards(value: unknown, dropped: { count: number } = { count: 
           || typeof unit.title !== 'string' || !unit.title.trim() || unit.title.length > 300
           || !wholeNumber(unit.from) || unit.from < 1 || !wholeNumber(unit.to) || unit.to < unit.from
           || !wholeNumber(source.from) || source.from < 1 || !wholeNumber(source.to) || source.to < source.from
+          || data.sourceAnchor !== undefined && (!isPdfSourceAnchor(data.sourceAnchor) || data.sourceAnchor.page < unit.from || data.sourceAnchor.page > unit.to)
           || c.page < unit.from || c.page > unit.to
           || (data.action === 'catchup' ? source.to >= c.page : source.from < unit.from || source.to > unit.to)) return null
       }

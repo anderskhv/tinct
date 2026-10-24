@@ -3,8 +3,10 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import { chromium } from '@playwright/test'
+import { enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 import { markInternal } from './lib/internalTraffic.cjs'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5173'
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_APPEARANCE_OUTPUT || '/tmp/tinct-reader-appearance'
 await fs.mkdir(output, { recursive: true })
 const browser = await markInternal(await chromium.launch({ headless: true,
@@ -16,9 +18,10 @@ try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
     const page = await context.newPage(), errors = []
     page.on('pageerror', error => errors.push(error.message))
-    await page.route('**/*', route => {
+    await page.route('**/*', async route => {
       const url = new URL(route.request().url())
       if (url.origin !== origin) return route.abort()
+      if (await enforceReaderBundle(route, expectedBundle)) return
       if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
       return route.continue()
     })
@@ -35,6 +38,11 @@ try {
     await settings()
     assert.equal(await page.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed'), 'true')
     assert.equal(await page.locator('.lab-v2-layout-miniature[aria-hidden="true"]').count(), 3)
+    const layoutSurface = await page.getByRole('group', { name: 'Layout', exact: true }).evaluate(node => { const style = getComputedStyle(node); return { radius: style.borderRadius, background: style.backgroundColor } })
+    assert.equal(layoutSurface.radius, '0px', 'desktop layout choices follow straight rules')
+    assert(['transparent', 'rgba(0, 0, 0, 0)'].includes(layoutSurface.background), 'layout chooser has no filled group box')
+    const restoreRadius = await page.getByRole('button', { name: 'Restore defaults', exact: true }).evaluate(node => getComputedStyle(node).borderRadius)
+    assert.equal(restoreRadius, '0px', 'desktop Appearance actions use straight rules')
     await page.screenshot({ path: `${output}/appearance-${theme}.png` })
     await page.getByTestId('lab-v2-layout-margin').click()
     await page.getByTestId('continuous-reader').waitFor()
@@ -68,7 +76,7 @@ try {
   }
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, serviceWorkers: 'block' })
   const page = await context.newPage()
-  await page.route('**/*', route => {
+  await page.route('**/*', async route => {
     const url = new URL(route.request().url())
     if (url.origin !== origin) return route.abort()
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })

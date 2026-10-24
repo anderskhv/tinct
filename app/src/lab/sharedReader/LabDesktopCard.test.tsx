@@ -44,3 +44,10 @@ it('hides an anchored passage card when its source words unmount', async () => {
   unmount()
   host.remove()
 })
+it('exposes the source accessibly without repeating a visible passage quote', () => {
+  const passageText = 'The real selected source passage.'
+  render(<LabDesktopCard label="Explain" kind="explain" passageText={passageText} onClose={vi.fn()}>Answer</LabDesktopCard>)
+  expect(screen.getByRole('dialog').getAttribute('aria-description')).toBe(passageText)
+  expect(document.querySelector('blockquote')).toBeNull()
+  expect(screen.queryByText(passageText)).toBeNull()
+})

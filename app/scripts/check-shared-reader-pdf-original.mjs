@@ -9,6 +9,7 @@ import path from 'node:path'
 import { chromium, webkit } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
+import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
 const originalBytes = makePdf({ pages: [
@@ -24,6 +25,13 @@ const denseBytes = makePdf({ pages: [
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
 ], outline: [{ title: 'Chapter One', page: 1 }, { title: 'Scans', page: 3 }] })
+// Forty pages preserve real outline units, including a second unit with eligible Catch me up.
+const parityBytes = makePdf({ pages: Array.from({ length: 40 }, (_, index) => ({ lines: [
+  { x: 72, y: 735, size: 20, text: index === 0 ? '1 Introduction' : index === 20 ? '2 Consequences' : `Source page ${index + 1}` },
+  ...Array.from({ length: index === 0 ? 16 : 22 }, (_, line) => ({ x: 72, y: 680 - line * 24, size: 13,
+    text: `Passage ${line + 1} on page ${index + 1} preserves the original printed source words.` })),
+  ...(index === 0 ? [{ x: 190, y: 125, size: 12, text: 'Figure 1. Fixture diagram' }] : []),
+], ...(index === 0 ? { draw: 'q 0 G 1.5 w 190 150 180 110 re S 205 170 m 355 170 l 280 245 l h S 205 170 m 355 225 l S Q' } : {}) })), outline: [{ title: '1 Introduction', page: 1 }, { title: '2 Consequences', page: 21 }] })
 const fileId = 'd'.repeat(32), owner = 'pdf-original-fixture-owner'
 const bundle = (await fs.readdir(path.join(dist, 'assets'))).find(name => /^supabase-.*\.js$/.test(name))
 const ref = bundle && /https:\/\/([a-z0-9]+)\.supabase\.co/.exec(await fs.readFile(path.join(dist, 'assets', bundle), 'utf8'))?.[1]
@@ -41,28 +49,161 @@ const server = createServer(async (req, res) => {
 })
 server.on('connect', (_req, socket) => socket.end('HTTP/1.1 403 Forbidden\r\n\r\n'))
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
-const origin = `http://127.0.0.1:${server.address().port}`
+const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
+
+async function sourceParity(page, calls, output) {
+  await fs.mkdir(output, { recursive: true })
+  await page.setViewportSize({ width: Number(process.env.TINCT_CAPTURE_WIDTH || 1440), height: 900 })
+  const host = page.locator('.pdf-original__scroll')
+  const heading = page.locator('.pdf-original__text [data-pdf-heading]').filter({ hasText: '1 Introduction' }).first()
+  await heading.waitFor({ timeout: 45000 })
+  await assertBareDesktopHeader(page)
+  await heading.hover()
+  const key = await heading.getAttribute('data-pdf-heading')
+  assert(key)
+  const pills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${key}"]`)
+  await pills.waitFor()
+  for (const label of ['Primer', 'Recap', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
+  assert.equal(await pills.getByRole('button', { name: 'Catch me up', exact: true }).count(), 0, 'first source unit never offers previous-content catch-up')
+  const headingBox = await heading.boundingBox(), pillBox = await pills.boundingBox()
+  assert(headingBox && pillBox && pillBox.y < headingBox.y + headingBox.height + 12 && pillBox.y + pillBox.height > headingBox.y - 12,
+    `PDF actions actually sit beside original heading ink, not the toolbar: ${JSON.stringify({ headingBox, pillBox })}`)
+  await page.screenshot({ path: path.join(output, 'pdf-real-heading-hover.png') })
+  await page.mouse.move(3, 3)
+  await page.waitForFunction(key => { const node = document.querySelector(`[data-testid="pdf-heading-actions"][data-unit-key="${key}"]`); return node && Number(getComputedStyle(node).opacity) === 0 }, key)
+  await heading.focus()
+  await pills.waitFor()
+  const recapPill = pills.getByRole('button', { name: 'Recap', exact: true })
+  const recapBox = await recapPill.boundingBox()
+  assert(recapBox)
+  await heading.hover()
+  await page.mouse.move(recapBox.x + recapBox.width / 2, recapBox.y + recapBox.height / 2, { steps: 12 })
+  assert(await pills.evaluate(node => Number(getComputedStyle(node).opacity) > .9), 'heading-to-pill pointer movement keeps actions available across the source gap')
+  await page.mouse.down(); await page.mouse.up()
+  const item = host.locator('[data-testid="source-margin-item"][data-open="true"]')
+  await item.waitFor()
+  await item.getByText(/A grounded local fixture answer|These printed pages introduce/).first().waitFor()
+  const id = await item.getAttribute('data-card-id')
+  assert(id)
+  await assertNaturalCardBody(item); await assertNoRepeatedQuote(item)
+  const geometry = await sourceRailGeometry(page, host)
+  const inkRight = await host.locator('.pdf-original__page').evaluateAll(nodes => Math.max(...nodes.map(node => node.getBoundingClientRect().right)))
+  const cardBox = await item.boundingBox()
+  assert(cardBox && cardBox.x >= inkRight + 10 && cardBox.width >= 220, 'original PDF source ink stays clear of a readable margin card')
+  await item.getByTestId('source-margin-minimise').click()
+  const folded = host.locator(`[data-testid="source-margin-item"][data-card-id="${id}"]`)
+  assert.equal(await folded.getAttribute('data-open'), 'false')
+  await folded.getByTestId('source-margin-open').click()
+  assert.equal(await folded.getAttribute('data-open'), 'true')
+  await page.screenshot({ path: path.join(output, 'pdf-source-rail-recap.png') })
+  const scrollBefore = await host.evaluate(node => node.scrollTop)
+  await host.evaluate(node => { node.scrollTop += 64; node.dispatchEvent(new Event('scroll', { bubbles: true })) })
+  await settlePaint(page)
+  assert(await host.evaluate(node => node.scrollTop) > scrollBefore)
+  await assertNaturalCardBody(folded)
+  await folded.getByTestId('source-margin-minimise').click()
+  const marginRoom = await host.locator('.source-margin-room').boundingBox()
+  assert(marginRoom)
+  await page.mouse.click(marginRoom.x + Math.min(100, marginRoom.width / 2), 650)
+  const noteEditor = page.getByRole('textbox', { name: 'Your note on this section', exact: true })
+  await noteEditor.fill('A free note beside the original printed page.')
+  // PDF note autosave deliberately debounces a typing burst for 400 ms.
+  await page.waitForTimeout(550)
+  const noteItem = host.locator('[data-testid="source-margin-item"][data-open="true"]')
+  const noteId = await noteItem.getAttribute('data-card-id')
+  assert(noteId)
+  await noteItem.getByTestId('source-margin-minimise').click()
+  const savedNote = host.locator(`[data-testid="source-margin-item"][data-card-id="${noteId}"]`)
+  await savedNote.getByTestId('source-margin-open').click()
+  assert.equal(await noteEditor.inputValue(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens')
+  await savedNote.getByRole('button', { name: /^Delete / }).click()
+  assert.equal(await savedNote.count(), 0)
+  await page.getByRole('button', { name: 'Undo', exact: true }).click()
+  await savedNote.waitFor()
+  assert.equal(await host.getByTestId('source-margin-item').count(), 2, 'PDF Undo restores the free note beside the saved source answer')
+  await page.screenshot({ path: path.join(output, 'pdf-free-note-undo.png') })
+  // The source marker is keyboard reachable even while its quiet toolbar is hidden.
+  const diagram = host.getByRole('button', { name: 'View Figure 1 on page 1', exact: true })
+  await diagram.scrollIntoViewIfNeeded()
+  await settlePaint(page)
+  const figureScroll = await host.evaluate(node => node.scrollTop)
+  await diagram.focus()
+  const figureTools = page.getByRole('toolbar', { name: 'Figure 1 actions', exact: true })
+  await figureTools.waitFor()
+  for (const action of ['View', 'Ask', 'Explain', 'Highlight', 'Copy']) await figureTools.getByRole('button', { name: action, exact: true }).waitFor()
+  await figureTools.getByRole('button', { name: 'View', exact: true }).click()
+  const figureDialog = page.getByRole('dialog', { name: 'Figure 1', exact: true })
+  await figureDialog.locator('img').waitFor()
+  assert.equal(await host.evaluate(node => node.scrollTop), figureScroll, 'opening source figure never scrolls the reading page')
+  await page.screenshot({ path: path.join(output, 'pdf-source-figure-view.png') })
+  await figureDialog.getByRole('button', { name: 'Close figure', exact: true }).click()
+  await figureDialog.waitFor({ state: 'hidden' })
+  assert.equal(await host.evaluate(node => node.scrollTop), figureScroll, 'closing source figure keeps exact scroll offset')
+  await diagram.focus()
+  await figureTools.getByRole('button', { name: 'Explain', exact: true }).click()
+  const figureCard = host.locator('[data-testid="source-margin-item"][data-open="true"]')
+  await figureCard.getByTestId('lab-phone-card-body').scrollIntoViewIfNeeded()
+  await figureCard.getByText(/A grounded local fixture answer\./).waitFor({ timeout: 5000 })
+  const hasImage = call => { const messages = JSON.parse(call.body || '{}').messages; return messages?.some(message => Array.isArray(message.content) && message.content.some(block => block.type === 'image' && block.source?.data)) }
+  assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'rendered figure Explain sends the actual source image block')
+  const figureCardId = await figureCard.getAttribute('data-card-id')
+  assert(figureCardId)
+  const thumb = figureCard.getByRole('button', { name: 'Show Figure 1 larger', exact: true })
+  await thumb.locator('img').waitFor()
+  await thumb.click()
+  await page.getByRole('dialog', { name: 'Figure 1', exact: true }).getByRole('button', { name: 'Close figure', exact: true }).click()
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await page.locator('.pdf-original__text [data-pdf-heading]').first().waitFor()
+  const restoredFigure = host.locator(`[data-testid="source-margin-item"][data-card-id="${figureCardId}"]`)
+  await restoredFigure.getByTestId('source-margin-open').click()
+  await restoredFigure.getByTestId('lab-phone-card-body').scrollIntoViewIfNeeded()
+  await restoredFigure.getByRole('button', { name: 'Show Figure 1 larger', exact: true }).locator('img').waitFor()
+  await restoredFigure.getByTestId('lab-phone-card-input').fill('What does this figure add?')
+  await restoredFigure.getByTestId('lab-phone-card-send').click()
+  await restoredFigure.getByText(/The follow-up still sees the original source image\./).waitFor()
+  assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'saved figure follow-up recaptures the source image after reload')
+  await restoredFigure.getByText(/The follow-up still sees the original source image\./).scrollIntoViewIfNeeded()
+  await settlePaint(page)
+  await page.screenshot({ path: path.join(output, 'pdf-saved-figure-followup.png') })
+  // Navigation is used only to bring the second original heading into the bounded render window.
+  await page.getByRole('button', { name: 'Contents', exact: true }).click()
+  await page.getByLabel('Go to page', { exact: true }).fill('21')
+  await page.getByRole('button', { name: 'Go', exact: true }).click()
+  const secondHeading = page.locator('.pdf-original__text [data-pdf-heading]').filter({ hasText: '2 Consequences' }).first()
+  await secondHeading.waitFor()
+  await secondHeading.hover()
+  const secondKey = await secondHeading.getAttribute('data-pdf-heading')
+  const secondPills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${secondKey}"]`)
+  await secondPills.getByRole('button', { name: 'Catch me up', exact: true }).waitFor()
+  assert.equal(await page.locator('canvas').count() <= 3, true, 'heading controls preserve bounded original-page canvases')
+  await page.screenshot({ path: path.join(output, 'pdf-second-heading-catch-up.png') })
+  await fs.writeFile(path.join(output, 'pdf-source-parity.json'), JSON.stringify({ geometry, headingBox, pillBox, calls: calls.map(call => ({ path: call.path, method: call.method })) }, null, 2))
+  console.log(`Original PDF source contracts passed: heading-hover/focus, real rail, natural cards, notes/Undo, figure image/follow-up, earlier-unit catch-up. ${output}`)
+}
 
 async function run(name, browserType, narrationSuccess = false, sourceBytes = originalBytes) {
   const bytes = sourceBytes, sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
   const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'Original source', author: 'Fixture', size: bytes.length,
     createdAt: '2026-10-23T00:00:00.000Z' }
-  const browser = await markInternal(await browserType.launch({ headless: true, proxy: { server: origin },
+  const browser = await markInternal(await browserType.launch({ headless: true, ...(process.env.TINCT_ORIGIN ? {} : { proxy: { server: origin } }),
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
-  const page = await context.newPage(), denied = [], errors = [], calls = []
+  const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = []
   const finishOriginalPage = async number => page.locator('.pdf-original__scroll').evaluate((el, pageNumber) => {
     const sheet = el.querySelector(`.pdf-original__slot:nth-child(${pageNumber})`)
     if (!sheet) throw new Error(`original page ${pageNumber} has no continuous sheet`)
-    el.scrollTop = sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2
+    el.scrollTop = Math.max(sheet.offsetTop, sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2)
     el.dispatchEvent(new Event('scroll', { bubbles: true }))
   }, number)
+  const openNotebook = async () => { await page.getByRole('button', { name: 'Contents', exact: true }).click(); await page.getByRole('button', { name: 'Notebook', exact: true }).click() }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
   const sets = { marks: { list: [], rev: 0 }, cards: { list: [], rev: 0 } }
-  page.on('pageerror', error => errors.push(error.message))
-  await page.route('**/*', route => {
+  page.on('pageerror', error => errors.push(error.stack || error.message))
+  page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text().slice(0, 1200)) })
+  await page.route('**/*', async route => {
     const request = route.request(), url = new URL(request.url()), p = url.pathname
     const json = (status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
     if (url.hostname.endsWith('.supabase.co')) {
@@ -71,6 +212,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       return json(404, {})
     }
     if (url.origin !== origin) { denied.push(url.origin); return route.abort() }
+    if (p === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Synthetic private source fixture</title>' })
+    if (await enforceReaderBundle(route, expectedBundle)) return
     if (!p.startsWith('/api/')) return route.continue()
     calls.push({ path: p, method: request.method(), body: request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
     if (p === '/api/public-books') return json(200, { books: [] })
@@ -114,6 +257,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
           ? JSON.stringify({ questions: [{ q: 'Which page has its own spoken words?', answer: 'Page 2' }] })
         : companion?.intent === 'define'
           ? JSON.stringify({ kind: 'place', name: 'source words', description: 'The terms printed on this original PDF page.' })
+          : JSON.stringify(messages).includes('What does this figure add?')
+            ? 'The follow-up still sees the original source image.'
           : messages?.at(-1)?.content === 'What links these two pages?'
             ? 'The first printed page leads into the second original page.'
           : 'A grounded local fixture answer.'
@@ -121,9 +266,10 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     }
     return json(404, { error: 'fixture endpoint unavailable' })
   })
-  await page.addInitScript(({ authKey, owner }) => {
+  await page.addInitScript(({ authKey, owner, theme }) => {
     localStorage.setItem(authKey, JSON.stringify({ access_token: 'pdf-fixture', refresh_token: 'pdf-fixture', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 36000,
       token_type: 'bearer', user: { id: owner, email: 'pdf@example.test', aud: 'authenticated' } }))
+    if (theme) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme }))
     window.__speechCalls = 0
     if (window.speechSynthesis) for (const method of ['speak', 'getVoices']) {
       const original = window.speechSynthesis[method]?.bind(window.speechSynthesis)
@@ -159,7 +305,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       emit(event) { this.dispatchEvent(new MessageEvent('message', { data: JSON.stringify(event) })) }
       close() { this.readyState = 3; this.dispatchEvent(new Event('close')) }
     }
-  }, { authKey, owner })
+  }, { authKey, owner, theme: process.env.TINCT_CAPTURE_THEME || '' })
   try {
     await page.goto(`${origin}/qa-seed`)
     await page.evaluate(async ({ hex, owner, fileId, book, bytes }) => {
@@ -178,7 +324,23 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       db.close()
     }, { hex, owner, fileId, book, bytes: [...bytes] })
     await page.goto(`${origin}/reader?userBook=${hex}&sharedReader=1&pages=1`, { waitUntil: 'domcontentloaded' })
+    if (process.env.PDF_SOURCE_PARITY === '1') {
+      try { await sourceParity(page, calls, process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity') }
+      catch (error) {
+        const folder = process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity'
+        await page.screenshot({ path: path.join(folder, 'failure.png') }).catch(() => {})
+        console.error('PDF request evidence', JSON.stringify(calls.filter(call => call.path === '/api/chat').map(call => { const body = JSON.parse(call.body); return { intent: body.companion?.intent, contentTypes: body.messages?.map(message => Array.isArray(message.content) ? message.content.map(block => block.type) : typeof message.content) } })))
+        console.error('PDF browser errors', JSON.stringify({ errors, consoleErrors }))
+        console.error('PDF source evidence', JSON.stringify(await page.evaluate(() => ({ active: document.activeElement?.outerHTML, cards: [...document.querySelectorAll('[data-testid="source-margin-item"]')].map(node => ({ id: node.dataset.cardId, open: node.dataset.open, text: node.textContent?.slice(0, 1500), html: node.querySelector('.source-margin-content')?.innerHTML.slice(0, 2500) })), figures: [...document.querySelectorAll('[data-testid="pdf-figure-source"]')].map(node => node.outerHTML), toolbars: [...document.querySelectorAll('[role="toolbar"]')].map(node => node.outerHTML) }))))
+        throw error
+      }
+      assert.deepEqual(errors, [], 'no parity reader errors')
+      assert.deepEqual(denied, [], 'no provider traffic')
+      return
+    }
     if (sourceBytes === denseBytes) {
+      // Phone retains after-unit controls; desktop actions now belong to real source headings.
+      await page.setViewportSize({ width: 390, height: 844 })
       await page.locator('.pdf-original__text').getByText(/Dense original page/).first().waitFor({ timeout: 45000 })
       await page.getByRole('button', { name: 'Next PDF page' }).click()
       await page.getByText('End of dense original chapter.').waitFor()
@@ -204,7 +366,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if (!narrationSuccess) {
       await page.setViewportSize({ width: 2047, height: 1133 })
       const geometry = await page.evaluate(() => {
-        const names = ['Contents', 'Notebook', 'Appearance', 'Listen', 'Menu']
+        const names = ['Contents', 'Appearance', 'Listen', 'Menu']
         const controls = names.map(name => {
           const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')]
             .find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
@@ -229,7 +391,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.getByText('Page 1 of 4', { exact: true }).waitFor()
       await page.setViewportSize({ width: 1100, height: 820 })
     }
-    await page.waitForTimeout(1800)
+    await page.waitForFunction(hex => Object.keys(localStorage).some(key => key.includes(hex) && key.startsWith('tinct-addbook:text-cards-canonical:')), hex)
     const opening = await page.evaluate(hex => ({ keys: Object.keys(localStorage).filter(key => key.includes(hex)),
       status: document.querySelector('.pdf-original-reader__status')?.textContent, owner:window.TinctAI?.session?.()?.userId }), hex)
     assert(opening.keys.some(key => key.startsWith('tinct-addbook:text-cards-canonical:')),
@@ -261,6 +423,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
       })
       const chooseAppearance = async theme => {
+        await page.waitForFunction(() => document.querySelector('.pdf-original-reader')?.classList.contains('is-phone') === matchMedia('(max-width:700px)').matches)
         const direct = page.getByRole('button', { name: 'Appearance', exact: true })
         if (await direct.isVisible()) await direct.click()
         else { await page.getByTestId('lab-super').click(); await page.getByRole('button', { name: 'Aa · Appearance', exact: true }).click() }
@@ -274,6 +437,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.locator('.pdf-original__page[data-page="1"][data-ready="true"]').waitFor()
         await page.waitForTimeout(120)
         assert(await page.getByRole('slider', { name: 'Original PDF position' }).isVisible(), 'desktop PDF source minimap is visible')
+        const furniture = await page.locator('.pdf-original-reader .lab-header').evaluate(header => [...header.querySelectorAll('.lab-v2-library-back,.lab-v2-play,.lab-super')].map(node => {
+          const style = getComputedStyle(node)
+          return { border: style.borderTopWidth, fill: style.backgroundColor, shadow: style.boxShadow }
+        }))
+        assert(furniture.every(style => style.border === '0px' && style.fill === 'rgba(0, 0, 0, 0)' && style.shadow === 'none'),
+          `PDF desktop header uses unboxed marks on the paper: ${JSON.stringify(furniture)}`)
         if (visual) await page.screenshot({ path: path.join(visual, `pdf-original-${width}-${theme}-source.png`) })
         await selectSource()
         if (theme === 'dark') assert.equal(await sourceLine().evaluate(el => getComputedStyle(el, '::selection').color), 'rgba(0, 0, 0, 0)',
@@ -289,12 +458,15 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         const beforeCard = await page.locator('.pdf-original__scroll').evaluate(el => ({ scroll: el.scrollTop,
           width: el.querySelector('.pdf-original__page[data-page="1"]').getBoundingClientRect().width }))
         await page.getByTestId('lab-dbar-explain').click()
-        const card = page.locator('.lab-desktop-card')
+        const card = page.getByTestId('source-margin-item').filter({ has: page.locator('[data-testid="lab-phone-card-body"]') })
         await card.getByText('A grounded local fixture answer.').waitFor()
-        assert.equal(await card.getByText('First original page with selectable source words.', { exact: true }).count(), 1,
-          'a selected quote appears once rather than as both quote and initial User turn')
+        await assertNoRepeatedQuote(card)
+        await assertNaturalCardBody(card)
         const followHeight = await card.locator('.lab-pcard-follow-input').evaluate(el => el.getBoundingClientRect().height)
         assert(followHeight <= 48, `desktop follow-up starts as a compact field: ${followHeight}`)
+        const followStyle = await card.locator('.lab-pcard-follow-box').evaluate(node => { const style = getComputedStyle(node); return { top: style.borderTopWidth, left: style.borderLeftWidth, right: style.borderRightWidth, radius: style.borderRadius, shadow: style.boxShadow } })
+        assert(followStyle.top === '0px' && followStyle.left === '0px' && followStyle.right === '0px' && followStyle.radius === '0px' && followStyle.shadow === 'none',
+          `PDF desktop follow-up uses the old simple underline: ${JSON.stringify(followStyle)}`)
         const cardBox = await card.boundingBox(), sheetBox = await page.locator('.pdf-original__page[data-page="1"]').boundingBox()
         const afterCard = await page.locator('.pdf-original__scroll').evaluate(el => ({ scroll: el.scrollTop,
           width: el.querySelector('.pdf-original__page[data-page="1"]').getBoundingClientRect().width }))
@@ -408,15 +580,15 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if (narrationSuccess) {
       await page.reload({ waitUntil: 'domcontentloaded' })
       await page.getByText('Second original page has its own spoken words.').waitFor()
-      await page.getByRole('button', { name: 'Notebook', exact: true }).click()
+      await openNotebook()
       await page.getByText('What is printed on this page?').waitFor()
       await page.getByText('The printed source has its own words.').waitFor()
       await page.getByText('Saved on this device').waitFor()
       await page.getByRole('button', { name: 'Close panel' }).click()
     }
     if (visual) {
-      await page.getByRole('button', { name: 'Notebook', exact: true }).click()
-      await page.getByText('These printed pages introduce an original argument.').waitFor()
+      await openNotebook()
+      await page.locator('.pdf-original-reader__notebook').getByText('These printed pages introduce an original argument.', { exact: true }).waitFor()
       await page.screenshot({ path: path.join(visual, 'pdf-original-notebook.png') })
       await page.getByRole('button', { name: 'Close panel' }).click()
     }
@@ -424,12 +596,14 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.getByRole('button', { name: 'Contents', exact: true }).click()
       await page.locator('.pdf-original-reader__page-list button', { hasText: 'Page 2' }).click()
     }
+    // Preserve the approved phone after-unit Recap/Quiz/Note contract; source-heading desktop actions are covered separately.
+    await page.setViewportSize({ width: 390, height: 844 })
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await finishOriginalPage(2)
     const after = page.getByRole('complementary', { name: 'After Chapter One' })
     await after.waitFor()
     await after.getByRole('button', { name: 'Recap' }).click()
-    await page.getByText('A grounded local fixture answer.').waitFor()
+    await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('A grounded local fixture answer.', { exact: false }).waitFor()
     await page.getByText('Source · Original PDF pages 1–2').waitFor()
     const recapCall = calls.filter(call => call.path === '/api/chat').map(call => JSON.parse(call.body))
       .find(call => call.messages?.[0]?.content === 'Summarize Chapter One.')
@@ -444,7 +618,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       'the account copy saves a multi-page source range')
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.getByText('Second original page has its own spoken words.').waitFor()
-    await page.getByRole('button', { name: 'Notebook', exact: true }).click()
+    await openNotebook()
     const recapEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Summarize Chapter One.' }).first()
     await recapEntry.getByText('Source · Original PDF pages 1–2').waitFor()
     await recapEntry.getByRole('button', { name: 'Original PDF page 2 · recap' }).click()
@@ -474,13 +648,13 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await after.getByRole('button', { name: 'Note' }).click()
     await page.getByLabel('Your note on this section').fill('A thought about both printed pages.')
     await page.getByRole('button', { name: 'Save note' }).click()
-    await page.getByText('A thought about both printed pages.').waitFor()
+    // Save closes the phone editor; verify the durable note below and its visible Notebook round trip after reload.
     for (let i = 0; i < 60 && !sets.cards.list.some(item => item.data?.action === 'note' && item.data?.source?.to === 2); i++) await page.waitForTimeout(100)
     assert(sets.cards.list.some(item => item.data?.action === 'note' && item.data?.source?.from === 1 && item.data?.source?.to === 2),
       'after-unit Note saves the complete source range')
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.getByText('Second original page has its own spoken words.').waitFor()
-    await page.getByRole('button', { name: 'Notebook', exact: true }).click()
+    await openNotebook()
     for (const fragment of ['What links these two pages?', 'The first printed page leads into the second original page.',
       'Which page has its own spoken words?', 'A thought about both printed pages.'])
       await page.locator('.pdf-original-reader__notebook').getByText(fragment, { exact: false }).first().waitFor()
@@ -501,7 +675,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     sets.cards.list.push(missing); sets.cards.rev++
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.getByText('Second original page has its own spoken words.').waitFor()
-    await page.getByRole('button', { name: 'Notebook', exact: true }).click()
+    await openNotebook()
     const missingEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Saved answer with missing page.' })
     await missingEntry.getByRole('button', { name: 'Original PDF page 2 · recap' }).click()
     await page.getByLabel('Follow up').fill('What about the scanned page?')
@@ -524,11 +698,14 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   } finally { await context.close(); await browser.close() }
 }
 try {
+  if (process.env.PDF_SOURCE_PARITY === '1') await run('chromium-parity', chromium, false, parityBytes)
+  else {
   await run('chromium', chromium)
   await run('chromium-success', chromium, true)
   await run('chromium-dense', chromium, false, denseBytes)
   if (process.env.PDF_ORIGINAL_WEBKIT === '1') {
     await run('webkit', webkit); await run('webkit-success', webkit, true)
     await run('webkit-dense', webkit, false, denseBytes)
+  }
   }
 } finally { await new Promise(resolve => server.close(resolve)) }

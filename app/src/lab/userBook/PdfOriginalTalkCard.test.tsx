@@ -53,3 +53,11 @@ it('starts existing Talk only on a reader tap, persists turns into the shared pr
   expect(mocks.stop).toHaveBeenCalled()
   chat.dispose()
 })
+
+it('keeps focused passage and saved conversation separate from complete page context', () => {
+  const chat = new OwnTextCardsSync(HEX, OWNER, null, async () => null, vi.fn() as typeof fetch, FILE)
+  const { unmount } = render(<PdfOriginalTalkCard hex={HEX} owner={OWNER} fileId={FILE} chat={chat} page={3} text="The complete original source page." selectedText="Only the focused passage." reference="assistant: A saved explanation." onClose={() => {}} />)
+  expect(mocks.options).toMatchObject({ chapterParagraphs: ['The complete original source page.'], visibleText: 'Only the focused passage.', reference: 'assistant: A saved explanation.', pageNumber: 3 })
+  expect(mocks.start).not.toHaveBeenCalled()
+  unmount(); chat.dispose()
+})

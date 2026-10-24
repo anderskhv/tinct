@@ -189,9 +189,12 @@ it('sends only the selected private page with its citation marker in a valid Wor
   expect(parsed?.context?.paragraphs).toEqual(['<page n="3">\nThe selected original words\n</page>'])
   expect(await service.askQuizCheck?.(selection, { question: 'What?', expected: 'A point.', answer: 'A point.' })).toContain('page')
   expect(parseCompanionRequest(requests[1])).toMatchObject({ intent: 'quiz_check', pdf: true, quizCheck: { answer: 'A point.' } })
+  const crossPage = { ...selection, text: 'Last words First words', rects: [[3, .1, .9, .3, .04], [4, .1, .1, .3, .04]] as PdfOriginalSelection['rects'], pages: [{ n: 3, text: 'Last words' }, { n: 4, text: 'First words' }] }
+  await service.askQuizCheck(crossPage, { question: 'What?', expected: 'A point.', answer: 'A point.' })
+  expect(requests[2]).toMatchObject({ context: { pages: crossPage.pages } })
   service.setBookMetadata({ title: 'Renamed original', author: 'Edited author' })
   expect(await service.ask(selection, 'define')).toContain('page')
-  expect(requests[2]).toMatchObject({ context: { bookTitle: 'Renamed original', bookAuthor: 'Edited author' } })
+  expect(requests[3]).toMatchObject({ context: { bookTitle: 'Renamed original', bookAuthor: 'Edited author' } })
   service.dispose()
 })
 
@@ -431,5 +434,63 @@ it('grounds a saved unit follow-up in every cited page and refuses incomplete so
   service.setPdfPageText(2, 'D'.repeat(6001), 3)
   await expect(service.askCardFollow(id!, 'What began on page two?')).rejects.toMatchObject({ code: 'pdf_original_incomplete_source' })
   expect(requests).toHaveLength(2)
+  service.dispose()
+})
+
+it('edits and reloads free margin notes without inventing passage rectangles, then removes an empty note', () => {
+  const api = vi.fn(async () => json({ rev: 1, fileId: FILE }))
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'test-token', api as typeof fetch)
+  const id = service.saveMarginNote(3, .42, 'First observation')!
+  expect(id).toBeTruthy()
+  expect(service.cards[0]).toMatchObject({ id, page: 3, rects: [], data: { action: 'note', free: { y: .42 } } })
+  expect(service.appendCardTurn(id, 'Why?', 'A useful response.')).toBe(true)
+  expect(service.saveMarginNote(3, .42, 'Edited observation', id)).toBe(id)
+  expect(service.cards[0].turns).toEqual([{ role: 'user', content: 'Edited observation' }, { role: 'user', content: 'Why?' }, { role: 'assistant', content: 'A useful response.' }])
+  const reloaded = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'test-token', api as typeof fetch)
+  expect(reloaded.cards).toEqual(service.cards)
+  expect(reloaded.saveMarginNote(3, -.1, 'Invalid')).toBeNull()
+  expect(reloaded.saveMarginNote(3, .42, '', id)).toBeNull()
+  expect(reloaded.cards).toHaveLength(0)
+  auth('owner-b')
+  expect(service.saveMarginNote(3, .42, 'Wrong owner')).toBeNull()
+  service.dispose(); reloaded.dispose()
+})
+
+it('sends a figure image only in the latest user turn and redraws it for a saved follow-up', async () => {
+  const requests: Array<{ messages: Array<{ role: string; content: unknown }>; companion: unknown }> = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)))
+    return json({ content: [{ text: 'An image-grounded fixture response.' }], stop_reason: 'end_turn' })
+  })
+  const image = { src: 'data:image/png;base64,aW1hZ2U=', block: { type: 'image' as const, source: { type: 'base64' as const, media_type: 'image/png', data: 'aW1hZ2U=' } } }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(3, 'A page with the named figure.', 5)
+  const capture = vi.fn(async () => image)
+  service.setPdfRegionCapture(capture)
+  const figure = { ...selection, text: 'Figure 1. A diagram.', region: { kind: 'figure' as const, label: 'Figure 1', caption: 'Figure 1. A diagram.', image: async () => image } }
+  expect(service.saveHighlight(figure, 'sage')).toBe(true)
+  expect(service.marks[0]).toMatchObject({ box: true, kind: 'figure', rects: [[.1, .2, .3, .04]] })
+  await service.ask(figure, 'explain')
+  expect(requests[0].messages[0].content).toEqual([image.block, { type: 'text', text: 'Explain this figure.' }])
+  const id = service.saveCardWithId(figure, 'figure', 'A prior response.', { data: { region: 'figure', label: 'Figure 1' } })!
+  expect(service.cards[0].data).not.toHaveProperty('image')
+  await service.askCardFollow(id, 'Why this arrow?')
+  expect(capture).toHaveBeenCalledWith(3, { x: .1, y: .2, w: .3, h: .04 })
+  expect(requests[1].messages.at(-1)?.content).toEqual([image.block, { type: 'text', text: 'Why this arrow?' }])
+  expect(requests[1].messages.slice(0, -1).every(turn => typeof turn.content === 'string')).toBe(true)
+  service.setPdfPageText(3, '', 5)
+  await service.askCardFollow(id, 'What about an image-only page?')
+  expect(requests[2].messages.at(-1)?.content).toEqual([image.block, { type: 'text', text: 'What about an image-only page?' }])
+  expect(requests[2].companion).toMatchObject({ context: { pages: [{ n: 3, text: '' }] } })
+  expect(parseCompanionRequest(requests[2].companion)).not.toBeNull()
+  const textId = service.saveCardWithId(selection, 'explain', 'A plain text answer.')!
+  const beforeText = requests.length
+  expect(await service.askCardFollow(textId, 'No page text?')).toBeNull()
+  expect(requests).toHaveLength(beforeText)
+  service.setPdfRegionCapture(async () => null)
+  const count = requests.length
+  await expect(service.askCardFollow(id, 'No picture?')).rejects.toThrow('No question was sent')
+  expect(requests).toHaveLength(count)
   service.dispose()
 })

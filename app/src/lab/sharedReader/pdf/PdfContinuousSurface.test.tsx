@@ -148,3 +148,35 @@ it('handles canvas cancellation while PDF text extraction is still pending', asy
   await new Promise(resolve => setTimeout(resolve, 0))
   finishText({ items: [] })
 })
+
+it('retains source text through a drag across more than two pages and releases it when selection clears', async () => {
+  vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(800)
+  vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(500)
+  vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({ setTransform: vi.fn() } as unknown as CanvasRenderingContext2D)
+  const pdf: PdfOriginalDocument = {
+    numPages: 12, destroy: vi.fn(async () => {}), getPage: vi.fn(async n => ({
+      getViewport: ({ scale }: { scale: number }) => ({ width: 600 * scale, height: 800 * scale, scale, transform: [scale, 0, 0, -scale, 0, 800 * scale] }),
+      render: () => ({ promise: Promise.resolve() }), getTextContent: async () => ({ items: [{ str: `Source ${n}`, transform: [12, 0, 0, 12, 60, 700], width: 100 }] }),
+    })), renderTextLayer: (content, layer) => { const span = document.createElement('span'); span.textContent = content.items[0].str; layer.append(span); return { promise: Promise.resolve() } },
+  }
+  const props = { bytes: async () => new ArrayBuffer(1), openDocument: async () => pdf, onVisiblePlace: vi.fn() }
+  const { container, rerender } = render(<PdfContinuousSurface {...props} />)
+  const first = await screen.findByText('Source 1')
+  fireEvent.pointerDown(first)
+  rerender(<PdfContinuousSurface {...props} requestedPlace={{ page: 5, frac: 0 }} />)
+  const fifth = await screen.findByText('Source 5')
+  expect(first.isConnected).toBe(true)
+  const selection = window.getSelection()!, range = document.createRange()
+  range.setStart(first.firstChild!, 0); range.setEnd(fifth.firstChild!, 6)
+  selection.removeAllRanges(); selection.addRange(range)
+  fireEvent(document, new Event('selectionchange')); fireEvent.pointerUp(window)
+  const scroll = container.querySelector<HTMLElement>('.pdf-original__scroll')!
+  const slots = [...container.querySelectorAll<HTMLElement>('.pdf-original__slot')]
+  scroll.scrollTop = 14 + slots.slice(0, 9).reduce((sum, slot) => sum + parseFloat(slot.style.height) + 18, 0)
+  fireEvent.scroll(scroll)
+  await screen.findByText('Source 10')
+  expect(first.isConnected).toBe(true)
+  selection.removeAllRanges(); fireEvent(document, new Event('selectionchange'))
+  await waitFor(() => expect(container.querySelector('.pdf-original__page[data-page="1"]')).toBeNull())
+  expect(container.querySelectorAll('canvas')).toHaveLength(3)
+})

@@ -95,6 +95,7 @@ function nextId() {
 
 /** What a question carries beside its text: a highlighted passage, or a figure's picture. */
 export interface LabAskAttachment {
+  conversationId?: string
   highlightedText?: string
   onAccepted?: () => void
   /** The picture to send with the question (signed in only), drawn as the companion takes pictures. */
@@ -371,15 +372,15 @@ export function useLabAsk(options: UseLabAskOptions) {
   }
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
-  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number) => {
+  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId) => {
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const owned = optionsRef.current.ownCardController
     if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return
     const base = loadedForBookRef.current === bookId ? conversationsRef.current : undefined
     const next = owned && isUserBookId(bookId)
-      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined)
-      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, optionsRef.current.conversationId || undefined, base)
+      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined)
+      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base)
     if (owned && isUserBookId(bookId) && !owned.persist(next)) {
       setNotice('This reply could not be saved on this device. Copy it before leaving the reader.')
       return
@@ -811,6 +812,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
+    const requestConversationId = retry?.userTurn.conversationId ?? attachment?.conversationId ?? optionsRef.current.conversationId ?? null
     const requestContext = chapterRequest?.context ?? retry?.context ?? askContextNow([])
     const requestChapter = requestContext.chapterNumber ?? 1
     const requestParagraph = requestContext.paragraphIndex
@@ -834,6 +836,7 @@ export function useLabAsk(options: UseLabAskOptions) {
 
     const userTurn: LabAskTurn = retry?.userTurn ?? {
       bookId: requestBookId,
+      conversationId: requestConversationId,
       chapterAction: chapterRequest?.action,
       id: nextId(),
       role: 'user',
@@ -862,7 +865,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         source: 'text',
         highlightedText: userTurn.highlightedText,
         chapterAction: chapterRequest?.action,
-      }, requestChapter, requestParagraph)
+      }, requestChapter, requestParagraph, requestConversationId)
     }
     if (!retry) attachment?.onAccepted?.()
     setNotice(null)
@@ -899,8 +902,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       const authToken = await resolveLabVoiceToken({ override: options.authToken, sessionToken, readSession: readSupabaseAccessToken })
       if (!stillHere()) return
-      const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookIdRef.current) : null
-      const contextTurns = selected ? turnsFromConversations([selected]) : turns
+      const selected = requestConversationId ? conversations.find(item => item.id === requestConversationId && item.bookId === chatBookIdRef.current) : null
+      const contextTurns = selected ? turnsFromConversations([selected]) : requestConversationId ? turns.filter(turn => turn.conversationId === requestConversationId) : turns
       const previousAssistant = [...contextTurns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
       // "Yes!!" after "we could go back a few chapters and have a look?" is
       // consent to the lookup. The model gets the tools; the app ignores any
@@ -1003,6 +1006,7 @@ export function useLabAsk(options: UseLabAskOptions) {
                 : [...current, {
                     bookId: requestBookId,
                     chapterAction: chapterRequest?.action,
+                    conversationId: requestConversationId,
                     id: assistantId,
                     role: 'assistant' as const,
                     content,
@@ -1046,6 +1050,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         const assistantTurn: LabAskTurn = {
           bookId: requestBookId,
           chapterAction: chapterRequest?.action,
+          conversationId: requestConversationId,
           id: assistantId || nextId(),
           role: 'assistant',
           content: skipped.text,
@@ -1073,7 +1078,7 @@ export function useLabAsk(options: UseLabAskOptions) {
           isComplete: true,
           source: 'text',
           chapterAction: chapterRequest?.action,
-        }, requestChapter, requestParagraph)
+        }, requestChapter, requestParagraph, requestConversationId)
       }
       if (!chapterRequest && parsed.speed != null) {
         optionsRef.current.onSetPlaybackSpeed?.(parsed.speed)
@@ -1152,7 +1157,7 @@ export function useLabAsk(options: UseLabAskOptions) {
      * the whole chapter) and a quiz answer marked (`quiz`).
      */
     intent?: 'define' | 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' | 'quiz_check'
-    quiz?: { question: string; expected: string; why?: string; answer: string }
+    quiz?: { question: string; expected: string; why?: string; answer: string; turns?: import('../companion/companionRequest').QuizTurn[] }
   }, onDelta: (text: string) => void): Promise<string> => {
     const text = input.text.trim()
     const textless = input.intent === 'quiz' || input.intent === 'quiz_check'

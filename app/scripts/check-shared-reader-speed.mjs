@@ -19,6 +19,7 @@ const cases = (process.env.SHARED_SPEED_CASES || 'frankenstein,war-and-peace,bib
 const profiles = (process.env.SHARED_SPEED_PROFILES || 'desktop,slow').split(',').filter(Boolean)
 const out = process.env.SHARED_SPEED_OUT || ''
 const visual = process.env.SHARED_SPEED_VISUAL || ''
+const fixtureAnswer = 'A local fixture answer for checking the reading layout. These three sentences give the response enough length to judge its spacing beside a dense academic page. No provider was called, and this text does not interpret the paper.'
 if (visual) await fs.mkdir(visual, {recursive:true})
 const remoteFirst = process.env.SHARED_SPEED_REMOTE === '1'
 const targets = { desktopFirstText: 1500, slowFirstText: 3000, selection: 100, card: 150 }
@@ -71,7 +72,7 @@ const server = createServer(async (req, res) => {
     else if (p === '/api/narration/voices') res.end('{"enabled":false,"voices":[]}')
     else if (p === '/api/lab-chat' || p === '/api/chat') {
       res.setHeader('Content-Type', 'text/event-stream')
-      res.end('data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A local fixture answer."}}\n\ndata: {"type":"message_stop"}\n\n')
+      res.end(`data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: fixtureAnswer } })}\n\ndata: {"type":"message_stop"}\n\n`)
     } else { res.statusCode = 404; res.end('{"error":"not_found"}') }
     return
   }
@@ -146,7 +147,7 @@ function clock({ bookId, edition, chapter, ownPdf, ownEpub }) {
       })
     })
     if (score.selectUp != null) afterPaint('selectionBar', () => visible(document.querySelector('[data-testid="lab-desk-bar"]')) || visible(document.querySelector('.selection-popup.is-shared-reader')) || visible(document.querySelector('.lab-pbar')))
-    if (score.cardTap != null) afterPaint('cardShell', () => visible(document.querySelector('.lab-pcard, .lab-desktop-card, .selection-popup.is-contextual-explain')))
+    if (score.cardTap != null) afterPaint('cardShell', () => [...document.querySelectorAll('.lab-pcard, .lab-desktop-card, .selection-popup.is-contextual-explain, .source-margin-item[data-open="true"] .source-margin-content')].some(visible))
     requestAnimationFrame(frame)
   }
   requestAnimationFrame(frame)
@@ -259,7 +260,10 @@ async function sample(bookId, profile, index) {
       const state = await page.evaluate(() => ({ clock: window.__readerSpeed, cards: [...document.querySelectorAll('[class*="card"], [class*="popup"], [role="dialog"]')].filter(n=>n.textContent.includes('A local fixture')).slice(-12).map(n => ({ class: n.className, tag:n.tagName, text: n.textContent.slice(0,90), rect: n.getBoundingClientRect().toJSON() })), text: document.body.innerText.slice(-500) }))
       throw new Error(`card shell failed ${JSON.stringify({bookId,profile,state})}`, {cause:error})
     })
-    if (visual && index === 0) await page.screenshot({path:path.join(visual, `${bookId}-${profile}-card.png`)})
+    if (visual && index === 0) {
+      if (pdf) await page.getByText(fixtureAnswer, { exact: true }).last().waitFor()
+      await page.screenshot({path:path.join(visual, `${bookId}-${profile}-card.png`)})
+    }
     const marks = await page.evaluate(() => ({ ...window.__readerSpeed, edition: document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition, format:document.querySelector('.pdf-original') ? 'original-pdf' : 'react-text' }))
     assert.deepEqual(errors, [], 'no uncaught reader errors')
     return { bookId, profile, index, coldFirstText: Math.round(coldFirstText), coldFileDownloads, warmFileDownloads: info.own ? (fileDownloads.get(info.own.id) || 0) - downloadsBeforeWarm : 0, firstText: Math.round(firstText), selection: Math.round(marks.selectionBar - marks.selectUp), card: Math.round(marks.cardShell - marks.cardTap), edition: marks.edition, format:marks.format }

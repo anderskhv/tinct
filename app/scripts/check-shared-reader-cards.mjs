@@ -41,7 +41,7 @@ try {
   await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
   await page.mouse.up()
   await page.getByTestId('lab-dbar-explain').click()
-  await page.locator('.lab-desktop-card[data-kind="explain"]').waitFor()
+  await page.locator('[data-testid="source-margin-item"][data-open="true"] .lab-desktop-card[data-kind="explain"]').waitFor()
   await page.waitForFunction(() => {
     const items = JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
     return items.some(item => item.card?.kind === 'explain' && item.messages?.some(message => message.content.includes('A complete local explanation')))

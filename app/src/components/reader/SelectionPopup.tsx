@@ -79,6 +79,7 @@ export interface SelectionPopupProps {
   /** Private shared reader: start the existing passage quiz flow. */
   onQuizPassage?: () => void
   onPassageNote?: () => void
+  onPassageAsk?: () => void
   onPassageAction?: (kind: 'explain' | 'simplify' | 'factcheck' | 'counterpoint' | 'define') => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
@@ -222,6 +223,7 @@ export function SelectionPopup({
   onQuizPassage,
   onPassageAction,
   onPassageNote,
+  onPassageAsk,
   onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
@@ -472,6 +474,7 @@ export function SelectionPopup({
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
         onAskQuestion={sharedReader ? onAskQuestion : undefined}
+        onComposeAsk={sharedReader ? onPassageAsk : undefined}
         onExplain={() => (ask ? openContextualExplanation() : onExplain())}
         onSimplify={() => (ask ? openContextualExplanation('simplify') : onExplain())}
         onMore={id => {

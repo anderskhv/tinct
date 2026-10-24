@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentProps, type WheelEvent } from 'react'
-import { SourceMinimap } from './SourceMinimap'
+import { SourceMinimap, type SourceBookMap } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
 import { tokenizeHearingWords } from '../labHearing'
 import { continuousReaderWindow, type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
@@ -13,6 +13,7 @@ type Props = {
   anchor: ContinuousReaderAnchor
   onVisible: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
   onLanded: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
+  bookMap?: SourceBookMap
   onUserBrowse?: () => void
 }
 
@@ -82,7 +83,7 @@ function firstVisibleWord(host: HTMLElement): ContinuousReaderAnchor | null {
 }
 
 /** A bounded, scrollable source window. No position storage lives in this component. */
-export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse }: Props) {
+export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap }: Props) {
   const hostRef = useRef<HTMLDivElement>(null)
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
   const destinationKey = `${epochKey}/${anchor.paragraphIndex}:${anchor.wordIndex}`
@@ -212,6 +213,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (!host || restoring.current || !windows.length) return
     if (suppressScrollRef.current) { suppressScrollRef.current = false; return }
     if (!userBrowseRef.current) return
+    const bounds = host.getBoundingClientRect()
+    if (![...host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')].some(word => { const rect=word.getBoundingClientRect(); return rect.bottom > bounds.top && rect.top < bounds.bottom })) return
     let visible = firstVisibleWord(host)
     if (!visible) return
     // The first word of the restored line may precede its semantic saved word.
@@ -271,7 +274,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     pendingRebase.current = { anchor: place, offset: Math.min((hostRef.current?.clientHeight ?? 600) * .24, 140) }
     setWindowState({ key: destinationKey, start: continuousWindowStart(place, passage.paragraphs) })
   }
-  return <><SourceMinimap paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} highlights={passage.highlights} onJump={jumpFromMap} />
+  return <><SourceMinimap bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} highlights={passage.highlights} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
     onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>

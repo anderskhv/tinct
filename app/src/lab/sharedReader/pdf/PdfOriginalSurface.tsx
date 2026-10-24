@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { loadPdfEngine } from '../../userBook/pdfEdition'
+import type { PdfRegionImage } from './pdfOriginalFigures'
 import './pdfOriginal.css'
 
 export type PdfOriginalPlace = { page: number; frac: number }
 export type PdfSelectionRect = [page: number, x: number, y: number, width: number, height: number]
-export type PdfOriginalSelection = { page: number; text: string; rects: PdfSelectionRect[] }
-export type PdfOriginalHighlight = { id: string; page: number; rects: number[][]; color: string }
+export type PdfOriginalSelection = { page: number; text: string; rects: PdfSelectionRect[]; pages?: Array<{ n: number; text: string }>; region?: { kind: 'figure' | 'table' | 'equation'; label: string; caption: string; identity?: object; image: () => Promise<PdfRegionImage | null> } }
+export type PdfOriginalHighlight = { id: string; page: number; rects: number[][]; color: string; box?: boolean }
 export type PdfOriginalFollow = { page: number; wordIndex: number; text: string }
 export type PdfOriginalOutlineEntry = { title: string; page: number | null; items: PdfOriginalOutlineEntry[] }
 type PdfOutlineItem = { title?: string; dest?: unknown; items?: PdfOutlineItem[] }
@@ -61,7 +62,7 @@ export function visiblePdfHighlightRects(highlights: PdfOriginalHighlight[], pag
     const right = clamp(rect[0] + rect[2], 0, 1), bottom = clamp(rect[1] + rect[3], 0, 1)
     if (right <= left || bottom <= top) return []
     return [{ id: `${mark.id}:${index}`, left, top, width: right - left, height: bottom - top,
-      color: highlightColors[mark.color] ?? highlightColors.gold }]
+      color: highlightColors[mark.color] ?? highlightColors.gold, ...(mark.box ? { box: true } : {}) }]
   }))
 }
 
@@ -372,7 +373,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
       <div className="pdf-original__page" data-page={page} aria-label={`PDF page ${page}`}>
         <canvas ref={canvas} aria-hidden="true" />
         <div className="pdf-original__highlights" aria-hidden="true">{(rendered && renderedPage.current === page ? visiblePdfHighlightRects(highlights, page) : []).map(rect =>
-          <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.color }} />
+          <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.box ? 'transparent' : rect.color, ...(rect.box ? { outline: `2px solid ${rect.color}` } : {}) }} />
         )}{followRect && followRect[0] === page && <span className="pdf-original__follow" style={{ left: `${followRect[1] * 100}%`, top: `${followRect[2] * 100}%`, width: `${followRect[3] * 100}%`, height: `${followRect[4] * 100}%` }} />}</div>
         <div className="pdf-original__text" ref={layer} onMouseUp={selection} onKeyUp={selection} />
       </div>

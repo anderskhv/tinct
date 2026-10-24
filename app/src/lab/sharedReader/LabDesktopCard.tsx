@@ -5,7 +5,7 @@ import { desktopCardPlace, type CardBox } from './desktopCardPlace'
 import './desktopCard.css'
 
 /** The same response body and Notebook flow as a phone card, placed outside selected ink. */
-export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, testId = 'lab-phone-card', getAnchor, hasPassage = false }: LabPhoneCardProps & { getAnchor?: () => CardBox | null; hasPassage?: boolean }) {
+export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, testId = 'lab-phone-card', getAnchor, hasPassage = false, passageText, embedded = false }: LabPhoneCardProps & { getAnchor?: () => CardBox | null; hasPassage?: boolean; passageText?: string; embedded?: boolean }) {
   const ref = useRef<HTMLElement>(null)
   const customAnchor = useRef(getAnchor)
   customAnchor.current = getAnchor
@@ -13,7 +13,7 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
   close.current = onClose
   useLayoutEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || embedded) return
     let frame = 0
     const place = () => {
       const top = Math.max(76, document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0)
@@ -41,8 +41,9 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(schedule)
     observer?.observe(el)
     return () => { cancelAnimationFrame(frame); observer?.disconnect(); window.removeEventListener('scroll', schedule, true); window.removeEventListener('resize', schedule) }
-  }, [getAnchor, hasPassage, kind, label])
+  }, [getAnchor, hasPassage, kind, label, embedded])
   useEffect(() => {
+    if (embedded) return
     const key = (event: KeyboardEvent) => { if (event.key === 'Escape' && !event.defaultPrevented) { event.preventDefault(); close.current() } }
     const outside = (event: PointerEvent) => {
       const target = event.target as Element | null
@@ -53,8 +54,9 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
     window.addEventListener('keydown', key)
     window.addEventListener('pointerdown', outside, { capture: true, passive: false })
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('pointerdown', outside, true) }
-  }, [])
-  return <section ref={ref} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} data-kind={kind} data-testid={testId} style={{ visibility: 'hidden' }}>
+  }, [embedded])
+  if (embedded) return <><div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>{foot}</>
+  return <section ref={ref} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} aria-description={passageText?.trim() || undefined} data-kind={kind} data-testid={testId} style={{ visibility: 'hidden' }}>
     <header className="lab-pcard-head">
       <span className="lab-pcard-label" data-testid="lab-phone-card-label">{label}</span>
       {onDelete && <button type="button" className="lab-pcard-bin" data-testid="lab-phone-card-delete" aria-label={deleteLabel} onClick={onDelete}><PhoneIcon name="trash" /></button>}

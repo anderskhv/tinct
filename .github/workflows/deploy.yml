@@ -429,6 +429,15 @@ jobs:
           node scripts/check-shared-reader-default-on.mjs
           node scripts/check-shared-reader-pdf-original.mjs
 
+      - name: Verify restored source-connected reader behavior
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+          PDF_ORIGINAL_DIST: dist
+        run: |
+          node scripts/check-reader-source-parity.mjs
+          PDF_SOURCE_PARITY=1 node scripts/check-shared-reader-pdf-original.mjs
+
       # -- production and library: what only production can prove (direct mode only here; staged: production-checks)
       - name: Smoke test production
         if: ${{ matrix.group == 'production' }}

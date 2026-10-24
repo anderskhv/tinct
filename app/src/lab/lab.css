@@ -7650,3 +7650,25 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 .lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i::before { content: 'A'; position: absolute; top: 3px; font-size: 8px; font-style: normal; line-height: 9px; }
 .lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i:nth-child(2) { margin-right: 3px; background-image: repeating-linear-gradient(to bottom, currentColor 0 1px, transparent 1px 7px); opacity: .75; }
 .lab[data-chrome-version="v2"] .lab-v2-layout-miniature.is-compare i:nth-child(2)::before { content: 'A′'; }
+
+/* Shared desktop chrome follows the quiet margin reader: unboxed controls,
+   ordinary text labels, and a restrained menu surface. Phone chrome is unchanged. */
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super, .lab-header-chapter, .lab-header-book) {
+  border: 0; border-radius: 0; background: transparent; box-shadow: none;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super) {
+  min-width: 40px; min-height: 40px; color: var(--lab-ink-muted);
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-v2-library-back, .lab-v2-play, .lab-v2-aa, .lab-super, .lab-header-chapter, .lab-header-book):hover {
+  color: var(--lab-ink); background: transparent; text-decoration-color: currentColor;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header button:focus-visible {
+  outline: 1px solid var(--lab-accent, currentColor); outline-offset: 2px;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-super-panel, .lab-v2-sheet[data-reader-window]) {
+  border-radius: 0; border: 0; border-top: 1px solid var(--lab-border); border-bottom: 1px solid var(--lab-border); background: var(--lab-paper);
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-super-row, .lab-v2-choice, .lab-v2-pill) { border-radius: 0; }
+
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-chapter, .lab-header-book) { min-height: 32px; }

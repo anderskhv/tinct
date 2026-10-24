@@ -29,6 +29,8 @@ export interface LabOwnCatchUpSheetProps {
   follow?: (shown: () => string) => ReactNode
   /** The follow-ups asked from the sheet and their answers, under the timeline. */
   thread?: ReactNode
+  embedded?: boolean
+  onReady?: (text: string) => void
 }
 
 type State =
@@ -44,7 +46,7 @@ type State =
  * at open, and never writes one.
  */
 export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
-  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread } = props
+  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread, embedded = false, onReady } = props
   const [steps] = useState(() => ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed }))
   const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
   const [attempt, setAttempt] = useState(0)
@@ -56,6 +58,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   }, [])
 
   useEffect(() => {
+    if (embedded) return
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return
       event.preventDefault()
@@ -63,7 +66,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [onClose, embedded])
 
   useEffect(() => {
     let cancelled = false
@@ -91,7 +94,10 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   const retry = useCallback(() => setAttempt(n => n + 1), [])
   const shownText = () => catchUpContextText([{ title: OWN_CATCH_UP_ENTRY_TITLE, summary: status.state === 'ok' ? status.recap : undefined }])
 
-  return (
+  const readyRef = useRef(onReady); readyRef.current = onReady
+  const readyText = status.state === 'ok' ? shownText() : ''
+  useEffect(() => { if (readyText) readyRef.current?.(readyText) }, [readyText])
+  const content = (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
       <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
       <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={CATCH_UP_TITLE}>
@@ -135,4 +141,5 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
       </section>
     </div>
   )
+  return embedded ? <div className="lab-catch-up-embedded">{content}</div> : content
 }

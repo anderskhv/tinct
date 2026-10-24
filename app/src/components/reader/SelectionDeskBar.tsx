@@ -46,6 +46,7 @@ export interface SelectionDeskBarProps {
   onAsk: () => void
   /** Only the private shared reader uses the in-place Ask field. */
   onAskQuestion?: (question: string) => void
+  onComposeAsk?: () => void
   onExplain: () => void
   onSimplify: () => void
   onMore: (id: DeskMoreId) => void
@@ -135,6 +136,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     requestAnimationFrame(() => askButtonRef.current?.focus({ preventScroll: true }))
   }
   const openAsk = () => {
+    if (props.onComposeAsk) { props.onComposeAsk(); return }
     if (!props.onAskQuestion) { props.onAsk(); return }
     setMoreOpen(false)
     setAskOpen(true)

@@ -17,8 +17,8 @@ export function pdfTalkConversations(rows: ChatConversation[]) {
         .map(message => ({ role: message.role as 'user' | 'assistant', content: message.content })), localOnly: true as const }))
 }
 
-export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, title = 'Your PDF', author = '', onClose }: {
-  hex: string; owner: string; fileId: string; chat: OwnTextCardsSync; page: number; text: string;
+export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, selectedText, reference, title = 'Your PDF', author = '', onClose }: {
+  hex: string; owner: string; fileId: string; chat: OwnTextCardsSync; page: number; text: string; selectedText?: string; reference?: string;
   title?: string; author?: string; onClose: () => void
 }) {
   const [token, setToken] = useState<string | null>(null)
@@ -72,7 +72,7 @@ export function PdfOriginalTalkCard({ hex, owner, fileId, chat, page, text, titl
   const voice = useVoiceSession({
     authToken: token, isAnonymous: !token, bookId: userBookId(hex), bookTitle: title, bookAuthor: author,
     chapterNumber: page, chapterTitle: `Original PDF page ${page}`, chapterParagraphs: [text.slice(0, 9000)],
-    paragraphIndex: 0, pageNumber: page, visibleText: '', isAudioPlaying: false,
+    paragraphIndex: 0, pageNumber: page, visibleText: selectedText || '', reference, isAudioPlaying: false,
     pausePlayback: () => null, resumePlayback: () => {}, recordMessage: record, appendLocalMessage: () => {},
     onNeedAuth: () => setNotice('Sign in to use Talk.'),
     onInsufficientBalance: () => setNotice('Talk is unavailable for this account right now.'),

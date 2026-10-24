@@ -5,6 +5,16 @@ import { LabInlineMarkdown } from '../../LabMarkdown'
 import { LabChapterNotesEntries } from '../../LabChapterNotesSheet'
 import { primerBeats } from '../../userBook/ownChapterNotes'
 
+/** Folded source entries show prose, while their full structured answer stays unchanged in storage. */
+export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
+  if (kind === 'primer') return parsePrimer(raw)?.gist || 'Open saved Primer'
+  if (kind === 'define') {
+    const answer = parseContextualLookup(raw)
+    return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : answer.definition : 'Open saved definition'
+  }
+  return /^[\s]*(?:\{|\[|```)/.test(raw) ? 'Open saved answer' : raw
+}
+
 /** Display the completed companion shape; callers retain the unmodified answer for saving and export. */
 export function PdfOriginalAnswer({ kind, raw, busy = false }: { kind: string; raw: string; busy?: boolean }) {
   if (kind === 'define') {

@@ -3,9 +3,17 @@ import { tokenizeHearingWords } from '../labHearing'
 import type { LabHighlight } from '../labHighlights'
 import type { ContinuousReaderAnchor } from './continuousReaderWindow'
 
+export interface SourceBookMap {
+  chapters: readonly { number: number; title: string; wordCount?: number; paragraphCount?: number }[]
+  chapterNumber: number
+  marks?: readonly { id: string; chapterNumber: number; paragraphIndex: number; wordIndex?: number; color?: string }[]
+  onJumpChapter: (chapterNumber: number, anchor?: ContinuousReaderAnchor) => void
+}
+
 /** Source paragraphs, never ebook pages. Mirrors strip.js's faint lines, viewport box and mark dots. */
-export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = [], onJump }: {
+export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = [], bookMap, onJump }: {
   paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor; highlights?: readonly LabHighlight[];
+  bookMap?: SourceBookMap;
   onJump: (place: ContinuousReaderAnchor) => void
 }) {
   const model = useMemo(() => {
@@ -15,12 +23,30 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = []
     weights.forEach(weight => { starts.push(total); total += weight })
     return { weights, starts, total: total || 1 }
   }, [paragraphs])
+  const book = useMemo(() => {
+    if (!bookMap?.chapters.length) return null
+    let total = 0
+    const chapters = bookMap.chapters.map(chapter => {
+      const weight = chapter.number === bookMap.chapterNumber ? model.total : Math.max(1, chapter.wordCount || (chapter.paragraphCount || 1) * 80)
+      const start = total
+      total += weight
+      return { ...chapter, start, weight }
+    })
+    const current = chapters.find(chapter => chapter.number === bookMap.chapterNumber)
+    return current ? { chapters, current, total } : null
+  }, [bookMap, model])
+  const offset = book?.current.start ?? 0
+  const total = book?.total ?? model.total
   const [dragging, setDragging] = useState(false)
-  const position = ((model.starts[visible.paragraphIndex] ?? 0) + visible.wordIndex) / model.total
+  const position = ((model.starts[visible.paragraphIndex] ?? 0) + visible.wordIndex + offset) / total
   const jump = (event: PointerEvent<SVGSVGElement>) => {
     if (!paragraphs.length) return
     const box = event.currentTarget.getBoundingClientRect()
-    const word = Math.max(0, Math.min(.999999, (event.clientY - box.top) / box.height)) * model.total
+    if (!(box.height > 0)) return
+    const absolute = Math.max(0, Math.min(.999999, (event.clientY - box.top) / box.height)) * total
+    const chapter = book?.chapters.find(chapter => absolute >= chapter.start && absolute < chapter.start + chapter.weight)
+    if (chapter && chapter.number !== bookMap!.chapterNumber) { bookMap!.onJumpChapter(chapter.number); return }
+    const word = Math.max(0, absolute - offset)
     let paragraphIndex = 0
     while (paragraphIndex + 1 < model.starts.length && model.starts[paragraphIndex + 1] <= word) paragraphIndex++
     onJump({ paragraphIndex, wordIndex: Math.min(model.weights[paragraphIndex] - 1, Math.max(0, Math.floor(word - model.starts[paragraphIndex]))) })
@@ -32,17 +58,17 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = []
       const lines = []
       const count = Math.max(1, Math.ceil(model.weights[i] / 12))
       for (let line = 0; line < count; line++) {
-        const y = (model.starts[i] + line * 12) / model.total * 600
+        const y = (offset + model.starts[i] + line * 12) / total * 600
         if (y - previous < 3) continue
         previous = y
         lines.push({ y, width: line === count - 1 ? Math.max(6, Math.min(25, (model.weights[i] % 12 || 12) / 12 * 25)) : 25 })
       }
       return lines
     })
-  }, [paragraphs, model])
+  }, [paragraphs, model, offset, total])
   return <svg className="source-minimap" data-testid="source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none"
-    role="slider" tabIndex={0} aria-label="Chapter position" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position * 100)}
-    aria-valuetext={`${Math.round(position * 100)}% through this chapter`}
+    role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position * 100)}
+    aria-valuetext={`${Math.round(position * 100)}% through ${book ? "this book" : "this chapter"}`}
     onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); setDragging(true); jump(event) }}
     onPointerMove={event => { if (dragging) jump(event) }} onPointerUp={() => setDragging(false)} onPointerCancel={() => setDragging(false)}
     onKeyDown={event => {
@@ -50,12 +76,40 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = []
       const step = event.key === 'ArrowDown' || event.key === 'PageDown' ? 1 : event.key === 'ArrowUp' || event.key === 'PageUp' ? -1 : 0
       if (!step && event.key !== 'Home' && event.key !== 'End') return
       event.preventDefault()
+      if (book && bookMap) {
+        const index = book.chapters.findIndex(chapter => chapter.number === bookMap.chapterNumber)
+        const target = event.key === 'Home' ? book.chapters[0] : event.key === 'End' ? book.chapters.at(-1)
+          : step < 0 && visible.paragraphIndex === 0 ? book.chapters[index - 1]
+          : step > 0 && visible.paragraphIndex === paragraphs.length - 1 ? book.chapters[index + 1] : undefined
+        if (target && target.number !== bookMap.chapterNumber) { bookMap.onJumpChapter(target.number); return }
+      }
       const paragraphIndex = event.key === 'Home' ? 0 : event.key === 'End' ? paragraphs.length - 1 : Math.max(0, Math.min(paragraphs.length - 1, visible.paragraphIndex + step))
       onJump({ paragraphIndex, wordIndex: 0 })
     }}>
-    <title>Drag to move through the chapter</title>
+    <title>{book ? 'Drag to move through the book; chapter sizes use available word counts' : 'Drag to move through the chapter'}</title>
+    {book?.chapters.filter(chapter => chapter.number !== bookMap!.chapterNumber).map(chapter => <g key={chapter.number} data-map-chapter={chapter.number}>
+      <title>{chapter.title}</title>
+      <line x1={4} x2={24} y1={chapter.start / total * 600} y2={chapter.start / total * 600} className="source-minimap-line" />
+      {Array.from({ length: Math.max(0, Math.floor(chapter.weight / total * 600 / 4) - 1) }, (_, index) => {
+        const y = chapter.start / total * 600 + (index + 1) * 4
+        return <line key={index} x1={6} x2={25} y1={y} y2={y} className="source-minimap-line" />
+      })}
+    </g>)}
     {lines.map((line, i) => <line key={i} x1={4} x2={4 + line.width} y1={line.y + .5} y2={line.y + .5} className="source-minimap-line" />)}
-    <rect x={.5} y={Math.min(575, position * 600)} width={33} height={Math.max(8, Math.min(600 - position * 600, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1) / model.total - position) * 600 : 24))} rx={5} className="source-minimap-window" />
-    {highlights.map(mark => <circle key={mark.id} cx={30} cy={(model.starts[mark.paragraphIndex] ?? 0) / model.total * 600} r={2} className="source-minimap-mark" style={{ fill: { gold: '#c7a855', rose: '#c5868b', sage: '#82a47b', sky: '#839fc5', lavender: '#a795bf' }[mark.color] }} />)}
+    <rect x={.5} y={Math.min(592, position * 600)} width={33} height={Math.max(8, Math.min(600 - position * 600, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * 600 : 24))} rx={5} className="source-minimap-window" />
+    {highlights.map(mark => <circle key={mark.id} cx={30} cy={(offset + (model.starts[mark.paragraphIndex] ?? 0)) / total * 600} r={2} className="source-minimap-mark" style={{ fill: { gold: '#c7a855', rose: '#c5868b', sage: '#82a47b', sky: '#839fc5', lavender: '#a795bf' }[mark.color] }} />)}
+    {book && bookMap?.marks?.map(mark => {
+      const chapter = book.chapters.find(chapter => chapter.number === mark.chapterNumber)
+      if (!chapter) return null
+      const within = mark.chapterNumber === bookMap.chapterNumber
+        ? (model.starts[mark.paragraphIndex] ?? 0) + (mark.wordIndex ?? 0)
+        : Math.min(.99, mark.paragraphIndex / Math.max(1, chapter.paragraphCount ?? mark.paragraphIndex + 1)) * chapter.weight
+      return <circle key={mark.id} data-map-saved={mark.id} onPointerDown={event => {
+        event.preventDefault(); event.stopPropagation()
+        const place = { paragraphIndex: mark.paragraphIndex, wordIndex: mark.wordIndex ?? 0 }
+        if (mark.chapterNumber === bookMap.chapterNumber) onJump(place)
+        else bookMap.onJumpChapter(mark.chapterNumber, place)
+      }} cx={30} cy={(chapter.start + within) / total * 600} r={2} className="source-minimap-mark"><title>Saved note · {chapter.title}</title></circle>
+    })}
   </svg>
 }

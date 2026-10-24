@@ -832,6 +832,18 @@ describe('/api/user-books/cards', () => {
     expect(r2.objects.has(`u/${A}/cards/${hex}/${book.id}`)).toBe(false)
   })
 
+  it('round-trips source-owned free notes and rejects malformed coordinates without crossing owners', async () => {
+    const { call, book, hex } = await withPdf()
+    const free = card('free1', { kind: 'ask', page: 3, pageOnly: true, rects: [], text: 'Margin note',
+      turns: [{ role: 'user', content: 'My margin observation.' }], data: { action: 'note', free: { y: .42 } } })
+    for (const y of [-.1, 1.1, null, '0.5']) {
+      expect((await put(call, 'token-a', hex, { cards: [{ ...free, data: { action: 'note', free: { y } } }], rev: 0, expectedFileId: book.id })).status).toBe(400)
+    }
+    expect((await put(call, 'token-a', hex, { cards: [free], rev: 0, expectedFileId: book.id })).status).toBe(200)
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-a' })).json()).toMatchObject({ cards: [free] })
+    expect(await (await call(`/api/user-books/cards/${hex}`, { token: 'token-b' })).json()).not.toMatchObject({ cards: [free] })
+  })
+
   it('keeps bounded, truthful PDF unit Primer, Catch-up, Quiz and Note cards through export and deletion', async () => {
     const { env, r2, call, book, hex } = await withPdf()
     const unit = { key: 'chapter-4', title: 'Chapter 4', from: 7, to: 12 }

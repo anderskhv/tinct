@@ -1,0 +1,28 @@
+.continuous-reader, .pdf-original__scroll { position: relative; }
+.source-margin-rail { position:absolute; left:0; right:0; top:0; pointer-events:none; z-index:5; }
+.source-margin-room { position:absolute; top:0; pointer-events:auto; }
+.source-margin-item { position:absolute; pointer-events:auto; box-sizing:border-box; border:0; border-left:1px solid var(--lab-border); padding:2px 0 8px 16px; background:transparent; color:var(--lab-ink); font:17px/1.45 'EB Garamond',Georgia,serif; }
+.source-margin-head { display:flex; align-items:center; gap:6px; min-height:30px; }
+.source-margin-item button { border:0; border-radius:0; background:transparent; color:inherit; cursor:pointer; font:inherit; }
+.source-margin-head > button { min-height:30px; min-width:30px; padding:0; color:var(--lab-ink-muted); }
+.source-margin-head .source-margin-label { flex:1; text-align:left; font-size:14px; font-style:italic; }
+.source-margin-preview { width:100%; display:block; text-align:left; font-size:15px!important; line-height:1.35!important; color:var(--lab-ink-muted)!important; padding:0!important; }
+.source-margin-content[hidden] { display:none; }
+.source-margin-content { overflow:visible; }
+.source-margin-content .lab-pcard-body { overflow:visible!important; max-height:none!important; padding:8px 0 10px!important; }
+.source-margin-content .lab-pcard-follow { padding:2px 0 4px!important; }
+.source-margin-content .lab-pcard-answer { font-size:17px; }
+.source-margin-leaders { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; fill:var(--lab-ink-muted); stroke:var(--lab-ink-muted); stroke-width:.7; opacity:.4; }
+.source-margin-leaders path { fill:none; }
+.source-margin-leaders .is-folded { opacity:.5; }
+.source-margin-item :is(button,textarea):focus-visible { outline:1px solid var(--lab-accent,currentColor); outline-offset:2px; }
+.source-margin-content .lab-v2-sheet-body { height:auto; max-height:none; overflow:visible; padding:8px 0; }
+.source-margin-content .lab-catch-up-timeline { max-height:none; overflow:visible; }
+.source-margin-content .lab-catch-up-embedded :is(.lab-v2-sheet-layer,.lab-v2-sheet) { position:static!important; inset:auto!important; transform:none!important; width:auto!important; height:auto!important; min-height:0!important; max-height:none!important; border:0!important; border-radius:0!important; background:transparent!important; box-shadow:none!important; backdrop-filter:none!important; overflow:visible!important; }
+.source-margin-content .lab-catch-up-embedded :is(.lab-super-scrim,.lab-v2-head) { display:none; }
+
+/* Embedded cards do not retain a phone field's capsule chrome. */
+.lab.is-desktop .source-margin-content .lab-pcard-follow-box { min-height:36px; padding:6px 0 2px; border:0; border-bottom:1px solid var(--lab-border); border-radius:0; background:transparent; box-shadow:none; }
+.lab.is-desktop .source-margin-content .lab-pcard-follow-box:focus-within { border-bottom-color:var(--lab-accent,currentColor); }
+.lab.is-desktop .source-margin-content :is(.lab-pcard-mic,.lab-pcard-talkbtn,.lab-pcard-send) { border:0; border-radius:0!important; background:transparent!important; color:var(--lab-ink-muted)!important; box-shadow:none; }
+.source-margin-head svg { width:16px; height:16px; }

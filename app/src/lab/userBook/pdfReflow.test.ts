@@ -215,6 +215,8 @@ describe('Registered books are untouched', () => {
     expect(source(/js\/pdf-text\.js\?v=|\bconvertPdf\(|import\('\.\/pdfEdition'\)/)).toEqual(['lab/userBook/pdfEdition.ts', 'lab/userBook/userBookStore.ts'])
     expect(source(/\bloadPdfEngine\(/)).toEqual([
       'lab/sharedReader/pdf/PdfOriginalReaderShell.tsx', 'lab/sharedReader/pdf/PdfOriginalSurface.tsx',
+      // Original figures use the same raw page engine/detector; they never invoke source-to-prose conversion.
+      'lab/sharedReader/pdf/pdfOriginalFigures.ts',
       'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
     ])
   })

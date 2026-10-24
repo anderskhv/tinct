@@ -23,6 +23,8 @@ export interface LabChapterNotesSheetProps {
   onTopUp?: () => void
   /** The phone's margin mode: shown as the bottom card (marginPhone/LabPhoneCard). */
   card?: boolean
+  embedded?: boolean
+  onReady?: (beats: ChapterNotesBeat[]) => void
   /**
    * The last row: the follow-up field with mic, Talk and send, given the beats shown; in place
    * of the Chat, Talk and Copy buttons (iPhone feedback, 21 Oct 2026: the card's text can still be selected).
@@ -42,7 +44,7 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).
@@ -50,6 +52,8 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   // The daily AI ceiling or a provider limit (503 ai_resting): said above Retry.
   const [resting, setResting] = useState(false)
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
+  const ready = useRef(onReady); ready.current = onReady
+  useEffect(() => { if (state === 'ok' && beats) ready.current?.(beats) }, [state, beats])
   const mounted = useRef(true)
   // Set on every mount: React's development double mount runs the cleanup once.
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
@@ -89,10 +93,11 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    if (embedded) return
     const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); onClose() } }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
+  }, [onClose, embedded])
 
   const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
@@ -126,6 +131,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
           )}
         </div>
   )
+  if (embedded) return <>{timeline}{follow?.(state === 'ok' ? beats : null)}</>
   if (card) return <LabPhoneCard label={title} kind={`chapter-notes-${request.kind}`} onClose={onClose} foot={follow?.(state === 'ok' ? beats : null)}>{timeline}</LabPhoneCard>
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-chapter-notes-layer">

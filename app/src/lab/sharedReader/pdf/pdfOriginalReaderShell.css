@@ -61,3 +61,15 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-reader.lab.is-phone .lab-v2-library-back { display:grid; place-items:center; width:28px; height:44px; color:var(--lab-ink-muted); text-decoration:none; }
 .pdf-original-reader.lab.is-phone .lab-body { flex:1 1 auto; height:auto; min-height:0; }
 .pdf-original-reader.lab.is-phone .pdf-original-reader__panel { top:calc(58px + env(safe-area-inset-top,0px)); }
+/* The original PDF reader's header marks sit directly on the paper. */
+.pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header :is(.lab-v2-library-back,.lab-v2-play,.lab-super) { width:44px; height:44px; flex:0 0 44px; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; color:var(--lab-ink); }
+.pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header .lab-v2-library-back { top:6px; text-decoration:none; }
+.pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header .lab-super-disc { background:transparent; }
+.pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header :is(.lab-v2-library-back,.lab-v2-play,.lab-super):focus-visible { outline:1px solid var(--lab-ink-muted); outline-offset:2px; }
+.pdf-original-reader.lab.is-desktop .lab-header-book { font-size:17px; }
+.pdf-original-reader.lab.is-desktop .pdf-original-reader__head-actions > button[aria-label="Appearance"] { display:grid; place-items:center; width:44px; height:44px; padding:0; font:19px/1 'EB Garamond',Georgia,serif; color:var(--lab-ink); }
+.pdf-original-reader.lab.is-desktop .lab-body { grid-template-columns:minmax(0,1fr); }
+.pdf-original-reader__contents-tabs { display:flex; gap:20px; border-bottom:1px solid var(--lab-border); margin-bottom:10px; }
+.pdf-original-reader__contents-tabs button { padding:4px 0 8px; color:var(--lab-ink-muted); }
+.pdf-original-reader__contents-tabs button[aria-current=page] { color:var(--lab-ink); border-bottom:1px solid currentColor; }
+.pdf-original-reader .source-margin-content .lab-pcard-embedded { overflow:visible; }

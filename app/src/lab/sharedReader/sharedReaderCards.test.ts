@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { ChatConversation } from '../../types'
 import { mergeChatConversations, parseChatConversations } from '../labChatHistory'
-import { catalogueCardConversation, ownTextCardDraft, tombstoneCatalogueCard, upsertCatalogueCard, type SharedReaderCard } from './sharedReaderCards'
+import { withConvertedNote, catalogueCardConversation, ownTextCardDraft, tombstoneCatalogueCard, upsertCatalogueCard, type SharedReaderCard } from './sharedReaderCards'
 
 const card = (overrides: Partial<SharedReaderCard> = {}): SharedReaderCard => ({
   source: { kind: 'catalogue', bookId: 'bible' }, id: 'shared-1', kind: 'explain', chapterNumber: 595,
@@ -96,4 +96,13 @@ describe('shared reader card boundary', () => {
       startTimestamp: 1, endTimestamp: 2, preview: 'question', messages: [{ id, role: 'user', content, timestamp: 1 }] })
     expect(mergeChatConversations([chat('a', 'first')], [chat('b', 'second')])[0].messages.map(message => message.id)).toEqual(['a', 'b'])
   })
+})
+
+it('keeps a converted note once when the saved conversation is hydrated and saved again', () => {
+  const note = {text:'My original note',at:100}
+  const first = withConvertedNote([{role:'user',content:'Why?',at:101},{role:'assistant',content:'Because.',at:102}],note)
+  const saved = catalogueCardConversation(card({kind:'ask',turns:first,at:100,u:102}))!
+  const hydrated = saved.messages.map(message => ({role:message.role as 'user'|'assistant',content:message.content,at:message.timestamp}))
+  const second = withConvertedNote(hydrated,note)
+  expect(second.map(turn => turn.content)).toEqual(['My original note','Why?','Because.'])
 })
