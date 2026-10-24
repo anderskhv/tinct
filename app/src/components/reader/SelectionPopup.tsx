@@ -78,6 +78,7 @@ export interface SelectionPopupProps {
   onAskQuestion?: (question: string) => void
   /** Private shared reader: start the existing passage quiz flow. */
   onQuizPassage?: () => void
+  onPassageNote?: () => void
   onPassageAction?: (kind: 'explain' | 'simplify' | 'factcheck' | 'counterpoint' | 'define') => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
@@ -220,6 +221,7 @@ export function SelectionPopup({
   onAskQuestion,
   onQuizPassage,
   onPassageAction,
+  onPassageNote,
   onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
@@ -381,6 +383,7 @@ export function SelectionPopup({
    * without this request still leaves the keyboard down.
    */
   const requestNote = (color?: HighlightColor) => {
+    if (onPassageNote) { onPassageNote(); return }
     flushSync(() => onRequestNote(color))
     noteFieldRef.current?.focus({ preventScroll: true })
   }

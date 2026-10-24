@@ -6,7 +6,7 @@ Implemented on `codex/reader-polish-20261024`, based on main `77c1d7de`. Local w
 
 - New desktop ebook layouts start in Two-page. Explicit per-book choices, deep links and legacy choices remain respected. PDFs start in Original pages with a companion margin; an explicit Tinct-text preference remains respected. Phone layout is unchanged.
 - Aa opens Appearance, with visual Margin, Two-page and Compare choices and short descriptions. Compare remains capability-qualified.
-- Desktop passage answers use the phone response body and persistence flow in a soft floating shell. Margin reserves room beside the source; Two-page and Compare may overlap unselected text without reflow. Ask also stays in a passage card. Long selections retain a usable card even when no completely free area remains.
+- Desktop passage answers use the phone response body and persistence flow in a soft floating shell. Margin reserves room beside the source; Two-page and Compare may overlap unselected text without reflow. Ask and Note also stay in passage cards; editing a note preserves its existing source highlight. Long selections retain a usable card even when no completely free area remains.
 - Selection menus and response cards track source geometry through nested scrolling. An offscreen or unmounted passage hides its card; chapter cards retain a visible fallback. Original PDF anchors use normalized original-page rectangles, including after zoom.
 - Continuous ebook paper uses the earlier soft side-edge treatment. The ebook strip shows current-chapter source position; the original-PDF strip shows the document, real text-line geometry for visited pages, and saved highlight/card dots. Unread PDF pages retain page ticks rather than invented content.
 - Desktop narration has a compact strip. Narration acquires playback audio-session ownership before assigning an autoplay source or calling play, and releases ownership on pause, stop and unmount. Talk priority remains intact.
@@ -14,7 +14,7 @@ Implemented on `codex/reader-polish-20261024`, based on main `77c1d7de`. Local w
 
 ## Verification
 
-The broad unit run passed **7,291 tests** across 588 passing files, with six existing skipped tests and one skipped file. Subsequent focused PDF/card tests passed 34/34, covering final presentation changes and render cancellation handling. Final ON build `index-CPf7T9QQ.js` and bundle verification passed; the bundle verifier checks expected public configuration, import/tag integrity and leaked secrets.
+The broad unit run passed **7,291 tests** across 588 passing files, with six existing skipped tests and one skipped file. Subsequent focused PDF/card tests passed 34/34, covering final presentation changes and render cancellation handling. The final Note routing regression passes with 60 focused tests (including create, reopen, edit and persist on one source highlight). Final ON build `index-P1sQwbR2.js` and bundle verification passed; the bundle verifier checks expected public configuration, import/tag integrity and leaked secrets.
 
 Isolated browser checks use muted audio and synthetic API responses, with provider traffic blocked:
 
@@ -34,7 +34,7 @@ The repository-wide TypeScript check has existing failures and is not reported a
 
 Observed Gloss import-to-visible-reader times were 544ms for the notes, 572ms for the report and 661ms for the repeated academic-paper import. These are single browser UI measurements, including automation overhead, with its application already loaded. They are not Core Web Vitals or model-response times.
 
-Tinct's built-app timing harness uses the same three text PDFs, fresh isolated Chromium contexts, a local static server, preseeded owner-bound file bytes, and a rendered canvas plus text layer followed by an animation frame as readiness. Three runs per document measure cold navigation, warmed navigation, selection-to-toolbar and click-to-card-shell separately. Raw records and final medians are stored alongside this document.
+Tinct's built-app timing harness uses the same three text PDFs, fresh isolated Chromium contexts, a local static server, preseeded owner-bound file bytes, and a rendered canvas plus text layer followed by an animation frame as readiness. Three runs per document measure cold navigation, warmed navigation, selection-to-toolbar and click-to-card-shell separately. Raw records and final medians are stored alongside this document. These timings use `index-CPf7T9QQ.js`, before the final desktop Note routing change; the PDF rendering path is unchanged in the final build.
 
 | PDF | Cold first readable | Warm first readable | Selection toolbar | Card shell |
 | --- | ---: | ---: | ---: | ---: |

@@ -6935,6 +6935,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             sendPhoneFollow(passage, question)
           } : undefined}
           onPassageAction={sharedReader ? phoneBarAction : undefined}
+          onPassageNote={sharedReader ? phoneBarNote : undefined}
           onQuizPassage={sharedReader ? () => phoneBarAction('quiz') : undefined}
           onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
             ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
