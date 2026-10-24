@@ -9,25 +9,12 @@
  * paragraph-aligned — paragraph N of chapter C is the same passage in every
  * edition of the book.
  *
- * Meditations `modern-da` was withdrawn on 2026-09-12. It is not a rights
- * problem: it is a structure problem. It was translated paragraph for
- * paragraph against the Casaubon 1634 text that used to be served as
- * `original-en` (412 paragraphs, non-standard section numbering), and on
- * 2026-09-12 the book was re-based onto George Long 1862 (487 paragraphs).
- * Its paragraph N is no longer the same passage as paragraph N of the live
- * editions, so it can neither be read alongside them nor compared with them,
- * and the alignment promise above does not hold for it. It falls back to
- * `modern-en` — the modern English edition, the closest thing to what a
- * reader who chose Moderne Dansk was choosing.
- *
- * NOTE the interaction with `rebasedEditions`: moving a reader from
- * `meditations/modern-da` to `modern-en` at the SAME paragraph is exactly the
- * unsound move this file's alignment argument licenses everywhere else. It is
- * safe here only because every stored `meditations/modern-da` location
- * necessarily predates the re-basing (the edition is withdrawn in the same
- * change), so `rebaseSavedPosition` has already dropped its paragraph before
- * the successor is consulted. The reader arrives at the top of the same
- * chapter, which is the most that survives honestly.
+ * The former Meditations and four 2026-10-02 Danish successors were retired
+ * on 2026-10-24: reviewed Danish texts now use the current English structure
+ * under those keys. Old source assets remain in books/withheld-assets.
+ * Existing saved coordinates and quotation text are not rewritten here.
+ * Historical places from the replaced sources remain approximate; this release
+ * does not claim exact word alignment with those withdrawn translations.
  *
  * Bible `modern-en` was withdrawn on 2026-09-11: the 2026-09-11 translation
  * audit confirmed it reproduces the copyrighted NIV (2011) at every sampled
@@ -39,18 +26,7 @@
 const SUCCESSORS: Record<string, string> = {
   'bible/modern-en': 'web-en',
   'bible/modern-da': 'web-en',
-  'meditations/modern-da': 'modern-en',
-  // 2026-10-02 rights release: the English text of these four books was
-  // replaced (Giles, Murray, Davis -> Calthrop, Way, McKechnie) and their
-  // modern-da renders the replaced text. Withdrawn at Anders's request; the
-  // files are kept, unserved, in books/withheld-assets/2026-10-02-rights/.
-  // Danish has been held since 2026-09-21, so only older saved places exist;
-  // they follow the old paragraphing, so at the same paragraph of modern-en
-  // the place is approximate (same chapter).
-  'the-art-of-war/modern-da': 'modern-en',
-  'medea/modern-da': 'modern-en',
-  'bacchae/modern-da': 'modern-en',
-  'magna-carta/modern-da': 'modern-en',
+
 }
 
 export function isEditionWithheld(bookId: string, editionKey: string): boolean {

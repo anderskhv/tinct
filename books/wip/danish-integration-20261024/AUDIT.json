@@ -1,0 +1,848 @@
+{
+  "sourceCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
+  "mainBase": "eb7cfdf49fcc382bfad3c438ed8ae76798fb26b9",
+  "books": [
+    {
+      "book": "pride-and-prejudice",
+      "group": "A",
+      "published": true,
+      "chapters": 61,
+      "paragraphs": 2053,
+      "sha256": "290da77cb902634238ff616d96e8d94392bcead94f780a7ae15b3655de20605d",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-1/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "6c80aa42dd44707774a6049d2a17bbfaf61806751e6f0cf5536b8837dabfc463",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "moby-dick",
+      "group": "A",
+      "published": true,
+      "chapters": 136,
+      "paragraphs": 2432,
+      "sha256": "26dfb6cbf36ded8e95700be94e51586a99a0ab8c7daabc48d7fba51942464789",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-1/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "1a3f31bbe6bb4bea415a29b509c81f303074bc858854c7bc00a49e8b68ffd52c",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "crime-and-punishment",
+      "group": "A",
+      "published": true,
+      "chapters": 41,
+      "paragraphs": 3904,
+      "sha256": "912d6f6374c2543a52ba737fe85714b62ea8c235456b5ce5640eb7a4eb3a5ac4",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-1/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "18be4155497ebdf78013d1a26ce2fad86839aaa00c036cf9970954af550888eb",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "jekyll-and-hyde",
+      "group": "A",
+      "published": true,
+      "chapters": 10,
+      "paragraphs": 339,
+      "sha256": "2bceeef7f1a5d1974d779a59ed7fa7f5e4993be5cacb4c6f2ac0c088b9dfedfa",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [
+        "italics"
+      ],
+      "aligned": true,
+      "en_sha256": "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [
+          "2:9",
+          "2:25",
+          "2:36",
+          "2:46",
+          "2:49",
+          "8:30",
+          "9:1",
+          "9:3"
+        ],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "blocked: italics"
+    },
+    {
+      "book": "great-expectations",
+      "group": "A",
+      "published": true,
+      "chapters": 59,
+      "paragraphs": 3835,
+      "sha256": "c644880c52e0f7228c49b7fd750733f1d752946c72f53440899edffb56a5daf4",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "760e685ddbc2b7cf547b644a10c7869da7be2b73a448909d56dbd24ec61484b1",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "blocked: existing Modern English edition gate fails"
+    },
+    {
+      "book": "the-prince",
+      "group": "A",
+      "published": true,
+      "chapters": 27,
+      "paragraphs": 254,
+      "sha256": "4d0efe429d27e14db2f05745acc240fadc7e9cb32d237b5e33297c5d154d61a9",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "confessions",
+      "group": "A",
+      "published": true,
+      "chapters": 13,
+      "paragraphs": 462,
+      "sha256": "ac1dfc10a1001442f868a76c722ca2cfe07b833d0ea2b75eaf83d76284d66176",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-retranslate-3/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "949e4f77fd317601cc39dc701cfbc3f5f82a5b5a842c34e93c9a6328ef78add7",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "adventures-of-huckleberry-finn",
+      "group": "B",
+      "published": false,
+      "chapters": 45,
+      "paragraphs": 2179,
+      "sha256": "babc602daa31769f2178e10b274052d4646004fc56f015bc3c95e82f5feee065",
+      "hash_records": [
+        {
+          "file": "books/wip/adventures-of-huckleberry-finn/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "adventures-of-sherlock-holmes",
+      "group": "B",
+      "published": false,
+      "chapters": 12,
+      "paragraphs": 2527,
+      "sha256": "58f05b5126b88695e592f6a6ad6939199299545b3785ec753d2dafe486d9e500",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "book not published"
+      ],
+      "aligned": true,
+      "en_sha256": "ab3db4de18d6e7ba480e4c325e952a4c9c904546e7c51d751d0a464df6b25b5b",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "blocked: book not published"
+    },
+    {
+      "book": "alice-in-wonderland",
+      "group": "B",
+      "published": true,
+      "chapters": 12,
+      "paragraphs": 789,
+      "sha256": "1683a43b53096dbab47e2b9fcd81cc0ccb11e8e88789927fa735200071733e9e",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "ce04a1b4bae3fdaeb2fd8ca8881ccc2815dba76fc1dbf24b92757e88682a6ff7",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate",
+      "english_gate_exception": "Previously accepted verse exemption: books/wip/alice-in-wonderland/EDITORIAL-FIXES.md; 31 identical lineated verse paragraphs, zero identical prose."
+    },
+    {
+      "book": "arabian-nights",
+      "group": "B",
+      "published": true,
+      "chapters": 35,
+      "paragraphs": 1826,
+      "sha256": "e0c617f207b9e698afd210808ebfb2fd0e1750ef8a65eb8cda4ed165e8664075",
+      "hash_records": [
+        {
+          "file": "books/wip/arabian-nights/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": true,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "386e22ddf5373746e98ccaedbd87fb03b5b756baeafb7c4c0e4a9c6c859a7a2d",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "already online, newer published package preserved"
+    },
+    {
+      "book": "bacchae",
+      "group": "B",
+      "published": true,
+      "chapters": 11,
+      "paragraphs": 324,
+      "sha256": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "beautiful-stories-from-shakespeare",
+      "group": "B",
+      "published": false,
+      "chapters": 22,
+      "paragraphs": 1194,
+      "sha256": "7827b1c2ecd924a7f06c5b512d2c2fc828367ef1e697891fd4428eeb97fe1441",
+      "hash_records": [
+        {
+          "file": "books/wip/beautiful-stories-from-shakespeare/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "grimms-fairy-tales",
+      "group": "B",
+      "published": true,
+      "chapters": 65,
+      "paragraphs": 902,
+      "sha256": "53550b14b49833ff6a26d746d6c7cc989009e3133876123e8b146ef907f4ef70",
+      "hash_records": [
+        {
+          "file": "books/wip/grimms-fairy-tales/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": true,
+      "same_as_live": true,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "679ab684eaf90eb7cfdd30a869d97f865aba6e0c5aff77951386ca16c7eba6ab",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "already online, newer published package preserved"
+    },
+    {
+      "book": "iliad-for-boys-and-girls",
+      "group": "B",
+      "published": false,
+      "chapters": 24,
+      "paragraphs": 675,
+      "sha256": "bbc513e8fb984967669b4a72b720194c040f33f2d95660585bc429d4fca368f2",
+      "hash_records": [
+        {
+          "file": "books/wip/iliad-for-boys-and-girls/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "lincoln-gettysburg-second-inaugural",
+      "group": "B",
+      "published": false,
+      "chapters": 2,
+      "paragraphs": 11,
+      "sha256": "f6589d8192ffc726c5f2f1917823b26c4233795b4ed76101f5ba98bb5d904e35",
+      "hash_records": [
+        {
+          "file": "books/wip/lincoln-gettysburg-second-inaugural/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "magna-carta",
+      "group": "B",
+      "published": true,
+      "chapters": 1,
+      "paragraphs": 65,
+      "sha256": "11e3b4de2820772b5258b1981f783b80dfb14db4667d9e8d6358004e6cc99009",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "cfa05de4109362a5889816ea4a06071944189da833907f3f916f9c323797cabb",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "medea",
+      "group": "B",
+      "published": true,
+      "chapters": 7,
+      "paragraphs": 238,
+      "sha256": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "meditations",
+      "group": "B",
+      "published": true,
+      "chapters": 12,
+      "paragraphs": 487,
+      "sha256": "c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "merry-adventures-of-robin-hood",
+      "group": "B",
+      "published": false,
+      "chapters": 23,
+      "paragraphs": 1690,
+      "sha256": "0293dedda342dc9357adca365b21555f04ad3924992e7667cca033e910f96d45",
+      "hash_records": [
+        {
+          "file": "books/wip/merry-adventures-of-robin-hood/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "middlemarch",
+      "group": "B",
+      "published": true,
+      "chapters": 88,
+      "paragraphs": 4674,
+      "sha256": "964adedfdf3613fb95bf14e6b8623092d5d74090ff102933ab9a12afe536a3fa",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "304f7ac56d6def7c254fc2eeae95ce18c75a36329e8a722c484dfe0f5b52182e",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "odyssey-for-boys-and-girls",
+      "group": "B",
+      "published": false,
+      "chapters": 25,
+      "paragraphs": 747,
+      "sha256": "0a967d5924f1927bf69f10e931b42a2098a8c94288be51de71bd315add6722ad",
+      "hash_records": [
+        {
+          "file": "books/wip/odyssey-for-boys-and-girls/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "sense-and-sensibility",
+      "group": "B",
+      "published": true,
+      "chapters": 50,
+      "paragraphs": 1806,
+      "sha256": "6120dd8f823fc02496950863a0dcade09e463238a03db8535657981fcdce13e5",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "italics"
+      ],
+      "aligned": true,
+      "en_sha256": "789a6dfb5025e0b96604b0cf7c258c3444792c175d1e18f62969cbbd52412928",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [
+          "44:35"
+        ],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "blocked: italics"
+    },
+    {
+      "book": "the-art-of-war",
+      "group": "B",
+      "published": true,
+      "chapters": 13,
+      "paragraphs": 385,
+      "sha256": "cf5cc1224f1be2a1214e2e93b0e2f333d38184d11d91593ba37507719c433dcb",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    },
+    {
+      "book": "wonder-book-and-tanglewood-tales",
+      "group": "B",
+      "published": false,
+      "chapters": 14,
+      "paragraphs": 1591,
+      "sha256": "41eea9989a6131b39bd0c53a11135e3028b4677f10482871c83d4c1a24c33ba1",
+      "hash_records": [
+        {
+          "file": "books/wip/wonder-book-and-tanglewood-tales/review/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": false,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [
+        "no live modern-en",
+        "book not published"
+      ],
+      "disposition": "blocked: no live modern-en, book not published"
+    },
+    {
+      "book": "wuthering-heights",
+      "group": "B",
+      "published": true,
+      "chapters": 34,
+      "paragraphs": 1931,
+      "sha256": "d444a2133ca0490dcc6bf0c97fd06119be782dd063ce08cebd8c605c35c82d12",
+      "hash_records": [
+        {
+          "file": "books/wip/danish-batch-2/SHA256SUMS.txt",
+          "matches": true
+        }
+      ],
+      "live_en": true,
+      "live_da": false,
+      "same_as_live": false,
+      "issues": [],
+      "aligned": true,
+      "en_sha256": "2ffc01f3d29a6f2087ea0bff09ed69d26e32e5ffb748bf9e4e29d22755dc75c8",
+      "mechanical": {
+        "linebreak": [],
+        "italics": [],
+        "markers": [],
+        "quotes": [],
+        "double_dash": [],
+        "placeholder": [],
+        "empty": [],
+        "compression": []
+      },
+      "disposition": "integrate"
+    }
+  ],
+  "englishGates": [
+    {
+      "book": "pride-and-prejudice",
+      "code": 0,
+      "output": "pride-and-prejudice original-en -> modern-en  (61 chapters)\n  weighted similarity : 0.672   (gate: <= 0.75)\n  light+mechanical    : 0/61 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/1682 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 61  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "moby-dick",
+      "code": 0,
+      "output": "moby-dick original-en -> modern-en  (136 chapters)\n  weighted similarity : 0.727   (gate: <= 0.75)\n  light+mechanical    : 0/136 = 0.0%   (gate: <= 5%)\n  identical long paras: 3/2054 = 0.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 136  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "crime-and-punishment",
+      "code": 0,
+      "output": "crime-and-punishment original-en -> modern-en  (41 chapters)\n  weighted similarity : 0.612   (gate: <= 0.75)\n  light+mechanical    : 0/41 = 0.0%   (gate: <= 5%)\n  identical long paras: 6/2557 = 0.2%   (gate: <= 5%)\n  buckets: REAL-HEAVY 0  REAL 41  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "great-expectations",
+      "code": 1,
+      "output": "great-expectations original-en -> modern-en  (59 chapters)\n  weighted similarity : 0.776   (gate: <= 0.75)\n  light+mechanical    : 5/59 = 8.5%   (gate: <= 5%)\n  identical long paras: 16/2671 = 0.6%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 53  LIGHT 5  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+    },
+    {
+      "book": "the-prince",
+      "code": 0,
+      "output": "the-prince original-en -> modern-en  (27 chapters)\n  weighted similarity : 0.721   (gate: <= 0.75)\n  light+mechanical    : 0/27 = 0.0%   (gate: <= 5%)\n  identical long paras: 2/231 = 0.9%   (gate: <= 5%)\n  buckets: REAL-HEAVY 4  REAL 23  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "confessions",
+      "code": 0,
+      "output": "confessions original-en -> modern-en  (13 chapters)\n  weighted similarity : 0.477   (gate: <= 0.75)\n  light+mechanical    : 0/13 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/459 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 10  REAL 3  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "alice-in-wonderland",
+      "code": 1,
+      "output": "alice-in-wonderland original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.532   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 31/546 = 5.7%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE FAIL\n"
+    },
+    {
+      "book": "bacchae",
+      "code": 0,
+      "output": "bacchae original-en -> modern-en  (11 chapters)\n  weighted similarity : 0.256   (gate: <= 0.75)\n  light+mechanical    : 0/11 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/123 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 11  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "magna-carta",
+      "code": 0,
+      "output": "magna-carta original-en -> modern-en  (1 chapters)\n  weighted similarity : 0.264   (gate: <= 0.75)\n  light+mechanical    : 0/1 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/65 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 1  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "medea",
+      "code": 0,
+      "output": "medea original-en -> modern-en  (7 chapters)\n  weighted similarity : 0.214   (gate: <= 0.75)\n  light+mechanical    : 0/7 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/117 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 7  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "meditations",
+      "code": 0,
+      "output": "meditations original-en -> modern-en  (12 chapters)\n  weighted similarity : 0.515   (gate: <= 0.75)\n  light+mechanical    : 0/12 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/471 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 3  REAL 9  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "middlemarch",
+      "code": 0,
+      "output": "middlemarch original-en -> modern-en  (88 chapters)\n  weighted similarity : 0.490   (gate: <= 0.75)\n  light+mechanical    : 0/88 = 0.0%   (gate: <= 5%)\n  identical long paras: 88/4078 = 2.2%   (gate: <= 5%)\n  buckets: REAL-HEAVY 49  REAL 39  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "the-art-of-war",
+      "code": 0,
+      "output": "the-art-of-war original-en -> modern-en  (13 chapters)\n  weighted similarity : 0.234   (gate: <= 0.75)\n  light+mechanical    : 0/13 = 0.0%   (gate: <= 5%)\n  identical long paras: 0/254 = 0.0%   (gate: <= 5%)\n  buckets: REAL-HEAVY 13  REAL 0  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    },
+    {
+      "book": "wuthering-heights",
+      "code": 0,
+      "output": "wuthering-heights original-en -> modern-en  (34 chapters)\n  weighted similarity : 0.509   (gate: <= 0.75)\n  light+mechanical    : 0/34 = 0.0%   (gate: <= 5%)\n  identical long paras: 1/1586 = 0.1%   (gate: <= 5%)\n  buckets: REAL-HEAVY 13  REAL 21  LIGHT 0  MECHANICAL 0\n  wrapped scaffolding : 0   (gate: 0)\n  truncated quotations: 0   (gate: 0)\nGATE PASS\n"
+    }
+  ],
+  "removedConfessionsHold": {
+    "reason": "Books 10–13 contain placeholders instead of the text.",
+    "sha256": "4935d43ca05f87da69b94c37d3b2079ed8591a7769cf45f57a213690ec0b19bb"
+  },
+  "caveats": [
+    "All review was by AI helper agents.",
+    "No native Danish speaker has read these editions.",
+    "Reviewer replacements were not independently re-reviewed."
+  ]
+}

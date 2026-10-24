@@ -12,9 +12,9 @@ import { createReaderHandoffIntent, getEditionSelectionViewModel, searchPreReade
 
 describe('temporary edition holds preserve identities and recovery', () => {
   it('pins every held asset to the bytes independently fetched from production', () => {
-    // 9 edition holds, plus the 11 English/French editions of the five books
+    // 8 edition holds (Confessions repaired 2026-10-24), plus 11 English/French editions of the five books
     // held whole on 2026-10-02 (rights holds).
-    expect(Object.keys(manifest.editions)).toHaveLength(20)
+    expect(Object.keys(manifest.editions)).toHaveLength(19)
     for (const [key, evidence] of Object.entries(manifest.editions)) {
       const [bookId, editionKey] = key.split('/')
       expect(getBook(bookId)?.editions.some(e => e.key === editionKey), key).toBe(true)
@@ -75,14 +75,14 @@ it('withdraws every Danish edition without migrating or deleting its source iden
 describe('The offered Danish editions (explicit allowlist)', () => {
  const book = getBook('to-the-lighthouse')!
  const edition = book.editions.find(e => e.key === 'modern-da')!
- it('is exactly one explicit identity, never inferred from the language', () => {
-  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'arabian-nights/modern-da', 'around-the-world-80-days/modern-da', 'grimms-fairy-tales/modern-da', 'jungle-book/modern-da', 'to-the-lighthouse/modern-da'])
+ it('uses explicit identities, never inferred from the language', () => {
+  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'arabian-nights/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'grimms-fairy-tales/modern-da', 'jungle-book/modern-da', 'magna-carta/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'pride-and-prejudice/modern-da', 'the-art-of-war/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'wuthering-heights/modern-da'])
   expect(edition).toMatchObject({ language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false })
   expect(isOfferedDanishEdition('to-the-lighthouse', 'modern-da')).toBe(true)
   // Same book, other Danish keys; same key, other books: still withdrawn.
   expect(editionHold('to-the-lighthouse', 'original-da')?.reason).toContain('Danish editions')
   expect(editionHold('to-the-lighthouse', 'kids-da')?.reason).toContain('Danish editions')
-  for (const id of ['jane-eyre', 'odyssey', 'ulysses', 'moby-dick']) {
+  for (const id of ['jane-eyre', 'odyssey', 'ulysses', 'jekyll-and-hyde']) {
    expect(editionHold(id, 'modern-da')?.reason, id).toContain('Danish editions')
    expect(isEditionLanguageOffered(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
    expect(isEditionDiscoverable(id, { key: 'modern-da', language: 'da' }), id).toBe(false)
