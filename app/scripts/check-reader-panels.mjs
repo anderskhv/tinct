@@ -914,6 +914,7 @@ async function menuRedesign(engine,name,phone) {
   try {
     state=await boot(browser,phone,'notes-from-underground','original-en')
     const {page,requests}=state
+    const sharedPhone=phone && await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
     // The page's profiles marker must match the deployed switch. The last row is Profile
@@ -979,7 +980,7 @@ async function menuRedesign(engine,name,phone) {
     // The phone's summary ends with the follow-up field (mic, Talk, send; 21 Oct 2026); the desktop keeps Chat and Talk.
     assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),phone?0:1)
     assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),phone?0:1)
-    if(phone){
+    if(sharedPhone){
       // The beats live in the card body; its follow-up field is the card's
       // sibling foot, not a descendant of the beats' lab-chapter-notes node.
       const sheet=page.getByTestId('lab-phone-card')
@@ -998,8 +999,15 @@ async function menuRedesign(engine,name,phone) {
       assert(fit.gap<=24&&fit.height<452&&fit.cardBottom<=fit.viewportBottom+1,'the summary sheet fits above the visible viewport foot: '+JSON.stringify(fit))
       assert(fit.controls.every(item=>item.count===1&&item.width>0&&item.height>0&&item.visibility==='visible'&&item.top>=fit.viewportTop&&item.bottom<=fit.viewportBottom+1),
         'the summary follow-up controls are visible inside the viewport: '+JSON.stringify(fit))
+    } else if(phone) {
+      // The default-off phone reader retains the older chapter-notes sheet:
+      // its follow-up field is inside the sheet rather than a card foot.
+      const sheet=page.getByTestId('lab-chapter-notes')
+      for(const id of ['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'])assert.equal(await sheet.locator(`[data-testid="${id}"]`).count(),1,id+' in the legacy summary sheet')
+      const fit=await sheet.evaluate(node=>{const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect(),last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom));return {height:s.height,gap:f.top-last}})
+      assert(fit.gap<=24&&fit.height<452,'the legacy summary sheet is as tall as its content: '+JSON.stringify(fit))
     }
-    if(phone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
+    if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
     else await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
