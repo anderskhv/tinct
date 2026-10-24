@@ -206,3 +206,31 @@ it('an unlock refused by the page (blocked source) never ends the chapter', asyn
   expect(onChapterComplete).not.toHaveBeenCalled()
   expect(h.audio.play).toHaveBeenCalledTimes(1)
 })
+
+it('selects the playback route before the first media play, including a paused resume', async () => {
+  const session = { type: 'auto' }
+  vi.stubGlobal('navigator', { audioSession: session })
+  const h = harness()
+  const modes: string[] = []
+  vi.mocked(h.audio.play).mockImplementation(() => { modes.push(session.type); return Promise.resolve() })
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  act(() => h.result.current.pause())
+  expect(session.type).toBe('auto')
+  await act(async () => { h.result.current.resume() })
+  expect(modes.length).toBeGreaterThanOrEqual(2)
+  expect(modes.every(mode => mode === 'playback')).toBe(true)
+  h.unmount()
+  expect(session.type).toBe('auto')
+})
+
+it('releases a pending playback session on teardown and ignores its late play completion', async () => {
+  const session = { type: 'auto' }
+  vi.stubGlobal('navigator', { audioSession: session })
+  const h = harness()
+  await act(async () => { await h.result.current.startAtPlace({ paragraphIndex: 0, wordIndex: 0 }) })
+  expect(session.type).toBe('playback')
+  h.unmount()
+  expect(session.type).toBe('auto')
+  await act(async () => h.pending[0].resolve())
+  expect(session.type).toBe('auto')
+})
