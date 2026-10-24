@@ -569,7 +569,7 @@ describe('UserBookReader', () => {
     const reconcile = vi.fn(async (hex: string) => { writeUserBookPlace(hex, { chapterNumber: 2, paragraphIndex: 1, wordIndex: 0, updatedAt: 9_000 }) })
     render(<UserBookReader hex={HEX} open={async () => ({ ok: true, book: { ...loaded({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 }), images: new Map() } })} reconcile={reconcile} />)
     await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-chapter')).toBe('2'))
-    expect(reconcile).toHaveBeenCalledWith(HEX, expect.objectContaining({ hex: HEX }))
+    expect(reconcile).toHaveBeenCalledWith(HEX, expect.objectContaining({ hex: HEX }), undefined)
   })
 
   it('opens at this device\'s place when the account cannot be asked', async () => {

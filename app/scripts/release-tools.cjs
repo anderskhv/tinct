@@ -11,6 +11,8 @@
 //   assert-release-command         gate npm deploy/upload when a rollout is pending
 //   assert-floor-source           require old reader UI and the reviewed storage proof before floor deployment
 //   verify-reader-floor <id>      require checked-in floor manifest and exact current production version
+//   verify-repair-predecessor <id> require the accepted reader still serving production
+//   assert-repair-live            recheck the accepted predecessor immediately before Worker mutation
 //   assert-normal-release         refuse an accidental push while the shared reader rollout is pending
 // Read-only: nothing here changes Cloudflare state.
 const fs = require('node:fs')
@@ -21,6 +23,7 @@ const FLOOR_PROOF = 'src/worker.rollbackFloor.test.ts'
 const releaseDir = path.join(__dirname, '..', 'release')
 const floorManifest = path.join(releaseDir, 'shared-reader-floor.json')
 const rolloutState = path.join(releaseDir, 'shared-reader-rollout.json')
+const ACCEPTED_READER_VERSION = '1bdaf83e-e30f-44bf-954c-46dc2edf66db'
 
 function validatedVersion(value, label) {
   if (!VERSION_ID.test(value || '')) throw new Error(`${label} must be an explicit Worker Version UUID`)
@@ -40,28 +43,35 @@ function rollbackDecision(previous, current, expectedNew) {
 function rolloutPhase() {
   if (!fs.existsSync(rolloutState)) return 'none'
   const state = JSON.parse(fs.readFileSync(rolloutState, 'utf8'))
-  if (Object.keys(state).length !== 1 || !['floor-pending', 'pending', 'released'].includes(state.phase)) {
+  if (Object.keys(state).length !== 1 || !['floor-pending', 'pending', 'repair-pending', 'released'].includes(state.phase)) {
     throw new Error('shared reader rollout state must have one recognized phase')
   }
   return state.phase
 }
 
 function assertNormalRelease() {
-  if (['floor-pending', 'pending'].includes(rolloutPhase())) {
-    throw new Error('shared reader rollout is pending; use an explicitly approved floor or reader dispatch')
+  if (['floor-pending', 'pending', 'repair-pending'].includes(rolloutPhase())) {
+    throw new Error('shared reader rollout is pending; use an explicitly approved floor, reader, or repair dispatch')
   }
 }
 
 function assertReleaseCommand() {
   const phase = rolloutPhase()
-  if (phase !== 'pending' && phase !== 'floor-pending') return
-  const requested = phase === 'floor-pending' ? 'floor' : 'reader'
+  if (phase !== 'pending' && phase !== 'floor-pending' && phase !== 'repair-pending') return
+  const requested = phase === 'floor-pending' ? 'floor' : phase === 'pending' ? 'reader' : 'repair'
   if (process.env.GITHUB_ACTIONS !== 'true' || process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch' ||
       process.env.TINCT_RELEASE_PHASE !== requested || process.env.TINCT_RELEASE_APPROVED !== 'true') {
     throw new Error(`${phase} blocks deploy/upload outside an explicitly approved ${requested} workflow dispatch`)
   }
-  if (process.env.VITE_SHARED_READER_DEFAULT !== (requested === 'reader' ? '1' : '0')) {
-    throw new Error(`${requested} release requires VITE_SHARED_READER_DEFAULT=${requested === 'reader' ? '1' : '0'} for the built bundle`)
+  if (process.env.VITE_SHARED_READER_DEFAULT !== (requested === 'floor' ? '0' : '1')) {
+    throw new Error(`${requested} release requires VITE_SHARED_READER_DEFAULT=${requested === 'floor' ? '0' : '1'} for the built bundle`)
+  }
+  if (requested === 'repair') {
+    const expected = process.env.TINCT_RELEASE_EXPECTED_SHA || ''
+    const actual = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
+    if (!/^[0-9a-f]{40}$/.test(expected) || actual !== expected || process.env.GITHUB_SHA !== expected) {
+      throw new Error('repair requires the exact approved merge SHA in the checkout and dispatch')
+    }
   }
 }
 
@@ -94,6 +104,15 @@ function verifyReaderFloor(serving, manifestPath = floorManifest) {
     throw new Error(`production serves ${current}, not the pinned compatible floor ${floor}; abort before changing traffic`)
   }
   console.log(`floor_version_id=${floor}`)
+}
+
+function verifyRepairPredecessor(serving) {
+  const current = validatedVersion(serving, 'currently serving production version')
+  if (rolloutPhase() !== 'repair-pending') throw new Error('repair requires the gated repair-pending rollout state')
+  if (current.toLowerCase() !== ACCEPTED_READER_VERSION) {
+    throw new Error(`production serves ${current}, not the pinned accepted reader ${ACCEPTED_READER_VERSION}; abort before changing traffic`)
+  }
+  console.log(`repair_predecessor_version=${ACCEPTED_READER_VERSION}`)
 }
 
 // wrangler.jsonc allows comments and trailing commas; strip them outside strings.
@@ -174,6 +193,10 @@ try {
   else if (cmd === 'assert-normal-release') assertNormalRelease()
   else if (cmd === 'assert-floor-source') assertFloorSource()
   else if (cmd === 'verify-reader-floor') verifyReaderFloor(arg, current || floorManifest)
+  else if (cmd === 'verify-repair-predecessor') verifyRepairPredecessor(arg)
+  else if (cmd === 'assert-repair-live') {
+    if (process.env.TINCT_RELEASE_PHASE === 'repair') verifyRepairPredecessor(currentVersion())
+  }
   else if (cmd === 'assert-current-version') {
     const expected = validatedVersion(arg, 'recorded previous version')
     const actual = currentVersion()
@@ -182,7 +205,7 @@ try {
   }
   else if (cmd === 'rollback-decision') console.log(`rollback=${rollbackDecision(arg, current, expectedNew)}`)
   else {
-    console.error('usage: release-tools.cjs migrations-changed <baseSha> | parse-upload <file> | parse-deploy <file> | current-version | validate-version <id> | assert-current-version <id> | rollback-decision <prev> <current> <new> | assert-release-command | assert-floor-source | verify-reader-floor <id> | assert-normal-release')
+    console.error('usage: release-tools.cjs migrations-changed <baseSha> | parse-upload <file> | parse-deploy <file> | current-version | validate-version <id> | assert-current-version <id> | rollback-decision <prev> <current> <new> | assert-release-command | assert-floor-source | verify-reader-floor <id> | verify-repair-predecessor <id> | assert-repair-live | assert-normal-release')
     process.exit(2)
   }
 } catch (error) {

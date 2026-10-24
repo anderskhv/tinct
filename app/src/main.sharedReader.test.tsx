@@ -8,6 +8,7 @@ const mocks = vi.hoisted(() => ({
   migrate: vi.fn(async () => {}),
   latest: vi.fn(async () => null as string | null),
   frame: vi.fn(),
+  phone: false,
 }))
 
 vi.mock('./utils/internalTraffic', () => ({}))
@@ -20,7 +21,7 @@ vi.mock('react-dom/client', () => ({ default: { createRoot: () => ({ render: moc
 vi.mock('./lab/LabApp', () => ({ LabApp: () => null }))
 vi.mock('./lab/userBook/userBookId', () => ({ userBookFromSearch: (search: string) => new URLSearchParams(search).get('userBook') }))
 vi.mock('./lab/marginPreview/marginPreviewMount', () => ({ marginPreviewMountForPage: mocks.preview }))
-vi.mock('./lab/labChrome', () => ({ isLabPhoneSurface: () => false, labPhoneSurfaceInput: () => ({}) }))
+vi.mock('./lab/labChrome', () => ({ isLabPhoneSurface: () => mocks.phone, labPhoneSurfaceInput: () => ({}) }))
 vi.mock('./lab/labRoute', () => ({ labLayoutOverride: () => null }))
 vi.mock('./lab/marginPreview/marginPreviewModel', () => ({ isMarginPreviewBook: () => true }))
 vi.mock('./data/bookRegistry', () => ({ getBook: () => ({ id: 'frankenstein' }) }))
@@ -38,6 +39,7 @@ vi.mock('./lab/marginPreview/marginPreviewFrame', () => ({ startMarginPreviewFra
 beforeEach(() => {
   vi.resetModules()
   vi.clearAllMocks()
+  mocks.phone = false
   localStorage.clear()
   sessionStorage.clear()
   document.body.innerHTML = '<div id="root"></div>'
@@ -66,9 +68,18 @@ it('bypasses the old preview before its sticky opt-in or chapter handoff can be 
   expect(mocks.preview).not.toHaveBeenCalled()
   expect(mocks.frame).not.toHaveBeenCalled()
   expect(child.props.sharedReader).toBe(true)
+  expect(child.props.marginPhone).toBe(false)
   expect(window.location.search).toBe(search)
   expect(localStorage.getItem('tinct:margin-preview')).toBe('1')
   expect(sessionStorage.getItem('tinct:lab-reader-handoff')).not.toBeNull()
+})
+
+it('routes a shared phone through the existing compact bar, bottom cards and chapter pills', async () => {
+  mocks.phone = true
+  const child = await enter('?book=frankenstein&sharedReader=1&layout=phone')
+  expect(child.props.sharedReader).toBe(true)
+  expect(child.props.marginPhone).toBe(true)
+  expect(mocks.preview).not.toHaveBeenCalled()
 })
 
 it('keeps flag-off routing through the old preview entry', async () => {
@@ -76,6 +87,15 @@ it('keeps flag-off routing through the old preview entry', async () => {
   expect(mocks.preview).toHaveBeenCalledOnce()
   expect(mocks.migrate).toHaveBeenCalledOnce()
   expect(child.props.sharedReader).toBeUndefined()
+})
+
+it('keeps a flag-off phone on its existing preview mount', async () => {
+  mocks.phone = true
+  mocks.preview.mockReturnValueOnce({ mount: 'phone', bookId: 'frankenstein' })
+  const child = await enter('?book=frankenstein&margin=1&sharedReader=0&layout=phone')
+  expect(mocks.preview).toHaveBeenCalledOnce()
+  expect(child.props.sharedReader).toBeUndefined()
+  expect(child.props.marginPhone).toBe(true)
 })
 
 it('keeps an own-book link on the existing UserBookReader route even with the private switch', async () => {

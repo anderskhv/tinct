@@ -6,6 +6,7 @@ import { chromium } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:3001'
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = 'artifacts/shared-reader-menu'
 await fs.mkdir(output, { recursive: true })
 const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
@@ -15,9 +16,20 @@ async function open(theme, phone = false) {
   const page = await context.newPage()
   const chats = [], errors = []
   page.on('pageerror', error => errors.push(error.message))
-  await page.route('**/*', route => {
+  await page.route('**/*', async route => {
     const url = new URL(route.request().url())
     if (url.origin !== origin) return route.abort()
+    if (expectedBundle && url.pathname === '/reader') {
+      const response = await route.fetch()
+      const html = await response.text()
+      const actual = [...html.matchAll(/\/assets\/index-[\w-]+\.js/g)].map(match => match[0])
+      if (response.status() !== 200 || actual.length !== 1 || actual[0] !== expectedBundle) {
+        console.error(`Menu reader document serves ${JSON.stringify(actual)}, expected ${expectedBundle}`)
+        return route.abort('failed')
+      }
+      return route.fulfill({ response })
+    }
+    if (expectedBundle && /^\/assets\/index-[\w-]+\.js$/.test(url.pathname) && url.pathname !== expectedBundle) return route.abort('failed')
     if (url.pathname === '/api/lab-chat' || url.pathname === '/api/chat') {
       const request = route.request().postDataJSON()
       chats.push(request)
@@ -50,7 +62,7 @@ async function select(page) {
   await page.mouse.down()
   await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
   await page.mouse.up()
-  await page.locator('.selection-popup').first().waitFor()
+  await page.locator('.selection-popup, [data-testid="lab-phone-bar"]').first().waitFor()
 }
 
 try {
@@ -114,16 +126,29 @@ try {
     try {
       if (theme === 'eink') await page.evaluate(() => { document.documentElement.dataset.eink = 'true' })
       await select(page)
-      const popup = page.locator('.selection-popup.is-shared-reader[data-popup-mode="main"]')
+      const popup = page.getByTestId('lab-phone-bar')
       await popup.waitFor()
       const styles = await popup.evaluate(node => { const s = getComputedStyle(node); return [s.backgroundColor, s.color, s.boxShadow] })
-      const colors = theme === 'eink' ? ['rgb(255, 255, 255)', 'rgb(17, 17, 17)']
+      const colors = theme === 'eink' ? ['rgb(17, 17, 17)', 'rgb(255, 255, 255)']
         : { light: ['rgb(37, 37, 37)', 'rgb(244, 242, 237)'], book: ['rgb(56, 42, 32)', 'rgb(242, 229, 206)'], dark: ['rgb(54, 52, 49)', 'rgb(243, 238, 229)'] }[theme]
       assert.deepEqual(styles.slice(0, 2), colors)
       if (theme === 'eink') assert.equal(styles[2], 'none')
-      for (const name of ['Explain', 'Simplify', 'Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Chat']) assert.equal(await popup.getByRole('button', { name, exact: true }).count(), 1)
+      for (const name of ['Ask', 'Explain', 'Simplify', 'More', 'Add note']) assert.equal(await popup.getByRole('button', { name, exact: true }).count(), 1)
+      assert.equal(await page.locator('.selection-popup').count(), 0, 'phone uses the original compact Margin bar')
+      const barBox = await popup.boundingBox()
+      assert(barBox && barBox.x >= 0 && barBox.x + barBox.width <= 390, 'phone selection controls fit the viewport')
+      await popup.getByRole('button', { name: 'More', exact: true }).click()
+      for (const name of ['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy']) assert.equal(await page.getByRole('menuitem', { name, exact: true }).count(), 1)
       await page.waitForTimeout(200)
       await page.screenshot({ path: `${output}/phone-${theme}.png` })
+      await popup.getByRole('button', { name: 'More', exact: true }).click()
+      await popup.getByRole('button', { name: 'Explain', exact: true }).click()
+      await page.getByTestId('lab-phone-card-answer').waitFor()
+      assert.match(await page.getByTestId('lab-phone-card-answer').innerText(), /local fixture answer/i)
+      assert.equal(await page.locator('.lab-pcard').count(), 1, 'Explain opens one shared bottom card')
+      const cardBox = await page.locator('.lab-pcard').boundingBox()
+      assert(cardBox && cardBox.x >= 0 && cardBox.x + cardBox.width <= 391 && cardBox.y + cardBox.height <= 845, 'answer card stays on screen')
+      await page.screenshot({ path: `${output}/phone-${theme}-explain.png` })
       assert.deepEqual(errors, [])
     } finally { await context.close() }
   }

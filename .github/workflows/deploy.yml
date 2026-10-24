@@ -27,17 +27,26 @@ on:
           - staged
         default: direct
       release_phase:
-        description: 'normal (existing deploy); floor (old UI/write-old backend); reader (pinned compatible floor required)'
+        description: 'normal; floor (old UI); reader (pinned floor); repair (pinned accepted reader)'
         type: choice
         options:
           - normal
           - floor
           - reader
+          - repair
         default: normal
       approved_reader_release:
         description: 'Explicit release approval has been recorded for the selected floor or reader phase'
         type: boolean
         default: false
+      approved_repair_release:
+        description: 'Explicit approval for a reader-ON repair from the pinned accepted reader'
+        type: boolean
+        default: false
+      approved_source_sha:
+        description: 'Exact reviewed repair merge SHA; the dispatched checkout must match'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -56,8 +65,9 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       TINCT_RELEASE_PHASE: ${{ inputs.release_phase }}
-      TINCT_RELEASE_APPROVED: ${{ inputs.approved_reader_release }}
-      VITE_SHARED_READER_DEFAULT: ${{ inputs.release_phase == 'reader' && '1' || '0' }}
+      TINCT_RELEASE_APPROVED: ${{ inputs.release_phase == 'repair' && inputs.approved_repair_release || inputs.approved_reader_release }}
+      TINCT_RELEASE_EXPECTED_SHA: ${{ inputs.approved_source_sha }}
+      VITE_SHARED_READER_DEFAULT: ${{ (inputs.release_phase == 'reader' || inputs.release_phase == 'repair') && '1' || '0' }}
       # Origin the acceptance scripts hit. Points at the version preview URL until
       # promotion, then at production. Scripts default to https://tinct.app.
       TINCT_ORIGIN: https://tinct.app
@@ -96,6 +106,8 @@ jobs:
         env:
           REQUESTED_PHASE: ${{ inputs.release_phase }}
           APPROVED_READER_RELEASE: ${{ inputs.approved_reader_release }}
+          APPROVED_REPAIR_RELEASE: ${{ inputs.approved_repair_release }}
+          EXPECTED_REPAIR_SHA: ${{ inputs.approved_source_sha }}
           EVENT_NAME: ${{ github.event_name }}
         run: |
           phase=${REQUESTED_PHASE:-normal}
@@ -110,6 +122,13 @@ jobs:
             reader)
               test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_READER_RELEASE" = true
               test "$VITE_SHARED_READER_DEFAULT" = 1
+              ;;
+            repair)
+              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_REPAIR_RELEASE" = true
+              test "$VITE_SHARED_READER_DEFAULT" = 1
+              [[ "$EXPECTED_REPAIR_SHA" =~ ^[0-9a-f]{40}$ ]]
+              test "$GITHUB_SHA" = "$EXPECTED_REPAIR_SHA"
+              test "$(git rev-parse HEAD)" = "$EXPECTED_REPAIR_SHA"
               ;;
             *) echo "::error::unknown release phase $phase"; exit 1 ;;
           esac
@@ -158,6 +177,12 @@ jobs:
           PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
         run: node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"
 
+      - name: Require the accepted reader before repair release
+        if: steps.release-phase.outputs.phase == 'repair'
+        env:
+          PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
+        run: node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"
+
       - name: Upload new Worker Version (serves no traffic)
         if: steps.plan.outputs.mode == 'staged'
         id: upload
@@ -196,6 +221,7 @@ jobs:
           # generated files, which the clean-checkout guard would refuse.
           if [ "${{ steps.preview.outputs.fallback }}" = true ]; then git checkout -- .; fi
           if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          if [ "$RELEASE_PHASE" = repair ]; then node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"; fi
           node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
           echo 'attempted=true' >> "$GITHUB_OUTPUT"
           status=0
@@ -214,7 +240,7 @@ jobs:
           echo "path=$bundle" >> "$GITHUB_OUTPUT"
 
       - name: Verify approved reader build has public activation ON
-        if: steps.release-phase.outputs.phase == 'reader'
+        if: steps.release-phase.outputs.phase == 'reader' || steps.release-phase.outputs.phase == 'repair'
         run: |
           node --input-type=module <<'NODE'
           import assert from 'node:assert/strict'
@@ -367,6 +393,13 @@ jobs:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-book-transition.mjs
+      - name: Verify repaired live Aa, layout, and source position with mocked API
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: |
+          node scripts/check-shared-reader-menu.mjs
+          node scripts/check-shared-reader-position.mjs
 
       # -- page-layout
       - name: Verify Shakespeare layout
@@ -381,11 +414,20 @@ jobs:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-hyphenation-hardening.mjs
       - name: Verify every Shakespeare edition and reported passage
-        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'reader' }}
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && (needs.deploy.outputs.release_phase == 'reader' || needs.deploy.outputs.release_phase == 'repair') }}
         env:
           SHAKESPEARE_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-shakespeare-speakers.mjs
+      - name: Verify repaired emitted ON reader and synthetic PDF Original
+        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'repair' }}
+        env:
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+          PDF_ORIGINAL_DIST: dist
+          PDF_ORIGINAL_WEBKIT: '1'
+        run: |
+          node scripts/check-shared-reader-default-on.mjs
+          node scripts/check-shared-reader-pdf-original.mjs
 
       # -- production and library: what only production can prove (direct mode only here; staged: production-checks)
       - name: Smoke test production
@@ -400,7 +442,7 @@ jobs:
         if: ${{ !cancelled() && matrix.group == 'production' }}
         run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && matrix.group == 'production' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
+        if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y espeak-ng
@@ -413,6 +455,9 @@ jobs:
       - name: Verify public cinematic library
         if: ${{ !cancelled() && matrix.group == 'library' }}
         run: LIBRARY_LIVE=1 node scripts/check-library-public.mjs
+      - name: Verify repaired own EPUB isolation on the handed-off build
+        if: ${{ !cancelled() && matrix.group == 'library' && needs.deploy.outputs.release_phase == 'repair' }}
+        run: node scripts/check-shared-reader-own-isolation.mjs
 
       - uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -434,8 +479,9 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       TINCT_RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
-      TINCT_RELEASE_APPROVED: ${{ inputs.approved_reader_release }}
-      VITE_SHARED_READER_DEFAULT: ${{ needs.deploy.outputs.release_phase == 'reader' && '1' || '0' }}
+      TINCT_RELEASE_APPROVED: ${{ needs.deploy.outputs.release_phase == 'repair' && inputs.approved_repair_release || inputs.approved_reader_release }}
+      TINCT_RELEASE_EXPECTED_SHA: ${{ inputs.approved_source_sha }}
+      VITE_SHARED_READER_DEFAULT: ${{ (needs.deploy.outputs.release_phase == 'reader' || needs.deploy.outputs.release_phase == 'repair') && '1' || '0' }}
     defaults:
       run:
         working-directory: app
@@ -454,6 +500,7 @@ jobs:
           RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
         run: |
           if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
+          if [ "$RELEASE_PHASE" = repair ]; then node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"; fi
           node scripts/release-tools.cjs assert-current-version "$PREVIOUS_VERSION"
           echo 'attempted=true' >> "$GITHUB_OUTPUT"
           npm run release:promote -- "${{ needs.deploy.outputs.version_id }}"
@@ -531,7 +578,7 @@ jobs:
         if: ${{ !cancelled() && matrix.group == 'production' }}
         run: AUTH_LIVE=1 node scripts/check-sign-in.mjs
       - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && matrix.group == 'production' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
+        if: ${{ !cancelled() && matrix.group == 'production' && needs.deploy.outputs.release_phase != 'repair' && contains(github.event.head_commit.message, '[reader-voice-qa]') }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y espeak-ng

@@ -156,6 +156,51 @@ describe('own-book places across devices', () => {
     await reconcileOpenPlace(HEX, { token: 'tok', fetchImpl: never, timeoutMs: 50 })
     expect(Date.now() - started).toBeLessThan(1_000)
   })
+
+  it('does not adopt A’s delayed EPUB or PDF place into B’s same-hash device state', async () => {
+    const pdf = 'fe12cd34ef56ab12cd34ef56'
+    const pdfKey = `tinct-addbook:pos:pdf:${pdf}`
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ places: {
+        [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 1000, rev: 5 },
+        [pdf]: { page: 10, frac: 0.5, updatedAt: 1000, rev: 5 },
+      } })
+    }) as unknown as typeof fetch
+    const pending = reconcileOpenPlace(HEX, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 7, updatedAt: 700, rev: 3 })
+    const bPage = JSON.stringify({ page: 7, frac: 0.2, at: 700, rev: 3 })
+    localStorage.setItem(KEY, bPlace)
+    localStorage.setItem(pdfKey, bPage)
+    release()
+    await pending
+    expect(localStorage.getItem(KEY)).toBe(bPlace)
+    expect(localStorage.getItem(pdfKey)).toBe(bPage)
+  })
+
+  it('does not apply A’s late EPUB save revision to B’s same-hash place', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: 0, wordIndex: 2, updatedAt: 900 })
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ place: { chapterNumber: 1, paragraphIndex: 0, wordIndex: 2, updatedAt: 900, rev: 2 } })
+    }) as unknown as typeof fetch
+    const pending = pushOwnPlace(HEX, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 8, updatedAt: 1200, rev: 7 })
+    localStorage.setItem(KEY, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(KEY)).toBe(bPlace)
+  })
 })
 
 // Add a book's PDF viewer keeps its place as `tinct-addbook:pos:pdf:<hex>` = { page, frac, zoom, pages, at }.
@@ -303,6 +348,44 @@ describe('a PDF read in both its editions (Tinct text and Original pages)', () =
   const pdfEdition = { format: 'tinct-user-edition-v1', converter: 1, source: 'pdf', title: 'Paper', author: '', language: 'en', droppedImages: 0, chapters: pdfChapters } as unknown as UserBookEdition
   // A phone's rule (jsdom's window is a desktop's): the desktop opens every PDF in its pages unless chosen (19 Oct 2026).
   const PHONE = { phone: true }
+
+  it('does not adopt A’s delayed place into B’s same-hash device state during an account switch', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    localStorage.setItem(POS, JSON.stringify({ page: 2, frac: 0, at: 100, rev: 1 }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ places: { [PDF]: { page: 10, frac: 0.5, updatedAt: 1000, rev: 5 } } })
+    }) as unknown as typeof fetch
+    const pending = reconcilePdfPlace(PDF, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ page: 7, frac: 0.2, at: 700, rev: 3 })
+    localStorage.setItem(POS, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(POS)).toBe(bPlace)
+  })
+
+  it('does not apply A’s late save response to B’s same-hash page and revision', async () => {
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-a' } }))
+    localStorage.setItem(POS, JSON.stringify({ page: 2, frac: 0, at: 900, rev: 1 }))
+    let release!: () => void
+    const gate = new Promise<void>(resolve => { release = resolve })
+    const fetchImpl = vi.fn(async () => {
+      await gate
+      return Response.json({ place: { page: 2, frac: 0, updatedAt: 900, rev: 2 } })
+    }) as unknown as typeof fetch
+    const pending = pushPdfPlace(PDF, { owner: 'owner-a', token: 'A-token', fetchImpl })
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledOnce())
+    localStorage.setItem('sb-test-auth-token', JSON.stringify({ user: { id: 'owner-b' } }))
+    const bPlace = JSON.stringify({ page: 8, frac: 0.8, at: 1200, rev: 7 })
+    localStorage.setItem(POS, bPlace)
+    release()
+    expect(await pending).toBe('unavailable')
+    expect(localStorage.getItem(POS)).toBe(bPlace)
+  })
 
   // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): the place read
   // in Tinct text no longer opens the other device in Tinct text; its spot does, once that device's view is.

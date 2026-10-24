@@ -1,7 +1,7 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
 import { useEffect, useState, type ReactNode } from 'react'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
-import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
+import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { useReaderWindow } from './useReaderWindow'
 import { matchingAudioEditions } from '../utils/audioEditionSelection'
 import type { Edition } from '../types'
@@ -42,13 +42,20 @@ export interface LabV2SheetProps {
   audioEditions?: Edition[]
   /** Present once a compare edition is chosen: the switch between the main and compare page. */
   compare?: { active: boolean; onToggle: () => void } | null
+  /** A Compare pick opened from desktop Aa returns to its Layout choices. */
+  compareFromLayout?: boolean
   /**
    * The margin preview's layout (Anders, 2026-10-20), on the desktop while this device has opted in: opens
    * the book in Margin at the same place.
    */
   margin?: { onOpen: () => void } | null
-  /** Private shared-reader layout, keeping the same book and source anchor. */
-  readerLayout?: { active: 'margin' | 'classic'; onChoose: (layout: 'margin' | 'classic') => void } | null
+  /** Desktop reading layouts. The caller keeps the same source-word anchor when switching. */
+  readerLayout?: {
+    active: 'margin' | 'two-page' | 'compare'
+    /** Compare is offered only when a distinct, aligned version can be read. */
+    compareAvailable?: boolean
+    onChoose: (layout: 'margin' | 'two-page' | 'compare') => void
+  } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
@@ -198,7 +205,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, margin = null, readerLayout = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -238,7 +245,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     if (layer === 'mainEdition') onPrefs(labPrefsForMainEdition(prefs, key, bookId, editions, getBook(bookId)?.year))
     else if (layer === 'audioEdition') onPrefs({ ...prefs, audioEdition: key || prefs.primaryEdition, audioFollowsPrimary: key === '' })
     else onPrefs({ ...prefs, compareEdition: key || prefs.compareEdition, compareOpen: key !== '', compareChosen: true })
-    onLayer(layer === 'audioEdition' ? 'audio' : 'editions')
+    onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')
   }
   const editionRow = (label: string, target: LabV2SheetLayer, value: string, testId: string) => (
     <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid={testId} onClick={() => onLayer(target)}>
@@ -296,7 +303,7 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     : (
       <div className="lab-v2-head is-centred" data-reader-window-handle>
         {picker ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : '‹ Book settings'}</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : layer === 'compareEdition' && compareFromLayout ? '‹ Aa' : '‹ Book settings'}</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : layer === 'advanced' ? (
@@ -364,6 +371,25 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>
+              {(readerLayout || margin) && (
+                <div className="lab-v2-layout-choices" role="group" aria-label="Layout">
+                  <p className="lab-v2-group-label">Layout</p>
+                  <div className="lab-v2-group">
+                    {readerLayout
+                      ? (['margin', 'two-page', ...(readerLayout.compareAvailable ? ['compare' as const] : [])] as const).map(layout => (
+                        <button type="button" key={layout} className="lab-v2-edition-option"
+                          data-testid={`lab-v2-layout-${layout}`} aria-pressed={readerLayout.active === layout}
+                          onClick={() => readerLayout.onChoose(layout)}>
+                          <span className="lab-v2-edition-name">{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
+                          <span className="lab-v2-edition-check" aria-hidden="true">{readerLayout.active === layout ? '✓' : ''}</span>
+                        </button>
+                      ))
+                      : <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-layout-margin" onClick={margin!.onOpen}>
+                          <span className="lab-v2-edition-name">Margin</span><span aria-hidden="true">›</span>
+                        </button>}
+                  </div>
+                </div>
+              )}
               <div className="lab-v2-foot">
                 <button
                   type="button"
@@ -392,21 +418,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
               )}
-              {margin && (
-                <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid="lab-v2-margin" onClick={margin.onOpen}>
-                  <span className="lab-v2-row-label">Margin</span>
-                  <span aria-hidden="true">›</span>
-                </button>
-              )}
-              {readerLayout && <>
-                <div className="lab-v2-edition-divider" />
-                {(['margin', 'classic'] as const).map(layout => <button type="button" key={layout}
-                  className="lab-v2-row lab-v2-edition-link" data-testid={`lab-v2-layout-${layout}`}
-                  aria-pressed={readerLayout.active === layout} onClick={() => readerLayout.onChoose(layout)}>
-                  <span className="lab-v2-row-label">{layout === 'margin' ? 'Margin' : 'Classic reader'}</span>
-                  <span aria-hidden="true">{readerLayout.active === layout ? '✓' : '›'}</span>
-                </button>)}
-              </>}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
                   {compareUnavailable === 'verses'
@@ -454,12 +465,22 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 const difficulty = editionDifficulty(bookId, edition)
                 // A Bible version without this chapter (Tobit outside the Catholic edition) cannot be the main version here.
                 const missing = layer === 'mainEdition' && bookId === 'bible' && chapterNumber != null && !bibleEditionHasChapter(edition.key, chapterNumber)
+                const compareReason = layer === 'compareEdition'
+                  ? bookId === 'bible' && chapterNumber != null && !bibleEditionHasChapter(edition.key, chapterNumber)
+                    ? 'Doesn’t include this book'
+                    : bookId === 'bible' && chapterNumber != null && !bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, chapterNumber)
+                      ? 'Verse numbers differ'
+                      : bookId !== 'bible' && (edition.aligned === false || editions.find(item => item.key === prefs.primaryEdition)?.aligned === false)
+                        ? 'Paragraphs don’t line up'
+                        : null
+                  : null
                 return <button key={edition.key} type="button" className="lab-v2-edition-option" aria-pressed={selected === edition.key}
-                  data-edition={edition.key} disabled={missing} onClick={() => choose(edition.key)}>
+                  data-edition={edition.key} disabled={missing || !!compareReason} onClick={() => choose(edition.key)}>
                   <span className="lab-v2-edition-name">{readerEditionLabel(edition)}
                     {difficulty && <span className="lab-v2-difficulty" title="Reading difficulty">{difficulty}</span>}
                     {edition.style === 'modern' && <span className="lab-v2-difficulty">AI-generated</span>}
                     {missing && <span className="lab-v2-difficulty" data-testid="lab-v2-edition-missing-chapter">Doesn’t include this book</span>}
+                    {compareReason && <span className="lab-v2-difficulty">{compareReason}</span>}
                   </span>
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>
                 </button>

@@ -88,7 +88,7 @@ function framedByMarginHost(): boolean {
 
 const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} sharedReader={sharedReader} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : sharedReader ? <LabApp sharedReader /> : <LabApp marginPhone={marginPhone || undefined} />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} sharedReader={sharedReader} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : sharedReader ? <LabApp sharedReader marginPhone={phoneSurface()} /> : <LabApp marginPhone={marginPhone || undefined} />}
   </React.StrictMode>,
 )
 

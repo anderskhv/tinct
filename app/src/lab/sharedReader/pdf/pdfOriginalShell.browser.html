@@ -56,7 +56,7 @@
     appendCardTurn: (id, question, answer) => { window.__pdfCalls.push({ kind: 'follow-save', id, question, answer }); const card = services.cards.find(row => row.id === id); if (!card) return false; card.turns.push({ role: 'user', content: question }, { role: 'assistant', content: answer }); notify(); return true },
   }
   createRoot(document.getElementById('app')).render(React.createElement(PdfOriginalReaderShell, {
-    title: 'Local original PDF', bytes: async () => raw, services, onVisiblePlace: () => {},
+    title: 'Local original PDF', bytes: async () => raw, services, onVisiblePlace: place => { window.__pdfPlace = place },
   }))
 </script>
 </html>

@@ -1139,6 +1139,15 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+.lab .lab-contextual-save-error {
+  margin: 8px 0 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--lab-border);
+  border-radius: 8px;
+  font: 14px/1.4 system-ui, sans-serif;
+  color: var(--lab-ink);
+  background: var(--lab-paper);
+}
 
 .lab-contextual-explain blockquote {
   max-height: 68px;
@@ -5928,13 +5937,28 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-play,
-.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super,
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
   border: 1px solid var(--lab-border);
   background: rgba(var(--lab-v2-panel-ink), 0.62);
   box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  color: inherit;
+  font: 600 16px/1 Georgia, serif;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* The t's target is pulled left against Play on the phone, where the two sit

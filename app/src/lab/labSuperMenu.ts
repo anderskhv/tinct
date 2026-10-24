@@ -27,9 +27,10 @@ export interface LabSuperMenuRow {
  * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
  * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
  * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
- * - Aa: font, size, alignment, spacing, margins, theme. The desktop margin reader's own top-bar button.
- * - Book settings: main and compare version, a play's layout, Margin or Classic reader, Convert to Tinct book,
- *   a PDF's Original pages (whichever apply to the book).
+ * - Aa: font, size, alignment, spacing, margins, theme and eligible desktop layouts
+ *   (Margin, Two-page, Compare). The desktop margin reader has its own top-bar Aa button.
+ * - Book settings: main and compare version, a play's layout, or a PDF's Original pages
+ *   (whichever source choices apply to the book).
  * - Audio settings: voice, speed, audiobook version.
  */
 export const LAB_SETTINGS_GROUPS = [
@@ -85,8 +86,9 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
   const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition, so no Book settings, except a PDF's: its
-  // Tinct text and its Original pages (2026-10-09). Its Audio settings stay.
+  // at a time). Book settings appears only for separate source choices (PDF
+  // Original pages or EPUB Margin source); desktop layout choices stay in Aa
+  // even when a book has only one source. Its Audio settings stay.
   return privateBook ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')) : rows
 }
 

@@ -75,6 +75,8 @@ export interface LabPhoneBarProps {
   onHighlight: (color: HighlightColor) => void
   onNote: () => void
   onRemove: () => void
+  /** A reader's own PDF text can return to the page containing this selection. */
+  onShowPage?: () => void
   onDismiss: () => void
 }
 
@@ -172,6 +174,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           ))}
           {sep}
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
+          {props.onShowPage && <button type="button" className="lab-pbar-item" data-testid="lab-pbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>}
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-remove" aria-label="Remove highlight" title="Remove highlight" onClick={props.onRemove}><PhoneIcon name="close" /></button>
         </>
       ) : (
@@ -189,12 +192,13 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
         </>
       )}
-      {moreOpen && !existingColor && (
+      {moreOpen && (!existingColor || props.onShowPage) && (
         <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
           style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
-          {PHONE_MORE_ROWS.map(([id, name]) => (
+          {!existingColor && PHONE_MORE_ROWS.map(([id, name]) => (
             <button key={id} type="button" role="menuitem" data-testid={`lab-pmore-${id}`} onClick={() => { setMoreOpen(false); props.onMore(id) }}>{name}</button>
           ))}
+          {props.onShowPage && <button type="button" role="menuitem" data-testid="lab-pmore-page" onClick={() => { setMoreOpen(false); props.onShowPage?.() }}>Show page</button>}
         </div>
       )}
     </div>

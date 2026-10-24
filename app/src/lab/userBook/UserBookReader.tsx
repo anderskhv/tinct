@@ -31,7 +31,7 @@ import { adoptUnassignedOwnTextMarks, guardOwnTextMarks, listenOwnTextMarks, rel
 import { currentOwnBookMetadata, withOwnBookMetadata } from './ownBookMetadata'
 import { adoptUnassignedOwnTextCards, OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
 import { allLegacyEpubNotebookItems, claimLegacyEpubAnnotations, migrateVerifiedLegacyEpubMarks, syncClaimedLegacyEpubPages, unclaimedLegacyEpubCount, type LegacyOwnEpubItem } from './legacyEpubMarks'
-import { openPdfOriginalPlace, notePdfOriginalPlace, type OriginalPagePlace } from './pdfOriginalPlace'
+import { openPdfOriginalPlace, notePdfOriginalPlace, notePdfOriginalZoom, readPdfOriginalZoom, type OriginalPagePlace } from './pdfOriginalPlace'
 import { PdfOriginalReaderShell } from '../sharedReader/pdf/PdfOriginalReaderShell'
 import { usePdfOriginalServices } from './usePdfOriginalServices'
 
@@ -44,6 +44,17 @@ type ReaderState = { status: 'opening' } | (ReaderIdentity & (
   | { status: 'original'; title: string; author: string; place: OriginalPagePlace | null; hasText: boolean; scanOutline: Awaited<ReturnType<typeof readOwnedPdfScanEntries>> }
   | { status: 'margin' } | { status: 'failed'; message: string }))
 
+/** Optional account detail must not keep a locally converted book on Opening indefinitely. */
+async function openingDetail<T>(work: Promise<T>, ms = 700): Promise<{ ready: true; value: T } | { ready: false }> {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  try {
+    return await Promise.race([
+      work.then(value => ({ ready: true as const, value })),
+      new Promise<{ ready: false }>(resolve => { timer = setTimeout(() => resolve({ ready: false }), ms) }),
+    ])
+  } finally { if (timer !== undefined) clearTimeout(timer) }
+}
+
 /**
  * `owner`: the account the page was opened with, read before anything else ran
  * (main.tsx). Supabase drops a lapsed session from storage as it starts, and Add
@@ -51,9 +62,9 @@ type ReaderState = { status: 'opening' } | (ReaderIdentity & (
  */
 const replaceLocation = (url: string) => window.location.replace(url)
 
-const reconcilePlace = (hex: string, book: LoadedUserBook) => book.kind === 'pdf'
-  ? reconcilePdfPlace(hex).then(() => {})
-  : reconcileOpenPlace(hex, { chapters: book.edition.chapters })
+const reconcilePlace = (hex: string, book: LoadedUserBook, owner?: string | null) => book.kind === 'pdf'
+  ? reconcilePdfPlace(hex, { ...(owner ? { owner } : {}) }).then(() => {})
+  : reconcileOpenPlace(hex, { chapters: book.edition.chapters, ...(owner ? { owner } : {}) })
 
 /**
  * The phone's margin mode for an own book (the dark bar and the bottom cards: LabApp `marginPhone`; chapter pills stay a Tinct book's), on
@@ -118,11 +129,11 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   open?: (hex: string, options: { owner?: string | null; page?: number | null; epubView?: EpubView; desktop?: boolean; sharedReader?: boolean }) => Promise<UserBookOpenResult>
   forward?: (url: string) => void
   /** Bring this device's place in line with the account's (bounded; never rejects the open). */
-  reconcile?: (hex: string, book: LoadedUserBook) => Promise<void>
+  reconcile?: (hex: string, book: LoadedUserBook, owner?: string | null) => Promise<void>
 }) {
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
   // The phone's margin mode, decided once for the page (the link's choice is kept as the device's).
-  const [marginPhone] = useState(() => !sharedReader && phone && typeof window !== 'undefined' && ownMarginPhone(window.location.search))
+  const [marginPhone] = useState(() => phone && (sharedReader || typeof window !== 'undefined' && ownMarginPhone(window.location.search)))
   const [marginSearch, setMarginSearch] = useState(() => typeof window === 'undefined' ? '' : window.location.search)
   const [recoverableMarks, setRecoverableMarks] = useState(0)
   const [recoverableCards, setRecoverableCards] = useState(0)
@@ -137,6 +148,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     let live = true
     let marks: OwnTextMarksSync | null = null
     let cards: OwnTextCardsSync | null = null
+    let legacyImport: ReturnType<typeof setTimeout> | null = null
     setState({ status: 'opening' })
     const page = pageParam()
     // The margin reader's book: in this page's frame on a desktop, its own page on a phone. Nothing is written here.
@@ -147,14 +159,35 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     }
     const toOriginal = async () => {
       if (!owner) { setState({ status: 'failed', message: 'Sign in to open your book.', ...identity }); return }
-      const [place, account, hasText, scanOutline] = await Promise.all([openPdfOriginalPlace(hex, owner), metadata, hasOwnedPdfText(hex, owner), readOwnedPdfScanEntries(hex, owner)])
-      if (!live) return
-      const title = account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF'
-      setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: 0 } : place, hasText, scanOutline, ...identity })
-      dropOpenParams()
+      try {
+        const hasTextWork = hasOwnedPdfText(hex, owner).catch(() => false)
+        const scanWork = readOwnedPdfScanEntries(hex, owner).catch(() => null)
+        const details = openingDetail(Promise.all([metadata, hasTextWork, scanWork] as const))
+        // Only the reconciled page is needed before first paint. Account labels,
+        // the Tinct-text button and a scan outline come from independent optional
+        // reads, any of which can stall while the owned PDF bytes remain usable.
+        const [place, quick] = await Promise.all([openPdfOriginalPlace(hex, owner), details])
+        if (!live) return
+        const [account, hasText, scanOutline] = quick.ready ? quick.value : [null, false, null] as const
+        const title = account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF'
+        setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: 0 } : place, hasText, scanOutline, ...identity })
+        if (!quick.ready) {
+          const update = (fields: Partial<Extract<ReaderState, { status: 'original' }>>) => {
+            if (!live) return
+            setState(previous => previous.status === 'original' && previous.hex === hex && previous.owner === identity.owner && previous.sharedReader === sharedReader
+              ? { ...previous, ...fields } : previous)
+          }
+          void metadata.then(account => update({ title: account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF', author: account?.author || '' }))
+          void hasTextWork.then(hasText => update({ hasText }))
+          void scanWork.then(scanOutline => update({ scanOutline }))
+        }
+        dropOpenParams()
+      } catch {
+        if (live) setState({ status: 'failed', message: 'This PDF could not be opened here. Try again from your books.', ...identity })
+      }
     }
     // A look at a page (&pages): the margin reader's pages at once, for a signed-in reader (the frame needs the account).
-    const metadata = sharedReader && owner ? currentOwnBookMetadata(hex, owner) : Promise.resolve(null)
+    const metadata = sharedReader && owner ? currentOwnBookMetadata(hex, owner).catch(() => null) : Promise.resolve(null)
     if (pagesAsked() && owner) {
       if (sharedReader) void toOriginal(); else toMargin()
       return () => { live = false }
@@ -179,51 +212,107 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       // 20 Oct 2026, mockup 2b: never the Tinct reader there), which takes the same place from its pages or text.
       if (!sharedReader && !phone && result.book.kind === 'pdf') { toMargin(); return }
       // A place read later on another device of the account opens here.
-      await reconcile(hex, result.book).catch(() => {})
+      await reconcile(hex, result.book, owner).catch(() => {})
       if (!live) return
-      const metadataRecord = await metadata
+      const metadataQuick = await openingDetail(metadata)
       if (!live) return
-      const fileId = /^[0-9a-f]{32}$/.test(metadataRecord?.id ?? '') ? metadataRecord!.id : await readOwnedBookFileId(hex, owner ?? '').catch(() => null)
+      const metadataRecord = metadataQuick.ready ? metadataQuick.value : null
+      // A generation ID is required before account annotations can be shown.
+      // If the account metadata is still pending, draw the text without them;
+      // never guess from a hash-only record or a possibly superseded local ID.
+      const localFileId = () => readOwnedBookFileId(hex, owner ?? '').catch(() => null)
+      const localIdWork = metadataQuick.ready && !/^[0-9a-f]{32}$/.test(metadataRecord?.id ?? '') ? localFileId() : null
+      const localId = localIdWork ? await openingDetail(localIdWork) : null
       if (!live) return
+      let fileId = /^[0-9a-f]{32}$/.test(metadataRecord?.id ?? '') ? metadataRecord!.id
+        : localId?.ready ? localId.value : null
       const sourceBook = withOwnBookMetadata(result.book, metadataRecord)
       const book = { ...sourceBook, place: (sourceBook.kind === 'pdf' ? readPdfTextPlace(hex, sourceBook.edition, { page }) : readEpubPlace(hex, sourceBook.edition, undefined, { requireUniqueQuote: sharedReader })) ?? sourceBook.place }
-      if (sharedReader && owner) {
-        guardOwnTextMarks(hex)
+      if (sharedReader && owner) guardOwnTextMarks(hex)
+      const openAnnotations = async (generation: string | null) => {
+        if (!sharedReader || !owner || !live) return
         // Both owner-qualified controllers reconcile before first paint, but their
         // account requests are independent. Start each even while the other waits.
         const marksOpening = (async () => {
           try {
-            if (fileId) marks = startOwnTextMarksSync(hex, owner, book.edition, fileId)
+            if (generation) marks = startOwnTextMarksSync(hex, owner, book.edition, generation)
             // A later response is still delivered to the mounted reader.
             if (marks) await Promise.race([marks.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
           } catch { marks?.dispose(); marks = null /* book still opens; owner-unsafe marks remain hidden */ }
         })()
         const cardsOpening = (async () => {
           try {
-            if (fileId) cards = new OwnTextCardsSync(hex, owner, book.edition, undefined, undefined, fileId)
+            if (generation) cards = new OwnTextCardsSync(hex, owner, book.edition, undefined, undefined, generation)
             if (cards) await Promise.race([cards.open(), new Promise<void>(resolve => setTimeout(resolve, 2500))])
           } catch { cards?.dispose(); cards = null }
         })()
         await Promise.all([marksOpening, cardsOpening])
         if (!live) return
         setRecoverableMarks(unassignedOwnTextMarkCount(hex, owner))
-        setRecoverableCards(cards ? unassignedOwnTextCardCount(hex, owner, fileId) : 0)
+        setRecoverableCards(cards ? unassignedOwnTextCardCount(hex, owner, generation) : 0)
         if (book.kind !== 'pdf') {
           setUnclaimedEpubMarks(unclaimedLegacyEpubCount(hex, owner))
-          const imported = await migrateVerifiedLegacyEpubMarks(hex, owner, book.edition).catch(() => 0)
-          if (!live) return
-          if (imported && !fileId) marks?.changed(readLabHighlights())
+          // Page-only annotations are available in Notebook immediately. The
+          // optional source-word import reparses the whole old EPUB, sometimes
+          // a very large one; it must not hold the already-converted text's
+          // first page behind the opening spinner.
           syncClaimedLegacyEpubPages(hex, owner, marks, cards)
           setLegacyEpubItems(allLegacyEpubNotebookItems(hex, owner, marks, cards))
         }
       }
+      await openAnnotations(fileId)
+      if (!live) return
       // The link's page (Original pages' "Tinct text") has been used: a reload opens at the kept place, not there again.
       dropOpenParams()
       registerUserBook(book.bookId, book.edition)
       // The pictures are handed over before the reader draws its first page.
       const images = book.images
       registerFigureAssets(key => images.get(key) ?? null)
-      setState({ status: 'ready', book, marks, cards, fileId, ...identity })
+      const { storedCoverPending, ...readyBook } = book
+      setState({ status: 'ready', book: readyBook, marks, cards, fileId, ...identity })
+      // This other IndexedDB cache is only for the cover. A stalled lookup
+      // cannot keep the already-converted chapters behind Opening… .
+      if (storedCoverPending) void storedCoverPending.then(storedCover => {
+        if (!live || !storedCover) return
+        setState(previous => previous.status === 'ready' && previous.hex === hex && previous.owner === identity.owner && previous.sharedReader === sharedReader
+          ? { ...previous, book: { ...previous.book, storedCover } } : previous)
+      }).catch(() => {})
+      let legacyScheduled = false
+      const scheduleLegacyImport = () => {
+        if (!sharedReader || !owner || book.kind === 'pdf' || legacyScheduled || !live) return
+        legacyScheduled = true
+        legacyImport = setTimeout(() => {
+          void migrateVerifiedLegacyEpubMarks(hex, owner, book.edition).then(imported => {
+            if (!live) return
+            if (imported && !fileId) marks?.changed(readLabHighlights())
+            setLegacyEpubItems(allLegacyEpubNotebookItems(hex, owner, marks, cards))
+          }).catch(() => {})
+        }, 0)
+      }
+      const applyLateMetadata = (record: Awaited<typeof metadata>) => {
+        if (!live || !record) return
+        setState(previous => previous.status === 'ready' && previous.hex === hex && previous.owner === identity.owner && previous.sharedReader === sharedReader
+          ? { ...previous, book: withOwnBookMetadata(previous.book, record) } : previous)
+      }
+      const attachGeneration = async (generation: string | null) => {
+        if (!live || !generation || fileId || !/^[0-9a-f]{32}$/.test(generation)) { scheduleLegacyImport(); return }
+        fileId = generation
+        await openAnnotations(generation)
+        if (!live) return
+        setState(previous => previous.status === 'ready' && previous.hex === hex && previous.owner === identity.owner && previous.sharedReader === sharedReader
+          ? { ...previous, marks, cards, fileId: generation } : previous)
+        scheduleLegacyImport()
+      }
+      if (metadataQuick.ready) {
+        if (localIdWork && !localId?.ready) void localIdWork.then(attachGeneration)
+        else scheduleLegacyImport()
+      } else void metadata.then(record => {
+        if (!live) return
+        applyLateMetadata(record)
+        const generation = /^[0-9a-f]{32}$/.test(record?.id ?? '') ? record!.id : null
+        if (generation) void attachGeneration(generation)
+        else void localFileId().then(attachGeneration)
+      })
     }).catch(() => {
       if (live) setState({ status: 'failed', message: 'This file could not be opened as an EPUB. Choose another file.', ...identity })
     })
@@ -231,7 +320,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     const visible = () => { if (document.visibilityState === 'visible') refresh() }
     window.addEventListener('online', refresh)
     document.addEventListener('visibilitychange', visible)
-    return () => { live = false; window.removeEventListener('online', refresh); document.removeEventListener('visibilitychange', visible); marks?.dispose(); cards?.dispose(); if (sharedReader) releaseOwnTextMarksGuard(hex) }
+    return () => { live = false; if (legacyImport !== null) clearTimeout(legacyImport); window.removeEventListener('online', refresh); document.removeEventListener('visibilitychange', visible); marks?.dispose(); cards?.dispose(); if (sharedReader) releaseOwnTextMarksGuard(hex) }
   }, [hex, open, owner, phone, sharedReader, forward, reconcile])
 
   useEffect(() => {
@@ -267,7 +356,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     </div>}
   </>
   if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} title={state.title} services={pdfServices ?? undefined} scanOutline={state.scanOutline}
-    bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place}
+    bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
     onOpenText={state.hasText ? place => {
       try {

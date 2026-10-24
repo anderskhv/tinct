@@ -98,6 +98,8 @@ export interface SelectionPopupProps {
   darkBar?: boolean
   /** Gates the consolidated AI actions and theme preview until the private reader is ready. */
   sharedReader?: boolean
+  /** One in-card persistence status for a shared contextual answer. */
+  saveError?: boolean
 }
 
 /** A passage quoted in the note editor, cut at 120 characters with … (margin.js cut). */
@@ -228,6 +230,7 @@ export function SelectionPopup({
   keyboardDock = false,
   darkBar = false,
   sharedReader = false,
+  saveError = false,
 }: SelectionPopupProps) {
   const windowRef = useReaderWindow<HTMLDivElement>(popupMode === 'define' ? 'define' : 'explain', lab && (popupMode === 'explain' || popupMode === 'define'))
   const combinedRef = useCallback((node: HTMLDivElement | null) => { popupRef.current = node; windowRef(node) }, [popupRef, windowRef])
@@ -510,7 +513,7 @@ export function SelectionPopup({
       onTouchEnd={e => e.stopPropagation()}
     >
       {contextualExplain && popupMode === 'explain' && (
-        <ContextualExplainCard key={explainIntent ?? 'explain'} passage={selection.text}
+        <ContextualExplainCard key={explainIntent ?? 'explain'} passage={selection.text} saveError={sharedReader && saveError}
           request={explainIntent ? onDelta => onRequestExplanation(onDelta, undefined, explainIntent) : onRequestExplanation}
           onAsk={onExplain} onTalk={onTalkExplanation} onReady={explainIntent ? undefined : onExplanationReady} onClose={dismissPopup} onHighlight={() => setPopupMode('colors')} />
       )}

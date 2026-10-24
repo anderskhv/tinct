@@ -70,6 +70,8 @@ export interface LoadedUserBook {
   cover?: string | null
   /** Without one here: the account's stored copy of it, as this device kept it (ownCovers.ts), or null. */
   storedCover?: string | null
+  /** An optional cover cache lookup; the converted text opens without waiting for this other database. */
+  storedCoverPending?: Promise<string | null>
 }
 
 export type UserBookOpenResult =
@@ -371,8 +373,9 @@ export async function openUserBook(hex: string, options: { owner?: string | null
     offered.add(hex)
     setTimeout(() => { void offerCoverToAccount(hex, cover).catch(() => false) }, COVER_HEAL_DELAY_MS)
   }
-  const storedCover = cover ? null : await cachedStoredCover(owner, hex).catch(() => null)
-  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover, storedCover } }
+  const storedCoverPending = cover ? undefined : cachedStoredCover(owner, hex).catch(() => null)
+  return { ok: true, book: { hex, bookId: userBookId(hex), edition, images, place: readUserBookPlace(hex, edition), cover,
+    storedCover: null, ...(storedCoverPending ? { storedCoverPending } : {}) } }
 }
 
 /**

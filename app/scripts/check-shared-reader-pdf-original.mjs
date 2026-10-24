@@ -195,6 +195,34 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.locator('[data-pdf-original="true"] .pdf-original__text').getByText('First original page with selectable source words.').waitFor({ timeout: 45000 })
     assert.equal(await page.locator('[data-pdf-original="true"]').count(), 1)
     assert.equal(await page.locator('iframe[data-testid="margin-preview-frame"]').count(), 0)
+    if (!narrationSuccess) {
+      await page.setViewportSize({ width: 2047, height: 1133 })
+      const geometry = await page.evaluate(() => {
+        const names = ['Contents', 'Notebook', 'Reading settings', 'Listen', 'Menu']
+        const controls = names.map(name => {
+          const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')]
+            .find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
+          const rect = button?.getBoundingClientRect(), hit = rect && document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+          return { name, rect: rect && { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
+            hit: !!button && (button === hit || button.contains(hit)) }
+        })
+        return { controls, width: document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width,
+          canvases: document.querySelectorAll('.pdf-original__page canvas').length }
+      })
+      assert(geometry.controls.every(item => item.rect && item.rect.left >= 0 && item.rect.right <= 2047
+        && item.rect.top >= 0 && item.rect.bottom <= 1133 && item.hit), `wide PDF header controls are direct targets: ${JSON.stringify(geometry)}`)
+      assert(geometry.width > 0 && geometry.width <= 1500, `PDF sheet uses original capped width: ${JSON.stringify(geometry)}`)
+      assert(geometry.canvases <= 3, `PDF source uses bounded canvases: ${JSON.stringify(geometry)}`)
+      await page.locator('.pdf-original__scroll').evaluate(el => {
+        const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+        el.scrollTop = second.offsetTop + second.clientHeight * .25
+        el.dispatchEvent(new Event('scroll', { bubbles: true }))
+      })
+      await page.getByText('Page 2 of 4', { exact: true }).waitFor()
+      await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+      await page.getByText('Page 1 of 4', { exact: true }).waitFor()
+      await page.setViewportSize({ width: 1100, height: 820 })
+    }
     await page.waitForTimeout(1800)
     const opening = await page.evaluate(hex => ({ keys: Object.keys(localStorage).filter(key => key.includes(hex)),
       status: document.querySelector('.pdf-original-reader__status')?.textContent, owner:window.TinctAI?.session?.()?.userId }), hex)
@@ -402,7 +430,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.keyboard.press('Escape')
     await page.getByRole('button', { name: 'Next PDF page' }).click()
     await page.getByText('Page 3 of 4').waitFor()
-    assert.equal(await page.locator('.pdf-original__text span').count(), 0, 'scan remains viewable without invented prose')
+    assert.equal(await page.locator('.pdf-original__page[data-page="3"] .pdf-original__text span').count(), 0, 'scan remains viewable without invented prose')
     assert.deepEqual(errors, [], 'no uncaught reader error')
     assert.deepEqual(denied, [], 'no external request escaped the fixture')
     console.log(`${name}: routed PDF, full-page Recap/Quiz/Note, saved cited follow-up/Notebook, ${narrationSuccess ? 'page-follow and saved Talk turn' : 'audio and Talk token failures'}, speed and scan passed`)

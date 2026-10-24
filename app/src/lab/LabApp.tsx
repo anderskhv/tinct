@@ -802,6 +802,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
+  const [compareFromLayout, setCompareFromLayout] = useState(false)
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
   const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource } | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
@@ -936,7 +937,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const compareNumberingDiffers = (book.bookId || 'bible') === 'bible' && prefs.compareOpen
     && !bibleVerseNumbersCorrespond(prefs.primaryEdition, prefs.compareEdition, book.chapterNumber)
   const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare && !compareNumberingDiffers
-  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
+  const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && prefs.primaryEdition !== prefs.compareEdition
+    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
+  // Aa can offer Compare before a second edition has been chosen. Choosing it
+  // then opens the existing version picker instead of comparing the main text
+  // with itself or mounting an unavailable pair.
+  const desktopCompareChoiceAvailable = !showPhoneChrome && !privateBook && bookEditions.some(edition =>
+    edition.key !== prefs.primaryEdition && edition.aligned !== false
+    && allBookEditions.find(main => main.key === prefs.primaryEdition)?.aligned !== false
+    && ((book.bookId || 'bible') !== 'bible' || bibleEditionHasChapter(edition.key, book.chapterNumber)
+      && bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, book.chapterNumber)))
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -1674,14 +1684,21 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, placeWritesSuspended, positionSync.notePlace])
-  const choosePrivateDesktopLayout = (layout: 'margin' | 'classic') => {
-    const classic = layout === 'classic'
-    if (privateDesktopClassic === classic && !desktopCompareActive) return
+  const chooseSharedDesktopLayout = (layout: 'margin' | 'two-page' | 'compare') => {
+    if (layout === 'compare' && !desktopCompareEnabled) {
+      if (desktopCompareChoiceAvailable) { setCompareFromLayout(true); setSuperSheet('compareEdition') }
+      return
+    }
+    const classic = layout === 'two-page'
+    const compare = layout === 'compare'
+    if (privateDesktopClassic === classic && desktopCompareActive === compare) return
     const anchor = { ...placeRef.current }
     chapterNavigationRef.current += 1
-    setDesktopCompareActive(false)
+    readerStateRef.current = { ...readerStateRef.current, readerMode: compare ? 'compare' : 'read' }
+    rememberCompareView(compare)
+    setDesktopCompareActive(compare)
     setPrivateDesktopClassic(classic)
-    if (!classic) setContinuousAnchor(anchor)
+    if (!classic && !compare) setContinuousAnchor(anchor)
     else {
       pageAnchorRef.current = anchor
       restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
@@ -5714,7 +5731,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               })
             }}
             thread={pillCardThread(card.openedAt)} />
-          {sharedReader && sharedCardSaveError && <p role="status">This quiz is here for now, but it could not be saved to Notebook.</p>}
+          {sharedReader && sharedCardSaveError && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
         </LabPhoneCard>
       )
     }
@@ -5753,7 +5770,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
-        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now, but it could not be saved to Notebook.</p>}
+        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
       </LabPhoneCard>
     )
   }
@@ -5964,6 +5981,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               >
                 {listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
+              {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
+                aria-label="Reading appearance" title="Reading appearance"
+                onClick={() => { setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading') }}>Aa</button>}
               <LabSuperButton
                 open={superMenuOpen}
                 onToggle={handleSuperToggle}
@@ -6009,8 +6029,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           bookId={book.bookId || 'bible'}
           chapterNumber={book.chapterNumber}
           layer={superSheet}
-          onLayer={setSuperSheet}
-          onClose={() => setSuperSheet(null)}
+          onLayer={layer => { setSuperSheet(layer); if (layer !== 'compareEdition') setCompareFromLayout(false) }}
+          onClose={() => { setSuperSheet(null); setCompareFromLayout(false) }}
           prefs={displayPrefs}
           phoneShakespeare={phoneShakespeare}
           onPrefs={sheetPrefs}
@@ -6029,8 +6049,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               } }
             : null}
           readerLayout={sharedReader && !showPhoneChrome
-            ? { active: continuousReader ? 'margin' : 'classic', onChoose: choosePrivateDesktopLayout }
+            ? { active: desktopCompareActive ? 'compare' : continuousReader ? 'margin' : 'two-page',
+                compareAvailable: desktopCompareChoiceAvailable,
+                onChoose: chooseSharedDesktopLayout }
             : null}
+          compareFromLayout={compareFromLayout}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
@@ -6807,6 +6830,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onHighlight={phoneBarHighlight}
           onNote={phoneBarNote}
           onRemove={() => { if (selectionPopup.existingHighlightId) highlightsApi.remove(selectionPopup.existingHighlightId); dismissSelectionPopup() }}
+          onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
+            ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }
+            : undefined}
           onDismiss={dismissSelectionPopup}
         />
       )}
@@ -6838,6 +6864,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {selectionPopup && !marginPhone && (
         <SelectionPopup
           sharedReader={sharedReader}
+          saveError={sharedCardSaveError}
           selection={selectionPopup}
           popupRef={popupRef}
           onAskQuestion={sharedReader ? question => {
@@ -7001,8 +7028,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           darkBar={!(isPhone || showPhoneChrome)}
         />
       )}
-      {sharedReader && selectionPopup && sharedCardSaveError && <p role="status" className="lab-shared-card-save-error">This answer is here for now, but it could not be saved to Notebook.</p>}
-
       {chapterNoteEditor && (
         <LabChapterNoteEditor
           key={chapterNoteEditor.bookId + ':' + chapterNoteEditor.chapterNumber}
