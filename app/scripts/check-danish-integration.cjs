@@ -9,6 +9,7 @@ const sources = require('../src/data/danishEditionSources.json')
 const out = process.env.ARTIFACT_DIR || 'artifacts/danish-integration'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5214'
 const ids = process.env.DANISH_QA_BOOKS ? process.env.DANISH_QA_BOOKS.split(',') : Object.keys(sources)
+const continuousOnly = process.env.DANISH_QA_CONTINUOUS === '1'
 const compareOnly = process.env.DANISH_QA_COMPARE_ONLY === '1'
 const compiled = buildSync({ entryPoints: ['src/lab/labHearing.ts'], bundle: true, platform: 'node', format: 'cjs', write: false }).outputFiles[0].text
 const exported = { exports: {} }
@@ -41,8 +42,9 @@ async function snapshot(page) {
       return r.left < box.left - 3 || r.right > box.right + 3 || r.top < box.top - 3 || r.bottom > box.bottom + 3
         ? [{ text: el.textContent, word: el.dataset.paragraphIndex + ':' + el.dataset.wordIndex, rect: r.toJSON(), bounds: box.toJSON() }] : []
     })
+    const continuous = !!document.querySelector('[data-testid="continuous-reader"]')
     const coords = words.map(el => el.dataset.paragraphIndex + ':' + el.dataset.wordIndex)
-    return { chapter: Number(root?.dataset.chapter), edition: root?.dataset.readerEdition, ready: root?.dataset.readerReady, lang: root?.lang, place: root?.dataset.place, coords, key: root?.dataset.chapter + '/' + coords.join(','), outside, horizontalOverflow: document.documentElement.scrollWidth > innerWidth + 2 }
+    return { continuous, chapter: Number(root?.dataset.chapter), edition: root?.dataset.readerEdition, ready: root?.dataset.readerReady, lang: root?.lang, place: root?.dataset.place, coords, key: root?.dataset.chapter + '/' + coords.join(','), outside, horizontalOverflow: document.documentElement.scrollWidth > innerWidth + 2 }
   })
 }
 
@@ -124,6 +126,18 @@ async function checkBook(browser, id, device, phone) {
     for (const index of full) {
       const chapter = data.chapters[index], seen = new Set(), pageKeys = new Set()
       let state = await open(page, id, chapter.number, 0, phone), count = 0
+      if (continuousOnly) {
+        assert.ok(state.continuous && !phone, 'Supplemental check must use the emitted ON continuous desktop reader')
+        for (let step = 0; step < 4; step++) {
+          cases.push(await record(state, 'margin-ch' + chapter.number + '-scroll' + step))
+          const host = page.getByTestId('continuous-reader')
+          await host.hover()
+          await page.mouse.wheel(0, 420)
+          await page.waitForTimeout(180)
+          state = await settled(page)
+        }
+        continue
+      }
       const expected = chapter.paragraphs.flatMap((p, i) => tokenizeHearingWords(p).map((_, j) => i + ':' + j))
       for (;;) {
         assert.equal(state.chapter, chapter.number)
@@ -187,7 +201,7 @@ async function checkBook(browser, id, device, phone) {
     assert.equal(restored.place, place, 'Reload retains Danish place')
     assert.deepEqual(errors, [], id + ' page errors')
     assert.deepEqual(requests, [], id + ' text-only edition asks for no narration or recordings')
-    const result = { id, device, engine: browser.browserType().name(), pages: cases.length, cases, issues, compare: true, reload: true, errors, audioRequests: requests }
+    const result = { id, device, continuous: continuousOnly, engine: browser.browserType().name(), pages: cases.length, cases, issues, compare: true, reload: true, errors, audioRequests: requests }
     fs.writeFileSync(path.join(dir, compareOnly ? 'compare-results.json' : 'results.json'), JSON.stringify(result, null, 2))
     assert.deepEqual(issues, [], id + ' text inside page bounds')
     return result
@@ -208,7 +222,7 @@ async function checkBook(browser, id, device, phone) {
   const browsers = { phone: await markInternal(await phoneEngine.launch({ args: phoneEngine === chromium ? ['--mute-audio'] : [] })), desktop: await markInternal(await chromium.launch({ args: ['--mute-audio'] })) }
   try {
     for (const id of ids) {
-      const devices = ['phone', 'desktop'].filter(device => !process.env.DANISH_QA_DEVICE || process.env.DANISH_QA_DEVICE === device)
+      const devices = (continuousOnly ? ['desktop'] : ['phone', 'desktop']).filter(device => !process.env.DANISH_QA_DEVICE || process.env.DANISH_QA_DEVICE === device)
       const checked = await Promise.all(devices.map(async device => {
         try { return await checkBook(browsers[device], id, device, device === 'phone') }
         catch (error) {
