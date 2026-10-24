@@ -49,6 +49,7 @@ await page.route('**/*', async route => {
   return route.continue()
 })
 await page.addInitScript(() => {
+  if (!localStorage.getItem('tinct:reader-desktop-layout')) localStorage.setItem('tinct:reader-desktop-layout', JSON.stringify(Object.fromEntries(['frankenstein', 'bible', 'macbeth', 'lords-of-the-cosmos', 'fear-and-trembling'].map(id => [id, 'margin']))))
   if (!localStorage.getItem('tinct-lab-prefs')) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, fontSize: 1, fontSizeExplicit: true }))
   if (!localStorage.getItem('tinct-lab-position')) localStorage.setItem('tinct-lab-position', JSON.stringify({
     books: { frankenstein: { bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 2, sequentialChapter: 2,

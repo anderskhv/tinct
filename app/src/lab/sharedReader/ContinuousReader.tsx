@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentProps, type WheelEvent } from 'react'
+import { SourceMinimap } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
 import { tokenizeHearingWords } from '../labHearing'
 import { continuousReaderWindow, type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
@@ -85,6 +86,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const hostRef = useRef<HTMLDivElement>(null)
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
   const destinationKey = `${epochKey}/${anchor.paragraphIndex}:${anchor.wordIndex}`
+  const [mapVisible, setMapVisible] = useState(anchor)
+  const [mapEnd, setMapEnd] = useState<ContinuousReaderAnchor | undefined>()
   const [windowState, setWindowState] = useState(() => ({ key: destinationKey, start: continuousWindowStart(anchor, passage.paragraphs) }))
   const start = windowState.key === destinationKey ? windowState.start : continuousWindowStart(anchor, passage.paragraphs)
   const windows = useMemo(() => continuousReaderWindows(passage.paragraphs, start), [passage.paragraphs, start.paragraphIndex, start.wordIndex])
@@ -109,6 +112,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       pendingRebase.current = null
       lastReported.current = ''
       visibleRef.current = anchor
+      setMapVisible(anchor)
       userBrowseRef.current = false
       setWindowState({ key: destinationKey, start: continuousWindowStart(anchor, passage.paragraphs) })
     }
@@ -185,7 +189,25 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     setWindowState({ key: destinationKey, start: nextStart })
   }
 
+  const measureMapEnd = () => {
+    const host = hostRef.current
+    if (!host) return
+    const bounds = host.getBoundingClientRect()
+    const last = [...host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')].reverse().find(word => {
+      const rect = word.getBoundingClientRect()
+      return rect.height > 0 && rect.top < bounds.bottom && rect.bottom > bounds.top
+    })
+    if (last) setMapEnd({ paragraphIndex: Number(last.dataset.paragraphIndex), wordIndex: Number(last.dataset.wordIndex) })
+  }
+  useLayoutEffect(() => {
+    const frame = requestAnimationFrame(measureMapEnd)
+    return () => cancelAnimationFrame(frame)
+  // The mounted source window has its real viewport geometry after layout.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windows, passage.layoutKey])
+
   const onScroll = () => {
+    measureMapEnd()
     const host = hostRef.current
     if (!host || restoring.current || !windows.length) return
     if (suppressScrollRef.current) { suppressScrollRef.current = false; return }
@@ -198,6 +220,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (held && held.getBoundingClientRect().bottom > host.getBoundingClientRect().top
       && held.getBoundingClientRect().top <= host.getBoundingClientRect().top + Math.min(host.clientHeight * .24, 140)) visible = visibleRef.current
     visibleRef.current = visible
+    setMapVisible(visible)
     const signature = `${visible.paragraphIndex}:${visible.wordIndex}`
     if (lastReported.current !== signature) {
       lastReported.current = signature
@@ -239,7 +262,17 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       } else rebase('next', visibleRef.current)
     }
   }
-  return <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
+  const jumpFromMap = (place: ContinuousReaderAnchor) => {
+    userBrowse()
+    visibleRef.current = place
+    setMapVisible(place)
+    lastReported.current = `${place.paragraphIndex}:${place.wordIndex}`
+    onVisible(epoch, place)
+    pendingRebase.current = { anchor: place, offset: Math.min((hostRef.current?.clientHeight ?? 600) * .24, 140) }
+    setWindowState({ key: destinationKey, start: continuousWindowStart(place, passage.paragraphs) })
+  }
+  return <><SourceMinimap paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} highlights={passage.highlights} onJump={jumpFromMap} />
+  <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
     onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>
     {windows.map((window, index) => <div className="continuous-reader-window" data-window-first={window.firstParagraph} data-window-last={window.lastParagraph} key={`${window.page.paragraphIndex}:${window.page.from}`}>
@@ -247,5 +280,5 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
         onPreviewChapter={index === 0 ? passage.onPreviewChapter : undefined}
         compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" desktopSpread={false} plannedHyphens={false} tapZones="none" keyboardSelection />
     </div>)}
-  </div>
+  </div></>
 }

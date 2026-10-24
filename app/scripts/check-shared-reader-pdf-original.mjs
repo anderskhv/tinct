@@ -204,7 +204,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if (!narrationSuccess) {
       await page.setViewportSize({ width: 2047, height: 1133 })
       const geometry = await page.evaluate(() => {
-        const names = ['Contents', 'Notebook', 'Reading settings', 'Listen', 'Menu']
+        const names = ['Contents', 'Notebook', 'Appearance', 'Listen', 'Menu']
         const controls = names.map(name => {
           const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')]
             .find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
@@ -253,6 +253,83 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.locator('.pdf-original__highlight').waitFor({ timeout: 45000 })
     assert(calls.filter(call => call.path === `/api/user-books/marks/${hex}` && call.method === 'GET').length >= 2,
       'the reloaded reader fetched its cloud generation and repainted the highlight')
+    if (name === 'chromium') {
+      const sourceLine = () => page.locator('.pdf-original__page[data-page="1"] .pdf-original__text').getByText('First original page with selectable source words.')
+      const selectSource = async () => sourceLine().evaluate(el => {
+        const range = document.createRange(), selection = window.getSelection()
+        range.selectNodeContents(el); selection.removeAllRanges(); selection.addRange(range)
+        el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
+      })
+      const chooseAppearance = async theme => {
+        const direct = page.getByRole('button', { name: 'Appearance', exact: true })
+        if (await direct.isVisible()) await direct.click()
+        else { await page.getByTestId('lab-super').click(); await page.getByRole('button', { name: 'Aa · Appearance', exact: true }).click() }
+        await page.getByRole('radio', { name: { light: 'Light', book: 'Book', dark: 'Dark' }[theme], exact: true }).check()
+        await page.getByRole('button', { name: 'Close panel' }).click()
+      }
+      for (const width of [1440, 1100]) for (const theme of ['light', 'book', 'dark']) {
+        await page.setViewportSize({ width, height: 900 })
+        await chooseAppearance(theme)
+        await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+        await page.locator('.pdf-original__page[data-page="1"][data-ready="true"]').waitFor()
+        await page.waitForTimeout(120)
+        assert(await page.getByRole('slider', { name: 'Original PDF position' }).isVisible(), 'desktop PDF source minimap is visible')
+        if (visual) await page.screenshot({ path: path.join(visual, `pdf-original-${width}-${theme}-source.png`) })
+        await selectSource()
+        if (theme === 'dark') assert.equal(await sourceLine().evaluate(el => getComputedStyle(el, '::selection').color), 'rgba(0, 0, 0, 0)',
+          'native selected text stays transparent so the recolored PDF canvas remains legible')
+        const bar = page.getByTestId('lab-desk-bar')
+        await bar.waitFor()
+        const beforeBar = await bar.boundingBox()
+        await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop += 40; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+        await page.waitForTimeout(100)
+        const afterBar = await bar.boundingBox()
+        assert(beforeBar && afterBar && Math.abs((afterBar.y - beforeBar.y) + 40) < 2,
+          `PDF selection toolbar follows source scroll at ${width}/${theme}: ${JSON.stringify({ beforeBar, afterBar })}`)
+        const beforeCard = await page.locator('.pdf-original__scroll').evaluate(el => ({ scroll: el.scrollTop,
+          width: el.querySelector('.pdf-original__page[data-page="1"]').getBoundingClientRect().width }))
+        await page.getByTestId('lab-dbar-explain').click()
+        const card = page.locator('.lab-desktop-card')
+        await card.getByText('A grounded local fixture answer.').waitFor()
+        assert.equal(await card.getByText('First original page with selectable source words.', { exact: true }).count(), 1,
+          'a selected quote appears once rather than as both quote and initial User turn')
+        const followHeight = await card.locator('.lab-pcard-follow-input').evaluate(el => el.getBoundingClientRect().height)
+        assert(followHeight <= 48, `desktop follow-up starts as a compact field: ${followHeight}`)
+        const cardBox = await card.boundingBox(), sheetBox = await page.locator('.pdf-original__page[data-page="1"]').boundingBox()
+        const afterCard = await page.locator('.pdf-original__scroll').evaluate(el => ({ scroll: el.scrollTop,
+          width: el.querySelector('.pdf-original__page[data-page="1"]').getBoundingClientRect().width }))
+        assert.deepEqual(afterCard, beforeCard, 'opening a PDF card preserves source position and page breadth')
+        assert(cardBox && sheetBox && cardBox.x >= sheetBox.x + sheetBox.width + 8 && cardBox.x + cardBox.width <= width - 15,
+          `PDF desktop card owns the reserved right margin without source overlap: ${JSON.stringify({ width, theme, cardBox, sheetBox })}`)
+        assert.equal(await page.locator('.lab-pcard-scrim').count(), 0, 'desktop PDF card has no phone scrim')
+        if (visual) await page.screenshot({ path: path.join(visual, `pdf-original-${width}-${theme}-card.png`) })
+        await page.keyboard.press('Escape')
+        const map = page.getByRole('slider', { name: 'Original PDF position' })
+        await map.focus(); await page.keyboard.press('ArrowDown')
+        await page.getByText('Page 2 of 4', { exact: true }).waitFor()
+        await page.keyboard.press('Home')
+        await page.getByText('Page 1 of 4', { exact: true }).waitFor()
+      }
+      for (const theme of ['light', 'book', 'dark']) {
+        await page.setViewportSize({ width: 390, height: 844 })
+        await chooseAppearance(theme)
+        await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+        await page.locator('.pdf-original__page[data-page="1"][data-ready="true"]').waitFor()
+        assert.equal(await page.getByRole('slider', { name: 'Original PDF position' }).count(), 0, 'phone PDF has no desktop strip')
+        const phoneHeader = await page.locator('.pdf-original-reader .lab-header').boundingBox()
+        assert(phoneHeader && phoneHeader.height <= 60, `phone PDF header stays in one row: ${JSON.stringify(phoneHeader)}`)
+        if (visual) await page.screenshot({ path: path.join(visual, `pdf-original-phone-${theme}-source.png`) })
+        await selectSource()
+        await page.getByTestId('lab-pbar-explain').click()
+        await page.locator('.lab-pcard-dock').getByText('A grounded local fixture answer.').waitFor()
+        assert.equal(await page.locator('.lab-desktop-card').count(), 0, 'phone keeps its bottom card')
+        if (visual) await page.screenshot({ path: path.join(visual, `pdf-original-phone-${theme}-card.png`) })
+        await page.keyboard.press('Escape')
+      }
+      await page.setViewportSize({ width: 1100, height: 820 })
+      await chooseAppearance('light')
+      console.log('chromium: PDF desktop 1440/1100 light/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
+    }
     await page.getByTestId('lab-super').click()
     await page.getByRole('button', { name: 'Primer · Chapter One' }).click()
     await page.getByText('These printed pages introduce an original argument.').waitFor()
@@ -439,7 +516,11 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert.equal(await page.locator('.pdf-original__page[data-page="3"] .pdf-original__text span').count(), 0, 'scan remains viewable without invented prose')
     assert.deepEqual(errors, [], 'no uncaught reader error')
     assert.deepEqual(denied, [], 'no external request escaped the fixture')
+    if (visual) await fs.rm(path.join(visual, 'pdf-original-failure.png'), { force: true })
     console.log(`${name}: routed PDF, full-page Recap/Quiz/Note, saved cited follow-up/Notebook, ${narrationSuccess ? 'page-follow and saved Talk turn' : 'audio and Talk token failures'}, speed and scan passed`)
+  } catch (error) {
+    if (visual) await page.screenshot({ path: path.join(visual, 'pdf-original-failure.png') }).catch(() => {})
+    throw error
   } finally { await context.close(); await browser.close() }
 }
 try {

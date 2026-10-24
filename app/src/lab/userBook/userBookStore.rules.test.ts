@@ -157,7 +157,7 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
     keep('IMG_20240512_scan.pdf')
     localStorage.removeItem(`tinct-addbook:edition:${HEX}`)
-    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })).toMatchObject({ ok: false, reason: 'pages_only' })
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })).toMatchObject({ ok: false, reason: 'pages' })
   })
 
   it('keeps a PDF read in its pages before Tinct text existed in its pages, prose or not', async () => {

@@ -4,6 +4,8 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
+vi.mock('../services/dictionary', () => ({ lookup: vi.fn(async () => null) }))
+
 const characterFixture = vi.hoisted(() => ({ data: null as unknown }))
 vi.mock('../services/characters/useCharacterCards', () => ({
   useCharacterCards: (bookId?: string) => bookId === 'to-the-lighthouse' ? characterFixture.data : null,
@@ -138,7 +140,8 @@ it('keeps Dictionary visible when a desktop character popup becomes a phone card
   fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
   fireEvent.click(screen.getByTestId('lab-dbar-more'))
   fireEvent.click(screen.getByTestId('lab-dmore-define'))
-  expect(document.querySelector('[data-popup-mode="define"]')).toBeTruthy()
+  expect(document.querySelector('.lab-desktop-card[data-kind="define"]')).toBeTruthy()
+  expect(document.querySelector('.selection-popup')).toBeNull()
   vi.stubGlobal('innerWidth', 390)
   fireEvent.resize(window)
   await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-lab-layout')).toBe('phone'))

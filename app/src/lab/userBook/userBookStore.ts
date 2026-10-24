@@ -425,6 +425,13 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   // the reader picks it): on to it at once, nothing converted here (D's trace, 22 Oct 2026: the whole PDF was
   // converted first, then the margin reader loaded pdf.js again). A scan without text keeps its pages.
   if (options.desktop && !options.sharedReader) return scan?.textPages === 0 || layout === 'pages-only' ? { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE } : { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  const phone = options.desktop === undefined ? phoneNow() : !options.desktop
+  const sourceOptions = { phone, desktopPages: true }
+  // Original pages is the desktop first-open default, even when reflowed text is cached.
+  // Resolve it before conversion; an explicit Tinct-text choice still wins.
+  if (options.sharedReader && !phone && pdfEditionChoice(hex, layout, undefined, sourceOptions) === 'pages') {
+    return { ok: false, reason: scan?.textPages === 0 || layout === 'pages-only' ? 'pages_only' : 'pages', message: PAGES_ONLY_MESSAGE }
+  }
   let edition = usableUserEdition(record.edition, 'pdf') ? record.edition : null
   let figureData = storedImages(record.figureData)
   // A conversion kept under earlier rules: converted again below; the place read in it moves by its page.
@@ -443,16 +450,16 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
-  // The desktop's own rule (its pages, 19 Oct 2026) is applied below, after the Tinct text is made and kept for a switch.
-  const beforeOpen = { desktopPages: false }
+  // The shared desktop default was resolved above; conversion here requires its selected Tinct text.
+  const beforeOpen = { phone, desktopPages: false }
   // Not told yet on a phone: converted here, and the phone's rule told with it (below), rather than in the viewer.
-  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || (!phoneNow() && pdfEditionUntold(hex, layout, undefined, beforeOpen)))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  if (!edition && (pdfEditionChoice(hex, layout, undefined, beforeOpen) === 'pages' || (!phone && pdfEditionUntold(hex, layout, undefined, beforeOpen)))) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   if (!edition) {
     if (!record.bytes) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     let made: ConvertedPdf | null = null
     // On a phone with nothing told yet, the converter tells the document's kind too (the viewer's rule), so the
     // phone's open rule is applied below without a trip to the viewer and back.
-    const tell = phoneNow() && pdfEditionUntold(hex, layout ?? 'text') ? { phoneKind: { primer: (kinds: readonly string[]) => keptPdfPrimerKind(hex, kinds) } } : {}
+    const tell = phone && pdfEditionUntold(hex, layout ?? 'text', undefined, sourceOptions) ? { phoneKind: { primer: (kinds: readonly string[]) => keptPdfPrimerKind(hex, kinds) } } : {}
     try { made = await (options.convert ?? convertPdfBytes)(record.bytes, { fileName: record.name, stored: record.scan, ...tell }) } catch { made = null }
     // Its pages still open in the viewer, which says what it can of a damaged file.
     if (!made) return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
@@ -468,12 +475,12 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
     figureData = made.images ?? new Map()
     await keepFields(key, owner, { edition, layout: made.scan.layout, figureData: Object.fromEntries(figureData), ...(made.fresh ? { scan: made.scan, pages: made.scan.pages } : {}) }).catch(() => {})
     // The phone's open rule, as the viewer applies it (reader.js phoneKind, openKind): its pages go on to the viewer.
-    if (made.phone && editionSource(edition) !== 'ocr' && phoneNow() && pdfEditionUntold(hex, layout)) applyPhoneOpenRule(hex, made.phone)
+    if (made.phone && editionSource(edition) !== 'ocr' && phone && pdfEditionUntold(hex, layout, undefined, sourceOptions)) applyPhoneOpenRule(hex, made.phone)
   }
   // Recognised text opens by its own default (the scan's is its pages only).
   if (editionSource(edition) === 'ocr') layout = ocrDefaultEdition(edition)
   // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
-  if (pdfEditionChoice(hex, layout, undefined, options.sharedReader ? beforeOpen : undefined) === 'pages' || pdfEditionUntold(hex, layout, undefined, options.sharedReader ? beforeOpen : undefined)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
+  if (pdfEditionChoice(hex, layout, undefined, sourceOptions) === 'pages' || pdfEditionUntold(hex, layout, undefined, sourceOptions)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null

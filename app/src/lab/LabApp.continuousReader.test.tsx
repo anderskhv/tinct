@@ -11,6 +11,7 @@ const chapter = Array.from({ length: 30 }, (_, index) => `Paragraph ${index} has
 beforeEach(() => {
   resetLabBibleManifestCache()
   resetLabChapterTextCache()
+  localStorage.setItem('tinct:reader-desktop-layout', JSON.stringify({ bible: 'margin' }))
   localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en' }))
   localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({
     books: { genesis: { bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1,
@@ -68,7 +69,7 @@ it('private Classic deep link and in-place Margin/Classic settings preserve the 
   fireEvent.click(screen.getByTestId('lab-v2-layout-compare'))
   await waitFor(() => expect(root.getAttribute('data-desktop-view')).toBe('compare'))
   expect(root.getAttribute('data-place')).toBe('13:4')
-  expect(window.location.search).not.toContain('view=two-page')
+  expect(window.location.search).toContain('view=compare')
 })
 
 it('Aa offers Compare before a second version is chosen and asks for a real compatible version first', async () => {
@@ -89,4 +90,21 @@ it('Aa offers Compare before a second version is chosen and asks for a real comp
   fireEvent.click(screen.getByTestId('lab-v2-layout-compare'))
   await waitFor(() => expect(root.getAttribute('data-desktop-view')).toBe('compare'))
   expect(root.getAttribute('data-place')).toBe('13:4')
+})
+
+
+it('fresh desktop text opens Two-page and remembers an explicit Margin choice on reopen', async () => {
+  localStorage.removeItem('tinct:reader-desktop-layout')
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  const view = render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-reader-ready')).toBe('true'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-header-aa'))
+  expect(screen.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4')
+  view.unmount()
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  await waitFor(() => expect(screen.getByTestId('continuous-reader')).toBeTruthy())
+  expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4')
 })

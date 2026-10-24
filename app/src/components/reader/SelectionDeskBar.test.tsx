@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { useState } from 'react'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { SelectionPopup, type PopupMode, type SelectionInfo, type SelectionPopupProps } from './SelectionPopup'
 import { deskBarPlace, deskMorePlace, firstAndLastLine } from './deskBarPlace'
@@ -173,4 +173,45 @@ describe('where the dark bar sits (margin.js placeBar, desktop)', () => {
     const boxes = [{ left: 300, right: 340, top: 100, bottom: 120 }, { left: 345, right: 400, top: 101, bottom: 121 }, { left: 80, right: 120, top: 130, bottom: 150 }]
     expect(firstAndLastLine(boxes)).toEqual({ first: { left: 300, right: 400, top: 100, bottom: 121 }, last: { left: 80, right: 120, top: 130, bottom: 150 } })
   })
+})
+
+it('keeps the shared response on the shared card route instead of opening the legacy popup', () => {
+  const onPassageAction = vi.fn()
+  const input = props({ sharedReader: true, onPassageAction })
+  render(<Harness {...input} />)
+  fireEvent.click(screen.getByTestId('lab-dbar-explain'))
+  expect(onPassageAction).toHaveBeenCalledWith('explain')
+  expect(input.onRequestExplanation).not.toHaveBeenCalled()
+  expect(input.setPopupMode).not.toHaveBeenCalledWith('explain')
+})
+
+it('follows a nested reader scroll and hides when the selected words leave the viewport', async () => {
+  let top = 300
+  const word = document.createElement('span')
+  word.className = 'lab-hearing-word is-selecting'
+  const host = document.createElement('div')
+  host.className = 'lab continuous-reader'
+  host.append(word)
+  document.body.append(host)
+  vi.spyOn(host, 'getBoundingClientRect').mockImplementation(() => ({ top: 80, bottom: 700 } as DOMRect))
+  vi.spyOn(word, 'getClientRects').mockImplementation(() => [{ left: 100, right: 150, top, bottom: top + 20, width: 50, height: 20 }] as unknown as DOMRectList)
+  render(<Harness {...props({ sharedReader: true })} />)
+  const bar = screen.getByTestId('lab-desk-bar')
+  const initial = bar.style.top
+  top = 150
+  await act(async () => { fireEvent.scroll(host); await new Promise(resolve => setTimeout(resolve, 30)) })
+  expect(bar.style.top).not.toBe(initial)
+  top = -100
+  await act(async () => { fireEvent.scroll(host); await new Promise(resolve => setTimeout(resolve, 30)) })
+  expect(bar.style.visibility).toBe('hidden')
+  host.remove()
+})
+
+it('accepts authoritative PDF ink geometry and hides when its source leaves view', async () => {
+  const { SelectionDeskBar } = await import('./SelectionDeskBar')
+  const common = { state: 'menu' as const, color: 'gold' as const, marked: false, noted: false, moreRows: [], fallback: { x: 10, y: 10 }, onAsk: vi.fn(), onExplain: vi.fn(), onSimplify: vi.fn(), onMore: vi.fn(), onHighlight: vi.fn(), onSwatch: vi.fn(), onNote: vi.fn(), onRemove: vi.fn() }
+  const { rerender } = render(<SelectionDeskBar {...common} getAnchor={() => ({ left: 300, right: 600, top: 350, bottom: 375 })} />)
+  expect(Number.parseFloat(screen.getByTestId('lab-desk-bar').style.top)).toBeGreaterThan(200)
+  rerender(<SelectionDeskBar {...common} getAnchor={() => null} />)
+  expect(screen.getByTestId('lab-desk-bar').style.visibility).toBe('hidden')
 })
