@@ -127,8 +127,17 @@ for(const engine of [chromium,webkit]) {
     if(live&&process.env.TINCT_EXPECTED_BUNDLE)assert(await page.locator('script[src]').evaluateAll((nodes,expected)=>nodes.some(n=>new URL(n.src).pathname===expected),process.env.TINCT_EXPECTED_BUNDLE),'production serves the expected bundle')
     const first=()=>page.getByTestId('lab-word').first().getAttribute('data-paragraph-index')
     const paragraph=await first();assert.notEqual(paragraph,null,'the test anchors an actual visible paragraph')
-    await page.keyboard.press('?')
-    await page.getByLabel('Tinct appearance').selectOption('omarchy')
+    // The commands panel opens on '?'; just after a deploy its listener can be a moment late (deploy of #601,
+    // 22 Oct 2026: the select was never found). Wait for the panel and its select, and press '?' once more if it did not open.
+    const openCommands=async()=>{
+      const dialog=page.getByRole('dialog',{name:'Commands & themes'}),select=page.getByLabel('Tinct appearance')
+      await page.keyboard.press('?')
+      if(!await dialog.waitFor({timeout:5000}).then(()=>true,()=>false)&&!await page.evaluate(()=>document.documentElement.dataset.tinctCommandsOpen==='true'))await page.keyboard.press('?')
+      await dialog.waitFor()
+      await select.waitFor({state:'visible'})
+      return select
+    }
+    await (await openCommands()).selectOption('omarchy')
     if(engine===chromium){
       await page.waitForFunction(()=>document.documentElement.style.getPropertyValue('--tinct-bg')==='#1a1b26')
       await paletteFile({name:'Gruvbox',background:'#282828',foreground:'#ebdbb2',accent:'#fabd2f'})
