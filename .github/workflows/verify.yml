@@ -191,6 +191,21 @@ jobs:
       - name: Verify page breaks end on a filled line
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-page-break-lines.mjs
+      - name: Verify original PDF interactions before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_ORIGINAL_DIST: dist
+          PDF_ORIGINAL_WEBKIT: '1'
+        run: node scripts/check-shared-reader-pdf-original.mjs
+      - name: Verify original PDF source and figure follow-ups before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_ORIGINAL_DIST: dist
+          PDF_SOURCE_PARITY: '1'
+          TINCT_PARITY_OUTPUT: artifacts/pdf-source-parity
+        run: node scripts/check-shared-reader-pdf-original.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
@@ -201,6 +216,7 @@ jobs:
             app/artifacts/shakespeare-layout
             app/artifacts/hyphenation-hardening
             app/artifacts/page-break-lines
+            app/artifacts/pdf-source-parity
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,
