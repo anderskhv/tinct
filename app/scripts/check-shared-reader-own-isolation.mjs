@@ -115,12 +115,10 @@ async function privateEpubLayouts(page, engine) {
   await page.getByTestId('lab-v2-layout-two-page').click()
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.continuousReader !== 'true')
   await readable('Two-page')
-  await page.getByTestId('lab-v2-sheet-close').click()
   await aa.click()
   await page.getByTestId('lab-v2-layout-margin').click()
   await page.getByTestId('continuous-reader').waitFor()
   await readable('Margin')
-  await page.getByTestId('lab-v2-sheet-close').click()
 }
 async function observed(page) {
   return page.evaluate(hex => ({
