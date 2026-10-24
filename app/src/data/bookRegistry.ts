@@ -777,6 +777,7 @@ export const THE_ART_OF_WAR: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -808,13 +809,7 @@ export const CRIME_AND_PUNISHMENT: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -891,6 +886,7 @@ export const MEDITATIONS: Book = {
       label: 'Modern English',
       aligned: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -964,7 +960,7 @@ export const JANE_EYRE: Book = {
       language: 'da',
       style: 'modern',
       label: 'Moderne Dansk',
-      // Keeps the pre-2026-09-25 paragraphing; the English editions were restructured.
+      // Reviewed Danish replacement matches the current English paragraphing (2026-10-24).
       aligned: false,
     },
   ],
@@ -1149,14 +1145,7 @@ export const CONFESSIONS: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1505,13 +1494,7 @@ export const MOBY_DICK: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1897,6 +1880,7 @@ export const BACCHAE: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -1931,6 +1915,7 @@ export const MEDEA: Book = {
       aligned: true,
       hasAudio: true,
     },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2258,14 +2243,7 @@ export const THE_PRINCE: Book = {
       aligned: true,
       hasAudio: true,
     },
-    {
-      key: 'modern-da',
-      language: 'da',
-      style: 'modern',
-      label: 'Moderne Dansk',
-      aligned: true,
-      hasAudio: true,
-    },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -2721,7 +2699,8 @@ export const MAGNA_CARTA: Book = {
       aligned: true,
       hasAudio: true,
     },
-],
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+  ],
 }
 
 export const US_FOUNDING_DOCUMENTS: Book = {
@@ -3309,6 +3288,7 @@ export const ALICE_IN_WONDERLAND: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Carroll (Original)', year: 1865, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3324,6 +3304,7 @@ export const WUTHERING_HEIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1847)', year: 1847, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3345,6 +3326,7 @@ export const MIDDLEMARCH: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1871–72)', year: 1871, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 

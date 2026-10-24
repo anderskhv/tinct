@@ -4,11 +4,9 @@ import manifest from './editionAvailability.json'
  * They have no successor: never pass these through migrateWithheldEdition.
  */
 export const TEMPORARY_EDITION_HOLDS: Readonly<Record<string, { reason: string }>> = manifest.editions
-/**
- * The only Danish editions Tinct offers: a deliberate, narrow exception to the
- * Danish withdrawal (Anders, 2026-10-10: To the Lighthouse in Danish; 2026-10-19: A Little Princess, Around the World in Eighty Days and The Jungle Book; later 2026-10-19: Grimms' Fairy Tales and The Arabian Nights). Every
- * other `-da` edition stays withdrawn. List exact `bookId/editionKey`
- * identities; never infer an exception from the language.
+/** Reviewed Danish text editions explicitly published by Anders.
+ * Other Danish files remain preserved but withdrawn. Adding a language never
+ * grants publication by itself: each exact identity must pass integration QA.
  */
 export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'to-the-lighthouse/modern-da',
@@ -17,6 +15,18 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jungle-book/modern-da',
   'grimms-fairy-tales/modern-da',
   'arabian-nights/modern-da',
+  'moby-dick/modern-da',
+  'crime-and-punishment/modern-da',
+  'the-prince/modern-da',
+  'confessions/modern-da',
+  'alice-in-wonderland/modern-da',
+  'bacchae/modern-da',
+  'magna-carta/modern-da',
+  'medea/modern-da',
+  'meditations/modern-da',
+  'middlemarch/modern-da',
+  'the-art-of-war/modern-da',
+  'wuthering-heights/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)

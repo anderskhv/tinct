@@ -5,6 +5,7 @@ const path = require('node:path')
 const http = require('node:http')
 const assert = require('node:assert/strict')
 const manifest = require('../src/data/editionAvailability.json')
+const { offeredDanish } = require('./lib/offeredDanish.cjs')
 const dir = process.env.ARTIFACT_DIR || 'artifacts/edition-holds'
 fs.mkdirSync(dir, { recursive: true })
 const origin = process.env.TEST_ORIGIN || 'http://127.0.0.1:5197'
@@ -76,7 +77,7 @@ if (!process.env.TEST_ORIGIN) {
    }
   }
   // Positive case: every offered Danish edition (OFFERED_DANISH_EDITIONS) is not held and opens.
-  for (const [bookId,width] of ['to-the-lighthouse','a-little-princess','around-the-world-80-days','jungle-book','grimms-fairy-tales','arabian-nights'].flatMap(b=>[390,1440].map(w=>[b,w]))) {
+  for (const [bookId,width] of offeredDanish.map(key=>key.split('/')[0]).flatMap(b=>[390,1440].map(w=>[b,w]))) {
    const editionKey='modern-da'
    const context=await (width < 900 ? browsers.phone : browsers.desktop).newContext({serviceWorkers:'block',viewport:{width,height:900},isMobile:width<900,hasTouch:width<900})
    const page=await context.newPage(),errors=[]

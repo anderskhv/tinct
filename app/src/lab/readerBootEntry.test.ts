@@ -54,6 +54,19 @@ describe('reader boot script', () => {
     expect(sessionStorage.getItem('tinct:lab-reader-handoff')).toBe(HANDOFF)
   })
 
+  it('the compact boot table preserves every registered shard identity', () => {
+    for (const id of CHAPTER_SHARDED_EDITION_IDS) {
+      const match = id.match(/^(.*)-((?:original|modern|kjv|web|webc|bsb)-[a-z]+)$/)!
+      page()
+      const handoff = { kind: 'open-reader', bookId: match[1], primaryEditionKey: match[2], savedPlace: { chapterNumber: 1 } }
+      sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(handoff))
+      runBootScript()
+      const expected = readerBootPreloads(readerBootHandoff(JSON.stringify(handoff))!, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS })
+      expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href')), id).toEqual(expected)
+      dom.window.close()
+    }
+  })
+
   it('preloads a chapter deep link’s opening text, as the app will open it', () => {
     page('/reader?book=odyssey&chapter=3')
     runBootScript()
