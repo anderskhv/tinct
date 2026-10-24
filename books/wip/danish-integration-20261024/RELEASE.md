@@ -4,11 +4,11 @@ Assigned source: `claude/inspiring-ritchie-zi00fu` at `959296ff926d6fb2b10645507
 
 ## Scope and gates
 
-Thirteen Danish editions are prepared for publication. The six existing offered Danish editions remain available. No remaining translation work was started and no Anthropic API was called.
+Twelve Danish editions are prepared for publication. The six existing offered Danish editions remain available. No remaining translation work was started and no Anthropic API was called.
 
 | Book | Result |
 | --- | --- |
-| pride-and-prejudice | integrate |
+| pride-and-prejudice | blocked: saved-position compatibility (7 paragraph merges) |
 | moby-dick | integrate |
 | crime-and-punishment | integrate |
 | jekyll-and-hyde | blocked: italics |
@@ -37,6 +37,8 @@ Thirteen Danish editions are prepared for publication. The six existing offered 
 
 ## Recorded qualifications
 
+- Pride and Prejudice: the preserved live Danish edition has 2,060 paragraphs; the candidate has 2,053. It needs a verified structural saved-position map before replacement.
+
 - Every review was by AI helper agents. No native Danish speaker has read these editions. Reviewer replacements were not independently re-reviewed.
 - The packages retain their documented terminology and du/De consistency limitations. This integration does not claim native editorial acceptance.
 - Alice: the unchanged English classifier exits 1 only for its 31 preserved verse paragraphs. Its existing accepted verse exemption is documented in `books/wip/alice-in-wonderland/EDITORIAL-FIXES.md`. The English text is unchanged.
@@ -59,8 +61,8 @@ Thirteen Danish editions are prepared for publication. The six existing offered 
 
 - `npm test`: 581 files passed, 1 skipped; 7,249 tests passed, 6 skipped.
 - `CI=1 npm run build` and `npm run verify-bundle`: passed, local bundle `index-4Neu7E5Y.js`.
-- Existing Danish blacklist lint: no findings across the 13 editions.
-- `check-edition-holds.cjs`: passed, including all 19 offered Danish editions on phone WebKit and desktop Chromium, plus held-edition recovery.
+- Existing Danish blacklist lint: no findings across the 12 editions.
+- `check-edition-holds.cjs`: passed, including all 18 offered Danish editions on phone WebKit and desktop Chromium, plus held-edition recovery.
 - Page QA is recorded by `app/scripts/check-danish-integration.cjs`: first/last chapters in full, three pages from up to ten deterministic interior chapters, word coverage and text bounds, Compare, reload, Danish language and no audio requests. Raw screenshots and result files are under `app/artifacts/danish-integration/`. Final results will be added before publication.
 
 Publication is not claimed by this preparation record. Release/production evidence belongs to the integration PR.

@@ -9,6 +9,7 @@ const sources = require('../src/data/danishEditionSources.json')
 const out = process.env.ARTIFACT_DIR || 'artifacts/danish-integration'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5214'
 const ids = process.env.DANISH_QA_BOOKS ? process.env.DANISH_QA_BOOKS.split(',') : Object.keys(sources)
+const compareOnly = process.env.DANISH_QA_COMPARE_ONLY === '1'
 const compiled = buildSync({ entryPoints: ['src/lab/labHearing.ts'], bundle: true, platform: 'node', format: 'cjs', write: false }).outputFiles[0].text
 const exported = { exports: {} }
 new Function('module', 'exports', 'require', compiled)(exported, exported.exports, require)
@@ -119,7 +120,7 @@ async function checkBook(browser, id, device, phone) {
       await page.screenshot({ path: path.join(dir, label + '.png') })
       return { label, chapter: state.chapter, place: state.place, visibleWords: state.coords.length }
     }
-    const full = [...new Set([0, data.chapters.length - 1])]
+    const full = compareOnly ? [] : [...new Set([0, data.chapters.length - 1])]
     for (const index of full) {
       const chapter = data.chapters[index], seen = new Set(), pageKeys = new Set()
       let state = await open(page, id, chapter.number, 0, phone), count = 0
@@ -146,7 +147,7 @@ async function checkBook(browser, id, device, phone) {
     }
     // Ten deterministic chapters across the interior, first/middle/last logical
     // paragraphs: three physical pages per chapter, with no invented page count.
-    const samples = [...new Set(Array.from({ length: 10 }, (_, i) => Math.min(data.chapters.length - 1, Math.floor((i + 1) * data.chapters.length / 11))))].filter(i => !full.includes(i))
+    const samples = compareOnly ? [] : [...new Set(Array.from({ length: 10 }, (_, i) => Math.min(data.chapters.length - 1, Math.floor((i + 1) * data.chapters.length / 11))))].filter(i => !full.includes(i))
     for (const index of samples) {
       const chapter = data.chapters[index]
       for (const p of [...new Set([0, Math.floor(chapter.paragraphs.length / 2), chapter.paragraphs.length - 1])]) {
@@ -158,6 +159,24 @@ async function checkBook(browser, id, device, phone) {
     const place = await page.getByTestId('lab-root').getAttribute('data-place')
     await compare(page, phone)
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive === 'true')
+    // The mode flag changes before pagination has painted. Require the real
+    // English comparison words, visible after the transition, before capture.
+    const english = JSON.parse(fs.readFileSync('public/data/editions/' + id + '-modern-en.json', 'utf8'))
+    const firstWords = tokenizeHearingWords(english.chapters[0].paragraphs[0]).slice(0, 4).map(w => w.text).join(' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
+    await page.waitForFunction(({ phone, firstWords }) => {
+      const selector = phone ? '.lab-page-wrap [data-testid="lab-word"]' : '.lab-book-col-compare [data-testid="lab-word"]'
+      const words = [...document.querySelectorAll(selector)].filter(el => {
+        if (!el.getBoundingClientRect().width) return false
+        for (let parent = el; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent)
+          if (style.visibility === 'hidden' || Number(style.opacity) < 0.95) return false
+        }
+        return true
+      })
+      const actual = words.map(el => el.textContent).join(' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
+      return actual.startsWith(firstWords)
+    }, { phone, firstWords })
+    await page.waitForTimeout(200)
     await page.screenshot({ path: path.join(dir, 'compare.png') })
     await compare(page, phone)
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive === 'false')
@@ -168,8 +187,8 @@ async function checkBook(browser, id, device, phone) {
     assert.equal(restored.place, place, 'Reload retains Danish place')
     assert.deepEqual(errors, [], id + ' page errors')
     assert.deepEqual(requests, [], id + ' text-only edition asks for no narration or recordings')
-    const result = { id, device, engine: phone ? 'webkit' : 'chromium', pages: cases.length, cases, issues, compare: true, reload: true, errors, audioRequests: requests }
-    fs.writeFileSync(path.join(dir, 'results.json'), JSON.stringify(result, null, 2))
+    const result = { id, device, engine: browser.browserType().name(), pages: cases.length, cases, issues, compare: true, reload: true, errors, audioRequests: requests }
+    fs.writeFileSync(path.join(dir, compareOnly ? 'compare-results.json' : 'results.json'), JSON.stringify(result, null, 2))
     assert.deepEqual(issues, [], id + ' text inside page bounds')
     return result
   } catch (error) {
@@ -183,13 +202,26 @@ async function checkBook(browser, id, device, phone) {
 
 ;(async () => {
   const results = []
-  const browsers = { phone: await markInternal(await webkit.launch()), desktop: await markInternal(await chromium.launch({ args: ['--mute-audio'] })) }
+  // Same bounded phone fallback as check-book-publication.cjs, for the known
+  // WebKit auth-lock teardown race. Evidence records the actual engine.
+  const phoneEngine = process.env.PUBLICATION_PHONE_ENGINE === 'chromium' ? chromium : webkit
+  const browsers = { phone: await markInternal(await phoneEngine.launch({ args: phoneEngine === chromium ? ['--mute-audio'] : [] })), desktop: await markInternal(await chromium.launch({ args: ['--mute-audio'] })) }
   try {
     for (const id of ids) {
       const devices = ['phone', 'desktop'].filter(device => !process.env.DANISH_QA_DEVICE || process.env.DANISH_QA_DEVICE === device)
-      const checked = await Promise.all(devices.map(device => checkBook(browsers[device], id, device, device === 'phone')))
+      const checked = await Promise.all(devices.map(async device => {
+        try { return await checkBook(browsers[device], id, device, device === 'phone') }
+        catch (error) {
+          // A fresh WebKit auth client can steal its predecessor's lock while
+          // a QA reload tears it down (also recorded by Lighthouse publication).
+          // Retry the entire case once; the passing result must have no errors.
+          if (device !== 'phone' || !String(error).includes('Lock was stolen by another request')) throw error
+          console.warn(id, device, 'retrying complete case after WebKit auth-lock teardown race')
+          return checkBook(browsers[device], id, device, true)
+        }
+      }))
       results.push(...checked)
-      fs.writeFileSync(path.join(out, 'results.json'), JSON.stringify(results, null, 2))
+      fs.writeFileSync(path.join(out, compareOnly ? 'compare-results.json' : 'results.json'), JSON.stringify(results, null, 2))
     }
   } finally { await Promise.all(Object.values(browsers).map(b => b.close())); if (server) server.close() }
 })().catch(error => { console.error(error); if (server) server.close(); process.exitCode = 1 })

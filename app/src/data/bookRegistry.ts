@@ -742,8 +742,8 @@ export const PRIDE_AND_PREJUDICE: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Original (1813)', year: 1813, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    // Reviewed Danish replacement matches the current English paragraphing (2026-10-24).
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
+    // Keeps the pre-2026-09-25 paragraphing; the English editions were restructured.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: false },
   ],
 }
 

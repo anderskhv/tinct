@@ -18,7 +18,9 @@
       "live_en": true,
       "live_da": true,
       "same_as_live": false,
-      "issues": [],
+      "issues": [
+        "old Danish structure differs: 2060 paragraphs vs 2053; no verified saved-position map"
+      ],
       "aligned": true,
       "en_sha256": "6c80aa42dd44707774a6049d2a17bbfaf61806751e6f0cf5536b8837dabfc463",
       "mechanical": {
@@ -31,7 +33,8 @@
         "empty": [],
         "compression": []
       },
-      "disposition": "integrate"
+      "disposition": "blocked: saved-position compatibility (7 paragraph merges)",
+      "previousDanishSha256": "3c84f6b06dd8258d09e6f6f148354cb71129908f22a40be3785b00ae79cea3e5"
     },
     {
       "book": "moby-dick",

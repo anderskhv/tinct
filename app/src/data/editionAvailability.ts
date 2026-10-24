@@ -15,7 +15,6 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'jungle-book/modern-da',
   'grimms-fairy-tales/modern-da',
   'arabian-nights/modern-da',
-  'pride-and-prejudice/modern-da',
   'moby-dick/modern-da',
   'crime-and-punishment/modern-da',
   'the-prince/modern-da',

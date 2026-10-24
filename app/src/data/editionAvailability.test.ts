@@ -76,7 +76,7 @@ describe('The offered Danish editions (explicit allowlist)', () => {
  const book = getBook('to-the-lighthouse')!
  const edition = book.editions.find(e => e.key === 'modern-da')!
  it('uses explicit identities, never inferred from the language', () => {
-  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'arabian-nights/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'grimms-fairy-tales/modern-da', 'jungle-book/modern-da', 'magna-carta/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'pride-and-prejudice/modern-da', 'the-art-of-war/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'wuthering-heights/modern-da'])
+  expect([...OFFERED_DANISH_EDITIONS].sort()).toEqual(['a-little-princess/modern-da', 'alice-in-wonderland/modern-da', 'arabian-nights/modern-da', 'around-the-world-80-days/modern-da', 'bacchae/modern-da', 'confessions/modern-da', 'crime-and-punishment/modern-da', 'grimms-fairy-tales/modern-da', 'jungle-book/modern-da', 'magna-carta/modern-da', 'medea/modern-da', 'meditations/modern-da', 'middlemarch/modern-da', 'moby-dick/modern-da', 'the-art-of-war/modern-da', 'the-prince/modern-da', 'to-the-lighthouse/modern-da', 'wuthering-heights/modern-da'])
   expect(edition).toMatchObject({ language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false })
   expect(isOfferedDanishEdition('to-the-lighthouse', 'modern-da')).toBe(true)
   // Same book, other Danish keys; same key, other books: still withdrawn.
