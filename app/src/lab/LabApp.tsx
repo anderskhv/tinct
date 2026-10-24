@@ -235,7 +235,7 @@ import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills }
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 import { markPhoneCardPassage } from './marginPhone/phoneCardPassage'
-import { PHONE_CARD_NAMES, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
+import { PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
@@ -2356,8 +2356,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   /** The chapter-end Note pill's editor: a private note on the whole chapter. */
   const [chapterNoteEditor, setChapterNoteEditor] = useState<{ bookId: string; chapterNumber: number; left: number; top: number; bottom: number } | null>(null)
   const openChapterNoteRef = useRef<(chapterNumber: number, pill: DOMRect) => void>(() => {})
-  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[] }) | null>(null)
+  const [selectionPopup, setSelectionPopup] = useState<(SelectionInfo & { chapterRanges?: ChapterSelectionPart[]; range?: LabHighlightRange; editionKey?: string; side?: 'compare'; defineText?: string; chapterNumber?: number; chapterLabel?: string; paragraphs?: string[]; openedAt?: number }) | null>(null)
+  const selectionPopupRef = useRef(selectionPopup)
+  selectionPopupRef.current = selectionPopup
   const [popupMode, setPopupMode] = useState<PopupMode>('colors')
+  const popupModeRef = useRef(popupMode)
+  popupModeRef.current = popupMode
   const [noteInput, setNoteInput] = useState('')
   const popupRef = useRef<HTMLDivElement | null>(null)
   // The phone's margin mode: the one bottom card open (marginPhone/), the text in its field, and its answer once whole.
@@ -3878,6 +3882,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     // in-flight request object in its promise closures, but never reuse its
     // Notebook identity for a later popup.
     desktopCardRequestRef.current = null
+    selectionPopupRef.current = null
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
     setSelectionPopup(null)
     setPopupMode('colors')
     setNoteInput('')
@@ -3961,7 +3968,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const hasRoomAboveSelection = floatingY >= safeTop
     const shouldFloatAbove = mobile && anchorY > bottomSheetTop - bottomInset && hasRoomAboveSelection
     desktopCardRequestRef.current = null
-    setSelectionPopup({
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
+    const nextSelection: NonNullable<typeof selectionPopup> = {
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
       text: highlight?.groupText || subject.text,
@@ -3982,7 +3991,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       chapterNumber: selectedChapter,
       chapterLabel: context?.chapterLabel ?? book.chapterLabel,
       paragraphs,
-    })
+      openedAt: Date.now(),
+    }
+    selectionPopupRef.current = nextSelection
+    setSelectionPopup(nextSelection)
   }, [define, highlightsApi, primaryCharacters, compareCharacters, book, prefs.primaryEdition, prefs.compareEdition, mobileCompareActive, initialResolving, frontispieceVisible, phoneAskOpen])
 
   const selectAcrossChapters = (parts: ChapterSelectionPart[], x: number, y: number) => {
@@ -5673,7 +5685,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
 
   /** The open card's body: the passage, what the action shows, and the follow-up line. */
-  const renderPhoneCard = (card: PhoneCard) => {
+  const leaveSelectionInfo = (showActions = false) => {
+    dictation.stop()
+    phoneAnswerRef.current = null
+    setSharedCardSaveError(false)
+    if (showActions) setPopupMode('main')
+    else dismissSelectionPopup()
+  }
+  const renderPhoneCard = (card: PhoneCard, fromSelection = false) => {
     // Talk about the card: what it showed is kept first (as a follow-up keeps it), then the voice conversation opens.
     const talkAbout = (passage: PhonePassage | null) => () => {
       const shown = phoneAnswerRef.current
@@ -5738,6 +5757,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const turns = phoneCardTurns(card.openedAt)
     const pending = ask.typedLoading && turns.length > 0
     const keep = (answer: string) => {
+      if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
       phoneAnswerRef.current = { card, answer, kept: false }
       if (card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
       if (sharedReader && card.kind !== 'ask' && answer.trim()) {
@@ -5759,7 +5779,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const lead = card.kind === 'ask' ? null
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
-          {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword">{define.result?.word || card.word}</p>}
+          {fromSelection && <button type="button" className="lab-pcard-link" onClick={() => leaveSelectionInfo(true)}>More actions</button>}
+          {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword popup-define-word">{define.result?.word || card.word}</p>}
           <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
@@ -5767,7 +5788,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       )
       : <PhoneStreamAnswer key={`${card.kind}:${card.openedAt}`} request={onDelta => phoneCompanion(card.passage, card.kind === 'explain' ? undefined : card.kind, onDelta)} onReady={keep} />
     return (
-      <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={closePhoneCard}
+      <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={fromSelection ? () => leaveSelectionInfo() : closePhoneCard} onDelete={fromSelection ? () => leaveSelectionInfo() : closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
         {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
@@ -6817,7 +6838,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         />
       )}
 
-      {selectionPopup && marginPhone && (
+      {selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
+        <LabPhoneCard label={phoneCardLabel('People', selectionPopup.chapterLabel)} kind="character" testId="lab-phone-character" onClose={() => leaveSelectionInfo()}>
+          <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} onMore={() => leaveSelectionInfo(true)} />
+        </LabPhoneCard>
+      )}
+      {selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({
+        kind: 'define', passage: phonePassageOf(selectionPopup), word: selectionPopup.defineText || selectionPopup.text,
+        namesakes: selectionPopup.namesakes, openedAt: selectionPopup.openedAt ?? 0,
+      }, true)}
+      {selectionPopup && marginPhone && popupMode !== 'character' && popupMode !== 'define' && (
         <LabPhoneBar
           text={selectionPopup.text}
           fallbackY={selectionPopup.y}
