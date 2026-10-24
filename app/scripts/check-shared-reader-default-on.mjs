@@ -25,6 +25,7 @@ page.on('pageerror', error => errors.push(error.message))
 await page.route('**/*', async route => {
   const url = new URL(route.request().url())
   if (url.origin !== origin) return route.abort()
+  if (url.pathname === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Reader preference fixture</title>' })
   if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
   if (route.request().method() !== 'GET') return route.abort()
   const pathname = url.pathname === '/reader' ? '/app.html' : url.pathname
@@ -41,21 +42,39 @@ await page.addInitScript(() => {
     lastSettledBookId: 'genesis', lastSettledAt: Date.now() - 1000, finished: {},
   }))
 })
-const visit = async (search, continuous, shared = continuous) => {
+const visit = async (search, layout, shared = true, storedLayout = null) => {
+  // Each activation case starts with a deliberate device preference. Keep the
+  // source position fixture; do not let an earlier view= link seed a later case.
+  await page.goto(`${origin}/qa-seed`)
+  await page.evaluate(stored => {
+    localStorage.removeItem('tinct:reader-desktop-layout')
+    localStorage.removeItem('tinct:reader-compare-view')
+    if (stored) localStorage.setItem('tinct:reader-desktop-layout', JSON.stringify({ bible: stored }))
+  }, storedLayout)
   await page.goto(`${origin}/reader?book=bible${search}`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   const root = page.getByTestId('lab-root')
   assert.equal(await root.getAttribute('data-shared-reader'), shared ? 'true' : null, `shared gate at ${search}`)
-  assert.equal((await page.getByTestId('continuous-reader').count()) > 0, continuous, `layout at ${search}`)
+  assert.equal((await page.getByTestId('continuous-reader').count()) > 0, layout === 'margin', `layout at ${search} (stored ${storedLayout})`)
+  if (shared) {
+    assert.equal(await root.getAttribute('data-compare-active'), layout === 'compare' ? 'true' : 'false', `Compare at ${search} (stored ${storedLayout})`)
+    if (layout !== 'margin') assert.equal(await root.getAttribute('data-desktop-paging'), 'true', `paged ${layout} at ${search}`)
+  }
   assert.equal(await root.getAttribute('data-place'), '4:3', `nonzero source word at ${search}`)
   return root
 }
 try {
-  await visit('', true) // Public unflagged Margin, not just private ?sharedReader=1.
-  await visit('&sharedReader=0', false)
-  await visit('&sharedReader=1', true)
-  const classic = await visit('&view=two-page', false, true)
-  assert.equal(await classic.getAttribute('data-shared-reader'), 'true', 'private Classic remains available')
+  // Activation and layout are separate decisions: the public shared reader is
+  // ON, with the approved Two-page ebook default for a device without a choice.
+  await visit('', 'two-page')
+  await visit('&sharedReader=0', 'fallback', false)
+  await visit('&sharedReader=1', 'two-page')
+  await visit('&view=margin', 'margin')
+  await visit('&view=compare', 'compare', true, 'margin')
+  await visit('&view=two-page', 'two-page', true, 'compare')
+  await visit('', 'margin', true, 'margin')
+  await visit('', 'compare', true, 'compare')
+  const classic = await visit('', 'two-page', true, 'two-page')
   const appearance = page.getByTestId('lab-header-aa')
   const aaBox = await appearance.boundingBox()
   assert(aaBox && aaBox.x >= 0 && aaBox.x + aaBox.width <= 1280 && aaBox.y >= 0 && aaBox.y + aaBox.height <= 800, 'Aa is visible without scrolling')
@@ -69,6 +88,11 @@ try {
   await page.getByTestId('lab-v2-layout-margin').click()
   await page.getByTestId('continuous-reader').waitFor()
   assert.equal(await classic.getAttribute('data-place'), '4:3', 'Aa returns to Margin at the same source word')
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
+  await page.getByTestId('continuous-reader').waitFor()
+  assert.equal(await page.getByTestId('lab-root').getAttribute('data-shared-reader'), 'true', 'stored Margin does not disable shared activation')
+  assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), '4:3', 'reloaded preference preserves semantic source word')
   assert.deepEqual(errors, [], 'no public route errors')
-  console.log('Built default-ON public Margin, =0 fallback, =1 preview, Classic and Compare passed')
+  console.log('Built default-ON Two-page, =0 fallback, =1 activation, explicit views and stored layout choices passed')
 } finally { await browser.close() }
