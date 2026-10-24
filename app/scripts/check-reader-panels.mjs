@@ -119,7 +119,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   }
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)
-  return {context,page,requests,errors}
+  return {context,page,requests,errors,warnings,networkFailures}
 }
 // The settings groups (22 Oct 2026), the same rows on the phone and the desktop: Aa ('text': themes, size,
 // Advanced settings), Book settings ('editions': editions, compare) and Audio settings ('audio': voice, speed).
@@ -964,7 +964,7 @@ async function menuRedesign(engine,name,phone) {
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'text')
-    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Aa')
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Appearance')
     assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
     assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
     assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
@@ -1066,9 +1066,19 @@ async function panelsOpenNearSource(engine,name) {
     await page.getByRole('button',{name:'Explain',exact:true}).click()
     await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
     await page.waitForTimeout(400)
-    const before=await page.locator('.selection-popup').boundingBox()
-    await page.getByRole('button',{name:'Expand explanation',exact:true}).click();await page.waitForTimeout(600)
-    const after=await page.locator('.selection-popup').boundingBox()
+    const shared=await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const surface=shared?page.locator('.lab-desktop-card[data-kind="explain"]'):page.locator('.selection-popup')
+    const before=await surface.boundingBox()
+    if(shared){
+      const sourceBefore=await words.nth(40).boundingBox()
+      assert(before&&Math.abs(before.y-a.y)<=120,'the shared card opens beside its selected source')
+      await surface.getByTestId('lab-phone-card-input').fill('Expand this explanation beside the source.')
+      await surface.getByTestId('lab-phone-card-send').click()
+      await surface.getByText('A compact opening grounded in the selected passage.',{exact:true}).nth(1).waitFor()
+      assert.deepEqual(await words.nth(40).boundingBox(),sourceBefore,'a shared response never reflows the reading leaves')
+    }else await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
+    await page.waitForTimeout(600)
+    const after=await surface.boundingBox()
     assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
     assert.deepEqual(state.errors,[])
     result.passed=true
@@ -1086,15 +1096,32 @@ async function libraryContinueKeepsPage(engine,name,phone) {
   try {
     state=await boot(browser,phone,'frankenstein','original-en',7,{handoffOnce:true})
     const {page}=state
-    for(let i=0;i<3;i++){if(phone)await page.mouse.click(370,420);else await page.keyboard.press('ArrowRight');await page.waitForTimeout(500)}
-    await page.waitForTimeout(1500)
     const where=()=>page.getByTestId('lab-root').evaluate(n=>n.dataset.chapter+'@'+n.dataset.place)
+    const opened=await where()
+    for(let i=0;i<3;i++){
+      if(phone){
+        // This round-trip check needs intentional page turns, not an arbitrary
+        // coordinate which can land on source content in a different engine.
+        await page.getByTestId('lab-page-next').focus()
+        await page.keyboard.press('Enter')
+      }else await page.keyboard.press('ArrowRight')
+      await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:30000})
+      await page.waitForTimeout(500)
+      assert.equal(new URL(page.url()).pathname,'/reader','preparing Continue stays in the reader')
+    }
+    await page.waitForTimeout(1500)
     const start=await where()
+    assert.notEqual(start,opened,'the fixture actually advanced before its Library round trips')
     for(let round=1;round<=2;round++){
       await page.goto(origin+'/library',{waitUntil:'domcontentloaded'})
       await page.locator('#rt-continue').waitFor({state:'visible',timeout:30000})
       await page.waitForTimeout(1000)
-      await page.locator('#rt-continue').click()
+      // Continue prepares a handoff asynchronously. Wait for the actual reader
+      // document before polling its ready flag, including WebKit's navigation boundary.
+      await Promise.all([
+        page.waitForURL(url=>url.pathname==='/reader',{waitUntil:'domcontentloaded',timeout:30000}),
+        page.locator('#rt-continue').click(),
+      ])
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:30000})
       await page.waitForTimeout(1200)
       assert.equal(await where(),start,`library Continue round ${round} reopens the same place`)
@@ -1102,7 +1129,10 @@ async function libraryContinueKeepsPage(engine,name,phone) {
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
-    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    if(state){
+      result.navigation={url:state.page.url(),errors:state.errors,warnings:state.warnings?.slice(-8),networkFailures:state.networkFailures?.slice(-8),ui:await visibleText(state.page,1800)}
+      await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    }
   } finally {await browser.close();results.push(result)}
 }
 
