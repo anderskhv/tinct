@@ -10,6 +10,8 @@ import { LAB_ASK_COMPANION_TOOL } from './labCompanion'
 export type LabConversationState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'checking' | 'preparing'
 
 export interface LabAskTurn {
+  /** Source conversation captured when the request starts, independent of later UI focus. */
+  conversationId?: string | null
   bookId?: string
   chapterAction?: ChapterChatAction
   id: string

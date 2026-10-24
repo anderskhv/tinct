@@ -49,6 +49,7 @@ await page.route('**/*', async route => {
   return route.continue()
 })
 await page.addInitScript(() => {
+  if (!localStorage.getItem('tinct:reader-desktop-layout')) localStorage.setItem('tinct:reader-desktop-layout', JSON.stringify(Object.fromEntries(['frankenstein', 'bible', 'macbeth', 'lords-of-the-cosmos', 'fear-and-trembling'].map(id => [id, 'margin']))))
   if (!localStorage.getItem('tinct-lab-prefs')) localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'original-en', audioEdition: 'original-en', compareOpen: false, fontSize: 1, fontSizeExplicit: true }))
   if (!localStorage.getItem('tinct-lab-position')) localStorage.setItem('tinct-lab-position', JSON.stringify({
     books: { frankenstein: { bookId: 'frankenstein', headerBook: 'Frankenstein', chapterNumber: 2, sequentialChapter: 2,
@@ -67,7 +68,7 @@ async function observe(label, bookId = 'frankenstein', screenshot = true) {
   const state = {
     label, bookId, saved: await saved(bookId),
     current: await root.evaluate(node => ({ book: node.dataset.book, chapter: node.dataset.chapter, place: node.dataset.place, continuous: node.dataset.continuousReader === 'true' })),
-    window: await page.getByTestId('continuous-reader').evaluate(node => ({ top: node.scrollTop, height: node.scrollHeight, viewport: node.clientHeight, words: node.querySelectorAll('[data-testid="lab-word"]').length })).catch(() => null),
+    window: await page.getByTestId('continuous-reader').count() ? await page.getByTestId('continuous-reader').evaluate(node => ({ top: node.scrollTop, height: node.scrollHeight, viewport: node.clientHeight, words: node.querySelectorAll('[data-testid="lab-word"]').length })) : null,
   }
   observations.push(state)
   console.log(`Position: ${label} ${JSON.stringify(state.current)}`)
@@ -199,8 +200,9 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert(verseLineStarts.includes(sidecarWord), `actual Shakespeare sidecar line break at source word ${sidecarWord}`)
   await observe('macbeth-verse', 'macbeth')
   await page.getByTestId('lab-chapter-note-open').first().click()
-  await page.getByTestId('lab-chapter-note-field').fill('A local note on Macbeth’s first scene.')
-  await page.getByRole('button', { name: 'Save note' }).click()
+  const chapterNote = page.locator('[data-testid="source-margin-item"][data-open="true"]')
+  await chapterNote.getByRole('textbox', { name: 'Chapter note', exact: true }).fill('A local note on Macbeth’s first scene.')
+  await chapterNote.getByRole('button', { name: 'Minimise', exact: true }).click()
   await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
     .some(mark => mark.bookId === 'macbeth' && mark.chapterNumber === 1 && mark.kind === 'chapter' && mark.note === 'A local note on Macbeth’s first scene.'))
   // BSB stores each poetic half-line as a source paragraph. The visual poem
@@ -265,20 +267,20 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await observe('frankenstein-chapter-opening', 'frankenstein', false)
   const beforeActions = await saved('frankenstein')
   await host.locator('.lab-chapter-preview').first().click()
-  await page.getByTestId('lab-chapter-notes-beat').first().waitFor()
+  await page.locator('[data-testid="lab-chapter-notes-beat"]:visible').first().waitFor()
   assert(chapterActions.some(item => item.kind === 'notes' && item.request.bookId === 'frankenstein' && item.request.chapterNumber === 2 && item.request.kind === 'primer'), 'Primer request is source/chapter-bound')
-  await page.getByTestId('lab-chapter-notes-close').click()
+  await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-summarize').click()
-  await page.getByTestId('lab-chapter-notes-beat').first().waitFor()
+  await page.locator('[data-testid="lab-chapter-notes-beat"]:visible').first().waitFor()
   assert(chapterActions.some(item => item.kind === 'notes' && item.request.bookId === 'frankenstein' && item.request.chapterNumber === 2 && item.request.kind === 'end'), 'Recap request is source/chapter-bound')
-  await page.getByTestId('lab-chapter-notes-close').click()
+  await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-catchup').click()
   await page.getByTestId('lab-catch-up-here').waitFor()
   assert((await page.getByTestId('lab-catch-up-entry').count()) > 0, 'Catch me up has prior source units')
   assert(chapterActions.filter(item => item.kind === 'catchup').every(item => item.request.bookId === 'frankenstein' && item.request.placeChapter === 2), 'Catch me up cannot include current or later chapter')
-  await page.getByTestId('lab-catch-up-close').click()
+  await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   assert.deepEqual(await saved('frankenstein'), beforeActions, 'chapter cards never move the semantic source place')
 
   // The private switch leaves the known phone Read/Compare path and flag-off

@@ -22,7 +22,7 @@ describe('one settings model for the book reader and the margin reader (22 Oct 2
   })
 
   it('the book reader’s sheet titles are the model’s names', () => {
-    for (const group of LAB_SETTINGS_GROUPS) expect(LAB_V2_SHEET_TITLES[group.layer]).toBe(group.label)
+    for (const group of LAB_SETTINGS_GROUPS) expect(LAB_V2_SHEET_TITLES[group.layer]).toBe(group.layer === 'reading' ? 'Appearance' : group.label)
   })
 
   it('reader.js MENU_LABEL equals the model, and its t menu holds the groups in the model’s order', () => {

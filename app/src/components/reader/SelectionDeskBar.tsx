@@ -41,9 +41,12 @@ export interface SelectionDeskBarProps {
   moreRows: DeskMoreId[][]
   /** Where the press ended, used only when no selected word is painted. */
   fallback: { x: number; y: number }
+  /** Original PDF geometry; null means that passage is outside the visible reader. */
+  getAnchor?: () => DeskBox | null
   onAsk: () => void
   /** Only the private shared reader uses the in-place Ask field. */
   onAskQuestion?: (question: string) => void
+  onComposeAsk?: () => void
   onExplain: () => void
   onSimplify: () => void
   onMore: (id: DeskMoreId) => void
@@ -79,22 +82,40 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   const askButtonRef = useRef<HTMLButtonElement | null>(null)
   const [morePlace, setMorePlace] = useState<{ left: number; top: number } | null>(null)
   const moreRef = useRef<HTMLDivElement | null>(null)
+  const observedSelection = useRef({ x: fallback.x, y: fallback.y, seen: false })
   const frame = (): DeskBox => ({ left: 0, right: window.innerWidth, top: document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 60, bottom: window.innerHeight })
   useLayoutEffect(() => {
+    const native = window.getSelection()
+    const container = native?.anchorNode?.parentElement
+    const nativeRange = native && !native.isCollapsed && native.rangeCount && container?.closest('.lab')
+      ? native.getRangeAt(0).cloneRange() : null
     const at = () => {
       const el = ref.current
       if (!el) return
-      const boxes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
-        .flatMap(node => Array.from(node.getClientRects()))
-        .filter(box => box.width && box.height && box.bottom > 0 && box.top < window.innerHeight)
+      const bounds = frame()
+      if (observedSelection.current.x !== fallback.x || observedSelection.current.y !== fallback.y) observedSelection.current = { x: fallback.x, y: fallback.y, seen: false }
+      const nodes = Array.from(document.querySelectorAll('.lab .lab-hearing-word.is-selecting'))
+      const host = nodes[0]?.closest('.continuous-reader')?.getBoundingClientRect()
+      if (host) { bounds.top = Math.max(bounds.top, host.top); bounds.bottom = Math.min(bounds.bottom, host.bottom) }
+      const supplied = props.getAnchor?.()
+      if (props.getAnchor && !supplied) { setPlace(null); return }
+      const rects = supplied ? [supplied] : nodes.length ? nodes.flatMap(node => Array.from(node.getClientRects()))
+        : nativeRange?.getClientRects ? Array.from(nativeRange.getClientRects()) : []
+      if (rects.some(box => box.right > box.left && box.bottom > box.top)) observedSelection.current.seen = true
+      const boxes = rects
+        .filter(box => box.right > box.left && box.bottom > box.top && box.bottom > bounds.top && box.top < bounds.bottom)
         .map(boxOf)
+      if (observedSelection.current.seen && !boxes.length) { setPlace(null); return }
       const lines = firstAndLastLine(boxes) ?? { first: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y }, last: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y } }
-      setPlace(deskBarPlace(lines.first, lines.last, frame(), el.offsetWidth, el.offsetHeight))
+      setPlace(deskBarPlace(lines.first, lines.last, bounds, el.offsetWidth, el.offsetHeight))
     }
+    let frameId = 0
+    const schedule = () => { if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; at() }) }
     at()
-    window.addEventListener('resize', at)
-    return () => window.removeEventListener('resize', at)
-  }, [state, marked, askOpen, fallback.x, fallback.y])
+    window.addEventListener('resize', schedule)
+    window.addEventListener('scroll', schedule, true)
+    return () => { cancelAnimationFrame(frameId); window.removeEventListener('resize', schedule); window.removeEventListener('scroll', schedule, true) }
+  }, [state, marked, askOpen, fallback.x, fallback.y, props.getAnchor])
   useLayoutEffect(() => {
     if (!moreOpen || !place) { setMorePlace(null); return }
     const bar = ref.current, menu = moreRef.current
@@ -115,6 +136,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     requestAnimationFrame(() => askButtonRef.current?.focus({ preventScroll: true }))
   }
   const openAsk = () => {
+    if (props.onComposeAsk) { props.onComposeAsk(); return }
     if (!props.onAskQuestion) { props.onAsk(); return }
     setMoreOpen(false)
     setAskOpen(true)

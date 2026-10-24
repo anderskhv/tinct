@@ -111,11 +111,11 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
 const groupTitle = (layer: 'reading' | 'editions' | 'audio') => LAB_SETTINGS_GROUPS.find(group => group.layer === layer)!.label
 
 /**
- * The settings groups (Anders, 22 Oct 2026), named by the one model (labSuperMenu.ts LAB_SETTINGS_GROUPS): Aa
- * ('reading': the themes, size and Advanced settings), Book settings ('editions') and Audio settings ('audio').
+ * The Aa entry opens Appearance (themes, size, Advanced settings and eligible desktop layouts).
+ * Book settings and Audio settings retain the menu model's group names.
  */
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: groupTitle('reading'),
+  reading: 'Appearance',
   editions: groupTitle('editions'),
   audio: groupTitle('audio'),
   mainEdition: 'Main version',

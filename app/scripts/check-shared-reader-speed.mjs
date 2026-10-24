@@ -18,6 +18,9 @@ const dist = path.resolve(process.env.SHARED_SPEED_DIST || 'dist'), runs = Math.
 const cases = (process.env.SHARED_SPEED_CASES || 'frankenstein,war-and-peace,bible').split(',').filter(Boolean)
 const profiles = (process.env.SHARED_SPEED_PROFILES || 'desktop,slow').split(',').filter(Boolean)
 const out = process.env.SHARED_SPEED_OUT || ''
+const visual = process.env.SHARED_SPEED_VISUAL || ''
+const fixtureAnswer = 'A local fixture answer for checking the reading layout. These three sentences give the response enough length to judge its spacing beside a dense academic page. No provider was called, and this text does not interpret the paper.'
+if (visual) await fs.mkdir(visual, {recursive:true})
 const remoteFirst = process.env.SHARED_SPEED_REMOTE === '1'
 const targets = { desktopFirstText: 1500, slowFirstText: 3000, selection: 100, card: 150 }
 const caseInfo = { frankenstein: { edition: 'original-en', chapter: 3 }, 'war-and-peace': { edition: 'original-en', chapter: 2 }, bible: { edition: 'kjv-en', chapter: 1 }, macbeth: { edition: 'original-en', chapter: 2 } }
@@ -28,7 +31,8 @@ const ownEpubBytes = zip([
   ['OEBPS/content.opf', '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">speed-local-epub</dc:identifier><dc:title>Private Reading Fixture</dc:title><dc:creator>A Local Author</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="c1" href="c1.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="c1"/></spine></package>'],
   ['OEBPS/c1.xhtml', `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter One</title></head><body><h1>Chapter One</h1>${prose}</body></html>`],
 ])
-const ownPdfBytes = await fs.readFile('../addbooks/web/test/pdf-fixtures/prose_book.pdf')
+const pdfFixture = process.env.SHARED_SPEED_PDF || '../addbooks/web/test/pdf-fixtures/prose_book.pdf'
+const ownPdfBytes = await fs.readFile(pdfFixture)
 const ownFixtures = Object.fromEntries([['own-epub', 'epub', ownEpubBytes], ['own-pdf', 'pdf', ownPdfBytes]].map(([caseId, type, bytes]) => {
   const sha256 = createHash('sha256').update(bytes).digest('hex'), id = sha256.slice(0, 24)
   return [caseId, { id, type, bytes, sha256, fileId: (type === 'pdf' ? 'd' : 'a').repeat(32), name: `Local ${type.toUpperCase()} fixture.${type}`, title: `Private ${type.toUpperCase()} fixture`, author: 'A Local Author', size: bytes.length, createdAt: '2026-10-23T00:00:00.000Z', metadataRev: 0 }]
@@ -68,7 +72,7 @@ const server = createServer(async (req, res) => {
     else if (p === '/api/narration/voices') res.end('{"enabled":false,"voices":[]}')
     else if (p === '/api/lab-chat' || p === '/api/chat') {
       res.setHeader('Content-Type', 'text/event-stream')
-      res.end('data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A local fixture answer."}}\n\ndata: {"type":"message_stop"}\n\n')
+      res.end(`data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: fixtureAnswer } })}\n\ndata: {"type":"message_stop"}\n\n`)
     } else { res.statusCode = 404; res.end('{"error":"not_found"}') }
     return
   }
@@ -130,11 +134,20 @@ function clock({ bookId, edition, chapter, ownPdf, ownEpub }) {
     requestAnimationFrame(() => { pending.delete(field); if (score[field] == null && ready()) score[field] = performance.now() })
   }
   for (const type of ['pointerup', 'mouseup']) addEventListener(type, () => { if (score.selectUp == null) score.selectUp = performance.now() }, true)
-  addEventListener('click', event => { if (event.target.closest('[data-testid="lab-dbar-ask"], [role="menuitem"], .selection-popup button, .lab-pbar button')) score.cardTap = performance.now() }, true)
+  addEventListener('click', event => { if (event.target.closest('[data-testid="lab-dbar-ask"], [data-testid="lab-dbar-explain"], [role="menuitem"], .selection-popup button, .lab-pbar button')) score.cardTap = performance.now() }, true)
   const frame = () => {
-    afterPaint('firstText', () => { const passage = document.querySelector('.lab-page-wrap'), pdfText = passage?.querySelector('.pdf-original__text'), pdfCanvas = passage?.querySelector('.pdf-original__page canvas'); return visible(passage) && (ownPdf ? visible(pdfCanvas) && pdfCanvas.width > 1 && pdfCanvas.height > 1 && visible(pdfText?.querySelector('span')) && pdfText.textContent.trim().length > 40 : passage.textContent.trim().length > 40) })
+    afterPaint('firstText', () => {
+      const passage = document.querySelector('.lab-page-wrap')
+      if (!visible(passage)) return false
+      if (!ownPdf) return passage.textContent.trim().length > 40
+      // Adjacent pages are prerendered, so the first DOM canvas may be offscreen.
+      return [...passage.querySelectorAll('.pdf-original__page')].some(sheet => {
+        const canvas = sheet.querySelector('canvas'), text = sheet.querySelector('.pdf-original__text')
+        return visible(canvas) && canvas.width > 1 && canvas.height > 1 && text?.textContent.trim().length > 40 && [...text.querySelectorAll('span')].some(visible)
+      })
+    })
     if (score.selectUp != null) afterPaint('selectionBar', () => visible(document.querySelector('[data-testid="lab-desk-bar"]')) || visible(document.querySelector('.selection-popup.is-shared-reader')) || visible(document.querySelector('.lab-pbar')))
-    if (score.cardTap != null) afterPaint('cardShell', () => visible(document.querySelector('.lab-pcard, .selection-popup.is-contextual-explain')))
+    if (score.cardTap != null) afterPaint('cardShell', () => [...document.querySelectorAll('.lab-pcard, .lab-desktop-card, .selection-popup.is-contextual-explain, .source-margin-item[data-open="true"] .source-margin-content')].some(visible))
     requestAnimationFrame(frame)
   }
   requestAnimationFrame(frame)
@@ -190,7 +203,7 @@ async function sample(bookId, profile, index) {
     }
     // Same context, same book and device: cache fonts, JavaScript and chapter
     // payload first. The timed navigation below still fetches its HTML fresh.
-    const readerUrl = `${origin}/reader?sharedReader=1${info.own ? `&userBook=${info.own.id}` : ''}${info.own?.type === 'pdf' ? '&pages=1&page=2' : ''}${profile === 'slow' ? '&layout=phone' : ''}${process.env.SHARED_SPEED_TRACE === '1' && info.own?.type === 'epub' ? '&traceOwnDrag=1' : ''}`
+    const readerUrl = `${origin}/reader?sharedReader=1${info.own ? `&userBook=${info.own.id}` : ''}${info.own?.type === 'pdf' ? `&pages=1&page=${Number(process.env.SHARED_SPEED_PDF_PAGE) || 2}` : ''}${profile === 'slow' ? '&layout=phone' : ''}${process.env.SHARED_SPEED_TRACE === '1' && info.own?.type === 'epub' ? '&traceOwnDrag=1' : ''}`
     const downloadsBefore = info.own ? fileDownloads.get(info.own.id) || 0 : 0
     const ready = () => window.__readerSpeed?.firstText != null && (document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true' || document.querySelector('.pdf-original__text')?.textContent?.trim().length > 40)
     await page.goto(readerUrl, { waitUntil: 'domcontentloaded' })
@@ -208,17 +221,23 @@ async function sample(bookId, profile, index) {
       throw new Error(`reader opening failed ${JSON.stringify({ bookId, profile, state, errors, denied })}`, { cause: error })
     })
     const firstText = await page.evaluate(() => window.__readerSpeed.firstText)
+    if (visual && index === 0) await page.screenshot({path:path.join(visual, `${bookId}-${profile}-source.png`)})
     const pdf = info.own?.type === 'pdf' && await page.locator('.pdf-original__text span:visible').count() > 2
     if (info.own?.type === 'pdf' && !pdf) console.log('PDF_SURFACE', JSON.stringify(await page.evaluate(() => ({text:document.body.innerText.slice(0,400), pdf:!!document.querySelector('.pdf-original'), pdfText:document.querySelector('.pdf-original__text')?.textContent?.slice(0,100), root:document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady, words:document.querySelectorAll('[data-testid="lab-word"]').length, error:document.querySelector('[role="alert"]')?.textContent}))))
     const words = page.locator(pdf ? '.pdf-original__text span:visible' : bookId === 'macbeth' ? '.lab-page-wrap [data-testid="lab-word"][data-paragraph-index="0"]:visible' : '.lab-page-wrap [data-testid="lab-word"]:visible')
     const endWord = pdf ? 2 : bookId === 'macbeth' ? 9 : info.own ? 8 : 18
     await words.nth(endWord).waitFor()
-    const first = await words.nth(pdf ? 0 : info.own ? 2 : 5).boundingBox(), last = await words.nth(endWord).boundingBox()
+    const viewportWords = pdf ? await words.evaluateAll(nodes => nodes.flatMap((node, index) => {
+      const box = node.getBoundingClientRect(), scroll = node.closest('.pdf-original__scroll')?.getBoundingClientRect()
+      return scroll && node.textContent.trim().length > 30 && box.width > 160 && box.top >= scroll.top && box.bottom < Math.min(scroll.bottom, innerHeight - 80) ? [index] : []
+    })) : []
+    if (pdf) assert(viewportWords.length >= 1, `PDF viewport needs a selectable body line: ${JSON.stringify(await words.evaluateAll(nodes => nodes.slice(0,8).map(node => ({box:node.getBoundingClientRect().toJSON(),scroll:node.closest('.pdf-original__scroll')?.getBoundingClientRect().toJSON()}))))}`)
+    const first = await words.nth(pdf ? viewportWords[0] : info.own ? 2 : 5).boundingBox(), last = await words.nth(pdf ? viewportWords[0] : endWord).boundingBox()
     assert(first && last, 'visible words for selection')
     const profileSelection = process.env.SHARED_SPEED_PROFILE === '1' && profile === 'slow' && bookId === 'war-and-peace' && index === 0
-    await page.mouse.move(first.x + first.width / 2, first.y + first.height / 2)
+    await page.mouse.move(first.x + first.width * (pdf ? .2 : .5), first.y + first.height / 2)
     await page.mouse.down()
-    await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 8 })
+    await page.mouse.move(last.x + last.width * (pdf ? .8 : .5), last.y + last.height / 2, { steps: 8 })
     if (profileSelection) { await cdp.send('Profiler.enable'); await cdp.send('Profiler.start') }
     await page.mouse.up()
     await page.waitForFunction(() => window.__readerSpeed?.selectionBar != null, null, { timeout: 10000 }).catch(async error => {
@@ -241,6 +260,10 @@ async function sample(bookId, profile, index) {
       const state = await page.evaluate(() => ({ clock: window.__readerSpeed, cards: [...document.querySelectorAll('[class*="card"], [class*="popup"], [role="dialog"]')].filter(n=>n.textContent.includes('A local fixture')).slice(-12).map(n => ({ class: n.className, tag:n.tagName, text: n.textContent.slice(0,90), rect: n.getBoundingClientRect().toJSON() })), text: document.body.innerText.slice(-500) }))
       throw new Error(`card shell failed ${JSON.stringify({bookId,profile,state})}`, {cause:error})
     })
+    if (visual && index === 0) {
+      if (pdf) await page.getByText(fixtureAnswer, { exact: true }).last().waitFor()
+      await page.screenshot({path:path.join(visual, `${bookId}-${profile}-card.png`)})
+    }
     const marks = await page.evaluate(() => ({ ...window.__readerSpeed, edition: document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition, format:document.querySelector('.pdf-original') ? 'original-pdf' : 'react-text' }))
     assert.deepEqual(errors, [], 'no uncaught reader errors')
     return { bookId, profile, index, coldFirstText: Math.round(coldFirstText), coldFileDownloads, warmFileDownloads: info.own ? (fileDownloads.get(info.own.id) || 0) - downloadsBeforeWarm : 0, firstText: Math.round(firstText), selection: Math.round(marks.selectionBar - marks.selectUp), card: Math.round(marks.cardShell - marks.cardTap), edition: marks.edition, format:marks.format }
@@ -262,7 +285,7 @@ try {
     if (card > targets.card) failures.push(`${bookId} ${profile} card ${card}`)
   }
   assert.deepEqual(denied, [], 'proxy never saw an external host')
-  if (out) { await fs.mkdir(path.dirname(out), { recursive: true }); await fs.writeFile(out, JSON.stringify({ bundle: dist, origin: 'loopback', paint: 'next rAF after visible DOM', cache: 'HTML no-store; hashed assets immutable; tagged scripts one day; other files revalidate via ETag; text gzip >1 KiB; cold first navigation, warmed static cache second navigation in same fresh context', ownSource: remoteFirst ? 'empty IDB then mocked private account download' : 'byte-identical owner-bound IndexedDB record seeded before cold navigation', fixtures: Object.fromEntries(Object.entries(ownFixtures).map(([id,fixture]) => [id,{ sizeBytes:fixture.bytes.length, sha256:fixture.sha256, description:id==='own-epub'?'one synthetic chapter, 60 paragraphs': 'local prose_book.pdf original page and text layer' }])), profiles: { desktop: '1440x900', slow: '390x844, Chromium 4x CPU, 60ms RTT, 9Mbps down' }, targets, results, failures }, null, 2)) }
+  if (out) { await fs.mkdir(path.dirname(out), { recursive: true }); await fs.writeFile(out, JSON.stringify({ bundle: dist, entryBundle: (await fs.readdir(path.join(dist, 'assets'))).find(name => /^index-.*\.js$/.test(name)), origin: 'loopback', paint: 'next rAF after visible DOM', cache: 'HTML no-store; hashed assets immutable; tagged scripts one day; other files revalidate via ETag; text gzip >1 KiB; cold first navigation, warmed static cache second navigation in same fresh context', ownSource: remoteFirst ? 'empty IDB then mocked private account download' : 'byte-identical owner-bound IndexedDB record seeded before cold navigation', fixtures: Object.fromEntries(Object.entries(ownFixtures).map(([id,fixture]) => [id,{ sizeBytes:fixture.bytes.length, sha256:fixture.sha256, description:id==='own-epub'?'one synthetic chapter, 60 paragraphs': `${path.basename(pdfFixture)} original page and text layer` }])), profiles: { desktop: '1440x900', slow: '390x844, Chromium 4x CPU, 60ms RTT, 9Mbps down' }, targets, results, failures }, null, 2)) }
   console.log(failures.length ? `MISSED ${failures.join('; ')}` : 'All shared reader speed targets met')
   if (failures.length) process.exitCode = 1
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)) }

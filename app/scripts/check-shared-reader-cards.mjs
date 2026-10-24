@@ -30,7 +30,7 @@ await page.route('**/*', route => {
 })
 
 try {
-  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&view=margin&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('continuous-reader').waitFor({ timeout: 45000 })
   const words = page.locator('[data-testid="continuous-reader"] [data-testid="lab-word"]:visible')
   await words.nth(16).waitFor()
@@ -41,7 +41,7 @@ try {
   await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
   await page.mouse.up()
   await page.getByTestId('lab-dbar-explain').click()
-  await page.locator('.selection-popup.is-contextual-explain').waitFor()
+  await page.locator('[data-testid="source-margin-item"][data-open="true"] .lab-desktop-card[data-kind="explain"]').waitFor()
   await page.waitForFunction(() => {
     const items = JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
     return items.some(item => item.card?.kind === 'explain' && item.messages?.some(message => message.content.includes('A complete local explanation')))
@@ -94,7 +94,8 @@ try {
   await page.mouse.move(laterLast.x + laterLast.width / 2, laterLast.y + laterLast.height / 2, { steps: 10 })
   await page.mouse.up()
   await page.getByTestId('lab-dbar-explain').click()
-  await page.getByText('The explanation couldn’t be loaded. Your passage is still here.').waitFor()
+  await page.getByTestId('lab-phone-card-retry').waitFor()
+  assert.equal(await page.getByTestId('lab-phone-card-stream').getAttribute('data-state'), 'error')
   await page.waitForTimeout(300)
   const cardsAfterInterrupted = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').filter(item => item.card?.kind === 'explain' && !item.card.gone).map(item => ({ id: item.id, answer: item.messages?.at(-1)?.content?.slice(0, 80) })))
   assert.equal(cardsAfterInterrupted.length, 2, `a max_tokens interruption offers retry without marking a third card complete: ${JSON.stringify(cardsAfterInterrupted)}`)
@@ -115,7 +116,7 @@ try {
   await page.mouse.up()
   await page.getByTestId('lab-dbar-explain').click()
   await page.getByText('A complete local explanation saved in the reader Notebook.').waitFor()
-  await page.getByText('This answer is here for now, but it could not be saved to Notebook.').waitFor()
+  await page.getByText('This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.').waitFor()
   await page.screenshot({ path: `${output}/unsaved-full-answer.png` })
   const cardsAfterQuota = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').filter(item => item.card?.kind === 'explain' && !item.card.gone).length)
   assert.equal(cardsAfterQuota, 2, 'quota failure keeps full answer on screen without claiming a durable card')

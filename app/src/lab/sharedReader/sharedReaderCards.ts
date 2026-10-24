@@ -163,3 +163,9 @@ export function tombstoneCatalogueCard(current: ChatConversation[], cardId: stri
   }
   return mergeChatConversations(current, [tombstone])
 }
+
+/** A converted note becomes the first user turn exactly once, including after hydration. */
+export function withConvertedNote(turns: SharedReaderCard['turns'], note?: {text:string; at:number}): SharedReaderCard['turns'] {
+  if (!note?.text.trim() || turns[0]?.role === 'user' && turns[0].content === note.text) return turns
+  return [{role:'user',content:note.text,at:note.at}, ...turns]
+}

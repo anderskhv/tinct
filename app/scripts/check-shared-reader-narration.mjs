@@ -57,7 +57,7 @@ const place = () => page.evaluate(() => {
 try {
   const source = await (await context.request.get(`${origin}/data/editions/frankenstein-original-en.json`)).json()
   paragraphs = source.chapters[1].paragraphs.map(item => (typeof item === 'string' ? item : item.text).replace(/\s+/g, ' ').trim())
-  await page.goto(`${origin}/reader?book=frankenstein&sharedReader=1`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&view=margin&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('continuous-reader').waitFor({ timeout: 45000 })
   assert.deepEqual(await place(), { paragraphIndex: 3, wordIndex: 4 })
   await page.getByTestId('lab-v2-play').click()
@@ -65,6 +65,9 @@ try {
     throw new Error(JSON.stringify({ calls: ensureCalls.slice(0, 3), apiCalls, state: await page.evaluate(() => ({ playing: document.querySelector('.lab')?.dataset.playing, notice: document.querySelector('[data-testid="lab-narration-notice"]')?.textContent, account: document.querySelector('[data-testid="lab-account-prompt"]')?.textContent, text: document.body.innerText.slice(-800) })), errors }), { cause: error })
   })
   assert.equal(ensureCalls.find(call => call.paragraphs?.length)?.paragraphs[0].index, 3, 'Play prepared the visible nonzero paragraph')
+  const dock = await page.locator('.lab-desktop-audio-dock').boundingBox()
+  assert(dock && dock.width <= 600 && dock.height <= 70, `compact desktop audio dock: ${JSON.stringify(dock)}`)
+  if (process.env.TINCT_AUDIO_SCREENSHOT) await page.screenshot({path:process.env.TINCT_AUDIO_SCREENSHOT})
   await page.waitForFunction(() => !!document.querySelector('[data-testid="continuous-reader"] .lab-hearing-word.is-current'), null, { timeout: 15000 })
   const heard = await page.locator('[data-testid="continuous-reader"] .lab-hearing-word.is-current').first().evaluate(el => ({ paragraphIndex: Number(el.dataset.paragraphIndex), wordIndex: Number(el.dataset.wordIndex) }))
   assert.equal(heard.paragraphIndex, 3)

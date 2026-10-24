@@ -4,6 +4,7 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { useLabAsk, type UseLabAskOptions } from './useLabAsk'
 import { LAB_COPY } from './labCopy'
 import { isAiRestingError } from './labCompanion'
+import { turnsFromConversations, reconcileTurns } from './labChatHistory'
 import { COMPANION_MAX_TOKENS, buildCompanionSystem, companionBookRef, companionSelectionMessage, parseCompanionRequest } from '../companion/companionRequest'
 
 const { trackEvent } = vi.hoisted(() => ({ trackEvent: vi.fn() }))
@@ -455,4 +456,44 @@ it('exposes the lookup status while the answer has not begun and clears it once 
   })
   expect(result.current.typedStatus).toBeNull()
   expect(result.current.turns.some(turn => turn.role === 'assistant' && turn.content === 'It is a pledge.')).toBe(true)
+})
+
+it('keeps an in-flight source reply with its original card when another card is opened', async () => {
+  let finish!: (response: Response) => void
+  vi.stubGlobal('fetch', vi.fn(() => new Promise<Response>(resolve => { finish = resolve })))
+  const {result, rerender} = renderHook(({conversationId}) => useLabAsk({...base, conversationId}), {initialProps:{conversationId:'mc_source_a'}})
+  act(() => {
+    for (const id of ['source_a','source_b']) result.current.saveCard({source:{kind:'catalogue',bookId:'bible'},id,kind:'ask',chapterNumber:794,anchor:{editionKey:'web-en',chapterNumber:794,paragraphIndex:0,fromWord:id === 'source_a' ? 0 : 2,endParagraphIndex:0,toWord:id === 'source_a' ? 1 : 3},text:id,turns:[{role:'assistant',content:`Initial ${id}`}],at:100,u:100})
+  })
+  let pending!: Promise<void>
+  await act(async () => { pending = result.current.sendTyped('Question for source A') })
+  rerender({conversationId:'mc_source_b'})
+  await act(async () => { finish(ok()); await pending })
+  const first = result.current.conversations.find(item => item.id === 'mc_source_a')!
+  const second = result.current.conversations.find(item => item.id === 'mc_source_b')!
+  expect(first.messages.some(message => message.content.includes('Jeremiah 49'))).toBe(true)
+  expect(second.messages.map(message => message.content)).toEqual(['About this passage.', 'Initial source_b'])
+  expect(result.current.turns.filter(turn => turn.content === 'Question for source A' || turn.content.includes('Jeremiah 49')).every(turn => turn.conversationId === 'mc_source_a')).toBe(true)
+})
+
+it('starts a new source conversation without unrelated earlier card history', async () => {
+  const fetcher = vi.fn().mockImplementation(async () => ok())
+  vi.stubGlobal('fetch', fetcher)
+  const {result} = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('First source question', undefined, undefined, {conversationId:'mc_new_a'}) })
+  await act(async () => { await result.current.sendTyped('Second source question', undefined, undefined, {conversationId:'mc_new_b'}) })
+  const payload = JSON.parse(String(fetcher.mock.calls[1][1]?.body))
+  expect(JSON.stringify(payload.messages)).toContain('Second source question')
+  expect(JSON.stringify(payload.messages)).not.toContain('First source question')
+  expect(JSON.stringify(payload.messages)).not.toContain('Jeremiah 49 collects')
+  expect(result.current.turns.filter(turn => turn.conversationId === 'mc_new_a')).toHaveLength(2)
+  expect(result.current.turns.filter(turn => turn.conversationId === 'mc_new_b')).toHaveLength(2)
+})
+
+it('retains source-card identity when saved turns hydrate and reconcile with pending replies', () => {
+  const rows = ['a','b'].map((id,index) => ({id:`mc_${id}`,bookId:'bible',chapterNumber:794,startTimestamp:100+index*10,endTimestamp:101+index*10,messages:[{id:`${id}-reply`,role:'assistant' as const,content:`Answer ${id}`,timestamp:101+index*10,bookId:'bible'}]}))
+  const saved = turnsFromConversations(rows)
+  expect(saved.map(turn => turn.conversationId)).toEqual(['mc_a','mc_b'])
+  const live = [...saved,{id:'pending-a',role:'assistant' as const,content:'Still arriving',timestamp:200,source:'typed' as const,conversationId:'mc_a'}]
+  expect(reconcileTurns(live,saved).filter(turn => turn.conversationId === 'mc_a').map(turn => turn.content)).toEqual(['Answer a','Still arriving'])
 })

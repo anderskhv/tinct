@@ -13,7 +13,7 @@
 .pdf-original__follow { position: absolute; pointer-events: none; background: rgba(77, 152, 210, .34); border-radius: 2px; }
 .pdf-original__text { position: absolute; left: 0; top: 0; overflow: hidden; user-select: text; }
 .pdf-original__text span { position: absolute; white-space: pre; color: transparent; line-height: 1; transform-origin: 0 0; }
-.pdf-original__text span::selection { background: rgba(45, 105, 163, .38); }
+.pdf-original__text span::selection { color:transparent; background: rgba(45, 105, 163, .38); }
 .pdf-original__page-number { position: absolute; right: 6px; bottom: 4px; font: 10px system-ui, sans-serif; color: #6a6256; pointer-events: none; }
 .pdf-original__size { display: flex; align-items: center; gap: 8px; font: 12px system-ui, sans-serif; }
 .pdf-original__size input { width: 104px; accent-color: #6a6256; }
@@ -26,3 +26,44 @@
 html[data-eink=true] .pdf-original-reader .pdf-original__page { background: #fff; }
 html[data-eink=true] .pdf-original-reader .pdf-original__page canvas { mix-blend-mode: normal; filter: none; }
 @media(max-width:700px) { .pdf-original__size { display: none; } .pdf-original__controls { gap: 8px; } .pdf-original__controls button { padding: 4px 7px; } }
+/* Original pages retain the soft paper edge of the earlier PDF reader. */
+.pdf-original-reader .pdf-original__page { box-shadow:0 1px 2px rgba(40,34,20,.12),0 6px 18px rgba(40,34,20,.10); }
+.pdf-original-reader[data-theme=dark] .pdf-original__page { box-shadow:0 0 0 1px #2a251f,0 8px 24px rgba(0,0,0,.35); }
+html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0 1px #777; }
+.pdf-original--desktop { position:relative; }
+.pdf-original--desktop .pdf-original__scroll { margin-left:40px; }
+.pdf-original__minimap { position:absolute; left:1px; top:62px; bottom:24px; width:30px; height:calc(100% - 86px); color:var(--lab-ink-muted,#6a6256); touch-action:none; cursor:ns-resize; overflow:visible; }
+.pdf-original__map-line { stroke:currentColor; stroke-width:.7; opacity:.26; }
+.pdf-original__map-window { stroke:currentColor; stroke-width:.7; fill:currentColor; fill-opacity:.05; stroke-opacity:.35; }
+.pdf-original__map-mark { fill:var(--lab-accent,#b69a5e); }
+.pdf-original__minimap:focus-visible { outline:1px solid currentColor; outline-offset:4px; border-radius:5px; }
+.pdf-original__map-card { fill:var(--lab-accent,#a15b37); }
+.pdf-original-reader .pdf-original__controls button { border:0; border-radius:5px; padding:5px 9px; color:var(--lab-ink-muted); font:13px system-ui,sans-serif; }
+.pdf-original-reader .pdf-original__controls button:not(:disabled):hover { background:color-mix(in srgb,var(--lab-ink) 6%,transparent); color:var(--lab-ink); }
+.pdf-original-reader .pdf-original__controls button:focus-visible { outline:1px solid var(--lab-ink-muted); outline-offset:2px; }
+.pdf-original-reader .pdf-original__controls > span { font:13px system-ui,sans-serif; color:var(--lab-ink-muted); }
+.pdf-original--desktop .pdf-original__scroll { padding-left:0; padding-right:0; }
+.pdf-original--desktop .pdf-original__pages { width:calc(100% - clamp(300px,25vw,380px)); }
+.pdf-original__text [data-pdf-furniture] { user-select:none; -webkit-user-select:none; }
+.pdf-original__card-lines { position:absolute; inset:0; pointer-events:none; }
+.pdf-original__card-lines span { position:absolute; height:0; border-bottom:1px solid var(--lab-accent,#a15b37); }
+.pdf-original__heading-actions { position:absolute; z-index:4; display:flex; gap:10px; align-items:center; min-height:32px; opacity:0; pointer-events:none; font:15px/1.2 'EB Garamond',Georgia,serif; white-space:nowrap; }
+.pdf-original__heading-actions.is-shown,.pdf-original__heading-actions:focus-within { opacity:1; pointer-events:auto; }
+.pdf-original-reader .pdf-original__heading-actions button { border:0; border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent); border-radius:0; min-height:32px; padding:5px 0 3px; background:transparent; color:var(--lab-ink-muted); font:inherit; cursor:pointer; }
+.pdf-original__heading-actions button:hover { color:var(--lab-ink); }
+.pdf-original__heading-actions button:focus-visible { outline:1px solid currentColor; outline-offset:2px; }
+@media(hover:none) { .pdf-original__heading-actions { opacity:1; pointer-events:auto; } }
+.pdf-original__figures { position:absolute; inset:0; pointer-events:none; }
+.pdf-original__figure-target { position:absolute; z-index:3; width:30px; height:30px; padding:0; border:0; background:transparent; color:var(--lab-ink-muted); pointer-events:auto; opacity:0; }
+.pdf-original__figure-target:focus-visible,.pdf-original__figure-target:hover { opacity:1; }
+.pdf-original__figure-chip { position:absolute; z-index:6; display:flex; gap:12px; transform:translateY(-100%); padding:4px 8px; background:var(--lab-paper,#fff); border-bottom:1px solid var(--lab-line,#ccc); pointer-events:auto; white-space:nowrap; }
+.pdf-original-reader .pdf-original__figure-chip button { border:0; border-radius:0; padding:5px 0; background:transparent; font:15px 'EB Garamond',Georgia,serif; color:var(--lab-ink); min-height:32px; cursor:pointer; }
+.pdf-original__figure-backdrop { position:fixed; inset:0; z-index:10000; display:grid; place-items:center; padding:48px; background:rgb(0 0 0/.55); }
+.pdf-original__figure-backdrop figure { margin:0; max-width:90vw; max-height:85vh; overflow:auto; background:#fff; }
+.pdf-original__figure-backdrop img { display:block; max-width:86vw; max-height:75vh; object-fit:contain; }
+.pdf-original__figure-backdrop figcaption { max-width:70ch; padding:12px; color:#222; font:16px/1.45 Georgia,serif; }
+.pdf-original__figure-backdrop>button { position:absolute; top:15px; right:20px; border:0; background:transparent; color:white; width:44px; height:44px; font:30px Georgia,serif; }
+.pdf-original__figure-peek { position:fixed; z-index:9999; right:28px; top:100px; max-width:340px; padding:12px; background:var(--lab-paper,#fff); color:var(--lab-ink,#222); border-left:1px solid var(--lab-line,#ccc); pointer-events:none; }
+.pdf-original__figure-peek figure { margin:0; }.pdf-original__figure-peek img { display:block; width:100%; max-height:300px; object-fit:contain; }.pdf-original__figure-peek figcaption { margin-top:7px; font:14px/1.35 Georgia,serif; }
+.pdf-original__figure-thumb { display:block; width:100%; margin:0 0 12px; padding:0; border:0; background:transparent; cursor:zoom-in; }
+.pdf-original__figure-thumb img { display:block; width:100%; max-height:180px; object-fit:contain; }

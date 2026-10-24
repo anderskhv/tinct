@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
-import { USER_EDITION_FORMAT } from './userEdition'
+import { PDF_TEXT_CONVERTER, USER_EDITION_FORMAT } from './userEdition'
 
 const hex = 'ab'.repeat(12), owner = 'synthetic-owner'
 const cover = vi.hoisted(() => ({ pending: null as Promise<string | null> | null }))
@@ -31,4 +31,30 @@ it('opens a stored legacy conversion without waiting for its optional cover cach
   expect(result).not.toBe('still-opening')
   if (typeof result !== 'string' && result.ok) expect(result.book.edition.converter).toBe(5)
   resolveCover(null)
+})
+
+
+function keepPdf(cached = false) {
+  const edition = records.get(`epub:${hex}`)!.edition as Record<string, unknown>
+  records.clear()
+  records.set(`pdf:${hex}`, { key: `pdf:${hex}`, kind: 'pdf', owner, name: 'Synthetic PDF',
+    bytes: new ArrayBuffer(8), layout: { default: 'text' }, scan: { textPages: 1 },
+    ...(cached ? { edition: { ...edition, source: 'pdf', converter: PDF_TEXT_CONVERTER } } : {}),
+  })
+}
+it.each([false, true])('opens fresh desktop PDFs in Original pages before converting (cached text: %s)', async cached => {
+  keepPdf(cached)
+  const convert = vi.fn()
+  expect(await openUserBook(hex, { owner, desktop: true, sharedReader: true, convert })).toMatchObject({ ok: false, reason: 'pages' })
+  expect(convert).not.toHaveBeenCalled()
+})
+it('preserves explicit desktop Tinct text and the forced phone source rule', async () => {
+  keepPdf(true)
+  localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('text'))
+  expect(await openUserBook(hex, { owner, desktop: true, sharedReader: true })).toMatchObject({ ok: true })
+  // A forced phone remains a phone even in this desktop-sized test window.
+  localStorage.setItem(`tinct-addbook:open-rule:${hex}`, JSON.stringify(100))
+  expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true })).toMatchObject({ ok: true })
+  localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('pages'))
+  expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
 })

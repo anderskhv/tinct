@@ -1,0 +1,68 @@
+.lab .lab-desktop-card {
+  position: fixed; z-index: 330; display: flex; flex-direction: column;
+  min-height: 0; height: auto; margin: 0; padding: 0; box-sizing: border-box;
+  border: 0; border-left: 1px solid var(--lab-pcard-hair); border-radius: 0;
+  background: var(--lab-pcard-fill); color: var(--lab-ink);
+  box-shadow: none;
+  animation: none; transform: none; overflow: hidden;
+}
+.lab .lab-desktop-card .lab-pcard-head { flex: none; padding: 10px 14px 6px; }
+.lab .lab-desktop-card .lab-pcard-label { flex: 1; }
+.lab .lab-desktop-card .lab-pcard-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 16px 12px; }
+.lab .lab-desktop-card .lab-pcard-follow { flex: none; padding: 4px 16px 12px; }
+html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 0; border-left: 1px solid currentColor; }
+.lab[data-shared-reader="true"].is-desktop .lab-pcard.lab-desktop-card { border:0; border-left:1px solid var(--lab-pcard-hair); border-radius:0; padding:0; box-shadow:none; }
+.lab .lab-desktop-card::after { content: none; }
+/* One compact narration strip, including continuous Margin where paging is off. */
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock {
+  left: 50%; right: auto; transform: translateX(-50%); width: min(580px, calc(100% - 80px));
+  bottom: var(--lab-dock-bottom, 12px); min-height: 0; padding: 6px 10px; gap: 5px;
+  grid-template-columns: repeat(4, 36px) minmax(0, 1fr) auto; border-radius: 24px;
+  color: var(--lab-ink); background: color-mix(in srgb, var(--lab-paper) 90%, transparent);
+  border: 1px solid var(--lab-border); box-shadow: 0 5px 24px rgba(40,34,20,.10);
+}
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock > button { width: 36px; height: 36px; min-width: 36px; border-radius: 12px; }
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock > button.is-primary { background: var(--lab-surface); color: var(--lab-ink); box-shadow: none; }
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-track span { font-size: 11px; opacity: .65; }
+
+/* A margin response is writing in the room, with a source rule, not a boxed panel. */
+.lab.is-desktop:is([data-continuous-reader="true"], .pdf-original-reader) .lab-pcard.lab-desktop-card {
+  background: transparent;
+}
+.lab .lab-desktop-card .lab-pcard-follow-box {
+  min-height: 36px; padding: 6px 0 2px; border: 0; border-bottom: 1px solid var(--lab-pcard-hair);
+  border-radius: 0; background: transparent; box-shadow: none;
+}
+.lab .lab-desktop-card .lab-pcard-follow-box:focus-within { border-bottom-color: var(--lab-accent, #1f4a5c); }
+.lab .lab-desktop-card :is(.lab-pcard-bin, .lab-pcard-mic, .lab-pcard-talkbtn, .lab-pcard-send) {
+  border: 0; border-radius: 0 !important; background: transparent !important; color: var(--lab-ink-muted) !important; box-shadow: none;
+}
+.lab .lab-desktop-card :is(.lab-pcard-bin, .lab-pcard-mic, .lab-pcard-talkbtn, .lab-pcard-send):hover { color: var(--lab-ink) !important; }
+.lab .lab-desktop-card :is(button, textarea):focus-visible { outline: 1px solid var(--lab-accent, currentColor); outline-offset: 2px; }
+
+
+.lab .lab-desktop-card .lab-desktop-card-quote {
+  margin: 0; padding: 0 0 0 10px; border-left: 2px solid var(--lab-pcard-hair);
+  color: var(--lab-ink-muted); font: italic 14px/1.4 'EB Garamond', Georgia, serif;
+}
+/* The desktop selection tools share the rail's straight, restrained rules.
+   Phone selection bars retain their tested geometry and appearance. */
+.lab[data-shared-reader="true"].is-desktop .lab-pbar.is-desk,
+.lab[data-shared-reader="true"].is-desktop .lab-pbar.is-desk .lab-pmore {
+  border-radius:0; box-shadow:none; border:0; border-top:1px solid var(--lab-pbar-sep); border-bottom:1px solid var(--lab-pbar-sep);
+}
+.lab[data-shared-reader="true"].is-desktop .lab-pbar.is-desk :is(.lab-pbar-item, .lab-pmore button) { border-radius:0; }
+.lab[data-shared-reader="true"].is-desktop .lab-pbar.is-desk::after { display:none; }
+.lab[data-shared-reader="true"].is-desktop[data-desktop-paging="true"] .lab-page-turn-btn { border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
+.lab[data-shared-reader="true"].is-desktop[data-desktop-paging="true"] .lab-page-turn-btn:focus-visible { outline:1px solid var(--lab-accent,currentColor); outline-offset:2px; }
+/* Desktop Appearance uses the same plain controls and straight separators. */
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-v2-dismiss,.lab-v2-confirm,.lab-v2-restore) { border:0; border-radius:0; background:transparent; box-shadow:none; }
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-v2-layout-choices .lab-v2-group { border:0; border-top:1px solid var(--lab-border); border-bottom:1px solid var(--lab-border); border-radius:0; background:transparent; box-shadow:none; }
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-v2-theme-face,.lab-v2-layout-miniature) { border-radius:0; box-shadow:none; }
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-v2-restore { border-top:1px solid var(--lab-border); }
+/* Reader questions in desktop responses are writing beside a rule, not chat bubbles. */
+.lab.is-desktop :is(.source-margin-content, .lab-desktop-card) .lab-pcard-you {
+  align-self:stretch; max-width:100%; margin:4px 0; padding:2px 0 2px 10px;
+  border:0; border-left:1px solid var(--lab-pcard-hair, var(--lab-border)); border-radius:0;
+  background:transparent; box-shadow:none; color:var(--lab-ink-muted);
+}

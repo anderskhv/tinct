@@ -1,4 +1,6 @@
 /** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
+import type { PdfRegionCapture } from '../sharedReader/pdf/pdfOriginalFigures'
+import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
 import { createElement, useEffect, useRef, useState } from 'react'
 import type { HighlightColor } from '../../types'
 import type { OwnCard, OwnMark, OwnMarkGone } from '../../worker/routes/userBooks'
@@ -18,7 +20,7 @@ import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync
 
 type Item = OwnMark | OwnCard | OwnMarkGone
 type SetName = 'marks' | 'cards'
-export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number }
+export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number } }
 export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
 type SavedSet<T extends Item> = { items: T[]; rev: number; dirty: boolean }
 const FILE_ID = /^[0-9a-f]{32}$/
@@ -37,10 +39,12 @@ const merge = <T extends Item>(a: T[], b: T[]): T[] => {
 const fresh = <T extends Item>(): SavedSet<T> => ({ items: [], rev: 0, dirty: false })
 const unitFields = (data: unknown, page: number): boolean => {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return false
+  if (isPdfFreeNoteData(data)) return true
   const d = data as Record<string, unknown>
+  if (d.sourceAnchor !== undefined && !isPdfSourceAnchor(d.sourceAnchor)) return false
   if (d.action === 'recap' && Object.keys(d).length === 1) return true // older page recap
   if (!['primer', 'catchup', 'recap', 'quiz', 'note'].includes(String(d.action))
-    || Object.keys(d).some(field => !['action', 'unit', 'source'].includes(field))
+    || Object.keys(d).some(field => !['action', 'unit', 'source', 'sourceAnchor'].includes(field))
     || !d.unit || typeof d.unit !== 'object' || Array.isArray(d.unit)
     || !d.source || typeof d.source !== 'object' || Array.isArray(d.source)) return false
   const u = d.unit as Record<string, unknown>, s = d.source as Record<string, unknown>
@@ -50,6 +54,7 @@ const unitFields = (data: unknown, page: number): boolean => {
     && typeof u.key === 'string' && !!u.key && u.key.length <= 120
     && typeof u.title === 'string' && !!u.title.trim() && u.title.length <= 300
     && positive(u.from) && positive(u.to) && u.to >= u.from && positive(s.from) && positive(s.to) && s.to >= s.from
+    && (d.sourceAnchor === undefined || isPdfSourceAnchor(d.sourceAnchor) && d.sourceAnchor.page >= u.from && d.sourceAnchor.page <= u.to)
     && page >= u.from && page <= u.to && (d.action === 'catchup' ? s.to < page : s.from >= u.from && s.to <= u.to)
 }
 const validUnitSource = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction): boolean => {
@@ -120,6 +125,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private talkComponent: NonNullable<PdfOriginalReaderServices['TalkCard']> = props => createElement(PdfOriginalTalkCard,
     { ...props, hex: this.hex, owner: this.owner, fileId: this.fileId, chat: this.chat!,
       title: this.bookMetadata.title, author: this.bookMetadata.author })
+  get dictation(): PdfOriginalReaderServices['dictation'] { return this.trusted() ? { getAuthToken: () => this.token() } : undefined }
   get TalkCard(): PdfOriginalReaderServices['TalkCard'] { return this.trusted() && this.chat ? this.talkComponent : undefined }
   readonly chat: OwnTextCardsSync | null
   private marksSet: SavedSet<OwnMark | OwnMarkGone>
@@ -135,6 +141,9 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private lastUnitQuiz: { source: string; answer: string } | null = null
   private bookMetadata: { title: string; author: string } = { title: 'Your PDF', author: '' }
   private savedCardId: string | null = null
+  private regionCapture: PdfRegionCapture | null = null
+  setPdfRegionCapture = (capture: PdfRegionCapture | null) => { this.regionCapture = capture }
+  captureRegion: PdfRegionCapture = async (page, region) => this.trusted() ? this.regionCapture?.(page, region) ?? null : null
   private pages = 0
   private unsubscribePlayer: (() => void) | null = null
   private unsubscribeChat: (() => void) | null = null
@@ -219,7 +228,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const title = source.unit.title.trim()
     return this.saveCard({ page: source.atPage, text: title, rects: [] }, action, answer, {
       question: action === 'primer' ? `Prepare me to read ${title}.` : action === 'catchup' ? `Catch me up before page ${source.atPage}.` : `Summarize ${title}.`,
-      data: { action, unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n } },
+      data: { action, unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n }, ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
     })
   }
   saveUnitCardWithId = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, answer: string): string | null =>
@@ -248,7 +257,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       return answer
     } catch { return null }
   }
-  askUnitQuizCheck = async (source: PdfOriginalUnitSource, quiz: { question: string; expected: string; why?: string; answer: string }): Promise<string | null> => {
+  askUnitQuizCheck = async (source: PdfOriginalUnitSource, quiz: { question: string; expected: string; why?: string; answer: string; turns?: import('../../companion/companionRequest').QuizTurn[] }): Promise<string | null> => {
     if (this.lastUnitQuiz?.source !== JSON.stringify(source) || !await this.verifiedUnitPages(source)) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
@@ -270,15 +279,37 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     this.lastUnitQuiz = null
     return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'quiz', summary, {
       turns: [{ role: 'assistant', content: generatedQuiz }, { role: 'assistant', content: summary }],
-      data: { action: 'quiz', unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n } },
+      data: { action: 'quiz', unit: source.unit, source: { from: source.pages[0].n, to: source.pages[source.pages.length - 1].n }, ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
     })
   }
-  saveUnitNote = (source: { unit: PdfOriginalUnitSource['unit']; atPage: number; source: { from: number; to: number } }, note: string): string | null => {
+  saveUnitNote = (source: { unit: PdfOriginalUnitSource['unit']; atPage: number; source: { from: number; to: number }; anchor?: { page: number; frac: number } }, note: string): string | null => {
     if (!this.trusted() || source.atPage !== source.unit.to || !unitFields({ action: 'note', unit: source.unit, source: source.source }, source.atPage)
-      || !note.trim() || note.length > 4000) return null
+      || note.length > 4000 || source.anchor !== undefined && !isPdfSourceAnchor(source.anchor)) return null
+    const prior = this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.data?.action === 'note' && (item.data.unit as { key?: string } | undefined)?.key === source.unit.key)
+    if (!note.trim()) { if (prior) this.removeCard(prior.id); return null }
+    if (prior) {
+      const turns = [{ role: 'user' as const, content: note.trim() }, ...prior.turns.slice(1)]
+      return this.putLocal('cards', { ...prior, turns, u: Math.max(Date.now(), updated(prior) + 1) }) ? prior.id : null
+    }
     return this.saveCardWithId({ page: source.atPage, text: source.unit.title.trim(), rects: [] }, 'note', note, {
-      turns: [{ role: 'user', content: note }], data: { action: 'note', unit: source.unit, source: source.source },
+      turns: [{ role: 'user', content: note.trim() }], data: { action: 'note', unit: source.unit, source: source.source,
+        ...(source.anchor ? { sourceAnchor: source.anchor } : {}) },
     })
+  }
+  saveMarginNote = (page: number, y: number, note: string, id?: string): string | null => {
+    if (!this.trusted() || !Number.isSafeInteger(page) || page < 1 || page > 5000 || !isPdfFreeNoteData({ action: 'note', free: { y } }) || note.length > 4000) return null
+    const prior = id ? this.cardsSet.items.find((item): item is OwnCard => !gone(item) && item.id === id && isPdfFreeNoteData(item.data)) : undefined
+    if (id && !prior) return null
+    if (!note.trim()) { if (prior) this.removeCard(prior.id); return null }
+    if (prior) return this.putLocal('cards', { ...prior, turns: [{ role: 'user', content: note.trim() }, ...prior.turns.slice(1)], u: Math.max(Date.now(), updated(prior) + 1) }) ? prior.id : null
+    return this.saveCardWithId({ page, text: 'Margin note', rects: [] }, 'note', note.trim(), { turns: [{ role: 'user', content: note.trim() }], data: { action: 'note', free: { y } } })
+  }
+  updateMarkNote = (id: string, note: string): boolean => {
+    if (!this.trusted() || note.length > 4000) return false
+    const mark = this.marksSet.items.find((item): item is OwnMark => !gone(item) && item.id === id)
+    if (!mark) return false
+    const { note: _note, withNote: _withNote, ...plain } = mark
+    return this.putLocal('marks', { ...plain, ...(note.trim() ? { note: note.trim() } : {}), u: Math.max(Date.now(), updated(mark) + 1) })
   }
   get listen(): PdfOriginalReaderServices['listen'] {
     if (!this.trusted() || !this.player || this.player.snapshot().available === false) return undefined
@@ -352,12 +383,23 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   saveHighlight = (selection: PdfOriginalSelection, color: HighlightColor) => this.saveMark(selection, color)
   saveNote = (selection: PdfOriginalSelection, note: string) => this.saveMark(selection, 'gold', note)
   private saveMark(selection: PdfOriginalSelection, color: HighlightColor, note?: string): boolean {
-    const rects = selection.rects.filter(rect => rect[0] === selection.page && rect.slice(1).every(Number.isFinite) && rect[3] > 0 && rect[4] > 0)
-      .map(([, x, y, w, h]) => [x, y, w, h].map(n => Math.round(n * 10_000) / 10_000))
-    if (!rects.length || rects.length !== selection.rects.length || rects.length > 400
-      || !selection.text.trim() || selection.text.length > 2000 || note && (!note.trim() || note.length > 4000)) return false
-    const now = Date.now(), id = crypto.randomUUID().replace(/-/g, '').slice(0, 24)
-    return this.putLocal('marks', { id, page: selection.page, rects, text: selection.text, color, at: now, u: now, ...(note ? { note } : {}) })
+    if (!this.trusted() || !selection.rects.length || selection.rects.length > 400 || !selection.text.trim() || selection.text.length > 2000
+      || note !== undefined && (!note.trim() || note.length > 4000)) return false
+    const byPage = new Map<number, number[][]>()
+    for (const [page, x, y, w, h] of selection.rects) {
+      if (!Number.isSafeInteger(page) || page < 1 || page > 5000 || ![x, y, w, h].every(Number.isFinite) || w <= 0 || h <= 0) return false
+      byPage.set(page, [...(byPage.get(page) ?? []), [x, y, w, h].map(n => Math.round(n * 10_000) / 10_000)])
+    }
+    const now = Date.now(), items: OwnMark[] = []
+    for (const [page, rects] of byPage) {
+      const prior = this.marks.find(mark => mark.page === page && mark.text === selection.text && JSON.stringify(mark.rects) === JSON.stringify(rects))
+      items.push({ ...(prior ?? {}), id: prior?.id ?? crypto.randomUUID().replace(/-/g, '').slice(0, 24), page, rects, text: selection.text,
+        color: note && prior ? prior.color : color, at: prior?.at ?? now, u: Math.max(now, prior ? updated(prior) + 1 : now),
+        ...(note && page === selection.page ? { note: note.trim() } : {}), ...(selection.region ? { box: true, kind: selection.region.kind === 'equation' ? 'formula' as const : 'figure' as const } : {}) })
+    }
+    const next = { ...this.marksSet, items: merge(this.marksSet.items, items), dirty: true }
+    if (!parse('marks', JSON.stringify(next)) || !this.commit('marks', next)) return false
+    this.queue('marks'); return true
   }
   removeMark = (id: string): (() => void) | null => {
     const old = this.marks.find(item => item.id === id)
@@ -371,7 +413,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const mapped = kind === 'recap' || kind === 'catchup' || kind === 'primer' || kind === 'note' ? 'ask' : kind
     if (!['explain', 'simplify', 'ask', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'].includes(mapped)
       || !answer.trim() || !Number.isInteger(selection.page) || selection.page < 1) return false
-    const rects = selection.rects.filter(rect => rect[0] === selection.page && rect.slice(1).every(Number.isFinite))
+    const rects = selection.rects.filter(rect => Number.isSafeInteger(rect[0]) && rect[0] >= 1 && rect[0] <= 5000 && rect.slice(1).every(Number.isFinite))
       .map(([page, ...box]) => [page, ...box.map(n => Math.round(n * 10_000) / 10_000)])
     const pageOnly = ['primer', 'catchup', 'recap', 'quiz', 'note'].includes(kind) && selection.rects.length === 0
     const time = Date.now(), id = crypto.randomUUID().replace(/-/g, '').slice(0, 24)
@@ -404,21 +446,26 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!this.trusted() || !card || !question.trim() || question.length > 4000) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token) || signal?.aborted) return null
+    const selectedPages = card.rects.map(rect => rect[0]).filter(Number.isSafeInteger)
     const source = card.pageOnly && card.data && 'source' in card.data
-      ? card.data.source as { from?: number; to?: number } : null
+      ? card.data.source as { from?: number; to?: number } : selectedPages.length && Math.min(...selectedPages) !== Math.max(...selectedPages) ? { from: Math.min(...selectedPages), to: Math.max(...selectedPages) } : null
     const incomplete = () => Object.assign(new Error('The full source for this saved answer is unavailable. This follow-up was not sent.'),
       { code: 'pdf_original_incomplete_source' })
-    if (source && (!unitFields(card.data, card.page) || !Number.isSafeInteger(source.from) || !Number.isSafeInteger(source.to)
+    if (source && (card.pageOnly && !unitFields(card.data, card.page) || !Number.isSafeInteger(source.from) || !Number.isSafeInteger(source.to)
       || source.from! < 1 || source.to! < source.from! || source.to! - source.from! + 1 > 20)) throw incomplete()
     const first = source?.from ?? card.page, last = source?.to ?? card.page
+    const rect = card.kind === 'figure' ? card.rects[0] : null
+    const figure = rect ? await this.captureRegion(rect[0], { x: rect[1], y: rect[2], w: rect[3], h: rect[4] }).catch(() => null) : null
+    if (rect && !figure) throw new Error('This figure could not be read. No question was sent.')
+    if (!this.trusted() || signal?.aborted) return null
     const pages: Array<{ n: number; text: string }> = []
     let chars = 0
     for (let n = first; n <= last; n++) {
       let text: string
-      try { text = await this.getPageText(n) } catch { if (source) throw incomplete(); return null }
+      try { text = await this.getPageText(n) } catch { if (source) throw incomplete(); if (!figure) return null; text = '' }
       if (!this.trusted() || signal?.aborted) return null
       chars += text.length
-      if (!text.trim() || text.length > 6000 || chars > 36_000) {
+      if (!text.trim() && !figure || text.length > 6000 || chars > 36_000) {
         if (source) throw incomplete()
         return null
       }
@@ -428,7 +475,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
-        body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: question }],
+        body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
           companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
             pageNumber: card.page, pages, paragraphIndex: 0, lookups: false },
@@ -514,17 +561,22 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     } catch { /* offline: one owner/file-generation journal remains dirty */ }
   }
   ask: PdfOriginalReaderServices['ask'] = async (selection, intent, question, signal, onDelta) => {
-    if (!this.trusted() || !selection.text.trim()) return null
+    if (!this.trusted() || !selection.text.trim() || selection.text.length > 9000) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
     const action = intent === 'recap' || intent === 'catchup' ? 'ask' : intent
     if (!['ask', 'explain', 'define', 'simplify', 'factcheck', 'counterpoint', 'quiz', 'related'].includes(action)) return null
-    const text = selection.text.slice(0, 9000)
+    if (selection.text.length > 9000) return null
+    const text = selection.text
+    const selectedPages = selection.pages ?? [{ n: selection.page, text }]
+    const figure = selection.region ? await selection.region.image().catch(() => null) : null
+    if (selection.region && !figure) throw new Error('This figure could not be read. No question was sent.')
+    if (!this.trusted() || signal?.aborted) return null
     const request = {
       stream: true,
-      messages: [{ role: 'user', content: question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
+      messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
       companion: { intent: action, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
-        pageNumber: selection.page, pages: [{ n: selection.page, text }], paragraphIndex: 0, lookups: false },
+        pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
         selection: text },
     }
     try {
@@ -535,14 +587,14 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     } catch { return null }
   }
   askQuizCheck: NonNullable<PdfOriginalReaderServices['askQuizCheck']> = async (selection, quiz) => {
-    if (!this.trusted() || !selection.text.trim()) return null
+    if (!this.trusted() || !selection.text.trim() || selection.text.length > 9000) return null
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: {
           intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
-            pages: [{ n: selection.page, text: selection.text.slice(0, 9000) }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
+            pages: selection.pages ?? [{ n: selection.page, text: selection.text }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
         } }),
       })
       if (!response.ok || !this.trusted()) return null

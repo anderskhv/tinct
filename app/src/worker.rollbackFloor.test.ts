@@ -20,6 +20,9 @@ const fixtures = {
   modern: ['modern-userBooks.ts.txt', 'c25b0b48d7bf45ec2e74d2d981aaf8593e19a80660948d45642a789dcd8ee69b'],
   floor: ['floor-userBooks.ts.txt', 'a7f55e0d4670e995cf40510e2ea961b81a590283dd2fdc6785225a9308b44e7d'],
 } as const
+// Current repair extends only PDF card metadata: bounded sourceAnchor and free-note y.
+// Regression: worker.userBooks.test.ts rejects malformed coordinates; historical snapshots above stay immutable.
+const repairRouteDigest = '9d7c189a27ed2cfb276ee1520247e15846742783f554c428593ba98e214e0e39'
 const handlers: Partial<Record<keyof typeof fixtures, Promise<Route>>> = {}
 function snapshot(kind: keyof typeof fixtures): Promise<Route> {
   return handlers[kind] ??= (async () => {
@@ -72,7 +75,7 @@ describe('source-fixed rollback-floor storage policy on one R2 bucket', () => {
     const rollout = JSON.parse(readFileSync(resolve(routeDirectory, '../../../release/shared-reader-rollout.json'), 'utf8'))
     expect(rollout.phase).toBe('repair-pending')
     const current = readFileSync(resolve(routeDirectory, 'userBooks.ts'), 'utf8')
-    expect(createHash('sha256').update(current).digest('hex')).toBe(fixtures.modern[1])
+    expect(createHash('sha256').update(current).digest('hex')).toBe(repairRouteDigest)
     for (const kind of Object.keys(fixtures) as Array<keyof typeof fixtures>) {
       expect((await snapshot(kind)).handleUserBooks).toBeTypeOf('function')
     }

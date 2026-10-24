@@ -247,7 +247,7 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
           aria-label={label}
           value={value}
           onChange={event => onChange(event.target.value)}
-          onKeyDown={event => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send() } }}
+          onKeyDown={event => { if (event.key === 'Escape' && event.currentTarget.closest('.lab.is-desktop')) { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); return }; if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send() } }}
         />
         {onMic && <button type="button" className="lab-pcard-mic" data-testid="lab-phone-card-mic" aria-label="Dictate" aria-pressed={micOn}
           onPointerDown={event => event.preventDefault()} onClick={onMic}><PhoneIcon name="mic" /></button>}
@@ -256,6 +256,7 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
         <button type="button" className="lab-pcard-send" data-testid="lab-phone-card-send" aria-label="Send" disabled={!value.trim() || disabled}
           onPointerDown={event => event.preventDefault()} onClick={send}><PhoneIcon name="up" /></button>
       </div>
+      <span className="lab-pcard-typing-hint" aria-hidden="true">Esc to return to reading</span>
     </div>
   )
 }

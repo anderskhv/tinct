@@ -291,6 +291,7 @@ export function turnsFromConversations(conversations: ChatConversation[]): LabAs
     .sort((x, y) => x.message.timestamp - y.message.timestamp)
     .map(({ conversation, message }) => ({
       id: message.id,
+      conversationId: conversation.id,
       bookId: conversation.bookId,
       chapterAction: message.chapterAction,
       role: message.role === 'assistant' ? 'assistant' as const : 'user' as const,
@@ -367,7 +368,7 @@ function appendTurnToConversations(
     && last.bookId === bookId
     && last.chapterNumber === chapterNumber
     // A margin card's conversation is the card's own: a chat turn never joins it.
-    && !last.card
+    && (!last.card || continued)
     && (continued || now - last.endTimestamp < CONVERSATION_GAP_MS)
   ) {
     if (last.messages.some(item => item.id === enriched.id)) return current

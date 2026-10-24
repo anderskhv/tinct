@@ -194,7 +194,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     }
     // An EPUB read in Margin view on this device (the desktop's default) goes on to the margin reader.
     const epubView = sharedReader ? 'text' : epubViewHere(hex)
-    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}), epubView, ...(phone || sharedReader ? {} : { desktop: true }), ...(sharedReader ? { sharedReader: true } : {}) }).then(async result => {
+    void open(hex, { ...(owner !== undefined ? { owner } : {}), ...(page ? { page } : {}), epubView, desktop: !phone, ...(sharedReader ? { sharedReader: true } : {}) }).then(async result => {
       if (!live) return
       // A book not on this device yet, an EPUB in Margin view, a PDF read in its pages, or one without text to
       // reflow (a scan: the margin reader does not send it back here).
