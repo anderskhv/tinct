@@ -52,6 +52,55 @@ await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 
+// A viewport/font resize replaces pdf.js spans. Resolve and select the current
+// connected span in one browser turn, only after fit-width rendering has settled.
+async function selectPdfSource(page, text) {
+  await page.waitForFunction(text => {
+    const sheet = document.querySelector('.pdf-original__page[data-page="1"][data-ready="true"]')
+    const column = document.querySelector('.pdf-original__pages'), layer = sheet?.querySelector('.pdf-original__text')
+    const span = layer && [...layer.querySelectorAll('span')].find(node => node.textContent === text)
+    const parent = span?.parentElement, box = sheet?.getBoundingClientRect(), ink = span?.getBoundingClientRect()
+    const expected = column && Math.max(1, Math.min(1500, Math.floor(column.clientWidth - 32)))
+    const ready = span?.isConnected && parent === layer && document.fonts.status === 'loaded' && box?.width > 0 && ink?.width > 0
+      && Math.abs(box.width - expected) <= 1 && Math.abs(layer.getBoundingClientRect().width - box.width) <= 1
+    const key = `${column?.clientWidth}:${box?.width}:${ink?.left}:${ink?.top}`
+    const prior = window.__pdfSelectionReadiness
+    window.__pdfSelectionReadiness = { span, key, ready: !!ready }
+    if (!ready || prior?.span !== span || prior?.key !== key || !prior.ready) return false
+    const range = document.createRange(), selection = window.getSelection()
+    range.selectNodeContents(span); selection.removeAllRanges(); selection.addRange(range)
+    // A synchronous selection handler may have invalidated the render too.
+    if (!span.isConnected || span.parentElement !== parent) return false
+    parent.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
+    return true
+  }, text, { polling: 'raf', timeout: 45000 })
+}
+
+// Saving intentionally replaces the draft rail row. Wait for the real answer,
+// image decode and persisted identity before measuring or scrolling its body.
+async function settledFigureCard(page, answer, id = null) {
+  const result = await page.waitForFunction(({ answer, id }) => {
+    const entries = [...document.querySelectorAll('[data-testid="source-margin-item"][data-open="true"]')]
+    const entry = entries.find(node => id ? node.dataset.cardId === id : node.dataset.cardId?.startsWith('card:') && node.textContent.includes(answer))
+    const body = entry?.querySelector('[data-testid="lab-phone-card-body"]'), image = body?.querySelector('.pdf-original__figure-thumb img')
+    if (!body?.isConnected || !body.textContent.includes(answer) || !image?.complete || !image.naturalWidth) return false
+    return entry.dataset.cardId
+  }, { answer, id }, { polling: 'raf', timeout: 45000 })
+  const savedId = await result.jsonValue()
+  await result.dispose()
+  await page.waitForFunction(id => {
+    const entry = [...document.querySelectorAll('[data-testid="source-margin-item"]')].find(node => node.dataset.cardId === id)
+    const body = entry?.querySelector('[data-testid="lab-phone-card-body"]')
+    if (!body?.isConnected || entry.dataset.open !== 'true') return false
+    body.scrollIntoView({ block: 'nearest' })
+    const box = body.getBoundingClientRect(), prior = window.__pdfFigureReadiness
+    const key = `${id}:${box.x}:${box.y}:${box.width}:${box.height}`
+    window.__pdfFigureReadiness = { body, key }
+    return box.width > 0 && box.height > 0 && prior?.body === body && prior?.key === key
+  }, savedId, { polling: 'raf', timeout: 45000 })
+  return page.locator(`[data-testid="source-margin-item"][data-card-id="${savedId}"]`)
+}
+
 async function sourceParity(page, calls, output) {
   await fs.mkdir(output, { recursive: true })
   await page.setViewportSize({ width: Number(process.env.TINCT_CAPTURE_WIDTH || 1440), height: 900 })
@@ -142,8 +191,7 @@ async function sourceParity(page, calls, output) {
   assert.equal(await host.evaluate(node => node.scrollTop), figureScroll, 'closing source figure keeps exact scroll offset')
   await diagram.focus()
   await figureTools.getByRole('button', { name: 'Explain', exact: true }).click()
-  const figureCard = host.locator('[data-testid="source-margin-item"][data-open="true"]')
-  await figureCard.getByTestId('lab-phone-card-body').scrollIntoViewIfNeeded()
+  const figureCard = await settledFigureCard(page, 'A grounded local fixture answer.')
   await figureCard.getByText(/A grounded local fixture answer\./).waitFor({ timeout: 5000 })
   const hasImage = call => { const messages = JSON.parse(call.body || '{}').messages; return messages?.some(message => Array.isArray(message.content) && message.content.some(block => block.type === 'image' && block.source?.data)) }
   assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'rendered figure Explain sends the actual source image block')
@@ -157,13 +205,13 @@ async function sourceParity(page, calls, output) {
   await page.locator('.pdf-original__text [data-pdf-heading]').first().waitFor()
   const restoredFigure = host.locator(`[data-testid="source-margin-item"][data-card-id="${figureCardId}"]`)
   await restoredFigure.getByTestId('source-margin-open').click()
-  await restoredFigure.getByTestId('lab-phone-card-body').scrollIntoViewIfNeeded()
+  await settledFigureCard(page, 'A grounded local fixture answer.', figureCardId)
   await restoredFigure.getByRole('button', { name: 'Show Figure 1 larger', exact: true }).locator('img').waitFor()
   await restoredFigure.getByTestId('lab-phone-card-input').fill('What does this figure add?')
   await restoredFigure.getByTestId('lab-phone-card-send').click()
   await restoredFigure.getByText(/The follow-up still sees the original source image\./).waitFor()
   assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'saved figure follow-up recaptures the source image after reload')
-  await restoredFigure.getByText(/The follow-up still sees the original source image\./).scrollIntoViewIfNeeded()
+  await settledFigureCard(page, 'The follow-up still sees the original source image.', figureCardId)
   await settlePaint(page)
   await page.screenshot({ path: path.join(output, 'pdf-saved-figure-followup.png') })
   // Navigation is used only to bring the second original heading into the bounded render window.
@@ -186,10 +234,19 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   const bytes = sourceBytes, sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
   const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'Original source', author: 'Fixture', size: bytes.length,
     createdAt: '2026-10-23T00:00:00.000Z' }
-  const browser = await markInternal(await browserType.launch({ headless: true, ...(process.env.TINCT_ORIGIN ? {} : { proxy: { server: origin } }),
+  const browser = await markInternal(await browserType.launch({ headless: true,
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
   const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = []
+  if (name.startsWith('chromium') && process.env.PDF_CPU_RATE) {
+    const session = await context.newCDPSession(page)
+    await session.send('Emulation.setCPUThrottlingRate', { rate: Number(process.env.PDF_CPU_RATE) })
+    if (process.env.PDF_NETWORK_LATENCY) {
+      await session.send('Network.enable')
+      await session.send('Network.emulateNetworkConditions', { offline: false, latency: Number(process.env.PDF_NETWORK_LATENCY), downloadThroughput: 1_000_000, uploadThroughput: 1_000_000 })
+    }
+    console.log(`${name}: readiness stress CPU ${process.env.PDF_CPU_RATE}x / network ${process.env.PDF_NETWORK_LATENCY || 0}ms`)
+  }
   const finishOriginalPage = async number => page.locator('.pdf-original__scroll').evaluate((el, pageNumber) => {
     const sheet = el.querySelector(`.pdf-original__slot:nth-child(${pageNumber})`)
     if (!sheet) throw new Error(`original page ${pageNumber} has no continuous sheet`)
@@ -396,12 +453,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       status: document.querySelector('.pdf-original-reader__status')?.textContent, owner:window.TinctAI?.session?.()?.userId }), hex)
     assert(opening.keys.some(key => key.startsWith('tinct-addbook:text-cards-canonical:')),
       `owner geometry initialized: ${JSON.stringify({ opening, calls: calls.filter(call => call.path.includes('user-books')), errors })}`)
-    const text = page.locator('.pdf-original__text').getByText('First original page with selectable source words.')
-    await text.evaluate(el => {
-      const range = document.createRange(), selection = window.getSelection()
-      range.selectNodeContents(el); selection.removeAllRanges(); selection.addRange(range)
-      el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
-    })
+    await selectPdfSource(page, 'First original page with selectable source words.')
     await page.getByTestId('lab-dbar-highlight').click()
     await page.locator('.pdf-original__highlight').waitFor()
     for (let i = 0; i < 60 && !calls.some(call => call.path === `/api/user-books/marks/${hex}` && call.method === 'PUT'); i++)
@@ -417,11 +469,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       'the reloaded reader fetched its cloud generation and repainted the highlight')
     if (name === 'chromium') {
       const sourceLine = () => page.locator('.pdf-original__page[data-page="1"] .pdf-original__text').getByText('First original page with selectable source words.')
-      const selectSource = async () => sourceLine().evaluate(el => {
-        const range = document.createRange(), selection = window.getSelection()
-        range.selectNodeContents(el); selection.removeAllRanges(); selection.addRange(range)
-        el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
-      })
+      const selectSource = () => selectPdfSource(page, 'First original page with selectable source words.')
       const chooseAppearance = async theme => {
         await page.waitForFunction(() => document.querySelector('.pdf-original-reader')?.classList.contains('is-phone') === matchMedia('(max-width:700px)').matches)
         const direct = page.getByRole('button', { name: 'Appearance', exact: true })
@@ -509,11 +557,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert.equal(await page.getByText('Key claims').count(), 1, 'structured Primer is rendered as sections')
     assert.equal(await page.getByText('"gist"').count(), 0, 'raw Primer JSON is not displayed')
     await page.keyboard.press('Escape')
-    await page.locator('.pdf-original__text').getByText('First original page with selectable source words.').evaluate(el => {
-      const range = document.createRange(), selection = window.getSelection()
-      range.selectNodeContents(el); selection.removeAllRanges(); selection.addRange(range)
-      el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
-    })
+    await selectPdfSource(page, 'First original page with selectable source words.')
     await page.getByTestId('lab-dbar-more').click()
     await page.getByRole('menuitem', { name: 'Define' }).click()
     await page.getByText('The terms printed on this original PDF page.').waitFor()
