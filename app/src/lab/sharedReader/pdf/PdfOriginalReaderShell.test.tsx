@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, expect, it, vi } from 'vitest'
 import { useEffect } from 'react'
 import { createRequire } from 'node:module'
-import { PdfOriginalReaderShell, contentsPages, contentsUnitIndexes, type PdfOriginalReaderServices } from './PdfOriginalReaderShell'
+import { PdfOriginalReaderShell, pdfSelectionAnchor, contentsPages, contentsUnitIndexes, type PdfOriginalReaderServices } from './PdfOriginalReaderShell'
 import { readLabPrefs, writeLabPrefs } from '../../labPrefs'
 import type { PdfOriginalUnitRules } from './pdfOriginalUnits'
 
@@ -22,7 +22,8 @@ vi.mock('./PdfContinuousSurface', () => ({
   }) => {
     useEffect(() => { onDocument(3); onPageText(1, 'A page with usable text.'); onVisiblePlace({ page: 1, frac: .3 }) }, [])
     const openFinal = () => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(30, 'Last text on unit page 30.'); onVisiblePlace({ page: 30, frac: 0 }); onPageEnd?.(30, false) }
-    return <div><button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button><output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
+    const pageBounds = (node: HTMLElement | null) => { if (node) node.getBoundingClientRect = () => ({ left: 50, right: 950, top: 100, bottom: 1300, width: 900, height: 1200 } as DOMRect) }
+    return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button><output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
@@ -209,7 +210,7 @@ it('offers page navigation and theme selection, but page actions only when pdf.j
   fireEvent.click(screen.getByRole('button', { name: 'Contents' }))
   fireEvent.click(await screen.findByText('Page 3'))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('3')
-  fireEvent.click(screen.getByLabelText('Reading settings'))
+  fireEvent.click(screen.getByLabelText('Appearance'))
   fireEvent.click(screen.getByLabelText('Book'))
   expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('book')
   expect(readLabPrefs('desktop').theme).toBe('book')
@@ -223,7 +224,7 @@ it('keeps the original page place when changing to Tinct text and offers the est
   const onOpenText = vi.fn(), onZoom = vi.fn()
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}}
     onOpenText={onOpenText} initialZoom={.75} onZoom={onZoom} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Reading settings' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Appearance' }))
   expect((screen.getByRole('slider', { name: 'Page size' }) as HTMLInputElement).value).toBe('0.75')
   fireEvent.change(screen.getByRole('slider', { name: 'Page size' }), { target: { value: '0.85' } })
   expect(onZoom).toHaveBeenCalledWith(.85)
@@ -511,7 +512,39 @@ it('renders an after-unit PDF Note as prose in Notebook and export, retaining it
   expect(screen.queryByText('Original PDF page 2 · Note')).toBeNull()
   fireEvent.click(screen.getByText('My notes'))
   fireEvent.click(screen.getByText('Original PDF page 2 · Note'))
-  expect(screen.getByTestId('lab-phone-card-body').textContent).toContain('My thought about the section.')
-  expect(screen.getByTestId('lab-phone-card-body').textContent).toContain('Source · Original PDF pages 1–2')
-  expect(screen.getByTestId('lab-phone-card-body').textContent).toContain('A second response.')
+  expect(screen.getByTestId('lab-phone-card').querySelector('.lab-pcard-body')!.textContent).toContain('My thought about the section.')
+  expect(screen.getByTestId('lab-phone-card').querySelector('.lab-pcard-body')!.textContent).toContain('Source · Original PDF pages 1–2')
+  expect(screen.getByTestId('lab-phone-card').querySelector('.lab-pcard-body')!.textContent).toContain('A second response.')
+})
+
+it('projects original page selection rectangles through live scroll and zoom geometry', () => {
+  const source = { page: 7, text: 'A source line.', rects: [[7, .1, .2, .3, .04]] as [number, number, number, number, number][] }
+  const viewport = { left: 0, right: 1024, top: 80, bottom: 800 }
+  const page = { left: 100, right: 700, top: 200, bottom: 1100 }
+  expect(pdfSelectionAnchor(source, page, viewport)).toEqual({ left: 160, right: 340, top: 380, bottom: 416 })
+  expect(pdfSelectionAnchor(source, { ...page, top: 100, bottom: 1000 }, viewport)).toEqual({ left: 160, right: 340, top: 280, bottom: 316 })
+  expect(pdfSelectionAnchor(source, { left: 100, right: 1300, top: 200, bottom: 2000 }, viewport)).toEqual({ left: 220, right: 580, top: 560, bottom: 632 })
+  expect(pdfSelectionAnchor(source, page, viewport, true)).toEqual({ left: 100, right: 700, top: 380, bottom: 416 })
+  expect(pdfSelectionAnchor(source, { ...page, top: 900, bottom: 1800 }, viewport)).toBeNull()
+  expect(pdfSelectionAnchor({ ...source, rects: [[8, .1, .2, .3, .04]] }, page, viewport)).toBeNull()
+})
+
+it('uses a source-anchored desktop card without a phone scrim or moving the PDF surface', () => {
+  const { container } = render(<PdfOriginalReaderShell title="Original source" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  const surface = container.querySelector('.pdf-original__scroll')
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Note PDF'))
+  expect(screen.getByRole('dialog', { name: 'Note · Original PDF page 1' }).classList.contains('lab-desktop-card')).toBe(true)
+  expect(container.querySelector('.lab-pcard-scrim')).toBeNull()
+  expect(container.querySelector('.pdf-original__scroll')).toBe(surface)
+  expect(surface?.getBoundingClientRect().width).toBe(930)
+})
+
+it('retains the phone bottom card for original pages at phone widths', () => {
+  vi.stubGlobal('matchMedia', (query: string) => ({ matches: query === '(max-width: 700px)', addEventListener: vi.fn(), removeEventListener: vi.fn() }))
+  const { container } = render(<PdfOriginalReaderShell title="Original source" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByTestId('lab-pbar-note'))
+  expect(screen.getByRole('dialog', { name: 'Note · Original PDF page 1' }).classList.contains('lab-desktop-card')).toBe(false)
+  expect(container.querySelector('.lab-pcard-dock')).toBeTruthy()
 })

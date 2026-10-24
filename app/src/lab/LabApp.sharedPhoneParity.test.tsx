@@ -4,6 +4,8 @@ import { afterEach, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
+vi.mock('../services/dictionary', () => ({ lookup: vi.fn(async () => null) }))
+
 const characterFixture = vi.hoisted(() => ({ data: null as unknown }))
 vi.mock('../services/characters/useCharacterCards', () => ({
   useCharacterCards: (bookId?: string) => bookId === 'to-the-lighthouse' ? characterFixture.data : null,
@@ -138,7 +140,8 @@ it('keeps Dictionary visible when a desktop character popup becomes a phone card
   fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
   fireEvent.click(screen.getByTestId('lab-dbar-more'))
   fireEvent.click(screen.getByTestId('lab-dmore-define'))
-  expect(document.querySelector('[data-popup-mode="define"]')).toBeTruthy()
+  expect(document.querySelector('.lab-desktop-card[data-kind="define"]')).toBeTruthy()
+  expect(document.querySelector('.selection-popup')).toBeNull()
   vi.stubGlobal('innerWidth', 390)
   fireEvent.resize(window)
   await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-lab-layout')).toBe('phone'))
@@ -195,4 +198,35 @@ it('keeps the flag-off reader on its original selection surface after narrowing'
   selectPassage()
   expect(document.querySelector('.selection-popup')).toBeTruthy()
   expect(screen.queryByTestId('lab-pbar-explain')).toBeNull()
+})
+
+
+it('creates and edits a shared desktop passage note in its margin card and persists one source highlight', async () => {
+  window.history.replaceState(null, '', '/reader?book=odyssey&sharedReader=1&layout=desktop&view=margin')
+  const source = fallbackLabSource()
+  render(<LabApp pathname="/reader" search={window.location.search} source={{
+    ...source, bookId: 'odyssey', paragraphs: ['A short chapter has words to select and explain.'],
+    followParagraphs: [{ index: 0, text: 'A short chapter has words to select and explain.' }],
+  }} authToken={null} sharedReader />)
+  for (const word of screen.getAllByTestId('lab-word')) vi.spyOn(word, 'getClientRects').mockReturnValue([{ left: 150, right: 230, top: 200, bottom: 220, width: 80, height: 20 }] as unknown as DOMRectList)
+  selectPassage()
+  fireEvent.click(screen.getByTestId('lab-dbar-note'))
+  expect(document.querySelector('.lab-desktop-card[data-kind="note"]')).toBeTruthy()
+  expect(document.querySelector('.selection-popup[data-popup-mode="note"]')).toBeNull()
+  await waitFor(() => expect((document.querySelector('.lab-desktop-card') as HTMLElement).style.visibility).toBe(''))
+  fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: 'A thought about this passage' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close card' }))
+  let saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
+  expect(saved).toHaveLength(1)
+  expect(saved[0]).toMatchObject({ bookId: 'odyssey', paragraphIndex: 0, fromWord: 1, toWord: 4, note: 'A thought about this passage' })
+  const id = saved[0].id
+  selectPassage()
+  fireEvent.click(screen.getByTestId('lab-dbar-note'))
+  await waitFor(() => expect((document.querySelector('.lab-desktop-card') as HTMLElement).style.visibility).toBe(''))
+  expect((screen.getByRole('textbox', { name: 'Highlight note' }) as HTMLTextAreaElement).value).toBe('A thought about this passage')
+  fireEvent.change(screen.getByRole('textbox', { name: 'Highlight note' }), { target: { value: 'An edited thought' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close card' }))
+  saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
+  expect(saved).toHaveLength(1)
+  expect(saved[0]).toMatchObject({ id, note: 'An edited thought' })
 })

@@ -52,6 +52,7 @@ import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
+import { LabDesktopCard } from './sharedReader/LabDesktopCard'
 import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './sharedReader/continuousReaderEpoch'
 import { leaveForLibrary } from './labLeaveForLibrary'
 import { LAB_COPY } from './labCopy'
@@ -184,6 +185,7 @@ import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderP
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { initialDesktopReaderLayout, storeDesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
@@ -652,10 +654,27 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [mobileCompareActive, setMobileCompareActive] = useState(() => initialCompareView('phone'))
   // Two-page or Compare chosen in the margin preview's Layout (`view`, a deep link's): that layout, kept for the book.
   const [deepLinkDesktopView] = useState(() => readerHandoff && !userBook ? deepLinkViewForPage() : null)
-  const [desktopCompareActive, setDesktopCompareActive] = useState(() => deepLinkDesktopView ? deepLinkDesktopView === 'compare' : initialCompareView('desktop'))
-  const [privateDesktopClassic, setPrivateDesktopClassic] = useState(() => new URLSearchParams(search ?? (typeof window !== 'undefined' ? window.location.search : '')).get('view') === 'two-page')
+  const desktopLayoutBookId = compareViewBookId
+  const desktopLayoutSearch = search ?? (typeof window !== 'undefined' ? window.location.search : '')
+  const initialDesktopLayout = () => initialDesktopReaderLayout({
+    bookId: desktopLayoutBookId, search: deepLinkDesktopView ? `?view=${deepLinkDesktopView}` : desktopLayoutSearch, kind: userBook?.kind, hex: userBook?.hex,
+    savedMode: labBookSavedReaderMode(desktopLayoutBookId),
+  })
+  const [desktopCompareActive, setDesktopCompareActive] = useState(() => sharedReader ? initialDesktopLayout() === 'compare' : deepLinkDesktopView ? deepLinkDesktopView === 'compare' : initialCompareView('desktop'))
+  const [privateDesktopClassic, setPrivateDesktopClassic] = useState(() => sharedReader ? initialDesktopLayout() === 'two-page' : new URLSearchParams(desktopLayoutSearch).get('view') === 'two-page')
+  const desktopLayoutBookRef = useRef(desktopLayoutBookId)
+  useLayoutEffect(() => {
+    if (!sharedReader || desktopLayoutBookRef.current === desktopLayoutBookId) return
+    desktopLayoutBookRef.current = desktopLayoutBookId
+    // An in-page book switch must derive that book's layout, never inherit the outgoing one.
+    const layout = initialDesktopReaderLayout({ bookId: desktopLayoutBookId, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })
+    setDesktopCompareActive(layout === 'compare')
+    setPrivateDesktopClassic(layout === 'two-page')
+  }, [desktopLayoutBookId, sharedReader, userBook?.hex, userBook?.kind])
   useEffect(() => {
     if (deepLinkDesktopView) storeCompareView('desktop', compareViewBookId, deepLinkDesktopView === 'compare')
+    const linked = deepLinkDesktopView ?? new URLSearchParams(desktopLayoutSearch).get('view')
+    if (sharedReader && !showPhoneChrome && (linked === 'margin' || linked === 'two-page' || linked === 'compare')) storeDesktopReaderLayout(desktopLayoutBookId, linked)
   // Once, for the link this page opened with.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -1691,7 +1710,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     const classic = layout === 'two-page'
     const compare = layout === 'compare'
-    if (privateDesktopClassic === classic && desktopCompareActive === compare) return
+    storeDesktopReaderLayout(compareViewBookId, layout)
+    if (privateDesktopClassic === classic && desktopCompareActive === compare) { setSuperSheet(null); return }
     const anchor = { ...placeRef.current }
     chapterNavigationRef.current += 1
     readerStateRef.current = { ...readerStateRef.current, readerMode: compare ? 'compare' : 'read' }
@@ -1706,6 +1726,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href)
       if (classic) url.searchParams.set('view', 'two-page')
+      else if (compare) url.searchParams.set('view', 'compare')
       else url.searchParams.delete('view')
       window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
     }
@@ -4187,8 +4208,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const toggleDesktopCompareByReader = useCallback(() => {
     if (!desktopCompareEnabled) return
     rememberCompareView(!desktopCompareActive)
+    if (sharedReader) {
+      const layout = !desktopCompareActive ? 'compare' : privateDesktopClassic ? 'two-page' : 'margin'
+      storeDesktopReaderLayout(compareViewBookId, layout)
+      const url = new URL(window.location.href)
+      if (layout === 'margin') url.searchParams.delete('view')
+      else url.searchParams.set('view', layout)
+      window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+    }
     handleDesktopCompare()
-  }, [desktopCompareActive, desktopCompareEnabled, handleDesktopCompare, rememberCompareView])
+  }, [compareViewBookId, desktopCompareActive, desktopCompareEnabled, handleDesktopCompare, privateDesktopClassic, rememberCompareView, sharedReader])
 
   const browseToChapter = useCallback(async (number: number, landing: 'start' | 'end', continuation?: { paragraphIndex: number; wordIndex: number }) => {
     setRecentChapterReturn(null)
@@ -5524,9 +5553,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // The card's passage stays underlined on the page while the card is open (the card does not quote it).
   const phoneCardPassage = phoneCard && 'passage' in phoneCard ? phoneCard.passage : null
   useLayoutEffect(() => {
-    if (!marginPhone || !phoneCardPassage?.ranges?.length) return
+    if (!(marginPhone || sharedReader) || !phoneCardPassage?.ranges?.length) return
     return markPhoneCardPassage(document.querySelector('[data-testid="lab-root"]'), phoneCardPassage.ranges, book.chapterNumber, !!phoneCardPassage.compare)
-  }, [marginPhone, phoneCardPassage, book.chapterNumber])
+  }, [marginPhone, sharedReader, phoneCardPassage, book.chapterNumber])
   /** A follow-up from a card: the chat's own question, with the passage attached and the card's answer as what the reader was shown. */
   const sendPhoneFollow = (passage: PhonePassage | null, question: string) => {
     const shown = phoneAnswerRef.current
@@ -5693,6 +5722,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     else dismissSelectionPopup()
   }
   const renderPhoneCard = (card: PhoneCard, fromSelection = false) => {
+    const ResponseCard = sharedReader && !showPhoneChrome ? LabDesktopCard : LabPhoneCard
     // Talk about the card: what it showed is kept first (as a follow-up keeps it), then the voice conversation opens.
     const talkAbout = (passage: PhonePassage | null) => () => {
       const shown = phoneAnswerRef.current
@@ -5711,15 +5741,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
       return (
-        <LabPhoneCard label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={deletePhoneCard} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'}>
+        <ResponseCard {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={deletePhoneCard} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'}>
           <PhoneNoteBody value={phoneNote} onChange={setPhoneNote} inputRef={phoneFieldRef} chapter={card.kind === 'chapter-note'} />
-        </LabPhoneCard>
+        </ResponseCard>
       )
     }
     if (card.kind === 'quiz') {
       const passage = card.passage ?? phoneChapterPassage()
       return (
-        <LabPhoneCard label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
+        <ResponseCard {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
           <PhoneQuizBody
             request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
             mark={(question, answer) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer })}
@@ -5751,7 +5781,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             }}
             thread={pillCardThread(card.openedAt)} />
           {sharedReader && sharedCardSaveError && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
-        </LabPhoneCard>
+        </ResponseCard>
       )
     }
     const turns = phoneCardTurns(card.openedAt)
@@ -5788,11 +5818,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       )
       : <PhoneStreamAnswer key={`${card.kind}:${card.openedAt}`} request={onDelta => phoneCompanion(card.passage, card.kind === 'explain' ? undefined : card.kind, onDelta)} onReady={keep} />
     return (
-      <LabPhoneCard label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={fromSelection ? () => leaveSelectionInfo() : closePhoneCard} onDelete={fromSelection ? () => leaveSelectionInfo() : closePhoneCard}
+      <ResponseCard {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={fromSelection ? () => leaveSelectionInfo() : closePhoneCard} onDelete={fromSelection ? () => leaveSelectionInfo() : closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
         {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
-      </LabPhoneCard>
+      </ResponseCard>
     )
   }
 
@@ -6898,16 +6928,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           selection={selectionPopup}
           popupRef={popupRef}
           onAskQuestion={sharedReader ? question => {
-            const text = selectionPopup.text
-            dismissSelectionPopup()
-            handleChat()
-            setAskAttachment({ bookId: book.bookId || 'bible', text })
+            const passage = phonePassageOf(selectionPopup)
+            // Submit in the same passage card used by the phone; keep the source visible.
+            openPhoneCard({ kind: 'ask', passage, openedAt: Date.now() })
             setDraft('')
-            void ask.sendTyped(question, undefined, undefined, {
-              highlightedText: text,
-              onAccepted: () => setAskAttachment(null),
-            })
+            sendPhoneFollow(passage, question)
           } : undefined}
+          onPassageAction={sharedReader ? phoneBarAction : undefined}
+          onPassageNote={sharedReader ? phoneBarNote : undefined}
           onQuizPassage={sharedReader ? () => phoneBarAction('quiz') : undefined}
           onShowPage={ownPdf && selectionPopup.range && !selectionPopup.side
             ? () => { const range = selectionPopup.range!; setSelectionPopup(null); openPdfPages({ chapterNumber: selectionPopup.chapterNumber ?? book.chapterNumber, paragraphIndex: range.paragraphIndex, wordIndex: range.fromWord }) }

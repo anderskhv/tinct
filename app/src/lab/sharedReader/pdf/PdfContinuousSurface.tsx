@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import {
   drawTextLayer, openExistingPdf, pdfOriginalFollowRect, pdfOriginalOutline, pdfPageFraction,
   projectPdfSelection, visiblePdfHighlightRects,
   type PdfOriginalDocument, type PdfOriginalFollow, type PdfOriginalPage,
   type PdfOriginalPlace, type PdfOriginalSelection, type PdfOriginalSurfaceProps,
 } from './PdfOriginalSurface'
+import { HIGHLIGHT_COLORS } from '../../../types'
 import './pdfOriginal.css'
 
 const GAP = 18
@@ -13,12 +14,40 @@ const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(ma
 export const pdfBaseSheetWidth = (available: number) => Math.max(1, Math.min(1500, Math.floor(available - 32)))
 export const pdfZoomLimit = (available: number, phone: boolean) => phone ? 3
   : Math.max(1, Math.min(3, Math.floor((available - 32) / pdfBaseSheetWidth(available) * 100) / 100))
-export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean }
+/** Map a position on the document strip to its original source page and fraction. */
+export function pdfSourcePlaceAt(offset: number, heights: readonly number[]): PdfOriginalPlace {
+  if (!heights.length) return { page: 1, frac: 0 }
+  let remaining = Math.max(0, offset), page = 1
+  while (page < heights.length && remaining >= heights[page - 1] + GAP) remaining -= heights[page++ - 1] + GAP
+  return { page, frac: clamp(remaining / Math.max(1, heights[page - 1]), 0, 1) }
+}
+export type PdfSourceLine = { y: number; left: number; right: number }
+/** The original strip's pageBlocks starts from these real, unrotated PDF text lines. */
+export function pdfSourceLines(items: Awaited<ReturnType<PdfOriginalPage['getTextContent']>>['items'], view: ReturnType<PdfOriginalPage['getViewport']>): PdfSourceLine[] {
+  const [a, b, c, d, e, f] = view.transform
+  const lines: Array<PdfSourceLine & { height: number }> = []
+  for (const item of items) {
+    if (!item.str.trim() || item.transform.length < 6) continue
+    const [ta, tb, tc, td, x, y] = item.transform
+    const height = Math.hypot(a * tc + c * td, b * tc + d * td)
+    if (height < .5 || Math.abs(b * ta + d * tb) > height * .001 || Math.abs(a * tc + c * td) > height * .001) continue
+    const top = (b * x + d * y + f - height) / view.height
+    const left = clamp((a * x + c * y + e) / view.width, 0, 1)
+    const right = clamp(left + item.width * Math.hypot(a, b) / view.width, 0, 1)
+    if (top < 0 || top > 1 || right <= left) continue
+    const line = lines.find(line => Math.abs(line.y - top) < Math.max(line.height, height / view.height) * .45)
+    if (line) { line.left = Math.min(line.left, left); line.right = Math.max(line.right, right) }
+    else lines.push({ y: top, left, right, height: height / view.height })
+  }
+  return lines.sort((a, b) => a.y - b.y).map(({ y, left, right }) => ({ y, left, right }))
+}
+export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean; cards?: Array<{ id: string; page: number; rects?: number[][] }> }
 
-function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError }: {
+function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, onLines }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
   highlights: NonNullable<PdfOriginalSurfaceProps['highlights']>; follow: PdfOriginalFollow | null
   onText?: (page: number, text: string) => void; onSelection?: (selection: PdfOriginalSelection) => void
+  onLines: (page: number, lines: PdfSourceLine[]) => void
   onSize: (page: number, ratio: number) => void; onReady: (page: number, ready: boolean) => void; onError: (page: number) => void
 }) {
   const canvas = useRef<HTMLCanvasElement>(null), layer = useRef<HTMLDivElement>(null)
@@ -48,8 +77,9 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
       if (!context) throw new Error('PDF canvas unavailable')
       context.setTransform(dpr, 0, 0, dpr, 0, 0)
       task = page.render({ canvasContext: context, viewport })
-      const content = await page.getTextContent().catch(() => ({ items: [] }))
-      await task.promise
+      // Observe cancellation immediately: resize/unmount may cancel the canvas
+      // while text extraction is still pending. Neither promise may be orphaned.
+      const [, content] = await Promise.all([task.promise, page.getTextContent().catch(() => ({ items: [] }))])
       if (!live) return
       text.replaceChildren()
       text.style.setProperty('--scale-factor', String(viewport.scale))
@@ -59,12 +89,13 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
       } else drawTextLayer(text, content, viewport)
       if (!live) return
       items.current = content.items
+      onLines(number, pdfSourceLines(content.items, base))
       onText?.(number, content.items.map(item => item.str).join(' ').trim())
       setReady(true); onReady(number, true)
     }).catch(() => { if (live) { setReady(false); onReady(number, false); onError(number) } })
     return () => { live = false; task?.cancel?.(); textTask?.cancel?.(); text.replaceChildren(); onReady(number, false) }
     // Width is the exact rendered sheet size. Changing it invalidates the old text geometry.
-  }, [pdf, number, width, onSize, onReady, onText, onError])
+  }, [pdf, number, width, onSize, onReady, onText, onError, onLines])
   useEffect(() => {
     setHeard(ready && follow && layer.current ? pdfOriginalFollowRect(layer.current, items.current, follow, number) : null)
   }, [ready, follow, number])
@@ -88,10 +119,17 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
 
 /** Continuous source pages, with at most three rendered canvases/text layers around the visible page. */
 export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd,
-  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, phone = false }: PdfContinuousProps) {
+  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, phone = false, cards = [] }: PdfContinuousProps) {
   const [pdf, setPdf] = useState<PdfOriginalDocument | null>(null)
   const [current, setCurrent] = useState(() => Math.max(1, Math.floor(initialPlace?.page || 1)))
   const [available, setAvailable] = useState(720)
+  const [viewportHeight, setViewportHeight] = useState(0)
+  const [visible, setVisible] = useState<PdfOriginalPlace>(initialPlace ?? { page: 1, frac: 0 })
+  const mapFrame = useRef(0)
+  const nextMapPlace = useRef(visible)
+  useEffect(() => () => cancelAnimationFrame(mapFrame.current), [])
+  const mapDrag = useRef(false)
+  const [sourceLines, setSourceLines] = useState<Record<number, PdfSourceLine[]>>({})
   const [zoom, setZoom] = useState(() => Number.isFinite(initialZoom) ? clamp(initialZoom, .5, 3) : 1)
   const [ratio, setRatio] = useState(1.4)
   const [ratios, setRatios] = useState<Record<number, number>>({})
@@ -125,6 +163,12 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   const report = useCallback((n: number, frac: number) => {
     const next = { page: n, frac: clamp(frac, 0, 1) }
     place.current = next
+    nextMapPlace.current = next
+    if (!mapFrame.current) mapFrame.current = requestAnimationFrame(() => {
+      mapFrame.current = 0
+      const next = nextMapPlace.current
+      setVisible(previous => previous.page === next.page && previous.frac === next.frac ? previous : next)
+    })
     callbacks.current.onVisiblePlace(next)
     const root = scroller.current
     if (root) callbacks.current.onPageEnd?.(n, ready.current.has(n) && root.scrollTop + root.clientHeight >= topOf(n) + heightOf(n) - 2)
@@ -162,7 +206,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   useLayoutEffect(() => {
     const root = scroller.current
     if (!root) return
-    const measure = () => setAvailable(Math.max(1, root.clientWidth))
+    const measure = () => { setAvailable(Math.max(1, root.clientWidth)); setViewportHeight(root.clientHeight) }
     measure()
     if (typeof ResizeObserver === 'undefined') return
     const observer = new ResizeObserver(measure)
@@ -232,13 +276,67 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     root.addEventListener('touchcancel', end)
     return () => { root.removeEventListener('wheel', wheel); root.removeEventListener('touchstart', start); root.removeEventListener('touchmove', move); root.removeEventListener('touchend', end); root.removeEventListener('touchcancel', end) }
   }, [])
-  return <section className="pdf-original" aria-label="Original PDF pages">
+  const cacheLines = useCallback((n: number, lines: PdfSourceLine[]) => {
+    setSourceLines(previous => JSON.stringify(previous[n]) === JSON.stringify(lines) ? previous : { ...previous, [n]: lines })
+  }, [])
+  const sourceMap = useMemo(() => {
+    const heights = Array.from({ length: pdf?.numPages ?? 0 }, (_, index) => heightOf(index + 1))
+    const starts: number[] = []
+    let total = 0
+    heights.forEach((height, index) => { starts.push(total); total += height + (index < heights.length - 1 ? GAP : 0) })
+    return { heights, starts, total: total || 1 }
+  }, [pdf, heightOf])
+  const mapLines = useMemo(() => {
+    let previous = -3
+    return sourceMap.starts.flatMap((start, index) => {
+      const lines = sourceLines[index + 1]
+      // Unknown pages retain only their truthful source-page tick; scans have no invented text.
+      const local = lines ?? [{ y: 0, left: .1, right: .8 }]
+      return local.flatMap(line => {
+        const y = (start + line.y * sourceMap.heights[index]) / sourceMap.total * 600
+        if (y - previous < 3) return []
+        previous = y
+        return [{ y, left: 4 + line.left * 23, right: 4 + line.right * 23 }]
+      })
+    })
+  }, [sourceMap, sourceLines])
+  const mapPosition = ((sourceMap.starts[visible.page - 1] ?? 0) + visible.frac * (sourceMap.heights[visible.page - 1] ?? 0)) / sourceMap.total
+  const mapJump = (event: React.PointerEvent<SVGSVGElement>) => {
+    const box = event.currentTarget.getBoundingClientRect()
+    if (!box.height) return
+    const next = pdfSourcePlaceAt(clamp((event.clientY - box.top) / box.height, 0, 1) * sourceMap.total, sourceMap.heights)
+    jump(next.page, next.frac)
+  }
+  return <section className={`pdf-original ${phone ? 'pdf-original--phone' : 'pdf-original--desktop'}`} aria-label="Original PDF pages">
     <div className="pdf-original__controls">
       <button type="button" onClick={() => jump(current - 1)} disabled={!pdf || current <= 1} aria-label="Previous PDF page">Previous</button>
       <span aria-live="polite">Page {current} of {pdf?.numPages ?? '…'}</span>
       <button type="button" onClick={() => jump(current + 1)} disabled={!pdf || current >= pdf.numPages} aria-label="Next PDF page">Next</button>
     </div>
     {error && <p role="alert">{error}</p>}
+    {!phone && pdf && <svg className="pdf-original__minimap" data-testid="pdf-source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none"
+      role="slider" tabIndex={0} aria-label="Original PDF position" aria-valuemin={1} aria-valuemax={pdf.numPages} aria-valuenow={visible.page}
+      aria-valuetext={`Page ${visible.page} of ${pdf.numPages}, ${Math.round(visible.frac * 100)}% down the page`}
+      onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); mapDrag.current = true; mapJump(event) }}
+      onPointerMove={event => { if (mapDrag.current) mapJump(event) }} onPointerUp={() => { mapDrag.current = false }} onPointerCancel={() => { mapDrag.current = false }}
+      onKeyDown={event => {
+        const step = event.key === 'ArrowDown' || event.key === 'PageDown' ? 1 : event.key === 'ArrowUp' || event.key === 'PageUp' ? -1 : 0
+        if (!step && event.key !== 'Home' && event.key !== 'End') return
+        event.preventDefault()
+        jump(event.key === 'Home' ? 1 : event.key === 'End' ? pdf.numPages : current + step)
+      }}>
+      <title>Drag to move through original PDF pages</title>
+      {mapLines.map((line, index) => <line key={index} x1={line.left} x2={line.right} y1={line.y + .5} y2={line.y + .5} className="pdf-original__map-line" />)}
+      <rect x={.5} y={mapPosition * 600} width={33} height={Math.max(4, Math.min(600 - mapPosition * 600, viewportHeight / sourceMap.total * 600))} rx={4} className="pdf-original__map-window" />
+      {highlights.filter(mark => mark.page >= 1 && mark.page <= sourceMap.heights.length).map(mark => {
+        const top = mark.rects.find(rect => rect.length === 4 && Number.isFinite(rect[1]))?.[1] ?? 0
+        return <circle key={mark.id} cx={30} cy={((sourceMap.starts[mark.page - 1] ?? 0) + clamp(top, 0, 1) * sourceMap.heights[mark.page - 1]) / sourceMap.total * 600} r={2} className="pdf-original__map-mark" style={{ fill: HIGHLIGHT_COLORS.find(color => color.key === mark.color)?.hex ?? mark.color }} />
+      })}
+      {cards.filter(card => card.page >= 1 && card.page <= sourceMap.heights.length).map(card => {
+        const top = card.rects?.find(rect => rect.length === 5 && rect[0] === card.page && Number.isFinite(rect[2]))?.[2] ?? 0
+        return <circle key={card.id} cx={30} cy={((sourceMap.starts[card.page - 1] ?? 0) + clamp(top, 0, 1) * sourceMap.heights[card.page - 1]) / sourceMap.total * 600} r={2.3} className="pdf-original__map-card" />
+      })}
+    </svg>}
     <div className="pdf-original__scroll" ref={scroller} tabIndex={0} onScroll={event => {
       if (!pdf || !first.current) return
       const top = event.currentTarget.scrollTop
@@ -256,7 +354,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
         const n = index + 1, height = heightOf(n)
         return <div key={n} ref={element => { if (element) pages.current.set(n, element); else pages.current.delete(n) }} className="pdf-original__slot" style={{ width: sheetWidth, height }}>
           {Math.abs(n - current) <= 1 && <PdfSheet pdf={pdf} number={n} width={sheetWidth} height={height} highlights={highlights}
-            follow={follow?.page === n ? follow : null} onText={setPageText} onSelection={select} onSize={size} onReady={rendered} onError={drawError} />}
+            follow={follow?.page === n ? follow : null} onText={setPageText} onSelection={select} onSize={size} onReady={rendered} onError={drawError} onLines={cacheLines} />}
         </div>
       })}
     </div>

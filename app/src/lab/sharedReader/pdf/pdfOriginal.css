@@ -13,7 +13,7 @@
 .pdf-original__follow { position: absolute; pointer-events: none; background: rgba(77, 152, 210, .34); border-radius: 2px; }
 .pdf-original__text { position: absolute; left: 0; top: 0; overflow: hidden; user-select: text; }
 .pdf-original__text span { position: absolute; white-space: pre; color: transparent; line-height: 1; transform-origin: 0 0; }
-.pdf-original__text span::selection { background: rgba(45, 105, 163, .38); }
+.pdf-original__text span::selection { color:transparent; background: rgba(45, 105, 163, .38); }
 .pdf-original__page-number { position: absolute; right: 6px; bottom: 4px; font: 10px system-ui, sans-serif; color: #6a6256; pointer-events: none; }
 .pdf-original__size { display: flex; align-items: center; gap: 8px; font: 12px system-ui, sans-serif; }
 .pdf-original__size input { width: 104px; accent-color: #6a6256; }
@@ -26,3 +26,19 @@
 html[data-eink=true] .pdf-original-reader .pdf-original__page { background: #fff; }
 html[data-eink=true] .pdf-original-reader .pdf-original__page canvas { mix-blend-mode: normal; filter: none; }
 @media(max-width:700px) { .pdf-original__size { display: none; } .pdf-original__controls { gap: 8px; } .pdf-original__controls button { padding: 4px 7px; } }
+/* Original pages retain the soft paper edge of the earlier PDF reader. */
+.pdf-original-reader .pdf-original__page { box-shadow:0 1px 2px rgba(40,34,20,.12),0 6px 18px rgba(40,34,20,.10); }
+.pdf-original-reader[data-theme=dark] .pdf-original__page { box-shadow:0 0 0 1px #2a251f,0 8px 24px rgba(0,0,0,.35); }
+html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0 1px #777; }
+.pdf-original--desktop { position:relative; }
+.pdf-original--desktop .pdf-original__scroll { margin-left:40px; }
+.pdf-original__minimap { position:absolute; left:1px; top:62px; bottom:24px; width:30px; height:calc(100% - 86px); color:var(--lab-ink-muted,#6a6256); touch-action:none; cursor:ns-resize; overflow:visible; }
+.pdf-original__map-line { stroke:currentColor; stroke-width:.7; opacity:.26; }
+.pdf-original__map-window { stroke:currentColor; stroke-width:.7; fill:currentColor; fill-opacity:.05; stroke-opacity:.35; }
+.pdf-original__map-mark { fill:var(--lab-accent,#b69a5e); }
+.pdf-original__minimap:focus-visible { outline:1px solid currentColor; outline-offset:4px; border-radius:5px; }
+.pdf-original__map-card { fill:var(--lab-accent,#a15b37); }
+.pdf-original-reader .pdf-original__controls button { border:0; border-radius:5px; padding:5px 9px; color:var(--lab-ink-muted); font:13px system-ui,sans-serif; }
+.pdf-original-reader .pdf-original__controls button:not(:disabled):hover { background:color-mix(in srgb,var(--lab-ink) 6%,transparent); color:var(--lab-ink); }
+.pdf-original-reader .pdf-original__controls button:focus-visible { outline:1px solid var(--lab-ink-muted); outline-offset:2px; }
+.pdf-original-reader .pdf-original__controls > span { font:13px system-ui,sans-serif; color:var(--lab-ink-muted); }

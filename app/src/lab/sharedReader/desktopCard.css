@@ -1,0 +1,26 @@
+.lab .lab-desktop-card {
+  position: fixed; z-index: 330; display: flex; flex-direction: column;
+  min-height: 0; height: auto; margin: 0; padding: 0; box-sizing: border-box;
+  border: 1px solid var(--lab-pcard-hair); border-radius: 22px;
+  background: var(--lab-pcard-fill); color: var(--lab-ink);
+  box-shadow: 0 4px 12px rgba(40, 34, 20, .06), 0 18px 48px rgba(40, 34, 20, .10);
+  animation: none; transform: none; overflow: hidden;
+}
+.lab .lab-desktop-card .lab-pcard-head { flex: none; padding: 14px 16px 10px; }
+.lab .lab-desktop-card .lab-pcard-label { flex: 1; }
+.lab .lab-desktop-card .lab-pcard-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 16px; }
+.lab .lab-desktop-card .lab-pcard-follow { flex: none; padding: 10px 14px 14px; }
+html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 1px solid currentColor; }
+.lab[data-shared-reader="true"].is-desktop .lab-pcard.lab-desktop-card { border-radius: 22px; padding: 0; }
+.lab .lab-desktop-card::after { content: none; }
+/* One compact narration strip, including continuous Margin where paging is off. */
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock {
+  left: 50%; right: auto; transform: translateX(-50%); width: min(580px, calc(100% - 80px));
+  bottom: var(--lab-dock-bottom, 12px); min-height: 0; padding: 6px 10px; gap: 5px;
+  grid-template-columns: repeat(4, 36px) minmax(0, 1fr) auto; border-radius: 24px;
+  color: var(--lab-ink); background: color-mix(in srgb, var(--lab-paper) 90%, transparent);
+  border: 1px solid var(--lab-border); box-shadow: 0 5px 24px rgba(40,34,20,.10);
+}
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock > button { width: 36px; height: 36px; min-width: 36px; border-radius: 12px; }
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-dock > button.is-primary { background: var(--lab-surface); color: var(--lab-ink); box-shadow: none; }
+.lab[data-shared-reader="true"].is-desktop .lab-desktop-audio-track span { font-size: 11px; opacity: .65; }

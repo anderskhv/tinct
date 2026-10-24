@@ -451,6 +451,24 @@ describe('a PDF read as its Tinct text', () => {
 })
 
 describe('UserBookReader', () => {
+  it('opens a new own EPUB in Two-page and keeps desktop layout choices off the phone', async () => {
+    const book = { ...loaded({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 7 }), kind: 'epub' as const, images: new Map() }
+    const view = render(<UserBookReader hex={HEX} owner="me" sharedReader open={async () => ({ ok: true, book })} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-header-aa'))
+    expect(screen.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed')).toBe('true')
+    expect(screen.queryByTestId('lab-v2-layout-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('2:7')
+    view.unmount()
+    window.history.replaceState(null, '', '/reader?layout=phone')
+    render(<UserBookReader hex={HEX} owner="me" phone sharedReader open={async () => ({ ok: true, book })} reconcile={async () => {}} />)
+    await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
+    expect(screen.queryByTestId('lab-header-aa')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-layout-margin')).toBeNull()
+  })
+
   it('hides the old private source synchronously when the mounted reader changes account', async () => {
     const book = { ...loaded(), kind: 'epub' as const, images: new Map<string, string>() }
     let resolveNext: ((value: { ok: true; book: typeof book }) => void) | undefined
@@ -473,9 +491,10 @@ describe('UserBookReader', () => {
     render(<UserBookReader hex={HEX} owner="me" sharedReader open={open} reconcile={async () => {}} />)
     await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
     expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ epubView: 'text', sharedReader: true }))
-    expect(open.mock.lastCall?.[1]).not.toHaveProperty('desktop')
+    expect(open.mock.lastCall?.[1]).toHaveProperty('desktop', true)
     expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
     expect(localStorage.getItem(`tinct-addbook:epub-view:${HEX}`)).toBe('"margin"')
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
     expect(localStorage.getItem('tinct:margin-preview')).toBe('1')
   })
 
@@ -485,8 +504,9 @@ describe('UserBookReader', () => {
     render(<UserBookReader hex={HEX} sharedReader open={open} reconcile={reconcile} />)
     await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
     expect(open).toHaveBeenCalledWith(HEX, expect.objectContaining({ sharedReader: true }))
-    expect(open.mock.lastCall?.[1]).not.toHaveProperty('desktop')
+    expect(open.mock.lastCall?.[1]).toHaveProperty('desktop', true)
     expect(reconcile).toHaveBeenCalledOnce()
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
     expect(screen.queryByTestId('margin-preview-frame')).toBeNull()
   })
 

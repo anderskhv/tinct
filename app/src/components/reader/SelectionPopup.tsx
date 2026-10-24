@@ -78,6 +78,8 @@ export interface SelectionPopupProps {
   onAskQuestion?: (question: string) => void
   /** Private shared reader: start the existing passage quiz flow. */
   onQuizPassage?: () => void
+  onPassageNote?: () => void
+  onPassageAction?: (kind: 'explain' | 'simplify' | 'factcheck' | 'counterpoint' | 'define') => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
   onCopy: () => void
@@ -218,6 +220,8 @@ export function SelectionPopup({
   onExplain,
   onAskQuestion,
   onQuizPassage,
+  onPassageAction,
+  onPassageNote,
   onExplanationReady,
   onTalkExplanation,
   onRequestExplanation,
@@ -241,6 +245,7 @@ export function SelectionPopup({
   const [explainPlacement, setExplainPlacement] = useState({ edge: 'bottom', available: 520 })
   const [explainIntent, setExplainIntent] = useState<ExplainIntent | undefined>(undefined)
   const openContextualExplanation = (intent?: ExplainIntent) => {
+    if (onPassageAction) { onPassageAction(intent ?? 'explain'); return }
     setExplainIntent(intent)
     // Position beside the selected passage without moving the reader or its place.
     const pointerY = sharedPointerY(selection, sharedReader, keyboardDock)
@@ -324,8 +329,11 @@ export function SelectionPopup({
       place()
     }) : null
     observer?.observe(el)
+    let frameId = 0
+    const schedule = () => { if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; place() }) }
     window.addEventListener('resize', place)
-    return () => { observer?.disconnect(); window.removeEventListener('resize', place) }
+    window.addEventListener('scroll', schedule, true)
+    return () => { cancelAnimationFrame(frameId); observer?.disconnect(); window.removeEventListener('resize', place); window.removeEventListener('scroll', schedule, true) }
   }, [lab, popupMode, selection.x, selection.y, selection.showBelow, popupRef, sharedReader, keyboardDock])
   const homeMode = homeModeFor(selection)
   const [galleryId, setGalleryId] = useState<string | null>(null)
@@ -375,6 +383,7 @@ export function SelectionPopup({
    * without this request still leaves the keyboard down.
    */
   const requestNote = (color?: HighlightColor) => {
+    if (onPassageNote) { onPassageNote(); return }
     flushSync(() => onRequestNote(color))
     noteFieldRef.current?.focus({ preventScroll: true })
   }
@@ -466,7 +475,7 @@ export function SelectionPopup({
         onExplain={() => (ask ? openContextualExplanation() : onExplain())}
         onSimplify={() => (ask ? openContextualExplanation('simplify') : onExplain())}
         onMore={id => {
-          if (id === 'define') onDefine()
+          if (id === 'define') { if (onPassageAction) onPassageAction('define'); else onDefine() }
           else if (id === 'factcheck' || id === 'counterpoint') openContextualExplanation(id)
           else if (id === 'quiz') onQuizPassage?.()
           else if (id === 'copy') onCopy()

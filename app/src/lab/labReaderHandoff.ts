@@ -19,13 +19,13 @@ let pageModernReturn: ModernReturn | null = null
 let pageDeepLinkView: LabDeepLinkView | null = null
 
 /**
- * The desktop layout a deep link asks for (`view=two-page|compare`): the margin preview's Layout choices
- * (Anders, 2026-10-20) open the book reader at the same place in Two-page or Compare. Read with the link, once.
+ * The desktop layout a deep link asks for (`view=margin|two-page|compare`): the margin preview's Layout choices
+ * (Anders, 2026-10-20) open the book reader at the same place in the requested layout. Read with the link, once.
  */
-export type LabDeepLinkView = 'two-page' | 'compare'
+export type LabDeepLinkView = 'margin' | 'two-page' | 'compare'
 export function deepLinkView(params: URLSearchParams | null): LabDeepLinkView | null {
   const view = params?.get('view')
-  return view === 'two-page' || view === 'compare' ? view : null
+  return view === 'margin' || view === 'two-page' || view === 'compare' ? view : null
 }
 export function deepLinkViewForPage(): LabDeepLinkView | null {
   return pageDeepLinkView

@@ -27,3 +27,28 @@
     width: min(43rem, calc(100% - 5rem)); min-width: 0; margin: 0 auto;
   }
 }
+/* The 21 October paper edges: one continuous sheet; padding sits outside its reading measure. */
+.lab.is-desktop[data-continuous-reader="true"] { --continuous-paper-pad: clamp(28px, 3.4vw, 54px); }
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+  width: min(calc(38rem + 2 * var(--continuous-paper-pad)), calc(100% - clamp(22rem, 32vw, 30rem)));
+  min-width: 0; box-sizing: border-box; padding-inline: var(--continuous-paper-pad);
+  margin-left: clamp(4rem, 7vw, 7rem); background: var(--lab-paper);
+  box-shadow: -12px 0 16px -14px rgba(40,34,20,.34), 12px 0 16px -14px rgba(40,34,20,.34), inset 1px 0 0 rgba(40,34,20,.07), inset -1px 0 0 rgba(40,34,20,.07);
+}
+.lab.is-night[data-continuous-reader="true"] .continuous-reader-window {
+  box-shadow: -12px 0 18px -14px rgba(0,0,0,.8), 12px 0 18px -14px rgba(0,0,0,.8), inset 1px 0 0 rgba(255,255,255,.05), inset -1px 0 0 rgba(255,255,255,.05);
+}
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window:last-child { padding-bottom: 3rem; }
+.lab .source-minimap {
+  position: fixed; left: 16px; top: 100px; width: 34px; height: calc(100dvh - 200px); z-index: 60;
+  overflow: visible; cursor: pointer; touch-action: none; color: var(--lab-ink-muted);
+}
+.lab .source-minimap-line { stroke: currentColor; stroke-width: .7; opacity: .26; }
+.lab .source-minimap-window { stroke: currentColor; stroke-width: .7; fill: currentColor; fill-opacity: .05; stroke-opacity: .35; }
+.lab .source-minimap-mark { fill: var(--lab-accent, #b69a5e); }
+.lab .source-minimap:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; border-radius: 6px; }
+@media (max-width: 1100px) {
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window { width: min(calc(38rem + 2 * var(--continuous-paper-pad)), calc(100% - 6rem)); margin-inline: auto; }
+}
+html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-window { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777; }
+.lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { background: transparent; border: 0; border-radius: 0; box-shadow: none; }

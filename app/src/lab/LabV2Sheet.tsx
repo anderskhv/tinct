@@ -303,11 +303,11 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
     : (
       <div className="lab-v2-head is-centred" data-reader-window-handle>
         {picker ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : layer === 'compareEdition' && compareFromLayout ? '‹ Aa' : '‹ Book settings'}</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer(layer === 'audioEdition' ? 'audio' : layer === 'compareEdition' && compareFromLayout ? 'reading' : 'editions')}>{layer === 'audioEdition' ? '‹ Audio settings' : layer === 'compareEdition' && compareFromLayout ? '‹ Appearance' : '‹ Book settings'}</button>
         ) : layer === 'font' ? (
           <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('advanced')}>‹ Advanced</button>
         ) : layer === 'advanced' ? (
-          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Aa</button>
+          <button type="button" className="lab-v2-back" data-testid="lab-v2-sheet-back" onClick={() => onLayer('reading')}>‹ Appearance</button>
         ) : (
           <button type="button" className="lab-v2-dismiss" data-testid="lab-v2-sheet-close" aria-label="Close" onClick={onClose}>×</button>
         )}
@@ -380,7 +380,10 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                         <button type="button" key={layout} className="lab-v2-edition-option"
                           data-testid={`lab-v2-layout-${layout}`} aria-pressed={readerLayout.active === layout}
                           onClick={() => readerLayout.onChoose(layout)}>
-                          <span className="lab-v2-edition-name">{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
+                          <span className={`lab-v2-layout-miniature is-${layout}`} aria-hidden="true"><i /><i /><i /></span>
+                          <span className="lab-v2-edition-name"><span>{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
+                            <small className="lab-v2-layout-description">{layout === 'two-page' ? 'Turn through two facing pages.' : layout === 'compare' ? 'Read compatible versions side by side.' : 'Flowing text with room for passage cards.'}</small>
+                          </span>
                           <span className="lab-v2-edition-check" aria-hidden="true">{readerLayout.active === layout ? '✓' : ''}</span>
                         </button>
                       ))

@@ -320,14 +320,14 @@ describe('the super-menu', () => {
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
     const sheet = screen.getByTestId('lab-v2-sheet')
     expect(sheet.getAttribute('data-layer')).toBe('reading')
-    expect(sheet.getAttribute('aria-label')).toBe('Aa')
+    expect(sheet.getAttribute('aria-label')).toBe('Appearance')
     expect(screen.getByTestId('lab-v2-themes')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-size')).toBeTruthy()
     expect(screen.getByTestId('lab-v2-advanced')).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
     expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
-    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Aa')
+    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Appearance')
     fireEvent.click(screen.getByTestId('lab-v2-sheet-confirm'))
 
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -379,7 +379,7 @@ describe('the super-menu', () => {
       const sheet = screen.getByTestId('lab-v2-sheet')
       return { layer: sheet.getAttribute('data-layer'), label: sheet.getAttribute('aria-label'), themes: !!screen.queryByTestId('lab-v2-themes'), main: !!screen.queryByTestId('lab-v2-main-edition'), voice: !!screen.queryByTestId('lab-v2-narration-voice') }
     }
-    expect(open('text')).toEqual({ layer: 'reading', label: 'Aa', themes: true, main: false, voice: false })
+    expect(open('text')).toEqual({ layer: 'reading', label: 'Appearance', themes: true, main: false, voice: false })
     fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
     expect(open('editions')).toEqual({ layer: 'editions', label: 'Book settings', themes: false, main: true, voice: false })
     fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
