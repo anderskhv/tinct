@@ -9,8 +9,9 @@ const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-panels'
+const distRoot = path.resolve(process.env.READER_PANELS_DIST || 'dist')
 // Checks use the exact built artifact, including its release-specific default.
-const { SHARED_READER_DEFAULT } = await import(pathToFileURL(path.resolve('dist/lab/shared-reader-activation.js')).href)
+const { SHARED_READER_DEFAULT } = await import(pathToFileURL(path.join(distRoot, 'lab/shared-reader-activation.js')).href)
 await fs.mkdir(output, { recursive: true })
 const results = []
 const explanation = 'A compact opening grounded in the selected passage.\n\nA second paragraph adds useful context and interpretation without filling the entire screen.'
@@ -40,7 +41,10 @@ async function checkLibraryRow(page, name) {
   assert.equal(layout.radius,'0px');assert(layout.height>=44);
   assert(layout.left>=layout.panelLeft&&layout.right<=layout.panelRight,'library row stays inside the panel');
   // A pointer-opened menu does not imply keyboard modality in WebKit.
-  await row.focus();await page.keyboard.press('Shift+Tab');await page.keyboard.press('Tab');
+  // macOS Safari's default Tab policy skips buttons; Option+Tab visits all controls.
+  const tab = process.platform === 'darwin' && name.startsWith('webkit') ? 'Alt+Tab' : 'Tab'
+  const backTab = tab === 'Alt+Tab' ? 'Alt+Shift+Tab' : 'Shift+Tab'
+  await row.focus();await page.keyboard.press(backTab);await page.keyboard.press(tab);
   const focus=await row.evaluate(n=>{const s=getComputedStyle(n);return {active:document.activeElement===n,visible:n.matches(':focus-visible'),width:s.outlineWidth,offset:s.outlineOffset}});
   assert(focus.active&&focus.visible,'Library is reachable by keyboard: '+JSON.stringify(focus));
   assert(Number.parseFloat(focus.width)>0&&Number.parseFloat(focus.width)+Number.parseFloat(focus.offset)<=0,'keyboard focus stays inside the panel: '+JSON.stringify(focus));
@@ -88,8 +92,8 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     }
     if (!live && url.origin === origin) {
       const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname
-      const filename = path.resolve('dist', '.' + pathname)
-      if (filename.startsWith(path.resolve('dist') + '/')) {
+      const filename = path.resolve(distRoot, '.' + pathname)
+      if (filename.startsWith(distRoot + '/')) {
         try { if ((await fs.stat(filename)).isFile()) return route.fulfill({path:filename}) } catch {}
       }
     }
@@ -165,7 +169,9 @@ async function run(engine,name,phone) {
   try {
     state=await boot(browser,phone)
     const {page,requests,errors}=state
-    const sharedPhone=phone && await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const shared=await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const sharedPhone=phone && shared
+    const cardSelector=phone?'[data-testid="lab-phone-card"]':'.lab-desktop-card'
     const initialPlace=await page.getByTestId('lab-root').getAttribute('data-place')
     const bundle=await page.locator('script[src]').evaluateAll(nodes=>nodes.map(n=>new URL(n.src).pathname).find(s=>/\/assets\/index-.*\.js$/.test(s)))
     result.bundle=bundle
@@ -215,6 +221,13 @@ async function run(engine,name,phone) {
       assert.equal(await card.getByTestId('lab-phone-card-answer').count(),1,'the answer is inside the card')
       assert.equal(await card.getByTestId('lab-phone-card-input').count(),1,'the card keeps its follow-up field')
       assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'Explain does not advance the page')
+    } else if(shared) {
+      const card=page.locator(cardSelector+'[data-kind="explain"]')
+      box=await card.boundingBox()
+      assert(box && box.height>80 && box.height<650 && box.width<=720,'shared explanation is readable and at most one leaf wide')
+      assert.equal(await card.getByTestId('lab-phone-card-input').count(),1)
+      assert.deepEqual(await wordBoxes(page),before,'shared explanation does not reflow source text')
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace)
     } else {
       await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
       assert.equal(await page.getByRole('button',{name:'Collapse explanation',exact:true}).count(),0)
@@ -224,7 +237,7 @@ async function run(engine,name,phone) {
       assert(box.height<650,'short explanation must fit its content')
       await page.getByRole('button',{name:'Close explanation',exact:true}).waitFor({state:'visible'})
     }
-    if(!phone) {
+    if(!phone && !shared) {
       const popup=page.locator('.selection-popup')
       assert(box.width<=720,'explanation is at most one leaf wide')
       await drag(page,popup.locator('[data-reader-window-handle]'),-100,50)
@@ -241,6 +254,13 @@ async function run(engine,name,phone) {
       await select(page)
       await page.getByTestId('lab-pbar-highlight').click()
       await page.getByTestId('lab-pbar-color-sage').click()
+    } else if(shared) {
+      await page.keyboard.press('Escape')
+      await page.locator(cardSelector).waitFor({state:'hidden'})
+      await select(page)
+      await page.getByTestId('lab-dbar-highlight').click()
+      await page.getByTestId('lab-dbar-highlight').click()
+      await page.getByTestId('lab-dbar-color-sage').click()
     } else {
       await page.getByRole('button',{name:'Highlight this passage'}).click()
       await page.getByRole('button',{name:/^(Highlight )?Sage$/}).click()
@@ -315,7 +335,7 @@ async function run(engine,name,phone) {
     }
     await clickMenu(page,'theme')
     const sheet=page.getByTestId('lab-v2-sheet')
-    if(!phone){
+    if(!phone && !shared){
       const original=await sheet.boundingBox()
       await drag(page,sheet.locator('[data-reader-window-handle]'),-150,20)
       assert(Math.abs((await sheet.boundingBox()).x-original.x)>60)
@@ -347,13 +367,13 @@ async function run(engine,name,phone) {
       await select(page)
       await page.getByRole('button',{name:'Explain',exact:true}).click()
       await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-      if(sharedPhone) {
-        const colours=await page.getByTestId('lab-phone-card').evaluate(node=>{
+      if(shared) {
+        const colours=await page.locator(cardSelector).evaluate(node=>{
           const style=getComputedStyle(node), root=getComputedStyle(node.closest('.lab'))
           const probe=document.createElement('i');probe.style.color=root.getPropertyValue('--lab-ink');node.append(probe)
           const theme=getComputedStyle(probe).color;probe.remove();return {ink:style.color,theme}
         })
-        assert.equal(colours.ink,colours.theme,'the phone card follows the reader theme')
+        assert.equal(colours.ink,colours.theme,'the response card follows the reader theme')
         assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'themed answer leaves the page still')
       } else {
         const colours=await page.locator('.lab-contextual-explain-more').evaluate(node=>{
@@ -364,7 +384,7 @@ async function run(engine,name,phone) {
         assert.equal(colours.ink,colours.theme,'More follows the theme')
       }
       await page.screenshot({path:output+'/'+name+'-'+result.layout+'-'+theme+'.png'})
-      if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
+      if(shared) { await page.keyboard.press('Escape'); await page.locator(cardSelector).waitFor({state:'hidden'}) }
       else await page.getByRole('button',{name:'Close explanation',exact:true}).click()
     }
     await page.getByTestId('lab-header-book').click()
