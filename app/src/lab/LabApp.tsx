@@ -550,7 +550,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
   // The phone's margin mode on the phone reader: a registered book, and a reader's own book as Tinct's books (22 Oct 2026).
-  const marginPhone = marginPhoneRequested && showPhoneChrome
+  const marginPhone = (sharedReader || marginPhoneRequested) && showPhoneChrome
   // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
   const ownPdf = userBook?.kind === 'pdf'
   // A user book opens at its own saved place (userBookStore.ts), never the

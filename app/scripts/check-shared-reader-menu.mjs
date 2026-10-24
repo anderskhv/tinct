@@ -121,6 +121,24 @@ try {
       assert.deepEqual(errors, [])
     } finally { await context.close() }
   }
+  // The route's initial desktop hint must not freeze phone selection routing.
+  {
+    const { context, page, errors } = await open('light')
+    try {
+      await page.setViewportSize({ width: 390, height: 844 })
+      await page.waitForFunction(() => document.querySelector('.lab')?.classList.contains('is-margin-phone'))
+      await select(page)
+      await page.getByTestId('lab-phone-bar').waitFor()
+      assert.equal(await page.locator('.selection-popup').count(), 0)
+      await page.keyboard.press('Escape')
+      await page.setViewportSize({ width: 1440, height: 900 })
+      await page.waitForFunction(() => !document.querySelector('.lab')?.classList.contains('is-margin-phone'))
+      await select(page)
+      await page.getByTestId('lab-desk-bar').waitFor()
+      assert.equal(await page.getByTestId('lab-phone-bar').count(), 0)
+      assert.deepEqual(errors, [])
+    } finally { await context.close() }
+  }
   for (const theme of ['light', 'book', 'dark', 'eink']) {
     const { context, page, errors } = await open(theme === 'eink' ? 'light' : theme, true)
     try {
