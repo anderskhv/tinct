@@ -68,9 +68,9 @@ function harness() {
 }
 
 describe('source-fixed rollback-floor storage policy on one R2 bucket', () => {
-  it('pins all three historical routes and tests the pending reader branch as the live modern route', async () => {
+  it('pins all three historical routes and tests the repair-pending reader branch as the live modern route', async () => {
     const rollout = JSON.parse(readFileSync(resolve(routeDirectory, '../../../release/shared-reader-rollout.json'), 'utf8'))
-    expect(rollout.phase).toBe('pending')
+    expect(rollout.phase).toBe('repair-pending')
     const current = readFileSync(resolve(routeDirectory, 'userBooks.ts'), 'utf8')
     expect(createHash('sha256').update(current).digest('hex')).toBe(fixtures.modern[1])
     for (const kind of Object.keys(fixtures) as Array<keyof typeof fixtures>) {

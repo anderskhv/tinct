@@ -396,8 +396,11 @@ export function useLabAsk(options: UseLabAskOptions) {
   }, [])
 
   /** Cards share this hook's local mirror and cloud writer with ordinary chat turns. */
-  const storeCardHistory = useCallback((bookId: string, next: ChatConversation[]) => {
+  const storeCardHistory = useCallback((bookId: string, next: ChatConversation[], retainUnsaved = false) => {
     if (bookId !== chatBookIdRef.current) return false
+    // The local writer rejects mixed-book rows. Apply the same boundary before
+    // retaining an unsaved value or offering it to the account writer.
+    if (next.some(row => row.bookId !== bookId || row.messages.some(message => message.bookId && message.bookId !== bookId))) return false
     const owned = optionsRef.current.ownCardController
     if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return false
     let saved = false
@@ -406,12 +409,20 @@ export function useLabAsk(options: UseLabAskOptions) {
       writeLabBookChat(bookId, next)
       try { saved = localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) === JSON.stringify(next) } catch { saved = false }
     }
-    if (!saved) { setNotice('This card could not be saved on this device. Copy it before leaving the reader.'); return false }
+    if (!saved && !retainUnsaved) {
+      setNotice('This card could not be saved on this device. Copy it before leaving the reader.')
+      return false
+    }
+    // A completed catalogue answer still belongs in this page's history when
+    // storage is full. Like ordinary turns, offer its only copy to the account
+    // writer immediately. Neither memory nor a queued write proves it is saved.
+    // saveCard's caller owns the contextual failure notice; delete/undo keep
+    // their prior state on failure and use the hook notice above.
     conversationsRef.current = next
     loadedForBookRef.current = bookId
     setConversations(next)
-    cloudWriterRef.current?.push(bookId, next)
-    return true
+    cloudWriterRef.current?.push(bookId, next, { now: !saved })
+    return saved
   }, [])
   const saveCard = useCallback((card: SharedReaderCard): boolean => {
     const bookId = chatBookIdRef.current
@@ -425,8 +436,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     if (card.source.kind !== 'catalogue' || card.source.bookId !== bookId || !bookId || isUserBookId(bookId) || !catalogueCardConversation(card)) return false
     const current = loadedForBookRef.current === bookId ? conversationsRef.current : readBookChat(bookId)
     const next = upsertCatalogueCard(current, card)
-    if (next !== current && !storeCardHistory(bookId, next)) return false
-    return next.some(item => item.card?.id === card.id && !item.card.gone && item.card.u >= card.u)
+    if (!next.some(item => item.card?.id === card.id && !item.card.gone && item.card.u >= card.u)) return false
+    // An identical in-memory card may be a failed write. Retry persistence
+    // instead of reporting success merely because the upsert was a no-op.
+    return storeCardHistory(bookId, next, true)
   }, [storeCardHistory])
   const deleteCard = useCallback((conversationId: string): (() => boolean) | null => {
     const bookId = chatBookIdRef.current

@@ -51,6 +51,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
   const page = await context.newPage(), denied = [], errors = [], calls = []
+  const finishOriginalPage = async number => page.locator('.pdf-original__scroll').evaluate((el, pageNumber) => {
+    const sheet = el.querySelector(`.pdf-original__slot:nth-child(${pageNumber})`)
+    if (!sheet) throw new Error(`original page ${pageNumber} has no continuous sheet`)
+    el.scrollTop = sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2
+    el.dispatchEvent(new Event('scroll', { bubbles: true }))
+  }, number)
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
@@ -176,7 +182,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.locator('.pdf-original__text').getByText(/Dense original page/).first().waitFor({ timeout: 45000 })
       await page.getByRole('button', { name: 'Next PDF page' }).click()
       await page.getByText('End of dense original chapter.').waitFor()
-      await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = el.scrollHeight; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+      await finishOriginalPage(2)
       const after = page.getByRole('complementary', { name: 'After Chapter One' })
       await after.waitFor()
       const chatBefore = calls.filter(call => call.path === '/api/chat').length
@@ -195,6 +201,34 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.locator('[data-pdf-original="true"] .pdf-original__text').getByText('First original page with selectable source words.').waitFor({ timeout: 45000 })
     assert.equal(await page.locator('[data-pdf-original="true"]').count(), 1)
     assert.equal(await page.locator('iframe[data-testid="margin-preview-frame"]').count(), 0)
+    if (!narrationSuccess) {
+      await page.setViewportSize({ width: 2047, height: 1133 })
+      const geometry = await page.evaluate(() => {
+        const names = ['Contents', 'Notebook', 'Reading settings', 'Listen', 'Menu']
+        const controls = names.map(name => {
+          const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')]
+            .find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
+          const rect = button?.getBoundingClientRect(), hit = rect && document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+          return { name, rect: rect && { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
+            hit: !!button && (button === hit || button.contains(hit)) }
+        })
+        return { controls, width: document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width,
+          canvases: document.querySelectorAll('.pdf-original__page canvas').length }
+      })
+      assert(geometry.controls.every(item => item.rect && item.rect.left >= 0 && item.rect.right <= 2047
+        && item.rect.top >= 0 && item.rect.bottom <= 1133 && item.hit), `wide PDF header controls are direct targets: ${JSON.stringify(geometry)}`)
+      assert(geometry.width > 0 && geometry.width <= 1500, `PDF sheet uses original capped width: ${JSON.stringify(geometry)}`)
+      assert(geometry.canvases <= 3, `PDF source uses bounded canvases: ${JSON.stringify(geometry)}`)
+      await page.locator('.pdf-original__scroll').evaluate(el => {
+        const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+        el.scrollTop = second.offsetTop + second.clientHeight * .25
+        el.dispatchEvent(new Event('scroll', { bubbles: true }))
+      })
+      await page.getByText('Page 2 of 4', { exact: true }).waitFor()
+      await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+      await page.getByText('Page 1 of 4', { exact: true }).waitFor()
+      await page.setViewportSize({ width: 1100, height: 820 })
+    }
     await page.waitForTimeout(1800)
     const opening = await page.evaluate(hex => ({ keys: Object.keys(localStorage).filter(key => key.includes(hex)),
       status: document.querySelector('.pdf-original-reader__status')?.textContent, owner:window.TinctAI?.session?.()?.userId }), hex)
@@ -243,7 +277,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       'selection Define uses owned display metadata')
     await page.keyboard.press('Escape')
     await page.getByTestId('lab-super').click()
-    await page.getByRole('button', { name: 'Listen', exact: true }).click()
+    await page.getByRole('dialog', { name: 'Reader menu' }).getByRole('button', { name: 'Listen', exact: true }).click()
     for (let i = 0; i < 30 && !calls.some(call => call.path === '/api/narration/own/ensure'); i++) await page.waitForTimeout(100)
     assert(calls.some(call => call.path === '/api/narration/own/ensure'), 'Grok own-book narration path was requested')
     if (narrationSuccess) {
@@ -314,7 +348,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.locator('.pdf-original-reader__page-list button', { hasText: 'Page 2' }).click()
     }
     await page.getByText('Second original page has its own spoken words.').waitFor()
-    await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = el.scrollHeight; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+    await finishOriginalPage(2)
     const after = page.getByRole('complementary', { name: 'After Chapter One' })
     await after.waitFor()
     await after.getByRole('button', { name: 'Recap' }).click()
@@ -349,7 +383,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       'Summarize Chapter One.', 'A grounded local fixture answer.', 'What links these two pages?',
     ], 'follow-up retains ordered saved context without dropping the original answer')
     await page.keyboard.press('Escape')
-    await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = el.scrollHeight; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+    await finishOriginalPage(2)
     await after.getByRole('button', { name: 'Quiz me' }).click()
     await page.getByTestId('lab-phone-quiz-question').getByText('Which page has its own spoken words?').waitFor()
     const quizCall = calls.filter(call => call.path === '/api/chat').map(call => JSON.parse(call.body)).find(call => call.companion?.intent === 'quiz')
@@ -401,8 +435,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert.equal(missing.turns.length, 2, 'failed follow-up does not append an invented saved answer')
     await page.keyboard.press('Escape')
     await page.getByRole('button', { name: 'Next PDF page' }).click()
-    await page.getByText('Page 3 of 4').waitFor()
-    assert.equal(await page.locator('.pdf-original__text span').count(), 0, 'scan remains viewable without invented prose')
+    await page.getByText('Page 3 of 4', { exact: true }).waitFor()
+    assert.equal(await page.locator('.pdf-original__page[data-page="3"] .pdf-original__text span').count(), 0, 'scan remains viewable without invented prose')
     assert.deepEqual(errors, [], 'no uncaught reader error')
     assert.deepEqual(denied, [], 'no external request escaped the fixture')
     console.log(`${name}: routed PDF, full-page Recap/Quiz/Note, saved cited follow-up/Notebook, ${narrationSuccess ? 'page-follow and saved Talk turn' : 'audio and Talk token failures'}, speed and scan passed`)

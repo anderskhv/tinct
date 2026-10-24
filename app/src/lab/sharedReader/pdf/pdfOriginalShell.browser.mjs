@@ -33,6 +33,55 @@ try {
       const layer = page.locator('.pdf-original__text')
       await layer.getByText('Original selectable words').waitFor({ timeout: 30000 })
       assert.equal(await page.locator('[data-pdf-original=true]').count(), 1)
+      for (const width of [1024, 2047]) {
+        await page.setViewportSize({ width, height: 1133 })
+        const controls = await page.evaluate(() => ['Contents', 'Notebook', 'Reading settings', 'Listen', 'Menu'].map(name => {
+          const button = [...document.querySelectorAll('.pdf-original-reader .lab-header button')].find(item => item.getAttribute('aria-label') === name || item.textContent?.trim() === name)
+          const rect = button?.getBoundingClientRect()
+          const hit = rect && document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+          return { name, rect: rect && { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom },
+            hit: !!button && (hit === button || button.contains(hit)) }
+        }))
+        assert(controls.every(({ rect, hit }) => rect && rect.left >= 0 && rect.right <= width && rect.top >= 0 && rect.bottom <= 1133 && hit),
+          `PDF header actions must be in viewport and directly pressable at ${width}px: ${JSON.stringify(controls)}`)
+      }
+      const wideSheet = await page.locator('.pdf-original__page[data-page="1"]').evaluate(el => el.getBoundingClientRect().width)
+      assert(wideSheet > 0 && wideSheet <= 1500, `wide PDF sheet keeps original 1500px cap: ${wideSheet}`)
+      await page.screenshot({ path: `artifacts/pdf-original-shell/${name}-wide-header.png` })
+      await page.getByRole('button', { name: 'Reading settings' }).click()
+      await page.getByRole('slider', { name: 'Page size' }).fill('0.75')
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width - 1125) <= 2)
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width - 1500) <= 2)
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      const wheelCaptured = await page.locator('.pdf-original__scroll').evaluate(el => !el.dispatchEvent(new WheelEvent('wheel', {
+        bubbles: true, cancelable: true, ctrlKey: true, deltaY: 30,
+      })))
+      assert(wheelCaptured, 'Ctrl-wheel zoom must prevent browser zoom')
+      await page.waitForFunction(() => document.querySelector('.pdf-original__page[data-page="1"]')?.getBoundingClientRect().width < 1500)
+      await page.getByRole('button', { name: 'Reading settings' }).click()
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await page.locator('.pdf-original__scroll').evaluate(el => {
+        const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+        el.scrollTop = second.offsetTop + second.clientHeight * .25
+        el.dispatchEvent(new Event('scroll', { bubbles: true }))
+      })
+      await page.getByText('Page 2 of 2', { exact: true }).waitFor()
+      const beforeZoom = await page.evaluate(() => window.__pdfPlace)
+      assert.equal(beforeZoom.page, 2)
+      assert(Math.abs(beforeZoom.frac - .25) < .02, `continuous PDF scroll retains page-local fraction: ${JSON.stringify(beforeZoom)}`)
+      await page.getByRole('button', { name: 'Reading settings' }).click()
+      await page.getByRole('slider', { name: 'Page size' }).fill('0.75')
+      await page.waitForFunction(() => Math.abs(document.querySelector('.pdf-original__page[data-page="2"]')?.getBoundingClientRect().width - 1125) <= 2)
+      const afterZoom = await page.evaluate(() => window.__pdfPlace)
+      assert.equal(afterZoom.page, 2)
+      assert(Math.abs(afterZoom.frac - beforeZoom.frac) < .02, `zoom retains PDF page/fraction: ${JSON.stringify({ beforeZoom, afterZoom })}`)
+      await page.getByRole('button', { name: 'Fit', exact: true }).click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
+      await page.getByText('Page 1 of 2', { exact: true }).waitFor()
+      await page.setViewportSize({ width: 1024, height: 768 })
       await page.getByTestId('lab-super').click()
       await page.getByRole('button', { name: 'Primer · These pages' }).click()
       await page.getByText('The original page introduces an idea to follow.').waitFor()
@@ -89,7 +138,7 @@ try {
       await page.getByRole('button', { name: 'Contents', exact: true }).click()
       await page.locator('.pdf-original-reader__page-list button', { hasText: 'Page 2' }).click()
       await page.getByText('Page 2 of 2', { exact: true }).waitFor()
-      assert.equal(await layer.locator('span').count(), 0, 'scanned page has no invented text')
+      assert.equal(await page.locator('.pdf-original__page[data-page="2"] .pdf-original__text span').count(), 0, 'scanned page has no invented text')
       await page.getByRole('button', { name: 'Reading settings' }).click()
       await page.getByLabel('Dark', { exact: true }).check()
       assert.equal(await page.locator('[data-pdf-original=true]').getAttribute('data-theme'), 'dark')
@@ -105,6 +154,13 @@ try {
         await phonePage.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginalShell.browser.html`, { waitUntil: 'domcontentloaded' })
         const words = phonePage.locator('.pdf-original__text').getByText('Original selectable words')
         await words.waitFor({ timeout: 30000 })
+        for (const name of ['Contents', 'Menu']) {
+          const hit = await phonePage.getByRole('button', { name, exact: true }).evaluate(button => {
+            const rect = button.getBoundingClientRect(), target = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)
+            return rect.left >= 0 && rect.right <= innerWidth && target && (target === button || button.contains(target))
+          })
+          assert(hit, `phone PDF ${name} must be directly pressable inside its viewport`)
+        }
         await words.evaluate(el => { const range = document.createRange(), selected = window.getSelection(); range.selectNodeContents(el); selected.removeAllRanges(); selected.addRange(range); el.parentElement.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })) })
         await phonePage.getByTestId('lab-phone-bar').waitFor({ timeout: 5000 }).catch(async error => {
           const state = await phonePage.evaluate(() => ({ selection: window.getSelection()?.toString(), phone: document.querySelector('.pdf-original-reader')?.className,

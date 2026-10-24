@@ -11,8 +11,8 @@ const require = createRequire(import.meta.url)
 require('../../../../public/lab/addbook/js/margin.js')
 const margin = (globalThis as typeof globalThis & { TinctMargin: PdfOriginalUnitRules }).TinctMargin
 
-vi.mock('./PdfOriginalSurface', () => ({
-  PdfOriginalSurface: ({ onDocument, onOutline, onPageText, onVisiblePlace, onPageEnd, onSelection, requestedPlace }: {
+vi.mock('./PdfContinuousSurface', () => ({
+  PdfContinuousSurface: ({ onDocument, onOutline, onPageText, onVisiblePlace, onPageEnd, onSelection, requestedPlace }: {
     onDocument: (count: number) => void; onPageText: (page: number, text: string) => void
     onOutline?: (outline: Array<{ title: string; page: number; items: [] }>) => void
     onVisiblePlace: (place: { page: number; frac: number }) => void
@@ -206,7 +206,7 @@ it('offers page navigation and theme selection, but page actions only when pdf.j
   writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'dark' }, 'desktop')
   render(<PdfOriginalReaderShell title="Scan" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
   expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('dark')
-  fireEvent.click(screen.getByText('Contents'))
+  fireEvent.click(screen.getByRole('button', { name: 'Contents' }))
   fireEvent.click(await screen.findByText('Page 3'))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('3')
   fireEvent.click(screen.getByLabelText('Reading settings'))
@@ -217,6 +217,22 @@ it('offers page navigation and theme selection, but page actions only when pdf.j
   fireEvent.click(screen.getByLabelText('Close panel'))
   fireEvent.click(screen.getByTestId('lab-super'))
   await waitFor(() => expect(screen.queryByText('Summarize this page')).toBeNull())
+})
+
+it('keeps the original page place when changing to Tinct text and offers the established page-size control under Aa', () => {
+  const onOpenText = vi.fn(), onZoom = vi.fn()
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}}
+    onOpenText={onOpenText} initialZoom={.75} onZoom={onZoom} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Reading settings' }))
+  expect((screen.getByRole('slider', { name: 'Page size' }) as HTMLInputElement).value).toBe('0.75')
+  fireEvent.change(screen.getByRole('slider', { name: 'Page size' }), { target: { value: '0.85' } })
+  expect(onZoom).toHaveBeenCalledWith(.85)
+  fireEvent.click(screen.getByRole('button', { name: 'Fit' }))
+  expect(onZoom).toHaveBeenCalledWith(1)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByRole('button', { name: 'Book settings' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Switch to Tinct text' }))
+  expect(onOpenText).toHaveBeenCalledWith({ page: 1, frac: .3 })
 })
 
 it('Copy all exports every PDF mark and ordered card Q/A even when the Notebook is filtered', async () => {

@@ -158,12 +158,12 @@ export async function pdfOriginalOutline(pdf: PdfOriginalDocument): Promise<PdfO
   return resolve(raw, 1)
 }
 
-async function openExistingPdf(bytes: ArrayBuffer): Promise<PdfOriginalDocument> {
+export async function openExistingPdf(bytes: ArrayBuffer): Promise<PdfOriginalDocument> {
   const engine = await loadPdfEngine()
   return openPdfOriginalBytes(bytes, engine.pdfjs as unknown as Parameters<typeof openPdfOriginalBytes>[1])
 }
 
-function drawTextLayer(layer: HTMLElement, content: { items: TextItem[] }, viewport: ReturnType<PdfOriginalPage['getViewport']>) {
+export function drawTextLayer(layer: HTMLElement, content: { items: TextItem[] }, viewport: ReturnType<PdfOriginalPage['getViewport']>) {
   layer.replaceChildren()
   // pdf.js supplies PDF-space glyph transforms. The same viewport transformation
   // used for the canvas places selectable, transparent text above each glyph.

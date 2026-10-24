@@ -75,6 +75,9 @@ async function seed(page, owner, fileId) {
   await page.goto(`${originRef.value}/qa-seed`)
   await page.evaluate(async ({ authKey, owner, token, hex, fileId, bytes }) => {
     localStorage.setItem(authKey, JSON.stringify({ access_token: token, refresh_token: token, expires_in: 3600, expires_at: Math.floor(Date.now()/1000) + 36000, token_type: 'bearer', user: { id: owner, email: `${owner}@example.test`, aud: 'authenticated' } }))
+    // A real saved source word, rather than the automatic first word, exercises layout restoration.
+    if (token === 'isolation-a' && !localStorage.getItem(`tinct-addbook:place:${hex}`))
+      localStorage.setItem(`tinct-addbook:place:${hex}`, JSON.stringify({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 3, updatedAt: Date.now() - 1000 }))
     document.cookie = 'tinct_auth=1; path=/; SameSite=Lax'
     await new Promise((resolve, reject) => {
       const open = indexedDB.open('tinct-addbook', 1)
@@ -92,6 +95,30 @@ async function open(page) {
   await page.goto(`${originRef.value}/reader?userBook=${hex}&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.locator('.lab-page-wrap [data-testid="lab-word"]:visible').nth(8).waitFor()
+}
+async function privateEpubLayouts(page, engine) {
+  const root = page.getByTestId('lab-root')
+  const source = await root.evaluate(node => ({ chapter: node.dataset.chapter, place: node.dataset.place }))
+  assert(source.chapter && source.place && source.place !== '0:0', `${engine}: private EPUB opens at a nonzero source word`)
+  const readable = async layout => {
+    await page.locator('.lab-page-wrap [data-testid="lab-word"]:visible').nth(8).waitFor()
+    assert.deepEqual(await root.evaluate(node => ({ chapter: node.dataset.chapter, place: node.dataset.place })), source,
+      `${engine}: ${layout} keeps the same private EPUB source position`)
+  }
+  const aa = page.getByTestId('lab-header-aa')
+  await aa.waitFor({ state: 'visible' })
+  await aa.click()
+  const sheet = page.getByTestId('lab-v2-sheet')
+  assert.equal(await sheet.getAttribute('data-layer'), 'reading', `${engine}: Aa opens private EPUB appearance`)
+  await page.getByTestId('lab-v2-layout-two-page').waitFor()
+  assert.equal(await page.getByTestId('lab-v2-layout-compare').count(), 0, `${engine}: a single-edition private EPUB has no Compare layout`)
+  await page.getByTestId('lab-v2-layout-two-page').click()
+  await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.continuousReader !== 'true')
+  await readable('Two-page')
+  await aa.click()
+  await page.getByTestId('lab-v2-layout-margin').click()
+  await page.getByTestId('continuous-reader').waitFor()
+  await readable('Margin')
 }
 async function observed(page) {
   return page.evaluate(hex => ({
@@ -136,6 +163,7 @@ async function run(engine, browserType, complete) {
   })
   try {
     await seed(page, 'a', fileIds.a); await open(page)
+    await privateEpubLayouts(page, engine)
     const fetchSurface = await page.evaluate(() => Function.prototype.toString.call(window.fetch).slice(0, 180))
     assert(!fetchSurface.includes('__pasteCapture') && !fetchSurface.includes('supabase.co'), 'fixture did not replace browser fetch')
     assert.equal((await observed(page)).highlights, 0, 'A begins without a mark')

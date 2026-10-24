@@ -56,6 +56,16 @@ afterEach(() => {
 })
 
 describe('compact selection popup', () => {
+  it('keeps a failed shared card write inside its explanation instead of adding a floating banner', async () => {
+    const view = render(<SelectionPopup {...props({
+      popupMode: 'explain', lab: true, sharedReader: true, saveError: true,
+      onRequestExplanation: async () => 'A visible explanation.',
+    })} />)
+    const card = view.container.querySelector('.lab-contextual-explain')
+    expect(card).toBeTruthy()
+    expect(card?.querySelector('[role="status"].lab-contextual-save-error')?.textContent).toMatch(/could not be saved on this device/)
+    expect(view.container.querySelector('.lab-shared-card-save-error')).toBeNull()
+  })
   it('shows information and More without saving or exposing actions', () => {
     const input = props({ defineLoading: false, defineResult: { word: 'selfishness', definitions: ['Concern for oneself.'] } })
     render(<SelectionPopup {...input} />)

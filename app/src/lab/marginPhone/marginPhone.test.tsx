@@ -118,6 +118,21 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     expect(css).toMatch(/\.lab \.lab-pmore \{[^}]*width: max-content/)
     expect(css).not.toMatch(/\.lab \.lab-pmore \{[^}]*width: 210px/)
   })
+
+  it('keeps Show page available for a selected PDF passage and an existing mark', () => {
+    const onShowPage = vi.fn()
+    const props = { text: 'passage', fallbackY: 300, onAsk: vi.fn(), onExplain: vi.fn(), onSimplify: vi.fn(),
+      onMore: vi.fn(), onHighlight: vi.fn(), onNote: vi.fn(), onRemove: vi.fn(), onDismiss: vi.fn(), onShowPage }
+    const view = render(<div className="lab"><LabPhoneBar {...props} /></div>)
+    fireEvent.click(screen.getByTestId('lab-pbar-more'))
+    fireEvent.click(screen.getByTestId('lab-pmore-page'))
+    expect(onShowPage).toHaveBeenCalledTimes(1)
+    view.rerender(<div className="lab"><LabPhoneBar {...props} existingColor="gold" /></div>)
+    fireEvent.click(screen.getByTestId('lab-pbar-more'))
+    expect(screen.queryByTestId('lab-pmore-define')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-pmore-page'))
+    expect(onShowPage).toHaveBeenCalledTimes(2)
+  })
 })
 
 // Anders, iPhone, Frankenstein 6 (21 Oct 2026): "Pop up didn't fit the content - still too broad - cut the black space".

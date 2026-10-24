@@ -6,6 +6,7 @@ import { chromium } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:3001'
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_POSITION_OUTPUT || '/tmp/tinct-shared-reader-position'
 const browser = await markInternal(await chromium.launch({
   headless: true,
@@ -22,9 +23,20 @@ const macbethSource = JSON.parse(await fs.readFile('public/data/editions/macbeth
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
 const page = await context.newPage()
 page.on('pageerror', error => errors.push(error.message))
-await page.route('**/*', route => {
+await page.route('**/*', async route => {
   const url = new URL(route.request().url())
   if (url.origin !== origin) return route.abort()
+  if (expectedBundle && url.pathname === '/reader') {
+    const response = await route.fetch()
+    const html = await response.text()
+    const actual = [...html.matchAll(/\/assets\/index-[\w-]+\.js/g)].map(match => match[0])
+    if (response.status() !== 200 || actual.length !== 1 || actual[0] !== expectedBundle) {
+      console.error(`Position reader document serves ${JSON.stringify(actual)}, expected ${expectedBundle}`)
+      return route.abort('failed')
+    }
+    return route.fulfill({ response })
+  }
+  if (expectedBundle && /^\/assets\/index-[\w-]+\.js$/.test(url.pathname) && url.pathname !== expectedBundle) return route.abort('failed')
   if (url.pathname === '/api/lab-chapter-notes') {
     chapterActions.push({ kind: 'notes', request: route.request().postDataJSON() })
     return route.fulfill({ json: { beats: [{ title: 'Fixture source', text: 'A bounded chapter note from the exact requested source.' }] } })
@@ -58,6 +70,7 @@ async function observe(label, bookId = 'frankenstein', screenshot = true) {
     window: await page.getByTestId('continuous-reader').evaluate(node => ({ top: node.scrollTop, height: node.scrollHeight, viewport: node.clientHeight, words: node.querySelectorAll('[data-testid="lab-word"]').length })).catch(() => null),
   }
   observations.push(state)
+  console.log(`Position: ${label} ${JSON.stringify(state.current)}`)
   if (screenshot) await page.screenshot({ path: `${output}/${label}.png` })
   return state
 }
@@ -65,9 +78,22 @@ async function observe(label, bookId = 'frankenstein', screenshot = true) {
 const exactMounted = async (paragraph, word) => {
   assert.equal(await page.getByTestId('continuous-reader').locator(`[data-paragraph-index="${paragraph}"][data-word-index="${word}"]`).count() > 0, true, `source word ${paragraph}:${word} mounted`)
 }
+const desktopAa = async () => {
+  const aa = page.getByTestId('lab-header-aa')
+  await aa.waitFor({ state: 'visible' })
+  const bounds = await aa.evaluate(node => {
+    const box = node.getBoundingClientRect()
+    return { left: box.left, top: box.top, right: box.right, bottom: box.bottom, width: box.width, height: box.height,
+      viewportWidth: innerWidth, viewportHeight: innerHeight }
+  })
+  assert(bounds.width > 0 && bounds.height > 0 && bounds.left >= 0 && bounds.top >= 0
+    && bounds.right <= bounds.viewportWidth && bounds.bottom <= bounds.viewportHeight,
+  `desktop Aa is actually in the viewport before click: ${JSON.stringify(bounds)}`)
+  return aa
+}
 const openSettings = async () => {
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-editions').click()
+  await (await desktopAa()).click()
+  assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('data-layer'), 'reading', 'Aa opens appearance and Layout')
   await page.getByTestId('lab-v2-layout-margin').waitFor()
 }
 
@@ -103,8 +129,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await observe('frankenstein-reload')
 
   // Typeface/viewport reflow cannot write a different saved coordinate.
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-text').click()
+  await openSettings()
   await page.getByTestId('lab-v2-size').fill('1.3')
   await page.getByTestId('lab-v2-sheet-close').click()
   await page.waitForTimeout(500)
@@ -117,9 +142,9 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await exactMounted(up.saved.paragraph, up.saved.word)
   await observe('frankenstein-resize')
   await openSettings()
-  await page.getByTestId('lab-v2-layout-classic').click()
+  await page.getByTestId('lab-v2-layout-two-page').click()
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.continuousReader !== 'true')
-  assert.deepEqual(await saved('frankenstein'), up.saved, 'Classic receives the same semantic position')
+  assert.deepEqual(await saved('frankenstein'), up.saved, 'Two-page receives the same semantic position')
   await observe('frankenstein-classic')
   await openSettings()
   await page.getByTestId('lab-v2-layout-margin').click()
@@ -129,7 +154,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await observe('frankenstein-return-margin')
 
   // Genesis 50 -> Exodus 1 crosses the Bible's distinct per-book position keys.
-  await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'web-en', compareOpen: false })))
+  await page.evaluate(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'kjv-en', compareOpen: false, compareChosen: true })))
   await page.goto(`${origin}/reader?book=bible&chapter=50&paragraph=2&sharedReader=1`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '50', null, { timeout: 45000 })
   await host.waitFor()
@@ -141,16 +166,20 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.equal(await page.locator('.lab').getAttribute('data-continuous-reader'), 'true')
   await observe('exodus-1', 'exodus')
 
-  // Compare uses its existing paired layout, then returns to source-word Margin.
+  // Aa exposes Compare before a second version is configured. Pick a real
+  // compatible version, return to Layout, then open the paired source view.
   await openSettings()
-  await page.getByTestId('lab-v2-compare-edition').click()
+  await page.getByTestId('lab-v2-layout-compare').click()
+  assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('data-layer'), 'compareEdition')
   await page.locator('[data-edition="web-en"]').click()
-  await page.getByTestId('lab-v2-show-compare').click()
+  assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('data-layer'), 'reading')
+  await page.getByTestId('lab-v2-layout-compare').click()
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.continuousReader !== 'true')
+  assert.equal(await page.locator('.lab').getAttribute('data-desktop-view'), 'compare')
   const bibleBeforeCompare = await saved('exodus')
   await observe('exodus-compare', 'exodus')
   await openSettings()
-  await page.getByTestId('lab-v2-show-compare').click()
+  await page.getByTestId('lab-v2-layout-margin').click()
   await host.waitFor()
   assert.deepEqual(await saved('exodus'), bibleBeforeCompare, 'Compare round trip preserves Bible sub-book source word')
   await exactMounted(bibleBeforeCompare.paragraph, bibleBeforeCompare.word)
@@ -287,6 +316,14 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
 
   assert.deepEqual(errors, [], `page errors: ${errors.join('; ')}`)
   console.log(`Shared reader position check passed. ${observations.length} observations and screenshots: ${output}`)
+} catch (error) {
+  await page.screenshot({ path: `${output}/failure.png` }).catch(() => {})
+  await fs.writeFile(`${output}/failure.json`, JSON.stringify(await page.evaluate(() => ({
+    root: { ...document.querySelector('.lab')?.dataset },
+    sheet: document.querySelector('[data-testid="lab-v2-sheet"]')?.outerHTML,
+    prefs: Object.fromEntries(Object.keys(localStorage).filter(key => key.includes('prefs')).map(key => [key, localStorage.getItem(key)])),
+  })).catch(() => ({})), null, 2))
+  throw error
 } finally {
   await fs.writeFile(`${output}/results.json`, JSON.stringify({ observations, chapterActions, errors }, null, 2))
   await browser.close()
