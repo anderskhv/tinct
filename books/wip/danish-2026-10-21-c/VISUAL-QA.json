@@ -1,0 +1,722 @@
+{
+ "_note": "Visual QA, 22 Oct 2026: built reader (CI=1 npm run build, dist), headless Chromium, isolated context, API and Supabase intercepted, audio muted; phone 390x844 (?layout=phone, mobile emulation) and desktop 1440x950 (two-page spread). Opened in modern-da at chapter start via the reader handoff and paged with ArrowRight. First and last chapter every page; 10 seeded middle chapters, first 3 pages each. Per page: edition modern-da, lang da, no edition hold, no word outside the viewport, no horizontal overflow, no English quote marks, no en dash, no Mr./Mrs./Miss, no sømil; per chapter: the heading equals the Danish chapter title; full chapters: every word of every paragraph shown once, in order. Screenshots were read by eye (contact sheets of every page plus single pages at full size). Script: scratch qa.cjs (not committed).",
+ "books": {
+  "notes-from-underground": {
+   "390x844": {
+    "pages": 51,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 8,
+      "endScreen": false,
+      "hyphenatedLineEnds": 32,
+      "issues": 0
+     },
+     {
+      "chapter": 21,
+      "full": true,
+      "pages": 13,
+      "endScreen": false,
+      "hyphenatedLineEnds": 46,
+      "issues": 0
+     },
+     {
+      "chapter": 2,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 11,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 19,
+      "issues": 0
+     },
+     {
+      "chapter": 5,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 16,
+      "issues": 0
+     },
+     {
+      "chapter": 6,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 8,
+      "issues": 0
+     },
+     {
+      "chapter": 9,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 18,
+      "issues": 0
+     },
+     {
+      "chapter": 10,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 11,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     },
+     {
+      "chapter": 13,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     },
+     {
+      "chapter": 18,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 9,
+      "issues": 0
+     },
+     {
+      "chapter": 19,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 16,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": [
+     "optegnel|ser",
+     "natur|ligvis",
+     "fin|des",
+     "ge|neration,",
+     "præ|senterer",
+     "anskuel|ser",
+     "så|dan.",
+     "begi|venheder",
+     "Desu|den",
+     "allige|vel).",
+     "selv|følgelig",
+     "til|fælde.",
+     "ho|vedet",
+     "irrite|rede",
+     "sid|ste",
+     "unød|vendigt",
+     "misun|delse",
+     "for|stod",
+     "ond|skabsfuld",
+     "til|føje,",
+     "el|ske.",
+     "demon|strere",
+     "fore|stille",
+     "følel|ser«.",
+     "menne|ske",
+     "år|hundrede,",
+     "Peters|borg,",
+     "over|lagte",
+     "lige|som",
+     "syg|domme,"
+    ]
+   },
+   "1440x950": {
+    "pages": 28,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 21,
+      "full": true,
+      "pages": 4,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 2,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 5,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 6,
+      "full": false,
+      "pages": 1,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 9,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 10,
+      "full": false,
+      "pages": 1,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 13,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 18,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 19,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": []
+   }
+  },
+  "crime-and-punishment": {
+   "390x844": {
+    "pages": 73,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 21,
+      "endScreen": false,
+      "hyphenatedLineEnds": 79,
+      "issues": 0
+     },
+     {
+      "chapter": 41,
+      "full": true,
+      "pages": 22,
+      "endScreen": false,
+      "hyphenatedLineEnds": 101,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 13,
+      "issues": 0
+     },
+     {
+      "chapter": 9,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 9,
+      "issues": 0
+     },
+     {
+      "chapter": 10,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     },
+     {
+      "chapter": 19,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 14,
+      "issues": 0
+     },
+     {
+      "chapter": 31,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 10,
+      "issues": 0
+     },
+     {
+      "chapter": 33,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 13,
+      "issues": 0
+     },
+     {
+      "chapter": 35,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 18,
+      "issues": 0
+     },
+     {
+      "chapter": 36,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 14,
+      "issues": 0
+     },
+     {
+      "chapter": 37,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": [
+     "begyndel|sen",
+     "opvart|ning,",
+     "pirre|lig",
+     "hypo|kondri.",
+     "af|skåret",
+     "fak|tisk",
+     "no|get,",
+     "under|ligt",
+     "interes|sant",
+     "me|get.",
+     "no|get,",
+     "menneskemæng|den,",
+     "strafarbej|det,",
+     "knu|ste",
+     "und|være",
+     "mær|kede",
+     "Skam|mede",
+     "optræ|den.",
+     "skam|mede",
+     "va|nære.",
+     "bom|mert,",
+     "»idio|tien«",
+     "vil|let",
+     "menne|ske,",
+     "no|get,",
+     "ord|net",
+     "undskyld|ning:",
+     "force|res,",
+     "hvor|dan",
+     "forret|ningsmand,"
+    ]
+   },
+   "1440x950": {
+    "pages": 42,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 6,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 41,
+      "full": true,
+      "pages": 6,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 9,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 10,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 19,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 31,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 33,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 35,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 36,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 37,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": []
+   }
+  },
+  "moby-dick": {
+   "390x844": {
+    "pages": 48,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 15,
+      "endScreen": false,
+      "hyphenatedLineEnds": 71,
+      "issues": 0
+     },
+     {
+      "chapter": 136,
+      "full": true,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 9,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 12,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 14,
+      "issues": 0
+     },
+     {
+      "chapter": 28,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 17,
+      "issues": 0
+     },
+     {
+      "chapter": 40,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 9,
+      "issues": 0
+     },
+     {
+      "chapter": 49,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 14,
+      "issues": 0
+     },
+     {
+      "chapter": 56,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 19,
+      "issues": 0
+     },
+     {
+      "chapter": 62,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 15,
+      "issues": 0
+     },
+     {
+      "chapter": 81,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 12,
+      "issues": 0
+     },
+     {
+      "chapter": 92,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 20,
+      "issues": 0
+     },
+     {
+      "chapter": 121,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 11,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": [
+     "inter|esse",
+     "ver|den.",
+     "blo|domløbet",
+     "mær|ker,",
+     "støv|regnsgrå",
+     "lig|tog,",
+     "meto|disk",
+     "næ|sten",
+     "indi|ske",
+     "Batte|riet,",
+     "ka|jmur,",
+     "drøm|mende",
+     "no|gen",
+     "for|svundet,",
+     "skæbnegudin|derne",
+     "gyn|gende",
+     "nå|ede",
+     "ha|vet,",
+     "næb|bene",
+     "sam|lede",
+     "ef|ter",
+     "klu|detæppe,",
+     "trekan|ter;",
+     "ende|løs",
+     "tids|punkter",
+     "Que|equeg",
+     "prø|vede",
+     "be|nene",
+     "lag|nerne.",
+     "opstan|delse."
+    ]
+   },
+   "1440x950": {
+    "pages": 29,
+    "issues": [],
+    "chapters": [
+     {
+      "chapter": 1,
+      "full": true,
+      "pages": 4,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 136,
+      "full": true,
+      "pages": 1,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 4,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 12,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 28,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 40,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 49,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 56,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 62,
+      "full": false,
+      "pages": 1,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 81,
+      "full": false,
+      "pages": 3,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 92,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     },
+     {
+      "chapter": 121,
+      "full": false,
+      "pages": 2,
+      "endScreen": false,
+      "hyphenatedLineEnds": 0,
+      "issues": 0
+     }
+    ],
+    "hyphenSamples": []
+   }
+  }
+ }
+}

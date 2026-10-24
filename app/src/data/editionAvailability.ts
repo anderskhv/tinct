@@ -12,6 +12,10 @@ export const TEMPORARY_EDITION_HOLDS: Readonly<Record<string, { reason: string }
  */
 export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'to-the-lighthouse/modern-da',
+  // Danish rollout (Anders, 2026-10-22: "plan is to roll it out entirely"), run C.
+  'notes-from-underground/modern-da',
+  'crime-and-punishment/modern-da',
+  'moby-dick/modern-da',
   'a-little-princess/modern-da',
   'around-the-world-80-days/modern-da',
   'jungle-book/modern-da',
