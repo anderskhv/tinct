@@ -40,7 +40,7 @@ Twelve Danish editions are prepared for publication. The six existing offered Da
 - Pride and Prejudice: the preserved live Danish edition has 2,060 paragraphs; the candidate has 2,053. It needs a verified structural saved-position map before replacement.
 
 - Every review was by AI helper agents. No native Danish speaker has read these editions. Reviewer replacements were not independently re-reviewed.
-- The packages retain their documented terminology and du/De consistency limitations. This integration does not claim native editorial acceptance.
+- The packages retain their documented terminology and du/De consistency limitations (including Danish forms of some Greek names in Meditations and the tragedies). This integration does not claim native editorial acceptance.
 - Alice: the unchanged English classifier exits 1 only for its 31 preserved verse paragraphs. Its existing accepted verse exemption is documented in `books/wip/alice-in-wonderland/EDITORIAL-FIXES.md`. The English text is unchanged.
 - Great Expectations: existing English similarity 0.776 and 5/59 light chapters fail the mandatory gate. No English or Danish runtime text changed for that book.
 - Jekyll: 236 English paragraphs changed since the translation baseline, and eight italic-count mismatches remain. Its Danish package is preserved, not published.
@@ -59,10 +59,10 @@ Twelve Danish editions are prepared for publication. The six existing offered Da
 
 ## Verification
 
-- `npm test`: 581 files passed, 1 skipped; 7,249 tests passed, 6 skipped.
-- `CI=1 npm run build` and `npm run verify-bundle`: passed, local bundle `index-4Neu7E5Y.js`.
+- `npm test`: 581 files passed, 1 skipped; 7,246 tests passed, 6 skipped.
+- `CI=1 npm run build` and `npm run verify-bundle`: passed, local bundle `index-DsVE8d3M.js`.
 - Existing Danish blacklist lint: no findings across the 12 editions.
 - `check-edition-holds.cjs`: passed, including all 18 offered Danish editions on phone WebKit and desktop Chromium, plus held-edition recovery.
-- Page QA is recorded by `app/scripts/check-danish-integration.cjs`: first/last chapters in full, three pages from up to ten deterministic interior chapters, word coverage and text bounds, Compare, reload, Danish language and no audio requests. Raw screenshots and result files are under `app/artifacts/danish-integration/`. Final results will be added before publication.
+- Page QA is recorded by `app/scripts/check-danish-integration.cjs`: first/last chapters in full, three pages from up to ten deterministic interior chapters, word coverage and text bounds, Compare, reload, Danish language and no audio requests. Raw screenshots and result files are under `app/artifacts/danish-integration/`. Final results: 24 device cases, 1163 page screenshots, no missing rendered source words in fully traversed chapters and no overflow on the recorded pages; 24 independent painted-Compare/reload cases passed. See `VISUAL-QA.json` and `docs/assets/danish-integration-20261024/`. Confessions used Chromium for its full phone sweep after the known WebKit auth-lock teardown race; its independent short WebKit check passed.
 
 Publication is not claimed by this preparation record. Release/production evidence belongs to the integration PR.
