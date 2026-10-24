@@ -4,7 +4,8 @@ import { isAiRestingError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
 import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
-import type { NamesakeNotice } from '../../services/characters/characterCards'
+import type { CharacterSelection, NamesakeNotice } from '../../services/characters/characterCards'
+import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
 
 /** The passage a card is about: the words, where they are, and the chapter around them. */
 export interface PhonePassage {
@@ -34,6 +35,38 @@ export type PhoneCard =
 export const PHONE_CARD_NAMES: Record<PhoneCard['kind'], string> = {
   explain: 'Explain', simplify: 'Simplify', factcheck: 'Fact-check', counterpoint: 'Counterpoint',
   define: 'Define', ask: 'Ask', quiz: 'Quiz me', note: 'Note', 'chapter-note': 'Note',
+}
+
+/** The same released snapshot and cutoff-limited gallery as the desktop character popup. */
+export function PhoneCharacterBody({ character, onMore }: { character: CharacterSelection; onMore: () => void }) {
+  const [gallery, setGallery] = useState(false)
+  const [galleryId, setGalleryId] = useState<string | null>(null)
+  const card = galleryId ? character.gallery.find(entry => entry.card.id === galleryId)?.card : character.card
+  const roles: Record<string, string> = { central: 'Central figure', major: 'Major figure', supporting: 'Supporting figure', reference: 'Minor figure' }
+  const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Minor' }
+  const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
+  return <div className="popup-character lab-pcard-character" data-testid="lab-phone-character-body">
+    <div className="popup-character-heading"><button type="button" onClick={onMore} aria-label="More actions">More actions</button></div>
+    {gallery ? <>
+      <h2>Character gallery</h2>
+      <div className="popup-character-gallery">
+        {[true, false].map(inPassage => {
+          const entries = character.gallery.filter(entry => entry.inPassage === inPassage)
+          return entries.length ? <section key={String(inPassage)}><h3>{inPassage ? 'In this passage' : 'Introduced by this passage'}</h3>{entries.map(({ card: entry }) =>
+            <button type="button" key={entry.id} onClick={() => { setGalleryId(entry.id); setGallery(false) }}><strong>{entry.name}</strong><span>{entry.subtitle}</span></button>,
+          )}</section> : null
+        })}
+      </div>
+      <button type="button" onClick={() => { setGalleryId(null); setGallery(false) }}>Back to selected name</button>
+    </> : card && <>
+      <h2>{card.name}</h2>
+      {roleLabel && <small>{roleLabel}</small>}
+      {card.subtitle && !subtitleRepeatsBody(card.subtitle, card.body) && <p className="popup-character-subtitle">{card.subtitle}</p>}
+      <p>{card.body}</p>
+      <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
+      {galleryId && <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}
+    </>}
+  </div>
 }
 
 /**

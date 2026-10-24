@@ -197,6 +197,10 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard .popup-character, .lab .lab-pcard .popup-define-result, .lab .lab-pcard .popup-define-status { font-size: 17px; line-height: 1.45; }
 .lab .lab-pcard .popup-character small { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: var(--lab-ink-faint); }
 .lab .lab-pcard .popup-character p { margin: 4px 0 0; }
+.lab .lab-pcard .lab-pcard-character { padding: 0; }
+.lab .lab-pcard .lab-pcard-character .popup-character-heading button,
+.lab .lab-pcard .lab-pcard-character > button { font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.lab .lab-pcard .lab-pcard-character .popup-character-gallery section > button { padding: 8px 0; }
 
 /* Chat in the card: the chat's own thread and composer. */
 .lab .lab-pcard.is-tall .lab-pcard-body { overflow: hidden; gap: 0; }
