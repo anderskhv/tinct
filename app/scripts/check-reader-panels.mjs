@@ -209,6 +209,7 @@ async function run(engine,name,phone) {
     let box
     if(sharedPhone) {
       const card=page.locator('[data-testid="lab-phone-card"][data-kind="explain"]')
+      await card.evaluate(async node=>{await Promise.all(node.getAnimations().map(animation=>animation.finished.catch(()=>{})))})
       box=await card.boundingBox()
       assert(box && box.height>80 && box.height<650 && box.y+box.height<=845,'Explain remains a readable bottom card: '+JSON.stringify(box))
       assert.equal(await card.getByTestId('lab-phone-card-answer').count(),1,'the answer is inside the card')
@@ -245,6 +246,7 @@ async function run(engine,name,phone) {
       await page.getByRole('button',{name:/^(Highlight )?Sage$/}).click()
     }
     if(await page.getByTestId('lab-desk-bar').count())await page.keyboard.press('Escape')
+    if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-bar').waitFor({state:'hidden'}) }
     await page.waitForTimeout(300)
     const recoloured=await wordBoxes(page)
     assert.deepEqual(recoloured,before,'saving a highlight must not move text')
