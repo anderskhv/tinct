@@ -109,10 +109,11 @@ body[data-view="reader"] #start { display: none; }
 .lab.is-epub .pdf-column { align-items: center; min-width: 0; max-width: 100%; box-sizing: border-box; overflow-x: hidden; }
 @media (max-width: 760px) { .lab.is-epub .pdf-column { padding-left: 6px; padding-right: 6px; } }
 .epub-sheet { max-width: 100%; min-width: 0; width: min(100%, calc(42em * var(--epub-scale, 1) + 2 * clamp(20px, 6vw, 72px))); box-sizing: border-box; padding: clamp(28px, 5vw, 64px) clamp(20px, 6vw, 72px); background: var(--pdf-sheet, #fff); box-shadow: 0 1px 2px rgba(40, 34, 20, .10), 0 6px 18px rgba(40, 34, 20, .08); content-visibility: auto; contain-intrinsic-size: auto 1400px; }
-.lab.byob.dark-pages .epub-sheet { background: #1c1b18; color: #e6e1d4; }
-.lab.byob.tone-pages .epub-sheet { background: #f6efdc; }
+/* The chapters follow the reader's theme (html[data-pdf-theme], reader.js applyTheme), as the PDF pages do. */
+.lab.byob.dark-pages .epub-sheet, html[data-pdf-theme="dark"] .lab.byob .epub-sheet { background: #1c1b18; color: #e6e1d4; box-shadow: var(--pdf-sheet-shadow); }
+.lab.byob.tone-pages .epub-sheet, html[data-pdf-theme="book"] .lab.byob .epub-sheet { background: #f6efdc; }
 .epub-pg { position: relative; font-family: var(--lab-font-reader, 'Literata', 'EB Garamond', Georgia, serif); font-size: calc(19px * var(--epub-scale, 1)); line-height: 1.6; color: #1b1a17; overflow-wrap: break-word; hyphens: auto; }
-.lab.byob.dark-pages .epub-pg { color: #e6e1d4; }
+.lab.byob.dark-pages .epub-pg, html[data-pdf-theme="dark"] .lab.byob .epub-pg { color: #e6e1d4; }
 .epub-pg p { margin: 0 0 .9em; text-align: left; }
 .epub-pg h1, .epub-pg h2, .epub-pg h3, .epub-pg h4, .epub-pg h5, .epub-pg h6 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; line-height: 1.2; margin: 1.6em 0 .7em; text-wrap: balance; }
 .epub-pg h1 { font-size: 1.75em; } .epub-pg h2 { font-size: 1.45em; } .epub-pg h3 { font-size: 1.2em; } .epub-pg h4, .epub-pg h5, .epub-pg h6 { font-size: 1.05em; }
@@ -138,10 +139,90 @@ body[data-view="reader"] #start { display: none; }
 ::highlight(tinct-hl-sage) { background-color: rgba(108, 178, 108, .34); }
 ::highlight(tinct-hl-sky) { background-color: rgba(96, 148, 226, .32); }
 ::highlight(tinct-hl-lavender) { background-color: rgba(156, 116, 222, .32); }
-.lab.is-epub #playBtn { display: none !important; }
+/* Play is Tinct's narration, played by the page that frames this one (js/tinct-listen.js adds .tb-can-listen once it
+   has it): never the browser's own voice, so without that page there is no Play. */
+.lab:not(.tb-can-listen) #playBtn { display: none !important; }
 .pdf-status { padding: 40px 16px; text-align: center; font: 16px/1.5 var(--ab-ui); color: #4a443b; max-width: 52ch; margin: 0 auto; }
 /* Phones and touch screens (2026-10-06): iOS Safari zooms into a focused field whose text is under 16px and does not zoom back. Fields stay at 16px or more here; zoom itself stays allowed and desktop keeps its look. */
 @media (pointer: coarse), (max-width: 520px) {
   .byob-jump input, .byob-row select { font-size: max(16px, 1em); }
   .lab.byob .lab-ask .lab-ask-input { font-size: 16px !important; }
 }
+
+/* ---------- EPUBs, 20 Oct 2026 (Anders, "Bold Conjectures, Volume II") ---------- */
+/* The book's own contents page: hidden (Tinct's chapter menu does its job), kept as a chapter of no height so every
+   place, highlight and card keeps its chapter number. */
+.epub-sheet.is-toc { height: 0 !important; min-height: 0; padding: 0 !important; margin: 0 !important; overflow: hidden; visibility: hidden; content-visibility: hidden; box-shadow: none !important; border: 0 !important; }
+/* All small caps (capitals typed in small caps read as small capitals); capitals only where the book sets them. */
+.epub-pg .ep-asc { font-variant-caps: all-small-caps; letter-spacing: .04em; text-transform: none; }
+.epub-pg .ep-sc { text-transform: none; }
+.epub-pg .ep-upper { text-transform: uppercase; letter-spacing: .03em; }
+/* Links in the book: the text's own ink, underlined in the accent, readable on every paper (they were blue on dark grey). */
+.epub-pg a, .epub-pg a:visited { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .16em; text-decoration-color: color-mix(in srgb, var(--lab-accent, #1f4a5c) 65%, transparent); }
+.lab.byob.dark-pages .epub-pg a, html[data-pdf-theme="dark"] .lab.byob .epub-pg a, .lab.is-night .epub-pg a { text-decoration-color: color-mix(in srgb, #78aabd 70%, transparent); }
+.lab.byob.dark-pages .epub-pg .ep-note, html[data-pdf-theme="dark"] .lab.byob .epub-pg .ep-note, .lab.is-night .epub-pg .ep-note { color: var(--lab-ink-muted, #9a9083); }
+.epub-pg .ep-note { color: var(--lab-ink-muted, #4a443b); }
+/* A figure's caption ("Figure 2: …", epub.js markCaptions; Anders, 20 Oct 2026): smaller, muted, a little space above. */
+.epub-pg .ep-caption { margin-top: .6em; font-size: .84em; line-height: 1.4; color: var(--lab-ink-muted, #6b6357); -webkit-hyphens: manual; hyphens: manual; }
+
+/* Tinct paper (an EPUB on the desktop, reader.js applyPaper): the theme's own paper, one continuous page, the book
+   reader's font, size, line, paragraph gap, alignment and measure (--tb-*), no sheets, border or shadow; the margin
+   column beside it. The book's headings, emphasis, small caps and block quotes keep their intent in Tinct's type. */
+.lab.byob.is-paper:not(.is-phone) .epub-sheet { width: min(100%, var(--tb-measure, 42em)); max-width: 100%; padding: 12px 0 1.2em; background: transparent !important; box-shadow: none !important; border: 0; border-radius: 0; color: var(--lab-ink); }
+.lab.byob.is-paper:not(.is-phone) .epub-sheet:not(.is-front):not(.is-toc) + .epub-sheet:not(.is-front):not(.is-toc) { padding-top: 2.6em; }
+.lab.byob.is-paper:not(.is-phone) .epub-pg { font-family: var(--tb-font, var(--lab-font-reader, 'Literata', Georgia, serif)); font-size: calc(var(--tb-size, 19px) * var(--epub-scale, 1)); line-height: var(--tb-lh, 1.48); color: var(--lab-ink) !important; }
+.lab.byob.is-paper:not(.is-phone) .epub-body p { margin: 0 0 var(--tb-gap, .28em); text-align: var(--tb-align, justify); text-justify: auto; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 7 2 3; -webkit-hyphenate-limit-before: 2; -webkit-hyphenate-limit-after: 3; }
+.lab.byob.is-paper:not(.is-phone) .epub-body p + p { margin-top: 0; }
+.lab.byob.is-paper:not(.is-phone) .epub-body .ep-caption { margin-top: .6em; margin-bottom: calc(var(--tb-gap, .28em) + .5em); }   /* a figure's caption: space above, and before the text resumes */
+.lab.byob.is-paper:not(.is-phone) .epub-body :is(p, div, li).ep-center { text-align: center; }
+.lab.byob.is-paper:not(.is-phone) .epub-body :is(p, div, li).ep-right { text-align: right; }
+.lab.byob.is-paper:not(.is-phone) .epub-body :is(h1, h2, h3, h4, h5, h6) { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; color: var(--lab-ink); line-height: 1.25; text-wrap: balance; text-align: left; }
+.lab.byob.is-paper:not(.is-phone) .epub-body h1 { font-weight: 700; font-size: calc(var(--tb-head, 1.1127) * 1em); margin: 0 0 .7em; padding-top: 9px; }
+.lab.byob.is-paper:not(.is-phone) .epub-body h2 { font-weight: 600; font-size: 1.08em; margin: 1.5em 0 .5em; }
+.lab.byob.is-paper:not(.is-phone) .epub-body :is(h3, h4, h5, h6) { font-weight: 600; font-style: italic; font-size: 1em; margin: 1.3em 0 .4em; }
+.lab.byob.is-paper:not(.is-phone) .epub-body blockquote { margin: .8em 0 .9em 1.2em; padding-left: .9em; border-left: 2px solid color-mix(in srgb, var(--lab-ink) 18%, transparent); color: var(--lab-ink); }
+.lab.byob.is-paper:not(.is-phone) .epub-body blockquote p { text-align: left; }
+.lab.byob.is-paper:not(.is-phone) .epub-body hr { border-top-color: color-mix(in srgb, var(--lab-ink) 22%, transparent); }
+
+/* Front matter as a printed book sets it (Anders, 20 Oct 2026: each piece on its own big sheet): the cover, title,
+   copyright, dedication and supporters in one compact, centred block, a little space between the pieces. */
+.lab.byob .epub-sheet.is-front .epub-body :is(p, div, h1, h2, h3, h4, h5, h6, li) { text-align: center !important; }
+.lab.byob .epub-sheet.is-front .epub-body p { margin: 0 0 .3em; -webkit-hyphens: manual; hyphens: manual; }
+.lab.byob .epub-sheet.is-front .epub-body :is(h1, h2, h3) { margin: .2em 0 .35em; }
+.lab.byob .epub-sheet.is-front .epub-body img { max-height: 7em; margin: .4em auto .6em; }
+.lab.byob .epub-sheet.is-cover .epub-body img { max-height: min(60vh, 620px); width: auto; margin: 0 auto 1.2em; box-shadow: 0 1px 2px rgba(0, 0, 0, .18), 0 8px 22px rgba(0, 0, 0, .16); }
+.lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front { padding: .4em 0; font-size: .92em; color: var(--lab-ink-muted, var(--lab-ink)); }
+.lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front .epub-pg { color: var(--lab-ink) !important; }
+.lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front + .epub-sheet.is-front { padding-top: 1.1em; }
+.lab.byob.is-paper:not(.is-phone) .epub-sheet.is-front:has(+ .epub-sheet:not(.is-front)) { padding-bottom: 2.4em; margin-bottom: 1.4em; border-bottom: 1px solid color-mix(in srgb, var(--lab-ink) 12%, transparent) !important; }
+.lab.byob:not(.is-paper) .epub-sheet.is-front { padding-top: 1.4em; padding-bottom: 1.4em; }
+/* The paper's edges (Anders, 21 Oct 2026: "the page edges have disappeared"): Tinct paper is one continuous sheet on the
+   room, as a PDF's pages are, its sides edged by the PDF sheet's shadow, with room round the text (--paper-pad) that
+   never takes from its measure. The chapters meet with no gap, so the sheet runs on; the book's hidden contents page stays
+   out of it. The position strip (js/strip.js) sits in the room at its left. */
+.lab.byob.is-paper:not(.is-phone) { --paper-pad: clamp(28px, 3.4vw, 64px); }
+.lab.byob.is-paper:not(.is-phone).is-epub .pdf-column { gap: 0; }
+.lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { width: min(100%, calc(var(--tb-measure, 42em) + 2 * var(--paper-pad))); padding-left: var(--paper-pad); padding-right: var(--paper-pad); background: var(--pdf-paper) !important;
+  box-shadow: -12px 0 16px -14px rgba(40, 34, 20, .34), 12px 0 16px -14px rgba(40, 34, 20, .34), inset 1px 0 0 rgba(40, 34, 20, .07), inset -1px 0 0 rgba(40, 34, 20, .07) !important; }
+.lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc):first-child, .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet.is-toc:first-child + .epub-sheet { padding-top: calc(12px + var(--paper-pad) * .5); }
+html[data-pdf-theme="dark"] .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { box-shadow: -12px 0 18px -14px rgba(0, 0, 0, .8), 12px 0 18px -14px rgba(0, 0, 0, .8), inset 1px 0 0 rgba(255, 255, 255, .05), inset -1px 0 0 rgba(255, 255, 255, .05) !important; }
+html[data-pdf-theme="eink"] .lab.byob.is-paper:not(.is-phone) .pdf-column > .epub-sheet:not(.is-toc) { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777 !important; }
+
+/* A PDF's Tinct text in Margin view (js/pdf-text-view.js, Anders, 20 Oct 2026, mockup 2b): Tinct paper as an EPUB's, the
+   chapter's title as the book reader sets it, its headings as headings, and its formulas, figures and tables as crops
+   of the page. A crop is drawn on clear paper: on dark paper a formula's or a table's ink turns light, and a figure
+   keeps its colours on a light plate (as the Tinct reader: src/lab/lab.css). */
+.lab.byob .pt-chapter .tb-head { display: block; margin: 0 0 20px; padding-top: 9px; text-align: left; }
+.lab.byob .pt-chapter .tb-title { display: block; font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 700; font-size: calc(var(--tb-head, 1.1127) * 1em); line-height: 1.25; color: var(--lab-ink); text-wrap: balance; }
+.lab.byob .pt-chapter .pt-h { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; font-weight: 600; font-style: normal; font-size: 1.04em; line-height: 1.3; margin: 1.4em 0 .45em; color: var(--lab-ink); text-align: left; text-wrap: balance; }
+.lab.byob .pt-chapter p.pt-line { white-space: pre-line; text-align: left; }
+.lab.byob .pt-chapter p.pt-item { padding-left: 1.2em; text-indent: -1.2em; }
+.lab.byob .pt-chapter p.pt-subtitle, .lab.byob .pt-chapter p.pt-byline { font-style: italic; color: var(--lab-ink-muted, var(--lab-ink)); text-align: left; }
+.lab.byob .pt-fig { margin: .9em 0 1em; text-align: center; }
+.lab.byob .pt-fig.is-formula { margin: .35em 0 .55em; }
+.lab.byob .pt-fig img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.lab.byob .pt-fig.is-formula img { max-width: min(100%, 36em); }
+.lab.byob .pt-fig .pt-cap { display: block; margin-top: .45em; font-size: .86em; line-height: 1.35; color: var(--lab-ink-muted, var(--lab-ink)); text-align: center; }
+.lab.byob.dark-pages .pt-fig.is-formula img, html[data-pdf-theme="dark"] .lab.byob .pt-fig.is-formula img, .lab.is-night .pt-fig.is-formula img,
+.lab.byob.dark-pages .pt-fig[data-kind="table"] img, html[data-pdf-theme="dark"] .lab.byob .pt-fig[data-kind="table"] img, .lab.is-night .pt-fig[data-kind="table"] img { filter: invert(1) hue-rotate(180deg); }
+.lab.byob.dark-pages .pt-fig[data-kind="figure"] img, html[data-pdf-theme="dark"] .lab.byob .pt-fig[data-kind="figure"] img, .lab.is-night .pt-fig[data-kind="figure"] img { background: #f4efe4; border-radius: 3px; }

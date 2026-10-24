@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Isolated original PDF surface fixture</title>
+<style>html, body, #app { height: 100%; margin: 0 } #app { width: 680px; height: 560px; }</style>
+<div id="app"></div>
+<script type="module">
+  import React from 'react'
+  import { createRoot } from 'react-dom/client'
+  import { PdfOriginalSurface } from './PdfOriginalSurface.tsx'
+  const root = createRoot(document.getElementById('app'))
+  const raw = Uint8Array.from(atob(window.__pdfFixture || ''), char => char.charCodeAt(0)).buffer
+  window.__selectedPdf = []
+  root.render(React.createElement(PdfOriginalSurface, {
+    bytes: async () => raw,
+    initialPlace: JSON.parse(sessionStorage.getItem('pdf-place') || 'null'),
+    onVisiblePlace: place => sessionStorage.setItem('pdf-place', JSON.stringify(place)),
+    onSelection: selection => window.__selectedPdf.push(selection),
+  }))
+</script>
+</html>

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, parseFindQuery, rankOfLine, socialFriendsOn, type BoardCard } from './socialRules'
+import { EVERYONE_BOARD_MIN_READERS, amongFriendsLine, appearsOnBoard, everyoneBoardOpen, finishedCardLine, isInternalAccount, isReservedTestEmail, mutualFriends, offEveryone, parseFindQuery, rankOfLine, socialFriendsOn, weekSeconds, weekSinceDay, type BoardCard } from './socialRules'
+import { readingTimeStats } from '../readingTime/model'
 import { followButtonHtml, profileBlockedHtml, profileDocument, profileMainHtml, profileMissingHtml, type ProfilePageData } from './profilePageView'
 
 const card = (over: Partial<BoardCard> = {}): BoardCard => ({
@@ -36,12 +37,48 @@ describe('socialRules', () => {
     expect(everyoneBoardOpen(null)).toBe(false)
   })
 
-  it('internal and test accounts never appear on either board', () => {
+  it('internal readers appear on Everyone once known not to be test accounts (20 Oct 2026); mutual friends see them on Friends (19 Oct 2026)', () => {
     const viewer = { friends: new Set(['b']), blocked: new Set<string>() }
-    expect(appearsOnBoard(card({ internal: true }), 'friends', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true }), 'friends', viewer)).toBe(true)
+    // Not looked up (or the lookup failed): kept off Everyone.
     expect(appearsOnBoard(card({ internal: true }), 'everyone', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true, test: false }), 'everyone', viewer)).toBe(true)
+    expect(appearsOnBoard(card({ internal: true, test: true }), 'everyone', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true, test: true }), 'friends', viewer)).toBe(true)
+    expect(appearsOnBoard(card({ internal: true, test: false, visibility: 'friends' }), 'everyone', viewer)).toBe(false)
+    expect(appearsOnBoard(card({ internal: true, test: false, on_leaderboard: false }), 'everyone', viewer)).toBe(false)
+    expect(offEveryone({})).toBe(false)
+    expect(offEveryone({ internal: false })).toBe(false)
+    expect(offEveryone({ test: true })).toBe(true)
+    // Not a friend: still not on Friends; blocked or off the leaderboard: on neither.
+    expect(appearsOnBoard(card({ internal: true }), 'friends', { friends: new Set<string>(), blocked: new Set<string>() })).toBe(false)
+    expect(appearsOnBoard(card({ internal: true }), 'friends', { friends: new Set(['b']), blocked: new Set(['b']) })).toBe(false)
+    expect(appearsOnBoard(card({ internal: true, on_leaderboard: false }), 'friends', viewer)).toBe(false)
     expect(appearsOnBoard(card({ internal: false }), 'friends', viewer)).toBe(true)
     expect(appearsOnBoard(card({ internal: false }), 'everyone', viewer)).toBe(true)
+  })
+
+  it('the board\'s live 7 days are Your reading\'s (readingTimeStats): the reader\'s today and six before, or ending tomorrow once there is time there', () => {
+    const row = (user_id: string, day: string, read: number, book_id = 'frankenstein', listen = 0) => ({ user_id, day, book_id, read_seconds: read, listen_seconds: listen })
+    const rows = [
+      row('a', '2026-10-14', 600, 'frankenstein', 60), row('a', '2026-10-08', 300), row('a', '2026-10-07', 9000), row('a', '2026-10-13', 99999, '_earlier'),
+      row('b', '2026-10-15', 120), row('b', '2026-10-08', 500), row('b', '2026-10-09', 30),
+      row('c', '2026-10-07', 400), row('c', '2026-10-13', 20),
+      row('d', '2026-10-01', 400),
+    ]
+    const today = '2026-10-14'
+    const seconds = weekSeconds(rows, id => (id === 'c' ? '2026-10-13' : today))
+    expect(seconds.get('a')).toBe(600 + 60 + 300)
+    // Time on tomorrow ends Bea's window there: 10-08 has left it.
+    expect(seconds.get('b')).toBe(120 + 30)
+    // A viewer a day behind UTC counts their own seven days.
+    expect(seconds.get('c')).toBe(400 + 20)
+    expect(seconds.has('d')).toBe(false)
+    for (const id of ['a', 'b', 'c']) {
+      const ledger = rows.filter(r => r.user_id === id).map(r => ({ day: r.day, bookId: r.book_id, read: r.read_seconds, listen: r.listen_seconds }))
+      expect(seconds.get(id), id).toBe(readingTimeStats(ledger, id === 'c' ? '2026-10-13' : today).last7Seconds)
+    }
+    expect(weekSinceDay(Date.parse('2026-10-14T23:59:00Z'))).toBe('2026-10-07')
   })
 
   it('internal accounts: the device flag or a reserved test address', () => {
@@ -126,6 +163,7 @@ describe('the profile page HTML', () => {
     const withFollow = profileMissingHtml(followButtonHtml({ relation: null, handle: 'bea' }))
     expect(withFollow).toContain('No profile here')
     expect(withFollow).toContain('/sign-in?returnTo=%2F%40bea')
-    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('Following')
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(profileMissingHtml(followButtonHtml({ relation: 'follower', handle: 'bea' }))).toContain('>Requested</button>')
   })
 })

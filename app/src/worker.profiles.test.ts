@@ -13,6 +13,7 @@ import { confirmUrl, verifyLink } from './worker/lifecycle/links'
 import { confirmLinkEmail, confirmLinkLimiter, confirmLinkSender, CONFIRM_LINK_SUBJECT } from './worker/routes/confirmLink'
 import { LIFECYCLE_TEST_GATE, isLifecycleTestRecipient } from './worker/routes/emails'
 import { handleEmailLink } from './worker/routes/emailLinks'
+import { PHOTO_COPY } from './social/photoFile'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const B = '22222222-2222-4222-8222-222222222222'
@@ -333,6 +334,16 @@ describe('names and links never come from the email (Anders, 9 Oct 2026)', () =>
     await save(store, E, { showTime: false })
     expect(store.profiles.get(E)).toMatchObject({ display_name: 'Qa Ux Desk A Cs', handle: 'qauxdeska9cs927', show_time: false })
   })
+
+  it('setUpBeforeFindable (Anders, 21 Oct 2026): set up before findable profiles (#488), not after, never when not set up', async () => {
+    const store = seeded()
+    store.profiles.set(E, legacyRow({ set_up_at: '2026-10-12T08:00:00Z', visibility: 'friends' }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: true })
+    store.profiles.set(E, legacyRow({ set_up_at: '2026-10-20T08:00:00Z', visibility: 'friends' }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: false })
+    store.profiles.set(E, legacyRow({ set_up_at: null }))
+    expect(await get(store, E)).toMatchObject({ setUpBeforeFindable: false })
+  })
 })
 
 describe('sign-up step 2', () => {
@@ -401,10 +412,13 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
   it('Friends', async () => {
     const store = await world()
     await post(store, A, { visibility: 'friends' })
-    // Only friends (mutual follows) see a Friends profile: a stranger, a one-way follower and a signed-out visitor get Not found.
-    expect(await look(store, D)).toBeNull()
+    // Changed on request (Anders, 19 Oct 2026): a Friends profile is findable by name and picture.
+    // A signed-in stranger and a one-way follower (a request not yet accepted) get the header only:
+    // no reading, time, board place or banner. Signed out it is Not found. Only friends see more.
+    const headerOnly = { limited: true, shows: { reading: false, time: false, leaderboard: false }, background: null }
+    expect(await look(store, D)).toMatchObject(headerOnly)
+    expect(await look(store, B)).toMatchObject(headerOnly)
     expect(await look(store, null)).toBeNull()
-    expect(await look(store, B)).toBeNull()
     expect((await look(store, C))!.limited).toBe(false)
     await post(store, A, { showReading: false, onLeaderboard: true })
     expect((await look(store, C))!.shows).toEqual({ reading: false, time: true, leaderboard: true })
@@ -414,8 +428,10 @@ describe('visibility seen by a stranger, a one-way follower and a friend', () =>
     const store = await world()
     const saved = await (await post(store, A, { visibility: 'everyone' })).json() as { profile: { visibility: string; effectiveVisibility: string } }
     expect(saved.profile).toMatchObject({ visibility: 'everyone', effectiveVisibility: 'friends' })
-    expect(await look(store, D)).toBeNull()
-    expect(await look(store, B)).toBeNull()
+    // Held at Friends: findable by name and picture only (19 Oct 2026), Not found signed out.
+    expect((await look(store, D))!.limited).toBe(true)
+    expect((await look(store, B))!.limited).toBe(true)
+    expect(await look(store, null)).toBeNull()
     expect((await look(store, C))!.limited).toBe(false)
     store.accounts.get(A)!.email_confirmed_at = '2026-10-08T11:00:00Z'
     for (const viewer of [null, D, B, C]) expect((await look(store, viewer))!.limited).toBe(false)
@@ -459,7 +475,8 @@ describe('uploads', () => {
     expect(stripJpegMetadata(new TextEncoder().encode('<svg></svg>'))).toBeNull()
   })
 
-  it('visible to the owner at once, to others only after approval', async () => {
+  // Changed on request (Anders, 19 Oct 2026): uploads show to others at once, with no review.
+  it('visible to the owner and to others at once; a row still pending from before stays hidden until approved', async () => {
     const store = new MemoryStore(); seed(store)
     store.accounts.get(A)!.email_confirmed_at = '2026-10-08T11:00:00Z'
     const objects = new Map<string, Uint8Array>()
@@ -472,7 +489,7 @@ describe('uploads', () => {
     await post(store, A, { visibility: 'everyone' }, env)
     const upload = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: jpegWithExif() as BodyInit }, env)
     const { profile } = await upload.json() as { profile: { picture: { kind: string; url: string; review: string }; uploads: boolean } }
-    expect(profile.picture).toMatchObject({ kind: 'upload', review: 'pending' })
+    expect(profile.picture).toMatchObject({ kind: 'upload', review: 'approved' })
     // The profile tells the cards that uploads are on.
     expect(profile.uploads).toBe(true)
     expect((await (await call(store, '/api/profile', { as: A }, env)).json() as { profile: { uploads: boolean } }).profile.uploads).toBe(true)
@@ -481,17 +498,32 @@ describe('uploads', () => {
     expect(own.status).toBe(200)
     // The address names this upload, so the owner's browser keeps it; others' copies last five minutes.
     expect(own.headers.get('Cache-Control')).toBe('private, max-age=31536000, immutable')
-    expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(404)
-    expect((await call(store, profile.picture.url, {}, env)).status).toBe(404)
-    const seen = await (await call(store, '/api/profiles/reader4780', { as: D }, env)).json() as { profile: { picture: { kind: string } } }
-    expect(seen.profile.picture.kind).toBe('initial')
-    store.profiles.get(A)!.picture_review = 'approved'
+    // Others see it straight away (an Everyone profile: signed in or out).
     const theirs = await call(store, profile.picture.url, { as: D }, env)
     expect(theirs.status).toBe(200)
     expect(theirs.headers.get('Cache-Control')).toBe('private, max-age=300')
+    expect((await call(store, profile.picture.url, {}, env)).status).toBe(200)
+    const seen = await (await call(store, '/api/profiles/reader4780', { as: D }, env)).json() as { profile: { picture: { kind: string } } }
+    expect(seen.profile.picture.kind).toBe('upload')
+    // A photo still marked pending from before 19 Oct shows to others only once approved.
+    store.profiles.get(A)!.picture_review = 'pending'
+    expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(404)
+    expect((await (await call(store, '/api/profiles/reader4780', { as: D }, env)).json() as { profile: { picture: { kind: string } } }).profile.picture.kind).toBe('initial')
+    store.profiles.get(A)!.picture_review = 'approved'
+    expect((await call(store, profile.picture.url, { as: D }, env)).status).toBe(200)
     // Choosing a set removes the stored photo.
     await post(store, A, { picture: { kind: 'set', value: 'stoic' } }, env)
     expect(objects.size).toBe(0)
+  })
+
+  it('a photo the Worker cannot process: a 415 in its own words, not the client’s not-a-photo line (19 Oct 2026)', async () => {
+    const store = new MemoryStore(); seed(store)
+    const bucket = { put: async () => {}, get: async () => null, delete: async () => {} }
+    const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
+    const res = await call(store, '/api/profile/image?slot=picture', { method: 'POST', as: A, body: new TextEncoder().encode('<svg></svg>') as BodyInit }, env)
+    expect(res.status).toBe(415)
+    expect(await res.json()).toEqual({ error: 'This photo could not be processed. Try a screenshot of it.' })
+    expect(PHOTO_COPY.unprocessed).not.toBe(PHOTO_COPY.notAPhoto)
   })
 })
 

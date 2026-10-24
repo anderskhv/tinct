@@ -33,9 +33,9 @@ let fromPages: (pages: unknown[], scan: unknown) => UserBookEdition | null
 let textRows: (items: unknown[]) => unknown[]
 
 beforeAll(() => {
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-regions.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-regions.js')
   const g = globalThis as unknown as { TinctPdfScan: { textRows: typeof textRows }; TinctPdfText: { fromPages: typeof fromPages }; TinctPdfRegions: Regions }
   regions = g.TinctPdfRegions
   textRows = g.TinctPdfScan.textRows
@@ -249,12 +249,12 @@ describe('Show page: a look at the PDF’s own page at a paragraph', () => {
     const edition = fromPages(pagesWith({}), scan)!
     const chapter = edition.chapters.find(item => item.title === '2. Motivations')!
     const paragraphIndex = chapter.paragraphs.findIndex(text => text.startsWith('Implicitly, defining such media'))
+    // Read as Tinct text on this desktop: the reader's own choice (Convert to Tinct book; the desktop's default is its pages since 19 Oct 2026).
+    store.set('tinct-addbook:edition:' + hex, '"text"')
     const at = showPdfPageAt(hex, edition.chapters, { chapterNumber: chapter.number, paragraphIndex, wordIndex: 0, updatedAt: 1_000, converter: edition.converter })
     expect(at.page).toBe(14)
     expect(at.frac).toBeGreaterThanOrEqual(0)
-    expect(store.get('tinct-addbook:edition:' + hex)).toBeUndefined()
-    // (Read as Tinct text on this device: its viewer told the edition under the current open rule, reader.js openKind.)
-    store.set('tinct-addbook:open-rule:' + hex, '2')
+    expect(store.get('tinct-addbook:edition:' + hex)).toBe('"text"')
     expect(pdfEditionChoice(hex, 'text')).toBe('text')
     expect(readPdfTextPlace(hex, edition)).toMatchObject({ chapterNumber: chapter.number, paragraphIndex, wordIndex: 0 })
   })

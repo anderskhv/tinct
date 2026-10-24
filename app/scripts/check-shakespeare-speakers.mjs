@@ -5,6 +5,7 @@ import path from 'node:path'
 import { registerShakespeareSpeakers, verseSpeakerEnd } from '../src/lab/labVerseLines.ts'
 import { markInternal } from './lib/internalTraffic.cjs'
 const live = process.env.SHAKESPEARE_LIVE === '1'
+const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const origin = 'https://tinct.app', output = 'artifacts/shakespeare-speakers'
 await fs.mkdir(output, { recursive: true })
 const results = []
@@ -39,6 +40,10 @@ async function boot(page, scenario) {
   }, scenario)
   await page.goto(origin + '/reader?qaLayoutTrace=1', { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
+  if (expectedBundle) {
+    const entry = await page.locator('script[src]').evaluateAll(nodes => nodes.map(node => node.src).find(src => /\/assets\/index-[\w-]+\.js(?:$|\?)/.test(src)))
+    assert.equal(entry && new URL(entry).pathname, expectedBundle.startsWith('/') ? expectedBundle : '/assets/' + expectedBundle, 'Every speaker case uses the exact deployed reader')
+  }
   await page.evaluate(() => document.fonts.ready)
   await page.waitForTimeout(800)
 }
@@ -77,6 +82,8 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         await boot(page, {...scenario,highlight})
         if (scenario.compare) {
           await page.getByTestId('lab-super').click()
+          await page.getByTestId('lab-super-menu').waitFor()
+          // Book settings holds Show compare, on the phone and the desktop (22 Oct 2026).
           await page.getByTestId('lab-super-row-editions').click()
           await page.getByTestId('lab-v2-show-compare').click()
           await page.waitForFunction(edition => {

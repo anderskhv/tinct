@@ -75,7 +75,10 @@ export interface ProfileStore {
   relation(viewerId: string, ownerId: string): Promise<RelationRows>
   /**
    * Flags Tinct's own internal or test account (reader_profiles.internal), so it
-   * never appears on a leaderboard or counts toward Everyone's threshold. Only
+   * never counts toward the Everyone board's threshold; a test account
+   * (profiles.is_test) also never appears on that board, while an internal
+   * reader who chose Everyone does (20 Oct 2026), and mutual friends see either
+   * on Friends (19 Oct 2026). Only
    * ever sets true. Optional: stores without it never flag.
    */
   markInternal?(id: string): Promise<void>

@@ -125,7 +125,7 @@ describe('every removal path uses the motion', () => {
   it('My shelf, the reading table and the shelf study keep their books and glide them', () => {
     const app = lib('app.js'), table = lib('reading-table.js'), view = lib('bookshelf-view.js')
     // My shelf: the leaving book fades during the save, then the re-render plays FLIP with the scroll kept.
-    for (const path of ['removeFromMyShelf', 'removeOwnFromReading', 'deleteOwnBook']) expect(app).toMatch(new RegExp(`function ${path}[\\s\\S]{0,400}leaveShelf\\(`))
+    for (const path of ['removeFromMyShelf', 'deleteOwnBook']) expect(app).toMatch(new RegExp(`function ${path}[\\s\\S]{0,400}leaveShelf\\(`))
     expect(app).toMatch(/playFlip\(shelfNodes\(\),before,shelfKey/)
     expect(app).toMatch(/scrollTo\(\{top:y,behavior:'instant'\}\)/)
     // The desk takes books off in place and hands the choice to a neighbour.
@@ -142,19 +142,34 @@ describe('every removal path uses the motion', () => {
     // changed add-to-tinct.js, app.js and styles.css again; cover-assets.js stays under 20261009owncover.
     // A book opening with the connection to itself (20261015quietopen, quiet-loads.js) changed app.js alone.
     // The reader's own picture from the first paint (20261019avatar) changed boot.js and styles.css.
-    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake'
-    expect(lib('index.html')).toContain('app.js?v=20261015quietopen')
+    // Continue opens the latest thing read, with "Also reading" (20261020continue), changed the reading
+    // table, bookshelf.js and styles.css, and every module above them on the way to index.html.
+    // My shelf's ••• menu (20261020shelfmenu) changed app.js and styles.css; Finished's held books (20261020finished) app.js.
+    // A book being read opens in the reader or says it could not (20261020open, reader-href.js) changed
+    // app.js and the reading table, and every module above them on the way to index.html.
+    // The library's memory on a phone (20261021memory) and My shelf's ••• with Read later, anchored to
+    // its button (20261021libmenu), both changed app.js and styles.css (20261021memmenu). add-to-tinct.js's
+    // tag the build derives from its content. The book's flap drawn flat once turned (20261021flap) changed
+    // them again (20261021stack1). The room's life holding still while the page arrives, a touch answers and
+    // a full-screen layer covers it (20261021speed) changed app.js alone (20261021stack2). A desk book's tap
+    // answered at once with the fade to the reader's paper (20261021deskopen) changed bookshelf.js and
+    // app.js (20261021stack3); a book opening from its painting's 960 px copy (20261021opencover) app.js
+    // again (20261021stack4). The room drawn once with only its moving parts repainted each frame
+    // (20261021still) changed scene-life.js and app.js (20261021stack5).
+    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
+    expect(lib('index.html')).toContain('app.js?v=20261021stack5')
+    expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261019avatar')
+    expect(lib('index.html')).toContain('styles.css?v=20261021stack1')
     expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
-    expect(lib('app.js')).toContain(`bookshelf.js?v=${ocr}`)
+    expect(lib('app.js')).toContain('bookshelf.js?v=20261021deskopen')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
-    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${ocr}`)
-    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${ocr}`)
+    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
+    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
     expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${ocr}`)
-    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${ocr}`)
+    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${latest}`)
     expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)

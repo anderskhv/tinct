@@ -6,7 +6,7 @@ import type { AccountRow, ProfileStore, PublicCardRow, ReaderProfileRow } from '
 import { supabaseSocialStore, type AdminProfileRow, type LedgerDayRow, type ReportRow, type SocialStore } from './worker/lib/socialStore'
 import { effectiveVisibility } from './social/profileRules'
 import { leaderboardWindow, rankRows, windowSeconds, type BoardCard } from './social/socialRules'
-import type { LedgerRow } from './readingTime/model'
+import { readingTimeStats, type LedgerRow } from './readingTime/model'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const B = '22222222-2222-4222-8222-222222222222'
@@ -35,6 +35,8 @@ class World implements ProfileStore, SocialStore {
   reports: ReportRow[] = []
   /** reader_profiles.internal */
   internal = new Set<string>()
+  /** profiles.is_test (every test account is also internal) */
+  tests = new Set<string>()
   countCalls = 0
   now = NOW
 
@@ -96,14 +98,20 @@ class World implements ProfileStore, SocialStore {
   }
   async unblock(x: string, y: string) { this.blocks = this.blocks.filter(([a, b]) => !(a === x && b === y)) }
   async cardsByIds(ids: string[]) { return this.cards().filter(card => ids.includes(card.id)) as BoardCard[] }
-  async searchEveryone(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }) {
-    return this.cards().filter(card => card.visibility === 'everyone' && (query.kind === 'handle'
+  async searchReaders(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }) {
+    return this.cards().filter(card => (card.visibility === 'friends' || card.visibility === 'everyone') && (query.kind === 'handle'
       ? card.handle === query.handle
       : card.display_name.toLowerCase().includes(query.text.toLowerCase()) || card.handle.includes(query.text.toLowerCase()))) as BoardCard[]
   }
   async everyoneBoardCards() { return this.cards().filter(card => card.visibility === 'everyone' && card.on_leaderboard && card.show_time) as BoardCard[] }
   async everyoneReaderCount() { this.countCalls++; return (await this.everyoneBoardCards()).filter(card => !card.internal).length }
   async markInternal(id: string) { this.internal.add(id) }
+  async testAccounts(ids: string[]) { return new Set(ids.filter(id => this.tests.has(id))) }
+  weekLedgerCalls = 0
+  async weekLedger(ids: string[], since: string) {
+    this.weekLedgerCalls++
+    return this.ledger.filter(row => ids.includes(row.user_id) && row.day >= since && row.book_id !== '_earlier')
+  }
   async boardSeconds(ids: string[]) { return new Map([...this.board].filter(([id]) => ids.includes(id))) }
   async boardRefreshedAt() { return this.refreshedAt }
   async refreshBoard() { this.refreshes++; this.board = windowSeconds(this.ledger, this.now); this.refreshedAt = new Date(this.now).toISOString() }
@@ -118,6 +126,7 @@ class World implements ProfileStore, SocialStore {
   async openReports() { return this.reports.filter(r => !r.resolved_at) }
   async resolveReport(id: number, resolution: string) { const r = this.reports.find(item => item.id === id); if (r) { r.resolved_at = 'now'; r.resolution = resolution } }
   async pendingReviews() { return [...this.profiles.values()].filter(row => row.picture_review === 'pending' || row.background_review === 'pending') as AdminProfileRow[] }
+  async recentPhotos() { return [...this.profiles.values()].filter(row => ['upload', 'google'].includes(row.picture_kind) || row.background_kind === 'upload') as AdminProfileRow[] }
   async adminProfiles(q: string) { return [...this.profiles.values()].filter(row => row.display_name.toLowerCase().includes(q.toLowerCase())) as AdminProfileRow[] }
   async adminProfile(id: string) { return (this.profiles.get(id) ?? null) as AdminProfileRow | null }
   async adminUpdate(id: string, patch: Record<string, unknown>) { this.profiles.set(id, { ...this.profiles.get(id)!, ...patch } as never); return 'ok' as const }
@@ -235,22 +244,69 @@ describe('the 7-day window', () => {
     world.now = NOW + 4 * 86_400_000
     world.refreshedAt = new Date(NOW).toISOString()
     const later = await board(world, A, 'everyone')
-    expect(world.refreshes).toBe(2)
+    // Read live from the ledger (20 Oct 2026): the cache is not rebuilt on read.
+    expect(world.refreshes).toBe(0)
     expect(names(later)).toEqual(['Bea', 'You'])
   })
 
-  it('the board is rebuilt at least hourly: the cron rebuilds in the first run of each hour, a stale board on read', async () => {
+  it('the fallback cache is rebuilt at least hourly: the cron in the first run of each hour; on read only when the live read fails and the cache is stale', async () => {
     const world = everyoneWorld()
     expect(await runLeaderboardCron(on as never, Date.parse('2026-10-14T13:04:00Z'), world)).toBe(true)
     expect(await runLeaderboardCron(on as never, Date.parse('2026-10-14T13:24:00Z'), world)).toBe(false)
     expect(await runLeaderboardCron({ ...on, SOCIAL_FRIENDS: '0' } as never, Date.parse('2026-10-14T14:04:00Z'), world)).toBe(false)
     expect(world.refreshes).toBe(1)
+    // Live: a stale cache is left alone (the cron keeps it for the fallback).
+    world.refreshedAt = new Date(NOW - 70 * 60_000).toISOString()
+    await board(world, A, 'friends')
+    expect(world.refreshes).toBe(1)
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    vi.spyOn(world, 'weekLedger').mockRejectedValue(new Error('reading_time 503'))
     world.refreshedAt = new Date(NOW - 30 * 60_000).toISOString()
     await board(world, A, 'friends')
     expect(world.refreshes).toBe(1)
     world.refreshedAt = new Date(NOW - 70 * 60_000).toISOString()
     await board(world, A, 'friends')
     expect(world.refreshes).toBe(2)
+  })
+
+  it('the board is live and says what Your reading says (20 Oct 2026: a new reader saw 16 m on You, 0 m on the board)', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 30); world.read(C, -2, 20)
+    // The hourly cache was built ten minutes ago, before the new reader read.
+    await world.refreshBoard()
+    world.refreshedAt = new Date(NOW - 10 * 60_000).toISOString()
+    world.read(A, 0, 16)
+    const yourReading = (id: string, today: string) => readingTimeStats(world.ledger.filter(row => row.user_id === id).map(row => ({ day: row.day, bookId: row.book_id, read: row.read_seconds, listen: row.listen_seconds })), today).last7Seconds
+    for (const tab of ['friends', 'everyone'] as const) {
+      const data = await board(world, A, tab)
+      expect(data.me, tab).toMatchObject({ seconds: 16 * 60, duration: '16 m' })
+      expect(data.me.seconds).toBe(yourReading(A, day(0)))
+      expect(data.refreshedAt).toBe(new Date(NOW).toISOString())
+    }
+    // The You card's "Nth of M" is the same computation.
+    expect(await json(await api(world, '/api/social/rank', A))).toEqual({ rank: 3, total: 3, seconds: 16 * 60 })
+    expect(world.refreshes).toBe(1)
+  })
+
+  it('the same 7 days as Your reading: the viewer\'s own date, and the seven days ending tomorrow once there is time there', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B)
+    // A reader west of UTC, whose today is still yesterday by UTC: their 7 days run day(-7)..day(-1).
+    world.read(A, -7, 10); world.read(A, -1, 5)
+    // Bea already has time on tomorrow: her 7 days run day(-5)..day(1), so day(-6) has left them.
+    world.read(B, -6, 40); world.read(B, 1, 3); world.read(B, 0, 2)
+    const ledgerOf = (id: string) => world.ledger.filter(row => row.user_id === id).map(row => ({ day: row.day, bookId: row.book_id, read: row.read_seconds, listen: row.listen_seconds }))
+    const west = await json(await api(world, `/api/social/board?tab=friends&today=${day(-1)}`, A))
+    expect(west.me.seconds).toBe(readingTimeStats(ledgerOf(A), day(-1)).last7Seconds)
+    expect(west.me.seconds).toBe(15 * 60)
+    expect(west.entries.find((entry: { name: string }) => entry.name === 'Bea').seconds).toBe(readingTimeStats(ledgerOf(B), day(0)).last7Seconds)
+    expect(west.entries.find((entry: { name: string }) => entry.name === 'Bea').seconds).toBe(5 * 60)
+    expect((await json(await api(world, `/api/social/rank?today=${day(-1)}`, A))).seconds).toBe(15 * 60)
+    // Without a date, or with one no device can have, the UTC date.
+    for (const path of ['/api/social/board?tab=friends', `/api/social/board?tab=friends&today=${day(-3)}`, '/api/social/board?tab=friends&today=nonsense']) {
+      expect((await json(await api(world, path, A))).me.seconds, path).toBe(5 * 60)
+    }
   })
 })
 
@@ -320,13 +376,14 @@ describe('the leaderboard is opt-in', () => {
     const world = everyoneWorld()
     world.befriend(A, B)
     world.read(B, 0, 60)
+    await world.refreshBoard()
     expect(names(await board(world, A, 'friends'))).toContain('Bea')
     expect(names(await board(world, C, 'everyone'))).toContain('Bea')
     const off = await handleProfiles(new Request('https://tinct.app/api/profile', { method: 'POST', headers: { authorization: `Bearer ${B}`, 'content-type': 'application/json' }, body: JSON.stringify({ onLeaderboard: false }) }), on as never, {
       store: world, verifyUser: async () => ({ id: B, email: 'b@readers.tinct.app' }),
     })
     expect(off.status).toBe(200)
-    // The cache still holds Bea's seconds (it is rebuilt hourly); the board leaves her out now.
+    // The fallback cache still holds Bea's seconds (it is rebuilt hourly); the board leaves her out now.
     expect(world.board.get(B)).toBe(3600)
     expect(names(await board(world, A, 'friends'))).not.toContain('Bea')
     expect(names(await board(world, C, 'everyone'))).not.toContain('Bea')
@@ -373,17 +430,30 @@ describe('private readers never appear', () => {
     expect((await api(world, '/api/social/profile/bea', B)).status).toBe(200)
   })
 
-  it('a Friends profile is Not found to a stranger, a one-way follower and a signed-out visitor, exactly like Only me; a friend sees it', async () => {
+  // Changed on request (Anders, 19 Oct 2026): Friends profiles are findable by name and picture, and a
+  // follow is a request. Before, a Friends profile was Not found to every non-friend, signed in or out.
+  it('a Friends profile shows a signed-in stranger or one-way follower its name and picture only; signed out it is Not found like Only me; a friend sees it', async () => {
     const world = everyoneWorld()
-    world.profiles.get(B)!.visibility = 'friends'
+    Object.assign(world.profiles.get(B)!, { visibility: 'friends', picture_kind: 'set', picture_value: 'stoic', background_kind: 'set', background_value: 'stoic' })
     world.read(B, 0, 60)
     world.follows.push([D, B])
     const onlyMe = new World(); onlyMe.add(B, { visibility: 'only_me' })
-    for (const viewer of [C, D, null]) {
-      const response = await api(world, '/api/social/profile/bea', viewer)
-      expect(response.status).toBe(404)
-      expect(await response.text()).toBe(await (await api(onlyMe, '/api/social/profile/bea', viewer)).text())
+    // C: a signed-in stranger; D: a one-way follower (request not accepted). Header only: no time, books or banner.
+    for (const viewer of [C, D]) {
+      const profile = (await json(await api(world, '/api/social/profile/bea', viewer))).profile
+      expect(profile).toMatchObject({ name: 'Bea', handle: 'bea', limited: true, time: null, readingNow: null, finished: null })
+      expect(profile.picture.src).toBe('/lab/library_2/assets/meditations.jpg')
+      expect(profile.banner.src).toBe('/lab/library_2/assets/room-library-night.jpg')
+      expect(JSON.stringify(profile)).not.toMatch(/Frankenstein|1 h/)
     }
+    expect((await json(await api(world, '/api/social/profile/bea', D))).profile.relation).toBe('follower')
+    // No board entry for a one-way follower or a stranger, on either board.
+    world.read(D, 0, 30)
+    for (const viewer of [C, D]) for (const tab of ['friends', 'everyone'] as const) expect(names(await board(world, viewer, tab))).not.toContain('Bea')
+    // Signed out: Not found, the same as an Only me profile.
+    const response = await api(world, '/api/social/profile/bea', null)
+    expect(response.status).toBe(404)
+    expect(await response.text()).toBe(await (await api(onlyMe, '/api/social/profile/bea', null)).text())
     const page = await serveProfilePage(new Request('https://tinct.app/@bea'), on as never, deps(world), 'bea')
     expect(page.status).toBe(404)
     const html = await page.text()
@@ -393,34 +463,42 @@ describe('private readers never appear', () => {
     expect(html).toContain('/sign-in?returnTo=%2F%40bea')
     const profiles = await handleProfiles(new Request('https://tinct.app/api/profiles/bea'), on as never, { store: world, verifyUser: async () => null })
     expect(profiles.status).toBe(404)
-    // Not in Find either.
-    expect((await json(await api(world, '/api/social/find?q=bea', C))).results).toEqual([])
+    // In Find, by name and picture only.
+    expect((await json(await api(world, '/api/social/find?q=bea', C))).results).toEqual([{ handle: 'bea', name: 'Bea', link: 'tinct.app/@bea', picture: expect.objectContaining({ src: '/lab/library_2/assets/meditations.jpg' }), relation: 'stranger', book: null }])
+    // Mutual follows see each other in full.
     world.befriend(B, C)
     const friend = (await json(await api(world, '/api/social/profile/bea', C))).profile
     expect(friend).toMatchObject({ limited: false, relation: 'friend', time: { last7: '1 h' } })
+    expect(friend.banner.src).toBe('/lab/library_2/assets/room-meditations-phone.jpg')
+    expect(names(await board(world, C, 'friends'))).toContain('Bea')
   })
 
-  it('following a Friends profile works from its link before it shows; it opens once you follow each other', async () => {
+  it('following a Friends profile is a request: it shows name and picture until followed back, then opens to both', async () => {
     const world = everyoneWorld()
     world.profiles.get(B)!.visibility = 'friends'
-    world.profiles.get(C)!.visibility = 'friends'
+    Object.assign(world.profiles.get(C)!, { visibility: 'friends', picture_kind: 'set', picture_value: 'at-sea' })
+    world.read(B, 0, 60); world.read(C, 0, 60)
     const track = vi.fn()
     const follow = await json(await api(world, '/api/social/follow', C, { method: 'POST', body: JSON.stringify({ handle: 'bea' }) }, { track }))
-    // The same answer as for an Only me profile or a handle nobody has.
-    expect(follow).toEqual(await json(await api(world, '/api/social/follow', C, { method: 'POST', body: JSON.stringify({ handle: 'nobody.here' }) })))
     expect(follow).toEqual({ ok: true, relation: 'follower', followsYou: false })
     expect(world.follows).toEqual([[C, B]])
     expect(track).toHaveBeenCalledWith('follow', C)
-    expect((await api(world, '/api/social/profile/bea', C)).status).toBe(404)
-    // Bea sees Carl following her: his name and link with the initial, not his picture or reading.
+    expect((await json(await api(world, '/api/social/profile/bea', C))).profile).toMatchObject({ limited: true, relation: 'follower', time: null, readingNow: null, finished: null })
+    // Bea sees Carl's request under Following you: his name and picture (findable), not his reading.
     const find = await json(await api(world, '/api/social/find', B))
-    expect(find.followingYou).toEqual([expect.objectContaining({ name: 'Carl', handle: 'carl', relation: 'followed', picture: expect.objectContaining({ src: null, initial: 'C' }) })])
+    expect(find.followingYou).toEqual([{ name: 'Carl', handle: 'carl', link: 'tinct.app/@carl', relation: 'followed', book: null, picture: expect.objectContaining({ src: '/lab/library_2/assets/odyssey.jpg' }) }])
+    expect((await json(await api(world, '/api/social/profile/carl', B))).profile).toMatchObject({ limited: true, time: null, readingNow: null })
+    // The dot on her picture asks for Following you alone (20 Oct 2026): the same rows, nothing else.
+    expect(await json(await api(world, '/api/social/find?only=following-you', B))).toEqual({ followingYou: find.followingYou })
+    // Accepting is following back: friends, each sees the other's reading.
     const back = await json(await api(world, '/api/social/follow', B, { method: 'POST', body: JSON.stringify({ handle: 'carl' }) }))
     expect(back).toMatchObject({ relation: 'friend' })
-    expect((await json(await api(world, '/api/social/profile/bea', C))).profile).toMatchObject({ limited: false, relation: 'friend' })
+    expect((await json(await api(world, '/api/social/profile/bea', C))).profile).toMatchObject({ limited: false, relation: 'friend', time: { last7: '1 h' } })
+    expect((await json(await api(world, '/api/social/profile/carl', B))).profile).toMatchObject({ limited: false, relation: 'friend', time: { last7: '1 h' } })
     // Unfollowing closes it again.
     await api(world, '/api/social/unfollow', C, { method: 'POST', body: JSON.stringify({ handle: 'bea' }) })
     expect(world.follows).toEqual([[B, C]])
+    expect((await json(await api(world, '/api/social/profile/bea', C))).profile).toMatchObject({ limited: true, time: null })
   })
 
   it('a follower whose profile is Only me is listed to the reader they follow, and can be removed or blocked; no one else can find them', async () => {
@@ -517,13 +595,33 @@ describe('follows', () => {
     expect(track.mock.calls.map(call => call[0])).toEqual(['follow', 'follow', 'unfollow'])
   })
 
-  it('Find searches Everyone readers by name or link, never Friends-only readers or yourself', async () => {
+  // Changed on request (Anders, 19 Oct 2026): Find lists Friends profiles too. Before, only Everyone.
+  it('Find searches Friends and Everyone readers by name or link, never Only me, hidden, blocked or yourself; results carry no reading', async () => {
     const world = everyoneWorld()
     world.profiles.get(C)!.visibility = 'friends'
-    expect((await json(await api(world, '/api/social/find?q=be', A))).results.map((r: { handle: string }) => r.handle)).toEqual(['bea'])
-    expect((await json(await api(world, `/api/social/find?q=${encodeURIComponent('https://tinct.app/@dora')}`, A))).results.map((r: { handle: string }) => r.handle)).toEqual(['dora'])
-    expect((await json(await api(world, '/api/social/find?q=carl', A))).results).toEqual([])
-    expect((await json(await api(world, '/api/social/find?q=anders', A))).results).toEqual([])
+    // An unconfirmed Everyone counts as Friends: findable too.
+    world.accounts.get(B)!.email_confirmed_at = null
+    world.profiles.get(D)!.visibility = 'only_me'
+    world.profiles.get(E)!.hidden_at = '2026-10-10T00:00:00Z'
+    for (const id of [B, C, D, E]) world.read(id, 0, 60)
+    const find = async (q: string, as = A) => (await json(await api(world, `/api/social/find?q=${encodeURIComponent(q)}`, as))).results as Array<Record<string, unknown>>
+    expect((await find('be')).map(r => r.handle)).toEqual(['bea'])
+    expect((await find('carl')).map(r => r.handle)).toEqual(['carl'])
+    expect((await find('https://tinct.app/@carl')).map(r => r.handle)).toEqual(['carl'])
+    expect(await find('dora')).toEqual([])
+    expect(await find('@dora')).toEqual([])
+    expect(await find('erik')).toEqual([])
+    expect(await find('anders')).toEqual([])
+    // Two characters at least, as before.
+    expect(await find('c')).toEqual([])
+    // Name, handle, link and picture only (and the relation, for the button): no books, time or stats.
+    for (const row of [...await find('bea'), ...await find('carl')]) {
+      expect(Object.keys(row).sort()).toEqual(['book', 'handle', 'link', 'name', 'picture', 'relation'])
+      expect(row.book).toBeNull()
+    }
+    // Blocked either way: not found.
+    world.blocks.push([C, A])
+    expect(await find('carl')).toEqual([])
   })
 
   it('Also reading your books: Everyone readers who show what they read, with the book', async () => {
@@ -565,6 +663,9 @@ describe('a reader’s own books are private', () => {
     expect(books.map(book => book.title)).toEqual(['a private book', 'Frankenstein'])
     expect(books[0]).toMatchObject({ bookId: 'private', cover: null, progress: null })
     expect(data.profile.time.last7).toBe('2 h')
+    // The seconds as well, so the account cards write them as the Leaderboard row does (21 Oct 2026).
+    expect(data.profile.time.last7Seconds).toBe(120 * 60)
+    expect(data.profile.time.yearSeconds).toBeGreaterThanOrEqual(120 * 60)
     expect(JSON.stringify(data)).not.toContain('userbook-')
     const page = await serveProfilePage(new Request('https://tinct.app/@bea'), on as never, deps(world), 'bea')
     const html = await page.text()
@@ -635,20 +736,57 @@ describe('reports and the admin view', () => {
     expect((await json(await api(world, '/api/admin/social', A))).reports).toEqual([])
   })
 
-  it('a report answers alike for a hidden Friends, an Only me and a missing profile; a follower can be reported whatever their visibility', async () => {
+  // Changed on request (19 Oct 2026): a Friends profile is findable, so a signed-in non-friend can report it;
+  // a hidden one still answers like Only me.
+  it('a report answers alike for a hidden Friends, an Only me and a missing profile; a findable Friends profile and a follower of any visibility can be reported', async () => {
     const world = new World()
-    world.add(B); world.add(C, { visibility: 'friends' }); world.add(D, { visibility: 'only_me' }); world.add(E, { visibility: 'only_me' })
+    world.add(B); world.add(C, { visibility: 'friends' }); world.profiles.get(C)!.hidden_at = '2026-10-10T00:00:00Z'; world.add(D, { visibility: 'only_me' }); world.add(E, { visibility: 'only_me' })
     world.follows.push([E, B])
     const report = (handle: string) => api(world, '/api/social/report', B, { method: 'POST', body: JSON.stringify({ handle, reason: 'name' }) })
     const unseen = await Promise.all(['carl', 'dora', 'nobody'].map(async handle => { const r = await report(handle); return [r.status, await r.text()] }))
     expect(unseen).toEqual([unseen[2], unseen[2], [404, unseen[2][1]]])
     expect(await json(await report('erik'))).toEqual({ ok: true, duplicate: false })
-    world.befriend(B, C)
+    world.profiles.get(C)!.hidden_at = null
     expect(await json(await report('carl'))).toEqual({ ok: true, duplicate: false })
     expect(world.reports.map(r => [r.reported, r.handle])).toEqual([[E, 'erik'], [C, 'carl']])
   })
 
-  it('approving an uploaded picture shows it to others; declining keeps the initial; rename and hide', async () => {
+  // Anders, 19 Oct 2026: uploads are stored approved and show to others at once; the admin page lists them to remove.
+  it('an uploaded picture shows to others at once, in profiles and Find; the admin page lists it and can remove it', async () => {
+    const world = everyoneWorld()
+    const objects = new Map<string, Uint8Array>()
+    const bucket = {
+      put: async (key: string, value: Uint8Array) => { objects.set(key, value) },
+      get: async (key: string) => objects.has(key) ? { body: objects.get(key), httpMetadata: { contentType: 'image/jpeg' } } : null,
+      delete: async (key: string) => { objects.delete(key) },
+    }
+    const env = { ...on, SOCIAL_PHOTO_UPLOADS: '1', USER_BOOKS: bucket }
+    const sof = [0xff, 0xc0, 0x00, 0x11, 0x08, 0x02, 0x00, 0x02, 0x00, 0x03, 0x01, 0x22, 0x00, 0x02, 0x11, 0x01, 0x03, 0x11, 0x01]
+    const sos = [0xff, 0xda, 0x00, 0x08, 0x01, 0x01, 0x00, 0x00, 0x3f, 0x00, 0x12, 0x34, 0xff, 0xd9]
+    const jpeg = new Uint8Array([0xff, 0xd8, ...sof, ...sos])
+    const verifyUser = async (request: Request) => { const token = request.headers.get('authorization')?.slice(7); return token ? { id: token, email: `${token}@readers.tinct.app` } : null }
+    const upload = await handleProfiles(new Request('https://tinct.app/api/profile/image?slot=picture', { method: 'POST', headers: { authorization: `Bearer ${B}` }, body: jpeg as BodyInit }), env as never, { store: world, verifyUser })
+    expect(upload.status).toBe(200)
+    expect(world.profiles.get(B)!.picture_review).toBe('approved')
+    const token = world.profiles.get(B)!.picture_value
+    const url = `/api/profile/image?user=${B}&slot=picture&v=${token}`
+    // The public card carries it straight away, so others see it.
+    expect((await world.getCardById(B))?.picture_kind).toBe('upload')
+    expect((await json(await api(world, '/api/social/profile/bea', C))).profile.picture.src).toBe(url)
+    expect((await json(await api(world, '/api/social/find?q=bea', C))).results[0].picture.src).toBe(url)
+    const image = await handleProfiles(new Request(`https://tinct.app${url}`, { headers: { authorization: `Bearer ${C}` } }), env as never, { store: world, verifyUser })
+    expect(image.status).toBe(200)
+    // Nothing waits for review; the admin page lists recent photos with Remove.
+    const admin = await json(await api(world, '/api/admin/social', A))
+    expect(admin.pending).toEqual([])
+    expect(admin.recent.map((row: { handle: string }) => row.handle)).toEqual(['bea'])
+    expect(admin.recent[0].picture.url).toBe(`/api/admin/social/image?user=${B}&slot=picture&v=${token}`)
+    await api(world, '/api/admin/social/profile', A, { method: 'POST', body: JSON.stringify({ userId: B, resetPicture: true }) })
+    expect((await json(await api(world, '/api/social/profile/bea', C))).profile.picture.src).toBeNull()
+    expect((await json(await api(world, '/api/admin/social', A))).recent).toEqual([])
+  })
+
+  it('a photo still pending from before 19 Oct: approving shows it to others; declining keeps the initial; rename and hide', async () => {
     const world = everyoneWorld()
     Object.assign(world.profiles.get(B)!, { picture_kind: 'upload', picture_value: 'abcdef0123', picture_review: 'pending' })
     const before = (await json(await api(world, '/api/social/profile/bea', C))).profile
@@ -725,20 +863,53 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
   })
 
-  it('internal accounts never appear on the Everyone board or the Friends board', async () => {
+  it('internal readers who chose Everyone appear on the Everyone board (20 Oct 2026); test accounts never do; mutual friends see both on Friends (19 Oct 2026)', async () => {
     const world = new World()
     world.add(A)
     addReaders(world, 1, 10)
-    const [qa] = addReaders(world, 100, 1, true)
+    const [staff] = addReaders(world, 100, 1, true)
+    addReaders(world, 101, 1, true)
+    const [qa] = addReaders(world, 102, 1, true)
+    world.tests.add(qa)
+    // An internal account that chose Friends stays off Everyone like anyone else.
+    const [quiet] = addReaders(world, 103, 1, true)
+    world.profiles.get(quiet)!.visibility = 'friends'
+    world.befriend(A, staff)
     world.befriend(A, qa)
     world.befriend(A, uuid(1))
     const everyone = await json(await get(world, '/api/social/board?tab=everyone', A))
-    expect(everyone.entries).toHaveLength(11)
-    expect(names(everyone)).not.toContain('Reader 100')
+    expect(everyone.entries).toHaveLength(13)
+    expect(names(everyone)).toContain('Reader 100')
+    expect(names(everyone)).toContain('Reader 101')
+    expect(names(everyone)).not.toContain('Reader 102')
+    expect(names(everyone)).not.toContain('Reader 103')
     const friends = await json(await get(world, '/api/social/board?tab=friends', A))
-    expect(names(friends)).toEqual(['Reader 1', 'You'])
+    expect(names(friends)).toEqual(['Reader 1', 'Reader 100', 'Reader 102', 'You'])
+    expect(friends.friends).toBe(3)
+    // An internal account that is not a friend stays off Friends.
+    expect(names(friends)).not.toContain('Reader 101')
     const rank = await json(await get(world, '/api/social/rank', A))
-    expect(rank).toMatchObject({ total: 2 })
+    expect(rank).toMatchObject({ total: 4 })
+    // And the internal friend sees the viewer back.
+    const theirs = await json(await get(world, '/api/social/board?tab=friends', staff))
+    expect(names(theirs)).toContain(NAMES[A])
+    // Whether an internal account is a test account cannot be told: it stays off Everyone.
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    vi.spyOn(world, 'testAccounts').mockRejectedValueOnce(new Error('profiles 503'))
+    const unknown = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(names(unknown)).not.toContain('Reader 100')
+    expect(unknown.entries).toHaveLength(11)
+  })
+
+  it('internal readers alone never open the Everyone board, even shown on it', async () => {
+    const world = new World()
+    world.add(A, { on_leaderboard: false })
+    addReaders(world, 300, 2, true)
+    expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(404)
+    addReaders(world, 310, 1)
+    world.now = NOW + 6 * 60_000
+    const open = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(names(open)).toEqual(expect.arrayContaining(['Reader 300', 'Reader 301', 'Reader 310']))
   })
 
   it('the Friends board is unaffected below the threshold', async () => {
@@ -768,14 +939,26 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     expect((await get(world, '/api/social/board?tab=everyone', A)).status).toBe(200)
   })
 
-  it('an internal account sees its own row but is told others do not see it', async () => {
+  it('an internal account is shown on Friends and on Everyone (20 Oct 2026); a test account is told it is not shown on Everyone', async () => {
     const world = new World()
     world.add(A)
     world.internal.add(A)
     world.read(A, 0, 45)
     const data = await json(await get(world, '/api/social/board?tab=friends', A))
     expect(names(data)).toEqual(['You'])
-    expect(data.meShown).toBe(false)
+    expect(data.meShown).toBe(true)
+    expect(data.friends).toBe(0)
+    addReaders(world, 1, 1)
+    // The Everyone count is reused for a few minutes.
+    world.now = NOW + 6 * 60_000
+    const everyone = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(names(everyone)).toContain('You')
+    expect(everyone.meShown).toBe(true)
+    world.tests.add(A)
+    const test = await json(await get(world, '/api/social/board?tab=everyone', A))
+    expect(names(test)).toContain('You')
+    expect(test.meShown).toBe(false)
+    expect(names(await json(await get(world, '/api/social/board?tab=everyone', uuid(1))))).not.toContain(NAMES[A])
   })
 
   it('a profile read or saved by an internal device, or with a test address, flags the account; real readers are never flagged', async () => {
@@ -813,6 +996,65 @@ describe('the Everyone threshold and internal accounts (Anders, 8 Oct 2026)', ()
     await expect(store.everyoneReaderCount()).rejects.toThrow()
     expect(await store.cardsByIds([A])).toEqual([])
     expect(seen[seen.length - 1]).not.toContain('internal')
+  })
+
+  it('the Supabase store: following and followers in one request, split by direction', async () => {
+    const seen: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      seen.push(String(input))
+      return Response.json([{ follower: A, followed: B }, { follower: C, followed: A }, { follower: A, followed: C }])
+    }))
+    const store = supabaseSocialStore({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' } as never)
+    expect(await store.followsEitherWay!(A)).toEqual({ following: [B, C], followers: [C] })
+    expect(seen).toEqual([`https://example.supabase.co/rest/v1/follows?or=(follower.eq.${A},followed.eq.${A})&select=follower,followed&limit=4000`])
+  })
+
+  it('the Supabase store: the live 7 days by the (user_id, day) index, 50 readers a request, never a cut-off list; test accounts by flag or address', async () => {
+    const seen: string[] = []
+    let full = false
+    let migrated = true
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      seen.push(url)
+      if (url.includes('/reading_time?')) {
+        const row = { user_id: A, day: '2026-10-14', book_id: 'frankenstein', read_seconds: 60, listen_seconds: 0 }
+        return Response.json(full ? Array.from({ length: 1000 }, () => row) : [row])
+      }
+      if (url.includes('/profiles?')) {
+        if (url.includes('is_test') && !migrated) return new Response('{"code":"42703","message":"column profiles.is_test does not exist"}', { status: 400 })
+        return Response.json([{ id: A, email: 'a@readers.tinct.app', is_test: migrated ? true : undefined }, { id: B, email: 'qa-x@test.tinct.app' }, { id: C, email: 'c@gmail.com', is_test: false }])
+      }
+      return new Response('[]')
+    }))
+    const store = supabaseSocialStore({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' } as never)
+    const many = Array.from({ length: 120 }, (_, n) => `bbbbbbbb-bbbb-4bbb-8bbb-${String(n).padStart(12, '0')}`)
+    expect(await store.weekLedger(many, '2026-10-07')).toHaveLength(3)
+    expect(seen).toHaveLength(3)
+    for (const url of seen) {
+      expect(url).toMatch(/\/rest\/v1\/reading_time\?user_id=in\.\([^)]+\)&day=gte\.2026-10-07&book_id=neq\._earlier&select=user_id,day,book_id,read_seconds,listen_seconds&limit=1000$/)
+      expect(url.split('in.(')[1].split(')')[0].split(',').length).toBeLessThanOrEqual(50)
+    }
+    full = true
+    await expect(store.weekLedger([A], '2026-10-07')).rejects.toThrow(/cut off/)
+    expect([...await store.testAccounts([A, B, C])].sort()).toEqual([A, B])
+    migrated = false
+    expect([...await store.testAccounts([A, B, C])]).toEqual([B])
+    expect(seen[seen.length - 1]).toContain('select=id,email')
+    expect(seen[seen.length - 1]).not.toContain('is_test')
+  })
+
+  it('the Supabase store: Find asks the card view for Friends and Everyone profiles, the card columns only (19 Oct 2026)', async () => {
+    const seen: string[] = []
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => { seen.push(String(input)); return new Response('[]') }))
+    const store = supabaseSocialStore({ SUPABASE_URL: 'https://example.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'k' } as never)
+    await store.searchReaders({ kind: 'name', text: 'bea' }, 20)
+    await store.searchReaders({ kind: 'handle', handle: 'bea' }, 20)
+    for (const url of seen) {
+      expect(url).toContain('/rest/v1/public_profile_cards?visibility=in.(friends,everyone)&')
+      expect(url).not.toContain('reader_profiles')
+      expect(url).toContain('select=id,handle,display_name,picture_kind,picture_value,visibility,show_reading,show_time,on_leaderboard')
+    }
+    expect(seen[1]).toContain('handle=eq.bea')
   })
 
   it('a failed flag never stops the profile', async () => {
@@ -890,6 +1132,20 @@ describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to 
     })
   }
 
+  /** How long `work` takes on vitest's fake clock: the store's waits alone, never this machine's load. */
+  async function onFakeClock<T>(work: () => Promise<T>): Promise<{ value: T; elapsed: number }> {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] })
+    try {
+      const started = Date.now()
+      let done = false
+      const running = work().finally(() => { done = true })
+      while (!done) await vi.advanceTimersByTimeAsync(1)
+      return { value: await running, elapsed: Date.now() - started }
+    } finally {
+      vi.useRealTimers()
+    }
+  }
+
   it('the Friends board is two store round trips after sign-in (was six), with the same rows', async () => {
     const ms = Number(process.env.BOARD_RTT_MS) || 40
     const world = everyoneWorld()
@@ -899,20 +1155,88 @@ describe('the leaderboard answers fast (Anders, 15 Oct 2026: "takes too long to 
     const expected = await board(world, A, 'friends')
     const calls: string[] = []
     const store = slow(world, ms, calls)
-    const started = Date.now()
-    const response = await handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store })
-    const elapsed = Date.now() - started
+    const { value: response, elapsed } = await onFakeClock(() => handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store }))
     if (process.env.BOARD_RTT_MS) process.stderr.write(`board: ${elapsed} ms at ${ms} ms per store round trip; reads: ${calls.join(', ')}\n`)
     expect(await response.json()).toEqual(expected)
     // The Everyone count (cached per isolate) runs beside the board; at most three waits in a row.
     expect(elapsed).toBeLessThan(ms * 3.5)
   })
 
-  it('a stale board is rebuilt before its seconds are read, as before', async () => {
+  it('the same reader again in this isolate: one store round trip (the guess), the same rows (21 Oct 2026)', async () => {
+    const ms = Number(process.env.BOARD_RTT_MS) || 40
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 60); world.read(C, 0, 30); world.read(A, 0, 10)
+    const expected = await board(world, A, 'friends')
+    const calls: string[] = []
+    const store = slow(world, ms, calls)
+    const ask = () => handleSocial(new Request('https://tinct.app/api/social/board?tab=friends', { headers: { authorization: `Bearer ${A}` } }), on as never, { ...deps(world), profiles: store, social: store })
+    await onFakeClock(ask)
+    calls.length = 0
+    const { value: response, elapsed } = await onFakeClock(ask)
+    if (process.env.BOARD_RTT_MS) process.stderr.write(`board (guessed): ${elapsed} ms at ${ms} ms per store round trip; reads: ${calls.join(', ')}\n`)
+    expect(await response.json()).toEqual(expected)
+    // One wait, not two.
+    expect(elapsed).toBeLessThan(ms * 1.5)
+  })
+
+  it('the guess never shows a reader the fresh read does not: unfollowed, blocked, and a new friend all as without it', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B); world.befriend(A, C)
+    world.read(B, 0, 60); world.read(C, 0, 30); world.read(D, 0, 20)
+    expect(names(await board(world, A, 'friends'))).toEqual(['Bea', 'Carl', 'You'])
+    await world.unfollow(C, A)
+    await world.block(B, A)
+    world.befriend(A, D)
+    const after = await board(world, A, 'friends')
+    expect(names(after)).toEqual(['Dora', 'You'])
+    expect(after.friends).toBe(1)
+    // And a reader who leaves the leaderboard is gone at once, guessed or not.
+    world.profiles.get(D)!.on_leaderboard = false
+    expect(names(await board(world, A, 'friends'))).toEqual(['You'])
+  })
+
+  it('tab=default is the board the cards open on, in one request: Everyone without a friend while open, else Friends', async () => {
+    const world = everyoneWorld()
+    world.read(B, 0, 60); world.read(C, 0, 30)
+    const lonely = await json(await api(world, '/api/social/board?tab=default', A))
+    expect(lonely.tab).toBe('everyone')
+    expect(lonely).toEqual({ ...await board(world, A, 'everyone') })
+    world.befriend(A, C)
+    const friendly = await json(await api(world, '/api/social/board?tab=default', A))
+    expect(friendly.tab).toBe('friends')
+    expect(names(friendly)).toEqual(['Carl', 'You'])
+    // Everyone closed: Friends, as before.
+    const closed = new World()
+    closed.add(A, { visibility: 'friends' })
+    const quiet = await json(await api(closed, '/api/social/board?tab=default', A, {}, { everyoneMinReaders: 5 }))
+    expect(quiet).toMatchObject({ tab: 'friends', everyoneOpen: false })
+  })
+
+  it('Server-Timing on the board and the rank says where the time went, and names no reader', async () => {
+    const world = everyoneWorld()
+    world.befriend(A, B)
+    world.read(B, 0, 60)
+    for (const path of ['/api/social/board?tab=friends', '/api/social/board?tab=everyone', '/api/social/board?tab=default', '/api/social/rank']) {
+      const response = await api(world, path, A)
+      expect(response.status).toBe(200)
+      const timing = response.headers.get('Server-Timing') ?? ''
+      for (const phase of ['auth', 'circle', 'own', 'cards', 'ledger', 'total']) expect(timing).toMatch(new RegExp(`(^|, )${phase};dur=\\d+`))
+      expect(timing).toMatch(/guess;desc="(hit|miss|partial)"/)
+      for (const id of [A, B]) expect(timing).not.toContain(id)
+      expect(timing).not.toMatch(/Bea|Anders/i)
+    }
+    // Other social routes carry none.
+    expect((await api(world, '/api/social/find', A)).headers.get('Server-Timing')).toBeNull()
+  })
+
+  it('when the live read fails, a stale cache is rebuilt before its seconds are read, as before', async () => {
     const world = everyoneWorld()
     world.befriend(A, B)
     world.read(B, 0, 60)
     expect(world.refreshedAt).toBeNull()
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+    vi.spyOn(world, 'weekLedger').mockRejectedValueOnce(new Error('week ledger cut off'))
     const data = await board(world, A, 'friends')
     expect(world.refreshes).toBe(1)
     expect(data.entries.map((entry: { name: string; seconds: number }) => [entry.name, entry.seconds])).toEqual([['Bea', 3600], ['You', 0]])

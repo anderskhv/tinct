@@ -161,10 +161,12 @@ try {
         if (record) {
           // The manual row agrees: nothing to tap.
           await page.getByTestId('lab-super').click()
+          await page.getByTestId('lab-super-menu').waitFor()
+          // Book settings holds the editions and the offline row, on the phone and the desktop (22 Oct 2026).
           await page.getByTestId('lab-super-row-editions').click()
           const row = page.getByTestId('lab-v2-offline')
           await row.waitFor()
-          assert.equal(await row.getAttribute('data-offline-state'), 'saved', 'the Book editions row says Available offline')
+          assert.equal(await row.getAttribute('data-offline-state'), 'saved', 'the Book settings row says Available offline')
           await page.screenshot({ path: `${output}/${label}-1-row-saved.png` })
           await page.keyboard.press('Escape')
           await page.waitForFunction(() => !document.querySelector('[data-testid="lab-v2-offline"]'))

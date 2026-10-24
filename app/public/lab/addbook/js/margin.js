@@ -240,6 +240,8 @@
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const svg = body => `<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">${body}</svg>`;
   const ICONS = {
+    // Remove (a highlight): a ✕, in the bar's stroke.
+    remove: svg('<path d="M5 5l8 8M13 5l-8 8"/>'),
     more: svg('<circle cx="4" cy="9" r=".9"/><circle cx="9" cy="9" r=".9"/><circle cx="14" cy="9" r=".9"/>'),
     // The note: a pencil over a short rule (Anders, 15 Oct: in the style of Gloss's bar, drawn as our own).
     note: svg('<path d="M11.6 3.4l2.9 2.9-7.6 7.6-3.6.8.8-3.6z"/><path d="M10.1 4.9l2.9 2.9M10.5 15.3h4.6"/>'),
@@ -247,13 +249,15 @@
     highlight: svg('<path d="M12.3 2.8l2.9 2.9-6.6 6.6-2.9-2.9z"/><path d="M5.7 9.4l-1.2 4 4-1.2M3.4 15.4h3.4"/>'),
     mic: svg('<rect x="6.5" y="2.5" width="5" height="8.5" rx="2.5"/><path d="M4 9a5 5 0 0 0 10 0M9 14v2M6.5 16h5"/>'),
     up: svg('<path d="M9 14V4M4.5 8.5 9 4l4.5 4.5"/>'),
+    // Remove highlight on the phone's bar (no room for its words there): the cards' bin.
+    trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
   };
   // Share as image stays out of the PDF reader for now (the fixture shows it); every other action is in.
   const LATER = { share: true };
   const shown = (id, all) => all || !LATER[id];
   // Related (FIXES-2026-10-15 A5): between Fact-check and Counterpoint.
   const MORE_ROWS = [['define', 'Define', 'The word, as this text uses it'], ['factcheck', 'Fact-check', 'Does it still hold? Searches the web'], ['related', 'Related', 'Where else the text takes this up'], ['counterpoint', 'Counterpoint', 'The strongest objection to it'], ['quiz', 'Quiz me', 'Three questions to check you have it']];
-  const MORE_ROWS_2 = [['copy', 'Copy quote', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
+  const MORE_ROWS_2 = [['copy', 'Copy', 'With the title and page number'], ['share', 'Share as image', 'The quote as a card to post']];
   const colorOf = (colors, key) => { const c = colors.find(x => x[0] === key) || colors[0]; return { key: c[0], label: c[1], dot: c[3] } };
   function dotHtml(colors, current, { noted = false } = {}) {
     const c = colorOf(colors, current);
@@ -271,12 +275,25 @@
     return colors.map(([k, label, , dot]) => `<button type="button" class="mr-swatch" data-color="${esc(k)}" style="background:${esc(dot)}" aria-label="${esc(label)}" aria-pressed="${k === current}"></button>`).join('');
   }
   /**
-   * The bar. state: 'menu' | 'colors' | 'asking'. opts: { colors, current, phone, all (show the 1b
-   * actions, fixture only), moreOpen, noted, question }.
+   * The bar. state: 'menu' | 'colors' | 'asking' | 'existing'. opts: { colors, current, phone, all (show the 1b
+   * actions, fixture only), moreOpen, noted, question }. 'existing' is a highlight clicked (Anders, 19 Oct 2026): Ask
+   * and Explain, its colours, its note, and Remove highlight (on the phone, the bin with that name).
    */
   function barHtml(state, o) {
+    if (state === 'existing') {
+      const sep = '<span class="mr-bar__sep" aria-hidden="true"></span>';
+      return `<button type="button" class="mr-bar__item is-text" data-m="ask">Ask</button>${sep}<button type="button" class="mr-bar__item is-text" data-m="explain">Explain</button>${sep}`
+        + swatchesHtml(o.colors, o.current) + sep
+        + `<button type="button" class="mr-bar__item" data-m="note" aria-label="${o.noted ? 'Edit note' : 'Add note'}">${ICONS.note}</button>`
+        // Remove highlight: a ✕ in the bar's icon style, named for screen readers and on hover (Anders, 20 Oct 2026: the words were too wide).
+        + `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight" title="Remove highlight">${ICONS.remove}</button>`;
+    }
     if (state === 'asking') {
-      return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" aria-label="Ask about this passage">${esc(o.question || '')}</textarea></label>`
+      // A3 (Anders, 22 Oct 2026): the dark bar itself becomes the field, 440px wide on the desktop, with an Esc hint
+      // (Esc goes back to the actions); a placeholder, the mic and a round send. No spelling marks or autocorrect
+      // bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
+      return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" placeholder="Ask about this passage" aria-label="Ask about this passage" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="sentences">${esc(o.question || '')}</textarea></label>`
+        + (o.phone ? '' : '<kbd class="mr-bar__esc" aria-hidden="true">esc</kbd>')
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
         + `<button type="button" class="mr-bar__send" data-m="send" aria-label="Send"${o.question ? '' : ' disabled'}>${ICONS.up}</button>`;
     }
@@ -324,25 +341,18 @@
   }
   /** The note editor: the passage, the field, Remove highlight and Save note (the book reader's note sheet). */
   function noteHtml({ quote, note = '' }) {
-    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(quote))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
+    // A passage that opens or closes on its own quotation mark is not quoted twice (round 3: ““Yes, of course, if”).
+    const bare = String(quote || '').trim().replace(/^["“‘']+|["”’']+$/g, '');
+    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
       + `<div class="mr-note__foot"><button type="button" class="mr-bar__item is-quiet" data-m="remove">Remove highlight</button><button type="button" class="mr-bar__item" data-m="save"${note ? '' : ' disabled'}>Save note</button></div>`;
   }
   /**
-   * The question field's size (mockup 1B): at least 330px, growing with the words to 520px (or the
-   * room there is), then wrapping to three lines. Desktop only for the width; the phone bar keeps
-   * its width. Measures with a canvas in the field's own font.
+   * The question field's size (A3, Anders 22 Oct 2026): on the desktop the bar is 440px wide as soon as it is the
+   * field (or the room there is), and a long question wraps upward to three lines. The phone bar keeps its width.
    */
-  function sizeAsk(el, { phone = false, room = 520 } = {}) {
+  function sizeAsk(el, { phone = false, room = 440 } = {}) {
     const t = el.querySelector('.mr-ask'); if (!t) return;
-    if (!phone) {
-      const max = Math.min(520, room);
-      const g = (sizeAsk.ctx ||= el.ownerDocument.createElement('canvas').getContext('2d'));
-      g.font = getComputedStyle(t).font;
-      const words = Math.max(0, ...t.value.split('\n').map(l => g.measureText(l).width));
-      el.style.width = '';
-      const chrome = el.offsetWidth - t.clientWidth;
-      el.style.width = Math.max(Math.min(330, max), Math.min(max, Math.ceil(words + chrome + 6))) + 'px';
-    }
+    if (!phone) el.style.width = Math.max(0, Math.min(440, room)) + 'px';
     t.style.height = 'auto';
     t.style.height = Math.min(t.scrollHeight, 60) + 'px';
   }
@@ -507,9 +517,24 @@
     const out = [];
     // A unit's quiz (Quiz me on this chapter, from the primer) has no passage: it sits at the column's top instead.
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
-    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at });
+    // A note in the margin (a click on the empty column) or a unit's own note (its end's Note) has no passage: its one
+    // box has no size (noteSpot). It is "free": no underline, no leader line, its field always editable.
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
+  /**
+   * A note with no passage (Anders, 19 Oct 2026, evening): a margin note, kept as a highlight record whose one box has
+   * no size, [x, y, 0, 0], at the height it was written (x 1: the page's right edge, y its height on the page), or a
+   * unit's own note (the Note pill at its end), whose box is [2, 1, 0, 0] on the unit's last page. Both sync as every
+   * note does (the account keeps a highlight's boxes as they are). -> { y, unit } | null
+   */
+  function noteSpot(m) {
+    const r = m?.rects;
+    if (!Array.isArray(r) || r.length !== 1 || !Array.isArray(r[0]) || r[0][2] !== 0 || r[0][3] !== 0) return null;
+    return { y: Number(r[0][1]) || 0, unit: r[0][0] === 2 };
+  }
+  /** The box a margin note keeps: at `y` (a fraction of its page's height); a unit's note: its last page's foot. */
+  const noteBox = (y, { unit = false } = {}) => (unit ? [2, 1, 0, 0] : [1, Math.round(Math.max(0, Math.min(1, y)) * 10000) / 10000, 0, 0]);
   /**
    * Deleting a card (Anders, 15 Oct): what goes. A card becomes a tombstone (synced as every card's
    * removal). A note's card is its highlight's note: the note goes, and the highlight with it when the
@@ -535,6 +560,26 @@
   const CARD_LIMITS = { text: 2000, turns: 40, content: 12000 };
   /** A quiz answer the reader types is kept to this many characters (the Worker marks at most this much). */
   const QUIZ_ANSWER_CHARS = 2000;
+  /** At most this many questions in one quiz, one per key idea (the Worker's QUIZ_MAX_IDEAS; Anders, 20 Oct 2026). */
+  const QUIZ_MAX_QUESTIONS = 8;
+  /**
+   * A reply under a quiz answer's marking (Anders, 20 Oct 2026): after "Nearly." or "Not quite." the reader may answer back
+   * ("so is it because the two instances cancel?") and go a few rounds with the grader before the next question; at most
+   * QUIZ_FOLLOW_UPS replies per question (the Worker's QUIZ_CHECK_FOLLOW_UPS), each kept to QUIZ_REPLY_CHARS (its
+   * QUIZ_TURN_CHARS). A question's result keeps them as `thread`: [{ reply, verdict, feedback }].
+   */
+  const QUIZ_FOLLOW_UPS = 3;
+  const QUIZ_REPLY_CHARS = 600;
+  /** The newest marking of a question's result: its last reply's, else the answer's. */
+  const quizLatest = r => (r?.thread?.length ? r.thread[r.thread.length - 1] : r) || null;
+  /** Whether the reader can still reply under this result: marked (not shown), not Right, fewer than QUIZ_FOLLOW_UPS replies. */
+  const quizCanReply = r => !!r && !r.shown && !!r.verdict && quizLatest(r).verdict !== 'right' && (r.thread?.length || 0) < QUIZ_FOLLOW_UPS;
+  /** The earlier turns sent with a reply (the Worker's quiz.turns): the answer, then each marking and reply, ending with a marking. */
+  function quizTurns(r) {
+    const mark = m => ({ role: 'grader', text: String(m.feedback || QUIZ_VERDICT_WORDS[m.verdict] || '').slice(0, QUIZ_REPLY_CHARS), ...(m.verdict ? { verdict: m.verdict } : {}) });
+    return [{ role: 'reader', text: String(r.answer || '').slice(0, QUIZ_REPLY_CHARS) }, mark(r), ...(r.thread || []).flatMap(t => [{ role: 'reader', text: String(t.reply || '').slice(0, QUIZ_REPLY_CHARS) }, mark(t)])];
+  }
+  const QUIZ_VERDICT_WORDS = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not quite.' };
   /** A new kept card for a passage (`anchor`: the reader's page-fraction boxes). */
   function newCard({ kind, page, anchor, text, turns = [], data = null, at = Date.now() }) {
     const r = v => Math.round(v * 10000) / 10000;
@@ -547,6 +592,8 @@
      null. A tag that resolves is a button carrying its page; one that does not stays text. */
   function citeHtml(token, resolve) {
     const target = resolve ? resolve(token) : null;
+    // A book without pages (an EPUB, a Tinct book: resolve.drop) shows no page reference at all (Anders, 20 Oct 2026: "p. 9").
+    if (!target && resolve?.drop) return '';
     // A tag this PDF has no place for is shown without its braces ("p. 1"), never as "{p. 1}"; one written in parentheses stays as written.
     if (!target) return esc(token.raw.startsWith('(') ? token.raw : citeText(token));
     return `<button type="button" class="mr-cite" data-page="${target.page}"${target.needle ? ` data-needle="${esc(target.needle)}"` : ''}>${esc(citeText(token))}</button>`;
@@ -561,7 +608,12 @@
     const plain = String(text || '').replace(/\*\*(?=\S)([^*]+?)\*\*/g, '$1');
     // A bare "eq. 1" (no braces) is a tag only when this PDF has that equation (recheck-1, 16 Oct); the rest as before.
     const bare = token => (/^eq\./i.test(token.raw) ? Boolean(resolve && resolve(token)) : true);
-    return P.parseCitations(plain, bare).map(part => (part.type === 'cite' ? citeHtml(part, resolve) : italics(esc(part.text)).replace(/\n/g, '<br>'))).join('');
+    // A dropped page reference (a book without pages) takes the space before it along: "within it." not "within it ."
+    return P.parseCitations(plain, bare).reduce((html, part) => {
+      if (part.type !== 'cite') return html + italics(esc(part.text)).replace(/\n/g, '<br>');
+      const cite = citeHtml(part, resolve);
+      return cite ? html + cite : html.replace(/[ \t]+$/, '');
+    }, '');
   }
   const blocksOf = text => String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n+/).map(b => b.replace(/^\n+|\s+$/g, '')).filter(b => b.trim());
   function blockHtml(b, P, resolve) {
@@ -588,25 +640,29 @@
     return `<p><span class="is-bottom-line">${inlineHtml(lead, P, resolve)}</span>${tail ? ' ' + inlineHtml(tail, P, resolve) : ''}</p>` + blocks.slice(1).map(b => blockHtml(b, P, resolve)).join('');
   }
   /**
-   * Fact-check: the opening (what the passage claims and what the document offers, streamed while
-   * the search runs) in plain text, then the verdict line as the bottom line, one paragraph per
-   * claim or note with its word in italic, the sources as plain links. `live`: still streaming, so
-   * text with no verdict yet is the opening, never bolded as one.
+   * Fact-check (Anders, 19 Oct 2026): the verdict line first, as the bottom line; then the one plain caveat or reason
+   * paragraph, any further claim with its verdict word in italic; the sources as plain links. Nothing before the
+   * verdict is shown (the restating opening, a first round's text before the search: P.cleanFactcheck drops them),
+   * and while it streams, words that are not yet a verdict wait (the card's dots show meanwhile). An answer kept
+   * before 19 Oct is cleaned the same way when it is drawn.
    */
+  /** A reply's own "Sources:" line (its last), parsed as Fact-check's: { text without it, html of its links }. */
+  function sourcesOf(text, P) {
+    const t = String(text || ''), m = /\n[ \t]*Sources:[^\n]*\s*$/i.exec(t);
+    if (!m || !P?.parseSourcesLine) return { text: t, html: '' };
+    const list = P.parseSourcesLine(m[0].trim());
+    const html = list.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${list.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(P.sourceTitle ? P.sourceTitle(s.title) : s.title)}</a>`).join('')}</div>` : '';
+    return { text: t.slice(0, m.index), html };
+  }
   function factcheckHtml(text, P, { resolve = null, live = false } = {}) {
-    const f = P.parseFactcheck(text);
-    const opening = f.opening || [];
-    if (live && !f.verdict && !opening.length) {
-      const blocks = blocksOf(text).filter(b => !/^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i.test(b));
-      return { answer: blocks.length ? `<div class="mr-answer mr-opening">${blocks.map(b => `<p>${inlineHtml(b.trim(), P, resolve)}</p>`).join('')}</div>` : '', sources: '' };
-    }
-    if (!f.lead && !opening.length) return { answer: '', sources: '' };
-    const open = opening.length ? `<div class="mr-answer mr-opening">${opening.map(b => `<p>${inlineHtml(b, P, resolve)}</p>`).join('')}</div>` : '';
-    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
+    const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(text) : text);
+    if (live && !f.verdict) return { answer: '', sources: '' };
+    if (!f.lead) return { answer: '', sources: '' };
+    const claims = f.claims.length ? `<div class="mr-claims">${f.claims.map(c => `<p>${c.verdict && c.verdict !== P.NOTE ? `<span class="mr-verdict">${esc(c.verdict)}</span> ` : ''}${inlineHtml(c.text, P, resolve)}</p>`).join('')}</div>` : '';
     // The sources as a labelled row of links (night run final, 16 Oct: the bare titles read as a raw tail), their titles tidied (sourceTitle).
     const sources = f.sources.length ? `<div class="mr-sources"><span class="mr-sources__label">Sources</span>${f.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`).join('')}</div>` : '';
-    const verdict = f.lead ? `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>` : '';
-    return { answer: open + verdict + claims, sources };
+    const verdict = `<div class="mr-answer"><p><span class="is-bottom-line">${inlineHtml(f.lead, P, resolve)}</span></p></div>`;
+    return { answer: verdict + claims, sources };
   }
   /**
    * An answer as a card shows it: never a sentence about the passage picture (full battery on train 3), except in a
@@ -636,23 +692,76 @@
     const answer = (card.turns || []).find(t => t.role === 'assistant');
     // Related, folded: its bottom line (the label says how many places).
     if (card.kind === 'related' && answer && P.parseRelated) return plain(P.parseRelated(answer.content).lead);
-    // Fact-check, folded: its verdict line (the opening before it is context).
-    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
+    // Fact-check, folded: its verdict line and what follows it (nothing before the verdict; 19 Oct 2026).
+    if (card.kind === 'factcheck' && answer) { const f = P.parseFactcheck(P.cleanFactcheck ? P.cleanFactcheck(answer.content) : answer.content); if (f.verdict && f.lead) return plain([f.lead, ...f.claims.map(c => (c.verdict ? c.verdict + ' ' : '') + c.text)].join(' ')) }
     if (card.kind === 'figure' && !answer) return plain(card.text);
     if (card.kind === 'simplify' && answer && P.simplifyAnswer) { const s = P.simplifyAnswer(answer.content, card.text); return s.unchanged ? SIMPLIFY_UNCHANGED : plain(s.text) }
     return plain(cleanAnswer(card.kind, answer?.content || '', P));
+  }
+  /**
+   * A unit's actions (Anders, 19 Oct 2026, evening; the wide column), as the book reader's chapter pills look and behave
+   * (src/lab/LabChapterEnd.tsx, LabChapterHeading.tsx): at its start Primer (Before you start) and Catch me up; at its
+   * end Recap, Quiz me and Note (the reader's own note on it). The companion's carry its mark (✧); the note does not.
+   * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
+   * They sit in the unit's marks (markHtml).
+   */
+  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
+  const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
+  function pillsHtml(where, o = {}) {
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
+  }
+  /**
+   * A unit's mark on the wide column (Anders's mockup, 19 Oct 2026, night): a margin item that scrolls with the page, its
+   * hairline rule level with the top of the unit's heading (start) or of its last line (end). "Starting" or "End of",
+   * the unit's name and its pages, then its actions (pillsHtml). o: { name, pages ("pp. 10–18"), open, phrase, line }.
+   */
+  function markHtml(where, o = {}) {
+    const pages = o.pages ? ` <small class="mr-unit__pages">${esc(o.pages)}</small>` : '';
+    return `<span class="mr-unit__k">${where === 'start' ? 'Starting' : 'End of'}</span><span class="mr-unit__n">${esc(o.name || '')}${pages}</span><div class="mr-unit__acts">${pillsHtml(where, { open: o.open, name: o.phrase, line: o.line })}</div>`;
+  }
+  /**
+   * A unit's pills beside its heading in the text (Anders, 21 Oct 2026; replaces the wide column's Starting / End of marks):
+   * Primer, Catch me up, Recap, Quiz me and Note (the reader's own note on it, no ✧), shown on hover or focus. They sit inside the heading, so their words are drawn by
+   * CSS (data-label) and are never text in the book: an EPUB's places and highlights are character offsets in its text.
+   * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
+   */
+  function headPillsHtml(ids, o = {}) {
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
+  }
+  /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
+  function unitName(unit, whole = '') {
+    if (!unit || unit.key === 'all' || !unit.title) return whole;
+    return unit.pages ? unit.title : unit.title.replace(/, pages \d+–\d+$/, '');
   }
   /** What a Simplify card says when the answer was only the passage again. */
   const SIMPLIFY_UNCHANGED = 'This passage is already in plain words.';
   const quizScore = q => (q.results || []).filter(r => r && r.verdict === 'right' && !r.shown).length;
   /**
-   * The end card's line: right answers of the questions answered. "Show answer" questions are not
-   * scored (FIXES-2026-10-15, deep test): "2 of 3", or "1 of 2 answered, 1 shown".
+   * The end card's line: "2/3", right answers of all its questions (a "Show answer" question is not right).
    */
   function quizLine(q) {
-    const n = q.questions?.length || 0, shown = (q.results || []).slice(0, n).filter(r => r && r.shown).length;
-    if (!shown) return `${quizScore(q)} of ${n}`;
-    return shown < n ? `${quizScore(q)} of ${n - shown} answered, ${shown} shown` : `${shown} of ${n} shown`;
+    // Anders, 20 Oct 2026 ("its only 3 qs … maybe could just say 2/3, try new questions?"): right answers of all the
+    // questions asked; a shown answer is not a right one.
+    return `${quizScore(q)}/${q.questions?.length || 0}`;
+  }
+  /**
+   * "Try new questions" (Anders, 20 Oct 2026): the questions asked on this text so far, for the next request (`asked`),
+   * oldest first, at most QUIZ_ASKED: each with its key idea and `missed` unless it was answered right, so the new
+   * questions aim first at the ideas the reader missed and never repeat one. A shown answer counts as missed.
+   */
+  const QUIZ_ASKED = 24;
+  function quizAsked(q) {
+    const ideas = q?.ideas || [], results = q?.results || [];
+    const now = (q?.questions || []).map((item, i) => {
+      const idea = Number.isInteger(item.idea) ? ideas[item.idea] : ideas[i];
+      const right = results[i] && !results[i].shown && results[i].verdict === 'right';
+      return { q: item.q, ...(idea ? { idea } : {}), ...(right ? {} : { missed: true }) };
+    });
+    // An idea missed in an earlier round stays missed until a later question on it is answered right.
+    const gotten = new Set(now.filter(a => !a.missed && a.idea).map(a => a.idea));
+    return [...(q?.asked || []).map(a => { if (!a.missed || !gotten.has(a.idea)) return a; const { missed: _m, ...rest } = a; return rest }), ...now].slice(-QUIZ_ASKED);
   }
   /** The question to reread after a quiz: "not yet" first, then "nearly", then one whose answer was shown; -1 when all were right. */
   function quizReread(q) {
@@ -670,10 +779,14 @@
     if (card.kind === 'whole') return wholeName(doc);
     if (card.kind === 'note') return KINDS.note;
     if (card.kind === 'define') return `${KINDS.define} · ${card.data?.word || card.text}`;
-    if (card.data?.unit) return `${KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    if (card.data?.unit) return `${PILLS[card.data.pill] || KINDS[card.kind]} · ${card.data.unit.label || wholeName(doc)}`;
+    // A paragraph's Recap (its ✧ in the gutter): an Explain card on the paragraph, named as the reader chose it.
+    if (card.data?.recap) return `${PILLS.recap}${pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : ''}`;
     // A figure's card: its caption's own label ("Figure 2 · p. 3"), else what it is.
-    if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
-    return `${KINDS[card.kind] || KINDS.explain}${pageLabel ? ` · ${unit} ${pageLabel}` : ''}`;
+    // (No unit: the place names itself, as a chapter title does.)
+    const at = pageLabel ? ` · ${unit ? unit + ' ' : ''}${pageLabel}` : '';
+    if (card.kind === 'figure') return `${card.data?.label || KINDS[card.data?.region] || KINDS.figure}${at}`;
+    return `${KINDS[card.kind] || KINDS.explain}${at}`;
   }
   /** Related, folded: "Related · 3 places" (PROMPTS.md); null while it has no answer. */
   function relatedFoldLabel(card, P) {
@@ -709,14 +822,24 @@
     trash: svg('<path d="M3.5 5h11M7.2 5V3.4h3.6V5M5 5l.8 9.6h6.4L13 5M7.6 7.8v4.4M10.4 7.8v4.4"/>'),
     // Minimise: one horizontal line, in the same stroke (Anders, 19 Oct 2026, as Gloss: the card folds, nothing is deleted).
     minimise: svg('<path d="M4.5 9h9"/>'),
+    // Send: the selection bar's up-arrow, in the same stroke (Anders, 19 Oct 2026, as Gloss's follow-up field).
+    send: ICONS.up,
+    // Talk: the reader's "ılı" bars (src/lab/LabReaderIcons.tsx TalkIcon), filled (21 Oct 2026).
+    talk: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" class="is-filled"><rect x="4.2" y="9" width="2.6" height="6" rx="1.1"/><rect x="10.7" y="5" width="2.6" height="14" rx="1.1"/><rect x="17.2" y="8" width="2.6" height="8" rx="1.1"/></svg>',
   };
   /**
-   * The follow-up line: a field with no placeholder (its caret shows only when it has the focus,
-   * Anders, 15 Oct: no caret blinking in every open card), an optional link ("Show answer"), the mic.
+   * The follow-up line: a rounded, bordered field that is always visible, with its placeholder ("Ask a follow-up"),
+   * the mic inside it on the right and then the send button, an up-arrow that is enabled once there is text (Anders,
+   * 19 Oct 2026: "it's too hidden that this is indeed a chat field. Gloss does better"). Enter sends, as before; the
+   * caret shows only when the field has the focus (15 Oct). An optional link ("Show answer") goes under the field.
+   * A card's bin is in its head, beside minimise (cardHtml), not here. Talk (21 Oct 2026: every card's field has it,
+   * as the phone's) starts Chat with Talk on about what the card shows; a quiz's answer field has none (`talk: false`).
    */
-  // `trash`: the card whose bin sits in this line, beside the mic (Anders, 19 Oct 2026, as Gloss).
-  function followHtml({ link = '', field = true, mic = true, label = 'Follow up', trash = null } = {}) {
-    return `<div class="mr-follow">${field ? `<span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" aria-label="${esc(label)}"></textarea></span>` : ''}<span class="mr-follow__sp"></span>${link}${trash ? deleteHtml(trash) : ''}${mic ? `<button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>` : ''}</div>`;
+  function followHtml({ link = '', field = true, label = 'Follow up', placeholder = 'Ask a follow-up', talk = true } = {}) {
+    if (!field && !link) return '';
+    const talkBtn = talk ? `<button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this">${CARD_ICONS.talk}</button>` : '';
+    const box = field ? `<div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="${esc(placeholder)}" aria-label="${esc(label)}" spellcheck="false" autocorrect="off" autocomplete="off"></textarea></span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">${CARD_ICONS.mic}</button>${talkBtn}<button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>${CARD_ICONS.send}</button></div>` : '';
+    return `<div class="mr-follow${field ? ' has-field' : ''}">${box}${link}</div>`;
   }
   /**
    * A card. Folded: its label and two lines. Open: the label and close, the passage quote, the
@@ -729,49 +852,77 @@
     const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
-    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1} of ${o.writing ? 3 : q.questions.length}</span>` : '';
-    // Its top-right control minimises it (folds it, as a click outside does); its bin is in the follow-up line (19 Oct 2026).
-    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button></div>`;
-    // The action row under the answer: copy, once there is something to copy.
-    const acts = withCopy => (withCopy ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
+    // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
+    const total = !o.writing ? q.questions?.length : q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : 0;
+    const count = card.kind === 'quiz' && q.questions?.length && !q.done ? `<span class="mr-card__count">${(q.i || 0) + 1}${total ? ` of ${total}` : ''}</span>` : '';
+    // Its top-right controls: minimise (folds it, as a click outside does) and the bin (Anders, 21 Oct 2026: the same two
+    // on every margin card, the pill cards and Before you start too). The phone's bottom card has no minimise (Anders,
+    // 20 Oct 2026): it goes with a drag down or a tap outside it (o.sheet). A note being written has no bin yet.
+    const bin = card.kind === 'note' && card.free && card.draft ? '' : deleteHtml(card);
+    const head = `<div class="mr-card__label"><span class="mr-card__name">${label}</span>${count}${o.sheet ? '' : `<button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button>`}${bin}</div>`;
+    // The phone's card quotes its passage (Ask and a note, before anything is written in them).
+    const quote = o.sheet && card.text ? `<div class="mr-quote">“${esc(cut(String(card.text).trim().replace(/^["“‘']+|["”’']+$/g, '')))}”</div>` : '';
+    // The phone's Ask (reader.js phoneAsk): the passage and an empty field, the question not yet sent.
+    if (card.asking) return head + `<div class="mr-card__body">${quote}</div>` + followHtml({ placeholder: 'Ask…', label: 'Ask about this passage' });
+    // The action row under a passage card's answer, as Gloss's: copy, once there is something to copy (the bin is in
+    // the head). A pill card (Recap, Catch me up) has none: its follow-up field is its only row (21 Oct 2026).
+    const acts = withCopy => (withCopy && !q.pill ? `<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">${CARD_ICONS.copy}</button></div>` : '');
     const status = o.status ? `<p class="mr-status" role="status">${esc(o.status)}</p>` : '';
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
-      let body = '', foot = followHtml({ field: false, mic: false, trash: card });
+      let body = '', foot = '';
       if (!qs.length) body = status;
       else if (q.done) {
-        const i = quizReread(q), cite = i >= 0 && qs[i].cite ? ' ' + inlineHtml(qs[i].cite, P, o.resolve) : '';
-        body = `<div class="mr-answer"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p>${i >= 0 ? `<p>${esc(qs[i].q)}${cite}</p>` : ''}</div>`;
-        // The end card offers another quiz on the same passage (or unit).
-        foot = followHtml({ field: false, mic: false, trash: card, link: '<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>' });
+        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit;
+        // the follow-up field under the score, as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
+        body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
+        foot = followHtml({ link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
       } else if (!qs[q.i || 0]) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
-        foot = followHtml({ field: false, mic: false, trash: card });
+        foot = '';
       } else {
         const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
         body = `<div class="mr-question">${esc(item.q)}</div>`;
         if (r) {
+          // Each marking under the answer or reply it marks (a reply under the marking: Anders, 20 Oct 2026).
+          const marked = (m, c = '') => `<div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[m.verdict])}</span>${m.feedback ? ' ' + esc(m.feedback) : ''}${c}</p></div>`;
           body += r.shown
             ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(item.answer)}</span>${item.why ? ' ' + esc(item.why) : ''}${cite}</p></div>`
-            : `<div class="mr-you">${esc(r.answer)}</div><div class="mr-answer"><p><span class="is-bottom-line">${esc(P.QUIZ_VERDICT_LINE[r.verdict])}</span>${r.feedback ? ' ' + esc(r.feedback) : ''}${cite}</p></div>`;
+            : `<div class="mr-you">${esc(r.answer)}</div>${marked(r, cite)}${(r.thread || []).map(t => `<div class="mr-you">${esc(t.reply)}</div>${marked(t)}`).join('')}`;
+          // A reply being marked: its bubble and the wait; a reply whose marking failed: the error (the reply back in the field).
+          if (o.pending != null) body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`;
+          else body += status;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
-          const last = i + 1 >= qs.length && (q.ended || !o.writing);
-          foot = followHtml({ field: false, mic: false, trash: card, link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
+          // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
+          foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
-        else { body += status; foot = followHtml({ label: 'Your answer', trash: card, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
+        else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', talk: false, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }
       }
-      // A quiz has nothing to copy; its row holds delete, unless an answer is being marked.
-      return head + `<div class="mr-card__body">${body}${o.pending != null ? '' : acts(false)}</div>` + foot;
+      // A quiz has nothing to copy and no action row (its bin is in the head).
+      return head + `<div class="mr-card__body">${body}</div>` + foot;
     }
     // A figure's card: the figure's thumbnail at the top (its room kept while it is drawn), then its caption.
-    const thumb = card.kind === 'figure' ? `<div class="mr-thumb"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</div>` : '';
+    // Anders, 19 Oct 2026, night: on the wide column the figure is right beside its card (the leader line joins them), so
+    // the card shows no picture and starts with the caption; elsewhere (narrow windows, the phone) a small one, at most
+    // 120px tall, that opens the figure large. o.thumb: its picture (or '' while drawn); none given, no picture.
+    const thumb = card.kind === 'figure' && o.thumb != null ? `<button type="button" class="mr-thumb" data-figview aria-label="Show ${label} larger"${o.thumbRatio ? ` style="aspect-ratio:${Number(o.thumbRatio).toFixed(3)}"` : ''}>${o.thumb ? `<img src="${esc(o.thumb)}" alt="${label}">` : ''}</button>` : '';
     // The passage is not quoted at the card's top (Anders, 19 Oct 2026): its underline in the text and the leader line
     // say what the card is about. Screen readers get it as the card's description (reader.js: aria-describedby).
     // A figure's card keeps its caption, which is what the figure says, not a quote.
     let body = thumb + (card.text && card.kind === 'figure' ? `<div class="mr-quote">${esc(cut(card.text))}</div>` : card.text && card.kind !== 'define' ? `<span class="mr-card__about" hidden>${esc(cut(card.text))}</span>` : '');
+    // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
+    // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
+    if (card.kind === 'note' && !card.free && o.sheet) {
+      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea></div>`;
+    }
+    if (card.kind === 'note' && card.free) {
+      const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
+      return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button></div></div>`;
+    }
     if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
@@ -779,7 +930,7 @@
         ? `<div class="mr-answer"><p class="mr-define__label">In this text</p><p><span class="is-bottom-line">${P ? inlineHtml(q.inText, P, o.resolve) : esc(q.inText)}</span></p>${senses.map(s => `<p class="mr-define__sense">${esc(s.text)}</p>`).join('')}</div>`
         : senses.length
           ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(senses[0].text)}</span></p>${senses.slice(1).map(s => `<p>${esc(s.text)}</p>`).join('')}</div>`
-          : `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line || '')}</span></p></div>`;
+          : q.line ? `<div class="mr-answer"><p><span class="is-bottom-line">${esc(q.line)}</span></p></div>` : '';
     }
     const turns = [...(card.turns || [])];
     if (o.live != null) turns.push({ role: 'assistant', content: o.live });
@@ -804,10 +955,15 @@
         if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
         else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
-      else body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(t.content, P, { resolve: o.resolve })}</div>`;
+      else {
+        // An answer that searched sources (Ask, 20 Oct 2026: the model decides) ends with a "Sources:" line: shown as
+        // Fact-check shows its sources, a labelled row of links, never as a raw line.
+        const src = sourcesOf(t.content, P);
+        body += `<div class="mr-answer">${(k === lead ? answerHtml : replyHtml)(src.text, P, { resolve: o.resolve })}</div>${src.html}`;
+      }
     });
     body += status;
-    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml({ trash: card });
+    return head + `<div class="mr-card__body">${body}${acts(answered && !o.status && o.live == null)}</div>` + followHtml();
   }
   /** The "more" row: "{n} more on this page" (an EPUB: "in this chapter"), their kinds on the right. */
   function stackHtml(cards, maxKinds = Infinity, { doc = 'pdf' } = {}) {
@@ -817,7 +973,7 @@
   }
   /** What the whole file is called: "the whole PDF", or "the whole book" for an EPUB. */
   const wholeWords = doc => (doc === 'epub' ? 'the whole book' : 'the whole PDF');
-  /** A card's delete: a bin beside copy (no confirm; the reader can undo for a few seconds). */
+  /** A card's delete: a bin in the action row, beside copy (no confirm; the reader can undo for a few seconds). */
   const deleteHtml = card => `<button type="button" class="mr-card__delete" data-c="delete" aria-label="${card.kind === 'note' ? 'Delete note' : 'Delete'}">${CARD_ICONS.trash}</button>`;
 
   /** A card's own classes: open or folded, a note (its rule in the highlight colour). */
@@ -844,7 +1000,7 @@
   // On the phone the chat's card has no label (mockup 5D): swipe down or tap the page to close it.
   function wholeHtml(body, { open = true, fold = '', tray = '', label = true, doc = 'pdf' } = {}) {
     if (!open) return `<button type="button" class="mr-card__label" data-c="open">${KINDS.chat}</button><div class="mr-card__text">${esc(fold)}</div>`;
-    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.chat}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}` });
+    return (label ? `<div class="mr-card__label"><span class="mr-card__name">${KINDS.chat}</span><button type="button" class="mr-card__close" data-c="close" aria-label="Close">×</button></div>` : '') + `<div class="mr-card__body">${body}</div>${tray}` + followHtml({ label: `Ask about ${wholeWords(doc)}`, placeholder: `Ask about ${wholeWords(doc)}` });
   }
   /** The phone's bottom card: the grab handle, then a card's open contents. */
   const sheetHtml = inner => `<button type="button" class="mr-sheet__grab" data-c="grab" aria-label="Full height"></button>${inner}`;
@@ -928,6 +1084,154 @@
     }
     return out;
   }
+  /**
+   * Reading units sized for Primer, Catch me up, Recap and Quiz me (Anders, 19 Oct 2026: "rarely will you want a recap
+   * of a paragraph nor of a full book"). `entries`: the outline's (or the scan's) headings, each { title, page, kind?,
+   * items? } with `items` the next heading level, to any depth; a flat outline numbered "1", "1.1", "2" … is nested by
+   * its numbers. `count`: the file's pages. The rule, in pages (UNIT_SIZE):
+   *  - the top-level headings are the units (a part whose entries are chapters gives its chapters, as primerUnits);
+   *  - a unit longer than `split` (30) is split at its next heading level, again as needed; with no headings under it,
+   *    into bands of about `band` (10) pages ("Chapter 3, pages 41–50");
+   *  - a unit shorter than `min` (2) joins its shorter neighbour (front or back matter only joins matter, unless it has
+   *    no page of its own);
+   *  - with no usable headings, bands of `band` pages ("Pages 11–20"), the last taking a tail of `min` pages or fewer;
+   *    a file of `band` + `min` pages or fewer is one unit, "all".
+   * The aim is units of about 3–25 pages. Each unit runs from its heading's page to the page before the next one's; the
+   * first also takes the pages before its heading (from 1, `start` its heading's page). Keys follow the outline's
+   * ("outline-2", "outline-2.1"), a joined unit's both ends ("outline-0_1"), a band its first page ("outline-3-p41",
+   * "pages-11"); all are keys the Worker's storage accepts.
+   * -> [{ key, title, from, start, to, matter?, chapter?, label?, parts?, pages? }]
+   */
+  const UNIT_SIZE = { min: 2, split: 30, band: 10 };
+  const SECTION_NO = /^(\d{1,3}(?:\.\d{1,3})*)\.?(?=\s|$)/;
+  function sizeUnits(entries, count, opts = {}) {
+    const S = { ...UNIT_SIZE, ...opts }, n = Math.max(1, Number(count) || 1);
+    const cleanTitle = t => String(t || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+    const size = u => u.to - u.from + 1;
+    // The headings as a tree: unresolved entries give way to their own entries; flat numbering nested.
+    const tree = (list, prefix) => {
+      const out = [];
+      (Array.isArray(list) ? list : []).forEach((e, i) => {
+        const key = prefix + i, items = tree(e?.items, key + '.'), title = cleanTitle(e?.title), page = e?.page;
+        if (!title || !Number.isInteger(page) || page < 1 || page > n) { out.push(...items); return }
+        out.push({ key, title, page, chapter: e?.kind === 'chapter', items });
+      });
+      return nest(out);
+    };
+    const nest = list => {
+      const out = [], stack = [];
+      for (const node of list) {
+        const num = SECTION_NO.exec(node.title)?.[1];
+        if (num) {
+          while (stack.length && !num.startsWith(stack[stack.length - 1].num + '.')) stack.pop();
+          if (stack.length) { stack[stack.length - 1].node.items.push(node); stack.push({ num, node }); continue }
+          stack.push({ num, node });
+        } else stack.length = 0;
+        out.push(node);
+      }
+      for (const node of out) node.items.sort((a, b) => a.page - b.page);
+      return out;
+    };
+    let top = tree(entries, '');
+    // A part whose entries are chapters gives its chapters (its own pages before the first go with the first).
+    top = top.flatMap(e => (isPart(e, e.items) ? e.items.map((c, j) => ({ ...c, chapter: true, page: j === 0 ? Math.min(e.page, c.page) : c.page, start: c.page })) : [e]));
+    const bands = (from, to, base) => {
+      const out = [];
+      for (let a = from; a <= to; a += S.band) {
+        let b = Math.min(to, a + S.band - 1);
+        if (to - b <= S.min) b = to;
+        out.push({ ...base(a, b), from: a, start: a, to: b });
+        if (b === to) break;
+      }
+      return out;
+    };
+    if (!top.length) {
+      if (n <= S.band + S.min) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+      return bands(1, n, (a, b) => ({ key: `pages-${a}`, title: `Pages ${a}–${b}`, pages: true }));
+    }
+    // Headings in page order over [lo, hi], each running to the page before the next (a heading sharing its page with
+    // the next one has no page of its own: it joins a neighbour below).
+    const lay = (nodes, lo, hi) => {
+      const list = nodes.map((nd, i) => ({ nd, i })).filter(({ nd }) => nd.page <= hi).sort((a, b) => a.nd.page - b.nd.page || a.i - b.i).map(({ nd }) => nd);
+      let units = list.map((nd, k) => {
+        const page = Math.max(lo, nd.page);
+        return { key: 'outline-' + nd.key, title: nd.title, nd, from: k === 0 ? lo : page, start: Math.max(lo, Number.isInteger(nd.start) ? nd.start : page), to: k + 1 < list.length ? Math.max(lo, list[k + 1].page) - 1 : hi };
+      });
+      // Too long: split at the next heading level, or into bands.
+      units = units.flatMap(u => {
+        if (size(u) <= S.split) return [u];
+        const kids = u.nd.items.filter(c => c.page >= u.from && c.page <= u.to);
+        if (kids.length && !(kids.length === 1 && kids[0].page <= u.start)) {
+          const subs = lay(kids, u.from, u.to);
+          // The pages between the heading and its first section go with the first section; the heading stays its own when it has pages of its own.
+          if (subs.length && u.start < subs[0].start && subs[0].start - u.start >= S.min) return [{ ...u, to: subs[0].start - 1 }, ...subs.map((s, i) => (i === 0 ? { ...s, from: subs[0].start } : s))];
+          return subs;
+        }
+        // No headings under it: kept whole up to twice the limit (a 31-page chapter is still one chapter), else bands.
+        if (size(u) <= S.split * 2) return [u];
+        return bands(u.from, u.to, (a, b) => ({ key: `${u.key}-p${a}`, title: `${u.title}, pages ${a}–${b}`, base: u.title, nd: { ...u.nd, items: [] }, banded: true }));
+      });
+      return units;
+    };
+    let units = lay(top, 1, n);
+    units.forEach(u => { u.matter = matterOf(u.title) });
+    // Too short: joined to the shorter neighbour (the later one when they are as long), until none is.
+    for (let k; (k = units.findIndex((u, i) => size(u) < S.min && joinable(i))) >= 0;) {
+      const u = units[k], prev = units[k - 1], next = units[k + 1];
+      const ok = o => o && (size(u) <= 0 || !!o.matter === !!u.matter);
+      const into = ok(prev) && ok(next) ? (size(prev) < size(next) ? k - 1 : k + 1) : ok(next) ? k + 1 : k - 1;
+      const [a, b] = into < k ? [units[into], u] : [u, units[into]];
+      // Named for the part that is not front or back matter (a conclusion sharing its page with the references), else the longer.
+      const lead = !!a.matter !== !!b.matter ? (a.matter ? b : a) : size(b) > size(a) ? b : a;
+      const joined = { ...lead, key: a.key.split('_')[0] + '_' + b.key.replace(/^outline-/, '').split('_').pop(), from: a.from, start: a.start, to: b.to, matter: a.matter && b.matter ? lead.matter : null, head: a.head || a.title, parts: [...(a.parts || [a.title]), ...(b.parts || [b.title])] };
+      units.splice(Math.min(k, into), 2, joined);
+    }
+    function joinable(i) {
+      const u = units[i], ok = o => o && (size(u) <= 0 || !!o.matter === !!u.matter);
+      return ok(units[i - 1]) || ok(units[i + 1]);
+    }
+    if (units.length === 1 && units[0].from === 1 && units[0].to === n && n <= S.split && !units[0].title) return [{ key: 'all', title: '', from: 1, start: 1, to: n }];
+    return units.map(u => {
+      const named = !u.matter && !u.parts && (u.nd?.chapter || n >= 100) ? numberedChapter(u.banded ? u.base : u.title) : null;
+      const band = u.banded ? `, pages ${u.from}–${u.to}` : '';
+      return { key: u.key.slice(0, 64), title: u.title, from: u.from, start: Math.min(Math.max(u.start, u.from), u.to), to: u.to, ...(u.matter ? { matter: u.matter } : {}), ...(named ? { chapter: named.n, label: `Chapter ${named.n}: ${named.name}${band}` } : {}), ...(u.banded ? { band: true, head: u.base } : {}), ...(u.parts ? { parts: u.parts, head: u.head } : {}) };
+    });
+  }
+  /**
+   * An EPUB's reading units (Anders, 20 Oct 2026: the same marks as a PDF's, "each essay here should be one unit"), sized
+   * by sizeUnits as a PDF's are. An EPUB has no pages, so its chapters (spine files) are measured in page-sized pieces of
+   * text (EPUB_PAGE_CHARS, at least one each); its contents' top entries, with their own entries under them, are the
+   * headings; the units come back as chapter ranges (1-based, as the reader's pages are), a split inside one file folded
+   * into the unit it starts in. `chapters`: [{ chars, role }] in spine order; `entries`: the contents
+   * ({ id, label, page, parent }). -> [{ key, title, from, start, to, matter?, … }] (sizeUnits' fields, in chapters)
+   */
+  const EPUB_PAGE_CHARS = 2200;
+  function epubUnits(chapters, entries) {
+    const list = Array.isArray(chapters) ? chapters : [];
+    if (!list.length) return [];
+    const first = [], at = [];
+    let pages = 0;
+    for (const c of list) { first.push(pages + 1); const n = c?.role === 'toc' ? 1 : Math.max(1, Math.round((Number(c?.chars) || 0) / EPUB_PAGE_CHARS)); pages += n; at.push(pages) }
+    const chapterOf = p => { let i = 0; while (i < at.length - 1 && at[i] < p) i++; return i + 1 };
+    const real = (entries || []).filter(e => e && e.label && Number.isInteger(e.page) && e.page >= 1 && e.page <= list.length && list[e.page - 1]?.role !== 'toc');
+    const node = e => ({ title: e.label, page: first[e.page - 1], items: real.filter(c => c.parent === e.id).map(node) });
+    const tree = real.filter(e => !e.parent || !real.some(p => p.id === e.parent)).map(node);
+    const sized = sizeUnits(tree, pages);
+    const out = [];
+    for (const u of sized) {
+      const from = chapterOf(u.from), to = chapterOf(u.to), start = chapterOf(u.start);
+      const prev = out[out.length - 1];
+      if (prev && from <= prev.to) { prev.to = Math.max(prev.to, to); continue }
+      out.push({ ...u, from, start: Math.min(Math.max(start, from), to), to });
+    }
+    return out;
+  }
+  /** The scan's chapters and headings (js/pdf-scan.js entries: { id, label, page, kind, parent }) as sizeUnits' entries, nested by parent. */
+  function scanTree(list) {
+    list = Array.isArray(list) ? list.filter(e => e && Number.isInteger(e.page)) : [];
+    const kids = id => list.filter(e => (e.parent ?? null) === id).slice(0, 200).map(e => ({ title: e.label, page: e.page, ...(e.kind === 'chapter' ? { kind: 'chapter' } : {}), items: e.id != null && e.id !== id ? kids(e.id) : [] }));
+    return kids(null);
+  }
   // A part's own entries are chapters: numbered "2 …" or "Chapter 2 …" (not sections such as "2.1 …").
   const CHAPTER_TITLE = /^(?:(?:chapter|lecture)\s+[\p{L}\p{N}]+[.:]?|\d{1,3}\.?)\s+\S/iu;
   const PART_TITLE = /^(?:(?:part|book|volume)\s+[\p{L}\p{N}]+|[IVXLC]{1,6}\.?)(?=$|[\s.:—–-])/u;
@@ -984,6 +1288,10 @@
    */
   function unitPhrase(unit) {
     if (!unit || unit.key === 'all' || !unit.title) return 'the whole PDF';
+    // A Tinct book's chapter (the margin preview) names itself as its contents do ("Letter 2", "The Window · 11").
+    if (unit.phrase) return unit.phrase;
+    // A band of a long chapter without sections (sizeUnits): "pages 71–80 of chapter 3".
+    if (unit.band) return `pages ${unit.from}–${unit.to} of ${unitPhrase({ ...unit, band: false, title: unit.head || unit.title.replace(/, pages \d+–\d+$/, '') })}`;
     if (unit.chapter) return `chapter ${unit.chapter}`;
     if (unit.pages) return `pages ${unit.from}–${unit.to}`;
     const m = /^(chapter|part|section|lecture|unit|book|appendix)\s+([\p{L}\p{N}]+(?:\.\d+)*)(?=$|[\s.:,;—–-])/iu.exec(unit.title);
@@ -1086,11 +1394,12 @@
    *      unit (the unit's name, "Chapter 1: Introduction to Information Theory", shown under the title) }.
    */
   function primerHtml(p, o = {}) {
-    const close = o.close === false ? '' : '<button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Close">×</button>';
+    // Minimise (folds it back to its pill, nothing lost) and the bin, as every margin card's head (Anders, 21 Oct 2026: no ×).
+    const close = o.close === false ? '' : `<span class="mr-primer__ctl"><button type="button" class="mr-card__close mr-primer__close" data-c="close" aria-label="Minimise">${CARD_ICONS.minimise}</button><button type="button" class="mr-card__delete mr-primer__delete" data-c="delete" aria-label="Delete">${CARD_ICONS.trash}</button></span>`;
     const head = `<h4 class="mr-primer__title"${o.id ? ` id="${esc(o.id)}"` : ''}>Before you start${close}</h4>`;
     if (!p) {
       if (o.wait) return head + '<p class="mr-status mr-wait" role="status"></p>';
-      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><span></span><button type="button" data-c="redo">Redo</button></div>`;
+      return head + `<p class="mr-status" role="status">${esc(o.status || '')}</p><div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>`;
     }
     const tag = cite => (cite ? ' ' + inlineHtml(cite, o.P, o.resolve) : '');
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
@@ -1115,8 +1424,8 @@
       + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
       + sections
       + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
-      + '<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>3 questions →</small></button>'
-      + '<div class="mr-primer__foot"><span>Made when you opened the file</span><button type="button" data-c="redo">Redo</button></div>';
+      + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
+      + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
 
   /* ---------- Figures (FIXES-2026-10-15, items 4–7): detection, captions, the chip and the figure's card ----------
@@ -1244,6 +1553,46 @@
     return cover < 0.35 || (str.length >= 8 && gap > Math.max(10, (s.h * H) * 2));
   }
   /**
+   * A figure's box snapped to the page's own drawing (Anders, 19 Oct 2026, Constructor Theory's Table 1: the crop was
+   * offset from the table's outer rule). `f`: the box found from the drawn page (page fractions; a coarse picture, so its
+   * edges are off by a few points); `shapes`: the page's painted paths and pictures ({ x, y, w, h }, page fractions:
+   * reader.js pageShapes); `labels`: text that is no running text and no caption; `caps`: the captions' boxes. The
+   * shapes that meet the box, and those touching them, make the drawing's box; when it covers most of the found box it
+   * is the figure, with the labels beside or over it (a header above a table, a row label set upwards at its left) and
+   * a small pad, kept off the captions. Otherwise (no drawing, or a little of it) the found box stays.
+   */
+  const SNAP = { pad: 0.005, reach: 0.04, touch: 0.004, cover: 0.55 };
+  function snapFigure(f, shapes = [], labels = [], caps = []) {
+    const meets = (a, b, g = 0) => a.x <= b.x + b.w + g && a.x + a.w >= b.x - g && a.y <= b.y + b.h + g && a.y + a.h >= b.y - g;
+    const join = (a, b) => { const x = Math.min(a.x, b.x), y = Math.min(a.y, b.y); return { x, y, w: Math.max(a.x + a.w, b.x + b.w) - x, h: Math.max(a.y + a.h, b.y + b.h) - y } };
+    const area = a => Math.max(0, a.w) * Math.max(0, a.h);
+    const cut = (a, b) => area({ x: Math.max(a.x, b.x), y: Math.max(a.y, b.y), w: Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x), h: Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) });
+    // Within reach of the found box only (never the page's frame, a rule across the page, or a neighbour's drawing).
+    const reach = { x: f.x - SNAP.reach, y: f.y - SNAP.reach, w: f.w + SNAP.reach * 2, h: f.h + SNAP.reach * 2 };
+    const near = (shapes || []).filter(o => o && o.w >= 0 && o.h >= 0 && !(o.w > 0.9 && o.h > 0.9) && area(o) < 0.6 && o.x >= reach.x && o.y >= reach.y && o.x + o.w <= reach.x + reach.w && o.y + o.h <= reach.y + reach.h);
+    let U = null;
+    const used = new Set();
+    for (const o of near) if (meets(o, f)) { U = U ? join(U, o) : { ...o }; used.add(o) }
+    if (!U) return f;
+    for (let grew = true; grew;) { grew = false; for (const o of near) if (!used.has(o) && meets(o, U, SNAP.touch)) { U = join(U, o); used.add(o); grew = true } }
+    if (cut(U, f) < SNAP.cover * area(f)) return f;
+    // The labels round the drawing: text over it or within a line's height of it that the found box holds (its middle
+    // inside it, give or take its coarse edge).
+    let box = U;
+    const held = l => { const cx = l.x + l.w / 2, cy = l.y + l.h / 2; return cx >= f.x - 0.01 && cx <= f.x + f.w + 0.01 && cy >= f.y - 0.01 && cy <= f.y + f.h + 0.01 };
+    for (const l of labels || []) if (meets(l, U, Math.max(0.012, l.h * 1.2)) && held(l) && !(caps || []).some(c => meets(l, c))) box = join(box, l);
+    const P = SNAP.pad;
+    let out = { x: box.x - P, y: box.y - P, w: box.w + P * 2, h: box.h + P * 2 };
+    // Never into a caption: the pad stops short of it.
+    for (const c of caps || []) {
+      if (!meets(out, c) || meets(box, c)) continue;
+      if (c.y >= box.y + box.h) out.h = Math.min(out.h, c.y - out.y - 0.001);
+      else if (c.y + c.h <= box.y) { const b = out.y + out.h; out.y = Math.max(out.y, c.y + c.h + 0.001); out.h = b - out.y }
+    }
+    const x = Math.max(0, out.x), y = Math.max(0, out.y);
+    return { x, y, w: Math.min(1, out.x + out.w) - x, h: Math.min(1, out.y + out.h) - y };
+  }
+  /**
    * The figures on a page (item 5): areas of ink that are not running text. Running text (lines
    * of more than 48 characters or 7 words), captions and displayed formulas are blanked out. Short
    * label text ("hidden units") inside an area of ink stays, joining the pieces of a diagram, but
@@ -1260,7 +1609,7 @@
    * `spans`: [{ x, y, w, h, text }]; `formulas`: [{ x, y, w, h }]; all page fractions.
    * -> { figures: [{ x, y, w, h, label?, caption? }], captions: [{ kind, n, label, text, fig, box }] }
    */
-  function findFigures({ ink, W, H, spans = [], formulas = [] } = {}) {
+  function findFigures({ ink, W, H, spans = [], formulas = [], shapes = [] } = {}) {
     const N = W * H;
     const px = q => ({ l: Math.max(0, Math.floor(q.x * W) - 1), t: Math.max(0, Math.floor(q.y * H)), r: Math.min(W - 1, Math.ceil((q.x + q.w) * W)), b: Math.min(H - 1, Math.ceil((q.y + q.h) * H)) });
     const fill = (a, q, v) => { for (let y = q.t; y <= q.b; y++) a.fill(v, y * W + q.l, y * W + q.r + 1) };
@@ -1275,13 +1624,16 @@
       let cur = null;
       for (const s of L.items.sort((a, b) => a.x - b.x)) {
         if (cur && (s.x - (cur.x + cur.w)) * W <= s.h * H * 1.2) {
+          // A word space only where the PDF leaves one: pieces set close ("Table 1", ": A c", "lassification") join
+          // as they print (Anders, 19 Oct 2026: "Table 1 : A c lassification of constructions").
+          const gap = (s.x - (cur.x + cur.w)) * W, tight = gap <= s.h * H * 0.12 || /\s$/.test(cur.parts[cur.parts.length - 1]) || /^\s/.test(s.text);
           const right = Math.max(cur.x + cur.w, s.x + s.w), bottom = Math.max(cur.y + cur.h, s.y + s.h);
-          cur.y = Math.min(cur.y, s.y); cur.w = right - cur.x; cur.h = bottom - cur.y; cur.parts.push(s.text);
+          cur.y = Math.min(cur.y, s.y); cur.w = right - cur.x; cur.h = bottom - cur.y; cur.parts.push((tight ? '' : ' ') + s.text);
         } else { cur = { x: s.x, y: s.y, w: s.w, h: s.h, parts: [s.text], line: L }; segs.push(cur) }
       }
     }
     for (const s of segs) {
-      s.text = s.parts.join(' ').replace(/\s+/g, ' ').trim();
+      s.text = s.parts.join('').replace(/\s+/g, ' ').trim();
       s.q = px(s); s.caption = captionOf(s.text);
       // An algorithm's or a plate's caption is no figure's, but it ends the figure above it.
       s.stop = !!s.caption || /^(Algorithm|Exhibit|Plate|Listing)\s*\d+(?:[.\-–]\d+)*\s*[.:]/.test(s.text);
@@ -1466,6 +1818,13 @@
     }
     const pad = 1.5;
     const figures = boxes.map(o => ({ x: Math.max(0, (o.l - pad) / W), y: Math.max(0, (o.t - pad) / H), w: Math.min(1, (o.r - o.l + pad * 2) / W), h: Math.min(1, (o.b - o.t + pad * 2) / H) }));
+    // Snapped to the page's own drawing where it has one (its rules, paths and pictures; snapFigure): the drawing's
+    // box with the labels round it, never its caption, padded a little.
+    if (shapes?.length) {
+      const labels = segs.filter(s => !s.running && !s.line.running && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
+      const caps = captions.map(c => ({ x: c.q.l / W, y: c.q.t / H, w: (c.q.r - c.q.l + 1) / W, h: (c.q.b - c.q.t + 1) / H }));
+      figures.forEach((f, j) => Object.assign(f, snapFigure(f, shapes, labels, caps)));
+    }
     const out = [];
     for (const c of captions) {
       if (c.fig == null) continue;
@@ -1476,7 +1835,77 @@
     return { figures, captions: out };
   }
 
-  const html = { esc, cut, ICONS, LATER, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
+  const html = { esc, cut, ICONS, LATER, pillsHtml, headPillsHtml, markHtml, unitName, PILLS, barHtml, moreHtml, defineHtml, noteHtml, cardHtml, cardClass, stackHtml, followHtml, answerHtml, replyHtml, factcheckHtml, relatedHtml, relatedFoldLabel, inlineHtml, threadHtml, wholeHtml, sheetHtml, foldText, cardLabel, citeText, CARD_ICONS, triggerHtml, primerHtml, primerSections };
 
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, unitAt, atUnitStart, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine };
+  /*
+   * Catch me up in the margin reader, by the book reader's rules (src/catchUp.ts; Anders, 21 Oct 2026): never past the
+   * reader's place, every part its own header ("too much condensation, need at least one header per book"), the most
+   * recent reading in the most detail, and the chat's grounding (src/companion/labAskPrompt.ts LAB_RECAP_GROUNDING_RULE,
+   * kept equal by a test).
+   */
+  const CATCH_UP_GROUNDING = 'Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.';
+  /** The longest stretch one Catch me up entry of the timeline covers; a longer chapter is split into bands this long. */
+  const CATCH_UP_BAND = 40;
+  /**
+   * The pages (an EPUB's chapters) a unit's Catch me up card covers: those before the unit, but never the page the
+   * reader is on or later when they are before it (a later unit's mark tapped ahead). A unit at the document's start
+   * covers the pages up to the reader's, as before. At most `max` pages, the most recent. -> { from, to }
+   */
+  function catchUpSpan(unitFrom, place, max = 200) {
+    const u = Math.max(1, Math.floor(Number(unitFrom) || 1)), p = Math.max(1, Math.floor(Number(place) || 1));
+    const end = u > 1 ? Math.max(1, p >= u ? u - 1 : p - 1) : p;
+    return { from: Math.max(1, end - max + 1), to: end };
+  }
+  /**
+   * The parts a span runs through, each clipped to it: the contents' top-level entries (no parent), each from its page
+   * to the page before the next one's, when two or more meet the span and one of them is a part (has entries under it).
+   * entries: [{ id, label, page, parent? }]; count: the pages. -> [{ label, from, to }], [] within one part or none.
+   */
+  function catchUpParts(entries, span, count) {
+    const list = (entries || []).filter(e => e && Number.isFinite(e.page));
+    const tops = list.filter(e => !e.parent).sort((a, b) => a.page - b.page);
+    const isPart = e => list.some(c => c.parent === e.id);
+    const out = [];
+    tops.forEach((e, i) => {
+      const from = Math.max(span.from, i ? e.page : 1), to = Math.min(span.to, (tops[i + 1]?.page ?? (Number(count) || span.to) + 1) - 1);
+      if (from <= to) out.push({ label: String(e.label || '').trim(), from, to, part: isPart(e) });
+    });
+    return out.length > 1 && out.some(p => p.part) ? out.map(({ label, from, to }) => ({ label, from, to })) : [];
+  }
+  /** Whether a header already names its part ("The Window · 3" names "Part I — The Window"; "Chapter 3" does not name "Part One"). */
+  function namesPart(title, part) {
+    const name = String(part || '').replace(/^(?:part|book|volume)\s+[\divxlc]+\s*[—–:.,-]?\s*/i, '').trim().toLowerCase();
+    return String(title || '').toLowerCase().includes(name || String(part || '').toLowerCase());
+  }
+  /**
+   * The timeline's entries up to the reader's page: each chapter to its end or the reader's page, a long one in bands
+   * of CATCH_UP_BAND pages (before: its first 40 pages only), headed by its part when its own title does not name it;
+   * with no chapters, bands of `band` pages. The entry holding the reader's page is `partial` (its text is cut at the
+   * place, seenText). chapters: [{ label, from, to, part? }] in order. -> [{ from, to, partial, label? }]
+   */
+  function catchUpBlocks(chapters, page, band = 20) {
+    const p = Math.max(1, Math.floor(Number(page) || 1)), blocks = [];
+    const list = (chapters || []).filter(c => c.from <= p);
+    if (list.length) {
+      for (const c of list) {
+        const to = Math.min(p, c.to), name = c.part && !namesPart(c.label, c.part) ? `${c.part}: ${c.label}` : c.label;
+        for (let from = c.from; from <= to; from += CATCH_UP_BAND) {
+          const end = Math.min(to, from + CATCH_UP_BAND - 1), split = to - c.from + 1 > CATCH_UP_BAND;
+          blocks.push({ from, to: end, partial: end === p, label: split ? `${name}, pages ${from}–${end}` : name });
+        }
+      }
+      return blocks;
+    }
+    for (let start = 1; start <= p; start += band) blocks.push({ from: start, to: Math.min(p, start + band - 1), partial: start + band - 1 >= p });
+    return blocks;
+  }
+  /** The part of the reader's page they have read: its text up to `frac` of it, cut at a word. */
+  function seenText(text, frac) {
+    const t = String(text || ''), f = Math.max(0, Math.min(1, Number(frac) || 0));
+    if (f >= 1) return t;
+    const cut = t.slice(0, Math.floor(t.length * f));
+    const space = cut.search(/\s\S*$/);
+    return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
+  }
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
 });

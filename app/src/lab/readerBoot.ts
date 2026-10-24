@@ -149,6 +149,25 @@ export function readerBootPreloads(handoff: ReaderBootHandoff, options: ReaderBo
   return [editionWholeUrl(bookId, key, version), patches]
 }
 
+/**
+ * The margin preview's text (`/reader?book=<id>&margin=1`, or the device's opt-in `tinct:margin-preview`; round 3):
+ * the whole edition and its patches, as `marginPreviewLoad` reads them, started before the app bundle runs. Only
+ * when the boot can be sure of the edition (`marginPreviewEditionKey`): the book's place on this device names it,
+ * or there is none, the book's default is Modern English and no other main edition was chosen.
+ * `margin=0`: none; nor the Bible (its default is not Modern English). Kept small: it runs in the reader's head script, whose size is tested.
+ */
+export function readerBootMarginPreview(search: string, stored: (key: string) => string | null, prefs: string | null, primaryExceptions: Readonly<Record<string, string>>, version: string): string[] {
+  const params = new URLSearchParams(search), bookId = params.get('book') || '', flag = params.get('margin')
+  if (flag === '0' || (flag !== '1' && stored('tinct:margin-preview') !== '1') || !ID.test(bookId)) return []
+  try {
+    const place = (JSON.parse(stored('tinct-lab-position') || '{}').books || {})[bookId]
+    const key = place ? place.primaryEditionKey || '' : (primaryExceptions[bookId] || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
+    return ID.test(key) ? [editionWholeUrl(bookId, key, version), editionPatchesPath(bookId, key)] : []
+  } catch {
+    return []
+  }
+}
+
 type StoredTheme = 'system' | LabResolvedTheme
 
 function storedTheme(value: unknown): StoredTheme | null {

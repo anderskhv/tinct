@@ -28,7 +28,9 @@ interface LayoutApi {
   documentColumn(list: Array<Column | null>): Column | null
   columnZoom(o: { column: Column | null; pageWidth: number; room: number; cropX?: number; gutter?: number }): number
   columnScroll(o: { column: Column | null; pageWidth: number; x0?: number; cropX?: number; sheetLeft: number; sheetWidth: number; room: number; gutter?: number }): number
-  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean }>
+  pillStages(o: { chapter?: string; page?: string; pct?: string; epub?: boolean }): Array<{ label: string; chevron: boolean; cut?: boolean; title?: 'cut' | 'off' }>
+  shortChapter(label: string): string
+  cutLabel(label: string): { head: string; tail: string }
   COLUMN_FIT_MIN: number
 }
 type Item = { str: string; transform: number[]; width: number; height: number }
@@ -52,7 +54,9 @@ beforeAll(() => {
 
 describe('1. one name for the whole-document chat', () => {
   it('the PDF reader’s t menu says Chat (the margin card’s name) and opens the chat', () => {
-    expect(READER).toMatch(/const MENU = \[\['chat', 'Chat'\],/)
+    // Since 21 Oct 2026 the first row is Chat · Talk (Tinct's normal t menu): its first half is Chat.
+    expect(READER).toMatch(/const MENU_GROUPS = \[\['chat', 'summarize', 'catchup'\],/)
+    expect(READER).toContain("${half('chat', 'Chat')}${half('talk', 'Talk', true)}")
     expect(READER).toContain("if (id === 'chat') return openChat();")
     expect(READER).not.toMatch(/\['librarian', 'Librarian'\]/)
   })
@@ -158,8 +162,39 @@ describe('3. the phone’s header', () => {
     expect(L.pillStages({ chapter: 'Part II', pct: '42%', epub: true }).at(-1)).toEqual({ label: '42%', chevron: false })
     for (const o of [{}, { chapter: '' }, { page: '' }]) expect(L.pillStages(o).every(s => s.label.trim().length > 0)).toBe(true)
   })
+  it('an EPUB chapter (the margin preview of a Tinct book) is tried shorter and then cut before the percent alone (round 2)', () => {
+    // To the Lighthouse on a 390 px phone showed "33%" alone: its chapter is cut, its number kept, before the percent.
+    // Round 3: the book's title gives way first (cut, then left out); the chapter is cut only after that.
+    expect(L.pillStages({ chapter: 'The Window · 1', pct: '33%', epub: true })).toEqual([
+      { label: 'The Window · 1', chevron: true }, { label: 'The Window · 1', chevron: true, title: 'cut' }, { label: 'The Window · 1', chevron: true, title: 'off' },
+      { label: 'The Window · 1', chevron: false, cut: true, title: 'off' }, { label: '33%', chevron: true }, { label: '33%', chevron: false },
+    ])
+    expect(L.pillStages({ chapter: 'Book One (1805) — Chapter 1', pct: '0%', epub: true }).slice(0, 7)).toEqual([
+      { label: 'Book One (1805) — Chapter 1', chevron: true }, { label: 'Book One (1805) — Chapter 1', chevron: true, title: 'cut' },
+      { label: 'Chapter 1', chevron: true }, { label: 'Chapter 1', chevron: true, title: 'cut' },
+      { label: 'Book One (1805) — Chapter 1', chevron: true, title: 'off' }, { label: 'Chapter 1', chevron: true, title: 'off' },
+      { label: 'Chapter 1', chevron: false, cut: true, title: 'off' },
+    ])
+    // Every stage that keeps the title whole comes before any that cuts it, and those before any that leaves it out.
+    const rank = (s: { title?: string }) => ({ cut: 1, off: 2 } as Record<string, number>)[s.title || ''] ?? 0
+    const lh = L.pillStages({ chapter: 'The Window · 1', pct: '33%', epub: true }).filter(s => !/%$/.test(s.label))
+    expect(lh.map(rank)).toEqual([...lh.map(rank)].sort())
+    expect(L.shortChapter('Act 1, Scene 1 — Venice. A street')).toBe('Act 1, Scene 1')
+    expect(L.shortChapter('Chapter 1 — Loomings')).toBe('Chapter 1')
+    expect(L.shortChapter('Book VI: The Widow And The Wife — Chapter LVIII')).toBe('Chapter LVIII')
+    expect(L.shortChapter('Agamemnon — Prologue')).toBe('Agamemnon — Prologue')
+    expect(L.shortChapter('Letter 1')).toBe('Letter 1')
+    expect(L.cutLabel('The Window · 1')).toEqual({ head: 'The Window', tail: ' · 1' })
+    expect(L.cutLabel('Time Passes')).toEqual({ head: 'Time Passes', tail: '' })
+    // A PDF's pill is as before: no cut stage.
+    expect(L.pillStages({ chapter: '3 Model Architecture', page: '4' }).some(s => s.cut || s.title)).toBe(false)
+    expect(READER).toContain('if (stages[at].cut && titleFits(stages[at]) && readable()) break;')
+    expect(READER).toContain("title.clientWidth >= Math.max(PILL_TITLE_MIN, title.scrollWidth * 0.6) : whole(title)")
+    expect(CSS).toContain('.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-title="off"]) .lab-header-work { display: none; }')
+    expect(CSS).toContain('.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] { flex: 0 1 auto; }')
+  })
   it('reader.js tries each stage until the title and the label are whole, the last one always', () => {
-    expect(READER).toContain("if (at === stages.length - 1 || (whole(title) && whole(label))) break;")
+    expect(READER).toContain("if (at === stages.length - 1 || (!stages[at].cut && titleFits(stages[at]) && whole(label))) break;")
     // onScroll writes the full label each time: the stage found for the same labels, width and title is shown again.
     expect(READER).toContain("if (key === pill.key) { show(stages[pill.at]); return }")
     expect(READER).toMatch(/fitPill\(window\.TinctReaderLayout\.pillStages\(\{ chapter: ch \? ch\.label : `p\. \$\{at\} of \$\{of\}`, page: at \}\)\);/)
@@ -181,9 +216,12 @@ describe('4. Escape closes the Aa panel', () => {
 describe('5. a link with &pages', () => {
   it('is read once when the PDF opens, so a first open’s late scan does not send it to the Tinct reader', () => {
     expect(READER).toContain("const pagesAsked = new URLSearchParams(location.search).has('pages');")
-    expect(READER).toContain("if (!scan || !(scan.textPages > 0) || state.pagesAsked || editionChoice(scan) !== 'text') return false;")
+    // A recognised scan forwards too (Anders, 20 Oct 2026, item r): the &pages guard comes first for both.
+    expect(READER).toContain("if (!scan || state.pagesAsked) return false;")
+    expect(READER).toContain("const text = scan.textPages > 0 ? editionChoice(scan) === 'text' : isOcrText() && (ownEdition() === 'text' || (isPhone() && editionChoice(scan) === 'text'));")
     // The address the reader pushes keeps it, so a reload stays in the pages too.
-    expect(READER).toContain("const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : null;")
+    // (Since 19 Oct 2026 an EPUB in Margin view has its own address too, without &pages.)
+    expect(READER).toContain("const url = kind === 'pdf' ? bookUrl(key) + (state.pagesAsked ? '&pages' : '') : epubMargin() ? bookUrl(key) : null;")
     // forwardToText reads it nowhere else.
     const forward = READER.slice(READER.indexOf('function forwardToText('), READER.indexOf('function readAsText('))
     expect(forward).not.toContain('location.search')

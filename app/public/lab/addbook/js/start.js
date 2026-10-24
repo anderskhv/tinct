@@ -3,7 +3,7 @@
 // opens a file in place with add-engine.js). What remains here is the PDF reader (reader.js):
 // route.js sends every other visit to My shelf before the page draws, and this file opens the
 // one book a link names (?userBook=<hex>, or an older ?open=<key>), or takes an older link's handed-over file, then returns to My shelf.
-import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=20261009rel10';
+import { HANDOFF_PARAM, takeHandoff } from './file-handoff.js?v=__TINCT_BUILD__';
 
 const params = new URLSearchParams(location.search);
 export const MY_SHELF = '/library#my-shelf';
@@ -19,6 +19,8 @@ window.TinctStart = {
 };
 
 async function boot() {
+  // The margin preview of a registered book (/reader?book=<id>&margin=1): js/tinct-book.js opens it.
+  if (params.has('tinctBook')) return;
   // One book's address (/lab/addbook/?userBook=<hex>: a PDF read here, My shelf's and the
   // book switcher's links, a reload): that book, at its place, from this device or the account.
   const hex = window.TinctReader.urlHex();

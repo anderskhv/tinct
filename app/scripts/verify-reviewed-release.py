@@ -18,6 +18,14 @@ config = json.loads((ROOT / args.config).read_text())
 results = []
 for item in config["books"]:
     book = item["id"]
+    if item.get("supersededBy"):
+        # A later accepted release replaced this text. It is verified by its own config (also run by the
+        # workflow), which must start from exactly the text accepted here.
+        later = json.loads((ROOT / item["supersededBy"]).read_text())
+        successor = [b for b in later["books"] if b["id"] == book]
+        assert len(successor) == 1 and successor[0]["before"] == item["accepted"], (book, item["supersededBy"])
+        results.append({"book": book, "supersededBy": item["supersededBy"], "acceptedHere": item["accepted"], "acceptedThere": successor[0]["accepted"]})
+        continue
     base = item.get("sourceDirectory", f"books/wip/green-{book}").rstrip("/") + "/"
     target = f"app/public/data/editions/{book}-modern-en.json"
     raw = (ROOT / target).read_bytes()
@@ -49,6 +57,14 @@ for item in config["books"]:
     assert sum(len(ch["paragraphs"]) for ch in accepted["chapters"]) == item["paragraphs"]
     if item.get("changesFile"):
         evidence = json.loads(fetch(config["sourceRef"], base + item["changesFile"]))
+    if item.get("changesFile") and isinstance(evidence, dict):
+        # Modern-en repair packages (2026-10) list changed coordinates (0-based paragraph) with both hashes.
+        assert evidence["book"] == book and evidence["edition"] == "modern-en"
+        assert evidence["baselineSha256"] == item["before"] and evidence["candidateSha256"] == item["accepted"]
+        assert evidence["chapters"] == item["chapters"] and evidence["paragraphs"] == item["paragraphs"]
+        assert evidence["changedCount"] == len(changed) and evidence["unchangedCount"] == item["paragraphs"] - len(changed)
+        assert [list(c) for c in evidence["changed"]] == [[ch, i-1] for ch, i, _, _ in changed]
+    elif item.get("changesFile"):
         source_chapters = {ch["number"]:ch["paragraphs"] for ch in json.loads(source)["chapters"]}
         assert [(r["section"],r["paragraph"],r["before"],r["after"]) for r in evidence] == changed
         assert all(r["source"] == source_chapters[r["section"]][r["paragraph"]-1] for r in evidence)
@@ -74,6 +90,12 @@ for item in config["books"]:
             point(mention, "startOffset"); point(mention, "endOffset")
             text = paras[str(mention["chapterNumber"])][mention["paragraphIndex"]].encode("utf-16-le")
             assert text[2*mention["startOffset"]:2*mention["endOffset"]].decode("utf-16-le") == mention["text"]
+        if "mentions" in item:
+            assert len(block["mentions"]) == item["mentions"] == len(previous["editions"][edition]["mentions"])
+        for ruling in item.get("cardRulings", []):
+            assert ruling["mention"] in [{k: m[k] for k in ruling["mention"]} for m in block["mentions"]], ruling["ruling"]
+            if "notMention" in ruling:
+                assert ruling["notMention"] not in [{k: m[k] for k in ruling["notMention"]} for m in block["mentions"]], ruling["ruling"]
         for current, prior in zip(block["characters"], previous["editions"][edition]["characters"], strict=True):
             assert {k:v for k,v in current.items() if k not in ("firstMention","roleVisibleAt","snapshots")} == {k:v for k,v in prior.items() if k not in ("firstMention","roleVisibleAt","snapshots")}
             point(current["firstMention"]); point(current["roleVisibleAt"])
@@ -82,5 +104,5 @@ for item in config["books"]:
                 point(s["availableAt"])
                 for e in s.get("evidence", []):
                     if "throughOffset" in e: point(e, "throughOffset")
-    results.append({"book": book, "sha256": sha(raw), "paragraphHashesVerified": len(hashes), "mentionsVerified": len(card["editions"]["modern-en"]["mentions"]), "originalUnchanged": True, "cardProseUnchanged": True})
+    results.append({"book": book, "sha256": sha(raw), "paragraphHashesVerified": len(hashes), "mentionsVerified": len(card["editions"]["modern-en"]["mentions"]), "originalUnchanged": True, "cardProseUnchanged": True, "cardRulingsVerified": len(item.get("cardRulings", []))})
 print(json.dumps(results, indent=2))

@@ -1139,6 +1139,15 @@
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+.lab .lab-contextual-save-error {
+  margin: 8px 0 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--lab-border);
+  border-radius: 8px;
+  font: 14px/1.4 system-ui, sans-serif;
+  color: var(--lab-ink);
+  background: var(--lab-paper);
+}
 
 .lab-contextual-explain blockquote {
   max-height: 68px;
@@ -2686,9 +2695,8 @@
   justify-content: space-between;
   padding: 15px 16px 10px;
   color: var(--lab-ink-muted);
-  font: 600 0.72rem/1.2 system-ui, sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /* Sentence case, as every label (design-system.md): "Reading now", never capitals (22 Oct 2026). */
+  font: 600 0.82rem/1.2 system-ui, sans-serif;
 }
 .lab-book-switcher-head button {
   width: 32px;
@@ -5284,6 +5292,16 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   line-height: 1;
 }
 
+/* The Profile row's dot: someone asks to be friends (20 Oct 2026). */
+.lab[data-chrome-version="v2"] .lab-super-row-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--lab-accent, #1f4a5c);
+}
+
 /* The menu's Librarian row: the body opens the default mode, the two icons
    open Chat or Talk directly. Same 44px row and 40px gutter as every row. */
 .lab[data-chrome-version="v2"] .lab-super-row.is-librarian { padding-right: 4px; cursor: default; }
@@ -5298,6 +5316,15 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   -webkit-tap-highlight-color: transparent;
 }
 .lab[data-chrome-version="v2"] .lab-super-row-mode svg { display: block; }
+/* The phone's Chat · Talk row: two halves of one 44px row, a hairline between them. */
+.lab[data-chrome-version="v2"] .lab-super-row.is-pair { padding: 0; cursor: default; }
+.lab[data-chrome-version="v2"] .lab-super-row-half {
+  display: flex; align-items: center; flex: 1 1 50%; min-width: 0; min-height: 44px;
+  padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.lab[data-chrome-version="v2"] .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
+.lab[data-chrome-version="v2"] .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
 .lab[data-chrome-version="v2"] .lab-super-row-mode:focus-visible,
 .lab[data-chrome-version="v2"] .lab-super-row-main:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
 
@@ -5331,7 +5358,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 
 /* ── The V2 sheet ────────────────────────────────────────────────────────
-   Reading settings, Advanced settings, the font picker and Account: one box,
+   Aa, Book settings, Audio settings, Advanced settings, the font picker and Account: one box,
    four layers, one height. Switching layer must never resize the window, so
    the height is a constant — capped against a short viewport, but capped
    identically for all four, so they stay the same height as each other. */
@@ -5910,13 +5937,28 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 
 .lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-play,
-.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super {
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-super,
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
   border: 1px solid var(--lab-border);
   background: rgba(var(--lab-v2-panel-ink), 0.62);
   box-shadow: 0 8px 24px rgba(53, 43, 30, 0.08);
+}
+
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  color: inherit;
+  font: 600 16px/1 Georgia, serif;
+  cursor: pointer;
+}
+.lab[data-chrome-version="v2"]:not(.is-phone):not(.has-phone-chrome) .lab-v2-aa:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* The t's target is pulled left against Play on the phone, where the two sit
@@ -6875,7 +6917,8 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   padding: 0; margin: 16px 0 0; color: var(--lab-ink-muted); user-select: none;
   border: 0; border-radius: 0; background: transparent;
 }
-.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 20px; }
+/* 8px between pills, as at the chapter's head (iPhone feedback, 21 Oct 2026); each keeps its 44px tap height. */
+.lab[data-chrome-version="v2"] .lab-chapter-end-actions { display: flex; flex-wrap: wrap; gap: 0 8px; }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 44px; padding: 8px 0; border: 0; border-radius: 0;
@@ -7056,7 +7099,7 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
   /* The sheets already scroll inside themselves, so nothing was unreachable;
      they just showed two rows at a time. A taller sheet and shorter theme
-     cards put the whole of Reading settings and Account on one screen. */
+     cards put the whole of Aa and Account on one screen. */
   .lab[data-chrome-version="v2"] {
     --lab-v2-sheet-height: min(452px, 94vh);
   }

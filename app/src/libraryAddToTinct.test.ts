@@ -657,24 +657,31 @@ describe('My shelf groups', () => {
     expect(addToTinct.ownTableId('pdf:bb')).toBe('userbook-bb')
   })
 
-  it('gives own books the same × as the shelf’s other books: off Currently reading, or deleted from My private uploads', () => {
+  it('gives own books being read the shelf’s ×, and every upload the ••• menu whose one action is Delete', () => {
     const grid = document.createElement('div')
     const onRemoveReading = vi.fn(), onDelete = vi.fn()
     addToTinct.appendOwnShelf(grid, [own('epub:aa', 'Notes', 3), own('pdf:bb', 'Slides', null, 'pdf')], el, { onRemoveReading, onDelete })
+    document.body.append(grid)
     const reading = grid.querySelector('[data-shelf-group="own-reading"]')!
     const x = reading.querySelector('.save-toggle') as HTMLButtonElement
     expect(x.textContent).toBe('×')
-    expect(x.dataset.shelfRemove).toBe('true')
     expect(x.getAttribute('aria-label')).toBe('Remove from My shelf: Notes')
     x.click()
     expect(onRemoveReading).toHaveBeenCalledWith(expect.objectContaining({ key: 'epub:aa' }), x)
     expect(onDelete).not.toHaveBeenCalled()
     const uploads = [...grid.querySelectorAll('[data-shelf-group="own"]')]
-    expect(uploads.map(card => card.querySelector('.save-toggle')?.getAttribute('aria-label'))).toEqual(['Remove from My shelf: Notes', 'Remove from My shelf: Slides'])
-    ;(uploads[1].querySelector('.save-toggle') as HTMLButtonElement).click()
-    expect(onDelete).toHaveBeenCalledWith(expect.objectContaining({ key: 'pdf:bb' }), uploads[1].querySelector('.save-toggle'))
-    // Removing never opens the book.
-    expect(reading.querySelector('a')?.contains(x)).toBe(false)
+    expect(uploads.map(card => card.querySelector('.shelf-more')?.getAttribute('aria-label'))).toEqual(['More for Notes', 'More for Slides'])
+    expect(uploads.some(card => card.querySelector('.save-toggle'))).toBe(false)
+    const more = uploads[1].querySelector('.shelf-more') as HTMLButtonElement
+    more.click()
+    const items = [...grid.querySelectorAll('[role="menuitem"]')]
+    expect(items.map(item => item.textContent)).toEqual(['Delete'])
+    ;(items[0] as HTMLButtonElement).click()
+    expect(onDelete).toHaveBeenCalledWith(expect.objectContaining({ key: 'pdf:bb' }), more)
+    expect(grid.querySelector('.shelf-menu')).toBeNull()
+    // The menu never opens the book.
+    expect(uploads[1].querySelector('a')?.contains(more)).toBe(false)
+    grid.remove()
   })
 
   it('opens a Currently reading heading for own books when the library has none, and adds nothing for an empty list', () => {
@@ -722,17 +729,121 @@ describe('Removing one of My private uploads', () => {
   afterEach(() => { document.body.replaceChildren() })
   const book = { key: 'epub:aa', kind: 'epub', title: 'The Sovereign Child', author: 'Me', at: 1, readingAt: null, href: '/reader?userBook=aa' }
 
-  it('asks first, naming the book; Keep book keeps it', async () => {
+  it('asks first in the page, naming the book and saying plainly what Delete does; Cancel keeps it', async () => {
     const asked = addToTinct.confirmDeleteUpload(book)
     const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
-    expect(dialog.querySelector('h2')?.textContent).toBe('Remove The Sovereign Child?')
-    expect(dialog.textContent).toContain('It is removed from this device and your account.')
+    expect(dialog.querySelector('h2')?.textContent).toBe('Delete The Sovereign Child?')
+    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Deletes the file, its notes and its place from Tinct on all your devices.')
+    expect(dialog.querySelector('.own-delete-confirm')?.textContent).toBe('Delete')
     ;(dialog.querySelector('.own-delete-cancel') as HTMLButtonElement).click()
     expect(await asked).toBe(false)
     expect(document.querySelector('[data-testid="own-delete-dialog"]')).toBeNull()
     const confirmed = addToTinct.confirmDeleteUpload(book)
     ;(document.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
     expect(await confirmed).toBe(true)
+    // Escape is Cancel.
+    const escaped = addToTinct.confirmDeleteUpload(book)
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+    expect(await escaped).toBe(false)
+  })
+
+  it('says what Remove from shelf does for a Tinct book: its place and notes stay', async () => {
+    const asked = addToTinct.confirmDeleteUpload({ title: 'Antigone' }, { own: false })
+    const dialog = document.querySelector('[data-testid="own-delete-dialog"]')!
+    expect(dialog.querySelector('h2')?.textContent).toBe('Remove Antigone?')
+    expect(dialog.querySelector('.tui-dialog__body')?.textContent).toBe('Removes it from your shelf. Your place and notes stay if you add it again.')
+    expect(dialog.querySelector('.own-delete-confirm')?.textContent).toBe('Remove')
+    ;(dialog.querySelector('.own-delete-confirm') as HTMLButtonElement).click()
+    expect(await asked).toBe(true)
+    expect(addToTinct.shelfAction(false).item).toBe('Remove from shelf')
+    expect(addToTinct.shelfAction(true).item).toBe('Delete')
+  })
+
+  it('a Tinct book’s ••• offers Remove from shelf, and Escape or a tap elsewhere closes it untouched', () => {
+    const wrap = document.createElement('div'); document.body.append(wrap)
+    const onChoose = vi.fn()
+    const more = addToTinct.shelfMenu('Antigone', { onChoose })
+    wrap.append(more)
+    expect(more.getAttribute('aria-expanded')).toBe('false')
+    more.click()
+    expect(more.getAttribute('aria-expanded')).toBe('true')
+    expect(wrap.querySelector('[role="menuitem"]')?.textContent).toBe('Remove from shelf')
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
+    expect(wrap.querySelector('.shelf-menu')).toBeNull()
+    more.click()
+    document.body.dispatchEvent(new Event('pointerdown', { bubbles: true }))
+    expect(wrap.querySelector('.shelf-menu')).toBeNull()
+    expect(onChoose).not.toHaveBeenCalled()
+    more.click()
+    ;(wrap.querySelector('[role="menuitem"]') as HTMLButtonElement).click()
+    expect(onChoose).toHaveBeenCalledWith(more)
+  })
+
+  it('Currently reading’s own book: Read later, Remove from Currently reading, then Delete last; each runs its own action', () => {
+    const grid = document.createElement('div'); document.body.append(grid)
+    const onDelete = vi.fn(), later = vi.fn(), off = vi.fn()
+    const book = { key: 'pdf:aa', kind: 'pdf', title: 'Everettian relative states', author: '', href: '/lab/addbook/?userBook=aa' }
+    const card = addToTinct.ownBookCard(book, el, { onDelete, progress: true, actions: [{ label: addToTinct.READ_LATER, onChoose: later }, { label: addToTinct.OFF_READING, onChoose: off }] })
+    grid.append(card)
+    const more = card.querySelector('.shelf-more') as HTMLButtonElement
+    const open = () => { more.click(); return [...card.querySelectorAll('[role="menuitem"]')] as HTMLButtonElement[] }
+    let items = open()
+    expect(items.map(item => item.textContent)).toEqual(['Read later', 'Remove from Currently reading', 'Delete'])
+    expect(items.map(item => item.classList.contains('is-delete'))).toEqual([false, false, true])
+    expect(document.activeElement).toBe(items[0])
+    // Arrow keys move through the menu.
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+    expect(document.activeElement).toBe(items[1])
+    items[0].click()
+    expect(later).toHaveBeenCalledWith(book, more)
+    expect(card.querySelector('.shelf-menu')).toBeNull()
+    items = open(); items[1].click()
+    expect(off).toHaveBeenCalledWith(book, more)
+    items = open(); items[2].click()
+    expect(onDelete).toHaveBeenCalledWith(book, more)
+    expect(later).toHaveBeenCalledTimes(1); expect(off).toHaveBeenCalledTimes(1); expect(onDelete).toHaveBeenCalledTimes(1)
+  })
+
+  it('places the menu just below its •••, right edges aligned, flipping above or to the start only at the viewport’s edge', () => {
+    const place = addToTinct.shelfMenuPlace
+    const view = { width: 1440, height: 900 }, menu = { width: 220, height: 120 }
+    const button = (left: number, top: number) => ({ left, top, right: left + 30, bottom: top + 24 })
+    // A cover in the middle of the desktop page: below, right-aligned.
+    expect(place(button(600, 300), menu, view)).toEqual({ left: 410, top: 328, above: false, flipped: false })
+    // Near the bottom: above the button, still right-aligned.
+    expect(place(button(600, 820), menu, view)).toEqual({ left: 410, top: 696, above: true, flipped: false })
+    // Near the left edge (a phone's first cover): starts at the button's left edge.
+    expect(place(button(110, 300), menu, { width: 390, height: 844 })).toEqual({ left: 110, top: 328, above: false, flipped: true })
+    // Never outside the viewport.
+    const tight = place(button(300, 300), { width: 380, height: 120 }, { width: 390, height: 844 })
+    expect(tight.left).toBe(8)
+  })
+
+  it('opens the menu anchored to the ••• inside its card, wherever the card sits', () => {
+    const wrap = document.createElement('div'); wrap.className = 'card-wrap'; document.body.append(wrap)
+    const more = addToTinct.shelfMenu('Antigone', { items: [{ label: 'Read later', onChoose: vi.fn() }, { label: 'Remove from shelf', onChoose: vi.fn() }] })
+    wrap.append(more)
+    const rect = (left: number, top: number, width: number, height: number) => ({ left, top, width, height, right: left + width, bottom: top + height, x: left, y: top, toJSON: () => ({}) }) as DOMRect
+    const offsetParent = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetParent')
+    Object.defineProperty(HTMLElement.prototype, 'offsetParent', { configurable: true, get() { return this.classList?.contains('shelf-menu') ? wrap : null } })
+    const boxes = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
+      if (this === wrap) return rect(400, 200, 220, 330)
+      if (this === more) return rect(584, 206, 30, 24)
+      if (this.classList.contains('shelf-menu')) return rect(0, 0, 210, 84)
+      return rect(0, 0, 0, 0)
+    })
+    try {
+      more.click()
+      const menu = wrap.querySelector('.shelf-menu') as HTMLElement
+      // 614 − 210 = 404 in the viewport, 4 px into the card; 230 + 4 = 234, 34 px down.
+      expect(menu.style.left).toBe('4px')
+      expect(menu.style.top).toBe('34px')
+      expect(menu.dataset.place).toBe('below end')
+    } finally {
+      boxes.mockRestore()
+      if (offsetParent) Object.defineProperty(HTMLElement.prototype, 'offsetParent', offsetParent)
+      else delete (HTMLElement.prototype as unknown as { offsetParent?: unknown }).offsetParent
+    }
   })
 
   it('deletes with Add a book’s own delete (this device and the account), finding an account-only copy first', async () => {
@@ -748,10 +859,101 @@ describe('Removing one of My private uploads', () => {
     expect(await addToTinct.deleteUpload(book, { engine: engine(false) })).toBe(true)
     expect(calls).toEqual(['get epub:aa', 'refresh', 'remove epub:aa'])
   })
+
+  it('allows a cold Library delete when loading the Engine initializes the same stored session', async () => {
+    vi.stubGlobal('TinctAI', undefined)
+    localStorage.setItem('sb-delete-auth-token', JSON.stringify({ currentSession: {
+      access_token: 'session-A', expires_at: Math.floor(Date.now() / 1000) + 3600, user: { id: 'owner-a' },
+    } }))
+    const calls: string[] = []
+    try {
+      const engine = async () => {
+        vi.stubGlobal('TinctAI', { session: () => ({ userId: 'owner-a', token: 'session-A' }) })
+        return {
+          library: { get: async (key: string) => { calls.push('get ' + key); return { key } } },
+          cloud: { refresh: async () => { calls.push('refresh') } },
+          removeBook: async (key: string) => { calls.push('remove ' + key); return true },
+        }
+      }
+      expect(await addToTinct.deleteUpload(book, { engine })).toBe(true)
+      expect(calls).toEqual(['get epub:aa', 'remove epub:aa'])
+    } finally { vi.unstubAllGlobals(); localStorage.removeItem('sb-delete-auth-token') }
+  })
+
+  it('aborts a cold Library delete if A changes to B while the Engine loads', async () => {
+    vi.stubGlobal('TinctAI', undefined)
+    const authKey = 'sb-delete-auth-token'
+    localStorage.setItem(authKey, JSON.stringify({ access_token: 'session-A', user: { id: 'owner-a' } }))
+    const get = vi.fn(async () => ({ key: book.key })), removeBook = vi.fn(async () => true)
+    try {
+      const engine = async () => {
+        localStorage.setItem(authKey, JSON.stringify({ access_token: 'session-B', user: { id: 'owner-b' } }))
+        vi.stubGlobal('TinctAI', { session: () => ({ userId: 'owner-b', token: 'session-B' }) })
+        return { library: { get }, cloud: { refresh: async () => true }, removeBook }
+      }
+      expect(await addToTinct.deleteUpload(book, { engine })).toBe(false)
+      expect(get).not.toHaveBeenCalled()
+      expect(removeBook).not.toHaveBeenCalled()
+    } finally { vi.unstubAllGlobals(); localStorage.removeItem(authKey) }
+  })
+
+  it('then forgets this device’s other keys for the book (highlights, margin answers, chats, snapshots), never another book’s', async () => {
+    vi.stubGlobal('TinctAI', { session: () => ({ userId: 'viewer' }) })
+    const hex = 'a1b2c3d4e5f6a1b2c3d4e5f6', other = 'ffffffffffffffffffffffff'
+    const store = new Map<string, string>([
+      [`tinct-addbook:hl:${hex}`, '[]'], [`tinct-addbook:cards:${hex}`, '[]'], [`tinct-addbook:chat:pdf:${hex}`, '[]'],
+      [`tinct-addbook:pos:pdf:${hex}`, '{}'], [`tinct-addbook:table-hidden:${hex}`, '1'], [`tinct:library-2-own-thumb:userbook-${hex}`, 'data:'],
+      ['tinct:library-2-table:viewer', JSON.stringify({ reading: [{ bookId: `userbook-${hex}`, title: 'Private' }] })],
+      [`tinct-addbook:hl:${other}`, '[]'], ['tinct-addbook:rights:viewer', '{}'], ['tinct:library-2-first-paint', '{"books":["hamlet"]}'],
+    ])
+    const storage = { get length() { return store.size }, key: (i: number) => [...store.keys()][i] ?? null, getItem: (k: string) => store.get(k) ?? null, removeItem: (k: string) => { store.delete(k) } }
+    const calls: string[] = []
+    const engine = async () => ({
+      library: { get: async () => ({ key: `pdf:${hex}` }) }, cloud: { refresh: async () => true },
+      // The real Engine owns verified raw cleanup. The Library's second pass
+      // is deliberately conservative even when the earlier lookup found a file.
+      removeBook: async (key: string) => { calls.push('remove ' + key); addToTinct.forgetOwnBookHere(hex, [storage]); return true },
+    })
+    try {
+      expect(await addToTinct.deleteUpload({ ...book, key: `pdf:${hex}` }, { engine, storages: [storage] })).toBe(true)
+      expect(calls).toEqual([`remove pdf:${hex}`])
+      expect([...store.keys()].sort()).toEqual([`tinct-addbook:hl:${other}`, 'tinct-addbook:rights:viewer', 'tinct:library-2-first-paint'])
+      // Anything but a book's own id forgets nothing.
+      expect(addToTinct.forgetOwnBookHere('tinct', [storage])).toBe(0)
+    } finally { vi.unstubAllGlobals() }
+  })
+
+  it('keeps foreign same-hash raw state on a cloud-only delete while clearing this account’s scoped records', async () => {
+    vi.stubGlobal('TinctAI', { session: () => ({ userId: 'u2', token: 'B' }) })
+    const hex = 'e'.repeat(24), key = `epub:${hex}`
+    const values = new Map<string, string>([
+      [`tinct-addbook:pos:${key}`, 'A position'], [`tinct-addbook:hl:${key}`, '[{"id":"A"}]'],
+      [`tinct-addbook:text-cards-canonical:u1:${hex}`, 'A canonical'], [`tinct-addbook:text-cards-canonical:u2:${hex}`, 'B canonical'],
+      [`tinct-addbook:pdf-original-talk:u1:${'f'.repeat(32)}:${hex}`, 'A talk'],
+      [`tinct-addbook:pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`, 'B talk'],
+      [`tinct-addbook:static-epub-marks:u1:${hex}`, 'A static'], [`tinct-addbook:static-epub-marks:u2:${hex}`, 'B static'],
+      [`tinct-addbook:static-epub-guest-marks:${hex}`, 'guest'],
+      ['tinct:library-2-table:u1', JSON.stringify([{ key }])],
+    ])
+    const storage = { get length() { return values.size }, key: (i: number) => [...values.keys()][i] ?? null,
+      getItem: (k: string) => values.get(k) ?? null, removeItem: (k: string) => { values.delete(k) } }
+    const cloud = { refresh: vi.fn(async () => true) }, removeBook = vi.fn(async () => true)
+    try {
+      expect(await addToTinct.deleteUpload({ ...book, key }, { engine: async () => ({ library: { get: async () => null }, cloud, removeBook }), storages: [storage] })).toBe(true)
+      expect(cloud.refresh).toHaveBeenCalledOnce()
+      expect(removeBook).toHaveBeenCalledWith(key)
+      for (const fragment of [`pos:${key}`, `hl:${key}`, `text-cards-canonical:u1:${hex}`, `pdf-original-talk:u1:${'f'.repeat(32)}:${hex}`,
+        `static-epub-marks:u1:${hex}`, `static-epub-guest-marks:${hex}`])
+        expect(values.get(`tinct-addbook:${fragment}`), fragment).toBeDefined()
+      for (const fragment of [`text-cards-canonical:u2:${hex}`, `pdf-original-talk:u2:${'f'.repeat(32)}:${hex}`, `static-epub-marks:u2:${hex}`])
+        expect(values.get(`tinct-addbook:${fragment}`), fragment).toBeUndefined()
+      expect(values.get('tinct:library-2-table:u1')).toBe(JSON.stringify([{ key }]))
+    } finally { vi.unstubAllGlobals() }
+  })
 })
 
 describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add a PDF or EPUB")', () => {
-  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear() })
+  afterEach(() => { addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in'); document.body.replaceChildren(); localStorage.clear(); window.history.replaceState(null, '', '/') })
   const entry = () => { const link = document.createElement('a'); link.href = '/library#my-shelf'; document.body.append(link); return link }
   const dialog = () => document.querySelector('[data-testid="own-file-dialog"]')
   const choose = (file: File) => {
@@ -793,6 +995,31 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(box.querySelector('.own-file-choose')?.textContent).toBe('Choose a PDF or EPUB')
     // From the search field there is no second search to offer.
     expect(box.querySelector('.own-file-search')).toBeNull()
+  })
+
+  it('names both the extensions and the types (iOS Files), with no spaces; on Android also octet-stream, which some file managers report for an EPUB', () => {
+    const IPAD = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+    const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+    const WINDOWS = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
+    const SAMSUNG = 'Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36'
+    const ANDROID_APP = 'Mozilla/5.0 (Linux; Android 14; Pixel 8; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0 Mobile Safari/537.36'
+    for (const ua of [IPAD, IPHONE, WINDOWS]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub')
+    for (const ua of [SAMSUNG, ANDROID_APP]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub,application/octet-stream')
+    for (const list of [addToTinct.FILE_ACCEPT, addToTinct.FILE_ACCEPT_ANDROID]) {
+      expect(list).not.toMatch(/\s/)
+      for (const piece of ['.pdf', '.epub', 'application/pdf', 'application/epub+zip']) expect(list.split(',')).toContain(piece)
+    }
+    // Add a book's PDF reader asks for the same file types.
+    expect(readFileSync('public/lab/addbook/index.html', 'utf8')).toContain('accept="application/pdf,.pdf,application/epub+zip,.epub"')
+  })
+
+  it('says why when a chosen file is refused, and offers the picker again', async () => {
+    document.documentElement.classList.add('signed-in')
+    const { engine } = fakeEngine({ readError: 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.' })
+    await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine })
+    choose(new File(['x'], 'book', { type: 'application/octet-stream' }))
+    await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.'))
+    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
   })
 
   it('adds an EPUB in place: rights once (the engine records it), kept, saved, then opens in the Tinct reader, never via Add a book’s page', async () => {
@@ -871,22 +1098,27 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(go).toHaveBeenCalledWith('/lab/addbook/?mode=file&handoff=1')
   })
 
-  it('keeps the gating: a free account past its trial gets the Premium offer, signed out signs in first, never the pop-up', async () => {
+  it.each(['0', '1'])('keeps Premium/sign-in gating and the return destination with sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     const go = vi.fn()
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => false, go })
-    expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
+    const shelf = shared === '1' ? '/library?sharedReader=1#my-shelf' : '/library#my-shelf'
+    expect(go).toHaveBeenCalledWith(shared === '1' ? `/sign-in?mode=account&returnTo=${encodeURIComponent(shelf)}` : addToTinct.PREMIUM_PAGE)
     document.documentElement.classList.remove('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => null, go })
-    expect(go).toHaveBeenLastCalledWith('/sign-in?returnTo=%2Flibrary%23my-shelf')
+    expect(go).toHaveBeenLastCalledWith(`/sign-in?returnTo=${encodeURIComponent(shelf)}`)
     expect(dialog()).toBeNull()
   })
 
-  it('closes on its × and Escape; only the file button, no Cancel (Anders, 15 Oct)', async () => {
+  it.each(['0', '1'])('closes on its × and Escape, with no Cancel and Paste only for sharedReader=%s', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
     document.documentElement.classList.add('signed-in')
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine: fakeEngine().engine })
     expect(dialog()!.querySelector('.own-file-cancel')).toBeNull()
-    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(['tui-btn tui-btn--primary own-file-choose'])
+    expect([...dialog()!.querySelectorAll('.tui-dialog__actions button')].map(b => b.className)).toEqual(shared === '1'
+      ? ['tui-btn tui-btn--primary own-file-choose', 'tui-btn tui-btn--secondary own-file-paste']
+      : ['tui-btn tui-btn--primary own-file-choose'])
     const close = dialog()!.querySelector('.tui-dialog__head .own-file-close') as HTMLButtonElement
     expect(close.getAttribute('aria-label')).toBe('Close')
     close.click()

@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'editions' | 'library' | 'settings' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId
@@ -16,36 +16,80 @@ export interface LabSuperMenuRow {
   /** The rule that separates what is in this book from what is around it. */
   ruleBefore?: boolean
   /**
-   * The Librarian row only: the modes it offers as icons of their own. The
-   * row's body opens the reader's default mode (the tab's "Tab opens").
+   * The Librarian row (desktop) and the phone's Chat · Talk row: the modes it
+   * offers. On the desktop they are icons beside the row's body (which opens
+   * the reader's default mode); on the phone they are the row's two halves.
    */
   modes?: Array<'chat' | 'talk'>
 }
 
 /**
- * Chapter actions (Catch me up, approved 2026-09-30, sits right under
- * Summarize), reading choices, then library (phone only) and account.
+ * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
+ * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
+ * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
+ * - Aa: font, size, alignment, spacing, margins, theme and eligible desktop layouts
+ *   (Margin, Two-page, Compare). The desktop margin reader has its own top-bar Aa button.
+ * - Book settings: main and compare version, a play's layout, or a PDF's Original pages
+ *   (whichever source choices apply to the book).
+ * - Audio settings: voice, speed, audiobook version.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false }: { phone?: boolean; privateBook?: boolean; ownPdf?: boolean } = {}): LabSuperMenuRow[] {
-  const rows: LabSuperMenuRow[] = [
+export const LAB_SETTINGS_GROUPS = [
+  { id: 'text', frame: 'aa', layer: 'reading', label: 'Aa' },
+  { id: 'editions', frame: 'book', layer: 'editions', label: 'Book settings' },
+  { id: 'audio', frame: 'audio', layer: 'audio', label: 'Audio settings' },
+] as const satisfies ReadonlyArray<{ id: LabSuperMenuId; frame: string; layer: string; label: string }>
+
+/** The reader's highlights, notes and cards: the desktop margin reader's top-bar button, the phone's t menu row. */
+export const LAB_NOTEBOOK_LABEL = 'Notebook'
+
+const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) }))
+
+/**
+ * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
+ * Summarize, Catch me up and Notebook (the Contents' highlights and notes); Aa, Book settings and Audio settings;
+ * then Library and Profile. The phone has no top-bar Aa or Notebook, so everything is here.
+ */
+function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
+  return [
+    { id: 'conversation', label: '', modes: ['chat', 'talk'] },
+    { id: 'summarize', label: 'Summarize' },
+    { id: 'catchup', label: 'Catch me up' },
+    { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
+    ...SETTINGS_ROWS,
+    { id: 'library', label: privateBook ? 'Your books' : 'Library', ruleBefore: true },
+    { id: 'account', label: 'Profile', chevron: true },
+  ]
+}
+
+/**
+ * Chapter actions (Catch me up, approved 2026-09-30, sits right under
+ * Summarize), the settings groups, then library (phone only) and account.
+ */
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false, sharedReader = false }: {
+  phone?: boolean; privateBook?: boolean; ownPdf?: boolean
+  /** Private shared desktop reader exposes its Notebook beside the named settings. */
+  sharedReader?: boolean
+  /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
+  noCatchUp?: boolean
+} = {}): LabSuperMenuRow[] {
+  const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // One row for both conversations (Anders, 2026-10-07): always here, so
     // the only way to the librarian since the margin tab went (2026-10-08).
     { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    { id: 'editions', label: 'Book editions', chevron: true, ruleBefore: true },
-    { id: 'settings', label: 'Settings', chevron: true },
-    // Desktop has the back arrow at the top left instead (2026-10-01).
-    ...(phone ? [{ id: 'library' as const, label: 'Library', ruleBefore: true }] : []),
-    { id: 'account', label: 'Profile', chevron: true, ruleBefore: !phone },
+    ...(sharedReader ? [{ id: 'notebook' as const, label: LAB_NOTEBOOK_LABEL }] : []),
+    ...SETTINGS_ROWS,
+    // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
+    { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
+  const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
-  // at a time), but one edition, except a PDF: its Tinct text and its
-  // Original pages (2026-10-09). Library returns to Your books.
-  return privateBook
-    ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')).map(row => row.id === 'library' ? { ...row, label: 'Your books' } : row)
-    : rows
+  // at a time). Book settings appears only for separate source choices (PDF
+  // Original pages or EPUB Margin source); desktop layout choices stay in Aa
+  // even when a book has only one source. Its Audio settings stay.
+  return privateBook ? rows.filter(row => !USER_BOOK_HIDDEN_ROWS.has(row.id) || (ownPdf && row.id === 'editions')) : rows
 }
 
 const USER_BOOK_HIDDEN_ROWS = new Set<LabSuperMenuId>(['editions'])

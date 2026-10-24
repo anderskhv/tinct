@@ -72,18 +72,39 @@ describe('/terms', () => {
 // Talk and Catch me up on a reader's own book (2026-10-08, after legal review).
 describe('own books and the AI features', () => {
   const privacyText = text(privacy)
+  it('privacy: pasted drafts become owned EPUBs only on Add, with the existing export listing and deletion path', () => {
+    expect(privacyText).toContain('If you choose Paste text, the text you type or paste (including supported HTML or Markdown), and any title or author you enter are converted into an EPUB in your browser; you can review the result before adding it and edit its display title and author later.')
+    expect(privacyText).toContain('Only when you choose Add to my books is that EPUB saved to your account with Cloudflare (R2); the editable draft is not saved separately or sent to an AI provider for rewriting.')
+    expect(privacyText).toContain('The resulting book follows the same private access, account export listing (its title, author, file type, size and date, not the file bytes) and deletion rules as an EPUB you chose as a file.')
+    const accounts = readFileSync('src/worker/routes/adminAccounts.ts', 'utf8')
+    expect(accounts).toContain('listUserBooks(env.USER_BOOKS!, account.userId)')
+    expect(accounts).toContain('await purgeUserBooks(env.USER_BOOKS, userId)')
+  })
   it('privacy: names what of an own book each AI feature sends, where the recap is kept, and no training', () => {
     expect(privacyText).not.toContain('Only the passages you ask about are sent to the AI companion, as with any question.')
-    expect(privacyText).toContain('Your place in it (the chapter and paragraph, or the page of a PDF, when you read there, and how far through you are, never its title or text) is kept privately in your account too, so it opens where you left off on your other devices; it is deleted with the book.')
+    expect(privacyText).toContain('Your place in a PDF or EPUB you added (the chapter and paragraph in its source text, or the page of a PDF when you read its original pages, and how far through you are, never its title or text) is kept privately in your account too, so it opens where you left off on your other devices; it is deleted with the book.')
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 19 October 2026')
+    expect(privacy).toContain('Last updated: 23 October 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
     expect(privacy).toContain('If you upload a picture or a background, we store it with Cloudflare, with its location and camera details removed.')
-    expect(privacy).toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
+    // No review before others see them since 19 Oct 2026 (changed on request: it said a person looked at each first).
+    expect(privacy).not.toContain('A person at Tinct looks at each uploaded photo before other readers can see it')
+    expect(privacy).toContain('Uploaded photos are not reviewed before other readers see them: they show at once wherever your picture or background is shown, and Tinct can remove a photo that breaks our Terms.')
+  })
+
+  // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
+  it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
+    expect(privacy).toContain('Last updated: 23 October 2026')
+    expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
+    expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
+    expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')
+    expect(privacyText).toContain('Only me keeps you unfindable: nobody can find your profile or see your reading, and a reader you follow sees only your name and link.')
+    // Follow requests already shown are remembered in the browser (src/social/followRequests.ts, 20 Oct 2026).
+    expect(privacyText).toContain('and which follow requests this browser has already shown you.')
   })
 
   // The library header keeps a small copy of the reader's own picture on the device (src/cards/avatarCache.ts, 19 Oct 2026).
@@ -92,14 +113,14 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('Signing out removes your reading data and the device identifier from the browser.')
   })
 
-  // Highlights and notes in an own PDF kept with the book in the account (margin reader PR 1a, 14 Oct 2026).
-  it('privacy: says a PDF\'s highlights and notes are kept with the book in the account and deleted with it', () => {
-    expect(privacyText).toContain('The highlights and notes you make in a PDF you added (the passage, where it is on the page, its colour and your note) are kept in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2), so they show on your other devices; they are deleted with the book.')
+  // Own-book marks use private R2 records where the feature is available.
+  it('privacy: says PDF and EPUB highlights and notes are privately kept with the book where available, and deleted with it', () => {
+    expect(privacyText).toContain('Where the feature is available, the highlights and notes you make in a PDF or EPUB you added (the passage, its place in the source text or on a PDF page, its colour and your note) are kept in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2), so they can show on your other devices; they are deleted with the book.')
   })
 
-  // The margin's kept answers in an own PDF, kept with the book in the account (margin reader PR 2, 15 Oct 2026).
-  it('privacy: says the answers kept in a PDF\'s margin are kept with the book in the account and deleted with it', () => {
-    expect(privacyText).toContain('The answers kept in the margin of a PDF you added (the passage, your questions and the companion\'s answers, and a quiz\'s questions and how you answered) are kept the same way, in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2); they are deleted with the book.')
+  // Own-book margin answers use the same private account storage where available.
+  it('privacy: says PDF and EPUB margin answers are privately kept with the book where available, and deleted with it', () => {
+    expect(privacyText).toContain('Where the feature is available, the answers kept in the margin of a PDF or EPUB you added (the passage and its place in the source text or on a PDF page, your questions and the companion\'s answers, and a quiz\'s questions and how you answered) are kept the same way, in your browser and, if you are signed in and the book is in your account, privately with it in your account with Cloudflare (R2); they are deleted with the book.')
   })
 
   // A signed-out guest's Talk trial runs through Tinct's relay (Anders, 16 Oct 2026).
@@ -152,8 +173,10 @@ describe('privacy: account deletion', () => {
 
 describe('privacy: retention', () => {
   const privacyText = text(privacy)
-  it('says the email send record and the reader-data change history are deleted after 24 months, like analytics', () => {
-    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records, the record of the emails we have sent you and the history of changes to your reading data are kept for 24 months and then deleted automatically.')
+  // The change history is kept for one month since 22 Oct 2026 (Disk IO; routes/retention.ts AUDIT_RETENTION_MONTHS).
+  it('says the email send record is deleted after 24 months like analytics, and the reader-data change history after one month', () => {
+    expect(privacyText).toContain('Account and reading data are kept for as long as your account exists. Analytics events, usage records and the record of the emails we have sent you are kept for 24 months, and the history of changes to your reading data for one month; then they are deleted automatically.')
     expect(privacyText).not.toContain('Analytics events and usage records are kept for 24 months')
+    expect(privacyText).not.toContain('the history of changes to your reading data are kept for 24 months')
   })
 })

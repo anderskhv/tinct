@@ -176,7 +176,7 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 `.github/workflows/deploy.yml` runs on every push to `main` (and manually):
 
 1. `npm test`.
-2. Choose mode. **Direct is the default**: `npm run deploy`, then acceptance on production. The version serving production is recorded first, and if any acceptance step fails after the deploy the workflow runs `npm run rollback` to it automatically (the job still ends red). Staged releases (steps 4–7) run only when requested with `mode=staged`: Cloudflare does not create preview URLs for a Worker with Durable Objects, and Tinct's Worker has four, so the staged path cannot test before promote today. Staged requests still fall back to direct when the Durable Object `migrations` or `app/wrangler.jsonc` changed. A migration change cannot be rolled back across; review it as such.
+2. Choose mode. **Direct is the default**: `npm run deploy`, then acceptance on production (the check groups run side by side in their own jobs, on the deploy job's exact `dist/`; PR CI runs only the suites a change needs, see `scripts/ci-suites.mjs`, and `ci-summary` is the one check to wait for). The version serving production is recorded first, and if any acceptance step fails after the deploy the workflow runs `npm run rollback` to it automatically (the job still ends red). Staged releases (steps 4–7) run only when requested with `mode=staged`: Cloudflare does not create preview URLs for a Worker with Durable Objects, and Tinct's Worker has four, so the staged path cannot test before promote today. Staged requests still fall back to direct when the Durable Object `migrations` or `app/wrangler.jsonc` changed. A migration change cannot be rolled back across; review it as such.
 3. Record the version now serving production (used for rollback).
 4. `npm run release:upload`: build, verify-bundle, clean-main check, then `wrangler versions upload`. The new version serves **no** traffic and gets a preview URL (`https://<8-char-version>-tinct.<subdomain>.workers.dev`).
 5. Wait until the preview serves the exact built bundle, then run the pre-promote checks against it. Acceptance scripts read the target from `TINCT_ORIGIN` (default `https://tinct.app`), so one variable retargets them.
@@ -187,6 +187,10 @@ After those gates pass, release by merging to `main`; GitHub Actions (Node 24.13
 9. If any step after promotion fails, the job runs `npm run rollback -- <previous-version-id>` and still finishes red. Fix forward and push again.
 
 Preview URLs are enabled in code (`"workers_dev": true, "preview_urls": true` in `app/wrangler.jsonc`), but Cloudflare returns none for a Worker with Durable Objects (confirmed on the first staged run, 2026-09-30). A staged request that gets no preview URL warns and deploys directly (after restoring the files the upload's build regenerated), so releases never stall. Staged becomes useful if the Durable Objects move to their own Worker.
+
+### Cache tags
+
+`app/public/lab/addbook` (the margin reader and Add a book) is the only source of those pages; the old `addbooks/web/src` mirror is gone. Its `?v=` tags are all the literal `?v=__TINCT_BUILD__`: never hand-bump them. `npm run build` (`scripts/stamp-lab-entry-tags.cjs`) replaces it with the build's `index-*.js` hash, references to built `/lab` entries get content-derived tags, and `verify-bundle` fails if a placeholder is left in `dist/`. Other `/lab` files (library_2, `tinct-ui.css`) still carry hand tags.
 
 ### Rollback
 

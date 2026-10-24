@@ -1,6 +1,5 @@
 /**
- * A text PDF's Tinct text (addbooks/web/src/js/pdf-text.js, installed as
- * public/lab/addbook/js/pdf-text.js): chapters and paragraphs from the PDF's
+ * A text PDF's Tinct text (public/lab/addbook/js/pdf-text.js): chapters and paragraphs from the PDF's
  * own text layer, read with the pdf.js the viewer ships, on PDFs written by
  * addbooks/web/test/make-pdf.mjs. The same file converts the same way every time.
  */
@@ -21,7 +20,7 @@ interface Scan { title: string; author: string; textPages: number; nav: string; 
 interface Doc { numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: unknown[] }> }>; destroy: () => Promise<void> }
 interface PdfTextApi {
   PDF_TEXT_CONVERTER: number
-  convert: (pdf: Doc, options: { scan: Scan }) => Promise<UserBookEdition | null>
+  convert: (pdf: Doc, options: { scan: Scan; concurrency?: number; regions?: (n: number, page: unknown, items: unknown[]) => Promise<unknown[]>; pace?: () => Promise<void> | null; live?: () => boolean }) => Promise<UserBookEdition | null>
   fromPages: (pages: Array<{ n: number; x0: number; y0: number; w: number; h: number; rows: Row[] }>, scan: Scan) => UserBookEdition | null
   pageOf: (edition: UserBookEdition, place: { chapterNumber: number; paragraphIndex: number; wordIndex: number }) => { page: number; frac: number } | null
   placeOf: (edition: UserBookEdition, page: number, frac?: number) => { chapterNumber: number; paragraphIndex: number; wordIndex: number } | null
@@ -46,8 +45,8 @@ beforeAll(async () => {
   require(VENDOR + 'pdf.min.js')
   console.log = quiet
   pdfjs = (globalThis as unknown as { pdfjsLib: typeof pdfjs }).pdfjsLib
-  require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-  require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+  require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
   scanApi = (globalThis as unknown as { TinctPdfScan: typeof scanApi }).TinctPdfScan
   text = (globalThis as unknown as { TinctPdfText: PdfTextApi }).TinctPdfText
   const maker = await import(/* @vite-ignore */ pathToFileURL(ROOT + 'addbooks/web/test/make-pdf.mjs').href) as { pdfFixtures: () => Record<string, Buffer>; makePdf: MakePdf; prose: Prose; proseBook: typeof proseBook }
@@ -207,22 +206,56 @@ describe('Tinct text: places between the text and the pages', () => {
     expect(textPlaceOfPage(chapters, 1, 0)).toEqual({ chapterNumber: 1, paragraphIndex: 0, wordIndex: 0 })
   })
 
-  it('picks the edition a PDF opens in by the same rule as the reader', () => {
-    expect(text.choice({ page: 3, edition: 't' }, 'pages', 'pages')).toBe('text')
-    expect(text.choice({ page: 3, edition: 'p' }, 'text', 'text')).toBe('pages')
+  // Rewritten 19 Oct 2026 (Anders: a PDF's view is chosen per device; only the place syncs): the place no
+  // longer takes part. The order is this device's own choice, its kept default, then the rule's default.
+  it('picks the edition a PDF opens in by the same rule as the reader: this device\'s choice, its kept default, the rule', () => {
+    expect(text.choice('pages', 'text', 'text')).toBe('pages')
+    expect(text.choice('text', 'pages', 'pages')).toBe('text')
     expect(text.choice(null, 'text', 'pages')).toBe('text')
-    expect(text.choice({ page: 3, frac: 0.2 }, null, 'text')).toBe('pages')
-    expect(text.choice({ zoom: 1 }, null, 'text')).toBe('text')
+    expect(text.choice(null, 'pages', 'text')).toBe('pages')
+    expect(text.choice(null, null, 'text')).toBe('text')
     expect(text.choice(null, null, 'pages-only')).toBe('pages')
     expect(text.choice(null, null, undefined)).toBeNull()
   })
 })
 
-describe('Tinct text: the installed copy', () => {
-  it('ships the text script the tests cover, with the scan and viewer scripts it works with', () => {
-    for (const file of ['pdf-text.js', 'pdf-scan.js', 'reader.js']) {
-      expect(readFileSync(ROOT + 'app/public/lab/addbook/js/' + file, 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/js/' + file, 'utf8'))
+// Anders, 20 Oct 2026 (the conversion took a while): pages are read several at a time and put together in page order,
+// so the text is the one a page at a time gives, whatever order the pages finish in.
+describe('Tinct text: pages read several at a time', () => {
+  it('gives the same edition at any concurrency, its regions arriving in any order', async () => {
+    for (const [name, bytes] of [...Object.entries(fixtures), ['book.pdf', proseBook({ text: true }).bytes] as const]) {
+      const pdf = await open(bytes)
+      try {
+        const scan = await scanApi.scan(pdf, { fileName: name })
+        if (!(scan.textPages > 0)) continue
+        const one = await text.convert(pdf, { scan, concurrency: 1 })
+        // A crop region on every third page, the later pages answered first.
+        const regions = async (n: number) => {
+          await new Promise(r => setTimeout(r, (pdf.numPages - n) * 3))
+          return n % 3 ? [] : [{ kind: 'figure', x: 0.3, y: 0.02, w: 0.4, h: 0.03, id: `p${n}-1`, css: { width: 300, height: 20 } }]
+        }
+        const seq = await text.convert(pdf, { scan, concurrency: 1, regions })
+        for (const concurrency of [2, 4, 7]) {
+          expect(await text.convert(pdf, { scan, concurrency }), `${name} at ${concurrency}`).toEqual(one)
+          expect(await text.convert(pdf, { scan, concurrency, regions }), `${name} with regions at ${concurrency}`).toEqual(seq)
+        }
+      } finally { await pdf.destroy() }
     }
-    expect(readFileSync(ROOT + 'app/public/lab/addbook/css/reader.css', 'utf8')).toBe(readFileSync(ROOT + 'addbooks/web/src/css/reader.css', 'utf8'))
+  }, 60000)
+
+  it('waits for its pace before each page, and stops when no longer live', async () => {
+    const { bytes } = proseBook({ text: true })
+    const pdf = await open(bytes)
+    try {
+      const scan = await scanApi.scan(pdf, { fileName: 'book.pdf' })
+      let paced = 0
+      const edition = await text.convert(pdf, { scan, concurrency: 2, pace: () => { paced++; return Promise.resolve() } })
+      // Each page waited once (a lane may wait once more and find no page left).
+      expect(paced).toBeGreaterThanOrEqual(pdf.numPages)
+      expect(paced).toBeLessThanOrEqual(pdf.numPages + 1)
+      expect(edition).toEqual(await text.convert(pdf, { scan }))
+      let reads = 0
+      expect(await text.convert(pdf, { scan, live: () => ++reads < 3 })).toBeNull()
+    } finally { await pdf.destroy() }
   })
 })

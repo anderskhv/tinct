@@ -31,6 +31,9 @@ import {
   WHOLE_PDF_PROMPT,
   factcheckPrompt,
   quizPrompt,
+  ASK_SOURCE_SEARCH_LINE,
+  quizAskedBlock,
+  type QuizAsked,
 } from './marginPrompts'
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
 import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
@@ -49,7 +52,8 @@ export type PassageIntent = 'simplify' | 'factcheck' | 'counterpoint' | 'quiz' |
 export const PASSAGE_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['simplify', 'factcheck', 'counterpoint', 'quiz', 'related'])
 
 /** Answered by COMPANION_LOOKUP_MODEL (which takes no effort setting); everything else by COMPANION_MODEL. */
-export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense', 'quiz_check'])
+// quiz_check left the lookup model on 20 Oct 2026 (Anders): marked on the companion model, with thinking.
+export const COMPANION_LOOKUP_INTENTS: ReadonlySet<CompanionIntent> = new Set<CompanionIntent>(['explain', 'define', 'simplify', 'define_sense'])
 
 export interface QuizCheck {
   question: string
@@ -57,6 +61,25 @@ export interface QuizCheck {
   why?: string
   /** What the reader typed or dictated. */
   answer: string
+  /** The quiz's line on the author's own position, and its key ideas: the grader's context (Anders, 20 Oct 2026). */
+  thesis?: string
+  ideas?: string[]
+  /** The key idea this question tests, and the passage quizzed (a passage quiz): what the grader marks against. */
+  idea?: string
+  passage?: string
+  /**
+   * A reply under the marking (Anders, 20 Oct 2026): the earlier turns on this question, oldest first, the reader's first
+   * answer, then the grader's marking and the reader's reply in turn, ending with a marking; `answer` is then the reader's
+   * newest reply. At most QUIZ_CHECK_FOLLOW_UPS replies per question.
+   */
+  turns?: QuizTurn[]
+}
+
+export interface QuizTurn {
+  role: 'reader' | 'grader'
+  text: string
+  /** A marking's verdict. */
+  verdict?: 'right' | 'nearly' | 'not_yet'
 }
 
 export interface CompanionRequest {
@@ -97,6 +120,8 @@ export interface CompanionRequest {
   senses?: string[]
   /** quiz_check: the question, its expected answer and the reader's answer. */
   quizCheck?: QuizCheck
+  /** quiz: the questions asked before on the same text ("Try new questions"), each with its key idea and whether it was missed. */
+  asked?: QuizAsked[]
   /**
    * The PDF reader's margin only (`pdf`): the reader's whole file as text,
    * the cached prefix of every margin prompt (marginContext.ts). Never set
@@ -121,6 +146,34 @@ export const LAB_EXPLAIN_PROMPT = [
   'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
 ].join('\n\n')
 
+/** A quiz retry sends at most this many earlier questions, each at most this long. */
+export const QUIZ_ASKED_MAX = 24
+export const QUIZ_ASKED_CHARS = 300
+/** The passage a quiz answer is marked against, at most this long. */
+export const QUIZ_CHECK_PASSAGE_CHARS = 4000
+/** A reader may reply under a marking this many times per question; each earlier turn is kept to QUIZ_TURN_CHARS. */
+export const QUIZ_CHECK_FOLLOW_UPS = 3
+export const QUIZ_TURN_CHARS = 600
+const QUIZ_VERDICT_NAMES: ReadonlySet<string> = new Set(['right', 'nearly', 'not_yet'])
+/**
+ * The earlier turns of a reply under the marking: reader, grader, reader, …, grader (an even number, at most two per
+ * reply allowed before this one). -> [] for none, or null when they are malformed (the request is refused).
+ */
+function quizTurns(raw: unknown): QuizTurn[] | null {
+  if (raw == null) return []
+  if (!Array.isArray(raw) || raw.length % 2 !== 0 || raw.length > 2 * QUIZ_CHECK_FOLLOW_UPS) return null
+  const turns: QuizTurn[] = []
+  for (const [i, item] of raw.entries()) {
+    const t = item && typeof item === 'object' ? item as Record<string, unknown> : null
+    const role = i % 2 === 0 ? 'reader' : 'grader'
+    const said = t ? text(t.text, QUIZ_TURN_CHARS) : undefined
+    if (!t || t.role !== role || !said) return null
+    const verdict = role === 'grader' && typeof t.verdict === 'string' && QUIZ_VERDICT_NAMES.has(t.verdict) ? t.verdict as QuizTurn['verdict'] : undefined
+    turns.push({ role, text: said, ...(verdict ? { verdict } : {}) })
+  }
+  return turns
+}
+
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
   ask: 1024,
@@ -132,8 +185,11 @@ export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = O
   define_sense: 60,
   factcheck: 900,
   counterpoint: 600,
-  quiz: 700,
-  quiz_check: 150,
+  // Up to eight questions, each with its idea, answer and reason (Anders, 20 Oct 2026: one question per key idea), and
+  // room for the companion model's thinking, which counts toward the bound.
+  quiz: 6000,
+  // Two or three short sentences of feedback, on the companion model with thinking (Anders, 20 Oct 2026).
+  quiz_check: 2000,
   related: 500,
 })
 
@@ -390,14 +446,15 @@ function parseShelf(raw: unknown): LibraryShelf | null {
  */
 function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, unknown>): CompanionRequest | null {
   const c = r.context && typeof r.context === 'object' ? r.context as Record<string, unknown> : null
-  if (!c || c.kind !== 'pdf' || c.bookId !== undefined || !Array.isArray(c.pages)) return null
+  // A reader's own PDF, or since 20 Oct 2026 their own EPUB (its units are chapters; Before you start for each essay).
+  if (!c || (c.kind !== 'pdf' && c.kind !== 'epub') || c.bookId !== undefined || !Array.isArray(c.pages)) return null
   const action = parseChapterChatAction(chapter.action, null)
   if (!action) return null
   const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
   const document = parseMarginDocument(r.document)
   // Made ahead of the reader opening it (the PDF reader's primerPrefetch): never charged (companionAllowance).
-  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(parsed.epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
 }
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
@@ -441,7 +498,15 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'quiz') {
     // No selection: a quiz on the whole supplied chapter (or PDF unit).
     const selection = text(r.selection, SELECTION_CHARS)
-    return { intent, context: { ...context, lookups: false }, ...(selection ? { selection } : {}), ...pdf }
+    // A retry: the questions asked before (Anders, 20 Oct 2026: "Try new questions" gave the same ones).
+    const asked = Array.isArray(r.asked) ? r.asked.slice(0, QUIZ_ASKED_MAX).flatMap((raw): QuizAsked[] => {
+      const item = raw && typeof raw === 'object' ? raw as Record<string, unknown> : null
+      const q = item ? text(item.q, QUIZ_ASKED_CHARS) : undefined
+      if (!q) return []
+      const idea = text(item!.idea, QUIZ_ASKED_CHARS)
+      return [{ q, ...(idea ? { idea } : {}), ...(item!.missed === true ? { missed: true } : {}) }]
+    }) : []
+    return { intent, context: { ...context, lookups: false }, ...(selection ? { selection } : {}), ...(asked.length ? { asked } : {}), ...pdf }
   }
   if (intent === 'define_sense') {
     const selection = text(r.selection, WORD_CHARS)
@@ -469,7 +534,15 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
     const why = text(q!.why, QUIZ_CHECK_BUDGET.why)
     const answer = text(q!.answer, Math.min(QUIZ_ANSWER_CHARS, OWN_INPUT_CHARS - question.length - expected.length - (why?.length ?? 0)))
     if (!answer) return null
-    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer }, ...pdf }
+    // What the grader needs to know the author's position (Anders, 20 Oct 2026): the quiz's thesis line and key ideas.
+    const thesis = text(q!.thesis, QUIZ_ASKED_CHARS)
+    const idea = text(q!.idea, QUIZ_ASKED_CHARS)
+    const passage = text(q!.passage, QUIZ_CHECK_PASSAGE_CHARS)
+    const ideas = Array.isArray(q!.ideas) ? (q!.ideas as unknown[]).slice(0, 8).map(item => text(item, 200)).filter((item): item is string => Boolean(item)) : []
+    // A reply under the marking carries the earlier turns on this question (at most QUIZ_CHECK_FOLLOW_UPS replies).
+    const turns = quizTurns(q!.turns)
+    if (!turns) return null
+    return { intent, context: { ...context, lookups: false }, quizCheck: { question, expected, ...(why ? { why } : {}), answer, ...(thesis ? { thesis } : {}), ...(ideas.length ? { ideas } : {}), ...(idea ? { idea } : {}), ...(passage ? { passage } : {}), ...(turns.length ? { turns } : {}) }, ...pdf }
   }
   if (intent === 'chapter') {
     const chapter = r.chapter && typeof r.chapter === 'object' ? r.chapter as Record<string, unknown> : null
@@ -529,7 +602,7 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
     // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
     // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
-    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }
@@ -591,7 +664,7 @@ export function buildCompanionSystemParts(request: CompanionRequest, extras: Com
 
 /** The reader's data inside our own wrapper tags cannot close or open one of them. */
 function tagData(value: string): string {
-  return value.replace(/<\/?(?:selected_passage|word|senses|question|expected|why|reader_answer)\s*>/gi, '')
+  return value.replace(/<\/?(?:selected_passage|word|senses|question|expected|why|reader_answer|reader_reply|your_marking)(?:\s[^<>]*)?\s*>/gi, '')
 }
 
 /** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
@@ -610,17 +683,28 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'counterpoint':
     case 'related':
       return `<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
-    case 'quiz':
+    case 'quiz': {
+      const asked = request.asked?.length ? `\n\n${quizAskedBlock(request.asked.map(item => ({ q: tagData(item.q), ...(item.idea ? { idea: tagData(item.idea) } : {}), ...(item.missed ? { missed: true } : {}) })))}` : ''
       return request.selection
-        ? `<selected_passage>\n${tagData(request.selection)}\n</selected_passage>`
-        : `Quiz me on ${request.context!.chapterLabel}.`
+        ? `<selected_passage>\n${tagData(request.selection)}\n</selected_passage>${asked}`
+        : `Quiz me on ${request.context!.chapterLabel}.${asked}`
+    }
     case 'define_sense': {
       const senses = (request.senses ?? []).map((sense, index) => `${index + 1}. ${tagData(sense).replace(/\s+/g, ' ').trim()}`).join('\n')
       return `<word>${tagData(request.selection!)}</word>\n<senses>\n${senses}\n</senses>`
     }
     case 'quiz_check': {
       const q = request.quizCheck!
-      return `<question>${tagData(q.question)}</question>\n<expected>${tagData(q.expected)}</expected>\n<why>${tagData(q.why ?? '')}</why>\n<reader_answer>${tagData(q.answer)}</reader_answer>`
+      const position = q.thesis ? `<author_position>${tagData(q.thesis)}</author_position>\n` : ''
+      const ideas = q.ideas?.length ? `<key_ideas>\n${q.ideas.map((idea, i) => `${i + 1}. ${tagData(idea)}`).join('\n')}\n</key_ideas>\n` : ''
+      // Marked against the key idea and the passage, the expected answer only a hint (Anders, 20 Oct 2026).
+      const passage = q.passage ? `<passage>\n${tagData(q.passage)}\n</passage>\n` : ''
+      const idea = q.idea ? `<key_idea>${tagData(q.idea)}</key_idea>\n` : ''
+      // A reply under the marking: the first answer, each marking and reply in turn, then the newest reply.
+      const thread = q.turns?.length
+        ? `<reader_answer>${tagData(q.turns[0].text)}</reader_answer>\n${q.turns.slice(1).map(t => (t.role === 'grader' ? `<your_marking${t.verdict ? ` verdict="${t.verdict}"` : ''}>${tagData(t.text)}</your_marking>` : `<reader_reply>${tagData(t.text)}</reader_reply>`)).join('\n')}\n<reader_reply>${tagData(q.answer)}</reader_reply>`
+        : `<reader_answer>${tagData(q.answer)}</reader_answer>`
+      return `${position}${ideas}${passage}${idea}<question>${tagData(q.question)}</question>\n<one_acceptable_answer>${tagData(q.expected)}</one_acceptable_answer>\n<why>${tagData(q.why ?? '')}</why>\n${thread}`
     }
     default:
       return null
@@ -679,8 +763,17 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   return { stable: prefix.stable, ...(prefix.part ? { part: prefix.part } : {}), volatile }
 }
 
-/** Fact-check is the only action that searches the web. */
+/**
+ * Fact-check always searches; Ask in the margin reader (a passage question, a follow-up, the whole file: `ask` on a
+ * reader's own PDF or EPUB) has the same search as a tool the model may call when the question needs current or outside
+ * facts (Anders, 20 Oct 2026: no "Web" toggle, the model decides). Never prefetched for Ask (factcheckSourceQuery is
+ * Fact-check's alone), so a question the document answers costs no search.
+ */
 export function companionUsesSourceSearch(request: CompanionRequest): boolean {
+  return request.intent === 'factcheck' || (request.intent === 'ask' && Boolean(request.pdf))
+}
+/** Whether the search runs before the model answers (Fact-check) or only when the model calls it (Ask). */
+export function companionPrefetchesSources(request: CompanionRequest): boolean {
   return request.intent === 'factcheck'
 }
 

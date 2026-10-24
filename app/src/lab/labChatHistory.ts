@@ -1,5 +1,5 @@
 import { parseChapterChatAction } from './labChapterChat'
-import type { ChatConversation, ChatMessage } from '../types'
+import type { ChatCard, ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
 import { localStorageProvider } from '../services/storage'
 import { supabase } from '../services/supabase'
@@ -84,11 +84,52 @@ function parseChatMessage(raw: unknown, bookId: string, fallbackTimestamp: numbe
   }
 }
 
+/** A margin card's data is kept only while it is small (each write rewrites the book's whole row). */
+export const LAB_CHAT_CARD_DATA_CHARS = 8_000
+const CARD_KIND = /^[a-z][a-z0-9-]{0,23}$/
+
+/** Sanitize a conversation's margin card (see ChatConversation.card). Never throws; a bad one reads as none. */
+export function parseChatCard(raw: unknown): ChatCard | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined
+  const src = raw as Record<string, unknown>
+  if (typeof src.id !== 'string' || !src.id || src.id.length > 120) return undefined
+  if (typeof src.kind !== 'string' || !CARD_KIND.test(src.kind)) return undefined
+  if (!isFiniteInt(src.chapterNumber, 0, 5000) || !isFiniteInt(src.u, 1, 1e15)) return undefined
+  const at = isFiniteInt(src.at, 1, 1e15) ? src.at : src.u
+  if (src.gone === true) return { id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u, gone: true }
+  const a = src.anchor as Record<string, unknown> | undefined
+  const anchor = a && typeof a === 'object' && typeof a.editionKey === 'string' && a.editionKey && a.editionKey.length <= 80
+    && isFiniteInt(a.chapterNumber, 0, 5000) && ['paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord'].every(k => isFiniteInt(a[k], 0, 10_000_000))
+    ? { editionKey: a.editionKey, chapterNumber: a.chapterNumber as number, paragraphIndex: a.paragraphIndex as number, fromWord: a.fromWord as number, endParagraphIndex: a.endParagraphIndex as number, toWord: a.toWord as number }
+    : undefined
+  const rects = Array.isArray(src.rects)
+    ? src.rects.filter((r): r is number[] => Array.isArray(r) && r.length <= 5 && r.every(v => typeof v === 'number' && Number.isFinite(v))).slice(0, 24)
+    : undefined
+  let data: unknown
+  if (src.data !== undefined) {
+    try { const text = JSON.stringify(src.data); if (text && text.length <= LAB_CHAT_CARD_DATA_CHARS) data = JSON.parse(text) } catch { data = undefined }
+  }
+  return {
+    id: src.id, kind: src.kind, chapterNumber: src.chapterNumber, at, u: src.u,
+    ...(anchor ? { anchor } : {}),
+    ...(typeof src.text === 'string' && src.text ? { text: src.text.slice(0, 2000) } : {}),
+    ...(rects?.length ? { rects } : {}),
+    ...(data !== undefined ? { data } : {}),
+  }
+}
+
+/** A deleted margin card: it keeps only its card, with no messages. */
+export function isCardTombstone(conversation: Pick<ChatConversation, 'card'>): boolean {
+  return conversation.card?.gone === true
+}
+
 function parseConversation(raw: unknown, bookId: string): ChatConversation | null {
   if (!raw || typeof raw !== 'object') return null
   const src = raw as Record<string, unknown>
   if (typeof src.id !== 'string' || !src.id || src.id.length > 160) return null
   if (typeof src.bookId === 'string' && src.bookId && src.bookId !== bookId) return null
+  const card = parseChatCard(src.card)
+  if (card?.gone) return { id: src.id, bookId, chapterNumber: Math.max(1, card.chapterNumber), startTimestamp: card.u, endTimestamp: card.u, messages: [], preview: '', card }
   if (!Array.isArray(src.messages)) return null
   let fallback = isFiniteInt(src.startTimestamp, 1, 1e15) ? src.startTimestamp : isFiniteInt(src.endTimestamp, 1, 1e15) ? src.endTimestamp : 1
   const messages: ChatMessage[] = []
@@ -111,6 +152,7 @@ function parseConversation(raw: unknown, bookId: string): ChatConversation | nul
     ...(typeof src.summary === 'string' && src.summary ? { summary: src.summary } : {}),
     ...(typeof src.summaryPrompt === 'string' && src.summaryPrompt ? { summaryPrompt: src.summaryPrompt } : {}),
     ...(isFiniteInt(src.summaryCreatedAt, 1, 1e15) ? { summaryCreatedAt: src.summaryCreatedAt } : {}),
+    ...(card ? { card } : {}),
   }
 }
 
@@ -130,11 +172,13 @@ export function parseChatConversations(raw: unknown, bookId: string): ChatConver
 function trimConversations(conversations: ChatConversation[]): ChatConversation[] {
   const total = conversations.reduce((sum, item) => sum + item.messages.length, 0)
   if (total <= LAB_CHAT_MAX_MESSAGES_PER_BOOK) return conversations
+  // A deleted card's tombstone has no messages to trim, and must stay so the card stays deleted.
   const all = conversations.flatMap((conversation, c) => conversation.messages.map((message, m) => ({ c, m, at: message.timestamp })))
   all.sort((x, y) => y.at - x.at || y.c - x.c || y.m - x.m)
   const keep = new Set(all.slice(0, LAB_CHAT_MAX_MESSAGES_PER_BOOK).map(({ c, m }) => `${c}:${m}`))
   const next: ChatConversation[] = []
   conversations.forEach((conversation, c) => {
+    if (isCardTombstone(conversation)) { next.push(conversation); return }
     const messages = conversation.messages.filter((_, m) => keep.has(`${c}:${m}`))
     if (messages.length === 0) return
     next.push(messages.length === conversation.messages.length ? conversation : {
@@ -167,15 +211,24 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       byId.set(conversation.id, { ...conversation, messages: [...conversation.messages] })
       continue
     }
+    const card = newerCard(existing.card, conversation.card)
+    // A card revision is the complete card (including its thread), not a
+    // collection of independent chat turns. A shorter corrected answer must
+    // replace an older longer one when its card.u is newer. Ordinary chats and
+    // same-revision cards still union turns by id as before.
+    const newerCardMessages = existing.card && conversation.card && existing.card.u !== conversation.card.u
+      ? (existing.card.u > conversation.card.u ? existing.messages : conversation.messages)
+      : null
     const messages = new Map<string, ChatMessage>()
-    for (const message of [...existing.messages, ...conversation.messages]) {
+    for (const message of newerCardMessages ?? [...existing.messages, ...conversation.messages]) {
       const current = messages.get(message.id)
       messages.set(message.id, current ? preferMessage(current, message) : message)
     }
-    const ordered = [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
+    const ordered = card?.gone ? [] : [...messages.values()].sort((x, y) => x.timestamp - y.timestamp)
     byId.set(conversation.id, {
       ...existing,
       ...conversation,
+      ...(card ? { card } : {}),
       summary: conversation.summary ?? existing.summary,
       summaryPrompt: conversation.summaryPrompt ?? existing.summaryPrompt,
       summaryCreatedAt: conversation.summaryCreatedAt ?? existing.summaryCreatedAt,
@@ -193,10 +246,18 @@ export function mergeChatConversations(a: ChatConversation[], b: ChatConversatio
       seen.add(message.id)
       return true
     })
-    if (messages.length === 0) continue
+    if (messages.length === 0 && !isCardTombstone(conversation)) continue
     result.push({ ...conversation, messages })
   }
   return trimConversations(result)
+}
+
+/** Two copies of one margin card: the newer edit wins; at the same moment a deletion wins. */
+function newerCard(a: ChatCard | undefined, b: ChatCard | undefined): ChatCard | undefined {
+  if (!a || !b) return a ?? b
+  if (a.u !== b.u) return a.u > b.u ? a : b
+  if (!!a.gone !== !!b.gone) return a.gone ? a : b
+  return b
 }
 
 export function sameChatConversations(a: ChatConversation[], b: ChatConversation[]): boolean {
@@ -305,6 +366,8 @@ function appendTurnToConversations(
     last
     && last.bookId === bookId
     && last.chapterNumber === chapterNumber
+    // A margin card's conversation is the card's own: a chat turn never joins it.
+    && !last.card
     && (continued || now - last.endTimestamp < CONVERSATION_GAP_MS)
   ) {
     if (last.messages.some(item => item.id === enriched.id)) return current
@@ -366,10 +429,33 @@ function withUnsaved(local: ChatConversation[], base: ChatConversation[] | undef
 }
 
 /**
- * Record a finalized Chat/Talk turn under the registry book and write the
- * local mirror. The message's `bookId` is set to the target book: a voice
- * session tags its transcripts with the session id (`lab`), never a book.
+ * Pure turn append for a caller-owned conversation list. The message's `bookId`
+ * is set to the target book: a voice session tags transcripts with `lab`.
+ * This path never reads or writes the device's global chat key.
  */
+export function appendLabChatTurnTo(
+  conversations: ChatConversation[],
+  bookId: string,
+  message: ChatMessage,
+  chapterNumber = 1,
+  paragraphIndex?: number,
+  conversationId?: string,
+): ChatConversation[] {
+  let current = conversations
+  if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
+  if (conversationId) {
+    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    if (!target) return current
+    current = [...current.filter(item => item.id !== target.id), target]
+  }
+  const content = (message.content || '').trim()
+  if (!content) return current
+  const now = message.timestamp || Date.now()
+  const enriched: ChatMessage = { ...message, content, bookId, chapterNumber, paragraphIndex, timestamp: now }
+  return trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+}
+
+/** The device-backed companion path; private owner adapters use appendLabChatTurnTo and their own store. */
 export function appendLabChatTurn(
   bookId: string,
   message: ChatMessage,
@@ -383,25 +469,8 @@ export function appendLabChatTurn(
    */
   base?: ChatConversation[],
 ): ChatConversation[] {
-  let current = withUnsaved(readLabBookChat(bookId), base)
-  if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
-  if (conversationId) {
-    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
-    if (!target) return current
-    current = [...current.filter(item => item.id !== target.id), target]
-  }
-  const content = (message.content || '').trim()
-  if (!content) return current
-  const now = message.timestamp || Date.now()
-  const enriched: ChatMessage = {
-    ...message,
-    content,
-    bookId,
-    chapterNumber,
-    paragraphIndex,
-    timestamp: now,
-  }
-  const next = trimConversations(appendTurnToConversations(current, enriched, bookId, chapterNumber, paragraphIndex, Boolean(conversationId)))
+  const current = withUnsaved(readLabBookChat(bookId), base)
+  const next = appendLabChatTurnTo(current, bookId, message, chapterNumber, paragraphIndex, conversationId)
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next
@@ -606,6 +675,8 @@ export async function syncLabBookChatWithCloud(input: {
   revs?: Map<string, number>
   onUnavailable?: () => void
   isCurrent?: () => boolean
+  /** Called with the thread the account row is known to hold after this sync. */
+  onCloudHolds?: (conversations: ChatConversation[]) => void
 }): Promise<ChatConversation[]> {
   const { bookId } = input
   const cloud = guardedCloud(input.cloud)
@@ -619,14 +690,18 @@ export async function syncLabBookChatWithCloud(input: {
       if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
       if (row && sameChatConversations(row.conversations, merged)) {
         input.revs?.set(bookId, row.rev)
+        input.onCloudHolds?.(merged)
         return merged
       }
+      // Nothing on either side: opening a book never creates an empty row.
+      if (!row && merged.length === 0) return merged
       // No row yet: expect rev 0 (insert only). NULL would overwrite a row
       // another device created meanwhile instead of conflicting.
       const result = await cloud.commit(bookId, merged, row?.rev ?? 0)
       if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
+        input.onCloudHolds?.(merged)
         return mergeChatConversations(merged, readLabBookChat(bookId))
       }
       if (!result.conflict || !result.row) return merged
@@ -643,16 +718,56 @@ export async function syncLabBookChatWithCloud(input: {
 }
 
 /**
+ * How long the reader's chat waits before its turns go to the account row
+ * (Disk IO, 22 Oct 2026). Every commit rewrites the book's whole thread (up
+ * to 600 messages), and a question and its answer used to be two commits;
+ * a Talk conversation one per spoken turn. Turns that arrive within the
+ * window share one commit. The device copy is written at once as before;
+ * hide, pagehide and unmount send what is waiting (`flush`), and a turn the
+ * device could not store is sent at once (`push(..., { now: true })`).
+ */
+export const LAB_CHAT_COMMIT_COALESCE_MS = 20_000
+
+/**
  * Serialized cloud writer for chat rows: one commit in flight per book, the
  * newest queued value wins, a conflict re-reads, merges and retries once.
  * Offline or failed writes stay in the local mirror and are folded in by the
  * next `syncLabBookChatWithCloud` on open or reconnect.
+ *
+ * With `coalesceMs` (the reader passes LAB_CHAT_COMMIT_COALESCE_MS) a push
+ * waits up to that long for later turns; the waiting value is then merged
+ * with the device copy (so a sync that ran meanwhile is never undone) and
+ * skipped when the row already holds exactly that. Without it every push
+ * commits straight away.
  */
-export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Map<string, number> = new Map()) {
+export function createLabChatCloudWriter(
+  rawCloud: LabChatHistoryCloud,
+  revs: Map<string, number> = new Map(),
+  options: { coalesceMs?: number } = {},
+) {
   const cloud = guardedCloud(rawCloud)
+  const coalesceMs = options.coalesceMs ?? 0
   const queued = new Map<string, ChatConversation[]>()
   const inFlight = new Set<string>()
+  /** Pushes waiting for the coalescing window, per book. */
+  const waiting = new Map<string, ChatConversation[]>()
+  const timers = new Map<string, ReturnType<typeof setTimeout>>()
+  /** Serialized thread the account row is known to hold, per book. */
+  const known = new Map<string, string>()
   let dirty = false
+
+  const release = (bookId: string) => {
+    const timer = timers.get(bookId)
+    if (timer !== undefined) clearTimeout(timer)
+    timers.delete(bookId)
+    const value = waiting.get(bookId)
+    waiting.delete(bookId)
+    if (!value) return
+    const merged = mergeChatConversations(readLabBookChat(bookId), value)
+    if (known.get(bookId) === JSON.stringify(merged)) return
+    queued.set(bookId, merged)
+    if (!inFlight.has(bookId)) void run(bookId)
+  }
 
   const run = async (bookId: string) => {
     inFlight.add(bookId)
@@ -668,6 +783,7 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
           const result = await cloud.commit(bookId, value, revs.get(bookId) ?? 0)
           if (result.applied) {
             if (result.row) revs.set(bookId, result.row.rev)
+            known.set(bookId, JSON.stringify(value))
             dirty = false
             continue
           }
@@ -680,6 +796,7 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
             const retry = await cloud.commit(bookId, merged, result.row.rev)
             if (retry.applied && retry.row) {
               revs.set(bookId, retry.row.rev)
+              known.set(bookId, JSON.stringify(merged))
               dirty = false
               continue
             }
@@ -696,16 +813,32 @@ export function createLabChatCloudWriter(rawCloud: LabChatHistoryCloud, revs: Ma
   }
 
   return {
-    push(bookId: string, conversations: ChatConversation[]) {
+    push(bookId: string, conversations: ChatConversation[], pushOptions: { now?: boolean } = {}) {
       // A reader's own book keeps its chat on this device (lab/userBook).
       if (isUserBookId(bookId)) return
-      queued.set(bookId, conversations)
-      if (!inFlight.has(bookId)) void run(bookId)
+      if (coalesceMs <= 0) {
+        queued.set(bookId, conversations)
+        if (!inFlight.has(bookId)) void run(bookId)
+        return
+      }
+      const earlier = waiting.get(bookId)
+      waiting.set(bookId, earlier ? mergeChatConversations(earlier, conversations) : conversations)
+      if (pushOptions.now) { release(bookId); return }
+      if (!timers.has(bookId)) timers.set(bookId, setTimeout(() => release(bookId), coalesceMs))
     },
+    /** Send every waiting push now (hide, pagehide, unmount). */
+    flush() {
+      for (const bookId of [...waiting.keys()]) release(bookId)
+    },
+    /** Pushes still waiting for their window (tests and diagnostics). */
+    pending: () => [...waiting.keys()],
     /** Merge the cloud row for this book back in (open, sign-in, reconnect). */
     sync(bookId: string, onUnavailable?: () => void, isCurrent?: () => boolean) {
       if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
-      return syncLabBookChatWithCloud({ bookId, cloud: rawCloud, revs, onUnavailable, isCurrent })
+      return syncLabBookChatWithCloud({
+        bookId, cloud: rawCloud, revs, onUnavailable, isCurrent,
+        onCloudHolds: conversations => { known.set(bookId, JSON.stringify(conversations)) },
+      })
     },
     isDirty: () => dirty,
     revs,

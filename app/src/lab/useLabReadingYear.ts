@@ -1,16 +1,24 @@
 import { useEffect, useRef } from 'react'
 import { readLabDeviceId } from './labPositionStore'
 import { emptyReadingYear, forwardPagesRead, readLocalReadingYear, readingYearTotals, recordReading, syncReadingYear, writeLocalReadingYear } from './labReadingYear'
-import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, readPending, readingTimeSwitch, sendBeat, sendFlush, subtractPending, type LedgerStatus } from './labReadingTime'
-import { PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
+import { SWITCH_RECHECK_MS, addPending, beatPayload, nextFlush, pendingForBeat, readingTimeSwitch, sendBeat, sendFlush, subtractPending, trackSending, withLedgerSend, type LedgerStatus } from './labReadingTime'
+import { BEAT_MAX_SECONDS, BEAT_MIN_GAP_MS, PRIVATE_BOOK_ID, ledgerBookId, localDay } from '../readingTime/model'
 import { supabase } from '../services/supabase'
 
 /** Reading time counts only while the reader was active this recently (or audio plays). */
 const ACTIVE_WINDOW_MS = 3 * 60_000
 const TICK_MS = 30_000
-const SYNC_MS = 2 * 60_000
-/** Heartbeats: about once a minute (the Worker accepts one per ~50 s). */
-const BEAT_EVERY_MS = 58_000
+/**
+ * The yearly tally's account copy (one versioned user_data row) goes up this
+ * often, and on hide and pagehide. Only used while the ledger is off.
+ */
+export const READING_YEAR_SYNC_MS = 15 * 60_000
+/**
+ * Heartbeats: about every five minutes (the Worker accepts one per
+ * BEAT_MIN_GAP_MS and credits up to BEAT_MAX_SECONDS). Seconds wait in the
+ * pending store between beats; leaving the page sends them at once.
+ */
+export const LEDGER_BEAT_EVERY_MS = 5 * 60_000 - 2_000
 /** Pending time from other books, days, or signed-out reading goes up this often. */
 const FLUSH_EVERY_MS = 10 * 60_000
 
@@ -31,8 +39,8 @@ async function sessionToken(userId: string): Promise<string | null> {
  *
  * While the Worker's reading-time switch is on (labReadingTime.ts), the same
  * counted time goes to the ledger instead: a per-day, per-book pending store,
- * a heartbeat about once a minute, and a flush for what a heartbeat cannot
- * carry. Off (the default, or until the switch is known) nothing changes.
+ * a heartbeat about every five minutes (and on hide / pagehide), and a flush
+ * for what a heartbeat cannot carry. Off (the default, or until the switch is known) nothing changes.
  *
  * A reader's own book (`privateBook`) is never in the device tally (no pages,
  * no time, as before). With the ledger on, its time counts under the one
@@ -100,33 +108,51 @@ export function useLabReadingYear(input: {
     try {
       const token = await sessionToken(user)
       if (!token) return
-      const year = new Date().getFullYear()
-      const guestSeconds = readingYearTotals(readLocalReadingYear(year, null)).seconds
-      const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
-      if (!batch) return
-      const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
-      settle(outcome)
+      // Under the ledger lock: the flush on opening the cards (flushPendingNow) reads the same store.
+      await withLedgerSend(async () => {
+        const year = new Date().getFullYear()
+        const guestSeconds = readingYearTotals(readLocalReadingYear(year, null)).seconds
+        const batch = nextFlush({ userId: user, today: localDay(), currentBookId: bookRef.current, guestEarlier: guestSeconds > 0 ? { year, seconds: guestSeconds } : null })
+        if (!batch) return
+        const outcome = await sendFlush(token, user, batch, flushedYear => writeLocalReadingYear(emptyReadingYear(flushedYear), null))
+        settle(outcome)
+      })
     } finally {
       sendingRef.current = false
     }
   }
 
-  const beat = async () => {
+  /**
+   * `leaving` (hide / pagehide) sends as soon as the Worker's gate allows,
+   * instead of waiting for the five-minute mark; so does a full beat's worth
+   * of pending time (time carried from an earlier beat drains this way).
+   */
+  const beat = async (leaving = false) => {
     const user = userRef.current
     if (!user || ledgerRef.current !== 'on' || sendingRef.current) return
-    if (Date.now() - lastBeatRef.current < BEAT_EVERY_MS) return
-    const payload = beatPayload(readPending(user), localDay(), bookRef.current, listeningRef.current)
-    if (!payload) return
+    const since = Date.now() - lastBeatRef.current
+    // Less a flush sent but not yet confirmed: it carries those seconds already.
+    const pending = pendingForBeat(user)
+    const current = pending[localDay()]?.[bookRef.current]
+    const full = current ? current.read + current.listen >= BEAT_MAX_SECONDS : false
+    if (since < LEDGER_BEAT_EVERY_MS && !((leaving || full) && since >= BEAT_MIN_GAP_MS)) return
+    if (!beatPayload(pending, localDay(), bookRef.current, listeningRef.current)) return
     lastBeatRef.current = Date.now()
     sendingRef.current = true
     let outcome: Awaited<ReturnType<typeof sendBeat>> = 'failed'
     try {
       const token = await sessionToken(user)
       if (!token) return
-      outcome = await sendBeat(token, payload)
-      // Sent is settled: the Worker's limits decide what of it counts.
-      if (outcome === 'credited') subtractPending(user, [payload])
-      else settle(outcome)
+      // Read again under the ledger lock: a flush on opening the cards may have sent it meanwhile.
+      outcome = await withLedgerSend(async () => {
+        const payload = beatPayload(pendingForBeat(user), localDay(), bookRef.current, listeningRef.current)
+        if (!payload) return 'failed' as const
+        const result = await trackSending(user, [payload], () => sendBeat(token, payload))
+        // Sent is settled: the Worker's limits decide what of it counts.
+        if (result === 'credited') subtractPending(user, [payload])
+        else settle(result)
+        return result
+      })
     } finally {
       sendingRef.current = false
     }
@@ -199,6 +225,17 @@ export function useLabReadingYear(input: {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paused])
 
+  // Leaving the page sends the current book's waiting seconds (keepalive);
+  // what the gate refuses stays pending for the next beat or flush.
+  useEffect(() => {
+    const leave = () => { void beat(true) }
+    const onVisibility = () => { if (document.visibilityState === 'hidden') leave() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', leave)
+    return () => { document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('pagehide', leave) }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   useEffect(() => {
     if (!userId) return
     const sync = () => {
@@ -207,7 +244,7 @@ export function useLabReadingYear(input: {
       const year = new Date().getFullYear()
       syncReadingYear(userId, readLocalReadingYear(year, userId)).catch(() => { dirtyRef.current = true })
     }
-    const timer = window.setInterval(sync, SYNC_MS)
+    const timer = window.setInterval(sync, READING_YEAR_SYNC_MS)
     const onHide = () => { if (document.visibilityState === 'hidden') sync() }
     document.addEventListener('visibilitychange', onHide)
     window.addEventListener('pagehide', sync)

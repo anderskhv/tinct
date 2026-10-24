@@ -25,9 +25,11 @@
 import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, putAccountPagePlace, putAccountPlace, type AccountBook, type AccountPagePlace, type AccountPlace, type FetchLike } from './ownAccount'
 import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
 import { ownBookHref } from './userBookId'
+import { epubViewHere } from './epubView'
 import type { UserBookChapter } from './userEdition'
 import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
 import { keepPdfTextPlace, pdfEditionChoice } from './pdfEditions'
+import { userBookOwner } from './userBookStore'
 
 const PLACE_PREFIX = 'tinct-addbook:place:'
 
@@ -66,9 +68,10 @@ function adopt(hex: string, place: AccountPlace): void {
 }
 
 /** Take every account place newer than this device's (EPUBs' and PDFs'). Returns the account's EPUB places, or null when unread. */
-export async function pullAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch): Promise<Record<string, AccountPlace> | null> {
+export async function pullAccountPlaces(token: string | null, fetchImpl: FetchLike = fetch, owner?: string): Promise<Record<string, AccountPlace> | null> {
+  if (owner && userBookOwner() !== owner) return null
   const sets = await fetchAccountPlaceSets(token, fetchImpl)
-  if (!sets) return null
+  if (!sets || (owner && userBookOwner() !== owner)) return null
   const places = sets.text
   for (const [hex, place] of Object.entries(places)) {
     const kept = readKept(hex)
@@ -149,17 +152,20 @@ function adoptPageIfNewer(hex: string, place: AccountPagePlace): boolean {
  * what the account last accepted from here. A stale write is answered with the
  * account's place: taken here when it was read later, else written over.
  */
-export async function pushPdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; keepalive?: boolean } = {}): Promise<PushResult> {
+export async function pushPdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; keepalive?: boolean; owner?: string } = {}): Promise<PushResult> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  if (!active()) return 'unavailable'
   const kept = readPage(hex)
   if (!kept || kept.at <= 0) return 'current'
   if (kept.savedAt === kept.at) return 'current'
   const token = options.token !== undefined ? options.token : await ownBookToken()
-  if (!token) return 'unavailable'
+  if (!token || !active()) return 'unavailable'
   const percent = kept.pages ? Math.round(Math.max(0, Math.min(100, ((kept.page - 1 + kept.frac) / kept.pages) * 100)) * 100) / 100 : undefined
   const tuple = { page: kept.page, frac: kept.frac, updatedAt: kept.at, ...(percent !== undefined ? { percent } : {}), ...(kept.text ?? {}), ...(kept.edition ? { edition: kept.edition } : {}) }
   let rev = kept.rev ?? 0
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const result = await putAccountPagePlace(hex, tuple, rev, token, { fetchImpl: options.fetchImpl, keepalive: options.keepalive })
+    if (!active()) return 'unavailable'
     if (result.status === 'saved') {
       // A place noted while the request was out stays newer; it keeps the new revision.
       const latest = readPage(hex) ?? kept
@@ -209,18 +215,20 @@ export function flushPdfPlaces(): void {
  * it is the newer one ('kept'). Bounded: offline, signed out or slow
  * ('unavailable'), the book opens at this device's place.
  */
-export async function reconcilePdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<'adopted' | 'kept' | 'unavailable'> {
+export async function reconcilePdfPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; owner?: string } = {}): Promise<'adopted' | 'kept' | 'unavailable'> {
+  const active = () => !options.owner || userBookOwner() === options.owner
   const work = (async (): Promise<'adopted' | 'kept' | 'unavailable'> => {
+    if (!active()) return 'unavailable'
     const token = options.token !== undefined ? options.token : await ownBookToken()
-    if (!token) return 'unavailable'
+    if (!token || !active()) return 'unavailable'
     const sets = await fetchAccountPlaceSets(token, options.fetchImpl)
-    if (!sets) return 'unavailable'
+    if (!sets || !active()) return 'unavailable'
     const theirs = sets.pages[hex]
     if (theirs && adoptPageIfNewer(hex, theirs)) return 'adopted'
     const kept = readPage(hex)
     if (kept && kept.at > 0 && (!theirs || kept.at > theirs.updatedAt)) {
       // Saved in the background: the book opens now.
-      void pushPdfPlace(hex, { token, fetchImpl: options.fetchImpl }).catch(() => {})
+      void pushPdfPlace(hex, { token, fetchImpl: options.fetchImpl, owner: options.owner }).catch(() => {})
     }
     return 'kept'
   })()
@@ -234,17 +242,20 @@ export type PushResult = 'saved' | 'current' | 'adopted' | 'gone' | 'unavailable
  * what the account last accepted from here. `chapters` (the book's text on
  * this device) gives the percent the shelf shows on devices without the text.
  */
-export async function pushOwnPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; keepalive?: boolean } = {}): Promise<PushResult> {
+export async function pushOwnPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; keepalive?: boolean; owner?: string } = {}): Promise<PushResult> {
+  const active = () => !options.owner || userBookOwner() === options.owner
+  if (!active()) return 'unavailable'
   const kept = readKept(hex)
   if (!kept || kept.updatedAt <= 0) return 'current'
   if (kept.savedAt === kept.updatedAt) return 'current'
   const token = options.token !== undefined ? options.token : await ownBookToken()
-  if (!token) return 'unavailable'
+  if (!token || !active()) return 'unavailable'
   const percent = options.chapters ? placePercent(options.chapters, kept) : kept.percent
   const tuple = { chapterNumber: kept.chapterNumber, paragraphIndex: kept.paragraphIndex, wordIndex: kept.wordIndex, updatedAt: kept.updatedAt, ...(typeof percent === 'number' ? { percent } : {}), ...(typeof kept.converter === 'number' ? { converter: kept.converter } : {}) }
   let rev = kept.rev ?? 0
   for (let attempt = 0; attempt < 2; attempt += 1) {
     const result = await putAccountPlace(hex, tuple, rev, token, { fetchImpl: options.fetchImpl, keepalive: options.keepalive })
+    if (!active()) return 'unavailable'
     if (result.status === 'saved') {
       // A place noted while the request was out stays newer; it keeps the new revision.
       const latest = readKept(hex) ?? kept
@@ -304,17 +315,19 @@ const withTimeout = <T>(work: Promise<T>, ms: number, fallback: T): Promise<T> =
  * read later on another device, or save this device's when it is the newer
  * one. Bounded: offline or slow, the book opens at this device's place.
  */
-export async function reconcileOpenPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; timeoutMs?: number } = {}): Promise<void> {
+export async function reconcileOpenPlace(hex: string, options: { token?: string | null; fetchImpl?: FetchLike; chapters?: readonly UserBookChapter[]; timeoutMs?: number; owner?: string } = {}): Promise<void> {
+  const active = () => !options.owner || userBookOwner() === options.owner
   const work = (async () => {
+    if (!active()) return
     const token = options.token !== undefined ? options.token : await ownBookToken()
-    if (!token) return
-    const places = await pullAccountPlaces(token, options.fetchImpl)
-    if (!places) return
+    if (!token || !active()) return
+    const places = await pullAccountPlaces(token, options.fetchImpl, options.owner)
+    if (!places || !active()) return
     const kept = readKept(hex)
     const theirs = places[hex]
     if (kept && (!theirs || kept.updatedAt > theirs.updatedAt)) {
       // Saved in the background: the book opens now.
-      void pushOwnPlace(hex, { token, fetchImpl: options.fetchImpl, chapters: options.chapters }).catch(() => {})
+      void pushOwnPlace(hex, { token, fetchImpl: options.fetchImpl, chapters: options.chapters, owner: options.owner }).catch(() => {})
     }
   })()
   await withTimeout(work.catch(() => {}), options.timeoutMs ?? 2500, undefined)
@@ -333,10 +346,16 @@ export function accountOnlyBook(book: AccountBook): OwnShelfBook {
     cover: null,
     storedCover: null,
     at,
-    href: ownBookHref(hex, book.type, book.type === 'pdf' ? pdfEditionChoice(hex) : null),
+    href: ownBookHref(hex, book.type, book.type === 'pdf' ? pdfEditionChoice(hex) : epubViewHere(hex)),
     // A PDF's place: the page read on another device of the account (pullAccountPlaces), if any.
     reading: book.type === 'epub' ? ownReading(hex, null, at) : pdfReading(hex, {}, at),
   }
+}
+
+/** Metadata is mutable on the account; keep local cover and reading place when it changes on another device. */
+export function withAccountBookMetadata(local: OwnShelfBook, account: AccountBook | undefined): OwnShelfBook {
+  if (!account || accountBookKey(account) !== local.key || !(account.metadataRev && account.metadataRev > 0)) return local
+  return { ...local, title: account.title || account.name.replace(/\.(pdf|epub)$/i, '') || local.title, author: account.author }
 }
 
 /**
@@ -352,10 +371,11 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
   const out: OwnShelfBook[] = []
   const here = new Set<string>()
   const local = await readOwnShelf(owner)
+  const accountByKey = new Map((account ?? []).map(book => [accountBookKey(book), book]))
   for (const book of local) {
     if (here.has(book.key)) continue
     here.add(book.key)
-    out.push(book)
+    out.push(withAccountBookMetadata(book, accountByKey.get(book.key)))
   }
   for (const book of account ?? []) {
     const listed = accountOnlyBook(book)

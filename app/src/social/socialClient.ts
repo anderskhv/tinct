@@ -18,6 +18,7 @@ import {
   type Visibility,
 } from './profileRules'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { MAYBE_UNREADABLE, PHOTO_COPY, photoSize, readHead, sniffPhoto, type PhotoKind, type PhotoSize } from './photoFile'
 
 export function socialProfilesOn(doc: Document | null = typeof document === 'undefined' ? null : document): boolean {
   return doc?.querySelector('meta[name="tinct-social"]')?.getAttribute('content') === '1'
@@ -38,6 +39,8 @@ export interface OwnProfile {
   setUp: boolean
   needsSetup: boolean
   shouldPrompt: boolean
+  /** First set up before findable profiles (19 Oct 2026): the findable notice is for these only. Absent: false. */
+  setUpBeforeFindable?: boolean
   emailConfirmed: boolean
   emailOptIn: boolean
   googlePhoto: boolean
@@ -203,33 +206,96 @@ export function newBooksOpenIn(doc: Document | null = typeof document === 'undef
 
 // ===== Photos: resized in the browser; re-encoding drops location data =====
 
+/** The Worker's limits for an uploaded photo (worker/routes/profiles.ts MAX_IMAGE_BYTES, MAX_IMAGE_SIDE). */
+export const PHOTO_MAX_BYTES = 2_000_000
+export const PHOTO_MAX_SIDE = 2400
+/** What each slot is drawn at: a picture a 512 px square, a background 1600 × 800. */
+export const PHOTO_SLOT_SIZE = { picture: [512, 512], background: [1600, 800] } as const
+/** JPEG qualities tried in turn until the photo fits under PHOTO_MAX_BYTES. */
+const JPEG_QUALITIES = [0.86, 0.72, 0.58, 0.45]
+
+export type PreparedPhoto = { ok: true; image: Blob } | { ok: false; message: string }
+
 /**
  * A picture becomes a 512 px square, a background 1600 × 800, as JPEG. Drawing
  * onto a canvas and encoding again keeps only the pixels: EXIF (including
  * location) never leaves the device. The Worker strips metadata again.
+ * Null when the photo cannot be used; preparePhoto says why.
  */
 export async function resizePhoto(file: Blob, slot: 'picture' | 'background'): Promise<Blob | null> {
-  const [width, height] = slot === 'picture' ? [512, 512] : [1600, 800]
-  const image = await decodePhoto(file)
-  if (!image) return null
+  const prepared = await preparePhoto(file, slot)
+  return prepared.ok ? prepared.image : null
+}
+
+/**
+ * The chosen photo, read into memory while its file input still holds it
+ * (19 Oct 2026). On iPadOS, Safari hands over a temporary JPEG converted from
+ * HEIC, which may be released once the input is cleared; reading it later
+ * failed with "This photo could not be read here". So the handlers read the
+ * file first and clear the input only after preparePhoto. Null when even the
+ * first read fails. Never throws.
+ */
+export async function photoInMemory(file: Blob & { name?: string }): Promise<Blob | null> {
+  try {
+    const bytes = await file.arrayBuffer()
+    return typeof File === 'function' && typeof file.name === 'string'
+      ? new File([bytes], file.name, { type: file.type })
+      : new Blob([bytes], { type: file.type })
+  } catch {
+    return null
+  }
+}
+
+/** The photo ready to upload, or the reader-facing reason it cannot be used. Never throws. */
+export async function preparePhoto(file: Blob, slot: 'picture' | 'background'): Promise<PreparedPhoto> {
+  const [width, height] = PHOTO_SLOT_SIZE[slot]
+  const head = await readHead(file)
+  const kind = sniffPhoto(head)
+  const image = await decodePhoto(file, photoSize(head, kind), width, height)
+  if (!image) return { ok: false, message: undecodedMessage(kind, head.length > 0) }
   try {
     const scale = Math.max(width / image.width, height / image.height)
     const sw = width / scale
     const sh = height / scale
     const sx = (image.width - sw) / 2
     const sy = (image.height - sh) / 2
+    // The canvas is the slot's size, never the photo's: a 50 MP photo is drawn straight down.
     const canvas = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
     const context = canvas.getContext('2d')
-    if (!context) return null
+    if (!context) return { ok: false, message: PHOTO_COPY.unprepared }
+    context.imageSmoothingEnabled = true
+    context.imageSmoothingQuality = 'high'
     context.drawImage(image.source, sx, sy, sw, sh, 0, 0, width, height)
-    return await new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/jpeg', 0.86))
+    for (const quality of JPEG_QUALITIES) {
+      const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(out => resolve(out), 'image/jpeg', quality))
+      if (!blob || blob.type !== 'image/jpeg') return { ok: false, message: PHOTO_COPY.unprepared }
+      if (blob.size <= PHOTO_MAX_BYTES) return { ok: true, image: blob }
+    }
+    return { ok: false, message: PHOTO_COPY.tooLarge }
   } catch {
-    return null
+    return { ok: false, message: PHOTO_COPY.unprepared }
   } finally {
     image.close()
   }
+}
+
+/** Why a photo nothing could decode cannot be used. */
+function undecodedMessage(kind: PhotoKind | null, readable: boolean): string {
+  if (!readable) return PHOTO_COPY.unreadable
+  if (kind && MAYBE_UNREADABLE.has(kind)) return PHOTO_COPY.unreadableFormat
+  if (kind) return PHOTO_COPY.unreadable
+  return PHOTO_COPY.notAPhoto
+}
+
+/** The message for a failed upload: the Worker's own line, else one for the reason, else the save error. */
+export function photoUploadMessage(result: ProfileResult, fallback: string): string {
+  if (result.ok) return ''
+  if (result.message) return result.message
+  if (result.reason === 'signed_out') return PHOTO_COPY.signedOut
+  if (result.reason === 'off' || result.reason === 'unavailable') return PHOTO_COPY.off
+  return fallback
 }
 
 interface DecodedPhoto {
@@ -240,14 +306,23 @@ interface DecodedPhoto {
 }
 
 /**
- * The photo's pixels. createImageBitmap first; Safari on iPad and iPhone
- * cannot make a bitmap from some photos (HEIC among them) that it can still
- * show, so an <img> decodes those instead.
+ * The photo's pixels, as small as they can be decoded:
+ * 1. createImageBitmap at the drawn size (its resize options), when the
+ *    header gives the photo's size: a large photo is never held full size;
+ * 2. createImageBitmap at full size (browsers without the resize options);
+ * 3. an <img>: Safari on iPad and iPhone cannot make a bitmap from some
+ *    photos (HEIC among them) that it can still show.
  */
-async function decodePhoto(file: Blob): Promise<DecodedPhoto | null> {
+async function decodePhoto(file: Blob, size: PhotoSize | null, width: number, height: number): Promise<DecodedPhoto | null> {
+  const fromBitmap = (bitmap: ImageBitmap): DecodedPhoto => ({ source: bitmap, width: bitmap.width, height: bitmap.height, close: () => bitmap.close() })
+  const resize = size ? drawnSize(size, width, height) : null
+  if (resize) {
+    try {
+      return fromBitmap(await createImageBitmap(file, { resizeWidth: resize.width, resizeQuality: 'high' }))
+    } catch { /* full size below */ }
+  }
   try {
-    const bitmap = await createImageBitmap(file)
-    return { source: bitmap, width: bitmap.width, height: bitmap.height, close: () => bitmap.close() }
+    return fromBitmap(await createImageBitmap(file))
   } catch { /* the <img> below */ }
   if (typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function') return null
   const url = URL.createObjectURL(file)
@@ -261,4 +336,15 @@ async function decodePhoto(file: Blob): Promise<DecodedPhoto | null> {
     URL.revokeObjectURL(url)
     return null
   }
+}
+
+/**
+ * The size a photo is decoded at so it still covers the slot (the crop is
+ * drawn from it): only when that is smaller than the photo. Only the width is
+ * given, so the browser keeps the photo's own proportions.
+ */
+export function drawnSize(size: PhotoSize, width: number, height: number): PhotoSize | null {
+  const scale = Math.max(width / size.width, height / size.height)
+  if (scale >= 1) return null
+  return { width: Math.ceil(size.width * scale), height: Math.ceil(size.height * scale) }
 }

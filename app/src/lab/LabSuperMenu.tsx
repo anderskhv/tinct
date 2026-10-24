@@ -3,12 +3,17 @@ import { labSuperMenuRows, type LabSuperMenuId, type LabSuperMenuRow } from './l
 import { ChatIcon, TalkIcon } from './LabReaderIcons'
 
 export interface LabSuperMenuProps {
+  /** The phone's margin mode on a book's first chapter or its front matter: no Catch me up (labSuperMenuRows). */
+  noCatchUp?: boolean
   open: boolean
   phone?: boolean
   /** A reader's own book: the rows that apply to it only. */
   privateBook?: boolean
-  /** A reader's own PDF: Book editions holds its Tinct text and its Original pages. */
+  /** A reader's own PDF: Book settings holds its Tinct text and its Original pages. */
   ownPdf?: boolean
+  sharedReader?: boolean
+  /** Someone asks to be friends and this device has not shown it yet (social/followRequests.ts). */
+  profileDot?: boolean
   onSelect: (id: LabSuperMenuId) => void
   onClose: () => void
 }
@@ -58,12 +63,30 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  if (id === 'settings') {
+  // Aa: a small and a large A (the row's own name is Aa).
+  if (id === 'text') {
     return (
-      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-        <path d="M4 7h7M15 7h5M4 17h5M13 17h7" />
-        <circle cx="13" cy="7" r="2" />
-        <circle cx="11" cy="17" r="2" />
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" data-icon="text-size">
+        <path d="M2.5 19 8 5l5.5 14M4.6 14h6.8" />
+        <path d="m14.5 19 3.5-9 3.5 9M15.7 16h4.6" />
+      </svg>
+    )
+  }
+  // Notebook: the margin reader's Notebook button's glyph (public/lab/addbook/js/notebook.js ICONS.book).
+  if (id === 'notebook') {
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6.6 3.8h10.1a1.8 1.8 0 0 1 1.8 1.8v12.8a1.8 1.8 0 0 1-1.8 1.8H6.6z" />
+        <path d="M6.6 3.8v16.4M4.7 7.6h3.8M4.7 12h3.8M4.7 16.4h3.8M11.2 8.4h4.4M11.2 11.6h4.4" />
+      </svg>
+    )
+  }
+  // Audio settings: a speaker.
+  if (id === 'audio') {
+    return (
+      <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" />
+        <path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.6a7.6 7.6 0 0 1 0 10.8" />
       </svg>
     )
   }
@@ -82,7 +105,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ open, phone, privateBook, ownPdf, sharedReader, noCatchUp, profileDot, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -109,7 +132,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf })
+  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf, noCatchUp, sharedReader })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">
@@ -123,7 +146,24 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
         {/* The Librarian row is the one way to the librarian (2026-10-08): its
             body opens Chat, its icons open Chat or Talk directly. */}
-        {rows.map(row => row.modes ? (
+        {rows.map(row => row.modes && row.id === 'conversation' ? (
+          // The phone: Chat · Talk, one row, each half its own button.
+          <div key={row.id} className="lab-super-row is-pair" data-row={row.id} role="group" aria-label="Chat or Talk">
+            {row.modes.map((mode, index) => (
+              <button
+                key={mode}
+                type="button"
+                className={`lab-super-row-half${index ? ' is-second' : ''}`}
+                data-mode={mode}
+                data-testid={`lab-super-row-${mode}`}
+                onClick={() => onSelect(mode)}
+              >
+                <span className="lab-super-row-icon" aria-hidden="true">{mode === 'chat' ? <ChatIcon size={18} /> : <TalkIcon size={18} />}</span>
+                <span className="lab-super-row-label">{mode === 'chat' ? 'Chat' : 'Talk'}</span>
+              </button>
+            ))}
+          </div>
+        ) : row.modes ? (
           <div key={row.id} className={`lab-super-row is-librarian${row.ruleBefore ? ' has-rule' : ''}`} data-row={row.id} role="group" aria-label={row.label}>
             <button
               type="button"
@@ -160,6 +200,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, onSelect, onClo
           >
             <span className="lab-super-row-icon" aria-hidden="true"><RowIcon id={row.id} /></span>
             <span className="lab-super-row-label">{row.label}</span>
+            {row.id === 'account' && profileDot && <span className="lab-super-row-dot" data-testid="request-dot" aria-hidden="true" />}
             {row.chevron && <span className="lab-super-row-chevron" aria-hidden="true">›</span>}
           </button>
         ))}

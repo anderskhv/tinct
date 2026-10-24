@@ -1,7 +1,7 @@
-import { resolveReadingTable, onCachedTable, createReadingTable, DEMO } from './reading-table.js?v=20261014talkwake';
+import { resolveReadingTable, onCachedTable, createReadingTable, DEMO, deskNow } from './reading-table.js?v=20261020open';
 import { reviewedHooks } from './reviewed-introductions.js?v=20260930fix';
 import { readingApi, loadCatalogueData } from './catalogue.js?v=20261014talkwake';
-import { createBookshelf } from './bookshelf-view.js?v=20261014talkwake';
+import { createBookshelf } from './bookshelf-view.js?v=20261020open';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
 
@@ -45,7 +45,10 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    },
    onRemove:id=>{if(sample){saved=saved.filter(book=>book!==id);view.update(desk(),saved);}else window.dispatchEvent(new CustomEvent('library2:remove-saved',{detail:id}));},
    onOpen:async(id,shelf,img)=>{
-    if(shelf==='reading'&&!sample){await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader'&&!href.startsWith('/reader?userBook='))throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}
+    // The tap is answered at once: the page fades to the reader's paper (body.leaving, as every way into
+    // the reader does) while the account's places finish arriving and the hand-off is written. It waited
+    // unseen for those before (2026-10-21, scripts/check-library-speed.mjs), and a second tap opened it twice.
+    if(shelf==='reading'&&!sample){document.body.classList.add('leaving');addEventListener('pageshow',e=>{if(e.persisted)document.body.classList.remove('leaving');},{once:true});try{await resumeReady;const href=await api.readerDestination(id,null);if(href!=='/reader'&&!href.startsWith('/reader?userBook=')&&!(deskNow()&&href.startsWith('/lab/addbook/?userBook=')))throw new Error('Reader unavailable');rememberVisit({mode:'shelf'});location.assign(href);}catch(error){document.body.classList.remove('leaving');throw error;}}
     else await openBook(id,img);
    }});
   else if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;

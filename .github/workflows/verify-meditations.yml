@@ -34,7 +34,7 @@ jobs:
       - run: python3 ../books/classify-modern-en.py meditations --gate
       - run: npm run build
       - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Check versioned text and character links in the built reader
         env:
           TEST_BOOK: meditations
@@ -64,7 +64,7 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: bash ../scripts/cloud-setup.sh
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - name: Verify accepted production text and cards
         env:
           TEST_BOOK: meditations

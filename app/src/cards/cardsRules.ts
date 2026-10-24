@@ -5,18 +5,35 @@
  * - Settings: the Leaderboard switch is disabled while "Who can see you" is
  *   Only me or "Show my reading time" is off (the board shows time), and the
  *   reader is taken off the board when either happens.
- * - Follow buttons: Friends / Following (a state, outlined) and Follow back /
- *   Follow (an action, black), as the Friends page named them.
+ * - Follow buttons: Friends / Requested (a state, outlined) and Follow back /
+ *   Follow (an action, black). A one-way follow is a request until it is
+ *   followed back (Anders, 19 Oct 2026; it said Following before).
  * - A reader's profile shows what the server sends: a Friends-only profile
- *   seen by a non-friend (`limited`) is the header only.
+ *   seen by a non-friend (`limited`) is the header only (name and picture).
  */
 import type { OwnProfile, ProfilePageData } from './cardsApi'
 import type { Relation } from '../social/profileRules'
+import { CARDS_COPY } from './cardsCopy'
+import { durationShort } from './cardsFormat'
 
 export type PrivacyFields = Pick<OwnProfile, 'visibility' | 'showReading' | 'showTime' | 'onLeaderboard'>
 
 export function leaderboardAllowed(profile: Pick<OwnProfile, 'visibility' | 'showTime'>): boolean {
   return profile.visibility !== 'only_me' && profile.showTime
+}
+
+/**
+ * The line under the leaderboard when friends cannot see the reader there
+ * (19 Oct 2026), with the reason and where to fix it; null otherwise. Only the
+ * reader's own settings give a reason: anything else that keeps them off a
+ * board (the Everyone board's own rules) shows no line.
+ */
+export function boardHiddenLine(meShown: boolean | undefined, profile: Pick<OwnProfile, 'visibility' | 'showTime' | 'onLeaderboard'> | null | undefined): string | null {
+  if (meShown !== false || !profile) return null
+  if (profile.visibility === 'only_me') return CARDS_COPY.hiddenOnlyMe
+  if (!profile.showTime) return CARDS_COPY.hiddenTime
+  if (!profile.onLeaderboard) return CARDS_COPY.hiddenLeaderboard
+  return null
 }
 
 /** The settings after one change, and the patch to post at once (POST /api/profile). */
@@ -38,7 +55,8 @@ export type FollowButton = { label: string; style: 'fill' | 'line'; action: 'fol
 export function followButton(relation: Relation | null): FollowButton | null {
   if (relation === 'self' || relation === 'blocked') return null
   if (relation === 'friend') return { label: 'Friends', style: 'line', action: 'unfollow' }
-  if (relation === 'follower') return { label: 'Following', style: 'line', action: 'unfollow' }
+  // A one-way follow is a request until they follow back (Anders, 19 Oct 2026).
+  if (relation === 'follower') return { label: 'Requested', style: 'line', action: 'unfollow' }
   if (relation === 'followed') return { label: 'Follow back', style: 'fill', action: 'follow' }
   return { label: 'Follow', style: 'fill', action: 'follow' }
 }
@@ -75,7 +93,9 @@ export interface ReaderCardView {
 export function readerCardView(data: ProfilePageData): ReaderCardView {
   if (data.limited) return { limited: true, facts: [], readingNow: null, finished: null }
   const facts: ReaderCardView['facts'] = []
-  if (data.time) facts.push({ value: data.time.last7, label: 'last 7 days' }, { value: data.time.year, label: 'this year' })
+  // Written as the Leaderboard writes the same reader's row ("12 h 34"), when the Worker sends the seconds.
+  const time = (seconds: number | undefined, text: string) => (typeof seconds === 'number' && Number.isFinite(seconds) ? durationShort(seconds) : text)
+  if (data.time) facts.push({ value: time(data.time.last7Seconds, data.time.last7), label: 'last 7 days' }, { value: time(data.time.yearSeconds, data.time.year), label: 'this year' })
   if (data.finished) facts.push({ value: String(data.finished.length), label: 'finished' })
   return {
     limited: false,

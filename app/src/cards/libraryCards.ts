@@ -20,6 +20,9 @@ import { NEUTRAL_READER_NAME } from './cardsCopy'
 import type { OwnProfile } from '../social/socialClient'
 import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
 import type { PictureView } from '../social/profileRules'
+import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
+import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
+import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown } from '../social/findableNotice'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
 export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
@@ -49,6 +52,8 @@ function offerLegacyProfileStep(token: string, userId: string, returnTo: string)
 
 const STYLE = `
 #sign-in.cards-you{display:inline-grid;place-items:center;width:44px;height:44px;min-width:0;padding:0;border-radius:50%;background:transparent;border:0}
+#sign-in.cards-you{position:relative}
+#sign-in.cards-you .${REQUEST_DOT_CLASS}{position:absolute;top:8px;right:7px;width:9px;height:9px;border-radius:50%;background:#78aabd;box-shadow:0 0 0 2px rgba(16,21,15,.85);pointer-events:none}
 #sign-in.cards-you .tinct-avatar{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background-repeat:no-repeat;background-color:#6a6a6a;color:#fff;font:700 12px/1 "Playfair Display",Georgia,serif;box-shadow:0 0 0 1px rgba(238,238,238,.4)}
 .social-prompt{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 24px),420px);z-index:60;background:#1a2318;color:#eee7d0;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.5);padding:18px 18px 12px;font-family:Georgia,serif}
 .social-prompt b{display:block;font:700 17px system-ui,-apple-system,sans-serif;margin-bottom:6px}
@@ -170,11 +175,78 @@ async function start(pending: CardName | null): Promise<void> {
     if (sig && view.kind === 'image') void keepAvatar(userId, sig, view, token)
     else clearAvatarCache(userId)
   }
+  if (socialFriendsOn()) void showRequestDot(token, userId, mount)
   if (userId && legacyProfileStepDue(result.profile, userId)) {
     offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
     return
   }
   if (result.profile.shouldPrompt) showPrompt(token)
+  else if (socialFriendsOn() && userId && findableNoticeFor(result.profile)) {
+    // Once per account: only after the account says it was not seen yet.
+    await checkFindableNoticeAccount(userId)
+    if (storedSession()?.session.userId === userId && findableNoticeDue(result.profile, userId)) showFindableNotice(userId, result.profile.visibility)
+  }
+}
+
+/**
+ * The dot on the picture while someone asks to be friends and this device has
+ * not shown it yet (followRequests.ts). Opening the You card or Following you
+ * marks them seen, and the dot goes.
+ */
+export async function showRequestDot(token: string, userId: string | null, mount: () => void = () => {}): Promise<void> {
+  if (!userId) return
+  const found = await fetchFollowRequests(token)
+  const rows: RequestRow[] = found?.followingYou ?? []
+  const paint = () => {
+    const button = document.getElementById('sign-in')
+    if (!button) return
+    const due = storedSession()?.session.userId === userId && requestDotDue(userId, rows)
+    let dot = button.querySelector<HTMLElement>(`.${REQUEST_DOT_CLASS}`)
+    if (!due) { dot?.remove(); button.setAttribute('aria-label', 'You'); return }
+    mount()
+    if (!dot) {
+      dot = document.createElement('span')
+      dot.className = REQUEST_DOT_CLASS
+      dot.setAttribute('aria-hidden', 'true')
+      dot.dataset.testid = 'request-dot'
+      button.append(dot)
+    }
+    button.setAttribute('aria-label', 'You, new friend requests')
+  }
+  paint()
+  window.addEventListener(FOLLOW_REQUESTS_SEEN_EVENT, paint)
+}
+
+/**
+ * The one-time notice about findable profiles (findableNotice.ts), in the
+ * prompt's style: Settings opens the Settings card. Showing it marks it seen
+ * for the account; either button removes it.
+ */
+export function showFindableNotice(userId: string, visibility: OwnProfile['visibility']): void {
+  const text = findableNoticeText(visibility)
+  if (!text || document.querySelector(`.social-prompt[${FINDABLE_NOTICE_ATTR}]`)) return
+  const card = document.createElement('div')
+  card.className = 'social-prompt'
+  card.setAttribute('role', 'dialog')
+  card.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
+  card.setAttribute(FINDABLE_NOTICE_ATTR, '')
+  card.dataset.testid = 'findable-notice'
+  const line = document.createElement('p')
+  line.textContent = text
+  const go = document.createElement('button')
+  go.type = 'button'
+  go.className = 'go'
+  go.textContent = FINDABLE_NOTICE_COPY.settings
+  go.addEventListener('click', () => { dismissFindableNotice(userId); open('settings') })
+  const later = document.createElement('button')
+  later.type = 'button'
+  later.className = 'later'
+  later.textContent = FINDABLE_NOTICE_COPY.dismiss
+  later.dataset.testid = 'findable-notice-dismiss'
+  later.addEventListener('click', () => dismissFindableNotice(userId))
+  card.append(line, go, later)
+  document.body.append(card)
+  markFindableNoticeShown(userId)
 }
 
 /** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */

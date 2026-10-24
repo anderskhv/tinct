@@ -2,7 +2,7 @@
  * A figure's picture as the companion takes pictures: redrawn as PNG (JPEG for
  * photos, or when PNG is too large) of at most 1568 px on its long side and at
  * most 1.2 MB, white behind transparency -- the same as Add a book's picture
- * path (addbooks/web/src/js/tinct-api.js), which the Worker accepts in the
+ * path (public/lab/addbook/js/tinct-api.js), which the Worker accepts in the
  * latest user turn of a signed-in request (worker/lib/chatImages.ts).
  */
 import { figureBlob, type LabFigure } from './labFigures'

@@ -11,6 +11,8 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
     ...real,
     MARGIN_ROUTES: Object.freeze({ ...real.MARGIN_ROUTES, quiz: real.quizRoute(true) }),
     factcheckVerdictEffort: () => real.factcheckVerdictEffort('low'),
+    // The verdict round after the doc-first opening (the opening's switch on; off by default since 19 Oct 2026).
+    factcheckDocFirst: () => true,
   }
 })
 
@@ -63,8 +65,10 @@ async function send(body: unknown) {
 afterEach(() => { vi.unstubAllGlobals() })
 
 describe('speed trials switched on', () => {
+  // The trial is off since 20 Oct 2026 (Anders moved Quiz me to Sonnet with thinking); switched on, it still sends this.
   it('QUIZ_THINKING_OFF: the quiz goes with thinking disabled at effort low', async () => {
-    expect(real.QUIZ_THINKING_OFF).toBe(true)
+    expect(real.QUIZ_THINKING_OFF).toBe(false)
+    expect(real.quizRoute()).toEqual({ model: real.MARGIN_SONNET_MODEL, effort: 'medium', maxTokens: 8000 })
     const { anthropic } = stubFetch()
     const { status } = await send({ companion: { intent: 'quiz', context, document, selection: 'S = k log W.' } })
     expect(status).toBe(200)

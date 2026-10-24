@@ -9,15 +9,23 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { LabApp } from './lab/LabApp'
 import { userBookFromSearch } from './lab/userBook/userBookId'
+import { marginPreviewMountForPage } from './lab/marginPreview/marginPreviewMount'
+import { isLabPhoneSurface, labPhoneSurfaceInput } from './lab/labChrome'
+import { labLayoutOverride } from './lab/labRoute'
+import { isMarginPreviewBook } from './lab/marginPreview/marginPreviewModel'
+import { getBook } from './data/bookRegistry'
 import { readCachedSupabaseUser } from './lab/labLibraryBoot'
 import { isNativeCapacitor } from './utils/nativePlatform'
 import { warmLibraryPreview } from './utils/libraryPreviewWarmup'
 import { warmAccountCards } from './cards/warmCards'
 import { startReaderLoadTrace } from './utils/readerLoadTrace'
 import { storedContentMigrations } from './lab/labStoredContentMigrations'
+import { continueLatestDestination } from './lab/continueLatest'
 import './index.css'
 import { loadDesktopExperience } from './desktopCommands'
 import { installStaleChunkRecovery } from './utils/staleChunkRecovery'
+import { startMarginPreviewFrame } from './lab/marginPreview/marginPreviewFrame'
+import { sharedReaderContinueSearch, sharedReaderDestination, sharedReaderEnabled } from './lab/sharedReader/sharedReaderFlag'
 installStaleChunkRecovery()
 loadDesktopExperience()
 
@@ -52,9 +60,13 @@ const Root = isAdmin ? AdminApp : LabApp
 // A reader's own EPUB from Add a book: /reader?userBook=<hex> (lab/userBook/),
 // loaded only on that page.
 const userBookHex = pathname === '/reader' ? userBookFromSearch(window.location.search) : null
+const sharedReader = pathname === '/reader' && sharedReaderEnabled(window.location.search)
 // Read now, before the auth client can drop a lapsed session: Add a book tags
 // files with the account even when its sign-in has lapsed.
 const userBookOwner = userBookHex ? (readCachedSupabaseUser()?.id ?? null) : null
+// The margin preview (/reader?book=<id>&margin=1, or this device's opt-in): a registered
+// book in the margin reader instead of the book reader; loaded only on that page.
+const MarginPreview = React.lazy(() => import('./lab/marginPreview/MarginPreview').then(module => ({ default: module.MarginPreview })))
 const UserBookReader = React.lazy(() => import('./lab/userBook/UserBookReader').then(module => ({ default: module.UserBookReader })))
 if (Root === LabApp) void registerReaderOffline(isCapacitor)
 if (pathname === '/reader') {
@@ -63,9 +75,20 @@ if (pathname === '/reader') {
   warmAccountCards()
 }
 
-const render = () => ReactDOM.createRoot(document.getElementById('root')!).render(
+// The reader's surface (phone or desktop), as Tinct's books are decided below: an own book's phone reader or margin frame.
+const phoneSurface = () => isLabPhoneSurface(labPhoneSurfaceInput(labLayoutOverride(pathname, window.location.search)))
+/**
+ * The reader inside the margin reader's frame (an own book's or a Tinct book's, MarginPreview.tsx): a navigation
+ * the frame made itself (a link, the switcher) that should have gone through the top window. It goes there now,
+ * before anything is drawn or kept here, so the reader is never mounted twice.
+ */
+function framedByMarginHost(): boolean {
+  try { return window.parent !== window && Boolean((window.parent as Window).TinctMarginPreview) } catch { return false }
+}
+
+const render = (marginPhone = false) => ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : <LabApp />}
+    {userBookHex ? <React.Suspense fallback={null}><UserBookReader hex={userBookHex} owner={userBookOwner} phone={phoneSurface()} sharedReader={sharedReader} /></React.Suspense> : isAdmin ? <React.Suspense fallback={null}><AdminApp /></React.Suspense> : sharedReader ? <LabApp sharedReader marginPhone={phoneSurface()} /> : <LabApp marginPhone={marginPhone || undefined} />}
   </React.StrictMode>,
 )
 
@@ -74,7 +97,15 @@ const render = () => ReactDOM.createRoot(document.getElementById('root')!).rende
 // reader holding such data waits, and never for more than a few seconds.
 async function begin() {
   if (nativeDestination) { window.location.replace(nativeDestination); return }
+  if (pathname === '/reader' && framedByMarginHost()) { window.top!.location.replace(window.location.href); return }
   if (isCapacitor) await initializeNativeBooks()
+  // Desktop /reader with no book: an own PDF/EPUB read later than the registered
+  // book opens instead, decided before anything paints (lab/continueLatest.ts).
+  // Phones and the native app keep today's reader.
+  if (Root === LabApp && !userBookHex && !isCapacitor) {
+    const latest = await continueLatestDestination({ pathname, search: sharedReader ? sharedReaderContinueSearch(window.location.search) : window.location.search }).catch(() => null)
+    if (latest) { window.location.replace(sharedReader ? sharedReaderDestination(latest) : latest); return }
+  }
   // Books readers added (pd-…) are registered before the reader reads the registry; bounded wait.
   if (Root === LabApp && !userBookHex) {
     const missing = await preparePublicBooksForReader()
@@ -86,9 +117,33 @@ async function begin() {
       return
     }
   }
+  // Decided once the added books are registered. On a desktop the book reader is not mounted; the
+  // margin view keeps the place, highlights and notes through the book reader's stores (MarginPreviewSync),
+  // so the stored-data migrations run first, as they do for the book reader. On a phone the preview is
+  // the book reader itself with the new bar, cards and pills (marginPreviewMount.ts).
+  // The private shared-reader entry must bypass the old preview before it can
+  // consume a handoff, store a sticky margin preference or rewrite a deep link.
+  // LabApp still owns the same layout and position writer in this first slice.
+  if (sharedReader && !userBookHex && Root === LabApp) {
+    const contentMigrations = storedContentMigrations()
+    if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
+    render()
+    return
+  }
+  const phone = phoneSurface()
+  const preview = pathname === '/reader' && !userBookHex ? marginPreviewMountForPage(id => isMarginPreviewBook(getBook(id)), phone) : null
+  // The margin view's frame and code start now, not after the migrations and MarginPreview's chunk (the first
+  // chapter first, 22 Oct 2026): the frame only asks this page for the book once MarginPreview is there.
+  const frame = preview?.mount === 'frame' && preview.bookId ? startMarginPreviewFrame(preview.bookId) : null
+  if (frame) void import('./lab/marginPreview/MarginPreview').catch(() => {})
   const contentMigrations = Root === LabApp ? storedContentMigrations() : null
   if (contentMigrations) await Promise.race([contentMigrations, new Promise(resolve => setTimeout(resolve, 4000))])
-  render()
+  if (preview?.mount === 'frame' && preview.bookId) {
+    const previewBookId = preview.bookId
+    ReactDOM.createRoot(document.getElementById('root')!).render(<React.Suspense fallback={null}><MarginPreview bookId={previewBookId} frame={frame} /></React.Suspense>)
+    return
+  }
+  render(preview?.mount === 'phone')
 }
 void begin().catch(() => {
   // Render the ordinary reader error/retry flow; never clear its saved data.

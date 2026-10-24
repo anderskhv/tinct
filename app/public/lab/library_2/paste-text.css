@@ -1,0 +1,11 @@
+.own-file-dialog:has(.own-paste-source){width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto}
+.own-paste-field{display:flex;flex-direction:column;gap:6px;margin:12px 0;color:var(--tui-ink,#eee7d0);font-size:13px}
+.own-paste-field :is(input,textarea,select){box-sizing:border-box;width:100%;min-width:0;padding:10px 12px;border:1px solid var(--tui-line,#eee7d04d);border-radius:5px;background:#182019;color:inherit;font:inherit}
+.own-paste-field textarea{min-height:150px;resize:vertical;font:400 var(--tui-text-body,17px)/1.5 var(--tui-font-serif,Georgia,serif)}
+.own-paste-field input[type=number]{width:100px}
+.own-paste-details{margin:8px 0 18px;color:var(--tui-ink,#eee7d0)}
+.own-paste-details summary{cursor:pointer;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+.own-paste-preview{max-height:200px;overflow:auto;padding:14px 18px;border:1px solid var(--tui-line,#eee7d04d);border-radius:5px;color:var(--tui-ink,#eee7d0);line-height:1.5;overflow-wrap:anywhere}
+.own-paste-preview :first-child{margin-top:0}.own-paste-preview :last-child{margin-bottom:0}
+.own-paste-preview a{color:inherit;text-decoration:underline}
+.own-paste-error:not(:empty){color:#ffb7a3;margin:10px 0}

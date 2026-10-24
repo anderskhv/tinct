@@ -1,6 +1,6 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
-import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
+import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, labWordSpacing, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
 import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
 import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
@@ -23,7 +23,7 @@ import {
   type LabHighlightRange,
   type LabWordPlace,
 } from './labHighlights'
-import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
+import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, isChapterFirstHearingPage, isChapterFirstReadingPage, isLabVerseMarker, labVerseMarkerDisplay, readingPageLines, tokenizeHearingWords } from './labHearing'
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
@@ -130,20 +130,6 @@ interface LabPassageProps {
   plannedHyphens?: boolean
 }
 
-function wordSpacing(
-  word: { text: string },
-  wordIndex: number,
-  previous?: { text: string },
-): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // After a verse marker the separator belongs to THIS word, not to the marker:
-  // it is then inside the word's painted span, so a highlight that starts here
-  // has no unpainted notch between the number and the first word. Non-breaking,
-  // so the marker and its word still never split across a line, and never
-  // stretched by justification (LAB_VERSE_SEPARATOR).
-  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
-}
-
 function renderWordText(text: string, emphasis = false, paragraph?: string, wordIndex = -1, hyphenAt?: number, onOpenFigure?: (figure: LabFigure) => void) {
   const figure = figureFor(text)
   if (figure) return <LabFigureView figure={figure} onOpen={onOpenFigure} />
@@ -176,7 +162,7 @@ export function renderWordGroups<T extends { text: string }>(
   for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
     const word = words[wordIndex]
     if (isLabVerseMarker(word.text) && words[wordIndex + 1]) {
-      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
@@ -184,14 +170,14 @@ export function renderWordGroups<T extends { text: string }>(
             {renderSpacing ? renderSpacing(spacing, wordIndex) : spacing}
             <span className="lab-verse-unit">
               {renderWord(word, wordIndex, "")}
-              {renderWord(words[wordIndex + 1], wordIndex + 1, wordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
+              {renderWord(words[wordIndex + 1], wordIndex + 1, labWordSpacing(words[wordIndex + 1], wordIndex + 1, word))}
             </span>
           </Fragment>
         ),
       })
       wordIndex += 1
     } else {
-      const spacing = wordSpacing(word, wordIndex, words[wordIndex - 1])
+      const spacing = labWordSpacing(word, wordIndex, words[wordIndex - 1])
       rendered.push({
         at: wordIndex,
         node: (
@@ -591,10 +577,13 @@ export function LabPassage({
     : null
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
-  useTextRangeHighlights(articleRef)
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const selectionPaintKey = activeSelecting
+    ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
+    : ''
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey])
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])

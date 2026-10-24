@@ -8,7 +8,7 @@
  *   GET  /api/profile/handle?h=       is this link free and allowed?
  *   POST /api/profile/image?slot=     upload a picture or background (JPEG, resized in the browser);
  *                                     only while SOCIAL_PHOTO_UPLOADS is "1" (off at launch: a 404)
- *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others once approved and allowed
+ *   GET  /api/profile/image?user=&slot=   a stored picture: the owner always, others when the profile allows (shown at once, 19 Oct 2026)
  *   POST /api/profile/google-photo    copy the reader's Google photo into their profile
  *   POST /api/profile/confirm-link    "Send confirmation link": one service email with the signed
  *                                     /confirm link (routes/confirmLink.ts); 1 per 5 minutes, 5 a day
@@ -52,6 +52,7 @@ import {
   type Visibility,
 } from '../../social/profileRules'
 import { isInternalAccount } from '../../social/socialRules'
+import { PHOTO_COPY } from '../../social/photoFile'
 import { GENERATED_BOOK_META } from '../../data/bookMetaGenerated'
 import { SIGNUP_CONFIRM_DEDUPE_KEY, SIGNUP_CONFIRM_TEMPLATE, SIGNUP_CONFIRM_WINDOW_MS } from './confirmLink'
 import { corsHeaders } from '../lib/responses'
@@ -153,6 +154,13 @@ export function imageUrl(userId: string, slot: 'picture' | 'background', token: 
   return token ? `/api/profile/image?user=${userId}&slot=${slot}&v=${encodeURIComponent(token)}` : null
 }
 
+/**
+ * When findable profiles shipped (#488 merged, 19 Oct 2026, 22:11 Copenhagen).
+ * A profile first set up before then chose Friends or Everyone without knowing
+ * Find readers would list it by name and picture.
+ */
+export const FINDABLE_PROFILES_AT = Date.parse('2026-10-19T20:11:56Z')
+
 /** The reader's own profile as the client sees it. */
 function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; emailOptIn: boolean }, user: ProfileAuthUser, uploads: boolean) {
   const stored = row.picture_kind === 'upload' || row.picture_kind === 'google'
@@ -173,6 +181,13 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     needsSetup: row.auto_created && !row.set_up_at,
     /** The one gentle prompt: offered once, outside a book. */
     shouldPrompt: row.auto_created && !row.set_up_at && !row.prompted_at,
+    /**
+     * Set up before findable profiles (set_up_at, stamped once at set-up: the
+     * sign-up profile step, or the first choice of who can see you, picture
+     * or background; never moved): only these get the one-time findable
+     * notice. A profile set up since saw the choice already.
+     */
+    setUpBeforeFindable: Boolean(row.set_up_at && Date.parse(row.set_up_at) < FINDABLE_PROFILES_AT),
     emailConfirmed: account.emailConfirmed,
     emailOptIn: account.emailOptIn,
     googlePhoto: Boolean(googlePhotoUrl(user)),
@@ -443,8 +458,9 @@ async function storeImage(env: ProfilesEnv, store: ProfileStore, row: ReaderProf
     ? (row.picture_kind === 'upload' || row.picture_kind === 'google' ? row.picture_value : null)
     : (row.background_kind === 'upload' ? row.background_value : null)
   const patch: Patch = slot === 'picture'
-    ? { picture_kind: kind, picture_value: token, picture_review: 'pending' }
-    : { background_kind: 'upload', background_value: token, background_review: 'pending' }
+    // Visible to others at once, with no review (Anders, 19 Oct 2026); the admin page can still remove it.
+    ? { picture_kind: kind, picture_value: token, picture_review: 'approved' }
+    : { background_kind: 'upload', background_value: token, background_review: 'approved' }
   await store.update(row.id, patch)
   await deleteStoredImage(env, row.id, slot, previous)
 }
@@ -549,7 +565,7 @@ export async function handleProfiles(
       const bytes = new Uint8Array(await request.arrayBuffer())
       if (bytes.length > MAX_IMAGE_BYTES) return reply({ error: 'That picture is too large.' }, 413, request)
       const jpeg = stripJpegMetadata(bytes)
-      if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: 'Please choose a JPEG, PNG or WebP photo.' }, 415, request)
+      if (!jpeg || jpeg.width > MAX_IMAGE_SIDE || jpeg.height > MAX_IMAGE_SIDE) return reply({ error: PHOTO_COPY.unprocessed }, 415, request)
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
@@ -648,7 +664,8 @@ export async function viewFor(store: ProfileStore, ownerId: string, viewerId: st
   const [card, rel] = await Promise.all([store.getCardById(ownerId), viewerId ? store.relation(viewerId, ownerId) : Promise.resolve(null)])
   if (!card && !viewerId) return null
   const relation = rel ? relationOf({ self: false, ...rel }) : 'stranger'
-  if (card) return publicProfileView(cardFromPublic(card), relation)
+  // A signed-in reader may see a Friends profile's name and picture (findable, 19 Oct 2026); signed out, not.
+  if (card) return publicProfileView(cardFromPublic(card), relation, { signedIn: viewerId !== null })
   // No public card (Only me, or hidden): only a reader who follows the viewer
   // shows, as the follower view (name and link), so the viewer can remove or block them.
   if (!rel || rel.blocked || !rel.ownerFollowsViewer) return null

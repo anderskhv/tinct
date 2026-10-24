@@ -12,11 +12,12 @@
  * `tinct-addbook`, this account's records only) and in the account
  * (`/api/user-books`), listed for My shelf, with the places read on the
  * account's other devices (`/api/user-books/places`). Nothing is uploaded here,
- * except Add a book's viewer saving a PDF's place (`pdfPlaces`).
+ * except Add a book's viewer saving a PDF's place (`pdfPlaces`). `rememberJustRead`
+ * names the book the viewer just read in this device's library snapshot (local only).
  */
 import { supabase } from './services/supabase'
-import { readCachedSupabaseUser } from './lab/labLibraryBoot'
-import { ownSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
+import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './lab/labLibraryBoot'
+import { ownShelfSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
 import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { userBookId } from './lab/userBook/userBookId'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
@@ -149,7 +150,7 @@ export interface OwnBook {
 const ownBook = (book: OwnShelfBook): OwnBook => ({
   // This device's picture, else the account's stored copy of it (book-cover.js).
   key: book.key, kind: book.kind, title: book.title, author: book.author, cover: bookCoverSrc({ bookId: userBookId(book.hex), ownCover: book.cover, storedCover: book.storedCover }), at: book.at,
-  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
+  readingAt: book.reading?.lastActiveAt ?? null, savedAt: book.reading ? null : ownShelfSavedAt(book.hex), percent: book.reading?.percent ?? null, href: book.href,
 })
 
 /**
@@ -198,4 +199,21 @@ export const pdfPlaces = {
   flush: () => flushPdfPlaces(),
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces }
+/**
+ * The desktop viewer read an own book: it leads the library's first paint
+ * (labLibraryBoot.ts, `withJustRead` in libraryTwoReading.ts), so Continue
+ * opens it before the account's table arrives. This device's snapshot only;
+ * nothing is sent. The viewer calls it on the desktop only.
+ */
+export function rememberJustRead(input: { hex: string; title: string; chapterLabel: string }, now = Date.now()): void {
+  if (!/^[0-9a-f]{24}$/.test(input.hex) || !input.title || !input.chapterLabel) return
+  writeLabLibraryBootSnapshot(snapshotWithReaderPlace(readLabLibraryBootSnapshot(), {
+    userId: readCachedSupabaseUser()?.id ?? null,
+    bookId: userBookId(input.hex),
+    title: input.title.slice(0, 200),
+    chapterLabel: input.chapterLabel.slice(0, 200),
+    now,
+  }))
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, rememberJustRead }

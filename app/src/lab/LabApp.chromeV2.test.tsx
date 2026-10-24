@@ -260,15 +260,23 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Librarian (Chat and Talk), Library, Reading settings and Account — and no Play row', () => {
+  it('lists Chat · Talk, Summarize, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    expect(labels).toEqual(['Librarian', 'Summarize', 'Catch me up', 'Book editions', 'Settings', 'Library', 'Profile'])
-    // Chat and Talk are labelled icon buttons inside the Librarian row.
-    expect(screen.getByTestId('lab-super-row-chat').getAttribute('aria-label')).toBe('Chat')
-    expect(screen.getByTestId('lab-super-row-talk').getAttribute('aria-label')).toBe('Talk')
+    // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Notebook', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(labels).not.toContain('Librarian')
+    // Chat and Talk are one row, each half a button with its own icon and name.
+    const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
+    expect([...pair.querySelectorAll('button')].map(button => button.getAttribute('data-testid'))).toEqual(['lab-super-row-chat', 'lab-super-row-talk'])
+    expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
+    // Aa wears a small and a large A, so the row reads "Aa" once.
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Aa')
+    // Audio settings wears a speaker, not Talk's bars.
+    expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
     // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
     const talkGlyph = screen.getByTestId('lab-super-row-talk').querySelector('svg')!
     expect(talkGlyph.querySelectorAll('rect')).toHaveLength(3)
@@ -280,14 +288,14 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['librarian', 'summarize', 'catchup', 'editions', 'settings', 'library', 'account'])
+      .toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('keeps Compare out of the menu once a second version is picked; the switch is in Reading settings', () => {
+  it('keeps Compare out of the menu once a second version is picked; the switch is in Book settings', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
@@ -305,16 +313,93 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
   })
 
-  it('opens the reading settings sheet from its row', () => {
+  it('opens Aa (themes, size, Advanced), Book settings (editions) and Audio settings (voice, speed) from their rows', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
-    expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
+    const sheet = screen.getByTestId('lab-v2-sheet')
+    expect(sheet.getAttribute('data-layer')).toBe('reading')
+    expect(sheet.getAttribute('aria-label')).toBe('Aa')
+    expect(screen.getByTestId('lab-v2-themes')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-size')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-advanced')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-advanced'))
+    expect(screen.getByTestId('lab-v2-sheet-back').textContent).toBe('‹ Aa')
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-confirm'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+    const book = screen.getByTestId('lab-v2-sheet')
+    expect(book.getAttribute('data-layer')).toBe('editions')
+    expect(book.getAttribute('aria-label')).toBe('Book settings')
+    expect(screen.getByTestId('lab-v2-main-edition')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-compare-edition')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-audio'))
+    const audio = screen.getByTestId('lab-v2-sheet')
+    expect(audio.getAttribute('data-layer')).toBe('audio')
+    expect(audio.getAttribute('aria-label')).toBe('Audio settings')
+    expect(screen.getByTestId('lab-v2-audio-edition')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-narration-voice')).toBeTruthy()
+    expect(screen.getByTestId('lab-v2-audio-speed')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-main-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
+  })
+
+  it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
+    renderPhone()
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.getByLabelText('Notebook')).toBeTruthy()
+    expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
+    fireEvent.click(screen.getByLabelText('Close overlay'))
+    expect(screen.queryByTestId('lab-toc')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+    // The chapter's own way into Contents still opens the tree, not the notebook.
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    expect(screen.getByTestId('lab-toc')).toBeTruthy()
+    expect(screen.queryByLabelText('Notebook')).toBeNull()
+  })
+
+  it('the desktop opens the same three groups, with the same names and contents, from its t menu', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const open = (row: string) => {
+      fireEvent.click(screen.getByTestId('lab-super'))
+      fireEvent.click(screen.getByTestId(`lab-super-row-${row}`))
+      const sheet = screen.getByTestId('lab-v2-sheet')
+      return { layer: sheet.getAttribute('data-layer'), label: sheet.getAttribute('aria-label'), themes: !!screen.queryByTestId('lab-v2-themes'), main: !!screen.queryByTestId('lab-v2-main-edition'), voice: !!screen.queryByTestId('lab-v2-narration-voice') }
+    }
+    expect(open('text')).toEqual({ layer: 'reading', label: 'Aa', themes: true, main: false, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('editions')).toEqual({ layer: 'editions', label: 'Book settings', themes: false, main: true, voice: false })
+    fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
+    expect(open('audio')).toEqual({ layer: 'audio', label: 'Audio settings', themes: false, main: false, voice: true })
+  })
+
+  it('has no Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect(screen.queryByTestId('lab-super-row-catchup')).toBeNull()
+    expect(screen.getByTestId('lab-super-row-summarize')).toBeTruthy()
+    cleanup()
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    fireEvent.click(screen.getByTestId('lab-super'))
+    expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
+      .toEqual(['Librarian', 'Summarize', 'Catch me up', 'Aa', 'Book settings', 'Audio settings', 'Profile'])
   })
 
   it('puts Catch me up right under Summarize, with its timeline icon', () => {
-    renderPhone()
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...screen.getByTestId('lab-super-menu').querySelectorAll('[data-row]')].map(node => node.getAttribute('data-row'))
     expect(rows.indexOf('catchup')).toBe(rows.indexOf('summarize') + 1)
@@ -333,7 +418,8 @@ describe('the super-menu', () => {
       return { ok: false, status: 404, json: async () => ({}) }
     })
     vi.stubGlobal('fetch', fetchMock)
-    renderPhone()
+    // The phone hides Catch me up on a book's first chapter; the sheet is the same on the desktop.
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     const before = { chapter: root().getAttribute('data-chapter'), header: screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent }
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
@@ -435,7 +521,7 @@ describe('the desktop', () => {
 
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-menu')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     expect(screen.getByTestId('lab-v2-sheet').getAttribute('data-layer')).toBe('reading')
   })
 
@@ -645,7 +731,7 @@ describe('the Margins preference on the desktop leaves', () => {
 
   function openAdvanced() {
     fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-settings'))
+    fireEvent.click(screen.getByTestId('lab-super-row-text'))
     fireEvent.click(screen.getByTestId('lab-v2-advanced'))
   }
 

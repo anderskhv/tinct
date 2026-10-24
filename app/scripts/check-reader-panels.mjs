@@ -2,12 +2,15 @@ import { chromium, webkit } from '@playwright/test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const expected = process.env.TINCT_EXPECTED_BUNDLE || ''
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/reader-panels'
+// Checks use the exact built artifact, including its release-specific default.
+const { SHARED_READER_DEFAULT } = await import(pathToFileURL(path.resolve('dist/lab/shared-reader-activation.js')).href)
 await fs.mkdir(output, { recursive: true })
 const results = []
 const explanation = 'A compact opening grounded in the selected passage.\n\nA second paragraph adds useful context and interpretation without filling the entire screen.'
@@ -15,6 +18,14 @@ const definition = 'pronoun. Used to refer to people or things already identifie
 // Profiles (social ship 2): live, the Worker serves wrangler.jsonc's switch (the
 // tinct-social marker); local dist is served without the Worker, so off.
 const socialProfiles = live && /"SOCIAL_PROFILES"\s*:\s*"1"/.test(await fs.readFile('wrangler.jsonc','utf8'))
+const AUDIO_MANIFEST_FIXTURES = { 'antigone/modern-en/ch1/manifest.json': 'scripts/fixtures/audio-manifests/antigone-modern-en-ch1.json' }
+// Diagnostics for a failure report: the page's visible text, or why there is none. A catch handler must never throw
+// itself: reading a page that is already closed (a reboot that failed after the previous context closed) replaced
+// the row's own error with "Target page, context or browser has been closed" and stopped the whole run (CI, 14 and
+// 20 Oct 2026, contentsAndSameEdition).
+const visibleText = (page, last) => page && !page.isClosed()
+  ? page.locator('body').innerText({ timeout: 5000 }).then(text => text.slice(-last), error => `(page text unavailable: ${error.message.split('\n')[0]})`)
+  : Promise.resolve('(page closed)')
 const sse = text => 'data: ' + JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } }) + '\n\ndata: {"type":"message_stop"}\n\n'
 
 
@@ -45,6 +56,9 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   page.on('requestfailed', request => networkFailures.push({url:request.url().split('?')[0],error:request.failure()?.errorText}))
   page.on('response', response => { if(response.status()>=400) networkFailures.push({url:response.url().split('?')[0],status:response.status()}) })
   page.on('pageerror', error => errors.push(error.message))
+  // The reader's own warnings (why a text did not load: editionLoader, labReader), for a boot failure's report only.
+  const warnings = []
+  page.on('console', message => { if (message.type() === 'warning' || message.type() === 'error') warnings.push(message.text().slice(0, 400)) })
   await page.route('**/*', async route => {
     const req = route.request(), url = new URL(req.url())
     if (url.pathname==='/api/narration/voices' && fixture.narrationEnabled!==undefined) {
@@ -65,6 +79,13 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     // Exercise the shared missing-entry UI without paying for inference.
     if (/\/data\/dict\//.test(url.pathname)) return route.fulfill({contentType:'application/json',body:'{}'})
     if (req.method() !== 'GET') return route.abort()
+    // Before a deploy, a recording's manifest this check depends on is the one production served on 20 Oct 2026
+    // (scripts/fixtures/audio-manifests): the client's decision is what is checked, and a dropped connection to
+    // production failed antigone-audio-availability. After a deploy (READER_LIVE=1) production answers, as before.
+    if (!live && url.pathname === '/api/audio-manifest') {
+      const fixture = AUDIO_MANIFEST_FIXTURES[url.searchParams.get('path')]
+      if (fixture) return route.fulfill({ contentType: 'application/json', path: fixture })
+    }
     if (!live && url.origin === origin) {
       const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname
       const filename = path.resolve('dist', '.' + pathname)
@@ -84,11 +105,14 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
     window.__copied = []
     Object.defineProperty(navigator, 'clipboard', {configurable:true,value:{writeText:async text=>{window.__copied.push(text)}}})
   },{bookId,edition,chapterNumber,fixture})
-  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), {waitUntil:'domcontentloaded'})
+  // These legacy spread/foot/Next regressions intentionally exercise the
+  // shared reader's Classic layout after the public default moves to Margin.
+  // Phone keeps its familiar paged Read/Compare surface.
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page'), {waitUntil:'domcontentloaded'})
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,ui:(await page.locator('body').innerText()).slice(-3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
@@ -97,9 +121,13 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   await page.waitForTimeout(700)
   return {context,page,requests,errors}
 }
+// The settings groups (22 Oct 2026), the same rows on the phone and the desktop: Aa ('text': themes, size,
+// Advanced settings), Book settings ('editions': editions, compare) and Audio settings ('audio': voice, speed).
+// 'theme' names the layer with the themes.
 async function clickMenu(page,id) {
   await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-'+id).click()
+  const row=id==='theme'?'text':id
+  await page.getByTestId('lab-super-row-'+row).click()
 }
 // Compare the ink of each character, not span-fragment bookkeeping:
 // Chromium merges adjacent inline rects when a highlight wrapper changes.
@@ -137,6 +165,8 @@ async function run(engine,name,phone) {
   try {
     state=await boot(browser,phone)
     const {page,requests,errors}=state
+    const sharedPhone=phone && await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const initialPlace=await page.getByTestId('lab-root').getAttribute('data-place')
     const bundle=await page.locator('script[src]').evaluateAll(nodes=>nodes.map(n=>new URL(n.src).pathname).find(s=>/\/assets\/index-.*\.js$/.test(s)))
     result.bundle=bundle
     if(expected)assert.equal(bundle,expected)
@@ -176,30 +206,55 @@ async function run(engine,name,phone) {
     }
     await page.getByRole('button',{name:'Explain',exact:true}).click()
     await page.getByText('A compact opening grounded in the selected passage.').waitFor({timeout:10000})
-    await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
-    assert.equal(await page.getByRole('button',{name:'Collapse explanation',exact:true}).count(),0)
-    assert.equal(await page.locator('.lab-reader-window-title').filter({hasText:'Explanation'}).count(),0)
-    const popup=page.locator('.selection-popup')
-    let box=await popup.boundingBox()
-    assert(box.height<650,'short explanation must fit its content')
-    await page.getByRole('button',{name:'Close explanation',exact:true}).waitFor({state:'visible'})
+    let box
+    if(sharedPhone) {
+      const card=page.locator('[data-testid="lab-phone-card"][data-kind="explain"]')
+      await card.evaluate(async node=>{await Promise.all(node.getAnimations().map(animation=>animation.finished.catch(()=>{})))})
+      box=await card.boundingBox()
+      assert(box && box.height>80 && box.height<650 && box.y+box.height<=845,'Explain remains a readable bottom card: '+JSON.stringify(box))
+      assert.equal(await card.getByTestId('lab-phone-card-answer').count(),1,'the answer is inside the card')
+      assert.equal(await card.getByTestId('lab-phone-card-input').count(),1,'the card keeps its follow-up field')
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'Explain does not advance the page')
+    } else {
+      await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
+      assert.equal(await page.getByRole('button',{name:'Collapse explanation',exact:true}).count(),0)
+      assert.equal(await page.locator('.lab-reader-window-title').filter({hasText:'Explanation'}).count(),0)
+      const popup=page.locator('.selection-popup')
+      box=await popup.boundingBox()
+      assert(box.height<650,'short explanation must fit its content')
+      await page.getByRole('button',{name:'Close explanation',exact:true}).waitFor({state:'visible'})
+    }
     if(!phone) {
+      const popup=page.locator('.selection-popup')
       assert(box.width<=720,'explanation is at most one leaf wide')
       await drag(page,popup.locator('[data-reader-window-handle]'),-100,50)
       const moved=await popup.boundingBox()
       assert(Math.abs(moved.x-box.x)>40,'explanation must move')
     }
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-explanation.png'})
-    await page.getByRole('button',{name:'Highlight this passage'}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    if(sharedPhone) {
+      // An outside tap consumes only dismissal; a fresh selection then uses
+      // the phone bar's colour dot and the saved mark's explicit palette.
+      await page.mouse.click(12,120)
+      await page.getByTestId('lab-phone-card').waitFor({state:'hidden'})
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'dismissing the card leaves the page still')
+      await select(page)
+      await page.getByTestId('lab-pbar-highlight').click()
+      await page.getByTestId('lab-pbar-color-sage').click()
+    } else {
+      await page.getByRole('button',{name:'Highlight this passage'}).click()
+      await page.getByRole('button',{name:/^(Highlight )?Sage$/}).click()
+    }
+    if(await page.getByTestId('lab-desk-bar').count())await page.keyboard.press('Escape')
+    if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-bar').waitFor({state:'hidden'}) }
     await page.waitForTimeout(300)
     const recoloured=await wordBoxes(page)
     assert.deepEqual(recoloured,before,'saving a highlight must not move text')
     // Every word in a saved mark must expose deletion, not a dictionary.
     for(const index of [0,9,18]){
       await page.getByTestId('lab-word').nth(index).click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
-      assert.equal(await page.locator('.popup-define').count(),0)
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
+      assert.equal(await page.locator(sharedPhone?'[data-testid="lab-phone-card"][data-kind="define"]':'.popup-define').count(),0,'a saved mark does not open Define')
       await page.keyboard.press('Escape')
     }
     // Single-word dictionary miss stays in the Define panel, with lexical intent.
@@ -213,13 +268,21 @@ async function run(engine,name,phone) {
     const lookupWord=page.getByTestId('lab-word').nth(lookupIndex)
     await lookupWord.click()
     await page.getByText(definition,{exact:true}).waitFor({timeout:10000})
-    assert.equal(await page.locator('.popup-define-result ol li').count(),1)
-    assert.notEqual((await page.locator('.popup-define [data-reader-window-handle]').innerText()).trim(),'Define')
+    const definePanel=sharedPhone?page.locator('[data-testid="lab-phone-card"][data-kind="define"]'):page.locator('.popup-define')
+    assert.equal(await definePanel.locator('.popup-define-result ol li').count(),1)
+    if(sharedPhone) {
+      assert.equal(await definePanel.getByTestId('lab-phone-define').locator('.lab-pcard-headword').count(),1,'the lookup word heads the Define card')
+      assert.match(await definePanel.getByTestId('lab-phone-card-label').innerText(),/^Define · /)
+    } else assert.notEqual((await definePanel.locator('[data-reader-window-handle]').innerText()).trim(),'Define')
     assert.equal(await page.getByText('Define',{exact:true}).count(),0)
     assert.equal(await page.locator('.lab-contextual-explain').count(),0)
     assert(requests.some(body=>(body.companion?.intent==='define'||JSON.stringify(body.messages??[]).includes('<word>'))))
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-definition.png'})
     await page.keyboard.press('Escape')
+    if(sharedPhone) {
+      await page.getByTestId('lab-phone-card').waitFor({state:'hidden'})
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'Define dismissal preserves place')
+    }
     await page.getByTestId('lab-header-book').click()
     await page.getByRole('button',{name:'Library',exact:true}).waitFor()
     await checkLibraryRow(page,name+'-'+result.layout)
@@ -246,11 +309,11 @@ async function run(engine,name,phone) {
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
       // Menus must remain clickable while a floating companion is open.
-      await clickMenu(page,'settings')
+      await clickMenu(page,'text')
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-desktop-companion-close').click()
     }
-    await clickMenu(page,'settings')
+    await clickMenu(page,'theme')
     const sheet=page.getByTestId('lab-v2-sheet')
     if(!phone){
       const original=await sheet.boundingBox()
@@ -278,20 +341,31 @@ async function run(engine,name,phone) {
     }
     await page.getByTestId('lab-v2-sheet-confirm').click()
     for(const theme of ['dark','light']){
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await select(page)
       await page.getByRole('button',{name:'Explain',exact:true}).click()
       await page.getByText('A compact opening grounded in the selected passage.').waitFor()
-      const colours=await page.locator('.lab-contextual-explain-more').evaluate(node=>{
-        const style=getComputedStyle(node)
-        const probe=document.createElement('i');probe.style.color=style.getPropertyValue('--lab-ink-muted');node.append(probe)
-        const theme=getComputedStyle(probe).color;probe.remove();return {ink:style.color,theme}
-      })
-      assert.equal(colours.ink,colours.theme,'More follows the theme')
+      if(sharedPhone) {
+        const colours=await page.getByTestId('lab-phone-card').evaluate(node=>{
+          const style=getComputedStyle(node), root=getComputedStyle(node.closest('.lab'))
+          const probe=document.createElement('i');probe.style.color=root.getPropertyValue('--lab-ink');node.append(probe)
+          const theme=getComputedStyle(probe).color;probe.remove();return {ink:style.color,theme}
+        })
+        assert.equal(colours.ink,colours.theme,'the phone card follows the reader theme')
+        assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'themed answer leaves the page still')
+      } else {
+        const colours=await page.locator('.lab-contextual-explain-more').evaluate(node=>{
+          const style=getComputedStyle(node)
+          const probe=document.createElement('i');probe.style.color=style.getPropertyValue('--lab-ink-muted');node.append(probe)
+          const theme=getComputedStyle(probe).color;probe.remove();return {ink:style.color,theme}
+        })
+        assert.equal(colours.ink,colours.theme,'More follows the theme')
+      }
       await page.screenshot({path:output+'/'+name+'-'+result.layout+'-'+theme+'.png'})
-      await page.getByRole('button',{name:'Close explanation',exact:true}).click()
+      if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
+      else await page.getByRole('button',{name:'Close explanation',exact:true}).click()
     }
     await page.getByTestId('lab-header-book').click()
     await page.getByRole('button',{name:'Library',exact:true}).click()
@@ -302,7 +376,7 @@ async function run(engine,name,phone) {
     result.passed=false; result.error=error.stack
     if(state) {
       await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
-      result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)
+      result.visibleText=await visibleText(state.page,4000)
       result.windows=await state.page.locator('[data-reader-window]').evaluateAll(nodes=>nodes.map(node=>{
         const box=node.getBoundingClientRect(),style=getComputedStyle(node)
         return {class:node.className,rect:box.toJSON(),inline:node.getAttribute('style'),z:style.zIndex,
@@ -310,7 +384,7 @@ async function run(engine,name,phone) {
             const b=n.getBoundingClientRect(),hit=document.elementFromPoint(b.x+b.width/2,b.y+b.height/2)
             return {label:n.getAttribute('aria-label'),rect:b.toJSON(),hit:hit?.outerHTML.slice(0,200)}
           })}
-      }))
+      })).catch(e=>`(windows unavailable: ${e.message.split('\n')[0]})`)
     }
   } finally { await browser.close(); results.push(result) }
 }
@@ -338,11 +412,14 @@ async function compareLabel(engine,name){
     assert.equal(await page.getByTestId('lab-page-wrap').evaluate(node=>getComputedStyle(node,'::after').content),'none')
     await page.screenshot({path:output+'/'+name+'-desktop-comparison.png'})
     await select(page)
-    await page.getByRole('button',{name:'Highlight',exact:true}).click()
-    await page.getByRole('button',{name:'Highlight Sage',exact:true}).click()
+    // The dark bar: one click highlights, a second opens the colours.
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:/^Highlight in /}).click()
+    await page.getByRole('button',{name:'Sage',exact:true}).click()
+    await page.keyboard.press('Escape')
     const comparisonWord=page.locator('.lab-book-col-compare [data-testid="lab-word"].is-hl-sage').first()
     await comparisonWord.click()
-    await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+    await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
     await page.keyboard.press('Escape')
     result.passed=true
   }catch(error){
@@ -407,7 +484,7 @@ async function bookSurface(engine,name){
     assert.deepEqual(await wordBoxes(page),before,'decorative fold must never alter text geometry')
     await bare.evaluate(node=>node.remove())
     for(const theme of ['book','light','dark']){
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.waitForTimeout(250)
@@ -476,7 +553,7 @@ async function contentsAndSameEdition(engine,name,phone){
     for(const theme of ['book','dark']){
       if(theme==='dark'){
         await deep.keyboard.press('Escape')
-        await clickMenu(deep,'settings')
+        await clickMenu(deep,'theme')
         await deep.getByTestId('lab-v2-theme-dark').click()
         await deep.getByTestId('lab-v2-sheet-close').click()
         await deep.getByTestId('lab-header-chapter').click()
@@ -515,7 +592,7 @@ async function contentsAndSameEdition(engine,name,phone){
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
-    if(state){await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-4000)}
+    if(state){await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,4000)}
   }finally{await browser.close();results.push(result)}
 }
 
@@ -554,7 +631,7 @@ async function safariPaintProbe(){
  const browser=await markInternal(await webkit.launch({headless:true}))
  try{
   const state=await boot(browser,false,'notes-from-underground','original-en',1,{paragraphIndex:0,highlights:[{id:'probe',bookId:'notes-from-underground',editionKey:'original-en',chapterNumber:1,paragraphIndex:0,endParagraphIndex:0,fromWord:0,toWord:115,color:'gold',kept:true}],deviceScaleFactor:2})
-  const {page}=state;await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
+  const {page}=state;await clickMenu(page,'theme');await page.getByTestId('lab-v2-theme-dark').click();await page.getByTestId('lab-v2-sheet-close').click()
   const results=[]
   for(const variant of ['baseline','literal-scoped','literal-global','selectable-ancestors','no-isolation','refresh-registry','text-boundaries']){
    await page.reload({waitUntil:'domcontentloaded'})
@@ -628,7 +705,7 @@ async function highlightRegression(engine,name){
       const record={id:'persisted-gold',bookId:fixture.book,editionKey:fixture.edition,chapterNumber:fixture.chapter,paragraphIndex:fixture.p,endParagraphIndex:fixture.p,fromWord:0,toWord:fixture.to,color:'gold',kept:true}
       state=await boot(browser,false,fixture.book,fixture.edition,fixture.chapter,{paragraphIndex:fixture.p,highlights:[record],deviceScaleFactor:2})
       const {page}=state
-      await clickMenu(page,'settings')
+      await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.reload({waitUntil:'domcontentloaded'})
@@ -649,7 +726,7 @@ async function highlightRegression(engine,name){
       for(const index of chosen){
         const text=await marked.nth(index).innerText()
         await marked.nth(index).click()
-        await page.getByRole('button',{name:'Delete highlight',exact:true}).waitFor()
+        await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).waitFor()
         assert.equal(await page.locator('.popup-define').count(),0)
         result.clicks.push({book:fixture.book,index,text,menu:'highlight'})
         await page.keyboard.press('Escape')
@@ -664,7 +741,7 @@ async function highlightRegression(engine,name){
         })
       })
       await marked.first().click()
-      await page.getByRole('button',{name:'Delete highlight',exact:true}).click()
+      await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).click()
       assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
       assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
       await page.reload({waitUntil:'domcontentloaded'})
@@ -676,7 +753,7 @@ async function highlightRegression(engine,name){
     result.passed=true
   }catch(error){
     result.passed=false;result.error=error.stack
-    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=(await state.page.locator('body').innerText()).slice(-3000)}
+    if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,3000)}
   }finally{await browser.close();results.push(result)}
 }
 
@@ -689,7 +766,7 @@ async function mobileChromeRegression(engine,name){
     state=await boot(browser,true,'notes-from-underground','original-en')
     const {page}=state
     for(const theme of ['dark','book','light']){
-      await clickMenu(page,'settings');await page.getByTestId('lab-v2-theme-'+theme).click()
+      await clickMenu(page,'theme');await page.getByTestId('lab-v2-theme-'+theme).click()
       await page.getByTestId('lab-v2-sheet-close').click()
       await page.getByTestId('lab-super').click()
       const panel=await page.getByTestId('lab-super-menu').boundingBox()
@@ -824,7 +901,7 @@ async function antigoneAudioAvailability(engine,name) {
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
-    if(state) result.diagnostics={requests:state.requests,errors:state.errors,ui:(await state.page.locator('body').innerText()).slice(-2500)}
+    if(state) result.diagnostics={requests:state.requests,errors:state.errors,ui:await visibleText(state.page,2500)}
   }
   finally { await browser.close();results.push(result) }
 }
@@ -837,6 +914,7 @@ async function menuRedesign(engine,name,phone) {
   try {
     state=await boot(browser,phone,'notes-from-underground','original-en')
     const {page,requests}=state
+    const sharedPhone=phone && await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
     // The page's profiles marker must match the deployed switch. The last row is Profile
@@ -844,12 +922,16 @@ async function menuRedesign(engine,name,phone) {
     assert.equal(await page.locator('meta[name="tinct-social"][content="1"]').count(),socialProfiles?1:0,'tinct-social marker matches SOCIAL_PROFILES')
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Librarian','Summarize','Catch me up','Book editions','Settings','Library',accountRow]:['Librarian','Summarize','Catch me up','Book editions','Settings',accountRow])
-    // One Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button:
-    // the only way to the librarian since the chat pill went (2026-10-08).
-    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),1)
+    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
+    // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
+    // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
+    // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
+    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
+    if(phone)assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
+    assert.equal(await page.getByTestId('lab-super-row-text').locator('svg[data-icon="text-size"]').count(),1)
     assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
     if(!phone)assert.equal((await page.getByTestId('lab-library-back').innerText()).trim(),'')
@@ -857,6 +939,7 @@ async function menuRedesign(engine,name,phone) {
     assert.equal(await page.locator('.lab-super-row.has-rule').count(),2)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'.png'})
     await page.getByTestId('lab-super-row-editions').click()
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Book settings')
     await page.getByTestId('lab-v2-main-edition').click()
     const modern=page.locator('[data-edition="modern-en"]')
     assert.match(await modern.innerText(),/Tinct Modern English.*Easy.*AI-generated/s)
@@ -871,11 +954,21 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-v2-sheet-back').click()
     await page.getByTestId('lab-v2-sheet-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
-    await clickMenu(page,'settings')
+    // Voice and speed (and the audiobook version) are Audio settings' on both layouts, without the editions;
+    // Aa holds the themes, size and Advanced settings without either.
+    await clickMenu(page,'audio')
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Audio settings')
     await page.getByTestId('lab-v2-narration-voice').selectOption('male')
     await page.getByTestId('lab-v2-audio-speed').selectOption('1.25')
     assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-settings.png'})
+    await page.getByTestId('lab-v2-sheet-close').click()
+    await clickMenu(page,'text')
+    assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Aa')
+    assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
+    assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
+    assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
+    assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
     // Summarize is a card of beats in its own sheet, not a chat answer.
@@ -884,9 +977,38 @@ async function menuRedesign(engine,name,phone) {
     assert(requests.some(body=>body.chapterNotes?.kind==='end'),'summary asks for the whole chapter')
     assert(!requests.some(body=>body.chapterNotes?.kind==='sofar'),'summary never asks for a so-far card')
     assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
-    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),1)
-    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),1)
-    await page.getByTestId('lab-chapter-notes-close').click()
+    // The phone's summary ends with the follow-up field (mic, Talk, send; 21 Oct 2026); the desktop keeps Chat and Talk.
+    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),phone?0:1)
+    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),phone?0:1)
+    if(sharedPhone){
+      // The beats live in the card body; its follow-up field is the card's
+      // sibling foot, not a descendant of the beats' lab-chapter-notes node.
+      const sheet=page.getByTestId('lab-phone-card')
+      assert.equal(await sheet.getByTestId('lab-chapter-notes').count(),1,'the summary beats are inside the bottom card')
+      await sheet.evaluate(async node=>{await Promise.all(node.getAnimations().map(animation=>animation.finished.catch(()=>{})))})
+      const fit=await sheet.evaluate(node=>{
+        const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect()
+        const last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom))
+        const top=window.visualViewport?.offsetTop??0, bottom=top+(window.visualViewport?.height??innerHeight)
+        const controls=['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'].map(id=>{
+          const el=node.querySelector(`[data-testid="${id}"]`),r=el?.getBoundingClientRect()
+          return {id,count:node.querySelectorAll(`[data-testid="${id}"]`).length,top:r?.top,bottom:r?.bottom,width:r?.width,height:r?.height,visibility:el&&getComputedStyle(el).visibility}
+        })
+        return {height:s.height,gap:f.top-last,cardBottom:s.bottom,viewportBottom:bottom,viewportTop:top,controls}
+      })
+      assert(fit.gap<=24&&fit.height<452&&fit.cardBottom<=fit.viewportBottom+1,'the summary sheet fits above the visible viewport foot: '+JSON.stringify(fit))
+      assert(fit.controls.every(item=>item.count===1&&item.width>0&&item.height>0&&item.visibility==='visible'&&item.top>=fit.viewportTop&&item.bottom<=fit.viewportBottom+1),
+        'the summary follow-up controls are visible inside the viewport: '+JSON.stringify(fit))
+    } else if(phone) {
+      // The default-off phone reader retains the older chapter-notes sheet:
+      // its follow-up field is inside the sheet rather than a card foot.
+      const sheet=page.getByTestId('lab-chapter-notes')
+      for(const id of ['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'])assert.equal(await sheet.locator(`[data-testid="${id}"]`).count(),1,id+' in the legacy summary sheet')
+      const fit=await sheet.evaluate(node=>{const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect(),last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom));return {height:s.height,gap:f.top-last}})
+      assert(fit.gap<=24&&fit.height<452,'the legacy summary sheet is as tall as its content: '+JSON.stringify(fit))
+    }
+    if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
+    else await page.getByTestId('lab-chapter-notes-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
     assert.deepEqual(state.errors,[])
     result.passed=true
@@ -932,7 +1054,7 @@ async function panelsOpenNearSource(engine,name) {
     state=await boot(browser,false,'odyssey','original-en',2)
     const {page}=state
     const menu=await page.getByTestId('lab-super').boundingBox()
-    for(const id of ['settings','editions','catchup']){
+    for(const id of ['text','editions','audio','catchup']){
       await clickMenu(page,id);await page.waitForTimeout(700)
       const sheet=await page.locator('section.lab-v2-sheet').first().boundingBox()
       assert(Math.abs(sheet.x+sheet.width-(menu.x+menu.width))<=40,`${id} opens right-aligned under the Menu button: ${JSON.stringify(sheet)}`)

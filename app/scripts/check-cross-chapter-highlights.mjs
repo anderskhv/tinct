@@ -8,7 +8,7 @@ const results=[]
 await fs.mkdir(output,{recursive:true})
 const edition=JSON.parse(await fs.readFile('public/data/editions/bible-kjv-en.json','utf8'))
 for(const engine of [chromium,webkit]){
- const browser=await markInternal(await engine.launch({headless:true}))
+ const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio']}:{})}))
  try{for(const reverse of [false,true]){
   const context=await browser.newContext({viewport:{width:1440,height:950},serviceWorkers:'block'})
   const page=await context.newPage()
@@ -47,7 +47,7 @@ for(const engine of [chromium,webkit]){
    await page.mouse.down()
    await page.mouse.move(end.x+end.width/2,end.y+end.height/2,{steps:20})
    await page.mouse.up()
-   await page.getByRole('button',{name:'Highlight',exact:true}).click()
+   await page.getByTestId('lab-dbar-highlight').click()
    await page.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]').length===2)
    const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')))
    assert.deepEqual(saved.map(h=>h.chapterNumber),[a.chapter,b.chapter])

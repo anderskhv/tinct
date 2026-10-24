@@ -17,7 +17,7 @@ function rulesFor(className: string): string[] {
 }
 
 /**
- * The reader's settings and Book editions sheets are UI chrome: system UI,
+ * The reader's Aa, Book settings and Audio settings sheets are UI chrome: system UI,
  * never mono (docs/design-system.md, rule 1). An iPhone showed the edition
  * values ("Tinct Modern English", "Follow main version") in a monospace face
  * (14 Oct 2026). The phone's visually hidden status line is chrome too, and a

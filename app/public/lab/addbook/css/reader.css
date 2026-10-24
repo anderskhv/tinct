@@ -100,17 +100,18 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .byob-aa { flex-basis: 32px; width: 32px; height: 44px; font-size: 19px; }
 /* On the phone the controls are one narrow column; with Aa they take the width they need, in one row. */
 .lab.byob.is-phone .lab-header-controls:has(.byob-aa) { width: auto; min-width: 0; flex-wrap: nowrap; gap: 0; }
-/* The Aa panel: Layout first (the reader's edition choices, src/lab/LabV2Sheet.tsx .lab-v2-edition-option),
+/* The phone's Aa is a t menu row (Anders, 22 Oct 2026): Aa, Book settings and Audio settings are all in the t menu there. */
+.lab.byob.is-phone .byob-aa { display: none; }
+/* Book settings: Layout first (the reader's edition choices, src/lab/LabV2Sheet.tsx .lab-v2-edition-option),
    its label in sentence case (the reader's group label is small caps; no all-caps labels here). */
-.lab.byob .byob-aa-panel .lab-v2-head { justify-content: flex-end; padding-bottom: 0; }
-.lab.byob .byob-aa-panel .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
-/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout, as under the size;
-   no fills, no headings beyond Layout. */
-.lab.byob .byob-aa-panel .byob-aa-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
-.lab.byob .byob-aa-panel .byob-aa-layout[hidden], .lab.byob .byob-aa-panel .lab-v2-row[hidden] { display: none; }
-.lab.byob .byob-aa-panel .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
-.lab.byob .byob-aa-panel .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
-.lab.byob .byob-aa-panel .lab-v2-edition-check { margin-left: auto; }
+.lab.byob .byob-settings .lab-v2-group-label { margin: 0 0 2px; font: 600 13px/1.4 var(--pdf-ui); letter-spacing: 0; text-transform: none; color: var(--lab-ink-muted, var(--pdf-muted)); }
+/* Calm sections, as Gloss's own panels keep them: a hairline and 16px under Layout; no fills, no headings beyond Layout. */
+.lab.byob .byob-settings .byob-layout { margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--pdf-line); }
+.lab.byob .byob-settings .byob-layout:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.lab.byob .byob-settings .byob-layout[hidden], .lab.byob .byob-settings .lab-v2-row[hidden] { display: none; }
+.lab.byob .byob-settings .lab-v2-edition-option { min-height: 44px; padding: 8px 0; }
+.lab.byob .byob-settings .lab-v2-edition-option + .lab-v2-edition-option { border-top: 1px solid var(--pdf-line); }
+.lab.byob .byob-settings .lab-v2-edition-check { margin-left: auto; }
 /* Focus view (TinctReaderLayout): a card opens in a pop-up window with the book reader's Explain
    window's look (src/lab/lab.css .selection-popup.is-lab.is-contextual-explain: its fill, rule, 18px
    corners, shadow and blur); reader.js places it (placePopupEl). */
@@ -119,6 +120,14 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .lab.byob :is(.mr-card.is-popup.is-open, .mr-primer.is-popup) { border-color: #111; background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; }
 /* Off for a scan without text (read aloud, Summarize, Catch me up): dimmed as Tinct's buttons are (tinct-ui.css .tui-btn:disabled) */
 .lab.byob .lab-v2-play:disabled, .lab.byob .lab-super-row:disabled { opacity: .45; cursor: default; }
+/* The t menu's Chat · Talk row (Tinct's normal menu, 21 Oct 2026): two halves of one 44px row, a hairline between
+   them, as the phone's (src/lab/lab.css .lab-super-row.is-pair). */
+.lab.byob .lab-super-row.is-pair { padding: 0; cursor: default; }
+.lab.byob .lab-super-row-half { display: flex; align-items: center; flex: 1 1 50%; min-width: 0; min-height: 44px; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab.byob .lab-super-row-half.is-second { border-left: 1px solid var(--lab-v2-hairline); }
+.lab.byob .lab-super-row-half:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+/* The top bar's buttons are never selected as text (the Aa glyph took a selection highlight, 21 Oct 2026). */
+.lab.byob .lab-header button { -webkit-user-select: none; user-select: none; }
 /* The phone has the back arrow too, whatever the PDF shows (a scanned page fills the screen):
    a way back to My shelf always in view, at the left of the top bar (Library stays in the t menu). */
 .lab.byob.is-phone .lab-header { grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 4px; }
@@ -135,6 +144,15 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob.is-phone .lab-header-chapter-label { min-width: 0; }
 .lab.byob.is-phone .lab-header-chapter[data-chevron="off"] { padding: 3px 9px; }
 .lab.byob.is-phone .lab-header-chapter[data-chevron="off"] .lab-header-chevron { display: none; }
+/* A chapter cut to fit (reader.js fitPill, a `cut` stage): the pill gives way to the title, the chapter's name ends in an
+   ellipsis and a closing number stays whole ("The Wi… · 1"). */
+.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] { flex: 0 1 auto; }
+.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-fit="cut"]) .lab-header-work { flex-shrink: 0; }
+.lab.byob.is-phone .lab-header-chapter[data-fit="cut"] .lab-header-chapter-label { display: flex; }
+.lab.byob.is-phone .lab-header-chapter-label .byob-cut { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lab.byob.is-phone .lab-header-chapter-label .byob-cut-tail { flex: none; white-space: pre; }
+/* The title gives way to the chapter's name first (round 3, an EPUB's stages): cut by its own ellipsis, then left out. */
+.lab.byob.is-phone .lab-header-brand:has(> .lab-header-chapter[data-title="off"]) .lab-header-work { display: none; }
 /* The pill's own fill sets it apart from the title, so the phone has no dot between them; and the bar's right
    edge is the t button's own room (its glyph sits 12px inside it), as the back arrow's left is. */
 .lab.byob.is-phone .lab-title-sep { display: none; }
@@ -219,6 +237,10 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* The settings sheet in the design system's faces: UI in the system face (title, rows, values,
    theme names; never mono), the swatches' "Aa" in the reading face. Sized to its rows. */
 .lab.byob .byob-settings .lab-v2-sheet { height: auto !important; min-height: 0 !important; max-height: calc(100dvh - 48px); }
+/* The settings panels on the desktop (Anders, 21 Oct 2026: "can't see the full menu"; 22 Oct: never at the screen's foot):
+   a pop-over just below its button, Aa's or the t menu's (Book settings, Audio settings), its right edge under the
+   button's (--aa-right, reader.js hangAa), never past the window's foot; its rows scroll inside. */
+.lab.byob:not(.is-phone) :is(.byob-aa-panel, .byob-anchored) .lab-v2-sheet { top: calc(var(--pdf-top, 64px) + 8px); bottom: auto; left: auto; right: var(--aa-right, 16px); transform: none; max-height: calc(100dvh - var(--pdf-top, 64px) - 24px); border-radius: 16px; box-shadow: 0 12px 36px #140f0833, 0 1px 3px #140f081f; }
 .lab.byob .byob-settings :is(.lab-v2-title, .lab-v2-row-label, .lab-v2-row-select, button, .lab-v2-value, .lab-v2-theme-label, .lab-v2-note, .lab-v2-size-small, .lab-v2-size-large, .lab-v2-dismiss) { font-family: var(--pdf-ui) !important; letter-spacing: 0 !important; text-transform: none !important; }
 .lab.byob .byob-settings .lab-v2-title { font-weight: 600; }
 .lab.byob .byob-settings .lab-v2-value { font-variant-numeric: tabular-nums; }
@@ -235,6 +257,8 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 .lab.byob .byob-ocr-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
 .lab.byob .byob-ocr-actions button { min-height: 36px; padding: 0 14px; border: 1px solid var(--pdf-line); border-radius: 999px; background: transparent; color: inherit; font: inherit; font-size: 16px; cursor: pointer; }
 .lab.byob .byob-ocr-actions button.primary { border-color: var(--pdf-accent); background: var(--pdf-accent); color: var(--pdf-surface); }
+.lab.byob .byob-ocr-bar { height: 4px; margin-top: 10px; border-radius: 2px; background: var(--pdf-line); overflow: hidden; }
+.lab.byob .byob-ocr-bar > span { display: block; height: 100%; min-width: 4px; background: var(--pdf-accent); border-radius: inherit; transition: width .3s ease; }
 .lab.byob .byob-ocr-link { padding: 0; border: 0; background: none; color: var(--pdf-accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .lab.byob .byob-ocr-link:disabled { opacity: .55; cursor: default; }
 /* Beside the docked chat: centred over the pages. */
@@ -264,3 +288,6 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 :is(html[data-eink="true"], html[data-pdf-theme="eink"]) .pdf-strip__tip { outline: 1px solid var(--mr-ink); outline-offset: -1px; }
 .pdf-strip:focus-visible .pdf-strip__win { stroke: var(--mr-ink); }
 /* ---------- end position strip ---------- */
+/* A picture in the chat's thread: at most 120px tall, opening it large (Anders, 19 Oct 2026, night). */
+.tc .tc-imgs .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
+.tc .tc-imgs .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }

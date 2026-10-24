@@ -32,7 +32,7 @@ jobs:
         run: npm run build
         env:
           CI: true
-      - run: npx playwright install --with-deps chromium webkit
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium webkit
       - run: node scripts/check-cross-chapter-highlights.mjs
         env:
           READER_BUILT: ${{ github.event_name == 'workflow_run' && '0' || '1' }}

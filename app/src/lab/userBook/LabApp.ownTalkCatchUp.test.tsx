@@ -155,7 +155,9 @@ describe('Catch me up on a reader’s own book', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-catchup'))
     await waitFor(() => expect(screen.getByTestId('lab-catch-up-entry').textContent).toContain('then leaves for the city.'))
-    fireEvent.click(screen.getByTestId('lab-catch-up-talk'))
+    // The phone's sheet ends with the follow-up field (21 Oct 2026): its Talk button, not a round one.
+    expect(screen.queryByTestId('lab-catch-up-talk')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
     await waitFor(() => expect(screen.getByTestId('lab-call')).toBeTruthy())
     expect(screen.queryByTestId('lab-catch-up')).toBeNull()
     await waitFor(() => expect(captured.options?.reference ?? '').toContain('Mara waits by the lamp, then leaves for the city.'))

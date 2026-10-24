@@ -6,6 +6,7 @@ import { editionShardPath } from '../data/editionUrls'
 import { BOOKS } from '../data/bookRegistry'
 import { readerBootPrimaryExceptions } from '../../scripts/readerBootScript'
 import {
+  readerBootMarginPreview,
   LAB_THEME_PAPER,
   READER_BOOT_DEFAULT_FACE_URL,
   readerBootDeepLink,
@@ -275,5 +276,29 @@ describe('reading face and e-ink', () => {
     expect(readerBootEink('?eink=0', 'eink')).toBe(false)
     expect(readerBootEink('?eink=1', null)).toBe(true)
     expect(readerBootEink('', 'normal')).toBe(false)
+  })
+})
+
+describe('readerBootMarginPreview (round 3)', () => {
+  const placed = (key: string) => JSON.stringify({ books: { frankenstein: { bookId: 'frankenstein', primaryEditionKey: key } } })
+  const urls = (key: string, id = 'frankenstein') => [`/data/editions/${id}-${key}.json?v=v1`, `/api/edition-patches?bookId=${id}&editionKey=${key}`]
+  const at = (search: string, o: { sticky?: string; position?: string; prefs?: string } = {}, exceptions: Record<string, string> = {}) =>
+    readerBootMarginPreview(search, key => ({ 'tinct:margin-preview': o.sticky, 'tinct-lab-position': o.position } as Record<string, string | undefined>)[key] ?? null, o.prefs ?? null, exceptions, 'v1')
+  it('the edition the preview will read, only when the boot can be sure', () => {
+    expect(at('?book=frankenstein&margin=1')).toEqual(urls('modern-en'))
+    expect(at('?book=frankenstein', { sticky: '1' })).toEqual(urls('modern-en'))
+    expect(at('?book=frankenstein&margin=1', { position: placed('original-en') })).toEqual(urls('original-en'))
+    expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ primaryEdition: 'modern-en' }) })).toEqual(urls('modern-en'))
+    // Off: nothing.
+    expect(at('?book=frankenstein')).toEqual([])
+    expect(at('?book=frankenstein&margin=0', { sticky: '1' })).toEqual([])
+    expect(at('?book=bible&margin=1', {}, readerBootPrimaryExceptions())).toEqual([])
+    expect(at('?margin=1')).toEqual([])
+    // In doubt: another chosen main edition, a book whose default is not Modern English, a place without a usable edition, unreadable storage.
+    expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en' } }) })).toEqual([])
+    expect(at('?book=x-book&margin=1', {}, { 'x-book': 'original-en' })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: placed('../x') })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: JSON.stringify({ books: { frankenstein: {} } }) })).toEqual([])
+    expect(at('?book=frankenstein&margin=1', { position: '{' })).toEqual([])
   })
 })

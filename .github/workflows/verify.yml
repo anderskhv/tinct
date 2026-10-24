@@ -1,5 +1,10 @@
 name: verify
 
+# Pull requests run the suites their files need (scripts/ci-suites.mjs: the reader, shared code, dependencies, the
+# workflows, the build and the Worker entry always run everything; so does any file no rule names). A push to main,
+# the nightly run and a manual run always run everything. The suites run side by side; `ci-summary` is the one check
+# to wait for: it passes only when every suite that ran passed and every skipped suite was one the change did not need.
+
 on:
   workflow_dispatch:
   pull_request:
@@ -8,43 +13,77 @@ on:
       - main
       - 'cursor/**'
       - 'codex/audio-v4-pod-plumbing-20260916'
+  schedule:
+    # Nightly, everything, on main (whatever path-scoped PRs skipped during the day).
+    - cron: '17 2 * * *'
 
 permissions:
   contents: read
 
+# A newer push to the same pull request supersedes its run; main and the nightly run are never cancelled.
+concurrency:
+  group: verify-${{ github.event.pull_request.number && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      signin: ${{ steps.suites.outputs.signin }}
+      panels: ${{ steps.suites.outputs.panels }}
+      library: ${{ steps.suites.outputs.library }}
+      featured: ${{ steps.suites.outputs.featured }}
+      audio: ${{ steps.suites.outputs.audio }}
+      shakespeare: ${{ steps.suites.outputs.shakespeare }}
+      typeset: ${{ steps.suites.outputs.typeset }}
+      margin: ${{ steps.suites.outputs.margin }}
+    steps:
+      # A pull request checks out its merge commit: HEAD^1 is the base, so HEAD^1..HEAD is exactly the PR's files.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - name: Choose the suites this change needs
+        id: suites
+        run: |
+          node scripts/ci-suites.mjs | tee -a "$GITHUB_OUTPUT"
+          { echo '### Suites'; echo; node scripts/ci-suites.mjs | sed 's/^/- /'; } >> "$GITHUB_STEP_SUMMARY"
+
+  # Unit tests, the docs check, the build and its gates: every change.
   app:
     runs-on: ubuntu-latest
-    # The job takes about 29.5 minutes (Oct 2026); at 30 a slower runner was cancelled mid-check.
-    timeout-minutes: 45
+    timeout-minutes: 30
     defaults:
       run:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/prepare
         with:
-          node-version: '24.13.0'
-          cache: npm
-          cache-dependency-path: app/package-lock.json
-      - name: Set up cloud checkout
-        run: bash ../scripts/cloud-setup.sh
+          build: 'false'
+          browsers: ''
       - name: Check project documentation
         run: |
           python3 ../scripts/check-docs.py
           python3 ../scripts/check-docs.py docs/featured-library-preview-2026-09-21.md docs/library-voice-layout-2026-09-17.md docs/library-responsive-2026-09-17.md docs/library-iteration-2026-09-17.md docs/product-current.md docs/reader-panels-selection-2026-09-21.md docs/reader-library-brand-batch-2026-09-21.md
       - name: Test deployed configuration graph
+        # Reads production (https://tinct.app/reader): advisory on a pull request, blocking on main and in deploy.
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
         run: TINCT_CONFIG_LIVE=1 node --test scripts/check-deployed-config.test.cjs
       - name: Test audio GPU launch preflight
         run: python3 ../tools/audio-highlight/gpu/test_preflight_launch.py
       - name: Test pinned audio normalisation and cloud plumbing
         run: python3 ../tools/audio-highlight/aligner/test_normalisation_v3.py
+      - name: Test the CI suite rules
+        run: node --test ../scripts/ci-suites.test.mjs
       - run: npm test
       - run: npm run build
         env:
           CI: true
       - run: npm run verify-bundle
-        id: bundle_gate
       - name: Reject the competing Workers Builds path
         run: |
           if WORKERS_CI=1 npm run build > /tmp/tinct-workers-build-guard.log 2>&1; then
@@ -52,10 +91,21 @@ jobs:
             exit 1
           fi
           grep -F 'Tinct production builds run through GitHub Actions only' /tmp/tinct-workers-build-guard.log
-      - name: Install silent browser acceptance
-        run: npx playwright install --with-deps chromium webkit
+
+  reader-panels:
+    needs: changes
+    if: ${{ needs.changes.outputs.panels == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        id: prepare
       - name: Verify real Grok microphone recovery silently
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' && (github.head_ref == 'codex/audio-acceptance-diagnostics-20260924' || github.head_ref == 'codex/reader-panels-selection-20260921' || github.head_ref == 'codex/audiobook-grok-voices-20260921' || github.head_ref == 'codex/mobile-reader-library-grok-20260921') }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && (github.head_ref == 'codex/audio-acceptance-diagnostics-20260924' || github.head_ref == 'codex/reader-panels-selection-20260921' || github.head_ref == 'codex/audiobook-grok-voices-20260921' || github.head_ref == 'codex/mobile-reader-library-grok-20260921') }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y espeak-ng
@@ -71,25 +121,14 @@ jobs:
           retention-days: 3
           name: voice-capture-acceptance
           path: app/artifacts/voice-capture
-      - name: Verify sign-in completion without real accounts
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
-        run: node scripts/check-sign-in.mjs
-      - name: Save sign-in acceptance
-        uses: actions/upload-artifact@v4
-        continue-on-error: true
-        if: always()
-        with:
-          retention-days: 3
-          name: sign-in-acceptance
-          path: app/artifacts/sign-in
       - name: Verify reader panels and selection
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-reader-panels.mjs
       - name: Verify reader feedback fixes
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-reader-feedback.mjs
       - name: Verify spoken Bible book transition silently
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node scripts/check-book-transition.mjs
       - name: Save reader acceptance screenshots
         uses: actions/upload-artifact@v4
@@ -102,16 +141,55 @@ jobs:
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
             app/artifacts/book-transition
+
+  library:
+    needs: changes
+    if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        id: prepare
+      - name: Verify sign-in completion without real accounts
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.signin == 'true' }}
+        run: node scripts/check-sign-in.mjs
       - name: Verify public cinematic library
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-library-public.mjs
+      - uses: actions/upload-artifact@v4
+        continue-on-error: true
+        if: always()
+        with:
+          retention-days: 3
+          name: library-acceptance
+          path: |
+            app/artifacts/sign-in
+            app/artifacts/library-public
+
+  page-layout:
+    needs: changes
+    if: ${{ needs.changes.outputs.shakespeare == 'true' || needs.changes.outputs.typeset == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        id: prepare
       - name: Verify Shakespeare layout
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.shakespeare == 'true' }}
         run: node scripts/check-shakespeare-layout.mjs
       - name: Verify hyphenation hardening
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-hyphenation-hardening.mjs
       - name: Verify page breaks end on a filled line
-        if: ${{ !cancelled() && steps.bundle_gate.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-page-break-lines.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -121,30 +199,36 @@ jobs:
           name: library-preparation-acceptance
           path: |
             app/artifacts/shakespeare-layout
-            app/artifacts/library-public
             app/artifacts/hyphenation-hardening
             app/artifacts/page-break-lines
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,
-  # so nothing leaves the runner. A fast sample here; `npm run check:margin:full` runs the whole matrix.
+  # so nothing leaves the runner. A fast sample here, in four parts side by side (MARGIN_SHARD: every check is
+  # in exactly one part); `npm run check:margin:full` runs the whole matrix.
   margin-layout:
+    needs: changes
+    if: ${{ needs.changes.outputs.margin == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: margin-layout (${{ matrix.shard }}/4)
     defaults:
       run:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/prepare
         with:
-          node-version: '24.13.0'
-          cache: npm
-          cache-dependency-path: app/package-lock.json
-      - run: bash ../scripts/cloud-setup.sh
-      - run: npx playwright install --with-deps chromium
+          build: 'false'
+          browsers: chromium
       - name: Check the margin's layout, keys and actions (sample of the stress matrix, AI mocked)
         # Failing rows also become annotations, readable from the check run without the log.
+        env:
+          MARGIN_SHARD: ${{ matrix.shard }}/4
         run: |
           set +e
           npm run check:margin 2>&1 | tee margin-check.log
@@ -156,7 +240,7 @@ jobs:
         if: always()
         with:
           retention-days: 3
-          name: margin-layout
+          name: margin-layout-${{ matrix.shard }}of4
           path: app/artifacts/margin
 
   reading-benchmark:
@@ -175,25 +259,19 @@ jobs:
         run: node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json benchmarks/reading-companion/candidates.json /tmp/tinct-benchmark-ci calibration
 
   featured-preview:
+    needs: changes
+    if: ${{ needs.changes.outputs.audio == 'true' || needs.changes.outputs.featured == 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 35
     defaults:
       run:
         working-directory: app
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24.13.0'
-          cache: npm
-          cache-dependency-path: app/package-lock.json
-      - run: bash ../scripts/cloud-setup.sh
-      - run: npm run build
-        env:
-          CI: true
-      - run: npm run verify-bundle
-      - run: npx playwright install --with-deps chromium webkit
+      - uses: ./.github/actions/prepare
+        id: prepare
       - name: Verify inline audio loading silently
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.audio == 'true' }}
         run: node scripts/check-inline-audio-loading.mjs
       - uses: actions/upload-artifact@v4
         continue-on-error: true
@@ -202,8 +280,11 @@ jobs:
           retention-days: 3
           name: inline-audio-loading
           path: app/artifacts/inline-audio-loading
-      - run: node scripts/check-featured-preview.mjs
+      - name: Verify the featured-book preview
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
+        run: node scripts/check-featured-preview.mjs
       - name: Verify compact reader menu
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
         run: READER_MENU_ONLY=1 node scripts/check-reader-panels.mjs
       - name: Save menu design screenshots
         uses: actions/upload-artifact@v4
@@ -222,3 +303,33 @@ jobs:
           retention-days: 3
           name: featured-preview-acceptance
           path: app/artifacts/featured-preview
+
+  # The one check to wait for (and to require, should main ever be protected): green only when the suite choice ran,
+  # every suite that ran passed, and every skipped suite was one this change did not need.
+  ci-summary:
+    if: ${{ always() }}
+    needs: [changes, app, reader-panels, library, page-layout, margin-layout, reading-benchmark, featured-preview]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Judge the suites
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          node - <<'EOF'
+          const needs = JSON.parse(process.env.NEEDS)
+          const s = needs.changes.outputs || {}
+          const on = (...names) => names.some(n => s[n] === 'true')
+          // Which suites a job carries: it may be skipped only when none of them was needed.
+          const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
+            'margin-layout': on('margin'), 'featured-preview': on('audio', 'featured'), app: true, 'reading-benchmark': true }
+          const problems = []
+          if (needs.changes.result !== 'success') problems.push(`changes: ${needs.changes.result} (the suites could not be chosen)`)
+          for (const [job, { result }] of Object.entries(needs)) {
+            if (job === 'changes') continue
+            const ok = result === 'success' || (result === 'skipped' && !carries[job])
+            console.log(`${ok ? 'ok  ' : 'FAIL'} ${job}: ${result}${result === 'skipped' ? (carries[job] ? ' (needed)' : ' (not needed by this change)') : ''}`)
+            if (!ok) problems.push(`${job}: ${result}`)
+          }
+          if (problems.length) { console.log('::error::' + problems.join('; ')); process.exit(1) }
+          EOF

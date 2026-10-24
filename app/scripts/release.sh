@@ -20,15 +20,26 @@ shift || true
 
 case "$cmd" in
   upload)
+    node scripts/release-tools.cjs assert-release-command
     npm run build
     npm run verify-bundle
+    node scripts/check-release-activation.mjs
     node scripts/check-deploy-source.cjs --head-only
+    node scripts/release-tools.cjs assert-repair-live
     npx wrangler versions upload \
       --tag "$(git rev-parse --short=12 HEAD)" \
       --message "$(git log -1 --format=%s | cut -c1-100)"
     ;;
   promote)
     id="${1:?usage: release.sh promote <version-id>}"
+    node scripts/release-tools.cjs assert-release-command
+    node scripts/check-deploy-source.cjs
+    if [ "${TINCT_RELEASE_PHASE:-}" = reader ]; then
+      serving=$(node scripts/release-tools.cjs current-version)
+      node scripts/release-tools.cjs verify-reader-floor "${serving#version_id=}"
+    elif [ "${TINCT_RELEASE_PHASE:-}" = repair ]; then
+      node scripts/release-tools.cjs assert-repair-live
+    fi
     npx wrangler versions deploy "${id}@100%" --yes --message "promote $(git rev-parse --short=12 HEAD)"
     ;;
   rollback)

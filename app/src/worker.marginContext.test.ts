@@ -6,9 +6,17 @@
  */
 import { createHash } from 'node:crypto'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+// Fact-check's doc-first opening is off since 19 Oct 2026 (marginRoutes.ts FACTCHECK_DOC_FIRST): this file's cases test
+// the opening with its switch on, as it ran from 15 to 19 Oct (worker.marginFactcheck19Oct.test.ts covers the default).
+vi.mock('./companion/marginRoutes', async importOriginal => {
+  const real = await importOriginal<typeof import('./companion/marginRoutes')>()
+  return { ...real, factcheckDocFirst: () => true }
+})
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
-import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, parseMarginDocument } from './companion/marginContext'
+import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
+import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -108,12 +116,13 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
       simplify: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       define: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       define_sense: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 400, thinking: { type: 'disabled' } },
-      quiz_check: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 500, thinking: { type: 'disabled' } },
+      // Quiz me on Sonnet with adaptive thinking (Anders, 20 Oct 2026; the Haiku speed trial QUIZ_THINKING_OFF is off).
+      quiz_check: { model: 'claude-sonnet-5-5', effort: 'low', maxTokens: 3000 },
       related: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 800, thinking: { type: 'disabled' } },
       factcheck: { model: 'claude-haiku-5-5', effort: 'medium', maxTokens: 8000 },
       // Counterpoint's thinking-off trial is off again (night run final, 16 Oct: 3.80 -> 3.26, an empty answer cut off).
       counterpoint: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000 },
-      quiz: { model: 'claude-haiku-5-5', effort: 'low', maxTokens: 6000, thinking: { type: 'disabled' } },
+      quiz: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       primer: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 8000 },
       ask: { model: 'claude-sonnet-5-5', effort: 'medium', maxTokens: 1800 },
     })
@@ -147,7 +156,7 @@ describe('the margin route table (Anders, 15 Oct 2026)', () => {
     expect(anthropic[0].output_config).toEqual({ effort: route.effort })
     expect(anthropic[0].max_tokens).toBe(route.maxTokens)
     // Haiku's lookups: thinking off. Quiz me (its trial, on): off too. Counterpoint (its trial off again), Fact-check and Sonnet's primer and Ask: no thinking field.
-    if (['explain', 'define', 'simplify', 'define_sense', 'quiz_check', 'quiz'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
+    if (['explain', 'define', 'simplify', 'define_sense'].includes(intent)) expect(anthropic[0].thinking).toEqual({ type: 'disabled' })
     else expect(anthropic[0]).not.toHaveProperty('thinking')
     expect(JSON.stringify(anthropic[0])).not.toContain('budget_tokens')
   })
@@ -218,7 +227,7 @@ describe('the cached prefix', () => {
 
   it('sends byte-identical bytes up to the breakpoint for different intents and selections on the same file and model', async () => {
     const { anthropic } = stubFetch()
-    // Haiku 5.5: Explain on page 1, then Define-sense on page 3 and Simplify on page 2.
+    // Haiku 5.5: Explain on page 1, then Define-sense on page 3 and Simplify on page 2; then a quiz answer marked (Sonnet).
     await send(margin('explain', 1, { selection: 'dispensing with recurrence and convolutions entirely' }))
     await send(margin('define_sense', 3, { selection: 'intra-attention', senses: ['One.', 'Two.'] }))
     await send(margin('simplify', 2, { selection: 'Recurrent neural networks have been firmly established' }))
@@ -231,7 +240,9 @@ describe('the cached prefix', () => {
     expect(ask.model).toBe(MARGIN_SONNET_MODEL)
     expect(prefixBytes(defineSense)).toBe(prefixBytes(explain))
     expect(prefixBytes(simplify)).toBe(prefixBytes(explain))
-    expect(prefixBytes(quizCheck)).toBe(prefixBytes(explain))
+    // Marking a quiz answer is on Sonnet since 20 Oct 2026: it shares Ask's and the primer's cached prefix.
+    expect(prefixBytes(quizCheck)).toBe(prefixBytes(ask))
+    expect(quizCheck.model).toBe(MARGIN_SONNET_MODEL)
     expect(prefixBytes(primer)).toBe(prefixBytes(ask))
     // The same document text either way; only the model (each keeps its own cache) differs.
     expect((ask.system as SystemBlock[])[0].text).toBe((explain.system as SystemBlock[])[0].text)
@@ -576,6 +587,32 @@ describe('the book reader is unchanged', () => {
     askStream: 'e2e6eea181031a8787b859bccb319da0a51bb5cecae15d45468f8d5ac166db6f',
     guestAsk: 'eaa1df445f7df54bb419de8be86b3c1430241e7135ef0d585d02f5eb2ca4badc',
   }
+  // The grounding rules and the reader's place line (Anders, 21 Oct 2026, "go on chat") change the book
+  // reader's prompt on purpose and nothing else: each body is pinned as it is now, and with exactly those
+  // additions taken out it is still the body above.
+  const GROUNDED: Record<string, string> = {
+    explain: '331fc205d37b9c58dd0cc4cb8d70abf7920cbd95dd741e8b93bc964bf00b7fe4',
+    define: '4ab071f7f29d24b88847ac9ae91561e819b6948192adf9abee9e949059aa04e0',
+    ask: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+    askStream: '04f8f7b58869179b758afd3babf868f7781078c48f6a31ede382a22239fb358e',
+    guestAsk: 'b06d6d80867d083ff0e0e821ce6930659034ba77032f9925f903d4b503c586b8',
+  }
+  const withoutGrounding = (body: Record<string, unknown>) => {
+    const strip = (text: string) => {
+      const rules = `\n\n${LAB_ASK_GROUND_FIRST_RULE}\n${LAB_ASK_CHECKED_SPECIFICS_RULE}\n${LAB_ASK_RECHECK_RULE}`
+      expect(text.split(rules).length - 1).toBeLessThanOrEqual(1)
+      return text.replace(rules, '').replace(/The reader is at: [^\n]*\n\n/, '')
+    }
+    const system = body.system as string | Array<{ text: string }>
+    return { ...body, system: typeof system === 'string' ? strip(system) : system.map(block => ({ ...block, text: strip(block.text) })) }
+  }
+  // The lookup grounding line (#525) adds to Define's turn on top of that, and nothing else.
+  const AFTER: Record<string, string> = { ...GROUNDED, define: '678ebd2ba093d613aca66be8340a006bd94ba533da2af6293a91d6e62dc115d3' }
+  const withoutLookupGrounding = (body: Record<string, unknown>) => {
+    const line = `${CONTEXTUAL_LOOKUP_GROUNDING_LINE}\n`
+    const messages = body.messages as Array<{ role: string; content: unknown }>
+    return { ...body, messages: messages.map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(line, '') } : message) }
+  }
   const requests: Record<string, { body: unknown; guest?: boolean }> = {
     explain: { body: { companion: { intent: 'explain', context: bookContext, selection: 'ingenious hero' } } },
     define: { body: { companion: { intent: 'define', context: bookContext, selection: 'muse' } } },
@@ -588,6 +625,30 @@ describe('the book reader is unchanged', () => {
     const { anthropic } = stubFetch()
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
-    expect(sha(anthropic[0])).toBe(BEFORE[name])
+    expect(sha(anthropic[0])).toBe(AFTER[name])
+    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(GROUNDED[name])
+    expect(sha(withoutGrounding(withoutLookupGrounding(anthropic[0])))).toBe(BEFORE[name])
+  })
+})
+
+describe('a book from Tinct\'s library in the margin (the margin preview)', () => {
+  const chapters = { kind: 'epub', units: [{ n: 5, text: 'Chapter 1\n\nI am by birth a Genevese.' }] }
+  it('is not called a file the reader opened from their own files', () => {
+    const doc = parseMarginDocument({ ...chapters, library: true })!
+    expect(doc.library).toBe(true)
+    const { stable } = buildMarginPrefixParts(doc, { title: 'Frankenstein', author: 'Mary Shelley' })
+    expect(stable.startsWith(marginRules(true))).toBe(true)
+    expect(stable).not.toContain('their own files')
+    expect(stable).not.toContain('entitled')
+    expect(stable).toContain('a book the reader is reading from Tinct\'s library')
+  })
+  it('leaves a reader\'s own file exactly as before (the same cached prefix)', () => {
+    for (const raw of [chapters, { ...chapters, library: 'yes' }, { ...chapters, library: false }]) {
+      const doc = parseMarginDocument(raw)!
+      expect(doc.library).toBeUndefined()
+      expect(buildMarginPrefixParts(doc, { title: 'Mine', author: '' }).stable.startsWith(MARGIN_RULES)).toBe(true)
+    }
+    expect(MARGIN_RULES).toBe(marginRules(false))
+    expect(MARGIN_RULES.split('\n')[0]).toContain('opened from their own files')
   })
 })

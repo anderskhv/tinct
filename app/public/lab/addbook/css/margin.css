@@ -99,7 +99,7 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr-card.is-folded .mr-card__text { margin-top: 2px; font-size: 16px; line-height: 1.4; color: var(--mr-muted);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .mr-card.is-note.is-folded { box-shadow: inset 2px 0 0 var(--hl-color); }   /* the note's highlight colour */
-.mr-card.is-note .mr-card__text { font-style: italic; }
+.mr-card.is-note .mr-card__text { font-style: normal; }   /* a note's own words are upright (Anders, 20 Oct 2026); its label stays italic */
 /* open */
 .mr-card.is-open { display: flex; flex-direction: column; gap: 10px; padding: 14px 18px 12px; border-radius: 14px; background: var(--mr-card); box-shadow: var(--mr-card-shadow); }
 .mr-quote { position: relative; padding-left: 12px; font-size: 14px; font-style: italic; line-height: 1.4; color: var(--mr-muted); }   /* cut at 120 chars with … */
@@ -194,8 +194,10 @@ html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr {
 .mr { --mr-accent: #1f4a5c; --mr-bar-accent: #8cbccd; }   /* Tinct's accent; the same on the dark bar */
 .lab.is-night .mr { --mr-accent: #8cbccd; }
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-accent: #111; --mr-bar-accent: #fff; }
-@keyframes mr-blink { 0%, 30% { opacity: 1 } 55%, 80% { opacity: .15 } 100% { opacity: 1 } }
-.mr-bar__caret { display: inline-block; border-radius: 1px; background: var(--mr-bar-accent); animation: mr-blink 1.4s ease-in-out infinite; }
+/* The hint after "Ask" (Anders, 21 Oct 2026: the blue blinking line was too jarring): the bar's own ink, 1px by 13px, a
+   slow soft pulse that never goes out. */
+@keyframes mr-blink-soft { 0%, 55% { opacity: .7 } 75%, 90% { opacity: .3 } 100% { opacity: .7 } }
+.mr-bar__caret { display: inline-block; width: 1px; height: 13px; border-radius: 1px; background: var(--mr-bar-ink); opacity: .7; animation: mr-blink-soft 2.4s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .mr-bar__caret { animation: none; } }
 .mr-bar__item.is-ask { gap: 4px; }
 .mr-bar__sep { flex: none; }
@@ -297,10 +299,18 @@ html[data-pdf-theme="eink"] .mr-float .mr-bar__item:hover { background: transpar
 .mr-follow__mic[aria-pressed="true"] { color: var(--mr-ink); }
 .mr-card__acts svg { stroke-linecap: round; stroke-linejoin: round; }
 .mr-follow svg { stroke-linecap: round; stroke-linejoin: round; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-/* The follow-up field: the caret blinks where the words will go; no placeholder. */
+/* The follow-up field (Anders, 19 Oct 2026, as Gloss): a rounded, bordered box that is always visible, its
+   placeholder in the hint colour, the mic and the send button inside it on the right. The caret shows only when
+   it has the focus. */
+.mr-follow__box { flex: 1 1 100%; min-width: 0; display: flex; align-items: flex-end; gap: 2px; min-height: 40px; box-sizing: border-box; padding: 5px 5px 5px 12px; border: 1px solid var(--mr-field-line); border-radius: 12px; background: var(--mr-field); cursor: text; }
+.mr-follow__box:focus-within { border-color: var(--mr-accent); }
 .mr-follow__field { position: relative; display: flex; flex: 1 1 auto; min-width: 0; align-self: center; }
-.mr-follow__sp { flex: 1 1 auto; }
-.mr-follow__field + .mr-follow__sp { flex: none; }
+.mr-follow__input::placeholder { color: var(--mr-hint); opacity: 1; font-style: normal; }
+/* Send: the up-arrow in a filled rounded square, in the ink; it reads as off until there is text. */
+.mr-follow__send { flex: none; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; border-radius: 8px; background: var(--mr-ink); color: var(--mr-card); cursor: pointer; }
+.mr-follow .mr-follow__send svg { width: 16px; height: 16px; stroke: currentColor; }
+.mr-follow__send:disabled { opacity: .3; cursor: default; }
+.mr-follow__box .mr-follow__mic:not([aria-pressed="true"]) { color: var(--mr-muted); }   /* legible on the field in every look */
 .mr-follow__input { display: block; width: 100%; height: 18px; max-height: 54px; margin: 0; padding: 0; border: 0; outline: 0; resize: none; overflow-y: auto; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 16px/18px var(--mr-gara); overflow-wrap: anywhere; }
 .mr .mr-follow__input:focus, .mr .mr-follow__input:focus-visible { outline: 0 !important; box-shadow: none; }   /* the caret is the focus */
 .mr-follow__link { white-space: nowrap; }
@@ -316,8 +326,8 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 /* A figure's open card rings its figure (FIXES-2026-10-15 item 4) instead of underlining a passage. */
 .mr-ul-layer i.is-box { height: auto; margin: 0; background: none; border: 1.5px solid var(--mr-lead); border-radius: 4px; }
 /* A figure's card: the figure's thumbnail at the top, its room kept while it is drawn. */
-.mr-thumb { flex: none; width: 100%; max-height: 140px; border-radius: 8px; background: var(--mr-hair); overflow: hidden; }
-.mr-thumb img { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.mr-thumb { flex: none; display: block; width: 100%; max-height: 120px; margin: 0; padding: 0; border: 0; border-radius: 8px; background: transparent; overflow: hidden; cursor: zoom-in; }   /* narrow windows and the phone only; opens the figure view */
+.mr-thumb img { display: block; width: 100%; height: 100%; max-height: 120px; object-fit: contain; object-position: left center; }
 .lab.is-night .mr-thumb img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }   /* as the night page's own fallback */
 /* Narrow windows: 8px marks at the page's right edge in the lead colour; a 28px target round each. */
 .mr-marks { position: fixed; inset: var(--pdf-top, 56px) 0 0 0; pointer-events: none; z-index: 31; overflow: hidden; }
@@ -337,7 +347,7 @@ svg.mr-leads { position: fixed; inset: 0; width: 100%; height: 100%; pointer-eve
 .mr-sheet.is-full .mr-card__body { flex: 1 1 auto; }
 .mr-sheet .mr-quote { font-size: 15px; }
 .mr-sheet .mr-card__copy { display: none; }   /* the phone's card has no copy (mockup 5C); its row keeps delete */
-.mr-sheet .mr-follow { gap: 14px; padding-top: 12px; margin-top: 0; }
+.mr-sheet .mr-follow { gap: 8px 14px; margin-top: 0; }
 .mr-sheet .mr-follow__input { font-size: 17px; line-height: 18px; }
 /* The whole-PDF thread in a card or the phone's card: the day or page changing (mockup .psheet .div). */
 .mr-divider { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--mr-faint); font-style: italic; font-size: 13px; white-space: nowrap; }
@@ -378,7 +388,7 @@ button.mr-map__row:hover .mr-map__title { text-decoration: underline; text-decor
 .mr-quiz-row small { font: 12px var(--mr-ui); color: var(--mr-muted); white-space: nowrap; margin-left: 12px; }
 /* Redo: the footer's 11.5px word with a 28px target; the footer reaches 7px into the primer's
    padding so its words sit where the mockup's do. */
-.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; }
+.mr-primer__foot { min-height: 28px; align-items: center; margin-bottom: -7px; justify-content: flex-end; }
 .mr-primer__foot button { min-height: 28px; padding: 0 0 0 12px; }
 .mr-primer .mr-status { margin: 0; }
 /* Narrow windows: the trigger is a mark; the primer floats beside it, as a card from a mark does. */
@@ -419,8 +429,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
    and 3px below, the icon moved down 3px to stay where it was). */
 .mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
 .mr-card__acts button svg { transform: translateY(3px); }
-.mr-follow__mic { flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -12px; place-items: center end; }
-.mr-follow__mic svg { transform: translateY(3px); }
+.mr-follow__mic { flex: none; width: 28px; height: 28px; margin: 0; place-items: center; }   /* inside the field, before send */
 /* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
 .mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
 /* The bottom card's handle: a 56 × 28px target round the 36 × 5px bar, in its place. */
@@ -430,7 +439,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
    margin's controls keep their own sizes (28px) so nothing moves in e-ink. */
 [data-eink] :where(.mr-float, .mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-primer) button, [data-eink] button:where(.mr-trigger, .mr-mark, .mr-swatch) { min-height: var(--mr-min, auto); }
 :where(.mr-card__close, .mr-primer__foot button) { --mr-min: 28px; }
-:where(.mr-follow__link) { --mr-min: 28px; }
+:where(.mr-follow__link, .mr-follow__mic, .mr-follow__send) { --mr-min: 28px; }
 
 /* ---------- PR C: Related (docs/margin/PROMPTS.md) ----------
    After the bottom line, one row per place: the citation tag on the left, then the line in 15px
@@ -463,7 +472,7 @@ button.mr-related__row:hover .mr-related__line { text-decoration: underline; tex
 /* Text selected in a card reads as a selection (the page's own tint), never as a highlight: the app's
    gold ::selection made a selected answer look highlighted (screenshot 136). */
 .mr ::selection, .mr::selection { background: var(--mr-sel); color: inherit; }
-/* Delete: the bin beside copy, the same 16px icon in a 28px target. */
+/* Delete: the bin beside copy in the action row under the answer, the same 16px icon in a 28px target. */
 .mr-card__acts { justify-content: flex-start; }
 .mr-card__delete:hover, .mr-card__copy:hover { color: var(--mr-muted); }
 /* "Deleted · Undo": a quiet line where the card was (the column), else along the bottom; a few seconds. */
@@ -521,8 +530,173 @@ html[data-eink="true"] .mr .tc-wait i, html[data-pdf-theme="eink"] .mr .tc-wait 
 svg.mr-leads.mr-doc-leads { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: visible; z-index: 2; clip-path: none; inset: auto; }
 .mr-doc-cover { position: absolute; top: 0; background: var(--pdf-room); pointer-events: none; }
 
-/* Gloss's controls (19 Oct 2026): the top-right control minimises (one line, in the icons' stroke); the bin sits in
-   the follow-up line beside the mic, the same 16px icon in a 28px target. */
+/* Gloss's controls (19 Oct 2026): the top-right control minimises (one line, in the icons' stroke); the bin is in
+   the action row under the answer, beside copy (.mr-card__acts). */
 .mr-card__close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
-.mr-follow .mr-card__delete { position: relative; display: grid; flex: none; width: 28px; height: 28px; margin: -9px 0 -3px -6px; place-items: center; color: var(--mr-faint); }
-.mr-follow .mr-card__delete svg { transform: translateY(3px); stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- The follow-up field and the action row, as Gloss (Anders, 19 Oct 2026) ----------
+   "It's too hidden that this is indeed a chat field." The card ends with its action row under the answer (copy, then
+   the bin), then the field: always visible, rounded and bordered in the look's own colours (.mr-follow__box above).
+   The follow-up line loses its hairline: the box is the line. A link ("Show answer") wraps under the box. */
+.mr { --mr-field: #fdfbf7; --mr-field-line: rgba(32, 26, 19, .26); }   /* a shade lighter than the card; a border seen without the focus */
+.lab.is-book-theme .mr { --mr-field: #f8f2e6; }
+.lab.is-night .mr { --mr-field: #171411; --mr-field-line: rgba(214, 204, 191, .26); }
+html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; --mr-field-line: #111; }
+.mr-follow { flex-wrap: wrap; gap: 8px 12px; padding-top: 0; border-top: 0; }
+
+/* ---------- 19 Oct 2026, evening (Anders's feedback) ---------- */
+/* The focus ring on a margin button is for the keyboard only: after a click (the pointer the last input; reader.js) a
+   button focused by the card's own redraw, Minimise above all, shows none. */
+:root[data-mr-input="pointer"] :is(.mr-col, .mr-card, .mr-sheet, .mr-marks, .mr-float, .mr-primer, .mr-undo, .mr-unit) :is(button, [tabindex]):focus-visible,
+:root[data-mr-input="pointer"] button:is(.mr-trigger, .mr-pill):focus-visible { outline: none; }
+/* The passage mark (Aa panel, per device; reader.js underline): the underline sits just under each line's own baseline
+   (its top set by the reader, no offset here); Highlight is a soft tint of each line's band, never over the next line. */
+.mr-ul-layer i:not(.is-box) { margin-top: 0; }
+.mr-ul-layer i.is-tint { height: auto; border-radius: 2px; background: color-mix(in srgb, var(--mr-accent) 14%, transparent); }
+.lab.is-night .mr-ul-layer i.is-tint { background: color-mix(in srgb, var(--mr-accent) 22%, transparent); }
+/* The figure and formula chip in the selection bar's dark style (19 Oct 2026, evening; reader.js showHot): Ask, Explain,
+   Highlight and Copy, the bar's items, separators, colours and shadow; no tip (it stands off the figure's corner). */
+.byob-hot-chip.mr-chip { display: flex; align-items: center; gap: 0; height: 44px; padding: 0 6px; border: 0; border-radius: 12px; background: var(--mr-bar); color: var(--mr-bar-ink); font: 400 14px var(--mr-ui); box-shadow: var(--mr-bar-shadow); }
+.byob-hot-chip.mr-chip .mr-bar__item { display: flex; align-items: center; gap: 7px; height: 34px; min-width: 28px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--mr-bar-ink); font: inherit; cursor: pointer; white-space: nowrap; }
+.byob-hot-chip.mr-chip .mr-bar__item.is-text { padding: 0 11px; }
+.byob-hot-chip.mr-chip .mr-bar__item:hover { background: rgba(255, 255, 255, .10); }
+.byob-hot-chip.mr-chip .mr-bar__item:focus-visible { outline: 2px solid var(--mr-bar-ink); outline-offset: -2px; }
+.byob-hot-chip.mr-chip svg { width: 16px; height: 16px; fill: none; stroke: var(--mr-bar-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.byob-hot-chip.mr-chip .mr-bar__sep { width: 1px; height: 20px; margin: 0 4px; background: var(--mr-bar-sep); }
+html[data-pdf-theme="eink"] .byob-hot-chip.mr-chip { outline: 1px solid var(--mr-bar); }
+/* The Aa panel's Zoom for a PDF on the desktop (19 Oct 2026, evening; reader.js zoomRowHtml), in the panel's own
+   look (lab-v2-size's row and hairline, its label type): −, the percentage in tabular figures, +, then Fit width; the
+   line under it points to Convert to Tinct book for larger text that reflows. */
+.byob-aa-panel :is(.byob-zoom, .byob-type) { display: flex; align-items: center; gap: 8px; min-height: 48px; box-shadow: inset 0 -1px 0 var(--lab-v2-hairline); }
+.byob-aa-panel .byob-zoom-label { flex: 1 1 auto; }   /* the panel's own row label (lab-v2-row-label) */
+.byob-aa-panel .byob-zoom-step { display: grid; place-items: center; width: 32px; height: 32px; margin: 0; padding: 0; border: 1px solid var(--lab-v2-hairline); border-radius: 50%; background: transparent; color: inherit; font: 18px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel .byob-zoom-pct { min-width: 46px; text-align: center; font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.byob-aa-panel .byob-zoom-fit { min-height: 32px; margin: 0 0 0 6px; padding: 0 12px; border: 1px solid var(--lab-v2-hairline); border-radius: 999px; background: transparent; color: inherit; font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):disabled { opacity: .4; cursor: default; }
+.byob-aa-panel :is(.byob-zoom-step, .byob-zoom-fit):not(:disabled):hover { background: var(--lab-v2-well, rgba(0, 0, 0, .05)); }
+.byob-aa-panel .byob-zoom-note { margin: 8px 4px 4px; }   /* the panel's own note (lab-v2-note) */
+.byob-aa-panel .byob-zoom-note button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+/* A margin note (19 Oct 2026, evening; reader.js newMarginNote): its words in a field that is always editable, in the
+   card's own type, no box until it has the focus; Ask (words, as the bar's) and the bin under it. */
+.mr-card .mr-note-edit { display: block; width: 100%; min-height: 48px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 16px/1.5 var(--mr-gara); font-style: normal; overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
+.mr-card .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
+.mr-card .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
+.mr-card__acts .mr-card__ask { width: auto; min-width: 28px; height: 28px; margin: -6px 0 -3px; padding: 0 2px; font: 13px var(--mr-ui); color: var(--mr-muted); }
+.mr-card__acts .mr-card__ask:hover { color: var(--mr-ink); }
+.mr .mr-note-edit:focus, .mr .mr-note-edit:focus-visible { outline: 0 !important; }   /* the caret and the accent rule are the focus */
+/* A unit's pills on the wide column (19 Oct 2026, evening; reader.js pillRow): as the book reader's chapter pills
+   (src/lab/lab.css .lab-chapter-recap, .lab-chapter-note): the words in 14px Garamond in the muted ink, a hairline pill
+   round them, the companion's ✧ before its own; pressed while its card is open. A row at a unit's start sits at the top of
+   its first page; one at its end, at the foot of its last page. */
+/* A unit's marks (Anders's mockup, 19 Oct 2026, night): in the column, scrolling with the page; the hairline rule at the
+   mark's top is level with the heading's (or the last line's) top, its tick drawn with the leader lines (.is-rule). */
+.mr-col .mr-unit { position: absolute; left: 0; right: 0; display: grid; gap: 6px; padding-top: 9px; border-top: 1px solid var(--mr-hair); font-family: var(--mr-gara); }
+.mr-unit__k { font: 12.5px/1.3 var(--mr-ui); color: var(--mr-faint); }
+.mr-unit__n { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font-size: 17px; font-style: italic; line-height: 1.3; color: var(--mr-ink); }
+.mr-unit__pages { font-style: normal; font-size: 13px; color: var(--mr-faint); font-variant-numeric: tabular-nums; }
+.mr-unit__acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; }
+.mr-leads path.is-rule { stroke: var(--mr-hair); }
+html[data-pdf-theme="eink"] .mr-col .mr-unit { border-top-color: var(--mr-ink); }
+/* A unit's pills beside its heading (Anders, 21 Oct 2026; replaces the Starting / End of marks on the wide column):
+   small and quiet, right after the heading's last word; shown while the pointer is over the heading or the pills, or the
+   heading has the focus, then faded. Their words come from data-label: the heading's text stays the book's own. A
+   touch-only screen shows them all the time. On a PDF's page they sit over the page at the heading's line (.is-page).
+   Pills sit 8px apart, as everywhere (Anders, 21 Oct 2026). */
+.mr-hp-head { position: relative; outline: none; }
+.mr-hp.is-page { z-index: 4; }   /* over a PDF page's text layer (z-index 2), so its pills take the click */
+.mr-hp { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font: 400 13px/1 var(--mr-gara); font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; text-indent: 0; user-select: none; -webkit-user-select: none;
+  opacity: 0; visibility: hidden; transition: opacity .25s ease .6s, visibility 0s linear .85s; }
+.mr-hp-head:hover > .mr-hp, .mr-hp-head:focus-within > .mr-hp, .mr-hp:hover, .mr-hp.is-shown { opacity: 1; visibility: visible; transition: opacity .12s ease 0s, visibility 0s linear 0s; }
+/* A text unit's pills (Anders, 22 Oct 2026): always shown, as on the phone. */
+.mr-hp.is-inline { opacity: 1; visibility: visible; transition: none; }
+/* Room under a chapter's last paragraph for its end pills, inside its sheet (content-visibility clips at the sheet's edge); always
+   kept while the column is open, so the pills arriving never move the text. */
+.lab.byob.margin-open.is-paper:not(.is-phone) .epub-sheet:not(.is-front):not(.is-toc) { padding-bottom: calc(1.2em + 36px); }
+@media (hover: none) { .mr-hp { opacity: 1; visibility: visible; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .mr-hp, .mr-hp-head:hover > .mr-hp, .mr-hp.is-shown { transition: none; } }
+.mr-hp .mr-pill { min-height: 28px; font: 13px/1.3 var(--mr-gara); }
+.mr-hp .mr-pill > span, .mr-hp .mr-pill::after { display: none; }
+.mr-hp .mr-pill::before { content: attr(data-label); border: 1px solid var(--mr-hair); border-radius: 999px; padding: 1px 9px; background: var(--mr-room); }
+.mr-hp .mr-pill:not([data-pill="note"])::before { content: "\2727\00a0" attr(data-label); }
+.mr-hp .mr-pill:hover::before, .mr-hp .mr-pill[aria-expanded="true"]::before { background: var(--mr-card); color: var(--mr-ink); }
+.mr-hp .mr-pill[aria-expanded="true"]::before { border-color: var(--mr-lead); }
+.mr-hp .mr-pill:focus-visible::before { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
+.mr-hp-head:focus-visible { outline: 2px solid var(--mr-muted); outline-offset: 4px; border-radius: 2px; }
+:root[data-mr-input="pointer"] .mr-hp-head:focus-visible, :root[data-mr-input="pointer"] .mr-hp .mr-pill:focus-visible::before { outline: none; }
+/* A paragraph's ✧ in the margin beside its first line (desktop, a pointer that hovers), and its menu: Quiz me, Recap. */
+.mr-pill { display: inline-flex; align-items: center; min-height: 32px; margin: 0; padding: 0; border: 0; background: transparent; color: var(--mr-muted); font: 14px/1.4 var(--mr-gara); text-align: left; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.mr-pill > span { border: 1px solid var(--mr-hair); border-radius: 999px; padding: 2px 10px; }
+.mr-pill:hover { color: var(--mr-ink); }
+.mr-pill:hover > span { background: var(--mr-card); }
+.mr-pill[aria-expanded="true"] { color: var(--mr-ink); }
+.mr-pill[aria-expanded="true"] > span { background: var(--mr-card); border-color: var(--mr-lead); }
+.mr-pill__mark { margin-right: 5px; font-size: .9em; }
+.mr-pill:focus-visible { outline: none; }
+.mr-pill:focus-visible > span { outline: 2px solid var(--mr-muted); outline-offset: 2px; }
+:root[data-mr-input="pointer"] .mr-pill:focus-visible > span { outline: none; }
+html[data-pdf-theme="eink"] .mr-pill > span { border-color: var(--mr-ink); }
+/* The chapter menu on the wide column: the unit the reader is in, marked, and its actions. */
+.byob-unit-now { display: grid; gap: 6px; margin: 0 0 8px; padding: 8px 10px; border-radius: 10px; background: var(--wash, var(--mr-wash)); font-family: var(--mr-gara, "EB Garamond", Georgia, serif); }
+.byob-unit-now__name { margin: 0; font-size: 16px; color: var(--mr-ink, inherit); font-variant-numeric: tabular-nums; }
+.byob-unit-now__acts { display: flex; flex-wrap: wrap; gap: 0 8px; }
+/* The figure large (a figure card's picture, a picture in the chat): over the reader, the page's room behind it. */
+/* A figure named in an EPUB's text, on hover (21 Oct 2026; reader.js figPeek): its picture and caption beside the words. */
+.mr-figpeek { position: fixed; z-index: 70; box-sizing: border-box; width: max-content; max-width: min(380px, calc(100vw - 24px)); padding: 10px; border-radius: 12px; background: var(--mr-card); color: var(--mr-ink); box-shadow: var(--mr-card-shadow); pointer-events: none; }
+.mr-figpeek > img, .mr-figpeek > svg { display: block; max-width: 100%; width: auto; height: auto; max-height: 260px; margin: 0 auto; border-radius: 4px; background: #fff; }
+.mr-figpeek > svg { width: 340px; }
+.mr-figpeek__cap { margin: 8px 2px 0; font: 12.5px/1.4 var(--mr-ui); color: var(--mr-muted); }
+.mr-figview { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 56px 16px 24px; background: color-mix(in srgb, var(--mr-room) 92%, transparent); }
+.mr-figview__fig { margin: 0; max-width: 100%; max-height: 100%; display: grid; place-items: center; }
+.mr-figview__fig img { display: block; max-width: min(100%, 1100px); max-height: calc(100vh - 96px); object-fit: contain; background: #fff; border-radius: 6px; box-shadow: var(--mr-card-shadow); }
+.lab.is-night .mr-figview__fig img { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }
+.mr-figview__close { position: absolute; top: 12px; right: 12px; min-width: 40px; min-height: 40px; display: grid; place-items: center; border: 0; border-radius: 999px; background: var(--mr-card); color: var(--mr-ink); cursor: pointer; }
+.mr-figview__close svg { width: 16px; height: 16px; }
+/* A question's attached pictures in the Chat card: at most 120px tall, each opening large. */
+.mr-card .tc-imgs { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 4px 0; }
+.mr-card .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
+.mr-card .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }
+/* The phone's EPUB selection is the reader's own (reader.js ownSelection): drawn as the selection is, with no native
+   one and no long-press callout, so iOS shows no menu of its own beside the bar (20 Oct 2026). */
+::highlight(tinct-sel) { background-color: rgba(214, 186, 112, .40); }
+.lab.is-phone .epub-pg { -webkit-touch-callout: none; }
+.mr-sheet .mr-note-edit { display: block; width: 100%; min-height: 72px; margin: 0; padding: 4px 0; border: 0; border-radius: 0; outline: 0; resize: none; overflow: hidden; background: transparent; color: var(--mr-ink); caret-color: var(--mr-accent); font: 400 17px/1.5 var(--mr-gara); font-style: normal; overflow-wrap: anywhere; box-shadow: inset 0 -1px 0 var(--mr-hair); }
+.mr-sheet .mr-note-edit:focus { box-shadow: inset 0 -1.5px 0 var(--mr-accent); }
+.mr-sheet .mr-note-edit::placeholder { color: var(--mr-hint); opacity: 1; }
+
+/* ---------- Ask, the bar's question field: A3 (Anders, 22 Oct 2026, margin mocks "A · Typing in the bar") ----------
+   The dark bar itself becomes the field: its colour, 44px height, 12px radius and tip; 440px wide (margin.js sizeAsk),
+   a long question wrapping upward to three lines. The words, an Esc hint, the mic and the round send. No box round the
+   words (the caret is the focus), no spelling marks or correction chip (margin.js barHtml), the UI font, no capitals.
+   Desktop only: the phone keeps its bar (.mr-pbar). */
+.mr-bar.is-asking { min-width: min(440px, calc(100% - 32px)); max-width: min(440px, calc(100% - 32px)); }
+.mr-bar.is-asking .mr-ask, .mr-bar.is-asking .mr-ask:focus, .mr-bar.is-asking .mr-ask:focus-visible { outline: 0 !important; border: 0 !important; box-shadow: none !important; background: transparent; }
+.mr-bar.is-asking .mr-ask { text-transform: none; letter-spacing: normal; }
+.mr-bar.is-asking .mr-ask::placeholder { color: var(--mr-bar-soft); opacity: 1; }
+.mr-bar.is-asking .mr-bar__item.is-mic svg { stroke: var(--mr-bar-soft); }
+.mr-bar__esc { flex: none; box-sizing: border-box; display: inline-flex; align-items: center; height: 20px; margin: 0 4px 12px 6px; padding: 0 6px;
+  border: 1px solid var(--mr-bar-sep); border-radius: 5px; color: var(--mr-bar-soft); font: 500 11.5px/1 var(--mr-ui); }
+/* The unit marks' pills keep their 32px target in e-ink too (its display profile resets buttons' min-height). */
+html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .mr-pill { min-height: 32px; }
+/* The action row's buttons reach 3px below it (their 28px target): room for that when the row ends the body, so a card
+   grown in place has no scroll of its own (20 Oct 2026: the follow-up's spacer no longer stands after the answer). */
+.mr-card__body > .mr-card__acts:last-child { padding-bottom: 3px; }
+/* A quiz card's answer bubble and feedback are set as its question (Anders, 20 Oct 2026: the bubble was smaller). */
+:is(.mr-card, .mr-sheet):has(.mr-question) :is(.mr-you, .mr-answer) { font-family: inherit; font-size: 18px; line-height: 1.45; }
+
+/* ---------- Cards, round 2 (Anders, 21 Oct 2026) ----------
+   Every card's head: minimise, then the bin (28px targets round 14px icons); Before you start's too, in place of its ×.
+   Every follow-up field: the mic, Talk (the reader's filled bars) and send. Before you start is as tall as what it
+   holds in the column, ending with the field. */
+.mr-card__label > .mr-card__delete { flex: none; min-width: 28px; min-height: 28px; display: grid; place-items: center; color: var(--mr-faint); }
+.mr-card__close + .mr-card__delete { margin-left: 0; }
+.mr-card__name + .mr-card__delete, .mr-card__count + .mr-card__delete { margin-left: auto; }
+.mr-card__label > .mr-card__delete svg, .mr-primer__ctl svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mr-primer__ctl { display: inline-flex; align-items: center; margin: -1px 0 -1px auto; color: var(--mr-faint); }
+.mr-primer__ctl button { min-width: 28px; min-height: 28px; display: grid; place-items: center; }
+.mr-primer .mr-primer__ctl .mr-primer__close { margin: 0; }
+.mr-follow__talk { flex: none; position: relative; display: grid; place-items: center; width: 28px; height: 28px; margin: 0; padding: 0; border: 0; background: none; color: var(--mr-muted); cursor: pointer; --mr-min: 28px; }
+.mr-follow .mr-follow__talk svg { width: 16px; height: 16px; fill: currentColor; stroke: none; }
+.mr-follow__talk:hover { color: var(--mr-ink); }
+.mr-col:not(.mr-doc) .mr-primer { bottom: auto; max-height: calc(100% - 86px); }
+.mr-primer > .mr-follow { margin-top: 0; }
+:where(.mr-card__delete) { --mr-min: 28px; }

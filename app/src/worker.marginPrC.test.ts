@@ -19,6 +19,7 @@ import {
   PDF_DOCUMENT_WORDING,
   PDF_EXPLAIN_OPENING_RULE,
   STANDS_ALONE_RULE,
+  NAME_THE_TEXT_RULE,
   TABLE_NUMBERS_RULE,
   WORK_FIRST_RULE,
   COUNTERPOINT_PROMPT,
@@ -162,7 +163,8 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
 
   it('the shared rules: work things out first, never attribute to the document what it does not say; a PDF is the document, one page per tag', async () => {
     // Morning retest (16 Oct): tables read row by row with comparisons stated, and each answer standing alone.
-    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE])
+    // The last since 20 Oct 2026 (Anders): never "unit".
+    expect(MARGIN_ANSWER_RULES).toEqual([PLAIN_PROSE_RULE, WORK_FIRST_RULE, ATTRIBUTION_RULE, NO_META_RULE, TABLE_NUMBERS_RULE, STANDS_ALONE_RULE, NAME_THE_TEXT_RULE])
     expect(WORK_FIRST_RULE).toBe('Work out numbers and facts before you write. Never correct yourself mid-answer.')
     expect(ATTRIBUTION_RULE).toBe('Never attribute to the document something it does not say.')
     for (const rule of MARGIN_ANSWER_RULES) expect(MARGIN_RULES).toContain(rule)
@@ -206,7 +208,7 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
     expect(prompt).toContain('Never treat the document itself as confirmation of its own claims')
     expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
     expect(prompt).toContain('Prefer primary, academic and official sources and well-known references over personal blogs, and sources other than the document itself.')
-    expect(prompt).toContain('start it with one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
+    expect(prompt).toContain('Start the answer with the verdict: its first words are one of: Holds. Partly holds. Outdated. Disputed. Can\'t check.')
   })
 
   // Round 3 (16 Oct): the two-part answer (a restatement, then the rewrite) is replaced by exactly one rewrite.
@@ -274,18 +276,22 @@ describe('answer rules from the deep test after train 2 (15 Oct, evening)', () =
     expect(QUIZ_CHECK_PROMPT).not.toContain("Mark the reader's answer")
   })
 
-  it('Fact-check: the opening from the document first, then the verdict once', () => {
+  it('Fact-check: the verdict first, never a restating paragraph, no labels or remarks on the check (19 Oct 2026; the doc-first opening, 15 Oct, is off)', () => {
     const prompt = factcheckPrompt('2026-10-15')
-    // Full battery on train 3: the opening is one placing sentence of at most 25 words, no summary of the document's support; at most 150 words in all.
-    expect(prompt).toContain('First paragraph: one sentence of at most 25 words, from the document alone, that places the claim')
-    expect(prompt).not.toContain('what the document itself offers in support')
-    expect(prompt).toContain('It gives no verdict and does not summarise the document\'s support.')
-    expect(prompt).toContain('At most 150 words in all, not counting the Sources: line.')
+    expect(prompt).not.toContain('First paragraph')
+    expect(prompt).toContain('Start the answer with the verdict')
+    expect(prompt).toContain('Never restate or summarise the passage or its claim, before or after the verdict')
+    expect(prompt).toContain('A real caveat is one plain sentence in the verdict paragraph or the one short paragraph after it, with no label such as "Note." or "Caveat:".')
+    expect(prompt).toContain('Never write about the check itself: not where your knowledge comes from (no "from general knowledge"), not which sources were or were not searched, and not what the claim is or is not about.')
+    expect(prompt).toContain('write no other Sources line, and none at all when you used no source.')
+    expect(prompt).toContain('At most 120 words in all, not counting the Sources: line.')
     // Fiction: real-world references, never "there is no factual claim".
     expect(prompt).toContain('If the passage is fiction, check its references to the real world')
     expect(prompt).toContain('Never open by saying there is no factual claim.')
     expect(prompt).toContain('State the verdict once: no other paragraph starts with a verdict word or repeats the verdict.')
     expect(prompt).not.toContain('Then one short paragraph for each checkable claim')
+    expect(prompt).not.toContain('Note., for useful context')
+    // The doc-first rounds' own lines stay, for its switch (FACTCHECK_DOC_FIRST).
     expect(FACTCHECK_OPENING_ROUND).toContain('Write only the first paragraph now: one sentence of at most 25 words, from the document alone')
     expect(FACTCHECK_VERDICT_ROUND).toContain('Do not repeat or restate the first paragraph.')
   })
@@ -456,7 +462,7 @@ describe('cost guards (FIXES-2026-10-15 PR C)', () => {
     const { anthropic } = stubFetch()
     await send(margin('quiz_check', 2, { quiz: { question: 'q'.repeat(1_000), expected: 'e'.repeat(1_000), why: 'w'.repeat(1_000), answer: 'a'.repeat(5_000) } }))
     const turn = String((anthropic[0].messages as Array<{ content: string }>)[0].content)
-    const own = turn.replace(/<\/?(?:question|expected|why|reader_answer)>/g, '').replace(/\n/g, '')
+    const own = turn.replace(/<\/?(?:question|one_acceptable_answer|why|reader_answer)>/g, '').replace(/\n/g, '')
     expect(own.length).toBeLessThanOrEqual(2_000)
     // The document is still there, before the breakpoint.
     expect((anthropic[0].system as SystemBlock[])[0].text).toContain('<page n="1">')

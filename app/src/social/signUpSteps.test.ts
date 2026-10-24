@@ -201,6 +201,7 @@ describe('sign-up with profiles on', () => {
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
       resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+      preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')
@@ -243,6 +244,7 @@ describe('sign-up with profiles on', () => {
     vi.doMock('./socialClient', async () => ({
       ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
       resizePhoto: vi.fn(async () => new Blob(['jpeg'], { type: 'image/jpeg' })),
+      preparePhoto: vi.fn(async () => ({ ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) })),
     }))
     mount(true)
     await import('../labSignIn')
@@ -257,6 +259,55 @@ describe('sign-up with profiles on', () => {
     await flush()
     expect(posts[0]).toMatchObject({ picture: { kind: 'set', value: 'longbourn' } })
     expect(posts[0]).not.toHaveProperty('background')
+    vi.doUnmock('./socialClient')
+  })
+
+  it('reads the chosen photo before clearing the input, waits while preparing, and adds no approval line (iPad, 19 Oct 2026)', async () => {
+    const uploaded = { ...profile, uploads: true }
+    api.mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input)
+      if (url.startsWith('/api/profile/image')) return Response.json({ enabled: true, available: true, profile: { ...uploaded, background: { kind: 'upload', value: null, url: '/api/profile/image/background', review: 'pending' } } })
+      if (url.startsWith('/api/profile') && init?.method === 'POST') { posts.push(JSON.parse(String(init.body))); return Response.json({ enabled: true, available: true, profile: uploaded }) }
+      if (url.startsWith('/api/profile')) return Response.json({ enabled: true, available: true, profile: uploaded })
+      return Response.json({})
+    })
+    const order: string[] = []
+    let finishPrepare = () => {}
+    vi.doMock('./socialClient', async () => ({
+      ...await vi.importActual<typeof import('./socialClient')>('./socialClient'),
+      preparePhoto: vi.fn(async (photo: Blob) => {
+        order.push('prepare')
+        expect(photo.type).toBe('image/heic')
+        expect((photo as File).name).toBe('IMG_0002.heic')
+        await new Promise<void>(resolve => { finishPrepare = resolve })
+        order.push('prepared')
+        return { ok: true as const, image: new Blob(['jpeg'], { type: 'image/jpeg' }) }
+      }),
+    }))
+    mount(true)
+    await import('../labSignIn')
+    await flush()
+    await createAccount()
+    const field = document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')[1]
+    const trigger = document.querySelector<HTMLButtonElement>('[data-social-upload="background"]')!
+    const file = new File([new Uint8Array([4, 5, 6])], 'IMG_0002.heic', { type: 'image/heic' })
+    const read = file.arrayBuffer.bind(file)
+    file.arrayBuffer = vi.fn(async () => { order.push('read'); return read() })
+    Object.defineProperty(field, 'files', { configurable: true, value: [file] })
+    Object.defineProperty(field, 'value', { configurable: true, get: () => '', set: () => { order.push('clear') } })
+    field.dispatchEvent(new Event('change'))
+    await flush()
+    expect(order).toEqual(['read', 'prepare'])
+    expect(trigger.disabled).toBe(true)
+    expect(trigger.getAttribute('aria-busy')).toBe('true')
+    finishPrepare()
+    await flush()
+    expect(order[0]).toBe('read')
+    expect(order.indexOf('clear')).toBeGreaterThan(order.indexOf('prepared'))
+    expect(trigger.disabled).toBe(false)
+    expect(trigger.hasAttribute('aria-busy')).toBe(false)
+    // No approval line: uploads show to others at once (changed on request, 19 Oct 2026).
+    expect(document.querySelector('[data-auth-status]')?.textContent ?? '').not.toContain('approved')
     vi.doUnmock('./socialClient')
   })
 

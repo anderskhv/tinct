@@ -66,6 +66,21 @@ describe('reader boot script', () => {
     )
   })
 
+  it('preloads the margin preview’s whole edition and its patches (round 3), not for the book reader', () => {
+    page('/reader?book=war-and-peace&margin=1')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual([
+      '/data/editions/war-and-peace-modern-en.json?v=v-test', '/api/edition-patches?bookId=war-and-peace&editionKey=modern-en',
+    ])
+    page('/reader?book=war-and-peace')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch')).toEqual([])
+    page('/reader?book=war-and-peace&margin=0')
+    localStorage.setItem('tinct:margin-preview', '1')
+    runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch')).toEqual([])
+  })
+
   it('a library handoff wins over the address', () => {
     page('/reader?book=odyssey&chapter=3')
     sessionStorage.setItem('tinct:lab-reader-handoff', HANDOFF)

@@ -12,6 +12,7 @@
 import { ADD_BOOK_IDB_NAME } from '../../services/storage'
 import { chapterProgress, conciseChapterLabel, positionLine } from '../../preReader/recapPosition'
 import { ownBookHref, userBookId } from './userBookId'
+import { epubViewHere } from './epubView'
 import { pdfEditionChoice } from './pdfEditions'
 import type { UserBookChapter } from './userEdition'
 
@@ -21,6 +22,11 @@ export const OWN_COVER_MAX_WIDTH = 900
 export const OWN_COVER_VERSION = 2
 /** Removed from the library's reading table at this time (the place is kept); reading on brings it back. */
 export const OWN_TABLE_HIDDEN_PREFIX = 'tinct-addbook:table-hidden:'
+/**
+ * Taken off Currently reading without Read later (Anders, 2026-10-21: "Remove from Currently
+ * reading"), at this time: not listed under Saved for later. Read later clears it. This device only.
+ */
+export const OWN_SHELF_UNSAVED_PREFIX = 'tinct-addbook:table-unsaved:'
 const PLACE_PREFIX = 'tinct-addbook:place:'
 /** Add a book's PDF viewer keeps its place here: `{ page, frac, zoom, pages?, at? }`. */
 export const PDF_PLACE_PREFIX = 'tinct-addbook:pos:pdf:'
@@ -38,6 +44,20 @@ export interface OwnShelfReading {
   percent: number | null
   wordCount: number | null
   lastActiveAt: number
+  /**
+   * The place is at the end of the book (ownFinished): its last chapter or page, at least
+   * OWN_FINISHED_PERCENT through. Read from the place the account already keeps (chapter or
+   * page, and how far through), so finishing adds nothing stored.
+   */
+  finished?: boolean
+}
+
+/** How far through (percent) an own book's place must be, in its last chapter or on its last page, to be finished. */
+export const OWN_FINISHED_PERCENT = 95
+
+/** Whether a place is the end of an own book: in its last chapter (or on its last page) and far enough through. */
+export function ownFinished(input: { last: boolean | null; percent: number | null }): boolean {
+  return input.last !== false && typeof input.percent === 'number' && Number.isFinite(input.percent) && input.percent >= OWN_FINISHED_PERCENT
 }
 
 export interface OwnShelfBook {
@@ -73,7 +93,7 @@ interface StoredRecord {
   addedAt?: unknown
   openedAt?: unknown
   cover?: unknown
-  /** A PDF's page count and its scan (addbooks/web/src/js/pdf-scan.js): the chapters with their pages. */
+  /** A PDF's page count and its scan (public/lab/addbook/js/pdf-scan.js): the chapters with their pages. */
   pages?: unknown
   scan?: { entries?: unknown; textPages?: unknown; layout?: { default?: unknown } | null } | null
   /** A PDF's default edition (pdf-scan.js layout), kept with its Tinct text. */
@@ -121,10 +141,31 @@ export function ownSavedAt(hex: string, read: (key: string) => unknown = readJso
   return Number.isFinite(at) && at > 0 ? at : null
 }
 
+/**
+ * When an own book went to Saved for later (Read later, or the desk's ×), or null: off Currently
+ * reading with "Remove from Currently reading" since then, it is not saved. Continue still uses
+ * ownSavedAt: either way the book was taken off what the reader is reading.
+ */
+export function ownShelfSavedAt(hex: string, read: (key: string) => unknown = readJson): number | null {
+  const at = ownSavedAt(hex, read)
+  if (at === null) return null
+  const unsaved = Number(read(OWN_SHELF_UNSAVED_PREFIX + hex))
+  return Number.isFinite(unsaved) && unsaved > 0 && unsaved >= at ? null : at
+}
+
+/** Where the margin reader keeps an EPUB's place on this device (reader.js `pos:epub:<hex>`; epubView.ts). */
+export const EPUB_MARGIN_PLACE_PREFIX = 'tinct-addbook:pos:epub:'
+
 export function ownReading(hex: string, chapters: UserBookChapter[] | null, openedAt: number, read: (key: string) => unknown = readJson): OwnShelfReading | null {
-  const raw = read(PLACE_PREFIX + hex) as RawPlace | null
-  if (!raw || typeof raw !== 'object') return null
-  const updatedAt = typeof raw.updatedAt === 'number' && raw.updatedAt > 0 ? raw.updatedAt : openedAt
+  const place = read(PLACE_PREFIX + hex) as RawPlace | null
+  // An EPUB read only in Margin view (the desktop's default) has no Tinct reader place: the margin reader's own
+  // place still makes it a book being read, last read when the margin reader kept it (D's matrix, 22 Oct 2026:
+  // such a book was missing from Reading now). Its chapter is then the one the Tinct reader's place names, if any.
+  const margin = read(EPUB_MARGIN_PLACE_PREFIX + hex) as { at?: unknown } | null
+  const marginAt = margin && typeof margin === 'object' && typeof margin.at === 'number' && margin.at > 0 ? margin.at : 0
+  const raw: RawPlace | null = place && typeof place === 'object' ? place : marginAt ? {} : null
+  if (!raw) return null
+  const updatedAt = Math.max(typeof raw.updatedAt === 'number' && raw.updatedAt > 0 ? raw.updatedAt : openedAt, marginAt)
   const hiddenAt = Number(read(OWN_TABLE_HIDDEN_PREFIX + hex))
   if (Number.isFinite(hiddenAt) && hiddenAt > 0 && hiddenAt >= updatedAt) return null
   const bookId = userBookId(hex)
@@ -135,7 +176,8 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
     const first = list[0]
     const label = first?.title || ''
     const kept = !list.length && typeof raw.percent === 'number' && Number.isFinite(raw.percent) ? Math.max(0, Math.min(100, raw.percent)) : null
-    return { bookId, chapterNumber: first?.number ?? (Number.isInteger(raw.chapterNumber) ? raw.chapterNumber as number : 1), chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : kept, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt }
+    // Without the text here (an account copy), the place's own percent decides: its chapters are unknown.
+    return { bookId, chapterNumber: first?.number ?? (Number.isInteger(raw.chapterNumber) ? raw.chapterNumber as number : 1), chapterLabel: label, headline: label ? positionLine('start', conciseChapterLabel(label)) : '', percent: list.length ? 0 : kept, wordCount: list.length ? list.reduce((sum, chapter) => sum + chapter.paragraphs.reduce((n, p) => n + words(p), 0), 0) : null, lastActiveAt: updatedAt, finished: !list.length && ownFinished({ last: null, percent: kept }) }
   }
   const chapter = list[at]
   const paragraphIndex = Number.isInteger(raw.paragraphIndex) ? Math.max(0, Math.min(chapter.paragraphs.length - 1, raw.paragraphIndex as number)) : 0
@@ -143,14 +185,16 @@ export function ownReading(hex: string, chapters: UserBookChapter[] | null, open
   const total = list.reduce((sum, item) => sum + item.paragraphs.reduce((n, p) => n + words(p), 0), 0)
   const label = chapter.title || ''
   const progress = chapterProgress({ paragraphIndex, paragraphCount: chapter.paragraphs.length, finished: false })
+  const percent = placePercent(list, { chapterNumber: chapter.number, paragraphIndex, wordIndex })
   return {
     bookId,
     chapterNumber: chapter.number,
     chapterLabel: label,
     headline: label ? positionLine(progress, conciseChapterLabel(label)) : '',
-    percent: placePercent(list, { chapterNumber: chapter.number, paragraphIndex, wordIndex }),
+    percent,
     wordCount: total > 0 ? total : null,
     lastActiveAt: updatedAt,
+    finished: ownFinished({ last: at === list.length - 1, percent }),
   }
 }
 
@@ -189,12 +233,22 @@ export function pdfReading(hex: string, record: { pages?: unknown; scan?: { entr
     percent: count ? Math.max(0, Math.min(100, ((page - 1 + frac) / count) * 100)) : null,
     wordCount: null,
     lastActiveAt: updatedAt,
+    // The last page, far enough down it; a PDF whose page count is not known here is never finished.
+    finished: !!count && ownFinished({ last: page >= count, percent: Math.max(0, Math.min(100, ((page - 1 + frac) / count) * 100)) }),
   }
 }
 
-/** Hide an own book from the library's reading table (on this device); its place is kept. */
-export function hideOwnFromReadingTable(hex: string, at = Date.now()): void {
-  try { localStorage.setItem(OWN_TABLE_HIDDEN_PREFIX + hex, String(at)) } catch { /* full or private */ }
+/**
+ * Hide an own book from the library's reading table (on this device); its place, highlights and
+ * notes are kept. `saved` (the default, Read later): it is listed under Saved for later; false
+ * (Remove from Currently reading): only under My private uploads.
+ */
+export function hideOwnFromReadingTable(hex: string, at = Date.now(), { saved = true }: { saved?: boolean } = {}): void {
+  try {
+    localStorage.setItem(OWN_TABLE_HIDDEN_PREFIX + hex, String(at))
+    if (saved) localStorage.removeItem(OWN_SHELF_UNSAVED_PREFIX + hex)
+    else localStorage.setItem(OWN_SHELF_UNSAVED_PREFIX + hex, String(at))
+  } catch { /* full or private */ }
 }
 
 function summarize(record: StoredRecord): OwnShelfBook | null {
@@ -211,8 +265,8 @@ function summarize(record: StoredRecord): OwnShelfBook | null {
     key, kind, hex, title, author,
     cover: typeof record.cover === 'string' && COVER_RE.test(record.cover) ? record.cover : null,
     at,
-    // A PDF opens in the edition it is read in (pdfEditions.ts): its Tinct text or its pages.
-    href: ownBookHref(hex, kind, kind === 'pdf' ? pdfEditionChoice(hex, String(record.layout?.default ?? record.scan?.layout?.default ?? '') || null) : null),
+    // A PDF opens in the edition it is read in (pdfEditions.ts): its Tinct text or its pages; an EPUB in its view on this device (epubView.ts).
+    href: ownBookHref(hex, kind, kind === 'pdf' ? pdfEditionChoice(hex, String(record.layout?.default ?? record.scan?.layout?.default ?? '') || null) : epubViewHere(hex)),
     reading: kind === 'epub' ? ownReading(hex, chapters, at) : pdfReading(hex, record, at),
     ...(kind === 'pdf' && record.scan?.textPages === 0 && record.edition?.source !== 'ocr' ? { scan: true as const } : {}),
   }
@@ -307,8 +361,105 @@ export async function forgetRemovedOwnBooks(owner: string | null | undefined, in
     for (const item of [PLACE_PREFIX + hex, PDF_PLACE_PREFIX + hex, OWN_TABLE_HIDDEN_PREFIX + hex]) {
       try { localStorage.removeItem(item) } catch { /* private */ }
     }
+    forgetOwnedReaderLocalState(owner, hex)
   }
   return gone
+}
+
+/** Remote deletion removes this owner's annotation generation, never another account's same-hash backup. */
+export function forgetOwnedReaderLocalState(owner: string, hex: string): void {
+  if (!owner || !/^[0-9a-f]{24}$/.test(hex)) return
+  // Older readers wrote hash-only projections. Clear them only when the
+  // deleted owner's saved copy proves their exact contents. A surviving
+  // projection keeps its owner marker, so the next account cannot claim it.
+  const prefix = 'tinct-addbook:', bookId = userBookId(hex)
+  const get = (key: string): unknown => { try { return JSON.parse(localStorage.getItem(key) || 'null') } catch { return null } }
+  const exact = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b)
+  const legacyKey = prefix + 'legacy-epub-owner:' + hex
+  if (localStorage.getItem(legacyKey) === owner) {
+    const backup = get(prefix + 'legacy-epub-annotations:' + owner + ':' + hex) as { marks?: unknown[]; cards?: unknown[] } | null
+    for (const [name, field] of [['hl:epub:', 'marks'], ['cards:epub:', 'cards']] as const) {
+      const rawKey = prefix + name + hex, raw = get(rawKey)
+      if (Array.isArray(raw) && Array.isArray(backup?.[field]) && exact(raw, backup[field])) {
+        try { localStorage.removeItem(rawKey) } catch { /* retain the marker below */ }
+      }
+    }
+  }
+  const marksMarker = prefix + 'text-marks-owner:' + hex
+  if (localStorage.getItem(marksMarker) === owner) {
+    const raw = get('tinct-lab-highlights')
+    if (Array.isArray(raw)) {
+      const scoped = raw.filter(row => row?.bookId === bookId)
+      const backed = get(prefix + 'text-marks-local:' + owner + ':' + hex)
+      if (scoped.length && Array.isArray(backed) && exact(scoped, backed)) {
+        try { localStorage.setItem('tinct-lab-highlights', JSON.stringify(raw.filter(row => row?.bookId !== bookId))) } catch { /* retain marker */ }
+      }
+    }
+  }
+  const chatMarker = prefix + 'text-cards-owner:' + hex, chatKey = 'tinct:chat-history:' + bookId
+  if (localStorage.getItem(chatMarker) === owner) {
+    const raw = get(chatKey)
+    if (Array.isArray(raw) && raw.length) {
+      let proven = false
+      try {
+        const stem = prefix + 'text-cards-canonical:' + owner + ':' + hex
+        for (let i = 0; i < localStorage.length && !proven; i++) {
+          const key = localStorage.key(i)
+          if (key !== stem && !key?.startsWith(stem + ':')) continue
+          const candidate = get(key) as { conversations?: unknown[] } | null
+          if (Array.isArray(candidate?.conversations)) {
+            const known = new Set(candidate.conversations.map(row => JSON.stringify(row)))
+            proven = raw.every(row => known.has(JSON.stringify(row)))
+          }
+        }
+      } catch { /* no exact owner proof */ }
+      if (proven) try { localStorage.removeItem(chatKey) } catch { /* retain marker */ }
+    }
+  }
+  const legacyStillClaimed = localStorage.getItem(legacyKey) === owner
+    && ['hl:epub:', 'cards:epub:'].some(name => localStorage.getItem(prefix + name + hex) !== null)
+  const marksStillClaimed = localStorage.getItem(marksMarker) === owner && (() => {
+    const raw = localStorage.getItem('tinct-lab-highlights'), rows = get('tinct-lab-highlights')
+    return raw !== null && (!Array.isArray(rows) || rows.some(row => row?.bookId === bookId))
+  })()
+  const chatStillClaimed = localStorage.getItem(chatMarker) === owner && localStorage.getItem(chatKey) !== null
+  const prefixes = [
+    'text-marks-sync:', 'text-marks-local:', 'text-marks-previous:', 'text-marks-adopted:', 'text-marks-quarantine:',
+    'text-marks-canonical:', 'text-cards-canonical:', 'text-cards-adopted:',
+    'legacy-epub-annotations:', 'legacy-epub-migrated:', 'legacy-epub-backup-quarantine:', 'static-epub-marks:', 'static-epub-cards:',
+  ]
+  for (const prefix of prefixes) {
+    if (legacyStillClaimed && (prefix === 'legacy-epub-annotations:' || prefix === 'legacy-epub-migrated:')) continue
+    if (marksStillClaimed && (prefix === 'text-marks-local:' || prefix === 'text-marks-previous:')) continue
+    if (chatStillClaimed && (prefix === 'text-cards-canonical:' || prefix === 'text-cards-adopted:')) continue
+    try { localStorage.removeItem(`tinct-addbook:${prefix}${owner}:${hex}`) } catch { /* keep the file deletion even if storage is blocked */ }
+  }
+  for (const [marker, stillPresent] of [
+    [legacyKey, () => ['hl:epub:', 'cards:epub:'].some(name => localStorage.getItem(prefix + name + hex) !== null)],
+    [marksMarker, () => { const raw = localStorage.getItem('tinct-lab-highlights'), rows = get('tinct-lab-highlights'); return raw !== null && (!Array.isArray(rows) || rows.some(row => row?.bookId === bookId)) }],
+    [chatMarker, () => localStorage.getItem(chatKey) !== null],
+  ] as const) {
+    try { if (localStorage.getItem(marker) === owner && !stillPresent()) localStorage.removeItem(marker) } catch { /* retain ownership boundary */ }
+  }
+  try {
+    for (const kind of ['text-marks-canonical:', 'text-cards-canonical:']) {
+      if (kind === 'text-cards-canonical:' && chatStillClaimed) continue
+      const stem = `tinct-addbook:${kind}${owner}:${hex}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && /^[0-9a-f]{32}$/.test(item.slice(stem.length))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
+  try {
+    for (const kind of ['pdf-original-marks:', 'pdf-original-cards:']) {
+      const stem = `tinct-addbook:${kind}${owner}:`
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const item = localStorage.key(i)
+        if (item?.startsWith(stem) && item.endsWith(':' + hex) && /^[0-9a-f]{32}$/.test(item.slice(stem.length, -hex.length - 1))) localStorage.removeItem(item)
+      }
+    }
+  } catch { /* keep the file deletion even if storage is blocked */ }
 }
 
 /** Own books being read (EPUBs and PDFs), most recently read first. */

@@ -1,5 +1,4 @@
-import { nativeLibraryCatalogue, ensureNativeBook } from './utils/nativeBooks'
-import { ensurePublicBook } from './utils/publicBooks'
+import { isNativeCapacitor } from './utils/nativePlatform'
 import { addToTinctEnabled, isPublicBookId, mergePublicBooks, PUBLIC_BOOKS_INDEX_FETCH, PUBLIC_BOOKS_INDEX_URL } from '../public/lab/public-books.js'
 import { prepareShelfRecaps } from './preReader/recapPreparationClient'
 import { loadSavedBooks, setSavedBook, loadShelfMembership } from './libraryTwoSaved'
@@ -46,6 +45,16 @@ import { hideOwnFromReadingTable, type OwnShelfBook, type OwnShelfReading } from
 import { isUserBookId, ownBookHref, userBookHex } from './lab/userBook/userBookId'
 import { pdfEditionChoice } from './lab/userBook/pdfEditions'
 import { ownReadingNowWithAccount } from './lab/userBook/ownSync'
+
+// The Android app's own books (nativeBooks.ts) and readers' added books (publicBooks.ts) both carry
+// the whole book registry (150 KB). The library's reading engine needs neither to show the desk: the
+// app's books load inside the app only, the registry for an added book only when one opens
+// (2026-10-21, scripts/check-library-speed.mjs: no longer downloaded and parsed before the desk).
+const nativeBooks = () => (isNativeCapacitor() ? import('./utils/nativeBooks') : null)
+async function nativeLibraryCatalogue() { return (await nativeBooks())?.nativeLibraryCatalogue() ?? null }
+async function ensureNativeBook(bookId: string) { await (await nativeBooks())?.ensureNativeBook(bookId) }
+// A book a reader added (pd-…) joins that registry before the reader opens it; only such a book loads it.
+async function ensurePublicBook(bookId: string) { if (isPublicBookId(bookId)) await (await import('./utils/publicBooks')).ensurePublicBook(bookId) }
 
 interface CatalogueBook {
   id: string
@@ -99,6 +108,11 @@ export interface ReadingTableFinished {
   author: string
   cover: string | null
   finishedAt: number | null
+  /** One of the reader's own books (ownTableBook's fields), finished by its place (ownShelf.ts ownFinished). */
+  own?: true
+  ownKey?: string
+  kind?: 'pdf' | 'epub'
+  href?: string
 }
 
 export interface ReadingTable {
@@ -120,6 +134,8 @@ const LIBRARY_POSITION_DEVICE_ID = 'lab-library'
 
 let catalogue: Map<string, CatalogueBook> | null = null
 let lastRows = new Map<string, ReadingListRow>()
+/** Every finished book of the last read, removed ones included (introductionProgress). */
+let lastFinished = new Set<string>()
 let lastPositions: LabPositionState | null = null
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
@@ -258,7 +274,8 @@ async function placeFor(bookId: string): Promise<Place | null> {
 export async function introductionProgress(bookId: string): Promise<{ chapterNumber: number; completed: boolean }> {
   const table = await loadReadingTable()
   const place = await placeFor(bookId)
-  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) }
+  // A finished book removed from the reader's books is still finished.
+  return { chapterNumber: place?.chapterNumber ?? 0, completed: table.finished.some(book => book.bookId === bookId) || lastFinished.has(bookId) }
 }
 
 /**
@@ -342,8 +359,11 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   // The book the reader just left leads the first paint, so the desk never
   // waits for the account reads to show it (they confirm it moments later).
   const justRead = justLeftReader(auth.userId)
-  const needsCatalogue = !!justRead && !cached?.reading.some(book => book.bookId === justRead.bookId)
+  // An own book just read (the desktop reader and PDF viewer write it) needs no catalogue entry.
+  const justOwn = !!justRead && isUserBookId(justRead.bookId)
+  const needsCatalogue = !!justRead && !justOwn && !cached?.reading.some(book => book.bookId === justRead.bookId)
   if (cached && !needsCatalogue) options.onCached?.(withJustRead(cached, justRead, null))
+  else if (!cached && justOwn) options.onCached?.(withJustRead({ mode: 'returning', reading: [], finished: [] }, justRead, null))
   // Account reads do not need the catalogue: start them now, alongside its
   // download (1.6 MB), instead of after it. Same reads, same merge below.
   let catalogueBooks: Awaited<typeof catalogueReady> | null = null
@@ -405,6 +425,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
   })
   // Removed books still resume at their place (placeFor).
   lastRows = new Map(list.inProgress.map(row => [row.bookId, row]))
+  lastFinished = new Set((list.allFinished ?? list.finished).map(row => row.bookId))
   const table: ReadingTable = {
     mode: libraryModeFor(list),
     reading: list.readingNow.map(row => {
@@ -428,15 +449,18 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
         lastActiveAt: row.lastActiveAt,
       }
     }),
-    // Finished books stay: My shelf offers removal only for books being read (Anders,
-    // 2026-10-07), and older removals of finished books are ignored here, so they
-    // reappear without any stored removal being rewritten.
+    // A finished book leaves the shelf only when removed after it was finished, from
+    // 2026-10-20 ("Remove from my books", readingNow.ts removedFromFinished); older
+    // removals of finished books stay ignored (2026-10-07), so those books stay.
     finished: list.finished.map(row => {
       const book = books.get(row.bookId)
       return { bookId: row.bookId, title: book?.title ?? row.bookId, author: book?.author ?? '', cover: bookCoverSrc({ bookId: row.bookId, art: book?.art }), finishedAt: row.finishedAt }
     }),
   }
-  table.reading = withOwnReading(table.reading, await ownReady)
+  // An own book at its end is finished, as Tinct's are: on Finished, not on the reading table.
+  const own = await ownReady
+  table.reading = withOwnReading(table.reading, own.filter(book => !book.reading.finished))
+  table.finished = withOwnFinished(table.finished, own.filter(book => book.reading.finished))
   if (table.reading.length) table.mode = 'returning'
   // Paint each book's stored "so far" summary with the table itself, so the
   // desk never flashes the position headline first (cache reads only).
@@ -482,6 +506,17 @@ export function ownTableBook(book: OwnShelfBook & { reading: OwnShelfReading }):
   }
 }
 
+/** Own books at their end joined to Finished, most recently finished first (their place's time). */
+export function withOwnFinished(finished: ReadingTableFinished[], own: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): ReadingTableFinished[] {
+  if (own.length === 0) return finished
+  const rows: ReadingTableFinished[] = own.map(book => {
+    const row = ownTableBook(book)
+    return { bookId: row.bookId, title: row.title, author: row.author, cover: row.cover, finishedAt: book.reading.lastActiveAt, own: true, ownKey: row.ownKey, kind: row.kind, href: row.href }
+  })
+  const ids = new Set(rows.map(row => row.bookId))
+  return [...finished.filter(row => !ids.has(row.bookId)), ...rows].sort((a, b) => (b.finishedAt ?? 0) - (a.finishedAt ?? 0))
+}
+
 /** Tinct's books and the reader's own in one row, most recently read first. */
 export function withOwnReading(reading: ReadingTableBook[], own: ReadonlyArray<OwnShelfBook & { reading: OwnShelfReading }>): ReadingTableBook[] {
   if (own.length === 0) return reading
@@ -493,8 +528,8 @@ export function withOwnReading(reading: ReadingTableBook[], own: ReadonlyArray<O
  * data: URL, and localStorage also keeps reading places. The fresh read paints them.
  */
 function withoutOwnCovers(table: ReadingTable): ReadingTable {
-  const strip = (rows: ReadingTableBook[]) => rows.map(row => row.own ? { ...row, cover: null } : row)
-  return { ...table, reading: strip(table.reading), ...(table.shelfReading ? { shelfReading: strip(table.shelfReading) } : {}) }
+  const strip = <T extends { own?: boolean; cover: string | null }>(rows: T[]) => rows.map(row => row.own ? { ...row, cover: null } : row)
+  return { ...table, reading: strip(table.reading), finished: strip(table.finished), ...(table.shelfReading ? { shelfReading: strip(table.shelfReading) } : {}) }
 }
 
 /** The book the reader was just in (the reader's library boot snapshot), if recent and this account's. */
@@ -506,19 +541,42 @@ function justLeftReader(userId: string | null): { bookId: string; title: string;
   return { bookId: hero.bookId, title: hero.title, chapterLabel: hero.chapterLabel, headline: hero.headline, lastReadAt: hero.lastReadAt }
 }
 
-function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftReader>, book: CatalogueBook | null): ReadingTable {
+/**
+ * The device's table snapshot, led by the book the reader just left: a Tinct
+ * book, or (desktop) an own book read in the reader or the PDF viewer, so
+ * Continue opens what was read last before the account's table arrives.
+ */
+export function withJustRead(table: ReadingTable, justRead: ReturnType<typeof justLeftReader>, book: CatalogueBook | null): ReadingTable {
   if (!justRead) return table
-  // The snapshot names Tinct's books only: an own book read since leads instead.
-  if (table.reading.some(row => row.own && (row.lastActiveAt ?? 0) > justRead.lastReadAt)) return table
+  // An own book read since the snapshot was written leads instead.
+  if (table.reading.some(row => row.own && row.bookId !== justRead.bookId && (row.lastActiveAt ?? 0) > justRead.lastReadAt)) return table
   const existing = table.reading.find(row => row.bookId === justRead.bookId)
-  if (!existing && !book) return table
+  const own = isUserBookId(justRead.bookId)
+  if (!existing && !book && !own) return table
   const lead: ReadingTableBook = existing
     ? !justRead.chapterLabel || justRead.chapterLabel === existing.chapterLabel
       ? existing
       // The cached row describes an older place: its percent, headline and
       // recap belong there, not where the reader just stopped.
       : { ...existing, chapterLabel: justRead.chapterLabel, headline: justRead.headline, percent: null, recap: null }
-    : {
+    : own
+      ? {
+          // Not on this device's table yet: its cover and facts arrive with the account's table.
+          bookId: justRead.bookId,
+          title: justRead.title,
+          author: '',
+          cover: null,
+          wordCount: null,
+          displayYear: '',
+          tone: null,
+          chapterLabel: justRead.chapterLabel,
+          headline: justRead.headline,
+          percent: null,
+          recap: null,
+          own: true,
+          lastActiveAt: justRead.lastReadAt,
+        }
+      : {
         bookId: justRead.bookId,
         title: book?.title ?? justRead.title,
         author: book?.author ?? '',
@@ -619,13 +677,17 @@ export async function removeFromShelf(bookId: string) {
   return result
 }
 
-/** Explicit shelf action: only a hide timestamp changes; saved places stay intact. */
-export async function hideFromReadingNow(bookId: string): Promise<void> {
+/**
+ * Explicit shelf action: only a hide timestamp changes; saved places stay intact. A Tinct book
+ * goes to Saved for later (Read later). An own book does too unless `saved: false` (My shelf's
+ * "Remove from Currently reading", Anders 2026-10-21): then it stays only under My private uploads.
+ */
+export async function hideFromReadingNow(bookId: string, { saved = true }: { saved?: boolean } = {}): Promise<void> {
   if (!bookId || bookId.length > 80) throw new Error('Invalid book')
   const auth = await readAuth()
   // An own book is hidden on this device only: its id never reaches the account.
   if (isUserBookId(bookId)) {
-    hideOwnFromReadingTable(userBookHex(bookId)!)
+    hideOwnFromReadingTable(userBookHex(bookId)!, Date.now(), { saved })
     storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
     return
   }

@@ -17,13 +17,13 @@ import { wipeLabDeviceUserData } from '../lab/labSignOut'
 import { fetchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
-import { fetchFind, fetchOwnProfile, loadReading } from './cardsApi'
-import { forgetBoards, knownDefaultBoard, loadDefaultBoard } from './boardMemory'
+import { fetchFind, fetchOwnProfile, flushForFigures, loadReading } from './cardsApi'
+import { forgetBoards, knownDefaultBoard, loadDefaultBoard, noteOwnSeconds, onBoardsChanged } from './boardMemory'
 import { followBackCount } from './cardsRules'
 import { rankOf } from './cardsFormat'
 import type { CardName } from './cardRoutes'
 import { CardStack } from './cardStack'
-import { cardSpec, type CardsData, type CardsEnv, type CardsSession } from './cardViews'
+import { cardSpec, forgetProfiles, type CardsData, type CardsEnv, type CardsSession } from './cardViews'
 import { readCardsCache, writeCardsCache } from './cardsCache'
 import { CARDS_COPY } from './cardsCopy'
 import { sessionStorageKey, storedSession, toCardsSession, type StoredAuthSession } from './cardsBoot'
@@ -119,18 +119,24 @@ function load(env: CardsEnv, social: boolean): void {
     // Profiles off or unavailable: the card shows what needs no profile (the last one stays painted if it was).
     set(result.ok ? { profile: result.profile, loading: settled('profile') } : { loading: settled('profile') })
   })
-  void loadReading(token, userId).then(reading => set(reading ? { reading, loading: settled('reading') } : { loading: settled('reading') }))
+  // Your reading after this device's pending time has gone up (at most a 2 s
+  // wait), so it reads the ledger rows the board does (21 Oct 2026).
+  // The Leaderboard, when it asks again later, sends what was read since too.
+  let syncing: Promise<void> | null = null
+  env.syncOwnTime = () => {
+    // One at a time: a Leaderboard opened while the open's own is on its way shares it.
+    syncing ??= syncOwnTime(env, set).finally(() => { syncing = null })
+  }
+  env.syncOwnTime()
   if (social) {
-    // The leaderboard now: the You row's rank comes from it (one request, not
-    // /api/social/rank as well, which computes the same board again: 1-2 s each,
-    // 10 Oct 2026), and Leaderboard opens without a wait. Kept in memory only.
-    // The board the Leaderboard opens on (Everyone while open, else Friends), so its rank is the one shown.
-    void loadDefaultBoard(token, userId).then(board => {
-      if (!board) return
-      env.data.board = board
-      const me = board.entries.find(entry => entry.me) ?? board.me
-      set({ rank: rankOf(me?.rank, board.total) })
-    })
+    // The viewer's own row took the flushed time: the rank follows.
+    const stop = onBoardsChanged(() => { if (current?.env !== env) stop(); else showBoard(env, set) })
+    // The leaderboard now, beside the flush rather than after it (21 Oct 2026):
+    // the You row's rank comes from it (one request, not /api/social/rank as
+    // well, which computes the same board again: 1-2 s each, 10 Oct 2026), and
+    // Leaderboard opens without a wait. Kept in memory only. The board the
+    // Leaderboard opens on (boardMemory loadDefaultBoard), so its rank is the one shown.
+    void loadDefaultBoard(token, userId).then(board => { if (board) showBoard(env, set) })
     loadFind(env, set)
   }
   void fetchAiAllowance(token).then(allowance => set({ allowance }))
@@ -142,6 +148,33 @@ function load(env: CardsEnv, social: boolean): void {
     // Stripe's portal only for an account with a Stripe subscription to manage
     // (not Premium by grant, whose portal would be empty).
     set({ plan: paying ? 'premium' : 'free', intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
+  })
+}
+
+/** The You card's rank from the board the Leaderboard opens on (as this page knows it now). */
+function showBoard(env: CardsEnv, set: (patch: Partial<CardsData>) => void): void {
+  const board = knownDefaultBoard(env.session.userId)
+  if (!board) return
+  env.data.board = board
+  const me = board.entries.find(entry => entry.me) ?? board.me
+  set({ rank: rankOf(me?.rank, board.total) })
+}
+
+/**
+ * Sends this device's pending reading time (flushForFigures), then reads Your
+ * reading. When the flush sent time, a board read before it landed takes the
+ * viewer's own seconds from that figure (boardMemory noteOwnSeconds), so the
+ * You card, its rank and the Leaderboard say the same minutes (#522) without
+ * the board ever waiting for the flush. Also run by the Leaderboard when it
+ * asks again later (time read since the cards opened).
+ */
+function syncOwnTime(env: CardsEnv, set: (patch: Partial<CardsData>) => void): Promise<void> {
+  const { token, userId } = env.session
+  return flushForFigures(token, userId).then(async after => {
+    const reading = await loadReading(token, userId)
+    const loading = { ...env.data.loading, reading: false }
+    set(reading ? { reading, loading } : { loading })
+    if (after && reading) noteOwnSeconds(userId, reading.stats.last7Seconds, after, env.data.profile?.name ?? null)
   })
 }
 
@@ -184,6 +217,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
       wipeLabDeviceUserData()
       cached = null
       forgetBoards()
+      forgetProfiles()
       location.assign(landing)
     },
     // The sign-in page's reset flow (labSignIn.ts 'forgot'): the same email, the same return link.

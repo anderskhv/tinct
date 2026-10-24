@@ -9,6 +9,7 @@ import { isPublicBookId } from '../../public/lab/public-books.js'
  */
 export const BOOKS_WITHOUT_THREADS: ReadonlySet<string> = new Set([
   'adventures-of-sherlock-holmes',
+  'arabian-nights',
   'aristotle-politics',
   'beyond-good-and-evil',
   'bold-conjectures-volume-1',
@@ -21,6 +22,7 @@ export const BOOKS_WITHOUT_THREADS: ReadonlySet<string> = new Set([
   'faust-part-1',
   'federalist-papers',
   'genealogy-of-morals',
+  'grimms-fairy-tales',
   'lords-of-the-cosmos',
   'magna-carta',
   'meditations',

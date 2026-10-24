@@ -12,6 +12,8 @@ import {eraLabel} from './book-metadata.js?v=20261009rel10';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
+import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
+import {pasteEpub,preview as pastePreview,suggestedTitle} from './paste-text.js?v=20261023paste1';
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -24,6 +26,9 @@ export const ADD_FILE_PAGE=MY_SHELF_URL;
 export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
+const pasteEnabled=()=>sharedReaderEnabled(location.search);
+const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
+const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
 export const ADD_PARAM='add';
 
@@ -103,6 +108,7 @@ export function addEngine(){
 // ---- Premium: adding books (Add, a PDF or EPUB) is Premium or the 30-day trial (Anders, 2026-10-07) ----
 /** The account page with its Premium offer: where a free account's Add and file entries lead. */
 export const PREMIUM_PAGE=`/sign-in?mode=account&returnTo=${encodeURIComponent('/library')}`;
+const premiumForEntry=()=>pasteEnabled()?`/sign-in?mode=account&returnTo=${encodeURIComponent(pasteShelf())}`:PREMIUM_PAGE;
 let access=null;
 /** Whether this account may add books: true, false, or null when it cannot be told (asked once per account). */
 export function canAdd(){
@@ -118,8 +124,14 @@ export function resetAddAccess(){access=null;}
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
 const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
-const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261009owncover','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261014talkwake'];
+// Both the extensions and the types: iOS Files greys an EPUB out when only a type it does not map is
+// named. No spaces: Android's WebView hands each piece to the picker untrimmed. On Android some file
+// managers and cloud apps report an EPUB as application/octet-stream, which the picker would grey out,
+// so it is named there too; the engine then decides by the file's own bytes (add-engine.js readFile).
+export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
+export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261023readerown1'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -153,7 +165,7 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  const close=button('tui-close own-file-close','');close.setAttribute('aria-label',OWN_BOOK_COPY.close);
  close.innerHTML='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m3 3 8 8M11 3l-8 8"/></svg>';
  close.onclick=()=>{if(!box.dataset.busy)closeFileDialog();};head.append(close);
- const input=make('input');input.type='file';input.accept=FILE_ACCEPT;input.hidden=true;input.className='own-file-input';
+ const input=make('input');input.type='file';input.accept=fileAccept();input.hidden=true;input.className='own-file-input';
  const content=make('div','own-file-content');
  box.append(head,content,input);layer.append(box);document.body.append(layer);
  // While a file is being added, the pop-up stays until the book opens.
@@ -166,8 +178,10 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  api().catch(()=>{});
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
+ let pastePending=null,pasteDraft=null;
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
+  title.textContent=OWN_BOOK_COPY.title;
   const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
   choose.onclick=()=>input.click();
@@ -175,6 +189,10 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   const row=actions(choose);
   const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
   if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
+  if(pasteEnabled()){
+   const paste=button('tui-btn tui-btn--secondary own-file-paste','Paste text');
+   paste.onclick=()=>{pasteDraft=null;pasteStep();};row.append(paste);
+  }
   step('choose',...parts,row);
   choose.focus({preventScroll:true});
  };
@@ -203,6 +221,67 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   step('rights',intro,label,actions(no,ok));
   check.focus({preventScroll:true});
  });
+ // Keep this draft only in the dialog. Pasting rich clipboard HTML is opt-in to this private
+ // switch; preview is rebuilt from the editable source, never rendered from raw clipboard HTML.
+ function pasteStep(message=''){
+  delete box.dataset.busy;
+  title.textContent='Paste text';
+  const source=make('textarea','own-paste-source');source.rows=9;source.placeholder='Paste your text here';source.setAttribute('aria-label','Text to add');
+  const titleField=make('input','own-paste-title');titleField.type='text';titleField.placeholder='Pasted text';titleField.maxLength=200;titleField.setAttribute('aria-label','Title');
+  const author=make('input','own-paste-author');author.type='text';author.placeholder='Author (optional)';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
+  const start=make('input','own-paste-trim-start');start.type='number';start.min='0';start.value='0';start.setAttribute('aria-label','Lines to trim from beginning');
+  const end=make('input','own-paste-trim-end');end.type='number';end.min='0';end.value='0';end.setAttribute('aria-label','Lines to trim from end');
+  const alert=make('p','own-paste-error',message);alert.setAttribute('role','alert');
+  const sample=make('div','own-paste-preview');sample.setAttribute('aria-label','Preview of text to add');
+  const richNotice=make('p','tui-dialog__fine own-paste-rich-note','Rich formatting was found. Review the preview before adding; the text box shows the words.');richNotice.hidden=true;
+  let richHtml=null,titleEdited=false;
+  const parsed=()=>richHtml!==null?{source:richHtml,format:'html'}:{source:source.value,format:'auto'};
+  const render=()=>{try{const data=parsed();const html=pastePreview(data.source,data.format,Number(start.value),Number(end.value));const fragment=document.createElement('template');fragment.innerHTML=html;sample.replaceChildren(fragment.content);alert.textContent='';}catch(error){sample.replaceChildren();alert.textContent=source.value?error.message:'';}};
+  source.addEventListener('paste',event=>{const html=event.clipboardData?.getData('text/html'),plain=event.clipboardData?.getData('text/plain');if(html&&!source.value&&plain){event.preventDefault();source.value=plain;richHtml=html;richNotice.hidden=false;details.open=true;if(!titleEdited)titleField.value=suggestedTitle(html,'html');render();}});
+  source.addEventListener('input',()=>{if(richHtml!==null){richHtml=null;richNotice.hidden=true;}if(!titleEdited)titleField.value=suggestedTitle(source.value);render();});
+  titleField.addEventListener('input',()=>{titleEdited=true;});
+  for(const field of [start,end])field.addEventListener('input',render);
+  const save=button('tui-btn tui-btn--primary own-paste-save','Add to my books');
+  save.onclick=async()=>{
+   if(save.disabled)return;
+   save.disabled=true;
+   let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
+   const signature=JSON.stringify(details);
+   try{
+    if(pastePending?.signature!==signature)pastePending={signature,file:pasteEpub(details),account:null};
+    file=pastePending.file;
+    if(file.size>50*1024*1024)throw new Error('This text exceeds the private book size limit. Trim it before adding.');
+   }
+   catch(error){alert.textContent=error.message;save.disabled=false;return;}
+   const draft={source:source.value,richHtml,title:titleField.value,author:author.value,start:start.value,end:end.value};
+   progress(.08);
+   try{
+    const engineApi=await api();
+    if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,draft.title))return;
+    progress(.3);
+    const read=await engineApi.readFile(file);if(read.error)throw new Error(read.error);
+    // Parse with the actual EPUB engine before creating an account object. Otherwise
+    // a malformed generated package would be saved while the dialog said it failed.
+    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
+    // Account persistence is required for Paste. Unlike the existing file flow, an
+    // offline/failed upload stays in the editable dialog and cannot look "saved".
+    const account=pastePending.account||await window.TinctAI.books.upload(file,{kind:'epub',name:file.name,title:details.title.trim(),author:draft.author.trim(),rights:engineApi.store.get('rights:'+engineApi.accountId())});
+    if(!account?.id||account.sha256?.slice(0,24)!==read.key.slice(5))throw new Error('The account could not confirm this book. Try again.');
+    pastePending.account=account;
+    engineApi.cloud.mine().set(read.key,account);
+    progress(.7);
+    if(await engineApi.keepFile(file,read,details.title.trim()))await engineApi.library.touch(read.key,{cloudId:account.id});
+    // Validation and metadata use the same EPUB path as a selected private file.
+    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
+    progress(1);go('/reader?userBook='+encodeURIComponent(read.key.slice(5))+'&sharedReader=1');
+   }catch(error){pasteDraft=draft;pasteStep(error?.message||'This text could not be added. Try again.');}
+  };
+  const field=(label,control)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),control);return wrap;};
+  const details=make('details','own-paste-details');const summary=make('summary','','Review details');details.append(summary,field('Title',titleField),field('Author',author),make('p','tui-dialog__fine','Optional: remove lines from the beginning or end before adding.'),field('Trim beginning (lines)',start),field('Trim end (lines)',end),sample);
+  step('paste',alert,field('Text',source),richNotice,details,actions(save));
+  if(pasteDraft){source.value=pasteDraft.source;richHtml=pasteDraft.richHtml;richNotice.hidden=!richHtml;details.open=!!richHtml;titleField.value=pasteDraft.title;author.value=pasteDraft.author;start.value=pasteDraft.start;end.value=pasteDraft.end;titleEdited=!!pasteDraft.title;render();alert.textContent=message;}
+  source.focus({preventScroll:true});
+ }
  async function addFile(file){
   progress(.08);
   let engineApi;
@@ -232,8 +311,8 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  * device signed out), the Premium offer for a free account, exactly as before.
  */
 export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
- if((await access())===false){go(PREMIUM_PAGE);return null;}
- if(!signedIn()){go(SIGN_IN_FOR_FILE);return null;}
+ if((await access())===false){go(premiumForEntry());return null;}
+ if(!signedIn()){go(signInForEntry());return null;}
  return openFileDialog({from,go,...options});
 }
 function fileEntry(link){
@@ -771,13 +850,20 @@ export const ownPercentLabel=p=>typeof p!=='number'||!Number.isFinite(p)?'':p>0&
  * `cover` replaces the listed cover (the reading table's full-size one, when it has it).
  * `progress`: under Currently reading, how far through it the reader is (read on this device
  * or another of the account), under the cover where Tinct's books show theirs.
+ * `onDelete`: the cover's ••• menu with Delete (shelfMenu), called with the book and the ••• button.
+ * `actions`: the menu's other items, above Delete (`{label,onChoose(book,more)}`: Currently
+ * reading's Read later and Remove from Currently reading).
  */
-export function ownBookCard(book,el,{onRemove=null,cover=null,progress=false}={}){
+export function ownBookCard(book,el,{onRemove=null,onDelete=null,onEdit=null,actions=[],cover=null,progress=false}={}){
  const card=el('article','collection-card own-book');card.dataset.shelfGroup='own';card.dataset.ownKey=book.key;
  const open=el('a','book-card cover-button own-cover');open.href=book.href;open.setAttribute('aria-label',`Open ${book.title}${book.author?', by '+book.author:''}`);
  open.append(ownCoverElement(cover?{...book,cover}:book));
  let face=open;
- if(onRemove){
+ if(onDelete){
+  face=el('div','card-wrap');
+  const items=[...actions.map(a=>({label:a.label,onChoose:from=>a.onChoose(book,from)})),...(onEdit&&pasteEnabled()?[{label:'Edit title and author',onChoose:from=>onEdit(book,from)}]:[]),{label:shelfAction(true).item,danger:true,onChoose:from=>onDelete(book,from)}];
+  face.append(open,shelfMenu(book.title,{own:true,items}));
+ }else if(onRemove){
   face=el('div','card-wrap');
   const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=book.title;x.setAttribute('aria-label','Remove from My shelf: '+book.title);
   x.onclick=event=>{event.preventDefault();event.stopPropagation();onRemove(book,x);};
@@ -804,12 +890,12 @@ export const ownTableId=key=>'userbook-'+String(key||'').replace(/^(epub|pdf):/,
 /**
  * My shelf's own books. Own books being read join Currently reading (after the library's own,
  * or under a new heading at the top), with the × that takes a book off Currently reading
- * (`onRemoveReading`); then "My private uploads" with every own book and the × that deletes
- * one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
+ * (`onRemoveReading`); then "My private uploads" with every own book and the ••• menu that
+ * deletes one (`onDelete`). `covers` maps a reading-table id to its full-size cover. Adding a book is
  * the + beside My shelf's heading. Returns how many cards were added. `currentlyReading: false`:
  * the library's My shelf, whose Currently reading is the reading table's list (own books in it).
  */
-export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,covers=null,currentlyReading=true}={}){
+export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,onEdit=null,covers=null,currentlyReading=true}={}){
  const {reading,own}=ownShelfGroups(list);let added=0;
  const coverFor=book=>covers?.get?.(ownTableId(book.key))||null;
  if(currentlyReading&&reading.length){
@@ -819,26 +905,124 @@ export function appendOwnShelf(grid,list,el,{onRemoveReading=null,onDelete=null,
  }
  if(own.length){
   grid.append(el('h2','my-books-head',PRIVATE_UPLOADS));
-  for(const book of own){grid.append(ownBookCard(book,el,{onRemove:onDelete,cover:coverFor(book)}));added++;}
+  for(const book of own){grid.append(ownBookCard(book,el,{onDelete,onEdit,cover:coverFor(book)}));added++;}
  }
  return added;
 }
 
-// ---- Removing one of My private uploads: the existing delete (this device and the account) ----
+// ---- My shelf's ••• menu (Anders, 2026-10-20; Read later and its place, 2026-10-21) ----
 /**
- * Confirm before an own book is deleted (the reading table's remove dialog, in Tinct UI).
- * Resolves true on Remove.
+ * What the last action on a shelf book says: an own book (PDF, EPUB) is deleted from
+ * Tinct; a Tinct book leaves the reader's shelf, its place and notes kept.
  */
-export function confirmDeleteUpload(book,{from=null}={}){
+export function shelfAction(own){
+ return own
+  ?{item:'Delete',title:t=>`Delete ${t}?`,body:'Deletes the file, its notes and its place from Tinct on all your devices.',confirm:'Delete'}
+  :{item:'Remove from shelf',title:t=>`Remove ${t}?`,body:'Removes it from your shelf. Your place and notes stay if you add it again.',confirm:'Remove'};
+}
+/** Currently reading's other actions: off the reading row, the place, highlights and notes kept. */
+export const READ_LATER='Read later',OFF_READING='Remove from Currently reading';
+/**
+ * Where a ••• menu opens (all in viewport pixels): just below the button (`gap`), its right edge
+ * on the button's; above the button when below would leave the viewport (and above fits better),
+ * and starting at the button's left edge when right-aligned would leave it on the left. Kept
+ * `margin` inside the viewport either way.
+ */
+export function shelfMenuPlace(button,menu,view,{gap=4,margin=8}={}){
+ let left=button.right-menu.width,top=button.bottom+gap,above=false,flipped=false;
+ if(left<margin){left=button.left;flipped=true;}
+ if(top+menu.height>view.height-margin&&button.top-gap-menu.height>=margin){top=button.top-gap-menu.height;above=true;}
+ left=Math.max(margin,Math.min(left,view.width-margin-menu.width));
+ top=Math.max(margin,Math.min(top,view.height-margin-menu.height));
+ return {left,top,above,flipped};
+}
+/** Place an open menu (absolute, inside the card) at shelfMenuPlace, from the button's and its container's boxes. */
+function placeShelfMenu(menu,more){
+ const box=menu.offsetParent?.getBoundingClientRect?.()||{left:0,top:0};
+ const r=more.getBoundingClientRect(),m=menu.getBoundingClientRect();
+ const view={width:document.documentElement.clientWidth||innerWidth,height:innerHeight};
+ const at=shelfMenuPlace(r,{width:m.width,height:m.height},view);
+ menu.style.left=(at.left-box.left)+'px';menu.style.top=(at.top-box.top)+'px';
+ menu.dataset.place=(at.above?'above':'below')+(at.flipped?' start':' end');
+}
+let openMenu=null;const afterMenu=[];
+function closeShelfMenu({focus=false}={}){
+ if(!openMenu)return;const {menu,more,away,onResize}=openMenu;openMenu=null;
+ menu.remove();more.setAttribute('aria-expanded','false');more.classList.remove('is-open');
+ removeEventListener('pointerdown',away,true);removeEventListener('keydown',away,true);removeEventListener('resize',onResize);
+ if(focus)more.focus({preventScroll:true});
+ // After the chosen item has run (it is called right after this), not before it.
+ if(afterMenu.length)queueMicrotask(()=>{for(const fn of afterMenu.splice(0))fn();});
+}
+/**
+ * Whether a shelf cover's ••• menu is open inside `root`. A page that redraws `root` while one is
+ * open would take the menu away under the reader's finger (My shelf redrew itself when the
+ * catalogue or the account's table arrived late: 2026-10-22, check-library-public in WebKit), so
+ * it waits: `afterShelfMenu(fn)` runs `fn` once the menu has closed and its choice has run.
+ */
+export function shelfMenuOpenIn(root){return !!openMenu&&!!root?.contains(openMenu.more);}
+export function afterShelfMenu(fn){if(openMenu)afterMenu.push(fn);else fn();}
+/** Close an open ••• menu: the view it belongs to is going away (another collection, Back). */
+export function closeShelfMenus(){closeShelfMenu();}
+/**
+ * The quiet ••• on a shelf cover (on hover with a mouse, always shown on touch): a small menu
+ * anchored to it (shelfMenuPlace). `items`: `{label,onChoose(more),danger?}` in order, the
+ * destructive one last; without them, the book's one action (shelfAction) runs `onChoose(more)`.
+ * Each runs once the menu has closed.
+ */
+export function shelfMenu(title,{own=false,onChoose,items=null}){
+ const list=items||[{label:shelfAction(own).item,danger:own,onChoose}];
+ const more=button('shelf-more');more.dataset.shelfMore=own?'own':'tinct';
+ more.setAttribute('aria-label',`More for ${title}`);more.setAttribute('aria-haspopup','menu');more.setAttribute('aria-expanded','false');
+ more.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>';
+ more.onclick=event=>{
+  event.preventDefault();event.stopPropagation();
+  if(openMenu?.more===more){closeShelfMenu();return;}
+  closeShelfMenu();
+  const menu=make('div','shelf-menu');menu.setAttribute('role','menu');menu.dataset.testid='shelf-menu';
+  const buttons=list.map(entry=>{
+   const item=button('shelf-menu-item',entry.label);item.setAttribute('role','menuitem');if(entry.danger)item.classList.add('is-delete');
+   item.onclick=e=>{e.preventDefault();e.stopPropagation();closeShelfMenu();entry.onChoose(more);};
+   return item;
+  });
+  menu.append(...buttons);menu.addEventListener('click',e=>e.stopPropagation());
+  const away=e=>{
+   if(e.type==='keydown'){
+    if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closeShelfMenu({focus:true});}
+    else if((e.key==='ArrowDown'||e.key==='ArrowUp')&&menu.contains(document.activeElement)){e.preventDefault();const i=buttons.indexOf(document.activeElement);buttons[(i+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length].focus({preventScroll:true});}
+    return;
+   }
+   if(!menu.contains(e.target)&&e.target!==more&&!more.contains(e.target))closeShelfMenu();
+  };
+  // A real change of the viewport's size closes the menu; a resize event that changes nothing
+  // (the library sends one whenever the reading table arrives) only places it again.
+  const size=()=>`${document.documentElement.clientWidth}x${innerHeight}`,openSize=size();
+  const onResize=()=>{if(size()!==openSize)closeShelfMenu();else placeShelfMenu(menu,more);};
+  more.after(menu);more.setAttribute('aria-expanded','true');more.classList.add('is-open');
+  placeShelfMenu(menu,more);
+  openMenu={menu,more,away,onResize};
+  addEventListener('pointerdown',away,true);addEventListener('keydown',away,true);addEventListener('resize',onResize);
+  buttons[0].focus({preventScroll:true});
+ };
+ return more;
+}
+/**
+ * Confirm a shelf book's action in Tinct UI's dialog, never window.confirm: its title
+ * names the book, its one line says what happens (shelfAction). `own`: an own book's
+ * Delete (the default: My private uploads); false: a Tinct book's Remove from my books.
+ * Resolves true on the action, false on Cancel, Escape or a click outside.
+ */
+export function confirmDeleteUpload(book,{from=null,own=true}={}){
+ const action=shelfAction(own);
  return new Promise(resolve=>{
   const layer=make('div','tui-scrim own-delete-layer');layer.dataset.testid='own-delete-dialog';layer.dataset.tuiTheme='dark';
   const box=make('div','tui-dialog own-delete-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-delete-title');
-  const title=make('h2','tui-dialog__title',`Remove ${book.title}?`);title.id='own-delete-title';
+  const title=make('h2','tui-dialog__title',action.title(book.title));title.id='own-delete-title';
   const head=make('div','tui-dialog__head');head.append(title);
-  const keepIt=button('tui-btn tui-btn--secondary own-delete-cancel','Keep book');
-  const remove=button('tui-btn tui-btn--primary own-delete-confirm','Remove');
+  const keepIt=button('tui-btn tui-btn--secondary own-delete-cancel','Cancel');
+  const remove=button('tui-btn tui-btn--primary own-delete-confirm',action.confirm);
   const row=make('div','tui-dialog__actions');row.append(keepIt,remove);
-  box.append(head,make('p','tui-dialog__body','It is removed from this device and your account.'),row);layer.append(box);document.body.append(layer);
+  box.append(head,make('p','tui-dialog__body',action.body),row);layer.append(box);document.body.append(layer);
   const done=value=>{removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});resolve(value);};
   const onKey=event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();done(false);}};
   addEventListener('keydown',onKey,true);
@@ -848,15 +1032,170 @@ export function confirmDeleteUpload(book,{from=null}={}){
  });
 }
 /**
- * Delete an own book from this device and the account with Add a book's own delete
- * (add-engine.js removeBook: the kept file, its place, the account copy). Other books'
- * places are never touched. Resolves true when it is gone from both.
+ * Delete an own book with Add a book's own delete (add-engine.js removeBook: this device's
+ * copy in IndexedDB, its place, and the account's copy, whose DELETE takes the R2 file, its
+ * cover, place, highlights and notes, margin answers, recap, narration and recognised text:
+ * worker/routes/userBooks.ts remove). Then this device's other keys for the book go
+ * (forgetOwnBookHere). Other books' places are never touched. Resolves true when it is
+ * gone from both.
  */
-export async function deleteUpload(book,{engine=loadFileEngine}={}){
+// The file engine loads tinct-api.js lazily on a cold Library page. Read the
+// same Supabase session it will expose, so installing the bridge is not mistaken
+// for an account change. This is an identity check, never a separate auth source.
+function deleteSession(){
+ const bridged=globalThis.TinctAI?.session?.();
+ if(bridged)return {userId:bridged.userId??null,token:bridged.token??null};
+ try{
+  for(let i=0;i<localStorage.length;i++){
+   const key=localStorage.key(i);
+   if(!/^sb-.*-auth-token$/.test(key))continue;
+   const value=JSON.parse(localStorage.getItem(key)||'null');
+   const session=value&&(value.currentSession||value);
+   if(!session?.access_token)continue;
+   const expired=session.expires_at&&session.expires_at*1000<Date.now()+30000;
+   return {userId:session.user?.id||null,token:expired?null:session.access_token};
+  }
+ }catch{}
+ return {userId:null,token:null};
+}
+export async function deleteUpload(book,{engine=loadFileEngine,storages=null}={}){
+ const initiating=deleteSession();
+ const userId=initiating.userId,token=initiating.token;
+ const sameSession=()=>{
+  const current=deleteSession();
+  return current.userId===userId&&current.token===token;
+ };
  const api=await engine();
+ if(!sameSession())return false;
  // An account copy not on this device is found by the account's list.
- if(!(await api.library.get(book.key)))await api.cloud.refresh();
- return api.removeBook(book.key);
+ const local=await api.library.get(book.key);
+ if(!sameSession())return false;
+ if(!local){await api.cloud.refresh();if(!sameSession())return false;}
+ const gone=await api.removeBook(book.key);
+ if(!sameSession())return false;
+ // Engine already removed the verified local file. This second pass may run
+ // after a stale shelf lookup, so it must not erase another owner's hash-only
+ // state merely because their local file has identical bytes.
+ forgetOwnBookHere(String(book.key||'').replace(/^(epub|pdf):/,''),storages||undefined,{preserveHashOnly:true});
+ return gone;
+}
+/** Display details only: the owned file, its SHA and source anchors are untouched. */
+export async function editOwnBookDetails(book,{from=null,engine=loadFileEngine,onSaved=()=>{}}={}){
+ const hex=String(book.key||'').replace(/^(epub|pdf):/,'');
+ if(!/^[0-9a-f]{24}$/.test(hex))return null;
+ const layer=make('div','tui-scrim own-file-layer');layer.dataset.tuiTheme='dark';layer.dataset.testid='own-metadata-dialog';
+ const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-metadata-title');
+ const heading=make('h2','tui-dialog__title','Edit book details');heading.id='own-metadata-title';
+ const status=make('p','tui-dialog__body own-file-message','Loading…');status.setAttribute('role','status');
+ const title=make('input','own-paste-title');title.type='text';title.maxLength=200;title.setAttribute('aria-label','Title');
+ const author=make('input','own-paste-author');author.type='text';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
+ const field=(label,input)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),input);return wrap;};
+ const cancel=button('tui-btn tui-btn--secondary','Cancel'),save=button('tui-btn tui-btn--primary','Save details');save.disabled=true;
+ const actions=make('div','tui-dialog__actions own-file-actions');actions.append(cancel,save);
+ box.append(heading,status,field('Title',title),field('Author',author),actions);layer.append(box);document.body.append(layer);
+ let busy=false,closed=false,current=null;
+ const close=()=>{if(busy||closed)return;closed=true;removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});};
+ const onKey=e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();}};
+ addEventListener('keydown',onKey,true);cancel.onclick=close;layer.onclick=e=>{if(e.target===layer)close();};
+ let api;
+ try{api=await engine();current=await window.TinctAI.books.metadata(hex);if(closed)return null;title.value=current.title;author.value=current.author;status.textContent='';save.disabled=false;title.focus({preventScroll:true});}
+ catch{if(!closed)status.textContent='Could not load these details. Close and try again.';return layer;}
+ save.onclick=async()=>{
+  if(!title.value.trim()){status.textContent='Give this book a title.';title.focus();return;}
+  busy=true;save.disabled=true;status.textContent='Saving…';
+  try{
+   const next=await window.TinctAI.books.editMetadata(hex,{title:title.value.trim(),author:author.value.trim(),rev:current.rev,fileId:current.fileId});
+   // The account PATCH has already committed. A blocked local IndexedDB write
+   // cannot turn that success into a retry with a stale revision.
+   try{await api.library.touch(book.key,{title:next.title,author:next.author,metadataRev:next.rev});}catch{/* account metadata remains authoritative */}
+   const remote=api.cloud.get(book.key);if(remote)Object.assign(remote,{title:next.title,author:next.author});
+   busy=false;close();onSaved({...book,title:next.title,author:next.author});
+  }catch(error){busy=false;save.disabled=false;status.textContent=error?.status===409?'This book changed on another device. Close and reopen to edit its latest details.':error?.status===404?'This book was removed from your account.':'Could not save these details. Try again.';}
+ };
+ return layer;
+}
+/** This page's fast-paint snapshots: rebuilt on the next load, so one that names a deleted book is dropped whole. */
+const SNAPSHOT_KEYS=/^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
+/**
+ * Everything this device keeps for one own book besides its file (removeBook takes that and its
+ * place): its highlights, margin answers, chats, PDF page and edition, view, hidden mark, the
+ * library's small cover copy, and any snapshot naming it. Keys are matched by the book's own
+ * 24-hex-digit id, so no other book's keys can match.
+ */
+export function forgetOwnBookHere(hex,storages=[globalThis.localStorage,globalThis.sessionStorage],{preserveHashOnly=false}={}){
+ if(!/^[0-9a-f]{24}$/.test(String(hex)))return 0;
+ const id='userbook-'+hex;let gone=0,owner=globalThis.TinctAI?.session()?.userId||null;
+ for(const store of storages){
+  if(!store)continue;
+  try{
+   const legacyClaim=`tinct-addbook:legacy-epub-owner:${hex}`;
+   const legacyBackup=`tinct-addbook:legacy-epub-annotations:${owner}:${hex}`;
+   const legacyMarks=`tinct-addbook:hl:epub:${hex}`,legacyCards=`tinct-addbook:cards:epub:${hex}`;
+   const claimedByOwner=!!owner&&store.getItem(legacyClaim)===owner;
+   // Old EPUB annotations use hash-only keys. Exact agreement with this
+   // owner's backup is the proof needed to delete them. Preserve a mismatched
+   // claim and backup, otherwise another account could adopt the raw records.
+   let legacyRawProven=false;
+   if(claimedByOwner)try{
+    const marks=store.getItem(legacyMarks),cards=store.getItem(legacyCards);
+    if(marks===null&&cards===null)legacyRawProven=true;
+    else{const backup=JSON.parse(store.getItem(legacyBackup)||'null');legacyRawProven=!!backup&&Array.isArray(backup.marks)&&Array.isArray(backup.cards)
+     &&(marks===null||JSON.stringify(JSON.parse(marks))===JSON.stringify(backup.marks))
+     &&(cards===null||JSON.stringify(JSON.parse(cards))===JSON.stringify(backup.cards));}
+   }catch{legacyRawProven=false;}
+   if(legacyRawProven)for(const key of [legacyMarks,legacyCards])try{store.removeItem(key);}catch{/* keep claim if raw remains */}
+   const preserveLegacyClaim=claimedByOwner&&(store.getItem(legacyMarks)!==null||store.getItem(legacyCards)!==null);
+   const marksMarker=`tinct-addbook:text-marks-owner:${hex}`;
+   if(owner&&store.getItem(marksMarker)===owner){
+    const backup=store.getItem(`tinct-addbook:text-marks-local:${owner}:${hex}`);
+    try{const all=JSON.parse(store.getItem('tinct-lab-highlights')||'[]');if(backup!==null&&Array.isArray(all)&&backup===JSON.stringify(all.filter(mark=>mark?.bookId===id)))store.setItem('tinct-lab-highlights',JSON.stringify(all.filter(mark=>mark?.bookId!==id)));}catch{/* preserve marks when ownership or storage is uncertain */}
+   }
+   const marksStillClaimed=owner&&store.getItem(marksMarker)===owner&&(()=>{
+    const raw=store.getItem('tinct-lab-highlights');if(raw===null)return false;
+    try{const rows=JSON.parse(raw);return !Array.isArray(rows)||rows.some(mark=>mark?.bookId===id);}catch{return true;}
+   })();
+   const keys=[];for(let i=0;i<store.length;i++){const key=store.key(i);if(key)keys.push(key);}
+   const chatKey=`tinct:chat-history:${id}`;
+   const chatMarker=`tinct-addbook:text-cards-owner:${hex}`;
+   if(owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null)try{
+    const raw=JSON.parse(store.getItem(chatKey));
+    const canonical=keys.filter(key=>key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`));
+    if(Array.isArray(raw)&&raw.length&&canonical.some(key=>{
+     try{const copy=JSON.parse(store.getItem(key)||'null');const known=new Set(Array.isArray(copy?.conversations)?copy.conversations.map(row=>JSON.stringify(row)):[]);
+      return raw.every(row=>known.has(JSON.stringify(row)));}catch{return false;}
+    })){store.removeItem(chatKey);if(store.getItem(chatKey)===null)gone++;}
+   }catch{/* malformed or ambiguous hash-only chat remains claimed */}
+   const chatStillClaimed=owner&&store.getItem(chatMarker)===owner&&store.getItem(chatKey)!==null;
+   for(const key of keys){
+    if(key===chatKey||key===legacyMarks||key===legacyCards)continue;
+    if(preserveLegacyClaim&&(key===legacyClaim||key===legacyBackup||key===`tinct-addbook:legacy-epub-migrated:${owner}:${hex}`))continue;
+    if(marksStillClaimed&&(key===marksMarker||key===`tinct-addbook:text-marks-local:${owner}:${hex}`||key===`tinct-addbook:text-marks-previous:${owner}:${hex}`))continue;
+    if(chatStillClaimed&&(key===chatMarker||key===`tinct-addbook:text-cards-adopted:${owner}:${hex}`||key===`tinct-addbook:text-cards-canonical:${owner}:${hex}`||key.startsWith(`tinct-addbook:text-cards-canonical:${owner}:${hex}:`)))continue;
+    const scoped=/^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(key);
+    if(scoped&&scoped[2]===hex&&(!owner||scoped[1]!==owner))continue;
+    const pdfScoped=/^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(key);
+    if(pdfScoped&&pdfScoped[2]===hex&&(!owner||pdfScoped[1]!==owner))continue;
+    const staticScoped=/^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(staticScoped&&staticScoped[2]===hex&&(!owner||staticScoped[1]!==owner))continue;
+    if(/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(key)&&owner)continue;
+    if(key===`tinct-addbook:text-cards-unassigned:${hex}`||key===`tinct-addbook:text-marks-unassigned:${hex}`)continue;
+    if(key===`tinct-addbook:text-cards-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const legacy=/^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(key);
+    if(legacy&&legacy[2]===hex&&(!owner||legacy[1]!==owner))continue;
+    if(key===`tinct-addbook:legacy-epub-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    if(key===`tinct-addbook:text-marks-owner:${hex}`&&(!owner||store.getItem(key)!==owner))continue;
+    const tableOwner=/^tinct:library-2-table:([^:]+)$/.exec(key);
+    if(tableOwner&&(!owner||tableOwner[1]!==owner))continue;
+    if(preserveHashOnly&&!(owner&&((scoped&&scoped[1]===owner)||(pdfScoped&&pdfScoped[1]===owner)
+     ||(legacy&&legacy[1]===owner)||(staticScoped&&staticScoped[1]===owner)
+     ||([legacyClaim,marksMarker,chatMarker].includes(key)&&store.getItem(key)===owner))))continue;
+    const mine=(key.startsWith('tinct-addbook:')||key.startsWith('tinct:'))&&key.includes(hex);
+    const names=!mine&&SNAPSHOT_KEYS.test(key)&&String(store.getItem(key)||'').includes(id);
+    if(mine||names){store.removeItem(key);gone++;}
+   }
+  }catch{/* blocked storage: nothing kept to forget */}
+ }
+ return gone;
 }
 
 /** The library top bar's +, beside search: the "Your own book" pop-up with "Add a book" (`onSearch`: the library search), where Add to Tinct is on. */

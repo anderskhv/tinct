@@ -104,7 +104,7 @@ describe('the compare gesture', () => {
     renderPhone()
     swipe(screen.getByTestId('lab-book'), 0, -110, 'mouse')
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
-    // The pointer's way into Compare is the switch in Reading settings.
+    // The pointer's way into Compare is the switch in Book settings.
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
@@ -307,7 +307,7 @@ describe('where the compare page ends', () => {
 
 })
 
-it('swaps to the compare version from the Reading settings switch and back, closing the sheet each time', () => {
+it('swaps to the compare version from the Book settings switch and back, closing the sheet each time', () => {
   withCompare()
   renderPhone()
   const openSwitch = () => {

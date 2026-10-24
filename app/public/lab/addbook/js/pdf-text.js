@@ -504,19 +504,38 @@
   // supply a page's text items; options.regions(n, page, items) the page's crops (pdf-regions.js
   // pageRegions, each with its `id` and drawn size `css`; app/src/lab/userBook/pdfEdition.ts draws
   // them); options.live() turns false to stop (null is returned).
-  async function convert(pdf, { scan, items, regions, live = () => true } = {}) {
+  // Pages are read `concurrency` at a time (pdf.js parses one in its worker while another is drawn
+  // here) and put together in page order, so the edition is the one a page at a time gives; options.pace(),
+  // when given, is waited for before each page (reader.js: in idle time only). Its
+  // stages are performance measures: 'tinct:pdf-text:pages' (text and regions), 'tinct:pdf-text:model'.
+  const now = () => global.performance?.now?.() ?? Date.now();
+  const measure = (name, start) => { try { global.performance?.measure?.(name, { start }) } catch {} };
+  async function convert(pdf, { scan, items, regions, live = () => true, concurrency = 4, pace = null } = {}) {
     if (!scan || !(scan.textPages > 0)) return null;
     const api = S();
-    const pages = [];
-    for (let n = 1; n <= pdf.numPages; n++) {
+    const count = pdf.numPages, pages = new Array(count), started = now();
+    let next = 1, stop = false;
+    const read = async n => {
       const page = await pdf.getPage(n);
       const [x0, y0, x1, y1] = page.view;
       const list = items ? await items(n) : (await page.getTextContent()).items;
       const found = regions ? await regions(n, page, list).catch(() => []) : [];
-      pages.push({ n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list), ...(found?.length ? { regions: found } : {}) });
-      if (!live()) return null;
-    }
-    return fromPages(pages, scan);
+      pages[n - 1] = { n, x0, y0, w: x1 - x0, h: y1 - y0, rows: api.textRows(list), ...(found?.length ? { regions: found } : {}) };
+    };
+    const lane = async () => {
+      while (!stop && next <= count) {
+        if (pace) { await pace(); if (stop || next > count) break }
+        const n = next++;
+        try { await read(n) } catch (e) { stop = true; throw e }
+        if (!live()) stop = true;
+      }
+    };
+    await Promise.all(Array.from({ length: Math.max(1, Math.min(count, Math.floor(concurrency) || 1)) }, lane));
+    if (stop) return null;
+    measure('tinct:pdf-text:pages', started);
+    const built = now(), edition = fromPages(pages, scan);
+    measure('tinct:pdf-text:model', built);
+    return edition;
   }
 
   /* ---------- Places: text <-> page (app/src/lab/userBook/pdfAnchors.ts, the same rules) ---------- */
@@ -574,15 +593,13 @@
     const first = chapters[0];
     return first ? { chapterNumber: first.number, paragraphIndex: 0, wordIndex: 0 } : null;
   }
-  // The edition a PDF opens in: the edition of its place ('t' / 'p'); else the reader's choice
-  // on this device ('text' / 'pages'); else a place kept before Tinct text existed stays in
-  // Original pages; else the scan's default; null when nothing is known yet
-  // (app/src/lab/userBook/pdfEditions.ts pdfEditionChoice, the same rule).
-  function choice(pos, stored, layoutDefault) {
-    if (pos?.edition === 't') return 'text';
-    if (pos?.edition === 'p') return 'pages';
-    if (stored === 'text' || stored === 'pages') return stored;
-    if (pos && Number.isInteger(pos.page)) return 'pages';
+  // The edition a PDF opens in on this device (Anders, 19 Oct 2026: a PDF's view is chosen per device;
+  // only the place syncs): the reader's own choice here ('text' / 'pages'); else this device's kept
+  // default (phone-edition / desk-edition); else the device's rule or the scan's default; null when
+  // nothing is known yet. The place's edition (where it was last read, here or on another device)
+  // never decides (app/src/lab/userBook/pdfEditions.ts pdfEditionChoice, the same rule).
+  function choice(own, kept, layoutDefault) {
+    for (const e of [own, kept]) if (e === 'text' || e === 'pages') return e;
     if (layoutDefault === 'text') return 'text';
     if (layoutDefault === 'pages' || layoutDefault === 'pages-only') return 'pages';
     return null;

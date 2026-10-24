@@ -25,7 +25,14 @@ const watchdog=setInterval(()=>{if(Date.now()-stageAt>180000){console.error('LIB
 // report support to exercise the real gate; the request itself proves the src.
 async function checkSceneFilm(b,engine,label,options,expected){
  const c=await b.newContext({serviceWorkers:'block',...options});
- await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};});
+ await c.addInitScript(()=>{const o=HTMLMediaElement.prototype.canPlayType;HTMLMediaElement.prototype.canPlayType=function(t){return /mp4/.test(t)?'probably':o.call(this,t);};
+  // The page's own idle, the moment scene-video.js may first ask for a film: window load, then the
+  // browser's next idle callback (same 3 s timeout). This listener and callback are queued before the
+  // page's, so they run first; a film the page asks for earlier is stamped before them.
+  const gate=window.__filmGate={load:0,idle:0,films:[]};
+  addEventListener('load',()=>{gate.load=Date.now();const idle=()=>{gate.idle=Date.now();};window.requestIdleCallback?requestIdleCallback(idle,{timeout:3000}):setTimeout(idle,250);},{once:true});
+  const src=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,'src');
+  Object.defineProperty(HTMLMediaElement.prototype,'src',{...src,set(v){if(/\.mp4/.test(String(v)))gate.films.push({at:Date.now(),load:gate.load,idle:gate.idle});return src.set.call(this,v);}});});
  const p=await c.newPage(),films=[];p.on('request',r=>{if(new URL(r.url()).pathname.endsWith('.mp4'))films.push({path:new URL(r.url()).pathname,type:r.resourceType()});});
  const pending=new Set(),errors=[];p.on('request',r=>pending.add(r));p.on('requestfinished',r=>pending.delete(r));p.on('requestfailed',r=>pending.delete(r));p.on('pageerror',e=>errors.push(e.message));
  if(!live)await p.route('https://tinct.app/**',async r=>{const u=new URL(r.request().url());if(u.pathname==='/api/public-books')return r.fulfill({contentType:'application/json',body:'{"books":[]}'});const publicEntry=['/','/index.html','/library','/library/'].includes(u.pathname);const f=publicEntry?path.join(root,'lab/library_2/index.html'):path.join(root,u.pathname);if(fs.existsSync(f)&&fs.statSync(f).isFile())return r.fulfill({path:f,...(publicEntry?{contentType:'text/html'}:{})});return r.continue();});
@@ -38,12 +45,21 @@ async function checkSceneFilm(b,engine,label,options,expected){
   const state=await p.evaluate(()=>{const chain=[];for(let n=document.getElementById('read-featured');n&&n!==document;n=n.parentElement){const s=getComputedStyle(n);chain.push(`${n.tagName.toLowerCase()}#${n.id}.${String(n.className).replace(/ /g,'.')} display=${s.display} visibility=${s.visibility} height=${Math.round(n.getBoundingClientRect().height)}`);}return {readyState:document.readyState,url:location.href,html:document.documentElement.className,style:document.documentElement.getAttribute('style'),chain};}).catch(e=>String(e));
   await p.screenshot({path:`${out}/stall-${label}.png`}).catch(()=>{});
   console.log('LIBRARY_STALL '+JSON.stringify({label,state,pending:[...pending].map(r=>r.url()),errors}));throw error;});
- assert.equal(films.length,0,label+': no film before the page is idle');
+ // Whether a film came before the page's idle is measured in the page, against its own load and
+ // idle callback. Waiting for #read-featured was a proxy for "not idle yet" that stopped holding
+ // once #567 made load follow DOMContentLoaded closely: on a fast runner the page reached idle and
+ // asked for the film before Playwright saw the button (deploys of 22 Oct: failed 04:02, 13:55 and
+ // 14:34 UTC, passed between them; #580's site was byte-for-byte #575's, which passed).
+ const filmsAfterIdle=async()=>{const gate=await p.evaluate(()=>window.__filmGate);
+  assert(gate.films.every(f=>f.idle>0&&f.at>=f.idle)&&(films.length===0||gate.films.length>0),label+': no film before the page is idle '+JSON.stringify({gate,films}));};
  if(expected){
-  await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
+  // A fast page may already have asked for it while the button was awaited.
+  if(!films.length)await p.waitForRequest(r=>new URL(r.url()).pathname.endsWith('.mp4'),{timeout:20000});
+  await filmsAfterIdle();
   assert.deepEqual(films[0],{path:'/lab/library_2/'+expected,type:'media'},label+': film for the visible scene');
  }else{
   await p.waitForTimeout(5000);
+  await filmsAfterIdle();
   assert.equal(await p.locator('video').count(),0,label+': no video element');
   assert.deepEqual(films,[],label+': no film requested');
  }
@@ -152,7 +168,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  // Removing the last book hides only its shelf entry, never its saved place.
  await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});await p.locator('.reading-table.is-ready').waitFor();
  await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
- assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'reading');
+ // My shelf's cards carry the book id and the cover's ••• (2026-10-20); the shelf's × is gone.
+ assert.equal(await p.locator('#collection-books article.collection-card[data-book="frankenstein"]').evaluate(n=>n.dataset.shelfGroup),'reading');
  await p.locator('#collection-back').click();
  const before=await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')));
  await p.locator('#rt-remove').click();await p.locator('#rt-remove-dialog[open]').waitFor();
@@ -164,8 +181,8 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  assert.equal(after.lastSettledBookId,before.lastSettledBookId);assert.equal(after.lastSettledAt,before.lastSettledAt);assert(after.hidden.frankenstein>=before.books.frankenstein.updatedAt);
  // The immediate view must stop calling this book Currently reading too.
  await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
- await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').waitFor();
- assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').evaluate(n=>n.closest('article').dataset.shelfGroup),'want');
+ await p.locator('#collection-books article.collection-card[data-book="frankenstein"]').waitFor();
+ assert.equal(await p.locator('#collection-books article.collection-card[data-book="frankenstein"]').evaluate(n=>n.dataset.shelfGroup),'want');
  assert.equal(await p.locator('#collection-books .my-books-head').first().innerText(),'Saved for later');
  await p.reload();await p.locator('#read-featured').waitFor();
  await p.waitForFunction(()=>window.__library2Reading&&window.__tinctLibraryTwoReading);
@@ -176,19 +193,30 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  await p.locator('#menu-toggle').click();
  await p.locator('[data-collection="saved"]').click();
  assert.equal(await p.locator('#collection-title').innerText(),'My shelf');
- const shelfRemove=p.locator('#collection-books .save-toggle[data-book="frankenstein"]');
- await shelfRemove.waitFor();assert.equal(await shelfRemove.innerText(),'×');
- assert.equal(await shelfRemove.evaluate(n=>n.closest('article').dataset.shelfGroup),'want','desk removal stays outside Currently reading after reload');
- assert.equal(await p.locator('#collection-books [data-shelf-group="reading"] .save-toggle[data-book="frankenstein"]').count(),0);
+ const shelfCard=p.locator('#collection-books article.collection-card[data-book="frankenstein"]'),shelfRemove=shelfCard.locator('.shelf-more');
+ await shelfRemove.waitFor();assert.equal(await shelfRemove.getAttribute('aria-label'),'More for Frankenstein');
+ assert.equal(await shelfCard.evaluate(n=>n.dataset.shelfGroup),'want','desk removal stays outside Currently reading after reload');
+ assert.equal(await p.locator('#collection-books [data-shelf-group="reading"][data-book="frankenstein"]').count(),0);
  await p.evaluate(()=>dispatchEvent(new CustomEvent('library2:saved',{detail:['frankenstein']})));
- assert.equal(await shelfRemove.innerText(),'×','saved refresh must not repaint the shelf remove as a plus/check');
+ assert.equal(await shelfCard.locator('.save-toggle').count(),0,'saved refresh must not repaint the shelf remove as a plus/check');
+ assert.equal(await shelfRemove.count(),1,'saved refresh keeps the shelf remove');
  await p.screenshot({path:out+'/my-shelf-'+engine.name()+'.png'});
- await shelfRemove.click();
- await p.waitForFunction(()=>!document.querySelector('#collection-books .save-toggle[data-book="frankenstein"]'));
+ await shelfRemove.click();const removeItem=shelfCard.locator('[role="menuitem"]');assert.deepEqual(await removeItem.allInnerTexts(),['Remove from shelf'],'a saved book\'s ••• offers Remove from shelf');
+ // The menu opens anchored to its •••: just below it, right edges aligned (or from its left edge at the viewport's), inside the viewport.
+ {const [bb,mb]=[await shelfRemove.boundingBox(),await shelfCard.locator('.shelf-menu').boundingBox()],vw=await p.evaluate(()=>innerWidth);assert(mb.y>=bb.y+bb.height-.5&&mb.y-(bb.y+bb.height)<10,'menu just below its button');assert(Math.abs(mb.x+mb.width-(bb.x+bb.width))<1.5||Math.abs(mb.x-bb.x)<1.5,'menu aligned to its button');assert(mb.x>=0&&mb.x+mb.width<=vw,'menu inside the viewport');}
+ // What arrives late (the catalogue, the account's reading table: a resize event, then library2:reading)
+ // must not take an open ••• away: the deploy check lost it in WebKit when the table landed just after the tap (2026-10-22).
+ await p.evaluate(()=>{dispatchEvent(new Event('resize'));dispatchEvent(new CustomEvent('library2:reading',{detail:{...window.__library2Reading,mode:'new'}}));});
+ await p.waitForTimeout(150);
+ assert.equal(await shelfCard.locator('.shelf-menu').count(),1,'a late refresh keeps the open ••• menu');
+ assert.equal(await shelfRemove.getAttribute('aria-expanded'),'true','a late refresh keeps the ••• expanded');
+ await removeItem.click();
+ await p.locator('[data-testid="own-delete-dialog"] .own-delete-confirm').click();
+ await p.waitForFunction(()=>!document.querySelector('#collection-books article.collection-card[data-book="frankenstein"]'));
  assert.deepEqual(await p.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-position')).books),before.books);
  await p.reload();await p.waitForFunction(()=>window.__library2Reading&&window.__tinctLibraryTwoReading);
  await p.locator('#menu-toggle').click();await p.locator('[data-collection="saved"]').click();
- assert.equal(await p.locator('#collection-books .save-toggle[data-book="frankenstein"]').count(),0,'removed membership survives a reload despite retained progress');
+ await p.waitForTimeout(1000);assert.equal(await p.locator('#collection-books article.collection-card[data-book="frankenstein"]').count(),0,'removed membership survives a reload despite retained progress');
  await p.locator('#collection-back').click();
  // The bare-home shortcut uses a same-account fixture; the existing reader remains the position resolver.
  await p.evaluate(()=>{const s=JSON.parse(localStorage.getItem('tinct-lab-position'));s.owner='public-check';localStorage.setItem('tinct-lab-position',JSON.stringify(s));localStorage.setItem('sb-public-check-auth-token',JSON.stringify({user:{id:'public-check'}}));});

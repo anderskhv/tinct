@@ -3,7 +3,7 @@ import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { labMeasureJoinInto, labMeasureParagraphInto, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
+import { labMeasureJoinInto, labMeasureParagraphInto, labWordSpacing, measuredLineStarts, measuredTailGapEm } from './labMeasureParagraph'
 import { Fragment, memo, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import {
@@ -14,7 +14,6 @@ import {
   cutPageTailTo,
   applyPaintShrink,
   isLabVerseMarker,
-  LAB_VERSE_SEPARATOR,
   labVerseMarkerDisplay,
   sameChapterPages,
   snapShrinkEndToSentence,
@@ -30,6 +29,21 @@ import { planHyphenation } from './labHyphenPlan'
 import { figureFor, setFigureLayout } from './labFigures'
 import { LabFigureView } from './LabFigure'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
+
+/**
+ * Diagnostic timing for the long layout passes, read by
+ * scripts/check-shakespeare-layout.mjs through a PerformanceObserver. It
+ * records one user-timing entry and clears it from the buffer at once, so a
+ * long session never accumulates entries; it changes no layout or scheduling.
+ */
+function traceLayout(name: string, start: number) {
+  try {
+    performance.measure(`tinct:paginator:${name}`, { start, end: performance.now() })
+    performance.clearMeasures(`tinct:paginator:${name}`)
+  } catch {
+    // User timing is optional.
+  }
+}
 
 export interface LabNativeWordPlacement {
   pageIndex: number
@@ -212,17 +226,6 @@ export function nativePagesFromPlacements(
   return balanceNativeChapterTail(pages)
 }
 
-function nativeWordSpacing(
-  word: { text: string },
-  wordIndex: number,
-  previous?: { text: string },
-): string {
-  if (wordIndex <= 0 || word.text.startsWith("'") || word.text.startsWith(',') || word.text.startsWith('.')) return ''
-  // Mirrors LabPassage.wordSpacing exactly: the paginator must measure the same
-  // characters the reading column renders, or pages break in different places.
-  return previous && isLabVerseMarker(previous.text) ? LAB_VERSE_SEPARATOR : ' '
-}
-
 function NativeWord({
   text,
   paragraphIndex,
@@ -267,7 +270,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
         text={word.text}
         paragraphIndex={paragraphIndex}
         wordIndex={wordIndex}
-        spacing={nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+        spacing={labWordSpacing(word, wordIndex, words[wordIndex - 1])}
         paragraph={text}
       />
     )
@@ -275,7 +278,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
       const nextIndex = wordIndex + 1
       rendered.push({ at: wordIndex, node: (
         <Fragment key={`verse-${wordIndex}`}>
-          {nativeWordSpacing(word, wordIndex, words[wordIndex - 1])}
+          {labWordSpacing(word, wordIndex, words[wordIndex - 1])}
           <span className="lab-verse-unit">
             <NativeWord
               text={word.text}
@@ -287,7 +290,7 @@ function nativeParagraphWords(text: string, paragraphIndex: number): ReactNode[]
               text={words[nextIndex].text}
               paragraphIndex={paragraphIndex}
               wordIndex={nextIndex}
-              spacing={nativeWordSpacing(words[nextIndex], nextIndex, word)}
+              spacing={labWordSpacing(words[nextIndex], nextIndex, word)}
             />
           </span>
         </Fragment>
@@ -568,9 +571,11 @@ export const LabNativePaginator = memo(function LabNativePaginator({
           ? (list: ChapterHearingPage[]) => fitChapterEnd(list, (segments, first) => fits(segments, first, true), cleanPageStarts(sourceWords), lineStarts)
           : undefined
         if (keepPages?.length && keepWidth == null) keepWidth = pageWidth
+        const keptAt = performance.now()
         const kept = keepPages?.length && keepWidth === pageWidth
           ? labPagesKeepingPrefix(keepPages, lengths, start => measuredDesktopPages(lengths, fits, wordBreaks, Infinity, paragraphs, start, lineStarts, tailGap), fitEnd)
           : null
+        if (kept) traceLayout('kept-prefix', keptAt)
         if (kept && chapterPagesCover(paragraphs, kept)) pages = kept
         else {
           // Everything the map depends on: the column, the page, the face and
@@ -589,6 +594,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               if (!opening.page && closed.length) opening.page = closed[0]
             })
             const headOnly = headFirstRef.current && !publishedPages && preflight.length >= HEAD_FIRST_MIN_PAGES
+            const layoutAt = performance.now()
             let step = steps.next()
             while (!step.done && !(headOnly && opening.page)) step = steps.next()
             const start = !step.done && opening.page ? labResumeAfterPage(opening.page, lengths) : null
@@ -597,16 +603,21 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               publishedPages = head
               publishedPartial = true
               onPages(head, paragraphs, true)
+              traceLayout('head', layoutAt)
               const layoutMap = measured
               // The same layout carries on from the page it closed, on the
               // same stage, once that page has painted (two frames, then a task).
               const finish = () => {
                 rest = null
                 if (cancelled) return
+                const drainAt = performance.now()
                 let next = steps.next()
                 while (!next.done) next = steps.next()
                 let full = next.value
+                const fitAt = performance.now()
+                traceLayout('finish-drain', drainAt)
                 if (fitEnd) full = fitEnd(full)
+                if (fitEnd) traceLayout('finish-fit-end', fitAt)
                 layoutMap.set(layout, full)
                 while (layoutMap.size > MEASURED_LAYOUTS) layoutMap.delete(layoutMap.keys().next().value!)
                 if (end) end.hidden = true
@@ -614,7 +625,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
                 if (chapterPagesCover(paragraphs, full)) {
                   publishedPages = full
                   publishedPartial = false
+                  const publishAt = performance.now()
                   onPages(full, paragraphs)
+                  traceLayout('finish-publish', publishAt)
                 }
               }
               const pending = { frame: 0, timer: 0 }
@@ -627,6 +640,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
             while (!step.done) step = steps.next()
             pages = step.value
             if (fitEnd) pages = fitEnd(pages)
+            traceLayout('full-layout', layoutAt)
           }
           measured.set(layout, pages)
           while (measured.size > MEASURED_LAYOUTS) measured.delete(measured.keys().next().value!)
@@ -698,7 +712,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
       </article>
       {fillPages && <article className="lab-passage lab-book is-reading lab-native-fragment-surface" data-native-fragment-surface>
         <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
-        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd hasNext={hasNextChapter} measuring />}</div></div>
+        <div className="lab-book-columns"><div className="lab-book-col"><div className="lab-hearing-stage" />{chapterActions && <LabChapterEnd chapterTitle={chapterTitle} hasNext={hasNextChapter} measuring />}</div></div>
       </article>}
     </div>
   )

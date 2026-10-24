@@ -58,7 +58,7 @@ export const CARDS_COPY = {
   showReading: 'Show what I’m reading',
   showTime: 'Show my reading time',
   thisYear: 'this year',
-  tipProfile: ['Who can see you.', ' Only me: nobody else sees your profile or reading. Friends: people you follow who follow you back. Everyone: anyone with your link, and the Everyone board.'],
+  tipProfile: ['Who can see you.', ' Only me: nobody else sees your profile or reading. Friends: readers can find your name and picture; people you follow who follow you back see your reading. Everyone: anyone with your link, and the Everyone board.'],
   tipLeaderboard: ['Leaderboard.', ' You appear on the boards of the people who can see you.'],
   // The AI credits row (Anders, 14 October 2026): credits reset; only the subscription renews.
   resets: (date: string) => `Resets ${date}`,
@@ -93,8 +93,16 @@ export const CARDS_COPY = {
   actionFailed: 'That did not work. Please try again.',
   // The old Settings' Blocked readers list (youPage.ts)
   unblock: 'Unblock',
-  noSearchResult: 'No public reader by that name.',
+  // Find readers lists Friends and Everyone profiles (19 Oct 2026): no longer only "public" ones.
+  noSearchResult: 'No reader by that name.',
+  // Declines a follow request (the remove-follower action; 20 Oct 2026).
+  removeRequest: 'Remove',
+  waitingRequests: (n: number) => `${n} waiting to be followed back`,
   boardUnavailable: 'The leaderboard is not available just now. Your reading time is safe.',
+  // Under the board when friends cannot see you there (19 Oct 2026)
+  hiddenOnlyMe: 'Friends don’t see you here: your profile is Only me. Change it in Settings.',
+  hiddenTime: 'Friends don’t see you here: turn on Show my reading time in Settings.',
+  hiddenLeaderboard: 'Friends don’t see you here: turn on Leaderboard in Settings.',
   linkCopied: 'Link copied.',
   shareUnavailable: 'Sharing is not available here. Copy the link instead.',
   shareTitle: 'Read with me on Tinct',

@@ -234,33 +234,34 @@ describe('the answer in a card', () => {
     const f = M.html.factcheckHtml('Holds. The standard form.\n\nHolds. Below 1% from x = 9.\n\nNote. Context.\n\nSources: [NIST](https://dlmf.nist.gov/5.11) · [Wikipedia](https://en.wikipedia.org/wiki/S)', P)
     expect(f.answer).toContain('<span class="is-bottom-line">Holds. The standard form.</span>')
     expect(f.answer).toContain('<p><span class="mr-verdict">Holds.</span> Below 1% from x = 9.</p>')
-    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> Context.</p>')
+    // No "Note." label since 19 Oct 2026: its sentence stays, plain.
+    expect(f.answer).toContain('<p>Context.</p>')
+    expect(f.answer).not.toContain('Note.')
     // Led by "Sources" since the night run's final round (16 Oct: the bare titles read as a raw tail).
     expect(f.sources).toBe('<div class="mr-sources"><span class="mr-sources__label">Sources</span><a href="https://dlmf.nist.gov/5.11" target="_blank" rel="noopener noreferrer">NIST</a><a href="https://en.wikipedia.org/wiki/S" target="_blank" rel="noopener noreferrer">Wikipedia</a></div>')
   })
-  it('Fact-check, doc-first (15 Oct): the opening in plain text, then the verdict as the bottom line, then a note and the sources; folded, the verdict line', () => {
+  it('Fact-check, verdict first (19 Oct 2026): a kept doc-first answer drops its opening; the verdict is the bottom line, the note plain; folded, the verdict line', () => {
     const text = 'The passage claims 28.4 BLEU; the paper offers Table 2.\n\nPartly holds. The score stands, but later systems beat it.\n\nNote. A landmark.\n\nSources: [NLP-progress](https://nlpprogress.com/)'
     const f = M.html.factcheckHtml(text, P)
-    expect(f.answer.indexOf('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')).toBe(0)
-    expect(f.answer).toContain('<span class="is-bottom-line">Partly holds. The score stands, but later systems beat it.</span>')
-    expect(f.answer).toContain('<p><span class="mr-verdict">Note.</span> A landmark.</p>')
-    expect(f.answer).not.toMatch(/is-bottom-line">The passage/)
+    expect(f.answer.indexOf('<div class="mr-answer"><p><span class="is-bottom-line">Partly holds. The score stands, but later systems beat it.</span>')).toBe(0)
+    expect(f.answer).toContain('<p>A landmark.</p>')
+    expect(f.answer).not.toContain('The passage claims')
+    expect(f.answer).not.toContain('mr-opening')
     expect(f.sources).toContain('NLP-progress')
-    // Streaming, before the verdict: the opening alone, never bolded as a bottom line.
+    // Streaming, before the verdict: nothing shows (the card's dots wait), never the opening.
     const live = M.html.factcheckHtml('The passage claims 28.4 BLEU; the paper offers Table 2.', P, { live: true })
-    expect(live.answer).toBe('<div class="mr-answer mr-opening"><p>The passage claims 28.4 BLEU; the paper offers Table 2.</p></div>')
+    expect(live.answer).toBe('')
     const base = { id: 'f1', page: 1, rects: [[1, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'Our model achieves 28.4 BLEU.' }
     const streaming = M.html.cardHtml({ ...base, kind: 'factcheck', turns: [] }, { open: true, P, pageLabel: '1', live: 'The passage claims 28.4 BLEU.', status: 'Checking sources…' })
-    expect(streaming).toContain('<p>The passage claims 28.4 BLEU.</p>')
-    expect(streaming.indexOf('Checking sources…')).toBeGreaterThan(streaming.indexOf('The passage claims'))
+    expect(streaming).not.toContain('The passage claims')
+    expect(streaming).toContain('Checking sources…')
     expect(streaming).not.toContain('is-bottom-line')
-    // Folded: the verdict line, not the opening.
-    expect(M.html.foldText({ ...base, kind: 'factcheck', turns: [{ role: 'assistant', content: text }] }, P)).toBe('Partly holds. The score stands, but later systems beat it. Note. A landmark.')
-    // An answer written before 15 Oct (verdict first) reads as it did.
+    // Folded: the verdict line and its note, never the opening.
+    expect(M.html.foldText({ ...base, kind: 'factcheck', turns: [{ role: 'assistant', content: text }] }, P)).toBe('Partly holds. The score stands, but later systems beat it. A landmark.')
     const old = M.html.factcheckHtml('Holds. The standard form.\n\nNote. Context.', P)
     expect(old.answer.startsWith('<div class="mr-answer"><p><span class="is-bottom-line">Holds. The standard form.</span>')).toBe(true)
   })
-  it('open cards: label and Minimise, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy, the follow-up line with the bin', () => {
+  it('open cards: label, Minimise and the bin, the passage not quoted (its description, cut at 120), the bubble for Ask only, copy under the answer, the follow-up field with mic, Talk and send', () => {
     const base = { id: 'c1', page: 12, rects: [[12, 0.1, 0.2, 0.5, 0.02]], at: 1, text: 'x'.repeat(200) }
     const ask = M.html.cardHtml({ ...base, kind: 'ask', turns: [{ role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because. More.' }] }, { open: true, P, pageLabel: '12' })
     expect(ask).toContain('<span class="mr-card__name">Ask · p. 12</span>')
@@ -270,9 +271,13 @@ describe('the answer in a card', () => {
     expect(ask).not.toContain('mr-quote')
     expect(ask).toMatch(/<span class="mr-card__about" hidden>x{119}…<\/span>/)
     expect(ask).toContain('aria-label="Minimise"')
-    expect(ask).toMatch(/<div class="mr-follow">.*<button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*<\/button><button type="button" class="mr-follow__mic"/)
+    // The head: Minimise, then the bin (Anders, 21 Oct 2026: the same on every card); the action row under the answer:
+    // copy alone (19 Oct 2026, as Gloss); the follow-up field has no bin.
+    expect(ask).toMatch(/^<div class="mr-card__label"><span class="mr-card__name">Ask · p\. 12<\/span><button type="button" class="mr-card__close" data-c="close" aria-label="Minimise">.*?<\/button><button type="button" class="mr-card__delete" data-c="delete" aria-label="Delete">.*?<\/button><\/div>/)
+    expect(ask).toMatch(/<div class="mr-card__acts"><button type="button" class="mr-card__copy" data-c="copy" aria-label="Copy">.*?<\/button><\/div><\/div><div class="mr-follow has-field">/)
     expect(ask).toContain('data-c="copy"')
-    expect(ask).toContain('class="mr-follow"')
+    expect(ask).toMatch(/<div class="mr-follow has-field"><div class="mr-follow__box"><span class="mr-follow__field"><textarea class="mr-follow__input" rows="1" enterkeyhint="send" placeholder="Ask a follow-up" aria-label="Follow up" spellcheck="false" autocorrect="off" autocomplete="off"><\/textarea><\/span><button type="button" class="mr-follow__mic" data-c="mic" aria-label="Dictate" aria-pressed="false">.*?<\/button><button type="button" class="mr-follow__talk" data-c="talk" aria-label="Talk about this">.*?<\/button><button type="button" class="mr-follow__send" data-c="send" aria-label="Send" disabled>.*?<\/button><\/div><\/div>$/)
+    expect(ask.slice(ask.indexOf('class="mr-follow'))).not.toContain('mr-card__delete')
     const simplify = M.html.cardHtml({ ...base, kind: 'simplify', turns: [{ role: 'assistant', content: 'Plainly. Words.' }] }, { open: true, P, pageLabel: '12' })
     expect(simplify).not.toContain('mr-you')
     // While Fact-check searches: the status line, no copy yet.
@@ -283,7 +288,7 @@ describe('the answer in a card', () => {
     const folded = M.html.cardHtml({ ...base, kind: 'explain', turns: [{ role: 'assistant', content: 'Each bar {p. 12} is a chance.' }] }, { open: false, P, pageLabel: '12' })
     expect(folded).toBe('<button type="button" class="mr-card__label" data-c="open">Explain · p. 12</button><div class="mr-card__text">Each bar is a chance.</div>')
   })
-  it('Quiz me: "1 of 3", the question, Show answer; marked: the bubble, Right./Nearly./Not yet., the cite, Next question →; then the score and the one to reread', () => {
+  it('Quiz me: "1 of 3", the question, Show answer; marked: the bubble, Right./Nearly./Not quite., the cite, Next question →; then the score alone and Try new questions', () => {
     const questions = [{ q: 'Q one?', answer: '2.5', why: 'Because.', cite: '{p. 12}' }, { q: 'Q two?', answer: 'B', why: '', cite: '' }, { q: 'Q three?', answer: 'C', why: '', cite: '{eq. 1.2}' }]
     const quiz = (data: Record<string, unknown>) => ({ id: 'q', kind: 'quiz', page: 12, rects: [[12, 0, 0, 1, 0.02]], text: 'p', at: 1, data: { questions, i: 0, results: [], ...data } })
     const resolveTag = () => ({ page: 12, needle: '' })
@@ -303,11 +308,14 @@ describe('the answer in a card', () => {
     expect(M.quizReread({ questions, results: [{ verdict: 'nearly' }, { verdict: 'not_yet' }, { shown: true }] })).toBe(1)
     expect(M.quizReread({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }] })).toBe(-1)
     const doneHtml = M.html.cardHtml(quiz(done), { open: true, P, pageLabel: '12' })
-    expect(doneHtml).toContain('<span class="is-bottom-line">2 of 3</span>')
-    expect(doneHtml).toContain('<p>Q two?</p>')
-    // FIXES-2026-10-15 PR C: the end card offers another quiz; no answer field.
-    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try another quiz</button>')
-    expect(doneHtml).not.toContain('mr-follow__input')
+    // Anders, 20 Oct 2026: the end card is minimal, "2/3" and Try new questions; no question to reread. Since 21 Oct
+    // it ends with the follow-up field (mic, Talk, send) as every card does: a question about the quiz, not an answer.
+    expect(doneHtml).toContain('<span class="is-bottom-line">2/3</span>')
+    expect(doneHtml).not.toContain('Q two?')
+    expect(doneHtml).toContain('<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>')
+    expect(doneHtml).toContain('placeholder="Ask a follow-up"')
+    expect(doneHtml).toContain('data-c="talk"')
+    expect(doneHtml).not.toContain('placeholder="Your answer"')
   })
   it('the "more" row: "{n} more on this page" and the kinds that fit', () => {
     expect(M.html.stackHtml([{ kind: 'note' }, { kind: 'counterpoint' }, { kind: 'note' }])).toBe('<span>3 more on this page</span><span>Your note · Counterpoint</span>')

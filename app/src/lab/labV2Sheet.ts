@@ -1,8 +1,8 @@
 /**
  * The four layers of the V2 bottom sheet, and the values they name.
  *
- * Reading settings, Advanced settings, the font picker and Account are one
- * sheet at one height. That is the whole point of them: moving between layers
+ * Aa, Book settings, Audio settings, Advanced settings, the font picker and
+ * Account are one sheet at one height. That is the whole point of them: moving between layers
  * must never resize the window, so the page above stays exactly where it is
  * while a change lands on it.
  */
@@ -20,9 +20,10 @@ import {
   type LabTheme,
 } from './labPrefs'
 import { defaultCompareEditionKey } from '../data/editionDefaults'
+import { LAB_SETTINGS_GROUPS } from './labSuperMenu'
 import type { Edition } from '../types'
 
-export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
+export type LabV2SheetLayer = 'reading' | 'advanced' | 'font' | 'account' | 'editions' | 'audio' | 'mainEdition' | 'audioEdition' | 'compareEdition' | 'catchup'
 
 /**
  * One height, in pixels, for every layer. Capped against the viewport so a
@@ -35,7 +36,7 @@ export const LAB_V2_SHEET_HEIGHT_PX = 452
 export const LAB_SHEET_FILL_PAPER = 0.9
 export const LAB_SHEET_FILL_NIGHT = 0.9
 
-/** Reading settings offers three themes. "Match system" is not one of them. */
+/** Aa offers three themes. "Match system" is not one of them. */
 export const LAB_V2_THEMES: Array<{ theme: LabTheme; label: string }> = [
   { theme: 'book', label: 'Book' },
   { theme: 'light', label: 'Light' },
@@ -107,9 +108,16 @@ export const LAB_FONT_PICKER_GROUPS: LabFontPickerGroup[] = [
   { label: 'Accessibility', fonts: LAB_ACCESSIBILITY_FONTS },
 ]
 
+const groupTitle = (layer: 'reading' | 'editions' | 'audio') => LAB_SETTINGS_GROUPS.find(group => group.layer === layer)!.label
+
+/**
+ * The settings groups (Anders, 22 Oct 2026), named by the one model (labSuperMenu.ts LAB_SETTINGS_GROUPS): Aa
+ * ('reading': the themes, size and Advanced settings), Book settings ('editions') and Audio settings ('audio').
+ */
 export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
-  reading: 'Settings',
-  editions: 'Book editions',
+  reading: groupTitle('reading'),
+  editions: groupTitle('editions'),
+  audio: groupTitle('audio'),
   mainEdition: 'Main version',
   audioEdition: 'Audiobook version',
   compareEdition: 'Compare version',
@@ -117,6 +125,10 @@ export const LAB_V2_SHEET_TITLES: Record<LabV2SheetLayer, string> = {
   font: 'Font',
   account: 'Account',
   catchup: 'Catch me up',
+}
+
+export function labV2SheetTitle(layer: LabV2SheetLayer): string {
+  return LAB_V2_SHEET_TITLES[layer]
 }
 
 /**

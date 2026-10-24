@@ -13,39 +13,12 @@ import { convertPdf } from './pdfEdition'
 import { zip } from '../../../../addbooks/web/test/make-epub.mjs'
 // @ts-expect-error -- plain .mjs test helper shared with the Add-a-book tests
 import { pdfFixtures } from '../../../../addbooks/web/test/make-pdf.mjs'
+import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 import { openUserBook } from './userBookStore'
 import { PDF_TEXT_CONVERTER, USER_EDITION_CONVERTER, USER_EDITION_FORMAT, type UserBookEdition } from './userEdition'
 
 const OWNER = 'owner-1'
 const HEX = 'ab'.repeat(12)
-
-function fakeIndexedDb(records: Map<string, Record<string, unknown>>) {
-  const db = {
-    objectStoreNames: { contains: () => true },
-    createObjectStore() {},
-    close() {},
-    transaction() {
-      const tx: Record<string, unknown> & { oncomplete?: () => void } = {}
-      setTimeout(() => tx.oncomplete?.(), 5)
-      tx.objectStore = () => ({
-        get(key: string) {
-          const request: { result?: unknown; onsuccess?: () => void } = {}
-          setTimeout(() => { request.result = records.get(key); request.onsuccess?.() }, 0)
-          return request
-        },
-        put(value: Record<string, unknown>) { records.set(String(value.key), value) },
-      })
-      return tx
-    },
-  }
-  return {
-    open() {
-      const request: { result?: unknown; onsuccess?: () => void } = {}
-      setTimeout(() => { request.result = db; request.onsuccess?.() }, 0)
-      return request
-    },
-  }
-}
 
 const CONTAINER = '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'
 const page = (body: string) => `<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>x</title></head><body>${body}</body></html>`
@@ -130,8 +103,8 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.worker.min.js')
     require(ROOT + 'app/public/lab/addbook/vendor/pdfjs/pdf.min.js')
     console.log = quiet
-    require(ROOT + 'addbooks/web/src/js/pdf-scan.js')
-    require(ROOT + 'addbooks/web/src/js/pdf-text.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-scan.js')
+    require(ROOT + 'app/public/lab/addbook/js/pdf-text.js')
     const g = globalThis as unknown as Record<string, never>
     engine = async () => ({ pdfjs: g.pdfjsLib, scan: g.TinctPdfScan, text: g.TinctPdfText })
     fixtures = (pdfFixtures as () => Record<string, Buffer>)()
@@ -143,11 +116,14 @@ describe('openUserBook: a PDF as its Tinct text', () => {
   it('converts a book of prose once, keeps it with its default edition, and opens it here', async () => {
     keep('prose_book.pdf')
     const convert = converter()
-    // Not yet told on this device under the open rule (pdfEditions.ts): converted and kept, then on to the
-    // viewer, which tells its edition (the desktop: pages unless running prose) and forwards back.
+    // Nothing chosen on this desktop: converted and kept, then on to the viewer, its pages (Margin view, every
+    // PDF since 19 Oct 2026; running prose was Tinct text by the desktop's default of 16 Oct).
     expect(await openUserBook(HEX, { owner: OWNER, convert })).toMatchObject({ ok: false, reason: 'pages' })
     expect(records.get(`pdf:${HEX}`)).toMatchObject({ edition: { source: 'pdf' } })
     localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
+    expect(await openUserBook(HEX, { owner: OWNER, convert })).toMatchObject({ ok: false, reason: 'pages' })
+    // Convert to Tinct book, chosen on this device: it opens here.
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(result.ok).toBe(true)
     if (!result.ok) return
@@ -172,6 +148,18 @@ describe('openUserBook: a PDF as its Tinct text', () => {
     expect((await openUserBook(HEX, { owner: OWNER })).ok).toBe(true)
   })
 
+  it('opens selected text in the shared reader on desktop while preserving original pages and scans', async () => {
+    keep('prose_book.pdf')
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
+    const text = await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })
+    expect(text).toMatchObject({ ok: true, book: { kind: 'pdf', pdfPages: 21 } })
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"pages"')
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
+    keep('IMG_20240512_scan.pdf')
+    localStorage.removeItem(`tinct-addbook:edition:${HEX}`)
+    expect(await openUserBook(HEX, { owner: OWNER, desktop: true, sharedReader: true, convert: converter() })).toMatchObject({ ok: false, reason: 'pages_only' })
+  })
+
   it('keeps a PDF read in its pages before Tinct text existed in its pages, prose or not', async () => {
     keep('prose_book.pdf')
     localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, JSON.stringify({ page: 7, frac: 0.4, zoom: 1, at: 99 }))
@@ -189,7 +177,8 @@ describe('openUserBook: a PDF as its Tinct text', () => {
 
   it('converts again a Tinct text kept under other rules, and never opens an EPUB’s conversion for a PDF', async () => {
     keep('PossibleMinds Deutsch (1).pdf', { edition: { format: USER_EDITION_FORMAT, converter: 6, title: 'x', author: '', language: 'en', droppedImages: 0, chapters: [{ number: 1, title: 'x', paragraphs: ['x'] }] } })
-    localStorage.setItem(`tinct-addbook:open-rule:${HEX}`, '2')
+    // Read as Tinct text on this desktop by the reader's choice (its default is its pages since 19 Oct 2026).
+    localStorage.setItem(`tinct-addbook:edition:${HEX}`, '"text"')
     const convert = converter()
     const result = await openUserBook(HEX, { owner: OWNER, convert })
     expect(convert).toHaveBeenCalledTimes(1)

@@ -1,9 +1,12 @@
 name: voice-lab-acceptance
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: [deploy]
-    types: [completed]
+    inputs:
+      approved_paid_voice_qa:
+        description: 'I approve one real production Grok voice-lab acceptance call'
+        type: boolean
+        required: true
+        default: false
 permissions:
   contents: read
 
@@ -13,7 +16,7 @@ concurrency:
 
 jobs:
   voice:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ inputs.approved_paid_voice_qa == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     defaults:
@@ -27,7 +30,7 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources; npx playwright install --with-deps chromium
       - name: Prepare deterministic muted microphone source
         run: |
           sudo apt-get update -qq

@@ -10,6 +10,7 @@ import { addLibraryReadingStructures } from './src/preReader/libraryReadingStruc
 import { legacyLabPageRedirect } from './src/lab/labRoute'
 import { accountPageRedirect } from './src/cards/cardRoutes'
 import { buildReaderBootScript } from './scripts/readerBootScript'
+import { buildSharedReaderActivation } from './scripts/build-shared-reader-activation.mjs'
 
 const serializedPreReaderCatalogue = JSON.stringify(addLibraryReadingStructures(
   serializePreReaderCatalogue(),
@@ -128,6 +129,18 @@ export default defineConfig(({ mode, command }) => {
   },
   plugins: [
     react(),
+    {
+      // The Library imports this fixed-name ES module outside Vite's graph.
+      // Vite's web build uses preserveEntrySignatures=false, which can erase
+      // named exports from an otherwise unused Rollup entry. Emit this one
+      // asset from the canonical React helper with its build default baked in.
+      name: 'shared-reader-activation',
+      apply: 'build',
+      async generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'lab/shared-reader-activation.js',
+          source: await buildSharedReaderActivation(env.VITE_SHARED_READER_DEFAULT === '1') })
+      },
+    },
     {
       // The reader's head script: starts the opening chapter's requests and
       // paints the stored paper before the app bundle runs (src/lab/readerBoot.ts).
@@ -291,6 +304,9 @@ export default defineConfig(({ mode, command }) => {
             '/library/': '/lab/library_2/index.html',
             // Social (ship 3): the Worker serves this only while SOCIAL_FRIENDS is on.
             '/admin/social': '/lab/admin-social/index.html',
+            // The PDF reader's folder page, as the Worker's assets serve it (the margin preview frames it).
+            '/lab/addbook/': '/lab/addbook/index.html',
+            '/lab/addbook/book': '/lab/addbook/book.html',
           }
           if (pageAssets[pathOnly]) {
             req.url = `${pageAssets[pathOnly]}${url.slice(pathOnly.length)}`

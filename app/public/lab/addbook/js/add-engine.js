@@ -18,12 +18,112 @@
   // them so a different reader on the same browser does not see them. Signed in, each is
   // also kept privately in that account (below, `cloud`) so it opens on other devices.
   const owner = () => global.TinctAI?.session().userId || 'guest';
+  // The old margin reader's EPUB marks/cards use hash-only keys. A fresh signed-in
+  // writer can prove ownership; existing unclaimed or foreign records cannot be
+  // attributed merely because the same file was opened by this account.
+  const legacyEpubAnnotations = {
+    needsReview(hex) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex))) return false;
+      try {
+        const s = global.localStorage, keys = this.keys(hex);
+        if (['marks', 'cards'].some(kind => {
+          const rows = JSON.parse(s.getItem(keys.guest(kind)) || '[]');
+          return Array.isArray(rows) && rows.length;
+        })) return true;
+        const raw = this.rawCopy(s, keys);
+        if (!raw || !raw.marks.length && !raw.cards.length) return false;
+        const claim = s.getItem(keys.claim);
+        return !claim || claim === keys.id && !this.proven(s, keys);
+      } catch { return false }
+    },
+    keys(hex) {
+      const id = accountId();
+      return { id, claim: STORE_PREFIX + 'legacy-epub-owner:' + hex,
+        backup: STORE_PREFIX + 'legacy-epub-annotations:' + id + ':' + hex,
+        marks: STORE_PREFIX + 'hl:epub:' + hex, cards: STORE_PREFIX + 'cards:epub:' + hex,
+        guest: kind => STORE_PREFIX + 'static-epub-guest-' + kind + ':' + hex,
+        scoped: kind => STORE_PREFIX + 'static-epub-' + kind + ':' + id + ':' + hex };
+    },
+    rawCopy(s, keys) {
+      try {
+        const marks = JSON.parse(s.getItem(keys.marks) || '[]');
+        const cards = JSON.parse(s.getItem(keys.cards) || '[]');
+        return Array.isArray(marks) && Array.isArray(cards) ? { marks, cards } : null;
+      } catch { return null }
+    },
+    proven(s, keys) {
+      if (s.getItem(keys.claim) !== keys.id) return false;
+      const raw = this.rawCopy(s, keys);
+      try {
+        const backup = JSON.parse(s.getItem(keys.backup) || 'null');
+        return !!raw && backup && Array.isArray(backup.marks) && Array.isArray(backup.cards)
+          && JSON.stringify(raw) === JSON.stringify(backup);
+      } catch { return false }
+    },
+    target(s, keys, kind) {
+      if (!keys.id) return keys.guest(kind);
+      if (s.getItem(keys.scoped(kind)) !== null) return keys.scoped(kind);
+      const claim = s.getItem(keys.claim);
+      if (this.proven(s, keys)) return keys[kind];
+      if (claim || s.getItem(keys.marks) !== null || s.getItem(keys.cards) !== null) return keys.scoped(kind);
+      return keys[kind];
+    },
+    get(key) {
+      const found = /^(hl|cards):epub:([0-9a-f]{24})$/.exec(key);
+      if (!found) return null;
+      try {
+        const s = global.localStorage, keys = this.keys(found[2]), kind = found[1] === 'hl' ? 'marks' : 'cards';
+        const target = this.target(s, keys, kind);
+        if (target === keys.scoped(kind) && this.proven(s, keys)) {
+          const raw = JSON.parse(s.getItem(keys[kind]) || '[]'), scoped = JSON.parse(s.getItem(target) || '[]');
+          if (Array.isArray(raw) && Array.isArray(scoped)) {
+            const rows = new Map();
+            for (const row of [...raw, ...scoped]) rows.set(typeof row?.id === 'string' ? row.id : JSON.stringify(row), row);
+            return [...rows.values()];
+          }
+        }
+        return JSON.parse(s.getItem(target) || 'null');
+      } catch { return null }
+    },
+    set(key, value) {
+      const found = /^(hl|cards):epub:([0-9a-f]{24})$/.exec(key);
+      if (!found || !Array.isArray(value)) return;
+      try {
+        const s = global.localStorage, keys = this.keys(found[2]), kind = found[1] === 'hl' ? 'marks' : 'cards';
+        const target = this.target(s, keys, kind);
+        if (target !== keys[kind]) { s.setItem(target, JSON.stringify(value)); return }
+        // Claim first; a partial write leaves a mismatch and prevents later
+        // deletion/adoption until the complete exact copy is available again.
+        if (s.getItem(keys.claim) === null) {
+          s.setItem(keys.backup, JSON.stringify({ marks: [], cards: [] }));
+          s.setItem(keys.claim, keys.id);
+        }
+        const copy = this.rawCopy(s, keys);
+        if (!copy || !this.proven(s, keys)) { s.setItem(keys.scoped(kind), JSON.stringify(value)); return }
+        copy[kind] = value;
+        s.setItem(keys.backup, JSON.stringify(copy));
+        s.setItem(keys[kind], JSON.stringify(value));
+      } catch { /* blocked storage keeps existing records */ }
+    },
+  };
   const library = {
     open() { return new Promise((res, rej) => { const r = indexedDB.open('tinct-addbook', 1); r.onupgradeneeded = () => r.result.createObjectStore('books', { keyPath: 'key' }); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error) }) },
     async tx(mode, fn) { const db = await this.open(); return new Promise((res, rej) => { const t = db.transaction('books', mode); const out = fn(t.objectStore('books')); t.oncomplete = () => res(out?.result ?? out); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error) }) },
     async put(rec) { try { await this.tx('readwrite', s => s.put(rec)); return true } catch { return false } },
-    async get(key) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === owner() ? rec : null } catch { return null } },
-    async remove(key) { try { await this.tx('readwrite', s => s.delete(key)) } catch {} },
+    async get(key, expectedOwner = owner()) { try { const rec = await this.tx('readonly', s => s.get(key)); return rec && rec.owner === expectedOwner ? rec : null } catch { return null } },
+    async remove(key, expectedOwner = owner()) {
+      let removed = false;
+      try {
+        await this.tx('readwrite', s => {
+          const request = s.get(key);
+          request.onsuccess = () => {
+            if (owner() === expectedOwner && request.result?.owner === expectedOwner) { s.delete(key); removed = true }
+          };
+          return request;
+        });
+        return removed;
+      } catch { return false }
+    },
     async list() {
       try { const all = await this.tx('readonly', s => s.getAll()); return (all || []).filter(r => r.owner === owner()).map(({ bytes, edition, ...r }) => r).sort((a, b) => (b.openedAt || 0) - (a.openedAt || 0)) }
       catch { return [] }
@@ -41,7 +141,12 @@
     get(key) { return this.mine().get(key) || null },
     async refresh() {
       if (!this.usable()) return false;
-      try { const list = await global.TinctAI.books.list(); const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true }
+      const startingOwner = owner(), startingToken = global.TinctAI.session().token;
+      try {
+        const list = await global.TinctAI.books.list();
+        if (owner() !== startingOwner || global.TinctAI?.session().token !== startingToken) return false;
+        const m = this.mine(); m.clear(); for (const b of list) if (b.sha256) m.set(this.keyOf(b), b); return true;
+      }
       catch { return false }
     },
   };
@@ -131,15 +236,134 @@
     return out.sort((a, b) => (b.openedAt || b.addedAt || 0) - (a.openedAt || a.addedAt || 0));
   }
   // Removes a book from this device and from the account.
+  /*
+   * Everything this device keeps for one own book besides its file (Anders, 20 Oct 2026; the privacy notice says they go
+   * with it): its place, highlights, margin cards and answers, chats, primers, catch-ups, printed page numbers, its view,
+   * and any library snapshot naming it. Keys are matched by the book's own 24-hex-digit id, so no other book's can match.
+   * The same rule as the library's delete (lab/library_2 forgetOwnBookHere). -> the number of keys removed
+   */
+  const SNAPSHOT_KEYS = /^tinct:(library-2-table:|lab-library-boot$|library-2-first-paint$)/;
+  function forgetBookHere(hex, storages = [global.localStorage, global.sessionStorage], { preserveHashOnly = false } = {}) {
+    hex = String(hex || '').replace(/^(epub|pdf):/, '');
+    if (!/^[0-9a-f]{24}$/.test(hex)) return 0;
+    let gone = 0;
+    for (const s of storages) {
+      try {
+        if (!s) continue;
+        // The React reader's highlights share one array across books/accounts.
+        // Delete its projection only when the owner marker and exact owner backup
+        // agree; a failed account switch must never attribute another person's
+        // same-hash marks to the account being deleted.
+        const ownerId = accountId(), bookId = 'userbook-' + hex;
+        const legacyClaim = 'tinct-addbook:legacy-epub-owner:' + hex;
+        const legacyBackup = 'tinct-addbook:legacy-epub-annotations:' + ownerId + ':' + hex;
+        const legacyMarks = 'tinct-addbook:hl:epub:' + hex, legacyCards = 'tinct-addbook:cards:epub:' + hex;
+        const claimedByOwner = !!ownerId && s.getItem(legacyClaim) === ownerId;
+        // Hash-only static annotations may belong to a different browser user.
+        // Remove them only when both raw arrays exactly match this account's
+        // claim backup. An incomplete write keeps the claim and backup in place
+        // so a later account cannot treat the raw records as unassigned.
+        let legacyRawProven = false;
+        if (claimedByOwner) try {
+          const rawMarks = s.getItem(legacyMarks), rawCards = s.getItem(legacyCards);
+          if (rawMarks === null && rawCards === null) legacyRawProven = true;
+          else {
+            const backup = JSON.parse(s.getItem(legacyBackup) || 'null');
+            legacyRawProven = !!backup && Array.isArray(backup.marks) && Array.isArray(backup.cards)
+              && (rawMarks === null || JSON.stringify(JSON.parse(rawMarks)) === JSON.stringify(backup.marks))
+              && (rawCards === null || JSON.stringify(JSON.parse(rawCards)) === JSON.stringify(backup.cards));
+          }
+        } catch { legacyRawProven = false }
+        if (legacyRawProven) for (const key of [legacyMarks, legacyCards]) try { s.removeItem(key) } catch { /* keep owner claim if raw remains */ }
+        const preserveLegacyClaim = claimedByOwner && (s.getItem(legacyMarks) !== null || s.getItem(legacyCards) !== null);
+        const marksMarker = 'tinct-addbook:text-marks-owner:' + hex;
+        if (ownerId && s.getItem(marksMarker) === ownerId) {
+          const backup = s.getItem('tinct-addbook:text-marks-local:' + ownerId + ':' + hex);
+          try {
+            const all = JSON.parse(s.getItem('tinct-lab-highlights') || '[]');
+            if (backup !== null && Array.isArray(all) && backup === JSON.stringify(all.filter(mark => mark?.bookId === bookId))) {
+              s.setItem('tinct-lab-highlights', JSON.stringify(all.filter(mark => mark?.bookId !== bookId)));
+            }
+          } catch { /* uncertain ownership or blocked storage: preserve marks */ }
+        }
+        const marksStillClaimed = ownerId && s.getItem(marksMarker) === ownerId && (() => {
+          const raw = s.getItem('tinct-lab-highlights');
+          if (raw === null) return false;
+          try { const rows = JSON.parse(raw); return !Array.isArray(rows) || rows.some(mark => mark?.bookId === bookId) } catch { return true }
+        })();
+        const keys = []; for (let i = 0; i < s.length; i++) { const k = s.key(i); if (k) keys.push(k) }
+        const chatKey = 'tinct:chat-history:userbook-' + hex;
+        const chatMarker = 'tinct-addbook:text-cards-owner:' + hex;
+        if (ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null) try {
+          const raw = JSON.parse(s.getItem(chatKey));
+          const canonical = keys.filter(k => k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex
+            || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'));
+          if (Array.isArray(raw) && raw.length && canonical.some(k => {
+            try {
+              const copy = JSON.parse(s.getItem(k) || 'null');
+              const known = new Set(Array.isArray(copy?.conversations) ? copy.conversations.map(row => JSON.stringify(row)) : []);
+              return raw.every(row => known.has(JSON.stringify(row)));
+            } catch { return false }
+          })) { s.removeItem(chatKey); if (s.getItem(chatKey) === null) gone++ }
+        } catch { /* malformed or ambiguous hash-only chat remains claimed */ }
+        const chatStillClaimed = ownerId && s.getItem(chatMarker) === ownerId && s.getItem(chatKey) !== null;
+        for (const k of keys) {
+          if (k === chatKey || k === legacyMarks || k === legacyCards) continue; // Only proven hash-only projections are removed above.
+          if (preserveLegacyClaim && (k === legacyClaim || k === legacyBackup || k === 'tinct-addbook:legacy-epub-migrated:' + ownerId + ':' + hex)) continue;
+          if (marksStillClaimed && (k === marksMarker || k === 'tinct-addbook:text-marks-local:' + ownerId + ':' + hex || k === 'tinct-addbook:text-marks-previous:' + ownerId + ':' + hex)) continue;
+          if (chatStillClaimed && (k === chatMarker || k === 'tinct-addbook:text-cards-adopted:' + ownerId + ':' + hex || k === 'tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex || k.startsWith('tinct-addbook:text-cards-canonical:' + ownerId + ':' + hex + ':'))) continue;
+          const scoped = /^tinct-addbook:text-(?:marks|cards)-(?:local|sync|adopted|previous|quarantine|canonical):([^:]+):([0-9a-f]{24})(?::[0-9a-f]{32})?$/.exec(k);
+          if (scoped && scoped[2] === hex && (!ownerId || scoped[1] !== ownerId)) continue;
+          const pdfScoped = /^tinct-addbook:pdf-original-(?:marks|cards|talk):([^:]+):[0-9a-f]{32}:([0-9a-f]{24})$/.exec(k);
+          if (pdfScoped && pdfScoped[2] === hex && (!ownerId || pdfScoped[1] !== ownerId)) continue;
+          if ((k === 'tinct-addbook:text-marks-unassigned:' + hex || k === 'tinct-addbook:text-cards-unassigned:' + hex)) continue;
+          if (k === 'tinct-addbook:text-cards-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          const legacy = /^tinct-addbook:legacy-epub-(?:annotations|migrated|backup-quarantine):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (legacy && legacy[2] === hex && (!ownerId || legacy[1] !== ownerId)) continue;
+          if (k === 'tinct-addbook:legacy-epub-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          if (k === 'tinct-addbook:text-marks-owner:' + hex && (!ownerId || s.getItem(k) !== ownerId)) continue;
+          const tableOwner = /^tinct:library-2-table:([^:]+)$/.exec(k);
+          if (tableOwner && (!ownerId || tableOwner[1] !== ownerId)) continue;
+          const staticScoped = /^tinct-addbook:static-epub-(?:marks|cards):([^:]+):([0-9a-f]{24})$/.exec(k);
+          if (staticScoped && staticScoped[2] === hex && (!ownerId || staticScoped[1] !== ownerId)) continue;
+          if (/^tinct-addbook:static-epub-guest-(?:marks|cards):[0-9a-f]{24}$/.test(k) && ownerId) continue;
+          // A cloud-only delete may share these 24 hash digits with another
+          // account's local file. Only current-owner evidence can be cleared.
+          if (preserveHashOnly && !(ownerId && ((scoped && scoped[1] === ownerId)
+            || (pdfScoped && pdfScoped[1] === ownerId) || (legacy && legacy[1] === ownerId)
+            || (staticScoped && staticScoped[1] === ownerId)
+            || ((k === legacyClaim || k === marksMarker || k === chatMarker) && s.getItem(k) === ownerId)))) continue;
+          const mine = (k.startsWith(STORE_PREFIX) || k.startsWith('tinct:')) && k.includes(hex);
+          const names = !mine && SNAPSHOT_KEYS.test(k) && String(s.getItem(k) || '').includes(hex);
+          if (mine || names) { s.removeItem(k); gone++ }
+        }
+      } catch { /* blocked storage: nothing kept to forget */ }
+    }
+    return gone;
+  }
   async function removeBook(key, { notify = quiet } = {}) {
-    const rec = await library.get(key);
+    const deletingOwner = owner(), deletingAccount = accountId(), deletingToken = global.TinctAI?.session()?.token || null;
+    const active = () => owner() === deletingOwner && accountId() === deletingAccount
+      && (global.TinctAI?.session()?.token || null) === deletingToken;
+    const rec = await library.get(key, deletingOwner);
+    if (!active()) return false;
     const id = rec?.cloudId || cloud.get(key)?.id;
-    await library.remove(key);
-    store.del('place:' + key.replace(/^epub:/, ''));
-    // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
-    store.del('ocr:' + key.slice(key.indexOf(':') + 1));
+    const ownedCloud = cloud.mine();
+    let removedLocal = false;
+    if (rec) {
+      removedLocal = (await library.remove(key, deletingOwner)) !== false;
+      if (!active()) return false;
+    }
+    if (removedLocal) {
+      store.del('place:' + key.replace(/^epub:/, ''));
+      // A scan's text being recognised: the account deletes the job with the book; this device forgets it.
+      store.del('ocr:' + key.slice(key.indexOf(':') + 1));
+    }
+    // And every other key this device keeps for it (highlights, cards, chats, primers, its place).
+    forgetBookHere(key, undefined, { preserveHashOnly: !removedLocal });
     if (!id) return true;
-    try { await global.TinctAI.books.remove(id); cloud.mine().delete(key); return true }
+    if (!active()) return false;
+    try { await global.TinctAI.books.remove(id); if (!active()) return false; ownedCloud.delete(key); return true }
     catch { notify('Removed from this device, but not from your account. Try again.'); return false }
   }
 
@@ -154,6 +378,24 @@
   const rightsConfirmed = () => store.get('rights:' + accountId())?.v === RIGHTS_VERSION;
   const confirmRights = () => store.set('rights:' + accountId(), { at: new Date().toISOString(), v: RIGHTS_VERSION });
   const kindOf = file => /\.epub$/i.test(file.name) || file.type === 'application/epub+zip' ? 'epub' : /\.pdf$/i.test(file.name) || file.type === 'application/pdf' ? 'pdf' : null;
+  // What the file's own bytes say it is: some Android file managers and cloud apps hand over an
+  // EPUB as application/octet-stream (or with no type and no extension), and Windows may give no
+  // type, so the bytes decide when they can: %PDF in the first kilobyte is a PDF; a ZIP whose
+  // first entry is the EPUB "mimetype" file (or that holds META-INF/container.xml) is an EPUB.
+  const latin1 = (bytes, from, to) => { let out = ''; for (let i = Math.max(0, from); i < Math.min(bytes.length, to); i++) out += String.fromCharCode(bytes[i]); return out };
+  const isZip = bytes => bytes.length >= 4 && bytes[0] === 0x50 && bytes[1] === 0x4b && bytes[2] === 0x03 && bytes[3] === 0x04;
+  function sniffKind(bytes) {
+    if (latin1(bytes, 0, 1024).includes('%PDF')) return 'pdf';
+    if (!isZip(bytes) || bytes.length < 30) return null;
+    const nameLength = bytes[26] | (bytes[27] << 8), extraLength = bytes[28] | (bytes[29] << 8);
+    if (latin1(bytes, 30, 30 + nameLength) !== 'mimetype') return null;
+    const at = 30 + nameLength + extraLength;
+    return latin1(bytes, at, at + 20) === 'application/epub+zip' ? 'epub' : null;
+  }
+  /** An EPUB whose first entry is not "mimetype": its central directory (at the end) names META-INF/container.xml. */
+  const zipHoldsEpub = bytes => isZip(bytes) && latin1(bytes, bytes.length - 256 * 1024, bytes.length).includes('META-INF/container.xml');
+  const FILE_UNREADABLE = 'This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.';
+  const FILE_FAILED = 'This file could not be opened. Choose another file.';
   async function digest(bytes) {
     try { const h = await crypto.subtle.digest('SHA-256', bytes); return [...new Uint8Array(h)].slice(0, 12).map(b => b.toString(16).padStart(2, '0')).join('') }
     catch { return String(bytes.byteLength) }
@@ -196,13 +438,26 @@
   // As reader.js names a file it opens.
   const nameTitle = name => String(name || '').replace(/\.(pdf|epub)$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || String(name || '');
   /** A chosen file read for keeping: {kind, bytes, key}, or {error} with the reader-facing message. */
+  // The kind: the bytes first, then the name or type (as before); a ZIP with neither is read whole and
+  // looked at again. Never throws: a file the device cannot hand over (a cloud file not downloaded)
+  // and anything unexpected end in the reader-facing message.
   async function readFile(file) {
-    const kind = file ? kindOf(file) : null;
-    if (!kind) return { error: 'Choose a PDF or EPUB file.' };
-    if (file.size > MAX_BYTES) return { error: 'That file is larger than 300 MB, too big to open here.' };
-    const bytes = new Uint8Array(await file.arrayBuffer());
-    if (kind === 'pdf') { const problem = await pdfProblem(bytes); if (problem) return { error: problem } }
-    return { kind, bytes, key: kind + ':' + await digest(bytes) };
+    if (!file) return { error: 'Choose a PDF or EPUB file.' };
+    try {
+      let head;
+      try { head = new Uint8Array(await file.slice(0, 4096).arrayBuffer()) } catch { return { error: FILE_UNREADABLE } }
+      let kind = sniffKind(head) || kindOf(file);
+      if (!kind && !isZip(head)) return { error: 'Choose a PDF or EPUB file.' };
+      if (file.size > MAX_BYTES) return { error: 'That file is larger than 300 MB, too big to open here.' };
+      let bytes;
+      try { bytes = new Uint8Array(await file.arrayBuffer()) } catch { return { error: FILE_UNREADABLE } }
+      if (!kind) kind = zipHoldsEpub(bytes) ? 'epub' : null;
+      if (!kind) return { error: 'Choose a PDF or EPUB file.' };
+      if (kind === 'pdf') { const problem = await pdfProblem(bytes); if (problem) return { error: problem } }
+      return { kind, bytes, key: kind + ':' + await digest(bytes) };
+    } catch {
+      return { error: FILE_FAILED };
+    }
   }
   /** Keep the file in this browser, opened now. Resolves true when it is kept. */
   async function keepFile(file, { kind, bytes, key }, title = nameTitle(file.name)) {
@@ -225,8 +480,19 @@
     // The cover at full size (coverV 2); a book kept with the old 180 px thumbnail is redrawn here, on its next open.
     await library.touch(key, { title: meta.title, author, coverV: 2, ...(meta.cover ? { cover: meta.cover, coverW: meta.coverWidth } : {}) });
     if (upload) await Promise.race([saveToAccount(key, upload, { kind: 'epub', name, title: meta.title, author }, { quiet: silent, notify }), new Promise(r => setTimeout(r, ACCOUNT_COPY_WAIT_MS))]);
-    return { title: meta.title, author, href: '/reader?userBook=' + encodeURIComponent(key.slice('epub:'.length)) };
+    return { title: meta.title, author, href: epubHref(key) };
   }
+  /**
+   * Where a kept EPUB opens (Anders, 19 Oct 2026): on the desktop, Add a book's margin reader
+   * (/lab/addbook/?userBook=<hex>, Margin view), unless the reader chose the Tinct reader on this device
+   * ("Convert to Tinct book", epub-view:<hex>); on a phone, the Tinct reader (/reader?userBook=<hex>).
+   * The rule of TinctReaderLayout.epubView (reader-layout.js) and app/src/lab/userBook/epubView.ts.
+   */
+  const epubHref = key => {
+    const hex = encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
+    const margin = global.innerWidth >= 700 && store.get('epub-view:' + decodeURIComponent(hex)) !== 'text';
+    return (margin ? '/lab/addbook/?userBook=' : '/reader?userBook=') + hex;
+  };
   /**
    * A PDF kept on this device: where it opens (Add a book's PDF reader). The account copy is
    * sent from there, once the viewer's scan has read the document's own title and author
@@ -242,8 +508,8 @@
   const pdfHref = key => '/lab/addbook/?userBook=' + encodeURIComponent(String(key).slice(String(key).indexOf(':') + 1));
 
   global.TinctAddEngine = {
-    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook,
+    store, owner, library, cloud, covers, saveToAccount, shelf, removeBook, forgetBookHere, legacyEpubAnnotations,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
-    kindOf, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, ACCOUNT_COPY_WAIT_MS,
+    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
   };
 })(window);

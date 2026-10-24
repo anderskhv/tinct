@@ -41,6 +41,7 @@ function renderLayout(layout: 'phone' | 'desktop') {
 const compareActive = () => screen.getByTestId('lab-root').getAttribute('data-compare-active')
 const showCompareSwitch = () => {
   fireEvent.click(screen.getByTestId('lab-super'))
+  // Book settings, on the phone and the desktop.
   fireEvent.click(screen.getByTestId('lab-super-row-editions'))
   return screen.getByTestId('lab-v2-show-compare')
 }

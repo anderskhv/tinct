@@ -1,11 +1,11 @@
 import { apiUrl } from '../utils/apiUrl'
-import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
+import { microphoneFailureReason, requestTalkMicrophone, VOICE_MICROPHONE_TIMEOUT_MS, type MicrophoneFailureReason } from './microphoneRequest'
 import { ASSISTANT_PACE_SPEED, clampTalkSpeed, isLabPlaybackSkip, parseAssistantPace, parseSetPlaybackSpeedArguments, type AssistantPace } from '../lab/labAsk'
 import { LAB_COPY } from '../lab/labCopy'
 import { VOICE_TOOLS } from './context'
 import { GROK_AUDIO_RATE, GROK_REALTIME_URL, GROK_VOICE_MODEL, buildGrokReaderReference, buildGrokVoiceInstructions, grokVoiceFor } from './grokConfig'
 import { IDLE_VOICE_SNAPSHOT, type StartVoiceSessionInput, type VoiceSessionCallbacks, type VoiceUiSnapshot } from './session'
-import { LAB_AUDIO_CONSTRAINTS, type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
+import { type AudioPlaybackAnchor, type VoiceReaderContext } from './types'
 import { isBenignRealtimeError } from './v2/voiceV2'
 import { reportTalkSeconds } from '../utils/usageReport'
 import { trackFunnel } from '../utils/funnel'
@@ -41,7 +41,7 @@ const PLAYBACK_LEAD_SECONDS = 0.05
 const CONTEXT_UPDATE_DEBOUNCE_MS = 400
 const CONNECT_TIMEOUT_MS = 15_000
 export const VOICE_REQUEST_TIMEOUT_MS = 12_000
-export const VOICE_MICROPHONE_TIMEOUT_MS = 30_000
+export { VOICE_MICROPHONE_TIMEOUT_MS }
 /** A dropped connection while setting up (a car's mobile network) is tried again once, with a fresh secret. */
 export const VOICE_CONNECT_ATTEMPTS = 2
 const VOICE_CONNECT_RETRY_DELAY_MS = 1_000
@@ -178,6 +178,8 @@ export class GrokVoiceSessionController {
   private socket: GrokSocket | null = null
   private setupAbort: AbortController | null = null
   private cancelMicrophone: (() => void) | null = null
+  /** fail() is ending the session: its own event is the record, not a cancellation. */
+  private failing = false
   private stream: MediaStream | null = null
   private context: AudioContext | null = null
   private captureNode: AudioWorkletNode | ScriptProcessorNode | null = null
@@ -340,19 +342,30 @@ export class GrokVoiceSessionController {
     this.send({ type: 'session.update', session: { instructions: next } })
   }
 
-  /** `stage` is a fixed code counted in the funnel; the message never leaves the device. */
-  private fail(message: string, stage: VoiceFailStage) {
-    trackFunnel('talk_failed', { stage })
-    this.stop()
+  /**
+   * `stage` and `reason` (the microphone step's browser error name or
+   * timeout, setup_mic only) are fixed codes counted in the funnel; the
+   * message never leaves the device.
+   */
+  private fail(message: string, stage: VoiceFailStage, reason?: MicrophoneFailureReason) {
+    trackFunnel('talk_failed', reason ? { stage, reason } : { stage })
+    this.failing = true
+    try { this.stop() } finally { this.failing = false }
     this.emit({ error: message, connection: 'disconnected' })
   }
 
   async start(input: StartVoiceSessionInput): Promise<void> {
-    if (this.ui.isActive) return
+    // A microphone asked for in the reader's tap belongs to this start from here on.
+    if (this.ui.isActive) { input.microphone?.cancel(); return }
     this.stop()
     const generation = this.generation
     this.startedAt = Date.now()
-    this.input = { ...input }
+    const { microphone: earlyMicrophone, ...rest } = input
+    this.input = { ...rest }
+    if (earlyMicrophone) {
+      this.cancelMicrophone = earlyMicrophone.cancel
+      this.releaseAudioSession = earlyMicrophone.releaseAudioSession
+    }
     this.anchor = input.audio.pausePlayback()?.anchor ?? null
     this.emit({ isActive: true, state: 'reading', activity: 'connecting', connection: 'connecting', mode: input.mode ?? 'conversation', error: null })
     if (!input.labGuest && !input.authToken) {
@@ -363,13 +376,9 @@ export class GrokVoiceSessionController {
     const current = () => generation === this.generation
     this.setupStage = 'setup_mic'
     try {
-      if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
-        throw new Error("Couldn't start voice. Microphone access is unavailable. Type a question instead.")
-      }
       // Do not mint a billable single-use provider session until microphone
       // permission has actually succeeded.
-      this.releaseAudioSession = acquireBrowserAudioSession('play-and-record')
-      const stream = await this.requestMicrophone()
+      const stream = await this.requestMicrophone(earlyMicrophone)
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return }
       this.stream = stream
       for (const track of stream.getAudioTracks()) track.onended = () => {
@@ -402,7 +411,8 @@ export class GrokVoiceSessionController {
         this.callbacks.onGuestTrial?.('refused')
         return
       }
-      this.fail(error instanceof Error ? error.message : 'Could not start voice.', this.setupStage)
+      const stage = this.setupStage
+      this.fail(error instanceof Error ? error.message : 'Could not start voice.', stage, stage === 'setup_mic' ? microphoneFailureReason(error) : undefined)
     }
   }
 
@@ -413,29 +423,17 @@ export class GrokVoiceSessionController {
     this.callbacks.onGuestTrial?.('ended')
   }
 
-  /** Permission can outlive a cancelled start; release any late microphone. */
-  private requestMicrophone(): Promise<MediaStream> {
-    return new Promise((resolve, reject) => {
-      let settled = false
-      const finish = (error?: Error, stream?: MediaStream) => {
-        if (settled) { stream?.getTracks().forEach(track => track.stop()); return }
-        settled = true
-        clearTimeout(timer)
-        if (this.cancelMicrophone === cancel) this.cancelMicrophone = null
-        if (error) reject(error)
-        else resolve(stream!)
-      }
-      const cancel = () => finish(new Error('Voice setup cancelled.'))
-      const timer = setTimeout(() => finish(new Error('Microphone did not become ready. Close voice and try again.')), VOICE_MICROPHONE_TIMEOUT_MS)
-      this.cancelMicrophone = cancel
-      // Begin on this gesture; do not defer the browser permission request.
-      try {
-        navigator.mediaDevices.getUserMedia({ audio: { ...LAB_AUDIO_CONSTRAINTS } })
-          .then(stream => finish(undefined, stream), error => finish(error instanceof Error ? error : new Error('Microphone could not start.')))
-      } catch (error) {
-        finish(error instanceof Error ? error : new Error('Microphone could not start.'))
-      }
-    })
+  /**
+   * The microphone asked for in the reader's tap, or (a start outside a tap:
+   * Reconnect, tests) asked for now. Permission can outlive a cancelled start;
+   * the request stops any late stream itself.
+   */
+  private requestMicrophone(early?: StartVoiceSessionInput['microphone']): Promise<MediaStream> {
+    const microphone = early ?? requestTalkMicrophone()
+    this.cancelMicrophone = microphone.cancel
+    this.releaseAudioSession = microphone.releaseAudioSession
+    const settled = () => { if (this.cancelMicrophone === microphone.cancel) this.cancelMicrophone = null }
+    return microphone.stream.then(stream => { settled(); return stream }, error => { settled(); throw error })
   }
 
   /** Bound both the HTTP request and its body, before the socket timeout starts. */
@@ -1034,6 +1032,9 @@ export class GrokVoiceSessionController {
   }
 
   stop(): void {
+    // Closed while the microphone prompt was still unanswered: counted, so a
+    // start that ends silently is visible next to the failures.
+    if (this.cancelMicrophone && this.ui.isActive && !this.failing) trackFunnel('talk_failed', { stage: 'setup_mic', reason: 'cancelled' })
     this.reportConnected()
     this.stopping = true
     this.generation++

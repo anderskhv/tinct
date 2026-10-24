@@ -54,7 +54,11 @@ async function boot(page, handoff) {
     if (document.documentElement) observeMedia()
     else addEventListener('DOMContentLoaded', observeMedia, { once: true })
   }, handoff)
-  await page.goto(`${origin}/reader`, { waitUntil: 'domcontentloaded' })
+  // Split-fragment ownership is a paged-layout contract. Keep the desktop
+  // case in shared Classic after public Margin becomes the default; phone
+  // continues to use its familiar paged surface.
+  const classic = (page.viewportSize()?.width ?? 0) > 600 ? '?view=two-page' : ''
+  await page.goto(`${origin}/reader${classic}`, { waitUntil: 'domcontentloaded' })
   await page.getByTestId('lab-root').waitFor({ timeout: 45000 })
   await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
@@ -355,6 +359,7 @@ async function languageAcceptance(name, viewport) {
   const before = await pageState(page)
   assert(patternRequests.some(value => value.includes('/en-us-')), 'English patterns must be requested lazily')
   await page.getByTestId('lab-super').click()
+  // Book settings holds the editions, on the phone and the desktop (22 Oct 2026).
   await page.getByTestId('lab-super-row-editions').click()
   await page.getByTestId('lab-v2-main-edition').click()
   assert.equal(await page.locator('[data-edition$="-da"]').count(), 0, 'withdrawn Danish editions must not be offered')

@@ -339,6 +339,8 @@ export const TINCT_STATUS_EVENT = 'tinct_status'
 export interface AnthropicStreamOptions {
   /** A lookup started; the text is a short reader-facing status line. Readers without it ignore the event. */
   onStatus?: (text: string) => void
+  /** Saving a reader card requires an end turn; a token ceiling leaves a visible but incomplete draft. */
+  requireComplete?: boolean
 }
 
 export async function readAnthropicStream(
@@ -407,7 +409,9 @@ export async function readAnthropicResponse(
   options: AnthropicStreamOptions = {},
 ): Promise<string> {
   const result = await readAnthropicStream(response, onDelta, options)
-  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()) throw result.error ?? new LabChatError()
+  if (result.stopReason === 'error' || !result.sawStop || !result.text.trim()
+    || (options.requireComplete && result.stopReason != null && result.stopReason !== 'end_turn' && result.stopReason !== 'stop_sequence'))
+    throw result.error ?? new LabChatError()
   return result.text
 }
 

@@ -68,7 +68,7 @@
   }
 
   // The margin's whole file (docs/margin/FIXES-2026-10-15.md A1): { kind: 'pdf' | 'epub', units: [{ n, text }],
-  // part?: { toc: [{ title, n }], total } }, sent as it is with every margin request so the Worker's cached
+  // part?: { toc: [{ title, n }], total }, library?: true }, sent as it is with every margin request so the Worker's cached
   // prefix stays byte for byte the same. -> the request's `document`, or null.
   function documentContext(doc) {
     if (!doc || (doc.kind !== 'pdf' && doc.kind !== 'epub') || !Array.isArray(doc.units) || !doc.units.length) return null;
@@ -83,7 +83,8 @@
     const part = doc.part && Array.isArray(doc.part.toc)
       ? { toc: doc.part.toc.slice(0, 400).map(e => ({ title: String(e?.title || '').slice(0, 200), n: typeof e?.n === 'number' ? e.n : String(e?.n ?? '').slice(0, 16) })), total: Number(doc.part.total) || units.length }
       : null;
-    return { kind: doc.kind, units, ...(part ? { part } : {}) };
+    // A book from Tinct's library (the margin preview), not a file of the reader's own: the Worker words its first line so.
+    return { kind: doc.kind, units, ...(part ? { part } : {}), ...(doc.library === true ? { library: true } : {}) };
   }
 
   // A long file's passages found by searching it for the question (FIXES-2026-10-15, long books, item 8):
@@ -144,7 +145,7 @@
    * One of the margin's actions as a structured request (docs/margin/PROMPTS.md): the Worker
    * builds the prompt from `intent`, the PDF's pages and the selection; the client never sends
    * one. o: { book, pdf: { pages, at }, selection, senses (define_sense), quiz: { question,
-   * expected, why, answer } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
+   * expected, why, answer, turns (a reply under the marking: the earlier turns on the question) } (quiz_check), chapter: { action: { kind: 'primer', unitKey, unitTitle } }
    * (Before you start), images (passage actions), document (the whole file; added in send()), stream }.
    * Quiz me on a whole unit is `quiz` without a selection.
    */
@@ -154,10 +155,12 @@
     if (o.selection != null) companion.selection = String(o.selection).slice(0, intent === 'define_sense' ? 200 : 6000);
     if (intent === 'define_sense') companion.senses = (o.senses || []).slice(0, 3).map(s => String(s).slice(0, 500));
     // Before you start (PROMPTS.md, chapter action `primer`): the unit's pages as context, its key and title as the action.
-    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300) } };
+    if (intent === 'chapter' && o.chapter?.action?.kind === 'primer') companion.chapter = { action: { kind: 'primer', unitKey: String(o.chapter.action.unitKey || ''), unitTitle: String(o.chapter.action.unitTitle || '').slice(0, 300), ...(o.chapter.action.unitKind ? { unitKind: String(o.chapter.action.unitKind) } : {}) } };
     // Made ahead of the reader opening it (reader.js primerPrefetch): never charged to the reader's allowance.
     if (companion.chapter && o.speculative) companion.speculative = true;
-    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000) };
+    if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}), ...(Array.isArray(o.quiz.turns) && o.quiz.turns.length ? { turns: o.quiz.turns.slice(0, 6).map(t => ({ role: t.role === 'grader' ? 'grader' : 'reader', text: String(t.text || '').slice(0, 600), ...(t.verdict ? { verdict: String(t.verdict) } : {}) })) } : {}) };
+    // "Try new questions": the questions asked before on this text, each with its key idea and whether it was missed (Anders, 20 Oct 2026).
+    if (intent === 'quiz' && Array.isArray(o.asked) && o.asked.length) companion.asked = o.asked.slice(-24).map(a => ({ q: String(a.q || '').slice(0, 300), ...(a.idea ? { idea: String(a.idea).slice(0, 300) } : {}), ...(a.missed ? { missed: true } : {}) }));
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
   }
@@ -377,6 +380,15 @@
         ...(meta.rights?.v ? { 'X-Rights-Version': enc(meta.rights.v), 'X-Rights-At': enc(meta.rights.at) } : {}),
       } });
       return (await r.json()).book;
+    },
+    // Editable display details leave the owned EPUB/PDF bytes, SHA and reading anchors intact.
+    async metadata(hex) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex))) throw err('bad_request');
+      return (await (await booksFetch('/metadata/' + hex)).json());
+    },
+    async editMetadata(hex, { title, author, rev, fileId }) {
+      if (!/^[0-9a-f]{24}$/.test(String(hex))) throw err('bad_request');
+      return (await (await booksFetch('/metadata/' + hex, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title, author, rev, expectedFileId: fileId }) })).json());
     },
     async download(id) { return new Uint8Array(await (await booksFetch('/' + encodeURIComponent(id))).arrayBuffer()) },
     // The small copy of a book's cover (a JPEG or WebP Blob under 64 KB), kept with its account copy.

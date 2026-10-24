@@ -108,6 +108,7 @@
     const { opfPath, opf, meta, title, authors, language } = await readPackage(zip, opts);
     let cover = { url: '', width: 0 };
     try { cover = await coverImage(zip, opfPath, opf, meta) } catch { cover = { url: '', width: 0 } }
+    if (cover.url) cover.url = await trimmedImage(cover.url);
     return { title, authors, language, cover: cover.url, coverWidth: cover.width };
   }
   // The cover image (cover-image, else <meta name="cover">) at its own size, up to
@@ -160,18 +161,117 @@
       return p;
     }
 
+    // The book's own stylesheets, read for the few intents a reader keeps (small caps, capitals, centring, italics):
+    // nothing of them is applied as CSS (bookStyles).
+    const sheets = new Map();
+    const sheetText = path => { if (!sheets.has(path)) sheets.set(path, zip.readText(path).catch(() => null).then(t => t || '')); return sheets.get(path) };
+    const coverItem = [...manifest.values()].find(m => m.props.includes('cover-image')) || manifest.get(byLocal(meta, 'meta').find(m => m.getAttribute('name') === 'cover')?.getAttribute('content'));
     const chapters = [];
     for (let i = 0; i < spine.length; i++) {
       const item = spine[i];
       const src = await zip.readText(item.href);
-      chapters.push(await buildChapter(src, item.href, i, imageUrl, spine));
+      chapters.push(await buildChapter(src, item.href, i, imageUrl, spine, sheetText));
       opts.onProgress?.((i + 1) / spine.length);
     }
     const toc = await readToc(zip, manifest, spineEl, spine, chapters);
+    const marks = await landmarks(zip, opf, manifest, spine);
+    const start = classify(chapters, spine, marks, toc, coverItem);
+    // A cover with a black strip down one side (a print cover's bleed; Anders's "Bold Conjectures", 20 Oct 2026): trimmed.
     let cover = '';
-    const coverItem = [...manifest.values()].find(m => m.props.includes('cover-image')) || manifest.get(byLocal(meta, 'meta').find(m => m.getAttribute('name') === 'cover')?.getAttribute('content'));
-    if (coverItem && coverItem.type.startsWith('image/')) cover = await imageUrl(coverItem.href);
-    return { title, authors, language, chapters, toc, cover };
+    if (coverItem && coverItem.type.startsWith('image/')) cover = await trimmedImage(await imageUrl(coverItem.href));
+    for (const c of chapters) if (c.role === 'cover') for (const img of c.node.querySelectorAll('img')) { if (img.src) img.src = await trimmedImage(img.src) }
+    // The book's own contents page is not in Tinct's chapter menu (the menu does its job).
+    const shown = toc.filter(e => chapters[e.page - 1]?.role !== 'toc');
+    return { title, authors, language, chapters, toc: shown.length >= 2 ? shown : toc, cover, start };
+  }
+
+  /* ---------- What each spine file is: cover, front matter, the book's own contents, or the text ----------
+     From the EPUB's own words first (EPUB 3 nav landmarks, the EPUB 2 guide, the nav document in the spine, a file's
+     epub:type, a non-linear itemref), then its shape: before the first section that opens on a heading and runs on
+     in prose, short files with no such text are front matter; a file that is mostly links into the book is a
+     contents page. `start`: the first section of the text (0-based), where a first open begins (Anders, 20 Oct 2026). */
+  const FRONT_TYPES = /^(?:cover|titlepage|halftitlepage|half-title|title-page|copyright-page|copyright|dedication|epigraph|frontispiece|imprint|imprimatur|colophon|seriespage|other-credits|contributors|acknowledgments|errata)$/;
+  const TOC_TYPES = /^(?:toc|contents|loi|lot|landmarks)$/;
+  async function landmarks(zip, opf, manifest, spine) {
+    const out = new Map(); // spine path -> type
+    const put = (path, type) => { if (path && type && !out.has(path)) out.set(path, String(type).toLowerCase().replace(/^.*:/, '')) };
+    const navItem = [...manifest.values()].find(m => m.props.includes('nav'));
+    if (navItem) {
+      put(navItem.href, 'toc');
+      const text = await zip.readText(navItem.href).catch(() => null);
+      if (text) {
+        const doc = new DOMParser().parseFromString(text, 'application/xhtml+xml');
+        for (const nav of byLocal(doc, 'nav')) {
+          const t = nav.getAttribute('epub:type') || nav.getAttributeNS('http://www.idpf.org/2007/ops', 'type') || '';
+          if (!/landmarks/.test(t)) continue;
+          for (const a of byLocal(nav, 'a')) put(splitHash(resolve(navItem.href, a.getAttribute('href') || ''))[0], (a.getAttribute('epub:type') || a.getAttributeNS('http://www.idpf.org/2007/ops', 'type') || '').split(/\s+/)[0]);
+        }
+      }
+    }
+    for (const ref of byLocal(opf, 'reference')) {
+      const type = (ref.getAttribute('type') || '').toLowerCase(), href = ref.getAttribute('href') || '';
+      const path = [...manifest.values()].find(m => m.href.endsWith(splitHash(href)[0].replace(/^(\.\.\/)+/, '')))?.href;
+      put(path, { 'title-page': 'titlepage', 'copyright-page': 'copyright-page', text: 'bodymatter' }[type] || type);
+    }
+    return out;
+  }
+  function classify(chapters, spine, marks, toc, coverItem) {
+    const kindOf = c => marks.get(spine[c.index].href) || c.type || '';
+    const linkShare = c => {
+      const links = [...c.node.querySelectorAll('a[data-chapter]')];
+      const words = links.reduce((n, a) => n + a.textContent.trim().length, 0);
+      return links.length >= 3 ? words / Math.max(1, c.text.length) : 0;
+    };
+    const coverSrc = coverItem?.href || '';
+    for (const c of chapters) {
+      const k = kindOf(c);
+      if (TOC_TYPES.test(k) || (linkShare(c) >= 0.45 && c.text.length < 8000)) c.role = 'toc';
+      else if (k === 'cover' || (c.index === 0 && c.images > 0 && c.text.length < 40) || (coverSrc && c.coverRef === coverSrc && c.text.length < 40)) c.role = 'cover';
+    }
+    // The first section of the text: a file that opens on a heading and runs on in prose (or the bodymatter landmark,
+    // when it comes earlier), never a cover, a contents page or a file the book calls front matter.
+    const prose = c => !c.role && !FRONT_TYPES.test(kindOf(c)) && c.headed && c.text.length >= 600;
+    let start = chapters.findIndex(prose);
+    const body = chapters.findIndex(c => kindOf(c) === 'bodymatter' && !c.role);
+    if (body >= 0 && (start < 0 || body < start)) start = body;
+    if (start < 0) start = chapters.findIndex(c => !c.role && c.text.length >= 600);
+    if (start < 0) start = Math.max(0, chapters.findIndex(c => !c.role));
+    for (const c of chapters) {
+      if (c.role) continue;
+      if (FRONT_TYPES.test(kindOf(c)) && c.index < start + 1 && c.text.length < 3000) c.role = 'front';
+      else if (c.index < start && c.text.length < 1500) c.role = 'front';
+      else c.role = 'text';
+    }
+    if (chapters[start]?.role !== 'text') start = Math.max(0, chapters.findIndex(c => c.role === 'text'));
+    return start;
+  }
+  /** A cover picture without a dark (or empty) strip down one of its sides: the trimmed picture's data: URL, or the same URL. */
+  async function trimmedImage(url) {
+    if (!url || typeof createImageBitmap !== 'function' || typeof document === 'undefined') return url;
+    try {
+      const blob = await (await fetch(url)).blob();
+      const bmp = await createImageBitmap(blob);
+      const w = bmp.width, h = bmp.height;
+      const scale = Math.min(1, 400 / Math.max(w, h)), sw = Math.max(1, Math.round(w * scale)), sh = Math.max(1, Math.round(h * scale));
+      const probe = document.createElement('canvas'); probe.width = sw; probe.height = sh;
+      const g = probe.getContext('2d', { willReadFrequently: true }); g.drawImage(bmp, 0, 0, sw, sh);
+      const px = g.getImageData(0, 0, sw, sh).data;
+      const dark = (x, y) => { const o = (y * sw + x) * 4; return px[o + 3] < 16 || Math.max(px[o], px[o + 1], px[o + 2]) < 22 };
+      const colDark = x => { let n = 0; for (let y = 0; y < sh; y++) if (dark(x, y)) n++; return n >= sh * 0.97 };
+      const rowDark = y => { let n = 0; for (let x = 0; x < sw; x++) if (dark(x, y)) n++; return n >= sw * 0.97 };
+      const run = (count, test) => { let k = 0; while (k < count && test(k)) k++; return k };
+      const L = run(sw, x => colDark(x)), R = run(sw, x => colDark(sw - 1 - x)), T = run(sh, y => rowDark(y)), B = run(sh, y => rowDark(sh - 1 - y));
+      // Only a strip on one side (a black cover is black all round): at least 2% and at most a quarter of the side.
+      const strip = (a, b, size) => (a >= size * 0.02 && a <= size * 0.25 && b < a / 3 ? a : 0);
+      const cut = { l: strip(L, R, sw), r: strip(R, L, sw), t: strip(T, B, sh), b: strip(B, T, sh) };
+      if (!cut.l && !cut.r && !cut.t && !cut.b) { bmp.close?.(); return url }
+      const x0 = Math.round((cut.l + (cut.l ? 1 : 0)) / scale), y0 = Math.round((cut.t + (cut.t ? 1 : 0)) / scale);
+      const x1 = w - Math.round((cut.r + (cut.r ? 1 : 0)) / scale), y1 = h - Math.round((cut.b + (cut.b ? 1 : 0)) / scale);
+      const out = document.createElement('canvas'); out.width = Math.max(1, x1 - x0); out.height = Math.max(1, y1 - y0);
+      out.getContext('2d').drawImage(bmp, x0, y0, out.width, out.height, 0, 0, out.width, out.height);
+      bmp.close?.();
+      return out.toDataURL(/^data:image\/png/.test(url) ? 'image/png' : 'image/jpeg', 0.9);
+    } catch { return url }
   }
 
   /* ---------- Contents ---------- */
@@ -233,13 +333,46 @@
   const MATHNS = 'http://www.w3.org/1998/Math/MathML';
   const XLINK = 'http://www.w3.org/1999/xlink';
 
-  async function buildChapter(src, path, index, imageUrl, spine) {
+  /* The book's styles, read (never applied): for each class (or tag.class, or tag) the intents kept, from rules whose
+     selector ends in it. -> Map(key -> { sc, asc, upper, lower, center, right, italic }) */
+  function bookStyles(css) {
+    const out = new Map();
+    const text = String(css || '').replace(/\/\*[\s\S]*?\*\//g, '').replace(/@media[^{]*\{([\s\S]*?\})\s*\}/g, '$1');
+    for (const m of text.matchAll(/([^{}@]+)\{([^{}]*)\}/g)) {
+      const d = m[2].toLowerCase(), flags = {};
+      const variant = /font-variant(?:-caps)?\s*:\s*([^;]+)/.exec(d)?.[1] || '';
+      if (/all-small-caps/.test(variant)) flags.asc = true; else if (/small-caps/.test(variant)) flags.sc = true;
+      const transform = /text-transform\s*:\s*([a-z-]+)/.exec(d)?.[1];
+      if (transform === 'uppercase') flags.upper = true; else if (transform === 'lowercase') flags.lower = true;
+      const align = /text-align\s*:\s*([a-z-]+)/.exec(d)?.[1];
+      if (align === 'center') flags.center = true; else if (align === 'right') flags.right = true;
+      if (/font-style\s*:\s*italic/.test(d)) flags.italic = true;
+      if (!Object.keys(flags).length) continue;
+      for (const sel of m[1].split(',')) {
+        const last = sel.trim().split(/[\s>+~]+/).pop() || '';
+        const k = /^([a-z0-9]*)((?:\.[\w-]+)+)$/i.exec(last), t = /^([a-z][a-z0-9]*)$/i.exec(last);
+        const keys = k ? k[2].slice(1).split('.').map(c => (k[1] ? k[1].toLowerCase() + '.' : '.') + c.toLowerCase()) : t ? [t[1].toLowerCase()] : [];
+        for (const key of keys) out.set(key, { ...(out.get(key) || {}), ...flags });
+      }
+    }
+    return out;
+  }
+
+  async function buildChapter(src, path, index, imageUrl, spine, sheetText = null) {
     let doc = new DOMParser().parseFromString(src || '', 'application/xhtml+xml');
     if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(src || '', 'text/html');
     const body = byLocal(doc, 'body')[0] || doc.documentElement;
+    // The book's own styles for this file: its linked stylesheets, then its <style> blocks.
+    let css = '';
+    if (sheetText) for (const link of byLocal(doc, 'link')) if (/stylesheet/i.test(link.getAttribute('rel') || '') && link.getAttribute('href')) css += '\n' + await sheetText(resolve(path, link.getAttribute('href')));
+    for (const st of byLocal(doc, 'style')) css += '\n' + (st.textContent || '');
+    const styles = bookStyles(css);
+    const OPS = 'http://www.idpf.org/2007/ops';
+    const typeOf = el => (el?.getAttribute?.('epub:type') || el?.getAttributeNS?.(OPS, 'type') || '').toLowerCase();
+    const fileType = (typeOf(body) || typeOf([...body.children].find(c => typeOf(c))) || '').split(/\s+/).map(t => t.replace(/^.*:/, '')).find(Boolean) || '';
     const out = document.createElement('div');
     out.className = 'epub-body';
-    const pending = [];
+    const pending = [], covers = [];
     const anchorId = id => 'c' + index + '-' + String(id).replace(/[^\w-]/g, '_');
     function attrsFor(src, el, name) {
       const id = src.getAttribute('id');
@@ -248,11 +381,22 @@
       if ((name === 'td' || name === 'th')) for (const a of ['colspan', 'rowspan']) if (/^\d{1,3}$/.test(src.getAttribute(a) || '')) el.setAttribute(a, src.getAttribute(a));
       if (name === 'abbr' && src.getAttribute('title')) el.title = src.getAttribute('title').slice(0, 200);
       const cls = (src.getAttribute('class') || '').toLowerCase(), style = (src.getAttribute('style') || '').toLowerCase();
+      // The book's stylesheet's intents for this element (bookStyles), then its own style attribute's.
+      const f = {};
+      for (const key of [src.localName.toLowerCase(), ...cls.split(/\s+/).filter(Boolean).flatMap(c => ['.' + c, src.localName.toLowerCase() + '.' + c])]) Object.assign(f, styles.get(key) || {});
+      Object.assign(f, bookStyles(`x{${style}}`).get('x') || {});
       // Keep a few presentational intents that carry meaning in books.
-      if (/center|centre/.test(cls) || /text-align:\s*center/.test(style)) el.classList.add('ep-center');
-      if (/right/.test(cls) && /align|right/.test(cls) || /text-align:\s*right/.test(style)) el.classList.add('ep-right');
-      if (/smallcaps|small-caps|sc\b/.test(cls) || /small-caps/.test(style)) el.classList.add('ep-sc');
-      if (/italic/.test(cls) || /font-style:\s*italic/.test(style)) el.classList.add('ep-i');
+      if (/center|centre/.test(cls) || f.center) el.classList.add('ep-center');
+      if (/right/.test(cls) && /align|right/.test(cls) || f.right) el.classList.add('ep-right');
+      // Small caps as the book sets them (Anders, 20 Oct 2026: "BOLD CONJECTURES" in full capitals on one page, small
+      // capitals on the next): font-variant small-caps, or all-small-caps (capitals typed in small caps read as small
+      // capitals too, never as full ones); capitals by text-transform only where the book does not set small caps.
+      const sc = f.sc || f.asc || /smallcaps|small-caps|sc\b/.test(cls);
+      if (sc) {
+        const letters = (src.textContent || '').replace(/[^\p{L}]/gu, '');
+        el.classList.add(f.asc || (letters.length >= 2 && letters === letters.toUpperCase() && letters !== letters.toLowerCase()) ? 'ep-asc' : 'ep-sc');
+      } else if (f.upper) el.classList.add('ep-upper');
+      if (/italic/.test(cls) || f.italic) el.classList.add('ep-i');
       if (/\b(epigraph|poem|verse|stanza|line)\b/.test(cls)) el.classList.add('ep-verse');
       if (/\bfootnote|\bnote\b|endnote/.test(cls) || /(footnote|endnote|rearnote)/.test(src.getAttribute('epub:type') || '')) el.classList.add('ep-note');
     }
@@ -266,6 +410,7 @@
         if (name === 'svg') { // a cover page: <svg><image xlink:href="..."/></svg>
           const image = byLocal(node, 'image')[0];
           const href = image && (image.getAttributeNS(XLINK, 'href') || image.getAttribute('href'));
+          if (href) covers.push(resolve(path, href));
           if (href) { const img = document.createElement('img'); img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; pending.push(imageUrl(resolve(path, href)).then(u => { if (u) img.src = u; else img.remove() })); parent.appendChild(img) }
           continue;
         }
@@ -276,6 +421,7 @@
         if (tag === 'img') {
           const href = node.getAttribute('src') || node.getAttributeNS(XLINK, 'href');
           el.alt = (node.getAttribute('alt') || '').slice(0, 500); el.loading = 'lazy'; el.decoding = 'async';
+          if (href) covers.push(resolve(path, href));
           if (href) pending.push(imageUrl(resolve(path, href)).then(u => { if (u) el.src = u; else el.remove() }));
           parent.appendChild(el); continue;
         }
@@ -305,10 +451,31 @@
     await Promise.all(pending);
     // Empty wrappers and stray whitespace-only blocks add nothing.
     for (const el of [...out.querySelectorAll('div, span, p')]) if (!el.children.length && !el.textContent.trim() && !el.querySelector('img')) el.remove();
+    markCaptions(out);
     const heading = out.querySelector('h1, h2, h3');
     const text = out.textContent.replace(/\s+/g, ' ').trim();
-    return { index, href: path, title: (heading?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 140), node: out, text };
+    // Opens on a heading: the first block with words is a heading (a section of the text, not a title page).
+    const firstBlock = [...out.querySelectorAll('h1, h2, h3, h4, p, li, blockquote, div')].find(el => el.textContent.trim() && !el.querySelector('p, h1, h2, h3, h4, li, div'));
+    const headed = !!firstBlock && /^H[1-4]$/.test(firstBlock.tagName);
+    const images = out.querySelectorAll('img').length;
+    const coverRef = covers[0] || '';
+    return { index, href: path, title: (heading?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 140), node: out, text, type: fileType, headed, images, coverRef };
   }
 
-  global.TinctEpub = { parse, metadata, openZip, resolve };
+  /*
+   * Figure captions (Anders, 20 Oct 2026, "Bold Conjectures II": "Figure 2: …" read as body text): a figcaption, a table's
+   * caption, and a paragraph that starts "Figure 2" or "Fig. 2" right after a picture (an image, a figure, or a block
+   * holding only a picture) or inside a figure, set apart as ep-caption (css/addbook.css: smaller, muted, space above).
+   */
+  const CAPTION_START = /^\s*(?:figure|fig\.?)\s*\d+[a-z]?\b/i;
+  const pictureOnly = el => !!el && (el.localName === 'img' || el.localName === 'figure' || el.localName === 'svg' || (!!el.querySelector?.('img, svg') && !el.textContent.trim()));
+  function markCaptions(root) {
+    for (const el of root.querySelectorAll('figcaption, caption')) el.classList.add('ep-caption');
+    for (const el of root.querySelectorAll('p, div')) {
+      if (el.classList.contains('ep-caption') || el.querySelector('p, div, h1, h2, h3, h4, h5, h6, li, table') || !CAPTION_START.test(el.textContent || '')) continue;
+      if (pictureOnly(el.previousElementSibling) || (el.parentElement?.localName === 'figure' && el.parentElement.querySelector('img, svg'))) el.classList.add('ep-caption');
+    }
+  }
+
+  global.TinctEpub = { parse, metadata, openZip, resolve, bookStyles, trimmedImage, markCaptions };
 })(typeof window !== 'undefined' ? window : globalThis);

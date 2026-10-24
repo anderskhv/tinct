@@ -2,13 +2,56 @@ import { chromium, webkit } from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { build } from 'esbuild'
 import { markInternal } from './lib/internalTraffic.cjs'
 
 const live = process.env.READER_LIVE === '1'
 const origin = (process.env.TINCT_ORIGIN || 'https://tinct.app').replace(/\/+$/, '')
 const output = 'artifacts/inline-audio-loading'
 await fs.mkdir(output, { recursive: true })
-const report = { live, cases: [], generated: 0, note: 'Delayed real cached responses exercise preparation without new synthesis; native playback is not mocked.' }
+const report = { live, cases: [], generated: 0, note: live
+  ? 'Delayed real cached responses from the deployed Worker exercise preparation without new synthesis; native playback is not mocked.'
+  : 'The built reader against a local ensure (chunks from the edition text, local WAV clips); native playback is not mocked.' }
+
+// Before a deploy (PR CI, local runs) this checks the built client, not a Worker: forwarding its ensure
+// calls to production tested the previous release's Worker and made the check as slow as production's
+// cached ensure (over 15 s at times, 20 Oct 2026). So the ensure is answered here, the way the Worker
+// answers it: the edition's own paragraphs, chunked and hashed by narrationCore, each chunk a short local
+// WAV the browser really plays. After a deploy (READER_LIVE=1) the real Worker answers, as before.
+const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, narrationTokens, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() },
+  bundle: true, platform: 'node', format: 'esm', write: false })
+const { chunkNarrationText, narrationTextForParagraph, narrationTokens, sha256Hex } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'))
+const frankenstein = live ? null : JSON.parse(await fs.readFile('public/data/editions/frankenstein-original-en.json', 'utf8'))
+const SECONDS_PER_WORD = 0.32
+function silentWav(seconds, rate = 8000) {
+  const samples = Math.round(seconds * rate), data = samples * 2, wav = Buffer.alloc(44 + data)
+  wav.write('RIFF', 0); wav.writeUInt32LE(36 + data, 4); wav.write('WAVE', 8); wav.write('fmt ', 12)
+  wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22); wav.writeUInt32LE(rate, 24)
+  wav.writeUInt32LE(rate * 2, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34); wav.write('data', 36); wav.writeUInt32LE(data, 40)
+  return wav
+}
+async function localEnsure(body) {
+  const chapter = frankenstein.chapters.find(c => c.number === body.chapter)
+  assert(chapter, 'Known chapter ' + body.chapter)
+  const paragraphs = await Promise.all(body.paragraphs.map(async item => {
+    const text = chapter.paragraphs[item.index]
+    if (typeof text !== 'string') return { paragraph: item.index, status: 'failed', reason: 'unknown_paragraph' }
+    const textHash = await sha256Hex(narrationTextForParagraph(text))
+    // The Worker refuses a hash that is not the text's: so does this stand-in.
+    if (item.textHash && item.textHash !== textHash) return { paragraph: item.index, status: 'text_mismatch', textHash }
+    const tokens = narrationTokens(text)
+    const chunks = chunkNarrationText(text).map(c => {
+      const count = c.wordTo - c.wordFrom, duration = Math.max(1.5, Math.round(count * SECONDS_PER_WORD * 100) / 100)
+      const words = tokens.slice(c.wordFrom, c.wordTo).map((word, i) => ({ text: word, start: Math.round(i * duration / count * 1000) / 1000, end: Math.round((i + 1) * duration / count * 1000) / 1000 }))
+      return { index: c.index, wordFrom: c.wordFrom, wordTo: c.wordTo, ready: true, hash: `fixture-${body.voice}-${body.chapter}-${item.index}-${c.index}`,
+        url: `/api/audio-file?fixture=inline-audio&clip=${body.voice}-${body.chapter}-${item.index}-${c.index}&seconds=${duration}`, duration, words, timingsUsable: true }
+    })
+    let offset = 0
+    const words = chunks.flatMap(c => { const shifted = c.words.map(w => ({ text: w.text, start: Math.round((w.start + offset) * 1000) / 1000, end: Math.round((w.end + offset) * 1000) / 1000 })); offset += c.duration; return shifted })
+    return { paragraph: item.index, status: 'ready', textHash, chunkCount: chunks.length, readyChunks: chunks.length, chunks, duration: Math.round(offset * 1000) / 1000, words, timingsUsable: true, source: 'cache' }
+  }))
+  return { bookId: body.bookId, editionKey: body.editionKey, chapter: body.chapter, voice: body.voice, model: 'fixture', mode: body.mode, paragraphs, generated: 0 }
+}
 
 // `voice` is what the guest is narrated with: signed out, only Ara ('f') and Helios ('m') play.
 // `stored` is the voice in the reader's prefs; a stored Orion or Eve plays as the matching guest voice.
@@ -34,6 +77,13 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       assert(calls.length < 80, 'Bounded cached acceptance')
       const call = { body, at: Date.now() }; calls.push(call)
       if (failNext) { failNext = false; call.injectedFailure = true; return route.fulfill({ status: 503, json: { error: 'unavailable' } }).catch(() => {}) }
+      if (!live) {
+        const json = await localEnsure(body)
+        call.status = 200; call.generated = 0
+        assert(json.paragraphs.every(p => p.status === 'ready'), JSON.stringify({ response: json.paragraphs.map(p => ({ paragraph: p.paragraph, status: p.status })), request: body }))
+        if (delayNext) { delayNext = false; call.delayed = true; await gate }
+        return route.fulfill({ json }).catch(() => {})
+      }
       // Labelled as Tinct's own check so its cached narration is not counted as a visitor's.
       const response = await route.fetch({ headers: { ...req.headers(), 'x-tinct-check': '1' }, timeout: 15000, maxRetries: 1 })
       const json = await response.json()
@@ -45,6 +95,9 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
       return route.fulfill({ response, json }).catch(() => {})
     }
     if (req.method() !== 'GET') return route.abort()
+    if (!live && url.pathname === '/api/audio-file' && url.searchParams.get('fixture') === 'inline-audio') {
+      return route.fulfill({ status: 200, contentType: 'audio/wav', headers: { 'accept-ranges': 'bytes' }, body: silentWav(Number(url.searchParams.get('seconds'))) }).catch(() => {})
+    }
     if (!live && url.origin === origin) {
       const pathname = ['/reader'].includes(url.pathname) ? '/app.html' : url.pathname
       const file = path.resolve('dist', '.' + pathname)
@@ -78,7 +131,10 @@ async function run(browser, engine, { phone = true, theme = 'dark', voice = 'f',
     Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: async () => { throw Error('Microphone disabled') } })
   }, { theme, stored })
   try {
-    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader'), { waitUntil: 'domcontentloaded' })
+    // The desktop case asserts the existing paged inline-audio geometry;
+    // explicitly choose Classic under a default-ON shared reader. Phone is
+    // already paged and keeps its ordinary Read/Compare route.
+    await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page'), { waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     await page.evaluate(() => document.fonts.ready)
     await page.waitForTimeout(500)

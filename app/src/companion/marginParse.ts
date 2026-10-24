@@ -445,6 +445,53 @@ export function parseFactcheck(text: unknown): Factcheck {
 }
 
 /**
+ * A Fact-check answer as the card shows it (Anders, 19 Oct 2026): the verdict first, never a paragraph before it
+ * (the restating "The passage claims that …", a first round's text before the search); no "Sources:" line but the
+ * last one with real links ("Sources: none searched yet." goes); no "Note." or "Caveat:" label (its sentence stays,
+ * plain); and no sentence about the check itself ("From general knowledge," is dropped from its sentence; "the
+ * research summarized here is from general knowledge…", "The claim is about apes today" go). An answer with no
+ * verdict yet (still streaming, or one that never gives one) keeps its words, less the same labels and remarks.
+ */
+const FC_SOURCES_LINE = /^\s*[*_]{0,2}sources[*_]{0,2}\s*:/i
+const FC_LABEL = /^\s*[*_]{0,2}(?:note|caveat|context|nb)[*_]{0,2}\s*[.:][*_]{0,2}\s*/i
+const FC_SOURCE_PHRASE = /^(?:(?:based\s+)?(?:on|from)|according\s+to|drawing\s+on|relying\s+on)\s+(?:well[- ]established\s+|general\s+|common\s+|background\s+)*(?:knowledge|sources)\s*(?:alone\s*)?(?:,\s*|\s+[—–-]\s+)/i
+const FC_META = [
+  /\b(?:general|background|common|well[- ]established)\s+knowledge\b/i,
+  /^(?:the|this)\s+(?:claim|passage|question|check|fact-check)\s+(?:is|was)\s+(?:only\s+|mainly\s+|chiefly\s+)?(?:about|concerned with|limited to)\b/i,
+  /\b(?:summari[sz]ed|reported|covered|cited)\s+here\b/i,
+  /\b(?:no|none|not)\b[^.!?]{0,40}\b(?:sources?|search(?:ed|es)?)\b[^.!?]{0,30}\b(?:searched|found|checked|available|consulted|returned|yet)\b/i,
+  /\b(?:sources?|search)\b[^.!?]{0,30}\b(?:not|none|no)\b[^.!?]{0,20}\b(?:searched|found|checked|available|consulted|returned)\b/i,
+  /^(?:the\s+)?(?:passage|text|author|document|paper|book)\s+(?:claims|says|states|argues|asserts|suggests|holds|contends|maintains)\s+that\b/i,
+]
+function fcSentences(p: string): string[] {
+  return String(p).split(/(?<=[.!?]["”’)\]]*)\s+(?=[*_]{0,2}[\p{Lu}“"(])/u).map(s => s.trim()).filter(Boolean)
+}
+function fcTidy(sentence: string): string {
+  let t = sentence.replace(FC_SOURCE_PHRASE, '')
+  if (t !== sentence) t = t.replace(/^[*_]{0,2}\p{Ll}/u, c => c.toUpperCase())
+  return FC_META.some(re => re.test(t)) ? '' : t
+}
+export function cleanFactcheck(text: unknown): string {
+  const lines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n')
+  // The only Sources line is the last one with real links, at the end.
+  let sources = ''
+  for (let i = lines.length - 1; i >= 0; i--) if (FC_SOURCES_LINE.test(lines[i]) && !sources && parseSourcesLine(lines[i]).length) sources = lines[i].trim()
+  const body = lines.filter(l => !FC_SOURCES_LINE.test(l)).join('\n')
+  let paras = paragraphsOf(body)
+  const at = paras.findIndex(p => VERDICT_START_RE.test(p))
+  if (at > 0) paras = paras.slice(at)
+  const out = paras.map((p, k) => {
+    // The verdict's own words stay as written; a label is dropped, its sentence kept; remarks about the check go.
+    const head = k === 0 && at >= 0 ? leadingWord(p, VERDICTS) : null
+    const words = head ? p.slice(head.length) : p, unlabelled = words.replace(FC_LABEL, '')
+    const rest = unlabelled !== words ? unlabelled.replace(/^\p{Ll}/u, c => c.toUpperCase()) : unlabelled
+    const kept = fcSentences(rest).map(fcTidy).filter(Boolean).join(' ')
+    return head ? (p.slice(0, head.length) + (kept ? ' ' + kept : '')).trim() : kept
+  }).filter(Boolean)
+  return [...out, ...(sources ? [sources] : [])].join('\n\n')
+}
+
+/**
  * The JSON object in a reply: inside a code fence or after stray text, the first {...}
  * that parses. -> the object, or null.
  */
@@ -492,29 +539,40 @@ function citeField(value: unknown): string {
 }
 
 /**
- * Quiz me's questions: up to three valid ones (a question and an answer each), in order.
- * -> { questions: [{ q, answer, why, cite }] } with 1 to 3 questions, or null.
+ * Quiz me (Anders, 20 Oct 2026: "Quiz me must cover the text being quizzed"): the key ideas of the quizzed text first,
+ * then one why/how question per idea, so their number scales with the text, at most QUIZ_MAX_QUESTIONS. A question
+ * names its idea by index (`idea`, kept with it, never shown) so a retry can aim at the ideas the reader missed.
+ * -> { ideas?: string[], questions: [{ q, answer, why, cite, idea? }] } with 1 to QUIZ_MAX_QUESTIONS questions, or null.
  */
-export interface QuizQuestion { q: string; answer: string; why: string; cite: string }
-export function parseQuiz(text: unknown): { questions: QuizQuestion[] } | null {
+export const QUIZ_MAX_QUESTIONS = 8
+export interface QuizQuestion { q: string; answer: string; why: string; cite: string; idea?: number }
+function quizIdeas(value: unknown): string[] | null {
+  return Array.isArray(value) ? (value as unknown[]).map(item => field(item, 300)).filter(Boolean).slice(0, QUIZ_MAX_QUESTIONS) : null
+}
+function quizItem(raw: unknown): QuizQuestion | null {
+  if (!raw || typeof raw !== 'object') return null
+  const item = raw as Record<string, unknown>
+  const q = field(item.q, 600), answer = field(item.answer, 600)
+  if (!q || !answer) return null
+  const idea = typeof item.idea === 'number' && Number.isInteger(item.idea) && item.idea >= 0 && item.idea < QUIZ_MAX_QUESTIONS ? item.idea : null
+  return { q, answer, why: field(item.why, 600), cite: citeField(item.cite), ...(idea != null ? { idea } : {}) }
+}
+export function parseQuiz(text: unknown): { ideas?: string[]; thesis?: string; questions: QuizQuestion[] } | null {
   const value = extractJson(text)
   const list = value && Array.isArray(value.questions) ? value.questions : null
   if (!list) return null
-  const questions = (list as unknown[]).flatMap((raw): QuizQuestion[] => {
-    if (!raw || typeof raw !== 'object') return []
-    const item = raw as Record<string, unknown>
-    const q = field(item.q, 600), answer = field(item.answer, 600)
-    return q && answer ? [{ q, answer, why: field(item.why, 600), cite: citeField(item.cite) }] : []
-  }).slice(0, 3)
-  return questions.length ? { questions } : null
+  const questions = (list as unknown[]).flatMap(raw => { const item = quizItem(raw); return item ? [item] : [] }).slice(0, QUIZ_MAX_QUESTIONS)
+  const ideas = quizIdeas(value.ideas)
+  const thesis = field(value.thesis, 300)
+  return questions.length ? { ...(ideas?.length ? { ideas } : {}), ...(thesis ? { thesis } : {}), questions } : null
 }
 
 /**
  * Quiz me while its reply streams (FIXES-2026-10-15 A7): the questions that are already
- * complete, in order, up to three. Reads the `"questions": [` array of PROMPTS.md's JSON
+ * complete, in order, up to QUIZ_MAX_QUESTIONS. Reads the `"questions": [` array of PROMPTS.md's JSON
  * object by object, so question 1 shows as soon as its closing brace arrives; an object
  * still being written, and anything after the array, wait. Each complete object is kept or
- * dropped as parseQuiz would. -> [{ q, answer, why, cite }], possibly empty.
+ * dropped as parseQuiz would. -> [{ q, answer, why, cite, idea? }], possibly empty.
  */
 export function parseQuizPartial(text: unknown): QuizQuestion[] {
   const s = String(text ?? '')
@@ -522,7 +580,7 @@ export function parseQuizPartial(text: unknown): QuizQuestion[] {
   if (!key) return []
   const out: QuizQuestion[] = []
   let i = key.index + key[0].length
-  while (out.length < 3) {
+  while (out.length < QUIZ_MAX_QUESTIONS) {
     while (i < s.length && /[\s,]/.test(s[i])) i++
     if (s[i] !== '{') break
     const end = balancedEnd(s, i)
@@ -530,18 +588,33 @@ export function parseQuizPartial(text: unknown): QuizQuestion[] {
     let item: unknown
     try { item = JSON.parse(s.slice(i, end + 1)) } catch { break }
     i = end + 1
-    if (!item || typeof item !== 'object') continue
-    const r = item as Record<string, unknown>
-    const q = field(r.q, 600), answer = field(r.answer, 600)
-    if (q && answer) out.push({ q, answer, why: field(r.why, 600), cite: citeField(r.cite) })
+    const q = quizItem(item)
+    if (q) out.push(q)
   }
   return out
+}
+
+/** The key ideas while the quiz streams: the `"ideas"` array once it is complete (it comes first), else null. */
+export function parseQuizIdeas(text: unknown): string[] | null {
+  const s = String(text ?? '')
+  const key = /"ideas"\s*:\s*\[/.exec(s)
+  if (!key) return null
+  const open = key.index + key[0].length - 1
+  let end = -1, inString = false, escaped = false
+  for (let i = open + 1; i < s.length && end < 0; i++) {
+    const ch = s[i]
+    if (inString) { if (escaped) escaped = false; else if (ch === '\\') escaped = true; else if (ch === '"') inString = false }
+    else if (ch === '"') inString = true
+    else if (ch === ']') end = i
+  }
+  if (end < 0) return null
+  try { return quizIdeas(JSON.parse(s.slice(open, end + 1))) } catch { return null }
 }
 
 /** The three marks a quiz answer can get, and how the card shows each as its bottom line. */
 export const QUIZ_VERDICTS = ['right', 'nearly', 'not_yet'] as const
 export type QuizVerdict = typeof QUIZ_VERDICTS[number]
-export const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>> = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not yet.' }
+export const QUIZ_VERDICT_LINE: Readonly<Record<QuizVerdict, string>> = { right: 'Right.', nearly: 'Nearly.', not_yet: 'Not quite.' }
 
 /** quiz_check's mark. -> { verdict: 'right' | 'nearly' | 'not_yet', feedback } or null. */
 export function parseQuizCheck(text: unknown): { verdict: QuizVerdict; feedback: string } | null {

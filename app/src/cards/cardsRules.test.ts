@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter } from './cardsRules'
+import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter } from './cardsRules'
 import { dayMonth, dayMonthShort, durationLong, durationShort, figureParts, finishedValue, ordinal, rankOf, shortEmail, weekHeights, chartWeeks, dayMonthShortDate } from './cardsFormat'
 import { accountPageRedirect, cardUrl, isCardName } from './cardRoutes'
 import type { ProfilePageData } from './cardsApi'
+import { hasFriends, withOwnSeconds } from './boardMemory'
+import type { BoardData } from './cardsApi'
+import { CARDS_COPY } from './cardsCopy'
 
 const privacy = { visibility: 'friends' as const, showReading: true, showTime: true, onLeaderboard: true }
 
@@ -39,7 +42,8 @@ describe('Settings rules', () => {
 describe('follow buttons (the Friends page words)', () => {
   it('outlines a state and fills an action', () => {
     expect(followButton('friend')).toEqual({ label: 'Friends', style: 'line', action: 'unfollow' })
-    expect(followButton('follower')).toEqual({ label: 'Following', style: 'line', action: 'unfollow' })
+    // A one-way follow is a request until followed back (changed on request, 19 Oct 2026: was Following).
+    expect(followButton('follower')).toEqual({ label: 'Requested', style: 'line', action: 'unfollow' })
     expect(followButton('followed')).toEqual({ label: 'Follow back', style: 'fill', action: 'follow' })
     expect(followButton('stranger')).toEqual({ label: 'Follow', style: 'fill', action: 'follow' })
     expect(followButton('self')).toBeNull()
@@ -137,5 +141,67 @@ describe('old links', () => {
     expect(cardUrl('find')).toBe('/library?card=find')
     expect(isCardName('settings')).toBe(true)
     expect(isCardName('picture')).toBe(false)
+  })
+})
+
+describe('the leaderboard for a reader friends cannot see (19 Oct 2026)', () => {
+  const own = { visibility: 'friends' as const, showTime: true, onLeaderboard: true }
+  it('a line only when the reader’s own settings keep friends from seeing them', () => {
+    expect(boardHiddenLine(true, own)).toBeNull()
+    expect(boardHiddenLine(undefined, own)).toBeNull()
+    expect(boardHiddenLine(false, null)).toBeNull()
+    expect(boardHiddenLine(false, own)).toBeNull()
+    expect(boardHiddenLine(false, { ...own, onLeaderboard: false })).toBe(CARDS_COPY.hiddenLeaderboard)
+    expect(boardHiddenLine(false, { ...own, showTime: false, onLeaderboard: false })).toBe(CARDS_COPY.hiddenTime)
+    expect(boardHiddenLine(false, { ...own, visibility: 'only_me', onLeaderboard: false })).toBe(CARDS_COPY.hiddenOnlyMe)
+    for (const line of [CARDS_COPY.hiddenLeaderboard, CARDS_COPY.hiddenTime, CARDS_COPY.hiddenOnlyMe]) {
+      expect(line).toMatch(/^Friends don’t see you here: /)
+      expect(line).not.toMatch(/[A-Z]{3,}/)
+    }
+  })
+
+  it('a mutual friend: from the count, or from a friend’s row when an older Worker sends none', () => {
+    const board = (friends: number | undefined, others: number) => ({
+      tab: 'friends' as const, window: { start: '', end: '' }, refreshedAt: null, total: others + 1, me: null, meShown: true, friends,
+      entries: [{ rank: 1, name: 'You', picture: { src: null, pos: '', cover: false, private: false, initial: 'Y' }, seconds: 0, duration: '', me: true },
+        ...Array.from({ length: others }, (_, i) => ({ rank: i + 2, name: `R${i}`, picture: { src: null, pos: '', cover: false, private: false, initial: 'R' }, seconds: 0, duration: '', me: false }))],
+    })
+    expect(hasFriends(null)).toBe(false)
+    expect(hasFriends(board(0, 0))).toBe(false)
+    expect(hasFriends(board(1, 0))).toBe(true)
+    expect(hasFriends(board(undefined, 0))).toBe(false)
+    expect(hasFriends(board(undefined, 1))).toBe(true)
+  })
+})
+
+describe('the viewer\'s own row after a flush (boardMemory withOwnSeconds, 21 Oct 2026)', () => {
+  const pic = { src: null, pos: '', cover: false, private: false, initial: 'x' }
+  const row = (rank: number, name: string, minutes: number, me = false) => ({ rank, name, picture: pic, seconds: minutes * 60, duration: '', me })
+  const board = (entries: BoardData['entries'], total = entries.length, me: BoardData['me'] = entries.find(entry => entry.me) ?? null): BoardData =>
+    ({ tab: 'friends', window: { start: '', end: '' }, refreshedAt: null, total, me, meShown: true, friends: 2, everyoneOpen: false, entries })
+
+  it('takes the new seconds and re-ranks by the Worker\'s rule: most time first, equal time equal rank', () => {
+    const before = board([row(1, 'Bea', 14), row(2, 'Carl', 13), row(3, 'You', 12, true)])
+    const after = withOwnSeconds(before, 16 * 60, 'Anders')
+    expect(after.entries.map(entry => [entry.rank, entry.name, entry.seconds])).toEqual([[1, 'You', 960], [2, 'Bea', 840], [3, 'Carl', 780]])
+    expect(after.me).toMatchObject({ rank: 1, seconds: 960, me: true })
+    expect(after.entries[0].duration).toBe('16 m')
+    const tie = withOwnSeconds(before, 14 * 60, 'Anders')
+    // Ties by name, as social.ts ranks them (Anders before Bea), and share the rank.
+    expect(tie.entries.map(entry => [entry.rank, entry.name])).toEqual([[1, 'You'], [1, 'Bea'], [3, 'Carl']])
+    // Other readers' rows are the Worker's.
+    expect(after.entries.filter(entry => !entry.me).map(entry => entry.seconds)).toEqual([840, 780])
+  })
+
+  it('leaves the board as it is when nothing changed, or when it is cut off (the rank among unlisted readers is unknown)', () => {
+    const same = board([row(1, 'Bea', 14), row(2, 'You', 12, true)])
+    expect(withOwnSeconds(same, 12 * 60)).toBe(same)
+    const cut = board([row(1, 'Bea', 14), row(2, 'Carl', 13)], 60, row(60, 'You', 1, true))
+    expect(withOwnSeconds(cut, 30 * 60)).toBe(cut)
+    // Every reader listed but the viewer's row sent alone: it goes in its place.
+    const below = board([row(1, 'Bea', 14)], 2, row(2, 'You', 12, true))
+    const moved = withOwnSeconds(below, 20 * 60)
+    expect(moved.entries.map(entry => [entry.rank, entry.name])).toEqual([[1, 'You'], [2, 'Bea']])
+    expect(moved.me).toMatchObject({ rank: 1, seconds: 1200 })
   })
 })

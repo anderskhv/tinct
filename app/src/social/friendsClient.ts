@@ -10,6 +10,7 @@ import type { Relation } from './profileRules'
 import { paintAvatar } from './socialClient'
 import type { ProfilePageData, ProfilePicture } from './profilePageView'
 import type { ReportReason } from './socialRules'
+import { localDay } from '../readingTime/model'
 
 export function socialFriendsOn(doc: Document | null = typeof document === 'undefined' ? null : document): boolean {
   return doc?.querySelector('meta[name="tinct-friends"]')?.getAttribute('content') === '1'
@@ -35,6 +36,8 @@ export interface BoardData {
   total: number
   me: BoardEntry | null
   meShown: boolean
+  /** How many mutual friends the viewer has (absent from an older Worker). */
+  friends?: number
   /** Whether the Everyone board is offered (the page shows the Everyone tab only then). */
   everyoneOpen?: boolean
   entries: BoardEntry[]
@@ -75,9 +78,13 @@ async function postJson<T>(path: string, token: string, body: unknown, fetchImpl
   }
 }
 
-export const fetchBoard = (token: string, tab: 'friends' | 'everyone', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}`, token, fetchImpl)
-export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ rank: number | null; total: number; seconds: number }>('/api/social/rank', token, fetchImpl)
+// `today` is this device's date, so your own row counts the same 7 days as Your reading (20 Oct 2026).
+/** `default`: the board the cards open on, chosen by the Worker (social.ts); the answer's `tab` says which. */
+export const fetchBoard = (token: string, tab: 'friends' | 'everyone' | 'default', fetchImpl?: FetchLike) => getJson<BoardData>(`/api/social/board?tab=${tab}&today=${localDay()}`, token, fetchImpl)
+export const fetchRank = (token: string, fetchImpl?: FetchLike) => getJson<{ rank: number | null; total: number; seconds: number }>(`/api/social/rank?today=${localDay()}`, token, fetchImpl)
 export const fetchFind = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[]; alsoReading: FindRow[]; link: string | null; everyoneOpen?: boolean }>('/api/social/find', token, fetchImpl)
+/** Following you alone, for the follow-request dot (no ledger reads on the Worker). */
+export const fetchFollowRequests = (token: string, fetchImpl?: FetchLike) => getJson<{ followingYou: FindRow[] }>('/api/social/find?only=following-you', token, fetchImpl)
 export const searchReaders = (token: string, q: string, fetchImpl?: FetchLike) => getJson<{ results: FindRow[] }>(`/api/social/find?q=${encodeURIComponent(q)}`, token, fetchImpl)
 export const fetchProfile = (token: string | null, handle: string, fetchImpl?: FetchLike) => getJson<{ profile: ProfilePageData }>(`/api/social/profile/${encodeURIComponent(handle)}`, token, fetchImpl)
 

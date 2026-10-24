@@ -12,9 +12,9 @@
 | --- | ---: | ---: | ---: | --- |
 | `editions/arabian-nights-original-en.json` | 35 | 1826 | 111,099 | `17ea5db0314a10a51ae001a691ae59af098fcee946652ce679d6071f45622d2d` |
 | `editions/arabian-nights-modern-en.json` | 35 | 1826 | 107,425 | `386e22ddf5373746e98ccaedbd87fb03b5b756baeafb7c4c0e4a9c6c859a7a2d` |
-| `editions/arabian-nights-modern-da.json` | 35 | 1826 | 106,326 | `816253bf78a0f9fe28fdb81194c5bdea05c2d93d2771017bc4100db5c36ffab9` |
+| `editions/arabian-nights-modern-da.json` | 35 | 1826 | 106,247 | `e0c617f207b9e698afd210808ebfb2fd0e1750ef8a65eb8cda4ed165e8664075` |
 
-Also: `onboarding/arabian-nights.json` (draft: About, 3 why-it-matters, 4 angle cards; `acclaim` and `cast` empty), `SOURCE.md`, `taxonomy.md`, `review/REVIEW.md`, `review/DANISH-NOTES.md`, `review/danish-fixed-paragraphs.json`, `review/SHA256SUMS.txt`.
+Also: `onboarding/arabian-nights.json` (draft: About, 3 why-it-matters, 4 angle cards; `acclaim` and `cast` empty), `SOURCE.md`, `taxonomy.md`, `review/REVIEW.md`, `review/DANISH-NOTES.md`, `review/danish-fixed-paragraphs.json`, `review/danish-rereview-changed-paragraphs.json`, `review/SHA256SUMS.txt`.
 
 Verify from the repository root: `shasum -a 256 -c books/wip/arabian-nights/review/SHA256SUMS.txt`.
 
@@ -29,7 +29,7 @@ Structure check (scratch script, not committed): all three editions have 35 chap
 
 ## Remaining issues
 
-- No native Danish read; reviewer replacements were not re-verified.
+- No native Danish read. On 2026-10-19 the 221 reviewer replacements were re-read, forms of address were made consistent (du + *Herre*; no *De/Sire*), and the frame story, Aladdin, all Sindbad chapters and the fisherman got a full read-aloud pass; the other stories were not read in full (see `review/REVIEW.md`).
 - No acclaim quote, characters or threads; taxonomy proposes a new Shelf that needs approval.
 - Onboarding is English only; no Danish onboarding was written.
 - See `review/REVIEW.md` and `review/DANISH-NOTES.md`.

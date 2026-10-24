@@ -2,7 +2,7 @@
 // Tinct · Add a book: the reader's layouts (the Aa panel, Anders, 15 Oct 2026). A PDF reads in
 // Margin view (the margin column, its marks or the phone's bottom card) or in Focus view (the page
 // in the middle, no column; Explain, Ask and the chat open in a pop-up window, as in the book
-// reader). An EPUB has no margin yet, so it has no layout to choose. The choice is this device's
+// reader). An EPUB reads in Margin view on the desktop (epubView), or in the Tinct reader. The choice is this device's
 // (the reader's prefs, tinct-addbook:prefs). No DOM and no network here, so every rule has a unit
 // test (src/addbookLayout.test.ts). Loaded before reader.js as window.TinctReaderLayout.
 (function (root, factory) {
@@ -37,7 +37,11 @@
    * the current one here). An EPUB: none (it has one way to read here; no Two page or Compare yet).
    * -> [{ id, label, on, leaves? }]
    */
-  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT } = {}) {
+  function options(kind, { layout = DEFAULT, hasText = false, tinctText = TINCT_TEXT, epubMargin = false, pdfText = false } = {}) {
+    // A PDF's Tinct text read here (the desktop, reader.js openPdfText): that view, and its Original pages.
+    if (kind === 'epub' && pdfText) return [{ id: 'margin', label: 'Tinct text', on: true }, { id: 'pages', label: 'Original pages', on: false }];
+    // An EPUB read here in Margin view (the desktop, epubView): that view, and Convert to Tinct book (the Tinct reader).
+    if (kind === 'epub' && epubMargin) return [{ id: 'margin', label: LAYOUTS.margin, on: true }, { id: 'text', label: 'Convert to Tinct book', on: false, leaves: true }];
     if (kind !== 'pdf') return [];
     const out = Object.entries(LAYOUTS).map(([id, label]) => ({ id, label, on: id === layout }));
     if (hasText && tinctText === 'layout') out.push({ id: 'text', label: 'Convert to Tinct book', on: false, leaves: true });
@@ -173,14 +177,37 @@
   /**
    * The phone's page pill, fullest first: the chapter, then the page (or an EPUB's percent), then the
    * same without its chevron. The reader shows the first that leaves the title whole and is not cut
-   * itself, else the last: never an empty pill. -> [{ label, chevron }]
+   * itself, else the last: never an empty pill. -> [{ label, chevron, cut? }]
+   * An EPUB's chapter (a Tinct book's in the margin preview, round 2: To the Lighthouse showed "33%" alone) is
+   * tried shorter before the percent: its numbered part ("Chapter 1" of "Book One (1805) — Chapter 1"), then
+   * cut with an ellipsis (`cut`: a closing number is kept: "The Wi… · 1").
+   * Round 3: in an EPUB the book's title gives way first, as the chapter's name is what the pill is for ("To the
+   * Lighthouse | The W… · 2" on a 390 px phone): each chapter label is tried with the title whole, then with the title
+   * cut (`title: 'cut'`, still readable), then without the title (`title: 'off'`), and is cut itself only after that.
    */
   function pillStages({ chapter = '', page = '', pct = '', epub = false } = {}) {
     const short = epub ? pct : page ? `p. ${page}` : pct;
     const out = [];
-    if (chapter) out.push({ label: chapter, chevron: true });
+    if (chapter && epub) {
+      const name = shortChapter(chapter), labels = name !== chapter ? [chapter, name] : [chapter];
+      for (const label of labels) out.push({ label, chevron: true }, { label, chevron: true, title: 'cut' });
+      for (const label of labels) out.push({ label, chevron: true, title: 'off' });
+      out.push({ label: name, chevron: false, cut: true, title: 'off' });
+    } else if (chapter) out.push({ label: chapter, chevron: true });
     if (short) out.push({ label: short, chevron: true }, { label: short, chevron: false });
     return out.length ? out : [{ label: chapter || short || '–', chevron: false }];
+  }
+  /** A chapter's numbered part, for a short pill: "Chapter 1" of "Book One (1805) — Chapter 1", "Act 1, Scene 1" of
+   * "Act 1, Scene 1 — Venice. A street"; the label itself when no part of it ends with a number. */
+  function shortChapter(label) {
+    const parts = String(label || '').split(/\s+—\s+/);
+    if (parts.length < 2) return String(label || '');
+    return parts.slice().reverse().find(p => /(?:^|\s)(?:\d+|[IVXLC]+)\.?$/.test(p.trim())) || String(label);
+  }
+  /** A label as its cut stage shows it: the closing number kept whole after the ellipsis. -> { head, tail } */
+  function cutLabel(label) {
+    const m = /^(.*?\S)(\s*[·,:]?\s+(?:\d+|[IVXLC]+))$/.exec(String(label || ''));
+    return m ? { head: m[1], tail: m[2] } : { head: String(label || ''), tail: '' };
   }
   /* ---------- Phones: the mode a PDF opens in, by its kind (Anders, 16 Oct 2026, option C) ---------- */
   // On a phone a narrative or an essay (fiction, memoir, essays) opens as its Tinct text, reflowed in the
@@ -274,22 +301,18 @@
     return textHeavy(layout) ? 'text' : 'pages';
   }
   /**
-   * The edition a kind opens in on the desktop (Anders, 16 Oct 2026): its original pages, except running
-   * prose, which reads as its Tinct text: a narrative or an essay (kind 'narrative'); or a text the scan
-   * finds free of columns, mathematics, figures and tables (textHeavy) that is either prose by the scan's
-   * own signal or a paper or an unsure kind (Deutsch's "Constructor Theory"). A textbook or a practical
-   * guide keeps its pages unless the scan reads it as prose. Shared with the phone's textHeavy.
+   * The edition a PDF opens in on the desktop (Anders, 19 Oct 2026: Margin view is the main desktop
+   * experience): its original pages, in Margin view, whatever its kind. The prose exception of 16 Oct
+   * (a narrative, or running prose such as Deutsch's "Constructor Theory", as its Tinct text) is gone;
+   * Tinct text on the desktop is the reader's own choice on that device ("Convert to Tinct book").
    */
   function desktopEdition(kind, layout = null) {
-    if (kind === 'narrative') return 'text';
-    if (!textHeavy(layout)) return 'pages';
-    const prose = !!(layout && layout.signals && layout.signals.prose);
-    return prose || !(kind === 'textbook' || kind === 'practical') ? 'text' : 'pages';
+    return 'pages';
   }
   /**
    * The default edition a PDF opens in when the reader has chosen none: on a phone, by its kind (when told,
    * phoneEdition) and the scan's `layout`, else the scan's default; on the desktop, by desktopEdition (its
-   * pages unless running prose), the kind left unsure until it is told. A PDF without text ('pages-only')
+   * pages, in Margin view). A PDF without text ('pages-only')
    * has its pages only.
    */
   function openDefault({ phone = false, kind = null, layout = null } = {}) {
@@ -309,5 +332,93 @@
     if (stored !== 'text' && stored !== 'pages') return null;
     return (auto && auto.edition === stored) || (desk && desk.edition === stored) ? null : stored;
   }
-  return { LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
+  /**
+   * Where an EPUB opens (Anders, 19 Oct 2026): on the desktop, here, in Margin view (its text flowing, with
+   * the margin's cards and the Notebook), unless the reader chose the Tinct reader on this device ("Convert to
+   * Tinct book"; `own`: 'text'), or chose Margin view back from there ('margin'). Phones keep the Tinct reader,
+   * as before 19 Oct. `own` is this device's choice (tinct-addbook:epub-view:<hex>), never the account's.
+   * The same rule as app/src/lab/userBook/epubView.ts. -> 'margin' | 'text'
+   */
+  function epubView({ phone = false, own = null } = {}) {
+    if (phone) return 'text';
+    return own === 'text' ? 'text' : 'margin';
+  }
+  /** Words compared loosely: letters and figures only, lower case, accents and punctuation dropped. */
+  const quoteKey = text => String(text || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  /**
+   * Where some words stand in a book (the place crossing between an EPUB read here and its Tinct text, whose
+   * paragraphs are cut by another reader of the file): `chapters` is a list of chapters, each a list of
+   * paragraph texts. The first paragraph holding the words' first 60 letters, else their first 30, else 16
+   * (whole words); `word` is the index of the word they start at. -> { chapter, para, word } (0-based) | null
+   */
+  function findQuote(chapters, quote) {
+    const q = quoteKey(quote); if (q.length < 6) return null;
+    const keys = (chapters || []).map(list => (list || []).map(quoteKey));
+    for (const size of [60, 30, 16]) {
+      if (q.length < size && size !== 16) continue;
+      const cut = q.length <= size ? q : q.slice(0, q.lastIndexOf(' ', size) > 5 ? q.lastIndexOf(' ', size) : size);
+      for (let c = 0; c < keys.length; c++) for (let p = 0; p < keys[c].length; p++) {
+        const k = keys[c][p], at = (' ' + k).indexOf(' ' + cut);
+        if (at < 0) continue;
+        return { chapter: c, para: p, word: at === 0 ? 0 : k.slice(0, at).split(' ').filter(Boolean).length };
+      }
+    }
+    return null;
+  }
+  /*
+   * Tinct paper for an EPUB of the reader's own on the desktop (Anders, 20 Oct 2026: "the same continuous Tinct-paper
+   * page as Tinct books in the preview"): the text as the book reader's desktop leaf sets it for this reader and window,
+   * by the same formulas as the preview's (app/src/lab/marginPreview/marginPreviewModel.ts marginPreviewPaper; a unit
+   * test keeps them equal). `raw`: the stored `tinct-lab-prefs` (its desktop appearance). -> { fontFamily, fontSize,
+   * headingSize, lineHeight, paragraphGap, align, measure } (px, em)
+   */
+  const FONTS = { baskerville: "'Libre Baskerville', 'EB Garamond', Georgia, serif", sourceserif: "'Source Serif 4', 'EB Garamond', Georgia, serif", literata: "'Literata', 'EB Garamond', Georgia, serif", atkinson: "'Atkinson Hyperlegible', 'IBM Plex Sans', system-ui, sans-serif" };
+  function desktopAppearance(raw) {
+    let src = null;
+    try { src = typeof raw === 'string' ? JSON.parse(raw || 'null') : raw } catch { src = null }
+    if (!src || typeof src !== 'object') return {};
+    if (src.version === 2 && src.desktop && typeof src.desktop === 'object') return { ...(src.shared || {}), ...src.desktop };
+    return src;
+  }
+  function paper(raw, viewportWidth) {
+    const p = desktopAppearance(raw), w = Number(viewportWidth) > 0 ? Number(viewportWidth) : 1440;
+    const desktopDefault = clamp(Math.round(w * 0.00077 * 10) / 10, 1.0, 1.4);
+    const size = p.fontSizeExplicit === true && Number(p.fontSize) > 0 ? Number(p.fontSize) : desktopDefault;
+    const named = (v, map, dflt) => (typeof v === 'number' && Number.isFinite(v) ? v : map[v] ?? dflt);
+    const scale = named(p.margins, { narrow: 0.7, wide: 1.45, medium: 1 }, 1);
+    const padX = clamp(w * 0.03, 28, 64) * scale;
+    const explicit = typeof p.alignmentExplicit === 'boolean' ? p.alignmentExplicit : p.alignment === 'left' || p.alignment === 'justify';
+    return {
+      fontFamily: p.fontFamily === 'garamond' ? "'EB Garamond', Georgia, 'Times New Roman', serif" : FONTS[p.fontFamily] || FONTS.literata,
+      fontSize: 16 * 1.42 * size / 1.3,
+      headingSize: 16 * 1.58 * size / 1.3,
+      lineHeight: named(p.lineSpacing, { compact: 1.34, open: 1.62, comfortable: 1.48 }, 1.48),
+      paragraphGap: named(p.paragraphSpacing, { compact: 0.08, generous: 0.55, standard: 0.28 }, 0.28),
+      align: explicit && (p.alignment === 'left' || p.alignment === 'justify') ? p.alignment : 'justify',
+      measure: Math.max(280, (w - 2 * 31 - 2 * padX - 56) / 2),
+    };
+  }
+  /*
+   * Margin view's text on the desktop (Anders, 20 Oct 2026, "Bold Conjectures II" at 2000 px: "the default text is too
+   * small and the side margins too big"): one column beside the margin, not the book reader's two-page leaf. Its size
+   * grows with the window (about 20px at 1280, 21.5px at 1440, 27.5px at 2000, at most 29px) and its line is 36em, about
+   * 77 characters with the default font (65 to 80 with the book's), never wider than its room (the sheet's min(100%, …)). The reader's
+   * Text size and Line width in the Aa panel (this device's, TEXT_SIZES and LINE_WIDTHS) scale it.
+   * -> { fontSize, measure } (px)
+   */
+  const TEXT_SIZES = [0.8, 0.9, 1, 1.1, 1.2, 1.35, 1.5];
+  const LINE_WIDTHS = [0.8, 0.9, 1, 1.1, 1.2];
+  const MEASURE_EM = 36;
+  function marginText(viewportWidth, { size = 1, width = 1 } = {}) {
+    const w = Number(viewportWidth) > 0 ? Number(viewportWidth) : 1440;
+    const one = (v, list) => (list.includes(Number(v)) ? Number(v) : 1);
+    const fontSize = clamp(21.5 + (w - 1440) * 6 / 560, 18, 29) * one(size, TEXT_SIZES);
+    return { fontSize, measure: Math.round(fontSize * MEASURE_EM * one(width, LINE_WIDTHS)) };
+  }
+  /** The next step of Text size or Line width from `now` (`dir` −1 or +1); the end step stays. */
+  function typeStep(list, now, dir) {
+    const i = list.indexOf(Number(now)), at = i < 0 ? list.indexOf(1) : i;
+    return list[Math.max(0, Math.min(list.length - 1, at + (dir > 0 ? 1 : -1)))];
+  }
+  return { marginText, typeStep, TEXT_SIZES, LINE_WIDTHS, paper, epubView, quoteKey, findQuote, LAYOUTS, DEFAULT, TINCT_TEXT, layoutOf, withLayout, options, surface, answerHost, switchLayout, placePopup, textColumn, documentColumn, columnZoom, columnScroll, pillStages, shortChapter, cutLabel, COLUMN_FIT_MIN, KINDS, kindPages, kindSigns, docKind, textHeavy, phoneEdition, desktopEdition, openDefault, ownChoice };
 });

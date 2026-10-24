@@ -1,4 +1,4 @@
-// "Make available offline" (Book editions sheet), end to end against the local
+// "Make available offline" (Book settings sheet), end to end against the local
 // production build (dist/), served the way the Worker routes it.
 //
 // For each engine (WebKit at iPhone size, Chromium) and each book (the Bible,
@@ -140,6 +140,8 @@ try {
 
       // Make available offline.
       await page.getByTestId('lab-super').click()
+      await page.getByTestId('lab-super-menu').waitFor()
+      // Book settings holds the editions and the offline row, on the phone and the desktop (22 Oct 2026).
       await page.getByTestId('lab-super-row-editions').click()
       const row = page.getByTestId('lab-v2-offline')
       await row.waitFor()

@@ -247,7 +247,7 @@ export async function handleNarration(request: Request, env: NarrationEnv, ctx: 
   }
 }
 
-/** The most listening one report may claim: a batch is about a minute of playback. */
+/** The most listening one report may claim: a batch is about five minutes of playback (usageReport.ts). */
 export const NARRATION_LISTEN_MAX_SECONDS = 300
 
 /**
@@ -324,6 +324,8 @@ interface ChapterText {
  */
 async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId: string, editionKey: string, chapter: number, transitionTo?: number): Promise<ChapterText | null> {
   let entry: { paragraphs?: unknown } | null
+  // Reader-visible text corrections are fetched alongside the text, not after it.
+  const patches = transitionTo === undefined ? readEditionPatches(env, bookId, editionKey, chapter) : Promise.resolve(null)
   if (isPublicBookId(bookId)) {
     // Book transitions are biblical-book cues; an added book has none.
     if (transitionTo !== undefined) return null
@@ -348,22 +350,24 @@ async function loadChapterParagraphs(request: Request, env: NarrationEnv, bookId
   const paragraphs = (entry.paragraphs as unknown[]).map(item => (typeof item === 'string' ? item : ''))
   // Reader-visible text corrections are applied the same way editionLoader does
   // (a patch shorter than half the paragraph is ignored as truncated).
-  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-    try {
-      const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&chapter_number=eq.${chapter}&select=paragraph_index,patched_text`)
-      if (res.ok) {
-        const patches = await res.json() as Array<{ paragraph_index: number; patched_text: string }>
-        for (const patch of patches) {
-          const index = patch.paragraph_index
-          if (index >= 0 && index < paragraphs.length && typeof patch.patched_text === 'string'
-            && patch.patched_text.length >= paragraphs[index].length * 0.5) {
-            paragraphs[index] = patch.patched_text
-          }
-        }
-      }
-    } catch { /* patches are optional; unpatched text still hashes consistently with an unpatched reader */ }
+  for (const patch of await patches ?? []) {
+    const index = patch.paragraph_index
+    if (index >= 0 && index < paragraphs.length && typeof patch.patched_text === 'string'
+      && patch.patched_text.length >= paragraphs[index].length * 0.5) {
+      paragraphs[index] = patch.patched_text
+    }
   }
   return { paragraphs }
+}
+
+async function readEditionPatches(env: NarrationEnv, bookId: string, editionKey: string, chapter: number): Promise<Array<{ paragraph_index: number; patched_text: string }> | null> {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return null
+  try {
+    const res = await supabaseGet(env, `edition_patches?book_id=eq.${encodeURIComponent(bookId)}&edition_key=eq.${encodeURIComponent(editionKey)}&chapter_number=eq.${chapter}&select=paragraph_index,patched_text`)
+    if (!res.ok) { await res.body?.cancel(); return null }
+    const rows = await res.json() as unknown
+    return Array.isArray(rows) ? rows as Array<{ paragraph_index: number; patched_text: string }> : null
+  } catch { return null /* patches are optional; unpatched text still hashes consistently with an unpatched reader */ }
 }
 
 /** A reader's own uploaded book: never sent to the speech provider (read-aloud for own books is not approved). */
@@ -521,16 +525,55 @@ async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider,
   const entry = await readMapEntry(bucket, mapKey)
   if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
   const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings)
-  for (const listed of entry.chunks) {
+  // Every listed chunk is validated side by side (2026-10-20: one chunk after
+  // another made a cached three-paragraph ensure 1.4–15 s in production and
+  // failed the post-deploy check). The bucket bounds how many run at once.
+  const validated = await Promise.all(entry.chunks.map(listed => {
     const position = listed.index
     const expected = chunks[position]
     const candidate = listedCandidate(hashes[position], listed.hash)
-    if (!expected || !candidate || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo) continue
-    const ready = await readReadyChunk(bucket, provider, position, chunkAsRecorded(expected, candidate), listed.hash, textHash)
-    if (ready) state.ready.push(ready)
-  }
+    if (!expected || !candidate || listed.wordFrom !== expected.wordFrom || listed.wordTo !== expected.wordTo) return null
+    return readReadyChunk(bucket, provider, position, chunkAsRecorded(expected, candidate), listed.hash, textHash)
+  }))
+  for (const ready of validated) if (ready) state.ready.push(ready)
   state.ready.sort((a, b) => a.index - b.index)
   return state
+}
+
+/** R2 calls one request keeps in flight: a Worker opens at most six connections at once. */
+const R2_CONCURRENCY = 6
+
+interface StorageTiming { calls: number; busyMs: number }
+
+/**
+ * A per-request view of the bucket that keeps at most `limit` calls in flight
+ * and records how many it made and how long any was outstanding, for the
+ * Server-Timing header. Behaviour is otherwise the bucket's own.
+ */
+export function meteredBucket(bucket: R2Bucket, limit = R2_CONCURRENCY, clock: () => number = Date.now): { bucket: R2Bucket; timing: StorageTiming } {
+  const timing: StorageTiming = { calls: 0, busyMs: 0 }
+  let active = 0
+  let busySince = 0
+  const waiting: Array<() => void> = []
+  const run = async <T>(call: () => Promise<T>): Promise<T> => {
+    // A released slot is handed straight to the next waiter, so `active` only counts real calls.
+    if (active >= limit) await new Promise<void>(resolve => waiting.push(resolve))
+    else { if (active === 0) busySince = clock(); active += 1 }
+    timing.calls += 1
+    try { return await call() } finally {
+      const next = waiting.shift()
+      if (next) next()
+      else { active -= 1; if (active === 0) timing.busyMs += clock() - busySince }
+    }
+  }
+  const view = {
+    get: (key: string, options?: R2GetOptions) => run(() => bucket.get(key, options)),
+    head: (key: string) => run(() => bucket.head(key)),
+    put: (key: string, value: Parameters<R2Bucket['put']>[1], options?: R2PutOptions) => run(() => bucket.put(key, value, options)),
+    list: (options?: R2ListOptions) => run(() => bucket.list(options)),
+    delete: (keys: string | string[]) => run(() => bucket.delete(keys)),
+  }
+  return { bucket: view as unknown as R2Bucket, timing }
 }
 
 /**
@@ -1025,6 +1068,7 @@ type EnsureParagraphResult =
   | { paragraph: number; status: 'failed'; textHash: string; reason: string; retryAfterMs?: number; detail?: string }
 
 async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps, caller: 'reader' | 'prepare' | 'warm'): Promise<Response> {
+  const handlerStartedAt = Date.now()
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   if (caller === 'warm' && !deps.warmAuthorized) return jsonResponse({ error: 'Forbidden' }, 403, request)
   const config = narrationConfig(env)
@@ -1090,15 +1134,19 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     return jsonResponse({ error: 'Rate limit exceeded' }, 429, request)
   }
 
+  const textStartedAt = Date.now()
   const text = await loadChapterParagraphs(request, env, bookId, editionKey, chapter, bookTransition ? body.nextChapter : undefined)
+  const textMs = Date.now() - textStartedAt
   if (!text) return jsonResponse({ error: bookTransition ? 'Book transition unavailable' : 'Chapter text unavailable' }, 404, request)
   if (text.modernPending) return modernPendingResponse(request)
 
   const now = deps.now || Date.now
   const sleep = deps.sleep || ((ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms)))
   const fetchImpl = deps.fetchImpl || fetch
-  const bucket = env.AUDIO_BUCKET
+  const metered = meteredBucket(env.AUDIO_BUCKET)
+  const bucket = metered.bucket
   const kv = env.RATE_LIMIT
+  let providerMs = 0
   const requestStartedAt = now()
   const results: EnsureParagraphResult[] = []
   let generatedThisRequest = 0
@@ -1112,23 +1160,24 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     for (const field of Object.keys(EMPTY_USAGE) as Array<keyof UsageCounters>) usageDelta[field] += delta[field] ?? 0
   }
 
-  for (const item of requested) {
+  // What is already recorded is read for every requested paragraph at once
+  // (reads only: nothing is generated here). Generation below still runs one
+  // paragraph after another, in request order, exactly as before.
+  const cacheStartedAt = Date.now()
+  const prepared = await Promise.all(requested.map(async item => {
     const index = typeof item.index === 'number' ? item.index : -1
     if (!Number.isInteger(index) || index < 0 || index >= text.paragraphs.length) {
-      results.push({ paragraph: index, status: 'failed', textHash: '', reason: 'unknown_paragraph' })
-      continue
+      return { result: { paragraph: index, status: 'failed', textHash: '', reason: 'unknown_paragraph' } as EnsureParagraphResult }
     }
     const tokens = narrationTokens(text.paragraphs[index])
     const chunks = chunkNarrationTokens(tokens)
     const textHash = await sha256Hex(tokens.join(' '))
     const fromChunk = Number.isInteger(item.fromChunk) && Number(item.fromChunk) >= 0 && Number(item.fromChunk) < chunks.length ? Number(item.fromChunk) : 0
     if (typeof item.textHash === 'string' && item.textHash !== textHash) {
-      results.push({ paragraph: index, status: 'text_mismatch', textHash })
-      continue
+      return { result: { paragraph: index, status: 'text_mismatch', textHash } as EnsureParagraphResult }
     }
     if (chunks.length === 0) {
-      results.push({ paragraph: index, status: 'failed', textHash, reason: 'empty_paragraph' })
-      continue
+      return { result: { paragraph: index, status: 'failed', textHash, reason: 'empty_paragraph' } as EnsureParagraphResult }
     }
     // Announcements must never replace a source paragraph's map or appear in its listing.
     const mapKey = bookTransition
@@ -1136,6 +1185,13 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       : narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
     const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
     const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
+    return { index, chunks, textHash, fromChunk, mapKey, identities, state }
+  }))
+  const cacheMs = Date.now() - cacheStartedAt
+
+  for (const paragraph of prepared) {
+    if ('result' in paragraph) { results.push(paragraph.result); continue }
+    const { index, chunks, textHash, fromChunk, mapKey, identities, state } = paragraph
     preparedDuration += state.ready.reduce((sum, ready) => sum + ready.duration, 0)
     if (preparedDuration >= targetSeconds) generationDone = true
     const countedReady = new Set(state.ready.map(item => item.index))
@@ -1199,23 +1255,24 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
 
       // Someone else may be generating this exact chunk right now.
       const lockKey = `narration:lock:${identity.hash}`
+      // Grok's lease is the coordinator's claim below; the KV lock is the other providers'.
       let locked = false
-      try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false }
-      if (locked && config.provider !== 'grok') {
+      if (config.provider !== 'grok') { try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false } }
+      if (locked) {
         const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, now, sleep)
         if (arrived) { extra.waited = true; countNewReadyDuration(); if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
         break
       }
 
-      const breaker = await readBreaker(kv)
+      const keys = usageKeys(now())
+      // Breaker and ceilings are read side by side: three KV reads, one round trip.
+      const [breaker, day, month] = await Promise.all([readBreaker(kv), readUsage(kv, keys.day), readUsage(kv, keys.month)])
       if (breaker.openUntil > now()) {
         failure = { paragraph: index, status: 'failed', textHash, reason: 'provider_unavailable', retryAfterMs: breaker.openUntil - now() }
         break
       }
       const textBytes = utf8ByteLength(chunk.text)
-      const keys = usageKeys(now())
-      const [day, month] = await Promise.all([readUsage(kv, keys.day), readUsage(kv, keys.month)])
       if (day.bytes + usageDelta.bytes + textBytes > config.dailyBytes || month.bytes + usageDelta.bytes + textBytes > config.monthlyBytes) {
         failure = { paragraph: index, status: 'failed', textHash, reason: 'budget_exhausted', retryAfterMs: msUntilNextUtcDay(now()) }
         bump({ requests: 1, failed: 1 })
@@ -1269,6 +1326,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           })
         }
         const validation = validateNarrationAsset({ text: chunk.text, audio: synthesis.audio, reportedDuration: synthesis.reportedDuration, segments: synthesis.segments })
+        providerMs += synthesis.providerMs ?? 0
         await recordProviderOutcome(kv, now(), true)
         if (!validation.ok || !validation.timingsUsable) {
           const reasons = validation.timingsUsable ? validation.reasons : [...validation.reasons, 'timings_incomplete']
@@ -1313,8 +1371,11 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           state.ready.push(finished)
           extra.raced = true
         } else {
-          await bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } })
-          await bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } })
+          // Both land before the map lists the chunk; a reader validates the pair, so their order does not matter.
+          await Promise.all([
+            bucket.put(blobKeys.audio, synthesis.audio, { httpMetadata: { contentType: 'audio/mpeg' } }),
+            bucket.put(blobKeys.meta, JSON.stringify(meta), { httpMetadata: { contentType: 'application/json' } }),
+          ])
           state.ready.push({
             index: chunk.index, hash: identity.hash, wordFrom: chunk.wordFrom, wordTo: chunk.wordTo,
             duration: validation.duration, words: validation.words, alignment: validation.alignment,
@@ -1350,8 +1411,10 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         // since written (after ours expired) stays in place.
         try {
           if (config.provider === 'grok') await env.NARRATION_COORDINATOR!.getByName('chunk:' + identity.hash).release(lockToken)
-          const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
-          if (held?.token === lockToken) await kv?.delete(lockKey)
+          else {
+            const held = kv ? await kv.get<{ token?: string }>(lockKey, 'json') : null
+            if (held?.token === lockToken) await kv?.delete(lockKey)
+          }
         } catch { /* lock expires on its own */ }
       }
     }
@@ -1384,11 +1447,20 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       cache_hit: true, book_id: bookId, cost_usd: 0,
     })
   }
-  return jsonResponse({
+  const response = jsonResponse({
     bookId, editionKey, chapter, voice: voice.key, model: config.model, mode,
     paragraphs: results,
     generated: generatedThisRequest,
   }, 200, request)
+  // Where the time went: text load, the cached-state read, all R2 calls, synthesis.
+  response.headers.set('Server-Timing', [
+    `text;dur=${textMs}`,
+    `cache;dur=${cacheMs}`,
+    `r2;dur=${metered.timing.busyMs};desc="${metered.timing.calls} calls"`,
+    `synth;dur=${Math.round(providerMs)};desc="${generatedThisRequest} generated"`,
+    `total;dur=${Date.now() - handlerStartedAt}`,
+  ].join(', '))
+  return response
 }
 
 async function waitForChunk(

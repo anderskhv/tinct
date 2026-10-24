@@ -1,0 +1,58 @@
+name: Prepare a Tinct check job
+description: Node 24.13.0, npm ci (scripts/cloud-setup.sh), optionally the production build with its bundle gate, and Playwright browsers.
+inputs:
+  build:
+    description: 'true: npm run build (CI=true) and npm run verify-bundle'
+    default: 'true'
+  browsers:
+    description: 'Playwright browsers to install (space separated), or empty for none'
+    default: 'chromium webkit'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '24.13.0'
+        cache: npm
+        cache-dependency-path: app/package-lock.json
+    - name: Set up cloud checkout
+      shell: bash
+      working-directory: app
+      run: bash ../scripts/cloud-setup.sh
+    - name: Build
+      if: ${{ inputs.build == 'true' }}
+      shell: bash
+      working-directory: app
+      env:
+        CI: true
+      run: npm run build
+    - name: Verify the bundle
+      if: ${{ inputs.build == 'true' }}
+      shell: bash
+      working-directory: app
+      run: npm run verify-bundle
+    # The Ubuntu mirror served the browsers' system packages at ~130 kB/s on 22 Oct 2026 (15+ min per
+    # job), so the downloaded .debs are cached and apt installs them from disk on later runs.
+    - name: Restore browser system packages
+      if: ${{ inputs.browsers != '' }}
+      uses: actions/cache@v4
+      with:
+        path: ~/apt-archives
+        key: apt-browsers-${{ runner.os }}-${{ hashFiles('app/package-lock.json') }}-${{ inputs.browsers }}
+        restore-keys: |
+          apt-browsers-${{ runner.os }}-
+    - name: Install silent browsers
+      if: ${{ inputs.browsers != '' }}
+      shell: bash
+      working-directory: app
+      # packages.microsoft.com answered 403 on 22 Oct 2026 and broke apt for every deploy; the browsers
+      # need only Ubuntu's own packages, so that source is dropped before installing them.
+      run: |
+        sudo rm -f /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.sources
+        mkdir -p "$HOME/apt-archives/partial"
+        printf 'Dir::Cache::Archives "%s";\nAPT::Keep-Downloaded-Packages "true";\nBinary::apt::APT::Keep-Downloaded-Packages "true";\n' "$HOME/apt-archives" | sudo tee /etc/apt/apt.conf.d/99tinct-archives > /dev/null
+        sudo rm -f /etc/apt/apt.conf.d/docker-clean
+        npx playwright install --with-deps ${{ inputs.browsers }}
+        sudo chown -R "$(id -u):$(id -g)" "$HOME/apt-archives"
+        rm -rf "$HOME/apt-archives/partial" "$HOME/apt-archives/lock"
+        du -sh "$HOME/apt-archives"

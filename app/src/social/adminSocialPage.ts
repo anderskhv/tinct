@@ -14,6 +14,8 @@ interface AdminImage { kind: string; value: string | null; review: string; url: 
 interface AdminProfile { id: string; name: string; handle: string; link: string; visibility: Visibility; hidden: boolean; picture: AdminImage; background: AdminImage; updatedAt: string | null }
 interface AdminData {
   pending: AdminProfile[]
+  /** The latest uploaded photos (shown at once since 19 Oct 2026), to remove one that breaks the terms. */
+  recent?: AdminProfile[]
   reports: Array<{ id: number; reason: ReportReason; handle: string; createdAt: string; profile: AdminProfile | null }>
   profiles: AdminProfile[]
 }
@@ -111,6 +113,17 @@ function pendingCard(profile: AdminProfile): HTMLElement {
   return card
 }
 
+function recentCard(profile: AdminProfile): HTMLElement {
+  const card = el('article', { className: 'card', dataset: { testid: 'admin-recent' } }, who(profile))
+  for (const slot of ['picture', 'background'] as const) {
+    const image = profile[slot]
+    if (!image.url) continue
+    card.append(el('span', { className: 'label' }, slot === 'picture' ? 'Picture' : 'Background'), shot(image.url, slot === 'picture'))
+  }
+  card.append(profileActions(profile))
+  return card
+}
+
 function reportCard(report: AdminData['reports'][number]): HTMLElement {
   const when = new Date(report.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
   const card = el('article', { className: 'card', dataset: { testid: 'admin-report' } },
@@ -135,9 +148,13 @@ async function load() {
   input.setAttribute('aria-label', 'Find a profile')
   const go = button('Find', async () => { query = input.value.trim(); await load() })
   input.addEventListener('keydown', event => { if (event.key === 'Enter') go.click() })
+  const recent = data.recent ?? []
   main.replaceChildren(
-    el('section', { dataset: { testid: 'admin-pending-list' } }, el('h2', {}, 'Photos to check', el('small', {}, String(data.pending.length))),
-      data.pending.length ? el('div', { className: 'cards' }, ...data.pending.map(pendingCard)) : el('p', { className: 'empty' }, 'Nothing waiting.')),
+    // Photos show at once (19 Oct 2026); only photos uploaded before then can still wait here.
+    ...(data.pending.length ? [el('section', { dataset: { testid: 'admin-pending-list' } }, el('h2', {}, 'Photos to check', el('small', {}, String(data.pending.length))),
+      el('div', { className: 'cards' }, ...data.pending.map(pendingCard)))] : []),
+    el('section', { dataset: { testid: 'admin-recent-list' } }, el('h2', {}, 'Recent photos', el('small', {}, String(recent.length))),
+      recent.length ? el('div', { className: 'cards' }, ...recent.map(recentCard)) : el('p', { className: 'empty' }, 'No uploaded photos.')),
     el('section', { dataset: { testid: 'admin-report-list' } }, el('h2', {}, 'Reports', el('small', {}, String(data.reports.length))),
       data.reports.length ? el('div', { className: 'cards' }, ...data.reports.map(reportCard)) : el('p', { className: 'empty' }, 'No open reports.')),
     el('section', {}, el('h2', {}, 'Find a profile'), el('div', { className: 'search' }, input, go),

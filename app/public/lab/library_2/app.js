@@ -4,20 +4,20 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261014talkwake';
+import {mountBookshelf} from './bookshelf.js?v=20261021deskopen';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
+import {opensReader} from './reader-href.js?v=20261020open';
 import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261014talkwake';
-import {drawSceneLife,drawSceneFilm,scenePainting} from './scene-life.js?v=20260930film';
+import {drawSceneLife,drawSceneFilm,scenePainting,sceneLifeBoxes} from './scene-life.js?v=20261021still';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,ownTableId,ownBookCard,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd} from './add-to-tinct.js?v=20261014talkwake';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
-import {isPublicBookId} from '../public-books.js?v=20261009rel10';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {bookCoverSrc} from '../book-cover.js?v=20261009owncover';
@@ -30,6 +30,9 @@ const iconPaths={readArrow:'<path d="M2 12h20m-6-6 6 6-6 6"/>',search:'<circle c
 function icon(name){return `<svg viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||''}</svg>`;}
 all('[data-icon]').forEach(e=>e.innerHTML=icon(e.dataset.icon));
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;}
+// A book being read opens straight in the reader, or says it could not (reader-href.js).
+let openingReader=false;
+async function openInReader(book){if(openingReader)return;openingReader=true;document.body.classList.add('leaving');try{const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);if(!opensReader(href))throw new Error('Reader unavailable');location.assign(href);}catch{openingReader=false;document.body.classList.remove('leaving');notice('This book could not open. Please try again.');}}
 let noticeTimer;function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,5000);}
 const images={};const textures=new Map();
 // Optional warming (other books' scenes, sketches, hero covers) yields to a book being opened.
@@ -39,25 +42,27 @@ for(const book of books)book.coverSources=coverSources(book.id,{src:book.cover})
 const searchOnlyBooks=[];
 /** A book by id among every book the page paints: the shelves' books and the search-only ones. */
 function bookById(id){return books.find(b=>b.id===id)||searchOnlyBooks.find(b=>b.id===id);}
-async function loadImage(key,low,signal,kept){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;await (signal?Promise.race([im.decode(),stopOnAbort(im,signal,kept)]):im.decode());images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
+const imageSrc=key=>`assets/${key==='room-wide'?'room-wide-v2':key==='room'?'room-sharp':key}.jpg`;
+async function loadImage(key,low,signal,kept){if(images[key])return images[key];const im=new Image();im.fetchPriority=low?'low':'high';im.src=imageSrc(key);await (signal?Promise.race([im.decode(),stopOnAbort(im,signal,kept)]):im.decode());images[key]=im;if(reduced.matches)drawScene(performance.now());return im;}
 function triangle(ctx,img,s,d){const [p,q,r]=s,[a,b,c]=d;const det=(q[0]-p[0])*(r[1]-p[1])-(r[0]-p[0])*(q[1]-p[1]);const aa=((b[0]-a[0])*(r[1]-p[1])-(c[0]-a[0])*(q[1]-p[1]))/det,cc=((c[0]-a[0])*(q[0]-p[0])-(b[0]-a[0])*(r[0]-p[0]))/det,bb=((b[1]-a[1])*(r[1]-p[1])-(c[1]-a[1])*(q[1]-p[1]))/det,dd=((c[1]-a[1])*(q[0]-p[0])-(b[1]-a[1])*(r[0]-p[0]))/det;ctx.save();ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.lineTo(...c);ctx.closePath();ctx.clip();ctx.transform(aa,bb,cc,dd,a[0]-aa*p[0]-cc*p[1],a[1]-bb*p[0]-dd*p[1]);ctx.drawImage(img,0,0);ctx.restore();}
 function makeTextures(){for(const book of books){const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');if(book.crop){const [x,y,w,h]=book.crop;ctx.drawImage(images.plate,x,y,w,h,0,0,480,720);}else{const corners=[[740,133],[1006,154],[1012,585],[739,588]];const point=(u,v)=>[mix(mix(corners[0][0],corners[1][0],u),mix(corners[3][0],corners[2][0],u),v),mix(mix(corners[0][1],corners[1][1],u),mix(corners[3][1],corners[2][1],u),v)];for(let j=0;j<12;j++)for(let i=0;i<8;i++){const u=i/8,v=j/12,u2=(i+1)/8,v2=(j+1)/12;const s=[point(u,v),point(u2,v),point(u2,v2),point(u,v2)],d=[[u*480,v*720],[u2*480,v*720],[u2*480,v2*720],[u*480,v2*720]];triangle(ctx,images.original,[s[0],s[1],s[2]],[d[0],d[1],d[2]]);triangle(ctx,images.original,[s[0],s[2],s[3]],[d[0],d[2],d[3]]);}}textures.set(book.id,c);}paintCovers();}
 // A cover is painted at the size it is shown (its CSS width × the screen's pixel ratio, at
 // most the painting's own), never at the painting's full 1024×1536: 120 full-size cover
 // canvases held ~1 GB of canvas and GPU memory on loading /library (2026-10-08). A canvas not
-// laid out yet (detached, hidden) gets at most COVER_FALLBACK_WIDTH; the observer below repaints
+// laid out yet (detached, hidden) gets at most COVER_FALLBACK_WIDTH (a shelf cover not painted while off screen,
+// styles.css content-visibility, reads its card's width: its own reads 0); the observer below repaints
 // a cover when it is shown at a size its pixels no longer suit (a resize, the hero's cover).
 const COVER_FALLBACK_WIDTH=600;
-function coverSize(c,texture){const nw=texture.naturalWidth||texture.width,nh=texture.naturalHeight||texture.height;if(!nw||!nh)return [nw,nh];const css=c.isConnected?c.clientWidth:0,dpr=Math.min(devicePixelRatio||1,2);const w=Math.max(1,Math.min(nw,css?Math.ceil(css*dpr):COVER_FALLBACK_WIDTH));return [w,Math.max(1,Math.round(w*nh/nw))];}
+function coverSize(c,texture){const nw=texture.naturalWidth||texture.width,nh=texture.naturalHeight||texture.height;if(!nw||!nh)return [nw,nh];const css=c.isConnected?c.clientWidth||c.closest('.book-card')?.clientWidth||0:0,dpr=Math.min(devicePixelRatio||1,2);const w=Math.max(1,Math.min(nw,css?Math.ceil(css*dpr):COVER_FALLBACK_WIDTH));return [w,Math.max(1,Math.round(w*nh/nw))];}
 // The observer only notes covers; observing new ones and repainting wait for the next frame.
 // A cover painted while the browser delivers resize notifications (an image decode settling
 // mid-frame in WebKit) was observed inside that loop, and every such new observation went
 // undelivered: "ResizeObserver loop completed with undelivered notifications" (2026-10-08).
 const coverResize=typeof ResizeObserver==='undefined'?null:new ResizeObserver(entries=>{for(const {target} of entries)coverRecheck.add(target);scheduleCoverWork();});
 const coverWatch=new Set(),coverRecheck=new Set();let coverWork=0;
-function scheduleCoverWork(){if(!coverWork)coverWork=requestAnimationFrame(()=>{coverWork=0;for(const c of coverWatch)coverResize.observe(c);coverWatch.clear();for(const c of coverRecheck){const texture=c.isConnected&&c.dataset.painted&&textures.get(c.dataset.book);if(!texture)continue;const [w]=coverSize(c,texture);if(Math.abs(w-c.width)>w*.25)paintCover(c,c.dataset.book);}coverRecheck.clear();});}
+function scheduleCoverWork(){if(!coverWork)coverWork=requestAnimationFrame(()=>{coverWork=0;for(const c of coverWatch)coverResize.observe(c);coverWatch.clear();for(const c of coverRecheck){const texture=c.isConnected&&c.dataset.painted&&textures.get(c.dataset.book);if(!texture)continue;const [w]=coverSize(c,texture);if(Math.abs(w-c.width)>w*.25)paintCover(c,c.dataset.book);const book=(texture.naturalWidth||texture.width)<c.clientWidth*Math.min(devicePixelRatio||1,2)*.8&&(coverBooks.get(c)||bookById(c.dataset.book));if(book)shelfCover(book);}coverRecheck.clear();});}
 function watchCover(c){if(!coverResize)return;coverWatch.add(c);scheduleCoverWork();}
-function paintCover(c,id){const texture=textures.get(id);if(!texture)return;const [w0,h0]=coverSize(c,texture);c.width=w0;c.height=h0;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(texture,0,0,w0,h0);if(!c.dataset.painted&&c.dataset.book)watchCover(c);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
+function paintCover(c,id){const texture=textures.get(id);if(!texture||c.dataset.released)return;const [w0,h0]=coverSize(c,texture);c.width=w0;c.height=h0;const ctx=c.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(texture,0,0,w0,h0);if(!c.dataset.painted&&c.dataset.book)watchCover(c);c.dataset.painted='true';if(c.parentElement?.id==='hero-book')$('hero-cover-preview').hidden=true;const book=bookById(id);if(book?.typeset){const w=c.width,h=c.height;
 const designs={
  'julius-caesar':{lines:['JULIUS','CAESAR'],y:.16,size:.16,align:'left',x:.10},
  'the-prince':{lines:['THE','PRINCE'],y:.68,size:.15,align:'center',x:.5},
@@ -84,10 +89,17 @@ async function coverTexture(im,cap=COVER_TEXTURE_WIDTH){const nw=im.naturalWidth
 // 960, the introduction's large cover the painting whole, from the book's own list of files
 // (cover-assets.js coverSources: a painting's copies, or catalogue art and its @2x, or the one file).
 // A texture already loaded smaller than a later surface needs is replaced by the larger one.
-function ensureCover(book,need=COVER_SHELF_PX,signal){if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());textureWidths.set(book.id,Infinity);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}const source=coverSource(book,need);if(!coverReady.has(book.id)||(textureWidths.get(book.id)||0)<Math.min(need,source.width)){textureWidths.set(book.id,source.width);const load={kept:!signal};coverLoads.set(book.id,load);const ready=(async()=>{const im=new Image();if(need>=COVER_HERO_PX)im.fetchPriority='high';im.src=source.src;await (signal?Promise.race([im.decode(),stopOnAbort(im,signal,()=>load.kept)]):im.decode());textures.set(book.id,await coverTexture(im,Math.max(COVER_TEXTURE_WIDTH,Math.min(need,im.naturalWidth||need))));all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready){coverReady.delete(book.id);textureWidths.delete(book.id);}if(!signal?.aborted||load.kept)paperFallback(book);});coverReady.set(book.id,ready);}else if(!signal){const load=coverLoads.get(book.id);if(load)load.kept=true;}return coverReady.get(book.id);}
+// A warming load (a signal: another featured book's hero cover) only downloads the file (2026-10-21): six
+// decoded 960 px covers held 32 MB on a phone for books not on screen; choosing one decodes it from the cache.
+function ensureCover(book,need=COVER_SHELF_PX,signal){if(signal&&!book.paper){const source=coverSource(book,need);if(coverReady.has(book.id)&&(textureWidths.get(book.id)||0)>=Math.min(need,source.width))return coverReady.get(book.id);const im=new Image();im.fetchPriority='low';const loaded=new Promise((resolve,reject)=>{im.onload=()=>resolve();im.onerror=reject;});im.src=source.src;return Promise.race([loaded,stopOnAbort(im,signal)]);}if(book.paper&&!coverReady.has(book.id)){textures.set(book.id,paperCover(book.title,book.author));coverReady.set(book.id,Promise.resolve());textureWidths.set(book.id,Infinity);all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));}const source=coverSource(book,need);if(!coverReady.has(book.id)||(textureWidths.get(book.id)||0)<Math.min(need,source.width)){textureWidths.set(book.id,need<COVER_SHELF_PX?Math.min(need,source.width):source.width);const load={kept:!signal};coverLoads.set(book.id,load);const ready=(async()=>{const im=new Image();if(need>=COVER_HERO_PX)im.fetchPriority='high';im.src=source.src;await (signal?Promise.race([im.decode(),stopOnAbort(im,signal,()=>load.kept)]):im.decode());textures.set(book.id,await coverTexture(im,need<COVER_SHELF_PX?need:Math.max(COVER_TEXTURE_WIDTH,Math.min(need,im.naturalWidth||need))));all('canvas[data-book]').filter(c=>c.dataset.book===book.id).forEach(c=>paintCover(c,book.id));})();ready.catch(()=>{if(coverReady.get(book.id)===ready){coverReady.delete(book.id);textureWidths.delete(book.id);}if(!signal?.aborted||load.kept)paperFallback(book);});coverReady.set(book.id,ready);}else if(!signal){const load=coverLoads.get(book.id);if(load)load.kept=true;}return coverReady.get(book.id);}
 // A warming load (with a signal, quiet-loads.js) stops when a book opens, unless a surface came to need it meanwhile.
 const coverLoads=new Map();
-const COVER_SHELF_PX=480,COVER_HERO_PX=960,COVER_WHOLE_PX=Infinity;
+const COVER_SHELF_PX=480,COVER_HERO_PX=960;
+// The opening cover is drawn from the painting's 960 px copy (≈240 KB), the hero's own, not its 1024 px original
+// (≈740 KB): the book waited for the original before it moved (0.85 s on a phone network, 2026-10-21,
+// scripts/check-library-speed.mjs), for 6% more pixels than the copy. A featured book's copy is often already here.
+// A cover without painted copies (catalogue art: 540 px and its 1080 px @2x) still opens from its largest file.
+const COVER_OPEN_PX=COVER_HERO_PX;
 const textureWidths=new Map();
 /** The book's file for `need` device pixels: the smallest of its sources at least that wide, else its largest (or its one cover). */
 function coverSource(book,need){const sources=Array.isArray(book.coverSources)&&book.coverSources.length?book.coverSources:[{src:book.cover,width:Infinity}];return sources.find(s=>s.width>=need)||sources[sources.length-1];}
@@ -112,24 +124,44 @@ const coverObserver=typeof IntersectionObserver==='undefined'?null:new Intersect
 const fullSizeCover=book=>/^\/api\/public-books\/[^/]+\/cover$/.test(coverSource(book,COVER_SHELF_PX)?.src||'');
 const fullCoverObserver=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(coverSeen(()=>fullCoverObserver),{rootMargin:'150px',scrollMargin:'150px'});
 // A shelf cover nearing the screen; the desk's own covers (prepareCover) never wait.
-function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book)):ensureCover(book)).catch(()=>{});}
+// A shelf's painting is kept at the pixels its covers draw (2026-10-21): a phone's card is 212 px wide,
+// and each 540×810 painting kept whole held 1.7 MB where 0.27 MB is drawn. Any surface showing the book
+// counts (a search row, the hero); a later, larger surface loads it again larger (ensureCover).
+function shelfNeed(id){const dpr=Math.min(typeof devicePixelRatio==='number'&&devicePixelRatio||1,2);let px=0;for(const c of all('canvas[data-book]'))if(c.dataset.book===id&&c.isConnected!==false)px=Math.max(px,(c.clientWidth||c.closest?.('.book-card')?.clientWidth||0)*dpr);return px?Math.max(1,Math.min(COVER_SHELF_PX,Math.ceil(px))):COVER_SHELF_PX;}
+function shelfCover(book){(deskPending()?deskRevealed.then(()=>ensureCover(book,shelfNeed(book.id))):ensureCover(book,shelfNeed(book.id))).catch(()=>{});}
 function observeCover(c,book){paintCover(c,book.id);coverBooks.set(c,book);const observer=fullSizeCover(book)?fullCoverObserver:coverObserver;if(observer)observer.observe(c);else shelfCover(book);}
 // The first cover has priority; shelves and other scenes load as they approach view.
 if(!window.__library2Boot?.hint)ensureCover(books[0],COVER_HERO_PX).catch(()=>{});
 function coverMetadata(book){const meta=el('span','cover-metadata');meta.dataset.metadataBook=book.id;renderBookMetadata(meta,book,{compact:true});return meta;}
 function refreshMetadata(){all('[data-metadata-book]').forEach(meta=>{const book=bookById(meta.dataset.metadataBook);renderBookMetadata(meta,book,{compact:true});});const time=readingTime(featured);if(time&&linkedState!=='pending')$('hero-time').textContent=time;}
+// A shelf more than a screen above or below the screen gives its covers' pixels back
+// (2026-10-21): with every shelf painted, an iPhone ran out of memory opening a book (The Jungle
+// Book). Its canvases go empty, and a painting no surface on screen still shows lets go of its
+// decoded copy; both return before the shelf comes back into view: the canvas is repainted at
+// once, or the painting is decoded again from the browser's cache, a screen ahead of being seen.
+const SHELF_KEEP_MARGIN='100% 0px';
+const shelfMemory=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>{for(const {target,isIntersecting} of entries)target.querySelectorAll('canvas[data-book]').forEach(c=>isIntersecting?restoreCover(c):releaseCover(c));},{rootMargin:SHELF_KEEP_MARGIN});
+function releaseCover(c){if(!c.dataset.painted||c.dataset.released)return;c.dataset.released='true';delete c.dataset.painted;c.width=0;c.height=0;releaseTexture(c.dataset.book);}
+function restoreCover(c){if(!c.dataset.released)return;delete c.dataset.released;const id=c.dataset.book;if(textures.has(id)){paintCover(c,id);return;}const book=coverBooks.get(c)||bookById(id);if(book)shelfCover(book);}
+// While a book is open the library behind it keeps only the shelves on screen painted (2026-10-21): the
+// open book's own layers are what tipped an iPhone over, so the shelves a screen away give theirs back
+// first. Closing the book repaints them as the shelves' usual margin asks (shelfMemory, observed again).
+const openShelfMemory=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(entries=>{for(const {target,isIntersecting} of entries)if(!isIntersecting)target.querySelectorAll('canvas[data-book]').forEach(releaseCover);});
+function bookOpenMemory(open){if(!openShelfMemory||!shelfMemory)return;const shelves=all('#shelves .shelf');if(open){shelves.forEach(s=>openShelfMemory.observe(s));return;}openShelfMemory.disconnect();shelves.forEach(s=>{shelfMemory.unobserve(s);shelfMemory.observe(s);});}
+/** Drops a painting's decoded copy once every canvas that shows it has given its pixels back. */
+function releaseTexture(id){if(!id||id===featured?.id||id===activeBook?.id||!textures.has(id)||!coverReady.has(id))return;if(all('canvas[data-book]').some(c=>c.dataset.book===id&&!c.dataset.released))return;const texture=textures.get(id);textures.delete(id);coverReady.delete(id);textureWidths.delete(id);if(typeof texture?.close==='function')texture.close();}
 /** A search row's small cover: painted like the shelf covers; the opening book flies from it. */
 function rowCover(book){const c=el('canvas','cover');c.dataset.book=book.id;observeCover(c,book);return c;}
 function coverButton(book,cls='book-card cover-button'){const b=el('button',cls);b.setAttribute('aria-label',`Open ${book.title}, by ${book.author}`);const c=el('canvas','cover');c.dataset.book=book.id;b.append(c);b.addEventListener('click',()=>openBook(book,c));observeCover(c,book);if(cls!=='book-card cover-button'){b.append(coverMetadata(book));return b;}
  // Shelf covers carry a + for Want to read, beside (not inside) the cover button.
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
-[['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);});
+[['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
 // The rest of the library: every discoverable book, shelved by house.
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);if(entry.altTitles?.length)book.altTitles=entry.altTitles;searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
  // Other titles the registry gives a book (altTitles) are searched as titles.
  for(const book of books){const alt=byId.get(book.id)?.altTitles;if(alt?.length)book.altTitles=alt;}
- houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);});
+ houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();
  if(searchOpen&&!openedFromSearch)renderResults();if(collectionChoice!=='home')renderCollection();}).catch(()=>{});
@@ -165,7 +197,10 @@ function sceneImage(id,wide){const key=sceneAsset(id,wide);if(!images[key]&&!sce
 const sceneVariant=()=>{const h=$('hero');return h.clientWidth/Math.max(1,h.clientHeight)>1.2?'wide':'phone';};
 // A warming load (with a signal) stops when a book opens, unless the hero came to need that scene meanwhile.
 const scenesNeeded=new Set();
-function loadScene(id,low,signal){const key=sceneAsset(id,sceneVariant()==='wide');if(!signal)scenesNeeded.add(key);if(!sceneLoads.has(key)){const ready=loadImage(key,low,signal,()=>scenesNeeded.has(key));ready.catch(()=>sceneLoads.delete(key));sceneLoads.set(key,ready);}return sceneLoads.get(key);}
+// Warming another featured book's scene (a signal) downloads it and nothing more (2026-10-21): each
+// scene decoded and kept was 5-6 MB of memory on a phone for a painting not on screen. Showing it
+// decodes it from the browser's cache, and a scene no longer shown is let go (dropScenes).
+function loadScene(id,low,signal){const key=sceneAsset(id,sceneVariant()==='wide');if(signal&&!images[key]&&!sceneLoads.has(key)){const im=new Image();im.fetchPriority='low';const loaded=new Promise((resolve,reject)=>{im.onload=()=>resolve();im.onerror=reject;});im.src=imageSrc(key);return Promise.race([loaded,stopOnAbort(im,signal,()=>scenesNeeded.has(key))]);}if(!signal)scenesNeeded.add(key);if(!sceneLoads.has(key)){const ready=loadImage(key,low,signal,()=>scenesNeeded.has(key));ready.catch(()=>sceneLoads.delete(key));sceneLoads.set(key,ready);}return sceneLoads.get(key);}
 function showScene(id){const target=sceneIds.has(id)||/^table-(morning|afternoon|evening|night)$/.test(id)?id:'frankenstein';scenePending=target;loadScene(target).then(()=>{if(scenePending!==target||sceneTo===target)return;const now=performance.now();sceneFrom=now-sceneStart<SCENE_FADE/2?sceneFrom:sceneTo;sceneTo=target;sceneStart=now;document.documentElement.dataset.scene=target;if(reduced.matches)drawScene(now);}).catch(()=>{});}
 const SCENE_FADE=700;
 // Match each portrait painting's table horizon to the book's base, leaving
@@ -184,7 +219,25 @@ if(!window.__library2Boot?.hint)loadScene(sceneTo).catch(()=>notice('The scene c
 addEventListener('library2:reading',e=>{if(e.detail.mode!=='returning')showScene(linkedState==='pending'?linkedBook:featured.id);else if(document.documentElement.dataset.returningView==='table')showScene(returningScene);});
 // Desktop film loops of the wide paintings; the canvas composites their frames.
 const sceneVideo=mountSceneVideo($('hero'),$('scene'));
-function drawScene(time){const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1)sceneFrom=null;const current=sceneImage(sceneTo,wide);sceneVideo.sync(sceneTo,wide&&!!current&&current.naturalWidth>current.naturalHeight);const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const imageWide=img.naturalWidth>img.naturalHeight,c=cropForScene(id,w,h,img,imageWide);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;const film=imageWide&&wide&&sceneVideo.frame(id);if(film)drawSceneFilm(ctx,id,film,img,c,w,h,alpha);};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=((sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0))*(1-(wide&&sceneVideo.frame('frankenstein')?.alpha||0));if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
+/** Lets go of every decoded scene but the one shown (both shapes of it); showing another decodes it again from the cache. */
+function dropScenes(){const keep=new Set([sceneAsset(sceneTo,true),sceneAsset(sceneTo,false)]);for(const key of [...sceneLoads.keys()])if(!keep.has(key)&&images[key]){delete images[key];sceneLoads.delete(key);scenesNeeded.delete(key);}}
+// The room is drawn in two parts (2026-10-21). The still room (the painting through its crop, the
+// featured book's shadows) is drawn once, and each frame after that repaints only the boxes the
+// room's life can touch (flames, glows, rain, snow, water): a patch of the still room copied back,
+// then the life over it, clipped to those boxes. Every pixel matches drawing the whole room: the
+// patches are exact copies of it. Repainting all 780×1688 pixels of the canvas on each frame was most
+// of a phone's frame, and a tap waited behind it (scripts/check-library-speed.mjs). A cross-fade, a
+// film and reduced motion still draw the whole room; anything that changes the still room (its
+// scene, size, crop, the book, its place or cover, the page's classes) draws it again.
+let roomStill=null,scenePaints=0,orbDrawnAt=0;const objectIds=new WeakMap();let objectCount=0;
+const objectId=o=>o&&(typeof o==='object'||typeof o==='function')?(objectIds.get(o)||(objectIds.set(o,++objectCount),objectCount)):0;
+function stillKey(id,img,c,canvas,dpr){const book=$('hero-book').getBoundingClientRect(),hero=$('hero').getBoundingClientRect();return [id,canvas.width,canvas.height,dpr,objectId(img),c.x,c.y,c.w,c.h,c.scale,document.documentElement.classList.contains('returning'),document.documentElement.classList.contains('returning-pending'),!!window.__library2Boot?.hint,book.left-hero.left,book.bottom-hero.top,book.width,book.height,featured.id,objectId(textures.get(featured.id)),sourceCanvas?.parentElement?.id||''].join('|');}
+// The boxes in canvas pixels, rounded out with 2 px to spare for antialiased edges, then merged where they overlap.
+function stillPatches(boxes,canvas,dpr){let rects=boxes.map(([x0,y0,x1,y1])=>[Math.max(0,Math.floor(x0*dpr)-2),Math.max(0,Math.floor(y0*dpr)-2),Math.min(canvas.width,Math.ceil(x1*dpr)+2),Math.min(canvas.height,Math.ceil(y1*dpr)+2)]).filter(r=>r[2]>r[0]&&r[3]>r[1]);for(let merged=true;merged;){merged=false;for(let i=0;i<rects.length&&!merged;i++)for(let j=i+1;j<rects.length;j++){const a=rects[i],b=rects[j];if(a[0]<b[2]&&b[0]<a[2]&&a[1]<b[3]&&b[1]<a[3]){rects[i]=[Math.min(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[2],b[2]),Math.max(a[3],b[3])];rects.splice(j,1);merged=true;break;}}}return rects.map(([x0,y0,x1,y1])=>{const p=document.createElement('canvas');p.width=x1-x0;p.height=y1-y0;p.getContext('2d').drawImage(canvas,x0,y0,p.width,p.height,0,0,p.width,p.height);return {x:x0,y:y0,w:p.width,h:p.height,canvas:p};});}
+function frankensteinRainBox(wide,w,h){const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return null;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7),xs=(wide?widePanes:panes).flat();const x0=Math.min(...xs.map(p=>p[0])),y0=Math.min(...xs.map(p=>p[1])),x1=Math.max(...xs.map(p=>p[0])),y1=Math.max(...xs.map(p=>p[1]));return [(x0-crop.x)*crop.scale,(y0-crop.y)*crop.scale,(x1-crop.x)*crop.scale,(y1-crop.y)*crop.scale];}
+function drawScene(time){scenePaints++;const canvas=$('scene'),w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(devicePixelRatio||1,2);if(!w||!h)return;if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);roomStill=null;}const ctx=canvas.getContext('2d');const wide=w/h>1.2;const fade=reduced.matches||!sceneFrom?1:ease(clamp((time-sceneStart)/SCENE_FADE,0,1));if(fade===1&&sceneFrom){sceneFrom=null;dropScenes();}const current=sceneImage(sceneTo,wide);sceneVideo.sync(sceneTo,wide&&!!current&&current.naturalWidth>current.naturalHeight);const currentWide=!!current&&current.naturalWidth>current.naturalHeight,still=!reduced.matches&&!sceneFrom&&!!current&&!(currentWide&&wide&&sceneVideo.frame(sceneTo))&&!(wide&&sceneVideo.frame('frankenstein'));let key=null;if(still){key=stillKey(sceneTo,current,cropForScene(sceneTo,w,h,current,currentWide),canvas,dpr);if(roomStill?.key===key){if(!roomStill.patches.length)return;ctx.setTransform(1,0,0,1,0,0);ctx.save();ctx.beginPath();for(const p of roomStill.patches){ctx.clearRect(p.x,p.y,p.w,p.h);ctx.drawImage(p.canvas,p.x,p.y);ctx.rect(p.x,p.y,p.w,p.h);}ctx.clip();ctx.setTransform(dpr,0,0,dpr,0,0);sceneMotion(ctx,time,w,h,wide,fade);ctx.restore();return;}}roomStill=null;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const layer=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||alpha<=0)return;const imageWide=img.naturalWidth>img.naturalHeight,c=cropForScene(id,w,h,img,imageWide);ctx.globalAlpha=alpha;ctx.drawImage(scenePainting(img,id),c.x,c.y,c.w,c.h,0,0,w,h);ctx.globalAlpha=1;const film=imageWide&&wide&&sceneVideo.frame(id);if(film)drawSceneFilm(ctx,id,film,img,c,w,h,alpha);};if(sceneFrom)layer(sceneFrom,1);layer(sceneTo,fade);drawBookGround(ctx);if(still){const boxes=sceneLifeBoxes(sceneTo,currentWide,current,cropForScene(sceneTo,w,h,current,currentWide),w,h);if(sceneTo==='frankenstein'){const box=frankensteinRainBox(wide,w,h);if(box)boxes.push(box);}roomStill={key,patches:stillPatches(boxes,canvas,dpr)};ctx.setTransform(dpr,0,0,dpr,0,0);}sceneMotion(ctx,time,w,h,wide,fade);}
+// The room's life over the room, at `time`: the scenes' own life, and Frankenstein's rain.
+function sceneMotion(ctx,time,w,h,wide,fade){if(!reduced.matches){const life=(id,alpha)=>{const img=sceneImage(id,wide);if(!img||id==='frankenstein')return;const imageWide=img.naturalWidth>img.naturalHeight;drawSceneLife(ctx,id,imageWide,img,cropForScene(id,w,h,img,imageWide),alpha,time,w,h);};if(sceneFrom)life(sceneFrom,1-fade);life(sceneTo,fade);}const rain=((sceneTo==='frankenstein'?fade:0)+(sceneFrom==='frankenstein'?1-fade:0))*(1-(wide&&sceneVideo.frame('frankenstein')?.alpha||0));if(reduced.matches||rain<=0)return;const img=sceneImage('frankenstein',wide);if(!img||(img.naturalWidth>img.naturalHeight)!==wide)return;const crop=sceneCrop(w,h,img.naturalWidth,img.naturalHeight,wide?.5:.7);ctx.save();ctx.globalAlpha=rain;ctx.scale(crop.scale,crop.scale);ctx.translate(-crop.x,-crop.y);ctx.beginPath();(wide?widePanes:panes).forEach(p=>{ctx.moveTo(...p[0]);p.slice(1).forEach(q=>ctx.lineTo(...q));ctx.closePath();});ctx.clip();if(!wide){ctx.beginPath();ctx.rect(0,0,1183,1330);ctx.rect(492,178,202,378);ctx.clip('evenodd');}ctx.lineWidth=1.05;for(let i=0;i<140;i++){const x=(wide?1040:520)+(i*73.39)%(wide?520:660),y=((time*.10+i*51.79)%(wide?525:510))-20;ctx.strokeStyle=`rgba(212,235,218,${.15+(i%4)*.04})`;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-1.3,y+13+(i%7));ctx.stroke();}ctx.restore();}
 
 // Paint contact and cast shadows on the actual table, away from the room light.
 const coverReflections=new WeakMap();
@@ -275,9 +328,20 @@ function tourPage(){const height=window.visualViewport?.height||innerHeight,shor
 export function bookDestination(){const dest=destination(innerWidth,innerHeight);if(dest.tour){const u=ease(tourProgress),{w:pageWidth,h:pageHeight,height}=tourPage();dest.x=mix(20+pageWidth,0,u);dest.y=mix(60+(height-128-pageHeight)/2,0,u);dest.w=mix(pageWidth,innerWidth,u);dest.h=mix(pageHeight,height,u);}return dest;}
 const screenBack=el('button','page-back','← Back');screenBack.id='page-back';screenBack.hidden=true;$('book-overlay').append(screenBack);
 function syncBookBack(){const compact=bookDestination().tour;const target=compact&&tourProgress<.5?$('tour-back'):$('back-library');const visible=bookProgress===1&&(!compact||tourProgress===0||tourProgress===1)&&!readerProgress;screenBack.hidden=!visible;if(!visible)return;const rect=target.getBoundingClientRect();Object.assign(screenBack.style,{left:rect.left+'px',top:rect.top+'px',width:Math.max(70,rect.width)+'px',height:'44px'});}
-function drawBook(p){if((p===0||p===1)&&(tourProgress===0||tourProgress===1))scheduleLibrarianAway();const dest=bookDestination();const viewportHeight=window.visualViewport?.height||innerHeight;const page=dest.tour?tourPage():null;const flapWidth=page?page.w:dest.w;const flapHeight=page?page.h:dest.h;const rp=ease(readerProgress);if(readerProgress){dest.x=mix(dest.x,0,rp);dest.y=mix(dest.y,0,rp);dest.w=mix(dest.w,innerWidth,rp);dest.h=mix(dest.h,window.visualViewport?.height||innerHeight,rp);}const pages=bookPages(sourceRect,dest,p,{w:flapWidth,h:flapHeight},innerWidth),f=pages.frame;const shape=$('book-shape');shape.classList.toggle('compact-book',dest.tour);shape.style.width=dest.w+'px';shape.style.setProperty('--slip-font',(page?.tall?clamp(innerWidth/38,19,23):Math.min(dest.tour?17:15,flapWidth/320*(dest.tour?11:12)))+'px');shape.style.setProperty('--portrait-height',(page?.tall?Math.min(260,viewportHeight*.2):Math.min(150,flapWidth/320*96))+'px');$('intro').style.width=dest.tour?innerWidth+'px':'';$('intro').style.height=dest.tour?viewportHeight+'px':'';const back=document.querySelector('.cover-back');back.style.width=flapWidth+'px';back.style.left='0px';shape.style.setProperty('--flap-angle',dest.tour?'-3deg':'-8deg');shape.style.height=pages.height+'px';back.style.height=pages.backHeight+'px';shape.style.transform=`translate3d(${f.x}px,${f.y}px,0) scale(${f.scale})`;$('turning-cover').style.transform=`translateZ(1px) rotateY(${f.angle}deg)`;$('turning-cover').style.opacity=1;$('turning-cover').hidden=f.opacity===0;document.querySelector('.cover-front').hidden=false;document.querySelector('.cover-back').hidden=false;document.querySelector('.cover-front').style.visibility=f.angle<=-90?'hidden':'visible';document.querySelector('.cover-back').style.visibility=f.angle<=-90?'visible':'hidden';$('book-backdrop').style.opacity=ease(p);$('intro').style.opacity=(dest.tour?clamp(tourProgress*3,0,1):1)*(1-clamp(readerProgress/.32,0,1));$('reader').style.opacity=clamp((readerProgress-.55)/.45,0,1);$('reader').style.pointerEvents=readerProgress===1?'auto':'none';$('reader').hidden=readerProgress===0; $('intro').inert=readerProgress>0; $('reader').inert=readerProgress!==1;$('intro').style.pointerEvents=p===1&&(!dest.tour||tourProgress===1)?'auto':'none';const onFlap=p===1&&(!dest.tour||tourProgress===0);$('book-slip').style.pointerEvents=onFlap?'auto':'none';back.style.pointerEvents=onFlap?'auto':'none';$('book-slip').inert=!onFlap;$('slip-next').hidden=!dest.tour||tourProgress!==0||p!==1;$('tour-back').hidden=!dest.tour;$('tour-back').style.pointerEvents=tourProgress===0&&p===1?'':'none';$('back-slip').hidden=true;$('intro').setAttribute('aria-hidden',String(dest.tour&&tourProgress!==1));$('book-slip').setAttribute('aria-hidden',String(dest.tour&&tourProgress===1));bookProgress=p;syncBookBack();if(p===1)scrollHint();}
+// Once the cover has turned all the way (angle -180: the zoom half of the opening, the book at rest, the
+// tour and the reading preview) the book is drawn flat (2026-10-21): the turned cover is its back face
+// moved one flap width left, which is what the two half-turns amount to, so the picture is the same,
+// but WebKit no longer keeps the 3D context's layers (paper, both cover faces, the shape) at full
+// size for as long as the book is open. On an iPhone those layers were what opening a book added.
+function drawBook(p){if((p===0||p===1)&&(tourProgress===0||tourProgress===1))scheduleLibrarianAway();const dest=bookDestination();const viewportHeight=window.visualViewport?.height||innerHeight;const page=dest.tour?tourPage():null;const flapWidth=page?page.w:dest.w;const flapHeight=page?page.h:dest.h;const rp=ease(readerProgress);if(readerProgress){dest.x=mix(dest.x,0,rp);dest.y=mix(dest.y,0,rp);dest.w=mix(dest.w,innerWidth,rp);dest.h=mix(dest.h,window.visualViewport?.height||innerHeight,rp);}const pages=bookPages(sourceRect,dest,p,{w:flapWidth,h:flapHeight},innerWidth),f=pages.frame;const shape=$('book-shape');shape.classList.toggle('compact-book',dest.tour);shape.style.width=dest.w+'px';shape.style.setProperty('--slip-font',(page?.tall?clamp(innerWidth/38,19,23):Math.min(dest.tour?17:15,flapWidth/320*(dest.tour?11:12)))+'px');shape.style.setProperty('--portrait-height',(page?.tall?Math.min(260,viewportHeight*.2):Math.min(150,flapWidth/320*96))+'px');$('intro').style.width=dest.tour?innerWidth+'px':'';$('intro').style.height=dest.tour?viewportHeight+'px':'';const back=document.querySelector('.cover-back');back.style.width=flapWidth+'px';back.style.left='0px';shape.style.setProperty('--flap-angle',dest.tour?'-3deg':'-8deg');shape.style.height=pages.height+'px';back.style.height=pages.backHeight+'px';const flat=f.angle===-180;$('book-overlay').classList.toggle('book-flat',flat);shape.style.transform=flat?`translate(${f.x}px,${f.y}px) scale(${f.scale})`:`translate3d(${f.x}px,${f.y}px,0) scale(${f.scale})`;$('turning-cover').style.transform=flat?'none':`translateZ(1px) rotateY(${f.angle}deg)`;$('turning-cover').style.opacity=1;$('turning-cover').hidden=f.opacity===0;document.querySelector('.cover-front').hidden=false;document.querySelector('.cover-back').hidden=false;document.querySelector('.cover-front').style.visibility=f.angle<=-90?'hidden':'visible';document.querySelector('.cover-back').style.visibility=f.angle<=-90?'visible':'hidden';$('book-backdrop').style.opacity=ease(p);$('intro').style.opacity=(dest.tour?clamp(tourProgress*3,0,1):1)*(1-clamp(readerProgress/.32,0,1));$('reader').style.opacity=clamp((readerProgress-.55)/.45,0,1);$('reader').style.pointerEvents=readerProgress===1?'auto':'none';$('reader').hidden=readerProgress===0; $('intro').inert=readerProgress>0; $('reader').inert=readerProgress!==1;$('intro').style.pointerEvents=p===1&&(!dest.tour||tourProgress===1)?'auto':'none';const onFlap=p===1&&(!dest.tour||tourProgress===0);$('book-slip').style.pointerEvents=onFlap?'auto':'none';back.style.pointerEvents=onFlap?'auto':'none';$('book-slip').inert=!onFlap;$('slip-next').hidden=!dest.tour||tourProgress!==0||p!==1;$('tour-back').hidden=!dest.tour;$('tour-back').style.pointerEvents=tourProgress===0&&p===1?'':'none';$('back-slip').hidden=true;$('intro').setAttribute('aria-hidden',String(dest.tour&&tourProgress!==1));$('book-slip').setAttribute('aria-hidden',String(dest.tour&&tourProgress===1));bookProgress=p;syncBookBack();if(p===1)scrollHint();}
 let resolveBookAnimation,resolveTourAnimation,closing=false;
-function animateBook(to){if(bookAnim)cancelAnimationFrame(bookAnim);resolveBookAnimation?.();const from=bookProgress,start=performance.now(),duration=reduced.matches?0:(to?1500:650)*Math.abs(to-from);return new Promise(resolve=>{resolveBookAnimation=resolve;function frame(now){const t=duration?clamp((now-start)/duration,0,1):1;drawBook(t===1?to:mix(from,to,t));if(t<1)bookAnim=requestAnimationFrame(frame);else{bookAnim=null;resolveBookAnimation=null;resolve();}}bookAnim=requestAnimationFrame(frame);});}
+// A device with little memory opens and closes a book as reduced motion does, straight to the open book
+// (2026-10-21): the turn is the moment the cover's 3D layers exist, and the book is then drawn flat
+// (drawBook). Chrome says how much memory it has (navigator.deviceMemory, 2 GB or less); Safari does
+// not, so the iPhones and iPads with the least memory that run current iOS are known by their screens
+// (iPhone SE 2nd and 3rd generation, 375×667; iPad 9th generation and iPad mini 5, at most 810×1080).
+const lowMemoryOpen=(()=>{try{const memory=navigator.deviceMemory;if(typeof memory==='number')return memory<=2;const ua=navigator.userAgent||'',w=Math.min(screen.width,screen.height),h=Math.max(screen.width,screen.height);if(/iPhone|iPod/.test(ua))return w<=375&&h<=667;if(/iPad/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1))return w<=810&&h<=1080;}catch{}return false;})();
+function animateBook(to){if(bookAnim)cancelAnimationFrame(bookAnim);resolveBookAnimation?.();const from=bookProgress,start=performance.now(),duration=reduced.matches||lowMemoryOpen?0:(to?1500:650)*Math.abs(to-from);return new Promise(resolve=>{resolveBookAnimation=resolve;function frame(now){const t=duration?clamp((now-start)/duration,0,1):1;drawBook(t===1?to:mix(from,to,t));if(t<1)bookAnim=requestAnimationFrame(frame);else{bookAnim=null;resolveBookAnimation=null;resolve();}}bookAnim=requestAnimationFrame(frame);});}
 
 const shelleyBiography='Mary Shelley’s mother, feminist Mary Wollstonecraft, died days after her birth. Her father, philosopher William Godwin, nurtured her intellect, though she often felt neglected by him. She ran off with Percy Bysshe Shelley at sixteen and began <i>Frankenstein</i> at eighteen, inspired by her friend Lord Byron’s ghost-story challenge. Despite losing three children and her husband, she raised her surviving son and published six novels before dying at fifty-three.';
 function appendEditorialText(target,copy){target.replaceChildren();String(copy||'').split(/(\*[^*]+\*)/g).forEach(part=>{target.append(part.startsWith('*')&&part.endsWith('*')?el('em','',part.slice(1,-1)):document.createTextNode(part));});}
@@ -294,8 +358,8 @@ let introExpanded=false,introProgress=null;
 
 // While a book opens it has the connection: the optional warming waits until its introduction is open (quiet-loads.js).
 async function openBook(book,canvas){if(activeBook)return;const release=quiet.hold();try{await openingBook(book,canvas);}finally{release();}}
-async function openingBook(book,canvas){if(menuOpen)setMenu(false);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_WHOLE_PX),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
-async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
+async function openingBook(book,canvas){if(menuOpen)setMenu(false);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;bookOpenMemory(false);sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
 $('back-slip').onclick=async()=>{if(tourAnimation)return;await animateTour(0);$('slip-next').focus({preventScroll:true});};
@@ -356,7 +420,7 @@ $('begin-reading').onclick=startReading;
 addEventListener('pageshow',event=>{if(event.persisted){
  // Browser Back restores the library scene, not the preface we left behind.
  if(leaving&&activeBook){$('book-overlay').hidden=true;screenBack.hidden=true;if(sourceCanvas)sourceCanvas.style.visibility='';activeBook=null;sourceCanvas=null;bookProgress=0;if(openedFromSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();dispatchEvent(new Event('library2:overlayclosed'));}
- leaving=false;document.body.classList.remove('leaving');
+ leaving=false;openingReader=false;document.body.classList.remove('leaving');
 }});
 function introCast(book){const selection={'frankenstein':[0,1],'jane-eyre':[0,1,4],'julius-caesar':[0,1,2],'odyssey':[0,1,2,3,4]};const list=(selection[book.id]||[0,1,2]).map(i=>({...book.characters[i]})).filter(c=>c.aliases);return list.map((c,i)=>({...c,introRole:['the-prince','meditations'].includes(book.id)?(i===0?'Author':'Key figure'):(i===0||(book.id==='frankenstein'&&i===1)||(book.id==='pride-and-prejudice'&&i===1)?'Protagonist':'Supporting character')}));}
 function scrollHint(){const b=$('intro-body');const more=b.scrollHeight-b.clientHeight-b.scrollTop>10;b.classList.toggle('more-below',more);$('intro-more').hidden=!more||!bookDestination().tour||document.querySelector('.intro-footer').parentElement===b;}
@@ -483,14 +547,49 @@ $('minimize').addEventListener('keydown',e=>{
 });
 addEventListener('pagehide',()=>assistant?.close());
 const dots=Array.from({length:520},(_,i)=>{const y=1-(i+.5)/520*2,r=Math.sqrt(1-y*y),a=i*2.3999632297;return [Math.cos(a)*r,y,Math.sin(a)*r];});
-function drawOrb(time){const c=$('orb'),size=c.clientWidth,dpr=Math.min(devicePixelRatio||1,2);const pixels=Math.round(size*dpr);if(c.width!==pixels){c.width=pixels;c.height=pixels;}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const a=reduced.matches?.4:time*.00012,ca=Math.cos(a),sa=Math.sin(a);const projected=dots.map(([x,y,z])=>{const xx=x*ca+z*sa,zz=z*ca-x*sa;return [xx,y,zz];}).sort((a,b)=>a[2]-b[2]);for(const [x,y,z] of projected){const perspective=1/(1.8-z*.22);ctx.fillStyle=`rgba(236,237,222,${.2+(z+1)*.34})`;ctx.beginPath();ctx.arc(size/2+x*size*.76*perspective,size/2+y*size*.76*perspective,Math.max(.48,size*.0052)*(1+z*.27),0,Math.PI*2);ctx.fill();}}
+// The orb's 520 dots turn and are drawn back to front. Their places and order live in typed arrays
+// kept from frame to frame (the order hardly changes between two frames, so an insertion sort
+// settles it in one pass); the drawing calls are the same, so the pixels are too.
+const dotCount=dots.length,dotY=Float64Array.from(dots,d=>d[1]),dotX0=Float64Array.from(dots,d=>d[0]),dotZ0=Float64Array.from(dots,d=>d[2]),dotXX=new Float64Array(dotCount),dotZZ=new Float64Array(dotCount),dotOrder=Uint16Array.from(dots,(_,i)=>i);
+function drawOrb(time){orbDrawnAt=time;const c=$('orb'),size=c.clientWidth,dpr=Math.min(devicePixelRatio||1,2);const pixels=Math.round(size*dpr);if(c.width!==pixels){c.width=pixels;c.height=pixels;}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const a=reduced.matches?.4:time*.00012,ca=Math.cos(a),sa=Math.sin(a);for(let i=0;i<dotCount;i++){const x=dotX0[i],z=dotZ0[i];dotXX[i]=x*ca+z*sa;dotZZ[i]=z*ca-x*sa;}
+ // Back to front; equal depths keep the dots' own order (Array.prototype.sort is stable).
+ for(let k=1;k<dotCount;k++){const i=dotOrder[k],z=dotZZ[i];let j=k-1;while(j>=0){const o=dotOrder[j],d=dotZZ[o]-z;if(d>0||(d===0&&o>i)){dotOrder[j+1]=o;j--;}else break;}dotOrder[j+1]=i;}
+ const half=size/2,dot=Math.max(.48,size*.0052);for(let k=0;k<dotCount;k++){const i=dotOrder[k],x=dotXX[i],y=dotY[i],z=dotZZ[i];const perspective=1/(1.8-z*.22);ctx.fillStyle=`rgba(236,237,222,${.2+(z+1)*.34})`;ctx.beginPath();ctx.arc(half+x*size*.76*perspective,half+y*size*.76*perspective,dot*(1+z*.27),0,Math.PI*2);ctx.fill();}}
 let lastFrame=0,ambientFrame=0;
 function ambient(now){
  ambientFrame=0;
  if(document.hidden)return;
- if(now-lastFrame>32||reduced.matches){lastFrame=now;if($('hero').getBoundingClientRect().bottom>0)drawScene(now);if(!$('librarian').hidden)drawOrb(now);}
+ const heroBottom=$('hero').getBoundingClientRect().bottom,scene=$('scene');
+ // A screen below the hero the scene's canvas gives its pixels back (780×1742 on a phone, 2026-10-21);
+ // it is painted again half a screen before the hero returns, so it is never seen empty.
+ if(!reduced.matches){if(heroBottom<-innerHeight){if(scene.width){scene.width=0;scene.height=0;}}else if(!scene.width&&heroBottom>-innerHeight/2)drawScene(now);}
+ if(reduced.matches||sceneFrom||!inputWaiting(now)){
+  // The room and the orb each draw about 30 times a second, taking turns when both are due, so
+  // a frame carries the larger of the two pieces of work rather than both.
+  const held=lifeHeld(now),orbDue=!$('librarian').hidden&&(!held||mode!=='minimized')&&(now-orbDrawnAt>32||reduced.matches),painted=scenePaints;
+  if((now-lastFrame>32||reduced.matches)&&(reduced.matches||!orbDue||lastFrame<=orbDrawnAt)){lastFrame=now;if(heroBottom>0){const key=held?sceneKey():null;if(!held||key!==heldSceneKey){heldSceneKey=key;drawScene(now);}}}
+  if((scenePaints===painted||reduced.matches)&&(now-orbDrawnAt>32||reduced.matches)&&!$('librarian').hidden&&(!held||mode!=='minimized'))drawOrb(now);
+ }
  if(!reduced.matches)ambientFrame=requestAnimationFrame(ambient);
 }
+// The room's life (flames, rain, the orb's turn) is the one thing the library draws on every frame,
+// and on a phone it took the main thread from everything else: a tap waited for the frame being
+// painted, and a returning reader's desk waited for the frames between its reads (2026-10-21,
+// scripts/check-library-speed.mjs: at rest 95% busy on a throttled phone, the cold desk 6.3 s with it
+// and 2.9 s without). It holds still, its last frame shown, while the page is still arriving (until
+// the library is ready and idle, at most 4 s), and while the room cannot be seen: under search (96% opaque), My shelf (the room is hidden), the
+// librarian on a phone (86% opaque, blurred) and the fade into the reader. Under the menu and an open
+// book the room shows through, so it keeps moving there. Anything else that changes the picture (a
+// scene arriving or crossfading, the canvas size, the featured book, its place and cover) still draws at once.
+let lifeStarted=reduced.matches,heldSceneKey=null;
+// A touch, click or key gives the next frames to its answer: the room skips its frames for 100 ms after
+// one (positions follow the clock, so it simply moves on), and while the browser reports input waiting.
+let inputAt=-Infinity;for(const type of ['pointerdown','keydown'])addEventListener(type,()=>{inputAt=performance.now();},{capture:true,passive:true});
+function inputWaiting(now){try{if(navigator.scheduling?.isInputPending?.())return true;}catch{}return now-inputAt<100;}
+function heroCovered(){return searchOpen||collectionChoice!=='home'||openingReader||leaving||document.body.classList.contains('leaving')||(innerWidth<700&&mode!=='minimized');}
+function lifeHeld(now){return !reduced.matches&&!sceneFrom&&(!lifeStarted||heroCovered());}
+function sceneKey(){const c=$('scene'),r=$('hero-book').getBoundingClientRect();return [sceneTo,c.clientWidth,c.clientHeight,c.width,Object.keys(images).length,document.documentElement.className,Math.round(r.left),Math.round(r.top),Math.round(r.width),Math.round(r.height),featured.id,textures.has(featured.id),textureWidths.get(featured.id),sourceCanvas?.parentElement?.id||''].join('|');}
+{const since=performance.now();const startLife=()=>{lifeStarted=true;};const waitForLife=()=>{const c=document.documentElement.classList;if((c.contains('library-ready')&&!c.contains('returning-pending')&&!c.contains('returning-scene-pending'))||performance.now()-since>4000){(window.requestIdleCallback||setTimeout)(startLife,{timeout:800});return;}setTimeout(waitForLife,150);};if(!lifeStarted)waitForLife();}
 function refreshAmbient(){cancelAnimationFrame(ambientFrame);ambientFrame=requestAnimationFrame(ambient);}
 addEventListener('tinct:display-profile',refreshAmbient);
 motionPreference.addEventListener('change',refreshAmbient);
@@ -544,12 +643,14 @@ function pushLayer(kind){if(layerFromPop)return;const top=history.state?.library
 function dropLayer(kind){if(layerFromPop||history.state?.libraryLayer!==kind)return;layerSkipPop=true;history.back();}
 let layerSkipPop=false;
 addEventListener('popstate',()=>{if(layerSkipPop){layerSkipPop=false;return;}layerFromPop=true;try{if(activeBook){if(reading)$('reader-back').click();closeBook();}else if(collectionChoice!=='home')selectCollection('home');}finally{layerFromPop=false;}});
-function selectCollection(value){const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
+function selectCollection(value){closeShelfMenus();const fromHome=collectionChoice==='home';const shelfView=value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf';if(value!=='home'&&fromHome&&!shelfView)pushLayer('collection');else if(value==='home'&&!fromHome)dropLayer('collection');collectionChoice=value;setMenu(false);$('library').hidden=value!=='home';$('collection').hidden=value==='home';document.querySelector('#header .brand').hidden=value!=='home';$('collection-back').hidden=value==='home';if(value==='saved'&&new URLSearchParams(location.search).get('view')==='shelf'){collectionChoice='home';$('library').hidden=false;$('collection').hidden=true;document.querySelector('#header .brand').hidden=false;$('collection-back').hidden=true;bookshelf.show();return;}if(value!=='home')renderCollection();else dispatchEvent(new Event('library2:interactive'));(value==='home'?$('menu-toggle'):$('collection-back')).focus({preventScroll:true});scrollTo({top:0,behavior:'instant'});}
 // My shelf: what you are reading, what you want to read, and what you have finished.
+// Remove from shelf (Anders, 2026-10-20; was "Remove from my books"): confirmed in the page, then off My shelf, the
+// reading table and Continue, from every group (Finished too). Its place, highlights and
+// notes are kept: the shelf's own tombstone (libraryTwoSaved.ts), so adding it again brings them back.
 async function removeFromMyShelf(id,{title='',from=null}={}){
- // A book added to Tinct leaves My shelf only once confirmed, as My private uploads do (approved copy, Anders 2026-10-08).
- if(isPublicBookId(id)&&!await confirmDeleteUpload({title:title||books.find(b=>b.id===id)?.title||''},{from}))return;
- const leave=leaveShelf(['reading:'+id,'want:'+id]);
+ if(!await confirmDeleteUpload({title:title||bookById(id)?.title||''},{from,own:false}))return;
+ const leave=leaveShelf(['reading:'+id,'want:'+id,'finished:'+id]);
  try{
   const api=await readingApi();
   // Off My shelf, with the desk's fast-paint snapshot (so a refresh cannot paint it back), for every kind of book.
@@ -561,6 +662,28 @@ async function removeFromMyShelf(id,{title='',from=null}={}){
   if(!result.synced)notice('Removed on this device. Your shelf will sync when you reconnect.');
  }catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
 }
+/**
+ * Currently reading's Read later and (an own book's) Remove from Currently reading (Anders,
+ * 2026-10-21): off the reading row with the desk's own hide (hideFromReadingNow), the place,
+ * highlights and notes kept. Read later lists the book under Saved for later; an own book removed
+ * from Currently reading stays under My private uploads only.
+ */
+async function offCurrentlyReading(id,{own=null,later=true}={}){
+ const leave=leaveShelf([own?'own-reading:'+own.key:'reading:'+id]);
+ try{
+  const api=await readingApi();
+  await Promise.all([api.hideFromReadingNow(id,{saved:later}),leave.faded]);
+  leave.done();
+  if(!own)receiveSaved([...savedBooks,id]);
+  dropFromReading(id);
+  if(own){const at=Date.now();refreshOwnShelf(list=>list.map(b=>b.key===own.key?{...b,readingAt:null,savedAt:later?at:null}:b));}else renderMyBooks();
+ }catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
+}
+/** A Tinct book's ••• on My shelf: Read later under Currently reading, then Remove from shelf. */
+function tinctShelfMenu(id,title,reading){
+ const remove={label:shelfAction(false).item,onChoose:from=>void removeFromMyShelf(id,{title,from})};
+ return shelfMenu(title,{items:reading?[{label:READ_LATER,onChoose:()=>void offCurrentlyReading(id)},remove]:[remove]});
+}
 let ownShelf=null,ownShelfLoading=null;
 /** Forget the listed own books (their covers, places and membership changed) and list them again. */
 function refreshOwnShelf(change){if(ownShelf&&change)ownShelf=change(ownShelf);ownShelfLoading=null;if(collectionChoice==='saved')renderMyBooks();void loadOwnShelf();}
@@ -570,31 +693,37 @@ function dropFromReading(id){
  if(table){for(const key of ['reading','shelfReading','finished'])if(table[key])table[key]=table[key].filter(book=>book.bookId!==id);}
  dispatchEvent(new CustomEvent('library2:shelf-removed',{detail:id}));
 }
-/** An own book's × under Currently reading: off Currently reading, as the desk's × does (its place is kept; it stays in My private uploads). */
-async function removeOwnFromReading(book){
- const id=ownTableId(book.key),leave=leaveShelf(['own-reading:'+book.key]);
- try{const api=await readingApi();await Promise.all([api.hideFromReadingNow(id),leave.faded]);leave.done();dropFromReading(id);refreshOwnShelf(list=>list.map(own=>own.key===book.key?{...own,readingAt:null,savedAt:Date.now()}:own));}
- catch{leave.cancel();notice('Your shelf could not be saved. Please try again.');}
-}
-/** An own book's × under My private uploads: confirmed, then Add a book's own delete (this device and the account). */
+/** An own book's Delete (its ••• menu, anywhere on My shelf): confirmed, then Add a book's own delete (every device and the account). */
 async function deleteOwnBook(book,from){
- if(!await confirmDeleteUpload(book,{from}))return;
- const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key]);
+ if(!await confirmDeleteUpload(book,{from,own:true}))return;
+ const leave=leaveShelf(['own:'+book.key,'own-reading:'+book.key,'finished:'+book.key]);
  try{
   const [gone]=await Promise.all([deleteUpload(book),leave.faded]);leave.done();
-  if(!gone)notice('Removed from this device, but not from your account. Try again.');
+  if(!gone)notice('Deleted from this device, but not from your account. Try again.');
   dropFromReading(ownTableId(book.key));refreshOwnShelf(list=>list.filter(own=>own.key!==book.key));
- }catch{leave.cancel();notice('This book could not be removed. Please try again.');}
+ }catch{leave.cancel();notice('This book could not be deleted. Please try again.');}
+}
+function editOwnBook(book,from){
+ void editOwnBookDetails(book,{from,onSaved:updated=>refreshOwnShelf(list=>list.map(item=>item.key===updated.key?{...item,title:updated.title,author:updated.author}:item))});
 }
 /** A Currently reading card from the reading row itself, for a book the library's list does not hold yet. */
-function readingRowCard(row){
- const card=el('article','collection-card');card.dataset.shelfGroup='reading';card.dataset.rowBook=row.bookId;
+/**
+ * A Finished card: one of the reader's own books (finished by its place), a book the shelves list
+ * (or a typed search finds), else the row itself. Finished books held from the shelves (Symposium,
+ * War and Peace: discoveryAvailable false) used to be dropped here, so Finished showed fewer books
+ * than the reader had finished (Anders, 2026-10-20).
+ */
+function finishedCard(row){
+ if(row.own){if(!row.ownKey||!row.href||!addEnabled())return null;const card=ownBookCard({key:row.ownKey,kind:row.kind||(row.ownKey.startsWith('pdf:')?'pdf':'epub'),title:row.title||'',author:row.author||'',cover:row.cover||ownShelf?.find(own=>own.key===row.ownKey)?.cover||null,href:row.href},el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook});card.dataset.shelfGroup='finished';return card;}
+ const book=bookById(row.bookId);return book?{book}:readingRowCard(row,'finished');
+}
+function readingRowCard(row,group='reading'){
+ const card=el('article','collection-card');card.dataset.shelfGroup=group;card.dataset.rowBook=row.bookId;
  const wrap=el('div','card-wrap');const open=el('button','book-card cover-button');open.type='button';open.setAttribute('aria-label',`Open ${row.title}${row.author?', by '+row.author:''}`);
  const src=bookCoverSrc({bookId:row.bookId,art:row.cover});
  if(src){const img=el('img','cover');img.src=src;img.alt='';img.decoding='async';open.append(img);}else{const cover=paperCover(row.title,row.author||'','');cover.className='cover';open.append(cover);}
- open.onclick=async()=>{document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination({id:row.bookId},null),new Promise(r=>setTimeout(r,240))]);location.assign(href);};
- const x=el('button','save-toggle','×');x.type='button';x.dataset.shelfRemove='true';x.dataset.title=row.title;x.setAttribute('aria-label','Remove from My shelf: '+row.title);x.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(row.bookId,{title:row.title,from:x});};
- wrap.append(open,x);card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
+ open.onclick=()=>openInReader({id:row.bookId});
+ wrap.append(open,tinctShelfMenu(row.bookId,row.title,group==='reading'));card.append(wrap,el('h2','',shortTitle(row.title)),el('p','',row.author||''));return card;
 }
 /**
  * A Currently reading card for one of the reader's own books, from its reading-table row: the same
@@ -606,7 +735,8 @@ function ownReadingCard(row,ownList){
  const key=row.ownKey||listed?.key;if(!key)return null;
  const book={key,kind:row.kind||listed?.kind||(key.startsWith('pdf:')?'pdf':'epub'),title:row.title||listed?.title||'',author:row.author||listed?.author||'',cover:row.cover||listed?.cover||null,href:row.href||listed?.href||'',percent:row.percent??listed?.percent??null};
  if(!book.href)return null;
- const card=ownBookCard(book,el,{onRemove:own=>void removeOwnFromReading(own),progress:true});card.dataset.shelfGroup='own-reading';return card;
+ const actions=[{label:READ_LATER,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own})},{label:OFF_READING,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own,later:false})}];
+ const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook,actions,progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
 function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
@@ -622,7 +752,16 @@ function leaveShelf(keys){
  const forget=()=>keys.forEach(key=>leavingShelf.delete(key));
  return {faded:Promise.all(cards.map(card=>fadeOut(card,{reduced:reduced.matches}))),done:forget,cancel(){forget();if(collectionChoice==='saved')renderMyBooks();}};
 }
+// A redraw that arrives while a cover's ••• menu is open (the catalogue or the account's table
+// landing late) waits for it to close, then draws the view as it is then (2026-10-22).
+let collectionRedrawHeld=false;
+function holdCollectionRedraw(){
+ if(!shelfMenuOpenIn($('collection-books')))return false;
+ if(!collectionRedrawHeld){collectionRedrawHeld=true;afterShelfMenu(()=>{collectionRedrawHeld=false;if(collectionChoice!=='home')renderCollection();});}
+ return true;
+}
 function renderMyBooks(){
+ if(holdCollectionRedraw())return;
  const shown=collectionChoice==='saved'&&!$('collection').hidden,before=shown?recordRects(shelfNodes(),shelfKey):null,y=scrollY;
  drawMyBooks();
  if(!before)return;
@@ -640,9 +779,9 @@ function drawMyBooks(){
  const showOwn=addEnabled();
  const readingCards=reading.map(row=>row.own?(showOwn?ownReadingCard(row,ownShelf):null):byId(row.bookId)?{book:byId(row.bookId)}:readingRowCard(row)).filter(Boolean);
  // An own book taken off Currently reading (its place kept) is saved for later, as Tinct's are
- // (Anders, 2026-10-12); it stays under My private uploads too, where its × deletes it.
- const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{progress:true});card.dataset.shelfGroup='want';return card;}):[];
- const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(r=>byId(r.bookId)).filter(Boolean).map(book=>({book})),'finished']];
+ // (Anders, 2026-10-12); its ••• deletes it, as under My private uploads.
+ const savedOwn=showOwn&&ownShelf?ownShelf.filter(b=>b&&b.readingAt==null&&b.savedAt!=null&&!present.has(ownTableId(b.key))).sort((a,b)=>b.savedAt-a.savedAt).map(b=>{const card=ownBookCard(b,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook,progress:true});card.dataset.shelfGroup='want';return card;}):[];
+ const groups=[['Currently reading',readingCards,'reading'],['Saved for later',[...books.filter(b=>savedBooks.has(b.id)&&!present.has(b.id)).map(book=>({book})),...savedOwn],'want'],['Finished',table.finished.map(finishedCard).filter(Boolean),'finished']];
  let total=0;
  groups.forEach(([label,list,kind])=>{
   if(!list.length)return;total+=list.length;grid.append(el('h2','my-books-head',label));
@@ -651,14 +790,13 @@ function drawMyBooks(){
    if(item instanceof Node){grid.append(item);return;}
    const book=item.book;
    const card=el('article','collection-card'),open=coverButton(book);card.dataset.shelfGroup=kind;card.dataset.book=book.id;
-   const toggle=open.querySelector('.save-toggle');
-   // Finished books cannot be removed (Anders, 2026-10-07): they stay on the shelf.
-   // Books being read and books saved for later keep their ×.
-   if(toggle&&kind==='finished')toggle.remove();
-   else if(toggle){toggle.dataset.shelfRemove='true';toggle.textContent='×';toggle.classList.remove('on');toggle.removeAttribute('aria-pressed');toggle.setAttribute('aria-label','Remove from My shelf: '+book.title);toggle.onclick=e=>{e.preventDefault();e.stopPropagation();void removeFromMyShelf(book.id,{title:book.title,from:toggle});};}
+   // Every book here, Finished too, has the cover's ••• with Remove from shelf (Anders,
+   // 2026-10-20; it replaces the shelf's ×, and the 2026-10-07 rule that Finished books stay),
+   // after Read later under Currently reading (2026-10-21).
+   open.querySelector('.save-toggle')?.replaceWith(tinctShelfMenu(book.id,book.title,kind==='reading'));
    if(kind==='reading'){
     const b=open.querySelector?.('button.cover-button')||open;b.onclick=null;
-    b.addEventListener('click',async e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();document.body.classList.add('leaving');const [href]=await Promise.all([readerDestination(book,null),new Promise(r=>setTimeout(r,240))]);location.assign(href);},{capture:true});
+    b.addEventListener('click',e=>{if(e.target.closest('.save-toggle'))return;e.stopImmediatePropagation();void openInReader(book);},{capture:true});
    }
    card.append(open,el('h2','',shortTitle(book.title)),el('p','',book.author));grid.append(card);
   });
@@ -670,7 +808,7 @@ function drawMyBooks(){
   if(ownShelf===null)void loadOwnShelf();
   // The reading table's own rows carry each cover at full size (read fresh with the table).
   const covers=new Map(reading.filter(r=>r.own&&r.cover).map(r=>[r.bookId,r.cover]));
-  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,currentlyReading:false,onDelete:(book,from)=>void deleteOwnBook(book,from)});
+  total+=appendOwnShelf(grid,ownShelf||[],el,{covers,currentlyReading:false,onDelete:(book,from)=>void deleteOwnBook(book,from),onEdit:editOwnBook});
  }
  $('collection-empty').hidden=total>0;$('collection-empty').textContent='Books you are reading, and books you add with ＋, appear here.';
  for(const node of grid.children){
@@ -691,6 +829,7 @@ function collectionCard(book){
  return card;
 }
 function renderCollection(){
+ if(holdCollectionRedraw())return;
  const [kind,id]=collectionChoice.split(':');let selected=books,title='All books';
  if(kind==='saved'){renderMyBooks();return;}
  const shelfAdd=document.querySelector('#collection .shelf-add');if(shelfAdd)shelfAdd.hidden=true;

@@ -5,9 +5,10 @@
  * SQL not yet run) becomes one typed error the routes turn into "unavailable".
  *
  * Other readers are only ever read through public_profile_cards, which leaves
- * out Only me and hidden profiles and unapproved photos (20261008_profiles.sql).
+ * out Only me and hidden profiles and unapproved photos (20261008_profiles.sql;
+ * uploads are stored approved since 19 Oct 2026).
  */
-import type { BoardCard, ReportReason } from '../../social/socialRules'
+import { isReservedTestEmail, type BoardCard, type ReportReason } from '../../social/socialRules'
 import type { Review } from '../../social/profileRules'
 import type { ReaderProfileRow } from './profileStore'
 import type { SupabaseEnv } from './supabase'
@@ -37,6 +38,8 @@ export type AdminProfileRow = Pick<ReaderProfileRow,
 export interface SocialStore {
   following(userId: string): Promise<string[]>
   followers(userId: string): Promise<string[]>
+  /** Both of the above in one request (the board's first round trip); optional, the two calls otherwise. */
+  followsEitherWay?(userId: string): Promise<{ following: string[]; followers: string[] }>
   /** Everyone this reader blocked, and everyone who blocked this reader. */
   blockedEitherWay(userId: string): Promise<Set<string>>
   blockedByMe(userId: string): Promise<string[]>
@@ -47,14 +50,26 @@ export interface SocialStore {
   unblock(blocker: string, blocked: string): Promise<void>
 
   cardsByIds(ids: string[]): Promise<BoardCard[]>
-  /** Everyone readers only, by name or handle. */
-  searchEveryone(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }, limit: number): Promise<BoardCard[]>
+  /**
+   * Find readers: every findable profile (Friends or Everyone; the view leaves
+   * out Only me and hidden), by name or handle (Anders, 19 Oct 2026). Rows carry
+   * only what the card view holds; Find shows name, handle and picture.
+   */
+  searchReaders(query: { kind: 'handle'; handle: string } | { kind: 'name'; text: string }, limit: number): Promise<BoardCard[]>
   /** Everyone readers with the leaderboard and reading time on. */
   everyoneBoardCards(limit: number): Promise<BoardCard[]>
   /** How many of those are real readers (internal and test accounts left out). Throws when it cannot be told. */
   everyoneReaderCount(): Promise<number>
+  /** Which of these accounts are test accounts (profiles.is_test, or a reserved test address). Throws when it cannot be told. */
+  testAccounts(ids: string[]): Promise<Set<string>>
 
-  /** The cached 7-day seconds for these readers, and when the cache was built. */
+  /**
+   * The board's live seconds: these readers' ledger rows from a day on
+   * ('_earlier' left out), by the (user_id, day) index. Throws rather than
+   * return a cut-off list, so the board never shows too little time.
+   */
+  weekLedger(ids: string[], sinceDay: string): Promise<LedgerDayRow[]>
+  /** The fallback: the cached 7-day seconds for these readers (hourly), and when the cache was built. */
   boardSeconds(ids: string[]): Promise<Map<string, number>>
   boardRefreshedAt(): Promise<string | null>
   refreshBoard(): Promise<void>
@@ -67,6 +82,8 @@ export interface SocialStore {
   openReports(limit: number): Promise<ReportRow[]>
   resolveReport(id: number, resolution: string): Promise<void>
   pendingReviews(limit: number): Promise<AdminProfileRow[]>
+  /** Profiles with an uploaded (or Google) picture or an uploaded background, newest change first: photos show at once, so the admin page can remove one afterwards. */
+  recentPhotos(limit: number): Promise<AdminProfileRow[]>
   adminProfiles(query: string, limit: number): Promise<AdminProfileRow[]>
   adminProfile(id: string): Promise<AdminProfileRow | null>
   adminUpdate(id: string, patch: Partial<{ display_name: string; handle: string; hidden_at: string | null; picture_review: Review; background_review: Review; picture_kind: string; picture_value: string | null; background_kind: string; background_value: string | null }>): Promise<'ok' | 'taken'>
@@ -142,6 +159,14 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
     async followers(userId) {
       return (await rows<{ follower: string }>(env, `follows?followed=eq.${userId}&select=follower&limit=2000`)).map(row => row.follower)
     },
+    async followsEitherWay(userId) {
+      // One request by the primary key (follower, …) and follows_followed, as the two above use.
+      const list = await rows<{ follower: string; followed: string }>(env, `follows?or=(follower.eq.${userId},followed.eq.${userId})&select=follower,followed&limit=4000`)
+      return {
+        following: list.filter(row => row.follower === userId).map(row => row.followed),
+        followers: list.filter(row => row.followed === userId).map(row => row.follower),
+      }
+    },
     async blockedEitherWay(userId) {
       const list = await rows<{ blocker: string; blocked: string }>(env, `blocks?or=(blocker.eq.${userId},blocked.eq.${userId})&select=blocker,blocked&limit=5000`)
       return new Set(list.map(row => (row.blocker === userId ? row.blocked : row.blocker)))
@@ -171,11 +196,12 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       }
       return out
     },
-    async searchEveryone(query, limit) {
+    async searchReaders(query, limit) {
       const filter = query.kind === 'handle'
         ? `handle=eq.${encodeURIComponent(query.handle)}`
         : `or=(display_name.ilike.${like(query.text)},handle.ilike.${like(query.text.replace(/\s+/g, ''))})`
-      return cardRows(env, `public_profile_cards?visibility=eq.everyone&${filter}&order=display_name.asc&limit=${limit}`)
+      // Friends and Everyone (the view never holds Only me or hidden profiles; the filter says so again).
+      return cardRows(env, `public_profile_cards?visibility=in.(friends,everyone)&${filter}&order=display_name.asc&limit=${limit}`)
     },
     async everyoneBoardCards(limit) {
       return cardRows(env, `public_profile_cards?visibility=eq.everyone&on_leaderboard=is.true&show_time=is.true&limit=${limit}`)
@@ -187,6 +213,30 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
       const total = Number((res.headers.get('content-range') || '').split('/')[1])
       if (!Number.isFinite(total)) throw new SocialUnavailable('public_profile_cards count unreadable')
       return total
+    },
+
+    async testAccounts(list) {
+      const out = new Set<string>()
+      for (const group of chunks([...new Set(list)], 100)) {
+        if (!group.length) continue
+        // profiles.is_test exists once 20261010_profiles_is_test.sql has run; until then the address alone tells.
+        let res = await request(env, `profiles?id=in.(${ids(group)})&select=id,email,is_test`)
+        if (res.status === 400 && /is_test/.test(await res.clone().text().catch(() => ''))) res = await request(env, `profiles?id=in.(${ids(group)})&select=id,email`)
+        if (!res.ok) throw new SocialUnavailable(`profiles test ${res.status}`, res.status)
+        for (const row of await res.json() as Array<{ id: string; email: string | null; is_test?: boolean | null }>) {
+          if (row.is_test === true || isReservedTestEmail(row.email)) out.add(row.id)
+        }
+      }
+      return out
+    },
+
+    async weekLedger(list, sinceDay) {
+      // 50 readers a request: a reader has at most a row per day and book in the window.
+      const groups = chunks([...new Set(list)].filter(id => /^[0-9a-f-]{36}$/i.test(id)), 50)
+      const limit = 1000
+      const parts = await Promise.all(groups.map(group => rows<LedgerDayRow>(env, `reading_time?user_id=in.(${ids(group)})&day=gte.${sinceDay}&book_id=neq._earlier&select=user_id,day,book_id,read_seconds,listen_seconds&limit=${limit}`)))
+      if (parts.some(part => part.length >= limit)) throw new SocialUnavailable('week ledger cut off')
+      return parts.flat()
     },
 
     async boardSeconds(list) {
@@ -226,6 +276,9 @@ export function supabaseSocialStore(env: SupabaseEnv): SocialStore {
     },
     async pendingReviews(limit) {
       return rows<AdminProfileRow>(env, `reader_profiles?or=(picture_review.eq.pending,background_review.eq.pending)&select=${ADMIN_COLUMNS}&order=updated_at.asc&limit=${limit}`)
+    },
+    async recentPhotos(limit) {
+      return rows<AdminProfileRow>(env, `reader_profiles?or=(picture_kind.in.(upload,google),background_kind.eq.upload)&select=${ADMIN_COLUMNS}&order=updated_at.desc&limit=${limit}`)
     },
     async adminProfiles(query, limit) {
       const text = query.replace(/[^\p{L}\p{N} ._'-]/gu, '').trim()

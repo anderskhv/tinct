@@ -20,6 +20,7 @@ interface MarginApi {
   CARD_KINDS: string[]
   QUIZ_ANSWER_CHARS: number
   quizLine(q: Record<string, unknown>): string
+  quizAsked(q: Record<string, unknown>): Array<{ q: string; idea?: string; missed?: true }>
   copyQuote(o: Record<string, unknown>): string
   html: {
     moreHtml(o?: Record<string, unknown>): string
@@ -104,15 +105,28 @@ describe('Quiz me (FIXES-2026-10-15 PR C and the deep test)', () => {
   const questions = [{ q: 'Q one?', answer: 'A', why: '', cite: '' }, { q: 'Q two?', answer: 'B', why: '', cite: '' }, { q: 'Q three?', answer: 'C', why: '', cite: '' }]
   const quiz = (data: Record<string, unknown>): Card => ({ id: 'q', kind: 'quiz', page: 12, rects: [[12, 0, 0, 1, 0.02]], text: 'p', at: 1, data: { questions, i: 0, results: [], ...data } })
 
-  it('leaves "Show answer" questions out of the score and says so: "1 of 2 answered, 1 shown"', () => {
+  it('the score is right answers of all the questions, "2/3"; a shown answer is not right (Anders, 20 Oct 2026)', () => {
     const results = [{ answer: 'a', verdict: 'right' }, { shown: true }, { answer: 'c', verdict: 'not_yet' }]
-    expect(M.quizLine({ questions, results })).toBe('1 of 2 answered, 1 shown')
-    expect(M.quizLine({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'nearly' }] })).toBe('2 of 3')
-    expect(M.quizLine({ questions, results: [{ shown: true }, { shown: true }, { shown: true }] })).toBe('3 of 3 shown')
+    expect(M.quizLine({ questions, results })).toBe('1/3')
+    expect(M.quizLine({ questions, results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'nearly' }] })).toBe('2/3')
+    expect(M.quizLine({ questions, results: [{ shown: true }, { shown: true }, { shown: true }] })).toBe('0/3')
+    expect(M.quizLine({ questions: [...questions, ...questions], results: [{ verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }, { verdict: 'right' }, { verdict: 'nearly' }] })).toBe('4/6')
     const done = M.html.cardHtml(quiz({ i: 2, done: true, results }), { open: true, P, pageLabel: '12' })
-    expect(done).toContain('<span class="is-bottom-line">1 of 2 answered, 1 shown</span>')
-    expect(done).toContain('data-c="again">Try another quiz</button>')
-    expect(M.html.foldText(quiz({ i: 2, done: true, results }), P)).toBe('1 of 2 answered, 1 shown')
+    expect(done).toContain('<span class="is-bottom-line">1/3</span>')
+    expect(done).toContain('data-c="again">Try new questions</button>')
+    expect(M.html.foldText(quiz({ i: 2, done: true, results }), P)).toBe('1/3')
+  })
+
+  it('Try new questions: the questions asked so far, the missed ideas marked, never more than 24 (Anders, 20 Oct 2026)', () => {
+    const ideas = ['Light needs a source', 'Shades redirect light', 'Wicks limit the flame']
+    const asked = M.quizAsked({ ideas, questions: questions.map((q, i) => ({ ...q, idea: i })), results: [{ verdict: 'right' }, { shown: true }, { verdict: 'nearly' }] })
+    expect(asked).toEqual([{ q: 'Q one?', idea: ideas[0] }, { q: 'Q two?', idea: ideas[1], missed: true }, { q: 'Q three?', idea: ideas[2], missed: true }])
+    // The next round got idea 1 right: its earlier miss is cleared; idea 2, not asked again, stays missed.
+    const next = M.quizAsked({ ideas, asked, questions: [{ q: 'Q four?', answer: 'x', idea: 1 }], results: [{ verdict: 'right' }] })
+    expect(next).toEqual([{ q: 'Q one?', idea: ideas[0] }, { q: 'Q two?', idea: ideas[1] }, { q: 'Q three?', idea: ideas[2], missed: true }, { q: 'Q four?', idea: ideas[1] }])
+    const many = M.quizAsked({ asked: Array.from({ length: 30 }, (_, i) => ({ q: `Old ${i}?` })), questions, results: [] })
+    expect(many).toHaveLength(24)
+    expect(many.at(-1)).toEqual({ q: 'Q three?', missed: true })
   })
 
   it('the last question\'s link is "See your score"; the others "Next question"', () => {
@@ -152,6 +166,8 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
   it('names chapters and "the whole book" for an EPUB; a PDF keeps pages and "the whole PDF"', () => {
     const card: Card = { id: 'c', kind: 'explain', page: 3, rects: [[3, 0, 0, 1, 0.02]], text: 't', at: 1 }
     expect(M.html.cardLabel(card, '3', { unit: 'ch.', doc: 'epub' })).toBe('Explain · ch. 3')
+    // The margin preview of a Tinct book: the chapter by its title, as the chapter pill shows it (no "ch.").
+    expect(M.html.cardLabel(card, 'Chapter 1', { unit: '', doc: 'epub' })).toBe('Explain · Chapter 1')
     expect(M.html.cardLabel(card, '3')).toBe('Explain · p. 3')
     expect(M.html.cardLabel({ ...card, kind: 'whole' }, '3', { doc: 'epub' })).toBe('Whole book')
     expect(M.html.stackHtml([{ kind: 'note' }], Infinity, { doc: 'epub' })).toBe('<span>1 more in this chapter</span><span>Your note</span>')
@@ -179,14 +195,13 @@ describe('Copy quote and the margin\'s words for an EPUB', () => {
   })
 })
 
-describe('the EPUB margin switch (Anders, 15 Oct: "Keep it pdf for now")', () => {
-  it('is off by default, and marginOn() consults it: an EPUB keeps the popup and the docked chat', () => {
+// Anders, 15 Oct: "Keep it pdf for now"; 19 Oct 2026: EPUBs open in Margin view on the desktop (TinctReaderLayout.epubView).
+describe('the EPUB margin switch', () => {
+  it('is on, on the desktop only, and marginOn() consults it: an EPUB at a phone\'s width keeps the popup and the docked chat', () => {
     const reader = readFileSync(ROOT + 'app/public/lab/addbook/js/reader.js', 'utf8')
-    expect(reader).toContain('const EPUB_MARGIN = false;')
+    expect(reader).toContain('const EPUB_MARGIN = true;')
     expect(reader).toContain("const marginOn = () => hasBook() && (state.kind === 'pdf' || (state.kind === 'epub' && epubMargin()));")
-    expect(reader).toContain("const epubMargin = () => EPUB_MARGIN || window.TinctEpubMargin === true;")
-    // The mirror ships the same switch.
-    expect(readFileSync(ROOT + 'addbooks/web/src/js/reader.js', 'utf8')).toContain('const EPUB_MARGIN = false;')
+    expect(reader).toContain("const epubMargin = () => (EPUB_MARGIN && innerWidth >= 700) || window.TinctEpubMargin === true;")
   })
 })
 

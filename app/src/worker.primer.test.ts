@@ -38,7 +38,7 @@ other: anything else.
 Then write the orientation for that kind, as JSON only:
 {"kind":"textbook","gist":"…","sections":[{"title":"What you’ll learn","items":[{"text":"…","cite":"{p. 12}"}]},{"title":"Terms","items":[{"term":"…","meaning":"…"}]}],"map":[{"title":"…","pages":"pp. 9–10"}]}
 kind: paper, textbook, narrative, practical or other.
-gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language.
+gist: always first. Two sentences, at most 45 words, on what the chapter sets out to do and why it matters for what follows. No sales language. Start straight with its content, or name it by what it is ("This chapter", "This essay", "This section", "The paper") or by its title; never call it a "unit".
 sections: the kind's sections, with exactly these titles, in this order:
 paper: "Key claims", three to five of the chapter's central claims, results or turns; "Keep in mind", one to three cautions a careful teacher would give: conventions that change later, assumptions, contested or dated material, notation traps. Do not repeat the claims.
 textbook: "What you’ll learn", three to five things the reader will be able to explain or do after the chapter; "Ideas to hold onto", two to four central ideas the rest of the chapter builds on; "Terms", three to eight of the chapter's own key terms, each as {"term":"…","meaning":"…"}, the meaning one line, as the chapter defines it.
@@ -108,7 +108,7 @@ const signedIn = async (body: unknown) => {
 afterEach(() => { vi.unstubAllGlobals() })
 
 describe('primer: parsing', () => {
-  it('parses only for a user PDF: kind pdf, no bookId', () => {
+  it('parses only for a user\'s own file: kind pdf (or epub), no bookId', () => {
     const parsed = parseCompanionRequest(primerBody())!
     expect(parsed.intent).toBe('chapter')
     expect(parsed.chapter!.action).toEqual(primerAction)
@@ -119,7 +119,8 @@ describe('primer: parsing', () => {
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, bookId: 'odyssey' } }))).toBeNull()
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, bookId: '../not-an-id' } }))).toBeNull()
     expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: undefined } }))).toBeNull()
-    expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: 'epub' } }))).toBeNull()
+    // An EPUB of the reader's own has Before you start too since 20 Oct 2026 (its units' marks): parsed, marked an EPUB.
+    expect(parseCompanionRequest(primerBody({ context: { ...pdfContext, kind: 'epub' } }))!.epub).toBe(true)
     expect(parseCompanionRequest({ intent: 'chapter', context: bookContext, chapter: { action: { ...primerAction, bookId: 'odyssey' } } })).toBeNull()
     expect(parseCompanionRequest({ intent: 'chapter', context: { ...bookContext, kind: 'pdf' }, chapter: { action: primerAction } })).toBeNull()
   })
@@ -155,7 +156,7 @@ describe('primer: prompt', () => {
     expect(system).toContain(PROMPTS_MD_CITATION_RULE)
     expect(system).toContain('Do not greet or praise the question.')
     expect(system).toContain('<chapter_source_data>\n<page n="9">\n1.1 Rates\nThe rate of a reaction…\n</page>\n\n<page n="10">\nMore on rates.\n</page>\n\n<page n="xi">\n1.2 Order\n</page>\n</chapter_source_data>')
-    expect(system).toContain('"unit":"1 Rates"')
+    expect(system).toContain('"part":"1 Rates"')
     // No book tools and no paragraph numbering for a PDF.
     expect(system).not.toContain('read_chapter')
     expect(system).not.toMatch(/\[1\] /)
@@ -250,7 +251,7 @@ describe('primer: the chat route', () => {
     const parts = buildMarginSystemParts(whole)!
     expect(parts.volatile).toContain('Here "the chapter" means the whole document above, every page of it.')
     const part = buildMarginSystemParts(parseCompanionRequest(primerBody({ document }))!)!
-    expect(part.volatile).toContain('Here "the chapter" means one part of the reader\'s own document, the unit named here')
+    expect(part.volatile).toContain('Here "the chapter" means one part of the reader\'s own document, the part named here')
     for (const p of [parts, part]) {
       expect(p.volatile).toContain('never about how the text reached you')
       expect(p.stable + p.volatile).not.toMatch(/excerpt|retrospective/i)
@@ -282,9 +283,9 @@ describe('primer: the chat route', () => {
     expect(all.volatile).not.toContain('whole document above')
     expect(all.volatile).toContain('Here "the chapter" means only the part of the document above, the pages labelled 9–10; never call it the whole document.')
     const unit = buildMarginSystemParts(parseCompanionRequest(primerBody({ document: part, chapter: { action: { kind: 'primer', unitKey: 'outline-0', unitTitle: 'Chapter 1: Rates' } } }))!)!
-    expect(unit.volatile).toContain('the unit named here and only it; its text is in the document above, on the pages labelled 9–xi.')
+    expect(unit.volatile).toContain('the part named here and only it; its text is in the document above, on the pages labelled 9–xi.')
     expect(unit.volatile).toContain('never blend it with a neighbouring chapter')
-    expect(unit.volatile).toContain('"unit":"Chapter 1: Rates"')
+    expect(unit.volatile).toContain('"title":"Chapter 1: Rates"')
   })
 
   it('tells the model what the text is: the whole document (no outline, or a short PDF) or the whole of one part; never an excerpt', () => {
@@ -292,7 +293,7 @@ describe('primer: the chat route', () => {
     expect(whole).toContain('The text below is the whole document, every page of it; here "the chapter" means the whole document.')
     expect(whole).toContain('Cautions (Keep in mind) are about the document itself (its conventions, assumptions, notation and claims to check), never about how the text reached you.')
     const part = buildCompanionSystem(parseCompanionRequest(primerBody())!)
-    expect(part).toContain('The text below is the whole of one part of the reader\'s own document, the unit named below; here "the chapter" means that part.')
+    expect(part).toContain('The text below is the whole of one part of the reader\'s own document, the part named below; here "the chapter" means that part.')
     for (const system of [whole, part]) {
       expect(system).not.toMatch(/excerpt/i)
       expect(system).not.toContain('never a whole-document retrospective')

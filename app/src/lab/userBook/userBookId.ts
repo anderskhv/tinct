@@ -1,5 +1,5 @@
 /**
- * Identity of a reader's own book (an EPUB opened on /lab/addbook/) inside the
+ * Identity of a reader's own book (an EPUB or PDF a reader added) inside the
  * Tinct reader. Pure: no browser APIs.
  *
  * A user book is keyed by the first 24 hex digits of its file's SHA-256, the
@@ -55,26 +55,44 @@ export function userBookReaderUrl(hex: string): string {
 export const USER_BOOKS_SHELF_URL = '/library#my-shelf'
 
 /**
- * Add a book's page for one own book: a PDF opens in its viewer there (and a
- * reload of that URL reopens it at its place); an EPUB goes on to the reader;
- * a book kept only in the account is downloaded to this device first. Older
- * `/lab/addbook/?open=<pdf|epub>:<hex>` links still open the same book.
+ * One own book, one address (Anders, 22 Oct 2026, "One Tinct"): every own book
+ * opens at `/reader?userBook=<hex>`, whatever its kind or view. On a desktop the
+ * reader shows the margin reader in its frame (UserBookReader: an EPUB in Margin
+ * view, a PDF's Original pages, a book not on this device yet) or the Tinct
+ * reader (an EPUB or PDF converted to a Tinct book); a phone opens the Tinct
+ * reader, or the margin reader's page for a PDF's pages. Older
+ * `/lab/addbook/?userBook=<hex>` and `?open=<pdf|epub>:<hex>` links redirect here
+ * (labRoute.ts legacyLabPageRedirect), keeping `page`, `frac` and `pages`.
  */
 export function ownBookOpenUrl(hex: string): string {
-  return `/lab/addbook/?${USER_BOOK_QUERY}=${encodeURIComponent(hex)}`
+  return userBookReaderUrl(hex)
+}
+
+/** What a link to an own book may carry on to the margin reader: Original pages' page, its fraction, "show the pages". */
+export const OWN_BOOK_PASS_PARAMS = ['page', 'frac', 'pages'] as const
+
+/**
+ * The margin reader's page for one own book (book.html, served as `/lab/addbook/book`): the frame the
+ * reader shows on a desktop, or the page a phone goes to for a PDF's pages. `search`: the reader URL's
+ * query, whose `page`, `frac` and `pages` go along.
+ */
+export function ownBookFrameUrl(hex: string, search = ''): string {
+  const params = new URLSearchParams({ [USER_BOOK_QUERY]: hex })
+  let from: URLSearchParams
+  try { from = new URLSearchParams(search) } catch { from = new URLSearchParams() }
+  for (const key of OWN_BOOK_PASS_PARAMS) {
+    const value = from.get(key)
+    if (value !== null) params.set(key, value)
+  }
+  return `/lab/addbook/book?${params}`
 }
 
 /**
- * Where an own book opens: an EPUB in the Tinct reader; a PDF in the reader
- * as its Tinct text when that is the edition it opens in (`choice`, from
- * pdfEditions.ts pdfEditionChoice), else in Add a book's viewer (Original
- * pages), which forwards to the Tinct text once it knows the PDF reads best so.
- * A book of unknown kind (`kind` absent) opens in the reader, which forwards a
- * PDF read in its pages to the viewer.
+ * Where an own book opens: always its one address (ownBookOpenUrl); the reader there decides the view
+ * from this device's choices (epubView.ts, pdfEditions.ts). The `kind` and `choice` arguments are kept
+ * for callers that still pass them.
  */
-export function ownBookHref(hex: string, kind?: 'pdf' | 'epub' | null, choice?: 'text' | 'pages' | null): string {
-  if (kind === 'pdf') return choice === 'text' ? userBookReaderUrl(hex) : ownBookOpenUrl(hex)
-  if (!kind && choice === 'pages') return ownBookOpenUrl(hex)
+export function ownBookHref(hex: string, _kind?: 'pdf' | 'epub' | null, _choice?: 'text' | 'pages' | 'margin' | null): string {
   return userBookReaderUrl(hex)
 }
 
