@@ -1,0 +1,1201 @@
+{
+  "sourceCommit": "77c1d7de929a0f45d9c92692ad40f481033aabfa",
+  "contentTip": "959296ff926d6fb2b106455074c6227aa1d09600",
+  "releaseRun": 40107782766,
+  "continuationRun": 40107768345,
+  "worker": "2bfcd694-2968-49e5-bbbd-1722189d2211",
+  "bundle": "/assets/index-BHdfgYSZ.js",
+  "on": true,
+  "predecessor": true,
+  "source": true,
+  "releaseConclusion": "success",
+  "continuationConclusion": "success",
+  "speakerCases": 120,
+  "jobs": [
+    {
+      "id": 120912959678,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run actions/setup-node@v4",
+        "Set up cloud checkout",
+        "Check release phase before a Worker upload or deploy",
+        "Run npm test",
+        "Choose release mode",
+        "Record the version currently serving production",
+        "Require the accepted reader before repair release",
+        "Deploy to Cloudflare Workers (direct mode)",
+        "Record deployed bundle hash",
+        "Verify approved reader build has public activation ON",
+        "Wait for the new bundle to be served",
+        "Hand the deployed build to the checks",
+        "Run actions/upload-artifact@v4",
+        "Post Run actions/setup-node@v4",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483073,
+      "name": "checks (reader-panels)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Verify reader panels and selection",
+        "Verify reader feedback fixes",
+        "Verify spoken Bible book transition silently",
+        "Verify repaired live Aa, layout, and source position with mocked API",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483107,
+      "name": "checks (production)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Smoke test production",
+        "Verify production brand metadata and assets",
+        "Verify production sign-in completion without real accounts",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483118,
+      "name": "checks (library)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Verify production featured-book preview",
+        "Verify public cinematic library",
+        "Verify repaired own EPUB isolation on the handed-off build",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483122,
+      "name": "checks (page-layout)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Verify Shakespeare layout",
+        "Verify hyphenation hardening",
+        "Verify every Shakespeare edition and reported passage",
+        "Verify repaired emitted ON reader and synthetic PDF Original",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483140,
+      "name": "checks (publication)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Verify Omarchy commands and themes",
+        "Verify Lighthouse publication",
+        "Verify held books stay out of discovery",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120914483177,
+      "name": "checks (audio-smoke)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run ./.github/actions/prepare",
+        "Run actions/download-artifact@v4",
+        "Unpack the deployed build",
+        "Confirm the origin still serves this build",
+        "Smoke test",
+        "Verify published Android book downloads",
+        "Verify inline audio loading silently",
+        "Run actions/upload-artifact@v4",
+        "Post Run ./.github/actions/prepare",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ]
+    },
+    {
+      "id": 120917112024,
+      "name": "promote",
+      "status": "completed",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "id": 120917112401,
+      "name": "confirm-promote",
+      "status": "completed",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "id": 120917112503,
+      "name": "production-checks (${{ matrix.group }})",
+      "status": "completed",
+      "conclusion": "skipped",
+      "steps": []
+    },
+    {
+      "id": 120917112907,
+      "name": "rollback",
+      "status": "completed",
+      "conclusion": "skipped",
+      "steps": []
+    }
+  ],
+  "published": [
+    "moby-dick",
+    "crime-and-punishment",
+    "the-prince",
+    "confessions",
+    "alice-in-wonderland",
+    "bacchae",
+    "magna-carta",
+    "medea",
+    "meditations",
+    "middlemarch",
+    "the-art-of-war",
+    "wuthering-heights"
+  ],
+  "offeredDanishTotal": 18,
+  "servedFiles": {
+    "version": "77c1d7de929a0f45d9c92692ad40f481033aabfa",
+    "at": "2026-10-24T15:48:20.129Z",
+    "results": [
+      {
+        "identity": "macbeth/modern-da",
+        "sha256": "c10696221af2265dfa00fdc8f09a27dfd1d2a5289da347d3a6fd82a1de125d57",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "as-you-like-it/modern-da",
+        "sha256": "80064e115bd31f194fa60e16f1ec08ee4b99efc5f1cc199ec7a4ac34dd52d8ef",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "faust-part-1/modern-da",
+        "sha256": "ce719108b40e89f1f008d16a62e1fa7dc9e1f1600b2481439696873f9b471191",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "jerusalem/modern-da",
+        "sha256": "c1552e9a9a3a311b75e1d83ee104ff33c71c1a538bf68fd4bfd5d4f000a78223",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "paradise-lost/modern-da",
+        "sha256": "266ada0a3a74b0838b1dfe4a54a08d2959f03d627ddc955e954fcb306ead117c",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "heart-of-darkness/modern-da",
+        "sha256": "b0d43952a120819a451538113d82947f922ddaba0535257fb19bd909ba834444",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "discourse-on-inequality/modern-da",
+        "sha256": "383db95bbf30559d6ba41eb2045d37f2a24db49e9a3e80b2e246efb8e6b2c224",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "vindication-rights-of-woman/modern-da",
+        "sha256": "41ec7c251015ca8079dc88e5845757ac634fbf4c62f6ab03160ed5e686fc8880",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "discourse-on-inequality/original-fr",
+        "sha256": "6d62dac119c1f5cea89b175a3cc20ae2f1a9a7829c0475845360be4648f92cb8",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "discourse-on-inequality/original-en",
+        "sha256": "d3e7e7975ac634b98f685abcd7f6aae64b3621a74db31e1d229f2b6cfc4ba3bd",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "discourse-on-inequality/modern-en",
+        "sha256": "78356e4ffdf62ec28c056fe871521967da428d31fafe694cad8b064f7019c62f",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "gilgamesh/original-en",
+        "sha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "gilgamesh/modern-en",
+        "sha256": "419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "second-treatise/original-en",
+        "sha256": "efbd7cabd14ed99f98aabae7a95f48e8102db75f0b7aaae0054d0ffe4675b0d0",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "second-treatise/modern-en",
+        "sha256": "f6799fa25a28d93cec6029b76e929c788c4d123d02450b517fd128c3a73e6dd2",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "social-contract/original-en",
+        "sha256": "7bf5ababb7c4dfe1cec0230d44f64960d8b447c4802b6a716b52d770a5854157",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "social-contract/modern-en",
+        "sha256": "cf7facb77bfc5bafc99cb4d7a236fd4f59d5f9ffc4554c6f063ee8daae273843",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "symposium/original-en",
+        "sha256": "3521a12d5d5acd6d4ac83f53747192c5ae592f7bf5e965c9c9bff881965495a6",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "symposium/modern-en",
+        "sha256": "1e970b7beb3f098095ecf1a9fc7d78a8855d75e6ffc3bba14edc69db0e05374f",
+        "discovery": false,
+        "directLink": true
+      },
+      {
+        "identity": "jane-eyre/modern-da",
+        "discovery": false,
+        "held": true
+      },
+      {
+        "identity": "odyssey/modern-da",
+        "discovery": false,
+        "held": true
+      },
+      {
+        "identity": "to-the-lighthouse/modern-da",
+        "sha256": "adea2203ed23857a8e12c9566f0e2a340cb44f4e52a231c880ac49ec2283ed06",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "a-little-princess/modern-da",
+        "sha256": "ce3adc75e9e7cba629e901c716b551933cd855e06d4cac830d261603dbc62571",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "around-the-world-80-days/modern-da",
+        "sha256": "c6c87d873d08fb8dd98d8ab0e48619383dc0f97bab830c412b7c750df4150496",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "jungle-book/modern-da",
+        "sha256": "3e63c88be5d4ea74e09498608ba267fcee9d20f1293851584983299ced54470f",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "grimms-fairy-tales/modern-da",
+        "sha256": "53550b14b49833ff6a26d746d6c7cc989009e3133876123e8b146ef907f4ef70",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "arabian-nights/modern-da",
+        "sha256": "e0c617f207b9e698afd210808ebfb2fd0e1750ef8a65eb8cda4ed165e8664075",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "moby-dick/modern-da",
+        "sha256": "26dfb6cbf36ded8e95700be94e51586a99a0ab8c7daabc48d7fba51942464789",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "crime-and-punishment/modern-da",
+        "sha256": "912d6f6374c2543a52ba737fe85714b62ea8c235456b5ce5640eb7a4eb3a5ac4",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "the-prince/modern-da",
+        "sha256": "4d0efe429d27e14db2f05745acc240fadc7e9cb32d237b5e33297c5d154d61a9",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "confessions/modern-da",
+        "sha256": "ac1dfc10a1001442f868a76c722ca2cfe07b833d0ea2b75eaf83d76284d66176",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "alice-in-wonderland/modern-da",
+        "sha256": "1683a43b53096dbab47e2b9fcd81cc0ccb11e8e88789927fa735200071733e9e",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "bacchae/modern-da",
+        "sha256": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "magna-carta/modern-da",
+        "sha256": "11e3b4de2820772b5258b1981f783b80dfb14db4667d9e8d6358004e6cc99009",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "medea/modern-da",
+        "sha256": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "meditations/modern-da",
+        "sha256": "c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "middlemarch/modern-da",
+        "sha256": "964adedfdf3613fb95bf14e6b8623092d5d74090ff102933ab9a12afe536a3fa",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "the-art-of-war/modern-da",
+        "sha256": "cf5cc1224f1be2a1214e2e93b0e2f333d38184d11d91593ba37507719c433dcb",
+        "discovery": true,
+        "held": false
+      },
+      {
+        "identity": "wuthering-heights/modern-da",
+        "sha256": "d444a2133ca0490dcc6bf0c97fd06119be782dd063ce08cebd8c605c35c82d12",
+        "discovery": true,
+        "held": false
+      }
+    ]
+  },
+  "extraLiveCompareCases": [
+    {
+      "id": "moby-dick",
+      "device": "phone",
+      "continuous": false,
+      "engine": "webkit",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "moby-dick",
+      "device": "desktop",
+      "continuous": false,
+      "engine": "chromium",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "crime-and-punishment",
+      "device": "phone",
+      "continuous": false,
+      "engine": "webkit",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "crime-and-punishment",
+      "device": "desktop",
+      "continuous": false,
+      "engine": "chromium",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "the-prince",
+      "device": "phone",
+      "continuous": false,
+      "engine": "webkit",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "the-prince",
+      "device": "desktop",
+      "continuous": false,
+      "engine": "chromium",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "confessions",
+      "device": "phone",
+      "continuous": false,
+      "engine": "webkit",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "confessions",
+      "device": "desktop",
+      "continuous": false,
+      "engine": "chromium",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "alice-in-wonderland",
+      "device": "phone",
+      "continuous": false,
+      "engine": "webkit",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    },
+    {
+      "id": "alice-in-wonderland",
+      "device": "desktop",
+      "continuous": false,
+      "engine": "chromium",
+      "pages": 0,
+      "cases": [],
+      "issues": [],
+      "compare": true,
+      "reload": true,
+      "errors": [],
+      "audioRequests": []
+    }
+  ],
+  "alicePhone": {
+    "id": "alice-in-wonderland",
+    "device": "phone",
+    "continuous": false,
+    "engine": "webkit",
+    "pages": 59,
+    "cases": [
+      {
+        "label": "ch1-p001",
+        "chapter": 1,
+        "place": "0:0",
+        "visibleWords": 154
+      },
+      {
+        "label": "ch1-p002",
+        "chapter": 1,
+        "place": "2:42",
+        "visibleWords": 157
+      },
+      {
+        "label": "ch1-p003",
+        "chapter": 1,
+        "place": "5:12",
+        "visibleWords": 170
+      },
+      {
+        "label": "ch1-p004",
+        "chapter": 1,
+        "place": "6:44",
+        "visibleWords": 157
+      },
+      {
+        "label": "ch1-p005",
+        "chapter": 1,
+        "place": "8:25",
+        "visibleWords": 163
+      },
+      {
+        "label": "ch1-p006",
+        "chapter": 1,
+        "place": "9:53",
+        "visibleWords": 158
+      },
+      {
+        "label": "ch1-p007",
+        "chapter": 1,
+        "place": "10:21",
+        "visibleWords": 169
+      },
+      {
+        "label": "ch1-p008",
+        "chapter": 1,
+        "place": "12:27",
+        "visibleWords": 159
+      },
+      {
+        "label": "ch1-p009",
+        "chapter": 1,
+        "place": "13:76",
+        "visibleWords": 160
+      },
+      {
+        "label": "ch1-p010",
+        "chapter": 1,
+        "place": "15:34",
+        "visibleWords": 152
+      },
+      {
+        "label": "ch1-p011",
+        "chapter": 1,
+        "place": "18:7",
+        "visibleWords": 168
+      },
+      {
+        "label": "ch1-p012",
+        "chapter": 1,
+        "place": "19:56",
+        "visibleWords": 173
+      },
+      {
+        "label": "ch1-p013",
+        "chapter": 1,
+        "place": "21:8",
+        "visibleWords": 140
+      },
+      {
+        "label": "ch1-p014",
+        "chapter": 1,
+        "place": "23:0",
+        "visibleWords": 11
+      },
+      {
+        "label": "ch12-p001",
+        "chapter": 12,
+        "place": "0:0",
+        "visibleWords": 128
+      },
+      {
+        "label": "ch12-p002",
+        "chapter": 12,
+        "place": "2:16",
+        "visibleWords": 139
+      },
+      {
+        "label": "ch12-p003",
+        "chapter": 12,
+        "place": "7:0",
+        "visibleWords": 133
+      },
+      {
+        "label": "ch12-p004",
+        "chapter": 12,
+        "place": "13:11",
+        "visibleWords": 126
+      },
+      {
+        "label": "ch12-p005",
+        "chapter": 12,
+        "place": "22:18",
+        "visibleWords": 125
+      },
+      {
+        "label": "ch12-p006",
+        "chapter": 12,
+        "place": "30:0",
+        "visibleWords": 125
+      },
+      {
+        "label": "ch12-p007",
+        "chapter": 12,
+        "place": "37:0",
+        "visibleWords": 150
+      },
+      {
+        "label": "ch12-p008",
+        "chapter": 12,
+        "place": "44:7",
+        "visibleWords": 159
+      },
+      {
+        "label": "ch12-p009",
+        "chapter": 12,
+        "place": "49:32",
+        "visibleWords": 152
+      },
+      {
+        "label": "ch12-p010",
+        "chapter": 12,
+        "place": "53:27",
+        "visibleWords": 130
+      },
+      {
+        "label": "ch12-p011",
+        "chapter": 12,
+        "place": "59:0",
+        "visibleWords": 142
+      },
+      {
+        "label": "ch12-p012",
+        "chapter": 12,
+        "place": "65:12",
+        "visibleWords": 162
+      },
+      {
+        "label": "ch12-p013",
+        "chapter": 12,
+        "place": "67:44",
+        "visibleWords": 123
+      },
+      {
+        "label": "ch12-p014",
+        "chapter": 12,
+        "place": "69:0",
+        "visibleWords": 140
+      },
+      {
+        "label": "ch12-p015",
+        "chapter": 12,
+        "place": "70:42",
+        "visibleWords": 45
+      },
+      {
+        "label": "sample-ch2-para0",
+        "chapter": 2,
+        "place": "0:0",
+        "visibleWords": 152
+      },
+      {
+        "label": "sample-ch2-para13",
+        "chapter": 2,
+        "place": "13:0",
+        "visibleWords": 170
+      },
+      {
+        "label": "sample-ch2-para25",
+        "chapter": 2,
+        "place": "25:0",
+        "visibleWords": 49
+      },
+      {
+        "label": "sample-ch3-para0",
+        "chapter": 3,
+        "place": "0:0",
+        "visibleWords": 132
+      },
+      {
+        "label": "sample-ch3-para24",
+        "chapter": 3,
+        "place": "24:0",
+        "visibleWords": 126
+      },
+      {
+        "label": "sample-ch3-para47",
+        "chapter": 3,
+        "place": "47:0",
+        "visibleWords": 139
+      },
+      {
+        "label": "sample-ch4-para0",
+        "chapter": 4,
+        "place": "0:0",
+        "visibleWords": 123
+      },
+      {
+        "label": "sample-ch4-para21",
+        "chapter": 4,
+        "place": "21:0",
+        "visibleWords": 138
+      },
+      {
+        "label": "sample-ch4-para41",
+        "chapter": 4,
+        "place": "41:0",
+        "visibleWords": 147
+      },
+      {
+        "label": "sample-ch5-para0",
+        "chapter": 5,
+        "place": "0:0",
+        "visibleWords": 135
+      },
+      {
+        "label": "sample-ch5-para37",
+        "chapter": 5,
+        "place": "37:0",
+        "visibleWords": 132
+      },
+      {
+        "label": "sample-ch5-para74",
+        "chapter": 5,
+        "place": "74:0",
+        "visibleWords": 161
+      },
+      {
+        "label": "sample-ch6-para0",
+        "chapter": 6,
+        "place": "0:0",
+        "visibleWords": 141
+      },
+      {
+        "label": "sample-ch6-para40",
+        "chapter": 6,
+        "place": "40:0",
+        "visibleWords": 139
+      },
+      {
+        "label": "sample-ch6-para79",
+        "chapter": 6,
+        "place": "79:0",
+        "visibleWords": 156
+      },
+      {
+        "label": "sample-ch7-para0",
+        "chapter": 7,
+        "place": "0:0",
+        "visibleWords": 132
+      },
+      {
+        "label": "sample-ch7-para52",
+        "chapter": 7,
+        "place": "52:0",
+        "visibleWords": 122
+      },
+      {
+        "label": "sample-ch7-para104",
+        "chapter": 7,
+        "place": "104:0",
+        "visibleWords": 169
+      },
+      {
+        "label": "sample-ch8-para0",
+        "chapter": 8,
+        "place": "0:0",
+        "visibleWords": 135
+      },
+      {
+        "label": "sample-ch8-para35",
+        "chapter": 8,
+        "place": "35:0",
+        "visibleWords": 132
+      },
+      {
+        "label": "sample-ch8-para70",
+        "chapter": 8,
+        "place": "70:0",
+        "visibleWords": 115
+      },
+      {
+        "label": "sample-ch9-para0",
+        "chapter": 9,
+        "place": "0:0",
+        "visibleWords": 143
+      },
+      {
+        "label": "sample-ch9-para46",
+        "chapter": 9,
+        "place": "46:0",
+        "visibleWords": 140
+      },
+      {
+        "label": "sample-ch9-para91",
+        "chapter": 9,
+        "place": "91:0",
+        "visibleWords": 24
+      },
+      {
+        "label": "sample-ch10-para0",
+        "chapter": 10,
+        "place": "0:0",
+        "visibleWords": 124
+      },
+      {
+        "label": "sample-ch10-para40",
+        "chapter": 10,
+        "place": "40:0",
+        "visibleWords": 128
+      },
+      {
+        "label": "sample-ch10-para80",
+        "chapter": 10,
+        "place": "80:0",
+        "visibleWords": 117
+      },
+      {
+        "label": "sample-ch11-para0",
+        "chapter": 11,
+        "place": "0:0",
+        "visibleWords": 146
+      },
+      {
+        "label": "sample-ch11-para37",
+        "chapter": 11,
+        "place": "37:0",
+        "visibleWords": 115
+      },
+      {
+        "label": "sample-ch11-para73",
+        "chapter": 11,
+        "place": "73:0",
+        "visibleWords": 114
+      }
+    ],
+    "issues": [],
+    "compare": true,
+    "reload": true,
+    "errors": [],
+    "audioRequests": []
+  },
+  "aliceContinuousDesktop": {
+    "id": "alice-in-wonderland",
+    "device": "desktop",
+    "continuous": true,
+    "engine": "chromium",
+    "pages": 38,
+    "cases": [
+      {
+        "label": "margin-ch1-scroll0",
+        "chapter": 1,
+        "place": "0:0",
+        "visibleWords": 328
+      },
+      {
+        "label": "margin-ch1-scroll1",
+        "chapter": 1,
+        "place": "0:0",
+        "visibleWords": 388
+      },
+      {
+        "label": "margin-ch1-scroll2",
+        "chapter": 1,
+        "place": "2:111",
+        "visibleWords": 409
+      },
+      {
+        "label": "margin-ch1-scroll3",
+        "chapter": 1,
+        "place": "2:111",
+        "visibleWords": 419
+      },
+      {
+        "label": "margin-ch12-scroll0",
+        "chapter": 12,
+        "place": "0:0",
+        "visibleWords": 267
+      },
+      {
+        "label": "margin-ch12-scroll1",
+        "chapter": 12,
+        "place": "3:40",
+        "visibleWords": 257
+      },
+      {
+        "label": "margin-ch12-scroll2",
+        "chapter": 12,
+        "place": "7:4",
+        "visibleWords": 199
+      },
+      {
+        "label": "margin-ch12-scroll3",
+        "chapter": 12,
+        "place": "7:4",
+        "visibleWords": 226
+      },
+      {
+        "label": "sample-ch2-para0",
+        "chapter": 2,
+        "place": "0:0",
+        "visibleWords": 297
+      },
+      {
+        "label": "sample-ch2-para13",
+        "chapter": 2,
+        "place": "13:0",
+        "visibleWords": 408
+      },
+      {
+        "label": "sample-ch2-para25",
+        "chapter": 2,
+        "place": "25:0",
+        "visibleWords": 124
+      },
+      {
+        "label": "sample-ch3-para0",
+        "chapter": 3,
+        "place": "0:0",
+        "visibleWords": 262
+      },
+      {
+        "label": "sample-ch3-para24",
+        "chapter": 3,
+        "place": "24:0",
+        "visibleWords": 296
+      },
+      {
+        "label": "sample-ch3-para47",
+        "chapter": 3,
+        "place": "47:0",
+        "visibleWords": 225
+      },
+      {
+        "label": "sample-ch4-para0",
+        "chapter": 4,
+        "place": "0:0",
+        "visibleWords": 328
+      },
+      {
+        "label": "sample-ch4-para21",
+        "chapter": 4,
+        "place": "21:0",
+        "visibleWords": 366
+      },
+      {
+        "label": "sample-ch4-para41",
+        "chapter": 4,
+        "place": "41:0",
+        "visibleWords": 234
+      },
+      {
+        "label": "sample-ch5-para0",
+        "chapter": 5,
+        "place": "0:0",
+        "visibleWords": 224
+      },
+      {
+        "label": "sample-ch5-para37",
+        "chapter": 5,
+        "place": "37:0",
+        "visibleWords": 266
+      },
+      {
+        "label": "sample-ch5-para74",
+        "chapter": 5,
+        "place": "74:0",
+        "visibleWords": 312
+      },
+      {
+        "label": "sample-ch6-para0",
+        "chapter": 6,
+        "place": "0:0",
+        "visibleWords": 298
+      },
+      {
+        "label": "sample-ch6-para40",
+        "chapter": 6,
+        "place": "40:0",
+        "visibleWords": 332
+      },
+      {
+        "label": "sample-ch6-para79",
+        "chapter": 6,
+        "place": "79:0",
+        "visibleWords": 169
+      },
+      {
+        "label": "sample-ch7-para0",
+        "chapter": 7,
+        "place": "0:0",
+        "visibleWords": 217
+      },
+      {
+        "label": "sample-ch7-para52",
+        "chapter": 7,
+        "place": "52:0",
+        "visibleWords": 203
+      },
+      {
+        "label": "sample-ch7-para104",
+        "chapter": 7,
+        "place": "104:0",
+        "visibleWords": 214
+      },
+      {
+        "label": "sample-ch8-para0",
+        "chapter": 8,
+        "place": "0:0",
+        "visibleWords": 259
+      },
+      {
+        "label": "sample-ch8-para35",
+        "chapter": 8,
+        "place": "35:0",
+        "visibleWords": 287
+      },
+      {
+        "label": "sample-ch8-para70",
+        "chapter": 8,
+        "place": "70:0",
+        "visibleWords": 115
+      },
+      {
+        "label": "sample-ch9-para0",
+        "chapter": 9,
+        "place": "0:0",
+        "visibleWords": 289
+      },
+      {
+        "label": "sample-ch9-para46",
+        "chapter": 9,
+        "place": "46:0",
+        "visibleWords": 266
+      },
+      {
+        "label": "sample-ch9-para91",
+        "chapter": 9,
+        "place": "91:0",
+        "visibleWords": 57
+      },
+      {
+        "label": "sample-ch10-para0",
+        "chapter": 10,
+        "place": "0:0",
+        "visibleWords": 207
+      },
+      {
+        "label": "sample-ch10-para40",
+        "chapter": 10,
+        "place": "40:0",
+        "visibleWords": 244
+      },
+      {
+        "label": "sample-ch10-para80",
+        "chapter": 10,
+        "place": "80:0",
+        "visibleWords": 78
+      },
+      {
+        "label": "sample-ch11-para0",
+        "chapter": 11,
+        "place": "0:0",
+        "visibleWords": 306
+      },
+      {
+        "label": "sample-ch11-para37",
+        "chapter": 11,
+        "place": "37:0",
+        "visibleWords": 196
+      },
+      {
+        "label": "sample-ch11-para73",
+        "chapter": 11,
+        "place": "73:0",
+        "visibleWords": 127
+      }
+    ],
+    "issues": [],
+    "compare": true,
+    "reload": true,
+    "errors": [],
+    "audioRequests": []
+  },
+  "extraLiveSweepLimit": "Local browser network access was blocked by environment policy after 10 completed device cases across five books. No attempt was made to bypass the block. Alice also passed separate full phone and continuous desktop checks. All 12 candidates passed prepublication phone/desktop visual QA; all 18 offered Danish editions passed mandatory production discovery and exact-byte checks in GitHub Actions.",
+  "browserEnvironment": "Isolated muted headless contexts; API and provider routes mocked; internal traffic marked. Desktop used the environment proxy and accepted its interception certificate. GitHub Actions separately checked real production TLS.",
+  "reviewCaveats": [
+    "All content review was by AI helper agents.",
+    "No native Danish speaker has read these editions.",
+    "Reviewer replacements were not independently re-reviewed."
+  ],
+  "scope": "No Don Quixote or next-book translation/review work started. No Anthropic API calls."
+}
