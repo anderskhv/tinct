@@ -1,5 +1,7 @@
 # Reader layout and card repair — 24 October 2026
 
+**Superseded design candidate; not release-ready.** User review identified missing final pre-Codex interactions. PR #613 is back in draft. See [the historical parity audit](reader-pre-codex-parity-2026-10-24.md). The screenshots below are implementation evidence, not accepted design. Provisional style changes are paused; nothing has been merged or deployed.
+
 Implemented on `codex/reader-polish-20261024`, based on main `77c1d7de`. Local work outside iCloud was explicitly authorized. Synced ChatGPT project sources were not modified.
 
 ## Reader behavior
