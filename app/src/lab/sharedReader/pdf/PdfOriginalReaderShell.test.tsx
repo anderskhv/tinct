@@ -35,7 +35,7 @@ vi.mock('../../../components/reader/SelectionDeskBar', () => ({
 }))
 afterEach(() => { cleanup(); localStorage.clear(); vi.restoreAllMocks(); vi.unstubAllGlobals() })
 
-const openNotebook = () => { fireEvent.click(screen.getByRole('button', { name: 'Contents', exact: true })); fireEvent.click(screen.getByRole('button', { name: 'Notebook', exact: true })) }
+const openNotebook = () => { fireEvent.click(screen.getByTestId('lab-header-notebook')) }
 
 it('bounds a long PDF Contents list while retaining the current page and direct page jump', () => {
   const list = contentsPages(5000, 2450)

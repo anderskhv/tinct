@@ -121,7 +121,11 @@ export function PhoneThread({ turns, pending }: { turns: LabAskTurn[]; pending: 
 export function PhonePassageBody({ lead, turns, pending }: { lead?: ReactNode; turns: LabAskTurn[]; pending: boolean }) {
   const end = useRef<HTMLDivElement | null>(null)
   const count = turns.length
-  useEffect(() => { if (count) end.current?.scrollIntoView?.({ block: 'end' }) }, [count])
+  useEffect(() => {
+    // Margin bodies share the source scroller: revealing their tail would move the book.
+    // Phone and paged companion cards retain their own existing tail-follow behavior.
+    if (count && !end.current?.closest('.source-margin-rail')) end.current?.scrollIntoView?.({ block: 'end' })
+  }, [count])
   return (
     <>
       {lead}

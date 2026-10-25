@@ -9,7 +9,6 @@ import { readPdfOriginalSelection, markPdfTextFurniture } from './pdfOriginalSel
 import { findPdfHeading, type PdfHeadingActions } from './pdfHeadingGeometry'
 import { PdfFigureTools, type PdfFigureAction } from './PdfFigureTools'
 import { capturePdfRegion, type PdfRegionCapture } from './pdfOriginalFigures'
-import { HIGHLIGHT_COLORS } from '../../../types'
 import './pdfOriginal.css'
 
 const GAP = 18
@@ -388,14 +387,6 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
       <title>Drag to move through original PDF pages</title>
       {mapLines.map((line, index) => <line key={index} x1={line.left} x2={line.right} y1={line.y + .5} y2={line.y + .5} className="pdf-original__map-line" />)}
       <rect x={.5} y={mapPosition * 600} width={33} height={Math.max(4, Math.min(600 - mapPosition * 600, viewportHeight / sourceMap.total * 600))} rx={4} className="pdf-original__map-window" />
-      {highlights.filter(mark => mark.page >= 1 && mark.page <= sourceMap.heights.length).map(mark => {
-        const top = mark.rects.find(rect => rect.length === 4 && Number.isFinite(rect[1]))?.[1] ?? 0
-        return <circle key={mark.id} cx={30} cy={((sourceMap.starts[mark.page - 1] ?? 0) + clamp(top, 0, 1) * sourceMap.heights[mark.page - 1]) / sourceMap.total * 600} r={2} className="pdf-original__map-mark" style={{ fill: HIGHLIGHT_COLORS.find(color => color.key === mark.color)?.hex ?? mark.color }} />
-      })}
-      {cards.filter(card => card.page >= 1 && card.page <= sourceMap.heights.length).map(card => {
-        const top = card.rects?.find(rect => rect.length === 5 && rect[0] === card.page && Number.isFinite(rect[2]))?.[2] ?? 0
-        return <circle key={card.id} cx={30} cy={((sourceMap.starts[card.page - 1] ?? 0) + clamp(top, 0, 1) * sourceMap.heights[card.page - 1]) / sourceMap.total * 600} r={2.3} className="pdf-original__map-card" />
-      })}
     </svg>}
     <div className="pdf-original__scroll" ref={scroller} tabIndex={0} onPointerDown={event => { const page = (event.target as Element).closest<HTMLElement>('.pdf-original__page'); if (page && !(event.target as Element).closest('button,input,textarea')) setDragPage(Number(page.dataset.page)) }} onMouseUp={event => { if (!(event.target as Element).closest('button,input,textarea,.source-margin-rail')) select() }} onKeyUp={event => { if (event.key === 'Shift' || event.shiftKey || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'a')) select() }} onClick={event => {
       if (!onSourceActivate || !(window.getSelection()?.isCollapsed ?? true) || (event.target as Element).closest('button,input,textarea,.source-margin-rail')) return

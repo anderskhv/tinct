@@ -274,7 +274,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     pendingRebase.current = { anchor: place, offset: Math.min((hostRef.current?.clientHeight ?? 600) * .24, 140) }
     setWindowState({ key: destinationKey, start: continuousWindowStart(place, passage.paragraphs) })
   }
-  return <><SourceMinimap bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} highlights={passage.highlights} onJump={jumpFromMap} />
+  return <><SourceMinimap bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
     onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>

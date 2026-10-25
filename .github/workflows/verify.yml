@@ -191,6 +191,12 @@ jobs:
       - name: Verify page breaks end on a filled line
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.typeset == 'true' }}
         run: node scripts/check-page-break-lines.mjs
+      - name: Verify margin width and scrolling chrome before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TINCT_ORIGIN: ''
+          TINCT_REFINEMENT_OUTPUT: artifacts/margin-refinements
+        run: node scripts/check-reader-margin-refinements.mjs
       - name: Verify original PDF interactions before release
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         env:
