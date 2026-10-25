@@ -162,6 +162,13 @@ try {
       await page.waitForTimeout(650)
       assert.equal(await restoredFreeEditor.inputValue(), 'A free margin note beside this source.', 'free note survives the autosave interval after reload')
       assert.equal(await page.evaluate(id => JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').find(mark => `highlight:${mark.id}` === id)?.note, freeId), 'A free margin note beside this source.', 'persisted free note is not erased by reopening')
+      await page.getByTestId('lab-header-notebook').click()
+      const notebook = page.getByRole('region', { name: 'Notebook', exact: true })
+      const freeNoteRow = notebook.getByTestId(`contents-highlight-${freeId.replace(/^highlight:/, '')}`)
+      await freeNoteRow.getByText('A free margin note beside this source.', { exact: true }).waitFor()
+      assert.equal(await freeNoteRow.getByTestId('lab-wait').count(), 0, 'a point note has no quotation to load and never shows a source spinner')
+      await page.screenshot({ path: `${output}/notebook-free-note.png` })
+      await notebook.getByRole('button', { name: 'Close overlay', exact: true }).click()
       // A late answer must stay with the Ask that requested it even if another card is opened.
       const createAsk = async (from, to, question) => {
         const open = host.locator('[data-testid="source-margin-item"][data-open="true"]')

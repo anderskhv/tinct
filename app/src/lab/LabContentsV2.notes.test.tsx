@@ -214,3 +214,34 @@ it('only saved cards get card deletion; an ordinary chat stays readable, and und
   fireEvent.click(screen.getByRole('button', { name: 'Undo' }))
   expect(restore).toHaveBeenCalledOnce()
 })
+
+it('shows a blank-margin note immediately without fetching quotation text, including its detail', () => {
+  const point = mark('point-note', { paragraphIndex: 1, endParagraphIndex: 1, fromWord: 3, toWord: 3, text: '', note: 'note 1' })
+  const p = { ...props(), notebook: true, highlights: [point], chapterNotes: [] }
+  render(<LabContentsV2 {...p} />)
+  expect(screen.getByText('note 1')).toBeTruthy()
+  expect(screen.queryByTestId('lab-wait')).toBeNull()
+  expect(loadEdition).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByTestId('contents-highlight-point-note'))
+  expect(screen.getByText('note 1')).toBeTruthy()
+  expect(screen.queryByTestId('lab-wait')).toBeNull()
+  expect(loadEdition).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: 'Open passage' }))
+  expect(p.onOpenPassage).toHaveBeenCalledWith({ chapterNumber: 1, paragraphIndex: 1, wordIndex: 3 })
+})
+
+it('ends the spinner when a real highlighted source is absent from the loaded edition', async () => {
+  const absent = mark('missing-source', { paragraphIndex: 99, endParagraphIndex: 99, note: 'Keep my note' })
+  render(<LabContentsV2 {...props()} notebook highlights={[absent]} chapterNotes={[]} />)
+  expect(await screen.findByText('Passage unavailable')).toBeTruthy()
+  expect(screen.getByText('Keep my note')).toBeTruthy()
+  expect(screen.queryByTestId('lab-wait')).toBeNull()
+})
+
+it('keeps saved source text even on a legacy zero-length range', () => {
+  const saved = mark('saved-source', { fromWord: 2, toWord: 2, text: 'Retained source words', note: 'My note' })
+  render(<LabContentsV2 {...props()} notebook highlights={[saved]} chapterNotes={[]} />)
+  expect(screen.getByText('Retained source words')).toBeTruthy()
+  expect(screen.queryByTestId('lab-wait')).toBeNull()
+  expect(loadEdition).not.toHaveBeenCalled()
+})
