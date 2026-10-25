@@ -792,3 +792,21 @@ it('opens desktop menu Chat as a focused current-position margin composer and re
   fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
   expect((screen.getByPlaceholderText('Ask about this passage') as HTMLTextAreaElement).value).toBe('An unsent current-position question.')
 })
+
+
+it('uses the compact Explain card surface for mobile Chat and preserves its draft when closed', () => {
+  renderPhone('?chrome=v2', { marginPhone: true, sharedReader: true })
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const card = document.querySelector('.lab-pcard[data-kind="chat"]')!
+  expect(card).toBeTruthy()
+  expect(card.className).not.toContain('is-tall')
+  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat')
+  expect(screen.getByTestId('lab-ask-input').getAttribute('placeholder')).toMatch(/^Ask about /)
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'My unfinished question' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close chat' }))
+  expect(document.querySelector('.lab-pcard[data-kind="chat"]')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('My unfinished question')
+})

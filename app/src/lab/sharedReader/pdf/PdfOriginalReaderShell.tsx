@@ -519,11 +519,11 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       {currentText && completeUnitPages.length > 0 && services?.getPageText && services.askUnitQuiz && services.askUnitQuizCheck && services.saveUnitQuizCardWithId && <button onClick={() => void runUnitQuiz()}>Quiz me</button>}
       {services?.saveUnitNote && <button onClick={() => openUnitNote()}>Note</button>}
     </aside>}
-    <nav className={`lab-page-turn pdf-original-reader__footer${phone ? ' is-phone-rail' : ''}`} aria-label="Page">
+    {phone && <nav className={`lab-page-turn pdf-original-reader__footer${phone ? ' is-phone-rail' : ''}`} aria-label="Page">
       <button className="lab-page-turn-btn" aria-label="Previous PDF page" disabled={place.page <= 1} onClick={() => jump(place.page - 1)}>‹</button>
       <button className="lab-chapter-progress is-interactive" onClick={() => setPane('contents')} aria-label={`Page ${place.page}${pages ? ` of ${pages}` : ''}. Contents`}><span className="lab-chapter-progress-info">Page {place.page}{pages ? ` of ${pages}` : ''}</span></button>
       <button className="lab-page-turn-btn" aria-label="Next PDF page" disabled={!pages || place.page >= pages} onClick={() => jump(place.page + 1)}>›</button>
-    </nav>
+    </nav>}
     {selection && !phone && !card && <SelectionDeskBar sharedReader getAnchor={() => sourceAnchor(selection)} state={barState} color={highlightColor} marked={highlightedSelection === selection} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => { if (highlightedSelection === selection) setBarState('colors'); else highlight(highlightColor, true) }} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
     {selection && phone && !card && <LabPhoneBar existingColor={highlightedSelection === selection ? highlightColor : undefined} text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
       onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }}

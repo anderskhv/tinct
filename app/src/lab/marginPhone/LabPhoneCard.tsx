@@ -27,6 +27,7 @@ export interface LabPhoneCardProps {
   /** The bin: removes what the card holds (a note), or discards the card. */
   onDelete?: () => void
   deleteLabel?: string
+  closeLabel?: string
   children: ReactNode
   /** The follow-up line, kept above the keyboard. */
   foot?: ReactNode
@@ -42,7 +43,7 @@ export interface LabPhoneCardProps {
  * viewport, so it rides above the software keyboard. As tall as its content, at
  * most 70% of the visible height. It is fixed over the page and never moves it.
  */
-export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
+export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
   const dockRef = useRef<HTMLDivElement | null>(null)
   useLayoutEffect(() => {
@@ -135,6 +136,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
         <div className="lab-pcard-grab" aria-hidden="true" />
         <header className="lab-pcard-head">
           <span className="lab-pcard-label" data-testid="lab-phone-card-label">{label}</span>
+          {closeLabel && <button type="button" className="lab-pcard-bin" aria-label={closeLabel} onPointerDown={event => { event.preventDefault(); event.stopPropagation() }} onClick={onClose}><PhoneIcon name="close" /></button>}
           {onDelete && <button type="button" className="lab-pcard-bin" data-testid="lab-phone-card-delete" aria-label={deleteLabel}
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>

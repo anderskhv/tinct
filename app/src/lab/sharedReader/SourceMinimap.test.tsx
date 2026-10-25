@@ -8,6 +8,7 @@ it('navigates real source paragraphs by keyboard without inventing pages', () =>
   render(<SourceMinimap paragraphs={['one two', 'three four five', 'six']} visible={{ paragraphIndex: 1, wordIndex: 0 }} onJump={jump} />)
   const map = screen.getByRole('slider', { name: 'Chapter position' })
   expect(map.getAttribute('aria-valuenow')).toBe('33')
+  expect(screen.getByTestId('source-map-progress').textContent).toBe('33%')
   fireEvent.keyDown(map, { key: 'ArrowDown' })
   expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 2, wordIndex: 0 })
   fireEvent.keyDown(map, { key: 'Home' })

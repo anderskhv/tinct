@@ -250,3 +250,26 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab.is-desktop .lab-passage .lab-hearing-word.is-card-passage { text-decoration: none; }
 .lab.is-desktop .lab-passage .lab-hearing-line:has(.is-card-passage) { position: relative; }
 .lab-card-passage-line { position: absolute; height: 0; border-bottom: 1.5px solid color-mix(in srgb, var(--lab-ink) 45%, transparent); pointer-events: none; user-select: none; }
+
+/* Chat lives in the same paper card as Explain. Its thread scrolls within
+   that card; it does not bring a second panel or a blank screen of padding. */
+.lab .lab-pcard[data-kind="chat"] > .lab-pcard-body { overflow: hidden; gap: 0; }
+.lab .lab-pcard[data-kind="chat"] .lab-ask.tc.tc.is-phone-card-chat {
+  --tc-paper: var(--lab-pcard-fill); --tc-ink: var(--lab-ink); --tc-muted: var(--lab-ink-muted);
+  --tc-faint: var(--lab-ink-faint); --tc-pad: 0px; --tc-answer: 22px; --tc-question: 19px;
+  --tc-hair: var(--lab-pcard-hair); --tc-bubble: var(--lab-pcard-field);
+  position: relative; inset: auto; width: 100%; height: auto !important; min-height: 0 !important;
+  max-height: none; flex: 1 1 auto; border-radius: 0; background: transparent !important; box-shadow: none !important;
+}
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-body { flex: 0 1 auto; min-height: 0; clip-path: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat.is-empty .tc-body { display: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread { flex: 0 1 auto; max-height: calc(var(--lab-pcard-room, 100dvh) * .5); padding: 4px 0 8px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread > :first-child { margin-top: 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat :is(.tc-spacer, .tc-fade) { display: none; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-chrome { flex: none; padding: 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-compose { padding: 8px 0 0; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field { gap: 10px; min-height: 48px; padding: 8px 12px; border: 1px solid var(--lab-pcard-hair); border-radius: 14px; background: var(--lab-pcard-field); }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { min-height: 28px; padding: 2px 0; font-size: 18px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input::placeholder { color: var(--lab-ink-muted); opacity: .8; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field .tc-mark { margin-bottom: 2px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-latest { bottom: 8px; }

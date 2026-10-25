@@ -434,6 +434,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
         </g>
       })}
 
+      <text x={17} y={620} className="pdf-original__map-progress" data-testid="pdf-source-progress" aria-label={`Page ${visible.page} of ${pdf.numPages}`}>{visible.page}/{pdf.numPages}</text>
     </svg>}
     <div className="pdf-original__scroll" ref={scroller} tabIndex={0} onPointerDown={event => { const page = (event.target as Element).closest<HTMLElement>('.pdf-original__page'); if (page && !(event.target as Element).closest('button,input,textarea')) setDragPage(Number(page.dataset.page)) }} onMouseUp={event => { if (!(event.target as Element).closest('button,input,textarea,.source-margin-rail')) select() }} onKeyUp={event => { if (event.key === 'Shift' || event.shiftKey || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'a')) select() }} onClick={event => {
       if (!onSourceActivate || !(window.getSelection()?.isCollapsed ?? true) || (event.target as Element).closest('button,input,textarea,.source-margin-rail')) return

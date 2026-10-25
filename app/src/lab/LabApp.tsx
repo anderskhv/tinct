@@ -5791,6 +5791,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             notice={dictation.notice || ask.notice}
             onDone={marginPhone ? undefined : () => { dictation.stop(); closePhoneAsk() }}
             phoneSheet={!!phoneAsk}
+            embeddedPhoneCard={!!(marginPhone && phoneAsk)}
+            composerPlaceholder={marginPhone && phoneAsk ? `Ask about ${paintedChapterLabel || book.chapterLabel || book.bookTitle}…` : undefined}
             desktopCompanion={!showPhoneChrome ? (chrome === 'talking' ? 'talk' : 'chat') : undefined}
             onKeyboardOpenChange={marginPhone ? undefined : setPhoneKeyboardOpen}
             inputRef={askInputRef}
@@ -6852,7 +6854,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           setReadingPageIndex(pageIndexForPlace(readingPages, follow.paragraphIndex, wordIndex))
         }}>Back to audio</button>
       )}
-      {showReaderRail && (
+      {showReaderRail && !continuousReader && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
           {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
@@ -7223,7 +7225,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {continuousReader && marginUndo && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
       <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />
       {marginPhone && phoneAsk && (
-        <LabPhoneCard label={phoneCardLabel('Chat')} kind="chat" tall onClose={() => { dictation.stop(); closePhoneAsk() }}>
+        <LabPhoneCard label="Chat" kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
           {askPaneElement}
         </LabPhoneCard>
       )}

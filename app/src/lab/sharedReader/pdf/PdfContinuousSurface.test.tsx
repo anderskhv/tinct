@@ -80,6 +80,7 @@ it('changes the visible source page by ordinary continuous scrolling without a N
   fireEvent.scroll(scroller)
   await waitFor(() => expect(screen.getByRole('slider', { name: 'Original PDF position' }).getAttribute('aria-valuenow')).toBe('2'))
   expect(container.querySelector('.pdf-original__controls')).toBeNull()
+  expect(screen.getByTestId('pdf-source-progress').getAttribute('aria-label')).toBe('Page 2 of 3')
   expect(onVisiblePlace).toHaveBeenCalledWith({ page: 2, frac: .25 })
   expect(container.querySelectorAll('.pdf-original__map-line')).toHaveLength(mapLines)
 })

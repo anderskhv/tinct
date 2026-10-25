@@ -1,5 +1,5 @@
-.lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { min-height: 0; height: calc(100% - 4.5rem); align-self: flex-start; }
-.lab.is-desktop[data-continuous-reader="true"] .lab-body { min-height: 0; }
+.lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { min-height: 0; height: 100%; align-self: stretch; }
+.lab.is-desktop[data-continuous-reader="true"] .lab-body { min-height: 0; padding-bottom:0; }
 .lab[data-continuous-reader="true"] .continuous-reader {
   height: 100%; overflow-y: auto; overscroll-behavior: contain; overflow-anchor: none;
   padding-bottom: 3rem; box-sizing: border-box;
@@ -67,3 +67,5 @@ html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-wi
 .lab .source-minimap-window { pointer-events:none; }
 .lab .source-minimap-card { color:#c57b59; cursor:pointer; }
 .lab .source-minimap-card:hover, .lab .source-minimap-card:focus-visible { color:#d18a68; }
+
+.lab .source-minimap-progress { fill:currentColor; font:10px system-ui,sans-serif; text-anchor:middle; }

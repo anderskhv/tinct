@@ -125,5 +125,6 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       </g>
     })}
 
+    <text x={17} y={620} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(position * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(position * 100)}%</text>
   </svg>
 }

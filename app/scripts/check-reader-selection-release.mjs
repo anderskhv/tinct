@@ -23,12 +23,15 @@ const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_SELECTION_OUTPUT || '/tmp/tinct-selection-release'
 await fs.mkdir(output, { recursive: true })
 const results = []
+const cases=[]
+for (const grouped of [false,true]) for (const direction of ['forward','backward']) for (const includeBoth of [false,true]) cases.push({grouped,direction,includeBoth,wrapped:false})
+for (const direction of ['forward','backward']) cases.push({grouped:false,direction,includeBoth:true,wrapped:true})
 try {
   for (const [engineName, engine] of [['chromium', chromium], ...(process.env.TINCT_SELECTION_WEBKIT === '1' ? [['webkit', webkit]] : [])]) {
     const browser = await markInternal(await engine.launch({ headless: true, args: engineName === 'chromium' ? ['--mute-audio'] : [] }))
     try {
-      for (const grouped of [false, true]) for (const direction of ['forward', 'backward']) for (const includeBoth of [false, true]) {
-        const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+      for (const {grouped,direction,includeBoth,wrapped} of cases) {
+        const context = await browser.newContext({ viewport: { width: wrapped ? 1320 : 1440, height: wrapped ? 1100 : 1000 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
         const page = await context.newPage(), errors=[]
         page.on('pageerror',error=>errors.push(error.message))
         await page.route('**/*', async route => {
@@ -38,12 +41,12 @@ try {
           if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
           return route.continue()
         })
-        await page.addInitScript(() => {
-          localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'book', primaryEdition: 'webc-en' }))
+        await page.addInitScript(wrapped => {
+          localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'book', primaryEdition: 'webc-en', ...(wrapped ? {fontSize:2.2,fontSizeExplicit:true} : {}) }))
           localStorage.setItem('tinct-highlight-color', 'rose')
           Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__selectionCopied=text}}})
-        })
-        await page.goto(`${origin}/reader?book=bible&edition=webc-en&chapter=1309&paragraph=3&word=0&sharedReader=1&layout=desktop&view=margin`)
+        },wrapped)
+        await page.goto(`${origin}/reader?book=bible&edition=webc-en&chapter=1309&paragraph=3&word=${wrapped ? 95 : 0}&sharedReader=1&layout=desktop&view=margin`)
         await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.readerEdition === 'webc-en')
         await page.evaluate(() => document.fonts.ready)
         await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
@@ -69,6 +72,7 @@ try {
         const start = source.findIndex((word,index)=>index>friend&&word.text.toLowerCase().replace(/[^a-z]/g,'')==='always')
         const both = source.findIndex((word,index) => index > friend && word.text.toLowerCase().replace(/[^a-z]/g, '') === 'both')
         assert(start >= 0 && both > start, 'Sirach 40:23 source words are mounted')
+        if (wrapped) assert(source[both].rect.y > source[both-1].rect.y + 5, 'large type places both on the next line after than')
         const end = includeBoth ? both : both - 1
         const expected = source.slice(start, end + 1).map(word => ({ p:word.p,w:word.w,text:word.text }))
         const first = source[direction === 'forward' ? start : end], last = source[direction === 'forward' ? end : start]
@@ -82,15 +86,15 @@ try {
         }))
         await page.evaluate(() => new Promise(resolve => requestAnimationFrame(resolve)))
         const before = await selected(), beforePaint = await paint()
-        await page.screenshot({path:`${output}/${engineName}-${grouped ? 'grouped' : 'clean'}-${direction}-${includeBoth ? 'both' : 'before-both'}-during.png`})
+        await page.screenshot({path:`${output}/${engineName}-${wrapped?'wrapped':'normal'}-${grouped ? 'grouped' : 'clean'}-${direction}-${includeBoth ? 'both' : 'before-both'}-during.png`})
         await page.mouse.up()
         await page.getByTestId('lab-desk-bar').waitFor()
         const after = await selected(), afterPaint = await paint()
-        const result = { engine:engineName,grouped,direction,includeBoth,expected,before,after,beforePaint,afterPaint,firstPoint,lastPoint }
+        const result = { engine:engineName,grouped,direction,includeBoth,wrapped,expected,before,after,beforePaint,afterPaint,firstPoint,lastPoint }
         results.push(result)
-        await page.screenshot({path:`${output}/${engineName}-${grouped ? 'grouped' : 'clean'}-${direction}-${includeBoth ? 'both' : 'before-both'}.png`})
-        await fs.writeFile(`${output}/${engineName}-${grouped?'grouped':'clean'}-${direction}-${includeBoth?'both':'before-both'}.json`,JSON.stringify(result,null,2))
-        console.log(JSON.stringify({engine:engineName,grouped,direction,includeBoth,words:after.length,paintStable:JSON.stringify(beforePaint)===JSON.stringify(afterPaint)}))
+        await page.screenshot({path:`${output}/${engineName}-${wrapped?'wrapped':'normal'}-${grouped ? 'grouped' : 'clean'}-${direction}-${includeBoth ? 'both' : 'before-both'}.png`})
+        await fs.writeFile(`${output}/${engineName}-${wrapped?'wrapped':'normal'}-${grouped?'grouped':'clean'}-${direction}-${includeBoth?'both':'before-both'}.json`,JSON.stringify(result,null,2))
+        console.log(JSON.stringify({engine:engineName,grouped,direction,includeBoth,wrapped,words:after.length,paintStable:JSON.stringify(beforePaint)===JSON.stringify(afterPaint)}))
         {
           assert.deepEqual(before,expected,'live drag paints exactly the intended source words')
           assert.deepEqual(after,before,'mouse release retains exactly the live source range')
@@ -114,7 +118,7 @@ try {
             const selectedBoxes=source.slice(start,end+1).map(word=>word.rect)
             const fills=keptPaint.underlays.filter(ink=>selectedBoxes.some(box=>ink.box.left<=box.x+box.width/2&&ink.box.right>=box.x+box.width/2&&ink.box.top<=box.y+box.height/2&&ink.box.bottom>=box.y+box.height/2))
             assert(fills.length>0&&fills.every(ink=>ink.background===rose),'continuous highlight ink under selected words uses actual rose colour')
-            await page.screenshot({path:`${output}/${engineName}-${grouped?'grouped':'clean'}-first-highlight-rose.png`})
+            await page.screenshot({path:`${output}/${engineName}-${wrapped?'wrapped':'normal'}-${grouped?'grouped':'clean'}-first-highlight-rose.png`})
             assert.equal(await page.locator('[data-testid^="lab-dbar-color-"]').count(),0,'first highlight click does not open palette')
             await page.getByTestId('lab-dbar-highlight').click()
             await page.getByTestId('lab-dbar-color-rose').waitFor()

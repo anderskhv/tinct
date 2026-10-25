@@ -541,9 +541,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         el.scrollTop = second.offsetTop + second.clientHeight * .25
         el.dispatchEvent(new Event('scroll', { bubbles: true }))
       })
-      await page.getByText('Page 2 of 4', { exact: true }).waitFor()
+      await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 4"]').waitFor()
       await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
-      await page.getByText('Page 1 of 4', { exact: true }).waitFor()
+      await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 4"]').waitFor()
       await page.setViewportSize({ width: 1100, height: 820 })
     }
     await page.waitForFunction(hex => Object.keys(localStorage).some(key => key.includes(hex) && key.startsWith('tinct-addbook:text-cards-canonical:')), hex)
@@ -634,9 +634,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.keyboard.press('Escape')
         const map = page.getByRole('slider', { name: 'Original PDF position' })
         await map.focus(); await page.keyboard.press('ArrowDown')
-        await page.getByText('Page 2 of 4', { exact: true }).waitFor()
+        await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 4"]').waitFor()
         await page.keyboard.press('Home')
-        await page.getByText('Page 1 of 4', { exact: true }).waitFor()
+        await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 4"]').waitFor()
       }
       for (const theme of ['light', 'book', 'dark']) {
         await page.setViewportSize({ width: 390, height: 844 })

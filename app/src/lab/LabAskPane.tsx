@@ -37,6 +37,8 @@ interface LabAskPaneProps {
   notice?: string | null
   onDone?: () => void
   phoneSheet?: boolean
+  embeddedPhoneCard?: boolean
+  composerPlaceholder?: string
   onKeyboardOpenChange?: (open: boolean) => void
   /** The host focuses this inside the Chat tap; iOS only raises the keyboard for a gesture-synchronous focus(). */
   inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>
@@ -113,6 +115,8 @@ export function LabAskPane({
   notice,
   onDone,
   phoneSheet = false,
+  embeddedPhoneCard = false,
+  composerPlaceholder,
   onKeyboardOpenChange,
   inputRef,
   chapterLabels = {},
@@ -241,6 +245,7 @@ export function LabAskPane({
    * the window taller).
    */
   const holdQuestion = useCallback((node: HTMLDivElement, row: HTMLElement, place: boolean) => {
+    if (embeddedPhoneCard) { setSpacer(node, null); pinToBottom(node); return }
     const top = questionTop(node, row)
     fitSpacer(node, top)
     if (place) {
@@ -249,7 +254,7 @@ export function LabAskPane({
       nearBottomRef.current = false
       latestRef.current!.placed(node)
     }
-  }, [])
+  }, [embeddedPhoneCard, pinToBottom])
 
   const revealOlder = useCallback(() => {
     const node = threadRef.current
@@ -339,7 +344,7 @@ export function LabAskPane({
       setSpacer(node, null)
       // Open on a clean window: one screen of writing space above the
       // composer, the whole thread immediately above it, reached by scrolling up.
-      if (!focusTurnId && !typedLoading && spacerRef.current) {
+      if (!embeddedPhoneCard && !focusTurnId && !typedLoading && spacerRef.current) {
         spacerRef.current.style.height = `${node.clientHeight}px`
         cleanOpenRef.current = true
       }
@@ -401,7 +406,7 @@ export function LabAskPane({
         measureAway(current)
         return
       }
-      const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
+      const resizedClean = !embeddedPhoneCard && cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
       if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
       if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
     })
@@ -487,7 +492,7 @@ export function LabAskPane({
         </section>
       )}
       <div className={`tc-field${draft.length === 0 ? ' is-empty' : ''}`}>
-        <label className="lab-visually-hidden" htmlFor="lab-ask-input">{LAB_COPY.askPlaceholder}</label>
+        <label className="lab-visually-hidden" htmlFor="lab-ask-input">{composerPlaceholder || LAB_COPY.askPlaceholder}</label>
         <textarea
           id="lab-ask-input"
           data-testid="lab-ask-input"
@@ -497,6 +502,7 @@ export function LabAskPane({
             else if (inputRef) (inputRef as MutableRefObject<HTMLInputElement | HTMLTextAreaElement | null>).current = node
           }}
           rows={1}
+          placeholder={composerPlaceholder}
           className="tc-input"
           value={draft}
           enterKeyHint={phoneSheet ? undefined : 'send'}
@@ -584,7 +590,7 @@ export function LabAskPane({
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
       ref={windowRef}
       data-window-minimized={minimized && desktopCompanion ? 'true' : undefined}
-      className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
+      className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${embeddedPhoneCard ? ' is-phone-card-chat' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"
       data-companion={desktopCompanion || undefined}
       aria-label={LAB_DESKTOP_PANES[0]}
@@ -619,6 +625,7 @@ export function LabAskPane({
               {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}
             </button>
           )}
+          {embeddedPhoneCard && visibleTurns[0] && placeOf(visibleTurns[0]) && <p className="tc-divider" data-testid="lab-ask-initial-location">{placeOf(visibleTurns[0])}</p>}
           {rows.map(row => {
             if (row.type === 'divider') return <p key={row.key} className="tc-divider" data-testid="lab-ask-location">{row.label}</p>
             const index = hidden + row.index

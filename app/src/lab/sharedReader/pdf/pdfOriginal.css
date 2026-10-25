@@ -84,3 +84,5 @@ html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0
 .pdf-original__map-activity:hover .pdf-original__map-ink,
 .pdf-original__map-activity:focus-visible .pdf-original__map-ink { opacity:1; filter:brightness(1.18); }
 .pdf-original__map-window { pointer-events:none; }
+
+.pdf-original__map-progress { fill:currentColor; font:10px system-ui,sans-serif; text-anchor:middle; }
