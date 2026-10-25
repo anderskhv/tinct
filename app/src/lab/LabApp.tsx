@@ -6291,7 +6291,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
-              {!showPhoneChrome && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
+              {!isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
                 onClick={() => handleSuperMenuSelect('notebook')}>Notebook</button>}
               {(!privateBook || ownNarration) && <button
                 type="button"
