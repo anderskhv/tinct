@@ -160,7 +160,16 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '50', null, { timeout: 45000 })
   await host.waitFor()
   await observe('genesis-50', 'genesis')
-  await page.getByTestId('lab-page-next').click({ force: true })
+  assert.equal(await page.getByTestId('lab-page-next').count(), 0, 'scrolling Margin has no fixed page-turn footer')
+  // Use the real source overview to reach the chapter's end, then the in-flow
+  // chapter control. The source coordinate still crosses Genesis -> Exodus.
+  const chapterMap = page.getByRole('slider', { name: 'Chapter position' })
+  await chapterMap.focus()
+  await page.keyboard.press('End')
+  const nextChapter = host.getByRole('button', { name: 'Next chapter', exact: true })
+  await nextChapter.waitFor({ state: 'attached', timeout: 10000 })
+  await nextChapter.scrollIntoViewIfNeeded()
+  await nextChapter.click()
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '51', null, { timeout: 45000 })
   if (await page.getByTestId('lab-chapter-cover').isVisible().catch(() => false)) await page.keyboard.press('ArrowRight')
   await host.waitFor()
