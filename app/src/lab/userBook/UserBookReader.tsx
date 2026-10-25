@@ -33,6 +33,7 @@ import { adoptUnassignedOwnTextCards, OwnTextCardsSync, unassignedOwnTextCardCou
 import { allLegacyEpubNotebookItems, claimLegacyEpubAnnotations, migrateVerifiedLegacyEpubMarks, syncClaimedLegacyEpubPages, unclaimedLegacyEpubCount, type LegacyOwnEpubItem } from './legacyEpubMarks'
 import { openPdfOriginalPlace, notePdfOriginalPlace, notePdfOriginalZoom, readPdfOriginalZoom, type OriginalPagePlace } from './pdfOriginalPlace'
 import { PdfOriginalReaderShell } from '../sharedReader/pdf/PdfOriginalReaderShell'
+import { discoverOriginalPdfHeadings } from './pdfOriginalHeadings'
 import { pdfReaderViewUrl } from './pdfReaderHandoff'
 import { usePdfOriginalServices } from './usePdfOriginalServices'
 
@@ -187,7 +188,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
           }
           void metadata.then(account => update({ title: account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF', author: account?.author || '' }))
           void hasTextWork.then(hasText => update({ hasText }))
-          void scanWork.then(scanOutline => update({ scanOutline }))
+          void scanWork.then(scanOutline => { if (scanOutline) update({ scanOutline }) })
         }
         dropOpenParams()
       } catch {
@@ -338,6 +339,25 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     const offCards = state.cards?.subscribe(update)
     return () => { offMarks(); offCards?.() }
   }, [hex, owner, sharedReader, state, matches])
+
+  const missingOriginalHeadings = matches && state.status === 'original' && !state.scanOutline && sharedReader && owner
+    ? `${owner}:${hex}` : null
+  useEffect(() => {
+    if (!missingOriginalHeadings || !owner || state.status !== 'original') return
+    const controller = new AbortController()
+    // The pages have already mounted. Heading discovery is optional background
+    // work and never owns, waits for, or writes the reader's source position.
+    const timer = setTimeout(() => {
+      void discoverOriginalPdfHeadings(hex, owner, { signal: controller.signal, fileName: state.title }).then(scanOutline => {
+        if (!scanOutline || controller.signal.aborted) return
+        setState(previous => previous.status === 'original' && previous.hex === hex && previous.owner === owner && !previous.scanOutline
+          ? { ...previous, scanOutline } : previous)
+      })
+    }, 0)
+    return () => { clearTimeout(timer); controller.abort() }
+    // Optional title updates must not restart a discovery of the same source.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [missingOriginalHeadings, hex, owner])
 
   // The book's pictures are drawn from this device while it is open (labFigures),
   // from object URLs made in this page load from the bytes kept on the device.

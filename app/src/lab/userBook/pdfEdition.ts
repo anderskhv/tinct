@@ -63,7 +63,7 @@ interface PdfPage {
 type RegionsOf = (n: number, page: PdfPage, items: PdfTextItem[]) => Promise<PdfCropRegion[]>
 interface Engine {
   pdfjs: { getDocument: (options: unknown) => { promise: Promise<PdfDocument> }; GlobalWorkerOptions: { workerSrc: string }; Util?: { transform: (a: number[], b: number[]) => number[] } }
-  scan: { current: (scan: unknown) => boolean; scan: (pdf: PdfDocument, options: { fileName: string }) => Promise<PdfScan | null> }
+  scan: { current: (scan: unknown) => boolean; scan: (pdf: PdfDocument, options: { fileName: string; live?: () => boolean }) => Promise<PdfScan | null> }
   text: { convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf }) => Promise<UserBookEdition | null> }
   /** pdf-regions.js and margin.js (findFigures): where a page's formulas, figures and tables are. Absent: no crops. */
   regions?: RegionsApi

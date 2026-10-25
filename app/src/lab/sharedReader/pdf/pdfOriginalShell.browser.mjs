@@ -11,9 +11,9 @@ const vite = await createServer({ server: { host: '127.0.0.1', port: 0, watch: {
 await vite.listen()
 const origin = vite.resolvedUrls.local[0].replace(/\/$/, '')
 const fixture = makePdf({ pages: [
-  { lines: [{ x: 72, y: 700, size: 24, text: 'Original selectable words' }] },
+  { lines: [{x:72,y:740,size:28,text:'These pages'},{ x: 72, y: 700, size: 24, text: 'Original selectable words' }] },
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
-] }).toString('base64')
+],outline:[{title:'These pages',page:1}] }).toString('base64')
 await fs.mkdir('artifacts/pdf-original-shell', { recursive: true })
 
 try {
@@ -95,8 +95,8 @@ try {
       await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
       await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 2"]').waitFor()
       await page.setViewportSize({ width: 1024, height: 768 })
-      await page.getByTestId('lab-super').click()
-      await page.getByRole('button', { name: 'Primer · These pages' }).click()
+      const primer=page.locator('[data-testid="pdf-heading-actions"]').first().getByRole('button',{name:'Primer',exact:true})
+      await primer.focus();await primer.click()
       await page.getByText('The original page introduces an idea to follow.').waitFor()
       await page.getByText('Key claims').waitFor()
       assert.equal(await page.locator('.lab-pcard').getByText('"gist"').count(), 0, 'structured Primer stays readable')

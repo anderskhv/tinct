@@ -945,10 +945,11 @@ async function menuRedesign(engine,name,phone) {
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
-    // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
+    // chapter (this is chapter 1); then Notebook and the settings groups: Appearance, Book settings, Audio settings.
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
     // Desktop and phone share two explicitly labelled Chat and Talk actions.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
+    assert.equal(await page.getByTestId('lab-super-row-notebook').count(),phone?1:0,'Notebook remains accessible on phone without duplicating the desktop toolbar')
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
     assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
@@ -976,7 +977,7 @@ async function menuRedesign(engine,name,phone) {
     await page.getByTestId('lab-v2-sheet-close').click()
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place)
     // Voice and speed (and the audiobook version) are Audio settings' on both layouts, without the editions;
-    // Aa holds the themes, size and Advanced settings without either.
+    // Appearance holds layout, themes, size and Advanced settings without either.
     await clickMenu(page,'audio')
     assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Audio settings')
     await page.getByTestId('lab-v2-narration-voice').selectOption('male')
@@ -987,9 +988,20 @@ async function menuRedesign(engine,name,phone) {
     await clickMenu(page,'text')
     assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Appearance')
     assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
+    if(!phone) {
+      const modes=page.locator('[data-testid^="lab-v2-layout-"]')
+      assert.deepEqual(await modes.evaluateAll(nodes=>nodes.map(node=>node.dataset.testid)),['lab-v2-layout-margin','lab-v2-layout-two-page','lab-v2-layout-compare'],'Appearance begins with the three reading modes')
+      const order=await page.getByTestId('lab-v2-themes').evaluate(themes=>{
+        const modes=[...document.querySelectorAll('[data-testid^="lab-v2-layout-"]')]
+        return modes.every(mode=>Boolean(mode.compareDocumentPosition(themes)&Node.DOCUMENT_POSITION_FOLLOWING)&&mode.getBoundingClientRect().bottom<=themes.getBoundingClientRect().top)
+      })
+      assert(order,'all three reading modes appear before theme choices in DOM and visible layout')
+    }
+
     assert.equal(await page.getByTestId('lab-v2-advanced').count(),1)
     assert.equal(await page.getByTestId('lab-v2-narration-voice').count(),0)
     assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
+    await page.screenshot({path:output+'/'+name+'-'+result.layout+'-appearance.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
     await clickMenu(page,'summarize')
     // Summarize is a card of beats in its own sheet, not a chat answer.

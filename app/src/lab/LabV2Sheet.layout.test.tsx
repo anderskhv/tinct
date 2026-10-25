@@ -89,3 +89,12 @@ it('keeps incompatible Bible verse numbering out of a Compare pick', () => {
   expect(screen.getByRole<HTMLButtonElement>('button', { name: /Catholic/ }).disabled).toBe(true)
   expect(screen.getByText('Verse numbers differ')).toBeTruthy()
 })
+
+
+it('starts desktop Appearance with the three reading modes before colour themes', () => {
+  render(<LabV2Sheet {...base} readerLayout={{active:'margin',compareAvailable:true,onChoose:vi.fn()}} />)
+  const body = screen.getByTestId('lab-v2-sheet').querySelector('.lab-v2-sheet-body')!
+  expect(body.firstElementChild).toBe(screen.getByRole('group', {name:'Layout'}))
+  expect([...body.querySelectorAll('[data-testid^="lab-v2-layout-"]')].map(node=>node.getAttribute('data-testid'))).toEqual(['lab-v2-layout-margin','lab-v2-layout-two-page','lab-v2-layout-compare'])
+  expect(screen.getByRole('group',{name:'Layout'}).compareDocumentPosition(screen.getByTestId('lab-v2-themes')) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+})

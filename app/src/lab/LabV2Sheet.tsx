@@ -337,6 +337,28 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
         <div className="lab-v2-sheet-body">
           {layer === 'reading' && (
             <>
+              {(readerLayout || margin) && (
+                <div className="lab-v2-layout-choices" role="group" aria-label="Layout">
+                  <p className="lab-v2-group-label">Layout</p>
+                  <div className="lab-v2-group">
+                    {readerLayout
+                      ? (['margin', 'two-page', ...(readerLayout.compareAvailable ? ['compare' as const] : [])] as const).map(layout => (
+                        <button type="button" key={layout} className="lab-v2-edition-option"
+                          data-testid={`lab-v2-layout-${layout}`} aria-pressed={readerLayout.active === layout}
+                          onClick={() => readerLayout.onChoose(layout)}>
+                          <span className={`lab-v2-layout-miniature is-${layout}`} aria-hidden="true"><i /><i /><i /></span>
+                          <span className="lab-v2-edition-name"><span>{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
+                            <small className="lab-v2-layout-description">{layout === 'two-page' ? 'Turn through two facing pages.' : layout === 'compare' ? 'Read compatible versions side by side.' : 'Flowing text with room for passage cards.'}</small>
+                          </span>
+                          <span className="lab-v2-edition-check" aria-hidden="true">{readerLayout.active === layout ? '✓' : ''}</span>
+                        </button>
+                      ))
+                      : <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-layout-margin" onClick={margin!.onOpen}>
+                          <span className="lab-v2-edition-name">Margin</span><span aria-hidden="true">›</span>
+                        </button>}
+                  </div>
+                </div>
+              )}
               <div className="lab-v2-themes" data-testid="lab-v2-themes">
                 {LAB_V2_THEMES.map(({ theme, label }) => (
                   <button
@@ -379,28 +401,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-original-pages" onClick={pdfSource.onOriginalPages}><span className="lab-v2-edition-name">Original pages<small className="lab-v2-layout-description">Return to the PDF at this reading place.</small></span><span aria-hidden="true">›</span></button>
                 </div>
               </div>}
-              {(readerLayout || margin) && (
-                <div className="lab-v2-layout-choices" role="group" aria-label="Layout">
-                  <p className="lab-v2-group-label">Layout</p>
-                  <div className="lab-v2-group">
-                    {readerLayout
-                      ? (['margin', 'two-page', ...(readerLayout.compareAvailable ? ['compare' as const] : [])] as const).map(layout => (
-                        <button type="button" key={layout} className="lab-v2-edition-option"
-                          data-testid={`lab-v2-layout-${layout}`} aria-pressed={readerLayout.active === layout}
-                          onClick={() => readerLayout.onChoose(layout)}>
-                          <span className={`lab-v2-layout-miniature is-${layout}`} aria-hidden="true"><i /><i /><i /></span>
-                          <span className="lab-v2-edition-name"><span>{layout === 'two-page' ? 'Two-page' : layout === 'compare' ? 'Compare' : 'Margin'}</span>
-                            <small className="lab-v2-layout-description">{layout === 'two-page' ? 'Turn through two facing pages.' : layout === 'compare' ? 'Read compatible versions side by side.' : 'Flowing text with room for passage cards.'}</small>
-                          </span>
-                          <span className="lab-v2-edition-check" aria-hidden="true">{readerLayout.active === layout ? '✓' : ''}</span>
-                        </button>
-                      ))
-                      : <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-layout-margin" onClick={margin!.onOpen}>
-                          <span className="lab-v2-edition-name">Margin</span><span aria-hidden="true">›</span>
-                        </button>}
-                  </div>
-                </div>
-              )}
               <div className="lab-v2-foot">
                 <button
                   type="button"

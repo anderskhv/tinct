@@ -2358,7 +2358,7 @@ const ICON = {
  * first opens with a rule.
  */
 const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['aa', 'book', 'audio'], ['snip', 'export', 'open'], ['library', 'account']];
-const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Aa', book: 'Book settings', audio: 'Audio settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
+const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Appearance', book: 'Book settings', audio: 'Audio settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
 const MENU_CHEVRON = new Set(['aa', 'book', 'audio', 'account']);
 // The settings groups' glyphs, as the book reader's t menu draws them (src/lab/LabSuperMenu.tsx RowIcon): a small and a large A
 // (the row's own name is Aa), Book editions' books, a speaker.
