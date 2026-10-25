@@ -227,6 +227,10 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   const [results, setResults] = useState<(QuizResult | null)[]>([])
   const [marking, setMarking] = useState(false)
   const [markError, setMarkError] = useState(false)
+  const [pendingAnswer, setPendingAnswer] = useState<string | null>(null)
+  const markingRef = useRef(false)
+  const draftRef = useRef(draft)
+  draftRef.current = draft
   const requestRef = useRef(request)
   requestRef.current = request
   useEffect(() => {
@@ -254,20 +258,25 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   const answered = results.filter(item => item && item.verdict !== 'shown').length
   const submit = (answer: string) => {
     const question = questions?.[index]
-    if (!question || marking || !answer.trim()) return
+    if (!question || markingRef.current || !answer.trim()) return
     const previous = results[index]
     if (previous && (previous.verdict === 'right' || previous.verdict === 'shown' || (previous.replies ?? 0) >= 3)) return
+    markingRef.current = true
     setMarking(true)
     setMarkError(false)
-    void mark(question, answer.slice(0, previous ? 600 : 2000), previous?.turns).then(text => {
+    setPendingAnswer(answer)
+    draftRef.current = ''
+    setDraft('')
+    const failed = () => { setMarkError(true); if (!draftRef.current.trim()) setDraft(answer) }
+    const checked = (() => { try { return mark(question, answer.slice(0, previous ? 600 : 2000), previous?.turns) } catch (error) { return Promise.reject(error) } })()
+    void checked.then(text => {
       const parsed = parsePhoneQuizMark(text)
-      if (!parsed) { setMarkError(true); return }
+      if (!parsed) { failed(); return }
       setResults(current => { const next = [...current]; next[index] = { ...parsed,
         replies: previous ? (previous.replies ?? 0) + 1 : 0,
         turns: [...(previous?.turns ?? []), { role: 'reader', text: answer.slice(0, 600) }, { role: 'grader', text: parsed.feedback.slice(0, 600), verdict: parsed.verdict }],
       }; return next })
-      setDraft('')
-    }).catch(() => setMarkError(true)).finally(() => setMarking(false))
+    }).catch(failed).finally(() => { markingRef.current = false; setMarking(false); setPendingAnswer(null) })
   }
   const summary = () => (questions ?? []).map((question, i) => {
     const item = results[i]
@@ -290,7 +299,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
       <div className="lab-pcard-quiz" data-testid="lab-phone-quiz">
         <p className="lab-pcard-count">{index + 1} of {total}</p>
         <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[index].q}</p>
-        {result && (result.turns?.length ?? 0) > 2 && <div className="lab-pcard-quiz-history" data-testid="lab-phone-quiz-history">
+        {result && (result.turns?.length ?? 0) > 0 && <div className="lab-pcard-quiz-history" data-testid="lab-phone-quiz-history">
           {result.turns!.slice(0, -1).map((turn, turnIndex) => <p key={turnIndex} className={turn.role === 'reader' ? 'lab-pcard-question' : undefined}>{turn.text}</p>)}
         </div>}
         {result && <div className="lab-pcard-answer">
@@ -298,6 +307,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
             ? <p><strong className="lab-pcard-lead">{questions[index].answer}</strong>{questions[index].why ? ` ${questions[index].why}` : ''}</p>
             : <p><strong className="lab-pcard-lead">{VERDICT_WORD[result.verdict]}</strong>{result.feedback ? ` ${result.feedback}` : ''}</p>}
         </div>}
+        {pendingAnswer && <p className="lab-pcard-question" data-testid="lab-phone-quiz-pending-answer">{pendingAnswer}</p>}
         {marking && <PhoneWait />}
         {markError && <p role="status">Couldn’t check that answer. Please try again.</p>}
       </div>

@@ -1,12 +1,15 @@
 import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
+import { useReaderWindow } from '../useReaderWindow'
 import { PhoneIcon, type LabPhoneCardProps } from '../marginPhone/LabPhoneCard'
 import { desktopCardPlace, type CardBox } from './desktopCardPlace'
 import './desktopCard.css'
 
 /** The same response body and Notebook flow as a phone card, placed outside selected ink. */
 export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, testId = 'lab-phone-card', getAnchor, hasPassage = false, passageText, embedded = false }: LabPhoneCardProps & { getAnchor?: () => CardBox | null; hasPassage?: boolean; passageText?: string; embedded?: boolean }) {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLElement | null>(null)
+  const windowRef = useReaderWindow<HTMLElement>(`card-${kind}`, !embedded)
+  const setRef = useCallback((node: HTMLElement | null) => { ref.current = node; windowRef(node) }, [windowRef])
   const customAnchor = useRef(getAnchor)
   customAnchor.current = getAnchor
   const close = useRef(onClose)
@@ -16,6 +19,9 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
     if (!el || embedded) return
     let frame = 0
     const place = () => {
+      // A reader's deliberate placement wins over source remeasurement,
+      // streaming replies, and scroll events; the shared hook clamps it.
+      if (el.dataset.readerWindowPositioned === 'true') { el.style.visibility = ''; return }
       const top = Math.max(76, document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0)
       const bottom = window.innerHeight - 24
       const words = [...document.querySelectorAll('.lab .is-card-passage')]
@@ -56,13 +62,13 @@ export function LabDesktopCard({ label, kind, onClose, onDelete, deleteLabel = '
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('pointerdown', outside, true) }
   }, [embedded])
   if (embedded) return <><div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>{foot}</>
-  return <section ref={ref} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} aria-description={passageText?.trim() || undefined} data-kind={kind} data-testid={testId} style={{ visibility: 'hidden' }}>
-    <header className="lab-pcard-head">
+  return <section ref={setRef} className="lab-pcard lab-desktop-card" role="dialog" aria-label={label} aria-description={passageText?.trim() || undefined} data-kind={kind} data-testid={testId} style={{ visibility: 'hidden' }}>
+    <header className="lab-pcard-head" data-reader-window-handle>
       <span className="lab-pcard-label" data-testid="lab-phone-card-label">{label}</span>
-      {onDelete && <button type="button" className="lab-pcard-bin" data-testid="lab-phone-card-delete" aria-label={deleteLabel} onClick={onDelete}><PhoneIcon name="trash" /></button>}
-      <button type="button" className="lab-pcard-bin" aria-label="Close card" onClick={onClose}><PhoneIcon name="close" /></button>
+      {onDelete && <button type="button" className="lab-pcard-bin" data-reader-window-control data-testid="lab-phone-card-delete" aria-label={deleteLabel} onClick={onDelete}><PhoneIcon name="trash" /></button>}
+      <button type="button" className="lab-pcard-bin" data-reader-window-control aria-label="Close card" onClick={onClose}><PhoneIcon name="close" /></button>
     </header>
-    <div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>
-    {foot}
+    <div className="lab-pcard-body" data-reader-window-control data-testid="lab-phone-card-body">{children}</div>
+    {foot && <div className="lab-desktop-card-foot" data-reader-window-control>{foot}</div>}
   </section>
 }

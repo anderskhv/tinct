@@ -66,14 +66,20 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
       const left = columns.length ? Math.max(...columns.map(box => box.right - frame.left + host.scrollLeft)) + 18 : located.length ? Math.max(...located.map(item => item.sourceX ?? 0)) + 18 : Math.max(0, host.clientWidth - 400)
       const width = Math.max(1, Math.min(380, host.clientWidth - left - 18))
       const ordered = sourceMarginLayout(located)
-      const next = { left, width, height: Math.max(host.clientHeight, ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceX: item.sourceX })) }
+      // The blank hit surface covers the source document, not just the first
+      // viewport or the last existing card. Never use host.scrollHeight here:
+      // our own absolute layer contributes to it and would prevent shrinking.
+      const sourceBottoms = [...columns, ...[...host.querySelectorAll<HTMLElement>('.pdf-original__pages')].map(node => node.getBoundingClientRect())]
+        .map(box => box.bottom - frame.top + host.scrollTop).filter(Number.isFinite)
+      const paddingBottom = Number.parseFloat(getComputedStyle(host).paddingBottom) || 0
+      const next = { left, width, height: Math.max(host.clientHeight, ...sourceBottoms.map(bottom => bottom + paddingBottom), ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceX: item.sourceX })) }
       setLayout(previous => JSON.stringify(previous) === JSON.stringify(next) ? previous : next)
     }
     const schedule = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; measure() }) }
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(schedule)
     observer?.observe(host)
     const observeGeometry = () => {
-      for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, section[data-card-id]')) observer?.observe(el)
+      for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, .pdf-original__pages, section[data-card-id]')) observer?.observe(el)
     }
     observeGeometry()
     const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(() => { observeGeometry(); schedule() })
@@ -106,8 +112,12 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
   }, [host])
   if (!host) return null
   return createPortal(<div ref={layer} className="source-margin-rail" data-testid="source-margin-rail" style={{ height: layout.height }}>
-    <div className="source-margin-room" aria-hidden="true" style={{ left: layout.left, width: Math.max(layout.width, host.clientWidth - layout.left), height: layout.height }} onPointerDown={event => {
-      if (event.target !== event.currentTarget) return
+    <div className="source-margin-room" aria-hidden="true" style={{ left: Math.max(0, layout.left - 18), width: Math.max(layout.width + 18, host.clientWidth - Math.max(0, layout.left - 18)), height: layout.height }} onPointerDown={event => {
+      if (event.target !== event.currentTarget || event.button !== 0) return
+      // Starting a note in blank paper must not start a native drag selection
+      // extending into the reading column. Card bodies remain selectable.
+      event.preventDefault()
+      event.stopPropagation()
       onBlankNote?.({ clientY: event.clientY, sourceY: event.clientY - host.getBoundingClientRect().top + host.scrollTop })
     }} />
     <svg className="source-margin-leaders" data-testid="source-margin-leaders" width="100%" height={layout.height} aria-hidden="true">

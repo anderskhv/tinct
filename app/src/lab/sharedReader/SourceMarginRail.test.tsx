@@ -59,6 +59,9 @@ it('collapses on Escape from a focused editor and outside clicks, preserving inn
   fireEvent.keyDown(editor, { key: 'Escape' })
   expect(toggle).toHaveBeenCalledOnce(); expect(editorKey).not.toHaveBeenCalled()
   expect((editor as HTMLTextAreaElement).value).toBe('Unsent words')
+  const editorDown = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
+  editor.dispatchEvent(editorDown)
+  expect(editorDown.defaultPrevented).toBe(false)
   fireEvent.pointerDown(screen.getByText('Inside action'))
   expect(toggle).toHaveBeenCalledOnce(); expect(inner).toHaveBeenCalledOnce()
   fireEvent.pointerDown(document.body)
@@ -106,4 +109,47 @@ it('starts each leader at its own PDF page border, including mixed sheet widths 
     const xs = [Number(path.match(/^M([\d.]+)/)?.[1]), ...[...path.matchAll(/H([\d.]+)/g)].map(match => Number(match[1]))]
     expect(xs.every(x => x >= entry.border)).toBe(true)
   }
+})
+
+it('covers the full reading document with the blank note hit surface at top, middle and end without growing on scroll', async () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 60, right: 1400, bottom: 860 } as DOMRect)
+  let contentHeight = 3200
+  const page = document.createElement('div'); page.className = 'continuous-reader-window'; host.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockImplementation(() => ({ left: 100, right: 850, top: 60 - host.scrollTop, bottom: 60 - host.scrollTop + contentHeight } as DOMRect))
+  const blank = vi.fn()
+  render(<SourceMarginRail host={host} entries={[]} onBlankNote={blank} />)
+  const room = host.querySelector<HTMLElement>('.source-margin-room')!
+  expect(room.style.left).toBe('850px')
+  for (const top of [0, 1200, 2400]) {
+    host.scrollTop = top
+    await act(async () => { fireEvent.scroll(host); await new Promise(resolve => requestAnimationFrame(resolve)) })
+    expect(room.style.height).toBe('3200px')
+    const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientY: 700 })
+    act(() => { room.dispatchEvent(down) })
+    expect(down.defaultPrevented).toBe(true)
+    expect(blank).toHaveBeenLastCalledWith({ clientY: 700, sourceY: 700 - 60 + top })
+  }
+  expect(blank).toHaveBeenCalledTimes(3)
+  // A virtualised source replacement may become shorter; the overlay must
+  // release that old height rather than feeding its own scrollHeight back.
+  contentHeight = 1600; host.scrollTop = 0
+  await act(async () => { fireEvent.scroll(host); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(room.style.height).toBe('1600px')
+  const readingDown = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
+  page.dispatchEvent(readingDown)
+  expect(readingDown.defaultPrevented).toBe(false)
+})
+
+it('uses the complete PDF source container height when only nearby page canvases are mounted', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0 } as DOMRect)
+  const pages = document.createElement('div'); pages.className = 'pdf-original__pages'; host.append(pages)
+  vi.spyOn(pages, 'getBoundingClientRect').mockReturnValue({ bottom: 40000 } as DOMRect)
+  const page = document.createElement('div'); page.className = 'pdf-original__page'; pages.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 100, right: 850, top: 0, bottom: 1000 } as DOMRect)
+  render(<SourceMarginRail host={host} entries={[]} onBlankNote={vi.fn()} />)
+  expect(host.querySelector<HTMLElement>('.source-margin-room')!.style.height).toBe('40000px')
 })

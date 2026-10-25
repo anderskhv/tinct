@@ -6,6 +6,7 @@ import type { UserBookEdition } from './userEdition'
 import type { SharedReaderCard } from '../sharedReader/sharedReaderCards'
 import type { ChatConversation } from '../../types'
 import { appendLabChatTurn } from '../labChatHistory'
+import { cardConversationId } from '../marginPreview/marginPreviewCards'
 
 const HEX = 'ab'.repeat(12), A = 'owner-a', B = 'owner-b'
 const edition: UserBookEdition = { format: 'tinct-user-edition-v1', converter: 7, title: 'Own', author: '', language: 'en', droppedImages: 0,
@@ -399,4 +400,35 @@ describe('owner-scoped private source-word cards and Talk', () => {
     expect(reopened.read()[0].messages).toHaveLength(599)
     reopened.dispose()
   })
+})
+
+it('keeps original Ask message identities across private saves and account hydration', async () => {
+  let remote: unknown[] = [], rev = 0
+  const fetchImpl = vi.fn(async (_url: RequestInfo | URL, init?: RequestInit) => {
+    if (init?.method === 'PUT') { remote = JSON.parse(String(init.body)).cards; return json({ rev: ++rev }) }
+    return json({ cards: remote, rev })
+  })
+  const controller = new OwnTextCardsSync(HEX, A, edition, async () => 'token', fetchImpl as typeof fetch)
+  const input = { ...card('react_1234'), kind: 'ask' as const, turns: [
+    { id: 'live-user-123', role: 'user' as const, content: 'Who did the treason?', at: 1000 },
+    { id: 'live-answer-123', role: 'assistant' as const, content: 'A source-grounded answer.', at: 1001 },
+  ] }
+  const saved = controller.saveCard(input)!
+  expect(saved[0].messages.map(message => message.id)).toEqual(['live-user-123', 'live-answer-123'])
+  await controller.sync()
+  expect(remote).toContainEqual(expect.objectContaining({ data: { messageIds: ['live-user-123', 'live-answer-123'] } }))
+  await controller.sync()
+  expect(controller.read()[0].messages.map(message => message.id)).toEqual(['live-user-123', 'live-answer-123'])
+  controller.dispose()
+})
+
+it('does not allow stored message IDs to collide with generated IDs for older turns', () => {
+  const controller = new OwnTextCardsSync(HEX, A, edition, async () => null)
+  const id = cardConversationId('react_1234')
+  const saved = controller.saveCard({ ...card('react_1234'), kind: 'ask', turns: [
+    { role: 'user', content: 'A question' },
+    { role: 'assistant', content: 'An answer' },
+  ], data: { messageIds: [null, `${id}:0`] } })!
+  expect(saved[0].messages.map(message => message.id)).toEqual([`${id}:0`, `${id}:1`])
+  controller.dispose()
 })

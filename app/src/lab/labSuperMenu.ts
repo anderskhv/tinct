@@ -16,9 +16,7 @@ export interface LabSuperMenuRow {
   /** The rule that separates what is in this book from what is around it. */
   ruleBefore?: boolean
   /**
-   * The Librarian row (desktop) and the phone's Chat · Talk row: the modes it
-   * offers. On the desktop they are icons beside the row's body (which opens
-   * the reader's default mode); on the phone they are the row's two halves.
+   * Chat · Talk share one row, with a clearly labelled button for each mode.
    */
   modes?: Array<'chat' | 'talk'>
 }
@@ -73,9 +71,8 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
   noCatchUp?: boolean
 } = {}): LabSuperMenuRow[] {
   const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
-    // One row for both conversations (Anders, 2026-10-07): always here, so
-    // the only way to the librarian since the margin tab went (2026-10-08).
-    { id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] },
+    // Match the phone: two explicit actions, with their existing destinations.
+    { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     ...(sharedReader ? [{ id: 'notebook' as const, label: LAB_NOTEBOOK_LABEL }] : []),

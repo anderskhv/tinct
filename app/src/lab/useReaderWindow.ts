@@ -64,6 +64,7 @@ export function useReaderWindow<T extends HTMLElement>(
       if (value && Number.isFinite(value.x) && Number.isFinite(value.y)) saved = value
     } catch { /* unavailable storage */ }
     node.dataset.readerWindow = 'true'
+    if (saved) node.dataset.readerWindowPositioned = 'true'
     const set = (property: string, value: string) => node.style.setProperty(property, value, 'important')
     const topInset = () => Math.max(8, (node.closest('.lab')?.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 0) + 8)
     const place = (x: number, y: number) => {
@@ -103,6 +104,7 @@ export function useReaderWindow<T extends HTMLElement>(
       const box = node.getBoundingClientRect()
       saved = { ...(saved ?? {}), x: box.left, y: box.top,
         ...(!collapsed && node.style.height ? { width: box.width, height: box.height } : {}) }
+      node.dataset.readerWindowPositioned = 'true'
       try { sessionStorage.setItem(storageKey, JSON.stringify(saved)) } catch { /* private mode */ }
     }
     let drag: { id: number; x: number; y: number; box: DOMRect; resize: Edges | null; moved: boolean } | null = null
@@ -178,6 +180,7 @@ export function useReaderWindow<T extends HTMLElement>(
       window.removeEventListener('pointercancel', up)
       window.removeEventListener('resize', clamp)
       delete node.dataset.readerWindow
+      delete node.dataset.readerWindowPositioned
       delete node.dataset.readerWindowEdge
       for (const property of ['left', 'top', 'right', 'bottom', 'transform', 'width', 'height']) node.style.removeProperty(property)
     }

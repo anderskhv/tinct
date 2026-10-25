@@ -144,10 +144,9 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, sharedReader, n
         onClick={onClose}
       />
       <nav className="lab-super-panel" data-testid="lab-super-menu" aria-label="Menu">
-        {/* The Librarian row is the one way to the librarian (2026-10-08): its
-            body opens Chat, its icons open Chat or Talk directly. */}
+        {/* Chat and Talk keep their existing destinations on every surface. */}
         {rows.map(row => row.modes && row.id === 'conversation' ? (
-          // The phone: Chat · Talk, one row, each half its own button.
+          // Chat · Talk, one row, each half its own button.
           <div key={row.id} className="lab-super-row is-pair" data-row={row.id} role="group" aria-label="Chat or Talk">
             {row.modes.map((mode, index) => (
               <button

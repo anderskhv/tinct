@@ -944,13 +944,12 @@ async function menuRedesign(engine,name,phone) {
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
-    // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
-    // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
-    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
+    // Desktop and phone share two explicitly labelled Chat and Talk actions.
+    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
-    if(phone)assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
+    assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
     assert.equal(await page.getByTestId('lab-super-row-text').locator('svg[data-icon="text-size"]').count(),1)
     assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)

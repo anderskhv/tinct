@@ -48,8 +48,11 @@ describe('the chapter pills in the phone margin mode', () => {
     render(<MarginPhoneContext.Provider value={{ onQuiz }}><LabChapterEnd chapterTitle="Chapter 3" hasNext onDiscuss={() => {}} onNote={() => {}} /></MarginPhoneContext.Provider>)
     expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Recap✧Quiz meNoteNext chapter/)
     expect(screen.queryByTestId('lab-unit-end')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-unit-quiz'))
-    expect(onQuiz).toHaveBeenCalledTimes(1)
+    const trigger = screen.getByTestId('lab-unit-quiz')
+    const anchor = { left: 500, right: 590, top: 640, bottom: 670 } as DOMRect
+    vi.spyOn(trigger, 'getBoundingClientRect').mockReturnValue(anchor)
+    fireEvent.click(trigger)
+    expect(onQuiz).toHaveBeenCalledExactlyOnceWith(anchor)
   })
 
   it('measuring copies lay out the same pills (pagination) and never act', () => {

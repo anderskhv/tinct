@@ -649,6 +649,7 @@ it('shows saved PDF explanations and anchored Talk under their source unit and o
   expect(screen.getByTestId('requested-pdf-frac').textContent).toBe('0.42')
   expect(screen.queryByRole('dialog', { name: 'Contents and conversations' })).toBeNull()
   expect(screen.getByText('Saved source explanation.')).toBeTruthy()
+  expect(screen.getByTestId('source-margin-open').textContent).toBe('Explain')
   expect(saveCard).not.toHaveBeenCalled()
 })
 
@@ -658,6 +659,7 @@ it('collapses a long unsaved PDF note from its editor with Escape and restores t
   fireEvent.click(screen.getByText('Select PDF text'))
   fireEvent.click(screen.getByText('Note PDF'))
   const editor = screen.getByRole('textbox', { name: 'Your note' })
+  expect(screen.getByTestId('source-margin-open').textContent).toBe('Note')
   const draft = 'A long unsaved note. '.repeat(80)
   fireEvent.change(editor, { target: { value: draft } })
   fireEvent.keyDown(editor, { key: 'Escape' })
@@ -711,4 +713,53 @@ it('folds and restores an answer that failed to save without sending it again', 
   fireEvent.click(screen.getByTestId('source-margin-open'))
   expect(screen.getByText('An answer that could not be saved.')).toBeTruthy()
   expect(ask).toHaveBeenCalledOnce(); expect(saveCard).toHaveBeenCalledOnce()
+})
+
+it('opens menu Chat at the current PDF fraction with typing focused and preserves its unsent draft', async () => {
+  const ask = vi.fn(async () => 'A current-page answer.')
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask, saveCard: vi.fn(() => false) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  const field = screen.getByRole('textbox', { name: 'Ask about this page' })
+  expect(document.activeElement).toBe(field)
+  expect(field.closest('.source-margin-item')?.getAttribute('data-open')).toBe('true')
+  fireEvent.change(field, { target: { value: 'What is happening here?' } })
+  fireEvent.keyDown(field, { key: 'Escape' })
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  expect((screen.getByRole('textbox', { name: 'Ask about this page' }) as HTMLInputElement).value).toBe('What is happening here?')
+  fireEvent.submit(screen.getByRole('textbox', { name: 'Ask about this page' }).closest('form')!)
+  await screen.findByText('A current-page answer.')
+  expect(ask.mock.calls[0]).toEqual([expect.objectContaining({ page: 1, rects: [[1, .1, .3, .001, .001]] }), 'ask', 'What is happening here?', expect.any(AbortSignal), expect.any(Function)])
+})
+
+it('keeps PDF source entries mounted while menu Talk opens as a popup', () => {
+  const services: PdfOriginalReaderServices = { marks: [{ id: 'saved-note', page: 1, text: 'A saved source.', rects: [[.1, .2, .3, .03]], note: 'A kept note.', color: 'gold', at: 10 }], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false), TalkCard: () => <p>Active Talk popup</p> }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Talk', exact: true }))
+  expect(screen.getByText('Active Talk popup').closest('.lab-desktop-card')).toBeTruthy()
+  expect(screen.getByTestId('source-margin-rail')).toBeTruthy()
+  expect(screen.getByText('A kept note.')).toBeTruthy()
+  expect(screen.getAllByTestId('source-margin-item')).toHaveLength(1)
+})
+
+it('retains an active PDF question when the menu is reopened without an outside pointer gesture', () => {
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  fireEvent.change(screen.getByRole('textbox', { name: 'Ask about this page' }), { target: { value: 'Still writing this question.' } })
+  // Keyboard menu activation does not dispatch the outside pointerdown used by mouse input.
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  expect((screen.getByRole('textbox', { name: 'Ask about this page' }) as HTMLInputElement).value).toBe('Still writing this question.')
+})
+
+it('keeps an unsent PDF question when switching to Talk through keyboard menu activation', () => {
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false), TalkCard: ({ onClose }) => <button onClick={onClose}>End fixture Talk</button> }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
+  fireEvent.change(screen.getByRole('textbox', { name: 'Ask about this page' }), { target: { value: 'Keep this question while I talk.' } })
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Talk', exact: true }))
+  fireEvent.click(screen.getByRole('button', { name: 'End fixture Talk' }))
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect((screen.getByRole('textbox', { name: 'Ask about this page' }) as HTMLInputElement).value).toBe('Keep this question while I talk.')
+  expect(services.ask).not.toHaveBeenCalled()
 })

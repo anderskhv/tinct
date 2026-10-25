@@ -56,7 +56,7 @@ import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
 import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
-import { withConvertedNote } from './sharedReader/sharedReaderCards'
+import { withConvertedNote, askCardSource, isSourcePoint } from './sharedReader/sharedReaderCards'
 import { SourceMarginRail, type SourceMarginEntry } from './sharedReader/SourceMarginRail'
 import { LabFigurePreview } from './LabFigurePreview'
 import { LabInlineMarkdown } from './LabMarkdown'
@@ -828,6 +828,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const desktopNoteConversionRef = useRef(new Map<number, { highlightId?: string; created?: boolean; chapterNumber?: number; text: string }>())
   const [desktopOpenId, setDesktopOpenId] = useState<string | null>(null)
   const [desktopContinuationId, setDesktopContinuationId] = useState<string | null>(null)
+  const menuMarginChatRef = useRef<() => void>(() => {})
   const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
   const readingScrollActive = useReadingScrollActivity(marginHost)
   const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
@@ -2413,7 +2414,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [phoneNote, setPhoneNote] = useState('')
   const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
   const phoneAnswerRef = useRef<{ card: PhoneCard; answer: string; kept: boolean } | null>(null)
-  const quizChapterRef = useRef<() => void>(() => {})
+  const quizChapterRef = useRef<(anchor?: DOMRect) => void>(() => {})
+  const desktopQuizAnchorRef = useRef<DOMRect | null>(null)
   /** The phone's margin mode: the chapter's Note pill opens its card (true), not the editor beside the pill. */
   const marginPhoneNoteRef = useRef<(chapterNumber: number) => boolean>(() => false)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
@@ -5335,7 +5337,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
-    if (id === 'chat' || id === 'librarian') { handleChat(); return }
+    if (id === 'chat' || id === 'librarian') { if (continuousReader) menuMarginChatRef.current(); else handleChat(); return }
     // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
     if (id === 'notebook') { setReaderControlsVisible(true); setContentsNotebook(true); setTocOpen(true); return }
     if (privateBook) {
@@ -5366,7 +5368,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(privateLibraryDestination(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`, sharedReader))
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader])
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
@@ -5534,6 +5536,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     phoneAnswerRef.current = null
     dictation.stop()
   }, [dictation, highlightsApi])
+  // A rail card belongs to Margin. Leaving that layout folds its presentation;
+  // the retained source entry, conversation and per-card draft remain available.
+  const previousMarginLayout = useRef(continuousReader)
+  useLayoutEffect(() => {
+    const leaving = previousMarginLayout.current && !continuousReader
+    previousMarginLayout.current = continuousReader
+    if (!leaving) return
+    if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setDesktopContinuationId(null)
+    setChapterNotes(null)
+    setDraft('')
+  }, [continuousReader, desktopOpenId, draft, closePhoneCard])
   useEffect(() => {
     if (!continuousReader || !phoneCard || !['note','chapter-note'].includes(phoneCard.kind)) return
     const timer = window.setTimeout(() => {
@@ -5581,6 +5597,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     phoneAnswerRef.current = null
     setSharedCardSaveError(false)
     setPhoneCard(card)
+  }
+  menuMarginChatRef.current = () => {
+    const paragraphIndex = Math.max(0, placeRef.current.paragraphIndex)
+    const wordIndex = Math.max(0, placeRef.current.wordIndex ?? 0)
+    const existing = [...desktopLiveCards].reverse().find((item): item is Extract<PhoneCard, { kind: 'ask' }> => item.kind === 'ask' && !item.passage.text && item.passage.paragraphIndex === paragraphIndex && item.passage.ranges?.[0]?.range.fromWord === wordIndex)
+    const card: PhoneCard = existing ?? { kind: 'ask', openedAt: Date.now(), passage: { ...phoneChapterPassage(), ranges: [{ chapterNumber: book.chapterNumber, range: { paragraphIndex, endParagraphIndex: paragraphIndex, fromWord: wordIndex, toWord: wordIndex } }] } }
+    const id = desktopCardId(card)
+    const nextDraft = desktopOpenId === id ? draft : desktopDraftsRef.current[id] ?? ''
+    flushSync(() => { setTocOpen(false); setContentsConversation(null); setSuperSheet(null); openPhoneCard(card); setDraft(nextDraft) })
+    const field = [...(document.querySelector(`[data-card-id="${id}"].source-margin-item`)?.querySelectorAll<HTMLTextAreaElement>('.lab-pcard-follow-input') ?? [])].find(node => !node.closest('[hidden]'))
+    field?.focus({ preventScroll: true })
+    if (field) field.setSelectionRange(field.value.length, field.value.length)
   }
   // Chat, Talk, Primer, Recap and Catch me up are cards too: opening one closes the card that was open.
   useEffect(() => {
@@ -5692,7 +5720,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const marginPills: MarginPhonePills | null = useMemo(() => (marginPhone || sharedReader) ? {
     catchUp: marginCatchUp,
     onCatchUp: () => { if (!initialResolving && !book.chaptersProvisional) { if (continuousReader) { if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard(); desktopUnitAnchorsRef.current.set(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`, {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}); setDesktopCatchup(true); setDesktopOpenId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`); setDesktopContinuationId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`) } else setSuperSheet('catchup') } },
-    onQuiz: () => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current() },
+    onQuiz: anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor) },
   } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey])
   marginPhoneNoteRef.current = (chapterNumber: number) => {
     if (!(marginPhone || sharedReader)) return false
@@ -5701,7 +5729,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     openPhoneCard({ kind: 'chapter-note', chapterNumber, chapterLabel: chapter?.title || book.chapterLabel })
     return true
   }
-  quizChapterRef.current = () => { setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
+  quizChapterRef.current = anchor => { desktopQuizAnchorRef.current = anchor ?? null; setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
 
   const commandOverlay = tocOpen || inTheBookOpen || speedPopoverOpen || phoneCard !== null
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
@@ -5825,7 +5853,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (card.kind === 'quiz') {
       const passage = card.passage ?? phoneChapterPassage()
       return (
-        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} {...(sharedReader && !showPhoneChrome && !card.passage && desktopQuizAnchorRef.current ? { getAnchor: () => desktopQuizAnchorRef.current } : {})} label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
           <PhoneQuizBody
             request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
             mark={(question, answer, turns) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer, turns })}
@@ -5944,13 +5972,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const id = `mc_react_${card.openedAt}`
       const existing = ask.conversations.find(item => item.id === id)
       const convertedNote = desktopNoteConversionRef.current.get(card.openedAt)
-      const savedTurns = withConvertedNote(turns.map(turn => ({role:turn.role,content:turn.content,at:turn.timestamp})), convertedNote ? {text:convertedNote.text,at:card.openedAt} : undefined)
-      if (existing?.messages.map(message => message.content).join('\n') === savedTurns.map(turn => turn.content).join('\n')) continue
+      const savedTurns = withConvertedNote(turns.map(turn => ({id:turn.id,role:turn.role,content:turn.content,at:turn.timestamp})), convertedNote ? {text:convertedNote.text,at:card.openedAt} : undefined)
+      if (existing?.card && existing.messages.map(message => message.content).join('\n') === savedTurns.map(turn => turn.content).join('\n')) continue
       const range = card.passage.ranges?.find(part => part.chapterNumber === card.passage.chapterNumber)?.range
       const saved = ask.saveCard({ source: userBook ? { kind:'own-text', bookId:userBook.bookId, ownHex:userBook.hex, converter:userBook.edition.converter, editionKey:ownSourceEditionKey(userBook.edition) as 'own'|'own-en'|'own-da' } : { kind:'catalogue', bookId:book.bookId || 'bible' },
         id:`react_${card.openedAt}`, kind:'ask', chapterNumber:card.passage.chapterNumber, text:card.passage.text,
-        ...(range && range.toWord === range.fromWord ? {data:{freeAnchor:{paragraphIndex:range.paragraphIndex,fromWord:range.fromWord}}} : {}),
-        ...(range && range.toWord > range.fromWord ? { anchor:{editionKey:card.passage.editionKey, chapterNumber:card.passage.chapterNumber, paragraphIndex:range.paragraphIndex, fromWord:range.fromWord, endParagraphIndex:range.endParagraphIndex, toWord:range.toWord} } : {}),
+        ...askCardSource(range, card.passage.editionKey, card.passage.chapterNumber),
         turns:savedTurns, at:card.openedAt, u:Date.now() })
       if (saved && convertedNote) { if (convertedNote.highlightId) { if (convertedNote.created) highlightsApi.remove(convertedNote.highlightId); else highlightsApi.setNote(convertedNote.highlightId, ''); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'note' && item.highlightId === convertedNote.highlightId))) }; if (convertedNote.chapterNumber != null) { highlightsApi.setChapterNote(convertedNote.chapterNumber, ''); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'chapter-note' && item.chapterNumber === convertedNote.chapterNumber))) } }
     }
@@ -6001,8 +6028,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (undo) { setMarginUndo(() => () => { undo() }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== item.id)); if (desktopOpenId === item.id) { setDesktopOpenId(null); setPhoneCard(null) } }
   }
   const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchup ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
+  const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
   const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id)).map(item => ({
-    id: item.id, label: `${item.card!.kind === 'quiz' ? 'Quiz me' : item.card!.kind.charAt(0).toUpperCase() + item.card!.kind.slice(1)} · ${book.chapterLabel}`,
+    id: item.id, label: marginActionLabel(item.card!.kind),
     source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : item.card!.kind === 'catchup' ? -1 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
     free: !item.card!.anchor, open: desktopOpenId === item.id, preview: item.messages.find(message => message.role === 'assistant')?.content, sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
@@ -6017,10 +6045,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const passage = 'passage' in live ? live.passage : null
     const range = passage?.ranges?.find(part => part.chapterNumber === book.chapterNumber)?.range
     const saved = marginConversations.find(item => item.id === id)
-    desktopMarginEntries.push({ id, label: phoneCardLabel(PHONE_CARD_NAMES[live.kind], passage?.chapterLabel), source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
+    desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
       order: live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
       open: desktopOpenId === id, preview: saved?.messages.find(message => message.role === 'assistant')?.content || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
-      sourceText: passage?.text, free: live.kind === 'chapter-note' || live.kind === 'note' && range?.toWord === range?.fromWord,
+      sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)
         else if (live.kind === 'note') { const marks = highlightsApi.allHighlights.filter(mark => mark.id === live.highlightId); highlightsApi.remove(live.highlightId); setMarginUndo(() => () => { highlightsApi.restore(marks) }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== id)); setDesktopOpenId(null); setPhoneCard(null) }
@@ -6033,7 +6061,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (liveIds.has(id)) continue
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
     const live: PhoneCard = { kind: 'note', passage, highlightId: mark.id, created: false }
-    desktopMarginEntries.push({ id, label: phoneCardLabel('Note'), source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: mark.fromWord === mark.toWord,
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
       onToggle: () => { setPhoneNote(mark.note || ''); openPhoneCard(live) }, onDelete: () => { highlightsApi.remove(mark.id); setMarginUndo(() => () => { highlightsApi.restore([mark]) }) }, content: null })
   }
   const saveUnitRailAnswer = (id: string, kind: 'primer' | 'recap' | 'catchup', text: string, chapterNumber = book.chapterNumber) => {
@@ -6052,7 +6080,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader) for (const notes of desktopChapterCards) {
     const id = unitRailId(notes), kind = notes.request.kind === 'end' ? 'recap' : 'primer'
-    desktopMarginEntries.push({ id, label: notes.title, source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
+    desktopMarginEntries.push({ id, label: kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
       content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
@@ -6061,7 +6089,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader && desktopCatchup && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: phoneCardLabel(CATCH_UP_TITLE), source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
@@ -6072,13 +6100,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
     if (liveIds.has(id)) continue
-    desktopMarginEntries.push({ id, label: phoneCardLabel('Note'), source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, free: true,
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, free: true,
       onToggle: () => { setPhoneNote(note.note || ''); openPhoneCard({ kind: 'chapter-note', chapterNumber: note.chapterNumber, chapterLabel: book.chapterLabel }) },
       onDelete: () => { highlightsApi.setChapterNote(note.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(note.chapterNumber, note.note || '') }) }, content: null })
   }
   if (continuousReader && desktopCatchup && userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: phoneCardLabel(CATCH_UP_TITLE), source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}

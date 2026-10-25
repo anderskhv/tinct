@@ -116,7 +116,7 @@ function build() {
   results=node('div',null,'results');results.id='tinct-command-results';results.setAttribute('role','listbox');results.setAttribute('aria-label','Commands');
   const footer=node('footer'),label=node('label','Appearance');themeSelect=node('select');themeSelect.setAttribute('aria-label','Tinct appearance');
   for(const [value,text]of[['tinct','Tinct'],['omarchy','Follow Omarchy'],['persia','Prince of Persia']]){const o=node('option',text);o.value=value;themeSelect.append(o);}label.append(themeSelect);themeSelect.onchange=()=>selectTheme(themeSelect.value);
-  connection=node('p');connection.setAttribute('role','status');const hint=node('p','↑ ↓ choose · Enter open · Esc return · Ctrl/⌘ K commands','hint');
+  connection=node('p');connection.setAttribute('role','status');const hint=node('p','↑ ↓ choose · Enter open · Ctrl/⌘ K commands','hint');
   const shortcuts=node('label','Letter shortcuts','shortcuts');shortcutToggle=node('input');shortcutToggle.type='checkbox';shortcutToggle.checked=letters;shortcutToggle.onchange=()=>{letters=shortcutToggle.checked;save(SHORTCUTS,letters?'on':'off');};shortcuts.append(shortcutToggle);
   footer.append(label,connection,shortcuts,hint);dialog.append(header,input,results,footer);shadow.append(dialog);document.body.append(host);
   input.oninput=()=>{selected=0;render();};

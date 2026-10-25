@@ -230,8 +230,15 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
   useLayoutEffect(() => {
     const el = field.current
     if (!el) return
-    el.style.height = 'auto'
-    el.style.height = `${Math.min(96, el.scrollHeight)}px`
+    const size = () => {
+      el.style.height = 'auto'
+      // A retained card can mount while folded, when scrollHeight is zero.
+      el.style.height = `${Math.max(24, Math.min(96, el.scrollHeight))}px`
+    }
+    size()
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(size)
+    observer?.observe(el.closest('.lab-pcard-follow-box') ?? el)
+    return () => observer?.disconnect()
   }, [value, field])
   const send = () => { const text = value.trim(); if (text && !disabled) onSend(text) }
   return (

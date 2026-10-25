@@ -66,3 +66,8 @@ html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 0; bor
   border:0; border-left:1px solid var(--lab-pcard-hair, var(--lab-border)); border-radius:0;
   background:transparent; box-shadow:none; color:var(--lab-ink-muted);
 }
+
+.lab .lab-desktop-card[data-reader-window] > .lab-pcard-head { cursor:grab; touch-action:none; user-select:none; }
+.lab .lab-desktop-card[data-reader-window] > .lab-pcard-head:active { cursor:grabbing; }
+
+.lab .lab-desktop-card-foot { flex:none; }

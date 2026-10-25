@@ -60,8 +60,8 @@ describe('1. one name for the whole-document chat', () => {
     expect(READER).toContain("if (id === 'chat') return openChat();")
     expect(READER).not.toMatch(/\['librarian', 'Librarian'\]/)
   })
-  it('the book reader keeps its Librarian row (src/lab is unchanged)', () => {
-    expect(readFileSync(ROOT + 'app/src/lab/labSuperMenu.ts', 'utf8')).toContain("{ id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] }")
+  it('the book reader uses the same explicit Chat and Talk row', () => {
+    expect(readFileSync(ROOT + 'app/src/lab/labSuperMenu.ts', 'utf8')).toContain("{ id: 'conversation', label: '', modes: ['chat', 'talk'] }")
   })
 })
 

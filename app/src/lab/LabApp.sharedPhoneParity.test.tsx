@@ -234,7 +234,9 @@ it('creates and edits a shared desktop passage note in its margin card and persi
   saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
   expect(saved).toHaveLength(1)
   expect(saved[0]).toMatchObject({ id, note: 'An edited thought' })
-  fireEvent.click(screen.getAllByTestId('source-margin-open').find(button => button.textContent?.startsWith('Note'))!)
+  const noteHeader = screen.getAllByTestId('source-margin-open').find(button => button.textContent === 'Note')!
+  expect(noteHeader).toBeTruthy()
+  fireEvent.click(noteHeader)
   fireEvent.change(screen.getByRole('textbox', { name: 'Follow up' }), {target:{value:'What does my thought imply?'}})
   fireEvent.click(screen.getByRole('button', {name:'Send'}))
   await waitFor(() => expect(document.querySelector('[data-testid="source-margin-item"][data-open="true"]')?.textContent).toContain('Ask'))
