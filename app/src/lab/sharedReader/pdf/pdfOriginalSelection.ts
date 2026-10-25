@@ -78,17 +78,18 @@ function edge(node: Node, offset: number, direction: -1 | 1): { node: Text; offs
 }
 
 /** A deliberate native range becomes whole words with every box owned by its real source page. */
-export function readPdfOriginalSelection(root: HTMLElement, selection: Selection | null): PdfOriginalSelection | null {
+export function readPdfOriginalSelection(root: HTMLElement, selection: Selection | null, expandWords = true): PdfOriginalSelection | null {
   if (!selection?.rangeCount || selection.isCollapsed) return null
   const native = selection.getRangeAt(0)
   if (!root.contains(native.startContainer) || !root.contains(native.endContainer)
     || !element(native.startContainer)?.closest('.pdf-original__text') || !element(native.endContainer)?.closest('.pdf-original__text')) return null
-  const range = native.cloneRange(), a = edge(range.startContainer, range.startOffset, -1), b = edge(range.endContainer, range.endOffset, 1)
+  const range = native.cloneRange(), a = expandWords && edge(range.startContainer, range.startOffset, -1), b = expandWords && edge(range.endContainer, range.endOffset, 1)
   if (a) range.setStart(a.node, a.offset)
   if (b) range.setEnd(b.node, b.offset)
   if (a || b) { selection.removeAllRanges(); selection.addRange(range) }
   const startSide = element(range.startContainer)?.closest('[data-pdf-side]'), endSide = element(range.endContainer)?.closest('[data-pdf-side]')
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), rects: PdfSelectionRect[] = [], parts: string[] = [], pages = new Map<number, string[]>()
+  const aspects = new Map<number, number>()
   let previous: { node: Text; last: number } | null = null
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
     if (!range.intersectsNode(node)) continue
@@ -99,8 +100,10 @@ export function readPdfOriginalSelection(root: HTMLElement, selection: Selection
     const text = node as Text, from = node === range.startContainer ? range.startOffset : 0, to = node === range.endContainer ? range.endOffset : text.length
     if (to <= from || !text.data.slice(from, to).trim()) continue
     const fragment = document.createRange(); fragment.setStart(text, from); fragment.setEnd(text, to)
-    const boxes = fragment.getClientRects()
-    rects.push(...projectPdfSelection(Number(sheet.dataset.page), layer.getBoundingClientRect(), boxes))
+    const boxes = fragment.getClientRects?.() ?? []
+    const bounds = layer.getBoundingClientRect(), pageNumber = Number(sheet.dataset.page)
+    aspects.set(pageNumber, bounds.height / bounds.width)
+    rects.push(...projectPdfSelection(pageNumber, bounds, boxes))
     const lastBox = previous?.node.parentElement?.getBoundingClientRect(), nextBox = span?.getBoundingClientRect()
     const joins = previous && lastBox && nextBox && previous.last === previous.node.length && from === 0
       && !/\s$/.test(previous.node.data) && !/^\s/.test(text.data) && Math.abs(lastBox.top - nextBox.top) < Math.max(lastBox.height, nextBox.height) * .6
@@ -111,5 +114,51 @@ export function readPdfOriginalSelection(root: HTMLElement, selection: Selection
     previous = { node: text, last: to }
   }
   const text = parts.join('').replace(/\s+/g, ' ').trim()
-  return rects.length && text.length >= 2 ? { page: rects[0][0], text, rects, ...(pages.size > 1 ? { pages: [...pages].map(([n, parts]) => ({ n, text: parts.join('').replace(/\s+/g, ' ').trim() })) } : {}) } : null
+  return rects.length && text.length >= (expandWords ? 2 : 1) ? { page: rects[0][0], text, rects: pdfSelectionLineRects(rects, aspects), ...(pages.size > 1 ? { pages: [...pages].map(([n, parts]) => ({ n, text: parts.join('').replace(/\s+/g, ' ').trim() })) } : {}) } : null
+}
+
+/** Join word-sized PDF items on their own line, never across a column or page.
+ * Work in page pixels: fractional x/y have different scales on a tall page. */
+export function pdfSelectionLineRects(rects: PdfSelectionRect[], pageAspect = new Map<number, number>()): PdfSelectionRect[] {
+  const lines: PdfSelectionRect[][] = []
+  for (const rect of [...rects].sort((a, b) => a[0] - b[0] || a[2] - b[2] || a[1] - b[1])) {
+    const line = lines.find(line => line[0][0] === rect[0] && Math.abs(line[0][2] + line[0][4] / 2 - rect[2] - rect[4] / 2) < Math.min(line[0][4], rect[4]) * .42)
+    if (line) line.push(rect)
+    else lines.push([rect])
+  }
+  return lines.flatMap(line => {
+    const bars: PdfSelectionRect[] = []
+    for (const rect of line.sort((a, b) => a[1] - b[1])) {
+      const last = bars.at(-1), aspect = pageAspect.get(rect[0]) ?? 1
+      if (last && rect[1] - last[1] - last[3] < Math.min(last[4], rect[4]) * aspect * 1.2) {
+        last[3] = Math.max(last[1] + last[3], rect[1] + rect[3]) - last[1]
+        const bottom = Math.max(last[2] + last[4], rect[2] + rect[4])
+        last[2] = Math.min(last[2], rect[2])
+        last[4] = bottom - last[2]
+      } else bars.push([...rect])
+    }
+    return bars
+  })
+}
+
+/** Native ranges include absolutely positioned line breaks/page wrappers.
+ * Paint only real glyph fragments, as the original PDF reader does. Native
+ * selection still owns drag direction, handles, copying and word expansion. */
+export function paintPdfOriginalSelection(root: HTMLElement): void {
+  root.querySelectorAll('.pdf-original__selection').forEach(layer => layer.remove())
+  const selection = readPdfOriginalSelection(root, window.getSelection(), false)
+  if (!selection) return
+  const sheets = new Map<number, HTMLElement>()
+  root.querySelectorAll<HTMLElement>('.pdf-original__page').forEach(sheet => {
+    sheets.set(Number(sheet.dataset.page), sheet)
+  })
+  for (const [page, x, y, width, height] of selection.rects) {
+    const sheet = sheets.get(page)
+    if (!sheet) continue
+    let layer = sheet.querySelector<HTMLElement>('.pdf-original__selection')
+    if (!layer) { layer = document.createElement('div'); layer.className = 'pdf-original__selection'; layer.setAttribute('aria-hidden', 'true'); sheet.append(layer) }
+    const ink = document.createElement('i')
+    Object.assign(ink.style, { left: `${x * 100}%`, top: `${y * 100}%`, width: `${width * 100}%`, height: `${height * 100}%` })
+    layer.append(ink)
+  }
 }

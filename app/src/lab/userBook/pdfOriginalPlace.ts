@@ -31,13 +31,13 @@ export function notePdfOriginalZoom(hex: string, owner: string, zoom: number): b
 }
 
 /** The page viewer owns PDF place, preserving rev/zoom and clearing stale text coordinates after a page move. */
-export function notePdfOriginalPlace(hex: string, owner: string, place: OriginalPagePlace, pages?: number): boolean {
+export function notePdfOriginalPlace(hex: string, owner: string, place: OriginalPagePlace, pages?: number, force = false): boolean {
   if (userBookOwner() !== owner || !Number.isInteger(place.page) || place.page < 1 || !Number.isFinite(place.frac)) return false
   try {
     const previous = JSON.parse(localStorage.getItem(key(hex)) || '{}') as Record<string, unknown>
     const frac = Math.max(0, Math.min(1, place.frac))
-    if (previous.page === place.page && typeof previous.frac === 'number' && Math.abs(previous.frac - frac) <= 0.02) return false
-    const next = { ...previous, page: place.page, frac, edition: 'p', at: Date.now(), ...(pages && Number.isInteger(pages) ? { pages } : {}) }
+    if (!force && previous.page === place.page && typeof previous.frac === 'number' && Math.abs(previous.frac - frac) <= 0.02) return false
+    const next: Record<string, unknown> = { ...previous, page: place.page, frac, edition: 'p', at: Date.now(), ...(pages && Number.isInteger(pages) ? { pages } : {}) }
     delete next.chapterNumber; delete next.paragraphIndex; delete next.wordIndex; delete next.converter
     localStorage.setItem(key(hex), JSON.stringify(next))
     notePdfPlace(hex)

@@ -49,6 +49,7 @@ export interface LabV2SheetProps {
    * the book in Margin at the same place.
    */
   margin?: { onOpen: () => void } | null
+  pdfSource?: {onOriginalPages:()=>void}
   /** Desktop reading layouts. The caller keeps the same source-word anchor when switching. */
   readerLayout?: {
     active: 'margin' | 'two-page' | 'compare'
@@ -205,7 +206,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -371,6 +372,13 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                 />
                 <span className="lab-v2-size-large" aria-hidden="true">A</span>
               </div>
+              {pdfSource && <div className="lab-v2-layout-choices" role="group" aria-label="Book format">
+                <p className="lab-v2-group-label">Book format</p>
+                <div className="lab-v2-group">
+                  <div className="lab-v2-edition-option" aria-current="true"><span className="lab-v2-edition-name">Tinct book</span><span aria-hidden="true">✓</span></div>
+                  <button type="button" className="lab-v2-edition-option" data-testid="lab-v2-original-pages" onClick={pdfSource.onOriginalPages}><span className="lab-v2-edition-name">Original pages<small className="lab-v2-layout-description">Return to the PDF at this reading place.</small></span><span aria-hidden="true">›</span></button>
+                </div>
+              </div>}
               {(readerLayout || margin) && (
                 <div className="lab-v2-layout-choices" role="group" aria-label="Layout">
                   <p className="lab-v2-group-label">Layout</p>
