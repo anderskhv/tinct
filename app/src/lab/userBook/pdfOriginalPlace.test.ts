@@ -29,3 +29,14 @@ it('restores and keeps PDF page size on this device without changing page, revis
   expect(notePdfOriginalZoom(HEX, 'a', 4)).toBe(false)
   expect(readPdfOriginalZoom(HEX, 'a')).toBe(1.6)
 })
+
+it('commits an unchanged visible spot on a view handoff so an older text tuple cannot win',()=>{
+  localStorage.setItem('sb-test-auth-token',JSON.stringify({user:{id:'a'}}))
+  const key=`tinct-addbook:pos:pdf:${HEX}`
+  localStorage.setItem(key,JSON.stringify({page:4,frac:.6,at:10,rev:3,chapterNumber:1,paragraphIndex:8,wordIndex:3,converter:1}))
+  expect(notePdfOriginalPlace(HEX,'a',{page:4,frac:.6},8,true)).toBe(true)
+  const stored=JSON.parse(localStorage.getItem(key)!)
+  expect(stored).toMatchObject({page:4,frac:.6,rev:3,pages:8,edition:'p'})
+  expect(stored.at).toBeGreaterThan(10)
+  expect(stored.paragraphIndex).toBeUndefined()
+})

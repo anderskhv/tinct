@@ -691,6 +691,15 @@ describe('the first view', () => {
 describe('the V2 surface', () => {
   const css = readFileSync(resolve(__dirname, 'lab.css'), 'utf8')
 
+  it('gives iOS a solid top-edge header without taking it out of reader flow', () => {
+    const header = css.match(/\.lab\[data-chrome-version="v2"\]:is\(\.is-phone, \.has-phone-chrome\) \.lab-header\s*\{([^}]+)\}/)?.[1]
+    expect(header).toBeDefined()
+    expect(header).toMatch(/position:\s*sticky/)
+    expect(header).toMatch(/top:\s*0/)
+    expect(header).toMatch(/background:\s*var\(--lab-paper\)/)
+    expect(header).not.toMatch(/(?:height|padding|filter):/)
+  })
+
   it('blurs in the panel and only dims the page', () => {
     expect(css).toContain('--lab-v2-panel-blur: 16px')
     expect(css).toContain('--lab-v2-panel-fill: 0.86')

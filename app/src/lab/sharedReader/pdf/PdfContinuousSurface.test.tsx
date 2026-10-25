@@ -72,12 +72,16 @@ it('changes the visible source page by ordinary continuous scrolling without a N
   })) }
   const onVisiblePlace = vi.fn()
   const { container } = render(<PdfContinuousSurface bytes={async () => new ArrayBuffer(1)} openDocument={async () => pdf} onVisiblePlace={onVisiblePlace} />)
-  await waitFor(() => expect(screen.getByText('Page 1 of 3')).toBeTruthy())
+  await waitFor(() => expect(screen.getByRole('slider', { name: 'Original PDF position' }).getAttribute('aria-valuenow')).toBe('1'))
   const scroller = container.querySelector('.pdf-original__scroll') as HTMLElement
+  const mapLines = container.querySelectorAll('.pdf-original__map-line').length
+  expect(mapLines).toBe(3)
   scroller.scrollTop = 14 + 900 + 18 + 225
   fireEvent.scroll(scroller)
-  expect(screen.getByText('Page 2 of 3')).toBeTruthy()
+  await waitFor(() => expect(screen.getByRole('slider', { name: 'Original PDF position' }).getAttribute('aria-valuenow')).toBe('2'))
+  expect(container.querySelector('.pdf-original__controls')).toBeNull()
   expect(onVisiblePlace).toHaveBeenCalledWith({ page: 2, frac: .25 })
+  expect(container.querySelectorAll('.pdf-original__map-line')).toHaveLength(mapLines)
 })
 
 it('maps strip distances to genuine source pages and fractions, including unequal sheet heights', () => {

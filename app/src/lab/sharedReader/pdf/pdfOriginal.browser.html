@@ -6,10 +6,11 @@
   import React from 'react'
   import { createRoot } from 'react-dom/client'
   import { PdfOriginalSurface } from './PdfOriginalSurface.tsx'
+  import { PdfContinuousSurface } from './PdfContinuousSurface.tsx'
   const root = createRoot(document.getElementById('app'))
   const raw = Uint8Array.from(atob(window.__pdfFixture || ''), char => char.charCodeAt(0)).buffer
   window.__selectedPdf = []
-  root.render(React.createElement(PdfOriginalSurface, {
+  root.render(React.createElement(new URLSearchParams(location.search).has('continuous') ? PdfContinuousSurface : PdfOriginalSurface, {
     bytes: async () => raw,
     initialPlace: JSON.parse(sessionStorage.getItem('pdf-place') || 'null'),
     onVisiblePlace: place => sessionStorage.setItem('pdf-place', JSON.stringify(place)),

@@ -5219,6 +5219,16 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   z-index: 330;
 }
 
+/* iOS applies a native scroll-edge blur above ordinary flow content. Give
+   the phone's safe-area/header one opaque, viewport-constrained surface so
+   that effect cannot fade through the title. Sticky retains its flow height
+   and the existing safe-area padding, keeping page breaks unchanged. */
+.lab[data-chrome-version="v2"]:is(.is-phone, .has-phone-chrome) .lab-header {
+  position: sticky;
+  top: 0;
+  background: var(--lab-paper);
+}
+
 .lab[data-chrome-version="v2"] .lab-super-layer {
   position: absolute;
   inset: 0;

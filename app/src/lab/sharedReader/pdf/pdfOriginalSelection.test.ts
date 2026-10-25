@@ -1,9 +1,29 @@
 // @vitest-environment jsdom
 import { expect, it } from 'vitest'
-import { markPdfTextFurniture, pdfFurnitureIndexes } from './pdfOriginalSelection'
+import { markPdfTextFurniture, pdfFurnitureIndexes, pdfSelectionLineRects } from './pdfOriginalSelection'
 import type { PdfOriginalPage } from './PdfOriginalSurface'
 const view = { width: 600, height: 800, transform: [1, 0, 0, -1, 0, 800] } as ReturnType<PdfOriginalPage['getViewport']>
 const item = (str: string, top: number, size = 12, shear = 0) => ({ str, transform: [size, 0, shear, size, 50, 800 - top], width: 100, height: size })
+it('retains the full vertical ink of shifted fragments merged on a line', () => {
+  const [bar] = pdfSelectionLineRects([[1, .1, .1, .2, .04], [1, .31, .105, .2, .04]])
+  expect(bar[1]).toBeCloseTo(.1)
+  expect(bar[2]).toBeCloseTo(.1)
+  expect(bar[3]).toBeCloseTo(.41)
+  expect(bar[4]).toBeCloseTo(.045)
+})
+it('joins split justified words without joining columns, headings or source pages', () => {
+  const rects = pdfSelectionLineRects([
+    [1, .10, .20, .10, .015], [1, .215, .20, .10, .015],
+    [1, .65, .20, .10, .015], [1, .10, .25, .60, .03],
+    [2, .10, .20, .10, .015],
+  ], new Map([[1, 4 / 3], [2, 4 / 3]]))
+  expect(rects).toHaveLength(4)
+  expect(rects[0].slice(0, 4)).toEqual([1, .10, .20, .215])
+  expect(rects[0][4]).toBeCloseTo(.015)
+  expect(rects[1]).toEqual([1, .65, .20, .10, .015])
+  expect(rects[2]).toEqual([1, .10, .25, .60, .03])
+  expect(rects[3][0]).toBe(2)
+})
 it('preserves a large source title while excluding a small isolated running head and folio', () => {
   const items = [item('Running head', 25, 9), item('Chapter One', 90, 20), ...[160, 177, 194, 211, 228].map(y => item('Body text', y)), item('12', 775, 9)]
   const furniture = pdfFurnitureIndexes(items, view)

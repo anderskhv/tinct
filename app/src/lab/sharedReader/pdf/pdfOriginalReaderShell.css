@@ -1,6 +1,4 @@
-.pdf-original-reader { height:100dvh; overflow:hidden; --lab-paper:#f4f2ed; --lab-ink:#252525; --lab-ink-muted:#6b6863; --lab-border:#c8c3b9; --lab-surface:#ebe8e1; background:var(--lab-paper); color:var(--lab-ink); }
-.pdf-original-reader[data-theme=book] { --lab-paper:#f2e5ce; --lab-ink:#382a20; --lab-ink-muted:#806c58; --lab-border:#c9b79d; --lab-surface:#ead8ba; }
-.pdf-original-reader[data-theme=dark] { --lab-paper:#252320; --lab-ink:#f3eee5; --lab-ink-muted:#b3a99b; --lab-border:#625b51; --lab-surface:#363431; color-scheme:dark; }
+.pdf-original-reader { height:100dvh; overflow:hidden; background:var(--lab-paper); color:var(--lab-ink); }
 html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --lab-ink-muted:#444; --lab-border:#111; --lab-surface:#fff; color-scheme:light; }
 .pdf-original-reader.lab.is-desktop .lab-header { grid-template-columns:48px minmax(0,1fr) auto; }
 .pdf-original-reader .lab-header-brand { min-width:0; }
@@ -9,17 +7,15 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__head-actions > button:hover { color:var(--lab-ink); }
 .pdf-original-reader .lab-body { height:calc(100dvh - 6.75rem); min-height:0; }
 .pdf-original-reader .lab-page-wrap { min-height:0; height:100%; }
-.pdf-original-reader__panel { position:fixed; z-index:90; top:4.5rem; right:1.5rem; width:min(350px,calc(100vw - 24px)); max-height:min(70dvh,680px); overflow:auto; padding:12px 16px; border:1px solid var(--lab-border); border-radius:11px; background:var(--lab-paper); box-shadow:0 8px 30px #0003; font:14px/1.4 system-ui,sans-serif; }
-.pdf-original-reader__panel-head { display:flex; align-items:center; justify-content:space-between; padding-bottom:8px; border-bottom:1px solid var(--lab-border); }
-.pdf-original-reader__panel-head strong { font:500 20px Georgia,serif; }
-.pdf-original-reader__panel button,.pdf-original-reader__panel a { border:0; background:none; color:inherit; cursor:pointer; }
-.pdf-original-reader__panel-head button { font-size:23px; line-height:1; padding:2px 6px; }
+.pdf-original-reader__panel { z-index:90; font:14px/1.4 system-ui,sans-serif; }
+.pdf-original-reader__panel button,.pdf-original-reader__panel a { color:inherit; cursor:pointer; }
+.pdf-original-reader__panel .pdf-original-reader__panel-head { border:0; }
+.pdf-original-reader__panel :where(.pdf-original-reader__menu,.pdf-original-reader__settings,.pdf-original-reader__unit-list,.pdf-original-reader__page-jump,.pdf-original-reader__notebook,.pdf-original-reader__contents-tabs) button { border:0; background:none; }
 .pdf-original-reader__menu,.pdf-original-reader__settings { display:grid; gap:2px; padding-top:7px; }
 .pdf-original-reader__menu button,.pdf-original-reader__menu a,.pdf-original-reader__settings > button { display:block; width:100%; padding:10px 5px; text-align:left; text-decoration:none; border-bottom:1px solid var(--lab-border); }
 .pdf-original-reader__settings fieldset { border:0; padding:12px 0; display:flex; gap:14px; flex-wrap:wrap; }
 .pdf-original-reader__settings legend { color:var(--lab-ink-muted); }
 .pdf-original-reader__settings label { display:inline-flex; align-items:center; gap:5px; cursor:pointer; }
-.pdf-original-reader__page-list { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; padding:12px 0; }
 .pdf-original-reader__unit-list { display:grid; gap:1px; margin-top:8px; border-block:1px solid var(--lab-border); }
 .pdf-original-reader__unit-list button { display:flex; justify-content:space-between; gap:12px; text-align:left; padding:9px 5px; border-bottom:1px solid var(--lab-border); }
 .pdf-original-reader__unit-list button[aria-current=location] { background:var(--lab-surface); font-weight:600; }
@@ -27,9 +23,6 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__page-jump { display:flex; align-items:center; gap:8px; padding:12px 0 0; }
 .pdf-original-reader__page-jump input { width:80px; min-width:0; padding:5px; background:var(--lab-paper); color:var(--lab-ink); border:1px solid var(--lab-border); }
 .pdf-original-reader__page-jump button { padding:6px; }
-.pdf-original-reader__page-list button { border:1px solid var(--lab-border); border-radius:5px; padding:9px 2px; }
-.pdf-original-reader__page-list button[aria-current=page] { background:var(--lab-surface); font-weight:600; }
-.pdf-original-reader__reading-now { position:fixed; bottom:12px; left:50%; transform:translateX(-50%); z-index:5; border:1px solid var(--lab-border); border-radius:99px; background:var(--lab-paper); color:var(--lab-ink-muted); padding:8px 14px; font:12px system-ui,sans-serif; cursor:pointer; }
 .pdf-original-reader__notebook-tools,.pdf-original-reader__filters { display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--lab-border); }
 .pdf-original-reader__filters button[aria-pressed=true] { color:#896636; font-weight:600; }
 .pdf-original-reader__saved { border-bottom:1px solid var(--lab-border); padding:12px 0; }
@@ -49,7 +42,7 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__status { position:fixed; z-index:110; left:50%; bottom:58px; transform:translateX(-50%); max-width:calc(100vw - 32px); background:var(--lab-surface); color:var(--lab-ink); border:1px solid var(--lab-border); border-radius:8px; padding:9px 12px; font:13px system-ui,sans-serif; }
 .pdf-original-reader__status button { border:0; background:none; color:inherit; text-decoration:underline; cursor:pointer; }
 html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-original-reader__phone-actions { box-shadow:none; }
-@media(max-width:700px) { .pdf-original-reader .lab-header { gap:6px; } .pdf-original-reader .pdf-original-reader__head-actions { gap:4px; } .pdf-original-reader__head-actions > button:not(.lab-super) { display:none; } .pdf-original-reader__panel { top:58px; right:8px; } .pdf-original-reader__unit-actions { left:8px; right:8px; bottom:50px; } }
+@media(max-width:700px) { .pdf-original-reader .lab-header { gap:6px; } .pdf-original-reader .pdf-original-reader__head-actions { gap:4px; } .pdf-original-reader__head-actions > button:not(.lab-super) { display:none; } .pdf-original-reader__unit-actions { left:8px; right:8px; bottom:50px; } }
 /* Reserve the companion margin before any card opens; the source sheet never reflows. */
 .pdf-original-reader.lab.is-desktop .lab-body { grid-template-columns:minmax(0,1fr) clamp(300px,25vw,380px); gap:0; padding:0 20px 20px 12px; width:100%; max-width:2080px; margin-inline:auto; }
 .pdf-original-reader.lab.is-desktop .lab-page-wrap { border:0; border-radius:0; box-shadow:none; background:transparent; }
@@ -60,7 +53,7 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-reader.lab.is-phone[data-chrome-version="v2"] .pdf-original-reader__head-actions { grid-column:3; grid-row:1; width:90px; min-width:90px; flex-wrap:nowrap; gap:2px; }
 .pdf-original-reader.lab.is-phone .lab-v2-library-back { display:grid; place-items:center; width:28px; height:44px; color:var(--lab-ink-muted); text-decoration:none; }
 .pdf-original-reader.lab.is-phone .lab-body { flex:1 1 auto; height:auto; min-height:0; }
-.pdf-original-reader.lab.is-phone .pdf-original-reader__panel { top:calc(58px + env(safe-area-inset-top,0px)); }
+
 /* The original PDF reader's header marks sit directly on the paper. */
 .pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header :is(.lab-v2-library-back,.lab-v2-play,.lab-super) { width:44px; height:44px; flex:0 0 44px; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; color:var(--lab-ink); }
 .pdf-original-reader.lab.is-desktop[data-chrome-version="v2"] .lab-header .lab-v2-library-back { top:6px; text-decoration:none; }
@@ -73,3 +66,24 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-reader__contents-tabs button { padding:4px 0 8px; color:var(--lab-ink-muted); }
 .pdf-original-reader__contents-tabs button[aria-current=page] { color:var(--lab-ink); border-bottom:1px solid currentColor; }
 .pdf-original-reader .source-margin-content .lab-pcard-embedded { overflow:visible; }
+
+/* Use the same appearance swatches, paper, and progress rail as the book reader. */
+.pdf-original-reader.lab.is-desktop { background:var(--lab-paper); }
+.pdf-original-reader__settings .lab-v2-themes { margin-top:14px; }
+.pdf-original-reader__page-size { display:flex; align-items:center; gap:14px; padding:8px 0 16px; }
+.pdf-original-reader__page-size input { min-width:0; flex:1; }
+.pdf-original-reader__settings > label { color:var(--lab-ink-muted); font:12px system-ui,sans-serif; }
+.pdf-original-reader__settings .pdf-original-reader__edition { margin-top:8px; border-top:1px solid var(--lab-border); border-bottom:0; font:17px 'EB Garamond',Georgia,serif; }
+.pdf-original-reader .pdf-original-reader__footer { position:fixed; left:0; right:0; bottom:0; min-height:42px; padding-bottom:env(safe-area-inset-bottom,0px); background:var(--lab-paper); z-index:5; }
+.pdf-original-reader .pdf-original-reader__footer button { pointer-events:auto; color:var(--lab-ink-muted); }
+.pdf-original-reader .pdf-original-reader__footer button:disabled { opacity:.25; cursor:default; }
+.pdf-original-reader .pdf-original-reader__footer .lab-chapter-progress { border:0; background:none; cursor:pointer; }
+.pdf-original-reader.lab.is-phone .lab-body { padding-bottom:calc(42px + env(safe-area-inset-bottom,0px)); }
+
+.pdf-original-reader__settings > button:disabled { opacity:.5; cursor:wait; }
+.pdf-original-reader.lab.is-phone .pdf-original-reader__head-actions .lab-v2-play { display:grid; place-items:center; width:40px; height:44px; padding:0; }
+
+/* Match the normal sheet's phone safe area once, on its body and the progress rail. */
+.pdf-original-reader.lab[data-chrome-version="v2"].is-phone:not(.has-phone-ask) .pdf-original-reader__footer.is-phone-rail { bottom:0; box-sizing:border-box; min-height:calc(42px + env(safe-area-inset-bottom,0px)); padding-bottom:env(safe-area-inset-bottom,0px); }
+.pdf-original-reader.lab.is-phone .pdf-original-reader__panel .lab-v2-sheet-body { padding-bottom:calc(16px + env(safe-area-inset-bottom,0px)); }
+.pdf-original-reader__panel .pdf-original-reader__contents-tabs { flex:none; padding:12px 16px 0; margin:0; }

@@ -15,7 +15,7 @@
  * account as it opens (reader.js placeSync), as it did on its own page; nothing here reads or writes it.
  * A phone goes on to the margin reader's page itself (/lab/addbook/book?userBook=<hex>), as before.
  */
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { LabApp } from '../LabApp'
 import { LabWait } from '../LabWait'
 import { ownBookFrameUrl, USER_BOOKS_SHELF_URL } from './userBookId'
@@ -33,6 +33,7 @@ import { adoptUnassignedOwnTextCards, OwnTextCardsSync, unassignedOwnTextCardCou
 import { allLegacyEpubNotebookItems, claimLegacyEpubAnnotations, migrateVerifiedLegacyEpubMarks, syncClaimedLegacyEpubPages, unclaimedLegacyEpubCount, type LegacyOwnEpubItem } from './legacyEpubMarks'
 import { openPdfOriginalPlace, notePdfOriginalPlace, notePdfOriginalZoom, readPdfOriginalZoom, type OriginalPagePlace } from './pdfOriginalPlace'
 import { PdfOriginalReaderShell } from '../sharedReader/pdf/PdfOriginalReaderShell'
+import { pdfReaderViewUrl } from './pdfReaderHandoff'
 import { usePdfOriginalServices } from './usePdfOriginalServices'
 
 // The margin reader's frame and its shell, loaded only for a book that opens there.
@@ -131,6 +132,12 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   /** Bring this device's place in line with the account's (bounded; never rejects the open). */
   reconcile?: (hex: string, book: LoadedUserBook, owner?: string | null) => Promise<void>
 }) {
+  const conversionEpoch=useRef(0)
+  useEffect(()=>()=>{conversionEpoch.current++},[hex,owner])
+  const conversionIdentity = useRef({hex,owner})
+  conversionIdentity.current = {hex,owner}
+  const [textBusy,setTextBusy] = useState(false)
+  const [textError,setTextError] = useState<string | undefined>()
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
   // The phone's margin mode, decided once for the page (the link's choice is kept as the device's).
   const [marginPhone] = useState(() => phone && (sharedReader || typeof window !== 'undefined' && ownMarginPhone(window.location.search)))
@@ -149,6 +156,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     let marks: OwnTextMarksSync | null = null
     let cards: OwnTextCardsSync | null = null
     let legacyImport: ReturnType<typeof setTimeout> | null = null
+    setTextBusy(false); setTextError(undefined)
     setState({ status: 'opening' })
     const page = pageParam()
     // The margin reader's book: in this page's frame on a desktop, its own page on a phone. Nothing is written here.
@@ -170,7 +178,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
         if (!live) return
         const [account, hasText, scanOutline] = quick.ready ? quick.value : [null, false, null] as const
         const title = account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF'
-        setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: 0 } : place, hasText, scanOutline, ...identity })
+        setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: Math.max(0,Math.min(1,Number(new URLSearchParams(window.location.search).get('frac')) || 0)) } : place, hasText, scanOutline, ...identity })
         if (!quick.ready) {
           const update = (fields: Partial<Extract<ReaderState, { status: 'original' }>>) => {
             if (!live) return
@@ -358,18 +366,31 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} title={state.title} services={pdfServices ?? undefined} scanOutline={state.scanOutline}
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
-    onOpenText={state.hasText ? place => {
+    textAvailable={state.hasText} textBusy={textBusy} textError={textError}
+    onOpenText={async place => {
+      if (textBusy) return
+      setTextBusy(true); setTextError(undefined)
+      const epoch=conversionEpoch.current
+      const stillHere=()=>conversionEpoch.current===epoch && conversionIdentity.current.hex===hex && conversionIdentity.current.owner===owner
       try {
+        // Commit the visible source spot before conversion; its fresh timestamp wins
+        // over an older text position even when the PDF has not moved this session.
+        notePdfOriginalPlace(hex,owner,place,pdfPages,true)
         localStorage.setItem(PDF_EDITION_PREFIX + hex, JSON.stringify('text'))
         localStorage.removeItem('tinct-addbook:desk-edition:' + hex)
         localStorage.removeItem('tinct-addbook:phone-edition:' + hex)
-        const params = new URLSearchParams(window.location.search)
-        params.delete('pages')
-        params.delete('frac')
-        if (Number.isInteger(place.page) && place.page > 0) params.set('page', String(place.page))
-        window.location.assign(`${window.location.pathname}?${params}`)
-      } catch { /* a blocked device preference leaves Original pages open */ }
-    } : undefined} />
+        const converted=await open(hex,{owner,page:place.page,desktop:!phone,sharedReader:true,epubView:'text'})
+        if (!stillHere()) return
+        if (!converted.ok) {
+          localStorage.setItem(PDF_EDITION_PREFIX+hex,JSON.stringify('pages'))
+          setTextError(converted.reason==='pages_only' ? 'This PDF needs recognised text before it can become a Tinct book. You can keep reading its original pages.' : 'The Tinct book could not be prepared. Your original pages and reading place are safe; please try again.')
+          return
+        }
+        forward(pdfReaderViewUrl(hex,'text',place,window.location.search))
+      } catch {
+        if (stillHere()) { try { localStorage.setItem(PDF_EDITION_PREFIX+hex,JSON.stringify('pages')) } catch { /* keep the source open */ }; setTextError('The Tinct book could not be prepared. Your original pages are still open; please try again.') }
+      } finally { if (stillHere()) setTextBusy(false) }
+    }} />
   if (matches && state.status === 'margin') return <Suspense fallback={null}><MarginOwnBook hex={hex} search={marginSearch} /></Suspense>
   return (
     <div className="lab is-desktop" data-testid="user-book-status" style={{ minHeight: '100vh' }}>

@@ -197,6 +197,16 @@ jobs:
           TINCT_ORIGIN: ''
           TINCT_REFINEMENT_OUTPUT: artifacts/margin-refinements
         run: node scripts/check-reader-margin-refinements.mjs
+      - name: Verify native PDF selection stays on source ink
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
+      - name: Verify PDF format conversion preserves the source place
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        env:
+          TINCT_ORIGIN: ''
+          PDF_CONVERSION_PARITY: '1'
+          PDF_CONVERSION_OUTPUT: artifacts/pdf-conversion
+        run: node scripts/check-shared-reader-pdf-original.mjs
       - name: Verify original PDF interactions before release
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         env:

@@ -32,6 +32,11 @@ const parityBytes = makePdf({ pages: Array.from({ length: 40 }, (_, index) => ({
     text: `Passage ${line + 1} on page ${index + 1} preserves the original printed source words.` })),
   ...(index === 0 ? [{ x: 190, y: 125, size: 12, text: 'Figure 1. Fixture diagram' }] : []),
 ], ...(index === 0 ? { draw: 'q 0 G 1.5 w 190 150 180 110 re S 205 170 m 355 170 l 280 245 l h S 205 170 m 355 225 l S Q' } : {}) })), outline: [{ title: '1 Introduction', page: 1 }, { title: '2 Consequences', page: 21 }] })
+const conversionBytes = makePdf({ pages: Array.from({length:3},(_,index)=>({lines:[
+  {x:72,y:735,size:20,text:`Chapter ${index+1}: The conversion journey`},
+  ...Array.from({length:22},(_,line)=>({x:72,y:690-line*24,size:12,text:`Page ${index+1}, passage ${line+1}: The reader follows these original words through a careful study of ideas and evidence.`})),
+]})),outline:[{title:'The conversion journey',page:1}]})
+const conversionScanBytes = makePdf({pages:[{images:[{x:55,y:120,w:300,h:500}]},{images:[{x:55,y:120,w:300,h:500}]}]})
 const fileId = 'd'.repeat(32), owner = 'pdf-original-fixture-owner'
 const bundle = (await fs.readdir(path.join(dist, 'assets'))).find(name => /^supabase-.*\.js$/.test(name))
 const ref = bundle && /https:\/\/([a-z0-9]+)\.supabase\.co/.exec(await fs.readFile(path.join(dist, 'assets', bundle), 'utf8'))?.[1]
@@ -230,6 +235,76 @@ async function sourceParity(page, calls, output) {
   console.log(`Original PDF source contracts passed: heading-hover/focus, real rail, natural cards, notes/Undo, figure image/follow-up, earlier-unit catch-up. ${output}`)
 }
 
+async function conversionParity(page,hex,success,output,documentUrls) {
+  await fs.mkdir(output,{recursive:true})
+  await page.setViewportSize({width:1440,height:900})
+  await page.locator('[data-pdf-original="true"] .pdf-original__page[data-ready="true"]').first().waitFor({timeout:45000})
+  await page.getByRole('button',{name:'Contents',exact:true}).click()
+  await page.getByLabel('Go to page',{exact:true}).fill('2')
+  await page.getByRole('button',{name:'Go',exact:true}).click()
+  await page.locator('.pdf-original__page[data-page="2"][data-ready="true"]').waitFor()
+  await page.locator('.pdf-original__scroll').evaluate(host=>{
+    const slot=host.querySelector('.pdf-original__slot:nth-child(2)')
+    host.scrollTop=slot.offsetTop+slot.clientHeight*.42
+    host.dispatchEvent(new Event('scroll',{bubbles:true}))
+  })
+  await settlePaint(page)
+  const readPlace=()=>page.evaluate(hex=>JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${hex}`)||'null'),hex)
+  const before=await readPlace()
+  assert.equal(before.page,2,'fixture enters conversion from the second original page')
+  assert(before.frac>.1 && before.frac<.9,'fixture exercises a nonzero source fraction')
+  await page.getByRole('button',{name:'Appearance',exact:true}).click()
+  await page.getByRole('button',{name:'Convert to Tinct book',exact:true}).waitFor()
+  await page.screenshot({path:path.join(output,success?'conversion-before.png':'conversion-scan-before.png')})
+  const documentsBefore=documentUrls.length
+  await page.getByRole('button',{name:'Convert to Tinct book',exact:true}).click()
+  if (!success) {
+    await page.getByRole('status').filter({hasText:'needs recognised text'}).waitFor({timeout:45000})
+    assert.equal(await page.locator('[data-pdf-original="true"]').count(),1,'failed conversion retains the original reader')
+    assert.equal(documentUrls.length,documentsBefore,'failed conversion does not navigate away')
+    const after=await readPlace()
+    assert.equal(after.page,before.page); assert(Math.abs(after.frac-before.frac)<.03,'failed conversion retains source fraction')
+    assert.equal(await page.evaluate(hex=>JSON.parse(localStorage.getItem(`tinct-addbook:edition:${hex}`)||'null'),hex),'pages')
+    await page.screenshot({path:path.join(output,'conversion-scan-error.png')})
+    await fs.writeFile(path.join(output,'conversion-scan.json'),JSON.stringify({before,after,documentUrls},null,2))
+    return
+  }
+  await page.locator('[data-shared-reader="true"]:not([data-pdf-original]) [data-testid="lab-word"]').first().waitFor({timeout:60000})
+  await page.waitForFunction(()=>!document.querySelector('[data-pdf-original="true"]'))
+  const converted=await page.evaluate(async hex=>{
+    const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('tinct-addbook',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})
+    const record=await new Promise((resolve,reject)=>{const r=db.transaction('books','readonly').objectStore('books').get(`pdf:${hex}`);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})
+    db.close();return {converter:record.edition?.converter,source:record.edition?.source,chapters:record.edition?.chapters.length}
+  },hex)
+  assert(converted.converter && converted.source==='pdf' && converted.chapters>0,'the actual PDF converter stores a legitimate text edition')
+  const intoText=new URL(documentUrls.at(-1))
+  assert.equal(intoText.searchParams.get('sharedReader'),'1'); assert.equal(intoText.searchParams.get('pages'),null)
+  assert.equal(Number(intoText.searchParams.get('page')),before.page)
+  assert(Math.abs(Number(intoText.searchParams.get('frac'))-before.frac)<.03,'Original→text URL carries source fraction')
+  await settlePaint(page)
+  await page.getByTestId('lab-header-aa').click()
+  const formats=page.getByRole('group',{name:'Book format'})
+  await formats.getByText('Tinct book',{exact:true}).waitFor()
+  const textPlace=await readPlace()
+  assert.equal(textPlace.page,before.page,'converted text lands on the same original page')
+  assert(Math.abs(textPlace.frac-before.frac)<.06,'converted text lands at the corresponding source words')
+  await page.screenshot({path:path.join(output,'conversion-tinct-book.png')})
+  await page.getByTestId('lab-v2-original-pages').click()
+  await page.locator('[data-pdf-original="true"] .pdf-original__page[data-page="2"][data-ready="true"]').waitFor({timeout:45000})
+  const backUrl=new URL(documentUrls.at(-1))
+  assert.equal(backUrl.searchParams.get('sharedReader'),'1');assert.equal(backUrl.searchParams.get('pages'),'1')
+  assert.equal(Number(backUrl.searchParams.get('page')),textPlace.page)
+  assert(Math.abs(Number(backUrl.searchParams.get('frac'))-textPlace.frac)<.002,`text→Original URL preserves the mapped source word (page fraction is quantised to text words): ${JSON.stringify({textPlace,back:backUrl.href})}`)
+  await settlePaint(page)
+  const after=await readPlace()
+  assert.equal(after.page,textPlace.page)
+  assert(Math.abs(after.frac-textPlace.frac)<.06,'original source reopens near the same words')
+  await page.getByRole('button',{name:'Appearance',exact:true}).click()
+  await page.getByRole('button',{name:'Tinct book',exact:true}).waitFor()
+  await page.screenshot({path:path.join(output,'conversion-original-return.png')})
+  await fs.writeFile(path.join(output,'conversion-roundtrip.json'),JSON.stringify({before,textPlace,after,converted,documentUrls},null,2))
+}
+
 async function run(name, browserType, narrationSuccess = false, sourceBytes = originalBytes) {
   const bytes = sourceBytes, sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
   const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'Original source', author: 'Fixture', size: bytes.length,
@@ -237,7 +312,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   const browser = await markInternal(await browserType.launch({ headless: true,
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
-  const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = []
+  const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = [], documentUrls=[]
+  page.on('request',request=>{if(request.isNavigationRequest() && new URL(request.url()).pathname==='/reader') documentUrls.push(request.url())})
   if (name.startsWith('chromium') && process.env.PDF_CPU_RATE) {
     const session = await context.newCDPSession(page)
     await session.send('Emulation.setCPUThrottlingRate', { rate: Number(process.env.PDF_CPU_RATE) })
@@ -365,7 +441,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   }, { authKey, owner, theme: process.env.TINCT_CAPTURE_THEME || '' })
   try {
     await page.goto(`${origin}/qa-seed`)
-    await page.evaluate(async ({ hex, owner, fileId, book, bytes }) => {
+    await page.evaluate(async ({ hex, owner, fileId, book, bytes, scanFailure }) => {
       const db = await new Promise((resolve, reject) => {
         const req = indexedDB.open('tinct-addbook', 1)
         req.onupgradeneeded = () => req.result.createObjectStore('books', { keyPath: 'key' })
@@ -375,12 +451,19 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await new Promise((resolve, reject) => {
         const tx = db.transaction('books', 'readwrite')
         tx.objectStore('books').put({ key: `pdf:${hex}`, kind: 'pdf', owner, cloudId: fileId, name: book.name,
-          title: book.title, author: book.author, bytes: new Uint8Array(bytes).buffer })
+          title: book.title, author: book.author, bytes: new Uint8Array(bytes).buffer, ...(scanFailure ? {scan:{v:1,pages:2,textPages:0,layout:{default:'pages-only'}}} : {}) })
         tx.oncomplete = resolve; tx.onerror = () => reject(tx.error)
       })
       db.close()
-    }, { hex, owner, fileId, book, bytes: [...bytes] })
+    }, { hex, owner, fileId, book, bytes: [...bytes], scanFailure:sourceBytes===conversionScanBytes })
     await page.goto(`${origin}/reader?userBook=${hex}&sharedReader=1&pages=1`, { waitUntil: 'domcontentloaded' })
+    if (process.env.PDF_CONVERSION_PARITY === '1') {
+      await conversionParity(page,hex,sourceBytes!==conversionScanBytes,process.env.PDF_CONVERSION_OUTPUT || '/tmp/tinct-pdf-conversion',documentUrls)
+      assert.deepEqual(errors,[],'conversion has no uncaught reader errors');assert.deepEqual(denied,[],'conversion fixture sends no external traffic')
+      assert(!calls.some(call=>['/api/chat','/api/lab-chat'].includes(call.path)),'local conversion never calls an AI provider')
+      console.log(`${name}: local conversion, source-place handoff and safe failure passed`)
+      return
+    }
     if (process.env.PDF_SOURCE_PARITY === '1') {
       try { await sourceParity(page, calls, process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity') }
       catch (error) {
@@ -475,7 +558,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         const direct = page.getByRole('button', { name: 'Appearance', exact: true })
         if (await direct.isVisible()) await direct.click()
         else { await page.getByTestId('lab-super').click(); await page.getByRole('button', { name: 'Aa · Appearance', exact: true }).click() }
-        await page.getByRole('radio', { name: { light: 'Light', book: 'Book', dark: 'Dark' }[theme], exact: true }).check()
+        await page.getByTestId(`lab-v2-theme-${theme}`).click()
+        if (visual) await page.screenshot({ path: path.join(visual, `pdf-appearance-${theme}.png`) })
         await page.getByRole('button', { name: 'Close panel' }).click()
       }
       for (const width of [1440, 1100]) for (const theme of ['light', 'book', 'dark']) {
@@ -485,6 +569,10 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.locator('.pdf-original__page[data-page="1"][data-ready="true"]').waitFor()
         await page.waitForTimeout(120)
         assert(await page.getByRole('slider', { name: 'Original PDF position' }).isVisible(), 'desktop PDF source minimap is visible')
+        assert.equal(await page.locator('.pdf-original__controls').count(), 0, 'page turns belong in the reader footer')
+        assert.equal(await page.locator('.lab-header-chapter').innerText(), 'Chapter One', 'header names the current source chapter')
+        const paper = await page.evaluate(() => ({ reader: getComputedStyle(document.querySelector('.pdf-original-reader')).backgroundColor, page: getComputedStyle(document.querySelector('.pdf-original__page')).backgroundColor }))
+        assert.equal(paper.page, paper.reader, `PDF paper matches reader theme: ${JSON.stringify(paper)}`)
         const furniture = await page.locator('.pdf-original-reader .lab-header').evaluate(header => [...header.querySelectorAll('.lab-v2-library-back,.lab-v2-play,.lab-super')].map(node => {
           const style = getComputedStyle(node)
           return { border: style.borderTopWidth, fill: style.backgroundColor, shadow: style.boxShadow }
@@ -501,8 +589,13 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop += 40; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
         await page.waitForTimeout(100)
         const afterBar = await bar.boundingBox()
-        assert(beforeBar && afterBar && Math.abs((afterBar.y - beforeBar.y) + 40) < 2,
-          `PDF selection toolbar follows source scroll at ${width}/${theme}: ${JSON.stringify({ beforeBar, afterBar })}`)
+        const selectedBox = await sourceLine().boundingBox()
+        // Near the header the bar must flip below the source, rather than keep
+        // translating upward into the title. Both placements stay source-bound.
+        const sourceGap = afterBar && selectedBox && Math.min(Math.abs(afterBar.y + afterBar.height - selectedBox.y),
+          Math.abs(afterBar.y - selectedBox.y - selectedBox.height))
+        assert(beforeBar && afterBar && selectedBox && Math.abs(afterBar.y - beforeBar.y) > 1 && sourceGap <= 18,
+          `PDF selection toolbar follows source or flips clear of header at ${width}/${theme}: ${JSON.stringify({ beforeBar, afterBar, selectedBox, sourceGap })}`)
         const beforeCard = await page.locator('.pdf-original__scroll').evaluate(el => ({ scroll: el.scrollTop,
           width: el.querySelector('.pdf-original__page[data-page="1"]').getBoundingClientRect().width }))
         await page.getByTestId('lab-dbar-explain').click()
@@ -577,13 +670,19 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.locator('.pdf-original__follow').waitFor({ timeout: 15000 })
       await page.evaluate(() => { const audio = window.__fakeAudio.find(item => !item.paused); if (audio) { audio.currentTime = .8; audio.dispatchEvent(new Event('timeupdate')) } })
       await page.locator('.pdf-original__follow').waitFor()
+      // Continuous pages already mount page 2 and page 1's follow mark remains
+      // until the next request resolves. Wait for the actual page-2 narration,
+      // not the presence of either of those already-visible elements.
+      const nextNarration = page.waitForRequest(request => new URL(request.url()).pathname === '/api/narration/own/ensure'
+        && request.postDataJSON()?.paragraphs?.some(item => item.text.includes('Second original page has its own spoken words.')), { timeout: 15000 })
       await page.evaluate(() => { const audio = window.__fakeAudio.find(item => !item.paused); if (audio) {
         audio.currentTime = audio.duration; audio.ended = true; audio.paused = true
         audio.dispatchEvent(new Event('pause')); audio.dispatchEvent(new Event('ended'))
       } })
-      await page.getByText('Second original page has its own spoken words.').waitFor({ timeout: 15000 })
-      await page.locator('.pdf-original__follow').waitFor({ timeout: 15000 })
-      assert(calls.filter(call => call.path === '/api/narration/own/ensure').length >= 2, 'next page requests its own grounded narration')
+      await nextNarration
+      await page.locator('.pdf-original__page[data-page="2"] .pdf-original__follow').waitFor({ timeout: 15000 })
+      assert(calls.some(call => call.path === '/api/narration/own/ensure'
+        && JSON.parse(call.body).paragraphs.some(item => item.text.includes('Second original page has its own spoken words.'))), 'next page requests its own grounded narration')
     } else assert.equal(await page.locator('.pdf-original__follow').count(), 0, 'failed narration does not paint invented word timing')
     await page.getByTestId('lab-super').click()
     await page.getByRole('button', { name: 'Audio settings' }).click()
@@ -638,7 +737,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     }
     if (!narrationSuccess) {
       await page.getByRole('button', { name: 'Contents', exact: true }).click()
-      await page.locator('.pdf-original-reader__page-list button', { hasText: 'Page 2' }).click()
+      await page.getByLabel('Go to page', { exact: true }).fill('2')
+      await page.getByRole('button', { name: 'Go', exact: true }).click()
     }
     // Preserve the approved phone after-unit Recap/Quiz/Note contract; source-heading desktop actions are covered separately.
     await page.setViewportSize({ width: 390, height: 844 })
@@ -742,7 +842,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   } finally { await context.close(); await browser.close() }
 }
 try {
-  if (process.env.PDF_SOURCE_PARITY === '1') await run('chromium-parity', chromium, false, parityBytes)
+  if (process.env.PDF_CONVERSION_PARITY === '1') { await run('chromium-conversion',chromium,false,conversionBytes); await run('chromium-conversion-scan',chromium,false,conversionScanBytes) }
+  else if (process.env.PDF_SOURCE_PARITY === '1') await run('chromium-parity', chromium, false, parityBytes)
   else {
   await run('chromium', chromium)
   await run('chromium-success', chromium, true)

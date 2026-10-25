@@ -5,7 +5,7 @@ import {
   type PdfOriginalDocument, type PdfOriginalFollow, type PdfOriginalPage,
   type PdfOriginalPlace, type PdfOriginalSelection, type PdfOriginalSurfaceProps,
 } from './PdfOriginalSurface'
-import { readPdfOriginalSelection, markPdfTextFurniture } from './pdfOriginalSelection'
+import { readPdfOriginalSelection, markPdfTextFurniture, paintPdfOriginalSelection } from './pdfOriginalSelection'
 import { findPdfHeading, type PdfHeadingActions } from './pdfHeadingGeometry'
 import { PdfFigureTools, type PdfFigureAction } from './PdfFigureTools'
 import { capturePdfRegion, type PdfRegionCapture } from './pdfOriginalFigures'
@@ -46,12 +46,11 @@ export function pdfSourceLines(items: Awaited<ReturnType<PdfOriginalPage['getTex
 }
 export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean; cards?: Array<{ id: string; page: number; rects?: number[][] }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
 
-function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, onLines, cards, activeCardId, headings, figures, onFigureAction }: {
+function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, figures, onFigureAction }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
   highlights: NonNullable<PdfOriginalSurfaceProps['highlights']>; follow: PdfOriginalFollow | null
   onText?: (page: number, text: string) => void; onSelection?: (selection: PdfOriginalSelection) => void
   figures?: boolean; onFigureAction?: PdfContinuousProps['onFigureAction']; cards: NonNullable<PdfContinuousProps['cards']>; activeCardId?: string; headings: PdfHeadingActions[]
-  onLines: (page: number, lines: PdfSourceLine[]) => void
   onSize: (page: number, ratio: number) => void; onReady: (page: number, ready: boolean) => void; onError: (page: number) => void
 }) {
   const canvas = useRef<HTMLCanvasElement>(null), layer = useRef<HTMLDivElement>(null)
@@ -96,13 +95,12 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
       if (!live) return
       markPdfTextFurniture(text, content.items, base)
       items.current = content.items
-      onLines(number, pdfSourceLines(content.items, base))
       onText?.(number, content.items.map(item => item.str).join(' ').trim())
       setReady(true); onReady(number, true)
     }).catch(() => { if (live) { setReady(false); onReady(number, false); onError(number) } })
     return () => { live = false; task?.cancel?.(); textTask?.cancel?.(); text.replaceChildren(); onReady(number, false) }
     // Width is the exact rendered sheet size. Changing it invalidates the old text geometry.
-  }, [pdf, number, width, onSize, onReady, onText, onError, onLines])
+  }, [pdf, number, width, onSize, onReady, onText, onError])
   useEffect(() => {
     setHeard(ready && follow && layer.current ? pdfOriginalFollowRect(layer.current, items.current, follow, number) : null)
   }, [ready, follow, number])
@@ -166,7 +164,6 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   const nextMapPlace = useRef(visible)
   useEffect(() => () => cancelAnimationFrame(mapFrame.current), [])
   const mapDrag = useRef(false)
-  const [sourceLines, setSourceLines] = useState<Record<number, PdfSourceLine[]>>({})
   const [zoom, setZoom] = useState(() => Number.isFinite(initialZoom) ? clamp(initialZoom, .5, 3) : 1)
   const [ratio, setRatio] = useState(1.4)
   const [ratios, setRatios] = useState<Record<number, number>>({})
@@ -177,6 +174,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   useEffect(() => {
     const update = () => {
       const selection = window.getSelection(), root = scroller.current
+      if (root) paintPdfOriginalSelection(root)
       const page = (node: Node | null) => Number((node?.nodeType === Node.ELEMENT_NODE ? node as Element : node?.parentElement)?.closest('.pdf-original__page')?.getAttribute('data-page'))
       const a = page(selection?.anchorNode ?? null), b = page(selection?.focusNode ?? null)
       const next = root && selection && !selection.isCollapsed && root.contains(selection.anchorNode) && root.contains(selection.focusNode) && a && b ? { from: Math.min(a, b), to: Math.max(a, b) } : null
@@ -335,9 +333,6 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     root.addEventListener('touchcancel', end)
     return () => { root.removeEventListener('wheel', wheel); root.removeEventListener('touchstart', start); root.removeEventListener('touchmove', move); root.removeEventListener('touchend', end); root.removeEventListener('touchcancel', end) }
   }, [])
-  const cacheLines = useCallback((n: number, lines: PdfSourceLine[]) => {
-    setSourceLines(previous => JSON.stringify(previous[n]) === JSON.stringify(lines) ? previous : { ...previous, [n]: lines })
-  }, [])
   const sourceMap = useMemo(() => {
     const heights = Array.from({ length: pdf?.numPages ?? 0 }, (_, index) => heightOf(index + 1))
     const starts: number[] = []
@@ -345,20 +340,17 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     heights.forEach((height, index) => { starts.push(total); total += height + (index < heights.length - 1 ? GAP : 0) })
     return { heights, starts, total: total || 1 }
   }, [pdf, heightOf])
+  // This is a page overview, independent of which virtualised text layers have
+  // loaded. Mixing page ticks and glyph lines made the strip expand as you read.
   const mapLines = useMemo(() => {
     let previous = -3
-    return sourceMap.starts.flatMap((start, index) => {
-      const lines = sourceLines[index + 1]
-      // Unknown pages retain only their truthful source-page tick; scans have no invented text.
-      const local = lines ?? [{ y: 0, left: .1, right: .8 }]
-      return local.flatMap(line => {
-        const y = (start + line.y * sourceMap.heights[index]) / sourceMap.total * 600
-        if (y - previous < 3) return []
-        previous = y
-        return [{ y, left: 4 + line.left * 23, right: 4 + line.right * 23 }]
-      })
+    return sourceMap.starts.flatMap(start => {
+      const y = start / sourceMap.total * 600
+      if (y - previous < 3) return []
+      previous = y
+      return [{ y, left: 6, right: 27 }]
     })
-  }, [sourceMap, sourceLines])
+  }, [sourceMap])
   const mapPosition = ((sourceMap.starts[visible.page - 1] ?? 0) + visible.frac * (sourceMap.heights[visible.page - 1] ?? 0)) / sourceMap.total
   const mapJump = (event: React.PointerEvent<SVGSVGElement>) => {
     const box = event.currentTarget.getBoundingClientRect()
@@ -367,11 +359,6 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     jump(next.page, next.frac)
   }
   return <section className={`pdf-original ${phone ? 'pdf-original--phone' : 'pdf-original--desktop'}`} aria-label="Original PDF pages">
-    <div className="pdf-original__controls">
-      <button type="button" onClick={() => jump(current - 1)} disabled={!pdf || current <= 1} aria-label="Previous PDF page">Previous</button>
-      <span aria-live="polite">Page {current} of {pdf?.numPages ?? '…'}</span>
-      <button type="button" onClick={() => jump(current + 1)} disabled={!pdf || current >= pdf.numPages} aria-label="Next PDF page">Next</button>
-    </div>
     {error && <p role="alert">{error}</p>}
     {!phone && pdf && <svg className="pdf-original__minimap" data-testid="pdf-source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none"
       role="slider" tabIndex={0} aria-label="Original PDF position" aria-valuemin={1} aria-valuemax={pdf.numPages} aria-valuenow={visible.page}
@@ -416,7 +403,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
         const n = index + 1, height = heightOf(n)
         return <div key={n} ref={element => { if (element) pages.current.set(n, element); else pages.current.delete(n) }} className="pdf-original__slot" data-page={n} style={{ width: sheetWidth, height }}>
           {(Math.abs(n - current) <= 1 || selectionPages && n >= selectionPages.from && n <= selectionPages.to || dragPage !== null && n >= Math.min(dragPage, current) && n <= Math.max(dragPage, current)) && <PdfSheet pdf={pdf} number={n} width={sheetWidth} height={height} highlights={highlights}
-            follow={follow?.page === n ? follow : null} onText={setPageText} onSize={size} onReady={rendered} onError={drawError} onLines={cacheLines} figures={!phone} onFigureAction={onFigureAction} cards={cards} activeCardId={activeCardId} headings={phone ? [] : headingActions.filter(heading => heading.page === n)} />}
+            follow={follow?.page === n ? follow : null} onText={setPageText} onSize={size} onReady={rendered} onError={drawError} figures={!phone} onFigureAction={onFigureAction} cards={cards} activeCardId={activeCardId} headings={phone ? [] : headingActions.filter(heading => heading.page === n)} />}
         </div>
       })}
       </div>

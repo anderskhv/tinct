@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { loadPdfEngine } from '../../userBook/pdfEdition'
 import type { PdfRegionImage } from './pdfOriginalFigures'
+import { paintPdfOriginalSelection, readPdfOriginalSelection } from './pdfOriginalSelection'
 import './pdfOriginal.css'
 
 export type PdfOriginalPlace = { page: number; frac: number }
@@ -351,9 +352,15 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
     const text = layer.current
     if (!selected || !text || renderedPage.current !== page || !selectionCallback.current || selected.isCollapsed || !selected.rangeCount) return
     if (!text.contains(selected.anchorNode) || !text.contains(selected.focusNode)) return
-    const rects = projectPdfSelection(page, text.getBoundingClientRect(), selected.getRangeAt(0).getClientRects())
-    if (rects.length) selectionCallback.current({ page, text: selected.toString(), rects })
+    const source = scroller.current && readPdfOriginalSelection(scroller.current, selected)
+    if (source) selectionCallback.current(source)
   }
+
+  useEffect(() => {
+    const paint = () => { if (scroller.current) paintPdfOriginalSelection(scroller.current) }
+    document.addEventListener('selectionchange', paint)
+    return () => document.removeEventListener('selectionchange', paint)
+  }, [])
 
   return <section className="pdf-original" aria-label="Original PDF pages">
     <div className="pdf-original__controls">

@@ -53,6 +53,7 @@ import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
+import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
 import { withConvertedNote } from './sharedReader/sharedReaderCards'
 import { SourceMarginRail, type SourceMarginEntry } from './sharedReader/SourceMarginRail'
@@ -5381,8 +5382,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       : choosePdfPageAt(userBook.hex, userBook.edition.chapters, place, userBook.pdfPages)
     if (!at) { notePdfPlace(userBook.hex, { now: true }); flushOwnPlaces() }
     setSuperSheet(null)
-    window.location.assign(`${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
-  }, [userBook])
+    window.location.assign(sharedReader ? pdfReaderViewUrl(userBook.hex,'pages',{page,frac},window.location.search) : `${ownBookOpenUrl(userBook.hex)}&page=${page}${at ? `&frac=${frac}&pages` : ''}`)
+  }, [userBook,sharedReader])
   // An EPUB's Margin view, picked in Book editions: this device reads it in Add a book's margin reader from now
   // on, at the same words (epubView.ts chooseEpubMargin; the place is also sent as the reader's own first).
   const openEpubMargin = useCallback(() => {
@@ -6370,6 +6371,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 window.location.assign(marginPreviewReturnHref(bookId, { editionKey: prefs.primaryEdition, chapterNumber: book.chapterNumber, paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }))
               } }
             : null}
+          pdfSource={sharedReader && ownPdf ? {onOriginalPages:()=>openPdfPages()} : undefined}
           readerLayout={sharedReader && !showPhoneChrome
             ? { active: desktopCompareActive ? 'compare' : continuousReader ? 'margin' : 'two-page',
                 compareAvailable: desktopCompareChoiceAvailable,

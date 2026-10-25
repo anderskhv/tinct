@@ -13,16 +13,21 @@
 .pdf-original__follow { position: absolute; pointer-events: none; background: rgba(77, 152, 210, .34); border-radius: 2px; }
 .pdf-original__text { position: absolute; left: 0; top: 0; overflow: hidden; user-select: text; }
 .pdf-original__text span { position: absolute; white-space: pre; color: transparent; line-height: 1; transform-origin: 0 0; }
-.pdf-original__text span::selection { color:transparent; background: rgba(45, 105, 163, .38); }
+/* Only source glyphs participate in the native range. Native absolute-span
+   selection also paints page-wide line breaks; the ink-only layer below
+   draws the same source rectangles used when saving a highlight. */
+.pdf-original__page,.pdf-original__page canvas,.pdf-original__text { user-select:none; -webkit-user-select:none; }
+.pdf-original__text span { user-select:text; -webkit-user-select:text; }
+.pdf-original__page::selection,.pdf-original__text::selection,.pdf-original__text span::selection,.pdf-original__text br::selection { color:transparent; background:transparent; }
+.pdf-original__selection { position:absolute; inset:0; pointer-events:none; user-select:none; -webkit-user-select:none; }
+.pdf-original__selection i { position:absolute; border-radius:2px; background:rgba(45,105,163,.38); }
 .pdf-original__page-number { position: absolute; right: 6px; bottom: 4px; font: 10px system-ui, sans-serif; color: #6a6256; pointer-events: none; }
 .pdf-original__size { display: flex; align-items: center; gap: 8px; font: 12px system-ui, sans-serif; }
 .pdf-original__size input { width: 104px; accent-color: #6a6256; }
-.pdf-original-reader[data-theme=light] .pdf-original__page { background: #ece7db; }
-.pdf-original-reader[data-theme=book] .pdf-original__page { background: #e7dcc7; }
+.pdf-original-reader .pdf-original__page { background: var(--lab-paper); }
 .pdf-original-reader[data-theme=light] .pdf-original__page canvas,
 .pdf-original-reader[data-theme=book] .pdf-original__page canvas { mix-blend-mode: multiply; }
-.pdf-original-reader[data-theme=dark] .pdf-original__page { background: #171411; }
-.pdf-original-reader[data-theme=dark] .pdf-original__page canvas { filter: invert(.88) hue-rotate(180deg) brightness(.95) contrast(.9); }
+.pdf-original-reader[data-theme=dark] .pdf-original__page canvas { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
 html[data-eink=true] .pdf-original-reader .pdf-original__page { background: #fff; }
 html[data-eink=true] .pdf-original-reader .pdf-original__page canvas { mix-blend-mode: normal; filter: none; }
 @media(max-width:700px) { .pdf-original__size { display: none; } .pdf-original__controls { gap: 8px; } .pdf-original__controls button { padding: 4px 7px; } }
@@ -32,7 +37,7 @@ html[data-eink=true] .pdf-original-reader .pdf-original__page canvas { mix-blend
 html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0 1px #777; }
 .pdf-original--desktop { position:relative; }
 .pdf-original--desktop .pdf-original__scroll { margin-left:40px; }
-.pdf-original__minimap { position:absolute; left:1px; top:62px; bottom:24px; width:30px; height:calc(100% - 86px); color:var(--lab-ink-muted,#6a6256); touch-action:none; cursor:ns-resize; overflow:visible; }
+.pdf-original__minimap { position:absolute; left:1px; top:14px; bottom:24px; width:30px; height:calc(100% - 38px); color:var(--lab-ink-muted,#6a6256); touch-action:none; cursor:ns-resize; overflow:visible; }
 .pdf-original__map-line { stroke:currentColor; stroke-width:.9; opacity:.6; }
 .pdf-original__map-window { stroke:currentColor; stroke-width:.7; fill:currentColor; fill-opacity:.10; stroke-opacity:.7; }
 .pdf-original__map-mark { fill:var(--lab-accent,#b69a5e); }

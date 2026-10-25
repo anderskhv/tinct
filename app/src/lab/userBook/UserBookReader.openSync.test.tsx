@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
-import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { UserBookReader } from './UserBookReader'
+import type { LoadedUserBook } from './userBookStore'
 
 const hex = 'ab12cd34ef56ab12cd34ef56'
 const fileId = 'a'.repeat(32)
@@ -28,8 +29,8 @@ vi.mock('./pdfOriginalPlace', () => ({
   readPdfOriginalZoom: () => 1, notePdfOriginalZoom: vi.fn(),
 }))
 vi.mock('./usePdfOriginalServices', () => ({ usePdfOriginalServices: () => null }))
-vi.mock('../sharedReader/pdf/PdfOriginalReaderShell', () => ({ PdfOriginalReaderShell: ({ title, onOpenText }: { title: string; onOpenText?: unknown }) =>
-  <div data-testid="original-pages" data-text={onOpenText ? 'yes' : 'no'}>{title}</div> }))
+vi.mock('../sharedReader/pdf/PdfOriginalReaderShell', () => ({ PdfOriginalReaderShell: ({ title, onOpenText, textAvailable, textBusy, textError }: { title: string; onOpenText?: (place:{page:number;frac:number})=>void; textAvailable?:boolean; textBusy?:boolean; textError?:string }) =>
+  <div data-testid="original-pages" data-text={textAvailable ? 'yes' : 'no'}>{title}<button disabled={textBusy} onClick={()=>onOpenText?.({page:4,frac:.6})}>Convert fixture</button>{textError && <p role="status">{textError}</p>}</div> }))
 vi.mock('./ownBookMetadata', () => ({
   currentOwnBookMetadata: vi.fn(() => sync.metadata ?? Promise.resolve({ id: fileId, type: 'epub', title: '', author: '', name: '', metadataRev: 0 })),
   withOwnBookMetadata: (book: unknown) => book,
@@ -64,7 +65,7 @@ function deferred() {
   const promise = new Promise<void>(done => { resolve = done })
   return { promise, resolve }
 }
-function book() {
+function book():LoadedUserBook {
   return { hex, bookId: `userbook-${hex}`, kind: 'epub' as const, images: new Map(), place: null,
     edition: { format: 'tinct-user-edition-v1', converter: 7, title: 'Private Book', author: '', language: 'en', droppedImages: 0,
       chapters: [{ number: 1, title: 'One', paragraphs: ['This private chapter is ready.'] }] } }
@@ -175,7 +176,7 @@ it('shows owned Original PDF pages while optional labels, outline and text-switc
   sync.scan = new Promise(resolve => { resolveScan = resolve })
   const open = vi.fn()
   render(<UserBookReader hex={hex} owner="account-a" sharedReader open={open} />)
-  await waitFor(() => expect(screen.getByTestId('original-pages').textContent).toBe('Your PDF'), { timeout: 1200 })
+  await waitFor(() => expect(screen.getByTestId('original-pages').textContent).toContain('Your PDF'), { timeout: 1200 })
   expect(open).not.toHaveBeenCalled()
   expect(screen.getByTestId('original-pages').getAttribute('data-text')).toBe('no')
   await act(async () => {
@@ -183,6 +184,56 @@ it('shows owned Original PDF pages while optional labels, outline and text-switc
     resolveText(true)
     resolveScan(null)
   })
-  await waitFor(() => expect(screen.getByTestId('original-pages').textContent).toBe('Recovered PDF title'))
+  await waitFor(() => expect(screen.getByTestId('original-pages').textContent).toContain('Recovered PDF title'))
   expect(screen.getByTestId('original-pages').getAttribute('data-text')).toBe('yes')
+})
+
+it('converts an uncached PDF only when chosen and carries page fraction into the shared text route', async()=>{
+  window.history.replaceState(null,'',`/reader?userBook=${hex}&sharedReader=1&pages`)
+  const forward=vi.fn(), open=vi.fn(async()=>({ok:true as const,book:{...book(),kind:'pdf' as const}}))
+  render(<UserBookReader hex={hex} owner="account-a" sharedReader open={open} forward={forward} />)
+  await screen.findByTestId('original-pages')
+  expect(open).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button',{name:'Convert fixture'}))
+  await waitFor(()=>expect(forward).toHaveBeenCalledWith(`/reader?userBook=${hex}&sharedReader=1&page=4&frac=0.6`))
+  expect(open).toHaveBeenCalledWith(hex,expect.objectContaining({owner:'account-a',page:4,sharedReader:true,desktop:true}))
+  expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${hex}`)||'null')).toBe('text')
+  const {notePdfOriginalPlace}=await import('./pdfOriginalPlace')
+  expect(notePdfOriginalPlace).toHaveBeenCalledWith(hex,'account-a',{page:4,frac:.6},undefined,true)
+})
+it('keeps original pages open and restores their preference when no readable conversion exists', async()=>{
+  window.history.replaceState(null,'',`/reader?userBook=${hex}&pages`)
+  const forward=vi.fn(),open=vi.fn(async()=>({ok:false as const,reason:'pages_only' as const,message:'No recognised text'}))
+  render(<UserBookReader hex={hex} owner="account-a" sharedReader open={open} forward={forward} />)
+  await screen.findByTestId('original-pages')
+  fireEvent.click(screen.getByRole('button',{name:'Convert fixture'}))
+  await waitFor(()=>expect(screen.getByRole('status').textContent).toContain('recognised text'))
+  expect(forward).not.toHaveBeenCalled()
+  expect(screen.getByTestId('original-pages')).toBeTruthy()
+  expect(JSON.parse(localStorage.getItem(`tinct-addbook:edition:${hex}`)||'null')).toBe('pages')
+})
+
+it('does not navigate from an old account conversion that completes after an account change',async()=>{
+  window.history.replaceState(null,'',`/reader?userBook=${hex}&pages`)
+  let finish!:(value:{ok:true;book:ReturnType<typeof book>})=>void
+  const open=vi.fn(()=>new Promise<{ok:true;book:ReturnType<typeof book>}>(resolve=>{finish=resolve})),forward=vi.fn()
+  const view=render(<UserBookReader hex={hex} owner="account-a" sharedReader open={open} forward={forward} />)
+  await screen.findByTestId('original-pages')
+  fireEvent.click(screen.getByRole('button',{name:'Convert fixture'}))
+  expect(screen.getByRole('button',{name:'Convert fixture'}).hasAttribute('disabled')).toBe(true)
+  view.rerender(<UserBookReader hex={hex} owner="account-b" sharedReader open={open} forward={forward} />)
+  await screen.findByTestId('original-pages')
+  await act(async()=>{finish({ok:true,book:book()})})
+  expect(forward).not.toHaveBeenCalled()
+})
+it('does not navigate when a conversion completes after leaving the reader',async()=>{
+  window.history.replaceState(null,'',`/reader?userBook=${hex}&pages`)
+  let finish!:(value:{ok:true;book:ReturnType<typeof book>})=>void
+  const open=vi.fn(()=>new Promise<{ok:true;book:ReturnType<typeof book>}>(resolve=>{finish=resolve})),forward=vi.fn()
+  const view=render(<UserBookReader hex={hex} owner="account-a" sharedReader open={open} forward={forward} />)
+  await screen.findByTestId('original-pages')
+  fireEvent.click(screen.getByRole('button',{name:'Convert fixture'}))
+  view.unmount()
+  await act(async()=>{finish({ok:true,book:book()})})
+  expect(forward).not.toHaveBeenCalled()
 })
