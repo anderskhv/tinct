@@ -670,13 +670,19 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await page.locator('.pdf-original__follow').waitFor({ timeout: 15000 })
       await page.evaluate(() => { const audio = window.__fakeAudio.find(item => !item.paused); if (audio) { audio.currentTime = .8; audio.dispatchEvent(new Event('timeupdate')) } })
       await page.locator('.pdf-original__follow').waitFor()
+      // Continuous pages already mount page 2 and page 1's follow mark remains
+      // until the next request resolves. Wait for the actual page-2 narration,
+      // not the presence of either of those already-visible elements.
+      const nextNarration = page.waitForRequest(request => new URL(request.url()).pathname === '/api/narration/own/ensure'
+        && request.postDataJSON()?.paragraphs?.some(item => item.text.includes('Second original page has its own spoken words.')), { timeout: 15000 })
       await page.evaluate(() => { const audio = window.__fakeAudio.find(item => !item.paused); if (audio) {
         audio.currentTime = audio.duration; audio.ended = true; audio.paused = true
         audio.dispatchEvent(new Event('pause')); audio.dispatchEvent(new Event('ended'))
       } })
-      await page.getByText('Second original page has its own spoken words.').waitFor({ timeout: 15000 })
-      await page.locator('.pdf-original__follow').waitFor({ timeout: 15000 })
-      assert(calls.filter(call => call.path === '/api/narration/own/ensure').length >= 2, 'next page requests its own grounded narration')
+      await nextNarration
+      await page.locator('.pdf-original__page[data-page="2"] .pdf-original__follow').waitFor({ timeout: 15000 })
+      assert(calls.some(call => call.path === '/api/narration/own/ensure'
+        && JSON.parse(call.body).paragraphs.some(item => item.text.includes('Second original page has its own spoken words.'))), 'next page requests its own grounded narration')
     } else assert.equal(await page.locator('.pdf-original__follow').count(), 0, 'failed narration does not paint invented word timing')
     await page.getByTestId('lab-super').click()
     await page.getByRole('button', { name: 'Audio settings' }).click()
