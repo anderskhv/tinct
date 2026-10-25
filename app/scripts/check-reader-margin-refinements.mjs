@@ -52,6 +52,10 @@ try {
     await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true')
     const host = page.getByTestId('continuous-reader')
     await host.waitFor()
+    assert.equal(await page.locator('.lab-page-turn').count(), 0, 'desktop margin has no footer page-turn controls')
+    await page.getByTestId('source-map-progress').waitFor()
+    const readerViewport = await host.boundingBox()
+    assert(readerViewport && readerViewport.y + readerViewport.height >= 978, 'margin reading area uses the space reclaimed from the footer')
     await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
     const geometry = await page.locator('.continuous-reader-window').first().evaluate(node => {
       const box = node.getBoundingClientRect(), css = getComputedStyle(node)
@@ -233,6 +237,7 @@ try {
       await page.getByTestId('lab-v2-layout-two-page').click()
       await host.waitFor({ state: 'hidden' })
       assert.equal(await page.locator('.source-margin-rail').count(), 0, 'margin thread never overlays the two-page leaves')
+      assert(await page.locator('.lab-page-turn').count() > 0, 'two-page reader retains page-turn controls')
       assert.equal(await page.locator('.lab-desktop-card[data-kind="ask"]').count(), 0, 'margin thread stays collapsed in the paged reader')
       const stablePagedWords = await page.waitForFunction(() => {
         const words = [...document.querySelectorAll('[data-testid="lab-word"]')].flatMap(node => {
@@ -260,10 +265,11 @@ try {
         const before = await overlay.boundingBox(), handle = await overlay.locator('[data-reader-window-handle]').boundingBox()
         assert(before && handle)
         const dx = before.x + before.width + 100 < width ? 100 : -100
+        const dy = before.y + before.height + 55 < 1000 ? 55 : -55
         await page.mouse.move(handle.x + 35, handle.y + handle.height / 2)
-        await page.mouse.down(); await page.mouse.move(handle.x + 35 + dx, handle.y + handle.height / 2 + 55, { steps: 10 }); await page.mouse.up()
+        await page.mouse.down(); await page.mouse.move(handle.x + 35 + dx, handle.y + handle.height / 2 + dy, { steps: 10 }); await page.mouse.up()
         const after = await overlay.boundingBox()
-        assert(after && Math.abs(after.x - before.x) > 60 && Math.abs(after.y - before.y) > 25, 'overlay moves with its header drag')
+        assert(after && Math.abs(after.x - before.x) > 60 && Math.abs(after.y - before.y) > 25, `overlay moves with its header drag: ${JSON.stringify({before,after,dx,dy})}`)
       }
       await dragOverlay(quiz)
       await page.screenshot({ path: `${output}/book-1440-draggable-quiz.png` })

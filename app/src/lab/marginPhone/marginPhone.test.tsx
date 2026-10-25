@@ -340,3 +340,26 @@ it('applies the phone highlighter color immediately and opens colours only on th
   fireEvent.click(screen.getByTestId('lab-pbar-color-sage'))
   expect(save).toHaveBeenLastCalledWith('sage')
 })
+
+
+it('keeps an older Chat reply in place when its composer gains focus and the keyboard resizes', () => {
+  const viewport = new EventTarget() as EventTarget & { height: number; offsetTop: number }
+  viewport.height = 844; viewport.offsetTop = 0
+  const real = Object.getOwnPropertyDescriptor(window, 'visualViewport')
+  Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => viewport })
+  try {
+    render(<LabPhoneCard label="Chat" kind="chat" onClose={vi.fn()}><div className="tc-thread" data-testid="history" /><textarea aria-label="Chat question" /></LabPhoneCard>)
+    const history = screen.getByTestId('history')
+    Object.defineProperty(history, 'scrollHeight', { configurable: true, value: 3000 })
+    history.scrollTop = 120
+    act(() => screen.getByLabelText('Chat question').focus())
+    expect(history.scrollTop).toBe(120)
+    viewport.height = 420
+    act(() => { viewport.dispatchEvent(new Event('resize')) })
+    expect(history.scrollTop).toBe(120)
+    expect(screen.getByTestId('lab-phone-card').hasAttribute('data-keyboard')).toBe(true)
+  } finally {
+    if (real) Object.defineProperty(window, 'visualViewport', real)
+    else delete (window as { visualViewport?: unknown }).visualViewport
+  }
+})

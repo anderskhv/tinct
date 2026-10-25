@@ -60,7 +60,10 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       dock.style.setProperty('--lab-pcard-top', `${room.top}px`)
       dock.style.setProperty('--lab-pcard-room', `${room.height}px`)
       el.toggleAttribute('data-keyboard', room.keyboard)
-      if (room.keyboard && !keyboard) {
+      // Chat owns its thread position: focusing its composer must not abandon
+      // an older reply the reader deliberately scrolled to. New sends still
+      // follow through LabAskPane's turn lifecycle.
+      if (room.keyboard && !keyboard && el.dataset.kind !== 'chat') {
         const body = el.querySelector<HTMLElement>('.lab-pcard-body')
         if (body) body.scrollTop = body.scrollHeight
         el.querySelectorAll<HTMLElement>('.tc-thread, .lab-ask-thread').forEach(node => { node.scrollTop = node.scrollHeight })

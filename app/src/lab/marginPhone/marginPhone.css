@@ -256,7 +256,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard[data-kind="chat"] > .lab-pcard-body { overflow: hidden; gap: 0; }
 .lab .lab-pcard[data-kind="chat"] .lab-ask.tc.tc.is-phone-card-chat {
   --tc-paper: var(--lab-pcard-fill); --tc-ink: var(--lab-ink); --tc-muted: var(--lab-ink-muted);
-  --tc-faint: var(--lab-ink-faint); --tc-pad: 0px; --tc-answer: 22px; --tc-question: 19px;
+  --tc-faint: var(--lab-ink-faint); --tc-pad: 0px; --tc-answer: 17px; --tc-question: 16px;
   --tc-hair: var(--lab-pcard-hair); --tc-bubble: var(--lab-pcard-field);
   position: relative; inset: auto; width: 100%; height: auto !important; min-height: 0 !important;
   max-height: none; flex: 1 1 auto; border-radius: 0; background: transparent !important; box-shadow: none !important;
@@ -268,8 +268,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat :is(.tc-spacer, .tc-fade) { display: none; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-chrome { flex: none; padding: 0; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-compose { padding: 8px 0 0; }
-.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field { gap: 10px; min-height: 48px; padding: 8px 12px; border: 1px solid var(--lab-pcard-hair); border-radius: 14px; background: var(--lab-pcard-field); }
-.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { min-height: 28px; padding: 2px 0; font-size: 18px; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field { gap: 4px; min-height: 42px; padding: 5px 5px 5px 12px; border: 1px solid var(--lab-pcard-hair); border-radius: 12px; background: var(--lab-pcard-field); }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { min-height: 22px; padding: 0; font: 400 16px/22px 'EB Garamond', Georgia, serif; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input::placeholder { color: var(--lab-ink-muted); opacity: .8; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field .tc-mark { margin-bottom: 2px; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-latest { bottom: 8px; }

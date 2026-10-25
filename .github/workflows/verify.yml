@@ -199,6 +199,7 @@ jobs:
         run: |
           node scripts/check-reader-margin-refinements.mjs
           node scripts/check-reader-selection-release.mjs
+          node scripts/check-reader-mobile-chat-cards.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
