@@ -24,10 +24,10 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals(); session.current = null })
 
 describe('canAdd (adding books is Premium or the trial)', () => {
-  it('asks the Worker for the signed-in account; false signed out, null when it cannot tell', async () => {
+  it('denies only a confirmed free entitlement, not a cold or expired session', async () => {
     const { canAdd } = await import('./libraryAdd')
     const never = vi.fn()
-    expect(await canAdd(never as unknown as typeof fetch)).toBe(false)
+    expect(await canAdd(never as unknown as typeof fetch)).toBeNull()
     expect(never).not.toHaveBeenCalled()
     session.current = { access_token: 'tok' }
     const seen: string[] = []
@@ -35,6 +35,7 @@ describe('canAdd (adding books is Premium or the trial)', () => {
     expect(await canAdd(reply(200, { canAdd: true }))).toBe(true)
     expect(await canAdd(reply(200, { canAdd: false }))).toBe(false)
     expect(await canAdd(reply(503, { error: 'unavailable' }))).toBeNull()
+    expect(await canAdd(reply(401, { error: 'expired' }))).toBeNull()
     expect(seen[0]).toBe('/api/public-books/import/access')
   })
 })

@@ -89,14 +89,14 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
 
 /**
  * Whether this account may add books (Premium or its 30-day trial; the Worker's
- * hasPremiumAccess). False signed out; null when it cannot be told.
+ * hasPremiumAccess). Only an authenticated entitlement response can deny access.
  */
 export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean | null> {
   const auth = await token()
-  if (!auth) return false
+  if (!auth) return null
   try {
     const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store' })
-    if (!response.ok) return response.status === 401 ? false : null
+    if (!response.ok) return null
     const body = await response.json() as { canAdd?: unknown }
     return typeof body.canAdd === 'boolean' ? body.canAdd : null
   } catch {

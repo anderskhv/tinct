@@ -1363,3 +1363,31 @@ describe('Worker routing', () => {
     expect((await worker.fetch(new Request('https://tinct.app/data/editions/pd-pg-1-original-en.json'), env, ctx)).status).toBe(503)
   })
 })
+
+
+describe('upload entitlement refresh', () => {
+  afterEach(() => { addToTinct.resetAddAccess(); addToTinct.closeFileDialog(); document.documentElement.classList.remove('signed-in') })
+  it('rechecks a previously denied account and opens the file dialog once Premium is available', async () => {
+    addToTinct.resetAddAccess()
+    const canAdd = vi.fn().mockResolvedValueOnce(false).mockResolvedValueOnce(true)
+    const load = vi.fn(async () => ({canAdd}))
+    const access = () => addToTinct.canAdd(load)
+    const go = vi.fn()
+    document.documentElement.classList.add('signed-in')
+    await addToTinct.openFileEntry(null, {access,go})
+    expect(go).toHaveBeenCalledOnce()
+    go.mockClear()
+    await addToTinct.openFileEntry(null, {access,go,engine:async()=>({})})
+    expect(canAdd).toHaveBeenCalledTimes(2)
+    expect(go).not.toHaveBeenCalled()
+    expect(document.querySelector('[data-testid="own-file-dialog"] input[type="file"]')).toBeTruthy()
+  })
+  it('opens the signed-in file dialog when session entitlement is temporarily unknown', async () => {
+    addToTinct.resetAddAccess()
+    const go = vi.fn()
+    document.documentElement.classList.add('signed-in')
+    await addToTinct.openFileEntry(null, {access:()=>addToTinct.canAdd(async()=>({canAdd:async()=>null})),go,engine:async()=>({})})
+    expect(go).not.toHaveBeenCalled()
+    expect(document.querySelector('[data-testid="own-file-dialog"]')).toBeTruthy()
+  })
+})

@@ -65,7 +65,7 @@ async function mock(context, log) {
 const SEED = { chapterNumber: Number(process.env.CHAPTER || 5), paragraphIndex: 0 }
 async function boot(engine, search, seed = SEED, keep = null) {
   const fresh = !!keep?.fresh
-  const context = keep?.context ?? await engine.launch().then(browser => browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' }).then(c => { c.__browser = browser; return c }))
+  const context = keep?.context ?? await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] }).then(browser => browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' }).then(c => { c.__browser = browser; return c }))
   const log = keep?.log ?? { ai: [], notes: [], voice: [], errors: [] }
   if (!keep || fresh) {
     await mock(context, log)
@@ -617,7 +617,7 @@ async function run(engineName) {
 async function talkCard(engineName, w, h) {
   const engine = engineName === 'webkit' ? webkit : chromium
   const tag = `${BOOK}-${w}x${h}-${engineName}`
-  const browser = await engine.launch()
+  const browser = await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] })
   const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: w, height: h }, deviceScaleFactor: 1, serviceWorkers: 'block' })
   context.__browser = browser
   const state = await boot(engine, `?book=${BOOK}&margin=1`, SEED, { context, page: await context.newPage(), log: { ai: [], notes: [], voice: [], errors: [] }, fresh: true })
@@ -696,7 +696,7 @@ async function narrationTyping(engineName) {
   const bundled = await build({ stdin: { contents: "export { chunkNarrationText, narrationTextForParagraph, sha256Hex } from './src/narration/narrationCore'", resolveDir: process.cwd() }, bundle: true, platform: 'node', format: 'esm', write: false })
   const { chunkNarrationText, narrationTextForParagraph, sha256Hex } = await import('data:text/javascript;base64,' + Buffer.from(bundled.outputFiles[0].text).toString('base64'))
   const edition = JSON.parse(readFileSync(`public/data/editions/${BOOK}-modern-en.json`, 'utf8'))
-  const browser = await engine.launch()
+  const browser = await engine.launch({ headless: true, args: engine === chromium ? ['--mute-audio'] : [] })
   const context = await browser.newContext({ ...devices['iPhone 13'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, serviceWorkers: 'block' })
   context.__browser = browser
   await context.addInitScript(() => {
