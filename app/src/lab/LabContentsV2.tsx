@@ -83,6 +83,9 @@ function ProgressPie({ percent }: { percent: number }) {
 }
 const MODERN_STATE_LABEL = { ready: 'Ready', preparing: 'Preparing', queued: 'Queued' } as const
 const date = (timestamp: number) => Number.isFinite(timestamp) ? new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', year: 'numeric' }).format(timestamp) : ''
+// Blank-margin notes keep a point anchor, but deliberately have no quoted words.
+const isPointNote = (h: LabHighlight) => !isLabChapterNote(h) && !h.text && h.paragraphIndex === h.endParagraphIndex && h.fromWord === h.toWord
+const needsQuote = (h: LabHighlight) => !h.text && !isLabChapterNote(h) && !isPointNote(h)
 const savedCardDetails = (data: Record<string, unknown> | undefined) => { try { return data ? JSON.stringify(data, null, 2) : '' } catch { return '' } }
 
 /** Design 1's final tree; browsing and overlays never commit a reading tuple. */
@@ -128,10 +131,17 @@ export function LabContentsV2(props: Props) {
   const results = useMemo(() => searchContents(query, chapters, data, chats, highlights), [query, chapters, data, chats, props.highlights])
   // The Notebook loads the book's text only for a mark that does not carry its own words (a reader's own book's
   // text is not an edition the loader has).
-  const needsText = open && (view === 'search' || view === 'highlights' || view === 'highlight'
-    || (view === 'notebook' && notebookFilter !== 'ai' && highlights.some(h => !h.text && !isLabChapterNote(h))))
+  const needsText = open && (view === 'search'
+    || ((view === 'highlights' || (view === 'notebook' && notebookFilter !== 'ai')) && highlights.some(needsQuote))
+    || (view === 'highlight' && !!selection && needsQuote(selection)))
   const chapterTitle = (n: number) => chapters.find(ch => ch.number === n)?.title || 'Chapter ' + n
   const quote = (h: LabHighlight) => h.text || contentsQuote(h, data)
+  const sourceText = (h: LabHighlight, quoted = false) => {
+    if (isPointNote(h)) return null
+    const text = quote(h)
+    return text ? (quoted ? `“${text}”` : text)
+      : (data || loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)
+  }
   const showOverlay = (next: View, chapter: number | null = null) => {
     returnFocus.current = document.activeElement as HTMLElement | null
     setView(next); setChapterFilter(chapter); setLimit(30)
@@ -275,10 +285,10 @@ export function LabContentsV2(props: Props) {
     </button>
     : notesFilter && h.note?.trim()
     ? <button className="result is-note-first" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
-      <small>{chapterTitle(h.chapterNumber)}</small>{noteLead(h)}<p className="note-source">{quote(h) ? `“${quote(h)}”` : (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>
+      <small>{chapterTitle(h.chapterNumber)}</small>{noteLead(h)}{!isPointNote(h) && <p className="note-source">{sourceText(h, true)}</p>}
     </button>
     : <button className="result" key={h.id} data-testid={'contents-highlight-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
-      <small>{chapterTitle(h.chapterNumber)}</small><p>{quote(h) || (loadError ? 'Passage unavailable' : <LabWait label="Loading highlighted passage…" size={16} />)}</p>{noteText(h)}
+      <small>{chapterTitle(h.chapterNumber)}</small>{!isPointNote(h) && <p>{sourceText(h)}</p>}{noteText(h)}
     </button>
   const legacyOwnEpubRow = (item: LegacyOwnEpubNotebookItem) => <article className="result" key={'legacy-epub-' + item.id} data-testid={'contents-legacy-epub-' + item.id}>
     <small>Original EPUB page {item.page} · {item.kind === 'card' ? 'Saved AI card' : 'Saved highlight'}</small>
@@ -392,7 +402,7 @@ export function LabContentsV2(props: Props) {
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}
           {view === 'highlight' && selection && (isLabChapterNote(selection)
             ? <article className="result is-chapter-note"><small>{chapterTitle(selection.chapterNumber)}</small>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: 0, wordIndex: 0 })}>Open chapter<Icon name="next" /></button></article>
-            : <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small><p>{quote(selection)}</p>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>)}
+            : <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small>{!isPointNote(selection) && <p>{sourceText(selection)}</p>}{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>)}
         </div>
       </section>}
     </div>
