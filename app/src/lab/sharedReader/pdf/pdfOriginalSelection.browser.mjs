@@ -25,12 +25,34 @@ try {
     const browser = await engine.launch({ headless: true, args: name === 'chromium' ? ['--mute-audio', '--no-sandbox'] : [] })
     try {
       const page = await browser.newPage({ viewport: { width: 900, height: 1200 }, serviceWorkers: 'block' })
-      await page.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort())
+      const fixturePath = '/src/lab/sharedReader/pdf/pdfOriginal.browser.html'
+      await page.route('**/*', async route => {
+        const url = new URL(route.request().url())
+        if (url.origin !== origin) return route.abort()
+        if (url.pathname !== fixturePath) return route.continue()
+        const response = await route.fetch()
+        // Set the final two-page viewport before React measures its source
+        // column. Resizing after spans appear invalidates their drag points.
+        const style = '#app{width:420px;height:1150px}.pdf-original__pages{width:100%!important}.pdf-original__scroll{margin:0!important;padding-bottom:0!important}'
+        return route.fulfill({ response, body: (await response.text()).replace('</style>', `${style}</style>`) })
+      })
       await page.addInitScript(value => { window.__pdfFixture = value }, fixture)
       await page.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginal.browser.html?continuous`, { waitUntil: 'domcontentloaded' })
       await page.getByText('Finishing words on the second page', { exact: true }).waitFor()
-      // Make both source pages visible without introducing artificial text DOM.
-      await page.addStyleTag({ content: '#app{width:420px;height:1150px}.pdf-original__pages{width:100%!important}.pdf-original__scroll{margin:0!important;padding-bottom:0!important}' })
+      await page.waitForFunction(async () => {
+        await document.fonts.ready
+        const layers = [...document.querySelectorAll('.pdf-original__text')]
+        if (layers.length !== 2 || layers.some(layer => !layer.querySelector('span'))) return false
+        const spans = layers.map(layer => layer.querySelector('span'))
+        const geometry = () => layers.map(layer => {
+          const sheet = layer.closest('.pdf-original__page'), canvas = sheet.querySelector('canvas')
+          return [layer.clientWidth, layer.clientHeight, sheet.clientWidth, canvas.clientWidth, canvas.clientHeight]
+        })
+        const before = geometry()
+        if (before.some(([w, h, sheet, canvasW, canvasH]) => w <= 0 || h <= 0 || w !== sheet || w !== canvasW || h !== canvasH)) return false
+        for (let frame = 0; frame < 3; frame++) await new Promise(requestAnimationFrame)
+        return spans.every(span => span.isConnected) && JSON.stringify(before) === JSON.stringify(geometry())
+      })
       const point = async (text, offset) => page.getByText(text, { exact: true }).evaluate((el, at) => {
         const range = document.createRange(); range.setStart(el.firstChild, at); range.setEnd(el.firstChild, at + 1)
         const box = range.getBoundingClientRect(); return { x: box.left + 1, y: box.top + box.height / 2 }
