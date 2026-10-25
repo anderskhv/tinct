@@ -18,7 +18,7 @@ import type { PdfHeadingActions } from './pdfHeadingGeometry'
 import { LabDesktopCard } from '../LabDesktopCard'
 import type { CardBox } from '../desktopCardPlace'
 import { LabPhoneCard } from '../../marginPhone/LabPhoneCard'
-import { LabPhoneBar } from '../../marginPhone/LabPhoneBar'
+import { LabPhoneBar, lastHighlightColor } from '../../marginPhone/LabPhoneBar'
 import { PhoneFollowField, PhoneQuizBody } from '../../marginPhone/LabPhoneCards'
 import { readLabPrefs, writeLabPrefs, type LabTheme } from '../../labPrefs'
 import { useReaderWindow } from '../../useReaderWindow'
@@ -146,6 +146,8 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const [rules, setRules] = useState<PdfOriginalUnitRules | null>(unitRules ?? null)
   const [selection, setSelection] = useState<PdfOriginalSelection | null>(null)
   const [selectionPoint, setSelectionPoint] = useState({ x: 160, y: 240 })
+  const [highlightColor, setHighlightColor] = useState<HighlightColor>(lastHighlightColor)
+  const [highlightedSelection, setHighlightedSelection] = useState<PdfOriginalSelection | null>(null)
   const [barState, setBarState] = useState<'menu' | 'colors'>('menu')
   const [card, setCard] = useState<Card | null>(null)
   const [note, setNote] = useState('')
@@ -366,7 +368,20 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       ? 'The full source for this saved answer is unavailable. This follow-up was not sent.' : 'This follow-up could not be completed.'); setCard(previous => previous && previous.id === from.id ? { ...previous, busy: false } : previous) } }
     finally { if (pending.current === controller) pending.current = null }
   }
-  const highlight = (color: HighlightColor, showPalette = false) => { if (!selection || !services) { setStatus('Highlights are unavailable.'); return }; setStatus(services.saveHighlight(selection, color) ? 'Highlight saved.' : 'Highlight could not be saved.'); if (showPalette) setBarState('colors'); else setSelection(null); setRevision(n => n + 1) }
+  const highlight = (color: HighlightColor, keepSelection = false) => {
+    if (!selection || !services) { setStatus('Highlights are unavailable.'); return }
+    const saved = services.saveHighlight(selection, color)
+    setStatus(saved ? 'Highlight saved.' : 'Highlight could not be saved.')
+    if (saved) {
+      setHighlightColor(color); setHighlightedSelection(selection)
+      // Keep the source-coordinate selection for its toolbar, but reveal the
+      // saved ink immediately instead of covering it with native blue paint.
+      window.getSelection()?.removeAllRanges()
+      try { localStorage.setItem('tinct-highlight-color', color) } catch { /* private mode */ }
+      if (!keepSelection) setSelection(null)
+    }
+    setRevision(n => n + 1)
+  }
   const saveNote = () => { if (!card || !services || !note.trim()) return; const saved = card.markId ? persistNote(card, note) : services.saveNote(card.selection, note.trim()); setStatus(saved ? 'Note saved.' : 'Note could not be saved.'); setSelection(null); setCard(null); setNote('') }
   void revision
   const allSaved = [
@@ -415,7 +430,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const openSavedMark = (item: PdfOriginalMark) => {
     const source: PdfOriginalSelection = { page: item.page, text: item.text, rects: item.rects.map(rect => [item.page, ...rect] as [number, number, number, number, number]) }
     if (item.note) { setNote(noteDrafts.current.get(item.id) ?? item.note); setCard({ kind: 'note', selection: source, text: item.note, markId: item.id, saved: true }) }
-    else { setCard(null); setSelection(source); setBarState('colors') }
+    else { setCard(null); setSelection(source); setHighlightedSelection(source); setHighlightColor(item.color as HighlightColor); setBarState('colors') }
   }
   const headingActions: PdfHeadingActions[] = units.filter(unit => !unit.matter && unit.title.trim()).map((target, index) => ({ key: target.key, title: target.title, page: target.start,
     actions: [{ id: 'primer', label: 'Primer' }, ...(index ? [{ id: 'catchup' as const, label: 'Catch me up' }] : []), { id: 'recap', label: 'Recap' }, { id: 'quiz', label: 'Quiz me' }, { id: 'note', label: 'Note' }],
@@ -509,11 +524,11 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       <button className="lab-chapter-progress is-interactive" onClick={() => setPane('contents')} aria-label={`Page ${place.page}${pages ? ` of ${pages}` : ''}. Contents`}><span className="lab-chapter-progress-info">Page {place.page}{pages ? ` of ${pages}` : ''}</span></button>
       <button className="lab-page-turn-btn" aria-label="Next PDF page" disabled={!pages || place.page >= pages} onClick={() => jump(place.page + 1)}>›</button>
     </nav>
-    {selection && !phone && !card && <SelectionDeskBar sharedReader getAnchor={() => sourceAnchor(selection)} state={barState} color="gold" marked={barState === 'colors'} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => highlight('gold', true)} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
-    {selection && phone && !card && <LabPhoneBar text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
+    {selection && !phone && !card && <SelectionDeskBar sharedReader getAnchor={() => sourceAnchor(selection)} state={barState} color={highlightColor} marked={highlightedSelection === selection} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => { if (highlightedSelection === selection) setBarState('colors'); else highlight(highlightColor, true) }} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
+    {selection && phone && !card && <LabPhoneBar existingColor={highlightedSelection === selection ? highlightColor : undefined} text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
       onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }}
       onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)}
-      onMore={more} onHighlight={color => highlight(color)}
+      onMore={more} onHighlight={color => highlight(color, highlightedSelection !== selection)}
       onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }}
       onRemove={() => setSelection(null)} onDismiss={() => setSelection(null)} />}
 

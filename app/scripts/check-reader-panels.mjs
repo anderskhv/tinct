@@ -253,6 +253,8 @@ async function run(engine,name,phone) {
       assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'dismissing the card leaves the page still')
       await select(page)
       await page.getByTestId('lab-pbar-highlight').click()
+      assert.equal(await page.getByTestId('lab-pbar-color-sage').count(), 0, 'first highlight applies without opening palette')
+      await page.getByTestId('lab-pbar-highlight').click()
       await page.getByTestId('lab-pbar-color-sage').click()
     } else if(shared) {
       await page.keyboard.press('Escape')

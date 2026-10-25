@@ -196,7 +196,9 @@ jobs:
         env:
           TINCT_ORIGIN: ''
           TINCT_REFINEMENT_OUTPUT: artifacts/margin-refinements
-        run: node scripts/check-reader-margin-refinements.mjs
+        run: |
+          node scripts/check-reader-margin-refinements.mjs
+          node scripts/check-reader-selection-release.mjs
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs

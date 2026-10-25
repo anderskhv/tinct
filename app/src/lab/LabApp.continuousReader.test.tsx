@@ -168,3 +168,43 @@ it('folds a saved margin thread on Compare transition without changing its histo
   expect((screen.getByPlaceholderText('Ask a follow-up') as HTMLTextAreaElement).value).toBe('An unsent saved-thread follow-up.')
   expect(root.getAttribute('data-place')).toBe('13:4')
 })
+
+it.each([false, true])('keeps a fresh %s single-word drag inside a saved highlight exact when released and copied', async singleWord => {
+  vi.stubGlobal('PointerEvent', MouseEvent)
+  const groupText = 'source words to hold a nonzero resume'
+  localStorage.setItem('tinct-lab-highlights', JSON.stringify([{ id: 'saved-wide-mark', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, paragraphIndex: 13, fromWord: 3, endParagraphIndex: 13, toWord: 10, text: groupText, groupText, groupId: 'kept-group', color: 'gold', updatedAt: Date.now() }]))
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4'))
+  const from = document.querySelector('[data-testid="lab-word"][data-paragraph-index="13"][data-word-index="4"]')!
+  const to = document.querySelector(`[data-testid="lab-word"][data-paragraph-index="13"][data-word-index="${singleWord ? 4 : 6}"]`)!
+  fireEvent.pointerDown(from, { button: 0, clientX: 10, clientY: 10 })
+  fireEvent.pointerMove(to, { clientX: 20, clientY: 10 })
+  const during = [...document.querySelectorAll('[data-testid="lab-word"].is-selecting')].map(word => word.textContent?.trim())
+  fireEvent.pointerUp(to, { clientX: 20, clientY: 10 })
+  expect([...document.querySelectorAll('[data-testid="lab-word"].is-selecting')].map(word => word.textContent?.trim())).toEqual(during)
+  expect(during).toEqual(singleWord ? ['words'] : ['words', 'to', 'hold'])
+  const setData = vi.fn()
+  fireEvent.copy(document, { clipboardData: { setData } })
+  expect(setData).toHaveBeenCalledWith('text/plain', singleWord ? 'words' : 'words to hold')
+})
+
+it('highlights only a fresh dragged subrange without recoloring its wider existing highlight', async () => {
+  vi.stubGlobal('PointerEvent', MouseEvent)
+  localStorage.setItem('tinct-highlight-color', 'rose')
+  const existing = { id: 'saved-wide-mark', bookId: 'bible', editionKey: 'kjv-en', chapterNumber: 1, paragraphIndex: 13, fromWord: 3, endParagraphIndex: 13, toWord: 10, text: 'source words to hold a nonzero resume', color: 'gold', updatedAt: Date.now() }
+  localStorage.setItem('tinct-lab-highlights', JSON.stringify([existing]))
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4'))
+  const from = document.querySelector('[data-testid="lab-word"][data-paragraph-index="13"][data-word-index="4"]')!
+  const to = document.querySelector('[data-testid="lab-word"][data-paragraph-index="13"][data-word-index="6"]')!
+  fireEvent.pointerDown(from, { button: 0, clientX: 10, clientY: 10 })
+  fireEvent.pointerMove(to, { clientX: 20, clientY: 10 })
+  fireEvent.pointerUp(to, { clientX: 20, clientY: 10 })
+  fireEvent.click(screen.getByTestId('lab-dbar-highlight'))
+  const marks = JSON.parse(localStorage.getItem('tinct-lab-highlights')!)
+  expect(marks.find((mark: { id: string }) => mark.id === existing.id)).toEqual(existing)
+  expect(marks).toContainEqual(expect.objectContaining({ paragraphIndex: 13, fromWord: 4, endParagraphIndex: 13, toWord: 7, text: 'words to hold', color: 'rose' }))
+  expect(marks).toHaveLength(2)
+})

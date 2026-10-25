@@ -268,3 +268,16 @@ describe('typing into a shared desktop passage selection', () => {
     expect(compose).toHaveBeenLastCalledWith()
   })
 })
+
+it('applies the color displayed on the desktop highlighter before opening any palette', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const input = props({ sharedReader: true, currentHighlightColor: 'sage' })
+  render(<Harness {...input} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Sage' }))
+  expect(input.onColorClick).toHaveBeenCalledExactlyOnceWith('sage')
+  expect(screen.getByTestId('lab-desk-bar').dataset.barState).toBe('menu')
+  expect(screen.queryByTestId('lab-dbar-color-sage')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-dbar-highlight'))
+  expect(input.onColorClick).toHaveBeenCalledOnce()
+  expect(screen.getByTestId('lab-dbar-color-sage')).toBeTruthy()
+})

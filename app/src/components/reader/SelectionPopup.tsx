@@ -489,8 +489,9 @@ export function SelectionPopup({
         onHighlight={() => {
           // One click highlights in the current colour; on a highlighted passage it opens the colours.
           if (markId) { setPopupMode('colors'); return }
-          remember(lastColor)
-          onColorClick(lastColor)
+          const color = currentHighlightColor ?? lastColor
+          remember(color)
+          onColorClick(color)
         }}
         onSwatch={color => { remember(color); onColorClick(color) }}
         onNote={() => requestNote(currentHighlightColor ?? lastColor)}

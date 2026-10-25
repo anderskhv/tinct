@@ -28,8 +28,8 @@ vi.mock('./PdfContinuousSurface', () => ({
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
-  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore }: { onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div>
-    <button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
+  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div>
+    <button onClick={onHighlight}>Apply PDF {color}</button>{state === 'colors' && <span>PDF palette</span>}<button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
     <button onClick={() => onSwatch('sage')}>Highlight sage</button><button onClick={onNote}>Note PDF</button><button onClick={() => onMore('quiz')}>Quiz this PDF</button><button onClick={() => onMore('define')}>Define this PDF</button>
   </div>,
 }))
@@ -762,4 +762,19 @@ it('keeps an unsent PDF question when switching to Talk through keyboard menu ac
   fireEvent.click(screen.getByTestId('source-margin-open'))
   expect((screen.getByRole('textbox', { name: 'Ask about this page' }) as HTMLInputElement).value).toBe('Keep this question while I talk.')
   expect(services.ask).not.toHaveBeenCalled()
+})
+
+it('applies the displayed PDF highlight color on the first click and only opens its palette on the second', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const saveHighlight = vi.fn(() => true)
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight, saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Apply PDF lavender'))
+  expect(saveHighlight).toHaveBeenCalledExactlyOnceWith({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] }, 'lavender')
+  expect(screen.queryByText('PDF palette')).toBeNull()
+  expect(screen.getByText('Explain this PDF')).toBeTruthy()
+  fireEvent.click(screen.getByText('Apply PDF lavender'))
+  expect(saveHighlight).toHaveBeenCalledOnce()
+  expect(screen.getByText('PDF palette')).toBeTruthy()
 })

@@ -3966,7 +3966,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const painted = intent === 'lookup' && highlightId
       ? (comparison ? highlightsApi.compareHighlights : highlightsApi.highlights).find(mark => mark.id === highlightId && mark.chapterNumber === selectedChapter)
       : undefined
-    const existing = painted ?? highlightsApi.findRange(range, editionKey, selectedChapter) ?? highlightsApi.findContainingRange(range, editionKey, selectedChapter)
+    const existing = painted ?? highlightsApi.findRange(range, editionKey, selectedChapter)
+      ?? (intent === 'lookup' ? highlightsApi.findContainingRange(range, editionKey, selectedChapter) : undefined)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, selectedChapter, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === selectedChapter && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
     const highlight = existing
     // A click inside an existing highlight is about the thing the reader
@@ -3983,7 +3984,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       || highlight.endParagraphIndex !== range.endParagraphIndex
       || highlight.fromWord !== range.fromWord
       || highlight.toWord !== range.toWord)
-    const subject = ((intent === 'lookup' || pickedOneWord) && highlight && widerHighlight
+    const subject = (intent === 'lookup' && highlight && widerHighlight
       ? buildHighlightRange(
           paragraphs,
           { paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord },
@@ -4017,7 +4018,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const nextSelection: NonNullable<typeof selectionPopup> = {
       x: Math.max(24, Math.min(window.innerWidth - 24, clientX)),
       y: shouldFloatAbove ? floatingY : showBelow ? anchorY + 12 : anchorY - 12,
-      text: highlight?.groupText || subject.text,
+      text: intent === 'lookup' ? highlight?.groupText || subject.text : subject.text,
       paragraphIndex: subject.paragraphIndex,
       startOffset: subject.fromWord,
       endOffset: subject.toWord,

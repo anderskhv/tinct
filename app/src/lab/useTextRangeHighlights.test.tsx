@@ -172,3 +172,24 @@ it('paints the generated hyphen of a highlighted page-edge fragment or planned b
   expect(rects).not.toContain(boxes.get(document.querySelector('#c .lab-syl')!)![0])
   document.body.innerHTML = ''
 })
+
+it('reveals a committed mark color after applying it, while a fresh drag still previews warm', () => {
+  const registry = new Map<string, { ranges: Range[] }>()
+  vi.stubGlobal('CSS', { highlights: registry })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  function Selected({ applied }: { applied: boolean }) {
+    const ref = useRef<HTMLElement>(null)
+    useTextRangeHighlights(ref, '', undefined, applied)
+    return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-selecting is-hl-lavender">Selected</span>{' '}<span data-testid="lab-word" className="is-selecting is-hl-lavender">words</span></p></article>
+  }
+  const view = render(<Selected applied={false} />)
+  const paint = (color: string) => [...registry].find(([key]) => key.endsWith(`-${color}`))![1].ranges.map(range => range.toString())
+  expect(paint('warm')).toEqual(['Selected words'])
+  expect(paint('lavender')).toEqual([])
+  view.rerender(<Selected applied />)
+  expect(paint('warm')).toEqual([])
+  expect(paint('lavender')).toEqual(['Selected words'])
+  view.rerender(<Selected applied={false} />)
+  expect(paint('warm')).toEqual(['Selected words'])
+  expect(paint('lavender')).toEqual([])
+})

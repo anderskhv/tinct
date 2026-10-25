@@ -1081,3 +1081,15 @@ it('uses the outside desktop edges for extending selection, not the gutter or la
   expect(turn).toHaveBeenCalledWith(1)
  } finally {vi.useRealTimers()}
 })
+
+it('recognizes committed colours in Compare and a next chapter opening, retaining selection source markers', () => {
+  const range = { paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 2, text: 'One two' }
+  const highlight = { ...range, id: 'applied', chapterNumber: 1, color: 'rose' as const }
+  const common = passageProps(['One two three'], { paragraphIndex: 0, from: 0, to: 3 })
+  const { container, rerender } = render(<LabPassage {...common} chapterNumber={1} compare compareParagraphs={['One two three']} compareHighlights={[highlight]} selectingRange={range} selectingComparison />)
+  expect(container.querySelector('.lab-passage.has-applied-selection')).toBeTruthy()
+  expect(container.querySelector('.lab-book-col-compare .is-selecting.is-hl-rose')).toBeTruthy()
+  rerender(<LabPassage {...common} openingOnly chapterNumber={1} highlights={[highlight]} selectingRange={range} />)
+  expect(container.querySelector('.lab-opening-passage.has-applied-selection')).toBeTruthy()
+  expect(container.querySelector('.lab-opening-passage .is-selecting.is-hl-rose')).toBeTruthy()
+})

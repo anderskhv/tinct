@@ -57,7 +57,7 @@ type Mounted = {
  * per word and held the main thread for ~300 ms on a long chapter: the follow
  * wash then lit only every third word (2026-09-25).
  */
-export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layoutKey = '', inputs?: readonly unknown[]) {
+export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layoutKey = '', inputs?: readonly unknown[], appliedSelection = false) {
   const prefix = 'tinct' + useId().replace(/[^a-zA-Z0-9]/g, '')
   const mountedRef = useRef<Mounted | null>(null)
   useLayoutEffect(() => () => { unmount(mountedRef.current, prefix); mountedRef.current = null }, [prefix])
@@ -106,8 +106,8 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layou
       let color: string | undefined
       let range: Range | undefined
       for (const word of line.querySelectorAll('[data-testid="lab-word"], [data-testid="lab-opening-word"], [data-fragment-word]')) {
-        const next = word.classList.contains('is-selecting') ? 'warm'
-          : Object.keys(COLORS).find(key => word.classList.contains(`is-hl-${key}`))
+        const saved = Object.keys(COLORS).find(key => word.classList.contains(`is-hl-${key}`))
+        const next = word.classList.contains('is-selecting') ? appliedSelection && saved ? saved : 'warm' : saved
         if (!next) { color = undefined; range = undefined; continue }
         const lookup = word.classList.contains('is-selecting') ? word.getAttribute('data-selection-word') : null
         if (lookup) {

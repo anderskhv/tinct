@@ -61,7 +61,7 @@ function rememberColor(color: HighlightColor) {
 export interface LabPhoneBarProps {
   /** The selected words (copy, and where the bar sits). */
   text: string
-  /** A saved highlight was tapped, or the selection was just highlighted: its colours, its note and ✕ (remove it). */
+  /** The selected passage is highlighted. A fresh save keeps its icon until the next press opens colours. */
   existingColor?: HighlightColor
   noted?: boolean
   /** Where the press ended, used only when no selected word is painted. */
@@ -91,6 +91,10 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
   const { text, existingColor, noted = false, fallbackY } = props
   const ref = useRef<HTMLDivElement | null>(null)
   const [moreOpen, setMoreOpen] = useState(false)
+  const [paletteOpen, setPaletteOpen] = useState(!!existingColor)
+  // A newly applied mark keeps the same toolbar; only its next highlighter
+  // press opens colours. Opening a different saved mark may show them directly.
+  useEffect(() => { setPaletteOpen(!!existingColor) }, [text, props.fallbackX, fallbackY])
   const [place, setPlace] = useState<{ top: number; left: number; tip: number; below: boolean } | null>(null)
   useReaderSelectionCopy(text)
   useLayoutEffect(() => {
@@ -154,14 +158,14 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       ref={ref}
       className={`lab-pbar${place?.below === false ? ' is-above' : ''}`}
       data-testid="lab-phone-bar"
-      data-state={existingColor ? 'existing' : 'menu'}
+      data-state={existingColor && paletteOpen ? 'existing' : 'menu'}
       role="toolbar"
       aria-label="Selection"
       style={{ top: place?.top ?? -999, left: place?.left ?? 10, ['--tip' as string]: `${place?.tip ?? 0}px` }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
-      {existingColor ? (
+      {existingColor && paletteOpen ? (
         <>
           <button type="button" className="lab-pbar-item is-text" data-testid="lab-pbar-ask" onClick={props.onAsk}>Ask</button>
           {sep}
@@ -186,13 +190,13 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
           {sep}
           <button type="button" className="lab-pbar-item is-hl" data-testid="lab-pbar-highlight" aria-label={`Highlight in ${current.label}`}
-            onClick={() => props.onHighlight(current.key)}>
+            onClick={() => { if (existingColor) setPaletteOpen(true); else { rememberColor(current.key); props.onHighlight(current.key) } }}>
             <span className="lab-pbar-hl"><PhoneIcon name="highlight" /><span className="lab-pbar-dot" style={{ background: current.hex }} /></span>
           </button>
           <button type="button" className="lab-pbar-item" data-testid="lab-pbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
         </>
       )}
-      {moreOpen && (!existingColor || props.onShowPage) && (
+      {moreOpen && (!(existingColor && paletteOpen) || props.onShowPage) && (
         <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
           style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
           {!existingColor && PHONE_MORE_ROWS.map(([id, name]) => (

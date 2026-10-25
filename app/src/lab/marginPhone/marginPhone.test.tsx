@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -130,7 +131,7 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
     fireEvent.click(screen.getByTestId('lab-pmore-page'))
     expect(onShowPage).toHaveBeenCalledTimes(1)
-    view.rerender(<div className="lab"><LabPhoneBar {...props} existingColor="gold" /></div>)
+    view.rerender(<div className="lab"><LabPhoneBar {...props} text="saved passage" existingColor="gold" /></div>)
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
     expect(screen.queryByTestId('lab-pmore-define')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-pmore-page'))
@@ -318,4 +319,24 @@ describe('the open card\u2019s passage stays underlined on the page', () => {
     expect(css).toMatch(/\.is-card-passage \{[^}]*text-decoration: underline/)
     document.body.innerHTML = ''
   })
+})
+
+it('applies the phone highlighter color immediately and opens colours only on the second press', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const save = vi.fn()
+  function HighlightBar() {
+    const [color, setColor] = useState<'gold' | 'rose' | 'sage' | 'sky' | 'lavender' | undefined>()
+    return <div className="lab"><LabPhoneBar text="Selected words" fallbackY={300} existingColor={color} onAsk={vi.fn()} onExplain={vi.fn()} onSimplify={vi.fn()} onMore={vi.fn()}
+      onHighlight={next => { save(next); setColor(next) }} onNote={vi.fn()} onRemove={vi.fn()} onDismiss={vi.fn()} /></div>
+  }
+  render(<HighlightBar />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledExactlyOnceWith('lavender')
+  expect(screen.queryByTestId('lab-pbar-color-sage')).toBeNull()
+  expect(screen.getByRole('button', { name: 'Highlight in Lavender' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledOnce()
+  expect(screen.getByTestId('lab-pbar-color-lavender').getAttribute('aria-pressed')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-pbar-color-sage'))
+  expect(save).toHaveBeenLastCalledWith('sage')
 })
