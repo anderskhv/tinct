@@ -28,8 +28,8 @@ vi.mock('./PdfContinuousSurface', () => ({
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
-  SelectionDeskBar: ({ onAskQuestion, onExplain, onSwatch, onNote, onMore }: { onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div>
-    <button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
+  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore }: { onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div>
+    <button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
     <button onClick={() => onSwatch('sage')}>Highlight sage</button><button onClick={onNote}>Note PDF</button><button onClick={() => onMore('quiz')}>Quiz this PDF</button><button onClick={() => onMore('define')}>Define this PDF</button>
   </div>,
 }))
@@ -650,4 +650,65 @@ it('shows saved PDF explanations and anchored Talk under their source unit and o
   expect(screen.queryByRole('dialog', { name: 'Contents and conversations' })).toBeNull()
   expect(screen.getByText('Saved source explanation.')).toBeTruthy()
   expect(saveCard).not.toHaveBeenCalled()
+})
+
+it('collapses a long unsaved PDF note from its editor with Escape and restores the draft on reopen', () => {
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Note PDF'))
+  const editor = screen.getByRole('textbox', { name: 'Your note' })
+  const draft = 'A long unsaved note. '.repeat(80)
+  fireEvent.change(editor, { target: { value: draft } })
+  fireEvent.keyDown(editor, { key: 'Escape' })
+  expect(screen.queryByRole('textbox', { name: 'Your note' })).toBeNull()
+  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect((screen.getByRole('textbox', { name: 'Your note' }) as HTMLTextAreaElement).value).toBe(draft)
+  fireEvent.pointerDown(document.body)
+  expect(screen.queryByRole('textbox', { name: 'Your note' })).toBeNull()
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect((screen.getByRole('textbox', { name: 'Your note' }) as HTMLTextAreaElement).value).toBe(draft)
+})
+
+it('leaves PDF source-hit pointer gestures to the source activation handler and collapses on plain page ink', async () => {
+  vi.stubGlobal('PointerEvent', MouseEvent)
+  const services: PdfOriginalReaderServices = { marks: [], cards: [{ id: 'existing', page: 1, kind: 'explain', text: 'The source words.', rects: [[1, .1, .2, .3, .04]], at: 12, turns: [{ role: 'assistant', content: 'Existing answer.' }] }], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  openNotebook(); fireEvent.click(screen.getByText('Original PDF page 1 · explain'))
+  const page = document.querySelector('.pdf-original__page[data-page="1"]')!
+  fireEvent.pointerDown(page, { clientX: 150, clientY: 350 })
+  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('true')
+  fireEvent.pointerDown(page, { clientX: 900, clientY: 700 })
+  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
+})
+
+it('folds and restores an unsent PDF question without sending or saving it', () => {
+  const ask = vi.fn(async () => 'An answer.'), saveCard = vi.fn(() => false)
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask, saveCard }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Compose PDF question'))
+  fireEvent.change(screen.getByRole('textbox', { name: 'Ask about this passage' }), { target: { value: 'How does this relate to the argument?' } })
+  fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Escape' })
+  expect(screen.queryByRole('textbox')).toBeNull()
+  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect((screen.getByRole('textbox', { name: 'Ask about this passage' }) as HTMLInputElement).value).toBe('How does this relate to the argument?')
+  fireEvent.pointerDown(document.body)
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect((screen.getByRole('textbox', { name: 'Ask about this passage' }) as HTMLInputElement).value).toBe('How does this relate to the argument?')
+  expect(ask).not.toHaveBeenCalled(); expect(saveCard).not.toHaveBeenCalled()
+})
+
+it('folds and restores an answer that failed to save without sending it again', async () => {
+  const ask = vi.fn(async () => 'An answer that could not be saved.'), saveCard = vi.fn(() => false)
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => false), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask, saveCard }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text')); fireEvent.click(screen.getByText('Explain this PDF'))
+  await screen.findByText('An answer that could not be saved.')
+  fireEvent.keyDown(window, { key: 'Escape' })
+  fireEvent.click(screen.getByTestId('source-margin-open'))
+  expect(screen.getByText('An answer that could not be saved.')).toBeTruthy()
+  expect(ask).toHaveBeenCalledOnce(); expect(saveCard).toHaveBeenCalledOnce()
 })

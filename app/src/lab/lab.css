@@ -7683,16 +7683,16 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-chapter, .lab-header-book) { min-height: 32px; }
 
-/* Desktop reading controls stay direct; scrolling quiets their ink, never their hit targets. */
+/* Reading chrome stays quiet at rest; interaction restores full ink. */
 .lab[data-chrome-version="v2"].is-desktop .lab-header-notebook {
   display:inline-flex; align-items:center; justify-content:center; min-width:40px; min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
   font:14px/1.2 'EB Garamond',Georgia,serif; color:var(--lab-ink); cursor:pointer;
 }
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
-  color:var(--lab-ink); transition:color 140ms ease;
+  color:var(--lab-ink-muted); transition:color 140ms ease;
 }
-.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop[data-reading-scroll="true"] .lab-header:not(:focus-within) :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
-  color:var(--lab-ink-muted);
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header:is(:hover,:focus-within) :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
+  color:var(--lab-ink);
 }
 @media(prefers-reduced-motion:reduce) {
   .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) { transition:none; }

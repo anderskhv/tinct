@@ -5645,12 +5645,27 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setPhoneNote(note)
     openPhoneCard({ kind: 'note', passage: phonePassageOf(selection), highlightId: id!, created })
   }
-  const phoneBarAsk = () => {
+  const phoneBarAsk = (initialQuestion?: string) => {
     const selection = selectionPopup
     if (!selection) return
-    // Opens like any card, its field unfocused: no cursor and no keyboard until the reader taps the field.
-    setDraft('')
-    openPhoneCard({ kind: 'ask', passage: phonePassageOf(selection), openedAt: Date.now() })
+    // A typed question explicitly requests keyboard focus; tapping on phone
+    // still leaves the keyboard closed until the reader taps the field.
+    const card: PhoneCard = { kind: 'ask', passage: phonePassageOf(selection), openedAt: Date.now() }
+    const open = () => {
+      setDraft(initialQuestion ?? '')
+      openPhoneCard(card)
+    }
+    if (initialQuestion === undefined) open()
+    else {
+      // Commit and focus in the initiating key event: waiting a frame can
+      // swallow the next character typed before the composer owns focus.
+      flushSync(open)
+      const scope = continuousReader ? document.querySelector(`[data-card-id="${desktopCardId(card)}"].source-margin-item`) : document
+      const fields = scope?.querySelectorAll<HTMLTextAreaElement>('.lab-pcard-follow-input') ?? []
+      const field = [...fields].find(node => node.getClientRects().length && !node.closest('[hidden]'))
+      field?.focus({ preventScroll: true })
+      if (field) field.setSelectionRange(field.value.length, field.value.length)
+    }
   }
   const phoneBarAction = (kind: 'explain' | 'simplify' | PhoneMoreId) => {
     const selection = selectionPopup
@@ -6071,7 +6086,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
   const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
-    if (desktopOpenId) { if (phoneCardRef.current?.kind === 'note') closePhoneCard(); setDesktopOpenId(null); return }
+    if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
     const words = [...(marginHost?.querySelectorAll<HTMLElement>('[data-testid="lab-word"]') ?? [])]
     const word = words.find(word => word.getBoundingClientRect().bottom >= clientY) ?? words[words.length - 1]
     if (!word) return
@@ -7161,7 +7176,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           fallbackY={selectionPopup.y}
           existingColor={selectionPopup.existingHighlightId ? highlightsApi.allHighlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.color ?? lastHighlightColor() : undefined}
           noted={!!(selectionPopup.existingHighlightId && highlightsApi.allHighlights.find(highlight => highlight.id === selectionPopup.existingHighlightId)?.note)}
-          onAsk={phoneBarAsk}
+          onAsk={() => phoneBarAsk()}
           onExplain={() => phoneBarAction('explain')}
           onSimplify={() => phoneBarAction('simplify')}
           onMore={phoneBarAction}
