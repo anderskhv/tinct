@@ -88,6 +88,21 @@ it.each(['explain', 'ask', 'note', 'quiz', 'talk'])('drags %s overlay cards by t
   expect(end.right).toBeLessThanOrEqual(1192); expect(end.bottom).toBeLessThanOrEqual(892)
 })
 
+it('keeps the user position if a streaming response remeasures before the header drag ends', async () => {
+  const { act } = await import('@testing-library/react')
+  desktopGeometry()
+  const common = { label: 'Explain', kind: 'explain', onClose: vi.fn() }
+  const { rerender } = render(<div className="lab is-desktop"><LabDesktopCard {...common} getAnchor={() => ({ left: 100, right: 500, top: 300, bottom: 330 })}>Starting answer.</LabDesktopCard></div>)
+  const card = screen.getByRole('dialog'), header = card.querySelector('header')!, before = card.getBoundingClientRect()
+  act(() => { dragEvent('pointerdown', header, before.left + 100, before.top + 25); dragEvent('pointermove', window, before.left + 160, before.top + 95) })
+  const moved = { left: card.style.left, top: card.style.top }
+  rerender(<div className="lab is-desktop"><LabDesktopCard {...common} getAnchor={() => ({ left: 20, right: 300, top: 90, bottom: 120 })}>The reply is still growing while the pointer is held.</LabDesktopCard></div>)
+  await act(async () => { fireEvent.scroll(window); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect({ left: card.style.left, top: card.style.top }).toEqual(moved)
+  act(() => { dragEvent('pointerup', window, before.left + 160, before.top + 95) })
+  expect({ left: card.style.left, top: card.style.top }).toEqual(moved)
+})
+
 it('leaves body controls and text selectable, and never adds window mechanics to embedded margin responses', async () => {
   const { act } = await import('@testing-library/react')
   desktopGeometry()

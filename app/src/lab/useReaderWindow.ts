@@ -135,6 +135,9 @@ export function useReaderWindow<T extends HTMLElement>(
       const dx = event.clientX - drag.x, dy = event.clientY - drag.y
       if (!drag.moved && Math.max(Math.abs(dx), Math.abs(dy)) < 4) return
       drag.moved = true
+      // Source-anchored cards may remeasure while a reply streams. Ownership
+      // transfers at the first real movement, not only when the pointer lifts.
+      node.dataset.readerWindowPositioned = 'true'
       event.preventDefault()
       const { box, resize } = drag
       if (!resize) { place(box.left + dx, box.top + dy); return }

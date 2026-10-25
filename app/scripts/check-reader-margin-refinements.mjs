@@ -110,13 +110,15 @@ try {
         const first = selectionPass === 2 ? visible.find(word => word.paragraph === 2 && word.word === 41) : visible[offset]
         const last = selectionPass === 2 ? visible.find(word => word.paragraph === 3 && word.word === 8) : visible[offset + 9]
         assert(first && last, `settled viewport has enough selectable source words: ${visible.length}`)
-        console.error('selection-target', JSON.stringify({ selectionPass, first, last, hits: await page.evaluate(({ first, last }) => [first,last].map(box => {const n=document.elementFromPoint(box.x+box.width/2,box.y+box.height/2);return {tag:n?.tagName,cl:n?.className,text:n?.textContent?.slice(0,90),p:n?.getAttribute('data-paragraph-index'),w:n?.getAttribute('data-word-index'),scroll:document.querySelector('[data-testid="continuous-reader"]').scrollTop}}), {first,last}) }))
+        const targetHits = await page.evaluate(({ first, last }) => [first, last].map(box => {
+          const node = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2)?.closest('[data-testid="lab-word"]')
+          return Number(node?.getAttribute('data-paragraph-index')) === box.paragraph && Number(node?.getAttribute('data-word-index')) === box.word
+        }), { first, last })
+        assert(targetHits.every(Boolean), 'both real drag endpoints hit their source words')
         await page.mouse.move(first.x + first.width / 2, first.y + first.height / 2)
         await page.mouse.down()
         await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2, { steps: 12 })
-        console.error('selection-before-up', await page.evaluate(() => ({text:window.getSelection()?.toString(),scroll:document.querySelector('[data-testid="continuous-reader"]').scrollTop})))
         await page.mouse.up()
-        console.error('selection-after-up', await page.evaluate(() => ({text:window.getSelection()?.toString(),scroll:document.querySelector('[data-testid="continuous-reader"]').scrollTop})))
         await page.getByTestId('lab-desk-bar').waitFor({ timeout: 5000 }).catch(async error => { await page.screenshot({ path: `${output}/selection-debug.png` }); console.error(JSON.stringify(await page.evaluate(() => ({ selection: window.getSelection()?.toString(), bars: [...document.querySelectorAll('[data-testid]')].map(n => n.getAttribute('data-testid')).filter(n => /bar|card|margin/.test(n)), words: [...document.querySelectorAll('.continuous-reader [data-testid="lab-word"]')].slice(0,16).map(n => { const r=n.getBoundingClientRect(); return [n.textContent,r.x,r.y] }) })))); throw error })
       }
       await select()
@@ -176,11 +178,10 @@ try {
       if (await askCard.getAttribute('data-open') !== 'true') await askCard.getByTestId('source-margin-open').click()
       await askCard.getByText('A local explanation of this selected passage.', { exact: true }).waitFor()
       assert.equal(await questionRows().count(), 1, 'reload and saved-card hydration render the question once')
-      console.error('prefill-saved-question', JSON.stringify(await askCard.evaluate(node => {const f=node.querySelector('[data-testid="lab-phone-card-input"]'); return { open: node.dataset.open,card:node.getBoundingClientRect().toJSON(), field:f?.getBoundingClientRect().toJSON(), hidden:f?.closest('[hidden]')?.outerHTML.slice(0,100), hostScroll:document.querySelector('[data-testid="continuous-reader"]').scrollTop } })))
       await page.screenshot({ path: `${output}/question-reload-before-follow.png` })
       await askCard.getByTestId('lab-phone-card-input').fill(question, { timeout: 5000 }).catch(async error => { await page.screenshot({ path: `${output}/question-reload-follow-debug.png` }); console.error('fill-failure', JSON.stringify(await askCard.evaluate(node => ({ open:node.dataset.open,html:node.outerHTML.slice(-2500),hostScroll:document.querySelector('[data-testid="continuous-reader"]').scrollTop })))); throw error })
       await askCard.getByTestId('lab-phone-card-input').press('Enter')
-      await page.waitForFunction(question => [...document.querySelectorAll('[data-testid="source-margin-rail"] [data-testid="lab-phone-card-question"]')].filter(node => node.textContent?.trim() === question).length >= 2, question)
+      await page.waitForFunction(question => [...document.querySelectorAll('[data-testid="source-margin-rail"] .lab-pcard-you')].filter(node => node.textContent?.trim() === question).length >= 2, question)
       assert.equal(await questionRows().count(), 2, 'deliberately sending the same question later remains a distinct turn')
       await page.screenshot({ path: `${output}/book-1440-question-roundtrip.png` })
       await page.keyboard.press('Escape')
@@ -192,7 +193,8 @@ try {
         const box = await map.boundingBox(); assert(box)
         await page.mouse.click(box.x + 1, box.y + box.height * y / 600)
         await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
-        const blank = { x: width - 25, y: 400 }
+        const sourceViewport = await host.boundingBox(); assert(sourceViewport)
+        const blank = { x: sourceViewport.x + sourceViewport.width - 25, y: 400 }
         const hit = await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.className, blank)
         assert.equal(typeof hit, 'string', 'blank margin has a concrete surface')
         assert(hit.includes('source-margin-room'), `blank margin remains covered at ${position}: ${hit}`)
@@ -232,10 +234,21 @@ try {
       await host.waitFor({ state: 'hidden' })
       assert.equal(await page.locator('.source-margin-rail').count(), 0, 'margin thread never overlays the two-page leaves')
       assert.equal(await page.locator('.lab-desktop-card[data-kind="ask"]').count(), 0, 'margin thread stays collapsed in the paged reader')
-      const pagedWords = await page.locator('[data-testid="lab-word"]:visible').evaluateAll(nodes => nodes.flatMap(node => {
-        const r = node.getBoundingClientRect(); return r.top > 80 && r.bottom < innerHeight - 100 && r.left >= 0 && r.right <= innerWidth ? [{ x:r.x,y:r.y,width:r.width,height:r.height }] : []
-      }))
-      const quizFirst = pagedWords[5], quizLast = pagedWords[14]
+      const stablePagedWords = await page.waitForFunction(() => {
+        const words = [...document.querySelectorAll('[data-testid="lab-word"]')].flatMap(node => {
+          const r = node.getBoundingClientRect()
+          return node.checkVisibility() && r.top > 80 && r.bottom < innerHeight - 100 && r.left >= 0 && r.right <= innerWidth
+            ? [{ x:r.x,y:r.y,width:r.width,height:r.height }] : []
+        })
+        const signature = JSON.stringify(words)
+        const prior = window.__refinementPagedGeometry
+        const frames = prior?.signature === signature ? prior.frames + 1 : 0
+        window.__refinementPagedGeometry = { signature, frames }
+        return words.length >= 2 && frames >= 3 ? words : false
+      }, null, { polling: 'raf' })
+      const pagedWords = await stablePagedWords.jsonValue()
+      const quizFirst = pagedWords[pagedWords.length >= 15 ? 5 : 0], quizLast = pagedWords[pagedWords.length >= 15 ? 14 : Math.min(9, pagedWords.length - 1)]
+      if (!quizFirst || !quizLast) { await page.screenshot({ path: `${output}/paged-source-debug.png` }); console.error('paged-source', JSON.stringify(await page.evaluate(() => ({root:document.querySelector('.lab')?.dataset,panels:[...document.querySelectorAll('[role=dialog]')].map(n=>n.getAttribute('aria-label')), words:[...document.querySelectorAll('[data-testid="lab-word"]')].slice(0,20).map(n=>({text:n.textContent,rect:n.getBoundingClientRect().toJSON(),display:getComputedStyle(n).display,visibility:getComputedStyle(n).visibility,html:n.parentElement.outerHTML.slice(0,200)}))})))) }
       assert(quizFirst && quizLast, 'two-page reader exposes source words for quiz selection')
       await page.mouse.move(quizFirst.x + quizFirst.width / 2, quizFirst.y + quizFirst.height / 2)
       await page.mouse.down(); await page.mouse.move(quizLast.x + quizLast.width / 2, quizLast.y + quizLast.height / 2, { steps: 12 }); await page.mouse.up()
@@ -246,8 +259,9 @@ try {
       const dragOverlay = async overlay => {
         const before = await overlay.boundingBox(), handle = await overlay.locator('[data-reader-window-handle]').boundingBox()
         assert(before && handle)
+        const dx = before.x + before.width + 100 < width ? 100 : -100
         await page.mouse.move(handle.x + 35, handle.y + handle.height / 2)
-        await page.mouse.down(); await page.mouse.move(handle.x + 135, handle.y + handle.height / 2 + 55, { steps: 10 }); await page.mouse.up()
+        await page.mouse.down(); await page.mouse.move(handle.x + 35 + dx, handle.y + handle.height / 2 + 55, { steps: 10 }); await page.mouse.up()
         const after = await overlay.boundingBox()
         assert(after && Math.abs(after.x - before.x) > 60 && Math.abs(after.y - before.y) > 25, 'overlay moves with its header drag')
       }
@@ -263,13 +277,23 @@ try {
       assert.equal(await restoredChat.getByTestId('lab-phone-card-input').inputValue(), 'Chat at current place', 'layout roundtrip retains the margin draft')
       assert(Math.abs(Number(await map.getAttribute('aria-valuenow')) - Number(placeBeforeLayout)) <= 1, 'layout roundtrip retains source position')
       await page.keyboard.press('Escape')
-      await page.getByTestId('lab-super').click()
-      await page.getByTestId('lab-super-row-talk').click()
-      const talk = page.getByTestId('lab-voice-panel')
-      await talk.waitFor()
-      await dragOverlay(talk)
-      await page.screenshot({ path: `${output}/book-1440-draggable-talk.png` })
-      await page.getByRole('button', { name: /End (?:call|conversation)/ }).click()
+      let releaseVoiceTicket
+      const voiceTicket = new Promise(resolve => { releaseVoiceTicket = resolve })
+      const ticketTimeout = setTimeout(releaseVoiceTicket, 5000)
+      await page.evaluate(() => Object.defineProperty(navigator.mediaDevices, 'getUserMedia', { configurable: true, value: () => new Promise(() => {}) }))
+      await page.route('**/api/*voice-session', async route => {
+        await voiceTicket
+        await route.fulfill({ status: 503, json: { error: 'Voice disabled in isolated acceptance' } }).catch(() => {})
+      })
+      try {
+        await page.getByTestId('lab-super').click()
+        await page.getByTestId('lab-super-row-talk').click()
+        const talk = page.getByTestId('lab-voice-panel')
+        await talk.waitFor()
+        await dragOverlay(talk)
+        await page.screenshot({ path: `${output}/book-1440-draggable-talk.png` })
+        await page.getByRole('button', { name: /End (?:call|conversation)/ }).click()
+      } finally { clearTimeout(ticketTimeout); releaseVoiceTicket() }
     }
     await page.screenshot({ path: `${output}/${theme}-${width}.png` })
     await notebook.click()
