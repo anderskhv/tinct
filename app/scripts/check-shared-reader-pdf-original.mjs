@@ -19,11 +19,11 @@ const originalBytes = makePdf({ pages: [
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
 ], outline: [{ title: 'Chapter One', page: 1 }, { title: 'Scans', page: 3 }] })
 // Imported source only: no embedded outline and no persisted scan metadata.
-const freshDiscoveryBytes=makePdf({pages:[1,2].map(n=>({lines:[
+const freshDiscoveryBytes=makePdf({pages:Array.from({length:6},(_,index)=>{const n=index+1;return {lines:[
   ...(n===1?[{x:72,y:755,size:24,text:'An argument about knowledge'},...Array.from({length:3},(_,line)=>({x:72,y:700-line*24,size:12,text:'This opening paragraph introduces the argument and establishes its printed source context.'}))]:[]),
-  {x:72,y:n===1?580:735,size:20,text:n===1?'1 Introduction':'2 Consequences'},
-  ...Array.from({length:12},(_,line)=>({x:72,y:(n===1?530:680)-line*25,size:12,text:`Source paragraph ${line+1} preserves the complete printed argument and its original supporting evidence.`})),
-]}))})
+  ...(n===1||n===4?[{x:72,y:n===1?580:735,size:20,text:n===1?'1 Introduction':'2 Consequences'}]:[]),
+  ...Array.from({length:n===1?20:28},(_,line)=>({x:72,y:(n===1?530:n===4?680:735)-line*20,size:12,text:`Source paragraph ${line+1} preserves the complete printed argument and its original supporting evidence for careful reading.`})),
+]}})})
 const denseBytes = makePdf({ pages: [
   { lines: Array.from({ length: 80 }, (_, index) => ({ x: 72, y: 750 - index * 9, size: 8,
     text: `Dense original page line ${index + 1}. ${'source '.repeat(9)}` })) },
@@ -897,7 +897,10 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   } finally { await context.close(); await browser.close() }
 }
 try {
-  if(process.env.PDF_FRESH_DISCOVERY==='1') await run('chromium-fresh-discovery',chromium,false,freshDiscoveryBytes)
+  if(process.env.PDF_FRESH_DISCOVERY==='1') {
+    await run('chromium-fresh-discovery',chromium,false,freshDiscoveryBytes)
+    if(process.env.PDF_ORIGINAL_WEBKIT==='1')await run('webkit-fresh-discovery',webkit,false,freshDiscoveryBytes)
+  }
   else if (process.env.PDF_CONVERSION_PARITY === '1') { await run('chromium-conversion',chromium,false,conversionBytes); await run('chromium-conversion-scan',chromium,false,conversionScanBytes) }
   else if (process.env.PDF_SOURCE_PARITY === '1') await run('chromium-parity', chromium, false, parityBytes)
   else {
