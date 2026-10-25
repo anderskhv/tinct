@@ -17,6 +17,7 @@ import {
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
 import { displayProfileStylesReady } from './lab/displayProfileStyles'
 import { supabase } from './services/supabase'
+import { signInErrorMessage } from './services/browserAuthStorage'
 import { funnel, setFunnelToken, trackFunnel } from './utils/funnel'
 import { setSignedInCookie } from './utils/authCookie'
 import { cardUrl } from './cards/cardRoutes'
@@ -191,7 +192,7 @@ async function submitAuth(event: SubmitEvent) {
       setTimeout(returnToLibrary, 450)
     }
   } catch (error) {
-    setStatus(error instanceof Error ? error.message : 'Something went wrong. Please try again.', 'error')
+    setStatus(signInErrorMessage(error), 'error')
   } finally {
     setBusy(false)
   }
