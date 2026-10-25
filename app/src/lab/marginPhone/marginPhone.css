@@ -247,3 +247,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Desktop's typing hint is quiet; touch cards keep their existing layout. */
 .lab-pcard-typing-hint { display: none; }
 .lab.is-desktop .lab-pcard-follow:focus-within .lab-pcard-typing-hint { display: block; margin-top: 5px; color: var(--lab-ink-muted); font: 11px/1.4 system-ui, sans-serif; }
+
+/* Desktop source marks span each visual line, including inter-word spaces. */
+.lab.is-desktop .lab-passage .lab-hearing-word.is-card-passage { text-decoration: none; }
+.lab.is-desktop .lab-passage .lab-hearing-line:has(.is-card-passage) { position: relative; }
+.lab-card-passage-line { position: absolute; height: 0; border-bottom: 1.5px solid color-mix(in srgb, var(--lab-ink) 45%, transparent); pointer-events: none; user-select: none; }

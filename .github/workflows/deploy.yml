@@ -436,6 +436,7 @@ jobs:
           PDF_ORIGINAL_DIST: dist
         run: |
           node scripts/check-reader-source-parity.mjs
+          node scripts/check-reader-margin-refinements.mjs
           PDF_SOURCE_PARITY=1 node scripts/check-shared-reader-pdf-original.mjs
 
       # -- production and library: what only production can prove (direct mode only here; staged: production-checks)

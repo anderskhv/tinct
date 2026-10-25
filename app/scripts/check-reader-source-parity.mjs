@@ -206,14 +206,51 @@ try {
       const minimap = page.getByRole('slider', { name: 'Book position', exact: true })
       await minimap.waitFor()
       assert(Number(await minimap.getAttribute('aria-valuenow')) < 100, 'whole-book map has later chapters beyond the current source')
-      // Nearby source words share a tiny whole-book coordinate: click the topmost actual dot.
-      const chosenDot = minimap.locator('[data-map-saved]').last()
-      const chosenId = await chosenDot.getAttribute('data-map-saved')
-      const savedAnchor = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.id === id)?.card?.anchor, chosenId)
-      assert(savedAnchor)
-      await chosenDot.click()
-      await page.waitForFunction(place => document.querySelector('.lab')?.dataset.place === place, `${savedAnchor.paragraphIndex}:${savedAnchor.fromWord}`)
-      assert.equal(await root.getAttribute('data-place'), `${savedAnchor.paragraphIndex}:${savedAnchor.fromWord}`, 'whole-book saved dot restores the exact source word')
+      assert.equal(await minimap.locator('circle, [data-map-saved]').count(), 0, 'ordinary ebook map has no annotation dots')
+      assert(await minimap.locator('[data-map-chapter]').count() > 0, 'ordinary ebook map retains whole-book chapter geometry')
+      await minimap.focus(); await minimap.press('Home')
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '1')
+      await ready()
+      assert.equal(await root.getAttribute('data-chapter'), '1', 'whole-book Home reaches the first chapter')
+      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      const chapterMap = page.getByRole('slider', { name: 'Chapter position', exact: true })
+      await chapterMap.waitFor()
+      assert.equal(await root.getAttribute('data-book-id'), 'bible')
+      assert.equal(await root.getAttribute('data-chapter'), '2')
+      assert.equal(await page.getByRole('slider', { name: 'Book position', exact: true }).count(), 0)
+      assert.equal(await chapterMap.locator('circle, [data-map-saved], [data-map-chapter]').count(), 0, 'Bible map contains only this chapter source lines and visible range')
+      // data-place mirrors a ref and can lag when the whole short chapter already fits onscreen.
+      // Check persisted semantic source and slider state rather than require a parent repaint.
+      const biblePlace = () => page.evaluate(() => {
+        const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
+        return at ? `${at.chapterNumber}/${at.paragraphIndex}:${at.wordIndex}` : null
+      })
+      await chapterMap.focus(); await chapterMap.press('End')
+      await page.waitForFunction(() => {
+        const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
+        return at?.chapterNumber === 2 && (at.paragraphIndex > 0 || at.wordIndex > 0)
+      })
+      const chapterEnd = await biblePlace()
+      await chapterMap.press('ArrowDown'); await chapterMap.press('PageDown')
+      assert.equal(await root.getAttribute('data-chapter'), '2', 'forward keys cannot leave the Bible chapter')
+      assert.equal(await biblePlace(), chapterEnd, 'forward keys clamp at the final source word')
+      const mapBox = await chapterMap.boundingBox()
+      assert(mapBox)
+      await page.mouse.click(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height - 1)
+      await page.waitForFunction(end => {
+        const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
+        return at && `${at.chapterNumber}/${at.paragraphIndex}:${at.wordIndex}` === end
+      }, chapterEnd)
+      await chapterMap.focus(); await chapterMap.press('Home')
+      await page.waitForFunction(() => {
+        const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
+        return at?.chapterNumber === 2 && at.paragraphIndex === 0 && at.wordIndex === 0
+      })
+      assert.equal(await chapterMap.getAttribute('aria-valuenow'), '0', 'Home updates the accessible chapter position')
+      await chapterMap.press('ArrowUp'); await chapterMap.press('PageUp')
+      assert.equal(await root.getAttribute('data-chapter'), '2', 'backward keys cannot leave the Bible chapter')
+      assert.equal(await biblePlace(), '2/0:0', 'backward keys clamp at the first source word')
+      await page.screenshot({ path: `${output}/bible-chapter-minimap.png` })
       await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
       for (let step = 0; step < 24 && !(await host.getByTestId('lab-unit-quiz').count()); step++) {
         await host.evaluate(node => { node.scrollTop = node.scrollHeight; node.dispatchEvent(new Event('scroll', { bubbles: true })) })

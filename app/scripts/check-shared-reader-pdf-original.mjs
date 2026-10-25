@@ -253,7 +253,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     el.scrollTop = Math.max(sheet.offsetTop, sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2)
     el.dispatchEvent(new Event('scroll', { bubbles: true }))
   }, number)
-  const openNotebook = async () => { await page.getByRole('button', { name: 'Contents', exact: true }).click(); await page.getByRole('button', { name: 'Notebook', exact: true }).click() }
+  const openNotebook = async () => { await page.getByRole('button', { name: 'Contents', exact: true }).click(); await page.getByRole('dialog', { name: 'Contents', exact: true }).getByRole('button', { name: 'Notebook', exact: true }).click() }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })

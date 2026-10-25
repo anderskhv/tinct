@@ -87,7 +87,7 @@ it('maps strip distances to genuine source pages and fractions, including unequa
   expect(pdfSourcePlaceAt(10000, [900, 1200, 600])).toEqual({ page: 3, frac: 1 })
 })
 
-it('shows exact page and highlight positions on the desktop strip and omits it on phone', async () => {
+it('keeps exact PDF strip position and navigation without annotation dots, and omits the strip on phone', async () => {
   vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(632)
   vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(500)
   vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({ setTransform: vi.fn() } as unknown as CanvasRenderingContext2D)
@@ -101,8 +101,9 @@ it('shows exact page and highlight positions on the desktop strip and omits it o
   const { container, rerender } = render(<PdfContinuousSurface {...props} />)
   const map = await screen.findByRole('slider', { name: 'Original PDF position' })
   await waitFor(() => expect(map.getAttribute('aria-valuetext')).toBe('Page 2 of 3, 25% down the page'))
-  expect(Number(container.querySelector('.pdf-original__map-mark')?.getAttribute('cy'))).toBeCloseTo(300)
-  expect(Number(container.querySelector('.pdf-original__map-card')?.getAttribute('cy'))).toBeCloseTo((918 + 675) / 2736 * 600)
+  expect(map.querySelectorAll('circle')).toHaveLength(0)
+  expect(container.querySelectorAll('.pdf-original__highlight')).toHaveLength(1)
+  expect(container.querySelectorAll('.pdf-original__card-lines [data-card-id="answer"]')).toHaveLength(1)
   expect(Number(container.querySelector('.pdf-original__map-window')?.getAttribute('y'))).toBeCloseTo(1143 / 2736 * 600)
   fireEvent.keyDown(map, { key: 'ArrowDown' })
   expect(onVisiblePlace).toHaveBeenLastCalledWith({ page: 3, frac: 0 })

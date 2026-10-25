@@ -1,3 +1,4 @@
+import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { bibleBookTransition } from '../narration/bookTransition'
 import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
@@ -826,6 +827,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [desktopOpenId, setDesktopOpenId] = useState<string | null>(null)
   const [desktopContinuationId, setDesktopContinuationId] = useState<string | null>(null)
   const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
+  const readingScrollActive = useReadingScrollActivity(marginHost)
   const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
@@ -6139,6 +6141,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-shared-reader={sharedReader ? 'true' : undefined}
+      data-reading-scroll={readingScrollActive ? 'true' : undefined}
       data-continuous-reader={continuousReader ? 'true' : undefined}
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
       data-theme={resolvedTheme}
@@ -6288,6 +6291,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <div className="lab-header-controls">
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
+              {!isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
+                onClick={() => handleSuperMenuSelect('notebook')}>Notebook</button>}
               {(!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
@@ -6523,7 +6528,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
-            bookMap={{ chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') }, marks: [...highlightsApi.allHighlights.filter(mark => (!mark.bookId || mark.bookId === (book.bookId || 'bible')) && (!mark.editionKey || mark.editionKey === readerEditionKey)).map(mark => ({ id: mark.id, chapterNumber: mark.chapterNumber, paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord, color: mark.color })), ...ask.conversations.filter(item => item.bookId === (book.bookId || 'bible') && item.card?.anchor?.editionKey === readerEditionKey && !item.card.gone).map(item => ({ id: item.id, chapterNumber: item.chapterNumber, paragraphIndex: item.card!.anchor!.paragraphIndex, wordIndex: item.card!.anchor!.fromWord }))] }}
+            bookMap={(book.bookId || 'bible') === 'bible' ? undefined : { chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') } }}
             key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}/${continuousEpoch.navigation}`}
             epoch={continuousEpoch}
             anchor={continuousAnchor}

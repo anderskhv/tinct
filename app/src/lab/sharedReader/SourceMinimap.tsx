@@ -1,18 +1,16 @@
 import { useMemo, useState, type PointerEvent } from 'react'
 import { tokenizeHearingWords } from '../labHearing'
-import type { LabHighlight } from '../labHighlights'
 import type { ContinuousReaderAnchor } from './continuousReaderWindow'
 
 export interface SourceBookMap {
   chapters: readonly { number: number; title: string; wordCount?: number; paragraphCount?: number }[]
   chapterNumber: number
-  marks?: readonly { id: string; chapterNumber: number; paragraphIndex: number; wordIndex?: number; color?: string }[]
   onJumpChapter: (chapterNumber: number, anchor?: ContinuousReaderAnchor) => void
 }
 
-/** Source paragraphs, never ebook pages. Mirrors strip.js's faint lines, viewport box and mark dots. */
-export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = [], bookMap, onJump }: {
-  paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor; highlights?: readonly LabHighlight[];
+/** Source paragraphs and the visible range, without annotation dots or ebook-page guesses. */
+export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump }: {
+  paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor;
   bookMap?: SourceBookMap;
   onJump: (place: ContinuousReaderAnchor) => void
 }) {
@@ -84,7 +82,8 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = []
         if (target && target.number !== bookMap.chapterNumber) { bookMap.onJumpChapter(target.number); return }
       }
       const paragraphIndex = event.key === 'Home' ? 0 : event.key === 'End' ? paragraphs.length - 1 : Math.max(0, Math.min(paragraphs.length - 1, visible.paragraphIndex + step))
-      onJump({ paragraphIndex, wordIndex: 0 })
+      const atEnd = event.key === 'End' || step > 0 && visible.paragraphIndex >= paragraphs.length - 1
+      onJump({ paragraphIndex, wordIndex: atEnd ? model.weights[paragraphIndex] - 1 : 0 })
     }}>
     <title>{book ? 'Drag to move through the book; chapter sizes use available word counts' : 'Drag to move through the chapter'}</title>
     {book?.chapters.filter(chapter => chapter.number !== bookMap!.chapterNumber).map(chapter => <g key={chapter.number} data-map-chapter={chapter.number}>
@@ -97,19 +96,5 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, highlights = []
     </g>)}
     {lines.map((line, i) => <line key={i} x1={4} x2={4 + line.width} y1={line.y + .5} y2={line.y + .5} className="source-minimap-line" />)}
     <rect x={.5} y={Math.min(592, position * 600)} width={33} height={Math.max(8, Math.min(600 - position * 600, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * 600 : 24))} rx={5} className="source-minimap-window" />
-    {highlights.map(mark => <circle key={mark.id} cx={30} cy={(offset + (model.starts[mark.paragraphIndex] ?? 0)) / total * 600} r={2} className="source-minimap-mark" style={{ fill: { gold: '#c7a855', rose: '#c5868b', sage: '#82a47b', sky: '#839fc5', lavender: '#a795bf' }[mark.color] }} />)}
-    {book && bookMap?.marks?.map(mark => {
-      const chapter = book.chapters.find(chapter => chapter.number === mark.chapterNumber)
-      if (!chapter) return null
-      const within = mark.chapterNumber === bookMap.chapterNumber
-        ? (model.starts[mark.paragraphIndex] ?? 0) + (mark.wordIndex ?? 0)
-        : Math.min(.99, mark.paragraphIndex / Math.max(1, chapter.paragraphCount ?? mark.paragraphIndex + 1)) * chapter.weight
-      return <circle key={mark.id} data-map-saved={mark.id} onPointerDown={event => {
-        event.preventDefault(); event.stopPropagation()
-        const place = { paragraphIndex: mark.paragraphIndex, wordIndex: mark.wordIndex ?? 0 }
-        if (mark.chapterNumber === bookMap.chapterNumber) onJump(place)
-        else bookMap.onJumpChapter(mark.chapterNumber, place)
-      }} cx={30} cy={(chapter.start + within) / total * 600} r={2} className="source-minimap-mark"><title>Saved note · {chapter.title}</title></circle>
-    })}
   </svg>
 }
