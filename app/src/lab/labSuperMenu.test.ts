@@ -65,19 +65,19 @@ describe('labSuperMenuRows', () => {
     expect(labSuperMenuRows({ phone: true, noCatchUp: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
   })
 
-  it('leaves Library to the back arrow on desktop, and keeps its Librarian row', () => {
+  it('leaves Library to the back arrow on desktop, and matches the phone Chat/Talk row', () => {
     const desktop = labSuperMenuRows({ phone: false })
     // The desktop's Notebook is the margin reader's top-bar button, not a t menu row.
     expect(desktop.some(row => row.id === 'notebook')).toBe(false)
-    expect(desktop.map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(desktop.map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
     expect(desktop.find(row => row.id === 'account')?.ruleBefore).toBe(true)
     expect(labSuperMenuRows().map(row => row.id)).toEqual(desktop.map(row => row.id))
-    expect(desktop[0]).toEqual({ id: 'librarian', label: 'Librarian', modes: ['chat', 'talk'] })
+    expect(desktop[0]).toEqual({ id: 'conversation', label: '', modes: ['chat', 'talk'] })
   })
 
   it('puts Notebook in the private desktop menu without changing the public menu', () => {
-    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'account'])
-    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'notebook', 'text', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'audio', 'account'])
     expect(labSuperMenuRows({ sharedReader: false }).some(row => row.id === 'notebook')).toBe(false)
   })
 
@@ -85,8 +85,8 @@ describe('labSuperMenuRows', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
       ['conversation', ''], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Aa'], ['audio', 'Audio settings'], ['library', 'Your books'], ['account', 'Profile'],
     ])
-    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'text', 'audio', 'account'])
-    expect(labSuperMenuRows({ privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['librarian', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'audio', 'account'])
+    expect(labSuperMenuRows({ privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
     expect(labSuperMenuRows({ phone: true, privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
   })
 })

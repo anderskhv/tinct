@@ -21,6 +21,7 @@ export interface SourceMarginEntry {
 export interface SourceMarginRailProps {
   host: HTMLElement | null
   entries: SourceMarginEntry[]
+  ownsSourcePointer?: (event: PointerEvent) => boolean
   onBlankNote?: (position: { clientY: number; sourceY: number }) => void
 }
 export function sourceMarginLayout<T extends { id: string; y: number; height: number; order: number }>(items: T[], gap = 18) {
@@ -31,40 +32,54 @@ export function sourceMarginLayout<T extends { id: string; y: number; height: nu
     return { ...item, top }
   })
 }
-/** Leave source ink horizontally; change height only beyond the reading column. */
+/** Start at the page border; every segment stays in the outside margin. */
 export function sourceMarginLeaderPath(sourceX:number, sourceY:number, railLeft:number, headerY:number) {
   const channel=railLeft-12, end=railLeft-6
   return `M${sourceX} ${sourceY}H${channel}V${headerY}H${end}`
 }
 /** A layer in the source scroller, never another scrolling panel. */
-export function SourceMarginRail({ host, entries, onBlankNote }: SourceMarginRailProps) {
+export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
   const layer = useRef<HTMLDivElement>(null)
   const latest = useRef(entries)
   latest.current = entries
-  const [layout, setLayout] = useState<{ left: number; width: number; height: number; items: Array<{ id: string; top: number; y: number; sourceX: number }> }>({ left: 0, width: 380, height: 0, items: [] })
+  const sourcePointer = useRef(ownsSourcePointer)
+  sourcePointer.current = ownsSourcePointer
+  const [layout, setLayout] = useState<{ left: number; width: number; height: number; items: Array<{ id: string; top: number; y: number; sourceX: number | null }> }>({ left: 0, width: 380, height: 0, items: [] })
   useLayoutEffect(() => {
     if (!host || !layer.current) return
     let raf = 0
     const measure = () => {
       const frame = host.getBoundingClientRect()
+      const columns = [...host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page')].map(node => node.getBoundingClientRect())
       const located = latest.current.flatMap(entry => {
         const source = entry.source()
         if (!source) return []
         const el = [...(layer.current?.querySelectorAll<HTMLElement>('section[data-card-id]') ?? [])].find(el => el.dataset.cardId === entry.id)
-        return [{ id: entry.id, y: source.top - frame.top + host.scrollTop, sourceX: source.right - frame.left + host.scrollLeft, height: el?.offsetHeight || (entry.open ? 100 : 46), order: entry.order }]
+        // A PDF may contain sheets of different widths. Use the sheet at the
+        // source's first line, rather than extending from its last word or from
+        // some other, wider page. Multi-line/cross-page quotes keep their first Y.
+        const containing = columns.find(box => source.top >= box.top && source.top < box.bottom && source.left >= box.left && source.left <= box.right)
+        const intersecting = columns.find(box => source.bottom > box.top && source.top < box.bottom)
+        const border = containing?.right ?? intersecting?.right ?? (columns.length ? Math.max(...columns.map(box => box.right)) : null)
+        return [{ id: entry.id, y: source.top - frame.top + host.scrollTop, sourceX: border === null ? null : border - frame.left + host.scrollLeft, height: el?.offsetHeight || (entry.open ? 100 : 46), order: entry.order }]
       })
-      const columns = [...host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page')].map(node => node.getBoundingClientRect().right - frame.left + host.scrollLeft)
-      const left = columns.length ? Math.max(...columns) + 18 : located.length ? Math.max(...located.map(item => item.sourceX)) + 18 : Math.max(0, host.clientWidth - 400)
+      const left = columns.length ? Math.max(...columns.map(box => box.right - frame.left + host.scrollLeft)) + 18 : located.length ? Math.max(...located.map(item => item.sourceX ?? 0)) + 18 : Math.max(0, host.clientWidth - 400)
       const width = Math.max(1, Math.min(380, host.clientWidth - left - 18))
       const ordered = sourceMarginLayout(located)
-      const next = { left, width, height: Math.max(host.clientHeight, ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceX: item.sourceX })) }
+      // The blank hit surface covers the source document, not just the first
+      // viewport or the last existing card. Never use host.scrollHeight here:
+      // our own absolute layer contributes to it and would prevent shrinking.
+      const sourceBottoms = [...columns, ...[...host.querySelectorAll<HTMLElement>('.pdf-original__pages')].map(node => node.getBoundingClientRect())]
+        .map(box => box.bottom - frame.top + host.scrollTop).filter(Number.isFinite)
+      const paddingBottom = Number.parseFloat(getComputedStyle(host).paddingBottom) || 0
+      const next = { left, width, height: Math.max(host.clientHeight, ...sourceBottoms.map(bottom => bottom + paddingBottom), ...ordered.map(item => item.top + item.height + 32)), items: ordered.map(item => ({ id: item.id, top: item.top, y: item.y, sourceX: item.sourceX })) }
       setLayout(previous => JSON.stringify(previous) === JSON.stringify(next) ? previous : next)
     }
     const schedule = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; measure() }) }
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(schedule)
     observer?.observe(host)
     const observeGeometry = () => {
-      for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, section[data-card-id]')) observer?.observe(el)
+      for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, .pdf-original__pages, section[data-card-id]')) observer?.observe(el)
     }
     observeGeometry()
     const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(() => { observeGeometry(); schedule() })
@@ -76,24 +91,39 @@ export function SourceMarginRail({ host, entries, onBlankNote }: SourceMarginRai
   }, [host, entries.map(entry => `${entry.id}:${entry.open}`).join('|')])
   useEffect(() => {
     if (!host) return
-    const key = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape' || event.defaultPrevented) return
-      const open = latest.current.find(entry => entry.open)
-      if (open) { event.preventDefault(); open.onToggle() }
+    const covered = (target: EventTarget | null) => {
+      const element = target instanceof Element ? target : null
+      return !!element?.closest('.lab-v2-sheet-layer, [aria-modal="true"], .lab-super-menu, .lab-pbar, [role="listbox"], [role="menu"]')
+        || !![...document.querySelectorAll('[aria-modal="true"], .lab-v2-sheet-layer, .lab-super-menu')].find(node => !node.closest('.source-margin-item') && !(node as HTMLElement).hidden)
     }
-    window.addEventListener('keydown', key)
-    return () => window.removeEventListener('keydown', key)
+    const key = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || event.defaultPrevented || event.isComposing || event.keyCode === 229 || covered(event.target)) return
+      const open = latest.current.filter(entry => entry.open)
+      if (open.length) { event.preventDefault(); event.stopPropagation(); open.forEach(entry => entry.onToggle()) }
+    }
+    const outside = (event: PointerEvent) => {
+      const target = event.target instanceof Element ? event.target : null
+      if (!target || covered(target) || target.closest('.source-margin-item, .source-margin-room, [data-source-card-id], [data-source-mark-id], .pdf-original__minimap, .source-minimap') || sourcePointer.current?.(event)) return
+      latest.current.filter(entry => entry.open).forEach(entry => entry.onToggle())
+    }
+    window.addEventListener('keydown', key, true)
+    window.addEventListener('pointerdown', outside, true)
+    return () => { window.removeEventListener('keydown', key, true); window.removeEventListener('pointerdown', outside, true) }
   }, [host])
   if (!host) return null
   return createPortal(<div ref={layer} className="source-margin-rail" data-testid="source-margin-rail" style={{ height: layout.height }}>
-    <div className="source-margin-room" aria-hidden="true" style={{ left: layout.left, width: Math.max(layout.width, host.clientWidth - layout.left), height: layout.height }} onPointerDown={event => {
-      if (event.target !== event.currentTarget) return
+    <div className="source-margin-room" aria-hidden="true" style={{ left: Math.max(0, layout.left - 18), width: Math.max(layout.width + 18, host.clientWidth - Math.max(0, layout.left - 18)), height: layout.height }} onPointerDown={event => {
+      if (event.target !== event.currentTarget || event.button !== 0) return
+      // Starting a note in blank paper must not start a native drag selection
+      // extending into the reading column. Card bodies remain selectable.
+      event.preventDefault()
+      event.stopPropagation()
       onBlankNote?.({ clientY: event.clientY, sourceY: event.clientY - host.getBoundingClientRect().top + host.scrollTop })
     }} />
     <svg className="source-margin-leaders" data-testid="source-margin-leaders" width="100%" height={layout.height} aria-hidden="true">
-      {layout.items.map(at => { const entry = entries.find(item => item.id === at.id); if (!entry || entry.free) return null
+      {layout.items.map(at => { const entry = entries.find(item => item.id === at.id); if (!entry || entry.free || at.sourceX === null) return null
         const endY = at.top + 16
-        return <g key={at.id} data-card-id={at.id} className={entry.open ? 'is-open' : 'is-folded'}><circle cx={at.sourceX} cy={at.y} r={1.5} /><path d={sourceMarginLeaderPath(at.sourceX, at.y, layout.left, endY)} /></g>
+        return <g key={at.id} data-card-id={at.id} className={entry.open ? 'is-open' : 'is-folded'}><path d={sourceMarginLeaderPath(at.sourceX, at.y, layout.left, endY)} /></g>
       })}
     </svg>
     {entries.map(entry => { const at = layout.items.find(item => item.id === entry.id)

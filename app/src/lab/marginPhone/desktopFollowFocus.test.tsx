@@ -20,3 +20,25 @@ it('preserves existing phone Escape handling', () => {
   fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Escape' })
   expect(dismiss).toHaveBeenCalledTimes(1)
 })
+
+it('keeps a hidden-mount follow-up usable and remeasures its text when the saved card unfolds', () => {
+  let resize = () => {}
+  const disconnect = vi.fn()
+  vi.stubGlobal('ResizeObserver', class { constructor(callback: () => void) { resize = callback } observe() {} disconnect = disconnect })
+  let measuredHeight = 0
+  vi.spyOn(HTMLElement.prototype, 'scrollHeight', 'get').mockImplementation(() => measuredHeight)
+  const view = render(<div hidden><PhoneFollow value="A retained draft" onChange={() => {}} onSend={() => {}} /></div>)
+  const field = screen.getByRole('textbox', { hidden: true }) as HTMLTextAreaElement
+  expect(field.style.height).toBe('24px')
+  measuredHeight = 72
+  view.rerender(<div><PhoneFollow value="A retained draft" onChange={() => {}} onSend={() => {}} /></div>)
+  resize()
+  expect(field.style.height).toBe('72px')
+  expect(field.value).toBe('A retained draft')
+  measuredHeight = 160
+  view.rerender(<div><PhoneFollow value={'A long draft. '.repeat(20)} onChange={() => {}} onSend={() => {}} /></div>)
+  expect(field.style.height).toBe('96px')
+  view.unmount()
+  expect(disconnect).toHaveBeenCalled()
+  vi.unstubAllGlobals(); vi.restoreAllMocks()
+})

@@ -25,7 +25,7 @@ export const COMPOSER_LINES = 5
 export const PRESS_HOLD_MS = 450
 /** …and it fades this long after it appeared (or at once on scroll). */
 export const PRESS_FADE_MS = 3000
-export const HINT_TEXT = 'Return sends · Shift-Return new line · ↑ last question · Esc closes'
+export const HINT_TEXT = 'Return sends · Shift-Return new line · ↑ last question'
 export const HINT_SESSION_KEY = 'tinct:chat-hint-shown'
 
 const svg = (viewBox, body, size = 17, extra = '') =>

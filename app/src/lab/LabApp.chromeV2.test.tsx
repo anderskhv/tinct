@@ -353,6 +353,18 @@ describe('the super-menu', () => {
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
   })
 
+  it('the desktop Notebook uses an accessible icon and opens notes without moving the passage', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const notebook = screen.getByTestId('lab-header-notebook')
+    expect(notebook.getAttribute('aria-label')).toBe('Notebook')
+    expect(notebook.textContent).toBe('')
+    expect(notebook.querySelector('svg')).toBeTruthy()
+    fireEvent.click(notebook)
+    expect(screen.getByTestId('contents-notebook-all')).toBeTruthy()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+  })
+
   it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
     renderPhone()
     const place = screen.getByTestId('lab-root').getAttribute('data-place')
@@ -395,7 +407,7 @@ describe('the super-menu', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Librarian', 'Summarize', 'Catch me up', 'Aa', 'Book settings', 'Audio settings', 'Profile'])
+      .toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Aa', 'Book settings', 'Audio settings', 'Profile'])
   })
 
   it('puts Catch me up right under Summarize, with its timeline icon', () => {
@@ -764,4 +776,37 @@ describe('the Margins preference on the desktop leaves', () => {
     expect(css).toMatch(/lab-page-wrap > \.lab-passage \{\s*padding: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
     expect(css).toMatch(/lab-desktop-measure \{\s*\n?\s*position: absolute; inset: var\(--desktop-pad-top\) var\(--desktop-pad-x\)/)
   })
+})
+
+it('opens desktop menu Chat as a focused current-position margin composer and restores its draft', async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
+  render(<LabApp pathname="/reader" search="?sharedReader=1&view=margin" source={fallbackLabSource()} authToken={null} sharedReader />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const field = await screen.findByPlaceholderText('Ask about this passage')
+  expect(field.closest('.source-margin-item')).toBeTruthy()
+  expect(document.activeElement).toBe(field)
+  expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).not.toBe('chat')
+  fireEvent.change(field, { target: { value: 'An unsent current-position question.' } })
+  fireEvent.keyDown(field, { key: 'Escape' })
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByPlaceholderText('Ask about this passage') as HTMLTextAreaElement).value).toBe('An unsent current-position question.')
+})
+
+
+it('uses the compact Explain card surface for mobile Chat and preserves its draft when closed', () => {
+  renderPhone('?chrome=v2', { marginPhone: true, sharedReader: true })
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  const card = document.querySelector('.lab-pcard[data-kind="chat"]')!
+  expect(card).toBeTruthy()
+  expect(card.className).not.toContain('is-tall')
+  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat')
+  expect(screen.getByTestId('lab-ask-input').getAttribute('placeholder')).toMatch(/^Ask about /)
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'My unfinished question' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Close chat' }))
+  expect(document.querySelector('.lab-pcard[data-kind="chat"]')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('My unfinished question')
 })

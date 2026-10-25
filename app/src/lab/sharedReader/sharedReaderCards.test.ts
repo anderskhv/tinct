@@ -106,3 +106,44 @@ it('keeps a converted note once when the saved conversation is hydrated and save
   const second = withConvertedNote(hydrated,note)
   expect(second.map(turn => turn.content)).toEqual(['My original note','Why?','Because.'])
 })
+
+it('retains live Ask identities through promotion and repeated hydration, including intentional repeated questions', async () => {
+  const { reconcileTurns, turnsFromConversations } = await import('../labChatHistory')
+  const at = 2000
+  const live = [
+    { id: 'live-question-1', role: 'user' as const, content: 'Who did the treason?', timestamp: at, bookId: 'bible', chapterNumber: 595, conversationId: 'mc_react_1000', source: 'typed' as const },
+    { id: 'live-answer-1', role: 'assistant' as const, content: 'The people named in the passage.', timestamp: at + 10, bookId: 'bible', chapterNumber: 595, conversationId: 'mc_react_1000', source: 'typed' as const },
+  ]
+  let projected = live
+  let rows: ChatConversation[] = []
+  for (let cycle = 0; cycle < 4; cycle++) {
+    rows = upsertCatalogueCard(rows, card({ id: 'react_1000', kind: 'ask', u: 3000 + cycle, turns: projected.map(turn => ({ id: turn.id, role: turn.role, content: turn.content, at: turn.timestamp })) }))
+    projected = reconcileTurns(projected, turnsFromConversations(rows)) as typeof live
+  }
+  expect(projected.filter(turn => turn.role === 'user')).toHaveLength(1)
+  expect(rows[0].messages.map(message => message.id)).toEqual(['live-question-1', 'live-answer-1'])
+  projected.push({ ...live[0], id: 'live-question-2', timestamp: 4000 }, { ...live[1], id: 'live-answer-2', timestamp: 4010 })
+  rows = upsertCatalogueCard(rows, card({ id: 'react_1000', kind: 'ask', u: 5000, turns: projected.map(turn => ({ id: turn.id, role: turn.role, content: turn.content, at: turn.timestamp })) }))
+  expect(reconcileTurns(projected, turnsFromConversations(rows)).filter(turn => turn.role === 'user')).toHaveLength(2)
+})
+
+it.each([9, 41])('retains a cross-paragraph Ask source when its final word index is %s, rather than treating it as a free card', async toWord => {
+  const { askCardSource, isSourcePoint } = await import('./sharedReaderCards')
+  const range = { paragraphIndex: 2, fromWord: 41, endParagraphIndex: 3, toWord }
+  const source = askCardSource(range, 'modern-en', 2)
+  expect(isSourcePoint(range)).toBe(false)
+  expect(source).toEqual({ anchor: { ...range, editionKey: 'modern-en', chapterNumber: 2 } })
+  const saved = catalogueCardConversation(card({ id: 'react_multi', kind: 'ask', chapterNumber: 2, text: "courage. But there's one thing I've never been able to", ...source, turns: [{ id: 'multi-u', role: 'user', content: 'Explain this source.' }, { id: 'multi-a', role: 'assistant', content: 'A grounded answer.' }] }))!
+  expect(saved.card?.anchor).toEqual(source.anchor)
+  expect(saved.paragraphIndex).toBe(2)
+  expect(saved.messages.every(message => message.paragraphIndex === 2)).toBe(true)
+  const own = ownTextCardDraft(card({ source: { kind: 'own-text', ownHex: 'ab'.repeat(12), bookId: 'userbook-' + 'ab'.repeat(12), converter: 7, editionKey: 'own-en' }, chapterNumber: 2, kind: 'ask', ...askCardSource(range, 'own-en', 2) }))!
+  expect(own.anchor).toMatchObject({ kind: 'range', ...range, chapterNumber: 2 })
+})
+
+it('keeps a deliberate same-paragraph empty Ask anchor as a free point', async () => {
+  const { askCardSource, isSourcePoint } = await import('./sharedReaderCards')
+  const range = { paragraphIndex: 13, fromWord: 4, endParagraphIndex: 13, toWord: 4 }
+  expect(isSourcePoint(range)).toBe(true)
+  expect(askCardSource(range, 'kjv-en', 1)).toEqual({ data: { freeAnchor: { paragraphIndex: 13, fromWord: 4 } } })
+})

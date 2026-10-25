@@ -1291,6 +1291,21 @@
 .lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-sky:has(> .lab-verse-mark) { background: var(--highlight-sky, #2e3a5c) !important; }
 .lab.is-night .lab-passage.has-text-range-highlights .lab-hearing-word.is-hl-lavender:has(> .lab-verse-mark) { background: var(--highlight-lavender, #3a2e5c) !important; }
 
+/* A completed highlighter press reveals its chosen ink while the same
+   selection toolbar stays anchored. Active drags retain the warm preview. */
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-warm { background:var(--highlight-gold,#f5e6c8); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-rose { background:var(--highlight-rose,#f5d0d0); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-sage { background:var(--highlight-sage,#cde3b4); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-sky { background:var(--highlight-sky,#d0e0f5); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection :is(.lab-hearing-word,.lab-highlight-gap).is-selecting.is-hl-lavender { background:var(--highlight-lavender,#e0d0f5); }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection::selection,
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection *::selection { background:transparent; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-warm:has(> .lab-verse-mark) { background:var(--highlight-gold,#f5e6c8) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-rose:has(> .lab-verse-mark) { background:var(--highlight-rose,#f5d0d0) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-sage:has(> .lab-verse-mark) { background:var(--highlight-sage,#cde3b4) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-sky:has(> .lab-verse-mark) { background:var(--highlight-sky,#d0e0f5) !important; }
+.lab :is(.lab-passage,.lab-opening-passage).has-applied-selection.has-text-range-highlights .lab-hearing-word.is-selecting.is-hl-lavender:has(> .lab-verse-mark) { background:var(--highlight-lavender,#e0d0f5) !important; }
+
 .lab-ask-attachment-text {
   display: block;
   margin: 0;
@@ -7683,17 +7698,18 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-chapter, .lab-header-book) { min-height: 32px; }
 
-/* Desktop reading controls stay direct; scrolling quiets their ink, never their hit targets. */
+/* Reading chrome stays quiet at rest; interaction restores full ink. */
 .lab[data-chrome-version="v2"].is-desktop .lab-header-notebook {
-  min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
+  display:inline-flex; align-items:center; justify-content:center; min-width:40px; min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
   font:14px/1.2 'EB Garamond',Georgia,serif; color:var(--lab-ink); cursor:pointer;
 }
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
-  color:var(--lab-ink); transition:color 140ms ease;
+  color:var(--lab-ink-muted); transition:color 140ms ease;
 }
-.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop[data-reading-scroll="true"] .lab-header:not(:focus-within) :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
-  color:var(--lab-ink-muted);
+.lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header:is(:hover,:focus-within) :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {
+  color:var(--lab-ink);
 }
 @media(prefers-reduced-motion:reduce) {
   .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) { transition:none; }
 }
+

@@ -27,6 +27,7 @@ export interface LabPhoneCardProps {
   /** The bin: removes what the card holds (a note), or discards the card. */
   onDelete?: () => void
   deleteLabel?: string
+  closeLabel?: string
   children: ReactNode
   /** The follow-up line, kept above the keyboard. */
   foot?: ReactNode
@@ -42,7 +43,7 @@ export interface LabPhoneCardProps {
  * viewport, so it rides above the software keyboard. As tall as its content, at
  * most 70% of the visible height. It is fixed over the page and never moves it.
  */
-export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
+export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'Delete', closeLabel, children, foot, tall = false, testId = 'lab-phone-card' }: LabPhoneCardProps) {
   const ref = useRef<HTMLElement | null>(null)
   const dockRef = useRef<HTMLDivElement | null>(null)
   useLayoutEffect(() => {
@@ -59,7 +60,10 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
       dock.style.setProperty('--lab-pcard-top', `${room.top}px`)
       dock.style.setProperty('--lab-pcard-room', `${room.height}px`)
       el.toggleAttribute('data-keyboard', room.keyboard)
-      if (room.keyboard && !keyboard) {
+      // Chat owns its thread position: focusing its composer must not abandon
+      // an older reply the reader deliberately scrolled to. New sends still
+      // follow through LabAskPane's turn lifecycle.
+      if (room.keyboard && !keyboard && el.dataset.kind !== 'chat') {
         const body = el.querySelector<HTMLElement>('.lab-pcard-body')
         if (body) body.scrollTop = body.scrollHeight
         el.querySelectorAll<HTMLElement>('.tc-thread, .lab-ask-thread').forEach(node => { node.scrollTop = node.scrollHeight })
@@ -135,6 +139,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
         <div className="lab-pcard-grab" aria-hidden="true" />
         <header className="lab-pcard-head">
           <span className="lab-pcard-label" data-testid="lab-phone-card-label">{label}</span>
+          {closeLabel && <button type="button" className="lab-pcard-bin" aria-label={closeLabel} onPointerDown={event => { event.preventDefault(); event.stopPropagation() }} onClick={onClose}><PhoneIcon name="close" /></button>}
           {onDelete && <button type="button" className="lab-pcard-bin" data-testid="lab-phone-card-delete" aria-label={deleteLabel}
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>
@@ -230,8 +235,15 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
   useLayoutEffect(() => {
     const el = field.current
     if (!el) return
-    el.style.height = 'auto'
-    el.style.height = `${Math.min(96, el.scrollHeight)}px`
+    const size = () => {
+      el.style.height = 'auto'
+      // A retained card can mount while folded, when scrollHeight is zero.
+      el.style.height = `${Math.max(24, Math.min(96, el.scrollHeight))}px`
+    }
+    size()
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(size)
+    observer?.observe(el.closest('.lab-pcard-follow-box') ?? el)
+    return () => observer?.disconnect()
   }, [value, field])
   const send = () => { const text = value.trim(); if (text && !disabled) onSend(text) }
   return (
@@ -247,7 +259,7 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
           aria-label={label}
           value={value}
           onChange={event => onChange(event.target.value)}
-          onKeyDown={event => { if (event.key === 'Escape' && event.currentTarget.closest('.lab.is-desktop')) { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); return }; if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send() } }}
+          onKeyDown={event => { if (event.key === 'Escape' && event.currentTarget.closest('.lab.is-desktop') && !event.currentTarget.closest('.source-margin-item')) { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); return }; if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send() } }}
         />
         {onMic && <button type="button" className="lab-pcard-mic" data-testid="lab-phone-card-mic" aria-label="Dictate" aria-pressed={micOn}
           onPointerDown={event => event.preventDefault()} onClick={onMic}><PhoneIcon name="mic" /></button>}
@@ -256,7 +268,6 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
         <button type="button" className="lab-pcard-send" data-testid="lab-phone-card-send" aria-label="Send" disabled={!value.trim() || disabled}
           onPointerDown={event => event.preventDefault()} onClick={send}><PhoneIcon name="up" /></button>
       </div>
-      <span className="lab-pcard-typing-hint" aria-hidden="true">Esc to return to reading</span>
     </div>
   )
 }

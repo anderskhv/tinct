@@ -215,3 +215,69 @@ it('accepts authoritative PDF ink geometry and hides when its source leaves view
   rerender(<SelectionDeskBar {...common} getAnchor={() => null} />)
   expect(screen.getByTestId('lab-desk-bar').style.visibility).toBe('hidden')
 })
+
+describe('typing into a shared desktop passage selection', () => {
+  it('opens the inline question field with the first character intact and submits the complete question', () => {
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...input} />)
+    const event = new KeyboardEvent('keydown', { key: 'W', bubbles: true, cancelable: true })
+    act(() => { document.body.dispatchEvent(event) })
+    const field = screen.getByTestId('lab-dbar-ask-field') as HTMLInputElement
+    expect(event.defaultPrevented).toBe(true)
+    expect(field.value).toBe('W')
+    expect(document.activeElement).toBe(field)
+    fireEvent.change(field, { target: { value: 'Why this phrase?' } })
+    fireEvent.submit(field.closest('form')!)
+    expect(input.onAskQuestion).toHaveBeenCalledExactlyOnceWith('Why this phrase?')
+    expect(input.dismissPopup).not.toHaveBeenCalled()
+  })
+
+  it('leaves inputs, contenteditable notes, shortcuts and composition keydowns alone', () => {
+    render(<Harness {...props({ sharedReader: true, onAskQuestion: vi.fn() })} />)
+    const field = document.createElement('textarea'), editable = document.createElement('div')
+    editable.setAttribute('contenteditable', 'true')
+    document.body.append(field, editable)
+    fireEvent.keyDown(field, { key: 'a' })
+    fireEvent.keyDown(editable, { key: 'b' })
+    for (const event of [{ key: 'c', ctrlKey: true }, { key: 'v', metaKey: true }, { key: 'e', altKey: true }, { key: 'Process', keyCode: 229 }, { key: 'a', isComposing: true }, { key: ' ' }, { key: 'ArrowDown' }]) fireEvent.keyDown(document.body, event)
+    expect(screen.queryByTestId('lab-dbar-ask-field')).toBeNull()
+    field.remove(); editable.remove()
+  })
+
+  it('seeds committed IME text exactly once without consuming composition in another field', () => {
+    render(<Harness {...props({ sharedReader: true, onAskQuestion: vi.fn() })} />)
+    const other = document.createElement('input'); document.body.append(other)
+    fireEvent.compositionEnd(other, { data: '別' })
+    expect(screen.queryByTestId('lab-dbar-ask-field')).toBeNull()
+    fireEvent.compositionEnd(document.body, { data: '何故' })
+    const field = screen.getByTestId('lab-dbar-ask-field') as HTMLInputElement
+    expect(field.value).toBe('何故')
+    fireEvent.change(field, { target: { value: '何故ですか' } })
+    expect(field.value).toBe('何故ですか')
+    other.remove()
+  })
+
+  it('passes the typed seed to the external passage composer while Ask clicks have no seed', async () => {
+    const { SelectionDeskBar } = await import('./SelectionDeskBar')
+    const compose = vi.fn()
+    const common = { sharedReader: true, state: 'menu' as const, color: 'gold' as const, marked: false, noted: false, moreRows: [], fallback: { x: 300, y: 300 }, onComposeAsk: compose, onAsk: vi.fn(), onExplain: vi.fn(), onSimplify: vi.fn(), onMore: vi.fn(), onHighlight: vi.fn(), onSwatch: vi.fn(), onNote: vi.fn(), onRemove: vi.fn() }
+    render(<SelectionDeskBar {...common} />)
+    fireEvent.keyDown(document.body, { key: 'é' })
+    expect(compose).toHaveBeenCalledExactlyOnceWith('é')
+    fireEvent.click(screen.getByTestId('lab-dbar-ask'))
+    expect(compose).toHaveBeenLastCalledWith()
+  })
+})
+
+it('applies the color displayed on the desktop highlighter before opening any palette', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const input = props({ sharedReader: true, currentHighlightColor: 'sage' })
+  render(<Harness {...input} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Sage' }))
+  expect(input.onColorClick).toHaveBeenCalledExactlyOnceWith('sage')
+  expect(screen.getByTestId('lab-desk-bar').dataset.barState).toBe('menu')
+  expect(screen.queryByTestId('lab-dbar-color-sage')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-dbar-highlight'))
+  expect(input.onColorClick).toHaveBeenCalledOnce()
+  expect(screen.getByTestId('lab-dbar-color-sage')).toBeTruthy()
+})

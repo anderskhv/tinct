@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { useState } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -48,8 +49,11 @@ describe('the chapter pills in the phone margin mode', () => {
     render(<MarginPhoneContext.Provider value={{ onQuiz }}><LabChapterEnd chapterTitle="Chapter 3" hasNext onDiscuss={() => {}} onNote={() => {}} /></MarginPhoneContext.Provider>)
     expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Recap✧Quiz meNoteNext chapter/)
     expect(screen.queryByTestId('lab-unit-end')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-unit-quiz'))
-    expect(onQuiz).toHaveBeenCalledTimes(1)
+    const trigger = screen.getByTestId('lab-unit-quiz')
+    const anchor = { left: 500, right: 590, top: 640, bottom: 670 } as DOMRect
+    vi.spyOn(trigger, 'getBoundingClientRect').mockReturnValue(anchor)
+    fireEvent.click(trigger)
+    expect(onQuiz).toHaveBeenCalledExactlyOnceWith(anchor)
   })
 
   it('measuring copies lay out the same pills (pagination) and never act', () => {
@@ -127,7 +131,7 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
     fireEvent.click(screen.getByTestId('lab-pmore-page'))
     expect(onShowPage).toHaveBeenCalledTimes(1)
-    view.rerender(<div className="lab"><LabPhoneBar {...props} existingColor="gold" /></div>)
+    view.rerender(<div className="lab"><LabPhoneBar {...props} text="saved passage" existingColor="gold" /></div>)
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
     expect(screen.queryByTestId('lab-pmore-define')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-pmore-page'))
@@ -315,4 +319,47 @@ describe('the open card\u2019s passage stays underlined on the page', () => {
     expect(css).toMatch(/\.is-card-passage \{[^}]*text-decoration: underline/)
     document.body.innerHTML = ''
   })
+})
+
+it('applies the phone highlighter color immediately and opens colours only on the second press', () => {
+  localStorage.setItem('tinct-highlight-color', 'lavender')
+  const save = vi.fn()
+  function HighlightBar() {
+    const [color, setColor] = useState<'gold' | 'rose' | 'sage' | 'sky' | 'lavender' | undefined>()
+    return <div className="lab"><LabPhoneBar text="Selected words" fallbackY={300} existingColor={color} onAsk={vi.fn()} onExplain={vi.fn()} onSimplify={vi.fn()} onMore={vi.fn()}
+      onHighlight={next => { save(next); setColor(next) }} onNote={vi.fn()} onRemove={vi.fn()} onDismiss={vi.fn()} /></div>
+  }
+  render(<HighlightBar />)
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledExactlyOnceWith('lavender')
+  expect(screen.queryByTestId('lab-pbar-color-sage')).toBeNull()
+  expect(screen.getByRole('button', { name: 'Highlight in Lavender' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Highlight in Lavender' }))
+  expect(save).toHaveBeenCalledOnce()
+  expect(screen.getByTestId('lab-pbar-color-lavender').getAttribute('aria-pressed')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-pbar-color-sage'))
+  expect(save).toHaveBeenLastCalledWith('sage')
+})
+
+
+it('keeps an older Chat reply in place when its composer gains focus and the keyboard resizes', () => {
+  const viewport = new EventTarget() as EventTarget & { height: number; offsetTop: number }
+  viewport.height = 844; viewport.offsetTop = 0
+  const real = Object.getOwnPropertyDescriptor(window, 'visualViewport')
+  Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => viewport })
+  try {
+    render(<LabPhoneCard label="Chat" kind="chat" onClose={vi.fn()}><div className="tc-thread" data-testid="history" /><textarea aria-label="Chat question" /></LabPhoneCard>)
+    const history = screen.getByTestId('history')
+    Object.defineProperty(history, 'scrollHeight', { configurable: true, value: 3000 })
+    history.scrollTop = 120
+    act(() => screen.getByLabelText('Chat question').focus())
+    expect(history.scrollTop).toBe(120)
+    viewport.height = 420
+    act(() => { viewport.dispatchEvent(new Event('resize')) })
+    expect(history.scrollTop).toBe(120)
+    expect(screen.getByTestId('lab-phone-card').hasAttribute('data-keyboard')).toBe(true)
+  } finally {
+    if (real) Object.defineProperty(window, 'visualViewport', real)
+    else delete (window as { visualViewport?: unknown }).visualViewport
+  }
 })

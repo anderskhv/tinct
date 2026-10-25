@@ -29,8 +29,8 @@ function expectNoPill() {
 }
 
 /** The desktop's Librarian row (its body and two icons), or the phone's Chat · Talk row. */
-function expectOneLibrarianRow(phone = false) {
-  expect(screen.queryAllByTestId('lab-super-row-librarian')).toHaveLength(phone ? 0 : 1)
+function expectOneLibrarianRow(_phone = false) {
+  expect(screen.queryAllByTestId('lab-super-row-librarian')).toHaveLength(0)
   expect(screen.getAllByTestId('lab-super-row-chat')).toHaveLength(1)
   expect(screen.getAllByTestId('lab-super-row-talk')).toHaveLength(1)
 }
@@ -78,11 +78,14 @@ describe('no chat pill in the reader', () => {
 })
 
 describe('the menu’s Librarian row', () => {
-  it('opens Chat from its body and either mode from its icons', () => {
+  it('shows explicit Chat and Talk buttons on desktop with no Librarian label', () => {
     const onSelect = vi.fn()
     render(<LabSuperMenu open onSelect={onSelect} onClose={() => {}} />)
-    expect(screen.getByTestId('lab-super-row-librarian').textContent).toBe('Librarian')
-    fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
+    expect(screen.queryByTestId('lab-super-row-librarian')).toBeNull()
+    expect(screen.getByTestId('lab-super-menu').textContent).not.toContain('Librarian')
+    expect(screen.getByTestId('lab-super-row-chat').textContent).toBe('Chat')
+    expect(screen.getByTestId('lab-super-row-talk').textContent).toBe('Talk')
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(onSelect).toHaveBeenLastCalledWith('chat')
     fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
     expect(onSelect).toHaveBeenLastCalledWith('talk')
@@ -109,7 +112,7 @@ describe('the menu’s Librarian row', () => {
     render(<LabSuperMenu open privateBook onSelect={onSelect} onClose={() => {}} />)
     fireEvent.click(screen.getByRole('button', { name: 'Talk' }))
     expect(onSelect).toHaveBeenLastCalledWith('talk')
-    fireEvent.click(screen.getByTestId('lab-super-row-librarian'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
     expect(onSelect).toHaveBeenLastCalledWith('chat')
   })
 })

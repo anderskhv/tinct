@@ -38,3 +38,34 @@ it('does not invent a grade when the response is malformed and retains the answe
   expect((screen.getByRole('textbox', { name: 'Your answer' }) as HTMLTextAreaElement).value).toBe('Ice.')
   expect(screen.queryByTestId('lab-phone-quiz-next')).toBeNull()
 })
+
+it.each(['is-desktop', 'is-phone'])('clears a submitted quiz answer immediately while retaining its exchange on %s', async profile => {
+  let resolve!: (result: string) => void
+  const mark = vi.fn(() => new Promise<string>(done => { resolve = done }))
+  render(<div className={`lab ${profile}`}><Harness mark={mark} /></div>)
+  await act(async () => {})
+  await answer('Your answer', 'The surrounding ice.')
+  expect((screen.getByRole('textbox', { name: 'Your answer' }) as HTMLTextAreaElement).value).toBe('')
+  expect(screen.getByTestId('lab-phone-quiz-pending-answer').textContent).toBe('The surrounding ice.')
+  expect(screen.getByRole('button', { name: 'Send' }).hasAttribute('disabled')).toBe(true)
+  expect(mark).toHaveBeenCalledOnce()
+  expect(screen.queryByText(/esc(?:ape)? to/i)).toBeNull()
+  await act(async () => { resolve(JSON.stringify({ verdict: 'nearly', feedback: 'Think about why it cannot move.' })) })
+  expect(screen.getByTestId('lab-phone-quiz-history').textContent).toContain('The surrounding ice.')
+  expect(screen.queryByTestId('lab-phone-quiz-pending-answer')).toBeNull()
+  expect((screen.getByRole('textbox', { name: 'Ask about your answer' }) as HTMLTextAreaElement).value).toBe('')
+  expect(screen.queryByText(/esc(?:ape)? to/i)).toBeNull()
+})
+
+it.each(['reject', 'malformed'])('restores a submitted answer after a %s grading failure for retry', async failure => {
+  let resolve!: (result: string) => void, reject!: (error: Error) => void
+  const mark = vi.fn(() => new Promise<string>((done, fail) => { resolve = done; reject = fail }))
+  render(<Harness mark={mark} />)
+  await act(async () => {})
+  await answer('Your answer', 'Ice blocks the ship.')
+  expect((screen.getByRole('textbox') as HTMLTextAreaElement).value).toBe('')
+  await act(async () => { if (failure === 'reject') reject(new Error('Synthetic failure')); else resolve('not a grade') })
+  expect((screen.getByRole('textbox', { name: 'Your answer' }) as HTMLTextAreaElement).value).toBe('Ice blocks the ship.')
+  expect(screen.getByRole('status').textContent).toContain('Couldn’t check')
+  expect(screen.getByRole('button', { name: 'Send' }).hasAttribute('disabled')).toBe(false)
+})

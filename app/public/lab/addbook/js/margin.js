@@ -289,11 +289,10 @@
         + `<button type="button" class="mr-bar__item" data-m="remove" aria-label="Remove highlight" title="Remove highlight">${ICONS.remove}</button>`;
     }
     if (state === 'asking') {
-      // A3 (Anders, 22 Oct 2026): the dark bar itself becomes the field, 440px wide on the desktop, with an Esc hint
+      // A3 (Anders, 22 Oct 2026): the dark bar itself becomes the field, 440px wide on the desktop
       // (Esc goes back to the actions); a placeholder, the mic and a round send. No spelling marks or autocorrect
       // bubble (macOS put an "ads ×" correction chip under "adsf"): a question is the reader's own words.
       return `<label class="mr-bar__field"><textarea class="mr-ask" rows="1" enterkeyhint="send" placeholder="Ask about this passage" aria-label="Ask about this passage" spellcheck="false" autocorrect="off" autocomplete="off" autocapitalize="sentences">${esc(o.question || '')}</textarea></label>`
-        + (o.phone ? '' : '<kbd class="mr-bar__esc" aria-hidden="true">esc</kbd>')
         + `<button type="button" class="mr-bar__item is-mic" data-m="mic" aria-label="Dictate" aria-pressed="false">${ICONS.mic}</button>`
         + `<button type="button" class="mr-bar__send" data-m="send" aria-label="Send"${o.question ? '' : ' disabled'}>${ICONS.up}</button>`;
     }

@@ -22,7 +22,7 @@ export function LabChapterEnd({ hasNext, busy = false, measuring = false, docked
       {recap && <button type="button" className="lab-chapter-recap" disabled={busy} tabIndex={onDiscuss ? 0 : -1} aria-label="Recap this chapter" onClick={onDiscuss}>
         <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Recap</span>
       </button>}
-      {margin && recap && <button type="button" className="lab-chapter-recap" data-testid={measuring ? undefined : 'lab-unit-quiz'} tabIndex={measuring ? -1 : 0} aria-label="Quiz me on this chapter" onClick={() => { if (!measuring) margin.onQuiz?.() }}>
+      {margin && recap && <button type="button" className="lab-chapter-recap" data-testid={measuring ? undefined : 'lab-unit-quiz'} tabIndex={measuring ? -1 : 0} aria-label="Quiz me on this chapter" onClick={event => { if (!measuring) margin.onQuiz?.(event.currentTarget.getBoundingClientRect()) }}>
         <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Quiz me</span>
       </button>}
       {note && <button type="button" className="lab-chapter-note" data-testid={measuring ? undefined : 'lab-chapter-note-open'} tabIndex={onNote ? 0 : -1} aria-label="Chapter note"

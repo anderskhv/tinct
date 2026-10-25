@@ -253,6 +253,8 @@ async function run(engine,name,phone) {
       assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),initialPlace,'dismissing the card leaves the page still')
       await select(page)
       await page.getByTestId('lab-pbar-highlight').click()
+      assert.equal(await page.getByTestId('lab-pbar-color-sage').count(), 0, 'first highlight applies without opening palette')
+      await page.getByTestId('lab-pbar-highlight').click()
       await page.getByTestId('lab-pbar-color-sage').click()
     } else if(shared) {
       await page.keyboard.press('Escape')
@@ -944,13 +946,12 @@ async function menuRedesign(engine,name,phone) {
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups (22 Oct 2026): Aa, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Librarian','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
-    // Desktop: one Librarian row (Anders, 2026-10-07) carries a Chat and a Talk button, the only way to the
-    // librarian since the chat pill went (2026-10-08). Phone: Chat and Talk are the two halves of one row.
-    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),phone?0:1)
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Aa','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up',...(SHARED_READER_DEFAULT?['Notebook']:[]),'Aa','Book settings','Audio settings',accountRow])
+    // Desktop and phone share two explicitly labelled Chat and Talk actions.
+    assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-chat').count(),1)
     assert.equal(await page.getByTestId('lab-super-row-talk').count(),1)
-    if(phone)assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
+    assert.equal(await page.locator('[data-row="conversation"] [data-testid="lab-super-row-chat"] + [data-testid="lab-super-row-talk"]').count(),1,'Chat · Talk on one row')
     assert.equal(await page.getByTestId('lab-super-row-text').locator('svg[data-icon="text-size"]').count(),1)
     assert.equal(await page.locator('.lab-librarian-tab,[data-testid="lab-librarian-tab-band"],[data-testid="lab-chat-orb"]').count(),0,'no chat pill')
     assert.equal(await page.getByTestId('lab-library-back').count(),phone?0:1)
@@ -1061,7 +1062,16 @@ async function revealKeepsPage(engine,name,phone) {
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
-    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    if(state) {
+      // A render failure can remove lab-root after a successful boot. Retain the already captured exception
+      // and request evidence rather than reporting only the later missing-root locator timeout.
+      result.diagnostic={
+        url:state.page.isClosed()?'(page closed)':state.page.url(),
+        errors:[...state.errors],networkFailures:[...state.networkFailures],warnings:state.warnings.slice(-8),
+        ui:await visibleText(state.page,3500),
+      }
+      await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    }
   } finally {await browser.close();results.push(result)}
 }
 

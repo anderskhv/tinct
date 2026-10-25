@@ -1,6 +1,6 @@
 .continuous-reader, .pdf-original__scroll { position: relative; }
 .source-margin-rail { position:absolute; left:0; right:0; top:0; pointer-events:none; z-index:5; }
-.source-margin-room { position:absolute; top:0; pointer-events:auto; }
+.source-margin-room { position:absolute; top:0; pointer-events:auto; user-select:none; -webkit-user-select:none; }
 .source-margin-item { position:absolute; pointer-events:auto; box-sizing:border-box; border:0; border-left:1px solid var(--lab-border); padding:2px 0 8px 16px; background:transparent; color:var(--lab-ink); font:17px/1.45 'EB Garamond',Georgia,serif; }
 .source-margin-head { display:flex; align-items:center; gap:6px; min-height:30px; }
 .source-margin-item button { border:0; border-radius:0; background:transparent; color:inherit; cursor:pointer; font:inherit; }

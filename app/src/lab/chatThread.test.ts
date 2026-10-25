@@ -99,7 +99,7 @@ describe('composer keys', () => {
     const storage = { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => { store.set(k, v) } }
     expect(takeHint(storage)).toBe(true)
     expect(takeHint(storage)).toBe(false)
-    expect(HINT_TEXT).toBe('Return sends · Shift-Return new line · ↑ last question · Esc closes')
+    expect(HINT_TEXT).toBe('Return sends · Shift-Return new line · ↑ last question')
   })
   it('the Latest pill shows only more than a screen up', () => {
     expect(isAway({ scrollHeight: 3000, scrollTop: 1000, clientHeight: 500 })).toBe(true)

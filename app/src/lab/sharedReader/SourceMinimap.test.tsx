@@ -8,6 +8,7 @@ it('navigates real source paragraphs by keyboard without inventing pages', () =>
   render(<SourceMinimap paragraphs={['one two', 'three four five', 'six']} visible={{ paragraphIndex: 1, wordIndex: 0 }} onJump={jump} />)
   const map = screen.getByRole('slider', { name: 'Chapter position' })
   expect(map.getAttribute('aria-valuenow')).toBe('33')
+  expect(screen.getByTestId('source-map-progress').textContent).toBe('33%')
   fireEvent.keyDown(map, { key: 'ArrowDown' })
   expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 2, wordIndex: 0 })
   fireEvent.keyDown(map, { key: 'Home' })
@@ -67,4 +68,33 @@ it('keeps chapter-only pointer and keyboard navigation within the current chapte
     fireEvent.keyDown(map, { key })
     expect(jump).toHaveBeenLastCalledWith({ paragraphIndex: 0, wordIndex: 0 })
   }
+})
+
+it('shows passage highlights at their source words and jumps there without a second slider jump', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two three four', 'five six seven eight']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump}
+    highlights={[{ id: 'h1', chapterNumber: 1, paragraphIndex: 1, fromWord: 1, endParagraphIndex: 1, toWord: 3, color: 'gold', text: 'six seven' }]} />)
+  const mark = screen.getByRole('button', { name: 'Highlight: six seven' })
+  expect(mark.closest('[role=slider]')).toBeNull()
+  expect(mark.querySelector('.source-minimap-activity-ink')?.getAttribute('y')).toBe('375')
+  fireEvent.pointerDown(mark, { clientY: 0 })
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 1, wordIndex: 1 })
+  fireEvent.keyDown(mark, { key: 'Enter' })
+  expect(jump).toHaveBeenCalledTimes(2)
+})
+
+it('keeps an explanation and highlight at the same source position independently reachable', () => {
+  const jump = vi.fn(), open = vi.fn()
+  render(<SourceMinimap paragraphs={['one two three four']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump}
+    cards={[{ id: 'answer', paragraphIndex: 0, wordIndex: 1, label: 'Explain: two three', onOpen: open }]}
+    highlights={[{ id: 'h1', chapterNumber: 1, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 3, color: 'gold', text: 'two three' }]} />)
+  const card = screen.getByRole('button', { name: 'Explain: two three' }), mark = screen.getByRole('button', { name: 'Highlight: two three' })
+  expect(card.querySelector('rect')?.getAttribute('x')).toBe('26')
+  expect(Number(mark.querySelector('rect')?.getAttribute('x')) + Number(mark.querySelector('rect')?.getAttribute('width'))).toBeLessThan(26)
+  fireEvent.keyDown(card, { key: 'Enter' })
+  expect(open).toHaveBeenCalledOnce()
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 0, wordIndex: 1 })
+  fireEvent.keyDown(mark, { key: 'Enter' })
+  expect(jump).toHaveBeenCalledTimes(2)
+  expect(open).toHaveBeenCalledOnce()
 })

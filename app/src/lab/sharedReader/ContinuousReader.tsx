@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentProps, type WheelEvent } from 'react'
-import { SourceMinimap, type SourceBookMap } from './SourceMinimap'
+import { SourceMinimap, type SourceBookMap, type SourceMapCard } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
 import { tokenizeHearingWords } from '../labHearing'
 import { continuousReaderWindow, type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
@@ -13,6 +13,7 @@ type Props = {
   anchor: ContinuousReaderAnchor
   onVisible: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
   onLanded: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
+  cards?: readonly SourceMapCard[]
   bookMap?: SourceBookMap
   onUserBrowse?: () => void
 }
@@ -83,7 +84,7 @@ function firstVisibleWord(host: HTMLElement): ContinuousReaderAnchor | null {
 }
 
 /** A bounded, scrollable source window. No position storage lives in this component. */
-export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap }: Props) {
+export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap, cards }: Props) {
   const hostRef = useRef<HTMLDivElement>(null)
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
   const destinationKey = `${epochKey}/${anchor.paragraphIndex}:${anchor.wordIndex}`
@@ -274,7 +275,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     pendingRebase.current = { anchor: place, offset: Math.min((hostRef.current?.clientHeight ?? 600) * .24, 140) }
     setWindowState({ key: destinationKey, start: continuousWindowStart(place, passage.paragraphs) })
   }
-  return <><SourceMinimap bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
+  return <><SourceMinimap cards={cards} highlights={passage.highlights?.filter(mark => mark.chapterNumber === passage.chapterNumber)} bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
     onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>

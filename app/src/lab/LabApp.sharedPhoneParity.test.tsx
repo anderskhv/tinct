@@ -208,6 +208,8 @@ it('creates and edits a shared desktop passage note in its margin card and persi
     ...source, bookId: 'odyssey', paragraphs: ['A short chapter has words to select and explain.'],
     followParagraphs: [{ index: 0, text: 'A short chapter has words to select and explain.' }],
   }} authToken={null} sharedReader />)
+  expect(screen.queryByTestId('lab-page-turn')).toBeNull()
+  expect(screen.getByTestId('source-map-progress')).toBeTruthy()
   for (const word of screen.getAllByTestId('lab-word')) { vi.spyOn(word, 'getClientRects').mockReturnValue([{ left: 150, right: 230, top: 200, bottom: 220, width: 80, height: 20 }] as unknown as DOMRectList); vi.spyOn(word, 'getBoundingClientRect').mockReturnValue({ left: 150, right: 230, top: 200, bottom: 220, width: 80, height: 20 } as DOMRect) }
   selectPassage()
   fireEvent.click(screen.getByTestId('lab-dbar-ask'))
@@ -234,7 +236,9 @@ it('creates and edits a shared desktop passage note in its margin card and persi
   saved = JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')
   expect(saved).toHaveLength(1)
   expect(saved[0]).toMatchObject({ id, note: 'An edited thought' })
-  fireEvent.click(screen.getAllByTestId('source-margin-open').find(button => button.textContent?.startsWith('Note'))!)
+  const noteHeader = screen.getAllByTestId('source-margin-open').find(button => button.textContent === 'Note')!
+  expect(noteHeader).toBeTruthy()
+  fireEvent.click(noteHeader)
   fireEvent.change(screen.getByRole('textbox', { name: 'Follow up' }), {target:{value:'What does my thought imply?'}})
   fireEvent.click(screen.getByRole('button', {name:'Send'}))
   await waitFor(() => expect(document.querySelector('[data-testid="source-margin-item"][data-open="true"]')?.textContent).toContain('Ask'))

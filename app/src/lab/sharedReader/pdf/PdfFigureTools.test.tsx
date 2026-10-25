@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { PdfFigureTools, PdfFigureCardImage } from './PdfFigureTools'
 import type { PdfOriginalDocument, PdfOriginalSelection } from './PdfOriginalSurface'
@@ -15,8 +15,9 @@ it('keeps figure controls source-owned and sends an actual crop capability with 
   const viewport = container.firstElementChild as HTMLElement
   viewport.getBoundingClientRect = () => ({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600 } as DOMRect)
   source.getBoundingClientRect = () => ({ left: 120, right: 150, top: 100, bottom: 130, width: 30, height: 30 } as DOMRect)
-  source.focus(); fireEvent.scroll(viewport)
-  expect(screen.getByRole('toolbar', { name: 'Figure 1 actions' })).toBeTruthy()
+  await act(async () => { source.focus() })
+  fireEvent.scroll(viewport)
+  expect(await screen.findByRole('toolbar', { name: 'Figure 1 actions' })).toBeTruthy()
   for (const name of ['Ask', 'Explain', 'Highlight']) {
     fireEvent.focus(source)
     fireEvent.click(screen.getByRole('button', { name }))

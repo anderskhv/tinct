@@ -26,7 +26,7 @@ export interface SharedReaderCard {
   anchor?: ChatCardAnchor
   text?: string
   /** Includes the AI answer only after it is complete; the first user question is optional. */
-  turns: Array<{ role: 'user' | 'assistant'; content: string; at?: number }>
+  turns: Array<{ id?: string; role: 'user' | 'assistant'; content: string; at?: number }>
   /** Bounded small state such as quiz questions/answers or a reading unit. */
   data?: unknown
   at: number
@@ -44,6 +44,8 @@ export interface OwnTextCardDraft {
   u: number
 }
 
+const validMessageId = (id: unknown): id is string => typeof id === 'string' && /^[A-Za-z0-9:_-]{1,200}$/.test(id)
+const validTurnIds = (turns: SharedReaderCard['turns']) => turns.every(turn => turn.id === undefined || validMessageId(turn.id)) && new Set(turns.flatMap(turn => turn.id ? [turn.id] : [])).size === turns.filter(turn => turn.id !== undefined).length
 const validTime = (value: number) => Number.isSafeInteger(value) && value > 0 && value <= 1e15
 const validIndex = (value: number) => Number.isSafeInteger(value) && value >= 0 && value <= 10_000_000
 
@@ -68,6 +70,19 @@ function boundedData(data: unknown): Record<string, unknown> | null | undefined 
 
 const CARD_KINDS = new Set<SharedCardKind>(['explain', 'simplify', 'define', 'factcheck', 'counterpoint', 'quiz', 'ask', 'primer', 'catchup', 'recap'])
 
+/** Word indexes are paragraph-local; equal indexes in different paragraphs still span text. */
+export function isSourcePoint(range: Pick<ChatCardAnchor, 'paragraphIndex' | 'fromWord' | 'endParagraphIndex' | 'toWord'> | undefined): boolean {
+  return !!range && range.paragraphIndex === range.endParagraphIndex && range.fromWord === range.toWord
+}
+
+/** The Ask promotion keeps either the exact selected passage or an intentional point in the margin. */
+export function askCardSource(range: Pick<ChatCardAnchor, 'paragraphIndex' | 'fromWord' | 'endParagraphIndex' | 'toWord'> | undefined, editionKey: string, chapterNumber: number): Pick<SharedReaderCard, 'anchor' | 'data'> {
+  if (!range) return {}
+  if (isSourcePoint(range)) return { data: { freeAnchor: { paragraphIndex: range.paragraphIndex, fromWord: range.fromWord } } }
+  const anchor = { editionKey, chapterNumber, paragraphIndex: range.paragraphIndex, fromWord: range.fromWord, endParagraphIndex: range.endParagraphIndex, toWord: range.toWord }
+  return validAnchor(anchor, chapterNumber) ? { anchor } : {}
+}
+
 /** A private source-word draft. The owner adapter alone chooses the EPUB/Paste or PDF text-v1 route and writes it. */
 export function ownTextCardDraft(card: SharedReaderCard): OwnTextCardDraft | null {
   if (card.source.kind !== 'own-text' || !isUserBookHex(card.source.ownHex)
@@ -76,7 +91,7 @@ export function ownTextCardDraft(card: SharedReaderCard): OwnTextCardDraft | nul
     || !/^(?:own|own-en|own-da)$/.test(card.source.editionKey) || !CARD_KINDS.has(card.kind)
     || !/^[A-Za-z0-9_-]{4,120}$/.test(card.id) || !Number.isInteger(card.chapterNumber)
     || card.chapterNumber < 1 || card.chapterNumber > 5000 || !validTime(card.at) || !validTime(card.u)
-    || !card.turns.length || card.turns.length > 40 || !card.turns.some(turn => turn.role === 'assistant' && turn.content.trim())
+    || !validTurnIds(card.turns) || !card.turns.length || card.turns.length > 40 || !card.turns.some(turn => turn.role === 'assistant' && turn.content.trim())
     || card.turns.some(turn => !['user', 'assistant'].includes(turn.role) || !turn.content.trim()
       || turn.content.length > 12_000 || turn.at !== undefined && !validTime(turn.at))) return null
   const passage = card.text?.trim() ?? ''
@@ -102,6 +117,8 @@ export function ownTextCardDraft(card: SharedReaderCard): OwnTextCardDraft | nul
     }
     catch { return null }
   }
+  if (card.turns.some((turn, index) => turn.id && turn.id !== `${cardConversationId(card.id)}:${index}`)) data = { ...data, messageIds: card.turns.map(turn => turn.id ?? null) }
+  if (data && JSON.stringify(data).length > 16_000) return null
   return { v: 'text-v1', id: card.id, kind: card.kind, anchor: textAnchor, text: passage,
     turns: card.turns.map(turn => ({ role: turn.role, content: turn.content.trim(), ...(turn.at ? { at: turn.at } : {}) })),
     ...(data ? { data } : {}), at: card.at, u: card.u }
@@ -114,7 +131,7 @@ export function catalogueCardConversation(card: SharedReaderCard): ChatConversat
     || card.chapterNumber < 1 || card.chapterNumber > 5000 || !validTime(card.at) || !validTime(card.u)
     || !validAnchor(card.anchor, card.chapterNumber)) return null
   const turns = card.turns
-  if (!turns.length || turns.length > CARD_TURNS || !turns.some(turn => turn.role === 'assistant' && turn.content.trim())
+  if (!validTurnIds(turns) || !turns.length || turns.length > CARD_TURNS || !turns.some(turn => turn.role === 'assistant' && turn.content.trim())
     || turns.some(turn => !['user', 'assistant'].includes(turn.role) || !turn.content.trim()
       || turn.content.trim().length > CARD_CONTENT_CHARS || turn.at !== undefined && !validTime(turn.at))) return null
   const data = boundedData(card.data)
@@ -123,15 +140,16 @@ export function catalogueCardConversation(card: SharedReaderCard): ChatConversat
   const passage = card.text?.trim() || ''
   const base = { bookId: card.source.bookId, chapterNumber: card.chapterNumber, ...(card.anchor ? { paragraphIndex: card.anchor.paragraphIndex } : {}) }
   const question = cardQuestion({ id: card.id, kind: card.kind, text: passage, data: card.data })
-  const entries = turns[0].role === 'user' ? turns : [{ role: 'user' as const, content: question, at: card.at }, ...turns]
+  const entries: SharedReaderCard['turns'] = turns[0].role === 'user' ? turns : [{ role: 'user' as const, content: question, at: card.at }, ...turns]
   const messages: ChatMessage[] = []
   entries.forEach((turn, index) => {
     const timestamp = Math.max(card.at + index, validTime(turn.at ?? 0) ? turn.at! : card.at + index, (messages[messages.length - 1]?.timestamp ?? 0) + 1)
     messages.push({
-      id: `${id}:${index}`, role: turn.role, content: turn.content.trim(), timestamp,
+      id: turn.id ?? `${id}:${index}`, role: turn.role, content: turn.content.trim(), timestamp,
       ...base, ...(index === 0 && passage ? { highlightedText: passage } : {}),
     })
   })
+  if (new Set(messages.map(message => message.id)).size !== messages.length) return null
   const meta = {
     id: card.id, kind: card.kind, chapterNumber: card.chapterNumber, at: card.at, u: card.u,
     ...(card.anchor ? { anchor: card.anchor } : {}), ...(passage ? { text: passage } : {}),

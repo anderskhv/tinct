@@ -79,7 +79,7 @@ export interface SelectionPopupProps {
   /** Private shared reader: start the existing passage quiz flow. */
   onQuizPassage?: () => void
   onPassageNote?: () => void
-  onPassageAsk?: () => void
+  onPassageAsk?: (initialQuestion?: string) => void
   onPassageAction?: (kind: 'explain' | 'simplify' | 'factcheck' | 'counterpoint' | 'define') => void
   /** `text` overrides the selection: a dictionary miss explains the looked-up word. */
   onRequestExplanation?: (onDelta: (text: string) => void, text?: string, intent?: 'define' | ExplainIntent) => Promise<string>
@@ -489,8 +489,9 @@ export function SelectionPopup({
         onHighlight={() => {
           // One click highlights in the current colour; on a highlighted passage it opens the colours.
           if (markId) { setPopupMode('colors'); return }
-          remember(lastColor)
-          onColorClick(lastColor)
+          const color = currentHighlightColor ?? lastColor
+          remember(color)
+          onColorClick(color)
         }}
         onSwatch={color => { remember(color); onColorClick(color) }}
         onNote={() => requestNote(currentHighlightColor ?? lastColor)}

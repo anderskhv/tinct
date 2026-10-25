@@ -72,3 +72,17 @@ html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0
 .pdf-original__figure-peek figure { margin:0; }.pdf-original__figure-peek img { display:block; width:100%; max-height:300px; object-fit:contain; }.pdf-original__figure-peek figcaption { margin-top:7px; font:14px/1.35 Georgia,serif; }
 .pdf-original__figure-thumb { display:block; width:100%; margin:0 0 12px; padding:0; border:0; background:transparent; cursor:zoom-in; }
 .pdf-original__figure-thumb img { display:block; width:100%; max-height:180px; object-fit:contain; }
+/* Source activity is ink in the overview, with a larger transparent hit area. */
+.pdf-original__map-activity { cursor:pointer; color:#bd9350; }
+.pdf-original__map-activity--card { color:#c57b59; }
+.pdf-original__map-activity[data-color="rose"] { color:#be7188; }
+.pdf-original__map-activity[data-color="sage"] { color:#78a080; }
+.pdf-original__map-activity[data-color="sky"] { color:#6e9cbe; }
+.pdf-original__map-activity[data-color="lavender"] { color:#9d84bd; }
+.pdf-original__map-hit { fill:transparent; }
+.pdf-original__map-ink { fill:currentColor; opacity:.85; pointer-events:none; }
+.pdf-original__map-activity:hover .pdf-original__map-ink,
+.pdf-original__map-activity:focus-visible .pdf-original__map-ink { opacity:1; filter:brightness(1.18); }
+.pdf-original__map-window { pointer-events:none; }
+
+.pdf-original__map-progress { fill:currentColor; font:10px system-ui,sans-serif; text-anchor:middle; }

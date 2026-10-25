@@ -44,7 +44,7 @@ export function pdfSourceLines(items: Awaited<ReturnType<PdfOriginalPage['getTex
   }
   return lines.sort((a, b) => a.y - b.y).map(({ y, left, right }) => ({ y, left, right }))
 }
-export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean; cards?: Array<{ id: string; page: number; rects?: number[][] }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
+export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
 
 function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, figures, onFigureAction }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
@@ -154,6 +154,31 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
 export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd,
   onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, phone = false, cards = [], activeCardId, headingActions = [], onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
   const [pdf, setPdf] = useState<PdfOriginalDocument | null>(null)
+  const [overview, setOverview] = useState<{ document: PdfOriginalDocument; pages: PdfSourceLine[][]; ratios: number[] } | null>(null)
+  // Read the lightweight text overview independently of virtualised canvases.
+  // Publish once, so scrolling never changes the density of part of the strip.
+  useEffect(() => {
+    if (!pdf || phone) return
+    let cancelled = false, cursor = 0
+    const pageRatios: number[] = []
+    const pages: PdfSourceLine[][] = Array.from({ length: pdf.numPages }, () => [])
+    const read = async () => {
+      while (!cancelled && cursor < pdf.numPages) {
+        const index = cursor++
+        try {
+          const page = await pdf.getPage(index + 1)
+          if (cancelled) return
+          const content = await page.getTextContent()
+          const view = page.getViewport({ scale: 1 })
+          pageRatios[index] = view.height / view.width
+          pages[index] = pdfSourceLines(content.items, view)
+        } catch { /* A missing text layer keeps its honest page boundary. */ }
+        await new Promise(resolve => setTimeout(resolve, 0))
+      }
+    }
+    const timer = setTimeout(() => { void Promise.all([read(), read()]).then(() => { if (!cancelled) setOverview({ document: pdf, pages, ratios: pageRatios }) }) }, 100)
+    return () => { cancelled = true; clearTimeout(timer) }
+  }, [pdf, phone])
   const [current, setCurrent] = useState(() => Math.max(1, Math.floor(initialPlace?.page || 1)))
   const [selectionPages, setSelectionPages] = useState<{ from: number; to: number } | null>(null)
   const [dragPage, setDragPage] = useState<number | null>(null)
@@ -334,25 +359,46 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     return () => { root.removeEventListener('wheel', wheel); root.removeEventListener('touchstart', start); root.removeEventListener('touchmove', move); root.removeEventListener('touchend', end); root.removeEventListener('touchcancel', end) }
   }, [])
   const sourceMap = useMemo(() => {
-    const heights = Array.from({ length: pdf?.numPages ?? 0 }, (_, index) => heightOf(index + 1))
+    const heights = Array.from({ length: pdf?.numPages ?? 0 }, (_, index) => Math.round(sheetWidth * (overview?.document === pdf ? overview.ratios[index] || ratio : ratio)))
     const starts: number[] = []
     let total = 0
     heights.forEach((height, index) => { starts.push(total); total += height + (index < heights.length - 1 ? GAP : 0) })
     return { heights, starts, total: total || 1 }
-  }, [pdf, heightOf])
-  // This is a page overview, independent of which virtualised text layers have
-  // loaded. Mixing page ticks and glyph lines made the strip expand as you read.
+  }, [pdf, sheetWidth, ratio, overview])
   const mapLines = useMemo(() => {
-    let previous = -3
-    return sourceMap.starts.flatMap(start => {
-      const y = start / sourceMap.total * 600
-      if (y - previous < 3) return []
-      previous = y
-      return [{ y, left: 6, right: 27 }]
+    let previous = -2
+    const lines: Array<{ y: number; left: number; right: number }> = []
+    sourceMap.starts.forEach((start, index) => {
+      const source = overview?.document === pdf ? overview.pages[index] : undefined
+      const pageLines = source?.length ? source : [{ y: 0, left: .1, right: .9 }]
+      for (const line of pageLines) {
+        const y = (start + line.y * sourceMap.heights[index]) / sourceMap.total * 600
+        if (y - previous < 2) continue
+        previous = y
+        lines.push({ y, left: 4 + line.left * 25, right: 4 + line.right * 25 })
+      }
     })
-  }, [sourceMap])
+    return lines
+  }, [sourceMap, overview, pdf])
+  const mapActivities = [
+    ...highlights.flatMap(mark => {
+      const rects = mark.rects.filter(rect => rect.length === 4 && rect.every(Number.isFinite) && rect[2] > 0 && rect[3] > 0)
+      if (!rects.length) return []
+      return [{ key: `mark:${mark.id}`, id: mark.id, kind: 'mark' as const, page: mark.page, frac: clamp(Math.min(...rects.map(rect => rect[1])), 0, 1),
+        end: clamp(Math.max(...rects.map(rect => rect[1] + rect[3])), 0, 1), color: mark.color, label: `Highlight · Page ${mark.page}${mark.text ? ` · ${mark.text.slice(0, 90)}` : ''}` }]
+    }),
+    ...cards.map(card => {
+      const rect = card.rects?.find(rect => rect.length === 5 && rect[0] === card.page && rect.every(Number.isFinite))
+      return { key: `card:${card.id}`, id: card.id, kind: 'card' as const, page: card.page, frac: clamp(rect?.[2] ?? 0, 0, 1),
+        end: clamp((rect?.[2] ?? 0) + (rect?.[4] ?? 0), 0, 1), color: '', label: `${card.kind ? card.kind.charAt(0).toUpperCase() + card.kind.slice(1) : 'Explanation'} · Page ${card.page}${card.text ? ` · ${card.text.slice(0, 90)}` : ''}` }
+    }),
+  ].filter(item => item.page >= 1 && item.page <= (pdf?.numPages ?? 0))
+  const activateActivity = (activity: typeof mapActivities[number]) => {
+    jump(activity.page, activity.frac)
+    onSourceActivate?.({ kind: activity.kind, id: activity.id })
+  }
   const mapPosition = ((sourceMap.starts[visible.page - 1] ?? 0) + visible.frac * (sourceMap.heights[visible.page - 1] ?? 0)) / sourceMap.total
-  const mapJump = (event: React.PointerEvent<SVGSVGElement>) => {
+  const mapJump = (event: React.PointerEvent<SVGGElement>) => {
     const box = event.currentTarget.getBoundingClientRect()
     if (!box.height) return
     const next = pdfSourcePlaceAt(clamp((event.clientY - box.top) / box.height, 0, 1) * sourceMap.total, sourceMap.heights)
@@ -360,8 +406,8 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   }
   return <section className={`pdf-original ${phone ? 'pdf-original--phone' : 'pdf-original--desktop'}`} aria-label="Original PDF pages">
     {error && <p role="alert">{error}</p>}
-    {!phone && pdf && <svg className="pdf-original__minimap" data-testid="pdf-source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none"
-      role="slider" tabIndex={0} aria-label="Original PDF position" aria-valuemin={1} aria-valuemax={pdf.numPages} aria-valuenow={visible.page}
+    {!phone && pdf && <svg className="pdf-original__minimap" data-testid="pdf-source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none" role="group" aria-label="PDF reading overview">
+      <g role="slider" tabIndex={0} aria-label="Original PDF position" aria-valuemin={1} aria-valuemax={pdf.numPages} aria-valuenow={visible.page}
       aria-valuetext={`Page ${visible.page} of ${pdf.numPages}, ${Math.round(visible.frac * 100)}% down the page`}
       onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); mapDrag.current = true; mapJump(event) }}
       onPointerMove={event => { if (mapDrag.current) mapJump(event) }} onPointerUp={() => { mapDrag.current = false }} onPointerCancel={() => { mapDrag.current = false }}
@@ -372,8 +418,23 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
         jump(event.key === 'Home' ? 1 : event.key === 'End' ? pdf.numPages : current + step)
       }}>
       <title>Drag to move through original PDF pages</title>
+      <rect width={34} height={600} fill="transparent" />
       {mapLines.map((line, index) => <line key={index} x1={line.left} x2={line.right} y1={line.y + .5} y2={line.y + .5} className="pdf-original__map-line" />)}
       <rect x={.5} y={mapPosition * 600} width={33} height={Math.max(4, Math.min(600 - mapPosition * 600, viewportHeight / sourceMap.total * 600))} rx={4} className="pdf-original__map-window" />
+      </g>
+      {mapActivities.map(activity => {
+        const y = ((sourceMap.starts[activity.page - 1] ?? 0) + activity.frac * sourceMap.heights[activity.page - 1]) / sourceMap.total * 600
+        const height = Math.max(2.5, (activity.end - activity.frac) * sourceMap.heights[activity.page - 1] / sourceMap.total * 600)
+        return <g key={activity.key} role="button" tabIndex={0} aria-label={activity.label} className={`pdf-original__map-activity pdf-original__map-activity--${activity.kind}`} data-color={activity.color}
+          onPointerDown={event => { event.stopPropagation(); event.preventDefault(); activateActivity(activity) }}
+          onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); activateActivity(activity) } }}>
+          <title>{activity.label}</title>
+          <rect className="pdf-original__map-hit" x={activity.kind === 'mark' ? 2 : 25} y={Math.max(0, y - 3)} width={activity.kind === 'mark' ? 23 : 9} height={Math.max(8, height + 6)} />
+          <rect className="pdf-original__map-ink" x={activity.kind === 'mark' ? 5 : 29} y={y} width={activity.kind === 'mark' ? 21 : 3} height={height} rx={.7} />
+        </g>
+      })}
+
+      <text x={17} y={620} className="pdf-original__map-progress" data-testid="pdf-source-progress" aria-label={`Page ${visible.page} of ${pdf.numPages}`}>{visible.page}/{pdf.numPages}</text>
     </svg>}
     <div className="pdf-original__scroll" ref={scroller} tabIndex={0} onPointerDown={event => { const page = (event.target as Element).closest<HTMLElement>('.pdf-original__page'); if (page && !(event.target as Element).closest('button,input,textarea')) setDragPage(Number(page.dataset.page)) }} onMouseUp={event => { if (!(event.target as Element).closest('button,input,textarea,.source-margin-rail')) select() }} onKeyUp={event => { if (event.key === 'Shift' || event.shiftKey || ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'a')) select() }} onClick={event => {
       if (!onSourceActivate || !(window.getSelection()?.isCollapsed ?? true) || (event.target as Element).closest('button,input,textarea,.source-margin-rail')) return

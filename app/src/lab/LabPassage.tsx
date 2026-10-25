@@ -580,10 +580,13 @@ export function LabPassage({
   const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
+  const appliedSelection = !localSelecting && !!selectingRange && (selectingComparison ? compareHighlights ?? [] : highlights ?? []).some(mark => mark.chapterNumber === chapterNumber
+    && mark.paragraphIndex === selectingRange.paragraphIndex && mark.fromWord === selectingRange.fromWord
+    && mark.endParagraphIndex === selectingRange.endParagraphIndex && mark.toWord === selectingRange.toWord)
   const selectionPaintKey = activeSelecting
     ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
     : ''
-  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey])
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey, appliedSelection], appliedSelection)
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
@@ -1089,7 +1092,7 @@ export function LabPassage({
 
   if (openingOnly) return <div
     ref={articleRef as React.RefObject<HTMLDivElement>}
-    className="lab-opening-passage owns-text-selection"
+    className={`lab-opening-passage owns-text-selection${appliedSelection ? ' has-applied-selection' : ''}`}
     data-chapter-number={chapterNumber}
     data-selection-chapter={selectionChapters ? chapterNumber : undefined}
     tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
@@ -1124,6 +1127,7 @@ export function LabPassage({
         'lab-passage',
         'lab-book',
         'is-reading',
+        appliedSelection ? 'has-applied-selection' : '',
         !hearing && onSelectRange ? 'owns-text-selection' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',

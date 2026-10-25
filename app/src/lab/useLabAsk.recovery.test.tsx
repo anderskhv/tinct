@@ -497,3 +497,21 @@ it('retains source-card identity when saved turns hydrate and reconcile with pen
   const live = [...saved,{id:'pending-a',role:'assistant' as const,content:'Still arriving',timestamp:200,source:'typed' as const,conversationId:'mc_a'}]
   expect(reconcileTurns(live,saved).filter(turn => turn.conversationId === 'mc_a').map(turn => turn.content)).toEqual(['Answer a','Still arriving'])
 })
+
+it('accepts one physical Ask submit while pending and retains a later intentional identical question', async () => {
+  let release!: (response: Response) => void
+  const fetcher = vi.fn(() => new Promise<Response>(resolve => { release = resolve }))
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk({ ...base, conversationId: 'mc_react_1234', sharedReader: true }))
+  let first!: Promise<void>
+  act(() => { first = result.current.sendTyped('Who did the treason?'); void result.current.sendTyped('Who did the treason?') })
+  await vi.waitFor(() => expect(fetcher).toHaveBeenCalledOnce())
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+  await act(async () => { release(ok()); await first })
+  expect(result.current.turns.filter(turn => turn.role === 'user')).toHaveLength(1)
+  fetcher.mockResolvedValueOnce(ok())
+  await act(async () => { await result.current.sendTyped('Who did the treason?') })
+  const questions = result.current.turns.filter(turn => turn.role === 'user')
+  expect(questions).toHaveLength(2)
+  expect(new Set(questions.map(turn => turn.id)).size).toBe(2)
+})

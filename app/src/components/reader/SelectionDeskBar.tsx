@@ -1,4 +1,4 @@
-import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
 import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
@@ -46,7 +46,7 @@ export interface SelectionDeskBarProps {
   onAsk: () => void
   /** Only the private shared reader uses the in-place Ask field. */
   onAskQuestion?: (question: string) => void
-  onComposeAsk?: () => void
+  onComposeAsk?: (initialQuestion?: string) => void
   onExplain: () => void
   onSimplify: () => void
   onMore: (id: DeskMoreId) => void
@@ -135,12 +135,43 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     setQuestion('')
     requestAnimationFrame(() => askButtonRef.current?.focus({ preventScroll: true }))
   }
-  const openAsk = () => {
-    if (props.onComposeAsk) { props.onComposeAsk(); return }
+  const openAsk = (initialQuestion?: string) => {
+    if (props.onComposeAsk) { initialQuestion === undefined ? props.onComposeAsk() : props.onComposeAsk(initialQuestion); return }
     if (!props.onAskQuestion) { props.onAsk(); return }
     setMoreOpen(false)
+    setQuestion(initialQuestion ?? '')
     setAskOpen(true)
   }
+
+  useEffect(() => {
+    if (!props.sharedReader || askOpen || moreOpen || !place || (!props.onAskQuestion && !props.onComposeAsk)) return
+    const available = (target: EventTarget | null) => {
+      const element = target instanceof Element ? target : null
+      if (element?.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"]')) return false
+      // An open note, search, or another dialog owns its keyboard even when
+      // the passage's selection toolbar remains mounted behind it.
+      if (element?.closest('[role="dialog"],dialog') && !ref.current?.contains(element)) return false
+      return ref.current?.style.visibility !== 'hidden'
+    }
+    const type = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.ctrlKey || event.metaKey || event.altKey
+        || Array.from(event.key).length !== 1 || !event.key.trim() || !available(event.target)) return
+      event.preventDefault()
+      event.stopPropagation()
+      openAsk(event.key)
+    }
+    // IME keydowns use Process/229; only the committed composition is text.
+    // Editable targets already receive composition normally and are untouched.
+    const compose = (event: CompositionEvent) => {
+      if (!event.data || !available(event.target)) return
+      event.preventDefault()
+      event.stopPropagation()
+      openAsk(event.data)
+    }
+    window.addEventListener('keydown', type, true)
+    window.addEventListener('compositionend', compose, true)
+    return () => { window.removeEventListener('keydown', type, true); window.removeEventListener('compositionend', compose, true) }
+  }, [props.sharedReader, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
 
   const keep = (event: React.PointerEvent | React.MouseEvent) => event.preventDefault()
   const sep = <span className="lab-pbar-sep" aria-hidden="true" />
@@ -156,7 +187,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   let body: ReactNode
   if (state === 'existing') {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={openAsk}>Ask</button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask</button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
       {more(moreRows)}
@@ -176,7 +207,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={openAsk}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>

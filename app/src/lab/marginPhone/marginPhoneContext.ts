@@ -13,7 +13,7 @@ export interface MarginPhonePills {
   /** ✧ Catch me up is offered: false on the book's first chapter and its front matter (nothing before them to recap). */
   catchUp?: boolean
   /** ✧ Quiz me, at a chapter's end. */
-  onQuiz?: () => void
+  onQuiz?: (anchor?: DOMRect) => void
 }
 
 export const MarginPhoneContext = createContext<MarginPhonePills | null>(null)

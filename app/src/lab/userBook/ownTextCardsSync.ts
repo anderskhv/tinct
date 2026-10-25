@@ -127,7 +127,14 @@ function conversationOf(item: OwnTextCardDraft, hex: string): ChatConversation |
   const anchor = item.anchor.kind === 'range' ? { editionKey: item.anchor.editionKey, chapterNumber,
     paragraphIndex: item.anchor.paragraphIndex, fromWord: item.anchor.fromWord,
     endParagraphIndex: item.anchor.endParagraphIndex, toWord: item.anchor.toWord } : undefined
-  const messages: ChatMessage[] = item.turns.map((turn, index) => ({ id: `${id}:${index}`, role: turn.role, content: turn.content,
+  const candidateIds = item.data?.messageIds
+  const legacyIds = item.turns.map((_, index) => `${id}:${index}`)
+  const proposedIds = Array.isArray(candidateIds) && candidateIds.length === item.turns.length
+    && candidateIds.every(value => value === null || typeof value === 'string' && /^[A-Za-z0-9:_-]{1,200}$/.test(value))
+    ? candidateIds.map((value, index) => value ?? legacyIds[index]) : legacyIds
+  // Explicit IDs must also remain distinct from IDs generated for older turns.
+  const messageIds = new Set(proposedIds).size === proposedIds.length ? proposedIds : legacyIds
+  const messages: ChatMessage[] = item.turns.map((turn, index) => ({ id: messageIds[index], role: turn.role, content: turn.content,
     timestamp: Math.max(item.at + index, turn.at ?? item.at + index), bookId, chapterNumber,
     ...(anchor ? { paragraphIndex: anchor.paragraphIndex } : {}), ...(index === 0 && item.text ? { highlightedText: item.text } : {}) }))
   return { id, bookId, chapterNumber, ...(anchor ? { paragraphIndex: anchor.paragraphIndex } : {}),
@@ -143,7 +150,7 @@ function cardOf(row: ChatConversation, hex: string, edition: UserBookEdition): O
   if (!/^(?:own|own-en|own-da)$/.test(editionKey)) return null
   return ownTextCardDraft({ source: { kind: 'own-text', bookId: userBookId(hex), ownHex: hex, converter: edition.converter, editionKey: editionKey as 'own' | 'own-en' | 'own-da' },
     id: c.id, kind: c.kind as SharedReaderCard['kind'], chapterNumber: c.chapterNumber, ...(c.anchor ? { anchor: c.anchor } : {}),
-    text: c.text, turns: row.messages.filter(m => m.role === 'user' || m.role === 'assistant').map(m => ({ role: m.role as 'user' | 'assistant', content: m.content, at: m.timestamp })),
+    text: c.text, turns: row.messages.filter(m => m.role === 'user' || m.role === 'assistant').map(m => ({ id: m.id, role: m.role as 'user' | 'assistant', content: m.content, at: m.timestamp })),
     data: c.data, at: c.at, u: c.u })
 }
 

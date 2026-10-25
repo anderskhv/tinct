@@ -1131,3 +1131,21 @@ describe('lookup status in the pending row', () => {
     expect(rule).not.toMatch(/mono/i)
   })
 })
+
+
+describe('Chat embedded in the mobile reader card', () => {
+  it('labels historical replies by their own chapter and shows the current composer context', () => {
+    render(<LabAskPane
+      conversationState="idle" voiceActive={false} typedLoading={false}
+      turns={[{ id: 'prior', role: 'assistant', content: 'Ben Sira describes friendship.', source: 'typed', chapterNumber: 1309 }]}
+      chapterLabels={{ 1309: 'Sirach 40', 652: 'Proverbs 24' }}
+      embeddedPhoneCard composerPlaceholder="Ask about Proverbs 24…"
+      draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()}
+    />)
+    expect(screen.getByTestId('lab-ask-pane').className).toContain('is-phone-card-chat')
+    expect(screen.getByTestId('lab-ask-initial-location').textContent).toBe('Sirach 40')
+    expect(screen.getByPlaceholderText('Ask about Proverbs 24…')).toBe(screen.getByTestId('lab-ask-input'))
+    expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Ben Sira')
+    expect(document.querySelector<HTMLElement>('.tc-spacer')?.style.height).toBe('0px')
+  })
+})
