@@ -1062,7 +1062,16 @@ async function revealKeepsPage(engine,name,phone) {
     result.passed=true
   } catch(error) {
     result.passed=false;result.error=error.stack
-    if(state)await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    if(state) {
+      // A render failure can remove lab-root after a successful boot. Retain the already captured exception
+      // and request evidence rather than reporting only the later missing-root locator timeout.
+      result.diagnostic={
+        url:state.page.isClosed()?'(page closed)':state.page.url(),
+        errors:[...state.errors],networkFailures:[...state.networkFailures],warnings:state.warnings.slice(-8),
+        ui:await visibleText(state.page,3500),
+      }
+      await state.page.screenshot({path:output+'/'+name+'-'+result.layout+'-failure.png'}).catch(()=>{})
+    }
   } finally {await browser.close();results.push(result)}
 }
 

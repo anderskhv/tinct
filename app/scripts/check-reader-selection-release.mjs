@@ -67,6 +67,24 @@ try {
           await page.waitForFunction(()=>!document.querySelector('.lab')?.dataset.readingScroll)
           await words.first().waitFor()
         }
+        // Font rasterization differs across CI hosts. Find an actual line boundary
+        // in the rendered source instead of assuming one viewport puts “both.”
+        // after “than”. The assertions below still require the wrapped geometry.
+        if (wrapped) {
+          let found = false
+          for (const width of [1320, ...Array.from({length: 151}, (_, index) => 1120 + index * 4)]) {
+            await page.setViewportSize({width, height:1100})
+            await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+            const boundary = await words.evaluateAll(nodes => {
+              const friend = nodes.findIndex(node => node.textContent.toLowerCase().replace(/[^a-z]/g, '') === 'friend')
+              const index = nodes.findIndex((node, index) => index > friend && node.textContent.toLowerCase().replace(/[^a-z]/g, '') === 'both')
+              return index > 0 && nodes[index].getBoundingClientRect().y > nodes[index - 1].getBoundingClientRect().y + 5
+            })
+            if (boundary) { found = true; break }
+          }
+          assert(found, 'rendered Sirach fixture has a viewport where both begins the next line')
+          await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
+        }
         const source = await words.evaluateAll(nodes => nodes.map(node => ({ text:node.textContent, p:Number(node.dataset.paragraphIndex), w:Number(node.dataset.wordIndex), rect:node.getBoundingClientRect().toJSON() })))
         const friend = source.findIndex(word => word.text.toLowerCase().replace(/[^a-z]/g, '') === 'friend')
         const start = source.findIndex((word,index)=>index>friend&&word.text.toLowerCase().replace(/[^a-z]/g,'')==='always')
