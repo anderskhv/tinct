@@ -20,8 +20,9 @@ const originalBytes = makePdf({ pages: [
 ], outline: [{ title: 'Chapter One', page: 1 }, { title: 'Scans', page: 3 }] })
 // Imported source only: no embedded outline and no persisted scan metadata.
 const freshDiscoveryBytes=makePdf({pages:[1,2].map(n=>({lines:[
-  {x:72,y:735,size:20,text:n===1?'1 Introduction':'2 Consequences'},
-  ...Array.from({length:12},(_,line)=>({x:72,y:680-line*25,size:12,text:`Source paragraph ${line+1} preserves the complete printed argument and its original supporting evidence.`})),
+  ...(n===1?[{x:72,y:755,size:24,text:'An argument about knowledge'},...Array.from({length:3},(_,line)=>({x:72,y:700-line*24,size:12,text:'This opening paragraph introduces the argument and establishes its printed source context.'}))]:[]),
+  {x:72,y:n===1?580:735,size:20,text:n===1?'1 Introduction':'2 Consequences'},
+  ...Array.from({length:12},(_,line)=>({x:72,y:(n===1?530:680)-line*25,size:12,text:`Source paragraph ${line+1} preserves the complete printed argument and its original supporting evidence.`})),
 ]}))})
 const denseBytes = makePdf({ pages: [
   { lines: Array.from({ length: 80 }, (_, index) => ({ x: 72, y: 750 - index * 9, size: 8,
@@ -531,8 +532,14 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert.equal(await page.getByRole('dialog',{name:'Reader menu',exact:true}).count(),0,'PDF reuses the normal reader menu')
     assert.equal(await page.getByTestId('lab-super-row-text').locator('.lab-super-row-label').innerText(),'Appearance')
     assert.equal(await page.getByTestId('lab-super-row-notebook').count(),0,'desktop Notebook is only in its toolbar')
+    await fs.mkdir('/tmp/tinct-pdf-normal-menu',{recursive:true})
+    await page.screenshot({path:`/tmp/tinct-pdf-normal-menu/${name}-menu.png`})
+    await page.getByTestId('lab-super-row-text').click()
+    await page.screenshot({path:`/tmp/tinct-pdf-normal-menu/${name}-appearance.png`})
+    await page.getByRole('button',{name:'Close panel',exact:true}).click()
+    await page.getByTestId('lab-super').click()
     await page.getByTestId('lab-super-row-chat').click()
-    const menuChat=page.locator('[data-testid="source-margin-item"].is-open').locator('textarea').first()
+    const menuChat=page.locator('[data-testid="source-margin-item"].is-open #pdf-question')
     await menuChat.waitFor()
     assert(await menuChat.evaluate(node=>document.activeElement===node),'PDF menu Chat is immediately ready to type')
     await page.keyboard.press('Escape')
@@ -801,7 +808,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       .find(call => call.messages?.[0]?.content === 'Summarize Chapter One.')
     assert(recapCall, 'finished unit sends an actual Recap request')
     assert.deepEqual(recapCall.companion.context.pages, [
-      { n: 1, text: 'First original page with selectable source words.' },
+      { n: 1, text: 'Chapter One  First original page with selectable source words.' },
       { n: 2, text: 'Second original page has its own spoken words.' },
     ], 'Recap carries complete cited source pages 1 and 2, not only the current page')
     assert.equal(recapCall.companion.context.pageNumber, 2)
