@@ -13,11 +13,17 @@ import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, 
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
 const originalBytes = makePdf({ pages: [
-  { lines: [{ x: 72, y: 700, size: 20, text: 'First original page with selectable source words.' }] },
+  { lines: [{ x: 72, y: 740, size: 24, text: 'Chapter One' },{ x: 72, y: 700, size: 20, text: 'First original page with selectable source words.' }] },
   { lines: [{ x: 72, y: 700, size: 20, text: 'Second original page has its own spoken words.' }] },
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
 ], outline: [{ title: 'Chapter One', page: 1 }, { title: 'Scans', page: 3 }] })
+// Imported source only: no embedded outline and no persisted scan metadata.
+const freshDiscoveryBytes=makePdf({pages:Array.from({length:6},(_,index)=>{const n=index+1;return {lines:[
+  ...(n===1?[{x:72,y:755,size:24,text:'An argument about knowledge'},...Array.from({length:3},(_,line)=>({x:72,y:700-line*24,size:12,text:'This opening paragraph introduces the argument and establishes its printed source context.'}))]:[]),
+  ...(n===1||n===4?[{x:72,y:n===1?580:735,size:20,text:n===1?'1 Introduction':'2 Consequences'}]:[]),
+  ...Array.from({length:n===1?20:28},(_,line)=>({x:72,y:(n===1?530:n===4?680:735)-line*20,size:12,text:`Source paragraph ${line+1} preserves the complete printed argument and its original supporting evidence for careful reading.`})),
+]}})})
 const denseBytes = makePdf({ pages: [
   { lines: Array.from({ length: 80 }, (_, index) => ({ x: 72, y: 750 - index * 9, size: 8,
     text: `Dense original page line ${index + 1}. ${'source '.repeat(9)}` })) },
@@ -329,7 +335,10 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     el.scrollTop = Math.max(sheet.offsetTop, sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2)
     el.dispatchEvent(new Event('scroll', { bubbles: true }))
   }, number)
-  const openNotebook = async () => { await page.getByTestId('lab-super').click(); await page.getByRole('dialog', { name: 'Reader menu', exact: true }).getByRole('button', { name: 'Notebook', exact: true }).click() }
+  const openNotebook = async () => {
+    if(await page.getByTestId('lab-header-notebook').isVisible())await page.getByTestId('lab-header-notebook').click()
+    else {await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()}
+  }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
@@ -457,6 +466,21 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       db.close()
     }, { hex, owner, fileId, book, bytes: [...bytes], scanFailure:sourceBytes===conversionScanBytes })
     await page.goto(`${origin}/reader?userBook=${hex}&sharedReader=1&pages=1`, { waitUntil: 'domcontentloaded' })
+    assert.equal(await page.title(),'Tinct','reader browser tab has the product name')
+    if(sourceBytes===freshDiscoveryBytes){
+      await page.locator('.pdf-original__page[data-page="1"] canvas').waitFor()
+      const before=await page.locator('.pdf-original__scroll').evaluate(el=>el.scrollTop)
+      await page.waitForFunction(()=>document.querySelector('.lab-header-chapter')?.textContent.includes('Introduction'),null,{timeout:45000}).catch(async error=>{console.error('FRESH_DISCOVERY_DIAGNOSTIC',JSON.stringify({errors,consoleErrors,ui:await page.locator('body').innerText(),stored:await page.evaluate(async hex=>{const db=await new Promise(resolve=>{const r=indexedDB.open('tinct-addbook',1);r.onsuccess=()=>resolve(r.result)});return new Promise(resolve=>{const r=db.transaction('books').objectStore('books').get(`pdf:${hex}`);r.onsuccess=()=>{const item=r.result;resolve({scan:item?.scan,scanOutline:item?.scanOutline});db.close()}})},hex)}));throw error})
+      assert.equal(await page.locator('.pdf-original__scroll').evaluate(el=>el.scrollTop),before,'fresh local chapter discovery preserves the initial PDF place')
+      await page.getByRole('button',{name:'Contents',exact:true}).click()
+      await page.getByTestId('lab-toc').waitFor()
+      assert.match(await page.getByTestId('lab-toc').innerText(),/Introduction/)
+      assert.match(await page.getByTestId('lab-toc').innerText(),/Consequences/)
+      assert.deepEqual(errors,[],'fresh heading discovery has no reader exceptions')
+      assert.deepEqual(denied,[],'fresh heading discovery sends no external requests')
+      console.log(`${name}: source-only PDF discovers chapters locally without changing its initial place`)
+      return
+    }
     if (process.env.PDF_CONVERSION_PARITY === '1') {
       await conversionParity(page,hex,sourceBytes!==conversionScanBytes,process.env.PDF_CONVERSION_OUTPUT || '/tmp/tinct-pdf-conversion',documentUrls)
       assert.deepEqual(errors,[],'conversion has no uncaught reader errors');assert.deepEqual(denied,[],'conversion fixture sends no external traffic')
@@ -503,6 +527,22 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.locator('[data-pdf-original="true"] .pdf-original__text').getByText('First original page with selectable source words.').waitFor({ timeout: 45000 })
     assert.equal(await page.locator('[data-pdf-original="true"]').count(), 1)
     assert.equal(await page.locator('iframe[data-testid="margin-preview-frame"]').count(), 0)
+    await page.getByTestId('lab-super').click()
+    await page.getByTestId('lab-super-menu').waitFor()
+    assert.equal(await page.getByRole('dialog',{name:'Reader menu',exact:true}).count(),0,'PDF reuses the normal reader menu')
+    assert.equal(await page.getByTestId('lab-super-row-text').locator('.lab-super-row-label').innerText(),'Appearance')
+    assert.equal(await page.getByTestId('lab-super-row-notebook').count(),0,'desktop Notebook is only in its toolbar')
+    await fs.mkdir('/tmp/tinct-pdf-normal-menu',{recursive:true})
+    await page.screenshot({path:`/tmp/tinct-pdf-normal-menu/${name}-menu.png`})
+    await page.getByTestId('lab-super-row-text').click()
+    await page.screenshot({path:`/tmp/tinct-pdf-normal-menu/${name}-appearance.png`})
+    await page.getByRole('button',{name:'Close panel',exact:true}).click()
+    await page.getByTestId('lab-super').click()
+    await page.getByTestId('lab-super-row-chat').click()
+    const menuChat=page.locator('[data-testid="source-margin-item"].is-open #pdf-question')
+    await menuChat.waitFor()
+    assert(await menuChat.evaluate(node=>document.activeElement===node),'PDF menu Chat is immediately ready to type')
+    await page.keyboard.press('Escape')
     if (name === 'chromium') {
       const before = await page.locator('.pdf-original__scroll').evaluate(el => el.scrollTop)
       await page.getByTestId('lab-header-book').click()
@@ -572,7 +612,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.waitForFunction(() => document.querySelector('.pdf-original-reader')?.classList.contains('is-phone') === matchMedia('(max-width:700px)').matches)
         const direct = page.getByRole('button', { name: 'Appearance', exact: true })
         if (await direct.isVisible()) await direct.click()
-        else { await page.getByTestId('lab-super').click(); await page.getByRole('button', { name: 'Aa · Appearance', exact: true }).click() }
+        else { await page.getByTestId('lab-super').click(); await page.getByTestId('lab-super-row-text').click() }
         await page.getByTestId(`lab-v2-theme-${theme}`).click()
         if (visual) await page.screenshot({ path: path.join(visual, `pdf-appearance-${theme}.png`) })
         await page.getByRole('button', { name: 'Close panel' }).click()
@@ -658,8 +698,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await chooseAppearance('light')
       console.log('chromium: PDF desktop 1440/1100 light/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
     }
-    await page.getByTestId('lab-super').click()
-    await page.getByRole('button', { name: 'Primer · Chapter One' }).click()
+    await page.locator('.pdf-original__scroll').evaluate(el=>{el.scrollTop=0;el.dispatchEvent(new Event('scroll',{bubbles:true}))})
+    const primer=page.locator('[data-testid="pdf-heading-actions"]').first().getByRole('button',{name:'Primer',exact:true})
+    await primer.focus();await primer.click()
     await page.getByText('These printed pages introduce an original argument.').waitFor()
     if (visual) await page.screenshot({ path: path.join(visual, 'pdf-original-primer.png') })
     assert.equal(await page.getByText('Key claims').count(), 1, 'structured Primer is rendered as sections')
@@ -677,8 +718,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert(companionCalls.some(call => call.intent === 'define' && call.context.bookTitle === book.title && call.context.bookAuthor === book.author),
       'selection Define uses owned display metadata')
     await page.keyboard.press('Escape')
-    await page.getByTestId('lab-super').click()
-    await page.getByRole('dialog', { name: 'Reader menu' }).getByRole('button', { name: 'Listen', exact: true }).click()
+    await page.getByRole('button', { name: 'Listen', exact: true }).click()
     for (let i = 0; i < 30 && !calls.some(call => call.path === '/api/narration/own/ensure'); i++) await page.waitForTimeout(100)
     assert(calls.some(call => call.path === '/api/narration/own/ensure'), 'Grok own-book narration path was requested')
     if (narrationSuccess) {
@@ -768,7 +808,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       .find(call => call.messages?.[0]?.content === 'Summarize Chapter One.')
     assert(recapCall, 'finished unit sends an actual Recap request')
     assert.deepEqual(recapCall.companion.context.pages, [
-      { n: 1, text: 'First original page with selectable source words.' },
+      { n: 1, text: 'Chapter One  First original page with selectable source words.' },
       { n: 2, text: 'Second original page has its own spoken words.' },
     ], 'Recap carries complete cited source pages 1 and 2, not only the current page')
     assert.equal(recapCall.companion.context.pageNumber, 2)
@@ -857,7 +897,11 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   } finally { await context.close(); await browser.close() }
 }
 try {
-  if (process.env.PDF_CONVERSION_PARITY === '1') { await run('chromium-conversion',chromium,false,conversionBytes); await run('chromium-conversion-scan',chromium,false,conversionScanBytes) }
+  if(process.env.PDF_FRESH_DISCOVERY==='1') {
+    await run('chromium-fresh-discovery',chromium,false,freshDiscoveryBytes)
+    if(process.env.PDF_ORIGINAL_WEBKIT==='1')await run('webkit-fresh-discovery',webkit,false,freshDiscoveryBytes)
+  }
+  else if (process.env.PDF_CONVERSION_PARITY === '1') { await run('chromium-conversion',chromium,false,conversionBytes); await run('chromium-conversion-scan',chromium,false,conversionScanBytes) }
   else if (process.env.PDF_SOURCE_PARITY === '1') await run('chromium-parity', chromium, false, parityBytes)
   else {
   await run('chromium', chromium)

@@ -18,7 +18,7 @@ import { CURRENT_CONVERTER, EDITION_CONVERTERS, LEGACY_EDITION_CONVERTER, USER_E
 import { adoptOcrEditionChoice, applyPhoneOpenRule, keptPdfPrimerKind, pdfEditionChoice, pdfEditionUntold, phoneNow, readPdfTextPlace } from './pdfEditions'
 import type { EpubView } from './epubView'
 import { ocrDefaultEdition } from './ocrEdition'
-import type { ConvertedPdf } from './pdfEdition'
+import type { ConvertedPdf, PdfScan } from './pdfEdition'
 import { healUserEdition } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
@@ -164,6 +164,26 @@ export async function readOwnedPdfScanEntries(hex: string, owner: string): Promi
       ...(entry.parent !== undefined ? { parent: entry.parent as string | null } : {}) })
   }
   return { entries, nav: ['outline', 'contents', 'headings'].includes(String(scan.nav)) ? String(scan.nav) : 'pages', pages }
+}
+
+/** Cache discovered navigation only for the same owned source generation. */
+export async function cacheOwnedPdfScan(hex: string, owner: string, scan: PdfScan, expectedFileId: string | null): Promise<void> {
+  if (userBookOwner() !== owner) return
+  const db = await openDb()
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE, 'readwrite'), store = tx.objectStore(STORE)
+      const request = store.get('pdf:' + hex)
+      request.onsuccess = () => {
+        const record = request.result as UserBookRecord | undefined
+        if (userBookOwner() !== owner || record?.kind !== 'pdf' || record.owner !== owner || (record.cloudId || null) !== expectedFileId) return
+        store.put({ ...record, scan, pages: scan.pages })
+      }
+      tx.oncomplete = () => resolve()
+      tx.onerror = () => reject(tx.error)
+      tx.onabort = () => reject(tx.error)
+    })
+  } finally { db.close() }
 }
 
 /** Only a real converted PDF/OCR edition enables the Original→Tinct text switch. */

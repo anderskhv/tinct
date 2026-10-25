@@ -6,6 +6,8 @@ export interface LabSuperMenuProps {
   /** The phone's margin mode on a book's first chapter or its front matter: no Catch me up (labSuperMenuRows). */
   noCatchUp?: boolean
   open: boolean
+  /** Source adapters can omit actions unavailable for their document. */
+  rows?: LabSuperMenuRow[]
   phone?: boolean
   /** A reader's own book: the rows that apply to it only. */
   privateBook?: boolean
@@ -63,7 +65,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
-  // Aa: a small and a large A (the row's own name is Aa).
+  // Appearance keeps the familiar small and large A icon.
   if (id === 'text') {
     return (
       <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" data-icon="text-size">
@@ -105,7 +107,7 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
  * is never blurred — the reader must be able to read the words behind the
  * panel — so the blur lives on the panel's own backdrop.
  */
-export function LabSuperMenu({ open, phone, privateBook, ownPdf, sharedReader, noCatchUp, profileDot, onSelect, onClose }: LabSuperMenuProps) {
+export function LabSuperMenu({ rows: suppliedRows, open, phone, privateBook, ownPdf, sharedReader, noCatchUp, profileDot, onSelect, onClose }: LabSuperMenuProps) {
   const layerRef = useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     const layer = layerRef.current
@@ -132,7 +134,7 @@ export function LabSuperMenu({ open, phone, privateBook, ownPdf, sharedReader, n
   }, [open, onClose])
 
   if (!open) return null
-  const rows: LabSuperMenuRow[] = labSuperMenuRows({ phone, privateBook, ownPdf, noCatchUp, sharedReader })
+  const rows: LabSuperMenuRow[] = suppliedRows ?? labSuperMenuRows({ phone, privateBook, ownPdf, noCatchUp, sharedReader })
 
   return (
     <div ref={layerRef} className="lab-super-layer" data-testid="lab-super-layer">

@@ -326,15 +326,14 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   expect(screen.getByRole('navigation', { name: 'Chapters' })).toBeTruthy()
   expect(screen.getByRole('button', { name: 'Chapter Two, unread' })).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: 'Back to book' }))
-  fireEvent.click(screen.getByTestId('lab-super'))
-  fireEvent.click(screen.getByText('Primer · Chapter One'))
+  fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
   expect(await screen.findByText('These pages introduce the central argument.')).toBeTruthy()
   expect(screen.getByText('Key claims')).toBeTruthy()
   expect(screen.getByText('Keep in mind')).toBeTruthy()
   expect(screen.queryByText(structuredPrimer)).toBeNull()
   const primer = askUnit.mock.calls[0][0]
   expect(primer).toEqual({ unit: { key: 'outline-1', title: 'Chapter One', from: 11, to: 30 },
-    atPage: 14, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })) })
+    atPage: 11, anchor: {page:11,frac:.1}, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })) })
   expect(saveUnitCard).toHaveBeenCalledWith(primer, 'primer', structuredPrimer)
   fireEvent.keyDown(window, { key: 'Escape' })
   fireEvent.click(screen.getByTestId('lab-super'))
@@ -357,8 +356,7 @@ it('does not send or save a Primer when a later required page exceeds the full-p
   }
   render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
   fireEvent.click(screen.getByText('Open outlined page 14'))
-  fireEvent.click(screen.getByTestId('lab-super'))
-  fireEvent.click(screen.getByText('Primer · Chapter One'))
+  fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
   expect(await screen.findByText('These pages contain more text than this action can safely send.')).toBeTruthy()
   expect(askUnit).not.toHaveBeenCalled()
   expect(saveUnitCard).not.toHaveBeenCalled()
@@ -788,4 +786,30 @@ it('keeps the page footer on paged phone PDFs', () => {
   expect(screen.getByRole('navigation', { name: 'Page' })).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: 'Next PDF page' }))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('2')
+})
+
+
+it('uses the normal grouped PDF menu and routes settings without duplicate desktop Notebook', () => {
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async()=>new ArrayBuffer(4)} onVisiblePlace={()=>{}} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  const menu = screen.getByRole('navigation',{name:'Menu'})
+  expect([...menu.querySelectorAll('.lab-super-row-label')].map(node=>node.textContent)).toEqual(['Chat','Summarize','Appearance','Book settings','Profile'])
+  expect(menu.querySelector('.is-pair')).toBeTruthy()
+  expect(screen.queryByRole('dialog',{name:'Reader menu'})).toBeNull()
+  expect(screen.getByTestId('lab-header-notebook')).toBeTruthy()
+  expect(screen.queryByTestId('lab-super-row-notebook')).toBeNull()
+  expect(screen.queryByTestId('lab-super-row-talk')).toBeNull()
+  expect(screen.queryByTestId('lab-super-row-audio')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super-row-text'))
+  expect(screen.getByRole('dialog',{name:'Appearance'})).toBeTruthy()
+  expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+})
+
+it('retains Notebook in the normal phone PDF menu because its header has no Notebook button', () => {
+  vi.stubGlobal('matchMedia',vi.fn(()=>({matches:true,addEventListener:vi.fn(),removeEventListener:vi.fn()})))
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async()=>new ArrayBuffer(4)} onVisiblePlace={()=>{}} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  expect(screen.queryByTestId('lab-header-notebook')).toBeNull()
+  fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
+  expect(screen.getByRole('dialog',{name:'Notebook'})).toBeTruthy()
 })

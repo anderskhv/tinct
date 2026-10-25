@@ -111,8 +111,14 @@ export const PREMIUM_PAGE=`/sign-in?mode=account&returnTo=${encodeURIComponent('
 const premiumForEntry=()=>pasteEnabled()?`/sign-in?mode=account&returnTo=${encodeURIComponent(pasteShelf())}`:PREMIUM_PAGE;
 let access=null;
 /** Whether this account may add books: true, false, or null when it cannot be told (asked once per account). */
-export function canAdd(){
- if(!access){access=addEngine().then(api=>api.canAdd?api.canAdd():null).catch(()=>null);access.then(value=>{if(value===null)access=null;});}
+export function canAdd(load=addEngine){
+ if(!access){
+  const pending=load().then(api=>api.canAdd?api.canAdd():null).catch(()=>null);
+  access=pending;
+  // A cold/expired session or a recently upgraded account must get a fresh
+  // entitlement check on its next click, not a page-long cached denial.
+  pending.then(value=>{if(value!==true&&access===pending)access=null;});
+ }
  return access;
 }
 /** Forget the answer (the reader signed in or out). */

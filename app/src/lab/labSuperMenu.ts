@@ -25,14 +25,14 @@ export interface LabSuperMenuRow {
  * The settings groups, one model for every surface (Anders, 22 Oct 2026): the book reader's t menu and sheet
  * (LabSuperMenu.tsx, LabV2Sheet.tsx: `id`, and the sheet layer it opens) and the margin reader's
  * (public/lab/addbook/js/reader.js MENU_LABEL: `frame`). labSuperMenu.test.ts holds reader.js to these names.
- * - Aa: font, size, alignment, spacing, margins, theme and eligible desktop layouts
+ * - Appearance: font, size, alignment, spacing, margins, theme and eligible desktop layouts
  *   (Margin, Two-page, Compare). The desktop margin reader has its own top-bar Aa button.
  * - Book settings: main and compare version, a play's layout, or a PDF's Original pages
  *   (whichever source choices apply to the book).
  * - Audio settings: voice, speed, audiobook version.
  */
 export const LAB_SETTINGS_GROUPS = [
-  { id: 'text', frame: 'aa', layer: 'reading', label: 'Aa' },
+  { id: 'text', frame: 'aa', layer: 'reading', label: 'Appearance' },
   { id: 'editions', frame: 'book', layer: 'editions', label: 'Book settings' },
   { id: 'audio', frame: 'audio', layer: 'audio', label: 'Audio settings' },
 ] as const satisfies ReadonlyArray<{ id: LabSuperMenuId; frame: string; layer: string; label: string }>
@@ -65,7 +65,7 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
  */
 export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false, sharedReader = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
-  /** Private shared desktop reader exposes its Notebook beside the named settings. */
+  /** Shared source identity; Notebook uses its dedicated desktop button. */
   sharedReader?: boolean
   /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
   noCatchUp?: boolean
@@ -75,7 +75,6 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
     { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
-    ...(sharedReader ? [{ id: 'notebook' as const, label: LAB_NOTEBOOK_LABEL }] : []),
     ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },

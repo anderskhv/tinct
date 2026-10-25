@@ -71,12 +71,8 @@ try {
       const follow = item.getByTestId('lab-phone-card-input')
       await follow.fill('A draft kept beside this source.')
       await follow.press('Escape')
-      assert.equal(await follow.inputValue(), 'A draft kept beside this source.', 'Escape preserves the follow-up draft')
-      assert.equal(await follow.evaluate(node => document.activeElement === node), false, 'first Escape releases typing focus')
-      assert.equal(await item.getAttribute('data-open'), 'true', 'first Escape leaves the source card open')
-      await page.keyboard.press('Escape')
       const escaped = host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`)
-      assert.equal(await escaped.getAttribute('data-open'), 'false', 'second Escape minimises the card')
+      assert.equal(await escaped.getAttribute('data-open'), 'false', 'one Escape folds the card while typing')
       await escaped.getByTestId('source-margin-open').click()
       assert.equal(await follow.inputValue(), 'A draft kept beside this source.', 'reopening preserves the draft')
       longAnswer = true
@@ -237,17 +233,29 @@ try {
         const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
         return at?.chapterNumber === 2 && (at.paragraphIndex > 0 || at.wordIndex > 0)
       })
+      // End first writes the requested final word; the source tracker then
+      // commits the visible top word when the short chapter clamps its scroll.
+      // Verify the physical end and final paragraph, not the transient requested endpoint.
+      await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
+      await page.waitForTimeout(600)
+      const physicalEnd = () => host.evaluate(node => ({scroll:node.scrollTop,height:node.scrollHeight,viewport:node.clientHeight,last:[...node.querySelectorAll('[data-testid="lab-word"]')].at(-1)?.getBoundingClientRect().toJSON()}))
+      const endBeforeKeys = await physicalEnd()
       const chapterEnd = await biblePlace()
       await chapterMap.press('ArrowDown'); await chapterMap.press('PageDown')
+      await settlePaint(page)
       assert.equal(await root.getAttribute('data-chapter'), '2', 'forward keys cannot leave the Bible chapter')
-      assert.equal(await biblePlace(), chapterEnd, 'forward keys clamp at the final source word')
+      await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
+      await page.waitForTimeout(600)
+      const endAfterKeys = await physicalEnd()
+      observations.push({ layout: 'bible-chapter-end', chapterEnd, after: await biblePlace(), endBeforeKeys, endAfterKeys })
+      assert.deepEqual(endAfterKeys,endBeforeKeys,'forward keys retain the physical chapter end and visible source ink')
+      assert.match(await biblePlace(), /^2\/4:\d+$/, 'forward keys retain a source in the final chapter paragraph')
       const mapBox = await chapterMap.boundingBox()
       assert(mapBox)
       await page.mouse.click(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height - 1)
-      await page.waitForFunction(end => {
-        const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis
-        return at && `${at.chapterNumber}/${at.paragraphIndex}:${at.wordIndex}` === end
-      }, chapterEnd)
+      await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
+      await page.waitForTimeout(600)
+      assert.deepEqual(await physicalEnd(), endBeforeKeys, 'bottom map click retains the same physical end and visible source')
       await chapterMap.focus(); await chapterMap.press('Home')
       await page.waitForFunction(() => {
         const at = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.genesis

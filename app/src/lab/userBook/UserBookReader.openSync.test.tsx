@@ -14,10 +14,13 @@ const sync = vi.hoisted(() => ({
   localFileId: null as Promise<string | null> | null,
   pdfText: null as Promise<boolean> | null,
   scan: null as Promise<null> | null,
+  discovered: null as Promise<unknown> | null,
+  discovery: vi.fn(),
 }))
 
 vi.mock('../LabApp', () => ({ LabApp: ({ userBook, marginPhone }: { userBook: { bookId: string; storedCover?: string | null }; marginPhone?: boolean }) =>
   <div data-testid="opened-book" data-cover={userBook.storedCover ?? ''} data-margin-phone={marginPhone ? 'yes' : 'no'}>{userBook.bookId}</div> }))
+vi.mock('./pdfOriginalHeadings', () => ({ discoverOriginalPdfHeadings: (...args: unknown[]) => { sync.discovery(...args); return sync.discovered ?? Promise.resolve(null) } }))
 vi.mock('./userBookSource', () => ({ registerUserBook: sync.published }))
 vi.mock('./userBookStore', () => ({
   openUserBook: vi.fn(), readOwnedBookFileId: vi.fn(() => sync.localFileId ?? Promise.resolve(fileId)),
@@ -29,8 +32,8 @@ vi.mock('./pdfOriginalPlace', () => ({
   readPdfOriginalZoom: () => 1, notePdfOriginalZoom: vi.fn(),
 }))
 vi.mock('./usePdfOriginalServices', () => ({ usePdfOriginalServices: () => null }))
-vi.mock('../sharedReader/pdf/PdfOriginalReaderShell', () => ({ PdfOriginalReaderShell: ({ title, onOpenText, textAvailable, textBusy, textError }: { title: string; onOpenText?: (place:{page:number;frac:number})=>void; textAvailable?:boolean; textBusy?:boolean; textError?:string }) =>
-  <div data-testid="original-pages" data-text={textAvailable ? 'yes' : 'no'}>{title}<button disabled={textBusy} onClick={()=>onOpenText?.({page:4,frac:.6})}>Convert fixture</button>{textError && <p role="status">{textError}</p>}</div> }))
+vi.mock('../sharedReader/pdf/PdfOriginalReaderShell', () => ({ PdfOriginalReaderShell: ({ title, onOpenText, textAvailable, textBusy, textError, scanOutline, initialPlace }: { scanOutline?: {entries:Array<{label:string;page:number}>}|null; initialPlace?: {page:number;frac:number}|null; title: string; onOpenText?: (place:{page:number;frac:number})=>void; textAvailable?:boolean; textBusy?:boolean; textError?:string }) =>
+  <div data-testid="original-pages" data-scan={JSON.stringify(scanOutline)} data-source-place={JSON.stringify(initialPlace)} data-text={textAvailable ? 'yes' : 'no'}>{title}<button disabled={textBusy} onClick={()=>onOpenText?.({page:4,frac:.6})}>Convert fixture</button>{textError && <p role="status">{textError}</p>}</div> }))
 vi.mock('./ownBookMetadata', () => ({
   currentOwnBookMetadata: vi.fn(() => sync.metadata ?? Promise.resolve({ id: fileId, type: 'epub', title: '', author: '', name: '', metadataRev: 0 })),
   withOwnBookMetadata: (book: unknown) => book,
@@ -70,7 +73,7 @@ function book():LoadedUserBook {
     edition: { format: 'tinct-user-edition-v1', converter: 7, title: 'Private Book', author: '', language: 'en', droppedImages: 0,
       chapters: [{ number: 1, title: 'One', paragraphs: ['This private chapter is ready.'] }] } }
 }
-afterEach(() => { cleanup(); sync.pending.clear(); sync.started.length = 0; sync.disposed.length = 0; sync.published.mockClear(); sync.migration = null; sync.metadata = null; sync.localFileId = null; sync.pdfText = null; sync.scan = null; localStorage.clear(); window.history.replaceState(null, '', '/') })
+afterEach(() => { cleanup(); sync.pending.clear(); sync.started.length = 0; sync.disposed.length = 0; sync.published.mockClear(); sync.migration = null; sync.metadata = null; sync.localFileId = null; sync.pdfText = null; sync.scan = null; sync.discovered = null; sync.discovery.mockClear(); localStorage.clear(); window.history.replaceState(null, '', '/') })
 
 it('starts both owner-qualified requests together, waits for both, and rejects a late old-owner completion', async () => {
   const aMarks = deferred(), aCards = deferred(), bMarks = deferred(), bCards = deferred()
@@ -236,4 +239,20 @@ it('does not navigate when a conversion completes after leaving the reader',asyn
   view.unmount()
   await act(async()=>{finish({ok:true,book:book()})})
   expect(forward).not.toHaveBeenCalled()
+})
+
+it('paints original pages before fresh headings resolve, then supplies them without changing the source place', async () => {
+  window.history.replaceState(null, '', `/reader?userBook=${hex}&pages`)
+  let finish!: (value: unknown) => void
+  sync.discovered = new Promise(resolve => { finish = resolve })
+  render(<UserBookReader hex={hex} owner="account-a" sharedReader open={vi.fn()} />)
+  const pages = await screen.findByTestId('original-pages')
+  const before = pages.getAttribute('data-source-place')
+  expect(before).toBe(JSON.stringify({ page: 3, frac: .2 }))
+  await waitFor(() => expect(sync.discovery).toHaveBeenCalledOnce())
+  const headings = { pages: 40, nav: 'headings', entries: [{ id: 'intro', label: '1. Introduction', page: 1 }, { id: 'motives', label: '2. Motivations', page: 7 }] }
+  expect(pages.getAttribute('data-scan')).toBe('null')
+  await act(async () => finish(headings))
+  expect(JSON.parse(pages.getAttribute('data-scan')!)).toEqual(headings)
+  expect(pages.getAttribute('data-source-place')).toBe(before)
 })

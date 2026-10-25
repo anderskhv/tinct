@@ -266,7 +266,7 @@ describe('the super-menu', () => {
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
     // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Notebook', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
@@ -274,7 +274,7 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super-row-chat').querySelector('svg[data-icon="chat"]')).toBeTruthy()
     // Aa wears a small and a large A, so the row reads "Aa" once.
     expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-icon svg[data-icon="text-size"]')).toBeTruthy()
-    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Aa')
+    expect(screen.getByTestId('lab-super-row-text').querySelector('.lab-super-row-label')?.textContent).toBe('Appearance')
     // Audio settings wears a speaker, not Talk's bars.
     expect(screen.getByTestId('lab-super-row-audio').querySelector('.lab-super-row-icon svg path')).toBeTruthy()
     // Talk wears the audio bar's "ılı" bars (TalkIcon), not a microphone.
@@ -407,7 +407,7 @@ describe('the super-menu', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Aa', 'Book settings', 'Audio settings', 'Profile'])
+      .toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'Profile'])
   })
 
   it('puts Catch me up right under Summarize, with its timeline icon', () => {

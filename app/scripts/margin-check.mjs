@@ -5937,7 +5937,7 @@ function lum255(c) { const v = String(c).match(/[\d.]+/g)?.slice(0, 3).map(Numbe
    sheet), holds its group's controls and no other's, and opening or closing it never moves the reading place. A group
    with nothing to offer is not shown (an EPUB has no read aloud; a phone's EPUB no layout). Screenshots to OUT. */
 const SETTINGS_SECTIONS = {
-  aa: { title: 'Aa', panel: '.byob-aa-panel' },
+  aa: { title: 'Appearance', panel: '.byob-aa-panel' },
   book: { title: 'Book settings', panel: '.byob-book-settings' },
   audio: { title: 'Audio settings', panel: '.byob-audio-settings' },
 }
@@ -5978,7 +5978,7 @@ async function settingsCheck(browser, origin) {
     // Audio settings are the framing page's player's (Tinct's narration for every book, never the browser's voice, Anders
     // 22 Oct 2026: /reader?userBook= frames this page; check-margin-listen-own.mjs checks them there). This page runs on
     // its own here, with no player, so it offers none.
-    const want = phone ? ['aa:Aa›', 'book:Book settings›'] : ['book:Book settings›']
+    const want = phone ? ['aa:Appearance›', 'book:Book settings›'] : ['book:Book settings›']
     const groups = rows.filter(r => /^(aa|book|audio|settings):/.test(r))
     ok(`${tag}: the t menu's settings are ${want.map(w => w.split(':')[1].replace('›', '')).join(', ')}, in that order, after Chat · Talk, Summarize and Catch me up`, JSON.stringify(groups) === JSON.stringify(want) && rows.indexOf(groups[0]) === rows.findIndex(r => r.startsWith('summarize:')) + 1 + (rows.some(r => r.startsWith('catchup:')) ? 1 : 0), rows)
     ok(`${tag}: no Reading settings, Text and theme or Book editions anywhere in the t menu`, !rows.some(r => /Reading settings|Text and theme|Book editions/.test(r)), rows)

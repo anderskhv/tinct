@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { LAB_NOTEBOOK_LABEL, LAB_SETTINGS_GROUPS, labSuperMenuRows } from './labSuperMenu'
 import { LAB_V2_SHEET_TITLES } from './labV2Sheet'
 
-const GROUPS = [['text', 'Aa'], ['editions', 'Book settings'], ['audio', 'Audio settings']]
+const GROUPS = [['text', 'Appearance'], ['editions', 'Book settings'], ['audio', 'Audio settings']]
 const groups = (rows: ReturnType<typeof labSuperMenuRows>) => rows.filter(row => ['text', 'editions', 'audio'].includes(row.id)).map(row => [row.id, row.label])
 
 // The margin reader (public/lab/addbook/js/reader.js) draws its own t menu; its names are this model's.
@@ -17,7 +17,7 @@ const literal = (name: string) => {
 
 describe('one settings model for the book reader and the margin reader (22 Oct 2026)', () => {
   it('names the groups Aa, Book settings and Audio settings, in that order', () => {
-    expect(LAB_SETTINGS_GROUPS.map(group => group.label)).toEqual(['Aa', 'Book settings', 'Audio settings'])
+    expect(LAB_SETTINGS_GROUPS.map(group => group.label)).toEqual(['Appearance', 'Book settings', 'Audio settings'])
     expect(LAB_NOTEBOOK_LABEL).toBe('Notebook')
   })
 
@@ -46,7 +46,7 @@ describe('labSuperMenuRows', () => {
   it('the phone: Chat · Talk, Summarize, Catch me up, Notebook, Aa, Book settings, Audio settings, Library, Profile (22 Oct 2026)', () => {
     const phone = labSuperMenuRows({ phone: true })
     expect(phone.map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
-    expect(phone.map(row => row.label)).toEqual(['', 'Summarize', 'Catch me up', 'Notebook', 'Aa', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(phone.map(row => row.label)).toEqual(['', 'Summarize', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(phone[0].modes).toEqual(['chat', 'talk'])
     expect(phone.some(row => (row.id as string) === 'settings' || (row.id as string) === 'reading' || row.id === 'librarian')).toBe(false)
   })
@@ -75,15 +75,15 @@ describe('labSuperMenuRows', () => {
     expect(desktop[0]).toEqual({ id: 'conversation', label: '', modes: ['chat', 'talk'] })
   })
 
-  it('puts Notebook in the private desktop menu without changing the public menu', () => {
-    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'account'])
-    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'audio', 'account'])
+  it('leaves Notebook to its dedicated desktop icon for public and private books', () => {
+    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'audio', 'account'])
     expect(labSuperMenuRows({ sharedReader: false }).some(row => row.id === 'notebook')).toBe(false)
   })
 
   it('gives a reader’s own book Catch me up, Aa and Audio settings (no Book settings but a PDF’s), Your books for Library', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
-      ['conversation', ''], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Aa'], ['audio', 'Audio settings'], ['library', 'Your books'], ['account', 'Profile'],
+      ['conversation', ''], ['summarize', 'Summarize'], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Appearance'], ['audio', 'Audio settings'], ['library', 'Your books'], ['account', 'Profile'],
     ])
     expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'audio', 'account'])
     expect(labSuperMenuRows({ privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
