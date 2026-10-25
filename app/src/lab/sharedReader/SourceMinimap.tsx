@@ -1,5 +1,6 @@
 import { useMemo, useState, type PointerEvent } from 'react'
 import { tokenizeHearingWords } from '../labHearing'
+import type { LabHighlight } from '../labHighlights'
 import type { ContinuousReaderAnchor } from './continuousReaderWindow'
 
 export interface SourceBookMap {
@@ -8,10 +9,12 @@ export interface SourceBookMap {
   onJumpChapter: (chapterNumber: number, anchor?: ContinuousReaderAnchor) => void
 }
 
+export type SourceMapCard = { id: string; paragraphIndex: number; wordIndex: number; label: string; onOpen: () => void }
+
 /** Source paragraphs and the visible range, without annotation dots or ebook-page guesses. */
-export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump }: {
+export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highlights = [], cards = [], onJump }: {
   paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor;
-  bookMap?: SourceBookMap;
+  bookMap?: SourceBookMap; highlights?: readonly LabHighlight[]; cards?: readonly SourceMapCard[];
   onJump: (place: ContinuousReaderAnchor) => void
 }) {
   const model = useMemo(() => {
@@ -37,7 +40,7 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump
   const total = book?.total ?? model.total
   const [dragging, setDragging] = useState(false)
   const position = ((model.starts[visible.paragraphIndex] ?? 0) + visible.wordIndex + offset) / total
-  const jump = (event: PointerEvent<SVGSVGElement>) => {
+  const jump = (event: PointerEvent<SVGGElement>) => {
     if (!paragraphs.length) return
     const box = event.currentTarget.getBoundingClientRect()
     if (!(box.height > 0)) return
@@ -64,8 +67,8 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump
       return lines
     })
   }, [paragraphs, model, offset, total])
-  return <svg className="source-minimap" data-testid="source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none"
-    role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position * 100)}
+  return <svg className="source-minimap" data-testid="source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
+    <g role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position * 100)}
     aria-valuetext={`${Math.round(position * 100)}% through ${book ? "this book" : "this chapter"}`}
     onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); setDragging(true); jump(event) }}
     onPointerMove={event => { if (dragging) jump(event) }} onPointerUp={() => setDragging(false)} onPointerCancel={() => setDragging(false)}
@@ -85,6 +88,7 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump
       const atEnd = event.key === 'End' || step > 0 && visible.paragraphIndex >= paragraphs.length - 1
       onJump({ paragraphIndex, wordIndex: atEnd ? model.weights[paragraphIndex] - 1 : 0 })
     }}>
+    <rect width={34} height={600} fill="transparent" />
     <title>{book ? 'Drag to move through the book; chapter sizes use available word counts' : 'Drag to move through the chapter'}</title>
     {book?.chapters.filter(chapter => chapter.number !== bookMap!.chapterNumber).map(chapter => <g key={chapter.number} data-map-chapter={chapter.number}>
       <title>{chapter.title}</title>
@@ -96,5 +100,30 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, onJump
     </g>)}
     {lines.map((line, i) => <line key={i} x1={4} x2={4 + line.width} y1={line.y + .5} y2={line.y + .5} className="source-minimap-line" />)}
     <rect x={.5} y={Math.min(592, position * 600)} width={33} height={Math.max(8, Math.min(600 - position * 600, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * 600 : 24))} rx={5} className="source-minimap-window" />
+    </g>
+    {cards.filter(card => card.paragraphIndex >= 0 && card.paragraphIndex < paragraphs.length).map(card => {
+      const y = (offset + (model.starts[card.paragraphIndex] ?? 0) + card.wordIndex) / total * 600
+      const open = () => { onJump({ paragraphIndex: card.paragraphIndex, wordIndex: card.wordIndex }); card.onOpen() }
+      return <g key={card.id} role="button" tabIndex={0} aria-label={card.label} className="source-minimap-card"
+        onPointerDown={event => { event.stopPropagation(); event.preventDefault(); open() }}
+        onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); open() } }}>
+        <title>{card.label}</title><rect x={26} y={Math.max(0, y - 3)} width={8} height={9} fill="transparent" />
+        <rect x={29} y={y} width={3} height={3} rx={.7} fill="currentColor" />
+      </g>
+    })}
+    {highlights.filter(mark => mark.kind !== 'chapter' && mark.paragraphIndex >= 0 && mark.paragraphIndex < paragraphs.length).map(mark => {
+      const start = (model.starts[mark.paragraphIndex] ?? 0) + mark.fromWord
+      const end = (model.starts[mark.endParagraphIndex] ?? start) + mark.toWord
+      const y = (offset + start) / total * 600
+      return <g key={mark.id} role="button" tabIndex={0} aria-label={`${mark.note ? 'Note' : 'Highlight'}: ${mark.text || paragraphs[mark.paragraphIndex].slice(0, 80)}`}
+        className="source-minimap-activity" data-color={mark.color}
+        onPointerDown={event => { event.stopPropagation(); event.preventDefault(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) }}
+        onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) } }}>
+        <title>{mark.note || mark.text || 'Highlight'}</title>
+        <rect x={2} y={Math.max(0, y - 3)} width={23} height={Math.max(8, (end - start) / total * 600 + 6)} fill="transparent" />
+        <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, (end - start) / total * 600)} rx={.7} />
+      </g>
+    })}
+
   </svg>
 }

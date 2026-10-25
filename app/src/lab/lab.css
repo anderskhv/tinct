@@ -7685,7 +7685,7 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 
 /* Desktop reading controls stay direct; scrolling quiets their ink, never their hit targets. */
 .lab[data-chrome-version="v2"].is-desktop .lab-header-notebook {
-  min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
+  display:inline-flex; align-items:center; justify-content:center; min-width:40px; min-height:40px; padding:0 8px; border:0; border-radius:0; background:transparent; box-shadow:none;
   font:14px/1.2 'EB Garamond',Georgia,serif; color:var(--lab-ink); cursor:pointer;
 }
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) {

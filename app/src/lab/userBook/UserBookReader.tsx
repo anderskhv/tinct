@@ -363,8 +363,9 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       <button type="button" onClick={() => { if (adoptUnassignedOwnTextMarks(hex, owner)) window.location.reload() }}>Attach older highlights</button>
     </div>}
   </>
-  if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} title={state.title} services={pdfServices ?? undefined} scanOutline={state.scanOutline}
+  if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} bookId={`userbook-${hex}`} owner={owner} title={state.title} services={pdfServices ?? undefined} scanOutline={state.scanOutline}
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
+    onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
     textAvailable={state.hasText} textBusy={textBusy} textError={textError}
     onOpenText={async place => {

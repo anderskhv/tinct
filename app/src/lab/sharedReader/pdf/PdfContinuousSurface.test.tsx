@@ -99,16 +99,26 @@ it('keeps exact PDF strip position and navigation without annotation dots, and o
     getViewport: ({ scale }: { scale: number }) => ({ width: 600 * scale, height: 900 * scale, scale, transform: [scale, 0, 0, -scale, 0, 900 * scale] }),
     render: () => ({ promise: Promise.resolve() }), getTextContent: async () => ({ items: [] }),
   })) }
-  const onVisiblePlace = vi.fn()
-  const props = { bytes: async () => new ArrayBuffer(1), openDocument: async () => pdf, onVisiblePlace,
+  const onVisiblePlace = vi.fn(), onSourceActivate = vi.fn()
+  const props = { onSourceActivate, bytes: async () => new ArrayBuffer(1), openDocument: async () => pdf, onVisiblePlace,
     initialPlace: { page: 2, frac: .25 }, cards: [{ id: 'answer', page: 2, rects: [[2, .1, .75, .3, .04]] }], highlights: [{ id: 'line', page: 2, rects: [[.1, .5, .3, .04]], color: 'gold' }] }
   const { container, rerender } = render(<PdfContinuousSurface {...props} />)
   const map = await screen.findByRole('slider', { name: 'Original PDF position' })
   await waitFor(() => expect(map.getAttribute('aria-valuetext')).toBe('Page 2 of 3, 25% down the page'))
   expect(map.querySelectorAll('circle')).toHaveLength(0)
+  expect(Number(container.querySelector('.pdf-original__map-window')?.getAttribute('y'))).toBeCloseTo(1143 / 2736 * 600)
+  const activity = screen.getByRole('button', { name: 'Explanation · Page 2' })
+  expect(activity.closest('[role=slider]')).toBeNull()
+  fireEvent.pointerDown(activity)
+  expect(onSourceActivate).toHaveBeenCalledExactlyOnceWith({ kind: 'card', id: 'answer' })
+  expect(onVisiblePlace).toHaveBeenLastCalledWith({ page: 2, frac: .75 })
+  fireEvent.keyDown(screen.getByRole('button', { name: 'Highlight · Page 2' }), { key: 'Enter' })
+  expect(onSourceActivate).toHaveBeenLastCalledWith({ kind: 'mark', id: 'line' })
+  expect(onVisiblePlace).toHaveBeenLastCalledWith({ page: 2, frac: .5 })
+
   expect(container.querySelectorAll('.pdf-original__highlight')).toHaveLength(1)
   expect(container.querySelectorAll('.pdf-original__card-lines [data-card-id="answer"]')).toHaveLength(1)
-  expect(Number(container.querySelector('.pdf-original__map-window')?.getAttribute('y'))).toBeCloseTo(1143 / 2736 * 600)
+
   fireEvent.keyDown(map, { key: 'ArrowDown' })
   expect(onVisiblePlace).toHaveBeenLastCalledWith({ page: 3, frac: 0 })
   fireEvent.keyDown(map, { key: 'Home' })
@@ -184,4 +194,27 @@ it('retains source text through a drag across more than two pages and releases i
   selection.removeAllRanges(); fireEvent(document, new Event('selectionchange'))
   await waitFor(() => expect(container.querySelector('.pdf-original__page[data-page="1"]')).toBeNull())
   expect(container.querySelectorAll('canvas')).toHaveLength(3)
+})
+
+it('publishes the complete source silhouette once, independently of virtualised page loading', async () => {
+  vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(632)
+  vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({ setTransform: vi.fn() } as unknown as CanvasRenderingContext2D)
+  let release!: () => void
+  const pending = new Promise<void>(resolve => { release = resolve })
+  const pdf: PdfOriginalDocument = { numPages: 4, destroy: vi.fn(async () => {}), getPage: vi.fn(async number => ({
+    getViewport: ({ scale }: { scale: number }) => ({ width: 600 * scale, height: 900 * scale, scale, transform: [scale, 0, 0, -scale, 0, 900 * scale] }),
+    render: () => ({ promise: Promise.resolve() }), getTextContent: async () => {
+      if (number === 4) await pending
+      return { items: [100, 300, 500].map(y => ({ str: 'A source line', width: 420, transform: [12, 0, 0, 12, 80, y] })) }
+    },
+  })) }
+  const { container, rerender } = render(<PdfContinuousSurface bytes={async () => new ArrayBuffer(1)} openDocument={async () => pdf} onVisiblePlace={() => {}} />)
+  await waitFor(() => expect(pdf.getPage).toHaveBeenCalledWith(4))
+  expect(container.querySelectorAll('.pdf-original__map-line')).toHaveLength(4)
+  release()
+  await waitFor(() => expect(container.querySelectorAll('.pdf-original__map-line')).toHaveLength(12))
+  const lines = [...container.querySelectorAll('.pdf-original__map-line')].map(line => line.outerHTML)
+  rerender(<PdfContinuousSurface bytes={async () => new ArrayBuffer(1)} openDocument={async () => pdf} onVisiblePlace={() => {}} requestedPlace={{ page: 4, frac: .5 }} />)
+  await waitFor(() => expect(screen.getByRole('slider').getAttribute('aria-valuenow')).toBe('4'))
+  expect([...container.querySelectorAll('.pdf-original__map-line')].map(line => line.outerHTML)).toEqual(lines)
 })

@@ -256,7 +256,6 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
         <button type="button" className="lab-pcard-send" data-testid="lab-phone-card-send" aria-label="Send" disabled={!value.trim() || disabled}
           onPointerDown={event => event.preventDefault()} onClick={send}><PhoneIcon name="up" /></button>
       </div>
-      <span className="lab-pcard-typing-hint" aria-hidden="true">Esc to return to reading</span>
     </div>
   )
 }

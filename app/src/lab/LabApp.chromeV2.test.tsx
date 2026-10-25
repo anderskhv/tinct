@@ -353,6 +353,18 @@ describe('the super-menu', () => {
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
   })
 
+  it('the desktop Notebook uses an accessible icon and opens notes without moving the passage', () => {
+    render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
+    const place = screen.getByTestId('lab-root').getAttribute('data-place')
+    const notebook = screen.getByTestId('lab-header-notebook')
+    expect(notebook.getAttribute('aria-label')).toBe('Notebook')
+    expect(notebook.textContent).toBe('')
+    expect(notebook.querySelector('svg')).toBeTruthy()
+    fireEvent.click(notebook)
+    expect(screen.getByTestId('contents-notebook-all')).toBeTruthy()
+    expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
+  })
+
   it('the phone’s Notebook opens the Contents’ Notebook list (cards, highlights and notes); its close goes straight back to the book', () => {
     renderPhone()
     const place = screen.getByTestId('lab-root').getAttribute('data-place')

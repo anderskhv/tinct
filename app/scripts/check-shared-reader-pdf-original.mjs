@@ -329,7 +329,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     el.scrollTop = Math.max(sheet.offsetTop, sheet.offsetTop + sheet.clientHeight - el.clientHeight + 2)
     el.dispatchEvent(new Event('scroll', { bubbles: true }))
   }, number)
-  const openNotebook = async () => { await page.getByRole('button', { name: 'Contents', exact: true }).click(); await page.getByRole('dialog', { name: 'Contents', exact: true }).getByRole('button', { name: 'Notebook', exact: true }).click() }
+  const openNotebook = async () => { await page.getByTestId('lab-super').click(); await page.getByRole('dialog', { name: 'Reader menu', exact: true }).getByRole('button', { name: 'Notebook', exact: true }).click() }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
@@ -503,6 +503,21 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.locator('[data-pdf-original="true"] .pdf-original__text').getByText('First original page with selectable source words.').waitFor({ timeout: 45000 })
     assert.equal(await page.locator('[data-pdf-original="true"]').count(), 1)
     assert.equal(await page.locator('iframe[data-testid="margin-preview-frame"]').count(), 0)
+    if (name === 'chromium') {
+      const before = await page.locator('.pdf-original__scroll').evaluate(el => el.scrollTop)
+      await page.getByTestId('lab-header-book').click()
+      await page.getByRole('dialog', { name: 'Switch books', exact: true }).waitFor()
+      await page.keyboard.press('Escape')
+      assert.equal(await page.locator('.pdf-original__scroll').evaluate(el => el.scrollTop), before, 'opening and closing the normal book picker keeps the PDF place')
+      await page.getByRole('button', { name: 'Contents', exact: true }).click()
+      await page.getByTestId('lab-toc').waitFor()
+      assert.equal(await page.getByRole('navigation', { name: 'Chapters', exact: true }).count(), 1, 'PDF uses the normal chapter tree')
+      await page.keyboard.press('Escape')
+      assert.equal(await page.locator('.pdf-original__scroll').evaluate(el => el.scrollTop), before, 'opening and closing normal contents keeps the PDF place')
+      const notebook = page.getByTestId('lab-header-notebook')
+      assert.equal((await notebook.textContent()).trim(), '', 'Notebook toolbar action is icon-only')
+      assert.equal(await notebook.locator('svg').count(), 1)
+    }
     if (!narrationSuccess) {
       await page.setViewportSize({ width: 2047, height: 1133 })
       const geometry = await page.evaluate(() => {

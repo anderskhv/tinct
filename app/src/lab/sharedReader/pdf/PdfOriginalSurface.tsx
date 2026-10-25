@@ -7,7 +7,7 @@ import './pdfOriginal.css'
 export type PdfOriginalPlace = { page: number; frac: number }
 export type PdfSelectionRect = [page: number, x: number, y: number, width: number, height: number]
 export type PdfOriginalSelection = { page: number; text: string; rects: PdfSelectionRect[]; pages?: Array<{ n: number; text: string }>; region?: { kind: 'figure' | 'table' | 'equation'; label: string; caption: string; identity?: object; image: () => Promise<PdfRegionImage | null> } }
-export type PdfOriginalHighlight = { id: string; page: number; rects: number[][]; color: string; box?: boolean }
+export type PdfOriginalHighlight = { id: string; page: number; rects: number[][]; color: string; box?: boolean; text?: string }
 export type PdfOriginalFollow = { page: number; wordIndex: number; text: string }
 export type PdfOriginalOutlineEntry = { title: string; page: number | null; items: PdfOriginalOutlineEntry[] }
 type PdfOutlineItem = { title?: string; dest?: unknown; items?: PdfOutlineItem[] }

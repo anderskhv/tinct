@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
 import type { LabChapter } from './labSource'
@@ -34,6 +34,8 @@ export interface LegacyOwnEpubNotebookItem {
   at: number
 }
 interface Props {
+  navigationFooter?: ReactNode
+  onOpenHighlight?: (highlight: LabHighlight) => void
   open: boolean; bookId: string; title: string; editionKey: string; editionLabel: string
   chapters: LabChapter[]; sections?: Section[]; currentChapter: number; currentPage: number; totalPages: number; currentPercent?: number
   chaptersReady: boolean
@@ -369,6 +371,7 @@ export function LabContentsV2(props: Props) {
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
         {historyStatus}
+        {props.navigationFooter}
       </div>
       </>}
       {view && <section className="overlay" aria-label={view === 'search' ? 'Search book and chats' : view === 'chats' ? 'Chats' : view === 'notebook' ? LAB_NOTEBOOK_LABEL : 'Highlights & notes'}>
@@ -402,7 +405,7 @@ export function LabContentsV2(props: Props) {
           {view === 'older' && <><p className="status">These older marks have no saved book or edition. They are preserved here; their quotations cannot be identified safely.</p>{props.unassignedHighlights.map(h => <article className="result" key={h.id}><small>Chapter {h.chapterNumber} · paragraph {h.paragraphIndex + 1}</small><p>{h.note || 'Highlighted passage'}</p></article>)}</>}
           {view === 'highlight' && selection && (isLabChapterNote(selection)
             ? <article className="result is-chapter-note"><small>{chapterTitle(selection.chapterNumber)}</small>{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: 0, wordIndex: 0 })}>Open chapter<Icon name="next" /></button></article>
-            : <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small>{!isPointNote(selection) && <p>{sourceText(selection)}</p>}{noteText(selection)}<button className="more" onClick={() => props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>)}
+            : <article className="result"><small>{chapterTitle(selection.chapterNumber)} · {editionLabel}</small>{!isPointNote(selection) && <p>{sourceText(selection)}</p>}{noteText(selection)}<button className="more" onClick={() => props.onOpenHighlight ? props.onOpenHighlight(selection) : props.onOpenPassage({ chapterNumber: selection.chapterNumber, paragraphIndex: selection.paragraphIndex, wordIndex: selection.fromWord })}>Open passage<Icon name="next" /></button></article>)}
         </div>
       </section>}
     </div>

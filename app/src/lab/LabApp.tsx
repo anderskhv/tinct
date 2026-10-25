@@ -1,4 +1,5 @@
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
+import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
 import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
@@ -6293,7 +6294,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {(!showPhoneChrome || phoneReaderControlsVisible) ? (
             <>
               {!isPhone && <button type="button" className="lab-header-notebook" data-testid="lab-header-notebook"
-                onClick={() => handleSuperMenuSelect('notebook')}>Notebook</button>}
+                aria-label="Notebook" title="Notebook"
+                onClick={() => handleSuperMenuSelect('notebook')}><ReaderNotebookIcon /></button>}
               {(!privateBook || ownNarration) && <button
                 type="button"
                 className="lab-v2-play"
@@ -6530,6 +6532,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
+            cards={marginConversations.flatMap(item => item.card?.anchor ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+              label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
             bookMap={(book.bookId || 'bible') === 'bible' ? undefined : { chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') } }}
             key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}/${continuousEpoch.navigation}`}
             epoch={continuousEpoch}
