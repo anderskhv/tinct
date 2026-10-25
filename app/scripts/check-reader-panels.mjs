@@ -112,7 +112,7 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   // These legacy spread/foot/Next regressions intentionally exercise the
   // shared reader's Classic layout after the public default moves to Margin.
   // Phone keeps its familiar paged Read/Compare surface.
-  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page'), {waitUntil:'domcontentloaded'})
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page') + (fixture.sharedReader ? '&sharedReader=1' : ''), {waitUntil:'domcontentloaded'})
   try {
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
@@ -929,14 +929,16 @@ async function antigoneAudioAvailability(engine,name) {
 }
 
 
-async function menuRedesign(engine,name,phone) {
+async function menuRedesign(engine,name,phone,explicitShared=false) {
   const browser=await markInternal(await engine.launch({headless:true,...(name==='chromium'?{args:['--mute-audio']}: {})}))
   let state
-  const result={engine:name,layout:phone?'phone-new-menu':'desktop-new-menu',live}
+  const result={engine:name,layout:phone?'phone-new-menu':explicitShared?'desktop-shared-new-menu':'desktop-new-menu',live}
   try {
-    state=await boot(browser,phone,'notes-from-underground','original-en')
+    state=await boot(browser,phone,'notes-from-underground','original-en',1,{sharedReader:explicitShared})
     const {page,requests}=state
-    const sharedPhone=phone && await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const shared=await page.getByTestId('lab-root').getAttribute('data-shared-reader')==='true'
+    const sharedPhone=phone && shared
+    if(explicitShared)assert(shared,'explicit shared reader fixture must activate the shared surface')
     const place=await page.getByTestId('lab-root').getAttribute('data-place')
     await page.getByTestId('lab-super').click()
     // The page's profiles marker must match the deployed switch. The last row is Profile
@@ -988,7 +990,7 @@ async function menuRedesign(engine,name,phone) {
     await clickMenu(page,'text')
     assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Appearance')
     assert.equal(await page.getByTestId('lab-v2-themes').count(),1)
-    if(!phone) {
+    if(!phone && shared) {
       const modes=page.locator('[data-testid^="lab-v2-layout-"]')
       assert.deepEqual(await modes.evaluateAll(nodes=>nodes.map(node=>node.dataset.testid)),['lab-v2-layout-margin','lab-v2-layout-two-page','lab-v2-layout-compare'],'Appearance begins with the three reading modes')
       const order=await page.getByTestId('lab-v2-themes').evaluate(themes=>{
@@ -1183,6 +1185,7 @@ if(process.env.READER_MENU_ONLY!=='1')await designReference()
 
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   for(const phone of [false,true])await menuRedesign(engine,name,phone)
+  await menuRedesign(engine,name,false,true) // Check shared layout cards even when this build's public default is Classic.
   for(const phone of [false,true])await revealKeepsPage(engine,name,phone)
   for(const phone of [false,true])await libraryContinueKeepsPage(engine,name,phone)
   await panelsOpenNearSource(engine,name)

@@ -456,7 +456,7 @@ async function run(engineName) {
   ok(`${tag}: the Notebook card closed, the place is kept`, same(await placeOf(page), opened.place), { now: await placeOf(page), opened: opened.place })
   // The reader moved to the card's passage on purpose: the checks below hold the place from here.
   home = await placeOf(page)
-  for (const [row, title] of [['text', 'Aa'], ['editions', 'Book settings'], ['audio', 'Audio settings']]) {
+  for (const [row, title] of [['text', 'Appearance'], ['editions', 'Book settings'], ['audio', 'Audio settings']]) {
     await showControls(page)
     await page.getByTestId('lab-super').click()
     await page.getByTestId(`lab-super-row-${row}`).click()
