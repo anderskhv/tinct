@@ -1,3 +1,4 @@
+import { readingChatTurns } from './readingChatTurns'
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
@@ -5208,6 +5209,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
 
   const closePhoneAsk = useCallback(() => {
+    setDraft('')
+    setAskAttachment(null)
     if (callOpen) endCall()
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
@@ -5218,8 +5221,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // the contents, a card, a prompt or a call already answer Escape for
   // themselves and are left to it: while one of them is in front, this stays
   // out of the way and the layer on top closes first. The composer's own
-  // draft is not cleared — it is held in `draft` above the panel, so the same
-  // half-typed line is there when Chat opens again.
+  // unsent draft is discarded when the discussion surface is left.
   const chatPanelEscapes = chrome !== 'talking'
     && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
@@ -5535,6 +5537,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (note !== saved.trim()) highlightsApi.setChapterNote(current.chapterNumber, note)
     }
     setPhoneCard(null)
+    setDraft('')
     phoneAnswerRef.current = null
     dictation.stop()
   }, [dictation, highlightsApi])
@@ -5545,7 +5548,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const leaving = previousMarginLayout.current && !continuousReader
     previousMarginLayout.current = continuousReader
     if (!leaving) return
-    if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
     closePhoneCard()
     setDesktopOpenId(null)
     setDesktopContinuationId(null)
@@ -5588,7 +5591,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const desktopCardId = (card: PhoneCard) => card.kind === 'note' ? `highlight:${card.highlightId}` : card.kind === 'chapter-note' ? `chapter-note:${card.chapterNumber}` : `mc_react_${card.kind === 'quiz' ? 'quiz_' : ''}${card.openedAt}`
   const openPhoneCard = (card: PhoneCard) => {
     if (continuousReader) {
-      if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+      if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
       const id = desktopCardId(card)
       setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
       setDesktopLiveCards(current => [...current.filter(item => desktopCardId(item) !== id), card])
@@ -5789,7 +5792,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             voiceActive={ask.voiceActive}
             typedLoading={ask.typedLoading}
             typedStatus={ask.typedStatus}
-            turns={ask.turns}
+            turns={readingChatTurns(ask.turns, ask.conversations)}
             historyStatus={ask.historyStatus}
             draft={draft}
             attachment={askAttachment && askAttachment.bookId === book.bookId ? { text: askAttachment.text, kind: askAttachment.figure ? 'figure' : 'highlight' } : null}
@@ -6025,10 +6028,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom }
   }
   const toggleMargin = (id: string, live?: PhoneCard) => {
-    if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
     if (desktopOpenId === id) { if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
     if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
-    setSelectionPopup(null); setDraft(desktopDraftsRef.current[id] || ''); setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
+    setSelectionPopup(null); setDraft(''); setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
     if (live) {
       setPhoneCard(live)
       if (live.kind === 'note') setPhoneNote(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note ?? '')
