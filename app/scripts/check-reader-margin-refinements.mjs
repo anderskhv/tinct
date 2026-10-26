@@ -20,7 +20,7 @@ const server = createServer(async (req, res) => {
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
-const output = process.env.TINCT_REFINEMENT_OUTPUT || '/tmp/tinct-margin-refinements'
+const output = process.env.TINCT_REFINEMENT_OUTPUT || 'artifacts/margin-refinements'
 await fs.mkdir(output, { recursive: true })
 const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio'] }))
 const results = []
@@ -239,7 +239,9 @@ try {
       const stablePagedWords = await page.waitForFunction(() => {
         const words = [...document.querySelectorAll('[data-testid="lab-word"]')].flatMap(node => {
           const r = node.getBoundingClientRect()
+          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)
           return node.checkVisibility() && r.top > 80 && r.bottom < innerHeight - 100 && r.left >= 0 && r.right <= innerWidth
+            && hit && (hit === node || node.contains(hit))
             ? [{ x:r.x,y:r.y,width:r.width,height:r.height }] : []
         })
         const signature = JSON.stringify(words)
@@ -254,7 +256,15 @@ try {
       assert(quizFirst && quizLast, 'two-page reader exposes source words for quiz selection')
       await page.mouse.move(quizFirst.x + quizFirst.width / 2, quizFirst.y + quizFirst.height / 2)
       await page.mouse.down(); await page.mouse.move(quizLast.x + quizLast.width / 2, quizLast.y + quizLast.height / 2, { steps: 12 }); await page.mouse.up()
-      await page.getByTestId('lab-dbar-more').click()
+      await page.getByTestId('lab-dbar-more').click().catch(async error => {
+        await page.screenshot({ path: `${output}/paged-selection-failure.png` })
+        await fs.writeFile(`${output}/paged-selection-failure.json`, JSON.stringify(await page.evaluate(({ first, last }) => ({
+          first, last, selected: window.getSelection()?.toString(), root: document.querySelector('.lab')?.dataset,
+          hits: [first, last].map(point => document.elementFromPoint(point.x + point.width / 2, point.y + point.height / 2)?.outerHTML),
+          popups: [...document.querySelectorAll('[role="dialog"], [data-testid="lab-dbar-more"]')].map(node => node.outerHTML),
+        }), { first: quizFirst, last: quizLast }), null, 2))
+        throw error
+      })
       await page.getByRole('menuitem', { name: /Quiz me/ }).click()
       const quiz = page.locator('.lab-desktop-card[data-kind="quiz"]')
       await quiz.getByText('What does this source passage describe?', { exact: true }).waitFor()
