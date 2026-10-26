@@ -3,6 +3,8 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { loadEdition } from '../data/editionLoader'
 import { contentsTree, flattenContents, contentsPercent } from './labContentsTree'
+import { registerUserBook } from './userBook/userBookSource'
+import { USER_EDITION_FORMAT } from './userBook/userEdition'
 import { LabContentsV2 } from './LabContentsV2'
 import { contentsBooks, contentsChapterNumber, contentsQuote, searchContents } from './labContents'
 import type { ChatConversation, EditionData, Section } from '../types'
@@ -93,6 +95,21 @@ describe('Design 1 contents', () => {
     expect(loadEdition).toHaveBeenCalledWith('bible', 'kjv-en', { forceWholeBook: true })
     fireEvent.click(word.closest('button')!)
     expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 51, paragraphIndex: 0, wordIndex: 1 }))
+  })
+  it('searches an added book on this device without requesting a catalogue edition', async () => {
+    const bookId = 'userbook-abcdef1234567890'
+    registerUserBook(bookId, { format: USER_EDITION_FORMAT, converter: 7, language: 'en', title: 'Own book', author: 'Reader',
+      chapters: [{ number: 1, title: 'Opening', paragraphs: ['A beginning.'] },
+        { number: 2, title: 'Knowledge', paragraphs: ['Discussing empiricism here.'] }] })
+    const p = props()
+    render(<LabContentsV2 {...p} bookId={bookId} editionKey="own-en" currentChapter={1}
+      chapters={[{ number: 1, title: 'Opening' }, { number: 2, title: 'Knowledge' }]} sections={undefined} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Search contents' }))
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'empiricism' } })
+    const match = await screen.findByText('empiricism', { selector: 'mark' })
+    fireEvent.click(match.closest('button')!)
+    expect(p.onOpenPassage).toHaveBeenCalledWith(expect.objectContaining({ chapterNumber: 2, paragraphIndex: 0, wordIndex: 1 }))
+    expect(loadEdition).not.toHaveBeenCalled()
   })
   it('opens the exact conversation and keeps chapter annotation lists behind their icons', async () => {
     const p = props(); render(<LabContentsV2 {...p} />)

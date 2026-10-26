@@ -73,6 +73,21 @@ describe('continuous location ownership', () => {
     expect(host.querySelector('[data-paragraph-index="52"]')).toBeTruthy()
   })
 
+  it('does not restore the navigation anchor when identical source is refreshed while reading', () => {
+    const paragraphs = ['A first paragraph of readable source', 'A second paragraph with more source']
+    const props = { epoch: first, anchor: { paragraphIndex: 0, wordIndex: 0 }, onVisible: vi.fn(), onLanded: vi.fn() }
+    const passage = (text: string[]) => ({ chapterTitle: 'Chapter', paragraphs: text,
+      follow: { kind: 'none' as const }, followParagraphs: [], markedIndexes: new Set<number>() })
+    const { rerender } = render(<ContinuousReader {...props} passage={passage(paragraphs)} />)
+    const host = screen.getByTestId('continuous-reader')
+    host.scrollTop = 320
+    const firstWord = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
+    vi.spyOn(firstWord, 'getBoundingClientRect').mockReturnValue({ top: -320, bottom: -300, height: 20 } as DOMRect)
+    rerender(<ContinuousReader {...props} passage={passage([...paragraphs])} />)
+    expect(host.scrollTop).toBe(320)
+    expect(props.onLanded).toHaveBeenCalledTimes(1)
+  })
+
   it('keeps an in-progress word drag when its parent rerenders the same source', () => {
     const paragraphs = ['The beginning of this source has many words for a selection']
     const onSelectRange = vi.fn()

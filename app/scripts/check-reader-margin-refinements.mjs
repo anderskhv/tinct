@@ -57,6 +57,13 @@ try {
     const readerViewport = await host.boundingBox()
     assert(readerViewport && readerViewport.y + readerViewport.height >= 978, 'margin reading area uses the space reclaimed from the footer')
     await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
+    assert.equal(await host.locator('.continuous-reader-paper').count(), 1, 'bounded windows share one continuous paper surface')
+    const paperPaint = await host.evaluate(node => ({
+      shadow: getComputedStyle(node.querySelector('.continuous-reader-paper')).boxShadow,
+      slices: [...node.querySelectorAll('.continuous-reader-window')].map(slice => getComputedStyle(slice).boxShadow),
+    }))
+    assert.notEqual(paperPaint.shadow, 'none', 'continuous paper retains its edge treatment')
+    assert(paperPaint.slices.every(shadow => shadow === 'none'), 'source-window boundaries do not paint horizontal shadow seams')
     const geometry = await page.locator('.continuous-reader-window').first().evaluate(node => {
       const box = node.getBoundingClientRect(), css = getComputedStyle(node)
       return { left: box.left, right: box.right, width: box.width, measure: box.width - parseFloat(css.paddingLeft) - parseFloat(css.paddingRight) }
