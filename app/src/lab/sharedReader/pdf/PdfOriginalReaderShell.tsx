@@ -1,3 +1,4 @@
+import type { PdfConversionProgress } from '../../userBook/pdfEdition'
 import { flushSync } from 'react-dom'
 import { LabContentsV2 } from '../../LabContentsV2'
 import { ReaderNotebookIcon } from '../../ReaderNotebookIcon'
@@ -81,10 +82,14 @@ export interface PdfOriginalReaderShellProps extends Pick<PdfOriginalSurfaceProp
   onBeforeLeave?: (place: PdfOriginalPlace) => void
   onOpenText?: (place: PdfOriginalPlace) => void
   textAvailable?: boolean
+  autoConvert?: boolean
+  textProgress?: PdfConversionProgress
   textBusy?: boolean
   textError?: string
   initialZoom?: number
   onZoom?: (zoom: number) => void
+  serviceStatus?: string
+  onRetryServices?: () => void
   services?: PdfOriginalReaderServices
   scanOutline?: PdfOriginalScanOutline | null
   /** Injected only by focused tests; production loads the existing margin rules. */
@@ -132,7 +137,7 @@ export function pdfSelectionAnchor(selection: PdfOriginalSelection, page: CardBo
 }
 
 /** One source coordinate, PDF page/fraction, through original pages, settings, selection, and Notebook. */
-export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textBusy = false, textError, initialZoom = 1, onZoom, services, scanOutline, unitRules }: PdfOriginalReaderShellProps) {
+export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textBusy = false, autoConvert = false, textProgress, textError, initialZoom = 1, onZoom, services, serviceStatus, onRetryServices, scanOutline, unitRules }: PdfOriginalReaderShellProps) {
   const root = useRef<HTMLDivElement>(null)
   const [scrollHost, setScrollHost] = useState<HTMLElement | null>(null)
   const [pane, setPane] = useState<Pane>(null)
@@ -184,6 +189,16 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   useEffect(() => { if (typeof matchMedia !== 'function') return; const media = matchMedia('(prefers-color-scheme: dark)'); const update = () => setSystemDark(media.matches); media.addEventListener?.('change', update); return () => media.removeEventListener?.('change', update) }, [])
   useEffect(() => { const root = document.documentElement, before = root.getAttribute('data-theme'), scheme = root.style.colorScheme; root.setAttribute('data-theme', theme); root.style.colorScheme = theme === 'dark' ? 'dark' : 'light'; return () => { if (before === null) root.removeAttribute('data-theme'); else root.setAttribute('data-theme', before); root.style.colorScheme = scheme } }, [theme])
   useEffect(() => { if (unitRules) { setRules(unitRules); return }; let live = true; void loadPdfEngine().then(engine => { if (live) setRules(engine.margin ?? null) }).catch(() => {}); return () => { live = false } }, [unitRules])
+  useEffect(() => {
+    if (!selection) return
+    const dismiss = (event: PointerEvent) => {
+      const target = event.target
+      if (!(target instanceof Element) || target.closest('[role=toolbar], [role=menu], .lab-pcard, .lab-dbar, .lab-phone-bar')) return
+      setSelection(null); setBarState('menu')
+    }
+    document.addEventListener('pointerdown', dismiss, true)
+    return () => document.removeEventListener('pointerdown', dismiss, true)
+  }, [selection])
   useEffect(() => services?.subscribe?.(() => setRevision(n => n + 1)), [services])
   useEffect(() => () => { quizToken.current++; pending.current?.abort() }, [])
   useEffect(() => { const close = (event: KeyboardEvent) => { if (event.key !== 'Escape' || event.defaultPrevented || event.isComposing || event.keyCode === 229) return; if (pane) setPane(null); else if (card) { cancelPending(); if (phone) setCard(null); else minimiseCard() } else if (selection) setSelection(null); else if (pane) setPane(null); else return; event.preventDefault() }; window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close) }, [card, selection, pane])
@@ -193,6 +208,14 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const unitIndex = unit ? units.indexOf(unit) : 0
   const chapterTitle = unit && !unit.pages && unit.title.trim() ? unit.title : `Page ${place.page}`
   const openTextLabel = textBusy ? 'Converting…' : textAvailable ? 'Tinct book' : 'Convert to Tinct book'
+  const conversionRequested = useRef(false)
+  useEffect(() => {
+    if (!autoConvert || conversionRequested.current || !onOpenText) return
+    conversionRequested.current = true
+    setPane('reading')
+    void onOpenText(place)
+  }, [autoConvert, onOpenText, place])
+  const conversionStatus = textBusy && <div className="pdf-original-reader__conversion" role="status"><p>{textProgress?.stage === 'text' ? `Preparing pages ${textProgress.done ?? 0} of ${textProgress.total ?? pages}` : ({ loading: 'Opening the PDF…', scanning: 'Checking the text and chapters…', images: 'Preparing illustrations…', saving: 'Saving your Tinct book…' }[textProgress?.stage ?? 'loading'])}</p><progress aria-label="Conversion progress" {...(textProgress?.stage === 'text' && textProgress.total ? { max: textProgress.total, value: textProgress.done ?? 0 } : {})} /></div>
   const primerPages = unit ? pdfPrimerPages(unit) : []
   const catchupPages = rules && unit ? pdfCatchUpPages(rules, unit, place.page) : []
   const atUnitEnd = !!unit && unit.to === place.page && endPage === place.page
@@ -201,7 +224,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const jump = (page: number, frac = 0) => { cancelPending(); const next = { page: Math.max(1, Math.min(pages || 1, page)), frac: Math.max(0, Math.min(1, frac)) }; setEndPage(null); setRequestedPlace(next); setPlace(next); setPane(null); setSelection(null); setCard(current => current?.saved ? current : null) }
   useEffect(() => { if (services?.audio?.playing && services.heardPage && services.heardPage !== place.page && services.heardPage <= pages) jump(services.heardPage) }, [services, services?.heardPage, services?.audio?.playing, place.page, pages])
   const run = async (kind: string, source: PdfOriginalSelection, question?: string) => {
-    if (!services || !source.text.trim()) { setStatus(source.text.trim() ? 'This action is unavailable.' : 'There is no usable text on this page.'); return }
+    if (!services || !source.text.trim()) { setStatus(source.text.trim() ? serviceStatus || 'This action is unavailable.' : 'There is no usable text on this page.'); return }
     if (kind === 'quiz') {
       if (!services.askQuizCheck) { setStatus('Quiz is unavailable.'); return }
       cancelPending()
@@ -371,7 +394,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     finally { if (pending.current === controller) pending.current = null }
   }
   const highlight = (color: HighlightColor, keepSelection = false) => {
-    if (!selection || !services) { setStatus('Highlights are unavailable.'); return }
+    if (!selection || !services) { setStatus(serviceStatus || 'Highlights are unavailable.'); return }
     const saved = services.saveHighlight(selection, color)
     setStatus(saved ? 'Highlight saved.' : 'Highlight could not be saved.')
     if (saved) {
@@ -526,9 +549,9 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       {pane === 'reading' && <div className="pdf-original-reader__settings">
         <div className="lab-v2-themes" role="group" aria-label="Theme">{LAB_V2_THEMES.map(({ theme: value, label }) => <button key={value} type="button" data-testid={`lab-v2-theme-${value}`} className={`lab-v2-theme is-${value}${prefs.theme === value ? ' is-active' : ''}`} aria-pressed={prefs.theme === value} onClick={() => chooseTheme(value)}><span className="lab-v2-theme-face">Aa</span><span className="lab-v2-theme-label">{label}</span></button>)}</div>
         <label htmlFor="pdf-page-size">Page size</label><div className="pdf-original-reader__page-size"><input className="lab-v2-slider" id="pdf-page-size" aria-label="Page size" type="range" min="0.5" max={pageZoomLimit} step="0.05" value={Math.min(pageZoom, pageZoomLimit)} onChange={event => { const value = Number(event.target.value); setPageZoom(value); onZoom?.(value) }} /><button onClick={() => { setPageZoom(1); onZoom?.(1) }}>Fit</button></div>
-        {onOpenText && <button className="pdf-original-reader__edition" disabled={textBusy} onClick={() => onOpenText(place)}>{openTextLabel}</button>}{textError && <p role="status">{textError}</p>}
+        {onOpenText && <button className="pdf-original-reader__edition" disabled={textBusy} onClick={() => onOpenText(place)}>{openTextLabel}</button>}{conversionStatus}{textError && <p role="status">{textError}</p>}
       </div>}
-      {pane === 'book' && <div className="pdf-original-reader__settings"><p>Reading edition</p><p aria-current="true">Original PDF pages</p>{onOpenText && <button disabled={textBusy} onClick={() => onOpenText(place)}>{openTextLabel}</button>}</div>}
+      {pane === 'book' && <div className="pdf-original-reader__settings"><p>Reading edition</p><p aria-current="true">Original PDF pages</p>{onOpenText && <button disabled={textBusy} onClick={() => onOpenText(place)}>{openTextLabel}</button>}{conversionStatus}</div>}
       {pane === 'audio' && services?.audio && <div className="pdf-original-reader__settings"><label htmlFor="pdf-audio-speed">Narration speed</label><select id="pdf-audio-speed" value={services.audio.speed} onChange={event => { services.audio?.setSpeed(Number(event.target.value)); setRevision(n => n + 1) }}>{[.75, 1, 1.25, 1.5, 2].map(value => <option key={value} value={value}>{value}×</option>)}</select>{services.audio.playing && <button onClick={() => { services.audio?.pause(); setRevision(n => n + 1) }}>Pause</button>}{!services.audio.playing && services.audio.resume && <button onClick={() => { if (services.audio?.resume?.()) setPane(null) }}>Continue</button>}{!services.audio.available && <p>Audio is unavailable for this page.</p>}</div>}
       {pane === 'notebook' && <div className="pdf-original-reader__notebook">{!!services?.recoverableTalkCount && services.adoptRecoverableTalk && <div className="pdf-original-reader__recovery" role="status"><p>{services.recoverableTalkCount} older {services.recoverableTalkCount === 1 ? 'Talk conversation has' : 'Talk conversations have'} no account label. If {services.recoverableTalkCount === 1 ? 'it is' : 'they are'} yours, attach {services.recoverableTalkCount === 1 ? 'it' : 'them'} to this account and review {services.recoverableTalkCount === 1 ? 'it' : 'them'} here.</p><button onClick={() => { setStatus(services.adoptRecoverableTalk?.() ? 'Older Talk conversations attached to this account.' : 'Could not attach older Talk conversations.'); setRevision(n => n + 1) }}>Attach older Talk conversations</button></div>}<div className="pdf-original-reader__notebook-tools"><button onClick={() => { void navigator.clipboard?.writeText(exportMarkdown()).then(() => setStatus('Notebook copied.')).catch(() => setStatus('Copy failed.')) }}>Copy all</button><button onClick={() => { const url = URL.createObjectURL(new Blob([exportMarkdown()], { type: 'text/markdown;charset=utf-8' })); const a = document.createElement('a'); a.href = url; a.download = filename(title); document.body.append(a); a.click(); a.remove(); window.setTimeout(() => URL.revokeObjectURL(url), 0) }}>Download</button></div><div className="pdf-original-reader__filters">{(['all', 'mine', 'ai'] as const).map(value => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{value === 'mine' ? 'My notes' : value === 'ai' ? 'AI' : 'All'}</button>)}</div>{!saved.length && <p>No saved entries on these pages.</p>}{saved.map(item => <article key={item.kind + item.id} className="pdf-original-reader__saved"><div className="pdf-original-reader__saved-head"><button onClick={() => { if (item.page !== null) { const point = item.kind === 'card' ? services?.cards.find(card => card.id === item.id)?.data?.sourceAnchor as { page?: number; frac?: number } | undefined : undefined; const rect = item.rects.find(rect => item.kind === 'highlight' ? rect.length === 4 : rect.length === 5 && rect[0] === item.page); jump(point?.page ?? item.page, point?.frac ?? rect?.[item.kind === 'highlight' ? 1 : 2] ?? 0) }; if (item.kind === 'card') { const found = services?.cards.find(card => card.id === item.id); if (found) openSavedCard(found) } else if (item.kind === 'highlight') { const found = services?.marks.find(mark => mark.id === item.id); if (found) openSavedMark(found) } else setCard({ kind: 'talk-review', selection: { page: item.page ?? place.page, text: '', rects: [] }, text: item.turns.map(turn => `${turn.role === 'assistant' ? 'Tinct' : 'You'}: ${turn.content}`).join('\n\n'), saved: true, sourceUnverified: item.page === null }) }}>{item.page === null ? item.label : `Original PDF page ${item.page} · ${item.label}`}</button>{item.kind !== 'talk' && <button onClick={() => deleteEntry(item)} aria-label={'Delete ' + item.label + ' on page ' + item.page}>Delete</button>}</div>{item.text && <blockquote>{item.text}</blockquote>}{item.sourceRange && <p>Source · Original PDF pages {item.sourceRange.from}–{item.sourceRange.to}</p>}{item.note && <p>{item.note}</p>}{item.turns.map((turn, index) => <div key={index} className="pdf-original-reader__saved-turn"><span className="pdf-original-reader__saved-role">{turn.role === 'assistant' ? 'Tinct' : 'You'}</span>{turn.role === 'assistant' && (index === 0 || index === 1 && item.turns[0]?.role === 'user') ? <PdfOriginalAnswer kind={item.label} raw={turn.content} /> : turn.content}</div>)}</article>)}</div>}
     </div></section></div>}
@@ -569,6 +592,6 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       setNote(''); setCard({ kind: 'margin-note', selection: { page, text: '', rects: [] }, text: '', freeY: y })
     }} />{card?.kind === 'talk' && activeCardBody}</>}
 
-    {status && <div className="pdf-original-reader__status" role="status">{status} {undo && <button onClick={() => { let restored: boolean | void; try { restored = undo.restore() } catch { restored = false }; if (restored === false) { setStatus('Could not restore entry.'); return }; setHidden(current => { const next = new Set(current); next.delete(undo.id); return next }); setUndo(null); setRevision(n => n + 1); setStatus('Entry restored.') }}>Undo</button>}</div>}
+    {status && <div className="pdf-original-reader__status" role="status">{!services && serviceStatus ? serviceStatus : status}{!services && onRetryServices && <button onClick={() => { setStatus('Preparing highlights and AI…'); onRetryServices() }}>Try again</button>} {undo && <button onClick={() => { let restored: boolean | void; try { restored = undo.restore() } catch { restored = false }; if (restored === false) { setStatus('Could not restore entry.'); return }; setHidden(current => { const next = new Set(current); next.delete(undo.id); return next }); setUndo(null); setRevision(n => n + 1); setStatus('Entry restored.') }}>Undo</button>}</div>}
   </div>
 }

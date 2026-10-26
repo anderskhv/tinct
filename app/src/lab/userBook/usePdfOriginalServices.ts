@@ -10,7 +10,7 @@ import { readAnthropicResponse } from '../labCompanion'
 import { apiUrl } from '../../utils/apiUrl'
 import { internalTrafficHeaders } from '../../utils/internalTraffic'
 import { listAccountBooks, ownBookToken, type FetchLike } from './ownAccount'
-import { loadOwnedPdfBytes, readOwnedBookFileId, userBookOwner } from './userBookStore'
+import { loadOwnedPdfBytes, readOwnedBookFileId, savePendingOwnedPdf, userBookOwner } from './userBookStore'
 import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
 import { loadPdfEngine } from './pdfEdition'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
@@ -607,8 +607,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
 
 /** The shell only sees a service after its local file ID or account copy proves the generation. */
 export function usePdfOriginalServices(hex: string, owner: string | null, enabled: boolean,
-  metadata?: { title: string; author: string }): PdfOriginalReaderServices | null {
+  metadata?: { title: string; author: string }, onStatus?: (status: string) => void, retry = 0): PdfOriginalReaderServices | null {
   const [service, setService] = useState<PdfOriginalGeometry | null>(null)
+  const statusRef = useRef(onStatus)
+  statusRef.current = onStatus
   const metadataRef = useRef(metadata)
   metadataRef.current = metadata
   const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own: enabled ? { hex } : null })
@@ -616,6 +618,7 @@ export function usePdfOriginalServices(hex: string, owner: string | null, enable
   useEffect(() => {
     if (!enabled || !owner || !HEX.test(hex) || userBookOwner() !== owner) { setService(null); return }
     let live = true, active: PdfOriginalGeometry | null = null
+    statusRef.current?.('Preparing highlights and AI…')
     void (async () => {
       const localId = await readOwnedBookFileId(hex, owner)
       const token = await ownBookToken()
@@ -623,14 +626,20 @@ export function usePdfOriginalServices(hex: string, owner: string | null, enable
       if (!live || userBookOwner() !== owner) return
       const file = account?.find(item => item.type === 'pdf' && item.sha256.slice(0, 24) === hex)
       // A successful account listing is authoritative: it may reveal delete/reupload.
-      const fileId = account ? file?.id : localId
-      if (!fileId || !FILE_ID.test(fileId)) return
+      let fileId = account ? file?.id : localId
+      if (account && !fileId && !localId && token) {
+        statusRef.current?.('Saving this PDF to your account…')
+        fileId = await savePendingOwnedPdf(hex, owner, token) ?? undefined
+        if (!live || userBookOwner() !== owner) return
+      }
+      if (!fileId || !FILE_ID.test(fileId)) { statusRef.current?.('This PDF’s account copy is unavailable. Try again to enable highlights and AI.'); return }
       active = new PdfOriginalGeometry(hex, owner, fileId, ownBookToken, fetch, player, metadataRef.current)
       setService(active)
+      statusRef.current?.('')
       void active.open()
-    })().catch(() => { if (live) setService(null) })
+    })().catch(error => { if (live && userBookOwner() === owner) { setService(null); statusRef.current?.(error instanceof Error ? error.message : 'This PDF could not connect to your account. Try again.') } })
     return () => { live = false; active?.dispose(); setService(null) }
     // The player's command interface is stable through re-renders; reopening it would reset narration.
-  }, [hex, owner, enabled])
+  }, [hex, owner, enabled, retry])
   return enabled && service?.hex === hex && service.owner === owner ? service : null
 }

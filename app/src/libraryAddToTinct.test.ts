@@ -977,6 +977,28 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     return { steps, engine: async () => api }
   }
 
+  it('shows immediate account-check feedback and respects cancellation', async () => {
+    document.documentElement.classList.add('signed-in')
+    let resolve!: (yes:boolean)=>void
+    const go=vi.fn(), opening=addToTinct.openFileEntry(entry(),{access:()=>new Promise<boolean>(r=>{resolve=r}),go,engine:fakeEngine().engine})
+    expect(dialog()?.textContent).toContain('Checking your account')
+    expect(dialog()?.querySelector('.own-file-choose')).toBeNull()
+    ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
+    resolve(true);await opening
+    expect(dialog()).toBeNull();expect(go).not.toHaveBeenCalled()
+  })
+  it('offers scanned PDF conversion without navigating until the reader chooses', async () => {
+    document.documentElement.classList.add('signed-in')
+    const go=vi.fn()
+    await addToTinct.openFileEntry(entry(),{access:async()=>true,go,engine:fakeEngine({kind:'pdf'}).engine,assessPdf:async()=>({recommend:true,reason:'scan'})})
+    choose(new File(['%PDF'], 'scan.pdf'))
+    await vi.waitFor(()=>expect(dialog()?.textContent).toContain('This PDF uses scanned pages.'))
+    expect(go).not.toHaveBeenCalled()
+    const convert=Array.from(dialog()!.querySelectorAll('button')).find(b=>b.textContent==='Convert to Tinct')!
+    convert.click()
+    expect(go).toHaveBeenCalledWith('/reader?userBook=abc&sharedReader=1&convert=1')
+  })
+
   it('shows Add a book’s own wording and a button that opens the file picker, without leaving the page', async () => {
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()
@@ -988,11 +1010,11 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     expect(box.textContent).toContain('It stays private to your account.')
     expect(box.textContent).toContain('DRM-protected files can’t be opened.')
     const input = box.querySelector('input[type="file"]') as HTMLInputElement
-    expect(input.accept).toBe('application/pdf,.pdf,application/epub+zip,.epub')
+    expect(input.accept).toBe('application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt')
     const picker = vi.spyOn(input, 'click').mockImplementation(() => {})
     ;(box.querySelector('.own-file-choose') as HTMLButtonElement).click()
     expect(picker).toHaveBeenCalledTimes(1)
-    expect(box.querySelector('.own-file-choose')?.textContent).toBe('Choose a PDF or EPUB')
+    expect(box.querySelector('.own-file-choose')?.textContent).toBe('Choose a file')
     // From the search field there is no second search to offer.
     expect(box.querySelector('.own-file-search')).toBeNull()
   })
@@ -1003,8 +1025,8 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     const WINDOWS = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
     const SAMSUNG = 'Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36'
     const ANDROID_APP = 'Mozilla/5.0 (Linux; Android 14; Pixel 8; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0 Mobile Safari/537.36'
-    for (const ua of [IPAD, IPHONE, WINDOWS]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub')
-    for (const ua of [SAMSUNG, ANDROID_APP]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub,application/octet-stream')
+    for (const ua of [IPAD, IPHONE, WINDOWS]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt')
+    for (const ua of [SAMSUNG, ANDROID_APP]) expect(addToTinct.fileAccept(ua)).toBe('application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt,application/octet-stream')
     for (const list of [addToTinct.FILE_ACCEPT, addToTinct.FILE_ACCEPT_ANDROID]) {
       expect(list).not.toMatch(/\s/)
       for (const piece of ['.pdf', '.epub', 'application/pdf', 'application/epub+zip']) expect(list.split(',')).toContain(piece)
@@ -1019,7 +1041,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     await addToTinct.openFileEntry(entry(), { access: async () => true, go: vi.fn(), engine })
     choose(new File(['x'], 'book', { type: 'application/octet-stream' }))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This file could not be read from this device. If it is stored in the cloud, download it first, then choose it again.'))
-    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
   })
 
   it('adds an EPUB in place: rights once (the engine records it), kept, saved, then opens in the Tinct reader, never via Add a book’s page', async () => {
@@ -1065,9 +1087,9 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()
     await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ readError: 'Choose a PDF or EPUB file.' }).engine })
-    choose(new File(['x'], 'notes.txt'))
+    choose(new File(['x'], 'notes.xyz'))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('Choose a PDF or EPUB file.'))
-    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
     await addToTinct.openFileEntry(entry(), { access: async () => true, go, engine: fakeEngine({ epubError: 'This book is protected by DRM.' }).engine })
     choose(new File(['PK'], 'locked.epub'))
     await vi.waitFor(() => expect(dialog()!.querySelector('[role="alert"]')?.textContent).toBe('This book is protected by DRM.'))
@@ -1141,7 +1163,7 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     button.click()
     await vi.waitFor(() => expect(dialog()).not.toBeNull())
     expect(search).not.toHaveBeenCalled()
-    expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull()
+    await vi.waitFor(() => expect(dialog()!.querySelector('.own-file-choose')).not.toBeNull())
     expect(dialog()!.querySelector('.own-file-search')).toBeNull()
     ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
     expect(search).not.toHaveBeenCalled()

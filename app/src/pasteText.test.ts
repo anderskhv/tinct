@@ -13,6 +13,16 @@ const data = (file: File) => new Promise<Uint8Array>((resolve, reject) => {
 })
 
 describe('private pasted source', () => {
+ it('keeps full-text archive clipboard paragraphs separate through EPUB conversion', async () => {
+  const paragraphs = Array.from({length: 180}, (_, i) => `Passage ${i}: A reader follows these words.\nThe next source line remains here.`)
+  const file = pasteEpub({source: '<pre>' + paragraphs.join('\n\n') + '</pre>', format: 'html', title: 'Archive text'})
+  const edition = await epubToEdition(await data(file))
+  const result = edition.chapters.flatMap(c => c.paragraphs)
+  expect(result.length).toBeGreaterThanOrEqual(paragraphs.length)
+  expect(Math.max(...result.map(p => p.length))).toBeLessThan(200)
+  for (let i=0; i<paragraphs.length; i++) expect(result.join(' ')).toContain(`Passage ${i}:`)
+ })
+
  it('keeps Unicode, quotes, list order, links, and figure wording through the real EPUB reader converter', async () => {
   vi.stubGlobal('crypto', { randomUUID: () => '11111111-1111-4111-8111-111111111111' })
   const source = '# Chapter One\n\nA café — “quoted” **bold** [source](https://example.org/article). 🐚\n\n3. Third item\n4. Fourth item\n\n> A remembered line.\n\n<figure><figcaption>Figure 1: The copper plate.</figcaption></figure>'
@@ -99,6 +109,18 @@ describe('private Paste entry', () => {
   await vi.waitFor(() => expect(go).toHaveBeenCalledWith('/reader?userBook=' + 'a'.repeat(24) + '&sharedReader=1'))
   expect(upload).toHaveBeenCalledTimes(1)
   expect(upload.mock.calls[0][1]).toMatchObject({kind:'epub',title:'A private text'})
+  vi.unstubAllGlobals()
+ })
+ it('opens a text file in the visible editable preview before account upload', async () => {
+  const {upload,go}=open('?sharedReader=1')
+  const file=new File(['First paragraph.\n\nSecond paragraph.'],'Full text.txt',{type:'text/plain'})
+  Object.defineProperty(file,'text',{value:async()=> 'First paragraph.\n\nSecond paragraph.'})
+  const input=dialog().querySelector('input[type=file]') as HTMLInputElement
+  Object.defineProperty(input,'files',{value:[file]});input.dispatchEvent(new Event('change'))
+  await vi.waitFor(()=>expect(dialog().querySelector('.own-paste-preview')?.textContent).toContain('Second paragraph.'))
+  expect(dialog().querySelector('.own-paste-preview')?.closest('details')).toBeNull()
+  expect(dialog().querySelector<HTMLInputElement>('.own-paste-title')?.value).toBe('Full text')
+  expect(upload).not.toHaveBeenCalled();expect(go).not.toHaveBeenCalled()
   vi.unstubAllGlobals()
  })
  it('stays editable and never navigates after account refusal', async () => {

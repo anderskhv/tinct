@@ -28,7 +28,7 @@ vi.mock('./PdfContinuousSurface', () => ({
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
-  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div>
+  SelectionDeskBar: ({ onAsk, onAskQuestion, onExplain, onSwatch, onNote, onMore, onHighlight, state, color }: { onHighlight: () => void; state: string; color: string; onAsk: () => void; onAskQuestion: (s: string) => void; onExplain: () => void; onSwatch: (c: 'sage') => void; onNote: () => void; onMore: (id: 'quiz' | 'define') => void }) => <div role="toolbar">
     <button onClick={onHighlight}>Apply PDF {color}</button>{state === 'colors' && <span>PDF palette</span>}<button onClick={onAsk}>Compose PDF question</button><button onClick={() => onAskQuestion('Why?')}>Ask this PDF</button><button onClick={onExplain}>Explain this PDF</button>
     <button onClick={() => onSwatch('sage')}>Highlight sage</button><button onClick={onNote}>Note PDF</button><button onClick={() => onMore('quiz')}>Quiz this PDF</button><button onClick={() => onMore('define')}>Define this PDF</button>
   </div>,
@@ -595,10 +595,13 @@ it('uses the current chapter in the header and the normal appearance themes with
 it('keeps conversion unavailable while working and shows a retryable conversion error in Appearance', () => {
   const onOpenText = vi.fn()
   const props = { title: 'Own PDF', bytes: async () => new ArrayBuffer(4), onVisiblePlace: () => {}, onOpenText }
-  const view = render(<PdfOriginalReaderShell {...props} textBusy />)
+  const view = render(<PdfOriginalReaderShell {...props} textBusy textProgress={{stage:'text',done:3,total:10}} />)
   fireEvent.click(screen.getByRole('button', { name: 'Appearance' }))
   const converting = screen.getByRole('button', { name: 'Converting…' })
   expect((converting as HTMLButtonElement).disabled).toBe(true)
+  expect(screen.getByRole('progressbar').getAttribute('value')).toBe('3')
+  expect(screen.getByRole('progressbar').getAttribute('max')).toBe('10')
+  expect(screen.getByText('Preparing pages 3 of 10')).toBeTruthy()
   fireEvent.click(converting)
   expect(onOpenText).not.toHaveBeenCalled()
   view.rerender(<PdfOriginalReaderShell {...props} textError="Conversion could not finish. Your original pages are ready." />)
@@ -812,4 +815,16 @@ it('retains Notebook in the normal phone PDF menu because its header has no Note
   expect(screen.queryByTestId('lab-header-notebook')).toBeNull()
   fireEvent.click(screen.getByTestId('lab-super-row-notebook'))
   expect(screen.getByRole('dialog',{name:'Notebook'})).toBeTruthy()
+})
+
+it('dismisses the PDF selection toolbar on a new outside pointer gesture', () => {
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async()=>new ArrayBuffer(4)} onVisiblePlace={()=>{}} />)
+  fireEvent.click(screen.getByRole('button',{name:'Select PDF text'}))
+  expect(screen.getByRole('button',{name:'Explain this PDF'})).toBeTruthy()
+  fireEvent.pointerDown(screen.getByRole('button',{name:'Explain this PDF'}))
+  expect(screen.getByRole('button',{name:'Explain this PDF'})).toBeTruthy()
+  fireEvent.pointerDown(document.querySelector('.pdf-original__page')!)
+  expect(screen.queryByRole('button',{name:'Explain this PDF'})).toBeNull()
+  fireEvent.click(screen.getByRole('button',{name:'Select PDF text'}))
+  expect(screen.getByRole('button',{name:'Explain this PDF'})).toBeTruthy()
 })
