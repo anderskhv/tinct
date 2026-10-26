@@ -114,7 +114,15 @@ try {
     await page.screenshot({path:`${output}/${label}-explain.png`})
     await page.keyboard.press('Escape')
     await explain.waitFor({state:'hidden'})
-    await page.mouse.move(first.x+1,first.y+first.height/2);await page.mouse.down();await page.mouse.move(first.x+first.width-1,first.y+first.height/2,{steps:5});await page.mouse.up()
+    // A single-word phone selection is a long press, not a tiny mouse drag
+    // (short words fall below the reader's drag threshold).
+    const visibleWords=page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-testid="lab-word"]')
+    const wordIndex=await visibleWords.evaluateAll(nodes=>nodes.findIndex(node=>{const r=node.getBoundingClientRect();return r.top>100&&r.bottom<600&&r.width>40&&r.right<innerWidth}))
+    assert(wordIndex>=0,'a visible word is available for Define')
+    const word=visibleWords.nth(wordIndex),box=await word.boundingBox()
+    const pointer={pointerId:9,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:box.x+box.width/2,clientY:box.y+box.height/2}
+    await word.dispatchEvent('pointerdown',pointer);await page.waitForTimeout(350);await word.dispatchEvent('pointerup',pointer)
+    await page.getByTestId('lab-phone-bar').waitFor()
     await page.getByTestId('lab-pbar-more').click();await page.getByTestId('lab-pmore-define').click()
     const definition=page.locator('.lab-pcard[data-kind="define"]')
     await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()

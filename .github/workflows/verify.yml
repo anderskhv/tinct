@@ -236,6 +236,7 @@ jobs:
             app/artifacts/hyphenation-hardening
             app/artifacts/page-break-lines
             app/artifacts/pdf-source-parity
+            app/artifacts/mobile-chat-cards
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,

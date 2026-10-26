@@ -280,12 +280,12 @@ async function run(engineName) {
     ok(`${tag}: ${label} opens its card (${card.label})`, card.count === 1 && card.kind === kind && card.label?.startsWith(label) && !card.popup && card.bottom >= 840, card)
     const look = await page.evaluate(() => ({
       quote: document.querySelectorAll('[data-testid="lab-phone-card-quote"], .lab-pcard-quote').length,
-      underlined: [...document.querySelectorAll('[data-testid="lab-page-wrap"] .is-card-passage')].map(w => getComputedStyle(w).textDecorationLine),
+      underlined: [...document.querySelectorAll('[data-testid="lab-page-wrap"] .is-card-passage')].map(w => !!w.closest('.lab-hearing-line')?.querySelector('.lab-card-passage-line')),
       scrim: (() => { const s = document.querySelector('[data-testid="lab-phone-card-scrim"]'); return s ? getComputedStyle(s).backgroundColor : null })(),
       focused: document.activeElement?.tagName === 'TEXTAREA',
     }))
     ok(`${tag}: ${label}: no quote in the card, the passage underlined on the page (${look.underlined.length} words), the page dimmed, no field focused`,
-      look.quote === 0 && look.underlined.length > 0 && look.underlined.every(line => line.includes('underline')) && !!look.scrim && look.scrim !== 'rgba(0, 0, 0, 0)' && !look.focused, look)
+      look.quote === 0 && look.underlined.length > 0 && look.underlined.every(Boolean) && !!look.scrim && look.scrim !== 'rgba(0, 0, 0, 0)' && !look.focused, look)
     return card
   }
   const close1 = async (how, label) => {
