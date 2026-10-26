@@ -120,6 +120,10 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       page.on('console', message => { if (message.type() === 'error') note('console.error', message.text().slice(0, 300), message.location()?.url || '') })
       page.on('framenavigated', frame => { if (frame === page.mainFrame()) note('navigated', frame.url()) })
       page.on('crash', () => note('crash'))
+      const pending = new Map()
+      page.on('request', request => pending.set(request, { url: request.url(), type: request.resourceType(), started: Date.now() }))
+      page.on('requestfinished', request => pending.delete(request))
+      page.on('requestfailed', request => { note('requestfailed', request.url(), request.failure()?.errorText); pending.delete(request) })
       try {
         await boot(page, scenario)
         // Liveness: a page that cannot answer a trivial evaluate after ready
@@ -172,6 +176,7 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
       } catch (error) {
         try {
+          console.log('FAIL pending requests', JSON.stringify([...pending.values()].map(request => ({ ...request, elapsedMs: Date.now() - request.started }))))
           console.log('FAIL', engine, index, JSON.stringify(scenario), String(error?.message).split('\n')[0])
           const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
           console.log('FAIL page', state.timedOut ? 'no answer in 5 s (main thread busy?)' : JSON.stringify(state.value ?? state.error))
