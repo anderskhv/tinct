@@ -211,6 +211,9 @@ jobs:
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
+      - name: Verify desktop typing and note deletion before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-desktop-feedback.mjs
       - name: Verify PDF format conversion preserves the source place
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         env:
@@ -246,6 +249,9 @@ jobs:
             app/artifacts/pdf-source-parity
             app/artifacts/pdf-notebook
             app/artifacts/mobile-chat-cards
+            app/artifacts/desktop-feedback
+            app/artifacts/shared-reader-menu
+            app/artifacts/margin-refinements
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return
   # no problems. app/public is served locally and every AI call and account route is mocked by the script,
