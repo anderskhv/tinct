@@ -18,7 +18,7 @@ try {
     const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
     const page = await context.newPage(), errors = [], requests = []
     activePage = page
-    let longAnswer = false, delayedRoute = null
+    let longAnswer = false, delayedRoute = null, failPhoneFollow = false
     page.on('pageerror', error => errors.push(error.message))
     await page.route('**/*', async route => {
       const url = new URL(route.request().url())
@@ -28,6 +28,7 @@ try {
         requests.push(route.request().postDataJSON())
         const request = requests.at(-1)
         if (JSON.stringify(request).includes('Delay first source response')) { delayedRoute = route; return }
+        if (failPhoneFollow && JSON.stringify(request).includes('Phone follow-up retry check')) return route.fulfill({status:400,json:{error:'Synthetic follow-up failure'}})
         const intent = request?.companion?.intent
         const text = intent === 'quiz' ? JSON.stringify({ questions: [1, 2, 3].map(n => ({ q: `Local source question ${n}?`, answer: 'The selected source.', why: 'The source wording supports it.' })) })
           : intent === 'quiz_check' ? JSON.stringify({ verdict: 'nearly', feedback: 'Reconsider the source wording before moving on.' })
@@ -310,7 +311,24 @@ try {
       assert.equal(await page.getByTestId('source-margin-rail').count(), 0, 'phone retains its bottom card')
       assert.equal(await root.getAttribute('data-place'), initialPlace)
       await page.screenshot({ path: `${output}/phone-unchanged.png` })
-      await page.keyboard.press('Escape')
+      await page.getByTestId('lab-phone-card-dock').getByText('A complete local answer remains attached to this source passage.').waitFor()
+      failPhoneFollow = true
+      await page.getByTestId('lab-phone-card-input').fill('Phone follow-up retry check')
+      await page.getByTestId('lab-phone-card-send').click()
+      const phoneChat = page.getByTestId('lab-ask-pane')
+      await phoneChat.waitFor()
+      await phoneChat.getByRole('button', {name:'Try again',exact:true}).waitFor()
+      assert.equal(await phoneChat.getByText('Phone follow-up retry check',{exact:true}).count(),1,'failed sent question stays once in Chat')
+      assert.equal(await page.getByTestId('lab-phone-card-input').count(),0,'handoff removes the card composer')
+      assert.equal(await root.getAttribute('data-place'),initialPlace,'phone card handoff leaves reading position unchanged')
+      failPhoneFollow = false
+      await phoneChat.getByRole('button',{name:'Try again',exact:true}).click()
+      await phoneChat.getByRole('button',{name:'Try again',exact:true}).waitFor({state:'hidden'})
+      assert.equal(await phoneChat.getByText('Phone follow-up retry check',{exact:true}).count(),1,'Retry reuses the sent question')
+      assert.equal(await phoneChat.getByTestId('lab-ask-input').inputValue(),'','one empty composer remains after Retry')
+      assert.equal(await root.getAttribute('data-place'),initialPlace)
+      await page.screenshot({path:`${output}/phone-followup-retry.png`})
+      await page.getByTestId('lab-ask-done').click()
       await select(page.locator('.lab'))
       await page.getByTestId('lab-pbar-more').click()
       await page.getByRole('menuitem', { name: 'Quiz me', exact: true }).click()
