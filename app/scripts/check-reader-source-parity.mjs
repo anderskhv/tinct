@@ -354,9 +354,10 @@ try {
       assert.equal(await root.getAttribute('data-place'),initialPlace,'phone card handoff leaves reading position unchanged')
       const followPosition = await phoneChat.getByText('Phone follow-up retry check', {exact:true}).evaluate(node => {
         const thread = node.closest('[data-testid="lab-ask-thread"]'), box = node.getBoundingClientRect(), bounds = thread?.getBoundingClientRect()
-        return { top: box.top, bottom: box.bottom, threadTop: bounds?.top, threadBottom: bounds?.bottom }
+        return { top: box.top, bottom: box.bottom, rowTop:node.closest('[data-turn-id]')?.getBoundingClientRect().top, threadTop: bounds?.top, threadBottom: bounds?.bottom }
       })
       assert.ok(followPosition.threadTop !== undefined && followPosition.top >= followPosition.threadTop - 2 && followPosition.bottom <= followPosition.threadBottom, `handoff shows the follow-up, not the original Explain prompt: ${JSON.stringify(followPosition)}`)
+      assert.ok(Math.abs(followPosition.rowTop - followPosition.threadTop) < 24, `follow-up opens near the top with room for its answer: ${JSON.stringify(followPosition)}`)
       failPhoneFollow = false
       await phoneChat.getByRole('button',{name:'Try again',exact:true}).click()
       await phoneChat.getByRole('button',{name:'Try again',exact:true}).waitFor({state:'hidden'})

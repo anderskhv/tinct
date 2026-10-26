@@ -377,12 +377,13 @@ export function LabAskPane({
     const body = threadRef.current
     const row = Array.from(body?.querySelectorAll<HTMLElement>('[data-turn-id]') || []).find(node => node.dataset.turnId === focusTurnId)
     if (!body || !row) return
-    body.scrollTop = Math.max(0, row.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop)
-    nearBottomRef.current = false
-    pinnedScrollTopRef.current = null
-    latestRef.current!.placed(body)
+    // A short answer needs the same trailing room as a newly sent question;
+    // otherwise scrollTop clamps and leaves the follow-up at the bottom.
+    anchorIdRef.current = focusTurnId
+    cleanOpenRef.current = false
+    holdQuestion(body, row, true)
     focusedTurnRef.current = focusTurnId
-  }, [focusTurnId, hidden, turns])
+  }, [focusTurnId, hidden, turns, holdQuestion])
 
   // Press-and-hold on the phone reveals a message's row (the shared behaviour).
   useEffect(() => {
