@@ -96,6 +96,7 @@ function nextId() {
 
 /** What a question carries beside its text: a highlighted passage, or a figure's picture. */
 export interface LabAskAttachment {
+  sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number }
   conversationId?: string
   highlightedText?: string
   onAccepted?: () => void
@@ -821,7 +822,10 @@ export function useLabAsk(options: UseLabAskOptions) {
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
     const requestConversationId = retry?.userTurn.conversationId ?? attachment?.conversationId ?? optionsRef.current.conversationId ?? null
     const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
-    const currentContext = askContextNow([])
+    const visibleContext = askContextNow([])
+    const selectedSource = attachment?.sourceLocation
+    const currentContext = selectedSource ? { ...visibleContext, ...selectedSource,
+      paragraphs: selectedSource.chapterNumber === visibleContext.chapterNumber ? visibleContext.paragraphs : [] } : visibleContext
     // Discussing saved work must not move the reader or attach an unrelated
     // currently open chapter as if it were the historical passage's context.
     const discussionContext = discussion && discussion.chapterNumber !== currentContext.chapterNumber

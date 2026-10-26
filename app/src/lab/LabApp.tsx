@@ -1014,7 +1014,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
-  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure } | null>(null)
+  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure; sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number } } | null>(null)
   // The figure card over the page (LabFigure.tsx); an overlay only, it never moves the reader.
   const [figureCard, setFigureCard] = useState<LabFigure | null>(null)
   useEffect(() => {
@@ -5260,7 +5260,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
     const figure = attachment?.figure
     void ask.sendTyped(value, undefined, undefined, {
-      highlightedText: attachment?.text,
+      highlightedText: attachment?.text, sourceLocation: attachment?.sourceLocation,
       ...(figure ? { image: () => figureImageBlock(figure) } : {}),
       onAccepted: () => {
         setDraft('')
@@ -5740,7 +5740,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDesktopOpenId(null)
     setContentsConversation(null)
     setDesktopContinuationId(`mc_react_${Date.now()}`)
-    setAskAttachment({ bookId: book.bookId || 'bible', text: passage.text })
+    setAskAttachment({ bookId: book.bookId || 'bible', text: passage.text, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex } })
     setSelectionPopup(null)
     setDraft(initialQuestion ?? '')
     setPhoneAskOpen(showPhoneChrome)
@@ -7359,7 +7359,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             setDesktopAskOpen(!showPhoneChrome)
             dictation.stop()
             void ask.sendTyped(question, undefined, undefined, {
-              highlightedText: passage.text, conversationId,
+              highlightedText: passage.text, conversationId, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
               onAccepted: () => setDraft(''),
             })
           } : undefined}

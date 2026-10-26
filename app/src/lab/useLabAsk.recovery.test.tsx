@@ -528,3 +528,15 @@ it('continues a saved earlier-chapter discussion without using the open chapter 
   expect(payload).not.toContain('UNRELATED CURRENT CHAPTER SOURCE')
   expect(result.current.turns.find(turn => turn.content === 'Why?')?.chapterNumber).toBe(1)
 })
+
+it('keeps the selected source location when Ask opens away from the visible paragraph', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(ok()))
+  const { result } = renderHook(() => useLabAsk(base))
+  await act(async () => { await result.current.sendTyped('Why this selection?', undefined, undefined, {
+    conversationId: 'selected-source', highlightedText: 'The exact selected words',
+    sourceLocation: { chapterNumber: 794, chapterLabel: 'Jeremiah 49', paragraphIndex: 12 },
+  }) })
+  expect(result.current.turns.find(turn => turn.role === 'user')).toMatchObject({
+    chapterNumber: 794, paragraphIndex: 12, conversationId: 'selected-source', highlightedText: 'The exact selected words',
+  })
+})
