@@ -1,22 +1,35 @@
 -- Synthetic database only. Executed against an empty disposable PostgreSQL.
 CREATE TABLE public.profiles (
- id uuid PRIMARY KEY, is_test boolean, subscription_status text,
+ id uuid PRIMARY KEY, email text, subscription_status text,
  subscription_period_end timestamptz, period_start timestamptz,
  messages_used_this_period integer, ai_period_start timestamptz,
  ai_period_allowance_micros bigint, ai_period_drawn_micros bigint,
  ai_credit_micros bigint DEFAULT 7000000
 );
+CREATE SCHEMA auth;
+CREATE TABLE auth.users (id uuid PRIMARY KEY, email text, raw_app_meta_data jsonb DEFAULT '{}', raw_user_meta_data jsonb DEFAULT '{}');
 CREATE TABLE public.reader_profiles (id uuid PRIMARY KEY, internal boolean);
 CREATE TABLE public.user_data (user_id uuid, key text, value jsonb, PRIMARY KEY(user_id,key));
-INSERT INTO profiles (id,subscription_status,is_test,subscription_period_end,messages_used_this_period,ai_period_drawn_micros)
+INSERT INTO profiles (id,subscription_status,email,subscription_period_end,messages_used_this_period,ai_period_drawn_micros)
 VALUES
- ('00000000-0000-4000-8000-000000000001',null,false,null,20,1000000),
- ('00000000-0000-4000-8000-000000000002','active',false,now()+interval '1 year',30,2000000),
- ('00000000-0000-4000-8000-000000000003',null,false,null,30,2000000),
- ('00000000-0000-4000-8000-000000000004',null,true,null,30,2000000),
- ('00000000-0000-4000-8000-000000000005','canceled',false,now()+interval '10 days',30,2000000),
- ('00000000-0000-4000-8000-000000000006','past_due',false,null,30,2000000),
- ('00000000-0000-4000-8000-000000000007','canceled',false,now()-interval '1 day',20,1000000);
+ ('00000000-0000-4000-8000-000000000001',null,'reader@tinct.app',null,20,1000000),
+ ('00000000-0000-4000-8000-000000000002','active','reader@tinct.app',now()+interval '1 year',30,2000000),
+ ('00000000-0000-4000-8000-000000000003',null,'reader@tinct.app',null,30,2000000),
+ ('00000000-0000-4000-8000-000000000004',null,'qa-synthetic@test.tinct.app',null,30,2000000),
+ ('00000000-0000-4000-8000-000000000005','canceled','reader@tinct.app',now()+interval '10 days',30,2000000),
+ ('00000000-0000-4000-8000-000000000006','past_due','reader@tinct.app',null,30,2000000),
+ ('00000000-0000-4000-8000-000000000007','canceled','reader@tinct.app',now()-interval '1 day',20,1000000);
+INSERT INTO auth.users (id,email,raw_app_meta_data) SELECT id,email,
+ CASE WHEN email LIKE 'qa-%' THEN '{"is_test":true}'::jsonb ELSE '{}'::jsonb END FROM profiles;
+-- These cases independently exercise metadata and legacy reserved addresses.
+INSERT INTO profiles (id,email) VALUES
+ ('00000000-0000-4000-8000-000000000008','synthetic@tinct.app'),
+ ('00000000-0000-4000-8000-000000000009','old-qa@example.com'),
+ ('00000000-0000-4000-8000-000000000010','metadata@tinct.app');
+INSERT INTO auth.users (id,email,raw_app_meta_data,raw_user_meta_data) VALUES
+ ('00000000-0000-4000-8000-000000000008','synthetic@tinct.app','{"is_test":true}','{}'),
+ ('00000000-0000-4000-8000-000000000009','old-qa@example.com','{}','{}'),
+ ('00000000-0000-4000-8000-000000000010','metadata@tinct.app','{}','{"is_test":true}');
 INSERT INTO reader_profiles SELECT id, id='00000000-0000-4000-8000-000000000003' FROM profiles;
 CREATE TEMP TABLE original_profiles AS SELECT * FROM profiles;
 \ir ../../supabase/migrations/20261026_reading_languages.sql

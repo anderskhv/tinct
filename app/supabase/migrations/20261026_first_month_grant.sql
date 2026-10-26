@@ -3,11 +3,22 @@
 -- access (including canceled but still paid-through plans), internal accounts,
 -- and synthetic test accounts are untouched. Re-running during the grant is
 -- a no-op because the resulting paid-through period is already in the future.
+-- Applied by Anders on 2026-10-26: 35 accounts; grant ends 2026-11-25.
+-- Receipts below make subsequent runs a no-op for those accounts.
 BEGIN;
 WITH eligible AS (
   SELECT p.id FROM public.profiles p
+  JOIN auth.users u ON u.id = p.id
   LEFT JOIN public.reader_profiles r ON r.id = p.id
-  WHERE NOT COALESCE(p.is_test, false)
+  -- Production may predate profiles.is_test: use the durable auth markers
+  -- and the same reserved email domains as socialRules.isReservedTestEmail.
+  WHERE COALESCE(u.raw_app_meta_data->>'is_test', 'false') <> 'true'
+    AND COALESCE(u.raw_user_meta_data->>'is_test', 'false') <> 'true'
+    AND NOT (
+      lower(split_part(COALESCE(u.email, p.email, ''), '@', 2)) = 'test.tinct.app'
+      OR lower(split_part(COALESCE(u.email, p.email, ''), '@', 2)) ~ '(^|\.)example\.(com|net|org)$'
+      OR lower(split_part(COALESCE(u.email, p.email, ''), '@', 2)) ~ '\.(test|example|invalid|localhost)$'
+    )
     AND NOT COALESCE(r.internal, false)
     AND COALESCE(p.subscription_status, '') NOT IN ('active', 'trialing', 'past_due', 'unpaid', 'incomplete')
     AND NOT EXISTS (SELECT 1 FROM public.user_data d WHERE d.user_id = p.id AND d.key = 'premium-first-month-2026-10')
