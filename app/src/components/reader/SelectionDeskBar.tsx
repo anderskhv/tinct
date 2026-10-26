@@ -127,17 +127,19 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   }, [moreOpen, place])
   useLayoutEffect(() => { if (props.sharedReader && moreOpen && morePlace) moreRef.current?.querySelector<HTMLButtonElement>('[role="menuitem"]')?.focus({ preventScroll: true }) }, [props.sharedReader, moreOpen, morePlace])
   // A new state (highlighted, the colours) closes the menu.
-  useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion('') }, [state])
+  useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion(''); if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' } }, [state])
   useLayoutEffect(() => { if (askOpen) askRef.current?.focus({ preventScroll: true }) }, [askOpen])
 
   const closeAsk = () => {
+    if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' }
     setAskOpen(false)
     setQuestion('')
     requestAnimationFrame(() => askButtonRef.current?.focus({ preventScroll: true }))
   }
   const openAsk = (initialQuestion?: string) => {
-    if (props.onComposeAsk) { initialQuestion === undefined ? props.onComposeAsk() : props.onComposeAsk(initialQuestion); return }
+    if (!props.onAskQuestion && props.onComposeAsk) { initialQuestion === undefined ? props.onComposeAsk() : props.onComposeAsk(initialQuestion); return }
     if (!props.onAskQuestion) { props.onAsk(); return }
+    if (ref.current) { ref.current.style.width = `${ref.current.getBoundingClientRect().width}px`; ref.current.style.height = `${ref.current.getBoundingClientRect().height}px` }
     setMoreOpen(false)
     setQuestion(initialQuestion ?? '')
     setAskOpen(true)
@@ -173,7 +175,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     return () => { window.removeEventListener('keydown', type, true); window.removeEventListener('compositionend', compose, true) }
   }, [props.sharedReader, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
 
-  const keep = (event: React.PointerEvent | React.MouseEvent) => event.preventDefault()
+  const keep = (event: React.PointerEvent | React.MouseEvent) => { if (!(event.target instanceof Element) || !event.target.closest('input,textarea')) event.preventDefault() }
   const sep = <span className="lab-pbar-sep" aria-hidden="true" />
   const current = HIGHLIGHT_COLORS.find(item => item.key === color) ?? HIGHLIGHT_COLORS[0]
   const swatches = HIGHLIGHT_COLORS.map(item => (

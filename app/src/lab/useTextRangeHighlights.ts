@@ -10,6 +10,12 @@ export function highlightRows(rects: PaintRect[], fontSize: number): Array<{left
     if (row) { row.left=Math.min(row.left,rect.left); row.right=Math.max(row.right,rect.right); row.bottom=Math.max(row.bottom,rect.bottom) }
     else rows.push({left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom})
   }
+  // Raised numerals belong to the line horizontally, but must not raise its
+  // background above the surrounding text or leave a slit before the first word.
+  for (const rect of rects.filter(r => r.height > 0 && r.height < fontSize && r.right > r.left)) {
+    const row = rows.find(r => rect.bottom > r.top && rect.top < r.bottom)
+    if (row) { row.left = Math.min(row.left, rect.left); row.right = Math.max(row.right, rect.right) }
+  }
   return rows
 }
 

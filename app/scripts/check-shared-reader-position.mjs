@@ -176,6 +176,48 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.equal(await page.locator('.lab').getAttribute('data-continuous-reader'), 'true')
   await observe('exodus-1', 'exodus')
 
+  // A raised verse numeral is a source word too. Exercise real pointer
+  // selection, immediate continuous typing, and note deletion in the rail.
+  await host.evaluate(node => { node.scrollTop = 0 })
+  const selectVerse = async () => {
+    const numeral = host.locator('.lab-verse-mark').first()
+    const start = await numeral.boundingBox()
+    const target = host.getByTestId('lab-word').nth(10)
+    const end = await target.boundingBox()
+    assert(start && end, 'verse selection has measured source boxes')
+    await page.mouse.move(start.x + start.width / 2, start.y + start.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(end.x + end.width / 2, end.y + end.height / 2, { steps: 12 })
+    await page.mouse.up()
+    await page.getByTestId('lab-desk-bar').waitFor({state:'visible'})
+  }
+  await selectVerse()
+  const beforeAsk = await page.getByTestId('lab-desk-bar').boundingBox()
+  await page.getByTestId('lab-dbar-ask').click()
+  await page.keyboard.type('When I read this passage, what does it mean?')
+  assert.equal(await page.getByTestId('lab-dbar-ask-field').inputValue(), 'When I read this passage, what does it mean?', 'Ask retains uninterrupted typing focus')
+  const afterAsk = await page.getByTestId('lab-desk-bar').boundingBox()
+  assert(Math.abs(beforeAsk.width-afterAsk.width)<2 && Math.abs(beforeAsk.height-afterAsk.height)<2, 'Ask keeps the existing toolbar size')
+  await page.screenshot({path:`${output}/verse-inline-ask.png`})
+  await page.keyboard.press('Escape')
+  await page.getByTestId('lab-dbar-note').click()
+  await page.keyboard.type('A temporary synthetic note')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A temporary synthetic note', 'new desktop note focuses immediately')
+  await page.screenshot({path:`${output}/verse-note-focus.png`})
+  await page.getByRole('button', {name:'Delete Note',exact:true}).click()
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0, 'deleted note leaves no editor')
+  const marginRoom = await page.locator('.source-margin-room').boundingBox()
+  const sourceFrame = await host.boundingBox()
+  assert(marginRoom && sourceFrame, 'blank margin has a hit surface')
+  await page.mouse.click(marginRoom.x + marginRoom.width / 2, sourceFrame.y + 160)
+  await page.keyboard.type('A note on blank paper')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A note on blank paper', 'blank margin focuses its new note')
+  await page.getByRole('button', {name:'Delete Note',exact:true}).click()
+  await page.waitForTimeout(600) // Include the note autosave debounce: deletion must remain final.
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0)
+  assert.equal(await page.locator('.source-margin-item').filter({hasText:'A note on blank paper'}).count(), 0, 'deleted note is not restored by autosave')
+  await page.screenshot({path:`${output}/verse-selection-note-deleted.png`})
+
   // Aa exposes Compare before a second version is configured. Pick a real
   // compatible version, return to Layout, then open the paired source view.
   await openSettings()
@@ -291,6 +333,25 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert(chapterActions.filter(item => item.kind === 'catchup').every(item => item.request.bookId === 'frankenstein' && item.request.placeChapter === 2), 'Catch me up cannot include current or later chapter')
   await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   assert.deepEqual(await saved('frankenstein'), beforeActions, 'chapter cards never move the semantic source place')
+
+  // Exact reported chapter and edition: Romans 2:1 starts with a raised numeral.
+  await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1048&paragraph=0&word=0&sharedReader=1`, {waitUntil:'domcontentloaded'})
+  await host.waitFor({timeout:45000})
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '1048')
+  const numeralBox = await host.locator('.lab-verse-mark').first().boundingBox()
+  const verseEndBox = await host.getByTestId('lab-word').nth(35).boundingBox()
+  assert(numeralBox && verseEndBox)
+  await page.mouse.move(numeralBox.x + numeralBox.width / 2, numeralBox.y + numeralBox.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(verseEndBox.x + verseEndBox.width / 2, verseEndBox.y + verseEndBox.height / 2, {steps:12})
+  await page.mouse.up()
+  await page.getByTestId('lab-desk-bar').waitFor({state:'visible'})
+  await page.screenshot({path:`${output}/romans-2-verse-number-selection.png`})
+  await page.keyboard.press('Escape')
+  await page.getByRole('slider', {name:'Chapter position'}).focus()
+  await page.keyboard.press('End')
+  await page.waitForFunction(() => document.querySelector('[role="slider"][aria-label="Chapter position"]')?.getAttribute('aria-valuenow') === '100')
+  await page.screenshot({path:`${output}/romans-2-complete.png`})
 
   // The private switch leaves the known phone Read/Compare path and flag-off
   // desktop page layout available, with no continuous source renderer there.
