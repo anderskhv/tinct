@@ -1095,7 +1095,7 @@ async function panelsOpenNearSource(engine,name) {
   let state
   const result={engine:name,layout:'desktop-panels-near-source',live}
   try {
-    state=await boot(browser,false,'odyssey','original-en',2)
+    state=await boot(browser,false,'odyssey','original-en',2,{sharedReader:true})
     const {page}=state
     const menu=await page.getByTestId('lab-super').boundingBox()
     for(const id of ['text','editions','audio','catchup']){
@@ -1115,15 +1115,23 @@ async function panelsOpenNearSource(engine,name) {
     const before=await surface.boundingBox()
     if(shared){
       const sourceBefore=await words.nth(40).boundingBox()
+      const placeBefore=await page.getByTestId('lab-root').getAttribute('data-place')
       assert(before&&Math.abs(before.y-a.y)<=120,'the shared card opens beside its selected source')
       await surface.getByTestId('lab-phone-card-input').fill('Expand this explanation beside the source.')
       await surface.getByTestId('lab-phone-card-send').click()
-      await surface.getByText('A compact opening grounded in the selected passage.',{exact:true}).nth(1).waitFor()
+      const chat=page.getByTestId('lab-ask-pane')
+      await chat.getByText('A compact opening grounded in the selected passage.',{exact:true}).nth(1).waitFor()
+      assert.equal(await surface.count(),0,'sending a follow-up closes the standalone Explain card')
+      assert.equal(await chat.getByText('Expand this explanation beside the source.',{exact:true}).count(),1,'the follow-up appears once in Chat')
+      assert.equal(await page.getByTestId('lab-ask-input').count(),1,'the handoff leaves one chat composer')
+      assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),placeBefore,'opening the discussion preserves reading position')
       assert.deepEqual(await words.nth(40).boundingBox(),sourceBefore,'a shared response never reflows the reading leaves')
     }else await page.getByRole('button',{name:'Expand explanation',exact:true}).click()
     await page.waitForTimeout(600)
-    const after=await surface.boundingBox()
-    assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
+    if(!shared){
+      const after=await surface.boundingBox()
+      assert(Math.abs(after.x-before.x)<=4&&Math.abs(after.y-before.y)<=4,`Explain grows in place: ${JSON.stringify({before,after})}`)
+    }
     assert.deepEqual(state.errors,[])
     result.passed=true
   } catch(error) {
