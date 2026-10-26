@@ -7713,3 +7713,6 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-header :is(.lab-header-work,.lab-header-book,.lab-header-chapter,.lab-v2-play,.lab-v2-aa,.lab-super,.lab-v2-library-back,.lab-header-notebook) { transition:none; }
 }
 
+
+/* Brief source cue after an explicit Notebook Open/Show passage action. */
+.lab .is-notebook-passage { background-color: color-mix(in srgb, var(--lab-ink, #a87c35) 20%, transparent); border-radius: 2px; }
