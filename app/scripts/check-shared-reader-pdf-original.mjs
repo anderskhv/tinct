@@ -342,10 +342,13 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
+  const places = {}
   const sets = { marks: { list: [], rev: 0 }, cards: { list: [], rev: 0 } }
   page.on('pageerror', error => errors.push(error.stack || error.message))
   page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text().slice(0, 1200)) })
-  await page.route('**/*', async route => {
+  // Position writes use keepalive on reload. Keep their synthetic API handler
+  // on the context so it survives the outgoing document, including in WebKit.
+  await context.route('**/*', async route => {
     const request = route.request(), url = new URL(request.url()), p = url.pathname
     const json = (status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
     if (url.hostname.endsWith('.supabase.co')) {
@@ -360,7 +363,13 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     calls.push({ path: p, method: request.method(), body: request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
     if (p === '/api/public-books') return json(200, { books: [] })
     if (p === '/api/user-books') return json(200, { books: [book] })
-    if (p === '/api/user-books/places') return json(200, { places: {} })
+    if (p === '/api/user-books/places') return json(200, { places })
+    if (p === `/api/user-books/places/${hex}` && request.method() === 'PUT') {
+      const sent = request.postDataJSON(), current = places[hex]
+      if ((current?.rev ?? 0) !== sent.rev) return json(409, { place: current ?? null })
+      places[hex] = { ...sent.place, rev: sent.rev + 1 }
+      return json(200, { place: places[hex] })
+    }
     if (p === `/api/user-books/${fileId}`) return route.fulfill({ contentType: 'application/pdf', body: bytes })
     if (p === `/api/user-books/marks/${hex}` || p === `/api/user-books/cards/${hex}`) {
       const name = p.includes('/marks/') ? 'marks' : 'cards', set = sets[name]
