@@ -887,10 +887,11 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByText('Second original page has its own spoken words.').waitFor()
     for (const width of [1100, 390]) {
       await page.setViewportSize({ width, height: 844 })
+      await page.locator(`.pdf-original-reader.${width < 700 ? 'is-phone' : 'is-desktop'}`).waitFor()
       await openNotebook()
       const entry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'A readable answer flows' })
       await entry.waitFor()
-      await entry.scrollIntoViewIfNeeded()
+      await entry.locator('.pdf-original-reader__saved-head').scrollIntoViewIfNeeded()
       const geometry = await entry.evaluate(el => {
         const turn = el.querySelector('.pdf-original-reader__saved-turn'), quote = el.querySelector('blockquote')
         return { display: getComputedStyle(turn).display, width: turn.getBoundingClientRect().width,
