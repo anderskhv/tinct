@@ -63,12 +63,10 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), the settings groups, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, noCatchUp = false, sharedReader = false }: {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
   /** Shared source identity; Notebook uses its dedicated desktop button. */
   sharedReader?: boolean
-  /** A book's first chapter (or its front matter) on the phone: nothing to catch up on yet. */
-  noCatchUp?: boolean
 } = {}): LabSuperMenuRow[] {
   const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // Match the phone: two explicit actions, with their existing destinations.
@@ -79,7 +77,7 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
-  const rows = noCatchUp ? all.filter(row => row.id !== 'catchup') : all
+  const rows = all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
   // at a time). Book settings appears only for separate source choices (PDF

@@ -2351,7 +2351,7 @@ const ICON = {
 };
 /*
  * The t menu, Tinct's normal menu (Anders, 21 Oct 2026; the approved design of 20 Oct, the phone's
- * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up (not on a book's first unit); the settings
+ * src/lab/labSuperMenu.ts): Chat · Talk on one row, Summarize, Catch me up; the settings
  * groups (Anders, 22 Oct 2026, named and filled as the book reader's): Aa (the phone's; the desktop has its own button),
  * Book settings and Audio settings, each shown where it has something to offer; then this reader's own, Snip a figure
  * (a PDF), Export notes and Open another book (a reader's own book); then Library and Profile. Each group after the
@@ -2381,8 +2381,6 @@ function audioSettingsApply() {
   return !!(listen?.voices && snap && snap.available !== false);
 }
 function menuShows(id) {
-  // Not on a book's first unit (nor, without units, on its first page): nothing has been read to catch up on.
-  if (id === 'catchup') { const u = currentUnit(); return u ? !nothingBefore(u) : placePage() > 1 }
   // Aa is the top bar's own button on the desktop, a t menu row on the phone (Anders, 22 Oct 2026).
   if (id === 'aa') return isPhone();
   if (id === 'book') return bookSettingsApply();

@@ -730,7 +730,7 @@ async function highlightRegression(engine,name){
       await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByTestId('lab-v2-sheet-close').click()
-      await page.reload({waitUntil:'domcontentloaded'})
+      await page.reload({waitUntil:'domcontentloaded',timeout:30000})
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
       await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
       const target='[data-testid="lab-word"][data-paragraph-index="'+fixture.p+'"].is-hl-warm'
@@ -766,7 +766,7 @@ async function highlightRegression(engine,name){
       await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).click()
       assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
       assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
-      await page.reload({waitUntil:'domcontentloaded'})
+      await page.reload({waitUntil:'domcontentloaded',timeout:30000})
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
       assert.equal(await page.locator('[data-testid="lab-word"].is-hl-warm').count(),0,'deleted highlight stays removed after reload')
       result[fixture.book].deleted=true
@@ -774,7 +774,7 @@ async function highlightRegression(engine,name){
     }
     result.passed=true
   }catch(error){
-    result.passed=false;result.error=error.stack
+    result.passed=false;result.error=error.stack;result.networkFailures=state?.networkFailures;result.pageErrors=state?.errors
     if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,3000)}
   }finally{await browser.close();results.push(result)}
 }
@@ -946,9 +946,9 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     assert.equal(await page.locator('meta[name="tinct-social"][content="1"]').count(),socialProfiles?1:0,'tinct-social marker matches SOCIAL_PROFILES')
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
+    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; Catch me up stays on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups: Appearance, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Catch me up','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
     // Desktop and phone share two explicitly labelled Chat and Talk actions.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-notebook').count(),phone?1:0,'Notebook remains accessible on phone without duplicating the desktop toolbar')

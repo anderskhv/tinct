@@ -61,8 +61,8 @@ describe('labSuperMenuRows', () => {
     }
   })
 
-  it('the phone hides Catch me up on a book’s first chapter', () => {
-    expect(labSuperMenuRows({ phone: true, noCatchUp: true }).map(row => row.id)).toEqual(['conversation', 'summarize', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
+  it('keeps Catch me up in the menu independently of chapter position', () => {
+    expect(labSuperMenuRows({ phone: true }).map(row => row.id)).toContain('catchup')
   })
 
   it('leaves Library to the back arrow on desktop, and matches the phone Chat/Talk row', () => {

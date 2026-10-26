@@ -6471,7 +6471,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           privateBook={privateBook}
           ownPdf={ownEditions}
           sharedReader={sharedReader}
-          noCatchUp={showPhoneChrome && !marginCatchUp}
           profileDot={profileDot}
           onSelect={handleSuperMenuSelect}
           onClose={() => setSuperMenuOpen(false)}

@@ -265,8 +265,8 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
-    // The fixture is the book's first chapter: no Catch me up there (20 Oct 2026).
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    // The fixture is the book's first chapter: Catch me up stays available.
+    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
@@ -398,10 +398,10 @@ describe('the super-menu', () => {
     expect(open('audio')).toEqual({ layer: 'audio', label: 'Audio settings', themes: false, main: false, voice: true })
   })
 
-  it('has no Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
+  it('keeps Catch me up on a book\u2019s first chapter on the phone; the desktop menu is unchanged', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
-    expect(screen.queryByTestId('lab-super-row-catchup')).toBeNull()
+    expect(screen.getByTestId('lab-super-row-catchup')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-summarize')).toBeTruthy()
     cleanup()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
