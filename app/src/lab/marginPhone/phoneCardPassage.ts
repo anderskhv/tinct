@@ -28,7 +28,7 @@ export function wordInCardPassage(word: Element, ranges: readonly PhoneCardRange
 /**
  * While a card is open its passage stays underlined in the page text, as in the desktop margin reader, even
  * where the card covers it. The mark is a class on the painted words, kept on them as pages render again
- * (a MutationObserver), and taken off when the card closes. Desktop rules join each visual line
+ * (a MutationObserver), and taken off when the card closes. Rules join each visual line
  * across its spaces; word nodes remain untouched. Neither treatment changes text layout.
  */
 export function markPhoneCardPassage(root: Element | null, ranges: readonly PhoneCardRange[], chapterOnScreen: number, compare = false): () => void {
@@ -42,7 +42,6 @@ export function markPhoneCardPassage(root: Element | null, ranges: readonly Phon
       if (inside !== word.classList.contains(PHONE_CARD_PASSAGE_CLASS)) word.classList.toggle(PHONE_CARD_PASSAGE_CLASS, inside)
     }
     clearLines()
-    if (!root.classList.contains('is-desktop')) return
     // Word spans remain selection/click targets. Paint one uninterrupted rule
     // per visual line, including justified spaces, without changing inline flow.
     const paragraphs = new Map<HTMLElement, DOMRect[]>()

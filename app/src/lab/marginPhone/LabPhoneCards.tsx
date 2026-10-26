@@ -1,7 +1,7 @@
 import type { QuizTurn } from '../../companion/companionRequest'
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type MutableRefObject } from 'react'
 import type { LabAskTurn } from '../labAsk'
-import { isAiRestingError } from '../labCompanion'
+import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
 import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
@@ -78,24 +78,25 @@ export function PhoneStreamAnswer({ request, onReady }: { request: (onDelta: (te
   const [answer, setAnswer] = useState('')
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error' | 'resting'>('loading')
   const [attempt, setAttempt] = useState(0)
+  const [failure, setFailure] = useState('')
   const requestRef = useRef(request)
   requestRef.current = request
   const readyRef = useRef(onReady)
   readyRef.current = onReady
   useEffect(() => {
     let active = true
-    setStatus('loading'); setAnswer('')
+    setStatus('loading'); setAnswer(''); setFailure('')
     void requestRef.current(text => { if (active && text) { setAnswer(text); setStatus('streaming') } }).then(text => {
       if (!active) return
       setAnswer(text); setStatus('ready'); readyRef.current?.(text)
-    }).catch(error => { if (active) setStatus(isAiRestingError(error) ? 'resting' : 'error') })
+    }).catch(error => { if (active) { setFailure(error instanceof LabChatError ? error.message : 'The answer could not be loaded. Please try again.'); setStatus(isAiRestingError(error) ? 'resting' : 'error') } })
     return () => { active = false }
   }, [attempt])
   return (
     <div className="lab-pcard-stream" data-state={status} data-testid="lab-phone-card-stream" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
       {answer ? <PhoneAnswer text={answer} /> : status === 'loading' ? <PhoneWait /> : null}
       {status === 'resting' && <p className="lab-pcard-status">{LAB_COPY.aiResting}</p>}
-      {status === 'error' && <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
+      {status === 'error' && <p className="lab-pcard-status">{failure} <button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
     </div>
   )
 }

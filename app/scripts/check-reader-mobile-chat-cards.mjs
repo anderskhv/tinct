@@ -20,7 +20,7 @@ const server = createServer(async (req, res) => {
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
-const output = process.env.TINCT_MOBILE_CARD_OUTPUT || '/tmp/tinct-mobile-chat-cards'
+const output = process.env.TINCT_MOBILE_CARD_OUTPUT || 'artifacts/mobile-chat-cards'
 await fs.mkdir(output, { recursive: true })
 const results=[]
 const browser=await markInternal(await webkit.launch({headless:true}))
@@ -36,7 +36,12 @@ try {
       const url=new URL(route.request().url())
       if(url.origin!==origin)return route.abort()
       if(await enforceReaderBundle(route,expectedBundle))return
-      if(/\/api\/(?:lab-chat|chat)$/.test(url.pathname))return route.fulfill({contentType:'text/event-stream',body:`data: ${JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text:'A local phone card answer.'}})}\n\ndata: {"type":"message_stop"}\n\n`})
+      if(/\/api\/(?:lab-chat|chat)$/.test(url.pathname)){
+        const body=route.request().postDataJSON(),intent=body?.companion?.intent
+        const text=intent==='define'?JSON.stringify({kind:'definition',definition:'A readable dictionary meaning.'}):'A local phone card answer.'
+        return route.fulfill({contentType:'text/event-stream',body:`data: ${JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text}})}\n\ndata: {"type":"message_stop"}\n\n`})
+      }
+      if(url.pathname.startsWith('/data/dict/'))return route.fulfill({json:{}})
       if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
       return route.continue()
     })
@@ -99,9 +104,46 @@ try {
     })
     const explanation=await metrics(explain)
     const label=`${standalone?'pwa':'safari'}-${theme}`
+    await page.waitForFunction(()=>document.querySelectorAll('.lab-card-passage-line').length>0)
+    const joined=await page.evaluate(()=>{
+      const words=[...document.querySelectorAll('.is-card-passage')].flatMap(node=>[...node.getClientRects()])
+      const lines=[...document.querySelectorAll('.lab-card-passage-line')].map(node=>node.getBoundingClientRect())
+      return words.every(word=>lines.some(line=>Math.abs(line.top-(word.bottom-1))<3&&line.left<=word.left+1&&line.right>=word.right-1))
+    })
+    assert(joined,'phone passage rules join selected words across spaces and wrap with the source')
     await page.screenshot({path:`${output}/${label}-explain.png`})
     await page.keyboard.press('Escape')
     await explain.waitFor({state:'hidden'})
+    // A single-word phone selection is a long press, not a tiny mouse drag
+    // (short words fall below the reader's drag threshold).
+    const visibleWords=page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-testid="lab-word"]')
+    const wordIndex=await visibleWords.evaluateAll(nodes=>nodes.findIndex(node=>{const r=node.getBoundingClientRect();return /^[a-z]{5,}$/.test(node.textContent||'')&&r.top>100&&r.bottom<600&&r.width>40&&r.right<innerWidth}))
+    assert(wordIndex>=0,'a visible word is available for Define')
+    const word=visibleWords.nth(wordIndex),box=await word.boundingBox()
+    const pointer={pointerId:9,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:box.x+box.width/2,clientY:box.y+box.height/2}
+    await word.dispatchEvent('pointerdown',pointer);await page.waitForTimeout(350);await word.dispatchEvent('pointerup',pointer)
+    // defaultPopupMode opens Define directly for one word; only phrases open the actions bar.
+    console.log(JSON.stringify({stage:'define-long-press',theme,standalone,word:await word.innerText(),cards:await page.locator('.lab-pcard').evaluateAll(nodes=>nodes.map(node=>node.dataset.kind))}))
+    const definition=page.locator('.lab-pcard[data-kind="define"]')
+    await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor().catch(async error=>{
+      await page.screenshot({path:`${output}/${label}-define-failed.png`})
+      console.log(JSON.stringify({stage:'define-failure',cards:await page.locator('.lab-pcard').allTextContents()}))
+      throw error
+    })
+    const contrast=await definition.evaluate(card=>{
+      // color-mix computes to color(srgb ...) in WebKit, whose channels are 0–1,
+      // unlike rgb(). Let the browser resolve both formats into sRGB bytes.
+      const canvas=document.createElement('canvas');canvas.width=canvas.height=1
+      const ctx=canvas.getContext('2d',{willReadFrequently:true})
+      const lum=color=>{ctx.clearRect(0,0,1,1);ctx.fillStyle=color;ctx.fillRect(0,0,1,1);const rgb=[...ctx.getImageData(0,0,1,1).data].slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
+      const background=getComputedStyle(card).backgroundColor,bg=lum(background)
+      return {background,inks:[...card.querySelectorAll('.popup-define-word,.popup-define-list li')].map(node=>{const color=getComputedStyle(node).color,ink=lum(color);return {color,ratio:(Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)}})}
+    })
+    console.log(JSON.stringify({stage:'define-contrast',theme,standalone,...contrast}))
+    await page.screenshot({path:`${output}/${label}-define.png`})
+    assert(contrast.inks.length>=2&&contrast.inks.every(({ratio})=>ratio>=4.5),'Define headword and meanings have readable contrast in '+theme)
+    await page.keyboard.press('Escape');await definition.waitFor({state:'hidden'})
+
     await page.getByTestId('lab-super').click()
     await page.getByTestId('lab-super-row-chat').click()
     const chat=page.locator('.lab-pcard[data-kind="chat"]')

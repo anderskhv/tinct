@@ -2,8 +2,8 @@
 import { afterEach, expect, it, vi } from 'vitest'
 import { markPhoneCardPassage } from './phoneCardPassage'
 afterEach(() => { document.body.innerHTML = ''; vi.restoreAllMocks() })
-it('joins selected words across spaces per visual line without changing word targets or content', () => {
-  document.body.innerHTML = `<div class="lab is-desktop"><div data-testid="lab-page-wrap"><p class="lab-hearing-line">${[0,1,2,3,4].map(i => `<span data-testid="lab-word" data-paragraph-index="0" data-word-index="${i}">word${i}</span>`).join(' ')}</p></div></div>`
+it.each(['is-desktop', 'is-phone'])('joins selected words across spaces in %s without changing word targets or content', layout => {
+  document.body.innerHTML = `<div class="lab ${layout}"><div data-testid="lab-page-wrap"><p class="lab-hearing-line">${[0,1,2,3,4].map(i => `<span data-testid="lab-word" data-paragraph-index="0" data-word-index="${i}">word${i}</span>`).join(' ')}</p></div></div>`
   const root = document.querySelector('.lab')!, paragraph = root.querySelector('p')!
   const words = [...root.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')]
   const box = (left: number, top: number, width: number) => ({ left, top, right: left+width, bottom: top+24, width, height: 24 } as DOMRect)
@@ -20,7 +20,7 @@ it('joins selected words across spaces per visual line without changing word tar
   expect(root.querySelector('.lab-card-passage-line')).toBeNull()
   expect(root.querySelector('.is-card-passage')).toBeNull()
 })
-it('retains phone word marks without adding desktop geometry', () => {
+it('does not create visible rules before phone words have layout', () => {
   document.body.innerHTML='<div class="lab is-phone"><div data-testid="lab-page-wrap"><p class="lab-hearing-line"><span data-testid="lab-word" data-paragraph-index="0" data-word-index="0">source</span></p></div></div>'
   const off=markPhoneCardPassage(document.querySelector('.lab'),[{chapterNumber:1,range:{paragraphIndex:0,fromWord:0,toWord:1}}],1)
   expect(document.querySelector('.is-card-passage')).not.toBeNull()
