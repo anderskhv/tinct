@@ -27,7 +27,8 @@ const store = {
   a: { present: true, fileId: fileIds.a, marks: [], rev: 0, puts: [] },
   b: { present: true, fileId: fileIds.b, marks: [], rev: 0, puts: [] },
 }
-const denied = [], requests = [], originRef = { value: '' }
+const denied = [], requests = [], network = [], originRef = { value: '' }
+let phase = 'setup'
 const mime = file => ({ '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.png': 'image/png' }[path.extname(file)] || 'application/octet-stream')
 function json(res, code, data) { res.writeHead(code, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(data)) }
 const server = createServer(async (req, res) => {
@@ -66,7 +67,7 @@ const server = createServer(async (req, res) => {
   try { const body = await fs.readFile(local); res.writeHead(200, { 'Content-Type': mime(local), 'Cache-Control': /\.html$/.test(local) ? 'no-store' : 'public, max-age=3600' }); res.end(body) }
   catch { res.writeHead(404); res.end() }
 })
-server.on('connect', (req, socket) => { denied.push(`CONNECT ${req.url}`); socket.end('HTTP/1.1 403 Forbidden\r\n\r\n') })
+server.on('connect', (req, socket) => { denied.push({ request: `CONNECT ${req.url}`, phase, at: Date.now() }); socket.end('HTTP/1.1 403 Forbidden\r\n\r\n') })
 server.on('upgrade', (req, socket) => { denied.push(`UPGRADE ${req.url}`); socket.end('HTTP/1.1 403 Forbidden\r\n\r\n') })
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 originRef.value = `http://127.0.0.1:${server.address().port}`
@@ -148,6 +149,9 @@ async function run(engine, browserType, complete) {
   const browser = await markInternal(await browserType.launch({ headless: true, proxy: { server: originRef.value }, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
   const page = await context.newPage(), errors = [], authIntercepts = []
+  phase = `${engine}: reader checks`
+  context.on('request', request => network.push({ event: 'request', url: request.url(), method: request.method(), phase, at: Date.now() }))
+  context.on('requestfailed', request => network.push({ event: 'failed', url: request.url(), error: request.failure()?.errorText, phase, at: Date.now() }))
   page.on('pageerror', error => errors.push(error.message))
   await context.route(/^https:\/\/[a-z0-9]+\.supabase\.co\//, async route => {
     const url = new URL(route.request().url()), method = route.request().method()
@@ -220,7 +224,17 @@ async function run(engine, browserType, complete) {
     assert.equal(store.b.marks.length, 1, 'B remote mark survives A deletion and reupload')
     console.log(`RUN ${engine} A delete/reupload: old marks absent; B backup preserved`)
     assert.deepEqual(errors, [], 'no uncaught reader exceptions')
-  } finally { await context.close(); await browser.close() }
+  } finally {
+    // Leave the reader while interception is still installed. Closing the entire
+    // context directly tears down routes at the same time as pagehide flushes.
+    phase = `${engine}: leave reader`
+    try { await page.goto(`${originRef.value}/qa-seed`, { waitUntil: 'networkidle' }) }
+    finally {
+      phase = `${engine}: close context`
+      await context.close(); await browser.close()
+      if (denied.length) console.error(JSON.stringify({ denied, authIntercepts, network: network.slice(-60), errors }, null, 2))
+    }
+  }
 }
 try {
   await run('chromium', chromium, true)
