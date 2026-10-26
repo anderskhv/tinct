@@ -650,7 +650,7 @@ export function LabAskPane({
             return turn.role === 'user' ? (
               <div key={turn.id} className={`tc-turn tc-q${turn.highlightedText ? ' has-quote' : ''}`} data-chat-row data-testid="lab-ask-turn-user" data-turn-id={turn.id}>
                 {turn.highlightedText && (
-                  <button type="button" className="tc-quote" data-testid="lab-ask-history-passage" disabled={!onQuote} onClick={() => onQuote?.(turn)}>{cutQuote(turn.highlightedText)}</button>
+                  <div className="tc-quote" data-testid="lab-ask-history-passage">{cutQuote(turn.highlightedText)}</div>
                 )}
                 <div className="tc-bubble">{turn.content}</div>
                 {unanswered && <span className="tc-note" data-testid="lab-ask-unanswered">{LAB_COPY.askUnanswered}</span>}

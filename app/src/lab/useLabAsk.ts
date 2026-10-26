@@ -443,6 +443,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     // instead of reporting success merely because the upsert was a no-op.
     return storeCardHistory(bookId, next, true)
   }, [storeCardHistory])
+  const revealConversation = useCallback((id: string) => {
+    const row = conversationsRef.current.find(item => item.id === id && item.bookId === chatBookIdRef.current)
+    if (!row) return null
+    setTurns(current => reconcileTurns(current, turnsFromConversations([row])))
+    return row
+  }, [])
   const deleteCard = useCallback((conversationId: string): (() => boolean) | null => {
     const bookId = chatBookIdRef.current
     const owned = optionsRef.current.ownCardController
@@ -1262,6 +1268,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     saveCard,
+    revealConversation,
     deleteCard,
     historyStatus,
     notice,
