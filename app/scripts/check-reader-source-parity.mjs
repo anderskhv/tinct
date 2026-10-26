@@ -357,7 +357,7 @@ try {
       assert.equal(await phoneChat.getByTestId('lab-ask-input').inputValue(),'','one empty composer remains after Retry')
       assert.equal(await root.getAttribute('data-place'),initialPlace)
       await page.screenshot({path:`${output}/phone-followup-retry.png`})
-      await page.getByTestId('lab-ask-done').click()
+      await page.getByRole('button', { name: 'Close chat', exact: true }).click()
       await select(page.locator('.lab'))
       await page.getByTestId('lab-pbar-more').click()
       await page.getByRole('menuitem', { name: 'Quiz me', exact: true }).click()
