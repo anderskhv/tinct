@@ -20,7 +20,7 @@ const server = createServer(async (req, res) => {
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
-const output = process.env.TINCT_SELECTION_OUTPUT || '/tmp/tinct-selection-release'
+const output = process.env.TINCT_SELECTION_OUTPUT || 'artifacts/selection-release'
 await fs.mkdir(output, { recursive: true })
 const results = []
 const cases=[]
@@ -74,7 +74,18 @@ try {
           let found = false
           for (const width of [1320, ...Array.from({length: 151}, (_, index) => 1120 + index * 4)]) {
             await page.setViewportSize({width, height:1100})
-            await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+            // Resizing also runs reader rebasing and scrollbar/layout updates.
+            // Two animation frames can see a transient line boundary that is
+            // gone by the later drag. Require unchanged source geometry first.
+            await page.evaluate(() => { delete window.__selectionGeometry })
+            await page.waitForFunction(() => {
+              if (document.querySelector('.lab')?.dataset.readingScroll) { delete window.__selectionGeometry; return false }
+              const nodes = [...document.querySelectorAll('.continuous-reader [data-testid="lab-word"][data-paragraph-index="3"]')]
+              const geometry = JSON.stringify(nodes.map(node => { const r = node.getBoundingClientRect(); return [r.x, r.y, r.width, r.height] }))
+              const previous = window.__selectionGeometry
+              if (!previous || previous.value !== geometry) { window.__selectionGeometry = { value: geometry, since: performance.now() }; return false }
+              return performance.now() - previous.since >= 200
+            }, null, { timeout: 10000 })
             const boundary = await words.evaluateAll(nodes => {
               const friend = nodes.findIndex(node => node.textContent.toLowerCase().replace(/[^a-z]/g, '') === 'friend')
               const index = nodes.findIndex((node, index) => index > friend && node.textContent.toLowerCase().replace(/[^a-z]/g, '') === 'both')
