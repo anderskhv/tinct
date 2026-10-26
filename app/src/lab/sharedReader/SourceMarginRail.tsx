@@ -17,6 +17,8 @@ export interface SourceMarginEntry {
   onDelete?: () => void
   /** Notes without a passage have no source leader. */
   free?: boolean
+  /** Focus the new editor only after its measured card is visible. */
+  focusEditor?: boolean
 }
 export interface SourceMarginRailProps {
   host: HTMLElement | null
@@ -89,6 +91,17 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
     window.addEventListener('resize', schedule)
     return () => { cancelAnimationFrame(raf); observer?.disconnect(); mutation?.disconnect(); host.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule) }
   }, [host, entries.map(entry => `${entry.id}:${entry.open}`).join('|')])
+  const focusedEditor = useRef<string | null>(null)
+  const editorId = entries.find(entry => entry.open && entry.focusEditor)?.id ?? null
+  useLayoutEffect(() => {
+    if (!editorId) { focusedEditor.current = null; return }
+    if (focusedEditor.current === editorId || !layout.items.some(item => item.id === editorId)) return
+    const card = [...(layer.current?.querySelectorAll<HTMLElement>('section[data-card-id]') ?? [])].find(node => node.dataset.cardId === editorId)
+    const field = card?.querySelector<HTMLTextAreaElement>('.lab-pcard-note, .lab-pcard-follow-input')
+    if (!field) return
+    field.focus({ preventScroll: true })
+    if (document.activeElement === field) focusedEditor.current = editorId
+  }, [editorId, layout])
   useEffect(() => {
     if (!host) return
     const covered = (target: EventTarget | null) => {
