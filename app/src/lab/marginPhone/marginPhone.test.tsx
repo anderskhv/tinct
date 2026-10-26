@@ -249,10 +249,13 @@ describe('the cards', () => {
 
   it('end with the follow-up field: mic, Talk and send', () => {
     const onTalk = vi.fn(), onMic = vi.fn(), onSend = vi.fn()
-    render(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
+    const { rerender } = render(<div className="lab"><PhoneFollowField value="" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
     expect(screen.getByTestId('lab-phone-card-input').getAttribute('placeholder')).toBe('Ask a follow-up')
     fireEvent.click(screen.getByTestId('lab-phone-card-talk'))
     fireEvent.click(screen.getByTestId('lab-phone-card-mic'))
+    rerender(<div className="lab"><PhoneFollowField value="Why?" onChange={() => {}} onSend={onSend} onMic={onMic} onTalk={onTalk} /></div>)
+    expect(screen.queryByTestId('lab-phone-card-talk')).toBeNull()
+    expect(screen.queryByTestId('lab-phone-card-mic')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-phone-card-send'))
     expect(onTalk).toHaveBeenCalledTimes(1)
     expect(onMic).toHaveBeenCalledTimes(1)

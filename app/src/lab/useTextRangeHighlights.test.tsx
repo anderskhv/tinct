@@ -36,10 +36,10 @@ it('bridges fractional row cracks only where both rows are highlighted', () => {
  expect(highlightSeams([rect(0,200,0,33),rect(0,10,28,41),rect(0,100,33.4,66.4)],22,.5)).toHaveLength(1)
 })
 
-it('uses full row bounds for background paint without including raised verse glyphs', () => {
+it('uses full row bounds for background paint including raised verse glyphs horizontally only', () => {
  const rect=(left:number,right:number,top:number,bottom:number)=>({left,right,top,bottom,height:bottom-top})
  expect(highlightRows([rect(15,90,0,33),rect(90,140,0,33),rect(0,12,-8,10),rect(0,60,33.4,66.4)],22)).toEqual([
-  {left:15,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
+  {left:0,right:140,top:0,bottom:33},{left:0,right:60,top:33.4,bottom:66.4}
  ])
 })
 
