@@ -313,6 +313,8 @@ async function conversionParity(page,hex,success,output,documentUrls) {
 
 async function run(name, browserType, narrationSuccess = false, sourceBytes = originalBytes) {
   const bytes = sourceBytes, sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
+  const pendingUpload = name === 'chromium' && sourceBytes === originalBytes
+  let accountUploaded = !pendingUpload
   const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'Original source', author: 'Fixture', size: bytes.length,
     createdAt: '2026-10-23T00:00:00.000Z' }
   const browser = await markInternal(await browserType.launch({ headless: true,
@@ -362,7 +364,14 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if (!p.startsWith('/api/')) return route.continue()
     calls.push({ path: p, method: request.method(), body: request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
     if (p === '/api/public-books') return json(200, { books: [] })
-    if (p === '/api/user-books') return json(200, { books: [book] })
+    if (p === '/api/user-books') {
+      if (request.method() === 'POST') {
+        assert.equal(createHash('sha256').update(request.postDataBuffer()).digest('hex'), sha256, 'account copy preserves original PDF bytes')
+        accountUploaded = true
+        return json(201, {book})
+      }
+      return json(200, { books: accountUploaded ? [book] : [] })
+    }
     if (p === '/api/user-books/places') return json(200, { places })
     if (p === `/api/user-books/places/${hex}` && request.method() === 'PUT') {
       const sent = request.postDataJSON(), current = places[hex]
@@ -459,7 +468,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   }, { authKey, owner, theme: process.env.TINCT_CAPTURE_THEME || '' })
   try {
     await page.goto(`${origin}/qa-seed`)
-    await page.evaluate(async ({ hex, owner, fileId, book, bytes, scanFailure }) => {
+    await page.evaluate(async ({ hex, owner, fileId, book, bytes, scanFailure, pendingUpload }) => {
       const db = await new Promise((resolve, reject) => {
         const req = indexedDB.open('tinct-addbook', 1)
         req.onupgradeneeded = () => req.result.createObjectStore('books', { keyPath: 'key' })
@@ -468,12 +477,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       })
       await new Promise((resolve, reject) => {
         const tx = db.transaction('books', 'readwrite')
-        tx.objectStore('books').put({ key: `pdf:${hex}`, kind: 'pdf', owner, cloudId: fileId, name: book.name,
+        tx.objectStore('books').put({ key: `pdf:${hex}`, kind: 'pdf', owner, ...(pendingUpload ? {} : {cloudId: fileId}), name: book.name,
           title: book.title, author: book.author, bytes: new Uint8Array(bytes).buffer, ...(scanFailure ? {scan:{v:1,pages:2,textPages:0,layout:{default:'pages-only'}}} : {}) })
         tx.oncomplete = resolve; tx.onerror = () => reject(tx.error)
       })
       db.close()
-    }, { hex, owner, fileId, book, bytes: [...bytes], scanFailure:sourceBytes===conversionScanBytes })
+    }, { hex, owner, fileId, book, bytes: [...bytes], scanFailure:sourceBytes===conversionScanBytes, pendingUpload })
     await page.goto(`${origin}/reader?userBook=${hex}&sharedReader=1&pages=1`, { waitUntil: 'domcontentloaded' })
     assert.equal(await page.title(),'Tinct','reader browser tab has the product name')
     if(sourceBytes===freshDiscoveryBytes){
