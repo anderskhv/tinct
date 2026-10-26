@@ -42,3 +42,15 @@ it('keeps a hidden-mount follow-up usable and remeasures its text when the saved
   expect(disconnect).toHaveBeenCalled()
   vi.unstubAllGlobals(); vi.restoreAllMocks()
 })
+
+it('gives a typed draft the voice-control space and restores controls when cleared', () => {
+  const props = { onChange: vi.fn(), onSend: vi.fn(), onMic: vi.fn(), onTalk: vi.fn() }
+  const view = render(<PhoneFollow {...props} value="" />)
+  expect(screen.getByRole('button', {name:'Dictate'})).toBeTruthy()
+  view.rerender(<PhoneFollow {...props} value="My question" />)
+  expect(screen.queryByRole('button', {name:'Dictate'})).toBeNull()
+  expect(screen.queryByTestId('lab-phone-card-talk')).toBeNull()
+  expect(screen.getByRole('button', {name:'Send'})).toBeTruthy()
+  view.rerender(<PhoneFollow {...props} value="" />)
+  expect(screen.getByRole('button', {name:'Dictate'})).toBeTruthy()
+})

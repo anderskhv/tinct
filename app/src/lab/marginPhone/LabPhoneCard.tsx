@@ -261,9 +261,9 @@ export function PhoneFollow({ value, onChange, onSend, onMic, micOn = false, onT
           onChange={event => onChange(event.target.value)}
           onKeyDown={event => { if (event.key === 'Escape' && event.currentTarget.closest('.lab.is-desktop') && !event.currentTarget.closest('.source-margin-item')) { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); return }; if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); send() } }}
         />
-        {onMic && <button type="button" className="lab-pcard-mic" data-testid="lab-phone-card-mic" aria-label="Dictate" aria-pressed={micOn}
+        {onMic && (!value.trim() || micOn) && <button type="button" className="lab-pcard-mic" data-testid="lab-phone-card-mic" aria-label="Dictate" aria-pressed={micOn}
           onPointerDown={event => event.preventDefault()} onClick={onMic}><PhoneIcon name="mic" /></button>}
-        {onTalk && <button type="button" className="lab-pcard-talkbtn" data-testid="lab-phone-card-talk" aria-label="Talk about this"
+        {onTalk && !value.trim() && <button type="button" className="lab-pcard-talkbtn" data-testid="lab-phone-card-talk" aria-label="Talk about this"
           onPointerDown={event => event.preventDefault()} onClick={onTalk}><TalkIcon size={18} /></button>}
         <button type="button" className="lab-pcard-send" data-testid="lab-phone-card-send" aria-label="Send" disabled={!value.trim() || disabled}
           onPointerDown={event => event.preventDefault()} onClick={send}><PhoneIcon name="up" /></button>

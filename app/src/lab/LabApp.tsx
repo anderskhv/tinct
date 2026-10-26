@@ -246,7 +246,8 @@ import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 import { markPhoneCardPassage } from './marginPhone/phoneCardPassage'
 import { PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
-import { DefinitionFallback } from '../components/reader/DefinitionFallback'
+import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
+import { ContextualLookupView, DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -5568,13 +5569,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [continuousReader, phoneCard, phoneNote])
   /** The bin: a note's words go (and a highlight made only for it); any other card is put away. */
-  const deletePhoneCard = () => {
-    const current = phoneCardRef.current
+  const deletePhoneCard = (current = phoneCardRef.current) => {
     if (current?.kind === 'note') {
       if (current.created) highlightsApi.remove(current.highlightId)
       else highlightsApi.setNote(current.highlightId, '')
     }
     if (current?.kind === 'chapter-note') highlightsApi.setChapterNote(current.chapterNumber, '')
+    if (current) setDesktopLiveCards(cards => cards.filter(card => desktopCardId(card) !== desktopCardId(current)))
+    setDesktopOpenId(null)
+    phoneNoteRef.current = ''
+    setPhoneNote('')
     phoneCardRef.current = null
     setPhoneCard(null)
     phoneAnswerRef.current = null
@@ -5599,6 +5603,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setSharedCardSaveError(false)
     setPhoneCard(card)
   }
+  useLayoutEffect(() => {
+    if (showPhoneChrome || !phoneCard || !['note', 'chapter-note', 'ask'].includes(phoneCard.kind)) return
+    const root = continuousReader ? document.querySelector(`.source-margin-item[data-card-id="${desktopCardId(phoneCard)}"]`) : document.querySelector('.lab-desktop-card')
+    const field = root?.querySelector<HTMLTextAreaElement>('.lab-pcard-note, .lab-pcard-follow-input')
+    field?.focus({ preventScroll: true })
+    // A new rail entry is hidden until its source geometry is measured.
+    const frame = requestAnimationFrame(() => { if (phoneCardRef.current === phoneCard && field && document.activeElement !== field) field.focus({ preventScroll: true }) })
+    return () => cancelAnimationFrame(frame)
+  }, [phoneCard, showPhoneChrome, continuousReader])
   menuMarginChatRef.current = () => {
     const paragraphIndex = Math.max(0, placeRef.current.paragraphIndex)
     const wordIndex = Math.max(0, placeRef.current.wordIndex ?? 0)
@@ -5838,7 +5851,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
       return (
-        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={deletePhoneCard} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField value={draft} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField value={draft} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
           const text = phoneNoteRef.current.trim()
           if (!text) return
           const openedAt = Date.now()
@@ -6035,10 +6048,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id)).map(item => ({
     id: item.id, label: marginActionLabel(item.card!.kind),
     source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : item.card!.kind === 'catchup' ? -1 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
-    free: !item.card!.anchor, open: desktopOpenId === item.id, preview: item.messages.find(message => message.role === 'assistant')?.content, sourceText: item.card!.text,
+    free: !item.card!.anchor, open: desktopOpenId === item.id, preview: item.card!.kind === 'define' ? contextualLookupPreview(item.messages.find(message => message.role === 'assistant')?.content || '') : item.messages.find(message => message.role === 'assistant')?.content, sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
-      {item.messages.map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}><LabInlineMarkdown>{message.content}</LabInlineMarkdown></div>)}
+      {item.messages.map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
       <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => { dictation.stop(); void ask.sendTyped(question, undefined, undefined, { highlightedText: item.card!.text, onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
@@ -6050,7 +6063,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const saved = marginConversations.find(item => item.id === id)
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
       order: live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, preview: saved?.messages.find(message => message.role === 'assistant')?.content || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
+      open: desktopOpenId === id, preview: (live.kind === 'define' ? contextualLookupPreview(saved?.messages.find(message => message.role === 'assistant')?.content || '') : saved?.messages.find(message => message.role === 'assistant')?.content) || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)

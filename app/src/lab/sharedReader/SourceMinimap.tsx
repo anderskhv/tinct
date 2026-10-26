@@ -40,6 +40,9 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
   const total = book?.total ?? model.total
   const [dragging, setDragging] = useState(false)
   const position = ((model.starts[visible.paragraphIndex] ?? 0) + visible.wordIndex + offset) / total
+  const atChapterEnd = visibleEnd?.paragraphIndex === paragraphs.length - 1 && visibleEnd.wordIndex >= (model.weights.at(-1) ?? 1) - 1
+  const progress = atChapterEnd ? (offset + model.total) / total : position
+  const mapHeight = Math.max(140, Math.min(600, Math.ceil(total / 12) * 5))
   const jump = (event: PointerEvent<SVGGElement>) => {
     if (!paragraphs.length) return
     const box = event.currentTarget.getBoundingClientRect()
@@ -67,9 +70,9 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       return lines
     })
   }, [paragraphs, model, offset, total])
-  return <svg className="source-minimap" data-testid="source-minimap" viewBox="0 0 34 600" preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
-    <g role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(position * 100)}
-    aria-valuetext={`${Math.round(position * 100)}% through ${book ? "this book" : "this chapter"}`}
+  return <svg className="source-minimap" data-testid="source-minimap" style={{ height: `min(calc(100dvh - 200px), ${mapHeight}px)` }} viewBox="0 0 34 600" preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
+    <g role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}
+    aria-valuetext={`${Math.round(progress * 100)}% through ${book ? "this book" : "this chapter"}`}
     onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); setDragging(true); jump(event) }}
     onPointerMove={event => { if (dragging) jump(event) }} onPointerUp={() => setDragging(false)} onPointerCancel={() => setDragging(false)}
     onKeyDown={event => {
@@ -125,6 +128,6 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       </g>
     })}
 
-    <text x={17} y={620} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(position * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(position * 100)}%</text>
+    <text x={17} y={620} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(progress * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(progress * 100)}%</text>
   </svg>
 }

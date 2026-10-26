@@ -176,6 +176,46 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.equal(await page.locator('.lab').getAttribute('data-continuous-reader'), 'true')
   await observe('exodus-1', 'exodus')
 
+  // A raised verse numeral is a source word too. Exercise real pointer
+  // selection, immediate continuous typing, and note deletion in the rail.
+  await host.evaluate(node => { node.scrollTop = 0 })
+  const selectVerse = async () => {
+    const numeral = host.locator('.lab-verse-mark').first()
+    const start = await numeral.boundingBox()
+    const target = host.getByTestId('lab-word').nth(10)
+    const end = await target.boundingBox()
+    assert(start && end, 'verse selection has measured source boxes')
+    await page.mouse.move(start.x + start.width / 2, start.y + start.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(end.x + end.width / 2, end.y + end.height / 2, { steps: 12 })
+    await page.mouse.up()
+    await page.getByTestId('lab-desk-bar').waitFor({state:'visible'})
+  }
+  await selectVerse()
+  const beforeAsk = await page.getByTestId('lab-desk-bar').boundingBox()
+  await page.getByTestId('lab-dbar-ask').click()
+  await page.keyboard.type('When I read this passage, what does it mean?')
+  assert.equal(await page.getByTestId('lab-dbar-ask-field').inputValue(), 'When I read this passage, what does it mean?', 'Ask retains uninterrupted typing focus')
+  const afterAsk = await page.getByTestId('lab-desk-bar').boundingBox()
+  assert(Math.abs(beforeAsk.width-afterAsk.width)<2 && Math.abs(beforeAsk.height-afterAsk.height)<2, 'Ask keeps the existing toolbar size')
+  await page.keyboard.press('Escape')
+  await page.getByTestId('lab-dbar-note').click()
+  await page.keyboard.type('A temporary synthetic note')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A temporary synthetic note', 'new desktop note focuses immediately')
+  await page.getByRole('button', {name:'Delete Note',exact:true}).click()
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0, 'deleted note leaves no editor')
+  const marginRoom = await page.locator('.source-margin-room').boundingBox()
+  const sourceFrame = await host.boundingBox()
+  assert(marginRoom && sourceFrame, 'blank margin has a hit surface')
+  await page.mouse.click(marginRoom.x + marginRoom.width / 2, sourceFrame.y + 160)
+  await page.keyboard.type('A note on blank paper')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A note on blank paper', 'blank margin focuses its new note')
+  await page.getByRole('button', {name:'Delete Note',exact:true}).click()
+  await page.waitForTimeout(600) // Include the note autosave debounce: deletion must remain final.
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0)
+  assert.equal(await page.locator('.source-margin-item').filter({hasText:'A note on blank paper'}).count(), 0, 'deleted note is not restored by autosave')
+  await page.screenshot({path:`${output}/verse-selection-note-deleted.png`})
+
   // Aa exposes Compare before a second version is configured. Pick a real
   // compatible version, return to Layout, then open the paired source view.
   await openSettings()

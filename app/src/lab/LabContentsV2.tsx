@@ -11,6 +11,7 @@ import { contentsExcerpt, contentsQuestion, contentsQuote, searchContents, type 
 import './labContentsV2.css'
 import type { LabFigure } from './labFigures'
 import { LabFigureThumb } from './LabFigure'
+import { PhoneIcon } from './marginPhone/LabPhoneCard'
 import { ChatIcon, HighlightIcon } from './LabReaderIcons'
 import { LabWait } from './LabWait'
 import { sharedNotebookFilename, sharedNotebookMarkdown } from './sharedReader/sharedReaderNotebook'
@@ -398,7 +399,7 @@ export function LabContentsV2(props: Props) {
             {(scope === 'chats' || data) && (scope === 'book' || props.historyStatus === 'ready') && !shownResults && <p className="status">No matches.</p>}
           </>)}
           {view === 'notebook' && <>{props.sharedNotebook && notebookFeedback && <p className="status" role="status">{notebookFeedback} {undoNotebook && <button onClick={undoNotebookDelete}>Undo</button>}</p>}{notebookRows.slice(0, limit).map(item => props.sharedNotebook && item.deleteItem && props.onDeleteNotebookItem
-            ? <div className="notebook-entry" key={item.id}>{item.row()}<button className="notebook-delete" aria-label={'Delete Notebook entry ' + item.deleteItem.id} onClick={() => deleteNotebook(item.deleteItem!)}>Delete</button></div>
+            ? <div className="notebook-entry" key={item.id}>{item.row()}<button className="notebook-delete" aria-label={'Delete Notebook entry ' + item.deleteItem.id} onClick={() => deleteNotebook(item.deleteItem!)}><PhoneIcon name="trash" /></button></div>
             : item.row())}{more(notebookRows.length)}{!notebookRows.length && props.historyStatus !== 'loading' && <p className="status">{notebookFilter === 'ai' ? 'No saved conversations.' : notebookFilter === 'mine' ? 'No highlights or notes saved for this edition.' : 'Nothing saved in this book yet.'}</p>}</>}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
           {view === 'highlights' && <>{relevantHighlights.slice(0,limit).map(highlightRow)}{more(relevantHighlights.length)}{notesFilter && relevantHighlights.length > 0 && <p className="status note-count">{relevantHighlights.length === 1 ? '1 note' : `${relevantHighlights.length} notes`} in {title}</p>}{!relevantHighlights.length && <p className="status">{notesFilter ? 'No notes saved for this edition.' : 'No highlights saved for this edition.'}</p>}{props.unassignedHighlights.length > 0 && <button className="more" onClick={() => setView('older')}>Older highlights · book not recorded</button>}</>}

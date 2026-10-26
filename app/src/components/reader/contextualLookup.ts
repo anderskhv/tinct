@@ -82,3 +82,10 @@ export function parsePartialContextualLookup(raw: string): PartialContextualLook
     subtitle: get('subtitle'), body: get('body'),
   }
 }
+
+/** Plain text for a folded saved card; never expose the response envelope. */
+export function contextualLookupPreview(raw: string): string {
+  const answer = parseContextualLookup(raw)
+  if (!answer) return 'Open definition'
+  return answer.kind === 'definition' ? answer.definition : answer.kind === 'place' ? answer.description : [answer.subtitle, answer.body].filter(Boolean).join(' ')
+}
