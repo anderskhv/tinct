@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
+import { registeredUserBook, userBookEditionKey } from './userBook/userBookSource'
+import { isUserBookId } from './userBook/userBookId'
 import type { LabChapter } from './labSource'
 import { isLabChapterNote, type LabHighlight } from './labHighlights'
 import { highlightCreatedAt, labNotesOnly, orderLabHighlights, type LabHighlightOrder } from './labHighlightOrder'
@@ -173,7 +175,17 @@ export function LabContentsV2(props: Props) {
     if (!needsText || data) return
     let cancelled = false
     setLoadError(false)
-    void loadEdition(bookId, editionKey, { forceWholeBook: true }).then(edition => {
+    const loadText = async (): Promise<EditionData> => {
+      if (isUserBookId(bookId)) {
+        const own = registeredUserBook(bookId)
+        // The source registered by the owner-gated reader is already on this
+        // device. Never send its private id to the public catalogue loader.
+        if (!own || editionKey !== userBookEditionKey(own)) throw new Error('This edition is not open on this device')
+        return own
+      }
+      return loadEdition(bookId, editionKey, { forceWholeBook: true })
+    }
+    void loadText().then(edition => {
       if (!cancelled) setLoadedText({ key: editionIdentity, data: edition })
     }, () => { if (!cancelled) setLoadError(true) })
     return () => { cancelled = true }
