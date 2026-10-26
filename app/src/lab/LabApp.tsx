@@ -6063,7 +6063,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const saved = marginConversations.find(item => item.id === id)
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
       order: live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, preview: (live.kind === 'define' ? contextualLookupPreview(saved?.messages.find(message => message.role === 'assistant')?.content || '') : saved?.messages.find(message => message.role === 'assistant')?.content) || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', preview: (live.kind === 'define' ? contextualLookupPreview(saved?.messages.find(message => message.role === 'assistant')?.content || '') : saved?.messages.find(message => message.role === 'assistant')?.content) || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)
