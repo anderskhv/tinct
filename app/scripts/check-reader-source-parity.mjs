@@ -333,6 +333,7 @@ try {
       await page.getByRole('tooltip').waitFor({ state: 'hidden' })
 
     } else if (phone) {
+      longAnswer = true
       assert.equal(await page.getByTestId('lab-header-aa').count(), 0)
       await select(page.locator('.lab'))
       await page.getByTestId('lab-pbar-explain').click()
@@ -340,7 +341,8 @@ try {
       assert.equal(await page.getByTestId('source-margin-rail').count(), 0, 'phone retains its bottom card')
       assert.equal(await root.getAttribute('data-place'), initialPlace)
       await page.screenshot({ path: `${output}/phone-unchanged.png` })
-      await page.getByTestId('lab-phone-card-dock').getByText('A complete local answer remains attached to this source passage.').waitFor()
+      await page.getByTestId('lab-phone-card-dock').getByText(/Source point 20:/).waitFor()
+      longAnswer = false
       failPhoneFollow = true
       await page.getByTestId('lab-phone-card-input').fill('Phone follow-up retry check')
       await page.getByTestId('lab-phone-card-send').click()
@@ -350,6 +352,11 @@ try {
       assert.equal(await phoneChat.getByText('Phone follow-up retry check',{exact:true}).count(),1,'failed sent question stays once in Chat')
       assert.equal(await page.getByTestId('lab-phone-card-input').count(),0,'handoff removes the card composer')
       assert.equal(await root.getAttribute('data-place'),initialPlace,'phone card handoff leaves reading position unchanged')
+      const followPosition = await phoneChat.getByText('Phone follow-up retry check', {exact:true}).evaluate(node => {
+        const thread = node.closest('[data-testid="lab-ask-thread"]'), box = node.getBoundingClientRect(), bounds = thread?.getBoundingClientRect()
+        return { top: box.top, bottom: box.bottom, threadTop: bounds?.top, threadBottom: bounds?.bottom }
+      })
+      assert.ok(followPosition.threadTop !== undefined && followPosition.top >= followPosition.threadTop - 2 && followPosition.bottom <= followPosition.threadBottom, `handoff shows the follow-up, not the original Explain prompt: ${JSON.stringify(followPosition)}`)
       failPhoneFollow = false
       await phoneChat.getByRole('button',{name:'Try again',exact:true}).click()
       await phoneChat.getByRole('button',{name:'Try again',exact:true}).waitFor({state:'hidden'})
@@ -376,6 +383,25 @@ try {
       assert(finalCheck.includes('Source answer attempt 1') && finalCheck.includes('Source answer attempt 3'), 'grader receives the earlier answer and feedback turns')
       assert.equal(await root.getAttribute('data-place'), initialPlace, 'grading does not turn the reading page')
       await page.screenshot({ path: `${output}/phone-quiz-graded-followups.png` })
+      // Reported iPhone sequence: Romans 1, Explain → follow-up → close → previous page.
+      await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1047&paragraph=0&word=0&layout=phone&sharedReader=1&qaLayoutTrace=1`, {waitUntil:'domcontentloaded'})
+      await ready(); await settlePaint(page)
+      await page.screenshot({path:`${output}/romans-before-chat.png`})
+      await page.getByTestId('lab-page-next').evaluate(button => button.click())
+      await settlePaint(page)
+      await select(page.locator('.lab'))
+      await page.getByTestId('lab-pbar-explain').click()
+      await page.getByTestId('lab-phone-card-dock').getByText('A complete local answer remains attached to this source passage.').waitFor()
+      await page.getByTestId('lab-phone-card-input').fill('What does promised mean?')
+      await page.getByTestId('lab-phone-card-send').click()
+      await page.getByTestId('lab-ask-pane').getByText('What does promised mean?', {exact:true}).waitFor()
+      await page.getByRole('button', {name:'Close chat', exact:true}).click()
+      await page.getByTestId('lab-page-prev').evaluate(button => button.click())
+      await settlePaint(page)
+      await page.screenshot({path:`${output}/romans-back-after-chat.png`})
+      const openingInk = await page.locator('.lab-page-wrap .lab-passage').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => node.textContent).join(' '))
+      assert.ok(openingInk.includes('Paul') && openingInk.includes('servant'), `Romans opening retains prose after chat/back: ${openingInk.slice(0,500)}`)
+
     } else {
       const passage = page.locator('.lab-passage').first(), firstWord = passage.locator(wordSelector).first()
       const before = await firstWord.boundingBox()

@@ -1,4 +1,4 @@
-import { readingChatTurns } from './readingChatTurns'
+import { readingChatTurns, readingChatFocusTurn } from './readingChatTurns'
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
@@ -5852,7 +5852,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
           <LabAskPane
-            focusTurnId={contentsConversation?.messages.find(message => message.role === 'user')?.id}
+            focusTurnId={readingChatFocusTurn(ask.turns, contentsConversation)}
             onBackToContents={contentsConversation ? returnToContents : undefined}
             dictationState={dictation.state}
             onStopVoice={callOpen ? endCall : ask.stopVoice}
