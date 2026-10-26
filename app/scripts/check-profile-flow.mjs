@@ -42,6 +42,9 @@ try {
     assert.equal(await page.locator('[name=profileName]').inputValue(), '')
     assert.equal(await page.locator('[data-value=everyone]').getAttribute('aria-checked'),'true')
     assert.deepEqual(posts,[])
+    const bannerImage = await page.locator('.social-profile-banner').evaluate(node => getComputedStyle(node).backgroundImage)
+    assert.ok(bannerImage.includes('room-library-night.jpg'), 'Profile banner must render the existing library background')
+    await page.evaluate(() => Promise.all([...document.images].map(image => image.decode().catch(() => {}))))
     const selectors={...DEFAULT_SELECTORS, card:'.auth-card', text:'.social-step h1,.social-label,.social-tick,.social-note', tap:'.social-step button', bar:null, menu:null, foot:null}
     assert.deepEqual(await checkLayout(page,{selectors}),[])
     await page.screenshot({path:`${output}/${size}-profile.png`,fullPage:true})

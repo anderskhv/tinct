@@ -44,7 +44,7 @@ const STYLE = `
 .auth-page.is-social[data-mode=create] .auth-eyebrow{display:none}
 .auth-page.is-social .auth-or{text-transform:none;font-size:11px}
 .auth-page.is-social .auth-top{position:relative}
-.social-profile-banner{height:110px;position:relative;background-size:cover;background-position:center;border-radius:14px}
+.social-profile-banner{height:110px;position:relative;background-image:var(--scene);background-size:cover;background-position:center;border-radius:14px}
 .social-profile-identity{display:flex;gap:16px;align-items:center;margin:-24px 12px 14px;position:relative}
 .social-profile-picture{position:relative;flex:none}
 .social-profile-picture .tinct-avatar{width:72px;height:72px;border:3px solid #f6f1e6}
@@ -57,7 +57,7 @@ const STYLE = `
 .social-step [hidden]{display:none!important}
 .social-pictures[hidden]{display:none}
 .social-backgrounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.social-backgrounds button{width:auto;min-height:72px;height:auto;border-radius:8px;background-size:cover;background-position:center;color:white;text-shadow:0 1px 4px #000;padding:8px;font-size:12px}
+.social-backgrounds button{width:auto;min-height:72px;height:auto;border-radius:8px;background-image:var(--scene);background-size:cover;background-position:center;color:white;text-shadow:0 1px 4px #000;padding:8px;font-size:12px}
 .social-pictures .social-upload-choice{width:100%;height:40px;min-height:40px;grid-column:1/-1;border-radius:8px;color:#332e27;text-shadow:none;background:#eee7d8}
 .social-pictures input[type=file]{display:none}
 .social-steps{position:absolute;right:clamp(18px,4vw,54px);top:50%;transform:translateY(-50%);color:#9fb0b8;font-size:12px}
@@ -328,7 +328,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
         pendingPhotos[slot] = prepared.image
         const preview = URL.createObjectURL(prepared.image)
         previewUrls.push(preview)
-        if (slot === 'background') { backgroundUploaded = true; banner.style.backgroundImage = `url("${preview}")`; return }
+        if (slot === 'background') { backgroundUploaded = true; banner.style.setProperty('--scene', `url("${preview}")`); return }
         // The local preview joins the choices; it has not been uploaded.
         if (!uploadedPicture) {
           const avatar = el('span')
