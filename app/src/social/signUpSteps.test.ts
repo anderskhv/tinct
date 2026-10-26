@@ -129,7 +129,7 @@ describe('sign-up with profiles on', () => {
     expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
     // Three sets, two pictures of women (Longbourn, The Awakening; 14 October 2026) and the initial.
     expect(document.querySelectorAll('.social-pictures button[aria-label^="Picture:"]').length).toBe(6)
-    // Only me is preselected: a new profile is Only me until the reader changes it (privacy notice).
+    // Public is preselected in the form; Skip still leaves the private account unchanged.
     expect(document.querySelector('.social-tick[data-value="everyone"]')!.getAttribute('aria-checked')).toBe('true')
     expect(document.querySelector('.social-tick[data-value="friends"]')).toBeNull()
     document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
@@ -151,10 +151,15 @@ describe('sign-up with profiles on', () => {
     await import('../labSignIn')
     await flush()
     await createAccount()
-    document.querySelector<HTMLInputElement>('[name=profileName]')!.value = 'Newton'
+    const name = document.querySelector<HTMLInputElement>('[name=profileName]')!
+    expect(name.hidden).toBe(true)
+    document.querySelector<HTMLButtonElement>('[aria-label="Edit name"]')!.click()
+    expect(name.hidden).toBe(false)
+    expect(document.activeElement).toBe(name)
+    name.value = 'Newton'
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    // Continue without a choice keeps Only me.
+    // Continue explicitly accepts the visible Public form choice.
     expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true, picture: { kind: 'initial' } })
     expect(mode()).toBe('reading')
   })
