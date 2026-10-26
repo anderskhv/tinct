@@ -152,7 +152,9 @@ html.returning .hero-copy,html.returning #hero-book,html.returning .hero-dots{di
 .rt-front{inset:0;overflow:hidden;border-radius:1px 3px 3px 1px;background:var(--binding);transform:translateZ(calc(var(--d)/2))}
 .rt-front img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
 .rt-front::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0006 0,#0000 3.5%,#ffffff14 5%,#0000 8%);transition:background .5s}
-.rt-back{inset:0;border-radius:3px 1px 1px 3px;background:var(--binding);transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+/* The table only presents fronts and spines (12 or 90 degrees), never back covers.
+   Omit the rear plane: perspective/compositing can expose it beside a closed spine. */
+.rt-back{display:none}
 .rt-spine{top:0;bottom:0;left:calc(50% - var(--d)/2);width:var(--d);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:calc(var(--bh)*.07) 0;transform:rotateY(-90deg) translateZ(calc(var(--bw)/2));transition:filter .5s}
 /* The spine's title (reading-table.js spineTitle): the short form in one line, the type fitted to the
    spine's length from its character count (--tl; book-title.js SPINE_EM_PER_CHAR = .86), and an

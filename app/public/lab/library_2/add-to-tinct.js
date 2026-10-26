@@ -129,12 +129,12 @@ export function resetAddAccess(){access=null;}
 // confirmation asked once per account (the same recorded confirmation), kept in this browser,
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
-const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF or EPUB from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a PDF or EPUB',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
+const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF, EPUB or text file from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a file',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 // Both the extensions and the types: iOS Files greys an EPUB out when only a type it does not map is
 // named. No spaces: Android's WebView hands each piece to the picker untrimmed. On Android some file
 // managers and cloud apps report an EPUB as application/octet-stream, which the picker would grey out,
 // so it is named there too; the engine then decides by the file's own bytes (add-engine.js readFile).
-export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub';
+export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
 const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261023readerown1'];
@@ -160,7 +160,7 @@ const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return
  * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
+export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
@@ -283,12 +283,22 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
    }catch(error){pasteDraft=draft;pasteStep(error?.message||'This text could not be added. Try again.');}
   };
   const field=(label,control)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),control);return wrap;};
-  const details=make('details','own-paste-details');const summary=make('summary','','Review details');details.append(summary,field('Title',titleField),field('Author',author),make('p','tui-dialog__fine','Optional: remove lines from the beginning or end before adding.'),field('Trim beginning (lines)',start),field('Trim end (lines)',end),sample);
-  step('paste',alert,field('Text',source),richNotice,details,actions(save));
+  const details=make('details','own-paste-details');const summary=make('summary','','Review details');details.append(summary,field('Title',titleField),field('Author',author),make('p','tui-dialog__fine','Optional: remove lines from the beginning or end before adding.'),field('Trim beginning (lines)',start),field('Trim end (lines)',end));
+  step('paste',alert,field('Text',source),richNotice,details,make('p','tui-dialog__fine','Preview'),sample,actions(save));
   if(pasteDraft){source.value=pasteDraft.source;richHtml=pasteDraft.richHtml;richNotice.hidden=!richHtml;details.open=!!richHtml;titleField.value=pasteDraft.title;author.value=pasteDraft.author;start.value=pasteDraft.start;end.value=pasteDraft.end;titleEdited=!!pasteDraft.title;render();alert.textContent=message;}
   source.focus({preventScroll:true});
  }
  async function addFile(file){
+  if (/\.txt$/i.test(file.name) || file.type === 'text/plain') {
+   if (file.size > 50 * 1024 * 1024) { chooseStep('This text file exceeds the 50 MB limit.'); return; }
+   try {
+    const text = await file.text();
+    if (!text.trim()) throw new Error('This text file is empty.');
+    pasteDraft = { source: text, richHtml: null, title: file.name.replace(/\.txt$/i, ''), author: '', start: '0', end: '0' };
+    pasteStep();
+   } catch (error) { chooseStep(error?.message || 'This text file could not be read.'); }
+   return;
+  }
   progress(.08);
   let engineApi;
   try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
@@ -303,11 +313,28 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
   try{
    const opened=read.kind==='epub'?await engineApi.prepareEpub(read.bytes,file.name,read.key,file,{notify:note}):await engineApi.preparePdf(file,read.key,{notify:note});
    progress(1);
+   if(read.kind==='pdf'){
+    delete box.dataset.busy;
+    const original=button('tui-btn tui-btn--secondary','Open original PDF');
+    let left=false;original.onclick=()=>{left=true;go(opened.href);};
+    const message=make('p','tui-dialog__body','Checking a few pages for reading comfort…');
+    const choices=actions(original);step('pdf-ready',message,choices);
+    let assessment;try{assessment=await assessPdf(read.bytes);}catch{assessment=null;}
+    if(left||!layer.isConnected)return;
+    if(assessment?.recommend){
+     message.textContent=assessment.reason==='scan'?'This PDF uses scanned pages. A Tinct text version may be easier to read. Your original PDF will stay available.':'This PDF has small or dense text. A Tinct text version lets the words fit your screen. Your original PDF will stay available.';
+     const convert=button('tui-btn tui-btn--primary','Convert to Tinct');
+     convert.onclick=()=>{if(left)return;left=true;go('/reader?userBook='+encodeURIComponent(read.key.slice(4))+'&sharedReader=1&convert=1');};
+     choices.prepend(convert);return;
+    }
+   }
    go(opened.href);
   }catch(error){chooseStep(error?.message||OWN_BOOK_COPY.failed);}
  }
  input.onchange=()=>{const file=input.files?.[0];input.value='';if(file)void addFile(file);};
- chooseStep();
+ if(checking) step('checking',make('p','tui-dialog__body','Checking your account…'));
+ else chooseStep();
+ layer.showReady=chooseStep;
  layer.addFile=addFile;
  return layer;
 }
@@ -317,8 +344,13 @@ export function openFileDialog({from=null,onSearch=null,engine=loadFileEngine,go
  * device signed out), the Premium offer for a free account, exactly as before.
  */
 export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
- if((await access())===false){go(premiumForEntry());return null;}
- if(!signedIn()){go(signInForEntry());return null;}
+ const pending=signedIn()?openFileDialog({from,go,...options,checking:true}):null;
+ const allowed=await access();
+ // Closing the dialog while the account check runs cancels this opening.
+ if(pending&&!pending.isConnected)return null;
+ if(allowed===false){if(pending)closeFileDialog();go(premiumForEntry());return null;}
+ if(!signedIn()){if(pending)closeFileDialog();go(signInForEntry());return null;}
+ if(pending){pending.showReady();return pending;}
  return openFileDialog({from,go,...options});
 }
 function fileEntry(link){

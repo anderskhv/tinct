@@ -163,6 +163,13 @@ jobs:
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-library-public.mjs
+      - name: Verify private pasted books and long archive clipboard text
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-shared-reader-paste.mjs
+        env:
+          SHARED_PASTE_DIST: dist
+          PASTE_DEFAULT_ON: '0'
+          PASTE_SCREENSHOT_DIR: artifacts/paste
       - uses: actions/upload-artifact@v4
         continue-on-error: true
         if: always()
@@ -173,6 +180,7 @@ jobs:
             app/artifacts/sign-in
             app/artifacts/profile-flow
             app/artifacts/library-public
+            app/artifacts/paste
 
   profile-flow-sql:
     needs: changes
@@ -261,6 +269,7 @@ jobs:
             app/artifacts/hyphenation-hardening
             app/artifacts/page-break-lines
             app/artifacts/pdf-source-parity
+            app/artifacts/pdf-notebook
             app/artifacts/mobile-chat-cards
 
   # The PDF reader's margin (docs/margin/BRIEF.md "Layout QA"): docs/margin/layout-check.mjs must return

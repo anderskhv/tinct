@@ -510,11 +510,12 @@
   // stages are performance measures: 'tinct:pdf-text:pages' (text and regions), 'tinct:pdf-text:model'.
   const now = () => global.performance?.now?.() ?? Date.now();
   const measure = (name, start) => { try { global.performance?.measure?.(name, { start }) } catch {} };
-  async function convert(pdf, { scan, items, regions, live = () => true, concurrency = 4, pace = null } = {}) {
+  async function convert(pdf, { scan, items, regions, live = () => true, concurrency = 4, pace = null, onProgress } = {}) {
     if (!scan || !(scan.textPages > 0)) return null;
     const api = S();
     const count = pdf.numPages, pages = new Array(count), started = now();
-    let next = 1, stop = false;
+    let next = 1, stop = false, completed = 0;
+    onProgress?.(0, count);
     const read = async n => {
       const page = await pdf.getPage(n);
       const [x0, y0, x1, y1] = page.view;
@@ -526,7 +527,7 @@
       while (!stop && next <= count) {
         if (pace) { await pace(); if (stop || next > count) break }
         const n = next++;
-        try { await read(n) } catch (e) { stop = true; throw e }
+        try { await read(n); onProgress?.(++completed, count) } catch (e) { stop = true; throw e }
         if (!live()) stop = true;
       }
     };

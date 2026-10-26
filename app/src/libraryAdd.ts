@@ -216,4 +216,9 @@ export function rememberJustRead(input: { hex: string; title: string; chapterLab
   }))
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, rememberJustRead }
+export async function assessPdf(bytes: ArrayBuffer) {
+  const { assessPdfReadability } = await import('./lab/userBook/pdfReadability')
+  return assessPdfReadability(bytes)
+}
+
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { assessPdf, importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, rememberJustRead }
