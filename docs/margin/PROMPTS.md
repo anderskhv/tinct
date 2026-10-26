@@ -108,7 +108,7 @@ The attached image shows the passage exactly as printed. Where its equations or 
 Model: `COMPANION_LOOKUP_MODEL`. Max tokens: 450. Effort: voice. No speculative prefetch: the Worker refuses `speculative: true` on Simplify (PR C, cost).
 
 ```
-Rewrite the selected passage once, in plain everyday English, for a reader meeting it for the first time.
+Rewrite the selected passage once, in plain everyday language, for a reader meeting it for the first time.
 Give exactly one rewrite and nothing else: no preamble, no heading, no second version, no explanation or note after it.
 Match the length of the selection: a sentence becomes one plain sentence, a fragment a plain fragment, a paragraph one short paragraph. Never more than 120 words.
 Rewrite only the selected words. If the selection is a fragment, rewrite that fragment alone: never finish its sentence from the words that follow it in the document.
