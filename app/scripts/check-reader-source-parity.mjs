@@ -38,7 +38,7 @@ try {
       if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
       return route.continue()
     })
-    await page.addInitScript(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })))
+    await page.addInitScript(phone => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(phone ? {fontSize:1.3,fontSizeExplicit:true} : {}), theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })), phone)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
     const wordSelector = '[data-testid="lab-word"]:visible'
     const select = async (host, from = 2, to = 11) => {
@@ -383,7 +383,6 @@ try {
       assert(finalCheck.includes('Source answer attempt 1') && finalCheck.includes('Source answer attempt 3'), 'grader receives the earlier answer and feedback turns')
       assert.equal(await root.getAttribute('data-place'), initialPlace, 'grading does not turn the reading page')
       await page.screenshot({ path: `${output}/phone-quiz-graded-followups.png` })
-      await page.evaluate(() => { const prefs = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}'); localStorage.setItem('tinct-lab-prefs', JSON.stringify({...prefs, fontSize:1.3, fontSizeExplicit:true})) })
       // Reported iPhone sequence: Romans 1, Explain → follow-up → close → previous page.
       await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1047&paragraph=0&word=0&layout=phone&sharedReader=1&qaLayoutTrace=1`, {waitUntil:'domcontentloaded'})
       await ready(); await settlePaint(page)
