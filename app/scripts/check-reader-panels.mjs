@@ -730,7 +730,7 @@ async function highlightRegression(engine,name){
       await clickMenu(page,'theme')
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByTestId('lab-v2-sheet-close').click()
-      await page.reload({waitUntil:'domcontentloaded'})
+      await page.reload({waitUntil:'domcontentloaded',timeout:30000})
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
       await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
       const target='[data-testid="lab-word"][data-paragraph-index="'+fixture.p+'"].is-hl-warm'
@@ -766,7 +766,7 @@ async function highlightRegression(engine,name){
       await page.getByRole('button',{name:/^(Delete|Remove) highlight$/}).click()
       assert.equal(await marked.count(),0,'deleting a persisted mark clears its paint')
       assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct-lab-highlights')||'[]')),[],'delete persists on the original record')
-      await page.reload({waitUntil:'domcontentloaded'})
+      await page.reload({waitUntil:'domcontentloaded',timeout:30000})
       await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true')
       assert.equal(await page.locator('[data-testid="lab-word"].is-hl-warm').count(),0,'deleted highlight stays removed after reload')
       result[fixture.book].deleted=true
@@ -774,7 +774,7 @@ async function highlightRegression(engine,name){
     }
     result.passed=true
   }catch(error){
-    result.passed=false;result.error=error.stack
+    result.passed=false;result.error=error.stack;result.networkFailures=state?.networkFailures;result.pageErrors=state?.errors
     if(state){await state.page.screenshot({path:output+'/'+name+'-highlight-regression-failure.png'}).catch(()=>{});result.visibleText=await visibleText(state.page,3000)}
   }finally{await browser.close();results.push(result)}
 }
