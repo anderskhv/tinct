@@ -80,10 +80,9 @@ describe('no Catch me up before there is anything to catch up on', () => {
     expect(isFrontMatter("Translator's Note")).toBe(true)
     expect(isFrontMatter('Prologue')).toBe(false)
   })
-  it('the start pill shows only ✧ Primer, and the t menu has no Catch me up row', () => {
+  it('the start pill shows only ✧ Primer, while the t menu keeps Catch me up', () => {
     render(<MarginPhoneContext.Provider value={{ catchUp: false }}><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /></MarginPhoneContext.Provider>)
     expect(screen.getByTestId('lab-unit-start').textContent).toBe('✧Primer')
-    expect(labSuperMenuRows({ phone: true, noCatchUp: true }).some(row => row.id === 'catchup')).toBe(false)
     expect(labSuperMenuRows({ phone: true }).some(row => row.id === 'catchup')).toBe(true)
   })
 })
