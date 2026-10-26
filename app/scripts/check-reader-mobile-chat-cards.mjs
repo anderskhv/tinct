@@ -131,12 +131,17 @@ try {
       throw error
     })
     const contrast=await definition.evaluate(card=>{
-      const lum=color=>{const rgb=color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
-      const bg=lum(getComputedStyle(card).backgroundColor)
-      return [...card.querySelectorAll('.popup-define-word,.popup-define-list li')].map(node=>{const ink=lum(getComputedStyle(node).color);return (Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)})
+      // color-mix computes to color(srgb ...) in WebKit, whose channels are 0–1,
+      // unlike rgb(). Let the browser resolve both formats into sRGB bytes.
+      const canvas=document.createElement('canvas');canvas.width=canvas.height=1
+      const ctx=canvas.getContext('2d',{willReadFrequently:true})
+      const lum=color=>{ctx.clearRect(0,0,1,1);ctx.fillStyle=color;ctx.fillRect(0,0,1,1);const rgb=[...ctx.getImageData(0,0,1,1).data].slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
+      const background=getComputedStyle(card).backgroundColor,bg=lum(background)
+      return {background,inks:[...card.querySelectorAll('.popup-define-word,.popup-define-list li')].map(node=>{const color=getComputedStyle(node).color,ink=lum(color);return {color,ratio:(Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)}})}
     })
-    assert(contrast.length>=2&&contrast.every(ratio=>ratio>=4.5),'Define headword and meanings have readable contrast in '+theme)
+    console.log(JSON.stringify({stage:'define-contrast',theme,standalone,...contrast}))
     await page.screenshot({path:`${output}/${label}-define.png`})
+    assert(contrast.inks.length>=2&&contrast.inks.every(({ratio})=>ratio>=4.5),'Define headword and meanings have readable contrast in '+theme)
     await page.keyboard.press('Escape');await definition.waitFor({state:'hidden'})
 
     await page.getByTestId('lab-super').click()
