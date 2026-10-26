@@ -43,7 +43,12 @@ try {
     const select = async (host, from = 2, to = 11) => {
       const words = host.locator(wordSelector)
       await words.nth(to).waitFor()
-      const onscreen = await words.evaluateAll(nodes => nodes.flatMap((node, index) => { const rect = node.getBoundingClientRect(); return rect.top >= 70 && rect.bottom <= window.innerHeight - 90 ? [index] : [] }))
+      const onscreen = await words.evaluateAll(nodes => nodes.flatMap((node, index) => {
+        const rect = node.getBoundingClientRect()
+        const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)
+        return rect.left >= 0 && rect.right <= window.innerWidth && rect.top >= 70
+          && rect.bottom <= window.innerHeight - 90 && hit && (hit === node || node.contains(hit)) ? [index] : []
+      }))
       assert(onscreen.length > to, 'selection has enough source words inside the actual viewport')
       const a = await words.nth(onscreen[from]).boundingBox(), b = await words.nth(onscreen[to]).boundingBox()
       assert(a && b)
@@ -331,7 +336,7 @@ try {
   await fs.writeFile(`${output}/observations.json`, JSON.stringify(observations, null, 2))
   console.log(`Reader source-contract acceptance passed for ${process.env.TINCT_PARITY_LAYOUTS || 'margin,two-page,compare,phone'}. ${output}`)
 } catch (error) {
-  if (activePage && !activePage.isClosed()) console.error('Source failure state', JSON.stringify(await activePage.evaluate(() => ({ place: document.querySelector('.lab')?.dataset.place, url: location.href }))))
+  if (activePage && !activePage.isClosed()) console.error('Source failure state', JSON.stringify(await activePage.evaluate(() => ({ place: document.querySelector('.lab')?.dataset.place, url: location.href, view: document.querySelector('.lab')?.className, selection: getSelection()?.toString(), toolbars: [...document.querySelectorAll('[data-testid*=bar]')].map(node => ({testId: node.dataset.testid, rect: node.getBoundingClientRect().toJSON()})) }))))
   if (activePage && !activePage.isClosed()) await activePage.screenshot({ path: `${output}/failure.png` }).catch(() => {})
   throw error
 } finally { await browser.close() }
