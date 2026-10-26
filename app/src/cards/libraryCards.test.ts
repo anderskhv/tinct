@@ -251,7 +251,7 @@ describe('the profile step for an older account (Anders, 15 October 2026)', () =
     const { legacyProfileStepDue, legacyProfileStepUrl, LEGACY_SETUP_KEY_PREFIX } = await import('./libraryCards')
     expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, USER)).toBe(true)
     // A name the reader has, a profile already set up, or no account: never.
-    expect(legacyProfileStepDue({ needsSetup: true, name: 'Mette' }, USER)).toBe(false)
+    expect(legacyProfileStepDue({ needsSetup: true, name: 'Mette' }, USER)).toBe(true)
     expect(legacyProfileStepDue({ needsSetup: false, name: 'Reader' }, USER)).toBe(false)
     expect(legacyProfileStepDue({ needsSetup: true, name: 'Reader' }, null)).toBe(false)
     // Offered on this device already: not again.
@@ -270,8 +270,8 @@ describe('the profile step for an older account (Anders, 15 October 2026)', () =
   })
 })
 
-describe('the findable-profiles notice in the library (Anders, 19 October 2026)', () => {
-  const answer = (visibility: string, setUpBeforeFindable = true) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUpBeforeFindable } })
+describe('the approved returning-reader notice', () => {
+  const answer = (visibility: string, setUpBeforeFindable = true) => ({ enabled: true, available: true, profile: { handle: 'anders', name: 'Anders', visibility, picture: { kind: 'initial', value: null, url: null }, background: { kind: 'library', value: null, url: null }, shouldPrompt: false, needsSetup: false, setUpBeforeFindable, accountCreatedAt: setUpBeforeFindable ? '2025-01-01T00:00:00Z' : new Date().toISOString() } })
   const settle = async () => { for (let i = 0; i < 10; i++) await new Promise(resolve => setTimeout(resolve, 0)) }
   async function visit(visibility: string, friendsOn = true, setUpBefore = true, signedIn = true) {
     vi.resetModules()
@@ -282,7 +282,7 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
       : new Promise<Response>(() => {})))
     await import('./libraryCards')
     await settle()
-    return document.querySelector<HTMLElement>('[data-testid="findable-notice"]')
+    return document.querySelector<HTMLElement>('[data-testid="whats-new"]')
   }
   afterEach(() => { document.head.innerHTML = '' })
 
@@ -290,12 +290,12 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
     storeSession(3600)
     const notice = await visit('friends')
     expect(notice?.classList.contains('social-prompt')).toBe(true)
-    expect(notice?.textContent).toContain('Readers can now find you by name and picture. Your reading stays private until you accept a follower. Change it in Settings.')
-    expect(notice?.querySelector('.go')?.textContent).toBe('Settings')
+    expect(notice?.textContent).toContain('Tinct has grown up a lot')
+    expect(notice?.querySelector('.go')?.textContent).toBe('Continue')
     // Written on show, before any tap, into the account's preferences row.
-    expect(accountRows.get(`${USER}:preferences`)?.value).toEqual({ findableNoticeSeen: true })
-    notice!.querySelector<HTMLElement>('[data-testid="findable-notice-dismiss"]')!.click()
-    expect(document.querySelector('[data-testid="findable-notice"]')).toBeNull()
+    expect(accountRows.get(`${USER}:preferences`)?.value).toEqual({ profileFlowOctober2026Seen: true })
+    notice!.querySelector<HTMLElement>('.later')!.click()
+    expect(document.querySelector('[data-testid="whats-new"]')).toBeNull()
     // The next visit: not again.
     document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
     expect(await visit('friends')).toBeNull()
@@ -309,7 +309,7 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
     storeSession(3600)
     document.body.innerHTML = '<header id="header"><nav><button id="sign-in" class="sign-in">Account</button></nav></header>'
     expect(await visit('friends')).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBe('2')
+    expect(accountRows.get(`${USER}:preferences`)?.value).toEqual({ profileFlowOctober2026Seen: true })
   })
 
   it('never for a profile set up since findable profiles shipped, and nothing is written', async () => {
@@ -324,11 +324,9 @@ describe('the findable-profiles notice in the library (Anders, 19 October 2026)'
     expect(accountRows.size).toBe(0)
   })
 
-  it('never for Only me, nor while Friends is switched off', async () => {
+  it('also informs private returning readers', async () => {
     storeSession(3600)
-    expect(await visit('only_me')).toBeNull()
-    expect(await visit('friends', false)).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${USER}`)).toBeNull()
+    expect(await visit('only_me')).toBeTruthy()
   })
 })
 

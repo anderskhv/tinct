@@ -343,3 +343,27 @@ describe('billing routes', () => {
     expect(await response.json()).toEqual({ error: 'Invalid signature' })
   })
 })
+
+describe('first month Premium labels', () => {
+  afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals() })
+  const now = new Date('2026-10-26T12:00:00Z')
+  const user = async () => ({ id: '11111111-1111-4111-8111-111111111111', email: 'synthetic@example.com' })
+  async function info(profile: Record<string, unknown>, receipt?: object) {
+    vi.useFakeTimers(); vi.setSystemTime(now)
+    vi.stubGlobal('fetch', vi.fn(async input => Response.json(String(input).includes('user_data?') ? receipt ? [{ value: receipt }] : [] : [profile])))
+    return (await handleSubscriptionInfo(new Request('https://tinct.app/api/subscription-info'), { ...stripeEnv, STRIPE_SECRET_KEY: '' }, user)).json()
+  }
+  it('reports the actual trial as Premium with its expiry, even without a subscription', async () => {
+    expect(await info({ created_at: now.toISOString(), subscription_status: null })).toMatchObject({ premium: true, first_month_free_until: '2026-11-25T12:00:00.000Z' })
+  })
+  it('labels a recorded grant, but cannot create access from the label receipt', async () => {
+    const receipt = { startsAt: now.toISOString(), expiresAt: '2026-11-25T12:00:00.000Z' }
+    const profile = { created_at: '2026-01-01T00:00:00Z', subscription_status: 'canceled', period_start: receipt.startsAt, subscription_period_end: receipt.expiresAt }
+    expect(await info(profile, receipt)).toMatchObject({ premium: true, first_month_free_until: receipt.expiresAt })
+    expect(await info(profile)).toMatchObject({ premium: true, first_month_free_until: null })
+    expect(await info({ ...profile, subscription_period_end: '2026-10-01T00:00:00Z' }, receipt)).toMatchObject({ first_month_free_until: null })
+  })
+  it('does not label an active paying account as a free month', async () => {
+    expect(await info({ created_at: now.toISOString(), subscription_status: 'active' })).toMatchObject({ premium: true, first_month_free_until: null })
+  })
+})

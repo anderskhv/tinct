@@ -519,3 +519,13 @@ describe('trial reset (Anders, 15 Oct 2026: every free account gets a fresh mont
     expect((await loadAllowanceView(env, userId, new Date('2026-10-14T12:00:00Z')))?.resetsAt).toBeNull()
   })
 })
+
+it('a thirty-day granted month starts with fresh allowance at its exact start and expires', () => {
+  const start = new Date('2026-10-26T12:34:56.123Z')
+  const end = new Date(start.getTime() + 30 * 86400000)
+  const profile = { created_at: '2026-01-01T00:00:00Z', subscription_status: 'canceled', subscription_period_end: end.toISOString(), period_start: start.toISOString() }
+  expect(billingPeriod(profile, start)).toMatchObject({ start, end, allowanceMicros: 3000000 })
+  expect(hasPremiumAccess(profile, start)).toBe(true)
+  expect(hasPremiumAccess(profile, end)).toBe(false)
+  expect(billingPeriod(profile, end).allowanceMicros).toBe(0)
+})

@@ -1,3 +1,4 @@
+import { claimWhatsNew, returningAccount, WHATS_NEW_TITLE, WHATS_NEW_BULLETS } from '../social/whatsNew'
 /**
  * The library's way into the account cards (/lab/account-cards.js, loaded by
  * the library page). Signed in, the top bar's "Account" becomes the reader's
@@ -11,21 +12,19 @@
  * instead (name, picture, background; signUpSteps.ts), once (15 Oct 2026).
  */
 import { supabase } from '../services/supabase'
-import { fetchOwnProfile, ownPictureView, paintAvatar, privateImageUrl, saveProfile, currentBookHint } from '../social/socialClient'
+import { fetchOwnProfile, ownPictureView, paintAvatar, privateImageUrl, currentBookHint } from '../social/socialClient'
 import { cardUrl } from './cardRoutes'
 import { consumeCardParam, openAccountCards, sessionStorageState, storedSession, type CardName } from './openCards'
 import { clearCardsCache, readCardsCache } from './cardsCache'
 import { trackFunnel } from '../utils/funnel'
-import { NEUTRAL_READER_NAME } from './cardsCopy'
 import type { OwnProfile } from '../social/socialClient'
 import { avatarSignature, captureAvatar, clearAvatarCache, headerPictureView, paintCachedAvatar, readAvatarCache, writeAvatarCache } from './avatarCache'
 import type { PictureView } from '../social/profileRules'
 import { fetchFollowRequests, socialFriendsOn } from '../social/friendsClient'
 import { FOLLOW_REQUESTS_SEEN_EVENT, REQUEST_DOT_CLASS, requestDotDue, type RequestRow } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown } from '../social/findableNotice'
 
 /** Set on this device once the profile step was offered to an older account (signed-out wipes it with the rest of tinct:*). */
-export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
+export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-flow-offered-20261026:'
 
 /**
  * An account from before profiles that never chose anything and still has the
@@ -34,7 +33,7 @@ export const LEGACY_SETUP_KEY_PREFIX = 'tinct:profile-step-offered:'
  * back; the device mark covers leaving the step without either.
  */
 export function legacyProfileStepDue(profile: Pick<OwnProfile, 'needsSetup' | 'name'>, userId: string | null): boolean {
-  if (!profile.needsSetup || profile.name !== NEUTRAL_READER_NAME || !userId) return false
+  if (!profile.needsSetup || !userId) return false
   try { return localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + userId) === null } catch { return false }
 }
 
@@ -43,10 +42,9 @@ export function legacyProfileStepUrl(returnTo: string): string {
   return `/sign-in?mode=profile&returnTo=${encodeURIComponent(returnTo)}`
 }
 
-function offerLegacyProfileStep(token: string, userId: string, returnTo: string): void {
+function offerLegacyProfileStep(userId: string, returnTo: string): void {
   try { localStorage.setItem(LEGACY_SETUP_KEY_PREFIX + userId, '1') } catch { return }
   // The gentle prompt is not shown as well.
-  void saveProfile(token, { prompted: true })
   location.assign(legacyProfileStepUrl(returnTo))
 }
 
@@ -56,6 +54,7 @@ const STYLE = `
 #sign-in.cards-you .${REQUEST_DOT_CLASS}{position:absolute;top:8px;right:7px;width:9px;height:9px;border-radius:50%;background:#78aabd;box-shadow:0 0 0 2px rgba(16,21,15,.85);pointer-events:none}
 #sign-in.cards-you .tinct-avatar{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background-repeat:no-repeat;background-color:#6a6a6a;color:#fff;font:700 12px/1 "Playfair Display",Georgia,serif;box-shadow:0 0 0 1px rgba(238,238,238,.4)}
 .social-prompt{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 24px),420px);z-index:60;background:#1a2318;color:#eee7d0;border-radius:18px;box-shadow:0 18px 40px rgba(0,0,0,.5);padding:18px 18px 12px;font-family:Georgia,serif}
+.social-prompt ul{padding-left:20px;margin:12px 0;font-size:15px;line-height:1.45}.social-prompt li+li{margin-top:10px}
 .social-prompt b{display:block;font:700 17px system-ui,-apple-system,sans-serif;margin-bottom:6px}
 .social-prompt p{margin:0;color:#b1bba4;font-size:16px;line-height:1.4}
 .social-prompt .go{display:block;width:100%;margin-top:14px;padding:11px;border:0;border-radius:999px;background:#eee7d0;color:#10150f;text-align:center;font:600 15px system-ui,-apple-system,sans-serif;cursor:pointer}
@@ -176,15 +175,10 @@ async function start(pending: CardName | null): Promise<void> {
     else clearAvatarCache(userId)
   }
   if (socialFriendsOn()) void showRequestDot(token, userId, mount)
-  if (userId && legacyProfileStepDue(result.profile, userId)) {
-    offerLegacyProfileStep(token, userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
-    return
-  }
-  if (result.profile.shouldPrompt) showPrompt(token)
-  else if (socialFriendsOn() && userId && findableNoticeFor(result.profile)) {
-    // Once per account: only after the account says it was not seen yet.
-    await checkFindableNoticeAccount(userId)
-    if (storedSession()?.session.userId === userId && findableNoticeDue(result.profile, userId)) showFindableNotice(userId, result.profile.visibility)
+  if (userId && returningAccount(result.profile.accountCreatedAt)) {
+    if (await claimWhatsNew(userId) && storedSession()?.session.userId === userId) showWhatsNew(result.profile)
+  } else if (userId && legacyProfileStepDue(result.profile, userId)) {
+    offerLegacyProfileStep(userId, pending ? cardUrl(pending) : `${location.pathname}${location.search}`)
   }
 }
 
@@ -217,36 +211,26 @@ export async function showRequestDot(token: string, userId: string | null, mount
   window.addEventListener(FOLLOW_REQUESTS_SEEN_EVENT, paint)
 }
 
-/**
- * The one-time notice about findable profiles (findableNotice.ts), in the
- * prompt's style: Settings opens the Settings card. Showing it marks it seen
- * for the account; either button removes it.
- */
-export function showFindableNotice(userId: string, visibility: OwnProfile['visibility']): void {
-  const text = findableNoticeText(visibility)
-  if (!text || document.querySelector(`.social-prompt[${FINDABLE_NOTICE_ATTR}]`)) return
-  const card = document.createElement('div')
-  card.className = 'social-prompt'
-  card.setAttribute('role', 'dialog')
-  card.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
-  card.setAttribute(FINDABLE_NOTICE_ATTR, '')
-  card.dataset.testid = 'findable-notice'
-  const line = document.createElement('p')
-  line.textContent = text
-  const go = document.createElement('button')
-  go.type = 'button'
-  go.className = 'go'
-  go.textContent = FINDABLE_NOTICE_COPY.settings
-  go.addEventListener('click', () => { dismissFindableNotice(userId); open('settings') })
-  const later = document.createElement('button')
-  later.type = 'button'
-  later.className = 'later'
-  later.textContent = FINDABLE_NOTICE_COPY.dismiss
-  later.dataset.testid = 'findable-notice-dismiss'
-  later.addEventListener('click', () => dismissFindableNotice(userId))
-  card.append(line, go, later)
-  document.body.append(card)
-  markFindableNoticeShown(userId)
+/** The returning-reader notice replaces the findable notice, with no email. */
+export function showWhatsNew(profile: OwnProfile): void {
+  if (document.querySelector('[data-testid="whats-new"]')) return
+  const card = document.createElement('section')
+  card.className = 'social-prompt'; card.dataset.testid = 'whats-new'
+  card.setAttribute('role', 'dialog'); card.setAttribute('aria-label', WHATS_NEW_TITLE)
+  const title = document.createElement('b'); title.textContent = WHATS_NEW_TITLE
+  const list = document.createElement('ul')
+  for (const [heading, text] of WHATS_NEW_BULLETS) {
+    const item = document.createElement('li'), strong = document.createElement('strong')
+    strong.textContent = heading; item.append(strong, ' ' + text); list.append(item)
+  }
+  const go = document.createElement('button'); go.type = 'button'; go.className = 'go'; go.textContent = 'Continue'
+  go.addEventListener('click', () => {
+    card.remove()
+    if (profile.needsSetup) location.assign(legacyProfileStepUrl(`${location.pathname}${location.search}`))
+  })
+  const later = document.createElement('button'); later.type = 'button'; later.className = 'later'; later.textContent = 'Later'
+  later.addEventListener('click', () => card.remove())
+  card.append(title, list, go, later); document.body.append(card)
 }
 
 /** Keep a small copy of the reader's own header picture on this device (avatarCache.ts). */
@@ -257,32 +241,6 @@ async function keepAvatar(userId: string | null, sig: string, view: Extract<Pict
   const copy = await captureAvatar(view, src)
   // Still this reader's browser: a sign-out or account switch meanwhile keeps nothing.
   if (copy && storedSession()?.session.userId === userId) writeAvatarCache(userId, { sig, src: copy })
-}
-
-function showPrompt(token: string) {
-  const card = document.createElement('div')
-  card.className = 'social-prompt'
-  card.setAttribute('role', 'dialog')
-  card.setAttribute('aria-label', 'Set up your profile')
-  card.dataset.testid = 'social-prompt'
-  const title = document.createElement('b')
-  title.textContent = 'Set up your profile'
-  const line = document.createElement('p')
-  line.textContent = 'Your profile is private. Choose a picture, and who can see your reading, whenever you like.'
-  const go = document.createElement('button')
-  go.type = 'button'
-  go.className = 'go'
-  go.textContent = 'Set up'
-  go.addEventListener('click', () => { card.remove(); open('settings') })
-  const later = document.createElement('button')
-  later.type = 'button'
-  later.className = 'later'
-  later.textContent = 'Not now'
-  later.addEventListener('click', () => card.remove())
-  card.append(title, line, go, later)
-  document.body.append(card)
-  // Offered once, whatever the reader does with it.
-  void saveProfile(token, { prompted: true })
 }
 
 function boot(): void {

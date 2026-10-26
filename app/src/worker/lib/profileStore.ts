@@ -5,6 +5,7 @@
  * (SQL not yet run) becomes one typed error the routes turn into "unavailable".
  */
 import type { BackgroundKind, PictureKind, Review, Visibility, NewBooksOpenIn } from '../../social/profileRules'
+import type { ReadingLanguage } from '../../social/readingLanguages'
 import type { SupabaseEnv } from './supabase'
 
 export class ProfilesUnavailable extends Error {
@@ -26,6 +27,7 @@ export interface ReaderProfileRow {
   show_reading: boolean
   show_time: boolean
   on_leaderboard: boolean
+  reading_languages?: ReadingLanguage[]
   new_books_open_in: NewBooksOpenIn
   auto_created: boolean
   set_up_at: string | null
@@ -94,7 +96,7 @@ export interface ProfileStore {
   releaseEmail?(id: string, dedupeKey: string): Promise<void>
 }
 
-const OWN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,show_reading,show_time,on_leaderboard,new_books_open_in,auto_created,set_up_at,prompted_at,updated_at'
+const OWN_COLUMNS = 'id,display_name,handle,picture_kind,picture_value,picture_review,background_kind,background_value,background_review,visibility,show_reading,show_time,on_leaderboard,new_books_open_in,reading_languages,auto_created,set_up_at,prompted_at,updated_at'
 const CARD_COLUMNS = 'id,handle,display_name,picture_kind,picture_value,background_kind,background_value,visibility,show_reading,show_time,on_leaderboard'
 
 function headers(env: SupabaseEnv, extra: Record<string, string> = {}): Record<string, string> {

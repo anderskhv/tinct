@@ -214,3 +214,8 @@ override.
   stays until the reader signs out, clears site data or uninstalls. Say so in
   the confirmation reply.
 - **Backups:** Supabase point-in-time backups roll off on their own schedule.
+
+The October 2026 profile flow adds `reader_profiles.reading_languages` and a
+`user_data` receipt at `premium-first-month-2026-10` containing only the grant
+start and expiry. Existing full-row export and account deletion cover both.
+The receipt labels the promotion; it never grants access.

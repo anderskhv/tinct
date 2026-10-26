@@ -247,6 +247,9 @@ export function buildLabAskInstructionParts(input: LabAskContext, options: LabAs
 
   const stable = [
     options.policy ?? LAB_ASK_POLICY,
+    input.editionKey?.endsWith('-da')
+      ? 'Answer in Danish for this Danish edition, unless the reader explicitly requests another language. This also applies to Simplify; keep structured response keys unchanged.'
+      : 'If the reader writes their question in Danish, answer in Danish. Keep structured response keys unchanged.',
   ]
   if (toolsAvailable) stable.push(LAB_ASK_BOOK_TOOLS_RULE, LAB_LOOKUP_BEFORE_TEXT_RULE)
   for (const rule of options.rules ?? []) if (rule) stable.push(rule)
