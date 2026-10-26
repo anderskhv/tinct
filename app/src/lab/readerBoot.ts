@@ -107,6 +107,24 @@ export function readerBootDeepLink(search: string, primaryExceptions: Readonly<R
   return { bookId, primaryEditionKey, chapterNumber }
 }
 
+/** Read-only hint for a plain resume: never redirects or changes the saved place.
+ * Restrict to owner-matched sessions and chapter-sharded editions so a hint
+ * cannot download an entire book or another account's saved reading choice. */
+export function readerBootResume(search: string, raw: string | null, sessions: Array<[string, string | null]>, sharded: readonly string[], now = Date.now()): ReaderBootHandoff | null {
+  if (['book', 'chapter', 'edition', 'heldBook', 'modern', 'userBook'].some(key => new URLSearchParams(search).has(key))) return null
+  try {
+    const state = JSON.parse(raw || 'null')
+    if (!state?.owner || !sessions.some(entry => {
+      try { return readerBootPositionToken([entry], now / 1000) && JSON.parse(entry[1] || 'null')?.user?.id === state.owner } catch { return false }
+    })) return null
+    const place = state.books?.[state.lastSettledBookId]
+    if (!place || place.bookId !== state.lastSettledBookId || !ID.test(place.bookId) || !ID.test(place.primaryEditionKey)) return null
+    if (!Number.isSafeInteger(place.chapterNumber) || place.chapterNumber < 1 || place.chapterNumber > 99999) return null
+    if (!sharded.includes(`${place.bookId}-${place.primaryEditionKey}`)) return null
+    return { bookId: place.bookId, primaryEditionKey: place.primaryEditionKey, chapterNumber: place.chapterNumber }
+  } catch { return null }
+}
+
 export interface ReaderBootPreloadOptions {
   /** The build's `__BUILD_VERSION__`, as the loaders append it. */
   version: string

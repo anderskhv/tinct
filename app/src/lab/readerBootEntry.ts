@@ -16,6 +16,7 @@ import {
   readerBootMarginPreview,
   readerBootPositionToken,
   readerBootPreloads,
+  readerBootResume,
   readerBootTheme,
   readerBootProfile,
   LAB_PHONE_QUERY,
@@ -66,9 +67,17 @@ try {
       root.style.colorScheme = theme === 'dark' ? 'dark' : 'light'
       root.style.backgroundColor = LAB_THEME_PAPER[theme]
     }
+    const entries: Array<[string, string | null]> = []
+    try {
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i)
+        if (key && key.startsWith('sb-')) entries.push([key, localStorage.getItem(key)])
+      }
+    } catch { /* Storage is optional; the normal app still resolves auth. */ }
     // A library handoff wins over the address, as in the app (consumeLabReaderHandoffForPage).
     const handoff = readerBootHandoff(read(() => sessionStorage, READER_BOOT_HANDOFF_KEY))
       ?? readerBootDeepLink(location.search, __READER_BOOT_PRIMARY_EXCEPTIONS__)
+      ?? readerBootResume(location.search, read(() => localStorage, 'tinct-lab-position'), entries, CHAPTER_SHARDED_EDITION_IDS)
     if (handoff) {
       for (const href of readerBootPreloads(handoff, {
         version: __BUILD_VERSION__,
@@ -83,11 +92,6 @@ try {
     // The signed-in reader's cloud position, started before the bundle runs.
     // A reader's own book (?userBook=) never reads the account's position.
     if (navigator.onLine !== false && !new URLSearchParams(location.search).has('userBook')) {
-      const entries: Array<[string, string | null]> = []
-      for (let i = 0; i < localStorage.length; i += 1) {
-        const key = localStorage.key(i)
-        if (key && key.startsWith('sb-')) entries.push([key, localStorage.getItem(key)])
-      }
       const token = readerBootPositionToken(entries, Date.now() / 1000)
       if (token) {
         const body = fetch('/api/lab-position', { method: 'GET', headers: { Authorization: `Bearer ${token}` } })

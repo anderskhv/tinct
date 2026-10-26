@@ -193,6 +193,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-note::placeholder { color: var(--lab-ink-faint); opacity: 1; }
 
 /* Define: the dictionary's and the passage's senses, in the card's type. */
+.lab .lab-pcard :is(.popup-define-word, .popup-define-list, .popup-define-result, .popup-define-status, .popup-define-note, .popup-define-empty) { color: var(--lab-ink); }
 .lab .lab-pcard .popup-define-list { margin: 0; padding-left: 18px; font-size: 17px; line-height: 1.45; display: grid; gap: 4px; }
 .lab .lab-pcard .popup-character, .lab .lab-pcard .popup-define-result, .lab .lab-pcard .popup-define-status { font-size: 17px; line-height: 1.45; }
 .lab .lab-pcard .popup-character small { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; color: var(--lab-ink-faint); }
@@ -247,8 +248,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Desktop's typing hint is quiet; touch cards keep their existing layout. */
 
 /* Desktop source marks span each visual line, including inter-word spaces. */
-.lab.is-desktop .lab-passage .lab-hearing-word.is-card-passage { text-decoration: none; }
-.lab.is-desktop .lab-passage .lab-hearing-line:has(.is-card-passage) { position: relative; }
+.lab .lab-passage .lab-hearing-word.is-card-passage { text-decoration: none; }
+.lab .lab-passage .lab-hearing-line:has(.is-card-passage) { position: relative; }
 .lab-card-passage-line { position: absolute; height: 0; border-bottom: 1.5px solid color-mix(in srgb, var(--lab-ink) 45%, transparent); pointer-events: none; user-select: none; }
 
 /* Chat lives in the same paper card as Explain. Its thread scrolls within

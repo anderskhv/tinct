@@ -40,7 +40,8 @@ describe('reader boot script', () => {
   it('is a small content-hashed classic script, never an index-* bundle', () => {
     expect(fileName).toMatch(/^assets\/reader-boot-[0-9a-f]{10}\.js$/)
     expect(script).not.toMatch(/\bimport\b|\bexport\b/)
-    expect(script.length).toBeLessThan(8000)
+    // Owner-scoped resume adds under 1 KB; keep the synchronous head script bounded.
+    expect(script.length).toBeLessThan(8500)
   })
 
   it('preloads the handoff’s opening text and leaves the handoff for the app', () => {
@@ -100,6 +101,26 @@ describe('reader boot script', () => {
     runBootScript()
     const expected = readerBootPreloads(readerBootHandoff(HANDOFF)!, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS })
     expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(expected)
+  })
+
+  it('starts a saved chapter before the app executes without writing position or overriding a link', () => {
+    const saved = JSON.stringify({ owner: 'reader-a', lastSettledBookId: 'bible', books: { bible: { bookId: 'bible', primaryEditionKey: 'webc-en', chapterNumber: 42 } } })
+    const seed = (owner = 'reader-a') => {
+      localStorage.setItem('tinct-lab-position', saved)
+      localStorage.setItem('sb-test-auth-token', JSON.stringify({ access_token: 'synthetic', expires_at: Date.now() / 1000 + 3600, user: { id: owner } }))
+    }
+    seed(); runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch').map(link => link.getAttribute('href'))).toEqual(readerBootPreloads({ bookId: 'bible', primaryEditionKey: 'webc-en', chapterNumber: 42 }, { version: 'v-test', shardedEditionIds: CHAPTER_SHARDED_EDITION_IDS }))
+    expect(localStorage.getItem('tinct-lab-position')).toBe(saved)
+    expect(sessionStorage.length).toBe(0)
+    page(); seed('reader-b'); runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch')).toHaveLength(0)
+    for (const path of ['/reader?book=bible', '/reader?userBook=private', '/reader?heldBook=odyssey']) {
+      page(path); seed(); runBootScript()
+      expect(preloads().filter(link => link.as === 'fetch')).toHaveLength(0)
+    }
+    page(); seed(); localStorage.removeItem('sb-test-auth-token'); runBootScript()
+    expect(preloads().filter(link => link.as === 'fetch')).toHaveLength(0)
   })
 
   it('preloads the default reading face', () => {

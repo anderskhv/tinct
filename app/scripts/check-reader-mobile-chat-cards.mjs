@@ -20,7 +20,7 @@ const server = createServer(async (req, res) => {
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = process.env.TINCT_ORIGIN || `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
-const output = process.env.TINCT_MOBILE_CARD_OUTPUT || '/tmp/tinct-mobile-chat-cards'
+const output = process.env.TINCT_MOBILE_CARD_OUTPUT || 'artifacts/mobile-chat-cards'
 await fs.mkdir(output, { recursive: true })
 const results=[]
 const browser=await markInternal(await webkit.launch({headless:true}))
@@ -36,7 +36,12 @@ try {
       const url=new URL(route.request().url())
       if(url.origin!==origin)return route.abort()
       if(await enforceReaderBundle(route,expectedBundle))return
-      if(/\/api\/(?:lab-chat|chat)$/.test(url.pathname))return route.fulfill({contentType:'text/event-stream',body:`data: ${JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text:'A local phone card answer.'}})}\n\ndata: {"type":"message_stop"}\n\n`})
+      if(/\/api\/(?:lab-chat|chat)$/.test(url.pathname)){
+        const body=route.request().postDataJSON(),intent=body?.companion?.intent
+        const text=intent==='define'?JSON.stringify({kind:'definition',definition:'A readable dictionary meaning.'}):'A local phone card answer.'
+        return route.fulfill({contentType:'text/event-stream',body:`data: ${JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text}})}\n\ndata: {"type":"message_stop"}\n\n`})
+      }
+      if(url.pathname.startsWith('/data/dict/'))return route.fulfill({json:{}})
       if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
       return route.continue()
     })
@@ -99,9 +104,29 @@ try {
     })
     const explanation=await metrics(explain)
     const label=`${standalone?'pwa':'safari'}-${theme}`
+    await page.waitForFunction(()=>document.querySelectorAll('.lab-card-passage-line').length>0)
+    const joined=await page.evaluate(()=>{
+      const words=[...document.querySelectorAll('.is-card-passage')].flatMap(node=>[...node.getClientRects()])
+      const lines=[...document.querySelectorAll('.lab-card-passage-line')].map(node=>node.getBoundingClientRect())
+      return words.every(word=>lines.some(line=>Math.abs(line.top-(word.bottom-1))<3&&line.left<=word.left+1&&line.right>=word.right-1))
+    })
+    assert(joined,'phone passage rules join selected words across spaces and wrap with the source')
     await page.screenshot({path:`${output}/${label}-explain.png`})
     await page.keyboard.press('Escape')
     await explain.waitFor({state:'hidden'})
+    await page.mouse.move(first.x+1,first.y+first.height/2);await page.mouse.down();await page.mouse.move(first.x+first.width-1,first.y+first.height/2,{steps:5});await page.mouse.up()
+    await page.getByTestId('lab-pbar-more').click();await page.getByTestId('lab-pmore-define').click()
+    const definition=page.locator('.lab-pcard[data-kind="define"]')
+    await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+    const contrast=await definition.evaluate(card=>{
+      const lum=color=>{const rgb=color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
+      const bg=lum(getComputedStyle(card).backgroundColor)
+      return [...card.querySelectorAll('.popup-define-word,.popup-define-list li')].map(node=>{const ink=lum(getComputedStyle(node).color);return (Math.max(ink,bg)+.05)/(Math.min(ink,bg)+.05)})
+    })
+    assert(contrast.length>=2&&contrast.every(ratio=>ratio>=4.5),'Define headword and meanings have readable contrast in '+theme)
+    await page.screenshot({path:`${output}/${label}-define.png`})
+    await page.keyboard.press('Escape');await definition.waitFor({state:'hidden'})
+
     await page.getByTestId('lab-super').click()
     await page.getByTestId('lab-super-row-chat').click()
     const chat=page.locator('.lab-pcard[data-kind="chat"]')

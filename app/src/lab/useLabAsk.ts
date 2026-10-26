@@ -1,3 +1,4 @@
+import { fetchExplainResponse } from './explainFetch'
 import { parseContextualLookup } from '../components/reader/contextualLookup'
 import type { CompanionRequest } from '../companion/companionRequest'
 import { withAuthorship, type Authorship } from '../companion/authorship'
@@ -1216,7 +1217,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (requestBookId !== chatBookIdRef.current) throw new LabChatError('unavailable')
       const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
       if (authToken) headers.Authorization = `Bearer ${authToken}`
-      const response = await fetch(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
+      const response = await fetchExplainResponse(apiUrl(authToken ? '/api/chat' : '/api/lab-chat'), {
         method: 'POST',
         headers,
         signal: entry.abort.signal,
