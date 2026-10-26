@@ -820,7 +820,15 @@ export function useLabAsk(options: UseLabAskOptions) {
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
     const requestConversationId = retry?.userTurn.conversationId ?? attachment?.conversationId ?? optionsRef.current.conversationId ?? null
-    const requestContext = chapterRequest?.context ?? retry?.context ?? askContextNow([])
+    const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
+    const currentContext = askContextNow([])
+    // Discussing saved work must not move the reader or attach an unrelated
+    // currently open chapter as if it were the historical passage's context.
+    const discussionContext = discussion && discussion.chapterNumber !== currentContext.chapterNumber
+      ? { ...currentContext, chapterNumber: discussion.chapterNumber, chapterLabel: `Chapter ${discussion.chapterNumber}`,
+          paragraphIndex: discussion.paragraphIndex ?? 0, paragraphs: [] }
+      : currentContext
+    const requestContext = chapterRequest?.context ?? retry?.context ?? discussionContext
     const requestChapter = requestContext.chapterNumber ?? 1
     const requestParagraph = requestContext.paragraphIndex
     const stillHere = () => requestBookId === chatBookIdRef.current && viewerId === viewerRef.current

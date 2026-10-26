@@ -515,3 +515,16 @@ it('accepts one physical Ask submit while pending and retains a later intentiona
   expect(questions).toHaveLength(2)
   expect(new Set(questions.map(turn => turn.id)).size).toBe(2)
 })
+
+it('continues a saved earlier-chapter discussion without using the open chapter as its source', async () => {
+  const fetcher = vi.fn(async () => ok())
+  vi.stubGlobal('fetch', fetcher)
+  const { result } = renderHook(() => useLabAsk({ ...base, paragraphs: ['UNRELATED CURRENT CHAPTER SOURCE'] }))
+  act(() => { result.current.saveCard({ source: { kind: 'catalogue', bookId: 'bible' }, id: 'earlier', kind: 'explain', chapterNumber: 1,
+    text: 'Exact earlier quotation', turns: [{ role: 'assistant', content: 'Original saved explanation' }], at: 100, u: 100 }) })
+  await act(async () => { await result.current.sendTyped('Why?', undefined, undefined, { conversationId: 'mc_earlier' }) })
+  const payload = String(fetcher.mock.calls[0][1]?.body)
+  expect(payload).toContain('Exact earlier quotation')
+  expect(payload).not.toContain('UNRELATED CURRENT CHAPTER SOURCE')
+  expect(result.current.turns.find(turn => turn.content === 'Why?')?.chapterNumber).toBe(1)
+})

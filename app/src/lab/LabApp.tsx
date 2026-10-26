@@ -834,6 +834,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
   const readingScrollActive = useReadingScrollActivity(marginHost)
   const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
+  const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
   const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
@@ -5590,6 +5591,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   /** One card at a time: anything else that pops up closes first. */
   const desktopCardId = (card: PhoneCard) => card.kind === 'note' ? `highlight:${card.highlightId}` : card.kind === 'chapter-note' ? `chapter-note:${card.chapterNumber}` : `mc_react_${card.kind === 'quiz' ? 'quiz_' : ''}${card.openedAt}`
   const openPhoneCard = (card: PhoneCard) => {
+    setNotebookCard(null)
     if (continuousReader) {
       if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
       const id = desktopCardId(card)
@@ -5780,6 +5782,33 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
+
+  const openNotebookConversation = (conversation: ChatConversation) => {
+    if (conversation.bookId !== (book.bookId || 'bible')) return
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setTocOpen(false)
+    setSelectionPopup(null)
+    setDraft('')
+    setAskAttachment(null)
+    const firstAnswer = conversation.messages.findIndex(message => message.role === 'assistant')
+    const discussed = !conversation.card || conversation.card.kind === 'ask'
+      || conversation.messages.slice(firstAnswer + 1).some(message => message.role === 'user')
+    if (discussed && conversation.card?.kind !== 'quiz') {
+      ask.revealConversation(conversation.id)
+      setNotebookCard(null)
+      setContentsConversation(conversation)
+      setDesktopContinuationId(conversation.id)
+      setPhoneAskOpen(showPhoneChrome)
+      setDesktopAskOpen(!showPhoneChrome)
+    } else {
+      setNotebookCard(conversation)
+      setContentsConversation(null)
+      setDesktopContinuationId(null)
+      setPhoneAskOpen(false)
+      setDesktopAskOpen(false)
+    }
+  }
 
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
@@ -7174,7 +7203,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
-        onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
+        onContinueConversation={openNotebookConversation}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
@@ -7236,6 +7265,24 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {continuousReader && <SourceMarginRail host={marginHost} entries={desktopMarginEntries} onBlankNote={openBlankMarginNote} />}
       {continuousReader && marginUndo && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
       <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />
+      {notebookCard && (() => {
+        const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
+        const saved = notebookCard
+        return <Card label={`${marginActionLabel(saved.card?.kind || 'ask')} · ${book.chapters.find(ch => ch.number === saved.chapterNumber)?.title || `Chapter ${saved.chapterNumber}`}`}
+          kind={saved.card?.kind || 'ask'} onClose={() => { setNotebookCard(null); setDraft('') }}>
+          {saved.card?.text && <p className="lab-pcard-source">{saved.card.text}</p>}
+          {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer"><LabInlineMarkdown>{message.content}</LabInlineMarkdown></div>)}
+          <button type="button" className="lab-pcard-link" onClick={() => {
+            setNotebookCard(null)
+            openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 })
+          }}>Show passage</button>
+          {saved.card?.kind !== 'quiz' && <PhoneFollowField value={draft} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
+            ask.revealConversation(saved.id)
+            void ask.sendTyped(question, undefined, undefined, { conversationId: saved.id, highlightedText: saved.card?.text,
+              onAccepted: () => { setNotebookCard(null); setContentsConversation(saved); setDesktopContinuationId(saved.id); setDraft(''); setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome) } })
+          }} />}
+        </Card>
+      })()}
       {marginPhone && phoneAsk && (
         <LabPhoneCard label="Chat" kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
           {askPaneElement}
