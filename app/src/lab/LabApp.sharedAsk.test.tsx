@@ -36,6 +36,18 @@ it.each(['two-page', 'margin'])('submits desktop Ask directly in chat without mo
   expect(JSON.stringify(requests[0])).toContain(selected)
   await waitFor(() => expect(readAllLabBookChats().flatMap(row => row.messages).filter(message => message.content === 'Why these words?')).toHaveLength(1))
   expect(readAllLabBookChats().flatMap(row => row.messages).filter(message => message.content === 'A local passage answer.')).toHaveLength(1)
+  fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
+  fireEvent.pointerDown(words[5], { pointerId: 52, pointerType: 'mouse', button: 0, clientX: 100, clientY: 200 })
+  fireEvent.pointerMove(words[7], { pointerId: 52, pointerType: 'mouse', clientX: 240, clientY: 200 })
+  fireEvent.pointerUp(words[7], { pointerId: 52, pointerType: 'mouse', clientX: 240, clientY: 200 })
+  fireEvent.click(screen.getByTestId('lab-dbar-ask'))
+  fireEvent.change(screen.getByTestId('lab-dbar-ask-field'), { target: { value: 'Why this different passage?' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Send question' }))
+  await waitFor(() => expect(requests).toHaveLength(2))
+  await waitFor(() => expect(readAllLabBookChats().filter(row => row.messages.some(message => message.content.startsWith('Why ')))).toHaveLength(2))
+  const rows = readAllLabBookChats()
+  expect(rows.find(row => row.messages.some(message => message.content === 'Why these words?'))?.id)
+    .not.toBe(rows.find(row => row.messages.some(message => message.content === 'Why this different passage?'))?.id)
 })
 
 it.each(['two-page', 'margin'])('hands an Explain follow-up into chat once without moving the book in %s', async view => {

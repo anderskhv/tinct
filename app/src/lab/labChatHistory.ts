@@ -441,11 +441,16 @@ export function appendLabChatTurnTo(
   chapterNumber = 1,
   paragraphIndex?: number,
   conversationId?: string,
+  startConversation = false,
 ): ChatConversation[] {
   let current = conversations
   if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return current
   if (conversationId) {
-    const target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    let target = current.find(item => item.id === conversationId && item.bookId === bookId && item.chapterNumber === chapterNumber)
+    if (!target && startConversation && message.role === 'user' && message.content?.trim() && !current.some(item => item.id === conversationId)) {
+      const at = message.timestamp || Date.now()
+      target = { id: conversationId, bookId, chapterNumber, paragraphIndex, startTimestamp: at, endTimestamp: at, messages: [], preview: makePreview(message.content) }
+    }
     if (!target) return current
     current = [...current.filter(item => item.id !== target.id), target]
   }
@@ -469,9 +474,10 @@ export function appendLabChatTurn(
    * missing from the value the next turn commits to the account row.
    */
   base?: ChatConversation[],
+  startConversation = false,
 ): ChatConversation[] {
   const current = withUnsaved(readLabBookChat(bookId), base)
-  const next = appendLabChatTurnTo(current, bookId, message, chapterNumber, paragraphIndex, conversationId)
+  const next = appendLabChatTurnTo(current, bookId, message, chapterNumber, paragraphIndex, conversationId, startConversation)
   if (next === current) return current
   writeLabBookChat(bookId, next)
   return next

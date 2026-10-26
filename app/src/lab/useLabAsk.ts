@@ -375,15 +375,15 @@ export function useLabAsk(options: UseLabAskOptions) {
   }
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
-  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId) => {
+  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId, startConversation = false) => {
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const owned = optionsRef.current.ownCardController
     if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return
     const base = loadedForBookRef.current === bookId ? conversationsRef.current : undefined
     const next = owned && isUserBookId(bookId)
-      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined)
-      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base)
+      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, startConversation)
+      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base, startConversation)
     if (owned && isUserBookId(bookId) && !owned.persist(next)) {
       setNotice('This reply could not be saved on this device. Copy it before leaving the reader.')
       return
@@ -821,7 +821,9 @@ export function useLabAsk(options: UseLabAskOptions) {
       && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
-    const requestConversationId = (retry ? retry.userTurn.conversationId : attachment?.conversationId !== undefined ? attachment.conversationId : optionsRef.current.conversationId) ?? null
+    let requestConversationId = (retry ? retry.userTurn.conversationId : attachment?.conversationId !== undefined ? attachment.conversationId : optionsRef.current.conversationId) ?? null
+    const startConversation = !retry && !requestConversationId && !!attachment?.sourceLocation
+    if (startConversation) requestConversationId = `conv_${nextId()}`
     const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
     const visibleContext = askContextNow([])
     const selectedSource = attachment?.sourceLocation
@@ -885,7 +887,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         source: 'text',
         highlightedText: userTurn.highlightedText,
         chapterAction: chapterRequest?.action,
-      }, requestChapter, requestParagraph, requestConversationId)
+      }, requestChapter, requestParagraph, requestConversationId, startConversation)
     }
     if (!retry) attachment?.onAccepted?.()
     setNotice(null)
