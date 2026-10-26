@@ -155,7 +155,7 @@ describe('sign-up with profiles on', () => {
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
     // Continue without a choice keeps Only me.
-    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true, picture: { kind: 'set' } })
+    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true, picture: { kind: 'initial' } })
     expect(mode()).toBe('reading')
   })
 
@@ -184,6 +184,28 @@ describe('sign-up with profiles on', () => {
     expect(posts[0]).not.toHaveProperty('background')
   })
 
+  it('keeps Reader blank and lets an existing name be edited through the pencil', async () => {
+    profile.name = 'Reader'
+    try {
+      mount(true); await import('../labSignIn'); await flush(); await createAccount()
+      const input = document.querySelector<HTMLInputElement>('[name=profileName]')!
+      expect(input.value).toBe('')
+      expect(input.placeholder).toBe('Your name')
+      expect(input.hidden).toBe(false)
+      expect(posts).toEqual([])
+    } finally { profile.name = 'New' }
+  })
+
+  it('skipping both steps writes no choices and returns to the original book', async () => {
+    mount(true); await import('../labSignIn'); await flush(); await createAccount()
+    document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
+    await flush()
+    document.querySelector<HTMLButtonElement>('[data-social-reading-skip]')!.click()
+    await flush()
+    expect(posts).toEqual([])
+    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
+  })
+
   it('offers Upload a picture and Upload a background while the Worker accepts uploads', async () => {
     const images: string[] = []
     const uploaded = { ...profile, uploads: true }
@@ -208,7 +230,7 @@ describe('sign-up with profiles on', () => {
     await import('../labSignIn')
     await flush()
     await createAccount()
-    const uploadButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-social-uploads] button')]
+    const uploadButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-social-upload]')]
     expect(uploadButtons.map(button => button.textContent)).toEqual(['Upload a picture', 'Upload a background'])
     const fields = [...document.querySelectorAll<HTMLInputElement>('[data-social-uploads] input[type=file]')]
     expect(fields).toHaveLength(2)

@@ -6,7 +6,6 @@ import {
   EMAIL_CONSENT_VERSION,
   NEW_BOOKS_COPY,
   PICTURE_SETS,
-  pictureForBook,
   pictureView,
   type NewBooksOpenIn,
   type PictureKind,
@@ -57,6 +56,10 @@ const STYLE = `
 .social-camera svg,.social-name-pencil svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4}
 .social-step [hidden]{display:none!important}
 .social-pictures[hidden]{display:none}
+.social-backgrounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.social-backgrounds button{width:auto;min-height:72px;height:auto;border-radius:8px;background-size:cover;background-position:center;color:white;text-shadow:0 1px 4px #000;padding:8px;font-size:12px}
+.social-pictures .social-upload-choice{width:100%;height:40px;min-height:40px;grid-column:1/-1;border-radius:8px;color:#332e27;text-shadow:none;background:#eee7d8}
+.social-pictures input[type=file]{display:none}
 .social-steps{position:absolute;right:clamp(18px,4vw,54px);top:50%;transform:translateY(-50%);color:#9fb0b8;font-size:12px}
 .social-steps[hidden]{display:none}
 .social-pw{position:relative;display:block}
@@ -220,10 +223,8 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   // ---- Step 2: your profile ----
   const hint = PICTURE_SETS.find(set => set.id === profile.picture.value)
   const sets = [...(hint ? [hint] : []), ...PICTURE_SETS.filter(set => set !== hint)].slice(0, 3)
-  let picture: { kind: PictureKind; value: string | null } = profile.picture.kind === 'set' || profile.picture.kind === 'cover' || profile.picture.kind === 'initial'
-    ? { kind: profile.picture.kind, value: profile.picture.value }
-    : pictureForBook(null)
-  if (picture.kind === 'initial' && !hint) picture = { kind: 'set', value: sets[0].id }
+  let picture: { kind: PictureKind; value: string | null } = { kind: profile.picture.kind, value: profile.picture.value }
+  let uploadedPreview: string | null = null
   // Public is a form default only; the account stays private until Continue.
   let visibility: Visibility = 'everyone'
 
@@ -232,6 +233,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const choosePicture = (button: HTMLButtonElement, next: { kind: PictureKind; value: string | null }) => {
     picture = next
     paintAvatar(heroAvatar, pictureView(next.kind, next.value, nameInput.value || profile.name), token)
+    if (next.kind === 'upload' && uploadedPreview) heroAvatar.style.backgroundImage = `url("${uploadedPreview}")`
     pictureButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)))
   }
   const addPicture = (label: string, next: { kind: PictureKind; value: string | null }) => {
@@ -253,7 +255,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   pictureCamera.innerHTML = ICONS.cam
   pictureCamera.addEventListener('click', () => { pictures.hidden = !pictures.hidden })
   pictures.hidden = true
-  const backgroundChoices = el('div', { className: 'social-pictures', hidden: true })
+  const backgroundChoices = el('div', { className: 'social-pictures social-backgrounds', hidden: true })
   let backgroundChoice: { kind: 'set'; value: string } | null = null
   const backgroundCamera = el('button', { type: 'button', className: 'social-camera social-background-camera', ariaLabel: 'Choose background' })
   backgroundCamera.innerHTML = ICONS.cam
@@ -261,6 +263,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   banner.append(backgroundCamera)
   for (const set of sets) {
     const button = el('button', { type: 'button', ariaLabel: `Background: ${set.label}` }, set.label)
+    paintBackground(button, ownBackground({ background: { kind: 'set', value: set.id, url: null, review: 'none' } }), token)
     button.addEventListener('click', () => {
       backgroundChoice = { kind: 'set', value: set.id }
       delete pendingPhotos.background
@@ -293,11 +296,13 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const releasePreviews = () => { previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0 }
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
   if (uploads) {
+    pictures.dataset.socialUploads = ''
+    backgroundChoices.dataset.socialUploads = ''
     for (const slot of ['picture', 'background'] as const) {
       const field = el('input', { type: 'file', accept: photoAccept(), tabIndex: -1 })
       field.setAttribute('aria-hidden', 'true')
       const label = slot === 'picture' ? CARDS_COPY.uploadPicture : CARDS_COPY.uploadBackground
-      const trigger = el('button', { type: 'button', dataset: { socialUpload: slot } }, label)
+      const trigger = el('button', { type: 'button', className: 'social-upload-choice', dataset: { socialUpload: slot } }, label)
       trigger.addEventListener('click', () => field.click())
       field.addEventListener('change', async () => {
         const chosen = field.files?.[0]
@@ -333,12 +338,13 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
           pictures.prepend(button)
           uploadedPicture = { button, avatar }
         }
+        uploadedPreview = preview
         uploadedPicture.avatar.className = 'tinct-avatar'
         uploadedPicture.avatar.style.backgroundImage = `url("${preview}")`
         choosePicture(uploadedPicture.button, { kind: 'upload', value: null })
         heroAvatar.style.backgroundImage = `url("${preview}")`
       })
-      uploads.append(trigger, field)
+      ;(slot === 'picture' ? pictures : backgroundChoices).append(trigger, field)
     }
   }
 
@@ -352,7 +358,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const skipButton = el('button', { type: 'button', className: 'social-skip', dataset: { socialSkip: '' } }, 'Skip')
   const step2 = el('div', { className: 'social-step', dataset: { modeCopy: 'profile' }, hidden: true },
     el('h1', {}, 'Your profile'),
-    hero, pictures, backgroundChoices, ...(uploads ? [uploads] : []),
+    hero, pictures, backgroundChoices,
     el('span', { className: 'social-label' }, 'Who can see you?'), visibilityList, everyoneNote,
     continueButton, skipButton)
 
@@ -391,7 +397,6 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     if (picture.kind !== 'upload' && picture.kind !== 'google') body.picture = picture
     // A set brings its background with it, unless the reader uploaded their own.
     if (backgroundChoice && !backgroundUploaded) body.background = backgroundChoice
-    else if (picture.kind === 'set' && !backgroundUploaded) body.background = { kind: 'set', value: picture.value }
     const saved = await saveProfile(token, body)
     if (!saved.ok) { busy(false); hooks.setStatus(saved.message || CARDS_COPY.saveFailed, 'error'); return }
     profile = saved.profile
