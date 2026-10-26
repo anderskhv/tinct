@@ -498,7 +498,7 @@ describe('the foot', () => {
 })
 
 describe('Escape on the phone', () => {
-  it('closes the Chat sheet, leaves the menu shut, and keeps the draft', () => {
+  it('closes the Chat sheet, leaves the menu shut, and discards the draft', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
@@ -512,10 +512,10 @@ describe('Escape on the phone', () => {
     expect(root().getAttribute('data-super-menu')).toBe('closed')
     expect(screen.queryByTestId('lab-super-menu')).toBeNull()
 
-    // The half-typed line is still there when Chat is opened again.
+    // Leaving Chat discards an unsent line.
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('half a thought')
+    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
   })
 })
 
@@ -778,23 +778,23 @@ describe('the Margins preference on the desktop leaves', () => {
   })
 })
 
-it('opens desktop menu Chat as a focused current-position margin composer and restores its draft', async () => {
+it('opens desktop menu Chat in the existing focused companion and discards its draft', async () => {
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({}) })))
   render(<LabApp pathname="/reader" search="?sharedReader=1&view=margin" source={fallbackLabSource()} authToken={null} sharedReader />)
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  const field = await screen.findByPlaceholderText('Ask about this passage')
-  expect(field.closest('.source-margin-item')).toBeTruthy()
+  const field = await screen.findByTestId('lab-ask-input')
+  expect(field.closest('.lab-ask')).toBeTruthy()
   expect(document.activeElement).toBe(field)
-  expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).not.toBe('chat')
+  expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat')
   fireEvent.change(field, { target: { value: 'An unsent current-position question.' } })
   fireEvent.keyDown(field, { key: 'Escape' })
   fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  expect((screen.getByPlaceholderText('Ask about this passage') as HTMLTextAreaElement).value).toBe('An unsent current-position question.')
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
 })
 
 
-it('uses the compact Explain card surface for mobile Chat and preserves its draft when closed', () => {
+it('uses the compact Explain card surface for mobile Chat and discards its draft when closed', () => {
   renderPhone('?chrome=v2', { marginPhone: true, sharedReader: true })
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-chat'))
@@ -808,5 +808,5 @@ it('uses the compact Explain card surface for mobile Chat and preserves its draf
   expect(document.querySelector('.lab-pcard[data-kind="chat"]')).toBeNull()
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('My unfinished question')
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
 })

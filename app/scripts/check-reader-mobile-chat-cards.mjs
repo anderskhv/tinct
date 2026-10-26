@@ -184,7 +184,7 @@ try {
     if(standalone)await page.evaluate(()=>{window.__mobileCardViewport.height=844;window.__mobileCardViewport.offsetTop=0;window.__mobileCardViewport.dispatchEvent(new Event('resize'))})
     await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-chat').click()
     await chat.waitFor()
-    assert.equal(await chat.locator('#lab-ask-input').inputValue(),'An unfinished phone question','closing and reopening phone Chat preserves draft')
+    assert.equal(await chat.locator('#lab-ask-input').inputValue(),'','closing and reopening phone Chat discards the unsent draft')
     await chat.getByRole('button',{name:'Close chat',exact:true}).click()
     assert.deepEqual(errors,[])
     results.push({standalone,theme,explanation,conversation,nativeNotchAndKeyboardVerified:false})

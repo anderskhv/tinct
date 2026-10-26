@@ -116,36 +116,34 @@ it('menu Chat anchors at the current nonzero source word with no selection or po
   await waitFor(() => expect(root.getAttribute('data-place')).toBe('13:4'))
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  const field = await screen.findByPlaceholderText('Ask about this passage')
-  const entry = field.closest<HTMLElement>('.source-margin-item')!
+  const field = await screen.findByTestId('lab-ask-input')
   expect(document.activeElement).toBe(field)
-  expect(Number(entry.dataset.sourceOrder)).toBe(13 * 100000 + 4)
-  expect(entry.dataset.open).toBe('true')
+  expect(field.closest('.lab-ask')).toBeTruthy()
   expect(root.getAttribute('data-place')).toBe('13:4')
   expect(readLabPositionLocal().books.genesis).toMatchObject({ paragraphIndex: 13, wordIndex: 4 })
-  expect(root.getAttribute('data-desktop-panel')).not.toBe('chat')
+  expect(root.getAttribute('data-desktop-panel')).toBe('chat')
 })
 
-it('folds an unsent margin Ask when entering Two-page and restores its draft when reopened in Margin', async () => {
+it('discards an unsent Chat when closed and preserves the book across a layout roundtrip', async () => {
   window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
   render(<LabApp pathname="/reader" authToken={null} sharedReader />)
   const root = screen.getByTestId('lab-root')
   await waitFor(() => expect(root.getAttribute('data-place')).toBe('13:4'))
   fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
-  fireEvent.change(screen.getByPlaceholderText('Ask about this passage'), { target: { value: 'Keep this unsent margin question.' } })
+  fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'Keep this unsent margin question.' } })
+  fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
   fireEvent.click(screen.getByTestId('lab-header-aa')); fireEvent.click(screen.getByTestId('lab-v2-layout-two-page'))
   expect(root.getAttribute('data-continuous-reader')).toBeNull()
-  expect(screen.queryByPlaceholderText('Ask about this passage')).toBeNull()
+  expect(screen.queryByTestId('lab-ask-input')).toBeNull()
   expect(root.querySelector('.lab-desktop-card')).toBeNull()
   expect(root.getAttribute('data-place')).toBe('13:4')
   fireEvent.click(screen.getByTestId('lab-header-aa')); fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
-  expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
-  fireEvent.click(screen.getByTestId('source-margin-open'))
-  expect((screen.getByPlaceholderText('Ask about this passage') as HTMLTextAreaElement).value).toBe('Keep this unsent margin question.')
+  fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+  expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
   expect(root.getAttribute('data-place')).toBe('13:4')
 })
 
-it('folds a saved margin thread on Compare transition without changing its history or follow-up draft', async () => {
+it('folds a saved margin thread on Compare transition without changing history and discards its follow-up draft', async () => {
   const history = [{ id: 'mc_saved-thread', bookId: 'bible', chapterNumber: 1, paragraphIndex: 13, startTimestamp: 1000, endTimestamp: 1001, preview: 'Saved source question', messages: [{ id: 'saved-u', role: 'user', content: 'Saved source question', timestamp: 1000, bookId: 'bible', chapterNumber: 1 }, { id: 'saved-a', role: 'assistant', content: 'Saved source answer', timestamp: 1001, bookId: 'bible', chapterNumber: 1 }], card: { id: 'saved-thread', kind: 'ask', chapterNumber: 1, at: 1000, u: 1001, text: 'A source passage', anchor: { editionKey: 'kjv-en', chapterNumber: 1, paragraphIndex: 13, fromWord: 4, endParagraphIndex: 13, toWord: 7 } } }]
   localStorage.setItem('tinct:chat-history:bible', JSON.stringify(history))
   localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'web-en', compareChosen: true }))
@@ -165,7 +163,7 @@ it('folds a saved margin thread on Compare transition without changing its histo
   fireEvent.click(screen.getByTestId('lab-header-aa')); fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
   expect(screen.getByTestId('source-margin-item').dataset.open).toBe('false')
   fireEvent.click(screen.getByTestId('source-margin-open'))
-  expect((screen.getByPlaceholderText('Ask a follow-up') as HTMLTextAreaElement).value).toBe('An unsent saved-thread follow-up.')
+  expect((screen.getByPlaceholderText('Ask a follow-up') as HTMLTextAreaElement).value).toBe('')
   expect(root.getAttribute('data-place')).toBe('13:4')
 })
 

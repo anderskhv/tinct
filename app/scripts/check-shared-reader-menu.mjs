@@ -114,13 +114,14 @@ try {
       if (theme === 'light') await field.press('Enter')
       else await page.getByRole('button', {name:'Send question',exact:true}).click()
       await questionResponse
-      await page.locator('.lab-desktop-card[data-kind="ask"]').waitFor()
+      await page.getByTestId('lab-ask-pane').waitFor()
       const questionRequests = chats.filter(body => JSON.stringify(body).includes('Why does this happen?'))
       assert.equal(questionRequests.length, 1, 'Ask sends one question request alongside the earlier Quiz request')
       const sent = JSON.stringify(questionRequests[0])
       assert(sent.includes('[The reader highlighted this passage:'), 'Ask includes a quoted selected passage')
       for (const word of selectedWords.slice(0, 4)) assert(sent.includes(word.trim()), `Ask carries selected word ${word}`)
-      assert.equal(await page.locator('.lab-desktop-card[data-kind="ask"]').count(), 1, 'Ask opens its passage card')
+      assert.equal(await page.locator('.lab-desktop-card[data-kind="ask"]').count(), 0, 'Ask opens Chat without a duplicate passage card')
+      assert.equal(await page.getByTestId('lab-ask-turn-user').filter({hasText:'Why does this happen?'}).count(), 1, 'the submitted question appears once in Chat')
       assert.deepEqual(errors, [])
     } finally { await context.close() }
   }

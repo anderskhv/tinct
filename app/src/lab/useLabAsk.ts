@@ -96,7 +96,9 @@ function nextId() {
 
 /** What a question carries beside its text: a highlighted passage, or a figure's picture. */
 export interface LabAskAttachment {
-  conversationId?: string
+  sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number }
+  /** null starts ordinary chat; a string continues an existing saved discussion. */
+  conversationId?: string | null
   highlightedText?: string
   onAccepted?: () => void
   /** The picture to send with the question (signed in only), drawn as the companion takes pictures. */
@@ -373,15 +375,15 @@ export function useLabAsk(options: UseLabAskOptions) {
   }
 
   /** Record a finalized turn: local mirror first, then the cloud row when signed in. */
-  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId) => {
+  const recordTurn = useCallback((message: ChatMessage, chapterNumber: number, paragraphIndex?: number, conversationId = optionsRef.current.conversationId, startConversation = false) => {
     const bookId = chatBookIdRef.current
     if (!bookId || (message.bookId && message.bookId !== bookId && !(message.bookId === 'lab' && message.source === 'voice'))) return
     const owned = optionsRef.current.ownCardController
     if (isUserBookId(bookId) && optionsRef.current.privateChatGuard && !owned?.isTrusted()) return
     const base = loadedForBookRef.current === bookId ? conversationsRef.current : undefined
     const next = owned && isUserBookId(bookId)
-      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined)
-      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base)
+      ? appendLabChatTurnTo(base ?? owned.read(), bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, startConversation)
+      : appendLabChatTurn(bookId, withVoiceSources(message), chapterNumber, paragraphIndex, conversationId || undefined, base, startConversation)
     if (owned && isUserBookId(bookId) && !owned.persist(next)) {
       setNotice('This reply could not be saved on this device. Copy it before leaving the reader.')
       return
@@ -443,6 +445,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     // instead of reporting success merely because the upsert was a no-op.
     return storeCardHistory(bookId, next, true)
   }, [storeCardHistory])
+  const revealConversation = useCallback((id: string) => {
+    const row = conversationsRef.current.find(item => item.id === id && item.bookId === chatBookIdRef.current)
+    if (!row) return null
+    setTurns(current => reconcileTurns(current, turnsFromConversations([row])))
+    return row
+  }, [])
   const deleteCard = useCallback((conversationId: string): (() => boolean) | null => {
     const bookId = chatBookIdRef.current
     const owned = optionsRef.current.ownCardController
@@ -813,8 +821,21 @@ export function useLabAsk(options: UseLabAskOptions) {
       && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
-    const requestConversationId = retry?.userTurn.conversationId ?? attachment?.conversationId ?? optionsRef.current.conversationId ?? null
-    const requestContext = chapterRequest?.context ?? retry?.context ?? askContextNow([])
+    let requestConversationId = (retry ? retry.userTurn.conversationId : attachment?.conversationId !== undefined ? attachment.conversationId : optionsRef.current.conversationId) ?? null
+    const startConversation = !retry && !requestConversationId && !!attachment?.sourceLocation
+    if (startConversation) requestConversationId = `conv_${nextId()}`
+    const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
+    const visibleContext = askContextNow([])
+    const selectedSource = attachment?.sourceLocation
+    const currentContext = selectedSource ? { ...visibleContext, ...selectedSource,
+      paragraphs: selectedSource.chapterNumber === visibleContext.chapterNumber ? visibleContext.paragraphs : [] } : visibleContext
+    // Discussing saved work must not move the reader or attach an unrelated
+    // currently open chapter as if it were the historical passage's context.
+    const discussionContext = discussion && discussion.chapterNumber !== currentContext.chapterNumber
+      ? { ...currentContext, chapterNumber: discussion.chapterNumber, chapterLabel: `Chapter ${discussion.chapterNumber}`,
+          paragraphIndex: discussion.paragraphIndex ?? 0, paragraphs: [] }
+      : discussion ? { ...currentContext, paragraphIndex: discussion.paragraphIndex ?? currentContext.paragraphIndex } : currentContext
+    const requestContext = chapterRequest?.context ?? retry?.context ?? discussionContext
     const requestChapter = requestContext.chapterNumber ?? 1
     const requestParagraph = requestContext.paragraphIndex
     const stillHere = () => requestBookId === chatBookIdRef.current && viewerId === viewerRef.current
@@ -866,7 +887,7 @@ export function useLabAsk(options: UseLabAskOptions) {
         source: 'text',
         highlightedText: userTurn.highlightedText,
         chapterAction: chapterRequest?.action,
-      }, requestChapter, requestParagraph, requestConversationId)
+      }, requestChapter, requestParagraph, requestConversationId, startConversation)
     }
     if (!retry) attachment?.onAccepted?.()
     setNotice(null)
@@ -1262,6 +1283,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     /** This book's stored history (classic shape), for the chapter picker. */
     conversations,
     saveCard,
+    revealConversation,
     deleteCard,
     historyStatus,
     notice,

@@ -1,3 +1,4 @@
+import { readingChatTurns } from './readingChatTurns'
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
@@ -244,8 +245,9 @@ import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, regis
 import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
-import { markPhoneCardPassage } from './marginPhone/phoneCardPassage'
-import { PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
+import { flashNotebookPassage } from './marginPhone/flashNotebookPassage'
+import { markPhoneCardPassage, type PhoneCardRange } from './marginPhone/phoneCardPassage'
+import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
 import { ContextualLookupView, DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
@@ -833,9 +835,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
   const readingScrollActive = useReadingScrollActivity(marginHost)
   const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
+  const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
-  const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation }) | null>(null)
+  const [contentsTarget, setContentsTarget] = useState<(ContentsPlace & { bookId: string; navigation: number; chapterOnly?: boolean; chat?: ChatConversation; flash?: PhoneCardRange['range'] }) | null>(null)
   const [fullscreen, setFullscreen] = useState(false)
   const [readerControlsVisible, setReaderControlsVisible] = useState(true)
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
@@ -1011,7 +1014,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
   const [draft, setDraft] = useState('')
-  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure } | null>(null)
+  const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure; sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number } } | null>(null)
   // The figure card over the page (LabFigure.tsx); an overlay only, it never moves the reader.
   const [figureCard, setFigureCard] = useState<LabFigure | null>(null)
   useEffect(() => {
@@ -1408,7 +1411,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     },
     bookId: book.bookId || 'bible',
     editionKey: readerEditionKey,
-    conversationId: (sharedReader && !showPhoneChrome && desktopContinuationId) || (contentsConversation?.bookId === (book.bookId || 'bible') && contentsConversation.chapterNumber === book.chapterNumber ? contentsConversation.id : undefined),
+    conversationId: (sharedReader && !showPhoneChrome && desktopContinuationId) || (contentsConversation?.bookId === (book.bookId || 'bible') ? contentsConversation.id : undefined),
     chapterCount: book.chapters.length,
     getPage: () => askPageRef.current,
     playbackInterrupted: () => playbackInterruptedRef.current(),
@@ -5014,7 +5017,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDraft('')
   }, [book.bookId, openChatForFigure])
 
-  const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
+  const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false, flash?: PhoneCardRange['range']) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
     const chapter = book.chapters.find(ch => ch.number === place.chapterNumber)!
@@ -5026,7 +5029,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setContentsConversation(chat || null)
     if (chat) interruptHearForAsk()
     if (mobileCompareActive) handleMobileCompare()
-    setContentsTarget({ ...place, bookId, navigation: chapterNavigationRef.current + (place.chapterNumber !== book.chapterNumber ? 1 : 0), chapterOnly, chat })
+    setContentsTarget({ ...place, bookId, navigation: chapterNavigationRef.current + (place.chapterNumber !== book.chapterNumber ? 1 : 0), chapterOnly, chat, flash })
     if (place.chapterNumber !== book.chapterNumber) {
       if (listen.playing && !chat) void browseToChapter(place.chapterNumber, 'start')
       else {
@@ -5062,8 +5065,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       setPhoneAskOpen(showPhoneChrome)
       setDesktopAskOpen(!showPhoneChrome)
     }
+    if (contentsTarget.flash) setNotebookFlash({ chapterNumber: contentsTarget.chapterNumber, range: contentsTarget.flash })
     setContentsTarget(null)
   }, [book.bookId, book.chapterNumber, book.paragraphs, chapterCoverTitle, contentsTarget, initialResolving, mobileCompareActive, nativePagesRevision, notePlace, readingPages, settleIndex, showPhoneChrome, tocOpen, continuousReader])
+
+  const [notebookFlash, setNotebookFlash] = useState<{ chapterNumber: number; range: PhoneCardRange['range'] } | null>(null)
+  useEffect(() => {
+    if (!notebookFlash || notebookFlash.chapterNumber !== book.chapterNumber) return
+    const clear = flashNotebookPassage(document.querySelector('[data-testid="lab-root"]'), notebookFlash, book.chapterNumber)
+    const timer = window.setTimeout(() => setNotebookFlash(null), 1800)
+    return () => { window.clearTimeout(timer); clear() }
+  }, [notebookFlash, book.chapterNumber, book.bookId])
 
   const returnToContents = useCallback(() => {
     setPhoneAskOpen(false)
@@ -5208,6 +5220,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
 
   const closePhoneAsk = useCallback(() => {
+    setDraft('')
+    setAskAttachment(null)
     if (callOpen) endCall()
     else resumeListenAfterAsk()
   }, [callOpen, endCall, resumeListenAfterAsk])
@@ -5218,8 +5232,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // the contents, a card, a prompt or a call already answer Escape for
   // themselves and are left to it: while one of them is in front, this stays
   // out of the way and the layer on top closes first. The composer's own
-  // draft is not cleared — it is held in `draft` above the panel, so the same
-  // half-typed line is there when Chat opens again.
+  // unsent draft is discarded when the discussion surface is left.
   const chatPanelEscapes = chrome !== 'talking'
     && (showPhoneChrome ? phoneAskOpen : desktopAskOpen)
     && !superMenuOpen && superSheet === null && !tocOpen && !inTheBookOpen && !callOpen && selectionPopup == null
@@ -5247,7 +5260,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const attachment = askAttachment?.bookId === book.bookId ? askAttachment : null
     const figure = attachment?.figure
     void ask.sendTyped(value, undefined, undefined, {
-      highlightedText: attachment?.text,
+      highlightedText: attachment?.text, sourceLocation: attachment?.sourceLocation,
       ...(figure ? { image: () => figureImageBlock(figure) } : {}),
       onAccepted: () => {
         setDraft('')
@@ -5535,6 +5548,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (note !== saved.trim()) highlightsApi.setChapterNote(current.chapterNumber, note)
     }
     setPhoneCard(null)
+    setDraft('')
     phoneAnswerRef.current = null
     dictation.stop()
   }, [dictation, highlightsApi])
@@ -5545,8 +5559,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const leaving = previousMarginLayout.current && !continuousReader
     previousMarginLayout.current = continuousReader
     if (!leaving) return
-    if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
     closePhoneCard()
+    setNotebookCard(null)
     setDesktopOpenId(null)
     setDesktopContinuationId(null)
     setChapterNotes(null)
@@ -5587,8 +5602,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   /** One card at a time: anything else that pops up closes first. */
   const desktopCardId = (card: PhoneCard) => card.kind === 'note' ? `highlight:${card.highlightId}` : card.kind === 'chapter-note' ? `chapter-note:${card.chapterNumber}` : `mc_react_${card.kind === 'quiz' ? 'quiz_' : ''}${card.openedAt}`
   const openPhoneCard = (card: PhoneCard) => {
+    setDesktopAskOpen(false)
+    setDraft('')
+    setNotebookCard(null)
     if (continuousReader) {
-      if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
+      if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
       const id = desktopCardId(card)
       setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
       setDesktopLiveCards(current => [...current.filter(item => desktopCardId(item) !== id), card])
@@ -5613,17 +5631,24 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return () => cancelAnimationFrame(frame)
   }, [phoneCard, showPhoneChrome, continuousReader])
   menuMarginChatRef.current = () => {
-    const paragraphIndex = Math.max(0, placeRef.current.paragraphIndex)
-    const wordIndex = Math.max(0, placeRef.current.wordIndex ?? 0)
-    const existing = [...desktopLiveCards].reverse().find((item): item is Extract<PhoneCard, { kind: 'ask' }> => item.kind === 'ask' && !item.passage.text && item.passage.paragraphIndex === paragraphIndex && item.passage.ranges?.[0]?.range.fromWord === wordIndex)
-    const card: PhoneCard = existing ?? { kind: 'ask', openedAt: Date.now(), passage: { ...phoneChapterPassage(), ranges: [{ chapterNumber: book.chapterNumber, range: { paragraphIndex, endParagraphIndex: paragraphIndex, fromWord: wordIndex, toWord: wordIndex } }] } }
-    const id = desktopCardId(card)
-    const nextDraft = desktopOpenId === id ? draft : desktopDraftsRef.current[id] ?? ''
-    flushSync(() => { setTocOpen(false); setContentsConversation(null); setSuperSheet(null); openPhoneCard(card); setDraft(nextDraft) })
-    const field = [...(document.querySelector(`[data-card-id="${id}"].source-margin-item`)?.querySelectorAll<HTMLTextAreaElement>('.lab-pcard-follow-input') ?? [])].find(node => !node.closest('[hidden]'))
-    field?.focus({ preventScroll: true })
-    if (field) field.setSelectionRange(field.value.length, field.value.length)
+    closePhoneCard()
+    setNotebookCard(null)
+    setDesktopOpenId(null)
+    setDesktopContinuationId(null)
+    setContentsConversation(null)
+    setTocOpen(false)
+    setSuperSheet(null)
+    setAskAttachment(null)
+    setDraft('')
+    setPhoneAskOpen(showPhoneChrome)
+    setDesktopAskOpen(!showPhoneChrome)
   }
+  useLayoutEffect(() => {
+    if (!(phoneAskOpen || desktopAskOpen)) return
+    setNotebookCard(null)
+    setPhoneCard(null)
+    setDesktopOpenId(null)
+  }, [phoneAskOpen, desktopAskOpen])
   // Chat, Talk, Primer, Recap and Catch me up are cards too: opening one closes the card that was open.
   useEffect(() => {
     if (!marginPhone) return
@@ -5638,7 +5663,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // A new book or chapter closes the card, as it does a selection.
   useLayoutEffect(() => {
     desktopDraftsRef.current = {}; desktopNoteConversionRef.current.clear(); desktopUnitAnchorsRef.current.clear(); desktopUnitPositionsRef.current.clear()
-    setMarginUndo(null); setDraft(''); setPhoneNote(''); setPhoneCard(null); setDesktopLiveCards([]); setDesktopOpenId(null); setDesktopContinuationId(null); setDesktopChapterCards([]); setDesktopCatchup(false); setChapterNotes(null)
+    setMarginUndo(null); setNotebookCard(null); setNotebookFlash(null); setDraft(''); setPhoneNote(''); setPhoneCard(null); setDesktopLiveCards([]); setDesktopOpenId(null); setDesktopContinuationId(null); setDesktopChapterCards([]); setDesktopCatchup(false); setChapterNotes(null)
   }, [book.bookId, book.chapterNumber, authUser?.id, signedIn, authUser?.id ? undefined : authToken])
   // The card's passage stays underlined on the page while the card is open (the card does not quote it).
   const phoneCardPassage = phoneCard && 'passage' in phoneCard ? phoneCard.passage : null
@@ -5648,19 +5673,39 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [marginPhone, sharedReader, phoneCardPassage, book.chapterNumber])
   /** A follow-up from a card: the chat's own question, with the passage attached and the card's answer as what the reader was shown. */
   const sendPhoneFollow = (passage: PhonePassage | null, question: string) => {
-    if (continuousReader && desktopContinuationId && ask.conversations.some(item => item.id === desktopContinuationId)) {
-      dictation.stop(); void ask.sendTyped(question, undefined, undefined, { highlightedText: passage?.text, onAccepted: () => setDraft('') }); return
-    }
+    const card = phoneCardRef.current
+    const conversationId = card && 'openedAt' in card ? desktopCardId(card) : desktopContinuationId ?? undefined
+    const saved = conversationId ? ask.revealConversation(conversationId) : null
     const shown = phoneAnswerRef.current
-    if (passage && shown && !shown.kept && shown.answer) {
+    if (!saved && passage && shown && !shown.kept && shown.answer) {
       ask.keepExplanation(passage.text, shown.answer, passage.paragraphIndex, { bookId: book.bookId || 'bible', chapterNumber: passage.chapterNumber })
       shown.kept = true
     }
     dictation.stop()
     void ask.sendTyped(question, undefined, undefined, {
-      highlightedText: passage?.text || undefined,
-      onAccepted: () => setDraft(''),
+      highlightedText: passage?.text || undefined, conversationId,
+      onAccepted: () => {
+        closePhoneCard()
+        setDesktopOpenId(null)
+        setSelectionPopup(null)
+        setDesktopContinuationId(conversationId ?? null)
+        setContentsConversation(saved)
+        setDraft('')
+        setPhoneAskOpen(showPhoneChrome)
+        setDesktopAskOpen(!showPhoneChrome)
+      },
     })
+  }
+  const discussSavedCard = (id: string, question: string, text?: string) => {
+    const saved = ask.revealConversation(id)
+    dictation.stop()
+    void ask.sendTyped(question, undefined, undefined, { conversationId: id, highlightedText: text,
+      onAccepted: () => {
+        closePhoneCard(); setNotebookCard(null); setDesktopOpenId(null)
+        setChapterNotes(null); setSuperSheet(null); setSelectionPopup(null)
+        setDesktopContinuationId(id); setContentsConversation(saved); setDraft('')
+        setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome)
+      } })
   }
   const phoneCardTurns = (openedAt: number) => ask.turns.filter(turn => !turn.shownExplanation && (continuousReader ? turn.conversationId === `mc_react_${openedAt}` || turn.conversationId === `mc_react_quiz_${openedAt}` : (turn.timestamp ?? 0) >= openedAt))
   const phoneBarHighlight = (color: HighlightColor) => {
@@ -5690,24 +5735,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const phoneBarAsk = (initialQuestion?: string) => {
     const selection = selectionPopup
     if (!selection) return
-    // A typed question explicitly requests keyboard focus; tapping on phone
-    // still leaves the keyboard closed until the reader taps the field.
-    const card: PhoneCard = { kind: 'ask', passage: phonePassageOf(selection), openedAt: Date.now() }
-    const open = () => {
-      setDraft(initialQuestion ?? '')
-      openPhoneCard(card)
-    }
-    if (initialQuestion === undefined) open()
-    else {
-      // Commit and focus in the initiating key event: waiting a frame can
-      // swallow the next character typed before the composer owns focus.
-      flushSync(open)
-      const scope = continuousReader ? document.querySelector(`[data-card-id="${desktopCardId(card)}"].source-margin-item`) : document
-      const fields = scope?.querySelectorAll<HTMLTextAreaElement>('.lab-pcard-follow-input') ?? []
-      const field = [...fields].find(node => node.getClientRects().length && !node.closest('[hidden]'))
-      field?.focus({ preventScroll: true })
-      if (field) field.setSelectionRange(field.value.length, field.value.length)
-    }
+    const passage = phonePassageOf(selection)
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setContentsConversation(null)
+    setDesktopContinuationId(null)
+    setAskAttachment({ bookId: book.bookId || 'bible', text: passage.text, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex } })
+    setSelectionPopup(null)
+    setDraft(initialQuestion ?? '')
+    setPhoneAskOpen(showPhoneChrome)
+    setDesktopAskOpen(!showPhoneChrome)
   }
   const phoneBarAction = (kind: 'explain' | 'simplify' | PhoneMoreId) => {
     const selection = selectionPopup
@@ -5777,6 +5814,41 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
 
+  const openNotebookConversation = (conversation: ChatConversation) => {
+    if (conversation.bookId !== (book.bookId || 'bible')) return
+    closePhoneCard()
+    setDesktopOpenId(null)
+    setTocOpen(false)
+    setSelectionPopup(null)
+    setDraft('')
+    setAskAttachment(null)
+    const firstAnswer = conversation.messages.findIndex(message => message.role === 'assistant')
+    const discussed = !conversation.card || conversation.card.kind === 'ask'
+      || conversation.messages.slice(firstAnswer + 1).some(message => message.role === 'user')
+    if (discussed && conversation.card?.kind !== 'quiz') {
+      ask.revealConversation(conversation.id)
+      setNotebookCard(null)
+      setContentsConversation(conversation)
+      setDesktopContinuationId(conversation.id)
+      setPhoneAskOpen(showPhoneChrome)
+      setDesktopAskOpen(!showPhoneChrome)
+    } else {
+      setNotebookCard(conversation)
+      setContentsConversation(null)
+      setDesktopContinuationId(null)
+      setPhoneAskOpen(false)
+      setDesktopAskOpen(false)
+    }
+  }
+
+  const continueDiscussionAction = (id: string) => {
+    const saved = ask.conversations.find(row => row.id === id)
+    if (!saved || saved.card?.kind === 'quiz') return null
+    const firstAnswer = saved.messages.findIndex(message => message.role === 'assistant')
+    if (!saved.messages.slice(firstAnswer + 1).some(message => message.role === 'user')) return null
+    return <button type="button" className="lab-pcard-link" onClick={() => openNotebookConversation(saved)}>Continue discussion</button>
+  }
+
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
           <LabAskPane
@@ -5788,7 +5860,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             voiceActive={ask.voiceActive}
             typedLoading={ask.typedLoading}
             typedStatus={ask.typedStatus}
-            turns={ask.turns}
+            turns={readingChatTurns(ask.turns, ask.conversations)}
             historyStatus={ask.historyStatus}
             draft={draft}
             attachment={askAttachment && askAttachment.bookId === book.bookId ? { text: askAttachment.text, kind: askAttachment.figure ? 'figure' : 'highlight' } : null}
@@ -5812,13 +5884,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
             minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
             onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
-            // A question's quoted passage: show it on the page. The phone sheet
-            // gives way to the page; the desktop box stays open beside it.
-            onQuote={(turn) => {
-              if (turn.chapterNumber == null || (turn.bookId && turn.bookId !== (book.bookId || 'bible'))) return
-              openContentsPassage({ chapterNumber: turn.chapterNumber, paragraphIndex: turn.paragraphIndex ?? 0, wordIndex: 0 })
-              if (!showPhoneChrome) setDesktopAskOpen(true)
-            }}
+
           />
   )
 
@@ -5845,8 +5911,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       requestAnimationFrame(() => handleTalk())
     }
     const follow = (passage: PhonePassage | null, placeholder?: string) => (
-      <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
-        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} />
+      <>{continueDiscussionAction(desktopCardId(card))}<PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
+        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} /></>
     )
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
@@ -5904,7 +5970,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </ResponseCard>
       )
     }
-    const turns = phoneCardTurns(card.openedAt)
+    const cardTurns = phoneCardTurns(card.openedAt)
+    const turns = card.kind === 'ask' ? cardTurns : liveCardFollowupTurns(cardTurns, card.openedAt)
     const pending = ask.typedLoading && turns.length > 0
     const keep = (answer: string) => {
       if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
@@ -6029,10 +6096,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom }
   }
   const toggleMargin = (id: string, live?: PhoneCard) => {
-    if (desktopOpenId) desktopDraftsRef.current[desktopOpenId] = draft
-    if (desktopOpenId === id) { if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
+    if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
+    if (desktopOpenId === id) { setDraft(''); if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
     if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
-    setSelectionPopup(null); setDraft(desktopDraftsRef.current[id] || ''); setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
+    setNotebookCard(null); setPhoneAskOpen(false); setDesktopAskOpen(false)
+    setSelectionPopup(null); setDraft(''); setDesktopOpenId(id); setDesktopContinuationId(id.startsWith('mc_') ? id : null)
     if (live) {
       setPhoneCard(live)
       if (live.kind === 'note') setPhoneNote(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note ?? '')
@@ -6053,7 +6121,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
       {item.messages.map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
-      <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => { dictation.stop(); void ask.sendTyped(question, undefined, undefined, { highlightedText: item.card!.text, onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
+      {continueDiscussionAction(item.id)}
+      <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
   })) : []
   if (continuousReader) for (const live of desktopLiveCards) {
@@ -6101,7 +6170,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
       content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
         onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
-        follow={beats => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
+        follow={beats => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
   }
   if (continuousReader && desktopCatchup && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
@@ -6111,7 +6180,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)}
         onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
-        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
@@ -6127,7 +6196,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
-        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
   const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
     if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
@@ -7175,7 +7244,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
         onOpenPassage={place => openContentsPassage(place)}
-        onContinueConversation={conversation => openContentsPassage({ chapterNumber: conversation.chapterNumber, paragraphIndex: conversation.paragraphIndex || 0, wordIndex: 0 }, conversation)}
+        onOpenHighlight={highlight => openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight)}
+        onContinueConversation={openNotebookConversation}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
@@ -7237,6 +7307,24 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {continuousReader && <SourceMarginRail host={marginHost} entries={desktopMarginEntries} onBlankNote={openBlankMarginNote} />}
       {continuousReader && marginUndo && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
       <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />
+      {notebookCard && (() => {
+        const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
+        const saved = notebookCard
+        return <Card label={`${marginActionLabel(saved.card?.kind || 'ask')} · ${book.chapters.find(ch => ch.number === saved.chapterNumber)?.title || `Chapter ${saved.chapterNumber}`}`}
+          kind={saved.card?.kind || 'ask'} onClose={() => { setNotebookCard(null); setDraft('') }}>
+          {saved.card?.text && <p className="lab-pcard-source">{saved.card.text}</p>}
+          {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+          <button type="button" className="lab-pcard-link" onClick={() => {
+            setNotebookCard(null)
+            openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, undefined, false, saved.card?.anchor)
+          }}>Show passage</button>
+          {saved.card?.kind !== 'quiz' && <PhoneFollowField value={draft} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
+            ask.revealConversation(saved.id)
+            void ask.sendTyped(question, undefined, undefined, { conversationId: saved.id, highlightedText: saved.card?.text,
+              onAccepted: () => { setNotebookCard(null); setContentsConversation(saved); setDesktopContinuationId(saved.id); setDraft(''); setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome) } })
+          }} />}
+        </Card>
+      })()}
       {marginPhone && phoneAsk && (
         <LabPhoneCard label="Chat" kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
           {askPaneElement}
@@ -7269,16 +7357,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           popupRef={popupRef}
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
-            // Submit in the same passage card used by the phone; keep the source visible.
-            const card: PhoneCard = { kind: 'ask', passage, openedAt: Date.now() }
-            openPhoneCard(card)
+            closePhoneCard()
+            setDesktopOpenId(null)
+            setSelectionPopup(null)
+            setDesktopContinuationId(null)
+            setContentsConversation(null)
             setDraft('')
+            setPhoneAskOpen(showPhoneChrome)
+            setDesktopAskOpen(!showPhoneChrome)
             dictation.stop()
-            // This submission opens and sends in one event. The hook's rendered
-            // continuation still belongs to the previous card until React commits.
             void ask.sendTyped(question, undefined, undefined, {
-              highlightedText: passage.text,
-              ...(continuousReader ? { conversationId: desktopCardId(card) } : {}),
+              highlightedText: passage.text, conversationId: null, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
               onAccepted: () => setDraft(''),
             })
           } : undefined}

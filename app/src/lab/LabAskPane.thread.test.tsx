@@ -201,7 +201,8 @@ describe('quoted passage', () => {
     expect(quote.textContent!.length).toBeLessThanOrEqual(240)
     expect(quote.textContent!.endsWith('…')).toBe(true)
     fireEvent.click(quote)
-    expect(onQuote).toHaveBeenCalledWith(expect.objectContaining({ id: 'q', paragraphIndex: 7 }))
+    expect(onQuote).not.toHaveBeenCalled()
+    expect(quote.tagName).toBe('DIV')
   })
 })
 
