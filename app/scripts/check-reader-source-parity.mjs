@@ -122,7 +122,7 @@ try {
       await discussion.getByText(/Source point 20:/).first().waitFor()
       assert.equal(await discussion.getByText('Keep explaining beside this passage.', {exact:true}).count(), 1, 'card follow-up enters Chat exactly once')
       assert.equal(await root.getAttribute('data-place'), placeBeforeChat, 'handoff to Chat preserves reading position')
-      assert.equal(await item.getAttribute('data-open'), 'false', 'handoff folds the source card')
+      assert.equal(await host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`).getAttribute('data-open'), 'false', 'handoff folds the source card')
       await page.getByTestId('lab-desktop-companion-close').click()
       const first = host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`)
       assert.equal(await first.getAttribute('data-open'), 'false', 'Minimise retains the source row')

@@ -182,7 +182,7 @@ try {
       await page.screenshot({ path: `${output}/question-reload-before-follow.png` })
       await page.getByTestId('lab-ask-input').fill(question)
       await page.getByTestId('lab-ask-send').click()
-      await page.waitForFunction(question => [...document.querySelectorAll('[data-testid="lab-ask-turn-user"]')].filter(node => node.textContent?.trim() === question).length >= 2, question)
+      await page.waitForFunction(question => [...document.querySelectorAll('[data-testid="lab-ask-turn-user"]')].filter(node => node.querySelector('.tc-bubble')?.textContent?.trim() === question).length >= 2, question)
       assert.equal(await questionRows().count(), 2, 'deliberately sending the same question later remains a distinct turn')
       await page.screenshot({ path: `${output}/book-1440-question-roundtrip.png` })
       await page.keyboard.press('Escape')
