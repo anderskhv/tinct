@@ -17,3 +17,10 @@ export function readingChatTurns(turns: LabAskTurn[], conversations: ChatConvers
   // Legacy keepExplanation turns are created only by an explicit Chat/Talk handoff.
   return turns.filter(turn => !hidden.has(turn.conversationId ?? ''))
 }
+
+/** Prefer the latest question already in the live thread over a pre-send saved snapshot. */
+export function readingChatFocusTurn(turns: LabAskTurn[], conversation: ChatConversation | null): string | undefined {
+  if (!conversation) return undefined
+  return [...turns].reverse().find(turn => turn.conversationId === conversation.id && turn.role === 'user')?.id
+    ?? [...conversation.messages].reverse().find(message => message.role === 'user')?.id
+}
