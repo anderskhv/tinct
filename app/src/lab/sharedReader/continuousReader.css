@@ -7,7 +7,7 @@
 /* The source text occupies the Margin reading column, leaving a full card rail
    beside it. Desktop Classic's full-spread height/overflow rules must not
    turn each bounded source slice into a separate blank page. */
-.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
   width: min(43rem, calc(100% - clamp(18rem, 38vw, 35rem)));
   min-width: min(100%, 34rem);
   margin-left: clamp(1.5rem, 12vw, 12rem);
@@ -27,19 +27,19 @@
    justified spaces, even though there is room for that word. */
 .lab.is-desktop[data-continuous-reader="true"] .continuous-reader .lab-hearing-line { text-wrap: wrap; }
 @media (max-width: 1100px) {
-  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
     width: min(43rem, calc(100% - 5rem)); min-width: 0; margin: 0 auto;
   }
 }
 /* The 21 October paper edges: one continuous sheet; padding sits outside its reading measure. */
 .lab.is-desktop[data-continuous-reader="true"] { --continuous-paper-pad: clamp(28px, 3.4vw, 54px); }
-.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper {
   width: min(calc(clamp(40rem, 50vw, 52rem) + 2 * var(--continuous-paper-pad)), calc(100% - clamp(20rem, 28vw, 26rem) - clamp(4rem, 7vw, 7rem)));
-  min-width: 0; box-sizing: border-box; padding-inline: var(--continuous-paper-pad);
+  min-width: 0; box-sizing: border-box;
   margin-left: clamp(4rem, 7vw, 7rem); background: var(--lab-paper);
   box-shadow: -12px 0 16px -14px rgba(40,34,20,.34), 12px 0 16px -14px rgba(40,34,20,.34), inset 1px 0 0 rgba(40,34,20,.07), inset -1px 0 0 rgba(40,34,20,.07);
 }
-.lab.is-night[data-continuous-reader="true"] .continuous-reader-window {
+.lab.is-night[data-continuous-reader="true"] .continuous-reader-paper {
   box-shadow: -12px 0 18px -14px rgba(0,0,0,.8), 12px 0 18px -14px rgba(0,0,0,.8), inset 1px 0 0 rgba(255,255,255,.05), inset -1px 0 0 rgba(255,255,255,.05);
 }
 .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window:last-child { padding-bottom: 3rem; }
@@ -52,12 +52,12 @@
 .lab .source-minimap-mark { fill: var(--lab-accent, #b69a5e); }
 .lab .source-minimap:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; border-radius: 6px; }
 @media (max-width: 1100px) {
-  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window { width: min(calc(38rem + 2 * var(--continuous-paper-pad)), calc(100% - 6rem)); margin-inline: auto; }
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper { width: min(calc(38rem + 2 * var(--continuous-paper-pad)), calc(100% - 6rem)); margin-inline: auto; }
 }
-html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-window { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777; }
+html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-paper { box-shadow: inset 1px 0 0 #777, inset -1px 0 0 #777; }
 .lab.is-desktop[data-continuous-reader="true"] .lab-page-wrap { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 @media (max-width: 1100px) {
-  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window { width:calc(100% - 340px); margin-left:64px; margin-right:0; }
+  .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper { width:calc(100% - 340px); margin-left:64px; margin-right:0; }
 }
 .source-margin-undo { position:fixed; bottom:24px; left:50%; z-index:400; padding:8px 14px; background:var(--lab-paper); border-bottom:1px solid var(--lab-border); }
 .lab .source-minimap-activity { cursor:pointer; color:#bd9350; }
@@ -73,3 +73,9 @@ html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-wi
 .lab .source-minimap-card:hover, .lab .source-minimap-card:focus-visible { color:#d18a68; }
 
 .lab .source-minimap-progress { fill:currentColor; font:10px system-ui,sans-serif; text-anchor:middle; }
+
+/* Paint the paper once around all bounded source slices. Per-slice shadows
+   bleed across their horizontal boundaries and look like separate sheets. */
+.lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
+  width: 100%; box-sizing: border-box; padding-inline: var(--continuous-paper-pad);
+}

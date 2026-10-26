@@ -137,6 +137,10 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       }
       return
     }
+    // A refreshed paragraph array can rebuild the bounded windows without any
+    // navigation. Replaying the original anchor here jumps a scrolling reader
+    // back to the place where this chapter was first opened.
+    if (landedKey.current === destinationKey) return
     restoring.current = true
     const target = wordNode(anchor)
     if (!target) return
@@ -279,10 +283,12 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
     onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>
+    <div className="continuous-reader-paper">
     {windows.map((window, index) => <div className="continuous-reader-window" data-window-first={window.firstParagraph} data-window-last={window.lastParagraph} key={`${window.page.paragraphIndex}:${window.page.from}`}>
       <LabPassage {...passage} readingPage={window.page} chapterEnd={window.nextAnchor ? undefined : passage.chapterEnd}
         onPreviewChapter={index === 0 ? passage.onPreviewChapter : undefined}
         compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" desktopSpread={false} plannedHyphens={false} tapZones="none" keyboardSelection />
     </div>)}
+    </div>
   </div></>
 }
