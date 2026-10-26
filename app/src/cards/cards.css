@@ -209,3 +209,5 @@ button.tc-av { padding: 0; }
 .tc-tip b { font-weight: 600; }
 .tc-tip::before { content: ""; position: absolute; top: -6px; left: var(--arrow, 120px); width: 12px; height: 12px; background: var(--tc-ink); transform: rotate(45deg); }
 .tc-file { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.tc-name-pencil { display:inline-flex; width:14px; margin-left:7px; vertical-align:middle; opacity:.7; }
+.tc-name-pencil svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.4; }

@@ -752,6 +752,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   const primer = isPrimerRequest(request)
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
   const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
+  task.push('If the edition or the reader’s question is Danish, answer in Danish unless they request another language. This includes Simplify; keep structured response keys unchanged.')
   const volatile = buildMarginVolatile({
     kind: doc.kind,
     place: primer ? null : contextPlace(context),

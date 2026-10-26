@@ -157,6 +157,9 @@ jobs:
       - name: Verify sign-in completion without real accounts
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.signin == 'true' }}
         run: node scripts/check-sign-in.mjs
+      - name: Verify approved profile flow with synthetic accounts
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.signin == 'true' }}
+        run: node scripts/check-profile-flow.mjs
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-library-public.mjs
@@ -175,8 +178,30 @@ jobs:
           name: library-acceptance
           path: |
             app/artifacts/sign-in
+            app/artifacts/profile-flow
             app/artifacts/library-public
             app/artifacts/paste
+
+  profile-flow-sql:
+    needs: changes
+    if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: synthetic-only
+          POSTGRES_DB: profile_flow_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify grant exclusions, count, allowance reset and rerun safety
+        env:
+          PGPASSWORD: synthetic-only
+        run: psql -h localhost -U postgres -d profile_flow_test -v ON_ERROR_STOP=1 -f app/scripts/fixtures/profile-flow-grant.sql
 
   page-layout:
     needs: changes
@@ -359,7 +384,7 @@ jobs:
   # every suite that ran passed, and every skipped suite was one this change did not need.
   ci-summary:
     if: ${{ always() }}
-    needs: [changes, app, reader-panels, library, page-layout, margin-layout, reading-benchmark, featured-preview]
+    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, featured-preview]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -372,7 +397,7 @@ jobs:
           const s = needs.changes.outputs || {}
           const on = (...names) => names.some(n => s[n] === 'true')
           // Which suites a job carries: it may be skipped only when none of them was needed.
-          const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
+          const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'profile-flow-sql': on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
             'margin-layout': on('margin'), 'featured-preview': on('audio', 'featured'), app: true, 'reading-benchmark': true }
           const problems = []
           if (needs.changes.result !== 'success') problems.push(`changes: ${needs.changes.result} (the suites could not be chosen)`)

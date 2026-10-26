@@ -2,7 +2,7 @@ import { getAllowedOrigin, jsonResponse } from '../lib/responses'
 import { isValidUUID, timingSafeEqual } from '../lib/security'
 import { recordServerEvent } from './events'
 import { supabaseGet, supabaseInsert, supabaseRpc, supabaseUpdate, type SupabaseEnv } from '../lib/supabase'
-import { isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
+import { hasPremiumAccess, trialEndsAt, firstMonthGrantWindow, type AllowanceProfile, isTopUpType, TOP_UP_TYPES, TOP_UPS, topUpCreditMicros, type TopUpType } from '../lib/aiAllowance'
 import { AI_ALLOWANCE_ENFORCED } from '../../aiAllowanceSwitch'
 
 type VerifiedUser = { id: string; email: string }
@@ -565,7 +565,7 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
   if (!user) return jsonResponse({ error: 'Authentication required' }, 401, request)
   if (!isValidUUID(user.id)) return jsonResponse({ error: 'Invalid user' }, 400, request)
 
-  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
+  const profileRes = await supabaseGet(env, `profiles?id=eq.${user.id}&select=created_at,subscription_status,subscription_period_end,stripe_customer_id,messages_used_this_period,message_balance,period_start`)
   const profiles = await profileRes.json() as Record<string, unknown>[]
   const profile = profiles?.[0]
   if (!profile) return jsonResponse({ error: 'Profile not found' }, 404, request)
@@ -590,7 +590,34 @@ export async function handleSubscriptionInfo(request: Request, env: BillingEnv, 
     }
   }
 
+  const now = new Date()
+  const entitlement: AllowanceProfile = {
+    subscription_status: typeof profile.subscription_status === 'string' ? profile.subscription_status : null,
+    subscription_period_end: typeof profile.subscription_period_end === 'string' ? profile.subscription_period_end : null,
+    created_at: typeof profile.created_at === 'string' ? profile.created_at : null,
+    period_start: typeof profile.period_start === 'string' ? profile.period_start : null,
+  }
+  const stripeEnd = typeof stripeSubscription?.currentPeriodEnd === 'string' ? Date.parse(stripeSubscription.currentPeriodEnd) : 0
+  const paid = stripeSubscription && (stripeSubscription.status === 'active' || stripeSubscription.status === 'trialing' || stripeSubscription.status === 'past_due' || stripeEnd > now.getTime())
+  const grant = firstMonthGrantWindow(entitlement)
+  // The existing owner-only user_data store holds the label's receipt, never
+  // an entitlement. Access and allowance are always read from billing columns.
+  let grantedFirstMonth = false
+  if (grant) {
+    try {
+      const receiptRes = await supabaseGet(env, `user_data?user_id=eq.${user.id}&key=eq.premium-first-month-2026-10&select=value&limit=1`)
+      if (receiptRes.ok) {
+        const receipt = ((await receiptRes.json()) as { value?: { startsAt?: string; expiresAt?: string } }[])[0]?.value
+        grantedFirstMonth = Date.parse(receipt?.startsAt ?? '') === grant.start.getTime() && Date.parse(receipt?.expiresAt ?? '') === grant.end.getTime()
+      }
+    } catch { /* No receipt: show ordinary Premium rather than invent a promotion. */ }
+  }
+  const trialEnd = trialEndsAt(entitlement, now)
+  const freeEnd = !paid && entitlement.subscription_status !== 'active'
+    ? grantedFirstMonth ? grant!.end : entitlement.subscription_status !== 'canceled' ? trialEnd : null : null
   return jsonResponse({
+    premium: hasPremiumAccess(entitlement, now),
+    first_month_free_until: freeEnd && freeEnd > now ? freeEnd.toISOString() : null,
     subscription_status: profile.subscription_status,
     subscription_period_end: profile.subscription_period_end,
     messages_used_this_period: profile.messages_used_this_period,

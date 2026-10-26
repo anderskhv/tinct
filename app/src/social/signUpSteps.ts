@@ -1,27 +1,11 @@
-/**
- * Sign-up steps 2 and 3 and the step-1 changes on /sign-in (social ship 2,
- * flows.html "3 · Signing up"). Runs only when the Worker marks the page
- * (SOCIAL_PROFILES on); otherwise the sign-in page is exactly as before.
- *
- * Step 1 (create account): "1 of 3", one password field with show/hide, the
- *   new consent line above the button, stored with its wording version.
- * Step 2 (your profile): picture (a set, a cover detail or the initial, and
- *   an uploaded picture or background while the Worker accepts uploads), name
- *   (prefilled), who can see your reading (Friends preselected). Continue, or
- *   Skip (Only me).
- * Step 3: "Modern English or human translations?" sets New books open in.
- *   Start reading returns to where the reader was. No welcome toast (cut by
- *   Anders, 7 October 2026).
- *
- * Every failure falls back to today's path: the reader is never stuck here.
- */
+import { ICONS } from '../cards/cardStack'
+/** Approved 22 October profile and reading steps. Choices stay on this
+ * device until Continue / Start reading. Skip performs no account write. */
 import {
   EMAIL_CONSENT_TEXT,
   EMAIL_CONSENT_VERSION,
   NEW_BOOKS_COPY,
   PICTURE_SETS,
-  VISIBILITY_COPY,
-  pictureForBook,
   pictureView,
   type NewBooksOpenIn,
   type PictureKind,
@@ -31,6 +15,8 @@ import {
   currentBookHint,
   fetchOwnProfile,
   ownPictureView,
+  ownBackground,
+  paintBackground,
   paintAvatar,
   rememberNewBooksOpenIn,
   photoInMemory,
@@ -41,6 +27,7 @@ import {
   uploadProfileImage,
   type OwnProfile,
 } from './socialClient'
+import { initialReadingLanguages, toggleReadingLanguage, type ReadingLanguage } from './readingLanguages'
 import { photoAccept } from './photoAccept'
 import { PHOTO_COPY } from './photoFile'
 import { CARDS_COPY } from '../cards/cardsCopy'
@@ -57,6 +44,22 @@ const STYLE = `
 .auth-page.is-social[data-mode=create] .auth-eyebrow{display:none}
 .auth-page.is-social .auth-or{text-transform:none;font-size:11px}
 .auth-page.is-social .auth-top{position:relative}
+.social-profile-banner{height:110px;position:relative;background-image:var(--scene);background-size:cover;background-position:center;border-radius:14px}
+.social-profile-identity{display:flex;gap:16px;align-items:center;margin:-24px 12px 14px;position:relative}
+.social-profile-picture{position:relative;flex:none}
+.social-profile-picture .tinct-avatar{width:72px;height:72px;border:3px solid #f6f1e6}
+.social-profile-identity .auth-field{flex:1;min-width:0;margin:24px 0 0}
+.social-camera,.social-name-pencil{border:0;border-radius:50%;padding:8px;background:#f6f1e6;color:#332e27;cursor:pointer}
+.social-camera{position:absolute;right:-4px;bottom:0}
+.social-background-camera{right:8px;bottom:8px}
+.social-name-pencil{margin-left:8px}
+.social-camera svg,.social-name-pencil svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4}
+.social-step [hidden]{display:none!important}
+.social-pictures[hidden]{display:none}
+.social-backgrounds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.social-backgrounds button{width:auto;min-height:72px;height:auto;border-radius:8px;background-image:var(--scene);background-size:cover;background-position:center;color:white;text-shadow:0 1px 4px #000;padding:8px;font-size:12px}
+.social-pictures .social-upload-choice{width:100%;height:40px;min-height:40px;grid-column:1/-1;border-radius:8px;color:#332e27;text-shadow:none;background:#eee7d8}
+.social-pictures input[type=file]{display:none}
 .social-steps{position:absolute;right:clamp(18px,4vw,54px);top:50%;transform:translateY(-50%);color:#9fb0b8;font-size:12px}
 .social-steps[hidden]{display:none}
 .social-pw{position:relative;display:block}
@@ -220,17 +223,17 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   // ---- Step 2: your profile ----
   const hint = PICTURE_SETS.find(set => set.id === profile.picture.value)
   const sets = [...(hint ? [hint] : []), ...PICTURE_SETS.filter(set => set !== hint)].slice(0, 3)
-  let picture: { kind: PictureKind; value: string | null } = profile.picture.kind === 'set' || profile.picture.kind === 'cover' || profile.picture.kind === 'initial'
-    ? { kind: profile.picture.kind, value: profile.picture.value }
-    : pictureForBook(null)
-  if (picture.kind === 'initial' && !hint) picture = { kind: 'set', value: sets[0].id }
-  // A new profile is Only me until the reader picks otherwise (privacy notice).
-  let visibility: Visibility = 'only_me'
+  let picture: { kind: PictureKind; value: string | null } = { kind: profile.picture.kind, value: profile.picture.value }
+  let uploadedPreview: string | null = null
+  // Public is a form default only; the account stays private until Continue.
+  let visibility: Visibility = 'everyone'
 
   const pictures = el('div', { className: 'social-pictures' })
   const pictureButtons: HTMLButtonElement[] = []
   const choosePicture = (button: HTMLButtonElement, next: { kind: PictureKind; value: string | null }) => {
     picture = next
+    paintAvatar(heroAvatar, pictureView(next.kind, next.value, nameInput.value || profile.name), token)
+    if (next.kind === 'upload' && uploadedPreview) heroAvatar.style.backgroundImage = `url("${uploadedPreview}")`
     pictureButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)))
   }
   const addPicture = (label: string, next: { kind: PictureKind; value: string | null }) => {
@@ -243,7 +246,41 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     pictures.append(button)
     return { button, avatar }
   }
-  const nameInput = el('input', { name: 'profileName', type: 'text', value: profile.name, maxLength: 40, autocomplete: 'name' })
+  const nameInput = el('input', { name: 'profileName', type: 'text', value: profile.name === 'Reader' ? '' : profile.name, placeholder: 'Your name', maxLength: 40, autocomplete: 'name' })
+  const heroAvatar = el('span', { className: 'social-profile-avatar' })
+  paintAvatar(heroAvatar, ownPictureView(profile), token)
+  const banner = el('div', { className: 'social-profile-banner' })
+  paintBackground(banner, ownBackground(profile), token)
+  const pictureCamera = el('button', { type: 'button', className: 'social-camera', ariaLabel: 'Choose picture' })
+  pictureCamera.innerHTML = ICONS.cam
+  pictureCamera.addEventListener('click', () => { pictures.hidden = !pictures.hidden })
+  pictures.hidden = true
+  const backgroundChoices = el('div', { className: 'social-pictures social-backgrounds', hidden: true })
+  let backgroundChoice: { kind: 'set'; value: string } | null = null
+  const backgroundCamera = el('button', { type: 'button', className: 'social-camera social-background-camera', ariaLabel: 'Choose background' })
+  backgroundCamera.innerHTML = ICONS.cam
+  backgroundCamera.addEventListener('click', () => { backgroundChoices.hidden = !backgroundChoices.hidden })
+  banner.append(backgroundCamera)
+  for (const set of sets) {
+    const button = el('button', { type: 'button', ariaLabel: `Background: ${set.label}` }, set.label)
+    paintBackground(button, ownBackground({ background: { kind: 'set', value: set.id, url: null, review: 'none' } }), token)
+    button.addEventListener('click', () => {
+      backgroundChoice = { kind: 'set', value: set.id }
+      delete pendingPhotos.background
+      backgroundUploaded = false
+      paintBackground(banner, ownBackground({ background: { kind: 'set', value: set.id, url: null, review: 'none' } }), token)
+    })
+    backgroundChoices.append(button)
+  }
+  const nameText = el('span', {}, nameInput.value)
+  const pencil = el('button', { type: 'button', className: 'social-name-pencil', ariaLabel: 'Edit name' })
+  pencil.innerHTML = ICONS.pencil
+  nameInput.hidden = !!nameInput.value
+  nameText.hidden = pencil.hidden = !nameInput.value
+  pencil.addEventListener('click', () => { nameInput.hidden = false; nameText.hidden = pencil.hidden = true; nameInput.focus() })
+  const hero = el('div', { className: 'social-profile-hero' }, banner,
+    el('div', { className: 'social-profile-identity' }, el('div', { className: 'social-profile-picture' }, heroAvatar, pictureCamera),
+      el('label', { className: 'auth-field' }, nameText, pencil, nameInput)))
   for (const set of sets) addPicture(`Picture: ${set.label}`, { kind: 'set', value: set.id })
   for (const woman of SIGNUP_WOMEN_PICTURES) {
     if (!sets.some(set => woman.kind === 'set' && set.id === woman.value)) addPicture(`Picture: ${woman.label}`, { kind: woman.kind, value: woman.value })
@@ -251,43 +288,48 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const initial = addPicture('Picture: your initial', { kind: 'initial', value: null })
   nameInput.addEventListener('input', () => paintAvatar(initial.avatar, pictureView('initial', null, nameInput.value || profile.name), token))
 
-  // Uploads, as on the You card, only while the Worker accepts them
-  // (SOCIAL_PHOTO_UPLOADS): saved at once and shown to others at once (no review since 19 Oct 2026).
+  // Prepare uploads locally; only Continue may send them to the account.
   let uploadedPicture: { button: HTMLButtonElement; avatar: HTMLElement } | null = null
   let backgroundUploaded = false
+  const pendingPhotos: Partial<Record<'picture' | 'background', Blob>> = {}
+  const previewUrls: string[] = []
+  const releasePreviews = () => { previewUrls.forEach(url => URL.revokeObjectURL(url)); previewUrls.length = 0 }
   const uploads = profile.uploads === true ? el('div', { className: 'social-uploads', dataset: { socialUploads: '' } }) : null
   if (uploads) {
+    pictures.dataset.socialUploads = ''
+    backgroundChoices.dataset.socialUploads = ''
     for (const slot of ['picture', 'background'] as const) {
       const field = el('input', { type: 'file', accept: photoAccept(), tabIndex: -1 })
       field.setAttribute('aria-hidden', 'true')
       const label = slot === 'picture' ? CARDS_COPY.uploadPicture : CARDS_COPY.uploadBackground
-      const trigger = el('button', { type: 'button', dataset: { socialUpload: slot } }, label)
+      const trigger = el('button', { type: 'button', className: 'social-upload-choice', dataset: { socialUpload: slot } }, label)
       trigger.addEventListener('click', () => field.click())
       field.addEventListener('change', async () => {
         const chosen = field.files?.[0]
         if (!chosen) { field.value = ''; return }
+        busy(true)
         trigger.disabled = true
         trigger.setAttribute('aria-busy', 'true')
         hooks.setStatus()
         let prepared: Awaited<ReturnType<typeof preparePhoto>>
-        let saved: Awaited<ReturnType<typeof uploadProfileImage>> | null = null
         try {
           // Read into memory before the input is cleared (iPadOS may release a converted HEIC; photoInMemory).
           const photo = await photoInMemory(chosen)
           // Every failure says why: the photo's own problem, or the upload's.
           prepared = photo ? await preparePhoto(photo, slot) : { ok: false, message: PHOTO_COPY.unreadable }
-          saved = prepared.ok ? await uploadProfileImage(token, slot, prepared.image) : null
+
         } finally {
           field.value = ''
+          busy(false)
           trigger.disabled = false
           trigger.removeAttribute('aria-busy')
         }
         if (!prepared.ok) { hooks.setStatus(prepared.message, 'error'); return }
-        if (!saved?.ok) { hooks.setStatus(saved ? photoUploadMessage(saved, CARDS_COPY.saveFailed) : CARDS_COPY.saveFailed, 'error'); return }
-        // Shown to others at once, with no review (19 Oct 2026): no line after a saved upload.
-        profile = saved.profile
-        if (slot === 'background') { backgroundUploaded = true; return }
-        // The reader's own picture joins the choices, chosen; it is already saved.
+        pendingPhotos[slot] = prepared.image
+        const preview = URL.createObjectURL(prepared.image)
+        previewUrls.push(preview)
+        if (slot === 'background') { backgroundUploaded = true; banner.style.setProperty('--scene', `url("${preview}")`); return }
+        // The local preview joins the choices; it has not been uploaded.
         if (!uploadedPicture) {
           const avatar = el('span')
           const button = el('button', { type: 'button', ariaLabel: CARDS_COPY.uploadPicture }, avatar)
@@ -296,76 +338,91 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
           pictures.prepend(button)
           uploadedPicture = { button, avatar }
         }
-        paintAvatar(uploadedPicture.avatar, ownPictureView(profile), token)
+        uploadedPreview = preview
+        uploadedPicture.avatar.className = 'tinct-avatar'
+        uploadedPicture.avatar.style.backgroundImage = `url("${preview}")`
         choosePicture(uploadedPicture.button, { kind: 'upload', value: null })
+        heroAvatar.style.backgroundImage = `url("${preview}")`
       })
-      uploads.append(trigger, field)
+      ;(slot === 'picture' ? pictures : backgroundChoices).append(trigger, field)
     }
   }
 
-  const everyoneNote = el('p', { className: 'social-note', hidden: true }, 'Everyone starts once you confirm your email. Until then, friends can see you.')
-  const visibilityList = tickList<Visibility>('Who can see your reading', [
-    { value: 'only_me', label: VISIBILITY_COPY.only_me.label },
-    { value: 'friends', label: VISIBILITY_COPY.friends.label, line: 'people you both follow' },
-    { value: 'everyone', label: VISIBILITY_COPY.everyone.label },
-  ], visibility, value => {
-    visibility = value
-    everyoneNote.hidden = !(value === 'everyone' && !profile.emailConfirmed)
-  })
+  const everyoneNote = el('p', { className: 'social-note', hidden: profile.emailConfirmed }, 'Others see you once you confirm your email. You can change this any time in Settings.')
+  const visibilityList = tickList<Visibility>('Who can see you?', [
+    { value: 'everyone', label: 'Public', line: 'Your profile, reading and place on the leaderboard.' },
+    { value: 'only_me', label: 'Private', line: 'Only you.' },
+  ], visibility, value => { visibility = value })
 
   const continueButton = el('button', { type: 'button', className: 'auth-primary', dataset: { socialContinue: '' } }, 'Continue')
   const skipButton = el('button', { type: 'button', className: 'social-skip', dataset: { socialSkip: '' } }, 'Skip')
   const step2 = el('div', { className: 'social-step', dataset: { modeCopy: 'profile' }, hidden: true },
     el('h1', {}, 'Your profile'),
-    el('span', { className: 'social-label' }, 'Picture'), pictures, ...(uploads ? [uploads] : []),
-    el('label', { className: 'auth-field' }, 'Name', nameInput),
-    el('span', { className: 'social-label' }, 'Who can see your reading'), visibilityList, everyoneNote,
+    hero, pictures, backgroundChoices,
+    el('span', { className: 'social-label' }, 'Who can see you?'), visibilityList, everyoneNote,
     continueButton, skipButton)
 
   // ---- Step 3: Modern English or human translations? ----
   let newBooks: NewBooksOpenIn = profile.newBooksOpenIn || 'modern'
+  let languages = initialReadingLanguages(navigator.languages ?? [navigator.language])
+  const languageChoices = el('div', { className: 'social-ticks' })
+  languageChoices.setAttribute('role', 'group'); languageChoices.setAttribute('aria-label', 'Which languages do you read in?')
+  const languageButtons = (['en', 'da'] as const).map(language => {
+    const button = el('button', { type: 'button', className: 'social-tick', dataset: { language } }, language === 'en' ? 'English' : 'Dansk', el('span', { className: 'social-check' }, '✓'))
+    button.setAttribute('role', 'checkbox'); button.setAttribute('aria-checked', String(languages.includes(language)))
+    button.addEventListener('click', () => { languages = toggleReadingLanguage(languages, language); languageButtons.forEach(other => other.setAttribute('aria-checked', String(languages.includes(other.dataset.language as ReadingLanguage)))) })
+    return button
+  })
+  languageChoices.append(...languageButtons)
+  const readingSkip = el('button', { type: 'button', className: 'social-skip', dataset: { socialReadingSkip: '' } }, 'Skip')
   const startButton = el('button', { type: 'button', className: 'auth-primary', dataset: { socialStart: '' } }, 'Start reading')
   const step3 = el('div', { className: 'social-step', dataset: { modeCopy: 'reading' }, hidden: true },
-    el('h1', {}, 'Modern English or human translations?'),
-    el('p', { className: 'auth-copy' }, 'Which version should new books open in? You can switch any book, any time.'),
+    el('h1', {}, 'Your reading'),
+    el('p', { className: 'social-label' }, 'Which languages do you read in?'), languageChoices,
+    el('p', { className: 'social-label' }, 'Which version should new books open in?'),
     tickList<NewBooksOpenIn>('New books open in', (['modern', 'human'] as const).map(value => ({ value, label: NEW_BOOKS_COPY[value].label, line: NEW_BOOKS_COPY[value].line })), newBooks, value => { newBooks = value }),
-    startButton)
+    startButton, readingSkip)
 
   card.querySelector('[data-auth-status]')?.before(step2, step3)
   hooks.setMode('profile')
 
-  const busy = (on: boolean) => { [continueButton, skipButton, startButton].forEach(button => { button.disabled = on }) }
+  const busy = (on: boolean) => { [continueButton, skipButton, startButton, readingSkip].forEach(button => { button.disabled = on }) }
   const consentBody = consent ? { consent } : {}
 
   continueButton.addEventListener('click', async () => {
     busy(true)
     hooks.setStatus()
-    const body: Record<string, unknown> = { ...consentBody, name: nameInput.value, visibility, setUp: true }
-    // An uploaded picture is saved already; any other choice is saved now.
-    if (picture.kind !== 'upload') body.picture = picture
+    const body: Record<string, unknown> = { ...consentBody, name: nameInput.value, visibility, showReading: visibility === 'everyone', showTime: visibility === 'everyone', onLeaderboard: visibility === 'everyone', setUp: true }
+    // Uploaded image bytes are sent only after the profile choices succeed.
+    if (picture.kind !== 'upload' && picture.kind !== 'google') body.picture = picture
     // A set brings its background with it, unless the reader uploaded their own.
-    if (picture.kind === 'set' && !backgroundUploaded) body.background = { kind: 'set', value: picture.value }
+    if (backgroundChoice && !backgroundUploaded) body.background = backgroundChoice
     const saved = await saveProfile(token, body)
-    busy(false)
-    if (!saved.ok) {
-      if (saved.reason === 'invalid') { hooks.setStatus(saved.message || 'Please check your profile.', 'error'); return }
-      hooks.setMode('reading')
-      return
-    }
+    if (!saved.ok) { busy(false); hooks.setStatus(saved.message || CARDS_COPY.saveFailed, 'error'); return }
     profile = saved.profile
-    hooks.setMode('reading')
-  })
-  skipButton.addEventListener('click', async () => {
-    busy(true)
-    // Skip for now = Only me.
-    await saveProfile(token, { ...consentBody, skip: true })
+    for (const slot of ['background', 'picture'] as const) {
+      const image = pendingPhotos[slot]
+      if (!image || (slot === 'picture' && picture.kind !== 'upload')) continue
+      const uploaded = await uploadProfileImage(token, slot, image)
+      if (!uploaded.ok) { busy(false); hooks.setStatus(photoUploadMessage(uploaded, CARDS_COPY.saveFailed), 'error'); return }
+      delete pendingPhotos[slot]
+      profile = uploaded.profile
+    }
     busy(false)
+    releasePreviews()
     hooks.setMode('reading')
   })
+  skipButton.addEventListener('click', () => {
+    releasePreviews()
+    hooks.setMode('reading')
+  })
+  readingSkip.addEventListener('click', () => hooks.finish())
   startButton.addEventListener('click', async () => {
     busy(true)
+    const saved = await saveProfile(token, { newBooksOpenIn: newBooks, readingLanguages: languages })
+    busy(false)
+    if (!saved.ok) { hooks.setStatus(saved.message || CARDS_COPY.saveFailed, 'error'); return }
     rememberNewBooksOpenIn(newBooks)
-    await saveProfile(token, { newBooksOpenIn: newBooks })
     hooks.finish()
   })
 }
