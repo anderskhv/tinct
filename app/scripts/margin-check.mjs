@@ -2937,13 +2937,13 @@ async function phoneUi(browser, origin) {
     const d = await D.page.evaluate(() => ({ zoom: state.zoom, fit: state.fit, cls: document.querySelector('.lab').classList.contains('is-page-zoomed'), progress: getComputedStyle(document.getElementById('progress')).display, chevron: document.getElementById('pageBtn').dataset.chevron }))
     ok(`phone-ui-${label}-1440x900: the desktop opens at fit as before (no column fit, the pill as before)`, d.zoom === 1 && !d.fit && !d.cls && d.progress !== 'none' && d.chevron === undefined, d)
     // 1. The t menu is Tinct's normal menu (21 Oct 2026): Chat · Talk on one row (Chat opens the whole-document
-    // chat), Summarize, Catch me up off on the first unit, Book settings and Audio settings (22 Oct 2026; Aa is the top
+    // chat), Summarize, Catch me up on the first unit, Book settings and Audio settings (22 Oct 2026; Aa is the top
     // bar's button here), this reader's own rows, Library, Profile.
     await D.page.click('#superBtn'); await D.page.waitForSelector('.lab-super-panel')
     const rows = await D.page.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row + ':' + r.textContent.trim()))
     // (Audio settings are the framing page's player's: none on this page on its own; see settingsCheck.)
-    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'book:Book settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
-    ok('the t menu is Chat · Talk, Summarize, Book settings, Snip, Export, Open another book, Library, Profile (no Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
+    const want = ['conversation:ChatTalk', 'summarize:Summarize', 'catchup:Catch me up', 'book:Book settings›', 'snip:Snip a figure', 'export:Export notes', 'open:Open another book', 'library:Library', 'account:Profile›']
+    ok('the t menu is Chat · Talk, Summarize, Book settings, Snip, Export, Open another book, Library, Profile (Catch me up on page 1, no Librarian)', JSON.stringify(rows) === JSON.stringify(want), rows)
     const sel = await D.page.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect)
     ok('the top bar\'s Aa is never selected as text', sel === 'none', sel)
     await D.page.click('.lab-super-row-half[data-row="chat"]'); await D.page.waitForTimeout(500)
