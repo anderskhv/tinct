@@ -36,6 +36,8 @@ export function addbookScriptTag(doc: Pick<Document, 'querySelector'> | null = t
 }
 const BASE = '/lab/addbook/'
 
+export type PdfConversionProgress = { stage: 'loading' | 'scanning' | 'text' | 'images' | 'saving'; done?: number; total?: number }
+
 export interface PdfLayout { default: PdfLayoutDefault; score: number; signals: Record<string, boolean> }
 export interface PdfScan {
   v: number
@@ -64,7 +66,7 @@ type RegionsOf = (n: number, page: PdfPage, items: PdfTextItem[]) => Promise<Pdf
 interface Engine {
   pdfjs: { getDocument: (options: unknown) => { promise: Promise<PdfDocument> }; GlobalWorkerOptions: { workerSrc: string }; Util?: { transform: (a: number[], b: number[]) => number[] } }
   scan: { current: (scan: unknown) => boolean; scan: (pdf: PdfDocument, options: { fileName: string; live?: () => boolean }) => Promise<PdfScan | null> }
-  text: { convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf }) => Promise<UserBookEdition | null> }
+  text: { convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf; onProgress?: (done: number, total: number) => void }) => Promise<UserBookEdition | null> }
   /** pdf-regions.js and margin.js (findFigures): where a page's formulas, figures and tables are. Absent: no crops. */
   regions?: RegionsApi
   /** reading-order.js and reader-layout.js: the phone's open rule (phoneKindOf). Absent: the rule is left to the viewer. */
@@ -186,21 +188,24 @@ export async function phoneKindOf(pdf: PdfDocument, engine: Pick<Engine, 'order'
  * Convert a PDF's bytes to its Tinct text. `stored`: the scan kept with the
  * book, used when it is of the current version.
  */
-export async function convertPdf(bytes: ArrayBuffer, options: { fileName?: string; stored?: unknown; engine?: () => Promise<Engine>; crops?: CropOptions | false; phoneKind?: { primer: (kinds: readonly string[]) => string | null } } = {}): Promise<ConvertedPdf> {
+export async function convertPdf(bytes: ArrayBuffer, options: { onProgress?: (progress: PdfConversionProgress) => void; fileName?: string; stored?: unknown; engine?: () => Promise<Engine>; crops?: CropOptions | false; phoneKind?: { primer: (kinds: readonly string[]) => string | null } } = {}): Promise<ConvertedPdf> {
+  options.onProgress?.({ stage: 'loading' })
   const engine = await (options.engine ?? loadPdfEngine)()
   // pdf.js takes over (detaches) the buffer it is given: it reads a copy.
   const pdf = await engine.pdfjs.getDocument({ data: new Uint8Array(bytes.slice(0)), isEvalSupported: false, verbosity: 0 }).promise
   try {
     const kept = engine.scan.current(options.stored) && (options.stored as PdfScan).layout ? options.stored as PdfScan : null
+    options.onProgress?.({ stage: 'scanning' })
     const scanned = kept ?? await engine.scan.scan(pdf, { fileName: options.fileName ?? '' })
     if (!scanned) throw new Error('scan')
     const scan = kept ?? houseStyledScan(scanned)
     const images = new Map<string, UserBookImage>()
     const regions = options.crops !== false ? cropper(engine, images, options.crops || deviceCrops()) : null
-    const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}) }) : null
+    const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}), onProgress: (done, total) => options.onProgress?.({ stage: 'text', done, total }) }) : null
     // The phone's rule reads a few pages' text while the last crops are drawn.
     const telling = options.phoneKind && edition ? phoneKindOf(pdf, engine, scan, engine.layout ? options.phoneKind.primer(engine.layout.KINDS) : null).catch(() => undefined) : undefined
     // Its crops, drawn while the converter read on: a text naming one that could not be drawn has its picture missing.
+    options.onProgress?.({ stage: 'images' })
     if (regions) await regions.drawn()
     // Only the crops the text names are kept.
     const named = new Set((edition?.chapters ?? []).flatMap(chapter => (chapter.figures ?? []).map(figure => figure.id)))

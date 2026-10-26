@@ -92,3 +92,6 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 
 /* Desktop PDF pages scroll to the viewport foot; only paged phone keeps a footer. */
 .pdf-original-reader.lab.is-desktop .lab-body { height:auto; flex:1 1 0; padding-bottom:0; }
+
+.pdf-original-reader__conversion { margin:12px 0; font:14px/1.5 system-ui,sans-serif; }
+.pdf-original-reader__conversion progress { display:block; width:100%; height:6px; accent-color:var(--lab-ink-muted); }

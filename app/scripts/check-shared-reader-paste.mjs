@@ -135,7 +135,7 @@ async function library(page, privateFlag = true) {
   await page.goto(`${origin}/library${privateFlag === true ? '?sharedReader=1' : privateFlag === '0' ? '?sharedReader=0' : ''}`, { waitUntil: 'domcontentloaded' })
   await page.locator('#library-add:visible').waitFor({ timeout: 45000 })
   await page.locator('#library-add').click()
-  await page.locator('.own-file-dialog').waitFor()
+  await page.locator('.own-file-dialog[data-step="choose"]').waitFor()
 }
 
 async function run(engine, type, phone) {
@@ -156,6 +156,19 @@ async function run(engine, type, phone) {
     await library(page, defaultOn ? false : true)
     await page.getByRole('button', { name: 'Paste text' }).click()
     await page.getByRole('textbox', { name: 'Text to add' }).fill(source)
+    if (!phone) {
+      // Archive Full Text clipboard: a whole book in one PRE used to become
+      // one huge paragraph. Exercise the real paste handler and reader.
+      await page.getByRole('textbox', { name: 'Text to add' }).fill('')
+      await page.getByRole('textbox', { name: 'Text to add' }).evaluate((el, original) => {
+        const body = original + '\n\n' + Array.from({length: 1600}, (_, i) => `Archive passage ${i}. ` + 'The reader follows the source words across this page. '.repeat(6)).join('\n\n')
+        const clipboard = new DataTransfer()
+        clipboard.setData('text/plain', original)
+        clipboard.setData('text/html', '<h1>Morning Notes</h1><pre>' + body.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>')
+        el.dispatchEvent(new ClipboardEvent('paste', {bubbles:true,cancelable:true,clipboardData:clipboard}))
+      }, source)
+    }
+    await page.locator('.own-paste-preview').waitFor({ state: 'visible' })
     if (process.env.PASTE_SCREENSHOT_DIR) {
       await fs.mkdir(process.env.PASTE_SCREENSHOT_DIR, { recursive:true })
       await page.screenshot({ path:path.join(process.env.PASTE_SCREENSHOT_DIR, `paste-${engine}-${phone ? 'phone-390x844' : 'desktop-1440x900'}.png`) })

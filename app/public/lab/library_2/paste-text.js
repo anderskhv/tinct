@@ -18,6 +18,13 @@ export function sanitizeHtml(source) {
   const tag = node.localName.toLowerCase();
   if (DROP.has(tag)) return '';
   if (tag === 'img') return `<span>[Image${node.getAttribute('alt') ? ': ' + escape(node.getAttribute('alt')) : ''}]</span>`;
+  // Full-text archives copy prose inside one preformatted element. Preserve its
+  // paragraph and line boundaries instead of importing a whole book as one block.
+  // Explicit code samples retain their preformatted structure.
+  if (tag === 'pre' && !node.querySelector('code')) {
+   return (node.textContent || '').replace(/\r\n?/g, '\n').split(/\n\s*\n/)
+    .filter(part => part.trim()).map(part => `<p>${part.split('\n').map(escape).join('<br/>')}</p>`).join('\n');
+  }
   const inner = [...node.childNodes].map(walk).join('');
   if (!BLOCK.has(tag) && !INLINE.has(tag)) return inner;
   if (tag === 'br' || tag === 'hr') return `<${tag}/>`;

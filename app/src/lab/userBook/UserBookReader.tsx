@@ -1,3 +1,4 @@
+import type { PdfConversionProgress } from './pdfEdition'
 /**
  * `/reader?userBook=<hex>`: a reader's own book, at its one address (Anders, 22 Oct 2026, "One Tinct").
  * Opens this account's file from this device (converting it the first time), or
@@ -128,7 +129,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   phone?: boolean
   /** Explicit private entry; this book's text uses the shared React reader even when its old desktop preference is Margin. */
   sharedReader?: boolean
-  open?: (hex: string, options: { owner?: string | null; page?: number | null; epubView?: EpubView; desktop?: boolean; sharedReader?: boolean }) => Promise<UserBookOpenResult>
+  open?: (hex: string, options: { onProgress?: (progress: PdfConversionProgress) => void; owner?: string | null; page?: number | null; epubView?: EpubView; desktop?: boolean; sharedReader?: boolean }) => Promise<UserBookOpenResult>
   forward?: (url: string) => void
   /** Bring this device's place in line with the account's (bounded; never rejects the open). */
   reconcile?: (hex: string, book: LoadedUserBook, owner?: string | null) => Promise<void>
@@ -137,6 +138,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   useEffect(()=>()=>{conversionEpoch.current++},[hex,owner])
   const conversionIdentity = useRef({hex,owner})
   conversionIdentity.current = {hex,owner}
+  const [textProgress,setTextProgress] = useState<PdfConversionProgress | undefined>()
   const [textBusy,setTextBusy] = useState(false)
   const [textError,setTextError] = useState<string | undefined>()
   const [state, setState] = useState<ReaderState>({ status: 'opening' })
@@ -150,8 +152,10 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
   const [pdfPages, setPdfPages] = useState<number | undefined>()
   const identity: ReaderIdentity = { hex, owner: owner ?? null, sharedReader }
   const matches = state.status !== 'opening' && state.hex === hex && state.owner === identity.owner && state.sharedReader === sharedReader
+  const [pdfServiceStatus, setPdfServiceStatus] = useState('')
+  const [pdfServiceRetry, setPdfServiceRetry] = useState(0)
   const pdfServices = usePdfOriginalServices(hex, owner ?? null, sharedReader && matches && state.status === 'original',
-    matches && state.status === 'original' ? { title: state.title, author: state.author } : undefined)
+    matches && state.status === 'original' ? { title: state.title, author: state.author } : undefined, setPdfServiceStatus, pdfServiceRetry)
   useEffect(() => {
     let live = true
     let marks: OwnTextMarksSync | null = null
@@ -383,14 +387,14 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       <button type="button" onClick={() => { if (adoptUnassignedOwnTextMarks(hex, owner)) window.location.reload() }}>Attach older highlights</button>
     </div>}
   </>
-  if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} bookId={`userbook-${hex}`} owner={owner} title={state.title} services={pdfServices ?? undefined} scanOutline={state.scanOutline}
+  if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} bookId={`userbook-${hex}`} owner={owner} title={state.title} services={pdfServices ?? undefined} serviceStatus={pdfServiceStatus} onRetryServices={() => setPdfServiceRetry(n => n + 1)} scanOutline={state.scanOutline}
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
-    textAvailable={state.hasText} textBusy={textBusy} textError={textError}
+    textAvailable={state.hasText} textProgress={textProgress} textBusy={textBusy} textError={textError}
     onOpenText={async place => {
       if (textBusy) return
-      setTextBusy(true); setTextError(undefined)
+      setTextBusy(true); setTextError(undefined); setTextProgress({ stage: 'loading' })
       const epoch=conversionEpoch.current
       const stillHere=()=>conversionEpoch.current===epoch && conversionIdentity.current.hex===hex && conversionIdentity.current.owner===owner
       try {
@@ -400,7 +404,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
         localStorage.setItem(PDF_EDITION_PREFIX + hex, JSON.stringify('text'))
         localStorage.removeItem('tinct-addbook:desk-edition:' + hex)
         localStorage.removeItem('tinct-addbook:phone-edition:' + hex)
-        const converted=await open(hex,{owner,page:place.page,desktop:!phone,sharedReader:true,epubView:'text'})
+        const converted=await open(hex,{owner,page:place.page,desktop:!phone,sharedReader:true,epubView:'text',onProgress: progress => { if (stillHere()) setTextProgress(progress) }})
         if (!stillHere()) return
         if (!converted.ok) {
           localStorage.setItem(PDF_EDITION_PREFIX+hex,JSON.stringify('pages'))
