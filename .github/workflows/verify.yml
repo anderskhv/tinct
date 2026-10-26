@@ -190,6 +190,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/prepare
         id: prepare
+      - name: Verify desktop typing and note deletion before release
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
+        run: node scripts/check-desktop-feedback.mjs
       - name: Verify Shakespeare layout
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.shakespeare == 'true' }}
         run: node scripts/check-shakespeare-layout.mjs
@@ -211,9 +214,6 @@ jobs:
       - name: Verify native PDF selection stays on source ink
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         run: node src/lab/sharedReader/pdf/pdfOriginalSelection.browser.mjs
-      - name: Verify desktop typing and note deletion before release
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
-        run: node scripts/check-desktop-feedback.mjs
       - name: Verify PDF format conversion preserves the source place
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' }}
         env:

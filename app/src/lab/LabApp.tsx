@@ -7270,9 +7270,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
             // Submit in the same passage card used by the phone; keep the source visible.
-            openPhoneCard({ kind: 'ask', passage, openedAt: Date.now() })
+            const card: PhoneCard = { kind: 'ask', passage, openedAt: Date.now() }
+            openPhoneCard(card)
             setDraft('')
-            sendPhoneFollow(passage, question)
+            dictation.stop()
+            // This submission opens and sends in one event. The hook's rendered
+            // continuation still belongs to the previous card until React commits.
+            void ask.sendTyped(question, undefined, undefined, {
+              highlightedText: passage.text,
+              ...(continuousReader ? { conversationId: desktopCardId(card) } : {}),
+              onAccepted: () => setDraft(''),
+            })
           } : undefined}
           onPassageAction={sharedReader ? phoneBarAction : undefined}
           onPassageNote={sharedReader ? phoneBarNote : undefined}

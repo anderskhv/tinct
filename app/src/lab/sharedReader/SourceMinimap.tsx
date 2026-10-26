@@ -62,15 +62,15 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       const lines = []
       const count = Math.max(1, Math.ceil(model.weights[i] / 12))
       for (let line = 0; line < count; line++) {
-        const y = (offset + model.starts[i] + line * 12) / total * 600
+        const y = (offset + model.starts[i] + line * 12) / total * mapHeight
         if (y - previous < 3) continue
         previous = y
         lines.push({ y, width: line === count - 1 ? Math.max(6, Math.min(25, (model.weights[i] % 12 || 12) / 12 * 25)) : 25 })
       }
       return lines
     })
-  }, [paragraphs, model, offset, total])
-  return <svg className="source-minimap" data-testid="source-minimap" style={{ height: `min(calc(100dvh - 200px), ${mapHeight}px)` }} viewBox="0 0 34 600" preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
+  }, [paragraphs, model, offset, total, mapHeight])
+  return <svg className="source-minimap" data-testid="source-minimap" style={{ height: `min(calc(100dvh - 200px), ${mapHeight}px)` }} viewBox={`0 0 34 ${mapHeight}`} preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
     <g role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}
     aria-valuetext={`${Math.round(progress * 100)}% through ${book ? "this book" : "this chapter"}`}
     onPointerDown={event => { event.preventDefault(); event.currentTarget.setPointerCapture?.(event.pointerId); setDragging(true); jump(event) }}
@@ -91,21 +91,21 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       const atEnd = event.key === 'End' || step > 0 && visible.paragraphIndex >= paragraphs.length - 1
       onJump({ paragraphIndex, wordIndex: atEnd ? model.weights[paragraphIndex] - 1 : 0 })
     }}>
-    <rect width={34} height={600} fill="transparent" />
+    <rect width={34} height={mapHeight} fill="transparent" />
     <title>{book ? 'Drag to move through the book; chapter sizes use available word counts' : 'Drag to move through the chapter'}</title>
     {book?.chapters.filter(chapter => chapter.number !== bookMap!.chapterNumber).map(chapter => <g key={chapter.number} data-map-chapter={chapter.number}>
       <title>{chapter.title}</title>
-      <line x1={4} x2={24} y1={chapter.start / total * 600} y2={chapter.start / total * 600} className="source-minimap-line" />
-      {Array.from({ length: Math.max(0, Math.floor(chapter.weight / total * 600 / 4) - 1) }, (_, index) => {
-        const y = chapter.start / total * 600 + (index + 1) * 4
+      <line x1={4} x2={24} y1={chapter.start / total * mapHeight} y2={chapter.start / total * mapHeight} className="source-minimap-line" />
+      {Array.from({ length: Math.max(0, Math.floor(chapter.weight / total * mapHeight / 4) - 1) }, (_, index) => {
+        const y = chapter.start / total * mapHeight + (index + 1) * 4
         return <line key={index} x1={6} x2={25} y1={y} y2={y} className="source-minimap-line" />
       })}
     </g>)}
     {lines.map((line, i) => <line key={i} x1={4} x2={4 + line.width} y1={line.y + .5} y2={line.y + .5} className="source-minimap-line" />)}
-    <rect x={.5} y={Math.min(592, position * 600)} width={33} height={Math.max(8, Math.min(600 - position * 600, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * 600 : 24))} rx={5} className="source-minimap-window" />
+    <rect x={.5} y={Math.min(mapHeight - 8, position * mapHeight)} width={33} height={Math.max(8, Math.min(mapHeight - position * mapHeight, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * mapHeight : 24))} rx={5} className="source-minimap-window" />
     </g>
     {cards.filter(card => card.paragraphIndex >= 0 && card.paragraphIndex < paragraphs.length).map(card => {
-      const y = (offset + (model.starts[card.paragraphIndex] ?? 0) + card.wordIndex) / total * 600
+      const y = (offset + (model.starts[card.paragraphIndex] ?? 0) + card.wordIndex) / total * mapHeight
       const open = () => { onJump({ paragraphIndex: card.paragraphIndex, wordIndex: card.wordIndex }); card.onOpen() }
       return <g key={card.id} role="button" tabIndex={0} aria-label={card.label} className="source-minimap-card"
         onPointerDown={event => { event.stopPropagation(); event.preventDefault(); open() }}
@@ -117,17 +117,17 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
     {highlights.filter(mark => mark.kind !== 'chapter' && mark.paragraphIndex >= 0 && mark.paragraphIndex < paragraphs.length).map(mark => {
       const start = (model.starts[mark.paragraphIndex] ?? 0) + mark.fromWord
       const end = (model.starts[mark.endParagraphIndex] ?? start) + mark.toWord
-      const y = (offset + start) / total * 600
+      const y = (offset + start) / total * mapHeight
       return <g key={mark.id} role="button" tabIndex={0} aria-label={`${mark.note ? 'Note' : 'Highlight'}: ${mark.text || paragraphs[mark.paragraphIndex].slice(0, 80)}`}
         className="source-minimap-activity" data-color={mark.color}
         onPointerDown={event => { event.stopPropagation(); event.preventDefault(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) }}
         onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) } }}>
         <title>{mark.note || mark.text || 'Highlight'}</title>
-        <rect x={2} y={Math.max(0, y - 3)} width={23} height={Math.max(8, (end - start) / total * 600 + 6)} fill="transparent" />
-        <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, (end - start) / total * 600)} rx={.7} />
+        <rect x={2} y={Math.max(0, y - 3)} width={23} height={Math.max(8, (end - start) / total * mapHeight + 6)} fill="transparent" />
+        <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, (end - start) / total * mapHeight)} rx={.7} />
       </g>
     })}
 
-    <text x={17} y={620} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(progress * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(progress * 100)}%</text>
+    <text x={17} y={mapHeight + 20} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(progress * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(progress * 100)}%</text>
   </svg>
 }

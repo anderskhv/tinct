@@ -5,7 +5,7 @@ import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); localStorage.clear(); sessionStorage.clear(); window.history.replaceState(null, '', '/') })
-it('submits desktop Ask once with the selected passage and keeps its answer anchored in the reader', async () => {
+it.each(['two-page', 'margin'])('submits desktop Ask once and anchors its answer in %s', async view => {
   const requests: unknown[] = []
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     if (String(input).includes('/api/lab-chat') || String(input).includes('/api/chat')) {
@@ -14,7 +14,7 @@ it('submits desktop Ask once with the selected passage and keeps its answer anch
     }
     return new Response('{}', { status: 404, headers: { 'Content-Type': 'application/json' } })
   }))
-  window.history.replaceState(null, '', '/reader?sharedReader=1&layout=desktop')
+  window.history.replaceState(null, '', `/reader?sharedReader=1&layout=desktop&view=${view}`)
   render(<LabApp pathname="/reader" source={fallbackLabSource()} authToken={null} sharedReader />)
   const root = screen.getByTestId('lab-root'), place = root.getAttribute('data-place')
   const words = screen.getAllByTestId('lab-word'), selected = words.slice(1, 4).map(w => w.textContent?.trim()).join(' ')
@@ -28,7 +28,7 @@ it('submits desktop Ask once with the selected passage and keeps its answer anch
   fireEvent.click(screen.getByRole('button', { name: 'Send question' }))
   await waitFor(() => expect(requests).toHaveLength(1))
   await waitFor(() => expect(screen.getByText('A local passage answer.')).toBeTruthy())
-  expect(document.querySelector('.lab-desktop-card[data-kind="ask"]')).toBeTruthy()
+  expect(document.querySelector(view === 'margin' ? '.source-margin-item[data-open="true"] .lab-pcard-answer' : '.lab-desktop-card[data-kind="ask"]')).toBeTruthy()
   expect(document.querySelector('.lab-ask')).toBeNull()
   expect(root.getAttribute('data-place')).toBe(place)
   expect(JSON.stringify(requests[0])).toContain('Why these words?')
