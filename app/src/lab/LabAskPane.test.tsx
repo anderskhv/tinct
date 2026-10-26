@@ -566,6 +566,14 @@ describe('calm answer: the question is brought near the top once, then nothing m
   const reply = (content: string) => ({ id: 'a-reply', role: 'assistant' as const, content, source: 'typed' as const })
   const latest = () => screen.getByTestId('lab-ask-latest') as HTMLButtonElement
 
+  it('holds a continued question near the top even in the phone card wrapper', () => {
+    const history = turnsOf(20)
+    render(<LabAskPane {...props} embeddedPhoneCard focusTurnId={ask.id} typedLoading={false} turns={[...history, ask, reply('Short answer.')]} />)
+    const thread = screen.getByTestId('lab-ask-thread')
+    expect(thread.scrollTop).toBe(20 * 100 - Math.min(QUESTION_PEEK, CLIENT * 0.2))
+    expect(spacerOf(thread)).toBeGreaterThan(0)
+  })
+
   it('on send, the question sits near the top with a little of the previous answer above; the answer grows under it without moving the view', () => {
     const history = turnsOf(20)
     const { rerender } = render(<LabAskPane {...props} typedLoading={false} turns={history} />)

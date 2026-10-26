@@ -245,7 +245,6 @@ export function LabAskPane({
    * the window taller).
    */
   const holdQuestion = useCallback((node: HTMLDivElement, row: HTMLElement, place: boolean) => {
-    if (embeddedPhoneCard) { setSpacer(node, null); pinToBottom(node); return }
     const top = questionTop(node, row)
     fitSpacer(node, top)
     if (place) {
@@ -254,7 +253,7 @@ export function LabAskPane({
       nearBottomRef.current = false
       latestRef.current!.placed(node)
     }
-  }, [embeddedPhoneCard, pinToBottom])
+  }, [])
 
   const revealOlder = useCallback(() => {
     const node = threadRef.current
