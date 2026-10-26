@@ -391,7 +391,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
-    textAvailable={state.hasText} textProgress={textProgress} textBusy={textBusy} textError={textError}
+    autoConvert={new URLSearchParams(window.location.search).get('convert') === '1'} textAvailable={state.hasText} textProgress={textProgress} textBusy={textBusy} textError={textError}
     onOpenText={async place => {
       if (textBusy) return
       setTextBusy(true); setTextError(undefined); setTextProgress({ stage: 'loading' })

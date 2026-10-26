@@ -82,6 +82,7 @@ export interface PdfOriginalReaderShellProps extends Pick<PdfOriginalSurfaceProp
   onBeforeLeave?: (place: PdfOriginalPlace) => void
   onOpenText?: (place: PdfOriginalPlace) => void
   textAvailable?: boolean
+  autoConvert?: boolean
   textProgress?: PdfConversionProgress
   textBusy?: boolean
   textError?: string
@@ -136,7 +137,7 @@ export function pdfSelectionAnchor(selection: PdfOriginalSelection, page: CardBo
 }
 
 /** One source coordinate, PDF page/fraction, through original pages, settings, selection, and Notebook. */
-export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textBusy = false, textProgress, textError, initialZoom = 1, onZoom, services, serviceStatus, onRetryServices, scanOutline, unitRules }: PdfOriginalReaderShellProps) {
+export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textBusy = false, autoConvert = false, textProgress, textError, initialZoom = 1, onZoom, services, serviceStatus, onRetryServices, scanOutline, unitRules }: PdfOriginalReaderShellProps) {
   const root = useRef<HTMLDivElement>(null)
   const [scrollHost, setScrollHost] = useState<HTMLElement | null>(null)
   const [pane, setPane] = useState<Pane>(null)
@@ -207,6 +208,13 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const unitIndex = unit ? units.indexOf(unit) : 0
   const chapterTitle = unit && !unit.pages && unit.title.trim() ? unit.title : `Page ${place.page}`
   const openTextLabel = textBusy ? 'Converting…' : textAvailable ? 'Tinct book' : 'Convert to Tinct book'
+  const conversionRequested = useRef(false)
+  useEffect(() => {
+    if (!autoConvert || conversionRequested.current || !onOpenText) return
+    conversionRequested.current = true
+    setPane('reading')
+    void onOpenText(place)
+  }, [autoConvert, onOpenText, place])
   const conversionStatus = textBusy && <div className="pdf-original-reader__conversion" role="status"><p>{textProgress?.stage === 'text' ? `Preparing pages ${textProgress.done ?? 0} of ${textProgress.total ?? pages}` : ({ loading: 'Opening the PDF…', scanning: 'Checking the text and chapters…', images: 'Preparing illustrations…', saving: 'Saving your Tinct book…' }[textProgress?.stage ?? 'loading'])}</p><progress aria-label="Conversion progress" {...(textProgress?.stage === 'text' && textProgress.total ? { max: textProgress.total, value: textProgress.done ?? 0 } : {})} /></div>
   const primerPages = unit ? pdfPrimerPages(unit) : []
   const catchupPages = rules && unit ? pdfCatchUpPages(rules, unit, place.page) : []

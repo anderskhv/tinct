@@ -977,6 +977,28 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     return { steps, engine: async () => api }
   }
 
+  it('shows immediate account-check feedback and respects cancellation', async () => {
+    document.documentElement.classList.add('signed-in')
+    let resolve!: (yes:boolean)=>void
+    const go=vi.fn(), opening=addToTinct.openFileEntry(entry(),{access:()=>new Promise<boolean>(r=>{resolve=r}),go,engine:fakeEngine().engine})
+    expect(dialog()?.textContent).toContain('Checking your account')
+    expect(dialog()?.querySelector('.own-file-choose')).toBeNull()
+    ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
+    resolve(true);await opening
+    expect(dialog()).toBeNull();expect(go).not.toHaveBeenCalled()
+  })
+  it('offers scanned PDF conversion without navigating until the reader chooses', async () => {
+    document.documentElement.classList.add('signed-in')
+    const go=vi.fn()
+    await addToTinct.openFileEntry(entry(),{access:async()=>true,go,engine:fakeEngine({kind:'pdf'}).engine,assessPdf:async()=>({recommend:true,reason:'scan'})})
+    choose(new File(['%PDF'], 'scan.pdf'))
+    await vi.waitFor(()=>expect(dialog()?.textContent).toContain('This PDF uses scanned pages.'))
+    expect(go).not.toHaveBeenCalled()
+    const convert=Array.from(dialog()!.querySelectorAll('button')).find(b=>b.textContent==='Convert to Tinct')!
+    convert.click()
+    expect(go).toHaveBeenCalledWith('/reader?userBook=abc&sharedReader=1&convert=1')
+  })
+
   it('shows Add a book’s own wording and a button that opens the file picker, without leaving the page', async () => {
     document.documentElement.classList.add('signed-in')
     const go = vi.fn()

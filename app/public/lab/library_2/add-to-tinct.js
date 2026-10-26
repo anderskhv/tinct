@@ -160,7 +160,7 @@ const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return
  * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,onSearch=null,checking=false,engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
+export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
@@ -313,6 +313,21 @@ export function openFileDialog({from=null,onSearch=null,checking=false,engine=lo
   try{
    const opened=read.kind==='epub'?await engineApi.prepareEpub(read.bytes,file.name,read.key,file,{notify:note}):await engineApi.preparePdf(file,read.key,{notify:note});
    progress(1);
+   if(read.kind==='pdf'){
+    delete box.dataset.busy;
+    const original=button('tui-btn tui-btn--secondary','Open original PDF');
+    let left=false;original.onclick=()=>{left=true;go(opened.href);};
+    const message=make('p','tui-dialog__body','Checking a few pages for reading comfort…');
+    const choices=actions(original);step('pdf-ready',message,choices);
+    let assessment;try{assessment=await assessPdf(read.bytes);}catch{assessment=null;}
+    if(left||!layer.isConnected)return;
+    if(assessment?.recommend){
+     message.textContent=assessment.reason==='scan'?'This PDF uses scanned pages. A Tinct text version may be easier to read. Your original PDF will stay available.':'This PDF has small or dense text. A Tinct text version lets the words fit your screen. Your original PDF will stay available.';
+     const convert=button('tui-btn tui-btn--primary','Convert to Tinct');
+     convert.onclick=()=>{if(left)return;left=true;go('/reader?userBook='+encodeURIComponent(read.key.slice(4))+'&sharedReader=1&convert=1');};
+     choices.prepend(convert);return;
+    }
+   }
    go(opened.href);
   }catch(error){chooseStep(error?.message||OWN_BOOK_COPY.failed);}
  }
