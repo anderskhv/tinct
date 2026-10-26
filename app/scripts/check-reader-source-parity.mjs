@@ -392,9 +392,23 @@ try {
       await select(page.locator('.lab'))
       await page.getByTestId('lab-pbar-explain').click()
       await page.getByTestId('lab-phone-card-dock').getByText('A complete local answer remains attached to this source passage.').waitFor()
+      await page.getByTestId('lab-phone-card-input').focus()
+      // Headless browsers have no software keyboard. Drive its visual-viewport
+      // resize while keeping the layout viewport fixed, as on an iPhone.
+      await page.evaluate(() => {
+        const viewport = window.visualViewport
+        if (!viewport) throw new Error('Phone regression needs visualViewport')
+        const originalHeight = viewport.height
+        window.__restorePhoneViewport = () => { Object.defineProperty(viewport, 'height', {configurable:true, value:originalHeight}); viewport.dispatchEvent(new Event('resize')) }
+        Object.defineProperty(viewport, 'height', {configurable:true, value:Math.max(300, originalHeight - 330)})
+        viewport.dispatchEvent(new Event('resize'))
+      })
+      await settlePaint(page)
       await page.getByTestId('lab-phone-card-input').fill('What does promised mean?')
       await page.getByTestId('lab-phone-card-send').click()
       await page.getByTestId('lab-ask-pane').getByText('What does promised mean?', {exact:true}).waitFor()
+      await page.evaluate(() => window.__restorePhoneViewport())
+      await settlePaint(page)
       await page.getByRole('button', {name:'Close chat', exact:true}).click()
       await page.getByTestId('lab-page-prev').evaluate(button => button.click())
       await settlePaint(page)
