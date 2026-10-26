@@ -874,6 +874,48 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     // treat the two surviving text pages as a complete three-page answer.
     const recap = sets.cards.list.find(item => item.data?.action === 'recap' && item.data?.source?.to === 2)
     assert(recap, 'a real saved Recap supplies the owned card shape')
+    // Rich inline answers used to inherit the header's flex layout and become narrow columns.
+    const notebookAnswer = structuredClone(recap)
+    notebookAnswer.id = 'notebooklayoutregression'
+    notebookAnswer.kind = 'factcheck'
+    delete notebookAnswer.data
+    delete notebookAnswer.pageOnly
+    notebookAnswer.rects = [[notebookAnswer.page, .1, .2, .3, .04]]
+    notebookAnswer.text = 'A longer quoted passage should remain secondary to the saved response. '.repeat(5)
+    notebookAnswer.turns = [{ role: 'assistant', content: '**Partly holds.** A readable answer flows across the full Notebook width, including [a source](https://example.com/source) and the explanation that follows. '.repeat(5) }]
+    notebookAnswer.u = Date.now() + 20
+    assert.match(notebookAnswer.id, /^[0-9a-z]{4,32}$/, 'fixture uses the persisted card ID contract')
+    sets.cards.list.push(notebookAnswer); sets.cards.rev++
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await page.getByText('Second original page has its own spoken words.').waitFor()
+    for (const width of [1100, 390]) {
+      await page.setViewportSize({ width, height: 844 })
+      await page.locator(`.pdf-original-reader.${width < 700 ? 'is-phone' : 'is-desktop'}`).waitFor()
+      const appearance = page.getByRole('button', { name: 'Appearance', exact: true })
+      if (await appearance.isVisible()) await appearance.click()
+      else { await page.getByTestId('lab-super').click(); await page.getByTestId('lab-super-row-text').click() }
+      await page.getByTestId('lab-v2-theme-dark').click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
+      await openNotebook()
+      const entry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'A readable answer flows' })
+      await entry.waitFor()
+      await entry.locator('.pdf-original-reader__saved-head').scrollIntoViewIfNeeded()
+      const geometry = await entry.evaluate(el => {
+        const turn = el.querySelector('.pdf-original-reader__saved-turn'), quote = el.querySelector('blockquote')
+        return { display: getComputedStyle(turn).display, width: turn.getBoundingClientRect().width,
+          available: el.clientWidth, overflow: turn.scrollWidth > turn.clientWidth + 1,
+          answerFont: parseFloat(getComputedStyle(turn).fontSize), quoteFont: parseFloat(getComputedStyle(quote).fontSize),
+          boldDisplay: getComputedStyle(turn.querySelector('strong')).display }
+      })
+      assert.equal(geometry.display, 'block', 'Notebook answers must use continuous text flow')
+      assert(geometry.width >= geometry.available * .95 && !geometry.overflow, JSON.stringify(geometry))
+      assert.equal(geometry.boldDisplay, 'inline', 'bold text must stay inside the answer line')
+      assert(geometry.quoteFont < geometry.answerFont, 'source quotation is secondary to answer')
+      const output = path.resolve('artifacts/pdf-notebook')
+      await fs.mkdir(output, { recursive: true })
+      await page.screenshot({ path: path.join(output, `${name}-${width}.png`) })
+      await page.getByRole('button', { name: 'Close panel' }).click()
+    }
     const missing = structuredClone(recap)
     missing.id = 'missingpagecard'
     missing.u = Date.now() + 10
@@ -885,7 +927,11 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await openNotebook()
     const missingEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Saved answer with missing page.' })
-    await missingEntry.getByRole('button', { name: 'Original PDF page 2 · recap' }).click()
+    await missingEntry.waitFor()
+    console.log('missing-page notebook entry', await missingEntry.innerText())
+    const missingLink = missingEntry.locator('.pdf-original-reader__saved-head > button').first()
+    assert.match(await missingLink.innerText(), /^Original PDF page \d+ · recap$/i)
+    await missingLink.click()
     await page.getByLabel('Follow up').fill('What about the scanned page?')
     const missingBefore = calls.filter(call => call.path === '/api/chat').length
     await page.getByTestId('lab-phone-card-send').click()

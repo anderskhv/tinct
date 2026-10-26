@@ -1,3 +1,4 @@
+import {shelfBookCount} from './shelf-count.js';
 import { reviewedHooks, reviewedCast } from './reviewed-introductions.js?v=20260930fix';
 import {periodGroups,inPeriod,populatedShelves,collectionReels,compositionYears} from './browse-groups.js?v=20260929reels';
 import '/lab/display-profile.js';
@@ -624,7 +625,7 @@ addEventListener('resize',()=>{if(panelRect)applyPanel(panelRect);});
 
 // Library navigation uses the same forms and eras as the main catalogue.
 let collectionChoice='home';let libraryHouses=[];
-function persistSaved(){const n=savedBooks.size+(window.__library2Reading?.reading?.length||0);$('saved-count').textContent=n?String(n):'';}
+function persistSaved(){const n=shelfBookCount({saved:savedBooks,...window.__library2Reading,uploads:addEnabled()?ownShelf||[]:[],catalogue:books});$('saved-count').textContent=n?String(n):'';}
 function receiveSaved(ids){const merged=new Set(ids);for(const [id,p] of pendingSaves)p.saved?merged.add(id):merged.delete(id);ids=[...merged];savedBooks=new Set(ids);savedReady=true;persistSaved();updateSaveButton();all('.save-toggle').forEach(paintSaveToggle);dispatchEvent(new CustomEvent('library2:saved',{detail:ids}));}
 function updateSaveButton(){if(!activeBook)return;$('save-book').textContent=savedBooks.has(activeBook.id)?'✓ On your shelf':'＋ Add to shelf';$('save-book').setAttribute('aria-pressed',String(savedBooks.has(activeBook.id)));}
 async function toggleSaved(id){
@@ -635,7 +636,7 @@ async function toggleSaved(id){
 function paintSaveToggle(t){if(t.dataset.shelfRemove==='true'){t.textContent='×';t.classList.remove('on');t.removeAttribute('aria-pressed');t.setAttribute('aria-label','Remove from My shelf: '+t.dataset.title);return;}const on=savedBooks.has(t.dataset.book);t.textContent=on?'✓':'+';t.classList.toggle('on',on);t.setAttribute('aria-pressed',String(on));t.setAttribute('aria-label',`${on?'Remove from To read':'Add to shelf'}: ${t.dataset.title}`);}
 addEventListener('library2:remove-saved',e=>{if(savedBooks.has(e.detail))toggleSaved(e.detail);});
 $('save-book').onclick=()=>toggleSaved(activeBook.id);
-function setMenu(open){menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
+function setMenu(open){if(open){persistSaved();if(addEnabled())void loadOwnShelf();}menuOpen=open;$('library-menu').hidden=!open;$('menu-toggle').setAttribute('aria-expanded',String(open));syncLock();(open?$('menu-close'):$('menu-toggle')).focus({preventScroll:true});}
 $('menu-toggle').onclick=()=>setMenu(!menuOpen);$('menu-close').onclick=()=>setMenu(false);$('library-menu').onclick=e=>{if(e.target===$('library-menu'))setMenu(false);};
 // Views that cover the library (a category, Image credits, a book's introduction) own a history entry, so the phone's Back closes them instead of leaving Tinct.
 let layerFromPop=false;
@@ -738,7 +739,7 @@ function ownReadingCard(row,ownList){
  const actions=[{label:READ_LATER,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own})},{label:OFF_READING,onChoose:own=>void offCurrentlyReading(ownTableId(own.key),{own,later:false})}];
  const card=ownBookCard(book,el,{onDelete:(own,from)=>void deleteOwnBook(own,from),onEdit:editOwnBook,actions,progress:true});card.dataset.shelfGroup='own-reading';return card;
 }
-function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
+function loadOwnShelf(){if(!ownShelfLoading){const loading=addEngine().then(api=>api.ownBooks()).catch(()=>[]).then(list=>{if(ownShelfLoading!==loading)return;ownShelf=list;persistSaved();if(collectionChoice==='saved')renderMyBooks();});ownShelfLoading=loading;}return ownShelfLoading;}
 // Removing a book from My shelf (Anders, 2026-10-09: "like Apple apps in iOS"): the
 // book fades and shrinks away while the change is saved, then every re-render lets
 // the remaining books glide from where they are to their new places (shelf-motion.js),
