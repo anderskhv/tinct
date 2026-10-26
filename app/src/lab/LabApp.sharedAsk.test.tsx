@@ -2,6 +2,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
+import { readAllLabBookChats } from './labChatHistory'
 import { fallbackLabSource } from './labSource'
 
 afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.restoreAllMocks(); localStorage.clear(); sessionStorage.clear(); window.history.replaceState(null, '', '/') })
@@ -33,6 +34,8 @@ it.each(['two-page', 'margin'])('submits desktop Ask directly in chat without mo
   expect(root.getAttribute('data-place')).toBe(place)
   expect(JSON.stringify(requests[0])).toContain('Why these words?')
   expect(JSON.stringify(requests[0])).toContain(selected)
+  await waitFor(() => expect(readAllLabBookChats().flatMap(row => row.messages).filter(message => message.content === 'Why these words?')).toHaveLength(1))
+  expect(readAllLabBookChats().flatMap(row => row.messages).filter(message => message.content === 'A local passage answer.')).toHaveLength(1)
 })
 
 it.each(['two-page', 'margin'])('hands an Explain follow-up into chat once without moving the book in %s', async view => {

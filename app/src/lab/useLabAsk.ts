@@ -97,7 +97,8 @@ function nextId() {
 /** What a question carries beside its text: a highlighted passage, or a figure's picture. */
 export interface LabAskAttachment {
   sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number }
-  conversationId?: string
+  /** null starts ordinary chat; a string continues an existing saved discussion. */
+  conversationId?: string | null
   highlightedText?: string
   onAccepted?: () => void
   /** The picture to send with the question (signed in only), drawn as the companion takes pictures. */
@@ -820,7 +821,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       && text === CHAPTER_CHAT_MESSAGES[gated.action.kind]) chapterRequest = gated
     const requestBookId = chapterRequest?.action.bookId ?? retry?.userTurn.bookId ?? chatBookIdRef.current
     if (!text || sendingRef.current || requestBookId !== chatBookIdRef.current) return
-    const requestConversationId = retry?.userTurn.conversationId ?? attachment?.conversationId ?? optionsRef.current.conversationId ?? null
+    const requestConversationId = (retry ? retry.userTurn.conversationId : attachment?.conversationId !== undefined ? attachment.conversationId : optionsRef.current.conversationId) ?? null
     const discussion = requestConversationId ? conversationsRef.current.find(row => row.id === requestConversationId && row.bookId === requestBookId) : null
     const visibleContext = askContextNow([])
     const selectedSource = attachment?.sourceLocation

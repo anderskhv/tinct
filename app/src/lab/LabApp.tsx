@@ -5739,7 +5739,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     closePhoneCard()
     setDesktopOpenId(null)
     setContentsConversation(null)
-    setDesktopContinuationId(`mc_react_${Date.now()}`)
+    setDesktopContinuationId(null)
     setAskAttachment({ bookId: book.bookId || 'bible', text: passage.text, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex } })
     setSelectionPopup(null)
     setDraft(initialQuestion ?? '')
@@ -7357,18 +7357,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           popupRef={popupRef}
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
-            const conversationId = `mc_react_${Date.now()}`
             closePhoneCard()
             setDesktopOpenId(null)
             setSelectionPopup(null)
-            setDesktopContinuationId(conversationId)
+            setDesktopContinuationId(null)
             setContentsConversation(null)
             setDraft('')
             setPhoneAskOpen(showPhoneChrome)
             setDesktopAskOpen(!showPhoneChrome)
             dictation.stop()
             void ask.sendTyped(question, undefined, undefined, {
-              highlightedText: passage.text, conversationId, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+              highlightedText: passage.text, conversationId: null, sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
               onAccepted: () => setDraft(''),
             })
           } : undefined}

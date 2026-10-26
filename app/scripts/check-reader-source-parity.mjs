@@ -77,6 +77,10 @@ try {
       assert.equal(await root.getAttribute('data-place'), initialPlace, 'opening a card preserves source coordinate')
       const follow = item.getByTestId('lab-phone-card-input')
       await follow.fill('A draft kept beside this source.')
+      // Filling an offscreen field scrolls it into view; that explicit fixture
+      // interaction is separate from folding/reopening the discussion.
+      await settlePaint(page)
+      const placeBeforeFold = await root.getAttribute('data-place')
       await follow.press('Escape')
       const escaped = host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`)
       assert.equal(await escaped.getAttribute('data-open'), 'false', 'one Escape folds the card while typing')
@@ -84,7 +88,7 @@ try {
       assert.equal(await follow.inputValue(), '', 'reopening discards the unsent draft')
       await item.getByText(/Source point 20:/).waitFor()
       await assertNaturalCardBody(item)
-      assert.equal(await root.getAttribute('data-place'), initialPlace, 'long follow-up does not move reading position')
+      assert.equal(await root.getAttribute('data-place'), placeBeforeFold, 'folding and reopening the long card does not move reading position')
       await host.evaluate(node => { node.scrollTop = 0; node.dispatchEvent(new Event('scroll', { bubbles: true })) })
       await settlePaint(page)
       const sourceScrollBeforeTail = await host.evaluate(node => node.scrollTop)
