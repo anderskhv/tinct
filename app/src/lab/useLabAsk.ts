@@ -827,7 +827,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     const discussionContext = discussion && discussion.chapterNumber !== currentContext.chapterNumber
       ? { ...currentContext, chapterNumber: discussion.chapterNumber, chapterLabel: `Chapter ${discussion.chapterNumber}`,
           paragraphIndex: discussion.paragraphIndex ?? 0, paragraphs: [] }
-      : currentContext
+      : discussion ? { ...currentContext, paragraphIndex: discussion.paragraphIndex ?? currentContext.paragraphIndex } : currentContext
     const requestContext = chapterRequest?.context ?? retry?.context ?? discussionContext
     const requestChapter = requestContext.chapterNumber ?? 1
     const requestParagraph = requestContext.paragraphIndex
