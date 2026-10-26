@@ -888,7 +888,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     for (const width of [1100, 390]) {
       await page.setViewportSize({ width, height: 844 })
       await page.locator(`.pdf-original-reader.${width < 700 ? 'is-phone' : 'is-desktop'}`).waitFor()
-      await page.getByRole('button', { name: 'Appearance', exact: true }).click()
+      const appearance = page.getByRole('button', { name: 'Appearance', exact: true })
+      if (await appearance.isVisible()) await appearance.click()
+      else { await page.getByTestId('lab-super').click(); await page.getByTestId('lab-super-row-text').click() }
       await page.getByTestId('lab-v2-theme-dark').click()
       await page.getByRole('button', { name: 'Close panel' }).click()
       await openNotebook()
