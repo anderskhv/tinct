@@ -946,9 +946,9 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     assert.equal(await page.locator('meta[name="tinct-social"][content="1"]').count(),socialProfiles?1:0,'tinct-social marker matches SOCIAL_PROFILES')
     const accountRow='Profile'
     // Desktop: Library lives in the icon-only back arrow at the top left.
-    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; no Catch me up on a book's first
+    // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; Catch me up stays on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups: Appearance, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Catch me up','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
     // Desktop and phone share two explicitly labelled Chat and Talk actions.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-notebook').count(),phone?1:0,'Notebook remains accessible on phone without duplicating the desktop toolbar')
