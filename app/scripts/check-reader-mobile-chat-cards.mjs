@@ -117,15 +117,19 @@ try {
     // A single-word phone selection is a long press, not a tiny mouse drag
     // (short words fall below the reader's drag threshold).
     const visibleWords=page.locator('[data-testid="lab-page-wrap"] .lab-passage [data-testid="lab-word"]')
-    const wordIndex=await visibleWords.evaluateAll(nodes=>nodes.findIndex(node=>{const r=node.getBoundingClientRect();return r.top>100&&r.bottom<600&&r.width>40&&r.right<innerWidth}))
+    const wordIndex=await visibleWords.evaluateAll(nodes=>nodes.findIndex(node=>{const r=node.getBoundingClientRect();return /^[a-z]{5,}$/.test(node.textContent||'')&&r.top>100&&r.bottom<600&&r.width>40&&r.right<innerWidth}))
     assert(wordIndex>=0,'a visible word is available for Define')
     const word=visibleWords.nth(wordIndex),box=await word.boundingBox()
     const pointer={pointerId:9,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:box.x+box.width/2,clientY:box.y+box.height/2}
     await word.dispatchEvent('pointerdown',pointer);await page.waitForTimeout(350);await word.dispatchEvent('pointerup',pointer)
-    await page.getByTestId('lab-phone-bar').waitFor()
-    await page.getByTestId('lab-pbar-more').click();await page.getByTestId('lab-pmore-define').click()
+    // defaultPopupMode opens Define directly for one word; only phrases open the actions bar.
+    console.log(JSON.stringify({stage:'define-long-press',theme,standalone,word:await word.innerText(),cards:await page.locator('.lab-pcard').evaluateAll(nodes=>nodes.map(node=>node.dataset.kind))}))
     const definition=page.locator('.lab-pcard[data-kind="define"]')
-    await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+    await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor().catch(async error=>{
+      await page.screenshot({path:`${output}/${label}-define-failed.png`})
+      console.log(JSON.stringify({stage:'define-failure',cards:await page.locator('.lab-pcard').allTextContents()}))
+      throw error
+    })
     const contrast=await definition.evaluate(card=>{
       const lum=color=>{const rgb=color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722}
       const bg=lum(getComputedStyle(card).backgroundColor)
