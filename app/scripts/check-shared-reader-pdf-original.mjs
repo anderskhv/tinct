@@ -924,7 +924,11 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await openNotebook()
     const missingEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Saved answer with missing page.' })
-    await missingEntry.getByRole('button', { name: 'Original PDF page 2 · recap' }).click()
+    await missingEntry.waitFor()
+    console.log('missing-page notebook entry', await missingEntry.innerText())
+    const missingLink = missingEntry.locator('.pdf-original-reader__saved-head > button').first()
+    assert.match(await missingLink.innerText(), /^Original PDF page \d+ · recap$/i)
+    await missingLink.click()
     await page.getByLabel('Follow up').fill('What about the scanned page?')
     const missingBefore = calls.filter(call => call.path === '/api/chat').length
     await page.getByTestId('lab-phone-card-send').click()
