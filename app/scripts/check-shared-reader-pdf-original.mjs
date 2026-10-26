@@ -341,12 +341,24 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     if(await page.getByTestId('lab-header-notebook').isVisible())await page.getByTestId('lab-header-notebook').click()
     else {await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()}
   }
+  // Let the synthetic account acknowledge the position before replacing its
+  // document. WebKit reports intercepted keepalive fetches aborted by reload
+  // as page errors even when the application's fetch rejection is caught.
+  // This also verifies durable position sync instead of masking those errors.
+  const reloadSavedPage = async () => {
+    await page.waitForFunction(hex => {
+      const kept = JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${hex}`) || 'null')
+      return !kept?.at || kept.savedAt === kept.at
+    }, hex, { timeout: 15000 })
+    await page.reload({ waitUntil: 'domcontentloaded' })
+  }
   const narrationReady = narrationSuccess
   const visual = process.env.PDF_VISUAL_OUTPUT && name === 'chromium' ? path.resolve(process.env.PDF_VISUAL_OUTPUT) : null
   if (visual) await fs.mkdir(visual, { recursive: true })
   const places = {}
   const sets = { marks: { list: [], rev: 0 }, cards: { list: [], rev: 0 } }
-  page.on('pageerror', error => errors.push(error.stack || error.message))
+  page.on('pageerror', error => { console.log(`${name}: page error at ${page.url()}: ${error.message}`); errors.push(error.stack || error.message) })
+  page.on('requestfailed', request => console.log(`${name}: failed ${request.method()} ${request.url()}: ${request.failure()?.errorText}`))
   page.on('console', message => { if (message.type() === 'error') consoleErrors.push(message.text().slice(0, 1200)) })
   // Position writes use keepalive on reload. Keep their synthetic API handler
   // on the context so it survives the outgoing document, including in WebKit.
@@ -619,7 +631,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       `selection must sync to the owned PDF generation; set calls: ${JSON.stringify(calls.filter(call => /\/api\/user-books\/(marks|cards)\//.test(call.path)))}`)
     assert.equal(sets.marks.list.length, 1, 'the account copy holds the saved highlight')
     await page.evaluate(({ owner, fileId, hex }) => localStorage.removeItem(`tinct-addbook:pdf-original-marks:${owner}:${fileId}:${hex}`), { owner, fileId, hex })
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    await reloadSavedPage()
     await page.locator('.pdf-original__highlight').waitFor({ timeout: 45000 })
     assert(calls.filter(call => call.path === `/api/user-books/marks/${hex}` && call.method === 'GET').length >= 2,
       'the reloaded reader fetched its cloud generation and repainted the highlight')
@@ -794,7 +806,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     } else await page.getByText('Sign in to use Talk.').waitFor()
     await page.getByRole('button', { name: 'End Talk' }).click()
     if (narrationSuccess) {
-      await page.reload({ waitUntil: 'domcontentloaded' })
+      await reloadSavedPage()
       await page.getByText('Second original page has its own spoken words.').waitFor()
       await openNotebook()
       await page.getByText('What is printed on this page?').waitFor()
@@ -833,7 +845,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     for (let i = 0; i < 60 && !sets.cards.list.some(item => item.data?.action === 'recap' && item.data?.source?.to === 2); i++) await page.waitForTimeout(100)
     assert(sets.cards.list.some(item => item.data?.action === 'recap' && item.data?.source?.from === 1 && item.data?.source?.to === 2),
       'the account copy saves a multi-page source range')
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    await reloadSavedPage()
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await openNotebook()
     const recapEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Summarize Chapter One.' }).first()
@@ -869,7 +881,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     for (let i = 0; i < 60 && !sets.cards.list.some(item => item.data?.action === 'note' && item.data?.source?.to === 2); i++) await page.waitForTimeout(100)
     assert(sets.cards.list.some(item => item.data?.action === 'note' && item.data?.source?.from === 1 && item.data?.source?.to === 2),
       'after-unit Note saves the complete source range')
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    await reloadSavedPage()
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await openNotebook()
     for (const fragment of ['What links these two pages?', 'The first printed page leads into the second original page.',
@@ -895,7 +907,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     notebookAnswer.u = Date.now() + 20
     assert.match(notebookAnswer.id, /^[0-9a-z]{4,32}$/, 'fixture uses the persisted card ID contract')
     sets.cards.list.push(notebookAnswer); sets.cards.rev++
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    await reloadSavedPage()
     await page.getByText('Second original page has its own spoken words.').waitFor()
     for (const width of [1100, 390]) {
       await page.setViewportSize({ width, height: 844 })
@@ -932,7 +944,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     missing.data.source.to = 3
     missing.turns = [{ role: 'user', content: 'Summarize every page.' }, { role: 'assistant', content: 'Saved answer with missing page.' }]
     sets.cards.list.push(missing); sets.cards.rev++
-    await page.reload({ waitUntil: 'domcontentloaded' })
+    await reloadSavedPage()
     await page.getByText('Second original page has its own spoken words.').waitFor()
     await openNotebook()
     const missingEntry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'Saved answer with missing page.' })
