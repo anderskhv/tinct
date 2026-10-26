@@ -153,3 +153,17 @@ it('uses the complete PDF source container height when only nearby page canvases
   render(<SourceMarginRail host={host} entries={[]} onBlankNote={vi.fn()} />)
   expect(host.querySelector<HTMLElement>('.source-margin-room')!.style.height).toBe('40000px')
 })
+
+it('focuses an editor synchronously once its measured card is visible, without stealing focus on later layout', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const other = document.createElement('input'); host.append(other)
+  const entry: SourceMarginEntry = { id: 'new-note', label: 'Note', source: () => ({ left: 0, right: 100, top: 100, bottom: 120 }),
+    order: 1, open: true, focusEditor: true, content: <textarea className="lab-pcard-note" aria-label="New note" />, onToggle: vi.fn() }
+  const { rerender } = render(<SourceMarginRail host={host} entries={[entry]} />)
+  const field = screen.getByRole('textbox', { name: 'New note' })
+  expect(field.closest('section')?.style.visibility).not.toBe('hidden')
+  expect(document.activeElement).toBe(field)
+  other.focus()
+  rerender(<SourceMarginRail host={host} entries={[{ ...entry }]} />)
+  expect(document.activeElement).toBe(other)
+})
