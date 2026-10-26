@@ -14,5 +14,6 @@ export function readingChatTurns(turns: LabAskTurn[], conversations: ChatConvers
       || turns.some(turn => turn.conversationId === row.id && turn.role === 'user' && !seedIds.has(turn.id))
     if (!discussed) hidden.add(row.id)
   }
-  return turns.filter(turn => !turn.shownExplanation && !hidden.has(turn.conversationId ?? ''))
+  // Legacy keepExplanation turns are created only by an explicit Chat/Talk handoff.
+  return turns.filter(turn => !hidden.has(turn.conversationId ?? ''))
 }

@@ -1,3 +1,6 @@
+/* Brief source cue after an explicit Notebook Open/Show passage action. */
+.lab .is-notebook-passage { background-color: color-mix(in srgb, var(--lab-ink, #a87c35) 20%, transparent); border-radius: 2px; }
+
 .lab.is-phone .lab-narration-inline, .lab.has-phone-chrome .lab-narration-inline { position: absolute; left: 0; right: 0; bottom: calc(3.72rem + env(safe-area-inset-bottom, 0px)); padding: 0 16px; }
 .lab-narration-inline ~ .lab-page-turn .lab-chapter-progress { visibility: hidden; }
 /* Audio preparation stays inside the existing Play button. */
@@ -7714,5 +7717,3 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 }
 
 
-/* Brief source cue after an explicit Notebook Open/Show passage action. */
-.lab .is-notebook-passage { background-color: color-mix(in srgb, var(--lab-ink, #a87c35) 20%, transparent); border-radius: 2px; }

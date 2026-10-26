@@ -5602,6 +5602,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   /** One card at a time: anything else that pops up closes first. */
   const desktopCardId = (card: PhoneCard) => card.kind === 'note' ? `highlight:${card.highlightId}` : card.kind === 'chapter-note' ? `chapter-note:${card.chapterNumber}` : `mc_react_${card.kind === 'quiz' ? 'quiz_' : ''}${card.openedAt}`
   const openPhoneCard = (card: PhoneCard) => {
+    setDesktopAskOpen(false)
+    setDraft('')
     setNotebookCard(null)
     if (continuousReader) {
       if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
