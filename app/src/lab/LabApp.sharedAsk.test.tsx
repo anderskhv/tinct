@@ -74,4 +74,12 @@ it.each(['two-page', 'margin'])('hands an Explain follow-up into chat once witho
   fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'Unsent draft to discard' } })
   fireEvent.click(screen.getByTestId('lab-desktop-companion-close'))
   expect(root.getAttribute('data-place')).toBe(place)
+  if (view === 'margin') {
+    fireEvent.click(screen.getByTestId('source-margin-open'))
+    fireEvent.click(screen.getByText('Continue discussion'))
+    expect(screen.getByTestId('lab-ask-pane')).toBeTruthy()
+    expect((screen.getByTestId('lab-ask-input') as HTMLTextAreaElement).value).toBe('')
+    expect(requests).toHaveLength(3)
+    expect(root.getAttribute('data-place')).toBe(place)
+  }
 })

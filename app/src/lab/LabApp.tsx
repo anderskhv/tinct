@@ -5841,6 +5841,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
   }
 
+  const continueDiscussionAction = (id: string) => {
+    const saved = ask.conversations.find(row => row.id === id)
+    if (!saved || saved.card?.kind === 'quiz') return null
+    const firstAnswer = saved.messages.findIndex(message => message.role === 'assistant')
+    if (!saved.messages.slice(firstAnswer + 1).some(message => message.role === 'user')) return null
+    return <button type="button" className="lab-pcard-link" onClick={() => openNotebookConversation(saved)}>Continue discussion</button>
+  }
+
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
           <LabAskPane
@@ -5903,8 +5911,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       requestAnimationFrame(() => handleTalk())
     }
     const follow = (passage: PhonePassage | null, placeholder?: string) => (
-      <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
-        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} />
+      <>{continueDiscussionAction(desktopCardId(card))}<PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
+        onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} /></>
     )
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
@@ -6113,6 +6121,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
       {item.messages.map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
+      {continueDiscussionAction(item.id)}
       <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
   })) : []

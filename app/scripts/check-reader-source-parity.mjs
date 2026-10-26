@@ -130,6 +130,13 @@ try {
       assert.equal(await first.getAttribute('data-open'), 'false')
       await first.getByTestId('source-margin-open').click()
       assert.equal(await first.getAttribute('data-open'), 'true', 'folded row reopens its original answer')
+      const beforeContinue = await root.getAttribute('data-place'), beforeContinueRequests = requests.length
+      await first.getByRole('button',{name:'Continue discussion',exact:true}).click()
+      await page.getByTestId('lab-ask-pane').waitFor()
+      assert.equal(requests.length,beforeContinueRequests,'Continue discussion reuses the existing interaction without a request')
+      assert.equal(await root.getAttribute('data-place'),beforeContinue,'Continue discussion leaves the source position unchanged')
+      await page.getByTestId('lab-desktop-companion-close').click()
+      await first.getByTestId('source-margin-open').click()
       assert.equal(await host.locator('[data-testid="source-margin-item"][data-open="true"]').count(), 1)
       await assertRailScrollsWithSource(page, host, first, host.locator('.is-card-passage').first())
       const finalGeometry = await sourceRailGeometry(page, host)
