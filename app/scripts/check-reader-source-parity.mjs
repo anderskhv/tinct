@@ -354,8 +354,10 @@ try {
       assert.equal(await root.getAttribute('data-place'),initialPlace,'phone card handoff leaves reading position unchanged')
       const followPosition = await phoneChat.getByText('Phone follow-up retry check', {exact:true}).evaluate(node => {
         const thread = node.closest('[data-testid="lab-ask-thread"]'), box = node.getBoundingClientRect(), bounds = thread?.getBoundingClientRect()
-        return { top: box.top, bottom: box.bottom, rowTop:node.closest('[data-turn-id]')?.getBoundingClientRect().top, threadTop: bounds?.top, threadBottom: bounds?.bottom }
+        const spacer = thread?.querySelector(".tc-spacer")
+        return { scrollTop: thread?.scrollTop, scrollHeight: thread?.scrollHeight, clientHeight: thread?.clientHeight, spacerDisplay: spacer ? getComputedStyle(spacer).display : null, spacerHeight: spacer?.getBoundingClientRect().height, top: box.top, bottom: box.bottom, rowTop:node.closest('[data-turn-id]')?.getBoundingClientRect().top, threadTop: bounds?.top, threadBottom: bounds?.bottom }
       })
+      assert.notEqual(followPosition.spacerDisplay, "none", `phone question anchor needs rendered trailing room: ${JSON.stringify(followPosition)}`)
       assert.ok(followPosition.threadTop !== undefined && followPosition.top >= followPosition.threadTop - 2 && followPosition.bottom <= followPosition.threadBottom, `handoff shows the follow-up, not the original Explain prompt: ${JSON.stringify(followPosition)}`)
       assert.ok(followPosition.rowTop - followPosition.threadTop >= -2 && followPosition.rowTop - followPosition.threadTop <= 120, `follow-up opens near the top with room for its answer: ${JSON.stringify(followPosition)}`)
       failPhoneFollow = false
