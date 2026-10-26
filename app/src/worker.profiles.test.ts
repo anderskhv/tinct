@@ -888,3 +888,18 @@ describe('the confirmation email at sign-up (Anders, 9 Oct 2026)', () => {
     expect(calls[calls.length - 1].init?.method).toBe('DELETE')
   })
 })
+
+describe('approved reading language preference', () => {
+  it('defaults to English, accepts Danish alone and never allows an empty or unsupported choice', async () => {
+    const store = new MemoryStore(); seed(store)
+    const initial = await call(store, '/api/profile', { as: A })
+    expect((await initial!.json()).profile.readingLanguages).toEqual(['en'])
+    for (const readingLanguages of [[], ['fr'], ['da', 'da']]) {
+      expect((await post(store, A, { readingLanguages }))!.status).toBe(422)
+      expect(store.profiles.get(A)!.reading_languages).toEqual(['en'])
+    }
+    const saved = await post(store, A, { readingLanguages: ['da'] })
+    expect((await saved!.json()).profile.readingLanguages).toEqual(['da'])
+    expect(store.profiles.get(A)!.visibility).toBe('only_me')
+  })
+})

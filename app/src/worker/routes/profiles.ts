@@ -1,3 +1,4 @@
+import { validReadingLanguages } from '../../social/readingLanguages'
 /**
  * Profiles (social ship 2). Everything here answers only while the Worker var
  * SOCIAL_PROFILES is "1"; off, every route is a plain 404, exactly as before
@@ -176,6 +177,8 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
     showTime: row.show_time,
     onLeaderboard: row.on_leaderboard,
     newBooksOpenIn: row.new_books_open_in,
+    readingLanguages: row.reading_languages ?? ['en'],
+    accountCreatedAt: user.created_at ?? null,
     setUp: Boolean(row.set_up_at),
     /** An account from before profiles that has not chosen anything yet. */
     needsSetup: row.auto_created && !row.set_up_at,
@@ -304,6 +307,7 @@ async function ownProfile(store: ProfileStore, user: ProfileAuthUser, bookHint: 
       show_time: true,
       on_leaderboard: false,
       new_books_open_in: 'modern',
+      reading_languages: ['en'],
       auto_created: true,
       set_up_at: null,
       prompted_at: null,
@@ -377,6 +381,10 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
       if (typeof body[field] !== 'boolean') return { error: 'Choose on or off.', field, status: 422 }
       patch[column] = body[field] as boolean
     }
+  }
+  if ('readingLanguages' in body) {
+    if (!validReadingLanguages(body.readingLanguages)) return { error: 'Choose English, Dansk, or both.', field: 'readingLanguages', status: 422 }
+    patch.reading_languages = body.readingLanguages
   }
   if ('newBooksOpenIn' in body) {
     if (body.newBooksOpenIn !== 'modern' && body.newBooksOpenIn !== 'human') return { error: 'Choose a version.', field: 'newBooksOpenIn', status: 422 }

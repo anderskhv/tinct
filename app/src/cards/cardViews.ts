@@ -1,3 +1,4 @@
+import { toggleReadingLanguage, type ReadingLanguage } from '../social/readingLanguages'
 /**
  * The six account cards (and the small cards behind their rows), as
  * cards.html draws them: You, Your reading, Leaderboard, Find readers, a
@@ -31,11 +32,10 @@ import {
 import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
 import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
-import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, uploadProfileImage } from '../social/socialClient'
+import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
 import { markRequestsSeen, pendingRequests, requestsLine } from '../social/followRequests'
-import { FINDABLE_NOTICE_ATTR, FINDABLE_NOTICE_COPY, checkFindableNoticeAccount, dismissFindableNotice, findableNoticeDue, findableNoticeFor, findableNoticeText, markFindableNoticeShown, recordFindableNoticeSeen } from '../social/findableNotice'
 import { knownBoard, knownBoardAge, knownDefaultBoard, loadBoard, loadDefaultBoard, onBoardsChanged, rememberPickedBoard, type BoardTab } from './boardMemory'
 import { startTopUpCheckout, type AiAllowance, type TopUpPack } from '../lab/labAiAllowance'
 import { startPremiumCheckout, type PremiumInterval } from '../lab/labPremiumOffer'
@@ -51,6 +51,7 @@ export interface CardsData {
   reading: ReadingLoad | null
   allowance: AiAllowance | null
   plan: 'premium' | 'free' | null
+  firstMonthFreeUntil?: string | null
   /** Premium intervals on sale to this reader (free readers only). */
   intervals: PremiumInterval[]
   /** "3rd of 5" among friends (/api/social/rank). */
@@ -191,6 +192,7 @@ function ownName(env: CardsEnv): string {
 }
 
 function planWord(env: CardsEnv): string {
+  if (env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now()) return 'Premium · first month free'
   return env.data.plan === 'premium' ? CARDS_COPY.premium : env.data.plan === 'free' ? CARDS_COPY.free : ''
 }
 
@@ -419,7 +421,7 @@ export function youCard(env: CardsEnv): CardSpec {
           : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
-      body.append(...[requestsGroup(env, card), findableNotice(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
+      body.append(...[requestsGroup(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
       status = ''
       return [hero, body]
     },
@@ -445,36 +447,6 @@ function requestsGroup(env: CardsEnv, card: CardHandle): HTMLElement | null {
 }
 
 /**
- * The one-time notice about findable profiles (social/findableNotice.ts) at
- * the top of the You card, unless the account has seen it already: shown, it
- * is marked seen for the account; Settings opens the Settings card; either
- * row ends it.
- */
-function findableNotice(env: CardsEnv, card: CardHandle): HTMLElement | null {
-  const userId = env.session.userId
-  const profile = env.data.profile
-  if (!env.social || !profile || !userId || !findableNoticeFor(profile)) return null
-  const text = findableNoticeText(profile.visibility)
-  if (!text) return null
-  if (!findableNoticeDue(profile, userId)) {
-    // Not known yet on this device: ask the account, and paint it if it was never seen.
-    void checkFindableNoticeAccount(userId).then(() => { if (findableNoticeDue(env.data.profile, userId)) env.changed() })
-    return null
-  }
-  markFindableNoticeShown(userId)
-  const notice = group(
-    el('p', { text, style: { margin: '0', padding: '12px 16px', fontSize: '15px', lineHeight: '1.4' } }),
-    row({ label: FINDABLE_NOTICE_COPY.settings, chevron: true, testid: 'findable-notice-settings', onClick: () => { dismissFindableNotice(userId); card.stack.push(settingsCard(env)); env.changed() } }),
-    row({ label: FINDABLE_NOTICE_COPY.dismiss, testid: 'findable-notice-dismiss', onClick: () => { dismissFindableNotice(userId); env.changed() } }),
-  )!
-  notice.setAttribute(FINDABLE_NOTICE_ATTR, '')
-  notice.setAttribute('role', 'note')
-  notice.setAttribute('aria-label', FINDABLE_NOTICE_COPY.label)
-  notice.dataset.testid = 'findable-notice'
-  return notice
-}
-
-/**
  * The You card's name: tap it to change it in place. Saved through the
  * profile save path (POST /api/profile { name }), so the rules are the
  * sign-up profile step's: at most 40 characters, and the Worker's
@@ -493,7 +465,7 @@ function nameField(env: CardsEnv, card: CardHandle, naming: { open: boolean; dra
         field?.focus()
         field?.select()
       },
-    }, el('b', { text: name }))
+    }, el('b', { text: name }), el('span', { className: 'tc-name-pencil', html: ICONS.pencil, 'aria-hidden': 'true' }))
   }
   const input = el('input', {
     type: 'text', className: 'tc-nm-in', name: 'profileName', value: naming.draft, maxLength: '40', autocomplete: 'name', enterkeyhint: 'done',
@@ -1147,8 +1119,6 @@ export function settingsCard(env: CardsEnv): CardSpec {
         env.changed()
       }
       if (profile) {
-        // Profile visibility is chosen here, so the findable-profiles notice has done its job.
-        if (env.social && findableNoticeFor(profile)) void recordFindableNoticeSeen(env.session.userId)
         const setPrivacy = (change: Partial<PrivacyFields>) => {
           const before = env.data.profile
           if (!before) return
@@ -1180,6 +1150,21 @@ export function settingsCard(env: CardsEnv): CardSpec {
             extra: [toggle(CARDS_COPY.leaderboard, allowed && profile.onLeaderboard, allowed, () => setPrivacy({ onLeaderboard: !profile.onLeaderboard }), 'settings-leaderboard')],
           }),
         )!)
+        const languages = profile.readingLanguages ?? ['en']
+        const chooseLanguage = (language: ReadingLanguage) => {
+          const before = env.data.profile
+          if (!before) return
+          const next = toggleReadingLanguage(languages, language)
+          if (next.join() === languages.join()) return
+          env.data.profile = { ...before, readingLanguages: next }
+          rememberReadingLanguages(next)
+          env.changed()
+          void post({ readingLanguages: next }, () => { env.data.profile = before; rememberReadingLanguages(before.readingLanguages ?? ['en']) })
+        }
+        body.append(group(row({ label: 'I read in', className: 'is-seg', extra: [
+          toggle('English', languages.includes('en'), true, () => chooseLanguage('en'), 'settings-language-en'),
+          toggle('Dansk', languages.includes('da'), true, () => chooseLanguage('da'), 'settings-language-da'),
+        ] }))!)
         const chooseNewBooks = (value: NewBooksOpenIn) => {
           const before = env.data.profile
           if (!before) return
@@ -1256,7 +1241,7 @@ export function accountCard(env: CardsEnv): CardSpec {
             try { env.navigate(await startPremiumCheckout(token, interval)) } catch { status = CARDS_COPY.paymentFailed; card.refresh() }
           },
         }))
-      body.append(group(row({ label: premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
+      body.append(group(row({ label: env.data.firstMonthFreeUntil && Date.parse(env.data.firstMonthFreeUntil) > Date.now() ? planWord(env) : premium ? CARDS_COPY.premiumAccount : CARDS_COPY.freeAccount, testid: 'account-plan' }), ...plans)!)
       if (confirming) {
         body.append(
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),

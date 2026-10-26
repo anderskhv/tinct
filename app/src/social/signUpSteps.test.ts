@@ -68,6 +68,7 @@ beforeEach(() => {
   localStorage.clear()
   sessionStorage.clear()
   posts = []
+  vi.stubGlobal('URL', Object.assign(URL, { createObjectURL: vi.fn(() => 'blob:synthetic-preview'), revokeObjectURL: vi.fn() }))
   navigation.mockClear()
   auth.signUp.mockClear()
   vi.stubGlobal('fetch', api)
@@ -113,7 +114,7 @@ describe('sign-up with profiles on', () => {
     expect((document.querySelector('[name=password]') as HTMLInputElement).type).toBe('text')
   })
 
-  it('steps 2 and 3: Skip = Only me, consent saved with its version, the reading question, back to the book, no toast', async () => {
+  it('Skip leaves the profile unchanged; reading preferences save on Start, returning to the book', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
@@ -127,19 +128,19 @@ describe('sign-up with profiles on', () => {
     expect(document.querySelector('.social-step input[type=file]')).toBeNull()
     expect(document.querySelector('[data-mode-copy="profile"]')!.textContent).not.toMatch(/upload/i)
     // Three sets, two pictures of women (Longbourn, The Awakening; 14 October 2026) and the initial.
-    expect(document.querySelectorAll('.social-pictures button').length).toBe(6)
+    expect(document.querySelectorAll('.social-pictures button[aria-label^="Picture:"]').length).toBe(6)
     // Only me is preselected: a new profile is Only me until the reader changes it (privacy notice).
-    expect(document.querySelector('.social-tick[data-value="only_me"]')!.getAttribute('aria-checked')).toBe('true')
-    expect(document.querySelector('.social-tick[data-value="friends"]')!.getAttribute('aria-checked')).toBe('false')
+    expect(document.querySelector('.social-tick[data-value="everyone"]')!.getAttribute('aria-checked')).toBe('true')
+    expect(document.querySelector('.social-tick[data-value="friends"]')).toBeNull()
     document.querySelector<HTMLButtonElement>('[data-social-skip]')!.click()
     await flush()
-    expect(posts[0]).toEqual({ consent: { optIn: true, version: EMAIL_CONSENT_VERSION }, skip: true })
+    expect(posts).toEqual([])
     expect(mode()).toBe('reading')
     expect(document.querySelector('[data-social-steps]')!.textContent).toBe('3 of 3')
     document.querySelector<HTMLButtonElement>('.social-tick[data-value="human"]')!.click()
     document.querySelector<HTMLButtonElement>('[data-social-start]')!.click()
     await flush()
-    expect(posts[1]).toEqual({ newBooksOpenIn: 'human' })
+    expect(posts[0]).toEqual({ newBooksOpenIn: 'human', readingLanguages: ['en'] })
     expect(localStorage.getItem('tinct:new-books-open-in')).toBe('human')
     expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
     expect(document.body.textContent).not.toContain('Your place is saved')
@@ -154,19 +155,19 @@ describe('sign-up with profiles on', () => {
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
     // Continue without a choice keeps Only me.
-    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'only_me', setUp: true, picture: { kind: 'set' } })
+    expect(posts[0]).toMatchObject({ name: 'Newton', visibility: 'everyone', showReading: true, showTime: true, onLeaderboard: true, setUp: true, picture: { kind: 'set' } })
     expect(mode()).toBe('reading')
   })
 
-  it('Friends is saved only when the reader chooses it', async () => {
+  it('Private saves all sharing switches off', async () => {
     mount(true)
     await import('../labSignIn')
     await flush()
     await createAccount()
-    document.querySelector<HTMLButtonElement>('.social-tick[data-value="friends"]')!.click()
+    document.querySelector<HTMLButtonElement>('.social-tick[data-value="only_me"]')!.click()
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
-    expect(posts[0]).toMatchObject({ visibility: 'friends', setUp: true })
+    expect(posts[0]).toMatchObject({ visibility: 'only_me', showReading: false, showTime: false, onLeaderboard: false, setUp: true })
   })
 
   it('offers two stock pictures of women, saved as any other choice', async () => {
@@ -219,14 +220,15 @@ describe('sign-up with profiles on', () => {
     await flush()
     choose(fields[0])
     await flush()
-    expect(images).toEqual(['background', 'picture'])
+    expect(images).toEqual([])
     // The reader's own picture joins the choices, chosen.
     const own = document.querySelector<HTMLButtonElement>('.social-pictures button[aria-label="Upload a picture"]')!
     expect(own.getAttribute('aria-pressed')).toBe('true')
     document.querySelector<HTMLButtonElement>('[data-social-continue]')!.click()
     await flush()
     // Both are saved already (pending review): Continue sends neither.
-    expect(posts[0]).toMatchObject({ visibility: 'only_me', setUp: true })
+    expect(images).toEqual(['background', 'picture'])
+    expect(posts[0]).toMatchObject({ visibility: 'everyone', setUp: true })
     expect(posts[0]).not.toHaveProperty('picture')
     expect(posts[0]).not.toHaveProperty('background')
     vi.doUnmock('./socialClient')

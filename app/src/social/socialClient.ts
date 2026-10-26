@@ -1,3 +1,4 @@
+import { validReadingLanguages, type ReadingLanguage } from './readingLanguages'
 /**
  * Profiles (social ship 2) in the browser: the switch, the API calls, the
  * picture drawing and the photo resize. Shared by the sign-up page, the You
@@ -35,6 +36,8 @@ export interface OwnProfile {
   showReading: boolean
   showTime: boolean
   onLeaderboard: boolean
+  readingLanguages?: ReadingLanguage[]
+  accountCreatedAt?: string | null
   newBooksOpenIn: NewBooksOpenIn
   setUp: boolean
   needsSetup: boolean
@@ -68,6 +71,7 @@ async function readResult(res: Response): Promise<ProfileResult> {
   const profile = data.profile as OwnProfile | undefined
   if (!profile || typeof profile.handle !== 'string') return { ok: false, reason: 'failed' }
   rememberNewBooksOpenIn(profile.newBooksOpenIn)
+  rememberReadingLanguages(profile.readingLanguages ?? ['en'])
   return { ok: true, profile }
 }
 
@@ -202,6 +206,16 @@ export function newBooksOpenIn(doc: Document | null = typeof document === 'undef
   } catch {
     return null
   }
+}
+
+export const READING_LANGUAGES_KEY = 'tinct:reading-languages'
+export function rememberReadingLanguages(value: ReadingLanguage[]): void {
+  if (!validReadingLanguages(value)) return
+  try { localStorage.setItem(READING_LANGUAGES_KEY, JSON.stringify(value)) } catch { /* preference still saved on the account */ }
+}
+export function readingLanguages(): ReadingLanguage[] {
+  if (!socialProfilesOn()) return ['en']
+  try { const value = JSON.parse(localStorage.getItem(READING_LANGUAGES_KEY) || 'null'); return validReadingLanguages(value) ? value : ['en'] } catch { return ['en'] }
 }
 
 // ===== Photos: resized in the browser; re-encoding drops location data =====

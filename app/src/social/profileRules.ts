@@ -34,7 +34,7 @@ export const VISIBILITY_COPY: Record<Visibility, { label: string; line: string; 
 
 export const NEW_BOOKS_COPY: Record<NewBooksOpenIn, { label: string; line: string }> = {
   modern: { label: 'Modern English', line: 'The same book, in today’s English.' },
-  human: { label: 'Human translations', line: 'A published translation. Books written in English open as written.' },
+  human: { label: 'Human originals or translations', line: 'The original text, or a published translation.' },
 }
 
 /**

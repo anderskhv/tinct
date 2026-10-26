@@ -109,8 +109,8 @@ function load(env: CardsEnv, social: boolean): void {
   const set = (patch: Partial<CardsData>) => {
     Object.assign(env.data, patch)
     if (cached?.userId === userId) cached.data = env.data
-    const { profile, reading, rank, plan, billing, allowance } = env.data
-    writeCardsCache(userId, { profile, reading, rank, plan, billing: billing === true, allowance: allowance ?? null })
+    const { profile, reading, rank, plan, firstMonthFreeUntil, billing, allowance } = env.data
+    writeCardsCache(userId, { profile, reading, rank, plan, firstMonthFreeUntil, billing: billing === true, allowance: allowance ?? null })
     env.changed()
   }
   const settled = (part: 'profile' | 'reading') => ({ ...env.data.loading, [part]: false })
@@ -147,7 +147,7 @@ function load(env: CardsEnv, social: boolean): void {
       || (status === 'canceled' && Boolean(info.subscription_period_end) && new Date(info.subscription_period_end!).getTime() > Date.now())
     // Stripe's portal only for an account with a Stripe subscription to manage
     // (not Premium by grant, whose portal would be empty).
-    set({ plan: paying ? 'premium' : 'free', intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
+    set({ plan: info.premium || paying ? 'premium' : 'free', firstMonthFreeUntil: info.first_month_free_until ?? null, intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
   })
 }
 

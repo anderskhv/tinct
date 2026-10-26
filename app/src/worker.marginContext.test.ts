@@ -625,9 +625,15 @@ describe('the book reader is unchanged', () => {
     const { anthropic } = stubFetch()
     await send(requests[name].body, { guest: requests[name].guest })
     expect(anthropic).toHaveLength(1)
-    expect(sha(anthropic[0])).toBe(AFTER[name])
-    expect(sha(withoutLookupGrounding(anthropic[0]))).toBe(GROUNDED[name])
-    expect(sha(withoutGrounding(withoutLookupGrounding(anthropic[0])))).toBe(BEFORE[name])
+    // The approved language rule is the only addition to the frozen request.
+    const languageRule = '\n\nIf the reader writes their question in Danish, answer in Danish. Keep structured response keys unchanged.'
+    const body = anthropic[0]
+    const system = body.system as string | Array<{ text: string }>
+    expect(JSON.stringify(system)).toContain('If the reader writes their question in Danish')
+    const unchanged = { ...body, system: typeof system === 'string' ? system.replace(languageRule, '') : system.map(block => ({ ...block, text: block.text.replace(languageRule, '') })) }
+    expect(sha(unchanged)).toBe(AFTER[name])
+    expect(sha(withoutLookupGrounding(unchanged))).toBe(GROUNDED[name])
+    expect(sha(withoutGrounding(withoutLookupGrounding(unchanged)))).toBe(BEFORE[name])
   })
 })
 

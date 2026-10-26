@@ -545,76 +545,12 @@ describe('findable profiles and follow requests (19 October 2026)', () => {
     expect(byTest('following-you-row-remove')).toBeNull()
   })
 
-  it('the You card shows the notice once per account: marked seen in the account as it shows, gone after Dismiss', async () => {
-    await open('you')
-    const notice = byTest('findable-notice')
-    expect(notice?.textContent).toContain(NOTICE)
-    expect(notice?.textContent).toContain('Settings')
-    // Shown is enough: the account has it before any tap.
-    expect(accountNotice.writes).toEqual([session.userId])
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
-    click(byTest('findable-notice-dismiss'))
-    await flush()
-    expect(byTest('findable-notice')).toBeNull()
-    closeAccountCards()
+  it('no longer shows the replaced findable notice on the You card', async () => {
     await open('you')
     expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('another device, browser or private window never shows it once the account has seen it', async () => {
-    await open('you')
-    expect(byTest('findable-notice')).toBeTruthy()
-    closeAccountCards()
-    // A fresh device: nothing stored here, a new page.
-    localStorage.clear()
-    resetFindableNoticeVisit()
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-    expect(localStorage.getItem(`tinct:findable-notice-dismissed:${session.userId}`)).toBe('2')
-  })
-
-  it('Settings in the notice opens Settings and ends the notice', async () => {
-    await open('you')
-    click(byTest('findable-notice-settings'))
-    await flush()
-    expect(top().dataset.card).toBe('settings')
-    click(byTest('card-back'))
-    expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('opening Settings any other way marks it seen, so it never shows after', async () => {
-    await open('settings')
-    await flush()
-    expect(accountNotice.seen.has(session.userId)).toBe(true)
-    closeAccountCards()
-    localStorage.clear()
-    resetFindableNoticeVisit()
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-  })
-
-  it('a profile set up since findable profiles shipped never gets it, and nothing is written', async () => {
-    profile = ownProfile({ setUpBeforeFindable: false })
-    // Another account, so the page's last paint (the earlier tests' profile) is not reused.
-    const later = { ...session, userId: '33333333-3333-4333-8333-333333333333' }
-    expect(await openAccountCards({ session: later, social: true, dark: false, start: 'you' })).toBe(true)
-    await flush()
-    expect(byTest('findable-notice')).toBeNull()
-    click(byTest('you-settings'))
-    await flush()
     expect(accountNotice.writes).toEqual([])
   })
 
-  it('an Only me profile never gets it; an Everyone profile gets a line that is true for it', async () => {
-    profile = ownProfile({ visibility: 'only_me', effectiveVisibility: 'only_me' })
-    await open('you')
-    expect(byTest('findable-notice')).toBeNull()
-    closeAccountCards()
-    profile = ownProfile({ visibility: 'everyone', effectiveVisibility: 'everyone' })
-    await open('you')
-    expect(byTest('findable-notice')?.textContent).toContain('Your profile is set to Everyone, so anyone with your link sees your reading.')
-    expect(byTest('findable-notice')?.textContent).not.toContain('stays private')
-  })
 })
 
 describe('type rules', () => {
