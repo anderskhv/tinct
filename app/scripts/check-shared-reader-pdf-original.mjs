@@ -879,6 +879,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     notebookAnswer.id = 'notebook-layout-regression'
     notebookAnswer.kind = 'factcheck'
     delete notebookAnswer.data
+    delete notebookAnswer.pageOnly
+    notebookAnswer.rects = [[notebookAnswer.page, .1, .2, .3, .04]]
     notebookAnswer.text = 'A longer quoted passage should remain secondary to the saved response. '.repeat(5)
     notebookAnswer.turns = [{ role: 'assistant', content: '**Partly holds.** A readable answer flows across the full Notebook width, including [a source](https://example.com/source) and the explanation that follows. '.repeat(5) }]
     notebookAnswer.u = Date.now() + 20
