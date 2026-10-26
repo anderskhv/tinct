@@ -885,7 +885,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     assert(recap, 'a real saved Recap supplies the owned card shape')
     // Rich inline answers used to inherit the header's flex layout and become narrow columns.
     const notebookAnswer = structuredClone(recap)
-    notebookAnswer.id = 'notebook-layout-regression'
+    notebookAnswer.id = 'notebooklayoutregression'
     notebookAnswer.kind = 'factcheck'
     delete notebookAnswer.data
     delete notebookAnswer.pageOnly
@@ -893,6 +893,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     notebookAnswer.text = 'A longer quoted passage should remain secondary to the saved response. '.repeat(5)
     notebookAnswer.turns = [{ role: 'assistant', content: '**Partly holds.** A readable answer flows across the full Notebook width, including [a source](https://example.com/source) and the explanation that follows. '.repeat(5) }]
     notebookAnswer.u = Date.now() + 20
+    assert.match(notebookAnswer.id, /^[0-9a-z]{4,32}$/, 'fixture uses the persisted card ID contract')
     sets.cards.list.push(notebookAnswer); sets.cards.rev++
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.getByText('Second original page has its own spoken words.').waitFor()
