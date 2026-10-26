@@ -888,6 +888,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     for (const width of [1100, 390]) {
       await page.setViewportSize({ width, height: 844 })
       await page.locator(`.pdf-original-reader.${width < 700 ? 'is-phone' : 'is-desktop'}`).waitFor()
+      await page.getByRole('button', { name: 'Appearance', exact: true }).click()
+      await page.getByTestId('lab-v2-theme-dark').click()
+      await page.getByRole('button', { name: 'Close panel' }).click()
       await openNotebook()
       const entry = page.locator('.pdf-original-reader__saved').filter({ hasText: 'A readable answer flows' })
       await entry.waitFor()
