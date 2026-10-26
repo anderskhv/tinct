@@ -2,14 +2,14 @@
 // All AI/API traffic is mocked; an isolated muted browser reads the exact local build.
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
-import { chromium } from '@playwright/test'
+import { chromium, webkit } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5175'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity'
 await fs.mkdir(output, { recursive: true })
-const browser = await markInternal(await chromium.launch({ headless: true, args: ['--mute-audio', '--autoplay-policy=user-gesture-required'] }))
+const browser = await markInternal(await (process.env.TINCT_PARITY_ENGINE === 'webkit' ? webkit : chromium).launch({ headless: true, ...(process.env.TINCT_PARITY_ENGINE === 'webkit' ? {} : {args: ['--mute-audio', '--autoplay-policy=user-gesture-required']}) }))
 const observations = []
 let activePage
 try {
@@ -383,6 +383,7 @@ try {
       assert(finalCheck.includes('Source answer attempt 1') && finalCheck.includes('Source answer attempt 3'), 'grader receives the earlier answer and feedback turns')
       assert.equal(await root.getAttribute('data-place'), initialPlace, 'grading does not turn the reading page')
       await page.screenshot({ path: `${output}/phone-quiz-graded-followups.png` })
+      await page.evaluate(() => { const prefs = JSON.parse(localStorage.getItem('tinct-lab-prefs') || '{}'); localStorage.setItem('tinct-lab-prefs', JSON.stringify({...prefs, fontSize:1.3, fontSizeExplicit:true})) })
       // Reported iPhone sequence: Romans 1, Explain → follow-up → close → previous page.
       await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1047&paragraph=0&word=0&layout=phone&sharedReader=1&qaLayoutTrace=1`, {waitUntil:'domcontentloaded'})
       await ready(); await settlePaint(page)

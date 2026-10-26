@@ -17,11 +17,11 @@ const server = createServer(async (req, res) => {
 })
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 try {
-  for (const script of ['check-shared-reader-menu.mjs', 'check-shared-reader-position.mjs', 'check-reader-source-parity.mjs']) {
+  for (const [script, extraEnv] of [['check-shared-reader-menu.mjs', {}], ['check-shared-reader-position.mjs', {}], ['check-reader-source-parity.mjs', {}], ['check-reader-source-parity.mjs', {TINCT_PARITY_ENGINE:'webkit', TINCT_PARITY_LAYOUTS:'phone', TINCT_PARITY_OUTPUT:'artifacts/desktop-feedback/phone-webkit'}]]) {
     await new Promise((resolve, reject) => {
       const child = spawn(process.execPath, [`scripts/${script}`], { stdio:'inherit', env: { ...process.env,
         TINCT_ORIGIN:`http://127.0.0.1:${server.address().port}`,
-        TINCT_POSITION_OUTPUT:'artifacts/desktop-feedback/position', TINCT_PARITY_OUTPUT:'artifacts/desktop-feedback/parity',
+        TINCT_POSITION_OUTPUT:'artifacts/desktop-feedback/position', TINCT_PARITY_OUTPUT:'artifacts/desktop-feedback/parity', ...extraEnv,
       } })
       child.on('error', reject)
       child.on('exit', code => code === 0 ? resolve() : reject(new Error(`${script} exited ${code}`)))
