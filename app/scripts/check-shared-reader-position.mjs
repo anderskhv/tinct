@@ -334,6 +334,25 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByTestId('source-margin-minimise').click()
   assert.deepEqual(await saved('frankenstein'), beforeActions, 'chapter cards never move the semantic source place')
 
+  // Exact reported chapter and edition: Romans 2:1 starts with a raised numeral.
+  await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1048&paragraph=0&word=0&sharedReader=1`, {waitUntil:'domcontentloaded'})
+  await host.waitFor({timeout:45000})
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '1048')
+  const numeralBox = await host.locator('.lab-verse-mark').first().boundingBox()
+  const verseEndBox = await host.getByTestId('lab-word').nth(35).boundingBox()
+  assert(numeralBox && verseEndBox)
+  await page.mouse.move(numeralBox.x + numeralBox.width / 2, numeralBox.y + numeralBox.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(verseEndBox.x + verseEndBox.width / 2, verseEndBox.y + verseEndBox.height / 2, {steps:12})
+  await page.mouse.up()
+  await page.getByTestId('lab-desk-bar').waitFor({state:'visible'})
+  await page.screenshot({path:`${output}/romans-2-verse-number-selection.png`})
+  await page.keyboard.press('Escape')
+  await page.getByRole('slider', {name:'Chapter position'}).focus()
+  await page.keyboard.press('End')
+  await page.waitForFunction(() => document.querySelector('[role="slider"][aria-label="Chapter position"]')?.getAttribute('aria-valuenow') === '100')
+  await page.screenshot({path:`${output}/romans-2-complete.png`})
+
   // The private switch leaves the known phone Read/Compare path and flag-off
   // desktop page layout available, with no continuous source renderer there.
   await page.setViewportSize({ width: 360, height: 780 })
