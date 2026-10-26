@@ -8,6 +8,16 @@ import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
 
+/** The streamed lead already displays this initial saved projection. Keep it
+ * in storage/chat, but omit the duplicate below the live card's answer. */
+export function liveCardFollowupTurns(turns: LabAskTurn[], openedAt: number): LabAskTurn[] {
+  const id = `mc_react_${openedAt}`
+  const initial = turns.find(turn => turn.id === `${id}:0`)
+  const hidden = new Set([`${id}:0`])
+  if (initial?.role === 'user') hidden.add(`${id}:1`)
+  return turns.filter(turn => !hidden.has(turn.id))
+}
+
 /** The passage a card is about: the words, where they are, and the chapter around them. */
 export interface PhonePassage {
   text: string

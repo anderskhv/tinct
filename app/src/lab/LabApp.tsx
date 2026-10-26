@@ -245,7 +245,7 @@ import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills }
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 import { markPhoneCardPassage } from './marginPhone/phoneCardPassage'
-import { PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
+import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
 import { ContextualLookupView, DefinitionFallback } from '../components/reader/DefinitionFallback'
 import './lab.css'
@@ -5904,7 +5904,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </ResponseCard>
       )
     }
-    const turns = phoneCardTurns(card.openedAt)
+    const cardTurns = phoneCardTurns(card.openedAt)
+    const turns = card.kind === 'ask' ? cardTurns : liveCardFollowupTurns(cardTurns, card.openedAt)
     const pending = ask.typedLoading && turns.length > 0
     const keep = (answer: string) => {
       if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
