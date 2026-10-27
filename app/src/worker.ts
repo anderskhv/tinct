@@ -404,7 +404,7 @@ export default {
     // Catch me up on a reader's own book: one chapter per request, recap kept privately (ownCatchUp.ts).
     if (url.pathname === '/api/own-catch-up') return handleOwnCatchUp(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend, allowsAi: allowsAi('catch_up') })
     if (url.pathname.startsWith('/api/narration/')) {
-      return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit })
+      return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit: createRateLimiter(env, { throwOnUnavailable: true }) })
     }
 
     switch (url.pathname) {

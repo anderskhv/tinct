@@ -7,7 +7,7 @@ vi.mock('cloudflare:workers', () => ({
   },
 }))
 import { UsageCoordinator } from './usageCoordinator'
-import { createRateLimiter } from './lib/rateLimit'
+import { createRateLimiter, RateLimitUnavailableError } from './lib/rateLimit'
 import { createGuestSpendHolder, createGuestSpendReserver, estimateAiCostMicros, guestAiDailyMicros } from './lib/aiSpend'
 
 const { DatabaseSync } = createRequire(import.meta.url)('node:sqlite') as { DatabaseSync: new (path: string) => any }
@@ -93,6 +93,19 @@ describe('usage coordinator', () => {
 })
 
 describe('rate limiter and ceiling fail closed', () => {
+  it('distinguishes unavailability only for opted-in callers and never retries a hit', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    await expect(createRateLimiter({}, { throwOnUnavailable: true })('private-key')).rejects.toBeInstanceOf(RateLimitUnavailableError)
+    const hit = vi.fn().mockRejectedValue('private backend detail')
+    const env = { USAGE_COORDINATOR: { getByName: () => ({ hit }) } as any }
+    await expect(createRateLimiter(env, { throwOnUnavailable: true })('private-key')).rejects.toBeInstanceOf(RateLimitUnavailableError)
+    expect(hit).toHaveBeenCalledTimes(1)
+    expect(JSON.stringify(warn.mock.calls)).not.toContain('private')
+    hit.mockResolvedValue(false)
+    await expect(createRateLimiter(env, { throwOnUnavailable: true })('private-key')).resolves.toBe(false)
+    warn.mockRestore()
+  })
+
   it('refuses without a binding or when the coordinator fails', async () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     expect(await createRateLimiter({})('chat:x')).toBe(false)

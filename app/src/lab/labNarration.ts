@@ -216,7 +216,11 @@ export async function ensureNarration(
     options.signal?.removeEventListener('abort', onCancel)
   }
   if (response.status === 401) throw new NarrationEnsureError('Sign in to prepare narration', 'unauthenticated', 401)
-  if (response.status === 503) throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  if (response.status === 503) {
+    const reason = await response.json().then((body: { reason?: unknown }) => body?.reason, () => undefined)
+    if (reason === 'rate_limit_unavailable') throw new NarrationEnsureError('Narration temporarily unavailable', 'http', 503)
+    throw new NarrationEnsureError('Narration pilot is not configured', 'not_configured', 503)
+  }
   if (response.status === 429) throw new NarrationEnsureError('Too many requests', 'rate_limited', 429)
   if (response.status === 409) {
     // A Modern English chapter still shown in its original text: its words are about to be replaced.

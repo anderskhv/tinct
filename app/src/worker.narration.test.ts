@@ -1,3 +1,4 @@
+import { createRateLimiter } from './worker/lib/rateLimit'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { narrationCostUsd } from './worker/lib/aiUsage'
 import { handleNarration, narrationConfig, synthesizeWithGoogle, synthesizeWithGrok, type NarrationDeps, type NarrationEnv } from './worker/routes/narration'
@@ -204,6 +205,21 @@ describe('Google SSML timing synthesis', () => {
 })
 
 describe('POST /api/narration/ensure', () => {
+  it('returns unavailable, not rate exceeded, when the coordinator fails; never generates', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const h = makeHarness()
+    const hit = vi.fn().mockRejectedValue(Object.assign(new Error('private IP and key'), { retryable: true }))
+    h.deps.checkRateLimit = createRateLimiter({ USAGE_COORDINATOR: { getByName: () => ({ hit }) } as any }, { throwOnUnavailable: true })
+    const response = await ensure(h, { paragraphs: [{ index: 0 }] })
+    expect(response.status).toBe(503)
+    expect(response.json.reason).toBe('rate_limit_unavailable')
+    expect(hit).toHaveBeenCalledTimes(1)
+    expect(h.fish.calls).toHaveLength(0)
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('"retryable":true'))
+    expect(JSON.stringify(warn.mock.calls)).not.toContain('private IP and key')
+    warn.mockRestore()
+  })
+
   it('requires configuration, a signed-in reader, and the narration scope', async () => {
     const off = makeHarness({ FISH_AUDIO_API_KEY: '' })
     expect((await ensure(off, {})).status).toBe(503)

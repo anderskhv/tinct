@@ -1,3 +1,4 @@
+import { RateLimitUnavailableError } from '../lib/rateLimit'
 import { WARM_GUEST_KEY, ledgerGuestKey, narrationCostUsd, recordAiUsage, requestGuestKey, type AiIdentity, type LedgerEnv } from '../lib/aiUsage'
 import { bibleBookTransition } from '../../narration/bookTransition'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../../data/editionAvailability'
@@ -229,6 +230,15 @@ function positiveInt(value: string | undefined, fallback: number): number {
 // ===== Router =====
 
 export async function handleNarration(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
+  try {
+    return await routeNarration(request, env, ctx, deps)
+  } catch (error) {
+    if (!(error instanceof RateLimitUnavailableError)) throw error
+    return jsonResponse({ error: 'Narration temporarily unavailable. Please try again.', reason: 'rate_limit_unavailable' }, 503, request)
+  }
+}
+
+async function routeNarration(request: Request, env: NarrationEnv, ctx: ExecutionContext, deps: NarrationDeps): Promise<Response> {
   const url = new URL(request.url)
   const warmAuthorized = isWarmCaller(request, env) || await verifyReleaseWarmRequest(request, env.XAI_API_KEY, (deps.now || Date.now)())
   deps = { ...deps, warmAuthorized }
