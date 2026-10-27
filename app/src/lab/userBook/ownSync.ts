@@ -367,7 +367,7 @@ export function withAccountBookMetadata(local: OwnShelfBook, account: AccountBoo
 export async function ownShelfWithAccount(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number; shrink?: CoverShrinker; cache?: CoverCache } = {}): Promise<OwnShelfBook[]> {
   if (!owner) return []
   const token = options.token !== undefined ? options.token : await ownBookToken()
-  const account = await withTimeout(reconcileOwnBooks(owner, { ...options, token }).catch(() => null), options.timeoutMs ?? 5000, null)
+  const account = await reconcileOwnBooks(owner, { ...options, token }).catch(() => null)
   const out: OwnShelfBook[] = []
   const here = new Set<string>()
   const local = await readOwnShelf(owner)
@@ -412,13 +412,16 @@ export async function ownReadingNowWithAccount(owner: string | null | undefined,
  * account's books, or null when the account could not be read (this device's
  * books are listed as they are).
  */
-export async function reconcileOwnBooks(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike } = {}): Promise<AccountBook[] | null> {
+export async function reconcileOwnBooks(owner: string | null | undefined, options: { token?: string | null; fetchImpl?: FetchLike; timeoutMs?: number } = {}): Promise<AccountBook[] | null> {
   if (!owner) return null
   const token = options.token !== undefined ? options.token : await ownBookToken()
   if (!token) return null
-  const books = await listAccountBooks(token, options.fetchImpl)
+  const books = await withTimeout(listAccountBooks(token, options.fetchImpl), options.timeoutMs ?? 5000, null)
   if (!books) return null
   await forgetRemovedOwnBooks(owner, new Set(books.filter(book => book.sha256).map(accountBookKey)))
-  await pullAccountPlaces(token, options.fetchImpl)
+  // A slow position endpoint must not discard an already authoritative shelf
+  // list. Normal places land before rendering; late places still complete in
+  // the background, using the existing newer-position checks.
+  await withTimeout(pullAccountPlaces(token, options.fetchImpl).catch(() => null), 2500, null)
   return books
 }

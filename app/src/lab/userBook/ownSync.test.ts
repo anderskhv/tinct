@@ -549,6 +549,31 @@ describe('own books removed on another device', () => {
     expect(forget).toHaveBeenCalledWith('owner-1', new Set([`epub:${'c'.repeat(24)}`]))
   })
 
+  it('keeps the authoritative book list when places are slow, and still adopts the eventual places', async () => {
+    vi.useFakeTimers()
+    let finishPlaces!: (response: Response) => void
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [] })
+      : new Promise<Response>(resolve => { finishPlaces = resolve })) as unknown as typeof fetch
+    let completed = false
+    const result = reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl }).then(books => { completed = true; return books })
+    await vi.advanceTimersByTimeAsync(2600)
+    expect(completed).toBe(true)
+    expect(await result).toEqual([])
+    expect(forget).toHaveBeenCalledWith('owner-1', new Set())
+    finishPlaces(Response.json({ places: { [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200, percent: 75, rev: 4 } } }))
+    await vi.advanceTimersByTimeAsync(0)
+    expect(readUserBookPlace(HEX, edition)).toMatchObject({ chapterNumber: 2, paragraphIndex: 1, wordIndex: 3, updatedAt: 200 })
+  })
+
+  it('waits for normal place sync before returning the account list', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => String(input) === '/api/user-books'
+      ? Response.json({ books: [] })
+      : Response.json({ places: { [HEX]: { chapterNumber: 2, paragraphIndex: 1, wordIndex: 4, updatedAt: 300, percent: 75, rev: 5 } } })) as unknown as typeof fetch
+    expect(await reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl })).toEqual([])
+    expect(readUserBookPlace(HEX, edition)).toMatchObject({ chapterNumber: 2, wordIndex: 4, updatedAt: 300 })
+  })
+
   it('forgets nothing when the account cannot be read (offline, signed out, an error)', async () => {
     const failing = vi.fn(async () => new Response('', { status: 500 })) as unknown as typeof fetch
     expect(await reconcileOwnBooks('owner-1', { token: 'tok', fetchImpl: failing })).toBeNull()

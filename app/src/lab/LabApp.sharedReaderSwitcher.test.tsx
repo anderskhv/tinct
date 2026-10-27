@@ -5,7 +5,8 @@ import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
 import { LAB_READER_HANDOFF_KEY } from './labReaderHandoff'
 
-const mocks = vi.hoisted(() => ({ destination: vi.fn<(href: string) => void>(), result: vi.fn<(href: string) => void>() }))
+const mocks = vi.hoisted(() => ({ destination: vi.fn<(href: string) => void>(), result: vi.fn<(href: string) => void>(), membership: vi.fn(), readMembership: vi.fn() }))
+vi.mock('../libraryTwoSaved', () => ({ loadShelfMembership: mocks.membership, readShelfMembership: mocks.readMembership }))
 vi.mock('./sharedReader/sharedReaderFlag', async importOriginal => {
   const original = await importOriginal<typeof import('./sharedReader/sharedReaderFlag')>()
   return { ...original, sharedReaderDestination: (href: string) => {
@@ -33,6 +34,8 @@ vi.mock('./LabBookSwitcher', () => ({ LabBookSwitcher: ({ onSelect }: { onSelect
 beforeEach(() => {
   localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en' }))
   vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ books: [] }) })))
+  mocks.membership.mockReset().mockResolvedValue({ removed: [], tableHidden: [] })
+  mocks.readMembership.mockReset().mockReturnValue({ removed: [], tableHidden: [] })
   mocks.destination.mockClear()
   mocks.result.mockClear()
 })
@@ -75,4 +78,17 @@ it('leaves the existing switcher navigation untouched when private mode is off',
   fireEvent.click(screen.getByText('Catalogue row'))
   expect(mocks.destination).not.toHaveBeenCalled()
   expect(sessionStorage.getItem(LAB_READER_HANDOFF_KEY)).not.toBeNull()
+})
+
+it('refreshes remote removals before the final catalogue membership read', async () => {
+  let release!: () => void
+  let synced = false
+  mocks.membership.mockImplementation(() => new Promise<void>(resolve => { release = () => { synced = true; resolve() } }))
+  const seen: boolean[] = []
+  mocks.readMembership.mockImplementation(() => { seen.push(synced); return { removed: synced ? ['bible'] : [], tableHidden: [] } })
+  await openSwitcher(true)
+  await waitFor(() => expect(mocks.membership).toHaveBeenCalledTimes(1))
+  expect(seen).toContain(false)
+  release()
+  await waitFor(() => expect(seen).toContain(true))
 })

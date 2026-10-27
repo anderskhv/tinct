@@ -372,21 +372,20 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     return () => registerFigureAssets(null)
   }, [images])
 
-  if (matches && state.status === 'ready') return <>
-    <LabApp userBook={state.book} marginPhone={marginPhone || undefined} sharedReader={sharedReader || undefined} legacyOwnEpubItems={legacyEpubItems} ownCardController={state.cards} />
-    {sharedReader && owner && recoverableCards > 0 && <div role="status" className="lab-own-cards-recovery" style={{ position: 'fixed', right: 16, top: 64, zIndex: 100, padding: 16, maxWidth: 300, background: 'var(--paper, #f9f5ec)', color: 'var(--ink, #24211e)', boxShadow: '0 3px 24px #0003' }}>
-      <p>{recoverableCards} older {recoverableCards === 1 ? 'conversation has' : 'conversations have'} no account label. If {recoverableCards === 1 ? 'it is' : 'they are'} yours, attach {recoverableCards === 1 ? 'it' : 'them'} to this account.</p>
+  if (matches && state.status === 'ready') return <LabApp userBook={state.book} marginPhone={marginPhone || undefined} sharedReader={sharedReader || undefined} legacyOwnEpubItems={legacyEpubItems} ownCardController={state.cards} ownNotebookRecovery={sharedReader && owner && (recoverableCards + unclaimedEpubMarks + recoverableMarks > 0) ? <details className="lab-own-notebook-recovery"><summary>Review older saved entries</summary>
+    {sharedReader && owner && recoverableCards > 0 && <div role="status" className="lab-own-cards-recovery">
+      <p>{recoverableCards} older {recoverableCards === 1 ? 'conversation is' : 'conversations are'} not yet linked to an account. If {recoverableCards === 1 ? 'it is' : 'they are'} yours, attach {recoverableCards === 1 ? 'it' : 'them'} to this account.</p>
       <button type="button" onClick={() => { if (adoptUnassignedOwnTextCards(hex, owner, state.fileId)) window.location.reload() }}>Attach older conversations</button>
     </div>}
-    {sharedReader && owner && unclaimedEpubMarks > 0 && <div role="status" className="lab-own-marks-recovery" style={{ position: 'fixed', left: 16, bottom: 16, zIndex: 100, padding: 16, maxWidth: 300, background: 'var(--paper, #f9f5ec)', color: 'var(--ink, #24211e)', boxShadow: '0 3px 24px #0003' }}>
-      <p>{unclaimedEpubMarks} older EPUB {unclaimedEpubMarks === 1 ? 'annotation needs' : 'annotations need'} review on this device. {unclaimedEpubMarks === 1 ? 'It may have' : 'They may have'} no account label or have changed since the account backup. If {unclaimedEpubMarks === 1 ? 'it is' : 'they are'} yours, attach {unclaimedEpubMarks === 1 ? 'it' : 'them'} to this account and review {unclaimedEpubMarks === 1 ? 'it' : 'them'} in Notebook.</p>
+    {sharedReader && owner && unclaimedEpubMarks > 0 && <div role="status" className="lab-own-marks-recovery">
+      <p>{unclaimedEpubMarks} older EPUB {unclaimedEpubMarks === 1 ? 'annotation needs' : 'annotations need'} review on this device. {unclaimedEpubMarks === 1 ? 'It may not be' : 'They may not be'} linked to your account, or may differ from your saved copy. If {unclaimedEpubMarks === 1 ? 'it is' : 'they are'} yours, attach {unclaimedEpubMarks === 1 ? 'it' : 'them'} to this account and review {unclaimedEpubMarks === 1 ? 'it' : 'them'} in Notebook.</p>
       <button type="button" onClick={() => { if (claimLegacyEpubAnnotations(hex, owner)) window.location.reload() }}>Attach older EPUB annotations</button>
     </div>}
-    {sharedReader && owner && recoverableMarks > 0 && <div role="status" className="lab-own-marks-recovery" style={{ position: 'fixed', right: 16, bottom: 16, zIndex: 100, padding: 16, maxWidth: 300, background: 'var(--paper, #f9f5ec)', color: 'var(--ink, #24211e)', boxShadow: '0 3px 24px #0003' }}>
-      <p>{recoverableMarks} older {recoverableMarks === 1 ? 'highlight has' : 'highlights have'} no account label. If {recoverableMarks === 1 ? 'it is' : 'they are'} yours, you can attach {recoverableMarks === 1 ? 'it' : 'them'} to this account.</p>
+    {sharedReader && owner && recoverableMarks > 0 && <div role="status" className="lab-own-marks-recovery">
+      <p>{recoverableMarks} older {recoverableMarks === 1 ? 'highlight is' : 'highlights are'} not yet linked to an account. If {recoverableMarks === 1 ? 'it is' : 'they are'} yours, you can attach {recoverableMarks === 1 ? 'it' : 'them'} to this account.</p>
       <button type="button" onClick={() => { if (adoptUnassignedOwnTextMarks(hex, owner)) window.location.reload() }}>Attach older highlights</button>
     </div>}
-  </>
+  </details> : null} />
   if (matches && state.status === 'original' && owner && sharedReader) return <PdfOriginalReaderShell key={`${owner}:${hex}`} bookId={`userbook-${hex}`} owner={owner} title={state.title} services={pdfServices ?? undefined} serviceStatus={pdfServiceStatus} onRetryServices={() => setPdfServiceRetry(n => n + 1)} scanOutline={state.scanOutline}
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}

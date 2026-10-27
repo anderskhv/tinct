@@ -13,12 +13,13 @@ type Engine = {
   RIGHTS_COPY: string; RIGHTS_VERSION: string
   rightsConfirmed(): boolean; confirmRights(): void
   readFile(file: File): Promise<{ kind?: string; key?: string; bytes?: Uint8Array; error?: string }>
+  keepFile(file: File, input: { kind: string; bytes: Uint8Array; key: string }): Promise<boolean>
   removeBook(key: string, options?: { notify?: (text: string) => void }): Promise<boolean>
   forgetBookHere(hex: string, storages?: Storage[]): number
   legacyEpubAnnotations: { get(key: string): unknown; set(key: string, value: unknown[]): void }
   preparePdf(file: File, key: string): Promise<{ href: string }>
   pdfHref(key: string): string
-  library: { get(key: string, expectedOwner?: string): Promise<unknown>; remove(key: string, expectedOwner?: string): Promise<boolean | void>; touch(key: string, patch: object): Promise<void> }
+  library: { put(record: Record<string, unknown>): Promise<boolean>; get(key: string, expectedOwner?: string): Promise<unknown>; remove(key: string, expectedOwner?: string): Promise<boolean | void>; touch(key: string, patch: object): Promise<void> }
   cloud: { mine(): Map<string, { id: string }>; refresh(): Promise<boolean> }
 }
 const win = window as unknown as { TinctAddEngine?: Engine; TinctAI?: unknown }
@@ -31,6 +32,35 @@ function loadEngine(session: { userId: string | null; token?: string | null }, b
 describe('Add a book’s engine (add-engine.js)', () => {
   beforeEach(() => localStorage.clear())
   afterEach(() => { delete win.TinctAddEngine; delete win.TinctAI })
+
+  it('reimporting a saved file offline preserves the account provenance used by remote deletion reconciliation', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    const key = 'pdf:' + 'a'.repeat(24)
+    engine.library.get = async () => ({ key, owner: 'u1', kind: 'pdf', cloudId: 'saved-file', title: 'Kept title', addedAt: 12 })
+    const put = vi.fn(async (_record: Record<string, unknown>) => true)
+    engine.library.put = put
+    await expect(engine.keepFile(new File(['pdf'], 'again.pdf'), { key, kind: 'pdf', bytes: new Uint8Array([1, 2]) })).resolves.toBe(true)
+    expect(put).toHaveBeenCalledWith(expect.objectContaining({ key, owner: 'u1', cloudId: 'saved-file', title: 'Kept title', addedAt: 12 }))
+  })
+
+  it('does not turn a new unsynced file into an account copy', async () => {
+    const engine = loadEngine({ userId: 'u1' })
+    engine.library.get = async () => null
+    const put = vi.fn(async (_record: Record<string, unknown>) => true)
+    engine.library.put = put
+    await engine.keepFile(new File(['pdf'], 'new.pdf'), { key: 'pdf:' + 'b'.repeat(24), kind: 'pdf', bytes: new Uint8Array([1]) })
+    expect(put.mock.calls[0]?.[0]).not.toHaveProperty('cloudId')
+  })
+
+  it('does not carry a pending reimport across an account switch', async () => {
+    const session = { userId: 'u1' }
+    const engine = loadEngine(session)
+    engine.library.get = async () => { session.userId = 'u2'; return { owner: 'u1', cloudId: 'private-file' } }
+    const put = vi.fn(async (_record: Record<string, unknown>) => true)
+    engine.library.put = put
+    await expect(engine.keepFile(new File(['pdf'], 'new.pdf'), { key: 'pdf:' + 'b'.repeat(24), kind: 'pdf', bytes: new Uint8Array([1]) })).resolves.toBe(false)
+    expect(put).not.toHaveBeenCalled()
+  })
 
   it('deleting a book forgets every key this device keeps for it, and no other book\'s (20 Oct 2026: the privacy notice says they go)', async () => {
     const engine = loadEngine({ userId: 'u1' })
