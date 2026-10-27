@@ -122,6 +122,10 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
       page.on('crash', () => note('crash'))
       const pending = new Map()
       page.on('request', request => pending.set(request, { url: request.url(), type: request.resourceType(), started: Date.now() }))
+      page.on('response', response => {
+        const entry = pending.get(response.request())
+        if (entry) Object.assign(entry, { responseAt: Date.now(), status: response.status(), contentType: response.headers()['content-type'], cacheStatus: response.headers()['cf-cache-status'] })
+      })
       page.on('requestfinished', request => pending.delete(request))
       page.on('requestfailed', request => { note('requestfailed', request.url(), request.failure()?.errorText); pending.delete(request) })
       try {
@@ -176,9 +180,9 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         console.log('PASS', engine, index, scenario.book, scenario.width, scenario.layout, scenario.size, scenario.alignment)
       } catch (error) {
         try {
-          console.log('FAIL pending requests', JSON.stringify([...pending.values()].map(request => ({ ...request, elapsedMs: Date.now() - request.started }))))
+          console.log('FAIL pending requests', JSON.stringify([...pending.entries()].map(([handle, request]) => ({ ...request, elapsedMs: Date.now() - request.started, timing: handle.timing() }))))
           console.log('FAIL', engine, index, JSON.stringify(scenario), String(error?.message).split('\n')[0])
-          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
+          const state = await settle(page.evaluate(() => { const root = document.querySelector('[data-testid="lab-root"]'); return { readyState: document.readyState, labRoot: !!root, readerReady: root?.dataset.readerReady ?? null, href: location.href, diag: window.__shakespeareDiag ?? null } }), 5000)
           console.log('FAIL page', state.timedOut ? 'no answer in 5 s (main thread busy?)' : JSON.stringify(state.value ?? state.error))
           console.log('FAIL events', events.length ? '\n' + events.join('\n') : 'none')
           await page.screenshot({ path: `${output}/${engine}-${index}-failure.png`, timeout: 5000 }).catch(shot => console.log('FAIL screenshot skipped:', String(shot?.message).split('\n')[0]))
