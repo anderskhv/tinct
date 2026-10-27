@@ -251,12 +251,13 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     if (process.env.PDF_REAL_ACTIONS === '1') {
       // Exercise native selection over the actual PDF text layer, not seeded marks.
       const selectable=page.locator(`.pdf-original__page[data-page="${samplePages.at(-1)}"][data-ready="true"] .pdf-original__text span`).filter({hasText:/[A-Za-z]{4}/})
-      let target=null
-      for(let i=0;i<await selectable.count();i++) {
-        const candidate=selectable.nth(i)
-        if(await candidate.evaluate(n=>n.textContent.trim().split(/\s+/).length>=8 && !n.hasAttribute('data-pdf-heading'))) { target=candidate;break }
-      }
-      assert(target,'sample page must expose selectable source text')
+      // PDF item order can put the chart title before the prose above it.
+      // Select the uppermost source line, including scans whose OCR spans are short.
+      const targetIndex=await selectable.evaluateAll(nodes=>nodes.map((node,index)=>({index,node,box:node.getBoundingClientRect()}))
+        .filter(({node})=>node.textContent.length>20 && !node.hasAttribute('data-pdf-heading'))
+        .sort((a,b)=>a.box.top-b.box.top || a.box.left-b.box.left)[0]?.index ?? -1)
+      assert(targetIndex>=0,'sample page must expose selectable source text')
+      const target=selectable.nth(targetIndex)
       await target.scrollIntoViewIfNeeded();await settlePaint(page)
       const drag=await target.evaluate(node=>{
         const text=node.firstChild,range=document.createRange()
