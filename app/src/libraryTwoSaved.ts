@@ -4,8 +4,8 @@ import { coerceRev, versionedWriteApplied } from './services/supabaseStorage.ver
 import type { ShelfMembership } from './preReader/readingNow'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
-type Change = { saved: boolean; at: number; tableHidden?: boolean }
-type State = { items: Record<string, Change>; pending: Record<string, Change>; revisions?: Record<string, number> }
+export type ShelfChange = { saved: boolean; at: number; tableHidden?: boolean }
+type State = { items: Record<string, ShelfChange>; pending: Record<string, ShelfChange>; revisions?: Record<string, number> }
 const empty = (): State => ({ items: {}, pending: {} })
 let queue: Promise<unknown> = Promise.resolve()
 let viewer: string | null | undefined
@@ -40,7 +40,7 @@ function write(owner: string | null, state: State) {
 function ids(state: State): string[] {
   return Object.entries(state.items).filter(([, item]) => item.saved).sort((a, b) => b[1].at - a[1].at).map(([id]) => id)
 }
-function acceptRow(state: State, id: string, row: { value?: Change | null; rev?: number | null; updated_at?: string | null }) {
+function acceptRow(state: State, id: string, row: { value?: ShelfChange | null; rev?: number | null; updated_at?: string | null }) {
   const revision = coerceRev(row.rev), known = state.revisions?.[id]
   if (known !== undefined && (revision === undefined || revision < known)) return
   if (revision !== undefined) (state.revisions ??= {})[id] = revision
@@ -72,13 +72,16 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
         if (state.pending[id] !== change) break
         // A queued removal from an older visit must not delete a later re-add
         // on another device, including a value returned by a CAS conflict.
-        if (!change.saved && row?.value?.saved === true && Number(row.value.at) > change.at) {
+        // For private uploads both hide choices use their original action time,
+        // including migration from a device that has not been opened recently.
+        if (((!change.saved && row?.value?.saved === true) || id.startsWith('userbook-')) && Number(row?.value?.at || Date.parse(row?.updated_at ?? '')) > change.at) {
           delete state.pending[id]
           acceptRow(state, id, row)
           break
         }
         const { data: result, error: failed } = await client.rpc('commit_user_data', {
-          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved ? change : null,
+          // A visibility-only hide is not deletion: retain its action time.
+          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved || change.tableHidden ? change : null,
           p_expected_rev: row?.rev ?? null,
         })
         if (failed) break
@@ -102,8 +105,10 @@ function watchAccount(owner: string | null) {
     if ((session?.user.id ?? null) !== viewer) location.reload()
   })
 }
-export async function loadSavedBooks(options: { onCached?: (value: { ids: string[]; synced: boolean }) => void } = {}) {
-  const owner = await account(), state = read(owner)
+export async function loadSavedBooks(options: { onCached?: (value: { ids: string[]; synced: boolean }) => void; expectedOwner?: string } = {}) {
+  const owner = await account()
+  if (options.expectedOwner !== undefined && owner !== options.expectedOwner) throw new Error('Account changed')
+  const state = read(owner)
   watchAccount(owner)
   write(owner, state)
   options.onCached?.({ ids: ids(state), synced: false })
@@ -115,11 +120,13 @@ export async function loadSavedBooks(options: { onCached?: (value: { ids: string
     return { ids: ids(state), synced }
   })
 }
-export async function setSavedBook(id: string, saved: boolean, options: { tableHidden?: boolean } = {}) {
+export async function setSavedBook(id: string, saved: boolean, options: { tableHidden?: boolean; expectedOwner?: string; at?: number } = {}) {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(id)) throw new Error('Invalid book')
-  const owner = await account(), state = read(owner)
+  const owner = await account()
+  if (options.expectedOwner !== undefined && owner !== options.expectedOwner) throw new Error('Account changed')
+  const state = read(owner)
   watchAccount(owner)
-  const change: Change = { saved, at: Date.now(), ...(saved && options.tableHidden ? { tableHidden: true } : {}) }
+  const change: ShelfChange = { saved, at: options.at ?? Date.now(), ...(options.tableHidden ? { tableHidden: true } : {}) }
   state.items[id] = change
   if (owner) state.pending[id] = change
   // Persist each click before joining the cloud queue. A slow request must
@@ -161,4 +168,10 @@ export function readShelfMembership(owner: string | null): ShelfMembership {
     removedAt: Object.fromEntries(removed.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
     tableHiddenAt: Object.fromEntries(tableHidden.map(([id, item]) => [id, item.at || 0])) as Record<string, number>,
   }
+}
+
+/** Owner-scoped shelf choice, including its original action time. No title or reading content. */
+export function readShelfChange(owner: string, id: string): ShelfChange | undefined {
+  const value = read(owner).items[id]
+  return value ? { ...value } : undefined
 }

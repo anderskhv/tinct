@@ -107,6 +107,11 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  // Preserve the live scene in the back/forward cache while refreshing its data.
  addEventListener('pageshow',event=>{if(event.persisted&&!sample)ready=load(true);});
  addEventListener('online',()=>{if(!sample)ready=load(true);});
+ // Returning to this browser adopts changes made on another device without a reload.
+ let lastForegroundRefresh=0;
+ const refreshForeground=()=>{if(sample||document.hidden||loadingNow||Date.now()-lastForegroundRefresh<2000)return;lastForegroundRefresh=Date.now();ready=load(true);};
+ addEventListener('focus',refreshForeground);
+ document.addEventListener('visibilitychange',refreshForeground);
  if(params.has('preview')||sample||override){const nav=document.createElement('nav');nav.className='preview-modes';nav.setAttribute('aria-label','Preview experiences');[['Your library','?preview=1'],['Shelf concept','?preview=1&view=shelf'],['New reader','?preview=1&view=new'],['Sample returning reader','?preview=1&demo=reading'],['Leave preview','?preview=0']].forEach(([label,href])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.append(a);});hero.after(nav);}
  ready=load();
  return {show:()=>{if(view||api){show(table.reading.length?'reading':saved.length?'later':'finished');(shelfStudy?root:hero).scrollIntoView({block:'start'});}else ready=load();}};

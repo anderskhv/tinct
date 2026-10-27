@@ -817,7 +817,7 @@ function drawMyBooks(){
   if(leavingShelf.has(node.dataset.flipKey))markGone(node);
  }
 }
-addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();});
+addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();if(addEnabled())refreshOwnShelf();});
 // Back from a book (the page restored as it was left): its cover or place may have changed since.
 // Back to the library always lands on the reading table, never on My shelf as the page was left
 // (Anders, 2026-10-12: the back gesture from a book opened from My shelf restored My shelf).
