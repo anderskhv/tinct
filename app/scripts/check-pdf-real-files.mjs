@@ -254,7 +254,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       let target=null
       for(let i=0;i<await selectable.count();i++) {
         const candidate=selectable.nth(i)
-        if(await candidate.evaluate(n=>n.textContent.length>20 && !n.hasAttribute('data-pdf-heading'))) { target=candidate;break }
+        if(await candidate.evaluate(n=>n.textContent.trim().split(/\s+/).length>=8 && !n.hasAttribute('data-pdf-heading'))) { target=candidate;break }
       }
       assert(target,'sample page must expose selectable source text')
       await target.scrollIntoViewIfNeeded();await settlePaint(page)
