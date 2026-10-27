@@ -2,7 +2,7 @@
 // All AI/API traffic is mocked; an isolated muted browser reads the exact local build.
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
-import { chromium, webkit } from '@playwright/test'
+import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5175'
@@ -15,7 +15,7 @@ let activePage
 try {
   for (const layout of (process.env.TINCT_PARITY_LAYOUTS || 'margin,two-page,compare,phone').split(',')) {
     const phone = layout === 'phone'
-    const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
+    const context = await browser.newContext({ ...(phone ? devices['iPhone 13'] : {}), viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
     const page = await context.newPage(), errors = [], requests = []
     activePage = page
     let longAnswer = false, delayedRoute = null, failPhoneFollow = false
@@ -38,6 +38,15 @@ try {
       }
       if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
       return route.continue()
+    })
+    if (phone) await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'standalone', { configurable: true, value: true })
+      const originalMatchMedia = window.matchMedia.bind(window)
+      window.matchMedia = query => {
+        const result = originalMatchMedia(query)
+        if (query === '(display-mode: standalone)') Object.defineProperty(result, 'matches', { value: true })
+        return result
+      }
     })
     await page.addInitScript(phone => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(phone ? {fontSize:1.3,fontSizeExplicit:true} : {}), theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })), phone)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
