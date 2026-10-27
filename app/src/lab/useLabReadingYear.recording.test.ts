@@ -6,7 +6,7 @@
  * switch it was told at load, and a ledger hiccup must not stop its
  * heartbeats for the rest of the page's life.
  */
-import { act, renderHook } from '@testing-library/react'
+import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const USER = '11111111-1111-4111-8111-111111111111'
@@ -73,6 +73,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
+  cleanup()
   vi.useRealTimers()
   vi.unstubAllGlobals()
   vi.restoreAllMocks()
@@ -187,4 +188,95 @@ describe('reading-year sync every fifteen minutes (DB IO trim)', () => {
     await settle()
     expect(yearRow.reads - start).toBe(2)
   })
+})
+
+
+describe('short visible reading sessions', () => {
+  it('retains twenty seconds when the reader is hidden before the first tick', async () => {
+    fakeWorker({ enabled: true })
+    let visibility = 'visible'
+    vi.spyOn(document, 'visibilityState', 'get').mockImplementation(() => visibility as DocumentVisibilityState)
+    const h = mount()
+    await act(async () => { for (let i = 0; i < 10; i += 1) await Promise.resolve() })
+    await act(async () => { vi.advanceTimersByTime(20_000) })
+    await act(async () => { visibility = 'hidden'; document.dispatchEvent(new Event('visibilitychange')) })
+    expect(readPending(USER)[localDay()]?.['pd-pg-1672']?.read).toBe(20)
+    h.unmount()
+  })
+})
+
+
+describe('reading interval boundaries', () => {
+  it('does not count hidden time or duplicate pagehide, and resumes counting', async () => {
+    fakeWorker({ enabled: true })
+    let visibility: DocumentVisibilityState = 'visible'
+    vi.spyOn(document, 'visibilityState', 'get').mockImplementation(() => visibility)
+    const h = mount()
+    await settle()
+    await act(async () => { vi.advanceTimersByTime(20_000) })
+    visibility = 'hidden'
+    act(() => document.dispatchEvent(new Event('visibilitychange')))
+    act(() => window.dispatchEvent(new Event('pagehide')))
+    await act(async () => { vi.advanceTimersByTime(120_000) })
+    expect(waiting()).toBe(20)
+    visibility = 'visible'
+    act(() => document.dispatchEvent(new Event('visibilitychange')))
+    await act(async () => { vi.advanceTimersByTime(10_000) })
+    h.unmount()
+    expect(waiting()).toBe(30)
+  })
+
+  it('settles the outgoing book on pause and book change, without counting the pause', async () => {
+    fakeWorker({ enabled: true })
+    const listeningRef = { current: false }
+    const h = renderHook(({ paused, bookId }) => useLabReadingYear({ userId: USER, bookId, chapter: 1, page: 0, onCover: false, paused, listeningRef }), { initialProps: { paused: false, bookId: 'pd-pg-1672' } })
+    await settle()
+    await act(async () => { vi.advanceTimersByTime(20_000) })
+    h.rerender({ paused: true, bookId: 'pd-pg-1672' })
+    await act(async () => { vi.advanceTimersByTime(40_000) })
+    h.rerender({ paused: false, bookId: 'pd-pg-84' })
+    await act(async () => { vi.advanceTimersByTime(10_000) })
+    h.unmount()
+    expect(readPending(USER)[localDay()]).toMatchObject({ 'pd-pg-1672': { read: 20 }, 'pd-pg-84': { read: 10 } })
+  })
+
+  it('splits a short session across local midnight', async () => {
+    fakeWorker({ enabled: true })
+    vi.setSystemTime(new Date(2026, 9, 21, 23, 59, 50))
+    const h = mount()
+    await settle()
+    await act(async () => { vi.advanceTimersByTime(20_000) })
+    h.unmount()
+    expect(readPending(USER)['2026-10-21']?.['pd-pg-1672']?.read).toBe(10)
+    expect(readPending(USER)['2026-10-22']?.['pd-pg-1672']?.read).toBe(10)
+  })
+
+  it('retains subsecond time across frequent gestures and stops at the idle boundary', async () => {
+    fakeWorker({ enabled: true })
+    const h = mount()
+    await settle()
+    for (let i = 0; i < 40; i++) {
+      act(() => { vi.advanceTimersByTime(500); window.dispatchEvent(new KeyboardEvent('keydown')) })
+    }
+    expect(waiting()).toBe(20)
+    await act(async () => { vi.advanceTimersByTime(200_000) })
+    h.unmount()
+    expect(waiting()).toBe(200)
+  })
+})
+
+
+it('settles time to the outgoing owner and hides private book identity', async () => {
+  fakeWorker({ enabled: true })
+  const listeningRef = { current: false }
+  const h = renderHook(({ userId }) => useLabReadingYear({ userId, bookId: 'userbook-secret-title-id', chapter: 1, page: 0, onCover: true, paused: false, listeningRef, privateBook: true }), { initialProps: { userId: USER } })
+  await settle()
+  await act(async () => { vi.advanceTimersByTime(20_000) })
+  h.rerender({ userId: 'second-owner' })
+  await act(async () => { vi.advanceTimersByTime(10_000) })
+  h.unmount()
+  const { PRIVATE_BOOK_ID } = await import('../readingTime/model')
+  expect(readPending(USER)[localDay()]).toEqual({ [PRIVATE_BOOK_ID]: { read: 20, listen: 0 } })
+  expect(readPending('second-owner')[localDay()]).toEqual({ [PRIVATE_BOOK_ID]: { read: 10, listen: 0 } })
+  expect(JSON.stringify(readPending(USER))).not.toContain('secret-title')
 })
