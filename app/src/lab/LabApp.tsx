@@ -2414,6 +2414,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [desktopLiveCards, setDesktopLiveCards] = useState<PhoneCard[]>([])
   useLayoutEffect(() => { const host = continuousReader ? pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="continuous-reader"]') ?? null : null; setMarginHost(current => current === host ? current : host) })
   const [sharedCardSaveError, setSharedCardSaveError] = useState(false)
+  const [saveDetailsCopied, setSaveDetailsCopied] = useState(false)
+  useEffect(() => { setSaveDetailsCopied(false) }, [sharedCardSaveError])
   const desktopCardRequestRef = useRef<{ key: string; id: string; at: number; savedAnswer?: string } | null>(null)
   const [phoneNote, setPhoneNote] = useState('')
   const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
@@ -6014,7 +6016,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
-        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader. <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button></p>}
+        {sharedReader && sharedCardSaveError && <p role="status">
+          {ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.{' '}
+          <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button>{' '}
+          <button type="button" onClick={() => { void navigator.clipboard?.writeText(`Tinct answer save: ${ask.cardSaveFailure || 'unknown'}`).then(() => setSaveDetailsCopied(true), () => setSaveDetailsCopied(false)) }}>{saveDetailsCopied ? 'Save details copied' : 'Copy save details'}</button>
+        </p>}
       </ResponseCard>
     )
   }

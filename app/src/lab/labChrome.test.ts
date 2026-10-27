@@ -411,13 +411,14 @@ describe('lab chrome inset invariant', () => {
     expect(labScrollportOverflows(wrap)).toBe(true)
   })
 
-  it('clamps chrome top to the visible visualViewport, never 100vh', () => {
+  it('clamps chrome top to the visualViewport while an ordinary composer owns the keyboard', () => {
     expect(labVisibleBottomPx({ height: 628, offsetTop: 0 }, 844)).toBe(628)
     expect(labVisibleBottomPx({ height: 628, offsetTop: 12 }, 844)).toBe(640)
     expect(labVisibleBottomPx(undefined, 844)).toBe(844)
     document.body.innerHTML = `
-      <footer class="lab-phone-bar"></footer>
+      <footer class="lab-phone-bar"></footer><input id="composer">
     `
+    document.getElementById('composer')!.focus()
     const phone = document.querySelector('.lab-phone-bar') as HTMLElement
     phone.getBoundingClientRect = () => ({ top: 720, bottom: 800, height: 80, width: 390, left: 0, right: 390, x: 0, y: 720, toJSON() {} })
     const original = window.visualViewport

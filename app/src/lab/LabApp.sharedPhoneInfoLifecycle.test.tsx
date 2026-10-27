@@ -101,9 +101,32 @@ it('persists a completed tapped definition through the real card writer', async 
   const answer = JSON.stringify({ kind: 'person', name: 'Phinehas', importance: 'minor', subtitle: 'Priest', body: 'A priest praised here for his zeal.' })
   await act(async () => { requests.pending[0].resolve(answer) })
   await waitFor(() => expect(requests.saved).toEqual(['Phinehas']))
-  expect(screen.queryByText(/could not be saved on this device/)).toBeNull()
+  expect(screen.queryByText(/This answer could not be saved/)).toBeNull()
   const rows = JSON.parse(localStorage.getItem('tinct:chat-history:bible') || '[]')
   expect(rows).toHaveLength(1)
   expect(rows[0].card.kind).toBe('define')
   expect(rows[0].messages.at(-1).content).toBe(answer)
+})
+
+it('identifies a device quota failure and copies only a content-free save reason', async () => {
+  requests.realSave = true
+  const copy = vi.fn(async (_text: string) => {})
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: copy } })
+  const setItem = Storage.prototype.setItem
+  vi.spyOn(Storage.prototype, 'setItem').mockImplementation(function (this: Storage, key, value) {
+    if (key === 'tinct:chat-history:odyssey') throw new DOMException('synthetic limit', 'QuotaExceededError')
+    setItem.call(this, key, value)
+  })
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
+  window.history.replaceState(null, '', '/reader?book=odyssey&sharedReader=1&layout=phone')
+  const source = fallbackLabSource(), text = 'A short chapter has words.'
+  render(<LabApp pathname="/reader" search={window.location.search} source={{ ...source, bookId: 'odyssey', paragraphs: [text], followParagraphs: [{ index: 0, text }] }} authToken={null} sharedReader marginPhone />)
+  tapWord(1, 81)
+  await waitFor(() => expect(requests.pending).toHaveLength(1))
+  await act(async () => { requests.pending[0].resolve('{"kind":"definition","definition":"A private answer never included in save details."}') })
+  expect(screen.getByText(/Tinct’s storage on this device is full/)).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Copy save details' }))
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Save details copied' })).toBeTruthy())
+  expect(copy).toHaveBeenCalledWith('Tinct answer save: quota')
+  expect(requests.pending).toHaveLength(1)
 })

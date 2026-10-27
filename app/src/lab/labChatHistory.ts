@@ -1,7 +1,7 @@
 import { parseChapterChatAction } from './labChapterChat'
 import type { ChatCard, ChatConversation, ChatMessage } from '../types'
 import { BOOKS } from '../data/bookRegistry'
-import { localStorageProvider } from '../services/storage'
+import { localStorageProvider, type StorageWriteFailure } from '../services/storage'
 import { supabase } from '../services/supabase'
 import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
 import { isStuckRepeatedLine, type LabAskTurn } from './labAsk'
@@ -330,10 +330,9 @@ export function readLabBookChat(bookId: string): ChatConversation[] {
   return parseChatConversations(localStorageProvider.get<unknown>(labChatHistoryKey(bookId)), bookId)
 }
 
-export function writeLabBookChat(bookId: string, conversations: ChatConversation[]): void {
-  if (!bookId) return
-  if (conversations.some(c => c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) return
-  localStorageProvider.set(labChatHistoryKey(bookId), conversations)
+export function writeLabBookChat(bookId: string, conversations: ChatConversation[]): StorageWriteFailure | 'book-mismatch' | null {
+  if (!bookId || conversations.some(c => c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) return 'book-mismatch'
+  return localStorageProvider.set(labChatHistoryKey(bookId), conversations)
 }
 
 /** Every book's conversations on this device, for the companion's cross-book memory. */

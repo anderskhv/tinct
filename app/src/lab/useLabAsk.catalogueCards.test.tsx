@@ -142,3 +142,41 @@ it('leaves a rejected private card with its owner controller and never sends it 
   expect(account.commit).not.toHaveBeenCalled()
   expect(localStorage.getItem(`tinct:chat-history:${bookId}`)).toBeNull()
 })
+
+it.each([
+  ['QuotaExceededError', 'quota'],
+  ['SecurityError', 'access'],
+  ['UnknownError', 'write'],
+] as const)('reports %s without recording the answer or exception text in diagnostics', (name, expected) => {
+  const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  const { result } = renderHook(() => useLabAsk(options))
+  const write = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('private exception content', name) })
+  act(() => { expect(result.current.saveCard(card)).toBe(false) })
+  expect(result.current.cardSaveFailure).toBe(expected)
+  expect(JSON.stringify(warn.mock.calls)).not.toContain('private exception content')
+  expect(JSON.stringify(warn.mock.calls)).not.toContain(card.turns[0].content)
+  write.mockRestore()
+  act(() => { expect(result.current.saveCard(card)).toBe(true) })
+  expect(result.current.cardSaveFailure).toBeNull()
+})
+
+it('distinguishes rejected card coordinates from a failed device write', () => {
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
+  const { result } = renderHook(() => useLabAsk(options))
+  const write = vi.spyOn(Storage.prototype, 'setItem')
+  act(() => { expect(result.current.saveCard({ ...card, anchor: { ...card.anchor!, toWord: 0 } })).toBe(false) })
+  expect(result.current.cardSaveFailure).toBe('invalid-card')
+  expect(write).not.toHaveBeenCalled()
+  act(() => { expect(result.current.saveCard({ ...card, source: { kind: 'catalogue', bookId: 'odyssey' } })).toBe(false) })
+  expect(result.current.cardSaveFailure).toBe('book-mismatch')
+  expect(write).not.toHaveBeenCalled()
+})
+
+it('distinguishes a silent storage write failure from quota or invalid card data', () => {
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
+  const { result } = renderHook(() => useLabAsk(options))
+  vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {})
+  act(() => { expect(result.current.saveCard(card)).toBe(false) })
+  expect(result.current.cardSaveFailure).toBe('readback')
+  expect(result.current.conversations[0].messages.at(-1)?.content).toBe(card.turns[0].content)
+})

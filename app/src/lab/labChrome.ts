@@ -458,8 +458,9 @@ export const LAB_BAR_SELECTORS = [
 export function labVisibleBottomPx(
   viewport?: { height?: number; offsetTop?: number } | null,
   innerHeight?: number,
+  context?: { textEntryFocused?: boolean; scale?: number },
 ): number {
-  const height = labVisualViewportHeightPx(viewport?.height, innerHeight)
+  const height = labVisualViewportHeightPx(viewport?.height, innerHeight, context)
   if (height <= 0) return 0
   const offset = typeof viewport?.offsetTop === 'number' && viewport.offsetTop > 0 ? viewport.offsetTop : 0
   return Math.round(height + offset)
@@ -498,7 +499,16 @@ export function measureLabOnScreenBarTop(
   const barTop = measureLabBarTop(scope, fallback)
   const vv = typeof window !== 'undefined' ? window.visualViewport : null
   const inner = typeof window !== 'undefined' ? window.innerHeight : undefined
-  const visibleBottom = labVisibleBottomPx(vv, inner)
+  // Use the same viewport policy as bindLabVisualViewportHeight. A docked
+  // card's keyboard covers the leaf without resizing it; after dismissal iOS
+  // can also retain the short viewport for a few frames. Treating either as
+  // page overflow permanently peels valid words out of that full-height leaf.
+  const active = fallback?.ownerDocument.activeElement
+    ?? (typeof document !== 'undefined' ? document.activeElement : null)
+  const visibleBottom = labVisibleBottomPx(vv, inner, {
+    textEntryFocused: labTextEntryFocused(active) && !labKeyboardSheetFocused(active),
+    scale: vv?.scale,
+  })
   if (visibleBottom <= 0) return barTop
   if (barTop <= 0) return visibleBottom
   return Math.min(barTop, visibleBottom)
