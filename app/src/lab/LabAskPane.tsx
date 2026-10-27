@@ -1,3 +1,4 @@
+import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type Ref, type MutableRefObject } from 'react'
 import { LAB_DESKTOP_PANES, labVoicePhaseLabel } from './labChrome'
 import { LabWait } from './LabWait'
@@ -134,6 +135,21 @@ export function LabAskPane({
     onMinimizedChange?.(value)
   }
   const windowRef = useReaderWindow<HTMLElement>('chat', !!desktopCompanion && !minimized)
+  const panelRef = useRef<HTMLElement | null>(null)
+  const setPanelRef = useCallback((node: HTMLElement | null) => { panelRef.current = node; windowRef(node) }, [windowRef])
+  const dismissRef = useRef(onDone)
+  dismissRef.current = onDone
+  useEffect(() => {
+    if (!desktopCompanion || minimized) return
+    const outside = (event: PointerEvent) => {
+      const target = event.target
+      if (!dismissRef.current || !(target instanceof Node) || panelRef.current?.contains(target)) return
+      consumeDismissGesture(event)
+      dismissRef.current?.()
+    }
+    window.addEventListener('pointerdown', outside, { capture: true, passive: false })
+    return () => window.removeEventListener('pointerdown', outside, true)
+  }, [desktopCompanion, minimized])
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
   const [copiedTurn, setCopiedTurn] = useState<string | null>(null)
   // Auto-grow to five lines (fitComposer: no scrollbar until the field really clips).
@@ -359,13 +375,13 @@ export function LabAskPane({
       }
       // Turns that are not the reader's own question (Talk, another device):
       // follow only a reader who is already at the bottom.
-      if ((newTurn && lastTurn.role === 'user') || pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(node)
+      if ((newTurn && lastTurn.role === 'user') || !desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(node)
     }
     measureAway(node)
     didPositionThreadRef.current = true
     repinRef.current = false
     lastTurnIdRef.current = lastTurn?.id ?? null
-  }, [focusTurnId, hidden, holdQuestion, measureAway, pinToBottom, turns, typedLoading])
+  }, [desktopCompanion, focusTurnId, hidden, holdQuestion, measureAway, pinToBottom, turns, typedLoading])
 
   const focusedTurnRef = useRef<string | null>(null)
   useLayoutEffect(() => {
@@ -408,13 +424,13 @@ export function LabAskPane({
       }
       const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
       if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
-      if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
+      if (!desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(current)
     })
     observer.observe(node)
     return () => observer.disconnect()
     // anchorRow reads refs only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [empty, holdQuestion, measureAway, pinToBottom])
+  }, [desktopCompanion, empty, holdQuestion, measureAway, pinToBottom])
 
   const submit = () => {
     if (typedLoading) return
@@ -479,7 +495,7 @@ export function LabAskPane({
         if (target.closest('button, a, input, textarea, [contenteditable]')) return
         if (target.closest('.tc-attached')) return
         event.preventDefault()
-        textareaRef.current?.focus()
+        textareaRef.current?.focus({ preventScroll: true })
       }}
     >
       {attachment && (
@@ -487,7 +503,7 @@ export function LabAskPane({
           {cutQuote(attachment.text)}
           <button type="button" className="tc-mark" aria-label="Remove" onClick={() => {
             onRemoveAttachment?.()
-            window.requestAnimationFrame(() => textareaRef.current?.focus())
+            window.requestAnimationFrame(() => textareaRef.current?.focus({ preventScroll: true }))
           }} dangerouslySetInnerHTML={{ __html: ICONS.close }} />
         </section>
       )}
@@ -588,7 +604,7 @@ export function LabAskPane({
   return (
     <aside
       style={minimized && desktopCompanion ? { display: 'none' } : undefined}
-      ref={windowRef}
+      ref={setPanelRef}
       data-window-minimized={minimized && desktopCompanion ? 'true' : undefined}
       className={`lab-ask tc ${empty ? 'is-empty' : 'has-thread'}${phoneSheet ? ' is-phone-sheet' : ''}${embeddedPhoneCard ? ' is-phone-card-chat' : ''}${desktopCompanion ? ` is-desktop-companion is-${desktopCompanion}` : ''}`}
       data-testid="lab-ask-pane"

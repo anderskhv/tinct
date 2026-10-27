@@ -121,6 +121,7 @@ export function factcheckPrompt(today: string): string {
  */
 export const COUNTERPOINT_PROMPT = [
   'Give one sharp objection to the claim or argument in the selected passage: the one a careful, well-informed critic would raise first.',
+  'The selected passage alone defines the claim to challenge. Use surrounding text only to interpret that claim or support an objection to it; do not substitute a broader thesis, a nearby claim, or implications the selection does not assert. If the selected claim is defensible, explain its precise limitation rather than inventing a stronger claim to attack.',
   'First paragraph: the objection itself in one sentence, at most 25 words. Then a blank line.',
   'Then one paragraph that makes it concrete with a page, table, figure, equation, number or quoted line of the document, cited. Look first for the document\'s own inconsistencies: a table or result that cuts against a claim in the text, or numbers that disagree between sections. Name a school of thought or a critic only when the objection is documented as theirs.',
   'Never a generic objection that would fit any work, such as that a method or metric is unreliable in general.',

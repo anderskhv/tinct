@@ -72,7 +72,7 @@ describe('the entries, from the margin\'s own store', () => {
   const list = N.entriesOf({ cards, marks })
   it('are every answered card and every highlight, newest first', () => {
     expect(list.map(e => e.id)).toEqual(['n-m1', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'h-m2'])
-    expect(list.map(e => N.KINDS[e.kind])).toEqual(['Note', 'Explain', 'Ask', 'Define', 'Quiz', 'Fact-check', 'Counterpoint', 'Simplify', 'Highlight'])
+    expect(list.map(e => N.KINDS[e.kind])).toEqual(['Note', 'Explain', 'Ask', 'Define', 'Quiz', 'Evaluate', 'Counterpoint', 'Simplify', 'Highlight'])
   })
   it('have their question and answer, in plain prose, and the follow-ups under them', () => {
     const [note, explain, ask, define, quiz] = list

@@ -20,12 +20,12 @@ describe('live card saved answer projection', () => {
   })
 
   it('omits an owned initial answer while retaining discussion and saved data', () => {
-    const turns = [turn('mc_react_1000:0', 'assistant', 'Fact-check answer'), turn('follow', 'user', 'Why?'), turn('reply', 'assistant', 'Because.')]
+    const turns = [turn('mc_react_1000:0', 'assistant', 'Evaluate answer'), turn('follow', 'user', 'Why?'), turn('reply', 'assistant', 'Because.')]
     expect(liveCardFollowupTurns(turns, 1000).map(t => t.content)).toEqual(['Why?', 'Because.'])
     expect(turns).toHaveLength(3)
   })
   it('omits catalogue synthetic action and answer but preserves repeated follow-ups', () => {
-    const turns = [turn('mc_react_1000:0', 'user', 'Fact-check'), turn('mc_react_1000:1', 'assistant', 'Answer'), turn('u', 'user', 'Again'), turn('a', 'assistant', 'Answer')]
+    const turns = [turn('mc_react_1000:0', 'user', 'Evaluate'), turn('mc_react_1000:1', 'assistant', 'Answer'), turn('u', 'user', 'Again'), turn('a', 'assistant', 'Answer')]
     expect(liveCardFollowupTurns(turns, 1000).map(t => t.id)).toEqual(['u', 'a'])
   })
 })

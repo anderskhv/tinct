@@ -316,7 +316,7 @@ export function cardSpec(id: CardId, env: CardsEnv): CardSpec {
 export function youCard(env: CardsEnv): CardSpec {
   let status = ''
   /** The AI credits row's reset line, open or not; kept across refreshes. */
-  const credits = { resets: false }
+  const credits = { resets: false, buying: false, status: '' }
   /** Editing the name in place (tap the name); the draft survives refreshes. */
   const naming = { open: false, draft: '', saving: false }
   // One file field per slot for the card's life, so a re-render while the
@@ -508,7 +508,7 @@ function fileField(): HTMLInputElement {
 /** At or above this share of the month's credits used, the Top up (or Get Premium) row shows (Anders, 14 Oct 2026). */
 export const TOP_UP_ROW_FROM_PERCENT = 90
 
-function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }): HTMLElement {
+function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; buying: boolean; status: string }): HTMLElement {
   const allowance = env.data.allowance!
   // A free account after its trial has no allowance this month: nothing was
   // used, so no bar and no percentage, only the row and Get Premium (15 Oct 2026).
@@ -558,14 +558,20 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
     chevron: true,
     testid: 'you-top-up',
     onClick: () => {
+      if (open.buying) return
       const rowNode = card.element.querySelector<HTMLElement>('[data-testid="you-top-up"]')
       const cardBox = card.element.getBoundingClientRect()
       const top = rowNode ? rowNode.getBoundingClientRect().bottom - cardBox.top + card.element.scrollTop + 4 : 180
       const buy = (pack: TopUpPack) => async () => {
+        if (open.buying) return
+        open.buying = true
+        open.status = 'Opening secure checkout…'
+        card.refresh()
         const url = await startTopUpCheckout(env.session.token, pack)
         if (url) { env.navigate(url); return }
-        const line = card.element.querySelector('.tc-status')
-        if (line) line.textContent = CARDS_COPY.topUpFailed
+        open.buying = false
+        open.status = CARDS_COPY.topUpFailed
+        card.refresh()
       }
       popMenu(card.element, top, [
         ...(packs.includes('chat_pack_200') ? [{ label: CARDS_COPY.buyTopUp, run: buy('chat_pack_200'), testid: 'menu-top-up' }] : []),
@@ -582,6 +588,7 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean }
     creditsRow,
     topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round((1 - Math.max(0, Math.min(1, topUpLeft))) * 100), CARDS_COPY.used, true, 'you-top-up-bar') : null,
     topUpRow,
+    open.status ? el('p', { className: 'tc-status', role: 'status', 'aria-live': 'polite', text: open.status, dataset: { testid: 'top-up-status' } }) : null,
   )!
 }
 

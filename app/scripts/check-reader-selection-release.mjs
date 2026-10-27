@@ -34,7 +34,16 @@ try {
         const context = await browser.newContext({ viewport: { width: wrapped ? 1320 : 1440, height: wrapped ? 1100 : 1000 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
         const page = await context.newPage(), errors=[]
         page.on('pageerror',error=>errors.push(error.message))
-        await page.route('**/*', async route => {
+        const pending = new Map(), networkEvents = []
+        page.on('request', request => pending.set(request, { url:request.url(),type:request.resourceType(),started:Date.now() }))
+        page.on('response', response => { const item=pending.get(response.request()); if(item)Object.assign(item,{status:response.status(),responseAt:Date.now()}) })
+        page.on('requestfinished', request => pending.delete(request))
+        page.on('requestfailed', request => { networkEvents.push({url:request.url(),error:request.failure()?.errorText}); if(networkEvents.length>40)networkEvents.shift(); pending.delete(request) })
+        // Native asset loading avoids routing every script through continue;
+        // only API fixtures, external traffic, and release guards are intercepted.
+        await page.route(url => url.origin!==origin || url.pathname.startsWith('/api/')
+          || Boolean(expectedBundle && (url.pathname==='/reader'
+            || (/^\/assets\/index-[\w-]+\.js$/.test(url.pathname)&&url.pathname!==expectedBundle))), async route => {
           const url = new URL(route.request().url())
           if (url.origin !== origin) return route.abort()
           if (await enforceReaderBundle(route, expectedBundle)) return
@@ -46,6 +55,7 @@ try {
           localStorage.setItem('tinct-highlight-color', 'rose')
           Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__selectionCopied=text}}})
         },wrapped)
+        try {
         await page.goto(`${origin}/reader?book=bible&edition=webc-en&chapter=1309&paragraph=3&word=${wrapped ? 95 : 0}&sharedReader=1&layout=desktop&view=margin`)
         await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.readerEdition === 'webc-en')
         await page.evaluate(() => document.fonts.ready)
@@ -167,7 +177,14 @@ try {
           }
         }
         assert.deepEqual(errors,[])
-        await context.close()
+        } catch(error) {
+          const diagnostic={engine:engineName,grouped,direction,includeBoth,wrapped,errors,
+            pending:[...pending].map(([request,item])=>({...item,elapsedMs:Date.now()-item.started,timing:request.timing()})),events:networkEvents}
+          console.error('Selection failure network:',JSON.stringify(diagnostic))
+          await fs.writeFile(`${output}/failure-network.json`,JSON.stringify(diagnostic,null,2))
+          await page.screenshot({path:`${output}/failure.png`,timeout:5000}).catch(()=>{})
+          throw error
+        } finally { await context.close() }
       }
     } finally { await browser.close() }
   }

@@ -330,10 +330,13 @@ async function run(engine,name,phone) {
       await clickMenu(page,'chat')
       assert((await chat.boundingBox()).height>200)
       await page.screenshot({path:output+'/'+name+'-desktop-chat.png'})
-      // Menus must remain clickable while a floating companion is open.
+      // The first outside gesture dismisses Chat without activating the control beneath it.
+      await page.getByTestId('lab-super').click()
+      assert.equal(await page.getByTestId('lab-super-menu').isVisible(),false,'dismissal does not also open the menu')
+      await chat.waitFor({state:'hidden'})
+      assert.equal(await page.getByTestId('lab-v2-sheet').isVisible(),false,'dismissal does not also open text settings')
       await clickMenu(page,'text')
       await page.getByTestId('lab-v2-sheet-close').click()
-      await page.getByTestId('lab-desktop-companion-close').click()
     }
     await clickMenu(page,'theme')
     const sheet=page.getByTestId('lab-v2-sheet')

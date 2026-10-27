@@ -5609,7 +5609,7 @@ function cardTurns(card, image, fig = {}) {
   const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
   const pill = card.data?.pill;
-  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Fact-check this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
+  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Evaluate this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
   if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];

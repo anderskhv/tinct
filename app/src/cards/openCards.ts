@@ -14,7 +14,7 @@ import { isNativeCapacitor } from '../utils/nativePlatform'
 import { LAB_AUTH_CALLBACK_PATH } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { wipeLabDeviceUserData } from '../lab/labSignOut'
-import { fetchAiAllowance } from '../lab/labAiAllowance'
+import { watchAiAllowance } from '../lab/labAiAllowance'
 import { fetchSubscriptionInfo, premiumOfferIntervals } from '../lab/labPremiumOffer'
 import { socialFriendsOn } from '../social/friendsClient'
 import { fetchFind, fetchOwnProfile, flushForFigures, loadReading } from './cardsApi'
@@ -104,7 +104,7 @@ function firstData(session: CardsSession): CardsData {
 }
 
 /** Read everything the cards show, in parallel; each part fills in as it arrives. */
-function load(env: CardsEnv, social: boolean): void {
+function load(env: CardsEnv, social: boolean): () => void {
   const { token, userId } = env.session
   const set = (patch: Partial<CardsData>) => {
     Object.assign(env.data, patch)
@@ -139,7 +139,7 @@ function load(env: CardsEnv, social: boolean): void {
     void loadDefaultBoard(token, userId).then(board => { if (board) showBoard(env, set) })
     loadFind(env, set)
   }
-  void fetchAiAllowance(token).then(allowance => set({ allowance }))
+  const stopAllowance = watchAiAllowance(() => env.session.token, allowance => set({ allowance }))
   void fetchSubscriptionInfo(token).then(info => {
     if (!info) return
     const status = info.subscription_status ?? null
@@ -149,6 +149,7 @@ function load(env: CardsEnv, social: boolean): void {
     // (not Premium by grant, whose portal would be empty).
     set({ plan: info.premium || paying ? 'premium' : 'free', firstMonthFreeUntil: info.first_month_free_until ?? null, intervals: premiumOfferIntervals(info), billing: Boolean(info.stripe) })
   })
+  return stopAllowance
 }
 
 /** The You card's rank from the board the Leaderboard opens on (as this page knows it now). */
@@ -203,6 +204,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
   const data = firstData(session)
   cached = { userId: session.userId, data }
   let stack: CardStack | null = null
+  let stopAllowance = () => {}
   const env: CardsEnv = {
     session,
     data,
@@ -240,6 +242,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
     dark: options.dark,
     deskTop: options.deskTop,
     onClosed: () => {
+      stopAllowance()
       if (current?.stack !== stack) return
       current = null
       options.onClose?.()
@@ -255,10 +258,10 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
       if (current?.env !== env) return
       if (!fresh || fresh.userId !== session.userId) { stack?.closeAll(); if (!fresh) location.assign(`/sign-in?returnTo=${encodeURIComponent(returnTo())}`); return }
       env.session.token = fresh.token
-      load(env, social)
+      stopAllowance = load(env, social)
     })
   } else {
-    load(env, social)
+    stopAllowance = load(env, social)
   }
   return true
 }

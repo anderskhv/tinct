@@ -112,11 +112,11 @@ describe('the selection bar (iPhone feedback, 20 Oct 2026)', () => {
     expect(css).not.toMatch(/lab-pbar-caret|lab-pbar-blink/)
   })
 
-  it('••• lists Define, Fact-check, Counterpoint, Quiz me and Copy (not "Copy quote")', () => {
-    expect(PHONE_MORE_ROWS.map(([, name]) => name)).toEqual(['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy'])
+  it('••• lists Define, Evaluate, Counterpoint, Quiz me and Copy (not "Copy quote")', () => {
+    expect(PHONE_MORE_ROWS.map(([, name]) => name)).toEqual(['Define', 'Evaluate', 'Counterpoint', 'Quiz me', 'Copy'])
     bar()
     fireEvent.click(screen.getByTestId('lab-pbar-more'))
-    expect(screen.getByTestId('lab-phone-more').textContent).toBe('DefineFact-checkCounterpointQuiz meCopy')
+    expect(screen.getByTestId('lab-phone-more').textContent).toBe('DefineEvaluateCounterpointQuiz meCopy')
     // As wide as its longest name: no fixed width.
     expect(css).toMatch(/\.lab \.lab-pmore \{[^}]*width: max-content/)
     expect(css).not.toMatch(/\.lab \.lab-pmore \{[^}]*width: 210px/)
