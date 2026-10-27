@@ -160,7 +160,7 @@ const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return
  * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
+export function openFileDialog({from=null,onSearch=null,checking=false,authorize=async()=>true,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
@@ -251,6 +251,7 @@ export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf
   save.onclick=async()=>{
    if(save.disabled)return;
    save.disabled=true;
+   if(!await authorize()||!layer.isConnected){save.disabled=false;return;}
    let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
    const signature=JSON.stringify(details);
    try{
@@ -289,6 +290,7 @@ export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf
   source.focus({preventScroll:true});
  }
  async function addFile(file){
+  if(!await authorize()||!layer.isConnected)return;
   if (/\.txt$/i.test(file.name) || file.type === 'text/plain') {
    if (file.size > 50 * 1024 * 1024) { chooseStep('This text file exceeds the 50 MB limit.'); return; }
    try {
@@ -344,13 +346,16 @@ export function openFileDialog({from=null,onSearch=null,checking=false,assessPdf
  * device signed out), the Premium offer for a free account, exactly as before.
  */
 export async function openFileEntry(from,{access=canAdd,go=href=>location.assign(href),...options}={}){
- const pending=signedIn()?openFileDialog({from,go,...options,checking:true}):null;
- const allowed=await access();
+ const permission=Promise.resolve().then(()=>access());
+ // Choosing a local file can overlap the entitlement request. Reading/importing
+ // it still waits for that request, and the authenticated API remains authoritative.
+ const pending=signedIn()?openFileDialog({from,go,...options,authorize:async()=>await permission!==false&&signedIn()}):null;
+ const allowed=await permission;
  // Closing the dialog while the account check runs cancels this opening.
  if(pending&&!pending.isConnected)return null;
  if(allowed===false){if(pending)closeFileDialog();go(premiumForEntry());return null;}
  if(!signedIn()){if(pending)closeFileDialog();go(signInForEntry());return null;}
- if(pending){pending.showReady();return pending;}
+ if(pending)return pending;
  return openFileDialog({from,go,...options});
 }
 function fileEntry(link){

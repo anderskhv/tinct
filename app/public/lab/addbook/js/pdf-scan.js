@@ -23,7 +23,7 @@
 //   Version 6 (2026-10-16): a metadata title that is the printed title with more after it gives way to the printed one.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 6;
+  const SCAN_VERSION = 7;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -184,6 +184,21 @@
   function printedTitle(pages, isFurniture) {
     for (const p of pages.slice(0, 3)) {
       const skip = epigraphRows(p.rows);
+      // Reports often print "Figure 1" above a large, bold chart title. That
+      // title belongs to the figure, not to the document's chapter navigation.
+      for (const [index, label] of p.rows.entries()) {
+        if (!FIGURE_LABEL.test(label.text)) continue;
+        skip.add(index);
+        let previous = label;
+        for (let lines = 0; lines < 3; lines++) {
+          const nextIndex = p.rows.findIndex((r, i) => i > index && r.y < previous.y - .5
+            && Math.abs(r.x - label.x) < Math.max(label.size, r.size) * 1.5);
+          const next = p.rows[nextIndex];
+          if (!next || previous.y - next.y > Math.max(previous.size, next.size) * 2.2
+            || next.words > 14 || next.size < label.size || (lines > 0 && next.font !== previous.font)) break;
+          skip.add(nextIndex); previous = next;
+        }
+      }
       // A title the running heads repeat ("Constructor Theory" over every page) is still the title where it is
       // set large, away from the page's edges (version 6).
       const lettered = p.rows.filter((r, i) => !skip.has(i) && /\p{L}{2}/u.test(r.text)), pageBody = bodyOf(lettered);
@@ -223,13 +238,14 @@
   // section number, not a sentence or formula running on, not a figure or table caption.
   // A chapter set as a Roman numeral alone ("I.", "XII.") counts; any other heading has at least
   // four letters ("FOR", "BY" on a title page are not chapters), or is a label ("Act", "Teil").
+  const FIGURE_LABEL = /^(?:fig(?:ure|ur)?|table|tabel|tab)\.?\s*\d/i;
   const LABEL_HEADING = /^(?:part|book|act|scene|canto|chapter|chap|teil|buch|akt|kapitel|livre|partie|chapitre|acte|libro|parte|capítulo|capitolo)\b/i;
   function headingLike(r) {
     const t = r.text, letters = (t.match(/\p{L}/gu) || []).length;
     if (/^[IVXLC]{1,7}\.$/.test(t)) return true;
     return r.words <= 12 && (letters >= 4 || (letters >= 2 && LABEL_HEADING.test(t))) && letters >= t.replace(/\s/g, '').length * 0.6
       && /^([\p{Lu}]|[\dIVXivx]+(?:\.\d+)*[.)]?\s|[A-Z]\.?\d*\s|§)/u.test(t) && !/[,;:]$/.test(t)
-      && !/[=∑∫≡⊗⊕→←≈≤≥±×√∂∇]/.test(t) && !/^(fig(ure)?|table|tab)\.?\s*\d/i.test(t) && !isPageNumber(t);
+      && !/[=∑∫≡⊗⊕→←≈≤≥±×√∂∇]/.test(t) && !FIGURE_LABEL.test(t) && !isPageNumber(t);
   }
   // pages: [{ n, y0, h, rows }]; fontName(pageNumber, fontId) -> Promise<string>.
   // Pages a scanning service adds (Google Books' notice) are not the book.
@@ -255,6 +271,21 @@
       const local = bodyOf(p.rows), body = local && local.chars >= 300 ? local : docBody;
       if (p.rows.filter(r => CONTENTS_LINE.test(r.text)).length >= 5 || BOILERPLATE_PAGE.test(p.rows.map(r => r.text).join(' '))) continue;
       const skip = epigraphRows(p.rows);
+      // Reports often print "Figure 1" above a large, bold chart title. That
+      // title belongs to the figure, not to the document's chapter navigation.
+      for (const [index, label] of p.rows.entries()) {
+        if (!FIGURE_LABEL.test(label.text)) continue;
+        skip.add(index);
+        let previous = label;
+        for (let lines = 0; lines < 3; lines++) {
+          const nextIndex = p.rows.findIndex((r, i) => i > index && r.y < previous.y - .5
+            && Math.abs(r.x - label.x) < Math.max(label.size, r.size) * 1.5);
+          const next = p.rows[nextIndex];
+          if (!next || previous.y - next.y > Math.max(previous.size, next.size) * 2.2
+            || next.words > 14 || next.size < label.size || (lines > 0 && next.font !== previous.font)) break;
+          skip.add(nextIndex); previous = next;
+        }
+      }
       const isBody = r => Math.abs(r.size - body.size) <= body.size * 0.1 && r.words >= 6;
       // On page 1, what sits above the first body paragraph is the title block (title, authors, epigraph).
       const para = p.rows.findIndex(r => r.font === body.font && Math.abs(r.size - body.size) < 0.6 && r.words >= 6);

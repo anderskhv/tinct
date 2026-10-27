@@ -325,8 +325,8 @@ it('asks a bounded unit with actual extracted page text and saves a truthful pag
   expect(service.saveUnitCard(source, 'primer', 'Changed answer.')).toBe(false)
   const invented = { ...source, pages: [{ n: 2, text: 'Invented source.' }, source.pages[1]] }
   expect(await service.askUnit(invented, 'primer')).toBeNull()
-  service.setPdfPageText(2, 'D'.repeat(6001), 3)
-  expect(await service.askUnit({ ...source, pages: [{ n: 2, text: 'D'.repeat(6001) }, source.pages[1]] }, 'primer')).toBeNull()
+  service.setPdfPageText(2, 'D'.repeat(200001), 3)
+  expect(await service.askUnit({ ...source, pages: [{ n: 2, text: 'D'.repeat(200001) }, source.pages[1]] }, 'primer')).toBeNull()
   expect(requests).toHaveLength(1)
   service.dispose()
 })
@@ -374,10 +374,10 @@ it('does not ask or save a unit quiz when a page is invented or too dense', asyn
   const api = vi.fn(async () => json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] }))
   const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
   service.setPdfPageText(1, 'Actual words.', 2)
-  service.setPdfPageText(2, 'D'.repeat(6001), 2)
+  service.setPdfPageText(2, 'D'.repeat(200001), 2)
   const unit = { key: 'unit-1', title: 'The unit', from: 1, to: 2 }
   expect(await service.askUnitQuiz({ unit, pages: [{ n: 1, text: 'Invented.' }], atPage: 2 })).toBeNull()
-  expect(await service.askUnitQuiz({ unit, pages: [{ n: 1, text: 'Actual words.' }, { n: 2, text: 'D'.repeat(6001) }], atPage: 2 })).toBeNull()
+  expect(await service.askUnitQuiz({ unit, pages: [{ n: 1, text: 'Actual words.' }, { n: 2, text: 'D'.repeat(200001) }], atPage: 2 })).toBeNull()
   expect(api).not.toHaveBeenCalled()
   expect(service.saveUnitQuizCardWithId({ unit, pages: [{ n: 1, text: 'Actual words.' }], atPage: 2 }, 'Summary', 'Quiz')).toBeNull()
   service.dispose()
@@ -431,7 +431,7 @@ it('grounds a saved unit follow-up in every cited page and refuses incomplete so
     '<page n="2">\nThe claim starts here.\n</page>', '<page n="3">\nThe claim ends here.\n</page>',
   ])
   expect(requests[1].companion).toMatchObject({ context: { chapterLabel: 'The whole chapter' } })
-  service.setPdfPageText(2, 'D'.repeat(6001), 3)
+  service.setPdfPageText(2, 'D'.repeat(200001), 3)
   await expect(service.askCardFollow(id!, 'What began on page two?')).rejects.toMatchObject({ code: 'pdf_original_incomplete_source' })
   expect(requests).toHaveLength(2)
   service.dispose()
@@ -492,5 +492,24 @@ it('sends a figure image only in the latest user turn and redraws it for a saved
   const count = requests.length
   await expect(service.askCardFollow(id, 'No picture?')).rejects.toThrow('No question was sent')
   expect(requests).toHaveLength(count)
+  service.dispose()
+})
+
+it('sends every page of a long chapter through the complete document context', async () => {
+  const requests: unknown[] = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)).companion)
+    return json({ content: [{ text: 'Complete chapter summary.' }], stop_reason: 'end_turn' })
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  const pages = Array.from({length:35},(_,i)=>({n:i+1,text:`Source page ${i+1}. `+'Actual chapter text. '.repeat(400)+` End of page ${i+1}.`}))
+  for(const page of pages) service.setPdfPageText(page.n,page.text,40)
+  const source = {unit:{key:'chapter-1',title:'Long chapter',from:1,to:35},pages,atPage:18}
+  expect(await service.askUnit(source,'recap')).toBe('Complete chapter summary.')
+  const parsed = parseCompanionRequest(requests[0])
+  expect(parsed?.document?.units).toEqual(pages.map(page => ({label:String(page.n),text:page.text})))
+  expect(parsed?.document?.cut).toBe(false)
+  expect(parsed?.document?.units[34].text).toContain('End of page 35.')
   service.dispose()
 })

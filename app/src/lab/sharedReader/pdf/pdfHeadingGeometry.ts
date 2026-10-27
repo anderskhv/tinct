@@ -29,3 +29,20 @@ export function findPdfHeading(layer: HTMLElement, heading: PdfHeadingActions): 
   }
   return null
 }
+
+/** Keep heading actions out of neighbouring columns. A floating, opaque toolbar
+ * above the heading is the fallback when the printed page has no empty space. */
+export function placePdfHeadingActions(selection: PdfOriginalSelection, width: number, height: number,
+  toolbar: { width: number; height: number }, ink: Array<{ left: number; top: number; right: number; bottom: number }>) {
+  const last = selection.rects.at(-1)!, first = selection.rects[0]
+  const clampX = (x: number) => Math.max(8, Math.min(width - toolbar.width - 8, x))
+  const candidates = [
+    { left: (last[1] + last[3]) * width + 12, top: (last[2] + last[4] / 2) * height - toolbar.height / 2 },
+    { left: clampX(first[1] * width), top: Math.min(...selection.rects.map(rect => rect[2])) * height - toolbar.height - 6 },
+  ]
+  const clear = (box: { left: number; top: number }) => box.left >= 8 && box.left + toolbar.width <= width - 8 && box.top >= 0
+    && !ink.some(rect => rect.left < box.left + toolbar.width + 4 && rect.right > box.left - 4
+      && rect.top < box.top + toolbar.height + 4 && rect.bottom > box.top - 4)
+  const chosen = candidates.find(clear) ?? candidates[1]
+  return { left: clampX(chosen.left), top: Math.max(0, chosen.top) }
+}

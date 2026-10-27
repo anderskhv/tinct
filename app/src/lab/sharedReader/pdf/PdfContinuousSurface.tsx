@@ -6,7 +6,7 @@ import {
   type PdfOriginalPlace, type PdfOriginalSelection, type PdfOriginalSurfaceProps,
 } from './PdfOriginalSurface'
 import { readPdfOriginalSelection, markPdfTextFurniture, paintPdfOriginalSelection } from './pdfOriginalSelection'
-import { findPdfHeading, type PdfHeadingActions } from './pdfHeadingGeometry'
+import { findPdfHeading, placePdfHeadingActions, type PdfHeadingActions } from './pdfHeadingGeometry'
 import { PdfFigureTools, type PdfFigureAction } from './PdfFigureTools'
 import { capturePdfRegion, type PdfRegionCapture } from './pdfOriginalFigures'
 import './pdfOriginal.css'
@@ -138,9 +138,14 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
       return <div key={heading.key} className={`pdf-original__heading-actions ${shownHeading === heading.key ? 'is-shown' : ''}`} data-testid="pdf-heading-actions" data-unit-key={heading.key} role="group" aria-label={`${heading.title} actions`}
         style={{ left: Math.max(8, left), top: (last[2] + last[4] / 2) * height - 14 }} ref={element => {
           if (!element) return
-          const end = (last[1] + last[3]) * width, inline = end + 12 + element.offsetWidth <= width - 8
-          element.style.left = `${inline ? end + 12 : selection.rects[0][1] * width}px`
-          element.style.top = `${inline ? (last[2] + last[4] / 2) * height - element.offsetHeight / 2 : (last[2] + last[4]) * height + 2}px`
+          const origin = layer.current?.getBoundingClientRect()
+          const ink = origin ? [...layer.current!.querySelectorAll<HTMLElement>('span')].filter(span => span.textContent?.trim()).map(span => {
+            const rect = span.getBoundingClientRect()
+            return { left: rect.left - origin.left, top: rect.top - origin.top, right: rect.right - origin.left, bottom: rect.bottom - origin.top }
+          }) : []
+          const position = placePdfHeadingActions(selection, width, height, { width: element.offsetWidth, height: element.offsetHeight }, ink)
+          element.style.left = `${position.left}px`
+          element.style.top = `${position.top}px`
         }} onPointerEnter={() => setShownHeading(heading.key)} onFocus={() => setShownHeading(heading.key)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setShownHeading(null) }} onMouseDown={event => event.preventDefault()}>
         {heading.actions.map(action => <button key={action.id} type="button" data-action={action.id} onClick={() => heading.onAction(action.id, selection)}>{action.label}</button>)}
       </div>

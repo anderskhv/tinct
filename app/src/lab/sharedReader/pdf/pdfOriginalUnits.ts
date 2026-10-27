@@ -1,10 +1,11 @@
+import { PDF_SOURCE_PAGES } from './pdfOriginalSourceLimits'
 import type { PdfScan, PdfSizedUnit, PdfUnitEntry } from '../../userBook/pdfEdition'
 
 export type PdfOriginalScanOutline = Pick<PdfScan, 'entries' | 'nav' | 'pages'>
 export type PdfOriginalUnit = PdfSizedUnit
 export interface PdfOriginalUnitRules {
   PRIMER: { units: number }
-  sizeUnits: (entries: PdfUnitEntry[], count: number) => PdfOriginalUnit[]
+  sizeUnits: (entries: PdfUnitEntry[], count: number, options?: { min?: number; split?: number }) => PdfOriginalUnit[]
   scanTree: (entries: PdfScan['entries']) => PdfUnitEntry[]
   scanEntries: (entries: PdfScan['entries'], nav: string, count: number) => PdfUnitEntry[]
   catchUpSpan: (unitFrom: number, page: number, max?: number) => { from: number; to: number }
@@ -31,30 +32,27 @@ export function pdfOriginalUnits(rules: PdfOriginalUnitRules, count: number,
       entries = rules.scanTree(scan.entries)
     else if (count >= rules.PRIMER.units) entries = rules.scanEntries(scan.entries, scan.nav, count)
   }
-  return rules.sizeUnits(entries, count).filter(unit => Number.isInteger(unit.from) && Number.isInteger(unit.to)
+  return rules.sizeUnits(entries, count, entries.length ? { min: 1, split: PDF_SOURCE_PAGES } : undefined).filter(unit => Number.isInteger(unit.from) && Number.isInteger(unit.to)
     && unit.from >= 1 && unit.from <= unit.to && unit.to <= count).map(unit => ({ ...unit, key: pdfUnitKey(unit.key) }))
 }
 
 export const pdfUnitAt = (units: PdfOriginalUnit[], page: number): PdfOriginalUnit | null =>
   units.find(unit => page >= unit.from && page <= unit.to) ?? null
 
-/** Bounded actual pages from the unit's heading, within the companion's 20-page limit. */
+/** Every page of the current source unit, including its later sections. */
 export function pdfPrimerPages(unit: PdfOriginalUnit): number[] {
   if (unit.matter || unit.start < 1 || unit.to < unit.start) return []
-  return Array.from({ length: Math.min(20, unit.to - unit.start + 1) }, (_, index) => unit.start + index)
+  return Array.from({ length: Math.min(PDF_SOURCE_PAGES, unit.to - unit.start + 1) }, (_, index) => unit.start + index)
 }
 
 /** After-unit actions require every page of the finished unit, without pretending a partial recap is complete. */
-export function pdfCompleteUnitPages(unit: PdfOriginalUnit): number[] {
-  if (unit.matter || unit.from < 1 || unit.to < unit.from || unit.to - unit.from + 1 > 20) return []
+export function pdfCompleteUnitPages(unit: PdfOriginalUnit, includeMatter = false): number[] {
+  if (unit.matter && !includeMatter || unit.from < 1 || unit.to < unit.from || unit.to - unit.from + 1 > PDF_SOURCE_PAGES) return []
   return Array.from({ length: unit.to - unit.from + 1 }, (_, index) => unit.from + index)
 }
 
-/** The recent *earlier* pages: never turn the current or a future page into a catch-up. */
-export function pdfCatchUpPages(rules: Pick<PdfOriginalUnitRules, 'catchUpSpan'>, unit: PdfOriginalUnit, page: number): number[] {
-  if (unit.matter || !Number.isInteger(page) || page < 1 || page < unit.from || page > unit.to) return []
-  const span = unit.from === 1 ? { from: Math.max(1, page - 20), to: page - 1 } : rules.catchUpSpan(unit.from, page, 20)
-  const to = Math.min(span.to, page - 1)
-  if (span.from < 1 || span.from > to) return []
-  return Array.from({ length: to - span.from + 1 }, (_, index) => span.from + index)
+/** All completed source pages before the current position; never include unread current-page text. */
+export function pdfCatchUpPages(_rules: Pick<PdfOriginalUnitRules, 'catchUpSpan'>, unit: PdfOriginalUnit, page: number): number[] {
+  if (unit.matter || !Number.isInteger(page) || page < 1 || page < unit.from || page > unit.to || page > PDF_SOURCE_PAGES) return []
+  return Array.from({ length: page - 1 }, (_, index) => index + 1)
 }

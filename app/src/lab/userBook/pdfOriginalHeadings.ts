@@ -12,9 +12,11 @@ type Dependencies = {
   cache: typeof cacheOwnedPdfScan
 }
 const defaults: Dependencies = { engine: loadPdfEngine, bytes: loadOwnedPdfBytes, fileId: readOwnedBookFileId, owner: userBookOwner, cache: cacheOwnedPdfScan }
-export async function discoverOriginalPdfHeadings(hex: string, owner: string, options: {
-  signal: AbortSignal; fileName: string; dependencies?: Partial<Dependencies>
-}): Promise<PdfOriginalScanOutline | null> {
+type DiscoveryOptions = { signal: AbortSignal; fileName: string; dependencies?: Partial<Dependencies> }
+export function discoverOriginalPdfHeadings(hex: string, owner: string, options: DiscoveryOptions): Promise<PdfOriginalScanOutline | null> {
+  return discoverHeadings(hex, owner, options, true)
+}
+async function discoverHeadings(hex: string, owner: string, options: DiscoveryOptions, retryFirstUpload: boolean): Promise<PdfOriginalScanOutline | null> {
   const deps = { ...defaults, ...options.dependencies }
   const live = () => !options.signal.aborted && deps.owner() === owner
   let pdf: Awaited<ReturnType<Engine['pdfjs']['getDocument']>['promise']> | null = null
@@ -38,7 +40,18 @@ export async function discoverOriginalPdfHeadings(hex: string, owner: string, op
     pdf = await engine.pdfjs.getDocument({ data: new Uint8Array(bytes.slice(0)), isEvalSupported: false, verbosity: 0 }).promise
     if (!live()) return null
     const scan = await engine.scan.scan(pdf, { fileName: options.fileName, live })
-    if (!live() || !validScan(scan, pdf.numPages) || await deps.fileId(hex, owner) !== fileId) return null
+    if (!live() || !validScan(scan, pdf.numPages)) return null
+    const scannedId = await deps.fileId(hex, owner)
+    if (scannedId !== fileId) {
+      // The initial private upload can finish while the local scanner loads.
+      // Re-read and scan under its now-established identity once. A replacement
+      // of an existing cloud generation is still discarded, never adopted.
+      if (retryFirstUpload && fileId === null && scannedId && live()) {
+        await pdf.destroy().catch(() => {}); pdf = null
+        return discoverHeadings(hex, owner, options, false)
+      }
+      return null
+    }
     // Cache failures never prevent the already open pages acquiring their headings.
     await deps.cache(hex, owner, scan, fileId).catch(() => {})
     return live() && await deps.fileId(hex, owner) === fileId ? { entries: scan.entries, nav: scan.nav, pages: scan.pages } : null

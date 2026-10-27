@@ -13,10 +13,10 @@ it('uses real PDF outline headings to size units, preserving source page ranges'
   expect(units.map(unit => [unit.from, unit.to])).toEqual([[1, 10], [11, 30], [31, 60]])
   expect(pdfUnitAt(units, 14)?.title).toBe('Chapter 1')
   expect(pdfPrimerPages(units[1])).toEqual(Array.from({ length: 20 }, (_, i) => i + 11))
-  expect(pdfCatchUpPages(margin, units[1], 14)).toEqual(Array.from({ length: 10 }, (_, i) => i + 1))
+  expect(pdfCatchUpPages(margin, units[1], 14)).toEqual(Array.from({ length: 13 }, (_, i) => i + 1))
   expect(pdfCatchUpPages(margin, units[0], 5)).toEqual([1, 2, 3, 4])
   expect(pdfCompleteUnitPages(units[1])).toEqual(Array.from({ length: 20 }, (_, i) => i + 11))
-  expect(pdfCompleteUnitPages(units[2])).toEqual([]) // 30-page unit cannot be recapped as a whole under a 20-page source bound.
+  expect(pdfCompleteUnitPages(units[2])).toEqual(Array.from({ length: 30 }, (_, i) => i + 31))
 })
 
 it('uses verified stored scan headings when outline is absent and page bands otherwise', () => {
@@ -50,4 +50,15 @@ it('gives deep outline units a stable key accepted by the companion chapter pars
   expect(pdfUnitKey(deep)).toBe(pdfUnitKey(deep))
   expect(pdfUnitKey(deep)).not.toBe(pdfUnitKey(deep + '3'))
   expect(pdfUnitKey('outline-1.2')).toBe('outline-1.2')
+})
+
+it('includes the current chapter so far and all earlier pages without a recent-page cutoff', () => {
+  const unit = {key:'chapter-3',title:'Third',from:61,start:61,to:90}
+  expect(pdfCatchUpPages(margin,unit,75)).toEqual(Array.from({length:74},(_,i)=>i+1))
+})
+
+it('allows an explicit summary of introductory matter without adding automatic chapter-end actions', () => {
+ const introduction={key:'intro',title:'Preface and Introduction',from:3,start:3,to:11,matter:'front'}
+ expect(pdfCompleteUnitPages(introduction)).toEqual([])
+ expect(pdfCompleteUnitPages(introduction,true)).toEqual([3,4,5,6,7,8,9,10,11])
 })

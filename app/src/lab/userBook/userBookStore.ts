@@ -119,13 +119,28 @@ export async function readOwnedEpubBytes(hex: string, owner: string): Promise<Ar
   return record?.kind === 'epub' && record.bytes instanceof ArrayBuffer ? record.bytes : null
 }
 
+/** Parsed labels may replace filename defaults, never a reader's edit. */
+function scannedPdfLabels(record: UserBookRecord, scan = record.scan): { title?: string; author?: string } {
+  if (record.kind !== 'pdf' || (record.metadataRev ?? 0) > 0 || !scan) return {}
+  const fallback = (record.name || '').replace(/\.pdf$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+  const metadataOnly = (scan.source as { title?: string } | undefined)?.title === 'metadata'
+  // A descriptive filename is better than uncorroborated PDF metadata (scanned
+  // anthologies often retain a title from a different document). Printed-page
+  // evidence can still replace it; generic filenames can use metadata.
+  const descriptiveFilename = fallback.split(/\s+/).filter(word => /\p{L}{2}/u.test(word)).length >= 5
+  const title = !metadataOnly || !descriptiveFilename ? typeof scan.title === 'string' ? scan.title.trim() : '' : ''
+  const author = typeof scan.author === 'string' ? scan.author.trim() : ''
+  return { ...((!record.title || record.title === fallback) && title && title.length <= 200 ? { title } : {}),
+    ...(!record.author && author && author.length <= 200 ? { author } : {}) }
+}
+
 /** Display-only locally edited labels, always read through the account-bound file record. */
 export async function readOwnedBookMetadata(hex: string, owner: string): Promise<{ type: 'pdf' | 'epub'; id: string; name: string; title: string; author: string; metadataRev: number } | null> {
   if (userBookOwner() !== owner) return null
   for (const type of ['epub', 'pdf'] as const) {
     const record = await readRecord(type + ':' + hex, owner).catch(() => null)
     if (record?.kind === type && userBookOwner() === owner) return {
-      type, id: typeof record.cloudId === 'string' ? record.cloudId : '', name: record.name ?? '', title: record.title ?? '', author: record.author ?? '', metadataRev: typeof record.metadataRev === 'number' ? record.metadataRev : 0,
+      type, id: typeof record.cloudId === 'string' ? record.cloudId : '', name: record.name ?? '', title: scannedPdfLabels(record).title ?? record.title ?? '', author: scannedPdfLabels(record).author ?? record.author ?? '', metadataRev: typeof record.metadataRev === 'number' ? record.metadataRev : 0,
     }
   }
   return null
@@ -181,7 +196,8 @@ export async function readOwnedPdfScanEntries(hex: string, owner: string): Promi
   if (userBookOwner() !== owner) return null
   const record = await readRecord('pdf:' + hex, owner).catch(() => null)
   if (record?.kind !== 'pdf' || userBookOwner() !== owner) return null
-  const scan = record.scan as { pages?: unknown; nav?: unknown; entries?: unknown } | null | undefined
+  const scan = record.scan as { v?: number; pages?: unknown; nav?: unknown; entries?: unknown } | null | undefined
+  if (scan?.nav === 'headings' && (scan.v ?? 0) < 7) return null
   const pages = Number.isInteger(scan?.pages) && (scan!.pages as number) > 0 ? scan!.pages as number
     : Number.isInteger(record.pages) && (record.pages as number) > 0 ? record.pages as number : 0
   if (!pages || pages > 1_000_000 || !scan || !Array.isArray(scan.entries)) return null
@@ -212,7 +228,7 @@ export async function cacheOwnedPdfScan(hex: string, owner: string, scan: PdfSca
       request.onsuccess = () => {
         const record = request.result as UserBookRecord | undefined
         if (userBookOwner() !== owner || record?.kind !== 'pdf' || record.owner !== owner || (record.cloudId || null) !== expectedFileId) return
-        store.put({ ...record, scan, pages: scan.pages })
+        store.put({ ...record, ...scannedPdfLabels(record, scan), scan, pages: scan.pages })
       }
       tx.oncomplete = () => resolve()
       tx.onerror = () => reject(tx.error)

@@ -1,3 +1,4 @@
+import { PDF_SOURCE_PAGES, PDF_SOURCE_PAGE_CHARS, PDF_SOURCE_CHARS } from '../sharedReader/pdf/pdfOriginalSourceLimits'
 /** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
 import type { PdfRegionCapture } from '../sharedReader/pdf/pdfOriginalFigures'
 import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
@@ -59,10 +60,10 @@ const unitFields = (data: unknown, page: number): boolean => {
 }
 const validUnitSource = (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction): boolean => {
   const { unit, pages, atPage } = source
-  if (!Array.isArray(pages) || !pages.length || pages.length > 20 || !Number.isInteger(atPage)
+  if (!Array.isArray(pages) || !pages.length || pages.length > PDF_SOURCE_PAGES || !Number.isInteger(atPage)
     || !pages.every((page, index) => Number.isInteger(page.n) && page.n === pages[0].n + index
-      && typeof page.text === 'string' && page.text.length <= 6000)
-    || !pages.some(page => page.text.trim()) || pages.reduce((sum, page) => sum + page.text.length, 0) > 36_000) return false
+      && typeof page.text === 'string' && page.text.length <= PDF_SOURCE_PAGE_CHARS)
+    || !pages.some(page => page.text.trim()) || pages.reduce((sum, page) => sum + page.text.length, 0) > PDF_SOURCE_CHARS) return false
   return unitFields({ action, unit, source: { from: pages[0].n, to: pages[pages.length - 1].n } }, atPage)
 }
 const atMost = (value: unknown, limit: number): value is string => typeof value === 'string' && value.length <= limit
@@ -203,13 +204,14 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!token || !await this.currentGeneration(token)) return null
     for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return null
     const context = { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-      pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false }
+      pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }
     const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
       : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
         : `Summarize ${source.unit.title}.`
+    const document = { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
     const companion = action === 'primer'
-      ? { intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title } } }
-      : { intent: 'ask', context }
+      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title } } }
+      : { intent: 'ask', context, document }
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
@@ -248,8 +250,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
-          companion: { intent: 'quiz', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false } } }) })
+          companion: { intent: 'quiz', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } } }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       if (!answer?.trim() || signal?.aborted || !this.trusted()) return null
@@ -265,8 +267,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
-          companion: { intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages, paragraphIndex: 0, lookups: false }, quiz } }) })
+          companion: { intent: 'quiz_check', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz } }) })
       if (!response.ok || !this.trusted()) return null
       return await readAnthropicResponse(response)
     } catch { return null }
@@ -452,7 +454,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const incomplete = () => Object.assign(new Error('The full source for this saved answer is unavailable. This follow-up was not sent.'),
       { code: 'pdf_original_incomplete_source' })
     if (source && (card.pageOnly && !unitFields(card.data, card.page) || !Number.isSafeInteger(source.from) || !Number.isSafeInteger(source.to)
-      || source.from! < 1 || source.to! < source.from! || source.to! - source.from! + 1 > 20)) throw incomplete()
+      || source.from! < 1 || source.to! < source.from! || source.to! - source.from! + 1 > PDF_SOURCE_PAGES)) throw incomplete()
     const first = source?.from ?? card.page, last = source?.to ?? card.page
     const rect = card.kind === 'figure' ? card.rects[0] : null
     const figure = rect ? await this.captureRegion(rect[0], { x: rect[1], y: rect[2], w: rect[3], h: rect[4] }).catch(() => null) : null
@@ -465,7 +467,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       try { text = await this.getPageText(n) } catch { if (source) throw incomplete(); if (!figure) return null; text = '' }
       if (!this.trusted() || signal?.aborted) return null
       chars += text.length
-      if (!text.trim() && !figure || text.length > 6000 || chars > 36_000) {
+      if (!text.trim() && !figure || text.length > PDF_SOURCE_PAGE_CHARS || chars > PDF_SOURCE_CHARS) {
         if (source) throw incomplete()
         return null
       }
@@ -478,7 +480,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
           companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
-            pageNumber: card.page, pages, paragraphIndex: 0, lookups: false },
+            pageNumber: card.page, pages: pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false },
+            document: { kind: 'pdf', units: pages, part: { toc: [], total: this.pages } },
             selection: card.pageOnly ? undefined : card.text.slice(0, 4000) } }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)

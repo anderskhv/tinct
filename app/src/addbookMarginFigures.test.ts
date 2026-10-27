@@ -116,6 +116,16 @@ describe('finding figures on a page (item 5)', () => {
     for (let k = 0; k < 10; k++) { pg.body(20, 30 + k * 6, 1, 140); pg.fill(175, 30 + k * 6, 196, 32 + k * 6); pg.spans.push({ x: 175 / W, y: (30 + k * 6 - 0.5) / H, w: 22 / W, h: 4 / H, text: '(x−µ)²' }) }
     expect(pg.find().figures).toHaveLength(0)
   })
+  it('keeps a captioned shaded chart with three small explanatory lines at its bottom', () => {
+    const pg=page()
+    pg.body(20,10,4,200)
+    pg.fill(20,50,220,200)
+    pg.text(25,55,'Figur 3')
+    pg.body(25,180,3,180,'Notes: the plotted values describe the daily reference rate and its observations.')
+    const result=pg.find()
+    expect(result.figures).toHaveLength(1)
+    expect(result.captions[0].label).toBe('Figure 3')
+  })
   it('the fallback: a figure larger than half the page is found from its caption', () => {
     const pg = page()
     pg.body(20, 6, 2, 200)
