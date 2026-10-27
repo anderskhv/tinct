@@ -326,9 +326,9 @@ it.each([180, -180])('preserves %spx of native movement after a rebase event', m
     if (this.classList.contains('continuous-reader-window')) return { top: -1 } as DOMRect
     if (this.dataset.testid === 'lab-word') {
       const host = this.closest<HTMLElement>('.continuous-reader')!
-      const initial = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
+      const initialWindow = host.firstElementChild!.firstElementChild as HTMLElement
       const absolute = Number(this.dataset.paragraphIndex) * 40 + Number(this.dataset.wordIndex)
-      const base = Number(initial.dataset.paragraphIndex) * 40 + Number(initial.dataset.wordIndex)
+      const base = Number(initialWindow.dataset.windowFirst) * 40
       const top = Math.floor((absolute - base) / 10) * 28 - host.scrollTop
       return { top, bottom: top + 20, height: 20 } as DOMRect
     }
