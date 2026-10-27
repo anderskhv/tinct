@@ -264,6 +264,11 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (!host) return
     const word = wordNode(visible)
     if (!word) return
+    // Do not remove preceding content while the next source window still
+    // starts below the viewport top. Restoring the held word would require a
+    // negative scrollTop, which browsers clamp and makes the next wheel stall.
+    const following = host.querySelectorAll<HTMLElement>('.continuous-reader-window')[1]
+    if (direction === 'next' && following && following.getBoundingClientRect().top > host.getBoundingClientRect().top) return
     pendingRebase.current = { anchor: visible, offset: word.getBoundingClientRect().top - host.getBoundingClientRect().top }
     setWindowState({ key: destinationKey, start: nextStart })
   }

@@ -199,8 +199,10 @@ it('retains preceding context across short paragraphs on a forward rebase withou
 
 
 it.each([28, 52])('preserves the visible pixel on forward rebase and only backfills after upward movement (line height %s)', lineHeight => {
+  let followingTop = 40
   const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
     if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.classList.contains('continuous-reader-window')) return { top: followingTop } as DOMRect
     if (this.dataset.testid === 'lab-word') {
       const host = this.closest<HTMLElement>('.continuous-reader')!
       const first = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
@@ -224,6 +226,12 @@ it.each([28, 52])('preserves the visible pixel on forward rebase and only backfi
       scrollTop: { get: () => scrollTop, set: value => { scrollTop = Math.max(0, value) } } })
     fireEvent.pointerDown(host)
     host.scrollTop = host.scrollHeight - 900
+    fireEvent.scroll(host)
+    expect(Number(host.querySelector('.continuous-reader-window')!.getAttribute('data-window-first'))).toBe(0)
+    // The next window is still below the viewport: removing it would clamp
+    // the held word's offset. Advance until it is safe to remove the prefix.
+    followingTop = -1
+    host.scrollTop += 24
     const before = measureContinuousWords(host)
     const chosen = continuousViewportWords(before, host.scrollTop, 600).first!
     const pixel = chosen.node.getBoundingClientRect().top
