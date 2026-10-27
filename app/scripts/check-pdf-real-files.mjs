@@ -34,7 +34,7 @@ await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = `http://127.0.0.1:${server.address().port}`
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 
-async function run(name, browserType, filePath, samplePages, primerPage) {
+async function run(name, browserType, filePath, samplePages, primerPage, expectedRegions = {}) {
   const bytes = await fs.readFile(filePath), sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
   const pendingUpload = true
   let accountUploaded = !pendingUpload
@@ -238,6 +238,7 @@ async function run(name, browserType, filePath, samplePages, primerPage) {
       // Allow asynchronous region detection to settle independently of canvas paint.
       await page.waitForTimeout(500)
       const sample=await sheet.evaluate(node=>({page:Number(node.dataset.page),text:node.querySelector('.pdf-original__text')?.textContent?.slice(0,200),figures:[...node.querySelectorAll('[data-testid="pdf-figure-source"]')].map(n=>n.getAttribute('aria-label')),headings:[...node.querySelectorAll('[data-testid="pdf-heading-actions"]')].map(n=>n.getAttribute('aria-label'))}))
+      for(const label of expectedRegions[number] || []) assert(sample.figures.some(name=>name.includes(label)),`page ${number} must expose ${label} actions`)
       samples.push(sample)
       await page.screenshot({path:path.join(output,`page-${number}.png`)})
     }
@@ -344,7 +345,8 @@ try {
   assert(files.length,'Supply local PDF paths; this harness never downloads user documents.')
   const samples=JSON.parse(process.env.PDF_REAL_SAMPLE_PAGES || '[]')
   const primers=JSON.parse(process.env.PDF_REAL_PRIMER_PAGES || '[]')
+  const expectedRegions=JSON.parse(process.env.PDF_REAL_EXPECT_REGIONS || '[]')
   for(const [index,file] of files.entries()) {
-    try {const engine=process.env.PDF_REAL_ENGINE || 'chromium';await run(engine,engine==='webkit'?webkit:chromium,file,samples[index] || [1,2,3],primers[index])} catch(error) {console.error(path.basename(file),String(error));process.exitCode=1}
+    try {const engine=process.env.PDF_REAL_ENGINE || 'chromium';await run(engine,engine==='webkit'?webkit:chromium,file,samples[index] || [1,2,3],primers[index],expectedRegions[index])} catch(error) {console.error(path.basename(file),String(error));process.exitCode=1}
   }
 } finally {server.close()}

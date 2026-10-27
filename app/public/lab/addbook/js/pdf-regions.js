@@ -178,7 +178,8 @@
       }
       const mid = g.y + g.h / 2, hits = running.filter(L => inside(g, L));
       // Three lines of prose in it: findFigures read text as ink.
-      if (hits.length >= 3) continue;
+      const bottomNotes = g.captionBox && hits.every(L => L.y >= g.y + g.h * .75);
+      if (hits.length >= 3 && !bottomNotes) continue;
       const below = hits.filter(L => L.y + L.h / 2 >= mid).sort((a, b) => a.y - b.y)[0];
       const above = hits.filter(L => L.y + L.h / 2 < mid).sort((a, b) => (b.y + b.h) - (a.y + a.h))[0];
       if (below) g.h = Math.max(0, below.y - 0.002 - g.y);

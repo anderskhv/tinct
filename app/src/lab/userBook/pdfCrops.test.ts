@@ -117,6 +117,13 @@ describe('A page’s regions and their crops', () => {
     expect(found.map(region => region.y + 0.004)).toEqual([0.4])
   })
 
+  it('trims several bottom source-note lines from a captioned chart instead of discarding its plot', () => {
+    const lines=[.81,.84,.87].map(y=>({x:.12,y,w:.7,h:.02,text:'A source note with enough words to describe the chart.',words:12,letters:1}))
+    const kept=regions.trimRegions([{kind:'figure',x:.1,y:.5,w:.8,h:.4,captionBox:{x:.1,y:.5,w:.4,h:.03}}],lines)
+    expect(kept).toHaveLength(1)
+    expect(kept[0].y).toBeGreaterThan(.53)
+    expect(kept[0].y+kept[0].h).toBeLessThan(.81)
+  })
   it('keeps a figure off the prose around it, a caption out of its crop, and a formula whole across its line', () => {
     const line = (y: number, words: number, x = 0.1, w = 0.8, text = Array.from({ length: words }, () => 'word').join(' ')) => ({ x, y, w, h: 0.012, text, words, letters: 1 })
     const lines = [line(0.30, 12), line(0.62, 12), line(0.64, 12), line(0.40, 4, 0.3, 0.4, 'BLEU Training Cost (FLOPs)'), line(0.36, 9, 0.1, 0.8, 'Table 2: The Transformer achieves better BLEU scores than'), line(0.375, 1, 0.1, 0.1, 'cost.'), line(0.8, 3, 0.1, 0.3, 'Attention(Q, K, V) = softmax(')]
