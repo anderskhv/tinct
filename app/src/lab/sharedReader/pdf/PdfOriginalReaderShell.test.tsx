@@ -7,6 +7,9 @@ import { PdfOriginalReaderShell, pdfSelectionAnchor, contentsPages, contentsUnit
 import { readLabPrefs, writeLabPrefs } from '../../labPrefs'
 import type { PdfOriginalUnitRules } from './pdfOriginalUnits'
 
+const readingTimer = vi.hoisted(() => vi.fn())
+vi.mock('../../useLabReadingYear', () => ({ useLabReadingYear: readingTimer }))
+
 const require = createRequire(import.meta.url)
 require('../../../../public/lab/addbook/js/margin.js')
 const margin = (globalThis as typeof globalThis & { TinctMargin: PdfOriginalUnitRules }).TinctMargin
@@ -839,4 +842,14 @@ it('dismisses the PDF selection toolbar on a new outside pointer gesture', () =>
   expect(screen.queryByRole('button',{name:'Explain this PDF'})).toBeNull()
   fireEvent.click(screen.getByRole('button',{name:'Select PDF text'}))
   expect(screen.getByRole('button',{name:'Explain this PDF'})).toBeTruthy()
+})
+
+
+it('counts original PDF reading privately only once its document is ready', () => {
+  readingTimer.mockClear()
+  render(<PdfOriginalReaderShell title="Private PDF title" bookId="userbook-private-fixture" owner="owner-fixture" onVisiblePlace={() => {}} bytes={async () => new ArrayBuffer(4)} />)
+  expect(readingTimer).toHaveBeenCalledWith(expect.objectContaining({ userId: 'owner-fixture', bookId: 'userbook-private-fixture', privateBook: true, onCover: true, paused: true }))
+  expect(readingTimer).toHaveBeenLastCalledWith(expect.objectContaining({ userId: 'owner-fixture', privateBook: true, paused: false }))
+  fireEvent.click(screen.getByRole('button', { name: 'Contents' }))
+  expect(readingTimer).toHaveBeenLastCalledWith(expect.objectContaining({ paused: true }))
 })

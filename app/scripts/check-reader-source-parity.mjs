@@ -12,12 +12,14 @@ await fs.mkdir(output, { recursive: true })
 const browser = await markInternal(await (process.env.TINCT_PARITY_ENGINE === 'webkit' ? webkit : chromium).launch({ headless: true, ...(process.env.TINCT_PARITY_ENGINE === 'webkit' ? {} : {args: ['--mute-audio', '--autoplay-policy=user-gesture-required']}) }))
 const observations = []
 let activePage
+let activeErrors = []
 try {
   for (const layout of (process.env.TINCT_PARITY_LAYOUTS || 'margin,two-page,compare,phone').split(',')) {
     const phone = layout === 'phone'
     const context = await browser.newContext({ ...(phone ? devices['iPhone 13'] : {}), viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
     const page = await context.newPage(), errors = [], requests = []
     activePage = page
+    activeErrors = errors
     let longAnswer = false, delayedRoute = null, failPhoneFollow = false
     page.on('pageerror', error => errors.push(error.message))
     page.on('console', message => { if (message.text().startsWith('PAINT_SHRINK')) console.log(message.text()) })
@@ -509,7 +511,8 @@ try {
   await fs.writeFile(`${output}/observations.json`, JSON.stringify(observations, null, 2))
   console.log(`Reader source-contract acceptance passed for ${process.env.TINCT_PARITY_LAYOUTS || 'margin,two-page,compare,phone'}. ${output}`)
 } catch (error) {
-  if (activePage && !activePage.isClosed()) console.error('Source failure state', JSON.stringify(await activePage.evaluate(() => ({ place: document.querySelector('.lab')?.dataset.place, url: location.href, view: document.querySelector('.lab')?.className, selection: getSelection()?.toString(), toolbars: [...document.querySelectorAll('[data-testid*=bar]')].map(node => ({testId: node.dataset.testid, rect: node.getBoundingClientRect().toJSON()})) }))))
+  console.error('Source runtime errors', JSON.stringify(activeErrors))
+  if (activePage && !activePage.isClosed()) console.error('Source failure state', JSON.stringify(await activePage.evaluate(() => ({ title: document.title, readyState: document.readyState, readerCount: document.querySelectorAll('.lab').length, wordCount: document.querySelectorAll('[data-testid=lab-word]').length, place: document.querySelector('.lab')?.dataset.place, url: location.href, view: document.querySelector('.lab')?.className, selection: getSelection()?.toString(), toolbars: [...document.querySelectorAll('[data-testid*=bar]')].map(node => ({testId: node.dataset.testid, rect: node.getBoundingClientRect().toJSON()})) }))))
   if (activePage && !activePage.isClosed()) await activePage.screenshot({ path: `${output}/failure.png` }).catch(() => {})
   throw error
 } finally { await browser.close() }

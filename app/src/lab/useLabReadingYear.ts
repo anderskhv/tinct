@@ -203,38 +203,70 @@ export function useLabReadingYear(input: {
   }, [bookId, chapter, page, onCover])
 
   useEffect(() => {
-    const mark = () => { activeAtRef.current = Date.now() }
+    // Capture the owner and book for this interval. Cleanup must settle the
+    // outgoing reader even though render has already updated the live refs.
+    const countedBook = privateBook ? PRIVATE_BOOK_ID : ledgerBookId(bookId)
+    let last = Date.now()
+    let visible = document.visibilityState === 'visible'
+    const accrue = () => {
+      const now = Date.now()
+      const end = listeningRef.current ? now : Math.min(now, activeAtRef.current + ACTIVE_WINDOW_MS)
+      const start = Math.max(last, now - 60_000)
+      const seconds = visible && !paused ? Math.max(0, Math.floor((end - start) / 1000)) : 0
+      last = visible && !paused && end === now ? start + seconds * 1000 : now
+      if (!seconds) return
+      if (ledgerRef.current === 'on' || ledgerRef.current === 'unavailable') {
+        // Split at local midnight rather than assigning an entire tick to
+        // the new day. Date's calendar arithmetic also handles DST changes.
+        let cursor = start
+        let remaining = seconds
+        while (remaining > 0) {
+          const date = new Date(cursor)
+          const midnight = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1).getTime()
+          const part = Math.min(remaining, Math.ceil((midnight - cursor) / 1000))
+          addPending(userId, localDay(date), countedBook, listeningRef.current ? { listen: part } : { read: part })
+          cursor += part * 1000
+          remaining -= part
+        }
+      } else if (!privateBook) {
+        const year = new Date().getFullYear()
+        writeLocalReadingYear(recordReading(readLocalReadingYear(year, userId), readLabDeviceId(), { seconds }), userId)
+        dirtyRef.current = true
+      }
+    }
+    const mark = () => {
+      accrue()
+      visible = document.visibilityState === 'visible'
+      activeAtRef.current = Date.now()
+    }
     const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'] as const
     events.forEach(name => window.addEventListener(name, mark, { passive: true }))
-    let last = Date.now()
-    const timer = window.setInterval(() => {
-      recheck()
-      const now = Date.now()
-      const active = now - activeAtRef.current < ACTIVE_WINDOW_MS || listeningRef.current
-      if (document.visibilityState === 'visible' && !paused && active) {
-        const seconds = Math.min(60, Math.round((now - last) / 1000))
-        if (ledgerRef.current === 'on' || ledgerRef.current === 'unavailable') {
-          // Narration playing counts as listening, otherwise reading.
-          addPending(userRef.current, localDay(), bookRef.current, listeningRef.current ? { listen: seconds } : { read: seconds })
-          void beat()
-        } else if (!privateRef.current) add({ seconds })
-      }
-      last = now
-    }, TICK_MS)
-    return () => { events.forEach(name => window.removeEventListener(name, mark)); window.clearInterval(timer) }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused])
-
-  // Leaving the page sends the current book's waiting seconds (keepalive);
-  // what the gate refuses stays pending for the next beat or flush.
-  useEffect(() => {
-    const leave = () => { void beat(true) }
-    const onVisibility = () => { if (document.visibilityState === 'hidden') leave() }
+    const onVisibility = () => {
+      accrue()
+      visible = document.visibilityState === 'visible'
+      last = Date.now()
+      if (!visible) void beat(true)
+    }
+    const leave = () => { accrue(); visible = false; void beat(true) }
+    const resume = () => { last = Date.now(); visible = document.visibilityState === 'visible' }
     document.addEventListener('visibilitychange', onVisibility)
     window.addEventListener('pagehide', leave)
-    return () => { document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('pagehide', leave) }
+    window.addEventListener('pageshow', resume)
+    const timer = window.setInterval(() => {
+      accrue()
+      recheck()
+      void beat()
+    }, TICK_MS)
+    return () => {
+      accrue()
+      events.forEach(name => window.removeEventListener(name, mark))
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', leave)
+      window.removeEventListener('pageshow', resume)
+      window.clearInterval(timer)
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [paused, userId, bookId, privateBook])
 
   useEffect(() => {
     if (!userId) return

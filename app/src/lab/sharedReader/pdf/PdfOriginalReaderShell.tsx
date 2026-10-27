@@ -1,3 +1,4 @@
+import { useLabReadingYear } from '../../useLabReadingYear'
 import { PDF_SOURCE_PAGE_CHARS, PDF_SOURCE_CHARS } from './pdfOriginalSourceLimits'
 import type { PdfConversionProgress } from '../../userBook/pdfEdition'
 import { flushSync } from 'react-dom'
@@ -143,6 +144,12 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const [pane, setPane] = useState<Pane>(null)
   const panelRef = useReaderWindow<HTMLElement>('settings', !!pane && pane !== 'menu' && pane !== 'contents' && pane !== 'switcher')
   const [pages, setPages] = useState(0)
+  const listeningRef = useRef(false)
+  listeningRef.current = services?.audio?.playing ?? false
+  // Original PDFs bypass LabApp, so record their time here under the same
+  // opaque private-book bucket. Loading and Contents are not reading time.
+  useLabReadingYear({ userId: owner ?? null, bookId, chapter: 1, page: 0,
+    onCover: true, paused: !owner || pages === 0 || pane === 'contents', listeningRef, privateBook: true })
   const pageCount = useRef(0)
   const [place, setPlace] = useState<PdfOriginalPlace>(initialPlace ?? { page: 1, frac: 0 })
   const [endPage, setEndPage] = useState<number | null>(null)
