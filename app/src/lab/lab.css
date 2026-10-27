@@ -7717,7 +7717,8 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 }
 
 /* Chat has room for an answer while remaining a movable, resizable window. */
-.lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window] {
+.lab.is-desktop[data-chrome-version="v2"] .lab-ask.is-desktop-companion[data-reader-window],
+.lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-ask.is-desktop-companion[data-reader-window] {
   width:min(440px,calc(100vw - 48px));
   height:min(540px,calc(100dvh - 132px));
   overflow-anchor:none;
