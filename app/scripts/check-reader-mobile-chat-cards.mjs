@@ -195,6 +195,38 @@ try {
     await chat.waitFor()
     assert.equal(await chat.locator('#lab-ask-input').inputValue(),'','closing and reopening phone Chat discards the unsent draft')
     await chat.getByRole('button',{name:'Close chat',exact:true}).click()
+    if(standalone&&theme==='book'){
+      const root=page.getByTestId('lab-root')
+      const lookupPoint=await page.locator('[data-testid="lab-word"]').evaluateAll(nodes=>nodes.flatMap(node=>{
+        const r=node.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2
+        return !node.closest('.lab-page-measure')&&r.width>3&&r.top>180&&r.bottom<500&&x>0&&x<innerWidth&&node.contains(document.elementFromPoint(x,y))?[{x,y}]:[]
+      })[3])
+      assert(lookupPoint,'a visible mobile source word is available for Define')
+      await page.mouse.click(lookupPoint.x,lookupPoint.y)
+      const definition=page.locator('.lab-pcard[data-kind="define"]')
+      await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+      assert.equal(await definition.getByRole('button',{name:'More actions',exact:true}).count(),0,'Define has no extra More actions link')
+      await page.waitForFunction(()=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').some(row=>row.card?.kind==='define'))
+      const savedDefine=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').findLast(row=>row.card?.kind==='define'))
+      assert(savedDefine?.card?.anchor,'completed mobile Define is saved with an exact source anchor')
+      await definition.getByTestId('lab-phone-card-delete').click()
+      const originPlace=await root.getAttribute('data-place')
+      await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()
+      await page.getByTestId(`contents-chat-${savedDefine.id}`).click()
+      const savedCard=page.locator('.lab-pcard').filter({has:page.getByRole('button',{name:'Show passage',exact:true})})
+      await savedCard.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+      assert.equal(await root.getAttribute('data-place'),originPlace,'opening saved mobile Define does not navigate')
+      await savedCard.getByRole('button',{name:'Show passage',exact:true}).click()
+      await page.waitForFunction(()=>!!document.querySelector('.is-notebook-passage'))
+      const anchor=savedDefine.card.anchor
+      const flashed=await page.locator('.is-notebook-passage').evaluateAll(nodes=>nodes.map(node=>({p:Number(node.dataset.paragraphIndex),w:Number(node.dataset.wordIndex)})))
+      assert(flashed.length>0&&flashed.every(({p,w})=>p===anchor.paragraphIndex&&w>=anchor.fromWord&&w<anchor.toWord),'mobile Notebook highlights only the saved Define word')
+      assert.equal(await root.getAttribute('data-place'),`${anchor.paragraphIndex}:${anchor.fromWord}`,'mobile Show passage lands on the saved word')
+      await page.screenshot({path:`${output}/pwa-notebook-define-source-flash.png`})
+      await page.getByTestId('lab-notebook-return').click()
+      await page.waitForFunction(place=>document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-place')===place,originPlace)
+      assert.equal(await page.getByTestId('lab-notebook-return').count(),0,'Back to reading restores and consumes the original mobile position')
+    }
     assert.deepEqual(errors,[])
     results.push({standalone,theme,explanation,conversation,nativeNotchAndKeyboardVerified:false})
     await context.close()

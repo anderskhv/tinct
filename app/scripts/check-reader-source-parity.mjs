@@ -33,6 +33,7 @@ try {
         const intent = request?.companion?.intent
         const text = intent === 'quiz' ? JSON.stringify({ questions: [1, 2, 3].map(n => ({ q: `Local source question ${n}?`, answer: 'The selected source.', why: 'The source wording supports it.' })) })
           : intent === 'quiz_check' ? JSON.stringify({ verdict: 'nearly', feedback: 'Reconsider the source wording before moving on.' })
+          : intent === 'define' ? JSON.stringify({kind:'definition', definition:'A short local definition of this word in its passage.'})
           : longAnswer ? Array.from({ length: 20 }, (_, index) => `Source point ${index + 1}: this is a complete local answer attached to the selected source. The narrator’s words remain available in the reading column while the discussion grows beside them.`).join('\n\n') : 'A complete local answer remains attached to this source passage.'
         return route.fulfill({ contentType: 'text/event-stream', body: `data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\ndata: {"type":"message_stop"}\n\n` })
       }
@@ -403,10 +404,34 @@ try {
       await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1047&paragraph=0&word=0&layout=phone&sharedReader=1&qaLayoutTrace=1`, {waitUntil:'domcontentloaded'})
       await ready(); await settlePaint(page)
       await page.screenshot({path:`${output}/romans-before-chat.png`})
+      const visibleSourceInk = () => page.locator('.lab-page-wrap [data-testid="lab-word"]').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|'))
+      const openingInkBeforeCard = await visibleSourceInk()
       await page.getByTestId('lab-page-next').evaluate(button => button.click())
       await settlePaint(page)
-      const visibleSourceInk = () => page.locator('.lab-page-wrap [data-testid="lab-word"]').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|'))
       const inkBeforePhoneCard = await visibleSourceInk()
+      // A directly closed Define has never entered Chat, so it does not have
+      // Chat's preserved page-prefix guard. Exercise that separate writer path.
+      await page.locator('.lab-page-wrap [data-testid="lab-word"]:visible').nth(3).click()
+      await page.getByText('A short local definition of this word in its passage.', {exact:true}).waitFor()
+      await page.getByTestId('lab-phone-card-input').focus()
+      await page.evaluate(() => {
+        const viewport = window.visualViewport, originalHeight = viewport.height
+        window.__restoreDefineViewport = () => { Object.defineProperty(viewport, 'height', {configurable:true, value:originalHeight}); viewport.dispatchEvent(new Event('resize')) }
+        Object.defineProperty(viewport, 'height', {configurable:true, value:Math.max(300, originalHeight - 330)})
+        viewport.dispatchEvent(new Event('resize'))
+      })
+      await settlePaint(page)
+      await page.getByTestId('lab-phone-card-delete').click()
+      await settlePaint(page)
+      assert.equal(await visibleSourceInk(), inkBeforePhoneCard, 'closing Define preserves the full page while the keyboard is departing')
+      await page.getByTestId('lab-page-prev').evaluate(button => button.click())
+      await settlePaint(page)
+      await page.screenshot({path:`${output}/romans-after-direct-define.png`})
+      assert.equal(await visibleSourceInk(), openingInkBeforeCard, 'previous page keeps all prose after Define closes before keyboard resize finishes')
+      await page.evaluate(() => window.__restoreDefineViewport())
+      await settlePaint(page)
+      await page.getByTestId('lab-page-next').evaluate(button => button.click())
+      await settlePaint(page)
       await select(page.locator('.lab'))
       await page.getByTestId('lab-pbar-explain').click()
       await page.getByTestId('lab-phone-card-dock').getByText('A complete local answer remains attached to this source passage.').waitFor()
