@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentProps, type WheelEvent } from 'react'
 import { SourceMinimap, type SourceBookMap, type SourceMapCard } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
-import { tokenizeHearingWords } from '../labHearing'
-import { continuousReaderWindow, type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
+import { isLabVerseMarker, tokenizeHearingWords } from '../labHearing'
+import { type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
 import type { ContinuousReaderEpoch } from './continuousReaderEpoch'
 import './continuousReader.css'
 
@@ -39,34 +39,67 @@ export function continuousWindowStart(anchor: ContinuousReaderAnchor, paragraphs
   return { paragraphIndex: first, wordIndex: 0 }
 }
 
-export function continuousReaderWindows(paragraphs: readonly string[], start: ContinuousReaderAnchor): ContinuousReaderWindow[] {
+const sourceWindowPlans = new WeakMap<readonly string[], ContinuousReaderWindow[]>()
+
+/** Stable source fragments: scrolling never changes where a paragraph wraps. */
+function sourceWindowPlan(paragraphs: readonly string[]): ContinuousReaderWindow[] {
+  const cached = sourceWindowPlans.get(paragraphs)
+  if (cached) return cached
   const windows: ContinuousReaderWindow[] = []
-  let next: ContinuousReaderAnchor | null = start
-  while (next && windows.length < WINDOW_COUNT) {
-    const window = continuousReaderWindow(paragraphs, next, { maxWords: WINDOW_WORDS, maxParagraphs: WINDOW_PARAGRAPHS })
-    if (!window) break
-    windows.push(window)
-    next = window.nextAnchor
+  let segments: NonNullable<ContinuousReaderWindow['page']['segments']> = []
+  let count = 0
+  const flush = () => {
+    if (!segments.length) return
+    const first = segments[0]
+    windows.push({ page: { ...first, segments }, firstParagraph: first.paragraphIndex,
+      lastParagraph: segments[segments.length - 1].paragraphIndex, wordCount: count, nextAnchor: null })
+    segments = []; count = 0
   }
+  paragraphs.forEach((paragraph, paragraphIndex) => {
+    const tokens = tokenizeHearingWords(paragraph)
+    let from = 0
+    do {
+      let to = Math.min(tokens.length, from + WINDOW_WORDS)
+      if (to < tokens.length && isLabVerseMarker(tokens[to - 1]?.text || '')) to--
+      const size = to - from
+      // An ordinary paragraph is indivisible. A long paragraph's chunks always
+      // start at the same source word, regardless of the current viewport.
+      if (segments.length && (count + size > WINDOW_WORDS || segments.length >= WINDOW_PARAGRAPHS)) flush()
+      segments.push({ paragraphIndex, from, to }); count += size
+      from = to
+      if (from < tokens.length) flush()
+    } while (from < tokens.length)
+  })
+  flush()
+  windows.forEach((window, index) => {
+    const next = windows[index + 1]?.page
+    window.nextAnchor = next ? { paragraphIndex: next.paragraphIndex, wordIndex: next.from } : null
+  })
+  sourceWindowPlans.set(paragraphs, windows)
   return windows
 }
 
+function containsWord(window: ContinuousReaderWindow, anchor: ContinuousReaderAnchor) {
+  return window.page.segments?.some(segment => segment.paragraphIndex === anchor.paragraphIndex
+    && segment.from <= anchor.wordIndex && (segment.to > anchor.wordIndex || segment.from === segment.to))
+}
+
+export function continuousReaderWindows(paragraphs: readonly string[], start: ContinuousReaderAnchor): ContinuousReaderWindow[] {
+  const plan = sourceWindowPlan(paragraphs)
+  const index = plan.findIndex(window => containsWord(window, start))
+  return index < 0 ? [] : plan.slice(index, index + WINDOW_COUNT)
+}
+
 export function continuousRebaseStart(
-  direction: 'previous' | 'next',
-  visible: ContinuousReaderAnchor,
-  start: ContinuousReaderAnchor,
-  paragraphs: readonly string[],
+  direction: 'previous' | 'next', visible: ContinuousReaderAnchor,
+  start: ContinuousReaderAnchor, paragraphs: readonly string[],
 ): ContinuousReaderAnchor | null {
-  const candidate = direction === 'next'
-    ? { paragraphIndex: visible.paragraphIndex, wordIndex: Math.max(0, visible.wordIndex - WINDOW_WORDS / 2) }
-    : start.wordIndex > 0
-      ? { paragraphIndex: start.paragraphIndex, wordIndex: Math.max(0, start.wordIndex - WINDOW_WORDS / 2) }
-      : { paragraphIndex: start.paragraphIndex - 1,
-          wordIndex: Math.max(0, tokenizeHearingWords(paragraphs[start.paragraphIndex - 1] || '').length - WINDOW_WORDS / 2) }
-  if (candidate.paragraphIndex < 0 || (candidate.paragraphIndex === start.paragraphIndex && candidate.wordIndex === start.wordIndex)) return null
-  const windows = continuousReaderWindows(paragraphs, candidate)
-  return windows.some(window => window.page.segments?.some(segment => segment.paragraphIndex === visible.paragraphIndex
-    && segment.from <= visible.wordIndex && segment.to > visible.wordIndex)) ? candidate : null
+  const plan = sourceWindowPlan(paragraphs)
+  const current = plan.findIndex(window => containsWord(window, start))
+  const next = current + (direction === 'next' ? 1 : -1)
+  if (current < 0 || next < 0 || next >= plan.length
+    || !plan.slice(next, next + WINDOW_COUNT).some(window => containsWord(window, visible))) return null
+  return { paragraphIndex: plan[next].page.paragraphIndex, wordIndex: plan[next].page.from }
 }
 
 type WordGeometry = { node: HTMLElement; top: number; bottom: number; height: number; anchor: ContinuousReaderAnchor }
@@ -118,6 +151,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const layoutKeyRef = useRef(passage.layoutKey)
   const userBrowseRef = useRef(false)
   const suppressScrollRef = useRef(false)
+  const lastScrollTop = useRef(0)
   const restoring = useRef(true)
   const pendingRebase = useRef<{ anchor: ContinuousReaderAnchor; offset: number } | null>(null)
 
@@ -151,6 +185,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       if (word) {
         suppressScrollRef.current = true
         host.scrollTop += word.getBoundingClientRect().top - host.getBoundingClientRect().top - offset
+        lastScrollTop.current = host.scrollTop
       }
       return
     }
@@ -160,6 +195,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       if (visible) {
         suppressScrollRef.current = true
         host.scrollTop += visible.getBoundingClientRect().top - host.getBoundingClientRect().top - Math.min(host.clientHeight * .24, 140)
+        lastScrollTop.current = host.scrollTop
       }
       return
     }
@@ -172,6 +208,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (!target) return
     suppressScrollRef.current = true
     host.scrollTop += target.getBoundingClientRect().top - host.getBoundingClientRect().top - Math.min(host.clientHeight * .24, 140)
+    lastScrollTop.current = host.scrollTop
     restoring.current = false
     if (landedKey.current !== destinationKey) {
       landedKey.current = destinationKey
@@ -190,6 +227,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       if (!word) return
       suppressScrollRef.current = true
       host.scrollTop += word.getBoundingClientRect().top - host.getBoundingClientRect().top - Math.min(host.clientHeight * .24, 140)
+      lastScrollTop.current = host.scrollTop
     }
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(keepVisible)
     observer?.observe(host)
@@ -199,7 +237,9 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const paper = host.querySelector('.continuous-reader-paper')
     if (paper) paperObserver?.observe(paper)
     window.addEventListener('resize', keepVisible)
-    return () => { observer?.disconnect(); paperObserver?.disconnect(); window.removeEventListener('resize', keepVisible) }
+    const invalidateWords = () => { geometryRef.current = null }
+    document.fonts?.addEventListener('loadingdone', invalidateWords)
+    return () => { observer?.disconnect(); paperObserver?.disconnect(); window.removeEventListener('resize', keepVisible); document.fonts?.removeEventListener('loadingdone', invalidateWords) }
   }, [wordNode])
 
   useLayoutEffect(() => {
@@ -214,6 +254,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (top >= host.clientHeight * .2 && top < host.clientHeight * .7) return
     suppressScrollRef.current = true
     host.scrollTop += top - host.clientHeight * .24
+    lastScrollTop.current = host.scrollTop
   }, [passage.follow, passage.playing, passage.browseWhileListening, wordNode])
 
   const rebase = (direction: 'previous' | 'next', visible: ContinuousReaderAnchor) => {
@@ -243,6 +284,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const onScroll = () => {
     const host = hostRef.current
     if (!host || restoring.current || !windows.length) return
+    const movement = host.scrollTop - lastScrollTop.current
+    lastScrollTop.current = host.scrollTop
     const words = sourceWords()
     const viewport = continuousViewportWords(words, host.scrollTop, host.clientHeight)
     if (viewport.last) setMapEnd(previous => sameAnchor(previous, viewport.last!.anchor) ? previous : viewport.last!.anchor)
@@ -261,8 +304,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       onVisible(epoch, visible)
     }
     // Keep three bounded source windows and retain the same visible pixel when moving the slice.
-    const nearEnd = host.scrollHeight - host.scrollTop - host.clientHeight < host.clientHeight
-    const nearStart = host.scrollTop < host.clientHeight / 2
+    const nearEnd = movement > 0 && host.scrollHeight - host.scrollTop - host.clientHeight < host.clientHeight
+    const nearStart = movement < 0 && host.scrollTop < host.clientHeight / 2
     if ((nearEnd && windows[windows.length - 1].nextAnchor) || (nearStart && (start.paragraphIndex > 0 || start.wordIndex > 0))) {
       rebase(nearEnd ? 'next' : 'previous', visible)
     }
