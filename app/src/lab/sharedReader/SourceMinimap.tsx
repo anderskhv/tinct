@@ -80,6 +80,10 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       const step = event.key === 'ArrowDown' || event.key === 'PageDown' ? 1 : event.key === 'ArrowUp' || event.key === 'PageUp' ? -1 : 0
       if (!step && event.key !== 'Home' && event.key !== 'End') return
       event.preventDefault()
+      // A short final viewport can begin several paragraphs before its end.
+      // Forward chapter-map keys must not turn that earlier top word into a
+      // fresh jump and replace the already visible final source window.
+      if (!book && atChapterEnd && (step > 0 || event.key === 'End')) return
       if (book && bookMap) {
         const index = book.chapters.findIndex(chapter => chapter.number === bookMap.chapterNumber)
         const target = event.key === 'Home' ? book.chapters[0] : event.key === 'End' ? book.chapters.at(-1)

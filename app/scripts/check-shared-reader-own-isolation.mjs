@@ -129,8 +129,20 @@ async function observed(page) {
   }), hex)
 }
 async function highlight(page) {
+  await page.evaluate(() => document.fonts.ready)
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
   const words = page.locator('.lab-page-wrap [data-testid="lab-word"]:visible')
-  const first = await words.nth(2).boundingBox(), last = await words.nth(8).boundingBox()
+  // CSS-visible includes mounted context above the scroller, beneath the fixed
+  // header. Select actual hit-tested viewport ink after the restored position.
+  const indices = await words.evaluateAll(nodes => nodes.flatMap((node, index) => {
+    const rect = node.getBoundingClientRect()
+    const host = node.closest('.continuous-reader')?.getBoundingClientRect()
+    const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)
+    return rect.top >= Math.max(70, host?.top ?? 0) && rect.bottom <= Math.min(innerHeight - 40, host?.bottom ?? innerHeight)
+      && rect.left >= 0 && rect.right <= innerWidth && hit && (hit === node || node.contains(hit)) ? [index] : []
+  }))
+  assert(indices.length > 8, 'private EPUB has enough selectable source words in the actual viewport')
+  const first = await words.nth(indices[2]).boundingBox(), last = await words.nth(indices[8]).boundingBox()
   assert(first && last)
   await page.mouse.move(first.x + first.width/2, first.y + first.height/2)
   await page.mouse.down(); await page.mouse.move(last.x + last.width/2, last.y + last.height/2, { steps: 8 }); await page.mouse.up()
