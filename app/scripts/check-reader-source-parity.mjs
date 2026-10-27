@@ -91,8 +91,16 @@ try {
       // Filling an offscreen field scrolls it into view; that explicit fixture
       // interaction is separate from folding/reopening the discussion.
       await settlePaint(page)
+      assert.equal(await item.evaluate(node => getComputedStyle(node).visibility), 'visible', 'scrolling to a long card input keeps its source window and card mounted')
+      // Return the fold/reopen target to the viewport before testing that those
+      // actions themselves do not navigate. Clicking an offscreen header is a
+      // separate browser scroll, just like filling the offscreen input above.
+      await item.getByTestId('source-margin-open').scrollIntoViewIfNeeded()
+      await follow.evaluate(node => node.focus({ preventScroll: true }))
+      await page.waitForTimeout(600)
+      await settlePaint(page)
       const placeBeforeFold = await root.getAttribute('data-place')
-      await follow.press('Escape')
+      await page.keyboard.press('Escape')
       const escaped = host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`)
       assert.equal(await escaped.getAttribute('data-open'), 'false', 'one Escape folds the card while typing')
       await escaped.getByTestId('source-margin-open').click()
@@ -126,8 +134,10 @@ try {
       await page.screenshot({ path: `${output}/margin-long-in-document.png` })
       await host.evaluate((node, top) => { node.scrollTop = top; node.dispatchEvent(new Event('scroll', { bubbles: true })) }, sourceScrollBeforeTail)
       await settlePaint(page)
-      const placeBeforeChat = await root.getAttribute('data-place')
       await follow.fill('Keep explaining beside this passage.')
+      await page.waitForTimeout(600)
+      await settlePaint(page)
+      const placeBeforeChat = await root.getAttribute('data-place')
       await item.getByTestId('lab-phone-card-send').click()
       const discussion = page.getByTestId('lab-ask-pane')
       await discussion.getByText(/Source point 20:/).first().waitFor()
@@ -296,7 +306,8 @@ try {
       })
       // End first writes the requested final word; the source tracker then
       // commits the visible top word when the short chapter clamps its scroll.
-      // Verify the physical end and final paragraph, not the transient requested endpoint.
+      // Verify the physical end and settled source, not the transient requested endpoint.
+      // Whole paragraphs can leave an earlier paragraph at the viewport top.
       await page.waitForFunction(() => !document.querySelector('.lab')?.dataset.readingScroll)
       await page.waitForTimeout(600)
       const physicalEnd = () => host.evaluate(node => ({scroll:node.scrollTop,height:node.scrollHeight,viewport:node.clientHeight,last:[...node.querySelectorAll('[data-testid="lab-word"]')].at(-1)?.getBoundingClientRect().toJSON()}))
@@ -310,7 +321,7 @@ try {
       const endAfterKeys = await physicalEnd()
       observations.push({ layout: 'bible-chapter-end', chapterEnd, after: await biblePlace(), endBeforeKeys, endAfterKeys })
       assert.deepEqual(endAfterKeys,endBeforeKeys,'forward keys retain the physical chapter end and visible source ink')
-      assert.match(await biblePlace(), /^2\/4:\d+$/, 'forward keys retain a source in the final chapter paragraph')
+      assert.equal(await biblePlace(), chapterEnd, 'forward keys preserve the settled chapter-end source coordinate')
       const mapBox = await chapterMap.boundingBox()
       assert(mapBox)
       await page.mouse.click(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height - 1)
@@ -328,8 +339,9 @@ try {
       assert.equal(await biblePlace(), '2/0:0', 'backward keys clamp at the first source word')
       await page.screenshot({ path: `${output}/bible-chapter-minimap.png` })
       await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await host.hover()
       for (let step = 0; step < 24 && !(await host.getByTestId('lab-unit-quiz').count()); step++) {
-        await host.evaluate(node => { node.scrollTop = node.scrollHeight; node.dispatchEvent(new Event('scroll', { bubbles: true })) })
+        await page.mouse.wheel(0, await host.evaluate(node => Math.floor(node.clientHeight * .8)))
         await page.waitForTimeout(80)
       }
       for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()

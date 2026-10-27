@@ -203,6 +203,7 @@ it.each([28, 52])('preserves the visible pixel on forward rebase and only backfi
   const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
     if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
     if (this.classList.contains('continuous-reader-window')) return { top: followingTop } as DOMRect
+    if (this.classList.contains('source-margin-item')) return { top: 100, bottom: 700 } as DOMRect
     if (this.dataset.testid === 'lab-word') {
       const host = this.closest<HTMLElement>('.continuous-reader')!
       const first = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
@@ -231,6 +232,12 @@ it.each([28, 52])('preserves the visible pixel on forward rebase and only backfi
     // The next window is still below the viewport: removing it would clamp
     // the held word's offset. Advance until it is safe to remove the prefix.
     followingTop = -1
+    const card = document.createElement('section')
+    card.className = 'source-margin-item'; card.dataset.open = 'true'
+    host.append(card)
+    host.scrollTop += 24; fireEvent.scroll(host)
+    expect(Number(host.querySelector('.continuous-reader-window')!.getAttribute('data-window-first'))).toBe(0)
+    card.remove()
     host.scrollTop += 24
     const before = measureContinuousWords(host)
     const chosen = continuousViewportWords(before, host.scrollTop, 600).first!
@@ -247,6 +254,15 @@ it.each([28, 52])('preserves the visible pixel on forward rebase and only backfi
     for (let i = 0; i < 3; i++) { host.scrollTop += 24; fireEvent.scroll(host); expect(windowStart()).toBe(advanced) }
     host.scrollTop = 50; fireEvent.scroll(host)
     expect(windowStart()).toBeLessThan(advanced)
+    host.append(card)
+    fireEvent.pointerDown(card)
+    onVisible.mockClear()
+    host.scrollTop += 112; fireEvent.scroll(host)
+    expect(onVisible).not.toHaveBeenCalled() // a companion action's height clamp
+    fireEvent.wheel(card, { deltaY: 112 })
+    host.scrollTop += 112; fireEvent.scroll(host)
+    expect(onVisible).toHaveBeenCalled() // physical reading resumes tracking
+    card.remove()
   } finally { rect.mockRestore() }
 }, 15000)
 
@@ -275,4 +291,31 @@ it('keeps a verse marker with its first word at a canonical long-paragraph bound
   expect(windows[0].page.segments![0]).toMatchObject({ from: 0, to: 449 })
   expect(windows[1].page.segments![0]).toMatchObject({ from: 449, to: 452 })
   expect(windows.reduce((sum, window) => sum + window.wordCount, 0)).toBe(452)
+})
+
+it('physically applies repeated minimap jumps within the same canonical window', () => {
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 200, height: 200 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = Number(this.dataset.paragraphIndex) * 400 + Number(this.dataset.wordIndex) * 4 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  try {
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Source', paragraphs: Array.from({ length: 2 }, () => Array.from({ length: 100 }, (_, w) => `word${w}`).join(' ')),
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 1000 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, value) } } })
+    const map = screen.getByRole('slider', { name: 'Chapter position' })
+    fireEvent.keyDown(map, { key: 'End' })
+    expect(host.scrollTop).toBeGreaterThan(0)
+    fireEvent.keyDown(map, { key: 'Home' })
+    expect(host.scrollTop).toBe(0)
+    expect(map.getAttribute('aria-valuenow')).toBe('0')
+  } finally { rect.mockRestore() }
 })

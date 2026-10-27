@@ -141,6 +141,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
   const destinationKey = `${epochKey}/${anchor.paragraphIndex}:${anchor.wordIndex}`
   const [mapVisible, setMapVisible] = useState(anchor)
+  const [mapJump, setMapJump] = useState(0)
   const [mapEnd, setMapEnd] = useState<ContinuousReaderAnchor | undefined>()
   const [windowState, setWindowState] = useState(() => ({ key: destinationKey, start: continuousWindowStart(anchor, passage.paragraphs) }))
   const start = windowState.key === destinationKey ? windowState.start : continuousWindowStart(anchor, passage.paragraphs)
@@ -216,7 +217,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     }
   // Epoch/anchor changes are intentional navigation. Window changes preserve the visible offset above.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [destinationKey, windows, passage.layoutKey])
+  }, [destinationKey, windows, passage.layoutKey, mapJump])
 
   useEffect(() => {
     const host = hostRef.current
@@ -264,6 +265,14 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (!host) return
     const word = wordNode(visible)
     if (!word) return
+    // A long companion is part of this same scroller. Removing its source
+    // while its body/input is visible would hide the card during reading.
+    const frame = host.getBoundingClientRect()
+    const readingCard = [...host.querySelectorAll<HTMLElement>('.source-margin-item[data-open="true"]')].some(card => {
+      const rect = card.getBoundingClientRect()
+      return card.contains(document.activeElement) || rect.bottom > frame.top && rect.top < frame.bottom
+    })
+    if (readingCard) return
     // Do not remove preceding content while the next source window still
     // starts below the viewport top. Restoring the held word would require a
     // negative scrollTop, which browsers clamp and makes the next wheel stall.
@@ -316,6 +325,21 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     }
   }
 
+  // Rail cards are React portals: their pointer/wheel events do not bubble
+  // through this component's React tree, although they share its DOM scroller.
+  useEffect(() => {
+    const host = hostRef.current
+    if (!host) return
+    const cardTarget = (event: Event) => event.target instanceof Element && !!event.target.closest('.source-margin-item')
+    const pointer = (event: PointerEvent) => { if (cardTarget(event)) userBrowseRef.current = false }
+    const wheel = (event: globalThis.WheelEvent) => {
+      if (!cardTarget(event)) return
+      userBrowseRef.current = true; suppressScrollRef.current = false; onUserBrowse?.()
+    }
+    host.addEventListener('pointerdown', pointer, true)
+    host.addEventListener('wheel', wheel, { capture: true, passive: true })
+    return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', wheel, true) }
+  }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; suppressScrollRef.current = false; onUserBrowse?.() }
   const onWheel = (event: WheelEvent<HTMLDivElement>) => {
     userBrowse()
@@ -348,6 +372,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     userBrowse()
     visibleRef.current = place
     setMapVisible(place)
+    setMapEnd(undefined)
+    setMapJump(revision => revision + 1)
     lastReported.current = `${place.paragraphIndex}:${place.wordIndex}`
     onVisible(epoch, place)
     pendingRebase.current = { anchor: place, offset: Math.min((hostRef.current?.clientHeight ?? 600) * .24, 140) }
@@ -355,7 +381,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   }
   return <><SourceMinimap cards={cards} highlights={passage.highlights?.filter(mark => mark.chapterNumber === passage.chapterNumber)} bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
-    onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={userBrowse}
+    onWheel={onWheel} onTouchStart={userBrowse} onPointerDown={event => { if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>
     <div className="continuous-reader-paper">
     {windows.map((window, index) => <div className="continuous-reader-window" data-window-first={window.firstParagraph} data-window-last={window.lastParagraph} key={`${window.page.paragraphIndex}:${window.page.from}`}>
