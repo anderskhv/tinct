@@ -199,13 +199,17 @@ try {
       const root=page.getByTestId('lab-root')
       const lookupPoint=await page.locator('[data-testid="lab-word"]').evaluateAll(nodes=>nodes.flatMap(node=>{
         const r=node.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2
-        return !node.closest('.lab-page-measure')&&r.width>3&&r.top>180&&r.bottom<500&&x>0&&x<innerWidth&&node.contains(document.elementFromPoint(x,y))?[{x,y}]:[]
+        return !node.closest('.lab-page-measure')&&r.width>3&&r.top>180&&r.bottom<500&&x>0&&x<innerWidth&&node.contains(document.elementFromPoint(x,y))?[{x,y,p:node.dataset.paragraphIndex,w:node.dataset.wordIndex}]:[]
       })[3])
       assert(lookupPoint,'a visible mobile source word is available for Define')
       const priorDefineIds=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').filter(row=>row.card?.kind==='define').map(row=>row.id))
-      await page.mouse.click(lookupPoint.x,lookupPoint.y)
+      const beforeLookupPlace=await root.getAttribute('data-place')
+      const lookupWord=page.locator(`.lab-page-wrap .lab-passage [data-testid="lab-word"][data-paragraph-index="${lookupPoint.p}"][data-word-index="${lookupPoint.w}"]:visible`).first()
+      const lookupPointer={pointerId:73,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:lookupPoint.x,clientY:lookupPoint.y}
+      await lookupWord.dispatchEvent('pointerdown',lookupPointer);await page.waitForTimeout(350);await lookupWord.dispatchEvent('pointerup',lookupPointer)
       const definition=page.locator('.lab-pcard[data-kind="define"]')
       await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+      assert.equal(await root.getAttribute('data-place'),beforeLookupPlace,'the direct Define gesture does not turn the reader page')
       assert.equal(await definition.getByRole('button',{name:'More actions',exact:true}).count(),0,'Define has no extra More actions link')
       await page.waitForFunction(previous=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').some(row=>row.card?.kind==='define'&&!previous.includes(row.id)),priorDefineIds)
       const savedDefine=await page.evaluate(previous=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').find(row=>row.card?.kind==='define'&&!previous.includes(row.id)),priorDefineIds)

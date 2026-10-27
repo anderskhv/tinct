@@ -411,8 +411,21 @@ try {
       const inkBeforePhoneCard = await visibleSourceInk()
       // A directly closed Define has never entered Chat, so it does not have
       // Chat's preserved page-prefix guard. Exercise that separate writer path.
-      await page.locator('.lab-page-wrap [data-testid="lab-word"]:visible').nth(3).click()
-      await page.getByText('A short local definition of this word in its passage.', {exact:true}).waitFor()
+      const defineWords=page.locator('.lab-page-wrap [data-testid="lab-word"]')
+      const defineIndex=await defineWords.evaluateAll(nodes=>nodes.findIndex(node=>{
+        const r=node.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,hit=document.elementFromPoint(x,y)
+        return !node.closest('.lab-page-measure')&&/^[a-z]{4,}$/i.test(node.textContent?.trim()||'')&&r.top>140&&r.bottom<500&&r.left>=0&&r.right<=innerWidth&&hit&&(hit===node||node.contains(hit))
+      }))
+      assert(defineIndex>=0,'an unobscured ordinary source word is available for direct Define')
+      const defineWord=defineWords.nth(defineIndex),defineBox=await defineWord.boundingBox()
+      const definePointer={pointerId:71,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:defineBox.x+defineBox.width/2,clientY:defineBox.y+defineBox.height/2}
+      // A quick mouse click can turn the leaf in touch mode. Use the real
+      // long-press word selection, as in the mobile card acceptance suite.
+      await defineWord.dispatchEvent('pointerdown',definePointer)
+      await page.waitForTimeout(350)
+      await defineWord.dispatchEvent('pointerup',definePointer)
+      await page.getByTestId('lab-phone-card-dock').getByText('A short local definition of this word in its passage.', {exact:true}).waitFor()
+      assert.equal(await visibleSourceInk(),inkBeforePhoneCard,'opening Define does not turn the source page')
       await page.getByTestId('lab-phone-card-input').focus()
       await page.evaluate(() => {
         const viewport = window.visualViewport, originalHeight = viewport.height
