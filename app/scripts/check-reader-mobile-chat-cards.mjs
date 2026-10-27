@@ -73,8 +73,17 @@ try {
       const size=await thread.evaluate(node=>({scroll:node.scrollHeight,visible:node.clientHeight,top:node.scrollTop}))
       assert(size.scroll>size.visible,'long history scrolls inside the shared card')
       await page.waitForFunction(()=>{const thread=document.querySelector('.lab-pcard[data-kind="chat"] [data-testid="lab-ask-thread"]');return thread&&Math.abs(thread.scrollHeight-thread.clientHeight-thread.scrollTop)<=8})
-      await page.screenshot({path:`${output}/pwa-book-long-history-initial-latest.png`})
+      const cleanOpening=await thread.evaluate(node=>({
+        top:node.getBoundingClientRect().top,
+        historyBottom:Math.max(...[...node.querySelectorAll('[data-testid="lab-ask-turn-user"],[data-testid="lab-ask-turn-assistant"]')].map(row=>row.getBoundingClientRect().bottom)),
+        spacer:node.querySelector('.tc-spacer')?.getBoundingClientRect().height||0,
+        height:node.clientHeight,
+      }))
+      assert(cleanOpening.spacer>=cleanOpening.height-2,'general Chat leaves a blank writing area while retaining history')
+      assert(cleanOpening.historyBottom<=cleanOpening.top+2,'previous messages start above the visible writing area')
+      await page.screenshot({path:`${output}/pwa-book-long-history-clean-opening.png`})
       await thread.evaluate(node=>node.scrollTop=0)
+      await card.getByText('Old Sirach question 0?',{exact:true}).waitFor()
       const box=await card.boundingBox();assert(box&&box.y>=0&&box.y+box.height<=845,'long history stays inside phone viewport')
       await page.screenshot({path:`${output}/pwa-book-long-sirach-current-proverbs.png`})
       await card.locator('#lab-ask-input').click();await page.keyboard.type('A draft while reading older messages')

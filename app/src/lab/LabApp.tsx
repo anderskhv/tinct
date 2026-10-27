@@ -6002,7 +6002,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const lead = card.kind === 'ask' ? null
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
-          {fromSelection && <button type="button" className="lab-pcard-link" onClick={() => leaveSelectionInfo(true)}>More actions</button>}
           {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword popup-define-word">{define.result?.word || card.word}</p>}
           <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
