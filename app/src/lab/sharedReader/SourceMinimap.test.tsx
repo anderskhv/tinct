@@ -100,3 +100,15 @@ it('keeps an explanation and highlight at the same source position independently
   expect(jump).toHaveBeenCalledTimes(2)
   expect(open).toHaveBeenCalledOnce()
 })
+
+
+it('does not jump forward when the chapter end is visible above an earlier top paragraph', () => {
+  const jump = vi.fn()
+  render(<SourceMinimap paragraphs={['one two', 'three four', 'five six']}
+    visible={{ paragraphIndex: 0, wordIndex: 1 }} visibleEnd={{ paragraphIndex: 2, wordIndex: 1 }} onJump={jump} />)
+  const map = screen.getByRole('slider', { name: 'Chapter position' })
+  for (const key of ['ArrowDown', 'PageDown', 'End']) fireEvent.keyDown(map, { key })
+  expect(jump).not.toHaveBeenCalled()
+  fireEvent.keyDown(map, { key: 'Home' })
+  expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 0, wordIndex: 0 })
+})
