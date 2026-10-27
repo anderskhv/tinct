@@ -4,7 +4,7 @@ import { pdfOriginalUnits, pdfUnitAt, type PdfOriginalUnitRules } from '../share
 import { afterEach, expect, it, vi } from 'vitest'
 import { discoverOriginalPdfHeadings } from './pdfOriginalHeadings'
 import type { loadPdfEngine, PdfScan } from './pdfEdition'
-import { cacheOwnedPdfScan } from './userBookStore'
+import { readOwnedPdfScanEntries, cacheOwnedPdfScan } from './userBookStore'
 import { fakeIndexedDb } from './fakeIndexedDb.test-helpers'
 const account = vi.hoisted(() => ({ id: 'owner-a' }))
 vi.mock('../labLibraryBoot', () => ({ readCachedSupabaseUser: () => ({ id: account.id }) }))
@@ -84,5 +84,46 @@ it('guards persisted scans against a replaced file or a different owner', async 
   account.id = 'owner-a'
   await cacheOwnedPdfScan(hex, account.id, scan, fileId)
   expect(records.get(record.key)?.scan).toEqual(scan)
+  expect(records.get(record.key)?.bytes).toBe(record.bytes)
+})
+it('adopts the printed title over a filename but preserves reader-edited labels', async () => {
+  const record = { key: 'pdf:' + hex, kind: 'pdf', owner: account.id, cloudId: fileId, name: 'book (1).pdf', title: 'book (1)', author: '', bytes: new ArrayBuffer(4) }
+  const records = new Map<string, Record<string, unknown>>([[record.key, record]])
+  vi.stubGlobal('indexedDB', fakeIndexedDb(records))
+  await cacheOwnedPdfScan(hex, account.id, scan, fileId)
+  expect(records.get(record.key)).toMatchObject({title:scan.title,author:scan.author})
+  records.set(record.key, {...record,title:'My chosen title',author:'My chosen author',metadataRev:2})
+  await cacheOwnedPdfScan(hex, account.id, scan, fileId)
+  expect(records.get(record.key)).toMatchObject({title:'My chosen title',author:'My chosen author'})
+})
+
+it('retries discovery under fresh bytes when the initial upload finishes during scanning', async () => {
+  const f = fixture()
+  f.identity.mockResolvedValueOnce(null as unknown as string).mockResolvedValueOnce(null as unknown as string).mockResolvedValue(fileId)
+  const result = await discoverOriginalPdfHeadings(hex,account.id,{signal:new AbortController().signal,fileName:'Book',dependencies:f.deps})
+  expect(result?.entries).toEqual(scan.entries)
+  expect(f.discover).toHaveBeenCalledTimes(2)
+  expect(f.bytes).toHaveBeenCalledTimes(2)
+  expect(f.cache).toHaveBeenCalledExactlyOnceWith(hex,account.id,scan,fileId)
+})
+
+it('preserves a descriptive filename when only conflicting embedded metadata supplies a replacement', async () => {
+ const name='An Introduction to Political Philosophy Ten Essays.pdf', title=name.replace(/\.pdf$/,'')
+ const record={key:'pdf:'+hex,kind:'pdf',owner:account.id,cloudId:fileId,name,title,bytes:new ArrayBuffer(4)}
+ const records=new Map<string,Record<string,unknown>>([[record.key,record]])
+ vi.stubGlobal('indexedDB',fakeIndexedDb(records))
+ await cacheOwnedPdfScan(hex,account.id,{...scan,title:'Basic Principles of Classical Political Philosophy',source:{title:'metadata'}},fileId)
+ expect(records.get(record.key)?.title).toBe(title)
+})
+
+it('rescans old heuristic headings without discarding original bytes or outline navigation', async () => {
+  const record = {key:'pdf:'+hex,kind:'pdf',owner:account.id,cloudId:fileId,bytes:new ArrayBuffer(4),scan:{...scan,v:6}}
+  const records=new Map<string,Record<string,unknown>>([[record.key,record]])
+  vi.stubGlobal('indexedDB',fakeIndexedDb(records))
+  expect(await readOwnedPdfScanEntries(hex,account.id)).toBeNull()
+  records.set(record.key,{...record,scan:{...scan,v:7}})
+  expect(await readOwnedPdfScanEntries(hex,account.id)).toMatchObject({entries:scan.entries})
+  records.set(record.key,{...record,scan:{...scan,v:6,nav:'outline'}})
+  expect(await readOwnedPdfScanEntries(hex,account.id)).toMatchObject({entries:scan.entries})
   expect(records.get(record.key)?.bytes).toBe(record.bytes)
 })

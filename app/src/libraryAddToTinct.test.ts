@@ -977,15 +977,29 @@ describe('Your own book pop-up (top bar +, My shelf +, the search field +, "Add 
     return { steps, engine: async () => api }
   }
 
-  it('shows immediate account-check feedback and respects cancellation', async () => {
+  it('shows the file chooser immediately while account access resolves and respects cancellation', async () => {
     document.documentElement.classList.add('signed-in')
     let resolve!: (yes:boolean)=>void
     const go=vi.fn(), opening=addToTinct.openFileEntry(entry(),{access:()=>new Promise<boolean>(r=>{resolve=r}),go,engine:fakeEngine().engine})
-    expect(dialog()?.textContent).toContain('Checking your account')
-    expect(dialog()?.querySelector('.own-file-choose')).toBeNull()
+    expect(dialog()?.textContent).not.toContain('Checking your account')
+    expect(dialog()?.querySelector('.own-file-choose')).not.toBeNull()
+    await Promise.resolve()
     ;(dialog()!.querySelector('.own-file-close') as HTMLButtonElement).click()
     resolve(true);await opening
     expect(dialog()).toBeNull();expect(go).not.toHaveBeenCalled()
+  })
+  it('allows file selection while checking access but never reads or uploads a denied file', async () => {
+    document.documentElement.classList.add('signed-in')
+    let resolve!: (yes:boolean)=>void
+    const fake=fakeEngine(),go=vi.fn()
+    const opening=addToTinct.openFileEntry(entry(),{access:()=>new Promise<boolean>(r=>{resolve=r}),go,engine:fake.engine})
+    choose(new File(['%PDF'], 'private.pdf'))
+    await Promise.resolve();await Promise.resolve()
+    expect(fake.steps).toEqual([])
+    resolve(false);await opening;await Promise.resolve()
+    expect(fake.steps).toEqual([])
+    expect(dialog()).toBeNull()
+    expect(go).toHaveBeenCalled()
   })
   it('offers scanned PDF conversion without navigating until the reader chooses', async () => {
     document.documentElement.classList.add('signed-in')

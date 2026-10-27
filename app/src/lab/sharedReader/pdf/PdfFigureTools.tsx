@@ -28,7 +28,7 @@ export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction }: { 
       const region = regions.filter(region => x >= region.x && x <= region.x + region.w && y >= region.y && y <= region.y + region.h).sort((a, b) => a.w * a.h - b.w * b.h)[0]
       if (region) { setHot(region); return }
       const text = (event.target as Element).closest('.pdf-original__text span')?.textContent || ''
-      const reference = /\b(fig(?:ure)?\.?|table)\s*(\d+(?:\.\d+)*[a-z]?)/i.exec(text)
+      const reference = /\b(fig(?:ure|ur)?\.?|table|tabel)\s*(\d+(?:\.\d+)*[a-z]?)/i.exec(text)
       const named = reference && regions.find(region => region.label?.toLowerCase() === `${/^tab/i.test(reference[1]) ? 'table' : 'figure'} ${reference[2]}`.toLowerCase())
       if (named && !text.trim().startsWith(named.label || '\u0000')) { setHot(named); if (preview?.region !== named) void show(named, false, (event.target as Element).getBoundingClientRect()); return }
       setHot(null); if (!preview?.modal) close()

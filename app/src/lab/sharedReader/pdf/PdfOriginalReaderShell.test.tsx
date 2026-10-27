@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { useEffect } from 'react'
 import { createRequire } from 'node:module'
@@ -316,7 +316,7 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], action: string) => action === 'primer' ? structuredPrimer : `${action} from original pages.`)
   const saveUnitCard = vi.fn(() => true)
   const services: PdfOriginalReaderServices = {
-    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    marks: [], cards: [{id:'stale-primer',page:11,text:'Old chart caption',kind:'primer',at:1,turns:[{role:'assistant',content:'Old answer'}],data:{action:'primer',unit:{key:'outline-1',title:'Old chart caption',from:11,to:12}}}], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
     removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
     getPageText: vi.fn(async page => `Real extracted text on page ${page}.`), askUnit, saveUnitCard,
   }
@@ -340,7 +340,7 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   fireEvent.click(screen.getByText('Catch me up'))
   expect(await screen.findByText('catchup from original pages.')).toBeTruthy()
   const catchup = askUnit.mock.calls[1][0]
-  expect(catchup.pages.map(page => page.n)).toEqual(Array.from({ length: 10 }, (_, index) => index + 1))
+  expect(catchup.pages.map(page => page.n)).toEqual(Array.from({ length: 13 }, (_, index) => index + 1))
   expect(catchup.atPage).toBe(14)
   expect(saveUnitCard).toHaveBeenCalledWith(catchup, 'catchup', 'catchup from original pages.')
   expect(saveUnitCard).toHaveBeenCalledTimes(2)
@@ -352,7 +352,7 @@ it('does not send or save a Primer when a later required page exceeds the full-p
   const services: PdfOriginalReaderServices = {
     marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
     removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
-    getPageText: vi.fn(async page => page === 12 ? 'x'.repeat(6001) : `Full page ${page}.`), askUnit, saveUnitCard,
+    getPageText: vi.fn(async page => page === 12 ? 'x'.repeat(200001) : `Full page ${page}.`), askUnit, saveUnitCard,
   }
   render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
   fireEvent.click(screen.getByText('Open outlined page 14'))
@@ -364,7 +364,12 @@ it('does not send or save a Primer when a later required page exceeds the full-p
 
 it('appends a saved PDF card follow-up to the same source card and reopens its ordered turns', async () => {
   const cards: PdfOriginalReaderServices['cards'] = []
-  const askCardFollow = vi.fn(async (_id: string, _question: string) => 'The follow-up answer.')
+  let resolveAnswer!: (answer: string) => void
+  let stream!: (text: string) => void
+  const askCardFollow = vi.fn((_id: string, _question: string, _signal?: AbortSignal, onDelta?: (text: string) => void) => {
+    stream = onDelta!
+    return new Promise<string>(resolve => { resolveAnswer = resolve })
+  })
   const appendCardTurn = vi.fn((id: string, question: string, answer: string) => {
     const card = cards.find(item => item.id === id)!
     card.turns.push({ role: 'user', content: question }, { role: 'assistant', content: answer })
@@ -383,6 +388,13 @@ it('appends a saved PDF card follow-up to the same source card and reopens its o
   await screen.findByText('First source answer.')
   fireEvent.change(screen.getByLabelText('Follow up'), { target: { value: 'And why?' } })
   fireEvent.click(screen.getByTestId('lab-phone-card-send'))
+  expect(screen.getByText('And why?')).toBeTruthy()
+  expect(screen.getByText('First source answer.')).toBeTruthy()
+  expect(screen.getByLabelText('Loading')).toBeTruthy()
+  expect(appendCardTurn).not.toHaveBeenCalled()
+  act(() => stream('The follow-up'))
+  expect(screen.getByText('The follow-up')).toBeTruthy()
+  await act(async () => resolveAnswer('The follow-up answer.'))
   await screen.findByText('The follow-up answer.')
   expect(askCardFollow).toHaveBeenCalledOnce()
   expect(askCardFollow.mock.calls[0][0]).toBe('card-1')
@@ -562,8 +574,8 @@ it('renders and reopens a persisted figure rail entry without reading its source
   }
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
   fireEvent.click(await screen.findByTestId('source-margin-open'))
-  expect(await screen.findByRole('button', { name: 'Show Figure 1 larger' })).toBeTruthy()
-  expect(captureRegion).toHaveBeenCalledWith(1, { x: .2, y: .3, w: .4, h: .2 })
+  expect(screen.queryByRole('button', { name: 'Show Figure 1 larger' })).toBeNull()
+  expect(captureRegion).not.toHaveBeenCalled()
   expect(screen.getByText('An image-grounded response.')).toBeTruthy()
 })
 

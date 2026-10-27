@@ -131,10 +131,15 @@
       if (L && Math.abs(b.base - L.base) < Math.min(b.size, size) * 0.42) L.items.push(b); else lines.push({ base: b.base, items: [b] });
     }
     return lines.map(L => {
+      // Widely spaced single-token ticks are an axis, not a sentence. Combining
+      // month labels into one prose line would discard the chart containing them.
+      const items = [...L.items].sort((a, b) => a.x - b.x);
+      const gaps = items.slice(1).filter((b, i) => b.x - items[i].x - items[i].w > Math.max(b.size, items[i].size)).length;
+      const labels = items.length >= 6 && items.every(b => /^\S{1,5}$/.test(b.str.trim())) && gaps >= (items.length - 1) * .75;
       const text = L.items.map(b => b.str).join(' ').replace(/\s+/g, ' ').trim(), chars = text.replace(/\s/g, '').length;
       let l = Infinity, r = -Infinity, t = Infinity, btm = -Infinity;
       for (const b of L.items) { l = Math.min(l, b.x); r = Math.max(r, b.x + b.w); t = Math.min(t, b.base - b.size * 0.8); btm = Math.max(btm, b.base + b.size * 0.2) }
-      return { x: l / vp.width, y: t / vp.height, w: (r - l) / vp.width, h: (btm - t) / vp.height, text, words: text.split(' ').length, letters: chars ? (text.match(/\p{L}/gu) || []).length / chars : 0 };
+      return { x: l / vp.width, y: t / vp.height, w: (r - l) / vp.width, h: (btm - t) / vp.height, labels, text, words: text.split(' ').length, letters: chars ? (text.match(/\p{L}/gu) || []).length / chars : 0 };
     });
   }
   /**
@@ -144,7 +149,7 @@
    * figure (findFigures read text as ink). Formulas are left as they are. `lines`: textLines. -> the regions kept.
    */
   function trimRegions(regions, lines) {
-    const running = (lines || []).filter(L => L.words >= 8 && L.letters >= 0.7);
+    const running = (lines || []).filter(L => !L.labels && L.words >= 8 && L.letters >= 0.7);
     const inside = (g, L) => { const cy = L.y + L.h / 2; return cy > g.y && cy < g.y + g.h && Math.min(L.x + L.w, g.x + g.w) - Math.max(L.x, g.x) >= L.w * 0.5 };
     const out = [];
     const crosses = (g, L) => Math.min(L.y + L.h, g.y + g.h) - Math.max(L.y, g.y) > L.h * 0.3 && Math.min(L.x + L.w, g.x + g.w) - Math.max(L.x, g.x) > 0;
@@ -178,7 +183,8 @@
       }
       const mid = g.y + g.h / 2, hits = running.filter(L => inside(g, L));
       // Three lines of prose in it: findFigures read text as ink.
-      if (hits.length >= 3) continue;
+      const bottomNotes = g.captionBox && hits.every(L => L.y >= g.y + g.h * .75);
+      if (hits.length >= 3 && !bottomNotes) continue;
       const below = hits.filter(L => L.y + L.h / 2 >= mid).sort((a, b) => a.y - b.y)[0];
       const above = hits.filter(L => L.y + L.h / 2 < mid).sort((a, b) => (b.y + b.h) - (a.y + a.h))[0];
       if (below) g.h = Math.max(0, below.y - 0.002 - g.y);

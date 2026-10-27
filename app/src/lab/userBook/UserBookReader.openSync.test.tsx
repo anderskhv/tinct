@@ -23,7 +23,7 @@ vi.mock('../LabApp', () => ({ LabApp: ({ userBook, marginPhone }: { userBook: { 
 vi.mock('./pdfOriginalHeadings', () => ({ discoverOriginalPdfHeadings: (...args: unknown[]) => { sync.discovery(...args); return sync.discovered ?? Promise.resolve(null) } }))
 vi.mock('./userBookSource', () => ({ registerUserBook: sync.published }))
 vi.mock('./userBookStore', () => ({
-  openUserBook: vi.fn(), readOwnedBookFileId: vi.fn(() => sync.localFileId ?? Promise.resolve(fileId)),
+  openUserBook: vi.fn(), readOwnedBookMetadata: vi.fn(async () => null), readOwnedBookFileId: vi.fn(() => sync.localFileId ?? Promise.resolve(fileId)),
   hasOwnedPdfText: vi.fn(() => sync.pdfText ?? Promise.resolve(false)), loadOwnedPdfBytes: vi.fn(),
   readOwnedPdfScanEntries: vi.fn(() => sync.scan ?? Promise.resolve(null)),
 }))

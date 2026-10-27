@@ -101,6 +101,18 @@ describe('PDF scan: title, author, chapters', () => {
     expect(s.nav).toBe('pages')
   })
 
+  it('does not turn a separate figure caption title into a chapter heading', async () => {
+    const bytes=makePdf({pages:[
+      {lines:[{y:700,size:20,font:'Times-Bold',text:'Annual Report'},...prose(650,30)]},
+      {lines:[{y:720,size:18,font:'Times-Bold',text:'Monetary Policy'},...prose(680,12),
+        {y:460,size:9,font:'Times-Bold',text:'Figur 1'},
+        {y:440,size:16,font:'Times-Bold',text:'Exchange Rates Remain Stable'}]},
+      {lines:[{y:720,size:18,font:'Times-Bold',text:'Financial Stability'},...prose(680,30)]}
+    ]})
+    const scan=await scanOf(bytes,'annual-report.pdf')
+    expect(scan.entries.map(e=>e.label)).toEqual(['Monetary Policy','Financial Stability'])
+  })
+
   it('gives a short note with no headings page navigation and a cleaned file name', async () => {
     const s = await scanOf(fixtures['week3_notes_final-v2.pdf'], 'week3_notes_final-v2.pdf')
     expect(s).toMatchObject({ title: 'Week3 notes', author: '', nav: 'pages', entries: [], pages: 2, source: { title: 'file' } })

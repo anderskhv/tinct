@@ -4,7 +4,9 @@ type Page = { view:number[]; getTextContent():Promise<{items:Item[]}>; getOperat
 type Document = {numPages:number;getPage(n:number):Promise<Page>;destroy():Promise<void>}
 type Engine = {pdfjs:{OPS?:Record<string,number>;getDocument(options:unknown):{promise:Promise<Document>}}}
 export type PdfReadability = {recommend:boolean;reason:'scan'|'small-text'|'no-text'|'none'}
-/** A small local sample, never a full-document OCR job or a provider request. */
+/** Reading discomfort is not conversion fidelity. Until reading order and object
+ * preservation are validated, retain Original PDF as the default. The reader
+ * still offers explicit conversion; scans and small type alone cannot endorse it. */
 export async function assessPdfReadability(bytes:ArrayBuffer, load:()=>Promise<Engine>=loadPdfEngine as unknown as ()=>Promise<Engine>):Promise<PdfReadability> {
  const engine=await load()
  const pdf=await engine.pdfjs.getDocument({data:new Uint8Array(bytes.slice(0)),isEvalSupported:false,verbosity:0}).promise
@@ -33,6 +35,6 @@ export async function assessPdfReadability(bytes:ArrayBuffer, load:()=>Promise<E
     }
    }
   }
-  return scanned?{recommend:true,reason:'scan'}:small?{recommend:true,reason:'small-text'}:!textPages?{recommend:false,reason:'no-text'}:{recommend:false,reason:'none'}
+  return scanned?{recommend:false,reason:'scan'}:small?{recommend:false,reason:'small-text'}:!textPages?{recommend:false,reason:'no-text'}:{recommend:false,reason:'none'}
  } finally {await pdf.destroy()}
 }

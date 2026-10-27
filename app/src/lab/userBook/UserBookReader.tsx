@@ -22,7 +22,7 @@ import { LabWait } from '../LabWait'
 import { ownBookFrameUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { MARGIN_PREVIEW_KEY, MARGIN_PREVIEW_PARAM } from '../marginPreview/marginPreviewFlag'
 import { registerUserBook } from './userBookSource'
-import { hasOwnedPdfText, loadOwnedPdfBytes, openUserBook, readOwnedBookFileId, readOwnedPdfScanEntries, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
+import { hasOwnedPdfText, loadOwnedPdfBytes, openUserBook, readOwnedBookMetadata, readOwnedBookFileId, readOwnedPdfScanEntries, type LoadedUserBook, type UserBookOpenResult } from './userBookStore'
 import { reconcileOpenPlace, reconcilePdfPlace } from './ownSync'
 import { PDF_EDITION_PREFIX, readPdfTextPlace } from './pdfEditions'
 import { epubViewHere, readEpubPlace, type EpubView } from './epubView'
@@ -352,10 +352,12 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     // The pages have already mounted. Heading discovery is optional background
     // work and never owns, waits for, or writes the reader's source position.
     const timer = setTimeout(() => {
-      void discoverOriginalPdfHeadings(hex, owner, { signal: controller.signal, fileName: state.title }).then(scanOutline => {
+      void discoverOriginalPdfHeadings(hex, owner, { signal: controller.signal, fileName: state.title }).then(async scanOutline => {
         if (!scanOutline || controller.signal.aborted) return
+        const metadata = await readOwnedBookMetadata(hex, owner).catch(() => null)
+        if (controller.signal.aborted) return
         setState(previous => previous.status === 'original' && previous.hex === hex && previous.owner === owner && !previous.scanOutline
-          ? { ...previous, scanOutline } : previous)
+          ? { ...previous, scanOutline, ...(metadata?.title ? { title: metadata.title, author: metadata.author } : {}) } : previous)
       })
     }, 0)
     return () => { clearTimeout(timer); controller.abort() }

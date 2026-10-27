@@ -466,7 +466,7 @@ describe('one notion of a figure: PR E\'s detection and PR F\'s reading order', 
       expect(M.captionOf(t), t).toBeNull()
       expect(R.CAPTION.test(t), t).toBe(false)
     }
-    for (const t of ['Figure 16.1: The TD-Gammon neural', 'Fig. 3. The block', 'Table 1. Error rates', 'Figure 2: Residual learning']) {
+    for (const t of ['Figur 1', 'Figur 2 De pengepolitiske renter', 'Tabel 1: Resultater', 'Figure 16.1: The TD-Gammon neural', 'Fig. 3. The block', 'Table 1. Error rates', 'Figure 2: Residual learning']) {
       expect(M.captionOf(t), t).not.toBeNull()
       expect(R.CAPTION.test(t), t).toBe(true)
     }
@@ -588,5 +588,22 @@ describe('text a placed figure carries out of sight (full battery, 15 Oct: "text
   it('lines on top of each other, all of them drawn (no blank paper under any): nothing is dropped', () => {
     const { items } = page(), ink = new Uint8Array(W * H).fill(1)
     expect(R.hidden(items, view, ink, W, H).size).toBe(0)
+  })
+})
+
+describe('captioned chart beside a separate prose column', () => {
+  it('does not count aligned chart tick labels as prose from the other column', () => {
+    const W=240,H=340,ink=new Uint8Array(W*H)
+    for(let y=20;y<155;y++)for(let x=125;x<218;x++)ink[y*W+x]=1
+    const spans=[{x:130/W,y:25/H,w:40/W,h:4/H,text:'Figur 1'}]
+    for(let i=0;i<6;i++) {
+      const y=55+i*14
+      spans.push({x:20/W,y:y/H,w:85/W,h:4/H,text:'This separate column contains running prose about the economy.'})
+      spans.push({x:130/W,y:y/H,w:10/W,h:4/H,text:String(7+i/10)})
+      for(let yy=y;yy<y+4;yy++)for(let x=20;x<105;x++)ink[yy*W+x]=1
+    }
+    const found=M.findFigures({ink,W,H,spans,formulas:[]})
+    expect(found.captions).toEqual(expect.arrayContaining([expect.objectContaining({n:'1'})]))
+    expect(found.figures.some(f=>f.x>.48&&f.w>.3&&f.h>.3)).toBe(true)
   })
 })

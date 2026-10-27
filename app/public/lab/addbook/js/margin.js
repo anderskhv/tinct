@@ -1431,8 +1431,8 @@
      Detection reads a small grey copy of the drawn page (`ink`: 1 where there is ink, W×H pixels,
      square) and the text layer's spans and displayed formulas (page fractions). */
   // A caption starts a line: "Figure 2.", "Fig. 3 The …", "Table 1:", "Figure 16.1: …" (not "Figure 2 shows …").
-  const CAPTION_RE = /^(Figure|FIGURE|Fig\.?|FIG\.?|Table|TABLE)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*(?:[:—–|]|\.(?!\d))|\s+\p{Lu}|\s*$)/u;
-  const REF_RE = /\b(Figure|Fig\.?|Table)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
+  const CAPTION_RE = /^(Figure|FIGURE|Figur|FIGUR|Fig\.?|FIG\.?|Table|TABLE|Tabel|TABEL)\s*(\d+(?:[.\-–]\d+)*[a-z]?|[A-Z](?:\.\d+)*)(?=\s*(?:[:—–|]|\.(?!\d))|\s+\p{Lu}|\s*$)/u;
+  const REF_RE = /\b(Figure|Figur|Fig\.?|Table|Tabel)\s*(\d+(?:\.\d+)*[a-z]?)(?![\d.]*\d)/i;
   const figKind = w => (/^t/i.test(w) ? 'table' : 'figure');
   const figLabel = (kind, n) => `${kind === 'table' ? 'Table' : 'Figure'} ${n}`;
   /** A caption's own label, when `text` starts with one. -> { kind: 'figure' | 'table', n, label } | null */
@@ -1649,7 +1649,12 @@
       const near = segs.filter(o => same(o) && Math.abs(o.q.t - s.q.t) <= lh * 2.5);
       if (near.length >= 2 || (near.length === 1 && segs.some(o => o !== near[0] && same(o) && Math.abs(o.q.t - near[0].q.t) <= lh * 1.5 && Math.abs(o.q.t - s.q.t) > lh * 0.5))) s.wrapped = true;
     }
-    for (const s of segs) { if (s.wrapped) s.running = true; if (s.running) s.line.running = true }
+    for (const s of segs) if (s.wrapped) s.running = true;
+    // A shared baseline is not a shared prose line: chart labels in the other
+    // column must not inherit the running-text status of a paragraph beside them.
+    for (const s of segs) s.inlineRunning = segs.some(o => o !== s && o.line === s.line && o.running
+      && Math.max(o.q.l - s.q.r, s.q.l - o.q.r, 0) <= Math.max(s.q.b - s.q.t, o.q.b - o.q.t)
+        * (/[=∑∫√²³µ−]/u.test(s.text) ? 4 : 2));
     // Captions: a caption's first line and those just below it, in its column, that start no other caption.
     const captions = [];
     segs.forEach((s, i) => {
@@ -1679,7 +1684,7 @@
     for (const s of segs) {
       if (!s.running && !s.caption && !s.inCaption && inArea(s.q)) { fill(label, s.q, 1); continue }
       // Short text on a line of running text (inline maths, a footnote mark) goes with it, as words do.
-      if (s.running || s.caption || s.inCaption || s.line.running || (s.word = s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
+      if (s.running || s.caption || s.inCaption || s.inlineRunning || (s.word = s.text.length >= 4 && /[A-Za-z]{3}/.test(s.text))) fill(kept, s.q, 0);
     }
     const maths = (formulas || []).map(f => ({ ...px(f), n: 0, formula: true }));
     for (const f of maths) fill(kept, f, 0);
@@ -1798,11 +1803,16 @@
     // A box mostly covered by running text, or holding three lines of it, is prose, never a figure, whatever inline
     // symbols it has (Anders, 19 Oct 2026: a paragraph of Constructor Theory with a fraktur A and an italic N was
     // boxed as a figure, its chip in place of the selection's bar).
-    const prose = o => {
-      const runs = segs.filter(s => (s.running || s.line.running) && !s.caption && !s.inCaption && inter(o, s.q) > 0.5 * area(s.q));
-      return runs.reduce((a, s) => a + inter(o, s.q), 0) > 0.45 * area(o) || new Set(runs.map(s => s.line)).size >= 3;
+    const prose = (o, index) => {
+      const runs = segs.filter(s => (s.running || s.inlineRunning) && !s.caption && !s.inCaption && inter(o, s.q) > 0.5 * area(s.q));
+      const coverage = runs.reduce((a, s) => a + inter(o, s.q), 0) / area(o);
+      // A shaded, captioned chart can carry several source-note lines along its
+      // bottom. Those notes do not turn the chart itself into running prose.
+      const bottomNotes = owned.has(index) && coverage < 0.25
+        && runs.every(s => s.q.t >= o.t + (o.b - o.t) * 0.75);
+      return coverage > 0.45 || (!bottomNotes && new Set(runs.map(s => s.line)).size >= 3);
     };
-    boxes.forEach((o, j) => { if (prose(o)) drop.add(j) });
+    boxes.forEach((o, j) => { if (prose(o, j)) drop.add(j) });
     boxes.forEach((o, j) => {
       if (owned.has(j) || drop.has(j)) return;
       const inside = [...owned].filter(k => inter(o, boxes[k]) > 0.6 * Math.min(area(o), area(boxes[k])));
@@ -1820,7 +1830,7 @@
     // Snapped to the page's own drawing where it has one (its rules, paths and pictures; snapFigure): the drawing's
     // box with the labels round it, never its caption, padded a little.
     if (shapes?.length) {
-      const labels = segs.filter(s => !s.running && !s.line.running && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
+      const labels = segs.filter(s => !s.running && !s.inlineRunning && !s.caption && !s.inCaption && !s.stop).map(s => ({ x: s.x, y: s.y, w: s.w, h: s.h }));
       const caps = captions.map(c => ({ x: c.q.l / W, y: c.q.t / H, w: (c.q.r - c.q.l + 1) / W, h: (c.q.b - c.q.t + 1) / H }));
       figures.forEach((f, j) => Object.assign(f, snapFigure(f, shapes, labels, caps)));
     }

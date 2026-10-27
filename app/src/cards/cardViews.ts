@@ -553,7 +553,7 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; 
   // and always once the trial's allowance is over.
   const nearlyGone = !noAllowance && used >= TOP_UP_ROW_FROM_PERCENT
   const topUpRow = nearlyGone && env.data.plan === 'premium' && packs.length ? row({
-    label: CARDS_COPY.topUp,
+    label: open.buying ? 'Opening checkout…' : CARDS_COPY.topUp,
     value: resets ? CARDS_COPY.orWaitUntil(resets) : null,
     chevron: true,
     testid: 'you-top-up',
@@ -565,7 +565,7 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; 
       const buy = (pack: TopUpPack) => async () => {
         if (open.buying) return
         open.buying = true
-        open.status = 'Opening secure checkout…'
+        open.status = ''
         card.refresh()
         const url = await startTopUpCheckout(env.session.token, pack)
         if (url) { env.navigate(url); return }
@@ -588,7 +588,7 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; 
     creditsRow,
     topUpLeft !== null ? meter(CARDS_COPY.topUpBar, Math.round((1 - Math.max(0, Math.min(1, topUpLeft))) * 100), CARDS_COPY.used, true, 'you-top-up-bar') : null,
     topUpRow,
-    open.status ? el('p', { className: 'tc-status', role: 'status', 'aria-live': 'polite', text: open.status, dataset: { testid: 'top-up-status' } }) : null,
+    open.status ? el('p', { className: 'tc-top-up-status', role: 'status', 'aria-live': 'polite', text: open.status, dataset: { testid: 'top-up-status' } }) : null,
   )!
 }
 

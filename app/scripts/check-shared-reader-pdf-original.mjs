@@ -93,8 +93,8 @@ async function settledFigureCard(page, answer, id = null) {
   const result = await page.waitForFunction(({ answer, id }) => {
     const entries = [...document.querySelectorAll('[data-testid="source-margin-item"][data-open="true"]')]
     const entry = entries.find(node => id ? node.dataset.cardId === id : node.dataset.cardId?.startsWith('card:') && node.textContent.includes(answer))
-    const body = entry?.querySelector('[data-testid="lab-phone-card-body"]'), image = body?.querySelector('.pdf-original__figure-thumb img')
-    if (!body?.isConnected || !body.textContent.includes(answer) || !image?.complete || !image.naturalWidth) return false
+    const body = entry?.querySelector('[data-testid="lab-phone-card-body"]')
+    if (!body?.isConnected || !body.textContent.includes(answer)) return false
     return entry.dataset.cardId
   }, { answer, id }, { polling: 'raf', timeout: 45000 })
   const savedId = await result.jsonValue()
@@ -208,16 +208,13 @@ async function sourceParity(page, calls, output) {
   assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'rendered figure Explain sends the actual source image block')
   const figureCardId = await figureCard.getAttribute('data-card-id')
   assert(figureCardId)
-  const thumb = figureCard.getByRole('button', { name: 'Show Figure 1 larger', exact: true })
-  await thumb.locator('img').waitFor()
-  await thumb.click()
-  await page.getByRole('dialog', { name: 'Figure 1', exact: true }).getByRole('button', { name: 'Close figure', exact: true }).click()
+  assert.equal(await figureCard.locator('.pdf-original__figure-thumb').count(), 0, 'figure answers do not quote the picture again')
   await page.reload({ waitUntil: 'domcontentloaded' })
   await page.locator('.pdf-original__text [data-pdf-heading]').first().waitFor()
   const restoredFigure = host.locator(`[data-testid="source-margin-item"][data-card-id="${figureCardId}"]`)
   await restoredFigure.getByTestId('source-margin-open').click()
   await settledFigureCard(page, 'A grounded local fixture answer.', figureCardId)
-  await restoredFigure.getByRole('button', { name: 'Show Figure 1 larger', exact: true }).locator('img').waitFor()
+  assert.equal(await restoredFigure.locator('.pdf-original__figure-thumb').count(), 0, 'reopened figure answers do not quote the picture again')
   await restoredFigure.getByTestId('lab-phone-card-input').fill('What does this figure add?')
   await restoredFigure.getByTestId('lab-phone-card-send').click()
   await restoredFigure.getByText(/The follow-up still sees the original source image\./).waitFor()
@@ -349,7 +346,13 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.waitForFunction(hex => {
       const kept = JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${hex}`) || 'null')
       return !kept?.at || kept.savedAt === kept.at
-    }, hex, { timeout: 15000 })
+    }, hex, { timeout: 15000 }).catch(async error => {
+      console.error('PDF position acknowledgement stalled', JSON.stringify({
+        local: await page.evaluate(hex => JSON.parse(localStorage.getItem(`tinct-addbook:pos:pdf:${hex}`) || 'null'), hex),
+        account: places[hex], writes: calls.filter(call => call.path === `/api/user-books/places/${hex}`).slice(-3).map(call => call.body),
+      }))
+      throw error
+    })
     await page.reload({ waitUntil: 'domcontentloaded' })
   }
   const narrationReady = narrationSuccess
@@ -543,15 +546,20 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       await after.waitFor()
       const chatBefore = calls.filter(call => call.path === '/api/chat').length
       await after.getByRole('button', { name: 'Recap' }).click()
-      await page.getByText('These pages contain more text than this action can safely send.').waitFor()
-      assert.equal(calls.filter(call => call.path === '/api/chat').length, chatBefore, 'dense unit Recap sends no cropped source')
+      await page.getByText('A grounded local fixture answer.', {exact:false}).waitFor()
+      assert.equal(calls.filter(call => call.path === '/api/chat').length, chatBefore + 1)
+      const recap=JSON.parse(calls.filter(call => call.path === '/api/chat').at(-1).body)
+      assert.deepEqual(recap.companion.document.units.map(page=>page.n),[1,2])
+      assert(recap.companion.document.units[0].text.length>6000 && recap.companion.document.units[0].text.includes('line 80.'), 'dense recap includes the complete source beyond the former 6000-character ceiling')
       await page.keyboard.press('Escape')
       await after.getByRole('button', { name: 'Quiz me' }).click()
-      await page.getByText('These pages contain more text than this action can safely send.').waitFor()
-      assert.equal(calls.filter(call => call.path === '/api/chat').length, chatBefore, 'dense unit Quiz sends no cropped source')
+      await page.getByText('Which page has its own spoken words?', {exact:false}).waitFor()
+      const quiz=JSON.parse(calls.filter(call => call.path === '/api/chat').at(-1).body)
+      assert.equal(quiz.companion.intent,'quiz')
+      assert.deepEqual(quiz.companion.document.units,recap.companion.document.units,'dense quiz receives the same complete chapter')
       assert.deepEqual(errors, [], 'no dense-unit reader errors')
       assert.deepEqual(denied, [], 'no dense-unit external requests')
-      console.log(`${name}: dense multi-page unit Recap and Quiz rejected without provider calls`)
+      console.log(`${name}: dense multi-page unit Recap and Quiz retain every source page`)
       return
     }
     await page.locator('[data-pdf-original="true"] .pdf-original__text').getByText('First original page with selectable source words.').waitFor({ timeout: 45000 })
