@@ -11,5 +11,9 @@ export function marginChapterBoundary(paragraphs:readonly string[], end=false):M
   return null
 }
 export function marginSourceWord(host:HTMLElement, anchor:MarginSourceAnchor):HTMLElement|null {
-  return [...host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')].find(word=>Number(word.dataset.paragraphIndex)===anchor.paragraphIndex && Number(word.dataset.wordIndex)===anchor.fromWord) ?? null
+  if (!Number.isSafeInteger(anchor.paragraphIndex) || !Number.isSafeInteger(anchor.fromWord)
+    || anchor.paragraphIndex < 0 || anchor.fromWord < 0) return null
+  // A card already has its exact source coordinate. Do not allocate and walk
+  // every mounted word for every card on each scroll/layout measurement.
+  return host.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${anchor.paragraphIndex}"][data-word-index="${anchor.fromWord}"]`)
 }
