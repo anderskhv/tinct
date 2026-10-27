@@ -109,7 +109,7 @@
 //   node scripts/margin-check.mjs epub-quiz           20 Oct 2026: the quiz card named by the chapter, no page references, "2/3" and Try new
 //                                                     questions, a retry sending the questions asked, one card per quiz
 //   node scripts/margin-check.mjs epub-ask            20 Oct 2026: the Ask field (A3, 22 Oct), Enter in Ask, a follow-up, Explain's and a quiz
-//                                                     answer never moving the reading place, an answer's sources as Fact-check's
+//                                                     answer never moving the reading place, an answer's sources as Evaluate's
 //   node scripts/margin-check.mjs sample              every check above but pairs, a sample of the matrices (npm run check:margin, CI)
 //   node scripts/margin-check.mjs full                every check above but pairs, the whole matrix (npm run check:margin:full)
 //
@@ -322,7 +322,7 @@ const ESSAYS = makeEssayEpub()
 const json = (res, status, body) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); res.end(JSON.stringify(body)) }
 const readBody = req => new Promise(r => { const parts = []; req.on('data', c => parts.push(c)); req.on('end', () => r(Buffer.concat(parts))) })
 // A mocked companion, per intent, streamed as the Worker relays it: a definition for `define`, the
-// sense number for `define_sense`, Quiz me's JSON and its marking, Fact-check with its "Checking
+// sense number for `define_sense`, Quiz me's JSON and its marking, Evaluate with its "Checking
 // sources…" status before the answer, and an answer with a bottom line and a citation otherwise.
 // `mock.next` (set by a check) replaces the next answer's text, for the long and odd answers.
 // `mock.primers`: the next primer replies, in order, each { text } | { status, body } with an optional
@@ -333,7 +333,7 @@ const readBody = req => new Promise(r => { const parts = []; req.on('data', c =>
 // `mock.nextFor[intent]` replaces the next answer of that intent only, and `mock.delayFor[intent]` delays an
 // unstreamed answer of that intent (Define's two requests run at once, so `next` alone could go to either).
 export const mock = { next: null, nextFor: {}, delay: 0, delayFor: {}, primer: null, primers: [], chunks: null, chunksFail: false, fail: null, stall: false }
-/** The mocked Fact-check's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
+/** The mocked Evaluate's text before its search, streamed before "Checking sources…" as the doc-first Worker streamed it
     (off since 19 Oct 2026): a restating opening and a first round's Sources line, which the card never shows. */
 export const FACTCHECK_OPENING = 'The passage claims that MOCK opening restates what it says {p. 1}.\n\nSources: none searched yet.'
 function mockText(body) {
@@ -353,7 +353,7 @@ function mockText(body) {
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
     : 'MOCK thread. The idea runs through the document.\n\n{p. 1} Where it is first named.\n{p. 2} Where it is used again.\n{p. 3} Where it is qualified.'
-  // Fact-check as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
+  // Evaluate as a model answered on 19 Oct 2026 (Anders): a restating opening and a first round's Sources line before the
   // verdict, "From general knowledge," and an italic "Note." label; the card shows the verdict first, a plain caveat, the links.
   if (intent === 'factcheck') return `${FACTCHECK_OPENING}\n\nHolds. MOCK verdict line for the passage. From general knowledge, the figure still stands.\n\n*Note.* MOCK caveat in one plain sentence. The claim is about apes today.\n\nSources: [Mock source one](https://example.org/one) · [Mock source two](https://example.org/two)`
   return 'MOCK ANSWER. The bottom line comes first {p. 1}.\n\nThen a short paragraph {p. 3}.'
@@ -377,7 +377,7 @@ async function mockChat(body, res) {
   res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store' })
   // `mock.stall`: the stream opens and then sends nothing more, never ending (16 Oct: a card that waited for ever).
   if (mock.stall) { mock.stall = false; res.write(`event: message_start\ndata: ${JSON.stringify({ type: 'message_start', message: { usage: {} } })}\n\n`); return }
-  // Fact-check, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
+  // Evaluate, as the Worker streams it (doc-first, 15 Oct): the opening at once, then the status while the search runs, then the rest.
   if (body?.companion?.intent === 'factcheck' && !mock.chunks && text.startsWith(FACTCHECK_OPENING)) {
     res.write(`event: content_block_delta\ndata: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: FACTCHECK_OPENING } })}\n\n`)
     res.write(`event: tinct_status\ndata: ${JSON.stringify({ type: 'tinct_status', text: 'Checking sources\u2026' })}\n\n`)
@@ -722,7 +722,7 @@ async function behaviour(browser, origin) {
   await a.click('.mr-card.is-open .mr-cite >> nth=1').catch(() => {}); await a.waitForTimeout(900)
   ok('citation tags ({p. 3}) show as tags and scroll the PDF to that page', JSON.stringify(tag) === JSON.stringify([['p. 1', '1'], ['p. 3', '3']]) && (await a.evaluate(() => currentPlace().page)) === 3, { tag, page: await a.evaluate(() => currentPlace().page) })
   await fresh(a)
-  // Simplify in the bar; Fact-check, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
+  // Simplify in the bar; Evaluate, Counterpoint and Quiz me in More: each a Worker intent on the passage, kind "pdf".
   for (const [intent, from] of [['simplify', 'bar'], ['counterpoint', 'more'], ['factcheck', 'more'], ['related', 'more'], ['quiz', 'more']]) {
     await a.evaluate(() => { goTo({ page: 1, frac: 0 }); col.open = null }); await a.waitForTimeout(300)
     await selectText(a); await a.waitForSelector('.mr-bar'); const k = account.requests.length
@@ -731,15 +731,15 @@ async function behaviour(browser, origin) {
     if (intent === 'factcheck') {
       await a.waitForTimeout(700)
       const during = await a.innerText('.mr-card.is-open')
-      ok('Fact-check shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
+      ok('Evaluate shows "Checking sources…" while the search runs (tinct_status)', /Checking sources…/.test(during))
       // 19 Oct 2026: nothing before the verdict reaches the card (no restating opening, no first round's Sources line); the dots wait below the status.
-      ok('12. Fact-check: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
+      ok('12. Evaluate: while the search runs only "Checking sources…" and the waiting dots show; no text from before the search, no verdict yet', !/MOCK opening|none searched/.test(during) && !/MOCK verdict/.test(during) && !(await a.$('.mr-card.is-open .is-bottom-line')) && !!(await a.$('.mr-card.is-open .tc-wait')), { during, dots: !!(await a.$('.mr-card.is-open .tc-wait')) })
     }
     await a.waitForTimeout(intent === 'factcheck' ? 1800 : 900); mock.delay = 0
     const req = account.requests.slice(k).find(r => r.body?.companion?.intent === intent)
     ok(`${intent}: the Worker intent with the selection and the PDF's pages`, req && req.body.companion.selection && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length >= 1 && !req.body.system, req?.body?.companion && { ...req.body.companion, context: undefined })
     const label = await a.innerText('.mr-card.is-open .mr-card__label').catch(() => '')
-    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Fact-check', related: 'Related', quiz: 'Quiz me' }[intent]), label)
+    ok(`${intent}: its answer opens as a card labelled with the action`, label.startsWith({ simplify: 'Simplify', counterpoint: 'Counterpoint', factcheck: 'Evaluate', related: 'Related', quiz: 'Quiz me' }[intent]), label)
     if (intent === 'related') {
       // PR C, Related (A5): no web search, the whole document, a passage picture; rows that scroll there and underline the place.
       const rows = await a.evaluate(() => [...document.querySelectorAll('.mr-card.is-open .mr-related__row')].map(r => [r.tagName, r.dataset.page, r.querySelector('.mr-related__tag')?.textContent, r.querySelector('.mr-related__line')?.textContent]))
@@ -755,9 +755,9 @@ async function behaviour(browser, origin) {
     await fresh(a)
   }
   const fcText = await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'factcheck'); openCard(c.id); return true }).then(() => a.waitForTimeout(300)).then(() => a.evaluate(() => ({ labels: document.querySelectorAll('.mr-card.is-open .mr-verdict').length, links: [...document.querySelectorAll('.mr-card.is-open .mr-sources a')].map(x => x.textContent), font: getComputedStyle(document.querySelector('.mr-card.is-open .mr-sources')).fontSize, sourceRows: document.querySelectorAll('.mr-card.is-open .mr-sources').length })))
-  ok('12. Fact-check: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
+  ok('12. Evaluate: no "Note." label; the only sources are the real links, as plain links in 12px', fcText.labels === 0 && fcText.links.join('|') === 'Mock source one|Mock source two' && fcText.font === '12px' && fcText.sourceRows === 1, fcText)
   const fcOrder = await a.evaluate(() => { const c = document.querySelector('.mr-card.is-open .mr-card__body'); const t = c.innerText; return { text: t, first: c.querySelector('.mr-answer')?.innerText.trim(), opening: /MOCK opening|passage claims|none searched/i.test(t), meta: /general knowledge|claim is about|Note\./i.test(t), caveat: t.indexOf('MOCK caveat in one plain sentence.'), verdict: t.indexOf('Holds. MOCK verdict'), sources: t.indexOf('Mock source one'), bottom: c.querySelector('.is-bottom-line')?.textContent, verdicts: (t.match(/\bHolds\./g) || []).length } })
-  ok('12. Fact-check: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
+  ok('12. Evaluate: the verdict first as the bottom line, then the caveat as a plain sentence, then the sources; no restating opening, no remarks on the check', !fcOrder.opening && !fcOrder.meta && fcOrder.verdict === 0 && fcOrder.first.startsWith('Holds. MOCK verdict line for the passage.') && fcOrder.text.indexOf('The figure still stands.') > fcOrder.verdict && fcOrder.text.indexOf('The figure still stands.') < fcOrder.caveat && fcOrder.caveat > fcOrder.verdict && fcOrder.sources > fcOrder.caveat && fcOrder.bottom === 'Holds. MOCK verdict line for the passage.' && fcOrder.verdicts === 1, fcOrder)
   await shot(a, 'factcheck-card-1440x900')
   // Quiz me: "1 of 3", answered in the follow-up line (quiz_check), Show answer without a call, then the score.
   await a.evaluate(() => { const c = keptCards().find(x => x.kind === 'quiz'); openCard(c.id) }); await a.waitForTimeout(300)
@@ -952,7 +952,7 @@ async function behaviour(browser, origin) {
   await selectText(a); await a.waitForSelector('.mr-bar'); const sel = (await a.evaluate(() => getSelection().toString())).replace(/\s+/g, ' ').trim()
   await a.click('.mr-bar [data-m="more"]'); await a.waitForSelector('.mr-more')
   const moreText = (await a.innerText('.mr-more')).replace(/\s+/g, ' ').trim()
-  ok('More shows Define, Fact-check, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Fact-check Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
+  ok('More shows Define, Evaluate, Related, Counterpoint and Quiz me, then Copy, with their lines (Share as image waits)', moreText === 'Define The word, as this text uses it Evaluate Does it still hold? Searches the web Related Where else the text takes this up Counterpoint The strongest objection to it Quiz me Three questions to check you have it Copy With the title and page number', moreText)
   await a.click('.mr-more [data-m="copy"]'); await a.waitForTimeout(300)
   const clip = await a.evaluate(() => navigator.clipboard.readText())
   const printed = await a.evaluate(() => pageLabel(mr?.info?.page || currentPlace().page))
@@ -1459,7 +1459,7 @@ async function keysAndAccess(browser, origin) {
   ok('Left and Right move along the bar', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'more')
   await a.keyboard.press('Enter'); await a.waitForSelector('.mr-more'); await a.waitForTimeout(100)
   ok('Return on the dots opens More with its first row focused', (await a.evaluate(() => document.activeElement?.dataset.m)) === 'define' && (await a.getAttribute('.mr-bar [data-m="more"]', 'aria-expanded')) === 'true')
-  // Define, Fact-check, Related (PR C), Counterpoint.
+  // Define, Evaluate, Related (PR C), Counterpoint.
   await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown'); await a.keyboard.press('ArrowDown')
   const at = await a.evaluate(() => document.activeElement?.dataset.m)
   await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp'); await a.keyboard.press('ArrowUp')
@@ -1755,7 +1755,7 @@ async function columnMatrix(browser, origin) {
         // A wide display equation scrolls sideways inside the answer only.
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['explain'], answer: 'The bottom line.\n\n```\nP(r | f, N) = (N choose r) f^r (1 - f)^(N - r) = N! / (r! (N - r)!) f^r (1 - f)^(N - r) summed over every r from 0 to N\n```\n\nAfter the equation.' })
         await state('equation', () => { const pre = document.querySelector('.mr-card.is-open pre, .mr-sheet pre'), card = pre?.closest('.mr-card, .mr-sheet'); return { ok: !!pre && pre.scrollWidth > pre.clientWidth && card.scrollWidth <= card.clientWidth + 1 && getComputedStyle(pre).overflowX === 'auto' && !/mono/i.test(getComputedStyle(pre).fontFamily) } })
-        // Quiz me and Fact-check while it searches.
+        // Quiz me and Evaluate while it searches.
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['quiz'] }); await state('quiz')
         await page.evaluate(seedCards, { lines: 1, pairs: false, open: 0, kinds: ['factcheck'] })
         await page.evaluate(() => { const c = cardById(col.open); c.turns = []; store.set('cards:' + state.key, [c]); col.live.set(c.id, { text: '', status: 'Checking sources…' }); marginLayout({ fresh: true }) })
@@ -4011,7 +4011,7 @@ async function cardsGloss(browser, origin) {
 }
 
 /* pause-dots (19 Oct 2026, evening, item 11): a card still waiting for more of its answer after words have appeared
-   (Fact-check's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
+   (Evaluate's search, Counterpoint, a follow-up) shows the main chat's dots below its last text until more text
    arrives or the request ends, including on error; Minimise shows its focus ring for the keyboard only. */
 async function pauseDots(browser, origin) {
   const results = [], ok = okList(results)
@@ -4753,7 +4753,7 @@ async function notebookCheck(browser, origin) {
     let s = await a.evaluate(nbState)
     ok(`${tag}: it opens with "Notebook", the count line and copy, download and close`, s && s.title === 'Notebook' && s.count === `${seeded} entries` && s.icons.join() === 'Copy all,Download,Close' && s.button === 'true' && s.inside, s)
     ok(`${tag}: All lists every entry newest first, each a rounded card with its chip, kind, time and bin`, s.entries.length === seeded && s.entries.every(e => e.chip && e.kind && e.time && e.bin && e.radius >= 12) && s.entries[0].kind === 'Note' && s.entries[0].time === '2 min ago' && s.entries[s.entries.length - 1].kind === 'Highlight' && s.entries[s.entries.length - 1].time === '2 days ago', s.entries)
-    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Fact-check, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Fact-check', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
+    ok(`${tag}: the kinds are named: Explain, Ask, Simplify, Define, Evaluate, Counterpoint, Quiz, Note, Highlight`, ['Explain', 'Ask', 'Simplify', 'Define · variance', 'Evaluate', 'Counterpoint', 'Quiz', 'Note', 'Highlight'].every(k => s.entries.some(e => e.kind === k)), s.entries.map(e => e.kind))
     const ex = s.entries.find(e => e.kind === 'Explain'), ask = s.entries.find(e => e.kind === 'Ask')
     ok(`${tag}: a quoted passage with an accent rule; Q and A rows; a long answer cut at four lines with "Read the whole answer"; follow-ups under a rule`, s.rule?.[0] === '2px' && s.rule[1] === 'solid' && ex.quote && ex.cut && ex.more && ex.follow && ask.q === 1 && ask.a === 1 && !ask.cut, { rule: s.rule, ex, ask })
     ok(`${tag}: no mono, no capitals`, s.mono === 0 && s.caps === 0, s)
@@ -4838,7 +4838,7 @@ async function notebookCheck(browser, origin) {
     await A.ctx.close()
   }
   // The margin batch (19 Oct 2026): the core branch's new cards in the Notebook. A margin note and a unit's note under
-  // "My notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Fact-check under "AI", Fact-check as its card shows it.
+  // "My notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Evaluate under "AI", Evaluate as its card shows it.
   {
     const tag = 'notebook-batch-1440x900'
     const hexL = addBook(LONG_BOOK)
@@ -4863,17 +4863,17 @@ async function notebookCheck(browser, origin) {
     await b.mouse.click(x, 560); await b.waitForTimeout(500)
     await b.keyboard.type('My margin thought for the Notebook.')
     await b.evaluate(() => { const p = state.pages.find(q => q.pg.getBoundingClientRect().bottom > 400).pg.getBoundingClientRect(); return { x: p.left + 30, y: 640 } }).then(p => b.mouse.click(p.x, p.y)); await b.waitForTimeout(500)
-    // A Fact-check kept with a restating opening and an empty Sources line (as before the verdict-first prompt).
+    // A Evaluate kept with a restating opening and an empty Sources line (as before the verdict-first prompt).
     await b.evaluate(() => { const card = TinctMargin.newCard({ kind: 'factcheck', page: 2, anchor: [{ n: 2, x: 0.12, y: 0.3, w: 0.6, h: 0.02 }], text: 'A passage that makes a claim.', turns: [{ role: 'assistant', content: 'The passage claims that MOCK opening restates it {p. 2}.\n\nHolds. MOCK verdict first.\n\nSources: none searched yet.' }], at: Date.now() - 60000 }); store.set('cards:' + state.key, [...keptCards(), card]); col.view = null; marginLayout({ fresh: true }) })
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry'); await b.waitForTimeout(200)
     const all = await b.evaluate(nbState)
     const named = k => all.entries.filter(e => e.kind === k)
     const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
-    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Fact-check`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Fact-check').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
+    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
     // (Catch me up is the second unit's since 20 Oct 2026: the first has none.)
     ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
-    const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Fact-check')[0]?.id)
-    ok(`${tag}: Fact-check is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
+    const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Evaluate')[0]?.id)
+    ok(`${tag}: Evaluate is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
     await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
     const mine = await b.evaluate(nbState)
     const notes = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => n.textContent))
@@ -4883,7 +4883,7 @@ async function notebookCheck(browser, origin) {
     await shot(b, `${tag}-mine`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
     const ai = await b.evaluate(nbState)
-    ok(`${tag}: AI: Catch me up, Recap, Quiz and Fact-check, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Fact-check'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
+    ok(`${tag}: AI: Catch me up, Recap, Quiz and Evaluate, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
     await shot(b, `${tag}-ai`)
     // Jump: a Recap entry opens its card under the unit's end pills; a margin note's entry opens the note.
     await b.evaluate(() => goTo({ page: 1, frac: 0 })); await b.waitForTimeout(500)
@@ -5573,7 +5573,7 @@ async function epubQuizCheck(browser, origin) {
 }
 
 /* epub-ask (items 7, 8, 9): the Ask pill (Gloss's), Enter in every card's field never moves the reading place, and an
-   answer that searched sources shows them as Fact-check does. */
+   answer that searched sources shows them as Evaluate does. */
 async function epubAskCheck(browser, origin) {
   const results = [], ok = okList(results)
   for (const look of ['night', 'paper']) {
@@ -5594,13 +5594,13 @@ async function epubAskCheck(browser, origin) {
     await e.keyboard.type('is this a big debate? also today?')
     if (look === 'night') await e.evaluate(() => { const b = document.querySelector('.mr-bar').getBoundingClientRect(); window.__askClip = { x: Math.max(0, b.left - 120), y: Math.max(0, b.top - 60), width: 900, height: 280 } })
     if (look === 'night') await e.screenshot({ path: join(EPUB_SHOTS, 'ask-composer.png'), clip: await e.evaluate(() => window.__askClip) })
-    // 9. The model searched: its Sources line shows as Fact-check's links.
+    // 9. The model searched: its Sources line shows as Evaluate's links.
     mock.nextFor.ask = 'Yes, still debated: Bell tests show the correlations, and what they mean is argued over.\n\nSources: [Loophole-free Bell test](https://example.org/bell) · [Locality, SEP](https://example.org/sep)'
     const s0 = await scrollTop(e)
     await e.keyboard.press('Enter'); await e.waitForTimeout(1500)
     const s1 = await scrollTop(e)
     const src = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return el && { links: [...el.querySelectorAll('.mr-sources a')].map(a => a.textContent), raw: /Sources:/.test(el.querySelector('.mr-card__body').innerText) } })
-    ok(`${look}: 9. an Ask answer that searched sources shows them as Fact-check does (a row of links, never a raw "Sources:" line)`, src && src.links.length === 2 && !src.raw, src)
+    ok(`${look}: 9. an Ask answer that searched sources shows them as Evaluate does (a row of links, never a raw "Sources:" line)`, src && src.links.length === 2 && !src.raw, src)
     ok(`${look}: 7. Enter in the bar's Ask leaves the reading place where it was`, Math.abs(s1 - s0) <= 1, { s0, s1 })
     // 7. Enter on a follow-up, with a long answer and a web font arriving meanwhile: the place never moves.
     mock.nextFor.ask = Array.from({ length: 8 }, (_, i) => `Paragraph ${i + 1}. Entangled particles show correlations that no local account explains, and the debate is about what that means.`).join('\n\n')

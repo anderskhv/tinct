@@ -8,7 +8,7 @@
 //
 // Checks: the top bar is the normal reader's (DOM and pixels); a selection shows the dark bar (Ask with no blinking
 // line) and no native callout; the ••• menu is compact and whole on screen; each action opens its card (Explain,
-// Simplify, Define, Fact-check, Counterpoint, Quiz me, Ask, a note), none quoting the passage, which stays
+// Simplify, Define, Evaluate, Counterpoint, Quiz me, Ask, a note), none quoting the passage, which stays
 // underlined on the page, the page dimmed behind, no field focused until tapped; a focused field with a shrunken
 // visualViewport (the keyboard) keeps the card inside it; Chat and Talk open as cards; the start pills sit on the
 // heading's line and the end pills have no label, and open their cards; the place is unchanged after each card
@@ -259,7 +259,7 @@ async function run(engineName) {
   }
   let more = await moreBox()
   const whole = box => box.m[0] >= 0 && box.m[1] >= 0 && box.m[2] <= 390 && box.m[3] <= 844
-  ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Fact-check|Counterpoint|Quiz me|Copy', more)
+  ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Evaluate|Counterpoint|Quiz me|Copy', more)
   shots.push(await shot(page, `${tag}-more`))
   await tapOutside(page)
   await select(page, 150, 156).catch(() => select(page, 120, 126))
@@ -315,7 +315,7 @@ async function run(engineName) {
   card = await action(() => page.getByTestId('lab-pbar-simplify').click(), 'simplify', 'Simplify')
   ok(`${tag}: Simplify asks the simplify route`, log.ai.some(a => a.intent === 'simplify') && card.text.includes('MOCK simplify'), card)
   await close1('drag', 'Simplify')
-  for (const [id, kind, label, intent] of [['define', 'define', 'Define', 'define'], ['factcheck', 'factcheck', 'Fact-check', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
+  for (const [id, kind, label, intent] of [['define', 'define', 'Define', 'define'], ['factcheck', 'factcheck', 'Evaluate', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
     card = await action(async () => { await page.getByTestId('lab-pbar-more').click(); await page.getByTestId(`lab-pmore-${id}`).click() }, kind, label)
     ok(`${tag}: ${label} asks the ${intent} route with the passage`, log.ai.some(a => a.intent === intent && a.selection), log.ai.slice(-2))
     if (kind === 'quiz') {

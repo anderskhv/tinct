@@ -225,7 +225,7 @@ try {
       }
 
       // 3b. Every margin action reaches the companion for a registered book (desktop, the first book): the bar's
-      // Ask and Simplify, More's Define, Fact-check, Counterpoint and Quiz me, and the chapter pills.
+      // Ask and Simplify, More's Define, Evaluate, Counterpoint and Quiz me, and the chapter pills.
       if (!phone && bookId === BOOKS[0]) {
         const fold = () => frame.evaluate(() => { getSelection().removeAllRanges(); closeAllPopups(); if (col.open) openCard(null) })
         const sent = async (label, act, intent) => {
@@ -242,7 +242,7 @@ try {
         const fromBar = m => async () => { await selectInView(frame); await frame.waitForSelector('.mr-bar [data-m="more"]', { timeout: 8000 }); if (m !== 'ask' && m !== 'simplify') { await frame.click('.mr-bar [data-m="more"]'); await frame.waitForSelector(`.mr-more [data-m="${m}"]`) ; await frame.click(`.mr-more [data-m="${m}"]`) } else await frame.click(`.mr-bar [data-m="${m}"]`) }
         await sent('Simplify', fromBar('simplify'), 'simplify')
         await sent('Ask', async () => { await fromBar('ask')(); await frame.waitForSelector('.mr-bar.is-asking textarea, .mr-bar.is-asking input', { timeout: 5000 }); await frame.keyboard?.type?.('Why?'); await page.keyboard.type('Why does she do this?'); await page.keyboard.press('Enter') }, 'ask')
-        await sent('Fact-check', fromBar('factcheck'), 'factcheck')
+        await sent('Evaluate', fromBar('factcheck'), 'factcheck')
         await sent('Counterpoint', fromBar('counterpoint'), 'counterpoint')
         await sent('Quiz me', fromBar('quiz'), 'quiz')
         // Define: one uncommon word; the dictionary first (offline here), then the companion.
