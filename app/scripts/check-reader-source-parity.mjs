@@ -20,6 +20,7 @@ try {
     activePage = page
     let longAnswer = false, delayedRoute = null, failPhoneFollow = false
     page.on('pageerror', error => errors.push(error.message))
+    page.on('console', message => { if (message.text().startsWith('PAINT_SHRINK')) console.log(message.text()) })
     await page.route('**/*', async route => {
       const url = new URL(route.request().url())
       if (url.origin !== origin) return route.abort()

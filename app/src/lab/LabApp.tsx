@@ -6015,7 +6015,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
-        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
+        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader. <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button></p>}
       </ResponseCard>
     )
   }
@@ -6923,6 +6923,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {notebookReturn && notebookReturn.bookId === (book.bookId || 'bible') && notebookReturn.editionKey === prefs.primaryEdition
         && !initialResolving && !contentsTarget && !tocOpen && !phoneAsk && !desktopAskOpen && !notebookCard && (
         <button type="button" className="lab-back-to-audio" data-testid="lab-notebook-return" onClick={() => {
+          setNotebookFlash(null)
           openContentsPassage(notebookReturn)
           setNotebookReturn(null)
         }}>Back to reading</button>
