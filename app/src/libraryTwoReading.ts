@@ -685,9 +685,12 @@ export async function removeFromShelf(bookId: string) {
 export async function hideFromReadingNow(bookId: string, { saved = true }: { saved?: boolean } = {}): Promise<void> {
   if (!bookId || bookId.length > 80) throw new Error('Invalid book')
   const auth = await readAuth()
-  // An own book is hidden on this device only: its id never reaches the account.
+  // Sync visibility through the owner-only shelf store; private files and places stay intact.
   if (isUserBookId(bookId)) {
-    hideOwnFromReadingTable(userBookHex(bookId)!, Date.now(), { saved })
+    const at = Date.now()
+    hideOwnFromReadingTable(userBookHex(bookId)!, at, { saved })
+    await setSavedBook(bookId, saved, { tableHidden: true, ...(auth.userId ? { expectedOwner: auth.userId } : {}), at })
+    if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
     storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
     return
   }

@@ -30,6 +30,7 @@ import type { UserBookChapter } from './userEdition'
 import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
 import { keepPdfTextPlace, pdfEditionChoice } from './pdfEditions'
 import { userBookOwner } from './userBookStore'
+import { syncOwnShelfMembership } from './ownShelfMembership'
 
 const PLACE_PREFIX = 'tinct-addbook:place:'
 
@@ -370,7 +371,11 @@ export async function ownShelfWithAccount(owner: string | null | undefined, opti
   const account = await reconcileOwnBooks(owner, { ...options, token }).catch(() => null)
   const out: OwnShelfBook[] = []
   const here = new Set<string>()
-  const local = await readOwnShelf(owner)
+  let local = await readOwnShelf(owner)
+  await syncOwnShelfMembership(owner, local.map(book => book.hex), (account ?? []).map(book => book.sha256.slice(0, 24))).catch(() => {})
+  // Visibility changed after the first read; derive reading rows from the same
+  // saved places again so every consumer sees the adopted account choice.
+  local = await readOwnShelf(owner)
   const accountByKey = new Map((account ?? []).map(book => [accountBookKey(book), book]))
   for (const book of local) {
     if (here.has(book.key)) continue

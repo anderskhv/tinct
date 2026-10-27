@@ -95,7 +95,7 @@ it('My shelf’s × takes any book off the shelf (a Tinct book or an added one) 
   expect(calls.putPosition).not.toHaveBeenCalled()
 })
 
-it('My shelf’s Read later and Remove from Currently reading on an own book hide it on this device only, its place and notes kept (2026-10-21)', async () => {
+it('My shelf’s Read later and Remove from Currently reading on an own book sync its visibility, its place and notes kept (2026-10-21)', async () => {
   calls.auth.mockResolvedValue({ data: { session: { user: { id: 'viewer-a' }, access_token: 'token-a' } } })
   const hex = 'ab12cd34ef56ab12cd34ef56'
   const { hideFromReadingNow } = await import('./libraryTwoReading')
@@ -110,8 +110,9 @@ it('My shelf’s Read later and Remove from Currently reading on an own book hid
     expect(localStorage.getItem(`tinct-addbook:highlights:${hex}`)).toBe('[{"id":"h"}]')
     expect(localStorage.getItem('tinct:library-2-table:viewer-a')).toBeNull()
   }
-  // Its id never reaches the account, and no Tinct place is written.
-  expect(calls.saved).not.toHaveBeenCalled()
+  // Only membership reaches the owner-only store; no Tinct place is written.
+  expect(calls.saved).toHaveBeenCalledWith(`userbook-${hex}`, true, { tableHidden: true, expectedOwner: 'viewer-a', at: expect.any(Number) })
+  expect(calls.saved).toHaveBeenCalledWith(`userbook-${hex}`, false, { tableHidden: true, expectedOwner: 'viewer-a', at: expect.any(Number) })
   expect(calls.writePosition).not.toHaveBeenCalled()
   expect(calls.putPosition).not.toHaveBeenCalled()
 })

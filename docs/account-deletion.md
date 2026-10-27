@@ -219,3 +219,8 @@ The October 2026 profile flow adds `reader_profiles.reading_languages` and a
 `user_data` receipt at `premium-first-month-2026-10` containing only the grant
 start and expiry. Existing full-row export and account deletion cover both.
 The receipt labels the promotion; it never grants access.
+
+Uploaded-book shelf visibility uses the existing owner-only `user_data` keys
+`library-shelf:userbook-<opaque-id>` (choice and action time, no title or text).
+These are included in the full `user_data` export and cascade on account deletion.
+Hiding a book does not delete its private file, reading place, notes or highlights.
