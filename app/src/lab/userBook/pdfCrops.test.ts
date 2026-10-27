@@ -117,6 +117,16 @@ describe('A page’s regions and their crops', () => {
     expect(found.map(region => region.y + 0.004)).toEqual([0.4])
   })
 
+  it('keeps spaced axis labels in a chart while trimming source-note prose', () => {
+    const body = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map((str,i)=>({str,x:120+i*60,base:800,size:10,w:20}))
+    const axis = regions.textLines(body,{width:1000,height:1000})
+    const notes=[.85,.86,.87].map(y=>({x:.12,y,w:.7,h:.008,text:'This note explains the values shown in this chart.',words:10,letters:1}))
+    const kept=regions.trimRegions([{kind:'figure',x:.1,y:.5,w:.8,h:.4,captionBox:{x:.1,y:.53,w:.4,h:.03}}],[...axis,...notes])
+    expect(kept).toHaveLength(1)
+    expect(kept[0].y+kept[0].h).toBeGreaterThan(.81)
+    expect(kept[0].y+kept[0].h).toBeLessThan(.85)
+  })
+
   it('trims several bottom source-note lines from a captioned chart instead of discarding its plot', () => {
     const lines=[.81,.84,.87].map(y=>({x:.12,y,w:.7,h:.02,text:'A source note with enough words to describe the chart.',words:12,letters:1}))
     const kept=regions.trimRegions([{kind:'figure',x:.1,y:.5,w:.8,h:.4,captionBox:{x:.1,y:.5,w:.4,h:.03}}],lines)

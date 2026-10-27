@@ -153,6 +153,12 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     return json(404, { error: 'fixture endpoint unavailable' })
   })
   if(process.env.PDF_REGION_DEBUG) await page.addInitScript(()=>{
+    let regions
+    Object.defineProperty(window,'TinctPdfRegions',{configurable:true,get:()=>regions,set:value=>{
+      const find=value.find
+      value.find=(input,margin)=>{const result=find(input,margin);window.__pdfRegionDebug.push({stage:'regions',input:{...input,ink:Array.from(input.ink)},result});return result}
+      regions=value
+    }})
     let api
     window.__pdfRegionDebug=[]
     Object.defineProperty(window,'TinctMargin',{configurable:true,get:()=>api,set:value=>{
