@@ -5,8 +5,8 @@ const status=document.querySelector('[role=status]')
 const reduced=matchMedia('(prefers-reduced-motion:reduce)')
 let books=[],buttons=[],panels=[],selected=-1,frame=0,drag=null,suppressClick=false
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
-let motionFrame=0
-function stopMotion(){cancelAnimationFrame(motionFrame);motionFrame=0;reel.classList.remove('is-moving')}
+let motionFrame=0,motionTarget=null
+function stopMotion(){cancelAnimationFrame(motionFrame);motionFrame=0;motionTarget=null;reel.classList.remove('is-moving')}
 function centre(i, smooth=true){
  const button=buttons[Math.max(0,Math.min(i,buttons.length-1))]
  if(!button)return
@@ -15,6 +15,7 @@ function centre(i, smooth=true){
  if(!smooth||reduced.matches){reel.scrollLeft=target;requestPaint();return}
  // Own the short button/key transition. WebKit's native smooth-scroll queue
  // can cancel/restart these moves when the focused snap scroller handles keys.
+ motionTarget=Math.max(0,Math.min(i,buttons.length-1))
  const start=reel.scrollLeft,time=performance.now()
  reel.classList.add('is-moving')
  function tick(now){
@@ -22,7 +23,7 @@ function centre(i, smooth=true){
   reel.scrollLeft=start+(target-start)*ease
   requestPaint()
   if(t<1)motionFrame=requestAnimationFrame(tick)
-  else{motionFrame=0;reel.classList.remove('is-moving')}
+  else{motionFrame=0;motionTarget=null;reel.classList.remove('is-moving')}
  }
  motionFrame=requestAnimationFrame(tick)
 }
@@ -89,7 +90,7 @@ reel.addEventListener('wheel',stopMotion,{passive:true})
 reel.addEventListener('dragstart',event=>event.preventDefault())
 let resizeFrame
 const resizeObserver=new ResizeObserver(()=>{
- cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{if(selected>=0)centre(selected,false);requestPaint()})
+ cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{if(selected>=0)centre(motionTarget??selected,false);requestPaint()})
 })
 try{
  const response=await fetch(LAB_CATALOGUE_URL)
