@@ -83,11 +83,11 @@ describe('the classic desktop reader\'s dark selection bar', () => {
     expect(input.dismissPopup).toHaveBeenCalled()
   })
 
-  it('lists Define, Fact-check, Counterpoint, then Copy under •••, and Share once highlighted', () => {
+  it('lists Define, Evaluate, Counterpoint, then Copy under •••, and Share once highlighted', () => {
     const input = props({ onShareHighlight: vi.fn() })
     render(<Harness {...input} />)
     fireEvent.click(screen.getByRole('button', { name: 'More' }))
-    expect(screen.getAllByRole('menuitem').map(row => row.querySelector('b')?.textContent)).toEqual(['Define', 'Fact-check', 'Counterpoint', 'Copy'])
+    expect(screen.getAllByRole('menuitem').map(row => row.querySelector('b')?.textContent)).toEqual(['Define', 'Evaluate', 'Counterpoint', 'Copy'])
     fireEvent.click(screen.getByRole('menuitem', { name: /Counterpoint/ }))
     expect(input.onRequestExplanation).toHaveBeenLastCalledWith(expect.any(Function), undefined, 'counterpoint')
   })
@@ -128,7 +128,7 @@ describe('the classic desktop reader\'s dark selection bar', () => {
     const input = props({ sharedReader: true, onQuizPassage: vi.fn() })
     render(<Harness {...input} />)
     fireEvent.click(screen.getByTestId('lab-dbar-more'))
-    expect(screen.getAllByRole('menuitem').map(row => row.querySelector('b')?.textContent)).toEqual(['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy'])
+    expect(screen.getAllByRole('menuitem').map(row => row.querySelector('b')?.textContent)).toEqual(['Define', 'Evaluate', 'Counterpoint', 'Quiz me', 'Copy'])
     const menu = screen.getByTestId('lab-desk-more')
     fireEvent.keyDown(menu, { key: 'Escape' })
     expect(screen.queryByTestId('lab-desk-more')).toBeNull()
@@ -142,7 +142,7 @@ describe('the classic desktop reader\'s dark selection bar', () => {
     const input = props({ sharedReader: true, keyboardDock: true, onQuizPassage: vi.fn() })
     render(<Harness {...input} />)
     expect(screen.queryByTestId('lab-desk-bar')).toBeNull()
-    for (const name of ['Explain', 'Simplify', 'Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Chat']) {
+    for (const name of ['Explain', 'Simplify', 'Define', 'Evaluate', 'Counterpoint', 'Quiz me', 'Chat']) {
       expect(screen.getByRole('button', { name })).toBeTruthy()
     }
     fireEvent.click(screen.getByRole('button', { name: 'Quiz me' }))

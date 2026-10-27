@@ -161,11 +161,11 @@ describe('the highlight dot’s colour', () => {
     expect(colors.match(/class="mr-swatch"/g)).toHaveLength(5)
     expect(colors).toContain('data-color="sage" style="background:#a9d0a3" aria-label="Sage" aria-pressed="true"')
   })
-  it('PR 2: Simplify is in the bar and Fact-check, Counterpoint and Quiz me in More; Share as image stays out of the reader', () => {
+  it('PR 2: Simplify is in the bar and Evaluate, Counterpoint and Quiz me in More; Share as image stays out of the reader', () => {
     const reader = M.html.barHtml('menu', { colors: COLORS, current: 'gold' }) + M.html.moreHtml({})
-    for (const name of ['Simplify', 'Fact-check', 'Counterpoint', 'Quiz me']) expect(reader).toContain(name)
+    for (const name of ['Simplify', 'Evaluate', 'Counterpoint', 'Quiz me']) expect(reader).toContain(name)
     expect(reader).not.toContain('Share as image')
-    expect(reader).toMatch(/Define[\s\S]*Fact-check[\s\S]*Counterpoint[\s\S]*Quiz me[\s\S]*<hr>[\s\S]*>Copy</)
+    expect(reader).toMatch(/Define[\s\S]*Evaluate[\s\S]*Counterpoint[\s\S]*Quiz me[\s\S]*<hr>[\s\S]*>Copy</)
     expect(reader).not.toContain('Copy quote')
     expect(M.html.moreHtml({ all: true })).toContain('Share as image')
     expect(M.html.moreHtml({ phone: true })).not.toContain('The word, as this text uses it')

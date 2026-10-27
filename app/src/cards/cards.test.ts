@@ -1004,6 +1004,37 @@ describe('AI credits (Anders, 14 October 2026)', () => {
     }
   })
 
+  it.each(['chat_pack_200', 'top_up_10'])('opens %s checkout once and shows progress immediately', async pack => {
+    let answer!: (value: Response) => void
+    const request = vi.fn((_url: string, _init?: RequestInit) => new Promise<Response>(resolve => { answer = resolve }))
+    vi.stubGlobal('fetch', request)
+    const { env, stack } = youOnly({ allowance: allowance(1) })
+    click(byTest('you-top-up'))
+    click(byTest(pack === 'chat_pack_200' ? 'menu-top-up' : 'menu-top-up-more'))
+    expect(byTest('top-up-status')?.textContent).toBe('Opening secure checkout…')
+    click(byTest('you-top-up'))
+    expect(byTest('card-menu')).toBeNull()
+    expect(request).toHaveBeenCalledTimes(1)
+    expect(JSON.parse(String(request.mock.calls[0][1]?.body))).toEqual({ type: pack })
+    answer(Response.json({ url: 'https://checkout.stripe.com/test' }))
+    await flush()
+    expect(env.navigate).toHaveBeenCalledWith('https://checkout.stripe.com/test')
+    stack.closeAll()
+  })
+
+  it('shows a failed checkout beside the top-up controls and allows another attempt', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 503 })))
+    const { stack } = youOnly({ allowance: allowance(1) })
+    click(byTest('you-top-up'))
+    click(byTest('menu-top-up'))
+    await flush()
+    expect(byTest('top-up-status')?.textContent).toBe(CARDS_COPY.topUpFailed)
+    expect(byTest('top-up-status')?.parentElement).toBe(byTest('you-top-up')?.parentElement)
+    click(byTest('you-top-up'))
+    expect(byTest('menu-top-up')).not.toBeNull()
+    stack.closeAll()
+  })
+
   it('a free account from before the trial reset shows a fresh month: 0% used and "Resets 14 Nov" (15 Oct 2026)', () => {
     const profile = { subscription_status: null, subscription_period_end: null, created_at: '2026-09-01T10:00:00Z' }
     const period = billingPeriod(profile, new Date('2026-10-20T12:00:00Z'))

@@ -13,7 +13,7 @@
   root.TinctNotebook = api;
   if (typeof module === 'object' && module && module.exports) module.exports = api;
 })(typeof self !== 'undefined' ? self : globalThis, function () {
-  const KINDS = { explain: 'Explain', ask: 'Ask', simplify: 'Simplify', define: 'Define', factcheck: 'Fact-check', counterpoint: 'Counterpoint', quiz: 'Quiz', related: 'Related', figure: 'Figure', note: 'Note', highlight: 'Highlight' };
+  const KINDS = { explain: 'Explain', ask: 'Ask', simplify: 'Simplify', define: 'Define', factcheck: 'Evaluate', counterpoint: 'Counterpoint', quiz: 'Quiz', related: 'Related', figure: 'Figure', note: 'Note', highlight: 'Highlight' };
   const CARD_KINDS = ['explain', 'ask', 'simplify', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'];
   const MINE = ['note', 'highlight'];
   // A unit's pill cards (the wide column's Recap and Catch me up: Ask cards on the unit, data.pill) go by their pill's name.

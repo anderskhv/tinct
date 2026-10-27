@@ -292,7 +292,9 @@ export type AnthropicStreamResult = {
 /** A reader-facing failure, without raw provider messages or request contents. */
 export class LabChatError extends Error {
   constructor(public readonly type = 'interrupted') {
-    super(type === AI_RESTING_ERROR_TYPE
+    super(type === 'allowance_used' || type === 'insufficient_balance'
+      ? 'Not enough AI credits for this request. Top up to continue.'
+      : type === AI_RESTING_ERROR_TYPE
       ? LAB_COPY.aiResting
       : type === 'rate_limit_error'
       ? 'Chat is busy. Please try again in a minute.'
@@ -314,7 +316,8 @@ export function isAiRestingError(error: unknown): boolean {
 
 /** The structured error type of a failed companion response, else `http_<status>`. */
 export async function labChatErrorType(response: { status: number; json?: () => Promise<unknown> }): Promise<string> {
-  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } } | null
+  const data = await response.json?.().catch(() => null) as { error?: { type?: unknown } | string } | null
+  if (response.status === 402 && (data?.error === 'allowance_used' || (typeof data?.error === 'object' && data.error?.type === 'insufficient_balance'))) return 'allowance_used'
   const type = data && typeof data.error === 'object' && data.error ? data.error.type : null
   return type === AI_RESTING_ERROR_TYPE ? AI_RESTING_ERROR_TYPE : `http_${response.status}`
 }

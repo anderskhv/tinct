@@ -132,7 +132,7 @@
    (desktop), on press-and-hold (phone, [data-pressed]); the newest answer
    keeps its copy mark (.is-kept) without the time or the wash. */
 .tc .tc-acts {
-  position: relative; display: none; align-items: center; gap: 18px; align-self: stretch;
+  position: relative; display: none; align-items: center; gap: 10px; align-self: flex-start;
   height: 28px; margin: 4px 0 -6px; color: var(--tc-faint);
 }
 .tc .tc-q .tc-acts { justify-content: flex-start; }
@@ -141,9 +141,9 @@
 .tc .tc-turn[data-pressed] .tc-acts, .tc .tc-turn[data-pressed] .tc-acts .tc-time { display: flex; }
 @media (hover: hover) {
   .tc .tc-turn:hover .tc-acts, .tc .tc-turn:hover .tc-acts .tc-time, .tc .tc-turn:focus-within .tc-acts { display: flex; }
-  .tc .tc-turn:hover .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: var(--tc-wash); z-index: -1; }
+  .tc .tc-turn:hover .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: transparent; z-index: -1; }
 }
-.tc .tc-turn[data-pressed] .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: var(--tc-wash); z-index: -1; }
+.tc .tc-turn[data-pressed] .tc-acts::after { content: ""; position: absolute; left: -12px; right: -12px; top: 0; bottom: 0; border-radius: 8px; background: transparent; z-index: -1; }
 .tc .tc-mark {
   position: relative; width: 22px; height: 22px; min-width: 0; min-height: 0; padding: 0; margin: 0; border: 0; border-radius: 0;
   display: grid; place-items: center; flex: none; background: transparent; color: var(--tc-faint); box-shadow: none; cursor: pointer;
@@ -151,7 +151,7 @@
 .tc .tc-mark::after { content: ""; position: absolute; inset: -8px; }
 .tc .tc-mark:hover { color: var(--tc-muted); }
 .tc .tc-mark svg { width: 17px; height: 17px; display: block; }
-.tc .tc-time { margin-left: auto; font: 400 12px/1 var(--tc-sans); letter-spacing: .01em; color: var(--tc-faint); white-space: nowrap; }
+.tc .tc-time { margin-left: 0; font: 400 12px/1 var(--tc-sans); letter-spacing: .01em; color: var(--tc-faint); white-space: nowrap; }
 .tc .tc-copy { margin-left: -2px; }
 
 /* "Latest": ink pill, paper text, centred 14px above the composer. */

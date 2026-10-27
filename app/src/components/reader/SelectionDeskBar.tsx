@@ -15,7 +15,7 @@ export type DeskMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'gal
 /** The margin reader's ••• rows on desktop (margin.js MORE_ROWS and MORE_ROWS_2), with the lines it shows under them. */
 export const DESK_MORE_ROWS: Record<DeskMoreId, [string, string]> = {
   define: ['Define', 'The word, as this text uses it'],
-  factcheck: ['Fact-check', 'Does it still hold? Searches the web'],
+  factcheck: ['Evaluate', 'Does it still hold? Searches the web'],
   counterpoint: ['Counterpoint', 'The strongest objection to it'],
   quiz: ['Quiz me', 'A question about this passage'],
   gallery: ['Character gallery', 'Everyone in this passage'],

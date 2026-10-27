@@ -51,7 +51,7 @@ export function cardQuestion(card: MarginCard): string {
     case 'explain': return 'Explain this passage.'
     case 'simplify': return 'Simplify this passage.'
     case 'define': return `Define “${String(card.text || '').trim().slice(0, 80)}”.`
-    case 'factcheck': return 'Fact-check this passage.'
+    case 'factcheck': return 'Evaluate this passage.'
     case 'counterpoint': return 'Give a counterpoint to this passage.'
     case 'related': return 'What does this relate to elsewhere?'
     case 'quiz': return `Quiz me${of ? ' on' + of : ''}.`

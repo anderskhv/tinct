@@ -7,7 +7,7 @@ import './marginPhone.css'
 
 export type PhoneMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'copy'
 /** The margin reader's ••• on a phone (margin.js MORE_ROWS, names only); Related is a PDF's alone. */
-export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Fact-check'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
+export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Evaluate'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
 
 /** The part of the window the reader can see (above the software keyboard), in layout coordinates. */
 function visibleWindow(): { top: number; bottom: number; width: number } {

@@ -730,7 +730,7 @@ export function SelectionPopup({
               {sharedReader && <>
                 <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('simplify')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Simplify</span></button>
                 <button type="button" className="popup-menu-action" onClick={onDefine}><span className="popup-highlight-symbol" aria-hidden="true">⌕</span><span>Define</span></button>
-                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('factcheck')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Fact-check</span></button>
+                <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('factcheck')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Evaluate</span></button>
                 <button type="button" className="popup-menu-action" onClick={() => openContextualExplanation('counterpoint')}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Counterpoint</span></button>
                 {onQuizPassage && <button type="button" className="popup-menu-action" onClick={onQuizPassage}><span className="popup-highlight-symbol" aria-hidden="true">✧</span><span>Quiz me</span></button>}
               </>}

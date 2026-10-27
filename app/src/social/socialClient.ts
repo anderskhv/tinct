@@ -124,12 +124,30 @@ export async function chooseGooglePhoto(token: string, fetchImpl: FetchLike = fe
 const blobUrls = new Map<string, Promise<string | null>>()
 
 export function privateImageUrl(token: string, url: string): Promise<string | null> {
-  const known = blobUrls.get(url)
+  // A stale session must not poison the same image after auth refresh, or
+  // share an authenticated result with another account on this page.
+  const key = JSON.stringify([token, url])
+  const known = blobUrls.get(key)
   if (known) return known
-  const loading = fetch(url, { headers: auth(token) })
-    .then(async res => (res.ok ? URL.createObjectURL(await res.blob()) : null))
-    .catch(() => null)
-  blobUrls.set(url, loading)
+  const controller = new AbortController()
+  let timer: ReturnType<typeof setTimeout>
+  const timeout = new Promise<null>(resolve => {
+    timer = setTimeout(() => { controller.abort(); resolve(null) }, 10000)
+  })
+  const request = Promise.resolve().then(() => fetch(url, { headers: auth(token), signal: controller.signal }))
+    .then(async res => {
+      if (!res.ok) return null
+      const blob = await res.blob()
+      return controller.signal.aborted ? null : URL.createObjectURL(blob)
+    }).catch(() => null)
+  const loading = Promise.race([request, timeout]).then(src => {
+    clearTimeout(timer)
+    // Keep successful and in-flight reuse, but let the next render retry a
+    // failed request. An older completion cannot evict a newer request.
+    if (!src && blobUrls.get(key) === loading) blobUrls.delete(key)
+    return src
+  })
+  blobUrls.set(key, loading)
   return loading
 }
 

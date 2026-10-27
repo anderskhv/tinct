@@ -44,7 +44,7 @@ export type PhoneCard =
 
 /** The card's name in its label (the margin reader's KINDS). */
 export const PHONE_CARD_NAMES: Record<PhoneCard['kind'], string> = {
-  explain: 'Explain', simplify: 'Simplify', factcheck: 'Fact-check', counterpoint: 'Counterpoint',
+  explain: 'Explain', simplify: 'Simplify', factcheck: 'Evaluate', counterpoint: 'Counterpoint',
   define: 'Define', ask: 'Ask', quiz: 'Quiz me', note: 'Note', 'chapter-note': 'Note',
 }
 

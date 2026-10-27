@@ -8,7 +8,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 const switchState = vi.hoisted(() => ({ on: false }))
 vi.mock('../aiAllowanceSwitch', () => ({ get AI_ALLOWANCE_ENFORCED() { return switchState.on } }))
 
-import { AI_USAGE_COPY, aiUsageNote, allowanceAuthHeaders, fetchAiAllowance, offersTopUps, parseAiAllowance, parseTopUps, startTopUpCheckout } from './labAiAllowance'
+import { AI_USAGE_COPY, aiUsageNote, allowanceAuthHeaders, fetchAiAllowance, offersTopUps, parseAiAllowance, parseTopUps, startTopUpCheckout, watchAiAllowance } from './labAiAllowance'
 
 beforeEach(() => { switchState.on = true })
 
@@ -99,5 +99,32 @@ describe('requests', () => {
     expect(allowanceAuthHeaders(null)).toEqual({})
     switchState.on = false
     expect(allowanceAuthHeaders('tok')).toEqual({})
+  })
+})
+
+describe('an open balance after a purchase on another device', () => {
+  it('refreshes in foreground, coalesces focus events and stops when closed', async () => {
+    vi.useFakeTimers()
+    switchState.on = true
+    const fetcher = vi.fn(async () => Response.json(bar({ usedFraction: 1, state: 'used_up' })))
+    vi.stubGlobal('fetch', fetcher)
+    const changed = vi.fn()
+    const stop = watchAiAllowance(() => 'token', changed)
+    await vi.advanceTimersByTimeAsync(0)
+    expect(changed).toHaveBeenLastCalledWith(expect.objectContaining({ state: 'used_up' }))
+    fetcher.mockImplementation(async () => Response.json(bar({ usedFraction: 0.5, state: 'ok' })))
+    await vi.advanceTimersByTimeAsync(6000)
+    window.dispatchEvent(new Event('focus'))
+    window.dispatchEvent(new Event('focus'))
+    await vi.advanceTimersByTimeAsync(0)
+    expect(fetcher).toHaveBeenCalledTimes(2)
+    expect(changed).toHaveBeenLastCalledWith(expect.objectContaining({ state: 'ok' }))
+    await vi.advanceTimersByTimeAsync(30_000)
+    expect(fetcher).toHaveBeenCalledTimes(3)
+    stop()
+    await vi.advanceTimersByTimeAsync(60_000)
+    window.dispatchEvent(new Event('focus'))
+    expect(fetcher).toHaveBeenCalledTimes(3)
+    vi.useRealTimers()
   })
 })

@@ -160,7 +160,7 @@ try {
       const barBox = await popup.boundingBox()
       assert(barBox && barBox.x >= 0 && barBox.x + barBox.width <= 390, 'phone selection controls fit the viewport')
       await popup.getByRole('button', { name: 'More', exact: true }).click()
-      for (const name of ['Define', 'Fact-check', 'Counterpoint', 'Quiz me', 'Copy']) assert.equal(await page.getByRole('menuitem', { name, exact: true }).count(), 1)
+      for (const name of ['Define', 'Evaluate', 'Counterpoint', 'Quiz me', 'Copy']) assert.equal(await page.getByRole('menuitem', { name, exact: true }).count(), 1)
       await page.waitForTimeout(200)
       await page.screenshot({ path: `${output}/phone-${theme}.png` })
       await popup.getByRole('button', { name: 'More', exact: true }).click()
