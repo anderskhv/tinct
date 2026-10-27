@@ -174,6 +174,9 @@ try {
       assert.equal(await root.getAttribute('data-place'),`${anchor.paragraphIndex}:${anchor.fromWord}`,'explicit Show passage lands at its exact source')
       await page.screenshot({path:`${output}/notebook-source-flash.png`})
       await page.locator('.is-notebook-passage').first().waitFor({state:'detached'})
+      await page.getByTestId('lab-notebook-return').click()
+      await page.waitForFunction(place => document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-place') === place, beforeNotebookCard)
+      assert.equal(await page.getByTestId('lab-notebook-return').count(), 0, 'return pill consumes the saved pre-notebook position')
       const activeAfterReload = host.locator('[data-testid="source-margin-item"][data-open="true"]')
       if (await activeAfterReload.count()) await activeAfterReload.getByTestId('source-margin-minimise').click()
       const room = await host.locator('.source-margin-room').boundingBox()
@@ -410,9 +413,12 @@ try {
       await page.getByTestId('lab-phone-card-input').fill('What does promised mean?')
       await page.getByTestId('lab-phone-card-send').click()
       await page.getByTestId('lab-ask-pane').getByText('What does promised mean?', {exact:true}).waitFor()
+      // A Home Screen keyboard can remain reduced for frames after closing
+      // the sheet. Closing must not repaginate against that temporary height.
+      await page.getByRole('button', {name:'Close chat', exact:true}).click()
+      await settlePaint(page)
       await page.evaluate(() => window.__restorePhoneViewport())
       await settlePaint(page)
-      await page.getByRole('button', {name:'Close chat', exact:true}).click()
       await page.getByTestId('lab-page-prev').evaluate(button => button.click())
       await settlePaint(page)
       await page.screenshot({path:`${output}/romans-back-after-chat.png`})

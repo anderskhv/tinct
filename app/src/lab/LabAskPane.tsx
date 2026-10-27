@@ -343,7 +343,7 @@ export function LabAskPane({
       setSpacer(node, null)
       // Open on a clean window: one screen of writing space above the
       // composer, the whole thread immediately above it, reached by scrolling up.
-      if (!embeddedPhoneCard && !focusTurnId && !typedLoading && spacerRef.current) {
+      if (!focusTurnId && !typedLoading && spacerRef.current) {
         spacerRef.current.style.height = `${node.clientHeight}px`
         cleanOpenRef.current = true
       }
@@ -406,7 +406,7 @@ export function LabAskPane({
         measureAway(current)
         return
       }
-      const resizedClean = !embeddedPhoneCard && cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
+      const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
       if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
       if (pinnedScrollTopRef.current !== null || nearBottomRef.current) pinToBottom(current)
     })

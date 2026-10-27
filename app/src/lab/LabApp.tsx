@@ -5017,6 +5017,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDraft('')
   }, [book.bookId, openChatForFigure])
 
+  const [notebookReturn, setNotebookReturn] = useState<(ContentsPlace & { bookId: string; editionKey: string }) | null>(null)
+  useEffect(() => { setNotebookReturn(null) }, [book.bookId, prefs.primaryEdition])
+  const rememberNotebookOrigin = () => setNotebookReturn(current => current ?? {
+    bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
+    chapterNumber: book.chapterNumber, ...placeRef.current,
+  })
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false, flash?: PhoneCardRange['range']) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
@@ -6914,6 +6920,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
+      {notebookReturn && notebookReturn.bookId === (book.bookId || 'bible') && notebookReturn.editionKey === prefs.primaryEdition
+        && !initialResolving && !contentsTarget && !tocOpen && !phoneAsk && !desktopAskOpen && !notebookCard && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-notebook-return" onClick={() => {
+          openContentsPassage(notebookReturn)
+          setNotebookReturn(null)
+        }}>Back to reading</button>
+      )}
       {recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
         && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
@@ -7242,8 +7255,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         unassignedHighlights={highlightsApi.unassignedHighlights}
         chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
-        onOpenPassage={place => openContentsPassage(place)}
-        onOpenHighlight={highlight => openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight)}
+        onOpenPassage={place => {
+          rememberNotebookOrigin()
+          openContentsPassage(place, undefined, false, { paragraphIndex: place.paragraphIndex, endParagraphIndex: place.paragraphIndex, fromWord: place.wordIndex, toWord: place.wordIndex + 1 })
+        }}
+        onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
         onContinueConversation={openNotebookConversation}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
@@ -7315,6 +7331,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
           <button type="button" className="lab-pcard-link" onClick={() => {
             setNotebookCard(null)
+            rememberNotebookOrigin()
             openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, undefined, false, saved.card?.anchor)
           }}>Show passage</button>
           {saved.card?.kind !== 'quiz' && <PhoneFollowField value={draft} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
