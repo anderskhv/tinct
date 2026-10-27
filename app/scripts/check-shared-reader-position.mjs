@@ -7,7 +7,7 @@ import { markInternal } from './lib/internalTraffic.cjs'
 
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:3001'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
-const output = process.env.TINCT_POSITION_OUTPUT || '/tmp/tinct-shared-reader-position'
+const output = process.env.TINCT_POSITION_OUTPUT || 'artifacts/shared-reader-position'
 const browser = await markInternal(await chromium.launch({
   headless: true,
   executablePath: process.env.TINCT_CHROMIUM_EXECUTABLE || undefined,
@@ -23,7 +23,22 @@ const macbethSource = JSON.parse(await fs.readFile('public/data/editions/macbeth
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
 const page = await context.newPage()
 page.on('pageerror', error => errors.push(error.message))
-await page.route('**/*', async route => {
+const pendingRequests = new Map()
+const networkEvents = []
+const noteNetwork = event => { networkEvents.push(event); if (networkEvents.length > 40) networkEvents.shift() }
+page.on('request', request => pendingRequests.set(request, { url: request.url(), type: request.resourceType(), started: Date.now() }))
+page.on('response', response => {
+  const request = response.request(), pending = pendingRequests.get(request)
+  if (pending) Object.assign(pending, { status: response.status(), responseAt: Date.now() })
+})
+page.on('requestfinished', request => pendingRequests.delete(request))
+page.on('requestfailed', request => { noteNetwork({ url: request.url(), error: request.failure()?.errorText }); pendingRequests.delete(request) })
+// Leave ordinary same-origin assets on the browser's native network path.
+// Intercept only fixtures and the exact release document/bundle guards;
+// routing every script through continue has stalled reloads in cloud checks.
+await page.route(url => url.origin !== origin || url.pathname.startsWith('/api/')
+  || Boolean(expectedBundle && (url.pathname === '/reader'
+    || (/^\/assets\/index-[\w-]+\.js$/.test(url.pathname) && url.pathname !== expectedBundle))), async route => {
   const url = new URL(route.request().url())
   if (url.origin !== origin) return route.abort()
   if (expectedBundle && url.pathname === '/reader') {
@@ -389,8 +404,12 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.deepEqual(errors, [], `page errors: ${errors.join('; ')}`)
   console.log(`Shared reader position check passed. ${observations.length} observations and screenshots: ${output}`)
 } catch (error) {
-  await page.screenshot({ path: `${output}/failure.png` }).catch(() => {})
+  const network = { pending: [...pendingRequests].map(([request, item]) => ({ ...item, elapsedMs: Date.now() - item.started, timing: request.timing() })), events: networkEvents }
+  console.error('Position failure network:', JSON.stringify(network))
+  await fs.writeFile(`${output}/failure-network.json`, JSON.stringify(network, null, 2))
+  await page.screenshot({ path: `${output}/failure.png`, timeout: 5000 }).catch(() => {})
   await fs.writeFile(`${output}/failure.json`, JSON.stringify(await page.evaluate(() => ({
+    readyState: document.readyState,
     root: { ...document.querySelector('.lab')?.dataset },
     sheet: document.querySelector('[data-testid="lab-v2-sheet"]')?.outerHTML,
     prefs: Object.fromEntries(Object.keys(localStorage).filter(key => key.includes('prefs')).map(key => [key, localStorage.getItem(key)])),
