@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ComponentProps, type WheelEvent } from 'react'
+import { flushSync } from 'react-dom'
 import { SourceMinimap, type SourceBookMap, type SourceMapCard } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
 import { isLabVerseMarker, tokenizeHearingWords } from '../labHearing'
@@ -279,7 +280,10 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const following = host.querySelectorAll<HTMLElement>('.continuous-reader-window')[1]
     if (direction === 'next' && following && following.getBoundingClientRect().top > host.getBoundingClientRect().top) return
     pendingRebase.current = { anchor: visible, offset: word.getBoundingClientRect().top - host.getBoundingClientRect().top }
-    setWindowState({ key: destinationKey, start: nextStart })
+    // Commit the window and its layout-effect offset restoration together. A
+    // deferred continuous-event update can otherwise restore an obsolete pixel
+    // after native momentum has already advanced (or reversed) the scroller.
+    flushSync(() => setWindowState({ key: destinationKey, start: nextStart }))
   }
 
   const measureMapEnd = () => {
@@ -303,7 +307,12 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const words = sourceWords()
     const viewport = continuousViewportWords(words, host.scrollTop, host.clientHeight)
     if (viewport.last) setMapEnd(previous => sameAnchor(previous, viewport.last!.anchor) ? previous : viewport.last!.anchor)
-    if (suppressScrollRef.current) { suppressScrollRef.current = false; return }
+    if (suppressScrollRef.current) {
+      suppressScrollRef.current = false
+      // Browsers can combine our offset correction and subsequent momentum
+      // into one notification. Suppress only the correction itself.
+      if (movement === 0) return
+    }
     if (!userBrowseRef.current || !viewport.hasInk || !viewport.first) return
     let visible = viewport.first.anchor
     // Retain the semantic saved word while it is still on the top line.
@@ -364,7 +373,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
         lastReported.current = `${nextVisible.paragraphIndex}:${nextVisible.wordIndex}`
         onVisible(epoch, nextVisible)
         pendingRebase.current = { anchor: nextVisible, offset: 0 }
-        setWindowState({ key: destinationKey, start: nextStart })
+        flushSync(() => setWindowState({ key: destinationKey, start: nextStart }))
       } else rebase('next', visibleRef.current)
     }
   }

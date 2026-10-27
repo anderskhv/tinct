@@ -319,3 +319,49 @@ it('physically applies repeated minimap jumps within the same canonical window',
     expect(map.getAttribute('aria-valuenow')).toBe('0')
   } finally { rect.mockRestore() }
 })
+
+it.each([180, -180])('preserves %spx of native movement after a rebase event', movement => {
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.classList.contains('continuous-reader-window')) return { top: -1 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const initialWindow = host.firstElementChild!.firstElementChild as HTMLElement
+      const absolute = Number(this.dataset.paragraphIndex) * 40 + Number(this.dataset.wordIndex)
+      const base = Number(initialWindow.dataset.windowFirst) * 40
+      const top = Math.floor((absolute - base) / 10) * 28 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  try {
+    const onVisible = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Momentum', paragraphs: Array.from({ length: 100 }, (_, p) => Array.from({ length: 40 }, (_, w) => `p${p}w${w}`).join(' ')), follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={onVisible} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 600 },
+      scrollHeight: { get: () => Math.ceil(host.querySelectorAll('[data-testid="lab-word"]').length / 10) * 28 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, value) } } })
+    fireEvent.pointerDown(host)
+    host.scrollTop = host.scrollHeight - 900
+    const held = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!
+    const capturedPixel = held.node.getBoundingClientRect().top
+    act(() => {
+      // Continuous events queue React's update; native scrolling can advance
+      // again before that commit without another scroll notification yet.
+      host.dispatchEvent(new Event('scroll', { bubbles: true }))
+      host.scrollTop += movement
+    })
+    expect(Number(host.querySelector('.continuous-reader-window')?.getAttribute('data-window-first'))).toBeGreaterThan(0)
+    const retained = host.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${held.anchor.paragraphIndex}"][data-word-index="${held.anchor.wordIndex}"]`)!
+    expect(retained.getBoundingClientRect().top).toBe(capturedPixel - movement)
+    const current = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!.anchor
+    onVisible.mockClear()
+    // The compositor can coalesce correction and later native movement into
+    // one notification, without another wheel event to clear suppression.
+    fireEvent.scroll(host)
+    expect(onVisible).toHaveBeenLastCalledWith(first, current)
+  } finally { rect.mockRestore() }
+})
