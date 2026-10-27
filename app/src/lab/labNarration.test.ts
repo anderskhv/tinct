@@ -119,6 +119,9 @@ describe('narration API client', () => {
       const fetchImpl = (async () => new Response('', { status })) as unknown as typeof fetch
       await expect(ensureNarration(request, { fetchImpl })).rejects.toMatchObject({ code })
     }
+    const unavailable = vi.fn(async () => Response.json({ reason: 'rate_limit_unavailable' }, { status: 503 }))
+    await expect(ensureNarration(request, { fetchImpl: unavailable })).rejects.toMatchObject({ code: 'http', status: 503 })
+    expect(unavailable).toHaveBeenCalledTimes(1)
     const abort = (async () => { throw new DOMException('aborted', 'AbortError') }) as unknown as typeof fetch
     const cancelled = new AbortController()
     cancelled.abort()
