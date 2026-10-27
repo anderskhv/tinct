@@ -2414,6 +2414,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [desktopLiveCards, setDesktopLiveCards] = useState<PhoneCard[]>([])
   useLayoutEffect(() => { const host = continuousReader ? pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="continuous-reader"]') ?? null : null; setMarginHost(current => current === host ? current : host) })
   const [sharedCardSaveError, setSharedCardSaveError] = useState(false)
+  const [saveDetailsCopied, setSaveDetailsCopied] = useState(false)
+  useEffect(() => { setSaveDetailsCopied(false) }, [sharedCardSaveError])
   const desktopCardRequestRef = useRef<{ key: string; id: string; at: number; savedAnswer?: string } | null>(null)
   const [phoneNote, setPhoneNote] = useState('')
   const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
@@ -5017,6 +5019,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDraft('')
   }, [book.bookId, openChatForFigure])
 
+  const [notebookReturn, setNotebookReturn] = useState<(ContentsPlace & { bookId: string; editionKey: string }) | null>(null)
+  useEffect(() => { setNotebookReturn(null) }, [book.bookId, prefs.primaryEdition])
+  const rememberNotebookOrigin = () => setNotebookReturn(current => current ?? {
+    bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition,
+    chapterNumber: book.chapterNumber, ...placeRef.current,
+  })
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false, flash?: PhoneCardRange['range']) => {
     const bookId = book.bookId || 'bible'
     if (!book.chapters.some(ch => ch.number === place.chapterNumber) || (chat && chat.bookId !== bookId)) return
@@ -5996,7 +6004,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const lead = card.kind === 'ask' ? null
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
-          {fromSelection && <button type="button" className="lab-pcard-link" onClick={() => leaveSelectionInfo(true)}>More actions</button>}
           {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword popup-define-word">{define.result?.word || card.word}</p>}
           <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
@@ -6009,7 +6016,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
-        {sharedReader && sharedCardSaveError && <p role="status">This answer is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
+        {sharedReader && sharedCardSaveError && <p role="status">
+          {ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.{' '}
+          <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button>{' '}
+          <button type="button" onClick={() => { void navigator.clipboard?.writeText(`Tinct answer save: ${ask.cardSaveFailure || 'unknown'}`).then(() => setSaveDetailsCopied(true), () => setSaveDetailsCopied(false)) }}>{saveDetailsCopied ? 'Save details copied' : 'Copy save details'}</button>
+        </p>}
       </ResponseCard>
     )
   }
@@ -6914,6 +6925,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <button type="button" data-testid="lab-narration-retry" onClick={listen.retryNarration}>Retry</button>
         <button type="button" onClick={listen.dismissNarration} aria-label="Dismiss audio error">×</button>
       </div>}
+      {notebookReturn && notebookReturn.bookId === (book.bookId || 'bible') && notebookReturn.editionKey === prefs.primaryEdition
+        && !initialResolving && !contentsTarget && !tocOpen && !phoneAsk && !desktopAskOpen && !notebookCard && (
+        <button type="button" className="lab-back-to-audio" data-testid="lab-notebook-return" onClick={() => {
+          setNotebookFlash(null)
+          openContentsPassage(notebookReturn)
+          setNotebookReturn(null)
+        }}>Back to reading</button>
+      )}
       {recentChapterReturn && !initialResolving && !contentsTarget && !phoneAsk && !desktopAskOpen
         && !mobileCompareActive && !listen.playing && readingPageIndex === 0
         && recentChapterReturn.libraryBookId === (book.bookId || 'bible')
@@ -7242,8 +7261,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         unassignedHighlights={highlightsApi.unassignedHighlights}
         chapterNotes={highlightsApi.chapterNotes}
         onSelectChapter={number => openContentsPassage({ chapterNumber: number, paragraphIndex: 0, wordIndex: 0 }, undefined, true)}
-        onOpenPassage={place => openContentsPassage(place)}
-        onOpenHighlight={highlight => openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight)}
+        onOpenPassage={place => {
+          rememberNotebookOrigin()
+          openContentsPassage(place, undefined, false, { paragraphIndex: place.paragraphIndex, endParagraphIndex: place.paragraphIndex, fromWord: place.wordIndex, toWord: place.wordIndex + 1 })
+        }}
+        onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
         onContinueConversation={openNotebookConversation}
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
@@ -7315,6 +7337,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {saved.messages.filter(message => message.role === 'assistant').map(message => <div key={message.id} className="lab-pcard-answer">{saved.card?.kind === 'define' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
           <button type="button" className="lab-pcard-link" onClick={() => {
             setNotebookCard(null)
+            rememberNotebookOrigin()
             openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, undefined, false, saved.card?.anchor)
           }}>Show passage</button>
           {saved.card?.kind !== 'quiz' && <PhoneFollowField value={draft} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {

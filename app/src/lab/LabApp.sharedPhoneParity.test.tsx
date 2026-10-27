@@ -112,11 +112,7 @@ it('opens an ordinary single-word lookup in the existing definition card before 
   expect(screen.getByTestId('lab-phone-card').getAttribute('data-kind')).toBe('define')
   expect(screen.getByTestId('lab-phone-define')).toBeTruthy()
   expect(screen.queryByTestId('lab-phone-bar')).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
-  expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
-  fireEvent.click(screen.getByTestId('lab-pbar-more'))
-  fireEvent.click(screen.getByTestId('lab-pmore-define'))
-  expect(screen.getByTestId('lab-phone-define')).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'More actions' })).toBeNull()
 })
 
 it('keeps Dictionary visible when a desktop character popup becomes a phone card', async () => {

@@ -2,7 +2,7 @@
 // All AI/API traffic is mocked; an isolated muted browser reads the exact local build.
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
-import { chromium, webkit } from '@playwright/test'
+import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5175'
@@ -15,11 +15,12 @@ let activePage
 try {
   for (const layout of (process.env.TINCT_PARITY_LAYOUTS || 'margin,two-page,compare,phone').split(',')) {
     const phone = layout === 'phone'
-    const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
+    const context = await browser.newContext({ ...(phone ? devices['iPhone 13'] : {}), viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, reducedMotion: 'reduce', serviceWorkers: 'block' })
     const page = await context.newPage(), errors = [], requests = []
     activePage = page
     let longAnswer = false, delayedRoute = null, failPhoneFollow = false
     page.on('pageerror', error => errors.push(error.message))
+    page.on('console', message => { if (message.text().startsWith('PAINT_SHRINK')) console.log(message.text()) })
     await page.route('**/*', async route => {
       const url = new URL(route.request().url())
       if (url.origin !== origin) return route.abort()
@@ -32,11 +33,21 @@ try {
         const intent = request?.companion?.intent
         const text = intent === 'quiz' ? JSON.stringify({ questions: [1, 2, 3].map(n => ({ q: `Local source question ${n}?`, answer: 'The selected source.', why: 'The source wording supports it.' })) })
           : intent === 'quiz_check' ? JSON.stringify({ verdict: 'nearly', feedback: 'Reconsider the source wording before moving on.' })
+          : intent === 'define' ? JSON.stringify({kind:'definition', definition:'A short local definition of this word in its passage.'})
           : longAnswer ? Array.from({ length: 20 }, (_, index) => `Source point ${index + 1}: this is a complete local answer attached to the selected source. The narrator’s words remain available in the reading column while the discussion grows beside them.`).join('\n\n') : 'A complete local answer remains attached to this source passage.'
         return route.fulfill({ contentType: 'text/event-stream', body: `data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text } })}\n\ndata: {"type":"message_stop"}\n\n` })
       }
       if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
       return route.continue()
+    })
+    if (phone) await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'standalone', { configurable: true, value: true })
+      const originalMatchMedia = window.matchMedia.bind(window)
+      window.matchMedia = query => {
+        const result = originalMatchMedia(query)
+        if (query === '(display-mode: standalone)') Object.defineProperty(result, 'matches', { value: true })
+        return result
+      }
     })
     await page.addInitScript(phone => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ ...(phone ? {fontSize:1.3,fontSizeExplicit:true} : {}), theme: 'book', primaryEdition: 'original-en', audioEdition: 'original-en', compareEdition: 'modern-en', compareOpen: true, compareChosen: true })), phone)
     const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
@@ -174,6 +185,9 @@ try {
       assert.equal(await root.getAttribute('data-place'),`${anchor.paragraphIndex}:${anchor.fromWord}`,'explicit Show passage lands at its exact source')
       await page.screenshot({path:`${output}/notebook-source-flash.png`})
       await page.locator('.is-notebook-passage').first().waitFor({state:'detached'})
+      await page.getByTestId('lab-notebook-return').click()
+      await page.waitForFunction(place => document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-place') === place, beforeNotebookCard)
+      assert.equal(await page.getByTestId('lab-notebook-return').count(), 0, 'return pill consumes the saved pre-notebook position')
       const activeAfterReload = host.locator('[data-testid="source-margin-item"][data-open="true"]')
       if (await activeAfterReload.count()) await activeAfterReload.getByTestId('source-margin-minimise').click()
       const room = await host.locator('.source-margin-room').boundingBox()
@@ -390,6 +404,45 @@ try {
       await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1047&paragraph=0&word=0&layout=phone&sharedReader=1&qaLayoutTrace=1`, {waitUntil:'domcontentloaded'})
       await ready(); await settlePaint(page)
       await page.screenshot({path:`${output}/romans-before-chat.png`})
+      const visibleSourceInk = () => page.locator('.lab-page-wrap [data-testid="lab-word"]').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|'))
+      const openingInkBeforeCard = await visibleSourceInk()
+      await page.getByTestId('lab-page-next').evaluate(button => button.click())
+      await settlePaint(page)
+      const inkBeforePhoneCard = await visibleSourceInk()
+      // A directly closed Define has never entered Chat, so it does not have
+      // Chat's preserved page-prefix guard. Exercise that separate writer path.
+      const defineWords=page.locator('.lab-page-wrap [data-testid="lab-word"]')
+      const defineIndex=await defineWords.evaluateAll(nodes=>nodes.findIndex(node=>{
+        const r=node.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,hit=document.elementFromPoint(x,y)
+        return !node.closest('.lab-page-measure')&&/^[a-z]{4,}$/i.test(node.textContent?.trim()||'')&&r.top>140&&r.bottom<500&&r.left>=0&&r.right<=innerWidth&&hit&&(hit===node||node.contains(hit))
+      }))
+      assert(defineIndex>=0,'an unobscured ordinary source word is available for direct Define')
+      const defineWord=defineWords.nth(defineIndex),defineBox=await defineWord.boundingBox()
+      const definePointer={pointerId:71,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:defineBox.x+defineBox.width/2,clientY:defineBox.y+defineBox.height/2}
+      // A quick mouse click can turn the leaf in touch mode. Use the real
+      // long-press word selection, as in the mobile card acceptance suite.
+      await defineWord.dispatchEvent('pointerdown',definePointer)
+      await page.waitForTimeout(350)
+      await defineWord.dispatchEvent('pointerup',definePointer)
+      await page.getByTestId('lab-phone-card-dock').getByText('A short local definition of this word in its passage.', {exact:true}).waitFor()
+      assert.equal(await visibleSourceInk(),inkBeforePhoneCard,'opening Define does not turn the source page')
+      await page.getByTestId('lab-phone-card-input').focus()
+      await page.evaluate(() => {
+        const viewport = window.visualViewport, originalHeight = viewport.height
+        window.__restoreDefineViewport = () => { Object.defineProperty(viewport, 'height', {configurable:true, value:originalHeight}); viewport.dispatchEvent(new Event('resize')) }
+        Object.defineProperty(viewport, 'height', {configurable:true, value:Math.max(300, originalHeight - 330)})
+        viewport.dispatchEvent(new Event('resize'))
+      })
+      await settlePaint(page)
+      await page.getByTestId('lab-phone-card-delete').click()
+      await settlePaint(page)
+      assert.equal(await visibleSourceInk(), inkBeforePhoneCard, 'closing Define preserves the full page while the keyboard is departing')
+      await page.getByTestId('lab-page-prev').evaluate(button => button.click())
+      await settlePaint(page)
+      await page.screenshot({path:`${output}/romans-after-direct-define.png`})
+      assert.equal(await visibleSourceInk(), openingInkBeforeCard, 'previous page keeps all prose after Define closes before keyboard resize finishes')
+      await page.evaluate(() => window.__restoreDefineViewport())
+      await settlePaint(page)
       await page.getByTestId('lab-page-next').evaluate(button => button.click())
       await settlePaint(page)
       await select(page.locator('.lab'))
@@ -410,9 +463,14 @@ try {
       await page.getByTestId('lab-phone-card-input').fill('What does promised mean?')
       await page.getByTestId('lab-phone-card-send').click()
       await page.getByTestId('lab-ask-pane').getByText('What does promised mean?', {exact:true}).waitFor()
+      // A Home Screen keyboard can remain reduced for frames after closing
+      // the sheet. Closing must not repaginate against that temporary height.
+      await page.getByRole('button', {name:'Close chat', exact:true}).click()
+      await settlePaint(page)
       await page.evaluate(() => window.__restorePhoneViewport())
       await settlePaint(page)
-      await page.getByRole('button', {name:'Close chat', exact:true}).click()
+      await page.screenshot({path:`${output}/romans-page-after-close-keyboard.png`})
+      assert.equal(await visibleSourceInk(), inkBeforePhoneCard, 'closing the card with a departing keyboard preserves every source word on the current page')
       await page.getByTestId('lab-page-prev').evaluate(button => button.click())
       await settlePaint(page)
       await page.screenshot({path:`${output}/romans-back-after-chat.png`})

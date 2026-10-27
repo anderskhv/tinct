@@ -151,7 +151,7 @@ describe('Define in the PDF reader: no "supplied", and eponyms are terms (round 
   it('the PDF prompt reads "the passage", carries the eponym line after the line for words, and the book reader\'s prompt is unchanged', () => {
     expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).not.toMatch(/supplied/i)
     expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain('Identify what the selected word or phrase denotes in the passage before answering.')
-    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain(`concise contextual meaning, including an archaic form if relevant.\n${DEFINE_EPONYM_LINE}\nReturn only one JSON object`)
+    expect(PDF_CONTEXTUAL_LOOKUP_PROMPT).toContain(`concise contextual meaning, including an archaic form if relevant.\n${DEFINE_EPONYM_LINE}\nKeep this a quick lookup: at most 40 words`)
     expect(DEFINE_EPONYM_LINE).toContain('Parzen window')
     const define = parseCompanionRequest({ intent: 'define', context: longContext(5), selection: 'Parzen' })!
     expect(companionSelectionMessage(define)).toBe(`${PDF_CONTEXTUAL_LOOKUP_PROMPT}\n<word>Parzen</word>`)

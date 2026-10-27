@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource } from './labSource'
@@ -27,4 +27,25 @@ it.each([false, true])('opens an earlier-chapter Notebook entry without moving r
   fireEvent.click(screen.getByText('Open saved entry'))
   expect((screen.getByTestId(discussed ? 'lab-ask-input' : 'lab-phone-card-input') as HTMLTextAreaElement).value).toBe('')
   expect(root.getAttribute('data-place')).toBe(place)
+})
+
+
+it('highlights a mobile saved Define destination and returns to the pre-jump position', async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => new Response('{}', { status: 404 })))
+  const source = fallbackLabSource()
+  fixture.row = catalogueCardConversation({ source: { kind: 'catalogue', bookId: 'bible' }, id: 'saved-definition', kind: 'define', chapterNumber: source.chapterNumber,
+    anchor: { editionKey: 'web-en', chapterNumber: source.chapterNumber, paragraphIndex: 0, endParagraphIndex: 0, fromWord: 3, toWord: 4 },
+    text: 'saved word', turns: [{ role: 'assistant', content: '{"kind":"definition","definition":"A saved meaning."}' }], at: 1000, u: 1000 })!
+  writeLabBookChat('bible', [fixture.row])
+  window.history.replaceState(null, '', '/reader?sharedReader=1&layout=phone')
+  render(<LabApp pathname="/reader" source={source} authToken={null} sharedReader marginPhone />)
+  const root = screen.getByTestId('lab-root'), originalPlace = root.getAttribute('data-place')
+  fireEvent.click(screen.getByText('Open saved entry'))
+  expect(root.getAttribute('data-place')).toBe(originalPlace)
+  fireEvent.click(screen.getByText('Show passage'))
+  await waitFor(() => expect(root.getAttribute('data-place')).toBe('0:3'))
+  expect(document.querySelector('[data-word-index="3"].is-notebook-passage')).toBeTruthy()
+  fireEvent.click(screen.getByTestId('lab-notebook-return'))
+  await waitFor(() => expect(root.getAttribute('data-place')).toBe(originalPlace))
+  expect(screen.queryByTestId('lab-notebook-return')).toBeNull()
 })

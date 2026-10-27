@@ -73,8 +73,17 @@ try {
       const size=await thread.evaluate(node=>({scroll:node.scrollHeight,visible:node.clientHeight,top:node.scrollTop}))
       assert(size.scroll>size.visible,'long history scrolls inside the shared card')
       await page.waitForFunction(()=>{const thread=document.querySelector('.lab-pcard[data-kind="chat"] [data-testid="lab-ask-thread"]');return thread&&Math.abs(thread.scrollHeight-thread.clientHeight-thread.scrollTop)<=8})
-      await page.screenshot({path:`${output}/pwa-book-long-history-initial-latest.png`})
+      const cleanOpening=await thread.evaluate(node=>({
+        top:node.getBoundingClientRect().top,
+        historyBottom:Math.max(...[...node.querySelectorAll('[data-testid="lab-ask-turn-user"],[data-testid="lab-ask-turn-assistant"]')].map(row=>row.getBoundingClientRect().bottom)),
+        spacer:node.querySelector('.tc-spacer')?.getBoundingClientRect().height||0,
+        height:node.clientHeight,
+      }))
+      assert(cleanOpening.spacer>=cleanOpening.height-2,'general Chat leaves a blank writing area while retaining history')
+      assert(cleanOpening.historyBottom<=cleanOpening.top+2,'previous messages start above the visible writing area')
+      await page.screenshot({path:`${output}/pwa-book-long-history-clean-opening.png`})
       await thread.evaluate(node=>node.scrollTop=0)
+      await card.getByText('Old Sirach question 0?',{exact:true}).waitFor()
       const box=await card.boundingBox();assert(box&&box.y>=0&&box.y+box.height<=845,'long history stays inside phone viewport')
       await page.screenshot({path:`${output}/pwa-book-long-sirach-current-proverbs.png`})
       await card.locator('#lab-ask-input').click();await page.keyboard.type('A draft while reading older messages')
@@ -186,6 +195,44 @@ try {
     await chat.waitFor()
     assert.equal(await chat.locator('#lab-ask-input').inputValue(),'','closing and reopening phone Chat discards the unsent draft')
     await chat.getByRole('button',{name:'Close chat',exact:true}).click()
+    if(standalone&&theme==='book'){
+      const root=page.getByTestId('lab-root')
+      const lookupPoint=await page.locator('[data-testid="lab-word"]').evaluateAll(nodes=>nodes.flatMap(node=>{
+        const r=node.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2
+        return !node.closest('.lab-page-measure')&&r.width>3&&r.top>180&&r.bottom<500&&x>0&&x<innerWidth&&node.contains(document.elementFromPoint(x,y))?[{x,y,p:node.dataset.paragraphIndex,w:node.dataset.wordIndex}]:[]
+      })[3])
+      assert(lookupPoint,'a visible mobile source word is available for Define')
+      const priorDefineIds=await page.evaluate(()=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').filter(row=>row.card?.kind==='define').map(row=>row.id))
+      const beforeLookupPlace=await root.getAttribute('data-place')
+      const lookupWord=page.locator(`.lab-page-wrap .lab-passage [data-testid="lab-word"][data-paragraph-index="${lookupPoint.p}"][data-word-index="${lookupPoint.w}"]:visible`).first()
+      const lookupPointer={pointerId:73,pointerType:'touch',isPrimary:true,bubbles:true,button:0,clientX:lookupPoint.x,clientY:lookupPoint.y}
+      await lookupWord.dispatchEvent('pointerdown',lookupPointer);await page.waitForTimeout(350);await lookupWord.dispatchEvent('pointerup',lookupPointer)
+      const definition=page.locator('.lab-pcard[data-kind="define"]')
+      await definition.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+      assert.equal(await root.getAttribute('data-place'),beforeLookupPlace,'the direct Define gesture does not turn the reader page')
+      assert.equal(await definition.getByRole('button',{name:'More actions',exact:true}).count(),0,'Define has no extra More actions link')
+      await page.waitForFunction(previous=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').some(row=>row.card?.kind==='define'&&!previous.includes(row.id)),priorDefineIds)
+      const savedDefine=await page.evaluate(previous=>JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein')||'[]').find(row=>row.card?.kind==='define'&&!previous.includes(row.id)),priorDefineIds)
+      assert(savedDefine?.card?.anchor,'completed mobile Define is saved with an exact source anchor')
+      assert.equal(await definition.getByText(/could not be saved/).count(),0,'a newly persisted Define has no save failure warning')
+      await definition.getByTestId('lab-phone-card-delete').click()
+      const originPlace=await root.getAttribute('data-place')
+      await page.getByTestId('lab-super').click();await page.getByTestId('lab-super-row-notebook').click()
+      await page.getByTestId(`contents-chat-${savedDefine.id}`).click()
+      const savedCard=page.locator('.lab-pcard').filter({has:page.getByRole('button',{name:'Show passage',exact:true})})
+      await savedCard.getByText('A readable dictionary meaning.',{exact:true}).waitFor()
+      assert.equal(await root.getAttribute('data-place'),originPlace,'opening saved mobile Define does not navigate')
+      await savedCard.getByRole('button',{name:'Show passage',exact:true}).click()
+      await page.waitForFunction(()=>!!document.querySelector('.is-notebook-passage'))
+      const anchor=savedDefine.card.anchor
+      const flashed=await page.locator('.is-notebook-passage').evaluateAll(nodes=>nodes.map(node=>({p:Number(node.dataset.paragraphIndex),w:Number(node.dataset.wordIndex)})))
+      assert(flashed.length>0&&flashed.every(({p,w})=>p===anchor.paragraphIndex&&w>=anchor.fromWord&&w<anchor.toWord),'mobile Notebook highlights only the saved Define word')
+      assert.equal(await root.getAttribute('data-place'),`${anchor.paragraphIndex}:${anchor.fromWord}`,'mobile Show passage lands on the saved word')
+      await page.screenshot({path:`${output}/pwa-notebook-define-source-flash.png`})
+      await page.getByTestId('lab-notebook-return').click()
+      await page.waitForFunction(place=>document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-place')===place,originPlace)
+      assert.equal(await page.getByTestId('lab-notebook-return').count(),0,'Back to reading restores and consumes the original mobile position')
+    }
     assert.deepEqual(errors,[])
     results.push({standalone,theme,explanation,conversation,nativeNotchAndKeyboardVerified:false})
     await context.close()

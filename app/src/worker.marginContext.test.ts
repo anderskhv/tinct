@@ -630,7 +630,13 @@ describe('the book reader is unchanged', () => {
     const body = anthropic[0]
     const system = body.system as string | Array<{ text: string }>
     expect(JSON.stringify(system)).toContain('If the reader writes their question in Danish')
-    const unchanged = { ...body, system: typeof system === 'string' ? system.replace(languageRule, '') : system.map(block => ({ ...block, text: block.text.replace(languageRule, '') })) }
+    let unchanged: Record<string, unknown> = { ...body, system: typeof system === 'string' ? system.replace(languageRule, '') : system.map(block => ({ ...block, text: block.text.replace(languageRule, '') })) }
+    if (name === 'define') {
+      // Oct27: quick lookups are now at most40 words; all other request fields remain frozen.
+      expect(sha(unchanged)).toBe('32025d2cec69540ed2f2d52e0cee46c9a3f35b9bf8ded220215e100e91c85bd5')
+      const brevity = 'Keep this a quick lookup: at most 40 words of explanation in one or two short sentences. Give only the identity or meaning needed here; leave extended background for a follow-up question.\n'
+      unchanged = { ...unchanged, messages: (unchanged.messages as Array<{role: string; content: unknown}>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(brevity, '').replace('One or two short sentences, at most 40 words.', 'Two or three concise sentences.') } : message) }
+    }
     expect(sha(unchanged)).toBe(AFTER[name])
     expect(sha(withoutLookupGrounding(unchanged))).toBe(GROUNDED[name])
     expect(sha(withoutGrounding(withoutLookupGrounding(unchanged)))).toBe(BEFORE[name])

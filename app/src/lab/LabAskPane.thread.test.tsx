@@ -154,7 +154,7 @@ describe('at rest: one copy mark, on the newest answer (Anders, 9 Oct 2026)', ()
 })
 
 describe('opening with history: a clean window, the history above it', () => {
-  it('opens scrolled past one screen of writing space; scrolling up reaches the thread', () => {
+  it.each([false, true])('opens scrolled past writing space with embeddedPhoneCard=%s; scrolling up reaches history', (embeddedPhoneCard) => {
     const client = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
     const scroll = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
     const isThread = (node: HTMLElement) => node.getAttribute('data-testid') === 'lab-ask-thread'
@@ -165,7 +165,7 @@ describe('opening with history: a clean window, the history above it', () => {
       return 600 + (parseFloat((this.querySelector('[data-testid="lab-ask-thread-spacer"]') as HTMLElement | null)?.style.height || '0') || 0)
     } })
     try {
-      render(pane())
+      render(pane({ embeddedPhoneCard }))
       const thread = screen.getByTestId('lab-ask-thread')
       const spacer = screen.getByTestId('lab-ask-thread-spacer')
       expect(spacer.style.height).toBe('400px')

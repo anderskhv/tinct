@@ -12,6 +12,8 @@ export interface StorageProvider {
   getAll<T>(prefix: string): T[]
 }
 
+export type StorageWriteFailure = 'quota' | 'access' | 'write'
+
 class LocalStorageProvider implements StorageProvider {
   private prefix = 'tinct:'
 
@@ -24,11 +26,16 @@ class LocalStorageProvider implements StorageProvider {
     }
   }
 
-  set<T>(key: string, value: T): void {
+  set<T>(key: string, value: T): StorageWriteFailure | null {
     try {
       localStorage.setItem(this.prefix + key, JSON.stringify(value))
+      return null
     } catch (e) {
-      console.warn('Storage write failed:', e)
+      const name = e && typeof e === 'object' && 'name' in e ? e.name : ''
+      const failure = name === 'QuotaExceededError' ? 'quota' : name === 'SecurityError' ? 'access' : 'write'
+      // No key, value or browser exception text: those can contain reader data.
+      console.warn('Storage write failed:', failure)
+      return failure
     }
   }
 

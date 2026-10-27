@@ -1154,6 +1154,6 @@ describe('Chat embedded in the mobile reader card', () => {
     expect(screen.getByTestId('lab-ask-initial-location').textContent).toBe('Sirach 40')
     expect(screen.getByPlaceholderText('Ask about Proverbs 24…')).toBe(screen.getByTestId('lab-ask-input'))
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Ben Sira')
-    expect(document.querySelector<HTMLElement>('.tc-spacer')?.style.height).toBe('0px')
+    expect(parseFloat(document.querySelector<HTMLElement>('.tc-spacer')?.style.height || '0')).toBe(screen.getByTestId('lab-ask-thread').clientHeight)
   })
 })
