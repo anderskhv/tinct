@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { ContinuousReader, continuousReaderWindows, continuousRebaseStart, measureContinuousWords, continuousViewportWords } from './ContinuousReader'
+import { ContinuousReader, continuousReaderWindows, measureContinuousWords, continuousViewportWords } from './ContinuousReader'
 import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './continuousReaderEpoch'
 
 afterEach(cleanup)
@@ -23,25 +23,13 @@ describe('continuous location ownership', () => {
     expect(acceptContinuousReaderPlace(first, first, true, false, { paragraphIndex: 2, wordIndex: 30 }, paragraphs)).toBe(false)
   })
 
-  it('keeps a nonzero resume word inside a bounded source slice', () => {
+  it('keeps every source word mounted, including both sides of a resumed position', () => {
     const paragraphs = Array.from({ length: 600 }, (_, p) => Array.from({ length: 20 }, (_, w) => `p${p}w${w}`).join(' '))
-    const windows = continuousReaderWindows(paragraphs, { paragraphIndex: 297, wordIndex: 0 })
-    expect(windows).toHaveLength(3)
-    expect(windows.reduce((sum, current) => sum + current.wordCount, 0)).toBeLessThanOrEqual(1350)
-    expect(windows.some(window => window.page.segments?.some(segment => segment.paragraphIndex === 300 && segment.from <= 7 && segment.to > 7))).toBe(true)
-  })
-
-  it('rebases in either direction with valid source coordinates and retains the visible word', () => {
-    const paragraphs = [Array.from({ length: 1000 }, (_, i) => `long${i}`).join(' '), 'short line',
-      ...Array.from({ length: 35 }, (_, p) => `p${p} one two three`)]
-    const forward = continuousRebaseStart('next', { paragraphIndex: 5, wordIndex: 3 }, { paragraphIndex: 0, wordIndex: 0 }, paragraphs)!
-    expect(forward).toEqual({ paragraphIndex: 0, wordIndex: 450 })
-    const backward = continuousRebaseStart('previous', { paragraphIndex: 1, wordIndex: 0 }, { paragraphIndex: 1, wordIndex: 0 }, paragraphs)!
-    expect(backward).toEqual({ paragraphIndex: 0, wordIndex: 450 })
-    for (const [candidate, visible] of [[forward, { paragraphIndex: 5, wordIndex: 3 }], [backward, { paragraphIndex: 1, wordIndex: 0 }]] as const) {
-      expect(continuousReaderWindows(paragraphs, candidate).some(window => window.page.segments?.some(segment =>
-        segment.paragraphIndex === visible.paragraphIndex && segment.from <= visible.wordIndex && segment.to > visible.wordIndex))).toBe(true)
-    }
+    const windows = continuousReaderWindows(paragraphs)
+    expect(windows).toHaveLength(1)
+    expect(windows.reduce((sum, current) => sum + current.wordCount, 0)).toBe(12000)
+    const segments = windows.flatMap(window => window.page.segments!)
+    expect(segments).toEqual(paragraphs.map((_, paragraphIndex) => ({ paragraphIndex, from: 0, to: 20 })))
   })
 
   it('replaces a long chapter with a short chapter and lands its exact nonzero word', () => {
@@ -58,19 +46,18 @@ describe('continuous location ownership', () => {
     expect(screen.getByTestId('continuous-reader').querySelectorAll('[data-testid="lab-word"]').length).toBeLessThanOrEqual(10)
   })
 
-  it('advances an unscrollable viewport of short paragraphs by overlapping windows', () => {
+  it('mounts all short paragraphs without wheel-driven content replacement', () => {
     const paragraphs = Array.from({ length: 70 }, (_, i) => i % 11 === 10 ? '' : `word${i}`)
     const onVisible = vi.fn()
     render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
       passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
       onVisible={onVisible} onLanded={vi.fn()} />)
     const host = screen.getByTestId('continuous-reader')
-    expect(host.querySelector('[data-paragraph-index="40"]')).toBeNull()
-    fireEvent.wheel(host, { deltaY: 240 })
-    expect(host.querySelector('[data-paragraph-index="40"]')).toBeTruthy()
-    expect(onVisible).toHaveBeenCalledWith(first, { paragraphIndex: 12, wordIndex: 0 })
-    fireEvent.wheel(host, { deltaY: 240 })
-    expect(host.querySelector('[data-paragraph-index="52"]')).toBeTruthy()
+    const words = [...host.querySelectorAll('[data-testid="lab-word"]')]
+    expect(words).toHaveLength(64)
+    for (const deltaY of [240, 240, -240]) fireEvent.wheel(host, { deltaY })
+    expect([...host.querySelectorAll('[data-testid="lab-word"]')]).toEqual(words)
+    expect(onVisible).not.toHaveBeenCalled()
   })
 
   it('does not restore the navigation anchor when identical source is refreshed while reading', () => {
@@ -185,111 +172,11 @@ it('reuses scroll geometry and remeasures after the paper reflows', () => {
 })
 
 
-it('retains preceding context across short paragraphs on a forward rebase without backtracking', () => {
-  const paragraphs = Array.from({ length: 100 }, (_, p) => Array.from({ length: 40 }, (_, w) => `p${p}w${w}`).join(' '))
-  const visible = { paragraphIndex: 30, wordIndex: 3 }
-  const start = continuousRebaseStart('next', visible, { paragraphIndex: 0, wordIndex: 0 }, paragraphs)!
-  expect(start).toEqual({ paragraphIndex: 11, wordIndex: 0 })
-  const windows = continuousReaderWindows(paragraphs, start)
-  expect(windows.reduce((sum, window) => sum + window.wordCount, 0)).toBeLessThanOrEqual(1350)
-  expect(windows.some(window => window.page.segments?.some(segment => segment.paragraphIndex === 30 && segment.from <= 3 && segment.to > 3))).toBe(true)
-  expect(continuousRebaseStart('previous', visible, start, paragraphs)).not.toBeNull()
-  expect(continuousRebaseStart('next', { paragraphIndex: 12, wordIndex: 0 }, start, paragraphs)).toBeNull()
-})
-
-
-it.each([28, 52])('preserves the visible pixel on forward rebase and only backfills after upward movement (line height %s)', lineHeight => {
-  let followingTop = 40
-  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
-    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
-    if (this.classList.contains('continuous-reader-window')) return { top: followingTop } as DOMRect
-    if (this.classList.contains('source-margin-item')) return { top: 100, bottom: 700 } as DOMRect
-    if (this.dataset.testid === 'lab-word') {
-      const host = this.closest<HTMLElement>('.continuous-reader')!
-      const first = host.querySelector<HTMLElement>('[data-testid="lab-word"]')!
-      const absolute = Number(this.dataset.paragraphIndex) * 40 + Number(this.dataset.wordIndex)
-      const base = Number(first.dataset.paragraphIndex) * 40 + Number(first.dataset.wordIndex)
-      const top = Math.floor((absolute - base) / 10) * lineHeight - host.scrollTop
-      return { top, bottom: top + 20, height: 20 } as DOMRect
-    }
-    return { top: 0, bottom: 0, height: 0 } as DOMRect
-  })
-  try {
-    const onVisible = vi.fn()
-    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
-      passage={{ chapterTitle: 'Source', paragraphs: Array.from({ length: 100 }, (_, p) => Array.from({ length: 40 }, (_, w) => `p${p}w${w}`).join(' ')),
-        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
-      onVisible={onVisible} onLanded={vi.fn()} />)
-    const host = screen.getByTestId('continuous-reader')
-    let scrollTop = 0
-    Object.defineProperties(host, { clientHeight: { value: 600 },
-      scrollHeight: { get: () => Math.ceil(host.querySelectorAll('[data-testid="lab-word"]').length / 10) * lineHeight },
-      scrollTop: { get: () => scrollTop, set: value => { scrollTop = Math.max(0, value) } } })
-    fireEvent.pointerDown(host)
-    host.scrollTop = host.scrollHeight - 900
-    fireEvent.scroll(host)
-    expect(Number(host.querySelector('.continuous-reader-window')!.getAttribute('data-window-first'))).toBe(0)
-    // The next window is still below the viewport: removing it would clamp
-    // the held word's offset. Advance until it is safe to remove the prefix.
-    followingTop = -1
-    const card = document.createElement('section')
-    card.className = 'source-margin-item'; card.dataset.open = 'true'
-    host.append(card)
-    host.scrollTop += 24; fireEvent.scroll(host)
-    expect(Number(host.querySelector('.continuous-reader-window')!.getAttribute('data-window-first'))).toBe(0)
-    card.remove()
-    host.scrollTop += 24
-    const before = measureContinuousWords(host)
-    const chosen = continuousViewportWords(before, host.scrollTop, 600).first!
-    const pixel = chosen.node.getBoundingClientRect().top
-    fireEvent.scroll(host)
-    const after = host.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${chosen.anchor.paragraphIndex}"][data-word-index="${chosen.anchor.wordIndex}"]`)!
-    expect(after.getBoundingClientRect().top).toBe(pixel)
-    const windowStart = () => Number(host.querySelector('.continuous-reader-window')!.getAttribute('data-window-first'))
-    const advanced = windowStart()
-    expect(advanced).toBeGreaterThan(0)
-    // Consume the programmatic offset event; subsequent slow downward movement
-    // must not pull earlier windows back in.
-    fireEvent.scroll(host)
-    for (let i = 0; i < 3; i++) { host.scrollTop += 24; fireEvent.scroll(host); expect(windowStart()).toBe(advanced) }
-    host.scrollTop = 50; fireEvent.scroll(host)
-    expect(windowStart()).toBeLessThan(advanced)
-    host.append(card)
-    fireEvent.pointerDown(card)
-    onVisible.mockClear()
-    host.scrollTop += 112; fireEvent.scroll(host)
-    expect(onVisible).not.toHaveBeenCalled() // a companion action's height clamp
-    fireEvent.wheel(card, { deltaY: 112 })
-    host.scrollTop += 112; fireEvent.scroll(host)
-    expect(onVisible).toHaveBeenCalled() // physical reading resumes tracking
-    card.remove()
-  } finally { rect.mockRestore() }
-}, 15000)
-
-
-it('keeps retained paragraph and long-paragraph fragments identical across forward and reverse rebases', () => {
-  const paragraphs = Array.from({ length: 35 }, (_, p) => Array.from({ length: p === 15 ? 1800 : 80 }, (_, w) => `p${p}w${w}`).join(' '))
-  const before = continuousReaderWindows(paragraphs, { paragraphIndex: 10, wordIndex: 0 })
-  const visible = { paragraphIndex: 15, wordIndex: 100 }
-  const next = continuousRebaseStart('next', visible, { paragraphIndex: 10, wordIndex: 0 }, paragraphs)!
-  const after = continuousReaderWindows(paragraphs, next)
-  expect(after[0]).toBe(before[1])
-  expect(after[1]).toBe(before[2])
-  const previous = continuousRebaseStart('previous', visible, next, paragraphs)!
-  expect(continuousReaderWindows(paragraphs, previous)).toEqual(before)
-  for (const window of before.concat(after)) {
-    expect(window.wordCount).toBeLessThanOrEqual(450)
-    for (const segment of window.page.segments!) {
-      if (segment.paragraphIndex !== 15) { expect(segment.from).toBe(0); expect(segment.to).toBe(80) }
-    }
-  }
-})
-
-it('keeps a verse marker with its first word at a canonical long-paragraph boundary', () => {
+it('keeps a long paragraph and its verse marker together without artificial chunk boundaries', () => {
   const paragraph = [...Array.from({ length: 449 }, (_, i) => `word${i}`), '¹', 'Paul', 'continues'].join(' ')
-  const windows = continuousReaderWindows([paragraph], { paragraphIndex: 0, wordIndex: 0 })
-  expect(windows[0].page.segments![0]).toMatchObject({ from: 0, to: 449 })
-  expect(windows[1].page.segments![0]).toMatchObject({ from: 449, to: 452 })
+  const windows = continuousReaderWindows([paragraph])
+  expect(windows).toHaveLength(1)
+  expect(windows[0].page.segments![0]).toMatchObject({ from: 0, to: 452 })
   expect(windows.reduce((sum, window) => sum + window.wordCount, 0)).toBe(452)
 })
 
@@ -320,7 +207,7 @@ it('physically applies repeated minimap jumps within the same canonical window',
   } finally { rect.mockRestore() }
 })
 
-it.each([180, -180])('preserves %spx of native movement after a rebase event', movement => {
+it.each([180, -180])('preserves all mounted nodes and %spx native momentum without offset correction', movement => {
   const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
     if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
     if (this.classList.contains('continuous-reader-window')) return { top: -1 } as DOMRect
@@ -344,24 +231,39 @@ it.each([180, -180])('preserves %spx of native movement after a rebase event', m
     Object.defineProperties(host, { clientHeight: { value: 600 },
       scrollHeight: { get: () => Math.ceil(host.querySelectorAll('[data-testid="lab-word"]').length / 10) * 28 },
       scrollTop: { get: () => top, set: value => { top = Math.max(0, value) } } })
+    const mounted = [...host.querySelectorAll('[data-testid="lab-word"]')]
+    expect(mounted).toHaveLength(4000)
     fireEvent.pointerDown(host)
     host.scrollTop = host.scrollHeight - 900
     const held = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!
     const capturedPixel = held.node.getBoundingClientRect().top
     act(() => {
-      // Continuous events queue React's update; native scrolling can advance
-      // again before that commit without another scroll notification yet.
+      // Native momentum can advance again before React commits the position UI.
       host.dispatchEvent(new Event('scroll', { bubbles: true }))
       host.scrollTop += movement
     })
-    expect(Number(host.querySelector('.continuous-reader-window')?.getAttribute('data-window-first'))).toBeGreaterThan(0)
+    expect(Number(host.querySelector('.continuous-reader-window')?.getAttribute('data-window-first'))).toBe(0)
+    expect([...host.querySelectorAll('[data-testid="lab-word"]')]).toEqual(mounted)
     const retained = host.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${held.anchor.paragraphIndex}"][data-word-index="${held.anchor.wordIndex}"]`)!
     expect(retained.getBoundingClientRect().top).toBe(capturedPixel - movement)
     const current = continuousViewportWords(measureContinuousWords(host), host.scrollTop, 600).first!.anchor
     onVisible.mockClear()
-    // The compositor can coalesce correction and later native movement into
-    // one notification, without another wheel event to clear suppression.
+    // A coalesced notification still saves the final native position.
     fireEvent.scroll(host)
     expect(onVisible).toHaveBeenLastCalledWith(first, current)
+    // A card action must not save a layout clamp as a new reading position;
+    // physical wheel movement in the same portal resumes position tracking.
+    const card = document.createElement('section')
+    card.className = 'source-margin-item'; card.dataset.open = 'true'
+    host.append(card)
+    fireEvent.pointerDown(card)
+    onVisible.mockClear()
+    host.scrollTop -= 112; fireEvent.scroll(host)
+    expect(onVisible).not.toHaveBeenCalled()
+    fireEvent.wheel(card, { deltaY: -112 })
+    host.scrollTop -= 112; fireEvent.scroll(host)
+    expect(onVisible).toHaveBeenCalled()
+    card.remove()
+
   } finally { rect.mockRestore() }
 })

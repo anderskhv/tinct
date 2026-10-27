@@ -14,3 +14,10 @@ it('never reattaches an absent chapter boundary to the first or last rebased wor
   expect(marginSourceWord(host,marginChapterBoundary(paragraphs,true)!)).toBeNull()
   expect(marginSourceWord(host,{paragraphIndex:10,fromWord:20})?.textContent).toBe('middle')
 })
+it('keeps exact card coordinates scoped to their source and rejects invalid anchors',()=>{
+  const host=document.createElement('div')
+  host.innerHTML='<span data-testid="lab-word" data-paragraph-index="2" data-word-index="3">source</span><span data-testid="lab-word" data-paragraph-index="2" data-word-index="30">other</span>'
+  expect(marginSourceWord(host,{paragraphIndex:2,fromWord:3})?.textContent).toBe('source')
+  expect(marginSourceWord(document.createElement('div'),{paragraphIndex:2,fromWord:3})).toBeNull()
+  for (const fromWord of [NaN,Infinity,-1,3.5]) expect(marginSourceWord(host,{paragraphIndex:2,fromWord})).toBeNull()
+})
