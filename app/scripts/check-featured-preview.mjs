@@ -79,11 +79,13 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  }
  // Target the iframe's scroller for keyboard actions. A page-level keyboard
  // action can reach the parent after WebKit changes iframe focus during scroll.
+ await frame.evaluate(()=>{window.homeKeyTrace=[];document.addEventListener('keydown',e=>window.homeKeyTrace.push({key:e.key,target:e.target.className,at:performance.now()}),true)})
  await frame.locator('.reel').press('Home')
  try{await frame.waitForFunction(()=>document.querySelector('.book[aria-current=true]')?.dataset.index==='0',{},{timeout:5000})}catch(error){
-  console.log('HOME_DIAGNOSTIC '+name+' '+label+' '+JSON.stringify(await frame.evaluate(()=>({active:document.activeElement?.outerHTML.slice(0,300),scroll:document.querySelector('.reel').scrollLeft,selected:document.querySelector('.book[aria-current=true]')?.dataset.index,moving:document.querySelector('.reel').classList.contains('is-moving')}))))
+  console.log('HOME_DIAGNOSTIC '+name+' '+label+' '+JSON.stringify(await frame.evaluate(()=>({keys:window.homeKeyTrace,resize:window.__resizeTrace?.slice(-5),active:document.activeElement?.outerHTML.slice(0,300),scroll:document.querySelector('.reel').scrollLeft,selected:document.querySelector('.book[aria-current=true]')?.dataset.index,moving:document.querySelector('.reel').classList.contains('is-moving')}))))
   throw error
  }
+ console.log('HOME_KEY_TRACE '+name+' '+label+' '+JSON.stringify(await frame.evaluate(()=>window.homeKeyTrace)))
  await page.waitForTimeout(400)
  assert.equal(await frame.locator('.book[aria-current=true]').getAttribute('data-index'),'0')
  await frame.evaluate(()=>{window.keyTrace=[];document.addEventListener('keydown',e=>window.keyTrace.push({key:e.key,target:e.target.className}),true)})
