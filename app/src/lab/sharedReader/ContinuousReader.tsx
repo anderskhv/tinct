@@ -69,19 +69,38 @@ export function continuousRebaseStart(
     && segment.from <= visible.wordIndex && segment.to > visible.wordIndex)) ? candidate : null
 }
 
-function firstVisibleWord(host: HTMLElement): ContinuousReaderAnchor | null {
-  const limit = host.getBoundingClientRect().top + Math.min(host.clientHeight * .24, 140)
-  const words = host.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-paragraph-index][data-word-index]')
-  let previous: HTMLElement | null = null
+type WordGeometry = { node: HTMLElement; top: number; bottom: number; height: number; anchor: ContinuousReaderAnchor }
+
+/** Content coordinates remain stable while only the scroll offset changes. */
+export function measureContinuousWords(host: HTMLElement): WordGeometry[] {
+  const offset = host.scrollTop - host.getBoundingClientRect().top
+  return Array.from(host.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-paragraph-index][data-word-index]'), node => {
+    const rect = node.getBoundingClientRect()
+    return { node, top: rect.top + offset, bottom: rect.bottom + offset, height: rect.height,
+      anchor: { paragraphIndex: Number(node.dataset.paragraphIndex), wordIndex: Number(node.dataset.wordIndex) } }
+  })
+}
+
+export function continuousViewportWords(words: readonly WordGeometry[], scrollTop: number, height: number) {
+  const bottom = scrollTop + height
+  const limit = scrollTop + Math.min(height * .24, 140)
+  let previous: WordGeometry | undefined
+  let first: WordGeometry | undefined
+  let last: WordGeometry | undefined
+  let hasInk = false
   for (const word of words) {
-    if (word.getBoundingClientRect().top >= limit) {
-      const chosen = previous && previous.getBoundingClientRect().bottom > host.getBoundingClientRect().top ? previous : word
-      return { paragraphIndex: Number(chosen.dataset.paragraphIndex), wordIndex: Number(chosen.dataset.wordIndex) }
+    if (word.bottom > scrollTop && word.top < bottom) {
+      hasInk = true
+      if (word.height > 0) last = word
     }
+    if (!first && word.top >= limit) first = previous && previous.bottom > scrollTop ? previous : word
     previous = word
   }
-  return previous ? { paragraphIndex: Number(previous.dataset.paragraphIndex), wordIndex: Number(previous.dataset.wordIndex) } : null
+  return { first: first ?? previous, last, hasInk }
 }
+
+const sameAnchor = (a: ContinuousReaderAnchor | undefined, b: ContinuousReaderAnchor) =>
+  a?.paragraphIndex === b.paragraphIndex && a.wordIndex === b.wordIndex
 
 /** A bounded, scrollable source window. No position storage lives in this component. */
 export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap, cards }: Props) {
@@ -102,14 +121,21 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const restoring = useRef(true)
   const pendingRebase = useRef<{ anchor: ContinuousReaderAnchor; offset: number } | null>(null)
 
+  const geometryRef = useRef<WordGeometry[] | null>(null)
+  const sourceWords = () => {
+    const host = hostRef.current
+    if (!host) return []
+    return geometryRef.current ?? (geometryRef.current = measureContinuousWords(host))
+  }
+
   const wordNode = useCallback((place: ContinuousReaderAnchor) => {
-    const words = hostRef.current?.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-paragraph-index][data-word-index]')
-    return [...(words ?? [])].find(word => Number(word.dataset.paragraphIndex) === place.paragraphIndex && Number(word.dataset.wordIndex) === place.wordIndex)
+    return hostRef.current?.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${place.paragraphIndex}"][data-word-index="${place.wordIndex}"]`) ?? undefined
   }, [])
 
   useLayoutEffect(() => {
     const host = hostRef.current
     if (!host) return
+    geometryRef.current = null
     if (windowState.key !== destinationKey) {
       pendingRebase.current = null
       lastReported.current = ''
@@ -159,6 +185,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const host = hostRef.current
     if (!host) return
     const keepVisible = () => {
+      geometryRef.current = null
       const word = wordNode(visibleRef.current)
       if (!word) return
       suppressScrollRef.current = true
@@ -166,8 +193,13 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     }
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(keepVisible)
     observer?.observe(host)
+    // Font/image/paragraph reflow can change word coordinates without changing
+    // the scroll viewport. Observe the paper separately; do not move the place.
+    const paperObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => { geometryRef.current = null })
+    const paper = host.querySelector('.continuous-reader-paper')
+    if (paper) paperObserver?.observe(paper)
     window.addEventListener('resize', keepVisible)
-    return () => { observer?.disconnect(); window.removeEventListener('resize', keepVisible) }
+    return () => { observer?.disconnect(); paperObserver?.disconnect(); window.removeEventListener('resize', keepVisible) }
   }, [wordNode])
 
   useLayoutEffect(() => {
@@ -198,12 +230,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const measureMapEnd = () => {
     const host = hostRef.current
     if (!host) return
-    const bounds = host.getBoundingClientRect()
-    const last = [...host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')].reverse().find(word => {
-      const rect = word.getBoundingClientRect()
-      return rect.height > 0 && rect.top < bounds.bottom && rect.bottom > bounds.top
-    })
-    if (last) setMapEnd({ paragraphIndex: Number(last.dataset.paragraphIndex), wordIndex: Number(last.dataset.wordIndex) })
+    const { last } = continuousViewportWords(sourceWords(), host.scrollTop, host.clientHeight)
+    if (last) setMapEnd(previous => sameAnchor(previous, last.anchor) ? previous : last.anchor)
   }
   useLayoutEffect(() => {
     const frame = requestAnimationFrame(measureMapEnd)
@@ -213,22 +241,20 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   }, [windows, passage.layoutKey])
 
   const onScroll = () => {
-    measureMapEnd()
     const host = hostRef.current
     if (!host || restoring.current || !windows.length) return
+    const words = sourceWords()
+    const viewport = continuousViewportWords(words, host.scrollTop, host.clientHeight)
+    if (viewport.last) setMapEnd(previous => sameAnchor(previous, viewport.last!.anchor) ? previous : viewport.last!.anchor)
     if (suppressScrollRef.current) { suppressScrollRef.current = false; return }
-    if (!userBrowseRef.current) return
-    const bounds = host.getBoundingClientRect()
-    if (![...host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')].some(word => { const rect=word.getBoundingClientRect(); return rect.bottom > bounds.top && rect.top < bounds.bottom })) return
-    let visible = firstVisibleWord(host)
-    if (!visible) return
-    // The first word of the restored line may precede its semantic saved word.
-    // Retain the saved coordinate while that word is still on the top line.
-    const held = wordNode(visibleRef.current)
-    if (held && held.getBoundingClientRect().bottom > host.getBoundingClientRect().top
-      && held.getBoundingClientRect().top <= host.getBoundingClientRect().top + Math.min(host.clientHeight * .24, 140)) visible = visibleRef.current
+    if (!userBrowseRef.current || !viewport.hasInk || !viewport.first) return
+    let visible = viewport.first.anchor
+    // Retain the semantic saved word while it is still on the top line.
+    const held = words.find(word => sameAnchor(word.anchor, visibleRef.current))
+    if (held && held.bottom > host.scrollTop
+      && held.top <= host.scrollTop + Math.min(host.clientHeight * .24, 140)) visible = visibleRef.current
     visibleRef.current = visible
-    setMapVisible(visible)
+    setMapVisible(previous => sameAnchor(previous, visible) ? previous : visible)
     const signature = `${visible.paragraphIndex}:${visible.wordIndex}`
     if (lastReported.current !== signature) {
       lastReported.current = signature

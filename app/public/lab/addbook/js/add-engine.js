@@ -461,9 +461,15 @@
   }
   /** Keep the file in this browser, opened now. Resolves true when it is kept. */
   async function keepFile(file, { kind, bytes, key }, title = nameTitle(file.name)) {
-    const now = Date.now();
-    const existing = await library.get(key);
-    return library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || title, author: existing?.author || '', owner: owner(), addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer });
+    const now = Date.now(), startingOwner = owner();
+    const existing = await library.get(key, startingOwner);
+    if (owner() !== startingOwner) return false;
+    // Reimporting the same bytes must not erase proof that this copy was
+    // already in the account. Offline reimports otherwise survive a later
+    // account deletion as if they were never-synced local files.
+    const saved = existing?.owner === startingOwner && existing?.key === key && existing?.kind === kind
+      && typeof existing.cloudId === 'string' && existing.cloudId ? { cloudId: existing.cloudId } : {};
+    return library.put({ key, kind, name: file.name, size: file.size, title: existing?.title || title, author: existing?.author || '', owner: startingOwner, addedAt: existing?.addedAt || now, openedAt: now, bytes: bytes.slice().buffer, ...saved });
   }
   // Waiting for the account copy before leaving the page is bounded: a slow upload finishes on the next open.
   const ACCOUNT_COPY_WAIT_MS = 10000;

@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { ContinuousReader, continuousReaderWindows, continuousRebaseStart } from './ContinuousReader'
+import { ContinuousReader, continuousReaderWindows, continuousRebaseStart, measureContinuousWords, continuousViewportWords } from './ContinuousReader'
 import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './continuousReaderEpoch'
 
 afterEach(cleanup)
@@ -106,4 +106,73 @@ describe('continuous location ownership', () => {
     expect(onSelectRange).toHaveBeenCalledTimes(1)
     expect(onSelectRange.mock.calls[0][0].text).toBe('The beginning of this')
   })
+})
+
+
+describe('continuous scroll geometry', () => {
+  it('matches the source anchor and bottom ink without repeated layout reads while scrolling', () => {
+    const host = document.createElement('div')
+    Object.defineProperty(host, 'clientHeight', { value: 600 })
+    const hostRect = vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ top: 80 } as DOMRect)
+    const reads = vi.fn()
+    const tops: number[] = []
+    for (let i = 0; i < 1350; i++) {
+      const node = document.createElement('span')
+      node.dataset.testid = 'lab-word'; node.dataset.paragraphIndex = '0'; node.dataset.wordIndex = String(i)
+      // Superscripts have a different top within the same line: preserve DOM
+      // order semantics instead of assuming monotonically increasing tops.
+      const top = Math.floor(i / 12) * 28 + (i % 17 === 0 ? -5 : 0)
+      tops.push(top)
+      node.getBoundingClientRect = () => { reads(); return { top: 80 + top - host.scrollTop, bottom: 100 + top - host.scrollTop, height: 20 } as DOMRect }
+      host.append(node)
+    }
+    const geometry = measureContinuousWords(host)
+    expect(reads).toHaveBeenCalledTimes(1350)
+    reads.mockClear(); hostRect.mockClear()
+    for (let scroll = 0; scroll < 2400; scroll += 13) {
+      host.scrollTop = scroll
+      const result = continuousViewportWords(geometry, scroll, 600)
+      const crossing = tops.findIndex(top => top >= scroll + 140)
+      const expected = crossing < 0 ? 1349 : crossing > 0 && tops[crossing - 1] + 20 > scroll ? crossing - 1 : crossing
+      const last = tops.findLastIndex(top => top < scroll + 600 && top + 20 > scroll)
+      expect(result.first?.anchor.wordIndex).toBe(expected)
+      expect(result.last?.anchor.wordIndex).toBe(last)
+    }
+    expect(reads).not.toHaveBeenCalled()
+    expect(hostRect).not.toHaveBeenCalled()
+  })
+})
+
+
+it('reuses scroll geometry and remeasures after the paper reflows', () => {
+  const observers: { callback: () => void; targets: Element[] }[] = []
+  vi.stubGlobal('ResizeObserver', class {
+    record: { callback: () => void; targets: Element[] }
+    constructor(callback: () => void) { this.record = { callback, targets: [] }; observers.push(this.record) }
+    observe(target: Element) { this.record.targets.push(target) }
+    disconnect() {}
+  })
+  try {
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Source', paragraphs: [Array.from({ length: 100 }, (_, i) => `word${i}`).join(' ')],
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    Object.defineProperties(host, { clientHeight: { value: 600 }, scrollHeight: { value: 5000 } })
+    vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ top: 0, bottom: 600 } as DOMRect)
+    const reads = vi.fn()
+    host.querySelectorAll<HTMLElement>('[data-testid="lab-word"]').forEach((word, i) => {
+      word.getBoundingClientRect = () => { reads(); return { top: i * 20 - host.scrollTop, bottom: i * 20 + 20 - host.scrollTop, height: 20 } as DOMRect }
+    })
+    fireEvent.pointerDown(host)
+    host.scrollTop = 500; fireEvent.scroll(host)
+    expect(reads).toHaveBeenCalledTimes(100)
+    reads.mockClear()
+    host.scrollTop = 510; fireEvent.scroll(host)
+    expect(reads).not.toHaveBeenCalled()
+    const paperObserver = observers.find(observer => observer.targets.some(target => target.classList.contains('continuous-reader-paper')))!
+    act(() => paperObserver.callback())
+    host.scrollTop = 520; fireEvent.scroll(host)
+    expect(reads).toHaveBeenCalledTimes(100)
+  } finally { vi.unstubAllGlobals() }
 })

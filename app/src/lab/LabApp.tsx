@@ -239,7 +239,7 @@ import { continueHandoff } from '../preReader/continueHandoff'
 import { ownQuickBookRows, quickBookCompletedIds, quickBookPositions, quickBookRows, withOwnBookRows, type QuickAddedBooks, type QuickBookCatalogueEntry, type QuickBookRow } from '../preReader/quickBookSwitcher'
 import { ownReadingNow, readOwnShelf } from './userBook/ownShelf'
 import { ownReadingNowWithAccount } from './userBook/ownSync'
-import { readShelfMembership } from '../libraryTwoSaved'
+import { loadShelfMembership, readShelfMembership } from '../libraryTwoSaved'
 import { resolveBookCover } from '../../public/lab/book-cover.js'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
 import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
@@ -472,6 +472,7 @@ export interface LabAppProps {
   sharedReader?: boolean
   /** Owner-gated, unresolved original EPUB page marks, read-only in Notebook. */
   legacyOwnEpubItems?: LegacyOwnEpubNotebookItem[]
+  ownNotebookRecovery?: ReactNode
   /** Preopened, owner-gated private text cards and Talk history. */
   ownCardController?: OwnTextCardsSync | null
 }
@@ -534,7 +535,7 @@ function privateLibraryDestination(destination: string, enabled: boolean): strin
   return `${url.pathname}${url.search}${url.hash}`
 }
 
-export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownCardController }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const voiceVersion = 'v2'
@@ -1902,6 +1903,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     let ownSettled = false
     void readOwnShelf(owner)
       .then(books => { if (!ownSettled) { ownRows = ownQuickBookRows(ownReadingNow(books)); paint() } }, () => {})
+    // Refresh removals even when this browser enters the reader directly,
+    // without first visiting the Library that normally syncs membership.
+    const membershipReady = loadShelfMembership().catch(() => null)
     const ownReady = ownReadingNowWithAccount(owner, { token: authToken ?? undefined })
       .then(books => { ownSettled = true; ownRows = ownQuickBookRows(books); paint() }, () => {})
     void fetch('/lab/catalogue.json')
@@ -1909,7 +1913,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         if (!response.ok) throw new Error(String(response.status))
         const payload = await response.json() as { books?: QuickBookCatalogueEntry[] }
         if (!Array.isArray(payload.books)) throw new Error('Invalid catalogue')
-        tinctRows = rowsForQuickCatalogue(payload.books, await addedReady)
+        const [added] = await Promise.all([addedReady, membershipReady])
+        tinctRows = rowsForQuickCatalogue(payload.books, added)
         paint()
       })
       .catch(() => setBookSwitcherError('Showing books saved on this device.'))
@@ -7270,6 +7275,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
+        notebookRecovery={ownNotebookRecovery}
         sharedNotebook={sharedReader}
         legacyOwnEpubItems={sharedReader && userBook && userBook.kind !== 'pdf' ? legacyOwnEpubItems : undefined}
         onDeleteNotebookItem={sharedReader ? item => {

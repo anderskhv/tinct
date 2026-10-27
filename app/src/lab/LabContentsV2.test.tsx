@@ -201,3 +201,17 @@ it('puts one Introduction destination above the chapter tree without choosing a 
   expect(openIntroduction).toHaveBeenCalledTimes(1)
   expect(p.onSelectChapter).not.toHaveBeenCalled()
 })
+
+ it('keeps older-data recovery inside Notebook rather than over reading or Contents', () => {
+  const p = props()
+  const recover = vi.fn()
+  const recovery = <button onClick={recover}>Review older saved entries</button>
+  const { rerender } = render(<LabContentsV2 {...p} open={false} notebookRecovery={recovery} />)
+  expect(screen.queryByText('Review older saved entries')).toBeNull()
+  rerender(<LabContentsV2 {...p} notebookRecovery={recovery} />)
+  expect(screen.queryByText('Review older saved entries')).toBeNull()
+  rerender(<LabContentsV2 {...p} open={false} notebook notebookRecovery={recovery} />)
+  rerender(<LabContentsV2 {...p} notebook notebookRecovery={recovery} />)
+  fireEvent.click(screen.getByText('Review older saved entries'))
+  expect(recover).toHaveBeenCalledTimes(1)
+ })

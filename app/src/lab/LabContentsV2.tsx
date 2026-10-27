@@ -59,6 +59,7 @@ interface Props {
   notebook?: boolean
   /** Owner-gated legacy records, shown only in this book's Notebook without inventing a converted-text anchor. */
   legacyOwnEpubItems?: LegacyOwnEpubNotebookItem[]
+  notebookRecovery?: ReactNode
   /** The private shared reader's Notebook tools; omitted in the public reader. */
   sharedNotebook?: boolean
   /** Delete using the existing highlight/card store and return an undo operation using its revision rules. */
@@ -410,7 +411,7 @@ export function LabContentsV2(props: Props) {
             {scope !== 'book' && <>{results.chats.slice(0,limit).map(chatRow)}{more(results.chats.length)}</>}
             {(scope === 'chats' || data) && (scope === 'book' || props.historyStatus === 'ready') && !shownResults && <p className="status">No matches.</p>}
           </>)}
-          {view === 'notebook' && <>{props.sharedNotebook && notebookFeedback && <p className="status" role="status">{notebookFeedback} {undoNotebook && <button onClick={undoNotebookDelete}>Undo</button>}</p>}{notebookRows.slice(0, limit).map(item => props.sharedNotebook && item.deleteItem && props.onDeleteNotebookItem
+          {view === 'notebook' && <>{props.notebookRecovery}{props.sharedNotebook && notebookFeedback && <p className="status" role="status">{notebookFeedback} {undoNotebook && <button onClick={undoNotebookDelete}>Undo</button>}</p>}{notebookRows.slice(0, limit).map(item => props.sharedNotebook && item.deleteItem && props.onDeleteNotebookItem
             ? <div className="notebook-entry" key={item.id}>{item.row()}<button className="notebook-delete" aria-label={'Delete Notebook entry ' + item.deleteItem.id} onClick={() => deleteNotebook(item.deleteItem!)}><PhoneIcon name="trash" /></button></div>
             : item.row())}{more(notebookRows.length)}{!notebookRows.length && props.historyStatus !== 'loading' && <p className="status">{notebookFilter === 'ai' ? 'No saved conversations.' : notebookFilter === 'mine' ? 'No highlights or notes saved for this edition.' : 'Nothing saved in this book yet.'}</p>}</>}
           {view === 'chats' && <>{relevantChats.slice(0,limit).map(chatRow)}{more(relevantChats.length)}{!relevantChats.length && props.historyStatus === 'ready' && <p className="status">No saved conversations.</p>}</>}
