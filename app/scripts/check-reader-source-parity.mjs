@@ -421,6 +421,15 @@ try {
       const visibleSourceInk = () => page.locator('.lab-page-wrap [data-testid="lab-word"]').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|'))
       const openingInkBeforeCard = await visibleSourceInk()
       await page.getByTestId('lab-page-next').evaluate(button => button.click())
+      // Pagination may yield beyond two animation frames. Establish that the
+      // requested next leaf has rendered before recording Define's reference
+      // page; otherwise its delayed turn is attributed to opening the card.
+      await page.waitForFunction(opening => {
+        const ink = [...document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]')]
+          .filter(node => !node.closest('.lab-page-measure'))
+          .map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|')
+        return ink.length > 0 && ink !== opening
+      }, openingInkBeforeCard)
       await settlePaint(page)
       const inkBeforePhoneCard = await visibleSourceInk()
       // A directly closed Define has never entered Chat, so it does not have
