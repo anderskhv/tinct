@@ -1116,8 +1116,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // the full map, never for long (LAB_HEAD_FIRST_HOLD_MS).
   const nativeHeadOnlyRef = useRef(0)
   // A forward turn asked for while that map was on screen, taken once the
-  // full map is in. (Back from its opening page never reads the rest.)
+  // full map arrives or the existing provisional-map deadline expires.
   const headFirstTurnRef = useRef(false)
+  const headFirstTurnTimerRef = useRef<number | null>(null)
+  const cancelHeadFirstTurn = useCallback(() => {
+    headFirstTurnRef.current = false
+    if (headFirstTurnTimerRef.current !== null) window.clearTimeout(headFirstTurnTimerRef.current)
+    headFirstTurnTimerRef.current = null
+  }, [])
+  useLayoutEffect(() => cancelHeadFirstTurn, [book.bookId, book.chapterNumber, readerEditionKey, desktopPaging, cancelHeadFirstTurn])
   useLayoutEffect(() => { setNativeMeasuredContent(null); setNativeHeadContent(null); nativeHeadOnlyRef.current = 0 }, [desktopPaging])
   const nativeContentRef = useRef(readerParagraphs)
   nativeContentRef.current = readerParagraphs
@@ -2484,8 +2491,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       setNativeMeasuredContent(measuredContent ?? nativeContentRef.current)
       setNativeHeadContent(null)
       if (headFirstTurnRef.current) {
-        headFirstTurnRef.current = false
-        window.setTimeout(() => goNextRef.current(), 0)
+        if (headFirstTurnTimerRef.current !== null) window.clearTimeout(headFirstTurnTimerRef.current)
+        headFirstTurnTimerRef.current = window.setTimeout(() => {
+          headFirstTurnTimerRef.current = null
+          if (!headFirstTurnRef.current) return
+          headFirstTurnRef.current = false
+          goNextRef.current()
+        }, 0)
       }
     }
     mapTransportOpenRef.current = transportOpenRef.current
@@ -4106,6 +4118,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [book.paragraphs, mobileCompareActive, readerParagraphs, showPhoneChrome])
 
   const goToPage = useCallback((index: number) => {
+    cancelHeadFirstTurn()
     setRecentChapterReturn(null)
     mobileCompareReturnPlaceRef.current = null
     chapterNavigationRef.current += 1
@@ -4143,7 +4156,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       placeRef.current = primaryAnchor
       notePlace('page-turn', primaryAnchor)
     }
-  }, [commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
+  }, [cancelHeadFirstTurn, commitUnsettledNav, listen, mobileCompareActive, notePlace, primaryAnchorFor])
 
   const handleMobileCompare = useCallback(() => {
     if (!mobileCompareEnabled) return
@@ -4548,9 +4561,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (next != null) void goToChapter(next, 'start')
       return
     }
-    // The opening page of a head-first map is up and the rest is a moment
-    // away: the turn waits for it rather than landing on a stand-in page.
-    if (headFirstPending(nativeHeadOnlyRef.current)) { headFirstTurnRef.current = true; return }
+    // Briefly prefer the full measured map, then use the existing provisional
+    // map (which covers every source word). A queued tap also needs this timer.
+    if (headFirstPending(nativeHeadOnlyRef.current)) {
+      headFirstTurnRef.current = true
+      if (headFirstTurnTimerRef.current === null) {
+        headFirstTurnTimerRef.current = window.setTimeout(() => {
+          headFirstTurnTimerRef.current = null
+          if (!headFirstTurnRef.current) return
+          headFirstTurnRef.current = false
+          goNextRef.current()
+        }, Math.max(0, LAB_HEAD_FIRST_HOLD_MS - (performance.now() - nativeHeadOnlyRef.current)))
+      }
+      return
+    }
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -4599,6 +4623,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   goNextRef.current = goNext
 
   const goPrev = useCallback(() => {
+    cancelHeadFirstTurn()
     quietDesktopAfterTurn()
     if (continuousReader && !chapterCoverTitle) {
       const previous = prevLabChapter(book.chapters, book.chapterNumber)
@@ -4653,13 +4678,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, openingOnRight, carriedEndingCurrent, continuousReader])
+  }, [book.bookId, book.chapterNumber, book.chapters, readerEditionKey, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, openingOnRight, carriedEndingCurrent, continuousReader, cancelHeadFirstTurn])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
   // overlays keep their keys; the chapter cover handles its own arrows and
   // marks the event handled, so it never double-turns here.
   const keyboardPageTurnsBlocked = (Boolean(temporaryHold) && !holdRecovery) || tocOpen || phoneAskOpen || inTheBookOpen || speedPopoverOpen || selectionPopup != null || chapterNoteEditor != null
+  useLayoutEffect(() => {
+    if (continuousReader || keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) cancelHeadFirstTurn()
+  }, [continuousReader, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt, cancelHeadFirstTurn])
   useEffect(() => {
     if (continuousReader) return
     if (keyboardPageTurnsBlocked || desktopAskOpen || callOpen || bookSwitcherOpen || superMenuOpen || superSheet !== null || accountPrompt !== null) return
