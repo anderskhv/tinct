@@ -10,8 +10,8 @@ import type { NamesakeNotice } from '../../services/characters/characterCards'
 export function DefinitionFallback({ word, request, dictionaryDefinitions, onChat, onTalk, namesakes }: {
   word: string
   /**
-   * The tapped name is shared by several cards and no reviewed mention says
-   * which one this is: say so and list them instead of asking for a guess.
+   * Conflicting reviewed links claim this exact tapped span: show only those
+   * candidates. Unlinked names use the contextual request below.
    */
   namesakes?: NamesakeNotice
   request: (onDelta: (text: string) => void, word: string, intent: 'define') => Promise<string>

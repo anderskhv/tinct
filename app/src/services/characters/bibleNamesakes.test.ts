@@ -40,12 +40,11 @@ describe('sons of Absalom in 1 Maccabees (webc-en)', () => {
 })
 
 describe('a name several cards share, with no reviewed mention', () => {
-  it('lists the released namesakes instead of guessing (John Hyrcanus, 1 Macc 16:21)', async () => {
+  it('leaves an unlinked John to contextual lookup (1 Macc 16:21)', async () => {
     const { data, index, start, end, selection } = await cardAt(1235, 'told ', 'John')
     expect(selection).toBeNull()
     const notice = namesakesAt(data, 1235, index, start, end, data.paragraphs[1235][index])
-    expect(notice?.name).toBe('John')
-    expect(notice?.candidates.map(c => c.id)).toEqual(expect.arrayContaining(['john-the-baptist', 'john-apostle']))
+    expect(notice).toBeNull()
   })
 
   it('gives no notice on a linked name, and none before a second namesake is released', async () => {
@@ -59,4 +58,17 @@ describe('a name several cards share, with no reviewed mention', () => {
     const at = ps[p].indexOf('Jonathan, the son of Gershom')
     expect(namesakesAt(linked.data, Number(chapter), p, at, at + 8, ps[p])).toBeNull()
   })
+})
+
+it('does not replace Simon in 2 Maccabees 4 with unrelated Bible namesakes', async () => {
+  const { data, index, start, end, selection } = await cardAt(1239, 'mentioned ', 'Simon')
+  expect(selection).toBeNull()
+  expect(namesakesAt(data, 1239, index, start, end, data.paragraphs[1239][index])).toBeNull()
+})
+
+it('still reports actual ambiguity when two reviewed people claim the same selected span', async () => {
+  const { data, index, start, end } = await cardAt(1239, 'mentioned ', 'Simon')
+  const at = { chapterNumber: 1239, paragraphIndex: index, startOffset: start, endOffset: end, text: 'Simon' }
+  const ambiguous = { ...data, edition: { ...data.edition, mentions: [...data.edition.mentions, { ...at, characterId: 'simon-peter' }, { ...at, characterId: 'simon-magus' }] } }
+  expect(namesakesAt(ambiguous, 1239, index, start, end, data.paragraphs[1239][index])?.candidates.map(card => card.id)).toEqual(['simon-peter', 'simon-magus'])
 })
