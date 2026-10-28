@@ -955,7 +955,9 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       const authToken = await resolveLabVoiceToken({ override: options.authToken, sessionToken, readSession: readSupabaseAccessToken })
       if (!stillHere()) return
-      const selected = requestConversationId ? conversations.find(item => item.id === requestConversationId && item.bookId === chatBookIdRef.current) : null
+      // A card can be saved immediately before send, ahead of React rendering.
+      // Use the same current-writer snapshot captured with this request’s source.
+      const selected = discussion
       const contextTurns = selected ? turnsFromConversations([selected]) : requestConversationId ? turns.filter(turn => turn.conversationId === requestConversationId) : turns
       const previousAssistant = [...contextTurns].reverse().find(turn => turn.role === 'assistant' && !turn.cancelled)?.content ?? null
       // "Yes!!" after "we could go back a few chapters and have a look?" is

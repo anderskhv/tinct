@@ -5,7 +5,7 @@ import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
 import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
-import type { CharacterSelection, NamesakeNotice } from '../../services/characters/characterCards'
+import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
 
 /** The streamed lead already displays this initial saved projection. Keep it
@@ -49,7 +49,7 @@ export const PHONE_CARD_NAMES: Record<PhoneCard['kind'], string> = {
 }
 
 /** The same released snapshot and cutoff-limited gallery as the desktop character popup. */
-export function PhoneCharacterBody({ character, onMore }: { character: CharacterSelection; onMore: () => void }) {
+export function PhoneCharacterBody({ character, renderFollow }: { character: CharacterSelection; renderFollow: (card: ReleasedCard) => ReactNode }) {
   const [gallery, setGallery] = useState(false)
   const [galleryId, setGalleryId] = useState<string | null>(null)
   const card = galleryId ? character.gallery.find(entry => entry.card.id === galleryId)?.card : character.card
@@ -57,7 +57,6 @@ export function PhoneCharacterBody({ character, onMore }: { character: Character
   const nonFigureRoles: Record<string, string> = { central: 'Central', major: 'Major', supporting: 'Supporting', reference: 'Minor' }
   const roleLabel = card?.role ? (['person', 'spirit', 'deity'].includes(card.kind) ? roles : nonFigureRoles)[card.role] : null
   return <div className="popup-character lab-pcard-character" data-testid="lab-phone-character-body">
-    <div className="popup-character-heading"><button type="button" onClick={onMore} aria-label="More actions">More actions</button></div>
     {gallery ? <>
       <h2>Character gallery</h2>
       <div className="popup-character-gallery">
@@ -76,6 +75,7 @@ export function PhoneCharacterBody({ character, onMore }: { character: Character
       <p>{card.body}</p>
       <button type="button" onClick={() => setGallery(true)}>Character gallery</button>
       {galleryId && <button type="button" onClick={() => setGalleryId(null)}>Back to selected name</button>}
+      {renderFollow(card)}
     </>}
   </div>
 }

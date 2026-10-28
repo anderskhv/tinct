@@ -2,6 +2,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
+import { readAllLabBookChats } from './labChatHistory'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
 
 vi.mock('../services/dictionary', () => ({ lookup: vi.fn(async () => null) }))
@@ -72,6 +73,14 @@ it('routes a passage note and quiz to one keyboard-aware phone card at a time', 
 })
 
 it('opens a reviewed name as its released character card and keeps the future gallery hidden', async () => {
+  const requests: unknown[] = []
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+    if (String(input).includes('/api/lab-chat') || String(input).includes('/api/chat')) {
+      requests.push(JSON.parse(String(init?.body)))
+      return new Response('data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A character follow-up answer."}}\n\ndata: {"type":"message_stop"}\n\n', { headers: { 'Content-Type': 'text/event-stream' } })
+    }
+    return new Response('{}', {status:404})
+  }))
   window.history.replaceState(null, '', '/reader?book=to-the-lighthouse&sharedReader=1&layout=phone')
   const text = 'Mrs. Ramsay greeted James.'
   const point = { chapterNumber: 1, paragraphIndex: 0, offset: 0 }
@@ -100,8 +109,17 @@ it('opens a reviewed name as its released character card and keeps the future ga
   expect(screen.getByText('In this passage')).toBeTruthy()
   expect(screen.queryByText('Prue')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Back to selected name' }))
-  fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
-  expect(screen.getByTestId('lab-phone-bar')).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'More actions' })).toBeNull()
+  const beforePlace = screen.getByTestId('lab-root').getAttribute('data-place')
+  fireEvent.change(screen.getByTestId('lab-phone-card-input'), {target:{value:'Why this role?'}})
+  fireEvent.click(screen.getByTestId('lab-phone-card-send'))
+  await waitFor(() => expect(requests).toHaveLength(1))
+  await screen.findByText('A character follow-up answer.')
+  expect(JSON.stringify(requests[0])).toContain('A released reminder.')
+  expect(JSON.stringify(requests[0])).toContain('Mrs. Ramsay greeted James.')
+  expect(JSON.stringify(requests[0])).not.toContain('Future information.')
+  expect(readAllLabBookChats().some(row => row.messages.some(m => m.content.includes('A released reminder.')) && row.messages.some(m => m.content === 'Why this role?'))).toBe(true)
+  expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(beforePlace)
 })
 
 it('opens an ordinary single-word lookup in the existing definition card before passage actions', () => {
