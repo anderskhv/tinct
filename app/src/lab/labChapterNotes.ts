@@ -1,3 +1,4 @@
+import { usablePrimerResource } from '../bookPrimers/resources'
 import { parsePrimerContent } from '../bookPrimers/parse'
 import { type SavedPrimer, primerKey } from '../bookPrimers/model'
 /**
@@ -66,7 +67,7 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
       const topics = [primer.content.structure, primer.content.peopleAndIdeas, primer.content.helpfulContext, primer.content.whatToNotice, primer.content.usefulReferences].flat()
       const content = parsePrimerContent(JSON.stringify(primer.content))
       const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
-      return { ok: true, beats, primer: { ...primer, content, resources: [] } }
+      return { ok: true, beats, primer: { ...primer, content, resources: Array.isArray(primer.resources) ? primer.resources.filter(usablePrimerResource).slice(0, 4) : [] } }
     }
     const beats = parseChapterNotesBeats(raw)
     if (!beats) return { ok: false, status: response.status }

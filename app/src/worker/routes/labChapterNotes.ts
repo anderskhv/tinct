@@ -1,3 +1,4 @@
+import { loadEditorialPrimer } from '../lib/editorialPrimer'
 import { bookPrimerRequest, type PrimerSource } from '../../bookPrimers/prompt'
 import { parseGeneratedPrimer } from '../../bookPrimers/parse'
 import { BOOK_PRIMER_PROMPT_VERSION, primerKey, type SavedPrimer } from '../../bookPrimers/model'
@@ -223,11 +224,12 @@ export async function handleLabChapterNotes(
 ): Promise<Response> {
   if (request.method !== 'POST') return jsonResponse({ error: 'Method not allowed' }, 405, request)
   const apiKey = env.ANTHROPIC_API_KEY
-  if (!apiKey || !env.ASSETS) return jsonResponse({ error: 'Service unavailable' }, 503, request)
+  if (!env.ASSETS) return jsonResponse({ error: 'Service unavailable' }, 503, request)
   if (parseInt(request.headers.get('content-length') || '0', 10) > MAX_BODY_BYTES) return jsonResponse({ error: 'Request too large' }, 413, request)
   let parsed: ParsedChapterNotesRequest | null
   try { parsed = parseChapterNotesRequest(await request.json()) } catch { return jsonResponse({ error: 'Invalid JSON' }, 400, request) }
   if (!parsed) return jsonResponse({ error: 'Invalid chapter notes request' }, 400, request)
+  if (!apiKey && parsed.format !== 'structured-primer') return jsonResponse({ error: 'Service unavailable' }, 503, request)
 
   const ip = labGuestIp(request)
   if (!await checkRateLimit(`lab-chapter-notes:${ip}`, env.RATE_LIMIT, CHAPTER_NOTES_LOOKUP_RATE_LIMIT_PER_MINUTE)) {
@@ -254,7 +256,7 @@ export async function handleLabChapterNotes(
       return jsonResponse({ error: 'Complete source unavailable', sourceUnavailable: true }, 422, request)
     }
     const units = index.chapters.map(unit => ({ id: `chapter-${unit.number}`, label: unit.title }))
-    const sourceBytes = new TextEncoder().encode(JSON.stringify({ title: parsed.bookTitle || parsed.bookId, units, passages }))
+    const sourceBytes = new TextEncoder().encode(JSON.stringify({ units, passages }))
     const digest = await crypto.subtle.digest('SHA-256', sourceBytes)
     const sourceVersion = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
     primerSource = {
@@ -271,6 +273,9 @@ export async function handleLabChapterNotes(
     beats, kind: parsed!.kind, chapterNumber: parsed!.chapterNumber, through, source,
   } satisfies ChapterNotesResponse, 200, request)
 
+  const editorial = primerSource ? await loadEditorialPrimer(env.ASSETS, origin, primerSource) : null
+  if (editorial?.primer) return jsonResponse({ primer: editorial.primer, source: 'editorial' }, 200, request)
+
   const cache = deps.cache === undefined ? defaultCache() : deps.cache
   const cacheIdentity = primerSource ? `${BOOK_PRIMER_PROMPT_VERSION}/${encodeURIComponent(primerKey(primerSource.identity))}` : chapterNotesCacheKey({ ...parsed, through })
   const cacheKey = new Request(`${origin}/__lab-chapter-notes/${cacheIdentity}`)
@@ -281,7 +286,7 @@ export async function handleLabChapterNotes(
         const cached = await hit.json() as { primer?: SavedPrimer }
         if (primerSource && cached.primer && primerKey(cached.primer.identity) === primerKey(primerSource.identity)) {
           const content = parseGeneratedPrimer(JSON.stringify(cached.primer.content), primerSource.passages)
-          return jsonResponse({ primer: { ...cached.primer, content, resources: [] }, source: 'cache' }, 200, request)
+          return jsonResponse({ primer: { ...cached.primer, content, resources: editorial?.resources || [] }, source: 'cache' }, 200, request)
         }
         const beats = primerSource ? null : parseChapterNotesBeats(cached)
         if (beats) return respond(beats, 'cache')
@@ -289,6 +294,7 @@ export async function handleLabChapterNotes(
     } catch { /* a cache failure is never a user-facing failure */ }
   }
 
+  if (!apiKey) return jsonResponse({ error: 'Service unavailable' }, 503, request)
   if (!await checkRateLimit(`lab-chapter-notes-model:${ip}`, env.RATE_LIMIT, CHAPTER_NOTES_GENERATE_RATE_LIMIT_PER_MINUTE)) {
     return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
@@ -337,7 +343,7 @@ export async function handleLabChapterNotes(
     if (primerSource) {
       if (message.stop_reason !== 'end_turn') return jsonResponse({ error: 'Incomplete primer response' }, 502, request)
       const primer: SavedPrimer = { identity: primerSource.identity,
-        content: parseGeneratedPrimer(text, primerSource.passages), resources: [], origin: 'generated',
+        content: parseGeneratedPrimer(text, primerSource.passages), resources: editorial?.resources || [], origin: 'generated',
         createdAt: new Date().toISOString(), promptVersion: BOOK_PRIMER_PROMPT_VERSION }
       if (cache) {
         const stored = new Response(JSON.stringify({ primer }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${CHAPTER_NOTES_CACHE_TTL_SECONDS}` } })

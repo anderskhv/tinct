@@ -307,3 +307,55 @@ it('rejects a fallback edition instead of caching it under the requested identit
  expect(fetchAnthropic).not.toHaveBeenCalled()
  expect(reserveGuestSpend).not.toHaveBeenCalled()
 })
+
+describe('persisted editorial primers', () => {
+  const body = { bookId: 'frank', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer' }
+  const content = { opening: 'Generated opening.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+  it('serves human copy before generated cache and allowance, and keeps it independent of display title', async () => {
+    let editorial: unknown = null
+    const assets = fakeAssets()
+    const environment = { ...env, ASSETS: { fetch: async (request: Request) => new URL(request.url).pathname.startsWith('/data/book-primers/') ? Response.json(editorial) : assets.fetch(request) } }
+    const cache = fakeCache(), fetchAnthropic = anthropic(JSON.stringify(content)), reserveGuestSpend = vi.fn(spend)
+    const context = ctx()
+    const first = await handleLabChapterNotes(post(body), environment, context.ctx, allow, { cache, fetchAnthropic, reserveGuestSpend })
+    const generated = (await first.json() as any).primer
+    await Promise.all(context.pending)
+    editorial = { identity: generated.identity, resources: [], primer: { ...generated, origin: 'manual', promptVersion: 'editorial-revision-1', content: { ...content, opening: 'The editor’s saved opening.' } } }
+    const response = await handleLabChapterNotes(post({ ...body, bookTitle: 'A display title from the reader' }), { ...environment, ANTHROPIC_API_KEY: undefined }, ctx().ctx, allow, { cache, fetchAnthropic, reserveGuestSpend, allowsAi: async () => false })
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ source: 'editorial', primer: { origin: 'manual', content: { opening: 'The editor’s saved opening.' } } })
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+    expect(reserveGuestSpend).toHaveBeenCalledTimes(1)
+  })
+  it('reads current resources on cache hits and refuses stale editorial source identities', async () => {
+    let editorial: any = null
+    const assets = fakeAssets(), cache = fakeCache(), context = ctx(), fetchAnthropic = anthropic(JSON.stringify(content))
+    const environment = { ...env, ASSETS: { fetch: async (request: Request) => new URL(request.url).pathname.startsWith('/data/book-primers/') ? Response.json(editorial) : assets.fetch(request) } }
+    const deps = { cache, fetchAnthropic, reserveGuestSpend: spend }
+    const first = await handleLabChapterNotes(post(body), environment, context.ctx, allow, deps)
+    const generated = (await first.json() as any).primer
+    await Promise.all(context.pending)
+    const resource = { title: 'A verified essay', creator: 'Its author', format: 'Essay', url: 'https://example.org/essay', relevance: 'Context for the book.', spoilerNote: 'Contains spoilers.', verifiedAt: '2026-10-28T00:00:00Z' }
+    editorial = { identity: generated.identity, resources: [resource] }
+    const result = await handleLabChapterNotes(post(body), environment, ctx().ctx, allow, deps)
+    expect(await result.json()).toMatchObject({ source: 'cache', primer: { resources: [resource] } })
+    editorial.identity = { ...generated.identity, sourceVersion: 'obsolete' }
+    const stale = await handleLabChapterNotes(post(body), environment, ctx().ctx, allow, deps)
+    expect(await stale.json()).toMatchObject({ source: 'cache', primer: { resources: [] } })
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+  })
+})
+
+it('loads the committed Frankenstein resources against the real edition source hash', async () => {
+  const { readFile } = await import('node:fs/promises')
+  const assets = { fetch: async (request: Request) => {
+    try { return new Response(await readFile(new URL('../public' + new URL(request.url).pathname, import.meta.url)), { headers: { 'Content-Type': 'application/json' } }) }
+    catch { return new Response('missing', { status: 404 }) }
+  } }
+  const content = { opening: 'Synthetic test content.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+  const response = await handleLabChapterNotes(post({ bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book', bookTitle: 'Frankenstein' }), { ...env, ASSETS: assets }, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend, fetchAnthropic: anthropic(JSON.stringify(content)) })
+  expect(response.status).toBe(200)
+  const result = await response.json() as any
+  expect(result.primer.resources).toHaveLength(2)
+  expect(result.primer.resources[0].url).toBe('https://shelleygodwinarchive.org/contents/frankenstein/')
+})

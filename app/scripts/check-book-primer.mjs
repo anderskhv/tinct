@@ -6,6 +6,7 @@ import path from 'node:path'
 import { chromium, webkit, devices } from '@playwright/test'
 const dist = path.resolve('dist'), output = '/tmp/tinct-book-primer-browser'
 await fs.mkdir(output, { recursive: true })
+const editorialResources = JSON.parse(await fs.readFile(path.join(dist, 'data/book-primers/frankenstein/original-en/en/book.json'), 'utf8')).resources
 const chapter = JSON.parse(await fs.readFile(path.join(dist, 'data/editions-chapters/frankenstein-original-en/ch0002.json'), 'utf8'))
 const quote = chapter.paragraphs[3].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90)
 const bookChapter = JSON.parse(await fs.readFile(path.join(dist, 'data/editions-chapters/frankenstein-original-en/ch0001.json'), 'utf8'))
@@ -33,7 +34,7 @@ try {
             return route.fulfill({ json: { primer: {
               identity: { scope: { kind: 'public' }, workId: request.bookId, editionId: request.editionKey, sourceVersion: 'synthetic-source-v1', unitId: request.primerType === 'book' ? null : `chapter-${request.chapterNumber}`, type: request.primerType || 'chapter', language: 'en' },
               content: { opening: 'A letter makes distance tangible, placing the reader beside its writer before the journey begins.', structure: [{ title: 'The address', explanation: 'Notice how the writer addresses the recipient.', quotes: [{ text: request.primerType === 'book' ? bookQuote : quote, passageId: request.primerType === 'book' ? 'chapter-1:paragraph-3' : 'chapter-2:paragraph-3' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Distance', explanation: 'Follow the language of distance.' }], usefulReferences: [] },
-              resources: [], origin: 'generated', promptVersion: 'book-primer-1', createdAt: '2026-10-28T00:00:00Z' } } })
+              resources: request.primerType === 'book' ? editorialResources : [], origin: 'generated', promptVersion: 'book-primer-1', createdAt: '2026-10-28T00:00:00Z' } } })
           }
           if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
           return route.continue()
@@ -64,6 +65,9 @@ try {
           assert.equal(afterBookPrimer.sequentialChapter, beforeBookPrimer.sequentialChapter)
           assert.equal(afterBookPrimer.paragraphIndex, beforeBookPrimer.paragraphIndex)
           assert.equal(new URL(page.url()).pathname, '/reader')
+          const resources = page.locator('.book-primer-content:visible').first()
+          await resources.locator('summary').filter({ hasText: /^Watch & explore$/ }).click()
+          assert.equal(await resources.getByRole('link', { name: 'Frankenstein manuscripts', exact: true }).getAttribute('href'), editorialResources[0].url)
           await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-book.png` })
           const bookPrimer = page.locator('.book-primer-content:visible').first()
           await bookPrimer.locator('summary').filter({ hasText: /^Structure$/ }).click()
@@ -82,6 +86,8 @@ try {
           await opening.locator('summary').filter({ hasText: /^Structure$/ }).click()
           await opening.locator('summary').filter({ hasText: /^The address$/ }).click()
           assert.equal(await opening.getByText(bookQuote, { exact: true }).count(), 1)
+          await opening.locator('summary').filter({ hasText: /^Watch & explore$/ }).click()
+          assert.equal(await opening.getByRole('link', { name: 'Frankenstein manuscripts', exact: true }).getAttribute('href'), editorialResources[0].url)
           assert.equal(await opening.evaluate(el => el.scrollWidth > el.clientWidth + 1), false)
           await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-opening.png` })
           await page.locator('#begin-reading').click()
