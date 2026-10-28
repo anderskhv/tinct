@@ -98,6 +98,14 @@ describe('English breaks', () => {
 describe('guessed breaks for words the patterns leave whole (phone reader)', () => {
   beforeAll(async () => { await loadHyphenator('en') })
 
+  it('offers the dictionary syllable in promised without splitting its inflection', () => {
+    expect(hyphenationBreaks('promised', 'en', true)).toEqual([4])
+    expect(hyphenationBreaks('“Promised,”', 'en', true)).toEqual([5])
+    expect(pageEdgeBreaks('promised', 'en', true)).toEqual([4])
+    expect(hyphenationBreaks('PROMISED', 'en', true)).toEqual([])
+    expect(hyphenationBreaks('promised', 'da', true)).toEqual([])
+  })
+
   it('breaks the Nehemiah 12 names the dictionary leaves whole, only when asked to guess', () => {
     for (const name of ['Amariah', 'Zechariah', 'Hilkiah']) {
       expect(hyphenationBreaks(name, 'en')).toEqual([])

@@ -47,6 +47,9 @@ export const FALLBACK_MIN_SIDE = 3
 export const SYLLABLE_EXCEPTIONS: Readonly<Record<string, string>> = {
   // A compound the rules read as "Gate-shead" (Jane Eyre).
   gateshead: 'gates-head',
+  // The English patterns omit this inflection; retain the dictionary's prom·ise stem.
+  // https://www.merriam-webster.com/dictionary/promise (checked 2026-10-28).
+  promised: 'prom-ised',
   // Wrong guesses from the common-word check: no break, or the right one.
   valiant: 'valiant',
   colonel: 'colonel',
