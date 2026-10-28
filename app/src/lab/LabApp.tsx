@@ -5732,6 +5732,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(question, undefined, undefined, {
       highlightedText: passage?.text || undefined, conversationId,
       onAccepted: () => {
+        if (continuousReader && card?.kind === 'ask') {
+          setDraft('')
+          return
+        }
         closePhoneCard()
         setDesktopOpenId(null)
         setSelectionPopup(null)
@@ -5783,6 +5787,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const selection = selectionPopup
     if (!selection) return
     const passage = phonePassageOf(selection)
+    if (continuousReader) {
+      openPhoneCard({ kind: 'ask', passage, openedAt: Date.now() })
+      setDraft(initialQuestion ?? '')
+      return
+    }
     closePhoneCard()
     setDesktopOpenId(null)
     setContentsConversation(null)
@@ -7423,6 +7432,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           popupRef={popupRef}
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
+            if (continuousReader) {
+              const openedAt = Date.now()
+              openPhoneCard({ kind: 'ask', passage, openedAt })
+              dictation.stop()
+              void ask.sendTyped(question, undefined, undefined, {
+                highlightedText: passage.text, conversationId: `mc_react_${openedAt}`,
+                sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+              })
+              return
+            }
             closePhoneCard()
             setDesktopOpenId(null)
             setSelectionPopup(null)
