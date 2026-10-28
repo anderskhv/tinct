@@ -1,0 +1,65 @@
+{
+  "reviewStatus": "unapproved-ai-candidate",
+  "authorship": "AI-authored in the agent conversation; not human-approved copy",
+  "source": {
+    "path": "app/public/data/editions/meditations-original-en.json",
+    "fileSha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+    "reviewScope": "Selected unit read in full; no later unit used for chapter commentary."
+  },
+  "primer": {
+    "identity": {
+      "scope": {
+        "kind": "public"
+      },
+      "workId": "meditations",
+      "editionId": "original-en",
+      "sourceVersion": "5527f28f4c6bab10ef3b3a397dfcbbf66a01b6bb7af165daeb6883123ed5759b",
+      "unitId": "chapter-1",
+      "type": "chapter",
+      "language": "en"
+    },
+    "content": {
+      "opening": "Book 1 introduces Marcus through the people he thanks. Each remembered example gives a virtue a human setting: a household, a lesson, a friendship, or public business. Read for the habits he selects and the tensions within them. Being steady can coexist with yielding; correcting someone can coexist with kindness. The list gradually becomes a portrait of the character he wants to cultivate.",
+      "structure": [
+        {
+          "title": "A sequence of debts",
+          "explanation": "The entries begin with family, turn to teachers and companions, and end with an extended expression of gratitude to the gods. Repeated acknowledgments connect the examples even when their length and detail vary."
+        }
+      ],
+      "peopleAndIdeas": [],
+      "helpfulContext": [],
+      "whatToNotice": [
+        {
+          "title": "Resolute and yielding",
+          "explanation": "Marcus praises qualities that might initially seem opposed. Look at what the example asks him to hold together, rather than reducing it to a single slogan.",
+          "quotes": [
+            {
+              "text": "the same man can be both most resolute and yielding",
+              "passageId": "chapter-1:paragraph-7"
+            }
+          ]
+        },
+        {
+          "title": "Correction without humiliation",
+          "explanation": "The grammarian’s example places care in the manner of correction. Attend to how the right expression can enter a conversation without making another person’s mistake its centre.",
+          "quotes": [
+            {
+              "text": "not in a reproachful way to chide",
+              "passageId": "chapter-1:paragraph-9"
+            }
+          ]
+        }
+      ],
+      "usefulReferences": [
+        {
+          "title": "The names in the list",
+          "explanation": "You can follow the first reading through the qualities attributed to each person. Keep uncertain identities open; the repeated names and family relationships need not be resolved before the examples become intelligible."
+        }
+      ]
+    },
+    "resources": [],
+    "origin": "generated",
+    "createdAt": "2026-10-28T03:35:00Z",
+    "promptVersion": "book-primer-1"
+  }
+}

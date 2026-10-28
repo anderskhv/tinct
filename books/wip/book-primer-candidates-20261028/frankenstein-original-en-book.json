@@ -1,0 +1,62 @@
+{
+  "reviewStatus": "unapproved-ai-candidate",
+  "authorship": "AI-authored in the agent conversation; not human-approved copy",
+  "source": {
+    "path": "app/public/data/editions/frankenstein-original-en.json",
+    "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
+    "reviewScope": "Selected opening unit read in full; book drafts describe the unit map and opening only. No claim of whole-book semantic review."
+  },
+  "primer": {
+    "identity": {
+      "scope": {
+        "kind": "public"
+      },
+      "workId": "frankenstein",
+      "editionId": "original-en",
+      "sourceVersion": "97efa5df086475559144ee86723b535bd817317d3a665c8aea6f479d8b7bf9fd",
+      "unitId": null,
+      "type": "book",
+      "language": "en"
+    },
+    "content": {
+      "opening": "Robert Walton wants his voyage to matter. Writing to his sister from Russia, he pictures discovery, public benefit, and a place among the people he admires. His confidence has to carry him through uncertainty as well as danger. Begin by listening to the person making that case: his excitement, his need for encouragement, and the ease with which imagined possibilities become reasons to press ahead.",
+      "structure": [
+        {
+          "title": "Four letters before Chapter 1",
+          "explanation": "This reading edition begins with Letters 1–4 and then has twenty-four numbered chapters. The opening correspondence gives you a speaker and a recipient before the numbered narrative begins. Keep track of who is speaking and who is being addressed."
+        }
+      ],
+      "peopleAndIdeas": [
+        {
+          "title": "Walton and Margaret",
+          "explanation": "Walton signs the first letter; Margaret is the sister to whom he writes. His account of the expedition is also an appeal to someone whose concern he acknowledges. You do not need a cast list before beginning."
+        }
+      ],
+      "helpfulContext": [
+        {
+          "title": "Reading a letter",
+          "explanation": "A letter can inform its recipient, reassure them, and seek their agreement at the same time. Treat Walton’s confidence as something expressed to Margaret, rather than as independent confirmation that his expectations are sound.",
+          "takeaway": "Keep the recipient in mind.",
+          "depth": "essential"
+        }
+      ],
+      "whatToNotice": [
+        {
+          "title": "Discovery and recognition",
+          "explanation": "Walton moves between the benefit his journey might bring others and the distinction it might bring him. Notice when those motives reinforce each other and when the language makes them harder to separate.",
+          "quotes": [
+            {
+              "text": "My life might have been passed in ease and luxury, but I preferred glory to every enticement that wealth placed in my path.",
+              "passageId": "chapter-1:paragraph-7"
+            }
+          ]
+        }
+      ],
+      "usefulReferences": []
+    },
+    "resources": [],
+    "origin": "generated",
+    "createdAt": "2026-10-28T03:35:00Z",
+    "promptVersion": "book-primer-1"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "reviewStatus": "unapproved-ai-candidate",
+  "authorship": "AI-authored in the agent conversation; not human-approved copy",
+  "source": {
+    "path": "app/public/data/editions/meditations-original-en.json",
+    "fileSha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
+    "reviewScope": "Selected opening unit read in full; book drafts describe the unit map and opening only. No claim of whole-book semantic review."
+  },
+  "primer": {
+    "identity": {
+      "scope": {
+        "kind": "public"
+      },
+      "workId": "meditations",
+      "editionId": "original-en",
+      "sourceVersion": "950fdca17e307b9e62fdde9a73a77fdb4a4211e8b94953c8fd0d238f2417d9a7",
+      "unitId": null,
+      "type": "book",
+      "language": "en"
+    },
+    "content": {
+      "opening": "Marcus begins by naming what he has learned from other people: restraint, generosity, careful reading, and ways of living with difficult companions. These examples make character something practised in ordinary encounters. You can begin with one entry and ask what action it describes. The twelve books offer many occasions to return to that question, without requiring you to settle every philosophical claim before reading on.",
+      "structure": [
+        {
+          "title": "Twelve books, numbered entries",
+          "explanation": "This edition has twelve books. Book 1 gathers debts to family, teachers, friends, and the gods. The numbered entries provide manageable stopping places; you can pause to consider an example without treating each entry as a complete argument."
+        }
+      ],
+      "peopleAndIdeas": [
+        {
+          "title": "People as examples",
+          "explanation": "The names in Book 1 matter first through the habits Marcus associates with them. Notice the particular action before trying to remember every name. His praise also reveals the standards he is setting for himself."
+        }
+      ],
+      "helpfulContext": [
+        {
+          "title": "Reading a moral example",
+          "explanation": "An example shows a quality in action: correcting someone without humiliating them, accepting criticism, or listening carefully. Separate the action described from the larger claim that a person embodies an ideal.",
+          "takeaway": "Look for something someone actually does.",
+          "depth": "essential"
+        }
+      ],
+      "whatToNotice": [
+        {
+          "title": "Careful attention",
+          "explanation": "Marcus thanks Rusticus for teaching him to resist a superficial reading. This is a useful standard for approaching these compact entries: slow down where a familiar virtue turns into a demanding practice.",
+          "quotes": [
+            {
+              "text": "to read carefully, and not to be satisfied with a superficial understanding of a book",
+              "passageId": "chapter-1:paragraph-6"
+            }
+          ]
+        }
+      ],
+      "usefulReferences": []
+    },
+    "resources": [],
+    "origin": "generated",
+    "createdAt": "2026-10-28T03:35:00Z",
+    "promptVersion": "book-primer-1"
+  }
+}

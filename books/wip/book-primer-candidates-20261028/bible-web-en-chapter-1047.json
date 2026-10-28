@@ -1,0 +1,69 @@
+{
+  "reviewStatus": "unapproved-ai-candidate",
+  "authorship": "AI-authored in the agent conversation; not human-approved copy",
+  "source": {
+    "path": "app/public/data/editions/bible-web-en.json",
+    "fileSha256": "b0f491656782257e7b20f4a80add615cb363b8f324e54a4c1c457648328762aa",
+    "reviewScope": "Selected unit read in full; no later unit used for chapter commentary."
+  },
+  "primer": {
+    "identity": {
+      "scope": {
+        "kind": "public"
+      },
+      "workId": "bible",
+      "editionId": "web-en",
+      "sourceVersion": "855f96da480995e534ab17e445b033f7f135de89c922ef5324318fab2e46016b",
+      "unitId": "chapter-1047",
+      "type": "chapter",
+      "language": "en"
+    },
+    "content": {
+      "opening": "Paul introduces himself to believers in Rome and explains his wish to visit them. The opening joins personal affection to large claims about the good news he serves. Follow the connections between address, gratitude, and argument. Words such as faith, righteousness, and knowledge carry much of the chapter’s weight; let their surrounding sentences shape your first understanding instead of assuming a single familiar meaning.",
+      "structure": [
+        {
+          "title": "Address, intended visit, and argument",
+          "explanation": "Read the greeting and travel intentions as part of how Paul establishes a relationship with his recipients. As the chapter turns toward broader claims, notice the connecting words that show what he presents as a reason or consequence."
+        }
+      ],
+      "peopleAndIdeas": [],
+      "helpfulContext": [],
+      "whatToNotice": [
+        {
+          "title": "Mutual encouragement",
+          "explanation": "Paul describes something he hopes to give, then describes encouragement passing in both directions. The qualification matters to the relationship he presents.",
+          "quotes": [
+            {
+              "text": "each of us by the other's faith, both yours and mine.",
+              "passageId": "chapter-1047:paragraph-2"
+            }
+          ]
+        },
+        {
+          "title": "The scope of a claim",
+          "explanation": "Attend to whom Paul includes when he speaks of salvation. Keep this claim in view while following the sequence of his argument, without treating a single sentence as a summary of the entire letter.",
+          "quotes": [
+            {
+              "text": "for everyone who believes; for the Jew first, and also for the Greek.",
+              "passageId": "chapter-1047:paragraph-3"
+            }
+          ]
+        }
+      ],
+      "usefulReferences": [
+        {
+          "title": "Good News",
+          "explanation": "This edition uses “Good News” where many English readers may expect “gospel.” Follow the expression across the chapter: Paul describes its source, its subject, and what he claims it does."
+        },
+        {
+          "title": "A quoted sentence",
+          "explanation": "“As it is written” introduces a quotation inside Paul’s argument. Notice both the quoted words and the use he makes of them. You can follow that immediate connection before investigating the quotation’s wider setting."
+        }
+      ]
+    },
+    "resources": [],
+    "origin": "generated",
+    "createdAt": "2026-10-28T03:35:00Z",
+    "promptVersion": "book-primer-1"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "status": "unapproved-ai-candidates",
+  "baseRevision": "cb1d69e3d0dc141e99b082835ef321be8fa87a57",
+  "ownedPath": "books/wip/book-primer-candidates-20261028",
+  "candidates": [
+    "bible-web-en-chapter-1047.json",
+    "frankenstein-original-en-book.json",
+    "frankenstein-original-en-chapter-1.json",
+    "meditations-original-en-book.json",
+    "meditations-original-en-chapter-1.json"
+  ],
+  "runtimeIntegration": false,
+  "humanApproval": false,
+  "providerCalls": 0,
+  "prefaceHandling": {
+    "frankenstein": "Existing recovered_approved preface preserved unchanged; candidate uses an opening-unit approach rather than its later plot revelations. No signature or approval transferred.",
+    "meditations": "Existing draft preserved unchanged; candidate focuses on the opening examples.",
+    "bible": "Existing draft preserved unchanged; Romans 1 is a separate chapter candidate, not a replacement Bible preface."
+  },
+  "remaining": [
+    "Human editorial review and any requested revision",
+    "Whole-book semantic review before accepting book candidates",
+    "More useful context topics only where source-checked and helpful; no filler quota",
+    "Real-provider output quality remains unverified",
+    "Runtime assets remain unchanged; publication requires later user instruction"
+  ],
+  "validation": [
+    {
+      "file": "bible-web-en-chapter-1047.json",
+      "openingWords": 64,
+      "exactQuoteValidation": "pass",
+      "sourceIdentity": "pass"
+    },
+    {
+      "file": "frankenstein-original-en-book.json",
+      "openingWords": 65,
+      "exactQuoteValidation": "pass",
+      "sourceIdentity": "pass"
+    },
+    {
+      "file": "frankenstein-original-en-chapter-1.json",
+      "openingWords": 61,
+      "exactQuoteValidation": "pass",
+      "sourceIdentity": "pass"
+    },
+    {
+      "file": "meditations-original-en-book.json",
+      "openingWords": 65,
+      "exactQuoteValidation": "pass",
+      "sourceIdentity": "pass"
+    },
+    {
+      "file": "meditations-original-en-chapter-1.json",
+      "openingWords": 63,
+      "exactQuoteValidation": "pass",
+      "sourceIdentity": "pass"
+    }
+  ],
+  "validationLimit": "Structural validation, exact quotations, source hashes and opening lengths passed. AI self-review only; not independent or human editorial approval."
+}

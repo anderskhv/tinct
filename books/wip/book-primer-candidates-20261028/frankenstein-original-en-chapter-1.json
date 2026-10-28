@@ -1,0 +1,65 @@
+{
+  "reviewStatus": "unapproved-ai-candidate",
+  "authorship": "AI-authored in the agent conversation; not human-approved copy",
+  "source": {
+    "path": "app/public/data/editions/frankenstein-original-en.json",
+    "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
+    "reviewScope": "Selected unit read in full; no later unit used for chapter commentary."
+  },
+  "primer": {
+    "identity": {
+      "scope": {
+        "kind": "public"
+      },
+      "workId": "frankenstein",
+      "editionId": "original-en",
+      "sourceVersion": "30650f7517466c1fbf36341d9b89ae9b5dd006c01f86e661e53abfdf033f048f",
+      "unitId": "chapter-1",
+      "type": "chapter",
+      "language": "en"
+    },
+    "content": {
+      "opening": "Walton writes to reassure his sister, but the letter also lets him rehearse the reasons for his voyage. He imagines the north, recalls the ambitions that brought him here, and describes the work of preparing himself. Follow the changes in his confidence. His practical experience and his extravagant hopes appear together, leaving you room to judge how each supports his decision.",
+      "structure": [
+        {
+          "title": "A voyage explained to someone at home",
+          "explanation": "The letter moves from arrival and imagined discoveries to childhood reading, preparation, and travel plans. These changes let Walton present both his desire for the voyage and his qualifications for undertaking it."
+        }
+      ],
+      "peopleAndIdeas": [],
+      "helpfulContext": [],
+      "whatToNotice": [
+        {
+          "title": "Imagining the destination",
+          "explanation": "Walton acknowledges a hostile picture of the pole and then offers the landscape he wants to find. The passage tells us what attracts him; it does not establish what is there.",
+          "quotes": [
+            {
+              "text": "I try in vain to be persuaded that the pole is the seat of frost and desolation; it ever presents itself to my imagination as the region of beauty and delight.",
+              "passageId": "chapter-1:paragraph-3"
+            }
+          ]
+        },
+        {
+          "title": "An appeal for encouragement",
+          "explanation": "Listen for the moments when Walton’s assurance becomes a request for another person’s support. Those moments complicate the confident account of his preparations.",
+          "quotes": [
+            {
+              "text": "Oh, that some encouraging voice would answer in the affirmative!",
+              "passageId": "chapter-1:paragraph-7"
+            }
+          ]
+        }
+      ],
+      "usefulReferences": [
+        {
+          "title": "The magnetic needle",
+          "explanation": "The needle Walton mentions is the compass needle. Within his account, understanding its attraction is one proposed benefit of the expedition. Keep his proposal distinct from an established result."
+        }
+      ]
+    },
+    "resources": [],
+    "origin": "generated",
+    "createdAt": "2026-10-28T03:35:00Z",
+    "promptVersion": "book-primer-1"
+  }
+}
