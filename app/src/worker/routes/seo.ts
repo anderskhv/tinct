@@ -333,7 +333,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
   // A temporary availability page preserves old links and content assets.
   // Run before static/cached SEO pages; raw data stays available for recovery.
   const publicBook = url.pathname.match(/^\/(?:read\/)?([a-z0-9-]+)(?:\/.*)?$/)?.[1]
-  const queryBook = ['/', '/library', '/app', '/read'].includes(url.pathname) ? url.searchParams.get('book') : null
+  const queryBook = ['/', '/library', '/app', '/read', '/reader'].includes(url.pathname) ? url.searchParams.get('book') : null
   const holdBook = queryBook || publicBook
   const germanBookLanding = /^\/(?:read\/)?faust-part-1\/?$/.test(url.pathname) && !url.search
   const holdKey = url.searchParams.get('edition') || (queryBook === 'faust-part-1' || germanBookLanding ? 'original-de' : 'original-en')
