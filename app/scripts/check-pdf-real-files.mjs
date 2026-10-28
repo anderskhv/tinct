@@ -240,6 +240,8 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close();return !!scan
     },hex), {timeout:Number(process.env.PDF_REAL_SCAN_TIMEOUT_MS || 30000)}).toBe(true)
     console.log(name, path.basename(filePath), 'scan cached', Date.now() - openedAt, 'ms after reader navigation')
+    const openingChecks = process.env.PDF_REAL_OPENING_CHECKS ? JSON.parse(await fs.readFile(process.env.PDF_REAL_OPENING_CHECKS, 'utf8'))[path.basename(filePath)] : null
+    if (openingChecks?.header) await expect(page.locator('.lab-header-chapter')).toHaveText(openingChecks.header)
     await page.screenshot({path:path.join(output,'opened.png')})
     assert(accountUploaded, 'actual selected file must pass byte-exact simulated upload')
     const samples=[]
@@ -273,13 +275,20 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       })
       await page.mouse.move(drag.x,drag.y);await page.mouse.down()
       await page.mouse.move(drag.end,drag.y,{steps:15});await page.mouse.up()
-      await expect(page.getByTestId('lab-dbar-highlight')).toBeVisible()
-      await page.getByTestId('lab-dbar-highlight').click()
+      const highlight = page.getByTestId(process.env.PDF_REAL_PHONE === '1' ? 'lab-pbar-highlight' : 'lab-dbar-highlight')
+      await expect(highlight).toBeVisible()
+      await highlight.click()
       await expect.poll(()=>sets.marks.list.length,{timeout:15000}).toBeGreaterThan(0)
       await page.screenshot({path:path.join(output,'native-highlight.png')})
+      if (process.env.PDF_REAL_PHONE === '1') {
+        // The phone bar consumes the first outside press to prevent click-through.
+        await page.keyboard.press('Escape')
+        await expect(page.getByTestId('lab-phone-bar')).toHaveCount(0)
+      }
       await page.getByTestId('lab-super').click()
       await page.getByText('Summarize', {exact:true}).click()
       await expect(page.getByText('A grounded local fixture answer.',{exact:false})).toBeVisible({timeout:45000})
+      await expect(page.getByText('Highlight saved.', { exact: true })).toHaveCount(0)
       const summary = calls.filter(c=>c.path==='/api/chat').map(c=>JSON.parse(c.body)).at(-1)
       await expect.poll(()=>sets.cards.list.length,{timeout:15000}).toBeGreaterThan(0)
       const source=sets.cards.list.at(-1)?.data?.unit
@@ -343,6 +352,9 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close()
       return {title:item?.title,name:item?.name,scan:item?.scan,pages:document.querySelectorAll('.pdf-original__slot').length}
     },hex)
+    for (const expected of openingChecks?.headings || []) {
+      assert(inventory.scan.entries.some(entry => entry.page === expected.page && entry.label === expected.label), 'source heading must remain exact without attached paragraph text')
+    }
     // Optional private expectations stay outside the repository. Exercise the real
     // conversion button, owned storage, rendered text reader and reload resume.
     if (process.env.PDF_REAL_CONVERSION_CHECKS) {

@@ -178,6 +178,14 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const pending = useRef<AbortController | null>(null)
   const cancelPending = () => { quizToken.current++; pending.current?.abort(); pending.current = null }
   const [status, setStatus] = useState('')
+  useEffect(() => {
+    // A completed action must not sit over a later answer. Keep failure messages
+    // available; only the successful highlight acknowledgement is transient.
+    if (status !== 'Highlight saved.') return
+    if (card) { setStatus(''); return }
+    const timer = window.setTimeout(() => setStatus(current => current === 'Highlight saved.' ? '' : current), 3000)
+    return () => window.clearTimeout(timer)
+  }, [status, card])
   const [undo, setUndo] = useState<{ id: string; restore: () => boolean | void } | null>(null)
   const [hidden, setHidden] = useState<Set<string>>(new Set())
   const [revision, setRevision] = useState(0)

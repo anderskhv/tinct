@@ -56,6 +56,17 @@ async function scanOf(bytes: Buffer, fileName: string): Promise<ScanResult> {
 }
 
 describe('PDF scan: title, author, chapters', () => {
+  it('does not append a large drop-cap paragraph opening to a chapter heading', async () => {
+    const scan = await scanOf(makePdf({ pages: [
+      { lines: [{ y: 730, size: 24, font: 'Times-Roman', text: 'A Novel' }, ...prose(670, 28)] },
+      { lines: [{ x: 136, y: 268, size: 15.5, font: 'Times-Roman', text: 'CHAPTER II.' },
+        { x: 131, y: 241, size: 15.5, font: 'Times-Roman', text: 'A reader was among the ear-' },
+        { x: 142, y: 226, size: 9.5, font: 'Times-Roman', text: 'liest of those who entered the room.' }, ...prose(210, 12, { size: 9.5 })] },
+      { lines: [{ x: 136, y: 733, size: 24, font: 'Times-Roman', text: 'CHAPTER III.' }, ...prose(680, 28)] },
+    ] }), 'novel.pdf')
+    expect(scan.entries.find(e => e.page === 2)?.label).toBe('CHAPTER II.')
+  })
+
   it('keeps lowercase continuation lines in a wrapped heading without absorbing body text', async () => {
     const scan = await scanOf(makePdf({ pages: [
       { lines: [{ y: 730, size: 24, font: 'Times-Bold', text: 'Annual Report' }, ...prose(670, 28)] },

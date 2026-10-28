@@ -43,8 +43,12 @@ it('highlights a mobile saved Define destination and returns to the pre-jump pos
   fireEvent.click(screen.getByText('Open saved entry'))
   expect(root.getAttribute('data-place')).toBe(originalPlace)
   fireEvent.click(screen.getByText('Show passage'))
-  await waitFor(() => expect(root.getAttribute('data-place')).toBe('0:3'))
-  expect(document.querySelector('[data-word-index="3"].is-notebook-passage')).toBeTruthy()
+  // The destination can mount after its position commits; the passage cue is
+  // then painted by its MutationObserver. Assert the completed visible state.
+  await waitFor(() => {
+    expect(root.getAttribute('data-place')).toBe('0:3')
+    expect(document.querySelector('[data-word-index="3"].is-notebook-passage')).toBeTruthy()
+  })
   fireEvent.click(screen.getByTestId('lab-notebook-return'))
   await waitFor(() => expect(root.getAttribute('data-place')).toBe(originalPlace))
   expect(screen.queryByTestId('lab-notebook-return')).toBeNull()
