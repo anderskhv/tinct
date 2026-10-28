@@ -67,5 +67,66 @@
     ],
     "approval": "Still unapproved AI-authored copy; no runtime integration",
     "verificationScope": "Link content and attribution checked; no claimed duration, no whole-book semantic acceptance"
+  },
+  "semanticReview": {
+    "candidate": "meditations-original-en-book.json",
+    "reviewer": "AI self-review; no independent or human approval",
+    "reviewedUnits": [
+      {
+        "number": 1,
+        "paragraphs": 17,
+        "status": "read in full during initial drafting"
+      },
+      {
+        "number": 2,
+        "paragraphs": 17,
+        "status": "read in full in this review"
+      },
+      {
+        "number": 3,
+        "paragraphs": 16,
+        "status": "read in full in this review"
+      }
+    ],
+    "remainingUnits": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "findings": [
+      {
+        "finding": "Draft underrepresented the connection between self-command and social obligations.",
+        "evidence": [
+          "2:0",
+          "3:3",
+          "3:4",
+          "3:10"
+        ],
+        "action": "Added a public-duties topic and a cooperation topic with an exact quotation."
+      },
+      {
+        "finding": "Draft underrepresented the religious and cosmological premises of the advice.",
+        "evidence": [
+          "2:2",
+          "2:10",
+          "3:12"
+        ],
+        "action": "Added a fourth context topic, presenting providence as Marcus\u2019s claim rather than reader assent."
+      },
+      {
+        "finding": "Book 3 paragraph 2 contains historical death anecdotes, including an attribution concerning Socrates that needs separate source checking.",
+        "evidence": [
+          "3:2"
+        ],
+        "action": "No anecdote reproduced in the primer; source edition unchanged. No claim that historical accuracy of the edition has been audited."
+      }
+    ],
+    "acceptance": "incomplete"
   }
 }
