@@ -20,7 +20,24 @@ export async function currentOwnBookMetadata(hex: string, owner: string, timeout
     if (userBookOwner() !== owner) return null
     return list?.find(book => book.sha256.slice(0, 24) === hex) ?? null
   })().catch(() => null)
-  const remote = await Promise.race([request, new Promise<null>(resolve => setTimeout(() => resolve(null), timeoutMs))])
-  if (remote) return remote
-  return userBookOwner() === owner ? local : null
+  let deadline: ReturnType<typeof setTimeout> | undefined
+  let localDeadline: ReturnType<typeof setTimeout> | undefined
+  try {
+    const result = await Promise.race([
+      request,
+      new Promise<null>(resolve => { deadline = setTimeout(() => resolve(null), timeoutMs) }),
+      new Promise<Awaited<typeof local>>(resolve => {
+        localDeadline = setTimeout(() => {
+          void local.then(record => { if (record) resolve(record) })
+        }, Math.min(700, timeoutMs))
+      }),
+    ])
+    if (userBookOwner() !== owner) return null
+    if (result) return result
+    const record = await local
+    return userBookOwner() === owner ? record : null
+  } finally {
+    clearTimeout(deadline)
+    clearTimeout(localDeadline)
+  }
 }
