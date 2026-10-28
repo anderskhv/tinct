@@ -275,10 +275,16 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       })
       await page.mouse.move(drag.x,drag.y);await page.mouse.down()
       await page.mouse.move(drag.end,drag.y,{steps:15});await page.mouse.up()
-      await expect(page.getByTestId('lab-dbar-highlight')).toBeVisible()
-      await page.getByTestId('lab-dbar-highlight').click()
+      const highlight = page.getByTestId(process.env.PDF_REAL_PHONE === '1' ? 'lab-pbar-highlight' : 'lab-dbar-highlight')
+      await expect(highlight).toBeVisible()
+      await highlight.click()
       await expect.poll(()=>sets.marks.list.length,{timeout:15000}).toBeGreaterThan(0)
       await page.screenshot({path:path.join(output,'native-highlight.png')})
+      if (process.env.PDF_REAL_PHONE === '1') {
+        // The phone bar consumes the first outside press to prevent click-through.
+        await page.keyboard.press('Escape')
+        await expect(page.getByTestId('lab-phone-bar')).toHaveCount(0)
+      }
       await page.getByTestId('lab-super').click()
       await page.getByText('Summarize', {exact:true}).click()
       await expect(page.getByText('A grounded local fixture answer.',{exact:false})).toBeVisible({timeout:45000})
