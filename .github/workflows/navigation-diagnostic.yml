@@ -21,6 +21,18 @@ jobs:
         with:
           build: 'false'
           browsers: 'chromium webkit'
+      - name: Diagnose held-edition response bodies
+        if: matrix.runner == 1
+        working-directory: app
+        env:
+          EXPECTED_BUILD_SHA: ${{ github.sha }}
+        run: |
+          mkdir -p artifacts/sign-in
+          node scripts/check-edition-holds-production.cjs > artifacts/sign-in/held-assets.log 2>&1 || {
+            cat artifacts/sign-in/held-assets.log
+            exit 1
+          }
+          cat artifacts/sign-in/held-assets.log
       - name: Diagnose live navigation with synthetic sign-in state
         working-directory: app
         env:
