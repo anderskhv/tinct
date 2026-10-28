@@ -101,7 +101,14 @@ async function inspect(page, scenario) {
   return state
 }
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
+  // Opt-in transport evidence for startup failures on hosted runners. Keep
+  // Chromium's default privacy stripping; never capture raw bytes or cookies.
+  // This adds logging only, not retries, protocol overrides, or longer waits.
+  const args = engine === 'chromium' ? ['--mute-audio'] : []
+  if (engine === 'chromium' && process.env.SHAKESPEARE_NETLOG === '1') {
+    args.push(`--log-net-log=${path.resolve(output, 'chromium-netlog.json')}`, '--net-log-max-size-mb=50')
+  }
+  const browser = await markInternal(await browserType.launch({ headless: true, args }))
   try {
     const scenarios = []
     for (const width of [320, 390]) for (const layout of ['verse', 'flowing']) for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ width, layout, size, alignment, explicit: true, phone: true, book: 'macbeth', chapter: 1, paragraph: 0 })
