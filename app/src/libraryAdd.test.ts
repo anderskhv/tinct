@@ -24,6 +24,24 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals(); session.current = null })
 
 describe('canAdd (adding books is Premium or the trial)', () => {
+  it('bounds a stalled access request without inventing an entitlement', async () => {
+    vi.useFakeTimers()
+    try {
+      session.current = { access_token: 'tok' }
+      const { canAdd } = await import('./libraryAdd')
+      let signal: AbortSignal | undefined
+      const stalled = vi.fn((_url: unknown, init?: RequestInit) => {
+        signal = init?.signal as AbortSignal | undefined
+        return new Promise<Response>((_resolve, reject) => signal?.addEventListener('abort', () => reject(new Error('aborted'))))
+      })
+      let settled = false
+      const result = canAdd(stalled as typeof fetch).then(value => { settled = true; return value })
+      await vi.advanceTimersByTimeAsync(15_000)
+      expect(settled).toBe(true)
+      expect(await result).toBeNull()
+      expect(signal?.aborted).toBe(true)
+    } finally { vi.useRealTimers() }
+  })
   it('denies only a confirmed free entitlement, not a cold or expired session', async () => {
     const { canAdd } = await import('./libraryAdd')
     const never = vi.fn()
