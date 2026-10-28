@@ -6056,7 +6056,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
         {sharedReader && sharedCardSaveError && <p role="status">
-          {ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.{' '}
+          {ask.cardAccountSaved
+            ? 'This answer is saved to your account, but could not be saved on this device.'
+            : <>{ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.</>}{' '}
           <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button>{' '}
           <button type="button" onClick={() => { void navigator.clipboard?.writeText(`Tinct answer save: ${ask.cardSaveFailure || 'unknown'}`).then(() => setSaveDetailsCopied(true), () => setSaveDetailsCopied(false)) }}>{saveDetailsCopied ? 'Save details copied' : 'Copy save details'}</button>
         </p>}

@@ -58,6 +58,7 @@ import {
   labChatHistoryKey,
   createLabChatHistoryCloud,
   mergeChatConversations,
+  sameChatConversations,
   migrateLegacyLabChatHistoryCloud,
   migrateLegacyLabChatHistoryLocal,
   readLabBookChat,
@@ -202,8 +203,12 @@ export function useLabAsk(options: UseLabAskOptions) {
     dumpLabTalkTurns(hydrated)
   }
   const [cardSaveFailure, setCardSaveFailure] = useState<CardSaveFailure | null>(null)
+  const [cardAccountSaved, setCardAccountSaved] = useState(false)
+  const failedCardHistoryRef = useRef<{ bookId: string; viewerId: string | null; conversations: ChatConversation[] } | null>(null)
   const failCardSave = useCallback((reason: CardSaveFailure) => {
     setCardSaveFailure(reason)
+    setCardAccountSaved(false)
+    failedCardHistoryRef.current = null
     console.warn('Card save failed:', reason)
     return false
   }, [])
@@ -356,7 +361,18 @@ export function useLabAsk(options: UseLabAskOptions) {
   const cloudWriter = useMemo(() => {
     if (!viewerId || privateBook) return null
     const cloud = createLabChatHistoryCloud(viewerId)
-    return cloud ? createLabChatCloudWriter(cloud, undefined, { coalesceMs: LAB_CHAT_COMMIT_COALESCE_MS }) : null
+    if (!cloud) return null
+    const writer = createLabChatCloudWriter(cloud, undefined, {
+      coalesceMs: LAB_CHAT_COMMIT_COALESCE_MS,
+      onCloudHolds: (bookId, conversations) => {
+        const failed = failedCardHistoryRef.current
+        if (cloudWriterRef.current !== writer || viewerRef.current !== viewerId || chatBookIdRef.current !== bookId
+          || failed?.bookId !== bookId || failed.viewerId !== viewerId) return
+        // A queued request or a different/older answer is not proof of backup.
+        if (sameChatConversations(mergeChatConversations(conversations, failed.conversations), conversations)) setCardAccountSaved(true)
+      },
+    })
+    return writer
   }, [viewerId, privateBook])
   const cloudWriterRef = useRef(cloudWriter)
   cloudWriterRef.current = cloudWriter
@@ -433,6 +449,8 @@ export function useLabAsk(options: UseLabAskOptions) {
     // writer immediately. Neither memory nor a queued write proves it is saved.
     // saveCard's caller owns the contextual failure notice; delete/undo keep
     // their prior state on failure and use the hook notice above.
+    failedCardHistoryRef.current = saved ? null : { bookId, viewerId: viewerRef.current, conversations: next }
+    setCardAccountSaved(false)
     conversationsRef.current = next
     loadedForBookRef.current = bookId
     setConversations(next)
@@ -1297,6 +1315,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     conversations,
     saveCard,
     cardSaveFailure,
+    cardAccountSaved: cardAccountSaved && failedCardHistoryRef.current?.viewerId === viewerId && failedCardHistoryRef.current?.bookId === chatBookId,
     revealConversation,
     deleteCard,
     historyStatus,
