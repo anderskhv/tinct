@@ -1,16 +1,29 @@
+import { loadChapterText } from '../readingMemory/chapterText'
+import { resolveBookPrimerPassage } from './passage'
 import { createRoot } from 'react-dom/client'
 import { PrimerContentView } from './PrimerContentView'
 import { fetchChapterNotes } from '../lab/labChapterNotes'
 
 /** Mount the reader's exact book content in the catalogue paper, without moving its place. */
-export function mountCataloguePrimer(target: HTMLElement, book: { id: string; editionKey: string; language: string }, readToken: () => Promise<string | null>) {
+export function mountCataloguePrimer(target: HTMLElement, book: { id: string; editionKey: string; language: string }, readToken: () => Promise<string | null>, navigate: (url: string) => void = url => window.location.assign(url)) {
   const root = createRoot(target)
   let disposed = false
+  let navigation = 0
+  const openPassage = async (passageId: string, text: string) => {
+    const serial = ++navigation
+    const request = { bookId: book.id, editionKey: book.editionKey, chapterNumber: 1 }
+    const place = await resolveBookPrimerPassage(request, { passageId, text }, chapterNumber => loadChapterText({ ...request, chapterNumber, version: __BUILD_VERSION__ }), () => !disposed && serial === navigation)
+    if (!place) return
+    // Explicit source URLs use the reader’s existing deep-link path. A disclosure
+    // never creates a handoff or writes a saved position.
+    const query = new URLSearchParams({ book: book.id, edition: book.editionKey, chapter: String(place.chapterNumber), paragraph: String(place.paragraphIndex), word: String(place.wordIndex) })
+    navigate(`/reader?${query}`)
+  }
   const load = async () => {
     root.render(<p role="status">Preparing your book primer…</p>)
     const result = await fetchChapterNotes({ bookId: book.id, editionKey: book.editionKey, chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book', language: book.language }, { readToken })
     if (disposed) return
-    if (result.ok && result.primer) root.render(<PrimerContentView primer={result.primer} />)
+    if (result.ok && result.primer) root.render(<PrimerContentView primer={result.primer} onPassage={(id, quote) => void openPassage(id, quote)} />)
     else {
       const unavailable = !result.ok && result.sourceUnavailable
       const message = unavailable ? 'A primer for the complete book is not available for this edition. You can still begin reading.'
