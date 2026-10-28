@@ -1,4 +1,4 @@
-import { primerPassageIndex } from '../bookPrimers/passage'
+import { primerPassageIndex, resolveBookPrimerPassage } from '../bookPrimers/passage'
 import { readingChatTurns, readingChatFocusTurn } from './readingChatTurns'
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { ReaderNotebookIcon } from './ReaderNotebookIcon'
@@ -5345,14 +5345,37 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     })
   }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs, allBookEditions, userBook, userBookOwner])
 
-  const openPrimerPassage = useCallback((request: ChapterNotesRequest, passageId: string, text: string) => {
+  const primerNavigationState = useRef('')
+  primerNavigationState.current = JSON.stringify([book.bookId || 'bible', readerEditionKey, book.chapterNumber, userBookOwner, userBook?.hex, chapterNotes?.request, desktopOpenId, initialResolving, temporaryHold])
+  const primerNavigationSerial = useRef(0)
+  useEffect(() => () => { primerNavigationSerial.current += 1 }, [userBook, chapterNotes, desktopOpenId, readerEditionKey, book.bookId])
+  const openPrimerPassage = useCallback(async (request: ChapterNotesRequest, passageId: string, text: string) => {
     if (initialResolving || book.chaptersProvisional || temporaryHold) return
+    if (request.bookId !== (book.bookId || 'bible') || request.editionKey !== readerEditionKey) return
+    if (request.primerType === 'book') {
+      const serial = ++primerNavigationSerial.current
+      const state = primerNavigationState.current
+      const navigation = chapterNavigationRef.current
+      const origin = { ...placeRef.current }
+      const place = await resolveBookPrimerPassage(request, { passageId, text }, async chapterNumber => {
+        if (!book.chapters.some(chapter => chapter.number === chapterNumber)) return null
+        if (privateBook) return userBook && userBook.kind !== 'pdf' && userBookOwner
+          ? userBook.edition.chapters.find(chapter => chapter.number === chapterNumber) || null : null
+        return loadChapterText({ bookId: request.bookId, editionKey: request.editionKey, chapterNumber, version: __BUILD_VERSION__ })
+      }, () => serial === primerNavigationSerial.current && state === primerNavigationState.current
+        && navigation === chapterNavigationRef.current && origin.paragraphIndex === placeRef.current.paragraphIndex && origin.wordIndex === placeRef.current.wordIndex)
+      if (!place) return
+      setChapterNotes(null)
+      setDesktopOpenId(null)
+      openContentsPassage(place)
+      return
+    }
     const index = primerPassageIndex(request, { bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: book.chapterNumber, paragraphs: readerParagraphs }, { passageId, text })
     if (index === null) return
     setChapterNotes(null)
     setDesktopOpenId(null)
     goToParagraph(index)
-  }, [initialResolving, book.bookId, book.chapterNumber, book.chaptersProvisional, readerEditionKey, readerParagraphs, temporaryHold, goToParagraph])
+  }, [initialResolving, book.bookId, book.chapterNumber, book.chapters, book.chaptersProvisional, readerEditionKey, readerParagraphs, temporaryHold, goToParagraph, openContentsPassage, privateBook, userBook, userBookOwner])
 
   // Chat and Talk carry the card into the conversation the reader chose.
   const continueChapterNotes = useCallback((mode: 'chat' | 'talk', title: string, beats: ChapterNotesBeat[] | null) => {
@@ -6188,7 +6211,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     desktopMarginEntries.push({ id, label: notes.request.primerType === 'book' ? 'Book primer' : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
-      content: <LabChapterNotesSheet embedded request={notes.request} onPassage={notes.request.primerType === 'book' ? undefined : (id, quote) => openPrimerPassage(notes.request, id, quote)} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
+      content: <LabChapterNotesSheet embedded request={notes.request} onPassage={(id, quote) => void openPrimerPassage(notes.request, id, quote)} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
         onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
         follow={beats => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
   }
@@ -6578,7 +6601,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <LabChapterNotesSheet
           key={JSON.stringify(chapterNotes.request)}
           request={chapterNotes.request}
-          onPassage={chapterNotes.request.primerType === 'book' ? undefined : (id, quote) => openPrimerPassage(chapterNotes.request, id, quote)}
+          onPassage={(id, quote) => void openPrimerPassage(chapterNotes.request, id, quote)}
           own={chapterNotes.own}
           title={chapterNotes.title}
           onClose={() => setChapterNotes(null)}

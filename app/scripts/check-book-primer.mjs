@@ -8,6 +8,8 @@ const dist = path.resolve('dist'), output = '/tmp/tinct-book-primer-browser'
 await fs.mkdir(output, { recursive: true })
 const chapter = JSON.parse(await fs.readFile(path.join(dist, 'data/editions-chapters/frankenstein-original-en/ch0002.json'), 'utf8'))
 const quote = chapter.paragraphs[3].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90)
+const bookChapter = JSON.parse(await fs.readFile(path.join(dist, 'data/editions-chapters/frankenstein-original-en/ch0001.json'), 'utf8'))
+const bookQuote = bookChapter.paragraphs[3].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90)
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://127.0.0.1'), file = path.resolve(dist, '.' + (url.pathname === '/reader' ? '/app.html' : url.pathname === '/library' ? '/lab/library_2/index.html' : url.pathname))
   if (!file.startsWith(dist + path.sep)) { res.writeHead(403); res.end(); return }
@@ -30,7 +32,7 @@ try {
             const request = route.request().postDataJSON(); requests.push(request)
             return route.fulfill({ json: { primer: {
               identity: { scope: { kind: 'public' }, workId: request.bookId, editionId: request.editionKey, sourceVersion: 'synthetic-source-v1', unitId: request.primerType === 'book' ? null : `chapter-${request.chapterNumber}`, type: request.primerType || 'chapter', language: 'en' },
-              content: { opening: 'A letter makes distance tangible, placing the reader beside its writer before the journey begins.', structure: [{ title: 'The address', explanation: 'Notice how the writer addresses the recipient.', quotes: [{ text: quote, passageId: 'chapter-2:paragraph-3' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Distance', explanation: 'Follow the language of distance.' }], usefulReferences: [] },
+              content: { opening: 'A letter makes distance tangible, placing the reader beside its writer before the journey begins.', structure: [{ title: 'The address', explanation: 'Notice how the writer addresses the recipient.', quotes: [{ text: request.primerType === 'book' ? bookQuote : quote, passageId: request.primerType === 'book' ? 'chapter-1:paragraph-3' : 'chapter-2:paragraph-3' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Distance', explanation: 'Follow the language of distance.' }], usefulReferences: [] },
               resources: [], origin: 'generated', promptVersion: 'book-primer-1', createdAt: '2026-10-28T00:00:00Z' } } })
           }
           if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
@@ -63,6 +65,11 @@ try {
           assert.equal(afterBookPrimer.paragraphIndex, beforeBookPrimer.paragraphIndex)
           assert.equal(new URL(page.url()).pathname, '/reader')
           await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-book.png` })
+          const bookPrimer = page.locator('.book-primer-content:visible').first()
+          await bookPrimer.locator('summary').filter({ hasText: /^Structure$/ }).click()
+          await bookPrimer.locator('summary').filter({ hasText: /^The address$/ }).click()
+          await bookPrimer.getByRole('button', { name: 'Read passage' }).click()
+          await page.waitForFunction(() => { const place = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.frankenstein; return place?.paragraphIndex === 3 && place?.sequentialChapter === 1 }, null, { timeout: 15000 })
           await page.goto(`${origin}/library?book=frankenstein&edition=original-en&view=book-detail`)
           await page.locator('#book-overlay:not([hidden])').waitFor({ timeout: 30000 })
           if (phone) await page.locator('#slip-next').click()
@@ -74,14 +81,14 @@ try {
           assert.equal(requests.at(-1).editionKey, 'original-en')
           await opening.locator('summary').filter({ hasText: /^Structure$/ }).click()
           await opening.locator('summary').filter({ hasText: /^The address$/ }).click()
-          assert.equal(await opening.getByText(quote, { exact: true }).count(), 1)
+          assert.equal(await opening.getByText(bookQuote, { exact: true }).count(), 1)
           assert.equal(await opening.evaluate(el => el.scrollWidth > el.clientWidth + 1), false)
           await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-opening.png` })
           await page.locator('#begin-reading').click()
           await page.waitForURL('**/reader')
           await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
           const resumed = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.frankenstein)
-          assert.equal(resumed.sequentialChapter, beforeBookPrimer.sequentialChapter)
+          assert.equal(resumed.sequentialChapter, 1)
           assert.equal(resumed.paragraphIndex, beforeBookPrimer.paragraphIndex)
           assert.deepEqual(errors, [])
           console.log(`${engine} ${phone ? 'phone' : 'margin'}: chapter disclosures, quote navigation, and book primer preserving place PASS`)

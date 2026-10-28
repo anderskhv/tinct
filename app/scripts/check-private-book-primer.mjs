@@ -43,7 +43,7 @@ try {
      const body=route.request().postDataJSON(), structured=body.companion?.chapter?.structuredPrimer
      assert.ok(structured); requests.push(body)
      assert.equal(JSON.stringify(body).includes(owner),false);assert.equal(JSON.stringify(body).includes(hex),false)
-     const passage=structured.passages[0]
+     const passage=structured.type==='book'?structured.passages.find(p=>p.id.startsWith('chapter-2:')):structured.passages[0]
      return route.fulfill({json:{content:[{type:'text',text:JSON.stringify({opening:'A private letter brings its writer and reader into a conversation.',structure:[{title:'Letters',explanation:'Follow the changing address.',quotes:[{text:passage.text,passageId:passage.id}]}],peopleAndIdeas:[],helpfulContext:[],whatToNotice:[],usefulReferences:[]})}],stop_reason:'end_turn'}})
     }
     if(url.pathname.startsWith('/api/'))return route.fulfill({status:404,json:{}})
@@ -84,6 +84,13 @@ try {
     await page.screenshot({path:`${output}/${engine}-${phone?'phone':'margin'}.png`})
     await page.reload();await ready();await openBook()
     assert.equal(requests.length,2,'whole-book cache survives reload')
+    await primer.locator('summary').filter({hasText:/^Structure$/}).click()
+    await primer.locator('summary').filter({hasText:/^Letters$/}).click()
+    await primer.getByRole('button',{name:'Read passage'}).click()
+    await page.waitForFunction(hex=>{const p=JSON.parse(localStorage.getItem('tinct-addbook:place:'+hex)||'null');return p?.chapterNumber===2&&p?.paragraphIndex===0},hex,{timeout:15000})
+    await page.reload();await ready()
+    assert.equal(await page.evaluate(hex=>JSON.parse(localStorage.getItem('tinct-addbook:place:'+hex)||'null')?.chapterNumber,hex),2)
+
     assert.deepEqual(errors,[])
     console.log(`${engine} ${phone?'phone':'margin'}: private chapter/book, complete source and durable cache PASS`)
    }catch(error){await page.screenshot({path:`${output}/${engine}-${phone?'phone':'margin'}-failure.png`});console.error(errors);throw error}finally{await context.close()}

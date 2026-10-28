@@ -11,3 +11,23 @@ export function primerPassageIndex(request: ReaderSource, current: ReaderSource 
   const text = current.paragraphs[index].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
   return text.includes(quote.text) ? index : null
 }
+
+/** Validate a whole-book quote against its exact destination before navigation. */
+export async function resolveBookPrimerPassage(
+  request: ReaderSource,
+  quote: PrimerQuote,
+  load: (chapterNumber: number) => Promise<{ paragraphs: readonly string[] } | null>,
+  isCurrent: () => boolean,
+): Promise<{ chapterNumber: number; paragraphIndex: number; wordIndex: number } | null> {
+  const match = /^chapter-(\d+):paragraph-(\d+)$/.exec(quote.passageId)
+  if (!match || !isCurrent()) return null
+  const chapterNumber = Number(match[1])
+  if (!Number.isSafeInteger(chapterNumber) || chapterNumber < 1) return null
+  try {
+    const chapter = await load(chapterNumber)
+    if (!chapter || !isCurrent()) return null
+    const destination = { ...request, chapterNumber }
+    const paragraphIndex = primerPassageIndex(destination, { ...destination, paragraphs: chapter.paragraphs }, quote)
+    return paragraphIndex === null ? null : { chapterNumber, paragraphIndex, wordIndex: 0 }
+  } catch { return null }
+}
