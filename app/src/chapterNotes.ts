@@ -39,6 +39,7 @@ export interface ChapterNotesRequest {
   bookTitle?: string
   /** Structured source-grounded chapter primer; legacy notes retain their format. */
   format?: 'structured-primer'
+  language?: string
 }
 
 export interface ChapterNotesResponse {

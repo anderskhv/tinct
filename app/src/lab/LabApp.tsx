@@ -5338,12 +5338,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       title,
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
-        ...(!privateBook && kind === 'primer' ? { format: 'structured-primer' as const } : {}),
+        ...(!privateBook && kind === 'primer' ? { format: 'structured-primer' as const, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } : {}),
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
       ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs } } : {}),
     })
-  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs])
+  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs, allBookEditions])
 
   const openPrimerPassage = useCallback((request: ChapterNotesRequest, passageId: string, text: string) => {
     if (initialResolving || book.chaptersProvisional || temporaryHold) return

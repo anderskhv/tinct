@@ -141,6 +141,7 @@ export interface ParsedChapterNotesRequest {
   paragraphIndex: number
   bookTitle: string | null
   format?: 'structured-primer'
+  language?: string
 }
 
 export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesRequest | null {
@@ -151,13 +152,15 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
   const kind = value.kind
   if (kind !== 'sofar' && kind !== 'end' && kind !== 'primer') return null
   if (value.format !== undefined && (value.format !== 'structured-primer' || kind !== 'primer')) return null
+  const language = value.language === undefined ? 'en' : value.language
+  if (value.format === 'structured-primer' && (typeof language !== 'string' || !/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8}){0,2}$/.test(language))) return null
   const paragraph = value.paragraphIndex
   const paragraphIndex = kind === 'sofar'
     ? (typeof paragraph === 'number' && Number.isInteger(paragraph) && paragraph >= 0 && paragraph <= MAX_PARAGRAPH_INDEX ? paragraph : -1)
     : 0
   if (paragraphIndex < 0) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(value.format === 'structured-primer' ? { format: 'structured-primer' as const } : {}) }
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(value.format === 'structured-primer' ? { format: 'structured-primer' as const, language: language as string } : {}) }
 }
 
 function cleanParagraph(text: string): string {
@@ -246,7 +249,7 @@ export async function handleLabChapterNotes(
     const sourceVersion = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
     primerSource = {
       identity: { scope: { kind: 'public' }, workId: parsed.bookId, editionId: parsed.editionKey,
-        sourceVersion, unitId: `chapter-${chapter.number}`, type: 'chapter', language: 'en' },
+        sourceVersion, unitId: `chapter-${chapter.number}`, type: 'chapter', language: parsed.language || 'en' },
       title: parsed.bookTitle || parsed.bookId, unitLabel: chapter.title, reliable: true, passages,
       units: [{ id: `chapter-${chapter.number}`, label: chapter.title }],
     }

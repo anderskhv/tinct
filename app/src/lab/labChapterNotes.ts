@@ -60,7 +60,7 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
     const raw = await response.json()
     if (request.format === 'structured-primer') {
       const primer = (raw as { primer?: SavedPrimer })?.primer
-      if (!primer || primer.identity.scope.kind !== 'public' || primer.identity.workId !== request.bookId || primer.identity.editionId !== request.editionKey || primer.identity.unitId !== `chapter-${request.chapterNumber}` || primer.identity.type !== 'chapter') return { ok: false, status: 502 }
+      if (!primer || primer.identity.scope.kind !== 'public' || primer.identity.workId !== request.bookId || primer.identity.editionId !== request.editionKey || primer.identity.unitId !== `chapter-${request.chapterNumber}` || primer.identity.type !== 'chapter' || primer.identity.language !== (request.language || 'en')) return { ok: false, status: 502 }
       primerKey(primer.identity)
       // Exact quotes were checked against server-owned source before this response.
       const topics = [primer.content.structure, primer.content.peopleAndIdeas, primer.content.helpfulContext, primer.content.whatToNotice, primer.content.usefulReferences].flat()
