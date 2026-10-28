@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/meditations-original-en.json",
     "fileSha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
-    "reviewScope": "Books 1–9 read in full; all twelve unit labels checked. Outside context checked against the attributed scholarly essays. Books 10–12 remain unread for this semantic review; whole-book acceptance remains incomplete."
+    "reviewScope": "All twelve books read in full for AI semantic self-review. Unit labels, source identity, and quoted passages checked against this edition; outside context checked against attributed scholarly essays. This is not independent editorial approval or an audit of the edition’s historical attributions or translation."
   },
   "primer": {
     "identity": {
@@ -19,7 +19,7 @@
       "language": "en"
     },
     "content": {
-      "opening": "Marcus begins by naming what he has learned from other people: restraint, generosity, careful reading, and ways of living with difficult companions. These examples make character something practised in ordinary encounters. You can begin with one entry and ask what action it describes. The twelve books offer many occasions to return to that question, without requiring you to settle every philosophical claim before reading on.",
+      "opening": "Marcus begins with what he has learned from other people, then repeatedly asks how to act justly amid distraction, disappointment, and change. These notes move between ordinary encounters and the place of a short human life in a larger universe. Begin with one entry and ask what it is trying to make possible. You can follow the practical question while testing the beliefs behind it, including claims that may feel severe or difficult to accept.",
       "structure": [
         {
           "title": "Twelve books, numbered entries",
@@ -33,7 +33,7 @@
         },
         {
           "title": "A person with public duties",
-          "explanation": "Marcus addresses himself as a ruler and a member of a community. His demands for self-command sit beside demands to act for a common interest. Follow how these obligations shape what he asks of himself; the advice is addressed to a person with responsibilities toward others."
+          "explanation": "Marcus addresses himself as a ruler and a member of a community. He calls for common interests and kinship, yet also pictures himself as a leader over others. Notice how responsibility and authority shape his advice, and whether a claim of shared reason sits comfortably with the hierarchy he assumes."
         }
       ],
       "helpfulContext": [
@@ -65,18 +65,13 @@
       "whatToNotice": [
         {
           "title": "Careful attention",
-          "explanation": "Marcus thanks Rusticus for teaching him to resist a superficial reading. This is a useful standard for approaching these compact entries: slow down where a familiar virtue turns into a demanding practice.",
+          "explanation": "Marcus thanks Rusticus for teaching him to resist superficial reading. Slow down where a familiar virtue becomes a demanding practice. Ask what the entry actually claims, what supports it, and whether the example establishes as much as Marcus asks it to.",
           "quotes": [
             {
               "text": "to read carefully, and not to be satisfied with a superficial understanding of a book",
               "passageId": "chapter-1:paragraph-6"
             }
           ]
-        },
-        {
-          "title": "Reading a moral example",
-          "explanation": "An example shows a quality in action: correcting someone without humiliating them, accepting criticism, or listening carefully. Separate the action described from the larger claim that a person embodies an ideal.",
-          "takeaway": "Look for something someone actually does."
         },
         {
           "title": "Self-command and cooperation",
@@ -102,6 +97,11 @@
           "title": "Changing the scale",
           "explanation": "Marcus repeatedly sets a present concern beside a long stretch of time, a changing world, or a life approaching its end. Notice what each comparison does to the concern. Does it clarify what action matters now, or does its dismissal of ordinary attachments leave something to question?",
           "takeaway": "Ask what changes when the same concern is viewed from farther away."
+        },
+        {
+          "title": "Judging without knowing enough",
+          "explanation": "Marcus reminds himself that another person’s circumstances may be hidden from him. Set that caution beside the harsh labels and sweeping claims elsewhere in the notes. Notice when he examines a judgment, and when his own language seems to need the same examination.",
+          "takeaway": "Keep the practice of questioning a judgment available for the text itself."
         }
       ],
       "usefulReferences": []
@@ -215,7 +215,28 @@
         "chapter-9:paragraph-40"
       ],
       "verification": "Books 7–9 read in full in six untruncated batches. Borrowed passages identified from the edition’s explicit attributions; those attributions were not independently audited. Interpretive reading prompts do not endorse every ethical or physical claim."
+    },
+    {
+      "topics": [
+        "Opening",
+        "A person with public duties",
+        "Careful attention",
+        "Judging without knowing enough"
+      ],
+      "sourcePath": "app/public/data/editions/meditations-original-en.json",
+      "passageIds": [
+        "chapter-10:paragraph-3",
+        "chapter-10:paragraph-11",
+        "chapter-10:paragraph-15",
+        "chapter-10:paragraph-27",
+        "chapter-11:paragraph-8",
+        "chapter-11:paragraph-17",
+        "chapter-12:paragraph-13",
+        "chapter-12:paragraph-15",
+        "chapter-12:paragraph-19"
+      ],
+      "verification": "Read Books 10–12 in full in five untruncated batches, then reviewed the complete candidate. Broadened the opening beyond Book 1, consolidated overlapping reading advice, and retained tension between social concern, hierarchy, severe judgments, and epistemic caution. No historical attribution or translation audit claimed."
     }
   ],
-  "editorialRevision": "candidate-5-voices-and-scale"
+  "editorialRevision": "candidate-6-whole-book-self-review"
 }

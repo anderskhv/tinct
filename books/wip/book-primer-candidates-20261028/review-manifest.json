@@ -14,12 +14,12 @@
   "providerCalls": 0,
   "prefaceHandling": {
     "frankenstein": "Existing recovered_approved preface preserved unchanged; candidate uses an opening-unit approach rather than its later plot revelations. No signature or approval transferred.",
-    "meditations": "Existing draft preserved unchanged; candidate focuses on the opening examples.",
+    "meditations": "Existing draft preserved unchanged; staged candidate now reflects a full twelve-book AI reading. No human approval or signature transferred.",
     "bible": "Existing draft preserved unchanged; Romans 1 is a separate chapter candidate, not a replacement Bible preface."
   },
   "remaining": [
     "Human editorial review and any requested revision",
-    "Whole-book semantic review before accepting book candidates",
+    "Frankenstein whole-book semantic review remains; Meditations whole-book AI self-review is complete but independent editorial acceptance is not.",
     "More useful context topics only where source-checked and helpful; no filler quota",
     "Real-provider output quality remains unverified",
     "Runtime assets remain unchanged; publication requires later user instruction"
@@ -45,7 +45,7 @@
     },
     {
       "file": "meditations-original-en-book.json",
-      "openingWords": 65,
+      "openingWords": 75,
       "exactQuoteValidation": "pass",
       "sourceIdentity": "pass"
     },
@@ -122,13 +122,27 @@
         "paragraphs": 42,
         "words": 4252,
         "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 10,
+        "paragraphs": 38,
+        "words": 4537,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 11,
+        "paragraphs": 39,
+        "words": 3902,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 12,
+        "paragraphs": 36,
+        "words": 3131,
+        "status": "read in full in untruncated batches"
       }
     ],
-    "remainingUnits": [
-      10,
-      11,
-      12
-    ],
+    "remainingUnits": [],
     "findings": [
       {
         "finding": "Draft underrepresented the connection between self-command and social obligations.",
@@ -216,8 +230,37 @@
           "9:29"
         ],
         "action": "Added a reading prompt about changing scale, allowing readers to question as well as follow the comparisons."
+      },
+      {
+        "finding": "The initial opening privileged Book 1 after the rest of the work had been reviewed.",
+        "evidence": [
+          "10:15",
+          "11:4",
+          "12:13",
+          "12:19"
+        ],
+        "action": "Rewrote the opening to introduce justice, change, cosmic premises, and permission to question those premises; retained an accessible one-entry starting point."
+      },
+      {
+        "finding": "Social kinship coexists with authority and severe judgments. The primer should not turn the work into uniformly gentle modern advice.",
+        "evidence": [
+          "10:27",
+          "11:17",
+          "12:15"
+        ],
+        "action": "Qualified the public-duties topic and added a prompt contrasting caution about others’ circumstances with sweeping judgments."
+      },
+      {
+        "finding": "Reading-advice topics overlapped after successive additions.",
+        "evidence": [
+          "1:6",
+          "10:11",
+          "11:17"
+        ],
+        "action": "Merged the moral-example guidance into careful attention; retained five distinct What to notice topics and the existing three exact quotes."
       }
     ],
-    "acceptance": "incomplete"
+    "acceptance": "AI whole-book semantic self-review completed; candidate remains unapproved, without independent editorial acceptance.",
+    "readingCoverage": "All twelve books read in full across the recorded review passes."
   }
 }
