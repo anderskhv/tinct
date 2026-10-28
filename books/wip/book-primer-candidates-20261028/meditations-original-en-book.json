@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/meditations-original-en.json",
     "fileSha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
-    "reviewScope": "Selected opening unit read in full; book drafts describe the unit map and opening only. No claim of whole-book semantic review."
+    "reviewScope": "Opening unit read in full; unit map checked. Outside context checked against the two attributed scholarly essays in contextEvidence. Whole-book semantic review remains incomplete."
   },
   "primer": {
     "identity": {
@@ -34,10 +34,22 @@
       ],
       "helpfulContext": [
         {
-          "title": "Reading a moral example",
-          "explanation": "An example shows a quality in action: correcting someone without humiliating them, accepting criticism, or listening carefully. Separate the action described from the larger claim that a person embodies an ideal.",
-          "takeaway": "Look for something someone actually does.",
+          "title": "Writing to practise",
+          "explanation": "Scholars generally read these notes as reminders Marcus wrote for his own moral improvement. Repetition can serve rehearsal: an idea returns because putting it into practice takes work. The sequence is not a clearly arranged course, and it should not be assumed to follow the events of his life.",
+          "takeaway": "Read a repeated thought as another attempt to make it usable.",
           "depth": "essential"
+        },
+        {
+          "title": "What “indifferent” means",
+          "explanation": "In Stoic ethics, virtue alone makes a life good. Wealth or status cannot do that by themselves. Calling such things “indifferent” concerns their relation to happiness; the word should not automatically be read as a recommendation to neglect other people.",
+          "takeaway": "Distinguish moral worth from success or comfort.",
+          "depth": "recommended"
+        },
+        {
+          "title": "An impression and a judgment",
+          "explanation": "The Stoic training discussed by Epictetus includes examining what we accept as true. An impression can arrive with an added evaluation. Separating what appears to have happened from the judgment attached to it helps explain why Marcus repeatedly examines his own responses.",
+          "takeaway": "Notice where a description becomes an evaluation.",
+          "depth": "optional"
         }
       ],
       "whatToNotice": [
@@ -50,13 +62,63 @@
               "passageId": "chapter-1:paragraph-6"
             }
           ]
+        },
+        {
+          "title": "Reading a moral example",
+          "explanation": "An example shows a quality in action: correcting someone without humiliating them, accepting criticism, or listening carefully. Separate the action described from the larger claim that a person embodies an ideal.",
+          "takeaway": "Look for something someone actually does."
         }
       ],
       "usefulReferences": []
     },
-    "resources": [],
+    "resources": [
+      {
+        "title": "Marcus Aurelius",
+        "creator": "Rachana Kamtekar · Stanford Encyclopedia of Philosophy",
+        "format": "Scholarly encyclopedia essay",
+        "url": "https://plato.stanford.edu/entries/marcus-aurelius/",
+        "relevance": "Explains the notebook’s form and examines difficult questions about Stoic ethics. Useful when a compact reminder needs a fuller argument.",
+        "spoilerNote": "Discusses and quotes passages from across all twelve books. Optional background; it can wait until after a first reading.",
+        "verifiedAt": "2026-10-28T04:15:00Z"
+      },
+      {
+        "title": "Marcus Aurelius (121–180 C.E.)",
+        "creator": "John Sellars · Internet Encyclopedia of Philosophy",
+        "format": "Scholarly encyclopedia essay",
+        "url": "https://iep.utm.edu/marcus-aurelius/",
+        "relevance": "Introduces philosophical exercises and the influence of Epictetus, with a concise guide to the relevant ideas.",
+        "spoilerNote": "Uses examples from later books and offers an interpretation of the work as a whole. Optional further reading.",
+        "verifiedAt": "2026-10-28T04:15:00Z"
+      }
+    ],
     "origin": "generated",
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
-  }
+  },
+  "contextEvidence": [
+    {
+      "topics": [
+        "Writing to practise",
+        "What “indifferent” means"
+      ],
+      "url": "https://plato.stanford.edu/entries/marcus-aurelius/",
+      "sections": [
+        "Introduction",
+        "1.1 The Character of the Meditations"
+      ],
+      "verification": "Opened article and author attribution; substantive revision dated 31 March 2025."
+    },
+    {
+      "topics": [
+        "An impression and a judgment"
+      ],
+      "url": "https://iep.utm.edu/marcus-aurelius/",
+      "sections": [
+        "3.c The Three topoi",
+        "3.d Philosophical Exercises"
+      ],
+      "verification": "Opened article and author attribution; article identifies its original composition as 2002 and includes a later bibliographic note."
+    }
+  ],
+  "editorialRevision": "candidate-2-context"
 }

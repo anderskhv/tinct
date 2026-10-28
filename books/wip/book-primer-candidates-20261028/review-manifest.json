@@ -56,5 +56,16 @@
       "sourceIdentity": "pass"
     }
   ],
-  "validationLimit": "Structural validation, exact quotations, source hashes and opening lengths passed. AI self-review only; not independent or human editorial approval."
+  "validationLimit": "Structural validation, exact quotations, source hashes and opening lengths passed. AI self-review only; not independent or human editorial approval.",
+  "contextUpdate": {
+    "candidate": "meditations-original-en-book.json",
+    "revision": "candidate-2-context",
+    "changes": [
+      "Three source-checked outside-context topics; reading advice moved to What to notice",
+      "Two directly verified scholarly resources with author, relevance and later-book notice",
+      "Original source text, identities, quotations and opening unchanged"
+    ],
+    "approval": "Still unapproved AI-authored copy; no runtime integration",
+    "verificationScope": "Link content and attribution checked; no claimed duration, no whole-book semantic acceptance"
+  }
 }
