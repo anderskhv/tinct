@@ -492,7 +492,9 @@ function documentBlocks(source: string, base = '', v6 = false, v8 = false): Docu
     }
     // Earlier conversions keep their paragraph coordinates on every device.
     const wrapped = lines.some((line, index) => index > 0 && ((/\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
-      || (/,$/.test(lines[index - 1]) && opensOnName(line))))
+      || (/,$/.test(lines[index - 1]) && opensOnName(line))
+      // A title at the printed line end continues into the following name.
+      || (v8 && /\b(?:Mr|Mrs|Ms|Dr)\.$/.test(lines[index - 1]) && /^\p{Lu}/u.test(line))))
     if (wrapped) { emit(gathered); return }
     for (const run of runs) emit(run, true)
 

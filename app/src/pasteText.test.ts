@@ -20,6 +20,16 @@ describe('private pasted source', () => {
   expect(edition.chapters[0].kinds).toBeUndefined()
  })
 
+ it('joins a printed prose wrap after an honorific instead of treating it as verse', async () => {
+  const source = '"  I  may  thank  you,  Eliza,  for  this  piece  of  civility.  Mr. \nDarcy  would  never  have  come  so  soon  to  wait  upon  me."'
+  const file = pasteEpub({source, format: 'plain', title: 'Pride and Prejudice'})
+  const edition = await epubToEdition(await data(file))
+  expect(edition.chapters[0].paragraphs).toEqual([source.replace(/\s+/g, ' ')])
+  expect(edition.chapters[0].kinds).toBeUndefined()
+  const legacy = await epubToEdition(await data(file), {rules: 7})
+  expect(legacy.chapters[0].paragraphs).toHaveLength(2)
+ })
+
  it('keeps the indented refrain in O Captain as separate authored lines', async () => {
   const source = "O Captain! my Captain! our fearful trip is done,\nThe ship has weather'd every rack, the prize we sought is won,\nThe port is near, the bells I hear, the people all exulting,\nWhile follow eyes the steady keel, the vessel grim and daring;\n    But O heart! heart! heart!\n     O the bleeding drops of red,\n       Where on the deck my Captain lies,\n         Fallen cold and dead."
   const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Leaves of Grass'})))
