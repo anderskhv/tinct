@@ -424,7 +424,9 @@ export function LabAskPane({
       }
       const resizedClean = cleanOpenRef.current && (pinnedScrollTopRef.current !== null || nearBottomRef.current)
       if (resizedClean && spacerRef.current) spacerRef.current.style.height = `${current.clientHeight}px`
-      if (!desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(current)
+      // A newly opened desktop window also needs its blank writing space
+      // kept below history while the panel reaches its final size.
+      if (resizedClean || !desktopCompanion && (pinnedScrollTopRef.current !== null || nearBottomRef.current)) pinToBottom(current)
     })
     observer.observe(node)
     return () => observer.disconnect()
