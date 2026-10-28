@@ -65,7 +65,7 @@ function nothingToEat(): Uint8Array {
 
 describe('a document holding the printed contents and the text (rules 7)', () => {
   it('is the book, not a contents page: every section and its verse are kept', async () => {
-    const edition = await epubToEdition(nothingToEat(), { sourceTitles: true })
+    const edition = await epubToEdition(nothingToEat(), { sourceTitles: true, rules: 7 })
     expect(edition.converter).toBe(7)
     expect(edition.chapters.map(chapter => chapter.title)).toEqual(expect.arrayContaining(SECTIONS))
     const text = edition.chapters.flatMap(chapter => chapter.paragraphs).join('\n')
