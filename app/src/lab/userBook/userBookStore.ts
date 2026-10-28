@@ -1,3 +1,6 @@
+import { parseGeneratedPrimer } from '../../bookPrimers/parse'
+import type { SourcePassage } from '../../bookPrimers/model'
+import { primerKey, type SavedPrimer } from '../../bookPrimers/model'
 /**
  * A reader's own EPUB on this device: the file Add a book keeps in IndexedDB
  * (`tinct-addbook`, store `books`, record `epub:<hex>`, tagged with the
@@ -189,6 +192,47 @@ export async function readOwnedBookFileId(hex: string, owner: string): Promise<s
     if (record?.kind === type && typeof record.cloudId === 'string' && record.cloudId && userBookOwner() === owner) return record.cloudId
   }
   return null
+}
+
+/** Derived EPUB primers live with the owned file; no separate database or remote store. */
+export async function readOwnedPrimerCache(hex: string, owner: string): Promise<{ fileId: string | null; entries: SavedPrimer[] } | null> {
+  if (userBookOwner() !== owner) return null
+  const record = await readRecord('epub:' + hex, owner).catch(() => null)
+  if (record?.kind !== 'epub' || userBookOwner() !== owner) return null
+  return { fileId: typeof record.cloudId === 'string' ? record.cloudId : null,
+    entries: (record.generatedPrimerFileId ?? null) === (record.cloudId || null) && Array.isArray(record.generatedPrimers) ? record.generatedPrimers as SavedPrimer[] : [] }
+}
+
+/** Never recreate a deleted file or let a late answer cross owner/upload generations. */
+export async function keepOwnedPrimerCache(hex: string, owner: string, fileId: string | null, primer: SavedPrimer, passages?: readonly SourcePassage[]): Promise<void> {
+  if (userBookOwner() !== owner || primer.origin !== 'generated' || primer.identity.scope.kind !== 'private' || primer.identity.scope.ownerId !== owner || primer.identity.scope.uploadId !== hex) return
+  const key = primerKey(primer.identity)
+  const db = await openDb()
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(STORE, 'readwrite'), store = tx.objectStore(STORE)
+      const request = store.get('epub:' + hex)
+      request.onsuccess = () => {
+        const record = request.result as UserBookRecord | undefined
+        if (userBookOwner() !== owner || record?.kind !== 'epub' || record.owner !== owner || (record.cloudId || null) !== fileId) return
+        let entries = (record.generatedPrimerFileId ?? null) === fileId && Array.isArray(record.generatedPrimers) ? record.generatedPrimers as SavedPrimer[] : []
+        entries = entries.filter(entry => {
+          try {
+            if (primerKey(entry.identity) !== key || entry.origin !== 'generated') return true
+            if (entry.promptVersion !== primer.promptVersion) return false
+            if (passages) parseGeneratedPrimer(JSON.stringify(entry.content), passages)
+            return true
+          } catch { return false }
+        })
+        // Valid existing results and human copy always win.
+        if (entries.some(entry => { try { return primerKey(entry.identity) === key } catch { return false } })) return
+        store.put({ ...record, generatedPrimerFileId: fileId, generatedPrimers: [...entries.filter(entry => entry.origin !== 'generated'), ...entries.filter(entry => entry.origin === 'generated').slice(-19), primer] })
+      }
+      tx.oncomplete = () => resolve()
+      tx.onerror = () => reject(tx.error)
+      tx.onabort = () => reject(tx.error)
+    })
+  } finally { db.close() }
 }
 
 /** The existing PDF scan's verified heading provenance for Original-page navigation. */

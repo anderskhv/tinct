@@ -106,6 +106,7 @@ describe('structured private EPUB chapter primers', () => {
     expect(parseCompanionRequest({ ...(body.companion as object), context: { ...(body.companion as any).context, kind: 'pdf' } })).toBeNull()
   })
   it('returns an owner/upload/source-qualified primer and rejects invented quotes', async () => {
+    vi.spyOn(await import('./userBookStore'), 'userBookOwner').mockReturnValue('owner-secret')
     const good = await fetchOwnChapterNotes('primer', privateSource, { fetchImpl: async () => answer(JSON.stringify(content)) })
     expect(good).toMatchObject({ ok: true, primer: { identity: { scope: { kind: 'private', ownerId: 'owner-secret', uploadId: 'upload-secret' }, unitId: 'chapter-3', language: 'en' }, content } })
     if (good.ok) expect(good.primer?.identity.sourceVersion).toMatch(/^[0-9a-f]{64}$/)

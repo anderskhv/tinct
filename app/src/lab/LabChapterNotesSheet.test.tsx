@@ -151,6 +151,7 @@ describe("LabChapterNotesSheet on a reader's own book (One Tinct, 22 Oct 2026)",
   })
 
   it('renders a private structured primer without reusing or replacing legacy cached beats', async () => {
+    vi.spyOn(await import('./userBook/userBookStore'), 'userBookOwner').mockReturnValue('owner')
     const { webcrypto } = await import('node:crypto')
     vi.stubGlobal('crypto', webcrypto)
     const request: ChapterNotesRequest = { ...ownRequest, kind: 'primer', format: 'structured-primer', language: 'en' }

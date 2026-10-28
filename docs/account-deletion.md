@@ -224,3 +224,13 @@ Uploaded-book shelf visibility uses the existing owner-only `user_data` keys
 `library-shelf:userbook-<opaque-id>` (choice and action time, no title or text).
 These are included in the full `user_data` export and cascade on account deletion.
 Hiding a book does not delete its private file, reading place, notes or highlights.
+
+Private EPUB generated-primer caches are device-only derived data in the existing
+`tinct-addbook` / `books` EPUB record (`generatedPrimers`, at most 20 generated
+entries; `generatedPrimerFileId` binds them to the upload generation). They are
+not sent to a new account store and therefore are not present in the server's
+account export. The reader can copy their displayed primer with the existing
+chapter-note copy action. Removing the local book removes the cache with its
+record; signing out deletes the entire existing database. Account deletion's
+existing device-data follow-up above applies. These are regenerable caches,
+not the sole copy of manually authored editorial content.

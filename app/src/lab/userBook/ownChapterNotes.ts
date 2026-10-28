@@ -1,3 +1,5 @@
+import { readOwnedPrimerCache, keepOwnedPrimerCache, userBookOwner } from './userBookStore'
+import type { SavedPrimer } from '../../bookPrimers/model'
 import { parseGeneratedPrimer } from '../../bookPrimers/parse'
 import { BOOK_PRIMER_PROMPT_VERSION, primerKey, type PrimerIdentity } from '../../bookPrimers/model'
 /**
@@ -124,6 +126,13 @@ export function recapBeats(text: string): ChapterNotesBeat[] | null {
   ] })
 }
 
+function structuredResult(primer: SavedPrimer): ChapterNotesResult {
+  const { content } = primer
+  const topics = [content.structure, content.whatToNotice, content.usefulReferences].flat()
+  const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
+  return { ok: true, beats, primer }
+}
+
 type FetchLike = (url: string, init: RequestInit) => Promise<Response>
 
 /** Primer or Recap for an own book's chapter, made from this device's text. Never throws. */
@@ -133,7 +142,24 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
   try {
     // Validate the entire source before obtaining credentials or sending any text.
     const body = ownChapterNotesBody(kind, source)
+    const passages = ownPrimerPassages(source)
+    let identity: PrimerIdentity | undefined
+    let cache: Awaited<ReturnType<typeof readOwnedPrimerCache>> = null
+    if (kind === 'primer' && source.structured) {
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify({ title: source.chapterTitle, passages })))
+      identity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: `chapter-${source.chapterNumber}`, type: 'chapter' }
+      primerKey(identity)
+      cache = await readOwnedPrimerCache(source.structured.uploadId, source.structured.ownerId).catch(() => null)
+      for (const entry of cache?.entries ?? []) {
+        try {
+          if (primerKey(entry.identity) !== primerKey(identity) || entry.promptVersion !== BOOK_PRIMER_PROMPT_VERSION) continue
+          const content = parseGeneratedPrimer(JSON.stringify(entry.content), passages)
+          return structuredResult({ ...entry, content, resources: [] })
+        } catch { /* unreadable or stale derived cache: generate from current source */ }
+      }
+    }
     const token = options.readToken ? await options.readToken().catch(() => null) : null
+    if (source.structured && userBookOwner() !== source.structured.ownerId) return { ok: false, status: 0 }
     const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
     if (token) headers.Authorization = `Bearer ${token}`
     const response = await fetchImpl(apiUrl(token ? '/api/chat' : '/api/lab-chat'), { method: 'POST', headers, body: JSON.stringify(body) })
@@ -146,12 +172,10 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
     if (kind === 'primer' && source.structured) {
       const passages = ownPrimerPassages(source)
       const content = parseGeneratedPrimer(text, passages)
-      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify({ title: source.chapterTitle, passages })))
-      const identity: PrimerIdentity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: `chapter-${source.chapterNumber}`, type: 'chapter' }
-      primerKey(identity)
-      const topics = [content.structure, content.whatToNotice, content.usefulReferences].flat()
-      const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
-      return { ok: true, beats, primer: { identity, content, resources: [], origin: 'generated', createdAt: new Date().toISOString(), promptVersion: BOOK_PRIMER_PROMPT_VERSION } }
+
+      const primer: SavedPrimer = { identity: identity!, content, resources: [], origin: 'generated', createdAt: new Date().toISOString(), promptVersion: BOOK_PRIMER_PROMPT_VERSION }
+      if (cache) await keepOwnedPrimerCache(source.structured.uploadId, source.structured.ownerId, cache.fileId, primer, passages).catch(() => {})
+      return structuredResult(primer)
     }
     const beats = kind === 'primer' ? (() => { const primer = parsePrimer(text); return primer ? primerBeats(primer) : null })() : recapBeats(text)
     return beats ? { ok: true, beats } : { ok: false, status: response.status }
