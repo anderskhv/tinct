@@ -4712,7 +4712,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useEffect(() => { if (signedIn) audioAccountRequiredRef.current = false }, [signedIn])
 
   const startHearing = useCallback((opts?: { force?: boolean }) => {
-    if (temporaryHold) return
+    if (temporaryHold || narrationInfo?.loading) return
     // An edition with no audio at all (To the Lighthouse in Danish) says so,
     // rather than asking a signed-out reader to sign in for audio.
     if (audioUnavailable && !narrationOption && !retainedBella && !prefs.primaryEdition.endsWith('-en') && !listen.isPending()) { setAudioUnavailableNotice(true); return }
@@ -6450,11 +6450,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 type="button"
                 className="lab-v2-play"
                 data-testid="lab-v2-play"
-                aria-label={listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
-                aria-busy={listen.pending || undefined}
+                aria-label={narrationInfo?.loading ? 'Loading audio options' : listen.pending ? 'Cancel audio loading' : listen.playing ? LAB_COPY.pause : LAB_COPY.play}
+                disabled={narrationInfo?.loading === true}
+                aria-busy={narrationInfo?.loading || listen.pending || undefined}
                 onClick={handleBarListen}
               >
-                {listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
+                {narrationInfo?.loading || listen.loading || listen.buffering ? <LoadingIcon size={LAB_V2_PLAY_PX} /> : listen.playing && !listen.pending ? <PauseIcon size={LAB_V2_PLAY_PX} /> : <PlayIcon size={LAB_V2_PLAY_PX} />}
               </button>}
               {!showPhoneChrome && <button type="button" className="lab-v2-aa" data-testid="lab-header-aa"
                 aria-label="Reading appearance" title="Reading appearance"
@@ -7146,8 +7147,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                   type="button"
                   className="lab-phone-fat"
                   onClick={handleBarListen}
-                  aria-label={listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
-                  aria-busy={listen.pending || undefined}
+                  aria-label={narrationInfo?.loading && !mobileCompareActive && !barReturnsFromConversation ? 'Loading audio options' : listen.pending ? 'Cancel audio loading' : barPrimaryLabel}
+                  disabled={narrationInfo?.loading === true && !mobileCompareActive && !barReturnsFromConversation}
+                  aria-busy={narrationInfo?.loading && !mobileCompareActive && !barReturnsFromConversation || listen.pending || undefined}
                   data-reader-action={mobileCompareActive ? 'read' : 'listen'}
                   data-testid="lab-listen"
                 >
@@ -7157,7 +7159,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                     </span>
                   ) : (
                     <span className="lab-header-play" data-testid="lab-listen-play" aria-hidden="true">
-                      {listen.loading ? <LoadingIcon size={18} /> : <PlayIcon size={18} />}
+                      {narrationInfo?.loading || listen.loading ? <LoadingIcon size={18} /> : <PlayIcon size={18} />}
                     </span>
                   )}
                   {barPrimaryLabel}

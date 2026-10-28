@@ -169,3 +169,17 @@ it('sends a bounded book-transition identity and hash, never arbitrary spoken te
   await ensureNarration({ kind: 'book-transition', bookId: 'bible', editionKey: 'web-en', chapter: 413,
     nextChapter: 414, voice: 'f', paragraphs: [{ index: 0, text }] }, { fetchImpl })
 })
+
+it('finishes voice configuration when the response stalls, without leaving loading active', async () => {
+  vi.useFakeTimers()
+  try {
+    const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')))
+    }))
+    const pending = fetchNarrationPilotInfo(fetchImpl)
+    await vi.advanceTimersByTimeAsync(10_000)
+    expect(await pending).toMatchObject({ enabled: false, reason: 'timeout', voices: [] })
+    expect((await pending).loading).not.toBe(true)
+    expect(vi.getTimerCount()).toBe(0)
+  } finally { vi.useRealTimers() }
+})
