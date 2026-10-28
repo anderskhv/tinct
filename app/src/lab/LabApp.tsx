@@ -5732,7 +5732,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(question, undefined, undefined, {
       highlightedText: passage?.text || undefined, conversationId,
       onAccepted: () => {
-        if (continuousReader && card?.kind === 'ask') {
+        if (continuousReader) {
           setDraft('')
           return
         }
@@ -5752,6 +5752,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     dictation.stop()
     void ask.sendTyped(question, undefined, undefined, { conversationId: id, highlightedText: text,
       onAccepted: () => {
+        if (continuousReader) {
+          setDraft('')
+          return
+        }
         closePhoneCard(); setNotebookCard(null); setDesktopOpenId(null)
         setChapterNotes(null); setSuperSheet(null); setSelectionPopup(null)
         setDesktopContinuationId(id); setContentsConversation(saved); setDraft('')
@@ -5898,6 +5902,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
 
   const continueDiscussionAction = (id: string) => {
+    // The margin's composer continues this card; Chat is opened from its menu.
+    if (continuousReader) return null
     const saved = ask.conversations.find(row => row.id === id)
     if (!saved || saved.card?.kind === 'quiz') return null
     const firstAnswer = saved.messages.findIndex(message => message.role === 'assistant')
