@@ -43,7 +43,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     createdAt: '2026-10-23T00:00:00.000Z' }
   const browser = await markInternal(await browserType.launch({ headless: true,
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
-  const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  const context = await browser.newContext({ viewport: process.env.PDF_REAL_PHONE === '1' ? { width: 390, height: 844 } : { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
   const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = [], documentUrls=[]
   page.on('request',request=>{if(request.isNavigationRequest() && new URL(request.url()).pathname==='/reader') documentUrls.push(request.url())})
   if (name.startsWith('chromium') && process.env.PDF_CPU_RATE) {
@@ -90,7 +90,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     if (p === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><meta charset="utf-8"><title>Synthetic private source fixture</title>' })
     if (await enforceReaderBundle(route, expectedBundle)) return
     if (!p.startsWith('/api/')) return route.continue()
-    calls.push({ path: p, method: request.method(), body: request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
+    calls.push({ path: p, method: request.method(), body: p === '/api/user-books' && request.method() === 'POST' ? '[PDF bytes; compared exactly below]' : request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
     if (p === '/api/public-books') return json(200, { books: [] })
     if (p === '/api/user-books') {
       if (request.method() === 'POST') {
@@ -229,14 +229,17 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     await page.locator('.own-file-continue').click()
     await page.waitForURL('**/reader?**', { timeout: 45000, waitUntil: 'domcontentloaded' })
     console.log(name, path.basename(filePath), 'reader opened')
+    const openedAt = Date.now()
     await page.locator('.pdf-original__page canvas').first().waitFor({ timeout: 120000 })
+    console.log(name, path.basename(filePath), 'first page painted', Date.now() - openedAt, 'ms after reader navigation')
     await settlePaint(page)
     // Let the actual local title/chapter scan finish; opening a canvas alone is not acceptance.
     await expect.poll(() => page.evaluate(async hex => {
       const db=await new Promise(resolve=>{const r=indexedDB.open('tinct-addbook',1);r.onsuccess=()=>resolve(r.result)})
       const scan=await new Promise(resolve=>{const r=db.transaction('books').objectStore('books').get(`pdf:${hex}`);r.onsuccess=()=>resolve(r.result?.scan)})
       db.close();return !!scan
-    },hex), {timeout:30000}).toBe(true)
+    },hex), {timeout:Number(process.env.PDF_REAL_SCAN_TIMEOUT_MS || 30000)}).toBe(true)
+    console.log(name, path.basename(filePath), 'scan cached', Date.now() - openedAt, 'ms after reader navigation')
     await page.screenshot({path:path.join(output,'opened.png')})
     assert(accountUploaded, 'actual selected file must pass byte-exact simulated upload')
     const samples=[]

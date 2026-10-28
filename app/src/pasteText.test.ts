@@ -56,6 +56,13 @@ describe('private pasted source', () => {
   vi.unstubAllGlobals()
  })
 
+ it('does not reinterpret numbered OCR lines deep inside ordinary pasted prose as Markdown', async () => {
+  const source = 'A complete historical work.\n\nThe preceding argument ends here.\n\n3. 4 GEOLOGICAL SUCCESSION\n\nCHAPTER X\n\nThe next argument begins here.'
+  expect(detectFormat(source)).toBe('plain')
+  const edition = await epubToEdition(await data(pasteEpub({ source, title: 'Historical work' })))
+  expect(edition.chapters.flatMap(c => c.paragraphs).join(' ')).toContain('3. 4 GEOLOGICAL SUCCESSION')
+ })
+
  it('trims only requested lines, refuses empty and non-XML characters, and escapes plain text verbatim', () => {
   expect(detectFormat('# My notes\nA sentence')).toBe('markdown')
   expect(detectFormat('<h1>My notes</h1><p>A sentence</p>')).toBe('html')
