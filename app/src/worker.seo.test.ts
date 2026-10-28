@@ -607,6 +607,26 @@ describe('approved brand entry metadata', () => {
 })
 
 describe('temporary edition direct links', () => {
+  it('opens an offered Danish edition through the canonical reader query', async () => {
+    const response = await worker.fetch(new Request('https://tinct.app/reader?book=grimms-fairy-tales&edition=modern-da&chapter=11&paragraph=0'), routerEnv() as never, ctx)
+    const html = await response.text()
+    expect(response.status).toBe(200)
+    expect(html).toContain('app shell')
+    expect(html).not.toContain('Temporarily unavailable')
+  })
+
+  it('retains the requested book and coordinates for a withdrawn reader edition', async () => {
+    const response = await worker.fetch(new Request('https://tinct.app/reader?book=macbeth&edition=modern-da&chapter=8&paragraph=2&word=4'), routerEnv() as never, ctx)
+    const html = await response.text()
+    expect(html).toContain('Temporarily unavailable')
+    expect(html).toContain('heldBook=macbeth')
+    expect(html).not.toContain('heldBook=reader')
+    expect(html).toContain('heldEdition=modern-da')
+    expect(html).toContain('chapter=8')
+    expect(html).toContain('paragraph=2')
+    expect(html).toContain('word=4')
+  })
+
   it('explains holds before serving cached pages and retains exact recovery coordinates', async () => {
     // Only the withdrawn Danish editions remain held; no whole book is held.
     for (const path of ['/read/macbeth/chapter-8?edition=modern-da', '/read/jerusalem?edition=modern-da&chapter=6&paragraph=59&word=2', '/library?book=faust-part-1&edition=modern-da', '/jerusalem?edition=modern-da']) {
