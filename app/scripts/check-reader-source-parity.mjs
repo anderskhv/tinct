@@ -139,6 +139,10 @@ try {
       await follow.fill('Keep explaining beside this passage.')
       await page.waitForTimeout(600)
       await settlePaint(page)
+      // WebKit fill can leave the long card's send button below the viewport.
+      // Bring the actual click target into view before capturing the handoff anchor.
+      await item.getByTestId('lab-phone-card-send').scrollIntoViewIfNeeded()
+      await settlePaint(page)
       const placeBeforeChat = await root.getAttribute('data-place')
       await item.getByTestId('lab-phone-card-send').click()
       const discussion = page.getByTestId('lab-ask-pane')
@@ -232,7 +236,7 @@ try {
       assert.equal(await freeNoteRow.getByTestId('lab-wait').count(), 0, 'a point note has no quotation to load and never shows a source spinner')
       await page.screenshot({ path: `${output}/notebook-free-note.png` })
       await notebook.getByRole('button', { name: 'Close overlay', exact: true }).click()
-      // Direct Ask and late follow-ups retain their source identities in one chronological Chat.
+      // Margin Ask stays beside its source and also retains its identity in chronological Chat.
       const closeChat = async () => {
         const close = page.getByTestId('lab-desktop-companion-close')
         if (await close.isVisible()) await close.click()
@@ -250,8 +254,13 @@ try {
         await select(host, from, to)
         await page.getByTestId('lab-dbar-ask').click()
         await page.getByTestId('lab-dbar-ask-field').fill(question)
+        const placeBeforeAsk = await root.getAttribute('data-place')
         await page.getByRole('button', {name:'Send question',exact:true}).click()
-        await page.getByTestId('lab-ask-pane').getByText('A complete local answer remains attached to this source passage.', { exact: true }).last().waitFor()
+        await open.getByText('A complete local answer remains attached to this source passage.', { exact: true }).last().waitFor()
+        assert.equal(await open.count(), 1, 'margin Ask keeps one source card open')
+        assert.equal(await open.getByText(question, { exact: true }).count(), 1, 'margin question appears once')
+        assert.equal(await page.getByTestId('lab-ask-pane').count(), 0, 'margin Ask does not open Chat')
+        assert.equal(await root.getAttribute('data-place'), placeBeforeAsk, 'margin Ask preserves reading place')
         await page.waitForFunction(question => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(row => row.messages.some(message => message.content === question)), question)
         return page.evaluate(question => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.messages.some(message => message.content === question)).id, question)
       }

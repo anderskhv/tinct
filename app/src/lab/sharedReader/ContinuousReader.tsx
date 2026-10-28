@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import { SourceMinimap, type SourceBookMap, type SourceMapCard } from './SourceMinimap'
 import { LabPassage } from '../LabPassage'
 import { tokenizeHearingWords } from '../labHearing'
+import { buildHighlightRange } from '../labHighlights'
 import { type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
 import type { ContinuousReaderEpoch } from './continuousReaderEpoch'
 import './continuousReader.css'
@@ -74,6 +75,7 @@ const sameAnchor = (a: ContinuousReaderAnchor | undefined, b: ContinuousReaderAn
 /** A native chapter scroller. No position storage lives in this component. */
 export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap, cards }: Props) {
   const hostRef = useRef<HTMLDivElement>(null)
+  const nativeDragEpoch = useRef<string | null>(null)
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
   const destinationKey = `${epochKey}/${anchor.paragraphIndex}:${anchor.wordIndex}`
   const [mapVisible, setMapVisible] = useState(anchor)
@@ -251,6 +253,46 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', wheel, true) }
   }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; suppressScrollRef.current = false; onUserBrowse?.() }
+  // A mouse drag can begin on paper outside LabPassage. Let the browser
+  // select naturally, then translate only this reader's source words into the
+  // same range used by drags that began on a word.
+  const beginNativeDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    nativeDragEpoch.current = null
+    const target = event.target instanceof Element ? event.target : null
+    if (event.pointerType === 'touch' || (event.button != null && event.button !== 0)
+      || !target || target.closest('[data-testid="lab-word"], .source-margin-item, button, a, input, textarea, select')
+      || !(target === event.currentTarget || target.closest('.continuous-reader-paper'))) return
+    const selection = window.getSelection()
+    if (selection?.anchorNode && event.currentTarget.contains(selection.anchorNode)) selection.removeAllRanges()
+    nativeDragEpoch.current = epochKey
+  }
+  const finishNativeDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const started = nativeDragEpoch.current
+    nativeDragEpoch.current = null
+    if (started !== epochKey || !passage.onSelectRange) return
+    const selection = window.getSelection()
+    if (!selection || selection.isCollapsed || selection.rangeCount !== 1) return
+    const native = selection.getRangeAt(0)
+    const paper = event.currentTarget.querySelector('.continuous-reader-paper')
+    if (!paper || !paper.contains(native.startContainer) || !paper.contains(native.endContainer)) return
+    const words = [...paper.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-paragraph-index][data-word-index]')]
+      .filter(word => {
+        if (!native.intersectsNode(word)) return false
+        // intersectsNode includes an endpoint at the end/start of a word.
+        // Require selected characters, not merely a shared DOM boundary.
+        const overlap = document.createRange()
+        overlap.selectNodeContents(word)
+        if (native.compareBoundaryPoints(Range.START_TO_START, overlap) > 0) overlap.setStart(native.startContainer, native.startOffset)
+        if (native.compareBoundaryPoints(Range.END_TO_END, overlap) < 0) overlap.setEnd(native.endContainer, native.endOffset)
+        return Boolean(overlap.toString().trim())
+      })
+    if (!words.length) return
+    const place = (word: HTMLElement) => ({ paragraphIndex: Number(word.dataset.paragraphIndex), wordIndex: Number(word.dataset.wordIndex) })
+    const range = buildHighlightRange(passage.paragraphs, place(words[0]), place(words[words.length - 1]))
+    if (!range?.text.trim()) return
+    selection.removeAllRanges()
+    passage.onSelectRange(range, event.clientX, event.clientY)
+  }
   const jumpFromMap = (place: ContinuousReaderAnchor) => {
     userBrowse()
     visibleRef.current = place
@@ -270,7 +312,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     </div>), [windows, passage])
   return <><SourceMinimap cards={cards} highlights={passage.highlights?.filter(mark => mark.chapterNumber === passage.chapterNumber)} bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
-    onWheel={userBrowse} onTouchStart={userBrowse} onPointerDown={event => { if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
+    onWheel={userBrowse} onTouchStart={userBrowse} onPointerDown={event => { beginNativeDrag(event); if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
+    onPointerUp={finishNativeDrag} onPointerCancel={() => { nativeDragEpoch.current = null }}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>
     <div className="continuous-reader-paper">
     {sourcePassages}
