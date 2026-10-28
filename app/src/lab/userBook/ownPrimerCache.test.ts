@@ -80,3 +80,28 @@ it('keeps whole-book and chapter primers separate, and invalidates the book when
  await fetchOwnChapterNotes('primer', { ...whole, bookChapters: [whole.bookChapters[0], { ...whole.bookChapters[1], paragraphs: ['Changed later letter.'] }] }, { fetchImpl })
  expect(fetchImpl).toHaveBeenCalledTimes(3)
 })
+it.each(['manual', 'approved'] as const)('prefers matching %s copy over generated entries across prompt updates', async origin => {
+ const fetchImpl = vi.fn(async () => answer())
+ const first = await fetchOwnChapterNotes('primer', source, { fetchImpl })
+ if (!first.ok || !first.primer) throw new Error('Expected primer')
+ const human = { ...first.primer, origin, promptVersion: 'editorial-revision-1', content: { ...content, opening: 'The saved human opening.' } }
+ records.get(key)!.generatedPrimers = [first.primer, human]
+ fetchImpl.mockClear()
+ const readToken = vi.fn(async () => 'token')
+ expect(await fetchOwnChapterNotes('primer', source, { fetchImpl, readToken })).toMatchObject({ ok: true, primer: human })
+ expect(fetchImpl).not.toHaveBeenCalled()
+ expect(readToken).not.toHaveBeenCalled()
+})
+it('does not trust stale or corrupt human entries merely because they have editorial provenance', async () => {
+ const fetchImpl = vi.fn(async () => answer())
+ const first = await fetchOwnChapterNotes('primer', source, { fetchImpl })
+ if (!first.ok || !first.primer) throw new Error('Expected primer')
+ const human = { ...first.primer, origin: 'manual', promptVersion: 'editorial-revision-1' }
+ records.get(key)!.generatedPrimers = [null,
+   { ...human, identity: { ...human.identity, sourceVersion: 'older-source' } },
+   { ...human, content: { ...content, whatToNotice: [{ title: 'Invented', explanation: 'Invalid quote.', quotes: [{ text: 'Not in the source.', passageId: 'chapter-1:paragraph-0' }] }] } },
+   first.primer]
+ fetchImpl.mockClear()
+ expect(await fetchOwnChapterNotes('primer', source, { fetchImpl })).toEqual(first)
+ expect(fetchImpl).not.toHaveBeenCalled()
+})

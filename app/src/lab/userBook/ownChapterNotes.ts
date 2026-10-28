@@ -163,9 +163,13 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
       identity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: source.bookChapters ? null : `chapter-${source.chapterNumber}`, type: source.bookChapters ? 'book' : 'chapter' }
       primerKey(identity)
       cache = await readOwnedPrimerCache(source.structured.uploadId, source.structured.ownerId).catch(() => null)
-      for (const entry of cache?.entries ?? []) {
+      // Editorial revision identifiers are independent of generation prompt versions.
+      // Prefer human copy even when a generated entry appears earlier in storage.
+      const entries = cache?.entries ?? []
+      const preferred = [...entries.filter(entry => entry?.origin === 'manual' || entry?.origin === 'approved'), ...entries.filter(entry => entry?.origin === 'generated')]
+      for (const entry of preferred) {
         try {
-          if (primerKey(entry.identity) !== primerKey(identity) || entry.promptVersion !== BOOK_PRIMER_PROMPT_VERSION) continue
+          if (primerKey(entry.identity) !== primerKey(identity) || (entry.origin === 'generated' && entry.promptVersion !== BOOK_PRIMER_PROMPT_VERSION)) continue
           const content = parseGeneratedPrimer(JSON.stringify(entry.content), passages)
           return structuredResult({ ...entry, content, resources: [] })
         } catch { /* unreadable or stale derived cache: generate from current source */ }
