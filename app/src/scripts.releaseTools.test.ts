@@ -12,7 +12,7 @@ const voice = readFileSync(fileURLToPath(new URL('../../.github/workflows/voice-
 const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
 const foreign = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
-const acceptedReader = '913d0b62-84b5-4f78-a728-5d836cf1bfae'
+const acceptedReader = '05f50b3d-96f2-446b-b9ae-4b5c0d6a00ab'
 const currentSource = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
 const run = (args: string[], env: Record<string, string> = {}) => spawnSync(process.execPath, [helper, ...args], {
   encoding: 'utf8', env: {

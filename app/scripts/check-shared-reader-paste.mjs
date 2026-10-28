@@ -142,6 +142,11 @@ async function run(engine, type, phone) {
   const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
   const context = await browser.newContext({ viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, hasTouch: phone, isMobile: phone && engine === 'webkit', serviceWorkers: 'block', reducedMotion: 'reduce' })
   const state = await fixture(context), page = await context.newPage(), errors = []
+  const diagnosticDir = process.env.PASTE_SCREENSHOT_DIR
+  if (diagnosticDir) {
+    await fs.mkdir(diagnosticDir, { recursive: true })
+    await context.tracing.start({ screenshots: true, snapshots: true, sources: true })
+  }
   page.setDefaultTimeout(30000)
   page.on('pageerror', error => errors.push(error.stack || error.message))
   page.on('response', response => { if (response.status() >= 400 && !/\/api\//.test(response.url())) errors.push(`HTTP ${response.status()} ${response.url()}`) })
@@ -242,7 +247,22 @@ async function run(engine, type, phone) {
     assert.deepEqual(state.blocked, [], 'no third-party requests, including clipboard URLs')
     assert(state.calls.filter(call => call.method === 'POST' && call.path === '/api/user-books').every(call => call.internal), 'uploads are marked internal')
     console.log(`PASS ${engine} ${phone ? 'phone' : 'desktop'} Paste retry, private upload, React reader/reload, metadata conflict/edit/reopen, signed-out gate`)
-  } finally { await context.close(); await browser.close() }
+  } catch (error) {
+    const diagnostic = { engine, phone, error: String(error), url: page.url(), errors,
+      shelf: await page.locator('#collection').innerText().catch(() => ''),
+      menus: await page.locator('[role="menu"]').allTextContents().catch(() => []),
+      calls: state.calls.slice(-30) }
+    console.error('PASTE_FAILURE', JSON.stringify(diagnostic))
+    if (diagnosticDir) {
+      const prefix = path.join(diagnosticDir, `failure-${engine}-${phone ? 'phone' : 'desktop'}`)
+      await page.screenshot({ path: `${prefix}.png`, timeout: 10000 }).catch(() => {})
+      await fs.writeFile(`${prefix}.json`, JSON.stringify(diagnostic, null, 2))
+    }
+    throw error
+  } finally {
+    if (diagnosticDir) await context.tracing.stop({ path: path.join(diagnosticDir, `trace-${engine}-${phone ? 'phone' : 'desktop'}.zip`) }).catch(() => {})
+    await context.close(); await browser.close()
+  }
 }
 
 async function runCorpus(engine, type, entry, rich) {

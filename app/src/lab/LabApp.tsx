@@ -6032,7 +6032,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const keep = (answer: string) => {
       if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
       if (!continuousReader || phoneCardRef.current === card) phoneAnswerRef.current = { card, answer, kept: false }
-      if (card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
+      // Shared cards already persist the answer in the book's chat history.
+      // Do not spend local quota on a second, unread legacy explanation copy.
+      if (!sharedReader && card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
       if (sharedReader && card.kind !== 'ask' && answer.trim()) {
         const range = card.passage.ranges?.find(part => part.chapterNumber === card.passage.chapterNumber)?.range
         const at = card.openedAt
@@ -7351,7 +7353,32 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
       {selectionPopup && marginPhone && popupMode === 'character' && selectionPopup.character && (
         <LabPhoneCard label={phoneCardLabel('People', selectionPopup.chapterLabel)} kind="character" testId="lab-phone-character" onClose={() => leaveSelectionInfo()}>
-          <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} onMore={() => leaveSelectionInfo(true)} />
+          <PhoneCharacterBody key={`${selectionPopup.character.card.id}:${selectionPopup.openedAt}`} character={selectionPopup.character} renderFollow={shown => {
+            const passage = phonePassageOf(selectionPopup)
+            const at = selectionPopup.openedAt ?? 0
+            const id = `react_character_${at}_${shown.id}`
+            const conversationId = `mc_${id}`
+            const keep = () => {
+              const range = passage.ranges?.find(part => part.chapterNumber === passage.chapterNumber)?.range
+              ask.saveCard({ source: { kind: 'catalogue', bookId: book.bookId || 'bible' }, id, kind: 'define',
+                ...(range ? { anchor: { editionKey: passage.editionKey, chapterNumber: passage.chapterNumber,
+                  paragraphIndex: range.paragraphIndex, fromWord: range.fromWord, endParagraphIndex: range.endParagraphIndex, toWord: range.toWord } } : {}),
+                chapterNumber: passage.chapterNumber, text: passage.text,
+                turns: [{ role: 'assistant', content: `${shown.name}: ${shown.subtitle}\n\n${shown.body}` }], at, u: Date.now() })
+              return ask.revealConversation(conversationId)
+            }
+            return <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }}
+              onSend={question => {
+                const saved = keep()
+                dictation.stop()
+                void ask.sendTyped(question, undefined, undefined, { highlightedText: passage.text, conversationId,
+                  sourceLocation: { chapterNumber: passage.chapterNumber, chapterLabel: passage.chapterLabel, paragraphIndex: passage.paragraphIndex },
+                  onAccepted: () => { leaveSelectionInfo(); setContentsConversation(saved); setDesktopContinuationId(conversationId); setDraft(''); setPhoneAskOpen(true) },
+                })
+              }} onMic={handleMic} micOn={dictation.state !== 'idle'}
+              onTalk={() => { keep(); setDesktopContinuationId(conversationId); ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }}
+              inputRef={phoneFieldRef} disabled={ask.typedLoading} />
+          }} />
         </LabPhoneCard>
       )}
       {selectionPopup && marginPhone && popupMode === 'define' && renderPhoneCard({

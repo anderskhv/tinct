@@ -247,16 +247,13 @@ export function resolveCharacter(data: VerifiedCharacters | null, chapterNumber:
   })
   return { card, cutoff, gallery }
 }
-/** A tapped name that two or more cards in this book carry, with the cards released at that point. */
+/** Two reviewed people claim the same selected source span. */
 export interface NamesakeNotice { name: string; candidates: ReleasedCard[] }
 const mentionName = (text: string) => text.replace(/[’']s$/, '')
 /**
- * For a name no reviewed mention claims on its own (an unlinked namesake such as
- * "Jonathan the son of Absalom", or a tie between two spans): the cards that
- * carry the same name, so the reader is told the name is shared instead of a
- * guess at which one it is. Only capitalised names, only people (not a nation
- * or a place that shares the name), and only cards already
- * released at the tap, so the notice reveals nothing the cards would not.
+ * Only a genuine collision at this passage may suppress contextual lookup.
+ * A name shared elsewhere in a work does not identify an unlinked occurrence.
+ * Keep the released-card cutoff so ambiguity notices reveal no later details.
  */
 export function namesakesAt(data: VerifiedCharacters | null, chapterNumber: number, paragraphIndex: number, start: number, end: number, text: string): NamesakeNotice | null {
   if (!data || start < 0 || end <= start || normalizeParagraph(text) !== data.paragraphs[chapterNumber]?.[paragraphIndex]) return null
@@ -264,7 +261,10 @@ export function namesakesAt(data: VerifiedCharacters | null, chapterNumber: numb
   const name = mentionName(normalizeParagraph(text).slice(start, end))
   if (!/^\p{Lu}\p{Ll}/u.test(name)) return null
   const people = new Set(data.edition.characters.filter(c => ['person', 'spirit', 'deity'].includes(c.kind)).map(c => c.id))
-  const ids = new Set(data.edition.mentions.filter(m => people.has(m.characterId) && mentionName(m.text) === name).map(m => m.characterId))
+  const ids = new Set(data.edition.mentions.filter(m => people.has(m.characterId)
+    && m.chapterNumber === chapterNumber && m.paragraphIndex === paragraphIndex
+    && m.startOffset <= start && m.endOffset >= end
+    && mentionName(m.text) === name).map(m => m.characterId))
   if (ids.size < 2) return null
   const cutoff = { chapterNumber, paragraphIndex, offset: end }
   const candidates = data.edition.characters.flatMap(c => {
