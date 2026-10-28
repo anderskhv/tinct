@@ -735,6 +735,12 @@ if (supabase && typeof document !== 'undefined') {
   } catch { /* the boot-time class stays */ }
 }
 
+export async function mountBookPrimer(target: HTMLElement, book: { id: string; editionKey: string; language: string }, isCurrent: () => boolean = () => true) {
+  const { mountCataloguePrimer } = await import('./bookPrimers/cataloguePrimer')
+  if (!isCurrent()) return () => {}
+  return mountCataloguePrimer(target, book, async () => (await readAuth()).token)
+}
+
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook, mountBookPrimer }

@@ -157,7 +157,8 @@ describe('every removal path uses the motion', () => {
     // again (20261021stack4). The room drawn once with only its moving parts repainted each frame
     // (20261021still) changed scene-life.js and app.js (20261021stack5).
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
-    expect(lib('index.html')).toContain('app.js?v=20261021stack5')
+    // Shared book primer content changes the opening module.
+    expect(lib('index.html')).toContain('app.js?v=20261028primer1')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261021stack1')

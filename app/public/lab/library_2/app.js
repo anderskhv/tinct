@@ -360,37 +360,31 @@ let introExpanded=false,introProgress=null;
 // While a book opens it has the connection: the optional warming waits until its introduction is open (quiet-loads.js).
 async function openBook(book,canvas){if(activeBook)return;const release=quiet.hold();try{await openingBook(book,canvas);}finally{release();}}
 async function openingBook(book,canvas){if(menuOpen)setMenu(false);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
-async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;bookOpenMemory(false);sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
+async function closeBook(){if(!activeBook||closing)return;disposeBookPrimer?.();disposeBookPrimer=null;++primerMountVersion;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;bookOpenMemory(false);sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
 $('back-slip').onclick=async()=>{if(tourAnimation)return;await animateTour(0);$('slip-next').focus({preventScroll:true});};
 function bookBack(){if(!activeBook||closing)return;if(bookDestination().tour&&tourProgress>0){animateTour(0).then(()=>{if(activeBook&&!closing)screenBack.focus({preventScroll:true});});}else closeBook();}
 $('book-backdrop').onclick=closeBook;$('tour-back').onclick=$('back-library').onclick=screenBack.onclick=bookBack;
 function appendParagraphs(target,paragraphs){paragraphs.forEach(p=>target.append(el('p','',p)));}
+let disposeBookPrimer=null;
+let primerMountVersion=0;
 function renderIntro(){
+ disposeBookPrimer?.();disposeBookPrimer=null;const mountVersion=++primerMountVersion;
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
- $('intro-heading').textContent='Introduction';
- document.querySelector('[data-tab="characters"]').textContent=activeBook.galleryTitle||'Characters';
- document.querySelector('.intro-tabs').hidden=false;
+ $('intro-heading').textContent=activeBook.title;
+ document.querySelector('.intro-tabs').hidden=true;
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
- all('[data-tab]').forEach(b=>{b.hidden=false;b.setAttribute('aria-selected',String(b.dataset.tab===currentTab));b.tabIndex=b.dataset.tab===currentTab?0:-1;});
- if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);}
- else if(currentTab==='characters'){
-  const list=el('div','intro-character-list');list.id='intro-character-list';
-  (reviewedCast(activeBook,introExpanded,introProgress)||introCast(activeBook)).forEach((c,i)=>{
-   const section=el('section','character');section.dataset.characterId=c.id||c.introKey||c.aliases[0];
-   // Sketches belong to the featured cast only; gallery characters have none.
-   const art=(!c.introVisibility||c.introVisibility==='featured')?signature[activeBook.id]:null;if(art){const slot=art.sketches.indexOf(c.aliases[0]);if(slot>=0){const sketch=el('div','character-sketch');sketch.style.backgroundImage=`url('${art.sheet||`assets/${activeBook.id}-character-ink.png`}')`;sketch.style.backgroundPosition=['0 0','50% 0','100% 0'][slot];sketch.setAttribute('role','img');sketch.setAttribute('aria-label',`Pencil interpretation of ${c.name||c.aliases[0]}`);section.append(sketch);}}
-   const text=el('div','character-copy');text.append(el('h3','',c.name||c.aliases[0]),el('p','character-role',c.introKey?c.subtitle:c.introRole),el('p','',c.introKey?c.body:c.subtitle));section.append(text);list.append(section);
-  });body.append(list);
-  if(activeBook.galleryTitle){const toggle=el('button','gallery-toggle',introExpanded?'Show fewer characters':'Explore the full character gallery');toggle.dataset.testid='intro-gallery-toggle';toggle.setAttribute('aria-expanded',String(introExpanded));toggle.setAttribute('aria-controls',list.id);toggle.onclick=async()=>{
-    const book=activeBook;
-    if(!introExpanded&&book.characters.some(c=>c.introVisibility==='hold_until_revealed')&&!introProgress){toggle.disabled=true;toggle.setAttribute('aria-busy','true');try{const api=await readingApi();const progress=await api.introductionProgress(book.id);if(activeBook!==book)return;introProgress=progress;}catch{if(activeBook!==book)return;introProgress=null;}finally{toggle.disabled=false;toggle.removeAttribute('aria-busy');}}
-    if(activeBook!==book)return;introExpanded=!introExpanded;renderIntro();
-  };body.append(toggle);}
- }
-
- else {
+ const book=activeBook,pickedEdition=choices().main;
+ const primer=el('div','catalogue-book-primer');body.append(primer);
+ primer.append(el('p','',pickedEdition?'Preparing your book primer…':'No reading edition is available for this book.'));
+ if(pickedEdition)readingApi().then(async api=>{
+   if(mountVersion!==primerMountVersion||activeBook!==book)return;
+   const dispose=await api.mountBookPrimer(primer,{id:book.id,editionKey:pickedEdition,language:availableEditions().find(e=>e.key===pickedEdition)?.language||'en'},()=>mountVersion===primerMountVersion&&activeBook===book);
+   if(mountVersion!==primerMountVersion||activeBook!==book)dispose();else disposeBookPrimer=dispose;
+ }).catch(()=>{if(mountVersion===primerMountVersion)primer.replaceChildren(el('p','','The book primer could not load. You can still begin reading.'));});
+ const editionDetails=el('details','book-primer-editions');editionDetails.append(el('summary','','Reading editions'));body.append(editionDetails);
+ {
   // Two dropdowns: the edition to read, and the edition to compare with (the
   // paired human edition by default; None is the reader's explicit choice).
   const versions=availableEditions(),picked=choices();
@@ -401,13 +395,13 @@ function renderIntro(){
    const list=el('div','edition-options');
    options.forEach(option=>{const b=el('button','edition-option');b.type='button';b.append(el('strong','',option.label));if(option.note)b.append(el('small','',option.note));b.setAttribute('aria-pressed',String(option.key===(chosen?.key??null)));b.onclick=()=>{details.open=false;onPick(option.key);};list.append(b);});
    details.append(list);details.ontoggle=()=>{if(details.open)all('.edition-select').forEach(d=>{if(d!==details)d.open=false;});};
-   field.append(details);if(chosen?.note)field.append(el('p','edition-note',chosen.note));body.append(field);
+   field.append(details);if(chosen?.note)field.append(el('p','edition-note',chosen.note));editionDetails.append(field);
   };
   const asOption=v=>({key:v.key,label:v.label||v.key,note:v.provenanceLabel||''});
   if(versions.length){
    dropdown('Reading edition',versions.map(asOption),picked.main,key=>{picked.main=key;picked.explicit=true;if(picked.compare===key)picked.compare=picked.compareExplicit?null:pairedCompare(key);renderIntro();});
    if(versions.length>1)dropdown('Compare with',[{key:null,label:'None',note:''},...versions.filter(v=>v.key!==picked.main).map(asOption)],picked.compare??null,key=>{picked.compare=key;picked.compareExplicit=true;renderIntro();});
-  }else{const field=el('section','edition-field');field.append(el('p','','No edition is currently available to start.'));body.append(field);}
+  }else{const field=el('section','edition-field');field.append(el('p','','No edition is currently available to start.'));editionDetails.append(field);}
  }
  fitIntroFooter();
 }
@@ -420,7 +414,7 @@ async function startReading(){if(leaving||!activeBook)return;leaving=true;try{co
 $('begin-reading').onclick=startReading;
 addEventListener('pageshow',event=>{if(event.persisted){
  // Browser Back restores the library scene, not the preface we left behind.
- if(leaving&&activeBook){$('book-overlay').hidden=true;screenBack.hidden=true;if(sourceCanvas)sourceCanvas.style.visibility='';activeBook=null;sourceCanvas=null;bookProgress=0;if(openedFromSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();dispatchEvent(new Event('library2:overlayclosed'));}
+ if(leaving&&activeBook){disposeBookPrimer?.();disposeBookPrimer=null;++primerMountVersion;$('book-overlay').hidden=true;screenBack.hidden=true;if(sourceCanvas)sourceCanvas.style.visibility='';activeBook=null;sourceCanvas=null;bookProgress=0;if(openedFromSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();dispatchEvent(new Event('library2:overlayclosed'));}
  leaving=false;openingReader=false;document.body.classList.remove('leaving');
 }});
 function introCast(book){const selection={'frankenstein':[0,1],'jane-eyre':[0,1,4],'julius-caesar':[0,1,2],'odyssey':[0,1,2,3,4]};const list=(selection[book.id]||[0,1,2]).map(i=>({...book.characters[i]})).filter(c=>c.aliases);return list.map((c,i)=>({...c,introRole:['the-prince','meditations'].includes(book.id)?(i===0?'Author':'Key figure'):(i===0||(book.id==='frankenstein'&&i===1)||(book.id==='pride-and-prejudice'&&i===1)?'Protagonist':'Supporting character')}));}
@@ -437,7 +431,7 @@ $('reader-theme').onchange=()=>{readerTheme=$('reader-theme').value;applyReaderT
 
 let introGesture=null;
 const interactive='button,a,input,select,summary,textarea';
-function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const tabs=['preface','characters','edition'],index=tabs.indexOf(currentTab),body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(index===0&&direction<0){if(compact)animateTour(0);return;}if(index===2&&direction>0){$('begin-reading').click();return;}currentTab=tabs[index+direction];renderIntro();}
+function navigateIntro(direction){if(!activeBook||bookProgress!==1||bookAnim||tourAnimation||readerAnimation||mode!=='minimized')return;const compact=bookDestination().tour;if(compact&&tourProgress===0){if(direction>0)$('slip-next').click();return;}if(reading){const body=$('reader-content');if(direction<0&&body.scrollTop<4){$('reader-back').click();}else body.scrollBy({top:direction*body.clientHeight*.8,behavior:reduced.matches?'instant':'smooth'});return;}const body=$('intro-body');if(direction>0&&body.scrollTop+body.clientHeight<body.scrollHeight-4){body.scrollBy({top:body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(direction<0&&body.scrollTop>4){body.scrollBy({top:-body.clientHeight*.8,behavior:reduced.matches?'auto':'smooth'});return;}if(direction<0&&compact)animateTour(0);}
 $('book-overlay').addEventListener('pointerdown',e=>{if(!bookDestination().tour||e.target.closest(interactive))return;introGesture={x:e.clientX,y:e.clientY};});
 $('book-overlay').addEventListener('pointerup',e=>{const g=introGesture;introGesture=null;if(!g||e.target.closest(interactive)||window.getSelection()?.toString())return;const dx=e.clientX-g.x,dy=e.clientY-g.y;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5)navigateIntro(dx<0?1:-1);else if(Math.hypot(dx,dy)<8){if(e.clientX<innerWidth*.18)navigateIntro(-1);else if(e.clientX>innerWidth*.82)navigateIntro(1);}});
 $('book-overlay').addEventListener('pointercancel',()=>introGesture=null);
