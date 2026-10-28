@@ -33,3 +33,13 @@ it('uses the actual opening letter and refuses an invented chapter', () => {
   expect(() => bookPrimerRequest({ ...source, identity: { ...source.identity, unitId: 'chapter-1' } })).toThrow('reliably')
   expect(() => bookPrimerRequest({ ...source, reliable: false })).toThrow('Reading remains available')
 })
+it('withholds future unit titles from chapter prompts while retaining the complete book map for book primers', () => {
+  const source = { identity: { ...identity, type: 'chapter' as const, unitId: 'letter-2' }, title: 'Letters', unitLabel: 'Second letter', reliable: true,
+    units: [{ id: 'letter-1', label: 'Arrival' }, { id: 'letter-2', label: 'Second letter' }, { id: 'letter-3', label: 'The death of the missing brother' }],
+    passages: [{ id: 'p1', unitId: 'letter-2', text: 'The current letter.' }, { id: 'p2', unitId: 'letter-3', text: 'The later revelation.' }] }
+  const chapter = JSON.parse(bookPrimerRequest(source).data)
+  expect(chapter.units).toEqual(source.units.slice(0, 2))
+  expect(chapter.passages).toEqual([source.passages[0]])
+  expect(bookPrimerRequest(source).data).not.toContain('missing brother')
+  expect(JSON.parse(bookPrimerRequest({ ...source, identity }).data).units).toEqual(source.units)
+})

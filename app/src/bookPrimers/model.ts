@@ -1,5 +1,5 @@
 /** Book primers are separate from the PDF document companion. */
-export const BOOK_PRIMER_PROMPT_VERSION = 'book-primer-1'
+export const BOOK_PRIMER_PROMPT_VERSION = 'book-primer-2'
 export type PrimerScope = { kind: 'public' } | { kind: 'private'; ownerId: string; uploadId: string }
 export interface PrimerIdentity {
   scope: PrimerScope
