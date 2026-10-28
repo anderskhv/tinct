@@ -9,6 +9,10 @@ permissions:
   contents: read
 jobs:
   navigation:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [1, 2, 3]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -23,7 +27,7 @@ jobs:
           AUTH_LIVE: '1'
         run: |
           mkdir -p artifacts/sign-in
-          for attempt in 1 2 3; do
+          for attempt in 1; do
             node scripts/check-sign-in.mjs > "artifacts/sign-in/run-$attempt.log" 2>&1 || {
               sed '/REVIEW_CHUNK/d' "artifacts/sign-in/run-$attempt.log"
               exit 1
@@ -33,6 +37,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: live-navigation-diagnosis
+          name: live-navigation-diagnosis-${{ matrix.runner }}
           path: app/artifacts/sign-in
           retention-days: 3
