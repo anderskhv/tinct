@@ -45,6 +45,19 @@ afterEach(() => {
   localStorage.clear()
 })
 
+describe('a PDF found only in the account', () => {
+  it('preserves the known PDF type for the shared reader without a second metadata lookup', async () => {
+    const account = vi.fn(async () => ({ status: 'pdf' as const }))
+    const before = JSON.stringify({ page: 761, frac: 0.25, at: 100 })
+    localStorage.setItem(`tinct-addbook:pos:pdf:${HEX}`, before)
+    const result = await openUserBook(HEX, { owner: OWNER, sharedReader: true, account })
+    expect(result).toMatchObject({ ok: false, reason: 'pages' })
+    expect(account).toHaveBeenCalledOnce()
+    expect(records.size).toBe(0)
+    expect(localStorage.getItem(`tinct-addbook:pos:pdf:${HEX}`)).toBe(before)
+  })
+})
+
 describe('openUserBook keeps every book already converted as it was', () => {
   it('opens a conversion stored under rules 5 as it is, healed in memory only', async () => {
     const stored: UserBookEdition = {
