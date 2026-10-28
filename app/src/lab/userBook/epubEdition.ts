@@ -381,7 +381,7 @@ function opensOnName(line: string): boolean {
   return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
-function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
+function documentBlocks(source: string, base = '', v6 = false, v8 = false): DocumentBlocks {
   let wikisourceStamp = false
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
@@ -472,12 +472,32 @@ function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
     // lower case is the page's wrapping, not the author's. Then it is one paragraph.
     const lineText = (run: Segment[]) => run.map(segment => segment.text).join('').replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     const lines = runs.map(lineText)
+    // Plain-text verse uses hanging indentation for a long line's continuation.
+    // Require multiple lines at the base indentation and a deeper continuation;
+    // ordinary print-wrapped prose (including a first-line indent) is unchanged.
+    const indents = runs.map(run => (run.map(segment => segment.text).join('').match(/^[ \t]*/)?.[0] || '').replace(/\t/g, '    ').length)
+    const baseIndent = Math.min(...indents)
+    const continuation = (index: number) => index > 0 && indents[index] >= baseIndent + 2
+      && /\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(lines[index])
+    const hanging = v8 && indents.filter(indent => indent === baseIndent).length >= 2
+      && indents.some((_indent, index) => continuation(index))
+    if (hanging) {
+      const groups: Segment[][] = []
+      for (let index = 0; index < runs.length; index++) {
+        if (groups.length && continuation(index)) groups[groups.length - 1].push({ text: ' ', em: false }, ...runs[index])
+        else groups.push([...runs[index]])
+      }
+      for (const group of groups) emit(group, true)
+      return
+    }
+    // Earlier conversions keep their paragraph coordinates on every device.
     const wrapped = lines.some((line, index) => index > 0 && ((/\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
-      // A list of names wrapped by the print ("… Ayush Modi, / Anders Hvelplund, and …"):
-      // a line ending in a comma before one that opens on a name.
-      || (/,$/.test(lines[index - 1]) && opensOnName(line))))
+      || (/,$/.test(lines[index - 1]) && opensOnName(line))
+      // A title at the printed line end continues into the following name.
+      || (v8 && /\b(?:Mr|Mrs|Ms|Dr)\.$/.test(lines[index - 1]) && /^\p{Lu}/u.test(line))))
     if (wrapped) { emit(gathered); return }
     for (const run of runs) emit(run, true)
+
   }
 
   const emit = (segments: Segment[], line = false) => {
@@ -1421,7 +1441,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '', item.href, v6)
+    const parsed = documentBlocks(source || '', item.href, v6, rules >= 8)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
     // Rules 6: Wikisource's title page (title, author, year and its export stamp).
