@@ -53,7 +53,13 @@ const books = [...registry.matchAll(/export const (\w+): Book = \{([\s\S]*?)\n\}
   .filter(([, key, body]) => published.split(',').map(s => s.trim()).includes(key) && body.includes("author: 'William Shakespeare'"))
   .map(([, , body]) => body.match(/id: '([^']+)'/)[1])
 for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
-  const browser = await markInternal(await browserType.launch({ headless: true, args: engine === 'chromium' ? ['--mute-audio'] : [] }))
+  // Capture bounded transport evidence without changing acceptance behavior.
+  // Default NetLog privacy mode excludes cookies and raw response bytes.
+  const args = engine === 'chromium' ? ['--mute-audio'] : []
+  if (engine === 'chromium' && process.env.SHAKESPEARE_NETLOG === '1') {
+    args.push(`--log-net-log=${path.resolve(output, 'chromium-netlog.json')}`, '--net-log-max-size-mb=50')
+  }
+  const browser = await markInternal(await browserType.launch({ headless: true, args }))
   try {
     const scenarios = books.flatMap(book => ['original-en', 'modern-en'].map(edition => ({ book, edition, chapter: 1, paragraph: 0, size: 1.3, alignment: 'left', explicit: false, layout: 'verse', width: 1440 })))
     for (const size of [1.3, 2.2]) for (const alignment of ['left', 'justify']) scenarios.push({ book: 'hamlet', edition: 'original-en', chapter: 2, paragraph: 69, size, alignment, explicit: true, layout: 'verse', width: 1440, theme: 'dark', screenshot: true })
