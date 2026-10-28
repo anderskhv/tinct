@@ -399,7 +399,10 @@ export async function openUserBook(hex: string, options: { onProgress?: (progres
   if (!record || (!edition && !record.bytes)) {
     // Not on this device (added on another device of the account), or kept without its file.
     const downloaded = await recordFromAccount(key, owner, hex, record, account)
-    if (!downloaded || downloaded === 'pdf') return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
+    // The account lookup already identified a PDF. Preserve that result so
+    // the shared reader does not depend on a second, optional metadata race.
+    if (downloaded === 'pdf') return { ok: false, reason: 'pages', message: '' }
+    if (!downloaded) return { ok: false, reason: 'missing', message: MISSING_MESSAGE }
     record = downloaded
     fromAccount = true
     edition = null

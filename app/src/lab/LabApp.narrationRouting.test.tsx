@@ -98,3 +98,18 @@ it('narrates a signed-out reader with a stored Orion in Helios, keeps the choice
  expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
  expect(JSON.parse(localStorage.getItem('tinct-lab-prefs')||'{}').audiobookVoice).toBe('orion')
 })
+
+it('keeps Play visibly busy until voice configuration is known, without claiming the edition is unavailable', async()=>{
+ let release!: (response: Response)=>void
+ const config = new Promise<Response>(resolve=>{release=resolve})
+ vi.stubGlobal('fetch',vi.fn(async(input:RequestInfo|URL)=>String(input).includes('/api/narration/voices')?config:new Response('',{status:404})))
+ render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} authToken={null}/>)
+ const play=screen.getByTestId('lab-v2-play') as HTMLButtonElement
+ expect(play.disabled).toBe(true)
+ expect(play.getAttribute('aria-busy')).toBe('true')
+ fireEvent.click(play)
+ expect(screen.queryByText('Audio is temporarily unavailable for this edition. You can keep reading.')).toBeNull()
+ await act(async()=>release(Response.json({enabled:true,provider:'grok',voices:[{key:'f',label:'Ara',persona:'female'}]})))
+ await waitFor(()=>expect(play.disabled).toBe(false))
+ expect(play.getAttribute('aria-busy')).toBeNull()
+})
