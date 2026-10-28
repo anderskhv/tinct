@@ -10,6 +10,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { chromium, webkit, expect } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { pageOfTextPlace } from '../src/lab/userBook/pdfAnchors.ts'
 import { settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
@@ -77,8 +78,10 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
   // on the context so it survives the outgoing document, including in WebKit.
   await context.route(url => url.hostname.endsWith('.supabase.co') || url.origin !== origin || url.pathname.startsWith('/api/'), async route => {
     const request = route.request(), url = new URL(request.url()), p = url.pathname
-    const json = (status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
+    const cors = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS', 'Access-Control-Allow-Headers': request.headers()['access-control-request-headers'] || 'authorization, apikey, content-type, x-client-info, prefer' }
+    const json = (status, body) => route.fulfill({ status, contentType: 'application/json', headers: cors, body: JSON.stringify(body) })
     if (url.hostname.endsWith('.supabase.co')) {
+      if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors })
       if (p === '/auth/v1/user') return json(200, { id: owner, email: 'pdf@example.test', aud: 'authenticated' })
       if (p.startsWith('/rest/v1/')) return json(200, [])
       return json(404, {})
@@ -337,6 +340,37 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close()
       return {title:item?.title,name:item?.name,scan:item?.scan,pages:document.querySelectorAll('.pdf-original__slot').length}
     },hex)
+    // Optional private expectations stay outside the repository. Exercise the real
+    // conversion button, owned storage, rendered text reader and reload resume.
+    if (process.env.PDF_REAL_CONVERSION_CHECKS) {
+      const checks = JSON.parse(await fs.readFile(process.env.PDF_REAL_CONVERSION_CHECKS, 'utf8'))[path.basename(filePath)]
+      assert(checks, 'conversion expectations required for each supplied file')
+      for (const heading of checks.headings || []) assert(inventory.scan.entries.some(entry => entry.label === heading), 'complete expected heading')
+      await page.getByRole('button', { name: 'Appearance', exact: true }).click()
+      await page.getByRole('button', { name: /^(Convert to Tinct book|Tinct book)$/ }).click()
+      await page.locator('.pdf-original-reader').waitFor({ state: 'hidden', timeout: 180000 })
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 180000 })
+      const converted = await page.evaluate(async hex => {
+        const db = await new Promise(resolve => { const r = indexedDB.open('tinct-addbook', 1); r.onsuccess = () => resolve(r.result) })
+        const record = await new Promise(resolve => { const r = db.transaction('books').objectStore('books').get(`pdf:${hex}`); r.onsuccess = () => resolve(r.result) })
+        db.close()
+        return { edition: record.edition, place: JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null') }
+      }, hex)
+      assert.equal(converted.edition.converter, 4)
+      for (const { page: sourcePage, text } of checks.passages || []) {
+        assert(converted.edition.chapters.some(chapter => chapter.paragraphs.some((paragraph, i) => chapter.pages[i] === sourcePage && paragraph.includes(text))), 'expected complete passage in source order on its original page')
+      }
+      assert(converted.place, 'conversion keeps a coherent text position')
+      await fs.writeFile(path.join(output, 'converted-edition.json'), JSON.stringify(converted))
+      assert.equal(pageOfTextPlace(converted.edition.chapters, converted.place)?.page, samplePages.at(-1), 'conversion opens on the source page just viewed')
+      await settlePaint(page)
+      await page.screenshot({ path: path.join(output, 'converted.png') })
+      await reloadSavedPage()
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
+      const restored = await page.evaluate(hex => JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null'), hex)
+      for (const key of ['chapterNumber', 'paragraphIndex', 'wordIndex', 'converter']) assert.equal(restored[key], converted.place[key], 'reload preserves ' + key)
+      await fs.writeFile(path.join(output, 'conversion.json'), JSON.stringify({ converter: converted.edition.converter, place: converted.place, restored, passagesChecked: (checks.passages || []).length }, null, 2))
+    }
     await fs.writeFile(path.join(output,'inspection.json'),JSON.stringify({inventory,calls,errors,denied},null,2))
     assert.deepEqual(errors,[], 'no reader exceptions')
     assert.deepEqual(denied,[], 'no unexpected external traffic')
