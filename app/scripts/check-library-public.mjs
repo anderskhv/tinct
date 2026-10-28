@@ -307,7 +307,10 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
    if(extended){await p.evaluate(()=>document.getElementById('book-about').scrollIntoView({block:'start',behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:`${shots}/${label}-fresh-read-about.png`});await p.evaluate(()=>scrollTo({top:0,behavior:'instant'}));}
   }
   await p.locator('#read-featured').click();
-  await p.locator('#book-overlay').waitFor();await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
+  await p.locator('#book-overlay').waitFor().catch(async error=>{
+   console.log('BOOK_OPEN_STALL '+JSON.stringify({where,errors,state:await p.evaluate(()=>({url:location.href,readyState:document.readyState,active:document.activeElement?.outerHTML,button:document.getElementById('read-featured')?.outerHTML,overlay:document.getElementById('book-overlay')?.outerHTML.slice(0,1000)})).catch(e=>String(e))}));
+   await p.screenshot({path:`${shots}/${label}-fresh-${kind}-open-stall.png`,timeout:5000}).catch(()=>{});throw error;
+  });await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
   await p.waitForTimeout(1600);await p.screenshot({path:`${shots}/${label}-fresh-${kind}-opened.png`});
   assert.deepEqual(errors,[],where+': no page errors');
   console.log('BOOK_LINK '+JSON.stringify({where,frames:list.length,first:list[0]}));
