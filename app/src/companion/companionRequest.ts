@@ -116,7 +116,7 @@ export interface CompanionRequest {
   pdf?: true
   /** With `pdf`: the file is an EPUB (chapters, no page numbers, never a passage image). */
   epub?: true
-  structuredPrimer?: { language: string; passages: SourcePassage[] }
+  structuredPrimer?: { language: string; passages: SourcePassage[]; type?: 'book'; units?: Array<{ id: string; label: string }> }
   /** Ask on a user's PDF about the whole file (the margin's Chat): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
   whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
@@ -457,16 +457,31 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
   let structuredPrimer: CompanionRequest['structuredPrimer']
   if (chapter.structuredPrimer !== undefined) {
-    const value = chapter.structuredPrimer as { language?: unknown; passages?: unknown }
+    const value = chapter.structuredPrimer as { language?: unknown; passages?: unknown; type?: unknown; units?: unknown }
     if (c.kind !== 'epub' || r.document !== undefined || !value || typeof value.language !== 'string' || value.language.length > 35 || !/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(value.language) || !Array.isArray(value.passages) || !value.passages.length || value.passages.length > 10000) return null
+    if (value.type !== undefined && value.type !== 'book') return null
+    const whole = value.type === 'book'
+    const units: Array<{ id: string; label: string }> = []
+    const unitIds = new Set<string>(), suppliedUnits = new Set<string>()
+    if (whole) {
+      if (!Array.isArray(value.units) || !value.units.length || value.units.length > 5000) return null
+      for (const unit of value.units) {
+        if (!unit || typeof unit.id !== 'string' || !/^chapter-[1-9][0-9]*$/.test(unit.id) || unit.id.length > 80 || typeof unit.label !== 'string' || unit.label.length > 300 || unitIds.has(unit.id)) return null
+        unitIds.add(unit.id)
+        units.push({ id: unit.id, label: unit.label })
+      }
+    }
     let total = 0
     const ids = new Set<string>()
     for (const passage of value.passages) {
-      if (!passage || typeof passage.id !== 'string' || passage.id.length > 100 || !passage.id.startsWith(action.unitKey + ':paragraph-') || !/^[0-9]+$/.test(passage.id.slice((action.unitKey + ':paragraph-').length)) || ids.has(passage.id) || typeof passage.text !== 'string' || !passage.text.trim()) return null
+      const match = typeof passage?.id === 'string' ? /^(chapter-[1-9][0-9]*):paragraph-[0-9]+$/.exec(passage.id) : null
+      if (!passage || typeof passage.id !== 'string' || passage.id.length > 100 || !(whole ? match && unitIds.has(match[1]) : passage.id.startsWith(action.unitKey + ':paragraph-') && /^[0-9]+$/.test(passage.id.slice((action.unitKey + ':paragraph-').length))) || ids.has(passage.id) || typeof passage.text !== 'string' || !passage.text.trim()) return null
+      if (match) suppliedUnits.add(match[1])
       ids.add(passage.id); total += passage.text.length
-      if (total > 190000) return null
+      if (total > (whole ? 560000 : 190000)) return null
     }
-    structuredPrimer = { language: value.language, passages: value.passages.map(p => ({ id: p.id, text: p.text })) }
+    if (whole && units.some(u => !suppliedUnits.has(u.id))) return null
+    structuredPrimer = { ...(whole ? { type: 'book' as const, units } : {}), language: value.language, passages: value.passages.map(p => ({ id: p.id, text: p.text })) }
   }
   const document = parseMarginDocument(r.document)
   // Made ahead of the reader opening it (the PDF reader's primerPrefetch): never charged (companionAllowance).
@@ -653,10 +668,10 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
       const context = request.context!
       // Before you start (a user's PDF only): its own builder, so a book's chapter actions are untouched.
       if (chapter.action.kind === 'primer' && request.structuredPrimer) {
-        const { language, passages } = request.structuredPrimer
+        const { language, passages, type, units } = request.structuredPrimer
         const unitId = chapter.action.unitKey
         // Prompt-only identity: no owner identifiers arrive here and no shared cache is written.
-        const prompt = bookPrimerRequest({ identity: { scope: { kind: 'private', ownerId: 'request-only', uploadId: 'request-only' }, workId: 'supplied-text', editionId: 'supplied-edition', sourceVersion: 'request', unitId, type: 'chapter', language }, title: context.bookTitle, unitLabel: chapter.action.unitTitle, reliable: true, units: [{ id: unitId, label: chapter.action.unitTitle }], passages: passages.map(p => ({ ...p, unitId })) })
+        const prompt = bookPrimerRequest({ identity: { scope: { kind: 'private', ownerId: 'request-only', uploadId: 'request-only' }, workId: 'supplied-text', editionId: 'supplied-edition', sourceVersion: 'request', unitId: type === 'book' ? null : unitId, type: type || 'chapter', language }, title: context.bookTitle, unitLabel: chapter.action.unitTitle, reliable: true, units: units ?? [{ id: unitId, label: chapter.action.unitTitle }], passages: passages.map(p => ({ ...p, unitId: type === 'book' ? p.id.split(':paragraph-')[0] : unitId })) })
         return prompt.system + '\n\n' + prompt.data
       }
       if (chapter.action.kind === 'primer') return buildPrimerInstructions(chapter.action, context)

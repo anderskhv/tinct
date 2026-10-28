@@ -67,3 +67,16 @@ it('replaces an obsolete generated prompt once, then reuses the fresh result', a
  expect(fetchImpl).toHaveBeenCalledTimes(2)
  expect((await readOwnedPrimerCache(hex, 'owner-a'))?.entries).toHaveLength(1)
 })
+
+it('keeps whole-book and chapter primers separate, and invalidates the book when a later section changes', async () => {
+ const fetchImpl = vi.fn(async () => answer())
+ const whole = { ...source, bookChapters: [{ number: 1, title: 'Letter one', paragraphs: source.paragraphs }, { number: 2, title: 'Letter two', paragraphs: ['A later complete letter.'] }] }
+ const chapter = await fetchOwnChapterNotes('primer', source, { fetchImpl })
+ const book = await fetchOwnChapterNotes('primer', whole, { fetchImpl })
+ expect(book).toMatchObject({ ok: true, primer: { identity: { type: 'book', unitId: null } } })
+ expect(await fetchOwnChapterNotes('primer', whole, { fetchImpl })).toEqual(book)
+ expect(await fetchOwnChapterNotes('primer', source, { fetchImpl })).toEqual(chapter)
+ expect(fetchImpl).toHaveBeenCalledTimes(2)
+ await fetchOwnChapterNotes('primer', { ...whole, bookChapters: [whole.bookChapters[0], { ...whole.bookChapters[1], paragraphs: ['Changed later letter.'] }] }, { fetchImpl })
+ expect(fetchImpl).toHaveBeenCalledTimes(3)
+})

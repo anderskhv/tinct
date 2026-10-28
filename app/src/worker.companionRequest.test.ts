@@ -242,3 +242,20 @@ describe('paragraph numbers stay internal', () => {
     }
   })
 })
+
+it('passes a complete private book beyond the ordinary chat envelope without truncation or shared identifiers', async () => {
+  const { ownChapterNotesBody } = await import('./lab/userBook/ownChapterNotes')
+  const text = 'A complete source line. '.repeat(22000) + 'EXACT FINAL SOURCE.'
+  const body = ownChapterNotesBody('primer', { bookTitle: 'Synthetic book', chapterTitle: 'Synthetic book', chapterNumber: 1, paragraphs: [], bookChapters: [{ number: 1, title: 'Letter one', paragraphs: [text] }], structured: { ownerId: 'private-owner', uploadId: 'private-upload', workId: 'private-work', editionId: 'private-edition', language: 'en' } })
+  const bodies: any[] = []
+  vi.stubGlobal('fetch', vi.fn(async (_input, init) => {
+    bodies.push(JSON.parse(init.body))
+    return Response.json({ content: [{ type: 'text', text: JSON.stringify({ opening: 'A synthetic opening.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }) }], stop_reason: 'end_turn', usage: { input_tokens: 1, output_tokens: 1 } })
+  }))
+  const response = await handleLabChat(post(body), { ANTHROPIC_API_KEY: 'k' }, ctx().ctx, async () => true, async () => true)
+  expect(response.status).toBe(200)
+  expect(JSON.stringify(bodies[0].system)).toContain('EXACT FINAL SOURCE.')
+  expect(JSON.stringify(bodies[0].system).length).toBeGreaterThan(500000)
+  expect(JSON.stringify(bodies)).not.toMatch(/private-owner|private-upload|private-work|private-edition/)
+  expect(bodies[0].max_tokens).toBe(2400)
+})

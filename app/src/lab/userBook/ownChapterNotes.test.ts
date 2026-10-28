@@ -122,3 +122,34 @@ describe('structured private EPUB chapter primers', () => {
     expect(primerReplyFault({ ...data, stop_reason: 'max_tokens' }, passages)?.failure).toBe('truncated')
   })
 })
+
+
+describe('complete private book source', () => {
+ const whole: OwnChapterNotesSource = { ...source, structured: { ownerId: 'owner-secret', uploadId: 'upload-secret', workId: 'local-work', editionId: 'local-edition', language: 'en' }, bookChapters: [{ number: 1, title: 'First letter', paragraphs: ['First complete letter.'] }, { number: 2, title: 'Second letter', paragraphs: ['Second complete letter.'] }] }
+ it('builds the whole-book prompt with all mapped sections and no private identifiers', async () => {
+  const { buildCompanionSystem } = await import('../../companion/companionRequest')
+  const body = ownChapterNotesBody('primer', whole)
+  const parsed = parseCompanionRequest(body.companion)!
+  expect(parsed.structuredPrimer).toMatchObject({ type: 'book', units: [{ id: 'chapter-1' }, { id: 'chapter-2' }] })
+  expect(buildCompanionSystem(parsed)).toContain('In 60–90 words')
+  expect(buildCompanionSystem(parsed)).toContain('Second complete letter.')
+  expect(JSON.stringify(body)).not.toMatch(/owner-secret|upload-secret|local-work|local-edition/)
+  const companion = body.companion as any
+  const missing = structuredClone(companion); missing.chapter.structuredPrimer.passages.pop()
+  expect(parseCompanionRequest(missing)).toBeNull()
+  const malformed = structuredClone(companion); malformed.chapter.structuredPrimer.passages[0].id = 'chapter-1:paragraph-x:paragraph-0'
+  expect(parseCompanionRequest(malformed)).toBeNull()
+  const pdf = structuredClone(companion); pdf.context.kind = 'pdf'
+  expect(parseCompanionRequest(pdf)).toBeNull()
+ })
+ it('accepts complete long books without truncation but rejects empty sections and oversized sources before credentials', async () => {
+  const long = { ...whole, bookChapters: [{ number: 1, title: 'Long letter', paragraphs: ['whole source '.repeat(40000)] }] }
+  expect(parseCompanionRequest(ownChapterNotesBody('primer', long).companion)?.structuredPrimer?.passages[0].text.length).toBeGreaterThan(500000)
+  const readToken = vi.fn(async () => 'token'), fetchImpl = vi.fn()
+  for (const paragraphs of [[], ['x'.repeat(560001)]]) {
+   const result = await fetchOwnChapterNotes('primer', { ...whole, bookChapters: [{ number: 1, title: 'Invalid letter', paragraphs }] }, { readToken, fetchImpl })
+   expect(result).toMatchObject({ ok: false, sourceUnavailable: true })
+  }
+  expect(readToken).not.toHaveBeenCalled(); expect(fetchImpl).not.toHaveBeenCalled()
+ })
+})

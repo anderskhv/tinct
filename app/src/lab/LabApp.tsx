@@ -5443,15 +5443,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   // The book primer opens in the reader without changing its saved place.
   const openIntroduction = useCallback(() => {
-    if (privateBook || initialResolving || book.chaptersProvisional) return
+    if ((privateBook && (userBook?.kind !== 'epub' || !userBookOwner)) || initialResolving || book.chaptersProvisional) return
     listen.pause()
     setTocOpen(false)
-    setChapterNotes({ title: `Book primer · ${book.bookTitle}`, request: {
+    setChapterNotes({ title: `Book primer · ${book.bookTitle}`, ...(privateBook && userBook && userBookOwner ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber: book.chapterNumber, chapterTitle: book.bookTitle || 'Your book', paragraphs: [], bookChapters: userBook.edition.chapters, structured: { ownerId: userBookOwner, uploadId: userBook.hex, workId: userBook.bookId, editionId: readerEditionKey, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } } } : {}), request: {
       bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: book.chapterNumber,
       kind: 'primer', format: 'structured-primer', primerType: 'book', bookTitle: book.bookTitle,
       language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en',
     } })
-  }, [listen, privateBook, initialResolving, book, readerEditionKey, allBookEditions])
+  }, [listen, privateBook, initialResolving, book, readerEditionKey, allBookEditions, userBook, userBookOwner])
 
   const showChapterEnd = !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
@@ -7278,7 +7278,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
         onContinueConversation={openNotebookConversation}
         introductionLabel="Book primer"
-        onOpenIntroduction={privateBook ? undefined : openIntroduction}
+        onOpenIntroduction={privateBook && (userBook?.kind !== 'epub' || !userBookOwner) ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
         notebookRecovery={ownNotebookRecovery}

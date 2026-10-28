@@ -1200,9 +1200,9 @@ export async function handleChat(
       } catch {
         return bytes > bodyLimit - MARGIN_DOCUMENT_BODY_BYTES ? { error: 'Request too large', status: 413 } : { error: 'Invalid JSON', status: 400 }
       }
-      // Only a request carrying the margin's document may use the extra room.
+      // Complete structured EPUB books share the bounded document request envelope.
       const document = (body as { companion?: { document?: unknown } } | null)?.companion?.document
-      if (bytes > bodyLimit - MARGIN_DOCUMENT_BODY_BYTES && !document) return { error: 'Request too large', status: 413 }
+      if (bytes > bodyLimit - MARGIN_DOCUMENT_BODY_BYTES && !document && !parseCompanionRequest(body?.companion)?.structuredPrimer) return { error: 'Request too large', status: 413 }
       return { body, bytes }
     })
     .catch(() => ({ error: 'Invalid JSON', status: 400 }))
@@ -1392,7 +1392,7 @@ export async function handleChat(
         const content = m.content.length > MAX_MESSAGE_LENGTH ? m.content.slice(0, MAX_MESSAGE_LENGTH) : m.content
         safeMessages.push({ role: m.role, content })
       }
-      if (parsedBody.bytes > (imageCount === 0 ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES) + (companion?.document ? MARGIN_DOCUMENT_BODY_BYTES : 0)) {
+      if (parsedBody.bytes > (imageCount === 0 ? MAX_REQUEST_BODY_BYTES : MAX_IMAGE_REQUEST_BODY_BYTES) + (companion?.document || companion?.structuredPrimer ? MARGIN_DOCUMENT_BODY_BYTES : 0)) {
         return jsonResponse({ error: 'Request too large' }, 413, request)
       }
       timing.images = imageCount

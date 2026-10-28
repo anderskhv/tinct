@@ -31,6 +31,8 @@ export interface OwnChapterNotesSource {
   chapterNumber: number
   chapterTitle: string
   paragraphs: readonly string[]
+  /** Present only for a whole-book primer, in the stored edition order. */
+  bookChapters?: ReadonlyArray<{ number: number; title: string; paragraphs: readonly string[] }>
   structured?: { ownerId: string; uploadId: string; workId: string; editionId: string; language: string }
 }
 
@@ -82,12 +84,12 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
     bookAuthor: (source.bookAuthor || '').slice(0, 300),
     chapterLabel: source.chapterTitle.slice(0, 300) || 'This chapter',
     kind: 'epub',
-    pages: ownChapterPages(source.paragraphs),
+    pages: source.bookChapters && source.structured ? [{ n: 1, text: 'Complete book text is supplied in structuredPrimer.passages.' }] : ownChapterPages(source.paragraphs),
     paragraphIndex: 0,
     lookups: false,
   }
   if (kind === 'primer') {
-    const structuredPrimer = source.structured ? { language: source.structured.language, passages: ownPrimerPassages(source) } : undefined
+    const structuredPrimer = source.structured ? { language: source.structured.language, passages: ownPrimerPassages(source), ...(source.bookChapters ? { type: 'book', units: source.bookChapters.map(c => ({ id: `chapter-${c.number}`, label: c.title })) } : {}) } : undefined
     return {
       stream: false, max_tokens: 1600,
       messages: [{ role: 'user', content: 'Please answer.' }],
@@ -102,7 +104,18 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
 }
 
 function ownPrimerPassages(source: OwnChapterNotesSource) {
-  return source.paragraphs.map((raw, index) => ({ id: `chapter-${source.chapterNumber}:paragraph-${index}`, text: readableParagraph(raw).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() })).filter(p => p.text)
+  const chapters = source.bookChapters ?? [{ number: source.chapterNumber, title: source.chapterTitle, paragraphs: source.paragraphs }]
+  if (!chapters.length || chapters.length > 5000 || new Set(chapters.map(c => c.number)).size !== chapters.length) throw new IncompleteChapterSourceError('The book map is incomplete')
+  let total = 0
+  const passages = chapters.flatMap(chapter => {
+    if (!Number.isSafeInteger(chapter.number) || chapter.number < 1) throw new IncompleteChapterSourceError('Invalid source section')
+    const items = chapter.paragraphs.map((raw, index) => ({ id: `chapter-${chapter.number}:paragraph-${index}`, text: readableParagraph(raw).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() })).filter(p => p.text)
+    if (!items.length) throw new IncompleteChapterSourceError('A source section has no readable text')
+    for (const item of items) total += item.text.length
+    return items
+  })
+  if (total > (source.bookChapters ? 560000 : CONTEXT_CHARS) || passages.length > 10000) throw new IncompleteChapterSourceError('The complete source exceeds the context limit')
+  return passages
 }
 
 const itemText = (item: Primer['sections'][number]['items'][number]) => 'term' in item ? `${item.term}: ${item.meaning}` : item.text.replace(/\s*\{[^}]*\}\s*/g, ' ').trim()
@@ -128,7 +141,7 @@ export function recapBeats(text: string): ChapterNotesBeat[] | null {
 
 function structuredResult(primer: SavedPrimer): ChapterNotesResult {
   const { content } = primer
-  const topics = [content.structure, content.whatToNotice, content.usefulReferences].flat()
+  const topics = [content.structure, content.peopleAndIdeas, content.helpfulContext, content.whatToNotice, content.usefulReferences].flat()
   const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
   return { ok: true, beats, primer }
 }
@@ -146,8 +159,8 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
     let identity: PrimerIdentity | undefined
     let cache: Awaited<ReturnType<typeof readOwnedPrimerCache>> = null
     if (kind === 'primer' && source.structured) {
-      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify({ title: source.chapterTitle, passages })))
-      identity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: `chapter-${source.chapterNumber}`, type: 'chapter' }
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify({ title: source.chapterTitle, units: source.bookChapters?.map(c => ({ id: `chapter-${c.number}`, label: c.title })), passages })))
+      identity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: source.bookChapters ? null : `chapter-${source.chapterNumber}`, type: source.bookChapters ? 'book' : 'chapter' }
       primerKey(identity)
       cache = await readOwnedPrimerCache(source.structured.uploadId, source.structured.ownerId).catch(() => null)
       for (const entry of cache?.entries ?? []) {
