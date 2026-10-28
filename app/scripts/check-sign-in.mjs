@@ -55,9 +55,7 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             if (!file.startsWith(path.resolve('dist') + '/')) return route.abort()
             try { return await route.fulfill({ path: file }) } catch { return route.abort() }
           })
-          const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
-          const query = test === 'signed-out' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
-          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' }).catch(async error => {
+          const reportNavigationFailure = async error => {
             // Navigation failures used to escape before any evidence was saved.
             // Only fixture state and paths are recorded; never request headers/tokens.
             const state = await page.evaluate(() => ({ url: location.href, title: document.title, readyState: document.readyState,
@@ -68,7 +66,10 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             await fs.writeFile(output + '/' + engine + '-' + size + '-' + test + '-navigation.json', JSON.stringify(failure, null, 2))
             await page.screenshot({ path: output + '/' + engine + '-' + size + '-' + test + '-navigation.png', timeout: 5000 }).catch(() => {})
             throw error
-          })
+          }
+          const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
+          const query = test === 'signed-out' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
+          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' }).catch(reportNavigationFailure)
           if (test === 'returning-google') {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)
@@ -95,7 +96,7 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
                   for (let i = 0; i < encoded.length; i += 12000) console.log('REVIEW_CHUNK ' + encoded.slice(i, i + 12000))
                   console.log('REVIEW_END')
                 }
-                await page.reload()
+                await page.reload().catch(reportNavigationFailure)
                 await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
                 assert.equal(await root.getAttribute('data-mode'), 'welcome')
               }
