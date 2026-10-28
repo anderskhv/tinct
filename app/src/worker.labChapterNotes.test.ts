@@ -206,3 +206,55 @@ describe('POST /api/lab-chapter-notes', () => {
     })
   })
 })
+
+
+describe('structured public chapter primers', () => {
+  const body = { bookId: 'frank', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer' }
+  const content = { opening: 'Victor starts with a question.', structure: [{ title: 'Study', explanation: 'Watch his work.', quotes: [{ text: 'Victor studies.', passageId: 'chapter-1:paragraph-0' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+  it('uses complete exact-unit source, validates quotes and reuses only its source-hashed cache', async () => {
+    const cache = fakeCache(); const fetchAnthropic = anthropic(JSON.stringify(content)); const { ctx: c, pending } = ctx()
+    const result = await handleLabChapterNotes(post(body), env, c, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+    expect(result.status).toBe(200)
+    const data = await result.json() as any
+    expect(data.primer.content).toEqual(content)
+    expect(data.primer.identity).toMatchObject({ scope: { kind: 'public' }, unitId: 'chapter-1', editionId: 'original-en' })
+    expect(data.primer.identity.sourceVersion).toMatch(/^[a-f0-9]{64}$/)
+    const payload = fetchAnthropic.mock.calls[0][0] as any
+    expect(payload.messages[0].content).toContain('He works for two years.')
+    expect(payload.messages[0].content).not.toContain('A LATER SECRET')
+    await Promise.all(pending)
+    const again = await handleLabChapterNotes(post(body), env, ctx().ctx, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+    expect(await again.json()).toMatchObject({ source: 'cache', primer: { content } })
+    expect(fetchAnthropic).toHaveBeenCalledTimes(1)
+    const original = chapters[1].paragraphs[0]
+    try {
+      chapters[1].paragraphs[0] = 'Victor studies. Changed source.'
+      resetBookRetrievalCache()
+      await handleLabChapterNotes(post(body), env, ctx().ctx, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+      expect(fetchAnthropic).toHaveBeenCalledTimes(2)
+    } finally { chapters[1].paragraphs[0] = original }
+  })
+  it('rejects invented quotation and incomplete model response without caching', async () => {
+    const cache = fakeCache()
+    const bad = { ...content, structure: [{ title: 'Bad', explanation: 'Bad', quotes: [{ text: 'Invented', passageId: 'chapter-1:paragraph-0' }] }] }
+    const result = await handleLabChapterNotes(post(body), env, ctx().ctx, allow, { cache, fetchAnthropic: anthropic(JSON.stringify(bad)), reserveGuestSpend: spend })
+    expect(result.status).toBe(502)
+    expect(cache.entries.size).toBe(0)
+    const truncated = vi.fn(async () => Response.json({ stop_reason: 'max_tokens', content: [{ type: 'text', text: JSON.stringify(content) }] }))
+    expect((await handleLabChapterNotes(post(body), env, ctx().ctx, allow, { cache, fetchAnthropic: truncated, reserveGuestSpend: spend })).status).toBe(502)
+    expect(cache.entries.size).toBe(0)
+  })
+  it('rejects an oversized full source before generation or spending', async () => {
+    const original = chapters[1].paragraphs
+    const fetchAnthropic = anthropic(JSON.stringify(content)); const reserveGuestSpend = vi.fn(spend)
+    try {
+      chapters[1].paragraphs = ['x'.repeat(190_001)]
+      resetBookRetrievalCache()
+      const response = await handleLabChapterNotes(post(body), env, ctx().ctx, allow, { cache: null, fetchAnthropic, reserveGuestSpend })
+      expect(response.status).toBe(422)
+      expect(await response.json()).toMatchObject({ sourceUnavailable: true })
+      expect(fetchAnthropic).not.toHaveBeenCalled()
+      expect(reserveGuestSpend).not.toHaveBeenCalled()
+    } finally { chapters[1].paragraphs = original }
+  })
+})

@@ -1,0 +1,10 @@
+.book-primer-content { color: inherit; font-family: 'EB Garamond', Georgia, serif; font-size: 1.125rem; line-height: 1.55; overflow-wrap: anywhere; }
+.book-primer-content p { margin: 0 0 1em; }
+.book-primer-content > details { border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+.book-primer-content summary { cursor: pointer; padding: 12px 0; font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; }
+.book-primer-content details details { margin: 0 0 0 12px; }
+.book-primer-content details details summary { font-family: inherit; font-size: inherit; }
+.book-primer-content blockquote { margin: 12px 0; padding-left: 14px; border-left: 2px solid currentColor; }
+.book-primer-content button { color: inherit; background: transparent; border: 1px solid color-mix(in srgb, currentColor 28%, transparent); border-radius: 8px; padding: 10px 14px; min-height: 44px; font: inherit; cursor: pointer; margin: 8px 0; }
+.book-primer-content a { color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.book-primer-content summary:focus-visible, .book-primer-content button:focus-visible, .book-primer-content a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

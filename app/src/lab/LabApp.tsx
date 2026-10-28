@@ -5327,7 +5327,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (kind !== 'primer' && chapterNumber === book.chapterNumber) handleChapterChat('discuss')
       return
     }
-    const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
+    const label = chapter?.title || `Chapter ${chapterNumber}`
     // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
     const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Recap · ${label} so far`
     dictation.stop()
@@ -5337,6 +5337,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       title,
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
+        ...(!privateBook && kind === 'primer' ? { format: 'structured-primer' as const } : {}),
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
       ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs } } : {}),

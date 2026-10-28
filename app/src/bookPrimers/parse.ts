@@ -23,7 +23,7 @@ function topic(value: unknown): PrimerTopic {
   return result
 }
 /** Strictly parse model content; source identity and resource verification never come from the model. */
-export function parseGeneratedPrimer(raw: string, passages: readonly SourcePassage[]): PrimerContent {
+export function parsePrimerContent(raw: string): PrimerContent {
   if (raw.length > 100_000) throw new Error('Primer response is too large')
   const data = object(JSON.parse(raw))
   const result: PrimerContent = { opening: text(data.opening, 4000), structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
@@ -32,6 +32,11 @@ export function parseGeneratedPrimer(raw: string, passages: readonly SourcePassa
     if (!Array.isArray(values) || values.length > 12) throw new Error('Invalid primer section')
     result[section] = values.map(topic)
   }
+  return result
+}
+
+export function parseGeneratedPrimer(raw: string, passages: readonly SourcePassage[]): PrimerContent {
+  const result = parsePrimerContent(raw)
   if (!quotesMatchSource(result, passages)) throw new Error('A primer quotation does not match this edition')
   return result
 }

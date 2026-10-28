@@ -1,3 +1,4 @@
+import './primerContent.css'
 import { usablePrimerResource } from './resources'
 import { visiblePrimerSections, type SavedPrimer } from './model'
 

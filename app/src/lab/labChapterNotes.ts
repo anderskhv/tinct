@@ -1,3 +1,5 @@
+import { parsePrimerContent } from '../bookPrimers/parse'
+import { type SavedPrimer, primerKey } from '../bookPrimers/model'
 /**
  * Client side of chapter notes (Summarize "so far", chapter-end summary,
  * Primer) and of stored explanations. Both are kept on this device under the
@@ -38,10 +40,10 @@ export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBe
  * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
  * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the card says so above Retry.
  */
-export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true; resting?: true; sourceUnavailable?: true }
+export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[]; primer?: SavedPrimer } | { ok: false; status: number; allowanceUsed?: true; resting?: true; sourceUnavailable?: true }
 
 export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike; readToken?: () => Promise<string | null> } = {}): Promise<ChapterNotesResult> {
-  const stored = storedChapterNotes(request)
+  const stored = request.format ? null : storedChapterNotes(request)
   if (stored) return { ok: true, beats: stored }
   const fetchImpl = options.fetchImpl ?? (typeof fetch === 'function' ? (url: string, init: RequestInit) => fetch(url, init) : null)
   if (!fetchImpl) return { ok: false, status: 0 }
@@ -52,9 +54,21 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
     if (!response.ok) {
       if (await isAllowanceUsedResponse(response)) return { ok: false, status: response.status, allowanceUsed: true }
       if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
+      if (response.status === 422) return { ok: false, status: 422, sourceUnavailable: true }
       return { ok: false, status: response.status }
     }
-    const beats = parseChapterNotesBeats(await response.json())
+    const raw = await response.json()
+    if (request.format === 'structured-primer') {
+      const primer = (raw as { primer?: SavedPrimer })?.primer
+      if (!primer || primer.identity.scope.kind !== 'public' || primer.identity.workId !== request.bookId || primer.identity.editionId !== request.editionKey || primer.identity.unitId !== `chapter-${request.chapterNumber}` || primer.identity.type !== 'chapter') return { ok: false, status: 502 }
+      primerKey(primer.identity)
+      // Exact quotes were checked against server-owned source before this response.
+      const topics = [primer.content.structure, primer.content.peopleAndIdeas, primer.content.helpfulContext, primer.content.whatToNotice, primer.content.usefulReferences].flat()
+      const content = parsePrimerContent(JSON.stringify(primer.content))
+      const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
+      return { ok: true, beats, primer: { ...primer, content, resources: [] } }
+    }
+    const beats = parseChapterNotesBeats(raw)
     if (!beats) return { ok: false, status: response.status }
     keepChapterNotes(request, beats)
     return { ok: true, beats }

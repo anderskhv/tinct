@@ -1,3 +1,6 @@
+import { bookPrimerRequest, type PrimerSource } from '../../bookPrimers/prompt'
+import { parseGeneratedPrimer } from '../../bookPrimers/parse'
+import { BOOK_PRIMER_PROMPT_VERSION, primerKey, type SavedPrimer } from '../../bookPrimers/model'
 /**
  * POST /api/lab-chapter-notes — the short "beats" card behind Summarize, the
  * chapter-end summary and Primer (they used to stream a chat answer).
@@ -137,6 +140,7 @@ export interface ParsedChapterNotesRequest {
   kind: ChapterNotesKind
   paragraphIndex: number
   bookTitle: string | null
+  format?: 'structured-primer'
 }
 
 export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesRequest | null {
@@ -146,13 +150,14 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
   if (!book || book.chapterNumber === undefined) return null
   const kind = value.kind
   if (kind !== 'sofar' && kind !== 'end' && kind !== 'primer') return null
+  if (value.format !== undefined && (value.format !== 'structured-primer' || kind !== 'primer')) return null
   const paragraph = value.paragraphIndex
   const paragraphIndex = kind === 'sofar'
     ? (typeof paragraph === 'number' && Number.isInteger(paragraph) && paragraph >= 0 && paragraph <= MAX_PARAGRAPH_INDEX ? paragraph : -1)
     : 0
   if (paragraphIndex < 0) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle }
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(value.format === 'structured-primer' ? { format: 'structured-primer' as const } : {}) }
 }
 
 function cleanParagraph(text: string): string {
@@ -230,6 +235,22 @@ export async function handleLabChapterNotes(
   })
   const chapter = await retrieval.chapterText(parsed.chapterNumber)
   if (!chapter || chapter.paragraphs.length === 0) return jsonResponse({ error: 'Chapter not available' }, 404, request)
+  let primerSource: PrimerSource | null = null
+  if (parsed.format === 'structured-primer') {
+    const passages = chapter.paragraphs.map((text, index) => ({ id: `chapter-${chapter.number}:paragraph-${index}`, unitId: `chapter-${chapter.number}`, text: cleanParagraph(text) })).filter(p => p.text)
+    if (!passages.length || passages.reduce((n, p) => n + p.text.length, 0) > 190_000) {
+      return jsonResponse({ error: 'Complete section unavailable', sourceUnavailable: true }, 422, request)
+    }
+    const sourceBytes = new TextEncoder().encode(JSON.stringify({ title: chapter.title, passages }))
+    const digest = await crypto.subtle.digest('SHA-256', sourceBytes)
+    const sourceVersion = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
+    primerSource = {
+      identity: { scope: { kind: 'public' }, workId: parsed.bookId, editionId: parsed.editionKey,
+        sourceVersion, unitId: `chapter-${chapter.number}`, type: 'chapter', language: 'en' },
+      title: parsed.bookTitle || parsed.bookId, unitLabel: chapter.title, reliable: true, passages,
+      units: [{ id: `chapter-${chapter.number}`, label: chapter.title }],
+    }
+  }
   // "So far" positions that cover the same text share one entry.
   const through = parsed.kind === 'sofar'
     ? recapCoverageThrough({ paragraphIndex: parsed.paragraphIndex, paragraphCount: chapter.paragraphs.length, completed: false })
@@ -239,12 +260,18 @@ export async function handleLabChapterNotes(
   } satisfies ChapterNotesResponse, 200, request)
 
   const cache = deps.cache === undefined ? defaultCache() : deps.cache
-  const cacheKey = new Request(`${origin}/__lab-chapter-notes/${chapterNotesCacheKey({ ...parsed, through })}`)
+  const cacheIdentity = primerSource ? `${BOOK_PRIMER_PROMPT_VERSION}/${encodeURIComponent(primerKey(primerSource.identity))}` : chapterNotesCacheKey({ ...parsed, through })
+  const cacheKey = new Request(`${origin}/__lab-chapter-notes/${cacheIdentity}`)
   if (cache) {
     try {
       const hit = await cache.match(cacheKey)
       if (hit) {
-        const beats = parseChapterNotesBeats(await hit.json())
+        const cached = await hit.json() as { primer?: SavedPrimer }
+        if (primerSource && cached.primer && primerKey(cached.primer.identity) === primerKey(primerSource.identity)) {
+          const content = parseGeneratedPrimer(JSON.stringify(cached.primer.content), primerSource.passages)
+          return jsonResponse({ primer: { ...cached.primer, content, resources: [] }, source: 'cache' }, 200, request)
+        }
+        const beats = primerSource ? null : parseChapterNotesBeats(cached)
         if (beats) return respond(beats, 'cache')
       }
     } catch { /* a cache failure is never a user-facing failure */ }
@@ -254,7 +281,9 @@ export async function handleLabChapterNotes(
     return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, request)
   }
   let passage: string
-  if (parsed.kind === 'primer') {
+  if (primerSource) {
+    passage = bookPrimerRequest(primerSource).data
+  } else if (parsed.kind === 'primer') {
     const previous = parsed.chapterNumber > 1 ? await retrieval.chapterText(parsed.chapterNumber - 1) : null
     passage = [
       previous ? `PREVIOUS CHAPTER (what the reader has read):\n\n${chapterBody(previous, undefined, 12_000)}` : 'PREVIOUS CHAPTER: none — this is the opening.',
@@ -265,9 +294,9 @@ export async function handleLabChapterNotes(
   }
   const where = parsed.bookTitle ? `${parsed.bookTitle}, ${chapter.title}` : chapter.title
   const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
-  const system = CHAPTER_NOTES_SYSTEM[parsed.kind]
+  const system = primerSource ? bookPrimerRequest(primerSource).system : CHAPTER_NOTES_SYSTEM[parsed.kind]
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
-  const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
+  const maxTokens = primerSource ? 2400 : CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   // Cached and prepared entries above cost nothing and are always served.
   if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
@@ -293,6 +322,17 @@ export async function handleLabChapterNotes(
     const message = await response.json() as AnthropicMessage
     meter.anthropic(message.usage)
     const text = message.stop_reason === 'refusal' ? '' : (message.content ?? []).filter(block => block?.type === 'text').map(block => block.text ?? '').join('')
+    if (primerSource) {
+      if (message.stop_reason !== 'end_turn') return jsonResponse({ error: 'Incomplete primer response' }, 502, request)
+      const primer: SavedPrimer = { identity: primerSource.identity,
+        content: parseGeneratedPrimer(text, primerSource.passages), resources: [], origin: 'generated',
+        createdAt: new Date().toISOString(), promptVersion: BOOK_PRIMER_PROMPT_VERSION }
+      if (cache) {
+        const stored = new Response(JSON.stringify({ primer }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${CHAPTER_NOTES_CACHE_TTL_SECONDS}` } })
+        ctx.waitUntil(cache.put(cacheKey, stored).catch(() => {}))
+      }
+      return jsonResponse({ primer, source: 'model' }, 200, request)
+    }
     const json = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)
     let beats: ChapterNotesResponse['beats'] | null = null
     try { beats = parseChapterNotesBeats(JSON.parse(json)) } catch { beats = null }

@@ -168,3 +168,23 @@ describe("LabChapterNotesSheet on a reader's own book (One Tinct, 22 Oct 2026)",
     expect(fetchMock).not.toHaveBeenCalled()
   })
 })
+
+
+describe('structured chapter primer in the existing reader sheet', () => {
+  afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals() })
+  it('renders expandable source-grounded sections and continues through existing chat', async () => {
+    localStorage.clear()
+    const content = { opening: 'A letter opens the account.', structure: [{ title: 'Letter', explanation: 'Notice the address.' }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+    const primer = { identity: { scope: { kind: 'public' }, workId: 'bible', editionId: 'original-en', sourceVersion: 'source-v1', unitId: 'chapter-12', type: 'chapter', language: 'en' }, content, resources: [], origin: 'generated', createdAt: '2026-10-28', promptVersion: 'book-primer-1' }
+    const fetchMock = vi.fn(async () => Response.json({ primer }))
+    vi.stubGlobal('fetch', fetchMock)
+    const onChat = vi.fn()
+    render(<LabChapterNotesSheet request={{ ...request, kind: 'primer', format: 'structured-primer' }} title="Primer · Letter 1" onClose={vi.fn()} onChat={onChat} onTalk={vi.fn()} />)
+    await screen.findByText(content.opening)
+    expect(screen.getByText('Structure').tagName).toBe('SUMMARY')
+    fireEvent.click(screen.getByText('Discuss this'))
+    expect(onChat).toHaveBeenCalledWith('Primer · Letter 1', expect.arrayContaining([{ title: 'Primer', text: content.opening }]))
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(localStorage.getItem(CHAPTER_NOTES_STORAGE_KEY)).toBeNull()
+  })
+})

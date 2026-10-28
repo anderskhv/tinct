@@ -37,6 +37,8 @@ export interface ChapterNotesRequest {
   /** "So far" only: the paragraph the reader is in. */
   paragraphIndex?: number
   bookTitle?: string
+  /** Structured source-grounded chapter primer; legacy notes retain their format. */
+  format?: 'structured-primer'
 }
 
 export interface ChapterNotesResponse {

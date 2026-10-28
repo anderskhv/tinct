@@ -1,3 +1,5 @@
+import { PrimerContentView } from '../bookPrimers/PrimerContentView'
+import type { SavedPrimer } from '../bookPrimers/model'
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
 import { chapterNotesPlainText, fetchChapterNotes, keepChapterNotes, storedChapterNotes, type ChapterNotesResult } from './labChapterNotes'
@@ -45,7 +47,8 @@ export interface LabChapterNotesSheetProps {
  * continue from it; closing it leaves the reader where it was.
  */
 export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
-  const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
+  const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => request.format ? null : storedChapterNotes(request))
+  const [primer, setPrimer] = useState<SavedPrimer | null>(null)
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).
   const [allowanceUsed, setAllowanceUsed] = useState(false)
@@ -88,7 +91,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
       : fetchChapterNotes(request, { readToken })
     void notes.then(result => {
       if (!mounted.current) return
-      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setSourceUnavailable(result.sourceUnavailable === true); setState('error') }
+      if (result.ok) { setPrimer(result.primer ?? null); setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setSourceUnavailable(result.sourceUnavailable === true); setState('error') }
     })
   }, [request, readToken, own])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -102,7 +105,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
 
   const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
-          <ol className="lab-catch-up-timeline">
+          {state === 'ok' && primer ? <PrimerContentView primer={primer} onDiscuss={() => onChat(title, beats)} /> : <ol className="lab-catch-up-timeline">
             {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
@@ -117,7 +120,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
               </li>
             ))}
             {request.kind === 'sofar' && <li className="lab-catch-up-here"><span className="lab-catch-up-dot" aria-hidden="true" />You are here</li>}
-          </ol>
+          </ol>}
           {thread}
         </div>
   )
