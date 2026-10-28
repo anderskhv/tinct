@@ -21,9 +21,10 @@
 //      pages, 'pages-only': no text to reflow), from its columns, mathematics, figures and
 //      tables (see layout below). Version 5 (2026-10-09) added it.
 //   Version 6 (2026-10-16): a metadata title that is the printed title with more after it gives way to the printed one.
+//   Version 8 (2026-10-28): reconstruct sloped word baselines and keep lowercase wrapped heading lines.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 7;
+  const SCAN_VERSION = 8;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -38,7 +39,7 @@
       const size = Math.hypot(c, d) || it.height || 0;
       let row = rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
       if (!row) { row = { y, parts: [] }; rows.push(row) }
-      row.parts.push({ x, w: it.width || 0, s: it.str, size, font: it.fontName });
+      row.parts.push({ x, y, w: it.width || 0, s: it.str, size, font: it.fontName });
     }
     // A line that runs across a wide gap into a second column is two lines: a heading in the
     // left column is not joined to the right column's text ("1 Introduction" + "of long slow …").
@@ -54,6 +55,34 @@
         else seg.push(p);
       }
       close();
+    }
+    // OCR can describe a gently sloped printed baseline using horizontal word boxes.
+    // The first pass may split it against a different column's baseline. Rejoin only
+    // neighbouring fragments whose word origins support one shallow straight line;
+    // widening the vertical row tolerance alone would merge genuine adjacent lines.
+    const aligned = (left, right) => {
+      const end = left.parts.at(-1), start = right.parts[0];
+      const em = Math.max(end.size, start.size) || 1;
+      const gap = start.x - end.x - end.w;
+      if (gap < 0 || gap > em * 3 || Math.abs(start.y - end.y) > em * 0.5) return false;
+      const parts = [...left.parts, ...right.parts];
+      if (parts.length < 4 || parts.some(p => Math.abs(p.size - em) > em * 0.1)) return false;
+      const mx = parts.reduce((s, p) => s + p.x, 0) / parts.length;
+      const my = parts.reduce((s, p) => s + p.y, 0) / parts.length;
+      const variance = parts.reduce((s, p) => s + (p.x - mx) ** 2, 0);
+      if (!variance) return false;
+      const slope = parts.reduce((s, p) => s + (p.x - mx) * (p.y - my), 0) / variance;
+      return Math.abs(slope) <= 0.03 && parts.every(p => Math.abs(p.y - (my + slope * (p.x - mx))) <= Math.max(0.5, em * 0.08));
+    };
+    split.sort((p, q) => p.parts[0].x - q.parts[0].x);
+    for (let i = 0; i < split.length; i++) {
+      for (let j = i + 1; j < split.length; j++) {
+        if (!aligned(split[i], split[j])) continue;
+        split[i].parts.push(...split[j].parts);
+        split[i].y = split[i].parts[0].y;
+        split.splice(j, 1);
+        j = i; // A line can have more than two fragments.
+      }
     }
     return split.sort((p, q) => q.y - p.y || p.parts[0].x - q.parts[0].x).map(r => {
       const parts = r.parts;
@@ -291,35 +320,45 @@
       const para = p.rows.findIndex(r => r.font === body.font && Math.abs(r.size - body.size) < 0.6 && r.words >= 6);
       const first = p.n > 1 ? 0 : para < 0 ? Infinity : para;
       const found = [];
-      let prev = null;
+      const pending = [];
       for (const [i, r] of p.rows.entries()) {
         if (i < first) continue;
-        if (skip.has(i) || !headingLike(r) || isFurniture(p, r) || BOILERPLATE_HEADING.test(r.text)) { prev = null; continue }
-        if (same(r.text) && (same(r.text) === same(title) || same(r.text) === same(author))) { prev = null; continue }
-        // A line in the body's face running on into the body below (the next line of the same
-        // column starts in lower case, or this one ends in a hyphen) is a paragraph's first line.
-        const next = p.rows.slice(i + 1).find(n => n.y < r.y - 0.5 && n.x < r.x2 && n.x2 > r.x);
-        if (r.font === body.font && next && r.y - next.y < Math.max(r.size, next.size) * 1.8 && Math.abs(next.size - body.size) <= body.size * 0.1 && (/^\p{Ll}/u.test(next.text) || /-$/.test(r.text)) && !/[.!?:]$/.test(r.text)) { prev = null; continue }
-        // A misread stamp on a scan ("25 CENTS FINE OF AK imTXAL"): letters out of case inside a word.
-        if (noisy && /\p{Ll}\p{Lu}{2}/u.test(r.text)) { prev = null; continue }
-        // Larger than this page's body and the book's (a page of small-type notes does not make its body text a heading).
-        const larger = r.size >= Math.max(body.size, docBody.size) * step;
-        const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
-        if (!larger && !(sameSize && r.font && r.font !== body.font)) { prev = null; continue }
-        const face = r.font ? await fontName(p.n, r.font) : '';
-        if (!live()) return null;
-        // Italic or oblique lines are quotations, epigraphs or emphasis, unless set much larger.
-        if (isItalic(face) && r.size < body.size * 1.35) { prev = null; continue }
-        if (!larger && !isBold(face)) { prev = null; continue }
-        // A heading that wraps onto a second line, in the same face.
-        if (prev && prev.font === r.font && prev.y - r.y < r.size * 1.8 && prev.words + r.words <= 16) {
+        const prev = pending.findLast(h => Math.abs(h.x - r.x) < r.size * 0.5);
+        // A continuation need not start with a capital. Test it against the
+        // accepted heading's typography and column before the standalone-title filter.
+        const continues = prev && (prev.font === r.font || r.size >= Math.max(body.size, docBody.size) * 1.2) && Math.abs(prev.size - r.size) <= r.size * 0.05
+          && prev.y - r.y > r.size * 0.5 && prev.y - r.y < r.size * 1.8
+          && Math.abs(prev.x - r.x) < r.size * 0.5 && prev.words + r.words <= 16
+          && !skip.has(i) && !isFurniture(p, r) && !BOILERPLATE_HEADING.test(r.text)
+          && !FIGURE_LABEL.test(r.text) && !isPageNumber(r.text) && /\p{L}/u.test(r.text);
+        if (continues) {
           prev.entry.label = (prev.entry.label + ' ' + r.text).replace(/(?<=\p{L})-\s(?=\p{Ll})/gu, '').replace(/(?<=\p{Lu})-\s(?=\p{Lu}+\b)/gu, m => /\p{Ll}/u.test(prev.entry.label + r.text) ? m : '');
           Object.assign(prev, { y: r.y, words: prev.words + r.words });
           continue;
         }
+        // A row in another column cannot interrupt this heading. A row in
+        // its own column that is not a continuation ends it.
+        if (prev) pending.splice(pending.indexOf(prev), 1);
+        if (skip.has(i) || !headingLike(r) || isFurniture(p, r) || BOILERPLATE_HEADING.test(r.text)) { continue }
+        if (same(r.text) && (same(r.text) === same(title) || same(r.text) === same(author))) { continue }
+        // A line in the body's face running on into the body below (the next line of the same
+        // column starts in lower case, or this one ends in a hyphen) is a paragraph's first line.
+        const next = p.rows.slice(i + 1).find(n => n.y < r.y - 0.5 && n.x < r.x2 && n.x2 > r.x);
+        if (r.font === body.font && next && r.y - next.y < Math.max(r.size, next.size) * 1.8 && Math.abs(next.size - body.size) <= body.size * 0.1 && (/^\p{Ll}/u.test(next.text) || /-$/.test(r.text)) && !/[.!?:]$/.test(r.text)) { continue }
+        // A misread stamp on a scan ("25 CENTS FINE OF AK imTXAL"): letters out of case inside a word.
+        if (noisy && /\p{Ll}\p{Lu}{2}/u.test(r.text)) { continue }
+        // Larger than this page's body and the book's (a page of small-type notes does not make its body text a heading).
+        const larger = r.size >= Math.max(body.size, docBody.size) * step;
+        const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
+        if (!larger && !(sameSize && r.font && r.font !== body.font)) { continue }
+        const face = r.font ? await fontName(p.n, r.font) : '';
+        if (!live()) return null;
+        // Italic or oblique lines are quotations, epigraphs or emphasis, unless set much larger.
+        if (isItalic(face) && r.size < body.size * 1.35) { continue }
+        if (!larger && !isBold(face)) { continue }
         const entry = { id: 'h' + (out.length + found.length), label: r.text, page: p.n, kind: 'chapter', parent: null };
         found.push(entry);
-        prev = { entry, font: r.font, y: r.y, words: r.words };
+        pending.push({ entry, font: r.font, y: r.y, x: r.x, size: r.size, words: r.words });
       }
       // A title page (large lines and no running text: "A Study of Memory / for / … / by …") has no
       // chapters: before the text begins, two such lines or more; after, three or more.

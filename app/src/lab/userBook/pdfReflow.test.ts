@@ -168,7 +168,8 @@ describe('A place read under the earlier rules', () => {
     } as Storage
   })
 
-  it('moves to the same words on the same PDF page in the new conversion', () => {
+  it.each([1, 3])('moves from converter %s to the same words on the same PDF page', oldConverter => {
+    store.clear()
     const edition = fromPages(pagesOf('constructor-theory.pages.json'), constructorScan)!
     // The same words as converter 1 kept them: the abstract one short paragraph per PDF line (ten words here).
     const first = edition.chapters[0]
@@ -177,11 +178,11 @@ describe('A place read under the earlier rules', () => {
       const words = text.split(/\s+/)
       for (let at = 0; at < words.length; at += 10) { pieces.push(words.slice(at, at + 10).join(' ')); pages.push(first.pages![i]) }
     })
-    const previous: UserBookEdition = { ...edition, converter: 1, chapters: [{ number: 1, title: first.title, paragraphs: pieces, pages }, ...edition.chapters.slice(1)] }
+    const previous: UserBookEdition = { ...edition, converter: oldConverter, chapters: [{ number: 1, title: first.title, paragraphs: pieces, pages }, ...edition.chapters.slice(1)] }
     // Read at "cannot." in the old text.
     const old = pieces.findIndex(text => text.split(/\s+/).includes('cannot.'))
     const word = pieces[old].split(/\s+/).indexOf('cannot.')
-    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: old, wordIndex: word, updatedAt: 500, converter: 1 })
+    writeUserBookPlace(HEX, { chapterNumber: 1, paragraphIndex: old, wordIndex: word, updatedAt: 500, converter: oldConverter })
     const at = pageOfTextPlace(previous.chapters, { chapterNumber: 1, paragraphIndex: old, wordIndex: word })!
     expect(at.page).toBe(1)
     const place = readPdfTextPlace(HEX, edition, { previous })!
