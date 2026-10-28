@@ -374,7 +374,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     return () => registerFigureAssets(null)
   }, [images])
 
-  if (matches && state.status === 'ready') return <LabApp userBook={state.book} marginPhone={marginPhone || undefined} sharedReader={sharedReader || undefined} legacyOwnEpubItems={legacyEpubItems} ownCardController={state.cards} ownNotebookRecovery={sharedReader && owner && (recoverableCards + unclaimedEpubMarks + recoverableMarks > 0) ? <details className="lab-own-notebook-recovery"><summary>Review older saved entries</summary>
+  if (matches && state.status === 'ready') return <LabApp userBookOwner={owner} userBook={state.book} marginPhone={marginPhone || undefined} sharedReader={sharedReader || undefined} legacyOwnEpubItems={legacyEpubItems} ownCardController={state.cards} ownNotebookRecovery={sharedReader && owner && (recoverableCards + unclaimedEpubMarks + recoverableMarks > 0) ? <details className="lab-own-notebook-recovery"><summary>Review older saved entries</summary>
     {sharedReader && owner && recoverableCards > 0 && <div role="status" className="lab-own-cards-recovery">
       <p>{recoverableCards} older {recoverableCards === 1 ? 'conversation is' : 'conversations are'} not yet linked to an account. If {recoverableCards === 1 ? 'it is' : 'they are'} yours, attach {recoverableCards === 1 ? 'it' : 'them'} to this account.</p>
       <button type="button" onClick={() => { if (adoptUnassignedOwnTextCards(hex, owner, state.fileId)) window.location.reload() }}>Attach older conversations</button>

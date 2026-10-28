@@ -462,6 +462,7 @@ export interface LabAppProps {
    * place, highlights and chat stay on this device; registry-only features
    * (Cast, narration, Compare, editions, Talk, library progress) are hidden.
    */
+  userBookOwner?: string | null
   userBook?: LoadedUserBook
   /**
    * The phone's margin mode (`/reader?book=<id>&margin=1` on a phone,
@@ -536,7 +537,7 @@ function privateLibraryDestination(destination: string, enabled: boolean): strin
   return `${url.pathname}${url.search}${url.hash}`
 }
 
-export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
+export function LabApp({ pathname, search, online, source, authToken, userBook, userBookOwner, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const voiceVersion = 'v2'
@@ -5338,12 +5339,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       title,
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
-        ...(!privateBook && kind === 'primer' ? { format: 'structured-primer' as const, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } : {}),
+        ...((!privateBook || (userBook?.kind === 'epub' && userBookOwner)) && kind === 'primer' ? { format: 'structured-primer' as const, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } : {}),
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
-      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs } } : {}),
+      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs, ...(kind === 'primer' && userBook?.kind === 'epub' && userBookOwner ? { structured: { ownerId: userBookOwner, uploadId: userBook.hex, workId: userBook.bookId, editionId: readerEditionKey, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } } : {}) } } : {}),
     })
-  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs, allBookEditions])
+  }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs, allBookEditions, userBook, userBookOwner])
 
   const openPrimerPassage = useCallback((request: ChapterNotesRequest, passageId: string, text: string) => {
     if (initialResolving || book.chaptersProvisional || temporaryHold) return

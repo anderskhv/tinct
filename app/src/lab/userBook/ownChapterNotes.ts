@@ -1,3 +1,5 @@
+import { parseGeneratedPrimer } from '../../bookPrimers/parse'
+import { BOOK_PRIMER_PROMPT_VERSION, primerKey, type PrimerIdentity } from '../../bookPrimers/model'
 /**
  * Primer and Recap on a reader's own book in the book reader (the phone's chapter pills; One Tinct, 22 Oct 2026).
  *
@@ -7,8 +9,9 @@
  * text is sent from this device in the companion request (`/api/chat` signed in, `/api/lab-chat` signed out), with
  * no book id, no edition and nothing cached on the server. Primer is the companion's chapter action `primer`
  * (companionRequest.ts parsePrimerRequest: an own EPUB's context, `kind: 'epub'`, its text as pages); Recap is the
- * margin reader's recap instruction as an `ask` (reader.js pillRules). Both are shown as the same titled beats.
- * The beats are kept on this device only (labChapterNotes.ts, under the book's local key).
+ * margin reader's recap instruction as an `ask` (reader.js pillRules). Owner-qualified EPUB primers use the
+ * structured book-primer view; their identity stays on this device and they bypass the legacy beats cache.
+ * Legacy notes are kept on this device only (labChapterNotes.ts, under the book's local key).
  */
 import { parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesKind } from '../../chapterNotes'
 import { parsePrimer, type Primer } from '../../companion/primerParse'
@@ -26,6 +29,7 @@ export interface OwnChapterNotesSource {
   chapterNumber: number
   chapterTitle: string
   paragraphs: readonly string[]
+  structured?: { ownerId: string; uploadId: string; workId: string; editionId: string; language: string }
 }
 
 /** The kinds made this way: Primer (the heading's pill) and Recap (the chapter end's). */
@@ -70,6 +74,7 @@ export function ownRecapInstruction(source: OwnChapterNotesSource): string {
  * book id or edition (a request naming a bookId cannot parse as a primer; companionRequest.ts).
  */
 export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapterNotesSource): Record<string, unknown> {
+  if (kind === 'primer' && source.structured && (Object.values(source.structured).some(value => !value.trim()) || !/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(source.structured.language))) throw new IncompleteChapterSourceError('The private source identity is incomplete')
   const context = {
     bookTitle: source.bookTitle.slice(0, 300) || 'Your book',
     bookAuthor: (source.bookAuthor || '').slice(0, 300),
@@ -80,10 +85,11 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
     lookups: false,
   }
   if (kind === 'primer') {
+    const structuredPrimer = source.structured ? { language: source.structured.language, passages: ownPrimerPassages(source) } : undefined
     return {
       stream: false, max_tokens: 1600,
       messages: [{ role: 'user', content: 'Please answer.' }],
-      companion: { intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter' } } },
+      companion: { intent: 'chapter', context, chapter: { ...(structuredPrimer ? { structuredPrimer } : {}), action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter' } } },
     }
   }
   return {
@@ -91,6 +97,10 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
     messages: [{ role: 'user', content: `${ownRecapInstruction(source)}\n\nPlease answer.` }],
     companion: { intent: 'ask', context },
   }
+}
+
+function ownPrimerPassages(source: OwnChapterNotesSource) {
+  return source.paragraphs.map((raw, index) => ({ id: `chapter-${source.chapterNumber}:paragraph-${index}`, text: readableParagraph(raw).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() })).filter(p => p.text)
 }
 
 const itemText = (item: Primer['sections'][number]['items'][number]) => 'term' in item ? `${item.term}: ${item.meaning}` : item.text.replace(/\s*\{[^}]*\}\s*/g, ' ').trim()
@@ -132,7 +142,17 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
       if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
       return { ok: false, status: response.status }
     }
-    const text = await readAnthropicResponse(response)
+    const text = await readAnthropicResponse(response, undefined, { requireComplete: true })
+    if (kind === 'primer' && source.structured) {
+      const passages = ownPrimerPassages(source)
+      const content = parseGeneratedPrimer(text, passages)
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify({ title: source.chapterTitle, passages })))
+      const identity: PrimerIdentity = { scope: { kind: 'private', ownerId: source.structured.ownerId, uploadId: source.structured.uploadId }, workId: source.structured.workId, editionId: source.structured.editionId, language: source.structured.language, sourceVersion: Array.from(new Uint8Array(digest), n => n.toString(16).padStart(2, '0')).join(''), unitId: `chapter-${source.chapterNumber}`, type: 'chapter' }
+      primerKey(identity)
+      const topics = [content.structure, content.whatToNotice, content.usefulReferences].flat()
+      const beats = [{ title: 'Primer', text: content.opening }, ...topics.map(t => ({ title: t.title, text: [t.explanation, t.takeaway, ...(t.quotes ?? []).map(q => q.text)].filter(Boolean).join('\n\n') }))]
+      return { ok: true, beats, primer: { identity, content, resources: [], origin: 'generated', createdAt: new Date().toISOString(), promptVersion: BOOK_PRIMER_PROMPT_VERSION } }
+    }
     const beats = kind === 'primer' ? (() => { const primer = parsePrimer(text); return primer ? primerBeats(primer) : null })() : recapBeats(text)
     return beats ? { ok: true, beats } : { ok: false, status: response.status }
   } catch (error) {

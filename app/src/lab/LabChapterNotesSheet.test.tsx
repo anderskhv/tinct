@@ -3,7 +3,7 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import type { ChapterNotesRequest } from '../chapterNotes'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
-import { CHAPTER_NOTES_STORAGE_KEY, chapterNotesKey, chapterNotesPlainText } from './labChapterNotes'
+import { CHAPTER_NOTES_STORAGE_KEY, keepChapterNotes, chapterNotesKey, chapterNotesPlainText } from './labChapterNotes'
 import { LAB_COPY } from './labCopy'
 
 const request: ChapterNotesRequest = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12, kind: 'end', bookTitle: 'The Bible' }
@@ -148,6 +148,22 @@ describe("LabChapterNotesSheet on a reader's own book (One Tinct, 22 Oct 2026)",
     render(<LabChapterNotesSheet request={ownRequest} own={own} title="Recap · 2 Controversial Candles" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
     expect(screen.getAllByTestId('lab-chapter-notes-beat')).toHaveLength(2)
     expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders a private structured primer without reusing or replacing legacy cached beats', async () => {
+    const { webcrypto } = await import('node:crypto')
+    vi.stubGlobal('crypto', webcrypto)
+    const request: ChapterNotesRequest = { ...ownRequest, kind: 'primer', format: 'structured-primer', language: 'en' }
+    keepChapterNotes(request, [{ title: 'Old notes', text: 'Stale partial source.' }])
+    const before = localStorage.getItem(CHAPTER_NOTES_STORAGE_KEY)
+    const content = { opening: 'The lamp and shade offer competing explanations.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({ content: [{ type: 'text', text: JSON.stringify(content) }], stop_reason: 'end_turn' }), { status: 200 }))
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabChapterNotesSheet request={request} own={{ ...own, structured: { ownerId: 'owner', uploadId: HEX, workId: ownRequest.bookId, editionId: 'own-en', language: 'en' } }} title="Primer" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+    expect(await screen.findByText(content.opening)).toBeTruthy()
+    expect(screen.queryByText('Stale partial source.')).toBeNull()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(localStorage.getItem(CHAPTER_NOTES_STORAGE_KEY)).toBe(before)
   })
 
   it('explains an incomplete source without offering a futile retry or saving partial notes', async () => {

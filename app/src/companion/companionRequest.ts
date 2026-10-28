@@ -1,3 +1,5 @@
+import { bookPrimerRequest } from '../bookPrimers/prompt'
+import type { SourcePassage } from '../bookPrimers/model'
 /**
  * Structured companion requests. The reader sends what it is looking at
  * (book, edition, chapter, paragraph, selection, chapter action) and the
@@ -114,6 +116,7 @@ export interface CompanionRequest {
   pdf?: true
   /** With `pdf`: the file is an EPUB (chapters, no page numbers, never a passage image). */
   epub?: true
+  structuredPrimer?: { language: string; passages: SourcePassage[] }
   /** Ask on a user's PDF about the whole file (the margin's Chat): adds WHOLE_PDF_PROMPT. Never set for a registered book. */
   whole?: true
   /** define_sense: the dictionary's senses, in dictionary order (numbered from 1 in the prompt). */
@@ -200,7 +203,7 @@ export function isPrimerRequest(request: CompanionRequest): request is Companion
 
 /** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. */
 export function companionMaxTokens(request: CompanionRequest): number {
-  return isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent]
+  return request.structuredPrimer ? 2400 : isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent]
 }
 
 /** Paragraphs on each side of the reader's place sent with Explain and Define. */
@@ -452,9 +455,22 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
   if (!action) return null
   const parsed = parseContext({ ...c, chapterLabel: c.chapterLabel ?? action.unitTitle, pages: primerPages(c.pages), paragraphs: undefined })
   if (!parsed?.pdf || !parsed.context.paragraphs.some(page => /^<page n="[^"]*">\n\S/.test(page))) return null
+  let structuredPrimer: CompanionRequest['structuredPrimer']
+  if (chapter.structuredPrimer !== undefined) {
+    const value = chapter.structuredPrimer as { language?: unknown; passages?: unknown }
+    if (c.kind !== 'epub' || r.document !== undefined || !value || typeof value.language !== 'string' || value.language.length > 35 || !/^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$/i.test(value.language) || !Array.isArray(value.passages) || !value.passages.length || value.passages.length > 10000) return null
+    let total = 0
+    const ids = new Set<string>()
+    for (const passage of value.passages) {
+      if (!passage || typeof passage.id !== 'string' || passage.id.length > 100 || !passage.id.startsWith(action.unitKey + ':paragraph-') || !/^[0-9]+$/.test(passage.id.slice((action.unitKey + ':paragraph-').length)) || ids.has(passage.id) || typeof passage.text !== 'string' || !passage.text.trim()) return null
+      ids.add(passage.id); total += passage.text.length
+      if (total > 190000) return null
+    }
+    structuredPrimer = { language: value.language, passages: value.passages.map(p => ({ id: p.id, text: p.text })) }
+  }
   const document = parseMarginDocument(r.document)
   // Made ahead of the reader opening it (the PDF reader's primerPrefetch): never charged (companionAllowance).
-  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, pdf: true, ...(parsed.epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
+  return { intent: 'chapter', context: { ...parsed.context, lookups: false }, chapter: { action }, ...(structuredPrimer ? { structuredPrimer } : {}), pdf: true, ...(parsed.epub ? { epub: true as const } : {}), ...(document ? { document } : {}), ...(r.speculative === true ? { speculative: true } : {}) }
 }
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
@@ -636,6 +652,13 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
       const chapter = request.chapter!
       const context = request.context!
       // Before you start (a user's PDF only): its own builder, so a book's chapter actions are untouched.
+      if (chapter.action.kind === 'primer' && request.structuredPrimer) {
+        const { language, passages } = request.structuredPrimer
+        const unitId = chapter.action.unitKey
+        // Prompt-only identity: no owner identifiers arrive here and no shared cache is written.
+        const prompt = bookPrimerRequest({ identity: { scope: { kind: 'private', ownerId: 'request-only', uploadId: 'request-only' }, workId: 'supplied-text', editionId: 'supplied-edition', sourceVersion: 'request', unitId, type: 'chapter', language }, title: context.bookTitle, unitLabel: chapter.action.unitTitle, reliable: true, units: [{ id: unitId, label: chapter.action.unitTitle }], passages: passages.map(p => ({ ...p, unitId })) })
+        return prompt.system + '\n\n' + prompt.data
+      }
       if (chapter.action.kind === 'primer') return buildPrimerInstructions(chapter.action, context)
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
       return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
@@ -669,6 +692,7 @@ function tagData(value: string): string {
 
 /** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
 export function companionSelectionMessage(request: CompanionRequest): string | null {
+  if (request.structuredPrimer) return 'Return the structured primer JSON for the supplied section.'
   if (isPrimerRequest(request)) return primerUserTurn(request.chapter.action)
   switch (request.intent) {
     case 'define':
@@ -725,7 +749,7 @@ export function companionTakesPassageImage(request: CompanionRequest): boolean {
 export function marginRequestRoute(request: CompanionRequest): MarginRoute | null {
   if (!request.pdf) return null
   const key = marginRouteKey(request.intent, request.chapter?.action.kind)
-  return key ? MARGIN_ROUTES[key] : null
+  return key ? (request.structuredPrimer ? { ...MARGIN_ROUTES[key], maxTokens: 2400 } : MARGIN_ROUTES[key]) : null
 }
 
 /** The page label a PDF context's place is on: the marker of the page at paragraphIndex. */

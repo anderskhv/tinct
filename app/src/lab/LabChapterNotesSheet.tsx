@@ -86,7 +86,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   const load = useCallback(() => {
     setState('loading')
     const notes = own && isOwnChapterNotesKind(request.kind)
-      ? fetchOwnChapterNotes(request.kind, own, { readToken }).then(result => { if (result.ok) keepChapterNotes(request, result.beats); return result })
+      ? fetchOwnChapterNotes(request.kind, own, { readToken }).then(result => { if (result.ok && !request.format) keepChapterNotes(request, result.beats); return result })
       // An own book's id never leaves the device: without its text here there is nothing to ask for.
       : isUserBookId(request.bookId) ? Promise.resolve<ChapterNotesResult>({ ok: false, status: 0 })
       : fetchChapterNotes(request, { readToken })

@@ -90,3 +90,34 @@ describe("an own book's Primer and Recap, made from this device's text (One Tinc
     expect(await fetchOwnChapterNotes('primer', source, { fetchImpl: async () => { throw new Error('offline') } })).toMatchObject({ ok: false, status: 0 })
   })
 })
+
+describe('structured private EPUB chapter primers', () => {
+  const privateSource: OwnChapterNotesSource = { ...source, structured: { ownerId: 'owner-secret', uploadId: 'upload-secret', workId: 'local-work', editionId: 'local-edition', language: 'en' } }
+  const content = { opening: 'Two accounts meet in one room.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Disagreement', explanation: 'Notice the competing accounts.', quotes: [{ text: source.paragraphs[1], passageId: 'chapter-3:paragraph-1' }] }], usefulReferences: [] }
+  it('uses the shared structured prompt without sending private identity, and keeps complete long source', async () => {
+    const { buildCompanionSystem, companionSelectionMessage } = await import('../../companion/companionRequest')
+    const body = ownChapterNotesBody('primer', { ...privateSource, paragraphs: ['First paragraph.', 'last source sentence '.repeat(3000)] })
+    expect(JSON.stringify(body)).not.toMatch(/owner-secret|upload-secret|local-work|local-edition/)
+    const parsed = parseCompanionRequest(body.companion)!
+    expect(parsed.structuredPrimer?.passages[1].text.length).toBeGreaterThan(32000)
+    expect(buildCompanionSystem(parsed)).toContain('Return JSON with opening')
+    expect(buildCompanionSystem(parsed)).toContain(parsed.structuredPrimer!.passages[1].text)
+    expect(companionSelectionMessage(parsed)).toContain('structured primer JSON')
+    expect(parseCompanionRequest({ ...(body.companion as object), context: { ...(body.companion as any).context, kind: 'pdf' } })).toBeNull()
+  })
+  it('returns an owner/upload/source-qualified primer and rejects invented quotes', async () => {
+    const good = await fetchOwnChapterNotes('primer', privateSource, { fetchImpl: async () => answer(JSON.stringify(content)) })
+    expect(good).toMatchObject({ ok: true, primer: { identity: { scope: { kind: 'private', ownerId: 'owner-secret', uploadId: 'upload-secret' }, unitId: 'chapter-3', language: 'en' }, content } })
+    if (good.ok) expect(good.primer?.identity.sourceVersion).toMatch(/^[0-9a-f]{64}$/)
+    const bad = await fetchOwnChapterNotes('primer', privateSource, { fetchImpl: async () => answer(JSON.stringify(content).replace(source.paragraphs[1], 'Invented quotation.')) })
+    expect(bad.ok).toBe(false)
+  })
+  it('validates the structured response on the Worker without applying the PDF schema', async () => {
+    const { primerReplyFault } = await import('../../worker/routes/chat')
+    const data = { content: [{ type: 'text', text: JSON.stringify(content) }], stop_reason: 'end_turn' }
+    const passages = source.paragraphs.map((text, i) => ({ text, id: `chapter-3:paragraph-${i}` }))
+    expect(primerReplyFault(data, passages)).toBeNull()
+    expect(primerReplyFault(data)).not.toBeNull()
+    expect(primerReplyFault({ ...data, stop_reason: 'max_tokens' }, passages)?.failure).toBe('truncated')
+  })
+})

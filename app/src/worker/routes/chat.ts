@@ -1,3 +1,5 @@
+import { parseGeneratedPrimer } from '../../bookPrimers/parse'
+import type { SourcePassage } from '../../bookPrimers/model'
 import { ChatUpstreamError, fetchChatUpstream as fetchAnthropic, logChatFailure, providerErrorType, readChatChunk, safeChatError } from '../lib/chatUpstream'
 import { COMPANION_MODEL, parseCompanionEffort, type CompanionEffort } from '../../companionModel'
 import { NEVER_CHARGED_AI_FEATURES, allowanceUsedBody, allowsAiFeature, createAllowanceGate, loadInternalAccount, type AllowanceGate, type AllowanceView } from '../lib/aiAllowance'
@@ -616,12 +618,12 @@ async function consumeStreamedRoundInner(
  * Why a primer reply is not a primer, for the log: 'truncated' when the output limit cut it off,
  * else primerFailure's reason; its length in characters and the stop reason. Null when it parses.
  */
-export function primerReplyFault(data: unknown): { failure: string; reply_chars: number; stop_reason: string | null; output_tokens: number | null } | null {
+export function primerReplyFault(data: unknown, passages?: SourcePassage[]): { failure: string; reply_chars: number; stop_reason: string | null; output_tokens: number | null } | null {
   const d = (data && typeof data === 'object' ? data : {}) as { content?: unknown; stop_reason?: unknown; usage?: { output_tokens?: unknown } }
   const text = Array.isArray(d.content) ? d.content.map(block => (block && typeof block === 'object' && (block as { type?: unknown }).type === 'text' ? String((block as { text?: unknown }).text ?? '') : '')).join('') : ''
   const stop = typeof d.stop_reason === 'string' ? d.stop_reason : null
   // Cut off by the output bound: never a primer, even when what came parses.
-  const failure = stop === 'max_tokens' ? 'truncated' : primerFailure(text)
+  const failure = stop === 'max_tokens' ? 'truncated' : passages ? (() => { try { if (stop !== 'end_turn') return 'incomplete'; parseGeneratedPrimer(text, passages); return null } catch { return 'invalid_structured_primer' } })() : primerFailure(text)
   if (!failure) return null
   return { failure, reply_chars: text.length, stop_reason: stop, output_tokens: typeof d.usage?.output_tokens === 'number' ? d.usage.output_tokens : null }
 }
@@ -1333,7 +1335,9 @@ export async function handleChat(
             companionParts = { stable: parts.stable.slice(0, MAX_SYSTEM_PROMPT_LENGTH), volatile: parts.volatile.slice(0, MAX_SYSTEM_PROMPT_LENGTH) }
             system = [companionParts.stable, companionParts.volatile].filter(Boolean).join('\n\n')
           } else {
-            system = buildCompanionSystem(companion, buildExtras).slice(0, MAX_SYSTEM_PROMPT_LENGTH)
+            const built = buildCompanionSystem(companion, buildExtras)
+            // Structured EPUB source is bounded and rejected in the parser; never silently cut it.
+            system = companion.structuredPrimer ? built : built.slice(0, MAX_SYSTEM_PROMPT_LENGTH)
           }
         }
       } else {
@@ -1538,7 +1542,7 @@ export async function handleChat(
       const stopError = marginLabel && response.ok ? marginStopError(data.stop_reason) : null
       // Before you start: a reply that is not a primer (cut off included) is logged (why, and
       // how long; never the text) and not charged, so the reader's retry does not pay twice.
-      const primerFault = stopError !== 'refusal' && response.ok && companion && isPrimerRequest(companion) ? primerReplyFault(data) : null
+      const primerFault = stopError !== 'refusal' && response.ok && companion && isPrimerRequest(companion) ? primerReplyFault(data, companion.structuredPrimer?.passages) : null
       if (primerFault) console.warn(JSON.stringify({ event: 'primer_parse_failure', ...primerFault }))
       meter.anthropic(data.usage, undefined, stopError || primerFault ? { neverCharged: true } : undefined)
       if (stopError) {
