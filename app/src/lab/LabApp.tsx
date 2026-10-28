@@ -2417,7 +2417,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // The phone's margin mode: the one bottom card open (marginPhone/), the text in its field, and its answer once whole.
   const [phoneCard, setPhoneCard] = useState<PhoneCard | null>(null)
   const [desktopLiveCards, setDesktopLiveCards] = useState<PhoneCard[]>([])
-  useLayoutEffect(() => { const host = continuousReader ? pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="continuous-reader"]') ?? null : null; setMarginHost(current => current === host ? current : host) })
+  useLayoutEffect(() => {
+    const host = continuousReader ? pageWrapRef.current?.querySelector<HTMLElement>('[data-testid="continuous-reader"]') ?? null : null
+    // Do not enqueue a layout update on every commit, even with a same-value
+    // updater. Pending page updates can prevent React's eager bailout and
+    // keep the synchronous commit loop alive on the paged reader.
+    if (marginHost !== host) setMarginHost(host)
+  })
   const [sharedCardSaveError, setSharedCardSaveError] = useState(false)
   const [saveDetailsCopied, setSaveDetailsCopied] = useState(false)
   useEffect(() => { setSaveDetailsCopied(false) }, [sharedCardSaveError])

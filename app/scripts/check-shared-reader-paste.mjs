@@ -312,11 +312,25 @@ async function runCorpus(engine, type, entry, rich) {
     assert(actual === expected || actual === title + expected || openingInTitle, `complete source preserved in order: expected ${expected.length}, actual ${actual.length} letters/digits`)
     assert.equal(state.uploads.length, 1, 'one real EPUB upload to the isolated account fixture')
     await page.screenshot({ path: path.join(output, 'reader.png') })
+    // Opening and restoring passed while sustained WebKit reading could still
+    // hit React's nested-update limit. Exercise body pages, not only front matter.
+    let bodyTurns = 0
+    for (; bodyTurns < 32; bodyTurns++) {
+      const next = page.getByTestId('lab-page-next')
+      if (await next.isDisabled()) break
+      const previous = await page.getByTestId('lab-root').getAttribute('data-place')
+      await page.keyboard.press('ArrowRight')
+      await page.waitForFunction(previous => {
+        const root = document.querySelector('[data-testid="lab-root"]')
+        return root?.dataset.readerReady === 'true' && root.dataset.place !== previous
+      }, previous)
+      if ((bodyTurns + 1) % 8 === 0) await page.screenshot({ path: path.join(output, `body-${bodyTurns + 1}.png`) })
+    }
     await page.reload({ waitUntil: 'domcontentloaded' })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 120000 })
     assert.deepEqual(errors, [], 'no runtime exceptions')
     assert.deepEqual(state.blocked, [], 'no unexpected external requests')
-    const result = { id: entry.id, engine, rich, source: entry.source, sourceCharacters: text.length, sourceWords: text.trim().split(/\s+/).length, importedParagraphs: kept.chapters.reduce((n,c) => n+c.paragraphs.length,0), completeSource: true, openingInTitle, reload: true, elapsedMs: Date.now()-start }
+    const result = { id: entry.id, engine, rich, source: entry.source, sourceCharacters: text.length, sourceWords: text.trim().split(/\s+/).length, importedParagraphs: kept.chapters.reduce((n,c) => n+c.paragraphs.length,0), completeSource: true, openingInTitle, bodyTurns, reload: true, elapsedMs: Date.now()-start }
     await fs.writeFile(path.join(output, 'result.json'), JSON.stringify(result, null, 2))
     console.log('PASS ' + JSON.stringify(result))
   } catch(error) {
