@@ -11,3 +11,5 @@ Validated: two substitutions only, same whitespace word count, paragraph identit
 Integrated separately in commit 759190d9c. The runtime diff contains exactly the two requested replacements in paragraph 11:0. No chapter, paragraph, or whitespace-word-count changes. No applicable Grimm character release or Danish edition shard was found; narration reuse remains guarded by the existing text hash. No audio generated.
 
 Build and verify-bundle passed (index-B_n6znpa.js). Isolated Chromium and WebKit reader checks rendered both Hr. occurrences, rejected the old spelling, and preserved position after reload. The WebKit screenshot was visually inspected. These checks used local built assets and synthetic API responses, not production acceptance. Logs: /tmp/tinct-grimm-hr-build.log, /tmp/tinct-grimm-hr-verify.log, /tmp/tinct-grimm-hr-browser-final.log.
+
+CI integration follow-up: packageDanishEditions.test.ts caught that the canonical package copy also requires the exact two replacements. Updated books/wip/grimms-fairy-tales/editions/grimms-fairy-tales-modern-da.json to match runtime byte-for-byte; the parity/alignment assertion is unchanged.
