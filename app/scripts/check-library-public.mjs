@@ -39,12 +39,12 @@ async function checkSceneFilm(b,engine,label,options,expected){
  // The request proves the film's src; never let the browser decode it. CI's Chromium has no
  // H.264, and decoding the film the spoofed canPlayType admits has frozen the page for 20+ minutes.
  await p.route('**/*.mp4',r=>r.abort());
- await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});
  // On a stall, log what the page was doing; CI artifacts are not readable from every agent.
- await p.locator('#read-featured').waitFor().catch(async error=>{
+ let navigationStage='navigation';
+ await (async()=>{await p.goto('https://tinct.app/library',{waitUntil:'domcontentloaded'});navigationStage='featured button';await p.locator('#read-featured').waitFor();})().catch(async error=>{
   const state=await p.evaluate(()=>{const chain=[];for(let n=document.getElementById('read-featured');n&&n!==document;n=n.parentElement){const s=getComputedStyle(n);chain.push(`${n.tagName.toLowerCase()}#${n.id}.${String(n.className).replace(/ /g,'.')} display=${s.display} visibility=${s.visibility} height=${Math.round(n.getBoundingClientRect().height)}`);}return {readyState:document.readyState,url:location.href,html:document.documentElement.className,style:document.documentElement.getAttribute('style'),chain};}).catch(e=>String(e));
   await p.screenshot({path:`${out}/stall-${label}.png`}).catch(()=>{});
-  console.log('LIBRARY_STALL '+JSON.stringify({label,state,pending:[...pending].map(r=>r.url()),errors}));throw error;});
+  console.log('LIBRARY_STALL '+JSON.stringify({label,navigationStage,state,pending:[...pending].map(r=>({url:r.url(),type:r.resourceType()})),errors}));throw error;});
  // Whether a film came before the page's idle is measured in the page, against its own load and
  // idle callback. Waiting for #read-featured was a proxy for "not idle yet" that stopped holding
  // once #567 made load follow DOMContentLoaded closely: on a fast runner the page reached idle and
@@ -100,7 +100,7 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  if(engine===chromium){stage('search chromium');await checkSearch(b,engine.name(),1440,900);}
  // The film checks get a browser of their own: one that wedges after a film
  // (CI, 5-6 Oct) cannot stall the checks that follow on \`b\`.
- const fb=await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})});
+ const fb=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(chromiumPath?{executablePath:chromiumPath}:{})}:{})}));
  if(engine===chromium){stage('film desktop');await checkSceneFilm(fb,'chromium','desktop',{viewport:{width:w,height:h}},'assets/scenes/room-wide-v2.mp4');stage('film reduced-motion');await checkSceneFilm(fb,'chromium','reduced-motion',{viewport:{width:w,height:h},reducedMotion:'reduce'},null);}
  else{stage('film phone');await checkSceneFilm(fb,engine.name(),'phone',{viewport:{width:w,height:h},isMobile:true,hasTouch:true},null);}
  stage('film browser close');await Promise.race([fb.close(),new Promise(r=>setTimeout(()=>{console.log('FILM_BROWSER_CLOSE_SLOW');r();},15000))]).catch(()=>{});
@@ -307,7 +307,10 @@ async function checkBookLinks(b,engine,w,h,mobile,extended){
    if(extended){await p.evaluate(()=>document.getElementById('book-about').scrollIntoView({block:'start',behavior:'instant'}));await p.waitForTimeout(300);await p.screenshot({path:`${shots}/${label}-fresh-read-about.png`});await p.evaluate(()=>scrollTo({top:0,behavior:'instant'}));}
   }
   await p.locator('#read-featured').click();
-  await p.locator('#book-overlay').waitFor();await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
+  await p.locator('#book-overlay').waitFor().catch(async error=>{
+   console.log('BOOK_OPEN_STALL '+JSON.stringify({where,errors,state:await p.evaluate(()=>({url:location.href,readyState:document.readyState,active:document.activeElement?.outerHTML,button:document.getElementById('read-featured')?.outerHTML,overlay:document.getElementById('book-overlay')?.outerHTML.slice(0,1000)})).catch(e=>String(e))}));
+   await p.screenshot({path:`${shots}/${label}-fresh-${kind}-open-stall.png`,timeout:5000}).catch(()=>{});throw error;
+  });await p.waitForFunction(a=>document.getElementById('slip-caption').textContent.includes(a),AUTHOR);
   await p.waitForTimeout(1600);await p.screenshot({path:`${shots}/${label}-fresh-${kind}-opened.png`});
   assert.deepEqual(errors,[],where+': no page errors');
   console.log('BOOK_LINK '+JSON.stringify({where,frames:list.length,first:list[0]}));

@@ -94,13 +94,19 @@ export async function importWork(workId: string, options: { onStage?: (stage: 'd
 export async function canAdd(fetchImpl: typeof fetch = fetch): Promise<boolean | null> {
   const auth = await token()
   if (!auth) return null
+  // This is an advisory preflight; the upload endpoint checks access again.
+  // A stalled request must not leave the file/paste dialog disabled forever.
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 15_000)
   try {
-    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store' })
+    const response = await fetchImpl('/api/public-books/import/access', { headers: { Authorization: `Bearer ${auth}` }, cache: 'no-store', signal: controller.signal })
     if (!response.ok) return null
     const body = await response.json() as { canAdd?: unknown }
     return typeof body.canAdd === 'boolean' ? body.canAdd : null
   } catch {
     return null
+  } finally {
+    clearTimeout(timer)
   }
 }
 
