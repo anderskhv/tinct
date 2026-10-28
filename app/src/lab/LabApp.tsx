@@ -5338,10 +5338,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       title,
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
-        ...((!privateBook || (userBook?.kind === 'epub' && userBookOwner)) && kind === 'primer' ? { format: 'structured-primer' as const, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } : {}),
+        ...((!privateBook || (userBook && userBook.kind !== 'pdf' && userBookOwner)) && kind === 'primer' ? { format: 'structured-primer' as const, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } : {}),
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
       },
-      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs, ...(kind === 'primer' && userBook?.kind === 'epub' && userBookOwner ? { structured: { ownerId: userBookOwner, uploadId: userBook.hex, workId: userBook.bookId, editionId: readerEditionKey, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } } : {}) } } : {}),
+      ...(privateBook && ownParagraphs ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber, chapterTitle: chapter?.title || book.chapterLabel || label, paragraphs: ownParagraphs, ...(kind === 'primer' && userBook && userBook.kind !== 'pdf' && userBookOwner ? { structured: { ownerId: userBookOwner, uploadId: userBook.hex, workId: userBook.bookId, editionId: readerEditionKey, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } } : {}) } } : {}),
     })
   }, [book, dictation, initialResolving, readerEditionKey, privateBook, handleChapterChat, continuousReader, readerParagraphs, allBookEditions, userBook, userBookOwner])
 
@@ -5443,7 +5443,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   // The book primer opens in the reader without changing its saved place.
   const openIntroduction = useCallback(() => {
-    if ((privateBook && (userBook?.kind !== 'epub' || !userBookOwner)) || initialResolving || book.chaptersProvisional) return
+    if ((privateBook && (!userBook || userBook.kind === 'pdf' || !userBookOwner)) || initialResolving || book.chaptersProvisional) return
     listen.pause()
     setTocOpen(false)
     setChapterNotes({ title: `Book primer · ${book.bookTitle}`, ...(privateBook && userBook && userBookOwner ? { own: { bookTitle: book.bookTitle || 'Your book', bookAuthor: book.bookAuthor || '', chapterNumber: book.chapterNumber, chapterTitle: book.bookTitle || 'Your book', paragraphs: [], bookChapters: userBook.edition.chapters, structured: { ownerId: userBookOwner, uploadId: userBook.hex, workId: userBook.bookId, editionId: readerEditionKey, language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en' } } } : {}), request: {
@@ -7278,7 +7278,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
         onContinueConversation={openNotebookConversation}
         introductionLabel="Book primer"
-        onOpenIntroduction={privateBook && (userBook?.kind !== 'epub' || !userBookOwner) ? undefined : openIntroduction}
+        onOpenIntroduction={privateBook && (!userBook || userBook.kind === 'pdf' || !userBookOwner) ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
         notebookRecovery={ownNotebookRecovery}

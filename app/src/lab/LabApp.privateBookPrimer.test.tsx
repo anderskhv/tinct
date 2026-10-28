@@ -14,7 +14,7 @@ const book: LoadedUserBook = { hex: '0123456789abcdef01234567', bookId: 'userboo
  chapters: [{ number: 1, title: 'First letter', paragraphs: ['First letter source.'] }, { number: 2, title: 'Second letter', paragraphs: ['Second letter source.'] }],
 } as LoadedUserBook['edition'] }
 it('opens the complete owned edition in the existing primer sheet without leaving the reader', () => {
- render(<LabApp pathname="/reader" source={fallbackLabSource()} authToken={null} userBook={book} userBookOwner="owner" sharedReader />)
+ render(<LabApp pathname="/reader" source={fallbackLabSource()} authToken={null} userBook={{ ...book, kind: undefined }} userBookOwner="owner" sharedReader />)
  fireEvent.click(screen.getByText('Private book primer'))
  expect(screen.getByText('Whole book opened')).toBeTruthy()
  expect(capture.notes.request.primerType).toBe('book')
