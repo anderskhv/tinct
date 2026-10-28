@@ -798,6 +798,16 @@ it('applies the displayed PDF highlight color on the first click and only opens 
   expect(screen.getByText('PDF palette')).toBeTruthy()
 })
 
+it('removes a completed highlight notice when opening an answer card', () => {
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask: vi.fn(async () => null), saveCard: vi.fn(() => false) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Apply PDF gold'))
+  expect(screen.getByText('Highlight saved.')).toBeTruthy()
+  fireEvent.click(screen.getByText('Compose PDF question'))
+  expect(screen.queryByText('Highlight saved.')).toBeNull()
+})
+
 it('keeps the page footer on paged phone PDFs', () => {
   vi.stubGlobal('matchMedia', (query: string) => ({ matches: query === '(max-width: 700px)', addEventListener: vi.fn(), removeEventListener: vi.fn() }))
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)

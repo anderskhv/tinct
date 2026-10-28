@@ -288,6 +288,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       await page.getByTestId('lab-super').click()
       await page.getByText('Summarize', {exact:true}).click()
       await expect(page.getByText('A grounded local fixture answer.',{exact:false})).toBeVisible({timeout:45000})
+      await expect(page.getByText('Highlight saved.', { exact: true })).toHaveCount(0)
       const summary = calls.filter(c=>c.path==='/api/chat').map(c=>JSON.parse(c.body)).at(-1)
       await expect.poll(()=>sets.cards.list.length,{timeout:15000}).toBeGreaterThan(0)
       const source=sets.cards.list.at(-1)?.data?.unit
