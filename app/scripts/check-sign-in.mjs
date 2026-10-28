@@ -25,7 +25,15 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
         const context = await browser.newContext({ viewport: { width, height }, serviceWorkers: 'block' })
         try {
           const page = await context.newPage()
-          const errors = [], assets = []
+          const errors = [], assets = [], pending = new Map()
+          page.on('request', request => pending.set(request, { path: new URL(request.url()).pathname, type: request.resourceType(), started: Date.now() }))
+          page.on('response', response => {
+            const record = pending.get(response.request())
+            if (record) Object.assign(record, { status: response.status(), responseAtMs: Date.now() - record.started,
+              contentType: response.headers()['content-type'], ray: response.headers()['cf-ray'] })
+          })
+          page.on('requestfinished', request => pending.delete(request))
+          page.on('requestfailed', request => pending.delete(request))
           page.on('pageerror', error => errors.push(error.message))
           const fixtureUser = test === 'returning-google' || test === 'email-confirmed' ? { ...user, created_at: '2026-01-01T00:00:00Z' } : user
           const session = test === 'signed-out' ? null : sessionFor(fixtureUser)
@@ -47,9 +55,21 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
             if (!file.startsWith(path.resolve('dist') + '/')) return route.abort()
             try { return await route.fulfill({ path: file }) } catch { return route.abort() }
           })
+          const reportNavigationFailure = async error => {
+            // Navigation failures used to escape before any evidence was saved.
+            // Only fixture state and paths are recorded; never request headers/tokens.
+            const state = await page.evaluate(() => ({ url: location.href, title: document.title, readyState: document.readyState,
+              authReady: document.querySelector('#tinct-lab-sign-in')?.getAttribute('data-ready') })).catch(() => null)
+            const failure = { engine, size, test, errors, state,
+              pending: [...pending.values()].map(({ started, ...request }) => ({ ...request, elapsedMs: Date.now() - started })) }
+            console.log('AUTH_NAV_FAILURE ' + JSON.stringify(failure))
+            await fs.writeFile(output + '/' + engine + '-' + size + '-' + test + '-navigation.json', JSON.stringify(failure, null, 2))
+            await page.screenshot({ path: output + '/' + engine + '-' + size + '-' + test + '-navigation.png', timeout: 5000 }).catch(() => {})
+            throw error
+          }
           const callback = test === 'email-confirmed' ? 'signup' : 'oauth'
           const query = test === 'signed-out' ? '' : test === 'password-reset' ? '&mode=reset' : '&callback=' + callback
-          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' })
+          await page.goto(origin + '/sign-in?returnTo=%2Freader%3Fbook%3Dbible%23p12' + query, { waitUntil: 'domcontentloaded' }).catch(reportNavigationFailure)
           if (test === 'returning-google') {
             await page.waitForURL('**/reader?book=bible#p12')
             assert.equal(await page.locator('[data-auth-destination]').count(), 1)
@@ -76,7 +96,7 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
                   for (let i = 0; i < encoded.length; i += 12000) console.log('REVIEW_CHUNK ' + encoded.slice(i, i + 12000))
                   console.log('REVIEW_END')
                 }
-                await page.reload()
+                await page.reload().catch(reportNavigationFailure)
                 await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
                 assert.equal(await root.getAttribute('data-mode'), 'welcome')
               }
