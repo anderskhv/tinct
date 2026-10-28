@@ -240,6 +240,8 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close();return !!scan
     },hex), {timeout:Number(process.env.PDF_REAL_SCAN_TIMEOUT_MS || 30000)}).toBe(true)
     console.log(name, path.basename(filePath), 'scan cached', Date.now() - openedAt, 'ms after reader navigation')
+    const openingChecks = process.env.PDF_REAL_OPENING_CHECKS ? JSON.parse(await fs.readFile(process.env.PDF_REAL_OPENING_CHECKS, 'utf8'))[path.basename(filePath)] : null
+    if (openingChecks?.header) await expect(page.locator('.lab-header-chapter')).toHaveText(openingChecks.header)
     await page.screenshot({path:path.join(output,'opened.png')})
     assert(accountUploaded, 'actual selected file must pass byte-exact simulated upload')
     const samples=[]
@@ -343,6 +345,9 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close()
       return {title:item?.title,name:item?.name,scan:item?.scan,pages:document.querySelectorAll('.pdf-original__slot').length}
     },hex)
+    for (const expected of openingChecks?.headings || []) {
+      assert(inventory.scan.entries.some(entry => entry.page === expected.page && entry.label === expected.label), 'source heading must remain exact without attached paragraph text')
+    }
     // Optional private expectations stay outside the repository. Exercise the real
     // conversion button, owned storage, rendered text reader and reload resume.
     if (process.env.PDF_REAL_CONVERSION_CHECKS) {

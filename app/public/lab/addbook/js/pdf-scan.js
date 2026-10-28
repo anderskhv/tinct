@@ -22,9 +22,10 @@
 //      tables (see layout below). Version 5 (2026-10-09) added it.
 //   Version 6 (2026-10-16): a metadata title that is the printed title with more after it gives way to the printed one.
 //   Version 8 (2026-10-28): reconstruct sloped word baselines and keep lowercase wrapped heading lines.
+//   Version 9 (2026-10-28): keep drop-cap paragraph openings out of wrapped headings.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 8;
+  const SCAN_VERSION = 9;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -323,10 +324,12 @@
       const pending = [];
       for (const [i, r] of p.rows.entries()) {
         if (i < first) continue;
+        const next = p.rows.slice(i + 1).find(n => n.y < r.y - 0.5 && n.x < r.x2 && n.x2 > r.x);
+        const proseOpening = r.font === body.font && next && r.y - next.y < Math.max(r.size, next.size) * 1.8 && Math.abs(next.size - body.size) <= body.size * 0.1 && (/^\p{Ll}/u.test(next.text) || /-$/.test(r.text)) && !/[.!?:]$/.test(r.text);
         const prev = pending.findLast(h => Math.abs(h.x - r.x) < r.size * 0.5);
         // A continuation need not start with a capital. Test it against the
         // accepted heading's typography and column before the standalone-title filter.
-        const continues = prev && (prev.font === r.font || r.size >= Math.max(body.size, docBody.size) * 1.2) && Math.abs(prev.size - r.size) <= r.size * 0.05
+        const continues = prev && !proseOpening && (prev.font === r.font || r.size >= Math.max(body.size, docBody.size) * 1.2) && Math.abs(prev.size - r.size) <= r.size * 0.05
           && prev.y - r.y > r.size * 0.5 && prev.y - r.y < r.size * 1.8
           && Math.abs(prev.x - r.x) < r.size * 0.5 && prev.words + r.words <= 16
           && !skip.has(i) && !isFurniture(p, r) && !BOILERPLATE_HEADING.test(r.text)
@@ -343,8 +346,7 @@
         if (same(r.text) && (same(r.text) === same(title) || same(r.text) === same(author))) { continue }
         // A line in the body's face running on into the body below (the next line of the same
         // column starts in lower case, or this one ends in a hyphen) is a paragraph's first line.
-        const next = p.rows.slice(i + 1).find(n => n.y < r.y - 0.5 && n.x < r.x2 && n.x2 > r.x);
-        if (r.font === body.font && next && r.y - next.y < Math.max(r.size, next.size) * 1.8 && Math.abs(next.size - body.size) <= body.size * 0.1 && (/^\p{Ll}/u.test(next.text) || /-$/.test(r.text)) && !/[.!?:]$/.test(r.text)) { continue }
+        if (proseOpening) { continue }
         // A misread stamp on a scan ("25 CENTS FINE OF AK imTXAL"): letters out of case inside a word.
         if (noisy && /\p{Ll}\p{Lu}{2}/u.test(r.text)) { continue }
         // Larger than this page's body and the book's (a page of small-type notes does not make its body text a heading).
