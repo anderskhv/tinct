@@ -10,6 +10,73 @@ const first: ContinuousReaderEpoch = { bookId: 'frankenstein', editionKey: 'orig
 const position = { paragraphIndex: 2, wordIndex: 4 }
 
 describe('continuous location ownership', () => {
+  it('offers source actions for a native drag that starts in the paper margin', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], chapterNumber: 7,
+        follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set(), onSelectRange }}
+      onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    const paper = host.querySelector('.continuous-reader-paper')!
+    const words = host.querySelectorAll('[data-testid="lab-word"]')
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse', clientX: 5, clientY: 100 })
+    const range = document.createRange()
+    range.setStartBefore(words[1]); range.setEndAfter(words[3])
+    const selection = window.getSelection()!
+    selection.removeAllRanges(); selection.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse', clientX: 200, clientY: 100 })
+    expect(onSelectRange).toHaveBeenCalledOnce()
+    expect(onSelectRange.mock.calls[0][0]).toMatchObject({ paragraphIndex: 0, fromWord: 1, toWord: 4 })
+    expect(selection.toString()).toBe('')
+  })
+
+  it('does not include a neighboring word touched only at a native range boundary', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' },
+        followParagraphs: [], markedIndexes: new Set(), onSelectRange }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const paper = screen.getByTestId('continuous-reader').querySelector('.continuous-reader-paper')!
+    const words = paper.querySelectorAll('[data-testid="lab-word"]')
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    const start = document.createTreeWalker(words[1], NodeFilter.SHOW_TEXT).nextNode()!
+    const end = document.createTreeWalker(words[3], NodeFilter.SHOW_TEXT).nextNode()!
+    const range = document.createRange(); range.setStart(start, start.textContent!.length); range.setEnd(end, 0)
+    window.getSelection()!.removeAllRanges(); window.getSelection()!.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(onSelectRange.mock.calls[0][0]).toMatchObject({ fromWord: 2, toWord: 3, text: 'three' })
+  })
+
+  it('clears an unhandled native selection with a blank-paper click without selecting source again', () => {
+    const onSelectRange = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={{ chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' },
+        followParagraphs: [], markedIndexes: new Set(), onSelectRange }} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader'), paper = host.querySelector('.continuous-reader-paper')!
+    const word = host.querySelector('[data-testid="lab-word"]')!
+    const selection = window.getSelection()!, range = document.createRange()
+    range.selectNodeContents(word); selection.removeAllRanges(); selection.addRange(range)
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(selection.toString()).toBe('')
+    expect(onSelectRange).not.toHaveBeenCalled()
+  })
+
+  it('rejects a native selection released after navigation replaces the source', () => {
+    const onSelectRange = vi.fn()
+    const passage = { chapterTitle: 'Chapter', paragraphs: ['One two three four five.'], follow: { kind: 'none' as const },
+      followParagraphs: [], markedIndexes: new Set<number>(), onSelectRange }
+    const { rerender } = render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const paper = screen.getByTestId('continuous-reader').querySelector('.continuous-reader-paper')!
+    fireEvent.pointerDown(paper, { button: 0, pointerType: 'mouse' })
+    rerender(<ContinuousReader epoch={{ ...first, navigation: 13 }} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+      passage={passage} onVisible={vi.fn()} onLanded={vi.fn()} />)
+    const word = paper.querySelector('[data-testid="lab-word"]')!, range = document.createRange()
+    range.selectNodeContents(word); window.getSelection()!.removeAllRanges(); window.getSelection()!.addRange(range)
+    fireEvent.pointerUp(paper, { button: 0, pointerType: 'mouse' })
+    expect(onSelectRange).not.toHaveBeenCalled()
+  })
+
   it('rejects callbacks from an outgoing chapter, edition, source, or navigation and suspends unresolved writes', () => {
     const paragraphs = ['one two', 'three four', 'five six seven eight nine ten']
     expect(acceptContinuousReaderPlace(first, first, true, false, position, paragraphs)).toBe(true)
