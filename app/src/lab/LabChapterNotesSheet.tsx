@@ -38,6 +38,7 @@ export interface LabChapterNotesSheetProps {
    * A reader's own book: its Primer or Recap is made from this chapter's text, sent from this device with no book id
    * (userBook/ownChapterNotes.ts), never from the server's chapter notes. Kept on this device as any notes are.
    */
+  onPassage?: (passageId: string, quote: string) => void
   own?: OwnChapterNotesSource
 }
 
@@ -46,7 +47,7 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady, onPassage }: LabChapterNotesSheetProps) {
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => request.format ? null : storedChapterNotes(request))
   const [primer, setPrimer] = useState<SavedPrimer | null>(null)
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
@@ -105,7 +106,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
 
   const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
-          {state === 'ok' && primer ? <PrimerContentView primer={primer} onDiscuss={() => onChat(title, beats)} /> : <ol className="lab-catch-up-timeline">
+          {state === 'ok' && primer ? <PrimerContentView primer={primer} onPassage={onPassage} onDiscuss={() => onChat(title, beats)} /> : <ol className="lab-catch-up-timeline">
             {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />

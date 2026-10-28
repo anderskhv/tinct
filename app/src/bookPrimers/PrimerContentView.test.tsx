@@ -18,7 +18,7 @@ it('uses native disclosure and source callbacks without approval labels or empty
   expect(screen.queryByText('approved')).toBeNull()
   expect(screen.getByText('What to notice').tagName).toBe('SUMMARY')
   fireEvent.click(screen.getByText('Read passage'))
-  expect(onPassage).toHaveBeenCalledWith('letter-1:p1')
+  expect(onPassage).toHaveBeenCalledWith('letter-1:p1', 'Dear reader')
   fireEvent.click(screen.getByText('Discuss this'))
   expect(onDiscuss).toHaveBeenCalledOnce()
 })

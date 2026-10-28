@@ -5,7 +5,7 @@ import { visiblePrimerSections, type SavedPrimer } from './model'
 /** Shared content presentation for the book opening and reader companion. */
 export function PrimerContentView({ primer, onPassage, onDiscuss }: {
   primer: SavedPrimer
-  onPassage?: (passageId: string) => void
+  onPassage?: (passageId: string, quote: string) => void
   onDiscuss?: () => void
 }) {
   const resources = primer.resources.filter(usablePrimerResource)
@@ -17,7 +17,7 @@ export function PrimerContentView({ primer, onPassage, onDiscuss }: {
           {topic.depth && <p>{({ essential: 'Essential context', recommended: 'Recommended context', optional: 'Optional depth' })[topic.depth]}</p>}
           <p>{topic.explanation}</p>{topic.takeaway && <p>{topic.takeaway}</p>}
           {topic.quotes?.map((quote, i) => <blockquote key={`${quote.passageId}:${i}`}><p>{quote.text}</p>
-            {onPassage && <button type="button" onClick={() => onPassage(quote.passageId)}>Read passage</button>}
+            {onPassage && <button type="button" onClick={() => onPassage(quote.passageId, quote.text)}>Read passage</button>}
           </blockquote>)}
         </details>)}</details>)}
     {resources.length > 0 && <details><summary>Watch &amp; explore</summary>{resources.map(resource =>
