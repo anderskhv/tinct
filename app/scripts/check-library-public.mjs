@@ -146,7 +146,11 @@ for(const [engine,w,h]of[[chromium,1512,862],[webkit,393,734]].filter(([e])=>eng
  if(w<600)assert(reels.some(r=>r.scrollable&&r.moved),'populated drama rows scroll on phones');
  await p.locator('.collection-reel .book-row').evaluateAll(rows=>rows.forEach(row=>row.scrollLeft=0));
  // Visible means inside the viewport and inside its reel's scrolled window (the row clips the covers past its edge).
- await p.waitForFunction(()=>[...document.querySelectorAll('.collection-reel canvas[data-book]')].filter(c=>{const r=c.getBoundingClientRect(),row=c.closest('.book-row')?.getBoundingClientRect();return r.left<Math.min(innerWidth,row?row.right:innerWidth)&&r.right>Math.max(0,row?row.left:0)&&r.top<innerHeight&&r.bottom>0}).every(c=>c.dataset.painted==='true'));
+ await p.waitForFunction(()=>[...document.querySelectorAll('.collection-reel canvas[data-book]')].filter(c=>{const r=c.getBoundingClientRect(),row=c.closest('.book-row')?.getBoundingClientRect();return r.left<Math.min(innerWidth,row?row.right:innerWidth)&&r.right>Math.max(0,row?row.left:0)&&r.top<innerHeight&&r.bottom>0}).every(c=>c.dataset.painted==='true')).catch(async error=>{
+  console.log('COLLECTION_COVER_FAILURE '+JSON.stringify(await p.evaluate(()=>({url:location.href,readyState:document.readyState,covers:[...document.querySelectorAll('.collection-reel canvas[data-book]')].map(c=>({book:c.dataset.book,painted:c.dataset.painted,released:c.dataset.released,rect:c.getBoundingClientRect().toJSON(),row:c.closest('.book-row')?.getBoundingClientRect().toJSON()})),resources:performance.getEntriesByType('resource').filter(r=>/cover|texture|spine/.test(r.name)).map(r=>({url:r.name,duration:r.duration,responseEnd:r.responseEnd}))}))).catch(e=>({diagnosticError:String(e)})));
+  await p.screenshot({path:out+'/drama-failure-'+engine.name()+'.png',timeout:5000}).catch(()=>{});
+  throw error;
+ });
  const navReview=await p.screenshot({path:out+'/drama-'+engine.name()+'.jpg',type:'jpeg',quality:75});
  console.log('REVIEW_BEGIN drama-'+engine.name());const encoded=navReview.toString('base64');for(let i=0;i<encoded.length;i+=12000)console.log('REVIEW_CHUNK '+encoded.slice(i,i+12000));console.log('REVIEW_END');
  await p.locator('#collection-back').click();
