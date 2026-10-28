@@ -79,7 +79,7 @@ async function fixture(context) {
     const request = route.request(), url = new URL(request.url()), p = url.pathname, method = request.method()
     if ((dist ? url.hostname.endsWith('.supabase.co') : url.origin === origin) && (p.startsWith('/auth/v1/') || p.startsWith('/rest/v1/'))) {
       const headers = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS', 'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info, prefer' }
-      if (method === 'OPTIONS') return route.fulfill({ status: 204, headers })
+      if (method === 'OPTIONS') { if (process.env.PASTE_NETWORK_TRACE) console.log('PREFLIGHT',p,request.headers()['access-control-request-headers']); return route.fulfill({ status: 204, headers }) }
       if (url.pathname === '/auth/v1/user') return route.fulfill({ status: 200, contentType: 'application/json', headers, body: JSON.stringify({ id: userId, email: 'paste@example.test', aud: 'authenticated' }) })
       if (url.pathname.startsWith('/rest/v1/')) return route.fulfill({ status: 200, contentType: 'application/json', headers, body: '[]' })
       state.blocked.push(url.href); return route.abort()
@@ -245,6 +245,96 @@ async function run(engine, type, phone) {
   } finally { await context.close(); await browser.close() }
 }
 
+async function runCorpus(engine, type, entry, rich) {
+  const sourceFile = entry.files.find(file => file.path.endsWith('.txt'))
+  const text = await fs.readFile(sourceFile.path, 'utf8')
+  const browser = await markInternal(await type.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) }))
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  const state = await fixture(context), page = await context.newPage(), errors = []
+  page.setDefaultTimeout(60000)
+  page.on('pageerror', error => errors.push(error.stack || error.message))
+  if (process.env.PASTE_NETWORK_TRACE) {
+    page.on('console', message => { if (message.type() === 'warning' || message.text().startsWith('PASTE_TRACE')) console.log(message.text()) })
+    await context.addInitScript(() => {
+      new PerformanceObserver(list => { for (const entry of list.getEntries()) if (entry.duration > 100) console.log('PASTE_TRACE measure', entry.name, Math.round(entry.duration)) }).observe({ entryTypes: ['measure'] })
+      for (const method of ['getClientRects', 'getBoundingClientRect']) {
+        const original = Element.prototype[method]
+        Element.prototype[method] = function(...args) { const start=performance.now(); const result=original.apply(this,args); const ms=performance.now()-start; if(ms>250) console.log('PASTE_TRACE geometry',method,this.tagName,this.className,Math.round(ms)); return result }
+      }
+      let last = performance.now()
+      setInterval(() => { const now = performance.now(); if (now-last > 1500) console.log('PASTE_TRACE stall', Math.round(now-last)); last=now }, 250)
+      const request = navigator.locks.request.bind(navigator.locks)
+      navigator.locks.request = function(name, options, callback) {
+        const start = performance.now()
+        const wrapped = async lock => { console.log('PASTE_TRACE lock acquired', Math.round(performance.now()-start), Boolean(options?.steal)); try { return await callback(lock) } finally { console.log('PASTE_TRACE lock released', Math.round(performance.now()-start)) } }
+        return request(name, options, wrapped)
+      }
+    })
+  }
+  const output = path.join(process.env.PASTE_CORPUS_OUTPUT || '/tmp/tinct-paste-corpus', entry.id, engine)
+  await fs.mkdir(output, { recursive: true })
+  const start = Date.now()
+  console.log(`START ${engine} ${entry.id} ${text.length} characters ${rich ? 'rich' : 'plain'}`)
+  try {
+    await seed(page, true)
+    await library(page, true)
+    await page.getByRole('button', { name: 'Paste text', exact: true }).click()
+    await page.locator('.own-paste-details > summary').click()
+    await page.locator('.own-paste-title').fill(entry.title.slice(0, 190))
+    const field = page.getByRole('textbox', { name: 'Text to add' })
+    if (rich) await field.evaluate((el, text) => {
+      const clipboard = new DataTransfer()
+      clipboard.setData('text/plain', text)
+      clipboard.setData('text/html', '<pre>' + text.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>')
+      el.dispatchEvent(new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData: clipboard }))
+    }, text)
+    else await field.evaluate((el, text) => { el.value = text; el.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertFromPaste', data: text })) }, text)
+    await page.locator('.own-paste-save').click()
+    if (await page.locator('.own-file-rights-box').isVisible().catch(() => false)) {
+      await page.locator('.own-file-rights-box').check()
+      await page.getByRole('button', { name: 'Continue', exact: true }).click()
+    }
+    await page.waitForURL(/\/reader\?userBook=/, { timeout: 120000 })
+    await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 120000 })
+    const kept = await page.evaluate(async () => {
+      const db = await new Promise(resolve => { const r = indexedDB.open('tinct-addbook', 1); r.onsuccess = () => resolve(r.result) })
+      const records = await new Promise(resolve => { const r = db.transaction('books').objectStore('books').getAll(); r.onsuccess = () => resolve(r.result) })
+      db.close()
+      return records.find(record => record.edition)?.edition
+    })
+    assert(kept, 'actual owned conversion is saved')
+    const normalize = value => (value.match(/[\p{L}\p{N}]/gu) || []).join('').toLowerCase()
+    const expected = normalize(text), actual = normalize(kept.chapters.flatMap(chapter => chapter.paragraphs).join(' '))
+    const title = normalize(entry.title.slice(0, 190))
+    // A source's opening title may be represented by the rendered chapter title,
+    // rather than repeated as paragraph zero. Require exact equality including it.
+    const openingInTitle = kept.chapters.length === 1 && normalize(kept.chapters[0].title) + actual === expected
+    assert(actual === expected || actual === title + expected || openingInTitle, `complete source preserved in order: expected ${expected.length}, actual ${actual.length} letters/digits`)
+    assert.equal(state.uploads.length, 1, 'one real EPUB upload to the isolated account fixture')
+    await page.screenshot({ path: path.join(output, 'reader.png') })
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 120000 })
+    assert.deepEqual(errors, [], 'no runtime exceptions')
+    assert.deepEqual(state.blocked, [], 'no unexpected external requests')
+    const result = { id: entry.id, engine, rich, source: entry.source, sourceCharacters: text.length, sourceWords: text.trim().split(/\s+/).length, importedParagraphs: kept.chapters.reduce((n,c) => n+c.paragraphs.length,0), completeSource: true, openingInTitle, reload: true, elapsedMs: Date.now()-start }
+    await fs.writeFile(path.join(output, 'result.json'), JSON.stringify(result, null, 2))
+    console.log('PASS ' + JSON.stringify(result))
+  } catch(error) {
+    await page.screenshot({ path: path.join(output, 'failure.png'), timeout: 10000 }).catch(() => {})
+    await fs.writeFile(path.join(output, 'failure.json'), JSON.stringify({ error: String(error), url: page.url(), errors, body: (await page.locator('body').innerText({ timeout: 10000 }).catch(() => '')).slice(0,5000) }, null, 2))
+    throw error
+  } finally { await context.close(); await browser.close() }
+}
+
 const engines = new Set((process.env.PASTE_ENGINES || 'chromium,webkit').split(','))
-try { for (const [name, type] of [['chromium', chromium], ['webkit', webkit]].filter(([name]) => engines.has(name))) for (const phone of [false, true]) await run(name, type, phone) }
+try {
+  const corpus = process.env.PASTE_CORPUS_MANIFEST ? JSON.parse(await fs.readFile(process.env.PASTE_CORPUS_MANIFEST, 'utf8')).filter(entry => entry.files?.some(file => file.path.endsWith('.txt'))) : null
+  for (const [name, type] of [['chromium', chromium], ['webkit', webkit]].filter(([name]) => engines.has(name))) {
+    if (corpus) for (const [i, entry] of corpus.entries()) {
+      try { await runCorpus(name, type, entry, (i % 2 === 0) !== (name === 'webkit')) }
+      catch(error) { console.error(`FAIL ${name} ${entry.id}: ${String(error).split('\n')[0]}`); process.exitCode = 1 }
+    }
+    else for (const phone of [false, true]) await run(name, type, phone)
+  }
+}
 finally { await closeServer() }
