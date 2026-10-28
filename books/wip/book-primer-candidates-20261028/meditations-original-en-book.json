@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/meditations-original-en.json",
     "fileSha256": "7798607dc6d8af0a25845b025405873c8a2597d44ed1f61eb5d803ba585e2830",
-    "reviewScope": "Books 1–6 read in full; all twelve unit labels checked. Outside context checked against the attributed scholarly essays. Books 7–12 remain unread for this semantic review; whole-book acceptance remains incomplete."
+    "reviewScope": "Books 1–9 read in full; all twelve unit labels checked. Outside context checked against the attributed scholarly essays. Books 10–12 remain unread for this semantic review; whole-book acceptance remains incomplete."
   },
   "primer": {
     "identity": {
@@ -23,7 +23,7 @@
       "structure": [
         {
           "title": "Twelve books, numbered entries",
-          "explanation": "This edition has twelve books. Book 1 gathers debts to family, teachers, friends, and the gods. The numbered entries provide manageable stopping places; you can pause to consider an example without treating each entry as a complete argument."
+          "explanation": "This edition has twelve books. Book 1 gathers debts to family, teachers, friends, and the gods. Elsewhere, reminders, questions, analogies, and borrowed sayings sit beside one another. The numbered entries provide stopping places; each need not be a complete argument or a direct statement in Marcus’s own voice."
         }
       ],
       "peopleAndIdeas": [
@@ -80,7 +80,7 @@
         },
         {
           "title": "Self-command and cooperation",
-          "explanation": "Preparing for difficult people leads Marcus toward an obligation to cooperate. His inward retreat is a way to return to action. Notice how he distinguishes accepting an event from approving wrongdoing: helping, explaining an error, and reconsidering his own judgment remain things to do.",
+          "explanation": "Preparing for difficult people leads Marcus toward an obligation to cooperate. His inward retreat is a way to return to action. Helping others, accepting help, explaining an error, and reconsidering his own judgment belong to this practice. Notice when self-command supports cooperation rather than isolation.",
           "quotes": [
             {
               "text": "For we are made for co-operation, like feet, like hands, like eyelids, like the rows of the upper and lower teeth.",
@@ -97,6 +97,11 @@
               "passageId": "chapter-5:paragraph-8"
             }
           ]
+        },
+        {
+          "title": "Changing the scale",
+          "explanation": "Marcus repeatedly sets a present concern beside a long stretch of time, a changing world, or a life approaching its end. Notice what each comparison does to the concern. Does it clarify what action matters now, or does its dismissal of ordinary attachments leave something to question?",
+          "takeaway": "Ask what changes when the same concern is viewed from farther away."
         }
       ],
       "usefulReferences": []
@@ -186,7 +191,31 @@
         "chapter-6:paragraph-49"
       ],
       "verification": "Books 4–6 read in full, including separately recovering text omitted by an initially truncated tool display. Interpretive summaries distinguish moral evaluation from physical sensation and active cooperation from passive acquiescence."
+    },
+    {
+      "topics": [
+        "Twelve books, numbered entries",
+        "Self-command and cooperation",
+        "Changing the scale"
+      ],
+      "sourcePath": "app/public/data/editions/meditations-original-en.json",
+      "passageIds": [
+        "chapter-7:paragraph-4",
+        "chapter-7:paragraph-6",
+        "chapter-7:paragraph-34",
+        "chapter-7:paragraph-43",
+        "chapter-7:paragraph-47",
+        "chapter-8:paragraph-15",
+        "chapter-8:paragraph-24",
+        "chapter-8:paragraph-35",
+        "chapter-9:paragraph-2",
+        "chapter-9:paragraph-4",
+        "chapter-9:paragraph-28",
+        "chapter-9:paragraph-29",
+        "chapter-9:paragraph-40"
+      ],
+      "verification": "Books 7–9 read in full in six untruncated batches. Borrowed passages identified from the edition’s explicit attributions; those attributions were not independently audited. Interpretive reading prompts do not endorse every ethical or physical claim."
     }
   ],
-  "editorialRevision": "candidate-4-practice-and-alternative-premises"
+  "editorialRevision": "candidate-5-voices-and-scale"
 }
