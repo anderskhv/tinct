@@ -683,15 +683,18 @@ export async function syncLabBookChatWithCloud(input: {
   isCurrent?: () => boolean
   /** Called with the thread the account row is known to hold after this sync. */
   onCloudHolds?: (conversations: ChatConversation[]) => void
+  /** Includes this writer’s unsaved memory copy when device storage failed. */
+  readLocal?: () => ChatConversation[]
 }): Promise<ChatConversation[]> {
   const { bookId } = input
   const cloud = guardedCloud(input.cloud)
-  const local = readLabBookChat(bookId)
+  const readLocal = input.readLocal ?? (() => readLabBookChat(bookId))
+  const local = readLocal()
   try {
     let row = await cloud.read(bookId)
     for (let attempt = 0; attempt < 2; attempt++) {
       if (input.isCurrent?.() === false) return local
-      const current = readLabBookChat(bookId)
+      const current = readLocal()
       const merged = mergeChatConversations(row?.conversations ?? [], current)
       if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
       if (row && sameChatConversations(row.conversations, merged)) {
@@ -708,18 +711,18 @@ export async function syncLabBookChatWithCloud(input: {
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
         input.onCloudHolds?.(merged)
-        return mergeChatConversations(merged, readLabBookChat(bookId))
+        return mergeChatConversations(merged, readLocal())
       }
       if (!result.conflict || !result.row) return merged
       row = result.row
     }
-    return readLabBookChat(bookId)
+    return readLocal()
   } catch {
     input.onUnavailable?.()
     if (input.isCurrent?.() === false) return local
     // The merge may already be in the local mirror (only the commit failed):
     // show that, not the copy from before the read.
-    return readLabBookChat(bookId)
+    return readLocal()
   }
 }
 
@@ -737,8 +740,9 @@ export const LAB_CHAT_COMMIT_COALESCE_MS = 20_000
 /**
  * Serialized cloud writer for chat rows: one commit in flight per book, the
  * newest queued value wins, a conflict re-reads, merges and retries once.
- * Offline or failed writes stay in the local mirror and are folded in by the
- * next `syncLabBookChatWithCloud` on open or reconnect.
+ * Offline or failed writes stay in the local mirror when possible and in
+ * this account writer’s memory until acknowledged. Reconnect merges both,
+ * so a full device store cannot silently discard the only pending copy.
  *
  * With `coalesceMs` (the reader passes LAB_CHAT_COMMIT_COALESCE_MS) a push
  * waits up to that long for later turns; the waiting value is then merged
@@ -749,11 +753,19 @@ export const LAB_CHAT_COMMIT_COALESCE_MS = 20_000
 export function createLabChatCloudWriter(
   rawCloud: LabChatHistoryCloud,
   revs: Map<string, number> = new Map(),
-  options: { coalesceMs?: number } = {},
+  options: { coalesceMs?: number; onCloudHolds?: (bookId: string, conversations: ChatConversation[]) => void } = {},
 ) {
   const cloud = guardedCloud(rawCloud)
   const coalesceMs = options.coalesceMs ?? 0
   const queued = new Map<string, ChatConversation[]>()
+  // A failed local write can leave this as the only copy. Keep it until an
+  // account acknowledgment includes it; never retry in a tight failure loop.
+  const unsaved = new Map<string, ChatConversation[]>()
+  const acknowledge = (bookId: string, value: ChatConversation[]) => {
+    const pending = unsaved.get(bookId)
+    if (pending && sameChatConversations(mergeChatConversations(value, pending), value)) unsaved.delete(bookId)
+    options.onCloudHolds?.(bookId, value)
+  }
   const inFlight = new Set<string>()
   /** Pushes waiting for the coalescing window, per book. */
   const waiting = new Map<string, ChatConversation[]>()
@@ -790,7 +802,8 @@ export function createLabChatCloudWriter(
           if (result.applied) {
             if (result.row) revs.set(bookId, result.row.rev)
             known.set(bookId, JSON.stringify(value))
-            dirty = false
+            acknowledge(bookId, value)
+            dirty = unsaved.size > 0
             continue
           }
           if (result.conflict && result.row) {
@@ -803,7 +816,8 @@ export function createLabChatCloudWriter(
             if (retry.applied && retry.row) {
               revs.set(bookId, retry.row.rev)
               known.set(bookId, JSON.stringify(merged))
-              dirty = false
+              acknowledge(bookId, merged)
+              dirty = unsaved.size > 0
               continue
             }
           }
@@ -822,6 +836,8 @@ export function createLabChatCloudWriter(
     push(bookId: string, conversations: ChatConversation[], pushOptions: { now?: boolean } = {}) {
       // A reader's own book keeps its chat on this device (lab/userBook).
       if (isUserBookId(bookId)) return
+      conversations = mergeChatConversations(unsaved.get(bookId) ?? [], conversations)
+      unsaved.set(bookId, conversations)
       if (coalesceMs <= 0) {
         queued.set(bookId, conversations)
         if (!inFlight.has(bookId)) void run(bookId)
@@ -843,7 +859,12 @@ export function createLabChatCloudWriter(
       if (isUserBookId(bookId)) return Promise.resolve(readLabBookChat(bookId))
       return syncLabBookChatWithCloud({
         bookId, cloud: rawCloud, revs, onUnavailable, isCurrent,
-        onCloudHolds: conversations => { known.set(bookId, JSON.stringify(conversations)) },
+        readLocal: () => mergeChatConversations(readLabBookChat(bookId), unsaved.get(bookId) ?? []),
+        onCloudHolds: conversations => {
+          known.set(bookId, JSON.stringify(conversations))
+          acknowledge(bookId, conversations)
+          dirty = unsaved.size > 0
+        },
       })
     },
     isDirty: () => dirty,

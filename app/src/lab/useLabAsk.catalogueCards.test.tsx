@@ -97,6 +97,51 @@ it.each([false, true])('attempts account backup immediately after local failure 
   expect(result.current.notice).toBeNull()
 })
 
+it('reports an account copy only after the exact failed answer is acknowledged', async () => {
+  let acknowledge!: () => void
+  account.commit.mockImplementation((_bookId, rows) => new Promise(resolve => {
+    acknowledge = () => resolve({ applied: true, conflict: false, row: { conversations: rows, rev: 1 } })
+  }))
+  const { result } = renderHook(() => useLabAsk({ ...options, userId: 'synthetic-reader' }))
+  await vi.waitFor(() => expect(result.current.historyStatus).toBe('ready'))
+  denyDeviceWrites()
+  act(() => { expect(result.current.saveCard(card)).toBe(false) })
+  expect(result.current.cardAccountSaved).toBe(false)
+  await act(async () => { acknowledge() })
+  expect(result.current.cardAccountSaved).toBe(true)
+  expect(result.current.cardSaveFailure).toBe('quota')
+  expect(localStorage.getItem(key)).toBeNull()
+})
+
+it('does not credit an old account acknowledgment to the current account', async () => {
+  let acknowledge!: () => void
+  account.commit.mockImplementation((_bookId, rows) => new Promise(resolve => {
+    acknowledge = () => resolve({ applied: true, conflict: false, row: { conversations: rows, rev: 1 } })
+  }))
+  const { result, rerender } = renderHook(({ userId }) => useLabAsk({ ...options, userId }),
+    { initialProps: { userId: 'first-reader' } })
+  await vi.waitFor(() => expect(result.current.historyStatus).toBe('ready'))
+  denyDeviceWrites()
+  act(() => { result.current.saveCard(card) })
+  rerender({ userId: 'second-reader' })
+  await act(async () => { acknowledge() })
+  expect(result.current.cardAccountSaved).toBe(false)
+})
+
+it('does not credit an older card revision while a newer answer is unsaved', async () => {
+  let acknowledge!: () => void
+  account.commit.mockImplementationOnce((_bookId, rows) => new Promise(resolve => {
+    acknowledge = () => resolve({ applied: true, conflict: false, row: { conversations: rows, rev: 1 } })
+  })).mockResolvedValue({ applied: false, conflict: false, row: null })
+  const { result } = renderHook(() => useLabAsk({ ...options, userId: 'synthetic-reader' }))
+  await vi.waitFor(() => expect(result.current.historyStatus).toBe('ready'))
+  denyDeviceWrites()
+  act(() => { result.current.saveCard(card) })
+  act(() => { result.current.saveCard({ ...card, u: card.u + 1, turns: [{ role: 'assistant', content: 'A corrected answer.' }] }) })
+  await act(async () => { acknowledge() })
+  expect(result.current.cardAccountSaved).toBe(false)
+})
+
 it('does not retain or upload another book’s card, or carry unsaved cards across book changes', async () => {
   const { result, rerender } = renderHook(({ bookId }) => useLabAsk({ ...options, bookId, userId: 'synthetic-reader' }),
     { initialProps: { bookId: 'bible' } })
