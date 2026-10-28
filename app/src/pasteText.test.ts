@@ -13,6 +13,33 @@ const data = (file: File) => new Promise<Uint8Array>((resolve, reject) => {
 })
 
 describe('private pasted source', () => {
+ it('rejoins corroborated printed word wraps in prose and keeps the original EPUB and old rules', async () => {
+  const source = 'Relations help organisms survive in their environment.\n\nThe geological rela-\ntions are studied and organisms may\nsur-\nvive when circumstances change.'
+  const bytes = await data(pasteEpub({source, format: 'plain', title: 'Printed prose'}))
+  const edition = await epubToEdition(bytes)
+  expect(edition.chapters[0].paragraphs.join(' ')).toContain('The geological relations are studied and organisms may survive when circumstances change.')
+  expect(new TextDecoder().decode(bytes)).toContain('rela-<br/>tions')
+  const legacy = await epubToEdition(bytes, {rules: 8})
+  expect(legacy.chapters[0].paragraphs.join(' ')).toContain('rela- tions')
+  expect(legacy.converter).toBe(8)
+ })
+
+ it('keeps ambiguous compounds, uncorroborated splits, and authored verse', async () => {
+  const source = 'The word re-cover differs from recover. Survive is also written whole.\n\nThe reader can re-\ncover a book and ponder an un-\nknownword while reading\nthis line.\n\nSur-\nvive, my friend!'
+  const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Controls'})))
+  const text = edition.chapters[0].paragraphs.join(' ')
+  expect(text).toContain('re- cover')
+  expect(text).toContain('un- knownword')
+  expect(text).toContain('Sur- vive, my friend!')
+ })
+
+ it('preserves inline emphasis at untouched printed line breaks', async () => {
+  const source = '<p><em>A printed line continues<br/>into the next italic line</em> and returns<br/>to ordinary type.</p>'
+  const bytes = await data(pasteEpub({source, format: 'html', title: 'Emphasis control'}))
+  const next = await epubToEdition(bytes), old = await epubToEdition(bytes, {rules: 8})
+  expect(next.chapters).toEqual(old.chapters)
+ })
+
  it('keeps wrapped archive prose in one paragraph across sentence boundaries', async () => {
   const source = 'WHEN on board the Beagle, as naturalist, I was\nmuch struck with certain facts in the distribution of the\ninhabitants of South America. These facts seemed to me to throw some light\non the origin of species.\nOn my return home, it occurred to me that\nsomething might perhaps be made out on this question.'
   const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Prose control'})))
