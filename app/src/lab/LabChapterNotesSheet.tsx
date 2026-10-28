@@ -51,6 +51,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   const [allowanceUsed, setAllowanceUsed] = useState(false)
   // The daily AI ceiling or a provider limit (503 ai_resting): said above Retry.
   const [resting, setResting] = useState(false)
+  const [sourceUnavailable, setSourceUnavailable] = useState(false)
   const windowRef = useReaderWindow<HTMLElement>('chapter-notes', true)
   const ready = useRef(onReady); ready.current = onReady
   useEffect(() => { if (state === 'ok' && beats) ready.current?.(beats) }, [state, beats])
@@ -87,7 +88,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
       : fetchChapterNotes(request, { readToken })
     void notes.then(result => {
       if (!mounted.current) return
-      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setState('error') }
+      if (result.ok) { setBeats(result.beats); setState('ok') } else { setAllowanceUsed(result.allowanceUsed === true); setResting(result.resting === true); setSourceUnavailable(result.sourceUnavailable === true); setState('error') }
     })
   }, [request, readToken, own])
   useEffect(() => { if (!beats) load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -107,7 +108,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
                 <span className="lab-catch-up-dot" aria-hidden="true" />
                 {allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-chapter-notes-balance" />}
                 {resting && <p className="lab-catch-up-balance" data-testid="lab-chapter-notes-resting">{LAB_COPY.aiResting}</p>}
-                <button type="button" className="lab-catch-up-retry" data-testid="lab-chapter-notes-retry" onClick={load}>Retry</button>
+                {sourceUnavailable ? <p className="lab-catch-up-text" data-testid="lab-chapter-notes-source-unavailable">Tinct cannot use the complete text of this section yet. These notes need the full section to stay accurate.</p> : <button type="button" className="lab-catch-up-retry" data-testid="lab-chapter-notes-retry" onClick={load}>Retry</button>}
               </li>
             ) : [0, 1, 2].map(index => (
               <li key={index} className="lab-catch-up-entry" data-state="loading">

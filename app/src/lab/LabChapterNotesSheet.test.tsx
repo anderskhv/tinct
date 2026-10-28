@@ -150,6 +150,16 @@ describe("LabChapterNotesSheet on a reader's own book (One Tinct, 22 Oct 2026)",
     expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
+  it('explains an incomplete source without offering a futile retry or saving partial notes', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    render(<LabChapterNotesSheet request={{ ...ownRequest, kind: 'primer' }} own={{ ...own, paragraphs: ['a'.repeat(190_001)] }} title="Primer" onClose={vi.fn()} onChat={vi.fn()} onTalk={vi.fn()} />)
+    expect((await screen.findByTestId('lab-chapter-notes-source-unavailable')).textContent).toContain('complete text')
+    expect(screen.queryByTestId('lab-chapter-notes-retry')).toBeNull()
+    expect(fetchMock).not.toHaveBeenCalled()
+    expect(localStorage.getItem(CHAPTER_NOTES_STORAGE_KEY)).toBeNull()
+  })
+
   it('never sends an own book’s id to the chapter notes route, even without its text', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)

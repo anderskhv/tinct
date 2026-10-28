@@ -36,6 +36,8 @@ export const isOwnChapterNotesKind = (kind: ChapterNotesKind): kind is OwnChapte
 const PAGE_CHARS = 19_000
 const CONTEXT_CHARS = 190_000
 
+class IncompleteChapterSourceError extends Error {}
+
 /** The chapter's text as the companion's pages ({ n, text }), its paragraphs kept whole where they fit. */
 export function ownChapterPages(paragraphs: readonly string[]): Array<{ n: number; text: string }> {
   const pages: Array<{ n: number; text: string }> = []
@@ -44,7 +46,7 @@ export function ownChapterPages(paragraphs: readonly string[]): Array<{ n: numbe
   for (const raw of paragraphs) {
     const text = readableParagraph(String(raw || '')).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
     if (!text) continue
-    if (total + text.length > CONTEXT_CHARS) break
+    if (total + text.length > CONTEXT_CHARS) throw new IncompleteChapterSourceError('The complete chapter exceeds the context limit')
     total += text.length
     if (current && current.length + text.length + 2 > PAGE_CHARS) push()
     for (let at = 0; at < text.length; at += PAGE_CHARS) {
@@ -53,6 +55,7 @@ export function ownChapterPages(paragraphs: readonly string[]): Array<{ n: numbe
     }
   }
   push()
+  if (!pages.length) throw new IncompleteChapterSourceError('The chapter has no readable text')
   return pages
 }
 
@@ -118,10 +121,12 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
   const fetchImpl: FetchLike | null = options.fetchImpl ?? (typeof fetch === 'function' ? (url, init) => fetch(url, init) : null)
   if (!fetchImpl) return { ok: false, status: 0 }
   try {
+    // Validate the entire source before obtaining credentials or sending any text.
+    const body = ownChapterNotesBody(kind, source)
     const token = options.readToken ? await options.readToken().catch(() => null) : null
     const headers: Record<string, string> = { 'Content-Type': 'application/json', ...internalTrafficHeaders() }
     if (token) headers.Authorization = `Bearer ${token}`
-    const response = await fetchImpl(apiUrl(token ? '/api/chat' : '/api/lab-chat'), { method: 'POST', headers, body: JSON.stringify(ownChapterNotesBody(kind, source)) })
+    const response = await fetchImpl(apiUrl(token ? '/api/chat' : '/api/lab-chat'), { method: 'POST', headers, body: JSON.stringify(body) })
     if (!response.ok) {
       if (await isAllowanceUsedResponse(response.clone())) return { ok: false, status: response.status, allowanceUsed: true }
       if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
@@ -130,7 +135,8 @@ export async function fetchOwnChapterNotes(kind: OwnChapterNotesKind, source: Ow
     const text = await readAnthropicResponse(response)
     const beats = kind === 'primer' ? (() => { const primer = parsePrimer(text); return primer ? primerBeats(primer) : null })() : recapBeats(text)
     return beats ? { ok: true, beats } : { ok: false, status: response.status }
-  } catch {
+  } catch (error) {
+    if (error instanceof IncompleteChapterSourceError) return { ok: false, status: 0, sourceUnavailable: true }
     return { ok: false, status: 0 }
   }
 }

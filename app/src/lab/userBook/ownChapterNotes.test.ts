@@ -43,6 +43,18 @@ describe("an own book's Primer and Recap, made from this device's text (One Tinc
     expect(pages.map(p => p.n)).toEqual([1, 2, 3, 4, 5])
   })
 
+  it('refuses oversized or empty source before authentication or a provider request', async () => {
+    for (const paragraphs of [['a'.repeat(190_001)], ['a'.repeat(100_000), 'b'.repeat(90_001)], ['  ', '<p></p>']]) {
+      const fetchImpl = vi.fn()
+      const readToken = vi.fn()
+      const result = await fetchOwnChapterNotes('primer', { ...source, paragraphs }, { fetchImpl, readToken })
+      expect(result).toMatchObject({ ok: false, sourceUnavailable: true })
+      expect(fetchImpl).not.toHaveBeenCalled()
+      expect(readToken).not.toHaveBeenCalled()
+    }
+    expect(ownChapterPages(['a'.repeat(190_000)]).map(p => p.text).join('')).toHaveLength(190_000)
+  })
+
   it('shows a primer and a recap as the card’s titled beats', () => {
     expect(primerBeats(parsePrimer(JSON.stringify(PRIMER))!)).toEqual([
       { title: 'In brief', text: 'Two accounts of the evening meet in one room.' },

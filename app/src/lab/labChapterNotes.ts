@@ -38,7 +38,7 @@ export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBe
  * `allowanceUsed`: refused because the reader's AI allowance is at zero (only while the switch is on).
  * `resting`: the daily AI ceiling or a provider limit (503 `ai_resting`); the card says so above Retry.
  */
-export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true; resting?: true }
+export type ChapterNotesResult = { ok: true; beats: ChapterNotesBeat[] } | { ok: false; status: number; allowanceUsed?: true; resting?: true; sourceUnavailable?: true }
 
 export async function fetchChapterNotes(request: ChapterNotesRequest, options: { fetchImpl?: FetchLike; readToken?: () => Promise<string | null> } = {}): Promise<ChapterNotesResult> {
   const stored = storedChapterNotes(request)
