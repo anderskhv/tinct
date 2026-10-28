@@ -112,14 +112,20 @@ async function boot(browser, phone, bookId='bible', edition='kjv-en', chapterNum
   // These legacy spread/foot/Next regressions intentionally exercise the
   // shared reader's Classic layout after the public default moves to Margin.
   // Phone keeps its familiar paged Read/Compare surface.
-  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page') + (fixture.sharedReader ? '&sharedReader=1' : ''), {waitUntil:'domcontentloaded'})
+  const pending = new Set()
+  const started = request => pending.add(request)
+  const finished = request => pending.delete(request)
+  page.on('request', started); page.on('requestfinished', finished); page.on('requestfailed', finished)
   try {
+  await page.goto(origin + (phone ? '/reader?layout=phone' : '/reader?view=two-page') + (fixture.sharedReader ? '&sharedReader=1' : ''), {waitUntil:'domcontentloaded'})
   await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:45000})
   } catch(error) {
-    const diagnostic={bookId,edition,chapterNumber,phone,errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
+    const diagnostic={bookId,edition,chapterNumber,phone,url:page.url(),pending:[...pending].map(request=>({url:request.url(),resourceType:request.resourceType()})),errors,networkFailures,warnings:warnings.slice(-8),ui:await visibleText(page,3500)}
     await page.screenshot({path:output+'/boot-failure-'+bookId+'-'+chapterNumber+'-'+Date.now()+'.png'}).catch(()=>{})
     await context.close()
     throw new Error('Reader boot failed: '+JSON.stringify(diagnostic),{cause:error})
+  } finally {
+    page.off('request', started); page.off('requestfinished', finished); page.off('requestfailed', finished)
   }
   await page.evaluate(()=>document.fonts.ready)
   await page.waitForTimeout(700)
