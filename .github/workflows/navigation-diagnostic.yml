@@ -1,0 +1,38 @@
+name: Live navigation diagnosis
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/navigation-diagnostic.yml'
+      - 'app/scripts/check-sign-in.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        with:
+          build: 'false'
+          browsers: 'chromium webkit'
+      - name: Diagnose live navigation with synthetic sign-in state
+        working-directory: app
+        env:
+          AUTH_LIVE: '1'
+        run: |
+          mkdir -p artifacts/sign-in
+          for attempt in 1 2 3; do
+            node scripts/check-sign-in.mjs > "artifacts/sign-in/run-$attempt.log" 2>&1 || {
+              sed '/REVIEW_CHUNK/d' "artifacts/sign-in/run-$attempt.log"
+              exit 1
+            }
+            sed '/REVIEW_CHUNK/d' "artifacts/sign-in/run-$attempt.log"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-navigation-diagnosis
+          path: app/artifacts/sign-in
+          retention-days: 3
