@@ -59,7 +59,20 @@ p.on('response',response=>{const url=new URL(response.url());const paths=[`/data
 if(process.env.READER_BUILT==='1')await p.route('**/*',async r=>{const url=new URL(r.request().url());if(url.origin===origin){const name=['/reader'].includes(url.pathname)?'/app.html':url.pathname;const file=require('node:path').resolve('dist','.'+name);if(file.startsWith(require('node:path').resolve('dist')+'/')){if(fs.existsSync(file)&&fs.statSync(file).isFile())return r.fulfill({path:file});return r.abort()}}return r.abort()});
 await p.route('**/api/**',r=>r.fulfill({status:404,body:'{}'}))
 await p.addInitScript(({book,edition,ch,paragraphIndex,wordIndex})=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':'original-en',savedPlace:{bookId:book,chapterNumber:ch,paragraphIndex,wordIndex,page:0}})),{book,edition,ch,paragraphIndex:mention.paragraphIndex,wordIndex})
-await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')
+const pendingRequests=new Set();const navigationFailures=[];
+const requestStarted=request=>pendingRequests.add(request);
+const requestFinished=request=>pendingRequests.delete(request);
+const requestFailed=request=>{pendingRequests.delete(request);navigationFailures.push({url:request.url(),failure:request.failure()})};
+p.on('request',requestStarted);p.on('requestfinished',requestFinished);p.on('requestfailed',requestFailed);
+try{await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true')}
+catch(error){
+ const state=await p.evaluate(()=>({url:location.href,readyState:document.readyState,title:document.title,readerReady:document.querySelector('.lab')?.dataset.readerReady,words:document.querySelectorAll('[data-testid="lab-word"]').length})).catch(()=>null);
+ const evidence={device,edition,label,state,pendingRequests:[...pendingRequests].map(request=>({url:request.url(),resourceType:request.resourceType()})),navigationFailures,diagnostics};
+ fs.writeFileSync(`${dir}/${device}-${edition}-${label}-navigation-failed.json`,JSON.stringify(evidence,null,2));
+ await p.screenshot({path:`${dir}/${device}-${edition}-${label}-navigation-failed.png`,timeout:5000}).catch(()=>{});
+ await p.context().tracing.stop({path:`${dir}/${device}-${edition}-${label}-navigation-trace.zip`}).catch(()=>{});
+ console.error('CHARACTER_NAVIGATION_FAILURE',JSON.stringify(evidence));throw error;
+}finally{p.off('request',requestStarted);p.off('requestfinished',requestFinished);p.off('requestfailed',requestFailed)}
 // Cards verify the complete source edition after the chapter renders; a slow runner can still be hashing when the reader is ready.
 await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.charactersReady==='true',null,{timeout:90000}).catch(()=>{throw new Error(`${device}-${edition}-${label}: verified character package never became available`)});await p.waitForTimeout(1200)
 const word=p.locator(`.lab-page-wrap [data-paragraph-index="${mention.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()
