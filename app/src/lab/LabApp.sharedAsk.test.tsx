@@ -68,6 +68,8 @@ it.each(['two-page', 'margin'])('submits desktop Ask on the correct surface with
 })
 
 it.each(['two-page', 'margin'])('hands an Explain follow-up into chat once without moving the book in %s', async view => {
+  const legacyCopy = JSON.stringify({ preserved: { answer: 'An older answer with no verified backup.', at: 1 } })
+  localStorage.setItem('tinct:explanations', legacyCopy)
   const requests: unknown[] = []
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     if (String(input).includes('/api/lab-chat') || String(input).includes('/api/chat')) {
@@ -85,6 +87,8 @@ it.each(['two-page', 'margin'])('hands an Explain follow-up into chat once witho
   fireEvent.pointerUp(words[3], { pointerId: 51, pointerType: 'mouse', clientX: 240, clientY: 200 })
   fireEvent.click(screen.getByTestId('lab-dbar-explain'))
   await waitFor(() => expect(screen.getByText('A local passage answer.')).toBeTruthy())
+  await waitFor(() => expect(readAllLabBookChats().flatMap(row => row.messages).some(message => message.content === 'A local passage answer.')).toBe(true))
+  expect(localStorage.getItem('tinct:explanations')).toBe(legacyCopy)
   const field = screen.getByTestId('lab-phone-card-input')
   fireEvent.change(field, { target: { value: 'Why these words?' } })
   fireEvent.click(screen.getByTestId('lab-phone-card-send'))

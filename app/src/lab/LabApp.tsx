@@ -6032,7 +6032,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const keep = (answer: string) => {
       if (fromSelection && (selectionPopupRef.current !== selectionPopup || popupModeRef.current !== 'define')) return
       if (!continuousReader || phoneCardRef.current === card) phoneAnswerRef.current = { card, answer, kept: false }
-      if (card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
+      // Shared cards already persist the answer in the book's chat history.
+      // Do not spend local quota on a second, unread legacy explanation copy.
+      if (!sharedReader && card.kind === 'explain') saveExplanation({ bookId: book.bookId || 'bible', chapterNumber: card.passage.chapterNumber, paragraphIndex: card.passage.paragraphIndex, passage: card.passage.text, answer })
       if (sharedReader && card.kind !== 'ask' && answer.trim()) {
         const range = card.passage.ranges?.find(part => part.chapterNumber === card.passage.chapterNumber)?.range
         const at = card.openedAt
