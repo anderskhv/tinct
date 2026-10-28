@@ -29,7 +29,7 @@ try {
           if (url.pathname === '/api/lab-chapter-notes') {
             const request = route.request().postDataJSON(); requests.push(request)
             return route.fulfill({ json: { primer: {
-              identity: { scope: { kind: 'public' }, workId: request.bookId, editionId: request.editionKey, sourceVersion: 'synthetic-source-v1', unitId: `chapter-${request.chapterNumber}`, type: 'chapter', language: 'en' },
+              identity: { scope: { kind: 'public' }, workId: request.bookId, editionId: request.editionKey, sourceVersion: 'synthetic-source-v1', unitId: request.primerType === 'book' ? null : `chapter-${request.chapterNumber}`, type: request.primerType || 'chapter', language: 'en' },
               content: { opening: 'A letter makes distance tangible, placing the reader beside its writer before the journey begins.', structure: [{ title: 'The address', explanation: 'Notice how the writer addresses the recipient.', quotes: [{ text: quote, passageId: 'chapter-2:paragraph-3' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Distance', explanation: 'Follow the language of distance.' }], usefulReferences: [] },
               resources: [], origin: 'generated', promptVersion: 'book-primer-1', createdAt: '2026-10-28T00:00:00Z' } } })
           }
@@ -53,8 +53,18 @@ try {
           await primer.getByRole('button', { name: 'Read passage' }).click()
           await page.waitForFunction(() => ![...document.querySelectorAll('.book-primer-content')].some(el => el.getBoundingClientRect().width && el.getBoundingClientRect().height))
           await page.waitForFunction(() => { const place = JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.frankenstein; return place?.paragraphIndex === 3 && place?.sequentialChapter === 2 }, null, { timeout: 10000 })
+          const beforeBookPrimer = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.frankenstein)
+          await page.getByRole('button', { name: /^Table of contents/ }).click()
+          await page.getByRole('button', { name: 'Book primer', exact: true }).click()
+          await page.locator('.book-primer-content:visible').first().waitFor()
+          assert.equal(requests.at(-1).primerType, 'book')
+          const afterBookPrimer = await page.evaluate(() => JSON.parse(localStorage.getItem('tinct-lab-position') || '{}').books?.frankenstein)
+          assert.equal(afterBookPrimer.sequentialChapter, beforeBookPrimer.sequentialChapter)
+          assert.equal(afterBookPrimer.paragraphIndex, beforeBookPrimer.paragraphIndex)
+          assert.equal(new URL(page.url()).pathname, '/reader')
+          await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-book.png` })
           assert.deepEqual(errors, [])
-          console.log(`${engine} ${phone ? 'phone' : 'margin'}: primer disclosures and quote navigation PASS`)
+          console.log(`${engine} ${phone ? 'phone' : 'margin'}: chapter disclosures, quote navigation, and book primer preserving place PASS`)
         } catch (error) { await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-failure.png` }); console.error(errors); throw error } finally { await context.close() }
       }
     } finally { await browser.close() }

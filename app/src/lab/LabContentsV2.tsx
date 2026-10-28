@@ -66,6 +66,7 @@ interface Props {
   onDeleteNotebookItem?: (item: { kind: 'highlight' | 'card'; id: string }) => (() => boolean | void) | null
   /** The book's introduction (in the library). Omitted when there is none to open. */
   onOpenIntroduction?: () => void
+  introductionLabel?: string
   onClose: () => void; onSelectChapter: (chapter: number) => void; onWarmChapter: (chapter: number) => void
   onOpenPassage: (place: ContentsPlace) => void; onContinueConversation: (conversation: ChatConversation) => void
 }
@@ -383,7 +384,7 @@ export function LabContentsV2(props: Props) {
       </div> : <>
       {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
       <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
-        {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
+        {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">{props.introductionLabel || 'Introduction'}</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
         {historyStatus}
         {props.navigationFooter}
       </div>

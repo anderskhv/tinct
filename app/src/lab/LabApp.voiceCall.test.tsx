@@ -295,19 +295,23 @@ describe('Talk on the desktop with Chrome V2', () => {
   })
 })
 
-it('opens the book introduction in the library from Contents, without a cover or preface in the reader', async () => {
+it('opens the whole-book primer from Contents while keeping the reader and place', async () => {
+  const fetchMock = vi.fn(async (_url: string, _init?: RequestInit) => new Response('{}', { status: 404 }))
+  vi.stubGlobal('fetch', fetchMock)
   vi.useFakeTimers({ shouldAdvanceTime: true })
-  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'bible' }} authToken="reader-token" />)
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'bible', chaptersProvisional: false }} authToken="reader-token" />)
   const before = readerPlace()
   fireEvent.click(screen.getByTestId('lab-header-chapter'))
   expect(screen.queryByRole('button', { name: 'Cover', exact: true })).toBeNull()
   expect(screen.queryByRole('button', { name: 'Preface', exact: true })).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: 'Introduction', exact: true }))
+  fireEvent.click(screen.getByRole('button', { name: 'Book primer', exact: true }))
   expect(screen.queryByTestId('lab-chapter-cover')).toBeNull()
   expect(readerPlace()).toBe(before)
-  // The library opens after the reader's fade; let it run inside this test.
   await vi.advanceTimersByTimeAsync(LEAVE_FADE_MS + 20)
-  expect(screen.getByTestId('lab-leave-veil')).toBeTruthy()
+  expect(screen.queryByTestId('lab-leave-veil')).toBeNull()
+  expect(screen.getByTestId('lab-chapter-notes')).toBeTruthy()
+  const call = fetchMock.mock.calls.find(args => String(args[0]).includes('/api/lab-chapter-notes')) as unknown as [string, RequestInit]
+  expect(JSON.parse(String(call[1].body))).toMatchObject({ format: 'structured-primer', primerType: 'book' })
 })
 
 it('keeps Reconnect available after cancelling a pending microphone and can end the next attempt', async () => {

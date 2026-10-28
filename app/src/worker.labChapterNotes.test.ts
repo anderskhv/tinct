@@ -270,3 +270,40 @@ describe('structured public chapter primers', () => {
     } finally { chapters[1].paragraphs = original }
   })
 })
+
+
+describe('whole-book structured primers', () => {
+  const body = { bookId: 'frank', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book' }
+  const content = { opening: 'A difficult ambition begins here.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+  it('uses the full edition and its actual section map, with a cache distinct from chapter primers', async () => {
+    const fetchAnthropic = anthropic(JSON.stringify(content)), cache = fakeCache(), context = ctx()
+    const response = await handleLabChapterNotes(post(body), env, context.ctx, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+    expect(response.status).toBe(200)
+    expect(await response.json()).toMatchObject({ primer: { identity: { type: 'book', unitId: null, editionId: 'original-en' } } })
+    const payload = fetchAnthropic.mock.calls[0][0] as any
+    expect(payload.messages[0].content).toContain('Victor studies.')
+    expect(payload.messages[0].content).toContain('A LATER SECRET.')
+    expect(payload.system).toContain('In 60–90 words')
+    expect(payload.system).toContain('no future identities')
+    await Promise.all(context.pending)
+    await handleLabChapterNotes(post({ ...body, primerType: 'chapter' }), env, context.ctx, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
+    expect(fetchAnthropic).toHaveBeenCalledTimes(2)
+  })
+  it('refuses an incomplete edition before a provider request', async () => {
+    const fetchAnthropic = anthropic(JSON.stringify(content)), reserveGuestSpend = vi.fn(spend)
+    const assets = { fetch: async (request: Request) => new URL(request.url).pathname.endsWith('ch0002.json') ? new Response('missing', { status: 404 }) : env.ASSETS.fetch(request) }
+    const response = await handleLabChapterNotes(post(body), { ...env, ASSETS: assets }, ctx().ctx, allow, { cache: null, fetchAnthropic, reserveGuestSpend })
+    expect(response.status).toBe(422)
+    expect(fetchAnthropic).not.toHaveBeenCalled()
+    expect(reserveGuestSpend).not.toHaveBeenCalled()
+  })
+})
+
+it('rejects a fallback edition instead of caching it under the requested identity', async () => {
+ const fetchAnthropic = anthropic(), reserveGuestSpend = vi.fn(spend)
+ const createRetrieval = () => ({ chapterText: async () => chapters[1], editionIndex: async () => ({ editionKey: 'different-en', chapters: [{ number: 1, title: 'Chapter 1' }] }) }) as any
+ const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book' }), env, ctx().ctx, allow, { createRetrieval, fetchAnthropic, reserveGuestSpend, cache: null })
+ expect(response.status).toBe(422)
+ expect(fetchAnthropic).not.toHaveBeenCalled()
+ expect(reserveGuestSpend).not.toHaveBeenCalled()
+})

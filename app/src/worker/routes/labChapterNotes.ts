@@ -141,6 +141,7 @@ export interface ParsedChapterNotesRequest {
   paragraphIndex: number
   bookTitle: string | null
   format?: 'structured-primer'
+  primerType?: 'book' | 'chapter'
   language?: string
 }
 
@@ -152,6 +153,7 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
   const kind = value.kind
   if (kind !== 'sofar' && kind !== 'end' && kind !== 'primer') return null
   if (value.format !== undefined && (value.format !== 'structured-primer' || kind !== 'primer')) return null
+  if (value.primerType !== undefined && (value.format !== 'structured-primer' || !['book', 'chapter'].includes(String(value.primerType)))) return null
   const language = value.language === undefined ? 'en' : value.language
   if (value.format === 'structured-primer' && (typeof language !== 'string' || !/^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8}){0,2}$/.test(language))) return null
   const paragraph = value.paragraphIndex
@@ -160,7 +162,7 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
     : 0
   if (paragraphIndex < 0) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(value.format === 'structured-primer' ? { format: 'structured-primer' as const, language: language as string } : {}) }
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(value.format === 'structured-primer' ? { format: 'structured-primer' as const, language: language as string, primerType: value.primerType === 'book' ? 'book' as const : 'chapter' as const } : {}) }
 }
 
 function cleanParagraph(text: string): string {
@@ -240,18 +242,25 @@ export async function handleLabChapterNotes(
   if (!chapter || chapter.paragraphs.length === 0) return jsonResponse({ error: 'Chapter not available' }, 404, request)
   let primerSource: PrimerSource | null = null
   if (parsed.format === 'structured-primer') {
-    const passages = chapter.paragraphs.map((text, index) => ({ id: `chapter-${chapter.number}:paragraph-${index}`, unitId: `chapter-${chapter.number}`, text: cleanParagraph(text) })).filter(p => p.text)
-    if (!passages.length || passages.reduce((n, p) => n + p.text.length, 0) > 190_000) {
-      return jsonResponse({ error: 'Complete section unavailable', sourceUnavailable: true }, 422, request)
+    const index = await retrieval.editionIndex()
+    // Never label a fallback translation as the edition requested by this reader.
+    if (!index || index.editionKey !== parsed.editionKey || !index.chapters.length || index.chapters.length > 5000) return jsonResponse({ error: 'Complete edition unavailable', sourceUnavailable: true }, 422, request)
+    const wholeBook = parsed.primerType === 'book'
+    const selected = wholeBook ? await retrieval.chaptersText(index.chapters.map(unit => unit.number)) : [chapter]
+    const expectedNumbers = wholeBook ? index.chapters.map(unit => unit.number) : [parsed.chapterNumber]
+    if (selected.length !== expectedNumbers.length || selected.some((unit, at) => !unit || unit.number !== expectedNumbers[at] || !unit.paragraphs.some(text => cleanParagraph(text)))) return jsonResponse({ error: 'Complete edition unavailable', sourceUnavailable: true }, 422, request)
+    const passages = selected.flatMap(unit => unit!.paragraphs.map((text, paragraph) => ({ id: `chapter-${unit!.number}:paragraph-${paragraph}`, unitId: `chapter-${unit!.number}`, text: cleanParagraph(text) })).filter(p => p.text))
+    if (!passages.length || passages.reduce((n, p) => n + p.text.length, 0) > (wholeBook ? 560_000 : 190_000)) {
+      return jsonResponse({ error: 'Complete source unavailable', sourceUnavailable: true }, 422, request)
     }
-    const sourceBytes = new TextEncoder().encode(JSON.stringify({ title: chapter.title, passages }))
+    const units = index.chapters.map(unit => ({ id: `chapter-${unit.number}`, label: unit.title }))
+    const sourceBytes = new TextEncoder().encode(JSON.stringify({ title: parsed.bookTitle || parsed.bookId, units, passages }))
     const digest = await crypto.subtle.digest('SHA-256', sourceBytes)
     const sourceVersion = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')
     primerSource = {
-      identity: { scope: { kind: 'public' }, workId: parsed.bookId, editionId: parsed.editionKey,
-        sourceVersion, unitId: `chapter-${chapter.number}`, type: 'chapter', language: parsed.language || 'en' },
-      title: parsed.bookTitle || parsed.bookId, unitLabel: chapter.title, reliable: true, passages,
-      units: [{ id: `chapter-${chapter.number}`, label: chapter.title }],
+      identity: { scope: { kind: 'public' }, workId: parsed.bookId, editionId: index.editionKey,
+        sourceVersion, unitId: wholeBook ? null : `chapter-${chapter.number}`, type: wholeBook ? 'book' : 'chapter', language: parsed.language || 'en' },
+      title: parsed.bookTitle || parsed.bookId, ...(wholeBook ? {} : { unitLabel: chapter.title }), reliable: true, passages, units,
     }
   }
   // "So far" positions that cover the same text share one entry.

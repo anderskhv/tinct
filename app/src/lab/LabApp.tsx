@@ -135,7 +135,6 @@ import type { LabSuperMenuId } from './labSuperMenu'
 import {
   labLineHeight, labMarginScale, labParagraphGap,
   LAB_LIBRARY_URL,
-  labLibraryIntroductionUrl,
   bibleEditions,
   labFontFamilyCss,
   labReadingFont,
@@ -5442,24 +5441,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     updatePrefs(next)
   }, [ownPdf, openPdfPages, ownEpubMargin, openEpubMargin, updatePrefs])
 
-  // Contents -> Introduction opens the book's introduction in the library.
-  // The navigation waits for the commit that closes Contents: writes are
-  // suspended while Contents is open, and the place must be flushed (the
-  // 'hide' flush uses keepalive) before the reader document is left.
-  const [introductionRequested, setIntroductionRequested] = useState(false)
+  // The book primer opens in the reader without changing its saved place.
   const openIntroduction = useCallback(() => {
-    if (privateBook) return
+    if (privateBook || initialResolving || book.chaptersProvisional) return
     listen.pause()
     setTocOpen(false)
-    setIntroductionRequested(true)
-  }, [listen, privateBook])
-  useEffect(() => {
-    if (!introductionRequested || tocOpen) return
-    setIntroductionRequested(false)
-    notePlace('hide')
-    rememberLibraryPlace()
-    leaveForLibrary(privateLibraryDestination(labLibraryIntroductionUrl(book.bookId || 'bible', prefs.primaryEdition, readerPreviewSearch(window.location.search)), sharedReader))
-  }, [book.bookId, introductionRequested, notePlace, prefs.primaryEdition, rememberLibraryPlace, tocOpen, sharedReader])
+    setChapterNotes({ title: `Book primer · ${book.bookTitle}`, request: {
+      bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber: book.chapterNumber,
+      kind: 'primer', format: 'structured-primer', primerType: 'book', bookTitle: book.bookTitle,
+      language: allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en',
+    } })
+  }, [listen, privateBook, initialResolving, book, readerEditionKey, allBookEditions])
 
   const showChapterEnd = !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
@@ -6060,7 +6052,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return turns.length ? <div className="lab-pcard-thread" data-testid="lab-pill-card-thread"><PhonePassageBody turns={turns} pending={ask.typedLoading} /></div> : null
   }
 
-  const unitRailId = (notes: NonNullable<typeof chapterNotes>) => `mc_unit_${notes.request.kind === 'end' ? 'recap' : notes.request.kind}_${notes.request.chapterNumber}_${notes.request.editionKey}`
+  const unitRailId = (notes: NonNullable<typeof chapterNotes>) => `mc_unit_${notes.request.primerType === 'book' ? 'book_primer' : notes.request.kind === 'end' ? 'recap' : notes.request.kind}_${notes.request.chapterNumber}_${notes.request.editionKey}`
   useEffect(() => {
     if (!continuousReader || !chapterNotes) return
     const id = unitRailId(chapterNotes)
@@ -6193,10 +6185,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader) for (const notes of desktopChapterCards) {
     const id = unitRailId(notes), kind = notes.request.kind === 'end' ? 'recap' : 'primer'
-    desktopMarginEntries.push({ id, label: kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
+    desktopMarginEntries.push({ id, label: notes.request.primerType === 'book' ? 'Book primer' : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
-      content: <LabChapterNotesSheet embedded request={notes.request} onPassage={(id, quote) => openPrimerPassage(notes.request, id, quote)} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
+      content: <LabChapterNotesSheet embedded request={notes.request} onPassage={notes.request.primerType === 'book' ? undefined : (id, quote) => openPrimerPassage(notes.request, id, quote)} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
         onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
         follow={beats => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
   }
@@ -6586,7 +6578,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <LabChapterNotesSheet
           key={JSON.stringify(chapterNotes.request)}
           request={chapterNotes.request}
-          onPassage={(id, quote) => openPrimerPassage(chapterNotes.request, id, quote)}
+          onPassage={chapterNotes.request.primerType === 'book' ? undefined : (id, quote) => openPrimerPassage(chapterNotes.request, id, quote)}
           own={chapterNotes.own}
           title={chapterNotes.title}
           onClose={() => setChapterNotes(null)}
@@ -7285,6 +7277,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         }}
         onOpenHighlight={highlight => { rememberNotebookOrigin(); openContentsPassage({ chapterNumber: highlight.chapterNumber, paragraphIndex: highlight.paragraphIndex, wordIndex: highlight.fromWord }, undefined, false, highlight) }}
         onContinueConversation={openNotebookConversation}
+        introductionLabel="Book primer"
         onOpenIntroduction={privateBook ? undefined : openIntroduction}
         onWarmChapter={warmChapterTexts}
         notebook={contentsNotebook}
