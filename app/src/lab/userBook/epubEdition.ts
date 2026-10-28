@@ -381,11 +381,22 @@ function opensOnName(line: string): boolean {
   return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
-function documentBlocks(source: string, base = '', v6 = false, v8 = false): DocumentBlocks {
+function documentBlocks(source: string, base = '', v6 = false, v8 = false, v9 = false): DocumentBlocks {
   let wikisourceStamp = false
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
   const body = byLocal(doc, 'body')[0] || doc.documentElement
+  // Only join a printed split when this document independently spells the
+  // whole word without a hyphen. Keep ambiguous and authored compounds.
+  const wordEvidence = new Set<string>()
+  if (v9 && byLocal(body, 'br').length) {
+    const copy = body.cloneNode(true) as Element
+    for (const br of byLocal(copy, 'br')) br.replaceWith(doc.createTextNode(' '))
+    const walker = doc.createTreeWalker(copy, NodeFilter.SHOW_TEXT)
+    const pieces: string[] = []
+    while (walker.nextNode()) pieces.push(walker.currentNode.textContent || '')
+    for (const token of pieces.join(' ').match(/\p{L}+(?:-\p{L}+)*/gu) || []) wordEvidence.add(token.toLowerCase())
+  }
   const firstSection = [...body.children].find(child => /^(section|div|article)$/i.test(child.localName))
   const docType = [body, firstSection].filter((el): el is Element => !!el)
     .map(el => `${epubType(el)} ${(el.getAttribute('role') || '').toLowerCase()}`).join(' ')
@@ -495,7 +506,28 @@ function documentBlocks(source: string, base = '', v6 = false, v8 = false): Docu
       || (/,$/.test(lines[index - 1]) && opensOnName(line))
       // A title at the printed line end continues into the following name.
       || (v8 && /\b(?:Mr|Mrs|Ms|Dr)\.$/.test(lines[index - 1]) && /^\p{Lu}/u.test(line))))
-    if (wrapped) { emit(gathered); return }
+    if (wrapped) {
+      if (!v9) { emit(gathered); return }
+      const joined = gathered.map(segment => ({ ...segment }))
+      for (let index = 0; index < joined.length; index++) {
+        if (!joined[index].br) continue
+        let before = index - 1, after = index + 1
+        while (before >= 0 && !joined[before].br && !joined[before].text.trim()) before--
+        while (after < joined.length && !joined[after].br && !joined[after].text.trim()) after++
+        const last = joined[before], first = joined[after]
+        if (!last || !first || last.br || first.br) continue
+        const left = last.text.match(/(\p{L}+)-\s*$/u)?.[1]
+        const right = first.text.match(/^\s*(\p{Ll}+)/u)?.[1]
+        if (left && right && wordEvidence.has((left + right).toLowerCase())
+          && !wordEvidence.has((left + '-' + right).toLowerCase())) {
+          last.text = last.text.replace(/-\s*$/, '')
+          for (let gap = before + 1; gap < after; gap++) joined[gap].text = ''
+          first.text = first.text.trimStart()
+        }
+      }
+      emit(joined)
+      return
+    }
     for (const run of runs) emit(run, true)
 
   }
@@ -1441,7 +1473,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '', item.href, v6, rules >= 8)
+    const parsed = documentBlocks(source || '', item.href, v6, rules >= 8, rules >= 9)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
     // Rules 6: Wikisource's title page (title, author, year and its export stamp).
