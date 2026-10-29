@@ -23,9 +23,9 @@ const FLOOR_PROOF = 'src/worker.rollbackFloor.test.ts'
 const releaseDir = path.join(__dirname, '..', 'release')
 const floorManifest = path.join(releaseDir, 'shared-reader-floor.json')
 const rolloutState = path.join(releaseDir, 'shared-reader-rollout.json')
-// Accepted reader: deploy run 40935800289, source f6f4389741885cf72c8835bf268d31027bda1251 (#672).
+// Accepted reader: deploy run 40972602700, source fa860035f9fa353338e31440a022448ac42fd03e (#674).
 // All six acceptance groups passed without rollback; preserve the reader-ON release path.
-const ACCEPTED_READER_VERSION = 'f87c8537-1130-44b6-8451-76604637c27b'
+const ACCEPTED_READER_VERSION = '3fd2d638-e81a-4f50-bac3-014f22dcd69e'
 
 function validatedVersion(value, label) {
   if (!VERSION_ID.test(value || '')) throw new Error(`${label} must be an explicit Worker Version UUID`)
