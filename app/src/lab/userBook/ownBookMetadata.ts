@@ -35,7 +35,9 @@ export async function currentOwnBookMetadata(hex: string, owner: string, timeout
     if (userBookOwner() !== owner) return null
     // An account title never edited is the one sent with the file (once its file name, for PDFs added before 29 Oct 2026):
     // this device's record, named by the document's own title, says it better.
-    if (result && !(result.metadataRev > 0) && result.type === 'pdf') {
+    // Only a file-name default ("scan_0042", "report (1)") gives way; a title sent from another device stays.
+    const named = (value: string) => value.toLowerCase().replace(/\.(pdf|epub)$/i, '').replace(/\(\d+\)/g, '').replace(/[^\p{L}\p{N}]+/gu, '')
+    if (result && !(result.metadataRev > 0) && result.type === 'pdf' && (!result.title || named(result.title) === named(result.name || ''))) {
       let wait: ReturnType<typeof setTimeout> | undefined
       const record = await Promise.race([local, new Promise<null>(resolve => { wait = setTimeout(() => resolve(null), 300) })]).finally(() => clearTimeout(wait))
       if (userBookOwner() !== owner) return null
