@@ -217,6 +217,9 @@
   const bare = s => String(s || '').toLowerCase().replace(/\.(pdf|epub|docx?)$/i, '').replace(/\(\d+\)/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
   // The metadata Title when it is a real title: not empty, a program's default, a file name or
   // the file's own name.
+  const ARXIV_STAMP = /^arXiv:\s*[\w.\/-]+v?\d*\b/i;
+  // A web address set large on a cover ("VISITA WWW.RASPBERRYITALY.COM") is a banner, not the title.
+  const WEB_LINE = /(?:^|\s)(?:https?:\/\/|www\.)\S+|\b[\w-]+\.(?:com|org|net|io|co\.uk)\b/i;
   function metaTitle(raw, name) {
     let t = readable(raw).replace(/^microsoft (?:word|powerpoint) - /i, '');
     if (t.length <= 3 || !/\p{L}{2}/u.test(t)) return null;
@@ -226,6 +229,7 @@
     if (/\.(pdf|docx?|tex|dvi|html?|txt|rtf|odt|pages|indd|qxd|ps)$/i.test(t) || /^[a-z]:\\|^\/|^https?:/i.test(t)) return null;
     if (bare(t) === bare(name) || (/[_]/.test(t) && !/\s/.test(t)) || /\(\d+\)\s*$/.test(t)) return null;
     if (/^[\w-]+$/.test(t) && /\d/.test(t)) return null; // "scan0042", "IMG-2024"
+    if (ARXIV_STAMP.test(t)) return null; // arXiv's margin stamp ("arXiv:math/0211159v1 [math.DG] 11 Nov 2002")
     return t;
   }
   // The metadata's title is the printed one with more after it ("Constructor Theory Philosophy": a
@@ -281,7 +285,10 @@
       }
       // A title the running heads repeat ("Constructor Theory" over every page) is still the title where it is
       // set large, away from the page's edges (version 6).
-      const lettered = p.rows.filter((r, i) => !skip.has(i) && /\p{L}{2}/u.test(r.text)), pageBody = bodyOf(lettered);
+      const banner = r => WEB_LINE.test(r.text) && r.words <= 6
+      // A cover whose largest line is a web banner names no title; its other lines are sections ("Presentazione").
+      if (pages[0]?.rows.some(r => banner(r) && r.size >= Math.max(...pages[0].rows.map(x => x.size)) * 0.92)) break;
+      const lettered = p.rows.filter((r, i) => !skip.has(i) && /\p{L}{2}/u.test(r.text) && !banner(r) && !ARXIV_STAMP.test(r.text)), pageBody = bodyOf(lettered);
       // On a short cover (a few lines on page 1) the largest line is the title even where later pages repeat it
       // ("BERKSHIRE HATHAWAY INC." over every page of its annual report).
       const coverTop = p.n === 1 && lettered.length <= 6 ? Math.max(...lettered.map(r => r.size)) : Infinity;
