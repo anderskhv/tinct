@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/frankenstein-original-en.json",
     "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
-    "reviewScope": "Letters 1–4 read in full; all unit labels checked. The twenty-four numbered chapters remain unread for this semantic review. Whole-book acceptance remains incomplete."
+    "reviewScope": "Letters 1–4 and numbered Chapters 1–6 read in full; all unit labels checked. Chapters 7–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
   },
   "primer": {
     "identity": {
@@ -73,6 +73,14 @@
               "passageId": "chapter-3:paragraph-5"
             }
           ]
+        },
+        {
+          "title": "Choice and fate",
+          "explanation": "Notice when a speaker describes a decision as their own and when the same account invokes fate, chance, or an irresistible impulse. The way a remembered event is explained can shape how responsibility is shared. Keep the explanation open to question rather than treating it as the novel’s final judgment."
+        },
+        {
+          "title": "Care and obligation",
+          "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do. Affection, gratitude, and the wish to possess can appear close together without being the same thing."
         }
       ],
       "usefulReferences": []
@@ -101,7 +109,7 @@
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
   },
-  "editorialRevision": "candidate-3-verified-context",
+  "editorialRevision": "candidate-4-chapters-1-6-review",
   "contextEvidence": [
     {
       "topics": [
@@ -134,6 +142,24 @@
       ],
       "supportingExcerpt": "the one-volume 1831 revised edition",
       "verification": "Opened scholarly introduction; dates, edition revisions and surviving manuscript collaboration checked. No claim identifying the runtime text as a particular historical printing. Plot examples omitted from candidate; full source has spoilers."
+    },
+    {
+      "topics": [
+        "Choice and fate",
+        "Care and obligation"
+      ],
+      "sourcePath": "app/public/data/editions/frankenstein-original-en.json",
+      "passageIds": [
+        "chapter-5:paragraph-6",
+        "chapter-5:paragraph-10",
+        "chapter-6:paragraph-7",
+        "chapter-6:paragraph-15",
+        "chapter-7:paragraph-16",
+        "chapter-8:paragraph-9",
+        "chapter-9:paragraph-19",
+        "chapter-10:paragraph-20"
+      ],
+      "verification": "Actual edition Chapters 1–6 read fully. Chapter 5 paragraphs 9–15 recovered separately after output truncation. General reading cues only; no later identities, events or outcomes disclosed."
     }
   ]
 }
