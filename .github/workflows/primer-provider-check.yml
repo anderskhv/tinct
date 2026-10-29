@@ -1,0 +1,35 @@
+name: Bounded primer provider check
+on:
+  push:
+    branches: [codex/primer-provider-check-20261029]
+    paths: ['.github/workflows/primer-provider-check.yml']
+permissions:
+  contents: read
+concurrency:
+  group: primer-provider-check-20261029
+  cancel-in-progress: false
+jobs:
+  check:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: app
+      - name: Public text check, one dollar maximum, no retries
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.CLAUDE_KEY }}
+          PRIMER_CHECK_OUTPUT: ${{ runner.temp }}/primer-provider-results
+        run: node app/scripts/check-primer-provider.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: primer-provider-results
+          path: ${{ runner.temp }}/primer-provider-results
+          retention-days: 3
