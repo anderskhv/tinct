@@ -33,7 +33,7 @@ export function paintRows(container: Element, state: MeasureRowsState, rows: Mea
   const kept = intact ? state.elements.slice(0, shared) : []
   for (const element of (intact ? state.elements.slice(shared) : [])) element.remove()
   const built = rows.slice(kept.length).map(row => row.build())
-  if (built.length) container.append(...built)
+  for (const element of built) container.appendChild(element)
   state.keys = rows.map(row => row.key)
   state.elements = [...kept, ...built]
   return state.elements

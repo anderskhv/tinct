@@ -275,6 +275,18 @@ export interface LabLeafCapacity {
   leafHeight: number
 }
 
+/** Words the capacity probe measures: every word of a chapter up to this many. */
+export const LAB_CAPACITY_SAMPLE_WORDS = 4000
+
+/** The chapter's words, in order, up to LAB_CAPACITY_SAMPLE_WORDS. */
+export function labCapacitySample<T>(paragraphs: readonly (readonly T[])[], limit = LAB_CAPACITY_SAMPLE_WORDS): T[] {
+  const out: T[] = []
+  for (const words of paragraphs) {
+    for (const word of words) { if (out.length >= limit) return out; out.push(word) }
+  }
+  return out
+}
+
 export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, words: number): LabLeafCapacity | null {
   const lineHeight = parseFloat(getComputedStyle(probe).lineHeight)
   const leafHeight = page.getBoundingClientRect().height
@@ -541,14 +553,17 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
             }
             const capacityProbe = document.createElement('p')
             capacityProbe.className = 'lab-hearing-line'
-            labMeasureParagraphInto(capacityProbe, source.flat())
+            // A sample is enough for words per line, and a whole pasted book
+            // (~200k words) in one probe took ~26 s to lay out.
+            const sample = labCapacitySample(source)
+            labMeasureParagraphInto(capacityProbe, sample)
             // A paired measure row is a two-column grid; an unwrapped probe would
             // run the full spread width and claim twice the words per line.
             const capacityRow = document.createElement('div')
             capacityRow.className = 'lab-desktop-measure-row'
             capacityRow.append(capacityProbe)
             rows.replaceChildren(capacityRow)
-            const capacity = measuredLeafCapacity(page, capacityProbe, source.reduce((total, words) => total + words.length, 0))
+            const capacity = measuredLeafCapacity(page, capacityProbe, sample.length)
             rows.replaceChildren()
             callbackRef.current(pages, paragraphs, layoutKey, capacity, endInFooter)
           }
