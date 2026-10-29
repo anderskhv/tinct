@@ -631,6 +631,11 @@ describe('the book reader is unchanged', () => {
     const system = body.system as string | Array<{ text: string }>
     expect(JSON.stringify(system)).toContain('If the reader writes their question in Danish')
     let unchanged: Record<string, unknown> = { ...body, system: typeof system === 'string' ? system.replace(languageRule, '') : system.map(block => ({ ...block, text: block.text.replace(languageRule, '') })) }
+    if (name !== 'explain' && name !== 'define') {
+      // Oct29: a chat answer's bound is 4096 (1024 cut long answers off mid-word); all other fields remain frozen.
+      expect(unchanged.max_tokens).toBe(4096)
+      unchanged = { ...unchanged, max_tokens: 1024 }
+    }
     if (name === 'define') {
       // Oct27: quick lookups are now at most40 words; all other request fields remain frozen.
       expect(sha(unchanged)).toBe('32025d2cec69540ed2f2d52e0cee46c9a3f35b9bf8ded220215e100e91c85bd5')
