@@ -43,3 +43,13 @@ it('withholds future unit titles from chapter prompts while retaining the comple
   expect(bookPrimerRequest(source).data).not.toContain('missing brother')
   expect(JSON.parse(bookPrimerRequest({ ...source, identity }).data).units).toEqual(source.units)
 })
+
+it('provides a complete JSON skeleton rather than letting unused required sections disappear', () => {
+  const request = bookPrimerRequest({ identity, title: 'A book', reliable: true,
+    units: [{ id: 'one', label: 'Opening' }, { id: 'two', label: 'Later section' }],
+    passages: [{ id: 'p1', unitId: 'one', text: 'Opening text.' }, { id: 'p2', unitId: 'two', text: 'Later text.' }] })
+  const skeleton = request.system.split('Required JSON shape:')[1]?.split('\n')[0].trim()
+  expect(skeleton).toBeDefined()
+  expect(Object.keys(JSON.parse(skeleton!)).sort()).toEqual(Object.keys(content).sort())
+  expect(request.system).toContain('whole supplied work')
+})

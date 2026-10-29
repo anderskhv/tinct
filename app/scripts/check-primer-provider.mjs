@@ -13,7 +13,8 @@ assert.equal(COMPANION_MODEL,'claude-sonnet-5','Recheck published pricing before
 const output=process.env.PRIMER_CHECK_OUTPUT || '/tmp/tinct-primer-provider-results';
 fs.mkdirSync(output,{recursive:true});
 const stateFile=path.join(output,'budget.json');
-const state=fs.existsSync(stateFile)?JSON.parse(fs.readFileSync(stateFile)): {limitMicros:1_000_000,committedMicros:0,attempts:[]};
+const baseline=process.env.PRIMER_CHECK_BASELINE;
+const state=fs.existsSync(stateFile)?JSON.parse(fs.readFileSync(stateFile)): baseline?JSON.parse(fs.readFileSync(baseline)):{limitMicros:1_000_000,committedMicros:0,attempts:[]};
 assert.equal(state.limitMicros,1_000_000);
 const save=()=>fs.writeFileSync(stateFile,JSON.stringify(state,null,2));
 const files=['frankenstein-original-en-book.json','meditations-original-en-book.json','frankenstein-original-en-chapter-1.json','meditations-original-en-chapter-1.json','bible-web-en-chapter-1047.json'];
