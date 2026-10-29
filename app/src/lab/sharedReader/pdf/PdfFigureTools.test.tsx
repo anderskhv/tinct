@@ -10,8 +10,10 @@ it('keeps figure controls source-owned and sends an actual crop capability with 
   const pdf = { getPage: async () => ({ getViewport: () => ({ width: 600, height: 800, scale: 1, transform: [1, 0, 0, -1, 0, 800] }) }) } as unknown as PdfOriginalDocument
   const action = vi.fn(), canvas = document.createElement('canvas')
   const { container } = render(<div className="pdf-original__scroll"><div className="pdf-original__page"><PdfFigureTools pdf={pdf} page={4} canvas={canvas} items={[]} ready onAction={action} /></div></div>)
-  const source = await screen.findByRole('button', { name: 'View Figure 1 on page 4' })
+  const source = await screen.findByRole('button', { name: 'Select Figure 1 on page 4' })
   expect(source.style.left).toBe('20%'); expect(source.style.top).toBe('30%')
+  const sheet = container.querySelector('.pdf-original__page') as HTMLElement
+  sheet.getBoundingClientRect = () => ({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600 } as DOMRect)
   const viewport = container.firstElementChild as HTMLElement
   viewport.getBoundingClientRect = () => ({ left: 0, right: 800, top: 0, bottom: 600, width: 800, height: 600 } as DOMRect)
   source.getBoundingClientRect = () => ({ left: 120, right: 150, top: 100, bottom: 130, width: 30, height: 30 } as DOMRect)
@@ -20,22 +22,18 @@ it('keeps figure controls source-owned and sends an actual crop capability with 
   expect(await screen.findByRole('toolbar', { name: 'Figure 1 actions' })).toBeTruthy()
   for (const name of ['Ask', 'Explain', 'Highlight']) {
     fireEvent.focus(source)
-    fireEvent.click(screen.getByRole('button', { name }))
+    fireEvent.click(screen.getByRole('button', { name: name === 'Highlight' ? 'Highlight in Gold' : name }))
     expect(action.mock.lastCall?.[0]).toBe(name.toLowerCase())
     const selection = action.mock.lastCall?.[1]
     expect(selection).toMatchObject({ page: 4, rects: [[4, .2, .3, .4, .2]], region: { label: 'Figure 1' } })
     expect(await selection.region.image()).toEqual(fixture.image)
   }
-  const scroll = container.firstElementChild as HTMLElement; scroll.scrollTop = 123
-  source.focus(); fireEvent.click(source)
-  expect(await screen.findByRole('dialog', { name: 'Figure 1' })).toBeTruthy()
-  expect(scroll.scrollTop).toBe(123)
-  const close = screen.getByRole('button', { name: 'Close figure' })
-  fireEvent.keyDown(window, { key: 'Tab' }); expect(document.activeElement).toBe(close)
-  fireEvent.keyDown(window, { key: 'Tab', shiftKey: true }); expect(document.activeElement).toBe(close)
+  fireEvent.focus(source)
+  expect(screen.queryByRole('button', { name: 'View', exact: true })).toBeNull()
+  expect(screen.getByTestId('pdf-figure-hover').style.width).toBe('40%')
+  expect(screen.getByTestId('lab-desk-bar')).toBeTruthy()
   fireEvent.keyDown(window, { key: 'Escape' })
-  expect(screen.queryByRole('dialog')).toBeNull()
-  expect(document.activeElement).toBe(source)
+  expect(screen.queryByTestId('pdf-figure-hover')).toBeNull()
 })
 
 it('keeps a saved thumbnail capture stable across reconstructed source objects and traps its modal focus', async () => {

@@ -95,6 +95,8 @@ interface RegionsApi {
   finder?: (url: string | null, margin: NonNullable<Engine['margin']>) => (input: FindInput) => Promise<PdfRegion[]>
 }
 interface FindInput {
+  /** Live original-page selection only; converted editions retain their versioned geometry. */
+  captionColumns?: boolean
   ink: Uint8Array; W: number; H: number
   spans: Array<{ x: number; y: number; w: number; h: number; text: string }>
   body: Array<{ x: number; base: number; size: number; w: number; str: string }>

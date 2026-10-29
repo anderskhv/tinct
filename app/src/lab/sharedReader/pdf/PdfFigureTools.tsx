@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { SelectionDeskBar } from '../../../components/reader/SelectionDeskBar'
 import { capturePdfRegion, detectPdfFigures, type PdfFigureRegion, type PdfRegionImage } from './pdfOriginalFigures'
 import type { PdfOriginalDocument, PdfOriginalPage, PdfOriginalSelection } from './PdfOriginalSurface'
 export type PdfFigureAction = 'ask' | 'explain' | 'highlight'
@@ -23,17 +24,20 @@ export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction }: { 
     const sheet = host.current?.parentElement, scroll = sheet?.closest('.pdf-original__scroll')
     if (!sheet) return
     const move = (event: PointerEvent) => {
-      if (event.buttons || !window.getSelection()?.isCollapsed || (event.target as Element).closest('.pdf-original__figure-chip')) return
+      if (event.buttons || !window.getSelection()?.isCollapsed || (event.target as Element).closest('[data-testid="lab-desk-bar"]')) return
       const box = sheet.getBoundingClientRect(), x = (event.clientX - box.left) / box.width, y = (event.clientY - box.top) / box.height
       const region = regions.filter(region => x >= region.x && x <= region.x + region.w && y >= region.y && y <= region.y + region.h).sort((a, b) => a.w * a.h - b.w * b.h)[0]
       if (region) { setHot(region); return }
+      // Keep the short pointer path from the selected ink to its popup open.
+      const bar = host.current?.querySelector('[data-testid="lab-desk-bar"]')?.getBoundingClientRect()
+      if (hot && bar && event.clientX >= Math.min(bar.left, box.left + hot.x * box.width) && event.clientX <= Math.max(bar.right, box.left + (hot.x + hot.w) * box.width) && event.clientY >= Math.min(bar.top, box.top + hot.y * box.height) && event.clientY <= Math.max(bar.bottom, box.top + (hot.y + hot.h) * box.height)) return
       const text = (event.target as Element).closest('.pdf-original__text span')?.textContent || ''
       const reference = /\b(fig(?:ure|ur)?\.?|table|tabel)\s*(\d+(?:\.\d+)*[a-z]?)/i.exec(text)
       const named = reference && regions.find(region => region.label?.toLowerCase() === `${/^tab/i.test(reference[1]) ? 'table' : 'figure'} ${reference[2]}`.toLowerCase())
       if (named && !text.trim().startsWith(named.label || '\u0000')) { setHot(named); if (preview?.region !== named) void show(named, false, (event.target as Element).getBoundingClientRect()); return }
       setHot(null); if (!preview?.modal) close()
     }
-    const leave = () => { setHot(null); if (!preview?.modal) close() }
+    const leave = (event: PointerEvent) => { if ((event.relatedTarget as Element | null)?.closest?.('[data-testid="lab-desk-bar"]')) return; setHot(null); if (!preview?.modal) close() }
     const scrolled = () => {
       const focused = document.activeElement?.closest<HTMLElement>('[data-pdf-figure-index]')
       const source = focused && sheet.contains(focused) ? focused.getBoundingClientRect() : null, view = scroll?.getBoundingClientRect()
@@ -43,13 +47,13 @@ export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction }: { 
     }
     sheet.addEventListener('pointermove', move); sheet.addEventListener('pointerleave', leave); scroll?.addEventListener('scroll', scrolled, { passive: true })
     return () => { sheet.removeEventListener('pointermove', move); sheet.removeEventListener('pointerleave', leave); scroll?.removeEventListener('scroll', scrolled) }
-  }, [regions, preview])
+  }, [regions, preview, hot])
   useEffect(() => {
-    if (!preview || preview.modal) return
-    const key = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); close() } }
+    if ((!preview && !hot) || preview?.modal) return
+    const key = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); setHot(null); close() } }
     window.addEventListener('keydown', key, true)
     return () => window.removeEventListener('keydown', key, true)
-  }, [preview])
+  }, [preview, hot])
   const source = (region: PdfFigureRegion): PdfOriginalSelection => ({ page, text: region.caption || region.label || (region.kind === 'equation' ? 'Formula' : 'Figure'), rects: [[page, region.x, region.y, region.w, region.h]], region: { kind: region.kind, label: region.label || '', caption: region.caption || '', identity: pdf, image: () => capturePdfRegion(pdf, page, region) } })
   const copy = async (region: PdfFigureRegion) => {
     const image = await capturePdfRegion(pdf, page, region).catch(() => null)
@@ -59,14 +63,17 @@ export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction }: { 
     catch { const link = document.createElement('a'); link.href = image.src; link.download = `pdf-page-${page}.${image.block.source.media_type === 'image/jpeg' ? 'jpg' : 'png'}`; link.click(); setNotice('Image saved.'); }
   }
   return <div ref={host} className="pdf-original__figures" data-testid="pdf-figure-tools" onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHot(null) }}>
-    {regions.map((region, index) => <button key={index} type="button" className="pdf-original__figure-target" data-testid="pdf-figure-source" data-pdf-figure-index={index} aria-label={`View ${region.label || region.kind} on page ${page}`} style={{ left: `${region.x * 100}%`, top: `${region.y * 100}%` }} onFocus={() => setHot(region)} onClick={() => void show(region, true)}>↗</button>)}
-    {hot && <div className="pdf-original__figure-chip" data-pdf-figure-index={regions.indexOf(hot)} role="toolbar" aria-label={`${hot.label || hot.kind} actions`} style={{ left: `${hot.x * 100}%`, top: `${hot.y * 100}%` }} onMouseDown={event => event.preventDefault()}>
-      <button type="button" onClick={() => void show(hot, true)}>View</button>
-      <button type="button" onClick={() => { onAction?.('ask', source(hot)); setHot(null) }}>Ask</button>
-      <button type="button" onClick={() => { onAction?.('explain', source(hot)); setHot(null) }}>Explain</button>
-      <button type="button" onClick={() => { onAction?.('highlight', source(hot)); setHot(null) }}>Highlight</button>
-      <button type="button" onClick={() => void copy(hot)}>Copy</button>
-    </div>}
+    {regions.map((region, index) => <button key={index} type="button" className="pdf-original__figure-target" data-testid="pdf-figure-source" data-pdf-figure-index={index} aria-label={`Select ${region.label || region.kind} on page ${page}`} style={{ left: `${region.x * 100}%`, top: `${region.y * 100}%` }} onFocus={() => setHot(region)} onClick={() => setHot(region)}>↗</button>)}
+    {hot && <>
+      <span className="pdf-original__figure-hover" aria-hidden="true" data-testid="pdf-figure-hover" style={{ left: `${hot.x * 100}%`, top: `${hot.y * 100}%`, width: `${hot.w * 100}%`, height: `${hot.h * 100}%` }} />
+      <SelectionDeskBar sharedReader state="menu" color="gold" marked={false} noted={false} moreRows={[['copy']]} fallback={{ x: 0, y: 0 }}
+        getAnchor={() => { const box = host.current?.parentElement?.getBoundingClientRect(); return box ? { left: box.left + hot.x * box.width, right: box.left + (hot.x + hot.w) * box.width, top: box.top + hot.y * box.height, bottom: box.top + (hot.y + hot.h) * box.height } : null }}
+        ariaLabel={`${hot.label || hot.kind} actions`}
+        onAsk={() => { onAction?.('ask', source(hot)); setHot(null) }}
+        onExplain={() => { onAction?.('explain', source(hot)); setHot(null) }}
+        onHighlight={() => { onAction?.('highlight', source(hot)); setHot(null) }} onSwatch={() => {}}
+        onMore={action => { if (action === 'copy') void copy(hot) }} onRemove={() => setHot(null)} />
+    </>}
     {notice && <span role="status" className="lab-visually-hidden">{notice}</span>}
     {preview?.modal ? <PdfFigureDialog image={preview.image} label={preview.region.label || 'PDF figure'} caption={preview.region.caption} onClose={close} /> : preview && createPortal(<div className="pdf-original__figure-peek" style={preview.box ? { left: Math.max(12, Math.min(window.innerWidth - 360, preview.box.left)), top: Math.max(70, Math.min(window.innerHeight - 360, preview.box.bottom + 8)), right: 'auto' } : undefined} role="tooltip" aria-label={preview.region.label || 'PDF figure'}><figure><img src={preview.image.src} alt={preview.region.caption || preview.region.label || 'PDF figure'} />{preview.region.caption && <figcaption>{preview.region.caption}</figcaption>}</figure></div>, document.body)}
   </div>

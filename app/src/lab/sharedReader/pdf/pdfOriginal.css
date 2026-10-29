@@ -61,8 +61,9 @@ html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0
 .pdf-original__figures { position:absolute; inset:0; pointer-events:none; }
 .pdf-original__figure-target { position:absolute; z-index:3; width:30px; height:30px; padding:0; border:0; background:transparent; color:var(--lab-ink-muted); pointer-events:auto; opacity:0; }
 .pdf-original__figure-target:focus-visible,.pdf-original__figure-target:hover { opacity:1; }
-.pdf-original__figure-chip { position:absolute; z-index:6; display:flex; gap:12px; transform:translateY(-100%); padding:4px 8px; background:var(--lab-paper,#fff); border-bottom:1px solid var(--lab-line,#ccc); pointer-events:auto; white-space:nowrap; }
-.pdf-original-reader .pdf-original__figure-chip button { border:0; border-radius:0; padding:5px 0; background:transparent; font:15px 'EB Garamond',Georgia,serif; color:var(--lab-ink); min-height:32px; cursor:pointer; }
+.pdf-original__figure-hover { position:absolute; pointer-events:none; background:color-mix(in srgb,var(--lab-ink) 8%,transparent); outline:1px solid var(--lab-ink-muted); }
+.pdf-original__figures .selection-popup { pointer-events:auto; }
+
 .pdf-original__figure-backdrop { position:fixed; inset:0; z-index:10000; display:grid; place-items:center; padding:48px; background:rgb(0 0 0/.55); }
 .pdf-original__figure-backdrop figure { margin:0; max-width:90vw; max-height:85vh; overflow:auto; background:#fff; }
 .pdf-original__figure-backdrop img { display:block; max-width:86vw; max-height:75vh; object-fit:contain; }
