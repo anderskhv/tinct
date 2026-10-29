@@ -23,9 +23,10 @@
 //   Version 6 (2026-10-16): a metadata title that is the printed title with more after it gives way to the printed one.
 //   Version 8 (2026-10-28): reconstruct sloped word baselines and keep lowercase wrapped heading lines.
 //   Version 9 (2026-10-28): keep drop-cap paragraph openings out of wrapped headings.
+//   Version 10 (2026-10-29): split lines joined across a narrow two-column gutter (gutterOf).
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 9;
+  const SCAN_VERSION = 10;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -44,6 +45,12 @@
     }
     // A line that runs across a wide gap into a second column is two lines: a heading in the
     // left column is not joined to the right column's text ("1 Introduction" + "of long slow …").
+    // A page in two columns set with a narrow gutter (a conference paper's 0.3 in, under three ems)
+    // has its two columns' lines on the same baseline joined into one ("…lower complex- greatly
+    // benefited…"). A gap of more than an em over the page's gutter (gutterOf) splits the line, and
+    // the sloped-line pass below never joins across it.
+    const gutter = gutterOf(rows);
+    const overGutter = (a, b) => gutter !== null && a.x + a.w < gutter && b.x > gutter;
     const split = [];
     for (const r of rows) {
       const parts = r.parts.sort((p, q) => p.x - q.x);
@@ -52,7 +59,7 @@
       for (let i = 1; i < parts.length; i++) {
         const p = parts[i], prev = seg.at(-1), gap = p.x - (prev.x + prev.w), em = Math.max(p.size, prev.size) || 1;
         const rest = parts.slice(i).map(q => q.s).join(' ').trim();
-        if (gap > em * 3 && (rest.split(/\s+/).length >= 2 || (rest.match(/\p{L}/gu) || []).length >= 8) && /\p{L}{2}/u.test(seg.map(q => q.s).join(''))) { close(); seg = [p] }
+        if ((gap > em * 3 && (rest.split(/\s+/).length >= 2 || (rest.match(/\p{L}/gu) || []).length >= 8) && /\p{L}{2}/u.test(seg.map(q => q.s).join(''))) || (gap > em && overGutter(prev, p))) { close(); seg = [p] }
         else seg.push(p);
       }
       close();
@@ -65,7 +72,7 @@
       const end = left.parts.at(-1), start = right.parts[0];
       const em = Math.max(end.size, start.size) || 1;
       const gap = start.x - end.x - end.w;
-      if (gap < 0 || gap > em * 3 || Math.abs(start.y - end.y) > em * 0.5) return false;
+      if (gap < 0 || gap > em * 3 || Math.abs(start.y - end.y) > em * 0.5 || overGutter(end, start)) return false;
       const parts = [...left.parts, ...right.parts];
       if (parts.length < 4 || parts.some(p => Math.abs(p.size - em) > em * 0.1)) return false;
       const mx = parts.reduce((s, p) => s + p.x, 0) / parts.length;
@@ -97,6 +104,44 @@
       const fonts = new Set(parts.filter(p => p.s.trim()).map(p => p.font));
       return { y: r.y, x: parts[0].x, x2: parts.at(-1).x + parts.at(-1).w, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
     });
+  }
+  // rows: [{ parts }]. The x of a gutter between two columns, or null. Candidates are the gaps of
+  // more than an em inside a line, near the middle of the text; one is a gutter when at least 8
+  // lines of a column end just before it and 8 start just after it, and few lines run across it.
+  function gutterOf(rows) {
+    const segs = [], gaps = [];
+    let lo = Infinity, hi = -Infinity;
+    for (const r of rows) {
+      const parts = [...r.parts].sort((p, q) => p.x - q.x);
+      lo = Math.min(lo, parts[0].x); hi = Math.max(hi, parts.at(-1).x + parts.at(-1).w);
+      for (let i = 1; i < parts.length; i++) {
+        const prev = parts[i - 1], p = parts[i], a = prev.x + prev.w, em = Math.max(p.size, prev.size) || 1;
+        if (p.x - a > em && p.x - a <= em * 8) gaps.push([a, p.x]);
+      }
+      segs.push(parts);
+    }
+    if (!(hi > lo)) return null;
+    // Where a line or a gap in one starts or ends (lines a little off one another's baseline,
+    // ResNet's references, are not joined here but may be by the sloped-line pass below).
+    const edges = [...gaps.flatMap(([a, b]) => [a + 0.5, b - 0.5]), ...segs.flatMap(parts => [parts[0].x - 0.5, parts.at(-1).x + parts.at(-1).w + 0.5])];
+    let best = null, most = 0;
+    for (const x of new Set(edges.map(x => Math.round(x * 2) / 2))) {
+      if (x < lo + (hi - lo) * 0.35 || x > lo + (hi - lo) * 0.65) continue;
+      let left = 0, right = 0, across = 0;
+      for (const parts of segs) {
+        const em = Math.max(...parts.map(p => p.size)) || 1;
+        const words = q => (q.s.match(/\p{L}{2,}/gu) || []).length;
+        if (parts.some(p => p.x < x && p.x + p.w > x)) { across++; continue }
+        const before = parts.filter(p => p.x + p.w <= x), after = parts.filter(p => p.x >= x);
+        // A line of a column: five words or more, filling at least 0.3 of the text's width.
+        const line = list => list.length && list.reduce((n, q) => n + words(q), 0) >= 5 && list.at(-1).x + list.at(-1).w - list[0].x >= (hi - lo) * 0.3;
+        if (line(before) && x - (before.at(-1).x + before.at(-1).w) <= em * 8) left++;
+        if (line(after) && after[0].x - x <= em * 8) right++;
+      }
+      if (left < 8 || right < 8 || across * 2 > Math.min(left, right)) continue;
+      if (left + right - across > most) { most = left + right - across; best = x }
+    }
+    return best;
   }
   const sizeKey = s => Math.round(s * 2) / 2;
   // Body text: the size (and face) that carries the most characters.
