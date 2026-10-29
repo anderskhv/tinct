@@ -36,7 +36,18 @@
           "explanation": "Walton wants someone who can share his enthusiasm and also correct him. Notice the qualities he asks for in a companion, and how he judges the people already around him. The desire to be understood may affect whose judgment he trusts."
         }
       ],
-      "helpfulContext": [],
+      "helpfulContext": [
+        {
+          "title": "A novel made through revision",
+          "explanation": "Mary Shelley began Frankenstein in 1816, published it anonymously in 1818, and substantially revised it for the 1831 edition. Accounts of the novel may therefore discuss different wording or chapter arrangements. Follow the edition in front of you; a difference from another reader’s copy need not be a mistake.",
+          "depth": "recommended"
+        },
+        {
+          "title": "The surviving notebooks",
+          "explanation": "Surviving drafts preserve Mary Shelley’s writing alongside suggestions and alterations by Percy Bysshe Shelley. They let readers examine revision on the page. The linked archive is useful after reading, when comparing a passage will not reveal events you have yet to encounter.",
+          "depth": "optional"
+        }
+      ],
       "whatToNotice": [
         {
           "title": "Reading a letter",
@@ -66,12 +77,31 @@
       ],
       "usefulReferences": []
     },
-    "resources": [],
+    "resources": [
+      {
+        "title": "Frankenstein manuscripts",
+        "creator": "Shelley-Godwin Archive",
+        "format": "Digital manuscript collection",
+        "url": "https://shelleygodwinarchive.org/contents/frankenstein/",
+        "relevance": "Compare manuscript pages and transcriptions to see how the novel took shape.",
+        "spoilerNote": "Includes passages from across the novel, including its ending; best explored after reading.",
+        "verifiedAt": "2026-10-28T03:00:00Z"
+      },
+      {
+        "title": "Introduction to The Frankenstein Notebooks",
+        "creator": "Charles E. Robinson · Shelley-Godwin Archive",
+        "format": "Scholarly essay",
+        "url": "https://shelleygodwinarchive.org/contents/frankenstein/the-frankenstein-notebooks-introduction/",
+        "relevance": "Explains the surviving drafts, revisions and collaboration behind the published text.",
+        "spoilerNote": "Discusses passages and revisions throughout the novel; contains spoilers.",
+        "verifiedAt": "2026-10-28T03:00:00Z"
+      }
+    ],
     "origin": "generated",
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
   },
-  "editorialRevision": "candidate-2-opening-letters-review",
+  "editorialRevision": "candidate-3-verified-context",
   "contextEvidence": [
     {
       "topics": [
@@ -89,6 +119,21 @@
         "chapter-4:paragraph-38"
       ],
       "verification": "Letters 2–4 read in full in two untruncated batches; Letter 1 previously read in full. Reading cues keep encounters, identities, and plot outcomes out of the book opening. No outside historical context has yet been added."
+    },
+    {
+      "topics": [
+        "A novel made through revision",
+        "The surviving notebooks"
+      ],
+      "url": "https://shelleygodwinarchive.org/contents/frankenstein/the-frankenstein-notebooks-introduction/",
+      "creator": "Charles E. Robinson",
+      "retrievedAt": "2026-10-29T06:55:23.061691+00:00",
+      "sections": [
+        "Introduction, paragraphs 4–9",
+        "The Texts of Frankenstein"
+      ],
+      "supportingExcerpt": "the one-volume 1831 revised edition",
+      "verification": "Opened scholarly introduction; dates, edition revisions and surviving manuscript collaboration checked. No claim identifying the runtime text as a particular historical printing. Plot examples omitted from candidate; full source has spoilers."
     }
   ]
 }
