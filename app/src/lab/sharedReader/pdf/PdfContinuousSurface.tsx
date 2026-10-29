@@ -129,10 +129,10 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
   }}>
     <canvas ref={canvas} aria-hidden="true" />
     <div className="pdf-original__highlights" aria-hidden="true">{ready && visiblePdfHighlightRects(highlights, number).map(rect =>
-      <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.box ? 'transparent' : rect.color, ...(rect.box ? { outline: `2px solid ${rect.color}` } : {}) }} />
+      <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.color, ...(rect.box ? { opacity: .55 } : {}) }} />
     )}{heard && <span className="pdf-original__follow" style={{ left: `${heard[1] * 100}%`, top: `${heard[2] * 100}%`, width: `${heard[3] * 100}%`, height: `${heard[4] * 100}%` }} />}</div>
     <div className="pdf-original__text" ref={layer} />
-    <div className="pdf-original__card-lines" aria-hidden="true">{ready && cards.flatMap(card => (card.rects ?? []).filter(rect => rect.length === 5 && rect[0] === number && rect[3] > 0 && rect[4] > 0).map((rect, index) => <span key={card.id + index} data-card-id={card.id} data-active={card.id === activeCardId} style={{ left: `${rect[1] * 100}%`, top: `${(rect[2] + rect[4]) * 100}%`, width: `${rect[3] * 100}%` }} />))}</div>
+    <div className="pdf-original__card-lines" aria-hidden="true">{ready && cards.filter(card => card.kind !== 'figure').flatMap(card => (card.rects ?? []).filter(rect => rect.length === 5 && rect[0] === number && rect[3] > 0 && rect[4] > 0).map((rect, index) => <span key={card.id + index} data-card-id={card.id} data-active={card.id === activeCardId} style={{ left: `${rect[1] * 100}%`, top: `${(rect[2] + rect[4]) * 100}%`, width: `${rect[3] * 100}%` }} />))}</div>
     {headingRects.map(({ heading, selection }) => {
       const last = selection.rects.at(-1)!, left = Math.min(width - 290, (last[1] + last[3]) * width + 12)
       return <div key={heading.key} className={`pdf-original__heading-actions ${shownHeading === heading.key ? 'is-shown' : ''}`} data-testid="pdf-heading-actions" data-unit-key={heading.key} role="group" aria-label={`${heading.title} actions`}

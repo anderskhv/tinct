@@ -570,9 +570,12 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const action = intent === 'recap' || intent === 'catchup' ? 'ask' : intent
     if (!['ask', 'explain', 'define', 'simplify', 'factcheck', 'counterpoint', 'quiz', 'related'].includes(action)) return null
     if (selection.text.length > 9000) return null
-    const text = selection.text
-    const selectedPages = selection.pages ?? [{ n: selection.page, text }]
-    const figure = selection.region ? await selection.region.image().catch(() => null) : null
+    // A figure or formula is sent as its image; its text stand-in ("Formula") must not reach the model as the passage.
+    const region = selection.region
+    const text = region ? `[The reader selected ${region.label || (region.kind === 'equation' ? 'a formula' : `a ${region.kind}`)} on page ${selection.page}. It is the attached image.${region.caption ? ` Caption: ${region.caption}` : ''}]` : selection.text
+    const pageText = region && !selection.pages ? await this.getPageText(selection.page).catch(() => '') : ''
+    const selectedPages = selection.pages ?? [{ n: selection.page, text: pageText || text }]
+    const figure = region ? await region.image().catch(() => null) : null
     if (selection.region && !figure) throw new Error('This figure could not be read. No question was sent.')
     if (!this.trusted() || signal?.aborted) return null
     const request = {

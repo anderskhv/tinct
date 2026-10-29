@@ -380,7 +380,7 @@ export function PdfOriginalSurface({ bytes, initialPlace, requestedPlace, onVisi
       <div className="pdf-original__page" data-page={page} aria-label={`PDF page ${page}`}>
         <canvas ref={canvas} aria-hidden="true" />
         <div className="pdf-original__highlights" aria-hidden="true">{(rendered && renderedPage.current === page ? visiblePdfHighlightRects(highlights, page) : []).map(rect =>
-          <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.box ? 'transparent' : rect.color, ...(rect.box ? { outline: `2px solid ${rect.color}` } : {}) }} />
+          <span key={rect.id} className="pdf-original__highlight" style={{ left: `${rect.left * 100}%`, top: `${rect.top * 100}%`, width: `${rect.width * 100}%`, height: `${rect.height * 100}%`, backgroundColor: rect.color, ...(rect.box ? { opacity: .55 } : {}) }} />
         )}{followRect && followRect[0] === page && <span className="pdf-original__follow" style={{ left: `${followRect[1] * 100}%`, top: `${followRect[2] * 100}%`, width: `${followRect[3] * 100}%`, height: `${followRect[4] * 100}%` }} />}</div>
         <div className="pdf-original__text" ref={layer} onMouseUp={selection} onKeyUp={selection} />
       </div>

@@ -456,7 +456,8 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   }
   // The quotation already identifies this source; keep real questions and later turns.
   const cardTurns = card?.turns?.filter((turn, index) => !(index === 0 && turn.role === 'user'
-    && turn.content.replace(/\s+/g, ' ').trim() === card.selection.text.replace(/\s+/g, ' ').trim()))
+    && (turn.content.replace(/\s+/g, ' ').trim() === card.selection.text.replace(/\s+/g, ' ').trim()
+      || !!card.selection.region && /^Explain this (figure|equation|table)\.$/.test(turn.content.trim()))))
   const openSavedCard = (item: PdfOriginalCard) => {
     const point = item.data?.sourceAnchor as { page?: number; frac?: number } | undefined
     const source: PdfOriginalSelection = { page: point?.page ?? item.page, text: item.text, rects: item.rects as PdfOriginalSelection['rects'] ?? [] }
@@ -498,7 +499,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       const free = item.data?.free as { y?: number } | undefined
       const source: PdfOriginalSelection = { page: point?.page ?? item.page, text: item.text, rects: item.rects as PdfOriginalSelection['rects'] ?? [] }
       if (!source.rects.length && (point || free)) source.rects = [[source.page, .1, free?.y ?? point?.frac ?? 0, .001, .001]]
-      return { id: 'card:' + item.id, label: marginActionLabel(item.kind), source: () => sourceAnchor(source, true, true), order: source.page * 1_000_000 + (source.rects[0]?.[2] ?? 0) * 100_000,
+      return { id: 'card:' + item.id, label: item.kind === 'figure' && item.data?.region === 'formula' ? 'Formula' : marginActionLabel(item.kind), source: () => sourceAnchor(source, true, true), order: source.page * 1_000_000 + (source.rects[0]?.[2] ?? 0) * 100_000,
         open: active, content: active ? activeCardBody : null, preview: pdfOriginalAnswerPreview(item.kind, item.turns.map(turn => turn.content).at(-1) || ''), sourceText: item.text, free: !!free || item.kind === 'ask' && !!item.rects?.length && item.rects.every(rect => rect[3] === .001 && rect[4] === .001),
         onToggle: () => active ? minimiseCard() : openSavedCard(item), onDelete: () => { const entry = allSaved.find(saved => saved.kind === 'card' && saved.id === item.id); if (entry) deleteEntry(entry); if (active) setCard(null) } }
     }),
