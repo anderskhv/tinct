@@ -150,6 +150,32 @@ describe('Tinct text: other documents', () => {
     expect(all).not.toMatch(/Figure \d\./)
   })
 
+  // ResNet (arXiv 1512.03385) and other CVPR papers: a gutter of 0.3 in, under three ems, so the
+  // two columns' lines on one baseline came out as one line ("…lower complex- greatly benefited…").
+  it('reads a page in two columns with a narrow gutter column by column, the title and abstract across the page first', async () => {
+    // Each line starts with its own mark (the prose repeats), so the text's order shows the lines'.
+    const marked = (lines: ReturnType<typeof prose>, tag: string) => lines.map((line, i) => ({ ...line, text: `${tag}${String.fromCharCode(97 + i)} ${line.text}` }))
+    const left = marked(prose(560, 26, { x: 40, size: 10, width: 46, from: 0 }), 'lq')
+    const right = marked(prose(560, 26, { x: 262, size: 10, width: 46, from: 211 }), 'rq')
+    const across = marked(prose(660, 4, { x: 40, size: 10, width: 100, from: 97 }), 'aq')
+    const title = { x: 160, y: 720, size: 16, font: 'Times-Bold', text: 'Deep Learning in Two Columns' }
+    const bytes = makePdf({ pages: [{ size: [540, 792], lines: [title, ...across, ...left, ...right] }] })
+    // Each line of a column is a line of its own, not joined to the other column's across the gutter.
+    const rows = await rowsOf(bytes, 1)
+    expect(rows.filter(row => /^[lr]q/.test(row.text)).length).toBe(52)
+    const { edition } = await convertOf(bytes, 'paper.pdf')
+    const all = edition!.chapters.flatMap(chapter => [chapter.title, ...chapter.paragraphs]).join(' ')
+    expect(all.indexOf(title.text)).toBe(0)
+    const marks = all.match(/\b[alr]q[a-z]\b/g)
+    expect(marks).toEqual([...across, ...left, ...right].map(line => line.text.split(' ')[0]))
+  })
+
+  it('splits no line of a single-column page at a wide space between words', async () => {
+    const lines = prose(720, 30, { x: 72, size: 10, width: 90 }).map(line => ({ ...line, text: line.text.replace(' ', '      ') }))
+    const rows = await rowsOf(makePdf({ pages: [{ lines }] }), 1)
+    expect(rows).toHaveLength(30)
+  })
+
   it('gives an essay its title and sections, without running heads, page numbers or its title twice', async () => {
     const { edition } = await convertOf(fixtures['PossibleMinds Deutsch (1).pdf'], 'PossibleMinds Deutsch (1).pdf')
     expect(edition!.chapters.map(chapter => chapter.title)).toEqual(['Beyond Reward and Punishment', 'Misconceptions of Thinking', 'What It Means to Think'])

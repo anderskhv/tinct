@@ -168,7 +168,7 @@ describe('A place read under the earlier rules', () => {
     } as Storage
   })
 
-  it.each([1, 3])('moves from converter %s to the same words on the same PDF page', oldConverter => {
+  it.each([1, 3, 4])('moves from converter %s to the same words on the same PDF page', oldConverter => {
     store.clear()
     const edition = fromPages(pagesOf('constructor-theory.pages.json'), constructorScan)!
     // The same words as converter 1 kept them: the abstract one short paragraph per PDF line (ten words here).
