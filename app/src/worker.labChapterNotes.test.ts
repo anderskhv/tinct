@@ -346,16 +346,16 @@ describe('persisted editorial primers', () => {
   })
 })
 
-it('loads the committed Frankenstein resources against the real edition source hash', async () => {
+it.each([['frankenstein', 'https://shelleygodwinarchive.org/contents/frankenstein/'], ['meditations', 'https://plato.stanford.edu/entries/marcus-aurelius/']])('loads committed %s resources against the real edition source hash', async (bookId, firstUrl) => {
   const { readFile } = await import('node:fs/promises')
   const assets = { fetch: async (request: Request) => {
     try { return new Response(await readFile(new URL('../public' + new URL(request.url).pathname, import.meta.url)), { headers: { 'Content-Type': 'application/json' } }) }
     catch { return new Response('missing', { status: 404 }) }
   } }
   const content = { opening: 'Synthetic test content.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
-  const response = await handleLabChapterNotes(post({ bookId: 'frankenstein', editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book', bookTitle: 'Frankenstein' }), { ...env, ASSETS: assets }, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend, fetchAnthropic: anthropic(JSON.stringify(content)) })
+  const response = await handleLabChapterNotes(post({ bookId, editionKey: 'original-en', chapterNumber: 1, kind: 'primer', format: 'structured-primer', primerType: 'book' }), { ...env, ASSETS: assets }, ctx().ctx, allow, { cache: null, reserveGuestSpend: spend, fetchAnthropic: anthropic(JSON.stringify(content)) })
   expect(response.status).toBe(200)
   const result = await response.json() as any
   expect(result.primer.resources).toHaveLength(2)
-  expect(result.primer.resources[0].url).toBe('https://shelleygodwinarchive.org/contents/frankenstein/')
+  expect(result.primer.resources[0].url).toBe(firstUrl)
 })
