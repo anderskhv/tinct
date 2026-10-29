@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/frankenstein-original-en.json",
     "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
-    "reviewScope": "Letters 1–4 and numbered Chapters 1–6 read in full; all unit labels checked. Chapters 7–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
+    "reviewScope": "Letters 1–4 and numbered Chapters 1–12 read in full; all unit labels checked. Chapters 13–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
   },
   "primer": {
     "identity": {
@@ -66,7 +66,7 @@
         },
         {
           "title": "Prudence and certainty",
-          "explanation": "Walton reassures Margaret that he will act carefully, then speaks as though determination can secure success. Listen for the change in tone. What evidence supports his confidence, and what is being supplied by desire?",
+          "explanation": "Walton reassures Margaret that he will act carefully, then speaks as though determination can secure success. As you read on, distinguish what a speaker observes from what they infer, and what they merely feel certain about. Notice whose account is heard before a judgment is made.",
           "quotes": [
             {
               "text": "I will be cool, persevering, and prudent.",
@@ -80,7 +80,7 @@
         },
         {
           "title": "Care and obligation",
-          "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do. Affection, gratitude, and the wish to possess can appear close together without being the same thing."
+          "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do, including whether they listen. Affection, gratitude, and the wish to possess can appear close together without being the same thing."
         }
       ],
       "usefulReferences": []
@@ -109,7 +109,7 @@
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
   },
-  "editorialRevision": "candidate-4-chapters-1-6-review",
+  "editorialRevision": "candidate-5-chapters-7-12-review",
   "contextEvidence": [
     {
       "topics": [
@@ -160,6 +160,23 @@
         "chapter-10:paragraph-20"
       ],
       "verification": "Actual edition Chapters 1–6 read fully. Chapter 5 paragraphs 9–15 recovered separately after output truncation. General reading cues only; no later identities, events or outcomes disclosed."
+    },
+    {
+      "topics": [
+        "Prudence and certainty",
+        "Care and obligation"
+      ],
+      "sourcePath": "app/public/data/editions/frankenstein-original-en.json",
+      "passageIds": [
+        "chapter-11:paragraph-28",
+        "chapter-11:paragraph-31",
+        "chapter-12:paragraph-8",
+        "chapter-12:paragraph-21",
+        "chapter-14:paragraph-13",
+        "chapter-14:paragraph-16",
+        "chapter-16:paragraph-5"
+      ],
+      "verification": "Chapters 7–12 read in full in four untruncated batches. Refined general reading cues about evidence and hearing another account. No plot events, outcomes or later quotations added."
     }
   ]
 }
