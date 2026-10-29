@@ -108,7 +108,7 @@ it('persists a completed tapped definition through the real card writer', async 
   expect(rows[0].messages.at(-1).content).toBe(answer)
 })
 
-it('identifies a device quota failure and copies only a content-free save reason', async () => {
+it('identifies a device quota failure and copies content-free storage diagnostics', async () => {
   requests.realSave = true
   const copy = vi.fn(async (_text: string) => {})
   Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: copy } })
@@ -127,6 +127,11 @@ it('identifies a device quota failure and copies only a content-free save reason
   expect(screen.getByText(/Tinct’s storage on this device is full/)).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: 'Copy save details' }))
   await waitFor(() => expect(screen.getByRole('button', { name: 'Save details copied' })).toBeTruthy())
-  expect(copy).toHaveBeenCalledWith('Tinct answer save: quota')
+  expect(copy).toHaveBeenCalledTimes(1)
+  const details = copy.mock.calls[0][0]
+  expect(details).toContain('Tinct answer save: quota\nAccount save confirmed: no')
+  expect(details).toContain('LocalStorage snapshot')
+  expect(details).not.toContain('A private answer')
+  expect(details).not.toContain('odyssey')
   expect(requests.pending).toHaveLength(1)
 })

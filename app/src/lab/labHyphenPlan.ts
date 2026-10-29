@@ -305,6 +305,18 @@ export function planHyphenation(
   lang: HyphenLang | null,
   paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>) => void,
 ): string {
+  const steps = planHyphenationSteps(host, paragraphs, lang, paint)
+  let step = steps.next()
+  while (!step.done) step = steps.next()
+  return step.value
+}
+
+export function* planHyphenationSteps(
+  host: HTMLElement,
+  paragraphs: string[],
+  lang: HyphenLang | null,
+  paint: (p: HTMLElement, words: Array<{ text: string; emphasis?: boolean }>, text: string, plan: Map<number, number>) => void,
+): Generator<void, string> {
   if (!lang || !hyphenatorReady(lang) || typeof document === 'undefined') return ''
   const p = document.createElement('p')
   p.className = 'lab-hearing-line has-hyphen-plan is-hyphen-planning'
@@ -314,8 +326,9 @@ export function planHyphenation(
     const width = p.getBoundingClientRect().width
     if (!(width > 0)) return ''
     const key = [lang, Math.round(width * 10), style.fontFamily, faceState(style.fontFamily), style.fontSize, style.fontWeight, style.wordSpacing, style.letterSpacing, style.paddingLeft, style.paddingRight].join('|')
-    active = planSetFor(key)
-    const { plans, words: planWords } = active
+    const selected = planSetFor(key)
+    active = selected
+    const { plans, words: planWords } = selected
     // Every paragraph is planned in this one face: measure its space and hyphen once.
     let metrics: { space: number; hyphen: number } | undefined
     for (const text of paragraphs) {
@@ -332,7 +345,10 @@ export function planHyphenation(
       }, PLAN_GAP_EM, PLAN_SECOND_GAP_EM, metrics)
       plans.set(text, plan.size ? plan : EMPTY)
       planWords.set(text, words.map(word => word.text))
+      yield
+      active = selected
     }
+    active = selected
     return key
   } finally {
     p.remove()

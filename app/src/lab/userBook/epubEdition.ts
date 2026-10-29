@@ -381,11 +381,22 @@ function opensOnName(line: string): boolean {
   return !!match && !VERSE_OPENERS.has(match[1].toLowerCase())
 }
 
-function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
+function documentBlocks(source: string, base = '', v6 = false, v8 = false, v9 = false): DocumentBlocks {
   let wikisourceStamp = false
   let doc = new DOMParser().parseFromString(source, 'application/xhtml+xml')
   if (doc.getElementsByTagName('parsererror').length) doc = new DOMParser().parseFromString(source, 'text/html')
   const body = byLocal(doc, 'body')[0] || doc.documentElement
+  // Only join a printed split when this document independently spells the
+  // whole word without a hyphen. Keep ambiguous and authored compounds.
+  const wordEvidence = new Set<string>()
+  if (v9 && byLocal(body, 'br').length) {
+    const copy = body.cloneNode(true) as Element
+    for (const br of byLocal(copy, 'br')) br.replaceWith(doc.createTextNode(' '))
+    const walker = doc.createTreeWalker(copy, NodeFilter.SHOW_TEXT)
+    const pieces: string[] = []
+    while (walker.nextNode()) pieces.push(walker.currentNode.textContent || '')
+    for (const token of pieces.join(' ').match(/\p{L}+(?:-\p{L}+)*/gu) || []) wordEvidence.add(token.toLowerCase())
+  }
   const firstSection = [...body.children].find(child => /^(section|div|article)$/i.test(child.localName))
   const docType = [body, firstSection].filter((el): el is Element => !!el)
     .map(el => `${epubType(el)} ${(el.getAttribute('role') || '').toLowerCase()}`).join(' ')
@@ -472,12 +483,53 @@ function documentBlocks(source: string, base = '', v6 = false): DocumentBlocks {
     // lower case is the page's wrapping, not the author's. Then it is one paragraph.
     const lineText = (run: Segment[]) => run.map(segment => segment.text).join('').replace(INVISIBLE, '').replace(/\s+/g, ' ').trim()
     const lines = runs.map(lineText)
+    // Plain-text verse uses hanging indentation for a long line's continuation.
+    // Require multiple lines at the base indentation and a deeper continuation;
+    // ordinary print-wrapped prose (including a first-line indent) is unchanged.
+    const indents = runs.map(run => (run.map(segment => segment.text).join('').match(/^[ \t]*/)?.[0] || '').replace(/\t/g, '    ').length)
+    const baseIndent = Math.min(...indents)
+    const continuation = (index: number) => index > 0 && indents[index] >= baseIndent + 2
+      && /\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(lines[index])
+    const hanging = v8 && indents.filter(indent => indent === baseIndent).length >= 2
+      && indents.some((_indent, index) => continuation(index))
+    if (hanging) {
+      const groups: Segment[][] = []
+      for (let index = 0; index < runs.length; index++) {
+        if (groups.length && continuation(index)) groups[groups.length - 1].push({ text: ' ', em: false }, ...runs[index])
+        else groups.push([...runs[index]])
+      }
+      for (const group of groups) emit(group, true)
+      return
+    }
+    // Earlier conversions keep their paragraph coordinates on every device.
     const wrapped = lines.some((line, index) => index > 0 && ((/\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(line))
-      // A list of names wrapped by the print ("… Ayush Modi, / Anders Hvelplund, and …"):
-      // a line ending in a comma before one that opens on a name.
-      || (/,$/.test(lines[index - 1]) && opensOnName(line))))
-    if (wrapped) { emit(gathered); return }
+      || (/,$/.test(lines[index - 1]) && opensOnName(line))
+      // A title at the printed line end continues into the following name.
+      || (v8 && /\b(?:Mr|Mrs|Ms|Dr)\.$/.test(lines[index - 1]) && /^\p{Lu}/u.test(line))))
+    if (wrapped) {
+      if (!v9) { emit(gathered); return }
+      const joined = gathered.map(segment => ({ ...segment }))
+      for (let index = 0; index < joined.length; index++) {
+        if (!joined[index].br) continue
+        let before = index - 1, after = index + 1
+        while (before >= 0 && !joined[before].br && !joined[before].text.trim()) before--
+        while (after < joined.length && !joined[after].br && !joined[after].text.trim()) after++
+        const last = joined[before], first = joined[after]
+        if (!last || !first || last.br || first.br) continue
+        const left = last.text.match(/(\p{L}+)-\s*$/u)?.[1]
+        const right = first.text.match(/^\s*(\p{Ll}+)/u)?.[1]
+        if (left && right && wordEvidence.has((left + right).toLowerCase())
+          && !wordEvidence.has((left + '-' + right).toLowerCase())) {
+          last.text = last.text.replace(/-\s*$/, '')
+          for (let gap = before + 1; gap < after; gap++) joined[gap].text = ''
+          first.text = first.text.trimStart()
+        }
+      }
+      emit(joined)
+      return
+    }
     for (const run of runs) emit(run, true)
+
   }
 
   const emit = (segments: Segment[], line = false) => {
@@ -1421,7 +1473,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   let droppedImages = 0
   for (const item of spine) {
     const source = await zip.readText(item.href)
-    const parsed = documentBlocks(source || '', item.href, v6)
+    const parsed = documentBlocks(source || '', item.href, v6, rules >= 8, rules >= 9)
     for (const id of parsed.dropped) droppedPlaces.add(`${item.href}#${id}`)
     if (parsed.libraryOnly || wikisourceMatter(parsed.blocks)) { droppedPlaces.add(item.href); continue }
     // Rules 6: Wikisource's title page (title, author, year and its export stamp).

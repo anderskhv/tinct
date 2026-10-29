@@ -32,8 +32,18 @@ export function pdfOriginalUnits(rules: PdfOriginalUnitRules, count: number,
       entries = rules.scanTree(scan.entries)
     else if (count >= rules.PRIMER.units) entries = rules.scanEntries(scan.entries, scan.nav, count)
   }
-  return rules.sizeUnits(entries, count, entries.length ? { min: 1, split: PDF_SOURCE_PAGES } : undefined).filter(unit => Number.isInteger(unit.from) && Number.isInteger(unit.to)
+  const units = rules.sizeUnits(entries, count, entries.length ? { min: 1, split: PDF_SOURCE_PAGES } : undefined).filter(unit => Number.isInteger(unit.from) && Number.isInteger(unit.to)
     && unit.from >= 1 && unit.from <= unit.to && unit.to <= count).map(unit => ({ ...unit, key: pdfUnitKey(unit.key) }))
+  // The shared sizing rules attach leading pages to the first bookmark. Those
+  // pages have no known chapter title: do not show a later heading on the cover
+  // or include them in an action claiming to summarize that named chapter.
+  const first = units[0]
+  if (first?.from === 1 && first.start > 1 && first.start <= first.to) {
+    const end = first.start - 1
+    return [{ key: 'opening-pages-1', title: end === 1 ? 'Page 1' : `Pages 1–${end}`, from: 1, start: 1, to: end, pages: true },
+      { ...first, from: first.start }, ...units.slice(1)]
+  }
+  return units
 }
 
 export const pdfUnitAt = (units: PdfOriginalUnit[], page: number): PdfOriginalUnit | null =>

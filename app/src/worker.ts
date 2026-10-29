@@ -178,17 +178,20 @@ interface Env {
 
 /**
  * A token verified with Supabase is remembered for a minute per isolate, so
- * the several requests a page makes at once (the account cards make seven)
- * do not each pay a Supabase round trip (300-700 ms, 10 Oct 2026 measurement)
- * before their own work. Only successful answers are kept, never past the
+ * later requests can reuse completed verification data without another
+ * Supabase round trip. Concurrent cold requests keep their own I/O. Only
+ * successful answers are kept, never past the
  * token's own expiry, and at most a few hundred at a time. Account deletion
  * forgets the token at once (forgetVerifiedUser).
  */
 const VERIFIED_TTL_MS = 60_000
 const VERIFIED_MAX = 500
 const verifiedUsers = new Map<string, { until: number; user: { id: string; email: string } }>()
-/** Verifications under way, so requests arriving together share one Supabase call. */
-const verifying = new Map<string, Promise<{ id: string; email: string } | null>>()
+class AuthUnavailableError extends Error {
+  constructor(readonly reason: 'timeout' | 'upstream' | 'network') {
+    super('Authentication is temporarily unavailable')
+  }
+}
 
 /** The JWT's own expiry in ms, or null when unreadable. */
 function tokenExpiry(token: string): number | null {
@@ -207,7 +210,6 @@ export function forgetVerifiedUser(request: Request): void {
 
 export function resetVerifiedUsersForTest(): void {
   verifiedUsers.clear()
-  verifying.clear()
 }
 
 async function verifyUser(env: Env, request: Request): Promise<{ id: string; email: string } | null> {
@@ -219,13 +221,17 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
   const known = verifiedUsers.get(key)
   if (known && known.until > now) return known.user
   verifiedUsers.delete(key)
-  const underWay = verifying.get(key)
-  if (underWay) return underWay
-  const check = (async () => {
+  // Only completed data may be shared across Worker invocations. A pending
+  // fetch belongs to this request and must never block another request.
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 10_000)
+  try {
     const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
       headers: { 'Authorization': `Bearer ${token}`, 'apikey': env.SUPABASE_SERVICE_ROLE_KEY },
+      signal: controller.signal,
     })
-    if (!res.ok) return null
+    if (res.status === 401 || res.status === 403) return null
+    if (!res.ok) throw new AuthUnavailableError('upstream')
     const user = await res.json() as { id: string; email: string }
     if (user && typeof user.id === 'string') {
       const until = Math.min(now + VERIFIED_TTL_MS, tokenExpiry(token) ?? Infinity)
@@ -235,12 +241,11 @@ async function verifyUser(env: Env, request: Request): Promise<{ id: string; ema
       }
     }
     return user
-  })()
-  verifying.set(key, check)
-  try {
-    return await check
+  } catch (error) {
+    if (error instanceof AuthUnavailableError) throw error
+    throw new AuthUnavailableError(controller.signal.aborted ? 'timeout' : 'network')
   } finally {
-    verifying.delete(key)
+    clearTimeout(timeout)
   }
 }
 
@@ -270,7 +275,7 @@ export const validateCorrectedParagraphForTest = validateCorrectedParagraph
 
 // ===== Router =====
 
-export default {
+const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
     const forwardedProto = request.headers.get('x-forwarded-proto') || url.protocol.replace(':', '')
@@ -492,5 +497,20 @@ export default {
       if (socialFriendsOn(env)) ctx.waitUntil(runLeaderboardCron(env, event.scheduledTime).catch(() => false))
     }
     else ctx.waitUntil(handleScheduled(env))
+  },
+}
+
+export default {
+  ...worker,
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    try {
+      return await worker.fetch(request, env, ctx)
+    } catch (error) {
+      if (!(error instanceof AuthUnavailableError)) throw error
+      console.warn(JSON.stringify({ event: 'auth_unavailable', reason: error.reason }))
+      const response = jsonResponse({ error: error.message, reason: 'auth_unavailable' }, 503, request)
+      response.headers.set('Cache-Control', 'no-store')
+      return response
+    }
   },
 }

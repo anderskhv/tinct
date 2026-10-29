@@ -2,6 +2,7 @@
 import { supabase } from './services/supabase'
 import { coerceRev, versionedWriteApplied } from './services/supabaseStorage.versioning'
 import type { ShelfMembership } from './preReader/readingNow'
+import { libraryPageIsLeaving } from './preReader/libraryPageLifecycle'
 const PREFIX = 'library-shelf:'
 const DEVICE = 'tinct:library-2-saved:'
 export type ShelfChange = { saved: boolean; at: number; tableHidden?: boolean }
@@ -55,12 +56,14 @@ function rememberRevision(state: State, id: string, raw: unknown) {
 }
 async function sync(owner: string | null, state: State): Promise<boolean> {
   if (!owner || !supabase) return true
+  if (libraryPageIsLeaving()) return false
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return false
   const client = supabase
   try {
     const { data, error } = await client.from('user_data').select('key,value,rev,updated_at').eq('user_id', owner).like('key', PREFIX + '%')
     if (error) return false
     if (await account() !== owner) throw new Error('Account changed')
+    if (libraryPageIsLeaving()) return false
     const rows = new Map((data ?? []).map(row => [row.key.slice(PREFIX.length), row]))
     // Cloud tombstones remove items on every device; only unacknowledged local
     // actions override the server. Never resurrect a deleted remote book.
@@ -69,6 +72,7 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
       let row = rows.get(id)
       for (let attempt = 0; attempt < 3; attempt++) {
         if (await account() !== owner) throw new Error('Account changed')
+        if (libraryPageIsLeaving()) return false
         if (state.pending[id] !== change) break
         // A queued removal from an older visit must not delete a later re-add
         // on another device, including a value returned by a CAS conflict.

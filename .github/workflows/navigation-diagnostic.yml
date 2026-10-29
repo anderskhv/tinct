@@ -1,0 +1,54 @@
+name: Live navigation diagnosis
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/navigation-diagnostic.yml'
+      - 'app/scripts/check-sign-in.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  navigation:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [1, 2, 3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare
+        with:
+          build: 'false'
+          browsers: 'chromium webkit'
+      - name: Diagnose held-edition response bodies
+        if: matrix.runner == 1
+        working-directory: app
+        env:
+          EXPECTED_BUILD_SHA: ${{ github.sha }}
+        run: |
+          mkdir -p artifacts/sign-in
+          node scripts/check-edition-holds-production.cjs > artifacts/sign-in/held-assets.log 2>&1 || {
+            cat artifacts/sign-in/held-assets.log
+            exit 1
+          }
+          cat artifacts/sign-in/held-assets.log
+      - name: Diagnose live navigation with synthetic sign-in state
+        working-directory: app
+        env:
+          AUTH_LIVE: '1'
+        run: |
+          mkdir -p artifacts/sign-in
+          for attempt in 1; do
+            node scripts/check-sign-in.mjs > "artifacts/sign-in/run-$attempt.log" 2>&1 || {
+              sed '/REVIEW_CHUNK/d' "artifacts/sign-in/run-$attempt.log"
+              exit 1
+            }
+            sed '/REVIEW_CHUNK/d' "artifacts/sign-in/run-$attempt.log"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-navigation-diagnosis-${{ matrix.runner }}
+          path: app/artifacts/sign-in
+          retention-days: 3

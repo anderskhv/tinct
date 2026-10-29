@@ -62,3 +62,15 @@ it('allows an explicit summary of introductory matter without adding automatic c
  expect(pdfCompleteUnitPages(introduction)).toEqual([])
  expect(pdfCompleteUnitPages(introduction,true)).toEqual([3,4,5,6,7,8,9,10,11])
 })
+
+it('does not label pages before the first detected chapter as that chapter', () => {
+  const units = pdfOriginalUnits(margin, 512, [], { nav: 'headings', pages: 512, entries: [
+    { id: 'h0', label: 'CHAPTER II.', page: 36 }, { id: 'h1', label: 'CHAPTER III.', page: 40 },
+  ] })
+  expect(pdfUnitAt(units, 1)?.title).toBe('Pages 1–35')
+  expect(pdfUnitAt(units, 35)?.title).toBe('Pages 1–35')
+  expect(pdfUnitAt(units, 36)?.title).toBe('CHAPTER II.')
+  expect(pdfUnitAt(units, 36)?.from).toBe(36)
+  expect(pdfCompleteUnitPages(pdfUnitAt(units, 36)!)).toEqual([36, 37, 38, 39])
+  expect(units.flatMap(unit => Array.from({length: unit.to - unit.from + 1}, (_, i) => unit.from + i))).toEqual(Array.from({length: 512}, (_, i) => i + 1))
+})

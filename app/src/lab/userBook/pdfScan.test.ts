@@ -56,6 +56,28 @@ async function scanOf(bytes: Buffer, fileName: string): Promise<ScanResult> {
 }
 
 describe('PDF scan: title, author, chapters', () => {
+  it('does not append a large drop-cap paragraph opening to a chapter heading', async () => {
+    const scan = await scanOf(makePdf({ pages: [
+      { lines: [{ y: 730, size: 24, font: 'Times-Roman', text: 'A Novel' }, ...prose(670, 28)] },
+      { lines: [{ x: 136, y: 268, size: 15.5, font: 'Times-Roman', text: 'CHAPTER II.' },
+        { x: 131, y: 241, size: 15.5, font: 'Times-Roman', text: 'A reader was among the ear-' },
+        { x: 142, y: 226, size: 9.5, font: 'Times-Roman', text: 'liest of those who entered the room.' }, ...prose(210, 12, { size: 9.5 })] },
+      { lines: [{ x: 136, y: 733, size: 24, font: 'Times-Roman', text: 'CHAPTER III.' }, ...prose(680, 28)] },
+    ] }), 'novel.pdf')
+    expect(scan.entries.find(e => e.page === 2)?.label).toBe('CHAPTER II.')
+  })
+
+  it('keeps lowercase continuation lines in a wrapped heading without absorbing body text', async () => {
+    const scan = await scanOf(makePdf({ pages: [
+      { lines: [{ y: 730, size: 24, font: 'Times-Bold', text: 'Annual Report' }, ...prose(670, 28)] },
+      { lines: [{ x: 55, y: 733, size: 32, font: 'Times-Bold', text: 'Report on the bank' },
+        { x: 55, y: 699, size: 32, font: 'Times-Bold', text: 'and its activities' },
+        { x: 55, y: 665, size: 32, font: 'Times-Bold', text: 'during the year' }, ...prose(600, 26)] },
+      { lines: [{ x: 55, y: 733, size: 24, font: 'Times-Bold', text: 'Financial Stability' }, ...prose(680, 28)] },
+    ] }), 'report.pdf')
+    expect(scan.entries.map(e => e.label)).toEqual(['Report on the bank and its activities during the year', 'Financial Stability'])
+  })
+
   it('takes title and author from the metadata and chapters from the outline', async () => {
     const s = await scanOf(fixtures['scan_0042.pdf'], 'scan_0042.pdf')
     expect(s).toMatchObject({ v: scanApi.SCAN_VERSION, title: 'Notes on Natural Philosophy', author: 'Mary Somerville', pages: 4, nav: 'outline', source: { title: 'metadata', author: 'metadata' } })
@@ -99,6 +121,22 @@ describe('PDF scan: title, author, chapters', () => {
     expect(s.title).toBe('On Thinking Machines')
     expect(s.entries).toEqual([])
     expect(s.nav).toBe('pages')
+  })
+
+  it('joins a heading across a face change and interleaved text in another column', async () => {
+    const bytes = makePdf({ pages: [
+      { lines: [{ y: 700, size: 20, font: 'Times-Bold', text: 'Annual Report' }, ...prose(650, 30)] },
+      { lines: [
+        { x: 55, y: 735, size: 13, font: 'Times-Bold', text: 'Monetary policy, financial' },
+        { x: 310, y: 735, size: 9, text: 'Other column continues on its own printed line.' },
+        { x: 55, y: 720, size: 13, text: 'markets and the economy' },
+        { x: 310, y: 720, size: 9, text: 'This paragraph must not enter the heading.' },
+        ...prose(680, 30, { size: 9 }),
+      ] },
+      { lines: [{ y: 720, size: 18, font: 'Times-Bold', text: 'Financial Stability' }, ...prose(680, 30, { size: 9 })] },
+    ] })
+    const scan = await scanOf(bytes, 'annual-report.pdf')
+    expect(scan.entries.map(entry => entry.label)).toEqual(['Monetary policy, financial markets and the economy', 'Financial Stability'])
   })
 
   it('does not turn a separate figure caption title into a chapter heading', async () => {

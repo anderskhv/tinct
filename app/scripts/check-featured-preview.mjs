@@ -2,7 +2,7 @@ import {chromium,webkit} from '@playwright/test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
-import { markInternal } from './lib/internalTraffic.cjs'
+import { markInternal, checkFetch } from './lib/internalTraffic.cjs'
 const live=process.env.LIBRARY_LIVE==='1'
 const out='artifacts/featured-preview'
 await fs.mkdir(out,{recursive:true})
@@ -10,7 +10,7 @@ const source=await fs.readFile('src/worker/featuredPreviewHtml.ts','utf8')
 const html=JSON.parse(source.slice(source.indexOf('= ')+2).trim())
 const report=[]
 if(live){
- const denied=await fetch('https://tinct.app/api/featured-preview')
+ const denied=await checkFetch('https://tinct.app/api/featured-preview')
  assert.equal(denied.status,403,'real production guest denied')
  assert((denied.headers.get('cache-control')||'').includes('no-store'))
 }
@@ -21,6 +21,10 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
  const context=await browser.newContext({viewport:{width,height},isMobile:touch,hasTouch:touch,deviceScaleFactor:touch?2:1,serviceWorkers:'block'})
  const page=await context.newPage()
  const errors=[]
+ const pending=new Set()
+ page.on('request',r=>pending.add(r))
+ page.on('requestfinished',r=>pending.delete(r))
+ page.on('requestfailed',r=>pending.delete(r))
  page.on('pageerror',e=>errors.push(e.message))
  await context.addInitScript(()=>{
   window.__resizeTrace=[]
@@ -55,7 +59,12 @@ for(const [name,engine] of Object.entries({chromium,webkit})){
   const p=url.pathname==='/featured'?'/lab/featured/index.html':url.pathname
   try{return await route.fulfill({path:path.resolve('dist','.'+p)})}catch{return route.abort()}
  })
- await page.goto('https://tinct.app/featured')
+ await page.goto('https://tinct.app/featured').catch(async error=>{
+  const state=await page.evaluate(()=>({url:location.href,readyState:document.readyState,title:document.title,frames:document.querySelectorAll('iframe').length})).catch(e=>String(e))
+  console.log('FEATURED_NAVIGATION_STALL '+JSON.stringify({engine:name,label,state,pending:[...pending].map(r=>({url:r.url(),type:r.resourceType()})),errors}))
+  await page.screenshot({path:`${out}/${name}-${label}-navigation-stall.png`,timeout:5000}).catch(()=>{})
+  throw error
+ })
  await page.waitForSelector('iframe')
  const frame=page.frames().find(f=>f!==page.mainFrame())
  await frame.waitForSelector('html[data-ready=true]')

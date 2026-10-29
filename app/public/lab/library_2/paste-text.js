@@ -84,7 +84,9 @@ export function trimSource(source, start = 0, end = 0) {
 export function detectFormat(source) {
  const first=String(source).trimStart();
  if(/^<(?:!doctype\s+html|html|body|p|h[1-6]|div|section|blockquote|ul|ol|figure)\b/i.test(first))return 'html';
- if(/^(?:#{1,6}\s+|\s*[-+*]\s+|\s*\d+[.)]\s+|\s*>\s+|\s*`{3,}|\s*~{3,})/m.test(first))return 'markdown';
+ // Incidental numbered lines or OCR punctuation later in a book are source text.
+ // Infer Markdown only when its opening declares that structure.
+ if(/^(?:#{1,6}\s+|\s*[-+*]\s+|\s*\d+[.)]\s+|\s*>\s+|\s*`{3,}|\s*~{3,})/.test(first))return 'markdown';
  return 'plain';
 }
 export function suggestedTitle(source, format='auto') {

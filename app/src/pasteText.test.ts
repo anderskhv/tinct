@@ -13,6 +13,72 @@ const data = (file: File) => new Promise<Uint8Array>((resolve, reject) => {
 })
 
 describe('private pasted source', () => {
+ it('rejoins corroborated printed word wraps in prose and keeps the original EPUB and old rules', async () => {
+  const source = 'Relations help organisms survive in their environment.\n\nThe geological rela-\ntions are studied and organisms may\nsur-\nvive when circumstances change.'
+  const bytes = await data(pasteEpub({source, format: 'plain', title: 'Printed prose'}))
+  const edition = await epubToEdition(bytes)
+  expect(edition.chapters[0].paragraphs.join(' ')).toContain('The geological relations are studied and organisms may survive when circumstances change.')
+  expect(new TextDecoder().decode(bytes)).toContain('rela-<br/>tions')
+  const legacy = await epubToEdition(bytes, {rules: 8})
+  expect(legacy.chapters[0].paragraphs.join(' ')).toContain('rela- tions')
+  expect(legacy.converter).toBe(8)
+ })
+
+ it('keeps ambiguous compounds, uncorroborated splits, and authored verse', async () => {
+  const source = 'The word re-cover differs from recover. Survive is also written whole.\n\nThe reader can re-\ncover a book and ponder an un-\nknownword while reading\nthis line.\n\nSur-\nvive, my friend!'
+  const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Controls'})))
+  const text = edition.chapters[0].paragraphs.join(' ')
+  expect(text).toContain('re- cover')
+  expect(text).toContain('un- knownword')
+  expect(text).toContain('Sur- vive, my friend!')
+ })
+
+ it('preserves inline emphasis at untouched printed line breaks', async () => {
+  const source = '<p><em>A printed line continues<br/>into the next italic line</em> and returns<br/>to ordinary type.</p>'
+  const bytes = await data(pasteEpub({source, format: 'html', title: 'Emphasis control'}))
+  const next = await epubToEdition(bytes), old = await epubToEdition(bytes, {rules: 8})
+  expect(next.chapters).toEqual(old.chapters)
+ })
+
+ it('keeps wrapped archive prose in one paragraph across sentence boundaries', async () => {
+  const source = 'WHEN on board the Beagle, as naturalist, I was\nmuch struck with certain facts in the distribution of the\ninhabitants of South America. These facts seemed to me to throw some light\non the origin of species.\nOn my return home, it occurred to me that\nsomething might perhaps be made out on this question.'
+  const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Prose control'})))
+  expect(edition.chapters[0].paragraphs).toEqual([source.replace(/\s+/g, ' ')])
+  expect(edition.chapters[0].kinds).toBeUndefined()
+ })
+
+ it('joins a printed prose wrap after an honorific instead of treating it as verse', async () => {
+  const source = '"  I  may  thank  you,  Eliza,  for  this  piece  of  civility.  Mr. \nDarcy  would  never  have  come  so  soon  to  wait  upon  me."'
+  const file = pasteEpub({source, format: 'plain', title: 'Pride and Prejudice'})
+  const edition = await epubToEdition(await data(file))
+  expect(edition.chapters[0].paragraphs).toEqual([source.replace(/\s+/g, ' ')])
+  expect(edition.chapters[0].kinds).toBeUndefined()
+  const legacy = await epubToEdition(await data(file), {rules: 7})
+  expect(legacy.chapters[0].paragraphs).toHaveLength(2)
+ })
+
+ it('keeps the indented refrain in O Captain as separate authored lines', async () => {
+  const source = "O Captain! my Captain! our fearful trip is done,\nThe ship has weather'd every rack, the prize we sought is won,\nThe port is near, the bells I hear, the people all exulting,\nWhile follow eyes the steady keel, the vessel grim and daring;\n    But O heart! heart! heart!\n     O the bleeding drops of red,\n       Where on the deck my Captain lies,\n         Fallen cold and dead."
+  const edition = await epubToEdition(await data(pasteEpub({source, format: 'plain', title: 'Leaves of Grass'})))
+  expect(edition.chapters[0].paragraphs).toEqual(source.split('\n').map(line => line.trim()))
+  expect(edition.chapters[0].kinds).toEqual(Array(8).fill('line'))
+ })
+
+ it.each(['plain', 'html'])('keeps Whitman verse boundaries around a wrapped continuation (%s)', async format => {
+  const source = 'Of physiology from top to toe I sing,\nNot physiognomy alone nor brain alone is worthy for the Muse, I say\n    the Form complete is worthier far,\nThe Female equally with the Male I sing.'
+  const file = pasteEpub({source: format === 'html' ? '<pre>' + source + '</pre>' : source, format, title: 'Leaves of Grass'})
+  const edition = await epubToEdition(await data(file))
+  expect(edition.chapters[0].paragraphs).toEqual([
+   'Of physiology from top to toe I sing,',
+   'Not physiognomy alone nor brain alone is worthy for the Muse, I say the Form complete is worthier far,',
+   'The Female equally with the Male I sing.',
+  ])
+  expect(edition.chapters[0].kinds).toEqual(['line', 'line', 'line'])
+  const legacy = await epubToEdition(await data(file), { rules: 7 })
+  expect(legacy.chapters[0].paragraphs).toEqual([source.replace(/\s+/g, ' ')])
+  expect(legacy.converter).toBe(7)
+ })
+
  it('keeps full-text archive clipboard paragraphs separate through EPUB conversion', async () => {
   const paragraphs = Array.from({length: 180}, (_, i) => `Passage ${i}: A reader follows these words.\nThe next source line remains here.`)
   const file = pasteEpub({source: '<pre>' + paragraphs.join('\n\n') + '</pre>', format: 'html', title: 'Archive text'})
@@ -54,6 +120,13 @@ describe('private pasted source', () => {
   expect(edition.chapters.flatMap(c => c.paragraphs).join(' ')).toContain('Figure 1: The chart.')
   expect(edition.chapters.flatMap(c => c.paragraphs).join(' ')).toContain('A _word_ bad and reference.')
   vi.unstubAllGlobals()
+ })
+
+ it('does not reinterpret numbered OCR lines deep inside ordinary pasted prose as Markdown', async () => {
+  const source = 'A complete historical work.\n\nThe preceding argument ends here.\n\n3. 4 GEOLOGICAL SUCCESSION\n\nCHAPTER X\n\nThe next argument begins here.'
+  expect(detectFormat(source)).toBe('plain')
+  const edition = await epubToEdition(await data(pasteEpub({ source, title: 'Historical work' })))
+  expect(edition.chapters.flatMap(c => c.paragraphs).join(' ')).toContain('3. 4 GEOLOGICAL SUCCESSION')
  })
 
  it('trims only requested lines, refuses empty and non-XML characters, and escapes plain text verbatim', () => {

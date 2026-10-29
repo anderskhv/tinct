@@ -139,15 +139,21 @@ try {
       await follow.fill('Keep explaining beside this passage.')
       await page.waitForTimeout(600)
       await settlePaint(page)
+      // WebKit fill can leave the long card's send button below the viewport.
+      // Bring the actual click target into view before capturing the handoff anchor.
+      await item.getByTestId('lab-phone-card-send').scrollIntoViewIfNeeded()
+      await settlePaint(page)
       const placeBeforeChat = await root.getAttribute('data-place')
       await item.getByTestId('lab-phone-card-send').click()
-      const discussion = page.getByTestId('lab-ask-pane')
-      await discussion.getByText(/Source point 20:/).first().waitFor()
-      assert.equal(await discussion.getByText('Keep explaining beside this passage.', {exact:true}).count(), 1, 'card follow-up enters Chat exactly once')
-      assert.equal(await root.getAttribute('data-place'), placeBeforeChat, 'handoff to Chat preserves reading position')
-      assert.equal(await host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`).getAttribute('data-open'), 'false', 'handoff folds the source card')
-      await page.getByTestId('lab-desktop-companion-close').click()
+      await item.getByText('Keep explaining beside this passage.', {exact:true}).waitFor()
+      await item.getByText(/Source point 20:/).nth(1).waitFor()
+      assert.equal(await page.getByTestId('lab-ask-pane').count(), 0, 'margin follow-up stays in its source card')
+      assert.equal(await item.getByText('Keep explaining beside this passage.', {exact:true}).count(), 1, 'card follow-up appears exactly once')
+      assert.equal(await root.getAttribute('data-place'), placeBeforeChat, 'margin follow-up preserves reading position')
+      await page.waitForFunction(id => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(row => row.id === id && row.messages.some(message => message.content === 'Keep explaining beside this passage.')), firstId)
       const first = host.locator(`[data-testid="source-margin-item"][data-card-id="${firstId}"]`)
+      assert.equal(await first.getAttribute('data-open'), 'true', 'follow-up keeps the source card open')
+      await first.getByTestId('source-margin-minimise').click()
       assert.equal(await first.getAttribute('data-open'), 'false', 'Minimise retains the source row')
       longAnswer = false
       await select(host, 18, 28)
@@ -158,10 +164,12 @@ try {
       await first.getByTestId('source-margin-open').click()
       assert.equal(await first.getAttribute('data-open'), 'true', 'folded row reopens its original answer')
       const beforeContinue = await root.getAttribute('data-place'), beforeContinueRequests = requests.length
-      await first.getByRole('button',{name:'Continue discussion',exact:true}).click()
+      assert.equal(await first.getByRole('button',{name:'Continue discussion',exact:true}).count(), 0, 'margin composer replaces the redundant Chat handoff link')
+      await page.getByTestId('lab-super').click()
+      await page.getByTestId('lab-super-row-chat').click()
       await page.getByTestId('lab-ask-pane').waitFor()
-      assert.equal(requests.length,beforeContinueRequests,'Continue discussion reuses the existing interaction without a request')
-      assert.equal(await root.getAttribute('data-place'),beforeContinue,'Continue discussion leaves the source position unchanged')
+      assert.equal(requests.length,beforeContinueRequests,'explicit menu Chat opens without a generation request')
+      assert.equal(await root.getAttribute('data-place'),beforeContinue,'explicit menu Chat leaves the source position unchanged')
       await page.getByTestId('lab-desktop-companion-close').click()
       await first.getByTestId('source-margin-open').click()
       assert.equal(await host.locator('[data-testid="source-margin-item"][data-open="true"]').count(), 1)
@@ -232,7 +240,7 @@ try {
       assert.equal(await freeNoteRow.getByTestId('lab-wait').count(), 0, 'a point note has no quotation to load and never shows a source spinner')
       await page.screenshot({ path: `${output}/notebook-free-note.png` })
       await notebook.getByRole('button', { name: 'Close overlay', exact: true }).click()
-      // Direct Ask and late follow-ups retain their source identities in one chronological Chat.
+      // Margin Ask stays beside its source and also retains its identity in chronological Chat.
       const closeChat = async () => {
         const close = page.getByTestId('lab-desktop-companion-close')
         if (await close.isVisible()) await close.click()
@@ -250,8 +258,13 @@ try {
         await select(host, from, to)
         await page.getByTestId('lab-dbar-ask').click()
         await page.getByTestId('lab-dbar-ask-field').fill(question)
+        const placeBeforeAsk = await root.getAttribute('data-place')
         await page.getByRole('button', {name:'Send question',exact:true}).click()
-        await page.getByTestId('lab-ask-pane').getByText('A complete local answer remains attached to this source passage.', { exact: true }).last().waitFor()
+        await open.getByText('A complete local answer remains attached to this source passage.', { exact: true }).last().waitFor()
+        assert.equal(await open.count(), 1, 'margin Ask keeps one source card open')
+        assert.equal(await open.getByText(question, { exact: true }).count(), 1, 'margin question appears once')
+        assert.equal(await page.getByTestId('lab-ask-pane').count(), 0, 'margin Ask does not open Chat')
+        assert.equal(await root.getAttribute('data-place'), placeBeforeAsk, 'margin Ask preserves reading place')
         await page.waitForFunction(question => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(row => row.messages.some(message => message.content === question)), question)
         return page.evaluate(question => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.messages.some(message => message.content === question)).id, question)
       }
@@ -421,6 +434,15 @@ try {
       const visibleSourceInk = () => page.locator('.lab-page-wrap [data-testid="lab-word"]').evaluateAll(nodes => nodes.filter(node => !node.closest('.lab-page-measure')).map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|'))
       const openingInkBeforeCard = await visibleSourceInk()
       await page.getByTestId('lab-page-next').evaluate(button => button.click())
+      // Pagination may yield beyond two animation frames. Establish that the
+      // requested next leaf has rendered before recording Define's reference
+      // page; otherwise its delayed turn is attributed to opening the card.
+      await page.waitForFunction(opening => {
+        const ink = [...document.querySelectorAll('.lab-page-wrap [data-testid="lab-word"]')]
+          .filter(node => !node.closest('.lab-page-measure'))
+          .map(node => `${node.dataset.paragraphIndex}:${node.dataset.wordIndex}:${node.textContent}`).join('|')
+        return ink.length > 0 && ink !== opening
+      }, openingInkBeforeCard)
       await settlePaint(page)
       const inkBeforePhoneCard = await visibleSourceInk()
       // A directly closed Define has never entered Chat, so it does not have

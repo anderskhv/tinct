@@ -200,7 +200,9 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
       }
     }
     // A look at a page (&pages): the margin reader's pages at once, for a signed-in reader (the frame needs the account).
-    const metadata = sharedReader && owner ? currentOwnBookMetadata(hex, owner).catch(() => null) : Promise.resolve(null)
+    // openingDetail bounds the initial render. Keep the metadata request alive
+    // longer so a slow account response can still replace the temporary title.
+    const metadata = sharedReader && owner ? currentOwnBookMetadata(hex, owner, 10_000).catch(() => null) : Promise.resolve(null)
     if (pagesAsked() && owner) {
       if (sharedReader) void toOriginal(); else toMargin()
       return () => { live = false }

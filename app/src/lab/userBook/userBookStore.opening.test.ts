@@ -58,3 +58,18 @@ it('preserves explicit desktop Tinct text and the forced phone source rule', asy
   localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('pages'))
   expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true })).toMatchObject({ ok: false, reason: 'pages' })
 })
+
+it.each([false, true])('opens an unchosen shared phone PDF in Original pages without whole-file conversion (cached: %s)', async cached => {
+  keepPdf(cached)
+  const convert = vi.fn()
+  expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true, convert })).toMatchObject({ ok: false, reason: 'pages' })
+  expect(convert).not.toHaveBeenCalled()
+  expect(localStorage.getItem(`tinct-addbook:edition:${hex}`)).toBeNull()
+})
+it('keeps a phone text edition already chosen by its earlier opening rule', async () => {
+  keepPdf(true)
+  localStorage.setItem(`tinct-addbook:edition:${hex}`, JSON.stringify('text'))
+  localStorage.setItem(`tinct-addbook:phone-edition:${hex}`, JSON.stringify({ edition: 'text', kind: 'narrative', by: 'text', v: 1 }))
+  localStorage.setItem(`tinct-addbook:open-rule:${hex}`, '2')
+  expect(await openUserBook(hex, { owner, desktop: false, sharedReader: true })).toMatchObject({ ok: true })
+})

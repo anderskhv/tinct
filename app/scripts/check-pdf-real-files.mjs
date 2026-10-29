@@ -10,6 +10,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { chromium, webkit, expect } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
+import { pageOfTextPlace } from '../src/lab/userBook/pdfAnchors.ts'
 import { settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
@@ -42,7 +43,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     createdAt: '2026-10-23T00:00:00.000Z' }
   const browser = await markInternal(await browserType.launch({ headless: true,
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))
-  const context = await browser.newContext({ viewport: { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  const context = await browser.newContext({ viewport: process.env.PDF_REAL_PHONE === '1' ? { width: 390, height: 844 } : { width: 1100, height: 820 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
   const page = await context.newPage(), denied = [], errors = [], consoleErrors = [], calls = [], documentUrls=[]
   page.on('request',request=>{if(request.isNavigationRequest() && new URL(request.url()).pathname==='/reader') documentUrls.push(request.url())})
   if (name.startsWith('chromium') && process.env.PDF_CPU_RATE) {
@@ -77,8 +78,10 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
   // on the context so it survives the outgoing document, including in WebKit.
   await context.route(url => url.hostname.endsWith('.supabase.co') || url.origin !== origin || url.pathname.startsWith('/api/'), async route => {
     const request = route.request(), url = new URL(request.url()), p = url.pathname
-    const json = (status, body) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(body) })
+    const cors = { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, PATCH, OPTIONS', 'Access-Control-Allow-Headers': request.headers()['access-control-request-headers'] || 'authorization, apikey, content-type, x-client-info, prefer' }
+    const json = (status, body) => route.fulfill({ status, contentType: 'application/json', headers: cors, body: JSON.stringify(body) })
     if (url.hostname.endsWith('.supabase.co')) {
+      if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors })
       if (p === '/auth/v1/user') return json(200, { id: owner, email: 'pdf@example.test', aud: 'authenticated' })
       if (p.startsWith('/rest/v1/')) return json(200, [])
       return json(404, {})
@@ -87,7 +90,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     if (p === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><meta charset="utf-8"><title>Synthetic private source fixture</title>' })
     if (await enforceReaderBundle(route, expectedBundle)) return
     if (!p.startsWith('/api/')) return route.continue()
-    calls.push({ path: p, method: request.method(), body: request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
+    calls.push({ path: p, method: request.method(), body: p === '/api/user-books' && request.method() === 'POST' ? '[PDF bytes; compared exactly below]' : request.postData() || '', bearer: request.headers().authorization?.startsWith('Bearer ') ?? false })
     if (p === '/api/public-books') return json(200, { books: [] })
     if (p === '/api/user-books') {
       if (request.method() === 'POST') {
@@ -226,14 +229,19 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
     await page.locator('.own-file-continue').click()
     await page.waitForURL('**/reader?**', { timeout: 45000, waitUntil: 'domcontentloaded' })
     console.log(name, path.basename(filePath), 'reader opened')
+    const openedAt = Date.now()
     await page.locator('.pdf-original__page canvas').first().waitFor({ timeout: 120000 })
+    console.log(name, path.basename(filePath), 'first page painted', Date.now() - openedAt, 'ms after reader navigation')
     await settlePaint(page)
     // Let the actual local title/chapter scan finish; opening a canvas alone is not acceptance.
     await expect.poll(() => page.evaluate(async hex => {
       const db=await new Promise(resolve=>{const r=indexedDB.open('tinct-addbook',1);r.onsuccess=()=>resolve(r.result)})
       const scan=await new Promise(resolve=>{const r=db.transaction('books').objectStore('books').get(`pdf:${hex}`);r.onsuccess=()=>resolve(r.result?.scan)})
       db.close();return !!scan
-    },hex), {timeout:30000}).toBe(true)
+    },hex), {timeout:Number(process.env.PDF_REAL_SCAN_TIMEOUT_MS || 30000)}).toBe(true)
+    console.log(name, path.basename(filePath), 'scan cached', Date.now() - openedAt, 'ms after reader navigation')
+    const openingChecks = process.env.PDF_REAL_OPENING_CHECKS ? JSON.parse(await fs.readFile(process.env.PDF_REAL_OPENING_CHECKS, 'utf8'))[path.basename(filePath)] : null
+    if (openingChecks?.header) await expect(page.locator('.lab-header-chapter')).toHaveText(openingChecks.header)
     await page.screenshot({path:path.join(output,'opened.png')})
     assert(accountUploaded, 'actual selected file must pass byte-exact simulated upload')
     const samples=[]
@@ -267,13 +275,20 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       })
       await page.mouse.move(drag.x,drag.y);await page.mouse.down()
       await page.mouse.move(drag.end,drag.y,{steps:15});await page.mouse.up()
-      await expect(page.getByTestId('lab-dbar-highlight')).toBeVisible()
-      await page.getByTestId('lab-dbar-highlight').click()
+      const highlight = page.getByTestId(process.env.PDF_REAL_PHONE === '1' ? 'lab-pbar-highlight' : 'lab-dbar-highlight')
+      await expect(highlight).toBeVisible()
+      await highlight.click()
       await expect.poll(()=>sets.marks.list.length,{timeout:15000}).toBeGreaterThan(0)
       await page.screenshot({path:path.join(output,'native-highlight.png')})
+      if (process.env.PDF_REAL_PHONE === '1') {
+        // The phone bar consumes the first outside press to prevent click-through.
+        await page.keyboard.press('Escape')
+        await expect(page.getByTestId('lab-phone-bar')).toHaveCount(0)
+      }
       await page.getByTestId('lab-super').click()
       await page.getByText('Summarize', {exact:true}).click()
       await expect(page.getByText('A grounded local fixture answer.',{exact:false})).toBeVisible({timeout:45000})
+      await expect(page.getByText('Highlight saved.', { exact: true })).toHaveCount(0)
       const summary = calls.filter(c=>c.path==='/api/chat').map(c=>JSON.parse(c.body)).at(-1)
       await expect.poll(()=>sets.cards.list.length,{timeout:15000}).toBeGreaterThan(0)
       const source=sets.cards.list.at(-1)?.data?.unit
@@ -337,6 +352,40 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       db.close()
       return {title:item?.title,name:item?.name,scan:item?.scan,pages:document.querySelectorAll('.pdf-original__slot').length}
     },hex)
+    for (const expected of openingChecks?.headings || []) {
+      assert(inventory.scan.entries.some(entry => entry.page === expected.page && entry.label === expected.label), 'source heading must remain exact without attached paragraph text')
+    }
+    // Optional private expectations stay outside the repository. Exercise the real
+    // conversion button, owned storage, rendered text reader and reload resume.
+    if (process.env.PDF_REAL_CONVERSION_CHECKS) {
+      const checks = JSON.parse(await fs.readFile(process.env.PDF_REAL_CONVERSION_CHECKS, 'utf8'))[path.basename(filePath)]
+      assert(checks, 'conversion expectations required for each supplied file')
+      for (const heading of checks.headings || []) assert(inventory.scan.entries.some(entry => entry.label === heading), 'complete expected heading')
+      await page.getByRole('button', { name: 'Appearance', exact: true }).click()
+      await page.getByRole('button', { name: /^(Convert to Tinct book|Tinct book)$/ }).click()
+      await page.locator('.pdf-original-reader').waitFor({ state: 'hidden', timeout: 180000 })
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 180000 })
+      const converted = await page.evaluate(async hex => {
+        const db = await new Promise(resolve => { const r = indexedDB.open('tinct-addbook', 1); r.onsuccess = () => resolve(r.result) })
+        const record = await new Promise(resolve => { const r = db.transaction('books').objectStore('books').get(`pdf:${hex}`); r.onsuccess = () => resolve(r.result) })
+        db.close()
+        return { edition: record.edition, place: JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null') }
+      }, hex)
+      assert.equal(converted.edition.converter, 4)
+      for (const { page: sourcePage, text } of checks.passages || []) {
+        assert(converted.edition.chapters.some(chapter => chapter.paragraphs.some((paragraph, i) => chapter.pages[i] === sourcePage && paragraph.includes(text))), 'expected complete passage in source order on its original page')
+      }
+      assert(converted.place, 'conversion keeps a coherent text position')
+      await fs.writeFile(path.join(output, 'converted-edition.json'), JSON.stringify(converted))
+      assert.equal(pageOfTextPlace(converted.edition.chapters, converted.place)?.page, samplePages.at(-1), 'conversion opens on the source page just viewed')
+      await settlePaint(page)
+      await page.screenshot({ path: path.join(output, 'converted.png') })
+      await reloadSavedPage()
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
+      const restored = await page.evaluate(hex => JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null'), hex)
+      for (const key of ['chapterNumber', 'paragraphIndex', 'wordIndex', 'converter']) assert.equal(restored[key], converted.place[key], 'reload preserves ' + key)
+      await fs.writeFile(path.join(output, 'conversion.json'), JSON.stringify({ converter: converted.edition.converter, place: converted.place, restored, passagesChecked: (checks.passages || []).length }, null, 2))
+    }
     await fs.writeFile(path.join(output,'inspection.json'),JSON.stringify({inventory,calls,errors,denied},null,2))
     assert.deepEqual(errors,[], 'no reader exceptions')
     assert.deepEqual(denied,[], 'no unexpected external traffic')

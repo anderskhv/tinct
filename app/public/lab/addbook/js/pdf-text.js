@@ -43,7 +43,8 @@
   // Rules that change any chapter, paragraph or word get a new number (userEdition.ts).
   // 2 (16 Oct 2026): indented blocks run on, numbered subheadings, figure labels left out.
   // 3 (16 Oct 2026): formulas, figures and tables as crops of the page, where the device draws them.
-  const PDF_TEXT_CONVERTER = 3;
+  // Rebuild older editions with corrected sloped rows and wrapped headings; places migrate by PDF page.
+  const PDF_TEXT_CONVERTER = 4;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 

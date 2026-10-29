@@ -21,11 +21,13 @@ export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
  * together (a short book of poems in one document) is kept, not left out as a
  * contents page (epubEdition.ts contentsMatter).
  */
-export const USER_EDITION_CONVERTER = 7
+// 8 (28 Oct 2026): join wrapped continuations without flattening other verse lines.
+// 9 (28 Oct 2026): rejoin source-corroborated printed word wraps in prose.
+export const USER_EDITION_CONVERTER = 9
 /** The rules every book converted before USER_EDITION_CONVERTER was converted with. */
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
-export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, USER_EDITION_CONVERTER]
+export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, USER_EDITION_CONVERTER]
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
  * absent), a text PDF's text layer (public/lab/addbook/js/pdf-text.js, "Tinct
@@ -44,7 +46,8 @@ export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
  * 3 (16 Oct 2026): formulas, figures and tables stand in the text as crops of
  * their page (`figures`, kept on this device like an EPUB's pictures).
  */
-export const PDF_TEXT_CONVERTER = 3
+// 4 (28 Oct 2026): sloped OCR lines and wrapped headings are reconstructed before conversion.
+export const PDF_TEXT_CONVERTER = 4
 /**
  * The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan).
  * 2 (15 Oct 2026): captions and algorithm boxes kept, a paper's numbered sections as chapters.

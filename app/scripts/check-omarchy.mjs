@@ -38,6 +38,10 @@ for(const engine of [chromium,webkit]) {
   const context=await browser.newContext({viewport:{width:1440,height:900},serviceWorkers:'block'})
   if(engine===chromium)await context.grantPermissions(['local-network-access'],{origin})
   const page=await context.newPage(), errors=[],requests=[],network=[]
+  const pending=new Map()
+  page.on('request',request=>pending.set(request,{at:Date.now(),url:request.url(),type:request.resourceType()}))
+  page.on('requestfinished',request=>pending.delete(request))
+  page.on('requestfailed',request=>pending.delete(request))
   const shot=async name=>{
     await page.screenshot({path:output+'/'+engine.name()+'-'+name+'.png'})
     if(process.env.TINCT_DESKTOP_VISUAL==='1')console.log('TINCT_SCREENSHOT '+engine.name()+'-'+name+' '+(await page.screenshot({type:'jpeg',quality:50})).toString('base64'))
@@ -237,6 +241,10 @@ for(const engine of [chromium,webkit]) {
     assert.deepEqual(errors,[])
     report.push({engine:engine.name(),live,themeSync:engine===chromium?'real-loopback':'unavailable-fallback',libraryChat:true,readerCommands:true,placePreserved:true,silentTalk:true})
   } catch(error) {
+    // Capture before the fallback screenshot: it also waits for fonts and can
+    // otherwise hide which request was still outstanding at the first failure.
+    network.push({kind:'failure-state',at:Date.now(),pending:[...pending.values()],fonts:await page.evaluate(()=>({status:document.fonts.status,faces:[...document.fonts].map(font=>({family:font.family,status:font.status,weight:font.weight,style:font.style}))})).catch(()=>null)})
+    console.error('OMARCHY_FAILURE_RESOURCES',JSON.stringify(network.at(-1)))
     await shot('failure').catch(()=>{})
     console.error({url:page.url(),errors,requests,keys:await page.evaluate(()=>window.__tinctKeyTrace),state:await page.evaluate(()=>({theme:document.documentElement.dataset.tinctTheme,active:document.activeElement?.outerHTML.slice(0,300),open:document.documentElement.dataset.tinctCommandsOpen})),body:(await page.locator('body').innerText()).slice(0,1800)})
     throw error

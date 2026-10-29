@@ -8,10 +8,29 @@ const origin = 'https://tinct.app'
 const version = process.env.EXPECTED_BUILD_SHA
 assert.ok(version, 'Pin production evidence to the deployed commit')
 const get = async path => {
-  const response = await fetch(origin + path, {headers:checkHeaders({'User-Agent':'Tinct-availability-verification'})})
-  assert.equal(response.status,200,path)
-  return response
+  const started = Date.now()
+  let response
+  console.log('HOLD_FETCH_START', JSON.stringify({ path }))
+  try {
+    response = await fetch(origin + path, {
+      headers: checkHeaders({'User-Agent':'Tinct-availability-verification'}),
+      // Bound both response headers and body, so a stalled asset cannot hold
+      // production rollback until the entire acceptance job times out.
+      signal: AbortSignal.timeout(60_000),
+    })
+    console.log('HOLD_FETCH_HEADERS', JSON.stringify({ path, status: response.status,
+      elapsedMs: Date.now() - started, ray: response.headers.get('cf-ray') }))
+    assert.equal(response.status, 200, path)
+    const bytes = await response.arrayBuffer()
+    console.log('HOLD_FETCH_DONE', JSON.stringify({ path, bytes: bytes.byteLength, elapsedMs: Date.now() - started }))
+    return new Response(bytes, { status: response.status, headers: response.headers })
+  } catch (error) {
+    console.error('HOLD_FETCH_FAILURE', JSON.stringify({ path, elapsedMs: Date.now() - started,
+      status: response?.status, ray: response?.headers.get('cf-ray'), error: String(error) }))
+    throw error
+  }
 }
+
 ;(async()=>{
  const catalogue = await (await get('/lab/catalogue.json?v='+version)).json()
  const results=[]
