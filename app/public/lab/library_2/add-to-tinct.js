@@ -254,7 +254,7 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
    save.disabled=true;
    if(!await authorize()||!layer.isConnected){save.disabled=false;return;}
    // Readable size only: larger pastes take too long to lay out (29 Oct 2026: 250k characters opens in about 3.5 s on desktop, 8 s on phone).
-   if(source.value.length>PASTE_MAX_CHARS){alert.textContent=`This text is about ${(Math.round(source.value.length/6/1000)*1000).toLocaleString('en-US')} words. You can paste up to about 40,000 words. Trim it, or save it as an EPUB or PDF and add the file.`;save.disabled=false;return;}
+   if(source.value.length>PASTE_MAX_CHARS){alert.textContent=`This text is too long to paste: ${(source.value.match(/\S+/g)||[]).length.toLocaleString('en-US')} words, ${source.value.length.toLocaleString('en-US')} characters. The limit is ${PASTE_MAX_CHARS.toLocaleString('en-US')} characters (about 40,000 words). Trim it, or save it as an EPUB or PDF and add the file.`;save.disabled=false;return;}
    let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
    const signature=JSON.stringify(details);
    try{
