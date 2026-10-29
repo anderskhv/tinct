@@ -13,16 +13,16 @@
   "humanApproval": false,
   "providerCalls": 0,
   "prefaceHandling": {
-    "frankenstein": "Existing recovered_approved preface preserved unchanged; candidate uses an opening-unit approach rather than its later plot revelations. No signature or approval transferred.",
+    "frankenstein": "Existing recovered_approved preface preserved unchanged; candidate reflects full AI reading while avoiding later plot revelations. No signature or approval transferred.",
     "meditations": "Existing draft preserved unchanged; staged candidate now reflects a full twelve-book AI reading. No human approval or signature transferred.",
     "bible": "Existing draft preserved unchanged; Romans 1 is a separate chapter candidate, not a replacement Bible preface."
   },
   "remaining": [
     "Human editorial review and any requested revision",
-    "Frankenstein whole-book semantic review remains; Meditations whole-book AI self-review is complete but independent editorial acceptance is not.",
+    "Both whole-book candidates have completed AI semantic self-review; independent editorial acceptance remains outstanding.",
     "More useful context topics only where source-checked and helpful; no filler quota",
     "Real-provider output quality remains unverified",
-    "Runtime assets remain unchanged; publication requires later user instruction"
+    "Candidate prose remains outside runtime assets; publication requires later user instruction."
   ],
   "validation": [
     {
@@ -33,7 +33,7 @@
     },
     {
       "file": "frankenstein-original-en-book.json",
-      "openingWords": 65,
+      "openingWords": 75,
       "exactQuoteValidation": "pass",
       "sourceIdentity": "pass"
     },
@@ -420,16 +420,51 @@
         "paragraphs": 26,
         "words": 2842,
         "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 23,
+        "title": "Chapter 19",
+        "paragraphs": 23,
+        "words": 2609,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 24,
+        "title": "Chapter 20",
+        "paragraphs": 37,
+        "words": 3519,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 25,
+        "title": "Chapter 21",
+        "paragraphs": 49,
+        "words": 3736,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 26,
+        "title": "Chapter 22",
+        "paragraphs": 41,
+        "words": 3412,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 27,
+        "title": "Chapter 23",
+        "paragraphs": 30,
+        "words": 2592,
+        "status": "read in full in untruncated batches"
+      },
+      {
+        "number": 28,
+        "title": "Chapter 24",
+        "paragraphs": 82,
+        "words": 8237,
+        "status": "read in full in untruncated batches"
       }
     ],
-    "remainingUnits": [
-      23,
-      24,
-      25,
-      26,
-      27,
-      28
-    ],
+    "remainingUnits": [],
     "findings": [
       {
         "finding": "The draft emphasized recognition but underrepresented the wish for a correcting friend and the mediation of recorded accounts.",
@@ -493,15 +528,43 @@
           "21:14"
         ],
         "action": "Added Learning and belonging; refined care cue to distinguish understanding suffering from excusing actions. Did not reproduce narrator cultural generalizations as historical facts. Landscape remains a candidate for final consolidation."
+      },
+      {
+        "finding": "The final chapter preserves competing judgments and unsettled attitudes to ambition; an opening focused only on Walton or a single moral would undersell the whole work.",
+        "evidence": [
+          "28:31",
+          "28:39",
+          "28:47",
+          "28:61",
+          "28:62",
+          "28:76"
+        ],
+        "action": "Rewrote the opening around learning, companionship, responsibility and the reader’s judgment, without revealing later events."
+      },
+      {
+        "finding": "Landscape repeatedly connects emotional perception with physical limits. Reading-a-letter advice overlapped with structure guidance.",
+        "evidence": [
+          "23:7",
+          "26:35",
+          "27:13",
+          "28:23"
+        ],
+        "action": "Consolidated letter guidance into Structure and added Landscapes and feeling, keeping five What to notice topics."
       }
     ],
-    "acceptance": "incomplete",
+    "acceptance": "AI whole-book semantic self-review completed; candidate remains unapproved, without independent editorial acceptance.",
     "contextUpdate": {
       "revision": "candidate-3-verified-context",
       "topics": 2,
       "resources": 2,
       "source": "Charles E. Robinson, Introduction to The Frankenstein Notebooks, Shelley-Godwin Archive",
       "limit": "Outside context verified; whole-book reading remains incomplete and no approval transferred."
+    },
+    "readingCoverage": {
+      "units": 28,
+      "paragraphs": 764,
+      "splitWords": 74919,
+      "description": "All four letters and twenty-four numbered chapters read fully across recorded passes."
     }
   }
 }

@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/frankenstein-original-en.json",
     "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
-    "reviewScope": "Letters 1–4 and numbered Chapters 1–18 read in full; all unit labels checked. Chapters 19–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
+    "reviewScope": "All four letters and twenty-four numbered chapters read in full from this exact edition. Whole-book AI semantic self-review completed; no independent or human approval."
   },
   "primer": {
     "identity": {
@@ -19,11 +19,11 @@
       "language": "en"
     },
     "content": {
-      "opening": "Robert Walton wants his voyage to matter. Writing to his sister from Russia, he pictures discovery, public benefit, and a place among the people he admires. His confidence has to carry him through uncertainty as well as danger. Begin by listening to the person making that case: his excitement, his need for encouragement, and the ease with which imagined possibilities become reasons to press ahead.",
+      "opening": "Robert Walton writes to his sister with discovery and glory in view, but he also longs for someone who understands him. Those desires open a novel in which learning, ambition, and the need for companionship meet questions of responsibility. Listen closely as people tell their stories: what they ask you to believe, whom they blame, and whose suffering they recognize. You can feel the force of an account without accepting its speaker’s judgment as final.",
       "structure": [
         {
           "title": "Four letters before Chapter 1",
-          "explanation": "This edition begins with Letters 1–4 and then has twenty-four numbered chapters. Keep track of who speaks, who listens, and who records an account. A story heard and written down by another person reaches you through that person’s attention and interests as well as the speaker’s words."
+          "explanation": "This edition begins with Letters 1–4 and then has twenty-four numbered chapters. Keep track of who speaks, who listens, and who records an account. A letter can reassure its recipient or seek agreement as well as convey news. Stories heard and written down by another person also reach you through that person’s attention and interests."
         }
       ],
       "peopleAndIdeas": [
@@ -54,11 +54,6 @@
       ],
       "whatToNotice": [
         {
-          "title": "Reading a letter",
-          "explanation": "A letter can inform its recipient, reassure them, and seek their agreement at the same time. Treat Walton’s confidence as something expressed to Margaret, rather than as independent confirmation that his expectations are sound.",
-          "takeaway": "Keep the recipient in mind."
-        },
-        {
           "title": "Discovery and recognition",
           "explanation": "Walton moves between the benefit his journey might bring others and the distinction it might bring him. Notice when those motives reinforce each other and when the language makes them harder to separate.",
           "quotes": [
@@ -85,6 +80,10 @@
         {
           "title": "Care and obligation",
           "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do, including whether they listen. Keep understanding another’s suffering distinct from accepting every demand or excusing every action."
+        },
+        {
+          "title": "Landscapes and feeling",
+          "explanation": "Mountains, lakes, changing weather, and expanses of ice can offer relief, stir fear, or take on the colour of a person’s grief. Notice how the same surroundings can look different as a mood changes. The natural world also places physical limits on people, whatever they hope or believe."
         }
       ],
       "usefulReferences": []
@@ -113,7 +112,7 @@
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
   },
-  "editorialRevision": "candidate-6-chapters-13-18-review",
+  "editorialRevision": "candidate-7-whole-book-review",
   "contextEvidence": [
     {
       "topics": [
@@ -199,6 +198,29 @@
         "chapter-21:paragraph-14"
       ],
       "verification": "Chapters 13–18 read in full in four untruncated batches. Learning cue treats inherited social judgments as material for scrutiny; coercion and responsibility remain distinct from sympathy. No names, events, outcomes or later quotations introduced."
+    },
+    {
+      "topics": [
+        "Whole-book opening",
+        "Four letters before Chapter 1",
+        "Landscapes and feeling",
+        "Care and obligation"
+      ],
+      "sourcePath": "app/public/data/editions/frankenstein-original-en.json",
+      "passageIds": [
+        "chapter-23:paragraph-7",
+        "chapter-26:paragraph-13",
+        "chapter-26:paragraph-29",
+        "chapter-27:paragraph-13",
+        "chapter-28:paragraph-23",
+        "chapter-28:paragraph-31",
+        "chapter-28:paragraph-39",
+        "chapter-28:paragraph-47",
+        "chapter-28:paragraph-61",
+        "chapter-28:paragraph-62",
+        "chapter-28:paragraph-76"
+      ],
+      "verification": "Chapters 19–24 read fully in six untruncated batches, including Chapter 24 in three batches. Completed holistic review of all 28 source units. Opening and general reading cues disclose no later events or outcomes; exact quotations remain confined to opening letters. Historical allusions and source chronology not independently audited."
     }
   ]
 }
