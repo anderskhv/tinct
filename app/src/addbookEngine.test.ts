@@ -18,6 +18,7 @@ type Engine = {
   forgetBookHere(hex: string, storages?: Storage[]): number
   legacyEpubAnnotations: { get(key: string): unknown; set(key: string, value: unknown[]): void }
   preparePdf(file: File, key: string): Promise<{ href: string }>
+  namePdf(file: File, key: string): Promise<Record<string, string> | null>
   pdfHref(key: string): string
   library: { put(record: Record<string, unknown>): Promise<boolean>; get(key: string, expectedOwner?: string): Promise<unknown>; remove(key: string, expectedOwner?: string): Promise<boolean | void>; touch(key: string, patch: object): Promise<void> }
   cloud: { mine(): Map<string, { id: string }>; refresh(): Promise<boolean> }
@@ -41,6 +42,29 @@ describe('Add a book’s engine (add-engine.js)', () => {
     engine.library.put = put
     await expect(engine.keepFile(new File(['pdf'], 'again.pdf'), { key, kind: 'pdf', bytes: new Uint8Array([1, 2]) })).resolves.toBe(true)
     expect(put).toHaveBeenCalledWith(expect.objectContaining({ key, owner: 'u1', cloudId: 'saved-file', title: 'Kept title', addedAt: 12 }))
+  })
+
+  it('names a just-added PDF by its own title and author, never over a title or author the reader gave', async () => {
+    const g = window as unknown as { pdfjsLib?: unknown; TinctPdfScan?: unknown }
+    g.pdfjsLib = { getDocument: () => ({ promise: Promise.resolve({ destroy() {} }) }) }
+    g.TinctPdfScan = { titleOf: async () => ({ title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay' }) }
+    try {
+      const engine = loadEngine({ userId: 'u1' })
+      const key = 'pdf:' + 'c'.repeat(24)
+      const touch = vi.fn(async () => {})
+      engine.library.touch = touch
+      for (const [record, patch] of [
+        [{ title: 'book', author: '' }, { title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay' }],
+        [{ title: 'Scan 0042', author: '' }, { title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay' }],
+        [{ title: 'My MacKay', author: '' }, { author: 'David J.C. MacKay' }],
+        [{ title: 'book', author: 'Me', metadataRev: 1 }, null],
+      ] as const) {
+        touch.mockClear()
+        engine.library.get = async () => ({ key, owner: 'u1', kind: 'pdf', name: record.title === 'Scan 0042' ? 'scan_0042.pdf' : 'book.pdf', ...record })
+        await engine.namePdf(new File(['%PDF'], 'book.pdf'), key)
+        if (patch) expect(touch).toHaveBeenCalledWith(key, patch); else expect(touch).not.toHaveBeenCalled()
+      }
+    } finally { delete g.pdfjsLib; delete g.TinctPdfScan }
   })
 
   it('does not turn a new unsynced file into an account copy', async () => {

@@ -176,6 +176,8 @@
     let t = readable(raw).replace(/^microsoft (?:word|powerpoint) - /i, '');
     if (t.length <= 3 || !/\p{L}{2}/u.test(t)) return null;
     if (/^(untitled|microsoft word|document|title|unknown|none|slide \d+|print|scan)\b/i.test(t)) return null;
+    // A print driver's or tool's job name ("printmgr file", "PDFCreator job 12", "Layout 1", "doc04512320231120"), not a title.
+    if (/^(printmgr|print ?manager|pdf ?creator|acrobat|adobe|distiller|ghostscript|quartz|layout \d|job \d|doc\d)/i.test(t) || /^\S+ (file|job|document)$/i.test(t)) return null;
     if (/\.(pdf|docx?|tex|dvi|html?|txt|rtf|odt|pages|indd|qxd|ps)$/i.test(t) || /^[a-z]:\\|^\/|^https?:/i.test(t)) return null;
     if (bare(t) === bare(name) || (/[_]/.test(t) && !/\s/.test(t)) || /\(\d+\)\s*$/.test(t)) return null;
     if (/^[\w-]+$/.test(t) && /\d/.test(t)) return null; // "scan0042", "IMG-2024"
@@ -191,7 +193,10 @@
   }
   const NOT_A_PERSON = /^(user|admin|administrator|owner|unknown|author|anonymous|default|guest|windows user|microsoft|office|adobe|acrobat|pdf|latex|tex|scanner|copier|hp|canon|xerox|epson|ricoh|brother)\b/i;
   function metaAuthor(raw) {
-    const t = readable(raw).replace(/^by\s+/i, '');
+    let t = readable(raw).replace(/^by\s+/i, '');
+    // A library catalogue's heading ("Darwin, Charles, 1809-1882"): the name as printed, without the dates.
+    const catalogue = /^([\p{Lu}][\p{L}'’-]+), ([\p{Lu}][\p{L}'’. -]*?),? (?:\d{3,4}\??-(?:\d{3,4}\??)?|b\. \d{3,4}|d\. \d{3,4})\.?$/u.exec(t);
+    if (catalogue) t = catalogue[2].trim() + ' ' + catalogue[1];
     if (t.length < 3 || t.length > 120 || !/\p{L}{2}/u.test(t)) return null;
     if (NOT_A_PERSON.test(t) || /@|https?:|www\.|\.com\b|\d{3,}/i.test(t)) return null;
     return t;
@@ -232,7 +237,10 @@
       // A title the running heads repeat ("Constructor Theory" over every page) is still the title where it is
       // set large, away from the page's edges (version 6).
       const lettered = p.rows.filter((r, i) => !skip.has(i) && /\p{L}{2}/u.test(r.text)), pageBody = bodyOf(lettered);
-      const rows = lettered.filter(r => !isFurniture(p, r) || (pageBody && !atEdge(p, r) && !isPageNumber(r.text) && r.size >= pageBody.size * 1.3));
+      // On a short cover (a few lines on page 1) the largest line is the title even where later pages repeat it
+      // ("BERKSHIRE HATHAWAY INC." over every page of its annual report).
+      const coverTop = p.n === 1 && lettered.length <= 6 ? Math.max(...lettered.map(r => r.size)) : Infinity;
+      const rows = lettered.filter(r => !isFurniture(p, r) || (!atEdge(p, r) && !isPageNumber(r.text) && ((pageBody && r.size >= pageBody.size * 1.3) || r.size >= coverTop)));
       if (!rows.length) continue;
       const body = bodyOf(rows);
       const top = Math.max(...rows.map(r => r.size));
@@ -650,10 +658,7 @@
     const first = [];
     for (let n = 1; n <= Math.min(3, pdf.numPages); n++) first.push(await pageOf(n));
     if (!live()) return null;
-    const printed = printedTitle(first, furniture(first));
-    const fromMeta = sameTitleLonger(metaTitle(info.Title, fileName), printed.title);
-    const title = fromMeta || printed.title || cleanFileName(fileName);
-    const author = metaAuthor(info.Author) || printed.author || '';
+    const { title, author, source } = pickTitle(info, first, fileName);
     onTitle?.({ title, author });
     const total = Math.min(maxPages, pdf.numPages);
     const all = [...first];
@@ -681,11 +686,35 @@
     if (!live() || !kind) return null;
     return {
       v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language, textPages, layout: kind,
-      source: { title: fromMeta ? 'metadata' : printed.title ? 'printed' : 'file', author: metaAuthor(info.Author) ? 'metadata' : printed.author ? 'printed' : 'none' },
+      source,
     };
+  }
+  /**
+   * The book's title and author: the metadata Title unless it is junk, else the largest type on the
+   * first pages, else the file name made readable; the author from the metadata, else the title page.
+   * info: pdf.js metadata info; first: the first pages as pageOf reads them.
+   */
+  function pickTitle(info, first, fileName) {
+    const printed = printedTitle(first, furniture(first));
+    const fromMeta = sameTitleLonger(metaTitle(info?.Title, fileName), printed.title);
+    const title = fromMeta || printed.title || cleanFileName(fileName);
+    const fromMetaAuthor = metaAuthor(info?.Author);
+    return { title, author: fromMetaAuthor || printed.author || '',
+      source: { title: fromMeta ? 'metadata' : printed.title ? 'printed' : 'file', author: fromMetaAuthor ? 'metadata' : printed.author ? 'printed' : 'none' } };
+  }
+  /** Title and author alone (metadata and the first three pages), for naming a PDF the moment it is added. */
+  async function titleOf(pdf, { fileName = '' } = {}) {
+    let info = {};
+    try { info = (await pdf.getMetadata())?.info || {} } catch {}
+    const first = [];
+    for (let n = 1; n <= Math.min(3, pdf.numPages); n++) {
+      const page = await pdf.getPage(n), [x0, y0, x1, y1] = page.view;
+      first.push({ n, page, x0, w: x1 - x0, y0, h: y1 - y0, rows: textRows((await page.getTextContent()).items) });
+    }
+    return pickTitle(info, first, fileName);
   }
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);

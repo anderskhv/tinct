@@ -17,6 +17,7 @@ interface ScanResult { v: number; title: string; author: string; pages: number; 
 interface PdfScanApi {
   SCAN_VERSION: number
   scan: (pdf: unknown, options: { fileName: string }) => Promise<ScanResult>
+  titleOf: (pdf: unknown, options: { fileName: string }) => Promise<{ title: string; author: string; source: { title: string; author: string } }>
   current: (scan: unknown) => boolean
   cleanFileName: (name: string) => string
   metaTitle: (raw: unknown, name: string) => string | null
@@ -301,5 +302,54 @@ describe('PDF scan: the rules', () => {
       { y: 590, size: 11, text: 'All the objects of human reason', words: 6 },
     ]
     expect([...scanApi.epigraphRows(rows)].sort()).toEqual([1, 2, 3])
+  })
+})
+
+// The uploads QA named by their file names on production (29 Oct 2026): each case as the real file has it.
+describe('PDF title picker: the real uploads of 29 Oct 2026', () => {
+  async function titleOf(bytes: Buffer, fileName: string) {
+    const pdf = await pdfjs.getDocument({ data: new Uint8Array(bytes), isEvalSupported: false, disableFontFace: true, verbosity: 0 }).promise
+    try { return await scanApi.titleOf(pdf, { fileName }) } finally { await pdf.destroy() }
+  }
+  const T = 'Times-Roman', B = 'Times-Bold'
+  it('MacKay, book.pdf: no metadata, so the title page’s largest type and its author', async () => {
+    const notice = { y: 784, size: 8, font: T, text: 'Copyright Cambridge University Press 2003. On-screen viewing permitted.' }
+    const got = await titleOf(makePdf({ pages: [
+      { lines: [notice, { y: 632, size: 13, font: T, text: 'Information Theory, Inference, and Learning Algorithms' }, { y: 555, size: 13, font: T, text: 'David J.C. MacKay' }] },
+      ...[1, 2].map(() => ({ lines: [notice, ...prose(700, 30)] })),
+    ] }), 'book.pdf')
+    expect(got).toMatchObject({ title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay', source: { title: 'printed' } })
+  })
+  it('Berkshire Hathaway 2023, report.pdf: refuses the print driver’s “printmgr file” and takes the cover’s name, though every page repeats it', async () => {
+    const head = { y: 760, size: 9, font: T, text: 'BERKSHIRE HATHAWAY INC.' }
+    const got = await titleOf(makePdf({ info: { Title: 'printmgr file' }, pages: [
+      { lines: [{ y: 504, size: 18.5, font: B, text: 'BERKSHIRE HATHAWAY INC.' }, { y: 254, size: 13.5, font: T, text: '2023' }, { y: 236, size: 13.5, font: T, text: 'ANNUAL REPORT' }] },
+      { lines: [head, ...prose(700, 30)] }, { lines: [head, ...prose(700, 30)] },
+    ] }), 'report.pdf')
+    expect(got.title).toBe('BERKSHIRE HATHAWAY INC.')
+  })
+  it('an archive.org scan, scan.pdf: the metadata title and the catalogue’s author without the dates', async () => {
+    const got = await titleOf(makePdf({ info: { Title: 'The origin of species', Author: 'Darwin, Charles, 1809-1882' }, pages: [
+      { size: [432, 648], images: [{ x: 0, y: 0, w: 432, h: 648, pw: 90, ph: 135 }] },
+    ] }), 'scan.pdf')
+    expect(got).toEqual({ title: 'The origin of species', author: 'Charles Darwin', source: { title: 'metadata', author: 'metadata' } })
+  })
+  it('arXiv, paper.pdf: empty metadata, so the printed title and authors', async () => {
+    const got = await titleOf(makePdf({ info: { Title: '', Author: '' }, pages: [
+      { lines: [{ y: 700, size: 17, font: B, text: 'Attention Is All You Need' }, { y: 660, size: 10, font: T, text: 'Ashish Vaswani' }, ...prose(600, 30, { size: 10 })] },
+    ] }), 'paper.pdf')
+    expect(got).toMatchObject({ title: 'Attention Is All You Need', author: 'Ashish Vaswani' })
+  })
+  it('a deck without a title anywhere, deck.pdf: the file name made readable, the metadata author', async () => {
+    const got = await titleOf(makePdf({ info: { Author: 'Geoffrey Hinton' }, pages: [{ lines: prose(700, 20) }] }), 'deck (1).pdf')
+    expect(got).toMatchObject({ title: 'Deck', author: 'Geoffrey Hinton', source: { title: 'file' } })
+  })
+  it('refuses tools’ job names and reads catalogue authors', () => {
+    for (const raw of ['printmgr file', 'PDFCreator job 12', 'Layout 1', 'doc04512320231120', 'Microsoft Word - report.docx', 'untitled', '2023', 'ab'])
+      expect(scanApi.metaTitle(raw, 'x.pdf')).toBeNull()
+    expect(scanApi.metaTitle('The origin of species', 'scan.pdf')).toBe('The origin of species')
+    expect(scanApi.metaAuthor('Darwin, Charles, 1809-1882')).toBe('Charles Darwin')
+    expect(scanApi.metaAuthor('Woolf, Virginia, 1882-1941.')).toBe('Virginia Woolf')
+    expect(scanApi.metaAuthor('Geoffrey Hinton')).toBe('Geoffrey Hinton')
   })
 })

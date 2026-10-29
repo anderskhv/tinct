@@ -22,7 +22,7 @@ describe('Library private-book Engine loader', () => {
       expect(requested).toEqual([
         '/lab/addbook/js/tinct-api.js?v=20261023paste1',
         '/lab/addbook/js/epub.js',
-        '/lab/addbook/js/add-engine.js?v=20261023readerown1',
+        '/lab/addbook/js/add-engine.js?v=20261029titles1',
       ])
       expect(globals.TinctAI).toMatchObject({ session: expect.any(Function), books: { remove: expect.any(Function) } })
       expect(globals.TinctEpub).toMatchObject({ parse: expect.any(Function) })
