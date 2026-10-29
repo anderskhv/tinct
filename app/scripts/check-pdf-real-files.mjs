@@ -438,7 +438,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
         db.close()
         return { edition: record.edition, place: JSON.parse(localStorage.getItem(`tinct-addbook:place:${hex}`) || 'null') }
       }, hex)
-      assert.equal(converted.edition.converter, 5)
+      assert.equal(converted.edition.converter, 6)
       for (const { page: sourcePage, text } of checks.passages || []) {
         assert(converted.edition.chapters.some(chapter => chapter.paragraphs.some((paragraph, i) => chapter.pages[i] === sourcePage && paragraph.includes(text))), 'expected complete passage in source order on its original page')
       }

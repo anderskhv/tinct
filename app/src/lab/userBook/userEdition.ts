@@ -48,7 +48,9 @@ export type UserEditionSource = 'epub' | 'pdf' | 'ocr'
  */
 // 4 (28 Oct 2026): sloped OCR lines and wrapped headings are reconstructed before conversion.
 // 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column, not line by line across.
-export const PDF_TEXT_CONVERTER = 5
+// 6 (29 Oct 2026): paragraphs indented on their first line are not a hanging-indent list; a heading past a
+// page's first 40 lines starts its chapter; a figure inside a paragraph's run follows the paragraph.
+export const PDF_TEXT_CONVERTER = 6
 /**
  * The format of a recognised (OCR) edition assembled in the account (§3 of the PDF editions plan).
  * 2 (15 Oct 2026): captions and algorithm boxes kept, a paper's numbered sections as chapters.
