@@ -25,7 +25,7 @@ export async function detectPdfFigures(canvas: HTMLCanvasElement, items: Awaited
       spans.push({ x: tx[4] / view.width, y: (tx[5] - size * .86) / view.height, w: item.width * view.scale / view.width, h: size * 1.1 / view.height, text: item.str })
       body.push({ x: tx[4], base: tx[5], size, w: item.width * view.scale, str: item.str })
     }
-    return engine.regions.find({ ink, W, H, spans, body, vp: view }, engine.margin)
+    return engine.regions.find({ ink, W, H, spans, body, vp: view, captionColumns: true }, engine.margin)
   } finally { small.width = small.height = 0 }
 }
 /** A fresh raw drawing, independent of theme filters and virtual-page mounting. Never persisted. */

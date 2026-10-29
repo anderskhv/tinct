@@ -31,6 +31,7 @@ export const DESK_SWATCH: Record<HighlightColor, string> = {
 
 export interface SelectionDeskBarProps {
   sharedReader?: boolean
+  ariaLabel?: string
   state: DeskBarState
   /** The colour a click on the highlighter uses, or the saved highlight's colour. */
   color: HighlightColor
@@ -48,11 +49,11 @@ export interface SelectionDeskBarProps {
   onAskQuestion?: (question: string) => void
   onComposeAsk?: (initialQuestion?: string) => void
   onExplain: () => void
-  onSimplify: () => void
+  onSimplify?: () => void
   onMore: (id: DeskMoreId) => void
   onHighlight: () => void
   onSwatch: (color: HighlightColor) => void
-  onNote: () => void
+  onNote?: () => void
   onRemove: () => void
   /** Container props owned by SelectionPopup (keyboard trap, dismissal guards). */
   containerProps?: Record<string, unknown>
@@ -182,7 +183,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     <button key={item.key} type="button" className="lab-pbar-swatch" data-testid={`lab-dbar-color-${item.key}`} aria-label={item.label}
       aria-pressed={marked && item.key === color} style={{ background: DESK_SWATCH[item.key] }} onClick={() => props.onSwatch(item.key)} />
   ))
-  const note = <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
   const more = (rows: DeskMoreId[][]) => rows.some(group => group.length)
     ? <button type="button" className="lab-pbar-item" data-testid="lab-dbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
     : null
@@ -212,7 +213,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
       <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>
+      {props.onSimplify && <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>}
       {more(moreRows)}
       {sep}
       <button type="button" className="lab-pbar-item is-hl" data-testid="lab-dbar-highlight" aria-label={`Highlight in ${current.label}`} onClick={props.onHighlight}>
@@ -231,7 +232,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       data-bar-state={state}
       data-ask-open={askOpen ? 'true' : undefined}
       role="toolbar"
-      aria-label="Selection"
+      aria-label={props.ariaLabel ?? "Selection"}
       style={{ position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
       onPointerDown={keep}
       onMouseDown={keep}

@@ -747,7 +747,7 @@ it('opens menu Chat at the current PDF fraction with typing focused and preserve
   fireEvent.keyDown(field, { key: 'Escape' })
   fireEvent.click(screen.getByTestId('lab-super')); fireEvent.click(screen.getByRole('button', { name: 'Chat', exact: true }))
   expect((screen.getByRole('textbox', { name: 'Ask about this page' }) as HTMLInputElement).value).toBe('What is happening here?')
-  fireEvent.submit(screen.getByRole('textbox', { name: 'Ask about this page' }).closest('form')!)
+  fireEvent.keyDown(screen.getByRole('textbox', { name: 'Ask about this page' }), { key: 'Enter' })
   await screen.findByText('A current-page answer.')
   expect(ask.mock.calls[0]).toEqual([expect.objectContaining({ page: 1, rects: [[1, .1, .3, .001, .001]] }), 'ask', 'What is happening here?', expect.any(AbortSignal), expect.any(Function)])
 })
