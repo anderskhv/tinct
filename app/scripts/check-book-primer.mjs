@@ -31,11 +31,17 @@ await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
 const origin = `http://127.0.0.1:${server.address().port}`
 try {
   for (const [engine, launcher] of [['chromium', chromium], ['webkit', webkit]]) {
+    if (process.env.PRIMER_ENGINE && process.env.PRIMER_ENGINE !== engine) continue
     const browser = await launcher.launch({ headless: true, ...(engine === 'chromium' ? { args: ['--mute-audio'] } : {}) })
     try {
       for (const phone of [false, true]) {
         const context = await browser.newContext({ ...(phone ? devices['iPhone 13'] : {}), viewport: phone ? { width: 390, height: 844 } : { width: 1440, height: 900 }, reducedMotion: 'reduce', serviceWorkers: 'block' })
-        const page = await context.newPage(), errors = [], requests = [], failedRequests = []
+        if (process.env.PRIMER_TRACE === '1') await context.tracing.start({ screenshots: true, snapshots: true, sources: false })
+        const page = await context.newPage(), errors = [], requests = [], chatRequests = [], failedRequests = []
+        if (process.env.PRIMER_TRACE === '1') {
+          page.on('framenavigated', frame => { if (frame === page.mainFrame()) console.log('NAV', Date.now(), frame.url()) })
+          page.on('requestfailed', request => console.log('REQUEST_FAILED', Date.now(), request.url(), request.failure()))
+        }
         page.on('pageerror', e => { errors.push(e.message); console.error('pageerror', page.url(), e.stack) })
         page.on('requestfailed', request => { if (new URL(request.url()).origin === origin) failedRequests.push({ page: page.url(), url: request.url(), failure: request.failure() }) })
         await page.route('**/*', async route => {
@@ -52,6 +58,10 @@ try {
               content: { opening: 'A letter makes distance tangible, placing the reader beside its writer before the journey begins.', structure: [{ title: 'The address', explanation: 'Notice how the writer addresses the recipient.', quotes: variant ? [{ text: sourceQuote, passageId: `chapter-${variant.chapter}:paragraph-3` }] : request.primerType === 'book' ? [{ text: bookQuote, passageId: 'chapter-1:paragraph-3' }, { text: quote, passageId: 'chapter-2:paragraph-3' }] : [{ text: quote, passageId: 'chapter-2:paragraph-3' }] }], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [{ title: 'Distance', explanation: 'Follow the language of distance.' }], usefulReferences: [] },
               resources: request.primerType === 'book' ? editorialResources : [], origin: 'generated', promptVersion: 'book-primer-1', createdAt: '2026-10-28T00:00:00Z' } } })
           }
+          if (['/api/lab-chat', '/api/chat'].includes(url.pathname)) {
+            chatRequests.push(route.request().postDataJSON())
+            return route.fulfill({ contentType: 'text/event-stream', body: 'data: '+JSON.stringify({type:'content_block_delta',delta:{type:'text_delta',text:'A synthetic follow-up to the primer.'}})+'\n\ndata: {"type":"message_stop"}\n\n' })
+          }
           if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
           return route.continue()
         })
@@ -66,6 +76,24 @@ try {
           await primer.locator('summary').filter({ hasText: /^Structure$/ }).click()
           await primer.locator('summary').filter({ hasText: /^The address$/ }).click()
           assert.equal(await primer.getByText(quote, { exact: true }).count(), 1)
+          if (!phone) {
+            const follow = page.getByPlaceholder('Ask a follow-up', { exact: true })
+            await follow.fill('My question about this primer')
+            const place = await page.locator('.lab').getAttribute('data-place')
+            await primer.getByRole('button', { name: 'Discuss this', exact: true }).click()
+            assert.equal(await follow.evaluate(el => el === document.activeElement), true)
+            assert.equal(await follow.inputValue(), 'My question about this primer')
+            assert.equal(await primer.isVisible(), true)
+            assert.equal(await page.locator('.lab').getAttribute('data-place'), place)
+            await page.getByTestId('lab-phone-card-send').click()
+            await page.getByText('A synthetic follow-up to the primer.', { exact: true }).first().waitFor()
+            assert.equal(await primer.isVisible(), true, 'Margin follow-up must retain the primer card')
+            assert.equal(chatRequests.length, 1)
+            assert.ok(JSON.stringify(chatRequests[0]).includes('A letter makes distance tangible'), 'Follow-up carries the displayed primer')
+            await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').some(c => c.messages.some(m => m.content === 'A synthetic follow-up to the primer.')))
+            assert.equal(await page.locator('.lab').getAttribute('data-place'), place)
+
+          }
           const overflow = await primer.evaluate(el => el.scrollWidth > el.clientWidth + 1)
           assert.equal(overflow, false)
           await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}.png` })
@@ -151,7 +179,7 @@ try {
           }
           assert.deepEqual(errors, [])
           console.log(`${engine} ${phone ? 'phone' : 'margin'}: chapter disclosures, quote navigation, and book primer preserving place PASS`)
-        } catch (error) { await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-failure.png` }); console.error(errors, failedRequests); throw error } finally { await context.close() }
+        } catch (error) { await page.screenshot({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-failure.png` }); console.error(errors, failedRequests); throw error } finally { if (process.env.PRIMER_TRACE === '1') await context.tracing.stop({ path: `${output}/${engine}-${phone ? 'phone' : 'margin'}-trace.zip` }); await context.close() }
       }
     } finally { await browser.close() }
   }

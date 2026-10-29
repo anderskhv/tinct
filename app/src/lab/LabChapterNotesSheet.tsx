@@ -62,6 +62,15 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   const mounted = useRef(true)
   // Set on every mount: React's development double mount runs the cleanup once.
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
+  const followHost = useRef<HTMLDivElement>(null)
+  const discuss = () => {
+    // Margin discussions continue in the card; its normal send path also keeps chat history.
+    if (embedded && follow) {
+      followHost.current?.querySelector<HTMLTextAreaElement | HTMLInputElement>('textarea, input')?.focus({ preventScroll: true })
+      return
+    }
+    onChat(title, beats)
+  }
   const [copied, setCopied] = useState(false)
   const copiedTimer = useRef<number | undefined>(undefined)
   useEffect(() => () => window.clearTimeout(copiedTimer.current), [])
@@ -106,7 +115,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
 
   const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
-          {state === 'ok' && primer ? <PrimerContentView primer={primer} onPassage={onPassage} onDiscuss={() => onChat(title, beats)} /> : <ol className="lab-catch-up-timeline">
+          {state === 'ok' && primer ? <PrimerContentView primer={primer} onPassage={onPassage} onDiscuss={discuss} /> : <ol className="lab-catch-up-timeline">
             {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
@@ -136,7 +145,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
           )}
         </div>
   )
-  if (embedded) return <>{timeline}{follow?.(state === 'ok' ? beats : null)}</>
+  if (embedded) return <>{timeline}{follow && <div ref={followHost}>{follow(state === 'ok' ? beats : null)}</div>}</>
   if (card) return <LabPhoneCard label={title} kind={`chapter-notes-${request.kind}`} onClose={onClose} foot={follow?.(state === 'ok' ? beats : null)}>{timeline}</LabPhoneCard>
   return (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-chapter-notes-layer">

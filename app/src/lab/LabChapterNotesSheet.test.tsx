@@ -205,3 +205,23 @@ describe('structured chapter primer in the existing reader sheet', () => {
     expect(localStorage.getItem(CHAPTER_NOTES_STORAGE_KEY)).toBeNull()
   })
 })
+
+
+describe('structured primer discussion in the margin', () => {
+  afterEach(() => { cleanup(); localStorage.clear(); vi.unstubAllGlobals() })
+  it('focuses the existing follow-up draft without opening Chat or regenerating the primer', async () => {
+    const content = { opening: 'A letter opens the account.', structure: [], peopleAndIdeas: [], helpfulContext: [], whatToNotice: [], usefulReferences: [] }
+    const primer = { identity: { scope: { kind: 'public' }, workId: 'bible', editionId: 'original-en', sourceVersion: 'source-v1', unitId: 'chapter-12', type: 'chapter', language: 'en' }, content, resources: [], origin: 'generated', createdAt: '2026-10-28', promptVersion: 'book-primer-2' }
+    const fetchMock = vi.fn(async () => Response.json({ primer }))
+    vi.stubGlobal('fetch', fetchMock)
+    const onChat = vi.fn(), onClose = vi.fn()
+    render(<LabChapterNotesSheet embedded request={{ ...request, kind: 'primer', format: 'structured-primer' }} title="Primer" onClose={onClose} onChat={onChat} onTalk={vi.fn()} follow={() => <textarea aria-label="Primer follow-up" defaultValue="My existing question" />} />)
+    await screen.findByText(content.opening)
+    fireEvent.click(screen.getByText('Discuss this'))
+    expect(document.activeElement).toBe(screen.getByRole('textbox', { name: 'Primer follow-up' }))
+    expect((document.activeElement as HTMLTextAreaElement).value).toBe('My existing question')
+    expect(onChat).not.toHaveBeenCalled()
+    expect(onClose).not.toHaveBeenCalled()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+})
