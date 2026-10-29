@@ -305,11 +305,23 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       await formulaBar.getByRole('button',{name:'Explain',exact:true}).click()
       await expect.poll(()=>calls.filter(c=>c.path==='/api/chat').length).toBeGreaterThan(1)
       const formulaRequest = JSON.parse(calls.filter(c=>c.path==='/api/chat').at(-1).body)
-      assert.equal(formulaRequest.companion.selection,'Formula')
+      // The model gets a description of the selected formula plus the whole page text, never the bare stand-in "Formula".
+      assert.match(formulaRequest.companion.selection,/^\[The reader selected a formula on page 14\. It is the attached image\.\]$/)
+      assert.match(formulaRequest.companion.context.pages[0].text,/binary entropy function/)
+      await page.screenshot({path:path.join(output,'formula-card.png')})
       const formulaImage = formulaRequest.messages.flatMap(m=>Array.isArray(m.content)?m.content:[]).find(b=>b.type==='image')
       assert(formulaImage && formulaImage.source.data !== image.source.data, 'formula Explain uses a different source crop')
       await fs.writeFile(path.join(output,'formula-explain-crop.png'),Buffer.from(formulaImage.source.data,'base64'))
       await page.keyboard.press('Escape')
+      // A highlighted figure reads as a highlight: a tinted fill, never a hard outline box.
+      await page.mouse.move(bounds.x + bounds.width * .81, bounds.y + bounds.height * .70)
+      await page.getByRole('toolbar', { name: 'Figure 1.3 actions' }).getByTestId('lab-dbar-highlight').click()
+      const mark = sheet.locator('.pdf-original__highlight').last()
+      await expect(mark).toBeVisible()
+      const look = await mark.evaluate(n => ({ fill: getComputedStyle(n).backgroundColor, outline: getComputedStyle(n).outlineStyle }))
+      assert(look.fill !== 'rgba(0, 0, 0, 0)' && look.outline === 'none', `figure highlight is a fill: ${JSON.stringify(look)}`)
+      await page.keyboard.press('Escape'); await page.mouse.move(5, 5)
+      await page.screenshot({path:path.join(output,'entropy-highlight.png')})
     }
     if (process.env.PDF_REAL_ACTIONS === '1') {
       // Exercise native selection over the actual PDF text layer, not seeded marks.
@@ -342,7 +354,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       }
       await page.getByTestId('lab-super').click()
       await page.getByText('Summarize', {exact:true}).click()
-      await expect(page.getByText('A grounded local fixture answer.',{exact:false})).toBeVisible({timeout:45000})
+      await expect(page.getByText('A grounded local fixture answer.',{exact:false}).last()).toBeVisible({timeout:45000})
       await expect(page.getByText('Highlight saved.', { exact: true })).toHaveCount(0)
       const summary = calls.filter(c=>c.path==='/api/chat').map(c=>JSON.parse(c.body)).at(-1)
       await expect.poll(()=>sets.cards.list.length,{timeout:15000}).toBeGreaterThan(0)
