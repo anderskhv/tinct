@@ -285,3 +285,49 @@ describe('Tinct text: pages read several at a time', () => {
     } finally { await pdf.destroy() }
   })
 })
+
+describe('Tinct text: justified columns, late headings and figures inside a paragraph (converter 6)', () => {
+  const row = (y: number, t: string, x = 72, x2 = 440, size = 11): Row => ({ y, x, x2, size, font: 'f1', text: t, words: t.split(' ').length, chars: t.length, fonts: new Set(['f1']) })
+  const scan = (entries: Array<{ id: string; label: string; page: number; kind: string; parent: null }> = []) => ({ title: 'T', author: '', textPages: 2, nav: entries.length ? 'outline' : 'pages', entries, language: 'en' })
+  const RUN = 'the solvers might have difficulties in approximating identity mappings by'
+
+  it('reads paragraphs indented on their first line as paragraphs, not a hanging-indent list, when each ends flush with the column', () => {
+    // ResNet (29 Oct 2026): every last line ends a sentence at the justified edge; before, each line was a paragraph.
+    const lines: Row[] = []
+    let y = 700
+    for (let p = 0; p < 5; p++) {
+      lines.push(row(y, 'Indented first line of a paragraph that runs on across the column', 84)); y -= 12
+      for (let i = 0; i < 3; i++) { lines.push(row(y, RUN)); y -= 12 }
+      lines.push(row(y, 'multiple nonlinear layers, and this paragraph ends right here.')); y -= 12
+    }
+    const made = text.fromPages([{ n: 1, x0: 0, y0: 0, w: 612, h: 792, rows: lines }], scan())
+    expect(made!.chapters[0].paragraphs).toHaveLength(5)
+    expect(made!.chapters[0].paragraphs[0]).toMatch(/^Indented first line .* ends right here\.$/)
+  })
+
+  it('starts a chapter at its heading even past the first forty lines of its page', () => {
+    const lines: Row[] = [row(776, '1. Introduction', 72, 200, 14), ...Array.from({ length: 50 }, (_, i) => row(760 - i * 12, i === 49 ? 'are unable to find solutions that are good.' : RUN))]
+    lines.push(row(140, '2. Related Work', 72, 200, 14), row(120, 'Residual representations encode by the residual vector and end here.'))
+    const made = text.fromPages([{ n: 1, x0: 0, y0: 0, w: 612, h: 792, rows: lines }], scan([
+      { id: 'a', label: '1. Introduction', page: 1, kind: 'chapter', parent: null },
+      { id: 'b', label: '2. Related Work', page: 1, kind: 'chapter', parent: null },
+    ]))
+    const related = made!.chapters.find(chapter => chapter.title === '2. Related Work')!
+    expect(related.paragraphs[0]).toMatch(/^Residual representations/)
+    expect(made!.chapters.find(chapter => chapter.title === '1. Introduction')!.paragraphs.at(-1)).toMatch(/solutions that are good\.$/)
+  })
+
+  it('sets a figure that interrupts a paragraph after the paragraph', () => {
+    const first = Array.from({ length: 10 }, (_, i) => row(700 - i * 12, i === 9 ? 'and many other recognition tasks have also' : RUN))
+    const second = [row(520, 'greatly benefited from very deep models and end the paragraph here.'), row(490, 'A new paragraph starts on this line and runs to its own end here.', 84)]
+    const figure = { id: 'fig1', kind: 'figure', x: 0.1, y: 0.05, w: 0.6, h: 0.25, label: 'Figure 1', css: { width: 300, height: 120 } }
+    const made = text.fromPages([
+      { n: 1, x0: 0, y0: 0, w: 612, h: 792, rows: first },
+      { n: 2, x0: 0, y0: 0, w: 612, h: 792, rows: second, regions: [figure] },
+    ] as never, scan())
+    const paragraphs = made!.chapters[0].paragraphs
+    const at = paragraphs.findIndex(text => text.startsWith('￼'))
+    expect(paragraphs[at - 1]).toMatch(/have also greatly benefited from very deep models/)
+    expect(paragraphs[at + 1]).toMatch(/^A new paragraph/)
+  })
+})

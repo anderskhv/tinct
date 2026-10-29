@@ -176,10 +176,12 @@ function quizTurns(raw: unknown): QuizTurn[] | null {
 
 /** Output bound per intent. The Worker never uses a caller-supplied value. */
 export const COMPANION_MAX_TOKENS: Readonly<Record<CompanionIntent, number>> = Object.freeze({
-  ask: 1024,
+  // A chat answer is as long as its question needs: 1024 cut a long answer off mid-word (iPhone, 29 Oct 2026,
+  // "Paul goes on in chap"). Only the words written are paid for.
+  ask: 4096,
   explain: 450,
   define: 450,
-  chapter: 1024,
+  chapter: 4096,
   library: 900,
   simplify: 450,
   define_sense: 60,

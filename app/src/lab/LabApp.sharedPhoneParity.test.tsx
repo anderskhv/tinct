@@ -299,3 +299,30 @@ it('selects a passage starting on a nested verse numeral and deletes its new not
   expect(document.querySelector('[data-testid="source-margin-item"][data-open="true"]')).toBeNull()
   expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').filter((m: {note?:string}) => m.note === 'A note to delete')).toHaveLength(0)
 })
+
+it('keeps a follow-up asked on the phone in its Explain card, without switching to Chat (29 Oct 2026)', async () => {
+  let reply = 'The first explanation.'
+  vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+    if (String(input).includes('/api/lab-chat') || String(input).includes('/api/chat')) {
+      const text = reply
+      return new Response(`data: {"type":"content_block_delta","delta":{"type":"text_delta","text":${JSON.stringify(text)}}}\n\ndata: {"type":"message_stop"}\n\n`, { headers: { 'Content-Type': 'text/event-stream' } })
+    }
+    return new Response('{}', { status: 404, headers: { 'Content-Type': 'application/json' } })
+  }))
+  openSharedPhone()
+  const root = screen.getByTestId('lab-root'), place = root.getAttribute('data-place')
+  selectPassage()
+  fireEvent.click(screen.getByTestId('lab-pbar-explain'))
+  await screen.findByText('The first explanation.')
+  reply = 'The follow-up answer.'
+  fireEvent.change(screen.getByTestId('lab-phone-card-input'), { target: { value: 'Why these words?' } })
+  fireEvent.click(screen.getByTestId('lab-phone-card-send'))
+  const card = screen.getByTestId('lab-phone-card')
+  await waitFor(() => expect(card.textContent).toContain('The follow-up answer.'))
+  expect(card.getAttribute('data-kind')).toBe('explain')
+  expect(card.textContent).toContain('Why these words?')
+  expect(card.textContent).toContain('The first explanation.')
+  expect(document.querySelector('.lab-ask')).toBeNull()
+  expect((screen.getByTestId('lab-phone-card-input') as HTMLTextAreaElement).value).toBe('')
+  expect(root.getAttribute('data-place')).toBe(place)
+})

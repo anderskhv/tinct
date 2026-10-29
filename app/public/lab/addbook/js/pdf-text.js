@@ -45,7 +45,9 @@
   // 3 (16 Oct 2026): formulas, figures and tables as crops of the page, where the device draws them.
   // Rebuild older editions with corrected sloped rows and wrapped headings; places migrate by PDF page.
   // 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column (textRows' gutter).
-  const PDF_TEXT_CONVERTER = 5;
+  // 6 (29 Oct 2026): first-line paragraph indents are not a hanging indent; chapter headings past line 40;
+  // a figure inside a paragraph's run follows the paragraph.
+  const PDF_TEXT_CONVERTER = 6;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 
@@ -328,11 +330,14 @@
       const m = list[i - 1], l = list[i];
       if (!atMargin(m, left) || l.x - left <= l.size || l.x - left > l.size * 4) continue;
       const d = Math.round(l.x - left), ends = m.x2 - m.x < (right - left) * 0.8 && TERMINAL.test(m.text);
-      const n = by.get(d) || { runs: 0, all: 0, from: i - 1 };
-      n.all++; if (!ends) n.runs++;
+      const n = by.get(d) || { runs: 0, all: 0, sentences: 0, from: i - 1 };
+      n.all++; if (!ends) n.runs++; if (TERMINAL.test(m.text)) n.sentences++;
       by.set(d, n);
     }
-    for (const [d, n] of by) if (n.runs >= 3 && n.runs >= n.all * 0.67) return { d, lines: new Set(list.slice(n.from)) };
+    // Paragraphs indented on their first line follow a line ending a sentence, even one set full to a justified
+    // column's edge; a list's entries mostly run on from their first line (ResNet, 29 Oct 2026: its indented
+    // paragraphs read as a hanging indent, a paragraph a line).
+    for (const [d, n] of by) if (n.runs >= 3 && n.runs >= n.all * 0.67 && n.sentences < n.all * 0.9) return { d, lines: new Set(list.slice(n.from)) };
     return null;
   }
   // Justified blocks set in from the margin (an abstract, a long quotation): three lines or more
@@ -360,9 +365,12 @@
   function paragraphsOf(lines, geo, hyphenated, indents) {
     const paras = [], notes = [];
     let cur = null, prev = null, note = null;
-    const flush = () => { if (cur) paras.push(cur); cur = null; prev = null };
+    const waiting = [];
+    const flush = () => { if (cur) paras.push(cur); paras.push(...waiting.splice(0)); cur = null; prev = null };
     for (const l of lines) {
-      if (l.kind === 'figure') { flush(); paras.push({ text: l.text, kind: null, page: l.n, breaks: [], figure: l.figure }); continue }
+      // A figure set inside a paragraph's run (at the top of the next column, "have also" | Figure 1 |
+      // "greatly benefited") waits until the paragraph ends (29 Oct 2026).
+      if (l.kind === 'figure') { const fig = { text: l.text, kind: null, page: l.n, breaks: [], figure: l.figure }; if (cur && cur.kind !== 'heading' && l.figure?.kind !== 'equation') waiting.push(fig); else { flush(); paras.push(fig) } continue }
       if (l.kind === 'foot') {
         if (!note || FOOTNOTE_MARK.test(l.text) || l.n !== note.last.n) { if (note) notes.push(note); note = { text: l.text, page: l.n, breaks: [], last: l } }
         else { note.text = joinLine(note.text, l.text, hyphenated); note.last = l }
@@ -438,7 +446,9 @@
       // The title as printed on its page (over one or two lines): a heading first, else any line.
       const from = i;
       find: for (const headingOnly of [true, false]) {
-        for (let k = from; k < lines.length && lines[k].n === e.page && k < from + 40; k++) {
+        // A heading anywhere on its page (a two-column page's second column starts past line 40: ResNet's
+        // "2. Related Work", 29 Oct 2026); any other line only near the top.
+        for (let k = from; k < lines.length && lines[k].n === e.page && (headingOnly || k < from + 40); k++) {
           if (headingOnly && lines[k].kind !== 'heading') continue;
           const one = norm(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + norm(lines[k + 1].text) : one;
           if (!one || !want) continue;
@@ -448,6 +458,12 @@
       }
       starts.push({ e, i, skip });
       at = i;
+    }
+    // An entry not found on its page (a contents line, "7.6. Algorithms 67") gives way to a later entry found there:
+    // the lines above that one's title stay with the chapter before.
+    for (let k = starts.length - 2; k >= 0; k--) {
+      const s = starts[k], next = starts[k + 1];
+      if (!s.skip.size && next.skip.size && next.e.page === s.e.page) s.i = next.i;
     }
     // Text before the first chapter (a preface without an entry) is a chapter under the book's title.
     const lead = lines.slice(0, starts[0].i).filter(l => l.kind === 'body');
