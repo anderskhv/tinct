@@ -24,7 +24,7 @@ jobs:
         working-directory: app
       - name: Remaining public cases, original one-dollar budget, no retries
         env:
-          PRIMER_CHECK_BASELINE: app/scripts/fixtures/primer-provider-40854965442-budget.json
+          PRIMER_CHECK_BASELINE: app/scripts/fixtures/primer-provider-40855530521-budget.json
           ANTHROPIC_API_KEY: ${{ secrets.CLAUDE_KEY }}
           PRIMER_CHECK_OUTPUT: ${{ runner.temp }}/primer-provider-results
         run: node app/scripts/check-primer-provider.mjs

@@ -257,5 +257,6 @@ it('passes a complete private book beyond the ordinary chat envelope without tru
   expect(JSON.stringify(bodies[0].system)).toContain('EXACT FINAL SOURCE.')
   expect(JSON.stringify(bodies[0].system).length).toBeGreaterThan(500000)
   expect(JSON.stringify(bodies)).not.toMatch(/private-owner|private-upload|private-work|private-edition/)
+  expect(bodies[0].messages[0].content).toContain('supplied whole book')
   expect(bodies[0].max_tokens).toBe(2400)
 })

@@ -281,6 +281,7 @@ describe('whole-book structured primers', () => {
     expect(response.status).toBe(200)
     expect(await response.json()).toMatchObject({ primer: { identity: { type: 'book', unitId: null, editionId: 'original-en' } } })
     const payload = fetchAnthropic.mock.calls[0][0] as any
+    expect(payload.messages[0].content).toMatch(/^Book: frank\.\n/)
     expect(payload.messages[0].content).toContain('Victor studies.')
     expect(payload.messages[0].content).toContain('A LATER SECRET.')
     expect(payload.system).toContain('In 60–90 words')

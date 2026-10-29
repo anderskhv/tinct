@@ -707,7 +707,9 @@ function tagData(value: string): string {
 
 /** Explain, Define and the margin actions carry no conversation: the one user turn is built here. */
 export function companionSelectionMessage(request: CompanionRequest): string | null {
-  if (request.structuredPrimer) return 'Return the structured primer JSON for the supplied section.'
+  if (request.structuredPrimer) return request.structuredPrimer.type === 'book'
+    ? 'Return the structured primer JSON for the supplied whole book.'
+    : 'Return the structured primer JSON for the supplied section.'
   if (isPrimerRequest(request)) return primerUserTurn(request.chapter.action)
   switch (request.intent) {
     case 'define':

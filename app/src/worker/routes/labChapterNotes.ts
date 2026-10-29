@@ -311,7 +311,8 @@ export async function handleLabChapterNotes(
     passage = chapterBody(chapter, through ?? undefined)
   }
   const where = parsed.bookTitle ? `${parsed.bookTitle}, ${chapter.title}` : chapter.title
-  const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
+  const location = primerSource?.identity.type === 'book' ? `Book: ${primerSource.title}` : `Location: ${where}`
+  const content = `${location}.\n\n${passage}\n\nWrite the card as JSON.`
   const system = primerSource ? bookPrimerRequest(primerSource).system : CHAPTER_NOTES_SYSTEM[parsed.kind]
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
   const maxTokens = primerSource ? 2400 : CHAPTER_NOTES_MAX_TOKENS[parsed.kind]

@@ -30,7 +30,8 @@ for(const file of files){
  assert.equal(crypto.createHash('sha256').update(JSON.stringify({units,passages})).digest('hex'),id.sourceVersion);
  const title=id.workId; // Supported endpoint caller without a display title.
  const request=bookPrimerRequest({identity:id,title,unitLabel:id.type==='chapter'?selected[0].title:undefined,reliable:true,units,passages});
- const content=`Location: ${selected[0].title}.\n\n${request.data}\n\nWrite the card as JSON.`;
+ const location=id.type==='book'?`Book: ${title}`:`Location: ${selected[0].title}`;
+ const content=`${location}.\n\n${request.data}\n\nWrite the card as JSON.`;
  const payload={model:COMPANION_MODEL,max_tokens:2400,system:request.system,messages:[{role:'user',content}],output_config:{effort:'low'}};
  // Byte-based upper allowance for input, plus 8192 tokens for request framing.
  // Sonnet 5 standard prices: $2/M input and $10/M output; no cache, tools, or retries.
@@ -59,6 +60,6 @@ for(const file of files){
   attempt.status='structural-pass-needs-semantic-review';attempt.openingWords=words;
   fs.writeFileSync(path.join(output,file+'.primer.json'),JSON.stringify({identity:id,content:parsed,resources:[],origin:'generated',promptVersion:request.promptVersion,createdAt:new Date().toISOString()},null,2));
   save();console.log(JSON.stringify(attempt));
- }catch(error){attempt.status='failed';attempt.error=String(error.message).slice(0,300);save();console.log(JSON.stringify(attempt));process.exitCode=1;break;}
+ }catch(error){attempt.status='failed';attempt.error=String(error.message).slice(0,300);save();console.log(JSON.stringify(attempt));process.exitCode=1;if(attempt.actualMicros===undefined)break;}
 }
 console.log(JSON.stringify({mode:dry?'offline-preflight':'provider-check',committedUsd:state.committedMicros/1e6,semanticReview:'not performed by this script'}));
