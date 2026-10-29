@@ -4,7 +4,7 @@
   "source": {
     "path": "app/public/data/editions/frankenstein-original-en.json",
     "fileSha256": "71008d6d1e14b5818d70ca24bd2875303772b39af6c3894c9e26c50fdcce7b51",
-    "reviewScope": "Letters 1–4 and numbered Chapters 1–12 read in full; all unit labels checked. Chapters 13–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
+    "reviewScope": "Letters 1–4 and numbered Chapters 1–18 read in full; all unit labels checked. Chapters 19–24 remain unread for this semantic review. Whole-book acceptance remains incomplete."
   },
   "primer": {
     "identity": {
@@ -34,6 +34,10 @@
         {
           "title": "The friend Walton wants",
           "explanation": "Walton wants someone who can share his enthusiasm and also correct him. Notice the qualities he asks for in a companion, and how he judges the people already around him. The desire to be understood may affect whose judgment he trusts."
+        },
+        {
+          "title": "Learning and belonging",
+          "explanation": "Books, conversation, and observation give people ways to understand themselves and others. Notice which examples they learn from, and whose assumptions about beauty, wealth, rank, or origin they inherit. An account of learning can also reveal a desire to find a place among other people."
         }
       ],
       "helpfulContext": [
@@ -80,7 +84,7 @@
         },
         {
           "title": "Care and obligation",
-          "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do, including whether they listen. Affection, gratitude, and the wish to possess can appear close together without being the same thing."
+          "explanation": "Alongside ambitions and discoveries, attend to the ordinary work of answering letters, teaching patiently, and caring for someone. Compare what people say they owe one another with what they actually do, including whether they listen. Keep understanding another’s suffering distinct from accepting every demand or excusing every action."
         }
       ],
       "usefulReferences": []
@@ -109,7 +113,7 @@
     "createdAt": "2026-10-28T03:35:00Z",
     "promptVersion": "book-primer-1"
   },
-  "editorialRevision": "candidate-5-chapters-7-12-review",
+  "editorialRevision": "candidate-6-chapters-13-18-review",
   "contextEvidence": [
     {
       "topics": [
@@ -177,6 +181,24 @@
         "chapter-16:paragraph-5"
       ],
       "verification": "Chapters 7–12 read in full in four untruncated batches. Refined general reading cues about evidence and hearing another account. No plot events, outcomes or later quotations added."
+    },
+    {
+      "topics": [
+        "Learning and belonging",
+        "Care and obligation"
+      ],
+      "sourcePath": "app/public/data/editions/frankenstein-original-en.json",
+      "passageIds": [
+        "chapter-17:paragraph-13",
+        "chapter-17:paragraph-16",
+        "chapter-18:paragraph-7",
+        "chapter-19:paragraph-5",
+        "chapter-19:paragraph-6",
+        "chapter-20:paragraph-35",
+        "chapter-21:paragraph-4",
+        "chapter-21:paragraph-14"
+      ],
+      "verification": "Chapters 13–18 read in full in four untruncated batches. Learning cue treats inherited social judgments as material for scrutiny; coercion and responsibility remain distinct from sympathy. No names, events, outcomes or later quotations introduced."
     }
   ]
 }
