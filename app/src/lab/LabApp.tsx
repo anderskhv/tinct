@@ -5733,7 +5733,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(question, undefined, undefined, {
       highlightedText: passage?.text || undefined, conversationId,
       onAccepted: () => {
-        if (continuousReader) {
+        // The margin and the phone keep the card: its follow-ups answer in it until it is closed (iPhone, 29 Oct 2026).
+        if (continuousReader || showPhoneChrome) {
           setDraft('')
           return
         }
