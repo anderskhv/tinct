@@ -11,3 +11,27 @@ A resources-only record adds links to generated content without changing its ori
 The initial Frankenstein resources were opened and inspected on 2026-10-28: the Shelley-Godwin Archive's manuscript collection and Charles E. Robinson's notebook introduction. Both expose material from throughout the novel and carry explicit spoiler notes. No duration is claimed. No private-book external lookup is performed.
 
 The 105 previous prefaces remain unchanged in their original source and in `preserved-prefaces-2026-10-28/`. They have not been automatically promoted into the new primer schema: some include plot developments that need deliberate adaptation for a spoiler-safe opening. There is currently no committed human primer override; precedence is covered by endpoint tests using synthetic human records.
+
+## Local readiness evidence — 2026-10-29
+
+The feature is implemented on the unpublished primer branch. Local verification does not establish production or real-provider acceptance. No generated draft has been promoted to a human editorial override.
+
+| Requirement | Evidence and limit |
+| --- | --- |
+| Same book content in catalogue and reader | Both mount `PrimerContentView` and use the structured endpoint with edition/language identity. Catalogue/reader browser checks cover matching content, quote jumps and resume. |
+| Chapter/source-unit and whole-book scope | Public and private EPUB paths provide actual source units and complete bounded text. Chapter requests exclude later section titles. Missing, mismatched or oversized sources produce explicit errors. |
+| Existing margin and phone interaction | Public Chromium/WebKit checks and four private-browser cases passed. Discuss focuses the existing margin follow-up field; replies retain shared chat history. Phone viewport-resize coverage is not a native iPhone keyboard test. |
+| Cache and editorial ownership | Source hashes, language/type/unit identity, private owner/upload identity and human-copy precedence have regression coverage. Tests for human overrides use synthetic records. |
+| Verified outside resources | Frankenstein and Meditations have resource-only runtime assets. Metadata includes attribution, relevance and spoiler notes; no duration is invented. Private books perform no automatic outside search. |
+| Preserve previous editorial work | All 105 prefaces remain in their original source and Markdown archive. They have not been bulk-adapted or assigned new approval. |
+| Candidate semantic review | Frankenstein: all 28 units, 764 paragraphs, 74,919 split words. Meditations: all 12 books, 487 paragraphs, 46,058 split words. These are AI self-reviews, not independent editorial approval. Three chapter candidates were reviewed against their complete selected units. |
+| Candidate presentation | Five actual staged drafts passed local desktop/phone previews. After the final Frankenstein edit, its 75-word opening and all expanded topics passed again on Chromium desktop and WebKit phone; the phone screenshot was inspected. API responses were fixtures containing the actual draft. |
+
+The full runtime suite recorded 7,690 passes and six skips before the final resource-only addition; the final resource-focused run recorded 48 passes. Build and bundle verification passed for `index-Du8Kav1Q.js`. Later changes are confined to staged editorial copy and this evidence record, so those unchanged runtime checks were not repeated.
+
+Remaining acceptance limits:
+
+- Real-provider structured output quality, truncation frequency and response time have not been tested. The current task prohibits development provider calls; synthetic responses cannot close this gap.
+- Candidate prose remains unapproved and outside runtime assets. Publishing the feature would not make these five drafts the default served copy. Any decision to use them as editorial overrides requires separate, explicit approval and correct provenance.
+- An earlier intermittent WebKit navigation access-control error was not reproduced by the final passing run; its root cause remains unproven.
+- No push, PR, merge or publication has been performed for this feature. Publication still requires Anders’s instruction.
