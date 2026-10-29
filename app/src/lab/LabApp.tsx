@@ -6074,6 +6074,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
         {desktopNoteConversionRef.current.get(card.openedAt) && turns[0]?.content !== desktopNoteConversionRef.current.get(card.openedAt)!.text && <div className="lab-pcard-you"><LabInlineMarkdown>{desktopNoteConversionRef.current.get(card.openedAt)!.text}</LabInlineMarkdown></div>}
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
+        {/* A follow-up that failed stays in the card with Chat's notice and its Try again (29 Oct 2026). */}
+        {turns.length > 0 && ask.notice && !ask.typedLoading && <p className="lab-pcard-status" role="status" data-testid="lab-phone-card-notice">{ask.notice}{ask.retryTyped && <> <button type="button" className="lab-pcard-link" onPointerDown={event => { event.preventDefault(); event.stopPropagation() }} onClick={ask.retryTyped}>Try again</button></>}</p>}
         {sharedReader && sharedCardSaveError && <p role="status">
           {ask.cardAccountSaved
             ? 'This answer is saved to your account, but could not be saved on this device.'
