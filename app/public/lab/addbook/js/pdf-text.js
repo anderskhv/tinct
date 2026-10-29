@@ -44,7 +44,8 @@
   // 2 (16 Oct 2026): indented blocks run on, numbered subheadings, figure labels left out.
   // 3 (16 Oct 2026): formulas, figures and tables as crops of the page, where the device draws them.
   // Rebuild older editions with corrected sloped rows and wrapped headings; places migrate by PDF page.
-  const PDF_TEXT_CONVERTER = 4;
+  // 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column (textRows' gutter).
+  const PDF_TEXT_CONVERTER = 5;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 

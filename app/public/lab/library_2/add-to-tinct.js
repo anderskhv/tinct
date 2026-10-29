@@ -27,6 +27,7 @@ export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
 const pasteEnabled=()=>sharedReaderEnabled(location.search);
+const PASTE_MAX_CHARS=240000;
 const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
 const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
@@ -137,7 +138,7 @@ const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF, EPUB or text file f
 export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261023readerown1'];
+const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261029titles1'];
 function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
 let fileEngine=null;
 /** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
@@ -252,6 +253,8 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
    if(save.disabled)return;
    save.disabled=true;
    if(!await authorize()||!layer.isConnected){save.disabled=false;return;}
+   // Readable size only: larger pastes take too long to lay out (29 Oct 2026: 250k characters opens in about 3.5 s on desktop, 8 s on phone).
+   if(source.value.length>PASTE_MAX_CHARS){alert.textContent=`This text is about ${(Math.round(source.value.length/6/1000)*1000).toLocaleString('en-US')} words. You can paste up to about 40,000 words. Trim it, or save it as an EPUB or PDF and add the file.`;save.disabled=false;return;}
    let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
    const signature=JSON.stringify(details);
    try{

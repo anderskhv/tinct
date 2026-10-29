@@ -307,7 +307,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
   const bytes = sourceBytes, sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
   const pendingUpload = name === 'chromium' && sourceBytes === originalBytes
   let accountUploaded = !pendingUpload
-  const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'Original source', author: 'Fixture', size: bytes.length,
+  const book = { id: fileId, type: 'pdf', sha256, name: 'Original source.pdf', title: 'The fixture original', author: 'Fixture', size: bytes.length,
     createdAt: '2026-10-23T00:00:00.000Z' }
   const browser = await markInternal(await browserType.launch({ headless: true,
     ...(name.startsWith('chromium') ? { args: ['--mute-audio', '--no-sandbox'] } : {}) }))

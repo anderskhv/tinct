@@ -453,7 +453,7 @@ function documentBlocks(source: string, base = '', v6 = false, v8 = false, v9 = 
    */
   const flush = () => {
     gather()
-    if (pending.length) { blocks.push(...pending.map(pictureBlock)); pending = [] }
+    if (pending.length) { for (const picture of pending) blocks.push(pictureBlock(picture)); pending = [] }
   }
   const gather = () => {
     const gathered = segments
@@ -487,7 +487,7 @@ function documentBlocks(source: string, base = '', v6 = false, v8 = false, v9 = 
     // Require multiple lines at the base indentation and a deeper continuation;
     // ordinary print-wrapped prose (including a first-line indent) is unchanged.
     const indents = runs.map(run => (run.map(segment => segment.text).join('').match(/^[ \t]*/)?.[0] || '').replace(/\t/g, '    ').length)
-    const baseIndent = Math.min(...indents)
+    const baseIndent = indents.reduce((min, indent) => Math.min(min, indent), Infinity)
     const continuation = (index: number) => index > 0 && indents[index] >= baseIndent + 2
       && /\p{L}$/u.test(lines[index - 1]) && /^\p{Ll}/u.test(lines[index])
     const hanging = v8 && indents.filter(indent => indent === baseIndent).length >= 2
@@ -1499,7 +1499,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     for (const [id, index] of parsed.anchors) anchorAt.set(`${item.href}#${id}`, stream.length + index)
     const firstHeading = parsed.blocks.find(block => block.heading)?.text
     docTitles.push({ at: stream.length, title: firstHeading ? clean(firstHeading.replace(/(^|\s)_|_(\s|$)/g, '$1$2')) : '', docType: parsed.docType })
-    stream.push(...parsed.blocks)
+    for (const block of parsed.blocks) stream.push(block)
     droppedImages += parsed.images
   }
   // Without the marked-up header and footer, Project Gutenberg's text markers bound the book.
