@@ -182,6 +182,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-follow .lab-pcard-talkbtn svg { display: block; }
 .lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 8px !important; background: var(--lab-ink) !important; color: var(--lab-pcard-fill) !important; }
 .lab .lab-pcard-send:disabled { opacity: .3; cursor: default; }
+/* The field is width:100%, so the buttons keep their 30px square instead of shrinking beside it (iPhone, 29 Oct 2026). */
+.lab .lab-pcard-follow-box > button { flex: none; }
 
 /* A note: always editable, no box until it has the focus; its words upright, as written (Anders, 20 Oct 2026). */
 .lab .lab-pcard-note {
