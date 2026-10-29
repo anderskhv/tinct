@@ -52,3 +52,11 @@ it('rejects a delayed label after the account changes and clears its deadlines',
  expect(await pending).toBeNull()
  expect(vi.getTimerCount()).toBe(0)
 })
+it('names an unedited account PDF by this device’s document title, never over a reader’s edit', async () => {
+ const remote = { id: 'fixture', sha256: 'ab'.repeat(32), title: 'book', author: '', name: 'book.pdf', type: 'pdf', metadataRev: 0 }
+ lookup.local = { id: 'fixture', title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay', name: 'book.pdf', type: 'pdf', metadataRev: 0 }
+ lookup.remote = Promise.resolve([remote])
+ expect(await currentOwnBookMetadata('ab'.repeat(12), 'owner-a')).toMatchObject({ title: 'Information Theory, Inference, and Learning Algorithms', author: 'David J.C. MacKay' })
+ lookup.remote = Promise.resolve([{ ...remote, title: 'My MacKay', metadataRev: 2 }])
+ expect(await currentOwnBookMetadata('ab'.repeat(12), 'owner-a')).toMatchObject({ title: 'My MacKay', metadataRev: 2 })
+})

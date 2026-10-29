@@ -123,6 +123,8 @@ export async function readOwnedEpubBytes(hex: string, owner: string): Promise<Ar
 function scannedPdfLabels(record: UserBookRecord, scan = record.scan): { title?: string; author?: string } {
   if (record.kind !== 'pdf' || (record.metadataRev ?? 0) > 0 || !scan) return {}
   const fallback = (record.name || '').replace(/\.pdf$/i, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+  // The file name's default in any of its spellings ("scan_0042", "Scan 0042", "report (1)"): not a title the reader gave.
+  const named = (value: string) => value.toLowerCase().replace(/\.pdf$/i, '').replace(/\(\d+\)/g, '').replace(/[^\p{L}\p{N}]+/gu, '')
   const metadataOnly = (scan.source as { title?: string } | undefined)?.title === 'metadata'
   // A descriptive filename is better than uncorroborated PDF metadata (scanned
   // anthologies often retain a title from a different document). Printed-page
@@ -130,7 +132,7 @@ function scannedPdfLabels(record: UserBookRecord, scan = record.scan): { title?:
   const descriptiveFilename = fallback.split(/\s+/).filter(word => /\p{L}{2}/u.test(word)).length >= 5
   const title = !metadataOnly || !descriptiveFilename ? typeof scan.title === 'string' ? scan.title.trim() : '' : ''
   const author = typeof scan.author === 'string' ? scan.author.trim() : ''
-  return { ...((!record.title || record.title === fallback) && title && title.length <= 200 ? { title } : {}),
+  return { ...((!record.title || record.title === fallback || named(record.title) === named(record.name || '')) && title && title.length <= 200 ? { title } : {}),
     ...(!record.author && author && author.length <= 200 ? { author } : {}) }
 }
 

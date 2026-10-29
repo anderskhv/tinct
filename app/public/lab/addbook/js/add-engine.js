@@ -505,7 +505,52 @@
    * (reader.js openStored), so it is not named by the file name.
    */
   async function preparePdf(file, key) {
+    // Bounded: a slow device opens the book named by its file, and the reader names it once its scan has read it.
+    await Promise.race([namePdf(file, key).catch(() => {}), new Promise(r => setTimeout(r, 4000))]);
     return { href: pdfHref(key) };
+  }
+  // pdf-scan.js, the scan's own title rules (beside this script), loaded on first use.
+  let scanLoading = null;
+  function pdfScanScript() {
+    if (global.TinctPdfScan) return Promise.resolve(global.TinctPdfScan);
+    if (!engineSrc) return Promise.resolve(null);
+    scanLoading ??= new Promise(resolve => {
+      const script = document.createElement('script');
+      script.src = new URL('pdf-scan.js' + new URL(engineSrc).search, engineSrc).href; // this engine's own version, never a stale copy
+      script.onload = () => resolve(global.TinctPdfScan || null);
+      script.onerror = () => { scanLoading = null; resolve(null) };
+      document.head.append(script);
+    });
+    return scanLoading;
+  }
+  /** A title still the file name's default: the scan may replace it, never a title the reader typed or edited. */
+  const defaultTitle = (rec, name) => {
+    const bare = t => String(t || '').toLowerCase().replace(/\.(pdf|epub)$/i, '').replace(/\(\d+\)/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
+    return !(Number(rec?.metadataRev) > 0) && (!rec?.title || bare(rec.title) === bare(name));
+  };
+  /**
+   * Name a just-kept PDF by its own title and author (pdf-scan.js titleOf: metadata, else the largest type on
+   * the first pages, else the file name made readable), so My shelf, Reading now, the reader and the account
+   * copy all show it from the moment it is added. Never replaces a title or author the reader gave it.
+   */
+  async function namePdf(file, key) {
+    const [lib, scanApi] = await Promise.all([pdfjs(), pdfScanScript()]);
+    if (!lib || !scanApi?.titleOf) return null;
+    const rec = await library.get(key);
+    if (!rec || !defaultTitle(rec, rec.name || file.name) && rec.author) return null;
+    let doc = null, found = null;
+    try {
+      doc = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false }).promise;
+      found = await scanApi.titleOf(doc, { fileName: file.name });
+    } finally { try { doc?.destroy() } catch {} }
+    if (!found) return null;
+    const now = await library.get(key);
+    if (!now) return null;
+    const patch = {};
+    if (found.title && found.title.length <= 200 && defaultTitle(now, now.name || file.name)) patch.title = found.title;
+    if (found.author && found.author.length <= 200 && !now.author && !(Number(now.metadataRev) > 0)) patch.author = found.author;
+    if (Object.keys(patch).length) await library.touch(key, patch);
+    return patch;
   }
   /**
    * Where a kept PDF (or an account copy not yet on this device) opens: its own address in
@@ -516,6 +561,6 @@
   global.TinctAddEngine = {
     store, owner, library, cloud, covers, saveToAccount, shelf, removeBook, forgetBookHere, legacyEpubAnnotations,
     RIGHTS_COPY, RIGHTS_VERSION, accountId, rightsConfirmed, confirmRights,
-    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
+    kindOf, sniffKind, digest, MAX_BYTES, nameTitle, readFile, pdfProblem, keepFile, prepareEpub, preparePdf, namePdf, pdfHref, epubHref, ACCOUNT_COPY_WAIT_MS,
   };
 })(window);
