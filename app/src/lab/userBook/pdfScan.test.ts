@@ -281,6 +281,8 @@ describe('PDF scan: the rules', () => {
     expect(scanApi.metaTitle('PossibleMinds Deutsch (1)', 'PossibleMinds Deutsch (1).pdf')).toBeNull()
     expect(scanApi.metaTitle('Microsoft Word - essay.docx', 'x.pdf')).toBeNull()
     expect(scanApi.metaTitle('untitled', 'x.pdf')).toBeNull()
+    expect(scanApi.metaTitle('arXiv:math/0211159v1 [math.DG] 11 Nov 2002', 'perelman.pdf')).toBeNull()
+    expect(scanApi.metaTitle('arXiv:1512.03385v1  [cs.CV]  10 Dec 2015', 'paper.pdf')).toBeNull()
     expect(scanApi.metaTitle('scan0042', 'x.pdf')).toBeNull()
     expect(scanApi.metaTitle('Notes on Natural Philosophy', 'scan_0042.pdf')).toBe('Notes on Natural Philosophy')
   })
