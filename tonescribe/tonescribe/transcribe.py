@@ -108,7 +108,7 @@ def monophonic(path: Path, fmin: float, fmax: float, progress: Progress) -> Note
     rms = librosa.feature.rms(y=y, frame_length=2048, hop_length=hop)[0]
     rms = np.pad(rms, (0, max(0, len(f0) - len(rms))))[: len(f0)]
     loud = rms > max(1e-4, np.percentile(rms[rms > 0], 20) if np.any(rms > 0) else 0)
-    onset_frames = librosa.onset.onset_detect(y=y, sr=sr, hop_length=hop, backtrack=True)
+    onset_frames = librosa.onset.onset_detect(y=y, sr=sr, hop_length=hop)
     onsets = set(onset_frames.tolist())
     near_onset = np.zeros(len(f0) + 1, dtype=bool)
     for o in onset_frames:
@@ -136,8 +136,12 @@ def _merge_glitches(notes: list) -> Notes:
     """Fold pitch flickers (A, tiny B, A) back into one A, unless the second A was re-attacked."""
     out: Notes = []
     for *n, attacked in notes:
-        if out and not attacked and n[2] == out[-1][2] and n[0] - out[-1][1] < 0.1:
-            out[-1][1] = n[1]
+        prev = out[-1] if out else None
+        if prev and n[2] == prev[2] and n[0] - prev[1] < 0.1 and (not attacked or prev[1] - prev[0] < 0.12):
+            # Same pitch straight after: a flicker, or a sliver cut off just before the attack.
+            prev[1] = n[1]
+            if attacked:
+                prev[3] = max(prev[3], n[3])
         else:
             out.append(n)
     return out
@@ -190,17 +194,61 @@ def drums(path: Path, progress: Progress) -> Notes:
     return notes
 
 
-def beat_grid(path: Path, duration: float) -> tuple[float, list[float]]:
-    """Tempo and beat times covering the whole track (extrapolated at both ends)."""
+_beat_model = None
+
+
+def _fill_gaps(beats: np.ndarray) -> np.ndarray:
+    """Put back beats the tracker skipped (an interval of about two or more beats)."""
+    if len(beats) < 3:
+        return beats
+    spb = float(np.median(np.diff(beats)))
+    out = [beats[0]]
+    for b in beats[1:]:
+        missing = int(round((b - out[-1]) / spb)) - 1
+        if missing >= 1 and (b - out[-1]) > 1.6 * spb:
+            out += list(np.linspace(out[-1], b, missing + 2)[1:-1])
+        out.append(b)
+    return np.array(out)
+
+
+def beat_grid(path: Path, duration: float, device: str) -> tuple[float, list[float], int, bool]:
+    """Tempo, beat times, beats per bar and compound time, from the Beat This! tracker (Foscarin et al. 2024).
+
+    The returned grid is extrapolated at both ends and starts on a downbeat, so beat
+    index 0 is the start of bar 1 (possibly before the music, at negative time).
+    """
+    global _beat_model
+    from beat_this.inference import Audio2Beats
+
+    if _beat_model is None:
+        _beat_model = Audio2Beats(checkpoint_path="final0", device=device, dbn=False)
     y, sr = librosa.load(str(path), sr=22050, mono=True)
-    tempo, beats = librosa.beat.beat_track(y=y, sr=sr, units="time")
-    tempo = float(np.atleast_1d(tempo)[0]) or 120.0
-    beats = [float(b) for b in beats]
+    beats, downbeats = (np.asarray(a, dtype=float) for a in _beat_model(y, sr))
     if len(beats) < 4:
-        beats = [0.0, 60.0 / tempo]
-    spb = float(np.median(np.diff(beats))) if len(beats) > 1 else 60.0 / tempo
-    while beats[0] > 0.02:
-        beats.insert(0, beats[0] - spb)
-    while beats[-1] < duration + spb:
-        beats.append(beats[-1] + spb)
-    return round(60.0 / spb, 1), [round(b, 4) for b in beats]
+        tempo = float(np.atleast_1d(librosa.beat.beat_track(y=y, sr=sr)[0])[0]) or 120.0
+        beats, downbeats = np.arange(0, duration, 60.0 / tempo), np.array([0.0])
+
+    beats = _fill_gaps(beats)
+    # Beats per bar: the most common number of beats between consecutive downbeats.
+    idx = np.searchsorted(beats, downbeats - 0.03)
+    counts = np.diff(idx)
+    counts = counts[(counts >= 2) & (counts <= 12)]
+    per_bar = int(np.bincount(counts).argmax()) if len(counts) else 4
+    first_down = int(idx[0]) if len(idx) else 0
+    compound = per_bar in (6, 9, 12)
+    if compound:
+        # The tracker followed eighth notes in 6/8, 9/8 or 12/8: keep every third one,
+        # so a beat is a dotted quarter, the way those meters are counted.
+        beats = beats[first_down % 3 :: 3]
+        first_down //= 3
+        per_bar //= 3
+
+    spb = float(np.median(np.diff(beats)))
+    grid = list(beats)
+    # Extend backwards until the grid starts on a downbeat at or before time zero.
+    while grid[0] > 0.02 or first_down % per_bar:
+        grid.insert(0, grid[0] - spb)
+        first_down += 1
+    while grid[-1] < duration + spb:
+        grid.append(grid[-1] + spb)
+    return round(60.0 / spb, 1), [round(float(b), 4) for b in grid], per_bar, compound

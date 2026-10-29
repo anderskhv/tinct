@@ -1,5 +1,5 @@
 import argparse
-import webbrowser
+import os
 
 import uvicorn
 
@@ -11,7 +11,7 @@ def main() -> None:
     parser.add_argument("--no-browser", action="store_true")
     args = parser.parse_args()
     if not args.no_browser:
-        webbrowser.open(f"http://{args.host}:{args.port}")
+        os.environ["TONESCRIBE_OPEN"] = f"http://{args.host}:{args.port}"
     uvicorn.run("tonescribe.server:app", host=args.host, port=args.port)
 
 

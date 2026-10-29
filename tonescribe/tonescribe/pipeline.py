@@ -147,7 +147,7 @@ def run(job: Job) -> None:
     duration = sf.info(str(wav)).duration
 
     job.stage("Finding the beat", 0.05, 0.08)
-    bpm, beats = transcribe.beat_grid(wav, duration)
+    bpm, beats, per_bar, compound = transcribe.beat_grid(wav, duration, dev)
 
     tracks = []
     if band:
@@ -174,15 +174,22 @@ def run(job: Job) -> None:
         tracks.append(_transcribe("piano", "Piano", "poly", "piano", wav, dev, report))
 
     job.stage("Writing sheet music", 0.95, 1.0)
+    pitched = [n for t in tracks if t["id"] != "drums" for n in t["notes"]]
+    meter = notation.detect_meter(pitched, beats, per_bar, compound)
+    if pitched:
+        # Start the score at the bar where the music starts, not with empty bars.
+        first = notation.seconds_to_beats([min(n[0] for n in pitched)], beats)[0]
+        # (+0.25: a note played a touch early still belongs to the next bar.)
+        beats = beats[int((first + 0.25) // meter.beats_per_bar) * meter.beats_per_bar :]
     for t in tracks:
         t["sheet"] = None
         if t["notes"] and t["id"] != "drums":
             fname = f"sheet-{t['id']}.musicxml"
             notation.write_musicxml(
-                t["notes"], beats, bpm, job.record["title"], t["name"], d / fname, grand_staff=t["id"] == "piano"
+                t["notes"], beats, meter, bpm, job.record["title"], t["name"], d / fname, grand_staff=t["id"] == "piano"
             )
             t["sheet"] = fname
-    notation.write_midi([t for t in tracks if t["notes"]], bpm, d / "transcription.mid")
+    notation.write_midi([t for t in tracks if t["notes"]], bpm, meter, d / "transcription.mid")
 
     result = {
         "id": rec["id"],
@@ -190,6 +197,10 @@ def run(job: Job) -> None:
         "duration": round(duration, 3),
         "bpm": bpm,
         "beats": beats,
+        "timeSignature": meter.signature,
+        "beatsPerBar": meter.beats_per_bar,
+        # Quarter notes per beat: the player maps score positions to beats with it.
+        "beatQuarters": float(meter.beat_ql),
         "audio": "audio.mp3",
         "midi": "transcription.mid",
         "tracks": tracks,

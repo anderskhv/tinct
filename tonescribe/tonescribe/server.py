@@ -1,5 +1,8 @@
 """HTTP API and static files. Run with `python -m tonescribe`."""
 
+import os
+import threading
+import webbrowser
 from pathlib import Path
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
@@ -29,6 +32,9 @@ def _mode(mode: str) -> str:
 def startup() -> None:
     pipeline.start_worker()
     pipeline.resume_pending()
+    if os.environ.get("TONESCRIBE_OPEN"):
+        # The socket opens just after startup; give it a moment before the browser asks.
+        threading.Timer(1.0, webbrowser.open, [os.environ["TONESCRIBE_OPEN"]]).start()
 
 
 @app.get("/api/jobs")

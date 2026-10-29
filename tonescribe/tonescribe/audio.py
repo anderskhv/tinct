@@ -1,5 +1,6 @@
 """Fetching and converting audio. Everything goes through ffmpeg."""
 
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -38,6 +39,10 @@ def download(url: str, job_dir: Path) -> tuple[Path, str]:
             if shutil.which(runtime):
                 opts["js_runtimes"] = {runtime: {}}
                 break
+    # If YouTube asks to "confirm you're not a bot", borrow your browser's sign-in.
+    browser = os.environ.get("TONESCRIBE_COOKIES_FROM_BROWSER")
+    if browser:
+        opts["cookiesfrombrowser"] = (browser,)
     with yt_dlp.YoutubeDL(opts) as ydl:
         info = ydl.extract_info(url, download=True)
         path = Path(ydl.prepare_filename(info))
