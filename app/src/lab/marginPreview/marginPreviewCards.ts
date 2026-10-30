@@ -63,6 +63,15 @@ export function cardQuestion(card: MarginCard): string {
   }
 }
 
+/**
+ * A saved card's messages as its card shows them: without the question the card was saved with
+ * ("Explain this passage.", cardQuestion), which the reader never typed (Anders, 30 Oct 2026). An Ask card keeps
+ * its first message: that question is the reader's own.
+ */
+export function cardShownMessages<T extends { role: string }>(kind: string, messages: T[]): T[] {
+  return kind !== 'ask' && messages[0]?.role === 'user' ? messages.slice(1) : messages
+}
+
 function boundedData(data: unknown): unknown {
   if (data === undefined || data === null) return undefined
   try { const text = JSON.stringify(data); return text && text.length <= LAB_CHAT_CARD_DATA_CHARS ? JSON.parse(text) : undefined } catch { return undefined }
