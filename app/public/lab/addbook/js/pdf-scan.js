@@ -265,12 +265,14 @@
     const out = new Set();
     rows.forEach((r, i) => {
       if (OPENS_QUOTE.test(r.text) || (CLOSES_QUOTE.test(r.text) && r.words <= 14)) out.add(i);
-      if (!ATTRIBUTION.test(r.text) || r.words > 14) return;
+      // A chapter's synopsis ("—I pack.—Cussedness of tooth brushes.—") runs dash after sentence; no attribution does.
+      const synopsis = t => /[.!?]\s*[—–]\s*\S/u.test(t);
+      if (!ATTRIBUTION.test(r.text) || r.words > 14 || synopsis(r.text) || (i > 0 && synopsis(rows[i - 1].text))) return;
       out.add(i);
-      // The quotation above: lines close together, up to eight of them.
+      // The quotation above: lines close together, up to eight of them, never a chapter's label ("CHAPTER IV.").
       for (let j = i - 1, below = r; j >= 0 && i - j <= 8; j--) {
         const up = rows[j];
-        if (up.y - below.y > Math.max(up.size, below.size) * 2.4) break;
+        if (up.y - below.y > Math.max(up.size, below.size) * 2.4 || labelLine(up)) break;
         out.add(j); below = up;
         if (OPENS_QUOTE.test(up.text)) break;
       }
@@ -502,7 +504,9 @@
         // A misread stamp on a scan ("25 CENTS FINE OF AK imTXAL"): letters out of case inside a word.
         if (noisy && /\p{Ll}\p{Lu}{2}/u.test(r.text)) { continue }
         // Larger than this page's body and the book's (a page of small-type notes does not make its body text a heading).
-        const larger = r.size >= Math.max(body.size, docBody.size) * step;
+        // A chapter's label alone on its line in the top half of a page ("CHAPTER IV.") is a heading at any size:
+        // a scan's text layer can set every line alike (Problems of Philosophy, 30 Oct 2026 corpus).
+        const larger = r.size >= Math.max(body.size, docBody.size) * step || (labelLine(r) && r.y - p.y0 > p.h * 0.5);
         const sameSize = Math.abs(r.size - body.size) <= body.size * 0.08;
         if (!larger && !(sameSize && r.font && r.font !== body.font)) { continue }
         const face = r.font ? await fontName(p.n, r.font) : '';
@@ -558,26 +562,52 @@
   function roman(s) { let t = 0, prev = 0; for (const ch of s.toLowerCase().split('').reverse()) { const v = ROMAN[ch] || 0; t += v < prev ? -v : v; prev = Math.max(prev, v) } return t }
   // A printed Contents page ("Chapter title ....... 12"), with the shift from printed page
   // numbers to the PDF's pages found where the chapter titles are printed.
-  async function contentsEntries(numPages, pageRows, pageText) {
+  // Leaders printed as two dots, spaced dots or OCR's commas (". . 12", "„ , 12") are leaders too.
+  const LEADERS = /(?:\s*[.…·•,„]){2,}\s*(\d{1,4}|[ivxlc]{1,6})$/i;
+  async function contentsEntries(numPages, pageRows, pageText, { scanned = false } = {}) {
     const limit = Math.min(30, numPages), raw = [], contentsPages = new Set();
     for (let n = 1; n <= limit; n++) {
-      const lines = (await pageRows(n)).map(r => r.text);
+      // A contents line split at its leaders (textRows' wide gap) is one line again; a list of illustrations
+      // is no contents ("Heading to Chapter XII … 63"); on a page headed Contents a title and its page
+      // number without leaders count (30 Oct 2026 corpus).
+      const rows = [];
+      for (const t of (await pageRows(n)).map(r => r.text)) {
+        if (rows.length && /^[\s.…·•,„'"]*(?:\d{1,4}|[ivxlc]{1,6})$/i.test(t) && /[.…·•]/.test(t) && !/\d$/.test(rows.at(-1))) rows[rows.length - 1] += ' ' + t;
+        else rows.push(t);
+      }
+      const head = rows.slice(0, 4).join(' ');
+      if (/illustrations|list of plates|list of figures|\bplates\b/i.test(head)) continue;
+      const titled = /contents|list of chapters/i.test(head);
+      const lines = rows.map(t => t.replace(LEADERS, ' ... $1'));
       let hits = 0, carry = '';
       const found = [];
       for (const line of lines) {
-        const m = line.match(/^(.*?)\s*(?:\.\s*){3,}\s*(\d{1,4}|[ivxlc]{1,6})$/i) || (carry && line.match(/^(.*?)\s+(\d{1,4})$/));
-        if (!m) { if (/^\d{1,2}\s+\S/.test(line) && !/\d$/.test(line)) carry = line.replace(/-$/, ''); else carry = ''; continue }
+        const m = line.match(/^(.*?)\s*(?:\.\s*){3,}\s*(\d{1,4}|[ivxlc]{1,6})$/i) || (carry && line.match(/^(.*?)\s+(\d{1,4})$/))
+          || (titled && line.match(/^((?:chapter\s+)?(?:[IVXLCHJl]{1,6}|\d{1,3})[.,]?\s+\p{L}.*?)[.,]?\s+(\d{1,3})$/u))
+          || (titled && line.match(/^(\p{Lu}[\p{L}'’ ,.-]*\p{L})[\s.,]+(\d{1,3})$/u));
+        if (!m) { if ((/^\d{1,2}\s+\S/.test(line) || (titled && /^[IVXLC]{1,6}[.,]?\s+\p{Lu}/u.test(line))) && !/\d$/.test(line)) carry = line.replace(/-$/, ''); else carry = ''; continue }
         const label = (carry ? carry + (m[1] ? (carry.endsWith('-') ? '' : ' ') + m[1] : '') : m[1]).replace(/\s*\.\s*$/, '').replace(/\s+/g, ' ').trim();
         carry = '';
         if (!label) continue;
-        hits++; found.push({ label, printed: m[2] });
+        hits++; found.push({ label, printed: m[2], bare: !/\.\.\./.test(line) });
       }
       if (hits >= 4) { contentsPages.add(n); raw.push(...found) }
       else if (raw.length && hits === 0) break;
     }
     if (raw.length < 3) return null;
+    // Read mostly without leaders, a contents' numbers must climb page by page, and an offset must find two of its
+    // titles: a list whose numbers are no pages ("Summary 83", "Marks 51") is no contents.
+    const bare = raw.filter(r => r.bare).length > raw.length / 2;
+    if (bare) {
+      const nums = raw.map(r => Number(r.printed)).filter(Number.isFinite);
+      const climbs = nums.slice(1).filter((v, i) => v >= nums[i]).length;
+      if (climbs < (nums.length - 1) * 0.8) return null;
+    }
     let part = null;
+    // A novel's contents numbers its chapters in roman ("IV. The Food Question 33"): each is a chapter.
+    const romanLed = raw.filter(r => /^[IVXLC]{1,6}[.,]?\s/.test(r.label)).length >= raw.length * 0.6;
     const entries = raw.map((r, i) => {
+      if (romanLed) return { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed), kind: 'chapter', label: r.label, title: r.label.replace(/^[IVXLC]{1,6}[.,]?\s+/, ''), parent: null };
       const ch = r.label.match(/^(\d{1,3})\s+(.+)$/), pt = r.label.match(/^([IVX]{1,5})\s+(.+)$/);
       const e = { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed) };
       if (pt) { Object.assign(e, { kind: 'part', label: `${pt[1]} · ${pt[2]}`, title: pt[2], parent: null }); part = e }
@@ -594,14 +624,35 @@
         if (!best || score > best.score) best = { off, score };
         if (score === list.length) break;
       }
-      return best && best.score > 0 ? best.off : null;
+      return best && best.score >= (bare ? Math.min(2, list.length) : 1) ? best.off : null;
     };
     const arabic = entries.filter(e => e.arabic && e.kind !== 'part').slice(0, 5).map(e => ({ ...e, base: Number(e.printed) }));
     const romanList = entries.filter(e => !e.arabic).slice(0, 3).map(e => ({ ...e, base: roman(e.printed) }));
     const offA = arabic.length ? await offsetFor(arabic, [-5, 80]) : null;
     const offR = romanList.length ? await offsetFor(romanList, [-5, 40]) : null;
     for (const e of entries) e.page = e.arabic ? (offA == null ? null : Number(e.printed) + offA) : (offR == null ? null : roman(e.printed) + offR);
-    const out = entries.filter(e => e.page && e.page <= numPages).map(({ printed, arabic: _a, title: _t, number: _n, ...e }) => e);
+    // A scan's plates are not numbered, so the shift grows through the book: an entry whose page does not
+    // print its title is on the first page after (up to 40 on, never before the entry above) that prints it
+    // as a line of its own below the running head (Pride and Prejudice, Hound, 30 Oct 2026 corpus). Only on a
+    // scan: a born-digital document's offset holds, and its long contents is heard before the book is read.
+    if (offA != null && scanned) {
+      const key = t => norm(t).replace(/^(?:chapter )?(?:[ivxlc]+|\d+) /, '').replace(/ /g, '');
+      let floor = 1;
+      for (const e of entries) {
+        if (!e.arabic || !e.title) continue;
+        const want = key(e.title);
+        if (want.length < 4 || await hasTitle(e.page, e.title)) { floor = Math.max(floor, e.page || 1); continue }
+        for (let n = Math.max(floor, e.page - 2); n <= Math.min(numPages, e.page + 40); n++) {
+          if (contentsPages.has(n)) continue;
+          const rows = await pageRows(n);
+          if (!rows.length) continue;
+          const top = rows[0].y;
+          const like = r => { const k = key(r.text); return k === want || (k.length >= 4 && (want.startsWith(k) || k.startsWith(want)) && Math.abs(k.length - want.length) <= Math.max(3, want.length * 0.3)) };
+          if (rows.some(r => r.y < top - 1 && like(r))) { e.page = n; floor = n; break }
+        }
+      }
+    }
+    const out = entries.filter(e => e.page >= 1 && e.page <= numPages).map(({ printed, arabic: _a, title: _t, number: _n, ...e }) => e);
     return out.length >= 2 ? out : null;
   }
 
@@ -816,12 +867,14 @@
     const text = async n => (await itemsOf(n)).map(i => i.str + (i.hasEOL ? '\n' : '')).join('').replace(/[ \t]+/g, ' ');
     let entries = null, nav = 'pages';
     if ((entries = await outlineEntries(pdf))) nav = 'outline';
-    else if ((entries = await contentsEntries(pdf.numPages, async n => (await pageOf(n)).rows, text))) nav = 'contents';
+    else if ((entries = await contentsEntries(pdf.numPages, async n => (await pageOf(n)).rows, text, { scanned: all.some(p => p.rows.some(r => r.ocr)) }))) nav = 'contents';
     if (!live()) return null;
     if (entries) entries = usableEntries(entries);
     if (entries && onEntries) { try { onEntries({ nav, entries, language, text: !noise && all.some(runningText) ? true : null }) } catch { /* the listener's own failure never stops the scan */ } }
     for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
     if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = usableEntries(entries) }
+    // A contents page read only in part (a garbled scan: 4 of its 16 lines) gives way to headings that find more.
+    else if (nav === 'contents' && entries.length < 6) { const found = await headingEntries(all, { fontName, title, author, live }); if (found && usableEntries(found).length > entries.length) { nav = 'headings'; entries = usableEntries(found) } }
     if (!live()) return null;
     // Pages with running text (a scanner's notice page aside): none means a scan without a text layer.
     let textPages = all.filter(runningText).length;
