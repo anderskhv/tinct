@@ -44,6 +44,8 @@ describe('chapter labels in sequence', () => {
   it('lets the numbering start again in each Book', () => {
     expect(labels(api.sequencedLabels(entries(['CHAPTER X.', 'CHAPTER XI.', 'CHAPTER I.', 'CHAPTER J.', 'CHAPTER III.', 'CHAPTER IV.']))))
       .toEqual(['CHAPTER X.', 'CHAPTER XI.', 'CHAPTER I.', 'CHAPTER II.', 'CHAPTER III.', 'CHAPTER IV.'])
+    expect(labels(api.sequencedLabels(entries(['Preface', 'Of the American Editors', 'CHAPTER J.', 'CHAPTER II.', 'CHAPTER III.', 'CHAPTER IV.', 'CHAPTER V.']))))
+      .toEqual(['Preface', 'Of the American Editors', 'CHAPTER I.', 'CHAPTER II.', 'CHAPTER III.', 'CHAPTER IV.', 'CHAPTER V.'])
   })
 })
 

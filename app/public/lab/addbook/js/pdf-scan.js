@@ -944,7 +944,8 @@
       const raw = valid(m[1]), ocr = valid(m[1].replace(/[Ll1|]/g, 'I').replace(/[HUn]/g, 'II').replace(/m/g, 'III').replace(/i/g, 'I'));
       return [...new Set([raw, ocr].filter(v => v))];
     });
-    if (list.length < 5 || options.filter(o => o.length).length < list.length * 0.6) return list;
+    const labelled = list.filter(e => /^\s*(?:C\s?H\s?A|CHAP|Chap)/.test(String(e.label))).length;
+    if (labelled < 5 || options.filter(o => o.length).length < labelled * 0.6) return list;
     // A reading holds where a neighbour within three entries agrees with it, a chapter or two missing between (a
     // book's numbering may start again: Sartor Resartus's three Books); the printed reading first.
     const n = list.length;
@@ -956,13 +957,14 @@
       return false;
     };
     const chosen = options.map((o, i) => o.find(v => fits(v, i)) ?? null);
-    // A label too garbled to read ("CHAITKk [V.") between two read ones takes the number between them.
+    // A label too garbled to read ("CHAITKk [V.", "CHAPTER J.") takes the number its read neighbours give it.
     const garbled = e => /^(?:C\s?H\s?A|CHA|CH\.|C[HI]AP)/i.test(String(e.label)) && String(e.label).length <= 16;
     for (let i = 0; i < n; i++) {
       if (chosen[i] !== null || !garbled(list[i])) continue;
       const before = chosen.slice(0, i).reduceRight((v, x, j) => v ?? (x !== null ? x + (i - j) : null), null);
       const after = chosen.slice(i + 1).reduce((v, x, j) => v ?? (x !== null ? x - (j + 1) : null), null);
-      if (before != null && before === after) chosen[i] = before;
+      const want = before ?? after;
+      if (want != null && want >= 1 && (before == null || after == null || before === after)) chosen[i] = want;
     }
     return list.map((e, i) => {
       if (chosen[i] === null) return e;
