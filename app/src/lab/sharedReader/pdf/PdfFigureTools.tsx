@@ -1,12 +1,20 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { SelectionDeskBar } from '../../../components/reader/SelectionDeskBar'
 import { capturePdfRegion, detectPdfFigures, type PdfFigureRegion, type PdfRegionImage } from './pdfOriginalFigures'
 import type { PdfOriginalDocument, PdfOriginalPage, PdfOriginalSelection } from './PdfOriginalSurface'
 export type PdfFigureAction = 'ask' | 'explain' | 'highlight'
-export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction }: { pdf: PdfOriginalDocument; page: number; canvas: HTMLCanvasElement | null; items: Awaited<ReturnType<PdfOriginalPage['getTextContent']>>['items']; ready: boolean; onAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void }) {
+export function PdfFigureTools({ pdf, page, canvas, items, ready, onAction, headings = [] }: { headings?: number[][]; pdf: PdfOriginalDocument; page: number; canvas: HTMLCanvasElement | null; items: Awaited<ReturnType<PdfOriginalPage['getTextContent']>>['items']; ready: boolean; onAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void }) {
   const host = useRef<HTMLDivElement>(null), epoch = useRef(0)
-  const [regions, setRegions] = useState<PdfFigureRegion[]>([]), [hot, setHot] = useState<PdfFigureRegion | null>(null)
+  const [found, setRegions] = useState<PdfFigureRegion[]>([]), [hot, setHot] = useState<PdfFigureRegion | null>(null)
+  // A chapter heading set in display type is the heading's (its Primer, Recap…), never a figure: a region over a
+  // heading's ink is dropped, so the two never offer their tools at once (Anders, 30 Oct 2026).
+  const headingKey = JSON.stringify(headings)
+  const regions = useMemo(() => found.filter(region => !headings.some(([, x, y, w, h]) => {
+    const overlap = Math.max(0, Math.min(region.x + region.w, x + w) - Math.max(region.x, x)) * Math.max(0, Math.min(region.y + region.h, y + h) - Math.max(region.y, y))
+    return overlap > 0 && overlap >= Math.min(region.w * region.h, w * h) * 0.3
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  })), [found, headingKey])
   const [preview, setPreview] = useState<{ region: PdfFigureRegion; image: PdfRegionImage; modal: boolean; box?: DOMRect } | null>(null)
   const [notice, setNotice] = useState('')
   const show = async (region: PdfFigureRegion, modal: boolean, box?: DOMRect) => {

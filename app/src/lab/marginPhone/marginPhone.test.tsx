@@ -365,3 +365,11 @@ it('keeps an older Chat reply in place when its composer gains focus and the key
     else delete (window as { visualViewport?: unknown }).visualViewport
   }
 })
+
+describe('isApparatus (30 Oct 2026)', () => {
+  it('marks acknowledgments, contents and an index, never an introduction or a chapter', async () => {
+    const { isApparatus } = await import('./marginPhoneContext')
+    for (const title of ['Acknowledgments', 'ACKNOWLEDGEMENTS', 'Contents', 'Table of Contents', 'Index', 'Notes', 'List of Illustrations', 'About the Author', 'Also by Lee Strobel']) expect(isApparatus(title), title).toBe(true)
+    for (const title of ['Introduction', 'Preface', 'The Eyewitness Evidence', 'Notes from Underground', 'Chapter 1']) expect(isApparatus(title), title).toBe(false)
+  })
+})

@@ -94,10 +94,16 @@ const itemText = (item: Primer['sections'][number]['items'][number]) => 'term' i
 
 /** A primer as the card's beats: its gist, then each section's items in one line (the map is the Contents' job). */
 export function primerBeats(primer: Primer): ChapterNotesBeat[] | null {
-  return parseChapterNotesBeats({ beats: [
+  const beats = parseChapterNotesBeats({ beats: [
     { title: 'In brief', text: primer.gist },
     ...primer.sections.map(section => ({ title: section.title, text: section.items.map(itemText).filter(Boolean).join(' · ') })),
   ] })
+  // A section of several items reads one item a line, not one run joined by dots (Anders, 30 Oct 2026).
+  return beats && beats.map(beat => {
+    const section = primer.sections.find(item => item.title.replace(/\s+/g, ' ').trim() === beat.title)
+    const items = section?.items.map(itemText).filter(Boolean) ?? []
+    return items.length > 1 ? { ...beat, items } : beat
+  })
 }
 
 /** A recap's prose as the card's beats: its main points, then what it sets up (the two paragraphs it is asked for). */

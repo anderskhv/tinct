@@ -27,7 +27,8 @@ export const CHAPTER_NOTES_PROMPT_VERSIONS: Readonly<Record<ChapterNotesKind, st
   end: 'notes-v4',
   primer: 'notes-v4',
 })
-export interface ChapterNotesBeat { title: string; text: string }
+/** `items`: a beat that is a list (a Primer's people, terms, threads), one entry a line; `text` is them joined. */
+export interface ChapterNotesBeat { title: string; text: string; items?: string[] }
 
 export interface ChapterNotesRequest {
   bookId: string

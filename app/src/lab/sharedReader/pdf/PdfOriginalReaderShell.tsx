@@ -24,6 +24,7 @@ import type { CardBox } from '../desktopCardPlace'
 import { LabPhoneCard, PhoneWait } from '../../marginPhone/LabPhoneCard'
 import { LabPhoneBar, lastHighlightColor } from '../../marginPhone/LabPhoneBar'
 import { PhoneFollowField, PhoneQuizBody } from '../../marginPhone/LabPhoneCards'
+import { isApparatus } from '../../marginPhone/marginPhoneContext'
 import { readLabPrefs, writeLabPrefs, type LabTheme } from '../../labPrefs'
 import { useReaderWindow } from '../../useReaderWindow'
 import { LAB_V2_THEMES } from '../../labV2Sheet'
@@ -480,7 +481,8 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     else { setCard(null); setSelection(source); setHighlightedSelection(source); setHighlightColor(item.color as HighlightColor); setBarState('colors') }
   }
   const headingActions: PdfHeadingActions[] = units.filter(unit => !unit.matter && unit.title.trim()).map((target, index) => ({ key: target.key, title: target.title, page: target.start,
-    actions: [{ id: 'primer', label: 'Primer' }, ...(index ? [{ id: 'catchup' as const, label: 'Catch me up' }] : []), { id: 'recap', label: 'Recap' }, { id: 'quiz', label: 'Quiz me' }, { id: 'note', label: 'Note' }],
+    // Acknowledgments, contents, an index: nothing to prepare for or recap, only a Note.
+    actions: isApparatus(target.title) ? [{ id: 'note', label: 'Note' }] : [{ id: 'primer', label: 'Primer' }, ...(index ? [{ id: 'catchup' as const, label: 'Catch me up' }] : []), { id: 'recap', label: 'Recap' }, { id: 'quiz', label: 'Quiz me' }, { id: 'note', label: 'Note' }],
     onAction: (action, source) => {
       if (action === 'note') openUnitNote(target, source)
       else if (action === 'quiz') void runUnitQuiz(target, source)
