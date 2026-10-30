@@ -37,7 +37,7 @@
    question while Enter hands it to LabApp's existing chat service. */
 .lab .lab-pbar.is-desk[data-ask-open="true"] { width: min(440px, calc(100vw - 32px)); max-width: calc(100vw - 32px); }
 /* The bar grows with its question (over the fixed 44px of the bar above). */
-.lab .selection-popup.is-lab.is-desk-bar[data-ask-open="true"] { height: auto; min-height: 44px; padding-block: 5px; }
+.lab .selection-popup.is-lab.is-desk-bar[data-ask-open="true"] { height: auto; min-height: 44px; padding-block: 4px; }
 .lab .lab-dbar-ask-form { display: flex; align-items: flex-end; width: 100%; min-width: 0; gap: 6px; }
 .lab .lab-dbar-ask-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* No box around the field and none around the bar (Anders, 30 Oct 2026): the caret shows where to type. It grows

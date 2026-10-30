@@ -137,7 +137,13 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   useLayoutEffect(() => { if (props.sharedReader && moreOpen && morePlace) moreRef.current?.querySelector<HTMLButtonElement>('[role="menuitem"]')?.focus({ preventScroll: true }) }, [props.sharedReader, moreOpen, morePlace])
   // A new state (highlighted, the colours) closes the menu.
   useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion(''); if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' } }, [state])
-  useLayoutEffect(() => { if (askOpen) askRef.current?.focus({ preventScroll: true }) }, [askOpen])
+  useLayoutEffect(() => {
+    const field = askRef.current
+    if (!askOpen || !field) return
+    field.focus({ preventScroll: true })
+    // A typed first character seeds the field: the caret follows it (a textarea starts its caret at 0).
+    field.setSelectionRange(field.value.length, field.value.length)
+  }, [askOpen])
   // The Ask field grows with its question, up to three lines, then scrolls (Anders, 30 Oct 2026). The bar is placed
   // again at its new height, so it grows away from the passage.
   useLayoutEffect(() => {
