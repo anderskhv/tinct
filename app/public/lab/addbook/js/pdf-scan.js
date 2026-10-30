@@ -241,11 +241,26 @@
     return p.length >= 8 && m.length > p.length && m.startsWith(p) ? null : meta;
   }
   const NOT_A_PERSON = /^(user|admin|administrator|owner|unknown|author|anonymous|default|guest|windows user|microsoft|office|adobe|acrobat|pdf|latex|tex|scanner|copier|hp|canon|xerox|epson|ricoh|brother)\b/i;
+  const HONORIFIC = /^(?:sir|dame|lord|lady|baron|baroness|bart\.?|mrs\.?|mr\.?|miss|rev\.?|count|countess|earl|viscount|duke|jr\.?|sr\.?)$/i;
+  const ROLE = /,\s*\[?(?:ill|illus|illustrator|ed|editor|tr|trans|translator|joint author|comp|compiler)\.?\]?\s*$/i;
+  function catalogueName(part) {
+    const t = part.replace(/\([^)]*\)/g, ' ').replace(/,?\s*(?:\d{3,4}\??\s*-\s*(?:\d{3,4}\??)?|b\.\s*\d{3,4}|d\.\s*\d{3,4}|fl\.\s*\d{3,4})\.?\s*$/i, '').replace(/\s+/g, ' ').trim().replace(/,$/, '');
+    const [surname, ...rest] = t.split(/\s*,\s*/);
+    const given = rest.filter(piece => piece && !HONORIFIC.test(piece));
+    if (!surname || !/^[\p{Lu}]/u.test(surname)) return null;
+    return given.length ? `${given.join(' ')} ${surname}` : surname;
+  }
   function metaAuthor(raw) {
     let t = readable(raw).replace(/^by\s+/i, '');
-    // A library catalogue's heading ("Darwin, Charles, 1809-1882"): the name as printed, without the dates.
-    const catalogue = /^([\p{Lu}][\p{L}'’-]+), ([\p{Lu}][\p{L}'’. -]*?),? (?:\d{3,4}\??-(?:\d{3,4}\??)?|b\. \d{3,4}|d\. \d{3,4})\.?$/u.exec(t);
-    if (catalogue) t = catalogue[2].trim() + ' ' + catalogue[1];
+    // A library catalogue's heading, as Internet Archive PDFs carry it: "Darwin, Charles, 1809-1882",
+    // "Doyle, Arthur Conan, Sir, 1859-1930", "Du Bois, W. E. B. (William Edward Burghardt), 1868-1963",
+    // several joined by ";": the names as printed, without dates, fuller forms or titles.
+    if (/,/.test(t) && (/\d{3,4}|\(|;/.test(t) || /^[\p{Lu}][\p{L}'’-]+, [\p{Lu}][\p{L}'’. -]+$/u.test(t))) {
+      // An illustrator, editor or translator credited beside the author is not the author ("Thomson, Hugh, 1860-1920, ill").
+      const parts = t.split(/\s*;\s*/), authors = parts.filter(part => !ROLE.test(part));
+      const names = (authors.length ? authors : parts).map(part => catalogueName(part.replace(ROLE, ''))).filter(Boolean);
+      if (names.length) t = names.slice(0, 3).join(' and ');
+    }
     if (t.length < 3 || t.length > 120 || !/\p{L}{2}/u.test(t)) return null;
     if (NOT_A_PERSON.test(t) || /@|https?:|www\.|\.com\b|\d{3,}/i.test(t)) return null;
     return t;
