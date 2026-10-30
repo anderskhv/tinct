@@ -96,9 +96,9 @@
   const edge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
   // pages: [{ n, x0, y0, w, h, rows }] (rows from textRows). Returns the document's lines in
   // reading order, each { n, col, kind: 'body' | 'heading' | 'foot', … the row }.
-  function documentLines(pages) {
+  function documentLines(pages, title = '') {
     const api = S();
-    const isFurniture = api.furniture(pages);
+    const isFurniture = api.furniture(pages, title);
     // Where running heads and feet are set (the line, its size), from those found repeating:
     // a head that changes from chapter to chapter, set in the same place, is one too.
     const slots = new Set();
@@ -337,7 +337,13 @@
     // Paragraphs indented on their first line follow a line ending a sentence, even one set full to a justified
     // column's edge; a list's entries mostly run on from their first line (ResNet, 29 Oct 2026: its indented
     // paragraphs read as a hanging indent, a paragraph a line).
-    for (const [d, n] of by) if (n.runs >= 3 && n.runs >= n.all * 0.67 && n.sentences < n.all * 0.9) return { d, lines: new Set(list.slice(n.from)) };
+    // The list ends with its last line set in: prose below a bulleted list is no list (Intel SDM, 30 Oct 2026).
+    for (const [d, n] of by) {
+      if (!(n.runs >= 3 && n.runs >= n.all * 0.67 && n.sentences < n.all * 0.9)) continue;
+      let to = list.length - 1;
+      while (to > n.from && Math.round(list[to].x - left) !== d) to--;
+      return { d, lines: new Set(list.slice(n.from, to + 1)) };
+    }
     return null;
   }
   // Justified blocks set in from the margin (an abstract, a long quotation): three lines or more
@@ -408,13 +414,17 @@
       }
       // A line starting in lower case after one that does not end a sentence, or ends in a broken word, runs
       // on: OCR jitters the left margin and sets a hyphen's second half in from it ("re-" | "gards", 30 Oct
-      // 2026 corpus). On a born-digital page only after a full line, so table cells and code stay apart.
-      if (fresh && cur && cur.kind !== 'heading' && prev && /^\p{Ll}/u.test(l.text) && (!TERMINAL.test(prev.text) || /\p{L}-$/u.test(prev.text))) {
+      // 2026 corpus). On a born-digital page only after a full line, so table cells and code stay apart; never
+      // after a dot leader, which ends a form field or a contents entry ("box 1 ..... 1a" | "b Household").
+      if (fresh && cur && cur.kind !== 'heading' && prev && /^\p{Ll}/u.test(l.text) && !/\.{4,}/.test(prev.text)
+        && (!TERMINAL.test(prev.text) || /\p{L}-$/u.test(prev.text))) {
         const pg = geo.get(prev.n + '|' + prev.col) || g;
         const fullPrev = prev.x2 - prev.x >= (pg.right - pg.left) * 0.8 && prev.words >= 5;
         const tooFar = prev.n === l.n && prev.col === l.col && prev.y - l.y > g.pitch * 2.2;
         if ((l.ocr || fullPrev) && !tooFar) fresh = false;
       }
+      // A line opening with a bullet is a list item of its own ("• Pentium® processors" | "• P6 family processors").
+      if (!fresh && cur && cur.kind !== 'heading' && /^[•▪◦‣●■□–]\s/u.test(l.text) && /^[•▪◦‣●■□–]\s/u.test(cur.text)) fresh = true;
       if (fresh) { flush(); cur = { text: l.text, kind: null, page: l.n, breaks: [] }; prev = l; continue }
       if (l.n !== prev.n) cur.breaks.push([wordCount(clean(cur.text)), l.n]);
       cur.text = joinLine(cur.text, l.text, hyphenated);
@@ -490,7 +500,7 @@
   // for a document with no text layer.
   function fromPages(pages, scan) {
     if (!scan || !(scan.textPages > 0)) return null;
-    const { lines, body } = documentLines(pages);
+    const { lines, body } = documentLines(pages, scan.title);
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);

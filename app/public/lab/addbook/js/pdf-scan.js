@@ -35,14 +35,15 @@
   // An OCR layer that sets each word in its own box (Internet Archive's LuraDocument scans): a word's y is
   // its box's bottom and its size the box's height, so the words of one printed line sit up to ~0.4 em
   // apart and differ in size. Most of a page's lines then hold about as many sizes as words, and an item
-  // is one word. No born-digital page in the regression set passes this test (30 Oct 2026 corpus).
+  // is one word. Items without a letter or digit (a superscript "®", a bullet) are not words and do not count.
+  // No born-digital page in the regression set passes this test (30 Oct 2026 corpus).
   function wordBoxLayer(items) {
     const lines = [], perItem = [];
     let line = [], px = -Infinity;
     const close = () => { if (line.length >= 5) lines.push(line); line = [] };
     for (const it of items || []) {
       if (!it || !it.transform || typeof it.str !== 'string') continue;
-      if (it.str.trim()) { if (it.transform[4] < px) close(); line.push(it); px = it.transform[4]; perItem.push(it.str.trim().split(/\s+/).length) }
+      if (/[\p{L}\p{N}]/u.test(it.str)) { if (it.transform[4] < px) close(); line.push(it); px = it.transform[4]; perItem.push(it.str.trim().split(/\s+/).length) }
       if (it.hasEOL) { close(); px = -Infinity }
     }
     close();
@@ -70,10 +71,16 @@
         const em = Math.max(size, last.size);
         if (x >= last.end - em * 0.5 && x - last.end < em * 3 && Math.abs(y - last.y) < Math.max(2, em * 0.6)) row = last.row;
       }
+      // A superscript sign ("Intel®", "™", "†") follows its word in the stream, smaller and raised less than
+      // an em: it belongs to that word's line, not a row of its own between lines (Intel SDM, 30 Oct 2026).
+      // A note number or an exponent ("itself¹", "10⁻⁹") is left out of the line as before.
+      const raised = !row && last && !eol && /^[®™©℠†‡*∗§°]+$/u.test(it.str.trim()) && size <= last.size * 0.85 && y > last.y && y - last.y < last.size * 0.6
+        && x >= last.end - 1 && x - last.end < last.size;
+      if (raised) row = last.row;
       row ||= rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
       if (!row) { row = { y, parts: [] }; rows.push(row) }
       row.parts.push({ x, y, w: it.width || 0, s: it.str, size, font: it.fontName });
-      last = { row, end: x + (it.width || 0), y, size };
+      last = raised ? { ...last, end: x + (it.width || 0) } : { row, end: x + (it.width || 0), y, size };
       eol = !!it.hasEOL;
     }
     // A line that runs across a wide gap into a second column is two lines: a heading in the
@@ -203,17 +210,48 @@
   // Numbers aside (and, for scanned text, the short tokens a misread number leaves: "II", "H").
   const edgeKey = r => r.text.toLowerCase().replace(/\d+/g, ' ').split(/\s+/).map(w => w.replace(/[^\p{L}]+/gu, '')).filter(w => w.length > 2 && !/^[ivxlc]+$/.test(w)).join('');
   const atEdge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
+  // Letter-pair (Dice) likeness of two strings' letters, 0..1: a running head misread a little
+  // differently on each page of a scan still looks like itself.
+  const bigrams = s => { const t = s.toLowerCase().replace(/[^\p{L}]+/gu, ''), out = new Map(); for (let i = 0; i < t.length - 1; i++) out.set(t.slice(i, i + 2), (out.get(t.slice(i, i + 2)) || 0) + 1); return out };
+  function likeness(a, b) {
+    const A = bigrams(a), B = bigrams(b);
+    let n = 0, total = 0;
+    for (const v of A.values()) total += v;
+    for (const v of B.values()) total += v;
+    for (const [k, v] of A) n += Math.min(v, B.get(k) || 0);
+    return total ? 2 * n / total : 0;
+  }
+  // "CHAPTER IV.", "BOOK II": a chapter's label line, which repeats (numbers aside) on every chapter's first page.
+  const LABEL_LINE = /^(?:chapter|chap\.?|book|part|act|stave|canto)[\s.:,]+[IVXLCJl\d]{1,7}[.:,]?$/i;
+  const labelLine = r => r.words <= 3 && LABEL_LINE.test(r.text.trim());
   // Rows that repeat across pages: near the top or bottom on several pages (numbers aside), or
-  // the very same line on several pages anywhere.
-  function furniture(pages) {
+  // the very same line on several pages at the same height on the page and not only once a page
+  // (a chapter's title under a running head that repeats it, a play's speaker names, stay). On a
+  // scan also a running head misread differently on each page ("A SIIKOI'SII I UK LAD"): short,
+  // at the top, and like the book's title or a head seen on many pages; and a printer's signature
+  // at the foot ("49 E"). A chapter's label line is furniture only as a running head: on pages
+  // close together, not once a chapter (Sartor Resartus's "CHAPTER I." in each Book; 30 Oct 2026 corpus).
+  function furniture(pages, bookTitle = '') {
     const need = pages.length <= 3 ? 2 : 3;
-    const seen = new Map(), exact = new Map();
+    const seen = new Map(), exact = new Map(), inner = new Map(), at = new Map(), where = new Map();
+    const slot = (p, r) => r.text + '|' + Math.round((r.y - p.y0) / p.h * 50);
     for (const p of pages) {
       for (const k of new Set(p.rows.filter(r => atEdge(p, r)).map(edgeKey))) if (k) seen.set(k, (seen.get(k) || 0) + 1);
       // As printed: a running head in capitals ("DAVID DEUTSCH") is not the byline it repeats ("David Deutsch").
-      for (const k of new Set(p.rows.map(r => r.text))) exact.set(k, (exact.get(k) || 0) + 1);
+      for (const k of new Set(p.rows.map(r => r.text))) { exact.set(k, (exact.get(k) || 0) + 1); (where.get(k) || where.set(k, []).get(k)).push(p.n) }
+      for (const k of new Set(p.rows.filter(r => !atEdge(p, r)).map(r => r.text))) inner.set(k, (inner.get(k) || 0) + 1);
+      for (const k of new Set(p.rows.map(r => slot(p, r)))) at.set(k, (at.get(k) || 0) + 1);
     }
-    return (p, r) => isPageNumber(r.text) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need) || (exact.get(r.text) || 0) >= need;
+    const heads = [...seen].filter(([, n]) => n >= Math.max(need, pages.length * 0.05)).map(([k]) => k).slice(0, 40);
+    const shortTitle = String(bookTitle || '').split(/[:;(]/)[0];
+    const fuzzyHead = (p, r) => r.y - p.y0 > p.h * 0.9 && r.words <= 10 && edgeKey(r).length >= 6
+      && ((shortTitle.replace(/[^\p{L}]+/gu, '').length >= 6 && likeness(edgeKey(r), shortTitle) >= 0.7) || heads.some(k => likeness(edgeKey(r), k) >= 0.75));
+    const signature = (p, r) => r.y - p.y0 < p.h * 0.12 && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
+    const sameHeight = (p, r) => { const [t, y] = [r.text, Math.round((r.y - p.y0) / p.h * 50)]; return [-1, 0, 1].reduce((n, d) => n + (at.get(t + '|' + (y + d)) || 0), 0) };
+    const close = r => { const ns = where.get(r.text) || []; return ns.some((n, i) => i && n - ns[i - 1] <= 2) };
+    const repeated = (p, r) => (exact.get(r.text) || 0) >= need && (atEdge(p, r) || (inner.get(r.text) || 0) >= need) && sameHeight(p, r) >= need;
+    return (p, r) => labelLine(r) ? (repeated(p, r) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need)) && close(r)
+      : isPageNumber(r.text) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
   }
 
   /* ---------- Epigraphs and quotations ---------- */
@@ -405,7 +443,7 @@
   async function headingEntries(pages, { fontName = async () => '', title = '', author = '', live = () => true } = {}) {
     const docBody = bodyOf(pages.flatMap(p => p.rows));
     if (!docBody) return null;
-    const isFurniture = furniture(pages);
+    const isFurniture = furniture(pages, title);
     const same = s => bare(s);
     // On a scan, a heading stands well above the body; a line set a little larger is noise.
     const noisy = noisySizes(pages.flatMap(p => p.rows), docBody), step = noisy ? 1.35 : 1.15;
@@ -788,7 +826,7 @@
     // Pages with running text (a scanner's notice page aside): none means a scan without a text layer.
     let textPages = all.filter(runningText).length;
     if (noise) textPages = 0;
-    const kind = await layout(pdf, all, { itemsOf, fontName, isFurniture: furniture(all), textPages, live });
+    const kind = await layout(pdf, all, { itemsOf, fontName, isFurniture: furniture(all, title), textPages, live });
     if (!live() || !kind) return null;
     return {
       v: SCAN_VERSION, title, author, pages: pdf.numPages, nav, entries: entries || [], language, textPages, layout: kind,
