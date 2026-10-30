@@ -446,6 +446,18 @@
   }
   // Where each chapter starts in the lines: at its title on its page (the title lines are the
   // chapter's title, not its text), else at the page's first line.
+  // A title's letters and figures, its label's numeral as a number: "CHAPTER IV." and "Chapter 4" (the house style
+  // a scan's entries are shown in, pdfEdition.ts houseStyledScan) are one title.
+  const LABEL_WORD = /\b(chapter|chap|book|part|act|canto|stave)\.?\s+([ivxlc]{1,7})\b/gi;
+  const romanNumber = r => { const v = { i: 1, v: 5, x: 10, l: 50, c: 100 }; let t = 0, prev = 0; for (const ch of r.toLowerCase().split('').reverse()) { const n = v[ch] || 0; t += n < prev ? -n : n; prev = Math.max(prev, n) } return t };
+  const canon = t => norm(String(t || '').replace(LABEL_WORD, (m, w, r) => `${w} ${romanNumber(r)}`));
+  // A short label the scan misread ("CHABTEB VI." for the entry "Chapter 6"): its number and its look agree.
+  function sameLabel(text, label) {
+    const a = /^\s*(\S{4,9})\s+([IVXLC]{1,7}|\d{1,3})[.,]?\s*$/i.exec(String(text)), b = /^\s*(chapter|chap\.?)\s+([IVXLC]{1,7}|\d{1,3})\.?\s*$/i.exec(String(label));
+    if (!a || !b) return false;
+    const num = x => /^\d+$/.test(x) ? Number(x) : romanNumber(x);
+    return num(a[2]) === num(b[2]) && /^c/i.test(a[1]) && [...'hapter'].filter(c => a[1].toLowerCase().includes(c)).length >= 3;
+  }
   function splitChapters(lines, scan, pageCount) {
     const entries = chapterEntries(scan);
     const out = [];
@@ -462,7 +474,7 @@
     for (const e of entries) {
       let i = lines.findIndex((l, k) => k >= at && l.n >= e.page);
       if (i < 0) i = lines.length;
-      const want = norm(e.label);
+      const want = canon(e.label);
       const skip = new Set();
       // The title as printed on its page (over one or two lines): a heading first, else any line.
       const from = i;
@@ -471,9 +483,9 @@
         // "2. Related Work", 29 Oct 2026); any other line only near the top.
         for (let k = from; k < lines.length && lines[k].n === e.page && (headingOnly || k < from + 40); k++) {
           if (headingOnly && lines[k].kind !== 'heading') continue;
-          const one = norm(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + norm(lines[k + 1].text) : one;
+          const one = canon(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + canon(lines[k + 1].text) : one;
           if (!one || !want) continue;
-          if (want === one || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4)) { i = k; skip.add(k); break find }
+          if (want === one || sameLabel(lines[k].text, e.label) || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4)) { i = k; skip.add(k); break find }
           if (want === two) { i = k; skip.add(k); skip.add(k + 1); break find }
         }
       }
@@ -531,11 +543,29 @@
     }
     return out;
   }
+  // A scan's front matter that is the library's or the scanner's, not the book's: a due-date card ("THE PERSON
+  // CHARGING THIS MATERIAL IS RE-"), a scanner's notice, a catalogue stamp; and the pictures of its covers and
+  // endpapers, on pages before the one facing the title page (Three Men in a Boat, 30 Oct 2026 corpus).
+  const LIBRARY_LINE = /person charging this material|latest date stamped below|to renew,? call|theft, mutilation|this book is due|date due\b|digitized by( the)? internet archive|archive\.org\/details|no known copyright restrictions|the original of this book is in|university library\b.*\bgift of|with funding from/i;
+  function frontMatter(lines, pageCount, title) {
+    const front = lines.filter(l => l.n <= Math.max(12, pageCount * 0.1));
+    if (!front.some(l => l.ocr)) return new Set();
+    const out = new Set(), key = norm(title || '').slice(0, 24);
+    const titlePage = key.length >= 6 ? front.find(l => l.kind !== 'figure' && norm(l.text).length >= 4 && key.startsWith(norm(l.text).slice(0, 24)))?.n : undefined;
+    for (const n of new Set(front.map(l => l.n))) {
+      const on = front.filter(l => l.n === n), words = on.filter(l => l.kind !== 'figure').reduce((t, l) => t + l.words, 0);
+      const notice = on.filter(l => LIBRARY_LINE.test(l.text));
+      if (notice.length && words < 120) for (const l of on) out.add(l);
+      else for (const l of notice) out.add(l);
+      if (titlePage && n < titlePage - 1) for (const l of on) if (l.kind === 'figure') out.add(l);
+    }
+    return out;
+  }
   function fromPages(pages, scan) {
     if (!scan || !(scan.textPages > 0)) return null;
     const documented = documentLines(pages, scan.title), body = documented.body;
-    const lists = listPages(documented.lines, pages.length);
-    const lines = documented.lines.filter(l => !lists.has(l.n));
+    const lists = listPages(documented.lines, pages.length), junk = frontMatter(documented.lines, pages.length, scan.title);
+    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l));
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);
