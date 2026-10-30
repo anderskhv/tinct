@@ -46,21 +46,21 @@ export function LabMarkdown({ children, words: split = false }: { children: stri
   const blocks = children.trim().split(/\n{2,}/).filter(Boolean)
   return (
     <div className="lab-markdown" data-testid="lab-markdown">
-      {blocks.map((block, index) => {
-        const lines = block.split('\n')
-        const list = lines.length > 0 && lines.every(line => /^\s*[-*]\s+/.test(line))
-        if (list) {
+      {blocks.flatMap((block, index) => segments(block).map((segment, part) => {
+        const key = `${index}:${part}`
+        // Headings ("## Two responses") read as a short bold line, not as "##" (30 Oct 2026).
+        if (segment.kind === 'heading') return <p key={key} className="lab-md-heading"><strong>{inlineNodes(segment.lines[0], split)}</strong></p>
+        if (segment.kind === 'ul' || segment.kind === 'ol') {
+          const List = segment.kind
           return (
-            <ul key={index}>
-              {lines.map((line, lineIndex) => (
-                <li key={lineIndex}>{inlineNodes(line.replace(/^\s*[-*]\s+/, ''), split)}</li>
-              ))}
-            </ul>
+            <List key={key}>
+              {segment.lines.map((line, lineIndex) => <li key={lineIndex}>{inlineNodes(line, split)}</li>)}
+            </List>
           )
         }
         return (
-          <p key={index}>
-            {lines.map((line, lineIndex) => (
+          <p key={key}>
+            {segment.lines.map((line, lineIndex) => (
               <Fragment key={lineIndex}>
                 {lineIndex > 0 && <br />}
                 {inlineNodes(line, split)}
@@ -68,9 +68,27 @@ export function LabMarkdown({ children, words: split = false }: { children: stri
             ))}
           </p>
         )
-      })}
+      }))}
     </div>
   )
+}
+
+const HEADING = /^\s{0,3}#{1,6}\s+(.+?)\s*#*\s*$/
+const BULLET = /^\s*[-*•]\s+/
+const NUMBERED = /^\s*\d{1,3}[.)]\s+/
+
+/** A block's runs of lines: a heading, a bulleted or a numbered list, or a paragraph. */
+function segments(block: string): Array<{ kind: 'heading' | 'ul' | 'ol' | 'p'; lines: string[] }> {
+  const out: Array<{ kind: 'heading' | 'ul' | 'ol' | 'p'; lines: string[] }> = []
+  for (const line of block.split('\n')) {
+    const heading = line.match(HEADING)
+    const kind = heading ? 'heading' : BULLET.test(line) ? 'ul' : NUMBERED.test(line) ? 'ol' : 'p'
+    const text = heading ? heading[1] : kind === 'ul' ? line.replace(BULLET, '') : kind === 'ol' ? line.replace(NUMBERED, '') : line
+    const last = out.at(-1)
+    if (last && last.kind === kind && kind !== 'heading') last.lines.push(text)
+    else out.push({ kind, lines: [text] })
+  }
+  return out
 }
 
 /** One line of the same inline vocabulary (bold, italics, code, links), no blocks. */

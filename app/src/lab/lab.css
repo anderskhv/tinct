@@ -1029,7 +1029,9 @@
 .lab-markdown > :first-child { margin-top: 0; }
 .lab-markdown > :last-child { margin-bottom: 0; }
 .lab-markdown p { margin: 0 0 .72em; }
-.lab-markdown ul { margin: .2em 0 .72em; padding-left: 1.15em; }
+.lab-markdown ul, .lab-markdown ol { margin: .2em 0 .72em; padding-left: 1.15em; }
+/* A heading in an answer: a short bold line with a little room above, in the answer's own face and size. */
+.lab-markdown .lab-md-heading { margin: .9em 0 .3em; }
 .lab-markdown strong { font-weight: 650; }
 .lab-markdown code {
   padding: .05em .24em;
