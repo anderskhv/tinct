@@ -459,7 +459,8 @@ export function SelectionPopup({
     const markId = selection.existingHighlightId
     const ask = contextualExplain
     const moreRows: DeskMoreId[][] = [
-      ['define', ...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(sharedReader && onQuizPassage ? ['quiz'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
+      // No Define: a word is defined by a single click on it (Anders, 30 Oct 2026).
+      [...(ask ? ['factcheck', 'counterpoint'] as DeskMoreId[] : []), ...(sharedReader && onQuizPassage ? ['quiz'] as DeskMoreId[] : []), ...(character ? ['gallery'] as DeskMoreId[] : [])],
       ['copy', ...(markId && onShareHighlight ? ['share'] as DeskMoreId[] : []), ...(onShowPage ? ['page'] as DeskMoreId[] : [])],
     ]
     const remember = (color: HighlightColor) => {
