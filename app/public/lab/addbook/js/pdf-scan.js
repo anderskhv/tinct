@@ -934,17 +934,40 @@
   // the number its neighbours give it (Pride and Prejudice, 30 Oct 2026 corpus).
   const toRoman = n => { let out = ''; for (const [v, r] of [[100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']]) while (n >= v) { out += r; n -= v } return out };
   function sequencedLabels(list) {
-    const word = String.raw`^(?:CHAPTER|Chapter)\s+([IVXLC]{1,7})\.?$`, rx = new RegExp(word);
-    const nums = list.map(e => { const m = rx.exec(String(e.label).trim()); return m && toRoman(roman(m[1])) === m[1].toUpperCase() ? roman(m[1]) : null });
-    if (list.length < 5 || nums.filter(n => n !== null).length < list.length * 0.6) return list;
+    // Each label's numeral as printed and as OCR misreads numerals ("L", "l" for I; "H", "n", "U" for II; "in", "m"
+    // for III: "CHAPTER L" is I where II follows, not 50).
+    const LABEL = /^(?:CHAPTER|Chapter|CHAP\.)\s+(\S{1,7}?)[.,]?$/;
+    const valid = t => /^[IVXLC]+$/.test(t) && toRoman(roman(t)) === t ? roman(t) : null;
+    const options = list.map(e => {
+      const m = LABEL.exec(String(e.label).trim());
+      if (!m) return [];
+      const raw = valid(m[1]), ocr = valid(m[1].replace(/[Ll1|]/g, 'I').replace(/[HUn]/g, 'II').replace(/m/g, 'III').replace(/i/g, 'I'));
+      return [...new Set([raw, ocr].filter(v => v))];
+    });
+    if (list.length < 5 || options.filter(o => o.length).length < list.length * 0.6) return list;
+    // A reading holds where a neighbour within three entries agrees with it, a chapter or two missing between (a
+    // book's numbering may start again: Sartor Resartus's three Books); the printed reading first.
+    const n = list.length;
+    const fits = (v, i) => {
+      for (let j = Math.max(0, i - 3); j <= Math.min(n - 1, i + 3); j++) {
+        if (j === i) continue;
+        for (const w of options[j]) { const gap = j > i ? w - v : v - w, d = Math.abs(j - i); if (gap >= d && gap <= d + 2) return true }
+      }
+      return false;
+    };
+    const chosen = options.map((o, i) => o.find(v => fits(v, i)) ?? null);
+    // A label too garbled to read ("CHAITKk [V.") between two read ones takes the number between them.
     const garbled = e => /^(?:C\s?H\s?A|CHA|CH\.|C[HI]AP)/i.test(String(e.label)) && String(e.label).length <= 16;
+    for (let i = 0; i < n; i++) {
+      if (chosen[i] !== null || !garbled(list[i])) continue;
+      const before = chosen.slice(0, i).reduceRight((v, x, j) => v ?? (x !== null ? x + (i - j) : null), null);
+      const after = chosen.slice(i + 1).reduce((v, x, j) => v ?? (x !== null ? x - (j + 1) : null), null);
+      if (before != null && before === after) chosen[i] = before;
+    }
     return list.map((e, i) => {
-      const before = nums.slice(0, i).reduceRight((v, n, j) => v ?? (n !== null ? n + (i - j) : null), null);
-      const after = nums.slice(i + 1).reduce((v, n, j) => v ?? (n !== null ? n - (j + 1) : null), null);
-      const want = before ?? after;
-      if (want == null || want < 1 || (before != null && after != null && before !== after)) return e;
-      if (nums[i] === want || !(garbled(e) || nums[i] !== null)) return e;
-      return { ...e, label: 'CHAPTER ' + toRoman(want) + '.' };
+      if (chosen[i] === null) return e;
+      const m = LABEL.exec(String(e.label).trim());
+      return m && valid(m[1]) === chosen[i] ? e : { ...e, label: 'CHAPTER ' + toRoman(chosen[i]) + '.' };
     });
   }
   // The same heading twice within two pages (a half-title page, then the act's first page: "FIRST ACT") is one,

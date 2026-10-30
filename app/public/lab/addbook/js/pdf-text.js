@@ -498,8 +498,13 @@
       const s = starts[k], next = starts[k + 1];
       if (!s.skip.size && next.skip.size && next.e.page === s.e.page) s.i = next.i;
     }
-    // Text before the first chapter (a preface without an entry) is a chapter under the book's title.
-    const leadLines = lines.slice(0, starts[0].i);
+    // Text before the first chapter (a preface without an entry) is a chapter under the book's title. On a scan its
+    // pages of little text leave it (a title page, a half-title, a library's inscriptions and their pictures: the
+    // reader shows the title and author above the text; Three Men in a Boat, 30 Oct 2026 corpus).
+    const before = lines.slice(0, starts[0].i), scanned = before.some(l => l.ocr);
+    const wordsOn = new Map();
+    for (const l of before) if (l.kind !== 'figure') wordsOn.set(l.n, (wordsOn.get(l.n) || 0) + l.words);
+    const leadLines = scanned ? before.filter(l => (wordsOn.get(l.n) || 0) >= 40) : before;
     const lead = leadLines.filter(l => l.kind === 'body');
     if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: leadLines, lead: true });
     starts.forEach((s, k) => {
@@ -514,10 +519,12 @@
   // the book's word four times more common than the capitals as they stand goes back (Pride and Prejudice,
   // Three Men in a Boat, 30 Oct 2026 corpus). A short line ("ACT I.") or a roman number is left alone.
   function restoreDropCaps(paras, vocab) {
-    for (let k = 0, seen = 0; k < paras.length && seen < 2; k++) {
+    for (let k = 0, seen = 0; k < paras.length; k++) {
       const p = paras[k];
       if (p.kind === 'heading' || p.figure) continue;
-      seen++;
+      // A chapter's first two paragraphs, and the first after a heading inside it ("PREFACE," | "HE chief beauty").
+      const prev = paras[k - 1], headed = prev && (prev.kind === 'heading' || (wordCount(prev.text) <= 3 && !/\p{Ll}/u.test(prev.text)));
+      if (seen++ >= 2 && !headed) continue;
       const m = /^[‘'’"“^%()]*([A-Z]{1,12})([.,;:'’]?)(\s)/.exec(p.text);
       if (!m || wordCount(p.text) < 8 || (/^[IVXLC]+$/.test(m[1]) && m[2] === '.')) continue;
       const x = m[1].toLowerCase(), self = vocab.get(x) || 0;
