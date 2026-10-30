@@ -7,7 +7,8 @@ import './marginPhone.css'
 
 export type PhoneMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'copy'
 /** The margin reader's ••• on a phone (margin.js MORE_ROWS, names only); Related is a PDF's alone. */
-export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['define', 'Define'], ['factcheck', 'Evaluate'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
+// No Define: a word is defined by a single tap on it (Anders, 30 Oct 2026).
+export const PHONE_MORE_ROWS: [PhoneMoreId, string][] = [['factcheck', 'Evaluate'], ['counterpoint', 'Counterpoint'], ['quiz', 'Quiz me'], ['copy', 'Copy']]
 
 /** The part of the window the reader can see (above the software keyboard), in layout coordinates. */
 function visibleWindow(): { top: number; bottom: number; width: number } {
@@ -77,6 +78,8 @@ export interface LabPhoneBarProps {
   onRemove: () => void
   /** A reader's own PDF text can return to the page containing this selection. */
   onShowPage?: () => void
+  /** Keep Define in •••: the original-pages PDF view, where a tap does not define a word. */
+  withDefine?: boolean
   onDismiss: () => void
 }
 
@@ -199,7 +202,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       {moreOpen && (!(existingColor && paletteOpen) || props.onShowPage) && (
         <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
           style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
-          {!existingColor && PHONE_MORE_ROWS.map(([id, name]) => (
+          {!existingColor && (props.withDefine ? [['define', 'Define'] as [PhoneMoreId, string], ...PHONE_MORE_ROWS] : PHONE_MORE_ROWS).map(([id, name]) => (
             <button key={id} type="button" role="menuitem" data-testid={`lab-pmore-${id}`} onClick={() => { setMoreOpen(false); props.onMore(id) }}>{name}</button>
           ))}
           {props.onShowPage && <button type="button" role="menuitem" data-testid="lab-pmore-page" onClick={() => { setMoreOpen(false); props.onShowPage?.() }}>Show page</button>}

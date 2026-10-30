@@ -315,7 +315,8 @@ async function run(engineName) {
   card = await action(() => page.getByTestId('lab-pbar-simplify').click(), 'simplify', 'Simplify')
   ok(`${tag}: Simplify asks the simplify route`, log.ai.some(a => a.intent === 'simplify') && card.text.includes('MOCK simplify'), card)
   await close1('drag', 'Simplify')
-  for (const [id, kind, label, intent] of [['define', 'define', 'Define', 'define'], ['factcheck', 'factcheck', 'Evaluate', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
+  // No Define in •••: a tap on a word defines it (30 Oct 2026).
+  for (const [id, kind, label, intent] of [['factcheck', 'factcheck', 'Evaluate', 'factcheck'], ['counterpoint', 'counterpoint', 'Counterpoint', 'counterpoint'], ['quiz', 'quiz', 'Quiz me', 'quiz']]) {
     card = await action(async () => { await page.getByTestId('lab-pbar-more').click(); await page.getByTestId(`lab-pmore-${id}`).click() }, kind, label)
     ok(`${tag}: ${label} asks the ${intent} route with the passage`, log.ai.some(a => a.intent === intent && a.selection), log.ai.slice(-2))
     if (kind === 'quiz') {
@@ -325,7 +326,6 @@ async function run(engineName) {
       await page.getByTestId('lab-phone-quiz-next').waitFor()
       ok(`${tag}: a quiz answer is marked on the quiz_check route`, log.ai.some(a => a.intent === 'quiz_check' && a.quiz) && /Right\./.test((await cardOf(page)).text), (await cardOf(page)).text)
     }
-    if (kind === 'define') shots.push(await shot(page, `${tag}-define`))
     await close1('outside', label)
   }
 

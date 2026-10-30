@@ -151,11 +151,13 @@ it('keeps Dictionary visible when a desktop character popup becomes a phone card
   fireEvent.pointerDown(word, { pointerId: 44, pointerType: 'mouse', clientX: 150, clientY: 200 })
   fireEvent.pointerUp(word, { pointerId: 44, pointerType: 'mouse', clientX: 150, clientY: 200 })
   expect(document.querySelector('[data-popup-mode="character"]')).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: 'More actions' }))
-  fireEvent.click(screen.getByTestId('lab-dbar-more'))
-  fireEvent.click(screen.getByTestId('lab-dmore-define'))
-  expect(document.querySelector('.lab-desktop-card[data-kind="define"]')).toBeTruthy()
-  expect(document.querySelector('.selection-popup')).toBeNull()
+  // Define left the ••• menu (30 Oct 2026): a single click on an ordinary word defines it.
+  fireEvent.pointerDown(document.body, { pointerId: 45, pointerType: 'mouse', clientX: 5, clientY: 5 })
+  fireEvent.pointerUp(document.body, { pointerId: 45, pointerType: 'mouse', clientX: 5, clientY: 5 })
+  const plain = screen.getAllByTestId('lab-word')[2]
+  fireEvent.pointerDown(plain, { pointerId: 46, pointerType: 'mouse', clientX: 250, clientY: 200 })
+  fireEvent.pointerUp(plain, { pointerId: 46, pointerType: 'mouse', clientX: 250, clientY: 200 })
+  expect(document.querySelector('[data-popup-mode="define"]')).toBeTruthy()
   vi.stubGlobal('innerWidth', 390)
   fireEvent.resize(window)
   await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-lab-layout')).toBe('phone'))
