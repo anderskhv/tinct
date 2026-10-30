@@ -24,9 +24,12 @@
 //   Version 8 (2026-10-28): reconstruct sloped word baselines and keep lowercase wrapped heading lines.
 //   Version 9 (2026-10-28): keep drop-cap paragraph openings out of wrapped headings.
 //   Version 10 (2026-10-29): split lines joined across a narrow two-column gutter (gutterOf).
+//   Version 11 (2026-10-30): scanned books (30 Oct 2026 corpus): word-box OCR lines, catalogue authors, title pages
+//     past the third, running heads and signatures at a scan's text edges, chapter labels, contents read leniently
+//     and continued, garbled headings named from the printed contents.
 // Used by js/reader.js (window.TinctPdfScan); the tests import this file directly.
 (function (global) {
-  const SCAN_VERSION = 10;
+  const SCAN_VERSION = 11;
   const HEADING_PAGES = 400;
 
   /* ---------- Text rows ---------- */
@@ -380,7 +383,11 @@
   /* ---------- Title and author printed on the first pages ---------- */
   // pages: [{ n, y0, h, rows }]. Returns { title, author } (either may be null).
   function printedTitle(pages, isFurniture) {
-    for (const p of pages.slice(0, 3)) {
+    // A page with a single scrap of text (a cover's OCR noise: "nia") holds no title; past the third page, only a
+    // title page does (a "by" line), not a publisher's list (The Importance of Being Earnest, 30 Oct 2026 corpus).
+    for (const p of pages.slice(0, 10)) {
+      if (p.rows.filter(r => /\p{L}{2}/u.test(r.text)).length < 2) continue;
+      if (p.n > 3 && !p.rows.some(r => /^by$/i.test(r.text.trim()) || BY_LINE.test(r.text.trim()))) continue;
       const skip = epigraphRows(p.rows);
       // Reports often print "Figure 1" above a large, bold chart title. That
       // title belongs to the figure, not to the document's chapter navigation.
@@ -411,7 +418,9 @@
       const body = bodyOf(rows);
       const top = Math.max(...rows.map(r => r.size));
       // A page set at one size has no title on it, unless it is a short title page.
-      if (top < body.size * 1.15 && !(rows.length <= 6 && p.n === 1 && rows[0].words <= 14)) continue;
+      // A short title page with a "by" line takes its largest line too (THE IMPORTANCE | OF BEING EARNEST | … | BY).
+      const titlePage = rows.length <= 14 && rows.some(r => /^by$/i.test(r.text.trim()) || BY_LINE.test(r.text.trim())) && rows.some(r => r.size < top * 0.8);
+      if (top < body.size * 1.15 && !(rows.length <= 6 && p.n === 1 && rows[0].words <= 14) && !titlePage) continue;
       const i = rows.findIndex(r => r.size >= top * 0.92);
       const lines = [rows[i]];
       for (let j = i + 1; j < rows.length && lines.length < 3; j++) {
@@ -425,7 +434,9 @@
       let author = null;
       const at = rows.indexOf(lines.at(-1));
       const near = [...rows.slice(at + 1, at + 5), ...rows.slice(Math.max(0, i - 2), i).reverse()];
-      for (const r of near) {
+      for (const [k, r] of near.entries()) {
+        // "BY" on a line of its own, the name on the next ("BY" | "OSCAR WILDE").
+        if (/^by$/i.test(r.text.trim()) && near[k + 1] && nameLike(near[k + 1].text) && near[k + 1].words <= 6) { author = readable(near[k + 1].text); break }
         const by = r.text.match(BY_LINE);
         if (by && nameLike(by[2])) { author = readable(by[2]); break }
         if (nameLike(r.text) && r.words <= 9 && r.size >= body.size * 0.95) { author = readable(r.text).replace(/,\s*$/, ''); break }
@@ -986,7 +997,7 @@
     try { info = (await pdf.getMetadata())?.info || {} } catch {}
     // Title and author first, from the first pages (shown while the chapters are found).
     const first = [];
-    for (let n = 1; n <= Math.min(3, pdf.numPages); n++) first.push(await pageOf(n));
+    for (let n = 1; n <= Math.min(10, pdf.numPages); n++) first.push(await pageOf(n));
     if (!live()) return null;
     const { title, author, source } = pickTitle(info, first, fileName);
     onTitle?.({ title, author });

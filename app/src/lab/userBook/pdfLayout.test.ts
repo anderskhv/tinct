@@ -52,7 +52,7 @@ describe('PDF layout: the edition a PDF opens in', () => {
     ['IMG_20240512_scan.pdf', 'pages-only'],
   ])('%s opens as %s', async (name, expected) => {
     const scan = await layoutOf(fixtures[name], name)
-    expect(scan.v).toBe(10)
+    expect(scan.v).toBe(11)
     expect(scan.layout.default).toBe(expected)
   })
 
@@ -79,7 +79,8 @@ describe('PDF layout: the edition a PDF opens in', () => {
   })
 
   it('is part of the scan from version 5: an older scan is scanned again', () => {
-    expect(scanApi.SCAN_VERSION).toBe(10)
+    expect(scanApi.SCAN_VERSION).toBe(11)
+    expect(scanApi.current({ v: 10, title: 'x', entries: [] })).toBe(false)
     expect(scanApi.current({ v: 5, title: 'x', entries: [] })).toBe(false)
     expect(scanApi.current({ v: 4, title: 'x', entries: [] })).toBe(false)
   })

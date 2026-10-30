@@ -47,7 +47,9 @@
   // 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column (textRows' gutter).
   // 6 (29 Oct 2026): first-line paragraph indents are not a hanging indent; chapter headings past line 40;
   // a figure inside a paragraph's run follows the paragraph.
-  const PDF_TEXT_CONVERTER = 6;
+  // 7 (30 Oct 2026): scanned books: word-box OCR lines, lower-case run-ons, repeated lines kept unless at the same
+  // height, superscript signs, lists at a book's start and drop-cap letters (30 Oct 2026 corpus).
+  const PDF_TEXT_CONVERTER = 7;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 
@@ -484,17 +486,8 @@
       const s = starts[k], next = starts[k + 1];
       if (!s.skip.size && next.skip.size && next.e.page === s.e.page) s.i = next.i;
     }
-    // Text before the first chapter (a preface without an entry) is a chapter under the book's title. Its pages that
-    // are lists (a printed contents, a list of illustrations, a publisher's list of titles: most lines ending on a
-    // number or a leader) leave it; the reader has its own chapter menu (Earnest's Methuen list, 30 Oct 2026 corpus).
-    const before = lines.slice(0, starts[0].i);
-    const listPages = new Set();
-    for (const n of new Set(before.map(l => l.n))) {
-      const on = before.filter(l => l.n === n && l.kind !== 'figure');
-      const listed = on.filter(l => /(?:\d{1,3}|\b[ivxlc]{1,6})\s*\.?$/i.test(l.text) || /\.{3,}|(?:\.\s){2,}/.test(l.text)).length;
-      if (on.length >= 4 && ((listed >= on.length * 0.4 && on.some(l => l.ocr)) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) listPages.add(n);
-    }
-    const leadLines = before.filter(l => !listPages.has(l.n));
+    // Text before the first chapter (a preface without an entry) is a chapter under the book's title.
+    const leadLines = lines.slice(0, starts[0].i);
     const lead = leadLines.filter(l => l.kind === 'body');
     if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: leadLines, lead: true });
     starts.forEach((s, k) => {
@@ -526,9 +519,23 @@
   // pages: [{ n, x0, y0, w, h, rows }] for every page of the document; scan: TinctPdfScan.scan's
   // result (its title, author, language, chapters and textPages). Returns the edition, or null
   // for a document with no text layer.
+  // The pages near a book's start that are lists (a printed contents, a list of illustrations, a publisher's list of
+  // titles: most lines ending on a number or a leader), on a scan or headed Contents. The reader has its own chapter
+  // menu (The Importance of Being Earnest's Methuen lists, 30 Oct 2026 corpus).
+  function listPages(lines, pageCount) {
+    const out = new Set();
+    for (const n of new Set(lines.filter(l => l.n <= Math.max(12, pageCount * 0.1)).map(l => l.n))) {
+      const on = lines.filter(l => l.n === n && l.kind !== 'figure');
+      const listed = on.filter(l => /(?:\d{1,3}|\b[ivxlc]{1,6})\s*\.?$/i.test(l.text) || /\.{3,}|(?:\.\s){2,}/.test(l.text)).length;
+      if (on.length >= 4 && ((listed >= on.length * 0.4 && on.some(l => l.ocr)) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) out.add(n);
+    }
+    return out;
+  }
   function fromPages(pages, scan) {
     if (!scan || !(scan.textPages > 0)) return null;
-    const { lines, body } = documentLines(pages, scan.title);
+    const documented = documentLines(pages, scan.title), body = documented.body;
+    const lists = listPages(documented.lines, pages.length);
+    const lines = documented.lines.filter(l => !lists.has(l.n));
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);
