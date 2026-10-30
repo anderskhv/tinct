@@ -210,7 +210,9 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
         number = n && n <= number + 3 ? n : number + 1
         return `CHAPTER ${roman(number)}`
       })
-      current = { title: titleCase(label).replace(/^Chapter\s+(\S+)\s+(?=\S)/, 'Chapter $1. '), paragraphs: [] }
+      const labelled = /^CHAPTER\s+(\S+)\s*(.*)$/.exec(label)
+      const named = labelled ? titleCase(labelled[2]).replace(/^\p{Ll}/u, c => c.toUpperCase()) : ''
+      current = { title: labelled ? `Chapter ${labelled[1]}${named ? '. ' + named : ''}` : titleCase(label), paragraphs: [] }
       chapters.push(current)
     }
     if (!current) { current = { title: '', paragraphs: [] }; chapters.push(current) }
