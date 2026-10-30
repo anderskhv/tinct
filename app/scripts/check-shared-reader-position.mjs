@@ -212,7 +212,9 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.keyboard.type('When I read this passage, what does it mean?')
   assert.equal(await page.getByTestId('lab-dbar-ask-field').inputValue(), 'When I read this passage, what does it mean?', 'Ask retains uninterrupted typing focus')
   const afterAsk = await page.getByTestId('lab-desk-bar').boundingBox()
-  assert(Math.abs(beforeAsk.width-afterAsk.width)<2 && Math.abs(beforeAsk.height-afterAsk.height)<2, 'Ask keeps the existing toolbar size')
+  // The field grows with its question, a line (20px) at a time, up to three lines (Anders, 30 Oct 2026); the width stays.
+  const grown = afterAsk.height - beforeAsk.height
+  assert(Math.abs(beforeAsk.width-afterAsk.width)<2 && grown > -2 && grown <= 42 && Math.abs(grown - Math.round(grown/20)*20) < 2, `Ask keeps the toolbar width and grows by whole lines: ${JSON.stringify({beforeAsk, afterAsk})}`)
   await page.screenshot({path:`${output}/verse-inline-ask.png`})
   await page.keyboard.press('Escape')
   await page.getByTestId('lab-dbar-note').click()

@@ -76,6 +76,9 @@ export interface SelectionPopupProps {
   onExplain: (answer?: string) => void
   /** Private shared reader: submit a newly typed passage question through the existing chat service. */
   onAskQuestion?: (question: string) => void
+  /** Dictation into the desktop bar's Ask field (SelectionDeskBar onDictate). */
+  onDictateAsk?: (current: string, onText: (text: string) => void) => void
+  dictatingAsk?: boolean
   /** Private shared reader: start the existing passage quiz flow. */
   onQuizPassage?: () => void
   onPassageNote?: () => void
@@ -220,6 +223,8 @@ export function SelectionPopup({
   onRequestNote,
   onExplain,
   onAskQuestion,
+  onDictateAsk,
+  dictatingAsk,
   onQuizPassage,
   onPassageAction,
   onPassageNote,
@@ -474,6 +479,8 @@ export function SelectionPopup({
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
         onAskQuestion={sharedReader ? onAskQuestion : undefined}
+        onDictate={sharedReader ? onDictateAsk : undefined}
+        dictating={dictatingAsk}
         onComposeAsk={sharedReader ? onPassageAsk : undefined}
         onExplain={() => (ask ? openContextualExplanation() : onExplain())}
         onSimplify={() => (ask ? openContextualExplanation('simplify') : onExplain())}

@@ -4858,7 +4858,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // chapter. A reader's own file sends none: its names stay on the device.
   const dictationBookRef = useRef(book)
   dictationBookRef.current = book
-  const dictation = useLabDictation(book.bookId || 'bible', setDraft, {
+  // Dictation writes to the chat and card composer, or, started from the desktop bar's Ask field, to that field.
+  const deskDictationRef = useRef<((text: string) => void) | null>(null)
+  const dictation = useLabDictation(book.bookId || 'bible', text => { const desk = deskDictationRef.current; if (desk) desk(text); else setDraft(text) }, {
     signedIn,
     getAuthToken: () => authToken ?? readSupabaseAccessToken(),
     getKeyterms: () => {
@@ -4875,8 +4877,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   })
 
   const handleMic = useCallback(() => {
+    deskDictationRef.current = null
     dictation.toggle(draft)
   }, [dictation, draft])
+  const dictateDeskAsk = useCallback((current: string, onText: (text: string) => void) => {
+    if (dictation.state !== 'idle' && deskDictationRef.current) { dictation.stop(); deskDictationRef.current = null; return }
+    deskDictationRef.current = onText
+    dictation.toggle(current)
+  }, [dictation])
 
   const openPhoneAsk = useCallback(() => {
     interruptHearForAsk()
@@ -7467,6 +7475,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           saveError={sharedCardSaveError}
           selection={selectionPopup}
           popupRef={popupRef}
+          onDictateAsk={sharedReader ? dictateDeskAsk : undefined}
+          dictatingAsk={dictation.state !== 'idle' && !!deskDictationRef.current}
           onAskQuestion={sharedReader ? question => {
             const passage = phonePassageOf(selectionPopup)
             if (continuousReader) {

@@ -281,3 +281,36 @@ it('applies the color displayed on the desktop highlighter before opening any pa
   expect(input.onColorClick).toHaveBeenCalledOnce()
   expect(screen.getByTestId('lab-dbar-color-sage')).toBeTruthy()
 })
+
+describe('the desktop Ask field: mic, send and Enter (30 Oct 2026)', () => {
+  it('shows the mic while empty and send always; dictation fills the field and typing hides the mic', () => {
+    let fill: ((text: string) => void) | null = null
+    const onDictate = vi.fn((current: string, onText: (text: string) => void) => { fill = onText; expect(current).toBe('') })
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn(), onDictateAsk: onDictate })
+    render(<Harness {...input} />)
+    act(() => { document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'W', bubbles: true, cancelable: true })) })
+    const field = screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement
+    fireEvent.change(field, { target: { value: '' } })
+    expect(screen.getByTestId('lab-dbar-ask-mic')).toBeTruthy()
+    expect((screen.getByTestId('lab-dbar-ask-send') as HTMLButtonElement).disabled).toBe(true)
+    fireEvent.click(screen.getByTestId('lab-dbar-ask-mic'))
+    expect(onDictate).toHaveBeenCalledOnce()
+    act(() => fill!('What does generous mean here?'))
+    expect(field.value).toBe('What does generous mean here?')
+    expect(screen.queryByTestId('lab-dbar-ask-mic')).toBeNull()
+    expect((screen.getByTestId('lab-dbar-ask-send') as HTMLButtonElement).disabled).toBe(false)
+  })
+
+  it('sends on Enter and keeps a new line on Shift+Enter', () => {
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...input} />)
+    act(() => { document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'W', bubbles: true, cancelable: true })) })
+    const field = screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement
+    expect(field.tagName).toBe('TEXTAREA')
+    fireEvent.change(field, { target: { value: 'Why this phrase?' } })
+    fireEvent.keyDown(field, { key: 'Enter', shiftKey: true })
+    expect(input.onAskQuestion).not.toHaveBeenCalled()
+    fireEvent.keyDown(field, { key: 'Enter' })
+    expect(input.onAskQuestion).toHaveBeenCalledExactlyOnceWith('Why this phrase?')
+  })
+})

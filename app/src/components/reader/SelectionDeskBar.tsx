@@ -48,6 +48,10 @@ export interface SelectionDeskBarProps {
   /** Only the private shared reader uses the in-place Ask field. */
   onAskQuestion?: (question: string) => void
   onComposeAsk?: (initialQuestion?: string) => void
+  /** Dictation into the Ask field: started with the field's text, it reports the field's new text. */
+  onDictate?: (current: string, onText: (text: string) => void) => void
+  /** Dictation is listening (the mic stays while it does). */
+  dictating?: boolean
   onExplain: () => void
   onSimplify?: () => void
   onMore: (id: DeskMoreId) => void
@@ -58,6 +62,9 @@ export interface SelectionDeskBarProps {
   /** Container props owned by SelectionPopup (keyboard trap, dismissal guards). */
   containerProps?: Record<string, unknown>
 }
+
+/** The Ask field's tallest, in lines; past it the question scrolls. */
+const ASK_MAX_LINES = 3
 
 const boxOf = (rect: DOMRect | DeskBox): DeskBox => ({ left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom })
 
@@ -79,7 +86,8 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   const [moreOpen, setMoreOpen] = useState(false)
   const [askOpen, setAskOpen] = useState(false)
   const [question, setQuestion] = useState('')
-  const askRef = useRef<HTMLInputElement | null>(null)
+  const askRef = useRef<HTMLTextAreaElement | null>(null)
+  const [askLines, setAskLines] = useState(1)
   const askButtonRef = useRef<HTMLButtonElement | null>(null)
   const [morePlace, setMorePlace] = useState<{ left: number; top: number } | null>(null)
   const moreRef = useRef<HTMLDivElement | null>(null)
@@ -116,7 +124,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     window.addEventListener('resize', schedule)
     window.addEventListener('scroll', schedule, true)
     return () => { cancelAnimationFrame(frameId); window.removeEventListener('resize', schedule); window.removeEventListener('scroll', schedule, true) }
-  }, [state, marked, askOpen, fallback.x, fallback.y, props.getAnchor])
+  }, [state, marked, askOpen, askLines, fallback.x, fallback.y, props.getAnchor])
   useLayoutEffect(() => {
     if (!moreOpen || !place) { setMorePlace(null); return }
     const bar = ref.current, menu = moreRef.current
@@ -129,7 +137,26 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   useLayoutEffect(() => { if (props.sharedReader && moreOpen && morePlace) moreRef.current?.querySelector<HTMLButtonElement>('[role="menuitem"]')?.focus({ preventScroll: true }) }, [props.sharedReader, moreOpen, morePlace])
   // A new state (highlighted, the colours) closes the menu.
   useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion(''); if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' } }, [state])
-  useLayoutEffect(() => { if (askOpen) askRef.current?.focus({ preventScroll: true }) }, [askOpen])
+  useLayoutEffect(() => {
+    const field = askRef.current
+    if (!askOpen || !field) return
+    field.focus({ preventScroll: true })
+    // A typed first character seeds the field: the caret follows it (a textarea starts its caret at 0).
+    field.setSelectionRange(field.value.length, field.value.length)
+  }, [askOpen])
+  // The Ask field grows with its question, up to three lines, then scrolls (Anders, 30 Oct 2026). The bar is placed
+  // again at its new height, so it grows away from the passage.
+  useLayoutEffect(() => {
+    const field = askRef.current
+    if (!askOpen || !field) return
+    field.style.height = 'auto'
+    const style = getComputedStyle(field)
+    const line = parseFloat(style.lineHeight) || 20, pad = (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0)
+    const lines = Math.min(ASK_MAX_LINES, Math.max(1, Math.round((field.scrollHeight - pad) / line)))
+    field.style.height = `${lines * line + pad}px`
+    if (ref.current) ref.current.style.height = ''
+    setAskLines(lines)
+  }, [askOpen, question])
 
   const closeAsk = () => {
     if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' }
@@ -243,10 +270,16 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
         if (text && props.onAskQuestion) props.onAskQuestion(text)
       }}>
         <label className="lab-dbar-ask-label" htmlFor="lab-dbar-ask-field">Ask about this passage</label>
-        <input ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question}
-          onChange={event => setQuestion(event.target.value)} placeholder="Ask about this passage…" autoComplete="off"
-          onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeAsk() } }} />
-        <button type="submit" className="lab-dbar-ask-send" aria-label="Send question" disabled={!question.trim()}>↑</button>
+        <textarea ref={askRef} id="lab-dbar-ask-field" data-testid="lab-dbar-ask-field" className="lab-dbar-ask-field" value={question} rows={1}
+          onChange={event => setQuestion(event.target.value)} placeholder="Ask about this passage…" autoComplete="off" enterKeyHint="send"
+          onKeyDown={event => {
+            if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeAsk(); return }
+            // Enter sends; Shift+Enter starts a new line.
+            if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit() }
+          }} />
+        {props.onDictate && (!question.trim() || props.dictating) && <button type="button" className="lab-dbar-ask-mic" data-testid="lab-dbar-ask-mic" aria-label="Dictate" aria-pressed={!!props.dictating}
+          onClick={() => props.onDictate?.(question, setQuestion)}><PhoneIcon name="mic" /></button>}
+        <button type="submit" className="lab-dbar-ask-send" data-testid="lab-dbar-ask-send" aria-label="Send question" disabled={!question.trim()}><PhoneIcon name="up" /></button>
       </form> : body}
       {moreOpen && (
         <div ref={moreRef} className={`lab-dmore${morePlace ? '' : ' is-measuring'}`} role="menu" aria-label="More" data-testid="lab-desk-more" data-shared-reader-menu=""
