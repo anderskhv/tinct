@@ -78,6 +78,8 @@ export interface LabPhoneBarProps {
   onRemove: () => void
   /** A reader's own PDF text can return to the page containing this selection. */
   onShowPage?: () => void
+  /** Keep Define in •••: the original-pages PDF view, where a tap does not define a word. */
+  withDefine?: boolean
   onDismiss: () => void
 }
 
@@ -200,7 +202,7 @@ export function LabPhoneBar(props: LabPhoneBarProps) {
       {moreOpen && (!(existingColor && paletteOpen) || props.onShowPage) && (
         <div ref={moreRef} className={`lab-pmore${morePlace?.above ? ' is-above' : ''}`} role="menu" data-testid="lab-phone-more"
           style={{ left: morePlace?.left ?? 0, visibility: morePlace ? undefined : 'hidden' }}>
-          {!existingColor && PHONE_MORE_ROWS.map(([id, name]) => (
+          {!existingColor && (props.withDefine ? [['define', 'Define'] as [PhoneMoreId, string], ...PHONE_MORE_ROWS] : PHONE_MORE_ROWS).map(([id, name]) => (
             <button key={id} type="button" role="menuitem" data-testid={`lab-pmore-${id}`} onClick={() => { setMoreOpen(false); props.onMore(id) }}>{name}</button>
           ))}
           {props.onShowPage && <button type="button" role="menuitem" data-testid="lab-pmore-page" onClick={() => { setMoreOpen(false); props.onShowPage?.() }}>Show page</button>}
