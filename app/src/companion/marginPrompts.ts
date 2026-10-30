@@ -233,7 +233,11 @@ export const STANDS_ALONE_RULE = 'Each answer stands alone: never refer to your 
  * Shared by every margin action (Anders, 15 Oct): a whole-PDF answer opened "Only the titles and
  * placement of these chapters are supplied, not their text…". An answer never talks about its input.
  */
-export const NO_META_RULE = 'Never mention what text you were or were not given; say plainly when the document doesn\'t cover something, and say "from general knowledge" when you go beyond it.'
+/**
+ * Anders (30 Oct): an Ask answer opened "The page gives only the end of the question… What follows is from
+ * general knowledge, not this page." Answers stop narrating their sources.
+ */
+export const NO_META_RULE = 'Never mention what text you were or were not given, or what the page or document does or does not show, and never label where a point comes from (no "from general knowledge", no "the page doesn\'t say"): answer directly from the document and your reliable knowledge together, naming a scholar or source only when the point is theirs. Only when the reader asks what the document itself says, and it does not say it, say so in one short clause.'
 
 /** Shared by every margin action (marginContext.ts MARGIN_RULES; 15 Oct deep test): two answers read the passage picture aloud. */
 export const PICTURE_RULE = 'The picture is the passage itself; never describe or read out the picture, never say what it shows or confirms, and never mention an image. Answer about the passage.'

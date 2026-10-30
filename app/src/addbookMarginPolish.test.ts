@@ -233,7 +233,9 @@ describe('5. The answer never talks about what it was given (server, PDF reader 
   const bookContext = { bookTitle: 'The Odyssey', bookAuthor: 'Homer', chapterLabel: 'Book 1', chapterNumber: 1, editionLabel: 'Butler', paragraphs: ['Tell me, O muse.', 'Athena spoke.'], paragraphIndex: 1, bookId: 'odyssey', editionKey: 'original-en' }
   const pdfContext = { kind: 'pdf', bookTitle: 'ITILA', bookAuthor: 'MacKay', chapterLabel: 'Page 4', pages: [{ n: 4, text: 'Page four.' }], paragraphIndex: 0, pageNumber: 4, totalPages: 640 }
   it('is a shared margin rule, word for word as Anders gave it, in every margin prompt and in PROMPTS.md', () => {
-    expect(NO_META_RULE).toBe('Never mention what text you were or were not given; say plainly when the document doesn\'t cover something, and say "from general knowledge" when you go beyond it.')
+    // 30 Oct 2026 (Anders): answers no longer narrate where a point comes from.
+    expect(NO_META_RULE).toMatch(/^Never mention what text you were or were not given, or what the page or document does or does not show, and never label where a point comes from/)
+    expect(NO_META_RULE).not.toContain('say "from general knowledge" when you go beyond it')
     expect(MARGIN_ANSWER_RULES).toContain(NO_META_RULE)
     expect(MARGIN_RULES).toContain(NO_META_RULE)
     expect(read('docs/margin/PROMPTS.md')).toContain(NO_META_RULE)
