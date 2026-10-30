@@ -269,12 +269,14 @@
     const shortTitle = String(bookTitle || '').split(/[:;(]/)[0];
     const fuzzyHead = (p, r) => (r.y - p.y0 > p.h * 0.9 || scanEdge(p, r) === 'top') && r.words <= 10 && edgeKey(r).length >= 6
       && ((shortTitle.replace(/[^\p{L}]+/gu, '').length >= 6 && likeness(edgeKey(r), shortTitle) >= 0.7) || heads.some(k => likeness(edgeKey(r), k) >= 0.75));
+    // A page number OCR split in two ("8 1", "1 97"), alone on a scan's top or foot line.
+    const splitNumber = (p, r) => r.ocr && /^\d{1,3} \d{1,3}$/.test(r.text.trim()) && r.text.replace(/\D/g, '').length <= 4 && atEdge(p, r);
     const signature = (p, r) => (r.y - p.y0 < p.h * 0.12 || scanEdge(p, r) === 'foot') && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
     const sameHeight = (p, r) => { const [t, y] = [r.text, Math.round((r.y - p.y0) / p.h * 50)]; return [-1, 0, 1].reduce((n, d) => n + (at.get(t + '|' + (y + d)) || 0), 0) };
     const close = r => { const ns = where.get(r.text) || []; return ns.some((n, i) => i && n - ns[i - 1] <= 2) };
     const repeated = (p, r) => (exact.get(r.text) || 0) >= need && (atEdge(p, r) || (inner.get(r.text) || 0) >= need) && sameHeight(p, r) >= need;
     return (p, r) => labelLine(r) ? (repeated(p, r) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need)) && close(r)
-      : isPageNumber(r.text) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
+      : isPageNumber(r.text) || splitNumber(p, r) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
   }
 
   /* ---------- Epigraphs and quotations ---------- */
