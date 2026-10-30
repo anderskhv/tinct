@@ -406,6 +406,15 @@
           fresh = g.hang?.lines.has(l) ? atMargin(l, g.left) : !(runsOn || (indents && full && !indented));
         }
       }
+      // A line starting in lower case after one that does not end a sentence, or ends in a broken word, runs
+      // on: OCR jitters the left margin and sets a hyphen's second half in from it ("re-" | "gards", 30 Oct
+      // 2026 corpus). On a born-digital page only after a full line, so table cells and code stay apart.
+      if (fresh && cur && cur.kind !== 'heading' && prev && /^\p{Ll}/u.test(l.text) && (!TERMINAL.test(prev.text) || /\p{L}-$/u.test(prev.text))) {
+        const pg = geo.get(prev.n + '|' + prev.col) || g;
+        const fullPrev = prev.x2 - prev.x >= (pg.right - pg.left) * 0.8 && prev.words >= 5;
+        const tooFar = prev.n === l.n && prev.col === l.col && prev.y - l.y > g.pitch * 2.2;
+        if ((l.ocr || fullPrev) && !tooFar) fresh = false;
+      }
       if (fresh) { flush(); cur = { text: l.text, kind: null, page: l.n, breaks: [] }; prev = l; continue }
       if (l.n !== prev.n) cur.breaks.push([wordCount(clean(cur.text)), l.n]);
       cur.text = joinLine(cur.text, l.text, hyphenated);

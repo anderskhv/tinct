@@ -32,16 +32,49 @@
   /* ---------- Text rows ---------- */
   // Positioned text items -> visual lines, top first: { y, x, x2, size, fonts, font, chars, text, words }.
   // Rotated text is left out.
+  // An OCR layer that sets each word in its own box (Internet Archive's LuraDocument scans): a word's y is
+  // its box's bottom and its size the box's height, so the words of one printed line sit up to ~0.4 em
+  // apart and differ in size. Most of a page's lines then hold about as many sizes as words, and an item
+  // is one word. No born-digital page in the regression set passes this test (30 Oct 2026 corpus).
+  function wordBoxLayer(items) {
+    const lines = [], perItem = [];
+    let line = [], px = -Infinity;
+    const close = () => { if (line.length >= 5) lines.push(line); line = [] };
+    for (const it of items || []) {
+      if (!it || !it.transform || typeof it.str !== 'string') continue;
+      if (it.str.trim()) { if (it.transform[4] < px) close(); line.push(it); px = it.transform[4]; perItem.push(it.str.trim().split(/\s+/).length) }
+      if (it.hasEOL) { close(); px = -Infinity }
+    }
+    close();
+    if (lines.length < 3) return false;
+    const sizeOf = it => Math.round((Math.hypot(it.transform[2], it.transform[3]) || it.height || 0) * 10) / 10;
+    const varied = lines.filter(l => new Set(l.map(sizeOf)).size >= l.length * 0.5).length;
+    perItem.sort((p, q) => p - q);
+    return varied >= lines.length * 0.6 && perItem[Math.floor(perItem.length / 2)] <= 1;
+  }
   function textRows(items) {
     const rows = [];
+    // On a word-box OCR page a word joins the line of the word before it when it follows it in the text
+    // stream, with no line end (hasEOL) between, to its right and roughly level: grouping by y alone split
+    // each printed line into fragments and interleaved them ("very late in the morn-" | "usually" | "save").
+    const wordBoxes = wordBoxLayer(items);
+    let last = null, eol = true;
     for (const it of items || []) {
       if (!it || typeof it.str !== 'string' || !it.transform) continue;
       const [a, b, c, d, x, y] = it.transform;
-      if (!it.str.trim() || Math.abs(b) > 0.01 * Math.abs(a) || Math.abs(c) > 0.01 * Math.abs(d)) continue;
+      if (!it.str.trim()) { if (it.hasEOL) eol = true; continue }
+      if (Math.abs(b) > 0.01 * Math.abs(a) || Math.abs(c) > 0.01 * Math.abs(d)) { eol = true; continue }
       const size = Math.hypot(c, d) || it.height || 0;
-      let row = rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
+      let row = null;
+      if (wordBoxes && last && !eol) {
+        const em = Math.max(size, last.size);
+        if (x >= last.end - em * 0.5 && x - last.end < em * 3 && Math.abs(y - last.y) < Math.max(2, em * 0.6)) row = last.row;
+      }
+      row ||= rows.find(r => Math.abs(r.y - y) < Math.max(2, size * 0.3));
       if (!row) { row = { y, parts: [] }; rows.push(row) }
       row.parts.push({ x, y, w: it.width || 0, s: it.str, size, font: it.fontName });
+      last = { row, end: x + (it.width || 0), y, size };
+      eol = !!it.hasEOL;
     }
     // A line that runs across a wide gap into a second column is two lines: a heading in the
     // left column is not joined to the right column's text ("1 Introduction" + "of long slow …").
@@ -97,12 +130,18 @@
       // The line's size is the size most of its characters are set in (a large symbol does not count).
       const by = new Map();
       for (const p of parts) { const k = Math.round(p.size * 2) / 2; by.set(k, (by.get(k) || 0) + p.s.trim().length) }
-      const size = [...by].sort((p, q) => q[1] - p[1])[0][0];
+      let size = [...by].sort((p, q) => q[1] - p[1])[0][0];
+      // Word-box OCR: each word's size is its box's height, so the line's size is the median by characters.
+      if (wordBoxes && by.size >= 3) {
+        const list = [...by].sort((p, q) => p[0] - q[0]), half = list.reduce((n, entry) => n + entry[1], 0) / 2;
+        let seen = 0;
+        for (const [k, n] of list) { seen += n; if (seen >= half) { size = k; break } }
+      }
       let text = '';
       parts.forEach((p, i) => { const prev = parts[i - 1]; if (prev && p.x - (prev.x + prev.w) > size * 0.12 && !/\s$/.test(text) && !/^\s/.test(p.s)) text += ' '; text += p.s });
       text = text.replace(/\s+/g, ' ').replace(/\s+([,.:;!?)])/g, '$1').trim();
       const fonts = new Set(parts.filter(p => p.s.trim()).map(p => p.font));
-      return { y: r.y, x: parts[0].x, x2: parts.at(-1).x + parts.at(-1).w, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length };
+      return { y: r.y, x: parts[0].x, x2: parts.at(-1).x + parts.at(-1).w, size, fonts, font: fonts.size === 1 ? [...fonts][0] : null, chars: text.length, text, words: text.split(' ').length, ...(wordBoxes ? { ocr: true } : {}) };
     });
   }
   // rows: [{ parts }]. The x of a gutter between two columns, or null. Candidates are the gaps of
@@ -783,5 +822,5 @@
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { wordBoxLayer, SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);
