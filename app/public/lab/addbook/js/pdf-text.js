@@ -484,9 +484,19 @@
       const s = starts[k], next = starts[k + 1];
       if (!s.skip.size && next.skip.size && next.e.page === s.e.page) s.i = next.i;
     }
-    // Text before the first chapter (a preface without an entry) is a chapter under the book's title.
-    const lead = lines.slice(0, starts[0].i).filter(l => l.kind === 'body');
-    if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: lines.slice(0, starts[0].i), lead: true });
+    // Text before the first chapter (a preface without an entry) is a chapter under the book's title. Its pages that
+    // are lists (a printed contents, a list of illustrations, a publisher's list of titles: most lines ending on a
+    // number or a leader) leave it; the reader has its own chapter menu (Earnest's Methuen list, 30 Oct 2026 corpus).
+    const before = lines.slice(0, starts[0].i);
+    const listPages = new Set();
+    for (const n of new Set(before.map(l => l.n))) {
+      const on = before.filter(l => l.n === n && l.kind !== 'figure');
+      const listed = on.filter(l => /(?:\d{1,3}|\b[ivxlc]{1,6})\s*\.?$/i.test(l.text) || /\.{3,}|(?:\.\s){2,}/.test(l.text)).length;
+      if (on.length >= 4 && ((listed >= on.length * 0.4 && on.some(l => l.ocr)) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) listPages.add(n);
+    }
+    const leadLines = before.filter(l => !listPages.has(l.n));
+    const lead = leadLines.filter(l => l.kind === 'body');
+    if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: leadLines, lead: true });
     starts.forEach((s, k) => {
       const end = k + 1 < starts.length ? starts[k + 1].i : lines.length;
       out.push({ title: s.e.label, lines: lines.slice(s.i, end).filter((l, j) => !s.skip.has(s.i + j)) });

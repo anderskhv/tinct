@@ -11,6 +11,7 @@
 
 export interface ArchiveChapter { title: string; paragraphs: string[] }
 
+const wordsOf = (text: string) => text.split(/\s+/).filter(Boolean).length
 const clean = (text: string) => text.replace(/\s+/g, ' ').trim()
 const BANNER = /^\s*The text on this page is estimated to be only [\d.,]+% accurate\s*/i
 const key = (text: string) => text.toLowerCase().replace(/[^\p{L}]+/gu, '')
@@ -20,7 +21,7 @@ const headWord = (word: string) => !/\p{Ll}/u.test(word) || /^[\p{Lu}"“‘'(]/
 const capsWord = (word: string) => /\p{Lu}/u.test(word) && !/\p{Ll}/u.test(word)
 // "CHAPTER IV." and its OCR misreadings of the numeral ("CHAPTER L", "CHAPTER in", "CHAPTER H,").
 const LABEL = /^(?:CHAPTER|Chapter|CHAP\.)\s+([IVXLCDMHJl1]{1,7}|\d{1,3}|in|ni|Xni)\b[.,:]?$/
-const NUMERAL = /^(?:[IVXLC]{1,6}|[HJl]{1,3}|ID|HI|in)[.,]?$/
+const NUMERAL = /^(?:[IVXLC]{1,6}|[ivx]{1,4}|[HJl]{1,3}|ID|HI|in|im|Ill|Il|lI|Vll|VH|Xl|CX)[.,]?$/
 const MATTER = /^(?:contents|list of illustrations|illustrations|the persons of the play|dramatis personae)\b/i
 
 /** An EPUB made by the Internet Archive's hocr-to-epub. */
@@ -29,6 +30,14 @@ export function isArchiveEpub(opfText: string, spineHrefs: string[], notice: str
   return pages >= spineHrefs.length * 0.8 && pages >= 3 && (/hocr-to-epub/i.test(notice || '') || /automated character recognition/i.test(opfText))
 }
 
+// Two keys alike as OCR misreads them: their letter pairs, or a long shared beginning ("dulcedomtjm", "dulcedomum").
+function alike(a: string, b: string, at = 0.75): boolean {
+  if (a === b) return true
+  if (Math.abs(a.length - b.length) > 3) return false
+  let shared = 0
+  while (shared < a.length && a[shared] === b[shared]) shared++
+  return likeness(a, b) >= at || shared >= Math.max(6, Math.min(a.length, b.length) * 0.7)
+}
 function likeness(a: string, b: string): number {
   const grams = (s: string) => { const out = new Map<string, number>(); for (let i = 0; i < s.length - 1; i++) out.set(s.slice(i, i + 2), (out.get(s.slice(i, i + 2)) || 0) + 1); return out }
   const A = grams(a), B = grams(b)
@@ -44,6 +53,7 @@ function roman(n: number): string {
   const tens = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']
   return n > 0 && n < 100 ? tens[Math.floor(n / 10)] + ROMAN[n % 10] : String(n)
 }
+const romanValue = (text: string) => { let total = 0, prev = 0; for (const ch of [...text].reverse()) { const v = ({ I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 } as Record<string, number>)[ch] || 0; total += v < prev ? -v : v; prev = Math.max(prev, v) } return total }
 const validRoman = (text: string) => /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/.test(text) && text.length > 0
 
 /** A title in capitals as a reader writes it ("THE OPEN ROAD" -> "The Open Road"). */
@@ -56,7 +66,7 @@ function titleCase(text: string): string {
 function contentsTitles(text: string): string[] {
   const out: string[] = []
   const body = text.replace(MATTER, '').replace(/^\s*(?:CHAPTER\s+)?PA[GC]E\b/i, '')
-  const entry = /(?:^|\s)(?:CHAPTER\s+)?(?:[IVXLCHJl]{1,6}|ID|in|\d{1,2})[.,]?\s+((?:[^\s\d.]+[.,]?\s+){0,9}?[^\s\d.]+)[\s.,„…]*(?:\d{1,3}|[ivxl]{1,5})(?=\s|$)/g
+  const entry = /(?:^|\s)(?:CHAPTER\s+)?(?:[IVXLCHJl]{1,6}|ID|in|im|CX|Xn|Xni|\d{1,2})[.,]?\s+((?:\S*\p{L}\S*\s+){0,9}?\S*\p{L}[^\s.,]*)[\s.,„…]*(?:\d{1,3}|[ivxl]{1,5})(?=\s|$)/gu
   for (const m of body.matchAll(entry)) { const k = key(m[1]); if (k.length >= 5) out.push(k) }
   // A contents without numerals before its titles ("MENDING WALL . . . 11 THE DEATH OF THE HIRED MAN . . 14").
   if (out.length < 3) {
@@ -81,7 +91,7 @@ export function archiveChapters(pages: string[]): { title: string; chapters: Arc
   const numbered = (word: string, i: number) => /^\d{1,3}$/.test(word) && offset !== null && Math.abs(Number(word) - (i + offset)) <= 3
   const words = texts.map((text, i) => {
     const list = text.split(' ').filter(Boolean)
-    if (list.length && (numbered(list.at(-1)!, i) || /^[ivxl]{1,6}$|^•[ivxl]{1,6}$/.test(list.at(-1)!))) list.pop()
+    if (list.length && (numbered(list[list.length - 1], i) || /^[ivxl]{1,6}$|^•[ivxl]{1,6}$/.test(list[list.length - 1]))) list.pop()
     if (list.length && (numbered(list[0], i) || /^[ivxl]{2,6}$/.test(list[0]))) list.shift()
     return list
   })
@@ -95,10 +105,14 @@ export function archiveChapters(pages: string[]): { title: string; chapters: Arc
       if (kk.length >= 6 && !seen.has(kk)) { seen.add(kk); prefixes.set(kk, (prefixes.get(kk) || 0) + 1) }
     }
   }
+  // The printed contents' titles, from the pages headed Contents (a list of illustrations names no chapter).
   const contents = new Set<string>()
-  texts.forEach((text, i) => { if (i < pages.length * 0.15 && MATTER.test(text.replace(/^\W+/, ''))) for (const t of contentsTitles(text)) contents.add(t) })
+  texts.forEach((text, i) => { if (i < pages.length * 0.15 && /^contents\b/i.test(text.replace(/^\W+/, ''))) for (const t of contentsTitles(text)) contents.add(t) })
+  const contentsKey = (kk: string) => [...contents].find(c => alike(c, kk)) ?? null
   const heads = [...prefixes].filter(([k, n]) => n >= 3 || contents.has(k)).map(([k]) => k)
-  const bookHead = [...prefixes].filter(([k, n]) => n >= Math.max(3, pages.length * 0.15) && !contents.has(k)).sort((a, b) => b[1] - a[1] || b[0].length - a[0].length)[0]?.[0] || ''
+  // The book's title: its most printed head (the longest form of it), never a chapter's.
+  const top = Math.max(0, ...[...prefixes].map(([, n]) => n))
+  const bookHead = top >= Math.max(3, pages.length * 0.15) ? [...prefixes].filter(([, n]) => n >= top * 0.8).sort((x, y) => y[0].length - x[0].length)[0][0] : ''
   // The longest run of a page's opening words that is a head, exactly or as OCR misreads it; a stray
   // letter before it ("o THE RIVER BANK") goes with it.
   const headLength = (list: string[]): number => {
@@ -114,66 +128,88 @@ export function archiveChapters(pages: string[]): { title: string; chapters: Arc
     }
     return 0
   }
+  // A chapter's title in capitals after its label or numeral: as far as the contents names it, else to the
+  // text's first word in lower case, short of a drop cap's repeat ("MR. SHERLOCK HOLMES R. SHERLOCK HOLMES,
+  // who…") or the text's first word set in capitals ("THE Mole had").
+  const titleAt = (list: string[], from: number): { title: string[]; end: number } => {
+    const run: string[] = []
+    for (let j = from; j < list.length && run.length < 12 && capsWord(list[j]); j++) run.push(list[j])
+    if (contents.size) {
+      let best = { k: 0, score: 0 }
+      for (let k = run.length; k >= 1; k--) {
+        const kk = key(run.slice(0, k).join(' '))
+        const score = Math.max(0, ...[...contents].map(c => (c === kk ? 1.01 : alike(c, kk, 0.7) ? Math.max(0.7, likeness(c, kk)) : 0)))
+        if (score >= 0.7 && score > best.score) best = { k, score }
+      }
+      if (best.k) return { title: run.slice(0, best.k), end: from + best.k }
+    }
+    let n = run.length
+    for (let r = 1; r < run.length; r++) {
+      if (key(run[r]) && key(run[0]).endsWith(key(run[r])) && key(run[0]) !== key(run[r]) && (run[r + 1] ?? '') === (run[1] ?? '')) { n = r; break }
+    }
+    // The text's first word is set in capitals, its drop cap lost ("OT all that", "THE Mole had"): it ends the run.
+    if (n >= 1 && n === run.length && /^\p{Ll}/u.test(list[from + n] ?? '')) n--
+    return { title: run.slice(0, n), end: from + n }
+  }
   const parsed: Page[] = words.map((list, n) => {
-    let at = 0
     // A label within the first words, after a head or OCR junk: the chapter's start.
     for (let i = 0; i < Math.min(14, list.length - 1); i++) {
       if (!LABEL.test(list[i] + ' ' + list[i + 1])) continue
-      let j = i + 2
-      const title: string[] = []
-      while (j < list.length && title.length < 10 && capsWord(list[j])) { title.push(list[j]); j++ }
-      // The drop cap: the text's first word, in capitals without its first letter, repeats the title ("MR. SHERLOCK
-      // HOLMES R. SHERLOCK HOLMES, who…"); the title ends where the repeat begins.
-      for (let r = 1; r < title.length; r++) {
-        if (key(title[r]).length >= 1 && key(title[0]).endsWith(key(title[r])) && key(title[0]) !== key(title[r]) && (title[r + 1] ?? '') === (title[1] ?? '')) { j -= title.length - r; title.length = r; break }
-      }
-      // A title's last word followed by lower case ("THE Mole had") is the text's first word.
-      if (title.length >= 2 && j < list.length && /^\p{Ll}/u.test(list[j]) && /^(?:THE|A|AN|IT|HE|SHE|I)$/.test(title.at(-1)!)) { title.pop(); j-- }
+      const { title, end } = titleAt(list, i + 2)
       const numeral = list[i + 1].replace(/[.,:]$/, '')
-      return { n, words: list.slice(j), head: '', start: { title: [`CHAPTER ${numeral}`, ...title].join(' '), at: j } }
+      return { n, words: list.slice(end), head: '', start: { title: [`CHAPTER ${numeral}`, ...title].join(' '), at: end } }
     }
-    at = headLength(list)
-    // A numeral and a title in capitals that the contents names ("II THE OPEN ROAD RATTY,” said…").
-    if (!at && list[0] && NUMERAL.test(list[0])) {
-      let j = 1
-      const title: string[] = []
-      while (j < list.length && title.length < 10 && capsWord(list[j])) { title.push(list[j]); j++ }
-      if (title.length >= 2 && /^\p{Ll}/u.test(list[j] ?? '') && /^(?:THE|A|AN|IT)$/.test(title.at(-1)!)) { title.pop(); j-- }
-      const kk = key(title.join(' '))
-      if (title.length && (contents.has(kk) || [...contents].some(c => likeness(c, kk) >= 0.8))) return { n, words: list.slice(j), head: '', start: { title: `${list[0].replace(/[.,]$/, '')} ${title.join(' ')}`, at: j } }
+    // A numeral and a title the contents names ("II THE OPEN ROAD RATTY,” said…").
+    if (list[0] && NUMERAL.test(list[0]) && contents.size) {
+      const { title, end } = titleAt(list, 1)
+      if (title.length && contentsKey(key(title.join(' ')))) return { n, words: list.slice(end), head: '', start: { title: `CHAPTER ${list[0].replace(/[.,]$/, '')} ${title.join(' ')}`, at: end } }
     }
+    const at = headLength(list)
     return { n, words: list.slice(at), head: at ? key(list.slice(0, at).join(' ')) : '', start: null }
   })
-  // A contents title opening the first page of its run of pages, when no label found the chapters.
-  if (!parsed.some(p => p.start) && contents.size >= 3) {
-    let last = ''
+  // A contents title not found so: the first page after the chapter before that opens on it.
+  if (contents.size >= 3) {
+    const found = new Set(parsed.filter(p => p.start).map(p => contentsKey(key(p.start!.title.replace(/^\S+\s+(?:\S+\s+)?/, ''))) ?? contentsKey(key(p.start!.title))).filter(Boolean))
     for (const p of parsed) {
+      if (p.start) continue
       const raw = words[p.n]
       for (let k = Math.min(10, raw.length); k >= 2; k--) {
-        const kk = key(raw.slice(0, k).join(' '))
-        const hit = [...contents].find(c => c === kk || (Math.abs(c.length - kk.length) <= 3 && likeness(c, kk) >= 0.85))
+        const hit = contentsKey(key(raw.slice(0, k).join(' ')))
         if (!hit) continue
-        if (hit !== last) { p.start = { title: raw.slice(0, k).join(' '), at: k }; p.words = raw.slice(k) }
-        last = hit
+        if (!found.has(hit)) { found.add(hit); p.start = { title: raw.slice(0, k).join(' '), at: k }; p.words = raw.slice(k) }
         break
       }
     }
   }
-  if ((globalThis as { ARCHIVE_DEBUG?: boolean }).ARCHIVE_DEBUG) for (const p of parsed) if (p.start) console.log('START', p.n, JSON.stringify(p.start.title), JSON.stringify(words[p.n].slice(0, 12).join(' ')))
   // 3. Front matter (title page, dedication, contents, notices) before the first chapter, and the contents
   // and cast pages anywhere, leave the text.
+  // A page of running text before the first chapter found (a chapter whose heading is a picture) stays.
   const first = parsed.findIndex(p => p.start)
-  const body = parsed.filter((p, i) => (first < 0 || i >= first) && !MATTER.test((p.start ? '' : texts[p.n]).replace(/^\W+/, '')))
+  const body = parsed.filter((p, i) => (first < 0 || i >= first || p.words.length >= 80) && !MATTER.test((p.start ? '' : texts[p.n]).replace(/^\W+/, '')))
   // 4. The pages run together; a page ending a sentence ends its paragraph. A speech opens a paragraph.
   const chapters: ArchiveChapter[] = []
   let current: ArchiveChapter | null = null, para = ''
   const flush = () => { if (current && para.trim()) current.paragraphs.push(...speeches(para.trim())); para = '' }
-  let count = 0
+  let count = 0, number = 0, startedAt = -1
   for (const p of body) {
+    // A start that repeats the chapter before (its running head, misread) is none; one right after a bare label
+    // ("CHAPTER IX" | "[Second Report of Dr. Watson]") names that chapter.
+    if (p.start && current) {
+      const was = key(current.title).replace(/^chapter[ivxlc]+/, ''), now = key(p.start.title).replace(/^chapter(?:[ivxlc]+|[hjl]+|in|ni)/, '')
+      const [short, long] = was.length <= now.length ? [was, now] : [now, was]
+      if (short.length >= 4 && (long.endsWith(short) || long.startsWith(short) || alike(short, long.slice(0, short.length), 0.6))) p.start = null
+      else if (!was && !/^CHAPTER/.test(p.start.title) && p.n - startedAt <= 2) { current.title += '. ' + titleCase(p.start.title); p.start = null }
+    }
     if (p.start) {
       flush()
       count++
-      const label = p.start.title.replace(/^CHAPTER\s+(\S+)/, (_, num: string) => `CHAPTER ${validRoman(num.toUpperCase()) ? num.toUpperCase() : roman(count)}`)
+      startedAt = p.n
+      // The numeral as printed when it reads as one, else the one after the chapter before ("CHAPTER L" is I).
+      const label = p.start.title.replace(/^CHAPTER\s+(\S+)/, (_, num: string) => {
+        const n = validRoman(num.toUpperCase()) ? romanValue(num.toUpperCase()) : /^\d+$/.test(num) ? Number(num) : 0
+        number = n && n <= number + 3 ? n : number + 1
+        return `CHAPTER ${roman(number)}`
+      })
       current = { title: titleCase(label).replace(/^Chapter\s+(\S+)\s+(?=\S)/, 'Chapter $1. '), paragraphs: [] }
       chapters.push(current)
     }

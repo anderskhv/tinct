@@ -222,7 +222,7 @@
     return total ? 2 * n / total : 0;
   }
   // "CHAPTER IV.", "BOOK II": a chapter's label line, which repeats (numbers aside) on every chapter's first page.
-  const LABEL_LINE = /^(?:chapter|chap\.?|book|part|act|stave|canto)[\s.:,]+[IVXLCJl\d]{1,7}[.:,]?$/i;
+  const LABEL_LINE = /^(?:(?:chapter|chap\.?|book|part|act|stave|canto)[\s.:,]+[IVXLCJl\d]{1,7}[.:,]?|(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|last)\s+(?:act|part|book))$/i;
   const labelLine = r => r.words <= 3 && LABEL_LINE.test(r.text.trim());
   // Rows that repeat across pages: near the top or bottom on several pages (numbers aside), or
   // the very same line on several pages at the same height on the page and not only once a page
@@ -233,6 +233,24 @@
   // close together, not once a chapter (Sartor Resartus's "CHAPTER I." in each Book; 30 Oct 2026 corpus).
   function furniture(pages, bookTitle = '') {
     const need = pages.length <= 3 ? 2 : 3;
+    // A scan's page box takes in wide margins (Sartor Resartus's "30 SARTOR RESARTUS." at 82% of the page; North of
+    // Boston's "17 B" at 37%): there the first and last two lines of a page's text are at its edges too, when they
+    // stand within two lines of where the book's pages usually start and end (a chapter's first page starts lower).
+    const ends = new Map();
+    for (const p of pages) {
+      if (!p.rows?.some(r => r.ocr)) continue;
+      const ys = p.rows.filter(q => /\p{L}\p{L}|\d/u.test(q.text)).map(q => q.y - p.y0).sort((x, y) => y - x);
+      if (ys.length >= 4) ends.set(p, { top: ys.slice(0, 2), foot: ys.slice(-2) });
+    }
+    const median = list => list.sort((x, y) => x - y)[Math.floor(list.length / 2)];
+    const usual = ends.size >= 5 ? { top: median([...ends.values()].map(e => e.top[0])), foot: median([...ends.values()].map(e => e.foot[1])) } : null;
+    const scanEdge = (p, r) => {
+      const e = usual && ends.get(p);
+      if (!e) return false;
+      const y = r.y - p.y0, near = Math.max(2, r.size) * 2.5;
+      return e.top.includes(y) && Math.abs(y - usual.top) <= near ? 'top' : e.foot.includes(y) && Math.abs(y - usual.foot) <= near ? 'foot' : false;
+    };
+    const atEdge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1 || !!scanEdge(p, r);
     const seen = new Map(), exact = new Map(), inner = new Map(), at = new Map(), where = new Map();
     const slot = (p, r) => r.text + '|' + Math.round((r.y - p.y0) / p.h * 50);
     for (const p of pages) {
@@ -244,9 +262,9 @@
     }
     const heads = [...seen].filter(([, n]) => n >= Math.max(need, pages.length * 0.05)).map(([k]) => k).slice(0, 40);
     const shortTitle = String(bookTitle || '').split(/[:;(]/)[0];
-    const fuzzyHead = (p, r) => r.y - p.y0 > p.h * 0.9 && r.words <= 10 && edgeKey(r).length >= 6
+    const fuzzyHead = (p, r) => (r.y - p.y0 > p.h * 0.9 || scanEdge(p, r) === 'top') && r.words <= 10 && edgeKey(r).length >= 6
       && ((shortTitle.replace(/[^\p{L}]+/gu, '').length >= 6 && likeness(edgeKey(r), shortTitle) >= 0.7) || heads.some(k => likeness(edgeKey(r), k) >= 0.75));
-    const signature = (p, r) => r.y - p.y0 < p.h * 0.12 && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
+    const signature = (p, r) => (r.y - p.y0 < p.h * 0.12 || scanEdge(p, r) === 'foot') && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
     const sameHeight = (p, r) => { const [t, y] = [r.text, Math.round((r.y - p.y0) / p.h * 50)]; return [-1, 0, 1].reduce((n, d) => n + (at.get(t + '|' + (y + d)) || 0), 0) };
     const close = r => { const ns = where.get(r.text) || []; return ns.some((n, i) => i && n - ns[i - 1] <= 2) };
     const repeated = (p, r) => (exact.get(r.text) || 0) >= need && (atEdge(p, r) || (inner.get(r.text) || 0) >= need) && sameHeight(p, r) >= need;
@@ -434,7 +452,8 @@
   // pages: [{ n, y0, h, rows }]; fontName(pageNumber, fontId) -> Promise<string>.
   // Pages a scanning service adds (Google Books' notice) are not the book.
   const BOILERPLATE_PAGE = /google book search|books\.google\.com|digital copy of a book that was preserved for generations/i;
-  const BOILERPLATE_HEADING = /^(usage guidelines|about google book search|digitized by( the)? (internet archive|google)|this is a digital copy)|\b(cents? fine|date due|this book is due|overdue|return(ed)? on or before)\b/i;
+  // A play's "SCENE" alone on its line opens the stage direction, not a chapter.
+  const BOILERPLATE_HEADING = /^(scene\.?$|usage guidelines|about google book search|digitized by( the)? (internet archive|google)|this is a digital copy)|\b(cents? fine|date due|this book is due|overdue|return(ed)? on or before)\b/i;
   // A printed contents page without dot leaders: many lines ending in a page number.
   const CONTENTS_LINE = /\p{L}[.,:;)'’]?\s+(?:\d{1,4}|[ivxlc]{1,6})$/u;
   // Scanned (OCR) text: one face, and body lines whose sizes wander from line to line.
@@ -579,13 +598,19 @@
       if (/illustrations|list of plates|list of figures|\bplates\b/i.test(head)) continue;
       const titled = /contents|list of chapters/i.test(head);
       const lines = rows.map(t => t.replace(LEADERS, ' ... $1'));
-      let hits = 0, carry = '';
+      let hits = 0, carry = '', carried = 0;
       const found = [];
       for (const line of lines) {
         const m = line.match(/^(.*?)\s*(?:\.\s*){3,}\s*(\d{1,4}|[ivxlc]{1,6})$/i) || (carry && line.match(/^(.*?)\s+(\d{1,4})$/))
           || (titled && line.match(/^((?:chapter\s+)?(?:[IVXLCHJl]{1,6}|\d{1,3})[.,]?\s+\p{L}.*?)[.,]?\s+(\d{1,3})$/u))
           || (titled && line.match(/^(\p{Lu}[\p{L}'’ ,.-]*\p{L})[\s.,]+(\d{1,3})$/u));
-        if (!m) { if ((/^\d{1,2}\s+\S/.test(line) || (titled && /^[IVXLC]{1,6}[.,]?\s+\p{Lu}/u.test(line))) && !/\d$/.test(line)) carry = line.replace(/-$/, ''); else carry = ''; continue }
+        if (!m) {
+          if ((/^\d{1,2}\s+\S/.test(line) || (titled && /^[IVXLCHJl]{1,6}[.,]?\s+\p{Lu}/u.test(line))) && !/\d$/.test(line)) { carry = line.replace(/-$/, ''); carried = 1 }
+          // A title wrapped, or split at a wide gap, over several lines ("V KNOWLEDGE" | "BY ACQUAINTANCE AND" | "… 72").
+          else if (carry && titled && carried < 3 && !/\d$/.test(line) && /^\p{Lu}/u.test(line)) { carry += ' ' + line.replace(/-$/, ''); carried++ }
+          else carry = '';
+          continue
+        }
         const label = (carry ? carry + (m[1] ? (carry.endsWith('-') ? '' : ' ') + m[1] : '') : m[1]).replace(/\s*\.\s*$/, '').replace(/\s+/g, ' ').trim();
         carry = '';
         if (!label) continue;
@@ -597,8 +622,8 @@
     if (raw.length < 3) return null;
     // Read mostly without leaders, a contents' numbers must climb page by page, and an offset must find two of its
     // titles: a list whose numbers are no pages ("Summary 83", "Marks 51") is no contents.
-    const bare = raw.filter(r => r.bare).length > raw.length / 2;
-    if (bare) {
+    const leaderless = raw.filter(r => r.bare).length > raw.length / 2;
+    if (leaderless) {
       const nums = raw.map(r => Number(r.printed)).filter(Number.isFinite);
       const climbs = nums.slice(1).filter((v, i) => v >= nums[i]).length;
       if (climbs < (nums.length - 1) * 0.8) return null;
@@ -624,7 +649,7 @@
         if (!best || score > best.score) best = { off, score };
         if (score === list.length) break;
       }
-      return best && best.score >= (bare ? Math.min(2, list.length) : 1) ? best.off : null;
+      return best && best.score >= (leaderless ? Math.min(2, list.length) : 1) ? best.off : null;
     };
     const arabic = entries.filter(e => e.arabic && e.kind !== 'part').slice(0, 5).map(e => ({ ...e, base: Number(e.printed) }));
     const romanList = entries.filter(e => !e.arabic).slice(0, 3).map(e => ({ ...e, base: roman(e.printed) }));
@@ -804,6 +829,29 @@
   /* ---------- The scan ---------- */
   // An entry whose label has no letter or digit ("." or ";", a stray mark read as a contents line) is
   // no chapter: left out, its own entries moved up a level. The reader also applies it to stored scans.
+  // Headings that are mostly chapter labels ("CHAPTER II.", "CHAPTER III.") read in sequence: a label the scan
+  // garbled ("CHAITKk [V.", "CHA ER-XIV") or misread as another numeral ("CHAPTER XL" between X and XII) takes
+  // the number its neighbours give it (Pride and Prejudice, 30 Oct 2026 corpus).
+  const toRoman = n => { let out = ''; for (const [v, r] of [[100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']]) while (n >= v) { out += r; n -= v } return out };
+  function sequencedLabels(list) {
+    const word = String.raw`^(?:CHAPTER|Chapter)\s+([IVXLC]{1,7})\.?$`, rx = new RegExp(word);
+    const nums = list.map(e => { const m = rx.exec(String(e.label).trim()); return m && toRoman(roman(m[1])) === m[1].toUpperCase() ? roman(m[1]) : null });
+    if (list.length < 5 || nums.filter(n => n !== null).length < list.length * 0.6) return list;
+    const garbled = e => /^(?:C\s?H\s?A|CHA|CH\.|C[HI]AP)/i.test(String(e.label)) && String(e.label).length <= 16;
+    return list.map((e, i) => {
+      const before = nums.slice(0, i).reduceRight((v, n, j) => v ?? (n !== null ? n + (i - j) : null), null);
+      const after = nums.slice(i + 1).reduce((v, n, j) => v ?? (n !== null ? n - (j + 1) : null), null);
+      const want = before ?? after;
+      if (want == null || want < 1 || (before != null && after != null && before !== after)) return e;
+      if (nums[i] === want || !(garbled(e) || nums[i] !== null)) return e;
+      return { ...e, label: 'CHAPTER ' + toRoman(want) + '.' };
+    });
+  }
+  // The same heading twice within two pages (a half-title page, then the act's first page: "FIRST ACT") is one,
+  // at the later page, where its text begins (The Importance of Being Earnest).
+  function nearRepeats(list) {
+    return list.filter((e, i) => { const next = list[i + 1]; return !(next && bare(next.label) === bare(e.label) && next.page - e.page <= 2 && next.page >= e.page && !list.some(c => c.parent === e.id)) });
+  }
   function usableEntries(list) {
     if (!Array.isArray(list)) return [];
     const gone = new Map(list.filter(e => !/[\p{L}\p{N}]/u.test(String(e?.label ?? ''))).map(e => [e.id, e.parent ?? null]));
@@ -872,7 +920,7 @@
     if (entries) entries = usableEntries(entries);
     if (entries && onEntries) { try { onEntries({ nav, entries, language, text: !noise && all.some(runningText) ? true : null }) } catch { /* the listener's own failure never stops the scan */ } }
     for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
-    if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = usableEntries(entries) }
+    if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = nearRepeats(sequencedLabels(usableEntries(entries))) }
     // A contents page read only in part (a garbled scan: 4 of its 16 lines) gives way to headings that find more.
     else if (nav === 'contents' && entries.length < 6) { const found = await headingEntries(all, { fontName, title, author, live }); if (found && usableEntries(found).length > entries.length) { nav = 'headings'; entries = usableEntries(found) } }
     if (!live()) return null;
@@ -913,5 +961,5 @@
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { wordBoxLayer, SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { wordBoxLayer, sequencedLabels, SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -23,11 +23,13 @@ export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
  */
 // 8 (28 Oct 2026): join wrapped continuations without flattening other verse lines.
 // 9 (28 Oct 2026): rejoin source-corroborated printed word wraps in prose.
-export const USER_EDITION_CONVERTER = 9
+// 10 (30 Oct 2026): an Internet Archive scan's EPUB (hocr-to-epub, a page a document) is rebuilt from its pages:
+// running heads, page numbers and accuracy banners out, pages run together, chapters as printed (archiveEpub.ts).
+export const USER_EDITION_CONVERTER = 10
 /** The rules every book converted before USER_EDITION_CONVERTER was converted with. */
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
-export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, USER_EDITION_CONVERTER]
+export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, 9, USER_EDITION_CONVERTER]
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
  * absent), a text PDF's text layer (public/lab/addbook/js/pdf-text.js, "Tinct
