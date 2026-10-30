@@ -494,6 +494,24 @@
     return out;
   }
 
+  // A scan's drop cap is a picture the OCR does not read: a chapter's first paragraph opens on capitals that are
+  // no word ("HEN we discussed", "R. SHERLOCK HOLMES"), maybe after a stray mark ("‘HEN"). The letter that makes
+  // the book's word four times more common than the capitals as they stand goes back (Pride and Prejudice,
+  // Three Men in a Boat, 30 Oct 2026 corpus). A short line ("ACT I.") or a roman number is left alone.
+  function restoreDropCaps(paras, vocab) {
+    for (let k = 0, seen = 0; k < paras.length && seen < 2; k++) {
+      const p = paras[k];
+      if (p.kind === 'heading' || p.figure) continue;
+      seen++;
+      const m = /^[‘'’"“^%()]*([A-Z]{1,12})([.,;:'’]?)(\s)/.exec(p.text);
+      if (!m || wordCount(p.text) < 8 || (/^[IVXLC]+$/.test(m[1]) && m[2] === '.')) continue;
+      const x = m[1].toLowerCase(), self = vocab.get(x) || 0;
+      let best = null, n = 0;
+      for (const L of 'abcdefghijklmnopqrstuvwxyz') { const c = vocab.get(L + x) || 0; if (c > n) { n = c; best = L } }
+      if (best && n >= 3 && n > self * 4) paras[k] = { ...p, text: best.toUpperCase() + p.text.slice(m.index + m[0].length - m[1].length - m[2].length - m[3].length) };
+    }
+  }
+
   /* ---------- The edition ---------- */
   // pages: [{ n, x0, y0, w, h, rows }] for every page of the document; scan: TinctPdfScan.scan's
   // result (its title, author, language, chapters and textPages). Returns the edition, or null
@@ -507,6 +525,9 @@
     const bodyLines = lines.filter(l => l.kind === 'body');
     const indents = bodyLines.filter(l => { const g = geo.get(l.n + '|' + l.col); return g && l.x - g.left > l.size }).length >= bodyLines.length * 0.03;
     const titleKey = norm(scan.title), authorKey = norm(scan.author);
+    // On a scan, how often each word is used: a drop cap's lost letter is the one that makes a common word.
+    const vocab = new Map();
+    if (lines.some(l => l.ocr)) for (const l of lines) for (const w of l.text.toLowerCase().match(/\p{L}+/gu) || []) vocab.set(w, (vocab.get(w) || 0) + 1);
     const chapters = [];
     let figureCount = 0;
     for (const part of splitChapters(lines, scan, pages.length)) {
@@ -521,6 +542,7 @@
         chapterLines = chapterLines.filter((l, i) => !titleBlock(l, i) && (i >= first || ![titleKey, authorKey].includes(norm(l.text)) || !norm(l.text)));
       }
       const { paras, notes } = paragraphsOf(chapterLines, geo, hyphenated, indents);
+      if (vocab.size) restoreDropCaps(paras, vocab);
       if (!paras.length && !notes.length) continue;
       const all = notes.length ? [...paras, { text: 'Notes', kind: 'heading', page: notes[0].page, breaks: [] }, ...notes] : paras;
       const chapter = { number: chapters.length + 1, title: part.title || scan.title || `Pages ${all[0].page}`, paragraphs: all.map(p => p.text), pages: all.map(p => p.page) };
