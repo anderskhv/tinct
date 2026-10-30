@@ -865,3 +865,17 @@ it('counts original PDF reading privately only once its document is ready', () =
   fireEvent.click(screen.getByRole('button', { name: 'Contents' }))
   expect(readingTimer).toHaveBeenLastCalledWith(expect.objectContaining({ paused: true }))
 })
+
+it('shows the asked question the moment it is sent, before the answer arrives (30 Oct 2026)', async () => {
+  let finish: (answer: string) => void = () => {}
+  const ask = vi.fn(() => new Promise<string>(resolve => { finish = resolve }))
+  const services: PdfOriginalReaderServices = { marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), ask, saveCard: vi.fn(() => true) }
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} />)
+  fireEvent.click(screen.getByText('Select PDF text'))
+  fireEvent.click(screen.getByText('Ask this PDF'))
+  expect(screen.getByTestId('pdf-card-question').textContent).toBe('Why?')
+  finish('The case rests on three points. Each is contested.\n\n- First point.\n- Second point.')
+  await waitFor(() => expect([...document.querySelectorAll('li')].map(node => node.textContent)).toEqual(expect.arrayContaining(['First point.', 'Second point.'])))
+  expect(screen.queryByText(/^(You|Tinct)$/)).toBeNull()
+})
