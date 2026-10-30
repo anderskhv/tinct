@@ -836,7 +836,8 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await after.waitFor()
     await after.getByRole('button', { name: 'Recap' }).click()
     await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('A grounded local fixture answer.', { exact: false }).waitFor()
-    await page.getByText('Source · Original PDF pages 1–2').waitFor()
+    // An AI card shows only its answer (30 Oct 2026): no source-range line, no You/Tinct labels.
+    assert.equal(await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('Source · Original PDF pages', { exact: false }).count(), 0)
     const recapCall = calls.filter(call => call.path === '/api/chat').map(call => JSON.parse(call.body))
       .find(call => call.messages?.[0]?.content === 'Summarize Chapter One.')
     assert(recapCall, 'finished unit sends an actual Recap request')

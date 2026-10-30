@@ -150,7 +150,7 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
         {heading.actions.map(action => <button key={action.id} type="button" data-action={action.id} onClick={() => heading.onAction(action.id, selection)}>{action.label}</button>)}
       </div>
     })}
-    {figures && <PdfFigureTools pdf={pdf} page={number} canvas={canvas.current} items={items.current} ready={ready} onAction={onFigureAction} />}
+    {figures && <PdfFigureTools pdf={pdf} page={number} canvas={canvas.current} items={items.current} ready={ready} onAction={onFigureAction} headings={headingRects.flatMap(({ selection }) => selection.rects)} />}
     <span className="pdf-original__page-number" aria-hidden="true">{number}</span>
   </div>
 }

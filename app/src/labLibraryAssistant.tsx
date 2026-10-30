@@ -433,7 +433,6 @@ export function LibraryAssistant({ host }: { host?: LibraryAssistantHost } = {})
         <div className="library-chat-thread" aria-live="polite">
           {turns.length === 0 && <p className="library-chat-empty">Tell me what you feel like reading, or name a book you loved.</p>}
           {turns.map(turn => <div key={turn.id} className={`library-chat-turn is-${turn.role}${turn.error ? ' is-error' : ''}`}>
-            <span>{turn.role === 'user' ? 'You' : 'Tinct'}</span>
             {/* The reader's ring while the answer has not begun (the thread is the live region); "Thinking…" stays for screen readers. */}
             {turn.pending && !turn.content ? <LabWait label="Thinking…" size={16} live={false} testId="library-chat-pending" /> : <LabMarkdown>{visibleLibrarianText(turn.content)}</LabMarkdown>}
             {turn.role === 'assistant' && !turn.pending && <BookActions onOpen={chooseBook} books={recommendationBookIds(turn.content, catalogue).map(id => byId.get(id)).filter((book): book is LibraryCatalogueBook => Boolean(book))} />}

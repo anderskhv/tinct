@@ -30,6 +30,16 @@ export function unitName(title: string): string {
 /** Front matter: what comes before the text proper, which leaves nothing to catch up on. */
 const FRONT_MATTER = /^(?:the\s+)?(?:preface|foreword|introduction|introductory note|dedication|epigraph|(?:table of )?contents|acknowledg(?:e)?ments?|(?:translator|author|editor|publisher)['’]?s?['’]? (?:note|preface|introduction)|note on the text|a note on the text|transcriber['’]?s? note)\b/i
 
+/**
+ * The book's apparatus: pages with no argument or story to prepare for, recap or quiz (acknowledgments, contents,
+ * an index). An introduction or a preface is not: it has content of its own (Anders, 30 Oct 2026).
+ */
+const APPARATUS = /^(?:the\s+)?(?:acknowledg(?:e)?ments?|(?:table of )?contents|dedication|epigraphs?|copyright|index|indexes|bibliography|select bibliography|works cited|references|(?:end)?notes|list of (?:illustrations|figures|plates|tables|maps)|illustrations|about the authors?|also by\b.*|other books by\b.*|permissions|credits)\s*$/i
+
+export function isApparatus(title: string): boolean {
+  return APPARATUS.test((title || '').replace(/[.:]+$/, '').trim())
+}
+
 export function isFrontMatter(title: string): boolean {
   return FRONT_MATTER.test((title || '').trim())
 }

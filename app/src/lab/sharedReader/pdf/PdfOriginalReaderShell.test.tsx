@@ -296,7 +296,9 @@ it('includes device-only Talk turns in PDF Notebook export without offering dele
   await waitFor(() => expect(writeText).toHaveBeenCalledOnce())
   expect(writeText.mock.calls[0][0]).toMatch(/Saved on this device[\s\S]*\*\*Q\.\*\* What does this say\?[\s\S]*\*\*A\.\*\* It describes a page\./)
   fireEvent.click(screen.getByText('Original PDF page 1 · Talk · Saved on this device'))
-  expect(screen.getByText(/You: What does this say/)).toBeTruthy()
+  // No You/Tinct labels (30 Oct 2026): the reader's question reads as the card's quote.
+  expect(screen.getAllByText('What does this say?').some(node => node.closest('.lab-pcard-you'))).toBe(true)
+  expect(screen.queryByText(/^(You|Tinct)$/)).toBeNull()
 })
 
 it('requires an explicit owner claim before older unassigned Talk turns appear', () => {

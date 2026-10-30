@@ -102,6 +102,8 @@
 .lab[data-chrome-version="v2"] .lab-catch-up-fold[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
 .lab[data-chrome-version="v2"] .lab-catch-up-fold:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
+.lab[data-chrome-version="v2"] .lab-catch-up-items { display: grid; gap: 4px; padding: 0; list-style: none; }
+
 .lab[data-chrome-version="v2"] .lab-catch-up-text.is-line {
   overflow: hidden;
   white-space: nowrap;

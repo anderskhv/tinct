@@ -153,7 +153,7 @@ export function LabChapterNotesEntries({ beats }: { beats: ChapterNotesBeat[] })
   return <>{beats.map((beat, index) => <li key={index} className="lab-catch-up-entry" data-state="ok" data-testid="lab-chapter-notes-beat">
     <span className="lab-catch-up-dot" aria-hidden="true" />
     <h3 className="lab-catch-up-title">{beat.title}</h3>
-    <p className="lab-catch-up-text">{beat.text}</p>
+    {beat.items?.length ? <ul className="lab-catch-up-text lab-catch-up-items">{beat.items.map((item, i) => <li key={i}>{item}</li>)}</ul> : <p className="lab-catch-up-text">{beat.text}</p>}
   </li>)}</>
 }
 
