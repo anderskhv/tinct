@@ -470,7 +470,7 @@
       }
       return out;
     }
-    const starts = [];
+    const starts = [], scanned = lines.some(l => l.ocr);
     let at = 0;
     for (const e of entries) {
       let i = lines.findIndex((l, k) => k >= at && l.n >= e.page);
@@ -493,7 +493,7 @@
         }
       }
       // The title printed again on the chapter's first pages (a half-title, then its opening page) is the title too.
-      for (let k = i + 1; k < lines.length && lines[k].n <= e.page + 3; k++) {
+      for (let k = i + 1; scanned && k < lines.length && lines[k].n <= e.page + 3; k++) {
         const t = canon(lines[k].text);
         if (lines[k].words <= 12 && t.length >= 4 && (t === want || t === named)) skip.add(k);
       }

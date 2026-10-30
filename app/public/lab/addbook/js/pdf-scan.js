@@ -617,7 +617,8 @@
       const head = rows.slice(0, 4).join(' ');
       if (/illustrations|list of plates|list of figures|\bplates\b/i.test(head)) continue;
       const titled = /contents|list of chapters/i.test(head);
-      const lines = rows.map(t => t.replace(LEADERS, ' ... $1'));
+      // A page number OCR misread ("i6", "l2O") is its figures.
+      const lines = rows.map(t => t.replace(/(\s)([\dilIoO]{1,4})$/, (m, sp, n) => /\d/.test(n) && /[ilIoO]/.test(n) ? sp + n.replace(/[ilI]/g, '1').replace(/[oO]/g, '0') : m).replace(LEADERS, ' ... $1'));
       let hits = 0, carry = '', carried = 0;
       const found = [];
       for (const line of lines) {
@@ -698,14 +699,14 @@
       for (const e of entries) {
         if (!e.arabic || !e.title) continue;
         const want = key(e.title);
-        if (want.length < 4 || await hasTitle(e.page, e.title)) { floor = Math.max(floor, e.page || 1); continue }
-        for (let n = Math.max(floor, e.page - 2); n <= Math.min(numPages, e.page + 40); n++) {
+        if (want.length < 4) { floor = Math.max(floor, e.page || 1); continue }
+        // The title as a line of its own (the page's text may say "the problem" in passing), as OCR may misread it
+        // ("TIIRES BROKEN THREADS"), from a few pages before the shifted page on.
+        const like = r => { const k = key(r.text); return k === want || (k.length >= 4 && (want.startsWith(k) || k.startsWith(want)) && Math.abs(k.length - want.length) <= Math.max(3, want.length * 0.3)) || (k.length >= 6 && Math.abs(k.length - want.length) <= 3 && likeness(k, want) >= 0.7) };
+        for (let n = Math.max(floor + 1, e.page - 6); n <= Math.min(numPages, e.page + 40); n++) {
           if (contentsPages.has(n)) continue;
           const rows = await pageRows(n);
-          if (!rows.length) continue;
-          const top = rows[0].y;
-          const like = r => { const k = key(r.text); return k === want || (k.length >= 4 && (want.startsWith(k) || k.startsWith(want)) && Math.abs(k.length - want.length) <= Math.max(3, want.length * 0.3)) };
-          if (rows.some(r => r.y < top - 1 && like(r))) { e.page = n; floor = n; break }
+          if (rows.some(r => r.words <= 12 && like(r))) { e.page = n; floor = n; break }
         }
       }
       // A chapter's title printed again as the running head of its odd pages: the chapter starts at the first page of
