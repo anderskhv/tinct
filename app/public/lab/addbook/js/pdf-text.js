@@ -453,9 +453,10 @@
   const canon = t => norm(String(t || '').replace(LABEL_WORD, (m, w, r) => `${w} ${romanNumber(r)}`));
   // A short label the scan misread ("CHABTEB VI." for the entry "Chapter 6"): its number and its look agree.
   function sameLabel(text, label) {
-    const a = /^\s*(\S{4,9})\s+([IVXLC]{1,7}|\d{1,3})[.,]?\s*$/i.exec(String(text)), b = /^\s*(chapter|chap\.?)\s+([IVXLC]{1,7}|\d{1,3})\.?\s*$/i.exec(String(label));
+    const a = /^\s*(\S{4,9})\s+([IVXLCHUnmi]{1,7}|\d{1,3})[.,]?\s*$/.exec(String(text)), b = /^\s*(chapter|chap\.?)\s+([IVXLC]{1,7}|\d{1,3})\.?\s*$/i.exec(String(label));
     if (!a || !b) return false;
-    const num = x => /^\d+$/.test(x) ? Number(x) : romanNumber(x);
+    // As OCR misreads numerals: "L" for I, "in" for III.
+    const num = x => /^\d+$/.test(x) ? Number(x) : romanNumber(x.replace(/[Ll1|]/g, 'I').replace(/[HUn]/g, 'II').replace(/m/g, 'III').replace(/i/g, 'I'));
     return num(a[2]) === num(b[2]) && /^c/i.test(a[1]) && [...'hapter'].filter(c => a[1].toLowerCase().includes(c)).length >= 3;
   }
   function splitChapters(lines, scan, pageCount) {
@@ -475,6 +476,8 @@
       let i = lines.findIndex((l, k) => k >= at && l.n >= e.page);
       if (i < 0) i = lines.length;
       const want = canon(e.label);
+      // The title without the number the reader's house style puts before it ("1 — The River Bank" | "THE RIVER BANK").
+      const named = canon(String(e.label).replace(/^\s*(?:\d{1,3}|[IVXLC]{1,7})\s*(?:[.—–:-]\s*)/i, ''));
       const skip = new Set();
       // The title as printed on its page (over one or two lines): a heading first, else any line.
       const from = i;
@@ -485,9 +488,14 @@
           if (headingOnly && lines[k].kind !== 'heading') continue;
           const one = canon(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + canon(lines[k + 1].text) : one;
           if (!one || !want) continue;
-          if (want === one || sameLabel(lines[k].text, e.label) || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4)) { i = k; skip.add(k); break find }
+          if (want === one || (named.length >= 4 && named !== want && named === one) || sameLabel(lines[k].text, e.label) || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4)) { i = k; skip.add(k); break find }
           if (want === two) { i = k; skip.add(k); skip.add(k + 1); break find }
         }
+      }
+      // The title printed again on the chapter's first pages (a half-title, then its opening page) is the title too.
+      for (let k = i + 1; k < lines.length && lines[k].n <= e.page + 3; k++) {
+        const t = canon(lines[k].text);
+        if (lines[k].words <= 12 && t.length >= 4 && (t === want || t === named)) skip.add(k);
       }
       starts.push({ e, i, skip });
       at = i;
@@ -501,10 +509,18 @@
     // Text before the first chapter (a preface without an entry) is a chapter under the book's title. On a scan its
     // pages of little text leave it (a title page, a half-title, a library's inscriptions and their pictures: the
     // reader shows the title and author above the text; Three Men in a Boat, 30 Oct 2026 corpus).
-    const before = lines.slice(0, starts[0].i), scanned = before.some(l => l.ocr);
+    // Whether the book is a scan is the whole book's (a sparse front page is too short for the word-box test).
+    const before = lines.slice(0, starts[0].i), scanned = lines.some(l => l.ocr);
     const wordsOn = new Map();
     for (const l of before) if (l.kind !== 'figure') wordsOn.set(l.n, (wordsOn.get(l.n) || 0) + l.words);
-    const leadLines = scanned ? before.filter(l => (wordsOn.get(l.n) || 0) >= 40) : before;
+    // A page of prose: two lines or more of six words or more, mostly in lower case (a bookplate's capitals are none).
+    const proseLines = new Map();
+    for (const l of before) {
+      const letters = (l.text.match(/\p{L}/gu) || []).length, lower = (l.text.match(/\p{Ll}/gu) || []).length;
+      if (l.kind !== 'figure' && l.words >= 6 && lower >= letters * 0.6) proseLines.set(l.n, (proseLines.get(l.n) || 0) + 1);
+    }
+    const prose = new Set([...proseLines].filter(([, k]) => k >= 2).map(([n]) => n));
+    const leadLines = scanned ? before.filter(l => (wordsOn.get(l.n) || 0) >= 40 && prose.has(l.n)) : before;
     const lead = leadLines.filter(l => l.kind === 'body');
     if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: leadLines, lead: true });
     starts.forEach((s, k) => {
@@ -542,11 +558,11 @@
   // titles: most lines ending on a number or a leader), on a scan or headed Contents. The reader has its own chapter
   // menu (The Importance of Being Earnest's Methuen lists, 30 Oct 2026 corpus).
   function listPages(lines, pageCount) {
-    const out = new Set();
+    const out = new Set(), scanned = lines.some(l => l.ocr);
     for (const n of new Set(lines.filter(l => l.n <= Math.max(12, pageCount * 0.1)).map(l => l.n))) {
       const on = lines.filter(l => l.n === n && l.kind !== 'figure');
       const listed = on.filter(l => /(?:\d{1,3}|\b[ivxlc]{1,6})\s*\.?$/i.test(l.text) || /\.{3,}|(?:\.\s){2,}/.test(l.text)).length;
-      if (on.length >= 4 && ((listed >= on.length * 0.4 && on.some(l => l.ocr)) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) out.add(n);
+      if (on.length >= 4 && ((listed >= on.length * 0.4 && scanned) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) out.add(n);
     }
     return out;
   }
@@ -556,7 +572,7 @@
   const LIBRARY_LINE = /person charging this material|latest date stamped below|to renew,? call|theft, mutilation|this book is due|date due\b|digitized by( the)? internet archive|archive\.org\/details|no known copyright restrictions|the original of this book is in|university library\b.*\bgift of|with funding from/i;
   function frontMatter(lines, pageCount, title) {
     const front = lines.filter(l => l.n <= Math.max(12, pageCount * 0.1));
-    if (!front.some(l => l.ocr)) return new Set();
+    if (!lines.some(l => l.ocr)) return new Set();
     const out = new Set(), key = norm(title || '').slice(0, 24);
     const titlePage = key.length >= 6 ? front.find(l => l.kind !== 'figure' && norm(l.text).length >= 4 && key.startsWith(norm(l.text).slice(0, 24)))?.n : undefined;
     for (const n of new Set(front.map(l => l.n))) {
@@ -572,7 +588,12 @@
     if (!scan || !(scan.textPages > 0)) return null;
     const documented = documentLines(pages, scan.title), body = documented.body;
     const lists = listPages(documented.lines, pages.length), junk = frontMatter(documented.lines, pages.length, scan.title);
-    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l));
+    // On a scan, a short line of OCR noise ("S33 t) VS>fyl"): each of its words has a figure or mark inside it and
+    // is used nowhere else in the book.
+    const used = new Map();
+    for (const l of documented.lines) for (const w of l.text.split(/\s+/)) used.set(w, (used.get(w) || 0) + 1);
+    const noise = l => l.ocr !== undefined && documented.lines.some(x => x.ocr) && l.kind !== 'figure' && l.words <= 4 && l.text.split(/\s+/).filter(Boolean).every(w => /\p{L}/u.test(w) ? /[\d^>|<{}\\]|\p{L}[)(\]]/u.test(w) && used.get(w) === 1 : !/^\d{1,4}$/.test(w));
+    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l) && !noise(l));
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);

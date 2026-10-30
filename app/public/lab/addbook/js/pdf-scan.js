@@ -269,6 +269,8 @@
     const shortTitle = String(bookTitle || '').split(/[:;(]/)[0];
     const fuzzyHead = (p, r) => (r.y - p.y0 > p.h * 0.9 || scanEdge(p, r) === 'top') && r.words <= 10 && edgeKey(r).length >= 6
       && ((shortTitle.replace(/[^\p{L}]+/gu, '').length >= 6 && likeness(edgeKey(r), shortTitle) >= 0.7) || heads.some(k => likeness(edgeKey(r), k) >= 0.75));
+    // A scrap of OCR noise on a scan's edge ("o", '"'), never a chapter's numeral above its title ("I", "IV").
+    const stray = (p, r) => r.ocr && r.text.replace(/\s/g, '').length <= 2 && !/^[IVXL]+\.?$/.test(r.text.trim()) && (atEdge(p, r) || r.y - p.y0 > p.h * 0.85);
     // A page number OCR split in two ("8 1", "1 97"), alone on a scan's top or foot line.
     const splitNumber = (p, r) => r.ocr && /^\d{1,3} \d{1,3}$/.test(r.text.trim()) && r.text.replace(/\D/g, '').length <= 4 && atEdge(p, r);
     const signature = (p, r) => (r.y - p.y0 < p.h * 0.12 || scanEdge(p, r) === 'foot') && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
@@ -276,7 +278,7 @@
     const close = r => { const ns = where.get(r.text) || []; return ns.some((n, i) => i && n - ns[i - 1] <= 2) };
     const repeated = (p, r) => (exact.get(r.text) || 0) >= need && (atEdge(p, r) || (inner.get(r.text) || 0) >= need) && sameHeight(p, r) >= need;
     return (p, r) => labelLine(r) ? (repeated(p, r) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need)) && close(r)
-      : isPageNumber(r.text) || splitNumber(p, r) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
+      : isPageNumber(r.text) || splitNumber(p, r) || stray(p, r) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
   }
 
   /* ---------- Epigraphs and quotations ---------- */
@@ -620,12 +622,12 @@
       const found = [];
       for (const line of lines) {
         const m = line.match(/^(.*?)\s*(?:\.\s*){3,}\s*(\d{1,4}|[ivxlc]{1,6})$/i) || (carry && line.match(/^(.*?)\s+(\d{1,4})$/))
-          || (titled && line.match(/^((?:chapter\s+)?(?:[IVXLCHJl]{1,6}|\d{1,3})[.,]?\s+\p{L}.*?)[.,]?\s+(\d{1,3})$/u))
-          || (titled && line.match(/^(\p{Lu}[\p{L}'’ ,.-]*\p{L})[\s.,]+(\d{1,3})$/u));
+          || (titled && line.match(/^((?:chapter\s+)?(?:[IVXLCHJl]{1,6}|im|in|ID|CX|\d{1,3})[.,]?\s+["“‘']?\p{L}.*?)[.,]?\s+(\d{1,3})$/u))
+          || (titled && line.match(/^(\p{Lu}[\p{L}'’ ,.-]*\p{L}["”’']?)[\s.,]+(\d{1,3})$/u));
         if (!m) {
-          if ((/^\d{1,2}\s+\S/.test(line) || (titled && /^[IVXLCHJl]{1,6}[.,]?\s+\p{Lu}/u.test(line))) && !/\d$/.test(line)) { carry = line.replace(/-$/, ''); carried = 1 }
+          if ((/^\d{1,2}\s+\S/.test(line) || (titled && /^(?:[IVXLCHJl]{1,6}|im|in|ID|CX)[.,]?\s+["“‘']?\p{Lu}/u.test(line))) && !/\d$/.test(line)) { carry = line.replace(/-$/, ''); carried = 1 }
           // A title wrapped, or split at a wide gap, over several lines ("V KNOWLEDGE" | "BY ACQUAINTANCE AND" | "… 72").
-          else if (carry && titled && carried < 3 && !/\d$/.test(line) && /^\p{Lu}/u.test(line)) { carry += ' ' + line.replace(/-$/, ''); carried++ }
+          else if (carry && titled && carried < 3 && !/\d$/.test(line) && /^["“‘']?\p{Lu}/u.test(line)) { carry += ' ' + line.replace(/-$/, ''); carried++ }
           else carry = '';
           continue
         }
@@ -648,9 +650,21 @@
     }
     let part = null;
     // A novel's contents numbers its chapters in roman ("IV. The Food Question 33"): each is a chapter.
-    const romanLed = raw.filter(r => /^[IVXLC]{1,6}[.,]?\s/.test(r.label)).length >= raw.length * 0.6;
+    const romanLed = raw.filter(r => /^(?:[IVXLCHJl]{1,6}|im|in|ID|CX)[.,]?\s/.test(r.label)).length >= raw.length * 0.6;
+    // Numbered in roman, the scan's misread numerals ("H.", "HI.", "CX.") take their place in the sequence.
+    if (romanLed) {
+      let prev = 0;
+      for (const r of raw) {
+        const m = /^((?:[IVXLCHJl]{1,6}|im|in|ID|CX))([.,]?\s+)(.*)$/.exec(r.label);
+        if (!m) continue;
+        const v = /^[IVXLC]+$/.test(m[1]) && toRoman(roman(m[1])) === m[1] ? roman(m[1]) : 0;
+        const n = v > prev && v <= prev + 2 ? v : prev + 1;
+        r.label = toRoman(n) + '. ' + m[3];
+        prev = n;
+      }
+    }
     const entries = raw.map((r, i) => {
-      if (romanLed) return { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed), kind: 'chapter', label: r.label, title: r.label.replace(/^[IVXLC]{1,6}[.,]?\s+/, ''), parent: null };
+      if (romanLed) return { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed), kind: 'chapter', label: r.label, title: r.label.replace(/^[IVXLC]{1,6}[.,]?\s+/, '').replace(/^["“‘']/, ''), parent: null };
       const ch = r.label.match(/^(\d{1,3})\s+(.+)$/), pt = r.label.match(/^([IVX]{1,5})\s+(.+)$/);
       const e = { id: 'c' + i, printed: r.printed, arabic: /^\d+$/.test(r.printed) };
       if (pt) { Object.assign(e, { kind: 'part', label: `${pt[1]} · ${pt[2]}`, title: pt[2], parent: null }); part = e }
@@ -693,6 +707,21 @@
           const like = r => { const k = key(r.text); return k === want || (k.length >= 4 && (want.startsWith(k) || k.startsWith(want)) && Math.abs(k.length - want.length) <= Math.max(3, want.length * 0.3)) };
           if (rows.some(r => r.y < top - 1 && like(r))) { e.page = n; floor = n; break }
         }
+      }
+      // A chapter's title printed again as the running head of its odd pages: the chapter starts at the first page of
+      // the run that prints it, one or two pages back (The Wind in the Willows: "THE RIVER BANK" on 15, 17, 19 …).
+      let low = 1;
+      for (const e of entries) {
+        if (!e.arabic || !e.title || !e.page) continue;
+        const want = key(e.title);
+        if (want.length < 4) { low = e.page; continue }
+        const prints = async n => n > low && !contentsPages.has(n) && (await pageRows(n)).some(r => key(r.text) === want);
+        for (let moved = 0; moved < 4;) {
+          if (await prints(e.page - 1)) { e.page -= 1; moved += 1 }
+          else if (await prints(e.page - 2)) { e.page -= 2; moved += 2 }
+          else break;
+        }
+        low = e.page;
       }
     }
     const out = entries.filter(e => e.page >= 1 && e.page <= numPages).map(({ printed, arabic: _a, title: _t, number: _n, ...e }) => e);
