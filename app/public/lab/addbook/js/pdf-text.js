@@ -510,7 +510,7 @@
     // pages of little text leave it (a title page, a half-title, a library's inscriptions and their pictures: the
     // reader shows the title and author above the text; Three Men in a Boat, 30 Oct 2026 corpus).
     // Whether the book is a scan is the whole book's (a sparse front page is too short for the word-box test).
-    const before = lines.slice(0, starts[0].i), scanned = lines.some(l => l.ocr);
+    const before = lines.slice(0, starts[0].i);
     const wordsOn = new Map();
     for (const l of before) if (l.kind !== 'figure') wordsOn.set(l.n, (wordsOn.get(l.n) || 0) + l.words);
     // A page of prose: two lines or more of six words or more, mostly in lower case (a bookplate's capitals are none).
