@@ -79,9 +79,9 @@ interface Page { n: number; words: string[]; head: string; start: { title: strin
 
 /**
  * pages: each page document's text in reading order (hocr-to-epub's page_N.html). Returns the book's title
- * (its most printed running head, '' when none) and its chapters.
+ * (its most printed running head, '' when none), its author (the title page's "BY …", '' when none) and its chapters.
  */
-export function archiveChapters(pages: string[]): { title: string; chapters: ArchiveChapter[] } {
+export function archiveChapters(pages: string[]): { title: string; author: string; chapters: ArchiveChapter[] } {
   // 1. The banner and the page's own number, at its start or end, when it follows the pages' count.
   const texts = pages.map(text => clean(text).replace(BANNER, ''))
   const offsets: number[] = []
@@ -223,16 +223,38 @@ export function archiveChapters(pages: string[]): { title: string; chapters: Arc
   }
   flush()
   const kept = chapters.filter(c => c.paragraphs.length)
-  return { title: bookHead ? titleCase(headDisplay(words, bookHead)) : '', chapters: kept }
+  return { title: bookHead ? titleCase(headDisplay(words, bookHead)) : '', author: byline(texts.slice(0, Math.max(3, Math.ceil(pages.length * 0.1)))), chapters: kept }
 }
 
 // A head as printed, from the first page that opens on it.
 function headDisplay(words: string[][], head: string): string {
-  for (const list of words) for (let k = 1; k <= Math.min(10, list.length); k++) if (key(list.slice(0, k).join(' ')) === head) return list.slice(0, k).join(' ').replace(/[.,]$/, '')
+  for (const list of words) for (let k = 1; k <= Math.min(10, list.length); k++) if (key(list.slice(0, k).join(' ')) === head) return list.slice(0, k).join(' ').replace(/^\W*\d+\s+/, '').replace(/\s*\[.*$/, '').replace(/[.,]$/, '')
   return head
 }
 
 // A paragraph's speeches: a quotation mark opening after a sentence's end starts a paragraph of its own.
 function speeches(text: string): string[] {
   return text.split(/(?<=[.!?]["”’]?)\s+(?=["“](?:\s?\p{Lu}))/u).map(clean).filter(Boolean)
+}
+
+// The title page's byline ("… BY A. CONAN DOYLE WITH ILLUSTRATIONS …"): the name in capitals after "BY", up to
+// the publisher's or illustrator's words.
+const AFTER_NAME = new Set(['WITH', 'AUTHOR', 'ILLUSTRATED', 'ILLUSTRATIONS', 'PICTURES', 'NEW', 'LONDON', 'CHICAGO', 'BOSTON', 'NEW-YORK', 'SECOND', 'THIRD', 'EDITION', 'METHUEN', 'TORONTO', 'EDINBURGH', 'PHILADELPHIA', 'AND', 'THE', 'A', 'OF', 'PUBLISHED', 'PRINTED', 'COPYRIGHT', 'NOTES', 'INTRODUCTION'])
+const COMMON = new Set(['their', 'his', 'her', 'its', 'our', 'my', 'your', 'way', 'night', 'day', 'land', 'sea', 'all', 'this', 'that', 'them', 'him', 'me', 'us', 'clothes', 'order', 'request', 'permission'])
+function byline(pages: string[]): string {
+  for (const text of pages) {
+    const words = text.split(' ')
+    for (let i = 0; i < words.length - 1; i++) {
+      if (words[i] !== 'BY') continue
+      const name: string[] = []
+      for (let j = i + 1; j < words.length && name.length < 5; j++) {
+        const w = words[j].replace(/[,;:]$/, '')
+        if (!/^[A-Z][A-Z.'’-]*$/.test(w) || AFTER_NAME.has(w)) break
+        name.push(w)
+        if (/[,;:]$/.test(words[j])) break
+      }
+      if (name.length >= 2 && name.some(w => w.replace(/[^A-Z]/g, '').length >= 3) && !name.some(w => COMMON.has(w.toLowerCase()))) return titleCase(name.join(' ')).replace(/\b(\p{L})\.(?=\p{L})/gu, '$1. ')
+    }
+  }
+  return ''
 }

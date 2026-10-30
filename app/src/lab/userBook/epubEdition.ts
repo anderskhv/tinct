@@ -1471,7 +1471,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
       const pieces: UserBookChapter[] = built.chapters.map((chapter, index) => ({ number: index + 1, title: chapter.title || shortTitle(bookTitle), paragraphs: chapter.paragraphs }))
       if (pieces.length) {
         const chapters = options.sourceTitles ? pieces : normalizeChapterTitles(pieces, { language })
-        return { edition: { format: USER_EDITION_FORMAT, converter: rules, title: bookTitle, author, bylines: true, language, chapters, droppedImages: 0 }, images: new Map() }
+        return { edition: { format: USER_EDITION_FORMAT, converter: rules, title: bookTitle, author: author || personName(built.author), bylines: true, language, chapters, droppedImages: 0 }, images: new Map() }
       }
     }
   }

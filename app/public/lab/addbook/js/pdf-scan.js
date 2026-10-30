@@ -238,11 +238,13 @@
     // stand within two lines of where the book's pages usually start and end (a chapter's first page starts lower).
     const ends = new Map();
     for (const p of pages) {
-      if (!p.rows?.some(r => r.ocr)) continue;
-      const ys = p.rows.filter(q => /\p{L}\p{L}|\d/u.test(q.text)).map(q => q.y - p.y0).sort((x, y) => y - x);
-      if (ys.length >= 4) ends.set(p, { top: ys.slice(0, 2), foot: ys.slice(-2) });
+      const ys = (p.rows || []).filter(q => /\p{L}\p{L}|\d/u.test(q.text)).map(q => q.y - p.y0).sort((x, y) => y - x);
+      if (ys.length >= 4) ends.set(p, { top: ys.slice(0, 2), foot: ys.slice(-2), h: p.h, ocr: p.rows.some(r => r.ocr) });
     }
     const median = list => list.sort((x, y) => x - y)[Math.floor(list.length / 2)];
+    // On a scan (word-box OCR, or text set well inside the page's box on most pages: a scanner's margins).
+    const inset = [...ends.values()].filter(e => e.top[0] < e.h * 0.86 && e.foot[1] > e.h * 0.14).length;
+    for (const [p, e] of ends) if (!e.ocr && inset < ends.size * 0.7) ends.delete(p);
     const usual = ends.size >= 5 ? { top: median([...ends.values()].map(e => e.top[0])), foot: median([...ends.values()].map(e => e.foot[1])) } : null;
     const scanEdge = (p, r) => {
       const e = usual && ends.get(p);
@@ -472,7 +474,10 @@
     let reading = false;
     for (const p of pages) {
       const local = bodyOf(p.rows), body = local && local.chars >= 300 ? local : docBody;
-      if (p.rows.filter(r => CONTENTS_LINE.test(r.text)).length >= 5 || BOILERPLATE_PAGE.test(p.rows.map(r => r.text).join(' '))) continue;
+      // A contents page: many lines ending on a page number, or headed Contents (a scan's contents with chapters'
+      // synopses: In the Land of the Blue Gown's "Vili CONTENTS" | "CHAPTER V" | "INTO THE CHINESE COUNTRY").
+      if (p.rows.filter(r => CONTENTS_LINE.test(r.text)).length >= 5 || BOILERPLATE_PAGE.test(p.rows.map(r => r.text).join(' '))
+        || p.rows.slice(0, 3).some(r => /^(?:\S{1,5}\s+)?(?:contents|list of chapters)\.?(?:\s+\S{1,5})?$/i.test(r.text.trim()))) continue;
       const skip = epigraphRows(p.rows);
       // Reports often print "Figure 1" above a large, bold chart title. That
       // title belongs to the figure, not to the document's chapter navigation.
@@ -829,6 +834,88 @@
   /* ---------- The scan ---------- */
   // An entry whose label has no letter or digit ("." or ";", a stray mark read as a contents line) is
   // no chapter: left out, its own entries moved up a level. The reader also applies it to stored scans.
+  // The chapter titles a printed contents or "List of Chapters" gives, in order, page numbers or none
+  // ("CHAPTER XI. The Wonderful Emerald City" | "of Oz."): pages: the first pages as pageOf reads them.
+  function printedTitles(pages) {
+    const out = [];
+    for (const p of pages.slice(0, 30)) {
+      const rows = p.rows.filter(r => /\p{L}/u.test(r.text));
+      const at = rows.slice(0, 4).findIndex(r => /^(?:list of chapters|contents|table of contents)\b/i.test(r.text.trim()));
+      if (at < 0) continue;
+      const found = [];
+      for (const r of rows.slice(at + 1)) {
+        const t = r.text.replace(/(?:\s*[.…·•,„]){2,}\s*(?:\d{1,4}|[ivxlc]{1,6})$/i, '').replace(/\s+\d{1,4}$/, '').trim();
+        if (!t || /^(?:chapter|page)s?$|^chapter\s+page$/i.test(t)) continue;
+        const opens = /^(?:chapter\s+)?(?:[IVXLCJl]{1,7}|\d{1,3})[.,:]?\s+\p{L}/iu.test(t) || /^chapter\b/i.test(t);
+        if (!opens && found.length && (/^\p{Ll}/u.test(t) || !/[.!?"”]$/.test(found.at(-1)))) found[found.length - 1] += ' ' + t;
+        else if (opens) found.push(t);
+      }
+      if (found.length >= 3) out.push(...found);
+      else if (out.length) break;
+    }
+    return out.map(t => t.replace(/[.,]$/, '').replace(/\s+/g, ' '));
+  }
+  // Headings found on a scan whose titles are pictures read badly by OCR ("TKe Cyclorve", "OF THE TRAINma OF
+  // BLACK MEN 103") take the printed contents' titles, matched in order by their letters (Oz, Souls).
+  const titleLetters = t => String(t).toLowerCase().replace(/^\W*(?:chapter|chap)\W+/, '').replace(/^(?:[ivxlcjh]{1,7}|\d{1,3})\b\W*/, '').replace(/\b\d{1,4}\b/g, '').replace(/[^\p{L}]+/gu, '');
+  function alignTitles(entries, titles) {
+    if (titles.length < 4 || !entries.length) return entries;
+    const a = entries.map(e => titleLetters(e.label)), b = titles.map(titleLetters);
+    const score = (i, j) => { if (a[i].length < 3 || b[j].length < 3) return 0; const v = likeness(a[i], b[j]); return v >= 0.35 ? v : 0 };
+    const n = a.length, m = b.length, best = Array.from({ length: n + 1 }, () => new Float64Array(m + 1));
+    for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--) {
+      const v = score(i, j);
+      best[i][j] = Math.max(best[i + 1][j], best[i][j + 1], v ? v + best[i + 1][j + 1] : 0);
+    }
+    const out = entries.slice(), pairs = [];
+    for (let i = 0, j = 0; i < n && j < m;) {
+      const v = score(i, j);
+      if (v && best[i][j] === v + best[i + 1][j + 1]) { pairs.push([i, j]); i++; j++ }
+      else if (best[i][j] === best[i + 1][j]) i++;
+      else j++;
+    }
+    // Between two titles matched so, the headings left take the titles left in order where they are a little alike
+    // or name the same numeral ("CNjivpter V." | "CHAPTER v. The Rescue of the Tin Woodman").
+    const numeral = t => (/\b([IVXL]{1,6})\b\.?\s*$/i.exec(String(t).replace(/^.*?(?:ter|pter)\s*/i, '')) || /^(?:chapter\s+)?([IVXL]{1,6})\b/i.exec(String(t)) || [])[1]?.toUpperCase() || '';
+    const bounds = [[-1, -1], ...pairs, [n, m]];
+    const extra = [];
+    for (let k = 0; k + 1 < bounds.length; k++) {
+      let j0 = bounds[k][1] + 1;
+      for (let i = bounds[k][0] + 1; i < bounds[k + 1][0]; i++) {
+        for (let j = j0; j < bounds[k + 1][1]; j++) {
+          const sameNumeral = numeral(entries[i].label) && numeral(entries[i].label) === numeral(titles[j]);
+          if (sameNumeral || (a[i].length >= 3 && b[j].length >= 3 && likeness(a[i], b[j]) >= 0.2)) { extra.push([i, j]); j0 = j + 1; break }
+        }
+      }
+    }
+    for (const [i, j] of [...pairs, ...extra]) if (a[i] !== b[j]) out[i] = { ...entries[i], label: titles[j] };
+    return out;
+  }
+  // A contents numbering its entries in roman that stops short of the book (a scan missing its last contents page:
+  // A Shropshire Lad's ends at XLIV of LXIII) goes on with the numerals that follow in the text, each alone on its
+  // line ("XLV -^"), named by the line after it.
+  function continueNumbered(entries, pages) {
+    const lead = e => /^([IVXLC]{1,7})[.,]?\s/.exec(String(e.label));
+    const numbered = entries.filter(lead);
+    if (numbered.length < 5 || numbered.length < entries.length * 0.6) return entries;
+    const last = entries[entries.length - 1], m = lead(last);
+    if (!m) return entries;
+    let want = roman(m[1]) + 1;
+    const out = entries.slice();
+    for (const p of pages) {
+      if (p.n <= last.page) continue;
+      for (let i = 0; i < p.rows.length; i++) {
+        const r = p.rows[i], k = /^([IVXLC]{1,7})[\W_]{0,3}$/.exec(r.text.trim());
+        const v = k ? roman(k[1]) : 0;
+        if (!k || v < want || v > want + 3 || toRoman(v) !== k[1]) continue;
+        want = v;
+        const next = p.rows.slice(i + 1).find(q => /\p{L}{2}/u.test(q.text));
+        out.push({ id: 'n' + v, label: `${k[1]}. ${next ? next.text.replace(/[,;:.]+$/, '') : ''}`.trim(), page: p.n, kind: 'chapter', parent: null });
+        want++;
+      }
+    }
+    return out;
+  }
   // Headings that are mostly chapter labels ("CHAPTER II.", "CHAPTER III.") read in sequence: a label the scan
   // garbled ("CHAITKk [V.", "CHA ER-XIV") or misread as another numeral ("CHAPTER XL" between X and XII) takes
   // the number its neighbours give it (Pride and Prejudice, 30 Oct 2026 corpus).
@@ -920,7 +1007,8 @@
     if (entries) entries = usableEntries(entries);
     if (entries && onEntries) { try { onEntries({ nav, entries, language, text: !noise && all.some(runningText) ? true : null }) } catch { /* the listener's own failure never stops the scan */ } }
     for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
-    if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = nearRepeats(sequencedLabels(usableEntries(entries))) }
+    if (nav === 'contents' && entries) entries = continueNumbered(entries, all);
+    if (!entries && (entries = await headingEntries(all, { fontName, title, author, live }))) { nav = 'headings'; entries = nearRepeats(sequencedLabels(alignTitles(usableEntries(entries), noise || !all.some(p => p.rows.some(r => r.ocr)) ? [] : printedTitles(all)))) }
     // A contents page read only in part (a garbled scan: 4 of its 16 lines) gives way to headings that find more.
     else if (nav === 'contents' && entries.length < 6) { const found = await headingEntries(all, { fontName, title, author, live }); if (found && usableEntries(found).length > entries.length) { nav = 'headings'; entries = usableEntries(found) } }
     if (!live()) return null;
@@ -961,5 +1049,5 @@
   // A stored scan is used when it is of this version.
   const current = s => !!s && s.v === SCAN_VERSION && Array.isArray(s.entries) && typeof s.title === 'string';
 
-  global.TinctPdfScan = { wordBoxLayer, sequencedLabels, SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
+  global.TinctPdfScan = { wordBoxLayer, sequencedLabels, printedTitles, alignTitles, SCAN_VERSION, scan, titleOf, pickTitle, current, usableEntries, layout, twoColumns, hasTable, textRows, bodyOf, epigraphRows, furniture, headingLike, headingEntries, outlineEntries, languageOf, contentsEntries, printedTitle, sameTitleLonger, metaTitle, metaAuthor, cleanFileName, nameLike, isItalic, isBold, isPageNumber };
 })(typeof window !== 'undefined' ? window : globalThis);
