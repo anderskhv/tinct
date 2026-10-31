@@ -4,6 +4,7 @@ import { parsePrimer } from '../../../companion/primerParse'
 import { LabInlineMarkdown } from '../../LabMarkdown'
 import { LabChapterNotesEntries } from '../../LabChapterNotesSheet'
 import { primerBeats } from '../../userBook/ownChapterNotes'
+import { PhoneAnswer } from '../../marginPhone/LabPhoneCard'
 
 /** Folded source entries show prose, while their full structured answer stays unchanged in storage. */
 export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
@@ -28,7 +29,8 @@ export function PdfOriginalAnswer({ kind, raw, busy = false }: { kind: string; r
     return beats?.length ? <div className="lab-catch-up-body" data-testid="pdf-original-primer"><ol className="lab-catch-up-timeline"><LabChapterNotesEntries beats={beats} /></ol></div>
       : busy ? null : /^[\s]*(?:\{|```)/.test(raw) ? <UnreadableAnswer label="primer" raw={raw} /> : <LabInlineMarkdown>{raw}</LabInlineMarkdown>
   }
-  return <LabInlineMarkdown>{raw}</LabInlineMarkdown>
+  // An answer reads as the text reader's cards do: its first sentence bold, then paragraphs, lists and headings.
+  return <PhoneAnswer text={raw} />
 }
 
 function UnreadableAnswer({ label, raw }: { label: string; raw: string }) {

@@ -48,13 +48,15 @@
 .lab .lab-dbar-ask-field::placeholder { color: var(--lab-pbar-soft); opacity: 1; }
 /* Over the reader's focus ring for every field (.lab :is(…textarea…):focus-visible). */
 .lab .lab-pbar.is-desk .lab-dbar-ask-field:focus, .lab .lab-pbar.is-desk .lab-dbar-ask-field:focus-visible { outline: none; box-shadow: none; }
-.lab .lab-pbar.is-desk .lab-dbar-ask-mic { display: grid; place-items: center; flex: none; width: 34px; height: 34px; padding: 0;
+.lab .lab-pbar.is-desk .lab-dbar-ask-mic { display: grid; place-items: center; flex: none; align-self: flex-end; width: 28px; height: 28px; margin-bottom: 3px; padding: 0;
   border: 0; border-radius: 8px; background: none; color: var(--lab-pbar-soft); cursor: pointer; }
 .lab .lab-pbar.is-desk .lab-dbar-ask-mic:hover, .lab .lab-pbar.is-desk .lab-dbar-ask-mic[aria-pressed="true"] { color: var(--lab-pbar-ink); }
-.lab .lab-pbar.is-desk .lab-dbar-ask-send { display: grid; place-items: center; flex: none; width: 34px; height: 34px; padding: 0;
-  border: 0; border-radius: 8px; background: var(--lab-pbar-ink); color: var(--lab-pbar); cursor: pointer; }
-.lab .lab-pbar.is-desk .lab-dbar-ask-mic .lab-picon, .lab .lab-pbar.is-desk .lab-dbar-ask-send .lab-picon { width: 18px; height: 18px; }
-.lab .lab-dbar-ask-send:disabled { opacity: .3; cursor: default; }
+.lab .lab-pbar.is-desk .lab-dbar-ask-send { display: grid; place-items: center; flex: none; align-self: flex-end; width: 26px; height: 26px; margin: 0 4px 4px 2px; padding: 0;
+  border: 0; border-radius: 50%; background: var(--lab-pbar-ink); color: var(--lab-pbar); cursor: pointer; transition: background-color .15s, color .15s; }
+.lab .lab-pbar.is-desk .lab-dbar-ask-mic .lab-picon { width: 17px; height: 17px; }
+.lab .lab-pbar.is-desk .lab-dbar-ask-send .lab-picon { width: 14px; height: 14px; }
+/* Nothing to send: the arrow alone, no disc (Anders, 30 Oct 2026: the filled square was too big). */
+.lab .lab-pbar.is-desk .lab-dbar-ask-send:disabled { background: transparent; color: var(--lab-pbar-soft); opacity: .6; cursor: default; }
 .lab .lab-dbar-ask-mic:focus-visible { outline: 2px solid var(--lab-pbar-ink); outline-offset: -2px; }
 .lab .lab-dbar-ask-send:focus-visible { outline: 2px solid var(--lab-pbar-ink); outline-offset: -2px; }
 

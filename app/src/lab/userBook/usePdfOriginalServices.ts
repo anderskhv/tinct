@@ -573,7 +573,9 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     // A figure or formula is sent as its image; its text stand-in ("Formula") must not reach the model as the passage.
     const region = selection.region
     const text = region ? `[The reader selected ${region.label || (region.kind === 'equation' ? 'a formula' : `a ${region.kind}`)} on page ${selection.page}. It is the attached image.${region.caption ? ` Caption: ${region.caption}` : ''}]` : selection.text
-    const pageText = region && !selection.pages ? await this.getPageText(selection.page).catch(() => '') : ''
+    // The page around the selection, for a passage as for a figure: with only the selected words as its page, a
+    // diagram's labels ("Galileo → radio waves → Earth") read as a stray fragment (Anders, 30 Oct 2026).
+    const pageText = !selection.pages ? await this.getPageText(selection.page).catch(() => '') : ''
     const selectedPages = selection.pages ?? [{ n: selection.page, text: pageText || text }]
     const figure = region ? await region.image().catch(() => null) : null
     if (selection.region && !figure) throw new Error('This figure could not be read. No question was sent.')
