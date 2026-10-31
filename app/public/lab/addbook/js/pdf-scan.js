@@ -298,11 +298,41 @@
     // A page number OCR split in two ("8 1", "1 97"), or beside a printer's signature ("10 145"), alone on a scan's top or foot line.
     const splitNumber = (p, r) => r.ocr && /^\d{1,3} \d{1,4}$/.test(r.text.trim()) && r.text.replace(/\D/g, '').length <= 6 && atEdge(p, r);
     const signature = (p, r) => (r.y - p.y0 < p.h * 0.12 || scanEdge(p, r) === 'foot') && /^\d{1,4}\s+[A-Z]{1,2}\d?$/.test(r.text.trim());
+    // A scan's page number as OCR misreads it ("i6i M", "I 12", "79 /", "> 16", "337 z"): a short row of a number and
+    // scraps of a letter or two. At the page's top or foot it is the page number; anywhere else on the page ("129 i" a third
+    // of the way down North of Boston's) only when it is the number the pages around print (30 Oct 2026 corpus).
+    const folioOf = text => {
+      const t = text.trim();
+      // Not an index's line run on from the column before ("378.,."): a page number has no stop after it.
+      if (t.length > 12 || !/\d/.test(t) || /\d[.,;]/.test(t)) return null;
+      const tokens = t.split(/\s+/).map(w => w.replace(/^[^\p{L}\d|]+|[^\p{L}\d|]+$/gu, '')).filter(Boolean);
+      if (!tokens.length || tokens.length > 3) return null;
+      let n = null;
+      for (const w of tokens) {
+        if (/^[\dilIoO|]{1,4}$/.test(w) && /\d/.test(w)) { if (n !== null) return null; n = Number(w.replace(/[ilI|]/g, '1').replace(/[oO]/g, '0')) }
+        else if (!/^\p{L}{1,2}$/u.test(w)) return null;
+      }
+      return n;
+    };
+    const printed = new Map();
+    for (const p of pages) for (const r of p.rows) {
+      if (!atEdge(p, r)) continue;
+      const m = r.text.trim().match(/^(\d{1,4})\b|\b(\d{1,4})$/);
+      if (m && (isPageNumber(r.text) || (seen.get(edgeKey(r)) || 0) >= need)) printed.set(p.n, p.n - Number(m[1] || m[2]));
+    }
+    const offsets = [...printed].sort((a, b) => a[0] - b[0]);
+    const expected = n => { const near = offsets.filter(([m]) => Math.abs(m - n) <= 12).map(([, o]) => o); return near.length >= 2 ? new Set(near.map(o => n - o)) : null };
+    const folio = (p, r) => {
+      if (!r.ocr || isPageNumber(r.text)) return false;
+      const n = folioOf(r.text);
+      if (n === null) return false;
+      return atEdge(p, r) || !!expected(p.n)?.has(n);
+    };
     const sameHeight = (p, r) => { const [t, y] = [r.text, Math.round((r.y - p.y0) / p.h * 50)]; return [-1, 0, 1].reduce((n, d) => n + (at.get(t + '|' + (y + d)) || 0), 0) };
     const close = r => { const ns = where.get(r.text) || []; return ns.some((n, i) => i && n - ns[i - 1] <= 2) };
     const repeated = (p, r) => (exact.get(r.text) || 0) >= need && (atEdge(p, r) || (inner.get(r.text) || 0) >= need) && sameHeight(p, r) >= need;
     return (p, r) => labelLine(r) ? (repeated(p, r) || (atEdge(p, r) && (seen.get(edgeKey(r)) || 0) >= need)) && close(r)
-      : isPageNumber(r.text) || splitNumber(p, r) || stray(p, r) || signature(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
+      : isPageNumber(r.text) || splitNumber(p, r) || stray(p, r) || signature(p, r) || folio(p, r) || (atEdge(p, r) && ((seen.get(edgeKey(r)) || 0) >= need || fuzzyHead(p, r))) || repeated(p, r);
   }
 
   /* ---------- Epigraphs and quotations ---------- */

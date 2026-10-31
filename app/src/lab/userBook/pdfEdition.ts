@@ -66,7 +66,11 @@ type RegionsOf = (n: number, page: PdfPage, items: PdfTextItem[]) => Promise<Pdf
 interface Engine {
   pdfjs: { getDocument: (options: unknown) => { promise: Promise<PdfDocument> }; GlobalWorkerOptions: { workerSrc: string }; Util?: { transform: (a: number[], b: number[]) => number[] } }
   scan: { current: (scan: unknown) => boolean; scan: (pdf: PdfDocument, options: { fileName: string; live?: () => boolean }) => Promise<PdfScan | null> }
-  text: { convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf; onProgress?: (done: number, total: number) => void }) => Promise<UserBookEdition | null> }
+  text: {
+    convert: (pdf: PdfDocument, options: { scan: PdfScan; regions?: RegionsOf; pixels?: unknown; onProgress?: (done: number, total: number) => void }) => Promise<UserBookEdition | null>
+    /** A scan's drop caps drawn from the page (pdf-text.js drawnPixels), read as letters; null without a document. */
+    drawnPixels?: (pdf: PdfDocument) => unknown
+  }
   /** pdf-regions.js and margin.js (findFigures): where a page's formulas, figures and tables are. Absent: no crops. */
   regions?: RegionsApi
   /** reading-order.js and reader-layout.js: the phone's open rule (phoneKindOf). Absent: the rule is left to the viewer. */
@@ -203,7 +207,7 @@ export async function convertPdf(bytes: ArrayBuffer, options: { onProgress?: (pr
     const scan = kept ?? houseStyledScan(scanned)
     const images = new Map<string, UserBookImage>()
     const regions = options.crops !== false ? cropper(engine, images, options.crops || deviceCrops()) : null
-    const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}), onProgress: (done, total) => options.onProgress?.({ stage: 'text', done, total }) }) : null
+    const edition = scan.textPages > 0 ? await engine.text.convert(pdf, { scan, ...(regions ? { regions } : {}), pixels: options.crops !== false ? engine.text.drawnPixels?.(pdf) ?? null : null, onProgress: (done, total) => options.onProgress?.({ stage: 'text', done, total }) }) : null
     // The phone's rule reads a few pages' text while the last crops are drawn.
     const telling = options.phoneKind && edition ? phoneKindOf(pdf, engine, scan, engine.layout ? options.phoneKind.primer(engine.layout.KINDS) : null).catch(() => undefined) : undefined
     // Its crops, drawn while the converter read on: a text naming one that could not be drawn has its picture missing.
