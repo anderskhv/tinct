@@ -1191,7 +1191,10 @@
     if (!live()) return null;
     const { title, author, source } = pickTitle(info, first, fileName);
     onTitle?.({ title, author });
-    const total = Math.min(maxPages, pdf.numPages);
+    // Pages read for the scan: 400, as before; up to HEADING_PAGES only when the chapters must come from headings
+    // (a long scan without bookmarks or a usable contents: Pride and Prejudice's 512 pages). A book whose bookmarks or
+    // contents give its chapters is not read further, so its chapters are ready as soon as before.
+    const total = Math.min(maxPages, pdf.numPages), base = Math.min(total, 400);
     const all = [...first];
     // The pages the language sample needs first (it depends on these alone), then the outline or printed contents.
     while (all.length < total && sampleOf(all).length <= 20000) { all.push(await pageOf(all.length + 1)); if (!live()) return null }
@@ -1207,7 +1210,8 @@
     if (!live()) return null;
     if (entries) entries = usableEntries(entries);
     if (entries && onEntries) { try { onEntries({ nav, entries, language, text: !noise && all.some(runningText) ? true : null }) } catch { /* the listener's own failure never stops the scan */ } }
-    for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
+    for (let n = all.length + 1; n <= base; n++) { all.push(await pageOf(n)); if (!live()) return null }
+    if (!entries || (nav === 'contents' && entries.length < 6)) for (let n = all.length + 1; n <= total; n++) { all.push(await pageOf(n)); if (!live()) return null }
     if (nav === 'contents' && entries) entries = continueNumbered(entries, all);
     if (nav === 'contents' && entries && all.some(p => p.rows.some(r => r.ocr))) entries = printedSpellings(entries, all);
     // Headings as chapters: named from the printed contents where garbled, numbered in sequence, a repeat within two pages dropped.
