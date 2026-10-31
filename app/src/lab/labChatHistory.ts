@@ -330,9 +330,86 @@ export function readLabBookChat(bookId: string): ChatConversation[] {
   return parseChatConversations(localStorageProvider.get<unknown>(labChatHistoryKey(bookId)), bookId)
 }
 
+/**
+ * What the account row is known to hold, per book and conversation, as this page has seen it (a sync's read, an
+ * applied commit). A phone's storage for the site (about 5 MB) filled with long threads, and every new answer was
+ * then reported as not saved on this device although the account had it (iPhone, 31 Oct 2026). When a book's copy
+ * does not fit, the conversations the account holds as they are leave the device copy, oldest first: the reader is
+ * shown them from the account, and every commit merges what the row holds (createLabChatCloudWriter), so a slimmer
+ * device copy never removes anything from the account. A signed-out reader's copy is never slimmed.
+ */
+const heldInAccount = new Map<string, Map<string, string>>()
+/** Conversations a slimmed device copy keeps beyond those the account lacks: the most recent. */
+export const LAB_CHAT_DEVICE_RECENT = 30
+
+function conversationText(conversation: ChatConversation, bookId: string): string {
+  return JSON.stringify(parseChatConversations([conversation], bookId)[0] ?? null)
+}
+
+export function noteLabChatHeldInAccount(bookId: string, conversations: ChatConversation[]): void {
+  if (!bookId || isUserBookId(bookId)) return
+  let held = heldInAccount.get(bookId)
+  if (!held) heldInAccount.set(bookId, held = new Map())
+  for (const conversation of conversations) held.set(conversation.id, conversationText(conversation, bookId))
+}
+
+/** Tests: a new page. */
+export function forgetLabChatHeldInAccount(): void {
+  heldInAccount.clear()
+}
+
+/** The device copy without the older conversations the account holds as they are; null when none can go. */
+function slimmedForDevice(bookId: string, conversations: ChatConversation[], keepRecent: number): ChatConversation[] | null {
+  const held = heldInAccount.get(bookId)
+  if (!held?.size) return null
+  const recent = new Set([...conversations].sort((x, y) => y.endTimestamp - x.endTimestamp).slice(0, keepRecent).map(c => c.id))
+  const next = conversations.filter(c => recent.has(c.id) || isCardTombstone(c) || held.get(c.id) !== conversationText(c, bookId))
+  return next.length < conversations.length ? next : null
+}
+
+function writeSlimmed(bookId: string, conversations: ChatConversation[]): boolean {
+  for (const keep of [LAB_CHAT_DEVICE_RECENT, 0]) {
+    const slim = slimmedForDevice(bookId, conversations, keep)
+    if (slim && localStorageProvider.set(labChatHistoryKey(bookId), slim) === null) return true
+  }
+  return false
+}
+
 export function writeLabBookChat(bookId: string, conversations: ChatConversation[]): StorageWriteFailure | 'book-mismatch' | null {
   if (!bookId || conversations.some(c => c.bookId !== bookId || c.messages.some(m => m.bookId && m.bookId !== bookId))) return 'book-mismatch'
-  return localStorageProvider.set(labChatHistoryKey(bookId), conversations)
+  const key = labChatHistoryKey(bookId)
+  const failure = localStorageProvider.set(key, conversations)
+  if (failure !== 'quota') return failure
+  if (writeSlimmed(bookId, conversations)) return null
+  // Still full: other books' copies give up what the account holds too, then this book tries again.
+  let freed = false
+  for (const other of heldInAccount.keys()) {
+    if (other === bookId) continue
+    const slim = slimmedForDevice(other, readLabBookChat(other), 0)
+    if (slim && localStorageProvider.set(labChatHistoryKey(other), slim) === null) freed = true
+  }
+  if (!freed) return failure
+  if (localStorageProvider.set(key, conversations) === null || writeSlimmed(bookId, conversations)) return null
+  return failure
+}
+
+/**
+ * Whether `conversations` are kept as they are: by this device's copy, or (a conversation a slimmed copy left out)
+ * by the account row. The readback a save is checked by.
+ */
+export function labBookChatStored(bookId: string, conversations: ChatConversation[]): boolean {
+  let raw: string | null
+  try { raw = localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) } catch { return false }
+  if (raw === JSON.stringify(conversations)) return true
+  if (raw === null) return false
+  let local: ChatConversation[]
+  try { local = parseChatConversations(JSON.parse(raw), bookId) } catch { return false }
+  const there = new Map(local.map(c => [c.id, conversationText(c, bookId)]))
+  const held = heldInAccount.get(bookId)
+  return conversations.every(c => {
+    const text = conversationText(c, bookId)
+    return there.get(c.id) === text || held?.get(c.id) === text
+  })
 }
 
 /** Every book's conversations on this device, for the companion's cross-book memory. */
@@ -694,6 +771,7 @@ export async function syncLabBookChatWithCloud(input: {
     let row = await cloud.read(bookId)
     for (let attempt = 0; attempt < 2; attempt++) {
       if (input.isCurrent?.() === false) return local
+      if (row) noteLabChatHeldInAccount(bookId, row.conversations)
       const current = readLocal()
       const merged = mergeChatConversations(row?.conversations ?? [], current)
       if (!sameChatConversations(current, merged)) writeLabBookChat(bookId, merged)
@@ -710,6 +788,7 @@ export async function syncLabBookChatWithCloud(input: {
       if (input.isCurrent?.() === false) return local
       if (result.applied) {
         if (result.row) input.revs?.set(bookId, result.row.rev)
+        noteLabChatHeldInAccount(bookId, merged)
         input.onCloudHolds?.(merged)
         return mergeChatConversations(merged, readLocal())
       }
@@ -761,7 +840,19 @@ export function createLabChatCloudWriter(
   // A failed local write can leave this as the only copy. Keep it until an
   // account acknowledgment includes it; never retry in a tight failure loop.
   const unsaved = new Map<string, ChatConversation[]>()
+  /**
+   * The thread the account row was last seen to hold, per book. Every commit carries it: a device copy slimmed to
+   * fit the phone's storage (writeLabBookChat) lacks older conversations, and a commit of it alone would drop them
+   * from the account.
+   */
+  const heldRows = new Map<string, ChatConversation[]>()
+  const withHeld = (bookId: string, value: ChatConversation[]) => {
+    const held = heldRows.get(bookId)
+    return held?.length ? mergeChatConversations(held, value) : value
+  }
   const acknowledge = (bookId: string, value: ChatConversation[]) => {
+    heldRows.set(bookId, value)
+    noteLabChatHeldInAccount(bookId, value)
     const pending = unsaved.get(bookId)
     if (pending && sameChatConversations(mergeChatConversations(value, pending), value)) unsaved.delete(bookId)
     options.onCloudHolds?.(bookId, value)
@@ -781,7 +872,7 @@ export function createLabChatCloudWriter(
     const value = waiting.get(bookId)
     waiting.delete(bookId)
     if (!value) return
-    const merged = mergeChatConversations(readLabBookChat(bookId), value)
+    const merged = withHeld(bookId, mergeChatConversations(readLabBookChat(bookId), value))
     if (known.get(bookId) === JSON.stringify(merged)) return
     queued.set(bookId, merged)
     if (!inFlight.has(bookId)) void run(bookId)
@@ -791,7 +882,7 @@ export function createLabChatCloudWriter(
     inFlight.add(bookId)
     try {
       while (queued.has(bookId)) {
-        const value = queued.get(bookId) as ChatConversation[]
+        const value = withHeld(bookId, queued.get(bookId) as ChatConversation[])
         queued.delete(bookId)
         try {
           // A rev this device has not seen yet is 0, never NULL: NULL makes
@@ -807,6 +898,8 @@ export function createLabChatCloudWriter(
             continue
           }
           if (result.conflict && result.row) {
+            heldRows.set(bookId, result.row.conversations)
+            noteLabChatHeldInAccount(bookId, result.row.conversations)
             // The queued value too: when the local mirror could not be written
             // (a full localStorage on a phone) it is the only copy of the turn.
             const merged = mergeChatConversations(result.row.conversations, mergeChatConversations(readLabBookChat(bookId), value))

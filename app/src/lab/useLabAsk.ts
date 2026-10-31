@@ -55,7 +55,7 @@ import {
   appendLabChatTurnTo,
   createLabChatCloudWriter,
   LAB_CHAT_COMMIT_COALESCE_MS,
-  labChatHistoryKey,
+  labBookChatStored,
   createLabChatHistoryCloud,
   mergeChatConversations,
   sameChatConversations,
@@ -419,7 +419,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     // A turn the device could not store (a full localStorage on a phone) has
     // no other copy: it goes to the account row at once.
     let stored = false
-    try { stored = localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) === JSON.stringify(next) } catch { stored = false }
+    try { stored = labBookChatStored(bookId, next) } catch { stored = false }
     cloudWriterRef.current?.push(bookId, next, { now: !stored })
   }, [])
 
@@ -436,7 +436,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     if (owned && isUserBookId(bookId)) { saved = owned.persist(next); if (!saved) failure = 'private-storage' }
     else {
       failure = writeLabBookChat(bookId, next)
-      try { saved = !failure && localStorage.getItem(`tinct:${labChatHistoryKey(bookId)}`) === JSON.stringify(next) } catch { saved = false; failure ??= 'access' }
+      try { saved = !failure && labBookChatStored(bookId, next) } catch { saved = false; failure ??= 'access' }
     }
     if (!saved) failCardSave(failure ?? 'readback')
     else setCardSaveFailure(null)
