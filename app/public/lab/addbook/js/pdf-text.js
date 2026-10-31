@@ -317,9 +317,11 @@
   // capital or a quotation mark, on a scan (30 Oct 2026 corpus). Not after a word that counts ("Chapter 1 The Cyclone").
   const COUNTED = /\b(?:chapter|chap|part|book|act|scene|vol|volume|no|page|p|pp|figure|fig|table|section|sect|number|stave|canto|plate|verse|psalm|line|note|step|item|edition|ed)\.?$/i;
   // A caret is no mark of a book: OCR makes it of a picture's initial ("'T^HE extract", "follow -^ the course"; Hound).
-  const bang = (text, ocr) => !ocr ? text : text.replace(/(\p{Ll}) 1(?= [\p{Lu}"“‘'])/gu, (m, w, at, s) => COUNTED.test(s.slice(0, at + w.length)) ? m : w + '!')
+  // So it reads a question mark as "V" and an exclamation mark as "l" too ("that is not mad V Nevertheless", Sartor Resartus).
+  const MARK = { 1: '!', l: '!', V: '?' };
+  const bang = (text, ocr) => !ocr ? text : text.replace(/(\p{Ll}) (1|(?<=\p{L}{3} )[lV])(?= [\p{Lu}"“‘'])/gu, (m, w, mark, at, s) => COUNTED.test(s.slice(0, at + w.length)) ? m : w + MARK[mark])
     .replace(/(?<=\p{L})\^+(?=\p{L})/gu, '').replace(/(^|\s)[^\s\p{L}\p{N}]*\^[^\s\p{L}\p{N}]*(?=\s|$)/gu, '$1').replace(/\s{2,}/g, ' ').trim();
-  const bangEnd = (text, next) => /\p{Ll} 1$/u.test(text) && /^[\p{Lu}"“‘']/u.test(next) && !COUNTED.test(text.slice(0, -2)) ? text.slice(0, -1) + '!' : text;
+  const bangEnd = (text, next) => /\p{Ll} 1$|\p{L}{2}\p{Ll} [lV]$/u.test(text) && /^[\p{Lu}"“‘']/u.test(next) && !COUNTED.test(text.slice(0, -2)) ? text.slice(0, -2) + MARK[text.slice(-1)] : text;
   function joinLine(text, next, hyphenated, ocr = false) {
     if (ocr) text = bangEnd(text, next);
     if (/\p{L}­$/u.test(text) && /^\p{L}/u.test(next)) return text.slice(0, -1) + next;
@@ -478,7 +480,7 @@
     flush();
     if (note) notes.push(note);
     // OCR's "1" for "!" closing a paragraph ("Good heavens 1").
-    const done = p => ({ text: clean(scanned && !p.kind ? p.text.replace(/(\p{Ll}) 1$/u, (m, w) => COUNTED.test(p.text.slice(0, -2)) ? m : w + '!') : p.text), kind: p.kind, page: p.page, breaks: p.breaks, ...(p.figure ? { figure: p.figure } : {}), ...(p.inset && p.margin ? { dropCap: true } : {}) });
+    const done = p => ({ text: clean(scanned && !p.kind ? p.text.replace(/(\p{Ll}) (1|(?<=\p{L}{3} )[lV])$/u, (m, w, mark) => COUNTED.test(p.text.slice(0, -2)) ? m : w + MARK[mark]) : p.text), kind: p.kind, page: p.page, breaks: p.breaks, ...(p.figure ? { figure: p.figure } : {}), ...(p.inset && p.margin ? { dropCap: true } : {}) });
     return { paras: paras.map(done).filter(p => p.text), notes: notes.map(done).filter(p => p.text) };
   }
 
@@ -564,6 +566,9 @@
         const t = canon(lines[k].text);
         if (lines[k].words <= 12 && t.length >= 4 && (t === want || t === named)) skip.add(k);
       }
+      // On a scan the chapter starts at its label line just above the title, so the chapter before does not end on it
+      // ("CHAPTER II" closing chapter I of The Hound of the Baskervilles, 31 Oct 2026 corpus).
+      if (scanned && skip.size) { const label = Math.min(...skip); if (label < i && label >= i - 2) i = label }
       starts.push({ e, i, skip });
       at = i;
     }
@@ -680,7 +685,7 @@
     const used = new Map();
     for (const l of documented.lines) for (const w of l.text.split(/\s+/)) used.set(w, (used.get(w) || 0) + 1);
     const noise = l => scanned && l.kind !== 'figure' && l.words <= 4 && l.text.split(/\s+/).filter(Boolean).every(w => /\p{L}/u.test(w) ? /[\d^>|<{}\\]|\p{L}[)(\]]/u.test(w) && used.get(w) === 1 : !/^\d{1,4}$/.test(w));
-    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l) && !noise(l)).map(l => scanned && /\^| 1 /.test(l.text) ? { ...l, text: bang(l.text, true) } : l).filter(l => l.text);
+    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l) && !noise(l)).map(l => scanned && /\^| [1lV] /.test(l.text) ? { ...l, text: bang(l.text, true) } : l).filter(l => l.text);
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);
