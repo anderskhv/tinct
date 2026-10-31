@@ -77,6 +77,8 @@ it('retries saving a completed definition without asking for another answer', as
   tapWord(1, 51)
   await waitFor(() => expect(requests.pending).toHaveLength(1))
   await act(async () => { requests.pending[0].resolve('{"kind":"definition","definition":"The retained definition."}') })
+  // The notice waits for the account copy's confirmation before it speaks (31 Oct 2026); none comes here.
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 6100)) })
   await waitFor(() => expect(screen.getByRole('button', { name: 'Retry saving' })).toBeTruthy())
   requests.saveSucceeds = true
   requests.realSave = false
@@ -85,7 +87,7 @@ it('retries saving a completed definition without asking for another answer', as
   expect(requests.pending).toHaveLength(1)
   expect(screen.queryByRole('button', { name: 'Retry saving' })).toBeNull()
   expect(screen.getByText('The retained definition.')).toBeTruthy()
-})
+}, 20_000)
 
 it('persists a completed tapped definition through the real card writer', async () => {
   requests.realSave = true
@@ -124,6 +126,8 @@ it('identifies a device quota failure and copies content-free storage diagnostic
   tapWord(1, 81)
   await waitFor(() => expect(requests.pending).toHaveLength(1))
   await act(async () => { requests.pending[0].resolve('{"kind":"definition","definition":"A private answer never included in save details."}') })
+  expect(screen.queryByText(/Tinct’s storage on this device is full/)).toBeNull()
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 6100)) })
   expect(screen.getByText(/Tinct’s storage on this device is full/)).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: 'Copy save details' }))
   await waitFor(() => expect(screen.getByRole('button', { name: 'Save details copied' })).toBeTruthy())
@@ -134,4 +138,4 @@ it('identifies a device quota failure and copies content-free storage diagnostic
   expect(details).not.toContain('A private answer')
   expect(details).not.toContain('odyssey')
   expect(requests.pending).toHaveLength(1)
-})
+}, 20_000)

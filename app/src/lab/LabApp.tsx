@@ -2436,6 +2436,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [sharedCardSaveError, setSharedCardSaveError] = useState(false)
   const [saveDetailsCopied, setSaveDetailsCopied] = useState(false)
   useEffect(() => { setSaveDetailsCopied(false) }, [sharedCardSaveError])
+  // A card the device could not store goes to the account at once. The reader is told only when that copy is not
+  // confirmed either, after a few seconds: an answer kept in the account is safe, and a notice about this device's
+  // storage read as a broken app (iPhone, 31 Oct 2026).
+  const [saveWarningDue, setSaveWarningDue] = useState(false)
+  useEffect(() => {
+    setSaveWarningDue(false)
+    if (!sharedCardSaveError) return
+    const timer = setTimeout(() => setSaveWarningDue(true), 6000)
+    return () => clearTimeout(timer)
+  }, [sharedCardSaveError])
+  const cardSaveWarning = sharedCardSaveError && saveWarningDue && !ask.cardAccountSaved
   const desktopCardRequestRef = useRef<{ key: string; id: string; at: number; savedAnswer?: string } | null>(null)
   const [phoneNote, setPhoneNote] = useState('')
   const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
@@ -5912,16 +5923,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
   }
 
-  const continueDiscussionAction = (id: string) => {
-    // The margin's composer continues this card; Chat is opened from its menu.
-    if (continuousReader) return null
-    const saved = ask.conversations.find(row => row.id === id)
-    if (!saved || saved.card?.kind === 'quiz') return null
-    const firstAnswer = saved.messages.findIndex(message => message.role === 'assistant')
-    if (!saved.messages.slice(firstAnswer + 1).some(message => message.role === 'user')) return null
-    return <button type="button" className="lab-pcard-link" onClick={() => openNotebookConversation(saved)}>Continue discussion</button>
-  }
-
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
           <LabAskPane
@@ -5984,7 +5985,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       requestAnimationFrame(() => handleTalk())
     }
     const follow = (passage: PhonePassage | null, placeholder?: string) => (
-      <>{continueDiscussionAction(desktopCardId(card))}<PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
+      <><PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
         onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} /></>
     )
     const name = PHONE_CARD_NAMES[card.kind]
@@ -6039,7 +6040,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               })
             }}
             thread={pillCardThread(card.openedAt)} />
-          {sharedReader && sharedCardSaveError && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
+          {sharedReader && cardSaveWarning && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
         </ResponseCard>
       )
     }
@@ -6085,10 +6086,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         <PhonePassageBody lead={lead} turns={turns} pending={pending} />
         {/* A follow-up that failed stays in the card with Chat's notice and its Try again (29 Oct 2026). */}
         {turns.length > 0 && ask.notice && !ask.typedLoading && <p className="lab-pcard-status" role="status" data-testid="lab-phone-card-notice">{ask.notice}{ask.retryTyped && <> <button type="button" className="lab-pcard-link" onPointerDown={event => { event.preventDefault(); event.stopPropagation() }} onClick={ask.retryTyped}>Try again</button></>}</p>}
-        {sharedReader && sharedCardSaveError && <p role="status">
-          {ask.cardAccountSaved
-            ? 'This answer is saved to your account, but could not be saved on this device.'
-            : <>{ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.</>}{' '}
+        {sharedReader && cardSaveWarning && <p role="status">
+          {<>{ask.cardSaveFailure === 'quota' ? 'Tinct’s storage on this device is full. This answer could not be saved.' : ask.cardSaveFailure === 'access' ? 'This device is blocking storage. This answer could not be saved.' : 'This answer could not be saved.'} Copy the answer before leaving the reader.</>}{' '}
           <button type="button" onClick={() => { const retained = phoneAnswerRef.current; if (retained?.card.openedAt === card.openedAt) keep(retained.answer) }}>Retry saving</button>{' '}
           <button type="button" onClick={() => { void navigator.clipboard?.writeText(answerSaveDetails(ask.cardSaveFailure, ask.cardAccountSaved)).then(() => setSaveDetailsCopied(true), () => setSaveDetailsCopied(false)) }}>{saveDetailsCopied ? 'Save details copied' : 'Copy save details'}</button>
         </p>}
@@ -6203,7 +6202,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
       {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
-      {continueDiscussionAction(item.id)}
       <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
   })) : []
@@ -7473,7 +7471,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {selectionPopup && !marginPhone && (
         <SelectionPopup
           sharedReader={sharedReader}
-          saveError={sharedCardSaveError}
+          saveError={cardSaveWarning}
           selection={selectionPopup}
           popupRef={popupRef}
           onDictateAsk={sharedReader ? dictateDeskAsk : undefined}

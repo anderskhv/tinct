@@ -404,6 +404,15 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     if (panned) window.scrollTo(0, 0)
   }
   apply()
+  // iOS reports sizes from mid-rotation in its resize and orientationchange events and may send none once the
+  // rotation has settled: after landscape and back to portrait the page stayed short of the screen (iPhone, 31 Oct
+  // 2026). Measured again as the rotation settles.
+  let settling: ReturnType<typeof setTimeout>[] = []
+  const settle = () => {
+    apply()
+    settling.forEach(clearTimeout)
+    settling = [120, 350, 700, 1200].map(ms => setTimeout(apply, ms))
+  }
   const viewport = typeof window !== 'undefined' ? window.visualViewport : null
   viewport?.addEventListener('resize', apply)
   viewport?.addEventListener('scroll', apply)
@@ -412,8 +421,8 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
   // height it then has.
   const returned = () => { if (typeof document === 'undefined' || document.visibilityState !== 'hidden') apply() }
   if (typeof window !== 'undefined') {
-    window.addEventListener('resize', apply)
-    window.addEventListener('orientationchange', apply)
+    window.addEventListener('resize', settle)
+    window.addEventListener('orientationchange', settle)
     window.addEventListener('pageshow', returned)
     window.addEventListener('focus', returned)
   }
@@ -422,11 +431,12 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
     if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', apply)
-      window.removeEventListener('orientationchange', apply)
+      window.removeEventListener('resize', settle)
+      window.removeEventListener('orientationchange', settle)
       window.removeEventListener('pageshow', returned)
       window.removeEventListener('focus', returned)
     }
+    settling.forEach(clearTimeout)
     if (typeof document !== 'undefined') document.removeEventListener('visibilitychange', returned)
     host.style.removeProperty(LAB_VVH_VAR)
   }
