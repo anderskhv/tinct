@@ -22,6 +22,8 @@ const capsWord = (word: string) => /\p{Lu}/u.test(word) && !/\p{Ll}/u.test(word)
 // "CHAPTER IV." and its OCR misreadings of the numeral ("CHAPTER L", "CHAPTER in", "CHAPTER H,").
 const LABEL = /^(?:CHAPTER|Chapter|CHAP\.)\s+([IVXLCDMHJl1]{1,7}|\d{1,3}|in|ni|Xni)\b[.,:]?$/
 const NUMERAL = /^(?:[IVXLC]{1,6}|[ivx]{1,4}|[HJl]{1,3}|ID|HI|in|im|Ill|Il|lI|Vll|VH|Xl|CX)[.,]?$/
+// Rules 11: VII misread as "vn" too (The Souls of Black Folk).
+const NUMERAL_11 = /^(?:[IVXLC]{1,6}|[ivx]{1,4}|[HJl]{1,3}|ID|HI|in|im|Ill|Il|lI|Vll|VH|Xl|CX|[VX]n|vn|xn)[.,]?$/
 const MATTER = /^(?:contents|list of illustrations|illustrations|the persons of the play|dramatis personae)\b/i
 
 /** An EPUB made by the Internet Archive's hocr-to-epub. */
@@ -63,16 +65,21 @@ function titleCase(text: string): string {
 }
 
 // The printed contents' titles ("I. THE RIVER BANK 1 H. THE OPEN ROAD 27 …"), keyed.
-function contentsTitles(text: string): string[] {
+function contentsTitles(text: string, v11 = true): string[] {
   const out: string[] = []
   const body = text.replace(MATTER, '').replace(/^\s*(?:CHAPTER\s+)?PA[GC]E\b/i, '')
-  const entry = /(?:^|\s)(?:CHAPTER\s+)?(?:[IVXLCHJl]{1,6}|ID|in|im|CX|Xn|Xni|\d{1,2})[.,]?\s+((?:\S*\p{L}\S*\s+){0,9}?\S*\p{L}[^\s.,]*)[\s.,„…]*(?:\d{1,3}|[ivxl]{1,5})(?=\s|$)/gu
+  // Each word one \S run holding a letter (as `\S*\p{L}\S*` it could be cut at any of its letters: seconds a page).
+  const entry = /(?:^|\s)(?:CHAPTER\s+)?(?:[IVXLCHJl]{1,6}|ID|in|im|CX|Xn|Xni|\d{1,2})[.,]?\s+((?:(?=\S*\p{L})\S+\s+){0,9}?\S*\p{L}[^\s.,]*)[\s.,„…]*(?:\d{1,3}|[ivxl]{1,5})(?=\s|$)/gu
   for (const m of body.matchAll(entry)) { const k = key(m[1]); if (k.length >= 5) out.push(k) }
-  // A contents without numerals before its titles ("MENDING WALL . . . 11 THE DEATH OF THE HIRED MAN . . 14").
-  if (out.length < 3) {
-    for (const m of body.matchAll(/((?:[A-Z][A-Z'’-]*\s+){0,8}[A-Z][A-Z'’-]+)[\s.,„…]*\d{1,3}(?=\s|$)/g)) { const k = key(m[1]); if (k.length >= 5) out.push(k) }
+  // A contents without numerals before its titles ("MENDING WALL . . . 11 THE DEATH OF THE HIRED MAN . . 14"): read so
+  // too, as the first reading takes each page number for the next title's numeral and so every other title (North of Boston).
+  if (!v11) {
+    if (out.length < 3) for (const m of body.matchAll(/((?:[A-Z][A-Z'’-]*\s+){0,8}[A-Z][A-Z'’-]+)[\s.,„…]*\d{1,3}(?=\s|$)/g)) { const k = key(m[1]); if (k.length >= 5) out.push(k) }
+    return out
   }
-  return out
+  const plain: string[] = []
+  for (const m of body.matchAll(/((?:[A-Z][A-Z'’-]*\s+){0,8}[A-Z][A-Z'’-]+)[\s.,„…]*\d{1,3}(?=\s|$)/g)) { const k = key(m[1]); if (k.length >= 5) plain.push(k) }
+  return plain.length > out.length * 1.5 ? plain : out
 }
 
 interface Page { n: number; words: string[]; head: string; start: { title: string; at: number } | null }
@@ -81,7 +88,10 @@ interface Page { n: number; words: string[]; head: string; start: { title: strin
  * pages: each page document's text in reading order (hocr-to-epub's page_N.html). Returns the book's title
  * (its most printed running head, '' when none), its author (the title page's "BY …", '' when none) and its chapters.
  */
-export function archiveChapters(pages: string[]): { title: string; author: string; chapters: ArchiveChapter[] } {
+export function archiveChapters(pages: string[], rules = 11): { title: string; author: string; chapters: ArchiveChapter[] } {
+  // Rules 11 (31 Oct 2026): a contents without numerals or under another heading, titles in capitals as the contents names
+  // them, a play's acts, chapters where their own running head first stands, numbers that only go up, "By" bylines.
+  const v11 = rules >= 11, NUMERALS = v11 ? NUMERAL_11 : NUMERAL
   // 1. The banner and the page's own number, at its start or end, when it follows the pages' count.
   const texts = pages.map(text => clean(text).replace(BANNER, ''))
   const offsets: number[] = []
@@ -107,7 +117,18 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
   }
   // The printed contents' titles, from the pages headed Contents (a list of illustrations names no chapter).
   const contents = new Set<string>()
-  texts.forEach((text, i) => { if (i < pages.length * 0.15 && /^contents\b/i.test(text.replace(/^\W+/, ''))) for (const t of contentsTitles(text)) contents.add(t) })
+  // A contents headed otherwise, or its heading misread ("Herein is Written", The Souls of Black Folk): a page near the start
+  // reading as five entries or more, each with its page.
+  texts.forEach((text, i) => {
+    if (i >= pages.length * 0.15) return
+    const headed = /^contents\b/i.test(text.replace(/^\W+/, ''))
+    if (!v11) { if (headed) for (const t of contentsTitles(text, false)) contents.add(t); return }
+    // Unheaded, only a page that reads like a list: five page numbers or more, among few words.
+    const numbers = (text.match(/(?:^|\s)\d{1,3}(?=\s|$)/g) || []).length, count = text.split(' ').length
+    if (!headed && (numbers < 5 || count > 600 || numbers < count / 25)) return
+    const titles = contentsTitles(text)
+    if (headed || titles.length >= 5) for (const t of titles) contents.add(t)
+  })
   const contentsKey = (kk: string) => [...contents].find(c => alike(c, kk)) ?? null
   const heads = [...prefixes].filter(([k, n]) => n >= 3 || contents.has(k)).map(([k]) => k)
   // The book's title: its most printed head (the longest form of it), never a chapter's.
@@ -152,6 +173,12 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
     return { title: run.slice(0, n), end: from + n }
   }
   const parsed: Page[] = words.map((list, n) => {
+    // A play's act as it names itself ("FIRST ACT"; The Importance of Being Earnest), at the page's top.
+    for (let i = 0; v11 && i < Math.min(3, list.length - 1); i++) {
+      const act = /^(FIRST|SECOND|THIRD|FOURTH|FIFTH|LAST)$/.exec(list[i])
+      if (!act || !/^ACT[.,]?$/.test(list[i + 1])) continue
+      return { n, words: list.slice(i + 2), head: '', start: { title: titleCase(`${act[1]} ACT`), at: i + 2 } }
+    }
     // A label within the first words, after a head or OCR junk: the chapter's start.
     for (let i = 0; i < Math.min(14, list.length - 1); i++) {
       if (!LABEL.test(list[i] + ' ' + list[i + 1])) continue
@@ -160,7 +187,7 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
       return { n, words: list.slice(end), head: '', start: { title: [`CHAPTER ${numeral}`, ...title].join(' '), at: end } }
     }
     // A numeral and a title the contents names ("II THE OPEN ROAD RATTY,” said…").
-    if (list[0] && NUMERAL.test(list[0]) && contents.size) {
+    if (list[0] && NUMERALS.test(list[0]) && contents.size) {
       const { title, end } = titleAt(list, 1)
       if (title.length && contentsKey(key(title.join(' ')))) return { n, words: list.slice(end), head: '', start: { title: `CHAPTER ${list[0].replace(/[.,]$/, '')} ${title.join(' ')}`, at: end } }
     }
@@ -172,14 +199,69 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
     const found = new Set(parsed.filter(p => p.start).map(p => contentsKey(key(p.start!.title.replace(/^\S+\s+(?:\S+\s+)?/, ''))) ?? contentsKey(key(p.start!.title))).filter(Boolean))
     for (const p of parsed) {
       if (p.start) continue
-      const raw = words[p.n]
-      for (let k = Math.min(10, raw.length); k >= 2; k--) {
-        const hit = contentsKey(key(raw.slice(0, k).join(' ')))
-        if (!hit) continue
-        if (!found.has(hit)) { found.add(hit); p.start = { title: raw.slice(0, k).join(' '), at: k }; p.words = raw.slice(k) }
-        break
+      if (!v11) {
+        const raw = words[p.n]
+        for (let k = Math.min(10, raw.length); k >= 2; k--) {
+          const hit = contentsKey(key(raw.slice(0, k).join(' ')))
+          if (!hit) continue
+          if (!found.has(hit)) { found.add(hit); p.start = { title: raw.slice(0, k).join(' '), at: k }; p.words = raw.slice(k) }
+          break
+        }
+        continue
+      }
+      // The page's words, or those after its running head (a chapter's first page under the book's title: "THE SOULS OF
+      // BLACK FOLK OF OUR SPIRITUAL STRIVINGS").
+      for (const raw of [words[p.n], p.words]) {
+      if (p.start) break
+      // The title set in capitals (a note that names a poem in its text is none: North of Boston's "Mending Wall takes up
+      // the theme"), as the contents names it: exactly, else the run most like it, the shorter of two as like (the text's
+      // first word may be in capitals too: "THE MOUNTAIN THE mountain held the town").
+      let pick: { k: number; hit: string; score: number } | null = null
+      for (let k = 1; k <= Math.min(10, raw.length) && capsWord(raw[k - 1]); k++) {
+        const kk = key(raw.slice(0, k).join(' ')), hit = contentsKey(kk)
+        // A title of one word only as the contents prints it ("BLUEBERRIES").
+        if (!hit || (k === 1 && hit !== kk)) continue
+        const score = hit === kk ? 2 : likeness(hit, kk)
+        if (!pick || score > pick.score) pick = { k, hit, score }
+      }
+      if (pick && !found.has(pick.hit)) {
+        found.add(pick.hit)
+        const title = raw.slice(0, pick.k)
+        if (title.length > 1 && NUMERALS.test(title[0])) title[0] = `CHAPTER ${title[0].replace(/[.,]$/, '').toUpperCase()}`
+        p.start = { title: title.join(' '), at: pick.k }; p.words = raw.slice(pick.k)
+      }
       }
     }
+  }
+  // A chapter's own running head, met for the first time at a page's opening (under the book's title or none): that
+  // chapter's start, where no label or contents named it ("THE SOULS OF BLACK FOLK OF OUR SPIRITUAL STRIVINGS 0 water,
+  // voice of my heart"; its later pages open "OF OUR SPIRITUAL STRIVINGS 3"). The heads already met are those of the
+  // chapters found so far, under any spelling OCR gave them.
+  const met: string[] = []
+  const like = (a: string, b: string) => a === b || (Math.abs(a.length - b.length) <= 3 && likeness(a, b) >= 0.8)
+  const seenHead = (kk: string) => met.some(h => like(h, kk))
+  for (const p of v11 ? parsed : []) {
+    if (p.start) { const kk = key(p.start.title.replace(/^CHAPTER\s+\S+\s*/, '')); if (kk) met.push(kk); continue }
+    const raw = words[p.n]
+    // The book's title as the page's head, read off first.
+    let from = 0
+    if (bookHead) for (let k = 1; k <= Math.min(10, raw.length); k++) if (like(key(raw.slice(0, k).join(' ')), bookHead)) { from = k; break }
+    const rest = raw.slice(from), at = headLength(rest)
+    if (!at) continue
+    const kk = key(rest.slice(0, at).join(' '))
+    if (like(kk, bookHead) || seenHead(kk)) continue
+    // A chapter's head runs on over its pages: twice or more in the 30 pages after (a series' name on two front pages, "HOME
+    // UNIVERSITY LIBRARY OF MODERN KNOWLEDGE", is none).
+    const i = parsed.indexOf(p)
+    if (parsed.slice(i + 1, i + 31).filter(q => q.head && like(q.head, kk)).length < 2) continue
+    met.push(kk)
+    // The head's last words may be the text's (a drop cap's letter, "I am black"; a page number, "OF OUR SPIRITUAL STRIVINGS 0
+    // water"); a numeral before it is the chapter's ("vn OP THE BLACK BELT", "Xii OF ALEXANDER CRUMMELL").
+    let end = at
+    while (end > 1 && /^(?:\d{1,3}|\p{L})[.,]?$/u.test(rest[end - 1])) end--
+    const numeral = end > 1 && NUMERALS.test(rest[0]) ? rest[0].replace(/[.,]$/, '') : ''
+    p.start = { title: (numeral ? `CHAPTER ${numeral.toUpperCase()} ` : '') + rest.slice(numeral ? 1 : 0, end).join(' '), at: from + end }
+    p.words = rest.slice(end)
   }
   // 3. Front matter (title page, dedication, contents, notices) before the first chapter, and the contents
   // and cast pages anywhere, leave the text.
@@ -207,7 +289,8 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
       // The numeral as printed when it reads as one, else the one after the chapter before ("CHAPTER L" is I).
       const label = p.start.title.replace(/^CHAPTER\s+(\S+)/, (_, num: string) => {
         const n = validRoman(num.toUpperCase()) ? romanValue(num.toUpperCase()) : /^\d+$/.test(num) ? Number(num) : 0
-        number = n && n <= number + 3 ? n : number + 1
+        // Numbers only go up: a misread one ("III" for VIII) is the one after the chapter before.
+        number = n && (n > number || !v11) && n <= number + 3 ? n : number + 1
         return `CHAPTER ${roman(number)}`
       })
       const labelled = /^CHAPTER\s+(\S+)\s*(.*)$/.exec(label)
@@ -225,7 +308,7 @@ export function archiveChapters(pages: string[]): { title: string; author: strin
   }
   flush()
   const kept = chapters.filter(c => c.paragraphs.length)
-  return { title: bookHead ? titleCase(headDisplay(words, bookHead)) : '', author: byline(texts.slice(0, Math.max(3, Math.ceil(pages.length * 0.1)))), chapters: kept }
+  return { title: bookHead ? titleCase(headDisplay(words, bookHead)) : '', author: byline(texts.slice(0, Math.max(3, Math.ceil(pages.length * 0.1))), v11), chapters: kept }
 }
 
 // A head as printed, from the first page that opens on it.
@@ -243,15 +326,16 @@ function speeches(text: string): string[] {
 // the publisher's or illustrator's words.
 const AFTER_NAME = new Set(['WITH', 'AUTHOR', 'ILLUSTRATED', 'ILLUSTRATIONS', 'PICTURES', 'NEW', 'LONDON', 'CHICAGO', 'BOSTON', 'NEW-YORK', 'SECOND', 'THIRD', 'EDITION', 'METHUEN', 'TORONTO', 'EDINBURGH', 'PHILADELPHIA', 'AND', 'THE', 'A', 'OF', 'PUBLISHED', 'PRINTED', 'COPYRIGHT', 'NOTES', 'INTRODUCTION'])
 const COMMON = new Set(['their', 'his', 'her', 'its', 'our', 'my', 'your', 'way', 'night', 'day', 'land', 'sea', 'all', 'this', 'that', 'them', 'him', 'me', 'us', 'clothes', 'order', 'request', 'permission'])
-function byline(pages: string[]): string {
+function byline(pages: string[], v11 = true): string {
   for (const text of pages) {
     const words = text.split(' ')
     for (let i = 0; i < words.length - 1; i++) {
-      if (words[i] !== 'BY') continue
+      if (words[i] !== 'BY' && (!v11 || words[i] !== 'By')) continue
       const name: string[] = []
       for (let j = i + 1; j < words.length && name.length < 5; j++) {
         const w = words[j].replace(/[,;:]$/, '')
-        if (!/^[A-Z][A-Z.'’-]*$/.test(w) || AFTER_NAME.has(w)) break
+        // A degree after the name ("BERTRAND RUSSELL M.A., F.R.S.") is not the name's.
+        if (!/^[A-Z][A-Z.'’-]*$/.test(w) || AFTER_NAME.has(w) || (v11 && /^(?:[A-Z]\.){1,3}[A-Z]?[.-]?$/.test(w) && name.length >= 2)) break
         name.push(w)
         if (/[,;:]$/.test(words[j])) break
       }

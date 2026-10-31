@@ -33,4 +33,51 @@ describe('Archive EPUBs', () => {
     expect(text).toContain('bolted out of the house without even waiting')
     expect(book.chapters[0].paragraphs.some(p => p.startsWith('"Hullo, Rat!"'))).toBe(true)
   })
+
+  it('reads a contents without numerals, and titles in capitals as it names them (North of Boston)', () => {
+    const verse = 'Something there is that does not love a wall, that sends the frozen ground swell under it, and spills the upper boulders in the sun.'
+    const pages = [
+      'NORTH OF BOSTON BY ROBERT FROST',
+      'CONTENTS PAGE MENDING WALL . . . 11 THE MOUNTAIN . . . 14 BLUEBERRIES . . . 17 THE FEAR . . . 20',
+      `Mending Wall takes up the theme where an earlier poem laid it down. ${verse}`,
+      `MENDING WALL SOMETHING there is that doesn't love a wall. ${verse}`,
+      `${verse} And makes gaps even two can pass abreast.`,
+      `THE MOUNTAIN THE mountain held the town as in a shadow. ${verse}`,
+      `${verse} It was a long way off.`,
+      `BLUEBERRIES " You ought to have seen what I saw on my way. ${verse}`,
+      `THE FEAR A LANTERN light from deeper in the barn. ${verse}`,
+    ]
+    const book = archiveChapters(pages)
+    expect(book.chapters.map(c => c.title)).toEqual(['Mending Wall', 'The Mountain', 'Blueberries', 'The Fear'])
+    // A note naming the poem in its text starts nothing; the text's first word in capitals stays the text's.
+    expect(book.chapters[1].paragraphs[0]).toMatch(/^THE mountain held/)
+  })
+
+  it("starts a chapter where its own running head first stands, under the book's (The Souls of Black Folk)", () => {
+    const pages = [
+      `THE SOULS OF BLACK FOLK OF OUR SPIRITUAL STRIVINGS O water, voice of my heart, crying in the sand. which ${PROSE}`,
+      `2 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF OUR SPIRITUAL STRIVINGS 3 which ${PROSE}`,
+      `4 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF OUR SPIRITUAL STRIVINGS 5 which ${PROSE}`,
+      `6 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF OUR SPIRITUAL STRIVINGS 7 which ${PROSE} The end of it.`,
+      `II OF THE DAWN OF FREEDOM Careless seems the great Avenger. which ${PROSE}`,
+      `8 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF THE DAWN OF FREEDOM 9 which ${PROSE}`,
+      `10 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF THE DAWN OF FREEDOM 11 which ${PROSE}`,
+      `12 THE SOULS OF BLACK FOLK which ${PROSE}`,
+      `OF THE DAWN OF FREEDOM 13 which ${PROSE}`,
+    ]
+    const titles = archiveChapters(pages).chapters.map(c => c.title)
+    expect(titles).toEqual(['Of Our Spiritual Strivings', 'Chapter II. Of the Dawn of Freedom'])
+    // A book converted under rules 10 converts as it did.
+    expect(archiveChapters(pages, 10).chapters.map(c => c.title)).not.toContain('Of Our Spiritual Strivings')
+  })
+
+  it("starts a play's acts where they name themselves (The Importance of Being Earnest)", () => {
+    const pages = [`FIRST ACT SCENE Morning-room in Algernon's flat. ${PROSE}`, `${PROSE} Lane is arranging tea.`, `SECOND ACT SCENE Garden at the Manor House. ${PROSE}`]
+    expect(archiveChapters(pages).chapters.map(c => c.title)).toEqual(['First Act', 'Second Act'])
+  })
 })

@@ -1466,7 +1466,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
         try { text = source ? clean(byLocal(parseXml(source), 'body')[0]?.textContent) : '' } catch { text = '' }
         texts.push(text)
       }
-      const built = archiveChapters(texts)
+      const built = archiveChapters(texts, rules)
       const bookTitle = textOf(meta, 'title') || built.title || clean(options.fallbackTitle) || 'Untitled book'
       const pieces: UserBookChapter[] = built.chapters.map((chapter, index) => ({ number: index + 1, title: chapter.title || shortTitle(bookTitle), paragraphs: chapter.paragraphs }))
       if (pieces.length) {

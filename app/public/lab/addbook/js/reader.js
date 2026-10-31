@@ -1600,7 +1600,7 @@ function pdfTextConvert(token, scan, page, { idle = false } = {}) {
   const job = { key, pdf, images, crops, hurry() { slow = false; for (const r of waiting) r(); waiting.clear() } };
   job.done = (async () => {
     let edition = null;
-    try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
+    try { edition = await TinctPdfText.convert(pdf, { scan, ...(crops ? { regions: crops } : {}), pixels: TinctPdfText.drawnPixels?.(pdf) ?? null, live: () => state.pdf === pdf, pace, ...(idle ? { concurrency: 2 } : {}) }) } catch (e) { console.warn('[addbook] Tinct text', e) }
     if (!edition) { crops?.stop(); if (pdfTextJob === job) pdfTextJob = null; return null }
     if (state.key === key) state.textEdition = edition;
     // Kept, it is read from the record from now on: this one lets go of its pictures.
