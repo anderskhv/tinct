@@ -47,7 +47,13 @@
   // 5 (29 Oct 2026): a two-column page with a narrow gutter is read column by column (textRows' gutter).
   // 6 (29 Oct 2026): first-line paragraph indents are not a hanging indent; chapter headings past line 40;
   // a figure inside a paragraph's run follows the paragraph.
-  const PDF_TEXT_CONVERTER = 6;
+  // 7 (30 Oct 2026): scanned books: word-box OCR lines, lower-case run-ons, repeated lines kept unless at the same
+  // height, superscript signs, lists at a book's start and drop-cap letters (30 Oct 2026 corpus).
+  //   31 Oct 2026, same corpus: a scan is known by its one font and wandering sizes too; its drop-cap paragraphs are found
+  //   by their inset lines and restored by word pairs; the lines beside a drop cap run on; a chapter's printed title is
+  //   matched by likeness and its label line skipped; small-type pages (an index) stay; OCR's "1" for "!" and its carets go;
+  //   a publisher's numbered lists at either end of the book leave the text.
+  const PDF_TEXT_CONVERTER = 7;
   const CHAPTER_PAGES = 20;
   const S = () => global.TinctPdfScan;
 
@@ -96,26 +102,32 @@
   const edge = (p, r) => r.y - p.y0 > p.h * 0.9 || r.y - p.y0 < p.h * 0.1;
   // pages: [{ n, x0, y0, w, h, rows }] (rows from textRows). Returns the document's lines in
   // reading order, each { n, col, kind: 'body' | 'heading' | 'foot', … the row }.
-  function documentLines(pages) {
+  // keep(p, r): a row that stays text whatever else (a chapter's title inside a figure's crop).
+  function documentLines(pages, title = '', keep = () => false) {
     const api = S();
-    const isFurniture = api.furniture(pages);
+    const isFurniture = api.furniture(pages, title);
     // Where running heads and feet are set (the line, its size), from those found repeating:
-    // a head that changes from chapter to chapter, set in the same place, is one too.
+    // a head that changes from chapter to chapter, set in the same place, is one too. The slot is exact: a looser one
+    // (31 Oct 2026, tried) let one line wrongly called furniture take the first or last line of every page of Pride and Prejudice.
     const slots = new Set();
     for (const p of pages) for (const r of p.rows) if (!api.isPageNumber(r.text) && isFurniture(p, r) && edge(p, r)) slots.add(Math.round(r.y - p.y0) + '|' + r.size);
     const inSlot = (p, r) => edge(p, r) && r.words <= 12 && slots.has(Math.round(r.y - p.y0) + '|' + r.size);
-    const kept = pages.map(p => ({ ...p, rows: p.rows.filter(r => !isFurniture(p, r) && !inSlot(p, r) && r.text.trim()) }));
+    const kept = pages.map(p => ({ ...p, rows: p.rows.filter(r => keep(p, r) || (!isFurniture(p, r) && !inSlot(p, r) && r.text.trim())) }));
     const body = api.bodyOf(kept.flatMap(p => p.rows));
-    if (!body) return { lines: [], body: null };
+    if (!body) return { lines: [], body: null, scanned: false };
+    const scanned = isScan(kept.flatMap(p => p.rows), body);
     const out = [];
     for (const p of kept) {
       // Formulas, figures and tables kept as crops of the page (converter 3): their own text leaves the
       // running text, and each stands where it sits, as a line of its own.
-      const { rows, pictures } = picturesOf(p, body);
+      const { rows, pictures } = picturesOf(p, body, keep);
+      // A scan's page set small throughout (an index, a bibliographical note; Problems of Philosophy, 30 Oct 2026 corpus) is
+      // text, not the lettering inside a figure: its own body size tells small from smaller.
+      const local = scanned ? api.bodyOf(rows) : null, small = (local && local.chars >= 300 && local.size < body.size ? local.size : body.size) * 0.8;
       const ordered = sameBaseline(readingOrder([...rows.map(r => ({ ...r, text: r.text.replace(BRACKET_PIECES, ' ').replace(/\s+/g, ' ').trim() })).filter(r => r.text), ...pictures].sort((a, b) => b.y - a.y || a.x - b.x), p.x0 || 0, p.w || 612), body);
       const left = columnLeft(ordered, body);
       const labels = stackedLabels(ordered, body, left);
-      let inFoot = false, caption = null;
+      let inFoot = false, caption = null, bodySeen = false;
       const start = out.length;
       for (let [i, r] of ordered.entries()) {
         if (labels.has(i)) continue;
@@ -133,13 +145,32 @@
         caption = null;
         if (r.size < body.size * 0.92 && low && (FOOTNOTE_MARK.test(r.text) || inFoot)) { inFoot = true; out.push({ ...r, n: p.n, kind: 'foot' }); continue }
         inFoot = false;
-        // The lettering inside a figure or a chart: small text that is not a note.
-        if (r.size < body.size * 0.8) continue;
-        const heading = (r.size >= body.size * 1.15 && r.words <= 16 && api.headingLike(r)) || subheading(r, body, p);
+        // The lettering inside a figure or a chart: small text that is not a note. On a scan a chapter's title set smaller than
+        // its text ("THE EXISTENCE OF MATTER" under "CHAPTER II" at 8 against 11; Problems of Philosophy, In the Land of the Blue
+        // Gown) stands in capitals above the page's first line of text: it stays, as a heading.
+        const smallTitle = scanned && !bodySeen && r.size >= small * 0.7 && r.words <= 12 && !/\p{Ll}{2}/u.test(r.text) && api.headingLike(r);
+        if (r.size < small && !smallTitle) continue;
+        if (r.words >= 6 && Math.abs(r.size - body.size) <= body.size * 0.25) bodySeen = true;
+        let heading = smallTitle || (r.size >= body.size * 1.15 && r.words <= 16 && api.headingLike(r)) || subheading(r, body, p);
+        // On a scan a chapter's first line beside its drop cap gets a tall box ("R. SHERLOCK HOLMES, who"; The Hound of the
+        // Baskervilles): a line running on into the body text below it (lower case, or this one broken) is the paragraph's.
+        if (heading && scanned) {
+          const below = ordered.slice(i + 1).find(q => !q.figure && q.col === r.col && q.y < r.y - 0.5 && q.x < r.x2 && q.x2 > r.x);
+          const runsOn = /^\p{Ll}/u.test(below?.text || '') || /\p{L}-$/u.test(r.text) || /\s(?:and|or|the|a|an|of|to|in|was|were|had|has|is|who|which|that|but|for|with|at|on|by|he|she|it|they|we|i|his|her|their|my|our|as|so|if|when|while)$/i.test(r.text);
+          if (below && r.y - below.y < Math.max(r.size, below.size) * 1.8 && Math.abs(below.size - body.size) <= body.size * 0.25 && runsOn && !/[.!?:]$/.test(r.text)) heading = false;
+        }
         out.push({ ...r, n: p.n, kind: heading ? 'heading' : 'body' });
       }
     }
-    return { lines: out, body };
+    return { lines: out, body, scanned };
+  }
+  // A scan's text layer: words in their own boxes (textRows' ocr), or one font throughout a long book, its line sizes
+  // wandering (an OCR layer set line by line: In the Land of the Blue Gown) or not (Problems of Philosophy's, set by mupdf;
+  // 31 Oct 2026). A born-digital book has its bold and italic faces.
+  function isScan(rows, body) {
+    if (rows.filter(r => r.ocr).length >= rows.length * 0.5) return true;
+    const oneFont = new Set(rows.filter(r => r.font).map(r => r.font)).size <= 1;
+    return oneFont && (S().noisySizes(rows, body) || rows.length >= 3000);
   }
 
   // An equation and its number ("(2)", "(1.48)") set far apart on one baseline are one line.
@@ -221,7 +252,7 @@
   // rows each one holds become its `alt` (what the companion and a search read where it stands), those
   // in its caption's box its caption, and both leave the running text.
   // -> { rows: the page's rows left, pictures: one line for each region, where its top sits }
-  function picturesOf(p, body) {
+  function picturesOf(p, body, keep = () => false) {
     const regions = (p.regions || []).filter(g => g && g.id && g.w > 0 && g.h > 0);
     if (!regions.length) return { rows: p.rows, pictures: [] };
     const boxes = p.rows.map(r => rowBox(p, r));
@@ -229,7 +260,8 @@
     for (const g of regions) {
       const inside = [], inCaption = [];
       p.rows.forEach((r, i) => {
-        if (taken.has(i)) return;
+        // A chapter's title set over a picture stays text: the chapter starts at it (31 Oct 2026).
+        if (taken.has(i) || keep(p, r)) return;
         if (g.captionBox && within(boxes[i], g.captionBox)) inCaption.push(i);
         else if (within(boxes[i], g)) inside.push(i);
       });
@@ -281,7 +313,15 @@
   }
   // Join a line onto the text before it: a word broken at the line end is joined (keeping its
   // hyphen when the hyphenated word stands elsewhere), else a space between.
-  function joinLine(text, next, hyphenated) {
+  // OCR reads an exclamation mark as the figure one ("Good heavens 1 I cried", "Oh, you 1 Here"): after a word, before a
+  // capital or a quotation mark, on a scan (30 Oct 2026 corpus). Not after a word that counts ("Chapter 1 The Cyclone").
+  const COUNTED = /\b(?:chapter|chap|part|book|act|scene|vol|volume|no|page|p|pp|figure|fig|table|section|sect|number|stave|canto|plate|verse|psalm|line|note|step|item|edition|ed)\.?$/i;
+  // A caret is no mark of a book: OCR makes it of a picture's initial ("'T^HE extract", "follow -^ the course"; Hound).
+  const bang = (text, ocr) => !ocr ? text : text.replace(/(\p{Ll}) 1(?= [\p{Lu}"“‘'])/gu, (m, w, at, s) => COUNTED.test(s.slice(0, at + w.length)) ? m : w + '!')
+    .replace(/(?<=\p{L})\^+(?=\p{L})/gu, '').replace(/(^|\s)[^\s\p{L}\p{N}]*\^[^\s\p{L}\p{N}]*(?=\s|$)/gu, '$1').replace(/\s{2,}/g, ' ').trim();
+  const bangEnd = (text, next) => /\p{Ll} 1$/u.test(text) && /^[\p{Lu}"“‘']/u.test(next) && !COUNTED.test(text.slice(0, -2)) ? text.slice(0, -1) + '!' : text;
+  function joinLine(text, next, hyphenated, ocr = false) {
+    if (ocr) text = bangEnd(text, next);
     if (/\p{L}­$/u.test(text) && /^\p{L}/u.test(next)) return text.slice(0, -1) + next;
     const broken = text.match(/(\p{L}+)-$/u);
     if (broken && /^\p{Ll}/u.test(next)) {
@@ -337,7 +377,13 @@
     // Paragraphs indented on their first line follow a line ending a sentence, even one set full to a justified
     // column's edge; a list's entries mostly run on from their first line (ResNet, 29 Oct 2026: its indented
     // paragraphs read as a hanging indent, a paragraph a line).
-    for (const [d, n] of by) if (n.runs >= 3 && n.runs >= n.all * 0.67 && n.sentences < n.all * 0.9) return { d, lines: new Set(list.slice(n.from)) };
+    // The list ends with its last line set in: prose below a bulleted list is no list (Intel SDM, 30 Oct 2026).
+    for (const [d, n] of by) {
+      if (!(n.runs >= 3 && n.runs >= n.all * 0.67 && n.sentences < n.all * 0.9)) continue;
+      let to = list.length - 1;
+      while (to > n.from && Math.round(list[to].x - left) !== d) to--;
+      return { d, lines: new Set(list.slice(n.from, to + 1)) };
+    }
     return null;
   }
   // Justified blocks set in from the margin (an abstract, a long quotation): three lines or more
@@ -362,7 +408,7 @@
   }
 
   // Paragraphs of one chapter's lines: [{ text, kind, page, breaks: [[word, page]] }] and its notes.
-  function paragraphsOf(lines, geo, hyphenated, indents) {
+  function paragraphsOf(lines, geo, hyphenated, indents, scanned = lines.some(l => l.ocr)) {
     const paras = [], notes = [];
     let cur = null, prev = null, note = null;
     const waiting = [];
@@ -393,10 +439,13 @@
           const short = edge != null ? prev.x2 < edge - (edge - prev.x) * 0.2 : prev.x2 - prev.x < (pg.right - pg.left) * 0.8;
           const gap = prev.y - l.y > g.pitch * 1.5, ends = short && TERMINAL.test(prev.text);
           // Set in further than the line before: a first line, a display, a quotation.
-          const stepIn = l.x - prev.x > l.size * 1.0;
+          // On a scan the lines beside a drop cap step in by its width, the first by a little less ("IR HENRY BASKERVILLE and" |
+          // "Dr. Mortimer were ready"; Hound): a line stepping in from one already set in runs on.
+          const stepIn = l.x - prev.x > l.size * 1.0 && !(scanned && prev.x - g.left > prev.size);
           if (g.hang?.lines.has(l)) fresh = gap || atMargin(l, g.left) || l.x - (g.left + g.hang.d) > l.size;
           else if (edge != null) fresh = gap || stepIn || ends;
-          else fresh = gap || indented || stepIn || ends;
+          // On a scan a line set in after one set in that runs on (the lines beside a drop cap) is the same paragraph.
+          else fresh = gap || (indented && !(scanned && prev.x - g.left > prev.size && l.x >= prev.x - l.size * 0.5 && !TERMINAL.test(prev.text) && prev.x2 - prev.x >= (pg.right - pg.left) * 0.5)) || stepIn || ends;
         } else {
           // Onto the next column or page.
           const runsOn = /^\p{Ll}/u.test(l.text) || !TERMINAL.test(prev.text);
@@ -406,14 +455,30 @@
           fresh = g.hang?.lines.has(l) ? atMargin(l, g.left) : !(runsOn || (indents && full && !indented));
         }
       }
-      if (fresh) { flush(); cur = { text: l.text, kind: null, page: l.n, breaks: [] }; prev = l; continue }
+      // A line starting in lower case after one that does not end a sentence, or ends in a broken word, runs
+      // on: OCR jitters the left margin and sets a hyphen's second half in from it ("re-" | "gards", 30 Oct
+      // 2026 corpus). On a born-digital page only after a full line, so table cells and code stay apart; never
+      // after a dot leader, which ends a form field or a contents entry ("box 1 ..... 1a" | "b Household").
+      if (fresh && cur && cur.kind !== 'heading' && prev && /^\p{Ll}/u.test(l.text) && !/\.{4,}/.test(prev.text)
+        && (!TERMINAL.test(prev.text) || /\p{L}-$/u.test(prev.text))) {
+        const pg = geo.get(prev.n + '|' + prev.col) || g;
+        const fullPrev = prev.x2 - prev.x >= (pg.right - pg.left) * 0.8 && prev.words >= 5;
+        const tooFar = prev.n === l.n && prev.col === l.col && prev.y - l.y > g.pitch * 2.2;
+        if ((scanned || fullPrev) && !tooFar) fresh = false;
+      }
+      // A line opening with a bullet is a list item of its own ("• Pentium® processors" | "• P6 family processors").
+      if (!fresh && cur && cur.kind !== 'heading' && /^[•▪◦‣●■□–]\s/u.test(l.text) && /^[•▪◦‣●■□–]\s/u.test(cur.text)) fresh = true;
+      if (fresh) { flush(); cur = { text: l.text, kind: null, page: l.n, breaks: [], inset: scanned && l.x - g.left > l.size * 1.5 }; prev = l; continue }
       if (l.n !== prev.n) cur.breaks.push([wordCount(clean(cur.text)), l.n]);
-      cur.text = joinLine(cur.text, l.text, hyphenated);
+      cur.text = joinLine(cur.text, l.text, hyphenated, scanned);
+      // A drop cap's paragraph: its first lines set in from the margin, the rest at it (restoreDropCaps).
+      if (cur.inset && atMargin(l, g.left)) cur.margin = true;
       prev = l;
     }
     flush();
     if (note) notes.push(note);
-    const done = p => ({ text: clean(p.text), kind: p.kind, page: p.page, breaks: p.breaks, ...(p.figure ? { figure: p.figure } : {}) });
+    // OCR's "1" for "!" closing a paragraph ("Good heavens 1").
+    const done = p => ({ text: clean(scanned && !p.kind ? p.text.replace(/(\p{Ll}) 1$/u, (m, w) => COUNTED.test(p.text.slice(0, -2)) ? m : w + '!') : p.text), kind: p.kind, page: p.page, breaks: p.breaks, ...(p.figure ? { figure: p.figure } : {}), ...(p.inset && p.margin ? { dropCap: true } : {}) });
     return { paras: paras.map(done).filter(p => p.text), notes: notes.map(done).filter(p => p.text) };
   }
 
@@ -425,7 +490,37 @@
   }
   // Where each chapter starts in the lines: at its title on its page (the title lines are the
   // chapter's title, not its text), else at the page's first line.
-  function splitChapters(lines, scan, pageCount) {
+  // A title's letters and figures, its label's numeral as a number: "CHAPTER IV." and "Chapter 4" (the house style
+  // a scan's entries are shown in, pdfEdition.ts houseStyledScan) are one title.
+  const LABEL_WORD = /\b(chapter|chap|book|part|act|canto|stave)\.?\s+([ivxlc]{1,7})\b/gi;
+  const romanNumber = r => { const v = { i: 1, v: 5, x: 10, l: 50, c: 100 }; let t = 0, prev = 0; for (const ch of r.toLowerCase().split('').reverse()) { const n = v[ch] || 0; t += n < prev ? -n : n; prev = Math.max(prev, n) } return t };
+  const canon = t => norm(String(t || '').replace(LABEL_WORD, (m, w, r) => `${w} ${romanNumber(r)}`));
+  // A short label the scan misread ("CHABTEB VI." for the entry "Chapter 6"): its number and its look agree.
+  function sameLabel(text, label) {
+    const a = /^\s*(\S{4,9})\s+([IVXLCHUnmi]{1,7}|\d{1,3})[.,]?\s*$/.exec(String(text)), b = /^\s*(chapter|chap\.?)\s+([IVXLC]{1,7}|\d{1,3})\.?\s*$/i.exec(String(label));
+    if (!a || !b) return false;
+    // As OCR misreads numerals: "L" for I, "in" for III.
+    const num = x => /^\d+$/.test(x) ? Number(x) : romanNumber(x.replace(/[Ll1|]/g, 'I').replace(/[HUn]/g, 'II').replace(/m/g, 'III').replace(/i/g, 'I'));
+    return num(a[2]) === num(b[2]) && /^c/i.test(a[1]) && [...'hapter'].filter(c => a[1].toLowerCase().includes(c)).length >= 3;
+  }
+  // Whether a line is an entry's title as its page prints it: the same letters and figures, the label's numeral as a number
+  // ("1 — The River Bank" | "THE RIVER BANK"), a misread label ("CHABTEB VI."), or on a scan nearly the same letters
+  // ("Baskeryille" | "BASKERVILLE", 31 Oct 2026).
+  const LABEL_ONLY = /^(?:chapter|chap\.?|book|part|act|stave|canto)[\s.:,]+[IVXLCJl\d]{1,7}[.:,]?$/i;
+  function titleOf(label) {
+    const want = canon(label), named = canon(String(label).replace(/^\s*(?:\d{1,3}|[IVXLC]{1,7})\s*(?:[.—–:-]\s*)/i, ''));
+    return { want, named };
+  }
+  // whole: the text is two lines joined, so only the whole title counts (a paragraph's last line before a heading is not its title).
+  function matchesTitle(text, label, { want, named }, scanned, whole = false) {
+    const one = canon(text);
+    if (!one || !want) return false;
+    if (want === one || (named.length >= 4 && named !== want && named === one)) return true;
+    if (!whole && (sameLabel(text, label) || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4))) return true;
+    const alike = (a, b) => a.length >= 6 && b.length >= 6 && Math.abs(a.length - b.length) <= 3 && S().likeness(a, b) >= (a.length >= 12 && b.length >= 12 ? 0.72 : 0.8);
+    return scanned && (alike(one, want) || (named.length >= 6 && alike(one, named)));
+  }
+  function splitChapters(lines, scan, pageCount, scanned = lines.some(l => l.ocr)) {
     const entries = chapterEntries(scan);
     const out = [];
     if (!entries.length) {
@@ -441,7 +536,7 @@
     for (const e of entries) {
       let i = lines.findIndex((l, k) => k >= at && l.n >= e.page);
       if (i < 0) i = lines.length;
-      const want = norm(e.label);
+      const title = titleOf(e.label), { want, named } = title;
       const skip = new Set();
       // The title as printed on its page (over one or two lines): a heading first, else any line.
       const from = i;
@@ -450,11 +545,24 @@
         // "2. Related Work", 29 Oct 2026); any other line only near the top.
         for (let k = from; k < lines.length && lines[k].n === e.page && (headingOnly || k < from + 40); k++) {
           if (headingOnly && lines[k].kind !== 'heading') continue;
-          const one = norm(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + norm(lines[k + 1].text) : one;
+          const one = canon(lines[k].text), two = k + 1 < lines.length && lines[k + 1].n === e.page ? one + canon(lines[k + 1].text) : one;
           if (!one || !want) continue;
-          if (want === one || (want.endsWith(one) && one.length >= 4 && want.length - one.length <= 4) || (one.endsWith(want) && want.length >= 4)) { i = k; skip.add(k); break find }
-          if (want === two) { i = k; skip.add(k); skip.add(k + 1); break find }
+          if (matchesTitle(lines[k].text, e.label, title, scanned)) { i = k; skip.add(k); break find }
+          if (want === two || (two !== one && matchesTitle(lines[k].text + ' ' + lines[k + 1].text, e.label, title, scanned, true))) { i = k; skip.add(k); skip.add(k + 1); break find }
         }
+      }
+      // The chapter's label line just above its title ("CHAPTER IV" | "SIR HENRY BASKERVILLE") is the title's too: the reader's
+      // house style numbers the title itself (31 Oct 2026).
+      if (skip.size) for (let k = Math.max(from, i - 2); k < i; k++) if (lines[k].n === e.page && lines[k].words <= 3 && LABEL_ONLY.test(lines[k].text.trim().replace(/,$/, '.'))) skip.add(k);
+      // A label line opening the chapter whose title was not found on the page is the title's stand-in, not its first words.
+      if (!skip.size && i < lines.length && lines[i].n === e.page && lines[i].words <= 3 && LABEL_ONLY.test(lines[i].text.trim().replace(/,$/, '.'))) skip.add(i);
+      // On a scan whose title could not be matched (hand lettering OCR read as marks: Oz's "CKb^pter" | "TKe Cyclorve"), the
+      // heading lines the page opens with are that title, not text.
+      if (scanned && !skip.size) for (let k = i; k < Math.min(lines.length, i + 4) && lines[k].n === e.page && lines[k].words <= 12 && (lines[k].kind === 'heading' || (lines[k].words <= 3 && !/\p{Ll}/u.test(lines[k].text))); k++) if (lines[k].kind === 'heading') skip.add(k);
+      // The title printed again on the chapter's first pages (a half-title, then its opening page) is the title too.
+      for (let k = i + 1; scanned && k < lines.length && lines[k].n <= e.page + 3; k++) {
+        const t = canon(lines[k].text);
+        if (lines[k].words <= 12 && t.length >= 4 && (t === want || t === named)) skip.add(k);
       }
       starts.push({ e, i, skip });
       at = i;
@@ -465,9 +573,23 @@
       const s = starts[k], next = starts[k + 1];
       if (!s.skip.size && next.skip.size && next.e.page === s.e.page) s.i = next.i;
     }
-    // Text before the first chapter (a preface without an entry) is a chapter under the book's title.
-    const lead = lines.slice(0, starts[0].i).filter(l => l.kind === 'body');
-    if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: lines.slice(0, starts[0].i), lead: true });
+    // Text before the first chapter (a preface without an entry) is a chapter under the book's title. On a scan its
+    // pages of little text leave it (a title page, a half-title, a library's inscriptions and their pictures: the
+    // reader shows the title and author above the text; Three Men in a Boat, 30 Oct 2026 corpus).
+    // Whether the book is a scan is the whole book's (a sparse front page is too short for the word-box test).
+    const before = lines.slice(0, starts[0].i);
+    const wordsOn = new Map();
+    for (const l of before) if (l.kind !== 'figure') wordsOn.set(l.n, (wordsOn.get(l.n) || 0) + l.words);
+    // A page of prose: two lines or more of six words or more, mostly in lower case (a bookplate's capitals are none).
+    const proseLines = new Map();
+    for (const l of before) {
+      const letters = (l.text.match(/\p{L}/gu) || []).length, lower = (l.text.match(/\p{Ll}/gu) || []).length;
+      if (l.kind !== 'figure' && l.words >= 6 && lower >= letters * 0.6) proseLines.set(l.n, (proseLines.get(l.n) || 0) + 1);
+    }
+    const prose = new Set([...proseLines].filter(([, k]) => k >= 2).map(([n]) => n));
+    const leadLines = scanned ? before.filter(l => (wordsOn.get(l.n) || 0) >= 40 && prose.has(l.n)) : before;
+    const lead = leadLines.filter(l => l.kind === 'body');
+    if (lead.length && lead.reduce((n, l) => n + l.words, 0) >= 20) out.push({ title: scan.title || '', lines: leadLines, lead: true });
     starts.forEach((s, k) => {
       const end = k + 1 < starts.length ? starts[k + 1].i : lines.length;
       out.push({ title: s.e.label, lines: lines.slice(s.i, end).filter((l, j) => !s.skip.has(s.i + j)) });
@@ -475,22 +597,106 @@
     return out;
   }
 
+  // A scan's drop cap is a picture the OCR does not read: a chapter's first paragraph opens on capitals that are
+  // no word ("HEN we discussed", "R. SHERLOCK HOLMES"), maybe after a stray mark ("‘HEN"). The letter that makes
+  // the book's word four times more common than the capitals as they stand goes back (Pride and Prejudice,
+  // Three Men in a Boat, 30 Oct 2026 corpus). A short line ("ACT I.") or a roman number is left alone.
+  // The paragraph is a chapter's first two, the first after a heading inside it ("PREFACE," | "HE chief beauty"), or one
+  // whose first lines are set in from the margin and the rest at it (the drop cap's room; a synopsis may come before it:
+  // Three Men in a Boat). The letter is the one making the commonest word read with the word after ("SO far", not "TO far"),
+  // or where the pairs are silent, the commonest word; a word in its own right ("HE") is left when no pair tells.
+  // The marks OCR made of the picture before the capitals ("'[7^ ROM this point") go with it.
+  function restoreDropCaps(paras, vocab, pairs = new Map()) {
+    for (let k = 0, seen = 0; k < paras.length; k++) {
+      const p = paras[k];
+      if (p.kind === 'heading' || p.figure) continue;
+      const prev = paras[k - 1], headed = prev && (prev.kind === 'heading' || (wordCount(prev.text) <= 3 && !/\p{Ll}/u.test(prev.text)));
+      if (seen++ >= 4 && !headed && !p.dropCap) continue;
+      // The initial read as a letter of its own ("S O, on the following evening"): one word with the capitals after it.
+      p.text = p.text.replace(/^([^\p{L}]*)([A-Z]) ([A-Z]{1,11})(?=[.,;:'’]?\s)/u, (m0, junk, a, b) => (vocab.get((a + b).toLowerCase()) || 0) >= 3 ? junk + a + b : m0);
+      const m = /^([^\p{L}]*)(?:[a-z](?=[A-Z]{2}))?([A-Z]{1,12})((?:['’]S)?[.,;:'’]?)(\s+)(\p{L}+)?/u.exec(p.text);
+      if (m) m[1] = m[1].replace(/[^"“‘]/g, ''); // Of the marks, only an opening quotation mark stays.
+      if (!m || wordCount(p.text) < 4 || (/^[IVXLC]+$/.test(m[2]) && m[3] === '.') || (/^(?:ACT|SCENE|BOOK|PART|CHAPTER|CANTO|STAVE)$/.test(m[2]) && /^[IVXLC\d]/.test(m[5] || ''))) continue;
+      // The capitals as they stand count themselves once, in the words and in the pairs.
+      const quote = m[1], x = m[2].toLowerCase(), self = (vocab.get(x) || 1) - 1, next = (m[5] || '').toLowerCase();
+      const pairOf = w => next ? pairs.get(w + ' ' + next) || 0 : 0, own = Math.max(0, pairOf(x) - 1);
+      let best = null, n = 0, pair = 0;
+      for (const L of 'abcdefghijklmnopqrstuvwxyz') {
+        const c = vocab.get(L + x) || 0, q = pairOf(L + x);
+        if (c >= 3 && (q > pair || (q === pair && c > n))) { n = c; pair = q; best = L }
+      }
+      if (best && (n > self * 4 || (pair >= 2 && pair > own * 2))) paras[k] = { ...p, text: quote + best.toUpperCase() + m[2] + m[3] + m[4] + p.text.slice(m.index + m[0].length - (m[5] || '').length) };
+    }
+  }
+
   /* ---------- The edition ---------- */
   // pages: [{ n, x0, y0, w, h, rows }] for every page of the document; scan: TinctPdfScan.scan's
   // result (its title, author, language, chapters and textPages). Returns the edition, or null
   // for a document with no text layer.
+  // The pages near a book's start that are lists (a printed contents, a list of illustrations, a publisher's list of
+  // titles: most lines ending on a number or a leader), on a scan or headed Contents. The reader has its own chapter
+  // menu (The Importance of Being Earnest's Methuen lists, 30 Oct 2026 corpus).
+  // A publisher's list numbers its titles first ("1 The Mighty Atom" | "2 Jane"), and stands at a scan's end too, where only
+  // such a list goes: a book's index, its lines ending on page numbers, is the book's (The Origin of Species).
+  function listPages(lines, pageCount, scanned = lines.some(l => l.ocr)) {
+    const out = new Set(), edge = Math.max(12, pageCount * 0.1);
+    const numbered = l => /^(?:\d{1,3}|\d \d|i ?o)\s+\p{Lu}/u.test(l.text);
+    for (const n of new Set(lines.filter(l => l.n <= edge || (scanned && l.n > pageCount - edge)).map(l => l.n))) {
+      const on = lines.filter(l => l.n === n && l.kind !== 'figure'), back = n > edge;
+      const listed = on.filter(l => (!back && (/(?:\d{1,3}|\b[ivxlc]{1,6})\s*\.?$/i.test(l.text) || /\.{3,}|(?:\.\s){2,}/.test(l.text))) || (scanned && numbered(l))).length;
+      if (on.length >= 4 && ((listed >= on.length * 0.4 && scanned) || /^(?:contents|list of (?:illustrations|chapters|plates)|illustrations)\b/i.test(on[0].text))) out.add(n);
+    }
+    return out;
+  }
+  // A scan's front matter that is the library's or the scanner's, not the book's: a due-date card ("THE PERSON
+  // CHARGING THIS MATERIAL IS RE-"), a scanner's notice, a catalogue stamp; and the pictures of its covers and
+  // endpapers, on pages before the one facing the title page (Three Men in a Boat, 30 Oct 2026 corpus).
+  const LIBRARY_LINE = /person charging this material|latest date stamped below|to renew,? call|theft, mutilation|this book is due|date due\b|digitized by( the)? internet archive|archive\.org\/details|no known copyright restrictions|the original of this book is in|university library\b.*\bgift of|with funding from/i;
+  function frontMatter(lines, pageCount, title, scanned = lines.some(l => l.ocr)) {
+    const front = lines.filter(l => l.n <= Math.max(12, pageCount * 0.1));
+    if (!scanned) return new Set();
+    const out = new Set(), key = norm(title || '').slice(0, 24);
+    const titlePage = key.length >= 6 ? front.find(l => l.kind !== 'figure' && norm(l.text).length >= 4 && key.startsWith(norm(l.text).slice(0, 24)))?.n : undefined;
+    for (const n of new Set(front.map(l => l.n))) {
+      const on = front.filter(l => l.n === n), words = on.filter(l => l.kind !== 'figure').reduce((t, l) => t + l.words, 0);
+      const notice = on.filter(l => LIBRARY_LINE.test(l.text));
+      if (notice.length && words < 120) for (const l of on) out.add(l);
+      else for (const l of notice) out.add(l);
+      if (titlePage && n < titlePage - 1) for (const l of on) if (l.kind === 'figure') out.add(l);
+    }
+    return out;
+  }
   function fromPages(pages, scan) {
     if (!scan || !(scan.textPages > 0)) return null;
-    const { lines, body } = documentLines(pages);
+    // Each chapter's title on its page stays a line of text, inside a figure's crop or not.
+    const titled = new Map();
+    for (const e of chapterEntries(scan)) (titled.get(e.page) || titled.set(e.page, []).get(e.page)).push({ label: e.label, title: titleOf(e.label) });
+    const allRows = pages.flatMap(p => p.rows), rawBody = S().bodyOf(allRows), anyScan = !!rawBody && isScan(allRows, rawBody);
+    const keep = (p, r) => r.words <= 12 && !edge(p, r) && (titled.get(p.n) || []).some(t => matchesTitle(r.text, t.label, t.title, anyScan));
+    const documented = documentLines(pages, scan.title, keep), body = documented.body, scanned = documented.scanned;
+    const lists = listPages(documented.lines, pages.length, scanned), junk = frontMatter(documented.lines, pages.length, scan.title, scanned);
+    // On a scan, a short line of OCR noise ("S33 t) VS>fyl"): each of its words has a figure or mark inside it and
+    // is used nowhere else in the book.
+    const used = new Map();
+    for (const l of documented.lines) for (const w of l.text.split(/\s+/)) used.set(w, (used.get(w) || 0) + 1);
+    const noise = l => scanned && l.kind !== 'figure' && l.words <= 4 && l.text.split(/\s+/).filter(Boolean).every(w => /\p{L}/u.test(w) ? /[\d^>|<{}\\]|\p{L}[)(\]]/u.test(w) && used.get(w) === 1 : !/^\d{1,4}$/.test(w));
+    const lines = documented.lines.filter(l => !lists.has(l.n) && !junk.has(l) && !noise(l)).map(l => scanned && /\^| 1 /.test(l.text) ? { ...l, text: bang(l.text, true) } : l).filter(l => l.text);
     if (!lines.some(l => l.kind === 'body')) return null;
     const hyphenated = hyphenatedWords(lines);
     const geo = geometry(lines);
     const bodyLines = lines.filter(l => l.kind === 'body');
     const indents = bodyLines.filter(l => { const g = geo.get(l.n + '|' + l.col); return g && l.x - g.left > l.size }).length >= bodyLines.length * 0.03;
     const titleKey = norm(scan.title), authorKey = norm(scan.author);
+    // On a scan, how often each word is used, and each pair of words in a row: a drop cap's lost letter is the one that
+    // makes a common word, read with the word after it ("SO far" over "TO far").
+    const vocab = new Map(), pairs = new Map();
+    if (scanned) for (const l of lines) {
+      const words = l.text.toLowerCase().match(/\p{L}+/gu) || [];
+      words.forEach((w, i) => { vocab.set(w, (vocab.get(w) || 0) + 1); if (i) { const k = words[i - 1] + ' ' + w; pairs.set(k, (pairs.get(k) || 0) + 1) } });
+    }
     const chapters = [];
     let figureCount = 0;
-    for (const part of splitChapters(lines, scan, pages.length)) {
+    for (const part of splitChapters(lines, scan, pages.length, scanned)) {
       let chapterLines = part.lines;
       // Before the document's first running text: its own title and byline are the book's, shown above it.
       if (!chapters.length) {
@@ -501,7 +707,8 @@
         const titleBlock = (l, i) => (part.lead || !chapterEntries(scan).length) && i < first && l.n === lines[0]?.n && l.size > body.size * 1.1;
         chapterLines = chapterLines.filter((l, i) => !titleBlock(l, i) && (i >= first || ![titleKey, authorKey].includes(norm(l.text)) || !norm(l.text)));
       }
-      const { paras, notes } = paragraphsOf(chapterLines, geo, hyphenated, indents);
+      const { paras, notes } = paragraphsOf(chapterLines, geo, hyphenated, indents, scanned);
+      if (vocab.size) restoreDropCaps(paras, vocab, pairs);
       if (!paras.length && !notes.length) continue;
       const all = notes.length ? [...paras, { text: 'Notes', kind: 'heading', page: notes[0].page, breaks: [] }, ...notes] : paras;
       const chapter = { number: chapters.length + 1, title: part.title || scan.title || `Pages ${all[0].page}`, paragraphs: all.map(p => p.text), pages: all.map(p => p.page) };

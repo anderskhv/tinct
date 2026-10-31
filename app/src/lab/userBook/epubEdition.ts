@@ -29,6 +29,7 @@ import type { ChapterFigure } from '../../types'
 import { figureToken } from '../labFigures'
 import { isPlayText } from '../labVerseLines'
 import { bylineName, chapterAuthors, nameLike, personName, sameWriter, type AuthorCandidate, type BookCreators } from './chapterAuthors'
+import { archiveChapters, isArchiveEpub } from './archiveEpub'
 import { MAX_STORED_PICTURE_BYTES, imageSize, pictureType, preparePicture, sniffImageType } from './epubPictures'
 
 export { imageSize }
@@ -1452,6 +1453,28 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
   const spine = (linear.length ? linear : refs).map(ref => ref.item)
   if (!spine.length) throw new EpubError('bad_epub', 'This EPUB has no readable chapters.')
 
+  // Rules 10: an Internet Archive scan's EPUB (hocr-to-epub) is rebuilt from its pages (archiveEpub.ts).
+  if (rules >= 10) {
+    const noticeItem = [...manifest.values()].find(item => /(?:^|\/)notice\.x?html$/.test(item.href))
+    const notice = noticeItem ? await zip.readText(noticeItem.href) : null
+    if (isArchiveEpub(opfText, spine.map(item => item.href), notice)) {
+      const texts: string[] = []
+      for (const item of spine) {
+        if (item === noticeItem) continue
+        const source = await zip.readText(item.href)
+        let text = ''
+        try { text = source ? clean(byLocal(parseXml(source), 'body')[0]?.textContent) : '' } catch { text = '' }
+        texts.push(text)
+      }
+      const built = archiveChapters(texts)
+      const bookTitle = textOf(meta, 'title') || built.title || clean(options.fallbackTitle) || 'Untitled book'
+      const pieces: UserBookChapter[] = built.chapters.map((chapter, index) => ({ number: index + 1, title: chapter.title || shortTitle(bookTitle), paragraphs: chapter.paragraphs }))
+      if (pieces.length) {
+        const chapters = options.sourceTitles ? pieces : normalizeChapterTitles(pieces, { language })
+        return { edition: { format: USER_EDITION_FORMAT, converter: rules, title: bookTitle, author: author || personName(built.author), bylines: true, language, chapters, droppedImages: 0 }, images: new Map() }
+      }
+    }
+  }
   const toc = await readToc(zip, manifest, spineEl)
   // The cover picture is the book's cover (Add a book shows it), never a figure.
   const coverId = byLocal(meta, 'meta').find(item => item.getAttribute('name') === 'cover')?.getAttribute('content') || ''
