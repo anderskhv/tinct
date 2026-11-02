@@ -43,13 +43,13 @@
 .primer-structure li::before{content:"";position:absolute;left:-22px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--page);border:1px solid var(--page-soft)}
 .primer-part{display:block;font:600 14px/1.4 system-ui,sans-serif;color:var(--page-ink);margin-bottom:2px}
 .primer-part-text{display:block;font-size:17px;line-height:1.5}
-.slip-edition{margin-top:22px;padding-top:14px;border-top:1px solid var(--page-rule)}
-.slip-edition-label{display:block;font:13px/1.4 system-ui,sans-serif;color:var(--page-soft);margin-bottom:6px}
-.slip-edition-select>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;cursor:pointer;font:15px/1.35 system-ui,sans-serif;color:var(--page-ink);padding:6px 0;min-height:40px}
+.slip-edition{margin-top:18px;padding-top:10px;border-top:1px solid var(--page-rule)}
+.slip-edition-label{display:block;font:12px/1.4 system-ui,sans-serif;color:var(--page-soft);margin-bottom:2px}
+.slip-edition-select>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;cursor:pointer;font:14px/1.3 system-ui,sans-serif;color:var(--page-ink);padding:4px 0;min-height:32px}
 .slip-edition-select>summary::-webkit-details-marker{display:none}
 .slip-edition-options{display:flex;flex-direction:column;padding:4px 0 2px}
-.slip-edition-option{font:15px/1.35 system-ui,sans-serif;text-align:left;color:var(--page-soft);padding:9px 0;border-top:1px solid var(--page-rule)}
-.slip-edition-option small{display:block;font-size:12px;font-weight:400;color:var(--page-soft);margin-top:2px}
+.slip-edition-option{font:13px/1.3 system-ui,sans-serif;text-align:left;color:var(--page-soft);padding:5px 0;border-top:1px solid var(--page-rule)}
+.slip-edition-option small{display:block;font-size:11px;font-weight:400;color:var(--page-soft);margin-top:1px}
 .slip-edition-option[aria-pressed=true]{color:var(--page-ink);font-weight:600}
 .slip-edition-select>summary:focus-visible,.slip-edition-option:focus-visible{outline:2px solid var(--page-soft);outline-offset:2px;border-radius:3px}
 .primer-person{margin:0 0 14px}
