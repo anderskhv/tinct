@@ -1269,7 +1269,7 @@ export const APOLOGY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
