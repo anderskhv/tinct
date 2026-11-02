@@ -373,24 +373,26 @@ function appendParagraphs(target,paragraphs){paragraphs.forEach(p=>target.append
 // Begin reading, and the edition as a small secondary choice. The old Introduction tabs and Tinct preface are gone
 // from the page (archived in docs/archive/prefaces). A book with no opening keeps its title and Begin reading.
 function primerRow(title,testid,fill){const d=el('details','primer-row');d.dataset.testid=testid;const s=el('summary');s.append(el('span','',title),el('span','primer-chevron','⌄'));d.append(s);const inner=el('div','primer-inner');fill(inner);d.append(inner);return d;}
-function editionLine(){const versions=availableEditions(),picked=choices();if(versions.length<2)return null;const chosen=versions.find(v=>v.key===picked.main)||versions[0];const b=el('button','edition-link');b.type='button';b.dataset.testid='intro-edition-link';b.append(el('span','',`${chosen.label||chosen.key}`),el('span','edition-change','Change edition'));b.onclick=()=>{currentTab='edition';renderIntro();};return b;}
+function editionLine(){const versions=availableEditions(),picked=choices();if(versions.length<2)return null;const chosen=versions.find(v=>v.key===picked.main)||versions[0];const b=el('button','edition-link');b.type='button';b.dataset.testid='intro-edition-link';b.append(el('span','',`${chosen.label||chosen.key}`),el('span','edition-change','Change edition'));b.onclick=()=>{currentTab='edition';renderIntro();if(bookDestination().tour&&tourProgress===0)$('slip-next').click();};return b;}
 function renderOpening(body){
  const book=activeBook,rows=book.primer;
  if(book.opening)body.append(el('p','intro-opening',book.opening));
  const list=el('div','primer-rows');
- if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>{const ol=el('ol','primer-structure');rows.structure.forEach(item=>{const li=el('li');li.append(el('strong','',item.title),el('span','',item.text));ol.append(li);});inner.append(ol);}));
+ if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>{const ol=el('ol','primer-structure');rows.structure.forEach(item=>{const li=el('li');li.append(el('span','primer-part',item.title),el('span','primer-part-text',item.text));ol.append(li);});inner.append(ol);}));
  if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>{rows.people.forEach(item=>{const p=el('div','primer-person');p.append(el('h3','',item.name));if(item.role)p.append(el('p','primer-role',item.role));p.append(el('p','',item.text));inner.append(p);});}));
- if(rows?.context.length)list.append(primerRow('Helpful context','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');s.append(el('span','',item.title),el('small',`primer-level is-${item.level}`,{essential:'Essential',recommended:'Recommended',optional:'Optional'}[item.level]));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));if(item.takeaway)t.append(el('p','primer-takeaway',item.takeaway));d.append(t);inner.append(d);});}));
+ if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');s.append(el('span','',item.title),el('small',`primer-level is-${item.level}`,{essential:'Essential',recommended:'Recommended',optional:'Optional'}[item.level]));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));if(item.takeaway)t.append(el('p','primer-takeaway',item.takeaway));d.append(t);inner.append(d);});}));
  if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>{const ul=el('ul','primer-notice');rows.notice.forEach(item=>{const li=el('li');li.append(el('span','',item.text));if(item.why)li.append(el('span','primer-why',item.why));ul.append(li);});inner.append(ul);}));
  if(list.childElementCount)body.append(list);
- const edition=editionLine();if(edition)body.append(edition);
 }
+// The edition is a quiet choice on the author flap (Anders, 2 Nov 2026), under the biography.
+function renderSlipEdition(){let slot=$('slip-edition');if(!slot){slot=el('div','slip-edition');slot.id='slip-edition';$('slip-content').append(slot);}const line=currentTab==='edition'?null:editionLine();slot.replaceChildren(...(line?[line]:[]));}
 function renderIntro(){
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
  $('intro-heading').textContent=currentTab==='edition'?'Edition':activeBook.title;
  document.querySelector('.intro-tabs').hidden=true;
  $('intro').classList.toggle('is-opening',currentTab!=='edition');
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
+ renderSlipEdition();
  if(currentTab!=='edition'){renderOpening(body);}
  else if(currentTab==='characters'){
   const list=el('div','intro-character-list');list.id='intro-character-list';
