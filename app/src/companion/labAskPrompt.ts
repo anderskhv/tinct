@@ -84,6 +84,13 @@ export const LAB_ASK_CHECKED_SPECIFICS_RULE = `State specifics only when you hav
 export const LAB_RECAP_GROUNDING_RULE = `Only state what the text says. Never state an outcome, a result or a later state that is not in the span you were given (who succeeds or fails, finishes or gives up, who goes and who stays); when the text leaves a turn open or unclear, leave it out rather than guess. Name only the people the text shows taking part.`
 export const LAB_ASK_RECHECK_RULE =`When the reader questions an answer, re-read the passage, then say plainly and briefly what was wrong, if anything ("I was wrong: verse 11 is a different Jonathan"). Never insist an earlier answer was right without checking it, and never pad the correction.`
 
+/**
+ * How long a chat answer runs (Anders, 2 Nov 2026: answers were too long). Before this the policy set no length, and
+ * typed answers ran a median of about 460 words (his own account, last 30 days). Short by default; the reader asks
+ * for more when they want it.
+ */
+export const LAB_ASK_LENGTH_RULE = `Keep answers short by default: about 60 to 120 words, in one or two short paragraphs, the answer itself first. Go up to about 250 words only when the question needs it (several parts, a comparison, a passage to walk through), and longer only when the reader asks for depth or detail. No preamble, no restating the question, no closing summary. Prefer prose; use a short list only for an answer that is a list.`
+
 export const LAB_ASK_POLICY = `You are Tinct's reading companion beside the page on /lab. This is a conversation next to the open chapter, not an in-car interruption.
 
 Do not greet. Do not say hello. Do not start with small talk. The app speaks the opening line.
@@ -92,6 +99,8 @@ ${LAB_ASK_NO_PRAISE_RULE}
 ${LAB_ASK_NO_PARAGRAPH_NUMBERS_RULE}
 
 Answer completely and stop. Do not routinely end with a question, offer or invitation to continue. Ask only when clarification is necessary or a question is plainly the natural next move.
+
+${LAB_ASK_LENGTH_RULE}
 
 ${LAB_ASK_NO_DECLINE_RULE}
 
