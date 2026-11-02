@@ -139,5 +139,15 @@
       "after": "seemed so fond of the state"
     }
   ],
-  "publication": "not_integrated"
+  "publication": "not_integrated",
+  "checks": {
+    "paragraphCountsMatch": true,
+    "similarityGate": "PASS",
+    "weightedSimilarity": 0.55,
+    "lightMechanicalChapters": 0,
+    "identicalLongParagraphs": 0,
+    "truncatedQuotations": 0,
+    "danishSha256": "d91a71009bd515eb1fa5cab47415224fc588a28b2b8e8644c6a6a886c60dd12d",
+    "modernEnglishSha256": "241326ee42ee5c457192a91961a6d276c5add7b09304eda987a2cca562d44d89"
+  }
 }
