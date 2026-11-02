@@ -80,6 +80,11 @@ for (const [engine, type] of Object.entries({ chromium, webkit })) {
           } else {
             await page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true')
             const root = page.locator('#tinct-lab-sign-in')
+            // Live before a release (navigation-diagnostic on a PR): production may not have the code screen yet.
+            if (test === 'email-code' && live && await page.locator('[data-code-input]').count() === 0) {
+              console.log('AUTH_SKIP ' + JSON.stringify({ engine, size, test, reason: 'live page has no email code yet' }))
+              continue
+            }
             if (test === 'email-code') {
               // Keep your place: the Terms line for every way in, then one email field and the code.
               assert.equal(await page.locator('[data-auth-legal]:visible').count(), 1)
