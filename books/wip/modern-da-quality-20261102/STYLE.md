@@ -13,6 +13,10 @@ Natural contemporary Danish with fidelity and literary voice. This is a calibrat
 - »…« outer quotes, ›…‹ inner quotes; consistent punctuation. Preserve emphasis, line breaks and footnote meanings. No unconditional same-count rule can replace a semantic check.
 - Work directly from Danish originals for Niels Lyhne and Fear and Trembling. For other works record the intermediary translation; source-language review is needed for ambiguous/high-stakes literary passages.
 
-## Acceptance
+## User update — 2 November 2026
+
+Anders will arrange the Danish reviewer. He explicitly permits launch without waiting for all personal testing or the native final read. Human review remains pending and must not be represented as completed. Complete-source fidelity, provenance and basic release checks remain prerequisites. This update supersedes earlier statements below that native review is an absolute prelaunch blocker; final high-quality acceptance remains distinct from provisional publication.
+
+## Final quality acceptance
 
 Independent full-source comparison, native full-Danish read, independently rechecked corrections, no unresolved major errors, valid structure/mappings, clear source provenance and final exact-text hashes. A pilot is accepted only after a reviewer has evaluated actual passages; passing a mechanical scan is not acceptance.
