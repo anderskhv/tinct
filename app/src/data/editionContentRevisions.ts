@@ -12,7 +12,7 @@ import type { CoordinateMigration } from './editionCoordinateMigration'
  *
  * The maps are fetched only by readers who hold data that needs moving.
  */
-export interface EditionRevision { before: string; after: string }
+export interface EditionRevision { before: string; after: string; releasedAt?: number }
 export interface ContentRelease {
   revision: string
   releasedAt: number
@@ -504,9 +504,14 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'magna-carta': {
-    revision: 'text-2026-10-01.2',
+    revision: 'text-2026-11-02.magna-da.1',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
     editions: {
+      'modern-da': {
+  "before": "11e3b4de2820772b5258b1981f783b80dfb14db4667d9e8d6358004e6cc99009",
+  "after": "5f148701e1bdc5c4bd9fe87289aeaf053567815f64c26595340af8320cd0b141",
+  "releasedAt": 1793626744844
+},
       'original-en': {
         before: 'ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f',
         after: 'fa73abf6f753a48a0c224c65bde46f8f2b8c56f25445224e78819e3c68abd6c4',
@@ -554,7 +559,7 @@ export function writtenBeforeRelease(
   // Every new Symposium write is stamped. An unstamped English record can
   // still arrive from an old offline client after publication; retain its repair.
   if (bookId === 'symposium') return true
-  return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < release.releasedAt
+  return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < (edition.releasedAt ?? release.releasedAt)
 }
 
 export type MigrationKind = 'positions' | 'highlights'
