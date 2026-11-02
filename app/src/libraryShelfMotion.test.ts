@@ -155,14 +155,16 @@ describe('every removal path uses the motion', () => {
     // answered at once with the fade to the reader's paper (20261021deskopen) changed bookshelf.js and
     // app.js (20261021stack3); a book opening from its painting's 960 px copy (20261021opencover) app.js
     // again (20261021stack4). The room drawn once with only its moving parts repainted each frame
-    // (20261021still) changed scene-life.js and app.js (20261021stack5).
+    // (20261021still) changed scene-life.js and app.js (20261021stack5). An account known to have an empty
+    // desk opening on Frankenstein, and an early tap on Read kept (20261102empty), changed boot.js,
+    // bookshelf.js and app.js.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
-    expect(lib('index.html')).toContain('app.js?v=20261021stack5')
+    expect(lib('index.html')).toContain('app.js?v=20261102empty')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261021stack1')
-    expect(lib('index.html')).toContain('boot.js?v=20261019avatar')
-    expect(lib('app.js')).toContain('bookshelf.js?v=20261021deskopen')
+    expect(lib('index.html')).toContain('boot.js?v=20261102empty')
+    expect(lib('app.js')).toContain('bookshelf.js?v=20261102empty')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)

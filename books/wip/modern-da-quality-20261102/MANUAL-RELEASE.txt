@@ -1,0 +1,7 @@
+Manual release candidate, 2 November 2026
+
+User authorizes launch before personal/native review; Anders arranges native reviewer. Both editions complete, original-en George Long (1877) used for fidelity repairs. English baseline blob f71375d9533af9ba910b83dca7c59d0c380d9a58; Danish baseline blob 6eef762477c675e75ec663e6452d71af28636518. Original baseline blob a0ac126044c843dc2bd57b8897158c02509d5ba6. No direct Greek review claimed.
+
+52 sections / 68 paragraphs; source comparison and modern-English similarity gate pass. Native/independent review pending, not represented as completed. Exact published byte pins in danishEditionSources.json; coordinate maps preserve old text for unresolved highlights and project positions. Existing 23 English character references reanchored and checked against new text; identities retained. Danish text-only; no narration generation. English narration uses existing text-addressed Grok path. Onboarding opening/length and two Danish grammar errors repaired.
+
+Only the Manual is newly offered. All other withdrawn Danish editions and retained files remain unchanged. Existing offered editions still require the planned editorial review. CI and publication status recorded in the integration PR.

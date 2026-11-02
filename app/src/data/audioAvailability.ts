@@ -63,6 +63,7 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'arabian-nights/modern-da',
   'moby-dick/modern-da',
   'crime-and-punishment/modern-da',
+  'crito/modern-da',
   'the-prince/modern-da',
   'confessions/modern-da',
   'alice-in-wonderland/modern-da',
@@ -72,6 +73,7 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'meditations/modern-da',
   'middlemarch/modern-da',
   'the-art-of-war/modern-da',
+  'the-manual/modern-da',
   'wuthering-heights/modern-da',
 ])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
