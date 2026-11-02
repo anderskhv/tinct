@@ -1,3 +1,4 @@
+import { croppedPicture, type AvatarCropSize } from './avatarCrops'
 import { validReadingLanguages, type ReadingLanguage } from './readingLanguages'
 /**
  * Profiles (social ship 2) in the browser: the switch, the API calls, the
@@ -160,10 +161,12 @@ export function ownBackground(profile: Pick<OwnProfile, 'background'>): { src: s
 }
 
 /** Draw a round picture into an element (vanilla pages). Stored photos load with the token. */
-export function paintAvatar(el: HTMLElement, view: PictureView, token: string | null): void {
+export function paintAvatar(el: HTMLElement, view: PictureView, token: string | null, size?: AvatarCropSize): void {
   el.classList.add('tinct-avatar')
   el.textContent = ''
   el.style.backgroundImage = ''
+  // A painted picture at disc size (avatarCrops.ts), not the whole 0.5-0.7 MB cover (scan 2 Nov 2026: 2.9 MB).
+  if (size && view.kind === 'image') view = croppedPicture(view, size)
   if (view.kind === 'initial') {
     el.dataset.kind = 'initial'
     el.textContent = view.initial

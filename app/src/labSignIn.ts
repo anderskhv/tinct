@@ -136,7 +136,7 @@ async function completeSignIn(session: Session, newAccount = false, method: stri
   if (newAccount || isInitialAccountSession(session.user, windowMs)) {
     setFunnelToken(session.access_token)
     trackSignupCompleted(session.user.id, method)
-    if (social && root) await startSocialSteps(session.access_token)
+    if (social && root) await startSocialSteps(session)
     else setMode('welcome')
     setBusy(false)
   }
@@ -144,13 +144,15 @@ async function completeSignIn(session: Session, newAccount = false, method: stri
 }
 
 /** Sign-up steps 2 and 3 (social ship 2); today's welcome screen if profiles cannot be reached. */
-function startSocialSteps(token: string) {
-  return startProfileSteps(root!, token, {
+function startSocialSteps(session: Session) {
+  const meta = (session.user?.user_metadata ?? {}) as Record<string, unknown>
+  const googlePhotoUrl = typeof meta.avatar_url === 'string' ? meta.avatar_url : typeof meta.picture === 'string' ? meta.picture : null
+  return startProfileSteps(root!, session.access_token, {
     setMode: next => setMode(next as Mode),
     setStatus,
     finish: returnToLibrary,
     fallbackWelcome: () => setMode('welcome'),
-  })
+  }, { googlePhotoUrl })
 }
 
 function credentials() {
@@ -447,7 +449,7 @@ async function initialize() {
       setSignedInCookie()
       if (mode === 'reset') setMode('reset')
       else if (authReturn) { setBusy(true); await completeSignIn(data.session, callback === 'signup') }
-      else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session.access_token)
+      else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session)
       else if (mode === 'welcome') setMode('welcome')
       // Signed in already: the account is the cards, over the page the reader came from.
       else { navigateAfterAuth(accountLink ? returnTo : cardUrl('you', returnTo), true); return }
