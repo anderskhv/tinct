@@ -1,5 +1,6 @@
+import { coordinateEditionForRevision } from '../data/editionCoordinateMigration'
 import { editionHold } from '../data/editionAvailability'
-import { currentContentRevision, loadCoordinateMigration, writtenBeforeRelease } from '../data/editionContentRevisions'
+import { currentContentRevision, loadCoordinateMigration, sourceContentRevision, writtenBeforeRelease } from '../data/editionContentRevisions'
 import { loadChapterText } from '../readingMemory'
 import { migrateLabHighlight, type MigratableHighlight } from './labHighlightMigration'
 import { isLabChapterNote, readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
@@ -59,7 +60,9 @@ export async function migrateStoredLabHighlights(loadChapter: ChapterLoader = lo
     // Verify the quote against its destination, never the old chapter's text.
     const chapters = new Map<number, Promise<{ paragraphs: string[] } | null>>()
     for (const highlight of group) {
-      const entry = migration.editions[editionKey]?.entries[chapterNumber + '.' + highlight.paragraphIndex]
+      const sourceRevision = sourceContentRevision(bookId, editionKey, highlight.contentRevision, highlightWrittenAt(highlight))
+      const source = coordinateEditionForRevision(migration, editionKey, sourceRevision)
+      const entry = source?.entries[chapterNumber + '.' + highlight.paragraphIndex]
       const targetChapter = entry?.chapter ?? chapterNumber
       if (!chapters.has(targetChapter)) chapters.set(targetChapter,
         loadChapter({ bookId, editionKey, chapterNumber: targetChapter, version: currentContentRevision(bookId, editionKey) }).catch(() => null))

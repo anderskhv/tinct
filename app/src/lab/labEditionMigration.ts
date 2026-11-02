@@ -1,4 +1,5 @@
 import { projectEditionCoordinate, type CoordinateMigration } from '../data/editionCoordinateMigration'
+import { sourceContentRevision } from '../data/editionContentRevisions'
 import type { LabBookPlace, LabPositionState } from './labPosition'
 
 /** Called only with the edition actually selected for the reader. Never guess
@@ -16,7 +17,7 @@ export function migrateLabBookPlace(
     chapterNumber: place.sequentialChapter,
     paragraphIndex: place.paragraphIndex,
     offset: place.wordIndex,
-    contentRevision: place.contentRevision,
+    contentRevision: sourceContentRevision(place.bookId, editionKey, place.contentRevision, place.updatedAt),
   }, 'words')
   if (projected.status === 'unresolved' || projected.point.contentRevision === place.contentRevision) return place
   // Page numbers depend on font/layout and become stale when paragraphs move.
@@ -32,7 +33,7 @@ export function migrateLabBookPlace(
     contentMigrationStatus: projected.status,
     contentRecovery: place.contentRecovery || {
       editionKey,
-      contentRevision: migration.editions[editionKey].beforeSha256,
+      contentRevision: projected.recovery?.contentRevision ?? migration.editions[editionKey].beforeSha256,
       chapterNumber: place.sequentialChapter,
       paragraphIndex: place.paragraphIndex,
       wordIndex: place.wordIndex,
