@@ -530,19 +530,31 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   }
 },
   medea: {
-    revision: 'text-2026-10-01.2',
-    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
-    editions: {
-      'original-en': {
-        before: '6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731',
-        after: 'f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb',
-      },
-      'modern-en': {
-        before: '2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae',
-        after: '573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b',
-      },
+  "revision": "text-2026-11-02.medea.1",
+  "releasedAt": 1790863200000,
+  "editions": {
+    "original-en": {
+      "before": "6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731",
+      "after": "f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb"
     },
-  },
+    "modern-en": {
+      "before": "573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b",
+      "after": "4292c91a77ff5369151d746b36adb27720f5a90ebc8f84eaf1ee8d51de6c1e46",
+      "releasedAt": 1793647753134,
+      "previous": [
+        {
+          "before": "2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae",
+          "releasedAt": 1790863200000
+        }
+      ]
+    },
+    "modern-da": {
+      "before": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
+      "after": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4",
+      "releasedAt": 1793647753134
+    }
+  }
+},
   bacchae: {
     revision: 'text-2026-10-01.2',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
