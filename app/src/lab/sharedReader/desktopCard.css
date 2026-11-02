@@ -38,6 +38,8 @@ html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 0; bor
   border: 0; border-radius: 0 !important; background: transparent !important; color: var(--lab-ink-muted) !important; box-shadow: none;
 }
 .lab .lab-desktop-card :is(.lab-pcard-bin, .lab-pcard-mic, .lab-pcard-talkbtn, .lab-pcard-send):hover { color: var(--lab-ink) !important; }
+/* Something to send: the arrow in ink (one send control everywhere, 2 Nov 2026). */
+.lab .lab-desktop-card .lab-pcard-send:not(:disabled) { color: var(--lab-ink) !important; }
 .lab .lab-desktop-card :is(button, textarea):focus-visible { outline: 1px solid var(--lab-accent, currentColor); outline-offset: 2px; }
 
 

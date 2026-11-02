@@ -68,10 +68,13 @@ export interface LabCatchUpDeps {
   allowsAi?: (request: Request) => Promise<boolean>
 }
 
-/** 40 words plus the structured entry call's own few tokens. */
-export const CATCH_UP_MAX_TOKENS = 160
-/** A compact block of earlier chapters: 70 words plus the entry call's tokens. */
-export const CATCH_UP_BLOCK_MAX_TOKENS = 240
+/**
+ * Room for the entry, not its length (the prompt asks for 40 words; a block, 70). A cut-off call is no entry at all:
+ * 160 and 240 cut off every try of 2 Maccabees 8 and of 2 Maccabees 1–6, so Catch me up showed only Retry, which cut
+ * off again (Anders's ledger, 2 Nov 2026: 160/160 and 240/240 output tokens).
+ */
+export const CATCH_UP_MAX_TOKENS = 400
+export const CATCH_UP_BLOCK_MAX_TOKENS = 600
 /** About 8K tokens of source per entry; long units are sampled evenly across their chapters. */
 export const CATCH_UP_MAX_PASSAGE_CHARS = 32_000
 /** Every request, cached or not: a long timeline is many cheap lookups. */

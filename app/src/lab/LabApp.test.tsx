@@ -882,6 +882,19 @@ describe('lab passage headline pages', () => {
       fireEvent.pointerUp(word, { pointerId: id, pointerType: 'mouse', clientX: 190, clientY: 200 })
     }
 
+    it('the highlight menu stays while the reader is still and goes once they scroll on (Anders, 2 Nov 2026)', async () => {
+      render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
+      await selectWords(1, 3, 61)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).not.toBeNull())
+      const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+      scrollTo(0)
+      scrollTo(20)
+      expect(document.querySelector('.selection-popup')).not.toBeNull()
+      scrollTo(200)
+      await waitFor(() => expect(document.querySelector('.selection-popup')).toBeNull())
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    })
+
     it('takes the whole highlight for copy and ask, and the clicked word for define', async () => {
       render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
       const words = screen.getAllByTestId('lab-word')

@@ -16,6 +16,8 @@ export const CATCH_UP_CONCURRENCY = 3
 export const CATCH_UP_INITIAL_WANTED = 5
 /** After a rate limit or a resting AI, wait this long before asking again on our own. */
 export const CATCH_UP_COOLDOWN_MS = 20_000
+/** A summary that failed (502) is asked for once more after this, before the entry offers Retry. */
+export const CATCH_UP_RETRY_MS = 1_200
 
 export type CatchUpEntryResult =
   | { ok: true; summary: string }

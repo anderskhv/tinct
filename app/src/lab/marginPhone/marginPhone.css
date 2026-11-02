@@ -180,8 +180,9 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-follow .lab-pcard-mic[aria-pressed="true"] { color: var(--lab-ink); }
 .lab .lab-pcard-follow .lab-pcard-talkbtn { display: grid; place-items: center; width: 30px; height: 30px; color: var(--lab-ink-muted); }
 .lab .lab-pcard-follow .lab-pcard-talkbtn svg { display: block; }
-.lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 8px !important; background: var(--lab-ink) !important; color: var(--lab-pcard-fill) !important; }
-.lab .lab-pcard-send:disabled { opacity: .3; cursor: default; }
+/* One send control everywhere: the plain arrow, in ink when there is something to send, dimmed when not (2 Nov 2026). */
+.lab .lab-pcard-send { display: grid !important; place-items: center; width: 30px; height: 30px; border-radius: 0 !important; background: transparent !important; color: var(--lab-ink) !important; }
+.lab .lab-pcard-send:disabled { color: var(--lab-ink-muted) !important; opacity: .5; cursor: default; }
 /* The field is width:100%, so the buttons keep their 30px square instead of shrinking beside it (iPhone, 29 Oct 2026). */
 .lab .lab-pcard-follow-box > button { flex: none; }
 

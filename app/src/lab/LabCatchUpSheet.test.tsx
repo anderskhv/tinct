@@ -125,6 +125,14 @@ describe('LabCatchUpSheet', () => {
     await waitFor(() => expect(screen.getByText('Recap of ch-59.')).toBeTruthy(), slow)
   })
 
+  it('a summary that fails once is asked for again quietly: the reader sees it, never Retry (2 Maccabees, 2 Nov 2026)', async () => {
+    let tries = 0
+    stubFetch(call => call.body.unitId === 'ch-59' && ++tries === 1 ? { status: 502, body: { error: 'x' } } : okBodies(call))
+    renderSheet()
+    expect(await screen.findByText('Recap of ch-59.', {}, slow)).toBeTruthy()
+    expect(screen.queryByTestId('lab-catch-up-retry')).toBeNull()
+  })
+
   it('a resting AI or a rate limit pauses new requests instead of failing the whole timeline', async () => {
     const calls = stubFetch(() => ({ status: 429, body: { error: 'limit' } }))
     renderSheet()
