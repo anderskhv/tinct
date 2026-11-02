@@ -369,7 +369,7 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
     return new Response(null, { status: 302, headers: { Location: target.pathname + target.search, 'Cache-Control': 'no-store' } })
   }
     // Static JSON content (editions, onboarding, threads) — serve via the
-    // Cloudflare Cache API so repeat hits don't re-execute the worker.
+    // Cloudflare Cache API for explicitly versioned requests.
     //
     // Do not send wildcard CORS here. The app reads this data same-origin, so
     // CORS is unnecessary; allowing every origin only makes it easier for
@@ -400,17 +400,17 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         })
       }
 
-      // Onboarding JSONs do change as we iterate on book content. Edition
-      // JSONs are stable once published. Differentiate the cache TTL so
-      // onboarding updates land within minutes instead of being stuck behind
-      // a 30-day immutable header (Anders, 2026-04-29 — old content was
-      // served for hours after a deploy).
+      // Plain URLs are mutable: installed Android clients download them using
+      // the current manifest's byte count/hash. Never serve a previous deploy's
+      // immutable cache entry under that same URL. Explicit fresh requests also
+      // bypass the cache; versioned reader URLs retain their existing cache.
       const isOnboarding = url.pathname.startsWith('/data/onboarding/')
+      const versioned = Boolean(url.searchParams.get('v')) && !url.searchParams.has('fresh')
       const cache = caches.default
       const cacheKeyUrl = new URL(url.toString())
       cacheKeyUrl.searchParams.set('__tinct_json_cache', '2')
       const cacheKey = new Request(cacheKeyUrl.toString(), { method: 'GET' })
-      if (request.method === 'GET') {
+      if (versioned && request.method === 'GET') {
         const cached = await cache.match(cacheKey)
         if (cached) {
           const fixed = new Response(cached.body, cached)
@@ -424,18 +424,19 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       const contentType = assetResp.headers.get('content-type') || ''
       if (assetResp.ok && contentType.includes('application/json')) {
         const cacheable = new Response(assetResp.body, assetResp)
-        if (isOnboarding) {
+        if (!versioned) {
+          cacheable.headers.set('Cache-Control', 'no-cache, must-revalidate')
+        } else if (isOnboarding) {
           // 5 minutes at the edge; revalidate after that. Onboarding content
           // can be tweaked frequently and we want updates visible quickly.
           cacheable.headers.set('Cache-Control', 'public, max-age=300, must-revalidate')
         } else {
-          // 30 days for editions/threads — these almost never change after
-          // publish. SW + content-hashing handle invalidation on the client.
+          // The reader changes its explicit version when the content changes.
           cacheable.headers.set('Cache-Control', 'public, max-age=2592000, immutable')
         }
         cacheable.headers.delete('Access-Control-Allow-Origin')
         cacheable.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        if (request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
+        if (versioned && request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }
       return new Response(request.method === 'HEAD' ? null : 'Not found', {
