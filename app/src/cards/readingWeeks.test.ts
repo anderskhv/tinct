@@ -239,6 +239,19 @@ describe('the week bars', () => {
       expect(detail().hidden).toBe(true)
     })
 
+    it('offers only the views that say something yet: a first week has Days alone, and no control', () => {
+      open({ ...full, stats: { ...stats, weeks: [{ start: '2026-10-12', seconds: 900 }], firstDay: '2026-10-13' }, weeks: [full.weeks![2]], months: [full.months![1]] })
+      expect(document.querySelector('[data-testid="reading-view"]')).toBeNull()
+      expect(bars()).toHaveLength(7)
+      expect(document.querySelector('[aria-label="Previous week"]')).toBeNull()
+      expect(document.querySelector('.tc-sub')?.textContent).toBe('This week')
+    })
+
+    it('a second week brings Weeks; Months waits for a second month', () => {
+      open({ ...full, months: [full.months![1]] })
+      expect(views().map(button => button.textContent)).toEqual(['Days', 'Weeks'])
+    })
+
     it('a tapped day shows its books; ‹ steps back a week', () => {
       open(full)
       bars()[1].click()

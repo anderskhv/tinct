@@ -639,7 +639,10 @@ export function readingCard(env: CardsEnv): CardSpec {
         const booksOfDay = new Map((reading.days ?? []).map(day => [day.day, day.books]))
         const months = (reading.months ?? []).slice(-12)
         const views = reading.days && reading.months && secondsOfDays.size > 0
-        if (!views) view = 'weeks'
+        // Only the views that say something yet (Anders, 2 Nov 2026): Weeks once the chart spans more than one week,
+        // Months once reading spans more than one month; with Days alone there is no control at all.
+        const offered: ReadingView[] = views ? ['days', ...(weeks.length > 1 ? ['weeks' as const] : []), ...(months.length > 1 ? ['months' as const] : [])] : ['weeks']
+        if (!offered.includes(view)) view = offered[0]
         const today = localDay()
         const thisWeek = weeks[weeks.length - 1]?.start ?? today
         if (!shownWeek || !weeks.some(week => week.start === shownWeek)) shownWeek = thisWeek
@@ -676,10 +679,14 @@ export function readingCard(env: CardsEnv): CardSpec {
           if (view === 'days') {
             const at = weeks.findIndex(week => week.start === shownWeek)
             const step = (by: number) => { shownWeek = weeks[at + by]?.start ?? shownWeek; picked = null; paint() }
-            sub = el('div', { className: 'tc-sub tc-weeknav' },
-              el('button', { type: 'button', 'aria-label': CARDS_COPY.previousWeek, disabled: at <= 0 || undefined, text: '‹', onclick: () => step(-1) }),
-              el('span', { text: shownWeek === thisWeek ? CARDS_COPY.thisWeek : weekRange(shownWeek) }),
-              el('button', { type: 'button', 'aria-label': CARDS_COPY.nextWeek, disabled: at >= weeks.length - 1 || undefined, text: '›', onclick: () => step(1) }))
+            const label = el('span', { text: shownWeek === thisWeek ? CARDS_COPY.thisWeek : weekRange(shownWeek) })
+            // Arrows only when there is another week to step to.
+            sub = weeks.length > 1
+              ? el('div', { className: 'tc-sub tc-weeknav' },
+                el('button', { type: 'button', 'aria-label': CARDS_COPY.previousWeek, disabled: at <= 0 || undefined, text: '‹', onclick: () => step(-1) }),
+                label,
+                el('button', { type: 'button', 'aria-label': CARDS_COPY.nextWeek, disabled: at >= weeks.length - 1 || undefined, text: '›', onclick: () => step(1) }))
+              : el('div', { className: 'tc-sub' }, label)
             const values = secondsOfDays.get(shownWeek!) ?? [0, 0, 0, 0, 0, 0, 0]
             const items = WEEKDAYS.map((name, index) => {
               const day = addDays(shownWeek!, index)
@@ -717,9 +724,8 @@ export function readingCard(env: CardsEnv): CardSpec {
             if (month) rows = [row({ label: monthName(month.start), value: durationShort(month.seconds), className: 'is-head' }),
               ...month.books.map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
           }
-          const control = views ? segmented(CARDS_COPY.readingBy, [
-            { value: 'days', label: CARDS_COPY.byDays }, { value: 'weeks', label: CARDS_COPY.byWeeks }, { value: 'months', label: CARDS_COPY.byMonths },
-          ] as Array<{ value: ReadingView; label: string }>, view, next => { view = next; picked = null; shownWeek = thisWeek; paint() }, { wide: true, testid: 'reading-view' }) : null
+          const labels: Record<ReadingView, string> = { days: CARDS_COPY.byDays, weeks: CARDS_COPY.byWeeks, months: CARDS_COPY.byMonths }
+          const control = offered.length > 1 ? segmented(CARDS_COPY.readingBy, offered.map(value => ({ value, label: labels[value] })), view, next => { view = next; picked = null; shownWeek = thisWeek; paint() }, { wide: true, testid: 'reading-view' }) : null
           sum.replaceChildren(...[control, figure, sub, bars, axis].filter((node): node is HTMLElement => !!node))
           detail.hidden = rows.length === 0
           detail.replaceChildren(...rows)
