@@ -181,17 +181,22 @@ button.tc-av { padding: 0; }
 .tc-week { position: relative; }
 .tc-week::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-r.is-head .tc-v { color: var(--tc-ink); font-weight: 600; }
-/* The opened week's days, Monday to Sunday (Anders, 2 Nov 2026): time, a bar on the week's own scale, the weekday. */
-.tc-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; padding: 2px 16px 14px; }
-.tc-day { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; }
-.tc-day-v { font-size: 11px; line-height: 14px; height: 14px; color: var(--tc-sec); font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: -.01em; }
-.tc-day-b { display: flex; align-items: flex-end; justify-content: center; width: 100%; height: 44px; }
-.tc-day-b i { display: block; width: min(100%, 22px); background: var(--tc-bar); border-radius: 3px; }
-.tc-day-n { font-size: 12px; line-height: 15px; color: var(--tc-sec); }
-.tc-day.is-today .tc-day-b i { background: var(--tc-fill); }
-.tc-day.is-today .tc-day-n { color: var(--tc-ink); font-weight: 600; }
-.tc-day.is-future .tc-day-n { color: var(--tc-ter); }
-.tc-days + .tc-r::before { content: ""; position: absolute; top: 0; left: 16px; right: 0; height: 1px; background: var(--tc-sep); }
+/* Days · Weeks · Months (Anders, 2 Nov 2026). */
+.tc-sum > .tc-seg { margin-bottom: 18px; }
+.tc-weeknav { display: flex; align-items: center; gap: 4px; }
+.tc-weeknav button { width: 28px; height: 28px; margin: -4px 0; border-radius: 14px; font-size: 20px; line-height: 1; color: var(--tc-ink); }
+.tc-weeknav button:first-child { margin-left: -8px; }
+.tc-weeknav button:disabled { color: var(--tc-ter); }
+.tc-axis.is-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; text-align: center; }
+.tc-axis.is-days .is-today { color: var(--tc-ink); font-weight: 600; }
+.tc-axis.is-values { margin: 18px 0 -12px; font-size: 11px; white-space: nowrap; letter-spacing: -.01em; }
+.tc-days-chart .tc-bars { margin-top: 18px; }
+/* In Days the dark bar is today's, not the last one. */
+.tc-bars.is-days button:last-child i { background: var(--tc-bar); }
+.tc-bars.is-days button.is-today i { background: var(--tc-fill); }
+.tc-bars.is-days.is-picked button i { background: var(--tc-bar); }
+.tc-bars.is-days.is-picked button[aria-pressed="true"] i { background: var(--tc-fill); }
+.tc-bars button:disabled { cursor: default; }
 .tc-three { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
 .tc-three.is-ruled::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-three > div { padding: 14px 8px 16px; text-align: center; position: relative; min-width: 0; }

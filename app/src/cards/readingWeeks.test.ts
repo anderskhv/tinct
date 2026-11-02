@@ -4,9 +4,9 @@
  * books (most time first), from the ledger's per-day, per-book rows.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { EARLIER_BOOK_ID, readingTimeStats, weekBooks, weekDays, type LedgerRow } from '../readingTime/model'
+import { EARLIER_BOOK_ID, dayBooks, monthTotals, readingTimeStats, weekBooks, weekDays, type LedgerRow } from '../readingTime/model'
 import { loadReading, type ReadingLoad } from './cardsApi'
-import { weekRange } from './cardsFormat'
+import { readingFigures, weekRange } from './cardsFormat'
 import { CardStack } from './cardStack'
 import { readingCard, type CardsEnv } from './cardViews'
 
@@ -80,6 +80,22 @@ describe('weekDays', () => {
 
   it('gives seven zeros for a week with no reading', () => {
     expect(weekDays(rows, ['2026-09-21']).get('2026-09-21')).toEqual([0, 0, 0, 0, 0, 0, 0])
+  })
+})
+
+describe('dayBooks and monthTotals', () => {
+  it('sums each day’s books from a start day, most time first, leaving out earlier time and empty days', () => {
+    const days = dayBooks(rows, '2026-10-05')
+    expect([...days.keys()]).toEqual(['2026-10-06', '2026-10-07', '2026-10-08', '2026-10-11', '2026-10-13'])
+    expect(days.get('2026-10-07')).toEqual([{ bookId: 'frankenstein', seconds: 1200 }, { bookId: 'private', seconds: 300 }])
+    expect(days.has('2026-09-30')).toBe(false)
+  })
+
+  it('gives every month from the first read to this one, in order, adding up to the reading', () => {
+    const months = monthTotals([...rows, { day: '2026-07-02', bookId: 'odyssey', read: 60, listen: 0 }], '2026-10-14')
+    expect(months.map(month => [month.start, month.seconds])).toEqual([['2026-07', 60], ['2026-08', 0], ['2026-09', 1800], ['2026-10', 1200 + 3000 + 300 + 120 + 900]])
+    expect(months[3].books[0]).toEqual({ bookId: 'frankenstein', seconds: 3000 })
+    expect(monthTotals([], '2026-10-14')).toEqual([{ start: '2026-10', seconds: 0, books: [] }])
   })
 })
 
@@ -186,44 +202,73 @@ describe('the week bars', () => {
     expect(detail().hidden).toBe(false)
   })
 
-  describe('the opened week’s days', () => {
+  describe('Days · Weeks · Months', () => {
     beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date(2026, 9, 14, 12)) })
     afterEach(() => { vi.useRealTimers() })
-    const withDays: ReadingLoad = {
+    const full: ReadingLoad = {
       ...reading,
       weeks: [
         { ...reading.weeks![0], days: [0, 0, 1800, 0, 0, 0, 0] },
         { ...reading.weeks![1], days: [0, 1200, 1500, 120, 30, 0, 1800] },
         { ...reading.weeks![2], days: [0, 900, 0, 0, 0, 0, 0] },
       ],
+      days: [
+        { day: '2026-09-30', books: [{ bookId: 'frankenstein', title: 'Frankenstein', seconds: 1800 }] },
+        { day: '2026-10-07', books: [{ bookId: 'frankenstein', title: 'Frankenstein', seconds: 1200 }, { bookId: 'private', title: 'A private book', seconds: 300 }] },
+        { day: '2026-10-13', books: [{ bookId: 'odyssey', title: 'The Odyssey', seconds: 900 }] },
+      ],
+      months: [
+        { start: '2026-09', seconds: 1800, books: [{ bookId: 'frankenstein', title: 'Frankenstein', seconds: 1800 }] },
+        { start: '2026-10', seconds: 5100, books: [{ bookId: 'frankenstein', title: 'Frankenstein', seconds: 3000 }, { bookId: 'odyssey', title: 'The Odyssey', seconds: 2100 }] },
+      ],
     }
-    const strip = () => detail().querySelector<HTMLElement>('[data-testid="reading-days"]')
-    const columns = () => [...strip()!.querySelectorAll<HTMLElement>('.tc-day')]
+    const views = () => [...document.querySelectorAll<HTMLButtonElement>('[data-testid="reading-view"] button')]
+    const total = () => document.querySelector('[data-testid="reading-total"]')?.textContent
+    const view = (name: string) => views().find(button => button.textContent === name)!.click()
 
-    it('shows seven days between the head row and the books, each figure, bar and weekday', () => {
-      open(withDays)
-      expect(strip()).toBeNull()
-      bar('2026-10-05').click()
-      expect(strip()?.previousElementSibling?.classList.contains('is-head')).toBe(true)
-      expect(strip()?.nextElementSibling?.getAttribute('data-testid')).toBe('reading-week-row')
-      expect(columns().map(day => day.querySelector('.tc-day-n')?.textContent)).toEqual(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
-      // Under a minute reads "–" and has no bar; the longest day is the full bar.
-      expect(columns().map(day => day.querySelector('.tc-day-v')?.textContent)).toEqual(['–', '20 m', '25 m', '2 m', '–', '–', '30 m'])
-      expect(columns().map(day => day.querySelector('i')?.style.height ?? null)).toEqual([null, '67%', '83%', '7%', null, null, '100%'])
-      expect(columns()[2].getAttribute('aria-label')).toBe('Wed 7 Oct, 25 m')
-      expect(columns()[0].getAttribute('aria-label')).toBe('Mon 5 Oct, 0 m')
-      // A past week has no today and no days to come.
-      expect(strip()!.querySelector('.is-today, .is-future')).toBeNull()
-      expect(strip()!.querySelector('button')).toBeNull()
+    it('opens on Days: this week’s seven days, today dark, the days to come empty', () => {
+      open(full)
+      expect(views().map(button => [button.textContent, button.getAttribute('aria-checked')])).toEqual([['Days', 'true'], ['Weeks', 'false'], ['Months', 'false']])
+      expect(bars().map(button => button.dataset.week)).toEqual(['2026-10-12', '2026-10-13', '2026-10-14', '2026-10-15', '2026-10-16', '2026-10-17', '2026-10-18'])
+      expect(bars().map(button => button.className)).toEqual(['', '', 'is-today', '', '', '', ''])
+      expect(bars().slice(3).every(button => button.disabled && !button.querySelector('i'))).toBe(true)
+      expect(bars()[1].getAttribute('aria-label')).toBe('Tue 13 Oct, 15 m')
+      expect([...document.querySelectorAll('[data-testid="reading-day-values"] span')].map(node => node.textContent)).toEqual(['–', '15 m', '–', '', '', '', ''])
+      expect(total()).toBe('15m')
+      expect(document.querySelector('.tc-weeknav span')?.textContent).toBe('This week')
+      expect(detail().hidden).toBe(true)
     })
 
-    it('marks today in the current week and leaves the days to come empty', () => {
-      open(withDays)
-      bar('2026-10-12').click()
-      expect(columns().map(day => day.className)).toEqual(['tc-day', 'tc-day', 'tc-day is-today', 'tc-day is-future', 'tc-day is-future', 'tc-day is-future', 'tc-day is-future'])
-      expect(columns().map(day => day.querySelector('.tc-day-v')?.textContent)).toEqual(['–', '15 m', '–', '', '', '', ''])
-      expect(columns().slice(3).every(day => !day.querySelector('i'))).toBe(true)
-      expect(columns()[4].getAttribute('aria-label')).toBe('Fri 16 Oct')
+    it('a tapped day shows its books; ‹ steps back a week', () => {
+      open(full)
+      bars()[1].click()
+      expect([...detail().querySelectorAll('.tc-r')].map(line => [line.querySelector('.tc-lt')?.textContent, line.querySelector('.tc-v')?.textContent])).toEqual([['Tue 13 Oct', '15 m'], ['The Odyssey', '15 m']])
+      document.querySelector<HTMLButtonElement>('[aria-label="Previous week"]')!.click()
+      expect(detail().hidden).toBe(true)
+      expect(document.querySelector('.tc-weeknav span')?.textContent).toBe('5–11 Oct')
+      expect(total()).toBe('1h17m')
+      expect(bars().every(button => !button.disabled)).toBe(true)
+      bars()[2].click()
+      expect([...detail().querySelectorAll('.tc-lt')].map(node => node.textContent)).toEqual(['Wed 7 Oct', 'Frankenstein', 'A private book'])
+      expect(document.querySelector<HTMLButtonElement>('[aria-label="Next week"]')!.disabled).toBe(false)
+    })
+
+    it('Weeks shows the weekly bars and a week’s books, without a day strip', () => {
+      open(full)
+      view('Weeks')
+      expect(bars().map(button => button.dataset.week)).toEqual(['2026-09-28', '2026-10-05', '2026-10-12'])
+      bar('2026-10-05').click()
+      expect([...detail().querySelectorAll('.tc-lt')].map(node => node.textContent)).toEqual(['5–11 Oct', 'Frankenstein', 'The Odyssey'])
+      expect(detail().querySelector('[data-testid="reading-days"]')).toBeNull()
+    })
+
+    it('Months shows every month since the first, all-time total, and a month’s books', () => {
+      open(full)
+      view('Months')
+      expect(bars().map(button => button.dataset.week)).toEqual(['2026-09', '2026-10'])
+      expect(total()).toBe(readingFigures(stats).total.flat().join(''))
+      bar('2026-10').click()
+      expect([...detail().querySelectorAll('.tc-r')].map(line => [line.querySelector('.tc-lt')?.textContent, line.querySelector('.tc-v')?.textContent])).toEqual([['October 2026', '1 h 25'], ['Frankenstein', '50 m'], ['The Odyssey', '35 m']])
     })
   })
 
@@ -233,10 +278,10 @@ describe('the week bars', () => {
     expect([...detail().querySelectorAll('.tc-r')].map(line => line.textContent)).toEqual(['28 Sep – 4 Oct30 m'])
   })
 
-  it('a cache from before the day figures opens the week without a day strip', () => {
+  it('a cache from before the day figures shows Weeks only, with no Days · Weeks · Months control', () => {
     open()
+    expect(document.querySelector('[data-testid="reading-view"]')).toBeNull()
     bar('2026-10-05').click()
-    expect(detail().querySelector('[data-testid="reading-days"]')).toBeNull()
     expect([...detail().querySelectorAll('.tc-r')].length).toBe(3)
   })
 })

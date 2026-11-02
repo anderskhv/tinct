@@ -601,38 +601,23 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; 
 /** 2 · Your reading */
 const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
 
-/**
- * The opened week's seven days, Monday to Sunday (Anders, 2 Nov 2026: reading visible day by day). Each column
- * shows the day's time, a bar scaled to the week's longest day, and the weekday; today's bar is the dark one, and
- * days still to come in the current week show only their name. Display only. Null without days (an older cache).
- */
-export function daysStrip(start: string, days: readonly number[] | undefined, today: string = localDay()): HTMLElement | null {
-  if (!days || days.length !== 7) return null
-  const longest = Math.max(...days)
-  const strip = el('div', { className: 'tc-days', dataset: { testid: 'reading-days' } })
-  strip.append(...WEEKDAYS.map((name, index) => {
-    const day = addDays(start, index)
-    const seconds = days[index]
-    const future = day > today
-    const minute = seconds >= 60
-    const bar = el('i')
-    if (!future && minute) bar.style.height = `${Math.max(6, Math.round(seconds / longest * 100))}%`
-    const shown = minute ? durationShort(seconds) : '–'
-    return el('div', {
-      className: `tc-day${day === today ? ' is-today' : ''}${future ? ' is-future' : ''}`,
-      'aria-label': future ? `${name} ${dayMonthShortDate(day)}` : `${name} ${dayMonthShortDate(day)}, ${minute ? durationShort(seconds) : '0 m'}`,
-      dataset: { day },
-    },
-    el('span', { className: 'tc-day-v', text: future ? '' : shown, 'aria-hidden': 'true' }),
-    el('span', { className: 'tc-day-b', 'aria-hidden': 'true' }, future || !minute ? null : bar),
-    el('span', { className: 'tc-day-n', text: name, 'aria-hidden': 'true' }))
-  }))
-  return strip
+type ReadingView = 'days' | 'weeks' | 'months'
+
+/** "October 2026", or "Oct" for an axis. */
+function monthName(start: string, short = false): string {
+  const [y, m] = start.split('-').map(Number)
+  const names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const name = names[m - 1] ?? ''
+  return short ? name.slice(0, 3) : `${name} ${y}`
 }
 
 export function readingCard(env: CardsEnv): CardSpec {
-  /** The week (its Monday) whose books show under the chart; null: none. Kept across refreshes. */
+  /** The bar (a day, a week's Monday or a month) whose books show under the chart; null: none. Kept across refreshes. */
   let picked: string | null = null
+  /** Days, Weeks or Months; Days first. */
+  let view: ReadingView = 'days'
+  /** The Monday of the week the Days view shows. */
+  let shownWeek: string | null = null
   return {
     id: 'reading',
     label: CARDS_COPY.yourReading,
@@ -644,53 +629,104 @@ export function readingCard(env: CardsEnv): CardSpec {
         const { stats } = reading
         const seconds = new Map(stats.books.map(book => [book.bookId, book]))
         const figures = readingFigures(stats)
-        const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
-        for (const [n, unit] of figures.total) figure.append(n, el('small', { text: unit }))
-        // One bar per week (Monday to Sunday), from the first reading week;
-        // the dates under the first and last bar say what a bar is. A bar
-        // opens that week's books under the chart; tapping it again closes them.
+        // The chart reads by Days, Weeks or Months (Anders, 2 Nov 2026): one chart at a time. Days is this week's
+        // seven days, stepped back week by week; Weeks the twelve weekly bars; Months every month since the first.
+        // A bar opens its books under the chart; tapping it again closes them. Without the day and month figures
+        // (a cache written before 2 Nov 2026) only Weeks shows, as before.
         const weeks = chartWeeks(stats.weeks, stats.firstDay)
-        if (picked && !weeks.some(week => week.start === picked)) picked = null
         const booksOf = new Map((reading.weeks ?? []).map(week => [week.start, week.books]))
-        const daysOf = new Map((reading.weeks ?? []).flatMap(week => week.days?.length === 7 ? [[week.start, week.days] as const] : []))
+        const secondsOfDays = new Map((reading.weeks ?? []).flatMap(week => week.days?.length === 7 ? [[week.start, week.days] as const] : []))
+        const booksOfDay = new Map((reading.days ?? []).map(day => [day.day, day.books]))
+        const months = (reading.months ?? []).slice(-12)
+        const views = reading.days && reading.months && secondsOfDays.size > 0
+        if (!views) view = 'weeks'
+        const today = localDay()
+        const thisWeek = weeks[weeks.length - 1]?.start ?? today
+        if (!shownWeek || !weeks.some(week => week.start === shownWeek)) shownWeek = thisWeek
+        const sum = el('div', { className: 'tc-sum' })
         const detail = el('div', { className: 'tc-week', id: 'tc-week-books', dataset: { testid: 'reading-week' } })
-        const bars = el('div', { className: 'tc-bars', dataset: { testid: 'reading-weeks' } })
-        bars.style.setProperty('--tc-weeks', String(weeks.length))
-        const buttons = weekHeights(weeks).map((height, index) => {
-          const week = weeks[index]
-          const bar = el('i')
-          bar.style.height = `${height}%`
-          return el('button', {
-            type: 'button',
-            'aria-label': `${weekRange(week.start)}, ${durationShort(week.seconds)}`,
-            'aria-controls': detail.id,
-            dataset: { week: week.start },
-            onclick: () => { picked = picked === week.start ? null : week.start; paint() },
-          }, bar)
-        })
-        bars.append(...buttons)
+        const chartBars = (items: Array<{ key: string; seconds: number; label: string; className?: string; empty?: boolean }>, className: string) => {
+          const bars = el('div', { className: `tc-bars ${className}${picked && items.some(item => item.key === picked) ? ' is-picked' : ''}`, dataset: { testid: 'reading-weeks' } })
+          bars.style.setProperty('--tc-weeks', String(items.length))
+          const heights = weekHeights(items.map(item => ({ seconds: item.empty ? 0 : item.seconds })))
+          bars.append(...items.map((item, index) => {
+            const on = item.key === picked
+            const bar = el('i')
+            if (!item.empty) bar.style.height = `${heights[index]}%`
+            return el('button', {
+              type: 'button', className: item.className, disabled: item.empty || undefined,
+              'aria-label': item.label, 'aria-controls': detail.id, 'aria-pressed': String(on), 'aria-expanded': String(on),
+              dataset: { week: item.key },
+              onclick: () => { picked = on ? null : item.key; paint() },
+            }, item.empty ? null : bar)
+          }))
+          return bars
+        }
         const paint = () => {
-          bars.classList.toggle('is-picked', picked !== null)
-          for (const button of buttons) {
-            const on = button.dataset.week === picked
-            button.setAttribute('aria-pressed', String(on))
-            button.setAttribute('aria-expanded', String(on))
+          const total = view === 'days'
+            ? (secondsOfDays.get(shownWeek!) ?? []).reduce((a, b) => a + b, 0)
+            : view === 'weeks' ? weeks.reduce((a, week) => a + week.seconds, 0) : stats.totalSeconds
+          const figure = el('div', { className: 'tc-figure', dataset: { testid: 'reading-total' } })
+          for (const [n, unit] of readingFigures({ totalSeconds: total, last7Seconds: 0 }).total) figure.append(n, el('small', { text: unit }))
+          const since = dayMonth(stats.firstDay)
+          let sub: HTMLElement | null
+          let bars: HTMLElement
+          let axis: HTMLElement
+          let rows: HTMLElement[] = []
+          if (view === 'days') {
+            const at = weeks.findIndex(week => week.start === shownWeek)
+            const step = (by: number) => { shownWeek = weeks[at + by]?.start ?? shownWeek; picked = null; paint() }
+            sub = el('div', { className: 'tc-sub tc-weeknav' },
+              el('button', { type: 'button', 'aria-label': CARDS_COPY.previousWeek, disabled: at <= 0 || undefined, text: '‹', onclick: () => step(-1) }),
+              el('span', { text: shownWeek === thisWeek ? CARDS_COPY.thisWeek : weekRange(shownWeek) }),
+              el('button', { type: 'button', 'aria-label': CARDS_COPY.nextWeek, disabled: at >= weeks.length - 1 || undefined, text: '›', onclick: () => step(1) }))
+            const values = secondsOfDays.get(shownWeek!) ?? [0, 0, 0, 0, 0, 0, 0]
+            const items = WEEKDAYS.map((name, index) => {
+              const day = addDays(shownWeek!, index)
+              const future = day > today
+              return { key: day, seconds: values[index], empty: future, className: day === today ? 'is-today' : undefined, label: future ? `${name} ${dayMonthShortDate(day)}` : `${name} ${dayMonthShortDate(day)}, ${durationShort(values[index])}` }
+            })
+            bars = chartBars(items, 'is-days')
+            // Each day's time over its bar, as asked on 2 Nov ("–" under a minute; nothing over the days to come).
+            const dayValues = el('div', { className: 'tc-axis is-days is-values', 'aria-hidden': 'true', dataset: { testid: 'reading-day-values' } },
+              ...items.map(item => el('span', { text: item.empty ? '' : item.seconds >= 60 ? durationShort(item.seconds) : '–' })))
+            bars = el('div', { className: 'tc-days-chart' }, dayValues, bars)
+            axis = el('div', { className: 'tc-axis is-days', 'aria-hidden': 'true' }, ...items.map(item => el('span', { className: item.className, text: WEEKDAYS[items.indexOf(item)] })))
+            const pickedDay = items.find(item => item.key === picked)
+            if (pickedDay) {
+              const name = WEEKDAYS[items.indexOf(pickedDay)]
+              rows = [row({ label: `${name} ${dayMonthShortDate(pickedDay.key)}`, value: durationShort(pickedDay.seconds), className: 'is-head' }),
+                ...(booksOfDay.get(pickedDay.key) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
+            }
+          } else if (view === 'weeks') {
+            sub = since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null
+            bars = chartBars(weeks.map(week => ({ key: week.start, seconds: week.seconds, label: `${weekRange(week.start)}, ${durationShort(week.seconds)}` })), 'is-weeks')
+            axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
+              el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
+              el('span', { text: CARDS_COPY.thisWeek }))
+            const week = weeks.find(item => item.start === picked)
+            if (week) rows = [row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
+              ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
+          } else {
+            sub = since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null
+            bars = chartBars(months.map(month => ({ key: month.start, seconds: month.seconds, label: `${monthName(month.start)}, ${durationShort(month.seconds)}` })), 'is-months')
+            axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
+              el('span', { text: months.length > 1 ? monthName(months[0].start, true) : '' }),
+              el('span', { text: CARDS_COPY.thisMonth }))
+            const month = months.find(item => item.start === picked)
+            if (month) rows = [row({ label: monthName(month.start), value: durationShort(month.seconds), className: 'is-head' }),
+              ...month.books.map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row'))]
           }
-          const week = weeks.find(item => item.start === picked)
-          detail.hidden = !week
-          detail.replaceChildren(...(week ? [
-            row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
-            daysStrip(week.start, daysOf.get(week.start)),
-            ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row')),
-          ] : []))
+          const control = views ? segmented(CARDS_COPY.readingBy, [
+            { value: 'days', label: CARDS_COPY.byDays }, { value: 'weeks', label: CARDS_COPY.byWeeks }, { value: 'months', label: CARDS_COPY.byMonths },
+          ] as Array<{ value: ReadingView; label: string }>, view, next => { view = next; picked = null; shownWeek = thisWeek; paint() }, { wide: true, testid: 'reading-view' }) : null
+          sum.replaceChildren(...[control, figure, sub, bars, axis].filter((node): node is HTMLElement => !!node))
+          detail.hidden = rows.length === 0
+          detail.replaceChildren(...rows)
         }
         paint()
-        const axis = el('div', { className: 'tc-axis', 'aria-hidden': 'true' },
-          el('span', { text: weeks.length > 1 ? dayMonthShortDate(weeks[0].start) : '' }),
-          el('span', { text: CARDS_COPY.thisWeek }))
-        const since = dayMonth(stats.firstDay)
         body.append(el('div', { className: 'tc-g' },
-          el('div', { className: 'tc-sum' }, figure, since ? el('div', { className: 'tc-sub', text: CARDS_COPY.since(since) }) : null, bars, axis),
+          sum,
           detail,
           factsRow([
             { value: figures.last7, label: CARDS_COPY.last7 },
