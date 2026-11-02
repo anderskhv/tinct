@@ -99,7 +99,7 @@ export function primerRows(data) {
     opening: text(data.opening),
     structure: list(data.structure, 6).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim() }] : [])),
     people: list(data.people, 8).flatMap(item => (text(item?.name) && text(item?.text) ? [{ name: item.name.trim(), role: text(item.role), text: item.text.trim() }] : [])),
-    context: list(data.context, 4).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), level: ['essential', 'recommended', 'optional'].includes(item.level) ? item.level : 'optional', text: item.text.trim(), takeaway: text(item.takeaway), passages: passages(item.passages) }] : [])),
+    context: list(data.context, 4).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), level: ['essential', 'recommended', 'optional'].includes(item.level) ? item.level : 'optional', text: item.text.trim(), passages: passages(item.passages) }] : [])),
     notice: list(data.notice, 6).flatMap(item => (text(item?.text) ? [{ text: item.text.trim(), why: text(item.why), passages: passages(item.passages) }] : [])),
   };
 }

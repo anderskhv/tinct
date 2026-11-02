@@ -380,12 +380,20 @@ function renderOpening(body){
  const list=el('div','primer-rows');
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>{const ol=el('ol','primer-structure');rows.structure.forEach(item=>{const li=el('li');li.append(el('span','primer-part',item.title),el('span','primer-part-text',item.text));ol.append(li);});inner.append(ol);}));
  if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>{rows.people.forEach(item=>{const p=el('div','primer-person');p.append(el('h3','',item.name));if(item.role)p.append(el('p','primer-role',item.role));p.append(el('p','',item.text));inner.append(p);});}));
- if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');s.append(el('span','',item.title),el('small',`primer-level is-${item.level}`,{essential:'Essential',recommended:'Recommended',optional:'Optional'}[item.level]));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));if(item.takeaway)t.append(el('p','primer-takeaway',item.takeaway));d.append(t);inner.append(d);});}));
- if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>{const ul=el('ul','primer-notice');rows.notice.forEach(item=>{const li=el('li');li.append(el('span','',item.text));if(item.why)li.append(el('span','primer-why',item.why));ul.append(li);});inner.append(ul);}));
+ if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');const name=el('span','primer-topic-name',item.title);if(item.level==='essential')name.append(el('small','primer-level','Essential'));s.append(name,el('span','primer-chevron','⌄'));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));d.append(t);inner.append(d);});}));
+ if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>{const ul=el('ul','primer-notice');rows.notice.forEach(item=>{const li=el('li');li.append(el('span','',[item.text,item.why].filter(Boolean).join(' ')));ul.append(li);});inner.append(ul);}));
  if(list.childElementCount)body.append(list);
 }
 // The edition is a quiet choice on the author flap (Anders, 2 Nov 2026), under the biography.
-function renderSlipEdition(){let slot=$('slip-edition');if(!slot){slot=el('div','slip-edition');slot.id='slip-edition';$('slip-content').append(slot);}const line=currentTab==='edition'?null:editionLine();slot.replaceChildren(...(line?[line]:[]));}
+function renderSlipEdition(){
+ let slot=$('slip-edition');if(!slot){slot=el('div','slip-edition');slot.id='slip-edition';$('slip-content').append(slot);}
+ const versions=availableEditions(),picked=choices();if(versions.length<2){slot.replaceChildren();return;}
+ const chosen=versions.find(v=>v.key===picked.main)||versions[0],name=v=>[v.label||v.key,v.provenanceLabel].filter(Boolean).join(' · ');
+ const details=el('details','slip-edition-select');details.dataset.testid='intro-edition-link';const summary=el('summary');summary.append(el('span','',chosen.label||chosen.key),el('span','primer-chevron','⌄'));details.append(summary);
+ const list=el('div','slip-edition-options');
+ versions.forEach(v=>{const b=el('button','slip-edition-option');b.append(el('span','',v.label||v.key));if(v.provenanceLabel)b.append(el('small','',v.provenanceLabel));b.type='button';b.setAttribute('aria-pressed',String(v.key===chosen.key));b.onclick=()=>{picked.main=v.key;picked.explicit=true;if(picked.compare===v.key)picked.compare=picked.compareExplicit?null:pairedCompare(v.key);details.open=false;renderIntro();};list.append(b);});
+ details.append(list);slot.replaceChildren(el('span','slip-edition-label','Your edition'),details);
+}
 function renderIntro(){
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
  $('intro-heading').textContent=currentTab==='edition'?'Edition':activeBook.title;
