@@ -72,6 +72,7 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'meditations/modern-da',
   'middlemarch/modern-da',
   'the-art-of-war/modern-da',
+  'the-manual/modern-da',
   'wuthering-heights/modern-da',
 ])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */

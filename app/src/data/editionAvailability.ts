@@ -4,7 +4,7 @@ import manifest from './editionAvailability.json'
  * They have no successor: never pass these through migrateWithheldEdition.
  */
 export const TEMPORARY_EDITION_HOLDS: Readonly<Record<string, { reason: string }>> = manifest.editions
-/** Reviewed Danish text editions explicitly published by Anders.
+/** Danish text editions explicitly authorized for publication by Anders.
  * Other Danish files remain preserved but withdrawn. Adding a language never
  * grants publication by itself: each exact identity must pass integration QA.
  */
@@ -26,6 +26,7 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'meditations/modern-da',
   'middlemarch/modern-da',
   'the-art-of-war/modern-da',
+  'the-manual/modern-da',
   'wuthering-heights/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
