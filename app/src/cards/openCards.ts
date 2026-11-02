@@ -7,6 +7,7 @@
  * redirect to the page with `?card=<name>`; the page opens that card on
  * load and drops the parameter (cardRoutes.ts).
  */
+import { endSession } from './endSession'
 import { supabase } from '../services/supabase'
 import { clearSignedInCookie } from '../utils/authCookie'
 import { authRedirectTo } from '../utils/nativeAuth'
@@ -213,7 +214,7 @@ export async function openAccountCards(options: OpenCardsOptions): Promise<boole
     reloadFind: () => loadFind(env, patch => { Object.assign(env.data, patch); env.changed() }),
     navigate: url => { location.assign(url) },
     signOut: async (landing = '/library') => {
-      try { await supabase?.auth.signOut() } catch { /* signed out locally below */ }
+      await endSession(supabase?.auth)
       clearSignedInCookie()
       // The next person on this device must not inherit this reader's data.
       wipeLabDeviceUserData()
