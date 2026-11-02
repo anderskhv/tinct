@@ -38,6 +38,13 @@ export const PDF_EXPLAIN_OPENING_RULE = 'Start with the meaning itself. Never de
 export const PDF_EXPLAIN_PROMPT = `Explain the passage the reader selected: what it says and what it means here, in plain language for a careful reader. ${PDF_EXPLAIN_FORMAT} Write any maths inline as plain text. ${PDF_EXPLAIN_TEXT_RULE} ${PDF_EXPLAIN_OPENING_RULE}`
 
 /**
+ * Explain on a selected chart, diagram or table in a PDF (Anders, 2 Nov 2026: a slide's bar chart came back as
+ * "The bars show quarterly figures in NOK million … Each bar is stacked in layers: a dark base, a light blue
+ * middle…"; he wanted the point, not a description, and the months were read as quarters).
+ */
+export const PDF_FIGURE_EXPLAIN_PROMPT = 'Explain the figure or table the reader selected; it is the attached image. First paragraph: its main point in one sentence, at most 25 words, with the number or comparison that carries it, the way a good headline for it would read. Then a blank line, then at most two short paragraphs: what else in it matters, and what it means in this document. Read every label, period, unit and value exactly as printed; never guess one you cannot read. Never describe the chart type, colours, layout, axes or legend unless one is needed to read a value. Write any maths inline as plain text. About 100 words or fewer in all. No preamble, no headings.'
+
+/**
  * Simplify (round 3, 16 Oct; Anders: "exactly one plain rewrite"): one rewrite as long as the selection, the same
  * meaning in everyday words, and nothing else. recheck-1 found the old two-part answer (a restatement, then the
  * rewrite) repeating its first line and, on a fragment, finishing the sentence with a changed meaning.

@@ -564,12 +564,13 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     } catch { /* offline: one owner/file-generation journal remains dirty */ }
   }
   ask: PdfOriginalReaderServices['ask'] = async (selection, intent, question, signal, onDelta) => {
-    if (!this.trusted() || !selection.text.trim() || selection.text.length > 9000) return null
+    if (!this.trusted() || !selection.text.trim()) return null
+    if (selection.text.length > 9000) throw new PdfAskError('This selection is too long to explain. Select a shorter passage.')
     const token = await this.token()
-    if (!token || !await this.currentGeneration(token)) return null
+    if (!token) throw new PdfAskError('Sign in again to ask about this PDF.')
+    if (!await this.currentGeneration(token)) throw new PdfAskError('This PDF changed in your account. Reopen it to ask about it.')
     const action = intent === 'recap' || intent === 'catchup' ? 'ask' : intent
     if (!['ask', 'explain', 'define', 'simplify', 'factcheck', 'counterpoint', 'quiz', 'related'].includes(action)) return null
-    if (selection.text.length > 9000) return null
     // A figure or formula is sent as its image; its text stand-in ("Formula") must not reach the model as the passage.
     const region = selection.region
     const text = region ? `[The reader selected ${region.label || (region.kind === 'equation' ? 'a formula' : `a ${region.kind}`)} on page ${selection.page}. It is the attached image.${region.caption ? ` Caption: ${region.caption}` : ''}]` : selection.text
@@ -578,21 +579,45 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const pageText = !selection.pages ? await this.getPageText(selection.page).catch(() => '') : ''
     const selectedPages = selection.pages ?? [{ n: selection.page, text: pageText || text }]
     const figure = region ? await region.image().catch(() => null) : null
-    if (selection.region && !figure) throw new Error('This figure could not be read. No question was sent.')
+    if (selection.region && !figure) throw new PdfAskError('This figure could not be read. No question was sent.')
     if (!this.trusted() || signal?.aborted) return null
     const request = {
       stream: true,
       messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
       companion: { intent: action, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
         pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
-        selection: text },
+        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) },
     }
+    // Every failure says what happened (Anders, 2 Nov 2026: a bare "No answer was returned." covered six causes).
+    // A dropped connection or a server error before any answer is tried once more.
+    let response: Response | null = null
+    for (let attempt = 0; attempt < 2 && !response; attempt++) {
+      let reply: Response
+      try { reply = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() }, body: JSON.stringify(request) }) }
+      catch {
+        if (signal?.aborted || !this.trusted()) return null
+        if (attempt === 0) continue
+        throw new PdfAskError('The connection dropped. Try again.')
+      }
+      if (!this.trusted() || signal?.aborted) return null
+      if (reply.ok) { response = reply; break }
+      if (reply.status >= 500 && attempt === 0) continue
+      const body = await reply.json().catch(() => ({})) as { error?: unknown }
+      const said = typeof body.error === 'string' && body.error.length < 160 ? body.error : ''
+      console.warn('[pdf ask] refused', reply.status, said)
+      throw new PdfAskError(reply.status === 401 ? 'Sign in again to ask about this PDF.'
+        : reply.status === 429 || reply.status === 402 ? said || 'Too many questions at once. Give it a few seconds.'
+          : `Tinct could not answer this time (error ${reply.status}). Try again.`)
+    }
+    if (!response) return null
     try {
-      const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() }, body: JSON.stringify(request) })
-      if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       return this.trusted() ? answer : null
-    } catch { return null }
+    } catch (error) {
+      if (signal?.aborted || !this.trusted()) return null
+      console.warn('[pdf ask] stream ended without an answer', error)
+      throw new PdfAskError('The answer stopped before it was finished. Try again.')
+    }
   }
   askQuizCheck: NonNullable<PdfOriginalReaderServices['askQuizCheck']> = async (selection, quiz) => {
     if (!this.trusted() || !selection.text.trim() || selection.text.length > 9000) return null
@@ -611,6 +636,12 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     } catch { return null }
   }
   dispose() { this.live = false; this.unsubscribePlayer?.(); this.unsubscribeChat?.(); this.chat?.dispose(); for (const timer of Object.values(this.timers)) clearTimeout(timer); this.listeners.clear() }
+}
+
+/** A failed question with words for the reader; the shell shows `message` in the card. */
+export class PdfAskError extends Error {
+  readonly readerMessage: string
+  constructor(message: string) { super(message); this.name = 'PdfAskError'; this.readerMessage = message }
 }
 
 /** The shell only sees a service after its local file ID or account copy proves the generation. */

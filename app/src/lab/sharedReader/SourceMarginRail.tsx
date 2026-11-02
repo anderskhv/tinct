@@ -26,6 +26,20 @@ export interface SourceMarginRailProps {
   ownsSourcePointer?: (event: PointerEvent) => boolean
   onBlankNote?: (position: { clientY: number; sourceY: number }) => void
 }
+/**
+ * A folded card's line: the answer's first paragraph without Markdown marks, cut at a word with "…" when long.
+ * It was a bare 160-character slice, which stopped mid-word ("…a light blue middle and, on some bar";
+ * Anders, 2 Nov 2026) and read as a broken answer.
+ */
+export function sourceMarginPreviewText(preview: string | undefined, max = 160): string {
+  const first = (preview ?? '').trim().split(/\n\s*\n/)[0] ?? ''
+  const plain = first.replace(/^#+\s*/gm, '').replace(/[*_`]+/g, '').replace(/\s+/g, ' ').trim()
+  if (plain.length <= max) return plain
+  const cut = plain.slice(0, max + 1)
+  const space = cut.lastIndexOf(' ')
+  return `${(space > max * 0.6 ? cut.slice(0, space) : plain.slice(0, max)).replace(/[\s,;:.\u2013\u2014-]+$/u, '')}…`
+}
+
 export function sourceMarginLayout<T extends { id: string; y: number; height: number; order: number }>(items: T[], gap = 18) {
   let floor = 0
   return [...items].sort((a, b) => a.order - b.order || a.y - b.y || a.id.localeCompare(b.id)).map(item => {
@@ -146,7 +160,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && <button type="button" className="source-margin-preview" onClick={entry.onToggle}>{entry.preview?.slice(0, 160) || 'Open this card'}</button>}
+        {!entry.open && <button type="button" className="source-margin-preview" onClick={entry.onToggle}>{sourceMarginPreviewText(entry.preview) || 'Open this card'}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}

@@ -167,3 +167,15 @@ it('focuses an editor synchronously once its measured card is visible, without s
   rerender(<SourceMarginRail host={host} entries={[{ ...entry }]} />)
   expect(document.activeElement).toBe(other)
 })
+
+it('folds a card to its first paragraph, cut at a word with an ellipsis, never mid-word (2 Nov 2026)', async () => {
+  const { sourceMarginPreviewText } = await import('./SourceMarginRail')
+  const long = 'The bars show quarterly figures in NOK million, with the first bar labelled 62. Each bar is stacked in layers: a dark base, a light blue middle and, on some bars, a red top.'
+  const folded = sourceMarginPreviewText(long)
+  expect(folded.endsWith('…')).toBe(true)
+  expect(folded.length).toBeLessThanOrEqual(161)
+  expect(long.startsWith(folded.slice(0, -1))).toBe(true)
+  expect(long[folded.length - 1]).toMatch(/[\s,]/)
+  expect(sourceMarginPreviewText('**October fell to 51 million.**\n\nNorway carried most of it.')).toBe('October fell to 51 million.')
+  expect(sourceMarginPreviewText('')).toBe('')
+})
