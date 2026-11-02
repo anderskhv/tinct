@@ -199,11 +199,32 @@ function selfView(row: ReaderProfileRow, account: { emailConfirmed: boolean; ema
   }
 }
 
-async function accountState(store: ProfileStore, user: ProfileAuthUser, now: Date): Promise<{ emailConfirmed: boolean; emailOptIn: boolean }> {
+/**
+ * The session was started with a code (or link) sent to the account's own email: the reader proved the address
+ * (onboarding v3, 2 Nov 2026). Read from the access token's `amr` claim; the token was already accepted by
+ * Supabase in verifyUser, so its payload is the session's own.
+ */
+export function sessionProvedEmail(request: Request | null | undefined): boolean {
+  const token = request?.headers.get('authorization')?.match(/^Bearer\s+(\S+)$/i)?.[1]
+  const payload = token?.split('.')[1]
+  if (!payload) return false
+  try {
+    const claims = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(payload.length / 4) * 4, '=')))
+    const amr: unknown = claims?.amr
+    return Array.isArray(amr) && amr.some(entry => {
+      const method = typeof entry === 'string' ? entry : (entry as { method?: unknown } | null)?.method
+      return method === 'otp' || method === 'magiclink'
+    })
+  } catch {
+    return false
+  }
+}
+
+async function accountState(store: ProfileStore, user: ProfileAuthUser, now: Date, request?: Request): Promise<{ emailConfirmed: boolean; emailOptIn: boolean }> {
   const account = await store.getAccount(user.id)
   let confirmed = Boolean(account?.email_confirmed_at)
-  // Google sign-ups count as confirmed (Google verified the address).
-  if (!confirmed && account && isGoogleAccount(user)) {
+  // Google sign-ups count as confirmed (Google verified the address); so does a session begun with an email code.
+  if (!confirmed && account && (isGoogleAccount(user) || sessionProvedEmail(request))) {
     await store.updateAccount(user.id, { email_confirmed_at: now.toISOString() })
     confirmed = true
   }
@@ -337,8 +358,10 @@ async function buildPatch(store: ProfileStore, row: ReaderProfileRow, body: Reco
   const patch: Patch = {}
   if ('name' in body) {
     const name = cleanDisplayName(body.name)
-    if (!name) return { error: 'Please choose another name.', field: 'name', status: 422 }
-    patch.display_name = name
+    // An empty name leaves the name as it is: it never blocks a step (onboarding v3). A name that cleans to
+    // nothing from something typed still asks for another.
+    if (!name && String(body.name ?? '').trim()) return { error: 'Please choose another name.', field: 'name', status: 422 }
+    if (name) patch.display_name = name
   }
   if ('handle' in body) {
     const handle = normalizeHandle(String(body.handle ?? ''))
@@ -504,7 +527,7 @@ export async function handleProfiles(
       const bookHint = url.searchParams.get('book')
       const row = await ownProfile(store, user, bookHint && /^[a-z0-9-]{1,80}$/.test(bookHint) ? bookHint : null, random)
       await flagInternal(store, user, request)
-      const account = await accountState(store, user, now)
+      const account = await accountState(store, user, now, request)
       if (!account.emailConfirmed) {
         const confirmation = sendSignUpConfirmation(store, user, deps, now)
         if (deps.defer) deps.defer(confirmation)
@@ -549,7 +572,7 @@ export async function handleProfiles(
       if (optIn) await store.updateAccount(user.id, { email_opt_in: true, email_opt_in_at: now.toISOString(), email_consent_version: EMAIL_CONSENT_VERSION })
       else if (body.emailOptIn === false) await store.updateAccount(user.id, { email_opt_in: false, email_opt_out_at: now.toISOString() })
       const next = await store.getOwn(user.id) ?? { ...row, ...patch }
-      const account = await accountState(store, user, now)
+      const account = await accountState(store, user, now, request)
       return reply({ enabled: true, available: true, profile: selfView(next, account, user, photoUploadsOn(env)) }, 200, request)
     }
 
@@ -577,7 +600,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, slot, jpeg.bytes, 'image/jpeg', 'upload', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now, request), user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/google-photo' && request.method === 'POST') {
@@ -595,7 +618,7 @@ export async function handleProfiles(
       const row = await ownProfile(store, user, null, random)
       await storeImage(env, store, row, 'picture', bytes, type, 'google', random)
       const next = await store.getOwn(user.id) ?? row
-      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now), user, photoUploadsOn(env)) }, 200, request)
+      return reply({ enabled: true, available: true, profile: selfView(next, await accountState(store, user, now, request), user, photoUploadsOn(env)) }, 200, request)
     }
 
     if (url.pathname === '/api/profile/confirm-link' && request.method === 'POST') {
@@ -621,7 +644,7 @@ export async function handleProfiles(
  * { ok: true }, so the reply never says anything about an address.
  */
 async function sendConfirmLink(request: Request, store: ProfileStore, user: ProfileAuthUser, deps: ProfileDeps, now: Date): Promise<Response> {
-  const account = await accountState(store, user, now)
+  const account = await accountState(store, user, now, request)
   if (account.emailConfirmed) return reply({ ok: true, confirmed: true }, 200, request)
   if (!deps.sendConfirmLink || !deps.confirmLinkAllowed) return reply({ error: 'Unavailable' }, 503, request)
   const row = await store.getAccount(user.id)

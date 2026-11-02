@@ -235,7 +235,7 @@ it('restores a non-Bible audiobook before opening reader settings', () => {
   fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-  expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Tinct Modern English')
+  expect(screen.getByTestId('lab-v2-main-edition').textContent).toContain('Modern translation')
   fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))
   fireEvent.click(screen.getByTestId('lab-super'))
   fireEvent.click(screen.getByTestId('lab-super-row-audio'))

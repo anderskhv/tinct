@@ -975,7 +975,7 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     assert.equal(await page.getByTestId('lab-v2-sheet').getAttribute('aria-label'),'Book settings')
     await page.getByTestId('lab-v2-main-edition').click()
     const modern=page.locator('[data-edition="modern-en"]')
-    assert.match(await modern.innerText(),/Tinct Modern English.*Easy.*AI-generated/s)
+    assert.match(await modern.innerText(),/Modern translation.*Easy.*AI-generated/s)
     const original=page.locator('[data-edition="original-en"]')
     assert.match(await original.innerText(),/Hard/)
     const neutral=await page.locator('.lab-v2-difficulty').evaluateAll(nodes=>nodes.map(node=>{

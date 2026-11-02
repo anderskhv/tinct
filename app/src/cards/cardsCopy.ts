@@ -1,3 +1,4 @@
+import { NEW_BOOKS_COPY, NEW_BOOKS_FOOT } from '../social/profileRules'
 /**
  * Every word the account cards show. Card words are cards.html's (approved
  * 9 October 2026); the rest is existing Tinct copy, reused where the design
@@ -44,9 +45,12 @@ export const CARDS_COPY = {
   more: (n: number) => `${n} more`,
   profile: 'Profile',
   newBooksOpenIn: 'New books open in',
-  modern: 'Modern',
-  original: 'Original',
-  newBooksFoot: 'Modern is Tinct’s English rewrite; Original is the source text or a published translation.',
+  // The same words as sign-up and the reader's edition picker (profileRules NEW_BOOKS_COPY, onboarding v3).
+  modern: NEW_BOOKS_COPY.modern.short,
+  original: NEW_BOOKS_COPY.human.short,
+  newBooksFoot: NEW_BOOKS_FOOT,
+  languages: 'Languages',
+  readingEmails: 'Reading emails',
   account: 'Account',
   email: 'Email',
   password: 'Password',

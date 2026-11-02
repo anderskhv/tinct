@@ -40,17 +40,21 @@ try {
     await page.goto(origin+'/sign-in?mode=profile&returnTo=%2Freader%3Fbook%3Dodyssey')
     await page.locator('[data-social-continue]:visible').waitFor()
     assert.equal(await page.locator('[name=profileName]').inputValue(), '')
-    assert.equal(await page.locator('[data-value=everyone]').getAttribute('aria-checked'),'true')
+    assert.equal(await page.locator('[data-visibility=everyone]').getAttribute('aria-checked'),'true')
     assert.deepEqual(posts,[])
-    const bannerImage = await page.locator('.social-profile-banner').evaluate(node => getComputedStyle(node).backgroundImage)
-    assert.ok(bannerImage.includes('room-library-night.jpg'), 'Profile banner must render the existing library background')
+    // Onboarding v3: no background by default, one added from "+ Add a background"; "1 of 2" with Skip at the top.
+    assert.equal(await page.locator('.social-banner').isHidden(), true)
+    assert.equal(await page.locator('[data-social-add-background]').isVisible(), true)
+    assert.equal(await page.locator('[data-mode-copy="profile"] .social-counter span').innerText(), '1 of 2')
     await page.evaluate(() => Promise.all([...document.images].map(image => image.decode().catch(() => {}))))
-    const selectors={...DEFAULT_SELECTORS, card:'.auth-card', text:'.social-step h1,.social-label,.social-tick,.social-note', tap:'.social-step button', bar:null, menu:null, foot:null}
+    const selectors={...DEFAULT_SELECTORS, card:'.auth-card', text:'.social-step h1,.social-label,.social-chip,.social-option,.social-note', tap:'.social-step button', bar:null, menu:null, foot:null}
     assert.deepEqual(await checkLayout(page,{selectors}),[])
     await page.screenshot({path:`${output}/${size}-profile.png`,fullPage:true})
     await page.locator('[name=profileName]').fill('Synthetic Reader')
     await page.locator('[data-social-continue]').click()
     await page.locator('[data-social-start]:visible').waitFor()
+    // Continue moves on at once; the save follows behind it.
+    for (let i = 0; i < 50 && !posts.length; i++) await page.waitForTimeout(100)
     assert.equal(posts[0].visibility,'everyone')
     for(const key of ['showReading','showTime','onLeaderboard']) assert.equal(posts[0][key],true)
     assert.deepEqual(await checkLayout(page,{selectors}),[])
@@ -58,10 +62,10 @@ try {
     await page.locator('[data-language=da]').click()
     await page.locator('[data-language=en]').click()
     await page.locator('[data-language=da]').click()
-    assert.equal(await page.locator('[data-language=da]').getAttribute('aria-checked'),'true')
+    assert.equal(await page.locator('[data-language=da]').getAttribute('aria-pressed'),'true')
     await page.locator('[data-social-start]').click()
     await page.waitForURL('**/reader?book=odyssey')
-    assert.deepEqual(posts[1].readingLanguages,['da'])
+    assert.deepEqual(posts.at(-1).readingLanguages,['da'])
     assert.deepEqual(errors,[])
     await context.close()
   }

@@ -61,7 +61,7 @@ it('returns a first Compare version pick to Aa and disables paragraph-incompatib
     compareFromLayout onPrefs={onPrefs} onLayer={onLayer} />)
   expect(screen.getByRole<HTMLButtonElement>('button', { name: /Unaligned/ }).disabled).toBe(true)
   expect(screen.getByText('Paragraphs don’t line up')).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: /Modern English/ }))
+  fireEvent.click(screen.getByRole('button', { name: /Modern translation/ }))
   expect(onPrefs).toHaveBeenCalledWith(expect.objectContaining({ compareEdition: 'modern-en', compareOpen: true }))
   expect(onLayer).toHaveBeenCalledWith('reading')
 })

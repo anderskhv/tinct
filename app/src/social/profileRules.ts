@@ -32,10 +32,16 @@ export const VISIBILITY_COPY: Record<Visibility, { label: string; line: string; 
   everyone: { label: 'Everyone', line: 'Anyone with your link, and the Everyone board.', short: 'everyone can see you' },
 }
 
-export const NEW_BOOKS_COPY: Record<NewBooksOpenIn, { label: string; line: string }> = {
-  modern: { label: 'Modern English', line: 'The same book, in today’s English.' },
-  human: { label: 'Human originals or translations', line: 'The original text, or a published translation.' },
+/**
+ * The two ways a new book can open, in the same words everywhere: sign-up, Settings and the reader's edition picker
+ * (onboarding v3, Anders 2 Nov 2026). `short` is the Settings segment and the picker's name.
+ */
+export const NEW_BOOKS_COPY: Record<NewBooksOpenIn, { label: string; short: string; line: string }> = {
+  modern: { label: 'Modern translation', short: 'Modern', line: 'AI-generated, in today’s language. Easier to read.' },
+  human: { label: 'Original', short: 'Original', line: 'The author’s own words, or a published human translation.' },
 }
+/** The one-line explanation under Settings' "New books open in". */
+export const NEW_BOOKS_FOOT = 'Modern is an AI-generated translation in today’s language; Original is the author’s text or a published human translation.'
 
 /**
  * The sign-up consent line (Anders, 7 October 2026) and its wording version,
@@ -251,15 +257,17 @@ export interface PictureSet {
   pos: string
   /** The profile background: the room of the library scene, cut above its table (10 Oct 2026). */
   room: string
+  /** The same room as a small banner (about 25 KB): the profile step's background choices (onboarding v3). */
+  scene: string
 }
 
 /** Sets pair a picture and a background from the same book (flows.html). */
 export const PICTURE_SETS: readonly PictureSet[] = [
-  { id: 'stoic', label: 'Stoic', bookId: 'meditations', cover: `${ASSETS}/meditations.jpg`, pos: '50% 34%', room: `${ASSETS}/room-meditations-phone.jpg` },
-  { id: 'at-sea', label: 'At sea', bookId: 'odyssey', cover: `${ASSETS}/odyssey.jpg`, pos: '30% 60%', room: `${ASSETS}/room-odyssey-phone.jpg` },
-  { id: 'florence', label: 'Florence', bookId: 'the-prince', cover: `${ASSETS}/the-prince.jpg`, pos: '40% 55%', room: `${ASSETS}/room-the-prince-phone.jpg` },
-  { id: 'petersburg', label: 'Petersburg', bookId: 'crime-and-punishment', cover: `${ASSETS}/crime-and-punishment.jpg`, pos: '50% 38%', room: `${ASSETS}/room-crime-and-punishment-phone.jpg` },
-  { id: 'longbourn', label: 'Longbourn', bookId: 'pride-and-prejudice', cover: `${ASSETS}/pride-and-prejudice.jpg`, pos: '50% 32%', room: `${ASSETS}/room-pride-and-prejudice-phone.jpg` },
+  { id: 'stoic', label: 'Stoic', bookId: 'meditations', cover: `${ASSETS}/meditations.jpg`, pos: '50% 34%', room: `${ASSETS}/room-meditations-phone.jpg`, scene: `${ASSETS}/profile/scene-stoic.jpg` },
+  { id: 'at-sea', label: 'At sea', bookId: 'odyssey', cover: `${ASSETS}/odyssey.jpg`, pos: '30% 60%', room: `${ASSETS}/room-odyssey-phone.jpg`, scene: `${ASSETS}/profile/scene-at-sea.jpg` },
+  { id: 'florence', label: 'Florence', bookId: 'the-prince', cover: `${ASSETS}/the-prince.jpg`, pos: '40% 55%', room: `${ASSETS}/room-the-prince-phone.jpg`, scene: `${ASSETS}/profile/scene-florence.jpg` },
+  { id: 'petersburg', label: 'Petersburg', bookId: 'crime-and-punishment', cover: `${ASSETS}/crime-and-punishment.jpg`, pos: '50% 38%', room: `${ASSETS}/room-crime-and-punishment-phone.jpg`, scene: `${ASSETS}/profile/scene-petersburg.jpg` },
+  { id: 'longbourn', label: 'Longbourn', bookId: 'pride-and-prejudice', cover: `${ASSETS}/pride-and-prejudice.jpg`, pos: '50% 32%', room: `${ASSETS}/room-pride-and-prejudice-phone.jpg`, scene: `${ASSETS}/profile/scene-longbourn.jpg` },
 ]
 
 /** Library covers a picture can be cut from (a cover detail). */

@@ -1,3 +1,4 @@
+import { NEW_BOOKS_COPY } from '../social/profileRules'
 import type { Edition } from '../types'
 
 export type EditionDifficulty = 'Easy' | 'Medium' | 'Hard'
@@ -119,6 +120,7 @@ export function editionDifficulty(bookId: string, edition: Edition): EditionDiff
   return reviewed[bookId + ':' + edition.key]
 }
 
+/** The edition picker names Tinct's modern edition in the same words as sign-up and Settings (NEW_BOOKS_COPY). */
 export function readerEditionLabel(edition: Edition): string {
-  return edition.key === 'modern-en' ? 'Tinct Modern English' : edition.label
+  return edition.key === 'modern-en' ? NEW_BOOKS_COPY.modern.label : edition.label
 }
