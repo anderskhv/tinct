@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'the-manual': {
+  "revision": "text-2026-11-02.manual.1",
+  "releasedAt": 1793625566583,
+  "editions": {
+    "modern-en": {
+      "before": "2ac0db1347defd5bea73e993f4db672a37136f53bcf69423dab544de20040f35",
+      "after": "440a9f9abcb899abbffee46275c06b9c360b0e5d9692db0e459534cb8cb10493"
+    },
+    "modern-da": {
+      "before": "08b3e433b8b9c74cc6ee9d72c8cff97502c1095ab827e9c09ffd290e93c83879",
+      "after": "4d5e4e5a1ece8ed79b1f980e9d7e1219ea84938bbdc2dac4eeab6cb5789947cb"
+    }
+  }
+},
   'aristotle-politics': {
     revision: 'text-2026-10-01.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
