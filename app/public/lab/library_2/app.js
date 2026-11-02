@@ -5,7 +5,7 @@ import '/lab/display-profile.js';
 import {registerCommands,openCommands,commandsEnabled} from '/omarchy/experience.js?v=20261005h1';
 import {readVisit,rememberVisit} from './visit.js?v=20261001visit';
 import {mountHeroNavigation} from './hero-navigation.js?v=20260928covers';
-import {mountBookshelf} from './bookshelf.js?v=20261021deskopen';
+import {mountBookshelf} from './bookshelf.js?v=20261102empty';
 import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,authorImageFor} from './authors.js?v=20261009rel10';
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
@@ -181,6 +181,7 @@ featuredBooks.forEach((book,i)=>{const b=el('button');b.setAttribute('aria-label
 function updateHeroAction(){const continuing=window.__library2Reading?.reading.some(b=>b.bookId===featured.id);$('read-featured').firstChild.textContent=continuing?'Continue':'Read';}
 async function openFeatured(){if(window.__library2Reading?.reading.some(b=>b.bookId===featured.id)){try{const href=await readerDestination(featured,null);if(href!=='/reader')throw new Error();rememberVisit({featured:featured.id});location.assign(href);}catch{notice('Your book could not open. Please try again.');}}else openBook(featured,$('hero-book').querySelector('canvas'));}
 $('hero-book').onclick=$('read-featured').onclick=openFeatured;
+window.__library2HeroWired=true;if(window.__library2EarlyOpen){window.__library2EarlyOpen=false;$('hero-book').removeAttribute('aria-busy');$('read-featured').removeAttribute('aria-busy');setTimeout(()=>{if(!/\breturning(-pending)?\b/.test(document.documentElement.className))openFeatured();},0);}
 addEventListener('library2:reading',updateHeroAction);
 // Signed in: Account; signed out: Sign in. Both go to the production account page and come back here.
 function syncAccountButton(){const signedIn=document.documentElement.classList.contains('signed-in');if(!$('sign-in').classList.contains('cards-you'))$('sign-in').textContent=signedIn?'Account':'Sign in';$('sign-in').onclick=()=>location.assign(`/sign-in?${signedIn?'mode=account&':''}returnTo=${encodeURIComponent('/library')}`);}
