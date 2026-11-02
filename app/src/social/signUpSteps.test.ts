@@ -232,6 +232,8 @@ describe('onboarding v3 steps (approved mockup, 2 Nov 2026)', () => {
     expect([...step.querySelectorAll('.social-chip')].map(chip => chip.textContent)).toEqual(['English', 'Dansk'])
     expect([...step.querySelectorAll('.social-option strong')].map(node => node.textContent)).toEqual(['Modern translation', 'Original'])
     expect([...step.querySelectorAll('.social-option small')].map(node => node.textContent)).toEqual(['AI-generated, in today’s language. Easier to read.', 'The author’s own words, or a published human translation.'])
+    // Where the choice is changed later (Anders, 2 Nov 2026: "You can switch any book at any time" was not clear).
+    expect(step.textContent).toContain('You can change this for any book while you read, under Aa › Main version.')
     q<HTMLButtonElement>('.social-chip[data-language="da"]').click()
     q<HTMLButtonElement>('.social-option[data-value="human"]').click()
     q<HTMLButtonElement>('[data-social-start]').click()

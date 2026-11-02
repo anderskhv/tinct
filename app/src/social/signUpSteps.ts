@@ -432,7 +432,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     counter(2, readingSkip), el('h1', {}, 'How do you read?'),
     el('span', { className: 'social-label' }, 'Languages'), languageChoices,
     el('span', { className: 'social-label' }, 'New books open in'), editionChoices,
-    el('p', { className: 'social-note' }, 'You can switch any book at any time.'),
+    el('p', { className: 'social-note' }, 'You can change this for any book while you read, under Aa › Main version.'),
     startButton)
 
   card.querySelector('[data-auth-status]')?.before(step2, step3)
