@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  crito: {
+  "revision": "text-2026-11-02.crito.1",
+  "releasedAt": 1793626567485,
+  "editions": {
+    "modern-en": {
+      "before": "5ff432e7e028e7caff6b11984a50ca0db43f3ce976b68af8f5466f7f23293add",
+      "after": "241326ee42ee5c457192a91961a6d276c5add7b09304eda987a2cca562d44d89"
+    },
+    "modern-da": {
+      "before": "4f2aa8b2b6f2c8b36d90026c6e563015d6599f89595dc5f8c56960ade78d1237",
+      "after": "d91a71009bd515eb1fa5cab47415224fc588a28b2b8e8644c6a6a886c60dd12d"
+    }
+  }
+},
   'the-manual': {
   "revision": "text-2026-11-02.manual.1",
   "releasedAt": 1793625566583,
