@@ -379,10 +379,13 @@ function renderOpening(body){
  if(book.opening)body.append(el('p','intro-opening',book.opening));
  const list=el('div','primer-rows');
  // Each item is one paragraph with a bold lead-in ("Title: text"), never a heading over a heading (Anders, 2 Nov 2026).
+ // "Name – the ruler of Thebes…": an ordinary first word is lowercased after the dash; a name ("Socrates, who…",
+ // "Mill's rule…") keeps its capital.
+ const personLine=text=>/^(?:The|A|An|His|Her|Their|Its|One|Two|Three|Four|Five|For|In|On|Old|Ancient|Born|Twin|Spirits|Learning|Ordinary|Life|Chance|Forcing|Goodness|Exclusive)\b/.test(text)?text.replace(/^./,c=>c.toLowerCase()):text;
  const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',`${title}: `),document.createTextNode(text));return p;};
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
  // People read as a plain cast list: name, then who they are; no bold, no role line (Anders, 2 Nov 2026).
- if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${item.text.replace(/^./,c=>c.toLowerCase())}`)))));
+ if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${personLine(item.text)}`)))));
  if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>rows.context.forEach(item=>inner.append(lead(item.level==='essential'?`${item.title} (essential)`:item.title,item.text)))));
  if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>rows.notice.forEach(item=>inner.append(el('p','primer-item',[item.text,item.why].filter(Boolean).join(' '))))));
  if(list.childElementCount)body.append(list);
