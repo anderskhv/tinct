@@ -77,6 +77,44 @@ export function attachCatalogue(book, entry) {
 }
 
 /** Preface paragraphs and cast for a catalogue book, loaded once when it is opened. */
+// The authored book opening (Codex-written in the desktop app, imported verbatim from book-openers.json; never
+// generated or rewritten here) and the book's supporting rows (primer-data/<id>.<lang>.json, the same authored
+// source). A book without either keeps its title and Begin reading: no stand-in text is made.
+let openersReady = null;
+function loadOpeners() {
+  openersReady ||= fetch('book-openers.json').then(r => (r.ok ? r.json() : null)).then(data => {
+    const byId = new Map();
+    for (const entry of data?.books ?? []) if (typeof entry?.workId === 'string' && typeof entry.opening === 'string') byId.set(entry.workId, entry.opening);
+    return byId;
+  }).catch(() => new Map());
+  return openersReady;
+}
+const text = value => (typeof value === 'string' && value.trim() ? value.trim() : null);
+const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
+/** The supporting rows as the page draws them; anything malformed is left out, never guessed. */
+export function primerRows(data) {
+  if (!data || data.schemaVersion !== 1) return null;
+  const passages = value => list(value, 6).flatMap(p => (p && text(p.quote) && Number.isInteger(p.chapterNumber) && Number.isInteger(p.paragraphIndex) && text(p.editionKey) ? [{ editionKey: p.editionKey, chapterNumber: p.chapterNumber, paragraphIndex: p.paragraphIndex, quote: p.quote.trim() }] : []));
+  return {
+    opening: text(data.opening),
+    structure: list(data.structure, 6).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim() }] : [])),
+    people: list(data.people, 8).flatMap(item => (text(item?.name) && text(item?.text) ? [{ name: item.name.trim(), role: text(item.role), text: item.text.trim() }] : [])),
+    context: list(data.context, 4).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), level: ['essential', 'recommended', 'optional'].includes(item.level) ? item.level : 'optional', text: item.text.trim(), takeaway: text(item.takeaway), passages: passages(item.passages) }] : [])),
+    notice: list(data.notice, 6).flatMap(item => (text(item?.text) ? [{ text: item.text.trim(), why: text(item.why), passages: passages(item.passages) }] : [])),
+  };
+}
+export async function loadPrimer(book, language = 'en') {
+  const id = encodeURIComponent(book.id);
+  const [openers, data] = await Promise.all([
+    loadOpeners(),
+    fetch(`primer-data/${id}.${language}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+  ]);
+  const rows = primerRows(data);
+  // The English opening is book-openers.json's (it wins over a copy in the rows file); another language's is its own file's.
+  book.opening = (language === 'en' ? openers.get(book.id) : rows?.opening) ?? rows?.opening ?? null;
+  book.primer = rows;
+}
+
 export async function loadIntroduction(book) {
   await loadReviewedIntroduction(book);
   if (book.preface && book.characters) return;

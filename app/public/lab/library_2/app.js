@@ -10,7 +10,7 @@ import {authorPortrait,loadAuthorFlap,renderAuthorFlap,renderImageCredits,author
 import {readingRoom,sceneAsset,tableCrop} from './reading-room.js?v=20260928covers';
 import {books} from './books.js?v=20260928covers';
 import {opensReader} from './reader-href.js?v=20261020open';
-import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,readerDestination,readingApi} from './catalogue.js?v=20261014talkwake';
+import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduction,loadPrimer,readerDestination,readingApi} from './catalogue.js?v=20261014talkwake';
 import {drawSceneLife,drawSceneFilm,scenePainting,sceneLifeBoxes} from './scene-life.js?v=20261021still';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
@@ -360,7 +360,7 @@ let introExpanded=false,introProgress=null;
 
 // While a book opens it has the connection: the optional warming waits until its introduction is open (quiet-loads.js).
 async function openBook(book,canvas){if(activeBook)return;const release=quiet.hold();try{await openingBook(book,canvas);}finally{release();}}
-async function openingBook(book,canvas){if(menuOpen)setMenu(false);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
+async function openingBook(book,canvas){if(menuOpen)setMenu(false);readingApi().catch(()=>{});try{const entry=(await loadCatalogueData()).books.find(b=>b.id===book.id);if(entry)attachCatalogue(book,entry);await Promise.all([ensureCover(book,COVER_OPEN_PX),loadIntroduction(book),loadPrimer(book).catch(()=>{book.opening=null;book.primer=null;}),loadAuthorFlap(book.id).then(images=>{book.authorImages=images;}).catch(()=>{book.authorImages=[];})]);}catch{notice('This book could not load. Please try again.');return;}if(activeBook)return;warmSheet(book.id);activeBook=book;pushLayer('book');introExpanded=false;introProgress=null;$('turning-cover').style.setProperty('--cover-tone',book.coverTone);sourceCanvas=canvas;sourceRect=rectOf(canvas);openedFromSearch=searchOpen;if(openedFromSearch){$('search-input').blur();$('search-panel').inert=true;}reading=false;readerProgress=0;tourProgress=0;setSlip(book);$('book-slip').scrollTop=0;$('slip-content').scrollTop=0;updateSaveButton();currentTab='preface';bookProgress=0;renderIntro();paintCover($('moving-cover'),book.id);$('book-overlay').hidden=false;bookOpenMemory(true);sourceCanvas.style.visibility='hidden';drawBook(0);syncLock();updateLibrarianContext();await animateBook(1);if(activeBook!==book||closing)return;dispatchEvent(new CustomEvent('tinct:funnel',{detail:{name:'book_intro_viewed',props:{book_id:book.id}}}));resetIntroScroll();(destination(innerWidth,innerHeight).tour?$('slip-next'):screenBack).focus({preventScroll:true});}
 async function closeBook(){if(!activeBook||closing)return;dropLayer('book');closing=true;screenBack.hidden=true;if(mode!=='minimized')minimize();if(readerProgress)await animateReader(0);if(tourProgress)await animateTour(0);const returnToSearch=openedFromSearch;sourceRect=rectOf(sourceCanvas);await animateBook(0);$('book-overlay').hidden=true;bookOpenMemory(false);sourceCanvas.style.visibility='';const focus=sourceCanvas.closest('button')||sourceCanvas.parentElement;activeBook=null;sourceCanvas=null;closing=false;if(returnToSearch){$('search-panel').inert=false;openedFromSearch=false;}syncLock();updateLibrarianContext();focus.focus({preventScroll:true});dispatchEvent(new Event('library2:overlayclosed'));if(collectionChoice!=='home'&&!returnToSearch){renderCollection();$('collection-back').focus({preventScroll:true});}}
 function animateTour(to){if(tourAnimation)cancelAnimationFrame(tourAnimation);resolveTourAnimation?.();const from=tourProgress,start=performance.now();return new Promise(resolve=>{resolveTourAnimation=resolve;function step(now){const t=reduced.matches?1:clamp((now-start)/550,0,1);tourProgress=t===1?to:mix(from,to,t);drawBook(1);if(t<1)tourAnimation=requestAnimationFrame(step);else{tourAnimation=null;resolveTourAnimation=null;resolve();}}tourAnimation=requestAnimationFrame(step);});}
 $('slip-next').onclick=async()=>{if(tourAnimation)return;await animateTour(1);if(!activeBook||closing||tourProgress!==1)return;resetIntroScroll();fitIntroFooter();screenBack.focus({preventScroll:true});};
@@ -368,14 +368,30 @@ $('back-slip').onclick=async()=>{if(tourAnimation)return;await animateTour(0);$(
 function bookBack(){if(!activeBook||closing)return;if(bookDestination().tour&&tourProgress>0){animateTour(0).then(()=>{if(activeBook&&!closing)screenBack.focus({preventScroll:true});});}else closeBook();}
 $('book-backdrop').onclick=closeBook;$('tour-back').onclick=$('back-library').onclick=screenBack.onclick=bookBack;
 function appendParagraphs(target,paragraphs){paragraphs.forEach(p=>target.append(el('p','',p)));}
+// The book's opening page (primers, 2 Nov 2026): its title, the authored opening (book-openers.json, verbatim),
+// the supporting rows that exist (Structure, People & ideas, Helpful context, What to notice; each opens in place),
+// Begin reading, and the edition as a small secondary choice. The old Introduction tabs and Tinct preface are gone
+// from the page (archived in docs/archive/prefaces). A book with no opening keeps its title and Begin reading.
+function primerRow(title,testid,fill){const d=el('details','primer-row');d.dataset.testid=testid;const s=el('summary');s.append(el('span','',title),el('span','primer-chevron','⌄'));d.append(s);const inner=el('div','primer-inner');fill(inner);d.append(inner);return d;}
+function editionLine(){const versions=availableEditions(),picked=choices();if(versions.length<2)return null;const chosen=versions.find(v=>v.key===picked.main)||versions[0];const b=el('button','edition-link');b.type='button';b.dataset.testid='intro-edition-link';b.append(el('span','',`${chosen.label||chosen.key}`),el('span','edition-change','Change edition'));b.onclick=()=>{currentTab='edition';renderIntro();};return b;}
+function renderOpening(body){
+ const book=activeBook,rows=book.primer;
+ if(book.opening)body.append(el('p','intro-opening',book.opening));
+ const list=el('div','primer-rows');
+ if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>{const ol=el('ol','primer-structure');rows.structure.forEach(item=>{const li=el('li');li.append(el('strong','',item.title),el('span','',item.text));ol.append(li);});inner.append(ol);}));
+ if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>{rows.people.forEach(item=>{const p=el('div','primer-person');p.append(el('h3','',item.name));if(item.role)p.append(el('p','primer-role',item.role));p.append(el('p','',item.text));inner.append(p);});}));
+ if(rows?.context.length)list.append(primerRow('Helpful context','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');s.append(el('span','',item.title),el('small',`primer-level is-${item.level}`,{essential:'Essential',recommended:'Recommended',optional:'Optional'}[item.level]));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));if(item.takeaway)t.append(el('p','primer-takeaway',item.takeaway));d.append(t);inner.append(d);});}));
+ if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>{const ul=el('ul','primer-notice');rows.notice.forEach(item=>{const li=el('li');li.append(el('span','',item.text));if(item.why)li.append(el('span','primer-why',item.why));ul.append(li);});inner.append(ul);}));
+ if(list.childElementCount)body.append(list);
+ const edition=editionLine();if(edition)body.append(edition);
+}
 function renderIntro(){
  const body=$('intro-body');const footer=document.querySelector('.intro-footer');if(footer.parentElement===body)$('intro').append(footer);body.replaceChildren();resetIntroScroll();requestAnimationFrame(()=>{resetIntroScroll();scrollHint();});
- $('intro-heading').textContent='Introduction';
- document.querySelector('[data-tab="characters"]').textContent=activeBook.galleryTitle||'Characters';
- document.querySelector('.intro-tabs').hidden=false;
+ $('intro-heading').textContent=currentTab==='edition'?'Edition':activeBook.title;
+ document.querySelector('.intro-tabs').hidden=true;
+ $('intro').classList.toggle('is-opening',currentTab!=='edition');
  $('begin-reading').textContent='Begin reading →';$('begin-reading').disabled=!availableEditions().length;
- all('[data-tab]').forEach(b=>{b.hidden=false;b.setAttribute('aria-selected',String(b.dataset.tab===currentTab));b.tabIndex=b.dataset.tab===currentTab?0:-1;});
- if(currentTab==='preface'){appendParagraphs(body,activeBook.preface);}
+ if(currentTab!=='edition'){renderOpening(body);}
  else if(currentTab==='characters'){
   const list=el('div','intro-character-list');list.id='intro-character-list';
   (reviewedCast(activeBook,introExpanded,introProgress)||introCast(activeBook)).forEach((c,i)=>{
@@ -409,6 +425,7 @@ function renderIntro(){
    dropdown('Reading edition',versions.map(asOption),picked.main,key=>{picked.main=key;picked.explicit=true;if(picked.compare===key)picked.compare=picked.compareExplicit?null:pairedCompare(key);renderIntro();});
    if(versions.length>1)dropdown('Compare with',[{key:null,label:'None',note:''},...versions.filter(v=>v.key!==picked.main).map(asOption)],picked.compare??null,key=>{picked.compare=key;picked.compareExplicit=true;renderIntro();});
   }else{const field=el('section','edition-field');field.append(el('p','','No edition is currently available to start.'));body.append(field);}
+  const back=el('button','back-link primer-back','← About this book');back.type='button';back.onclick=()=>{currentTab='preface';renderIntro();};body.prepend(back);
  }
  fitIntroFooter();
 }
