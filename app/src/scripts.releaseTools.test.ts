@@ -12,7 +12,7 @@ const voice = readFileSync(fileURLToPath(new URL('../../.github/workflows/voice-
 const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
 const foreign = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
-const acceptedReader = 'b5d5f8ae-67d7-455d-bce6-b0cf1c3088d2'
+const acceptedReader = '2ed0085d-da1d-48aa-803f-6b0baad93bf4'
 const currentSource = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
 const run = (args: string[], env: Record<string, string> = {}) => spawnSync(process.execPath, [helper, ...args], {
   encoding: 'utf8', env: {
@@ -165,6 +165,7 @@ describe('release rollback guards (offline)', () => {
 
   it('pins the accepted production reader as the only automatic repair rollback predecessor', () => {
     expect(run(['verify-repair-predecessor', acceptedReader]).stdout).toContain(`repair_predecessor_version=${acceptedReader}`)
+    expect(run(['verify-repair-predecessor', 'b5d5f8ae-67d7-455d-bce6-b0cf1c3088d2']).stderr).toContain('not the pinned accepted reader')
     expect(run(['verify-repair-predecessor', previous]).stderr).toContain('not the pinned accepted reader')
     expect(run(['verify-repair-predecessor', 'e6e885cd-7737-465f-8b9b-675ff37af3b9']).stderr).toContain('not the pinned accepted reader')
     expect(run(['verify-repair-predecessor', '1bdaf83e-e30f-44bf-954c-46dc2edf66db']).stderr).toContain('not the pinned accepted reader')
