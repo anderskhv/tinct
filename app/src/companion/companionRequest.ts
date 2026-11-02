@@ -141,11 +141,12 @@ export interface CompanionRequest {
 
 /** The card shows the first paragraph whole, then "More". The opener's word
  *  cap is what keeps it to two or three lines on a phone; the rest is capped
- *  at three short paragraphs so the expanded card stays a glance, not a read. */
+ *  at two short paragraphs, about 100 words in all, so the expanded card stays a glance, not a read
+ *  (Anders, 2 Nov 2026: answers too long). */
 export const LAB_EXPLAIN_PROMPT = [
   'Explain this selected passage for a reader at this point in the book.',
   'First paragraph: the answer itself, one sentence, at most 25 words. It must stand alone. If the passage is a name or place, say what it is and why it is here, nothing more. Then a blank line.',
-  'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.',
+  'Then at most two short paragraphs of useful detail, most important first. Skip any paragraph that only adds background. About 100 words or fewer in all.',
   'Do not repeat the full selected passage. Discuss its meaning and significance without using knowledge from later in the work.',
 ].join('\n\n')
 
