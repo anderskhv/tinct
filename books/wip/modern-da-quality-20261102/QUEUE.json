@@ -2,7 +2,7 @@
   "target": 70,
   "reserves": 6,
   "acceptedBooks": 0,
-  "publishedByThisProgramme": 0,
+  "publishedByThisProgramme": 3,
   "books": [
     {
       "bookId": "to-the-lighthouse",
@@ -71,8 +71,8 @@
       "bookId": "magna-carta",
       "title": "Magna Carta",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true
     },
     {
       "bookId": "a-little-princess",
@@ -120,7 +120,7 @@
       "bookId": "grimms-fairy-tales",
       "title": "Grimms' Fairy Tales",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "pilot_draft_pending_review",
+      "status": "editorial_complete_release_ci",
       "publicationAccepted": false
     },
     {
@@ -239,23 +239,23 @@
       "bookId": "the-manual",
       "title": "The Manual",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "complete_draft_source_self_checked",
-      "publicationAccepted": false,
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true,
       "nativeReview": "pending_user_arranges"
     },
     {
       "bookId": "apology",
       "title": "Apology",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "queued_not_accepted",
+      "status": "editorial_complete_validation_integration_pending",
       "publicationAccepted": false
     },
     {
       "bookId": "crito",
       "title": "Crito",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true
     },
     {
       "bookId": "phaedrus",
@@ -537,5 +537,8 @@
       "status": "queued_not_accepted",
       "publicationAccepted": false
     }
-  ]
+  ],
+  "provisionalPublishedBooks": 3,
+  "nativeCertifiedBooks": 0,
+  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review."
 }
