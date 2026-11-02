@@ -16,7 +16,7 @@ import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONN
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
 import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
-import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
+import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_LENGTH_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
 import { handleChat, handleLabChat } from './worker/routes/chat'
@@ -630,7 +630,15 @@ describe('the book reader is unchanged', () => {
     const body = anthropic[0]
     const system = body.system as string | Array<{ text: string }>
     expect(JSON.stringify(system)).toContain('If the reader writes their question in Danish')
-    let unchanged: Record<string, unknown> = { ...body, system: typeof system === 'string' ? system.replace(languageRule, '') : system.map(block => ({ ...block, text: block.text.replace(languageRule, '') })) }
+    // Nov2: shorter answers (Anders, "the text from AI is in general a bit too long"): the chat length rule in the
+    // shared policy, and Explain's detail held to two short paragraphs, about 100 words. Nothing else changes.
+    const lengthRule = `\n${LAB_ASK_LENGTH_RULE}\n`
+    expect(JSON.stringify(system)).toContain(JSON.stringify(LAB_ASK_LENGTH_RULE).slice(1, -1))
+    const shorter = (text: string) => text.replace(languageRule, '').replace(lengthRule, '')
+    const explainNow = 'Then at most two short paragraphs of useful detail, most important first. Skip any paragraph that only adds background. About 100 words or fewer in all.'
+    const explainBefore = 'Then at most three short paragraphs of useful detail, most important first. Skip any paragraph that only adds background.'
+    let unchanged: Record<string, unknown> = { ...body, system: typeof system === 'string' ? shorter(system) : system.map(block => ({ ...block, text: shorter(block.text) })) }
+    if (name === 'explain') unchanged = { ...unchanged, messages: (unchanged.messages as Array<{ role: string; content: unknown }>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(explainNow, explainBefore) } : message) }
     if (name !== 'explain' && name !== 'define') {
       // Oct29: a chat answer's bound is 4096 (1024 cut long answers off mid-word); all other fields remain frozen.
       expect(unchanged.max_tokens).toBe(4096)
