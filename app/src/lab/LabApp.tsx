@@ -176,7 +176,7 @@ import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioE
 import { labLayoutOverride } from './labRoute'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
-import { cardShownMessages } from './marginPreview/marginPreviewCards'
+import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
 import { buildDictationKeyterms } from './labDictationKeyterms'
 import { LabAskPane } from './LabAskPane'
 import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePaginator'
@@ -279,6 +279,8 @@ function headFirstPending(since: number): boolean {
 }
 /** Longest the first text waits for hyphenation patterns before paging without them. */
 const LAB_HYPHENATION_WAIT_MS = 300
+/** How long "Deleted. Undo" stays after a margin card or note is deleted. */
+const MARGIN_UNDO_MS = 6000
 
 /** The account cards' code (views, styles), fetched the first time a card opens. */
 let accountCardsModule: Promise<typeof import('../cards/openCards')> | null = null
@@ -841,6 +843,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [marginHost, setMarginHost] = useState<HTMLElement | null>(null)
   const readingScrollActive = useReadingScrollActivity(marginHost)
   const [marginUndo, setMarginUndo] = useState<(() => void) | null>(null)
+  // "Deleted. Undo" leaves on its own after a few seconds, as an undo notice does; it held the screen until Undo (Anders, 2 Nov 2026).
+  useEffect(() => {
+    if (!marginUndo) return
+    const timer = window.setTimeout(() => setMarginUndo(null), MARGIN_UNDO_MS)
+    return () => window.clearTimeout(timer)
+  }, [marginUndo])
   const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
@@ -6229,7 +6237,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchup ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
   const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
-  const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id)).map(item => ({
+  const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id) && cardInMargin(item.card!.kind, item.messages)).map(item => ({
     id: item.id, label: marginActionLabel(item.card!.kind),
     source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : item.card!.kind === 'catchup' ? -1 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
     free: !item.card!.anchor, open: desktopOpenId === item.id, preview: item.card!.kind === 'define' ? contextualLookupPreview(item.messages.find(message => message.role === 'assistant')?.content || '') : item.messages.find(message => message.role === 'assistant')?.content, sourceText: item.card!.text,
@@ -6775,7 +6783,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
           ) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
-            cards={marginConversations.flatMap(item => item.card?.anchor ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+            cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
               label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
             bookMap={(book.bookId || 'bible') === 'bible' ? undefined : { chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') } }}
             key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}/${continuousEpoch.navigation}`}

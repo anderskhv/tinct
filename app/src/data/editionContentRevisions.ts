@@ -12,7 +12,7 @@ import type { CoordinateMigration } from './editionCoordinateMigration'
  *
  * The maps are fetched only by readers who hold data that needs moving.
  */
-export interface EditionRevision { before: string; after: string }
+export interface EditionRevision { before: string; after: string; releasedAt?: number }
 export interface ContentRelease {
   revision: string
   releasedAt: number
@@ -20,6 +20,34 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'grimms-fairy-tales': {
+  "revision": "text-2026-11-02.grimms-fairy-tales.1",
+  "releasedAt": 1793631455416,
+  "editions": {
+    "modern-en": {
+      "before": "679ab684eaf90eb7cfdd30a869d97f865aba6e0c5aff77951386ca16c7eba6ab",
+      "after": "a2d68274da2776b661efdc9d84719935e910282ae9790cc051290e296cf84441"
+    },
+    "modern-da": {
+      "before": "3137f397a01f59f500c0666caad9d89c33a421523e53579ac0019ea413052452",
+      "after": "7e979a057f1a24ec23706c8bd408613bec5ef7310a2375925b67fc29b5621487"
+    }
+  }
+},
+  crito: {
+  "revision": "text-2026-11-02.crito.1",
+  "releasedAt": 1793626567485,
+  "editions": {
+    "modern-en": {
+      "before": "5ff432e7e028e7caff6b11984a50ca0db43f3ce976b68af8f5466f7f23293add",
+      "after": "241326ee42ee5c457192a91961a6d276c5add7b09304eda987a2cca562d44d89"
+    },
+    "modern-da": {
+      "before": "4f2aa8b2b6f2c8b36d90026c6e563015d6599f89595dc5f8c56960ade78d1237",
+      "after": "d91a71009bd515eb1fa5cab47415224fc588a28b2b8e8644c6a6a886c60dd12d"
+    }
+  }
+},
   'the-manual': {
   "revision": "text-2026-11-02.manual.1",
   "releasedAt": 1793625566583,
@@ -490,9 +518,14 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'magna-carta': {
-    revision: 'text-2026-10-01.2',
+    revision: 'text-2026-11-02.magna-da.1',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
     editions: {
+      'modern-da': {
+  "before": "11e3b4de2820772b5258b1981f783b80dfb14db4667d9e8d6358004e6cc99009",
+  "after": "5f148701e1bdc5c4bd9fe87289aeaf053567815f64c26595340af8320cd0b141",
+  "releasedAt": 1793626744844
+},
       'original-en': {
         before: 'ca7447fb99a427bd9e12b00dcb4a0f5c7452f6da410b4111eb35d47bfacc560f',
         after: 'fa73abf6f753a48a0c224c65bde46f8f2b8c56f25445224e78819e3c68abd6c4',
@@ -540,7 +573,7 @@ export function writtenBeforeRelease(
   // Every new Symposium write is stamped. An unstamped English record can
   // still arrive from an old offline client after publication; retain its repair.
   if (bookId === 'symposium') return true
-  return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < release.releasedAt
+  return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < (edition.releasedAt ?? release.releasedAt)
 }
 
 export type MigrationKind = 'positions' | 'highlights'

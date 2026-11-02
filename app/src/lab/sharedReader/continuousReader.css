@@ -59,7 +59,9 @@ html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-pa
 @media (max-width: 1100px) {
   .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-paper { width:calc(100% - 340px); margin-left:64px; margin-right:0; }
 }
-.source-margin-undo { position:fixed; bottom:24px; left:50%; z-index:400; padding:8px 14px; background:var(--lab-paper); border-bottom:1px solid var(--lab-border); }
+.source-margin-undo { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:400; display:flex; align-items:center; gap:12px; padding:8px 10px 8px 16px; border:1px solid var(--lab-call-panel-border, var(--lab-border)); border-radius:999px; background:var(--lab-call-panel, var(--lab-surface, var(--lab-paper))); color:var(--lab-call-ink, var(--lab-ink)); box-shadow:var(--lab-call-panel-shadow, 0 6px 24px rgba(0,0,0,.18)); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); font:500 14px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.source-margin-undo button { appearance:none; border:0; border-radius:999px; padding:4px 10px; background:transparent; color:inherit; font:600 14px/1.2 system-ui, -apple-system, 'Segoe UI', sans-serif; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.source-margin-undo button:hover, .source-margin-undo button:focus-visible { background:var(--lab-call-tint, rgba(127,127,127,.15)); }
 .lab .source-minimap-activity { cursor:pointer; color:#bd9350; }
 .lab .source-minimap-activity[data-color="rose"] { color:#be7188; }
 .lab .source-minimap-activity[data-color="sage"] { color:#78a080; }
