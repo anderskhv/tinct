@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'grimms-fairy-tales': {
+  "revision": "text-2026-11-02.grimms-fairy-tales.1",
+  "releasedAt": 1793631455416,
+  "editions": {
+    "modern-en": {
+      "before": "679ab684eaf90eb7cfdd30a869d97f865aba6e0c5aff77951386ca16c7eba6ab",
+      "after": "a2d68274da2776b661efdc9d84719935e910282ae9790cc051290e296cf84441"
+    },
+    "modern-da": {
+      "before": "3137f397a01f59f500c0666caad9d89c33a421523e53579ac0019ea413052452",
+      "after": "7e979a057f1a24ec23706c8bd408613bec5ef7310a2375925b67fc29b5621487"
+    }
+  }
+},
   crito: {
   "revision": "text-2026-11-02.crito.1",
   "releasedAt": 1793626567485,
