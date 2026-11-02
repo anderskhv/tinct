@@ -7,3 +7,7 @@ Anders will arrange the Danish reviewer. He explicitly permits launch without wa
 Complete draft: The Manual (52 sections, 68 paragraphs), in editions/the-manual-modern-da.json. See MANUAL-REVIEW.txt for source corrections and remaining checks. Twelve calibration passages across five books remain available in PILOT-READING.txt. The 70-book target is not complete; no new edition has been integrated or published by this branch.
 
 Owned branch: content/modern-da-quality-20261102. Owned path: books/wip/modern-da-quality-20261102/. This remains a content package; no application code has changed. Review the exact edition that is ultimately integrated, since word offsets change even where paragraph coordinates match.
+
+## Modern English repairs
+
+Anders also authorizes correction of modern English errors found during this work. The Manual modern-en candidate repairs 24 paragraphs across 21 sections. See MANUAL-EN-CORRECTIONS.json for exact before/after changes, pinned baselines and passed checks. The existing paragraph structure is unchanged. Both English and Danish candidates remain staged, not published.
