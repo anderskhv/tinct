@@ -1,9 +1,11 @@
 {
-  "status": "in_progress_not_accepted",
+  "status": "editorial_review_complete_integration_pending",
   "sourceCommit": "e1907002d06b785b0d8675d16e0b3e3d077c2bd8",
   "reviewed": [
     "1",
-    "2:1-24"
+    "2",
+    "3",
+    "4"
   ],
   "danishChanges": [
     {
@@ -376,6 +378,636 @@
       "before": "Sektion 7. Alle lovforslag, der pålægger indtægter, skal udgå fra Repræsentanternes Hus; men Senatet kan foreslå eller tilslutte sig ændringer som ved andre lovforslag.",
       "after": "Afsnit 7. Alle lovforslag om at skaffe staten indtægter skal fremsættes i Repræsentanternes Hus. Senatet kan dog foreslå eller tiltræde ændringer, ligesom ved andre lovforslag.",
       "reason": "Clarify constitutional conditions and terminology without changing historical provisions: larger chamber, all eligibility requirements, individual chamber votes, no invented hvervembede or revenue imposition."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 25,
+      "before": "Ethvert lovforslag, som er vedtaget af Repræsentanternes Hus og Senatet, forelægges, før det bliver lov, De Forenede Staters præsident. Hvis han godkender det, underskriver han det; hvis ikke, returnerer han det med sine indvendinger til det kammer, hvor det udgik fra, som indfører indvendingerne i deres helhed i sin protokol og går videre til fornyet behandling. Hvis to tredjedele af det kammer efter den fornyede behandling stemmer for at vedtage forslaget, sendes det — sammen med indvendingerne — til det andet kammer, som ligeledes behandler det på ny; og hvis det godkendes af to tredjedele af det kammer, bliver det lov. Men i alle sådanne tilfælde afgøres begge kamres stemmer ved ja og nej, og navnene på dem, der stemmer for og imod forslaget, indføres i hvert kammers protokol. Hvis et lovforslag ikke returneres af præsidenten inden ti dage (søndage undtaget) efter at være forelagt ham, bliver det lov på samme måde, som hvis han havde underskrevet det — medmindre Kongressen ved sin udsættelse forhindrer dets returnering, i hvilket tilfælde det ikke bliver lov.",
+      "after": "Et lovforslag, der er vedtaget af både Repræsentanternes Hus og Senatet, skal forelægges De Forenede Staters præsident, før det bliver lov. Godkender han det, skal han underskrive det. Ellers skal han sende det tilbage med sine indvendinger til det kammer, hvor forslaget blev fremsat. Kammeret skal indføre indvendingerne i fuld længde i sin protokol og behandle forslaget igen. Vedtager to tredjedele af kammeret det efter den nye behandling, sendes det sammen med indvendingerne til det andet kammer. Det skal også behandle forslaget igen. Godkender to tredjedele af dette kammer det, bliver det lov. I alle sådanne tilfælde skal afstemningerne i begge kamre ske med ja- og nejstemmer, og navnene på dem, der stemmer for og imod, skal indføres i hvert kammers protokol. Sender præsidenten ikke et lovforslag tilbage inden ti dage efter modtagelsen, søndage undtaget, bliver det lov, som om han havde underskrevet det. Hvis Kongressen ved at udsætte sine møder forhindrer, at forslaget kan sendes tilbage, bliver det dog ikke lov.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 26,
+      "before": "Enhver beslutning, resolution eller afstemning, der kræver Senatets og Repræsentanternes Hus' fælles tilslutning (undtagen i spørgsmål om udsættelse), forelægges De Forenede Staters præsident; og før den får virkning, skal den enten godkendes af ham eller — hvis han forkaster den — vedtages på ny af to tredjedele af Senatet og Repræsentanternes Hus efter de regler og begrænsninger, der er fastsat for et lovforslag.",
+      "after": "Enhver ordre, resolution eller afstemningsbeslutning, der kræver tilslutning fra både Senatet og Repræsentanternes Hus, skal forelægges De Forenede Staters præsident. Undtaget er spørgsmål om udsættelse af møder. Før beslutningen kan få virkning, skal præsidenten godkende den. Afviser han den, skal den vedtages igen med to tredjedeles tilslutning i hvert af de to kamre efter de samme regler og begrænsninger som lovforslag.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 27,
+      "before": "Sektion 8. Kongressen har magt til at pålægge og opkræve skatter, told, afgifter og punktafgifter; til at betale gælden og sørge for det fælles forsvar og den almindelige velfærd i De Forenede Stater — men al told, alle afgifter og punktafgifter skal være ensartede i hele De Forenede Stater;",
+      "after": "Afsnit 8. Kongressen har beføjelse til at pålægge og opkræve skatter, told, importafgifter og punktafgifter for at betale De Forenede Staters gæld og sørge for det fælles forsvar og den almene velfærd. Told, importafgifter og punktafgifter skal dog være ensartede i hele De Forenede Stater;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 28,
+      "before": "At låne penge på De Forenede Staters kredit;",
+      "after": "til at låne penge med De Forenede Stater som låntager;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 29,
+      "before": "At regulere handel med fremmede nationer, mellem de enkelte stater og med indianerstammerne;",
+      "after": "til at regulere handelen med fremmede nationer, mellem de enkelte stater og med indianerstammerne;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 30,
+      "before": "At fastsætte en ensartet regel for naturalisation og ensartede love om konkurser i hele De Forenede Stater;",
+      "after": "til at indføre ensartede regler for tildeling af statsborgerskab og ensartede konkurslove i hele De Forenede Stater;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 31,
+      "before": "At slå mønter, regulere deres værdi og udenlandske mønters værdi samt fastsætte standarden for mål og vægt;",
+      "after": "til at slå mønt, fastsætte værdien af egne og udenlandske mønter og fastlægge standarder for mål og vægt;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 32,
+      "before": "At sørge for straf for forfalskning af De Forenede Staters værdipapirer og gangbare mønt;",
+      "after": "til at fastsætte straffe for forfalskning af De Forenede Staters værdipapirer og mønter i omløb;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 33,
+      "before": "At oprette posthuse og postveje;",
+      "after": "til at oprette posthuse og postveje;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 34,
+      "before": "At fremme videnskabens og de nyttige kunsters fremskridt ved for begrænset tid at sikre forfattere og opfindere eneret til deres respektive skrifter og opdagelser;",
+      "after": "til at fremme videnskaben og de praktiske fag ved i begrænsede perioder at give forfattere og opfindere eneret til deres skrifter og opdagelser;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 35,
+      "before": "At oprette domstole underordnet højesteret;",
+      "after": "til at oprette domstole under Højesteret;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 36,
+      "before": "At definere og straffe sørøveri og alvorlige forbrydelser begået på det åbne hav samt overtrædelser af folkeretten;",
+      "after": "til at definere og straffe sørøveri og alvorlige forbrydelser på åbent hav samt overtrædelser af folkeretten;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 37,
+      "before": "At erklære krig, udstede kaperbreve og repressaliebreve samt fastsætte regler om opbringelser til lands og til vands;",
+      "after": "til at erklære krig, udstede kaper- og repressaliebreve og fastsætte regler for erobringer og beslaglæggelser til lands og til vands;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 38,
+      "before": "At opstille og opretholde hære — men ingen bevilling af penge til dette formål må ske for længere tid end to år;",
+      "after": "til at opstille og opretholde hære, dog må bevillinger til dette formål højst gælde for to år;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 39,
+      "before": "At sørge for og opretholde en flåde;",
+      "after": "til at oprette og opretholde en flåde;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 40,
+      "before": "At fastsætte regler for ledelse og regulering af land- og søstyrkerne;",
+      "after": "til at fastsætte regler for ledelsen og styringen af land- og søstyrkerne;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 41,
+      "before": "At sørge for indkaldelse af militsen til at håndhæve unionens love, undertrykke opstande og afvise invasioner;",
+      "after": "til at sørge for, at militsen kan indkaldes for at håndhæve unionens love, slå oprør ned og afværge invasioner;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 42,
+      "before": "At sørge for organisering, bevæbning og disciplinering af militsen samt for ledelse af den del, der måtte være i De Forenede Staters tjeneste — idet udnævnelsen af officerer og myndigheden til at træne militsen efter den disciplin, Kongressen foreskriver, forbeholdes de respektive stater;",
+      "after": "til at sørge for militsens organisering, bevæbning og disciplin og lede den del, der sættes i De Forenede Staters tjeneste. De enkelte stater beholder retten til at udnævne officerer og træne militsen efter de regler for disciplin, som Kongressen fastsætter;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 43,
+      "before": "At udøve eksklusiv lovgivningsmagt i alle tilfælde overhovedet over et sådant distrikt (ikke større end ti kvadratmiles), som ved afståelse fra bestemte stater og Kongressens accept måtte blive sæde for De Forenede Staters regering, og at udøve tilsvarende myndighed over alle steder, der er erhvervet med samtykke fra den lovgivende forsamling i den stat, hvor de er beliggende, til opførelse af forter, magasiner, arsenaler, dokker og andre nødvendige bygninger — og",
+      "after": "til at have den fulde lovgivningsmagt over det distrikt, som efter afståelse fra enkelte stater og Kongressens godkendelse bliver sæde for De Forenede Staters regering. Distriktet må ikke være større end et kvadrat med sider på ti engelske mil. Kongressen har samme myndighed over alle steder, der med den pågældende stats lovgivende forsamlings samtykke købes til forter, depoter, arsenaler, skibsværfter og andre nødvendige bygninger; og",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 44,
+      "before": "At udforme alle love, som er nødvendige og passende for at gennemføre de foregående beføjelser samt alle andre beføjelser, som denne forfatning tildeler De Forenede Staters regering eller noget af dens departementer eller embedsmænd.",
+      "after": "til at vedtage alle love, som er nødvendige og egnede til at udøve disse beføjelser og alle andre beføjelser, som forfatningen giver De Forenede Staters regering, dens myndigheder eller embedsmænd.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 45,
+      "before": "Sektion 9. Indvandringen eller indførslen af de personer, som nogen af de nu eksisterende stater måtte finde det rigtigt at modtage, må ikke forbydes af Kongressen før år 1808 — men en skat eller afgift kan pålægges sådan indførsel, dog ikke over ti dollars pr. person.",
+      "after": "Afsnit 9. Kongressen må ikke før 1808 forbyde indvandring eller indførsel af personer, som nogen af de allerede eksisterende stater ønsker at modtage. Der må dog pålægges denne indførsel en skat eller afgift på højst ti dollars pr. person.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 46,
+      "before": "Privilegiet ved retsmidlet habeas corpus må ikke suspenderes, undtagen når den offentlige sikkerhed kræver det i tilfælde af oprør eller invasion.",
+      "after": "Retten til habeas corpus, som giver mulighed for at få en frihedsberøvelse prøvet ved en domstol, må ikke sættes ud af kraft, medmindre den offentlige sikkerhed kræver det under oprør eller invasion.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 47,
+      "before": "Ingen lov om frakendelse af borgerlige rettigheder eller med tilbagevirkende strafvirkning må vedtages.",
+      "after": "Der må ikke vedtages love, som straffer bestemte personer uden rettergang, eller straffelove med tilbagevirkende kraft.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 48,
+      "before": "Ingen kopskat eller anden direkte skat må pålægges, medmindre den står i forhold til den tidligere foreskrevne folketælling eller optælling.",
+      "after": "Der må ikke pålægges nogen personskat eller anden direkte skat, medmindre den fordeles efter den folketælling, der er foreskrevet ovenfor.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 50,
+      "before": "Ingen forrang må gives ved nogen handels- eller skattebestemmelse til havne i én stat frem for havne i en anden; ej heller må fartøjer på vej til eller fra én stat være forpligtet til at anløbe, klarere eller betale told i en anden.",
+      "after": "Handels- og afgiftsregler må ikke begunstige én stats havne frem for en andens. Skibe på vej til eller fra en stat må heller ikke tvinges til at anløbe, gennemgå toldbehandling eller betale told i en anden.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 51,
+      "before": "Ingen penge må trækkes fra statskassen, undtagen som følge af bevillinger givet ved lov; og en regelmæssig opgørelse og redegørelse for indtægter og udgifter af alle offentlige midler skal offentliggøres fra tid til anden.",
+      "after": "Der må kun udbetales penge fra statskassen på grundlag af bevillinger vedtaget ved lov. Der skal med mellemrum offentliggøres en ordentlig opgørelse og et regnskab over alle offentlige indtægter og udgifter.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 52,
+      "before": "Ingen adelig titel må tildeles af De Forenede Stater; og ingen, der beklæder noget indtægts- eller tillidsembede under dem, må uden Kongressens samtykke modtage nogen gave, vederlag, embede eller titel af nogen art overhovedet fra nogen konge, fyrste eller fremmed stat.",
+      "after": "De Forenede Stater må ikke tildele adelstitler. Ingen, der har et lønnet embede eller et tillidsembede under dem, må uden Kongressens samtykke modtage gaver, vederlag, embeder eller titler af nogen art fra en konge, fyrste eller fremmed stat.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 53,
+      "before": "Sektion 10. Ingen stat må indgå nogen traktat, alliance eller konføderation; udstede kaperbreve og repressaliebreve; slå mønter; udstede gældsbreve; gøre andet end guld- og sølvmønt til lovligt betalingsmiddel; vedtage nogen lov om frakendelse af borgerlige rettigheder, lov med tilbagevirkende strafvirkning eller lov, der svækker forpligtelsen i kontrakter; eller tildele nogen adelig titel.",
+      "after": "Afsnit 10. Ingen stat må indgå traktater, alliancer eller statsforbund, udstede kaper- og repressaliebreve, slå mønt eller udstede kreditbeviser som betalingsmiddel. Den må ikke gøre andet end guld- og sølvmønter til lovligt betalingsmiddel ved betaling af gæld. Den må heller ikke vedtage love, der straffer bestemte personer uden rettergang, straffelove med tilbagevirkende kraft eller love, der svækker kontrakters bindende virkning, og den må ikke tildele adelstitler.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 54,
+      "before": "Ingen stat må uden Kongressens samtykke pålægge nogen afgifter eller told på import eller eksport — undtagen hvad der måtte være absolut nødvendigt for at gennemføre dens inspektionslove. Nettoindtægten af alle afgifter og told, som en stat pålægger import eller eksport, tilfalder De Forenede Staters statskasse; og alle sådanne love er underlagt Kongressens revision og kontrol.",
+      "after": "Uden Kongressens samtykke må ingen stat opkræve told eller afgifter på import eller eksport, bortset fra det, der er strengt nødvendigt for at gennemføre dens kontrollovgivning. Nettoindtægterne fra alle sådanne told- og import- eller eksportafgifter skal gå til De Forenede Staters statskasse. Alle disse love skal kunne ændres og kontrolleres af Kongressen.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 55,
+      "before": "Ingen stat må uden Kongressens samtykke pålægge nogen tonnageafgift; holde tropper eller krigsskibe i fredstid; indgå nogen aftale eller pagt med en anden stat eller med en fremmed magt; eller engagere sig i krig — medmindre den faktisk er invaderet eller står i en så overhængende fare, der ikke tillader udsættelse.",
+      "after": "Uden Kongressens samtykke må ingen stat opkræve tonnageafgifter, holde tropper eller krigsskibe i fredstid, indgå aftaler med en anden stat eller en fremmed magt eller føre krig. Krig er dog tilladt, hvis staten faktisk er invaderet eller er i så umiddelbar fare, at den ikke kan vente.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 57,
+      "before": "Sektion 1. Den udøvende magt lægges hos en præsident for De Forenede Stater i Amerika. Han beklæder sit embede i en periode på fire år og vælges sammen med vicepræsidenten, der vælges for samme periode, som følger:",
+      "after": "Afsnit 1. Den udøvende magt ligger hos Amerikas Forenede Staters præsident. Han har embedet i fire år og vælges sammen med vicepræsidenten, der har samme embedsperiode, på følgende måde:",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 58,
+      "before": "Hver stat udpeger på en sådan måde, som dens lovgivende forsamling foreskriver, et antal valgmænd, der svarer til det samlede antal senatorer og repræsentanter, som staten måtte være berettiget til i Kongressen; men ingen senator eller repræsentant, eller person der beklæder et tillids- eller indtægtsembede under De Forenede Stater, må udnævnes til valgmand.",
+      "after": "Hver stat udpeger valgmænd efter de regler, som dens lovgivende forsamling fastsætter. Antallet skal svare til statens samlede antal senatorer og repræsentanter i Kongressen. Senatorer, repræsentanter og personer med tillids- eller lønnede embeder under De Forenede Stater må ikke udpeges som valgmænd.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 59,
+      "before": "Valgmændene mødes i deres respektive stater og stemmer ved skriftlig afstemning på to personer, hvoraf mindst én ikke må være bosat i samme stat som dem selv. De udfærdiger en liste over alle de personer, der er stemt på, og over antallet af stemmer for hver, hvilken liste de underskriver og bekræfter og forseglet sender til De Forenede Staters regeringssæde, adresseret til Senatets formand. Senatets formand åbner i Senatets og Repræsentanternes Hus' nærvær alle attesterne, og stemmerne tælles derefter. Den person, der har det største antal stemmer, bliver præsident — såfremt dette antal udgør et flertal af det samlede antal udnævnte valgmænd. Hvis mere end én har et sådant flertal og lige mange stemmer, vælger Repræsentanternes Hus straks ved skriftlig afstemning en af dem til præsident. Hvis ingen person har et flertal, vælger nævnte hus ligeledes præsidenten blandt de fem øverste på listen. Men ved valget af præsident afgives stemmerne af staterne, idet hver stats repræsentation har én stemme — det beslutningsdygtige antal til dette formål består af et eller flere medlemmer fra to tredjedele af staterne, og et flertal af alle staterne er nødvendigt for et valg. I alle tilfælde, efter at præsidenten er valgt, er den person, der har det største antal stemmer fra valgmændene, vicepræsident. Men hvis to eller flere skulle stå tilbage med lige mange stemmer, vælger Senatet vicepræsidenten blandt dem ved skriftlig afstemning.",
+      "after": "Valgmændene mødes i deres egne stater og stemmer skriftligt på to personer. Mindst én af de to skal bo i en anden stat end valgmændene selv. De skal udarbejde en liste over alle, der har fået stemmer, og antallet af stemmer til hver. Listen skal underskrives, bekræftes og sendes forseglet til De Forenede Staters regeringssæde, adresseret til Senatets formand. I overværelse af Senatet og Repræsentanternes Hus skal Senatets formand åbne alle de bekræftede lister, hvorefter stemmerne tælles. Den, der har flest stemmer, bliver præsident, hvis stemmetallet udgør et flertal af alle udpegede valgmænd. Har flere dette flertal og lige mange stemmer, skal Repræsentanternes Hus straks ved skriftlig afstemning vælge en af dem til præsident. Har ingen flertal, skal Huset på samme måde vælge præsidenten blandt de fem med flest stemmer. Ved dette valg stemmer staterne hver for sig, og hver stats repræsentanter har tilsammen én stemme. Der skal være mindst ét medlem til stede fra to tredjedele af staterne, og valget kræver tilslutning fra et flertal af alle staterne. Efter præsidentvalget bliver den af de øvrige kandidater, der har flest valgmandsstemmer, vicepræsident. Har to eller flere lige mange stemmer, skal Senatet ved skriftlig afstemning vælge vicepræsidenten blandt dem.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 60,
+      "before": "Kongressen kan fastsætte tidspunktet for valg af valgmændene og dagen, hvor de afgiver deres stemmer — hvilken dag skal være den samme i hele De Forenede Stater.",
+      "after": "Kongressen kan fastsætte, hvornår valgmændene skal vælges, og hvilken dag de skal stemme. Afstemningsdagen skal være den samme i hele De Forenede Stater.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 61,
+      "before": "Ingen kan være valgbar til præsidentembedet undtagen en indfødt borger eller en borger i De Forenede Stater på tidspunktet for vedtagelsen af denne forfatning. Heller ingen er valgbar til dette embede, som ikke er fyldt femogtredive år og har været bosiddende i De Forenede Stater i fjorten år.",
+      "after": "Kun den, der er amerikansk statsborger fra fødslen eller var statsborger i De Forenede Stater, da denne forfatning blev vedtaget, kan vælges til præsident. Desuden skal vedkommende være fyldt 35 år og have boet i De Forenede Stater i 14 år.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 62,
+      "before": "I tilfælde af præsidentens afsættelse fra embedet eller hans død, fratræden eller manglende evne til at varetage embedets beføjelser og pligter overgår disse til vicepræsidenten. Kongressen kan ved lov sørge for det tilfælde, at både præsidenten og vicepræsidenten afsættes, dør, fratræder eller bliver uarbejdsdygtige — og erklære, hvilken embedsmand der da skal fungere som præsident; og denne embedsmand fungerer i overensstemmelse hermed, indtil uarbejdsdygtigheden er afhjulpet, eller en præsident er valgt.",
+      "after": "Hvis præsidenten afsættes, dør, fratræder eller ikke kan varetage embedets beføjelser og pligter, overgår disse til vicepræsidenten. Kongressen kan ved lov fastsætte, hvilken embedsmand der skal fungere som præsident, hvis både præsidenten og vicepræsidenten afsættes, dør, fratræder eller er ude af stand til at varetage embedet. Denne embedsmand fungerer da som præsident, indtil hindringen er væk, eller en præsident er valgt.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 63,
+      "before": "Præsidenten modtager til fastsatte tider en godtgørelse for sin tjeneste, der hverken må forhøjes eller nedsættes i den periode, for hvilken han er valgt; og han må ikke i den periode modtage noget andet vederlag fra De Forenede Stater eller fra nogen af dem.",
+      "after": "Præsidenten skal på faste tidspunkter modtage et vederlag for sit arbejde. Det må hverken forhøjes eller nedsættes i den periode, han er valgt for. I denne periode må han ikke modtage andet vederlag fra De Forenede Stater eller nogen enkelt stat.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 64,
+      "before": "Inden han tiltræder udførelsen af sit embede, aflægger han følgende ed eller højtidelige forsikring: »Jeg sværger højtideligt (eller forsikrer), at jeg trofast vil udføre embedet som De Forenede Staters præsident, og at jeg efter bedste evne vil bevare, beskytte og forsvare De Forenede Staters forfatning.«",
+      "after": "Inden præsidenten tiltræder, skal han aflægge følgende ed eller højtidelige forsikring: »Jeg sværger højtideligt (eller forsikrer), at jeg loyalt vil varetage embedet som De Forenede Staters præsident og efter bedste evne bevare, beskytte og forsvare De Forenede Staters forfatning.«",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 65,
+      "before": "Sektion 2. Præsidenten er øverstkommanderende for De Forenede Staters hær og flåde og for de enkelte staters militser, når disse kaldes i De Forenede Staters faktiske tjeneste. Han kan kræve en skriftlig udtalelse fra den øverste embedsmand i hvert af de udøvende departementer om ethvert emne, der vedrører pligterne i deres respektive embeder; og han har magt til at give henstand og benådning for forbrydelser mod De Forenede Stater — undtagen i rigsretssager.",
+      "after": "Afsnit 2. Præsidenten er øverstkommanderende for De Forenede Staters hær og flåde og for de enkelte staters milits, når den indkaldes til De Forenede Staters tjeneste. Han kan kræve skriftlige udtalelser fra lederen af hvert regeringsdepartement om spørgsmål, der hører under deres embeder. Han kan udsætte straffuldbyrdelse og give benådning for forbrydelser mod De Forenede Stater, dog ikke i rigsretssager.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 66,
+      "before": "Han har magt til, med Senatets råd og samtykke, at indgå traktater — forudsat at to tredjedele af de tilstedeværende senatorer er enige. Han indstiller, og udnævner med Senatets råd og samtykke ambassadører, andre offentlige ministre og konsuler, dommere ved højesteret og alle andre embedsmænd i De Forenede Stater, hvis udnævnelser ikke er bestemt på anden måde her, og som fastsættes ved lov. Men Kongressen kan ved lov henlægge udnævnelsen af sådanne underordnede embedsmænd, som de finder rigtigt, til præsidenten alene, til domstolene eller til departementscheferne.",
+      "after": "Præsidenten kan med Senatets råd og samtykke indgå traktater, hvis to tredjedele af de tilstedeværende senatorer tilslutter sig dem. Han skal indstille og med Senatets råd og samtykke udnævne ambassadører, andre diplomatiske udsendinge, konsuler, højesteretsdommere og alle andre amerikanske embedsmænd, hvis embeder oprettes ved lov, og hvis udnævnelse ikke er reguleret på anden måde her. Kongressen kan dog ved lov overlade udnævnelsen af de underordnede embedsmænd, den finder passende, til præsidenten alene, til domstolene eller til departementernes ledere.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 67,
+      "before": "Præsidenten har magt til at besætte alle vakancer, der måtte opstå under Senatets ferie, ved at udstede bestallingsbreve, som udløber ved afslutningen af deres næste samling.",
+      "after": "Præsidenten kan besætte ledige embeder, som opstår, mens Senatet ikke er samlet, ved udnævnelser, der udløber ved afslutningen af Senatets næste samling.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 68,
+      "before": "Sektion 3. Han giver fra tid til anden Kongressen oplysninger om unionens tilstand og henstiller til dens overvejelse sådanne foranstaltninger, som han finder nødvendige og hensigtsmæssige. Han kan ved særlige lejligheder indkalde begge kamre eller et af dem; og i tilfælde af uenighed mellem dem om tidspunktet for udsættelse kan han udsætte dem til et sådant tidspunkt, han finder passende. Han modtager ambassadører og andre offentlige ministre; han sørger for, at lovene udføres trofast; og han udnævner alle De Forenede Staters embedsmænd.",
+      "after": "Afsnit 3. Præsidenten skal med mellemrum orientere Kongressen om unionens tilstand og anbefale de tiltag, han finder nødvendige og hensigtsmæssige. I særlige tilfælde kan han indkalde begge kamre eller ét af dem. Er de uenige om, hvornår møderne skal udsættes, kan han udsætte dem til et tidspunkt, han finder passende. Han skal modtage ambassadører og andre diplomatiske udsendinge, sørge for, at lovene bliver loyalt gennemført, og udstede udnævnelsesbreve til alle De Forenede Staters embedsmænd.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 69,
+      "before": "Sektion 4. Præsidenten, vicepræsidenten og alle civile embedsmænd i De Forenede Stater afsættes fra embedet ved rigsretstiltale for og domfældelse af forræderi, bestikkelse eller andre alvorlige forbrydelser og forseelser.",
+      "after": "Afsnit 4. Præsidenten, vicepræsidenten og alle De Forenede Staters civile embedsmænd skal afsættes, hvis de i en rigsretssag anklages for og dømmes for landsforræderi, bestikkelse eller andre alvorlige forbrydelser og forseelser.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 71,
+      "before": "Sektion 1. Den dømmende magt i De Forenede Stater lægges hos én højesteret og hos sådanne underordnede domstole, som Kongressen fra tid til anden måtte bestemme og oprette. Dommerne, både ved højesteret og ved underordnede domstole, beklæder deres embeder, så længe de udviser god opførsel; og modtager til fastsatte tider en godtgørelse for deres tjeneste, som ikke må nedsættes, mens de er i embedet.",
+      "after": "Afsnit 1. De Forenede Staters dømmende magt ligger hos én højesteret og de lavere domstole, som Kongressen med tiden opretter. Dommerne ved både Højesteret og de lavere domstole beholder deres embeder, så længe de udviser god embedsførelse. De skal på faste tidspunkter have et vederlag for deres arbejde, som ikke må sættes ned, mens de er i embedet.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 72,
+      "before": "Sektion 2. Den dømmende magt strækker sig til alle sager, både civilretlige og billighedsretlige, der opstår under denne forfatning, De Forenede Staters love og traktater indgået eller som vil blive indgået under deres myndighed; til alle sager, der vedrører ambassadører, andre offentlige ministre og konsuler; til alle sager om sø- og admiralitetsret; til stridigheder, hvori De Forenede Stater er part; til stridigheder mellem to eller flere stater; mellem en stat og borgere fra en anden stat; mellem borgere fra forskellige stater; mellem borgere fra samme stat, der gør krav på land under tildelinger fra forskellige stater; og mellem en stat eller dens borgere og fremmede stater, borgere eller undersåtter.",
+      "after": "Afsnit 2. Den dømmende magt omfatter alle sager efter almindelig ret eller billighedsret (equity), som udspringer af denne forfatning, De Forenede Staters love eller traktater, der er eller bliver indgået under deres myndighed. Den omfatter også alle sager vedrørende ambassadører, andre diplomatiske udsendinge og konsuler, alle sø- og admiralitetsretlige sager, tvister, hvor De Forenede Stater er part, tvister mellem to eller flere stater, mellem en stat og borgere fra en anden stat, mellem borgere fra forskellige stater, mellem borgere fra samme stat, der gør krav på jord tildelt af forskellige stater, samt mellem en stat eller dens borgere og fremmede stater, borgere eller undersåtter.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 73,
+      "before": "I alle sager, der vedrører ambassadører, andre offentlige ministre og konsuler, samt i sager hvor en stat er part, har højesteret oprindelig jurisdiktion. I alle de øvrige nævnte sager har højesteret appeljurisdiktion, både med hensyn til lov og faktum — med sådanne undtagelser og under sådanne regler, som Kongressen måtte fastsætte.",
+      "after": "Sager vedrørende ambassadører, andre diplomatiske udsendinge og konsuler samt sager, hvor en stat er part, kan indbringes direkte for Højesteret. I de øvrige nævnte sager er Højesteret appelinstans for både retlige og faktiske spørgsmål med de undtagelser og efter de regler, som Kongressen fastsætter.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 74,
+      "before": "Retssager om alle forbrydelser, undtagen i rigsretssager, afgøres af nævningeting; og denne retssag holdes i den stat, hvor de pågældende forbrydelser er begået. Men når de ikke er begået inden for nogen stat, holdes retssagen på sådant sted eller sådanne steder, som Kongressen ved lov måtte have bestemt.",
+      "after": "Alle straffesager skal behandles med nævninge, bortset fra rigsretssager. Retssagen skal holdes i den stat, hvor forbrydelsen blev begået. Er den ikke begået i nogen stat, skal sagen holdes på det eller de steder, Kongressen har fastsat ved lov.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 75,
+      "before": "Sektion 3. Forræderi mod De Forenede Stater består alene i at føre krig mod dem eller at slutte sig til deres fjender og yde dem hjælp og bistand. Ingen kan dømmes for forræderi uden ved to vidners udsagn om samme åbenlyse handling eller ved tilståelse i åben ret.",
+      "after": "Afsnit 3. Landsforræderi mod De Forenede Stater består kun i at føre krig mod dem eller at slutte sig til deres fjender og yde dem hjælp og støtte. Ingen kan dømmes for landsforræderi, medmindre to vidner forklarer sig om den samme konkrete handling, eller den anklagede tilstår i et offentligt retsmøde.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 76,
+      "before": "Kongressen har magt til at fastsætte straffen for forræderi — men ingen domsfældelse for forræderi medfører blodets fordærvelse eller forbrydelse af ejendom undtagen i den dømtes egen levetid.",
+      "after": "Kongressen kan fastsætte straffen for landsforræderi. En dom for landsforræderi må dog ikke ophæve arverettigheder gennem den dømtes slægt, og konfiskation må ikke række ud over den dømtes levetid.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 78,
+      "before": "Sektion 1. Fuld tillid og anerkendelse skal i hver stat gives de offentlige akter, optegnelser og retslige forhandlinger fra alle andre stater. Og Kongressen kan ved generelle love foreskrive den måde, hvorpå sådanne akter, optegnelser og forhandlinger bevises, og deres virkning.",
+      "after": "Afsnit 1. Hver stat skal fuldt ud anerkende de andre staters offentlige retsakter, registre og domstolsafgørelser og -procedurer. Kongressen kan ved generelle love bestemme, hvordan disse dokumenteres, og hvilken virkning de skal have.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 79,
+      "before": "Sektion 2. Borgerne i hver stat har ret til alle privilegier og immuniteter, der tilkommer borgere i de enkelte stater.",
+      "after": "Afsnit 2. Hver stats borgere har ret til de privilegier og immuniteter, som tilkommer borgerne i de enkelte stater.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 80,
+      "before": "En person, der i en stat anklages for forræderi, alvorlige forbrydelser eller anden kriminalitet, og som flygter fra retsforfølgelsen og findes i en anden stat, skal på krav fra den udøvende myndighed i den stat, han flygtede fra, udleveres — for at blive overført til den stat, der har jurisdiktion over forbrydelsen.",
+      "after": "En person, der er anklaget for landsforræderi, en alvorlig forbrydelse eller anden kriminalitet i en stat, flygter fra retsforfølgelsen og findes i en anden stat, skal udleveres, hvis den første stats udøvende myndighed kræver det. Personen skal føres tilbage til den stat, som har kompetence til at behandle forbrydelsen.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 81,
+      "before": "Ingen, der er forpligtet til tjeneste eller arbejde i en stat under dens love, og som flygter til en anden, skal som følge af nogen lov eller bestemmelse dér løses fra sådan tjeneste eller arbejde — men skal udleveres på krav fra den part, til hvem sådan tjeneste eller arbejde måtte tilkomme.",
+      "after": "En person, som efter en stats love er bundet til tjeneste eller arbejde, og som flygter til en anden stat, må ikke fritages for denne tjeneste eller dette arbejde som følge af love eller regler dér. Personen skal udleveres på krav fra den, som har ret til tjenesten eller arbejdet.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 82,
+      "before": "Sektion 3. Nye stater kan optages af Kongressen i denne union; men ingen nye stater må dannes eller oprettes inden for nogen anden stats jurisdiktion; ej heller må nogen stat dannes ved sammenslutning af to eller flere stater eller dele af stater uden samtykke fra de berørte staters lovgivende forsamlinger samt fra Kongressen.",
+      "after": "Afsnit 3. Kongressen kan optage nye stater i unionen. Der må ikke oprettes en ny stat inden for en anden stats område eller dannes en stat ved at slå stater eller dele af stater sammen uden samtykke fra både de berørte staters lovgivende forsamlinger og Kongressen.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 83,
+      "before": "Kongressen har magt til at råde over og udforme alle nødvendige regler og bestemmelser vedrørende det territorium eller anden ejendom, der tilhører De Forenede Stater. Intet i denne forfatning må fortolkes således, at det skader krav fra De Forenede Stater eller fra nogen bestemt stat.",
+      "after": "Kongressen kan råde over De Forenede Staters territorier og øvrige ejendom og fastsætte alle nødvendige regler for dem. Intet i forfatningen må fortolkes til skade for krav, som De Forenede Stater eller en enkelt stat har.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 84,
+      "before": "Sektion 4. De Forenede Stater garanterer hver stat i denne union en republikansk regeringsform og beskytter hver af dem mod invasion; og på begæring fra den lovgivende forsamling eller fra den udøvende magt (når den lovgivende forsamling ikke kan indkaldes) mod indre vold.",
+      "after": "Afsnit 4. De Forenede Stater skal garantere hver stat i unionen en republikansk styreform og beskytte den mod invasion. De skal også beskytte staten mod voldelige indre uroligheder, når dens lovgivende forsamling beder om det, eller når dens udøvende myndighed gør det, hvis forsamlingen ikke kan indkaldes.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 86,
+      "before": "Kongressen foreslår, når to tredjedele af begge kamre finder det nødvendigt, ændringer til denne forfatning; eller den indkalder, på begæring fra to tredjedele af de enkelte staters lovgivende forsamlinger, til en konvent for at foreslå ændringer — som i begge tilfælde er gyldige til alle hensigter og formål som en del af denne forfatning, når de er ratificeret af tre fjerdedele af de enkelte staters lovgivende forsamlinger eller af konventer i tre fjerdedele af dem, alt efter hvilken af de to ratifikationsformer Kongressen måtte foreslå. Forudsat at ingen ændring, der måtte blive foretaget før år 1808, på nogen måde påvirker første og fjerde klausul i niende sektion af første artikel; og at ingen stat uden sit samtykke må fratages sin lige stemmeret i Senatet.",
+      "after": "Når to tredjedele i hvert af Kongressens kamre finder det nødvendigt, skal Kongressen foreslå ændringer til forfatningen. Hvis de lovgivende forsamlinger i to tredjedele af staterne anmoder om det, skal den indkalde et konvent, som skal foreslå ændringer. I begge tilfælde bliver ændringerne fuldt gyldige dele af forfatningen, når de er godkendt af de lovgivende forsamlinger i tre fjerdedele af staterne eller af konventer i tre fjerdedele af staterne. Kongressen bestemmer, hvilken af de to godkendelsesformer der skal bruges. Ingen ændring vedtaget før 1808 må dog på nogen måde berøre første og fjerde bestemmelse i artikel 1, afsnit 9. Ingen stat må uden sit samtykke miste sin lige stemmeret i Senatet.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 88,
+      "before": "Al gæld pådraget og alle forpligtelser indgået før vedtagelsen af denne forfatning er lige så gyldige over for De Forenede Stater under denne forfatning som under konføderationen.",
+      "after": "Al gæld og alle forpligtelser, der blev påtaget før vedtagelsen af denne forfatning, er lige så bindende for De Forenede Stater under forfatningen som under det tidligere statsforbund.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 89,
+      "before": "Denne forfatning og De Forenede Staters love, som vedtages i medfør af den, samt alle traktater indgået — eller som vil blive indgået — under De Forenede Staters myndighed, er landets øverste lov. Dommerne i hver stat er bundet af den, uanset hvad der måtte stå i nogen stats forfatning eller love.",
+      "after": "Denne forfatning, De Forenede Staters love vedtaget i medfør af den og alle traktater, der er eller bliver indgået under De Forenede Staters myndighed, er landets øverste ret. Dommerne i hver stat er bundet heraf, selv om statens forfatning eller love siger noget andet.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 90,
+      "before": "De ovenfor nævnte senatorer og repræsentanter, medlemmerne af de enkelte staters lovgivende forsamlinger og alle udøvende og dømmende embedsmænd — både i De Forenede Stater og i de enkelte stater — er ved ed eller højtidelig forsikring forpligtet til at støtte denne forfatning. Men ingen religiøs prøve må nogensinde kræves som betingelse for noget embede eller offentligt tillidshverv under De Forenede Stater.",
+      "after": "De nævnte senatorer og repræsentanter, medlemmerne af staternes lovgivende forsamlinger og alle udøvende og dømmende embedsmænd i både De Forenede Stater og de enkelte stater skal ved ed eller højtidelig forsikring forpligte sig til at støtte denne forfatning. Der må aldrig stilles religiøse krav som betingelse for et embede eller offentligt tillidshverv under De Forenede Stater.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 92,
+      "before": "Ratifikationen fra konventerne i ni stater er tilstrækkelig til at oprette denne forfatning mellem de stater, der således ratificerer den.",
+      "after": "Godkendelse fra konventer i ni stater er tilstrækkelig til, at denne forfatning træder i kraft mellem de stater, der godkender den.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 93,
+      "before": "Udfærdiget i konvent ved enstemmigt samtykke fra de tilstedeværende stater den syttende dag i september i Vor Herres år ettusinde syv hundrede og syvogfirs og i De Forenede Staters uafhængigheds tolvte år. Som vidnesbyrd herom har vi hertil sat vore navne,",
+      "after": "Vedtaget på konventet med enstemmigt samtykke fra de tilstedeværende stater den 17. september i Herrens år 1787 og i Amerikas Forenede Staters tolvte uafhængighedsår. Som bekræftelse har vi sat vores navne herunder,",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 1,
+      "before": "Amendment I. Kongressen må ikke vedtage nogen lov om indførelse af en statsreligion eller om forbud mod den frie udøvelse heraf; eller som indskrænker ytringsfriheden eller pressefriheden; eller folkets ret til at forsamles fredeligt og at anmode regeringen om afhjælpning af klagepunkter.",
+      "after": "1. forfatningstillæg. Kongressen må ikke vedtage love om at etablere en religion som statsreligion eller forbyde fri religionsudøvelse. Den må heller ikke begrænse ytringsfriheden, pressefriheden eller folkets ret til at samles fredeligt og bede regeringen om at rette op på uret.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 2,
+      "before": "Amendment II. Da en velreguleret milits er nødvendig for sikkerheden i en fri stat, må folkets ret til at besidde og bære våben ikke krænkes.",
+      "after": "2. forfatningstillæg. Da en velreguleret milits er nødvendig for en fri stats sikkerhed, må folkets ret til at besidde og bære våben ikke krænkes.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 3,
+      "before": "Amendment III. Ingen soldat må i fredstid indkvarteres i noget hus uden ejerens samtykke; ej heller i krigstid, undtagen på en måde, der foreskrives ved lov.",
+      "after": "3. forfatningstillæg. I fredstid må ingen soldat indkvarteres i et hus uden ejerens samtykke. I krigstid må det kun ske efter regler fastsat ved lov.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 4,
+      "before": "Amendment IV. Folkets ret til at være sikre på deres personer, hjem, papirer og ejendele mod urimelige ransagninger og beslaglæggelser må ikke krænkes. Ingen ransagningskendelser må udstedes uden begrundet mistanke, understøttet af ed eller højtidelig forsikring, og med særlig beskrivelse af stedet, der skal ransages, og af personerne eller tingene, der skal beslaglægges.",
+      "after": "4. forfatningstillæg. Folkets ret til beskyttelse af personer, hjem, papirer og ejendele mod urimelige ransagninger og beslaglæggelser må ikke krænkes. En kendelse må kun udstedes på grundlag af sandsynlig grund, understøttet af ed eller højtidelig forsikring. Den skal præcist angive det sted, der skal ransages, og de personer, der skal pågribes, eller ting, der skal beslaglægges.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 5,
+      "before": "Amendment V. Ingen kan kræves stillet til ansvar for en kapitalforbrydelse eller anden vanærende forbrydelse uden på en storjurys forelæggelse eller anklageskrift — undtagen i sager opstået i land- eller søstyrkerne eller i militsen, når denne er i faktisk tjeneste i krigstid eller ved offentlig fare. Ej heller må nogen for samme forseelse to gange stilles til risiko for liv eller lemmer. Ej heller må nogen i nogen straffesag tvinges til at vidne mod sig selv eller berøves liv, frihed eller ejendom uden retfærdig rettergang. Ej heller må privat ejendom tages til offentligt brug uden rimelig erstatning.",
+      "after": "5. forfatningstillæg. Ingen må stilles til ansvar for en forbrydelse, der kan medføre dødsstraf, eller anden alvorlig forbrydelse uden en anklage eller tiltale fra en anklagejury (grand jury). Undtaget er sager i land- og søstyrkerne eller i militsen, når den er i aktiv tjeneste under krig eller offentlig fare. Ingen må for samme lovovertrædelse to gange udsættes for fare for liv eller førlighed. Ingen må i en straffesag tvinges til at vidne mod sig selv eller fratages liv, frihed eller ejendom uden en behørig retlig proces. Privat ejendom må ikke inddrages til offentlig brug uden rimelig erstatning.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 6,
+      "before": "Amendment VI. I alle straffesager har den anklagede ret til en hurtig og offentlig retssag ved en upartisk jury fra den stat og det distrikt, hvor forbrydelsen er begået — hvilket distrikt skal være fastsat på forhånd ved lov. Den anklagede skal underrettes om anklagens art og grundlag; konfronteres med vidnerne mod sig; have ret til tvungen indkaldelse af vidner til sin fordel; og have bistand af forsvarer.",
+      "after": "6. forfatningstillæg. I alle straffesager har den anklagede ret til en hurtig og offentlig retssag med upartiske nævninge fra den stat og det distrikt, hvor forbrydelsen er begået. Distriktet skal være fastlagt ved lov på forhånd. Den anklagede har ret til at få oplyst anklagens art og grundlag, møde vidnerne imod sig, få vidner indkaldt med pligt til at møde til støtte for sit forsvar og få bistand fra en forsvarer.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 7,
+      "before": "Amendment VII. I sagsanlæg efter common law, hvor tvistens værdi overstiger tyve dollars, skal retten til nævningeting bevares. Ingen kendsgerning, der er prøvet af en jury, må på anden måde tages op til fornyet behandling i nogen domstol i De Forenede Stater, undtagen efter common law's regler.",
+      "after": "7. forfatningstillæg. I sager efter common law, hvor tvistens værdi overstiger 20 dollars, skal retten til behandling med nævninge bevares. Faktiske forhold, som nævninge har taget stilling til, må kun prøves igen ved en amerikansk domstol efter common laws regler.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 8,
+      "before": "Amendment VIII. Der må ikke kræves urimelig kaution, ej heller pålægges urimelige bøder eller udmåles grusomme og usædvanlige straffe.",
+      "after": "8. forfatningstillæg. Der må ikke kræves urimeligt høj kaution, pålægges urimeligt store bøder eller idømmes grusomme og usædvanlige straffe.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 9,
+      "before": "Amendment IX. Opregningen i forfatningen af visse rettigheder må ikke fortolkes således, at den fornægter eller forringer andre rettigheder, som folket bevarer.",
+      "after": "9. forfatningstillæg. At forfatningen nævner bestemte rettigheder, må ikke fortolkes som en benægtelse eller svækkelse af andre rettigheder, som folket har beholdt.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 10,
+      "before": "Amendment X. De beføjelser, der ikke er overdraget De Forenede Stater ved forfatningen, og som ikke er forbudt staterne ved den, er forbeholdt staterne hver for sig eller folket.",
+      "after": "10. forfatningstillæg. De beføjelser, som forfatningen ikke giver De Forenede Stater og heller ikke forbyder de enkelte stater at udøve, tilkommer staterne hver for sig eller folket.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 4,
+      "before": "4. forfatningstillæg. Folkets ret til beskyttelse af personer, hjem, papirer og ejendele mod urimelige ransagninger og beslaglæggelser må ikke krænkes. En kendelse må kun udstedes på grundlag af sandsynlig grund, understøttet af ed eller højtidelig forsikring. Den skal præcist angive det sted, der skal ransages, og de personer, der skal pågribes, eller ting, der skal beslaglægges.",
+      "after": "4. forfatningstillæg. Folkets ret til beskyttelse af personer, hjem, papirer og ejendele mod urimelige ransagninger og beslaglæggelser må ikke krænkes. En kendelse må kun udstedes på grundlag af begrundet mistanke (probable cause), understøttet af ed eller højtidelig forsikring. Den skal præcist angive det sted, der skal ransages, og de personer, der skal pågribes, eller ting, der skal beslaglægges.",
+      "reason": "Use natural Danish wording while retaining the exact US legal term, rather than literal sandsynlig grund."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 1,
+      "before": "Amendment XI. De Forenede Staters dømmende magt må ikke fortolkes således, at den udstrækkes til nogen civilretlig eller billighedsretlig sag, der er anlagt eller forfulgt mod en af De Forenede Stater af borgere i en anden stat eller af borgere eller undersåtter i en fremmed stat.",
+      "after": "11. forfatningstillæg. De Forenede Staters dømmende magt må ikke forstås sådan, at den omfatter sager efter almindelig ret eller billighedsret, som borgere i en anden stat eller borgere eller undersåtter i en fremmed stat anlægger eller fører mod en af De Forenede Stater.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 2,
+      "before": "Amendment XII. Valgmændene mødes i deres respektive stater og stemmer ved skriftlig afstemning på præsident og vicepræsident — hvoraf mindst én ikke må være bosat i samme stat som dem selv. De angiver i deres stemmesedler den person, der stemmes på som præsident, og på særskilte stemmesedler den person, der stemmes på som vicepræsident. De udfærdiger særskilte lister over alle personer, der stemmes på som præsident, og over alle personer, der stemmes på som vicepræsident, samt over antallet af stemmer for hver. Listerne underskrives og bekræftes og sendes forseglet til De Forenede Staters regeringssæde, adresseret til Senatets formand. Senatets formand åbner i Senatets og Repræsentanternes Hus' nærvær alle attesterne, og stemmerne tælles derefter. Den person, der har det største antal stemmer som præsident, bliver præsident — såfremt dette antal udgør et flertal af det samlede antal udnævnte valgmænd. Hvis ingen person har et sådant flertal, vælger Repræsentanternes Hus straks ved skriftlig afstemning præsidenten blandt de personer (ikke flere end tre), der har de højeste antal på listen over dem, der er stemt på som præsident. Men ved valget af præsident afgives stemmerne af staterne — idet hver stats repræsentation har én stemme. Det beslutningsdygtige antal til dette formål består af et eller flere medlemmer fra to tredjedele af staterne, og et flertal af alle staterne er nødvendigt for et valg. Hvis Repræsentanternes Hus ikke vælger en præsident, når valgretten overgår til det, før den fjerde dag i marts efterfølgende, fungerer vicepræsidenten som præsident — som i tilfælde af præsidentens død eller anden forfatningsmæssig uarbejdsdygtighed. Den person, der har det største antal stemmer som vicepræsident, bliver vicepræsident — såfremt dette antal udgør et flertal af det samlede antal udnævnte valgmænd. Hvis ingen person har et flertal, vælger Senatet vicepræsidenten blandt de to højeste tal på listen. Det beslutningsdygtige antal til dette formål består af to tredjedele af det samlede antal senatorer, og et flertal af det samlede antal er nødvendigt for et valg. Men ingen person, der efter forfatningen er uvalgbar til præsidentembedet, er valgbar til vicepræsidentembedet i De Forenede Stater.",
+      "after": "12. forfatningstillæg. Valgmændene mødes i deres egne stater og stemmer skriftligt på en præsident og en vicepræsident. Mindst én af de to skal bo i en anden stat end valgmændene selv. De skal angive deres præsidentkandidat på én stemmeseddel og deres vicepræsidentkandidat på en særskilt stemmeseddel. De skal udarbejde særskilte lister over alle præsident- og vicepræsidentkandidater, der har fået stemmer, med stemmetallet for hver. Listerne skal underskrives, bekræftes og sendes forseglet til De Forenede Staters regeringssæde, adresseret til Senatets formand. I overværelse af Senatet og Repræsentanternes Hus skal Senatets formand åbne alle de bekræftede lister, hvorefter stemmerne tælles. Den, der har flest stemmer som præsident, bliver præsident, hvis stemmetallet udgør et flertal af alle udpegede valgmænd. Har ingen dette flertal, skal Repræsentanternes Hus straks ved skriftlig afstemning vælge præsidenten blandt højst tre kandidater med flest præsidentstemmer. Ved dette valg stemmer staterne hver for sig, og hver stats repræsentanter har tilsammen én stemme. Der skal være mindst ét medlem til stede fra to tredjedele af staterne, og valget kræver tilslutning fra et flertal af alle stater. Hvis Repræsentanternes Hus får denne opgave, men ikke har valgt en præsident inden den følgende 4. marts, skal vicepræsidenten fungere som præsident, ligesom ved præsidentens død eller anden forfatningsmæssig hindring for at varetage embedet. Den, der har flest stemmer som vicepræsident, bliver vicepræsident, hvis stemmetallet udgør et flertal af alle udpegede valgmænd. Har ingen flertal, skal Senatet vælge vicepræsidenten blandt de to med flest stemmer. To tredjedele af alle senatorer skal være til stede, og valget kræver et flertal af samtlige senatorer. Den, der efter forfatningen ikke kan vælges til præsident, kan heller ikke vælges til De Forenede Staters vicepræsident.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 3,
+      "before": "Amendment XIII. Sektion 1. Hverken slaveri eller ufrivillig trældom — undtagen som straf for en forbrydelse, hvor den dømte er behørigt domfældt — må forekomme i De Forenede Stater eller noget sted underlagt deres jurisdiktion. Sektion 2. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "13. forfatningstillæg. Afsnit 1. Hverken slaveri eller tvungen tjeneste må forekomme i De Forenede Stater eller noget sted under deres myndighed. Undtaget er straf for en forbrydelse, som personen er behørigt dømt for. Afsnit 2. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 4,
+      "before": "Amendment XIV. Sektion 1. Alle personer, der er født eller naturaliserede i De Forenede Stater og underlagt deres jurisdiktion, er borgere i De Forenede Stater og i den stat, hvor de bor. Ingen stat må vedtage eller håndhæve nogen lov, der indskrænker De Forenede Staters borgeres privilegier eller immuniteter; ej heller må nogen stat berøve nogen liv, frihed eller ejendom uden retfærdig rettergang; ej heller nægte nogen inden for sin jurisdiktion lige beskyttelse af lovene. Sektion 2. Repræsentanter fordeles mellem de enkelte stater efter deres respektive folketal — hvor det samlede antal personer i hver stat tælles, med undtagelse af ikke-skattepligtige indianere. Men når retten til at stemme ved noget valg af valgmænd til præsident og vicepræsident i De Forenede Stater, repræsentanter i Kongressen, en stats udøvende og dømmende embedsmænd eller medlemmer af dens lovgivende forsamling nægtes nogen af de mandlige indbyggere i den stat, der er fyldt enogtyve år og er borgere i De Forenede Stater — eller på nogen måde indskrænkes, undtagen for deltagelse i oprør eller anden forbrydelse — reduceres grundlaget for repræsentationen i den stat i forhold til antallet af de mandlige borgere, der er fyldt enogtyve år i den stat. Sektion 3. Ingen kan være senator eller repræsentant i Kongressen eller valgmand til præsident og vicepræsident eller beklæde noget embede (civilt eller militært) under De Forenede Stater eller under nogen stat, som tidligere har aflagt ed som medlem af Kongressen, som embedsmand i De Forenede Stater, som medlem af nogen stats lovgivende forsamling eller som udøvende eller dømmende embedsmand i nogen stat på at støtte De Forenede Staters forfatning, og som har deltaget i opstand eller oprør mod den eller givet hjælp eller bistand til dens fjender. Men Kongressen kan ved en afstemning på to tredjedele af hvert kammer ophæve en sådan diskvalifikation. Sektion 4. Gyldigheden af De Forenede Staters offentlige gæld, godkendt ved lov — herunder gæld pådraget til betaling af pensioner og dusører for tjenester ved undertrykkelse af opstand eller oprør — må ikke drages i tvivl. Men hverken De Forenede Stater eller nogen stat må påtage sig eller betale nogen gæld eller forpligtelse pådraget til hjælp for opstand eller oprør mod De Forenede Stater eller noget krav om tab eller frigivelse af nogen slave; al sådan gæld, alle sådanne forpligtelser og krav skal anses for ulovlige og ugyldige. Sektion 5. Kongressen har magt til ved passende lovgivning at håndhæve bestemmelserne i denne artikel.",
+      "after": "14. forfatningstillæg. Afsnit 1. Alle, der er født i De Forenede Stater eller har fået statsborgerskab dér og er underlagt landets myndighed, er statsborgere i De Forenede Stater og i den stat, hvor de bor. Ingen stat må vedtage eller håndhæve love, der begrænser amerikanske statsborgeres privilegier eller immuniteter. Den må heller ikke fratage nogen liv, frihed eller ejendom uden en behørig retlig proces eller nægte nogen under dens myndighed lige beskyttelse under loven. Afsnit 2. Repræsentanter fordeles mellem staterne efter deres folketal. Alle personer i hver stat tælles med, bortset fra indianere, der ikke beskattes. Hvis en stat nægter eller begrænser stemmeretten for nogen af sine mandlige indbyggere, der er fyldt 21 år og er amerikanske statsborgere, skal grundlaget for statens repræsentation dog nedsættes. Det gælder ved valg af valgmænd til præsident og vicepræsident, repræsentanter i Kongressen, statens udøvende og dømmende embedsmænd og medlemmer af dens lovgivende forsamling. Undtaget er begrænsninger på grund af deltagelse i oprør eller anden kriminalitet. Nedsættelsen skal svare til den andel, som de berørte mandlige borgere udgør af alle statens mandlige borgere på 21 år eller derover. Afsnit 3. Ingen må være senator eller repræsentant i Kongressen, valgmand ved præsident- og vicepræsidentvalg eller have et civilt eller militært embede under De Forenede Stater eller en stat, hvis han efter tidligere at have svoret at støtte De Forenede Staters forfatning har deltaget i opstand eller oprør mod den eller hjulpet eller støttet dens fjender. Det gælder eder aflagt som kongresmedlem, føderal embedsmand, medlem af en stats lovgivende forsamling eller udøvende eller dømmende embedsmand i en stat. Kongressen kan dog ophæve denne udelukkelse med to tredjedeles tilslutning i hvert kammer. Afsnit 4. Gyldigheden af De Forenede Staters offentlige gæld, som er godkendt ved lov, må ikke drages i tvivl. Det omfatter gæld til pensioner og belønninger for tjeneste ved bekæmpelse af opstand eller oprør. Hverken De Forenede Stater eller nogen stat må dog overtage eller betale gæld eller forpligtelser, der er påtaget for at støtte opstand eller oprør mod De Forenede Stater, eller erstatningskrav for tab eller frigivelse af slaver. Sådan gæld og sådanne forpligtelser og krav er ulovlige og ugyldige. Afsnit 5. Kongressen kan håndhæve denne artikels bestemmelser gennem passende lovgivning.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 5,
+      "before": "Amendment XV. Sektion 1. De Forenede Staters borgeres ret til at stemme må ikke nægtes eller indskrænkes af De Forenede Stater eller af nogen stat på grund af race, hudfarve eller tidligere trældom. Sektion 2. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "15. forfatningstillæg. Afsnit 1. Hverken De Forenede Stater eller nogen enkelt stat må nægte eller begrænse amerikanske statsborgeres stemmeret på grund af race, hudfarve eller tidligere slaveri eller tvungen tjeneste. Afsnit 2. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 6,
+      "before": "Amendment XVI. Kongressen har magt til at pålægge og opkræve skatter på indkomst — uanset kilde — uden fordeling mellem de enkelte stater og uden hensyn til nogen folketælling eller optælling.",
+      "after": "16. forfatningstillæg. Kongressen kan pålægge og opkræve indkomstskat, uanset hvor indkomsten kommer fra, uden at fordele skatten mellem staterne efter folketal og uden hensyn til nogen folketælling.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 7,
+      "before": "Amendment XVII. De Forenede Staters Senat sammensættes af to senatorer fra hver stat, valgt af folket der, for seks år; og hver senator har én stemme. Vælgerne i hver stat skal opfylde de betingelser, der kræves for vælgere til den mest folkerige gren af staternes lovgivende forsamlinger. Når der opstår vakancer i en stats repræsentation i Senatet, udsteder den udøvende myndighed i den stat valgskrivelser til at besætte disse vakancer — forudsat at en stats lovgivende forsamling kan bemyndige den udøvende magt til at foretage midlertidige udnævnelser, indtil folket besætter vakancerne ved valg, som lovgivningen måtte bestemme. Denne ændring må ikke fortolkes således, at den påvirker valg eller embedsperiode for nogen senator valgt før den bliver gyldig som del af forfatningen.",
+      "after": "17. forfatningstillæg. De Forenede Staters Senat består af to senatorer fra hver stat, valgt af statens befolkning for seks år. Hver senator har én stemme. Vælgerne i hver stat skal opfylde de samme betingelser som vælgerne til det største kammer i statens lovgivende forsamling. Bliver en af statens pladser i Senatet ledig, skal dens udøvende myndighed udskrive valg for at besætte den. Statens lovgivende forsamling kan dog give den udøvende myndighed ret til at foretage midlertidige udnævnelser, indtil befolkningen har besat pladserne ved valg efter forsamlingens regler. Dette tillæg må ikke fortolkes sådan, at det påvirker valget eller embedsperioden for senatorer valgt, før det træder i kraft som en del af forfatningen.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 8,
+      "before": "Amendment XVIII. Sektion 1. Et år efter ratifikationen af denne artikel er fremstilling, salg eller transport af berusende drikkevarer inden for — samt indførsel heraf til eller udførsel heraf fra — De Forenede Stater og alt territorium underlagt dens jurisdiktion til drikkeformål forbudt. Sektion 2. Kongressen og de enkelte stater har samtidig magt til at håndhæve denne artikel ved passende lovgivning. Sektion 3. Denne artikel er uden virkning, medmindre den er ratificeret som en ændring til forfatningen af de enkelte staters lovgivende forsamlinger som foreskrevet i forfatningen inden for syv år fra Kongressens forelæggelse for staterne.",
+      "after": "18. forfatningstillæg. Afsnit 1. Ét år efter godkendelsen af denne artikel bliver det forbudt at fremstille, sælge eller transportere alkoholholdige drikke til drikkebrug i De Forenede Stater og alle områder under deres myndighed samt at indføre dem til eller udføre dem fra disse områder. Afsnit 2. Både Kongressen og de enkelte stater har beføjelse til at håndhæve artiklen gennem passende lovgivning. Afsnit 3. Artiklen får kun virkning, hvis staternes lovgivende forsamlinger godkender den som et forfatningstillæg efter forfatningens regler inden syv år fra den dag, Kongressen forelægger den for staterne.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 9,
+      "before": "Amendment XIX. De Forenede Staters borgeres ret til at stemme må ikke nægtes eller indskrænkes af De Forenede Stater eller af nogen stat på grund af køn. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "19. forfatningstillæg. Hverken De Forenede Stater eller nogen enkelt stat må nægte eller begrænse amerikanske statsborgeres stemmeret på grund af køn. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 10,
+      "before": "Amendment XX. Sektion 1. Præsidentens og vicepræsidentens embedsperioder slutter klokken tolv den 20. januar, og senatorernes og repræsentanternes embedsperioder klokken tolv den 3. januar i de år, hvor disse perioder ville være sluttet, hvis denne artikel ikke var blevet ratificeret; og deres efterfølgeres embedsperioder begynder derefter. Sektion 2. Kongressen samles mindst én gang om året, og dette møde begynder klokken tolv den 3. januar — medmindre den ved lov fastsætter en anden dag. Sektion 3. Hvis den valgte præsident er afgået ved døden på det tidspunkt, der er fastsat for begyndelsen af præsidentens embedsperiode, bliver den valgte vicepræsident præsident. Hvis en præsident ikke er valgt før det tidspunkt, der er fastsat for begyndelsen af hans embedsperiode, eller hvis den valgte præsident ikke har opfyldt betingelserne, fungerer den valgte vicepræsident som præsident, indtil en præsident har opfyldt dem. Kongressen kan ved lov sørge for det tilfælde, hvor hverken en valgt præsident eller en valgt vicepræsident har opfyldt betingelserne — ved at erklære, hvem der da skal fungere som præsident, eller hvordan den, der skal fungere, skal udvælges; og denne person fungerer i overensstemmelse hermed, indtil en præsident eller vicepræsident har opfyldt betingelserne. Sektion 4. Kongressen kan ved lov sørge for det tilfælde, at nogen af de personer, blandt hvilke Repræsentanternes Hus måtte vælge en præsident, når valgretten er overgået til det, afgår ved døden, samt for det tilfælde, at nogen af de personer, blandt hvilke Senatet måtte vælge en vicepræsident, når valgretten er overgået til det, afgår ved døden. Sektion 5. Sektion 1 og 2 træder i kraft den 15. oktober efter ratifikationen af denne artikel. Sektion 6. Denne artikel er uden virkning, medmindre den er ratificeret som en ændring til forfatningen af tre fjerdedele af de enkelte staters lovgivende forsamlinger inden for syv år fra dens forelæggelse.",
+      "after": "20. forfatningstillæg. Afsnit 1. Præsidentens og vicepræsidentens embedsperioder slutter den 20. januar klokken 12, og senatorernes og repræsentanternes den 3. januar klokken 12, i de år, hvor perioderne ville være udløbet, hvis denne artikel ikke var blevet godkendt. Deres efterfølgeres embedsperioder begynder på samme tid. Afsnit 2. Kongressen skal mødes mindst én gang om året. Mødet begynder den 3. januar klokken 12, medmindre en anden dag fastsættes ved lov. Afsnit 3. Er den valgte præsident død, når embedsperioden skal begynde, bliver den valgte vicepræsident præsident. Er der endnu ikke valgt en præsident, eller opfylder den valgte præsident ikke betingelserne for at tiltræde, fungerer den valgte vicepræsident som præsident, indtil en præsident opfylder betingelserne. Kongressen kan ved lov fastsætte, hvem der skal fungere som præsident, eller hvordan vedkommende udpeges, hvis hverken den valgte præsident eller den valgte vicepræsident opfylder betingelserne. Personen fungerer da som præsident, indtil en præsident eller vicepræsident opfylder dem. Afsnit 4. Kongressen kan ved lov fastsætte regler for det tilfælde, at en af de kandidater dør, som Repræsentanternes Hus skal vælge præsidenten blandt, når valget tilkommer Huset. Det samme gælder, hvis en af de kandidater dør, som Senatet skal vælge vicepræsidenten blandt, når dette valg tilkommer Senatet. Afsnit 5. Afsnit 1 og 2 træder i kraft den 15. oktober efter godkendelsen af denne artikel. Afsnit 6. Artiklen får kun virkning, hvis de lovgivende forsamlinger i tre fjerdedele af staterne godkender den som forfatningstillæg inden syv år fra forelæggelsen.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 11,
+      "before": "Amendment XXI. Sektion 1. Den attende ændringsartikel til De Forenede Staters forfatning ophæves hermed. Sektion 2. Transport eller indførsel til nogen stat, territorium eller besiddelse i De Forenede Stater til levering eller brug der af berusende drikkevarer i strid med dens love er hermed forbudt. Sektion 3. Denne artikel er uden virkning, medmindre den er ratificeret som en ændring til forfatningen af konventer i de enkelte stater som foreskrevet i forfatningen inden for syv år fra Kongressens forelæggelse for staterne.",
+      "after": "21. forfatningstillæg. Afsnit 1. Det 18. tillæg til De Forenede Staters forfatning ophæves. Afsnit 2. Det er forbudt at transportere eller indføre alkoholholdige drikke til levering eller brug i en stat, et territorium eller en besiddelse under De Forenede Stater, hvis det strider mod områdets love. Afsnit 3. Artiklen får kun virkning, hvis konventer i staterne godkender den som forfatningstillæg efter forfatningens regler inden syv år fra den dag, Kongressen forelægger den for staterne.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 12,
+      "before": "Amendment XXII. Sektion 1. Ingen kan vælges til præsidentembedet mere end to gange. Ingen, der har beklædt præsidentembedet eller fungeret som præsident i mere end to år af en periode, til hvilken en anden person var valgt som præsident, kan vælges til præsidentembedet mere end én gang. Men denne artikel gælder ikke for nogen, der beklæder præsidentembedet, da denne artikel blev foreslået af Kongressen; og den hindrer ikke nogen, der måtte beklæde præsidentembedet eller fungere som præsident i den periode, hvori denne artikel træder i kraft, i at beklæde præsidentembedet eller fungere som præsident i resten af den periode. Sektion 2. Denne artikel er uden virkning, medmindre den er ratificeret som en ændring til forfatningen af tre fjerdedele af de enkelte staters lovgivende forsamlinger inden for syv år fra Kongressens forelæggelse for staterne.",
+      "after": "22. forfatningstillæg. Afsnit 1. Ingen må vælges til præsident mere end to gange. Den, der har været præsident eller fungeret som præsident i mere end to år af en embedsperiode, som en anden blev valgt til, må højst vælges én gang. Artiklen gælder dog ikke for den, der var præsident, da Kongressen foreslog den. Den hindrer heller ikke den, der er præsident eller fungerer som præsident i den periode, hvor artiklen træder i kraft, i at fortsætte resten af denne periode. Afsnit 2. Artiklen får kun virkning, hvis de lovgivende forsamlinger i tre fjerdedele af staterne godkender den som forfatningstillæg inden syv år fra den dag, Kongressen forelægger den for staterne.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 13,
+      "before": "Amendment XXIII. Sektion 1. Det distrikt, der udgør sædet for De Forenede Staters regering, udpeger på en sådan måde, som Kongressen måtte bestemme, et antal valgmænd til præsident og vicepræsident svarende til det samlede antal senatorer og repræsentanter i Kongressen, som distriktet ville være berettiget til, hvis det var en stat — men i intet tilfælde flere end den mindst folkerige stat. De er en tilføjelse til dem, der udnævnes af staterne, men de betragtes ved valget af præsident og vicepræsident som valgmænd udnævnt af en stat; og de mødes i distriktet og udfører de pligter, der er fastsat ved den tolvte ændringsartikel. Sektion 2. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "23. forfatningstillæg. Afsnit 1. Det distrikt, hvor De Forenede Staters regering har sæde, skal efter Kongressens regler udpege valgmænd til præsident og vicepræsident. Antallet skal svare til det samlede antal senatorer og repræsentanter, som distriktet ville have ret til i Kongressen, hvis det var en stat, dog aldrig flere end den stat med færrest indbyggere. Disse valgmænd kommer ud over staternes valgmænd, men skal ved præsident- og vicepræsidentvalget behandles, som om de var udpeget af en stat. De skal mødes i distriktet og udføre opgaverne i det 12. forfatningstillæg. Afsnit 2. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 14,
+      "before": "Amendment XXIV. Sektion 1. De Forenede Staters borgeres ret til at stemme ved primærvalg eller andet valg af præsident eller vicepræsident, af valgmænd til præsident eller vicepræsident eller af senator eller repræsentant i Kongressen må ikke nægtes eller indskrænkes af De Forenede Stater eller nogen stat med den begrundelse, at en valgskat eller anden skat ikke er betalt. Sektion 2. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "24. forfatningstillæg. Afsnit 1. Hverken De Forenede Stater eller nogen stat må nægte eller begrænse amerikanske statsborgeres stemmeret, fordi de ikke har betalt en personskat eller anden skat. Det gælder ved primærvalg og andre valg af præsident, vicepræsident, valgmænd til disse embeder samt senatorer og repræsentanter i Kongressen. Afsnit 2. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 15,
+      "before": "Amendment XXV. Sektion 1. I tilfælde af præsidentens afsættelse fra embedet eller hans død eller fratræden bliver vicepræsidenten præsident. Sektion 2. Når der opstår en vakance i vicepræsidentembedet, indstiller præsidenten en vicepræsident — som tiltræder embedet ved bekræftelse med flertal i begge kamre i Kongressen. Sektion 3. Når præsidenten til Senatets midlertidige formand og Repræsentanternes Hus' formand fremsender sin skriftlige erklæring om, at han er ude af stand til at varetage embedets beføjelser og pligter — og indtil han fremsender en skriftlig erklæring om det modsatte til dem — varetages disse beføjelser og pligter af vicepræsidenten som fungerende præsident. Sektion 4. Når vicepræsidenten og et flertal af enten de øverste embedsmænd i de udøvende departementer eller af et sådant andet organ, som Kongressen ved lov måtte bestemme, fremsender deres skriftlige erklæring til Senatets midlertidige formand og Repræsentanternes Hus' formand om, at præsidenten er ude af stand til at varetage embedets beføjelser og pligter, overtager vicepræsidenten straks beføjelserne og pligterne som fungerende præsident. Når præsidenten derefter til Senatets midlertidige formand og Repræsentanternes Hus' formand fremsender sin skriftlige erklæring om, at der ikke foreligger nogen uarbejdsdygtighed, genoptager han sit embedes beføjelser og pligter — medmindre vicepræsidenten og et flertal af enten de øverste embedsmænd i det udøvende departement eller af et sådant andet organ, som Kongressen ved lov måtte bestemme, inden for fire dage til Senatets midlertidige formand og Repræsentanternes Hus' formand fremsender deres skriftlige erklæring om, at præsidenten er ude af stand til at varetage embedets beføjelser og pligter. Derefter afgør Kongressen sagen og samles inden for otteogfyrre timer til dette formål, hvis den ikke er i samling. Hvis Kongressen inden for enogtyve dage efter modtagelsen af den sidstnævnte skriftlige erklæring — eller, hvis Kongressen ikke er i samling, inden for enogtyve dage efter at Kongressen er pålagt at samles — med en afstemning på to tredjedele af begge kamre fastslår, at præsidenten er ude af stand til at varetage embedets beføjelser og pligter, fortsætter vicepræsidenten med at varetage dem som fungerende præsident; ellers genoptager præsidenten sit embedes beføjelser og pligter.",
+      "after": "25. forfatningstillæg. Afsnit 1. Hvis præsidenten afsættes, dør eller fratræder, bliver vicepræsidenten præsident. Afsnit 2. Bliver vicepræsidentembedet ledigt, skal præsidenten indstille en vicepræsident. Den indstillede tiltræder, når et flertal i hvert af Kongressens kamre har godkendt udnævnelsen. Afsnit 3. Når præsidenten skriftligt meddeler Senatets midlertidige formand og Repræsentanternes Hus' formand, at han ikke kan varetage sit embedes beføjelser og pligter, overtager vicepræsidenten dem som fungerende præsident. Det gælder, indtil præsidenten skriftligt meddeler de to formænd det modsatte. Afsnit 4. Hvis vicepræsidenten sammen med et flertal af regeringsdepartementernes ledere eller af et andet organ oprettet ved lov af Kongressen skriftligt meddeler Senatets midlertidige formand og Repræsentanternes Hus' formand, at præsidenten ikke kan varetage sit embedes beføjelser og pligter, overtager vicepræsidenten dem straks som fungerende præsident. Meddeler præsidenten derefter de to formænd skriftligt, at han igen kan varetage embedet, genoptager han sine beføjelser og pligter. Det sker dog ikke, hvis vicepræsidenten og et flertal af departementernes ledere eller det andet organ, som Kongressen har fastsat ved lov, inden fire dage sender de to formænd en skriftlig erklæring om, at præsidenten fortsat er ude af stand til at varetage embedet. Kongressen skal da afgøre sagen. Er den ikke samlet, skal den mødes inden 48 timer til dette formål. Fastslår Kongressen med to tredjedeles tilslutning i hvert kammer, at præsidenten ikke kan varetage embedets beføjelser og pligter, fortsætter vicepræsidenten som fungerende præsident. Afgørelsen skal træffes inden 21 dage efter modtagelsen af den sidste erklæring eller, hvis Kongressen ikke var samlet, inden 21 dage efter det tidspunkt, hvor den skulle samles. Ellers genoptager præsidenten sine beføjelser og pligter.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 16,
+      "before": "Amendment XXVI. Sektion 1. De Forenede Staters borgeres ret til at stemme, når de er fyldt atten år eller derover, må ikke nægtes eller indskrænkes af De Forenede Stater eller af nogen stat på grund af alder. Sektion 2. Kongressen har magt til at håndhæve denne artikel ved passende lovgivning.",
+      "after": "26. forfatningstillæg. Afsnit 1. Hverken De Forenede Stater eller nogen stat må på grund af alder nægte eller begrænse stemmeretten for amerikanske statsborgere, der er fyldt 18 år. Afsnit 2. Kongressen kan håndhæve denne artikel gennem passende lovgivning.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 17,
+      "before": "Amendment XXVII. Ingen lov, der ændrer godtgørelsen for senatorernes og repræsentanternes tjeneste, træder i kraft, før der har været afholdt et valg til repræsentanter.",
+      "after": "27. forfatningstillæg. En lov, der ændrer senatorernes og repræsentanternes vederlag, må først træde i kraft, når der efter lovens vedtagelse har været valg til Repræsentanternes Hus.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
     }
   ],
   "englishChanges": [
@@ -686,6 +1318,580 @@
       "before": "No Senator or Representative may, during the time for which he was elected, be appointed to any civil office under the authority of the United States that has been created — or whose emoluments have been increased — during that time. No person holding any office under the United States may be a member of either House during his continuance in office.",
       "after": "During the term for which a Senator or Representative was elected, he cannot be appointed to a federal civil office that was created or had its pay increased during that term. No one holding an office under the United States can serve in either House while remaining in that office.",
       "reason": "Clarify constitutional conditions and terminology without changing historical provisions: larger chamber, all eligibility requirements, individual chamber votes, no invented hvervembede or revenue imposition."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 25,
+      "before": "Every bill that has passed the House of Representatives and the Senate will, before it becomes a law, be presented to the President of the United States. If he approves, he will sign it; if not, he will return it with his objections to the House in which it originated, which will enter the objections at large on its journal and proceed to reconsider. If after that reconsideration two-thirds of that House agree to pass the bill, it will be sent — together with the objections — to the other House, which will likewise reconsider it; and if approved by two-thirds of that House, it will become a law. But in all such cases, the votes of both Houses will be determined by Yeas and Nays, and the names of the persons voting for and against the bill will be entered on the journal of each House. If any bill is not returned by the President within ten days (Sundays excepted) after being presented to him, it will become a law in the same manner as if he had signed it — unless Congress by their adjournment prevents its return, in which case it will not become a law.",
+      "after": "A bill passed by both the House of Representatives and the Senate must go to the President of the United States before becoming law. If he approves it, he must sign it. Otherwise, he must return it with his objections to the House where it began. That House must record his objections in full and reconsider the bill. If two thirds of the House then vote to pass it, the bill and objections go to the other House for reconsideration. If two thirds of that House approve it, it becomes law. In all such cases, both Houses must record votes as yes or no, entering the names of those voting for and against in their respective journals. A bill becomes law as if signed when the President does not return it within ten days of receiving it, excluding Sundays. But if Congress prevents its return by adjourning, it does not become law.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 26,
+      "before": "Every order, resolution, or vote requiring the concurrence of the Senate and House of Representatives (except on a question of adjournment) will be presented to the President of the United States; and before the same takes effect, it will be approved by him, or — being disapproved by him — be repassed by two-thirds of the Senate and House of Representatives, according to the rules and limitations prescribed in the case of a bill.",
+      "after": "Every order, resolution or vote requiring agreement by both the Senate and the House of Representatives must be submitted to the President, except decisions to adjourn. Before taking effect, it must either have his approval or, if he rejects it, pass again with two-thirds support in each House, under the same rules and limits as a bill.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 27,
+      "before": "Section 8. The Congress will have power to lay and collect taxes, duties, imposts, and excises; to pay the debts and provide for the common defence and general welfare of the United States — but all duties, imposts, and excises will be uniform throughout the United States;",
+      "after": "Section 8. Congress has power to impose and collect taxes, duties, imposts and excises to pay the United States' debts and provide for its common defence and general welfare. Duties, imposts and excises must be uniform throughout the United States;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 30,
+      "before": "To establish a uniform rule of naturalization, and uniform laws on the subject of bankruptcies throughout the United States;",
+      "after": "to establish uniform rules for becoming a citizen and uniform bankruptcy laws throughout the United States;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 31,
+      "before": "To coin money, regulate the value thereof and of foreign coin, and fix the standard of weights and measures;",
+      "after": "to mint money, regulate the value of domestic and foreign coins, and set standards for weights and measures;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 32,
+      "before": "To provide for the punishment of counterfeiting the securities and current coin of the United States;",
+      "after": "to establish penalties for counterfeiting United States securities and coins in circulation;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 34,
+      "before": "To promote the progress of science and useful arts, by securing for limited times to authors and inventors the exclusive right to their respective writings and discoveries;",
+      "after": "to promote science and useful arts by giving authors and inventors exclusive rights to their writings and discoveries for limited periods;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 35,
+      "before": "To constitute tribunals inferior to the Supreme Court;",
+      "after": "to establish courts below the Supreme Court;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 36,
+      "before": "To define and punish piracies and felonies committed on the high seas, and offenses against the law of nations;",
+      "after": "to define and punish piracy and serious crimes committed on the high seas, and offences against the law of nations;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 37,
+      "before": "To declare war, grant letters of marque and reprisal, and make rules concerning captures on land and water;",
+      "after": "to declare war, issue letters of marque and reprisal, and make rules governing captures on land and water;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 38,
+      "before": "To raise and support armies — but no appropriation of money to that use will be for a longer term than two years;",
+      "after": "to raise and support armies, but no funding for that purpose may be authorised for longer than two years;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 41,
+      "before": "To provide for calling forth the militia to execute the laws of the Union, suppress insurrections, and repel invasions;",
+      "after": "to arrange for calling up the militia to enforce the Union's laws, suppress rebellions and repel invasions;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 42,
+      "before": "To provide for organizing, arming, and disciplining the militia, and for governing such part of them as may be employed in the service of the United States — reserving to the States respectively the appointment of the officers and the authority of training the militia according to the discipline prescribed by Congress;",
+      "after": "to organise, arm and discipline the militia, and govern any part serving the United States. The states retain the appointment of officers and the authority to train the militia according to the discipline prescribed by Congress;",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 43,
+      "before": "To exercise exclusive legislation in all cases whatsoever, over such District (not exceeding ten miles square) as may, by cession of particular States and the acceptance of Congress, become the seat of the government of the United States, and to exercise like authority over all places purchased by the consent of the legislature of the State in which they are located, for the erection of forts, magazines, arsenals, dockyards, and other needful buildings — and",
+      "after": "to exercise sole lawmaking authority in all matters over a district, no larger than a square ten miles on each side, that individual states cede and Congress accepts as the seat of the United States government. Congress has the same authority over sites purchased with the consent of the legislature of the state where they lie, for forts, supply depots, arsenals, dockyards and other necessary buildings; and",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 44,
+      "before": "To make all laws which are necessary and proper for carrying into execution the foregoing powers, and all other powers vested by this Constitution in the government of the United States, or in any department or officer of it.",
+      "after": "to pass all laws necessary and proper for putting these powers into effect, together with every other power this Constitution gives the United States government or any of its departments or officers.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 45,
+      "before": "Section 9. The migration or importation of such persons as any of the States now existing think proper to admit will not be prohibited by the Congress prior to the year 1808 — but a tax or duty may be imposed on such importation, not exceeding ten dollars for each person.",
+      "after": "Section 9. Before 1808, Congress may not prohibit the migration or importation of people whom any of the states already in existence chooses to admit. A tax or duty of up to ten dollars per person may be charged on such importation.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 46,
+      "before": "The privilege of the writ of habeas corpus will not be suspended, unless when in cases of rebellion or invasion the public safety requires it.",
+      "after": "The right to seek a writ of habeas corpus cannot be suspended unless public safety requires it during rebellion or invasion.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 47,
+      "before": "No bill of attainder or ex post facto law will be passed.",
+      "after": "No law may impose punishment on particular people without a judicial trial, or impose criminal penalties retroactively.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 48,
+      "before": "No capitation, or other direct, tax will be laid, unless in proportion to the census or enumeration directed earlier.",
+      "after": "No tax per person or other direct tax may be imposed unless apportioned according to the census required above.",
+      "reason": "Modern readable legal-history rendering; retain thresholds and exceptions, fix ten miles square (not ten square miles), and explain bill of attainder without narrowing it to loss of civil rights."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 49,
+      "before": "No tax or duty will be laid on articles exported from any State.",
+      "after": "No tax or duty may be imposed on goods exported from any state.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 50,
+      "before": "No preference will be given by any regulation of commerce or revenue to the ports of one State over those of another; nor will vessels bound to or from one State be obliged to enter, clear, or pay duties in another.",
+      "after": "No trade or revenue rule may favour one state's ports over another's. Ships travelling to or from one state cannot be required to enter a port, clear customs or pay duties in another.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 51,
+      "before": "No money will be drawn from the Treasury except in consequence of appropriations made by law; and a regular statement and account of the receipts and expenditures of all public money will be published from time to time.",
+      "after": "Money may be paid from the Treasury only under appropriations authorised by law. A regular statement and account of all public receipts and spending must be published periodically.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 52,
+      "before": "No title of nobility will be granted by the United States; and no person holding any office of profit or trust under them will, without the consent of the Congress, accept any present, emolument, office, or title of any kind whatever, from any king, prince, or foreign State.",
+      "after": "The United States may not grant titles of nobility. No one holding a paid office or position of trust under the United States may, without Congress's consent, accept any gift, payment, office or title of any kind from a king, prince or foreign state.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 53,
+      "before": "Section 10. No State will enter into any treaty, alliance, or confederation; grant letters of marque and reprisal; coin money; emit bills of credit; make any thing but gold and silver coin a tender in payment of debts; pass any bill of attainder, ex post facto law, or law impairing the obligation of contracts; or grant any title of nobility.",
+      "after": "Section 10. No state may enter a treaty, alliance or confederation; issue letters of marque and reprisal; mint money; issue bills of credit; or make anything other than gold and silver coins legal tender for paying debts. Nor may it enact laws punishing particular people without a judicial trial, retroactive criminal laws, or laws weakening contractual obligations, or grant titles of nobility.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 54,
+      "before": "No State will, without the consent of the Congress, lay any imposts or duties on imports or exports — except what may be absolutely necessary for executing its inspection laws. The net produce of all duties and imposts laid by any State on imports or exports will be for the use of the Treasury of the United States; and all such laws will be subject to the revision and control of the Congress.",
+      "after": "Without Congress's consent, a state may not impose duties or imposts on imports or exports, except what is strictly necessary to enforce its inspection laws. Net revenue from all such state charges must go to the United States Treasury. Congress may revise and control all these laws.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 55,
+      "before": "No State will, without the consent of Congress, lay any duty of tonnage; keep troops or ships of war in time of peace; enter into any agreement or compact with another State, or with a foreign power; or engage in war — unless actually invaded, or in such imminent danger as will not admit of delay.",
+      "after": "Without Congress's consent, a state may not charge tonnage duties, maintain troops or warships in peacetime, make agreements with another state or a foreign power, or wage war. It may fight if actually invaded or in such immediate danger that delay is impossible.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 57,
+      "before": "Section 1. The executive power will be vested in a President of the United States of America. He will hold his office during the term of four years, and, together with the Vice President chosen for the same term, be elected as follows:",
+      "after": "Section 1. Executive power belongs to the President of the United States of America. He holds office for four years and is elected, together with a Vice President serving the same term, as follows:",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 58,
+      "before": "Each State will appoint, in such manner as its legislature directs, a number of electors equal to the whole number of Senators and Representatives to which the State may be entitled in the Congress; but no Senator or Representative, or person holding an office of trust or profit under the United States, will be appointed an elector.",
+      "after": "Each state appoints electors in the way its legislature directs. Their number must equal the state's total number of Senators and Representatives in Congress. No Senator, Representative or person holding a federal office of trust or profit may serve as an elector.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 60,
+      "before": "The Congress may determine the time of choosing the electors, and the day on which they will give their votes — which day will be the same throughout the United States.",
+      "after": "Congress may set the time for choosing electors and the day they vote. Voting must take place on the same day throughout the United States.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 61,
+      "before": "No person except a natural-born citizen, or a citizen of the United States at the time of the adoption of this Constitution, will be eligible to the office of President. Nor will any person be eligible to that office who has not reached the age of thirty-five years and been fourteen years a resident within the United States.",
+      "after": "To be eligible for the presidency, a person must be a natural-born citizen or have been a United States citizen when this Constitution was adopted. He must also be at least thirty-five and have lived within the United States for fourteen years.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 62,
+      "before": "In case of the removal of the President from office, or of his death, resignation, or inability to discharge the powers and duties of the said office, the same will devolve on the Vice President. The Congress may by law provide for the case of removal, death, resignation, or inability of both the President and Vice President — declaring what officer will then act as President; and that officer will act accordingly until the disability is removed, or a President is elected.",
+      "after": "If the President is removed, dies, resigns or cannot carry out his office's powers and duties, they pass to the Vice President. Congress may pass a law naming the officer who will act as President if both the President and Vice President are removed, die, resign or are unable to serve. That officer serves until the inability ends or a President is elected.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 63,
+      "before": "The President will, at stated times, receive for his services a compensation, which will neither be increased nor diminished during the period for which he has been elected; and he will not receive within that period any other emolument from the United States, or any of them.",
+      "after": "The President must receive payment for his service at set times. It cannot be increased or reduced during his elected term. During that term he may receive no other payment from the United States or any individual state.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 65,
+      "before": "Section 2. The President will be Commander in Chief of the Army and Navy of the United States, and of the militia of the several States when called into the actual service of the United States. He may require the opinion, in writing, of the principal officer in each of the executive departments upon any subject relating to the duties of their respective offices; and he will have power to grant reprieves and pardons for offenses against the United States — except in cases of impeachment.",
+      "after": "Section 2. The President commands the United States Army and Navy and the state militias when called into United States service. He may require the head of each executive department to give written opinions on matters relating to that office's duties. He may grant reprieves and pardons for offences against the United States, except in impeachment cases.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 66,
+      "before": "He will have power, by and with the advice and consent of the Senate, to make treaties — provided two-thirds of the Senators present concur. He will nominate, and by and with the advice and consent of the Senate will appoint ambassadors, other public ministers and consuls, judges of the Supreme Court, and all other officers of the United States whose appointments are not herein otherwise provided for, and which will be established by law. But the Congress may by law vest the appointment of such inferior officers, as they think proper, in the President alone, in the courts of law, or in the heads of departments.",
+      "after": "The President may make treaties with the Senate's advice and consent, provided two thirds of the Senators present agree. He nominates and, with the Senate's advice and consent, appoints ambassadors, other diplomatic representatives and consuls, Supreme Court judges, and all other United States officers whose offices are established by law and whose appointment is not otherwise provided for here. Congress may, by law, allow the President alone, the courts or department heads to appoint lower-ranking officers as it considers appropriate.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 67,
+      "before": "The President will have power to fill up all vacancies that may happen during the recess of the Senate, by granting commissions which will expire at the end of their next session.",
+      "after": "The President may fill vacancies arising while the Senate is not in session through appointments that expire at the end of its next session.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 68,
+      "before": "Section 3. He will from time to time give to the Congress information on the State of the Union, and recommend to their consideration such measures as he judges necessary and expedient. He may, on extraordinary occasions, convene both Houses, or either of them; and in case of disagreement between them with respect to the time of adjournment, he may adjourn them to such time as he thinks proper. He will receive ambassadors and other public ministers; he will take care that the laws are faithfully executed; and he will commission all the officers of the United States.",
+      "after": "Section 3. The President must periodically inform Congress about the State of the Union and recommend measures he considers necessary and useful. In exceptional circumstances, he may convene both Houses or either one. If they disagree on when to adjourn, he may adjourn them until a time he considers appropriate. He receives ambassadors and other diplomatic representatives, must ensure that the laws are faithfully carried out, and issues commissions to all officers of the United States.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 69,
+      "before": "Section 4. The President, Vice President, and all civil officers of the United States will be removed from office on impeachment for, and conviction of, treason, bribery, or other high crimes and misdemeanors.",
+      "after": "Section 4. The President, Vice President and all United States civil officers must be removed from office if impeached and convicted of treason, bribery or other high crimes and misdemeanours.",
+      "reason": "Readable historical constitutional language, preserve exceptions and ballot rules; distinguish citizenship at birth, diplomatic ministers, federal/state payments, and commissions from appointments."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 71,
+      "before": "Section 1. The judicial power of the United States will be vested in one Supreme Court, and in such inferior courts as the Congress may from time to time ordain and establish. The judges, both of the supreme and inferior courts, will hold their offices during good behavior; and will, at stated times, receive for their services a compensation, which will not be diminished during their continuance in office.",
+      "after": "Section 1. The judicial power of the United States belongs to one Supreme Court and any lower courts Congress establishes. Judges of both the Supreme Court and the lower courts hold office during good behaviour. They must be paid at set times for their service, and their pay cannot be reduced while they remain in office.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 72,
+      "before": "Section 2. The judicial power will extend to all cases, in law and equity, arising under this Constitution, the laws of the United States, and treaties made or which will be made under their authority; to all cases affecting ambassadors, other public ministers, and consuls; to all cases of admiralty and maritime jurisdiction; to controversies to which the United States is a party; to controversies between two or more States; between a State and citizens of another State; between citizens of different States; between citizens of the same State claiming lands under grants of different States; and between a State, or its citizens, and foreign States, citizens, or subjects.",
+      "after": "Section 2. Judicial power covers every case in law or equity arising under this Constitution, United States laws, or treaties made or to be made under United States authority. It also covers cases involving ambassadors, other diplomatic representatives and consuls; admiralty and maritime cases; disputes in which the United States is a party; disputes between two or more states; between a state and citizens of another state; between citizens of different states; between citizens of the same state claiming land granted by different states; and between a state or its citizens and foreign states, citizens or subjects.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 73,
+      "before": "In all cases affecting ambassadors, other public ministers and consuls, and those in which a State will be party, the Supreme Court will have original jurisdiction. In all the other cases mentioned earlier, the Supreme Court will have appellate jurisdiction, both as to law and fact — with such exceptions and under such regulations as the Congress will make.",
+      "after": "Cases involving ambassadors, other diplomatic representatives and consuls, and cases in which a state is a party, may begin in the Supreme Court. In the other cases listed above, the Supreme Court hears appeals on both law and facts, subject to the exceptions and rules Congress makes.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 74,
+      "before": "The trial of all crimes, except in cases of impeachment, will be by jury; and that trial will be held in the State where the said crimes have been committed. But when not committed within any State, the trial will be at such place or places as the Congress may by law have directed.",
+      "after": "All criminal trials must be by jury, except impeachment cases. A trial must take place in the state where the crime was committed. If it was committed outside every state, the trial must be held at the place or places Congress has specified by law.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 75,
+      "before": "Section 3. Treason against the United States will consist only in levying war against them, or in adhering to their enemies, giving them aid and comfort. No person will be convicted of treason unless on the testimony of two witnesses to the same overt act, or on confession in open court.",
+      "after": "Section 3. Treason against the United States consists only of waging war against them or siding with their enemies and giving them aid and support. A treason conviction requires either two witnesses to the same overt act or a confession in open court.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 76,
+      "before": "The Congress will have power to declare the punishment of treason — but no attainder of treason will work corruption of blood, or forfeiture except during the life of the person attainted.",
+      "after": "Congress may set the punishment for treason. But a conviction must not destroy inheritance rights through the convicted person's family line, and forfeiture of property cannot extend beyond that person's lifetime.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 78,
+      "before": "Section 1. Full faith and credit will be given in each State to the public acts, records, and judicial proceedings of every other State. And the Congress may by general laws prescribe the manner in which such acts, records, and proceedings will be proved, and the effect thereof.",
+      "after": "Section 1. Each state must fully recognise the public acts, records and judicial proceedings of every other state. Congress may make general laws setting out how these are to be proved and what effect they have.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 80,
+      "before": "A person charged in any State with treason, felony, or other crime, who flees from justice and is found in another State, will, on demand of the executive authority of the State from which he fled, be delivered up — to be removed to the State having jurisdiction of the crime.",
+      "after": "A person charged with treason, felony or another crime in one state who flees justice and is found in another must be surrendered at the request of the first state's executive authority and returned to the state with jurisdiction over the crime.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 81,
+      "before": "No person held to service or labor in one State, under the laws thereof, escaping into another, will, in consequence of any law or regulation therein, be discharged from such service or labor — but will be delivered up on claim of the party to whom such service or labor may be due.",
+      "after": "A person bound to service or labour under one state's laws who escapes to another cannot be released from that service or labour by a law or rule of the second state. The person must be surrendered if claimed by the party entitled to that service or labour.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 82,
+      "before": "Section 3. New States may be admitted by the Congress into this Union; but no new States will be formed or erected within the jurisdiction of any other State; nor will any State be formed by the junction of two or more States, or parts of States, without the consent of the legislatures of the States concerned, as well as of the Congress.",
+      "after": "Section 3. Congress may admit new states to the Union. A new state cannot be formed within another state's jurisdiction, or by combining states or parts of states, without the consent of the legislatures concerned and of Congress.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 83,
+      "before": "The Congress will have power to dispose of and make all needful rules and regulations respecting the territory or other property belonging to the United States. Nothing in this Constitution will be so construed as to prejudice any claims of the United States, or of any particular State.",
+      "after": "Congress may dispose of United States territory and other property and make all necessary rules for it. Nothing in this Constitution may be interpreted to harm the claims of the United States or any individual state.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 84,
+      "before": "Section 4. The United States will guarantee to every State in this Union a Republican form of government, and will protect each of them against invasion; and on application of the legislature, or of the executive (when the legislature cannot be convened), against domestic violence.",
+      "after": "Section 4. The United States must guarantee a republican form of government to every state in the Union and protect each against invasion. It must also protect a state against internal violence at the request of its legislature, or of its executive if the legislature cannot be convened.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 86,
+      "before": "The Congress, whenever two-thirds of both Houses deem it necessary, will propose amendments to this Constitution; or, on the application of the legislatures of two-thirds of the several States, will call a convention for proposing amendments — which, in either case, will be valid to all intents and purposes as part of this Constitution, when ratified by the legislatures of three-fourths of the several States, or by conventions in three-fourths of them, as the one or the other mode of ratification may be proposed by the Congress. Provided that no amendment which may be made prior to the year 1808 will in any manner affect the first and fourth clauses in the ninth section of the first article; and that no State, without its consent, will be deprived of its equal suffrage in the Senate.",
+      "after": "Congress must propose amendments to this Constitution whenever two thirds of each House consider it necessary. Alternatively, at the request of the legislatures of two thirds of the states, Congress must convene a convention to propose amendments. In either case, amendments become fully valid parts of the Constitution when ratified by the legislatures of three quarters of the states, or by conventions in three quarters of them. Congress chooses which ratification method to use. No amendment made before 1808 may affect the first and fourth clauses of Article 1, Section 9 in any way. No state may lose its equal voting rights in the Senate without its consent.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 88,
+      "before": "All debts contracted and engagements entered into before the adoption of this Constitution will be as valid against the United States under this Constitution as under the Confederation.",
+      "after": "Debts and commitments made before this Constitution was adopted remain as binding on the United States under this Constitution as they were under the Confederation.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 89,
+      "before": "This Constitution, and the laws of the United States which will be made in pursuance of it, and all treaties made — or which will be made — under the authority of the United States, will be the supreme law of the land. The judges in every State will be bound by it, anything in the Constitution or laws of any State to the contrary notwithstanding.",
+      "after": "This Constitution, United States laws made under it, and treaties already made or later made under United States authority are the supreme law of the land. Every state's judges are bound by them, even if that state's constitution or laws say otherwise.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 90,
+      "before": "The Senators and Representatives mentioned earlier, the members of the several State legislatures, and all executive and judicial officers — both of the United States and of the several States — will be bound by oath or affirmation to support this Constitution. But no religious test will ever be required as a qualification for any office or public trust under the United States.",
+      "after": "The Senators and Representatives mentioned above, state legislators, and all executive and judicial officers of both the United States and the individual states must pledge by oath or affirmation to support this Constitution. No religious qualification may ever be required for a federal office or public position of trust.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 92,
+      "before": "The ratification of the conventions of nine States will be sufficient for the establishment of this Constitution between the States so ratifying it.",
+      "after": "Ratification by conventions in nine states is enough to put this Constitution into effect between the states ratifying it.",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 93,
+      "before": "Done in Convention by the unanimous consent of the States present, the seventeenth day of September in the Year of our Lord one thousand seven hundred and eighty-seven, and of the Independence of the United States of America the twelfth. In witness whereof, we have hereunto subscribed our names,",
+      "after": "Agreed in Convention by the unanimous consent of the states present on 17 September in the year of our Lord 1787, the twelfth year of the independence of the United States of America. In witness of this, we have signed our names below,",
+      "reason": "Modern constitutional rendering; repair law/equity wrongly narrowed to civil cases, literal corruption of blood and forfeiture, and domestic violence wrongly suggestive of household abuse; preserve historical slavery clause, thresholds and institutions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 1,
+      "before": "Amendment I. Congress will make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the government for a redress of grievances.",
+      "after": "Amendment I. Congress may not pass a law establishing religion or prohibiting its free practice. Nor may it restrict freedom of speech or of the press, or the people's right to assemble peacefully and petition the government to put wrongs right.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 2,
+      "before": "Amendment II. A well-regulated militia, being necessary to the security of a free State, the right of the people to keep and bear arms will not be infringed.",
+      "after": "Amendment II. Because a well-regulated militia is necessary to the security of a free state, the people's right to keep and bear arms must not be infringed.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 3,
+      "before": "Amendment III. No soldier will, in time of peace, be quartered in any house without the consent of the owner; nor in time of war, except in a manner to be prescribed by law.",
+      "after": "Amendment III. In peacetime, no soldier may be housed in a home without its owner's consent. In wartime, soldiers may be housed there only as prescribed by law.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 4,
+      "before": "Amendment IV. The right of the people to be secure in their persons, houses, papers, and effects against unreasonable searches and seizures will not be violated. No warrants will issue except upon probable cause, supported by oath or affirmation, and particularly describing the place to be searched and the persons or things to be seized.",
+      "after": "Amendment IV. People's right to security in their persons, homes, papers and possessions against unreasonable searches and seizures must not be violated. Warrants may be issued only on probable cause, supported by oath or affirmation, and must specifically describe the place to be searched and the people or things to be seized.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 5,
+      "before": "Amendment V. No person will be held to answer for a capital, or otherwise infamous, crime unless on a presentment or indictment of a grand jury — except in cases arising in the land or naval forces, or in the militia, when in actual service in time of war or public danger. Nor will any person be subject for the same offense to be twice put in jeopardy of life or limb. Nor will any person be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property without due process of law. Nor will private property be taken for public use without just compensation.",
+      "after": "Amendment V. No one may be made to answer for a crime punishable by death or another infamous crime without a grand jury's presentment or indictment. Exceptions apply to cases arising in the army or navy, or in the militia while in active service during war or public danger. No one may be put in jeopardy of life or limb twice for the same offence, forced to testify against himself in a criminal case, or deprived of life, liberty or property without due process of law. Private property may not be taken for public use without fair compensation.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 6,
+      "before": "Amendment VI. In all criminal prosecutions, the accused will enjoy the right to a speedy and public trial, by an impartial jury of the State and district where the crime has been committed — which district will have been previously determined by law. The accused will be informed of the nature and cause of the accusation; be confronted with the witnesses against him; have compulsory process for obtaining witnesses in his favor; and have the assistance of counsel for his defence.",
+      "after": "Amendment VI. Anyone facing criminal prosecution has the right to a speedy, public trial before an impartial jury from the state and district where the crime was committed. The district must have been established by law beforehand. The accused has the right to know the nature and basis of the charge, confront the witnesses against him, compel witnesses to attend in his favour, and have a lawyer's help in his defence.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 7,
+      "before": "Amendment VII. In suits at common law, where the value in controversy exceeds twenty dollars, the right of trial by jury will be preserved. No fact tried by a jury will be otherwise re-examined in any court of the United States, except according to the rules of the common law.",
+      "after": "Amendment VII. In common-law suits involving more than twenty dollars, the right to trial by jury must be preserved. Facts decided by a jury may be re-examined in a United States court only under common-law rules.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 8,
+      "before": "Amendment VIII. Excessive bail will not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.",
+      "after": "Amendment VIII. Excessively high bail or fines may not be imposed, nor may cruel and unusual punishments.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 9,
+      "before": "Amendment IX. The enumeration in the Constitution of certain rights will not be construed to deny or disparage others retained by the people.",
+      "after": "Amendment IX. Listing certain rights in the Constitution must not be interpreted as denying or diminishing other rights the people retain.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 3,
+      "paragraph": 10,
+      "before": "Amendment X. The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+      "after": "Amendment X. Powers that the Constitution neither gives to the United States nor forbids to the states are reserved to the individual states or to the people.",
+      "reason": "Modern rights language; distinguish capital crime from finance, arrest from seizure of things, grand jury from trial jury, and due process from trial alone; retain qualifications and exceptions."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 1,
+      "before": "Amendment XI. The judicial power of the United States will not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by citizens of another State, or by citizens or subjects of any foreign State.",
+      "after": "Amendment XI. United States judicial power must not be interpreted to cover a lawsuit in law or equity brought or pursued against a state by citizens of another state, or by citizens or subjects of a foreign state.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 2,
+      "before": "Amendment XII. The electors will meet in their respective States and vote by ballot for President and Vice President — at least one of whom will not be an inhabitant of the same State as themselves. They will name in their ballots the person voted for as President, and in distinct ballots the person voted for as Vice President. They will make distinct lists of all persons voted for as President, and of all persons voted for as Vice President, and of the number of votes for each. The lists will be signed and certified and transmitted sealed to the seat of the government of the United States, directed to the President of the Senate. The President of the Senate will, in the presence of the Senate and House of Representatives, open all the certificates, and the votes will then be counted. The person having the greatest number of votes for President will be the President — if that number is a majority of the whole number of electors appointed. If no person has such a majority, then from the persons having the highest numbers (not exceeding three) on the list of those voted for as President, the House of Representatives will choose immediately, by ballot, the President. But in choosing the President, the votes will be taken by States — the representation from each State having one vote. A quorum for this purpose will consist of a member or members from two-thirds of the States, and a majority of all the States will be necessary to a choice. If the House of Representatives does not choose a President whenever the right of choice devolves upon them, before the fourth day of March next following, then the Vice President will act as President — as in the case of the death or other constitutional disability of the President. The person having the greatest number of votes as Vice President will be the Vice President — if that number is a majority of the whole number of electors appointed. If no person has a majority, then from the two highest numbers on the list, the Senate will choose the Vice President. A quorum for that purpose will consist of two-thirds of the whole number of Senators, and a majority of the whole number will be necessary to a choice. But no person constitutionally ineligible to the office of President will be eligible to that of Vice President of the United States.",
+      "after": "Amendment XII. Electors meet in their own states and vote by ballot for President and Vice President. At least one candidate must live in a different state from the electors themselves. They name their presidential choice on one ballot and their vice-presidential choice on a separate ballot. They must draw up separate lists of everyone receiving presidential and vice-presidential votes, with each person's total. The lists must be signed, certified and sent sealed to the seat of the United States government, addressed to the President of the Senate. In the presence of the Senate and House of Representatives, the President of the Senate opens all the certificates and the votes are counted. The candidate with the most presidential votes becomes President if that total is a majority of all appointed electors. If no one has a majority, the House must immediately choose the President by ballot from no more than the three candidates with the most presidential votes. States vote separately, with each state's representatives collectively casting one vote. At least one member from each of two thirds of the states must be present, and election requires a majority of all states. If the House becomes responsible for the choice but has not chosen a President before the following 4 March, the Vice President acts as President, as on a President's death or other constitutional inability to serve. The candidate with the most vice-presidential votes becomes Vice President if that total is a majority of all appointed electors. If no one has a majority, the Senate chooses between the two candidates with the most votes. Two thirds of all Senators must be present, and election requires a majority of all Senators. Anyone constitutionally ineligible to be President is also ineligible to be Vice President.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 3,
+      "before": "Amendment XIII. Section 1. Neither slavery nor involuntary servitude — except as a punishment for crime, where the party has been duly convicted — will exist within the United States, or any place subject to their jurisdiction. Section 2. Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XIII. Section 1. Slavery and involuntary servitude are prohibited throughout the United States and anywhere under their jurisdiction, except as punishment for a crime of which the person has been duly convicted. Section 2. Congress may enforce this article through appropriate legislation.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 4,
+      "before": "Amendment XIV. Section 1. All persons born or naturalized in the United States, and subject to the jurisdiction thereof, are citizens of the United States and of the State where they reside. No State will make or enforce any law that abridges the privileges or immunities of citizens of the United States; nor will any State deprive any person of life, liberty, or property without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws. Section 2. Representatives will be apportioned among the several States according to their respective numbers — counting the whole number of persons in each State, excluding Indians not taxed. But when the right to vote at any election for the choice of electors for President and Vice President of the United States, Representatives in Congress, the executive and judicial officers of a State, or the members of the legislature thereof, is denied to any of the male inhabitants of that State, being twenty-one years of age, and citizens of the United States — or in any way abridged, except for participation in rebellion or other crime — the basis of representation in that State will be reduced in the proportion which the number of those male citizens bears to the whole number of male citizens twenty-one years of age in that State. Section 3. No person will be a Senator or Representative in Congress, or elector of President and Vice President, or hold any office (civil or military) under the United States, or under any State, who, having previously taken an oath as a member of Congress, or as an officer of the United States, or as a member of any State legislature, or as an executive or judicial officer of any State, to support the Constitution of the United States, has engaged in insurrection or rebellion against the same, or given aid or comfort to the enemies thereof. But Congress may by a vote of two-thirds of each House remove such disability. Section 4. The validity of the public debt of the United States, authorized by law — including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion — will not be questioned. But neither the United States nor any State will assume or pay any debt or obligation incurred in aid of insurrection or rebellion against the United States, or any claim for the loss or emancipation of any slave; all such debts, obligations, and claims will be held illegal and void. Section 5. The Congress will have power to enforce, by appropriate legislation, the provisions of this article.",
+      "after": "Amendment XIV. Section 1. Everyone born or naturalised in the United States and subject to its jurisdiction is a citizen of the United States and of the state where they live. No state may pass or enforce a law restricting the privileges or immunities of United States citizens. Nor may a state deprive anyone of life, liberty or property without due process of law, or deny anyone within its jurisdiction equal protection of the laws. Section 2. Representatives are distributed among the states according to population, counting everyone in each state except Indians not taxed. But a state's basis of representation must be reduced if it denies or restricts voting rights to male residents who are at least twenty-one and United States citizens. This applies to elections for presidential and vice-presidential electors, Representatives in Congress, a state's executive and judicial officers, and its legislators. Restrictions for participating in rebellion or another crime are excepted. The reduction must equal the proportion these affected male citizens bear to all male citizens aged twenty-one or over in the state. Section 3. No one may serve as a Senator or Representative in Congress, a presidential or vice-presidential elector, or a civil or military officer of the United States or any state if, after previously swearing to support the United States Constitution, he has taken part in insurrection or rebellion against it or given aid or support to its enemies. This applies to oaths taken as a member of Congress, a United States officer, a state legislator, or a state's executive or judicial officer. Congress may remove this disqualification by a two-thirds vote in each House. Section 4. The validity of United States public debt authorised by law must not be questioned, including debts for pensions and bounties for service in suppressing insurrection or rebellion. But neither the United States nor any state may assume or pay debts or obligations incurred to support insurrection or rebellion against the United States, or claims for the loss or emancipation of slaves. All such debts, obligations and claims are illegal and void. Section 5. Congress may enforce this article's provisions through appropriate legislation.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 5,
+      "before": "Amendment XV. Section 1. The right of citizens of the United States to vote will not be denied or abridged by the United States or by any State on account of race, color, or previous condition of servitude. Section 2. The Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XV. Section 1. Neither the United States nor any state may deny or restrict United States citizens' voting rights because of race, colour or previous servitude. Section 2. Congress may enforce this article through appropriate legislation.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 6,
+      "before": "Amendment XVI. The Congress will have power to lay and collect taxes on incomes — from whatever source derived — without apportionment among the several States, and without regard to any census or enumeration.",
+      "after": "Amendment XVI. Congress may impose and collect income taxes, whatever the source of the income, without distributing them among the states according to population and without regard to a census.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 7,
+      "before": "Amendment XVII. The Senate of the United States will be composed of two Senators from each State, elected by the people thereof, for six years; and each Senator will have one vote. The electors in each State will have the qualifications required for electors of the most numerous branch of the State legislatures. When vacancies happen in the representation of any State in the Senate, the executive authority of that State will issue writs of election to fill those vacancies — provided that the legislature of any State may empower the executive to make temporary appointments until the people fill the vacancies by election as the legislature may direct. This amendment will not be construed to affect the election or term of any Senator chosen before it becomes valid as part of the Constitution.",
+      "after": "Amendment XVII. The United States Senate consists of two Senators from each state, elected by its people for six years. Each Senator has one vote. Voters in each state must meet the same requirements as voters for the larger chamber of its legislature. When a state's Senate seat becomes vacant, its executive authority must call an election to fill it. The legislature may, however, authorise temporary executive appointments until the people fill the vacancies through elections held as the legislature directs. This amendment must not be interpreted to affect the election or term of a Senator chosen before it becomes part of the Constitution.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 8,
+      "before": "Amendment XVIII. Section 1. After one year from the ratification of this article, the manufacture, sale, or transportation of intoxicating liquors within — the importation thereof into, or the exportation thereof from — the United States and all territory subject to its jurisdiction, for beverage purposes, is prohibited. Section 2. The Congress and the several States will have concurrent power to enforce this article by appropriate legislation. Section 3. This article will be inoperative unless it has been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission to the States by the Congress.",
+      "after": "Amendment XVIII. Section 1. One year after this article is ratified, the manufacture, sale and transport of intoxicating liquor for drinking are prohibited throughout the United States and all territory under its jurisdiction, as are its import and export. Section 2. Both Congress and the states may enforce this article through appropriate legislation. Section 3. It takes effect only if the state legislatures ratify it as a constitutional amendment, as provided in the Constitution, within seven years of Congress submitting it to them.",
+      "reason": "Modern clauses with all sections and exceptions retained; restore missing numerator/denominator in Danish Fourteenth Amendment apportionment, clarify candidates not numbers and larger legislative chamber."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 9,
+      "before": "Amendment XIX. The right of citizens of the United States to vote will not be denied or abridged by the United States or by any State on account of sex. Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XIX. Neither the United States nor any state may deny or restrict United States citizens' voting rights because of sex. Congress may enforce this article through appropriate legislation.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 10,
+      "before": "Amendment XX. Section 1. The terms of the President and the Vice President will end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3rd day of January, of the years in which those terms would have ended if this article had not been ratified; and the terms of their successors will then begin. Section 2. The Congress will assemble at least once every year, and that meeting will begin at noon on the 3rd day of January — unless they appoint a different day by law. Section 3. If, at the time fixed for the beginning of the term of the President, the President-elect has died, the Vice President-elect will become President. If a President has not been chosen before the time fixed for the beginning of his term, or if the President-elect has failed to qualify, then the Vice President-elect will act as President until a President has qualified. The Congress may by law provide for the case where neither a President-elect nor a Vice President-elect has qualified — declaring who will then act as President, or the manner in which one to act will be selected; and that person will act accordingly until a President or Vice President has qualified. Section 4. The Congress may by law provide for the case of the death of any of the persons from whom the House of Representatives may choose a President whenever the right of choice has devolved upon them, and for the case of the death of any of the persons from whom the Senate may choose a Vice President whenever the right of choice has devolved upon them. Section 5. Sections 1 and 2 will take effect on the 15th day of October following the ratification of this article. Section 6. This article will be inoperative unless it has been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission.",
+      "after": "Amendment XX. Section 1. Presidential and vice-presidential terms end at noon on 20 January, and Senators' and Representatives' terms at noon on 3 January, in the years when those terms would have ended had this article not been ratified. Their successors' terms begin at those times. Section 2. Congress must meet at least once each year, beginning at noon on 3 January unless a law sets a different day. Section 3. If the President-elect has died by the start of the presidential term, the Vice President-elect becomes President. If a President has not yet been chosen, or the President-elect has not qualified to take office, the Vice President-elect acts as President until a President qualifies. If neither the President-elect nor Vice President-elect qualifies, Congress may pass a law specifying who will act as President or how that person will be chosen. The person serves until a President or Vice President qualifies. Section 4. Congress may legislate for the death of a candidate from whom the House must choose a President when that choice falls to it, and for the death of a candidate from whom the Senate must choose a Vice President when that choice falls to it. Section 5. Sections 1 and 2 take effect on 15 October following ratification. Section 6. This article takes effect only if the legislatures of three quarters of the states ratify it as a constitutional amendment within seven years of its submission.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 11,
+      "before": "Amendment XXI. Section 1. The eighteenth article of amendment to the Constitution of the United States is hereby repealed. Section 2. The transportation or importation into any State, Territory, or Possession of the United States, for delivery or use therein, of intoxicating liquors, in violation of the laws thereof, is hereby prohibited. Section 3. This article will be inoperative unless it has been ratified as an amendment to the Constitution by conventions in the several States, as provided in the Constitution, within seven years from the date of the submission to the States by the Congress.",
+      "after": "Amendment XXI. Section 1. The Eighteenth Amendment is repealed. Section 2. Transporting or importing intoxicating liquor into a United States state, territory or possession for delivery or use there in violation of its laws is prohibited. Section 3. This article takes effect only if state conventions ratify it as a constitutional amendment, as provided in the Constitution, within seven years of Congress submitting it to the states.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 12,
+      "before": "Amendment XXII. Section 1. No person will be elected to the office of the President more than twice. No person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President, will be elected to the office of the President more than once. But this article will not apply to any person holding the office of President when this article was proposed by the Congress; and will not prevent any person who may be holding the office of President, or acting as President, during the term within which this article becomes operative, from holding the office of President or acting as President during the remainder of that term. Section 2. This article will be inoperative unless it has been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission to the States by the Congress.",
+      "after": "Amendment XXII. Section 1. No one may be elected President more than twice. Anyone who has held or acted in the presidency for more than two years of a term to which someone else was elected may be elected President only once. This article does not apply to the person who was President when Congress proposed it. Nor does it prevent anyone holding or acting in the presidency during the term in which the article takes effect from continuing for the rest of that term. Section 2. The article takes effect only if the legislatures of three quarters of the states ratify it as a constitutional amendment within seven years of Congress submitting it to them.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 13,
+      "before": "Amendment XXIII. Section 1. The District constituting the seat of government of the United States will appoint, in such manner as the Congress may direct, a number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State — but in no event more than the least populous State. They will be in addition to those appointed by the States, but they will be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they will meet in the District and perform such duties as provided by the twelfth article of amendment. Section 2. The Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XXIII. Section 1. The district serving as the seat of the United States government must appoint presidential and vice-presidential electors in the way Congress directs. Their number equals the total number of Senators and Representatives the district would have in Congress if it were a state, but cannot exceed the number allocated to the least populous state. These electors are additional to those appointed by the states, but for presidential and vice-presidential elections they are treated as electors appointed by a state. They meet in the district and perform the duties specified by the Twelfth Amendment. Section 2. Congress may enforce this article through appropriate legislation.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 14,
+      "before": "Amendment XXIV. Section 1. The right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, will not be denied or abridged by the United States or any State by reason of failure to pay any poll tax or other tax. Section 2. The Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XXIV. Section 1. Neither the United States nor any state may deny or restrict United States citizens' voting rights because they have not paid a poll tax or other tax. This applies to primary and other elections for President, Vice President, their electors, or Senators or Representatives in Congress. Section 2. Congress may enforce this article through appropriate legislation.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 15,
+      "before": "Amendment XXV. Section 1. In case of the removal of the President from office, or of his death or resignation, the Vice President will become President. Section 2. Whenever there is a vacancy in the office of the Vice President, the President will nominate a Vice President — who will take office upon confirmation by a majority vote of both Houses of Congress. Section 3. Whenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office — and until he transmits to them a written declaration to the contrary — those powers and duties will be discharged by the Vice President as Acting President. Section 4. Whenever the Vice President and a majority of either the principal officers of the executive departments, or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President will immediately assume the powers and duties of the office as Acting President. Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that no inability exists, he will resume the powers and duties of his office — unless the Vice President and a majority of either the principal officers of the executive department, or of such other body as Congress may by law provide, transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office. Thereupon Congress will decide the issue, assembling within forty-eight hours for that purpose if not in session. If the Congress, within twenty-one days after receipt of the latter written declaration — or, if Congress is not in session, within twenty-one days after Congress is required to assemble — determines by two-thirds vote of both Houses that the President is unable to discharge the powers and duties of his office, the Vice President will continue to discharge the same as Acting President; otherwise, the President will resume the powers and duties of his office.",
+      "after": "Amendment XXV. Section 1. If the President is removed, dies or resigns, the Vice President becomes President. Section 2. When the vice-presidency is vacant, the President nominates a Vice President, who takes office after confirmation by a majority in each House of Congress. Section 3. When the President sends the Senate's temporary presiding officer and the Speaker of the House his written declaration that he cannot carry out his office's powers and duties, the Vice President carries them out as Acting President. This continues until the President sends both officers a written declaration to the contrary. Section 4. If the Vice President, together with a majority of the executive department heads or of another body Congress establishes by law, sends both presiding officers a written declaration that the President cannot carry out his powers and duties, the Vice President immediately assumes them as Acting President. If the President then sends both officers a written declaration that he is able to serve, he resumes his powers and duties—unless, within four days, the Vice President and a majority of the department heads or the other body established by Congress send both officers a written declaration that he is still unable to serve. Congress must then decide the issue. If not in session, it must assemble within forty-eight hours for that purpose. If Congress determines by a two-thirds vote in each House that the President cannot carry out his powers and duties, the Vice President continues as Acting President. This decision must come within twenty-one days of receiving the second declaration or, if Congress was not in session, within twenty-one days of when it was required to assemble. Otherwise, the President resumes his powers and duties.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 16,
+      "before": "Amendment XXVI. Section 1. The right of citizens of the United States, who are eighteen years of age or older, to vote will not be denied or abridged by the United States or by any State on account of age. Section 2. The Congress will have power to enforce this article by appropriate legislation.",
+      "after": "Amendment XXVI. Section 1. Neither the United States nor any state may deny or restrict the voting rights of United States citizens aged eighteen or over because of their age. Section 2. Congress may enforce this article through appropriate legislation.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
+    },
+    {
+      "chapter": 4,
+      "paragraph": 17,
+      "before": "Amendment XXVII. No law varying the compensation for the services of the Senators and Representatives will take effect until an election of Representatives has intervened.",
+      "after": "Amendment XXVII. A law changing Senators' and Representatives' pay cannot take effect until an election of Representatives has taken place after the law was passed.",
+      "reason": "Readable amendments preserving every section, ratification qualification, term exception, voting threshold and 4-day/48-hour/21-day deadline."
     }
   ],
   "nativeReview": "pending_user_arranges_not_release_blocking",
@@ -693,5 +1899,14 @@
     "Historical provisions are preserved, not silently updated to current law; later amendments appear separately.",
     "The Declaration's derogatory language about Indigenous peoples is retained as the document's rhetoric, not endorsed.",
     "The original Constitution's slavery-related provisions are preserved; the Thirteenth and Fourteenth Amendments appear later."
+  ],
+  "references": [
+    "https://www.archives.gov/founding-docs/constitution-transcript",
+    "https://www.congress.gov/crs_external_products/LSB/PDF/LSB10274/LSB10274.2.pdf"
+  ],
+  "onboardingCorrections": [
+    "Removed nonexistent Articles of Confederation from contents description.",
+    "Replaced unsupported sweeping historical claims with source-grounded reading guidance.",
+    "Added historical slavery and Indigenous-language context and distinction from consolidated current law."
   ]
 }
