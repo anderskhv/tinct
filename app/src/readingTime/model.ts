@@ -306,6 +306,25 @@ export function weekBooks(rows: LedgerRow[], starts: readonly string[]): Map<str
 }
 
 /**
+ * Seconds read per day, Monday to Sunday, of each week starting on a Monday in
+ * `starts`: the same rows and rules as weekBooks and readingTimeStats' weeks
+ * (earlier time and invalid days skipped, read plus listen), so the seven days
+ * add up to the week's bar. Weeks with no reading map to seven zeros. Shown as
+ * the opened week's day strip on the You card (Anders, 2 Nov 2026).
+ */
+export function weekDays(rows: LedgerRow[], starts: readonly string[]): Map<string, number[]> {
+  const byWeek = new Map(starts.map(start => [start, [0, 0, 0, 0, 0, 0, 0]]))
+  for (const row of rows) {
+    if (row.bookId === EARLIER_BOOK_ID || !isDay(row.day)) continue
+    const total = seconds(row.read) + seconds(row.listen)
+    const start = weekStart(row.day)
+    const week = total > 0 ? byWeek.get(start) : undefined
+    if (week) week[daysBetween(start, row.day)] += total
+  }
+  return byWeek
+}
+
+/**
  * Books the position record's finished chapters say are finished, by the
  * shared rule (preReader/bookFinished.ts): every chapter, or the last chapter
  * plus 90% of them. Finishing only the last chapter is not finishing the book.

@@ -4,7 +4,7 @@
  * books (most time first), from the ledger's per-day, per-book rows.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { EARLIER_BOOK_ID, readingTimeStats, weekBooks, type LedgerRow } from '../readingTime/model'
+import { EARLIER_BOOK_ID, readingTimeStats, weekBooks, weekDays, type LedgerRow } from '../readingTime/model'
 import { loadReading, type ReadingLoad } from './cardsApi'
 import { weekRange } from './cardsFormat'
 import { CardStack } from './cardStack'
@@ -60,6 +60,29 @@ describe('weekBooks', () => {
   })
 })
 
+describe('weekDays', () => {
+  it('sums each day, Monday to Sunday, leaving out pre-ledger time and invalid days', () => {
+    const days = weekDays([...rows, { day: 'not-a-day', bookId: 'odyssey', read: 500, listen: 0 }], ['2026-09-28', '2026-10-05', '2026-10-12'])
+    // 30 Sep is a Wednesday; the earlier time on that day is left out.
+    expect(days.get('2026-09-28')).toEqual([0, 0, 1800, 0, 0, 0, 0])
+    // Tue 6: 600 read + 600 listened; Wed 7: two books; Thu 8: 120; Fri 9: nothing read; Sun 11: 1800.
+    expect(days.get('2026-10-05')).toEqual([0, 1200, 1500, 120, 0, 0, 1800])
+    expect(days.get('2026-10-12')).toEqual([0, 900, 0, 0, 0, 0, 0])
+  })
+
+  it('adds up to the chart’s own week totals', () => {
+    const stats = readingTimeStats(rows, '2026-10-14')
+    const days = weekDays(rows, stats.weeks.map(week => week.start))
+    for (const week of stats.weeks) {
+      expect((days.get(week.start) ?? []).reduce((sum, value) => sum + value, 0), week.start).toBe(week.seconds)
+    }
+  })
+
+  it('gives seven zeros for a week with no reading', () => {
+    expect(weekDays(rows, ['2026-09-21']).get('2026-09-21')).toEqual([0, 0, 0, 0, 0, 0, 0])
+  })
+})
+
 describe('loadReading', () => {
   beforeEach(() => {
     vi.useFakeTimers({ toFake: ['Date'] })
@@ -83,6 +106,8 @@ describe('loadReading', () => {
       { bookId: 'odyssey', title: 'The Odyssey', seconds: 1200 },
       { bookId: 'private', title: 'A private book', seconds: 300 },
     ])
+    expect(load?.weeks?.find(week => week.start === '2026-10-05')?.days).toEqual([0, 1200, 1500, 120, 0, 0, 1800])
+    expect(load?.weeks?.find(week => week.start === '2026-10-12')?.days).toEqual([0, 900, 0, 0, 0, 0, 0])
   })
 })
 
@@ -161,9 +186,57 @@ describe('the week bars', () => {
     expect(detail().hidden).toBe(false)
   })
 
+  describe('the opened week’s days', () => {
+    beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date(2026, 9, 14, 12)) })
+    afterEach(() => { vi.useRealTimers() })
+    const withDays: ReadingLoad = {
+      ...reading,
+      weeks: [
+        { ...reading.weeks![0], days: [0, 0, 1800, 0, 0, 0, 0] },
+        { ...reading.weeks![1], days: [0, 1200, 1500, 120, 30, 0, 1800] },
+        { ...reading.weeks![2], days: [0, 900, 0, 0, 0, 0, 0] },
+      ],
+    }
+    const strip = () => detail().querySelector<HTMLElement>('[data-testid="reading-days"]')
+    const columns = () => [...strip()!.querySelectorAll<HTMLElement>('.tc-day')]
+
+    it('shows seven days between the head row and the books, each figure, bar and weekday', () => {
+      open(withDays)
+      expect(strip()).toBeNull()
+      bar('2026-10-05').click()
+      expect(strip()?.previousElementSibling?.classList.contains('is-head')).toBe(true)
+      expect(strip()?.nextElementSibling?.getAttribute('data-testid')).toBe('reading-week-row')
+      expect(columns().map(day => day.querySelector('.tc-day-n')?.textContent)).toEqual(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
+      // Under a minute reads "–" and has no bar; the longest day is the full bar.
+      expect(columns().map(day => day.querySelector('.tc-day-v')?.textContent)).toEqual(['–', '20 m', '25 m', '2 m', '–', '–', '30 m'])
+      expect(columns().map(day => day.querySelector('i')?.style.height ?? null)).toEqual([null, '67%', '83%', '7%', null, null, '100%'])
+      expect(columns()[2].getAttribute('aria-label')).toBe('Wed 7 Oct, 25 m')
+      expect(columns()[0].getAttribute('aria-label')).toBe('Mon 5 Oct, 0 m')
+      // A past week has no today and no days to come.
+      expect(strip()!.querySelector('.is-today, .is-future')).toBeNull()
+      expect(strip()!.querySelector('button')).toBeNull()
+    })
+
+    it('marks today in the current week and leaves the days to come empty', () => {
+      open(withDays)
+      bar('2026-10-12').click()
+      expect(columns().map(day => day.className)).toEqual(['tc-day', 'tc-day', 'tc-day is-today', 'tc-day is-future', 'tc-day is-future', 'tc-day is-future', 'tc-day is-future'])
+      expect(columns().map(day => day.querySelector('.tc-day-v')?.textContent)).toEqual(['–', '15 m', '–', '', '', '', ''])
+      expect(columns().slice(3).every(day => !day.querySelector('i'))).toBe(true)
+      expect(columns()[4].getAttribute('aria-label')).toBe('Fri 16 Oct')
+    })
+  })
+
   it('a cache from before the breakdown still opens the week’s dates and total', () => {
     open({ ...reading, weeks: undefined })
     bar('2026-09-28').click()
     expect([...detail().querySelectorAll('.tc-r')].map(line => line.textContent)).toEqual(['28 Sep – 4 Oct30 m'])
+  })
+
+  it('a cache from before the day figures opens the week without a day strip', () => {
+    open()
+    bar('2026-10-05').click()
+    expect(detail().querySelector('[data-testid="reading-days"]')).toBeNull()
+    expect([...detail().querySelectorAll('.tc-r')].length).toBe(3)
   })
 })

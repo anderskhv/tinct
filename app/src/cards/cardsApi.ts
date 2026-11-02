@@ -22,7 +22,7 @@ import { LAB_CATALOGUE_URL } from '../../public/lab/library-model.js'
 import { accountLabPositionRecord, type LabPositionState } from '../lab/labPosition'
 import { fetchLabPositionCloud, readLabPositionLocal } from '../lab/labPositionStore'
 import { fetchReadingTime, flushPendingNow, pendingForFigures, withPending } from '../lab/labReadingTime'
-import { localDay, readingTimeStats, weekBooks, type ReadingTimeStats } from '../readingTime/model'
+import { localDay, readingTimeStats, weekBooks, weekDays, type ReadingTimeStats } from '../readingTime/model'
 import { PRIVATE_BOOK_LABEL, isPrivateBucket } from '../readingTime/privateBook'
 import type { CatalogueEntry } from '../readingTime/yourReading'
 import { completedBookIdsIn } from '../preReader/libraryCompletion'
@@ -52,6 +52,8 @@ export interface ReadingBook {
 export interface ReadingWeek {
   start: string
   books: Array<{ bookId: string; title: string; seconds: number }>
+  /** Seconds read each day, Monday to Sunday (weekDays); absent in a cache written before 2 Nov 2026. */
+  days?: number[]
 }
 
 export interface ReadingLoad {
@@ -122,11 +124,13 @@ export async function loadReading(token: string, userId: string | null, fetchImp
   // An own book is only ever "a private book"; a book the catalogue does not name is left out, as in Reading now.
   const weekTitle = (bookId: string) => isPrivateBucket(bookId) ? PRIVATE_BOOK_LABEL.replace(/^./, c => c.toUpperCase()) : title(bookId)
   const perWeek = weekBooks(rows, stats.weeks.map(week => week.start))
+  const perDay = weekDays(rows, stats.weeks.map(week => week.start))
   return {
     stats,
     weeks: stats.weeks.map(week => ({
       start: week.start,
       books: (perWeek.get(week.start) ?? []).flatMap(book => { const name = weekTitle(book.bookId); return name ? [{ bookId: book.bookId, title: name, seconds: book.seconds }] : [] }),
+      days: perDay.get(week.start) ?? [0, 0, 0, 0, 0, 0, 0],
     })),
     readingNow: list.readingNow.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: fraction(row.bookId, row.target.chapterNumber) }] : [] }),
     finished: list.finished.flatMap(row => { const name = title(row.bookId); return name ? [{ bookId: row.bookId, title: name, fraction: null }] : [] }),

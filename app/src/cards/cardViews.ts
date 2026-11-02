@@ -11,6 +11,7 @@ import { toggleReadingLanguage, type ReadingLanguage } from '../social/readingLa
 import { CARDS_COPY } from './cardsCopy'
 import { croppedPicture, hasAvatarCrop, type AvatarCropSize } from '../social/avatarCrops'
 import { chartWeeks, dayMonth, dayMonthShort, dayMonthShortDate, durationShort, finishedValue, rankOf, readingFigures, shortEmail, weekHeights, weekRange } from './cardsFormat'
+import { addDays, localDay } from '../readingTime/model'
 import {
   blockedReaderId,
   deleteOwnAccount,
@@ -598,6 +599,37 @@ function creditsGroup(env: CardsEnv, card: CardHandle, open: { resets: boolean; 
 }
 
 /** 2 · Your reading */
+const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
+
+/**
+ * The opened week's seven days, Monday to Sunday (Anders, 2 Nov 2026: reading visible day by day). Each column
+ * shows the day's time, a bar scaled to the week's longest day, and the weekday; today's bar is the dark one, and
+ * days still to come in the current week show only their name. Display only. Null without days (an older cache).
+ */
+export function daysStrip(start: string, days: readonly number[] | undefined, today: string = localDay()): HTMLElement | null {
+  if (!days || days.length !== 7) return null
+  const longest = Math.max(...days)
+  const strip = el('div', { className: 'tc-days', dataset: { testid: 'reading-days' } })
+  strip.append(...WEEKDAYS.map((name, index) => {
+    const day = addDays(start, index)
+    const seconds = days[index]
+    const future = day > today
+    const minute = seconds >= 60
+    const bar = el('i')
+    if (!future && minute) bar.style.height = `${Math.max(6, Math.round(seconds / longest * 100))}%`
+    const shown = minute ? durationShort(seconds) : '–'
+    return el('div', {
+      className: `tc-day${day === today ? ' is-today' : ''}${future ? ' is-future' : ''}`,
+      'aria-label': future ? `${name} ${dayMonthShortDate(day)}` : `${name} ${dayMonthShortDate(day)}, ${minute ? durationShort(seconds) : '0 m'}`,
+      dataset: { day },
+    },
+    el('span', { className: 'tc-day-v', text: future ? '' : shown, 'aria-hidden': 'true' }),
+    el('span', { className: 'tc-day-b', 'aria-hidden': 'true' }, future || !minute ? null : bar),
+    el('span', { className: 'tc-day-n', text: name, 'aria-hidden': 'true' }))
+  }))
+  return strip
+}
+
 export function readingCard(env: CardsEnv): CardSpec {
   /** The week (its Monday) whose books show under the chart; null: none. Kept across refreshes. */
   let picked: string | null = null
@@ -620,6 +652,7 @@ export function readingCard(env: CardsEnv): CardSpec {
         const weeks = chartWeeks(stats.weeks, stats.firstDay)
         if (picked && !weeks.some(week => week.start === picked)) picked = null
         const booksOf = new Map((reading.weeks ?? []).map(week => [week.start, week.books]))
+        const daysOf = new Map((reading.weeks ?? []).flatMap(week => week.days?.length === 7 ? [[week.start, week.days] as const] : []))
         const detail = el('div', { className: 'tc-week', id: 'tc-week-books', dataset: { testid: 'reading-week' } })
         const bars = el('div', { className: 'tc-bars', dataset: { testid: 'reading-weeks' } })
         bars.style.setProperty('--tc-weeks', String(weeks.length))
@@ -647,6 +680,7 @@ export function readingCard(env: CardsEnv): CardSpec {
           detail.hidden = !week
           detail.replaceChildren(...(week ? [
             row({ label: weekRange(week.start), value: durationShort(week.seconds), className: 'is-head' }),
+            daysStrip(week.start, daysOf.get(week.start)),
             ...(booksOf.get(week.start) ?? []).map(book => bookRow(book.title, null, durationShort(book.seconds), 'reading-week-row')),
           ] : []))
         }
