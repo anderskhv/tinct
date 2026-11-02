@@ -256,10 +256,10 @@ async function conversionParity(page,hex,success,output,documentUrls) {
   assert.equal(before.page,2,'fixture enters conversion from the second original page')
   assert(before.frac>.1 && before.frac<.9,'fixture exercises a nonzero source fraction')
   await page.getByRole('button',{name:'Appearance',exact:true}).click()
-  await page.getByRole('button',{name:'Convert to Tinct book',exact:true}).waitFor()
+  await page.getByRole('button',{name:'Convert to EPUB',exact:true}).waitFor()
   await page.screenshot({path:path.join(output,success?'conversion-before.png':'conversion-scan-before.png')})
   const documentsBefore=documentUrls.length
-  await page.getByRole('button',{name:'Convert to Tinct book',exact:true}).click()
+  await page.getByRole('button',{name:'Convert to EPUB',exact:true}).click()
   if (!success) {
     await page.getByRole('status').filter({hasText:'needs recognised text'}).waitFor({timeout:45000})
     assert.equal(await page.locator('[data-pdf-original="true"]').count(),1,'failed conversion retains the original reader')
@@ -302,7 +302,7 @@ async function conversionParity(page,hex,success,output,documentUrls) {
   assert.equal(after.page,textPlace.page)
   assert(Math.abs(after.frac-textPlace.frac)<.06,'original source reopens near the same words')
   await page.getByRole('button',{name:'Appearance',exact:true}).click()
-  await page.getByRole('button',{name:'Tinct book',exact:true}).waitFor()
+  await page.getByRole('button',{name:'Read as EPUB',exact:true}).waitFor()
   await page.screenshot({path:path.join(output,'conversion-original-return.png')})
   await fs.writeFile(path.join(output,'conversion-roundtrip.json'),JSON.stringify({before,textPlace,after,converted,documentUrls},null,2))
 }

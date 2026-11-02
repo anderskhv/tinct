@@ -429,7 +429,7 @@ async function run(name, browserType, filePath, samplePages, primerPage, expecte
       assert(checks, 'conversion expectations required for each supplied file')
       for (const heading of checks.headings || []) assert(inventory.scan.entries.some(entry => entry.label === heading), 'complete expected heading')
       await page.getByRole('button', { name: 'Appearance', exact: true }).click()
-      await page.getByRole('button', { name: /^(Convert to Tinct book|Tinct book)$/ }).click()
+      await page.getByRole('button', { name: /^(Convert to EPUB|Read as EPUB|Convert to Tinct book|Tinct book)$/ }).click()
       await page.locator('.pdf-original-reader').waitFor({ state: 'hidden', timeout: 180000 })
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 180000 })
       const converted = await page.evaluate(async hex => {
