@@ -176,7 +176,11 @@ async function sourceParity(page, calls, output) {
   await noteItem.getByTestId('source-margin-minimise').click()
   const savedNote = host.locator(`[data-testid="source-margin-item"][data-card-id="${noteId}"]`)
   await savedNote.getByTestId('source-margin-open').click()
-  assert.equal(await noteEditor.inputValue(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens')
+  // A saved note reopens as the words written; a tap edits them (approved mockup, 2 Nov 2026).
+  const savedText = page.getByTestId('pdf-note-saved')
+  assert.equal(await savedText.textContent(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens as its words')
+  await savedText.click()
+  assert.equal(await noteEditor.inputValue(), 'A free note beside the original printed page.', 'a tap on a saved PDF note edits it')
   await savedNote.getByRole('button', { name: /^Delete / }).click()
   assert.equal(await savedNote.count(), 0)
   await page.getByRole('button', { name: 'Undo', exact: true }).click()
