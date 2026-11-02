@@ -903,3 +903,30 @@ describe('approved reading language preference', () => {
     expect(store.profiles.get(A)!.visibility).toBe('only_me')
   })
 })
+
+describe('onboarding v3: an email code confirms the address; an empty name never blocks', () => {
+  const jwt = (claims: Record<string, unknown>) => `h.${btoa(JSON.stringify(claims)).replace(/=+$/, '').replace(/\+/g, '-').replace(/\//g, '_')}.s`
+  const asA = (token: string, init: RequestInit = {}) => {
+    const headers = new Headers(init.headers); headers.set('authorization', `Bearer ${token}`)
+    return (store: ProfileStore) => handleProfiles(new Request('https://tinct.app/api/profile', { ...init, headers }), on as never, {
+      store, verifyUser: async () => users[A], now: () => new Date('2026-11-02T10:00:00Z'), random: () => 0.42,
+    })
+  }
+  it('a session begun with a code marks the email confirmed; a password session does not', async () => {
+    const store = new MemoryStore(); seed(store)
+    await asA(jwt({ sub: A, amr: [{ method: 'password', timestamp: 1 }] }))(store)
+    expect(store.accounts.get(A)!.email_confirmed_at).toBeNull()
+    const res = await asA(jwt({ sub: A, amr: [{ method: 'otp', timestamp: 2 }] }))(store)
+    expect(((await res.json()) as { profile: { emailConfirmed: boolean } }).profile.emailConfirmed).toBe(true)
+    expect(store.accounts.get(A)!.email_confirmed_at).toBe('2026-11-02T10:00:00.000Z')
+  })
+  it('an empty name saves the rest and keeps the name; a name that cleans to nothing still asks again', async () => {
+    const store = new MemoryStore(); seed(store)
+    const before = await (await call(store, '/api/profile', { as: A })).json() as { profile: { name: string } }
+    const saved = await post(store, A, { name: '   ', visibility: 'only_me' })
+    expect(saved.status).toBe(200)
+    expect(((await saved.json()) as { profile: { name: string; visibility: string } }).profile).toMatchObject({ name: before.profile.name, visibility: 'only_me' })
+    expect((await post(store, A, { name: '' })).status).toBe(200)
+    expect((await post(store, A, { name: '<<>>' })).status).toBe(422)
+  })
+})
