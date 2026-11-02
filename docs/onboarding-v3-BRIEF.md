@@ -49,9 +49,13 @@ Status: a draft for Anders. Send it to Coder only on his go.
 
 ## Before building (Anders, Supabase dashboard)
 
-1. **Check whether auth emails go through custom SMTP** (Brevo) or Supabase's default sender. The default is heavily rate-limited, so password resets may not be reaching readers today, and email codes would not work either. If needed, set SMTP to Brevo.
-2. **Change the "Magic Link" email template** to show `{{ .Token }}`, the 6-digit code.
-3. **Leave "Confirm email" off.** Email codes confirm the address by themselves.
+1. **Custom SMTP:** confirmed on 2 Nov. Auth emails go through Brevo (`smtp-relay.brevo.com`, from contact@tinct.app).
+2. **The email template:** Authentication › Emails › Templates › **Magic Link**. Make the body show the 6-digit code, `{{ .Token }}`. This template is the one `signInWithOtp` uses.
+3. **The code:** Authentication › Sign In / Providers › Email. Set "Email OTP length" to **6** and "Email OTP expiration" to about 10 minutes (600 s).
+4. **Rate limits:** Authentication › Rate Limits. With custom SMTP, raise "emails sent per hour" to about 100, so that codes and resets never get stuck.
+5. **Leave "Confirm email" off.** Email codes confirm the address by themselves.
+
+The upload buttons are dashed tiles the same size as the thumbnails: 78×54 for a background and a 54 px circle for a picture, each with an upload arrow.
 
 ## Also fix
 
