@@ -1268,21 +1268,25 @@ export function accountCard(env: CardsEnv): CardSpec {
         body.append(
           el('p', { className: 'tc-foot', style: { margin: '0 16px -16px' }, text: CARDS_COPY.deleteConfirm }),
           group(
-            row({ label: CARDS_COPY.cancel, className: 'is-center', onClick: () => { confirming = false; card.refresh() }, testid: 'account-delete-cancel' }),
+            row({ label: CARDS_COPY.cancel, className: 'is-center', onClick: () => { if (deleting) return; confirming = false; card.refresh() }, testid: 'account-delete-cancel' }),
             // Deleted at once (privacy notice, "Data retention and deletion"), then signed out to the front page.
+            // The deletion takes several seconds: the row says so at once, and nothing can be tapped twice
+            // (Anders, 2 Nov 2026: "nothing happened when I clicked it").
             row({
-              label: CARDS_COPY.deleteAccount, className: 'is-center', testid: 'account-delete-confirm', onClick: async () => {
+              label: deleting ? CARDS_COPY.deletingAccount : CARDS_COPY.deleteAccount, className: 'is-center', testid: 'account-delete-confirm', onClick: async () => {
                 if (deleting || !env.session.userId) return
                 deleting = true
+                card.refresh()
                 const deleted = await deleteOwnAccount(token, env.session.userId)
-                deleting = false
                 if (deleted) { await env.signOut('/'); return }
+                deleting = false
                 status = CARDS_COPY.actionFailed
                 card.refresh()
               },
             }),
           )!,
         )
+        if (deleting) body.querySelectorAll<HTMLButtonElement>('[data-testid="account-delete-confirm"], [data-testid="account-delete-cancel"]').forEach(button => { button.disabled = true; button.setAttribute('aria-busy', 'true') })
       } else {
         body.append(group(row({ label: CARDS_COPY.deleteAccount, className: 'is-center', onClick: () => { confirming = true; card.refresh() }, testid: 'account-delete' }))!)
       }

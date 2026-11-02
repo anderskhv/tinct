@@ -368,6 +368,25 @@ describe('Delete account', () => {
     stack.closeAll()
   })
 
+  it('says at once that it is deleting and cannot be tapped twice while the Worker works (2 Nov 2026)', async () => {
+    const { signOut, stack } = accountOnly()
+    let release!: () => void
+    const held = new Promise<void>(resolve => { release = resolve })
+    const plain = globalThis.fetch
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => { if (String(input).startsWith('/api/account/delete')) await held; return plain(input, init) }))
+    click(byTest('account-delete'))
+    click(byTest('account-delete-confirm'))
+    const confirm = byTest('account-delete-confirm') as HTMLButtonElement
+    expect(confirm.textContent).toBe(CARDS_COPY.deletingAccount)
+    expect(confirm.disabled).toBe(true)
+    expect((byTest('account-delete-cancel') as HTMLButtonElement).disabled).toBe(true)
+    click(confirm)
+    release(); await flush()
+    expect(deletePosts()).toHaveLength(1)
+    expect(signOut).toHaveBeenCalledWith('/')
+    stack.closeAll()
+  })
+
   it('shows the error line and keeps the reader signed in when deletion fails', async () => {
     deleteAnswer = { status: 500, body: { ok: false, deleted: false, error: 'deletion_failed' } }
     const { signOut, stack } = accountOnly()

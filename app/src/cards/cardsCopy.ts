@@ -88,6 +88,7 @@ export const CARDS_COPY = {
   // The old Settings sheet (SettingsSheet.tsx): the subscription "Manage" button and Delete account
   manage: 'Manage',
   deleteAccount: 'Delete account',
+  deletingAccount: 'Deleting your account…',
   deleteConfirm: 'Permanently delete your account and all data?',
   cancel: 'Cancel',
   // The reader's old Account sheet (LabV2Sheet.tsx)
