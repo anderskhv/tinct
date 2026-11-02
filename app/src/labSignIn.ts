@@ -15,6 +15,7 @@ import {
   LAB_AUTH_CALLBACK_PATH,
 } from './lab/labSignInProviders'
 import { reconcileLabDeviceIdentity } from './lab/labDeviceIdentity'
+import { rememberEmptyLibrary } from './lab/libraryRoom'
 import { displayProfileStylesReady } from './lab/displayProfileStyles'
 import { supabase } from './services/supabase'
 import { signInErrorMessage } from './services/browserAuthStorage'
@@ -134,6 +135,8 @@ async function completeSignIn(session: Session, newAccount = false, method: stri
   clean.searchParams.delete('callback')
   history.replaceState(null, '', clean)
   if (newAccount || isInitialAccountSession(session.user, windowMs)) {
+    // A new account has no books yet: its first library opens on Frankenstein, not on the empty table.
+    try { rememberEmptyLibrary(window.localStorage, session.user.id) } catch { /* private mode */ }
     setFunnelToken(session.access_token)
     trackSignupCompleted(session.user.id, method)
     if (social && root) await startSocialSteps(session)

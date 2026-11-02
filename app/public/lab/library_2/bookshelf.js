@@ -85,6 +85,8 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    present();
    const value=await savedReady;if(!sample){saved=value.ids;onSaved(saved);if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}}
    if(!sample)try{if(table.mode==='returning'||saved.length)localStorage.setItem('tinct-library-2-reading-table','{"mode":"returning"}');else localStorage.removeItem('tinct-library-2-reading-table');}catch{}
+   // This device's note that the account's desk is empty (src/lab/libraryRoom.ts LIBRARY_EMPTY_KEY): the next visit then paints the discovery library at once.
+   if(!sample)try{const owner=window.__library2Boot?.owner;if(owner){if(table.mode!=='returning'&&!saved.length&&!table.reading.length)localStorage.setItem('tinct:library-2-empty',JSON.stringify({v:1,owner}));else localStorage.removeItem('tinct:library-2-empty');}}catch{}
   }catch(error){
    window.__library2LoadError=String(error&&(error.stack||error.message)||error);
    // Mid-deploy a module the page asks for can be missing for a moment; a
