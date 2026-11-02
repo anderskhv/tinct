@@ -2,7 +2,7 @@
   "target": 70,
   "reserves": 6,
   "acceptedBooks": 0,
-  "publishedByThisProgramme": 3,
+  "publishedByThisProgramme": 4,
   "books": [
     {
       "bookId": "to-the-lighthouse",
@@ -15,7 +15,7 @@
       "bookId": "the-art-of-war",
       "title": "The Art of War",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
+      "status": "editorial_complete_ci_passed_release_pending",
       "publicationAccepted": false
     },
     {
@@ -57,7 +57,7 @@
       "bookId": "medea",
       "title": "Medea",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
+      "status": "editorial_complete_release_ci",
       "publicationAccepted": false
     },
     {
@@ -120,8 +120,8 @@
       "bookId": "grimms-fairy-tales",
       "title": "Grimms' Fairy Tales",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "editorial_complete_release_ci",
-      "publicationAccepted": false
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true
     },
     {
       "bookId": "arabian-nights",
@@ -247,7 +247,7 @@
       "bookId": "apology",
       "title": "Apology",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "editorial_complete_validation_integration_pending",
+      "status": "merged_release_cache_repair_pending",
       "publicationAccepted": false
     },
     {
@@ -338,7 +338,7 @@
       "bookId": "us-founding-documents",
       "title": "The US Founding Documents",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "queued_not_accepted",
+      "status": "editorial_complete_ci_passed_release_pending",
       "publicationAccepted": false
     },
     {
@@ -538,7 +538,7 @@
       "publicationAccepted": false
     }
   ],
-  "provisionalPublishedBooks": 3,
+  "provisionalPublishedBooks": 4,
   "nativeCertifiedBooks": 0,
-  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review."
+  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review.\nApology release 41508073723 hit stale unversioned JSON cache in Android download acceptance; PR708 fixes mutable asset caching. Art of War #704, Founding Documents #706 and Medea #707 wait for serialized accepted releases. Full source editorial review is not native/independent certification."
 }
