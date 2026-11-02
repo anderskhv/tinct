@@ -103,7 +103,10 @@ button.tc-av { padding: 0; }
 .tc-nm { padding-bottom: 6px; line-height: 1.2; min-width: 0; flex: 1 1 auto; }
 .tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: block; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: lining-nums; }
 .tc-nm span { font-size: 15px; color: var(--tc-sec); }
-.tc-nm-b { display: block; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
+/* The name and its pencil on one line (onboarding v3, Anders 2 Nov 2026): a long name ellipsises, the pencil stays. */
+.tc-nm-b { display: flex; align-items: center; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
+.tc-nm-b b { min-width: 0; }
+.tc-nm-b .tc-name-pencil { flex: none; }
 .tc-nm-in { display: block; width: 100%; box-sizing: border-box; margin: 0 0 2px; padding: 2px 8px; border: 1px solid var(--tc-sec); border-radius: 8px; background: transparent; color: inherit; font-family: var(--tc-play); font-weight: 700; font-size: 22px; letter-spacing: -.01em; line-height: 1.2; outline: none; }
 .tc-nm-in:focus { border-color: currentColor; }
 .tcards .tc-nm-in:focus-visible { outline: none; }
@@ -138,6 +141,10 @@ button.tc-av { padding: 0; }
 .tc-sw[aria-checked="true"]::after { left: 22px; }
 .tcards.is-dark .tc-sw[aria-checked="true"]::after { background: #1c1c1c; }
 .tc-seg { display: flex; flex: none; background: var(--tc-seg); border-radius: 9px; padding: 2px; margin-left: auto; }
+/* Labelled choices that can both be on (Settings › Languages, onboarding v3). */
+.tc-chips { display: flex; gap: 6px; flex: none; margin-left: auto; }
+.tc-chip { min-height: 34px; padding: 0 12px; border: 0; border-radius: 17px; background: var(--tc-seg); color: var(--tc-sec); font: inherit; font-size: 14px; cursor: pointer; }
+.tc-chip[aria-pressed="true"] { background: var(--tc-fill); color: var(--tc-ground); font-weight: 600; }
 .tc-seg button { padding: 6px 8px; border-radius: 7px; font-size: 13.5px; color: var(--tc-ink); white-space: nowrap; line-height: 1.2; letter-spacing: normal; }
 .tc-seg button[aria-checked="true"] { background: var(--tc-thumb); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
 .tcards.is-dark .tc-seg button[aria-checked="true"] { color: #fff; }

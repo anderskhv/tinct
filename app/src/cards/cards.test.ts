@@ -251,11 +251,21 @@ describe('Settings', () => {
     expect((byTest('settings-leaderboard') as HTMLButtonElement).disabled).toBe(true)
   })
 
-  it('has no Reading-emails row and no confirm-email button', async () => {
-    profile = ownProfile({ emailConfirmed: false, visibility: 'everyone', effectiveVisibility: 'friends' })
+  it('asks for reading emails here, off by default, and has no confirm-email button (onboarding v3 brief, 2 Nov 2026)', async () => {
+    profile = ownProfile({ emailConfirmed: false, emailOptIn: false, visibility: 'everyone', effectiveVisibility: 'friends' })
     await open('settings')
-    expect(top().textContent).not.toMatch(/Reading emails|confirm/i)
+    // The consent tick left the sign-in sheet for Settings (brief: "The email-consent tick moves to Settings").
+    expect(byTest('settings-reading-emails').getAttribute('aria-checked')).toBe('false')
+    expect(top().textContent).toContain('Email me about my reading progress and ideas for what to read next. Stop any time.')
+    expect(top().textContent).not.toMatch(/confirm/i)
     expect(top().querySelectorAll('.tc-r').length).toBeGreaterThan(5)
+  })
+
+  it('names its languages: English and Dansk are labelled chips, not bare switches', async () => {
+    profile = ownProfile({ readingLanguages: ['en'] })
+    await open('settings')
+    expect([byTest('settings-language-en'), byTest('settings-language-da')].map(chip => [chip.textContent, chip.getAttribute('aria-pressed')])).toEqual([['English', 'true'], ['Dansk', 'false']])
+    expect(top().textContent).toContain('Modern is an AI-generated translation in today’s language; Original is the author’s text or a published human translation.')
   })
 
   it('opens a dark box under an (i) and closes it on the next tap', async () => {

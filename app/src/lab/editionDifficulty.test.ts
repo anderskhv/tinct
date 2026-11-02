@@ -11,7 +11,7 @@ describe('edition reading guidance', () => {
   })
   it('always names and marks the modern English adaptation consistently', () => {
     expect(editionDifficulty('unknown-book', edition('modern-en'))).toBe('Easy')
-    expect(readerEditionLabel(edition('modern-en', 'Modern English'))).toBe('Tinct Modern English')
+    expect(readerEditionLabel(edition('modern-en', 'Modern English'))).toBe('Modern translation')
     expect(readerEditionLabel(edition('original-en', 'Original (1922)'))).toBe('Original (1922)')
   })
 })

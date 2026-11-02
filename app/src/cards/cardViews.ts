@@ -31,7 +31,7 @@ import {
 } from './cardsApi'
 import { boardHiddenLine, chapterFraction, followBackCount, followButton, leaderboardAllowed, privacyChange, readerCardView, relationAfter, type PrivacyFields } from './cardsRules'
 import { CardStack, ICONS, el, group, heading, navBar, row, type CardHandle, type CardSpec } from './cardStack'
-import { COVER_BOOK_IDS, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
+import { COVER_BOOK_IDS, EMAIL_CONSENT_TEXT, LIBRARY_BACKGROUND, PICTURE_SETS, backgroundView, pictureView, type BackgroundKind, type NewBooksOpenIn, type PictureKind, type Relation, type Visibility } from '../social/profileRules'
 import { photoInMemory, photoUploadMessage, preparePhoto, privateImageUrl, rememberNewBooksOpenIn, rememberReadingLanguages, uploadProfileImage } from '../social/socialClient'
 import { PHOTO_COPY } from '../social/photoFile'
 import { photoAccept } from '../social/photoAccept'
@@ -218,6 +218,11 @@ function segmented<T extends string>(label: string, options: Array<{ value: T; l
     }))
   }
   return seg
+}
+
+/** A choice that names itself, on or off (aria-pressed). */
+function chip(label: string, on: boolean, flip: () => void, testid: string): HTMLElement {
+  return el('button', { type: 'button', className: 'tc-chip', 'aria-pressed': String(on), text: label, dataset: { testid }, onclick: flip })
 }
 
 function toggle(label: string, on: boolean, enabled: boolean, flip: () => void, testid: string): HTMLElement {
@@ -1168,10 +1173,10 @@ export function settingsCard(env: CardsEnv): CardSpec {
           env.changed()
           void post({ readingLanguages: next }, () => { env.data.profile = before; rememberReadingLanguages(before.readingLanguages ?? ['en']) })
         }
-        body.append(group(row({ label: 'I read in', className: 'is-seg', extra: [
-          toggle('English', languages.includes('en'), true, () => chooseLanguage('en'), 'settings-language-en'),
-          toggle('Dansk', languages.includes('da'), true, () => chooseLanguage('da'), 'settings-language-da'),
-        ] }))!)
+        // Labelled chips (onboarding v3): two bare switches read "I read in ◯ ◯" (scan 2 Nov 2026).
+        body.append(group(row({ label: CARDS_COPY.languages, className: 'is-seg', extra: [el('span', { className: 'tc-chips', role: 'group', 'aria-label': CARDS_COPY.languages },
+          chip('English', languages.includes('en'), () => chooseLanguage('en'), 'settings-language-en'),
+          chip('Dansk', languages.includes('da'), () => chooseLanguage('da'), 'settings-language-da'))] }))!)
         const chooseNewBooks = (value: NewBooksOpenIn) => {
           const before = env.data.profile
           if (!before) return
@@ -1182,6 +1187,16 @@ export function settingsCard(env: CardsEnv): CardSpec {
         }
         body.append(group(row({ label: CARDS_COPY.newBooksOpenIn, className: 'is-seg', extra: [segmented<NewBooksOpenIn>(CARDS_COPY.newBooksOpenIn, [{ value: 'modern', label: CARDS_COPY.modern }, { value: 'human', label: CARDS_COPY.original }], profile.newBooksOpenIn, chooseNewBooks, { testid: 'settings-new-books' })] }))!,
           el('p', { className: 'tc-foot', text: CARDS_COPY.newBooksFoot }))
+        // Reading emails: asked here now, not on the sign-in sheet (onboarding v3). Never on by default.
+        const chooseEmails = () => {
+          const before = env.data.profile
+          if (!before) return
+          env.data.profile = { ...before, emailOptIn: !before.emailOptIn }
+          env.changed()
+          void post({ emailOptIn: !before.emailOptIn }, () => { env.data.profile = before })
+        }
+        body.append(group(row({ label: CARDS_COPY.readingEmails, className: 'is-seg', extra: [toggle(CARDS_COPY.readingEmails, profile.emailOptIn === true, true, chooseEmails, 'settings-reading-emails')] }))!,
+          el('p', { className: 'tc-foot', text: EMAIL_CONSENT_TEXT }))
       }
       const password = env.session.email ? row({
         label: CARDS_COPY.password, chevron: true, testid: 'settings-password', onClick: async () => {
