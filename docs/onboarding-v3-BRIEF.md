@@ -19,11 +19,11 @@ Status: a draft for Anders. Send it to Coder only on his go.
 
    The email-consent tick moves to Settings and the welcome email. It is never lost on Skip, as it is today.
 2. **Check your email.** Six boxes with `autocomplete="one-time-code"` and `inputmode="numeric"`; the sign-in goes through on the sixth digit. There is "Open Gmail" when the address is a Gmail address, and "Change" plus "Send a new code" after 30 s. The code also confirms the email, which ends unconfirmed accounts for new sign-ups.
-3. **Your profile** ("1 of 2", Skip at the top right):
-   - **Banner:** a full-width scene, with the picture overlapping it and a camera badge.
+3. **Your profile** ("1 of 2", Skip at the top right). There is **no background by default**, to keep friction low (Anders, 2 Nov).
+   - **Header:** "Your profile", then the round picture with a camera badge next to the name. The picture is the Google photo if there is one, otherwise the initial.
    - **Name:** large Playfair text on a single underline, prefilled from Google and empty otherwise. An empty name never blocks the step. Today Continue with an empty name returns 422 "Please choose another name."; instead, save without a name or prompt gently on the field.
-   - **Scene strip:** thumbnails about 78×54 px, from images of about 30 KB each, preloaded when the sheet opens. A tap swaps the banner instantly and shows a selected ring, with "+" to upload. Today the strip is broken: the rule at `signUpSteps.ts:75` overrides the scene rule at `:60`, so the buttons are 44×72 px with no image.
-   - **Picture:** tapping it swaps the strip for cover crops of about 15 KB plus Upload. Today the picture row downloads about 2.9 MB of full covers.
+   - **"+ Add a background":** a quiet text button. A tap opens a "Background" strip: **Upload** first, then the scene thumbnails, plus "None". Thumbnails are about 78×54 px, from images of about 30 KB each, preloaded. A tap adds or swaps the banner above the picture instantly and shows a selected ring. Uploading a banner uses the existing background upload. Today the strip is broken: the rule at `signUpSteps.ts:75` overrides the scene rule at `:60`, so the buttons are 44×72 px with no image.
+   - **Picture:** tapping it opens a "Picture" strip: **Upload** first, then cover crops of about 15 KB each. Today the picture row downloads about 2.9 MB of full covers.
    - **Public | Private:** a segmented control with one line under it. Public sets Everyone, show reading, show time and the leaderboard; Private turns all of them off.
    - **Continue** moves on at once and saves in the background, retrying if it fails. No waiting on the network.
 4. **How do you read?** ("2 of 2", Skip):
