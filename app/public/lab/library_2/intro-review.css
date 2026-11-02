@@ -65,3 +65,9 @@
 .edition-link .edition-change{text-decoration:underline;text-underline-offset:3px}
 .primer-back{padding-bottom:14px}
 @media(max-width:699px){#intro-body .intro-opening{font-size:19px}.primer-row>summary{font-size:15px}#intro-body .primer-inner p,.primer-structure,.primer-notice{font-size:16px}}
+
+/* Rows hold plain paragraphs with a bold lead-in; no nested headings, no timeline (Anders, 2 Nov 2026). */
+#intro-body .primer-inner .primer-item{font-size:17px;line-height:1.5;margin:0 0 12px}
+#intro-body .primer-inner .primer-item:last-child{margin-bottom:4px}
+.primer-item strong{font-weight:600}
+.primer-inner{padding:0 2px 14px}

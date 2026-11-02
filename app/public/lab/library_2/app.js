@@ -378,10 +378,12 @@ function renderOpening(body){
  const book=activeBook,rows=book.primer;
  if(book.opening)body.append(el('p','intro-opening',book.opening));
  const list=el('div','primer-rows');
- if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>{const ol=el('ol','primer-structure');rows.structure.forEach(item=>{const li=el('li');li.append(el('span','primer-part',item.title),el('span','primer-part-text',item.text));ol.append(li);});inner.append(ol);}));
- if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>{rows.people.forEach(item=>{const p=el('div','primer-person');p.append(el('h3','',item.name));if(item.role)p.append(el('p','primer-role',item.role));p.append(el('p','',item.text));inner.append(p);});}));
- if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>{rows.context.forEach(item=>{const d=el('details','primer-topic');const s=el('summary');const name=el('span','primer-topic-name',item.title);if(item.level==='essential')name.append(el('small','primer-level','Essential'));s.append(name,el('span','primer-chevron','⌄'));d.append(s);const t=el('div','primer-topic-body');t.append(el('p','',item.text));d.append(t);inner.append(d);});}));
- if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>{const ul=el('ul','primer-notice');rows.notice.forEach(item=>{const li=el('li');li.append(el('span','',[item.text,item.why].filter(Boolean).join(' ')));ul.append(li);});inner.append(ul);}));
+ // Each item is one paragraph with a bold lead-in ("Title: text"), never a heading over a heading (Anders, 2 Nov 2026).
+ const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',`${title}: `),document.createTextNode(text));return p;};
+ if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
+ if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(lead(item.role?`${item.name}, ${item.role.replace(/^./,c=>c.toLowerCase())}`:item.name,item.text)))));
+ if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>rows.context.forEach(item=>inner.append(lead(item.level==='essential'?`${item.title} (essential)`:item.title,item.text)))));
+ if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>rows.notice.forEach(item=>inner.append(el('p','primer-item',[item.text,item.why].filter(Boolean).join(' '))))));
  if(list.childElementCount)body.append(list);
 }
 // The edition is a quiet choice on the author flap (Anders, 2 Nov 2026), under the biography.
