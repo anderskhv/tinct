@@ -280,7 +280,7 @@ function provenanceFor(edition: Edition, bookId: string): Pick<PreReaderEditionV
     return { group: 'human', provenance: 'published-edition', provenanceLabel: `Published by ${permission.publisher}, with permission` }
   }
   if (edition.style === 'modern') {
-    return { group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Tinct AI adaptation' }
+    return { group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Line-by-line AI-based translation' }
   }
   if (edition.translator) {
     return {

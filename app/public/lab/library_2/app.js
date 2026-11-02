@@ -381,7 +381,8 @@ function renderOpening(body){
  // Each item is one paragraph with a bold lead-in ("Title: text"), never a heading over a heading (Anders, 2 Nov 2026).
  const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',`${title}: `),document.createTextNode(text));return p;};
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
- if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(lead(item.role?`${item.name}, ${item.role.replace(/^./,c=>c.toLowerCase())}`:item.name,item.text)))));
+ // People read as a plain cast list: name, then who they are; no bold, no role line (Anders, 2 Nov 2026).
+ if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${item.text.replace(/^./,c=>c.toLowerCase())}`)))));
  if(rows?.context.length)list.append(primerRow('Background','primer-context',inner=>rows.context.forEach(item=>inner.append(lead(item.level==='essential'?`${item.title} (essential)`:item.title,item.text)))));
  if(rows?.notice.length)list.append(primerRow('What to notice','primer-notice',inner=>rows.notice.forEach(item=>inner.append(el('p','primer-item',[item.text,item.why].filter(Boolean).join(' '))))));
  if(list.childElementCount)body.append(list);
