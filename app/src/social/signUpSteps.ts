@@ -48,12 +48,21 @@ const STYLE = `
 .auth-page[data-mode=profile] form,.auth-page[data-mode=reading] form{display:none}
 .auth-page[data-mode=profile] [data-auth-providers],.auth-page[data-mode=reading] [data-auth-providers],.auth-page[data-mode=profile] .auth-or,.auth-page[data-mode=reading] .auth-or{display:none}
 .social-step{position:relative}
+.social-step:not([hidden]){display:flow-root}
+.social-step[hidden]{display:none}
 .social-step h1{margin:6px 0 14px}
 .social-counter{display:flex;justify-content:space-between;align-items:center;color:#6b6357;font-size:14px}
 .social-skip-top{min-height:44px;margin:-10px -10px -10px 0;padding:0 10px;border:0;background:none;color:#6b6357;font:inherit;cursor:pointer}
 .social-banner{height:150px;margin:-32px -32px 14px;background-size:cover;background-position:center;border-radius:19px 19px 0 0}
 .social-banner[hidden]{display:none}
-.has-social-banner .social-identity{margin-top:-58px}
+/* With a background (mockup "background added"): the counter and Skip sit on the banner, the picture overlaps its foot. */
+.social-step.has-social-banner h1{display:none}
+.has-social-banner .social-counter{position:absolute;top:-22px;left:0;right:0;z-index:1;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.has-social-banner .social-skip-top{color:#fff}
+.has-social-banner .social-banner{box-shadow:inset 0 70px 50px -40px rgba(0,0,0,.45)}
+.has-social-banner .social-identity{margin-top:-50px}
+.auth-card:has(.social-step){min-width:0;max-width:100%}
+.social-step,.social-strip{min-width:0;max-width:100%}
 .social-identity{display:flex;align-items:flex-end;gap:14px;margin-top:4px;position:relative}
 .social-hero-picture{position:relative;flex:none;width:92px;height:92px;padding:0;border:0;border-radius:50%;background:none;cursor:pointer}
 .social-hero-picture .tinct-avatar{width:92px;height:92px;font-size:36px;box-shadow:0 0 0 4px var(--paper)}
@@ -102,7 +111,7 @@ const STYLE = `
 .social-step .auth-primary{margin-top:22px}
 .tinct-avatar{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background-color:#18241a;background-repeat:no-repeat;background-size:cover;color:#e8d59e;font:500 18px/1 'Playfair Display',Georgia,serif;overflow:hidden}
 .tinct-avatar[data-kind=initial]{background-image:linear-gradient(150deg,#2a3a2a,#18241a)}
-@media(max-width:520px){.social-banner{margin:-26px -20px 14px;border-radius:20px 20px 0 0}}
+@media(max-width:520px){.social-banner{margin:-26px -20px 14px;border-radius:20px 20px 0 0}.has-social-banner .social-counter{top:-14px}}
 `
 
 interface SignInHooks {
@@ -273,7 +282,8 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const showBanner = (src: string | null) => {
     banner.hidden = !src
     if (src) banner.style.backgroundImage = `url("${src}")`
-    card.classList.toggle('has-social-banner', !!src)
+    // On the profile step only: the reading step keeps its own plain counter.
+    banner.parentElement?.classList.toggle('has-social-banner', !!src)
   }
 
   // Upload tiles come first in both strips (the brief), while the Worker accepts uploads.
