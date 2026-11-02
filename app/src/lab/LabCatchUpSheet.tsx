@@ -8,6 +8,7 @@ import { LAB_COPY } from './labCopy'
 import { RowIcon } from './LabSuperMenu.tsx'
 import {
   CATCH_UP_COOLDOWN_MS,
+  CATCH_UP_RETRY_MS,
   catchUpContextText,
   CATCH_UP_INITIAL_WANTED,
   catchUpShouldCoolDown,
@@ -143,7 +144,12 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
         tokenRef.current ??= readToken().catch(() => null)
         token = await tokenRef.current
       }
-      const result = await fetchCatchUpEntry(entry, { token })
+      let result = await fetchCatchUpEntry(entry, { token })
+      // A summary that failed for no reason the reader can act on (a 502) is asked for once more before Retry shows.
+      if (!result.ok && result.status === 502 && mounted.current) {
+        await new Promise(resolve => setTimeout(resolve, CATCH_UP_RETRY_MS))
+        if (mounted.current) result = await fetchCatchUpEntry(entry, { token })
+      }
       inflight.current.delete(entry.key)
       if (!mounted.current) return
       if (!result.ok && catchUpShouldCoolDown(result.status)) setCoolUntil(Date.now() + CATCH_UP_COOLDOWN_MS)

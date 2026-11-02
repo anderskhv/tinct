@@ -237,7 +237,7 @@ it('keeps the original page place when changing to Tinct text and offers the est
   expect(onZoom).toHaveBeenCalledWith(.85)
   fireEvent.click(screen.getByRole('button', { name: 'Fit' }))
   expect(onZoom).toHaveBeenCalledWith(1)
-  fireEvent.click(screen.getByRole('button', { name: 'Convert to Tinct book' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Convert to EPUB' }))
   expect(onOpenText).toHaveBeenCalledWith({ page: 1, frac: .3 })
 })
 
@@ -605,7 +605,7 @@ it('uses the current chapter in the header and the normal appearance themes with
   expect(appearance.querySelector('.lab-v2-sheet-body .lab-v2-themes')).toBeTruthy()
   expect(appearance.querySelector('.lab-v2-head .lab-v2-title')?.textContent).toBe('Appearance')
   expect(screen.queryByRole('radio')).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: 'Tinct book', exact: true }))
+  fireEvent.click(screen.getByRole('button', { name: 'Read as EPUB', exact: true }))
   expect(onOpenText).toHaveBeenCalledWith({ page: 15, frac: 0 })
 })
 
@@ -623,7 +623,7 @@ it('keeps conversion unavailable while working and shows a retryable conversion 
   expect(onOpenText).not.toHaveBeenCalled()
   view.rerender(<PdfOriginalReaderShell {...props} textError="Conversion could not finish. Your original pages are ready." />)
   expect(screen.getByText('Conversion could not finish. Your original pages are ready.').getAttribute('role')).toBe('status')
-  expect((screen.getByRole('button', { name: 'Convert to Tinct book' }) as HTMLButtonElement).disabled).toBe(false)
+  expect((screen.getByRole('button', { name: 'Convert to EPUB' }) as HTMLButtonElement).disabled).toBe(false)
 })
 
 
@@ -878,4 +878,33 @@ it('shows the asked question the moment it is sent, before the answer arrives (3
   finish('The case rests on three points. Each is contested.\n\n- First point.\n- Second point.')
   await waitFor(() => expect([...document.querySelectorAll('li')].map(node => node.textContent)).toEqual(expect.arrayContaining(['First point.', 'Second point.'])))
   expect(screen.queryByText(/^(You|Tinct)$/)).toBeNull()
+})
+
+it('a phone held sideways keeps its own appearance and shows the page beside its margin (iPhone, 2 Nov 2026)', () => {
+  writeLabPrefs({ ...readLabPrefs('phone'), theme: 'dark' }, 'phone')
+  writeLabPrefs({ ...readLabPrefs('desktop'), theme: 'light' }, 'desktop')
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1')
+  vi.stubGlobal('innerWidth', 844); vi.stubGlobal('innerHeight', 390)
+  const { unmount } = render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  const root = screen.getByTestId('lab-root')
+  expect(root.getAttribute('data-theme')).toBe('dark')
+  expect(root.classList.contains('is-sideways')).toBe(true)
+  expect(screen.queryByTestId('pdf-rotate-hint')).toBeNull()
+  unmount()
+  // Zoomed right in, the margin turns into cards: the phone's layout, still dark.
+  render(<PdfOriginalReaderShell title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} initialZoom={2} />)
+  expect(screen.getByTestId('lab-root').classList.contains('is-phone')).toBe(true)
+  expect(screen.getByTestId('lab-root').getAttribute('data-theme')).toBe('dark')
+})
+
+it('a phone held upright offers turning it sideways once per book', () => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1')
+  vi.stubGlobal('innerWidth', 390); vi.stubGlobal('innerHeight', 844)
+  const { unmount } = render(<PdfOriginalReaderShell bookId="own-pdf-1" title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  expect(screen.getByTestId('pdf-rotate-hint').textContent).toContain('Turn your phone sideways to read the page larger.')
+  fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+  expect(screen.queryByTestId('pdf-rotate-hint')).toBeNull()
+  unmount()
+  render(<PdfOriginalReaderShell bookId="own-pdf-1" title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
+  expect(screen.queryByTestId('pdf-rotate-hint')).toBeNull()
 })

@@ -41,7 +41,13 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__thread strong { display:block; margin-bottom:4px; color:var(--lab-ink-muted); font:600 12px system-ui,sans-serif; }
 .pdf-original-reader .lab-pcard-dock { z-index:101; }
 .pdf-original-reader .lab-pcard blockquote { margin:0 0 12px; font:italic 16px Georgia,serif; }
-.pdf-original-reader .lab-pcard textarea:not(.lab-pcard-follow-input) { display:block; width:100%; min-height:90px; margin:8px 0; padding:8px; font:16px Georgia,serif; }
+/* A note: the ask field's look (approved mockup, 2 Nov 2026): an underline, the words in the book's type, the plain send arrow. */
+.pdf-original-reader .pdf-note-field { display:flex; align-items:flex-end; gap:8px; margin:4px 0 0; border-bottom:1px solid var(--lab-pcard-hair, var(--lab-border)); }
+.pdf-original-reader .pdf-note-field:focus-within { border-bottom-color:var(--lab-accent, currentColor); }
+.pdf-original-reader .pdf-note-field textarea { flex:1 1 auto; min-width:0; display:block; width:100%; min-height:34px; max-height:40vh; margin:0; padding:6px 0; border:0; border-radius:0; outline:0 !important; box-shadow:none; resize:none; overflow-y:auto; background:transparent; color:var(--lab-ink); caret-color:var(--lab-accent, currentColor); font:400 17px/1.4 'EB Garamond',Georgia,serif; overflow-wrap:anywhere; }
+.pdf-original-reader .pdf-note-field textarea::placeholder { color:var(--lab-ink-faint, var(--lab-ink-muted)); opacity:1; }
+.pdf-original-reader .pdf-note-field .lab-pcard-send { flex:none; width:36px; height:36px; margin:0; padding:0; border:0; cursor:pointer; }
+.pdf-original-reader .pdf-note-field__saved { display:block; width:100%; margin:0; padding:2px 0; border:0; background:none; color:var(--lab-ink); text-align:left; font:400 17px/1.45 'EB Garamond',Georgia,serif; white-space:pre-wrap; overflow-wrap:anywhere; cursor:text; }
 .pdf-original-reader__status { position:fixed; z-index:110; left:50%; bottom:58px; transform:translateX(-50%); max-width:calc(100vw - 32px); background:var(--lab-surface); color:var(--lab-ink); border:1px solid var(--lab-border); border-radius:8px; padding:9px 12px; font:13px system-ui,sans-serif; }
 .pdf-original-reader__status button { border:0; background:none; color:inherit; text-decoration:underline; cursor:pointer; }
 html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-original-reader__phone-actions { box-shadow:none; }
@@ -96,3 +102,14 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 
 .pdf-original-reader__conversion { margin:12px 0; font:14px/1.5 system-ui,sans-serif; }
 .pdf-original-reader__conversion progress { display:block; width:100%; height:6px; accent-color:var(--lab-ink-muted); }
+
+/* A phone held sideways (approved mockup, 2 Nov 2026): the margin reader, the page beside its margin. Zooming in
+   narrows the margin (--pdf-sideways-margin, set by the shell) until, zoomed right in, the margin becomes cards. */
+.pdf-original-reader.is-sideways .lab-body { padding:0 calc(8px + env(safe-area-inset-right,0px)) 8px calc(4px + env(safe-area-inset-left,0px)); }
+.pdf-original-reader.is-sideways .pdf-original--desktop .pdf-original__pages { width:calc(100% - var(--pdf-sideways-margin,260px)); }
+.pdf-original-reader.is-sideways .lab-header { min-height:44px; height:calc(44px + env(safe-area-inset-top,0px)); padding-top:env(safe-area-inset-top,0px); }
+/* "Turn your phone sideways", once per book on a phone held upright (approved mockup, 2 Nov 2026). */
+.pdf-rotate-hint { position:fixed; z-index:30; left:calc(16px + env(safe-area-inset-left,0px)); right:calc(16px + env(safe-area-inset-right,0px)); bottom:calc(72px + env(safe-area-inset-bottom,0px)); display:flex; align-items:center; gap:14px; padding:14px 8px 14px 16px; border:1px solid var(--lab-border); border-radius:18px; background:var(--lab-surface, var(--lab-paper)); color:var(--lab-ink); box-shadow:0 8px 28px rgba(0,0,0,.28); }
+.pdf-rotate-hint > svg { flex:none; }
+.pdf-rotate-hint p { flex:1 1 auto; min-width:0; margin:0; font:14px/1.35 system-ui,-apple-system,sans-serif; }
+.pdf-rotate-hint button { flex:none; display:grid; place-items:center; width:44px; height:44px; margin:0; padding:0; border:0; background:none; color:var(--lab-ink-muted); cursor:pointer; }

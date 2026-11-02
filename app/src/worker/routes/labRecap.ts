@@ -91,8 +91,8 @@ export const RECAP_SYSTEM_PROMPT = [
  */
 export const RECAP_BRIEF_SYSTEM_PROMPT = `${RECAP_SYSTEM_PROMPT
   .replace('in about 90 words, never more than 110, as one paragraph', 'in two short sentences, at most 40 words in all,')}\n${RECAP_ENTRY_INSTRUCTION}`
-/** 40 words plus the tool call's own few tokens. */
-export const RECAP_BRIEF_MAX_TOKENS = 160
+/** Room for the 40-word entry and its tool call: a cut-off call is no entry (labCatchUp.ts CATCH_UP_MAX_TOKENS). */
+export const RECAP_BRIEF_MAX_TOKENS = 400
 
 function labGuestIp(request: Request): string {
   return request.headers.get('cf-connecting-ip')

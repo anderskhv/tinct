@@ -537,6 +537,9 @@ function privateLibraryDestination(destination: string, enabled: boolean): strin
   return `${url.pathname}${url.search}${url.hash}`
 }
 
+/** How far the reader scrolls on before the highlight menu goes (LabApp's selection menu). */
+const SELECTION_MENU_SCROLL_PX = 48
+
 export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
@@ -3977,6 +3980,38 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     define.setQuery('')
     ask.discardSpeculativeExplanation()
   }, [ask.discardSpeculativeExplanation, define])
+
+  // The highlight menu stays while the reader is still (to change a colour) and goes once they scroll on: a scroll of
+  // more than a few lines, never one made while a finger or the mouse is still down (dragging a selection's handle
+  // scrolls the page too). An answer the menu opened into stays (Anders, 2 Nov 2026).
+  const scrollDismissRef = useRef(dismissSelectionPopup)
+  scrollDismissRef.current = dismissSelectionPopup
+  const selectionMenuOpen = !!selectionPopup && (popupMode === 'main' || popupMode === 'colors')
+  useEffect(() => {
+    if (!selectionMenuOpen) return
+    const start = new Map<EventTarget, number>()
+    let down = false
+    // The page itself (the window or the document) or a scrolling element.
+    const offset = (target: EventTarget) => target instanceof Element ? target.scrollTop : window.scrollY || document.scrollingElement?.scrollTop || 0
+    const onDown = () => { down = true }
+    const onUp = () => { down = false; start.clear() }
+    const onScroll = (event: Event) => {
+      const target = event.target ?? document
+      if (target instanceof Element && target.closest('[role="toolbar"], .selection-popup, [data-testid="lab-phone-bar"]')) return
+      if (!start.has(target)) { start.set(target, offset(target)); return }
+      if (!down && Math.abs(offset(target) - (start.get(target) ?? 0)) > SELECTION_MENU_SCROLL_PX) scrollDismissRef.current()
+    }
+    window.addEventListener('pointerdown', onDown, true)
+    window.addEventListener('pointerup', onUp, true)
+    window.addEventListener('pointercancel', onUp, true)
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true })
+    return () => {
+      window.removeEventListener('pointerdown', onDown, true)
+      window.removeEventListener('pointerup', onUp, true)
+      window.removeEventListener('pointercancel', onUp, true)
+      window.removeEventListener('scroll', onScroll, true)
+    }
+  }, [selectionMenuOpen])
 
   // Rendered inside the pill's tap (flushSync), so the editor's field takes
   // focus within the gesture and iOS raises the keyboard.

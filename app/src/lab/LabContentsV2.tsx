@@ -87,6 +87,8 @@ function ProgressPie({ percent }: { percent: number }) {
   const x = 8 + 7 * Math.cos(angle), y = 8 + 7 * Math.sin(angle)
   return <svg className="progress-pie" viewBox="0 0 16 16" aria-hidden="true"><title>{percent}% read</title><circle className="track" cx="8" cy="8" r="7" />{percent === 100 ? <circle className="fill" cx="8" cy="8" r="7" /> : <path className="fill" d={`M8 8 L8 1 A7 7 0 ${percent > 50 ? 1 : 0} 1 ${x} ${y} Z`} />}</svg>
 }
+/** How long after opening the list keeps the current chapter in view while it settles, unless the reader touches it first. */
+const CONTENTS_REVEAL_MS = 1_500
 const MODERN_STATE_LABEL = { ready: 'Ready', preparing: 'Preparing', queued: 'Queued' } as const
 const date = (timestamp: number) => Number.isFinite(timestamp) ? new Intl.DateTimeFormat(undefined, { day: 'numeric', month: 'short', year: 'numeric' }).format(timestamp) : ''
 // Blank-margin notes keep a point anchor, but deliberately have no quoted words.
@@ -167,6 +169,8 @@ export function LabContentsV2(props: Props) {
     setExpanded(new Set(current?.parents.map(n => n.id))); setView(props.notebook ? 'notebook' : null); setChapterFilter(null)
     if (!props.sharedNotebook) setNotebookFilter('all')
     setCrumbs([]); reveal.current = true
+    const settle = window.setTimeout(() => { reveal.current = false }, CONTENTS_REVEAL_MS)
+    return () => window.clearTimeout(settle)
   }, [open, bookId, currentChapter, props.chaptersReady, props.notebook])
   useEffect(() => { if (open) { setHiddenNotebook(new Set()); setUndoNotebook(null); setNotebookFeedback('') } }, [open, bookId])
   useEffect(() => { setLoadedText(null); setLoadError(false); setView(open && props.notebook ? 'notebook' : null); setTab('chapters'); setNotebookFilter('all') }, [bookId, editionKey])
@@ -198,6 +202,7 @@ export function LabContentsV2(props: Props) {
     const row = body?.querySelector<HTMLElement>(`[data-id="${id}"] > .node`)
     if (body && row) body.scrollTop = Math.max(0, body.scrollTop + row.getBoundingClientRect().top - body.getBoundingClientRect().top - 64)
   }
+  const settleReveal = () => { reveal.current = false }
   const breadcrumb = () => {
     const body = bodyRef.current
     if (!body) return
@@ -220,7 +225,9 @@ export function LabContentsV2(props: Props) {
       const gold = ul.querySelector<HTMLElement>(':scope > .gold-branch')
       if (gold && active) gold.style.height = active.offsetTop + (active.querySelector<HTMLElement>(':scope > .node')?.offsetHeight || 0) / 2 + 'px'
     }
-    if (reveal.current && current && bodyRef.current?.querySelector(`[data-id="${current.id}"]`)) { locate(current.id); reveal.current = false }
+    // Held until the reader touches the list (or briefly after opening): a row that grows or a font that lands late
+    // re-measures the list, and the current chapter must still be the one in view.
+    if (reveal.current && current && bodyRef.current?.querySelector(`[data-id="${current.id}"]`)) locate(current.id)
     breadcrumb()
   }
   const geometryRef = useRef(geometry); geometryRef.current = geometry
@@ -253,9 +260,29 @@ export function LabContentsV2(props: Props) {
   }, [view])
 
   const onPath = new Set(current?.parents.map(n => n.id))
-  const toggle = (id: string) => setExpanded(previous => { const next = new Set(previous); next.has(id) ? next.delete(id) : next.add(id); return next })
+  // One branch open per level (Anders, 2 Nov 2026): opening Wisdom & Poetry folds Historical Books, so the sections
+  // you look for stay in view. Tapping an open branch that has an open branch inside folds those first (Old Testament
+  // shows its sections closed); only a second tap closes it. The reading marker stays on its folded path.
+  const toggle = (id: string) => setExpanded(previous => {
+    const node = flat.find(n => n.id === id)
+    const next = new Set(previous)
+    const fold = (list: ContentsNode[] | undefined) => { for (const child of list ?? []) if (child.children) { next.delete(child.id); fold(child.children) } }
+    if (!previous.has(id)) {
+      const siblings = node?.parents.at(-1)?.children ?? nodes
+      for (const sibling of siblings) if (sibling.id !== id && sibling.children) { next.delete(sibling.id); fold(sibling.children) }
+      next.add(id)
+    } else if (node?.children?.some(child => previous.has(child.id))) fold(node.children)
+    else { next.delete(id); fold(node?.children) }
+    return next
+  })
+  /** A breadcrumb shows that branch's own sections, folded, with the branch at the top. */
+  const showBranch = (id: string) => {
+    const node = flat.find(n => n.id === id)
+    setExpanded(previous => { const next = new Set(previous); const fold = (list: ContentsNode[] | undefined) => { for (const child of list ?? []) if (child.children) { next.delete(child.id); fold(child.children) } }; fold(node?.children); return next })
+    requestAnimationFrame(() => locate(id))
+  }
   const tree = (list: ContentsNode[], parent?: ContentsNode) => <ul className={parent ? 'nested' : undefined}>
-    {parent && <button className="rail" onClick={() => { toggle(parent.id); requestAnimationFrame(() => panelRef.current?.querySelector<HTMLElement>(`[data-id="${parent.id}"] > .node > .label`)?.focus()) }} aria-label={'Collapse ' + parent.label} tabIndex={-1} />}
+    {parent && <button className="rail" onClick={() => { setExpanded(previous => { const next = new Set(previous); next.delete(parent.id); return next }); requestAnimationFrame(() => panelRef.current?.querySelector<HTMLElement>(`[data-id="${parent.id}"] > .node > .label`)?.focus()) }} aria-label={'Collapse ' + parent.label} tabIndex={-1} />}
     {list.map(node => {
       const reading = node.chapter === currentChapter
       const percent = node.chapter == null ? null : contentsPercent(statuses.get(node.chapter), reading, props.currentPercent)
@@ -381,8 +408,8 @@ export function LabContentsV2(props: Props) {
           </li>
         ))}</ol>
       </div> : <>
-      {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => locate(node.id)}>{node.label}</button></span>)}</nav>}
-      <div className="viewport" ref={bodyRef} onScroll={breadcrumb} inert={view ? true : undefined}>
+      {crumbs.length > 0 && !view && <nav className="crumbs" aria-label="Visible chapter path">{crumbs.map((node,index) => <span key={node.id}>{index > 0 && <Icon name="next" />}<button onClick={() => showBranch(node.id)}>{node.label}</button></span>)}</nav>}
+      <div className="viewport" ref={bodyRef} onScroll={breadcrumb} onPointerDown={settleReveal} onWheel={settleReveal} onTouchStart={settleReveal} onKeyDown={settleReveal} inert={view ? true : undefined}>
         {props.chaptersReady ? <nav className="tree" aria-label="Chapters">{props.onOpenIntroduction && <div className="front-matter"><div className="node"><button className="label" onClick={props.onOpenIntroduction}><span className="text">Introduction</span><Icon name="next" /></button></div></div>}{tree(nodes)}</nav> : <p className="status"><LabWait label="Loading contents…" size={18} testId="lab-contents-loading" /></p>}
         {historyStatus}
         {props.navigationFooter}

@@ -12,6 +12,8 @@ import { capturePdfRegion, type PdfRegionCapture } from './pdfOriginalFigures'
 import './pdfOriginal.css'
 
 const GAP = 18
+/** How long a finger's selection rests before its menu opens (handles still moving keep it waiting). */
+const PDF_TOUCH_SELECTION_SETTLE_MS = 450
 const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n))
 /** The original reader's 1500px reading sheet is the default, even on a very wide desk. */
 export const pdfBaseSheetWidth = (available: number) => Math.max(1, Math.min(1500, Math.floor(available - 32)))
@@ -44,7 +46,13 @@ export function pdfSourceLines(items: Awaited<ReturnType<PdfOriginalPage['getTex
   }
   return lines.sort((a, b) => a.y - b.y).map(({ y, left, right }) => ({ y, left, right }))
 }
-export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
+export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: number; requestedZoom?: number; onZoom?: (zoom: number) => void; onZoomLimit?: (limit: number) => void; phone?: boolean;
+  /**
+   * A phone held sideways (PdfOriginalReaderShell): every pinch or ctrl-wheel step's wanted size, 0.5–3, before this
+   * surface's own limit, from `zoomBase` instead of the drawn size. Zooming past Fit there narrows the margin, then
+   * turns the margin into cards; the drawn sheet stays at Fit meanwhile.
+   */
+  onZoomRequest?: (zoom: number) => void; zoomBase?: number; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
 
 function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, figures, onFigureAction }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
@@ -157,7 +165,7 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
 
 /** Continuous source pages, with three nearby source pages, retaining native selection pages until the range clears. */
 export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd,
-  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, phone = false, cards = [], activeCardId, headingActions = [], onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
+  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, onZoomRequest, zoomBase, phone = false, cards = [], activeCardId, headingActions = [], onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
   const [pdf, setPdf] = useState<PdfOriginalDocument | null>(null)
   const [overview, setOverview] = useState<{ document: PdfOriginalDocument; pages: PdfSourceLine[][]; ratios: number[] } | null>(null)
   // Read the lightweight text overview independently of virtualised canvases.
@@ -209,12 +217,20 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
       const a = page(selection?.anchorNode ?? null), b = page(selection?.focusNode ?? null)
       const next = root && selection && !selection.isCollapsed && root.contains(selection.anchorNode) && root.contains(selection.focusNode) && a && b ? { from: Math.min(a, b), to: Math.max(a, b) } : null
       setSelectionPages(previous => previous?.from === next?.from && previous?.to === next?.to ? previous : next)
+      // A finger's long-press selection sends no mouseup (iPhone held sideways, 2 Nov 2026: no highlight menu), so on
+      // a touch screen the selection is read once it has rested, while no finger is down.
+      window.clearTimeout(settle)
+      if (next && touch) settle = window.setTimeout(() => { if (!fingerDown) selectRef.current() }, PDF_TOUCH_SELECTION_SETTLE_MS)
     }
-    const release = () => { update(); setDragPage(null) }
+    const touch = typeof navigator !== 'undefined' && (navigator.maxTouchPoints ?? 0) > 0
+    let settle = 0, fingerDown = false
+    const down = (event: PointerEvent) => { if (event.pointerType === 'touch') fingerDown = true }
+    const release = () => { fingerDown = false; update(); setDragPage(null) }
     document.addEventListener('selectionchange', update)
+    window.addEventListener('pointerdown', down, true)
     window.addEventListener('pointerup', release)
     window.addEventListener('pointercancel', release)
-    return () => { document.removeEventListener('selectionchange', update); window.removeEventListener('pointerup', release); window.removeEventListener('pointercancel', release) }
+    return () => { window.clearTimeout(settle); document.removeEventListener('selectionchange', update); window.removeEventListener('pointerdown', down, true); window.removeEventListener('pointerup', release); window.removeEventListener('pointercancel', release) }
   }, [])
   useEffect(() => { onRegionCapture?.(pdf ? (page, region) => capturePdfRegion(pdf, page, region) : null); return () => onRegionCapture?.(null) }, [pdf, onRegionCapture])
   const pages = useRef(new Map<number, HTMLDivElement>())
@@ -222,17 +238,24 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
   const failed = useRef(new Set<number>())
   const place = useRef<PdfOriginalPlace>({ page: current, frac: clamp(initialPlace?.frac || 0, 0, 1) })
   const first = useRef(false), lastRequest = useRef<PdfOriginalPlace | null>(null)
-  const pinch = useRef<{ distance: number; zoom: number } | null>(null)
+  const pinch = useRef<{ distance: number; zoom: number; last: number } | null>(null)
   const zoomRef = useRef(zoom)
   zoomRef.current = zoom
-  const callbacks = useRef({ onVisiblePlace, onPageText, onPageEnd, onSelection, onZoom })
-  callbacks.current = { onVisiblePlace, onPageText, onPageEnd, onSelection, onZoom }
+  const zoomBaseRef = useRef(zoomBase)
+  zoomBaseRef.current = zoomBase
+  const callbacks = useRef({ onVisiblePlace, onPageText, onPageEnd, onSelection, onZoom, onZoomRequest })
+  callbacks.current = { onVisiblePlace, onPageText, onPageEnd, onSelection, onZoom, onZoomRequest }
   const baseWidth = pdfBaseSheetWidth(available)
   const limit = pdfZoomLimit(available, phone)
   useEffect(() => onZoomLimit?.(limit), [limit, onZoomLimit])
   useEffect(() => {
     if (requestedZoom !== undefined && Number.isFinite(requestedZoom)) setZoom(clamp(requestedZoom, .5, 3))
   }, [requestedZoom])
+  // A pinch that turns the margin into cards (or back) carries on from the new layout's size, without a jump.
+  useEffect(() => {
+    const held = pinch.current
+    if (held) pinch.current = { distance: held.last, last: held.last, zoom: zoomBase ?? clamp(requestedZoom ?? zoomRef.current, .5, 3) }
+  }, [phone])
   const sheetWidth = Math.round(baseWidth * clamp(zoom, .5, limit))
   const heightOf = useCallback((n: number) => Math.round(sheetWidth * (ratios[n] ?? ratio)), [sheetWidth, ratios, ratio])
   const topOf = useCallback((n: number) => {
@@ -331,8 +354,11 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     const selection = readPdfOriginalSelection(scroller.current, window.getSelection())
     if (selection) callbacks.current.onSelection?.(selection)
   }, [])
+  const selectRef = useRef(select)
+  selectRef.current = select
   const drawError = useCallback((n: number) => { failed.current.add(n); if (place.current.page === n) setError('This PDF page could not be drawn.') }, [])
   const chooseZoom = (next: number) => {
+    callbacks.current.onZoomRequest?.(clamp(Math.round(next * 100) / 100, .5, 3))
     const value = clamp(Math.round(next * 100) / 100, .5, limit)
     if (value === zoom) return
     setZoom(value)
@@ -346,14 +372,15 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
     const wheel = (event: WheelEvent) => {
       if (!event.ctrlKey && !event.metaKey) return
       event.preventDefault()
-      zoomAction.current(zoomRef.current * Math.exp(-event.deltaY * .01))
+      zoomAction.current((zoomBaseRef.current ?? zoomRef.current) * Math.exp(-event.deltaY * .01))
     }
     const distance = (touches: TouchList) => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY) || 1
-    const start = (event: TouchEvent) => { if (event.touches.length === 2) pinch.current = { distance: distance(event.touches), zoom: zoomRef.current } }
+    const start = (event: TouchEvent) => { if (event.touches.length === 2) pinch.current = { distance: distance(event.touches), zoom: zoomBaseRef.current ?? zoomRef.current, last: distance(event.touches) } }
     const move = (event: TouchEvent) => {
       if (!pinch.current || event.touches.length !== 2) return
       event.preventDefault()
-      zoomAction.current(pinch.current.zoom * distance(event.touches) / pinch.current.distance)
+      pinch.current.last = distance(event.touches)
+      zoomAction.current(pinch.current.zoom * pinch.current.last / pinch.current.distance)
     }
     const end = (event: TouchEvent) => { if (event.touches.length < 2) pinch.current = null }
     root.addEventListener('wheel', wheel, { passive: false })
