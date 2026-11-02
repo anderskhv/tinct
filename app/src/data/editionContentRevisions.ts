@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  apology: {
+  "revision": "text-2026-11-02.apology.1",
+  "releasedAt": 1793633331986,
+  "editions": {
+    "modern-en": {
+      "before": "f09399f0fe5348b3e3e809044f9907175515d9a6b113edd1dadd6a98a2444e4b",
+      "after": "21e09965eefab651eb1eb4045ccbbb66f72d1c84413589dc656f3c8687a23320"
+    },
+    "modern-da": {
+      "before": "7478955a3818154feab390f4c2768009dd40e064105d55f91ae4cdf03ed80795",
+      "after": "69f4b9ca50149d0bb180a86f3e5548448808eb038e559b9575a47e6f5cc3c60f"
+    }
+  }
+},
   'grimms-fairy-tales': {
   "revision": "text-2026-11-02.grimms-fairy-tales.1",
   "releasedAt": 1793631455416,
