@@ -50,6 +50,7 @@ describe('Art of War second repair preserves both historical text generations', 
       expect(moved.pageIndex).toBeUndefined()
       expect(migrateLabBookPlace(moved,map)).toBe(moved)
     }
+    expect(sourceContentRevision(bookId,'modern-en',undefined,release.releasedAt!)).toBe(release.after)
     expect(writtenBeforeRelease(bookId,'modern-en',legacy.before,Date.now())).toBe(true)
     expect(writtenBeforeRelease(bookId,'modern-en',release.before,Date.now())).toBe(true)
     expect(writtenBeforeRelease(bookId,'modern-en',release.after,0)).toBe(false)

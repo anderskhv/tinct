@@ -13,11 +13,13 @@ export function migrateLabBookPlace(
   if (place.bookId !== migration.bookId) return place
   const editionKey = place.primaryEditionKey || fallbackEditionKey
   if (!editionKey || !migration.editions[editionKey]) return place
+  const sourceRevision = sourceContentRevision(place.bookId, editionKey, place.contentRevision, place.updatedAt)
+  if (sourceRevision === migration.editions[editionKey].afterSha256) return place
   const projected = projectEditionCoordinate(migration, editionKey, {
     chapterNumber: place.sequentialChapter,
     paragraphIndex: place.paragraphIndex,
     offset: place.wordIndex,
-    contentRevision: sourceContentRevision(place.bookId, editionKey, place.contentRevision, place.updatedAt),
+    contentRevision: sourceRevision,
   }, 'words')
   if (projected.status === 'unresolved' || projected.point.contentRevision === place.contentRevision) return place
   // Page numbers depend on font/layout and become stale when paragraphs move.

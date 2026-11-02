@@ -608,8 +608,10 @@ export function sourceContentRevision(
   bookId: string, editionKey: string | undefined, revision: string | undefined, writtenAt: number | undefined,
 ): string | undefined {
   if (revision || !editionKey) return revision
-  const edition = CONTENT_RELEASES[bookId]?.editions[editionKey]
+  const release = CONTENT_RELEASES[bookId]
+  const edition = release?.editions[editionKey]
   if (!edition?.previous?.length || typeof writtenAt !== 'number' || !Number.isFinite(writtenAt)) return revision
+  if (writtenAt >= (edition.releasedAt ?? release.releasedAt)) return edition.after
   const previous = [...edition.previous].sort((a, b) => a.releasedAt - b.releasedAt)
   return previous.find(item => writtenAt < item.releasedAt)?.before ?? edition.before
 }
