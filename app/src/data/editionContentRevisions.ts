@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'the-prince': {
+  "revision": "text-2026-11-03.the-prince.1",
+  "releasedAt": 1793698339397,
+  "editions": {
+    "modern-en": {
+      "before": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "after": "e2f4a3fd8158c6d7a910aa9c9a947afe103185ffb2d3d147d1fe81b10c2f9190"
+    },
+    "modern-da": {
+      "before": "4d0efe429d27e14db2f05745acc240fadc7e9cb32d237b5e33297c5d154d61a9",
+      "after": "3b4a608cb0c5bb122e0dd4b1120188ade53b61f067f9975317102cf1221d5268"
+    }
+  }
+},
   'us-founding-documents': {
   "revision": "text-2026-11-02.us-founding-documents.1",
   "releasedAt": 1793646717234,
