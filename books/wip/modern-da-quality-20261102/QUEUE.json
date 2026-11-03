@@ -293,12 +293,14 @@
       "bookId": "poetics",
       "title": "Poetics",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "reviewedChapters": 10,
+      "reviewedChapters": 26,
       "totalChapters": 26,
-      "reviewedParagraphs": 41,
-      "totalParagraphs": 130
+      "reviewedParagraphs": 130,
+      "totalParagraphs": 130,
+      "onboarding": "editorial_complete",
+      "completenessAudit": "13/13 flagged paragraphs rechecked"
     },
     {
       "bookId": "nicomachean-ethics",
@@ -828,7 +830,7 @@
   ],
   "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Full 112-book corpus authorized. Eleven full manuscripts source-reviewed; native review pending. Meditations onboarding and completeness audit completed. This session owns isolated content only; Claude owns all integration and releases.",
+  "notes": "Full 112-book corpus authorized. Twelve full manuscripts source-reviewed; native review pending. Meditations and Poetics content prepared only. This session owns isolated content; Claude owns all integration and releases.",
   "releasePolicy": {
     "mode": "prepare_only",
     "releaseOwner": "Claude",
