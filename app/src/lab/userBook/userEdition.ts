@@ -122,6 +122,8 @@ export interface UserBookEdition {
    * equations, which decide the edition it opens in (ocrEdition.ts ocrDefaultEdition).
    */
   ocrLayout?: { pages: number; columns: number; equations: number }
+  /** Its scanning errors have been through the repair pass (ownTextRepair.ts OWN_TEXT_REPAIR_VERSION). */
+  textRepair?: number
 }
 
 /** The rule sets an edition from `source` may have been made with (absent: an EPUB). */
