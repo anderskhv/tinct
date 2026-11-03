@@ -2,7 +2,7 @@
   "target": 70,
   "reserves": 6,
   "acceptedBooks": 0,
-  "publishedByThisProgramme": 5,
+  "publishedByThisProgramme": 6,
   "books": [
     {
       "bookId": "to-the-lighthouse",
@@ -15,9 +15,15 @@
       "bookId": "the-art-of-war",
       "title": "The Art of War",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "merged_production_acceptance_running",
-      "publicationAccepted": false,
-      "releaseRun": 41606489725
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true,
+      "releaseRun": 41606489725,
+      "release": {
+        "source": "80b6d69d1657baf7a010cb5dc9b6616be96e6acc",
+        "run": 41606489725,
+        "version": "cffda621-a762-45c5-a8de-7df226cad3af",
+        "bundle": "index-CVt1Hxxk.js"
+      }
     },
     {
       "bookId": "crime-and-punishment",
@@ -46,7 +52,7 @@
       "phase": "Phase 1: existing 18, re-accept",
       "status": "editorial_review_in_progress",
       "publicationAccepted": false,
-      "reviewedChapters": 12,
+      "reviewedChapters": 17,
       "totalChapters": 27
     },
     {
@@ -550,7 +556,7 @@
       "publicationAccepted": false
     }
   ],
-  "provisionalPublishedBooks": 5,
+  "provisionalPublishedBooks": 6,
   "nativeCertifiedBooks": 0,
   "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review.\nApology release 41508073723 hit stale unversioned JSON cache in Android download acceptance; PR708 fixes mutable asset caching. Art of War #704, Founding Documents #706 and Medea #707 wait for serialized accepted releases. Full source editorial review is not native/independent certification.\n2026-11-03: #709 superseded #708; run 41597717124 accepted all six groups. Apology live hashes verified. Art of War rebased onto accepted main with refreshed predecessor; checks running."
 }
