@@ -36,6 +36,7 @@ export interface SourceMarginRailProps {
   ownsSourcePointer?: (event: PointerEvent) => boolean
   onBlankNote?: (position: { clientY: number; sourceY: number }) => void
 }
+
 export function sourceMarginLayout<T extends { id: string; y: number; height: number; order: number }>(items: T[], gap = 18) {
   let floor = 0
   return [...items].sort((a, b) => a.order - b.order || a.y - b.y || a.id.localeCompare(b.id)).map(item => {

@@ -12,7 +12,7 @@ const voice = readFileSync(fileURLToPath(new URL('../../.github/workflows/voice-
 const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
 const foreign = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
-const acceptedReader = '0f28e2c2-553f-4047-b054-4e63e0a03639'
+const acceptedReader = '319befd9-57d4-4e76-b82d-55b488d4fe14'
 const currentSource = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
 const run = (args: string[], env: Record<string, string> = {}) => spawnSync(process.execPath, [helper, ...args], {
   encoding: 'utf8', env: {
@@ -161,6 +161,26 @@ describe('release rollback guards (offline)', () => {
         expect(floorRun(['verify-reader-floor', previous, file]).status).toBe(1)
       }
     } finally { rmSync(dir, { recursive: true, force: true }) }
+  })
+
+  it('also accepts the version the last fully accepted repair release left live (release-time pin, 3 Nov 2026)', () => {
+    const recorded = '5d0c3a1e-7b2f-4c8d-9e6a-2f1b3c4d5e6f'
+    expect(run(['verify-repair-predecessor', recorded], { TINCT_ACCEPTED_READER: recorded }).stdout).toContain(`repair_predecessor_version=${recorded}`)
+    // The hand pin still counts beside a record.
+    expect(run(['verify-repair-predecessor', acceptedReader], { TINCT_ACCEPTED_READER: recorded }).status).toBe(0)
+    // Anything else is refused, naming both.
+    const refused = run(['verify-repair-predecessor', previous], { TINCT_ACCEPTED_READER: recorded })
+    expect(refused.status).toBe(1)
+    expect(refused.stderr).toContain(`or the last accepted release ${recorded}`)
+    // A malformed record is never trusted.
+    expect(run(['verify-repair-predecessor', acceptedReader], { TINCT_ACCEPTED_READER: 'not-a-version' }).status).toBe(1)
+    // Recorded only after every acceptance group passed and nothing rolled back; read before the guard.
+    expect(deploy).toContain('record-accepted:')
+    expect(deploy).toContain("needs.checks.result == 'success'")
+    expect(deploy).toContain("needs.rollback.result == 'skipped'")
+    expect(deploy).toContain('name: accepted-reader')
+    expect(deploy).toContain('echo "TINCT_ACCEPTED_READER=$version" >> "$GITHUB_ENV"')
+    expect(deploy.indexOf('Read the version the last fully accepted release left live')).toBeLessThan(deploy.indexOf('Require the accepted reader before repair release'))
   })
 
   it('pins the accepted production reader as the only automatic repair rollback predecessor', () => {

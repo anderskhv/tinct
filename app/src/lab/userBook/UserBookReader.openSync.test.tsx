@@ -29,7 +29,7 @@ vi.mock('./userBookStore', () => ({
 }))
 vi.mock('./pdfOriginalPlace', () => ({
   openPdfOriginalPlace: async () => ({ page: 3, frac: 0.2 }), notePdfOriginalPlace: vi.fn(),
-  readPdfOriginalZoom: () => 1, notePdfOriginalZoom: vi.fn(),
+  readPdfOriginalZoom: () => 1, notePdfOriginalZoom: vi.fn(), readPdfPlaceEdition: () => null,
 }))
 vi.mock('./usePdfOriginalServices', () => ({ usePdfOriginalServices: () => null }))
 vi.mock('../sharedReader/pdf/PdfOriginalReaderShell', () => ({ PdfOriginalReaderShell: ({ title, onOpenText, textAvailable, textBusy, textError, scanOutline, initialPlace }: { scanOutline?: {entries:Array<{label:string;page:number}>}|null; initialPlace?: {page:number;frac:number}|null; title: string; onOpenText?: (place:{page:number;frac:number})=>void; textAvailable?:boolean; textBusy?:boolean; textError?:string }) =>
