@@ -73,8 +73,28 @@ export function userBookEditions(edition: UserBookEdition, { phone = typeof wind
   return list
 }
 
-export function registerUserBook(bookId: string, edition: UserBookEdition): void {
+/** Scanning-error repairs for an open book (userBookStore repairStoredInBackground), per chapter, kept for this page load. */
+const repairedText = new Map<string, string[][]>()
+const sameShape = (edition: UserBookEdition, chapters: string[][]) => chapters.length === edition.chapters.length
+  && edition.chapters.every((chapter, i) => chapter.paragraphs.length === chapters[i].length)
+
+/**
+ * The repaired paragraphs of an open book: the chapters the reader turns to next are read repaired,
+ * and a registration of the same book made after this (the reader handing its copy over) keeps them.
+ */
+export function registerRepairedText(bookId: string, chapters: string[][]): void {
   if (!isUserBookId(bookId)) return
+  repairedText.set(bookId, chapters)
+  const open = editions.get(bookId)
+  if (open && sameShape(open, chapters)) registerUserBook(bookId, open)
+}
+
+export function registerUserBook(bookId: string, given: UserBookEdition): void {
+  if (!isUserBookId(bookId)) return
+  const repaired = repairedText.get(bookId)
+  const edition = repaired && sameShape(given, repaired)
+    ? { ...given, chapters: given.chapters.map((chapter, i) => ({ ...chapter, paragraphs: repaired[i] })) }
+    : given
   editions.set(bookId, edition)
   // Headings, list items, labels and links are painted from what the
   // conversion recorded beside each chapter's paragraphs; the book opens under
