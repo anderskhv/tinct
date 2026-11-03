@@ -28,6 +28,13 @@ export const CARDS_COPY = {
   since: (date: string) => `since ${date}, reading and listening`,
   // Under the last bar of Your reading's week chart (Anders asked what a bar is).
   thisWeek: 'This week',
+  thisMonth: 'This month',
+  readingBy: 'Show reading by',
+  byDays: 'Days',
+  byWeeks: 'Weeks',
+  byMonths: 'Months',
+  previousWeek: 'Previous week',
+  nextWeek: 'Next week',
   last7: 'last 7 days',
   finished: 'finished',
   streak: 'streak',
