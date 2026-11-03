@@ -36,8 +36,10 @@
       "bookId": "meditations",
       "title": "Meditations",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_review_in_progress",
+      "publicationAccepted": false,
+      "reviewedChapters": 1,
+      "totalChapters": 12
     },
     {
       "bookId": "moby-dick",
@@ -50,10 +52,11 @@
       "bookId": "the-prince",
       "title": "The Prince",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "editorial_complete_integration_pending",
+      "status": "editorial_complete_release_ci",
       "publicationAccepted": false,
       "reviewedChapters": 27,
-      "totalChapters": 27
+      "totalChapters": 27,
+      "pullRequest": 713
     },
     {
       "bookId": "bacchae",
@@ -356,8 +359,9 @@
       "bookId": "us-founding-documents",
       "title": "The US Founding Documents",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "editorial_complete_ci_passed_release_pending",
-      "publicationAccepted": false
+      "status": "merged_production_acceptance_running",
+      "publicationAccepted": false,
+      "releaseRun": 41611579424
     },
     {
       "bookId": "frederick-douglass",
