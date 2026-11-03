@@ -650,13 +650,15 @@
       "bookId": "symposium",
       "title": "Symposium",
       "phase": "Full-corpus extension authorized 2026-11-03",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "reviewedChapters": 2,
+      "reviewedChapters": 8,
       "totalChapters": 8,
-      "reviewedParagraphs": 57,
+      "reviewedParagraphs": 226,
       "totalParagraphs": 226,
-      "structuralDefects": "Missing opening 9 paragraphs restored; 46 paragraphs moved to Alcibiades chapter; internal chapter 3 shifts under review."
+      "structuralDefects": "Source alignment restored; missing 9 paragraphs translated, 46 moved to correct chapter; internal shifts repaired.",
+      "onboarding": "editorial_complete",
+      "completenessAudit": "2/2 flagged paragraphs rechecked"
     },
     {
       "bookId": "phaedo",
@@ -843,7 +845,7 @@
   ],
   "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Full 112-book corpus authorized. Thirteen full manuscripts source-reviewed; native review pending. Meditations, Poetics and Phaedrus content prepared only. This session owns isolated content; Claude owns all integration and releases.",
+  "notes": "Full 112-book corpus authorized. Fourteen full manuscripts source-reviewed; native review pending. Meditations, Poetics, Phaedrus and Symposium content prepared only. This session owns isolated content; Claude owns all integration and releases.",
   "releasePolicy": {
     "mode": "prepare_only",
     "releaseOwner": "Claude",
