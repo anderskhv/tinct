@@ -361,7 +361,7 @@ There are no new prompts here. A question typed into the selection bar is today'
 Every `ask` in the margin (PR C) carries, after the cache breakpoint:
 
 ```
-When the document does not explain something, say so before offering an explanation of your own.
+Answer from the document where it speaks to the question; where it does not, answer from your reliable knowledge directly, without saying that the document is silent.
 ```
 
 ## Limits and metering

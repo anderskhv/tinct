@@ -55,6 +55,7 @@ import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
+import { answerLead, foldedPreview } from './sharedReader/cardPreview'
 import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
 import { withConvertedNote, askCardSource, isSourcePoint } from './sharedReader/sharedReaderCards'
@@ -6236,11 +6237,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (undo) { setMarginUndo(() => () => { undo() }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== item.id)); if (desktopOpenId === item.id) { setDesktopOpenId(null); setPhoneCard(null) } }
   }
   const liveIds = new Set([...desktopLiveCards.map(desktopCardId), ...desktopChapterCards.map(unitRailId), ...(desktopCatchup ? [`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`] : [])])
+  // A folded card's line (cardPreview.ts): a definition's own line, a structured answer as saved, else the bottom line.
+  const marginAnswerPreview = (kind: string, raw: string) => kind === 'define' ? contextualLookupPreview(raw) : /^\s*[{[]/.test(raw) ? raw : answerLead(raw)
   const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
   const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id) && cardInMargin(item.card!.kind, item.messages)).map(item => ({
     id: item.id, label: marginActionLabel(item.card!.kind),
     source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : item.card!.kind === 'catchup' ? -1 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
-    free: !item.card!.anchor, open: desktopOpenId === item.id, preview: item.card!.kind === 'define' ? contextualLookupPreview(item.messages.find(message => message.role === 'assistant')?.content || '') : item.messages.find(message => message.role === 'assistant')?.content, sourceText: item.card!.text,
+    free: !item.card!.anchor, open: desktopOpenId === item.id, ...foldedPreview(item.card!.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
       {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
@@ -6255,7 +6258,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const saved = marginConversations.find(item => item.id === id)
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
       order: live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', preview: (live.kind === 'define' ? contextualLookupPreview(saved?.messages.find(message => message.role === 'assistant')?.content || '') : saved?.messages.find(message => message.role === 'assistant')?.content) || (live.kind === 'note' ? highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note : undefined),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note } : {}),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)
@@ -6282,7 +6285,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const unitRailThread = (id: string) => {
     const saved = marginConversations.find(item => item.id === id)
     return <>
-      {saved?.messages.slice(2).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}><LabInlineMarkdown>{message.content}</LabInlineMarkdown></div>)}
+      {saved?.messages.slice(2).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{message.role === 'assistant' ? <PhoneAnswer text={message.content} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === id && (turn.timestamp ?? 0) > (saved?.endTimestamp ?? Infinity))} pending={ask.typedLoading} />}
     </>
   }
