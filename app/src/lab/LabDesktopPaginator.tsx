@@ -297,13 +297,15 @@ export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, word
   return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
 }
 
-export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
+export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, language, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
   paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
   chapterActions?: boolean; hasNextChapter?: boolean
   /** Bound a next-chapter opening measurement without truncating its source. */
   pageLimit?: number
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /** The book's language when the edition key does not name it (a reader's own book). */
+  language?: string
   onPages: (pages: ChapterHearingPage[], content: string[], key: string, capacity: LabLeafCapacity | null, endInFooter?: boolean) => void
 }) {
   const hostRef = useRef<HTMLDivElement>(null)
@@ -311,7 +313,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
   callbackRef.current = onPages
   // Same two-pass arrangement as the phone reader: break between words until
   // the patterns land, then re-measure and fill the last lines.
-  const hyphenLang = hyphenLangForEdition(editionKey)
+  const hyphenLang = hyphenLangForEdition(editionKey, language)
   const [hyphensReady, setHyphensReady] = useState(() => (hyphenLang ? hyphenatorReady(hyphenLang) : false))
   useEffect(() => {
     if (!hyphenLang) { setHyphensReady(false); return }

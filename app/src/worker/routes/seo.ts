@@ -406,20 +406,10 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       // a 30-day immutable header (Anders, 2026-04-29 — old content was
       // served for hours after a deploy).
       const isOnboarding = url.pathname.startsWith('/data/onboarding/')
-      const cache = caches.default
-      const cacheKeyUrl = new URL(url.toString())
-      cacheKeyUrl.searchParams.set('__tinct_json_cache', '2')
-      const cacheKey = new Request(cacheKeyUrl.toString(), { method: 'GET' })
-      if (request.method === 'GET') {
-        const cached = await cache.match(cacheKey)
-        if (cached) {
-          const fixed = new Response(cached.body, cached)
-          fixed.headers.delete('Access-Control-Allow-Origin')
-          fixed.headers.set('X-Robots-Tag', 'noindex, noarchive')
-          return fixed
-        }
-      }
-
+      // No Cache API copy: its key never changed between deploys, so an edited
+      // edition (Apology's modern text, #703, 2 Nov 2026) was served stale for up
+      // to 30 days and failed the release's publication check. Static assets are
+      // already served from Cloudflare's own asset cache, which a deploy replaces.
       const assetResp = await env.ASSETS.fetch(request)
       const contentType = assetResp.headers.get('content-type') || ''
       if (assetResp.ok && contentType.includes('application/json')) {
@@ -435,7 +425,6 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
         }
         cacheable.headers.delete('Access-Control-Allow-Origin')
         cacheable.headers.set('X-Robots-Tag', 'noindex, noarchive')
-        if (request.method === 'GET') ctx.waitUntil(cache.put(cacheKey, cacheable.clone()))
         return cacheable
       }
       return new Response(request.method === 'HEAD' ? null : 'Not found', {
