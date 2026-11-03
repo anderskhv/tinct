@@ -1,6 +1,6 @@
 {
-  "target": 70,
-  "reserves": 6,
+  "target": 112,
+  "reserves": 0,
   "acceptedBooks": 0,
   "publishedByThisProgramme": 7,
   "books": [
@@ -36,12 +36,14 @@
       "bookId": "meditations",
       "title": "Meditations",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "editorial_complete_packaging_pending",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
       "reviewedChapters": 12,
       "totalChapters": 12,
       "reviewedParagraphs": 487,
-      "totalParagraphs": 487
+      "totalParagraphs": 487,
+      "onboarding": "editorial_complete",
+      "completenessAudit": "138/138 flagged paragraphs rechecked"
     },
     {
       "bookId": "moby-dick",
@@ -566,15 +568,268 @@
       "phase": "Stretch/reserves: six; maximum 76",
       "status": "queued_not_accepted",
       "publicationAccepted": false
+    },
+    {
+      "bookId": "ulysses",
+      "title": "Ulysses",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "war-and-peace",
+      "title": "War and Peace",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "bible",
+      "title": "The Bible",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "gilgamesh",
+      "title": "The Epic of Gilgamesh",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "macbeth",
+      "title": "Macbeth",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "the-republic",
+      "title": "The Republic",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "divine-comedy",
+      "title": "The Divine Comedy",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "the-aeneid",
+      "title": "The Aeneid",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "paradise-lost",
+      "title": "Paradise Lost",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "symposium",
+      "title": "Symposium",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "phaedo",
+      "title": "Phaedo",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "the-histories",
+      "title": "The Histories",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "jerusalem",
+      "title": "Jerusalem",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "brothers-karamazov",
+      "title": "The Brothers Karamazov",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "democracy-in-america",
+      "title": "Democracy in America",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "peloponnesian-war",
+      "title": "History of the Peloponnesian War",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "leviathan",
+      "title": "Leviathan",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "second-treatise",
+      "title": "Second Treatise of Government",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "social-contract",
+      "title": "The Social Contract",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "wealth-of-nations",
+      "title": "The Wealth of Nations",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "faust-part-1",
+      "title": "Faust, Part One",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "federalist-papers",
+      "title": "The Federalist Papers",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "heart-of-darkness",
+      "title": "Heart of Darkness",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "discourse-on-inequality",
+      "title": "Discourse on the Origin of Inequality",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "walden",
+      "title": "Walden",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "vindication-rights-of-woman",
+      "title": "A Vindication of the Rights of Woman",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "as-you-like-it",
+      "title": "As You Like It",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "coriolanus",
+      "title": "Coriolanus",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "anna-karenina",
+      "title": "Anna Karenina",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "don-quixote",
+      "title": "Don Quixote",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "essays-montaigne",
+      "title": "Essays",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "the-sovereign-child",
+      "title": "The Sovereign Child",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "lords-of-the-cosmos",
+      "title": "Lords of the Cosmos",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "bold-conjectures-volume-1",
+      "title": "Bold Conjectures, Volume I",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "bold-conjectures-volume-2",
+      "title": "Bold Conjectures, Volume II",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
+    },
+    {
+      "bookId": "the-farthest-reaches",
+      "title": "The Farthest Reaches",
+      "phase": "Full-corpus extension authorized 2026-11-03",
+      "status": "queued_not_accepted",
+      "publicationAccepted": false
     }
   ],
   "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Seven books provisionally published earlier; native review pending. Medea #707, Bacchae #712 and Prince #713 prepared for Claude. Meditations full manuscript editorial review complete: 12 books, 487 paragraphs, 441 Danish paragraph revisions, six English corrections. Onboarding/reader-data maps/source pins/integration verification pending. Content preparation only. User will request Claude handoff prompt when ready. No merges or deployments.",
+  "notes": "Full 112-book corpus authorized. Eleven full manuscripts source-reviewed; native review pending. Meditations onboarding and completeness audit completed. This session owns isolated content only; Claude owns all integration and releases.",
   "releasePolicy": {
     "mode": "prepare_only",
     "releaseOwner": "Claude",
     "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
   },
-  "releaseHandoff": "https://github.com/anderskhv/tinct/issues/710#issuecomment-6600804716"
+  "releaseHandoff": "https://github.com/anderskhv/tinct/issues/710#issuecomment-6600804716",
+  "scope": "All current BOOKS entries; user supersedes earlier 70-book target. Content-only preparation; no merges, releases, uploads, deployments or changes to Claude's branches."
 }
