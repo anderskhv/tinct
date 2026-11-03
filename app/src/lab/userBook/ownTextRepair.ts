@@ -35,11 +35,17 @@ export const OWN_TEXT_REPAIR_VERSION = 1
 const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length
 
 /** Every flagged paragraph's place (`c{chapter index}p{paragraph index}`) and text, in book order. */
-export function flaggedParagraphs(edition: Pick<UserBookEdition, 'chapters'>): OwnTextRepairItem[] {
+export function flaggedParagraphs(edition: Pick<UserBookEdition, 'chapters'>, fromChapter = 0): OwnTextRepairItem[] {
   const items: OwnTextRepairItem[] = []
-  edition.chapters.forEach((chapter, c) => (chapter.paragraphs ?? []).forEach((text, p) => {
-    if (items.length < OWN_TEXT_REPAIR_MAX_PARAGRAPHS && suspectReason(text)) items.push({ id: `c${c}p${p}`, text })
-  }))
+  // From the reader's chapter onward first, then the chapters before it: what they read next is fixed first.
+  const count = edition.chapters.length
+  const start = Math.max(0, Math.min(count - 1, fromChapter))
+  for (let k = 0; k < count && items.length < OWN_TEXT_REPAIR_MAX_PARAGRAPHS; k++) {
+    const c = (start + k) % count
+    ;(edition.chapters[c].paragraphs ?? []).forEach((text, p) => {
+      if (items.length < OWN_TEXT_REPAIR_MAX_PARAGRAPHS && suspectReason(text)) items.push({ id: `c${c}p${p}`, text })
+    })
+  }
   return items
 }
 
@@ -65,8 +71,12 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
    * word count, so a saved place or highlight, addressed by word, stays on the same word.
    */
   keepWordCount?: boolean
+  /** Index of the chapter the reader is in: its chapter and those after it go first. */
+  fromChapter?: number
+  /** After each answered batch: the edition with every repair so far (only when a batch changed something). */
+  onRepaired?: (edition: UserBookEdition) => void
 }): Promise<OwnTextRepairResult> {
-  const flagged = flaggedParagraphs(edition)
+  const flagged = flaggedParagraphs(edition, options.fromChapter ?? 0)
   if (!flagged.length) return { edition, flagged: 0, repaired: 0, complete: true }
   if (!options.token || !/^[0-9a-f]{24,64}$/.test(options.book)) return { edition, flagged: flagged.length, repaired: 0, complete: false }
   const fetchImpl = options.fetchImpl ?? fetch
@@ -77,6 +87,7 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
   const repairs = new Map<string, string>()
   let stop = false
   let answered = 0
+  let reported = 0
   const send = async (items: OwnTextRepairItem[]) => {
     const left = deadline - Date.now()
     if (stop || left <= 0) return
@@ -97,6 +108,7 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
         if (fixed && (!options.keepWordCount || wordCount(fixed) === wordCount(original!))) repairs.set(item.id as string, fixed)
       }
       answered += 1
+      if (repairs.size > reported) { reported = repairs.size; options.onRepaired?.(applyRepairs(edition, repairs)) }
     } catch { /* offline or past the deadline: this batch keeps its text */ }
     finally { clearTimeout(timer) }
   }

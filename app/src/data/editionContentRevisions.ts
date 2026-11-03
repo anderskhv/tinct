@@ -20,6 +20,20 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'us-founding-documents': {
+  "revision": "text-2026-11-02.us-founding-documents.1",
+  "releasedAt": 1793646717234,
+  "editions": {
+    "modern-en": {
+      "before": "4c6888a7cc0b24e1fa68f8781b71d052243828710063173f634c2ef8dcd8873b",
+      "after": "488c6a486b89d577c24d629e8118f1854c95134565a5687b12d758ca5a2929e4"
+    },
+    "modern-da": {
+      "before": "cfd2e1fea563365957e0dabfc5eb9523b86e07a46f6518fddb60afc6ee315527",
+      "after": "369bac28503274314566ac6877ae04ea55ec4b39ef7ed3d00f3a0dbf501a6123"
+    }
+  }
+},
   apology: {
   "revision": "text-2026-11-02.apology.1",
   "releasedAt": 1793633331986,
