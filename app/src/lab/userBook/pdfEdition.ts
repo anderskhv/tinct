@@ -151,6 +151,33 @@ export function loadPdfEngine(): Promise<Engine> {
   return loading
 }
 
+/** pdf-ocr.js (TinctPdfOcr): a scan's pages drawn and sent to the account, as the viewer sends them (scanRecognition.ts). */
+export interface PdfOcrJob {
+  api: (options: { token: () => string | null }) => {
+    status(hex: string): Promise<{ state?: string; tier?: string | null; stored?: boolean; reason?: string } | null | undefined>
+    edition(hex: string): Promise<UserBookEdition | null>
+  }
+  renderPage: (pdf: unknown, n: number) => Promise<{ blank: boolean; blob?: Blob }>
+  run: (ctx: {
+    hex: string; pages: number; api: unknown; local: { get(): Record<string, unknown>; set(patch: Record<string, unknown>): void }
+    live: () => boolean; waitVisible: () => Promise<void>; sleep?: (ms: number) => Promise<void>
+    render: (n: number) => Promise<{ blank: boolean; blob?: Blob }>
+    onEdition: (edition: UserBookEdition) => void | Promise<void>
+  }) => Promise<unknown>
+}
+let loadingOcr: Promise<PdfOcrJob> | null = null
+/** pdf-ocr.js, loaded once beside the engine. */
+export function loadPdfOcr(): Promise<PdfOcrJob> {
+  loadingOcr ??= (async () => {
+    const g = globalThis as typeof globalThis & { TinctPdfOcr?: PdfOcrJob }
+    if (!g.TinctPdfOcr) await script(`${BASE}js/pdf-ocr.js?v=${addbookScriptTag()}`)
+    if (!g.TinctPdfOcr) throw new Error('OCR unavailable')
+    return g.TinctPdfOcr
+  })()
+  loadingOcr.catch(() => { loadingOcr = null })
+  return loadingOcr
+}
+
 /** A scan's chapter titles in Tinct's house style, as the viewer keeps them (reader.js buildContents). */
 export function houseStyledScan(scan: PdfScan): PdfScan {
   return { ...scan, entries: scan.entries.map(entry => ({ ...entry, label: normalizeChapterTitle(entry.label, { language: scan.language || 'en' }) })) }

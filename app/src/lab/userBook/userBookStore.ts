@@ -25,6 +25,7 @@ import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
 import { fetchAccountCopy, fetchOcrEdition, listAccountBooks, ownBookToken, type AccountCopy, type FetchLike } from './ownAccount'
 import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
+import { isImageScan, recogniseScan, type PdfOps } from './scanRecognition'
 
 const STORE = 'books'
 
@@ -532,9 +533,75 @@ function repairStoredInBackground(key: string, owner: string, hex: string, editi
     .finally(() => repairing.delete(key))
 }
 
+/**
+ * A scanned PDF's text read from its page images by the account, started by itself (scanRecognition.ts):
+ * in the background after the book opens, in whichever view. Its text replaces the text layer's
+ * conversion on the record when ready; the next open reads it at the same page.
+ */
+const SCAN_RECOGNITION_DELAY_MS = 4000
+const OCR_LOCAL_PREFIX = 'tinct-addbook:ocr:'
+const recognisingScans = new Set<string>()
+function recogniseScanInBackground(key: string, owner: string, hex: string, record: UserBookRecord): void {
+  const textPages = (record.scan as { textPages?: unknown } | null | undefined)?.textPages
+  const bytes = record.bytes
+  if (typeof document === 'undefined' || recognisingScans.has(key) || !(bytes instanceof ArrayBuffer)) return
+  if (editionSource(record.edition as UserBookEdition | undefined) === 'ocr') return
+  // A PDF with text of its own was found not to be a scan. Not scanned yet (a book just added, read as its
+  // pages): its page images decide, as for a scan with a text layer.
+  const noTextLayer = textPages === 0
+  if (!noTextLayer && record.imageScan === false) return
+  recognisingScans.add(key)
+  setTimeout(() => {
+    void (async () => {
+      const token = await ownBookToken()
+      if (!token) return
+      const { loadPdfEngine, loadPdfOcr } = await import('./pdfEdition')
+      const [engine, job] = await Promise.all([loadPdfEngine(), loadPdfOcr()])
+      const pdfjs = engine.pdfjs as typeof engine.pdfjs & { OPS: PdfOps }
+      const pdf = await pdfjs.getDocument({ data: new Uint8Array(bytes.slice(0)), isEvalSupported: false, verbosity: 0 }).promise as unknown as { numPages: number; destroy(): Promise<void> }
+      try {
+        if (!noTextLayer && record.imageScan !== true) {
+          const image = await isImageScan(pdf as never, pdfjs.OPS)
+          await keepFields(key, owner, { imageScan: image }).catch(() => {})
+          if (!image) return
+        }
+        const api = job.api({ token: () => token })
+        const local = {
+          get: (): Record<string, unknown> => { try { return JSON.parse(localStorage.getItem(OCR_LOCAL_PREFIX + hex) || '{}') || {} } catch { return {} } },
+          set(patch: Record<string, unknown>) { try { localStorage.setItem(OCR_LOCAL_PREFIX + hex, JSON.stringify({ ...this.get(), ...patch })) } catch { /* full or private */ } },
+        }
+        const waitVisible = () => document.visibilityState !== 'hidden' ? Promise.resolve() : new Promise<void>(resolve => {
+          const on = () => { if (document.visibilityState !== 'hidden') { document.removeEventListener('visibilitychange', on); resolve() } }
+          document.addEventListener('visibilitychange', on)
+        })
+        await recogniseScan(hex, {
+          api,
+          run: async () => {
+            let recognised: UserBookEdition | null = null
+            await job.run({
+              hex, pages: pdf.numPages, api, local, live: () => true, waitVisible,
+              sleep: ms => new Promise<void>(resolve => setTimeout(resolve, ms)).then(waitVisible),
+              render: n => job.renderPage(pdf, n),
+              onEdition: edition => { recognised = edition },
+            })
+            return recognised
+          },
+          keep: async edition => {
+            // The text layer's crops belong to its conversion: the recognised text names none of them.
+            await keepFields(key, owner, { edition }, ['figureData'])
+            // A scan without a text layer opened as its pages: from now on, the recognised text's own default.
+            if (noTextLayer) adoptOcrEditionChoice(hex, ocrDefaultEdition(edition))
+          },
+        })
+      } finally { await pdf.destroy().catch(() => {}) }
+    })().catch(() => {}).finally(() => recognisingScans.delete(key))
+  }, SCAN_RECOGNITION_DELAY_MS)
+}
+
 async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { onProgress?: (progress: PdfConversionProgress) => void; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; desktop?: boolean; sharedReader?: boolean } = {}): Promise<UserBookOpenResult> {
   const key = 'pdf:' + hex
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
+  recogniseScanInBackground(key, owner, hex, record)
   let layout = (record.layout as { default?: string } | undefined)?.default ?? scan?.layout?.default ?? null
   // The desktop reads every PDF in the margin reader (its pages, or its Tinct text beside the margin, made there when
   // the reader picks it): on to it at once, nothing converted here (D's trace, 22 Oct 2026: the whole PDF was
