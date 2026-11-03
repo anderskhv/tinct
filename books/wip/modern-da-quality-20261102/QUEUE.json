@@ -2,7 +2,7 @@
   "target": 70,
   "reserves": 6,
   "acceptedBooks": 0,
-  "publishedByThisProgramme": 6,
+  "publishedByThisProgramme": 7,
   "books": [
     {
       "bookId": "to-the-lighthouse",
@@ -38,8 +38,10 @@
       "phase": "Phase 1: existing 18, re-accept",
       "status": "editorial_review_in_progress",
       "publicationAccepted": false,
-      "reviewedChapters": 5,
-      "totalChapters": 12
+      "reviewedChapters": 6,
+      "totalChapters": 12,
+      "reviewedParagraphs": 196,
+      "totalParagraphs": 487
     },
     {
       "bookId": "moby-dick",
@@ -359,9 +361,15 @@
       "bookId": "us-founding-documents",
       "title": "The US Founding Documents",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "merged_production_acceptance_running",
-      "publicationAccepted": false,
-      "releaseRun": 41611579424
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true,
+      "releaseRun": 41611579424,
+      "release": {
+        "source": "f6c36a72999f81ebb3ef6ba3d051178c09a4b312",
+        "run": 41611579424,
+        "version": "7a9d1d3f-5bd6-4d01-9114-03c9d321f332",
+        "bundle": "index-BjAheOCK.js"
+      }
     },
     {
       "bookId": "frederick-douglass",
@@ -560,7 +568,7 @@
       "publicationAccepted": false
     }
   ],
-  "provisionalPublishedBooks": 6,
+  "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review. Six books accepted live. Founding Documents run 41611579424 has five accepted groups, page-layout pending; live EN/DA hashes and bundle verified. Medea and Bacchae checks passed, queued serially. Prince checks rerunning after correcting the single-release timestamp test. Meditations Books 1–5 reviewed, 137 paragraphs, 132 Danish revisions and two English corrections."
+  "notes": "Publication acceptance is provisional, not native certification; user permits launch before native review. Seven books accepted live including Founding Documents, run 41611579424, all six groups succeeded and rollback skipped; live hashes verified. Medea #707 refreshed onto accepted main with predecessor 7a9d1d3f-5bd6-4d01-9114-03c9d321f332; verify 41614891954 running. Bacchae #712 passed queued checks. Prince #713 tests/build pass; library pasted-book edit-menu timeout, failed checks rerun on 41613314979. Meditations Books 1–6 reviewed: 196 paragraphs, 181 Danish changes, two English corrections."
 }
