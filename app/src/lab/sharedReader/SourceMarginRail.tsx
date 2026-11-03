@@ -95,7 +95,9 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
     }
     observeGeometry()
     const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(() => { observeGeometry(); schedule() })
-    mutation?.observe(host, { childList: true, subtree: true })
+    // A page marked drawn (data-ready) is often the last change: an entry found only on a drawn page (a chapter's
+    // actions) waited for it, and the CI release of 3 Nov 2026 rolled back on that race.
+    mutation?.observe(host, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ready'] })
     measure(); schedule()
     host.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)

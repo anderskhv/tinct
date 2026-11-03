@@ -167,3 +167,20 @@ it('focuses an editor synchronously once its measured card is visible, without s
   rerender(<SourceMarginRail host={host} entries={[{ ...entry }]} />)
   expect(document.activeElement).toBe(other)
 })
+
+it('places an entry once its page is marked ready, even when that mark is the last change (CI rollback, 3 Nov 2026)', async () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 1400, top: 0, bottom: 800, width: 1400, height: 800 } as DOMRect)
+  const page = document.createElement('div'); page.className = 'pdf-original__page'; host.append(page)
+  vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 100, right: 850, top: 0, bottom: 800 } as DOMRect)
+  // A chapter's actions are found only on a drawn page (PdfOriginalReaderShell headingSelection).
+  const entry: SourceMarginEntry = { id: 'unit:outline-1', label: '2 Consequences', actions: true, open: true, onToggle: () => {}, order: 1, content: <button type="button">Catch me up</button>,
+    source: () => page.dataset.ready === 'true' ? { left: 200, right: 400, top: 300, bottom: 320 } : null }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(screen.queryByRole('button', { name: 'Catch me up' })).toBeNull()
+  // The page finishes drawing: only its ready attribute changes, no node is added.
+  await act(async () => { page.dataset.ready = 'true'; await new Promise(resolve => setTimeout(resolve, 0)); await new Promise(resolve => requestAnimationFrame(resolve)) })
+  expect(screen.getByRole('button', { name: 'Catch me up' })).toBeTruthy()
+})
