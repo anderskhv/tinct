@@ -23,6 +23,7 @@ import { handleAudioFile, handleAudioManifest, parseByteRange } from './worker/r
 import { handleNarration } from './worker/routes/narration'
 import { handleOwnAudio, handleOwnEnsure } from './worker/routes/ownBookNarration'
 import { handleOwnCatchUp } from './worker/routes/ownCatchUp'
+import { handleOwnTextRepair } from './worker/routes/ownTextRepair'
 import {
   handleBalance,
   handleCancelSubscription,
@@ -408,6 +409,8 @@ const worker = {
     if (url.pathname === '/api/narration/own/audio') return handleOwnAudio(request, env, Date.now())
     // Catch me up on a reader's own book: one chapter per request, recap kept privately (ownCatchUp.ts).
     if (url.pathname === '/api/own-catch-up') return handleOwnCatchUp(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend, allowsAi: allowsAi('catch_up') })
+    // Scanning errors in a converted own PDF: flagged paragraphs only, fixed by small edits (ownTextRepair.ts).
+    if (url.pathname === '/api/own-text-repair') return handleOwnTextRepair(request, env, ctx, { verifyUser, checkRateLimit, reserveGuestSpend })
     if (url.pathname.startsWith('/api/narration/')) {
       return handleNarration(request, env, ctx, { verifyUser, verifySiteAdmin, checkRateLimit: createRateLimiter(env, { throwOnUnavailable: true }) })
     }

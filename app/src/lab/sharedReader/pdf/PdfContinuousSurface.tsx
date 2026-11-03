@@ -52,13 +52,15 @@ export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: numbe
    * surface's own limit, from `zoomBase` instead of the drawn size. Zooming past Fit there narrows the margin, then
    * turns the margin into cards; the drawn sheet stays at Fit meanwhile.
    */
-  onZoomRequest?: (zoom: number) => void; zoomBase?: number; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
+  onZoomRequest?: (zoom: number) => void; zoomBase?: number; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; /** The margin draws the chapter actions; the page keeps its headings clear. */ headingActionsInMargin?: boolean; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
 
-function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, figures, onFigureAction }: {
+function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, inlineActions = true, figures, onFigureAction }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
   highlights: NonNullable<PdfOriginalSurfaceProps['highlights']>; follow: PdfOriginalFollow | null
   onText?: (page: number, text: string) => void; onSelection?: (selection: PdfOriginalSelection) => void
   figures?: boolean; onFigureAction?: PdfContinuousProps['onFigureAction']; cards: NonNullable<PdfContinuousProps['cards']>; activeCardId?: string; headings: PdfHeadingActions[]
+  /** The chapter actions drawn beside their heading; false when the margin carries them (desktop, 3 Nov 2026). */
+  inlineActions?: boolean
   onSize: (page: number, ratio: number) => void; onReady: (page: number, ready: boolean) => void; onError: (page: number) => void
 }) {
   const canvas = useRef<HTMLCanvasElement>(null), layer = useRef<HTMLDivElement>(null)
@@ -141,7 +143,7 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
     )}{heard && <span className="pdf-original__follow" style={{ left: `${heard[1] * 100}%`, top: `${heard[2] * 100}%`, width: `${heard[3] * 100}%`, height: `${heard[4] * 100}%` }} />}</div>
     <div className="pdf-original__text" ref={layer} />
     <div className="pdf-original__card-lines" aria-hidden="true">{ready && cards.filter(card => card.kind !== 'figure').flatMap(card => (card.rects ?? []).filter(rect => rect.length === 5 && rect[0] === number && rect[3] > 0 && rect[4] > 0).map((rect, index) => <span key={card.id + index} data-card-id={card.id} data-active={card.id === activeCardId} style={{ left: `${rect[1] * 100}%`, top: `${(rect[2] + rect[4]) * 100}%`, width: `${rect[3] * 100}%` }} />))}</div>
-    {headingRects.map(({ heading, selection }) => {
+    {inlineActions && headingRects.map(({ heading, selection }) => {
       const last = selection.rects.at(-1)!, left = Math.min(width - 290, (last[1] + last[3]) * width + 12)
       return <div key={heading.key} className={`pdf-original__heading-actions ${shownHeading === heading.key ? 'is-shown' : ''}`} data-testid="pdf-heading-actions" data-unit-key={heading.key} role="group" aria-label={`${heading.title} actions`}
         style={{ left: Math.max(8, left), top: (last[2] + last[4] / 2) * height - 14 }} ref={element => {
@@ -165,7 +167,7 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
 
 /** Continuous source pages, with three nearby source pages, retaining native selection pages until the range clears. */
 export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd,
-  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, onZoomRequest, zoomBase, phone = false, cards = [], activeCardId, headingActions = [], onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
+  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, onZoomRequest, zoomBase, phone = false, cards = [], activeCardId, headingActions = [], headingActionsInMargin = false, onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
   const [pdf, setPdf] = useState<PdfOriginalDocument | null>(null)
   const [overview, setOverview] = useState<{ document: PdfOriginalDocument; pages: PdfSourceLine[][]; ratios: number[] } | null>(null)
   // Read the lightweight text overview independently of virtualised canvases.
@@ -496,7 +498,7 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
         const n = index + 1, height = heightOf(n)
         return <div key={n} ref={element => { if (element) pages.current.set(n, element); else pages.current.delete(n) }} className="pdf-original__slot" data-page={n} style={{ width: sheetWidth, height }}>
           {(Math.abs(n - current) <= 1 || selectionPages && n >= selectionPages.from && n <= selectionPages.to || dragPage !== null && n >= Math.min(dragPage, current) && n <= Math.max(dragPage, current)) && <PdfSheet pdf={pdf} number={n} width={sheetWidth} height={height} highlights={highlights}
-            follow={follow?.page === n ? follow : null} onText={setPageText} onSize={size} onReady={rendered} onError={drawError} figures={!phone} onFigureAction={onFigureAction} cards={cards} activeCardId={activeCardId} headings={phone ? [] : headingActions.filter(heading => heading.page === n)} />}
+            follow={follow?.page === n ? follow : null} onText={setPageText} onSize={size} onReady={rendered} onError={drawError} figures={!phone} onFigureAction={onFigureAction} cards={cards} activeCardId={activeCardId} headings={phone ? [] : headingActions.filter(heading => heading.page === n)} inlineActions={!headingActionsInMargin} />}
         </div>
       })}
       </div>

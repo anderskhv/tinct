@@ -12,7 +12,7 @@ import type { CoordinateMigration } from './editionCoordinateMigration'
  *
  * The maps are fetched only by readers who hold data that needs moving.
  */
-export interface EditionRevision { before: string; after: string; releasedAt?: number }
+export interface EditionRevision { before: string; after: string; releasedAt?: number; previous?: { before: string; releasedAt: number }[] }
 export interface ContentRelease {
   revision: string
   releasedAt: number
@@ -20,6 +20,48 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'us-founding-documents': {
+  "revision": "text-2026-11-02.us-founding-documents.1",
+  "releasedAt": 1793646717234,
+  "editions": {
+    "modern-en": {
+      "before": "4c6888a7cc0b24e1fa68f8781b71d052243828710063173f634c2ef8dcd8873b",
+      "after": "488c6a486b89d577c24d629e8118f1854c95134565a5687b12d758ca5a2929e4"
+    },
+    "modern-da": {
+      "before": "cfd2e1fea563365957e0dabfc5eb9523b86e07a46f6518fddb60afc6ee315527",
+      "after": "369bac28503274314566ac6877ae04ea55ec4b39ef7ed3d00f3a0dbf501a6123"
+    }
+  }
+},
+  apology: {
+  "revision": "text-2026-11-02.apology.1",
+  "releasedAt": 1793633331986,
+  "editions": {
+    "modern-en": {
+      "before": "f09399f0fe5348b3e3e809044f9907175515d9a6b113edd1dadd6a98a2444e4b",
+      "after": "21e09965eefab651eb1eb4045ccbbb66f72d1c84413589dc656f3c8687a23320"
+    },
+    "modern-da": {
+      "before": "7478955a3818154feab390f4c2768009dd40e064105d55f91ae4cdf03ed80795",
+      "after": "69f4b9ca50149d0bb180a86f3e5548448808eb038e559b9575a47e6f5cc3c60f"
+    }
+  }
+},
+  'grimms-fairy-tales': {
+  "revision": "text-2026-11-02.grimms-fairy-tales.1",
+  "releasedAt": 1793631455416,
+  "editions": {
+    "modern-en": {
+      "before": "679ab684eaf90eb7cfdd30a869d97f865aba6e0c5aff77951386ca16c7eba6ab",
+      "after": "a2d68274da2776b661efdc9d84719935e910282ae9790cc051290e296cf84441"
+    },
+    "modern-da": {
+      "before": "3137f397a01f59f500c0666caad9d89c33a421523e53579ac0019ea413052452",
+      "after": "7e979a057f1a24ec23706c8bd408613bec5ef7310a2375925b67fc29b5621487"
+    }
+  }
+},
   crito: {
   "revision": "text-2026-11-02.crito.1",
   "releasedAt": 1793626567485,
@@ -462,19 +504,31 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   // The maps are proportional and low confidence: places land approximately,
   // highlights stay recoverable and unresolved.
   'the-art-of-war': {
-    revision: 'text-2026-10-01.2',
-    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
-    editions: {
-      'original-en': {
-        before: '60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61',
-        after: '9ff95e59dbabb51833515ba85ecf5eef4d38436afe7601591eeebf847eb4b327',
-      },
-      'modern-en': {
-        before: 'bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5',
-        after: 'a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce',
-      },
+  "revision": "text-2026-11-02.the-art-of-war.1",
+  "releasedAt": 1790863200000,
+  "editions": {
+    "modern-en": {
+      "before": "a19820ebde2ad3a2d0b394cd7dd40e03148584335e46a7846816b352111ce5ce",
+      "after": "4572cbf35f7daf2d98f35e87aed5737510706612118d9d3ffe04d427dfdb682d",
+      "releasedAt": 1793634976398,
+      "previous": [
+        {
+          "before": "bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5",
+          "releasedAt": 1790863200000
+        }
+      ]
     },
-  },
+    "modern-da": {
+      "before": "cf5cc1224f1be2a1214e2e93b0e2f333d38184d11d91593ba37507719c433dcb",
+      "after": "82beb558ec7f64151707b72c76f2d7adecbe6eebf0f05b684b9b5af49ce902b6",
+      "releasedAt": 1793634976398
+    },
+    "original-en": {
+      "before": "60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61",
+      "after": "9ff95e59dbabb51833515ba85ecf5eef4d38436afe7601591eeebf847eb4b327"
+    }
+  }
+},
   medea: {
     revision: 'text-2026-10-01.2',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
@@ -555,11 +609,25 @@ export function writtenBeforeRelease(
   const release = CONTENT_RELEASES[bookId]
   const edition = release?.editions[editionKey]
   if (!edition) return false
-  if (contentRevision) return contentRevision === edition.before
+  if (contentRevision) return contentRevision === edition.before || Boolean(edition.previous?.some(item => item.before === contentRevision))
   // Every new Symposium write is stamped. An unstamped English record can
   // still arrive from an old offline client after publication; retain its repair.
   if (bookId === 'symposium') return true
   return typeof writtenAt === 'number' && Number.isFinite(writtenAt) && writtenAt < (edition.releasedAt ?? release.releasedAt)
+}
+
+/** Resolve unstamped historical records using their original write time.
+ * Current stamped records always keep their explicit hash. */
+export function sourceContentRevision(
+  bookId: string, editionKey: string | undefined, revision: string | undefined, writtenAt: number | undefined,
+): string | undefined {
+  if (revision || !editionKey) return revision
+  const release = CONTENT_RELEASES[bookId]
+  const edition = release?.editions[editionKey]
+  if (!edition?.previous?.length || typeof writtenAt !== 'number' || !Number.isFinite(writtenAt)) return revision
+  if (writtenAt >= (edition.releasedAt ?? release.releasedAt)) return edition.after
+  const previous = [...edition.previous].sort((a, b) => a.releasedAt - b.releasedAt)
+  return previous.find(item => writtenAt < item.releasedAt)?.before ?? edition.before
 }
 
 export type MigrationKind = 'positions' | 'highlights'
@@ -599,6 +667,8 @@ function valid(data: unknown, bookId: string): data is CoordinateMigration {
   return !!map && map.bookId === bookId && map.revision === release.revision
     && Object.entries(release.editions).every(([key, edition]) => (
       map.editions?.[key]?.beforeSha256 === edition.before && map.editions[key].afterSha256 === edition.after
+      && (edition.previous ?? []).every(item => map.editions[key].previous?.[item.before]?.beforeSha256 === item.before
+        && map.editions[key].previous?.[item.before]?.afterSha256 === edition.after)
     ))
 }
 

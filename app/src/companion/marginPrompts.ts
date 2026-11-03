@@ -203,8 +203,12 @@ export const RELATED_PROMPT = [
   'Plain prose only: no Markdown, no bullet characters, no em dashes.',
 ].join('\n')
 
-/** Ask in the PDF reader's margin (a passage question, a follow-up, the whole file): the document first, then our own explanation. */
-export const ASK_DOCUMENT_LINE = 'When the document does not explain something, say so before offering an explanation of your own.'
+/**
+ * Ask in the PDF reader's margin (a passage question, a follow-up, the whole file): the document first, then our own
+ * explanation. Until 3 Nov 2026 it said to announce the document's silence first, against NO_META_RULE; Anders: answers
+ * opening "The document doesn't discuss this. From general knowledge…" read "worse and more meta".
+ */
+export const ASK_DOCUMENT_LINE = 'Answer from the document where it speaks to the question; where it does not, answer from your reliable knowledge directly, without saying that the document is silent.'
 
 /**
  * Ask with the source search as a tool (Anders, 20 Oct 2026: no "Web" toggle, the model decides): one search, only when

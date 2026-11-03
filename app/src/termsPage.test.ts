@@ -86,7 +86,7 @@ describe('own books and the AI features', () => {
     expect(privacyText).toContain('When you use the AI features on a book you added, the relevant text is sent to the provider that powers the feature, as with any book: the passages you ask about, the text around a selection you ask to explain, the chapter being read aloud, the passage you are on while a Talk conversation is open, and, for Catch me up, the chapters you have read so far, one at a time. The recap and narration are kept privately in your account, only for you, and deleted when you remove the book. Nothing from your own books is used to train AI models.')
     // The rest of the own-books paragraph stays.
     expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio')
-    expect(privacy).toContain('Last updated: 2 November 2026')
+    expect(privacy).toContain('Last updated: 3 November 2026')
     // Crops of an own PDF's formulas, figures and tables for its Tinct text (16 Oct 2026): made and kept on the device.
     expect(privacyText).toContain('When a PDF you added reads as Tinct text, pictures of its formulas, figures and tables are cut from its pages on your device and kept with it in your browser; they are not stored in your account or sent anywhere unless you ask about one.')
     // Uploaded profile photos (SOCIAL_PHOTO_UPLOADS on, 10 Oct 2026): stored, stripped, reviewed, replaced.
@@ -98,7 +98,7 @@ describe('own books and the AI features', () => {
 
   // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).
   it('privacy: Friends profiles are findable by name and picture; reading only to accepted friends; Only me unfindable', () => {
-    expect(privacy).toContain('Last updated: 2 November 2026')
+    expect(privacy).toContain('Last updated: 3 November 2026')
     expect(privacyText).toContain('A Friends or Everyone profile can be found by other signed-in readers in Find readers, by your name or link; the results show only your name and picture.')
     expect(privacyText).toContain('With Friends, what you read, your reading time and your place on the leaderboard are shown only to accepted friends: readers you follow who follow you back.')
     expect(privacyText).toContain('When someone follows you, it is a request: until you follow them back, they see only your name and picture.')
@@ -137,8 +137,9 @@ describe('own books and the AI features', () => {
   // Recognising the text of a scanned PDF (Premium; approved by Anders on 9 Oct 2026). True while
   // the switch is off too: the feature exists in code and is only used when a reader asks.
   it('privacy: recognising a scanned PDF’s text: what goes to xAI, where the text is kept, when it is deleted', () => {
-    expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio, which is stored privately in your account and deleted with the book. If you have Premium and ask Tinct to recognise the text of a scanned PDF you added, images of its pages are sent to xAI to recognise the text; the text is stored privately in your account and deleted with the book, and the page images are deleted once their text is recognised.')
-    expect(privacyText).toContain('xAI also produces the narration voices, writes Modern English editions of public-domain books from book text only, and recognises the text of scanned PDFs Premium readers add, from images of their pages.')
+    expect(privacyText).toContain('If you choose Listen, the text being read is sent to xAI to make the audio, which is stored privately in your account and deleted with the book. If you have Premium or the trial and open a scanned PDF you added (one whose pages are images, even if the scan carries text of its own), Tinct recognises its text by itself: images of its pages are sent to xAI to recognise the text; the text is stored privately in your account and deleted with the book, and the page images are deleted once their text is recognised.')
+    expect(privacyText).toContain('When you read a PDF you added as Tinct text while you are signed in, the paragraphs that look like scanning errors (a symbol or digit inside a word, for example) are sent to Anthropic once, so it can fix those characters; the rest of the book is not sent, nothing else is rewritten, and Tinct does not store what was sent.')
+    expect(privacyText).toContain('xAI also produces the narration voices, writes Modern English editions of public-domain books from book text only, and recognises the text of scanned PDFs Premium and trial readers add, from images of their pages.')
     expect(privacyText).not.toContain('xAI also produces the narration voices and writes Modern English editions of public-domain books, from book text only.')
     expect(privacyText).toContain('file storage (R2) for audio, for the PDF and EPUB files signed-in readers add and the text recognised from scanned ones and for a copy of your Google photo if you choose it')
     expect(privacyText).toContain('the PDF and EPUB files you added and any audio, recaps and recognised text made from them')

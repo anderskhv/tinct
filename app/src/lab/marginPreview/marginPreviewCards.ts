@@ -72,6 +72,14 @@ export function cardShownMessages<T extends { role: string }>(kind: string, mess
   return kind !== 'ask' && messages[0]?.role === 'user' ? messages.slice(1) : messages
 }
 
+/**
+ * Whether a saved card keeps a place in the margin. A definition is looked up, read and left: it joins the
+ * margin only once the reader has written on it (a follow-up question), as a conversation does (Anders, 2 Nov 2026).
+ */
+export function cardInMargin<T extends { role: string }>(kind: string, messages: T[]): boolean {
+  return kind !== 'define' || cardShownMessages(kind, messages).some(message => message.role === 'user')
+}
+
 function boundedData(data: unknown): unknown {
   if (data === undefined || data === null) return undefined
   try { const text = JSON.stringify(data); return text && text.length <= LAB_CHAT_CARD_DATA_CHARS ? JSON.parse(text) : undefined } catch { return undefined }

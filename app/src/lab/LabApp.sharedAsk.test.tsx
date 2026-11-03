@@ -151,7 +151,9 @@ it.each(['define', 'primer', 'recap', 'catchup'])('keeps a saved %s card follow-
   const id = 'mc_saved-follow'
   localStorage.setItem('tinct:chat-history:bible', JSON.stringify([{
     id, bookId: 'bible', chapterNumber: 1, paragraphIndex: 0, startTimestamp: 1000, endTimestamp: 1001,
-    preview: original, messages: [{ id: 'saved-answer', role: 'assistant', content: original, timestamp: 1001, bookId: 'bible', chapterNumber: 1 }],
+    preview: original, messages: [{ id: 'saved-answer', role: 'assistant', content: original, timestamp: 1001, bookId: 'bible', chapterNumber: 1 },
+      // A definition is in the margin only once the reader has written on it (Anders, 2 Nov 2026; cardInMargin).
+      ...(kind === 'define' ? [{ id: 'saved-asked', role: 'user', content: 'An earlier question?', timestamp: 1002, bookId: 'bible', chapterNumber: 1 }, { id: 'saved-reply', role: 'assistant', content: 'An earlier reply.', timestamp: 1003, bookId: 'bible', chapterNumber: 1 }] : [])],
     card: { id: 'saved-follow', kind, chapterNumber: 1, at: 1000, u: 1001, text: 'A saved source passage', anchor: { editionKey: 'bsb-en', chapterNumber: 1, paragraphIndex: 0, fromWord: 1, endParagraphIndex: 0, toWord: 4 } },
   }]))
   vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -174,4 +176,15 @@ it.each(['define', 'primer', 'recap', 'catchup'])('keeps a saved %s card follow-
   expect(JSON.stringify(requests[0])).toContain(kind === 'define' ? 'A saved definition.' : original)
   await waitFor(() => expect(readAllLabBookChats().find(row => row.id === id)?.messages.some(message => message.content === 'A saved-card follow-up answer.')).toBe(true))
   expect(root.getAttribute('data-place')).toBe(place)
+})
+
+it('leaves a definition that was only looked up out of the margin (Anders, 2 Nov 2026)', async () => {
+  const card = (id: string, kind: string, paragraphIndex: number) => ({ id: 'mc_' + id, bookId: 'bible', chapterNumber: 1, paragraphIndex, startTimestamp: 1000, endTimestamp: 1001,
+    preview: 'A saved answer.', messages: [{ id: id + '-answer', role: 'assistant', content: kind === 'define' ? JSON.stringify({ kind: 'definition', definition: 'A saved definition.' }) : 'A saved answer.', timestamp: 1001, bookId: 'bible', chapterNumber: 1 }],
+    card: { id, kind, chapterNumber: 1, at: 1000, u: 1001, text: 'A saved source passage', anchor: { editionKey: 'bsb-en', chapterNumber: 1, paragraphIndex, fromWord: 1, endParagraphIndex: paragraphIndex, toWord: 4 } } })
+  localStorage.setItem('tinct:chat-history:bible', JSON.stringify([card('looked-up', 'define', 0), card('explained', 'explain', 0)]))
+  window.history.replaceState(null, '', '/reader?sharedReader=1&layout=desktop&view=margin')
+  render(<LabApp pathname="/reader" source={fallbackLabSource()} authToken={null} sharedReader />)
+  await waitFor(() => expect(document.querySelector('.source-margin-item[data-card-id="mc_explained"]')).not.toBeNull())
+  expect(document.querySelector('.source-margin-item[data-card-id="mc_looked-up"]')).toBeNull()
 })

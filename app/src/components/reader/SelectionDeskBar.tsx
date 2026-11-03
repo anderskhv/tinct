@@ -45,6 +45,8 @@ export interface SelectionDeskBarProps {
   /** Original PDF geometry; null means that passage is outside the visible reader. */
   getAnchor?: () => DeskBox | null
   onAsk: () => void
+  /** The in-place Ask field opened or closed: focus leaves the page, so the reader paints the passage itself. */
+  onAskOpenChange?: (open: boolean) => void
   /** Only the private shared reader uses the in-place Ask field. */
   onAskQuestion?: (question: string) => void
   onComposeAsk?: (initialQuestion?: string) => void
@@ -137,6 +139,8 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   useLayoutEffect(() => { if (props.sharedReader && moreOpen && morePlace) moreRef.current?.querySelector<HTMLButtonElement>('[role="menuitem"]')?.focus({ preventScroll: true }) }, [props.sharedReader, moreOpen, morePlace])
   // A new state (highlighted, the colours) closes the menu.
   useLayoutEffect(() => { setMoreOpen(false); setAskOpen(false); setQuestion(''); if (ref.current) { ref.current.style.width = ''; ref.current.style.height = '' } }, [state])
+  const onAskOpenChange = props.onAskOpenChange
+  useEffect(() => { onAskOpenChange?.(askOpen); return () => { if (askOpen) onAskOpenChange?.(false) } }, [askOpen, onAskOpenChange])
   useLayoutEffect(() => {
     const field = askRef.current
     if (!askOpen || !field) return

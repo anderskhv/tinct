@@ -17,6 +17,8 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'arabian-nights/modern-da',
   'moby-dick/modern-da',
   'crime-and-punishment/modern-da',
+  'apology/modern-da',
+  'us-founding-documents/modern-da',
   'crito/modern-da',
   'the-prince/modern-da',
   'confessions/modern-da',
