@@ -52,6 +52,8 @@ const highlightColors: Record<string, string> = {
   gold: 'rgba(247, 208, 70, .42)', rose: 'rgba(238, 130, 160, .38)',
   sage: 'rgba(120, 190, 135, .38)', sky: 'rgba(100, 177, 230, .38)',
   lavender: 'rgba(177, 143, 224, .38)',
+  // The passage a card is about, while the card is open (cardSourceHighlight): the look of a selection, kept.
+  source: 'rgba(100, 150, 230, .3)',
 }
 
 /** Paint only finite, positive page-local fractions; stored geometry may predate this renderer. */

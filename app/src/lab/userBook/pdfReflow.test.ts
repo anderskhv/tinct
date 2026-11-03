@@ -219,6 +219,9 @@ describe('Registered books are untouched', () => {
       // Original figures use the same raw page engine/detector; they never invoke source-to-prose conversion.
       'lab/sharedReader/pdf/pdfOriginalFigures.ts',
       'lab/userBook/pdfEdition.ts', 'lab/userBook/usePdfOriginalServices.ts',
+      // A scan's page images drawn for the account to recognise (scanRecognition.ts, 3 Nov 2026): the raw page
+      // engine only, never conversion.
+      'lab/userBook/userBookStore.ts',
     ])
   })
 })

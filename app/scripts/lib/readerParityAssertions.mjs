@@ -31,7 +31,7 @@ export async function sourceRailGeometry(page, host) {
   const placed = [...boxes].sort((a, b) => a.top - b.top)
   for (let i = 1; i < placed.length; i++) {
     assert(placed[i].top >= placed[i - 1].bottom - 1, `source-order cards do not overlap: ${JSON.stringify(placed)}`)
-    if (Number.isFinite(placed[i].sourceOrder) && Number.isFinite(placed[i - 1].sourceOrder)) assert(placed[i].sourceOrder >= placed[i - 1].sourceOrder, 'vertical placement follows source order, independent of creation order')
+    if (Number.isFinite(placed[i].sourceOrder) && Number.isFinite(placed[i - 1].sourceOrder)) assert(placed[i].sourceOrder >= placed[i - 1].sourceOrder, `vertical placement follows source order, independent of creation order: ${JSON.stringify(placed.map(box => [box.id, box.sourceOrder, Math.round(box.top)]))}`)
   }
   assert(boxes.filter(item => item.open).length <= 1, 'only one source card is open')
   const paths = await rail.getByTestId('source-margin-leaders').locator('path').evaluateAll(nodes => nodes.map(node => node.getAttribute('d') || ''))
