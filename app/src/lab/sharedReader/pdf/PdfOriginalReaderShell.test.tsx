@@ -908,3 +908,18 @@ it('a phone held upright offers turning it sideways once per book', () => {
   render(<PdfOriginalReaderShell bookId="own-pdf-1" title="Own PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} />)
   expect(screen.queryByTestId('pdf-rotate-hint')).toBeNull()
 })
+
+it('offers the Tinct book on the desktop when another device last read it so, until the reader chooses (3 Nov 2026)', () => {
+  localStorage.removeItem('tinct-addbook:text-offer-dismissed:offer-book')
+  const onOpenText = vi.fn()
+  const { unmount } = render(<PdfOriginalReaderShell title="Own PDF" bookId="offer-book" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} onOpenText={onOpenText} textAvailable textOffer />)
+  expect(screen.getByTestId('pdf-text-offer').textContent).toContain('You last read this as a Tinct book.')
+  fireEvent.click(screen.getByRole('button', { name: 'Read as Tinct book' }))
+  expect(onOpenText).toHaveBeenCalledOnce()
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+  unmount()
+  // Chosen once on this device: not offered again for this book.
+  render(<PdfOriginalReaderShell title="Own PDF" bookId="offer-book" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} onOpenText={onOpenText} textOffer />)
+  expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
+  localStorage.removeItem('tinct-addbook:text-offer-dismissed:offer-book')
+})

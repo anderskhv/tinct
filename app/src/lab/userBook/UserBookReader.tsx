@@ -32,7 +32,7 @@ import { adoptUnassignedOwnTextMarks, guardOwnTextMarks, listenOwnTextMarks, rel
 import { currentOwnBookMetadata, withOwnBookMetadata } from './ownBookMetadata'
 import { adoptUnassignedOwnTextCards, OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
 import { allLegacyEpubNotebookItems, claimLegacyEpubAnnotations, migrateVerifiedLegacyEpubMarks, syncClaimedLegacyEpubPages, unclaimedLegacyEpubCount, type LegacyOwnEpubItem } from './legacyEpubMarks'
-import { openPdfOriginalPlace, notePdfOriginalPlace, notePdfOriginalZoom, readPdfOriginalZoom, type OriginalPagePlace } from './pdfOriginalPlace'
+import { openPdfOriginalPlace, notePdfOriginalPlace, notePdfOriginalZoom, readPdfOriginalZoom, readPdfPlaceEdition, type OriginalPagePlace } from './pdfOriginalPlace'
 import { PdfOriginalReaderShell } from '../sharedReader/pdf/PdfOriginalReaderShell'
 import { discoverOriginalPdfHeadings } from './pdfOriginalHeadings'
 import { pdfReaderViewUrl } from './pdfReaderHandoff'
@@ -44,7 +44,7 @@ const MarginOwnBook = lazy(() => import('../marginPreview/MarginPreview').then(m
 type ReaderIdentity = { hex: string; owner: string | null; sharedReader: boolean }
 type ReaderState = { status: 'opening' } | (ReaderIdentity & (
   { status: 'ready'; book: LoadedUserBook; marks: OwnTextMarksSync | null; cards: OwnTextCardsSync | null; fileId: string | null }
-  | { status: 'original'; title: string; author: string; place: OriginalPagePlace | null; hasText: boolean; scanOutline: Awaited<ReturnType<typeof readOwnedPdfScanEntries>> }
+  | { status: 'original'; title: string; author: string; place: OriginalPagePlace | null; hasText: boolean; readAsText?: boolean; scanOutline: Awaited<ReturnType<typeof readOwnedPdfScanEntries>> }
   | { status: 'margin' } | { status: 'failed'; message: string }))
 
 /** Optional account detail must not keep a locally converted book on Opening indefinitely. */
@@ -183,7 +183,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
         if (!live) return
         const [account, hasText, scanOutline] = quick.ready ? quick.value : [null, false, null] as const
         const title = account?.title || account?.name.replace(/\.pdf$/i, '') || 'Your PDF'
-        setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: Math.max(0,Math.min(1,Number(new URLSearchParams(window.location.search).get('frac')) || 0)) } : place, hasText, scanOutline, ...identity })
+        setState({ status: 'original', title, author: account?.author || '', place: page ? { page, frac: Math.max(0,Math.min(1,Number(new URLSearchParams(window.location.search).get('frac')) || 0)) } : place, hasText, readAsText: readPdfPlaceEdition(hex) === 't', scanOutline, ...identity })
         if (!quick.ready) {
           const update = (fields: Partial<Extract<ReaderState, { status: 'original' }>>) => {
             if (!live) return
@@ -394,7 +394,7 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
     bytes={() => loadOwnedPdfBytes(hex, owner)} initialPlace={state.place} initialZoom={readPdfOriginalZoom(hex, owner)} onZoom={zoom => notePdfOriginalZoom(hex, owner, zoom)}
     onBeforeLeave={place => { notePdfOriginalPlace(hex, owner, place, pdfPages, true) }}
     onDocument={setPdfPages} onVisiblePlace={place => notePdfOriginalPlace(hex, owner, place, pdfPages)}
-    autoConvert={new URLSearchParams(window.location.search).get('convert') === '1'} textAvailable={state.hasText} textProgress={textProgress} textBusy={textBusy} textError={textError}
+    autoConvert={new URLSearchParams(window.location.search).get('convert') === '1'} textAvailable={state.hasText} textOffer={!!state.readAsText} textProgress={textProgress} textBusy={textBusy} textError={textError}
     onOpenText={async place => {
       if (textBusy) return
       setTextBusy(true); setTextError(undefined); setTextProgress({ stage: 'loading' })
