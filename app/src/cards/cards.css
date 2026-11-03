@@ -181,6 +181,22 @@ button.tc-av { padding: 0; }
 .tc-week { position: relative; }
 .tc-week::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-r.is-head .tc-v { color: var(--tc-ink); font-weight: 600; }
+/* Days · Weeks · Months (Anders, 2 Nov 2026). */
+.tc-sum > .tc-seg { margin-bottom: 18px; }
+.tc-weeknav { display: flex; align-items: center; gap: 4px; }
+.tc-weeknav button { width: 28px; height: 28px; margin: -4px 0; border-radius: 14px; font-size: 20px; line-height: 1; color: var(--tc-ink); }
+.tc-weeknav button:first-child { margin-left: -8px; }
+.tc-weeknav button:disabled { color: var(--tc-ter); }
+.tc-axis.is-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; text-align: center; }
+.tc-axis.is-days .is-today { color: var(--tc-ink); font-weight: 600; }
+.tc-axis.is-values { margin: 18px 0 -12px; font-size: 11px; white-space: nowrap; letter-spacing: -.01em; }
+.tc-days-chart .tc-bars { margin-top: 18px; }
+/* In Days the dark bar is today's, not the last one. */
+.tc-bars.is-days button:last-child i { background: var(--tc-bar); }
+.tc-bars.is-days button.is-today i { background: var(--tc-fill); }
+.tc-bars.is-days.is-picked button i { background: var(--tc-bar); }
+.tc-bars.is-days.is-picked button[aria-pressed="true"] i { background: var(--tc-fill); }
+.tc-bars button:disabled { cursor: default; }
 .tc-three { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
 .tc-three.is-ruled::before { content: ""; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: var(--tc-sep); }
 .tc-three > div { padding: 14px 8px 16px; text-align: center; position: relative; min-width: 0; }

@@ -13,7 +13,6 @@ const source={books:[...firstSource.books,...secondSource.books]}
 const catalogue=live?await fetch(origin+'/lab/catalogue.json').then(r=>{assert.equal(r.status,200);return r.json()}):JSON.parse(fs.readFileSync('dist/lab/catalogue.json'))
 const available=new Set(catalogue.books.filter(book=>book.discoveryAvailable!==false).map(book=>book.id))
 const manifest=JSON.parse(fs.readFileSync('public/lab/library_2/author-images.json'))
-const gallery=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/character-galleries.json'))
 const openers=new Map(JSON.parse(fs.readFileSync('public/lab/library_2/book-openers.json')).books.map(book=>[book.workId,book.opening]))
 const cases=source.books.filter(book=>available.has(book.id)).map(book=>book.id),report=[]
 const retainedHolds=source.books.filter(book=>!available.has(book.id)).map(book=>book.id)
@@ -118,30 +117,12 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    assert.deepEqual(paragraphs.slice(0,expected.length),expected,id+(opening?' exact authored opening':' exact reviewed preface'))
    assert.equal(await page.locator('.reading-orientation, .preface-credit').count(),0,id+' preface has no signature or orientation')
   }
-  const cast=gallery.books.find(book=>book.bookId===id)
-  if(cast){
-   try{await page.locator('[data-tab=characters]').click()}catch(error){await introState('Characters failed',id);throw error}
-   assert.equal(await page.locator('[data-tab=characters]').textContent(),cast.sectionTitle)
-   assert.equal(await page.locator('#intro-character-list .character').count(),cast.characters.filter(c=>c.visibility==='featured').length)
-   await page.getByTestId('intro-gallery-toggle').click()
-   await page.waitForFunction(()=>document.querySelector('[data-testid=intro-gallery-toggle]')?.getAttribute('aria-expanded')==='true')
-   const expected=cast.characters.filter(c=>c.visibility!=='hold_until_revealed')
-   assert.deepEqual(await page.locator('#intro-character-list .character-copy > p:last-child').allTextContents(),expected.map(c=>c.body))
-   if(id==='jane-eyre')assert(!(await page.locator('#intro-character-list').textContent()).includes('Bertha'))
-   await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-gallery.png'})
-  }
+  // The Characters galleries are retired with the primers (Anders, 3 Nov 2026: "skip character gallery"):
+  // People & ideas on the opening page names the main people instead.
+  assert.equal(await page.locator('[data-tab=characters]:visible').count(),0,id+' offers no Characters gallery')
   assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'no viewport overflow: '+id)
-  report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted,expandedGallery:!!cast})
+  report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted})
  }
- await page.evaluate(()=>{
-  const now=Date.now(),place={bookId:'jane-eyre',headerBook:'Jane Eyre',chapterNumber:26,sequentialChapter:26,paragraphIndex:0,wordIndex:0,pageIndex:0,primaryEditionKey:'original-en',updatedAt:now,deviceId:'introduction-fixture',rev:1}
-  localStorage.setItem('tinct-lab-position',JSON.stringify({owner:null,books:{'jane-eyre':place},finished:{},hidden:{},lastSettledBookId:'jane-eyre',lastSettledAt:now,updatedAt:now,deviceId:'introduction-fixture'}))
- })
- await page.goto(origin+'/library?view=book-detail&book=jane-eyre')
- await page.locator('#book-overlay').waitFor();await page.locator('#page-back').waitFor()
- if(width<1100){await page.locator('#slip-next').waitFor();await page.locator('#slip-next').click();await page.waitForFunction(()=>document.getElementById('intro').getAttribute('aria-hidden')==='false')}
- await page.locator('[data-tab=characters]').click();await page.getByTestId('intro-gallery-toggle').click()
- await page.locator('[data-character-id=bertha-mason]').waitFor()
  assert.deepEqual(errors,[]);assert.deepEqual(providerRequests,[])
  await context.close()
  }finally{await browser.close()}

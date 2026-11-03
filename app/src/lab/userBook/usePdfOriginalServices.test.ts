@@ -513,3 +513,55 @@ it('sends every page of a long chapter through the complete document context', a
   expect(parsed?.document?.units[34].text).toContain('End of page 35.')
   service.dispose()
 })
+
+it('marks a figure Explain as a figure, so the Worker asks for its point rather than a description (2 Nov 2026)', async () => {
+  const requests: Array<{ companion: Record<string, unknown> }> = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)))
+    return json({ content: [{ text: 'October fell to 51 million.' }], stop_reason: 'end_turn' })
+  })
+  const image = { src: 'data:image/png;base64,aW1hZ2U=', block: { type: 'image' as const, source: { type: 'base64' as const, media_type: 'image/png', data: 'aW1hZ2U=' } } }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(3, 'Loans published per month.', 5)
+  const region = (kind: 'figure' | 'equation') => ({ ...selection, text: 'Figure', region: { kind, label: '', caption: '', image: async () => image } })
+  await service.ask(region('figure'), 'explain')
+  await service.ask(region('equation') as never, 'explain')
+  await service.ask(selection, 'explain')
+  expect(requests[0].companion.figure).toBe(true)
+  expect(parseCompanionRequest(requests[0].companion)).toMatchObject({ figure: true })
+  expect(requests[1].companion).not.toHaveProperty('figure')
+  expect(requests[2].companion).not.toHaveProperty('figure')
+  service.dispose()
+})
+
+it('says why a question failed instead of returning nothing, and retries a dropped connection once', async () => {
+  let chat: (attempt: number) => Response | Promise<Response> = () => json({})
+  let attempts = 0
+  const api = vi.fn(async (url: RequestInfo | URL) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    return chat(attempts++)
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  service.setPdfPageText(3, 'A page.', 5)
+  vi.spyOn(console, 'warn').mockImplementation(() => {})
+  const reason = (promise: Promise<unknown>) => promise.then(() => '', (error: { readerMessage?: string }) => error.readerMessage ?? 'no words')
+
+  chat = n => { if (n === 0) throw new TypeError('Failed to fetch'); return json({ content: [{ text: 'Recovered.' }], stop_reason: 'end_turn' }) }
+  attempts = 0
+  expect(await service.ask(selection, 'explain')).toBe('Recovered.')
+
+  chat = () => json({ error: 'Give it a few seconds.' }, 429)
+  expect(await reason(service.ask(selection, 'explain'))).toBe('Give it a few seconds.')
+
+  chat = () => json({ error: 'Invalid message content' }, 400)
+  expect(await reason(service.ask(selection, 'explain'))).toBe('Tinct could not answer this time (error 400). Try again.')
+
+  chat = () => json({ content: [], stop_reason: 'end_turn' })
+  expect(await reason(service.ask(selection, 'explain'))).toBe('The answer stopped before it was finished. Try again.')
+
+  chat = () => { throw new TypeError('Failed to fetch') }
+  expect(await reason(service.ask(selection, 'explain'))).toBe('The connection dropped. Try again.')
+  expect(await reason(service.ask({ ...selection, text: 'x'.repeat(9001) }, 'explain'))).toBe('This selection is too long to explain. Select a shorter passage.')
+  service.dispose()
+})

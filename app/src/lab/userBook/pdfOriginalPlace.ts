@@ -11,6 +11,17 @@ export function readPdfOriginalPlace(hex: string): OriginalPagePlace | null {
   } catch { return null }
 }
 
+/**
+ * The edition the book was last read in, on any device ('t' Tinct text, 'p' its pages), as the reconciled place
+ * says (ownSync keeps it with the place). The desktop offers its Tinct text when another device read it so.
+ */
+export function readPdfPlaceEdition(hex: string): 't' | 'p' | null {
+  try {
+    const edition = JSON.parse(localStorage.getItem(key(hex)) || 'null')?.edition
+    return edition === 't' || edition === 'p' ? edition : null
+  } catch { return null }
+}
+
 /** PDF scale is a device preference in the existing page-place record, never an account place update. */
 export function readPdfOriginalZoom(hex: string, owner: string): number {
   if (userBookOwner() !== owner) return 1
