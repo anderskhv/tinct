@@ -30,3 +30,10 @@
 .lab.is-desktop .source-margin-content .lab-pcard-follow-box:focus-within { border-bottom-color:var(--lab-accent,currentColor); }
 .lab.is-desktop .source-margin-content :is(.lab-pcard-mic,.lab-pcard-talkbtn,.lab-pcard-send) { border:0; border-radius:0!important; background:transparent!important; color:var(--lab-ink-muted)!important; box-shadow:none; }
 .source-margin-head svg { width:16px; height:16px; }
+
+/* A chapter's actions beside its heading (PdfOriginalReaderShell chapterEntries): quiet text buttons, as the heading pills were. */
+.source-margin-item.is-actions { padding-bottom:4px; }
+.source-margin-item.is-actions .source-margin-label { color:var(--lab-ink-muted); }
+.pdf-original__margin-actions { display:flex; flex-wrap:wrap; gap:4px 16px; font:16px/1.4 'EB Garamond',Georgia,serif; color:var(--lab-ink-muted); }
+.source-margin-item .pdf-original__margin-actions button { min-height:30px; padding:4px 0 2px; border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent); color:var(--lab-ink-muted); }
+.source-margin-item .pdf-original__margin-actions button:hover { color:var(--lab-ink); }

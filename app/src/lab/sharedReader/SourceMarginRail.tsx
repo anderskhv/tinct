@@ -24,6 +24,11 @@ export interface SourceMarginEntry {
   free?: boolean
   /** Focus the new editor only after its measured card is visible. */
   focusEditor?: boolean
+  /**
+   * A chapter's actions beside its heading (Primer, Recap, …; Anders, 3 Nov 2026): always shown, labelled with
+   * the chapter, never folded or deleted. Its leader starts at the page border, like every card's.
+   */
+  actions?: true
 }
 export interface SourceMarginRailProps {
   host: HTMLElement | null
@@ -145,9 +150,11 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
       })}
     </svg>
     {entries.map(entry => { const at = layout.items.find(item => item.id === entry.id)
-      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
-        <header className="source-margin-head"><button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>
-          {entry.open && <button type="button" data-testid="source-margin-minimise" aria-label="Minimise" onClick={entry.onToggle}>−</button>}
+      // A chapter's actions appear only once its heading is on a drawn page; a card is measured hidden first.
+      if (entry.actions && !at) return null
+      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
+        <header className="source-margin-head">{entry.actions ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
+          {entry.open && !entry.actions && <button type="button" data-testid="source-margin-minimise" aria-label="Minimise" onClick={entry.onToggle}>−</button>}
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
