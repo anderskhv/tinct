@@ -72,6 +72,17 @@ describe('the device pass', () => {
     expect(book.chapters[0].paragraphs[1]).toBe('He spoke of J&sus.')
   })
 
+  it('for a book already read, keeps only repairs that leave each paragraph\'s word count, and says when every batch was answered', async () => {
+    const fetchImpl = vi.fn(async () => Response.json({ items: [{ id: 'c0p1', text: 'He spoke of Jesus.' }, { id: 'c1p1', text: 'not sure on some of it' }] })) as unknown as typeof fetch
+    const result = await repairOwnEdition(book, { book: HEX, token: 't', fetchImpl, keepWordCount: true })
+    expect(result.edition.chapters[0].paragraphs[1]).toBe('He spoke of Jesus.')
+    expect(result.edition.chapters[1].paragraphs[1]).toBe('not sure on.some of it')
+    expect(result.complete).toBe(true)
+    const signedOut = await repairOwnEdition(book, { book: HEX, token: null })
+    expect(signedOut.complete).toBe(false)
+    expect((await repairOwnEdition(edition([['Clean text only.']]), { book: HEX, token: null })).complete).toBe(true)
+  })
+
   it('keeps the text as converted when signed out, refused or offline', async () => {
     const never = vi.fn() as unknown as typeof fetch
     expect((await repairOwnEdition(book, { book: HEX, token: null, fetchImpl: never })).edition).toBe(book)

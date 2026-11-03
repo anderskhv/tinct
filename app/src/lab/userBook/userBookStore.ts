@@ -428,7 +428,6 @@ export async function openUserBook(hex: string, options: { onProgress?: (progres
     edition = converted.edition
     data = converted.images
     options.onProgress?.({ stage: 'saving' })
-    edition = await repairScanErrors(hex, edition)
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
   }
@@ -499,13 +498,30 @@ const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('.
  * Scanning errors ("J&sus") fixed once, before a converted PDF is stored (ownTextRepair.ts):
  * only flagged paragraphs are sent, and any failure keeps the text as converted.
  */
-async function repairScanErrors(hex: string, edition: UserBookEdition): Promise<UserBookEdition> {
+async function repairScanErrors(hex: string, edition: UserBookEdition, options: { keepWordCount?: boolean } = {}): Promise<UserBookEdition> {
   try {
-    const { repairOwnEdition } = await import('./ownTextRepair')
-    return (await repairOwnEdition(edition, { book: hex, token: await ownBookToken() })).edition
+    const { repairOwnEdition, OWN_TEXT_REPAIR_VERSION } = await import('./ownTextRepair')
+    const result = await repairOwnEdition(edition, { book: hex, token: await ownBookToken(), ...options })
+    // Marked only when every flagged paragraph was answered: signed out or offline, it is tried again next time.
+    return result.complete ? { ...result.edition, textRepair: OWN_TEXT_REPAIR_VERSION } : result.edition
   } catch {
     return edition
   }
+}
+
+/**
+ * A PDF converted before the repair pass (Anders, 3 Nov 2026: "run it on the books I've added"):
+ * repaired once in the background after it opens, keeping each paragraph's word count so the
+ * reader's place and highlights stay on their words; the next open reads the repaired text.
+ */
+const repairing = new Set<string>()
+function repairStoredInBackground(key: string, owner: string, hex: string, edition: UserBookEdition): void {
+  if (edition.textRepair || editionSource(edition) === 'epub' || repairing.has(key)) return
+  repairing.add(key)
+  void repairScanErrors(hex, edition, { keepWordCount: true })
+    .then(repaired => repaired !== edition ? keepFields(key, owner, { edition: repaired }) : undefined)
+    .catch(() => {})
+    .finally(() => repairing.delete(key))
 }
 
 async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { onProgress?: (progress: PdfConversionProgress) => void; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; desktop?: boolean; sharedReader?: boolean } = {}): Promise<UserBookOpenResult> {
@@ -577,6 +593,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
   if (pdfEditionChoice(hex, layout, undefined, sourceOptions) === 'pages' || pdfEditionUntold(hex, layout, undefined, sourceOptions)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
+  repairStoredInBackground(key, owner, hex, edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
   const images = new Map<string, Blob>([...figureData].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))

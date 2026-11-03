@@ -21,7 +21,18 @@ import type { UserBookEdition } from './userEdition'
 export const OWN_TEXT_REPAIR_DEADLINE_MS = 25_000
 const PARALLEL = 4
 
-export interface OwnTextRepairResult { edition: UserBookEdition; flagged: number; repaired: number }
+export interface OwnTextRepairResult {
+  edition: UserBookEdition
+  flagged: number
+  repaired: number
+  /** Every flagged paragraph was answered (not signed out, refused, offline or past the deadline). */
+  complete: boolean
+}
+
+/** Marks an edition whose flagged paragraphs have been through the pass (`UserBookEdition.textRepair`). */
+export const OWN_TEXT_REPAIR_VERSION = 1
+
+const wordCount = (text: string) => text.trim().split(/\s+/).filter(Boolean).length
 
 /** Every flagged paragraph's place (`c{chapter index}p{paragraph index}`) and text, in book order. */
 export function flaggedParagraphs(edition: Pick<UserBookEdition, 'chapters'>): OwnTextRepairItem[] {
@@ -49,9 +60,15 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
   token: string | null
   fetchImpl?: typeof fetch
   deadlineMs?: number
+  /**
+   * A book already read (stored before this pass existed): only repairs that keep each paragraph's
+   * word count, so a saved place or highlight, addressed by word, stays on the same word.
+   */
+  keepWordCount?: boolean
 }): Promise<OwnTextRepairResult> {
   const flagged = flaggedParagraphs(edition)
-  if (!flagged.length || !options.token || !/^[0-9a-f]{24,64}$/.test(options.book)) return { edition, flagged: flagged.length, repaired: 0 }
+  if (!flagged.length) return { edition, flagged: 0, repaired: 0, complete: true }
+  if (!options.token || !/^[0-9a-f]{24,64}$/.test(options.book)) return { edition, flagged: flagged.length, repaired: 0, complete: false }
   const fetchImpl = options.fetchImpl ?? fetch
   const deadline = Date.now() + (options.deadlineMs ?? OWN_TEXT_REPAIR_DEADLINE_MS)
   const batches: OwnTextRepairItem[][] = []
@@ -59,6 +76,7 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
   const sent = new Map(flagged.map(item => [item.id, item.text]))
   const repairs = new Map<string, string>()
   let stop = false
+  let answered = 0
   const send = async (items: OwnTextRepairItem[]) => {
     const left = deadline - Date.now()
     if (stop || left <= 0) return
@@ -76,8 +94,9 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
       for (const item of Array.isArray(data.items) ? data.items as Array<Record<string, unknown>> : []) {
         const original = typeof item?.id === 'string' ? sent.get(item.id) : undefined
         const fixed = original === undefined ? null : acceptedRepair(original, item.text)
-        if (fixed) repairs.set(item.id as string, fixed)
+        if (fixed && (!options.keepWordCount || wordCount(fixed) === wordCount(original!))) repairs.set(item.id as string, fixed)
       }
+      answered += 1
     } catch { /* offline or past the deadline: this batch keeps its text */ }
     finally { clearTimeout(timer) }
   }
@@ -85,5 +104,5 @@ export async function repairOwnEdition(edition: UserBookEdition, options: {
   await Promise.all(Array.from({ length: Math.min(PARALLEL, batches.length) }, async () => {
     while (next < batches.length && !stop && Date.now() < deadline) await send(batches[next++])
   }))
-  return { edition: applyRepairs(edition, repairs), flagged: flagged.length, repaired: repairs.size }
+  return { edition: applyRepairs(edition, repairs), flagged: flagged.length, repaired: repairs.size, complete: answered === batches.length }
 }
