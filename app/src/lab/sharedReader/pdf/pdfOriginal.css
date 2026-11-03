@@ -17,7 +17,8 @@
    selection also paints page-wide line breaks; the ink-only layer below
    draws the same source rectangles used when saving a highlight. */
 .pdf-original__page,.pdf-original__page canvas,.pdf-original__text { user-select:none; -webkit-user-select:none; }
-.pdf-original__text span { user-select:text; -webkit-user-select:text; }
+.pdf-original__text span { user-select:text; -webkit-user-select:text; -webkit-touch-callout:none; }
+/* iOS's own Copy / Look Up menu stays away: Tinct's selection bar is the only one (sideways phone showed both; Anders, 2 Nov 2026). */
 .pdf-original__page::selection,.pdf-original__text::selection,.pdf-original__text span::selection,.pdf-original__text br::selection { color:transparent; background:transparent; }
 .pdf-original__selection { position:absolute; inset:0; pointer-events:none; user-select:none; -webkit-user-select:none; }
 .pdf-original__selection i { position:absolute; border-radius:2px; background:rgba(45,105,163,.38); }
