@@ -23,7 +23,6 @@ import { healUserEdition } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
-import { registerRepairedText } from './userBookSource'
 import { fetchAccountCopy, fetchOcrEdition, listAccountBooks, ownBookToken, type AccountCopy, type FetchLike } from './ownAccount'
 import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
 
@@ -524,7 +523,9 @@ function repairStoredInBackground(key: string, owner: string, hex: string, editi
   // Each answered batch goes into the open book at once (Anders, 3 Nov 2026: "fix the chapters in front of
   // you"): the chapter the reader turns to next is read from the registry already repaired. The page on screen
   // is not repainted under them; word counts are kept, so a return to it lands on the same words.
-  const onRepaired = (repaired: UserBookEdition) => registerRepairedText(bookId, repaired.chapters.map(chapter => chapter.paragraphs))
+  // Loaded on first use: the reader's source registry (figures, verse lines) stays out of the library page.
+  const registry = () => import('./userBookSource')
+  const onRepaired = (repaired: UserBookEdition) => { void registry().then(({ registerRepairedText }) => registerRepairedText(bookId, repaired.chapters.map(chapter => chapter.paragraphs))).catch(() => {}) }
   void repairScanErrors(hex, edition, { keepWordCount: true, fromChapter, onRepaired })
     .then(repaired => repaired !== edition ? keepFields(key, owner, { edition: repaired }) : undefined)
     .catch(() => {})
