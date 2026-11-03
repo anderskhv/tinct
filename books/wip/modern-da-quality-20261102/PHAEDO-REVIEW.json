@@ -1,0 +1,461 @@
+{
+  "bookId": "phaedo",
+  "status": "editorial_in_progress",
+  "reviewedChapters": [
+    1,
+    2
+  ],
+  "reviewedParagraphs": 134,
+  "totalParagraphs": 652,
+  "inProgress": {
+    "chapter": 2,
+    "paragraph": 73
+  },
+  "nativeReview": "pending_user_arranges",
+  "releasePolicy": {
+    "mode": "prepare_only",
+    "releaseOwner": "Claude",
+    "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
+  },
+  "sourceBlobs": {
+    "original-en": "bf2c7d9889ec48286b60fad27425118322db876a",
+    "modern-en": "0ab261ab3f8f596beab5fe426835c26cb6838e90",
+    "modern-da": "364dbeec1d52ac3d5678425376aaba02c7a517bf"
+  },
+  "changes": [
+    {
+      "chapter": 1,
+      "paragraph": 3,
+      "before": "ECHEKRATES: Jeg vil så gerne høre om hans død. Hvad sagde han i sine sidste timer? Vi hørte, at han døde af gift, men ingen kendte detaljerne. Ingen fra Flius tager til Athen længere, og det er evigheder siden nogen fra Athen har besøgt os — så vi har ingen ordentlig beretning.",
+      "after": "ECHEKRATES: Jeg vil så gerne høre om hans død. Hvad sagde han i sine sidste timer? Vi fik at vide, at han døde af gift, men ingen vidste mere end det. Ingen fra Flius tager længere til Athen, og der er gået lang tid, siden nogen derfra kom hertil. Derfor har vi ikke fået nogen klar beretning.",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 8,
+      "before": "FAIDON: Det er det skib, som ifølge athensk tradition bar Theseus til Kreta med de fjorten unge mennesker — han reddede dem og sig selv. De siges at have lovet Apollon, at hvis de blev reddet, ville de sende en årlig sendelse til Delos. Denne skik fortsætter den dag i dag. Hele rejseperioden — fra det øjeblik præsten bekranser skibets stævn til det vender tilbage — betragtes som hellig, og i den tid må ingen offentlige henrettelser finde sted. Når modvind forsinker skibet, kan rejsen trække ud. Skibet blev bekranset dagen før retssagen, og det er grunden til, at Sokrates sad så længe i fængsel efter sin dom.",
+      "after": "FAIDON: Det er det skib, som Theseus ifølge athensk tradition sejlede til Kreta med. Han havde fjorten unge mennesker med sig og reddede både dem og sig selv. Man siger, at de dengang lovede Apollon at sende en delegation til Delos hvert år, hvis de blev reddet. Den skik holder man stadig fast ved. Hele rejsen til Delos og tilbage er en hellig tid, som begynder, når Apollons præst sætter en krans på skibets agterstavn. I den tid må byen ikke gøres uren ved offentlige henrettelser. Hvis modvind forsinker skibet, kan ud- og hjemrejsen tage meget lang tid. Som sagt blev skibet bekranset dagen før retssagen. Derfor sad Sokrates i fængsel og blev først henrettet længe efter dommen.",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 9,
+      "before": "ECHEKRATES: Hvordan døde han, Faidon? Hvad blev sagt og gjort? Hvilke venner var hos ham? Eller forbød myndighederne besøg — så han døde alene?",
+      "after": "ECHEKRATES: Hvordan døde han, Faidon? Hvad blev der sagt og gjort? Hvilke af hans venner var hos ham? Eller forbød myndighederne dem at være til stede, så han døde uden sine venner omkring sig?",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 13,
+      "before": "ECHEKRATES: Dine tilhørere har det på samme måde. Vær så detaljeret som muligt.",
+      "after": "ECHEKRATES: Dine tilhørere har det på samme måde. Jeg håber, du vil fortælle det så nøjagtigt, som du kan.",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 14,
+      "before": "FAIDON: Jeg havde en mærkelig følelse den dag. Jeg kunne næppe tro, at jeg overværede en vens død, og derfor følte jeg ingen medlidenhed med ham, Echekrates. Han døde så frygtløst, og hans ord og væsen var så ædle og nådige, at han forekom mig velsignet. Jeg troede, han ikke kunne drage til den anden verden uden guddommelig kaldelse, og at han ville være lykkelig dér, hvis nogen nogensinde blev det. Så jeg beklagede ham ikke, som man ellers ville forvente. Men jeg følte heller ikke den sædvanlige glæde ved filosofisk samtale — selv om filosofi var vores emne. Der var glæde, men blandet med en mærkelig understrøm af smerte, velvidende at han snart skulle dø. Vi følte alle denne dobbelthed — lo og græd på skift, især den ophidsede Apollodoros. Du kender typen?",
+      "after": "FAIDON: Det var en mærkelig følelse at være hos ham. Jeg kunne næsten ikke tro, at jeg var til stede ved en vens død, og derfor havde jeg ikke ondt af ham, Echekrates. Han døde så frygtløst, og der var så stor værdighed og venlighed i hans ord og optræden, at han virkede som et lykkeligt menneske, velsignet af guderne. Jeg tænkte, at han måtte være kaldt af en gud til den anden verden, og at hvis nogen nogensinde ville blive lykkelig dér, måtte det være ham. Derfor havde jeg ikke den medfølelse med ham, som ellers ville være naturlig i sådan en stund. Men jeg følte heller ikke den sædvanlige glæde ved en filosofisk samtale, for det var filosofi, vi talte om. Jeg følte glæde, men den var blandet med en mærkelig smerte ved tanken om, at han snart skulle dø. Vi havde alle denne dobbelte følelse og skiftede mellem at le og græde. Det gjaldt især Apollodoros, der så let bliver revet med af sine følelser. Du ved, hvordan han er?",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 18,
+      "before": "FAIDON: Af indfødte athenere: Apollodoros, Kritobulos og hans far Kriton, Hermogenes, Epigenes, Aischines, Antisthenes; desuden Ktesippos fra Paiania, Menexenos og nogle få andre. Platon var vist syg.",
+      "after": "FAIDON: Af folk, der var født i Athen, var der foruden Apollodoros også Kritobulos og hans far Kriton, Hermogenes, Epigenes, Aischines og Antisthenes. Desuden Ktesippos fra bydelen Paiania, Menexenos og nogle andre. Platon var syg, hvis jeg husker rigtigt.",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 26,
+      "before": "FAIDON: Jeg begynder fra begyndelsen og forsøger at gengive hele samtalen. I dagene forinden havde vi plejet at mødes tidligt om morgenen ved retsbygningen nær fængslet, ventet på at dørene åbnede — de åbnede ikke særlig tidligt — og så tilbragt dagen med Sokrates. Den sidste morgen mødtes vi tidligere end sædvanligt, da vi aftenen forinden havde hørt, at det hellige skib var vendt tilbage fra Delos. Vi aftalte at mødes meget tidligt på det sædvanlige sted. Da vi ankom, kom vagten ud og bad os vente. 'De Elleve er hos Sokrates nu,' sagde han. 'De fjerner hans lænker og meddeler ham, at han skal dø i dag.' Han vendte kort efter tilbage og lukkede os ind. Vi fandt Sokrates lige befriet fra sine lænker, med Xanthippe — du kender hende — siddende ved hans side med deres barn i armene. Da hun så os, udbrød hun: 'Åh, Sokrates, dette er sidste gang, du taler med dine venner, eller de med dig!' Sokrates vendte sig mod Kriton og sagde: 'Kriton, lad nogen følge hende hjem.' Nogle af Kritons folk førte hende bort, grædende og slående sig for brystet.",
+      "after": "FAIDON: Jeg vil begynde fra begyndelsen og prøve at gengive hele samtalen. De foregående dage plejede vi at mødes tidligt om morgenen ved den retsbygning, hvor retssagen havde fundet sted. Den ligger ikke langt fra fængslet. Der stod vi og talte sammen, indtil dørene blev åbnet, for det skete ikke særlig tidligt. Så gik vi ind og tilbragte som regel dagen med Sokrates. Den sidste morgen mødtes vi tidligere end normalt. Da vi forlod fængslet aftenen før, havde vi nemlig hørt, at det hellige skib var kommet tilbage fra Delos. Derfor aftalte vi at mødes meget tidligt på det sædvanlige sted. Da vi kom, lukkede vagten ved døren os ikke ind, men kom ud og bad os vente, til han kaldte på os. »De Elleve er hos Sokrates nu,« sagde han. »De tager lænkerne af ham og giver ordre om, at han skal dø i dag.« Kort efter kom vagten tilbage og sagde, at vi måtte komme ind. Vi fandt Sokrates, som netop havde fået lænkerne af, med Xanthippe — du kender hende — siddende ved sin side med hans barn i armene. Da hun så os, råbte hun, sådan som kvinder gør: »Åh, Sokrates, det er sidste gang, du taler med dine venner, eller de med dig!« Sokrates vendte sig mod Kriton og sagde: »Kriton, få nogen til at følge hende hjem.« Så førte nogle af Kritons folk hende væk, mens hun græd højt og slog sig selv.",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 27,
+      "before": "Da hun var gået, satte Sokrates sig op på lejet, bøjede benet og gned det. 'Hvor mærkeligt,' sagde han, 'er dette, vi kalder nydelse, og hvor besynderligt er det beslægtet med smerte — som man skulle tro var dets modsætning. De optræder aldrig sammen i samme øjeblik, og dog tvinges den, der søger den ene, næsten altid til også at tage den anden. De har to kroppe, men er forbundet i hovedet. Hvis Æsop havde tænkt over dem, tror jeg, han ville have skrevet en fabel om, at Gud forsøgte at forsone deres strid, og da han ikke kunne, bandt deres hoveder sammen. Derfor følger den ene altid den anden — som jeg oplever lige nu. Lænken forårsagede smerte i mit ben, og nu, da den er fjernet, kommer nydelsen lige bagefter.'",
+      "after": "Da hun var gået, satte Sokrates sig op på lejet, bøjede benet og gned det. Mens han gned, sagde han: »Hvor er det mærkeligt, det vi kalder nydelse, og hvor underligt hænger det sammen med smerte, som ellers ser ud til at være dets modsætning. Man oplever aldrig begge dele på samme tid, og alligevel bliver den, der søger det ene, som regel nødt til også at tage det andet med. De har to kroppe, men ét fælles hoved. Jeg kan ikke lade være med at tænke, at hvis Æsop havde tænkt på dem, ville han have skrevet en fabel om, hvordan en gud prøvede at standse deres strid. Da det ikke lykkedes, bandt guden deres hoveder sammen. Derfor følger det ene efter, når det andet kommer. Det mærker jeg selv nu: Før gjorde lænken ondt i benet, og nu ser nydelsen ud til at følge lige efter smerten.«",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 28,
+      "before": "Kebes sagde: 'Jeg er glad for, at du nævnte Æsop, Sokrates. Det minder mig om et spørgsmål, mange har stillet — digteren Euenos spurgte mig for bare et par dage siden, og han vil helt sikkert spørge igen — hvorfor du, der aldrig før har skrevet en linje poesi, nu i fængslet omsætter Æsops fabler til vers og også komponerer en hymne til Apollon.'",
+      "after": "Så sagde Kebes: »Jeg er glad for, at du nævnte Æsop, Sokrates. Det minder mig om noget, som mange har spurgt om. Så sent som i forgårs spurgte digteren Euenos mig om det, og han spørger sikkert igen. Hvis du vil have, at jeg skal kunne svare ham, må du fortælle mig, hvad jeg skal sige. Han ville vide, hvorfor du, som aldrig før har skrevet en eneste verslinje, nu her i fængslet omskriver Æsops fabler til vers og også digter den hymne til Apollons ære.«",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 29,
+      "before": "'Fortæl ham sandheden, Kebes,' svarede han. 'Jeg havde ingen hensigt om at konkurrere med ham eller hans digte — det vidste jeg ville være svært. Jeg ville bare rydde en tvivl af vejen angående visse drømme, jeg har haft hele mit liv. Den samme drøm er kommet til mig i forskellige former, men altid med de samme ord: »Lav musik, Sokrates.« Jeg havde altid antaget, at det betød filosofi — den ædleste og bedste form for musik, som jeg allerede dyrkede. Drømmen opmuntrede mig bare, som tilskuere, der hepper på en løber, der allerede løber. Men jeg var ikke helt sikker. Måske mente den musik i almindelig forstand. Da jeg er dødsdømt, og festen gav mig en udsættelse, syntes jeg, det var sikrere at følge drømmen og skrive nogle vers, inden jeg går.'",
+      "after": "»Fortæl ham sandheden, Kebes,« svarede han. »Jeg havde ikke tænkt mig at konkurrere med ham og hans digte. Det vidste jeg godt ville være svært. Men jeg ville se, om jeg kunne slippe af med en nagende tvivl om betydningen af nogle drømme. Gennem mit liv har drømme ofte antydet, at jeg skulle skabe musik. Den samme drøm kom til mig i forskellige former, men sagde altid det samme eller næsten det samme: ‘Dyrk og skab musik.’ Hidtil havde jeg troet, at den blot opfordrede og opmuntrede mig til at dyrke filosofi, som jeg har viet mit liv til, og som er den ædleste og bedste form for musik. Drømmen bad mig gøre det, jeg allerede gjorde, ligesom tilskuere til et løb råber til en løber, at han skal løbe, selv om han allerede er i gang. Men jeg var ikke sikker. Måske mente drømmen musik i ordets almindelige betydning. Nu var jeg dømt til døden, og festen gav mig en udsættelse. Derfor tænkte jeg, at det var sikrest at få den tvivl af vejen og følge drømmens bud ved at skrive nogle vers, før jeg tog herfra.«",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 30,
+      "before": "'Først skrev jeg en hymne til festens gud. Så indså jeg, at en sand digter bør skabe historier, ikke bare sætte ord sammen — og at jeg ikke har nogen opfindsomhed. Så jeg tog nogle af Æsops fabler, som jeg kendte udenad — de første, der faldt mig ind — og omsatte dem til vers. Fortæl Euenos dette, Kebes, og ønsk ham alt godt. Sig, at jeg råder ham til at følge efter mig snarest, hvis han er en vis mand. Det ser ud til, at jeg rejser i dag — athenerne har besluttet det.'",
+      "after": "»Først skrev jeg en hymne til ære for festens gud. Så tænkte jeg, at en digter, hvis han virkelig skal være digter, ikke bare skal sætte ord sammen, men også finde på historier. Det har jeg ikke fantasi til. Derfor tog jeg nogle af Æsops fabler, som jeg havde lige ved hånden og kendte i forvejen — de første, jeg stødte på — og omskrev dem til vers. Fortæl Euenos det, Kebes, og bed ham være ved godt mod. Sig, at hvis han er en vis mand, vil jeg gerne have, at han følger efter mig uden at tøve. Selv skal jeg nok af sted i dag, for det siger athenerne, at jeg skal.«",
+      "reason": "Restore source detail and use clear modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 31,
+      "before": "Simmias sagde: 'Sikke et budskab til Euenos! Ud fra hvad jeg kender ham, vil han ikke frivilligt følge dit råd.'",
+      "after": "Simmias sagde: »Sikke en besked at sende til netop ham! Jeg har ofte været sammen med ham, og så vidt jeg kender ham, følger han aldrig dit råd, medmindre han bliver tvunget til det.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 39,
+      "before": "'Mine egne ord er bare et ekko af, hvad jeg har hørt. Men der er ingen grund til ikke at gentage det. Og da jeg er på vej til et andet sted — hvad bedre måde at tilbringe tiden mellem nu og solnedgang end at tænke og tale om den rejses natur?'",
+      "after": "»Jeg gentager også bare, hvad jeg har hørt. Men der er ingen grund til, at jeg ikke skulle fortælle det videre. Nu hvor jeg er på vej til et andet sted, passer det jo godt at tænke og tale om den rejse, jeg skal ud på. Hvad bedre kan jeg bruge tiden til, fra nu og indtil solen går ned?«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 41,
+      "before": "'Tab ikke modet,' svarede Sokrates. 'Dagen kommer måske, hvor du forstår. Jeg formoder, du undrer dig over, hvorfor døden er den eneste undtagelse — hvorfor det, der ellers kan være godt for visse mennesker til visse tider, ikke gælder for den, der ville have bedre af at dø — hvorfor han ikke selv må gøre sig denne tjeneste, men må vente på, at en anden gør det.'",
+      "after": "»Du skal ikke miste modet,« svarede Sokrates. »Måske kommer den dag, hvor du forstår det. Jeg går ud fra, at du undrer dig over, hvorfor døden skulle være den eneste undtagelse, når andre onder kan være gode for bestemte mennesker på bestemte tidspunkter. Og hvorfor et menneske, der ville være bedre stillet som død, ikke selv må gøre sig den tjeneste, men skal vente på, at en anden gør det.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 42,
+      "before": "'Præcis,' sagde Kebes og lo stille på sin bøotiske facon.",
+      "after": "»Lige præcis,« sagde Kebes med et lille grin på sin bøotiske hjemegns dialekt.",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 43,
+      "before": "'Jeg indrømmer, det ser usammenhængende ud, men der er måske ingen reel modsigelse. Der er en hemmelig lære om, at vi mennesker er som fanger, der ikke har ret til at bryde ud og flygte. Det er et dybt mysterium, jeg ikke fuldt forstår. Men jeg tror, at guderne er vores vogtere, og at vi tilhører dem. Er du ikke enig?'",
+      "after": "»Jeg indrømmer, at det, jeg siger, kan virke selvmodsigende. Men måske er der alligevel ingen virkelig modsigelse. Der findes en lære, som kun bliver hvisket videre i hemmelighed: Mennesket er en fange, som ikke har ret til at åbne døren og flygte. Det er et stort mysterium, som jeg ikke helt forstår. Men jeg tror også, at guderne passer på os, og at vi tilhører dem. Er du ikke enig?«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 45,
+      "before": "'Og hvis et af dine egne ejendele — en okse eller et æsel — besluttede på egen hånd at dø uden din tilladelse, ville du ikke blive rasende? Ville du ikke straffe det, hvis du kunne?'",
+      "after": "»Og hvis noget, du ejede — for eksempel en okse eller et æsel — tog sig den frihed at gøre ende på sit liv, uden at du havde givet noget tegn på, at du ønskede det dødt, ville du så ikke blive vred? Ville du ikke straffe det, hvis du kunne?«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 47,
+      "before": "'Så er der måske god grund til at sige, at man bør vente og ikke tage sit eget liv, før Gud kalder — som Gud nu kalder mig.'",
+      "after": "»Set på den måde er der måske god mening i at sige, at man skal vente og ikke tage sit eget liv, før en gud kalder på en, sådan som guden nu kalder på mig.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 48,
+      "before": "'Ja, Sokrates, der synes at være sandhed i det. Og dog — hvordan kan du forene dette — at vi tilhører guderne, som er de bedst tænkelige vogtere — med filosofens villighed til at dø? Det giver ingen mening, at de viseste mennesker glad skulle forlade en tjeneste, hvor de passes af de bedste herrer. Ingen vis person tror vel, at de kan passe bedre på sig selv end guderne kan. En tåbe ville måske tænke sådan — ville argumentere for at flygte fra sin herre. Men den vise ville altid ville være hos den, der er bedre end ham selv. Så ifølge denne tankegang burde de vise sørge ved døden, og tåberne juble — det modsatte af, hvad du sagde.'",
+      "after": "»Ja, Sokrates,« sagde Kebes, »der ser ud til at være noget sandt i det, du siger. Men hvordan kan du forene den tilsyneladende sande tanke om, at guden passer på os, og at vi tilhører ham, med den villighed til at dø, som vi lige har tillagt filosoffen? Det virker ikke rimeligt, at de viseste mennesker gerne skulle forlade en tjeneste, hvor de ledes af guderne, som er de bedste herrer, der findes. Et vist menneske tror vel ikke, at det kan passe bedre på sig selv, når det bliver frit, end guderne kan passe på det. En tåbe kunne måske tro det og mene, at det var bedst at løbe væk fra sin herre. Han tænker ikke på, at han bør blive til det sidste og ikke flygte fra det gode, og at det derfor ikke giver mening at løbe væk. Den vise vil altid ønske at være hos den, der er bedre end ham selv. Men det er jo det modsatte af, hvad vi lige sagde, Sokrates. Efter den tankegang burde den vise sørge over at forlade livet, mens tåben burde glæde sig.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 49,
+      "before": "Kebes' alvor syntes at glæde Sokrates. 'Her,' sagde han, vendt mod os, 'er en mand, der altid spørger og aldrig lader sig overbevise af det første argument, han hører.'",
+      "after": "Kebes' alvor lod til at glæde Sokrates. Han vendte sig mod os og sagde: »Her har vi en mand, der altid stiller spørgsmål og ikke så let lader sig overbevise af det første, han hører.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 53,
+      "before": "'Så lad mig forsøge et bedre forsvar for jer end det, jeg gav dommerne. Jeg indrømmer gerne, Simmias og Kebes, at jeg burde sørge over døden — hvis jeg ikke var overbevist om, for det første, at jeg er på vej til andre guder, der er vise og gode (hvilket jeg er så sikker på som noget), og for det andet — selv om jeg er mindre sikker på dette — til afdøde sjæle, der er bedre end dem, jeg efterlader. Så jeg sørger ikke, som jeg ellers kunne, for jeg har godt håb om, at noget venter de døde, og som det er sagt siden oldtiden, noget langt bedre for de gode end for de onde.'",
+      "after": "»Så må jeg prøve at forsvare mig bedre over for jer, end jeg gjorde over for dommerne. For jeg indrømmer gerne, Simmias og Kebes, at jeg burde være ked af at skulle dø, hvis jeg ikke var overbevist om to ting. For det første, at jeg kommer til andre guder, der er vise og gode — det er jeg så sikker på, som man kan være på den slags. For det andet, at jeg kommer til mennesker, der er døde, og som er bedre end dem, jeg efterlader. Det sidste er jeg dog mindre sikker på. Derfor sørger jeg ikke, som jeg ellers ville. Jeg har godt håb om, at der stadig venter de døde noget, og at det, som man har sagt fra gammel tid, er langt bedre for de gode end for de onde.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 57,
+      "before": "'Sig til ham, at han skal passe sig selv,' sagde Sokrates, 'og forberede to eller tre doser, hvis det er nødvendigt. Det er alt.'",
+      "after": "»Så må han passe sit arbejde,« sagde Sokrates, »og være klar til at give mig giften to eller endda tre gange, hvis det bliver nødvendigt. Det er det hele.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 58,
+      "before": "'Jeg vidste, du ville sige det,' svarede Kriton, 'men han blev ved med at insistere.'",
+      "after": "»Jeg vidste godt, hvad du ville sige,« svarede Kriton, »men jeg måtte jo gøre, som han bad om.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 60,
+      "before": "'Og nu, mine venner, vil jeg forklare jer, hvorfor jeg mener, at en sand filosof har god grund til at være ved godt mod, når han står over for døden, og kan håbe at finde det største gode i den anden verden. Lad mig prøve at vise jer det, Simmias og Kebes. Den sande filosofis tilhænger bliver sandsynligvis misforstået af andre. De indser ikke, at han altid stræber efter døden og det at dø. Hvis det er sandt — hvis han har ønsket døden hele sit liv — hvorfor skulle han så klage, når tiden endelig er kommet for det, han altid har søgt?'",
+      "after": "»Og nu, mine dommere, vil jeg prøve at vise jer, at den virkelige filosof har grund til at være ved godt mod, når han skal dø, og kan håbe på at opnå det største gode i den anden verden efter døden. Jeg vil forsøge at forklare jer hvordan, Simmias og Kebes. Jeg tror nemlig, at andre mennesker let misforstår den, der virkelig vier sig til filosofien. De ser ikke, at han hele tiden søger døden og det at dø. Hvis det er sådan, og han har ønsket døden hele sit liv, hvorfor skulle han så klage, når tiden kommer til det, han altid har søgt og ønsket?«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 61,
+      "before": "Simmias lo: 'Du har fået mig til at le, Sokrates, selv om jeg ikke er i humør til det. De fleste ville sikkert sige, at du har beskrevet filosoffer perfekt — og vores landsmænd derhjemme ville være enige i, at det liv, filosoffer ønsker, i virkeligheden er døden, og at man endelig har afsløret dem som fortjente den død, de selv ønsker.'",
+      "after": "Simmias lo og sagde: »Jeg havde ellers ikke lyst til at le, men det fik du mig til, Sokrates. Jeg kan ikke lade være med at tænke, at de fleste vil sige, at du har ramt filosofferne præcist, når de hører dine ord. Og vores landsmænd derhjemme vil også sige, at det liv, filosofferne ønsker, i virkeligheden er døden, og at de nu har gennemskuet dem: De fortjener den død, de selv ønsker.«",
+      "reason": "Restore omitted argument, precise meaning and natural modern Danish."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 1,
+      "before": "Og de har ret, Simmias — bortset fra den del om at 'afsløre os.' De har faktisk hverken forstået, hvilken slags død den sande filosof fortjener, eller hvordan han fortjener og ønsker den. Men glem dem — lad os drøfte dette indbyrdes. Tror vi, at der er noget, der hedder død?",
+      "after": "»Og det har de ret i, Simmias, bortset fra det med, at de har gennemskuet dem. De har nemlig ikke forstået, hvilken slags død den virkelige filosof fortjener, eller hvordan han fortjener og ønsker den. Men nok om dem. Lad os tale om det indbyrdes. Tror vi, at der findes noget, der hedder død?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 3,
+      "before": "'Er døden ikke adskillelsen af sjæl og krop? At være død betyder, at kroppen eksisterer for sig selv, frigjort fra sjælen, og sjælen eksisterer for sig selv, frigjort fra kroppen. Død er intet andet end dette?'",
+      "after": "»Er døden ikke en adskillelse af sjæl og krop? Og er det at være død ikke, at denne adskillelse er fuldendt? Når sjælen eksisterer for sig selv, frigjort fra kroppen, og kroppen er frigjort fra sjælen — hvad er det andet end død?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 5,
+      "before": "'Her er endnu et spørgsmål, der kan kaste lys over vores undersøgelse: Bør filosoffen bekymre sig om nydelserne — hvis man overhovedet kan kalde dem nydelser — ved at spise og drikke?'",
+      "after": "»Her er et andet spørgsmål, som nok kan kaste lys over det, vi undersøger, hvis vi to kan blive enige om svaret: Bør filosoffen gå op i nydelsen ved mad og drikke — hvis man overhovedet kan kalde det nydelse?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 7,
+      "before": "'Hvad med kærlighedens nydelser — bør han bekymre sig om dem?'",
+      "after": "»Og hvad med kærlighedens nydelser? Bør han gå op i dem?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 9,
+      "before": "'Og hvad med andre måder at forkæle kroppen på — dyrt tøj, sandaler, andre fysiske prydelser? Foragter filosoffen ikke alt ud over, hvad naturen kræver?'",
+      "after": "»Vil han lægge vægt på andre måder at forkæle kroppen på, for eksempel ved at skaffe sig dyrt tøj, sandaler eller andre ting at pynte den med? Vil han ikke snarere se ned på alt, der går ud over kroppens naturlige behov, end gå op i det? Hvad mener du?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 10,
+      "before": "'Den sande filosof ville foragt dem, vil jeg mene.'",
+      "after": "»Jeg vil mene, at den virkelige filosof ville se ned på den slags.«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 13,
+      "before": "'I disse anliggender kan filosoffer — mere end nogen andre — ses adskille sjælen fra kroppens indflydelse.'",
+      "after": "»I den slags spørgsmål kan man på alle mulige måder se, at filosoffer mere end andre mennesker skiller sjælen fra dens forbindelse med kroppen.«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 15,
+      "before": "'Imens mener resten af verden, at en person, der ingen glæde finder i kropslige ting, ikke virkelig lever — at den, der er ligeglad med sådanne nydelser, lige så godt kan være død.'",
+      "after": "»Men resten af verden mener, Simmias, at livet ikke er værd at leve for den, der ikke oplever nydelse og ikke tager del i kroppens glæder. Den, der er ligeglad med dem, er efter deres mening så godt som død.«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 17,
+      "before": "'Hvad så med jagten på viden? Er kroppen en hjælp eller en hindring? Jeg mener: rummer synet og hørelsen nogen sandhed? Er de ikke — som digterne altid fortæller os — upålidelige vidner? Og hvis selv vores bedste sanser er unøjagtige, hvad med resten?'",
+      "after": "»Hvad skal vi så sige om selve det at få viden? Hjælper kroppen os, eller står den i vejen, hvis vi lader den tage del i undersøgelsen? Jeg mener: Giver synet og hørelsen os sandheden? Er de ikke upålidelige vidner, sådan som digterne bliver ved med at sige? Og hvis selv de er unøjagtige og uklare, hvad skal vi så sige om de andre sanser? Du er vel enig i, at synet og hørelsen er de bedste?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 19,
+      "before": "'Hvornår når sjælen da sandheden? Når hun forsøger at undersøge noget sammen med kroppen, bliver hun tydeligt bedraget.'",
+      "after": "»Hvornår når sjælen så frem til sandheden? Når den prøver at undersøge noget sammen med kroppen, bliver den jo tydeligvis vildledt.«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 21,
+      "before": "'Så den sande virkelighed må gribes af tanken alene, hvis den overhovedet kan gribes?'",
+      "after": "»Må det, der virkelig er til, så ikke vise sig for sjælen gennem tænkningen, hvis det overhovedet skal vise sig?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 23,
+      "before": "'Og tanken fungerer bedst, når sindet samler sig i sig selv, uforstyrret af lyde, syner, smerte eller nydelse — når hun tager afsked med kroppen og har så lidt som muligt med den at gøre, rækkende mod det rene væren uden kropslig sans eller begær?'",
+      "after": "»Og tænker sjælen ikke bedst, når den er samlet om sig selv og ikke bliver forstyrret af lyde, synsindtryk, smerte eller nogen form for nydelse? Når den tager afsked med kroppen og har så lidt med den at gøre som muligt, når den er fri for kropslige sanseindtryk og begær og stræber efter det, der virkelig er til?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 25,
+      "before": "'Og i dette vanærer filosoffen kroppen — hans sjæl flygter fra den og længes efter at være alene?'",
+      "after": "»På den måde viser filosoffen altså ringeagt for kroppen. Hans sjæl flygter fra den og ønsker at være alene, helt for sig selv?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 27,
+      "before": "'Nu, Simmias — findes der noget, der hedder absolut retfærdighed?'",
+      "after": "»Men der er også noget andet, Simmias. Findes der en retfærdighed i sig selv, eller gør der ikke?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 29,
+      "before": "'Og absolut skønhed? Og absolut godhed?'",
+      "after": "»Og en skønhed i sig selv og en godhed i sig selv?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 33,
+      "before": "'Har du nogensinde opfattet dem gennem nogen kropslig sans? Jeg taler ikke kun om disse, men om absolut storhed, sundhed, styrke — den sande essens af alting. Er deres virkelighed nogensinde blevet opfattet gennem kropslige organer? Eller opnår den tætteste tilnærmelse til at kende deres sande natur den, der ordner sit mentale syn så præcist, at han griber den nøjagtige essens af hver ting, han betragter?'",
+      "after": "»Eller har du nogensinde opfattet dem med nogen anden af kroppens sanser? Jeg mener ikke kun de ting, men også størrelse, sundhed og styrke i sig selv — ja, enhver tings væsen, det den virkelig er. Har du nogensinde opfattet det gennem kroppens sanseorganer? Eller er det snarere den, der bruger sit intellekt til at danne sig den mest præcise forståelse af hver enkelt tings væsen, som kommer nærmest en viden om, hvad tingene virkelig er?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 35,
+      "before": "'Og den, der opnår den reneste viden, går til hver ting med sindet alene — uden at blande synet eller nogen anden sans ind i fornuften, men bruger sindets rene lys til at søge ind i den rene sandhed om hver ting. Den person, der så vidt muligt har befriet sig fra øjne, ører og hele kroppen — som efter hans mening er forstyrrende elementer, der fordærver sjælen og forhindrer hende i at nå sandhed og viden — hvis ikke en sådan person, hvem vil da opnå kendskab til det sande væren?'",
+      "after": "»Og den reneste viden får den, der undersøger hver ting med tanken alene. Han blander hverken synet eller nogen anden sans ind i sin tænkning, men bruger tankens eget klare lys til at søge sandheden om hver enkelt ting. Han frigør sig så vidt muligt fra øjne og ører og så at sige fra hele kroppen. For han mener, at kroppen forstyrrer sjælen og ved sin påvirkning hindrer den i at nå frem til sandhed og viden. Hvem skulle have mulighed for at få viden om det, der virkelig er til, hvis ikke netop han?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 36,
+      "before": "'Hvad du siger, rummer en vidunderlig sandhed, Sokrates,' svarede Simmias.",
+      "after": "»Der ligger en vidunderlig sandhed i det, du siger, Sokrates,« svarede Simmias.",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 37,
+      "before": "'Og når ægte filosoffer overvejer alt dette, vil de ikke sige noget i retning af: »Har vi ikke fundet en tankegang, der fører til denne konklusion — at så længe vi er i kroppen, og sjælen er forurenet af kroppens onder, vil vi aldrig fuldt opnå det, vi begærer, nemlig sandheden? Kroppen er en endeløs kilde til besvær: den kræver mad; den rammes af sygdomme, der afbryder vores søgen efter sandhed; den fylder os med begær, frygt, fantasier af enhver art og endeløs tåbelighed — så meget, at den, som folk siger, berøver os selve evnen til at tænke. Hvorfra kommer krige og konflikter? Fra kroppen og dens begær. Krige skyldes kærlighed til penge, og penge må skaffes for kroppens skyld. På grund af alt dette har vi ingen tid til filosofi. Og værst af alt — selv når vi er frie og vender os mod alvorlig tænkning, trænger kroppen sig ind og skaber kaos i vores undersøgelser, blænder os så vi ikke kan se sandheden,«'",
+      "after": "»Når virkelige filosoffer overvejer alt det, vil de så ikke nå frem til en tanke, som de kunne udtrykke nogenlunde sådan: ‘Har vi ikke fundet en vej gennem tankerne, som ser ud til at føre os og vores argument frem til, at vi ikke får vores ønske opfyldt, så længe vi er i kroppen, og sjælen er påvirket af kroppens onder? Og det, vi ønsker, er sandheden. Kroppen giver os endeløst besvær alene ved at kræve mad. Desuden rammes den af sygdomme, som standser os i vores søgen efter det, der virkelig er til. Den fylder os med forelskelser, begær, frygt, alle mulige forestillinger og endeløs tåbelighed. Som man siger, fratager den os ligefrem evnen til overhovedet at tænke. Hvor kommer krige, kampe og indre stridigheder fra, hvis ikke fra kroppen og dens begær? Krige skyldes begæret efter penge, og pengene skal skaffes for kroppens skyld og til at tjene den. Alle disse hindringer gør, at vi ikke har tid til filosofi. Og til sidst det værste: Selv når vi har ro og giver os til at tænke over noget, trænger kroppen sig hele tiden på. Den skaber uro og forvirring i vores undersøgelser og gør os så fortumlede, at vi ikke kan se sandheden.",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 38,
+      "before": "'»Det er bevist af erfaring, at hvis vi vil have ren viden, må vi befries fra kroppen — sjælen må skue tingene, som de virkelig er, alene. Først da vil vi opnå den visdom, vi hævder at elske — ikke i livet, men efter døden. For hvis sjælen ikke kan have ren viden, mens den er knyttet til kroppen, kan viden enten slet ikke opnås, eller kun efter døden — når sjælen endelig er adskilt fra kroppen og eksisterer alene. I dette nuværende liv kommer vi nærmest viden, når vi har mindst mulig kontakt med kroppen og holder os rene, indtil Gud finder det for godt at frigøre os. Befriet fra kroppens dårskab skal vi være rene og samtale med det rene og kende det klare lys overalt — som intet andet er end sandhedens lys. De urene har ikke adgang til det rene.« Det er den slags ting, Simmias, som sande videnselskere ikke kan lade være med at sige til hinanden. Er du ikke enig?'",
+      "after": "Erfaringen har vist os, at hvis vi vil have ren viden om noget, må vi være fri for kroppen. Sjælen må selv betragte tingene, som de er i sig selv. Så kan vi opnå den visdom, vi ønsker og siger, at vi elsker — efter døden, ikke mens vi lever. For hvis sjælen ikke kan få ren viden, så længe den er sammen med kroppen, må ét af to være tilfældet: Enten er viden helt uopnåelig, eller også kan vi først opnå den efter døden. Først da bliver sjælen skilt fra kroppen og eksisterer alene, helt for sig selv. I dette liv kommer vi, tror jeg, nærmest viden, når vi har mindst muligt med kroppen at gøre og ikke lader os fylde af dens natur, men holder os rene, indtil guden selv vil befri os. Når vi sådan er sluppet fri af kroppens tåbelighed, bliver vi rene og kan være sammen med det rene. Så vil vi selv overalt erkende det klare lys, som netop er sandhedens lys.’ For det urene må ikke nærme sig det rene. Sådan noget må de, der virkelig elsker viden, tænke og sige til hinanden, Simmias. Er du ikke enig?«",
+      "reason": "Modern idiomatic Danish; restore philosophical distinctions and source details."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 40,
+      "before": "'Men hvis dette er sandt, min ven, er der stor grund til at håbe, at dér, hvor jeg er på vej hen — når jeg når rejsens mål — vil jeg endelig opnå det, jeg har stræbt efter hele mit liv. Så jeg drager af sted med glæde, og det bør enhver, der tror, at deres sind er forberedt og renset.'",
+      "after": "»Men hvis det er sandt, min ven, har jeg god grund til at håbe, at jeg ved slutningen af den rejse, jeg nu skal ud på, vil opnå det, jeg har søgt hele mit liv. Derfor tager jeg af sted med glæde. Og det gør ikke kun jeg, men også enhver anden, der tror, at hans sind er gjort klar, og at han på en måde er blevet renset.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 42,
+      "before": "'Og hvad er renselse andet end adskillelsen af sjæl fra krop, som jeg sagde? Sjælens vane med at samle sig fra alle dele af kroppen ind i sig selv — at bo på sit eget sted alene, både i dette liv og det næste, så vidt hun kan? Sjælens befrielse fra kroppens lænker?'",
+      "after": "»Og hvad er renselse andet end det, jeg talte om før: at skille sjælen fra kroppen? At vænne sjælen til at trække sig tilbage fra alle dele af kroppen og samle sig om sig selv, så den så vidt muligt kan være alene på sit eget sted, både i dette liv og i det næste? At befri sjælen fra kroppens lænker?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 46,
+      "before": "'Og sande filosoffer — de alene — søger altid at frigøre sjælen. Er adskillelsen og befrielsen af sjælen fra kroppen ikke deres særlige studium?'",
+      "after": "»Og de virkelige filosoffer — og kun de — søger hele tiden at befri sjælen. Er det ikke netop deres særlige opgave at skille sjælen fra kroppen og gøre den fri?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 48,
+      "before": "'Og som jeg sagde i begyndelsen, ville det være absurd, at mennesker, der har øvet sig i at leve så tæt på døden som muligt, skulle klage, når døden faktisk kommer.'",
+      "after": "»Som jeg sagde i begyndelsen, ville det være en latterlig modsigelse, hvis mennesker øvede sig i at leve i en tilstand så tæt på døden som muligt og så alligevel klagede, når døden kom.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 49,
+      "before": "'Tydeligt.'",
+      "after": "»Jo, helt klart.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 50,
+      "before": "'Sande filosoffer, Simmias, øver sig altid i at dø. Døden er mindre skræmmende for dem end for nogen andre. Tænk over det: Hvis de i enhver henseende har været kroppens fjende og kun ønsket at være alene med sjælen — når dette ønske opfyldes, hvor selvmodsigende ville det ikke være at skælve og klage i stedet for at glæde sig over at drage til et sted, hvor de håber at finde det, de har begæret hele livet — visdom — og slippe af med den ledsager, de har foragtet. Mange mennesker er villigt draget til underverdenen af håbet om at gense en elsket. Vil en sand visdomselsker — dybt overbevist om, at kun i den næste verden kan han nyde visdom i sin renhed — ikke drage af sted med glæde? Det vil han bestemt, min ven, hvis han er sand filosof. Han vil være fast overbevist om, at dér, og kun dér, kan visdom findes i sin rene form. Hvis dette er sandt, ville det være fuldstændig absurd at frygte døden.'",
+      "after": "»De virkelige filosoffer øver sig hele tiden i at dø, Simmias. Derfor er døden mindre skræmmende for dem end for nogen andre. Se sådan på det: De har på alle måder været kroppens fjender og ønsket at være alene med sjælen. Hvor selvmodsigende ville det så ikke være at skælve og klage, når de får deres ønske opfyldt? Burde de ikke i stedet glæde sig over at tage til det sted, hvor de håber at få det, de ønskede sig i livet — visdom — og samtidig slippe for deres fjendes selskab? Mange har været villige til at drage til underverdenen i håb om dér at gense og tale med en elsket fra dette liv, en hustru eller en søn. Skulle den, der virkelig elsker visdom og er lige så fast overbevist om, at han kun i underverdenen kan få fuldt udbytte af den, så alligevel sørge over at dø? Vil han ikke tage af sted med glæde? Jo, min ven, hvis han virkelig er filosof. For han vil være fast overbevist om, at det er dér, og kun dér, han kan finde visdommen i dens rene form. Hvis det er rigtigt, ville det, som jeg sagde, være helt absurd, hvis han var bange for døden.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 52,
+      "before": "'Og når du ser en mand, der ræddes ved dødens komme, er det ikke tilstrækkeligt bevis for, at han ikke er en visdomselsker, men en kropselsker — og sandsynligvis også elsker af penge eller magt, eller begge?'",
+      "after": "»Når du ser en mand, der klager, fordi døden nærmer sig, er hans modvilje så ikke bevis nok på, at det er kroppen, han elsker, og ikke visdommen? Og sandsynligvis elsker han også penge eller magt — eller begge dele?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 54,
+      "before": "'Og er mod, Simmias, ikke en egenskab, der særligt tilhører filosoffen?'",
+      "after": "»Og er mod ikke en egenskab, der især kendetegner filosoffen, Simmias?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 56,
+      "before": "'Og besindighed — som selv almindelige mennesker forstår som kontrol over lidenskaberne og overlegenhed over dem — tilhører besindighed ikke kun dem, der foragter kroppen og lever for filosofien?'",
+      "after": "»Så er der besindighed. Selv almindelige mennesker mener, at den består i at styre og beherske sine lidenskaber og være herre over dem. Er besindighed ikke en god egenskab, som kun tilhører dem, der ser ned på kroppen og bruger deres liv på filosofi?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 62,
+      "before": "'Og modige mennesker trodser kun døden, fordi de frygter noget værre?'",
+      "after": "»Og står de modige ikke døden i møde, fordi de frygter endnu større onder?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 64,
+      "before": "'Så alle undtagen filosoffer er modige kun af frygt — modige, fordi de er feje. En mærkelig form for mod.'",
+      "after": "»Så alle andre end filosofferne er kun modige af frygt, fordi de er bange. Men det er vel mærkeligt, at nogen skulle være modig af frygt, fordi han er fej?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 66,
+      "before": "'Og gælder det ikke også besindigheden? Folk er besindige, fordi de er ubesindige — hvilket lyder som en modsigelse, men det er præcis, hvordan denne tåbelige besindighed fungerer. De frygter at miste visse nydelser, så de afholder sig fra andre, fordi de er overvældet af de første. At blive besejret af nydelse kaldes ubesindighed, men deres version af at »besejre nydelse« betyder faktisk at blive besejret af en anden nydelse. Det er, hvad jeg mener, når jeg siger, de er gjort besindige gennem ubesindighed.'",
+      "after": "»Og er det ikke præcis det samme med de besindige? De er besindige, fordi de mangler besindighed. Det kan lyde selvmodsigende, men sådan fungerer denne tåbelige form for besindighed. Der er nogle nydelser, de er bange for at miste. Fordi de ønsker at beholde dem, afstår de fra andre nydelser. De behersker altså nogle lyster, fordi de er i andre lysters magt. Normalt kalder man det mangel på besindighed, når nogen er i nydelsens magt. Men for dem består det at overvinde nydelsen netop i at lade sig overvinde af nydelsen. Det er det, jeg mener, når jeg siger, at de på en måde bliver besindige gennem deres mangel på besindighed.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 68,
+      "before": "'Men at bytte én frygt eller nydelse eller smerte for en anden — større for mindre, som var de mønter — er ikke sand dyds udveksling. Der er kun én sand valuta, Simmias, som alt bør byttes for: visdom. Kun i bytte for visdom, og i selskab med visdom, bliver noget virkelig købt eller solgt — hvad enten det er mod, besindighed eller retfærdighed. Al sand dyd er visdoms ledsager, uanset hvilke nydelser eller smerter eller rædsler der følger med. Men dyd sammensat af sådanne ting, byttet frem og tilbage uden visdom, er blot en skygge af dyd — uden reel frihed, sundhed eller sandhed. Sand dyd er renselse fra alle disse ting, og besindighed, retfærdighed, mod og visdom selv er renselsens midler. Mysteriernes grundlæggere synes at have haft en reel mening, da de i deres symbolske sprog sagde, at den, der går urenset ind i underverdenen, vil ligge i mudderet, mens den rensede vil bo hos guderne.'",
+      "after": "»Men at bytte én frygt, nydelse eller smerte for en anden, større for mindre, som om de var mønter, er ikke sådan, man får virkelig gode egenskaber. Kære Simmias, findes der ikke én ægte mønt, som alt bør veksles til? Det er visdommen. Kun i bytte for den og sammen med den bliver noget virkelig købt eller solgt, hvad enten det er mod, besindighed eller retfærdighed. Hører alle virkelig gode egenskaber ikke sammen med visdom, uanset om der følger frygt, nydelse eller andre lignende goder eller onder med? De egenskaber, der blot består af sådanne goder, som byttes indbyrdes uden visdom, er kun skygger af gode egenskaber. De rummer hverken frihed, sundhed eller sandhed. Ved den rette udveksling renser man sig derimod for alt dette. Besindighed, retfærdighed, mod og selve visdommen er denne renselse. De, der grundlagde mysterierne, ser ud til at have ment noget virkeligt og ikke bare talt vrøvl, da de for længe siden sagde i billedsprog, at den, der kommer uren og uindviet til underverdenen, skal ligge i mudder, mens den, der kommer renset og indviet, skal bo hos guderne.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 69,
+      "before": "'For »mange bærer thyrsosen,« som de siger i mysterierne, »men få er virkelig indviede« — hvilket, som jeg forstår det, betyder: få er sande filosoffer. Jeg har brugt hele mit liv på at forsøge at blive talt med blandt dem. Om jeg er lykkedes, vil jeg snart vide med sikkerhed, med Guds vilje, når jeg ankommer til den anden verden. Det er min overbevisning. Derfor fastholder jeg, Simmias og Kebes, at jeg har ret i ikke at sørge over at forlade jer og mine herrer i denne verden, for jeg tror, jeg vil finde lige så gode herrer og venner i den næste. De fleste tror ikke dette — så hvis jeg kan give jer et mere overbevisende forsvar end det, jeg gav mine athenske dommere, er det godt.'",
+      "after": "»For som man siger i mysterierne: ‘Mange bærer den hellige stav, men få er virkelig indviede.’ Med det sidste mener de efter min forståelse de virkelige filosoffer. Hele mit liv har jeg efter bedste evne prøvet at finde en plads blandt dem. Om jeg har søgt på den rigtige måde, og om det er lykkedes, vil jeg snart få at vide, hvis guden vil, når jeg selv kommer til den anden verden. Det tror jeg i hvert fald. Derfor mener jeg, Simmias og Kebes, at det er med rette, jeg hverken sørger eller klager over at skulle forlade jer og mine herrer her i verden. Jeg tror nemlig, at jeg vil finde lige så gode herrer og venner i den anden verden. Men det tror de fleste ikke på. Så hvis mit forsvar overbeviser jer bedre, end det overbeviste dommerne i Athen, vil det være godt.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 70,
+      "before": "Kebes svarede: 'Jeg er enig i det meste af, hvad du siger, Sokrates. Men når det gælder sjælen, er folk tilbøjelige til at være skeptiske. De frygter, at når sjælen forlader kroppen, går hun ingen steder hen — at hun på selve dødsdagen forgår og opløses som røg eller damp og forsvinder i intet det øjeblik, hun frigøres. Hvis sjælen kunne samle sig selv efter at have undsluppet de onder, du beskriver, ville der være god grund til at håbe, du har ret. Men at bevise, at sjælen fortsætter med at eksistere efter døden, med nogen kraft eller intelligens — det kræver store argumenter og mange beviser.'",
+      "after": "Kebes svarede: »Jeg er enig i det meste af det, du siger, Sokrates. Men når det gælder sjælen, har folk svært ved at tro dig. De frygter, at den ikke findes noget sted, når den har forladt kroppen, men går til grunde og ophører med at eksistere på selve dødsdagen. At den i samme øjeblik, den bliver frigjort fra kroppen, spredes som røg eller luft og forsvinder ud i intet. Hvis den blot kunne samle sig om sig selv, efter at den var sluppet fri af de onder, du taler om, ville der være god grund til at håbe, at du har ret, Sokrates. Men det kræver bestemt grundige argumenter og mange beviser at vise, at et menneskes sjæl stadig findes efter døden og har nogen kraft eller evne til at tænke.«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 71,
+      "before": "'Sandt, Kebes,' sagde Sokrates. 'Skal jeg foreslå, at vi drøfter sandsynlighederne?'",
+      "after": "»Det er rigtigt, Kebes,« sagde Sokrates. »Skulle vi tale lidt om, hvor sandsynligt det er?«",
+      "reason": "Full source argument in modern Danish, with omissions restored."
+    }
+  ],
+  "englishChanges": [],
+  "integration": "Prepared content only. No activation, upload, merge or release. Claude owns integration.",
+  "notes": [
+    "Chapters 3–9 retained and not yet editorially reviewed.",
+    "Chapter 2:69 thyrsus rendered as the holy staff for accessibility; original ritual reference retained.",
+    "Historical claims and dialogue viewpoints retained without endorsement."
+  ]
+}
