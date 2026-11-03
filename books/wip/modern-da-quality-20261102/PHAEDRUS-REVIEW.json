@@ -1,0 +1,283 @@
+{
+  "bookId": "phaedrus",
+  "status": "editorial_in_progress",
+  "reviewedChapters": [
+    1,
+    2
+  ],
+  "reviewedParagraphs": 41,
+  "totalParagraphs": 408,
+  "unreviewedChapters": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "nativeReview": "pending_user_arranges",
+  "releasePolicy": {
+    "mode": "prepare_only",
+    "releaseOwner": "Claude",
+    "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
+  },
+  "sourceBlobs": {
+    "original-en": "cc04b0a462b25faf04d5c932023d06f9a489c8c5",
+    "modern-en": "b6f7a6917d67563dbac4bb1fbf9dfc1feae0ae58",
+    "modern-da": "e568606fcdcf0bb3e788c55e7fd643b933f95638"
+  },
+  "changes": [
+    {
+      "chapter": 1,
+      "paragraph": 2,
+      "before": "FAIDROS: Jeg kommer fra Lysias, søn af Kefalos, og skal ud på en spadseretur uden for bymuren. Jeg har siddet hos ham hele morgenen, og vores fælles ven Akumenos siger, det er langt mere forfriskende at gå i det fri end at være lukket inde indendørs.",
+      "after": "FAIDROS: Jeg kommer fra Lysias, Kefalos' søn, og vil gå en tur uden for bymuren. Jeg har siddet hos ham hele morgenen, og vores fælles ven Akumenos siger, at det er langt mere forfriskende at gå i det fri end inde i en søjlegang.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 4,
+      "before": "FAIDROS: Ja, han boede hos Epikrates, hjemme hos Morychos i det hus, der ligger nær Den Olympiske Zeus' tempel.",
+      "after": "FAIDROS: Ja, han boede hos Epikrates i Morychos' hus, det, der ligger tæt ved den olympiske Zeus' tempel.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 5,
+      "before": "SOKRATES: Og hvordan underholdt han dig? Jeg går vel ikke fejl, hvis jeg formoder, at Lysias bød dig på et talegilde?",
+      "after": "SOKRATES: Og hvordan underholdt han jer? Jeg gætter på, at Lysias bød jer på et festmåltid af taler?",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 6,
+      "before": "FAIDROS: Det skal du få at høre, hvis du kan undvære tiden til at følges med mig.",
+      "after": "FAIDROS: Det får du at høre, hvis du har tid til at gå med mig.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 7,
+      "before": "SOKRATES: Skulle jeg ikke regne en samtale mellem dig og Lysias som »noget af højere vigtighed,« som jeg vist kan sige med Pindars ord, »end al verdens forretninger«?",
+      "after": "SOKRATES: Skulle jeg ikke mene, at din samtale med Lysias er »vigtigere end nogen anden beskæftigelse«, for at låne Pindars ord?",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 10,
+      "before": "FAIDROS: Min historie, Sokrates, er lige noget for dig — kærlighed var emnet. Eller en slags kærlighed i det mindste: Lysias har skrevet et stykke om en smuk ung mand, der bliver bejlet til, men ikke af en elsker. Den raffinerede pointe er, at han argumenterer for, at den ikke-elskende bør foretrækkes for den elskende.",
+      "after": "FAIDROS: Det er lige noget for dig, Sokrates. Vi talte om kærlighed, i en vis forstand i hvert fald. Lysias har skrevet om en smuk ung mand, som nogen forsøger at forføre, men uden at være forelsket i ham. Det er pointen: Han argumenterer snedigt for, at man skal foretrække den, der ikke er forelsket, frem for den, der er.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 11,
+      "before": "SOKRATES: Storartet af ham! Bare han nu også ville påstå, at den fattige bør foretrækkes for den rige, og den gamle for den unge — så ville han tale på vegne af mig og mange andre, og hans ord ville være sandt forfriskende, en velgerning mod offentligheden. Jeg længes så meget efter at høre hans tale, at selv om du gik hele vejen til Megara og så vendte om ved muren, som Herodikos foreskriver, uden at gå ind, ville jeg holde dig med selskab.",
+      "after": "SOKRATES: Hvor storsindet af ham! Jeg ville ønske, han også sagde, at man skulle foretrække den fattige frem for den rige og den gamle frem for den unge. Så ville det passe på mig og mange andre. Hans ord ville virkelig være forfriskende, og han ville gøre alle en tjeneste. Jeg er så ivrig efter at høre talen, at jeg vil følge dig, selv hvis du går helt til Megara og vender om ved muren uden at gå ind, sådan som Herodikos anbefaler.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 12,
+      "before": "FAIDROS: Hvad mener du, Sokrates? Hvordan kan du forestille dig, at min utrænede hukommelse kan yde retfærdighed til et forfinet værk, som tidens største retoriker har brugt lang tid på at sammensætte? Det kan jeg umuligt. Jeg ville give meget, hvis jeg kunne.",
+      "after": "FAIDROS: Hvad mener du, kære Sokrates? Hvordan kan du tro, at min utrænede hukommelse kan gengive et gennemarbejdet værk, som tidens største taler har brugt lang tid på at skrive? Det kan jeg bestemt ikke, selv om jeg ville give meget for at kunne.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 13,
+      "before": "SOKRATES: Jeg tror, jeg kender Faidros omtrent lige så godt, som jeg kender mig selv, og jeg er ganske sikker på, at Lysias ikke fremsagde den tale for ham bare én gang. Han fik den gentaget igen og igen, og Lysias var gerne til tjeneste. Til sidst, da heller ikke det var nok, fik Faidros fat i bogen og pløjede sig gennem de afsnit, han mest ville se — det optog ham hele morgenen. Da han så var træt af at sidde, gik han ud at spadsere. Og ved hunden, jeg tror han havde lært hele talen udenad, før han forlod stedet, medmindre den var usædvanligt lang. Han gik uden for muren for at øve sin lektie. Der mødte han en ligesindet ven af taler med samme svaghed, og han glædede sig — »nu,« tænkte han, »har jeg en partner i mine fester.« Han inviterede manden med på sin spadseretur. Men da hans ledsager bad ham om at fremsige stykket, gjorde han sig kostbar og sagde: »Åh, det kan jeg umuligt,« som om han var modvillig — selvom han ville have tvunget ham til at høre det før eller siden, hvis den anden virkelig havde nægtet at lytte. Så, Faidros, gør nu bare det, du vil gøre alligevel.",
+      "after": "SOKRATES: Jeg tror, jeg kender Faidros omtrent lige så godt som mig selv. Og jeg er sikker på, at Lysias ikke kun læste sin tale for ham én gang, men igen og igen. Han insisterede på at høre den mange gange, og Lysias gjorde ham gerne den tjeneste. Da det til sidst heller ikke var nok, fik han fat i teksten og læste de steder, han især ville se. Det brugte han hele morgenen på. Da han blev træt af at sidde, gik han ud for at gå en tur. Men ved hunden, jeg tror ikke, han gik, før han kunne hele talen udenad, medmindre den var usædvanligt lang. Han gik uden for muren for at øve sig. Dér fik han øje på en anden, der elskede taler og havde samme svaghed, og han blev glad: »Nu får jeg selskab til festen,« tænkte han og inviterede ham med på turen. Men da denne taleelsker bad ham gengive talen, gjorde han sig kostbar og sagde: »Nej, det kan jeg ikke,« som om han ikke havde lyst. Havde den anden nægtet at lytte, ville han dog før eller siden være blevet tvunget til det, hvad enten han ville eller ej. Så bed nu Faidros gøre det med det samme, som han snart gør, uanset om han bliver bedt om det.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 14,
+      "before": "FAIDROS: Jeg ser, du ikke giver mig fred, før jeg på en eller anden måde siger noget. Så jeg får hellere gøre mit bedste.",
+      "after": "FAIDROS: Jeg kan se, at du ikke giver mig fred, før jeg får sagt noget på den ene eller den anden måde. Så jeg må hellere gøre mit bedste.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 15,
+      "before": "SOKRATES: Meget klogt bemærket.",
+      "after": "SOKRATES: Det har du helt ret i.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 16,
+      "before": "FAIDROS: Godt, det skal jeg. Men ærligt talt, Sokrates, jeg har ikke lært de præcise ord — det har jeg ikke. Alligevel har jeg et generelt greb om hans argument, og jeg vil sammenfatte de punkter, hvor han skelnede den elskende fra den ikke-elskende. Lad mig begynde forfra.",
+      "after": "FAIDROS: Så gør jeg det. Men tro mig, Sokrates, jeg har ikke lært ordene udenad. Nej, jeg har bare et overblik over det, han sagde, og kan sammenfatte hans pointer om forskellen mellem den, der er forelsket, og den, der ikke er. Lad mig begynde fra begyndelsen.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 17,
+      "before": "SOKRATES: Ja, min ven — men først skal du vise mig, hvad du har gemt i venstre hånd under kappen. Den rulle dér er, formoder jeg, selve talen. Hvor højt jeg end elsker dig, vil jeg ikke have, du træner din hukommelse på min bekostning, når Lysias selv er lige her.",
+      "after": "SOKRATES: Ja, min kære, men vis mig først, hvad du har i venstre hånd under kappen. Jeg har en mistanke om, at den rulle er selve talen. Hvor meget jeg end holder af dig, skal du ikke tro, at du får lov til at øve din hukommelse på min bekostning, når vi har Lysias selv lige her.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 18,
+      "before": "FAIDROS: Godt, du har afsløret mig. Jeg ser, der ikke er nogen mulighed for at øve min kunst på dig. Men hvis jeg skal læse op, hvor vil du så gerne sidde?",
+      "after": "FAIDROS: Så er det godt! Jeg kan se, at jeg ikke får lov til at øve mig på dig. Men hvis jeg skal læse op, hvor vil du så gerne sidde?",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 20,
+      "before": "FAIDROS: Heldigvis har jeg ikke sandaler på, og du har jo aldrig nogen. Vi kan vade i bækken og køle vores fødder i vandet. Det er den letteste rute, og midt på dagen om sommeren er det langtfra ubehageligt.",
+      "after": "FAIDROS: Heldigvis har jeg ikke sandaler på, og det har du jo aldrig. Så kan vi gå i bækken og køle fødderne i vandet. Det er den letteste vej, og midt på dagen om sommeren er det bestemt ikke ubehageligt.",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 22,
+      "before": "FAIDROS: Ser du det høje platantræ derhenne?",
+      "after": "FAIDROS: Kan du se det højeste platantræ derhenne?",
+      "reason": "Modern spoken Danish; preserve teasing tone, details and conceptual distinction between being in love and not being in love."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 24,
+      "before": "FAIDROS: Dér er skygge og en mild brise, og græs at sidde eller ligge i.",
+      "after": "FAIDROS: Der er skygge og en mild brise, og græs, vi kan sidde eller ligge på.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 25,
+      "before": "SOKRATES: Før an.",
+      "after": "SOKRATES: Så gå videre.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 26,
+      "before": "FAIDROS: Sig mig, Sokrates — er det ikke et sted her omkring, hvor Boreas siges at have bortført Oreithyia fra Ilissos' bredder?",
+      "after": "FAIDROS: Sig mig, Sokrates, var det ikke et sted heromkring, at Boreas efter sigende bortførte Oreithyia fra Ilissos' bred?",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 27,
+      "before": "SOKRATES: Sådan lyder overleveringen.",
+      "after": "SOKRATES: Jo, sådan fortæller man.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 28,
+      "before": "FAIDROS: Er det her, det skete? Den lille bæk er så dejligt klar og lys — jeg kan næsten forestille mig pigerne, der leger her.",
+      "after": "FAIDROS: Var det lige her? Den lille bæk er så dejlig klar og lys. Jeg kan godt forestille mig, at unge piger legede her.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 29,
+      "before": "SOKRATES: Jeg tror, stedet ikke ligger lige her, men cirka en kvart mil nedstrøms, hvor man krydser over til Artemis-templet. Der står vist en slags alter for Boreas.",
+      "after": "SOKRATES: Jeg tror ikke, det var lige her, men omkring fire hundrede meter længere nede, hvor man går over til Artemis' tempel. Der er vist også et alter for Boreas på stedet.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 30,
+      "before": "FAIDROS: Det har jeg aldrig lagt mærke til. Men sig mig, Sokrates — tror du virkelig på denne fortælling?",
+      "after": "FAIDROS: Det har jeg aldrig lagt mærke til. Men fortæl mig nu, Sokrates: Tror du på den historie?",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 31,
+      "before": "SOKRATES: De vise tvivler, og jeg ville ikke være usædvanlig, hvis jeg også tvivlede. Jeg kunne komme med en rationel forklaring: Oreithyia legede med Farmakeia, da et pludseligt nordenvejr blæste hende over de nærliggende klipper, og fordi det var sådan, hun døde, sagde man, at Boreas havde bortført hende. Der er også uenighed om stedet — i en anden version af historien tog han hende fra Areopagos og ikke herfra. Jeg indrømmer, at disse allegoriske forklaringer er charmerende, men jeg misunder ikke den mand, der skal opfinde dem. Det kræver enormt arbejde og opfindsomhed. Når man først er begyndt, må man fortsætte med at genskabe Hippokentaurer og rædsomme Kimærer. Gorgoner og bevingede heste vælter ind, sammen med utallige andre utænkelige og uhyrlige skabninger. Og hvis han er skeptisk over for dem og prøver at reducere dem, én efter én, til sandsynlighedsregler, vil denne grove form for filosofi sluge enorme mængder tid. Jeg har ingen tid til den slags undersøgelser, og jeg skal sige dig hvorfor: Jeg må først kende mig selv, som indskriften i Delfi byder. At være nysgerrig efter ting, der ikke vedkommer mig, mens jeg stadig er uvidende om mig selv, ville være absurd. Så jeg tager afsked med alt det — den almindelige opfattelse er nok for mig. Som jeg sagde, vil jeg ikke vide om alt det her, men om mig selv: er jeg et væsen mere indviklet og opsvulmet af lidenskab end slangen Tyfon, eller et mildere og enklere væsen, som Naturen har givet en mere guddommelig og ydmyg skæbne? Men sig mig, min ven — er vi ikke nået frem til det platantræ, du førte mig hen til?",
+      "after": "SOKRATES: De kloge tvivler, så jeg ville ikke skille mig ud, hvis jeg tvivlede ligesom dem. Jeg kunne give en naturlig forklaring: Oreithyia legede med Farmakeia, da et vindstød fra nord blæste hende ud over klipperne i nærheden. Fordi hun døde på den måde, sagde man, at Boreas havde bortført hende. Der er dog uenighed om stedet. Ifølge en anden version blev hun taget fra Areopagos, ikke herfra. Jeg indrømmer gerne, at den slags billedlige forklaringer er fine, men jeg misunder ikke den, der skal finde på dem. Det kræver meget arbejde og opfindsomhed. Når man først er begyndt, må man også give en fornuftig forklaring på hestekentaurer og frygtelige kimærer. Så kommer gorgoner og vingede heste væltende og utallige andre ubegribelige, uhyrlige væsener. Hvis man tvivler på dem og vil gøre dem sandsynlige ét efter ét, tager den form for grovkornet filosofi meget lang tid. Jeg har ikke tid til den slags undersøgelser. Skal jeg fortælle dig hvorfor? Først må jeg kende mig selv, som indskriften i Delfi siger. Det ville være latterligt at være optaget af noget, der ikke angår mig, når jeg stadig ikke kender mig selv. Derfor lader jeg alt det ligge og stiller mig tilfreds med den almindelige opfattelse. Som jeg sagde, vil jeg undersøge mig selv, ikke de ting: Er jeg et uhyre, mere indviklet og fuldt af lidenskaber end slangen Tyfon? Eller er jeg et mildere og enklere væsen, som naturen har givet en mere guddommelig og beskeden skæbne? Men sig mig, min ven, er vi ikke nået til det platantræ, du ville føre os hen til?",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 33,
+      "before": "SOKRATES: Ved Hera, sikke et smukt hvilested — fyldt med sommerlyde og dufte. Her står det høje, brede platantræ, og kyskhedstræet i fuldt flor, der spreder den rigeste duft. Og bækken, der løber under platanen, er dejligt kold mod fødderne. At dømme efter de små offergaver og statuer må dette være et sted helliget Akheloos og Nymferne. Hvor er brisen herlig — så sød — og der er en skinger, sommerlig lyd i luften, der svarer cikadernes kor. Men det allerbedste er græsset, der skråner blidt som en pude til hovedet. Min kære Faidros, du har været en udmærket fører.",
+      "after": "SOKRATES: Ved Hera, sikke et dejligt hvilested, fuldt af sommerens lyde og dufte. Her står det høje platantræ med sine brede grene, og kyskhedstræet vokser højt og tæt, i fuld blomst og med den skønneste duft. Bækken under platantræet er dejligt kold om fødderne. At dømme efter udsmykningen og figurerne må stedet være helliget Acheloos og nymferne. Og hvor er brisen behagelig, så mild! En skarp, sommerlig lyd i luften svarer cikadernes kor. Men bedst af alt er græsset, der skråner blidt som en pude til hovedet. Kære Faidros, du har været en fremragende guide.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 34,
+      "before": "FAIDROS: Sikke et mærkværdigt væsen du er, Sokrates. På landet, som du siger, er du virkelig som en fremmed, der bliver ført af en guide. Krydser du nogensinde grænsen? Jeg tvivler på, du overhovedet sætter foden uden for byportene.",
+      "after": "FAIDROS: Du er altså et mærkeligt menneske, Sokrates. Her ude på landet er du virkelig som en fremmed, der bliver vist rundt af en guide, som du selv siger. Kommer du nogensinde uden for landets grænser? Jeg tror knap nok, du vover dig uden for byportene.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 35,
+      "before": "SOKRATES: Ganske rigtigt, min gode ven, og jeg håber, du vil tilgive mig, når du hører grunden: Jeg er en elsker af viden, og mændene i byen er mine lærere, ikke træerne eller landet. Skønt jeg vist tror, du har fundet en formular til at lokke mig ud af byen og ud på landet, som en sulten ko, man fører med en gren eller en frugtklase. Hold bare en bog op på samme måde, så kan du føre mig over hele Attika eller hvor som helst i verden. Og nu hvor vi er fremme, lægger jeg mig ned. Tag du den stilling, der passer dig bedst at læse i. Begynd.",
+      "after": "SOKRATES: Det er sandt, min ven, og jeg håber, du tilgiver mig, når du hører hvorfor. Jeg elsker at lære, og det er menneskerne i byen, der lærer mig noget, ikke træerne eller landskabet. Men jeg tror faktisk, du har fundet et tryllemiddel, der kan lokke mig ud af byen og ud på landet, som når man vifter med en gren eller en klase frugt foran en sulten ko. Hold blot en tekst op foran mig på samme måde, så kan du føre mig rundt i hele Attika og videre ud i verden. Nu er vi fremme, og jeg vil lægge mig ned. Find du den stilling, du bedst kan læse i. Begynd.",
+      "reason": "Modern spoken Danish; preserve full landscape/myth/self-knowledge details, repair calques and quarter-mile conversion, restore shrub height and density."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 1,
+      "before": "FAIDROS: Hør efter. Du kender min situation, og du ved, hvordan jeg synes, denne ordning kan blive til fordel for os begge. Jeg påstår, at jeg ikke bør afvises, blot fordi jeg ikke er din elsker. Elskere fortryder de venligheder, de har vist, så snart deres lidenskab køler af — men ikke-elskere, der er frie og under ingen tvang, når aldrig frem til et øjeblik med fortrydelse. De yder deres velgerninger efter deres faktiske evne, på den måde, der bedst tjener deres eget bedste. Hertil kommer, at elskere altid grubler over, hvordan deres kærlighed har fået dem til at forsømme deres egne sager og gøre tjenester for andre. Når de lægger disse tjenester sammen med alle de besværligheder, de har døjet, overbeviser de sig selv om, at de for længst rigeligt har betalt den elskede tilbage. Ikke-elskeren har ingen sådanne pinende erindringer. Han har ikke forsømt sine sager eller skændtes med sine slægtninge. Han har ingen klagepunkter at gøre op eller undskyldninger at finde på. Fri for alle disse besværligheder — hvorfor skulle han så ikke gøre det, der behager den elskede? Du kan indvende, at elskeren fortjener mere anerkendelse, fordi hans kærlighed antages at være større — han er villig til at sige og gøre ting, andre mennesker finder afskyelige, bare for at glæde sin elskede. Men hvis det er sandt, beviser det blot, at han vil foretrække enhver fremtidig kærlighed for den nuværende, og vil skade sin gamle kærlighed, hver gang den nye behager ham. Og i et anliggende af så uhyre vigtighed — hvordan kan en person have ret i at betro sig til nogen, der lider af en sygdom, som ingen erfaren person overhovedet ville prøve at kurere? Patienten indrømmer selv, at han ikke er ved sine fulde fem. Han erkender, at hans dømmekraft er forvirret, men siger, han ikke kan styre sig selv. Og hvis han nogensinde kom til besindelse, ville han så tro, at de begær, han havde, mens han var fra forstanden, var gode? Desuden er der langt flere ikke-elskere end elskere. Hvis du vælger de bedste blandt elskerne, har du få kandidater; men blandt ikke-elskerne er feltet langt bredere, og du er meget mere tilbøjelig til at finde en, der virkelig fortjener dit venskab. Hvis du frygter den offentlige mening og vil undgå skam, så overvej dette: elskeren, der altid antager, at andre mænd misunder ham, lige så meget som han selv misunder dem, vil sandsynligvis prale af sine sejre over for nogen og parade dem åbenlyst i sin stolthed — han vil have, at andre skal vide, hans anstrengelser ikke var spildte. Ikke-elskeren er mere herre over sig selv og bekymrer sig om virkelige goder snarere end om andres meninger. Hertil kommer, at elskeren som regel bemærkes eller ses følge efter den elskede (det er hans normale beskæftigelse), og når de blot ses udveksle et par ord, antager folk, at en eller anden kærlighedsaffære er ved at blive arrangeret eller mindet om. Men når ikke-elskere mødes, undrer ingen sig over hvorfor — folk accepterer, at samtale er naturlig, hvad enten motivet er venskab eller bare fornøjelse. Og hvis du bekymrer dig om venskabets ustadighed: I de fleste tilfælde ville et skænderi være et gensidigt tab, men i dette tilfælde vil du have givet det dyrebareste op, så du står til at miste mere. Det giver dig endnu mere grund til at frygte elskeren, eftersom hans frustrationer er konstante, og han altid forestiller sig, at alle sammensværger sig mod ham. Så han holder sin elskede væk fra selskab — han vil ikke have, at du omgås rige mænd, i tilfælde af at de overgår ham i rigdom, eller lærde mænd, i tilfælde af at de overgår ham i indsigt. Han er lige bange for enhver, der har nogen fordel over ham. Hvis han kan overtale dig til at bryde med disse forbindelser, står du tilbage uden en eneste ven i verden. Og hvis du har vid nok til at afvise ham af hensyn til dit eget bedste, må du skændes med ham. Men ikke-elskere, hvis succes kommer af ægte fortjeneste, vil ikke være jaloux på dine andre venner. Tværtimod vil de bære nag til enhver, der afviser dit venskab, og tage det som en fornærmelse mod dig — og se dem, der gør venskab med dig, som en gevinst, fordi venskab med andre normalt bringer mere kærlighed end fjendskab. Mange elskere er også blevet forelsket i en ung mands krop, før de kendte hans karakter eller hans omstændigheder, så når deres lidenskab er kølet, er det uvist, om de vil forblive hans venner. Ikke-elskere, der var venner i forvejen, oplever ikke, at deres venskab forringes af de gunst, de modtager. Mindet om dem holder sig hos dem og tjener som et løfte om mere godt at komme.",
+      "after": "FAIDROS: Hør nu. »Du kender min situation og ved, hvordan jeg mener, at dette forhold kan blive til fordel for os begge. Jeg mener ikke, du skal afvise mig, fordi jeg ikke er forelsket i dig. Når forelskelsen går over, fortryder den forelskede de tjenester, han har gjort. Den, der ikke er forelsket, er derimod fri og handler uden tvang, så han får aldrig grund til at fortryde. Han hjælper i det omfang, han kan, og på den måde, der bedst tjener hans egne interesser. De forelskede tænker desuden på, hvordan de på grund af kærligheden har forsømt deres egne forhold og gjort tjenester for andre. Når de lægger tjenesterne sammen med alle de lidelser, de har gennemgået, mener de, at de for længst har givet den elskede rigeligt til gengæld. Den, der ikke er forelsket, plages ikke af sådanne minder. Han har hverken forsømt sine egne forhold eller skændtes med sin familie. Han har ingen lidelser at gøre regnskab over og ingen undskyldninger at finde på. Når han er fri for alt det, hvorfor skulle han så ikke af egen fri vilje glæde den anden? Måske siger du, at den forelskede fortjener mere, fordi hans kærlighed regnes for større: Han vil sige og gøre ting, som andre afskyr, blot for at glæde den, han elsker. Men hvis det er sandt, beviser det kun, at han vil foretrække en ny forelskelse frem for den nuværende og skade sin tidligere elskede for at glæde den nye. Hvordan kan det desuden være rigtigt i så vigtig en sag at betro sig til en, der lider af en sygdom, som ingen erfaren person ville forsøge at helbrede? Han indrømmer jo selv, at han ikke er ved sine fulde fem og tænker forkert, men siger, at han ikke kan styre sig. Hvis han kom til fornuft, ville han så mene, at de ønsker, han havde, mens han var ude af sig selv, var gode? Der er også langt flere, som ikke er forelskede, end som er det. Vælger du den bedste blandt de forelskede, har du kun få at vælge mellem. Blandt de andre er udvalget større, og chancen for at finde en, der fortjener dit venskab, er langt bedre. Frygter du, hvad folk vil sige, og ønsker du at undgå kritik, vil den forelskede sandsynligvis prale med sine erobringer. Han tror altid, at andre konkurrerer lige så ivrigt med ham, som han gør med dem, og i sin stolthed viser han åbent sine sejre frem. Andre skal vide, at hans anstrengelser ikke har været forgæves. Den, der ikke er forelsket, har bedre kontrol over sig selv og søger det, der faktisk gavner ham, frem for andres anerkendelse. Den forelskede bliver desuden let bemærket, når han følger efter den, han elsker; det er jo det, han hele tiden gør. Hvis de bare udveksler et par ord, går folk ud fra, at de mødes om et kærlighedsforhold, som allerede findes eller er på vej. Men når mennesker, der ikke er forelskede, mødes, spørger ingen hvorfor. Alle ved, at det er naturligt at tale sammen, hvad enten det skyldes venskab eller blot fornøjelse. Frygter du, at venskabet kan ændre sig, så tænk også på dette: Ellers ville et brud kunne ramme jer begge, men her vil du have givet det mest værdifulde, du har, og derfor vil du lide det største tab. Du har altså særlig grund til at frygte den forelskede. Meget plager ham, og han forestiller sig hele tiden, at alle er imod ham. Derfor holder han den, han elsker, væk fra andre. Du må ikke være tæt på rige mænd, fordi de kan overgå ham i rigdom, eller på veluddannede mænd, fordi de kan være klogere end ham. Han frygter lige så meget enhver, der har en anden fordel frem for ham. Overtaler han dig til at bryde med dem, står du uden en eneste ven i verden. Er du fornuftig nok til at tage hensyn til dit eget bedste og afvise hans ønske, må du til gengæld skændes med ham. De, der ikke er forelskede, og som bliver foretrukket på grund af deres egenskaber, er derimod ikke jaloux på dine venner. De vil snarere være vrede på dem, der ikke vil omgås dig. De mener, at de sidste ser ned på dig, mens dine venner gavner dig. Venskab med andre vil jo snarere bringe dig kærlighed end had. Mange forelskede har desuden forelsket sig i en ung mands krop, før de kendte hans karakter eller livsforhold. Derfor ved man ikke, om de fortsat vil være hans venner, når lidenskaben er væk. Men hos dem, der ikke er forelskede og allerede var venner, svækkes venskabet ikke af den gunst, de får. De husker den tværtimod som et løfte om mere godt i fremtiden.",
+      "reason": "Full modern Danish revision preserving each argument; lover means one in love, repair future-love motive and English/Danish calques."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 2,
+      "before": "Hertil kommer, at jeg påstår, du sandsynligvis vil blive forbedret af mit selskab, mens elskeren kun vil ødelægge dig. Elskere roser dine ord og handlinger på alle de forkerte måder — dels fordi de er bange for at fornærme dig, dels fordi deres dømmekraft er sløret af lidenskab. Dette er de spil, kærligheden spiller. Den gør ting smertefulde for den skuffede elsker, som ikke ville smerte nogen anden. Den tvinger den heldige elsker til at rose ting, der ikke burde glæde ham. Så den elskede fortjener medlidenhed, ikke misundelse. Men hvis du lytter til mig, er dette, hvad du får: Jeg vil ikke kun være optaget af den øjeblikkelige fornøjelse, men også af den fremtidige fordel, fordi jeg ikke er slave af kærligheden, men herre over mig selv. Jeg vil ikke tage voldsom afsky over bagateller, og selv hvor anledningen er reel, vil jeg være langsom til at nære vrede. Jeg vil tilgive utilsigtede fornærmelser og forsøge at forhindre forsætlige. Det er kendetegnene på et venskab, der varer.",
+      "after": "Jeg mener desuden, at mit selskab vil gøre dig bedre, mens den forelskede vil forkæle dig og gøre dig dårligere. De forelskede roser nemlig dine ord og handlinger uden grund, dels fordi de er bange for at støde dig, dels fordi lidenskaben svækker deres dømmekraft. Sådan virker kærligheden: Den gør ting smertefulde for den afviste, som ikke gør ondt på andre, og får den, hvis kærlighed bliver gengældt, til at rose noget, han ikke burde glæde sig over. Derfor skal man snarere have medlidenhed med den elskede end misunde ham. Hvis du lytter til mig, vil jeg i vores forhold ikke kun tænke på glæden her og nu, men også på det, der gavner os senere. Jeg er nemlig herre over mig selv og ikke styret af forelskelse. Jeg vil ikke blive voldsomt vred over småting, og selv ved alvorlige anledninger vil min vrede vokse langsomt og kun lidt. Jeg vil tilgive det, du gør forkert uden at ville det, og forsøge at forebygge det, du gør med vilje. Det er tegn på et venskab, som vil holde.",
+      "reason": "Full modern Danish revision preserving each argument; lover means one in love, repair future-love motive and English/Danish calques."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 3,
+      "before": "Mener du, at kun en elsker kan være en stabil ven? Overvej: hvis det var sandt, ville vi tillægge sønner, fædre eller mødre ringe værdi — og vi ville aldrig have loyale venner, da vores kærlighed til dem ikke er rodfæstet i lidenskab, men i andre forbindelser. Desuden, hvis vi skal øse gunst over dem, der tigger højest, så bør vi efter samme logik altid gøre godt, ikke mod de mest dydige, men mod de mest desperate — de ville være de mest lettede og dermed de mest taknemmelige. Når du holder fest, bør du ikke invitere dine venner, men tiggere og tomme maver; de vil elske dig, opvarte dig, kredse om din dør og være de mest glade og taknemmelige og nedkalde velsignelser over dit hoved. Men du bør sikkert ikke skænke gunst til hvem som helst, der belejrer dig med bønner — kun til dem, der bedst kan gengælde dig. Ikke kun til elskeren, men til dem, der virkelig fortjener kærlighed. Ikke til dem, der nyder din ungdoms blomstring, men til dem, der vil dele deres ejendele med dig i alderdommen. Ikke til dem, der vil prale af deres erobring over for andre, men til dem, der vil være beskedne og ikke fortælle nogen historier. Ikke til dem, der kun bekymrer sig om dig en kort tid, men til dem, der vil forblive dine venner livet ud. Ikke til dem, der vil starte et skænderi, så snart deres lidenskab er kølet, men til dem, der — når ungdommen har forladt dig — vil vise deres egen dyd. Husk, hvad jeg har sagt, og overvej ét punkt mere: venner formaner en elsker i den tro, at hans livsstil er ynkelig, men ingen slægtning har endnu nogensinde irettesat en ikke-elsker eller anset ham for at være vildledt om sit eget bedste.",
+      "after": "Tror du, at kun en, der er forelsket, kan være en trofast ven? Tænk over det: Hvis det var sandt, ville vi ikke sætte stor pris på vores sønner, fædre eller mødre. Vi ville heller aldrig have loyale venner, for vores kærlighed til dem kommer ikke af forelskelse, men af andre bånd. Hvis vi desuden skal vise størst gunst mod dem, der beder mest ivrigt om den, burde vi efter samme princip altid hjælpe de mest trængende frem for de bedste mennesker. De ville jo få den største lettelse og derfor være mest taknemmelige. Når du holder fest, skulle du så invitere tiggeren og den sultne frem for din ven. De ville elske dig, opvarte dig, komme til din dør og være de gladeste og mest taknemmelige gæster, som ønskede dig alt godt. Men du bør naturligvis ikke give efter for dem, der belejrer dig med bønner, men for dem, der bedst kan give dig noget til gengæld. Ikke bare for den, der er forelsket, men for dem, der fortjener kærlighed. Ikke for dem, der vil nyde din ungdoms skønhed, men for dem, der vil dele det, de ejer, med dig, når du bliver gammel. Ikke for dem, der bagefter vil prale med deres succes over for andre, men for dem, der vil være diskrete og ikke fortælle noget videre. Ikke for dem, der kun interesserer sig for dig et øjeblik, men for dem, der vil være dine venner hele livet. Ikke for dem, der vil skændes med dig, når forelskelsen er ovre, men for dem, der vil vise deres gode egenskaber, når din ungdoms charme er væk. Husk, hvad jeg har sagt, og tænk også på dette: Venner advarer den forelskede, fordi de mener, at han lever på en dårlig måde. Men ingen slægtning har endnu kritiseret den, der ikke er forelsket, eller ment, at han tog fejl af sine egne interesser.",
+      "reason": "Modern Danish; retain all contrasts and social arguments, correct garbled sexual-courtship wording without adding explicit detail, coherent speech quotation."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 4,
+      "before": "»Måske vil du spørge, om jeg foreslår, at du skal indrømme dig enhver ikke-elsker. Jeg svarer, at selv en elsker ikke ville råde dig til at indrømme dig enhver elsker — vilkårlig gunst er mindre værdsat af en rationel modtager og sværere for ham at holde skjult, hvis han vil undgå samfundets fordømmelse. Kærlighed bør være til begge parters fordel og ingen af parternes skade.",
+      "after": "Måske vil du spørge, om jeg foreslår, at du skal give efter for alle, der ikke er forelskede. Mit svar er, at selv den forelskede ikke ville råde dig til at give efter for alle, der er forelskede. En fornuftig modtager sætter mindre pris på en gunst, der gives til alle uden forskel, og det er sværere at holde den skjult, hvis man vil undgå folks kritik. Et kærlighedsforhold skal være til fordel for begge og ikke skade nogen af dem.",
+      "reason": "Modern Danish; retain all contrasts and social arguments, correct garbled sexual-courtship wording without adding explicit detail, coherent speech quotation."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 5,
+      "before": "»Jeg tror, jeg har sagt nok. Men hvis der er noget mere, du ønsker, eller noget, du synes, jeg har udeladt, så spørg, og jeg vil svare.«",
+      "after": "Jeg mener, at jeg har sagt nok. Men hvis der er mere, du vil vide, eller noget, du synes mangler, så spørg, og jeg vil svare.«",
+      "reason": "Modern Danish; retain all contrasts and social arguments, correct garbled sexual-courtship wording without adding explicit detail, coherent speech quotation."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 6,
+      "before": "Nå, Sokrates, hvad synes du? Er talen ikke fortrinlig — især sproget?",
+      "after": "Nå, Sokrates, hvad synes du? Er det ikke en fremragende tale, især sprogligt?",
+      "reason": "Modern Danish; retain all contrasts and social arguments, correct garbled sexual-courtship wording without adding explicit detail, coherent speech quotation."
+    }
+  ],
+  "englishChanges": [
+    {
+      "chapter": 1,
+      "paragraph": 2,
+      "before": "PHAEDRUS: I'm coming from Lysias, the son of Cephalus, and I'm off to take a walk outside the city wall. I've been sitting with him all morning, and our mutual friend Acumenus tells me it's much more refreshing to walk in the open air than to be cooped up indoors.",
+      "after": "PHAEDRUS: I'm coming from Lysias, the son of Cephalus, and I'm off to take a walk outside the city wall. I've been sitting with him all morning, and our mutual friend Acumenus tells me it's much more refreshing to walk in the open air than to walk within a colonnade.",
+      "reason": "Restore concrete cloister/colonnade setting lost as generic indoors; Jowett primary edition cross-check."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 22,
+      "before": "PHAEDRUS: Do you see that tall plane-tree in the distance?",
+      "after": "PHAEDRUS: Do you see the tallest plane-tree in the distance?",
+      "reason": "Restore source superlative identifying the meeting place."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://bingweb.binghamton.edu/~ascholtz/clas381a/plato_phaedrus_text.htm",
+      "supports": "Jowett opening 227a: cloister means colonnade, not generic indoors."
+    }
+  ],
+  "integration": "Claude owns all integration and release; unfinished manuscript must not be published."
+}
