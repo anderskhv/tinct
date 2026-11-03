@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { execFileSync } from 'node:child_process'
 import { describe, expect, it } from 'vitest'
 import { projectEditionCoordinate, projectExactEditionRange, type CoordinateMigration } from './editionCoordinateMigration'
-import { CONTENT_RELEASES, sourceContentRevision } from './editionContentRevisions'
+import { CONTENT_RELEASES, writtenBeforeRelease } from './editionContentRevisions'
 import { migrateLabBookPlace } from '../lab/labEditionMigration'
 import { migrateLabHighlight, type MigratableHighlight } from '../lab/labHighlightMigration'
 import { isAudioHeld } from './audioAvailability'
@@ -30,7 +30,7 @@ describe('Prince editorial repair preserves reader data', () => {
     for (const edition of ['modern-en','modern-da']) {
       const before=release.editions[edition].before
       const writtenAt=release.releasedAt-1
-      expect(sourceContentRevision(bookId,edition,undefined,writtenAt)).toBe(before)
+      expect(writtenBeforeRelease(bookId,edition,undefined,writtenAt)).toBe(true)
       const place={bookId,headerBook:'The Prince',primaryEditionKey:edition,chapterNumber:12,sequentialChapter:12,paragraphIndex:2,wordIndex:0,updatedAt:writtenAt,deviceId:'reader',rev:5,pageIndex:9}
       const moved=migrateLabBookPlace(place,map)
       expect(moved.contentRecovery?.contentRevision).toBe(before)
@@ -39,7 +39,7 @@ describe('Prince editorial repair preserves reader data', () => {
       expect(moved.rev).toBe(5)
       expect(moved.pageIndex).toBeUndefined()
       expect(migrateLabBookPlace(moved,map)).toBe(moved)
-      expect(sourceContentRevision(bookId,edition,undefined,release.releasedAt)).toBe(release.editions[edition].after)
+      expect(writtenBeforeRelease(bookId,edition,undefined,release.releasedAt)).toBe(false)
     }
   })
   it('preserves highlight notes and retains replaced wording as unresolved recovery', () => {
