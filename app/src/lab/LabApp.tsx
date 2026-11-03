@@ -6937,6 +6937,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               chapterTitle={book.chapterTitle}
               paragraphs={readerParagraphs}
               editionKey={readerEditionKey}
+              language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
               layoutKey={layoutKeyFor(readerEditionKey)}
               keepPages={pageFreeze && pageFreeze.content === readerParagraphs && pageFreeze.layoutKey === nativeLayoutKey ? pageFreeze.pages : undefined}
               // The reader's first page of this visit: shown before the rest
@@ -6951,6 +6952,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
             editionKey={readerEditionKey}
+            language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}
           />}
           {/* The next chapter's first leaf, measured only near this chapter's end. */}
@@ -6958,6 +6960,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterActions hasNextChapter pageLimit={2}
             chapterTitle={nextOpeningCurrent.title} paragraphs={nextOpeningCurrent.paragraphs}
             editionKey={readerEditionKey}
+            language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={nextOpeningLayoutKey} onPages={applyNextOpeningPages}
           />}
           {/* The standby edition, measured in the same box while nobody is

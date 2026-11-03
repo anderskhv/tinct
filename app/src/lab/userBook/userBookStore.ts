@@ -428,6 +428,7 @@ export async function openUserBook(hex: string, options: { onProgress?: (progres
     edition = converted.edition
     data = converted.images
     options.onProgress?.({ stage: 'saving' })
+    edition = await repairScanErrors(hex, edition)
     // A browser that cannot keep it converts again next time; reading goes on.
     await keepEdition(key, owner, edition, data).catch(() => {})
   }
@@ -494,6 +495,19 @@ const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('.
  * from now on (adoptOcrEditionChoice): Tinct text, unless the job found a
  * paper (ocrDefaultEdition).
  */
+/**
+ * Scanning errors ("J&sus") fixed once, before a converted PDF is stored (ownTextRepair.ts):
+ * only flagged paragraphs are sent, and any failure keeps the text as converted.
+ */
+async function repairScanErrors(hex: string, edition: UserBookEdition): Promise<UserBookEdition> {
+  try {
+    const { repairOwnEdition } = await import('./ownTextRepair')
+    return (await repairOwnEdition(edition, { book: hex, token: await ownBookToken() })).edition
+  } catch {
+    return edition
+  }
+}
+
 async function openPdfBook(hex: string, owner: string, record: UserBookRecord, options: { onProgress?: (progress: PdfConversionProgress) => void; convert?: PdfConverter; ocr?: OcrEditionLoader; page?: number | null; desktop?: boolean; sharedReader?: boolean } = {}): Promise<UserBookOpenResult> {
   const key = 'pdf:' + hex
   const scan = record.scan as { v?: unknown; layout?: { default?: string }; textPages?: unknown; pages?: unknown } | null | undefined
@@ -525,6 +539,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   if (!edition && (scan?.textPages === 0 || layout === 'pages-only')) {
     edition = await recognised()
     if (!edition) return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
+    edition = await repairScanErrors(hex, edition)
     await keepFields(key, owner, { edition }).catch(() => {})
   }
   // Read in Original pages: on to the viewer at once (its Tinct text is made when the reader picks it).
@@ -549,6 +564,7 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
       return { ok: false, reason: 'pages_only', message: PAGES_ONLY_MESSAGE }
     }
     options.onProgress?.({ stage: 'saving' })
+    edition = await repairScanErrors(hex, edition)
     // A browser that cannot keep it converts again next time; reading goes on.
     // Its crops (formulas, figures, tables drawn from its pages) are kept beside it, as an EPUB's pictures are: on this device, for this owner.
     figureData = made.images ?? new Map()
