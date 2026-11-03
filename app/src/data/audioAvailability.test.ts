@@ -21,8 +21,8 @@ describe('reversible edition discovery availability', () => {
     // The Arabian Nights (streamed narration, 2026-10-19).
     expect(new Set(reviewed).size).toBe(221)
     // Art of War modern-en text changed on 2026-11-02; its old recording is held.
-    expect(manifest.eligible_editions).toHaveLength(173)
-    expect(manifest.held_editions).toHaveLength(48)
+    expect(manifest.eligible_editions).toHaveLength(172)
+    expect(manifest.held_editions).toHaveLength(49)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
