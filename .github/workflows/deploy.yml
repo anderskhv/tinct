@@ -50,6 +50,8 @@ on:
 
 permissions:
   contents: read
+  # The last fully accepted release's version (artifact 'accepted-reader') is read before a repair release.
+  actions: read
 
 concurrency:
   group: deploy-tinct-production
@@ -87,6 +89,7 @@ jobs:
       version_id: ${{ steps.deploy.outputs.version_id || steps.upload.outputs.version_id }}
       groups: ${{ steps.handoff.outputs.groups }}
       release_phase: ${{ steps.release-phase.outputs.phase }}
+      accepted_reader: ${{ steps.accepted.outputs.version_id }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -176,6 +179,30 @@ jobs:
         env:
           PREVIOUS_VERSION: ${{ steps.previous.outputs.version_id }}
         run: node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"
+
+      # Release-time pin (Anders, 3 Nov 2026): the version the last release that passed every acceptance group left
+      # live is accepted too, so a change no longer needs re-pinning after every release. The hand pin in
+      # release-tools.cjs still counts; with no record (expired, first run) only the hand pin does.
+      - name: Read the version the last fully accepted release left live
+        id: accepted
+        if: steps.release-phase.outputs.phase == 'repair'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          url=$(gh api "repos/${{ github.repository }}/actions/artifacts?name=accepted-reader&per_page=20" --jq '[.artifacts[] | select(.expired | not)] | sort_by(.created_at) | last | .archive_download_url // empty')
+          version=''
+          if [ -n "$url" ] && gh api "$url" > "$RUNNER_TEMP/accepted-reader.zip"; then
+            version=$(unzip -p "$RUNNER_TEMP/accepted-reader.zip" accepted-reader.txt | tr -d '[:space:]')
+          fi
+          if [ -n "$version" ] && node scripts/release-tools.cjs validate-version "$version" > /dev/null; then
+            echo "version_id=$version" >> "$GITHUB_OUTPUT"
+            echo "TINCT_ACCEPTED_READER=$version" >> "$GITHUB_ENV"
+            echo "Last fully accepted reader: $version"
+          else
+            echo "No recorded accepted reader; the hand pin in release-tools.cjs decides."
+          fi
+          exit 0
 
       - name: Require the accepted reader before repair release
         if: steps.release-phase.outputs.phase == 'repair'
@@ -512,6 +539,7 @@ jobs:
         env:
           PREVIOUS_VERSION: ${{ needs.deploy.outputs.previous_version }}
           RELEASE_PHASE: ${{ needs.deploy.outputs.release_phase }}
+          TINCT_ACCEPTED_READER: ${{ needs.deploy.outputs.accepted_reader }}
         run: |
           if [ "$RELEASE_PHASE" = reader ]; then node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"; fi
           if [ "$RELEASE_PHASE" = repair ]; then node scripts/release-tools.cjs verify-repair-predecessor "$PREVIOUS_VERSION"; fi
@@ -655,3 +683,24 @@ jobs:
           echo "::error::a check failed after the new version went live; rolling back to $PREVIOUS_VERSION"
           npm run rollback -- "$PREVIOUS_VERSION"
           echo "Rolled back to $PREVIOUS_VERSION. Fix forward, then push again." >> "$GITHUB_STEP_SUMMARY"
+
+  # A repair release that passed every acceptance group without rollback: its version is the accepted reader the
+  # next repair release may build on (read in the deploy job above).
+  record-accepted:
+    needs: [deploy, checks, production-checks, rollback]
+    if: ${{ always() && needs.deploy.result == 'success' && needs.deploy.outputs.release_phase == 'repair' && needs.deploy.outputs.live == 'true' && needs.checks.result == 'success' && needs.production-checks.result != 'failure' && needs.production-checks.result != 'cancelled' && needs.rollback.result == 'skipped' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Write the accepted version
+        env:
+          VERSION: ${{ needs.deploy.outputs.version_id }}
+        run: |
+          echo "$VERSION" | grep -Eq '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+          echo "$VERSION" > accepted-reader.txt
+          echo "Accepted reader recorded: $VERSION" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: accepted-reader
+          path: accepted-reader.txt
+          retention-days: 90

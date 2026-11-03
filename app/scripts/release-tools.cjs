@@ -111,10 +111,12 @@ function verifyReaderFloor(serving, manifestPath = floorManifest) {
 function verifyRepairPredecessor(serving) {
   const current = validatedVersion(serving, 'currently serving production version')
   if (rolloutPhase() !== 'repair-pending') throw new Error('repair requires the gated repair-pending rollout state')
-  if (current.toLowerCase() !== ACCEPTED_READER_VERSION) {
-    throw new Error(`production serves ${current}, not the pinned accepted reader ${ACCEPTED_READER_VERSION}; abort before changing traffic`)
+  // The release-time pin (deploy.yml record-accepted): the version the last fully accepted repair release left live.
+  const recorded = process.env.TINCT_ACCEPTED_READER ? validatedVersion(process.env.TINCT_ACCEPTED_READER, 'recorded accepted reader').toLowerCase() : null
+  if (current.toLowerCase() !== ACCEPTED_READER_VERSION && current.toLowerCase() !== recorded) {
+    throw new Error(`production serves ${current}, not the pinned accepted reader ${ACCEPTED_READER_VERSION}${recorded ? ` or the last accepted release ${recorded}` : ''}; abort before changing traffic`)
   }
-  console.log(`repair_predecessor_version=${ACCEPTED_READER_VERSION}`)
+  console.log(`repair_predecessor_version=${current.toLowerCase()}`)
 }
 
 // wrangler.jsonc allows comments and trailing commas; strip them outside strings.
