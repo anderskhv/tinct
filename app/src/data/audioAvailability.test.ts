@@ -20,8 +20,9 @@ describe('reversible edition discovery availability', () => {
     // because their editions carry no hasAudio); 221 with Grimms' Fairy Tales and
     // The Arabian Nights (streamed narration, 2026-10-19).
     expect(new Set(reviewed).size).toBe(221)
-    expect(manifest.eligible_editions).toHaveLength(175)
-    expect(manifest.held_editions).toHaveLength(46)
+    // Art of War modern-en text changed on 2026-11-02; its old recording is held.
+    expect(manifest.eligible_editions).toHaveLength(174)
+    expect(manifest.held_editions).toHaveLength(47)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
