@@ -1,4 +1,5 @@
-import { projectEditionCoordinate, type CoordinateMigration } from '../data/editionCoordinateMigration'
+import { coordinateEditionForRevision, projectEditionCoordinate, type CoordinateMigration } from '../data/editionCoordinateMigration'
+import { sourceContentRevision } from '../data/editionContentRevisions'
 import { tokenizeWithEmphasis } from './labEmphasis'
 import type { LabHighlight } from './labHighlights'
 
@@ -28,9 +29,11 @@ export function migrateLabHighlight(
   currentParagraphs: string[],
 ): MigratableHighlight {
   if (highlight.bookId !== migration.bookId || !highlight.editionKey) return highlight
-  const edition = migration.editions[highlight.editionKey]
+  const created = /^hl-(\d{10,})-/.exec(highlight.id)
+  const sourceRevision = sourceContentRevision(highlight.bookId, highlight.editionKey, highlight.contentRevision, created ? Number(created[1]) : undefined)
+  const edition = coordinateEditionForRevision(migration, highlight.editionKey, sourceRevision)
   if (!edition || highlight.contentRevision === edition.afterSha256
-    || highlight.contentRevision && highlight.contentRevision !== edition.beforeSha256) return highlight
+    || sourceRevision && sourceRevision !== edition.beforeSha256) return highlight
   if (highlight.contentMigrationStatus === 'unresolved' && highlight.contentRecovery) return highlight
   const recovery: HighlightRecovery = highlight.contentRecovery || {
     contentRevision: edition.beforeSha256, chapterNumber: highlight.chapterNumber,
@@ -62,11 +65,11 @@ export function migrateLabHighlight(
   if (!quote || highlight.text !== undefined && highlight.text !== quote) return unresolved()
   const start = projectEditionCoordinate(migration,highlight.editionKey,{
     chapterNumber:highlight.chapterNumber,paragraphIndex:from,offset:highlight.fromWord,
-    contentRevision:highlight.contentRevision,
+    contentRevision:sourceRevision,
   },'words','right')
   const end = projectEditionCoordinate(migration,highlight.editionKey,{
     chapterNumber:highlight.chapterNumber,paragraphIndex:to,offset:highlight.toWord,
-    contentRevision:highlight.contentRevision,
+    contentRevision:sourceRevision,
   },'words','left')
   if (start.status !== 'exact' || end.status !== 'exact'
     || start.point.chapterNumber !== end.point.chapterNumber
