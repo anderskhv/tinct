@@ -426,6 +426,9 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     } else if (card && !card.saved && !card.id && !card.busy && !['talk', 'quiz', 'unit-quiz'].includes(card.kind)) {
       setFoldedDraft({ card, note, question, follow: followDraft })
     }
+    // The passage stays selected in the page while its card is open; left selected, the surface reports it again on
+    // the next pointer-up and the selection menu came back after closing an Evaluate (Anders, 3 Nov 2026).
+    try { window.getSelection()?.removeAllRanges() } catch { /* no selection API */ }
     setCard(null); setSelection(null)
   }
   const follow = async (from: Card, question: string) => {

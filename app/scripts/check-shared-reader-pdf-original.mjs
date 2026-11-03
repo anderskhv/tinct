@@ -754,6 +754,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       'unit Primer uses owned display metadata and private page context')
     assert(companionCalls.some(call => call.intent === 'define' && call.context.bookTitle === book.title && call.context.bookAuthor === book.author),
       'selection Define uses owned display metadata')
+    // Closing a selection's card ends the selection (Anders, 3 Nov 2026: the selection menu came back after closing an
+    // Evaluate): the page's next pointer-up must not report the passage again.
+    await page.locator('[data-testid="source-margin-item"][data-open="true"]').first().getByTestId('source-margin-minimise').click()
+    await page.locator('.pdf-original__page[data-page="1"] .pdf-original__text').dispatchEvent('mouseup')
+    await page.waitForTimeout(400)
+    assert.equal(await page.getByTestId('lab-dbar-more').count(), 0, 'closing a selection card does not bring back the selection menu')
     await page.keyboard.press('Escape')
     await page.getByRole('button', { name: 'Listen', exact: true }).click()
     for (let i = 0; i < 30 && !calls.some(call => call.path === '/api/narration/own/ensure'); i++) await page.waitForTimeout(100)
