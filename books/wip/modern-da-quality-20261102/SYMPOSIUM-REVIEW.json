@@ -1,0 +1,512 @@
+{
+  "bookId": "symposium",
+  "status": "editorial_in_progress",
+  "reviewedChapters": [
+    1,
+    2
+  ],
+  "reviewedParagraphs": 57,
+  "totalParagraphs": 226,
+  "inProgress": {
+    "chapter": 2,
+    "throughParagraph": 8
+  },
+  "nativeReview": "pending_user_arranges",
+  "releasePolicy": {
+    "mode": "prepare_only",
+    "releaseOwner": "Claude",
+    "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
+  },
+  "sourceBlobs": {
+    "original-en": "5d5be8c31348aa4fc6dd3be5b8a452dd137a375c",
+    "modern-en": "8049f40fe1837595fcf0ceda718f2e51bedb632a",
+    "modern-da": "9c0b5a777f3e81797ab79df07958036ddd7e28a7"
+  },
+  "structuralRepair": {
+    "originalCounts": [
+      49,
+      8,
+      12,
+      10,
+      18,
+      13,
+      69,
+      47
+    ],
+    "retainedDanishCounts": [
+      40,
+      8,
+      12,
+      10,
+      18,
+      13,
+      115,
+      1
+    ],
+    "repairedCounts": [
+      49,
+      8,
+      12,
+      10,
+      18,
+      13,
+      69,
+      47
+    ],
+    "repairs": [
+      "Restore missing original chapter 1 paragraphs 1–9 with newly translated full text.",
+      "Move retained Danish chapter 7 paragraphs 70–115 to chapter 8 paragraphs 1–46; existing chapter 8 paragraph becomes 47."
+    ],
+    "mapping": "Chapter 1 retained Danish p1 corresponds to source p10; chapter 7 p1–69 source chapter7, retained p70–115 source chapter8 p1–46."
+  },
+  "additionalFindings": [
+    "Retained Danish chapter 3 also combines and shifts paragraphs internally despite matching total counts. Unreviewed content remains provisional; chapter counts alone do not establish completeness.",
+    "Retained Danish 2:8 reversed Achilles/Patroclus lover and beloved roles; corrected against source."
+  ],
+  "changes": [
+    {
+      "chapter": 1,
+      "paragraph": 1,
+      "before": "",
+      "after": "Jeg er faktisk godt forberedt på at svare på det, I spørger om. I forgårs var jeg på vej fra mit hjem i Faleron ind til byen, da en bekendt fik øje på mig bagfra og råbte spøgende på afstand: »Apollodoros, du mand fra Faleron, stop!« (Kildens note: Sandsynligvis et ordspil på et græsk ord for »skaldet«.) Jeg standsede, og han sagde: »Jeg ledte netop efter dig, Apollodoros. Jeg ville spørge dig om de taler til kærlighedens pris, som Sokrates, Alkibiades og de andre holdt ved Agathons middag. Føniks, Filips søn, fortalte om dem til en anden, som fortalte mig det. Hans gengivelse var meget uklar, men han sagde, at du kendte til dem. Jeg vil gerne høre dig fortælle. Hvem skulle bedre kunne gengive din vens ord end dig? Men sig mig først: Var du selv med til den sammenkomst?«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 2,
+      "before": "",
+      "after": "»Din kilde må virkelig have været uklar, Glaukon,« svarede jeg, »hvis du tror, at det skete for nylig, eller at jeg kunne have været med.«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 3,
+      "before": "",
+      "after": "»Ja, det troede jeg faktisk,« svarede han.",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 4,
+      "before": "",
+      "after": "»Det er umuligt,« sagde jeg. »Ved du ikke, at Agathon ikke har boet i Athen i mange år? Og det er endnu ikke tre år siden, jeg lærte Sokrates at kende og begyndte hver dag at holde mig orienteret om alt, hvad han siger og gør. Før løb jeg rundt og troede, at jeg brugte min tid godt, men i virkeligheden var jeg dybt ulykkelig, ikke bedre stillet end du er nu. Jeg mente, at jeg skulle gøre alt andet end at beskæftige mig med filosofi.«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 5,
+      "before": "",
+      "after": "»Nå, spøg til side,« sagde han. »Fortæl mig, hvornår sammenkomsten fandt sted.«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 6,
+      "before": "",
+      "after": "»Da vi var drenge,« svarede jeg. »Det var dengang, Agathon vandt prisen med sin første tragedie, dagen efter at han og koret havde bragt deres sejrsoffer.«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 7,
+      "before": "",
+      "after": "»Så er det jo længe siden,« sagde han. »Hvem fortalte dig om det? Var det Sokrates?«",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 8,
+      "before": "",
+      "after": "»Nej,« svarede jeg. »Det var den samme, som fortalte Føniks om det: Aristodemos fra bydelen Kydathenaion, en lille mand, der altid gik barfodet. Han var med til festen hos Agathon, og jeg tror ikke, nogen dengang beundrede Sokrates mere end han. Jeg har også spurgt Sokrates, om nogle dele af hans fortælling var rigtige, og han bekræftede dem.« »Så lad os høre historien,« sagde Glaukon. »Vejen til Athen er da som skabt til en samtale.« Så gik vi sammen og talte om kærlighedstalerne. Derfor er jeg, som jeg sagde før, godt forberedt på at opfylde jeres ønske. Jeg fortæller dem gerne igen. At tale om filosofi eller høre andre gøre det giver mig altid den største glæde, for slet ikke at tale om udbyttet. Men når jeg hører andre samtaler, især den slags, I rige mænd og forretningsfolk fører, bliver jeg irriteret. Jeg har ondt af jer, mine venner, fordi I tror, at I udretter noget, selv om I i virkeligheden intet udretter. I har sikkert også ondt af mig og regner mig for et ulykkeligt menneske, og måske har I ret. Men det, I kun tror om mig, ved jeg med sikkerhed om jer. Det er forskellen.",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 9,
+      "before": "",
+      "after": "LEDSAGEREN: Du er den samme som altid, Apollodoros. Du taler hele tiden dårligt om dig selv og alle andre. Jeg tror virkelig, du har ondt af alle mennesker undtagen Sokrates, og først og fremmest af dig selv. Du lever op til dit gamle tilnavn, »den gale Apollodoros«. Jeg ved ikke, hvordan du fik det, men det passer godt, for du raser altid mod dig selv og alle andre end Sokrates.",
+      "reason": "Restore omitted opening paragraph by complete source translation; retain source wordplay annotation."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 10,
+      "before": "APOLLODOROS: Ja, ven, og grunden til, at folk kalder mig skør og fra forstanden, er netop, fordi jeg har disse meninger om mig selv og jer. Intet andet bevis er nødvendigt.",
+      "after": "APOLLODOROS: Ja, min ven. Når jeg bliver kaldt gal og fra forstanden, skyldes det netop, at jeg har den opfattelse af jer og mig selv. Der behøves åbenbart ikke andre beviser.",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 11,
+      "before": "LEDSAGEREN: Nok om det, Apollodoros. Fortæl mig bare om samtalen, som jeg bad dig om.",
+      "after": "LEDSAGEREN: Nok om det, Apollodoros. Vil du nu ikke fortælle os om samtalen, som jeg bad dig om?",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 12,
+      "before": "APOLLODOROS: Nå, historien om kærlighed gik som følger — men måske bør jeg begynde fra begyndelsen og forsøge at gengive Aristodemos' nøjagtige ord.",
+      "after": "APOLLODOROS: Historien om kærligheden var sådan her. Men jeg må hellere begynde fra begyndelsen og prøve at gengive Aristodemos' egne ord.",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 13,
+      "before": "Han sagde, at han mødte Sokrates, nybadt og med sandaler på — hvilket var usædvanligt — så han spurgte, hvor han var på vej hen, så fin som han var.",
+      "after": "Han fortalte, at han mødte Sokrates, som lige havde været i bad og havde sandaler på. Det sidste var usædvanligt, så han spurgte, hvor han skulle hen, siden han havde gjort så meget ud af sig selv.",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 14,
+      "before": "'Til et middagsselskab hos Agathon,' svarede han. 'Jeg afslog hans invitation i går — jeg var bange for folkemængden — men lovede at komme i dag i stedet. Så jeg har taget mit bedste tøj på, da han er en så fin mand. Hvad siger du — vil du med, uindbudt?'",
+      "after": "»Til middag hos Agathon,« svarede han. »Jeg sagde nej til hans invitation til sejrsofferet i går, fordi jeg var bange for trængslen, men lovede at komme i dag i stedet. Derfor har jeg gjort mig fin, for han er jo selv så fin. Hvad siger du til at tage med, selv om du ikke er inviteret?«",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 15,
+      "before": "'Som du vil,' svarede jeg.",
+      "after": "»Jeg gør, som du siger,« svarede jeg.",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 16,
+      "before": "'Kom med, så,' sagde han, 'og lad os vende det gamle ordsprog på hovedet:'",
+      "after": "»Så kom med,« sagde han, »og lad os gøre op med ordsproget:«",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 17,
+      "before": "'Til de ringeres fester kommer de gode uindbudte.'",
+      "after": "»De gode kommer uindbudt til de ringeres fest.«",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 18,
+      "before": "I stedet lyder vores version:",
+      "after": "Vores ordsprog skal i stedet lyde:",
+      "reason": "Full source review and modern Danish revision after restoring paragraph alignment."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 19,
+      "before": "'Til de godes fester kommer de gode uindbudte.'",
+      "after": "»De gode kommer uindbudt til de godes fest.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 20,
+      "before": "Og vi kan støtte os til Homer selv, der ikke bare vender ordsproget, men ligefrem latterliggør det. Efter at have portrætteret Agamemnon som den tapreste af alle mænd, lader han Menelaos — en langt mere ubetydelig kriger — dukke uindbudt op til Agamemnons festmåltid. Så den ringere mand kommer til den stores bord, ikke omvendt.",
+      "after": "Den ændring kan vi endda støtte på Homer selv. Han gør ikke bare op med ordsproget, men vender det helt på hovedet. Først fremstiller han Agamemnon som den modigste af alle mænd. Så lader han Menelaos, som er en temmelig frygtsom kriger, komme uindbudt til Agamemnons festmåltid, hvor han bringer ofre. (Iliaden.) Her kommer altså den ringere til den bedre, ikke den bedre til den ringere.",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 21,
+      "before": "'Jeg er lidt bekymret, Sokrates,' sagde Aristodemos, 'for at jeg er mere som Menelaos — den ringere mand, der dukker uindbudt op til en vis mands middag.'",
+      "after": "»Jeg er bange for, at det også bliver sådan med mig, Sokrates,« sagde Aristodemos. »Ligesom Menelaos hos Homer bliver jeg den ringere, der«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 22,
+      "before": "'Til de vises fester går den ringere uindbudt.'",
+      "after": "»kommer uindbudt til de vises fest.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 23,
+      "before": "Men jeg vil sige, at du indbød mig, og så må du finde på en undskyldning for mig.",
+      "after": "Men jeg vil sige, at du inviterede mig, og så må du finde på en undskyldning.",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 24,
+      "before": "'To hoveder er bedre end ét,'",
+      "after": "»Når to følges ad,«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 25,
+      "before": "svarede han med et citat fra Homer. 'Sammen finder vi nok på noget undervejs.'",
+      "after": "svarede han med Homer, »kan en af dem nok finde på en undskyldning undervejs.« (Iliaden.)",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 26,
+      "before": "Sådan talte de, mens de gik. Så faldt Sokrates i en af sine grubletilstande og bad Aristodemos, der ventede på ham, om at gå i forvejen. Da Aristodemos nåede Agathons hus, stod døren på vid gab. En tjener kom ud, mødte ham og førte ham direkte til festsalen, hvor gæsterne allerede lå til bords og måltidet var ved at begynde. 'Velkommen, Aristodemos!' sagde Agathon, så snart han dukkede op. 'Du kommer lige til middagen. Hvis du er kommet i et andet ærinde, så udskyd det og vær med — jeg ledte efter dig i går og ville invitere dig, hvis jeg kunne finde dig. Men hvor er Sokrates?'",
+      "after": "Sådan talte de, mens de gik. Sokrates faldt bagud, fordybet i tanker, og bad Aristodemos, som ventede på ham, om at gå i forvejen. Da Aristodemos kom til Agathons hus, stod dørene åbne, og der skete noget pudsigt. En tjener kom ud, mødte ham og førte ham straks ind i salen, hvor gæsterne lå til bords, klar til at begynde middagen. »Velkommen, Aristodemos,« sagde Agathon, så snart han så ham. »Du kommer lige i tide til at spise med. Hvis du er kommet i et andet ærinde, så udskyd det og vær vores gæst. Jeg ledte efter dig i går og ville have inviteret dig, hvis jeg havde fundet dig. Men hvor har du gjort af Sokrates?«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 27,
+      "before": "Jeg vendte mig om, men Sokrates var ingen steder at se. Jeg måtte forklare, at han lige havde været sammen med mig, og at jeg var kommet på hans invitation.",
+      "after": "Jeg vendte mig om, men Sokrates var ingen steder at se. Jeg måtte forklare, at han havde været hos mig lige før, og at jeg var kommet til middagen på hans invitation.",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 28,
+      "before": "'Godt du kom,' sagde Agathon, 'men hvor er han?'",
+      "after": "»Det var godt, du kom,« sagde Agathon. »Men hvor er han selv?«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 29,
+      "before": "'Han var lige bag mig, da jeg kom ind,' sagde Aristodemos. 'Jeg aner ikke, hvad der er sket med ham.'",
+      "after": "»Han var lige bag mig, da jeg kom ind,« svarede han. »Jeg aner ikke, hvor han er blevet af.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 30,
+      "before": "'Gå ud og find ham, dreng,' sagde Agathon til en tjener, 'og bring ham ind. Aristodemos, sæt dig ved siden af Eryximachos.'",
+      "after": "»Gå ud og find ham, dreng, og få ham med ind,« sagde Agathon. »Aristodemos, tag du imens plads ved siden af Eryximachos.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 31,
+      "before": "Tjeneren hjalp ham med at vaske sig og lægge sig til rette. Kort efter kom en anden tjener og meldte, at Sokrates var gået ind i nabohusets søjlegang. 'Han står derinde,' sagde han, 'og da jeg kaldte på ham, ville han ikke røre sig.'",
+      "after": "Tjeneren hjalp ham med at vaske sig, og han lagde sig til bords. Kort efter kom en anden tjener ind og fortalte, at vores ven Sokrates var gået ind i nabohusets søjlegang. »Der står han helt stille,« sagde han, »og han rører sig ikke, når jeg kalder.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 32,
+      "before": "'Hvor mærkeligt,' sagde Agathon. 'Kald på ham igen — bliv ved med at kalde.'",
+      "after": "»Hvor mærkeligt,« sagde Agathon. »Kald på ham igen, og bliv ved.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 33,
+      "before": "'Lad ham være,' sagde Aristodemos. 'Han gør det tit — han stopper et tilfældigt sted og fortaber sig i tanker uden nogen synlig grund. Jeg er sikker på, han snart kommer. Forstyr ham ikke.'",
+      "after": "»Lad ham være,« sagde Aristodemos, som fortalte mig historien. »Han kan finde på at standse hvor som helst og fortabe sig i tanker uden nogen grund. Jeg tror, han snart kommer. Forstyr ham ikke.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 34,
+      "before": "'Nå, hvis du mener det, så lader jeg ham være,' sagde Agathon. Derefter vendte han sig mod tjenerne: 'Lad os spise uden at vente på ham. Server hvad I vil — ingen giver ordrer i aften. Lad som om I er vores værter, og vi er jeres gæster. Tag godt imod os, så roser vi jer bagefter.' Maden blev serveret, men stadig ingen Sokrates. Agathon ville flere gange sende bud efter ham, men Aristodemos protesterede. Til sidst, da måltidet var halvvejs — Sokrates' trancer varede aldrig længe — kom han ind. Agathon, der lå alene i den ene ende, inviterede ham til at sætte sig ved sin side. 'Kom og læg dig her,' sagde han, 'så jeg kan røre ved dig og opsuge den vise tanke, der kom til dig derude i søjlegangen. Jeg er sikker på, at du ikke ville have forladt stedet, før du havde fundet det, du søgte.'",
+      "after": "»Hvis du mener det, lader jeg ham være,« sagde Agathon. Så vendte han sig mod tjenerne og tilføjede: »Lad os spise uden at vente på ham. Server, hvad I vil. Der er ingen til at give jer ordrer. Hidtil har jeg aldrig overladt det hele til jer, men i aften skal I forestille jer, at I er værter, og at jeg og de andre er jeres gæster. Behandl os godt, så skal vi nok rose jer.« Maden blev serveret, men Sokrates kom stadig ikke. Flere gange under måltidet ville Agathon sende bud efter ham, men Aristodemos sagde imod. Til sidst, da middagen var omtrent halvvejs, kom Sokrates ind. Som sædvanlig havde hans fordybelse ikke varet længe. Agathon, som lå alene for enden af bordet, bad ham tage plads ved siden af sig. »Så kan jeg røre ved dig,« sagde han, »og få del i den vise tanke, du fandt ude i søjlegangen, og som du nu har i dig. Jeg er sikker på, at du ikke ville være gået derfra, før du havde fundet det, du søgte.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 35,
+      "before": "'Bare visdom kunne flyde ved berøring,' sagde Sokrates, idet han tog plads, 'fra den fulde til den tomme, som vand løber gennem uld fra et fuldt bæger til et tomt! Hvis det var tilfældet, ville jeg være henrykt over at ligge ved din side — din visdom ville fylde mig med sin glans og skønhed, mens min egen er svag og usikker, ikke bedre end en drøm. Din strålede med ungdommens pragt i forgårs foran mere end tredive tusinde grækere.'",
+      "after": "»Bare det var sådan,« sagde Sokrates og tog plads, »at visdom kunne overføres ved berøring fra det menneske, der har mest, til det, der har mindre, ligesom vand løber gennem uld fra et mere fyldt bæger til et mindre fyldt. Så ville jeg sætte stor pris på at ligge ved din side. Du ville fylde mig med en rig og smuk strøm af visdom, mens min egen er ringe og tvivlsom, ikke bedre end en drøm. Din er derimod strålende og fuld af løfter. I forgårs viste den sig i hele sin ungdommelige pragt for mere end tredive tusind grækere.«",
+      "reason": "Full source comparison; restore omitted clauses/Iliad references and correct weaker-warrior and never-long overstatements; modern Danish."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 36,
+      "before": "'Du gør nar af mig, Sokrates,' sagde Agathon. 'Vi afgør snart, hvem af os der er visest — lad Dionysos være dommer. Men spis nu først.'",
+      "after": "»Du gør nar af mig, Sokrates,« sagde Agathon. »Snart må vi afgøre, hvem af os der vinder prisen i visdom. Dionysos skal være dommer. Men lige nu må du hellere spise.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 37,
+      "before": "Sokrates tog plads og spiste med de andre. Efter måltidet blev der udbragt libationer, sunget en hymne til guden og udført de sædvanlige ceremonier. De var ved at begynde at drikke, da Pausanias sagde: 'Venner, hvordan kan vi drikke uden at gøre os selv skade? Jeg kan fortælle jer, at jeg stadig mærker gårsdagens fest, og jeg har brug for tid til at komme mig. De fleste af jer var der også. Så hvordan gør vi aftenens drikning lettest?'",
+      "after": "Sokrates lagde sig på lejet og spiste sammen med de andre. Bagefter hældte de vin ud som offer, sang en hymne til guden og udførte de sædvanlige ceremonier. De skulle netop til at begynde at drikke, da Pausanias sagde: »Venner, hvordan kan vi drikke med mindst mulig skade for os selv? Jeg mærker stadig gårsdagens vin kraftigt og har brug for tid til at komme mig. De fleste af jer har det sikkert på samme måde, for I var også med i går. Så lad os tænke over, hvordan vi gør drikkeriet lettest for os.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 38,
+      "before": "'Jeg er helt enig,' sagde Aristofanes. 'Vi bør absolut undgå hård drikken. Jeg druknede fuldstændig i vin i går.'",
+      "after": "»Jeg er helt enig i, at vi skal undgå at drikke for meget,« sagde Aristofanes. »Jeg var også en af dem, der druknede sig i vin i går.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 39,
+      "before": "'I har ret,' sagde Eryximachos, lægen og søn af Akumenos. 'Men lad mig høre fra endnu én — Agathon, kan du klare seriøs drikken?'",
+      "after": "»Jeg tror, I har ret,« sagde Eryximachos, Akumenos' søn. »Men jeg vil gerne høre fra én til: Kan Agathon klare at drikke meget?«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 40,
+      "before": "'Absolut ikke,' sagde Agathon.",
+      "after": "»Det kan jeg ikke,« sagde Agathon.",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 41,
+      "before": "'Så er det heldigt,' sagde Eryximachos, 'at vi, der drikker lidt — mig selv, Aristodemos, Faidros og andre, der aldrig kan holde til det — er heldige, da selv de stærke drikkere ikke er i humør i aften. Sokrates tæller jeg ikke med — han kan drikke eller lade være og er ligeglad begge veje. Da ingen af os synes at ville drikke tungt, vil jeg som læge sige, at overdreven drikken er skadeligt. Jeg gør det aldrig selv, og jeg anbefaler det bestemt ikke til nogen, der stadig mærker gårsdagens fest.'",
+      "after": "»Så er vi heldige, vi der ikke kan tåle ret meget,« sagde Eryximachos. »Jeg selv, Aristodemos, Faidros og de andre, der aldrig kan drikke meget, møder altså de stærkere drikkere på en aften, hvor de ikke har lyst. Jeg regner ikke Sokrates med. Han kan både drikke og lade være og er tilfreds, uanset hvad vi vælger. Når nu ingen har lyst til at drikke meget, tilgiver I mig nok, at jeg som læge siger, at det er skadeligt. Selv undgår jeg det, når jeg kan, og jeg anbefaler det bestemt ikke til andre, mindst af alt til nogen, der stadig mærker gårsdagens drikkegilde.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 42,
+      "before": "'Jeg følger altid dit råd,' sagde Faidros, 'især dine lægelige anbefalinger — og resten af selskabet gør det samme, hvis de er kloge.'",
+      "after": "»Jeg følger altid dine råd,« svarede Faidros fra Myrrhinus, »og især det, du foreskriver som læge. De andre gør det samme, hvis de er kloge.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 43,
+      "before": "Alle var enige: aftenen skulle ikke handle om tung drikken. Enhver skulle drikke, hvad der passede dem.",
+      "after": "De blev enige om, at aftenen ikke skulle gå med at drikke sig fulde. Hver især skulle kun drikke, så meget han havde lyst til.",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 44,
+      "before": "'Fortræffeligt,' sagde Eryximachos. 'Da vi er enige om, at drikken er frivillig uden pres, foreslår jeg, at vi sender fløjteninepigen væk — hun kan spille for sig selv eller for kvinderne i de andre rum. I aften fører vi samtale. Og hvis I vil tillade mig, foreslår jeg et emne.' Alle accepterede forslaget, og Eryximachos fortsatte:",
+      "after": "»Når I nu er enige om, at det er frivilligt at drikke, og at ingen skal tvinges,« sagde Eryximachos, »foreslår jeg også, at vi beder fløjtespilleren, som lige er kommet, om at gå. Hun kan spille for sig selv eller for kvinderne inde i huset, hvis hun vil. (Sammenlign med Protagoras.) Lad os tale sammen i aften i stedet. Hvis I vil, foreslår jeg også, hvad vi skal tale om.« De sagde ja, og Eryximachos fortsatte:",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 45,
+      "before": "'Jeg vil begynde,' sagde han, 'med at citere Euripides:'",
+      "after": "»Jeg vil begynde,« sagde han, »ligesom Melanippe hos Euripides:«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 46,
+      "before": "'De ord, jeg taler, er ikke mine —'",
+      "after": "»Ordene er ikke mine.«",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 47,
+      "before": "de kommer fra Faidros. Han siger ofte indigneret til mig: 'Er det ikke mærkeligt, Eryximachos, at mens andre guder har fået digte og hymner til deres ære, har den store gud Eros aldrig modtaget en eneste ordentlig hyldest fra alle vores mange digtere? Og tænk på sofisterne — Prodikos for eksempel har skrevet veltalende prosa om Herakles og andre helte. Nogen har endda skrevet en begejstret afhandling om saltets nytte! Alle mulige trivielle emner er blevet fejret i udførlige taler, og dog har ingen nogensinde vovet at prise Eros ordentligt. Så mægtig en gud, så totalt forsømt!' Faidros har fuldstændig ret, og derfor vil jeg gerne yde mit bidrag til Eros' ære — og jeg synes, dette er den perfekte lejlighed. Jeg foreslår, at vi hver især, fra venstre mod højre, holder en tale til Eros' pris — den bedste, vi kan præstere. Faidros bør begynde, da han sidder yderst til venstre, og da hele idéen er hans.",
+      "after": "Det, jeg nu vil sige, kommer nemlig fra Faidros. Han siger ofte til mig i en forarget tone: »Er det ikke mærkeligt, Eryximachos? Andre guder får digte og hymner til deres ære, men blandt alle vores mange digtere er der ingen, der lovpriser den store og herlige gud Eros. De gode sofister, for eksempel den fremragende Prodikos, har udførligt beskrevet Herakles' og andre heltes fortrin i prosa. Endnu mere mærkeligt: Jeg har endda læst et filosofisk skrift, der veltalende hylder saltets nytte. Mange andre ting af samme slags har fået den samme ære. Tænk, at der er så stor interesse for dem, mens ingen endnu har vovet at synge Eros' pris, som han fortjener det. Så fuldstændig har man forsømt denne store gud.« Jeg synes, Faidros har ret, og derfor vil jeg gerne give ham mit bidrag. Desuden kan vi, der er samlet her, efter min mening ikke bruge aftenen bedre end på at ære Eros. Er I enige, skal vi nok få noget at tale om. Jeg foreslår, at vi efter tur, fra venstre mod højre, holder en tale til Eros' ære. Hver skal gøre det, så godt han kan. Faidros skal begynde, både fordi han sidder først til venstre, og fordi ideen er hans.",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 48,
+      "before": "'Ingen vil stemme imod dig, Eryximachos,' sagde Sokrates. 'Hvordan skulle jeg kunne protestere, når jeg hævder ikke at forstå andet end kærlighed? Agathon og Pausanias er heller ikke uenige, og bestemt ikke Aristofanes, hvis hele liv drejer sig om Dionysos og Afrodite. Forslaget kan virke sværere for os, der taler sidst, men vi nøjes med at høre gode taler først. Lad Faidros begynde sin lovprisning af Eros — og held og lykke!' Alle var enige og opfordrede ham til at begynde.",
+      "after": "»Ingen stemmer imod dig, Eryximachos,« sagde Sokrates. »Hvordan skulle jeg kunne gå imod forslaget, når jeg påstår, at kærlighed er det eneste, jeg forstår mig på? Jeg tror heller ikke, Agathon og Pausanias vil sige nej, og bestemt ikke Aristofanes, som helt og holdent beskæftiger sig med Dionysos og Afrodite. Det vil ingen af de andre, jeg ser omkring mig, heller. Jeg ved godt, at forslaget kan virke lidt hårdt for os, der sidder sidst. Men vi er tilfredse, hvis vi først får nogle gode taler at høre. Lad Faidros begynde at prise Eros, og held og lykke med det!« Alle var enige og bad ham gøre, som Sokrates sagde.",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 49,
+      "before": "Aristodemos huskede ikke alt, der blev sagt, og jeg husker heller ikke alt, han fortalte mig. Men jeg vil fortælle jer det, jeg fandt mest værd at huske — hvad de vigtigste talere sagde.",
+      "after": "Aristodemos huskede ikke alt, hvad der blev sagt, og jeg husker heller ikke alt, hvad han fortalte mig. Men jeg vil fortælle det, jeg fandt mest værd at huske, og gengive de vigtigste taleres ord.",
+      "reason": "Source-checked full modern Danish; restore omitted qualifiers/names/source references, correct corrupt fløjteninepigen and unsupported additions."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 1,
+      "before": "Faidros indledte med at erklære, at Eros er en stor og vidunderlig gud, beundringsværdig blandt både guder og dødelige — og særligt bemærkelsesværdig for sin oprindelse. Han er den ældste af guderne, hvilket er et ærestegn. Beviset? Ingen digter eller forfatter har nogensinde nævnt hans forældre. Som Hesiod siger:",
+      "after": "Faidros begyndte med at sige, at Eros er en mægtig gud, beundringsværdig blandt både guder og mennesker, især på grund af sin oprindelse. Han er nemlig den ældste af guderne, og det er en ære for ham. Beviset på det er, at ingen kender til hans forældre. Hverken digtere eller prosaforfattere har nogensinde sagt, at han havde nogen. Som Hesiod siger:",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 2,
+      "before": "'Først kom Kaos, og derefter den bredbarmede Jord, det evige grundlag for alt, der er, og Eros.'",
+      "after": "»Først kom Kaos og derefter den vidtstrakte Jord,\naltings evige hjem,\nog Eros.«",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 3,
+      "before": "Med andre ord: efter Kaos kom Jord og Eros — de to første væsener. Parmenides synger også om det:",
+      "after": "Efter Kaos blev altså disse to til: Jorden og Eros. Også Parmenides synger om tilblivelsen:",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 4,
+      "before": "'Eros var den første gud, der blev skabt.'",
+      "after": "»Først blandt guderne skabte han Eros.«",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 5,
+      "before": "Akusilaos er enig med Hesiod. Så mange autoriteter bekræfter, at Eros er den ældste af guderne. Og som den ældste er han kilden til vores største velsignelser. Jeg kan ikke forestille mig nogen større fordel for et ungt menneske, der begynder livet, end en værdig elsker, eller for en elsker end en elskværdig elsket. Det princip, der bør guide enhver, der vil leve ædelt — dette princip kan hverken slægtsbånd, ære, rigdom eller noget andet indpode lige så godt som kærlighed. Hvilket princip? Sans for ære og skam, uden hvilken hverken byer eller enkeltpersoner udretter noget stort. En elsker, der gribes i at handle skamfuldt, vil føle større smerte ved at blive set af sin elskede end af sin far, sine venner eller nogen anden. Det samme gælder den elskede. Hvis man kunne skabe en hær udelukkende af elskende og deres elskede, ville de være de bedst tænkelige herskere — de ville sky al vanære og kappes i dyd. Kæmpende side om side kunne selv en lille styrke af elskende besejre hele verden.",
+      "after": "Akusilaos er enig med Hesiod. Der er altså mange vidner, som regner Eros for den ældste af guderne. Men han er ikke kun den ældste. Han er også kilden til de største goder for os. Jeg kender ingen større gave til en ung mand, der skal begynde sit liv, end en god og hæderlig mand, som elsker ham, og ingen større gave til den forelskede end en ung mand, han elsker. Det princip, som bør lede dem, der vil leve ædelt, kan hverken familien, ære, rigdom eller noget andet indprente så godt som kærligheden. Hvilket princip mener jeg? Sansen for ære og skam. Uden den kan hverken samfund eller enkeltpersoner udrette noget godt eller stort. Hvis en forelsket mand bliver grebet i en skamfuld handling eller af fejhed finder sig i, at andre vanærer ham, vil det gøre mere ondt at blive set af den elskede end af hans far, hans venner eller nogen anden. Den elskede har det på samme måde, hvis den forelskede ser ham i en skamfuld situation. Hvis man kunne skabe en stat eller en hær af forelskede og deres elskede, ville de styre deres by bedst af alle. (Sammenlign med Staten.) De ville undgå alt skamfuldt og kappes om at handle ærefuldt. Når de kæmpede side om side, kunne selv en håndfuld af dem besejre hele verden.",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 6,
+      "before": "Hvilken elsker ville ikke foretrække at blive set af hele verden frem for af sin elskede — enten mens han forlod sin post eller kastede sine våben? Han ville vælge at dø tusind gange. Hvem ville svigte sin elskede i farens stund? Selv den største kujon ville blive lige så modig som den tapreste helt, inspireret af Eros. Det mod, som Homer siger, guderne ånder ind i visse krigere — det ånder Eros naturligt ind i enhver elsker.",
+      "after": "Hvilken forelsket mand ville ikke hellere lade hele verden end sin elskede se ham forlade sin post eller smide sine våben? Han ville hellere dø tusind gange end finde sig i det. Og hvem ville forlade sin elskede eller svigte ham i farens stund? Selv den største kujon ville da blive en inspireret helt, lige så modig som den tapreste. Det ville Eros sørge for. Det mod, som en gud ifølge Homer ånder ind i nogle heltes sjæle, giver Eros af sig selv den forelskede.",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 7,
+      "before": "Eros alene gør mennesker villige til at dø for andre — og det gælder kvinder lige så vel som mænd. Alkestis, datter af Pelias, beviste det for hele Grækenland. Hun var villig til at dø for sin mand, da ingen andre ville — ikke engang hans egne forældre. Hendes kærlighed overgik deres så meget, at de fremstod som fremmede snarere end forældre. Guderne var så bevægede, at de gav hende noget næsten uhørt: retten til at vende tilbage fra de døde. Selv guderne ærer den hengivenhed, kærligheden inspirerer. Men musikeren Orfeus blev sendt tomhændet bort — de viste ham kun et genfærd af hans døde hustru, ikke den virkelige kvinde. De straffede hans fejhed. I modsætning til Alkestis turde han ikke dø for kærlighed; i stedet forsøgte han at snige sig levende ind i underverdenen. Senere lod de ham sønderrive af kvinder som straf.",
+      "after": "Kærligheden alene får mennesker til at vove at dø for den, de elsker. Det gælder kvinder såvel som mænd. Alkestis, Pelias' datter, står som et eksempel for hele Grækenland. Hun ville give sit liv for sin mand, da ingen andre ville, selv om både hans far og mor levede. Hendes kærlige hengivenhed overgik deres så meget, at de kom til at virke som fremmede for deres egen søn og kun som hans familie af navn. Både guder og mennesker fandt hendes handling så ædel, at guderne lod hende vende levende tilbage til jorden. Blandt de mange, der har handlet godt, er hun en af de ganske få, der har fået den gave, fordi guderne beundrede hendes handling. Så højt ærer de kærlighedens hengivenhed og godhed. Men harpespilleren Orfeus, Oiagros' søn, sendte de tomhændet bort. De viste ham kun et skyggebillede af den kvinde, han søgte, og ville ikke give ham hende selv tilbage. Han havde nemlig ikke vist mod. Han var blot en harpespiller og turde ikke dø af kærlighed som Alkestis, men prøvede at finde en vej ind i Hades, mens han stadig levede. Senere lod de ham desuden blive dræbt af kvinder som straf for hans fejhed.",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 8,
+      "before": "Helt anderledes var belønningen for Achilleus' sande kærlighed til sin ven Patroklos. Achilleus var elskeren, ikke den elskede — idéen om, at Patroklos var den elskede, er en tåbelig fejl hos Aischylos, da Achilleus tydeligt var den smukkeste af de to, smukkere end alle heltene, og som Homer fortæller os, stadig skægløs og meget yngre. Selv om guderne i høj grad ærer kærlighedens dyd, beundrer og belønner de endnu mere den elskedes hengivenhed mod elskeren — fordi elskeren, inspireret af en gud, er mere guddommelig. Achilleus vidste udmærket — hans mor havde fortalt ham — at han kunne undgå døden og leve til en høj alder, hvis han ikke dræbte Hektor. Men han gav sit liv for at hævne sin ven og vovede at dø — ikke kun i Patroklos' forsvar, men endda efter at Patroklos allerede var død. For dette ærede guderne ham endnu mere end Alkestis og sendte ham til De Saliges Øer. Derfor siger jeg, at Eros er den ældste, ædleste og mægtigste af guderne — og den største kilde til dyd i livet og lykke efter døden.",
+      "after": "Helt anderledes belønnede de Achilleus' sande kærlighed til Patroklos, som var den, der elskede ham, ikke den elskede. Aischylos begår en tåbelig fejl, når han gør Patroklos til den elskede. Achilleus var jo smukkere end Patroklos og end alle de andre helte, og som Homer fortæller, var han stadig skægløs og langt yngre. Guderne ærer kærlighedens godhed højt, men de beundrer, værdsætter og belønner endnu mere, at den elskede gengælder den forelskedes kærlighed. Den forelskede er nemlig mere guddommelig, fordi han er inspireret af en gud. Achilleus vidste godt, for hans mor havde sagt det, at han kunne undgå døden, vende hjem og leve til en høj alder, hvis han lod være med at dræbe Hektor. Alligevel ofrede han sit liv for at hævne sin ven. Han vovede at dø, ikke bare for at forsvare ham, men efter at vennen allerede var død. Derfor ærede guderne ham endnu mere end Alkestis og sendte ham til De Saliges Øer. Det er mine grunde til at sige, at Eros er den ældste, ædleste og mægtigste af guderne og den, der frem for nogen giver os godhed i livet og lykke efter døden.",
+      "reason": "Complete source-checked translation; restore omitted names and qualifications, correct reversed Achilles/Patroclus lover roles, retain historical argument and source note."
+    }
+  ],
+  "englishChanges": [
+    {
+      "chapter": 1,
+      "paragraph": 1,
+      "before": "As for what you're asking about, I believe I'm well prepared to answer. In fact, the day before yesterday I was on my way into the city from my home in Phalerum when an acquaintance of mine caught sight of me from behind and called out playfully from a distance, 'Apollodorus! You there — you Phalerian! Halt!' So I did as I was told, and he said, 'Apollodorus, I was just looking for you. I wanted to ask you about the speeches in praise of love that Socrates, Alcibiades, and others gave at Agathon's supper. Someone told me what he had heard from Phoenix, the son of Philip, but his account was very vague. He did say, though, that you knew about them, so I'd like to hear them from you. Who better than you to report your friend's words? But first tell me,' he said, 'were you at that gathering yourself?'",
+      "after": "As for what you're asking about, I believe I'm well prepared to answer. In fact, the day before yesterday I was on my way into the city from my home in Phalerum when an acquaintance of mine caught sight of me from behind and called out playfully from a distance, 'Apollodorus! You there — you Phalerian! Halt!' (Source note: Probably a pun on a Greek word meaning 'bald-headed'.) So I did as I was told, and he said, 'Apollodorus, I was just looking for you. I wanted to ask you about the speeches in praise of love that Socrates, Alcibiades, and others gave at Agathon's supper. Someone told me what he had heard from Phoenix, the son of Philip, but his account was very vague. He did say, though, that you knew about them, so I'd like to hear them from you. Who better than you to report your friend's words? But first tell me,' he said, 'were you at that gathering yourself?'",
+      "reason": "Restore omitted source annotation or repair broken quotation syntax against source."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 20,
+      "before": "and this alteration can be supported by the authority of Homer himself, who not only demolishes but literally outrages the proverb. After picturing Agamemnon as the most valiant of men, he has Menelaus — who is only a fainthearted warrior — come unbidden to Agamemnon's banquet, the man who was feasting and offering sacrifices: so the worse comes to the better, not the better to the worse.",
+      "after": "and this alteration can be supported by the authority of Homer himself, who not only demolishes but literally outrages the proverb. After picturing Agamemnon as the most valiant of men, he has Menelaus — who is only a fainthearted warrior — come unbidden to Agamemnon's banquet, the man who was feasting and offering sacrifices: so the worse comes to the better, not the better to the worse. (Iliad.)",
+      "reason": "Restore omitted source annotation or repair broken quotation syntax against source."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 25,
+      "before": "he replied, in Homeric fashion, 'one or other of them may invent an excuse by the way.'",
+      "after": "he replied, in Homeric fashion, 'one or other of them may invent an excuse by the way.' (Iliad.)",
+      "reason": "Restore omitted source annotation or repair broken quotation syntax against source."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 34,
+      "before": "'Well, if you think so, I will leave him,' said Agathon. And then, turning to the servants, he added, 'Let us have supper without waiting for him. Serve up whatever you please, for there is no one to give you orders; up until now I have never left you to yourselves, but on this occasion imagine that you are our hosts, and that I and the company are your guests. Treat us well, and then we shall commend you.' After this, supper was served, but still no Socrates. During the meal Agathon several times expressed a wish to send for him, but Aristodemus objected. At last, when the feast was about half over — for the fit, as usual, was not of long duration — Socrates entered. Agathon, who was reclining alone at the end of the table, begged him to take the place next to him. ''I may touch you,' he said, 'and have the benefit of that wise thought which came into your mind in the portico, and is now in your possession — for I am certain that you would not have come away until you had found what you sought.''",
+      "after": "'Well, if you think so, I will leave him,' said Agathon. And then, turning to the servants, he added, 'Let us have supper without waiting for him. Serve up whatever you please, for there is no one to give you orders; up until now I have never left you to yourselves, but on this occasion imagine that you are our hosts, and that I and the company are your guests. Treat us well, and then we shall commend you.' After this, supper was served, but still no Socrates. During the meal Agathon several times expressed a wish to send for him, but Aristodemus objected. At last, when the feast was about half over — for the fit, as usual, was not of long duration — Socrates entered. Agathon, who was reclining alone at the end of the table, begged him to take the place next to him. 'So that I may touch you,' he said, 'and have the benefit of that wise thought which came into your mind in the portico, and is now in your possession — for I am certain that you would not have come away until you had found what you sought.'",
+      "reason": "Restore omitted source annotation or repair broken quotation syntax against source."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 44,
+      "before": "'Then,' said Eryximachus, 'as you are all agreed that drinking is to be voluntary, and that there is to be no compulsion, I move in the next place that the flute-girl, who has just made her appearance, be told to go away and play to herself, or, if she likes, to the women who are within. Today let us have conversation instead; and, if you will allow me, I will tell you what sort of conversation.' This proposal having been accepted, Eryximachus proceeded as follows:",
+      "after": "'Then,' said Eryximachus, 'as you are all agreed that drinking is to be voluntary, and that there is to be no compulsion, I move in the next place that the flute-girl, who has just made her appearance, be told to go away and play to herself, or, if she likes, to the women who are within. Today let us have conversation instead; and, if you will allow me, I will tell you what sort of conversation.' This proposal having been accepted, Eryximachus proceeded as follows: (Compare Protagoras.)",
+      "reason": "Restore omitted source annotation or repair broken quotation syntax against source."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 5,
+      "before": "And Acusilaus agrees with Hesiod. Thus numerous are the witnesses who acknowledge Love to be the eldest of the gods. And not only is he the eldest, he is also the source of the greatest benefits to us. For I know of no greater blessing to a young man who is beginning life than a virtuous lover, or to the lover than a beloved youth. For the principle which ought to guide men who would live nobly — that principle, I say, neither kindred, nor honor, nor wealth, nor any other motive is able to implant so well as love. What am I speaking of? Of the sense of honor and dishonor, without which neither states nor individuals ever do any good or great work. And I say that a lover who is caught doing any dishonorable act, or submitting through cowardice when any dishonor is done to him by another, will be more pained at being detected by his beloved than at being seen by his father, or by his companions, or by anyone else. The beloved too, when he is found in any disgraceful situation, has the same feeling about his lover. And if there were only some way of contriving that a state or an army should be made up of lovers and their loves, they would be the very best governors of their own city, abstaining from all dishonor and emulating one another in honor; and when fighting at each other's side, although a mere handful, they would overcome the world.",
+      "after": "And Acusilaus agrees with Hesiod. Thus numerous are the witnesses who acknowledge Love to be the eldest of the gods. And not only is he the eldest, he is also the source of the greatest benefits to us. For I know of no greater blessing to a young man who is beginning life than a virtuous lover, or to the lover than a beloved youth. For the principle which ought to guide men who would live nobly — that principle, I say, neither kindred, nor honor, nor wealth, nor any other motive is able to implant so well as love. What am I speaking of? Of the sense of honor and dishonor, without which neither states nor individuals ever do any good or great work. And I say that a lover who is caught doing any dishonorable act, or submitting through cowardice when any dishonor is done to him by another, will be more pained at being detected by his beloved than at being seen by his father, or by his companions, or by anyone else. The beloved too, when he is found in any disgraceful situation, has the same feeling about his lover. And if there were only some way of contriving that a state or an army should be made up of lovers and their loves (compare Republic), they would be the very best governors of their own city, abstaining from all dishonor and emulating one another in honor; and when fighting at each other's side, although a mere handful, they would overcome the world.",
+      "reason": "Restore source Republic cross-reference."
+    }
+  ],
+  "integration": "Prepare only. Unfinished manuscript must not be published. Claude owns all integration and release."
+}
