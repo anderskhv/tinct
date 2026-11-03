@@ -25,6 +25,7 @@ import {
   PDF_COUNTERPOINT_PROMPT,
   PDF_DOCUMENT_WORDING,
   PDF_EXPLAIN_PROMPT,
+  PDF_FIGURE_EXPLAIN_PROMPT,
   QUIZ_CHECK_PROMPT,
   RELATED_PROMPT,
   SIMPLIFY_PROMPT,
@@ -93,6 +94,8 @@ export interface CompanionRequest {
    * Metered as `explain_speculative`, never against an allowance.
    */
   speculative?: boolean
+  /** PDF Explain on a selected figure or table (not a formula): the takeaway first, never a description of the chart. */
+  figure?: true
   /**
    * Chapter action; `target` carries the next chapter's paragraphs for `prepare`.
    * `primer` (Before you start) is a user's own PDF only: see parsePrimerRequest.
@@ -491,7 +494,8 @@ export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
   if (intent === 'explain' || intent === 'define' || intent === 'simplify') {
     const selection = text(r.selection, SELECTION_CHARS)
     if (!selection) return null
-    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...pdf }
+    const figure = intent === 'explain' && parsed.pdf && r.figure === true ? { figure: true as const } : {}
+    return { intent, context: { ...context, lookups: false }, selection, ...(r.speculative === true ? { speculative: true } : {}), ...figure, ...pdf }
   }
   if (intent === 'factcheck' || intent === 'counterpoint' || intent === 'related') {
     const selection = text(r.selection, SELECTION_CHARS)
@@ -679,7 +683,7 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'explain':
       // The PDF reader's Explain (FIXES-2026-10-15 A2); the book reader's is unchanged.
       return request.pdf
-        ? `${PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
+        ? `${request.figure ? PDF_FIGURE_EXPLAIN_PROMPT : PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
         : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
     case 'simplify':
     case 'factcheck':
