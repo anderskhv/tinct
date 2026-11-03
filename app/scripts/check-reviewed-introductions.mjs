@@ -14,6 +14,7 @@ const catalogue=live?await fetch(origin+'/lab/catalogue.json').then(r=>{assert.e
 const available=new Set(catalogue.books.filter(book=>book.discoveryAvailable!==false).map(book=>book.id))
 const manifest=JSON.parse(fs.readFileSync('public/lab/library_2/author-images.json'))
 const gallery=JSON.parse(fs.readFileSync('../books/wip/featured-content-20260929/character-galleries.json'))
+const openers=new Map(JSON.parse(fs.readFileSync('public/lab/library_2/book-openers.json')).books.map(book=>[book.workId,book.opening]))
 const cases=source.books.filter(book=>available.has(book.id)).map(book=>book.id),report=[]
 const retainedHolds=source.books.filter(book=>!available.has(book.id)).map(book=>book.id)
 assert.equal(source.books.length,101)
@@ -108,9 +109,13 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
    catch(error){console.log('INTRO_TRANSITION_FAILURE '+JSON.stringify({engine:engine.name(),id,screen:await page.evaluate(()=>({trace:window.__introTrace,intro:document.getElementById('intro').outerHTML.slice(0,180),shape:document.getElementById('book-shape').style.cssText,cover:document.getElementById('turning-cover').style.cssText,active:document.activeElement?.id}))}));await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-transition-failure.png'});throw error}
   }
   await page.locator('#begin-reading').waitFor()
-  if(accepted){
+  // Primers (Anders, 3 Nov 2026): a book with an authored opening (book-openers.json) opens with it, verbatim, in place
+  // of its earlier reviewed preface; a book without one keeps that preface.
+  const opening=openers.get(id)
+  if(opening||accepted){
    const paragraphs=await page.locator('#intro-body > p').allTextContents()
-   assert.deepEqual(paragraphs.slice(0,accepted.preface.paragraphs.length),accepted.preface.paragraphs,id+' exact reviewed preface')
+   const expected=opening?opening.split(/\n{2,}/).map(p=>p.trim()).filter(Boolean):accepted.preface.paragraphs
+   assert.deepEqual(paragraphs.slice(0,expected.length),expected,id+(opening?' exact authored opening':' exact reviewed preface'))
    assert.equal(await page.locator('.reading-orientation, .preface-credit').count(),0,id+' preface has no signature or orientation')
   }
   const cast=gallery.books.find(book=>book.bookId===id)
