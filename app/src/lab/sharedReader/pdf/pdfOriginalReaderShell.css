@@ -36,9 +36,10 @@ html[data-eink=true] .pdf-original-reader { --lab-paper:#fff; --lab-ink:#111; --
 .pdf-original-reader__unit-actions strong { font-weight:600; margin-right:4px; }
 .pdf-original-reader__unit-actions button { border:1px solid var(--lab-border); border-radius:99px; background:var(--lab-surface); color:var(--lab-ink); padding:6px 10px; cursor:pointer; }
 .pdf-original-reader__source-range { color:var(--lab-ink-muted); font:12px system-ui,sans-serif; }
-.pdf-original-reader__thread > div { border-top:1px solid var(--lab-border); padding:10px 0; }
-.pdf-original-reader__thread > div:first-child { border-top:0; padding-top:0; }
-.pdf-original-reader__thread strong { display:block; margin-bottom:4px; color:var(--lab-ink-muted); font:600 12px system-ui,sans-serif; }
+/* A card's conversation (Anders, 3 Nov 2026, approved mockup): spaced, never ruled; each follow-up question opens its turn.
+   No style for <strong> here: it caught an answer's first sentence and shrank it to grey system type once saved. */
+.pdf-original-reader__thread > div { padding:0; }
+.pdf-original-reader__thread > .lab-pcard-you:not(:first-child) { margin-top:16px; }
 .pdf-original-reader .lab-pcard-dock { z-index:101; }
 .pdf-original-reader .lab-pcard blockquote { margin:0 0 12px; font:italic 16px Georgia,serif; }
 /* A note: the ask field's look (approved mockup, 2 Nov 2026): an underline, the words in the book's type, the plain send arrow. */

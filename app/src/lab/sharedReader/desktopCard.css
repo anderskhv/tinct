@@ -62,12 +62,16 @@ html[data-eink="true"] .lab .lab-desktop-card { box-shadow: none; border: 0; bor
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-v2-layout-choices .lab-v2-group { border:0; border-top:1px solid var(--lab-border); border-bottom:1px solid var(--lab-border); border-radius:0; background:transparent; box-shadow:none; }
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop :is(.lab-v2-theme-face,.lab-v2-layout-miniature) { border-radius:0; box-shadow:none; }
 .lab[data-shared-reader="true"][data-chrome-version="v2"].is-desktop .lab-v2-restore { border-top:1px solid var(--lab-border); }
-/* Reader questions in desktop responses are writing beside a rule, not chat bubbles. */
+/* A reader's question in every desktop card: a quiet italic line above its answer, no rule, no bubble
+   (Anders, 3 Nov 2026, approved mockup: "use same style for questions on other cards"). */
 .lab.is-desktop :is(.source-margin-content, .lab-desktop-card) .lab-pcard-you {
-  align-self:stretch; max-width:100%; margin:4px 0; padding:2px 0 2px 10px;
-  border:0; border-left:1px solid var(--lab-pcard-hair, var(--lab-border)); border-radius:0;
-  background:transparent; box-shadow:none; color:var(--lab-ink-muted);
+  align-self:stretch; max-width:100%; margin:2px 0 6px; padding:0;
+  border:0; border-radius:0; background:transparent; box-shadow:none;
+  color:var(--lab-ink-muted); font-style:italic;
 }
+.lab.is-desktop :is(.source-margin-content, .lab-desktop-card) .lab-pcard-you :is(p, blockquote) { margin:0; padding:0; border:0; font:inherit; }
+/* A follow-up question opens its own turn: space above it, never a rule. */
+.lab.is-desktop :is(.source-margin-content, .lab-desktop-card) * + .lab-pcard-you { margin-top:16px; }
 
 .lab .lab-desktop-card[data-reader-window] > .lab-pcard-head { cursor:grab; touch-action:none; user-select:none; }
 .lab .lab-desktop-card[data-reader-window] > .lab-pcard-head:active { cursor:grabbing; }

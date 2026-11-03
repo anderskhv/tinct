@@ -233,8 +233,8 @@ describe('answer wording (FIXES-2026-10-15 PR C)', () => {
     expect(COUNTERPOINT_PROMPT).toContain('About 120 words in all, plain prose, no headings.')
   })
 
-  it('Ask in the margin says so when the document does not explain something; the book reader\'s Ask is unchanged', async () => {
-    expect(ASK_DOCUMENT_LINE).toBe('When the document does not explain something, say so before offering an explanation of your own.')
+  it('Ask in the margin answers from the document first and never announces its silence; the book reader\'s Ask is unchanged', async () => {
+    expect(ASK_DOCUMENT_LINE).toBe('Answer from the document where it speaks to the question; where it does not, answer from your reliable knowledge directly, without saying that the document is silent.')
     const { anthropic } = stubFetch()
     await send({ ...margin('ask', 2), messages: [{ role: 'user', content: 'What is attention?' }] })
     expect(systemText(anthropic[0])).toContain(ASK_DOCUMENT_LINE)

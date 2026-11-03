@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 're
 import { createPortal } from 'react-dom'
 import { PhoneIcon } from '../marginPhone/LabPhoneCard'
 import type { CardBox } from './desktopCardPlace'
+import { clampWords } from './cardPreview'
 import './sourceMarginRail.css'
 
 export interface SourceMarginEntry {
@@ -12,6 +13,10 @@ export interface SourceMarginEntry {
   open: boolean
   content: ReactNode
   preview?: string
+  /** An Ask's first question, shown above its preview when folded (cardPreview.ts). */
+  previewQuestion?: string
+  /** How many follow-ups the card holds. */
+  previewMore?: number
   sourceText?: string
   onToggle: () => void
   onDelete?: () => void
@@ -146,7 +151,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && <button type="button" className="source-margin-preview" onClick={entry.onToggle}>{entry.preview?.slice(0, 160) || 'Open this card'}</button>}
+        {!entry.open && <button type="button" className="source-margin-preview" onClick={entry.onToggle}>{entry.previewQuestion && <span className="source-margin-preview-question">{entry.previewQuestion}</span>}<span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>{entry.previewMore ? <span className="source-margin-preview-more"> +{entry.previewMore} follow-up{entry.previewMore === 1 ? '' : 's'}</span> : null}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}

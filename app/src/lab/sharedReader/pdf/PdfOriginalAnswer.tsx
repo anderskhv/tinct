@@ -5,6 +5,7 @@ import { LabInlineMarkdown } from '../../LabMarkdown'
 import { LabChapterNotesEntries } from '../../LabChapterNotesSheet'
 import { primerBeats } from '../../userBook/ownChapterNotes'
 import { PhoneAnswer } from '../../marginPhone/LabPhoneCard'
+import { answerLead } from '../cardPreview'
 
 /** Folded source entries show prose, while their full structured answer stays unchanged in storage. */
 export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
@@ -13,7 +14,8 @@ export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
     const answer = parseContextualLookup(raw)
     return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : answer.definition : 'Open saved definition'
   }
-  return /^[\s]*(?:\{|\[|```)/.test(raw) ? 'Open saved answer' : raw
+  // A plain answer folds to its bottom line, whole (cardPreview.ts).
+  return /^[\s]*(?:\{|\[|```)/.test(raw) ? 'Open saved answer' : answerLead(raw)
 }
 
 /** Display the completed companion shape; callers retain the unmodified answer for saving and export. */
