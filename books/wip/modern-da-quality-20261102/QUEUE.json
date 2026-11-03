@@ -2,7 +2,7 @@
   "target": 70,
   "reserves": 6,
   "acceptedBooks": 0,
-  "publishedByThisProgramme": 4,
+  "publishedByThisProgramme": 5,
   "books": [
     {
       "bookId": "to-the-lighthouse",
@@ -50,8 +50,10 @@
       "bookId": "bacchae",
       "title": "The Bacchae",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_review_in_progress",
+      "publicationAccepted": false,
+      "reviewedChapters": 6,
+      "totalChapters": 11
     },
     {
       "bookId": "medea",
@@ -247,8 +249,14 @@
       "bookId": "apology",
       "title": "Apology",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "merged_release_cache_repair_pending",
-      "publicationAccepted": false
+      "status": "provisional_published_native_review_pending",
+      "publicationAccepted": true,
+      "release": {
+        "source": "511c492133981ad53872e1d90d61778be91a158f",
+        "run": 41597717124,
+        "version": "793c7b24-4822-48e8-9303-5919f75ab919",
+        "bundle": "index-5tWKzlG0.js"
+      }
     },
     {
       "bookId": "crito",
@@ -538,7 +546,7 @@
       "publicationAccepted": false
     }
   ],
-  "provisionalPublishedBooks": 4,
+  "provisionalPublishedBooks": 5,
   "nativeCertifiedBooks": 0,
-  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review.\nApology release 41508073723 hit stale unversioned JSON cache in Android download acceptance; PR708 fixes mutable asset caching. Art of War #704, Founding Documents #706 and Medea #707 wait for serialized accepted releases. Full source editorial review is not native/independent certification."
+  "notes": "Publication acceptance is technical/provisional, not native quality certification. User permits publication before native review.\nApology release 41508073723 hit stale unversioned JSON cache in Android download acceptance; PR708 fixes mutable asset caching. Art of War #704, Founding Documents #706 and Medea #707 wait for serialized accepted releases. Full source editorial review is not native/independent certification.\n2026-11-03: #709 superseded #708; run 41597717124 accepted all six groups. Apology live hashes verified. Art of War rebased onto accepted main with refreshed predecessor; checks running."
 }
