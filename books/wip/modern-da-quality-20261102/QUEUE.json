@@ -15,8 +15,9 @@
       "bookId": "the-art-of-war",
       "title": "The Art of War",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "editorial_complete_ci_passed_release_pending",
-      "publicationAccepted": false
+      "status": "merged_production_acceptance_running",
+      "publicationAccepted": false,
+      "releaseRun": 41606489725
     },
     {
       "bookId": "crime-and-punishment",
@@ -43,17 +44,20 @@
       "bookId": "the-prince",
       "title": "The Prince",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_review_in_progress",
+      "publicationAccepted": false,
+      "reviewedChapters": 6,
+      "totalChapters": 27
     },
     {
       "bookId": "bacchae",
       "title": "The Bacchae",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "editorial_complete_integration_pending",
+      "status": "editorial_complete_release_ci",
       "publicationAccepted": false,
       "reviewedChapters": 11,
-      "totalChapters": 11
+      "totalChapters": 11,
+      "pullRequest": 712
     },
     {
       "bookId": "medea",
