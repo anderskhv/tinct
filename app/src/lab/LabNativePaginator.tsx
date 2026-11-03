@@ -399,6 +399,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   chapterActions = false,
   hasNextChapter = false,
   editionKey,
+  language,
   keepPages,
   headFirst = false,
   onPages,
@@ -411,6 +412,8 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   hasNextChapter?: boolean
   /** Reading edition, for the hyphenation patterns a page-edge break needs. */
   editionKey?: string
+  /** The book's language when the edition key does not name it (a reader's own book). */
+  language?: string
   /**
    * Pages to keep verbatim at the head of the map (the reader's current page
    * and those before it) when the foot changes height under them. Only the
@@ -436,7 +439,7 @@ export const LabNativePaginator = memo(function LabNativePaginator({
   const measuredRef = useRef(new WeakMap<string[], Map<string, ChapterHearingPage[]>>())
   const headFirstRef = useRef(headFirst)
   headFirstRef.current = headFirst
-  const hyphenLang = hyphenLangForEdition(editionKey)
+  const hyphenLang = hyphenLangForEdition(editionKey, language)
   // Patterns arrive after the first layout. Re-measuring once they do is the
   // whole point: the first pass breaks between words, the second fills the
   // last lines. Both are correct pages, so the reader sees no error state.
