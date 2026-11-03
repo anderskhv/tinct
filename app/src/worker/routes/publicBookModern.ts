@@ -341,7 +341,7 @@ async function publishEditionRecords(bucket: R2Bucket, bookId: string): Promise<
       ...meta.entry,
       editions: [...meta.entry.editions, {
         key: MODERN_KEY, language: 'en', style: 'modern', label: 'Modern English', translator: null, year: null, aligned: true,
-        group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Tinct AI adaptation',
+        group: 'modern', provenance: 'tinct-ai-adaptation', provenanceLabel: 'Line-by-line AI-based translation',
         availability: { chapterText: true, audio: false, compare: false }, discoveryAvailable: true,
         wordCount: meta.entry.wordCount, readingStructure: meta.entry.readingStructure,
       }],
