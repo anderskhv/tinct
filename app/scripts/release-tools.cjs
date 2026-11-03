@@ -25,7 +25,7 @@ const floorManifest = path.join(releaseDir, 'shared-reader-floor.json')
 const rolloutState = path.join(releaseDir, 'shared-reader-rollout.json')
 // Accepted reader: deploy run 41500456112, source b80ee2fedacf577185ebbc761c70dda50bef3d63 (#700; all six production acceptance groups passed).
 // All six acceptance groups passed without rollback; preserve the reader-ON release path.
-const ACCEPTED_READER_VERSION = '5c42804b-0085-4a53-87a8-815615f358cf'
+const ACCEPTED_READER_VERSION = '793c7b24-4822-48e8-9303-5919f75ab919'
 
 function validatedVersion(value, label) {
   if (!VERSION_ID.test(value || '')) throw new Error(`${label} must be an explicit Worker Version UUID`)
