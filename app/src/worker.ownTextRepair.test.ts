@@ -4,6 +4,7 @@ import { fakeUserBooksBucket } from './worker/fakeUserBooksBucket'
 import { acceptedRepair, boundedEditDistance, suspectReason } from './ownTextRepair'
 import { applyRepairs, flaggedParagraphs, repairOwnEdition } from './lab/userBook/ownTextRepair'
 import type { UserBookEdition } from './lab/userBook/userEdition'
+import { registerRepairedText, registerUserBook, registeredUserBook } from './lab/userBook/userBookSource'
 import { hyphenLangForEdition } from './lab/labHyphenate'
 
 /**
@@ -81,6 +82,30 @@ describe('the device pass', () => {
     const signedOut = await repairOwnEdition(book, { book: HEX, token: null })
     expect(signedOut.complete).toBe(false)
     expect((await repairOwnEdition(edition([['Clean text only.']]), { book: HEX, token: null })).complete).toBe(true)
+  })
+
+  it('fixes the reader\'s chapter and those after it first, and hands each batch to the open book', async () => {
+    const three = edition([['He spoke of J&sus.'], ['Th|s one.'], ['A wor1d away.']])
+    expect(flaggedParagraphs(three, 1).map(item => item.id)).toEqual(['c1p0', 'c2p0', 'c0p0'])
+    const seen: string[][] = []
+    const fetchImpl = vi.fn(async (_u: RequestInfo | URL, init?: RequestInit) => {
+      const items = (JSON.parse(String(init?.body)) as { items: Array<{ id: string; text: string }> }).items
+      return Response.json({ items: items.map(item => ({ id: item.id, text: item.text.replace('J&sus', 'Jesus').replace('Th|s', 'This').replace('wor1d', 'world') })) })
+    }) as unknown as typeof fetch
+    await repairOwnEdition(three, { book: HEX, token: 't', fetchImpl, keepWordCount: true, fromChapter: 1, onRepaired: e => seen.push(e.chapters.map(c => c.paragraphs[0])) })
+    expect(seen.at(-1)).toEqual(['He spoke of Jesus.', 'This one.', 'A world away.'])
+  })
+
+  it('keeps repairs when the open book is registered again after them', () => {
+    const id = 'userbook-' + HEX
+    const open = edition([['He spoke of J&sus.'], ['Fine.']])
+    registerUserBook(id, open)
+    registerRepairedText(id, [['He spoke of Jesus.'], ['Fine.']])
+    expect(registeredUserBook(id)?.chapters[0].paragraphs[0]).toBe('He spoke of Jesus.')
+    registerUserBook(id, open)
+    expect(registeredUserBook(id)?.chapters[0].paragraphs[0]).toBe('He spoke of Jesus.')
+    registerUserBook(id, edition([['Different', 'shape'], ['Fine.']]))
+    expect(registeredUserBook(id)?.chapters[0].paragraphs).toEqual(['Different', 'shape'])
   })
 
   it('keeps the text as converted when signed out, refused or offline', async () => {

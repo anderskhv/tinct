@@ -23,6 +23,7 @@ import { healUserEdition } from './chapterAuthors'
 import { OWN_COVER_VERSION } from './ownShelf'
 import { canDrawCover, drawCover } from './userBookCover'
 import type { UserBookImage } from './epubEdition'
+import { registerRepairedText } from './userBookSource'
 import { fetchAccountCopy, fetchOcrEdition, listAccountBooks, ownBookToken, type AccountCopy, type FetchLike } from './ownAccount'
 import { cachedStoredCover, offerCoverToAccount } from './ownCovers'
 
@@ -498,7 +499,7 @@ const convertPdfBytes: PdfConverter = async (bytes, options) => (await import('.
  * Scanning errors ("J&sus") fixed once, before a converted PDF is stored (ownTextRepair.ts):
  * only flagged paragraphs are sent, and any failure keeps the text as converted.
  */
-async function repairScanErrors(hex: string, edition: UserBookEdition, options: { keepWordCount?: boolean } = {}): Promise<UserBookEdition> {
+async function repairScanErrors(hex: string, edition: UserBookEdition, options: { keepWordCount?: boolean; fromChapter?: number; onRepaired?: (edition: UserBookEdition) => void } = {}): Promise<UserBookEdition> {
   try {
     const { repairOwnEdition, OWN_TEXT_REPAIR_VERSION } = await import('./ownTextRepair')
     const result = await repairOwnEdition(edition, { book: hex, token: await ownBookToken(), ...options })
@@ -515,10 +516,16 @@ async function repairScanErrors(hex: string, edition: UserBookEdition, options: 
  * reader's place and highlights stay on their words; the next open reads the repaired text.
  */
 const repairing = new Set<string>()
-function repairStoredInBackground(key: string, owner: string, hex: string, edition: UserBookEdition): void {
+function repairStoredInBackground(key: string, owner: string, hex: string, edition: UserBookEdition, place: { chapterNumber?: number } | null): void {
   if (edition.textRepair || editionSource(edition) === 'epub' || repairing.has(key)) return
   repairing.add(key)
-  void repairScanErrors(hex, edition, { keepWordCount: true })
+  const bookId = userBookId(hex)
+  const fromChapter = Math.max(0, edition.chapters.findIndex(chapter => chapter.number === place?.chapterNumber))
+  // Each answered batch goes into the open book at once (Anders, 3 Nov 2026: "fix the chapters in front of
+  // you"): the chapter the reader turns to next is read from the registry already repaired. The page on screen
+  // is not repainted under them; word counts are kept, so a return to it lands on the same words.
+  const onRepaired = (repaired: UserBookEdition) => registerRepairedText(bookId, repaired.chapters.map(chapter => chapter.paragraphs))
+  void repairScanErrors(hex, edition, { keepWordCount: true, fromChapter, onRepaired })
     .then(repaired => repaired !== edition ? keepFields(key, owner, { edition: repaired }) : undefined)
     .catch(() => {})
     .finally(() => repairing.delete(key))
@@ -593,11 +600,12 @@ async function openPdfBook(hex: string, owner: string, record: UserBookRecord, o
   // Not yet told on this device under the current open rule (pdfEditions.ts): the viewer decides, and forwards back when it is Tinct text.
   if (pdfEditionChoice(hex, layout, undefined, sourceOptions) === 'pages' || pdfEditionUntold(hex, layout, undefined, sourceOptions)) return { ok: false, reason: 'pages', message: PAGES_ONLY_MESSAGE }
   edition = healUserEdition(edition)
-  repairStoredInBackground(key, owner, hex, edition)
   const pages = Number.isInteger(pageCount) && (pageCount as number) > 0 ? pageCount as number : undefined
   const cover = typeof record.cover === 'string' && /^data:image\/(jpeg|png|webp);base64,/.test(record.cover) ? record.cover : null
   const images = new Map<string, Blob>([...figureData].map(([id, image]) => [id, new Blob([image.data], { type: image.type })]))
-  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images, place: readPdfTextPlace(hex, edition, { page: options.page, previous }), cover } }
+  const place = readPdfTextPlace(hex, edition, { page: options.page, previous })
+  repairStoredInBackground(key, owner, hex, edition, place)
+  return { ok: true, book: { hex, bookId: userBookId(hex), kind: 'pdf', ...(pages ? { pdfPages: pages } : {}), edition, images, place, cover } }
 }
 
 const COVER_HEAL_DELAY_MS = 1500
