@@ -373,3 +373,14 @@ describe('isApparatus (30 Oct 2026)', () => {
     for (const title of ['Introduction', 'Preface', 'The Eyewitness Evidence', 'Notes from Underground', 'Chapter 1']) expect(isApparatus(title), title).toBe(false)
   })
 })
+
+describe('the chat card sits on the keyboard (Anders, 4 Nov 2026: "too low")', () => {
+  it('drops the v2 sheet inset inside the card, at the v2 rule\'s own weight', () => {
+    // lab.css gives a v2 chat sheet `padding-bottom: max(14px, env(safe-area-inset-bottom))`; inside the card
+    // that floated the field ~34px above the keys. The card keeps the inset at its own foot instead.
+    const lab = readFileSync(resolve(__dirname, '../lab.css'), 'utf8')
+    expect(lab).toMatch(/\.lab\[data-chrome-version="v2"\] \.lab-ask\.is-phone-sheet \.lab-ask-chrome \{\s*padding-bottom: max\(14px, env\(safe-area-inset-bottom\)\)/)
+    expect(css).toMatch(/\.lab\[data-chrome-version="v2"\] \.lab-pcard \.lab-ask\.is-phone-sheet \.lab-ask-chrome \{[^}]*padding-bottom: 0;/)
+    expect(css).toMatch(/\.lab \.lab-pcard\[data-keyboard\] \{[^}]*padding-bottom: 10px;/)
+  })
+})
