@@ -18,7 +18,7 @@ jobs:
       github.event.workflow_run.head_sha == github.sha &&
       github.event.workflow_run.run_attempt == 1 &&
       github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 150
     permissions:
       contents: read
