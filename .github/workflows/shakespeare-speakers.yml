@@ -22,7 +22,7 @@ permissions:
   actions: read
 jobs:
   all-shakespeare:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 75
     env:
       CI: true
