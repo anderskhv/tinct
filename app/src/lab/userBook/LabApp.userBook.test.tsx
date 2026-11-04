@@ -451,15 +451,16 @@ describe('a PDF read as its Tinct text', () => {
 })
 
 describe('UserBookReader', () => {
-  it('opens a new own EPUB in Two-page and keeps desktop layout choices off the phone', async () => {
+  // Margin is the desktop default since 4 Nov 2026 (Anders); Two-page was before.
+  it('opens a new own EPUB in Margin and keeps desktop layout choices off the phone', async () => {
     const book = { ...loaded({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 7 }), kind: 'epub' as const, images: new Map() }
     const view = render(<UserBookReader hex={HEX} owner="me" sharedReader open={async () => ({ ok: true, book })} reconcile={async () => {}} />)
     await waitFor(() => expect(screen.getByTestId('lab-root')).toBeTruthy())
-    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBe('true')
     fireEvent.click(screen.getByTestId('lab-header-aa'))
-    expect(screen.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed')).toBe('true')
+    expect(screen.getByTestId('lab-v2-layout-margin').getAttribute('aria-pressed')).toBe('true')
     expect(screen.queryByTestId('lab-v2-layout-compare')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
+    fireEvent.click(screen.getByTestId('lab-v2-layout-two-page'))
     expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('2:7')
     view.unmount()
     window.history.replaceState(null, '', '/reader?layout=phone')
