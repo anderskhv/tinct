@@ -567,11 +567,11 @@
       "bookId": "oedipus-rex",
       "title": "Oedipus Rex",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "reviewedChapters": 8,
+      "reviewedChapters": 11,
       "totalChapters": 11,
-      "reviewedParagraphs": 267,
+      "reviewedParagraphs": 474,
       "totalParagraphs": 474,
       "nativeReview": "pending_user_arranges",
       "inProgress": null
@@ -873,8 +873,11 @@
       "bookId": "leviathan",
       "title": "Leviathan",
       "phase": "Full-corpus extension authorized 2026-11-03",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_in_progress",
+      "publicationAccepted": false,
+      "totalChapters": 49,
+      "totalParagraphs": 1337,
+      "nativeReview": "pending_user_arranges"
     },
     {
       "bookId": "second-treatise",
@@ -943,12 +946,15 @@
       "bookId": "discourse-on-inequality",
       "title": "Discourse on the Origin of Inequality",
       "phase": "Full-corpus extension authorized 2026-11-03",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
       "totalChapters": 4,
       "totalParagraphs": 170,
-      "reviewedParagraphs": 0,
-      "nativeReview": "pending_user_arranges"
+      "reviewedParagraphs": 170,
+      "nativeReview": "pending_user_arranges",
+      "reviewedChapters": 4,
+      "inProgress": null,
+      "requiredIntegration": "All19 Danish author notes companion; title motto/frontispiece caption; main draft alone incomplete."
     },
     {
       "bookId": "walden",
@@ -1038,7 +1044,7 @@
   ],
   "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Full 112-book corpus authorized. Thirty-nine completed editorial first passes across prior released, Claude-owned PR and preparation packages. Nicomachean Ethics includes all 247 recovered editorial-note blocks; note integration and localized diagram pending. Alice additionally has source/literary first passes with unresolved literary-quality items. Native certification remains pending. Claude owns integration and releases.",
+  "notes": "Full 112-book corpus authorized. Forty-one completed editorial first passes across prior released, Claude-owned PR and preparation packages. Nicomachean Ethics includes all 247 recovered editorial-note blocks; note integration and localized diagram pending. Alice additionally has source/literary first passes with unresolved literary-quality items. Native certification remains pending. Claude owns integration and releases.",
   "releasePolicy": {
     "mode": "prepare_only",
     "releaseOwner": "Claude",
