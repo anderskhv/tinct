@@ -14,7 +14,7 @@
     "paragraphs": 944,
     "reviewedParagraphs": 944,
     "danishParagraphsChanged": 331,
-    "englishParagraphsChanged": 11,
+    "englishParagraphsChanged": 12,
     "chapterCounts": [
       154,
       181,
@@ -74,7 +74,7 @@
       "chapter": 1,
       "paragraph": 1,
       "before": "Nu bringer Rann Glenten natten hjem,\nsom Mang Flagermusen slipper fri —\nhjordene er lukket inde i stalde og hytter,\nmens vi er frie til daggry.\nDette er stolthedens og magtens time,\nklo og hugtand og pote.\nÅh, hør kaldet! — God jagt til alle,\nder følger Junglens Lov!\n_Natsang i Junglen_",
-      "after": "Nu bringer glenten Rann natten hjem,\nsom flagermusen Mang slipper fri —\nhjordene er lukket inde i stald og hytte,\nmens vi går frie til daggry.\nNu er det stolthedens og styrkens time,\nmed rovfugleklo, hugtand og kløer.\nHør kaldet! God jagt til alle,\nder følger Junglens Lov!\n_Natsang i junglen_",
+      "after": "Nu bringer glenten Rann natten hjem,\nsom flagermusen Mang slipper fri —\nhjordene er lukket inde i stald og hytte,\nmens vi går frie til daggry.\nNu er det stolthedens og styrkens time,\nmed rovfugleklo, stødtand og kløer.\nHør kaldet! God jagt til alle,\nder følger Junglens Lov!\n_Natsang i junglen_",
       "reason": "Natural verse; distinguish talon/tusk/claw; preserve all lines"
     },
     {
@@ -2465,6 +2465,13 @@
       "before": "At the summit Kala Nag paused. Moonlit treetops stretched for miles, mottled and furry-looking; blue-white mist lay over the river below. Little Toomai leaned forward over the elephant’s neck and looked carefully down into the valley. He had the feeling that the whole forest below him was awake--awake, alive, and crowded with creatures moving through it. A large brown fruit bat swept past his ear. Porcupine quills rattled in nearby bushes. Between dark trunks, a hog-bear dug vigorously in warm, damp soil, snuffling as it worked.",
       "after": "At the summit Kala Nag paused. Moonlit treetops stretched for miles, mottled and furry-looking; blue-white mist lay over the river below. Little Toomai leaned forward over the elephant’s neck and looked carefully down into the valley. He had the feeling that the whole forest below him was awake--awake, alive, and crowded with creatures moving through it. A large brown fruit bat swept past his ear. Porcupine quills rattled in nearby bushes. Between dark trunks, a wild boar dug vigorously in warm, damp soil, snuffling as it worked.",
       "reason": "Adopt documented Oxford 1987 hog-boar emendation; source hog-bear is not an animal. https://www.kiplingsociety.co.uk/readers-guide/rg_toomai_notes.htm"
+    },
+    {
+      "chapter": 1,
+      "paragraph": 1,
+      "before": "Now Rann the Kite brings home the night\nThat Mang the Bat lets free--\nThe herds are shut in shed and hut\nWhile free till dawn are we.\nThis is the hour of pride and power,\nTalon and fang and claw.\nOh, hear the call!--Good hunting all\nWho keep the Jungle Law!\n_Night-Song in the Jungle_",
+      "after": "Now Rann the Kite brings home the night\nThat Mang the Bat lets free--\nThe herds are shut in shed and hut\nWhile free till dawn are we.\nThis is the hour of pride and power,\nTalon and tusk and claw.\nOh, hear the call!--Good hunting all\nWho keep the Jungle Law!\n_Night-Song in the Jungle_",
+      "reason": "Original tush is a long projecting tooth/tusk. Restore tusk rather than retained fang, matching Danish stødtand; dictionaries support tusk sense."
     }
   ],
   "onboarding": {
@@ -2501,7 +2508,8 @@
   "limitations": [
     "Native Danish final read pending.",
     "Cold Lairs illustration recovered but not integrated into application; full illustrated-edition reconstruction remains separate.",
-    "Source narrator's historical assumptions, violence and biological claims retained unless explicitly logged as an editorial emendation."
+    "Source narrator's historical assumptions, violence and biological claims retained unless explicitly logged as an editorial emendation.",
+    "Songs preserve source content and stanza emphasis but do not systematically reproduce rhyme or metre. Native read-aloud review of cadence remains pending."
   ],
   "parentValidation": {
     "sourceShasMatched": true,
