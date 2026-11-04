@@ -53,11 +53,12 @@ describe('the desktop panel', () => {
     expect([...panel.children].map(node => node.hasAttribute('data-reader-window-resize') ? 'resize' : node.className)).toEqual([
       'resize', 'lab-voice-panel-head', 'lab-voice-panel-stage', 'lab-voice-panel-controls',
     ])
-    expect(panel.querySelector('.lab-voice-panel-head')?.textContent).toBe('Talk')
+    expect(panel.querySelector('.lab-voice-panel-title')?.textContent).toBe('Talk')
+    expect(panel.querySelector('.lab-voice-panel-title')?.tagName).toBe('H2')
     const stage = panel.querySelector('.lab-voice-panel-stage')!
     expect([...stage.children].map(node => node.getAttribute('data-testid'))).toEqual(['lab-voice-panel-orb', 'lab-voice-panel-status'])
     expect(screen.getByTestId('lab-voice-panel-orb').getAttribute('data-orb-state')).toBe('speaking')
-    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Speaking.')
+    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Speaking')
   })
 
   it('announces the status through one aria-live line', () => {
@@ -71,9 +72,9 @@ describe('the desktop panel', () => {
   it('says one status line per state, "Connecting to AI…" while connecting', () => {
     for (const [input, text] of [
       [{ connection: 'connecting' as const }, 'Connecting to AI…'],
-      [{ activity: 'listening' as const }, 'Listening.'],
-      [{ activity: 'speaking' as const }, 'Speaking.'],
-      [{ activity: 'thinking' as const }, 'Thinking.'],
+      [{ activity: 'listening' as const }, 'Listening'],
+      [{ activity: 'speaking' as const }, 'Speaking'],
+      [{ activity: 'thinking' as const }, 'Thinking'],
       [{ micMuted: true }, 'Microphone off'],
       [{ connection: 'disconnected' as const }, 'Disconnected'],
     ] as const) {
@@ -106,17 +107,24 @@ describe('the desktop panel', () => {
     expect(screen.getByTestId('lab-voice-panel-notice').textContent).toBe('Sign in to talk.')
   })
 
+  it('names the book and chapter under the title (mockup B, 4 Nov 2026)', () => {
+    renderPanel({}, { context: 'The Prince · Chapter 5' })
+    const head = screen.getByTestId('lab-voice-panel').querySelector('.lab-voice-panel-head')!
+    expect(head.querySelector('.lab-voice-panel-title')?.textContent).toBe('Talk')
+    expect(screen.getByTestId('lab-voice-panel-context').textContent).toBe('The Prince · Chapter 5')
+    expect(head.contains(screen.getByTestId('lab-voice-panel-context'))).toBe(true)
+  })
+
   it('offers Mute and End at the bottom, and no Transcript button since the transcript is in view', () => {
     const onMuteToggle = vi.fn()
     const onEnd = vi.fn()
     renderPanel({}, { onMuteToggle, onEnd })
-    // Icons only: no visible caption, but screen readers and tooltips name both.
+    // Mockup B (4 Nov 2026): every control has its word under the disc; End is red with ×.
     const mute = screen.getByTestId('lab-voice-panel-mute')
     const end = screen.getByTestId('lab-voice-panel-end')
-    expect(mute.textContent).toBe('')
-    expect(end.textContent).toBe('')
-    expect(mute.querySelector('.lab-voice-control-word')).toBeNull()
-    expect(end.querySelector('.lab-voice-control-word')).toBeNull()
+    expect(mute.querySelector('.lab-voice-control-word')?.textContent).toBe('Mute')
+    expect(end.querySelector('.lab-voice-control-word')?.textContent).toBe('End')
+    expect(end.className).toContain('is-filled')
     expect(mute.getAttribute('aria-label')).toBe('Mute')
     expect(mute.getAttribute('title')).toBe('Mute')
     expect(end.getAttribute('aria-label')).toBe('End conversation')
@@ -133,7 +141,7 @@ describe('the desktop panel', () => {
     expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Microphone off')
     expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-label')).toBe('Unmute')
     expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('title')).toBe('Unmute')
-    expect(screen.getByTestId('lab-voice-panel-mute').textContent).toBe('')
+    expect(screen.getByTestId('lab-voice-panel-mute').querySelector('.lab-voice-control-word')?.textContent).toBe('Unmute')
     expect(screen.getByTestId('lab-voice-panel-mute').getAttribute('aria-pressed')).toBe('true')
     expect(screen.getByTestId('lab-voice-panel-orb').getAttribute('data-motion')).toBe('still')
   })
@@ -165,7 +173,7 @@ describe('the pill', () => {
     renderPill({ activity: 'speaking' })
     expect(screen.getByTestId('lab-voice-pill').getAttribute('data-status')).toBe('speaking')
     expect(screen.getByTestId('lab-voice-pill-orb-canvas').getAttribute('data-orb-state')).toBe('speaking')
-    expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Speaking.')
+    expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Speaking')
     expect(screen.queryByTestId('lab-voice-pill-line')).toBeNull()
     cleanup()
     renderPill({ activity: 'listening' })
@@ -200,7 +208,7 @@ describe('the pill', () => {
   it('offers Reconnect on a dropped call and never claims to listen', () => {
     renderPill({ connection: 'disconnected', activity: 'listening' })
     expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Disconnected')
-    expect(screen.queryByText('Listening.')).toBeNull()
+    expect(screen.queryByText('Listening')).toBeNull()
     expect(screen.getByTestId('lab-voice-pill-reconnect')).toBeTruthy()
     expect(screen.queryByTestId('lab-voice-pill-mute')).toBeNull()
   })
@@ -214,9 +222,11 @@ describe('Talk speed in the desktop Talk window', () => {
     expect([...row.querySelectorAll('[data-testid]')].map(node => node.getAttribute('data-testid')).filter(id => !id!.startsWith('lab-voice-panel-speed-')))
       .toEqual(['lab-voice-panel-mute', 'lab-voice-panel-speed', 'lab-voice-panel-end'])
     const control = screen.getByTestId('lab-voice-panel-speed')
-    expect(control.textContent).toContain('1.25×')
-    // The speed is information, so unlike Mute and End it keeps its visible value.
-    expect(control.querySelector('.lab-voice-control-word')?.textContent).toBe('1.25×')
+    // Mockup B: the figure sits inside the disc, "Speed" under it; no orphan "1.25×" below.
+    expect(control.querySelector('.lab-voice-control-disc')?.textContent).toBe('1.25×')
+    expect(control.querySelector('.lab-voice-control-disc svg')).toBeNull()
+    expect(control.querySelector('.lab-voice-control-word')?.textContent).toBe('Speed')
+    expect(control.getAttribute('aria-label')).toBe('Playback speed 1.25 times. Open speed control')
     fireEvent.click(control)
     expect(control.getAttribute('aria-expanded')).toBe('true')
     expect(screen.getByTestId('lab-voice-panel-speed-1.25').getAttribute('aria-pressed')).toBe('true')

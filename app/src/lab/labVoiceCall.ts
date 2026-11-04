@@ -31,13 +31,18 @@ export const LAB_CALL_COPY = {
   live: 'Live',
   /** Also the call's AI disclosure (AI Act art. 50; DECISIONS.md 2026-10-08). */
   connecting: 'Connecting to AI…',
-  listening: 'Listening.',
-  thinking: 'Thinking.',
-  speaking: 'Speaking.',
+  listening: 'Listening',
+  thinking: 'Thinking',
+  speaking: 'Speaking',
   micOff: 'Microphone off',
   disconnected: 'Disconnected',
-  /** End's accessible name and tooltip; the X carries no visible word. */
+  /** End's accessible name and tooltip; the word under the red disc is `endWord`. */
   end: 'End conversation',
+  endWord: 'End',
+  /** The word under Talk's speed disc; the disc itself shows the figure. */
+  speed: 'Speed',
+  /** Talk's title on the desktop window and the full-screen phone call. */
+  title: 'Talk',
   mute: 'Mute',
   unmute: 'Unmute',
   reconnect: 'Reconnect',

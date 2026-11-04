@@ -184,6 +184,7 @@ import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePagin
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabVoiceCall } from './LabVoiceCall.tsx'
+import { LabAudioSpeedPopover } from './LabAudioSpeedPopover.tsx'
 import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
 import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
@@ -726,6 +727,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const compareOnScreenRef = useRef(mobileCompareActive || desktopCompareActive)
   compareOnScreenRef.current = mobileCompareActive || desktopCompareActive
   const [speedPopoverOpen, setSpeedPopoverOpen] = useState(false)
+  const speedButtonRef = useRef<HTMLButtonElement | null>(null)
+  // Closing the speed popover (Escape, a tap outside, the button again) hands focus back to its button.
+  const speedPopoverWasOpenRef = useRef(false)
+  useEffect(() => {
+    if (speedPopoverWasOpenRef.current && !speedPopoverOpen) {
+      const active = document.activeElement
+      if (!active || active === document.body || active === speedButtonRef.current) speedButtonRef.current?.focus({ preventScroll: true })
+    }
+    speedPopoverWasOpenRef.current = speedPopoverOpen
+  }, [speedPopoverOpen])
   const [bookSwitcherOpen, setBookSwitcherOpen] = useState(false)
   const [bookSwitcherRows, setBookSwitcherRows] = useState<QuickBookRow[]>([])
   const [bookSwitcherLoading, setBookSwitcherLoading] = useState(false)
@@ -5627,6 +5638,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // ── The phone's margin mode (marginPhone/): the bar, the one bottom card, the chapter pills ──
   // Every card is fixed over the page: opening or closing one never turns a page or writes a place.
   const phoneChapterName = unitName(paintedChapterLabel || book.chapterLabel || book.chapterTitle || '')
+  // Talk's line under its title: the book and the chapter as the reader names it.
+  const talkContext = [book.bookTitle, phoneChapterName].filter(Boolean).join(' · ')
   const phoneCardLabel = (name: string, chapterLabel?: string) => {
     const chapter = unitName(chapterLabel || '') || phoneChapterName
     return chapter ? `${name} · ${chapter}` : name
@@ -7019,6 +7032,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         {desktopVoiceOpen && !callMinimized && (
           <LabVoiceDesktopPanel
             view={callView}
+            context={talkContext}
             getAssistantLevel={ask.getAssistantLevel}
             reducedMotion={reducedMotion}
             notice={ask.notice}
@@ -7148,7 +7162,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
       {desktopAudioBarActive && (
         <section ref={desktopDockRef} className="lab-desktop-audio-dock" data-testid="lab-desktop-audio-dock" aria-label="Audio player">
-          <button type="button" className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
+          <button type="button" ref={speedButtonRef} className="lab-desktop-audio-speed" data-testid="lab-hearing-speed" aria-controls="lab-audio-speed-popover" onClick={() => setSpeedPopoverOpen(open => !open)} aria-label={`Playback speed ${listen.speed} times`} aria-expanded={speedPopoverOpen}>{listen.speed}×</button>
           <button type="button" data-testid="lab-hearing-back" onClick={() => listen.seek(-15)} aria-label="Back 15 seconds"><SkipIcon direction="back" /></button>
           <button type="button" className="is-primary" data-testid="lab-hearing-pause" onClick={handleHeaderListen} aria-busy={listen.pending || undefined} aria-label={listen.pending ? 'Cancel audio loading' : !listen.playing ? 'Resume audiobook' : LAB_COPY.pause}>{listen.loading || listen.buffering ? <LoadingIcon size={22} /> : listen.pending || !listen.playing ? <PlayIcon size={22} /> : <PauseIcon size={22} />}</button>
           <button type="button" data-testid="lab-hearing-forward" onClick={() => listen.seek(30)} aria-label="Forward 30 seconds"><SkipIcon direction="forward" seconds={30} /></button>
@@ -7181,36 +7195,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       )}
 
       {(audioBarActive || desktopAudioBarActive) && speedPopoverOpen && (
-        <section
-          id="lab-audio-speed-popover"
-          className="lab-audio-speed-popover"
-          data-testid="lab-audio-speed-popover"
-          aria-label="Playback speed"
-        >
-          <div className="lab-audio-speed-heading">
-            <span>Playback speed</span>
-            <output htmlFor="lab-audio-speed-slider">{listen.speed}×</output>
-            <button type="button" className="lab-audio-speed-done" onClick={() => setSpeedPopoverOpen(false)}>Done</button>
-          </div>
-          <input
-            id="lab-audio-speed-slider"
-            className="lab-v2-slider"
-            data-testid="lab-audio-speed-slider"
-            type="range"
-            min="0.5"
-            max="3"
-            step="0.25"
-            value={listen.speed}
-            aria-label="Playback speed"
-            onChange={(event) => listen.setSpeed(Number(event.target.value))}
-          />
-          <div className="lab-audio-speed-scale" aria-hidden="true">
-            <span>0.5×</span>
-            <span>1×</span>
-            <span>2×</span>
-            <span>3×</span>
-          </div>
-        </section>
+        <LabAudioSpeedPopover speed={listen.speed} onChange={listen.setSpeed} anchorRef={speedButtonRef} desktop={!showPhoneChrome} />
       )}
 
       {ask.notice && !(showPhoneChrome ? phoneAsk : desktopAskOpen) && !callOpen && (
@@ -7243,6 +7228,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 speed: (
                   <button
                     key="speed"
+                    ref={speedButtonRef}
                     type="button"
                     className="lab-phone-fat lab-audio-control lab-audio-speed"
                     data-testid="lab-hearing-speed"
@@ -7423,6 +7409,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {callFullScreen && !marginPhone && (
         <LabVoiceCall
           view={callView}
+          context={talkContext}
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
           notice={ask.notice}
