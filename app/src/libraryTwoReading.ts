@@ -137,6 +137,17 @@ let lastRows = new Map<string, ReadingListRow>()
 /** Every finished book of the last read, removed ones included (introductionProgress). */
 let lastFinished = new Set<string>()
 let lastPositions: LabPositionState | null = null
+/** Each listed book's latest reading time as the last table read it (Tinct's and own books). */
+let lastActive = new Map<string, number>()
+/**
+ * When a removal from Currently reading is dated: now, or the book's latest reading as this
+ * table saw it when that is later (a place stamped by a device whose clock runs ahead). A removal
+ * holds while it is at least as new as the book's reading (readingNow.ts removedSince), so it
+ * then holds until a strictly newer reading, never because of the other device's clock (4 Nov 2026).
+ */
+function removalTime(bookId: string): number {
+  return Math.max(Date.now(), lastActive.get(bookId) ?? 0)
+}
 const summaryOutcomes = new Map<string, Promise<SummaryResult>>()
 
 const isOnline = () => typeof navigator === 'undefined' || navigator.onLine !== false
@@ -470,6 +481,7 @@ export async function loadReadingTable(options: ReadingTableLoadOptions = {}): P
     if (cached?.status === 'cached') book.recap = cached.text
   }))
   table.shelfReading = table.reading
+  lastActive = new Map(table.reading.map(book => [book.bookId, book.lastActiveAt ?? 0]))
   if (!table.reading.length) table.mode = 'new'
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
   if (auth.token) {
@@ -671,7 +683,8 @@ export async function summaryFor(bookId: string, options: { request?: boolean } 
  */
 export async function removeFromShelf(bookId: string) {
   const auth = await readAuth()
-  const result = await setSavedBook(bookId, false)
+  const at = removalTime(bookId)
+  const result = at > Date.now() ? await setSavedBook(bookId, false, { at }) : await setSavedBook(bookId, false)
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
   lastRows.delete(bookId)
   return result
@@ -687,7 +700,7 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
   const auth = await readAuth()
   // Sync visibility through the owner-only shelf store; private files and places stay intact.
   if (isUserBookId(bookId)) {
-    const at = Date.now()
+    const at = removalTime(bookId)
     hideOwnFromReadingTable(userBookHex(bookId)!, at, { saved })
     await setSavedBook(bookId, saved, { tableHidden: true, ...(auth.userId ? { expectedOwner: auth.userId } : {}), at })
     if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
@@ -696,9 +709,10 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
   }
   const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
   if (local.owner && local.owner !== auth.userId) throw new Error('Account changed')
-  await setSavedBook(bookId, true, { tableHidden: true })
+  const at = removalTime(bookId)
+  await setSavedBook(bookId, true, { tableHidden: true, ...(at > Date.now() ? { at } : {}) })
   if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
-  const next = withHiddenFromReadingNow({ ...local, owner: auth.userId }, bookId, Date.now())
+  const next = withHiddenFromReadingNow({ ...local, owner: auth.userId }, bookId, Math.max(Date.now(), at))
   const stored = writeLabPositionLocal(next)
   // Invalidate only this viewer's fast-paint snapshot before the next fresh load.
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))

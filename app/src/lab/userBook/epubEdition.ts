@@ -1034,7 +1034,7 @@ interface Piece {
  * carry the story; an epigraph set before its essay's own heading joins the
  * essay; and a book without a usable contents is cut at its own headings.
  */
-function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<{ at: number; title: string; docType: string }>, book: { title: string; author: string }): Piece[] {
+function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<{ at: number; title: string; docType: string }>, book: { title: string; author: string; rules: number }): Piece[] {
   const starts = new Map<number, PlacedEntry[]>()
   for (const entry of placed) starts.set(entry.at, [...(starts.get(entry.at) ?? []), entry])
   if (starts.size < 2) {
@@ -1143,17 +1143,49 @@ function piecesFromContents(stream: Block[], placed: PlacedEntry[], docs: Array<
   return pieces
 }
 
+/** Rules 12: a piece shorter than this stays one chapter, its headings inside it. */
+const SHORT_PIECE_WORDS = 2500
+/** Rules 12: a section shorter than this under its heading opens the chapter after it. */
+const SHORT_SECTION_WORDS = 300
+/** A sub-section's number ("i.", "ii)", "a)", "(b)"): under the level its heading is set at. */
+const SUB_NUMBER = /^\s*(?:\(?[ivxlc]{1,6}[.)]|\(?[a-z]\)|\([a-z]\)|[a-h]\.)\s+\S/
+
 /**
  * A book without a usable contents, cut at its own headings (an old
  * table-set poetry book with its poems' titles in a larger type). Only when it
  * has three or more; the book's title and author set as headings are not
  * cuts, and a heading with almost nothing under it opens the next piece.
+ *
+ * Rules 12 (4 Nov 2026), for prose (an article pasted from the web, an essay
+ * in one document): a piece under SHORT_PIECE_WORDS stays one chapter; only
+ * headings at the top level the text uses start chapters (h2 over h3; "I." over
+ * "i." at one level), the lower ones stay in their chapter as headings; and a
+ * heading with under SHORT_SECTION_WORDS before the next one opens the chapter
+ * after it (named by it), the next heading kept inside. Verse keeps the cuts above.
  */
-function splitAtHeadings(stream: Block[], book: { title: string; author: string }): Array<Piece & { at: number }> | null {
+function splitAtHeadings(stream: Block[], book: { title: string; author: string; rules?: number }): Array<Piece & { at: number }> | null {
   const titled = (block: Block | undefined) => !!block?.heading
     && !namesBook(block.text, book.title) && !(book.author && norm(block.text).replace(/^by\s+/, '') === norm(book.author))
-  // A run of headings is one cut, at its first.
-  const cuts = stream.map((block, index) => titled(block) && !titled(stream[index - 1]) ? index : -1).filter(index => index > 0)
+  const body = stream.filter(block => !block.heading && !block.figure)
+  const prose = (book.rules ?? 0) >= 12 && body.filter(block => block.kind === 'line').length * 2 <= body.length
+  if (prose && blockWords(body) < SHORT_PIECE_WORDS) return null
+  // How deep a heading stands: its element's level (a styled paragraph under every h1–h6), a sub-number under that.
+  const rank = (block: Block) => (block.level ?? 7) * 2 + (SUB_NUMBER.test(plain(block.text)) ? 1 : 0)
+  let top = Infinity
+  if (prose) {
+    const counts = new Map<number, number>()
+    stream.forEach((block, index) => { if (index > 0 && titled(block)) counts.set(rank(block), (counts.get(rank(block)) ?? 0) + 1) })
+    const ranks = [...counts.keys()].sort((a, b) => a - b)
+    top = ranks.find(value => (counts.get(value) ?? 0) >= 2) ?? ranks[0] ?? Infinity
+  }
+  // A run of headings is one cut, at its first; in prose, a run holding a top-level heading.
+  const opens = (index: number) => {
+    if (!titled(stream[index]) || titled(stream[index - 1])) return false
+    if (!prose) return true
+    for (let at = index; titled(stream[at]); at++) if (rank(stream[at]) <= top) return true
+    return false
+  }
+  const cuts = stream.map((_, index) => opens(index) ? index : -1).filter(index => index > 0)
   if (cuts.length < 3) return null
   const at = [0, ...cuts]
   const pieces: Array<Piece & { at: number }> = []
@@ -1163,6 +1195,20 @@ function splitAtHeadings(stream: Block[], book: { title: string; author: string 
     const title = index === 0 ? book.title : bareNumeral(headings[0] ?? '') && headings[1] ? `${headings[0]} ${headings[1]}` : headings[0] ?? ''
     pieces.push({ at: start, title, blocks })
   })
+  if (prose) {
+    // Rules 12: a short section opens the chapter after it, under its own heading; the last joins the one before.
+    for (let i = pieces.length - 2; i >= 1; i--) {
+      if (blockWords(pieces[i].blocks.filter(block => !block.heading)) >= SHORT_SECTION_WORDS) continue
+      pieces[i] = { ...pieces[i], blocks: [...pieces[i].blocks, ...pieces[i + 1].blocks] }
+      pieces.splice(i + 1, 1)
+    }
+    const last = pieces.length - 1
+    if (last >= 2 && blockWords(pieces[last].blocks.filter(block => !block.heading)) < SHORT_SECTION_WORDS) {
+      pieces[last - 1] = { ...pieces[last - 1], blocks: [...pieces[last - 1].blocks, ...pieces[last].blocks] }
+      pieces.pop()
+    }
+    return pieces
+  }
   // A title with almost nothing under it ("POEMS." over an epigraph) opens the piece after it.
   for (let i = pieces.length - 2; i >= 1; i--) {
     if (blockWords(pieces[i].blocks.filter(block => !block.heading)) >= 25) continue
@@ -1579,7 +1625,7 @@ export async function convertEpub(input: ArrayBuffer | Uint8Array, options: Epub
     }
     return out
   }
-  if (v6) pieces = piecesFromContents(stream, placedEntries(), docTitles, { title, author })
+  if (v6) pieces = piecesFromContents(stream, placedEntries(), docTitles, { title, author, rules })
   else {
     // Chapter starts: the contents' entries in reading order, else every document.
     const starts = new Map<number, string>()

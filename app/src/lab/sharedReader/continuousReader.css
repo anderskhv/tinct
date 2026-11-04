@@ -81,3 +81,20 @@ html[data-eink="true"] .lab[data-continuous-reader="true"] .continuous-reader-pa
 .lab.is-desktop[data-continuous-reader="true"] .continuous-reader-window {
   width: 100%; box-sizing: border-box; padding-inline: var(--continuous-paper-pad);
 }
+
+/* An iPad held upright (Anders, 4 Nov 2026): the text takes the room. No chapter
+   map at the left edge (the header's chapter menu and the scroll do its work
+   here), a thin left gutter and a narrower card column, so the text reads at
+   55-65 characters a line instead of about 40 (labDesktopLayout.marginReaderRoom). */
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] { --continuous-paper-pad: 20px; --tablet-card-column: clamp(196px, 25vw, 240px); }
+/* The narrower card keeps "Ask a follow-up" on one line beside its three buttons. */
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content .lab-pcard-follow-box { gap: 0; }
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content :is(.lab-pcard-mic, .lab-pcard-talkbtn, .lab-pcard-send) { width: 28px; }
+.lab.is-desktop[data-margin-room="tablet-portrait"] .source-margin-content .lab-pcard-follow-input::placeholder { font-size: 15px; }
+.lab[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .source-minimap { display: none; }
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .lab-body { padding-left: 12px; padding-right: 12px; }
+/* The card column (SourceMarginRail) takes what the paper leaves, less its 18px either side. */
+.lab.is-desktop[data-continuous-reader="true"][data-margin-room="tablet-portrait"] .continuous-reader-paper {
+  width: min(calc(34rem + 2 * var(--continuous-paper-pad)), calc(100% - var(--tablet-card-column) - 36px));
+  margin-left: 0; margin-right: 0;
+}

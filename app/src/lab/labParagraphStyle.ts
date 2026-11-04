@@ -135,7 +135,20 @@ export function paragraphKindClass(text: string | undefined, from = 0): string {
   if (isFigureToken(text)) return ' is-figure'
   const kind = paragraphKind(text)
   if (!kind) return ''
-  return ` is-kind-${kind}${from > 0 ? ' is-kind-resumed' : ''}`
+  return ` is-kind-${kind}${kind === 'heading' && isSubheading(text) ? ' is-kind-subheading' : ''}${from > 0 ? ' is-kind-resumed' : ''}`
+}
+
+/** A sub-section's number opening a heading: a lower-case roman numeral or letter ("i.", "ii)", "a)", "(b)"). */
+const SUB_NUMBER = /^\s*(?:\(?[ivxlc]{1,6}[.)]|\(?[a-z]\)|\([a-z]\)|[a-h]\.)\s+\S/
+
+/**
+ * A heading under a section heading, numbered as one ("i. Antichrist and
+ * armageddon" under "IV. Signs of the times"): set lighter than the section's
+ * heading and in the author's own case (lab.css `.is-kind-subheading`), so its
+ * "i." never reads as the section "I.".
+ */
+export function isSubheading(text: string | undefined): boolean {
+  return !!text && SUB_NUMBER.test(text)
 }
 
 const SAFE_HREF = /^https?:\/\/[^\s<>"]+$/i

@@ -4771,6 +4771,17 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   text-transform: uppercase;
 }
 .lab .lab-hearing-stage > .lab-hearing-line.is-kind-heading:first-child { margin-top: 0; }
+/* A sub-section's heading ("i. …", "a) …"; labParagraphStyle isSubheading): lighter than a
+   section's, italic in the author's own case, never in capitals, so its "i." stays "i.". */
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading[class] {
+  font-weight: 400;
+  font-style: italic;
+}
+.lab .lab-hearing-line.is-kind-heading.is-kind-subheading[class] > span {
+  font-size: .92em;
+  letter-spacing: 0;
+  text-transform: none;
+}
 .lab .lab-hearing-line:is(.is-kind-label, .is-kind-byline)[class] > span {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: .56em;

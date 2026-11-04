@@ -138,3 +138,67 @@ it('stops queued shelf requests on departure and preserves pending changes for a
  expect(mock.rpc).toHaveBeenCalledTimes(1)
  expect(JSON.parse(localStorage.getItem('tinct:library-2-saved:alice')!).pending).toEqual({})
 })
+
+// commit_user_data as the database runs it (20261022_disk_io_audit.sql): an unchanged value is
+// answered as applied at its current rev and is not written, so its updated_at stays old.
+function databaseCommit(serverNow: () => number) {
+ mock.rpc.mockImplementation(async (_name:string,{p_key,p_value,p_expected_rev}:{p_key:string;p_value:unknown;p_expected_rev:number|null})=>{
+  const rows=mock.rows as Array<{key:string;value:unknown;rev:number;updated_at:string}>
+  const current=rows.find(row=>row.key===p_key)
+  const same=current&&JSON.stringify(current.value??null)===JSON.stringify(p_value??null)
+  if(current&&(p_expected_rev==null||current.rev===p_expected_rev)&&same)return {data:[{...current,applied:true,conflict:false}],error:null}
+  if(current&&p_expected_rev!=null&&current.rev!==p_expected_rev)return {data:[{...current,applied:false,conflict:true}],error:null}
+  const next={key:p_key,value:p_value,rev:(current?.rev??0)+1,updated_at:new Date(serverNow()).toISOString()}
+  mock.rows=[...rows.filter(row=>row.key!==p_key),next]
+  return {data:[{...next,applied:true,conflict:false}],error:null}
+ })
+}
+it('Remove from shelf over an older tombstone is dated by the removal, here and on the account (4 Nov 2026)',async()=>{
+ // Unsaved ten days ago (a tombstone), read since: the reader removes it again now.
+ const old=Date.parse('2026-10-25T10:00:00Z'),now=Date.parse('2026-11-04T10:00:00Z')
+ mock.user='alice';mock.rows=[{key:'library-shelf:the-prince',value:null,rev:3,updated_at:new Date(old).toISOString()}]
+ databaseCommit(()=>now)
+ let api=await import('./libraryTwoSaved');await api.loadSavedBooks()
+ expect((await api.setSavedBook('the-prince',false,{at:now})).synced).toBe(true)
+ // The reload that follows a removal reads the account's row again.
+ expect((await api.loadShelfMembership()).removedAt?.['the-prince']).toBeGreaterThanOrEqual(now)
+ // Another device (or this one with its storage cleared) sees the same removal time.
+ localStorage.clear();vi.resetModules();api=await import('./libraryTwoSaved')
+ const elsewhere=await api.loadShelfMembership()
+ expect(elsewhere.removed).toEqual(['the-prince'])
+ expect(elsewhere.removedAt?.['the-prince']).toBeGreaterThanOrEqual(now)
+})
+it('keeps this device’s removal time when the account dates the same tombstone earlier (server clock behind)',async()=>{
+ const now=Date.parse('2026-11-04T10:00:00Z')
+ mock.user='alice';mock.rows=[]
+ // The database's clock runs 30 s behind this device's.
+ databaseCommit(()=>now-30000)
+ const api=await import('./libraryTwoSaved');await api.loadSavedBooks()
+ await api.setSavedBook('the-prince',false,{at:now})
+ expect((await api.loadShelfMembership()).removedAt?.['the-prince']).toBe(now)
+})
+it('a slow account read that answers with the old saved row after Remove from shelf does not bring the book back',async()=>{
+ const now=Date.parse('2026-11-04T10:00:00Z')
+ mock.user='alice';mock.rows=[{key:'library-shelf:the-prince',value:{saved:true,at:now-5*86400000},rev:5,updated_at:new Date(now-5*86400000).toISOString()}]
+ databaseCommit(()=>now)
+ let release!: (value:unknown)=>void
+ mock.read.mockImplementationOnce(()=>new Promise(resolve=>release=resolve))
+ mock.read.mockClear();const api=await import('./libraryTwoSaved');const loading=api.loadSavedBooks()
+ await vi.waitFor(()=>expect(mock.read).toHaveBeenCalled())
+ const removal=api.setSavedBook('the-prince',false,{at:now})
+ // The page's first read answers now, with the row as it was before the removal.
+ release({data:[{key:'library-shelf:the-prince',value:{saved:true,at:now-5*86400000},rev:5,updated_at:new Date(now-5*86400000).toISOString()}],error:null})
+ await Promise.all([loading,removal])
+ const membership=await api.loadShelfMembership()
+ expect(membership.removed).toEqual(['the-prince'])
+ expect(membership.removedAt?.['the-prince']).toBeGreaterThanOrEqual(now)
+})
+it('a removal dated after now (a place stamped by a clock ahead) keeps that time on the account too',async()=>{
+ const ahead=Date.now()+60000
+ mock.user='alice';mock.rows=[]
+ databaseCommit(()=>Date.now())
+ let api=await import('./libraryTwoSaved');await api.loadSavedBooks()
+ await api.setSavedBook('the-prince',false,{at:ahead})
+ localStorage.clear();vi.resetModules();api=await import('./libraryTwoSaved')
+ expect((await api.loadShelfMembership()).removedAt?.['the-prince']).toBe(ahead)
+})

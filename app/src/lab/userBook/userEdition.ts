@@ -27,11 +27,14 @@ export const USER_EDITION_FORMAT = 'tinct-user-edition-v1'
 // running heads, page numbers and accuracy banners out, pages run together, chapters as printed (archiveEpub.ts).
 // 11 (31 Oct 2026): Archive EPUBs: a contents without numerals or under another heading, a play's acts, chapters where
 // their own running head first stands, chapter numbers that only go up (archiveEpub.ts).
-export const USER_EDITION_CONVERTER = 11
+// 12 (4 Nov 2026): prose in one document without a contents (a pasted web article): a piece under 2,500 words is one
+// chapter; only top-level headings start chapters, sub-sections ("i.", h3 under h2) stay inside; a section under 300
+// words opens the chapter after it (epubEdition.ts splitAtHeadings).
+export const USER_EDITION_CONVERTER = 12
 /** The rules every book converted before USER_EDITION_CONVERTER was converted with. */
 export const LEGACY_EDITION_CONVERTER = 5
 /** Every rule set a stored conversion may have been made with; each stays readable as it is. */
-export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, 9, 10, USER_EDITION_CONVERTER]
+export const USER_EDITION_CONVERTERS: readonly number[] = [LEGACY_EDITION_CONVERTER, 6, 7, 8, 9, 10, 11, USER_EDITION_CONVERTER]
 /**
  * Where an edition's text comes from: an EPUB's own text (the default, when
  * absent), a text PDF's text layer (public/lab/addbook/js/pdf-text.js, "Tinct
