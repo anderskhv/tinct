@@ -1,0 +1,499 @@
+{
+  "bookId": "a-little-princess",
+  "status": "editorial_in_progress",
+  "reviewedChapters": [
+    1
+  ],
+  "reviewedParagraphs": 74,
+  "totalParagraphs": 1701,
+  "inProgress": {
+    "chapter": 1,
+    "paragraph": 74
+  },
+  "nativeReview": "pending_user_arranges",
+  "releasePolicy": {
+    "mode": "prepare_only",
+    "releaseOwner": "Claude",
+    "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
+  },
+  "sourceBlobs": {
+    "original-en": "8d6a1ade48233e117a29b24357861f57082575a1",
+    "modern-en": "5afe8c0915077f3c2c922d45ce341da3fe026f9f",
+    "modern-da": "89d84f85e842061505eba9b496279031d1592ad3"
+  },
+  "changes": [
+    {
+      "chapter": 1,
+      "paragraph": 1,
+      "before": "En mørk vinterdag kørte en lille pige med et usædvanligt ansigt langsomt gennem Londons brede gader i en droske, ved siden af sin far. Den gule tåge lå så tyk og tung over byen, at gadelygterne var tændt, og der skinnede gaslys fra butiksvinduerne, ligesom om natten.",
+      "after": "En mørk vinterdag sad en lille pige, der så lidt usædvanlig ud, sammen med sin far i en droske, som kørte langsomt gennem Londons brede gader. Den gule tåge hang så tyk og tung i gaderne, at lygterne var tændt, og butiksvinduerne strålede af gaslys ligesom om natten.",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 2,
+      "before": "Hun sad med fødderne trukket op under sig og lænede sig ind til sin far, der havde en arm om hende. Hun så på de mennesker, der gik forbi uden for vinduet, og i hendes store øjne lå et underligt, tankefuldt udtryk, som lignede en meget ældre persons.",
+      "after": "Hun sad med fødderne trukket op under sig og lænede sig ind til sin far, der holdt en arm om hende. Hun stirrede ud ad vinduet på de forbipasserende med et mærkeligt voksent, eftertænksomt blik i sine store øjne.",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 3,
+      "before": "Et sådant udtryk var uventet i ansigtet på så lille en pige. Det ville have set gammelt ud selv hos et barn på tolv, og Sara Crewe var kun syv. Men hun drømte altid og tænkte sære tanker. Hun kunne ikke huske nogen tid, hvor hun ikke havde undret sig over de voksne og den verden, de levede i. Hun følte, som om hun allerede havde levet i meget, meget lang tid.",
+      "after": "Hun var så lille, at man ikke ventede at se sådan et udtryk i hendes ansigt. Det ville have virket voksent selv hos et barn på tolv, og Sara Crewe var kun syv. Men hun gik altid og drømte og tænkte sære tanker. Hun kunne ikke huske en tid, hvor hun ikke havde tænkt over de voksne og den verden, de hørte til. Hun følte, at hun havde levet i meget, meget lang tid.",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 4,
+      "before": "Lige nu tænkte hun på rejsen fra Bombay sammen med sin far, kaptajn Crewe. Hun huskede det store skib, de indiske sømænd, lascarerne, der gik tavse frem og tilbage over det, og børnene, der legede på det varme dæk. Hun huskede også de unge officersfruer, som plejede at få hende i snak og lo af det, hun fortalte dem.",
+      "after": "Lige nu tænkte hun tilbage på den rejse, hun netop havde gjort fra Bombay med sin far, kaptajn Crewe. Hun tænkte på det store skib, på de indiske sømænd, lascarerne, som gik lydløst frem og tilbage, og på børnene, der legede på det varme dæk. Hun tænkte også på nogle unge officerers koner, der plejede at prøve at få hende til at tale med dem og lo ad det, hun sagde.",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 5,
+      "before": "Mest af alt undrede hun sig over, hvor mærkeligt det var at være i Indiens brændende sol det ene øjeblik, så midt ude på havet, og så køre i en fremmed vogn gennem fremmede gader, hvor dagslyset var lige så sort som natten. Det forvirrede hende så meget, at hun rykkede lidt tættere på sin far.",
+      "after": "Mest af alt tænkte hun på, hvor mærkeligt det var først at være i Indien under den brændende sol, så midt ude på havet og nu i en fremmed vogn på fremmede gader, hvor dagen var lige så mørk som natten. Det var så svært at forstå, at hun rykkede tættere på sin far.",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 6,
+      "before": "»Papa,« sagde hun med en lav, hemmelighedsfuld lille stemme, der næsten var en hvisken, »papa.«",
+      "after": "»Far,« sagde hun med en lav, hemmelighedsfuld stemme, der næsten var en hvisken. »Far.«",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 7,
+      "before": "»Hvad er der, min skat?« svarede kaptajn Crewe og holdt hende tættere ind til sig og så ned i hendes ansigt. »Hvad tænker Sara på?«",
+      "after": "»Hvad er der, min skat?« svarede kaptajn Crewe. Han holdt hende tættere ind til sig og så ned på hendes ansigt. »Hvad tænker Sara på?«",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 8,
+      "before": "»Er det her stedet?« hviskede Sara og krøb endnu tættere ind til ham. »Er det, papa?«",
+      "after": "»Er det her stedet?« hviskede Sara og krøb endnu tættere ind til ham. »Er det, far?«",
+      "reason": "Modern natural Danish preserving narration and paragraph boundaries; Papa rendered far consistently, historical setting and details retained."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 9,
+      "before": "»Ja, lille Sara, det er her. Nu er vi endelig fremme.« Hun var kun syv år, men hun kunne høre sorgen i hans stemme.",
+      "after": "»Ja, lille Sara, det er her. Nu er vi endelig fremme.« Og selv om hun kun var syv år, vidste hun, at han var ked af det, da han sagde det.",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 10,
+      "before": "Det føltes som mange år siden, at han begyndte at forberede hende på »stedet«, som hun altid kaldte det. Hendes mor var død, da hun blev født, så hun havde hverken kendt hende eller savnet hende. Hendes far, der var ung og køn og rig og altid kælede for hende, var den eneste slægtning, hun havde i hele verden. De havde altid leget sammen og holdt af at være sammen. Hun vidste kun, at han var rig, fordi folk sagde det, når de troede, at hun ikke kunne høre det. Hun havde også hørt dem sige, at hun selv ville blive rig, når hun blev stor. Hvad det egentlig ville sige at være rig, forstod hun ikke helt. Hun havde altid boet i en dejlig bungalow fuld af tjenere, som bukkede for hende, kaldte hende »Missee Sahib« og lod hende få sin vilje i alt. Hun havde legetøj og kæledyr og en ayah, en indisk barnepige, som elskede hende højt. Lidt efter lidt havde hun forstået, at rige mennesker har den slags ting. Mere vidste hun ikke om det.",
+      "after": "Hun syntes, det var mange år siden, han var begyndt at forberede hende på »stedet«, som hun altid kaldte det. Hendes mor var død, da hun blev født, så hun havde aldrig kendt eller savnet hende. Hendes unge, flotte og rige far, som forkælede hende, virkede som den eneste familie, hun havde i verden. De havde altid leget sammen og holdt af hinanden. Hun vidste kun, at han var rig, fordi hun havde hørt folk sige det, når de troede, hun ikke lyttede. Hun havde også hørt dem sige, at hun selv ville blive rig, når hun blev stor. Hun vidste ikke helt, hvad det betød. Hun havde altid boet i en smuk bungalow og var vant til at se mange tjenere, som bukkede for hende, kaldte hende »Missee Sahib« og lod hende få sin vilje i alt. Hun havde haft legetøj og kæledyr og en ayah, en indisk barnepige, som forgudede hende. Lidt efter lidt havde hun lært, at rige mennesker havde den slags. Men det var også alt, hvad hun vidste om det.",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 11,
+      "before": "Der havde kun været én bekymring i hendes korte liv: »stedet«, som hun en dag skulle af sted til. Man mente, at Indiens klima var meget usundt for børn, og de blev sendt væk, så snart det kunne lade sig gøre — som regel til skole i England. Andre børn var rejst for øjnene af hende, og hun havde hørt deres forældre tale om de breve, der kom fra dem. Hun havde altid vidst, at turen også ville komme til hende. Nogle gange fik farens fortællinger om rejsen og det nye land hende til at ville se det hele, men det plagede hende, at han ikke kunne blive hos hende.",
+      "after": "I sit korte liv havde hun kun haft én bekymring: »stedet«, som hun en dag skulle hen til. Indiens klima var meget usundt for børn, og så snart det var muligt, blev de sendt væk, som regel til England for at gå i skole. Hun havde set andre børn rejse og hørt deres fædre og mødre tale om de breve, de fik fra dem. Hun havde vidst, at hun også måtte af sted. Selv om hendes fars fortællinger om rejsen og det nye land somme tider havde lokket hende, havde tanken om, at han ikke kunne blive hos hende, gjort hende ked af det.",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 12,
+      "before": "»Kunne du ikke tage med til det sted, papa?« havde hun spurgt, da hun var fem år gammel. »Kunne du ikke også gå i skole? Jeg ville hjælpe dig med dine lektier.«",
+      "after": "»Kunne du ikke tage med mig til det sted, far?« havde hun spurgt som femårig. »Kunne du ikke også gå i skole? Så ville jeg hjælpe dig med lektierne.«",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 13,
+      "before": "»Men du skal ikke blive der i særlig lang tid, lille Sara,« havde han altid sagt. »Du skal til et rart hus, hvor der vil være mange små piger, og I skal lege sammen, og jeg vil sende dig masser af bøger. Du vokser så hurtigt, at det næppe vil føles som et år, før du er stor nok og klog nok til at komme tilbage og passe papa.«",
+      "after": "»Men du skal ikke blive der så længe, lille Sara,« havde han altid sagt. »Du kommer til et rart hus med en masse små piger, og I skal lege sammen. Jeg sender dig masser af bøger, og du vokser så hurtigt, at det knap vil føles som et år, før du er stor nok og klog nok til at komme hjem og passe på far.«",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 14,
+      "before": "Det havde hun kunnet lide at tænke på. At holde hus for sin far; at ride med ham og sidde for bordenden, når han havde middagsselskaber; at tale med ham og læse hans bøger — det ville være det, hun mest af alt ville ønske sig i verden. Og hvis man måtte rejse til »stedet« i England for at opnå det, så måtte hun beslutte sig for at tage af sted. Hun brød sig ikke videre om andre små piger, men hvis hun havde masser af bøger, kunne hun trøste sig selv. Hun holdt mere af bøger end af noget andet og var i virkeligheden altid ved at finde på historier om smukke ting og fortælle dem til sig selv. Sommetider havde hun fortalt dem til sin far, og han havde syntes lige så godt om dem, som hun selv gjorde.",
+      "after": "Det havde hun godt kunnet lide at tænke på. At holde hus for sin far, ride sammen med ham og sidde for bordenden, når han havde gæster til middag, tale med ham og læse hans bøger: Det var det, hun allerhelst ville. Og hvis hun måtte rejse til »stedet« i England for at nå dertil, måtte hun beslutte sig for at tage af sted. Hun var ikke særlig interesseret i andre små piger, men hvis hun havde masser af bøger, kunne hun trøste sig med dem. Hun holdt mere af bøger end af noget andet og fandt faktisk hele tiden på historier om smukke ting, som hun fortalte for sig selv. Nogle gange havde hun fortalt dem til sin far, og han havde holdt lige så meget af dem som hun selv.",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 15,
+      "before": "»Nå, papa,« sagde hun blidt, »hvis vi er her, så må vi vel finde os i det.«",
+      "after": "»Nå, far,« sagde hun stille, »når vi nu er her, må vi vel affinde os med det.«",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 16,
+      "before": "Han lo af hendes gammelkloge ord og kyssede hende. Egentlig følte han slet ikke, at han kunne finde sig i det, men han vidste, at hun ikke måtte se det. Hans sære lille Sara havde været et vidunderligt selskab. Han tænkte på, hvor ensom han ville blive, når han kom tilbage til Indien og gik ind i sin bungalow, uden at nogen lille skikkelse i en hvid kjole løb hen for at tage imod ham. Da drosken drejede ind på den store, dystre plads, hvor de skulle hen, holdt han hende tæt ind til sig med begge arme.",
+      "after": "Han lo af hendes gammelkloge ord og kyssede hende. Selv havde han slet ikke affundet sig med det, men det vidste han, at han måtte holde hemmeligt. Hans særlige lille Sara havde været en vidunderlig ledsager. Han følte, at han ville blive ensom, når han kom hjem til Indien og trådte ind i sin bungalow, vel vidende at den lille skikkelse i sin hvide kjole ikke ville komme ham i møde. Derfor holdt han hende helt tæt ind til sig, mens drosken rullede ind på den store, triste plads, hvor huset, de skulle hen til, lå.",
+      "reason": "Full natural modern Danish; preserve Sara's deliberately precocious speech, emotional and family nuances, historical narrator's claims without inserted editorial qualification."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 17,
+      "before": "Det store, dystre hus var bygget af mursten, ligesom alle de andre i rækken. Det eneste, der adskilte det fra dem, var en blank messingplade på hoveddøren med disse ord i sort:",
+      "after": "Det var et stort, trist murstenshus, der lignede alle de andre i rækken. Kun en blank messingplade på hoveddøren skilte det ud. På den stod der med indgraverede sorte bogstaver:",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 18,
+      "before": "MISS MINCHIN,",
+      "after": "FRØKEN MINCHIN",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 20,
+      "before": "»Så er vi her, Sara,« sagde kaptajn Crewe og lagde så meget munterhed i stemmen, som han kunne. Han løftede hende ned fra drosken, og sammen gik de op ad trappen og ringede på. Senere tænkte Sara ofte på, hvor nøjagtigt huset lignede Miss Minchin. Det var respektabelt og havde gode møbler, men alt var grimt. Selv lænestolene så ud, som om de havde hårde knogler indeni. Hallen var fuld af hårdhed og blank politur, og på det høje ur i hjørnet så månefacens røde kinder strenge ud under lakken. De blev vist ind i en dagligstue med et tæppe med firkantet mønster og firkantede stole. Et tungt marmorur stod på en lige så tung marmorkamin.",
+      "after": "»Så er vi her, Sara,« sagde kaptajn Crewe og prøvede at lyde så munter som muligt. Så løftede han hende ud af drosken, og de gik op ad trappen og ringede på. Bagefter tænkte Sara ofte, at huset på en eller anden måde lignede frøken Minchin på en prik. Det var respektabelt og godt møbleret, men alt i det var grimt. Selv lænestolene så ud til at have hårde knogler indeni. I entréen var alt hårdt og blankpoleret. Selv de røde kinder på måneansigtet i det høje ur i hjørnet så strenge og lakerede ud. De blev vist ind i en stue med et tæppe i firkantet mønster og firkantede stole. På den tunge kaminhylde af marmor stod et tungt marmorur.",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 21,
+      "before": "Sara satte sig i en af de stive mahognistole og lod sit hurtige, vågne blik glide rundt i rummet.",
+      "after": "Sara satte sig i en af de stive mahognistole og så sig omkring med et af sine hurtige blikke.",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 22,
+      "before": "»Jeg kan ikke lide det, papa,« sagde hun. »Men jeg tror egentlig heller ikke, at soldater KAN LIDE at gå i kamp — ikke engang de modige.«",
+      "after": "»Jeg kan ikke lide det, far,« sagde hun. »Men soldater bryder sig vel heller ikke rigtig OM at gå i kamp, ikke engang de modige.«",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 23,
+      "before": "Kaptajn Crewe brød ud i latter. Han var ung og glad, og han blev aldrig træt af at høre Saras sære bemærkninger.",
+      "after": "Det fik kaptajn Crewe til at le højt. Han var ung og fuld af godt humør, og han blev aldrig træt af Saras sære bemærkninger.",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 24,
+      "before": "»Åh, lille Sara,« sagde han, »hvad skal der blive af mig, når du ikke er der til at sige højtidelige ting? Ingen andre kan være helt så højtidelige som dig.«",
+      "after": "»Åh, lille Sara,« sagde han. »Hvad skal jeg gøre, når jeg ikke har nogen til at sige højtidelige ting til mig? Ingen andre er så højtidelige som dig.«",
+      "reason": "Modern Danish with frøken/far forms; correct malformed månefacens and restore mantel shelf rather than fireplace; preserve stiff-house imagery."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 26,
+      "before": "»Fordi du er så morsom, når du siger det,« svarede han og lo endnu højere. Så trak han hende pludselig ind i sine arme og kyssede hende inderligt. Latteren hørte op med det samme, og hans øjne så næsten ud, som om de fyldtes med tårer.",
+      "after": "»Fordi du er så sjov, når du siger dem,« svarede han og lo endnu mere. Så greb han hende pludselig i sine arme og gav hende et stort kys. Latteren stoppede brat, og det så næsten ud, som om han havde fået tårer i øjnene.",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 27,
+      "before": "I samme øjeblik kom Miss Minchin ind. Sara syntes, at hun lignede huset påfaldende meget: høj, trist, respektabel og grim. Hendes øjne var store, kolde og fiskeagtige, og det samme var hendes smil. Da hun så kaptajn Crewe og Sara, blev smilet enormt bredt. Damen, der havde anbefalet hendes skole, havde fortalt hende mange behagelige ting om den unge soldat. Blandt andet at han var rig og villig til at bruge en meget stor sum på sin lille pige.",
+      "after": "Netop da kom frøken Minchin ind. Sara syntes, hun lignede sit hus: høj og kedelig, respektabel og grim. Hun havde store, kolde fiskeøjne og et stort, koldt fiskesmil. Smilet blev meget bredt, da hun så Sara og kaptajn Crewe. Hun havde hørt mange tiltalende ting om den unge officer fra den dame, der havde anbefalet ham skolen. Blandt andet havde hun hørt, at han var en rig far, som gerne ville bruge mange penge på sin lille datter.",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 28,
+      "before": "»Det vil være en stor ære at tage sig af så smukt og lovende et barn, kaptajn Crewe,« sagde hun, mens hun tog Saras hånd og strøg den. »Lady Meredith har fortalt mig om hendes usædvanlige begavelse. For en skole som min er et klogt barn en rigtig skat.«",
+      "after": "»Det bliver en stor ære at få ansvaret for så smukt og lovende et barn, kaptajn Crewe,« sagde hun og tog Saras hånd og strøg den. »Lady Meredith har fortalt mig, hvor usædvanligt begavet hun er. Et klogt barn er en stor skat for en skole som min.«",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 29,
+      "before": "Sara sad stille og sagde ingenting, men holdt blikket på Miss Minchins ansigt. Som sædvanlig gik der en underlig tanke gennem hendes hoved.",
+      "after": "Sara stod stille og så frøken Minchin lige i ansigtet. Som sædvanlig tænkte hun noget mærkeligt.",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 30,
+      "before": "»Hvorfor siger hun, at jeg er et smukt barn?« tænkte hun. »Jeg er slet ikke smuk. Oberst Granges lille pige, Isobel, er smuk. Hun har rosenrøde kinder, smilehuller og langt, gyldent hår. Jeg har kort, sort hår og grønne øjne. Desuden er jeg tynd og slet ikke lys. Næsten ingen børn, jeg har set, er så grimme som mig. Hun fortæller en løgn lige fra starten.«",
+      "after": "»Hvorfor siger hun, at jeg er et smukt barn?« tænkte hun. »Jeg er slet ikke smuk. Oberst Granges lille pige, Isobel, er smuk. Hun har smilehuller og rosenrøde kinder og langt hår, der skinner som guld. Jeg har kort, sort hår og grønne øjne. Og så er jeg tynd og slet ikke lys. Jeg er et af de grimmeste børn, jeg nogensinde har set. Hun begynder med at lyve.«",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 31,
+      "before": "Men Sara tog fejl, når hun mente, at hun var grim. Hun lignede slet ikke Isobel Grange, regimentets lille skønhed, men hun havde en helt egen, sær charme. Hun var slank og yndefuld og ret høj til sin alder, med et lille ansigt, der var intenst og indtagende. Hendes tykke hår var helt sort og krøllede kun i spidserne. Hendes øjne var rigtignok grågrønne, men det var store, usædvanlige øjne med lange sorte vipper. Sara kunne ikke lide deres farve, men mange andre kunne lide den meget. Alligevel var hun fast overbevist om, at hun var en grim lille pige, og Miss Minchins kompliment løftede slet ikke hendes humør.",
+      "after": "Men hun tog fejl, når hun troede, at hun var grim. Hun lignede overhovedet ikke Isobel Grange, som havde været regimentets skønhed, men hun havde sin helt egen særlige charme. Hun var slank og smidig, ret høj af sin alder, og havde et lille, intenst og tiltrækkende ansigt. Hendes hår var tykt og helt sort og krøllede kun i spidserne. Øjnene var ganske vist grågrønne, men de var store og vidunderlige med lange, sorte vipper. Selv om hun ikke selv kunne lide farven, var der mange andre, som kunne. Alligevel var hun fast overbevist om, at hun var en grim lille pige, og frøken Minchins smiger gjorde hende slet ikke stolt.",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 32,
+      "before": "»Jeg ville sige en løgn, hvis jeg sagde, hun var smuk,« tænkte hun; »og jeg ville vide, at jeg sagde en løgn. Jeg tror, jeg er lige så grim som hun er — på min måde. Hvorfor sagde hun det?«",
+      "after": "»Jeg ville lyve, hvis jeg sagde, at hun var smuk,« tænkte hun. »Og jeg ville vide, at jeg løj. Jeg tror, jeg er lige så grim som hende, bare på min egen måde. Hvorfor sagde hun det?«",
+      "reason": "Modern natural Danish; correct stood mistranslated as sat; preserve fish imagery, self-perception and flattery versus pride."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 33,
+      "before": "Efterhånden som Sara lærte Miss Minchin bedre at kende, forstod hun, hvorfor hun havde sagt det. Hun opdagede, at alle fædre og mødre, der kom med et barn til skolen, fik præcis det samme kompliment.",
+      "after": "Da Sara lærte frøken Minchin bedre at kende, forstod hun, hvorfor hun havde sagt det. Hun opdagede, at hun sagde det samme til enhver far og mor, der kom med et barn til skolen.",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 34,
+      "before": "Sara stod ved sin fars side og lyttede til hans samtale med Miss Minchin. Han havde valgt skolen, fordi Lady Meredith havde sendt begge sine små piger dertil, og kaptajn Crewe stolede meget på hendes erfaring. Sara skulle være det, man kaldte »saloneleve«, med endnu flere privilegier, end sådanne elever ellers fik. Hun skulle have et pænt soveværelse og en dagligstue helt for sig selv, en pony med vogn og en tjenestepige i stedet for den ayah, der havde passet hende i Indien.",
+      "after": "Sara stod ved siden af sin far og lyttede, mens han talte med frøken Minchin. Hun var kommet til skolen, fordi Lady Merediths to små piger havde gået der, og kaptajn Crewe havde stor respekt for Lady Merediths erfaring. Sara skulle være kostelev med særlige privilegier, og hun skulle endda have flere fordele, end den slags elever normalt fik. Hun skulle have et smukt soveværelse og en stue for sig selv, en pony og en vogn og en tjenestepige i stedet for den ayah, som havde passet hende i Indien.",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 35,
+      "before": "»Jeg er slet ikke bekymret for hendes skolegang,« sagde kaptajn Crewe med sin muntre latter og klappede Saras hånd. »Dit problem bliver at hindre hende i at lære for meget og for hurtigt. Hun sidder altid med sin lille næse begravet i en bog. Hun læser ikke bøger, Miss Minchin, hun sluger dem, som en lille ulv i stedet for en lille pige. Hun er altid sulten efter mere, og hun vil have voksenbøger: store, tykke bind på fransk og tysk såvel som engelsk, historie, biografier, digtere og alt muligt andet. Når hun læser for meget, så træk hende væk fra bøgerne. Send hende ud at ride på sin pony på ridestien Rotten Row, eller ud at købe en ny dukke. Hun burde lege mere med dukker.«",
+      "after": "»Jeg er slet ikke bekymret for hendes skolegang,« sagde kaptajn Crewe med sin muntre latter, mens han holdt Saras hånd og klappede den. »Det svære bliver at forhindre hende i at lære for hurtigt og for meget. Hun sidder altid med sin lille næse begravet i bøger. Hun læser dem ikke, frøken Minchin. Hun sluger dem, som om hun var en lille ulv i stedet for en lille pige. Hun er altid skrupsulten efter nye bøger at sluge, og hun vil have voksenbøger, store, tykke bøger, både på fransk, tysk og engelsk. Historie, biografier, digte og alt muligt. Træk hende væk fra bøgerne, når hun læser for meget. Få hende til at ride på sin pony på ridestien Rotten Row eller gå ud og købe en ny dukke. Hun burde lege mere med dukker.«",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 36,
+      "before": "»Men papa,« forklarede Sara, »hvis jeg købte en ny dukke hvert par dage, ville jeg snart have flere dukker, end jeg kunne holde af. De burde være nære venner. Det er det, Emily skal være for mig.«",
+      "after": "»Far, hvis jeg gik ud og købte en ny dukke med få dages mellemrum, ville jeg jo have flere, end jeg kunne holde af,« sagde Sara. »Dukker skal være nære venner. Emily skal være min nære ven.«",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 37,
+      "before": "Kaptajn Crewe så på Miss Minchin, og Miss Minchin så på kaptajn Crewe.",
+      "after": "Kaptajn Crewe så på frøken Minchin, og frøken Minchin så på kaptajn Crewe.",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 40,
+      "before": "Saras grågrønne øjne blev meget alvorlige og også bløde, da hun svarede.",
+      "after": "Saras grågrønne øjne var meget alvorlige og helt milde, da hun svarede.",
+      "reason": "Modern Danish preserving special boarding privileges, wolf/book imagery and doll friendship; replace malformed saloneleve with intelligible description."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 41,
+      "before": "»Hun er en dukke, som jeg ikke har endnu,« forklarede hun. »Papa skal købe hende til mig, og vi skal ud og finde hende sammen. Jeg har kaldt hende Emily. Når papa er rejst, skal hun være min ven. Jeg har brug for hende, så jeg kan tale med hende om ham.«",
+      "after": "»Hun er en dukke, jeg ikke har endnu,« sagde hun. »Far skal købe hende til mig. Vi skal ud og finde hende sammen. Jeg har kaldt hende Emily. Hun skal være min ven, når far er rejst. Jeg vil gerne have hende at tale med om ham.«",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 42,
+      "before": "Miss Minchins store, fiskeagtige smil fik nu et direkte beundrende udtryk.",
+      "after": "Frøken Minchins store fiskesmil blev nu overdrevent smigrende.",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 43,
+      "before": "»Sikke et usædvanligt barn!« udbrød hun. »Sikke et yndigt lille væsen!«",
+      "after": "»Sikke et usædvanligt barn!« sagde hun. »Sikke en dejlig lille pige!«",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 44,
+      "before": "»Ja,« sagde kaptajn Crewe og trak Sara tæt ind til sig. »Hun er et yndigt lille væsen. Pas godt på hende for mig, Miss Minchin.«",
+      "after": "»Ja,« sagde kaptajn Crewe og trak Sara ind til sig. »Hun er en dejlig lille pige. Pas rigtig godt på hende for mig, frøken Minchin.«",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 45,
+      "before": "Sara boede nogle dage hos sin far på hans hotel; faktisk blev hun hos ham lige til den dag, han rejste til Indien. Sammen gik de fra den ene store butik til den anden og købte en utrolig masse ting — langt mere, end hun overhovedet kunne få brug for. Men kaptajn Crewe var en impulsiv, troskyldig ung mand. Alt, hvad hans lille pige beundrede, og alt, hvad han selv beundrede, ville han give hende. Sammen fik de samlet en garderobe, der var alt for flot til en syvårig. Der var fløjlskjoler med kanter af dyrt pelsværk, kjoler af blonder, kjoler med broderi, hatte med store, bløde strudsefjer, hermelinskåber og muffer og æsker fulde af små handsker, lommetørklæder og silkestrømper i enorme mængder. Bag disken hviskede de høflige unge ekspeditricer sammen: den mærkelige lille pige med de store, alvorlige øjne måtte da mindst være en udenlandsk prinsesse — måske en indisk rajas lille datter.",
+      "after": "Sara blev hos sin far på hotellet i flere dage. Faktisk blev hun hos ham, lige til han sejlede tilbage til Indien. De besøgte mange store butikker sammen og købte en masse ting, langt flere, end Sara havde brug for. Men kaptajn Crewe var en impulsiv og troskyldig ung mand, og han ville give sin lille pige alt, hvad hun beundrede, og alt, hvad han selv beundrede. Så sammen samlede de en garderobe, der var alt for fornem til et barn på syv. Der var fløjlskjoler kantet med dyr pels, blondekjoler og broderede kjoler, hatte med store, bløde strudsefjer, hermelinsfrakker og muffer til hænderne og æsker med små handsker, lommetørklæder og silkestrømper i så store mængder, at de høflige unge kvinder bag diskene hviskede til hinanden. Den særprægede lille pige med de store, alvorlige øjne måtte mindst være en udenlandsk prinsesse, måske en indisk rajas lille datter.",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 46,
+      "before": "Til sidst fandt de Emily, men først måtte de besøge flere legetøjsbutikker og se på rigtig mange dukker, før hun dukkede op.",
+      "after": "Til sidst fandt de Emily, men de måtte besøge adskillige legetøjsbutikker og se på en hel masse dukker, før de opdagede hende.",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 47,
+      "before": "»Jeg vil have hende til at se ud, som om hun ikke rigtig var en dukke,« sagde Sara. »Jeg vil have hende til at se ud, som om hun LYTTER, når jeg taler til hende. Det ærgerlige ved dukker, papa« — og hun lagde hovedet på skrå og overvejede, mens hun sagde det — »det ærgerlige ved dukker er, at de aldrig synes at HØRE.« Så de kiggede på store og små — på dukker med sorte øjne og dukker med blå — på dukker med brune krøller og dukker med gyldne fletninger, dukker med tøj og dukker uden tøj.",
+      "after": "»Hun skal se ud, som om hun ikke rigtig er en dukke,« sagde Sara. »Hun skal se ud, som om hun LYTTER, når jeg taler til hende. Problemet med dukker, far …« Hun lagde hovedet på skrå og tænkte sig om, mens hun talte. »Problemet med dukker er, at de aldrig ser ud til at HØRE noget.« Så de så på store dukker og små dukker, dukker med sorte øjne og dukker med blå, dukker med brune krøller og dukker med gyldne fletninger, dukker med tøj på og dukker uden.",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 48,
+      "before": "»Ser du,« sagde Sara, mens de kiggede på en dukke uden tøj, »hvis den, jeg finder, ikke har nogen kjoler, kan vi gå til en syerske og få syet nogle, der er lavet specielt til hende. De passer meget bedre, hvis hun prøver dem på.«",
+      "after": "»Ved du hvad,« sagde Sara, da de så på en dukke uden tøj, »hvis hun ikke har nogen kjoler på, når jeg finder hende, kan vi tage hende med til en syerske og få syet tøj, der passer til hende. Det passer bedre, hvis hun prøver det på.«",
+      "reason": "Natural modern Danish preserving Emily's role, insincere flattering smile, complete clothing inventory and listening/hearing emphases."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 50,
+      "before": "»Åh, papa!« råbte hun. »Der er Emily!«",
+      "after": "»Åh, far!« råbte hun. »Der er Emily!«",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 51,
+      "before": "Farven steg op i hendes kinder. Hendes grågrønne øjne fik det udtryk, man har, når man uventet får øje på en elsket og velkendt ven.",
+      "after": "Hun var blevet rød i kinderne, og hendes grågrønne øjne havde et udtryk, som om hun lige havde genkendt en, hun kendte godt og holdt af.",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 52,
+      "before": "»Hun har ventet lige derinde på os!« sagde Sara. »Lad os gå ind til hende.«",
+      "after": "»Hun står jo der og venter på os!« sagde hun. »Lad os gå ind til hende.«",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 54,
+      "before": "»Du må præsentere mig, og jeg vil præsentere dig,« sagde Sara. »Men jeg kendte hende, det øjeblik jeg så hende — så måske kendte hun også mig.«",
+      "after": "»Du må præsentere mig, og så præsenterer jeg dig,« sagde Sara. »Men jeg kendte hende, lige så snart jeg så hende, så måske kendte hun også mig.«",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 55,
+      "before": "Måske havde Emily virkelig genkendt hende. Hun havde i hvert fald et meget intelligent udtryk i øjnene, da Sara tog hende i sine arme. Hun var en stor dukke, men ikke for stor til, at man let kunne bære hende. Hendes gyldenbrune hår krøllede af sig selv og faldt som en kappe rundt om hende. Hendes øjne var dybe, klare og gråblå med bløde, tykke vipper — rigtige vipper og ikke bare streger malet på ansigtet.",
+      "after": "Måske havde hun genkendt hende. Der var i hvert fald et meget klogt udtryk i hendes øjne, da Sara tog hende op i armene. Hun var en stor dukke, men ikke for stor til, at hun var let at bære rundt på. Hun havde gyldenbrunt hår med naturlige krøller, som faldt omkring hende som en kappe. Hendes øjne var dybt og klart gråblå med bløde, tætte øjenvipper, rigtige øjenvipper og ikke bare malede streger.",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 56,
+      "before": "»Selvfølgelig,« sagde Sara og kiggede ind i hendes ansigt, mens hun holdt hende på skødet, »selvfølgelig, papa, det er Emily.«",
+      "after": "»Selvfølgelig,« sagde Sara og så ind i hendes ansigt, mens hun holdt hende på skødet. »Selvfølgelig er det Emily, far.«",
+      "reason": "Natural modern Danish preserving recognition scene, present-tense waiting and doll's physical details; far consistent."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 58,
+      "before": "»Jeg vil gerne have, at hun altid ser ud som et barn, hvis mor passer godt på hende,« sagde Sara. »Jeg er hendes mor, selvom jeg også vil have hende som min veninde.«",
+      "after": "»Hun skal altid se ud som et barn, der har en god mor,« sagde Sara. »Jeg er hendes mor, selv om hun også skal være min ven.«",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 59,
+      "before": "Kaptajn Crewe kunne have nydt alle indkøbene enormt, hvis ikke en trist tanke blev ved med at trække i hans hjerte. Hvert eneste køb betød, at afskeden fra hans kære, sære lille ven kom nærmere.",
+      "after": "Kaptajn Crewe ville have nydt indkøbene umådeligt, hvis ikke en sørgelig tanke hele tiden havde gjort ondt i ham. Alt dette betød, at han skulle skilles fra sin elskede, særprægede lille kammerat.",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 60,
+      "before": "Han stod op midt om natten og gik hen og kiggede ned på Sara, der lå og sov med Emily i armene. Saras sorte hår lå spredt over puden og blandede sig med Emilys gyldenbrune krøller. Begge havde de natkjoler med blondekanter, og begge havde de lange vipper, der hvilede mod kinderne og krøllede opad. Emily lignede et rigtigt barn så meget, at kaptajn Crewe var glad for, at hun var der. Han sukkede dybt og hev i sit overskæg med et drengeagtigt udtryk i ansigtet.",
+      "after": "Midt om natten stod han op og gik hen og så ned på Sara, som sov med Emily i armene. Hendes sorte hår lå spredt over puden, blandet med Emilys gyldenbrune hår. Begge havde natkjoler med blondekanter og lange øjenvipper, der lå opadbøjede mod kinderne. Emily lignede et rigtigt barn så meget, at kaptajn Crewe var glad for, at hun var der. Han sukkede dybt og trak i sit overskæg med et drengeagtigt udtryk.",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 61,
+      "before": "»Å ja, lille Sara!« mumlede han for sig selv. »Jeg tror ikke, du ved, hvor frygteligt din papa kommer til at savne dig.«",
+      "after": "»Åh, lille Sara,« sagde han til sig selv. »Jeg tror ikke, du ved, hvor meget din far kommer til at savne dig.«",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 62,
+      "before": "Dagen efter kørte han Sara over til Miss Minchin og overlod hende i hendes varetægt. Hans skib skulle sejle næste morgen. Han fortalte Miss Minchin, at hans sager i England blev varetaget af hans advokater, herrerne Barrow & Skipworth. De ville give hende alle de råd, hun måtte få brug for, og betale de regninger, hun sendte for Sara. Han ville skrive to breve til sin datter hver uge, og hun måtte få al den fornøjelse, hun bad om.",
+      "after": "Næste dag fulgte han hende hen til frøken Minchin og lod hende blive der. Selv skulle han sejle næste morgen. Han forklarede frøken Minchin, at hans advokater, Barrow & Skipworth, tog sig af hans anliggender i England. De ville give hende de råd, hun havde brug for, og betale de regninger, hun sendte for Saras udgifter. Han ville skrive til Sara to gange om ugen, og hun skulle have alle de fornøjelser, hun bad om.",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 63,
+      "before": "»Hun er et fornuftigt lille væsen,« forklarede han, »og hun beder aldrig om noget, som det ville være farligt at give hende.«",
+      "after": "»Hun er en fornuftig lille pige og ønsker sig aldrig noget, man ikke trygt kan give hende,« sagde han.",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 64,
+      "before": "Bagefter gik han med Sara op i hendes lille dagligstue for at sige farvel. Hun sad på hans skød med sine små hænder knyttet om opslagene på hans frakke og kiggede længe og intenst på hans ansigt.",
+      "after": "Så gik han med Sara ind i hendes lille stue, og de sagde farvel. Sara sad på hans skød og holdt fast i frakkens revers med sine små hænder, mens hun længe så intenst på hans ansigt.",
+      "reason": "Modern Danish preserving complete wardrobe, father's grief and farewell; correct coat lapels to revers and avoid added transport detail."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 66,
+      "before": "»Nej,« svarede hun. »Jeg kan dig udenad. Du er inden i mit hjerte.« Og de slog armene om hinanden og kyssede, som om de aldrig ville give slip på hinanden.",
+      "after": "»Nej,« svarede hun. »Jeg kan dig udenad. Du er inde i mit hjerte.« Og de lagde armene om hinanden og kyssede hinanden, som om de aldrig ville give slip.",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 67,
+      "before": "Da drosken kørte væk, sad Sara på gulvet i sin dagligstue med hagen hvilende i hænderne og fulgte den med øjnene, indtil den forsvandt om et hjørne af pladsen. Emily sad ved siden af hende og så den også køre væk. Miss Minchin sendte sin søster, Miss Amelia, op for at finde ud af, hvad barnet lavede. Da Miss Amelia kom derop, ville døren ikke åbne sig.",
+      "after": "Da drosken kørte væk fra døren, sad Sara på gulvet i sin stue med hænderne under hagen og fulgte den med øjnene, indtil den drejede om hjørnet af pladsen. Emily sad ved siden af hende og så også efter den. Frøken Minchin sendte sin søster, frøken Amelia, op for at se, hvad barnet lavede, men hun kunne ikke åbne døren.",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 68,
+      "before": "»Jeg har låst døren,« lød en sær, høflig lille stemme indefra. »Vær så venlig — jeg vil gerne være helt alene.«",
+      "after": "»Jeg har låst den,« sagde en sær, høflig lille stemme derindefra. »Jeg vil gerne være helt alene, hvis jeg må.«",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 69,
+      "before": "Miss Amelia var tyk og lille, og hun stod i stor ærefrygt for sin søster. Hun var i virkeligheden den venligste af de to, men hun ville aldrig gå imod Miss Minchin. Hun gik ned ad trappen igen og så næsten forskrækket ud.",
+      "after": "Frøken Amelia var lille og tyk og havde stor respekt og frygt for sin søster. Hun var egentlig den venligste af de to, men hun gjorde aldrig noget imod frøken Minchins vilje. Hun gik ned igen og så næsten forskrækket ud.",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 70,
+      "before": "»Søster, jeg har aldrig mødt et så mærkeligt, gammelklogt barn,« sagde hun. »Hun har låst sig inde på sit værelse, og der kommer ikke den mindste lyd fra hende.«",
+      "after": "»Jeg har aldrig set sådan et mærkeligt, gammelklogt barn, søster,« sagde hun. »Hun har låst sig inde, og hun siger ikke en lyd.«",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 71,
+      "before": "»Det er meget bedre, end hvis hun sparkede og skreg, sådan som nogle af dem gør,« svarede Miss Minchin. »Jeg havde forventet, at et barn så forkælet som hun ville sætte hele huset på den anden ende. Hvis nogensinde et barn har fået sin vilje i alt, så er det hende.«",
+      "after": "»Det er meget bedre, end hvis hun sparkede og skreg, som nogle af dem gør,« svarede frøken Minchin. »Jeg havde ventet, at et barn, der er så forkælet, ville sætte hele huset på den anden ende. Hvis noget barn nogensinde har fået sin vilje i alt, er det hende.«",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 72,
+      "before": "»Jeg har pakket hendes kufferter ud og lagt hendes ting på plads,« sagde Miss Amelia. »Jeg har aldrig set noget lignende — frakker med kanter af sobel og hermelin og ægte Valenciennes-blonder på hendes undertøj. Du har selv set noget af hendes tøj. Hvad SYNES du om det?«",
+      "after": "»Jeg har åbnet hendes kufferter og lagt hendes ting på plads,« sagde frøken Amelia. »Jeg har aldrig set noget lignende. Sobel og hermelin på frakkerne og ægte Valenciennes-blonder på undertøjet. Du har set noget af hendes tøj. Hvad SYNES du om det?«",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 73,
+      "before": "»Jeg synes, det er fuldstændig latterligt,« svarede Miss Minchin skarpt; »men det vil tage sig pænt ud i spidsen af rækken, når vi tager skolebørnene med i kirke om søndagen. Hun er blevet udstyret, som om hun var en lille prinsesse.«",
+      "after": "»Jeg synes, det er fuldstændig latterligt,« svarede frøken Minchin skarpt. »Men det vil se godt ud forrest i rækken, når vi tager børnene med i kirke om søndagen. Hun har fået udstyr, som om hun var en lille prinsesse.«",
+      "reason": "Modern Danish preserving farewell, locked-room request, sisterly fear and closing princess comparison."
+    }
+  ],
+  "englishChanges": [
+    {
+      "chapter": 1,
+      "paragraph": 29,
+      "before": "Without moving or speaking, Sara kept her gaze on Miss Minchin's face. As usual, an odd thought was passing through her mind.",
+      "after": "Sara stood quietly, keeping her eyes fixed on Miss Minchin's face. As usual, an odd thought was passing through her mind.",
+      "reason": "Restore explicit standing posture from original; modern EN omitted it and retained DA wrongly seated Sara."
+    }
+  ],
+  "metadataChanges": [],
+  "textualNotes": [],
+  "notes": [
+    "Chapter 1 fully compared with original; 74 paragraphs reviewed, 65 revised. Remaining retained paragraphs not yet reviewed.",
+    "Use natural modern Danish; Papa/Mamma -> far/mor; Miss Minchin/Amelia -> frøken Minchin/Amelia. Preserve Sara's deliberately precocious voice and historical setting.",
+    "Corrected Sara's posture from sat to stood in Danish; restored explicit standing in modern English. Corrected mantel shelf and coat lapels; preserved full descriptive inventories.",
+    "Native/independent review and final completeness checks pending.",
+    "Preparation only; Claude owns integration and release."
+  ]
+}
