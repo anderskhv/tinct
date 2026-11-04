@@ -644,15 +644,14 @@
       "bookId": "communist-manifesto",
       "title": "The Communist Manifesto",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "reviewedChapters": 2,
-      "reviewedParagraphs": 56,
+      "reviewedChapters": 5,
+      "reviewedParagraphs": 213,
       "totalParagraphs": 213,
-      "inProgress": {
-        "chapter": 3,
-        "paragraph": 0
-      }
+      "inProgress": null,
+      "totalChapters": 5,
+      "nativeReview": "pending_user_arranges"
     },
     {
       "bookId": "merry-wives-of-windsor",
@@ -1003,7 +1002,7 @@
   ],
   "provisionalPublishedBooks": 7,
   "nativeCertifiedBooks": 0,
-  "notes": "Full 112-book corpus authorized. Thirty-four completed editorial first passes across prior released, Claude-owned PR and preparation packages. Nicomachean Ethics includes all 247 recovered editorial-note blocks; note integration and localized diagram pending. Alice additionally has source/literary first passes with unresolved literary-quality items. Native certification remains pending. Claude owns integration and releases.",
+  "notes": "Full 112-book corpus authorized. Thirty-five completed editorial first passes across prior released, Claude-owned PR and preparation packages. Nicomachean Ethics includes all 247 recovered editorial-note blocks; note integration and localized diagram pending. Alice additionally has source/literary first passes with unresolved literary-quality items. Native certification remains pending. Claude owns integration and releases.",
   "releasePolicy": {
     "mode": "prepare_only",
     "releaseOwner": "Claude",
