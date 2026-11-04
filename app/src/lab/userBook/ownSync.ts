@@ -19,17 +19,23 @@
  *   and the edition it was read in (pdfEditions.ts), whichever edition wrote
  *   it: a PDF read as Tinct text saves this one place, not a text place.
  *
+ * - An EPUB read in Margin view (Add a book's margin reader, the desktop's
+ *   default) keeps its place by its words (`tinct-addbook:pos:epub:<hex>`):
+ *   noteEpubMarginPlace names it in the book's Tinct text as the Tinct
+ *   reader's place and saves that, so the account's other devices list and
+ *   open the book where it was read (4 Nov 2026: a phone led with the Bible).
+ *
  * Nothing here names a book's title or text to the account, and nothing goes
  * to the shared position stores (lab-position, reading memory).
  */
 import { accountBookKey, fetchAccountPlaceSets, listAccountBooks, ownBookToken, putAccountPagePlace, putAccountPlace, type AccountBook, type AccountPagePlace, type AccountPlace, type FetchLike } from './ownAccount'
 import { PDF_PLACE_PREFIX, forgetRemovedOwnBooks, ownReading, ownReadingNow, pdfReading, placePercent, readOwnShelf, type OwnShelfBook, type OwnShelfReading } from './ownShelf'
 import { ownBookHref } from './userBookId'
-import { epubViewHere } from './epubView'
-import type { UserBookChapter } from './userEdition'
+import { epubViewHere, readEpubPlace } from './epubView'
+import type { UserBookChapter, UserBookEdition } from './userEdition'
 import { sendMissingCovers, storedCovers, type CoverCache, type CoverShrinker } from './ownCovers'
 import { keepPdfTextPlace, pdfEditionChoice } from './pdfEditions'
-import { userBookOwner } from './userBookStore'
+import { ownEpubEdition, userBookOwner } from './userBookStore'
 import { syncOwnShelfMembership } from './ownShelfMembership'
 
 const PLACE_PREFIX = 'tinct-addbook:place:'
@@ -306,6 +312,34 @@ export function flushOwnPlaces(): void {
     pending.delete(hex)
     void pushOwnPlace(hex, { chapters, keepalive: true }).catch(() => {})
   }
+}
+
+/** The Tinct text of EPUBs read in Margin view on this page, once found or converted (by account and book). */
+const marginEditions = new Map<string, UserBookEdition>()
+
+/**
+ * The margin reader kept a new place in an EPUB (`tinct-addbook:pos:epub:<hex>`): when it is newer than the
+ * Tinct reader's place it becomes that place, found by its words in the book's Tinct text (epubView.ts
+ * readEpubPlace; the text converted once on this device if it has none), and is saved to the account as
+ * noteOwnPlace saves the Tinct reader's (`now`: at once, with keepalive). Without the text (not this
+ * account's EPUB here, unreadable) nothing is written. Once the text is known, the place is noted before
+ * this returns, so a page being left can flush it.
+ */
+export function noteEpubMarginPlace(hex: string, options: { now?: boolean; owner?: string | null; fetchImpl?: FetchLike; edition?: (hex: string, owner: string) => Promise<UserBookEdition | null> } = {}): Promise<void> {
+  const owner = options.owner !== undefined ? options.owner : userBookOwner()
+  if (!owner) return Promise.resolve()
+  const share = (edition: UserBookEdition) => {
+    if (userBookOwner() !== owner) return
+    readEpubPlace(hex, edition)
+    noteOwnPlace(hex, edition.chapters, { now: options.now, fetchImpl: options.fetchImpl })
+  }
+  const known = marginEditions.get(owner + ':' + hex)
+  if (known) { share(known); return Promise.resolve() }
+  return (options.edition ?? ownEpubEdition)(hex, owner).catch(() => null).then(edition => {
+    if (!edition) return
+    marginEditions.set(owner + ':' + hex, edition)
+    share(edition)
+  })
 }
 
 const withTimeout = <T>(work: Promise<T>, ms: number, fallback: T): Promise<T> =>
