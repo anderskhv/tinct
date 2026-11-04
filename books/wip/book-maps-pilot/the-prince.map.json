@@ -271,7 +271,49 @@
    "watch": "Machiavelli admires Borgia, yet the story ends in failure. Ask why.",
    "difficulty": "demanding",
    "core": true,
-   "summary": "Those who rise by others' arms or by luck rise easily and struggle to stay. Cesare Borgia, made by his father the Pope, built his own power skilfully: he won over Romagna through Remirro de Orco's harsh rule, then had him executed. His only error was letting Julius II become Pope."
+   "summary": "Those who rise by others' arms or by luck rise easily and struggle to stay. Cesare Borgia, made by his father the Pope, built his own power skilfully: he won over Romagna through Remirro de Orco's harsh rule, then had him executed. His only error was letting Julius II become Pope.",
+   "inside": [
+    {
+     "question": "Why is power won by luck so fragile?",
+     "line": "The rule: what rises fast falls fast, unless the prince lays foundations afterwards.",
+     "paragraphs": [
+      0,
+      1
+     ]
+    },
+    {
+     "question": "Two ways up: Sforza and Borgia",
+     "line": "Sforza rose by his own ability; Borgia by his father the Pope.",
+     "paragraphs": [
+      3,
+      5
+     ]
+    },
+    {
+     "question": "How did Borgia build power of his own?",
+     "line": "Weakening the Orsini and Colonna, the trap at Sinigalia, Romagna and Remirro de Orco, planning for the next Pope.",
+     "paragraphs": [
+      6,
+      12
+     ]
+    },
+    {
+     "question": "What brought him down?",
+     "line": "His father died while he lay ill himself.",
+     "paragraphs": [
+      13,
+      13
+     ]
+    },
+    {
+     "question": "Was he to blame?",
+     "line": "Machiavelli would hold him up as a model, with one mistake: Julius II.",
+     "paragraphs": [
+      16,
+      17
+     ]
+    }
+   ]
   },
   {
    "chapter": 9,
@@ -453,5 +495,6 @@
    "summary": "Italy is ready for a redeemer, and the Medici house, favoured by fortune and the Church, could lead with its own new army. Machiavelli ends with Petrarch's call that ancient Italian valour is not yet dead."
   }
  ],
- "question": "How does a new ruler win power, and keep it, in a world that does not reward goodness?"
+ "question": "How does a new ruler win power, and keep it, in a world that does not reward goodness?",
+ "notes": "'inside' paragraphs are 0-based indexes into the edition chapter (footnote paragraphs included); the reader shows ¶ numbers counting only body paragraphs."
 }
