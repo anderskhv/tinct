@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Read your own books in Tinct</title>
+<meta name="description" content="Read a PDF, an EPUB or an article you paste in Tinct, with the margin reader, Explain, audio narration and Talk. Private to your account.">
+<link rel="canonical" href="https://tinct.app/byob">
+<meta property="og:title" content="Read your own books in Tinct">
+<meta property="og:url" content="https://tinct.app/byob">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tinct">
+<meta property="og:description" content="Read a PDF, an EPUB or an article you paste in Tinct, with the margin reader, Explain, audio narration and Talk.">
+<meta property="og:image" content="https://tinct.app/og-image-v2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#111610">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<script type="module" src="/lab/internal-traffic.js"></script>
+<style>
+/* Tinct's dark library room (docs/design-system.md tokens, dark theme). Approved mockup, 4 Nov 2026. */
+:root{--paper:#111610;--surface:#151b14;--surface2:#1a2119;--ink:#eee7d0;--muted:#b8bea9;--faint:#8e957f;--line:rgba(238,231,208,.18);--line2:rgba(238,231,208,.35);--focus:#dbd3ae;--book:#ece7db;--bookcard:#f7f3ea;--bookink:#1d1b16;--bookmuted:#6a6555;--tint:rgba(120,170,189,.32);--dock:#2c2823;--serif:'EB Garamond',Georgia,'Times New Roman',serif;--ui:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px max(20px,4.5vw);padding-top:max(22px,env(safe-area-inset-top))}
+.logo{font-family:var(--serif);font-size:30px;letter-spacing:-.8px;text-decoration:none}
+.top nav{display:flex;gap:22px;font-size:16px}
+.top nav a{text-decoration:none;color:var(--ink)}
+.top nav a:hover{text-decoration:underline;text-underline-offset:3px}
+main{display:grid;grid-template-columns:minmax(0,480px) minmax(0,600px);gap:64px;justify-content:center;padding:32px max(20px,4.5vw) 64px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.2vw,50px);line-height:1.08;letter-spacing:-.01em;margin:0 0 16px;text-wrap:balance}
+.sub{font-size:17px;color:var(--muted);margin:0 0 28px;max-width:32em}
+.drop{border:1.5px dashed var(--line2);border-radius:18px;padding:30px 24px;background:var(--surface);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;transition:border-color .15s,background .15s}
+.drop.over{border-color:var(--ink);background:var(--surface2)}
+.glyph{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--surface2)}
+.glyph svg,.what svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.drop strong{display:block;font-size:16px;font-weight:600}
+.drop small{display:block;color:var(--faint);font-size:13px;margin-top:2px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;font:500 15px/1 var(--ui);cursor:pointer;border:1px solid transparent;text-decoration:none}
+.pill.primary{background:var(--ink);color:#111610}
+.pill.secondary{border-color:var(--line2);color:var(--ink);background:none}
+.pill.secondary:hover{background:rgba(238,231,208,.08)}
+.pill:disabled{opacity:.5;cursor:default}
+.status{min-height:1.4em;margin:0;font-size:13.5px;color:var(--muted)}
+.fine{font-size:13px;color:var(--faint);margin:16px 2px 0;line-height:1.5}
+.what{list-style:none;display:flex;flex-direction:column;gap:14px;margin:30px 0 0;padding:0}
+.what li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--muted)}
+.what b{color:var(--ink);font-weight:600}
+.what svg{flex:none;margin-top:1px;color:var(--ink)}
+/* The margin reader, drawn (a recording replaces it later). */
+.preview{position:relative;min-height:640px}
+.sheet{position:absolute;left:0;top:0;width:min(372px,62%);bottom:0;background:var(--book);border-radius:10px 10px 0 0;box-shadow:0 24px 60px rgba(0,0,0,.5);padding:30px;color:var(--bookink);font-family:var(--serif);overflow:hidden}
+.file{font:12px/1 var(--ui);color:var(--bookmuted);display:flex;gap:8px;align-items:center;margin-bottom:22px}
+.file span{border:1px solid rgba(0,0,0,.18);border-radius:999px;padding:4px 9px}
+.sheet h2{font-weight:500;font-size:24px;margin:0 0 16px}
+.sheet p{font-size:16.5px;line-height:1.5;margin:0 0 14px;text-align:justify;hyphens:auto}
+.sheet mark{background:var(--tint);color:inherit;border-radius:2px}
+.card{position:absolute;left:calc(min(372px,62%) + 14px);top:190px;right:0;max-width:226px;background:var(--bookcard);color:var(--bookink);border-radius:18px;padding:16px 18px;box-shadow:0 18px 44px rgba(0,0,0,.45)}
+.card .k{font:600 12px/1 var(--ui);color:var(--bookmuted);margin-bottom:9px}
+.card p{font-family:var(--serif);font-size:16px;line-height:1.45;margin:0}
+.dock{position:absolute;left:10px;bottom:28px;width:min(352px,calc(62% - 20px));height:58px;border-radius:999px;background:var(--dock);border:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 10px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.dock .sp{border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-weight:600;font-size:13px;font-variant-numeric:tabular-nums}
+.dock .play{width:40px;height:40px;flex:none;border-radius:999px;background:var(--ink);color:#1b1815;display:grid;place-items:center}
+.dock .t{flex:1;min-width:0}.dock .t strong{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dock .t span{font-size:12px;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:980px){main{grid-template-columns:minmax(0,560px);gap:40px}.preview{display:none}}
+@media (max-width:699px){.top{padding:16px max(20px,env(safe-area-inset-right)) 16px max(20px,env(safe-area-inset-left))}.logo{font-size:26px}main{padding:18px max(20px,env(safe-area-inset-right)) 48px max(20px,env(safe-area-inset-left))}.sub{font-size:16px;margin-bottom:22px}.drop{padding:24px 18px}.btns{flex-direction:column;width:100%}.btns .pill{width:100%}.drop-hint{display:none}}
+@media (min-width:700px){.tap-hint{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="/" aria-label="Tinct home">tinct</a><nav><a href="/library">Library</a><a id="account" href="/sign-in?returnTo=%2Fbyob">Sign in</a></nav></header>
+<main>
+  <section aria-labelledby="title">
+    <h1 id="title">Read your own books in Tinct</h1>
+    <p class="sub">A PDF, an EPUB or an article you paste, read with the same margin reader, Explain, audio and Talk as the library.</p>
+    <div class="drop" id="drop">
+      <div class="glyph" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3-3 3 3"/></svg></div>
+      <div><strong><span class="drop-hint">Drop a PDF or EPUB here</span><span class="tap-hint">Add a PDF or EPUB</span></strong><small>Scanned PDFs are turned into text</small></div>
+      <div class="btns"><button class="pill primary" id="choose" type="button">Choose a file</button><button class="pill secondary" id="paste" type="button">Paste text</button></div>
+      <p class="status" id="status" role="status"></p>
+      <input id="file" type="file" accept=".pdf,.epub,.txt,application/pdf,application/epub+zip,text/plain" hidden>
+    </div>
+    <p class="fine">Premium, free for the first 30 days. Your books are private to your account, never shared and never used to train AI.</p>
+    <ul class="what">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M4 12h7M4 18h10M17 9l3 3-3 3"/></svg><span><b>Explain</b> any passage in the margin</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span><b>Listen</b> with AI narration</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span><b>Talk</b> it through out loud</span></li>
+    </ul>
+  </section>
+  <div class="preview" aria-hidden="true">
+    <div class="sheet">
+      <div class="file"><span>civil-disobedience.pdf</span>Your book</div>
+      <h2>Civil Disobedience</h2>
+      <p>I heartily accept the motto, “That government is best which governs least”; and I should like to see it acted up to more rapidly and systematically. Carried out, it finally amounts to this, which also I believe, <mark>“That government is best which governs not at all”;</mark> and when men are prepared for it, that will be the kind of government which they will have.</p>
+      <p>Government is at best but an expedient; but most governments are usually, and all governments are sometimes, inexpedient. The objections which have been brought against a standing army, and they are many and weighty, and deserve to prevail, may also at last be brought against a standing government.</p>
+    </div>
+    <div class="card"><div class="k">Explain</div><p>Thoreau pushes Jefferson’s slogan to its end point: if less government is better, none is best. He adds the condition straight away: only once people are ready for it.</p></div>
+    <div class="dock"><span class="sp">1.25×</span><span class="play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></span><div class="t"><strong>Civil Disobedience</strong><span>Listening · AI narration</span></div></div>
+  </div>
+</main>
+<script type="module">
+// The library's "Your own book" pop-up does the adding (add-to-tinct.js): sign-in, Premium or
+// the trial, the rights confirmation and the import. A file chosen here is kept for it in this
+// browser for two minutes (file-handoff.js) and added as soon as the library opens.
+import {putHandoff} from '/lab/addbook/js/file-handoff.js?v=20261009rel10';
+const signedIn=/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
+const $=id=>document.getElementById(id);
+const OK=/\.(pdf|epub|txt)$/i;
+const library=own=>`/library?own=${own}`;
+const go=own=>location.assign(signedIn?library(own):`/sign-in?returnTo=${encodeURIComponent(library(own))}`);
+if(signedIn){$('account').textContent='My shelf';$('account').href='/library#my-shelf';}
+async function take(file){
+  if(!file)return;
+  if(!OK.test(file.name)){$('status').textContent='Choose a PDF, an EPUB or a .txt file.';return;}
+  $('choose').disabled=$('paste').disabled=true;$('status').textContent=`Opening ${file.name}…`;
+  await putHandoff(file);go('file');
+}
+$('choose').onclick=()=>$('file').click();
+$('file').onchange=()=>{const file=$('file').files?.[0];$('file').value='';void take(file);};
+$('paste').onclick=()=>go('paste');
+const drop=$('drop');
+for(const type of ['dragenter','dragover'])drop.addEventListener(type,e=>{e.preventDefault();drop.classList.add('over');});
+for(const type of ['dragleave','drop'])drop.addEventListener(type,()=>drop.classList.remove('over'));
+drop.addEventListener('drop',e=>{e.preventDefault();void take(e.dataTransfer?.files?.[0]);});
+addEventListener('dragover',e=>e.preventDefault());addEventListener('drop',e=>e.preventDefault());
+addEventListener('pageshow',e=>{if(e.persisted){$('choose').disabled=$('paste').disabled=false;$('status').textContent='';}});
+</script>
+</body>
+</html>

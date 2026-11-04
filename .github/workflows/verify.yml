@@ -168,6 +168,11 @@ jobs:
         run: node scripts/check-library-shelf-remove.mjs
         env:
           SHELF_REMOVE_ARTIFACTS: artifacts/shelf-remove
+      - name: Verify /byob and the library's Read your own books band
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-byob-entry.mjs
+        env:
+          BYOB_ARTIFACTS: artifacts/byob
       - name: Verify private pasted books and long archive clipboard text
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-shared-reader-paste.mjs
