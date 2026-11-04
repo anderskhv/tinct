@@ -95,7 +95,8 @@ import {putHandoff} from '/lab/addbook/js/file-handoff.js?v=20261009rel10';
 const signedIn=/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
 const $=id=>document.getElementById(id);
 const OK=/\.(pdf|epub|txt)$/i;
-const library=own=>`/library?own=${own}`;
+// sharedReader=1: Paste text lives in the shared reader's pop-up (add-to-tinct.js pasteEnabled), as My shelf's own links carry it.
+const library=own=>`/library?sharedReader=1&own=${own}`;
 const go=own=>location.assign(signedIn?library(own):`/sign-in?returnTo=${encodeURIComponent(library(own))}`);
 if(signedIn){$('account').textContent='My shelf';$('account').href='/library#my-shelf';}
 async function take(file){
