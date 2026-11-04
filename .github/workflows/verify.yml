@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     outputs:
       signin: ${{ steps.suites.outputs.signin }}
@@ -54,7 +54,7 @@ jobs:
 
   # Unit tests, the docs check, the build and its gates: every change.
   app:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -95,7 +95,7 @@ jobs:
   reader-panels:
     needs: changes
     if: ${{ needs.changes.outputs.panels == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     defaults:
       run:
@@ -145,7 +145,7 @@ jobs:
   library:
     needs: changes
     if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     defaults:
       run:
@@ -185,7 +185,7 @@ jobs:
   profile-flow-sql:
     needs: changes
     if: ${{ needs.changes.outputs.signin == 'true' || needs.changes.outputs.library == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:17
@@ -206,7 +206,7 @@ jobs:
   page-layout:
     needs: changes
     if: ${{ needs.changes.outputs.shakespeare == 'true' || needs.changes.outputs.typeset == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     defaults:
       run:
@@ -285,7 +285,7 @@ jobs:
   margin-layout:
     needs: changes
     if: ${{ needs.changes.outputs.margin == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     strategy:
       fail-fast: false
@@ -320,7 +320,7 @@ jobs:
           path: app/artifacts/margin
 
   reading-benchmark:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
@@ -337,7 +337,7 @@ jobs:
   featured-preview:
     needs: changes
     if: ${{ needs.changes.outputs.audio == 'true' || needs.changes.outputs.featured == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     defaults:
       run:
@@ -385,7 +385,7 @@ jobs:
   ci-summary:
     if: ${{ always() }}
     needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, featured-preview]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Judge the suites
