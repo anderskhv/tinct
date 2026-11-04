@@ -1,13 +1,15 @@
 {
   "bookId": "oedipus-at-colonus",
-  "status": "editorial_in_progress",
-  "reviewedChapters": 6,
-  "reviewedParagraphs": 299,
+  "status": "editorial_complete_integration_pending",
+  "reviewedChapters": 11,
+  "reviewedParagraphs": 566,
   "totalParagraphs": 566,
   "sourceBlobs": {
     "original-en": "0ac4d4e4ca4df082c71b1b07920b6c4d3d486875",
     "modern-da": "bebd4e4ca8436d4f354082ac1eae7df4d3cf5c5e",
-    "modern-en": "49283f6132169bec1cf29222c7ca0e89baf0a040"
+    "modern-en": "49283f6132169bec1cf29222c7ca0e89baf0a040",
+    "onboardingEn": "9bef8fb29216bf452127c1add495296117f7e249",
+    "onboardingDa": "9b4727f6f55bdfb5a990d59a53fd2739439f7200"
   },
   "danishChanges": [
     {
@@ -161,8 +163,8 @@
       "chapter": 1,
       "paragraph": 23,
       "before": "OIDIPUS. Mit skæbnes løsen.",
-      "after": "ØDIPUS. Det er min skæbnes løsen.",
-      "reason": "Full source comparison; natural modern Danish, correct literal calques and retain complete meaning. Standardize Ødipus across Sophocles."
+      "after": "ØDIPUS. De ord rummer min skæbne.",
+      "reason": "Full source comparison; natural modern Danish, correct literal calques and retain complete meaning. Standardize Ødipus across Sophocles.; Replace archaic løsen while retaining watchword metaphor."
     },
     {
       "chapter": 1,
@@ -2088,6 +2090,1833 @@
       "before": "OIDIPUS. Frygt ikke — sådan skal det blive. Hvis vi er gamle, har dette lands styrke ingen spor af alderdom i sig.",
       "after": "ØDIPUS. Gode ældste, hjælp mig nu til frelse og til min sidste hvile.\n\nKORET. Vær ikke bange. Det skal ske. Vi er måske gamle, men dette lands styrke er stadig ung.",
       "reason": "Restore missing Oedipus plea and correct reply to Chorus per printed Storrp217/PDF239, within existing slot."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 1,
+      "before": "[KREON træder ind med vagter.]",
+      "after": "[KREON kommer ind med sit følge.]",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 2,
+      "before": "KREON. Borgere, mine ædle venner — I er foruroliget over min ankomst; jeg ser det i jeres øjne. Frygt intet, og hold jeres vrede ord tilbage. Jeg kommer uden ond hensigt. Jeg er gammel, og jeg ved, at den by, jeg kommer til, er uden lige blandt Grækenlands magter. Det var på grund af min alder, at jeg blev valgt til at overtale jeres gæst til at vende tilbage til Theben — ikke som en enkelt mands udsending, men befuldmægtiget af Staten, da jeg af alle thebanere som hans frænde har sørget bittert over hans sorger. Lyt til mig, ulyksalige Oidipus — kom hjem! Hele det kadmeiske folk gør med rette krav på at få dig tilbage — og jeg mest af alle; for mere end nogen anden (ellers ville jeg være afskyelig i sandhed), sørger jeg over dine ulykker, idet jeg ser dig som en aldrende udstødt, vandrende videre og videre, en tigger med kun én tjenestepige at læne sig op ad. Ah — hvem kunne nogensinde have forestillet sig, at hun kunne falde til sådan en dybde af elendighed, plejende i fattigdom din ødelagte krop, en pige i ægteskabsalderen, men ugift, et bytte for enhver vellystig krænker? Synes det ikke grusomt, denne bebrejdelse, jeg kaster på dig og på mig selv og på hele vores hus? Men en åben skam kan ikke skjules. Skjul den — åh skjul den, Oidipus — du kan. Ved vore fædres guder beder jeg dig: sig ja. Vend tilbage til Theben, kom til dit fædrene hjem, byd Athen et venligt farvel, som det sig hør og bør. Theben, din gamle fostermor, har det første krav på dig.",
+      "after": "KREON. Borgere, mine gode venner, I bliver urolige, når jeg nærmer mig. Det kan jeg se i jeres øjne. Vær ikke bange, og spar på de vrede ord. Jeg kommer ikke med onde hensigter. Jeg er gammel og ved, at denne by står uden lige blandt Grækenlands magter. Netop på grund af min alder valgte man mig til at overtale jeres gæst og føre ham tilbage til Theben. Jeg er ikke udsendt af en enkelt mand, men af staten. Som hans slægtning har jeg blandt alle thebanere sørget mest over hans frygtelige lidelser. Hør mig, ulykkelige Ødipus: Kom hjem! Hele Thebens folk har ret til at ønske dig tilbage, og jeg mest af alle. Jeg ville være ussel, hvis jeg ikke sørgede mere end andre, når jeg ser dig, en gammel udstødt, vandre uden ophør som en tigger med kun én pige til at hjælpe dig. Hvem havde troet, at hun kunne synke så dybt i elendighed? Hun må passe din plagede krop i fattigdom, gammel nok til at gifte sig, men ugift og udsat for enhver lysten voldsmand. Er det ikke en grusom skam, jeg her kaster over dig, mig selv og hele vores slægt? Men en skam, alle ser, kan ikke skjules. Dæk over den, Ødipus. Det kan du. Ved vores fædres guder beder jeg dig: Sig ja! Kom tilbage til Theben, til din fars hjem. Tag en kærlig afsked med Athen, som det fortjener. Theben, din gamle plejemor, har det første krav på dig.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 3,
+      "before": "OIDIPUS. Frækansigtede mand — din snedige tunge ville fordreje enhver retsbøn til din egen fordel. Hvorfor prøve dine tricks på mig? Hvorfor lægge dine snarer ud igen på de steder, hvor det ville gøre mig mest ondt at blive fanget? I gamle dage, da jeg var fortvivlet af selvpåført smerte og længtes efter eksil som en glædelig befrielse, nægtede din vilje den gunst, jeg tiggede om. Men da min vanvittige sorg havde udspillet sig, og jeg ville have en smag af hjemmet igen, da stødte du mig fra mit land. Da betød disse slægtsbånd intet for dig. Og nu igen — når du ser denne Stat og hele dens venlige folk byde mig velkommen — prøver du at adskille os ved at pakke hårde tanker ind i bløde ord. Hvilken fornøjelse kan du muligvis finde i at tvinge venskab på modvillige fjender? Antag at en mand nægtede at give en gunst, da du blev ved med at bede om den, og bagefter, da du havde fået dit hjertes ønske, indvilligede — gav en venlighed, hvorfra al venlighed var forsvundet — ville sådan en gunst ikke synes en tom gave? Det er præcis den gave, du tilbyder mig nu: smuk på overfladen, men falsk når den prøves. Og jeg vil bevise dig falsk, så disse mænd kan høre: du er kommet for at tage mig, men ikke for at tage mig hjem — for at plante mig på dine grænser, så din Stat kan undslippe besvær fra dette land. Det skal du aldrig få. Hvad du i stedet skal få, er min ånd til at hjemsøge dit land for evigt. Og for mine sønner, denne arv — ikke mere: bare plads til at dø i. Er jeg ikke bedre end dig til at tegne Thebens horoskop? Er mine lærere ikke sikrere vejledere end dine — store Foibos, og Foibos' far, Zeus? Du er en købt budbringer — din tunge er skarpere end et sværds æg — og alligevel vil din tale bringe dig flere nederlag end sejre. Alligevel ved jeg, at jeg spilder mine ord. Gå, og lad mig være her. Hvad min lod end måtte være, lever ingen dårligt, der lever tilfreds.",
+      "after": "ØDIPUS. Du skamløse mand! Din snedige tunge vrider ethvert argument om ret til din egen fordel. Hvorfor prøver du dine kneb på mig? Hvorfor lægger du igen fælder, som vil gøre mest ondt, hvis jeg går i dem? Dengang mine selvforskyldte lidelser drev mig til vanvid, og jeg længtes efter landflygtighed som en befrielse, nægtede du mig den tjeneste, jeg bad om. Men da min voldsomme sorg havde lagt sig, og jeg igen ønskede at nyde livet i mit hjem, ville du drive mig ud af landet. Dengang betød vores slægtskab intet for dig. Nu ser du, at denne stat og dens venlige folk tager imod mig, og så prøver du at skille os ad med hårde hensigter pakket ind i bløde ord. Hvilken glæde har du af at påtvinge uvillige fjender dit venskab? Forestil dig en mand, der nægter dig en tjeneste, mens du beder inderligt om den, men bagefter siger ja, når du allerede har fået det, du ønskede. Han giver dig en gunst, som ikke længere er nogen gunst. Ville den gave ikke være tom? Sådan er dit tilbud til mig: smukt at se på, men falsk, når det bliver prøvet. Jeg vil vise, at du lyver, så disse mænd kan høre det. Du kommer for at hente mig, men ikke for at føre mig hjem. Du vil anbringe mig ved jeres grænse, så din stat undgår fare fra dette land. _Det_ opnår du aldrig. I stedet får du _dette_: Min ånd skal hjemsøge dit land for altid. Mine sønners arv bliver ikke andet end plads til at dø. Er jeg ikke bedre end du til at tyde Thebens fremtid? Er mine læremestre ikke sikrere end dine, den store Foibos og hans far, Zeus? Du er en købt udsending, og din tunge er skarpere end en sværdæg, men din tale vil give dig flere nederlag end sejre. Jeg ved godt, at jeg spilder mine ord. Gå, og lad mig blive her. Hvad der end venter mig, lever den ikke dårligt, som lever tilfreds.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 4,
+      "before": "KREON. Hvem af os taber mest i denne udveksling — jeg, vælet af dig, eller du, der vælter dig selv?",
+      "after": "KREON. Hvem taber mest i denne samtale? Jeg, som du besejrer, eller du, som ødelægger dig selv?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 5,
+      "before": "OIDIPUS. Jeg vil være helt tilfreds, hvis dit ærinde mislykkes hos disse fremmede, som det har gjort hos mig.",
+      "after": "ØDIPUS. Jeg er godt tilfreds, hvis du får lige så lidt ud af at tale til disse fremmede, som du fik ud af at tale til mig.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 6,
+      "before": "KREON. Ulykkelige mand — vil årene aldrig gøre dig vis? Må du leve videre for at kaste skygge over alderdommen?",
+      "after": "KREON. Ulykkelige mand, bliver du aldrig klogere med årene? Skal du leve videre og bringe skam over alderdommen?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 7,
+      "before": "OIDIPUS. Du har en glat tunge — men jeg tror ikke, nogen ærlig mand kan argumentere godt på enhver side af en sag.",
+      "after": "ØDIPUS. Du har en glat tunge. Men jeg tror ikke, en ærlig mand kan tale lige godt for enhver side af en sag.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 8,
+      "before": "KREON. Det er én ting at tale meget, en anden at tale godt.",
+      "after": "KREON. At tale meget er én ting, at tale godt en anden.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 9,
+      "before": "OIDIPUS. Dine ord, naturligvis, er få — og alle vel rettet!",
+      "after": "ØDIPUS. Og du bruger naturligvis kun få ord, som alle rammer plet!",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 10,
+      "before": "KREON. Ikke for en mand med vid som dit, nej.",
+      "after": "KREON. Ikke hos en mand med din forstand.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 11,
+      "before": "OIDIPUS. Gå! Jeg befaler dig i disse borgeres navn — og luk ikke længere om mig, blokerende den havn, skæbnen har sat til side til mig.",
+      "after": "ØDIPUS. Gå! Det befaler jeg i disse borgeres navn. Hold op med at luske omkring mig og spærre den havn, skæbnen har bestemt for mig.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 12,
+      "before": "KREON. Jeg protesterer til disse mænd, ikke til dig — og hvad angår dit svar til din frænde, hvis jeg nogensinde tager dig —",
+      "after": "KREON. Jeg protesterer over for disse mænd, ikke dig. Men for det svar, du giver din slægtning, skal du, hvis jeg får fat i dig —",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 13,
+      "before": "OIDIPUS. Hvem, mod deres vilje, kunne tage mig?",
+      "after": "ØDIPUS. Hvem skulle kunne tage mig mod deres vilje?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 14,
+      "before": "KREON. Selv utaget vil du smerte.",
+      "after": "KREON. Du skal komme til at lide, selv om jeg ikke tager dig.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 15,
+      "before": "OIDIPUS. Hvilken magt har du til at føre den trussel ud i livet?",
+      "after": "ØDIPUS. Hvilken magt har du til at gøre den trussel til virkelighed?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 16,
+      "before": "KREON. En af dine døtre er allerede grebet. Den anden vil jeg slæbe væk om et øjeblik.",
+      "after": "KREON. Den ene af dine døtre er allerede taget. Den anden fører jeg snart bort.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 17,
+      "before": "OIDIPUS. Åh nej, nej!",
+      "after": "ØDIPUS. Åh nej!",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 18,
+      "before": "KREON. Dette er kun begyndelsen på dine sorger.",
+      "after": "KREON. Det er kun begyndelsen på dine lidelser.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 19,
+      "before": "OIDIPUS. Har du taget mit barn?",
+      "after": "ØDIPUS. Har du taget mit barn?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 20,
+      "before": "KREON. Og vil snart have den anden.",
+      "after": "KREON. Og snart har jeg også den anden.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 21,
+      "before": "OIDIPUS. Venner! I vil da ikke forråde mig? Drev denne gudløse skurk fra jeres land.",
+      "after": "ØDIPUS. Venner! I svigter mig vel ikke? Driv denne gudløse slyngel ud af jeres land!",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 22,
+      "before": "KOR. Forsvind herfra, fremmede — bort med dig! Du gør uret nu, og uret i alt, du har gjort.",
+      "after": "KORET. Væk herfra, fremmede! Det, du gør nu, er uret, ligesom alt, hvad du har gjort.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 23,
+      "before": "KREON (til sine vagter). Det er tid til at slæbe pigen væk med magt, hvis hun nægter at gå frivilligt.",
+      "after": "KREON (til sine vagter). Nu må I føre pigen bort med magt, hvis hun ikke vil gå frivilligt.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 24,
+      "before": "ANTIGONE. Åh, jeg er fortabt! Hvor kan jeg flygte? Hvor kan jeg finde hjælp, fra guder eller mennesker?",
+      "after": "ANTIGONE. Åh, jeg ulykkelige! Hvor skal jeg flygte hen? Hvor finder jeg hjælp hos guder eller mennesker?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 25,
+      "before": "KOR. Hvad vil du, fremmede?",
+      "after": "KORET. Hvad vil du, fremmede?",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 26,
+      "before": "KREON. Jeg lægger ikke hænder på ham — kun på hende, der er min.",
+      "after": "KREON. Ham rører jeg ikke. Kun hende, som tilhører mig.",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 27,
+      "before": "OIDIPUS. Dette lands fyrster!",
+      "after": "ØDIPUS. I herrer over dette land!",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 28,
+      "before": "KOR. Herre, du gør uret.",
+      "after": "KORET. Du begår uret!",
+      "reason": "Full source-faithful modern Danish; retain political claims, threats, metaphors and emphasis; remove malformed phrases."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 29,
+      "before": "KREON. Nej — ret.",
+      "after": "KREON. Nej, jeg handler ret.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 30,
+      "before": "KOR. Hvor ret?",
+      "after": "KORET. Hvordan det?",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 32,
+      "before": "OIDIPUS. Hjælp, Athen!",
+      "after": "ØDIPUS. Athen, hjælp mig!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 33,
+      "before": "KOR. Hvad er dette, mand? Slip hende, øjeblikkeligt — eller vi udkæmper det.",
+      "after": "KORET. Hvad bilder du dig ind? Slip hende straks, ellers må vi slås om det.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 34,
+      "before": "KREON. Træd tilbage!",
+      "after": "KREON. Tilbage!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 35,
+      "before": "KOR. Ikke før du holder op.",
+      "after": "KORET. Ikke før du holder op.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 36,
+      "before": "KREON. Det er krig med Theben, hvis jeg bliver rørt eller skadet.",
+      "after": "KREON. Rører eller skader I mig, betyder det krig med Theben.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 37,
+      "before": "OIDIPUS. Advarede jeg dig ikke?",
+      "after": "ØDIPUS. Advarede jeg dig ikke?",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 38,
+      "before": "KOR. Hurtigt — slip pigen!",
+      "after": "KORET. Slip pigen straks!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 39,
+      "before": "KREON. Befal dine egne tjenere — jeg er ikke din slave.",
+      "after": "KREON. Giv dine egne folk ordrer. Jeg er ikke din slave.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 40,
+      "before": "KOR. Stop, siger jeg dig.",
+      "after": "KORET. Hold op, siger jeg!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 41,
+      "before": "KREON (til vagten). Flyt hende!",
+      "after": "KREON (til vagten). Og jeg befaler dig at gå!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 42,
+      "before": "KOR. Til undsætning, hver eneste af jer! Saml jer, naboer, til mit kald! Fjenden er ved porten — saml jer for at forsvare Staten!",
+      "after": "KORET. Alle mand til hjælp!\nNaboer, kom, når jeg kalder!\nFjenden står ved porten.\nKom og forsvar staten!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 43,
+      "before": "ANTIGONE. Jeg er fortabt! De slæber mig væk, venner!",
+      "after": "ANTIGONE. Åh, venner, de slæber mig bort!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 44,
+      "before": "OIDIPUS. Hvor er du, datter?",
+      "after": "ØDIPUS. Hvor er du, min datter?",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 45,
+      "before": "ANTIGONE. Slæbt af sted med magt!",
+      "after": "ANTIGONE. De fører mig væk med magt!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 46,
+      "before": "OIDIPUS. Dine hænder, mit barn!",
+      "after": "ØDIPUS. Giv mig dine hænder, mit barn!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 47,
+      "before": "ANTIGONE. De vil ikke lade mig nå dig, far.",
+      "after": "ANTIGONE. Det vil de ikke lade mig gøre, far.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 48,
+      "before": "KREON. Tag hende væk!",
+      "after": "KREON. Væk med hende!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 49,
+      "before": "OIDIPUS. Åh, jeg er fortabt — åh, fortabt!",
+      "after": "ØDIPUS. Åh, jeg ulykkelige!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 50,
+      "before": "KREON. Så de to krykker vil ikke længere være der til at bære dig videre på din vandring. Siden det behager dig at triumfere over dit land og dine venner — hvis ordre jeg, skønt en fyrste, her udfører — så nyd din triumf. Før eller siden vil du finde, at du er din egen værste fjende, nu og i fortiden, da du på trods af dine venner gav frit løb til den lidenskab, der altid har været din ruin.",
+      "after": "KREON. Så kan de to krykker ikke længere støtte dig på din vandring. Det glæder dig åbenbart at triumfere over dit land og dine venner, hvis befaling jeg udfører her, selv om jeg er fyrste. Så nyd din triumf. Før eller siden opdager du, at du er din egen fjende, både nu og dengang du trodsede dine venner og lod din vrede få frit løb. Den har altid været din ulykke.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 51,
+      "before": "KOR. Stop dér, fremmede!",
+      "after": "KORET. Stands, fremmede!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 52,
+      "before": "KREON. Hænderne væk, pas på.",
+      "after": "KREON. Hold hænderne fra mig. Pas på!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 53,
+      "before": "KOR. Giv pigerne tilbage, eller du går ikke.",
+      "after": "KORET. Giv pigerne tilbage, ellers får du ikke lov at gå.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 54,
+      "before": "KREON. Da vil Theben snart tage en kærere garant. Jeg vil lægge hænder på mere end disse to piger.",
+      "after": "KREON. Så tager Theben snart et mere værdifuldt gidsel. Jeg lægger hånd på flere end de to piger.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 55,
+      "before": "KOR. Hvad andet kan du gøre?",
+      "after": "KORET. Hvad mere kan du gøre?",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 56,
+      "before": "KREON. Slæbe denne mand af.",
+      "after": "KREON. Føre denne mand bort.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 57,
+      "before": "KOR. Tappre ord!",
+      "after": "KORET. Store ord!",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 58,
+      "before": "KREON. Gerninger vil gøre dem gode om et øjeblik.",
+      "after": "KREON. Snart følger handlingen.",
+      "reason": "Full source comparison; modern dramatic Danish preserving threats, imagery and speaker turns."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 59,
+      "before": "KOR. Medmindre vores hersker griber ind.",
+      "after": "KORET. Medmindre vores hersker griber ind.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 60,
+      "before": "OIDIPUS. Skamløse stemme! Vil du lægge hånd på mig?",
+      "after": "ØDIPUS. Din skamløse mund! Vil du lægge hånd på mig?",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 61,
+      "before": "KREON. Ti stille, siger jeg dig!",
+      "after": "KREON. Ti stille, siger jeg!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 62,
+      "before": "OIDIPUS. Gudinder — tillad jeres bønfaldende at udtale en sidste forbandelse! Skurk — nu hvor mine øjne er væk, har du revet den hjælpeløse pige bort, der var mine øjne. For dette, til dig og til hele din forbandede slægt, måtte den store Sol, hvis øje ser overalt, give længden af dage og alderdom som min egen.",
+      "after": "ØDIPUS. Gudinder, lad mig, som søger jeres beskyttelse, udtale endnu en forbandelse! Slyngel, nu hvor mine øjne er borte, har du revet den hjælpeløse pige fra mig, som så for mig. Derfor må den store Sol, hvis øje ser alt, give dig og hele din forbandede slægt et langt liv og en alderdom som min!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 63,
+      "before": "KREON. Lyt, mænd af Athen — bemærker I dette?",
+      "after": "KREON. Hører I det, mænd fra Athen?",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 64,
+      "before": "OIDIPUS. De bemærker os begge, og forstår, at jeg, krænket i handling, forsvarer mig med ord.",
+      "after": "ØDIPUS. De hører os begge og forstår, at jeg forsvarer mig med ord mod den uret, du gør mig i handling.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 65,
+      "before": "KREON. Intet vil tøjle min vilje. Gammel som jeg er, og alene, vil jeg have denne mand.",
+      "after": "KREON. Intet skal holde mig tilbage. Gammel og alene, som jeg er, skal jeg nok få fat i ham.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 66,
+      "before": "OIDIPUS. Åh, jeg er fortabt!",
+      "after": "ØDIPUS. Åh, jeg ulykkelige!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 67,
+      "before": "KOR. Du er en frækk mand, fremmede, hvis du tror, du kan gennemføre dette.",
+      "after": "KORET. Du er dristig, fremmede, hvis du tror, du kan gennemføre det.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 68,
+      "before": "KREON. Det gør jeg.",
+      "after": "KREON. Det tror jeg.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 69,
+      "before": "KOR. Da skal jeg ikke længere tænke på dette som en Stat overhovedet.",
+      "after": "KORET. Så vil jeg ikke længere regne dette land for en stat.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 70,
+      "before": "KREON. Med en retfærdig sag besejrer de svage de stærke.",
+      "after": "KREON. Når sagen er retfærdig, kan den svage besejre den stærke.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 71,
+      "before": "OIDIPUS. Hører du, hvad han siger?",
+      "after": "ØDIPUS. Hører I, hvad han siger?",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 72,
+      "before": "KOR. Kun ord — Zeus ved, endnu ikke gerninger!",
+      "after": "KORET. Ja, ord. Men endnu ingen handling, det ved Zeus!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 73,
+      "before": "KREON. Zeus ved måske — men ikke du.",
+      "after": "KREON. Zeus ved det måske. Du gør ikke.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 74,
+      "before": "KOR. Frækhed!",
+      "after": "KORET. Hvilken frækhed!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 75,
+      "before": "KREON. Frækhed må du finde dig i.",
+      "after": "KREON. Den må du finde dig i.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 76,
+      "before": "KOR. Skynd jer, fyrster — slå alarm! Mænd af Athen, til våben! Hurtigt, til undsætning, før røverne får deres bytte hjem!",
+      "after": "KORET. Skynd jer, landets herrer, slå alarm!\nMænd fra Athen, grib til våben!\nKom hurtigt og hjælp,\nfør røverne slipper hjem!",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 77,
+      "before": "[THESEUS træder ind.]",
+      "after": "[THESEUS kommer ind.]",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 78,
+      "before": "THESEUS. Hvorfor dette skrigeri? Hvad foregår der? Hvorfor blev jeg kaldt væk fra Poseidons alter, jeres Kolonos' herre? Tal! På hvilket ærinde er jeg kommet løbende hertil uden ophold?",
+      "after": "THESEUS. Hvorfor råber I? Hvad sker der? Hvorfor blev jeg kaldt fra altret for Poseidon, Kolonos’ herre? Tal! Hvad er det, jeg er hastet herhen for?",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 79,
+      "before": "OIDIPUS. Kære ven — den stemme fortæller mig, hvem du er — denne mand har lige nu gjort mig en grim uret.",
+      "after": "ØDIPUS. Kære ven, jeg kender dig på stemmen. Denne mand har netop gjort mig en grusom uret.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 80,
+      "before": "THESEUS. Hvilken uret, og hvem har gjort det? Tal.",
+      "after": "THESEUS. Hvilken uret, og hvem har begået den? Tal.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 81,
+      "before": "OIDIPUS. Kreon, der står foran dig. Han har frarøvet mig alt — mine to døtre.",
+      "after": "ØDIPUS. Kreon, som står foran dig. Han har taget alt, hvad jeg har: mine to døtre.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 82,
+      "before": "THESEUS. Hvad betyder dette?",
+      "after": "THESEUS. Hvad skal det betyde?",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 83,
+      "before": "OIDIPUS. Du har hørt beretningen om, hvad han gjorde.",
+      "after": "ØDIPUS. Du har hørt, hvilken uret han har gjort mig.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 84,
+      "before": "THESEUS. Hurtigt — en af jer, til alterne. Sig til mine mænd at forlade ofringen og skynde sig, til fods og til hest, med løse tøjler, til hvor de pakhandlernes spor afgrener sig. Ellers vil de to piger smutte væk, og jeg vil blive til en latter for min gæst — en mand plyndret med magt. Hurtigt, som jeg sagde. Hvad angår denne fremmede: hvis jeg havde ladet min vrede, retfærdigt vakt, få frit løb, ville han ikke være sluppet ud af mine hænder uskadt og ukorrigeret. Men nu vil de selvsamme love, han selv appellerede til — disse, og ingen andre, dømme ham. Du skal ikke forlade dette land, før du har hentet pigerne og fremvist dem foran mig. Du har krænket mig, og din egen race, og dit eget land. Du kom til en Stat, der forsvarer retten og kræver lovlig hjemmel for enhver handling, og du satte landets lov til side. Som en sørøver slæber du af med ethvert bytte, der behager dig — som om du troede, dette var en by uden mænd, eller bemandet af slaver, og som om jeg var intet. Alligevel blev denne skurkagtighed ikke lært fra Theben. Theben er ikke i vane med at avle uretfærdige sønner, og hun ville ikke prise dig, hvis hun vidste, du frarøvede mig — og guderne også, ved at slæbe deres bønfaldende, stakkels piger, af. Hvis jeg var på thebansk jord og forfulgte det mest retfærdige krav, der kunne tænkes, ville jeg aldrig gribe mit eget med vold uden samtykke fra jeres Stat eller jeres konge. Jeg ville opføre mig, som en udlænding skal, levende blandt et andet folk. Men du gør skam på en by, der ikke fortjener det — din egen by — og dine lange år har gjort dig til en gammel mand og en tåbe. Så jeg siger dig igen, som før: sørg for, at pigerne returneres øjeblikkeligt — medmindre du vil blive her med magt frem for valg. Så meget siger jeg dig direkte — og jeg mener, hvad jeg siger.",
+      "after": "THESEUS. En af jer skal straks løbe til altrene! Sig til mine mænd, at de skal forlade ofringen og skynde sig af sted, til fods og til hest i fuld fart, til det sted, hvor købmændenes stier deler sig. De må ikke slippe bort med pigerne og gøre mig til grin over for min gæst, som bliver plyndret med magt. Skynd jer, som jeg siger! Hvad denne fremmede angår, ville han ikke være sluppet uskadt og ustraffet fra mig, hvis jeg havde givet min berettigede vrede frit løb. Men nu skal netop de love, han selv påberåbte sig, afgøre sagen. Du forlader ikke dette land, før du har hentet pigerne og ført dem frem for mig. Du har krænket både mig og din egen slægt og dit land. Du kommer til en stat, som forsvarer retten og kræver lovlig grund for enhver handling, men tilsidesætter dens love og skikke. Som en røver slæber du af sted med det bytte, der passer dig, som om byen var uden mænd eller kun beboet af slaver, og som om jeg intet var. Den skurkagtighed har du ikke lært i Theben. Theben opfostrer ikke uretfærdige sønner, og byen ville ikke rose dig, hvis den vidste, at du berøvede mig og guderne disse stakkels piger, som søger deres beskyttelse, og førte dem bort med magt. Selv hvis jeg på thebansk jord forfulgte det mest retfærdige krav, man kunne tænke sig, ville jeg aldrig tage mit eget tilbage med vold uden jeres stats eller konges tilladelse. Jeg ville opføre mig, som en fremmed bør blandt andre folk. Men du bringer skam over en by, der ikke fortjener det, din egen. Dine mange år har gjort dig til en gammel mand og en tåbe. Derfor befaler jeg dig endnu en gang: Sørg for, at pigerne straks bliver bragt tilbage. Ellers bliver du her med magt og ikke af egen vilje. Det siger jeg dig ligeud, og jeg mener hvert ord.",
+      "reason": "Full source-faithful modern Danish: preserve full legal argument and rebuke; packmen=travelling merchants, not invented parcel traders; correct unnatural grammar."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 1,
+      "before": "KOR. Din sag er desperat, fremmede. Af fødsel og familie burde du være en retfærdig mand — alligevel gør du tydeligvis uret.",
+      "after": "KORET. Din sag står dårligt. Din fødsel og slægt burde gøre dig retfærdig, men du begår åbenlyst uret.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 2,
+      "before": "KREON. Jeg gjorde ikke, hvad jeg har gjort, idet jeg troede denne by tom for mænd eller for dømmekraft, søn af Aigeus, som du hævder. Jeg troede snarere, at jeres folk ikke ville sætte så stor pris på mine frænder, at de ville beholde dem mod min vilje. Og jeg var sikker på, at de ikke ville huse en gudløs fadermorder, en forbryder dømt for et blodskams ægteskab. For på hendes oprindelige Ares-bjerg her — jeg kendte jeres vidtberømte Areopagos — sidder Retfærdigheden, og tillader ikke vagabonder at blive inden for jeres grænser. I tillid til det gik jeg på jagt efter mit bytte. Selv da ville jeg have holdt mig tilbage, hvis ikke det var for de frygtelige forbandelser, hvormed han bandt mine slægtninge og mig selv — sådan en uret, tænkte jeg, gav hjemmel for det, jeg gjorde. Vrede kender ingen alderdom; kun døden kan stille den. De døde alene føler ingen brod af ondskabsfuldhed. Så gør din vilje. Min sag er retfærdig, men svag uden allierede. Alligevel, gammel som jeg er, vil jeg forsøge at besvare gerninger med gerninger.",
+      "after": "KREON. Jeg handlede ikke, fordi jeg troede, byen manglede mænd eller forstand, som du siger, Aigeus’ søn. Jeg troede snarere, at jeres folk ikke satte så stor pris på mine slægtninge, at de ville beholde dem imod min vilje. Jeg var også sikker på, at de ikke ville huse en gudløs fadermorder, en forbryder, hvis ægteskab er blodskam. Jeg kender jo jeres berømte Areopagos. Her på Ares’ høj sidder Retfærdigheden og tillader ikke sådanne omstrejfere inden for jeres grænser. I den tro opsporede jeg mit bytte. Selv da ville jeg have holdt mig tilbage, hvis ikke han havde udtalt frygtelige forbandelser over mine slægtninge og mig. Den uret mente jeg gav mig ret til at handle. Vrede ældes ikke. Kun døden standser den; kun de døde kan ikke mærke fjendskabets stik. Gør derfor, som du vil. Min sag er retfærdig, men uden forbundsfæller er jeg svag. Alligevel vil jeg, gammel som jeg er, forsøge at besvare handling med handling.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 3,
+      "before": "OIDIPUS. Skamløse spotter — tror du, denne svinen plager mit grå hår mere end dit eget? Mord og blodskam — du udspyer disse rædsler som anklager mod mig, og jeg har båret dem alle, ingen villig synder. Således behagede det guderne, vrede måske på min syndige slægt af gammel tid, da de ikke kunne finde nogen synd hos mig selv, for hvilken jeg som gengældelse var dømt til at træde således mod mig selv og mine. Svar mig dette: hvis ved et orakel min far var bestemt til en blodig ende ved en søns hånd, hvordan kan dette afspejle sig på mig — på mig, dengang ufødt, undfanget af ingen far, undfanget i ingen mors moderliv? Og hvis jeg, født til elendighed som jeg blev født, mødte min far, uden at vide hvem han var eller hvad jeg gjorde, og dræbte ham, hvordan kan du retfærdigt bebrejde den helt ubevidste hånd? Hvad angår min mor — usling, skammer du dig ikke over at presse historien om hendes ægteskab ud af mig, da hun var din egen søster? Det ægteskab vil jeg forkynde med det samme. Jeg vil tale: dine vellystige og ugudelige ord har brudt alle tavshedens bånd. Hun var, ak, min mor. Jeg vidste det ikke; det gjorde hun heller ikke. Og hun, min mor, fødte børn til den søn, hun selv havde født — en skammelig fødsel. Men dette ved jeg: du bagvasker hende og mig med vilje, mens jeg giftede mig uden at vide og taler nu uvilligt. Nej — hverken i dette ægteskab eller i den gerning, du bliver ved med at kaste mig i ansigtet — en myrdet far — skal jeg holdes ansvarlig. Kom, svar mig på ét spørgsmål, hvis du kan: hvis nogen lige nu prøvede at tage dit liv, ville du — retfærdighedens mand — først undersøge, om angriberen måske var din far, eller ville du straks vende dig mod ham? Som du elsker dit liv, ville du vende dig mod din angriber, uden at stoppe for at debattere, forudsat at loven støttede dig. Sådan var min sag, og sådan den position, guderne reducerede mig til. Og jeg tror, min far, hvis han kunne komme tilbage til livet, ikke ville være uenig. Alligevel, du, der ikke er retfærdig, men en mand, der vil stoppe ved intet, hvis det tjener hans argument, bebrejder mig dette foran disse mænd. Det passer dig at rose store Theseus' navn og Athen som en klogt styret Stat. Og alligevel mangler én ting i dine smigrerier: hvis noget land ved, hvordan man yder guderne deres tilbørlige ritualer, er det Athen mest af alle. Dette er det land, hvorfra du forsøgte at stjæle deres aldrende bønfaldende, og hvorfra du har slæbt mine døtre af. Så jeg vender mig til disse gudinder her, jeg påkalder dem, jeg påkalder deres hjælp til at forsvare min sag — så du må lære, hvilken slags mænd der vogter over denne Stat.",
+      "after": "ØDIPUS. Din skamløse spotter! Tror du, at dine skældsord vanærer mine grå hår mere end dine egne? Mord og blodskam, alle de rædsler slynger du mod mig. Jeg har båret dem alle, men jeg syndede ikke med vilje. Sådan ville guderne det, måske i vrede over min slægts gamle synder. Hos mig selv kan du ikke finde nogen synd, som fortjente den straf, at jeg skulle begå disse handlinger mod mig selv og mine. Svar mig: Hvis et orakel bestemte, at min far skulle dø en blodig død for sin søns hånd, hvordan kan det så være min skyld? Jeg var endnu ikke født, endnu ikke avlet af nogen far eller undfanget i nogen mors skød. Og hvis jeg, født til lidelse, mødte min far uden at vide, hvem han var, eller hvad jeg gjorde, og dræbte ham, hvordan kan du så med rette bebrejde min uvidende hånd? Og min mor! Din usling, skammer du dig ikke over at tvinge mig til at fortælle om hendes ægteskab, når hun var din egen søster? Nu skal jeg fortælle det. Dine skamløse og gudløse ord har brudt min tavshed. Hun var min mor, åh, jeg ulykkelige! Hverken hun eller jeg vidste det. Hun fik børn med den søn, hun selv havde født, børn født i skam. Men dette ved jeg: Du besudler hendes og mit navn med vilje. Jeg giftede mig i uvidenhed og taler nu mod min vilje. Hverken for dette ægteskab eller for det, du bestandig kaster mig i ansigtet, drabet på min far, skal jeg bære skylden. Svar mig på ét spørgsmål, hvis du kan: Hvis nogen netop nu forsøgte at dræbe dig, ville du, retfærdige mand, først undersøge, om angriberen var din far, eller ville du forsvare dig? Så sandt du har dit liv kært, ville du slå igen uden først at overveje, om loven gav dig ret. Sådan var min situation. Dér havde guderne bragt mig hen. Jeg tror ikke, min far ville modsige mig, hvis han kunne vende tilbage til livet. Men du er ikke retfærdig. Du skyr intet, når det gavner din sag, og bebrejder mig dette foran disse mænd. Det passer dig at prise den store Theseus og Athen som en velstyret stat. Men én ting mangler i din smiger: Hvis noget land ved, hvordan man ærer guderne med de rette ritualer, er det Athen. Fra dette land ville du stjæle den gamle mand, som søger deres beskyttelse, og du har ført mine døtre bort. Derfor vender jeg mig til gudinderne her. Jeg bønfalder dem og påkalder deres hjælp til at forsvare min sag, så du kan lære, hvilken slags mænd der beskytter denne stat.",
+      "reason": "Correct conditional misreading: self-defense without pausing to consider law, not provided law supports him. Preserve full responsibility argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 4,
+      "before": "KOR. En ærlig mand, min herre — en sårt presset af skæbnen, og derfor værdig vores støtte.",
+      "after": "KORET. Herre, han er en hæderlig mand, hårdt ramt af skæbnen, og fortjener derfor vores støtte.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 5,
+      "before": "THESEUS. Nok ord. Indfangerne sætter farten op, mens vi, ofrene, står her og diskuterer.",
+      "after": "THESEUS. Nok snak. Bortførerne skynder sig af sted, mens vi, som bliver krænket, står her og diskuterer.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 7,
+      "before": "THESEUS. Vis os sporet, og jeg vil komme med dig — så hvis pigerne er et sted i nærheden, kan du selv afsløre dem for mig. Men hvis dine vagter har overhalet os med deres bytte, kan vi tøjle ind. Andre rider foran, og de vil ikke undslippe dem for at takke guderne, når de er sikkert hjemme. Før an, siger jeg. Indfangeren er fanget; skæbnen har taget fuglefængeren i hans egen snare. Hvor hurtigt uærlige gevinster mistes. Og søg ikke efter forbundsfæller. Jeg ved godt, at en sådan højde af frækhed aldrig blev nået uden bagmænd eller medskyldige. Du har en eller anden støtte i dette dristige foretagende, men jeg vil undersøge sagen til bunds, og sørge for at én mand ikke vinder over Staten. Tager du min mening — eller synes disse ord lige så tomme som vores advarsler, da komplottet blev udklækket?",
+      "after": "THESEUS. Vis os vejen. Jeg følger selv med dig. Er pigerne her i nærheden, skal du føre mig til dem. Er dine vagter kommet for langt foran med deres bytte, kan vi holde igen. Andre er allerede på vej, og dem slipper de ikke fra for siden at takke guderne hjemme. Før an! Nu er bortføreren selv fanget. Skæbnen har fanget fuglefængeren i hans eget net. Så hurtigt mister man det, man vandt ved svig. Og vent ikke på hjælp. Jeg ved, at ingen når så langt i frækhed uden medhjælpere og medsammensvorne. Du har nogen bag dig i dette dristige foretagende. Men jeg vil undersøge sagen til bunds og sørge for, at én mand ikke får overtaget over staten. Forstår du, hvad jeg siger? Eller virker ordene lige så tomme som vores advarsler, da I lagde planen?",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 8,
+      "before": "KREON. Intet du siger, kan jeg modsige her — men når jeg er hjemme, vil jeg også spille min rolle.",
+      "after": "KREON. Her kan jeg ikke modsige dig. Men hjemme vil jeg også gøre mit.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 9,
+      "before": "THESEUS. Trus os — og gå! Du, Oidipus, bliv her, sikker på dette: intet mindre end min død vil holde mig fra at bringe pigerne tilbage.",
+      "after": "THESEUS. Tru bare, og gå så! Ødipus, bliv her. Vær sikker på, at kun min død kan hindre mig i at bringe pigerne tilbage.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 10,
+      "before": "OIDIPUS. Himlen velsigne dig, Theseus, for din ædelhed og al din kærlige omsorg på mine vegne.",
+      "after": "ØDIPUS. Guderne velsigne dig, Theseus, for dit ædle sind og al den kærlige omsorg, du viser mig.",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 11,
+      "before": "[THESEUS og KREON går ud.]",
+      "after": "[THESEUS og KREON går.]",
+      "reason": "Full source-faithful modern Danish, idiomatic dialogue and complete argument."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 12,
+      "before": "KOR. Åh, når den flygtende fjende endelig vender ved dyrets skjulested og begynder at give slag for slag — måtte jeg se kampen! Måtte jeg høre det høje slagråb svulme på den pythiske kyst, eller ved den fakkelbelyste bugt, hvor den frygtede Dronning og Pige plejer de mystiske ritualer — ritualer de forråder til ingen, før Tavshedens gyldne nøgle lægges på læberne af deres egne medhjælpere, de præstelige Eumolpider.",
+      "after": "KORET. (Strofe 1)\nNår den flygtende fjende\nvender sig, trængt op i en krog,\nog giver slag for slag,\ngid jeg da kunne se kampen!\nGid jeg kunne høre kampråbet stige\nved den pythiske kyst\neller den fakkeloplyste bugt,\nhvor den frygtede Dronning og Datter\nværner om de hemmelige ritualer.\nIngen får dem betroet,\nfør deres egne tjenere,\npræsterne af Eumolpos’ slægt,\nhar lagt tavshedens gyldne nøgle\npå den indviedes læber.",
+      "reason": "Restore full source lyric imagery and stanza boundaries; turning to bay means cornered enemy, not animal's lair."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 13,
+      "before": "Der måtte jeg se Theseus, vores dristige høvding, møde røverbanden, før de er flygtet fra landet — og med håndkraft redde de to fangne piger.",
+      "after": "Der kunne jeg måske se\nvores modige fører Theseus\nmøde røverflokken,\ninden den slipper ud af landet,\nog med al sin kraft befri\nde to fangne piger.",
+      "reason": "Restore full source lyric imagery and stanza boundaries; turning to bay means cornered enemy, not animal's lair."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 14,
+      "before": "Måske på den hurtigste hest, eller i den flyvende stridsvogn, nærmer de sig allerede nu kløften vest for hvide Oeas klippe. Plyndrerne vil blive besejret. Frygtindgydende er vore krigere, frygtindgydende er Theseus' mænd. Hvert tøjle blinker klart; hver tapper ridder galoperer — alle dem, der tilbeder vores Dronning, Pallas deres beskytter, eller ham, hvis brede strøm omslutter jorden, den store Hav-konge, som Rhea fødte.",
+      "after": "(Antistrofe 1)\nMåske nærmer de sig nu\npå hurtige heste\neller i flyvende vogne\ndalen vest for Oias hvide klippe.\nFjenden vil blive slået!\nFrygtindgydende er vores krigere,\nTheseus’ mænd.\nHvert bidsel glimter,\nhver modig rytter stormer frem:\nalle, der dyrker vores dronning,\nPallas, deres beskytter,\neller den store havkonge,\nRheas søn,\nhvis vældige vande omslutter jorden.",
+      "reason": "Restore full source lyric imagery and stanza boundaries; turning to bay means cornered enemy, not animal's lair."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 15,
+      "before": "Kæmper de, eller forbereder de sig på at kæmpe? Et sjældent syn fortæller mig, at jeg snart igen skal se de to piger, så ilde behandlede, så slået af deres egen slægt. I dag, i dag arbejder Zeus på en stor ting. Denne dag skal bringe sejr. Åh efter vinger, en dues vinger — at blive båret på vindens hastighed, op og stadig opad, og betragte kampen fra skyerne ovenfor! Altseende Zeus, himlens herre — giv vores beskyttende hær triumferende magt, til at overraske den flygtende fjende og tage byttet tilbage. Hør os, Zeus, og hør os, Zeus' barn — uplettede Athene. Hør, Apollon, jæger — hør, Jægerinde, søster til Apollon, der jager den plettede, hurtigfodede hjort over den skovrige lysning. Hjælp Athen i denne faretid med din dobbelte magt! Vandringsmand — du behøver ikke at anklage de venner, der våger over dig, for en falsk profeti. Se — en eskorte med pigerne nærmer sig.",
+      "after": "(Strofe 2)\nKæmper de allerede, eller gør de sig klar?\nEt sælsomt syn siger mig,\nat jeg snart igen skal se de to piger,\nså hårdt behandlet og slået af deres egen slægt.\nI dag, i dag gør Zeus noget stort.\nDenne dag skal bringe sejr.\nGid jeg havde vinger, en dues vinger,\nså jeg kunne bæres hurtigt som stormen,\nsejle højere og højere\nog se kampen fra skyerne!\n\n(Antistrofe 2)\nZeus, du som ser alt, himlens herre,\ngiv vores forsvarere sejrens kraft,\nså de indhenter den flygtende fjende\nog vinder byttet tilbage.\nHør os, Zeus, og du,\nZeus’ rene datter Athene.\nHør os, Apollon, jæger,\nog du, hans søster, jagtens gudinde,\nder følger den plettede, rapfodede hjort\ngennem skovens lysning.\nHjælp Athen i farens stund\nmed jeres forenede magt!\n\nVandringsmand, du får ingen grund til at sige,\nat dine venner gav dig falske varsler.\nSe, der kommer et følge med pigerne.",
+      "reason": "Restore full source lyric imagery and stanza boundaries; turning to bay means cornered enemy, not animal's lair."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 1,
+      "before": "[ANTIGONE og ISMENE træder ind med THESEUS.]",
+      "after": "[ANTIGONE og ISMENE kommer ind sammen med THESEUS.]",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 2,
+      "before": "OIDIPUS. Hvor? Hvor? Hvad siger I?",
+      "after": "ØDIPUS. Hvor? Hvor? Hvad siger du?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 3,
+      "before": "ANTIGONE. Far, far — gid en gud ville give dig øjne til at se denne bedste blandt mænd, der bringer os tilbage til dig.",
+      "after": "ANTIGONE. Far, far! Gid en gud ville give dig synet tilbage, så du kunne se den bedste af alle mænd, som har bragt os hjem til dig.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 4,
+      "before": "OIDIPUS. Mit barn! Er du virkelig tilbage?",
+      "after": "ØDIPUS. Mit barn! Er I virkelig tilbage?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 5,
+      "before": "ANTIGONE. Ja — reddet af Theseus og hans tappre mænd.",
+      "after": "ANTIGONE. Ja, Theseus og hans tapre folk har reddet os.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 6,
+      "before": "OIDIPUS. Kom i din fars arme. Lad mig mærke et barns favn — noget jeg aldrig håbede på igen.",
+      "after": "ØDIPUS. Kom i jeres fars arme. Lad mig mærke den omfavnelse fra mine børn, som jeg aldrig troede, jeg skulle få igen.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 7,
+      "before": "ANTIGONE. Det du beder om er dobbelt sødt at give.",
+      "after": "ANTIGONE. Det, du beder om, er dobbelt dejligt at give.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 8,
+      "before": "OIDIPUS. Hvor er I så?",
+      "after": "ØDIPUS. Hvor er I så?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 9,
+      "before": "ANTIGONE. Vi kommer til dig sammen.",
+      "after": "ANTIGONE. Vi kommer begge hen til dig.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 10,
+      "before": "OIDIPUS. Mine dyrebare små!",
+      "after": "ØDIPUS. Mine kære små!",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 11,
+      "before": "ANTIGONE. Fædre har altid været ømme.",
+      "after": "ANTIGONE. Fædre har altid elsket deres børn.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 12,
+      "before": "OIDIPUS. Min alderdoms støtte!",
+      "after": "ØDIPUS. Min alderdoms støtte!",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 13,
+      "before": "ANTIGONE. Sorg støttet af sorg.",
+      "after": "ANTIGONE. Sådan støtter den ene sorg den anden.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 14,
+      "before": "OIDIPUS. Jeg har mine kære. Hvis døden skulle komme nu, ville døden ikke være helt bitter, med jer nær mig. Klyng jer til mig — pres jer tæt på begge sider — hvil her fra jeres trælse vandringer. Sig mig nu, hvad I gennemgik, men hold det kort. Kort tale passer unge piger som jer.",
+      "after": "ØDIPUS. Jeg har mine kære hos mig. Kom døden nu, ville den ikke være helt bitter, når I er her. Hold om mig, tryk jer tæt ind til mig på hver sin side, og hvil jer efter den sørgelige færd. Fortæl nu, hvad I har oplevet, men kort. Unge piger som jer behøver ikke tale længe.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 15,
+      "before": "ANTIGONE. Her er vores frelser. Du bør høre historien fra hans egne læber. Så vil min del være kort.",
+      "after": "ANTIGONE. Her er vores redningsmand. Hør historien fra ham selv, så bliver min beretning kort.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 16,
+      "before": "OIDIPUS. Bliv ikke overrasket, beder jeg dig, hvis synet af børn, jeg havde opgivet for tabt, har trukket min tale lidt for langt ud. Jeg ved meget vel, at den glæde, jeg har i dem, skyldes dig, dig og ingen anden. Du alene befriede dem — ingen anden. Måtte guderne handle med dig efter min bøn — med dig og med dette land! For jeg har her, mere end nogen anden steds på jorden, fundet ærefrygt for himlen, retskaffenhed og læber, der ikke lyver. Jeg siger dette i taknemmelighed for, hvad jeg ved. Alt hvad jeg har, skylder jeg dig alene. Giv mig din hånd, prins, så jeg kan røre den — og hvis du vil tillade mig, lad mig kysse din kind. Men hvad siger jeg? Hvordan kan jeg ønske, at du skal røre en mand så falden som mig — en mand reduceret til den yderste elendighed, fordærvet og plettet med tusind onder? Nej — jeg ville ikke lade dig, selv hvis du ønskede det. Kun de, der selv har kendt katastrofe, kan dele i den. Lad mig hilse dig, hvor jeg står. Og fortsæt med at være min ven, som du har gjort indtil nu.",
+      "after": "ØDIPUS. Undr dig ikke over, at glæden over de børn, jeg troede var tabt, har gjort mig lidt langtrukken. Jeg ved godt, at jeg skylder dig den glæde, ingen anden. Du alene befriede dem. Må guderne give dig og dette land alt det gode, jeg ønsker jer! Intet andet sted har jeg fundet så stor respekt for guderne, så megen retfærdighed og så sandfærdige ord. Jeg taler i taknemmelighed om det, jeg selv kender. Alt, hvad jeg har, skylder jeg dig alene. Giv mig din hånd, fyrste, så jeg kan røre den og, hvis du tillader det, kysse din kind. Men hvad siger jeg? Kan jeg ønske, at du rører et menneske som mig, sunket i den dybeste elendighed, besmittet af tusind ulykker? Nej, det ville jeg ikke tillade, selv hvis du ønskede det. Kun den, der selv har kendt ulykken, kan dele den. Lad mig hilse dig dér, hvor du står, og vær fortsat min ven, som du har været indtil nu.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 17,
+      "before": "THESEUS. Det undrer mig ikke, at du dvælede i samtale med dine børn, og foretrak deres samtale frem for min. Jeg føler ingen jalousi. Jeg foretrækker at være berømt for handlinger frem for ord. Af dette, gamle ven, har du haft bevis. Jeg har holdt min ed og bragt pigerne tilbage levende og uskadte, trods alle hans trusler. Hvordan kampen blev vundet, vil jeg ikke spilde ord på at prale af — dine døtre vil selv fortælle dig alt. Men der er en sag, der dukkede op for nylig på min vej hertil, hvorom jeg gerne vil have dit råd — en lille ting, det synes, men værd at tænke over. En klog mand er opmærksom på alt, stort eller småt.",
+      "after": "THESEUS. Det undrer mig ikke, at du talte længe med dine børn og hellere ville høre dem end mig. Det gør mig ikke jaloux. Jeg vil hellere være kendt for handlinger end for ord. Det har du set, gamle ven. Jeg holdt min ed og bragte pigerne tilbage i live og uden skade trods alle truslerne. Det ville være spild af ord at prale af, hvordan kampen blev vundet. Dine døtre kan fortælle det hele. Men der er noget, jeg hørte om på vej hertil, som jeg gerne vil spørge dig til råds om. Det virker ubetydeligt, men er værd at overveje. En klog mand tager sig af både stort og småt.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 18,
+      "before": "OIDIPUS. Hvad er det, søn af Aigeus? Lad mig høre. Om hvad du spørger, ved jeg intet.",
+      "after": "ØDIPUS. Hvad er det, Aigeus’ søn? Fortæl. Jeg ved jo ikke, hvad du vil spørge om.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 19,
+      "before": "THESEUS. De siger, at en mand — ingen landsmand af din, men en af dine slægtninge — har taget tilflugt ved Poseidons alter, hvor jeg ofrede, da jeg blev kaldt væk.",
+      "after": "THESEUS. Man siger, at en mand, som ikke er din landsmand, men er i familie med dig, har søgt beskyttelse ved Poseidons alter, hvor jeg ofrede, da jeg blev kaldt væk.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 20,
+      "before": "OIDIPUS. Hvad er hans land? Hvad beder den bønfaldende om?",
+      "after": "ØDIPUS. Hvilket land kommer han fra, og hvad beder han om?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 21,
+      "before": "THESEUS. Jeg ved kun én ting — at han, fortæller de mig, beder om et ord med dig. Han vil ikke besvære dig.",
+      "after": "THESEUS. Jeg ved kun, at han beder om at tale med dig. Han vil ikke være til besvær, siger de.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 22,
+      "before": "OIDIPUS. Hvad beder han om? Hvis en bønfaldende, må det være alvorligt.",
+      "after": "ØDIPUS. Hvad vil han? Søger han beskyttelse, må det være noget alvorligt.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 23,
+      "before": "THESEUS. De siger, han kun venter på at tale med dig, og så at gå uskadt sin vej.",
+      "after": "THESEUS. De siger, at han blot vil tale med dig og så rejse videre uden at blive gjort fortræd.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 24,
+      "before": "OIDIPUS. Jeg undrer mig over, hvem denne andrager kan være.",
+      "after": "ØDIPUS. Hvem kan det være, der beder om det?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 25,
+      "before": "THESEUS. Tænk over, om der er nogen blandt dine slægtninge i Argos, der kunne kræve sådan en gunst af dig.",
+      "after": "THESEUS. Tænk efter, om du har en slægtning i Argos, som kunne bede dig om den tjeneste.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 26,
+      "before": "OIDIPUS. Kære ven — stop, beder jeg dig.",
+      "after": "ØDIPUS. Kære ven, lad være, jeg beder dig.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 27,
+      "before": "THESEUS. Hvad er der i vejen?",
+      "after": "THESEUS. Hvad er der nu?",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 28,
+      "before": "OIDIPUS. Spørg det ikke af mig.",
+      "after": "ØDIPUS. Bed mig ikke om det.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 29,
+      "before": "THESEUS. Spørge hvad? Forklar.",
+      "after": "THESEUS. Om hvad? Forklar dig.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 30,
+      "before": "OIDIPUS. Dine ord har allerede fortalt mig, hvem den bønfaldende er.",
+      "after": "ØDIPUS. Dine ord har fortalt mig, hvem det er, der søger hjælp.",
+      "reason": "Complete source comparison; natural modern Danish preserving filial imagery, gratitude and speaker reasoning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 31,
+      "before": "THESEUS. Hvem kan han være, så jeg skulle rynke brynene over ham?",
+      "after": "THESEUS. Hvem kan det være, som jeg bør afvise?",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 32,
+      "before": "OIDIPUS. Min søn, konge — min hadede søn, hvis stemme af alle mænds ville skære mest i mine ører.",
+      "after": "ØDIPUS. Min søn, konge, min forhadte søn. Ingen andens stemme ville være så pinefuld for mig at høre.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 33,
+      "before": "THESEUS. Sikkert kan du i det mindste lytte til ham. Hvis hans anmodning støder, behøver du ikke imødekomme den. Hvorfor så modvillig overhovedet at høre ham?",
+      "after": "THESEUS. Du kan vel høre på ham. Du behøver ikke opfylde hans bøn, hvis den mishager dig. Hvorfor vil du ikke engang lytte?",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 34,
+      "before": "OIDIPUS. Den stemme skærer i en fars ører, konge. Jeg er kommet til at afsky den. Tving mig ikke til at give efter.",
+      "after": "ØDIPUS. Den stemme skærer i en fars ører, konge. Jeg er kommet til at afsky den. Tving mig ikke til at give efter.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 35,
+      "before": "THESEUS. Men han har taget tilflugt. Pas på — svigt ikke i tilbørlig ærefrygt for guden.",
+      "after": "THESEUS. Men han har søgt gudens beskyttelse. Pas på, at du ikke svigter den respekt, du skylder guden.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 36,
+      "before": "ANTIGONE. Lyt til mig, far — ung som jeg er. Lad prinsen få sin vilje, og gør hvad der i hans øjne er tjeneste til guden. For vores skyld også — lad vores bror komme. Hvis det han beder om ikke er til dit bedste, kan han ikke tvinge din vilje. Hvad skade i at høre ham? Et komplot af skurkagtighed afsløres snart af åbne ord. Du er hans far; så du kan ikke gengælde en søns mest ugudelige overgreb i samme mønt. Lyt til ham. Andre mænd som dig har utaknemmelige børn og hidsige temperamenter, men ved at give efter for overtalelsens milde besværgelse lader de deres vilde stemning fortrylles bort. Se på fortiden, glem nutiden; tænk på al den sorg, din far og mor bragte dig. Af det vil du uden fejl drage denne lære — at ond lidenskab ender i ondt. Du har, ak, strenge påmindelser til at prikke til din hukommelse — disse for evigt synsløse øjne. Giv efter for os. Retfærdige andragere skulle ikke skulle bede igen og igen, og en der modtager en gunst skal have nåden til at gengælde den.",
+      "after": "ANTIGONE. Hør mig, far, selv om jeg er ung. Føj fyrsten, og vis guden den respekt, som han mener, du skylder ham. Lad også vores bror komme for vores skyld. Hvis hans bøn ikke er til dit bedste, kan han ikke tvinge dig til at følge den. Hvad skade gør det at høre ham? Når man taler åbent, bliver en ond plan snart afsløret. Du er hans far og bør derfor ikke gengælde selv en søns værste krænkelser med samme mønt. Hør på ham. Andre har også utaknemmelige børn og et hidsigt sind, men lader sig formilde af milde ord og slipper deres voldsomme vrede. Glem et øjeblik det, der sker nu, og se tilbage. Tænk på al den lidelse, din far og mor bragte dig. Så vil du se, at voldsom vrede fører til ulykke. Dine øjne, som aldrig mere skal se, er en hård påmindelse. Føj os. Den, der beder om noget retfærdigt, bør ikke skulle tigge igen og igen, og den, der modtager en tjeneste, bør være villig til at gengælde den.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 37,
+      "before": "OIDIPUS. Den gunst, du vinder ved at bede, mit barn, er bitter for mig. Alligevel — få det som du vil. Kun dette, min ven: hvis han skal komme, beder jeg dig, lad ingen have magten til at føre mig væk.",
+      "after": "ØDIPUS. Min datter, det gør ondt at give jer det, I beder om. Men lad det ske. I får jeres vilje. Kun dette beder jeg dig om, min ven: Hvis han skal komme, må ingen få magt til at føre mig bort.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 38,
+      "before": "THESEUS. Ingen grund, herre, til at spørge en gang til. Jeg kan ikke lide at prale — men vær forsikret, dit liv er sikkert, så længe nogen gud holder mit sikkert.",
+      "after": "THESEUS. Du behøver ikke bede igen. Jeg bryder mig ikke om at prale, men vær sikker på, at dit liv er trygt, så længe guderne beskytter mit.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 39,
+      "before": "[THESEUS går ud.]",
+      "after": "[THESEUS går.]",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 40,
+      "before": "KOR. Den der længes efter mange dage og foragter livets almindelige spand — ham dømmer jeg som en flygtig tåbe, der vandrer i tåbelighedens veje. For de lange år hober en tung byrde op — få fornøjelser, tungere smerter — indtil ikke en glæde forbliver for den mand, der dvæler ved livets udmattende vej. Og kommer den langsomt eller hurtigt, venter én skæbneslod os alle ens — for dansen og bryllupsklokken, for klagesangen og begravelsesklokken. Døden, befrieren, sætter alt frit til sidst. Slet ikke at blive født — det er bedst, det bedste der kan ske. Næstbedst, når man er født, er at vende tilbage den vej man kom, med mindst forsinkelse. For når ungdommen passerer med sit svimle følge, følger trængsel på trængsel, slid på slid — smerte, smerte for evigt smerte — og ingen undslipper livets viklinger. Misundelse, oprør, strid, blodbad og krig — disse udgør livets sum. Og til sidst kommer den værste og mest foragtede stadie — glemt alderdom, glædesløs, venneløs, langsom — alle onders kronende onde.",
+      "after": "KORET. (Strofe)\nDen, der ønsker sig et alt for langt liv\nog foragter den almindelige levetid,\ner efter min mening en tåbe,\nder går på vildveje.\nFor de lange år hober en tung byrde op:\nfå glæder og stadig flere smerter,\nindtil ingen glæde er tilbage\nfor den, der bliver på livets trætte vej.\nOm den kommer tidligt eller sent,\nventer den samme skæbne os alle.\nI stedet for dans og bryllupsklokker\nkommer klagesang og dødens klokker.\nDøden, befrieren, sætter til sidst alle fri.\n\n(Antistrofe)\nAldrig at blive født er bedst,\nlangt det bedste, der kan ske.\nNæstbedst er det, når man er født,\nat vende tilbage hurtigst muligt.\nFor når ungdommen drager forbi med sit svimle følge,\nkommer bekymring efter bekymring, slid efter slid,\nsmerte, smerte, evig smerte.\nIngen slipper fri af livets snarer.\nMisundelse, oprør, strid,\nblodbad og krig fylder livet.\nTil sidst kommer det værste og mest forhadte:\nalderdommen, som ingen ænser,\nuden glæde, uden selskab, langsom,\nden største af alle ulykker.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 41,
+      "before": "Sådanne onder har ikke kun jeg kendt — vores gæst her har også kendt dem. Som en pynt på en jernbeslået kyst, pisket af vinterstorme og bølgens brøl, slås han fra alle sider af ulykkens overvældende tidevand — banket af enhver himmelens vind, nogle fra solnedgangen, nogle fra daggryet i øst, nogle fra middagens glød, nogle fra Rhipæernes mørke af evig sne.",
+      "after": "(Epode)\nJeg er ikke alene om at kende disse lidelser.\nVores gæst kender dem også.\nSom et næs på en klippehård kyst,\npisket af vinterstorme og brølende bølger,\nrammes han fra alle sider\naf ulykkens vældige strøm.\nAlle himlens vinde slår imod ham:\nnogle fra solnedgangen,\nnogle fra morgenens øst,\nnogle fra middagens varme,\nnogle fra de rhipæiske bjerges mørke og evige sne.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 42,
+      "before": "ANTIGONE. Far, jeg tror, jeg ser den fremmede komme — alene, og grædende mange tårer.",
+      "after": "ANTIGONE. Far, jeg tror, jeg ser den fremmede komme. Han er alene og græder voldsomt.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 43,
+      "before": "OIDIPUS. Hvem kan det være?",
+      "after": "ØDIPUS. Hvem er det?",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 44,
+      "before": "ANTIGONE. Den samme, som vi gættede fra starten — Polyneikes. Han er her.",
+      "after": "ANTIGONE. Ham, vi fra begyndelsen troede det var: Polyneikes. Nu er han her.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 45,
+      "before": "[POLYNEIKES træder ind.]",
+      "after": "[POLYNEIKES kommer ind.]",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 46,
+      "before": "POLYNEIKES. Åh — søstre, skal jeg først beklage mine egne trængsler eller min gamle fars, som jeg finder her som en strandet i et fremmed land, en gammel tigger klædt i groteske pjalter, der skæmmer hele hans skikkelse, mens hans uplejede hår over hans synsløse øjne flagrer i vinden — og, som om for at matche, bærer han en pose mod sultens kniben? Alt dette lærer jeg for sent, usling som jeg er. Jeg indrømmer det — jeg står bevist som den mest afskyelige i forsømmelsen af jer. Jeg foragter mig selv. Men siden Zeus i alt hvad han gør har Barmhjertighed tronende ved sin side som hans medvirkende, far, lad Barmhjertighed også sidde tronet i dit hjerte. Tidligere uretfærdigheder kan rettes — de kan ikke gøres værre.",
+      "after": "POLYNEIKES. Mine søstre, skal jeg først græde over min egen ulykke eller over min gamle fars? Her finder jeg ham sammen med jer, udstødt i et fremmed land, en gammel tigger i forfærdelige laser, der skæmmer hele hans skikkelse. Hans uredte hår flagrer over de blinde øjne, og som om det skulle passe til resten, bærer han en tiggerpose til at holde sulten fra døren. Alt dette opdager jeg for sent. Jeg er ussel, og jeg indrømmer det. Min forsømmelse af dig har vist, hvor ussel jeg er. Jeg foragter mig selv. Men ligesom den almægtige Zeus i alt, hvad han gør, har Barmhjertigheden ved sin side på tronen, så lad også barmhjertigheden få plads i dit hjerte, far. Fortidens fejl kan rettes. De kan ikke gøres værre.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 47,
+      "before": "Hvorfor tavs? Tal, far — vend dig ikke bort. Har du intet ord? Vil du afvise mig i stum foragt, uden engang at fortælle mig, hvad du er vred over? Jer, hans døtre, mine søstre — prøv at bevæge denne tørre, stædige tavshed. Lad ham ikke afvise mig — en bønfaldende af guden — uden et eneste svar.",
+      "after": "Hvorfor tier du? Tal, far, vend dig ikke bort. Har du ikke et ord til mig? Vil du sende mig væk i tavs foragt uden at fortælle, hvorfor du er vred? I, hans døtre, mine søstre, prøv at bryde denne tunge, stædige tavshed. Lad ham ikke afvise mig, som har søgt gudens beskyttelse, uden et eneste svar.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 48,
+      "before": "ANTIGONE. Sig ham selv, ulykkelige mand, hvad dit ærinde er. Mange ord kan sende et gys af glæde, eller røre en streng af vrede eller ømhed — og på en eller anden måde give selv den tunge-bundne en tunge.",
+      "after": "ANTIGONE. Fortæl ham selv, hvad du vil, ulykkelige bror. En længere tale kan vække glæde, vrede eller ømhed og på en eller anden måde få den tavse til at tale.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 49,
+      "before": "POLYNEIKES. Du råder mig vel, og jeg vil tale ud. Først kalder jeg på guden selv som min hjælp — Poseidon, fra hvis alter jeg blev rejst, med tilladelse fra dette lands hersker, til at tale med dig og drage uskadt af sted. Disse løfter, fremmede, beder jeg jer og mine søstre og min far at overholde. Nu, far, lad mig fortælle dig, hvorfor jeg kom. Jeg er blevet forvist fra mit fædreland, fordi jeg, ved min ret som ældstefødt, gjorde krav på din kongelige trone — hvorfra Eteokles, min yngre bror, fortrængte mig. Ikke ved vægt af præcedens, eller ved den ultimative afgørelse af krig, men ved at vinde folket. Hovedårsagen til dette, tror jeg, er forbandelsen, der hviler på dig. Således siger også seerne. Og så, da jeg kom til Argos i det doriske land og giftede mig med datteren af kong Adrastos, indrullerede jeg under min fane alle de fremmeste høvdinge på den apiske ø, for med deres hjælp at samle den syvfoldige hær af spydmænd mod Theben — besluttet på enten at smide mine fjender ud eller dø i en retfærdig sag. Hvorfor er jeg da her i dag, spørger du? Far, jeg kommer som en bønfaldende til dig — for mig selv og for mine forbundsfæller, der nu med syv eskadroner under deres syv spyd omringer hele sletten omkring Theben. Først kommer den uovertrufne kriger og uovertrufne seer, Amfiaraos, med sit lyn-spyd. Dernæst en aitoler, Tydeus, søn af Oineus. Den tredje, Eteoklos af argivisk fødsel. Den fjerde er Hippomedon, sendt i krig af sin far Talaos. Den femte, Kapaneus, der praler med, at han vil sætte ild til og jævne byen med jorden. Den sjette, Parthenopaios, en arkadier, opkaldt efter pigen længe en pige og sent gift, Atalante, hvis ægte søn han er. Og til sidst, jeg, din søn — eller din i det mindste i navn, om end et ondt skæbnes uægte søn — der fører den frygtløse argiviske hær mod Theben. Så ved dine børn og dit liv, far, beder vi alle dig at slippe din vrede, og at favorisere en, der søger retfærdig hævn mod en bror, der har forvist og frarøvet ham. For sejren, hvis oraklerne taler sandt, vil falde til dem, der har dig som forbundsfælle. Så ved vore kilder og vore husguder beder jeg dig — giv efter, og hør mig. Jeg er en tigger og en udstødt, du er en udstødt ligeledes. Vi er begge fanget i samme ulykke, og vi finder et hjem som modtagere af nådegaver — mens han, Thebens herre, gør nar af os begge. Den pinsel! Med et åndedrag vil jeg sprede den opkomlings magt. Jeg vil bringe dig hjem og etablere dig der — og, efter at have smidt ham ud, etablere mig selv. Med din velvilje vil jeg påtage mig alt dette. Uden den kan jeg næppe komme tilbage i live.",
+      "after": "POLYNEIKES. Du har ret. Jeg vil tale. Først påkalder jeg Poseidon selv, fra hvis alter jeg rejste mig med dette lands herskers tilladelse til at tale med jer og rejse uskadt videre. Jeg beder jer, fremmede, og mine søstre og min far om at holde det løfte. Nu vil jeg fortælle, hvorfor jeg er kommet, far. Jeg er blevet forvist fra mit land, fordi jeg som den ældste søn gjorde krav på din trone. Min yngre bror Eteokles fordrev mig. Han gjorde det hverken med støtte i hævdvunden ret eller ved krigens endelige afgørelse, men ved at vinde folket for sig. Den dybeste årsag mener jeg er den forbandelse, der hviler på dig. Det mener seerne også. Da jeg kom til Argos i det doriske land og giftede mig med kong Adrastos’ datter, samlede jeg alle de førende hærførere fra Peloponnes under min fane. Med deres hjælp rejste jeg en hær i syv afdelinger mod Theben, fast besluttet på at fordrive mine fjender eller dø for en retfærdig sag. Hvorfor er jeg så her i dag? Jeg kommer for at bede dig om hjælp, far, både for mig selv og for mine forbundsfæller. Med syv hærafdelinger under syv spyd omringer de nu sletten ved Theben. Først står Amfiaraos, uovertruffen som kriger og seer, med sit lynende spyd. Dernæst aitoleren Tydeus, Oineus’ søn. Den tredje er argiveren Eteoklos. Den fjerde er Hippomedon, sendt i krig af sin far Talaos. Den femte, Kapaneus, praler af, at han vil brænde byen og jævne den med jorden. Den sjette er arkaderen Parthenopaios, opkaldt efter sin mor Atalante, som længe forblev ugift og først sent blev hustru. Han er hendes ægtefødte søn. Til sidst kommer jeg, din søn, i det mindste af navn, selv om en ond skæbne har gjort mig til en uægte søn. Jeg fører den frygtløse hær fra Argos mod Theben. Ved dine børn og dit liv beder vi dig alle, far: Slip din vrede, og hjælp den, der søger retfærdig hævn over en bror, som har forvist og berøvet ham alt. Hvis oraklerne taler sandt, vinder den side, der har dig som forbundsfælle. Ved vores kilder og husguder beder jeg dig: Giv efter og hør mig. Jeg er en tigger og en landflygtig, og du er også landflygtig. Vi deler den samme ulykke og må begge leve af andres nåde, mens han, Thebens herre, håner os begge. Det gør ondt! Med et pust vil jeg sprede hans nyvundne magt. Jeg vil føre dig hjem og give dig din plads igen. Når jeg har drevet ham ud, tager jeg også selv min plads. Alt dette vil jeg gøre med din støtte. Uden den kommer jeg næppe levende tilbage.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 50,
+      "before": "KOR. For den konges skyld, der sendte ham, Oidipus, afvis ham ikke uden et passende svar.",
+      "after": "KORET. Ødipus, for den konges skyld, som sendte ham, bør du ikke lade ham gå uden et ordentligt svar.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 51,
+      "before": "OIDIPUS. Nej, værdige ældste — men for Theseus' skyld, der sendte ham hertil for at have et ord med mig, ville han aldrig have hørt min stemme igen. Nu skal han modtage denne afskedsgave — et svar, der vil bringe ham lille glæde. Skurk — da du holdt det herredømme, som din bror nu holder i dit sted, drev du ikke mig, din egen far, ud? Gjorde mig til en udstødt, byløs, og fik mig til at bære disse tigger-klæder, du græder over at se, nu hvor du selv er kommet til min sørgelige tilstand? Der er intet her at græde over. Jeg må bære det indtil døden. Og jeg vil tænke på dig som min morder. Du stødte mig ud. Det er dig, der har gjort mig fortrolig med elendighed — gennem dig tigger jeg mit brød i et fremmed land. Hvis disse mine døtre ikke havde plejet mig, ville jeg have været død for enhver hjælp fra dig. De plejer mig, de holder mig i live, de er mænd og ikke kvinder i deres sande tjeneste til deres far. Men du er bastarder — ikke mine sønner. Så retfærdig Himmel har et øje på dig — om end ikke endnu med det strenge ansigt, du snart vil kende, hvis disse forbundne hære virkelig bevæger sig mod Theben. Den by kan du aldrig tage. Først skal du falde, du og din bror, begge plettet med hinandens blod. Sådan var den forbandelse, jeg slyngede mod jer to for nogen tid siden, og sådan er den forbandelse, jeg nu påkalder til at kæmpe for mig — så I må lære at ære dem, der gav jer livet, og ikke at gøre nar af en blind far, der avlede vanslægtede sønner. Disse piger gjorde ikke nar af mig. Derfor er min forbandelse stærkere end din »trone« og din »bønfaldelse«, hvis ved evige loves ret den oprindelige Retfærdighed troner med Zeus. Bort med dig — afskyet, fornægtet, ingen søn af mig, den mest afskyelige af de afskyelige! Og tag med dig denne forbandelse, jeg efterlader dig som min sidste arv: aldrig at vinde dit fædreland med våben, nej, og heller ikke at vende tilbage til Argos i Dalen — men at dø ved en frændes hånd, og at dræbe den mand, der fordrev dig. Således beder jeg, og jeg påkalder Tartaros' urgamle mørke til at snappe dig herfra; jeg påkalder disse frygtindgydende gudinder; jeg påkalder Ares, der antændte dette dødelige fjendskab mellem jer. Gå nu, og forkynd til alle Kadmeerne, dine tro forbundsfæller, hvad du har hørt — dette er den arv, som Oidipus deler mellem sine sønner.",
+      "after": "ØDIPUS. Gode ældste, hvis ikke Theseus havde sendt ham herhen for at tale med mig, ville han aldrig mere have hørt min stemme. Men nu får han denne afskedsgave: et svar, der ikke vil glæde ham. Din slyngel! Da du havde den magt, som din bror nu har i dit sted, drev du da ikke din egen far ud? Du gjorde mig hjemløs og landflygtig og tvang mig i det tiggertøj, du nu græder over, fordi du selv er havnet i samme nød. Der er intet at græde over. _Jeg_ må bære det til min død, og jeg vil betragte dig som min morder. Du drev mig ud. Du lærte mig elendigheden at kende. På grund af dig tigger jeg mit brød i et fremmed land. Hvis mine døtre ikke havde passet mig, ville jeg være død, for du hjalp mig ikke. De passer mig og holder mig i live. I deres trofaste tjeneste for deres far er de mænd, ikke kvinder. Men I er uægte børn, ikke mine sønner. Derfor holder de retfærdige guder øje med dig, endnu ikke så strengt, som du snart skal mærke, hvis jeres samlede hære virkelig marcherer mod Theben. Den by indtager du aldrig. Først falder du og din bror, begge dækket af blod. Den forbandelse udtalte jeg tidligere over jer, og nu kalder jeg den til kamp på min side, så I lærer at ære dem, der gav jer livet, i stedet for at håne den blinde far, som fik så uværdige sønner. Pigerne gjorde det ikke. Derfor er min forbandelse stærkere end din »trone« og din »bøn«, hvis den ældgamle Retfærdighed sidder på tronen hos Zeus efter evige love. Gå, du forhadte, fornægtede, du er ingen søn af mig, den usleste af alle! Tag denne forbandelse med dig som min sidste arv: Du skal aldrig vinde dit fædreland med våben eller vende tilbage til Argos’ dal. Du skal dø for din slægtnings hånd og dræbe den, der fordrev dig. Sådan beder jeg. Jeg påkalder Tartaros’ ældgamle mørke, som skal rive dig bort. Jeg påkalder disse frygtede gudinder og Ares, som tændte det dødelige had mellem jer. Gå nu og fortæl alle thebanerne, dine trofaste forbundsfæller, hvad du har hørt. Dette er den arv, Ødipus deler mellem sine sønner.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 52,
+      "before": "KOR. Dit ærinde, Polyneikes, behagede mig ikke fra begyndelsen. Vend nu tilbage, og hurtigt.",
+      "after": "KORET. Polyneikes, dit ærinde mishagede mig fra begyndelsen. Rejs nu hurtigt tilbage.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 53,
+      "before": "POLYNEIKES. Ve min rejse, og mine forhindrede håb! Ve mine kammerater! Hvilken desperat ende på den glade march fra Argos! Jeg kan ikke engang hviske dette til mine forbundsfæller, eller vende dem tilbage. Jeg må gå stum til at møde min undergang. Mine søstre — I, hans døtre — I har hørt vores strenge fars bønner. Hvis hans forbandelse skulle gå i opfyldelse, og I en dag vender tilbage til Theben, så fornægt mig ikke, beder jeg jer. Giv mig begravelse og de tilbørlige gravritualer. Da vil rosen, jeres datterlige omsorg nu vinder for jer, blive fordoblet af tjenesten, I yder for mig.",
+      "after": "POLYNEIKES. Forbandet være min rejse og mine knuste håb! Mine stakkels kammerater! Hvilken håbløs afslutning på det glade felttog fra Argos! Jeg tør ikke hviske det til mine forbundsfæller eller vende dem om. Jeg må tie og gå min undergang i møde. Mine søstre, hans døtre, I har hørt vores strenge fars bønner. Hvis hans forbandelse går i opfyldelse, og I en dag vender tilbage til Theben, så fornægt mig ikke. Jeg beder jer: Giv mig en grav og de rette begravelsesritualer. Så vil den ros, I nu får for jeres omsorg for vores far, blive dobbelt så stor for det, I gør for mig.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 54,
+      "before": "ANTIGONE. En tjeneste, Polyneikes — lad mig bede om den.",
+      "after": "ANTIGONE. Polyneikes, lad mig bede om én ting.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 55,
+      "before": "POLYNEIKES. Hvad er det, søde Antigone? Tal.",
+      "after": "POLYNEIKES. Hvad vil du, kære Antigone? Tal.",
+      "reason": "Full source comparison; modern Danish, full long speeches, restore lyrical stanza divisions and emphasis. Preserve character claims/history without silent adaptation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 56,
+      "before": "ANTIGONE. Vend din hær tilbage til Argos med al hast. Ødelæg ikke dig selv og Theben sammen med dig.",
+      "after": "ANTIGONE. Før straks din hær tilbage til Argos. Ødelæg ikke både dig selv og Theben.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 57,
+      "before": "POLYNEIKES. Det kan ikke ske. Hvordan kunne jeg lede en hær igen, hvis de havde set deres leder vige?",
+      "after": "POLYNEIKES. Det kan jeg ikke. Hvordan skulle jeg igen føre en hær, der havde set sin leder vige af frygt?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 58,
+      "before": "ANTIGONE. Men, bror — hvorfor vække vrede igen? Hvilken vinding fra dit lands ruin?",
+      "after": "ANTIGONE. Men bror, hvorfor lade vreden blusse op igen? Hvad vinder du ved at ødelægge dit land?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 59,
+      "before": "POLYNEIKES. At leve i eksil er en skam. Skal jeg, den ældste, finde mig i en yngre brors hånsord?",
+      "after": "POLYNEIKES. Det er en skam at leve i landflygtighed. Skal jeg, den ældste, tåle min lillebrors hån?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 60,
+      "before": "ANTIGONE. Vil du da bringe hans profetier til opfyldelse — den, der truer jer begge med gensidigt blodbad?",
+      "after": "ANTIGONE. Vil du så opfylde fars spådom om, at I skal dræbe hinanden?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 61,
+      "before": "POLYNEIKES. Ja — det er, hvad han ønsker. Men jeg må ikke give efter.",
+      "after": "POLYNEIKES. Ja, det ønsker han. Men jeg må ikke give efter.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 62,
+      "before": "ANTIGONE. Åh, jeg er fortabt! Men sig mig — hvem vil vove, efter at have hørt hans profeti, at følge dig?",
+      "after": "ANTIGONE. Åh nej! Vil nogen følge dig, hvis de hører hans spådom?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 63,
+      "before": "POLYNEIKES. Jeg vil ikke fortælle dem det. En god general rapporterer succeser og skjuler tilbageslag.",
+      "after": "POLYNEIKES. Jeg fortæller dem den ikke. En god hærfører fortæller om sejre og skjuler nederlag.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 64,
+      "before": "ANTIGONE. Misvejledte dreng — din beslutning står fast, da?",
+      "after": "ANTIGONE. Du tager fejl, unge mand! Står din beslutning virkelig fast?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 65,
+      "before": "POLYNEIKES. Det gør den — og prøv ikke at stoppe mig. Den vej jeg vælger, jagtet af min far og hans hævnende ånd, fører mig til ruin. Men for jer — måtte Zeus gøre jeres vej lys, hvis I udfører, hvad jeg beder om, når jeg er død. I livet kan I ikke hjælpe mig videre. Lad mig nu gå — farvel, et langt farvel. I vil aldrig se mit levende ansigt igen.",
+      "after": "POLYNEIKES. Ja. Prøv ikke at standse mig. Den vej, jeg vælger, fører til min undergang, jaget af min far og hans hævnende ånd. Men må Zeus gøre jeres vej lys, hvis I opfylder min bøn, når jeg er død. Mens jeg lever, kan I ikke gøre mere for mig. Lad mig nu gå. Farvel, farvel for altid. I får mig aldrig mere at se i live.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 66,
+      "before": "ANTIGONE. Åh nej!",
+      "after": "ANTIGONE. Åh, hvor gør det ondt!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 67,
+      "before": "POLYNEIKES. Sørg ikke over mig.",
+      "after": "POLYNEIKES. Græd ikke over mig.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 68,
+      "before": "ANTIGONE. Hvem ville ikke sørge over dig, bror — styrtende ind i en åben grav?",
+      "after": "ANTIGONE. Hvem ville ikke græde over dig, bror, når du skynder dig mod en åben grav?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 69,
+      "before": "POLYNEIKES. Hvis jeg må dø, må jeg.",
+      "after": "POLYNEIKES. Skal jeg dø, så må jeg dø.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 70,
+      "before": "ANTIGONE. Nej — hør min bøn.",
+      "after": "ANTIGONE. Nej, hør på min bøn.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 71,
+      "before": "POLYNEIKES. Det kan ikke ske. Stop.",
+      "after": "POLYNEIKES. Det kan ikke være anderledes. Hold op.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 72,
+      "before": "ANTIGONE. Da er jeg trøstesløs — hvis jeg må miste dig.",
+      "after": "ANTIGONE. Så er jeg ulykkelig, hvis jeg skal miste dig.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 73,
+      "before": "POLYNEIKES. Det hviler hos skæbnen — om jeg lever eller dør. Men for jer to beder jeg himlen om, at I må undslippe al skade. I er skyldfri i alles øjne.",
+      "after": "POLYNEIKES. Det er skæbnen, der afgør, om jeg lever eller dør. Men jeg beder guderne om, at I begge må undgå alt ondt. I alles øjne er I uden skyld.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 74,
+      "before": "[POLYNEIKES går ud.]",
+      "after": "[POLYNEIKES går.]",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 1,
+      "before": "KOR. Onder over onder — ingen pause, ingen hvile! Kommer de fra vores synsløse gæst? Eller ser vi endelig opfyldt, hvad skæbnen længe har villet? For aldrig endnu har jeg fundet noget forgæves, som de himmelske magter befaler. Tiden, med sit altid vågne øje, betragter, hvad der er skrevet ovenover — nu omstyrtende de store, nu rejsende de lave op. Lyt! Hvordan tordnen rumler! Zeus forsvare os!",
+      "after": "KORET. (Strofe 1)\nUlykke efter ulykke, ingen ro, ingen hvile!\nKommer de fra vores blinde gæst?\nEller ser vi nu opfyldelsen\naf det, skæbnen længe har bestemt?\nJeg har aldrig set gudernes bud\nvise sig forgæves.\nTiden våger med søvnløst øje\nover det, der er skrevet i himlen,\nstyrter den mægtige\nog løfter den ringe op.\nHør, hvor tordnen ruller!\nZeus, beskyt os!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 2,
+      "before": "OIDIPUS. Børn, mine børn — vil ingen budbringer gå og hente Theseus hertil, min bedste ven?",
+      "after": "ØDIPUS. Mine børn! Vil ingen sende bud efter Theseus, min bedste ven?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 3,
+      "before": "ANTIGONE. Hvorfor henter du ham, far?",
+      "after": "ANTIGONE. Hvorfor vil du hente ham, far?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 4,
+      "before": "OIDIPUS. Denne gudens vingede torden er ved at bære mig til Hades. Send efter ham — tøv ikke.",
+      "after": "ØDIPUS. Gudens vingede torden skal snart bære mig til Hades. Send bud uden at tøve.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 5,
+      "before": "KOR. Lyt — med højere, nærmere brøl synker Zeus' lyn ned igen. Min ånd skælver og kryber sammen. Mit hår rejser sig af frygt. Endnu et glimt! Hvad varsler lynet? Altid peger det på alvorlige udfald. Frygtelige magter i luften! Frels — Zeus, frels os!",
+      "after": "KORET. (Antistrofe 1)\nHør, endnu højere og nærmere\nslår Zeus’ tordenkile ned igen.\nMin sjæl krymper sig i angst,\nhåret rejser sig af frygt.\nEndnu et glimt!\nHvad varsler lynet?\nDet peger altid mod alvorlige ting.\nFrygtelige magter i luften!\nZeus, red os!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 6,
+      "before": "OIDIPUS. Døtre — den udnævnte ende er kommet for mig. Der er ingen vending fra den nu.",
+      "after": "ØDIPUS. Mine døtre, min forudbestemte afslutning er kommet. Nu er der ingen vej tilbage.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 8,
+      "before": "OIDIPUS. Jeg ved det godt. Lad nogen gå med al hast og hente den athenske prins.",
+      "after": "ØDIPUS. Jeg ved det med sikkerhed. Hent straks Athens fyrste!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 9,
+      "before": "KOR. Lyt — endnu engang ringer den øredøvende lyd højere rundt om. Hvis du formørker vores land, læg din hånd på det let, let. Lad mig vinde nåde, ikke vrede — hvis jeg på en synder har set med medlidende øje. Zeus vores konge, jeg råber til dig!",
+      "after": "KORET. (Strofe 2)\nEndnu en gang brager den øredøvende lyd,\nendnu højere omkring os.\nHvis du lægger mørke over vores land,\nså lad din hånd hvile let, let.\nVis mig nåde, ikke vrede,\nhvis jeg har set med medlidenhed på en synder.\nZeus, vores konge, jeg kalder på dig!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 10,
+      "before": "OIDIPUS. Kommer prinsen? Når han kommer, vil han da finde mig stadig levende, og mine sanser klare?",
+      "after": "ØDIPUS. Kommer fyrsten? Vil han nå at finde mig i live og ved mine fulde sanser?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 11,
+      "before": "ANTIGONE. Hvilken højtidelig opgave vil du pålægge ham?",
+      "after": "ANTIGONE. Hvilken højtidelig opgave vil du betro ham?",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 12,
+      "before": "OIDIPUS. For alle hans venligheder ville jeg holde det løfte, jeg gav, da jeg først modtog dem.",
+      "after": "ØDIPUS. Til gengæld for al hans hjælp vil jeg opfylde det løfte, jeg gav, da han først hjalp mig.",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 13,
+      "before": "KOR. Skynd dig hertil, min søn — rejs dig, forlad alteret og ofringen, hvis du betaler dit løfte til Poseidon i den fjerne lysning. Vores gæst ville bringe dig og dit folk en passende offergave, en tilbørlig belønning. Skynd dig, konge!",
+      "after": "KORET. (Antistrofe 2)\nSkynd dig herhen, min søn!\nRejs dig fra alter og offer,\nhvis du nu indfrier dit løfte til Poseidon\ni lunden langt borte.\nVores gæst vil bringe dig og dit folk\nen gave, den belønning, du fortjener.\nSkynd dig, konge!",
+      "reason": "Full source-faithful modern Danish with natural dialogue; preserve source lyric images and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 1,
+      "before": "[THESEUS træder ind.]",
+      "after": "[THESEUS kommer ind.]",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 2,
+      "before": "THESEUS. Hvorfor denne almindelige tumult igen? Mit folk kalder på mig, og den fremmede kalder på mig. Er det et lyn fra Zeus, eller en byge af pile-hagl? En storm så voldsom som denne ville retfærdiggøre enhver frygt for ulykke.",
+      "after": "THESEUS. Hvorfor råber alle igen? Både mit folk og den fremmede kalder på mig. Er det Zeus’ tordenkile eller en byge af hagl, skarpe som pile? I så voldsom en storm kan man frygte enhver ulykke.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 3,
+      "before": "OIDIPUS. Prins — du kommer netop, da du er mest ønsket. En eller anden gud må have sendt held med dig på vejen.",
+      "after": "ØDIPUS. Du kommer som ønsket, fyrste. En gud må have sendt dig held på vejen.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 4,
+      "before": "THESEUS. Hvad er der sket nu, søn af Laios?",
+      "after": "THESEUS. Hvad er der nu sket, Laios’ søn?",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 5,
+      "before": "OIDIPUS. Mit liv vipper på vægten. Jeg vil gøre alt, hvad jeg lovede dig og dit folk, før jeg dør.",
+      "after": "ØDIPUS. Vægten er tippet mod min død. Før jeg dør, vil jeg opfylde alt, hvad jeg lovede dig og dit folk.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 6,
+      "before": "THESEUS. Hvilket tegn fortæller dig, at din ende er nær?",
+      "after": "THESEUS. Hvilket tegn viser dig, at døden er nær?",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 7,
+      "before": "OIDIPUS. Guderne selv er heroldene for min skæbne. Ingen af deres udnævnte advarsler svigter.",
+      "after": "ØDIPUS. Guderne selv varsler min skæbne. Ingen af de tegn, de lovede, er udeblevet.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 8,
+      "before": "THESEUS. Hvordan tilkendegiver de deres vilje, siger du?",
+      "after": "THESEUS. Hvordan viser de deres vilje?",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 9,
+      "before": "OIDIPUS. Denne torden, slag på slag — disse lyn, glimt på glimt — slynget fra den uovervundne hånd.",
+      "after": "ØDIPUS. Med denne torden, brag efter brag, og lynene, som den uovervindelige hånd slynger, glimt efter glimt.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 10,
+      "before": "THESEUS. Jeg må tro dig, da jeg ofte har fundet dig som en sand profet. Tal da — hvad må gøres?",
+      "after": "THESEUS. Jeg må tro dig, for du har ofte spået sandt. Sig, hvad vi skal gøre.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 11,
+      "before": "OIDIPUS. Søn af Aigeus — jeg vil afsløre for denne stat en skat, som tiden ikke kan fordærve. Jeg selv, uden nogen til at føre mig, vil straks tage dig til det sted, hvor jeg må ende. Afslør aldrig denne hemmelighed til nogen dødelig — hverken stedet, eller hvor det ligger. Således skal det tjene dig som forsvar, bedre end indfødte skjolde og nære forbundsfæller. Men de frygtelige mysterier, som tale ikke må vanhellige, skal du selv samle, når du kommer der alene. Jeg kan ikke afsløre dem til nogen af dine undersåtter, eller end ikke til mine egne børn, om end jeg elsker dem inderligt. Du må vogte dem alene, og hviske dem til din udvalgte arving alene, så de kan sendes videre fra arving til arving. Således skal du holde dette land ukrænkeligt mod den frygtede Drages yngel. Den mest retfærdige Stat kan stadig blive krænket af utallige hensynsløse naboer — for guderne, om end de tøver, mærker stadig den gudløse synder for undergang i hans afsindige løb. Fjernt fra dig, søn af Aigeus, være enhver sådan skæbne. Men nu — guden i mig driver mig frem. Til stedet, og ikke mere tøven. Følg mig, døtre, denne vej. Mærkværdigt at jeg, som I har ledt så længe, nu skal lede jer. Åh, rør mig ikke. Lad mig selv finde den grav, som skæbnen har sat for mig i dette land. Her — denne vej — for Hermes, vejlederen, leder denne vej, og Persefassa, de dødes dronning. O lys — intet lys for mig, men engang mit — nu for sidste gang føler jeg dig håndgribeligt, for jeg nærmer mig den endelige tusmørke i Hades. Velsignelse over dig, kæreste ven — over dig og over dit land og dine følgesvende. Lev velstående, og i din lykkelige tilstand, tænk stadig, for dit eget velfærd, på mig, den døde.",
+      "after": "ØDIPUS. Aigeus’ søn, jeg vil åbenbare en skat for denne stat, som tiden ikke kan ødelægge. Om lidt vil jeg selv, uden nogen til at føre mig, vise dig det sted, hvor jeg skal ende mine dage. Afslør aldrig hemmeligheden for noget menneske, hverken stedet eller hvor det ligger. Så vil det altid beskytte dig bedre end landets egne skjolde og naboernes hjælp. De frygtindgydende hemmeligheder, som ingen må vanhellige med ord, skal du selv erfare, når du kommer der alene. Jeg må ikke afsløre dem for dine undersåtter eller for mine egne børn, selv om jeg elsker dem højt. Du skal vogte dem alene og kun hviske dem til den arving, du vælger. Sådan skal de gå videre fra arving til arving. Derved vil du beskytte landet mod dragens frygtede afkom. Selv den mest retfærdige stat kan krænkes af sine mange hensynsløse naboer. For selv om guderne tøver, bestemmer de den gudløse synders undergang, mens han farer frem i sit vanvid. Må sådan en skæbne være langt fra dig, Aigeus’ søn! Det ved du allerede, men jeg ville alligevel minde dig om det. Nu må vi gå til stedet. Guden i mig driver mig frem. Lad os ikke tøve længere. Følg mig, døtre, denne vej. Mærkeligt, at jeg, som I så længe har ført, nu skal føre jer! Rør mig ikke. Lad mig selv finde den grav, som skæbnen har bestemt for mig i dette land. Herhen, denne vej! Her fører Hermes, sjælenes vejviser, og Persefassa, de dødes dronning. Lys, du er ikke lys for mig, men engang var du mit. Nu mærker jeg dig for sidste gang, for jeg nærmer mig Hades’ sidste mørke. Velsignet være du, min kære ven, og dit land og dine folk. Lev lykkeligt. Når det går jer godt, så husk mig, den døde, for jeres egen velfærds skyld.\n\n_Storrs oversætternote 7: Thebanerne nedstammede fra de krigere, som sprang frem af de dragetænder, Kadmos såede._",
+      "reason": "Full modern Danish; restore printed admonition sentence omitted in Gutenberg and translator note7."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 12,
+      "before": "[THESEUS går ud, fulgt af ANTIGONE og ISMENE.]",
+      "after": "[THESEUS går, fulgt af ANTIGONE og ISMENE.]",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 13,
+      "before": "KOR. Hvis dødeliges bønner høres i dødsriget — hør os, frygtindgydende, usynlige gudinde! Monark over de øde regioner, Aidoneus, hør, åh hør! Ved en mild, tåreløs dom, fart denne fremmede på sin vej til mørket. Lad ham træde ind uden smerte til den altskjulende Stygiske slette. Uretfærdigt undertrykt i livet, lad ham nu blive velsignet af Retfærdigheden.",
+      "after": "KORET. (Strofe)\nHvis menneskers bønner høres i dødsriget,\nså hør os, frygtede, usynlige gudinde!\nAidoneus, hersker over de mørke egne,\nhør os!\nLad en mild skæbne uden tårer\nføre denne fremmede ind i mørket.\nLad ham gå uden smerte\nind på den stygiske slette, der skjuler alle.\nHan led uret i livet.\nLad nu Retfærdigheden velsigne ham.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 14,
+      "before": "Underverdenens dronning — og du, vilde vagthund ved helvedes porte, der, som sagnet siger, glor og snerrer i dit hule hi mod alle, der kommer — lad ham gå uskadt til markerne nedenunder. For din herre befaler det således — Jordens og Tartaros' søn. Hold uhyret i sin hule, giver af evig søvn.",
+      "after": "(Antistrofe)\nUnderverdenens dronning,\nog du, grusomme vagthund ved dødsrigets porte,\nsom ifølge sagnet stirrer og knurrer\nad alle, der kommer til din hule:\nLad ham gå uskadt\ntil sletterne dernede.\nFor sådan befaler din herre,\nJordens og Tartaros’ søn.\nHold uhyret i dets hule,\ndu, der giver evig søvn.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 15,
+      "before": "[BUDBRINGER træder ind.]",
+      "after": "[En BUDBRINGER kommer ind.]",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 16,
+      "before": "BUDBRINGER. Venner, landsmænd — min nyhed er, kort sagt, at Oidipus er borte. Men begivenheden var ikke kort, og historien kan ikke kort fortælles.",
+      "after": "BUDBRINGER. Venner, landsmænd, kort fortalt er Ødipus borte. Men det, der skete, var ikke kort, og det kan ikke fortælles med få ord.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 17,
+      "before": "KOR. Hvad — er han gået, den ulykkelige mand?",
+      "after": "KORET. Er han borte, den ulykkelige mand?",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 18,
+      "before": "BUDBRINGER. Vid dette med sikkerhed: han er gået fra liv til død.",
+      "after": "BUDBRINGER. Ja, det er sikkert: Han er gået fra livet til døden.",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 19,
+      "before": "KOR. Hvordan? Ved en gudsendt, smertefri dom, stakkels sjæl?",
+      "after": "KORET. Hvordan? Tog en gud ham bort uden smerte, den stakkels mand?",
+      "reason": "Complete modern Danish source comparison; preserve dramatic register/lyrics and restore stanza headings."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 20,
+      "before": "BUDBRINGER. Dit spørgsmål peger på fortællingens vidunder. Hvordan han bevægede sig fra dette sted — du så det og ved det — uden en ven til at lede vejen, idet han selv ledte os alle. Da vi havde nået den brat Jord-rodfæstede Tærskel med dens bronzetrappe, standsede han ved en af de sammenløbende stier, tæt på den klippefyldte bassin, der nedfælder pagten mellem Theseus og Peirithoos. Mellem den kløft og den thoriske klippe, det hule pæretræ og marmorgraven, midt imellem satte han sig ned og tog sin tiggers tøj af. Så kaldte han på sine døtre og bad dem hente rindende vand, både til vask og til libation. De kravlede op ad skråningen, og snart bragte de tilbage, hvad deres far havde bedt om. Så badede og klædte de ham med de tilbørlige ritualer. Da han havde fået sin vilje i alt, og intet ønske var ladt utilfredsstillet, kom der en torden fra underverdenen. Pigerne skælvede, krøb sammen ved deres fars knæ, græd, slog sig på brystet og brød ud i en lang klagesang. Han, der hørte deres pludselige bitre råb, lagde armene om dem begge og sagde: »Mine børn — I mister jeres far i dag. Alt af mig er gået under, og I behøver ikke længere at bære den lange, lange tjeneste, I har givet. En tung byrde, jeg ved — og dog udvisker ét ord hele optegnelsen af besværligheder: kærlighed. Og I havde kærlighed fra mig — så meget som fra nogen levende mand. Men nu må I leve alle jeres dage uden mig.« Sådan, klyngende sig til hinanden, hulkede og græd far og døtre. Men da deres sorg endelig fik en ende, og intet råb gik op, var der et øjebliks tavshed. Pludselig kaldte en stemme på ham. Hvert hår rejste sig i pludselig frygt, og vi alle var lammede. For kaldet kom nu højt, nu lavt, og igen og igen: »Oidipus, Oidipus — hvorfor tøver vi? For længe, for længe er din afgang forsinket.« Da han hørte gudens kald, bad han om, at Theseus måtte blive hentet; og da prinsen kom nær, »O min ven,« råbte han, »lov mine døtre, idet du giver din højre hånd — og, døtre, giv ham jeres — og lov mig, at I aldrig vil forlade dem, men gøre alt hvad tid og venskab tilskynder for deres bedste.« Og han, af sin ædelhed, holdt sine tårer tilbage og svor at være deres bestandige ven. Med det løfte givet, strakte Oidipus sine blinde hænder ud, lagde dem på sine børn og sagde: »Mine børn — bevis jeres sande adel nu. Gå væk herfra, og søg ikke at se forbudte syner, eller at høre forbudte ord. Gå, hurtigt. Lad ingen blive andet end Theseus, vores hersker, for at se, hvad der nu sker.« Således hørte vi alle ham tale. Og grædende bittert ledsagede vi pigerne på deres vej. Lidt senere så vi tilbage — og han var væk, forsvundet fra vores syn. Kun kongen så vi, beskyttende sine øjne med hånden, som om for et frygteligt syn, som ingen mand kunne udholde at se på. Et øjeblik senere så vi ham bøje sig i bøn — til Jorden, og til Himlen, på samme tid. Men ved hvilken skæbne den fremmede mødte sin ende, ved ingen undtagen Theseus. Intet ildigt lyn slog ham ned i den time, ingen hvirvelvind kom ind fra havet — han blev simpelthen taget. Det var en budbringer fra himlen, eller ellers en mild, smertefri åbning af jorden. For uden klage, uden sygdom, uden smerte gik han bort — den mest forunderlige ende. Og hvis min fortælling synes tåbelig for nogle, er jeg tilfreds med at blive kaldt en tåbe af sådanne mænd.",
+      "after": "BUDBRINGER. Dit spørgsmål rammer netop det forunderlige ved historien. I så selv, hvordan han gik herfra. Ingen ven viste ham vej. Han førte os alle. Da vi kom til den stejle Tærskel, rodfæstet i jorden og med trin af bronze, standsede han ved en af de stier, der mødes dér. Det var tæt ved klippebassinet, der minder om pagten mellem Theseus og Peirithoos. Mellem kløften og den thorikiske klippe, det hule pæretræ og marmorgraven satte han sig og løsnede sit tiggertøj. Så kaldte han på sine døtre og bad dem hente rindende vand, som han kunne vaskes i og bruge til drikoffer. De gik op ad den stejle høj, som tilhører Demeter, der vander de grønne skud. Kort efter kom de tilbage med det, deres far havde bedt om, og vaskede og klædte ham efter de rette skikke. Da alt var gjort, som han ønskede, og intet ønske var uopfyldt, lød der torden fra underverdenen. Pigerne skælvede og krøb sammen ved hans knæ. De græd, slog sig for brystet og klagede længe. Da han hørte deres pludselige, bitre gråd, lagde han armene om dem begge og sagde: »Mine børn, i dag mister I jeres far. Alt ved mig er forbi, og I skal ikke længere bære byrden af at passe mig, som I har gjort så længe. Jeg ved, at den har været tung. Men ét ord opvejer alle lidelserne: _kærlighed_. Og ingen har elsket jer mere, end jeg har. Nu må I leve resten af jeres liv uden mig.« Så græd og hulkede de, far og døtre, mens de holdt om hinanden. Da klagerne omsider stilnede, var der et øjebliks tavshed. Pludselig kaldte en stemme på ham. Håret rejste sig på os alle af skræk, og vi stod lamslåede. Kaldet lød igen og igen, snart højt, snart lavt: »Ødipus, Ødipus, hvorfor venter vi? Alt for længe har din afrejse været udsat.« Da han hørte gudens kald, bad han om at få Theseus hen til sig. Fyrsten kom nærmere, og Ødipus sagde: »Min ven, giv mine døtre din højre hånd som løfte, og I, døtre, giv ham jeres. Lov mig, at du aldrig svigter dem, men gør alt det for dem, som tiden og venskabet kræver.« Theseus holdt ædelmodigt sine tårer tilbage og svor at være deres trofaste ven. Da løftet var givet, strakte den blinde Ødipus hænderne frem, lagde dem på sine børn og sagde: »Mine børn, vis nu jeres ædle sind. Gå herfra. Forsøg ikke at se det, I ikke må se, eller høre det, I ikke må høre. Gå straks. Kun Theseus, vores hersker, må blive og se, hvad der nu sker.« Det hørte vi alle. Grædende fulgte vi pigerne bort. Lidt senere vendte vi os om, og da var han borte, forsvundet for vores øjne. Kun kongen var der. Han holdt hånden op foran øjnene, som om han skærmede sig mod et frygteligt syn, intet menneske kunne udholde. Et øjeblik efter så vi ham bøje sig i bøn til både jorden og himlen. Men hvordan den fremmede døde, ved kun Theseus. Intet brændende lyn ramte ham, ingen hvirvelvind kom fra havet. Han blev taget bort, enten af et bud fra himlen eller ved, at jorden mildt og smertefrit åbnede sig. Uden klage, sygdom eller smerte gik han bort. Det var en vidunderlig afslutning. Hvis nogen synes, at min beretning er tåbelig, lader jeg gerne sådanne mennesker kalde mig en tåbe.",
+      "reason": "Full source-faithful messenger speech; restore printed Demeter hill/green shoots clause omitted in Gutenberg and source love emphasis."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 21,
+      "before": "KOR. Hvor er pigerne og vennerne, der ledsager dem?",
+      "after": "KORET. Hvor er pigerne og de venner, der følger dem?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 22,
+      "before": "BUDBRINGER. De kan ikke være langt borte. Lyden af klagesang, der nærmer sig, fortæller, at de er på vej hertil.",
+      "after": "BUDBRINGER. De kan ikke være langt borte. Klageråbene nærmer sig. De er på vej herhen.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 23,
+      "before": "[ANTIGONE og ISMENE træder ind.]",
+      "after": "[ANTIGONE og ISMENE kommer ind.]",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 24,
+      "before": "ANTIGONE. Åh, åh — på denne bitre dag må vi to søstre af en hærget slægt bøje os under slaget. Vi må græde, og græde igen, den forbandelse, der lå på vores far — for hvem i livet en livslang verden af omsorg var vores at bære, og i døden må vi møde det mørke, der hyller hans grav. Hvilken tunge kan fortælle det uudsigelige syn?",
+      "after": "ANTIGONE. (Strofe 1)\nÅh, på denne sorgens dag\nmå vi søstre af samme ødelagte slægt\nbøje os under slaget,\ngræde og græde over den forbandelse,\nder hvilede på vores far.\nMens han levede,\nbar vi et helt livs bekymringer for ham.\nNu, hvor han er død,\nmå vi møde mørket, der omslutter hans grav.\nHvilken tunge kan fortælle\nom det syn, som ord ikke rækker til?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 25,
+      "before": "KOR. Hvad siger I, piger?",
+      "after": "KORET. Hvad mener I, piger?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 26,
+      "before": "ANTIGONE. Det er kun gætværk.",
+      "after": "ANTIGONE. Alt er kun formodninger.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 27,
+      "before": "KOR. Er han gået, da?",
+      "after": "KORET. Er han så borte?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 28,
+      "before": "ANTIGONE. Gået — på netop den måde, du mest ville ønske for ham. Ikke i kamp eller i en storm til havs, men taget fra synet, båret af usete hænder til nattens usete marker. Jeg er fortabt. Også over os er en nat sunket — sorgens nat. Hvor skal vi vandre, over land eller hav i vores elendighed, idet vi spiser bitterhedens brød?",
+      "after": "ANTIGONE. Borte på den måde,\nI mest kunne ønske for ham.\nIkke i kamp eller storm på havet,\nmen revet bort fra vores blik,\nbåret af usynlige hænder\ntil nattens skjulte egne.\nOgså over os er natten faldet,\nsorgens nat.\nHvor skal vi vandre i vores nød,\npå land eller hav,\nog spise bitterhedens brød?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 29,
+      "before": "ISMENE. Jeg ved det ikke. Åh, at Døden måtte knibe min ånde af, og lade mig dele min gamle fars skæbne. Jeg kan ikke leve et liv så trøstesløst som dette.",
+      "after": "ISMENE. Det ved jeg ikke.\nGid døden ville standse mit åndedrag\nog lade mig dele min gamle fars skæbne.\nJeg kan ikke leve så ensomt et liv.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 30,
+      "before": "KOR. Bedste blandt døtre, værdige par — hvad himlen bringer jer, må I bære. Knurr ikke mere mod Himlens vilje. Skæbnen har ikke handlet dårligt med jer.",
+      "after": "KORET. I gode døtre,\nI må bære det, guderne sender.\nKlag ikke mere over deres vilje.\nSkæbnen har ikke behandlet jer ondt.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 31,
+      "before": "ANTIGONE. Kærlighed kan vende tidligere smerte til glæde. Hvad der syntes bittert, er nu sødt. Det lykkelige slid er sødt for mig — vejledningen af de kære blinde fødder. Kære far, for evigt indhyllet i mørket nedenunder, selv i graven skal du aldrig mangle kærlighed — hendes kærlighed og min.",
+      "after": "ANTIGONE. (Antistrofe 1)\nKærlighed kan gøre fortidens smerte til glæde.\nDet, der før var bittert, er nu sødt.\nÅh, hvor jeg savner det lykkelige slid,\nat lede de kære blinde skridt!\nKære far, for altid skjult i mørket dernede,\nselv i graven\nskal du aldrig savne kærlighed,\nhendes og min.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges.; Restore yearning lost in Gutenberg transcription; visually verified Storr printed p297."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 32,
+      "before": "KOR. Hans ende —",
+      "after": "KORET. Hans skæbne —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 33,
+      "before": "ANTIGONE. Var præcis som han havde planlagt.",
+      "after": "ANTIGONE. Blev, som han ønskede.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 34,
+      "before": "KOR. Hvordan da?",
+      "after": "KORET. Hvordan?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 35,
+      "before": "ANTIGONE. Han døde, som han ønskede, i et fremmed land. Indhyllet i venlig jord, sover han sin lange sidste søvn, og hans venner græder over hans grav. Hvor stort vores tab er, kan disse strømmende øjne fortælle. Intet kan stille denne sorg. Du fik dit ønske — at dø sådan blandt fremmede. Men jeg — ak — ikke ved din side.",
+      "after": "ANTIGONE. Han døde efter sit ønske i et fremmed land.\nOmsluttet af venlig jord sover han sin sidste lange søvn,\nog venner græder over hans grav.\nDisse strømmende tårer viser, hvor stort vores tab er.\nIntet kan stille sorgen.\nDu fik dit ønske og døde blandt fremmede.\nMen jeg, åh, jeg var ikke hos dig.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 36,
+      "before": "ISMENE. Ak, min søster — hvilken ny skæbne",
+      "after": "ISMENE. Min stakkels søster, hvilken ny skæbne",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 37,
+      "before": "[Tekst tabt i håndskriftet.]",
+      "after": "[Teksten mangler i den overleverede græske tekst.]",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 38,
+      "before": "[Tekst tabt i håndskriftet.]",
+      "after": "[Teksten mangler i den overleverede græske tekst.]",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 39,
+      "before": "kommer over os, trøstesløse forældreløse?",
+      "after": "rammer os, ensomme og forældreløse?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 40,
+      "before": "KOR. Hans ende var velsignet. Så, børn, dæmp jeres sorg. Mennesket er født som skæbnens bytte.",
+      "after": "KORET. Hans afslutning var velsignet.\nBørn, lad sorgen falde til ro.\nMennesket fødes i skæbnens vold.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 41,
+      "before": "ANTIGONE. Søster, lad os gå tilbage igen.",
+      "after": "ANTIGONE. (Strofe 2)\nSøster, lad os gå tilbage.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 42,
+      "before": "ISMENE. Hvorfor gå tilbage?",
+      "after": "ISMENE. Hvorfor tilbage?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 43,
+      "before": "ANTIGONE. Min sjæl længes —",
+      "after": "ANTIGONE. Jeg længes —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 45,
+      "before": "ANTIGONE. Efter at se den jordede seng.",
+      "after": "ANTIGONE. Efter at se jordens leje.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 46,
+      "before": "ISMENE. Du mener?",
+      "after": "ISMENE. Hvad mener du?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 47,
+      "before": "ANTIGONE. Hvor vores far ligger.",
+      "after": "ANTIGONE. Det sted, hvor vores far ligger.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 48,
+      "before": "ISMENE. Nej — det kan du ikke. Ser du ikke —",
+      "after": "ISMENE. Nej, det kan du ikke. Forstår du ikke —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 50,
+      "before": "ISMENE. Ved du ikke — desuden —",
+      "after": "ISMENE. Ved du ikke — og desuden —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 51,
+      "before": "ANTIGONE. Må jeg høre mere?",
+      "after": "ANTIGONE. Skal jeg høre mere?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 52,
+      "before": "ISMENE. Han døde uden en grav, med ingen hos sig.",
+      "after": "ISMENE. Han døde uden grav, uden nogen hos sig.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 53,
+      "before": "ANTIGONE. Led mig dertil — dræb mig dér.",
+      "after": "ANTIGONE. Før mig derhen, og dræb mig dér.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 54,
+      "before": "ISMENE. Hvordan skal jeg, ulykkelige, fortsætte — venneløs, hjælpeløs — hvordan slæbe et liv af elendighed alene?",
+      "after": "ISMENE. Hvordan skal jeg stakkels menneske klare mig,\nuden venner, uden hjælp,\nog slæbe mig gennem et elendigt liv alene?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 55,
+      "before": "KOR. Vær ikke bange, piger —",
+      "after": "KORET. (Antistrofe 2)\nVær ikke bange, piger —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 56,
+      "before": "ANTIGONE. Ah — hvor skal vi flygte hen?",
+      "after": "ANTIGONE. Hvor skal vi flygte hen?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 57,
+      "before": "KOR. Tilflugt er fundet.",
+      "after": "KORET. Der er fundet et tilflugtssted.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 58,
+      "before": "ANTIGONE. For mig?",
+      "after": "ANTIGONE. Til mig?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 59,
+      "before": "KOR. Hvor I skal være sikre fra skade.",
+      "after": "KORET. Hvor I er beskyttet mod overgreb.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 60,
+      "before": "ANTIGONE. Jeg ved det.",
+      "after": "ANTIGONE. Det ved jeg.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 61,
+      "before": "KOR. Hvorfor da denne uro?",
+      "after": "KORET. Hvorfor er du så urolig?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 62,
+      "before": "ANTIGONE. Hvordan vi skal komme hjem igen — det ved jeg ikke.",
+      "after": "ANTIGONE. Jeg ved ikke, hvordan vi skal komme hjem.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 63,
+      "before": "KOR. Hvorfor da vandre?",
+      "after": "KORET. Hvorfor da vandre omkring?",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 64,
+      "before": "ANTIGONE. Trængsler overvælder os —",
+      "after": "ANTIGONE. Ulykkerne skyller over os —",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 65,
+      "before": "KOR. Som før.",
+      "after": "KORET. Som før.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 66,
+      "before": "ANTIGONE. Værre end hvad der var værst før.",
+      "after": "ANTIGONE. Værre end det værste før.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 67,
+      "before": "KOR. Sandelig drives I på brændingens dønning.",
+      "after": "KORET. I bliver virkelig drevet rundt i brændingen.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 68,
+      "before": "ANTIGONE. Ak — det er vi.",
+      "after": "ANTIGONE. Ja, desværre.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 69,
+      "before": "KOR. Ak — det er sådan.",
+      "after": "KORET. Ja, sådan er det.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 70,
+      "before": "ANTIGONE. Hvor skal vi vende os hen, Zeus? Ingen håbets stråle til at oplyse vejen, langs hvilken skæbnerne driver vores desperate rejse.",
+      "after": "ANTIGONE. Zeus, hvor skal vi vende os hen?\nIngen stråle af håb lyser på den vej,\nhvor skæbnen driver vores fortvivlede færd.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 71,
+      "before": "[THESEUS træder ind.]",
+      "after": "[THESEUS kommer ind.]",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 72,
+      "before": "THESEUS. Tør jeres tårer. Når nåde udgydes på de levende og på de døde af de mørke, venlige Magter, harmes de over overdreven sorg.",
+      "after": "THESEUS. Tør jeres tårer.\nNår de mørke, velvillige magter\nviser nåde mod levende og døde,\nvil overdreven sorg vække deres vrede.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 73,
+      "before": "ANTIGONE. Søn af Aigeus, til dig beder vi.",
+      "after": "ANTIGONE. Aigeus’ søn, vi beder dig.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 74,
+      "before": "THESEUS. Hvilken gunst, børn? Tal.",
+      "after": "THESEUS. Hvad ønsker I, mine børn? Sig det.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 75,
+      "before": "ANTIGONE. Med vore egne øjne vil vi se vores fars grav.",
+      "after": "ANTIGONE. Vi vil gerne se vores fars grav\nmed vores egne øjne.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 76,
+      "before": "THESEUS. Det kan ikke ske.",
+      "after": "THESEUS. Det kan I ikke.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 78,
+      "before": "THESEUS. Mine børn, han pålagde mig strengt, at ingen dødelig skulle nærme sig den hellige tærskel, eller hilse med begravelsesklagesange den skjulte grav, hvor han ligger. Han sagde: »Hvis du holder min befaling, skal du holde dit rige i fred.« Edens Gud hørte dette løfte, og til Zeus gav jeg mit ord.",
+      "after": "THESEUS. Mine børn, han pålagde mig strengt,\nat intet menneske måtte nærme sig den hellige indgang\neller hilse den skjulte grav, hvor han ligger,\nmed klagesange for de døde.\nHan sagde: »Holder du mit bud,\nskal dit rige leve i fred.«\nEdens gud hørte løftet,\nog jeg gav Zeus mit ord.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 79,
+      "before": "ANTIGONE. Nuvel — hvis det er, hvad han ønskede, må vi give efter. Lad os da vende tilbage til Theben, hvis vi stadig kan, for at hele denne dødelige fejde og standse den selvpåførte undergang, der driver vore brødre til graven.",
+      "after": "ANTIGONE. Hvis det var hans ønske,\nmå vi bøje os for det.\nLad os så vende tilbage til Theben,\nhvis vi endnu kan standse den dødelige strid\nog den selvforskyldte undergang,\nder driver vores brødre mod graven.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 80,
+      "before": "THESEUS. Drag i fred. Jeg vil ikke spare anstrengelse og ingen hengiven omsorg, men vil tage mig af alle jeres behov — idet jeg glæder min ven i hans grav.",
+      "after": "THESEUS. Rejs i fred. Jeg vil hverken spare\npå arbejde eller omsorg,\nmen sørge for alt, hvad I behøver,\nog glæde min ven i hans grav.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 81,
+      "before": "KOR. Klag ikke mere. Lad sorgen hvile. Alt er ordnet til det bedste.",
+      "after": "KORET. Klag ikke mere. Lad sorgen hvile.\nAlt er ordnet til det bedste.",
+      "reason": "Full source-faithful modern Danish; restore lyrical line layout and stanza labels, preserve lacuna placeholders and final exchanges."
     }
   ],
   "englishChanges": [
@@ -2265,6 +4094,146 @@
       "before": "And we boast yet another gift, of all gifts most prized by our fatherland — the might of the horse, the might of the sea. To you, Poseidon, we owe our fame, son of Kronos, our divine king, who first fitted the iron bit for the mouths of horses on these very roads. You also taught us to shape the swift oar-blade for the rower's arm, as swift as the hundred feet of the Nereids as they dance along the sea.",
       "after": "(Antistrophe 2)\nAnd we boast yet another gift, of all gifts most prized by our fatherland — the might of the horse, the might of the sea. To you, Poseidon, we owe our fame, son of Kronos, our divine king, who first fitted the iron bit for the mouths of horses on these very roads. You also taught us to shape the swift oar-blade for the rower's arm, as swift as the hundred feet of the Nereids as they dance along the sea.",
       "reason": "Restore primary stanza heading."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 3,
+      "before": "OEDIPUS. Shameless railer — do you think this abuse defames my grey hairs more than your own? Murder and incest — you blurt out these horrors as charges against me, and I have borne them all, no willing sinner. So it pleased the gods, angry perhaps with my sinful race of old, since they could find no sin in me myself for which in retribution I was doomed to trespass this way against myself and mine. Answer me this: if by some oracle my father was destined to a bloody end at a son's hand, how can this reflect on me — on me, then unborn, begotten by no father, conceived in no mother's womb? And if, born to misery, as I was born, I met my father, not knowing who he was or what I was doing, and killed him, how can you justly blame that utterly unconscious hand? As for my mother — wretch, are you not ashamed to force out of me the story of her marriage, since she was your own sister? That marriage I will proclaim at once. I will speak: your lewd and impious words have broken all the bonds of silence. She was, alas, my mother. I did not know it; neither did she. And she, my mother, bore children to the son she herself had borne — a shameful birth. But this much I know: you slander her and me deliberately, while I married without knowing and speak now unwillingly. No — neither in this marriage nor in the deed you keep throwing in my face — a murdered father — shall I be held to blame. Come, answer me one question, if you can: if someone tried right now to take your life, would you — man of justice — first inquire whether the attacker was perhaps your father, or would you turn on him at once? As you love your life, you would turn on your attacker, without stopping to debate, provided the law backed you. Such was my case, and such the position the gods reduced me to. And I think my father, if he could come back to life, would not disagree. Yet you, who are not just but a man who will stop at nothing if it serves his argument, reproach me with this in front of these men. It suits you to praise great Theseus's name and Athens as a wisely governed State. And yet in your flatteries one thing is missing: if any land knows how to render the gods their proper rites, it is Athens most of all. This is the land from which you tried to steal their aged suppliant, and from which you have carried off my daughters. So I turn to those goddesses here, I call on them, I invoke their help to champion my cause — so you may learn what breed of men watches over this State.",
+      "after": "OEDIPUS. Shameless railer — do you think this abuse defames my grey hairs more than your own? Murder and incest — you blurt out these horrors as charges against me, and I have borne them all, no willing sinner. So it pleased the gods, angry perhaps with my sinful race of old, since they could find no sin in me myself for which in retribution I was doomed to trespass this way against myself and mine. Answer me this: if by some oracle my father was destined to a bloody end at a son's hand, how can this reflect on me — on me, then unborn, begotten by no father, conceived in no mother's womb? And if, born to misery, as I was born, I met my father, not knowing who he was or what I was doing, and killed him, how can you justly blame that utterly unconscious hand? As for my mother — wretch, are you not ashamed to force out of me the story of her marriage, since she was your own sister? That marriage I will proclaim at once. I will speak: your lewd and impious words have broken all the bonds of silence. She was, alas, my mother. I did not know it; neither did she. And she, my mother, bore children to the son she herself had borne — a shameful birth. But this much I know: you slander her and me deliberately, while I married without knowing and speak now unwillingly. No — neither in this marriage nor in the deed you keep throwing in my face — a murdered father — shall I be held to blame. Come, answer me one question, if you can: if someone tried right now to take your life, would you — man of justice — first inquire whether the attacker was perhaps your father, or would you turn on him at once? As you love your life, you would turn on your attacker, without stopping to debate whether the law backed you. Such was my case, and such the position the gods reduced me to. And I think my father, if he could come back to life, would not disagree. Yet you, who are not just but a man who will stop at nothing if it serves his argument, reproach me with this in front of these men. It suits you to praise great Theseus's name and Athens as a wisely governed State. And yet in your flatteries one thing is missing: if any land knows how to render the gods their proper rites, it is Athens most of all. This is the land from which you tried to steal their aged suppliant, and from which you have carried off my daughters. So I turn to those goddesses here, I call on them, I invoke their help to champion my cause — so you may learn what breed of men watches over this State.",
+      "reason": "Correct conditional reversal: no pause to assess legality, not action conditional on legal support."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 31,
+      "before": "ANTIGONE. Love can turn past pain to joy. What seemed bitter is now sweet. That happy labor is sweet to me — the guidance of those dear blind feet. Dear father, forever wrapped in the gloom below, even in the grave you shall never lack love — her love and mine.",
+      "after": "ANTIGONE. (Antistrophe 1)\nLove can turn past pain to joy. What seemed bitter is now sweet. How I miss that happy labor — guiding those dear blind steps! Dear father, forever wrapped in the gloom below, even in the grave you shall never lack love — her love and mine.",
+      "reason": "Restore yearning lost in Gutenberg; printed p297.; Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 11,
+      "before": "OEDIPUS. Son of Aegeus — I will unfold for this state a treasure that time cannot corrupt. Myself, without anyone to guide me, I will presently take you to the spot where I must end. Never reveal this secret to any mortal — neither the spot nor where it lies. So it shall serve you as a defense, better than native shields and near allies. But those dread mysteries that speech may not profane, you yourself shall gather when you come there alone. I cannot reveal them to any of your subjects, nor even to my own children, though I love them dearly. You must guard them alone, and whisper them to your chosen heir alone, so that they may be passed on from heir to heir. Thus you shall hold this land inviolate against the dread Dragon's brood. The most just State may still be wronged by countless reckless neighbors — for the gods, though they delay, still mark for doom the godless sinner in his mad career. Far from you, son of Aegeus, be any such fate. But now — the god within me urges me on. To the spot, and no more hesitation. Follow me, daughters, this way. Strange that I, whom you have led so long, should lead you now. Oh, do not touch me. Let me find on my own the grave that destiny has set for me in this land. Here — this way — for Hermes the guide leads this way, and Persephassa, queen of the dead. O light — no light to me, but mine before — now for the last time I feel you palpably, for I am nearing the final gloom of Hades. Blessing on you, dearest friend — on you and on your land and your followers. Live prosperous, and in your happy state, think still, for your own welfare, of me, the dead.",
+      "after": "OEDIPUS. Son of Aegeus — I will unfold for this state a treasure that time cannot corrupt. Myself, without anyone to guide me, I will presently take you to the spot where I must end. Never reveal this secret to any mortal — neither the spot nor where it lies. So it shall serve you as a defense, better than native shields and near allies. But those dread mysteries that speech may not profane, you yourself shall gather when you come there alone. I cannot reveal them to any of your subjects, nor even to my own children, though I love them dearly. You must guard them alone, and whisper them to your chosen heir alone, so that they may be passed on from heir to heir. Thus you shall hold this land inviolate against the dread Dragon's brood. The most just State may still be wronged by countless reckless neighbors — for the gods, though they delay, still mark for doom the godless sinner in his mad career. Far from you, son of Aegeus, be any such fate. You know this, but I wanted to remind you. But now — the god within me urges me on. To the spot, and no more hesitation. Follow me, daughters, this way. Strange that I, whom you have led so long, should lead you now. Oh, do not touch me. Let me find on my own the grave that destiny has set for me in this land. Here — this way — for Hermes the guide leads this way, and Persephassa, queen of the dead. O light — no light to me, but mine before — now for the last time I feel you palpably, for I am nearing the final gloom of Hades. Blessing on you, dearest friend — on you and on your land and your followers. Live prosperous, and in your happy state, think still, for your own welfare, of me, the dead.\n\n_Storr’s translator’s note 7: The Thebans descended from the warriors who sprang from the dragon’s teeth sown by Cadmus._",
+      "reason": "Restore omitted admonition and translator note7."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 20,
+      "before": "MESSENGER. Your question points to the marvel of the tale. How he moved from this place — you saw it, and know it — without a friend to lead the way, himself guiding all of us. When we had reached the abrupt Earth-rooted Threshold with its bronze stairs, he paused at one of the converging paths, close to the rocky basin that records the pact of Theseus and Peirithous. Between that cleft and the Thorician rock, the hollow pear-tree and the marble tomb, midway he sat down and stripped off his beggar's clothing. Then he called to his daughters and told them to fetch running water, both for washing and for libation. They climbed the slope, and soon brought back what their father had asked for. Then they bathed and dressed him with the proper rites. When he had his way in everything, and no desire was left unsatisfied, there came a thunder from the underworld. The girls shivered, crouched at their father's knees, wept, beat their breasts and broke into a long lament. He, hearing their sudden bitter cry, folded his arms around both of them and said: 'My children — you will lose your father today. All of me has perished, and you will no longer have to bear the long, long service you have given. A heavy burden, I know — and yet one word wipes out all the tally of troubles: love. And you had love from me — as much as from any man alive. But now you must live all your days without me.' So, clinging to each other, father and daughters both sobbed and wept. But when at last their mourning had an end, and no cry went up, there was a moment of silence. Suddenly a voice summoned him. Every hair stood on end in sudden fear, and all of us were stunned. For the call came now loud, now low, and over and over: 'Oedipus, Oedipus — why do we linger? Too long, too long your passing is delayed.' When he heard the summons of the god, he asked that Theseus be brought; and when the prince drew near, 'O my friend,' he cried, 'pledge my daughters, giving your right hand — and, daughters, give him yours — and promise me that you will never forsake them, but do all that time and friendship prompt for their good.' And he, of his nobility, held back his tears and swore to be their constant friend. With that promise given, Oedipus stretched out his blind hands, laid them on his children, and said, 'My children — prove your true nobility now. Go away from here, and do not seek to see sights that are forbidden, or to hear forbidden words. Go, quickly. Let no one stay but Theseus, our ruler, to see what happens next.' So we all heard him speak. And weeping bitterly, we accompanied the girls on their way. A little later, we looked back — and he was gone, vanished from our sight. Only the king we saw, shading his eyes with his hand, as if from some awful vision that no man could bear to look upon. A moment later, we saw him bend in prayer — to Earth, and to Heaven, at once. But by what doom the stranger met his end, no one knows except Theseus. No fiery bolt struck him down in that hour, no whirlwind came off the sea — he was simply taken. It was a messenger from heaven, or else some gentle, painless opening of the earth. For without lament, without sickness, without pain, he passed away — the most marvelous end. And if my tale seems foolish to some, I am content to be called a fool by such men.",
+      "after": "MESSENGER. Your question points to the marvel of the tale. How he moved from this place — you saw it, and know it — without a friend to lead the way, himself guiding all of us. When we had reached the abrupt Earth-rooted Threshold with its bronze stairs, he paused at one of the converging paths, close to the rocky basin that records the pact of Theseus and Peirithous. Between that cleft and the Thorician rock, the hollow pear-tree and the marble tomb, midway he sat down and stripped off his beggar's clothing. Then he called to his daughters and told them to fetch running water, both for washing and for libation. They climbed Demeter’s steep hill, she who waters the green shoots, and soon brought back what their father had asked for. Then they bathed and dressed him with the proper rites. When he had his way in everything, and no desire was left unsatisfied, there came a thunder from the underworld. The girls shivered, crouched at their father's knees, wept, beat their breasts and broke into a long lament. He, hearing their sudden bitter cry, folded his arms around both of them and said: 'My children — you will lose your father today. All of me has perished, and you will no longer have to bear the long, long service you have given. A heavy burden, I know — and yet one word wipes out all the tally of troubles: _love_. And you had love from me — from no man more. But now you must live all your days without me.' So, clinging to each other, father and daughters both sobbed and wept. But when at last their mourning had an end, and no cry went up, there was a moment of silence. Suddenly a voice summoned him. Every hair stood on end in sudden fear, and all of us were stunned. For the call came now loud, now low, and over and over: 'Oedipus, Oedipus — why do we linger? Too long, too long your passing is delayed.' When he heard the summons of the god, he asked that Theseus be brought; and when the prince drew near, 'O my friend,' he cried, 'pledge my daughters, giving your right hand — and, daughters, give him yours — and promise me that you will never forsake them, but do all that time and friendship prompt for their good.' And he, of his nobility, held back his tears and swore to be their constant friend. With that promise given, Oedipus stretched out his blind hands, laid them on his children, and said, 'My children — prove your true nobility now. Go away from here, and do not seek to see sights that are forbidden, or to hear forbidden words. Go, quickly. Let no one stay but Theseus, our ruler, to see what happens next.' So we all heard him speak. And weeping bitterly, we accompanied the girls on their way. A little later, we looked back — and he was gone, vanished from our sight. Only the king we saw, shading his eyes with his hand, as if from some awful vision that no man could bear to look upon. A moment later, we saw him bend in prayer — to Earth, and to Heaven, at once. But by what doom the stranger met his end, no one knows except Theseus. No fiery bolt struck him down in that hour, no whirlwind came off the sea — he was simply taken. It was a messenger from heaven, or else some gentle, painless opening of the earth. For without lament, without sickness, without pain, he passed away — the most marvelous end. And if my tale seems foolish to some, I am content to be called a fool by such men.",
+      "reason": "Restore omitted Demeter line and source emphasis.; Retain father's comparative claim exactly, printed p291."
+    },
+    {
+      "chapter": 7,
+      "paragraph": 3,
+      "before": "OEDIPUS. Brazen-faced man — your subtle tongue would twist every plea of right to your own advantage. Why try your tricks on me? Why set out your snares again in the places where it would hurt me most to be caught? In the old days, when I was distraught from self-inflicted pain and longed for exile as a glad release, your will refused the favor I begged for. But when my frenzied grief had spent itself, and I wanted a taste of home again, then you thrust me from my country. Then these ties of kindred meant nothing to you. And now again — when you see this State and all its kindly people welcoming me — you try to separate us, wrapping hard thoughts in soft words. What pleasure can you possibly find in forcing friendship on unwilling enemies? Suppose a man refused to grant some favor when you kept asking him, and then afterwards, when you had gotten your heart's desire, agreed — granting a kindness from which all kindness had gone — would such a favor not seem an empty gift? That is exactly the gift you are offering me now: fair on the surface, but false when tested. And I will prove you false, so these men can hear: you have come to take me, but not to take me home — to plant me on your borders, so that your State may escape trouble from this land. You shall never get that. What you shall get instead is my ghost to haunt your country forever. And for my sons, this inheritance — no more: just room to die in. Am I not better than you at drawing the horoscope of Thebes? Are my teachers not surer guides than yours — great Phoebus, and the father of Phoebus, Zeus? You are a bought messenger — your tongue is sharper than a sword's edge — and yet your speech will bring you more defeats than victories. Still, I know I am wasting my words. Go, and leave me here. Whatever my lot may be, no one lives badly who lives content.",
+      "after": "OEDIPUS. Brazen-faced man — your subtle tongue would twist every plea of right to your own advantage. Why try your tricks on me? Why set out your snares again in the places where it would hurt me most to be caught? In the old days, when I was distraught from self-inflicted pain and longed for exile as a glad release, your will refused the favor I begged for. But when my frenzied grief had spent itself, and I wanted a taste of home again, then you thrust me from my country. Then these ties of kindred meant nothing to you. And now again — when you see this State and all its kindly people welcoming me — you try to separate us, wrapping hard thoughts in soft words. What pleasure can you possibly find in forcing friendship on unwilling enemies? Suppose a man refused to grant some favor when you kept asking him, and then afterwards, when you had gotten your heart's desire, agreed — granting a kindness from which all kindness had gone — would such a favor not seem an empty gift? That is exactly the gift you are offering me now: fair on the surface, but false when tested. And I will prove you false, so these men can hear: you have come to take me, but not to take me home — to plant me on your borders, so that your State may escape trouble from this land. You shall never get _that_. What you shall get instead is _this_: my ghost to haunt your country forever. And for my sons, this inheritance — no more: just room to die in. Am I not better than you at drawing the horoscope of Thebes? Are my teachers not surer guides than yours — great Phoebus, and the father of Phoebus, Zeus? You are a bought messenger — your tongue is sharper than a sword's edge — and yet your speech will bring you more defeats than victories. Still, I know I am wasting my words. Go, and leave me here. Whatever my lot may be, no one lives badly who lives content.",
+      "reason": "Restore contrastive source emphasis."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 51,
+      "before": "OEDIPUS. No, worthy elders — but for Theseus's sake, who sent him here to have word with me, he would never have heard my voice again. Now he shall receive this parting favor — an answer that will bring him little joy. Villain — when you held the sovereignty that your brother now holds in your place, did you not drive me, your own father, out? Make me an exile, cityless, and make me wear this beggar's clothing you weep to see, now that you have come yourself to my sad plight? There is nothing here for tears. I must bear it until death. And I shall think of you as my murderer. You thrust me out. It is you who have made me intimate with misery — through you I beg my bread in a strange land. If these daughters of mine had not tended me, I would have been dead for any help from you. They tend me, they keep me alive, they are men and not women in their true service to their father. But you are bastards — no sons of mine. So just Heaven has an eye on you — though not yet with the stern face you will soon know, if indeed these banded armies are moving on Thebes. You can never take that city. First you shall fall, you and your brother, both stained with each other's blood. Such was the curse I launched on you two some time ago, and such is the curse I now call on to fight for me — so that you may learn to honor those who gave you birth, and not to mock a blind father who fathered degenerate sons. These girls did not mock me. Therefore my curse is stronger than your 'throne' and your 'suppliance,' if by right of eternal laws primeval Justice sits enthroned with Zeus. Be gone — loathed, disowned, no son of mine, vilest of the vile! And take with you this curse I leave you as my last bequest: never to win your native land by arms, no, nor to return to Argos in the Vale — but to die by a kinsman's hand, and to kill the man who expelled you. So I pray, and I call on the ancestral gloom of Tartarus to snatch you from here; I call on these dread goddesses; I call on Ares, who kindled this deadly enmity between you. Go now, and proclaim to all the Cadmeians, your staunch allies, what you have heard — this is the inheritance that Oedipus divides between his sons.",
+      "after": "OEDIPUS. No, worthy elders — but for Theseus's sake, who sent him here to have word with me, he would never have heard my voice again. Now he shall receive this parting favor — an answer that will bring him little joy. Villain — when you held the sovereignty that your brother now holds in your place, did you not drive me, your own father, out? Make me an exile, cityless, and make me wear this beggar's clothing you weep to see, now that you have come yourself to my sad plight? There is nothing here for tears. I must bear it until death. And I shall think of you as my murderer. You thrust me out. It is you who have made me intimate with misery — through you I beg my bread in a strange land. If these daughters of mine had not tended me, I would have been dead for any help from you. They tend me, they keep me alive, they are men and not women in their true service to their father. But you are bastards — no sons of mine. So just Heaven has an eye on you — though not yet with the stern face you will soon know, if indeed these banded armies are moving on Thebes. You can never take that city. First you shall fall, you and your brother, both stained with each other's blood. Such was the curse I launched on you two some time ago, and such is the curse I now call on to fight for me — so that you may learn to honor those who gave you birth, and not to mock a blind father who fathered degenerate sons. These girls did not mock _me_. Therefore my curse is stronger than your 'throne' and your 'suppliance,' if by right of eternal laws primeval Justice sits enthroned with Zeus. Be gone — loathed, disowned, no son of mine, vilest of the vile! And take with you this curse I leave you as my last bequest: never to win your native land by arms, no, nor to return to Argos in the Vale — but to die by a kinsman's hand, and to kill the man who expelled you. So I pray, and I call on the ancestral gloom of Tartarus to snatch you from here; I call on these dread goddesses; I call on Ares, who kindled this deadly enmity between you. Go now, and proclaim to all the Cadmeians, your staunch allies, what you have heard — this is the inheritance that Oedipus divides between his sons.",
+      "reason": "Restore source emphasis."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 12,
+      "before": "CHORUS. Oh, when the fleeing enemy at last turns at bay and begins to trade blow for blow — might I see the fight! Might I hear the loud battle roar swell on the Pythian shore, or by the torch-lit bay where the dread Queen and Maid cherish the mystic rites — rites they betray to no one, before Secrecy's golden key is laid upon the lips by their own acolytes, the priestly Eumolpidae.",
+      "after": "CHORUS. (Strophe 1)\nOh, when the fleeing enemy at last turns at bay and begins to trade blow for blow — might I see the fight! Might I hear the loud battle roar swell on the Pythian shore, or by the torch-lit bay where the dread Queen and Maid cherish the mystic rites — rites they betray to no one, before Secrecy's golden key is laid upon the lips by their own acolytes, the priestly Eumolpidae.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 14,
+      "before": "Perhaps on the swiftest horse, or in the flying chariot, they are approaching even now the glen west of white Oea's cliff. The raiders will be beaten. Dread are our warriors, dread are Theseus's men. Every bridle flashes bright; every gallant knight charges — all those who adore our Queen, Pallas their patron, or him whose wide flood encircles the earth, the great Ocean-king whom Rhea bore.",
+      "after": "(Antistrophe 1)\nPerhaps on the swiftest horse, or in the flying chariot, they are approaching even now the glen west of white Oea's cliff. The raiders will be beaten. Dread are our warriors, dread are Theseus's men. Every bridle flashes bright; every gallant knight charges — all those who adore our Queen, Pallas their patron, or him whose wide flood encircles the earth, the great Ocean-king whom Rhea bore.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 8,
+      "paragraph": 15,
+      "before": "Are they fighting, or preparing to fight? A rare vision tells me that soon again I shall see the twin girls, so ill-used, so beaten upon by their own kin. Today, today Zeus is working some great thing. This day shall bring victory. Oh for the wings, the wings of a dove — to be carried on the gale's speed, up and still upwards, and gaze on the fight from the clouds above! All-seeing Zeus, lord of heaven — grant our guardian host triumphant might, to surprise the fleeing foe and take back their prize. Hear us, Zeus, and hear us, child of Zeus — Athene undefiled. Hear, Apollo, hunter — hear, Huntress, sister of Apollo, who chase the dappled, swift-footed deer over the wooded glade. Help Athens in this hour of danger with your twofold power! Traveler — you will not have to charge the friends who watch for you with a false prophecy. Look — an escort with the girls is drawing near.",
+      "after": "(Strophe 2)\nAre they fighting, or preparing to fight? A rare vision tells me that soon again I shall see the twin girls, so ill-used, so beaten upon by their own kin. Today, today Zeus is working some great thing. This day shall bring victory. Oh for the wings, the wings of a dove — to be carried on the gale's speed, up and still upwards, and gaze on the fight from the clouds above!\n\n(Antistrophe 2)\nAll-seeing Zeus, lord of heaven — grant our guardian host triumphant might, to surprise the fleeing foe and take back their prize. Hear us, Zeus, and hear us, child of Zeus — Athene undefiled. Hear, Apollo, hunter — hear, Huntress, sister of Apollo, who chase the dappled, swift-footed deer over the wooded glade. Help Athens in this hour of danger with your twofold power! Traveler — you will not have to charge the friends who watch for you with a false prophecy. Look — an escort with the girls is drawing near.",
+      "reason": "Restore source stanza marker.; Restore internal antistrophe marker."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 40,
+      "before": "CHORUS. Whoever longs for length of days, scorning the common span of life — I judge him a giddy fool, walking in the ways of folly. For the long years heap up a heavy load — pleasures few, pains heavier — until not one joy remains for the man who lingers on life's weary road. And come it slow or fast, one doom of fate awaits us all alike — for the dance and the marriage bell, for the dirge and the funeral knell. Death the deliverer sets all free at last. Not to be born at all — that is best, the best thing that can happen. Next best, once born, is to go back the way you came, with the least delay. For when youth passes with its giddy company, trouble follows trouble, toil follows toil — pain, pain forever pain — and no one escapes life's coils. Envy, sedition, strife, carnage and war — these make up the sum of life. And last comes the worst and most despised stage — forgotten old age, joyless, friendless, slow — the crowning evil of all evils.",
+      "after": "CHORUS. (Strophe)\nWhoever longs for length of days, scorning the common span of life — I judge him a giddy fool, walking in the ways of folly. For the long years heap up a heavy load — pleasures few, pains heavier — until not one joy remains for the man who lingers on life's weary road. And come it slow or fast, one doom of fate awaits us all alike — for the dance and the marriage bell, for the dirge and the funeral knell. Death the deliverer sets all free at last.\n\n(Antistrophe)\nNot to be born at all — that is best, the best thing that can happen. Next best, once born, is to go back the way you came, with the least delay. For when youth passes with its giddy company, trouble follows trouble, toil follows toil — pain, pain forever pain — and no one escapes life's coils. Envy, sedition, strife, carnage and war — these make up the sum of life. And last comes the worst and most despised stage — forgotten old age, joyless, friendless, slow — the crowning evil of all evils.",
+      "reason": "Restore source stanza marker.; Restore internal antistrophe marker."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 41,
+      "before": "Such ills not I alone have known — our guest here has known them too. Like some headland on an iron-bound shore, lashed by winter winds and the roar of the surge, he is battered on every side by the overwhelming tide of misfortune — beaten by every wind of heaven, some from the sunset, some from the dawn in the east, some from the glow of noon, some from the Rhipean gloom of everlasting snow.",
+      "after": "(Epode)\nSuch ills not I alone have known — our guest here has known them too. Like some headland on an iron-bound shore, lashed by winter winds and the roar of the surge, he is battered on every side by the overwhelming tide of misfortune — beaten by every wind of heaven, some from the sunset, some from the dawn in the east, some from the glow of noon, some from the Rhipean gloom of everlasting snow.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 1,
+      "before": "CHORUS. Evils upon evils — no pause, no rest! Do they come from our sightless guest? Or are we seeing fulfilled at last what fate has long willed? For never yet have I found anything vain that the heavenly powers ordain. Time, with ever-wakeful eye, watches what is written on high — now overthrowing the great, now raising the lowly. Listen! How the thunder rumbles! Zeus defend us!",
+      "after": "CHORUS. (Strophe 1)\nEvils upon evils — no pause, no rest! Do they come from our sightless guest? Or are we seeing fulfilled at last what fate has long willed? For never yet have I found anything vain that the heavenly powers ordain. Time, with ever-wakeful eye, watches what is written on high — now overthrowing the great, now raising the lowly. Listen! How the thunder rumbles! Zeus defend us!",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 5,
+      "before": "CHORUS. Listen — with louder, nearer roar the bolt of Zeus descends again. My spirit quails and cowers. My hair stands on end with fear. Another flash! What does the lightning portend? Always it points to grave outcomes. Dread powers of the air! Save — Zeus, save us!",
+      "after": "CHORUS. (Antistrophe 1)\nListen — with louder, nearer roar the bolt of Zeus descends again. My spirit quails and cowers. My hair stands on end with fear. Another flash! What does the lightning portend? Always it points to grave outcomes. Dread powers of the air! Save — Zeus, save us!",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 9,
+      "before": "CHORUS. Listen — once more the deafening sound peals louder all around. If you darken our land, lay your hand on it lightly, lightly. Grace, not anger, let me win — if on a man of sin I have looked with a pitying eye. Zeus our king, I cry to you!",
+      "after": "CHORUS. (Strophe 2)\nListen — once more the deafening sound peals louder all around. If you darken our land, lay your hand on it lightly, lightly. Grace, not anger, let me win — if on a man of sin I have looked with a pitying eye. Zeus our king, I cry to you!",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 13,
+      "before": "CHORUS. Hurry here, my son — rise, leave the altar and the sacrifice, if you are paying your vow to Poseidon in the far glade. Our guest would bring you and your people a proper offering, a due reward. Hurry, King!",
+      "after": "CHORUS. (Antistrophe 2)\nHurry here, my son — rise, leave the altar and the sacrifice, if you are paying your vow to Poseidon in the far glade. Our guest would bring you and your people a proper offering, a due reward. Hurry, King!",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 13,
+      "before": "CHORUS. If the prayers of mortals are heard in hell — hear us, dread, invisible goddess! Monarch of the dreary regions, Aidoneus, hear, oh hear! By a gentle, tearless doom, speed this stranger on his way to the gloom. Let him enter without pain the all-shrouding Stygian plain. Wrongfully oppressed in life, let him now be blessed by Justice.",
+      "after": "CHORUS. (Strophe)\nIf the prayers of mortals are heard in hell — hear us, dread, invisible goddess! Monarch of the dreary regions, Aidoneus, hear, oh hear! By a gentle, tearless doom, speed this stranger on his way to the gloom. Let him enter without pain the all-shrouding Stygian plain. Wrongfully oppressed in life, let him now be blessed by Justice.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 14,
+      "before": "Queen of the underworld — and you, fierce watchdog of the gates of hell, who, as legend says, glare and snarl in your cavernous lair at all who come — let him go unharmed to the fields below. For your master orders it so — the son of Earth and Tartarus. Keep the monster in its den, giver of eternal sleep.",
+      "after": "(Antistrophe)\nQueen of the underworld — and you, fierce watchdog of the gates of hell, who, as legend says, glare and snarl in your cavernous lair at all who come — let him go unharmed to the fields below. For your master orders it so — the son of Earth and Tartarus. Keep the monster in its den, giver of eternal sleep.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 24,
+      "before": "ANTIGONE. Oh, oh — on this bitter day we two sisters of a blighted line must bow beneath the blow. We must weep, and weep again, the curse that lay on our father — for whom in life a lifelong world of care was ours to bear, and in death we must face the gloom that wraps his tomb. What tongue can tell that unspeakable sight?",
+      "after": "ANTIGONE. (Strophe 1)\nOh, oh — on this bitter day we two sisters of a blighted line must bow beneath the blow. We must weep, and weep again, the curse that lay on our father — for whom in life a lifelong world of care was ours to bear, and in death we must face the gloom that wraps his tomb. What tongue can tell that unspeakable sight?",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 41,
+      "before": "ANTIGONE. Sister, let us go back again.",
+      "after": "ANTIGONE. (Strophe 2)\nSister, let us go back again.",
+      "reason": "Restore source stanza marker."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 55,
+      "before": "CHORUS. Do not be afraid, girls —",
+      "after": "CHORUS. (Antistrophe 2)\nDo not be afraid, girls —",
+      "reason": "Restore source stanza marker."
     }
   ],
   "nativeReview": "pending_user_arranged",
@@ -2275,7 +4244,7 @@
     "https://chs.harvard.edu/primary-source/sophocles-oedipus-at-colonus-sb/"
   ],
   "primaryAudit": {
-    "method": "Full Gutenberg token comparison and full printed English OCR comparison; review of substantive differences ongoing.",
+    "method": "Full Gutenberg token comparison and full printed English OCR comparison; all substantive differences reviewed. Targeted Greek/Jebb check for wine-free wording. Not a full Greek critical-edition audit.",
     "restored": [
       {
         "slot": "1:44",
@@ -2294,22 +4263,58 @@
         "detail": "Missing Oedipus plea and corrected Chorus reply",
         "pdfPage": 239,
         "visuallyVerified": true
+      },
+      {
+        "slot": "11:11",
+        "detail": "Missing admonition",
+        "pdfPage": 309,
+        "visuallyVerified": true
+      },
+      {
+        "slot": "11:20",
+        "detail": "Missing Demeter's hill line",
+        "pdfPage": 313,
+        "visuallyVerified": true
+      },
+      {
+        "slot": "11:31",
+        "detail": "Gutenberg repeats sweet in place of longing to miss happy toil",
+        "pdfPage": 319,
+        "visuallyVerified": true
       }
     ],
-    "remaining": "Printed omissions near final Oedipus speech and Demeter's hill; translator note7; remaining stanza markers and short-diff checks.",
+    "remaining": "None identified in the complete Storr-body comparison.",
     "notesRestored": [
       4,
       5,
-      6
+      6,
+      7
     ]
   },
   "validation": {
     "exactSlotCountsPreserved": true,
-    "beforeAfterLedgersChecked": true
+    "beforeAfterLedgersChecked": true,
+    "sourceBlobsRecheckedUnchanged": true,
+    "counts": {
+      "da": {
+        "changed": 558,
+        "total": 566,
+        "markers": 29
+      },
+      "en": {
+        "changed": 45,
+        "total": 566,
+        "markers": 29
+      }
+    },
+    "danishToOriginalShortParagraphFlags": [],
+    "stanzaMarkersRestored": 29,
+    "translatorNotesRestored": 4
   },
   "limitations": [
-    "Only chapters1–6 reviewed; later retained draft unreviewed.",
-    "Onboarding not yet reviewed.",
-    "No claim of native or metrical certification."
-  ]
+    "Native Danish final read pending user-arranged reviewer.",
+    "Verse rendered as modern Danish free verse without a claim of metrical certification.",
+    "Preparation only; integration and publication belong to Claude."
+  ],
+  "onboardingReview": "Both introductions rewritten from the play. Remove unsupported twenty-year chronology, biographical intent, influence claims and certainty about the mechanism of death. Modern Danish names and opening aligned. Seven separate cast entries."
 }
