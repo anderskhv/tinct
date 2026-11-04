@@ -552,3 +552,38 @@ it('keeps the library page signed-in class in step with Supabase and tells the p
     document.documentElement.classList.remove('signed-in')
   }
 })
+
+it('Remove from shelf and Read later hold against a place stamped ahead of this device’s clock, until the book is read again (4 Nov 2026)', async () => {
+  calls.auth.mockResolvedValue({ data: { session: null } })
+  calls.memory.mockResolvedValue(null)
+  calls.readMemory.mockReturnValue({ version: 1, sessions: {}, updatedAt: 0 })
+  // The shelf store as libraryTwoSaved keeps it: each change at its action time.
+  const removedAt: Record<string, number> = {}, tableHiddenAt: Record<string, number> = {}
+  calls.saved.mockImplementation(async (id: string, saved: boolean, options: { tableHidden?: boolean; at?: number } = {}) => {
+    const at = options.at ?? Date.now()
+    if (!saved) { removedAt[id] = at; delete tableHiddenAt[id] } else if (options.tableHidden) tableHiddenAt[id] = at
+    return { ids: [], synced: true }
+  })
+  calls.membership.mockImplementation(async () => ({ removed: Object.keys(removedAt), tableHidden: Object.keys(tableHiddenAt), removedAt: { ...removedAt }, tableHiddenAt: { ...tableHiddenAt } }))
+  let hidden: Record<string, number> = {}
+  calls.localPositions.mockImplementation(async () => ({ ...emptyLabPositionState('device-a', null), hidden: { ...hidden } }))
+  calls.readPosition.mockImplementation(() => ({ ...emptyLabPositionState('device-a', null), hidden: { ...hidden } }))
+  calls.writePosition.mockImplementation(next => { hidden = { ...next.hidden }; return next })
+  // Both read last on a device whose clock runs a minute ahead of this one.
+  const ahead = Date.now() + 60000
+  const row = (bookId: string, lastActiveAt: number) => ({ bookId, target: { chapterNumber: 1, pageIndex: 0, paragraphIndex: 0, wordIndex: 0, editionKey: 'original-en', chapterLabel: 'Chapter 1', at: lastActiveAt }, finishedChapters: [], progress: 'middle', lastActiveAt, session: null })
+  let rows = [row('the-prince', ahead), row('hamlet', ahead)]
+  calls.readingList.mockImplementation(() => ({ readingNow: rows, finished: [] }))
+  const books = ['the-prince', 'hamlet'].map(id => ({ id, title: id, author: 'Author', defaultEditionKey: 'original-en', editions: [{ key: 'original-en', language: 'en', style: 'original' }], readingStructure: { chapters: [{ number: 1, title: 'Chapter 1', paragraphCount: 40 }] } }))
+  const { loadReadingTable, removeFromShelf, hideFromReadingNow } = await import('./libraryTwoReading')
+  const load = async () => (await loadReadingTable({ catalogue: Promise.resolve({ books }) })).reading.map(book => book.bookId)
+  expect(await load()).toEqual(['the-prince', 'hamlet'])
+  await removeFromShelf('the-prince')
+  await hideFromReadingNow('hamlet', { saved: true })
+  // The reload that follows (and every later one) keeps both off.
+  expect(await load()).toEqual([])
+  expect(await load()).toEqual([])
+  // Reading them again (a newer place) brings them back.
+  rows = [row('the-prince', ahead + 1000), row('hamlet', ahead + 2000)]
+  expect(await load()).toEqual(['the-prince', 'hamlet'])
+})
