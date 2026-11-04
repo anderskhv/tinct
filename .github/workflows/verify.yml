@@ -163,6 +163,11 @@ jobs:
       - name: Verify public cinematic library
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-library-public.mjs
+      - name: Verify Remove from shelf stays removed until the book is read again
+        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
+        run: node scripts/check-library-shelf-remove.mjs
+        env:
+          SHELF_REMOVE_ARTIFACTS: artifacts/shelf-remove
       - name: Verify private pasted books and long archive clipboard text
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.library == 'true' }}
         run: node scripts/check-shared-reader-paste.mjs
@@ -180,6 +185,7 @@ jobs:
             app/artifacts/sign-in
             app/artifacts/profile-flow
             app/artifacts/library-public
+            app/artifacts/shelf-remove
             app/artifacts/paste
 
   profile-flow-sql:

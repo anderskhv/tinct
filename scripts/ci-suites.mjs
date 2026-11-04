@@ -44,7 +44,7 @@ export const RULES = [
   [/^app\/scripts\/check-sign-in\.mjs$/, ['signin']],
   [/^app\/scripts\/check-reader-panels\.mjs$/, ['panels', 'featured']],
   [/^app\/scripts\/check-(reader-feedback|book-transition)\.mjs$/, ['panels']],
-  [/^app\/scripts\/check-library-public\.mjs$/, ['library']],
+  [/^app\/scripts\/check-library-(public|shelf-remove)\.mjs$/, ['library']],
   [/^app\/scripts\/check-featured-preview\.mjs$/, ['featured']],
   [/^app\/scripts\/check-inline-audio-loading\.mjs$/, ['audio']],
   [/^app\/scripts\/check-shakespeare-layout\.mjs$/, ['shakespeare']],

@@ -44,6 +44,11 @@ function ids(state: State): string[] {
 function acceptRow(state: State, id: string, row: { value?: ShelfChange | null; rev?: number | null; updated_at?: string | null }) {
   const revision = coerceRev(row.rev), known = state.revisions?.[id]
   if (known !== undefined && (revision === undefined || revision < known)) return
+  // The row this device already holds (its own write, or the same row read before) keeps this
+  // device's time for it: a tombstone's row clock (the database's) never re-dates a removal
+  // made here, so a server clock behind this one cannot bring the book back (4 Nov 2026).
+  const held = state.items[id]
+  if (revision !== undefined && revision === known && held && held.saved === (row.value?.saved === true) && !!held.tableHidden === (row.value?.tableHidden === true)) return
   if (revision !== undefined) (state.revisions ??= {})[id] = revision
   // A tombstone carries no value, so its removal time is the row's own clock.
   // Membership compares that time with later reading (loadShelfMembership).
@@ -84,8 +89,13 @@ async function sync(owner: string | null, state: State): Promise<boolean> {
           break
         }
         const { data: result, error: failed } = await client.rpc('commit_user_data', {
-          // A visibility-only hide is not deletion: retain its action time.
-          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved || change.tableHidden ? change : null,
+          // A visibility-only hide is not deletion: retain its action time. A removal is a
+          // tombstone (null), dated by its row's clock, except where that clock cannot date it:
+          // over a row that is a tombstone already (commit_user_data does not rewrite an
+          // unchanged value, 20261022_disk_io_audit.sql, so the row kept the first removal's
+          // clock, older than the reading since, and the book came back: Anders, 4 Nov 2026),
+          // or a removal dated after now (libraryTwoReading removalTime). It carries its time.
+          p_user_id: owner, p_key: PREFIX + id, p_value: change.saved || change.tableHidden ? change : (row && row.value === null) || change.at > Date.now() ? { saved: false, at: change.at } : null,
           p_expected_rev: row?.rev ?? null,
         })
         if (failed) break
