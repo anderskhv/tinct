@@ -10,54 +10,140 @@
  "parts": [
   {
    "title": "Before the book",
-   "chapters": [
-    1
+   "short": "Dedication",
+   "question": "Why should Lorenzo de' Medici listen to an exiled official?",
+   "groups": [
+    {
+     "title": "The gift",
+     "question": "What is Machiavelli offering?",
+     "chapters": [
+      1
+     ]
+    }
    ]
   },
   {
    "title": "I · Kinds of states and how to win them",
-   "chapters": [
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12
+   "short": "Kinds of states",
+   "question": "What kinds of power are there, and how is each won and kept?",
+   "arc": "From the easy case, an inherited state, to the hard ones: power won by ability, by luck, by crime or by the people.",
+   "groups": [
+    {
+     "title": "What there is to rule",
+     "question": "Which states are easy to keep, and why?",
+     "chapters": [
+      2,
+      3
+     ]
+    },
+    {
+     "title": "Holding what you take",
+     "question": "How do you keep a territory you have just conquered?",
+     "chapters": [
+      4,
+      5,
+      6
+     ]
+    },
+    {
+     "title": "Rising to power",
+     "question": "Ability, luck, crime or the people: which way up lasts?",
+     "chapters": [
+      7,
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "title": "Special cases",
+     "question": "How strong are you, and why is the Church different?",
+     "chapters": [
+      11,
+      12
+     ]
+    }
    ]
   },
   {
    "title": "II · Armies",
-   "chapters": [
-    13,
-    14,
-    15
+   "short": "Armies",
+   "question": "Whose soldiers can a ruler trust?",
+   "arc": "Hired armies fail, borrowed ones are worse, so a prince must have his own and study war.",
+   "groups": [
+    {
+     "title": "Hired and borrowed armies",
+     "question": "Why can't you buy or borrow your safety?",
+     "chapters": [
+      13,
+      14
+     ]
+    },
+    {
+     "title": "The prince as soldier",
+     "question": "What should a ruler spend his time learning?",
+     "chapters": [
+      15
+     ]
+    }
    ]
   },
   {
    "title": "III · How a prince should behave",
-   "chapters": [
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24
+   "short": "How to behave",
+   "question": "Should a ruler be good, or only seem good?",
+   "arc": "The book's famous turn: from imagined virtue to what actually keeps a ruler in power.",
+   "groups": [
+    {
+     "title": "Being good and seeming good",
+     "question": "Which virtues can a ruler afford?",
+     "chapters": [
+      16,
+      17,
+      18,
+      19
+     ]
+    },
+    {
+     "title": "Staying safe and respected",
+     "question": "What brings rulers down, and what earns esteem?",
+     "chapters": [
+      20,
+      21,
+      22
+     ]
+    },
+    {
+     "title": "The people around you",
+     "question": "Whose advice should a ruler trust?",
+     "chapters": [
+      23,
+      24
+     ]
+    }
    ]
   },
   {
    "title": "IV · Italy and fortune",
-   "chapters": [
-    25,
-    26,
-    27
+   "short": "Italy and fortune",
+   "question": "Is Italy's ruin bad luck, or can it be undone?",
+   "arc": "Blame idleness, not fortune; fortune can be resisted; then a call to free Italy.",
+   "groups": [
+    {
+     "title": "Luck and blame",
+     "question": "How much is in our hands?",
+     "chapters": [
+      25,
+      26
+     ]
+    },
+    {
+     "title": "The call",
+     "question": "Who will free Italy?",
+     "chapters": [
+      27
+     ]
+    }
    ]
   }
  ],
@@ -366,5 +452,6 @@
    "core": true,
    "summary": "Italy is ready for a redeemer, and the Medici house, favoured by fortune and the Church, could lead with its own new army. Machiavelli ends with Petrarch's call that ancient Italian valour is not yet dead."
   }
- ]
+ ],
+ "question": "How does a new ruler win power, and keep it, in a world that does not reward goodness?"
 }
