@@ -20,29 +20,34 @@ const browser = await markInternal(await chromium.launch({ headless: true,
   args: ['--mute-audio', '--no-sandbox'] }))
 const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, serviceWorkers: 'block' })
 const page = await context.newPage()
+const mainPage = page
 const errors = []
-page.on('pageerror', error => errors.push(error.message))
-await page.route('**/*', async route => {
-  const url = new URL(route.request().url())
-  if (url.origin !== origin) return route.abort()
-  if (url.pathname === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Reader preference fixture</title>' })
-  if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
-  if (route.request().method() !== 'GET') return route.abort()
-  const pathname = url.pathname === '/reader' ? '/app.html' : url.pathname
-  const file = path.resolve(dist, '.' + pathname)
-  if (!file.startsWith(dist + path.sep)) return route.abort()
-  try { if ((await stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
-  return route.fulfill({ status: 404, body: '' })
-})
-await page.addInitScript(() => {
-  localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'bsb-en', compareOpen: true }))
-  localStorage.setItem('tinct-lab-position', JSON.stringify({
-    books: { genesis: { bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1,
-      paragraphIndex: 4, wordIndex: 3, primaryEditionKey: 'kjv-en', updatedAt: Date.now() - 1000, deviceId: 'candidate', rev: 1 } },
-    lastSettledBookId: 'genesis', lastSettledAt: Date.now() - 1000, finished: {},
-  }))
-})
-const visit = async (search, layout, shared = true, storedLayout = null) => {
+const fixture = async page => {
+  page.on('pageerror', error => errors.push(error.message))
+  await page.route('**/*', async route => {
+    const url = new URL(route.request().url())
+    if (url.origin !== origin) return route.abort()
+    if (url.pathname === '/qa-seed') return route.fulfill({ contentType: 'text/html', body: '<!doctype html><title>Reader preference fixture</title>' })
+    if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
+    if (route.request().method() !== 'GET') return route.abort()
+    const pathname = url.pathname === '/reader' ? '/app.html' : url.pathname
+    const file = path.resolve(dist, '.' + pathname)
+    if (!file.startsWith(dist + path.sep)) return route.abort()
+    try { if ((await stat(file)).isFile()) return route.fulfill({ path: file }) } catch {}
+    return route.fulfill({ status: 404, body: '' })
+  })
+  await page.addInitScript(() => {
+    localStorage.setItem('tinct-lab-prefs', JSON.stringify({ primaryEdition: 'kjv-en', audioEdition: 'kjv-en', compareEdition: 'bsb-en', compareOpen: true }))
+    localStorage.setItem('tinct-lab-position', JSON.stringify({
+      books: { genesis: { bookId: 'genesis', headerBook: 'Genesis', chapterNumber: 1, sequentialChapter: 1,
+        paragraphIndex: 4, wordIndex: 3, primaryEditionKey: 'kjv-en', updatedAt: Date.now() - 1000, deviceId: 'candidate', rev: 1 } },
+      lastSettledBookId: 'genesis', lastSettledAt: Date.now() - 1000, finished: {},
+    }))
+  })
+}
+await fixture(page)
+const visit = async (search, layout, shared = true, storedLayout = null, on = null) => {
+  const page = on || mainPage
   // Each activation case starts with a deliberate device preference. Keep the
   // source position fixture; do not let an earlier view= link seed a later case.
   await page.goto(`${origin}/qa-seed`)
@@ -65,10 +70,11 @@ const visit = async (search, layout, shared = true, storedLayout = null) => {
 }
 try {
   // Activation and layout are separate decisions: the public shared reader is
-  // ON, with the approved Two-page ebook default for a device without a choice.
-  await visit('', 'two-page')
+  // ON, with the Margin default for a desktop without a choice (Anders,
+  // 4 Nov 2026; Two-page before), opening at the reader's saved word.
+  await visit('', 'margin')
   await visit('&sharedReader=0', 'fallback', false)
-  await visit('&sharedReader=1', 'two-page')
+  await visit('&sharedReader=1', 'margin')
   await visit('&view=margin', 'margin')
   await visit('&view=compare', 'compare', true, 'margin')
   await visit('&view=two-page', 'two-page', true, 'compare')
@@ -94,5 +100,17 @@ try {
   assert.equal(await page.getByTestId('lab-root').getAttribute('data-shared-reader'), 'true', 'stored Margin does not disable shared activation')
   assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), '4:3', 'reloaded preference preserves semantic source word')
   assert.deepEqual(errors, [], 'no public route errors')
-  console.log('Built default-ON Two-page, =0 fallback, =1 activation, explicit views and stored layout choices passed')
+  // An iPad in landscape (iPadOS reports a Mac user agent; touch tells it
+  // apart) keeps Two-page by default, and a choice still wins there.
+  const ipad = await browser.newContext({ viewport: { width: 1180, height: 820 }, hasTouch: true, serviceWorkers: 'block',
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15' })
+  const ipadPage = await ipad.newPage()
+  await ipadPage.addInitScript(() => { Object.defineProperty(Navigator.prototype, 'maxTouchPoints', { get: () => 5 }) })
+  await fixture(ipadPage)
+  await visit('', 'two-page', true, null, ipadPage)
+  await visit('', 'margin', true, 'margin', ipadPage)
+  await visit('&view=margin', 'margin', true, null, ipadPage)
+  await ipad.close()
+  assert.deepEqual(errors, [], 'no iPad route errors')
+  console.log('Built default-ON Margin (iPad landscape Two-page), =0 fallback, =1 activation, explicit views and stored layout choices passed')
 } finally { await browser.close() }

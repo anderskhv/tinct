@@ -198,7 +198,7 @@ import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderP
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
-import { initialDesktopReaderLayout, storeDesktopReaderLayout } from './labDesktopLayout'
+import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, initialDesktopReaderLayout, storeDesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
@@ -692,6 +692,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDesktopCompareActive(layout === 'compare')
     setPrivateDesktopClassic(layout === 'two-page')
   }, [desktopLayoutBookId, sharedReader, userBook?.hex, userBook?.kind])
+  // A reader who has chosen no layout gets the default for the device as the
+  // desktop surface appears: an iPad opened upright (phone surface) reads
+  // Two-page once turned sideways. Called in the same batch that shows the
+  // desktop surface, so it mounts in that layout; any choice keeps winning.
+  const desktopDefaultOnSurfaceRef = useRef(() => {})
+  desktopDefaultOnSurfaceRef.current = () => {
+    if (!sharedReader) return
+    const search = deepLinkDesktopView ? `?view=${deepLinkDesktopView}` : (typeof window !== 'undefined' ? window.location.search : '')
+    if (chosenDesktopReaderLayout({ bookId: desktopLayoutBookId, search, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })) return
+    const layout = defaultDesktopReaderLayout()
+    setDesktopCompareActive(false)
+    setPrivateDesktopClassic(layout === 'two-page')
+  }
   useEffect(() => {
     if (deepLinkDesktopView) storeCompareView('desktop', compareViewBookId, deepLinkDesktopView === 'compare')
     const linked = deepLinkDesktopView ?? new URLSearchParams(desktopLayoutSearch).get('view')
@@ -2198,10 +2211,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    let phoneChrome: boolean | null = null
     const sync = () => {
       const phone = readPhoneSurface(layoutOverride)
+      const nextPhoneChrome = readPhoneFooter(layoutOverride, phone)
+      if (phoneChrome === true && !nextPhoneChrome) desktopDefaultOnSurfaceRef.current()
+      phoneChrome = nextPhoneChrome
       setIsPhone(phone)
-      setShowPhoneChrome(readPhoneFooter(layoutOverride, phone))
+      setShowPhoneChrome(nextPhoneChrome)
       setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
     }
     sync()

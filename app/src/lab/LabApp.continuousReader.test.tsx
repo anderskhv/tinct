@@ -93,19 +93,22 @@ it('Aa offers Compare before a second version is chosen and asks for a real comp
 })
 
 
-it('fresh desktop text opens Two-page and remembers an explicit Margin choice on reopen', async () => {
+// Margin is the desktop default since 4 Nov 2026 (Anders); Two-page was before.
+it('fresh desktop text opens Margin at its place and remembers an explicit Two-page choice on reopen', async () => {
   localStorage.removeItem('tinct:reader-desktop-layout')
   window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
   const view = render(<LabApp pathname="/reader" authToken={null} sharedReader />)
   await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-reader-ready')).toBe('true'))
-  expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBeNull()
+  await waitFor(() => expect(screen.getByTestId('continuous-reader')).toBeTruthy())
+  expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4')
   fireEvent.click(screen.getByTestId('lab-header-aa'))
-  expect(screen.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed')).toBe('true')
-  fireEvent.click(screen.getByTestId('lab-v2-layout-margin'))
+  expect(screen.getByTestId('lab-v2-layout-margin').getAttribute('aria-pressed')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-v2-layout-two-page'))
   expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4')
   view.unmount()
   render(<LabApp pathname="/reader" authToken={null} sharedReader />)
-  await waitFor(() => expect(screen.getByTestId('continuous-reader')).toBeTruthy())
+  await waitFor(() => expect(screen.getByTestId('lab-root').getAttribute('data-reader-ready')).toBe('true'))
+  expect(screen.getByTestId('lab-root').getAttribute('data-continuous-reader')).toBeNull()
   expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe('13:4')
 })
 

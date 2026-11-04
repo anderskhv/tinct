@@ -35,8 +35,10 @@ try {
     await ready()
     await page.evaluate(() => document.fonts.ready)
     assert.equal(await place(), '3:4')
+    // A desktop without a choice reads in Margin (Anders, 4 Nov 2026; Two-page before).
+    await page.getByTestId('continuous-reader').waitFor()
     await settings()
-    assert.equal(await page.getByTestId('lab-v2-layout-two-page').getAttribute('aria-pressed'), 'true')
+    assert.equal(await page.getByTestId('lab-v2-layout-margin').getAttribute('aria-pressed'), 'true')
     assert.equal(await page.locator('.lab-v2-layout-miniature[aria-hidden="true"]').count(), 3)
     const layoutSurface = await page.getByRole('group', { name: 'Layout', exact: true }).evaluate(node => { const style = getComputedStyle(node); return { radius: style.borderRadius, background: style.backgroundColor } })
     assert.equal(layoutSurface.radius, '0px', 'desktop layout choices follow straight rules')
