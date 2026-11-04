@@ -187,8 +187,36 @@
   cursor: pointer;
 }
 
+/* Catch me up's placeholder holds the room its entry can take: invisible stand-in text in the entry's own type
+   (catchUpReserveText, as many words as the entry's limit), with one faint bar per line drawn over it. */
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved {
+  position: relative;
+  display: block;
+  padding: 0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved .lab-catch-up-reserve { display: block; visibility: hidden; }
+
+.lab[data-chrome-version="v2"] .lab-catch-up-placeholder.is-reserved::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 0.44em, currentColor 0.44em 1em, transparent 1em 1.42em);
+  opacity: 0.08;
+}
+
+/* A folded part shows one line, so its placeholder is one line too. */
+.lab[data-chrome-version="v2"] .lab-catch-up-entry.is-folded[data-expanded="false"] .lab-catch-up-reserve {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i {
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder i,
+  .lab[data-chrome-version="v2"] .lab-catch-up-entry[data-state="loading"] .lab-catch-up-placeholder.is-reserved::before {
     animation: lab-catch-up-breathe 1.6s ease-in-out infinite;
   }
 }

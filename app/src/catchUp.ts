@@ -39,7 +39,13 @@ import type { LabRecapRequest } from './recapSummary'
 import { contentsBooks } from './lab/labContents'
 
 export const CATCH_UP_ROUTE = '/api/lab-catch-up'
-export const CATCH_UP_PROMPT_VERSION = 'catch-up-v4'
+export const CATCH_UP_PROMPT_VERSION = 'catch-up-v5'
+/**
+ * An entry's length (Anders, 4 Nov 2026: "this is too much text"): a chapter is one sentence of at most 25 words, a
+ * group of chapters at most two sentences and 45 words. The Worker holds answers to it; the sheet reserves the room.
+ */
+export const CATCH_UP_CHAPTER_LIMIT = { sentences: 1, words: 25 } as const
+export const CATCH_UP_BLOCK_LIMIT = { sentences: 2, words: 45 } as const
 export const CATCH_UP_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 /** Unit ids are slugs: `book-2-kings`, `part-book-two-1805`, `ch-12`. */
 export const CATCH_UP_UNIT_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,95}$/

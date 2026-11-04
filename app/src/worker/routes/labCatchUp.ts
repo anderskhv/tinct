@@ -6,7 +6,8 @@
  * the unit the reader is still in, the last chapter to cover. The Worker
  * derives the units from the edition's own manifest, fetches the text itself
  * through the static asset binding — the client never sends text — and asks
- * the companion model for two or three plain sentences.
+ * the companion model for one sentence (a chapter) or two (a group), held to
+ * that limit by `enforceCatchUpLength`.
  *
  * A passed unit's recap is the same for every reader, so the lookup is:
  *   1. a pre-written static file for the edition (`catchUpStaticPath`), when
@@ -18,7 +19,9 @@
  */
 import { RECAP_FAST_MODEL } from '../../companionModel'
 import {
+  CATCH_UP_BLOCK_LIMIT,
   CATCH_UP_CACHE_TTL_SECONDS,
+  CATCH_UP_CHAPTER_LIMIT,
   CATCH_UP_PROMPT_VERSION,
   CATCH_UP_ROUTE,
   CATCH_UP_UNIT_ID_PATTERN,
@@ -40,9 +43,12 @@ import { createAiMeter, ledgerGuestKey, type LedgerEnv } from '../lib/aiUsage'
 import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_RECAP_GROUNDING_RULE } from '../../companion/labAskPrompt'
 import { RECAP_ENTRY_INSTRUCTION, RECAP_ENTRY_TOOL_PAYLOAD, readRecapEntry } from '../lib/recapEntry'
 import { isUsableRecapSummary } from '../../recapSummary'
+import { describeEntryLimit, entryFits, entrySentences, entryWordCount, trimEntryToLimit, type EntryLimit } from '../lib/entryLength'
 import { sampleCatchUpText } from '../../ownCatchUp'
 import type { RecapCache } from './labRecap'
 import { bookAssets } from './publicBooks'
+
+export { CATCH_UP_BLOCK_LIMIT, CATCH_UP_CHAPTER_LIMIT }
 
 export type LabCatchUpEnv = LedgerEnv & {
   ANTHROPIC_API_KEY?: string
@@ -69,12 +75,21 @@ export interface LabCatchUpDeps {
 }
 
 /**
- * Room for the entry, not its length (the prompt asks for 40 words; a block, 70). A cut-off call is no entry at all:
- * 160 and 240 cut off every try of 2 Maccabees 8 and of 2 Maccabees 1–6, so Catch me up showed only Retry, which cut
- * off again (Anders's ledger, 2 Nov 2026: 160/160 and 240/240 output tokens).
+ * Room for the entry, not its length (the limits: CATCH_UP_CHAPTER_LIMIT, CATCH_UP_BLOCK_LIMIT). A cut-off call is no entry at all: 160 and 240 cut off every try of
+ * 2 Maccabees 8 and of 2 Maccabees 1–6, so Catch me up showed only Retry, which cut off again (Anders's ledger,
+ * 2 Nov 2026: 160/160 and 240/240 output tokens). So an overlong answer must still arrive whole, to be shortened
+ * (`enforceCatchUpLength`); these leave room for about 200 and 280 words, several times the limit, plus the tool call.
  */
-export const CATCH_UP_MAX_TOKENS = 400
-export const CATCH_UP_BLOCK_MAX_TOKENS = 600
+export const CATCH_UP_MAX_TOKENS = 300
+export const CATCH_UP_BLOCK_MAX_TOKENS = 400
+/** The corrective call rewrites a draft of at most CATCH_UP_BLOCK_MAX_TOKENS into the limit: room for that, and the tool call. */
+export const CATCH_UP_SHORTEN_MAX_TOKENS = 200
+/**
+ * How long the corrective call may hold an entry back. Past this the reader gets the draft cut at a sentence end
+ * now, and the rewrite, when it arrives, replaces it in the cache for the next reader (Anders, 4 Nov 2026: the first
+ * entry must not come last).
+ */
+export const CATCH_UP_SHORTEN_BUDGET_MS = 2_000
 /** About 8K tokens of source per entry; long units are sampled evenly across their chapters. */
 export const CATCH_UP_MAX_PASSAGE_CHARS = 32_000
 /** Every request, cached or not: a long timeline is many cheap lookups. */
@@ -102,14 +117,23 @@ const CATCH_UP_RULES = [
  */
 export const CATCH_UP_BLOCK_SYSTEM_PROMPT = [
   'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book: one compact recap of a group of consecutive chapters. The chapters before and after these get entries of their own.',
-  'Summarise the passage below in at most three short plain declarative sentences in the present tense, at most 70 words in all: the main people, the situation and the turns that matter for what follows, in order. Leave out minor episodes.',
+  `Summarise the passage below in ${describeEntryLimit(CATCH_UP_BLOCK_LIMIT)}, short plain declarative sentences in the present tense: the main people and the one or two turns that matter for what follows. Do not go chapter by chapter and do not list episodes; leave out everything else.`,
   ...CATCH_UP_RULES,
 ].join('\n')
 
 export const CATCH_UP_SYSTEM_PROMPT = [
   'You write one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book.',
-  'Summarise the passage below in two short plain declarative sentences in the present tense, at most 40 words in all.',
+  `Summarise the passage below in ${describeEntryLimit(CATCH_UP_CHAPTER_LIMIT)}, a short plain declarative sentence in the present tense: who does what, and the turn that matters.`,
   ...CATCH_UP_RULES,
+].join('\n')
+
+/** The corrective call: the overlong draft only (never the passage again), so it is cheap and adds nothing new. */
+export const CATCH_UP_SHORTEN_SYSTEM_PROMPT = [
+  'You shorten one entry in a "catch me up" timeline that a returning reader scrolls before they continue a book. The entry is over its length limit.',
+  'Rewrite it within the limit you are given: keep the main people and the one or two turns that matter most, and drop everything else. Plain declarative sentences in the present tense.',
+  'Use only the entry. Add nothing that is not in it: no new events, names or outcomes.',
+  'No praise, no interpretation, no advice, no preamble, no headings, no bullet points, and no quotation marks around the answer.',
+  RECAP_ENTRY_INSTRUCTION,
 ].join('\n')
 
 function labGuestIp(request: Request): string {
@@ -220,6 +244,65 @@ async function staticSummary(assets: AssetsBinding, origin: string, parsed: Pars
   } catch {
     return null
   }
+}
+
+export interface EnforcedEntry {
+  /** What this reader is shown now. */
+  summary: string
+  /** What is cached for the next reader: the same, or a rewrite that arrived after CATCH_UP_SHORTEN_BUDGET_MS. */
+  settled: Promise<string>
+  /** `fits`: untouched. `rewritten`: the corrective call's answer. `trimmed`: whole sentences of the draft. `late`: trimmed now, the rewrite cached. */
+  outcome: 'fits' | 'rewritten' | 'trimmed' | 'late'
+}
+
+/**
+ * Hold an entry to its limit. Within it, the answer is untouched (no extra call: the common case costs nothing).
+ * Over it, ONE corrective call gets the draft (not the passage) with its length and the limit; an answer still over
+ * is cut to whole sentences (`trimEntryToLimit`), as is the draft when that call fails, is refused by the spend
+ * ceiling, or takes longer than the budget (its answer then only updates the cache).
+ */
+export async function enforceCatchUpLength(input: {
+  summary: string
+  limit: EntryLimit
+  /** "2 Maccabees, 2 Maccabees 1 – 2 Maccabees 8": context for the rewrite. */
+  where: string
+  send: (payload: Record<string, unknown>) => Promise<Response>
+  meter?: (usage: AnthropicMessage['usage']) => void
+  reserve?: ReserveGuestSpend
+  budgetMs?: number
+}): Promise<EnforcedEntry> {
+  const { summary, limit } = input
+  if (entryFits(summary, limit)) return { summary, settled: Promise.resolve(summary), outcome: 'fits' }
+  const trimmed = trimEntryToLimit(summary, limit)
+  const content = `Location: ${input.where}.\n\nThe entry below is ${entryWordCount(summary)} words in ${entrySentences(summary).length} sentences. `
+    + `The limit is ${describeEntryLimit(limit)}. Rewrite it within the limit.\n\nEntry:\n\n${summary}`
+  const estimate = estimateAiCostMicros({ inputChars: CATCH_UP_SHORTEN_SYSTEM_PROMPT.length + content.length, maxTokens: CATCH_UP_SHORTEN_MAX_TOKENS })
+  if (!input.reserve || !await input.reserve(estimate)) return { summary: trimmed, settled: Promise.resolve(trimmed), outcome: 'trimmed' }
+  const rewrite = (async (): Promise<{ summary: string; rewritten: boolean }> => {
+    try {
+      const response = await input.send({
+        model: RECAP_FAST_MODEL,
+        max_tokens: CATCH_UP_SHORTEN_MAX_TOKENS,
+        system: CATCH_UP_SHORTEN_SYSTEM_PROMPT,
+        messages: [{ role: 'user', content }],
+        ...RECAP_ENTRY_TOOL_PAYLOAD,
+      })
+      if (!response.ok) return { summary: trimmed, rewritten: false }
+      const message = await response.json() as AnthropicMessage
+      input.meter?.(message.usage)
+      const entry = readRecapEntry(message)
+      if (entry.kind !== 'summary') return { summary: trimmed, rewritten: false }
+      return entryFits(entry.summary, limit) ? { summary: entry.summary, rewritten: true } : { summary: trimEntryToLimit(entry.summary, limit), rewritten: false }
+    } catch {
+      return { summary: trimmed, rewritten: false }
+    }
+  })()
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const late = new Promise<null>(resolve => { timer = setTimeout(() => resolve(null), input.budgetMs ?? CATCH_UP_SHORTEN_BUDGET_MS) })
+  const first = await Promise.race([rewrite, late])
+  clearTimeout(timer)
+  if (first) return { summary: first.summary, settled: Promise.resolve(first.summary), outcome: first.rewritten ? 'rewritten' : 'trimmed' }
+  return { summary: trimmed, settled: rewrite.then(result => result.summary), outcome: 'late' }
 }
 
 export async function handleLabCatchUp(
@@ -335,12 +418,24 @@ export async function handleLabCatchUp(
     }))
     // Nothing to summarise: no entry, and nothing cached that could keep reappearing.
     if (entry.kind === 'empty') return respond('', 'model', true)
-    const summary = entry.summary
+    const send = (payload: Record<string, unknown>) => (deps.fetchAnthropic ?? defaultFetchAnthropic)(payload, apiKey)
+    const enforced = await enforceCatchUpLength({
+      summary: entry.summary,
+      limit: block ? CATCH_UP_BLOCK_LIMIT : CATCH_UP_CHAPTER_LIMIT,
+      where,
+      send,
+      meter: usage => meter.anthropic(usage),
+      reserve: deps.reserveGuestSpend,
+    })
+    if (enforced.outcome !== 'fits') {
+      // Lengths only, never the text.
+      console.log(JSON.stringify({ event: 'lab_catch_up_shortened', route: CATCH_UP_ROUTE, outcome: enforced.outcome, words: entryWordCount(entry.summary) }))
+    }
+    const summary = enforced.summary
     if (cache) {
-      const stored = new Response(JSON.stringify({ summary }), {
+      ctx.waitUntil(enforced.settled.then(settled => cache.put(cacheKey, new Response(JSON.stringify({ summary: settled }), {
         headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${CATCH_UP_CACHE_TTL_SECONDS}` },
-      })
-      ctx.waitUntil(cache.put(cacheKey, stored).catch(() => {}))
+      }))).catch(() => {}))
     }
     return respond(summary, 'model')
   } catch {

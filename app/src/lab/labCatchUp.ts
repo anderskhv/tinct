@@ -3,7 +3,7 @@
  * which entries are fetched, and a per-tab memory of what came back so
  * reopening the sheet costs nothing. Nothing here touches the DOM.
  */
-import { CATCH_UP_ROUTE, catchUpBeforePlace, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
+import { CATCH_UP_BLOCK_LIMIT, CATCH_UP_CHAPTER_LIMIT, CATCH_UP_PROMPT_VERSION, CATCH_UP_ROUTE, catchUpBeforePlace, type CatchUpEntry, type CatchUpResponse } from '../catchUp'
 import { isUsableRecapSummary } from '../recapSummary'
 import { requestLabRecapSummary } from '../preReader/recapSummaryClient'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
@@ -34,9 +34,27 @@ type FetchLike = (input: string, init: RequestInit) => Promise<{ ok: boolean; st
 const memory = new Map<string, string>()
 const MEMORY_MAX = 400
 
+/** Per tab only (nothing is stored); the prompt version is part of it, as of the Worker's cache key. */
 export function catchUpMemoryKey(entry: CatchUpEntry): string {
   const request = entry.request
-  return `${request.bookId}/${request.editionKey}/${entry.key}`
+  return `${CATCH_UP_PROMPT_VERSION}/${request.bookId}/${request.editionKey}/${entry.key}`
+}
+
+/**
+ * The words an entry can hold (CATCH_UP_CHAPTER_LIMIT / CATCH_UP_BLOCK_LIMIT): its placeholder reserves that room,
+ * so the timeline does not jump when the text arrives.
+ */
+export function catchUpEntryWords(entry: CatchUpEntry): number {
+  return entry.kind === 'unit' && entry.chapters.length > 1 ? CATCH_UP_BLOCK_LIMIT.words : CATCH_UP_CHAPTER_LIMIT.words
+}
+
+/**
+ * Stand-in text of `words` ordinary words (never shown: laid out invisibly to size a placeholder). Ordinary letters,
+ * not a repeated wide one, so the reserved lines match a real entry's.
+ */
+const RESERVE_WORDS = ['the', 'reader', 'returns', 'home', 'and', 'finds', 'that', 'story', 'has', 'changed']
+export function catchUpReserveText(words: number): string {
+  return Array.from({ length: Math.max(1, words) }, (_, i) => RESERVE_WORDS[i % RESERVE_WORDS.length]).join(' ')
 }
 
 export function rememberedCatchUp(entry: CatchUpEntry): string | null {
