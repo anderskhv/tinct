@@ -1,6 +1,6 @@
 {
   "bookId": "alice-in-wonderland",
-  "status": "editorial_in_progress",
+  "status": "source_review_complete_literary_revision_pending",
   "reviewedChapters": [
     1,
     2,
@@ -9,14 +9,15 @@
     5,
     6,
     7,
-    8
+    8,
+    9,
+    10,
+    11,
+    12
   ],
-  "reviewedParagraphs": 471,
+  "reviewedParagraphs": 789,
   "totalParagraphs": 789,
-  "inProgress": {
-    "chapter": 9,
-    "paragraph": 0
-  },
+  "inProgress": null,
   "nativeReview": "pending_user_arranges",
   "releasePolicy": {
     "mode": "prepare_only",
@@ -1365,6 +1366,1098 @@
       "before": "I samme øjeblik han var væk, begyndte Kattens hoved at blegne. Da han kom tilbage med Hertuginden, var det helt forsvundet. Kongen og bøddelen løb febrilsk op og ned og ledte efter det, mens alle andre gik tilbage til spillet.",
       "after": "I samme øjeblik han var væk, begyndte Kattens hoved langsomt at forsvinde. Da han kom tilbage med Hertuginden, var det helt forsvundet. Kongen og bøddelen løb febrilsk op og ned og ledte efter det, mens alle andre gik tilbage til spillet.",
       "reason": "Repair malformed causative, wrong emotional meaning, silence versus stillness and disappearance imagery."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 1,
+      "before": "»Min kære gamle ven, du kan ikke forestille dig, hvor glad jeg er for at se dig igen!« udbrød Hertuginden. Hun stak kærligt sin arm ind under Alices, og så gik de af sted sammen.",
+      "after": "»Min kære ven, du kan ikke forestille dig, hvor glad jeg er for at se dig igen!« udbrød Hertuginden. Hun stak kærligt sin arm ind under Alices, og så gik de af sted sammen.",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 3,
+      "before": "»Når _jeg_ bliver hertuginde,« sagde hun til sig selv, men uden større tiltro, »kommer der slet _ikke_ peber i mit køkken. Suppe er helt god uden. Måske er det altid peber, der gør folk hidsige,« fortsatte hun, henrykt over at have opdaget en ny slags regel, »og eddike, der gør dem sure, og kamille, der gør dem bitre, og — og bolsjer og den slags, der gør børn milde i sindet. Gid folk forstod _det_. Så ville de ikke være så smålige med at give det væk, ved du —«",
+      "after": "»Når _jeg_ bliver hertuginde,« sagde hun til sig selv, men uden større tiltro, »kommer der slet _ikke_ peber i mit køkken. Suppe smager fint uden. Måske er det altid peber, der gør folk hidsige,« fortsatte hun, henrykt over at have opdaget en ny slags regel, »og eddike, der gør dem sure, og kamille, der gør dem bitre, og — og bolsjer og den slags, der gør børn søde. Bare folk vidste _det_. Så ville de ikke være så nærige med det, vel —«",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 6,
+      "before": "»Pyt, pyt, barn!« sagde Hertuginden. »Der er en moral i alt, hvis man bare kan finde den.« Mens hun talte, pressede hun sig endnu tættere ind til Alice.",
+      "after": "»Nej, nej, barn!« sagde Hertuginden. »Der er en moral i alt, hvis man bare kan finde den.« Mens hun talte, pressede hun sig endnu tættere ind til Alice.",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 7,
+      "before": "Alice brød sig ikke om at have hende så tæt på. For det første var Hertuginden _ekstremt_ grim. For det andet var hun netop i den rette højde til at hvile hagen på Alices skulder, og den hage var smertefuldt spids. Men Alice ville ikke virke uhøflig, så hun udholdt det så godt, hun kunne.",
+      "after": "Alice brød sig ikke om at have hende så tæt på. For det første var Hertuginden _meget_ grim. For det andet var hun netop i den rette højde til at hvile hagen på Alices skulder, og den hage var ubehageligt spids. Men Alice ville ikke virke uhøflig, så hun udholdt det så godt, hun kunne.",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 13,
+      "before": "Efter en pause sagde Hertuginden: »Jeg tror, du undrer dig over, hvorfor jeg ikke lægger armen om din talje. Det er, fordi jeg er usikker på din flamingos lune. Skal jeg prøve?«",
+      "after": "Efter en pause sagde Hertuginden: »Jeg tror, du undrer dig over, hvorfor jeg ikke lægger armen om din talje. Det er, fordi jeg er usikker på din flamingos humør. Skal jeg prøve?«",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 15,
+      "before": "»Meget rigtigt,« sagde Hertuginden. »Flamingoer og sennep bider begge to. Og det giver os moralen: ›Lige børn leger bedst.‹«",
+      "after": "»Helt rigtigt,« sagde Hertuginden. »Flamingoer og sennep bider begge to. Og moralen er: ‘Fugle af samme slags holder sammen.’«",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 17,
+      "before": "»Rigtigt, som altid,« svarede Hertuginden. »Du har sandelig en klar måde at forklare tingene på!«",
+      "after": "»Rigtigt, som altid,« svarede Hertuginden. »Hvor er du god til at udtrykke dig klart!«",
+      "reason": "Modern idiom; preserve sweet-temper and bird proverb needed for next rejoinder, remove added intensity."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 20,
+      "before": "»Åh, nu ved jeg det!« råbte Alice, som ikke havde hørt den sidste bemærkning. »Det er en grøntsag. Den ser måske ikke sådan ud, men det er den.«",
+      "after": "»Åh, nu ved jeg det!« udbrød Alice, som ikke havde lagt mærke til den sidste bemærkning. »Det er en plante. Det ligner ikke en, men det er det.«",
+      "reason": "Preserve vegetable/mineral category, deliberate tangled syntax in modern words, degree, and threat rather than literal false fair-warning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 21,
+      "before": "»Det er jeg fuldstændig enig i,« sagde Hertuginden. »Og moralen af det er: ›Vær, hvad du vil synes at være.‹ Eller for at sige det enklere til dig: ›Forestil dig aldrig, at du ikke er anderledes end det, der kunne tykkes andre, at det, du var eller kunne have været, ikke var anderledes end det, du havde været, ville have tykkes dem at være anderledes.‹«",
+      "after": "»Jeg er helt enig med dig,« sagde Hertuginden. »Og moralen er: ‘Vær den, du gerne vil se ud til at være’ — eller, hvis du vil have det sagt mere enkelt: ‘Forestil dig aldrig, at du ikke er anderledes end det, som det kunne se ud for andre til, at det, du var eller kunne have været, ikke var anderledes end det, du havde været, ville have set ud for dem til at være anderledes.’«",
+      "reason": "Preserve vegetable/mineral category, deliberate tangled syntax in modern words, degree, and threat rather than literal false fair-warning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 22,
+      "before": "»Jeg tror, jeg ville forstå det bedre, hvis jeg kunne se det skrevet ned,« svarede Alice meget høfligt. »Jeg kan slet ikke følge med, når De siger det højt.«",
+      "after": "»Jeg tror, jeg ville forstå det bedre, hvis jeg kunne se det skrevet ned,« svarede Alice meget høfligt. »Jeg kan ikke helt følge med, når De siger det højt.«",
+      "reason": "Preserve vegetable/mineral category, deliberate tangled syntax in modern words, degree, and threat rather than literal false fair-warning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 28,
+      "before": "»Jeg har ret til at tænke,« sagde Alice skarpt, for hun begyndte at føle sig temmelig irriteret.",
+      "after": "»Jeg har ret til at tænke,« sagde Alice skarpt, for hun begyndte at føle sig lidt irriteret.",
+      "reason": "Preserve vegetable/mineral category, deliberate tangled syntax in modern words, degree, and threat rather than literal false fair-warning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 32,
+      "before": "Dronningen stampede i jorden, mens hun talte, og råbte: »Her er en retfærdig advarsel: Enten må du af sted, eller også må dit hoved af, og det på halvt ingen tid! Vælg!«",
+      "after": "»Nu er du advaret!« råbte Dronningen og stampede i jorden. »Enten må du væk, eller også må dit hoved væk, og det på halvdelen af ingen tid! Du vælger selv!«",
+      "reason": "Preserve vegetable/mineral category, deliberate tangled syntax in modern words, degree, and threat rather than literal false fair-warning."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 43,
+      "before": "Snart fandt de en Gribbe, som sov trygt i solskinnet. (Hvis du ikke ved, hvad en Gribbe er, så se på billedet.) »Op med dig, dovne dyr!« befalede Dronningen. »Tag denne unge dame med hen til Den Falske Skildpadde, så hun kan høre hans historie. Jeg må tilbage og tage mig af nogle henrettelser, jeg har beordret.« Hun gik sin vej og lod Alice blive hos Gribben. Alice kunne ikke helt lide dens udseende, men alt i alt virkede det lige så sikkert at blive hos den som at følge efter den vilde Dronning. Så hun ventede.",
+      "after": "Snart fandt de en Grif, som sov trygt i solskinnet. (Hvis du ikke ved, hvad en Grif er, så se på billedet.) »Op med dig, dovne dyr!« befalede Dronningen. »Tag denne unge dame med hen til Den Falske Skildpadde, så hun kan høre hans historie. Jeg må tilbage og tage mig af nogle henrettelser, jeg har beordret.« Hun gik sin vej og lod Alice blive hos Griffen. Alice kunne ikke helt lide dens udseende, men alt i alt virkede det lige så sikkert at blive hos den som at følge efter den vilde Dronning. Så hun ventede.",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 44,
+      "before": "Gribben satte sig op, gnubbede øjnene og så efter Dronningen, til hun var ude af syne. Så klukkede den. »Sikke en morsomhed!« sagde den, halvt til sig selv og halvt til Alice.",
+      "after": "Griffen satte sig op, gned øjnene og så efter Dronningen, til hun var ude af syne. Så klukkede den. »Hvor er det sjovt!« sagde den, halvt til sig selv og halvt til Alice.",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 46,
+      "before": "»Jamen, _hende_,« svarede Gribben. »Det er alt sammen indbildning. De henretter aldrig nogen, ved du. Kom nu!«",
+      "after": "»Jamen, _hende_,« svarede Griffen. »Det er alt sammen indbildning. De henretter aldrig nogen, forstår du. Kom nu!«",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 48,
+      "before": "Lidt længere fremme fik de øje på Den Falske Skildpadde på afstand, hvor den sad alene og ulykkelig på en lille klippehylde. Da de kom nærmere, hørte Alice ham sukke, som om hans hjerte skulle briste, og hun fik dyb medlidenhed med ham. »Hvad er det, der gør ham så ked af det?« spurgte hun. Gribben svarede næsten ligesom før: »Det er alt sammen indbildning. Han har ingen sorg, ved du. Kom nu!«",
+      "after": "Lidt længere fremme fik de øje på Den Falske Skildpadde på afstand, hvor han sad alene og ulykkelig på en lille klippehylde. Da de kom nærmere, hørte Alice ham sukke, som om hans hjerte skulle briste, og hun fik dyb medlidenhed med ham. »Hvad er det, der gør ham så ked af det?« spurgte hun. Griffen svarede næsten ligesom før: »Det er alt sammen indbildning. Han er slet ikke ked af noget, forstår du. Kom nu!«",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 50,
+      "before": "»Den her unge dame,« sagde Gribben, »vil gerne høre din historie, det vil hun.«",
+      "after": "»Den her unge dame,« sagde Griffen, »vil gerne høre din historie, det vil hun.«",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 54,
+      "before": "Efter de ord fulgte en meget lang tavshed. Kun Gribbens enkelte »Hjckrrh!« og Den Falske Skildpaddes tunge, uophørlige hulken brød den. Alice var lige ved at rejse sig og sige: »Tak for den interessante historie, hr.« Men hun følte, at der _måtte_ komme mere, så hun blev siddende og holdt sig stille.",
+      "after": "Efter de ord fulgte en meget lang tavshed. Kun Griffens enkelte »Hjckrrh!« og Den Falske Skildpaddes tunge, uophørlige hulken brød den. Alice var lige ved at rejse sig og sige: »Tak for den interessante historie, min herre« Men hun følte, at der _måtte_ komme mere, så hun blev siddende og sagde ingenting.",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 58,
+      "before": "»Du burde skamme dig over at spørge om noget så indlysende,« føjede Gribben til. Begge dyr blev så siddende tavse og stirrede på stakkels Alice, som ønskede, at jorden ville sluge hende. Til sidst sagde Gribben til Den Falske Skildpadde: »Kom nu videre, gamle ven! Brug nu ikke hele dagen!« Han tog fat på sin historie igen sådan:—",
+      "after": "»Du burde skamme dig over at spørge om noget så indlysende,« føjede Griffen til. Begge dyr blev så siddende tavse og stirrede på stakkels Alice, som ønskede, at jorden ville sluge hende. Til sidst sagde Griffen til Den Falske Skildpadde: »Kom nu videre, gamle ven! Brug nu ikke hele dagen!« Han tog fat på sin historie igen med disse ord:",
+      "reason": "Correct Gryphon to Grif (https://ordnet.dk/ddo/ordbog/grif), modern idiom, polite address and silence versus immobility."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 62,
+      "before": "»Hold mund!« tilføjede Gribben, før hun kunne svare. Den Falske Skildpadde fortsatte.",
+      "after": "»Hold mund!« tilføjede Griffen, før hun kunne svare. Den Falske Skildpadde fortsatte.",
+      "reason": "Correct mythological animal and knowledge versus ability distinction."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 75,
+      "before": "Gribben løftede begge poter i forbavselse. »Hvad! Aldrig hørt om at forgrimme! Du ved vel, hvad det vil sige at forskønne?«",
+      "after": "Griffen løftede begge poter i forbavselse. »Hvad! Aldrig hørt om at forgrimme! Du ved vel, hvad det vil sige at forskønne?«",
+      "reason": "Correct mythological animal and knowledge versus ability distinction."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 77,
+      "before": "»Nå, så,« fortsatte Gribben, »så _er_ du virkelig et fjog, hvis du ikke forstår at forgrimme.«",
+      "after": "»Jamen så,« fortsatte Griffen, »_er_ du altså et fjols, hvis du ikke ved, hvad det vil sige at forgrimme.«",
+      "reason": "Correct mythological animal and knowledge versus ability distinction."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 81,
+      "before": "»Det kan jeg ikke vise dig selv,« svarede Den Falske Skildpadde. »Jeg er alt for stiv. Og Gribben lærte det aldrig.«",
+      "after": "»Jeg kan ikke selv vise dig det,« sagde Den Falske Skildpadde. »Jeg er for stiv. Og Griffen lærte det aldrig.«",
+      "reason": "Repair misplaced reflexive and malformed sigh idiom; consistent Gryphon translation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 82,
+      "before": "»Havde ikke tid,« sagde Gribben. »Jeg gik dog til klassikerlæreren. En gammel krabbe, _det_ var han.«",
+      "after": "»Havde ikke tid,« sagde Griffen. »Jeg gik dog til klassikerlæreren. En gammel krabbe, _det_ var han.«",
+      "reason": "Repair misplaced reflexive and malformed sigh idiom; consistent Gryphon translation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 84,
+      "before": "»Det gjorde han i sandhed, det gjorde han i sandhed,« svarede Gribben med et sukken af sig selv. Begge dyr skjulte ansigtet i poterne.",
+      "after": "»Det gjorde han, det gjorde han,« sagde Griffen, som nu også sukkede. Og begge væsner skjulte ansigtet i poterne.",
+      "reason": "Repair misplaced reflexive and malformed sigh idiom; consistent Gryphon translation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 88,
+      "before": "»Det er derfor, de hedder lektioner,« forklarede Gribben. »De letter dag for dag.«",
+      "after": "»Det er derfor, de hedder lektioner,« forklarede Griffen. »De letter dag for dag.«",
+      "reason": "Repair misplaced reflexive and malformed sigh idiom; consistent Gryphon translation."
+    },
+    {
+      "chapter": 9,
+      "paragraph": 92,
+      "before": "Gribben afbrød bestemt: »Nok om lektioner. Fortæl hende i stedet om nogle af legene.«",
+      "after": "Griffen afbrød bestemt: »Nok om lektioner. Fortæl hende i stedet om nogle af legene.«",
+      "reason": "Repair misplaced reflexive and malformed sigh idiom; consistent Gryphon translation."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 1,
+      "before": "Den Falske Skildpadde sukkede dybt og tørrede øjnene med bagsiden af en luffe. Han så over på Alice og prøvede at tale, men i et par minutter var han for kvalt af hulken. »Som om han har et ben siddende i halsen,« bemærkede Gribben og begyndte at ruske ham og banke ham på ryggen. Til sidst kom hans stemme tilbage. Med tårerne strømmende ned ad kinderne fortsatte Den Falske Skildpadde:—",
+      "after": "Den Falske Skildpadde sukkede dybt og tørrede øjnene med bagsiden af en luffe. Han så over på Alice og prøvede at tale, men i et minut eller to kvalte hans hulken stemmen. »Som om han har et ben siddende i halsen,« bemærkede Griffen og begyndte at ruske ham og banke ham på ryggen. Til sidst kom hans stemme tilbage. Med tårerne strømmende ned ad kinderne fortsatte Den Falske Skildpadde:",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 4,
+      "before": "»Jo,« begyndte Gribben, »først stiller alle sig op langs kysten—«",
+      "after": "»Jo,« sagde Griffen, »først stiller I jer op på én række langs stranden —«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 6,
+      "before": "»_Det_ tager som regel et stykke tid,« afbrød Gribben.",
+      "after": "»_Det_ tager som regel et stykke tid,« afbrød Griffen.",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 7,
+      "before": "»—går man to skridt frem—«",
+      "after": "»— rykker I frem to gange —«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 8,
+      "before": "Gribben råbte: »Alle med en hummer som partner!«",
+      "after": "Griffen råbte: »Alle med en hummer som partner!«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 9,
+      "before": "»Naturligvis,« sagde Den Falske Skildpadde. »To skridt frem, vend dig mod din partner—«",
+      "after": "»Selvfølgelig,« sagde Den Falske Skildpadde. »Ryk frem to gange, dans på stedet over for jeres partner —«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 10,
+      "before": "Gribben fortsatte: »—byt hummer og gå tilbage i samme rækkefølge.«",
+      "after": "Griffen fortsatte: »—byt hummer og gå tilbage i samme rækkefølge.«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 11,
+      "before": "»Så, ved du,« fortsatte Den Falske Skildpadde, »kaster man—«",
+      "after": "»Og så,« fortsatte Den Falske Skildpadde, »kaster I —«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 12,
+      "before": "Gribben sprang op i luften og råbte: »Hummerne!«",
+      "after": "Griffen sprang op i luften og råbte: »Hummerne!«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 14,
+      "before": "»Svøm efter dem!« skreg Gribben.",
+      "after": "»Svøm efter dem!« skreg Griffen.",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 16,
+      "before": "Så højt, som den overhovedet kunne, råbte Gribben: »Byt hummer igen!«",
+      "after": "Så højt, som den overhovedet kunne, råbte Griffen: »Byt hummer igen!«",
+      "reason": "Correct mythological animal, choking idiom and dance instructions (two advances, not two steps; preserve initial one-line assertion corrected by Turtle)."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 21,
+      "before": "»Kom, lad os danse første figur!« sagde Den Falske Skildpadde til Gribben. »Vi klarer os uden hummerne. Hvem af os skal synge?«",
+      "after": "»Kom, lad os danse første figur!« sagde Den Falske Skildpadde til Griffen. »Vi klarer os uden hummerne. Hvem af os skal synge?«",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 22,
+      "before": "»Åh, det må _du_ gøre,« svarede Gribben. »Jeg kan ikke huske teksten.«",
+      "after": "»Åh, det må _du_ gøre,« svarede Griffen. »Jeg kan ikke huske teksten.«",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 23,
+      "before": "De begyndte at danse højtideligt rundt om Alice i cirkler og kom nogle gange for tæt på og trådte hende over tæerne. Deres forpoter svingede i takt, mens Den Falske Skildpadde sang følgende, meget langsomt og sørgmodigt:—",
+      "after": "De begyndte at danse højtideligt rundt om Alice i cirkler og kom nogle gange for tæt på og trådte hende over tæerne. Deres forpoter svingede i takt, mens Den Falske Skildpadde sang følgende, meget langsomt og sørgmodigt:",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 24,
+      "before": "»Kan du ikke gå lidt hurtigere?« sagde en hvilling til en snegl.\n»Der er et marsvin lige bag os, og det træder mig på min hale.\nSe, hvor ivrigt alle hummere og skildpadder går frem!\nDe venter nede på stranden — vil du ikke komme med og danse?\nVil du, vil du ikke, vil du, vil du ikke, vil du være med til dansen?\nVil du, vil du ikke, vil du, vil du ikke, vil du ikke være med til dansen?",
+      "after": "»Kan du ikke gå lidt hurtigere?« sagde en hvilling til en snegl.\n»Der er et marsvin lige bag os, og det træder mig på halen.\nSe, hvor ivrigt alle hummere og skildpadder går frem!\nDe venter på stenstranden — vil du ikke komme med og danse?\nVil du, vil du ikke, vil du, vil du ikke, vil du være med til dansen?\nVil du, vil du ikke, vil du, vil du ikke, vil du ikke være med til dansen?",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 26,
+      "before": "»Hvad gør det, hvor langt vi kommer?« svarede hans skællede ven.\n»Der er en anden kyst, ved du, på den anden side.\nJo længere fra England, jo nærmere Frankrig —\nSå bliv ikke bleg, kære snegl, men kom og vær med til dansen.\nVil du, vil du ikke, vil du, vil du ikke, vil du være med til dansen?\nVil du, vil du ikke, vil du, vil du ikke, vil du ikke være med til dansen?«",
+      "after": "»Hvad gør det, hvor langt vi kommer?« svarede hans skællede ven.\n»På den anden side er der jo en anden kyst.\nJo længere fra England, jo nærmere Frankrig —\nSå bliv ikke bleg, kære snegl, men kom og vær med til dansen.\nVil du, vil du ikke, vil du, vil du ikke, vil du være med til dansen?\nVil du, vil du ikke, vil du, vil du ikke, vil du ikke være med til dansen?«",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 28,
+      "before": "»Åh, om hvillinger,« sagde Den Falske Skildpadde. »De — du har selvfølgelig set dem?«",
+      "after": "»Åh, apropos hvillinger,« sagde Den Falske Skildpadde, »de — du har selvfølgelig set dem?«",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 32,
+      "before": "»Du tager fejl med raspen,« sagde Den Falske Skildpadde til hende. »Havet ville vaske den af. Men deres haler _er_ i munden, fordi—« Han gabte og lukkede øjnene. »Forklar hende grunden og resten,« sagde han til Gribben.",
+      "after": "»Du tager fejl med raspen,« sagde Den Falske Skildpadde til hende. »Havet ville vaske den af. Men deres haler _er_ i munden, fordi—« Han gabte og lukkede øjnene. »Forklar hende grunden og resten,« sagde han til Griffen.",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 33,
+      "before": "»Det er, fordi de _insisterede_ på at gå til dans med hummerne,« forklarede Gribben. »Så blev de kastet i havet. Så faldt de et langt stykke. Så satte deres haler sig fast i munden. Så kunne de ikke få dem ud igen. Det er alt, hvad der er at sige om det.«",
+      "after": "»Det er, fordi de _insisterede_ på at gå til dans med hummerne,« forklarede Griffen. »Så blev de kastet i havet. Så faldt de et langt stykke. Så satte deres haler sig fast i munden. Så kunne de ikke få dem ud igen. Det er alt, hvad der er at sige om det.«",
+      "reason": "Correct animal name and natural idiom; preserve shingle beach in faithful verse draft pending literary polishing."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 35,
+      "before": "»Jeg kan fortælle dig mere, hvis du vil,« tilbød Gribben. »Ved du, hvorfor de hedder hvillinger?«",
+      "after": "»Jeg kan fortælle dig mere, hvis du vil,« tilbød Griffen. »Ved du, hvorfor de hedder hvillinger?«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 37,
+      "before": "Meget højtideligt svarede Gribben: »_De hvider støvler og sko._«",
+      "after": "Meget højtideligt svarede Griffen: »_De hvider støvler og sko_.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 39,
+      "before": "»Nå, hvad gør de ved _dine_ sko?« spurgte Gribben. »Jeg mener, hvad får dem til at skinne?«",
+      "after": "»Nå, hvad gør de ved _dine_ sko?« spurgte Griffen. »Jeg mener, hvad får dem til at skinne?«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 41,
+      "before": "Med dyb stemme fortsatte Gribben: »Støvler og sko under vand bliver hvidet med en hvilling. Nu ved du det.«",
+      "after": "Med dyb stemme fortsatte Griffen: »Støvler og sko under vand bliver hvidet med en hvilling. Nu ved du det.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 43,
+      "before": "»Tunger og ål, naturligvis,« svarede Gribben lidt utålmodigt. »Enhver reje kunne have sagt dig det.«",
+      "after": "»Tunger og ål, naturligvis,« svarede Griffen lidt utålmodigt. »Enhver reje kunne have sagt dig det.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 49,
+      "before": "»Jeg mener præcis, hvad jeg siger,« svarede Den Falske Skildpadde fornærmet. Gribben føjede til: »Og nu, fortæl os om nogle af _dine_ eventyr.«",
+      "after": "»Jeg mener præcis, hvad jeg siger,« svarede Den Falske Skildpadde fornærmet. Griffen føjede til: »Og nu, fortæl os om nogle af _dine_ eventyr.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 50,
+      "before": "»Jeg kunne fortælle, hvad der er sket mig siden i morges,« foreslog Alice lidt generet. »Men det nytter ikke at begynde med i går, for dengang var jeg en anden.«",
+      "after": "»Jeg kunne fortælle, hvad der er sket mig siden i morges,« foreslog Alice lidt genert. »Men det nytter ikke at begynde med i går, for dengang var jeg en anden.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 52,
+      "before": "»Nej, nej! Eventyrene først,« sagde Gribben utålmodigt. »Forklaringer tager så frygtelig lang tid.«",
+      "after": "»Nej, nej! Eventyrene først,« sagde Griffen utålmodigt. »Forklaringer tager så frygtelig lang tid.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 53,
+      "before": "Alice begyndte sin historie med det øjeblik, hun havde set Den Hvide Kanin. Først var hun nervøs: de to dyr trængte tæt ind på, et på hver side, med øjne og munde åbne _så_ vidt. Men efterhånden som hun fortalte, blev hun modigere. Hendes tilhørere lyttede uden en lyd, til hun beskrev, hvordan hun havde reciteret »_Du er gammel, Far William_« for Larven og opdaget, at alle ordene kom ud anderledes. Så tog Den Falske Skildpadde et langt åndedrag og sagde: »Det er meget mærkeligt.«",
+      "after": "Alice begyndte sin historie med det øjeblik, hun havde set Den Hvide Kanin. Først var hun nervøs: de to dyr trængte tæt ind på, et på hver side, med øjne og munde spærret _så_ meget op. Men efterhånden som hun fortalte, blev hun modigere. Hendes tilhørere lyttede uden en lyd, til hun beskrev, hvordan hun havde fremsagt »_Du er gammel, far William_« for Larven og opdaget, at alle ordene kom ud anderledes. Så tog Den Falske Skildpadde et langt åndedrag og sagde: »Det er meget mærkeligt.«",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 54,
+      "before": "»Det hele er så mærkeligt, som det overhovedet kan være,« bemærkede Gribben.",
+      "after": "»Det hele er så mærkeligt, som det overhovedet kan være,« bemærkede Griffen.",
+      "reason": "Natural Danish, correct shy versus bothered, emphasis and consistent names; phonetic jokes still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 55,
+      "before": "»Alle ordene kom ud anderledes!« gentog Den Falske Skildpadde eftertænksomt. »Jeg vil gerne høre hende prøve at recitere noget nu. Sig til hende, at hun skal begynde.« Han så hen på Gribben, som om den havde nogen myndighed over Alice.",
+      "after": "»Alle ordene kom ud anderledes!« gentog Den Falske Skildpadde eftertænksomt. »Jeg vil gerne høre hende prøve at fremsige noget nu. Sig til hende, at hun skal begynde.« Han så hen på Griffen, som om han mente, den havde en slags myndighed over Alice.",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 56,
+      "before": "Gribben befalede: »Stå op og recitér ›_Det er den dovnes stemme_‹.«",
+      "after": "»Rejs dig og fremsig ‘_Det er den dovnes stemme_,’« sagde Griffen.",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 58,
+      "before": "»Det er Hummerens stemme, jeg hørte ham erklære:\n›I har bagt mig for brun, nu må jeg sukre mit hår.‹\nSom anden med øjenlåg, så han med sin næse\nRetter bælte og knapper og vender tæerne ud.«",
+      "after": "»Det er Hummerens stemme; jeg hørte ham sige:\n‘I har bagt mig for brun, jeg må sukre mit hår.’\nSom en and med sine øjenlåg retter han med sin næse\nsit bælte og sine knapper og drejer tæerne ud.«",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 59,
+      "before": "Når sandet er tørt, er han glad som en lærke,\nOg taler med foragt i stemmen om Hajen,\nMen når tidevandet stiger og hajerne er nær,\nLyder hans stemme frygtsomt og dirrende.",
+      "after": "Når sandet er tørt, er han glad som en lærke,\nOg taler med foragt i stemmen om Hajen,\nMen når tidevandet stiger og hajerne er nær,\nLyder hans stemme frygtsom og dirrende.",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 60,
+      "before": "»Det er ikke det, _jeg_ plejede at sige op som barn,« sagde Gribben.",
+      "after": "»Det er ikke det, _jeg_ plejede at sige op som barn,« sagde Griffen.",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 64,
+      "before": "»Hun kan ikke forklare det,« sagde Gribben hurtigt. »Fortsæt med næste vers.«",
+      "after": "»Hun kan ikke forklare det,« sagde Griffen hurtigt. »Fortsæt med næste vers.«",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 65,
+      "before": "Den Falske Skildpadde blev ved: »Men de tæer? Hvordan _kunne_ han dreje dem ud med næsen, ved du?«",
+      "after": "Den Falske Skildpadde blev ved: »Men de tæer? Hvordan _kunne_ han dreje dem ud med næsen, siger du?«",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 67,
+      "before": "»Fortsæt med næste vers,« sagde Gribben utålmodigt. »Det begynder: ›_Jeg gik forbi hans have_.‹«",
+      "after": "»Fortsæt med næste vers,« sagde Griffen utålmodigt. »Det begynder: ›_Jeg gik forbi hans have_.‹«",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 69,
+      "before": "»Jeg gik forbi hans have og så med det ene øje,\nHvordan Uglen og Pantheren delte en tærte —«",
+      "after": "»Jeg gik forbi hans have og så med det ene øje,\nHvordan Uglen og Panteren delte en tærte —«",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 70,
+      "before": "Pantheren tog skorpe og sovs og kød,\nMens Uglen fik fadet som sin del af festen.\nDa tærten var spist, fik Uglen som en gave\nLov til venligt at putte skeen i lommen:\nMens Pantheren fik kniv og gaffel med et knur\nOg afsluttede festmåltidet —",
+      "after": "Panteren tog tærteskorpe og sovs og kød,\nmens Uglen fik fadet som sin del af festen.\nDa tærten var spist, fik Uglen som en særlig gunst\nvenligst lov til at stikke skeen i lommen,\nmens Panteren tog imod kniv og gaffel med en knurren\nog sluttede festmåltidet —",
+      "reason": "Natural grammar and spelling, faithful absurd images; verse rhythm/rhyme still pending literary pass."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 71,
+      "before": "»Hvad er _meningen_ med at remse alt det her op,« afbrød Den Falske Skildpadde, »hvis du ikke forklarer hvert stykke, mens du går? _Jeg_ har aldrig hørt noget, der var næsten så forvirrende!«",
+      "after": "»Hvad _nytter_ det at fremsige alt det,« afbrød Den Falske Skildpadde, »hvis du ikke forklarer det undervejs? Det er langt det mest forvirrende, _jeg_ nogensinde har hørt!«",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 72,
+      "before": "»Ja, du må hellere holde op,« sagde Gribben. Alice var kun alt for glad for at adlyde.",
+      "after": "»Ja, du må hellere holde op,« sagde Griffen. Alice var kun alt for glad for at adlyde.",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 73,
+      "before": "Gribben fortsatte: »Skal vi danse endnu en figur af Hummerkadrillen? Eller vil du hellere have en sang af Den Falske Skildpadde?«",
+      "after": "Griffen fortsatte: »Skal vi danse endnu en figur af Hummerkadrillen? Eller vil du hellere have en sang af Den Falske Skildpadde?«",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 74,
+      "before": "»Åh, en sang, tak, hvis Den Falske Skildpadde vil være så venlig,« svarede Alice så ivrigt, at Gribben lød ret fornærmet. »Hm! Smag og behag! Syng ›_Skildpaddesuppe_‹ for hende, vil du ikke, gamle dreng?«",
+      "after": "»Åh, en sang, tak, hvis Den Falske Skildpadde vil være så venlig,« svarede Alice så ivrigt, at Griffen lød ret fornærmet. »Hm! Smag og behag! Syng ›_Skildpaddesuppe_‹ for hende, vil du ikke, gamle ven?«",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 76,
+      "before": "»Dejlige Suppe, så tyk og grøn,\nSom venter i varm terrin!\nHvem ville ikke bukke sig for sådan lækkeri?\nAftenens suppe, dejlige Suppe!\nAftenens suppe, dejlige Suppe!\n    Dej—ejlige Su—uppe!\n    Dej—ejlige Su—uppe!\nSu—uppe om a—a—ftenen,\n    Dejlige, dejlige Suppe!",
+      "after": "»Dejlige Suppe, så tyk og grøn,\nSom venter i en varm terrin!\nHvem ville ikke bukke sig for sådan en lækkerbisken?\nAftenens suppe, dejlige Suppe!\nAftenens suppe, dejlige Suppe!\n    Dej—ejlige Su—uppe!\n    Dej—ejlige Su—uppe!\nSu—uppe om a—a—ftenen,\n    Dejlige, dejlige Suppe!",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 77,
+      "before": "»Dejlige Suppe! Hvem bryder sig om fisk,\nVildt eller nogen anden ret?\nHvem ville ikke give alt andet for blot to pennys dejlig Suppe?\nBlot to pennys dejlig Suppe?\n    Dej—ejlige Su—uppe!\n    Dej—ejlige Su—uppe!\nSu—uppe om a—a—ftenen,\n    Dejlige, dejli—GE SUPPE!«",
+      "after": "»Dejlige Suppe! Hvem bryder sig om fisk,\nVildt eller nogen anden ret?\nHvem ville ikke give alt andet for dejlig Suppe for bare to pence?\nDejlig Suppe for bare en penny?\n    Dej—ejlige Su—uppe!\n    Dej—ejlige Su—uppe!\nSu—uppe om a—a—ftenen,\n    Dejlige, dejli—GE SUPPE!«",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 78,
+      "before": "»Omkvædet igen!« råbte Gribben. Den Falske Skildpadde var knap begyndt at gentage det, da et råb lød i det fjerne: »Retssagen begynder!«",
+      "after": "»Omkvædet igen!« råbte Griffen. Den Falske Skildpadde var knap begyndt at gentage det, da et råb lød i det fjerne: »Retssagen begynder!«",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 79,
+      "before": "»Kom nu!« råbte Gribben, greb Alice i hånden og skyndte sig af sted uden at vente på, at sangen blev færdig.",
+      "after": "»Kom nu!« råbte Griffen, greb Alice i hånden og skyndte sig af sted uden at vente på, at sangen blev færdig.",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 10,
+      "paragraph": 80,
+      "before": "»Hvilken retssag?« spurgte Alice forpustet, mens hun løb. Men Gribben svarede bare: »Kom nu!« og løb endnu hurtigere. På brisen bag dem kom de sørgmodige ord, svagere og svagere:",
+      "after": "»Hvilken retssag?« spurgte Alice forpustet, mens hun løb. Men Griffen svarede bare: »Kom nu!« og løb endnu hurtigere. Brisen, der fulgte dem, bar de sørgmodige ord med sig, svagere og svagere:",
+      "reason": "Repair calques, source price distinction and modern grammar; verse polishing pending."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 1,
+      "before": "Da de kom frem, sad Hjerterkongen og Hjerterdronningen på deres trone, omgivet af en stor skare af alle slags små fugle og dyr og af hele kortspillet. Hjerterknægten stod foran dem i lænker, med en soldat på hver side som vagt. Ved siden af kongen stod Den Hvide Kanin med en trompet i den ene hånd og en pergamentrulle i den anden. Midt i retssalen stod et bord med et stort fad tærter. De så så lækre ud, at Alice blev sulten bare af at se på dem. »Gid de ville blive færdige med retssagen og række forfriskningerne rundt!« tænkte hun. Men det så ikke ud til at ske, så hun fordrev tiden med at se sig omkring.",
+      "after": "Da de kom frem, sad HjerterKongen og Hjerterdronningen på deres trone, omgivet af en stor skare af alle slags små fugle og dyr og af hele kortspillet. Hjerterknægten stod foran dem i lænker, med en soldat på hver side som vagt. Ved siden af kongen stod Den Hvide Kanin med en trompet i den ene hånd og en pergamentrulle i den anden. Midt i retssalen stod et bord med et stort fad tærter. De så så lækre ud, at Alice blev sulten bare af at se på dem. »Gid de ville blive færdige med retssagen og række forfriskningerne rundt!« tænkte hun. Men det så ikke ud til at ske, så hun fordrev tiden med at se sig omkring.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 4,
+      "before": "»Det må være nævningebænken,« tænkte Alice. »Og de tolv væsner må være nævninge.« (Hun var nødt til at sige »væsner«, ser du, for nogle var fugle og andre dyr.) Hun gentog »nævninge« for sig selv to eller tre gange, ret stolt over at kende ordet. Hun mente, helt rigtigt, at meget få piger på hendes alder vidste, hvad det betød. Men »jurymænd« ville have gjort lige så god fyldest.",
+      "after": "»Det må være nævningebænken,« tænkte Alice. »Og de tolv væsner må være nævninge.« (Hun var nødt til at sige »væsner«, ser du, for nogle var fugle og andre dyr.) Hun gentog »nævninge« for sig selv to eller tre gange, ret stolt over at kende ordet. Hun mente, helt rigtigt, at meget få piger på hendes alder vidste, hvad det betød. Men »jurymænd« ville have været lige så godt.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 5,
+      "before": "Alle tolv skrev travlt på tavler. »Hvad laver de?« hviskede Alice til Gribben. »Retssagen er jo ikke begyndt, så de kan ikke have noget at skrive endnu.«",
+      "after": "Alle tolv skrev travlt på tavler. »Hvad laver de?« hviskede Alice til Griffen. »Retssagen er jo ikke begyndt, så de kan ikke have noget at skrive endnu.«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 6,
+      "before": "Gribben hviskede tilbage: »De skriver deres navne ned, for at de ikke glemmer dem, før retssagen er slut.«",
+      "after": "Griffen hviskede tilbage: »De skriver deres navne ned, for at de ikke glemmer dem, før retssagen er slut.«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 7,
+      "before": "»Dumme ting!« begyndte Alice højt og forarget, men stoppede brat. Den Hvide Kanin havde råbt: »Ro i retten!«, og kongen tog sine briller på og søgte ængsteligt efter, hvem der talte.",
+      "after": "»Dumme væsner!« begyndte Alice højt og forarget, men hun tav hurtigt, for Den Hvide Kanin råbte: »Ro i retten!« Og Kongen tog sine briller på og så ængsteligt rundt for at finde ud af, hvem der talte.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 8,
+      "before": "Alice kunne se nævningene så tydeligt, som om hun kiggede dem over skulderen: alle skrev »dumme ting!« på en tavle. Hun kunne endda se, at en af dem ikke vidste, hvordan »dumme« staves, og måtte spørge sidemanden. »Sikke et rod de tavler bliver til sidst!« tænkte hun.",
+      "after": "Alice kunne se nævningene så tydeligt, som om hun kiggede dem over skulderen: alle skrev »dumme væsner!« på deres tavler. Hun kunne endda se, at en af dem ikke vidste, hvordan »dumme« staves, og måtte spørge sidemanden. »Sikke et rod de tavler bliver til sidst!« tænkte hun.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 9,
+      "before": "En nævnings blyant hvinede. Det kunne Alice naturligvis _ikke_ holde ud. Hun gik rundt i retssalen og stillede sig bag ham, og snart fik hun mulighed for at rive den væk. Hun var så hurtig, at den stakkels nævning — Firbenet Bill — ikke anede, hvad der var sket med den. Efter at have ledt overalt måtte han bruge resten af dagen på at skrive med en finger, hvilket var til ringe nytte, da det ikke satte noget mærke på tavlen.",
+      "after": "En nævnings blyant hvinede. Det kunne Alice naturligvis _ikke_ holde ud. Hun gik rundt i retssalen og stillede sig bag ham, og snart fik hun mulighed for at tage den fra ham. Hun var så hurtig, at den stakkels nævning — Firbenet Bill — ikke anede, hvad der var sket med den. Efter at have ledt overalt måtte han resten af dagen skrive med en finger, hvilket var til ringe nytte, da det ikke satte noget mærke på tavlen.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 12,
+      "before": "»Hjerterdronningen, hun bagte tærter,\n    en sommerdag så lang;\nHjerterknægten, han stjal de tærter\n    og tog dem alle sammen med sig!«",
+      "after": "»Hjerterdronningen bagte nogle tærter\n    en sommerdag;\nHjerterknægten stjal de tærter\n    og tog dem alle med sig!«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 13,
+      "before": "»Afsig jeres kendelse,« sagde kongen til nævningene.",
+      "after": "»Overvej jeres kendelse,« sagde Kongen til nævningene.",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 15,
+      "before": "»Kald det første vidne ind,« sagde kongen. Den Hvide Kanin blæste tre stød i trompeten og råbte: »Første vidne!«",
+      "after": "»Kald det første vidne ind,« sagde Kongen. Den Hvide Kanin blæste tre stød i trompeten og råbte: »Første vidne!«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 16,
+      "before": "Hattemageren var det første vidne. Han kom ind med en tekop i den ene hånd og smørrebrød i den anden. »Tilgiv mig, at jeg har dem med, Deres Majestæt,« begyndte han. »Jeg var ikke færdig med min te, da De sendte bud efter mig.«",
+      "after": "Hattemageren var det første vidne. Han kom ind med en tekop i den ene hånd og et stykke brød med smør i den anden. »Tilgiv mig, at jeg har dem med, Deres Majestæt,« begyndte han. »Jeg var ikke færdig med min te, da der blev sendt bud efter mig.«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 17,
+      "before": "»Du skulle have været færdig,« svarede kongen. »Hvornår begyndte du?«",
+      "after": "»Du skulle have været færdig,« svarede Kongen. »Hvornår begyndte du?«",
+      "reason": "Correct verdict instruction, source loaf versus Danish open sandwich, natural idiom and consistent character capitalization."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 18,
+      "before": "Hattemageren så hen på Marts-Haren, der var fulgt efter ham ind arm i arm med Syvsoveren. »Den fjortende marts, _tror_ jeg,« sagde han.",
+      "after": "Hattemageren så hen på Martsharen, der var fulgt efter ham ind arm i arm med Syvsoveren. »Den fjortende marts, _tror_ jeg,« sagde han.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 19,
+      "before": "Marts-Haren sagde: »Den femtende.«",
+      "after": "Martsharen sagde: »Den femtende.«",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 21,
+      "before": "»Skriv det ned,« sagde kongen til nævningene. Ivrigt skrev de alle tre datoer på deres tavler, lagde datoerne sammen og regnede resultatet om til shilling og pence.",
+      "after": "»Skriv det ned,« sagde Kongen til nævningene. Ivrigt skrev de alle tre datoer på deres tavler, lagde datoerne sammen og regnede resultatet om til shilling og pence.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 22,
+      "before": "»Tag din hat af,« befalede kongen Hattemageren.",
+      "after": "»Tag din hat af,« befalede Kongen Hattemageren.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 24,
+      "before": "»_Stjålet!_« råbte kongen og vendte sig mod nævningene, som straks noterede det som et faktum.",
+      "after": "»_Stjålet!_« råbte Kongen og vendte sig mod nævningene, som straks noterede det som et faktum.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 26,
+      "before": "Dronningen tog nu sine briller på og stirrede på Hattemageren. Han blev bleg og begyndte at fumle.",
+      "after": "Dronningen tog nu sine briller på og stirrede på Hattemageren. Han blev bleg og begyndte at bevæge sig uroligt.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 27,
+      "before": "»Afgiv din forklaring,« sagde kongen. »Og bliv ikke nervøs, ellers lader jeg dig henrette på stedet.«",
+      "after": "»Afgiv din forklaring,« sagde Kongen. »Og bliv ikke nervøs, ellers lader jeg dig henrette på stedet.«",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 28,
+      "before": "Det beroligede slet ikke vidnet. Han trippede hele tiden fra fod til fod og så urolig på dronningen. I sin forvirring tog han en stor bid af sin tekop i stedet for af sit smørrebrød.",
+      "after": "Det beroligede slet ikke vidnet. Han trippede hele tiden fra fod til fod og så uroligt på Dronningen. I sin forvirring tog han en stor bid af sin tekop i stedet for af sit brød med smør.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 31,
+      "before": "»Jeg kan ikke lade være,« svarede Alice spagfærdigt. »Jeg vokser.«",
+      "after": "»Jeg kan ikke gøre for det,« svarede Alice meget forsagt. »Jeg vokser.«",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 33,
+      "before": "Mere frimodigt svarede Alice: »Vær ikke fjollet. Du ved godt, at du også vokser.«",
+      "after": "»Lad være med at vrøvle,« svarede Alice mere modigt. »Du ved godt, at du også vokser.«",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 34,
+      "before": "»Jo, men _jeg_ vokser i en fornuftig hast,« sagde Syvsoveren, »ikke på den latterlige måde.« Surt rejste han sig og gik over til den anden side af retssalen.",
+      "after": "»Jo, men _jeg_ vokser i et fornuftigt tempo,« sagde Syvsoveren, »ikke på den latterlige måde.« Surt rejste den sig og gik over til den anden side af retssalen.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 35,
+      "before": "Dronningen havde stirret på Hattemageren hele tiden. Netop som Syvsoveren gik over retssalen, befalede hun en betjent: »Hent listen over sangerne fra den sidste koncert!« Den ulykkelige Hattemager begyndte at ryste så voldsomt, at begge hans sko rystede af.",
+      "after": "Dronningen havde stirret på Hattemageren hele tiden. Netop som Syvsoveren gik over retssalen, befalede hun en betjent: »Hent listen over sangerne fra den sidste koncert!« Den ulykkelige Hattemager begyndte at ryste så voldsomt, at han rystede begge skoene af sig.",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 37,
+      "before": "»Jeg er en fattig mand, Deres Majestæt,« begyndte Hattemageren skælvende. »Og jeg var kun lige begyndt på min te — ikke mere end en uges tid eller så — og med smørrebrødet, der blev så tyndt — og tes tindren —«",
+      "after": "»Jeg er en fattig mand, Deres Majestæt,« begyndte Hattemageren skælvende. »Og jeg var kun lige begyndt på min te — ikke mere end en uges tid eller så — og med brødet med smør, der blev så tyndt — og teens tindren —«",
+      "reason": "Correct calques, grammatical adverbs, consistent pronouns and character names; preserve strange testimony."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 38,
+      "before": "»Tindren af _hvad?_« forlangte kongen at vide.",
+      "after": "»_Hvad_ var det, der tindrede?« spurgte Kongen.",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 40,
+      "before": "»Selvfølgelig begynder tindren med T!« snerrede kongen. »Tror du, jeg er en tåbe? Fortsæt!«",
+      "after": "»Selvfølgelig begynder tindren med T!« snerrede Kongen. »Tror du, jeg er en tåbe? Fortsæt!«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 41,
+      "before": "Hattemageren fortsatte: »Jeg er en fattig mand, og efter det tindrede næsten alting — men Marts-Haren sagde —«",
+      "after": "Hattemageren fortsatte: »Jeg er en fattig mand, og efter det tindrede næsten alting — men Martsharen sagde —«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 42,
+      "before": "Marts-Haren afbrød hastigt: »Det gjorde jeg ikke!«",
+      "after": "Martsharen afbrød hastigt: »Det gjorde jeg ikke!«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 44,
+      "before": "Marts-Haren erklærede: »Jeg benægter det!«",
+      "after": "Martsharen erklærede: »Jeg benægter det!«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 45,
+      "before": "»Han benægter det,« bemærkede kongen. »Spring det stykke over.«",
+      "after": "»Han benægter det,« bemærkede Kongen. »Spring det stykke over.«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 46,
+      "before": "»Nå, i hvert fald sagde Syvsoveren —« fortsatte Hattemageren og så sig ængsteligt omkring for at se, om også han ville protestere. Men Syvsoveren protesterede ikke imod noget: han sov tungt.",
+      "after": "»Nå, i hvert fald sagde Syvsoveren —« fortsatte Hattemageren og så sig ængsteligt omkring for at se, om også den ville protestere. Men Syvsoveren protesterede ikke imod noget: den sov tungt.",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 47,
+      "before": "Hattemageren fortsatte: »Så skar jeg endnu en skive smørrebrød —«",
+      "after": "»Derefter,« fortsatte Hattemageren, »skar jeg noget mere brød med smør —«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 50,
+      "before": "»Du _skal_ huske det,« sagde kongen, »ellers bliver du henrettet.«",
+      "after": "»Du _skal_ huske det,« sagde Kongen, »ellers bliver du henrettet.«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 51,
+      "before": "Den elendige Hattemager tabte sin kop og sit smørrebrød og faldt på det ene knæ. »Deres Majestæt, jeg er en fattig mand,« begyndte han.",
+      "after": "Den stakkels Hattemager tabte sin kop og sit brød med smør og faldt på det ene knæ. »Deres Majestæt, jeg er en fattig mand,« begyndte han.",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 52,
+      "before": "»En _meget_ fattig _taler_, mener du,« svarede kongen.",
+      "after": "»Du er en _meget_ dårlig _taler_,« sagde Kongen.",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 55,
+      "before": "»Hvis det er alt, hvad du ved,« fortsatte kongen, »må du træde ned.«",
+      "after": "»Hvis det er alt, hvad du ved,« fortsatte Kongen, »må du træde ned.«",
+      "reason": "Modern grammar and natural register; preserve pun context for dedicated literary review."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 56,
+      "before": "»Jeg kan ikke komme nogen lavere ned,« svarede Hattemageren. »Jeg står allerede på gulvet.«",
+      "after": "»Jeg kan ikke komme længere ned,« svarede Hattemageren. »Jeg står allerede på gulvet.«",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 57,
+      "before": "»Så _sæt_ dig ned,« sagde kongen til ham.",
+      "after": "»Så _sæt_ dig ned,« sagde Kongen til ham.",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 59,
+      "before": "»Nå, så er det slut med marsvinene!« tænkte Alice. »Nu går det måske bedre.«",
+      "after": "»Nå, så er det slut med marsvinene!« tænkte Alice. »Nu kommer vi bedre videre.«",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 60,
+      "before": "»Jeg vil helst drikke min te færdig,« sagde Hattemageren og så ængsteligt på dronningen, mens hun læste listen over sangere.",
+      "after": "»Jeg vil helst drikke min te færdig,« sagde Hattemageren og så ængsteligt på Dronningen, mens hun læste listen over sangere.",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 61,
+      "before": "»Du kan gå,« sagde kongen. Hattemageren styrtede ud af retssalen uden engang at stoppe for at tage sine sko på igen.",
+      "after": "»Du kan gå,« sagde Kongen. Hattemageren styrtede ud af retssalen uden engang at stoppe for at tage sine sko på igen.",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 63,
+      "before": "»Før det næste vidne ind!« befalede kongen.",
+      "after": "»Før det næste vidne ind!« befalede Kongen.",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 65,
+      "before": "»Afgiv din forklaring,« befalede kongen.",
+      "after": "»Afgiv din forklaring,« befalede Kongen.",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 68,
+      "before": "»Nå, når jeg skal, så skal jeg,« sagde kongen modfaldent. Han krydsede armene og rynkede panden ad kokkepigen, til hans øjne næsten forsvandt. Så spurgte han med dyb stemme: »Hvad kommer der i tærter?«",
+      "after": "»Nå, når jeg skal, så skal jeg,« sagde Kongen modfaldent. Han krydsede armene og rynkede panden ad kokkepigen, til hans øjne næsten forsvandt. Så spurgte han med dyb stemme: »Hvad kommer der i tærter?«",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 71,
+      "before": "Dronningen hvinede: »Grib Syvsoveren! Skær hovedet af Syvsoveren! Smid Syvsoveren ud af retten! Undertryk ham! Knib ham! Skær hans knurhår af!«",
+      "after": "Dronningen hvinede: »Grib Syvsoveren! Skær hovedet af Syvsoveren! Smid Syvsoveren ud af retten! Undertryk den! Knib den! Skær dens knurhår af!«",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 11,
+      "paragraph": 73,
+      "before": "»Lad det være!« sagde kongen, tydeligt lettet. »Før det næste vidne ind.« Lavt føjede han til dronningen: »Min kære, nu må _du_ krydsforhøre dette vidne. Det giver mig ondt i panden!«",
+      "after": "»Pyt med det!« sagde Kongen, tydeligt lettet. »Før det næste vidne ind.« Lavt føjede han til Dronningen: »Min kære, nu må _du_ krydsforhøre det næste vidne. Det giver mig ondt i panden!«",
+      "reason": "Modern grammar, certainty, pronouns and precise next-witness reference."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 2,
+      "before": "»Åh, undskyld, jeg er _så_ ked af det!« råbte hun forskrækket og begyndte at samle dem op så hurtigt som muligt. Hun kunne ikke holde op med at tænke på guldfiskene og følte svagt, at hvis hun ikke tog nævningene op og satte dem tilbage i deres bænk med det samme, ville de dø.",
+      "after": "»Åh, undskyld, jeg er _så_ ked af det!« råbte hun forskrækket og begyndte at samle dem op så hurtigt som muligt. Hun kunne ikke holde op med at tænke på guldfiskene og havde en vag forestilling om, at hvis hun ikke tog nævningene op og satte dem tilbage i deres bænk med det samme, ville de dø.",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 3,
+      "before": "»Denne retssag kan ikke fortsætte,« erklærede kongen højtideligt, »før alle nævninge er på deres rette plads. _Alle_ nævninge,« gentog han eftertrykkeligt og rettede blikket mod Alice.",
+      "after": "»Denne retssag kan ikke fortsætte,« erklærede Kongen højtideligt, »før alle nævninge er på deres rette plads. _Alle_ nævninge,« gentog han eftertrykkeligt og rettede blikket mod Alice.",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 4,
+      "before": "Alice så på nævningebænken og opdagede, at hun i sin hast havde sat Firbenet ned med hovedet nedad. Det stakkels dyr kunne ikke røre sig og viftede sørgmodigt med halen. Hun trak det hurtigt op og satte det rigtigt. »Ikke at det gør den store forskel,« tænkte hun. »Det er sikkert _lige_ så brugbart for retssagen, uanset hvilken vej det vender.«",
+      "after": "Alice så på nævningebænken og opdagede, at hun i sin hast havde sat Firbenet ned med hovedet nedad. Det stakkels dyr kunne ikke røre sig og viftede sørgmodigt med halen. Hun trak det hurtigt op og satte det rigtigt. »Ikke at det gør den store forskel,« tænkte hun. »Det er sikkert _lige_ så nyttigt i retssagen, uanset hvilken vej det vender.«",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 5,
+      "before": "Så snart nævningene var kommet sig lidt over stødet fra deres fald, og deres tavler og blyanter var fundet og givet tilbage, gik de flittigt i gang med at skrive en beretning om ulykken. Kun Firbenet gjorde intet: han virkede for overvældet til andet end at sidde med åben mund og stirre op i retssalens loft.",
+      "after": "Så snart nævningene var kommet sig lidt over chokket over at være væltet ud, og deres tavler og blyanter var fundet og givet tilbage, gik de flittigt i gang med at skrive en beretning om ulykken. Kun Firbenet gjorde intet: det virkede for overvældet til andet end at sidde med åben mund og stirre op i retssalens loft.",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 8,
+      "before": "»Slet _ingenting?_« blev kongen ved.",
+      "after": "»Slet _ingenting_?« blev Kongen ved.",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 10,
+      "before": "Kongen vendte sig mod nævningene og sagde: »Det er meget vigtigt.« De var lige begyndt at skrive det ned på deres tavler, da Den Hvide Kanin afbrød. »Deres Majestæt mener naturligvis _u_vigtigt,« sagde han med stor respekt, selv om han rynkede panden og skar ansigter ad kongen, mens han talte.",
+      "after": "Kongen vendte sig mod nævningene og sagde: »Det er meget vigtigt.« De var lige begyndt at skrive det ned på deres tavler, da Den Hvide Kanin afbrød. »Deres Majestæt mener naturligvis _u_vigtigt,« sagde han med stor respekt, selv om han rynkede panden og skar ansigter ad Kongen, mens han talte.",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 11,
+      "before": "»Naturligvis mente jeg _u_vigtigt,« sagde kongen hurtigt. Så fortsatte han halvhøjt for sig selv:",
+      "after": "»Naturligvis mente jeg _u_vigtigt,« sagde Kongen hurtigt. Så fortsatte han halvhøjt for sig selv:",
+      "reason": "Natural idiom, precise shock and vague impression, consistent pronouns/capitalization."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 17,
+      "before": "»Jo, det er du,« svarede kongen.",
+      "after": "»Jo, det er du,« svarede Kongen.",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 20,
+      "before": "»Det er den ældste regel i bogen,« sagde kongen.",
+      "after": "»Det er den ældste regel i bogen,« sagde Kongen.",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 22,
+      "before": "Kongen blev bleg og lukkede hurtigt sin notesbog. Med lav, usikker stemme sagde han til nævningene: »Afsig jeres kendelse.«",
+      "after": "Kongen blev bleg og lukkede hurtigt sin notesbog. Med lav, skælvende stemme sagde han til nævningene: »Overvej jeres kendelse.«",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 26,
+      "before": "»Det må det jo være,« sagde kongen, »medmindre han har skrevet det til ingen, og det er jo usædvanligt, ved I.«",
+      "after": "»Det må det have været,« sagde Kongen, »medmindre det var skrevet til ingen, og det er jo ikke almindeligt.«",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 31,
+      "before": "»Han må have efterlignet en andens håndskrift,« erklærede kongen. (Nævningene så alle glade ud igen.)",
+      "after": "»Han må have efterlignet en andens håndskrift,« erklærede Kongen. (Nævningene så alle glade ud igen.)",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 33,
+      "before": "»At du ikke har skrevet under, gør det kun værre,« svarede kongen. »Du _må_ have haft ugagn i sinde, ellers havde du sat dit navn under, som en ærlig mand ville have gjort.«",
+      "after": "»At du ikke har skrevet under, gør det kun værre,« svarede Kongen. »Du _må_ have været ude på noget skummelt, ellers havde du sat dit navn under, som en ærlig mand ville have gjort.«",
+      "reason": "Restore consider-verdict instruction and modern natural language."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 34,
+      "before": "Alle i retssalen klappede højt ved det: det var den første virkelig kloge bemærkning, kongen havde fremsat hele dagen.",
+      "after": "Alle i retssalen klappede højt ved det: det var den første virkelig kloge bemærkning, Kongen havde fremsat hele dagen.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 35,
+      "before": "»Det _beviser_, at han er skyldig,« forkyndte dronningen.",
+      "after": "»Det _beviser_, at han er skyldig,« forkyndte Dronningen.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 36,
+      "before": "»Det beviser slet ikke noget!« indvendte Alice. »I har jo ikke engang fundet ud af, hvad versene handler om!«",
+      "after": "»Det beviser slet ikke, at han er skyldig!« indvendte Alice. »I har jo ikke engang fundet ud af, hvad versene handler om!«",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 37,
+      "before": "»Læs dem højt,« befalede kongen.",
+      "after": "»Læs dem højt,« befalede Kongen.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 39,
+      "before": "»Begynd ved begyndelsen,« sagde kongen højtideligt, »og fortsæt, til du når enden. Så holder du op.«",
+      "after": "»Begynd ved begyndelsen,« sagde Kongen højtideligt, »og fortsæt, til du når enden. Så holder du op.«",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 42,
+      "before": "Han sendte dem besked om, at jeg ikke var gået\n    (Vi ved, det er sandt):\nHvis hun vil drive sagen videre,\n    hvad bliver der så af dig?",
+      "after": "Han sendte dem besked om, at jeg ikke var gået\n    (Vi ved, det er sandt):\nHvis hun vil føre sagen videre,\n    hvad bliver der så af dig?",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 43,
+      "before": "Jeg gav hende en, de gav ham to,\n    du gav os tre eller flere;\nDe vendte alle fra ham til dig,\n    skønt de var mine før.",
+      "after": "Jeg gav hende en, de gav ham to,\n    du gav os tre eller flere;\nDe kom alle tilbage fra ham til dig,\n    skønt de var mine før.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 44,
+      "before": "Hvis jeg eller hun skulle komme\n    til at blande os i sagen,\nstoler han på, at du sætter dem fri,\n    præcis som vi var.",
+      "after": "Hvis jeg eller hun tilfældigvis\n    skulle blive indblandet i sagen,\nstoler han på, at du sætter dem fri,\n    præcis som vi var.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 47,
+      "before": "Kongen gned sine hænder og sagde: »Det er det vigtigste bevis, vi hidtil har hørt. Så nu kan juryen —«",
+      "after": "Kongen gned sine hænder og sagde: »Det er det vigtigste bevis, vi hidtil har hørt. Så nu kan nævningene —«",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 49,
+      "before": "Alle jurymedlemmerne skrev på deres tavle: »_Hun_ synes ikke, der er den mindste smule mening i det.« Ingen forsøgte dog at forklare papiret.",
+      "after": "Alle nævningene skrev på deres tavler: »_Hun_ synes ikke, der er den mindste smule mening i det.« Ingen forsøgte dog at forklare papiret.",
+      "reason": "Preserve denied proposition, returned objects and passive involvement rather than volunteering; consistent legal term."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 52,
+      "before": "»Så langt så godt,« sagde Kongen og fortsatte med at mumle over digtet. »›_Vi ved, det er sandt_ —‹ det betyder tydeligvis juryen. ›_Jeg gav hende en, de gav ham to_ —‹ jamen, det må jo beskrive, hvad han gjorde med tærterne —«",
+      "after": "»Så langt så godt,« sagde Kongen og fortsatte med at mumle over digtet. »›_Vi ved, det er sandt_ —‹ det betyder tydeligvis nævningene. ›_Jeg gav hende en, de gav ham to_ —‹ jamen, det må jo beskrive, hvad han gjorde med tærterne —«",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 53,
+      "before": "Alice indvendte: »Men næste stykke siger ›_de vendte alle tilbage fra ham til dig_‹.«",
+      "after": "»Men der står videre: ‘_De kom alle tilbage fra ham til dig_,’« sagde Alice.",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 57,
+      "before": "»Det er et ordspil!« tilføjede han fornærmet, og alle lo. For måske tyvende gang den dag sagde Kongen: »Lad juryen afgive sin kendelse.«",
+      "after": "»Det er et ordspil!« tilføjede Kongen fornærmet, og alle lo. »Lad nævningene overveje deres kendelse,« sagde han for omkring tyvende gang den dag.",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 60,
+      "before": "Dronningen blev lilla i hovedet og befalede: »Vær stille!«",
+      "after": "Dronningen blev lilla i hovedet og befalede: »Hold mund!«",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 63,
+      "before": "»Hvem bekymrer sig om jer?« sagde Alice. (Nu var hun nået op i sin fulde højde.) »I er jo bare et spil kort!«",
+      "after": "»Hvem tager sig af jer?« sagde Alice. (Nu var hun vokset til sin fulde størrelse.) »I er jo bare et spil kort!«",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 64,
+      "before": "Ved de ord fløj hele kortspillet op i luften og styrtede ned mod hende. Alice udstødte et lille skrig, halvt af skræk og halvt af vrede, og forsøgte at slå dem væk. Så opdagede hun, at hun lå på skrænten med hovedet i sin søsters skød. Hendes søster strøg forsigtigt døde blade væk fra Alices ansigt, hvor de var faldet ned fra træerne.",
+      "after": "Ved de ord fløj hele kortspillet op i luften og styrtede ned mod hende. Alice udstødte et lille skrig, halvt af skræk og halvt af vrede, og forsøgte at slå dem væk. Så opdagede hun, at hun lå på bredden med hovedet i sin søsters skød. Hendes søster strøg forsigtigt visne blade væk fra Alices ansigt, hvor de var faldet ned fra træerne.",
+      "reason": "Correct court instruction, natural idiom, synchronized poem quotation and opening location."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 65,
+      "before": "»Vågn op, kære Alice!« sagde hendes søster. »Sikke en lang søvn, du har haft!«",
+      "after": "»Vågn op, kære Alice!« sagde hendes søster. »Hvor har du dog sovet længe!«",
+      "reason": "Repair grammatical possessive and invalid verb, retain suppressed-word echo and natural modern phrasing."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 67,
+      "before": "Hendes søster blev siddende, hvor Alice havde forladt hende, med hovedet hvilende på hånden, og så solen gå ned. Hun tænkte på den lille Alice og hendes vidunderlige eventyr, indtil hun selv til sidst på sin vis begyndte at drømme. Og dette var den drøm, hun havde:—",
+      "after": "Hendes søster blev siddende, hvor Alice havde forladt hende, med hovedet hvilende på hånden, og så solen gå ned. Hun tænkte på den lille Alice og hendes vidunderlige eventyr, indtil hun selv til sidst på sin vis begyndte at drømme. Og dette var den drøm, hun havde:",
+      "reason": "Repair grammatical possessive and invalid verb, retain suppressed-word echo and natural modern phrasing."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 69,
+      "before": "Det høje græs ved hendes fødder raslede, da Den Hvide Kanin skyndte sig forbi. Den forskrækkede Mus plaskede gennem dammen i nærheden. Hun hørte tekopper klirre, mens Marts-Haren og hans venner fortsatte deres endeløse måltid, og Dronningens gennemtrængende stemme sendte uheldige gæster til henrettelse. Endnu en gang nyste grisebarnet i Hertuginden skød, mens tallerkener og fade knustes rundt om det. Gribbens skrig, knirken fra Firbenets griffel og kvælningslydene fra de nedkæmpede marsvin fyldte luften igen og blandede sig med den ulykkelige Falske Skildpaddes fjerne hulken.",
+      "after": "Det høje græs ved hendes fødder raslede, da Den Hvide Kanin skyndte sig forbi. Den forskrækkede Mus plaskede gennem dammen i nærheden. Hun hørte tekopper klirre, mens Martsharen og hans venner fortsatte deres endeløse måltid, og Dronningens gennemtrængende stemme sendte uheldige gæster til henrettelse. Endnu en gang nyste grisebarnet i Hertugindens skød, mens tallerkener og fade knustes rundt om det. Griffens skrig, knirken fra Firbenets griffel og kvælningslydene fra de undertrykte marsvin fyldte luften igen og blandede sig med den ulykkelige Falske Skildpaddes fjerne hulken.",
+      "reason": "Repair grammatical possessive and invalid verb, retain suppressed-word echo and natural modern phrasing."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 70,
+      "before": "Hun blev siddende med lukkede øjne og troede halvt om halvt, at hun var i Eventyrland. Alligevel vidste hun, at hvis hun åbnede dem, ville alt blive til almindelig, kedelig virkelighed igen: græsset ville kun rasle i vinden, og dammen ville kun krusle, fordi sivene svajede. De klirrende tekopper ville blive til klingende fåreklokker og Dronningens skingre skrig til hyrdedrengens stemme. Babyens nys, Gribbens skrig og alle de andre mærkelige lyde ville, vidste hun, blive til den blandede larm fra en travl gård. Kvæget, der brølede langt væk, ville træde i stedet for Den Falske Skildpaddes tunge hulken.",
+      "after": "Hun blev siddende med lukkede øjne og troede halvt om halvt, at hun var i Eventyrland. Alligevel vidste hun, at hvis hun åbnede dem, ville alt blive til almindelig, kedelig virkelighed igen: græsset ville kun rasle i vinden, og dammen ville kun kruse, fordi sivene svajede. De klirrende tekopper ville blive til klingende fåreklokker og Dronningens skingre skrig til hyrdedrengens stemme. Babyens nys, Griffens skrig og alle de andre mærkelige lyde ville, vidste hun, blive til den blandede larm fra en travl gård. Kvæget, der brølede langt væk, ville træde i stedet for Den Falske Skildpaddes tunge hulken.",
+      "reason": "Repair grammatical possessive and invalid verb, retain suppressed-word echo and natural modern phrasing."
+    },
+    {
+      "chapter": 12,
+      "paragraph": 71,
+      "before": "Til sidst forestillede hun sig, hvordan Alice, hendes lillesøster, en dag ville være en voksen kvinde, der gennem alle sine voksne år bevarede sin barndoms enkle, kærlige hjerte. Hun forestillede sig den voksne Alice samle andre små børn om sig og få _deres_ øjne til at skinne af iver ved mange en mærkelig historie — måske endda den fjerne drøm om Eventyrland. Hun forestillede sig, hvordan hun delte deres enkle sorger og glædede sig over deres enkle glæder og mindedes sin egen barndom og de lykkelige sommerdage.",
+      "after": "Til sidst forestillede hun sig, hvordan Alice, hendes lillesøster, en dag ville være en voksen kvinde, der gennem alle sine voksne år bevarede sin barndoms enkle, kærlige hjerte. Hun forestillede sig den voksne Alice samle andre små børn om sig og få _deres_ øjne til at skinne af iver med mange mærkelige historier — måske endda den fjerne drøm om Eventyrland. Hun forestillede sig, hvordan hun delte deres enkle sorger og glædede sig over deres enkle glæder og mindedes sin egen barndom og de lykkelige sommerdage.",
+      "reason": "Repair grammatical possessive and invalid verb, retain suppressed-word echo and natural modern phrasing."
     }
   ],
   "englishChanges": [],
@@ -1448,10 +2541,99 @@
         101
       ],
       "note": "Dedicated literary revision required: time/beat/murder, Twinkle parody, draw water/draw pictures, well/well in, muchness and think/talk. Existing mylder adaptation loses abstract noun joke; do not consider final. Prose source comparison complete."
+    },
+    {
+      "chapter": 9,
+      "paragraphs": [
+        11,
+        19,
+        21,
+        55,
+        56,
+        57,
+        64,
+        65,
+        67,
+        69,
+        73,
+        74,
+        75,
+        77,
+        79,
+        82,
+        83,
+        88
+      ],
+      "note": "Literary pass required for proverb parodies, mine/min, deliberately tangled moral, Skolpadde, curriculum puns and lessons/lessen. Existing Derision and Græmmelse not acceptable modern child-facing final wording. Gryphon corrected from Gribbe to Grif, verified https://ordnet.dk/ddo/ordbog/grif. Keep author illustration reference; integration must confirm illustration available."
+    },
+    {
+      "chapter": 10,
+      "paragraphs": [
+        24,
+        25,
+        26,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        43,
+        45,
+        47,
+        48,
+        58,
+        59,
+        69,
+        70,
+        76,
+        77,
+        81
+      ],
+      "note": "Literary pass required for quadrille and soup songs/parodies, whiting/blacking, soles/eels, porpoise/purpose. All source details compared; existing Danish phonetic jokes mostly not functioning. Preserve exact stanza lines. Soup stanza distinction two pennyworth / pennyworth retained."
+    },
+    {
+      "chapter": 11,
+      "paragraphs": [
+        12,
+        37,
+        38,
+        39,
+        40,
+        41,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        71
+      ],
+      "note": "Literary pass: Queen rhyme, tea/T/twinkling, poor man/speaker and suppressed court jokes. Maintain jury arithmetic nonsense. Illustration reference in 11:3 requires integration availability check."
+    },
+    {
+      "chapter": 12,
+      "paragraphs": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "note": "Verse pronouns and exact quotations must remain synchronized in literary pass. Fits/fit pun currently absent in Danish; needs coordinated adaptation. Full prose source comparison complete; literary/native still pending."
     }
   ],
   "notes": [
-    "Chapters 1–8 fully compared with original; 471 paragraphs reviewed. Poetry and wordplay need dedicated literary review; remaining retained paragraphs not yet reviewed.",
+    "All 12 chapters/789 paragraphs source-compared. Literary revision of poems and wordplay remains active; not a completed editorial package yet.",
     "Preserve intentional arithmetic/geography errors, wordplay, italics, poetry stanza boundaries and historical setting. Native/independent review pending.",
     "Preparation only; Claude owns integration and release."
   ]
