@@ -197,7 +197,7 @@ import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderP
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
 import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
-import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, initialDesktopReaderLayout, storeDesktopReaderLayout } from './labDesktopLayout'
+import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
 import { accountLabPositionRecord, recentChapterPlace, type LabBookPlace, type LabReaderStateSnapshot } from './labPosition'
@@ -547,20 +547,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
   const layoutOverride = labLayoutOverride(path, search ?? (typeof window !== 'undefined' ? window.location.search : ''))
   const voiceVersion = 'v2'
-  const [isPhone, setIsPhone] = useState(() => readPhoneSurface(layoutOverride))
-  const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
-    const phone = readPhoneSurface(layoutOverride)
-    return readPhoneFooter(layoutOverride, phone)
-  })
   const [pageTurnAffordance, setPageTurnAffordance] = useState(() => readPageTurnAffordance(layoutOverride))
-  const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
-  // The full-screen call interface is Chrome V2, phone only. Every other
-  // surface keeps the conversation overlay it ships with, untouched.
-  // Chrome V2 models Talk as a call on both platforms: the reader's own
-  // `callOpen` intent, an anchor for their place, and one `LabCallView`. The
-  // phone draws it full screen; the desktop draws it in the companion panel
-  // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
-  const voicePanelSurface = !showPhoneChrome
   const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
   // Back from Checkout without paying: the buyer's own session is ended at once, so the
   // book is not held from other buyers until it lapses (the Worker checks it is theirs).
@@ -571,8 +558,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
   const { user: authUser, likelyAuthenticated } = useAuth()
   const privateBook = Boolean(userBook)
-  // The phone's margin mode on the phone reader: a registered book, and a reader's own book as Tinct's books (22 Oct 2026).
-  const marginPhone = (sharedReader || marginPhoneRequested) && showPhoneChrome
   // A reader's own PDF read as its Tinct text: Book editions also offers its Original pages.
   const ownPdf = userBook?.kind === 'pdf'
   // A user book opens at its own saved place (userBookStore.ts), never the
@@ -590,6 +575,40 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const boot = userBookBoot ?? bootLabReading(source)
   const [book, setBook] = useState<LabSource>(() => readerHandoff ? pendingLabSourceForHandoff(readerHandoff) : boot.book)
   const userBookEditionKey = userBookBoot ? userBookBoot.book.editions![0].key : null
+  // A phone held sideways and an iPad held upright read a Tinct book in the
+  // Margin reader (the desktop surface) when Margin is the book's layout
+  // (Anders, 4 Nov 2026; labDesktopLayout.readsMarginOnHandheld). Read at
+  // mount from the same inputs as the layout below, then on every resize.
+  const handheldMarginFor = (device: DesktopLayoutDevice, layout: DesktopReaderLayout, phoneCompare: boolean) =>
+    sharedReader && !userBook && layoutOverride === null && readsMarginOnHandheld(device, layout, phoneCompare)
+  const [initialHandheldMargin] = useState(() => {
+    if (typeof window === 'undefined' || !sharedReader || userBook || layoutOverride !== null) return false
+    const bookId = book.bookId || 'bible'
+    const savedMode = labBookSavedReaderMode(bookId)
+    const linked = readerHandoff ? deepLinkViewForPage() : null
+    const device = desktopLayoutDevice()
+    const layout = initialDesktopReaderLayout({ bookId, search: linked ? `?view=${linked}` : (search ?? window.location.search), savedMode, device })
+    const phoneCompare = initialLabCompareView({ profile: 'phone', stored: readStoredCompareView('phone', bookId), savedMode })
+    return handheldMarginFor(device, layout, phoneCompare)
+  })
+  const [handheldMargin, setHandheldMargin] = useState(initialHandheldMargin)
+  const [marginRoom, setMarginRoom] = useState(() => typeof window === 'undefined' ? undefined : marginReaderRoom(desktopLayoutDevice(), initialHandheldMargin))
+  const surfaceOverride = (handheld: boolean): ReturnType<typeof labLayoutOverride> => handheld ? 'desktop' : layoutOverride
+  const [isPhone, setIsPhone] = useState(() => readPhoneSurface(surfaceOverride(initialHandheldMargin)))
+  const [showPhoneChrome, setShowPhoneChrome] = useState(() => {
+    const phone = readPhoneSurface(surfaceOverride(initialHandheldMargin))
+    return readPhoneFooter(surfaceOverride(initialHandheldMargin), phone)
+  })
+  const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
+  // The full-screen call interface is Chrome V2, phone only. Every other
+  // surface keeps the conversation overlay it ships with, untouched.
+  // Chrome V2 models Talk as a call on both platforms: the reader's own
+  // `callOpen` intent, an anchor for their place, and one `LabCallView`. The
+  // phone draws it full screen; the desktop draws it in the companion panel
+  // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
+  const voicePanelSurface = !showPhoneChrome
+  // The phone's margin mode on the phone reader: a registered book, and a reader's own book as Tinct's books (22 Oct 2026).
+  const marginPhone = (sharedReader || marginPhoneRequested) && showPhoneChrome
   // Stored prefs keep the reader's own edition choices: a user book writes appearance only.
   const persistPrefs = useCallback((next: LabPrefs, profile: LabAppearanceProfile) => {
     if (!userBookEditionKey) { writeLabPrefs(next, profile); return }
@@ -691,18 +710,17 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDesktopCompareActive(layout === 'compare')
     setPrivateDesktopClassic(layout === 'two-page')
   }, [desktopLayoutBookId, sharedReader, userBook?.hex, userBook?.kind])
-  // A reader who has chosen no layout gets the default for the device as the
-  // desktop surface appears: an iPad opened upright (phone surface) reads
-  // Two-page once turned sideways. Called in the same batch that shows the
-  // desktop surface, so it mounts in that layout; any choice keeps winning.
-  const desktopDefaultOnSurfaceRef = useRef(() => {})
-  desktopDefaultOnSurfaceRef.current = () => {
-    if (!sharedReader) return
+  const desktopLayoutNow: DesktopReaderLayout = desktopCompareActive ? 'compare' : privateDesktopClassic ? 'two-page' : 'margin'
+  // The layout this device reads the book in now: the reader's choice for the
+  // book, else the device's default (an iPad turned sideways reads Two-page,
+  // turned upright Margin). The default is applied by `applyDeviceLayoutRef`;
+  // a choice decides only whether a handheld reads the Margin reader (the phone
+  // reader clears desktop Compare from state, so the choice is read from storage).
+  const deviceLayoutFor = (device: DesktopLayoutDevice): { layout: DesktopReaderLayout; chosen: boolean } => {
+    if (!sharedReader) return { layout: desktopLayoutNow, chosen: true }
     const search = deepLinkDesktopView ? `?view=${deepLinkDesktopView}` : (typeof window !== 'undefined' ? window.location.search : '')
-    if (chosenDesktopReaderLayout({ bookId: desktopLayoutBookId, search, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })) return
-    const layout = defaultDesktopReaderLayout()
-    setDesktopCompareActive(false)
-    setPrivateDesktopClassic(layout === 'two-page')
+    const chosen = chosenDesktopReaderLayout({ bookId: desktopLayoutBookId, search, kind: userBook?.kind, hex: userBook?.hex, savedMode: labBookSavedReaderMode(desktopLayoutBookId) })
+    return chosen ? { layout: chosen, chosen: true } : { layout: defaultDesktopReaderLayout(device), chosen: false }
   }
   useEffect(() => {
     if (deepLinkDesktopView) storeCompareView('desktop', compareViewBookId, deepLinkDesktopView === 'compare')
@@ -1762,6 +1780,54 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // positionSync.notePlace is the stable callback the hook returns.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userBook, placeWritesSuspended, positionSync.notePlace])
+  /** Shows another desktop layout at the reader's place: the incoming view opens at the word the outgoing one was at. */
+  const switchDesktopLayoutAtPlace = (layout: DesktopReaderLayout) => {
+    const classic = layout === 'two-page'
+    const compare = layout === 'compare'
+    const anchor = { ...placeRef.current }
+    chapterNavigationRef.current += 1
+    readerStateRef.current = { ...readerStateRef.current, readerMode: compare ? 'compare' : 'read' }
+    setDesktopCompareActive(compare)
+    setPrivateDesktopClassic(classic)
+    if (!classic && !compare) setContinuousAnchor(anchor)
+    else {
+      pageAnchorRef.current = anchor
+      restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
+    }
+    return anchor
+  }
+  // A reader who has chosen no layout reads the device's default as the device
+  // turns (deviceLayoutFor). Called from the surface sync in the same batch that
+  // sets the surface: when the desktop surface stays on screen (an iPad turned
+  // between Two-page and Margin), the incoming layout opens at the reader's
+  // place; when the desktop surface appears, it mounts in that layout.
+  const applyDeviceLayoutRef = useRef((_device: { layout: DesktopReaderLayout; chosen: boolean }, _desktopStays: boolean, _fromPhone: boolean) => {})
+  applyDeviceLayoutRef.current = ({ layout: deviceLayout, chosen }, desktopStays, fromPhone) => {
+    if (!sharedReader) return
+    const layout = chosen ? desktopLayoutNow : deviceLayout
+    // The Margin reader mounting as the phone reader goes (a phone turned
+    // sideways) opens at the phone's place, not the place the page opened at.
+    if (fromPhone && layout === 'margin') setContinuousAnchor({ ...placeRef.current })
+    if (layout === desktopLayoutNow) return
+    if (desktopStays) { switchDesktopLayoutAtPlace(layout); return }
+    setDesktopCompareActive(layout === 'compare')
+    setPrivateDesktopClassic(layout === 'two-page')
+  }
+  // The phone reader taking over from the Margin reader (a phone turned
+  // upright again) pages to the word the Margin reader was at: its own page
+  // anchor is still the one it had before the Margin reader scrolled on.
+  const phoneFromMarginRef = useRef(() => {})
+  phoneFromMarginRef.current = () => {
+    if (!sharedReader || desktopLayoutNow !== 'margin') return
+    const anchor = { ...placeRef.current }
+    pageAnchorRef.current = anchor
+    restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
+  }
+  const deviceLayoutRef = useRef(deviceLayoutFor)
+  deviceLayoutRef.current = deviceLayoutFor
+  const phoneCompareRef = useRef(mobileCompareActive)
+  phoneCompareRef.current = mobileCompareActive
+  const surfaceSyncRef = useRef(() => {})
   const chooseSharedDesktopLayout = (layout: 'margin' | 'two-page' | 'compare') => {
     if (layout === 'compare' && !desktopCompareEnabled) {
       if (desktopCompareChoiceAvailable) { setCompareFromLayout(true); setSuperSheet('compareEdition') }
@@ -1771,17 +1837,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const compare = layout === 'compare'
     storeDesktopReaderLayout(compareViewBookId, layout)
     if (privateDesktopClassic === classic && desktopCompareActive === compare) { setSuperSheet(null); return }
-    const anchor = { ...placeRef.current }
-    chapterNavigationRef.current += 1
-    readerStateRef.current = { ...readerStateRef.current, readerMode: compare ? 'compare' : 'read' }
     rememberCompareView(compare)
-    setDesktopCompareActive(compare)
-    setPrivateDesktopClassic(classic)
-    if (!classic && !compare) setContinuousAnchor(anchor)
-    else {
-      pageAnchorRef.current = anchor
-      restorePlaceRef.current = restoreTargetIn(anchor, labRestoreChapterKey(book.bookId, book.chapterNumber))
-    }
+    const anchor = switchDesktopLayoutAtPlace(layout)
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href)
       if (classic) url.searchParams.set('view', 'two-page')
@@ -2202,14 +2259,22 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (typeof window === 'undefined') return
     let phoneChrome: boolean | null = null
     const sync = () => {
-      const phone = readPhoneSurface(layoutOverride)
-      const nextPhoneChrome = readPhoneFooter(layoutOverride, phone)
-      if (phoneChrome === true && !nextPhoneChrome) desktopDefaultOnSurfaceRef.current()
+      const device = desktopLayoutDevice()
+      const deviceLayout = deviceLayoutRef.current(device)
+      const handheld = handheldMarginFor(device, deviceLayout.layout, phoneCompareRef.current)
+      const override = surfaceOverride(handheld)
+      const phone = readPhoneSurface(override)
+      const nextPhoneChrome = readPhoneFooter(override, phone)
+      if (!nextPhoneChrome) applyDeviceLayoutRef.current(deviceLayout, phoneChrome === false, phoneChrome === true)
+      else if (phoneChrome === false) phoneFromMarginRef.current()
       phoneChrome = nextPhoneChrome
+      setHandheldMargin(handheld)
+      setMarginRoom(marginReaderRoom(device, handheld))
       setIsPhone(phone)
       setShowPhoneChrome(nextPhoneChrome)
       setDesktopDefaultFontSize(labDesktopDefaultFontSize(window.innerWidth))
     }
+    surfaceSyncRef.current = sync
     sync()
     const mq = typeof window.matchMedia === 'function' ? window.matchMedia(PHONE_QUERY) : null
     mq?.addEventListener('change', sync)
@@ -2219,8 +2284,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       mq?.removeEventListener('change', sync)
       window.removeEventListener('resize', sync)
       window.removeEventListener('orientationchange', sync)
+      surfaceSyncRef.current = () => {}
     }
+  // handheldMarginFor and surfaceOverride read only props fixed for the page.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layoutOverride])
+  // A book switch, or Compare turned on or off on the phone, can move a
+  // handheld between the phone reader and the Margin reader.
+  useLayoutEffect(() => { surfaceSyncRef.current() }, [desktopLayoutNow, mobileCompareActive])
 
   const didBudgetPageRef = useRef(false)
   // Edition titles may differ for the same chapter. Treat only book/chapter
@@ -5947,7 +6018,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'editions', label: 'Book settings', key: 'e', enabled: canReadCommand, run: () => handleSuperMenuSelect('editions') },
       { id: 'original', label: 'Read original English', key: 'o', enabled: () => canReadCommand() && !!editionCommand('original'), run: () => { const e=editionCommand('original');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
       { id: 'modern', label: 'Read modern English', key: 'm', enabled: () => canReadCommand() && !!editionCommand('modern'), run: () => { const e=editionCommand('modern');if(e)updatePrefs({...prefs,primaryEdition:e.key,compareOpen:prefs.compareOpen && prefs.compareEdition!==e.key}) } },
-      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
+      { id: 'compare', label: 'Compare editions', key: 'x', enabled: () => canReadCommand() && !handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled), run: () => (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() },
       { id: 'books', label: 'Switch book', key: 'b', run: openBookSwitcher },
       { id: 'library', label: 'Open the library', key: 'l', run: () => handleSuperMenuSelect('library') },
       { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
@@ -6416,6 +6487,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       data-shared-reader={sharedReader ? 'true' : undefined}
       data-reading-scroll={readingScrollActive ? 'true' : undefined}
       data-continuous-reader={continuousReader ? 'true' : undefined}
+      data-margin-room={continuousReader ? marginRoom : undefined}
       data-page-turn-zones={pageTurnAffordance.tapZones === 'all' ? undefined : pageTurnAffordance.tapZones}
       data-theme={resolvedTheme}
       data-lab-layout={showPhoneChrome ? 'phone' : 'desktop'}
@@ -6634,7 +6706,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           editionRows={!privateBook || ownEditions}
           editions={bookEditions}
           audioEditions={matchingAudioEditions(prefs.primaryEdition, bookEditions).filter(edition => !isAudioHeld(book.bookId || 'bible', edition.key))}
-          compare={(showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
+          compare={!handheldMargin && (showPhoneChrome ? mobileCompareEnabled : desktopCompareEnabled)
             ? { active: showPhoneChrome ? mobileCompareActive : desktopCompareActive, onToggle: () => { setSuperSheet(null); (showPhoneChrome ? toggleMobileCompareByReader : toggleDesktopCompareByReader)() } }
             : null}
           margin={!showPhoneChrome && !userBook && marginPreviewOptedIn() && isMarginPreviewBook(getBook(book.bookId || 'bible'))
@@ -6645,7 +6717,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               } }
             : null}
           pdfSource={sharedReader && ownPdf ? {onOriginalPages:()=>openPdfPages()} : undefined}
-          readerLayout={sharedReader && !showPhoneChrome
+          readerLayout={sharedReader && !showPhoneChrome && !handheldMargin
             ? { active: desktopCompareActive ? 'compare' : continuousReader ? 'margin' : 'two-page',
                 compareAvailable: desktopCompareChoiceAvailable,
                 onChoose: chooseSharedDesktopLayout }

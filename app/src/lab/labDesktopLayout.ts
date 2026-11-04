@@ -22,7 +22,7 @@ export function storeDesktopReaderLayout(bookId: string, layout: DesktopReaderLa
 }
 
 /** What the browser says about the device, for the default layout (`desktopLayoutDevice` reads it now). */
-export type DesktopLayoutDevice = { userAgent?: string; platform?: string; maxTouchPoints?: number; landscape?: boolean }
+export type DesktopLayoutDevice = { userAgent?: string; platform?: string; maxTouchPoints?: number; landscape?: boolean; width?: number; screenShortSide?: number }
 
 /**
  * An iPad held sideways. iPadOS Safari reports a Mac user agent (and
@@ -43,16 +43,64 @@ export function desktopLayoutDevice(): DesktopLayoutDevice {
     platform: navigator.platform,
     maxTouchPoints: navigator.maxTouchPoints,
     landscape: window.innerWidth > window.innerHeight,
+    width: window.innerWidth,
+    ...(window.screen?.width > 0 && window.screen?.height > 0 ? { screenShortSide: Math.min(window.screen.width, window.screen.height) } : {}),
   }
+}
+
+/** The kinds of device the reader's default layout is decided for (Anders, 4 Nov 2026). */
+export type ReaderDeviceClass = 'desktop' | 'ipad-landscape' | 'ipad-portrait' | 'phone-landscape' | 'phone-portrait'
+
+/**
+ * A phone: an iPhone, an Android phone (an Android tablet leaves `Mobile` out
+ * of its user agent), or a touch screen whose short side is a phone's (at most
+ * 500 CSS px; the smallest iPad's is 744).
+ */
+function isPhoneDevice({ userAgent = '', maxTouchPoints = 0, screenShortSide }: DesktopLayoutDevice): boolean {
+  if (/iPhone|iPod/i.test(userAgent)) return true
+  if (/\bAndroid\b/.test(userAgent) && /\bMobile\b/.test(userAgent)) return true
+  return maxTouchPoints > 0 && typeof screenShortSide === 'number' && screenShortSide > 0 && screenShortSide <= 500
+}
+
+export function readerDeviceClass(device: DesktopLayoutDevice): ReaderDeviceClass {
+  if (isPhoneDevice(device)) return device.landscape ? 'phone-landscape' : 'phone-portrait'
+  if (isIpadLandscape({ ...device, landscape: true })) return device.landscape ? 'ipad-landscape' : 'ipad-portrait'
+  return 'desktop'
 }
 
 /**
  * The layout of a reader who has made no choice (Anders, 4 Nov 2026): the
- * Margin reader on the desktop for every kind of book; Two-page on an iPad in
- * landscape, where the spread is the open book in the hands.
+ * Margin reader on the desktop for every kind of book, on an iPad held upright
+ * and on a phone held sideways; Two-page on an iPad in landscape, where the
+ * spread is the open book in the hands. A phone upright reads the phone reader.
  */
 export function defaultDesktopReaderLayout(device: DesktopLayoutDevice = desktopLayoutDevice()): 'margin' | 'two-page' {
-  return isIpadLandscape(device) ? 'two-page' : 'margin'
+  return readerDeviceClass(device) === 'ipad-landscape' ? 'two-page' : 'margin'
+}
+
+/**
+ * The narrowest window each handheld reads the Margin reader in: an iPhone
+ * mini sideways (780 CSS px) and up, every iPad upright (744 and up). A smaller
+ * phone sideways, or an iPad window in Split View, keeps the phone reader.
+ */
+const HANDHELD_MARGIN_MIN_WIDTH = { 'phone-landscape': 740, 'ipad-portrait': 740 } as const
+
+/**
+ * Whether a handheld whose own surface is the phone reader reads the Margin
+ * reader instead (Anders, 4 Nov 2026): a phone held sideways and an iPad held
+ * upright, in the Margin layout only. A reader who chose Two-page or Compare
+ * for the book (or Compare on the phone) keeps the phone reader there, as before.
+ */
+export function readsMarginOnHandheld(device: DesktopLayoutDevice, layout: DesktopReaderLayout, phoneCompare = false): boolean {
+  const deviceClass = readerDeviceClass(device)
+  if (deviceClass !== 'phone-landscape' && deviceClass !== 'ipad-portrait') return false
+  if (typeof device.width === 'number' && device.width < HANDHELD_MARGIN_MIN_WIDTH[deviceClass]) return false
+  return layout === 'margin' && !phoneCompare
+}
+
+/** An iPad upright reading the Margin reader gives the text more room: no chapter map at the left edge, a narrower card column (continuousReader.css). */
+export function marginReaderRoom(device: DesktopLayoutDevice, handheldMargin: boolean): 'tablet-portrait' | undefined {
+  return handheldMargin && readerDeviceClass(device) === 'ipad-portrait' ? 'tablet-portrait' : undefined
 }
 
 type DesktopLayoutInput = { bookId: string; search?: string; kind?: string; hex?: string; savedMode?: 'read' | 'compare' | null }
