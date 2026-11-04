@@ -5,8 +5,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 vi.setConfig({ testTimeout: 30_000 })
 const slow = { timeout: 8_000 }
 import { LabCatchUpSheet } from './LabCatchUpSheet'
-import { CATCH_UP_CONCURRENCY, catchUpContextText, fetchCatchUpEntry, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
-import { CATCH_UP_ROUTE } from '../catchUp'
+import { CATCH_UP_CONCURRENCY, catchUpContextText, catchUpMemoryKey, fetchCatchUpEntry, nextCatchUpKeys, resetCatchUpMemory } from './labCatchUp'
+import { CATCH_UP_BLOCK_LIMIT, CATCH_UP_CHAPTER_LIMIT, CATCH_UP_PROMPT_VERSION, CATCH_UP_ROUTE } from '../catchUp'
 import { LAB_RECAP_ROUTE } from '../recapSummary'
 import { LAB_COPY } from './labCopy'
 
@@ -73,6 +73,39 @@ describe('LabCatchUpSheet', () => {
       expect(call.body.placeChapter).toBe(61)
     }
     expect(calls.some(call => call.url === LAB_RECAP_ROUTE)).toBe(false)
+  })
+
+  it('every entry has its slot in reading order from the start, the earliest asked for first; a late first answer still lands on top (Anders, 4 Nov 2026)', async () => {
+    // The first entry (the big group) answers last, as 2 Maccabees 1–8 did.
+    const answers: Record<string, () => void> = {}
+    const calls: Call[] = []
+    vi.stubGlobal('fetch', vi.fn((url: string, init: RequestInit) => {
+      const call = { url, body: JSON.parse(String(init.body)) }
+      calls.push(call)
+      return new Promise(resolve => { answers[String(call.body.unitId)] = () => resolve({ ok: true, status: 200, json: async () => ({ summary: `Recap of ${call.body.unitId}.` }) }) })
+    }))
+    renderSheet()
+    // Before any answer: three slots, in order, each with a placeholder sized for its limit.
+    const slots = screen.getAllByTestId('lab-catch-up-entry')
+    expect(titles()).toEqual(['Chapter 1 – Chapter 58', 'Chapter 59', 'Chapter 60'])
+    expect(slots.map(slot => slot.querySelector('[data-testid="lab-catch-up-placeholder"]')?.getAttribute('data-words')))
+      .toEqual([String(CATCH_UP_BLOCK_LIMIT.words), String(CATCH_UP_CHAPTER_LIMIT.words), String(CATCH_UP_CHAPTER_LIMIT.words)])
+    expect(slots[0].querySelector('.lab-catch-up-reserve')?.textContent?.split(' ')).toHaveLength(CATCH_UP_BLOCK_LIMIT.words)
+    await waitFor(() => expect(calls).toHaveLength(3), slow)
+    // The earliest unit's request is issued first, not behind later ones.
+    expect(calls[0].body.unitId).toBe('chs-1-58')
+    answers['ch-60'](); answers['ch-59']()
+    await waitFor(() => expect(screen.getByText('Recap of ch-59.')).toBeTruthy(), slow)
+    expect(screen.getAllByTestId('lab-catch-up-entry')[0].querySelector('[data-testid="lab-catch-up-placeholder"]')).toBeTruthy()
+    answers['chs-1-58']()
+    await waitFor(() => expect(screen.getByText('Recap of chs-1-58.')).toBeTruthy(), slow)
+    expect(screen.getAllByTestId('lab-catch-up-entry').map(node => node.querySelector('p')?.textContent)).toEqual(['Recap of chs-1-58.', 'Recap of ch-59.', 'Recap of ch-60.'])
+    expect(screen.queryAllByTestId('lab-catch-up-placeholder')).toHaveLength(0)
+  })
+
+  it('the per-tab memory is keyed by the prompt version', () => {
+    const entry = { key: 'ch-3', kind: 'unit' as const, title: 'Chapter 3', chapters: [3], request: { bookId: 'b', editionKey: 'e', unitId: 'ch-3' } }
+    expect(catchUpMemoryKey(entry)).toBe(`${CATCH_UP_PROMPT_VERSION}/b/e/ch-3`)
   })
 
   it('never asks for the chapter in progress, finished or not', async () => {

@@ -10,6 +10,8 @@ import {
   CATCH_UP_COOLDOWN_MS,
   CATCH_UP_RETRY_MS,
   catchUpContextText,
+  catchUpEntryWords,
+  catchUpReserveText,
   CATCH_UP_INITIAL_WANTED,
   catchUpShouldCoolDown,
   fetchCatchUpEntry,
@@ -209,7 +211,11 @@ export function LabCatchUpSheet(props: LabCatchUpSheetProps) {
                     {status.resting && <p className="lab-catch-up-balance" data-testid="lab-catch-up-resting">{LAB_COPY.aiResting}</p>}
                     <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={() => { setCoolUntil(0); load(entry) }}>Retry</button>
                   </>) : (
-                    <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>
+                    // Every entry's slot, in reading order, from the start: a quiet placeholder the size of the
+                    // longest entry it can hold, so nothing below moves when the text arrives (Anders, 4 Nov 2026).
+                    <span className="lab-catch-up-placeholder is-reserved" aria-hidden="true" data-testid="lab-catch-up-placeholder" data-words={catchUpEntryWords(entry)}>
+                      <span className="lab-catch-up-reserve">{catchUpReserveText(catchUpEntryWords(entry))}</span>
+                    </span>
                   )}
                 </li>
               )
