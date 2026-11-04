@@ -2,8 +2,8 @@ import type { ReactNode } from 'react'
 
 /**
  * Stroke icons for the voice surface, 1.5px, drawn in `currentColor`.
- * Microphone = Mute/Unmute, three lines = Transcript, X = End, a turning
- * arrow = Reconnect, diagonal arrows = minimize / expand.
+ * Microphone = Mute/Unmute, X = End, a turning arrow = Reconnect, diagonal
+ * arrows = minimize / expand. Talk's speed shows its figure, not an icon.
  */
 
 function Stroke({ size, children }: { size: number; children: ReactNode }) {
@@ -67,54 +67,46 @@ export function VoiceExpandIcon({ size = 20 }: { size?: number }) {
   )
 }
 
-/** A dial with its needle: Talk's speaking speed. */
-export function VoiceSpeedIcon({ size = 24 }: { size?: number }) {
-  return (
-    <Stroke size={size}>
-      <path d="M4.5 17a8.5 8.5 0 1 1 15 0" />
-      <path d="M12 13.5l4-4.5" />
-      <circle cx="12" cy="14" r="1" />
-    </Stroke>
-  )
-}
-
 interface VoiceControlProps {
   testId: string
+  /** The word under the disc: Mute, Speed, End. */
   word: string
-  /** The accessible name when the visible word is shorter than the action. */
+  /** The accessible name and tooltip when they say more than the word (End conversation). */
   label?: string
   icon: ReactNode
   filled?: boolean
   on?: boolean
   pressed?: boolean
-  /** Icon only: the word becomes the accessible name. */
+  /** Disc only (the corner pill): the word stays the accessible name and tooltip. */
   compact?: boolean
-  /** No visible word under the disc (the full-size call and Talk window):
-   *  the word still names the button for screen readers and as a tooltip. */
-  iconOnly?: boolean
   /** For a control that opens a popover: its open state and the popover's id. */
   expanded?: boolean
   controls?: string
   onClick: () => void
 }
 
-/** A round icon button with one word beneath it. */
-export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, iconOnly, expanded, controls, onClick }: VoiceControlProps) {
-  const wordless = compact || iconOnly
+/**
+ * A round control with its word beneath it (Talk, approved mockup B,
+ * 4 Nov 2026): Mute, Speed and End read the same way. The word is visual;
+ * the button's name is `label`, or the word itself.
+ */
+export function VoiceControl({ testId, word, label, icon, filled, on, pressed, compact, expanded, controls, onClick }: VoiceControlProps) {
+  const name = label ?? word
   return (
     <button
       type="button"
       className={`lab-voice-control${filled ? ' is-filled' : ''}${on ? ' is-on' : ''}${compact ? ' is-compact' : ''}`}
       data-testid={testId}
-      aria-label={wordless ? (label ?? word) : label}
+      aria-label={name}
       aria-pressed={pressed}
       aria-expanded={expanded}
       aria-controls={controls}
-      title={wordless ? (label ?? word) : undefined}
+      title={name}
       onClick={onClick}
     >
       <span className="lab-voice-control-disc" aria-hidden="true">{icon}</span>
-      {!wordless && <span className="lab-voice-control-word">{word}</span>}
+      {!compact && <span className="lab-voice-control-word" aria-hidden="true">{word}</span>}
     </button>
   )
 }
+

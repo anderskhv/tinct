@@ -3348,87 +3348,117 @@
   font-weight: 600;
 }
 
+/* ── Playback speed (approved mockup A, 4 Nov 2026) ──────────────────────
+   One row: the label, Slower, the speed as a figure, Faster. It stands over
+   the speed button that opened it and points at it (LabAudioSpeedPopover
+   sets --lab-speed-left/-bottom/-arrow from the button's box), in every
+   desktop layout and on the phone.
+
+   pointer-events: auto is the margin-reader fix (4 Nov 2026): the desktop
+   bottom chrome is pointer-events: none (it spans the column, so clicks
+   must fall through to the text) and the popover inherited that. In the
+   margin view it was painted above the text but hit-testing skipped it, so
+   every click landed on the word underneath and the outside-pointerdown
+   handler closed it. Two-page view only worked because its bottom chrome is
+   pointer-events: auto. The popover stays inside the bottom chrome's
+   stacking context (z-index 90), so dialogs and sheets still cover it. */
+.lab .lab-audio-speed-popover {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 10px 10px 18px;
+  border: 1px solid var(--lab-border);
+  border-radius: 18px;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  font: 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+  white-space: nowrap;
+  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.18), 0 3px 9px rgba(43, 36, 26, 0.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: auto;
+  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+}
+.lab.is-night .lab-audio-speed-popover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+/* The pointer: the popover's own paper and hairline, turned over the button. */
+.lab .lab-audio-speed-popover::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--lab-speed-arrow, 30px) - 6px);
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  background: var(--lab-paper);
+  border-right: 1px solid var(--lab-border);
+  border-bottom: 1px solid var(--lab-border);
+  transform: rotate(45deg);
+}
+.lab.is-desktop .lab-audio-speed-popover {
+  position: fixed;
+  left: var(--lab-speed-left, 42px);
+  right: auto;
+  bottom: var(--lab-speed-bottom, 104px);
+  width: auto;
+  transform: none;
+  z-index: 250;
+}
+.lab .lab-audio-speed-title { font-weight: 600; }
+.lab .lab-audio-speed-stepper { display: flex; align-items: center; gap: 6px; }
+/* 36px discs inside a 44px tap area. */
+.lab .lab-audio-speed-step {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--lab-ink);
+  cursor: pointer;
+}
+.lab .lab-audio-speed-step::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--lab-border);
+  border-radius: 999px;
+  transition: background-color 120ms ease;
+}
+.lab .lab-audio-speed-step:hover:not(:disabled)::before { background: color-mix(in srgb, var(--lab-ink) 7%, transparent); }
+.lab .lab-audio-speed-step:focus-visible { outline: 2px solid var(--lab-accent, #1f4a5c); outline-offset: -2px; }
+.lab .lab-audio-speed-step:disabled { color: var(--lab-ink-faint); cursor: default; }
+.lab .lab-audio-speed-step:disabled::before { opacity: .55; }
+.lab .lab-audio-speed-value {
+  min-width: 3.2em;
+  text-align: center;
+  font: 600 22px/1.1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--lab-ink);
+}
+/* The phone: above the bar, the same row sized for a thumb. */
 .lab.is-phone .lab-audio-speed-popover,
 .lab.has-phone-chrome .lab-audio-speed-popover {
   position: absolute;
   right: 0.75rem;
-  bottom: calc(2.95rem + env(safe-area-inset-bottom, 0px));
+  bottom: calc(3.6rem + env(safe-area-inset-bottom, 0px));
   left: 0.75rem;
   z-index: 5;
-  box-sizing: border-box;
-  padding: 0.78rem 0.92rem 0.68rem;
-  border: 1px solid rgba(139, 127, 108, 0.3);
-  border-radius: 1.12rem;
-  background:
-    linear-gradient(112deg, rgba(255, 255, 255, 0.82), rgba(243, 235, 220, 0.91) 52%, rgba(255, 252, 244, 0.84));
-  color: #332e27;
-  box-shadow:
-    0 14px 36px rgba(43, 36, 26, 0.2),
-    0 3px 9px rgba(43, 36, 26, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px) saturate(1.18);
-  -webkit-backdrop-filter: blur(24px) saturate(1.18);
-  pointer-events: auto;
-  animation: lab-audio-speed-enter 170ms cubic-bezier(.22,.8,.3,1) both;
+  padding: 8px 8px 8px 18px;
+  font-size: 16px;
 }
-
-.lab-audio-speed-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.58rem;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-variant-numeric: tabular-nums;
-  font-size: 0.68rem;
-  letter-spacing: 0.025em;
-}
-
-.lab-audio-speed-heading output {
-  font-size: 1rem;
-  font-weight: 600;
-  color: inherit;
-}
-
-.lab-audio-speed-popover input[type='range'] {
-  display: block;
-  width: 100%;
-  height: 1.4rem;
-  margin: 0;
-  accent-color: #5e5142;
-  cursor: pointer;
-}
-
-.lab-audio-speed-scale {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.08rem;
-  color: rgba(63, 58, 50, 0.68);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-variant-numeric: tabular-nums;
-  font-size: 0.56rem;
-  letter-spacing: 0.02em;
-}
-
-.lab.is-night.is-phone .lab-audio-speed-popover,
-.lab.is-night.has-phone-chrome .lab-audio-speed-popover {
-  border-color: rgba(202, 177, 139, 0.28);
-  background:
-    linear-gradient(112deg, rgba(82, 69, 52, 0.9), rgba(48, 41, 34, 0.94) 52%, rgba(69, 56, 43, 0.9));
-  color: #fffaf1;
-  box-shadow:
-    0 15px 38px rgba(0, 0, 0, 0.42),
-    0 3px 10px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 241, 218, 0.14);
-}
-
-.lab.is-night .lab-audio-speed-scale {
-  color: rgba(242, 231, 213, 0.66);
-}
-
-.lab.is-night .lab-audio-speed-popover input[type='range'] {
-  accent-color: #d5ae78;
-}
+.lab.is-phone .lab-audio-speed-step,
+.lab.has-phone-chrome .lab-audio-speed-step { width: 48px; height: 48px; }
+.lab.is-phone .lab-audio-speed-value,
+.lab.has-phone-chrome .lab-audio-speed-value { font-size: 24px; }
+html[data-eink="true"] .lab .lab-audio-speed-popover::after { background: #fff; border-color: #777; }
 
 @keyframes lab-audio-speed-enter {
   from { opacity: 0; transform: translateY(0.35rem) scale(0.985); }
@@ -3443,7 +3473,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lab.is-phone .lab-phone-bar-row .lab-phone-fat,
   .lab.has-phone-chrome .lab-phone-bar-row .lab-phone-fat,
-  .lab.is-phone .lab-audio-speed-popover,
+  .lab .lab-audio-speed-popover,
   .lab.has-phone-chrome .lab-audio-speed-popover {
     animation: none;
   }
@@ -4048,24 +4078,6 @@
   background: #4c4438;
 }
 
-/* The speed popover floats over the column, so it needs a surface of its own:
-   without one it was a transparent box and the paragraph behind it read
-   straight through the slider and the scale. Opaque paper in every theme;
-   Chrome V2 paints its own panel over this below. */
-.lab.is-desktop .lab-audio-speed-popover {
-  position: fixed;
-  left: 42px;
-  bottom: 104px;
-  width: 280px;
-  z-index: 180;
-  box-sizing: border-box;
-  padding: 0.78rem 0.92rem 0.68rem;
-  border: 1px solid var(--lab-border);
-  border-radius: 1.12rem;
-  background: var(--lab-paper);
-  color: var(--lab-ink);
-  box-shadow: 0 14px 36px rgba(43, 36, 26, 0.2), 0 3px 9px rgba(43, 36, 26, 0.1);
-}
 
 .lab.is-desktop .lab-chapter-cover {
   height: 100%;
@@ -6013,13 +6025,13 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 }
 
 /* ── One surface, everywhere ─────────────────────────────────────────────
-   The menu, the transport, the sheets, the chapter picker, the speed
-   popover and the composer are all the same paint: a fill of the paper
+   The menu, the transport, the sheets, the chapter picker and the
+   composer are all the same paint (the speed popover is opaque paper): a fill of the paper
    colour over a blur each panel carries itself, denser at the top so a
    first label never sits on the thinnest part of it. The page behind is
    never blurred — the words have to read through. */
 
-.lab[data-chrome-version="v2"] .lab-audio-speed-popover,.lab[data-chrome-version="v2"] .lab-ask-composer{
+.lab[data-chrome-version="v2"] .lab-ask-composer{
   background: linear-gradient(
     180deg,
     rgba(var(--lab-v2-panel-ink), var(--lab-v2-panel-fill-top)),
@@ -6615,16 +6627,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   cursor: pointer;
 }
 
-.lab[data-chrome-version="v2"] .lab-audio-speed-done { min-height:44px; padding:6px 12px; border:1px solid currentColor; border-radius:999px; color:inherit; background:transparent; font:inherit; cursor:pointer; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-heading output { margin-left:auto; }
 
-/* Tick labels follow the 0.5–3 linear range and the 20px thumb centre. */
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale { position:relative; display:block; height:1.2em; margin:4px 10px 0; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span { position:absolute; transform:translateX(-50%); }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(1) { left:0%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(2) { left:20%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(3) { left:60%; }
-.lab[data-chrome-version="v2"] .lab-audio-speed-scale span:nth-child(4) { left:100%; }
 
 /* The composer gives writing a full-width row; actions never squeeze it. */
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline {
@@ -6894,20 +6897,6 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-dock > button.lab-desktop-audio-speed { font: 500 15px/1 'EB Garamond', Georgia, serif; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-audio-track span { font: italic 12px/1.2 'EB Garamond', Georgia, serif; letter-spacing: 0; opacity: .75; }
-/* bottom:88px cleared the audio dock but not the book-progress line beneath
-   it: measured at 1180x820 (playing, popover open), the progress line
-   (".lab-chapter-progress", part of ".lab-bottom-chrome") sits 725-743px
-   from the top of an 820px-tall viewport, and the popover's own bottom edge
-   landed at 732px — inside that span, so its rounded corners let the
-   translucent-looking (in fact just adjacent) progress text show through
-   the gap the radius leaves. 112px clears it with room at every height. */
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover {
-  left: 50%; transform: translateX(-50%); bottom: 112px; width: 300px;
-  padding: 16px; box-sizing: border-box; border-radius: 20px;
-  background: var(--lab-paper); border: 1px solid var(--lab-border);
-  box-shadow: 0 8px 30px #0002; z-index: 250; pointer-events: auto;
-}
-.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-audio-speed-popover input { pointer-events: auto; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-body { height: 100%; flex: 1 1 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"].is-frontispiece .lab-page-wrap { height: 100%; min-height: 0; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover { position: absolute; inset: 0; min-height: 0; overflow: hidden; }
@@ -7440,14 +7429,15 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 }
 /* Minimal Talk (Anders, 9 Oct 2026): the window holds only the header, the
    orb, one status line and the controls, so it opens just tall enough for
-   them (READER_TALK_WINDOW, 312 x 252) at the same lower-right anchor as Chat.
-   The header and the controls row never leave the window; the orb takes
-   what height is left (108px at the default size, up to 170px in a window
-   the reader makes taller) and drops out first in a very short one.
-   useReaderWindow keeps Talk at least 260 x 180. */
+   them (READER_TALK_WINDOW, 312 x 336 since mockup B added the book line and
+   the words under the controls, 4 Nov 2026) at the same lower-right anchor
+   as Chat. The header and the controls row never leave the window; the orb
+   takes what height is left (about 120px at the default size, up to 170px in
+   a window the reader makes taller) and drops out first in a short one.
+   useReaderWindow keeps Talk at least 260 x 220. */
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window],
 .lab.is-desktop[data-chrome-version="v2"][data-desktop-paging="true"] .lab-voice-panel[data-reader-window] {
-  height:min(252px,calc(100dvh - 132px));
+  height:min(336px,calc(100dvh - 132px));
 }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] { container:talk-window / size; }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] > .lab-voice-panel-head,
@@ -7457,9 +7447,9 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 }
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb,
 .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel[data-reader-window] .lab-voice-panel-stage .lab-voice-orb-canvas {
-  width:clamp(56px,calc(100cqh - 124px),170px)!important; height:clamp(56px,calc(100cqh - 124px),170px)!important;
+  width:clamp(56px,calc(100cqh - 214px),170px)!important; height:clamp(56px,calc(100cqh - 214px),170px)!important;
 }
-@container talk-window (max-height: 190px) {
+@container talk-window (max-height: 270px) {
   .lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage .lab-voice-orb { display:none; }
 }
 .lab.is-desktop[data-chrome-version="v2"]:not(.is-night) .lab-ask.is-desktop-companion[data-reader-window],
@@ -7600,10 +7590,9 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 .lab[data-chrome-version="v2"] .lab-call-controls { gap: clamp(16px, 6vw, 28px); }
 
 /* Tighter Talk (2026-10-09). A smaller orb (108px on the desktop, 176px on
-   the phone; set in the components), less padding and no words under Mute
-   and End (their names stay as aria-labels and tooltips). The speed control
-   keeps its value, which is information rather than a label. Talk reads in
-   EB Garamond and Playfair only. */
+   the phone; set in the components) and less padding. Type, the words under
+   the controls and the red End are set by the Talk block at the end of this
+   file (mockup B, 4 Nov 2026). */
 .lab[data-chrome-version="v2"] .lab-talk-speed-step {
   font-family: 'EB Garamond', Georgia, serif; font-size: 1rem;
 }
@@ -7724,4 +7713,79 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
   width:min(440px,calc(100vw - 48px));
   height:min(540px,calc(100dvh - 132px));
   overflow-anchor:none;
+}
+
+/* ── Talk (approved mockup B, 4 Nov 2026) ─────────────────────────────────
+   Title in Playfair over the book and chapter, the orb, the status in the
+   UI face (no full stop), then three equal round controls with their words
+   beneath: Mute, Speed (the disc carries the figure) and End (red, ×).
+   Applies to the desktop Talk window and the phone call (full screen and
+   the margin phone's card). E-ink: no red, no shadow (display-profile.css
+   already removes shadows and blur). */
+.lab[data-chrome-version="v2"] {
+  --lab-call-end: #b9503d;
+  --lab-call-end-ink: #fff;
+}
+.lab[data-chrome-version="v2"].is-night { --lab-call-end: #c9604f; }
+html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --lab-call-end-ink: #fff; }
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-head { align-items: flex-start; }
+.lab[data-chrome-version="v2"] .lab-voice-panel-heading,
+.lab[data-chrome-version="v2"] .lab-call-head { min-width: 0; }
+.lab[data-chrome-version="v2"] .lab-voice-panel-title,
+.lab[data-chrome-version="v2"] .lab-call-title {
+  margin: 0;
+  font: 500 24px/1.2 'Playfair Display', Georgia, serif;
+  letter-spacing: 0;
+  color: var(--lab-call-ink);
+}
+.lab[data-chrome-version="v2"] .lab-voice-panel-context,
+.lab[data-chrome-version="v2"] .lab-call-context {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 13px/1.35 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--lab-call-muted);
+}
+.lab[data-chrome-version="v2"] .lab-call-head { align-self: stretch; text-align: left; }
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status,
+.lab[data-chrome-version="v2"] .lab-call .lab-call-status,
+.lab[data-chrome-version="v2"] .lab-pcard .lab-call .lab-call-status {
+  font: 500 17px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0;
+}
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status { margin: 4px 0 16px; }
+.lab[data-chrome-version="v2"] .lab-call .lab-call-status { margin-bottom: 6px; }
+.lab[data-chrome-version="v2"] .lab-call .lab-call-notice,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line {
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel { --lab-voice-control-size: 56px; --lab-voice-control-word: 12px; }
+.lab[data-chrome-version="v2"] .lab-call { --lab-voice-control-size: 60px; --lab-voice-control-word: 13px; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls,
+.lab[data-chrome-version="v2"] .lab-call-controls { gap: 26px; align-items: flex-start; }
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-control,
+.lab[data-chrome-version="v2"] .lab-call .lab-voice-control { gap: 7px; min-width: 60px; }
+.lab[data-chrome-version="v2"] .lab-voice-control-word {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--lab-call-muted);
+}
+.lab[data-chrome-version="v2"] .lab-voice-control-disc { background: color-mix(in srgb, var(--lab-call-ink) 4%, transparent); }
+.lab[data-chrome-version="v2"] .lab-voice-control.is-on .lab-voice-control-disc { background: color-mix(in srgb, var(--lab-call-ink) 12%, transparent); }
+.lab[data-chrome-version="v2"] .lab-voice-control.is-filled .lab-voice-control-disc {
+  border-color: var(--lab-call-end);
+  background: var(--lab-call-end);
+  color: var(--lab-call-end-ink);
+}
+.lab[data-chrome-version="v2"] .lab-voice-control-figure {
+  font: 600 16px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+/* The four speaking speeds read in the UI face too. */
+.lab[data-chrome-version="v2"] .lab-talk-speed-step {
+  font: 14px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
 }

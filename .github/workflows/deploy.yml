@@ -414,6 +414,12 @@ jobs:
         env:
           READER_LIVE: '1'
         run: node scripts/check-reader-feedback.mjs
+      - name: Verify the narration speed popover takes its own clicks (margin, two-page, phone)
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
+        env:
+          READER_LIVE: '1'
+          TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
+        run: node scripts/check-audio-speed-popover.mjs
       - name: Verify spoken Bible book transition silently
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:

@@ -12,13 +12,14 @@ export const READER_WINDOW_EDGE = 8
  * 312 x 390, 8px from the viewport's right edge, its foot level with the foot
  * of the pages (Anders, 9 Oct 2026). A reader's own move or resize still wins. */
 export const READER_COMPANION_WINDOW = { width: 312, height: 390, right: 8 } as const
-/** Talk holds only the orb, one status line and the controls (Anders, 9 Oct
- * 2026), so it opens shorter than Chat at the same anchor; lab.css sizes it. */
-export const READER_TALK_WINDOW = { width: 312, height: 252, right: READER_COMPANION_WINDOW.right } as const
+/** Talk holds its title and book line, the orb, one status line and the
+ * controls with their words (mockup B, 4 Nov 2026), so it opens shorter than
+ * Chat at the same anchor; lab.css sizes it. */
+export const READER_TALK_WINDOW = { width: 312, height: 336, right: READER_COMPANION_WINDOW.right } as const
 const COMPANION_KEYS = new Set(['chat', 'talk'])
 /** The smallest a reader can make a window; Chat and Talk keep room for their controls. */
 export function readerWindowMinimum(key: string): { width: number; height: number } {
-  if (key === 'talk') return { width: 260, height: 180 }
+  if (key === 'talk') return { width: 260, height: 220 }
   return key === 'chat' ? { width: 280, height: 300 } : { width: 260, height: 160 }
 }
 

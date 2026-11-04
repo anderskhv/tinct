@@ -66,8 +66,8 @@ async function turn(p,key){await p.keyboard.press(key);await p.waitForTimeout(80
  }
  // Actual playback; speed must respond to keyboard and pointer, with a usable popover.
  await p.getByTestId('lab-v2-play').click();await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:25000});await p.waitForTimeout(300);
- await p.getByTestId('lab-hearing-speed').click();const slider=p.getByTestId('lab-audio-speed-slider');await slider.focus();await slider.press('ArrowRight');assert.equal(await slider.inputValue(),'1.25');
- const box=await slider.boundingBox();await p.mouse.click(box.x+box.width*.6,box.y+box.height/2);assert.equal(await slider.inputValue(),'2');assert.ok(await p.evaluate(()=>window.__desktopAudio.some(audio=>!audio.paused&&audio.playbackRate===2)),'Selected rate reaches the actual playing audio');await p.getByRole('button',{name:'Done',exact:true}).click();await p.getByTestId('lab-audio-speed-popover').waitFor({state:'hidden'});
+ await p.getByTestId('lab-hearing-speed').click();const faster=p.getByTestId('lab-audio-speed-faster'),speedValue=p.getByTestId('lab-audio-speed-value');await faster.focus();await p.keyboard.press('Enter');assert.equal(await speedValue.textContent(),'1.25×');
+ for(let i=0;i<3;i++)await faster.click();assert.equal(await speedValue.textContent(),'2×');assert.ok(await p.evaluate(()=>window.__desktopAudio.some(audio=>!audio.paused&&audio.playbackRate===2)),'Selected rate reaches the actual playing audio');await p.keyboard.press('Escape');await p.getByTestId('lab-audio-speed-popover').waitFor({state:'hidden'});
  await p.screenshot({path:out+'/'+engine+'-audio.png'});await p.getByTestId('lab-v2-play').click();await p.waitForTimeout(250);assert.ok((await snap(p)).bottom<(await snap(p)).limit);
  results.push({reload:true,speedKeyboardAndPointer:true});
  await p.close();
