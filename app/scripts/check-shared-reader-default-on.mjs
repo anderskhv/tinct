@@ -61,7 +61,9 @@ const visit = async (search, layout, shared = true, storedLayout = null, on = nu
   const root = page.getByTestId('lab-root')
   assert.equal(await root.getAttribute('data-shared-reader'), shared ? 'true' : null, `shared gate at ${search}`)
   assert.equal((await page.getByTestId('continuous-reader').count()) > 0, layout === 'margin', `layout at ${search} (stored ${storedLayout})`)
-  if (shared) {
+  // 'phone': the phone reader (a handheld whose reader chose Two-page or Compare keeps it).
+  assert.equal(((await root.getAttribute('class')) || '').split(/\s+/).includes('is-phone'), layout === 'phone', `phone reader at ${search} (stored ${storedLayout})`)
+  if (shared && layout !== 'phone') {
     assert.equal(await root.getAttribute('data-compare-active'), layout === 'compare' ? 'true' : 'false', `Compare at ${search} (stored ${storedLayout})`)
     if (layout !== 'margin') assert.equal(await root.getAttribute('data-desktop-paging'), 'true', `paged ${layout} at ${search}`)
   }
@@ -112,5 +114,30 @@ try {
   await visit('&view=margin', 'margin', true, null, ipadPage)
   await ipad.close()
   assert.deepEqual(errors, [], 'no iPad route errors')
-  console.log('Built default-ON Margin (iPad landscape Two-page), =0 fallback, =1 activation, explicit views and stored layout choices passed')
+  // A phone held sideways and an iPad held upright read the Margin reader by
+  // default (Anders, 4 Nov 2026); a book whose reader chose Two-page or
+  // Compare keeps the phone reader there, and a phone upright is unchanged.
+  const handheld = async (options, touchPoints, cases) => {
+    const context = await browser.newContext({ serviceWorkers: 'block', hasTouch: true, ...options })
+    const handheldPage = await context.newPage()
+    await handheldPage.addInitScript(points => { Object.defineProperty(Navigator.prototype, 'maxTouchPoints', { get: () => points }) }, touchPoints)
+    await fixture(handheldPage)
+    for (const [search, layout, stored] of cases) {
+      const root = await visit(search, layout, true, stored, handheldPage)
+      if (layout === 'margin') {
+        assert.equal(await handheldPage.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `no sideways scroll at ${JSON.stringify(options.viewport)}`)
+        assert.equal(await root.getAttribute('data-margin-room'), options.viewport.width < options.viewport.height ? 'tablet-portrait' : null, `margin room at ${JSON.stringify(options.viewport)}`)
+        assert.equal(await handheldPage.locator('.source-minimap').evaluateAll(maps => maps.some(map => getComputedStyle(map).display !== 'none')), options.viewport.width > options.viewport.height, `chapter map at ${JSON.stringify(options.viewport)}`)
+      }
+    }
+    await context.close()
+  }
+  const IPHONE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1'
+  const IPAD = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
+  await handheld({ viewport: { width: 844, height: 390 }, userAgent: IPHONE }, 5, [['', 'margin', null], ['', 'margin', 'margin'], ['', 'phone', 'two-page'], ['', 'phone', 'compare'], ['&view=margin', 'margin', 'compare']])
+  await handheld({ viewport: { width: 390, height: 844 }, userAgent: IPHONE }, 5, [['', 'phone', null]])
+  await handheld({ viewport: { width: 820, height: 1180 }, userAgent: IPAD }, 5, [['', 'margin', null], ['', 'phone', 'two-page'], ['&view=margin', 'margin', 'two-page']])
+  await handheld({ viewport: { width: 768, height: 1024 }, userAgent: IPAD }, 5, [['', 'margin', null]])
+  assert.deepEqual(errors, [], 'no handheld route errors')
+  console.log('Built default-ON Margin (iPad landscape Two-page; phone landscape and iPad portrait Margin), =0 fallback, =1 activation, explicit views and stored layout choices passed')
 } finally { await browser.close() }
