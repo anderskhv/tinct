@@ -59,7 +59,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # 30: the acceptance checks (and their browser installs) now run in their own jobs.
     timeout-minutes: 30
     env:
@@ -321,7 +321,7 @@ jobs:
   # ---- Stage 2: acceptance (pre-promote groups; in direct mode every group, on production) ----
   checks:
     needs: deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -514,7 +514,7 @@ jobs:
   promote:
     needs: [deploy, checks]
     if: ${{ needs.deploy.outputs.staged == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -552,7 +552,7 @@ jobs:
   confirm-promote:
     needs: [deploy, promote]
     if: ${{ needs.deploy.outputs.staged == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Confirm production serves the new bundle
@@ -574,7 +574,7 @@ jobs:
   production-checks:
     needs: [deploy, confirm-promote]
     if: ${{ needs.deploy.outputs.staged == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -648,7 +648,7 @@ jobs:
   rollback:
     needs: [deploy, checks, promote, confirm-promote, production-checks]
     if: ${{ always() && (needs.deploy.outputs.live == 'true' || needs.promote.result == 'success' || (needs.deploy.outputs.deploy_attempted == 'true' && needs.deploy.result == 'failure') || (needs.promote.outputs.attempted == 'true' && needs.promote.result == 'failure')) && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -689,7 +689,7 @@ jobs:
   record-accepted:
     needs: [deploy, checks, production-checks, rollback]
     if: ${{ always() && needs.deploy.result == 'success' && needs.deploy.outputs.release_phase == 'repair' && needs.deploy.outputs.live == 'true' && needs.checks.result == 'success' && needs.production-checks.result != 'failure' && needs.production-checks.result != 'cancelled' && needs.rollback.result == 'skipped' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Write the accepted version
