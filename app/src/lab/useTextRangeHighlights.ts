@@ -54,6 +54,17 @@ type Mounted = {
 }
 
 /**
+ * Whether marks are painted as text ranges here (the CSS Custom Highlight
+ * API), so the separator between two marked words needs no element of its
+ * own: the range covers the bare space. Only a browser without the API needs
+ * the `lab-highlight-gap` span to carry the mark's background.
+ */
+export function paintsTextRanges(): boolean {
+  return !!(globalThis.CSS as typeof CSS & { highlights?: Registry } | undefined)?.highlights
+    && typeof (globalThis as unknown as { Highlight?: unknown }).Highlight === 'function'
+}
+
+/**
  * Paint a single text range across words and spaces, without changing line layout.
  *
  * The page re-renders on every spoken word. The stylesheet, the root class
@@ -69,9 +80,9 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layou
   useLayoutEffect(() => () => { unmount(mountedRef.current, prefix); mountedRef.current = null }, [prefix])
   useLayoutEffect(() => {
     const root = ref.current
-    const registry = (globalThis.CSS as typeof CSS & { highlights?: Registry })?.highlights
-    const HighlightClass = (globalThis as unknown as { Highlight?: new (...ranges: Range[]) => unknown }).Highlight
-    if (!registry || !HighlightClass) return
+    if (!paintsTextRanges()) return
+    const registry = (globalThis.CSS as typeof CSS & { highlights: Registry }).highlights
+    const HighlightClass = (globalThis as unknown as { Highlight: new (...ranges: Range[]) => unknown }).Highlight
     if (mountedRef.current && mountedRef.current.root !== root) { unmount(mountedRef.current, prefix); mountedRef.current = null }
     if (!root) return
     let mounted = mountedRef.current

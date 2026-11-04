@@ -6,7 +6,7 @@ import { hyphenPlanClass, plannedBreak } from './labHyphenPlan'
 import { figureFor, figureLabel, isFigureToken, type LabFigure } from './labFigures'
 import { LabFigureView } from './LabFigure'
 import { LabChapterHeading } from './LabChapterHeading'
-import { useTextRangeHighlights } from './useTextRangeHighlights'
+import { paintsTextRanges, useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
@@ -587,6 +587,15 @@ export function LabPassage({
     ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
     : ''
   useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey, appliedSelection], appliedSelection)
+  // A tint never moves a word. Wrapping the space between two marked words in
+  // its own span (to carry the mark's background) makes Chromium rebreak and
+  // rehyphenate a justified `hyphens: auto` paragraph: selecting, asking about
+  // or opening the card of a passage rewrapped it (Anders, 4 Nov 2026, own
+  // EPUB in Margin; check-tint-no-reflow.mjs). Where marks are painted as text
+  // ranges the range already covers the bare space, so the separator stays a
+  // bare space and a mark changes only the words' classes. Only a browser
+  // without the Highlight API still gets the separator span.
+  const markedGaps = !paintsTextRanges()
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
@@ -1048,7 +1057,7 @@ export function LabPassage({
                         </Fragment>
                       )
                     }, { text: paragraphs[paragraphIndex], from: wordBase }, (spacing, wordIndex) => {
-                      if (!spacing || wordIndex <= 0) return spacing
+                      if (!spacing || wordIndex <= 0 || !markedGaps) return spacing
                       const absoluteWord = wordBase + wordIndex
                       const previousWord = absoluteWord - 1
                       const mark = highlightAt(highlights, chapterNumber, paragraphIndex, absoluteWord)
@@ -1250,7 +1259,7 @@ export function LabPassage({
                 const selecting = compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord)
                 const previousColor = index > 0 ? highlightColorAt(compareHighlights, chapterNumber, paragraphIndex, absoluteWord - 1) : null
                 const previousSelecting = index > 0 && compareSelecting && wordInHighlightRange(activeSelecting!, paragraphIndex, absoluteWord - 1)
-                const gapClass = index > 0 ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
+                const gapClass = index > 0 && markedGaps ? labHighlightGapCssClass(color, selecting, previousColor, previousSelecting) : ''
                 // A figure in the Compare column is named, not drawn (it is drawn beside it).
                 const shown = isFigureToken(word.text) ? <span className="lab-figure-ref">{figureLabel(figureFor(word.text) ?? { number: 0 })}</span> : word.emphasis ? <em>{word.text}</em> : word.text
                 return <Fragment key={index}>{index > 0 ? (gapClass ? <span className={gapClass} data-highlight-id={mark?.id}> </span> : ' ') : ''}<span className={labHighlightCssClass(color, selecting)} data-testid="lab-word" data-paragraph-index={paragraphIndex} data-word-index={absoluteWord} data-highlight-id={mark?.id} data-selection-word={selecting ? activeSelecting?.lookupWord : undefined}>{shown}</span></Fragment>

@@ -420,6 +420,11 @@ jobs:
           READER_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
         run: node scripts/check-audio-speed-popover.mjs
+      - name: Verify a tint never moves the text (selection, Ask, card, highlight)
+        if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
+        env:
+          TINT_ENGINES: chromium,webkit
+        run: node scripts/check-tint-no-reflow.mjs
       - name: Verify spoken Bible book transition silently
         if: ${{ !cancelled() && matrix.group == 'reader-panels' }}
         env:
