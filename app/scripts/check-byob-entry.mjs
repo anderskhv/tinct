@@ -20,6 +20,9 @@ import assert from 'node:assert/strict'
 const DIST = path.resolve('dist')
 const ARTIFACTS = process.env.BYOB_ARTIFACTS || ''
 const USER = '00000000-0000-4000-8000-0000000b70b1'
+// The site's own Content-Security-Policy (src/worker/routes/seo.ts SECURITY_HEADERS), sent with every
+// page here as the Worker sends it: an inline script, refused on tinct.app, must be refused here too.
+const CSP = (await fs.readFile(path.resolve('src/worker/routes/seo.ts'), 'utf8')).match(/'Content-Security-Policy': "([^"]+)"/)[1]
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.mp4': 'video/mp4' }
 
 function serve() {
@@ -32,7 +35,7 @@ function serve() {
     const file = path.join(DIST, path.normalize(pathname))
     try {
       if (!file.startsWith(DIST + path.sep) || !(await fs.stat(file)).isFile()) throw new Error('missing')
-      res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' })
+      res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream', ...(file.endsWith('.html') ? { 'content-security-policy': CSP } : {}) })
       res.end(await fs.readFile(file))
     } catch { res.writeHead(404); res.end() }
   })
@@ -88,7 +91,11 @@ async function main() {
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
       await run(`/byob signed out, ${name}: page, actions, no sideways scroll`, async () => {
         const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
+        const refused = []
+        page.on('console', m => { if (/Content Security Policy/i.test(m.text())) refused.push(m.text().slice(0, 160)) })
         await page.goto('/byob')
+        await page.waitForLoadState('networkidle')
+        assert.deepEqual(refused, [], 'nothing on /byob is refused by the site\'s Content-Security-Policy')
         assert.equal(await page.locator('h1').innerText(), 'Read your own books in Tinct')
         assert(await page.locator('#choose').isVisible() && await page.locator('#paste').isVisible(), 'Choose a file and Paste text are shown')
         assert.equal(await page.locator('#account').innerText(), 'Sign in')
