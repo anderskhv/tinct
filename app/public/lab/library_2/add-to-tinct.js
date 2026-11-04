@@ -22,6 +22,8 @@ export const enabled=()=>addToTinctEnabled(undefined,signedIn());
 export const MY_SHELF_URL='/library#my-shelf';
 /** A file entry's link (the search field's +, "Add a PDF or EPUB"): My shelf, for a click the pop-up does not take. */
 export const ADD_FILE_PAGE=MY_SHELF_URL;
+/** The page about reading your own books (the library's "Read your own books" band, signed out). */
+export const OWN_BOOKS_PAGE='/byob';
 /** Only when this browser cannot keep the file itself: Add a book's PDF reader takes it (file-handoff.js) and opens it unkept. */
 export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
@@ -341,6 +343,7 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  else chooseStep();
  layer.showReady=chooseStep;
  layer.addFile=addFile;
+ layer.showPaste=()=>{if(!pasteEnabled())return;pasteDraft=null;pasteStep();};
  return layer;
 }
 /**
