@@ -556,19 +556,31 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   }
 },
   bacchae: {
-    revision: 'text-2026-10-01.2',
-    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
-    editions: {
-      'original-en': {
-        before: 'fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539',
-        after: 'cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc',
-      },
-      'modern-en': {
-        before: '9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3',
-        after: '7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8',
-      },
+  "revision": "text-2026-11-03.bacchae.1",
+  "releasedAt": 1790863200000,
+  "editions": {
+    "modern-en": {
+      "before": "7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8",
+      "after": "3bcf0e77bdab05a237c558e61473fbba3008bd3a7f65ec55640af4d9ee4091a7",
+      "releasedAt": 1793695875719,
+      "previous": [
+        {
+          "before": "9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3",
+          "releasedAt": 1790863200000
+        }
+      ]
     },
-  },
+    "modern-da": {
+      "before": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
+      "after": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209",
+      "releasedAt": 1793695875719
+    },
+    "original-en": {
+      "before": "fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539",
+      "after": "cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc"
+    }
+  }
+},
   'magna-carta': {
     revision: 'text-2026-11-02.magna-da.1',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
