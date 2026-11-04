@@ -44,7 +44,7 @@ async function open(theme, phone = false) {
   await page.addInitScript(value => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ fontFamily: 'garamond', fontSize: 1.0, fontSizeExplicit: true, theme: value, compareOpen: false }))
   }, theme)
-  await page.goto(`${origin}/reader?book=frankenstein&sharedReader=1${phone ? '&layout=phone' : ''}`, { waitUntil: 'domcontentloaded' })
+  await page.goto(`${origin}/reader?book=frankenstein&sharedReader=1${phone ? '&layout=phone' : '&view=two-page'}`, { waitUntil: 'domcontentloaded' })
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
   await page.evaluate(() => document.fonts.ready)
   if (await page.getByTestId('lab-chapter-cover').isVisible().catch(() => false)) await page.keyboard.press('ArrowRight')
