@@ -35,6 +35,18 @@ describe('paragraph kinds', () => {
     expect(paragraphKeepsWithNext('A point')).toBe(false)
   })
 
+  it('sets a sub-section heading ("i. …") lighter than a section heading ("I. …"), and only a heading', () => {
+    registerParagraphKinds(['IV. Signs of the times', 'i. The figure and the battle', 'ii) One world', '(a) A point', 'Introduction', 'i. not a heading here'],
+      ['heading', 'heading', 'heading', 'heading', 'heading', null])
+    expect(paragraphKindClass('IV. Signs of the times')).toBe(' is-kind-heading')
+    expect(paragraphKindClass('Introduction')).toBe(' is-kind-heading')
+    expect(paragraphKindClass('i. The figure and the battle')).toBe(' is-kind-heading is-kind-subheading')
+    expect(paragraphKindClass('ii) One world')).toBe(' is-kind-heading is-kind-subheading')
+    expect(paragraphKindClass('(a) A point')).toBe(' is-kind-heading is-kind-subheading')
+    expect(paragraphKindClass('i. not a heading here')).toBe('')
+    expect(paragraphKeepsWithNext('i. The figure and the battle')).toBe(true)
+  })
+
   it('sets a keyword or index line ragged-right in any book, with no added hyphens', () => {
     const index = 'explanatory knowledge • genetic knowledge • universality • unforeseeable problems'
     expect(isSeparatedList(index)).toBe(true)
