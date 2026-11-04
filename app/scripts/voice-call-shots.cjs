@@ -184,7 +184,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.openDataChannel())
       await page.evaluate(() => window.__voiceStub.attachAssistantTrack())
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Listening.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Listening',
         null,
         { timeout: 5000 },
       )
@@ -195,7 +195,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.assistantLoud(true))
       await page.evaluate(() => window.__voiceStub.realtime({ type: 'output_audio_buffer.started' }))
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Speaking.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Speaking',
         null,
         { timeout: 5000 },
       )
@@ -211,7 +211,7 @@ async function main() {
       await page.evaluate(() => window.__voiceStub.assistantLoud(false))
       await page.evaluate(() => window.__voiceStub.realtime({ type: 'output_audio_buffer.stopped' }))
       await page.waitForFunction(
-        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Thinking.',
+        () => document.querySelector('[data-testid="lab-call-status"]').textContent === 'Thinking',
         null,
         { timeout: 5000 },
       )

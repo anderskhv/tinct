@@ -184,7 +184,7 @@ async function connect(page, statusSelector) {
   await page.waitForFunction(() => !!window.__voiceStub.dc, null, { timeout: 5000 })
   await page.evaluate(() => window.__voiceStub.openDataChannel())
   await page.evaluate(() => window.__voiceStub.attachAssistantTrack())
-  await waitStatus(page, statusSelector, 'Listening.')
+  await waitStatus(page, statusSelector, 'Listening')
 }
 
 /** The reader greets; the answer arrives as a transcript, out loud. */
@@ -199,7 +199,7 @@ async function speak(page, statusSelector) {
   await page.evaluate((line) => {
     window.__voiceStub.realtime({ type: 'response.output_audio_transcript.delta', delta: line })
   }, ASSISTANT_LINE)
-  await waitStatus(page, statusSelector, 'Speaking.')
+  await waitStatus(page, statusSelector, 'Speaking')
 }
 
 /** She finishes; the microphone is open again. */
@@ -207,7 +207,7 @@ async function finishSpeaking(page, statusSelector) {
   await page.evaluate(() => window.__voiceStub.assistantLoud(false))
   await page.evaluate(() => window.__voiceStub.realtime({ type: 'output_audio_buffer.stopped' }))
   await page.evaluate(() => window.__voiceStub.realtime({ type: 'response.done' }))
-  await waitStatus(page, statusSelector, 'Listening.')
+  await waitStatus(page, statusSelector, 'Listening')
 }
 
 /** The reader says something more; an answer is being put together. */
@@ -217,7 +217,7 @@ async function think(page, statusSelector) {
     window.__voiceStub.realtime({ type: 'input_audio_buffer.speech_stopped' })
     window.__voiceStub.realtime({ type: 'response.created' })
   })
-  await waitStatus(page, statusSelector, 'Thinking.')
+  await waitStatus(page, statusSelector, 'Thinking')
 }
 
 async function phone(browser, theme) {
