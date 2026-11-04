@@ -209,7 +209,11 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Chat in the card: the chat's own thread and composer. */
 .lab .lab-pcard.is-tall .lab-pcard-body { overflow: hidden; gap: 0; }
 .lab .lab-pcard .lab-ask.is-phone-sheet { flex: 1 1 auto; min-height: 0; background: transparent; }
-.lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome { background: transparent; padding-bottom: 0; }
+/* The card keeps the home-indicator inset at its own foot (and drops it on the keyboard), so the chat's own
+   v2 sheet inset, max(14px, safe area), would float the field ~34px above the keys (Anders, 4 Nov 2026:
+   "text sits weirdly here, too low", Wisdom 12, keyboard up). Same weight as that v2 rule, and later. */
+.lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome,
+.lab[data-chrome-version="v2"] .lab-pcard .lab-ask.is-phone-sheet .lab-ask-chrome { background: transparent; padding-bottom: 0; }
 .lab .lab-pcard .lab-ask.is-phone-sheet .lab-ask-composer { padding-bottom: 0; }
 .lab .lab-pcard .lab-ask .tc-fade { display: none; }
 .lab .lab-pcard .tc { --tc-paper: var(--lab-pcard-fill); --tc-pad: 0px; }
