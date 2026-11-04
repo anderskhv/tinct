@@ -126,8 +126,16 @@
       "bookId": "alice-in-wonderland",
       "title": "Alice's Adventures in Wonderland",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "pilot_draft_pending_review",
-      "publicationAccepted": false
+      "status": "editorial_in_progress",
+      "publicationAccepted": false,
+      "reviewedChapters": 2,
+      "totalChapters": 12,
+      "reviewedParagraphs": 50,
+      "totalParagraphs": 789,
+      "inProgress": {
+        "chapter": 3,
+        "paragraph": 0
+      }
     },
     {
       "bookId": "wuthering-heights",

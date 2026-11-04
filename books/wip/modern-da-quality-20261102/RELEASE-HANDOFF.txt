@@ -1,5 +1,11 @@
-Release ownership: Claude, per Anders on 2026-11-03.
-This Codex session prepares content and reviewable PRs only. Do not merge main or dispatch production releases. Do not auto-resume releases after 30 minutes.
-Handoff: https://github.com/anderskhv/tinct/issues/710#issuecomment-6600804716
-Prepared order: #707 Medea, #712 Bacchae, #713 The Prince. Refresh latest-main integration and accepted-predecessor pins after #710 at Claude's release time. Preserve reader-data migrations and audio holds.
-Meditations remains a partial draft, not publishable. Native Danish review pending; provisional launch is user-authorized.
+Release ownership: Claude, per Anders. Preparation only: do not merge main, deploy, release, upload narration or change Claude's branches. No automatic release resumption.
+
+Scope: all 112 published books. Native Danish review is user-arranged and pending; editorial completion is not certification. The user permits provisional release without every manual check, but this session is not the release owner.
+
+Complete editorial packages on this branch under books/wip/modern-da-quality-20261102/: Meditations, Poetics, Phaedrus, Symposium, Phaedo, Descartes Meditations, Utilitarianism, On Liberty, Hume Enquiry, A Little Princess. Each has a review JSON; check current review status and provenance before integration. A Little Princess: all 19 chapters/1701 paragraphs reviewed; Danish and English introductions included.
+
+In progress: Alice's Adventures in Wonderland. Parallel preparation: Kant Groundwork, Nicomachean Ethics, Aristotle Politics. Partial manuscripts are not publication-ready. QUEUE.json is the detailed programme ledger.
+
+Previously prepared Claude-owned PRs: #707 Medea, #712 Bacchae, #713 The Prince. Their current merge/release status has not been rechecked here. Earlier coordination: https://github.com/anderskhv/tinct/issues/710#issuecomment-6600804716 . Refresh main integration and dependency pins at release time; preserve reader-data migrations and audio holds.
+
+The user will request a Claude handoff prompt when ready. This file is preparation guidance, not an instruction to publish automatically.

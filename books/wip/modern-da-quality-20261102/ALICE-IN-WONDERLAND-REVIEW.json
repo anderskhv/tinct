@@ -1,0 +1,246 @@
+{
+  "bookId": "alice-in-wonderland",
+  "status": "editorial_in_progress",
+  "reviewedChapters": [
+    1,
+    2
+  ],
+  "reviewedParagraphs": 50,
+  "totalParagraphs": 789,
+  "inProgress": {
+    "chapter": 3,
+    "paragraph": 0
+  },
+  "nativeReview": "pending_user_arranges",
+  "releasePolicy": {
+    "mode": "prepare_only",
+    "releaseOwner": "Claude",
+    "reason": "User explicitly stopped this session's merges/releases to avoid blocking #710. Do not resume after 30 minutes automatically. Prepare work and hand releases to Claude."
+  },
+  "sourceBlobs": {
+    "original-en": "32c548b3482c11351cbe0f6432d5620d9e681d7f",
+    "modern-en": "f318e93ff68189301a3d245b256892778c96047d",
+    "modern-da": "c9116fd712ed9e27b9e1fd93e66446c6370bfd93"
+  },
+  "changes": [
+    {
+      "chapter": 1,
+      "paragraph": 1,
+      "before": "Alice var ved at blive meget træt af at sidde på bredden ved siden af sin søster uden noget at tage sig til. En gang eller to havde hun kigget ned i den bog, som søsteren læste, men der var hverken billeder eller samtaler i den. »Og hvad skal man med en bog,« tænkte Alice, »uden billeder og samtaler?«",
+      "after": "Alice var ved at blive meget træt af at sidde på bredden ved siden af sin søster uden noget at tage sig til. En gang eller to havde hun kigget ned i den bog, som søsteren læste, men der var hverken billeder eller samtaler i den. »Og hvad skal man med en bog,« tænkte Alice, »uden billeder eller samtaler?«",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 2,
+      "before": "Så hun sad og overvejede (så godt hun nu kunne, for varmen gjorde hende søvnig og sløv), om det var sjovt nok at lave en tusindfrydkæde til, at det kunne betale sig at rejse sig og plukke tusindfrydene, da en Hvid Kanin med lyserøde øjne pludselig løb forbi lige ved siden af hende.",
+      "after": "Så hun sad og overvejede (så godt hun nu kunne, for varmen gjorde hende søvnig og sløv), om det var sjovt nok at lave en kæde af tusindfryd til, at det kunne betale sig at rejse sig og plukke tusindfrydene, da en Hvid Kanin med lyserøde øjne pludselig løb forbi lige ved siden af hende.",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 3,
+      "before": "Der var ikke noget _særlig_ mærkeligt i det. Alice syntes heller ikke, at det var _særlig_ underligt at høre Kaninen sige for sig selv: »Åh nej! Åh nej! Jeg kommer for sent!« (Bagefter, da hun tænkte over det, gik det op for hende, at hun burde have undret sig; men i øjeblikket virkede det hele helt naturligt.) Men da Kaninen faktisk _tog et ur op af sin vestelomme_, så på det og skyndte sig videre, sprang Alice op. Det slog hende, at hun aldrig før havde set en kanin med vestelomme, endsige med et ur at trække op af den. Brændende af nysgerrighed løb hun efter den hen over marken og nåede heldigvis lige akkurat at se den forsvinde ned i et stort kaninhul under hækken.",
+      "after": "Der var ikke noget _særlig_ mærkeligt i det. Alice syntes heller ikke, at det var _særlig_ underligt at høre Kaninen sige for sig selv: »Åh nej! Åh nej! Jeg kommer for sent!« (Bagefter, da hun tænkte over det, gik det op for hende, at hun burde have undret sig; men i øjeblikket virkede det hele helt naturligt.) Men da Kaninen faktisk _tog et ur op af sin vestelomme_, så på det og skyndte sig videre, sprang Alice op. Det slog hende, at hun aldrig før havde set en kanin med vestelomme, endsige med et ur at tage op af den. Brændende af nysgerrighed løb hun efter den hen over marken og nåede heldigvis lige akkurat at se den forsvinde ned i et stort kaninhul under hækken.",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 5,
+      "before": "Et stykke tid løb kaninhullet lige frem som en tunnel. Så styrtede det pludselig nedad — så pludseligt, at Alice ikke nåede at tænke på at standse sig selv, før hun faldt ned i en meget dyb brønd.",
+      "after": "Kaninhullet fortsatte et stykke lige frem som en tunnel. Så gik det pludselig stejlt nedad — så pludseligt, at Alice ikke nåede at tænke på at standse sig selv, før hun faldt ned i en meget dyb brønd.",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 6,
+      "before": "Enten var brønden meget dyb, eller også faldt hun meget langsomt, for på vejen ned havde hun god tid til at se sig omkring og undre sig over, hvad der nu ville ske. Først kiggede hun nedad for at se, hvor hun var på vej hen, men der var for mørkt til at se noget. Så så hun på brøndens sider og opdagede, at der hang skabe og bogreoler hele vejen langs dem, og her og der hang der landkort og billeder på knager. Da hun faldt forbi en hylde, tog hun en krukke ned, hvorpå der stod »APPELSINMARMELADE«, men til hendes store skuffelse var den tom. Hun ville ikke lade den falde, for så kunne hun komme til at slå nogen ihjel dernede, så hun nåede at stille den ind i et skab, mens hun faldt forbi.",
+      "after": "Enten var brønden meget dyb, eller også faldt hun meget langsomt, for på vejen ned havde hun god tid til at se sig omkring og undre sig over, hvad der nu ville ske. Først kiggede hun nedad for at se, hvor hun var på vej hen, men der var for mørkt til at se noget. Så så hun på brøndens sider og opdagede, at de var fyldt med skabe og bogreoler, og her og der hang der landkort og billeder på knager. Da hun faldt forbi en hylde, tog hun en krukke ned, hvorpå der stod »APPELSINMARMELADE«, men til hendes store skuffelse var den tom. Hun ville ikke lade den falde, for så kunne hun komme til at slå nogen ihjel dernede, så hun nåede at stille den ind i et skab, mens hun faldt forbi.",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 7,
+      "before": "»Nå!« tænkte Alice, »efter et fald som det her vil det ikke være noget at falde ned ad trappen! Alle derhjemme vil synes, at jeg er modig! Ja, selv om jeg faldt ned fra husets tag, ville jeg ikke sige et ord om det!« (Hvilket sikkert var meget sandt.)",
+      "after": "»Nå!« tænkte Alice, »efter et fald som det her vil det ikke være noget at falde ned ad trappen! Alle derhjemme vil synes, at jeg er modig! Ja, selv om jeg faldt ned fra husets tag, ville jeg ikke sige et ord om det!« (Hvilket højst sandsynligt var rigtigt.)",
+      "reason": "Targeted modern-Danish precision: preserve alternative, spatial distance and source detail; avoid wind-watch ambiguity."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 13,
+      "before": "Pludselig fandt hun et lille bord på tre ben, lavet helt af massivt glas. Der stod ikke andet på det end en lillebitte gylden nøgle, og Alices første tanke var, at den måske passede til en af hallens døre. Men ak! enten var låsene for store, eller også var nøglen for lille; hvad det end var, kunne den ikke åbne en eneste af dem. Da hun gik rundt anden gang, lagde hun dog mærke til et lavt forhæng, som hun ikke havde set før. Bag det var der en lille dør, omkring femten tommer høj. Hun prøvede den lille gyldne nøgle i låsen, og til sin store glæde passede den!",
+      "after": "Pludselig fandt hun et lille bord på tre ben, lavet helt af massivt glas. Der stod ikke andet på det end en lillebitte gylden nøgle, og Alices første tanke var, at den måske passede til en af hallens døre. Men desværre var låsene enten for store, eller også var nøglen for lille; hvad det end var, kunne den ikke åbne en eneste af dem. Da hun gik rundt anden gang, lagde hun dog mærke til et lavt forhæng, som hun ikke havde set før. Bag det var der en lille dør, omkring femten tommer høj. Hun prøvede den lille gyldne nøgle i låsen, og til sin store glæde passede den!",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 14,
+      "before": "Alice åbnede døren ind til en smal gang, knap større end et rottehul. Hun knælede og kiggede langs den ind i den dejligste have, man kan tænke sig. Hvor hun dog længtes efter at forlade den mørke hal og vandre rundt mellem de lyse blomsterbede og de kølige springvand! Men hun kunne ikke engang få hovedet igennem døråbningen. »Og selv om mit hoved kunne komme igennem,« tænkte stakkels Alice, »ville det ikke nytte meget uden mine skuldre. Åh, bare jeg kunne klappe sammen som et teleskop! Jeg tror, jeg kunne gøre det, hvis jeg bare vidste, hvordan jeg skulle begynde.« Der var nemlig sket så mange mærkelige ting på det seneste, at Alice var begyndt at tro, at næsten ingenting i virkeligheden var umuligt.",
+      "after": "Alice åbnede døren ind til en smal gang, knap større end et rottehul. Hun knælede og kiggede langs den ind i den dejligste have, man kan tænke sig. Hvor hun dog længtes efter at forlade den mørke hal og vandre rundt mellem bedene med farvestrålende blomster og de kølige springvand! Men hun kunne ikke engang få hovedet igennem døråbningen. »Og selv om mit hoved kunne komme igennem,« tænkte stakkels Alice, »ville det ikke nytte meget uden mine skuldre. Åh, bare jeg kunne skubbes sammen som en kikkert! Jeg tror, jeg kunne gøre det, hvis jeg bare vidste, hvordan jeg skulle begynde.« Der var nemlig sket så mange mærkelige ting på det seneste, at Alice var begyndt at tro, at næsten ingenting i virkeligheden var umuligt.",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 15,
+      "before": "Det syntes meningsløst at vente ved den lille dør, så hun gik tilbage til bordet. Hun håbede halvt på at finde endnu en nøgle der, eller i hvert fald en bog med regler for, hvordan man klapper folk sammen som teleskoper. Denne gang stod der en lille flaske på det (»som helt sikkert ikke var her før,« sagde Alice). Der var bundet en papirlap om flaskens hals, og på den stod »DRIK MIG« smukt trykt med store bogstaver.",
+      "after": "Det virkede nytteløst at vente ved den lille dør, så hun gik tilbage til bordet. Hun håbede halvt på at finde endnu en nøgle der, eller i hvert fald en bog med regler for, hvordan man skubber folk sammen som kikkerter. Denne gang stod der en lille flaske på det (»som helt sikkert ikke var her før,« sagde Alice). Der var bundet en papirlap om flaskens hals, og på den stod »DRIK MIG« smukt trykt med store bogstaver.",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 16,
+      "before": "Det var meget godt at sige »Drik mig«, men den fornuftige lille Alice havde ingen hast med at gøre _det_. »Nej, først vil jeg tjekke,« sagde hun, »om der står ›_gift_‹.« Hun havde læst flere pæne små historier om børn, der var blevet brændt, ædt af vilde dyr og udsat for andre ubehagelige ting, alt sammen fordi de _nægtede_ at huske de enkle regler, deres venner havde lært dem: for eksempel at et glødende jern brænder, hvis man holder det for længe, og at et _meget_ dybt snit i fingeren som regel bløder. Hun havde heller aldrig glemt, at hvis man drikker meget af en flaske, hvorpå der står »gift«, så får man næsten helt sikkert ondt af det før eller siden.",
+      "after": "Det var let nok at sige »Drik mig«, men den fornuftige lille Alice ville ikke skynde sig at gøre _det_. »Nej, først vil jeg se efter,« sagde hun, »om der står ‘_gift_’ på den eller ej.« Hun havde nemlig læst flere rare små historier om børn, der var blevet forbrændt, ædt af vilde dyr eller udsat for andre ubehagelige ting, alt sammen fordi de _ikke ville_ huske de enkle regler, deres venner havde lært dem: for eksempel at man brænder sig på en rødglødende ildrager, hvis man holder den for længe, og at fingeren som regel bløder, hvis man skærer sig _meget_ dybt med en kniv. Hun havde heller aldrig glemt, at hvis man drikker meget fra en flaske mærket »gift«, får man næsten helt sikkert ubehag af det før eller siden.",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 17,
+      "before": "Denne flaske sagde imidlertid _ikke_ »gift«, så Alice vovede at smage på den. Den smagte så dejligt (faktisk en slags blanding af kirsebærtærte, creme, ananas, stegt kalkun, karamel og varmt ristet brød med smør), at hun snart havde drukket det hele.",
+      "after": "Men på denne flaske stod der _ikke_ »gift«, så Alice vovede at smage på den. Den smagte så dejligt (faktisk en slags blanding af kirsebærtærte, creme, ananas, stegt kalkun, karamel og varmt ristet brød med smør), at hun snart havde drukket det hele.",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 18,
+      "before": "»Sikke en mærkelig fornemmelse!« sagde Alice. »Jeg må være ved at klappe sammen som et teleskop.«",
+      "after": "»Sikke en mærkelig fornemmelse!« sagde Alice. »Jeg må være ved at blive skubbet sammen som en kikkert.«",
+      "reason": "Natural modern Danish; preserve collapsible-telescope image, specific poker and author's ironic understatement."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 20,
+      "before": "Efter en tid, da der ikke skete andet, besluttede hun at gå lige ind i haven. Men stakkels Alice! Ved døren opdagede hun, at hun havde glemt den lille gyldne nøgle. Hun gik tilbage til bordet, kun for at finde ud af, at hun umuligt kunne nå den. Hun kunne se den helt tydeligt gennem glasset. Hun gjorde sit allerypperste for at klatre op ad et af bordbenene, men det var for glat. Da hun havde udmattet sig selv med at prøve, satte den stakkels lille sig ned og græd.",
+      "after": "Efter et stykke tid, da der ikke skete andet, besluttede hun at gå lige ind i haven. Men stakkels Alice! Ved døren opdagede hun, at hun havde glemt den lille gyldne nøgle. Hun gik tilbage til bordet, kun for at finde ud af, at hun umuligt kunne nå den. Hun kunne se den helt tydeligt gennem glasset. Hun gjorde sit bedste for at klatre op ad et af bordbenene, men det var for glat. Da hun havde udmattet sig selv med at prøve, satte den stakkels lille sig ned og græd.",
+      "reason": "Modern idiomatic Danish; correct croquet spelling and preserve cheating herself explicitly."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 21,
+      "before": "»Kom nu, det hjælper ikke at græde sådan!« sagde Alice temmelig skarpt til sig selv. »Jeg råder dig til at holde op med det samme!« Hun gav sig selv som regel fremragende råd (selv om hun næsten aldrig fulgte dem), og somme tider skældte hun sig selv så hårdt ud, at hun fik tårer i øjnene. Hun kunne huske, at hun en gang havde prøvet at give sig selv en lussing, fordi hun havde snydt i et parti krokket, som hun spillede mod sig selv: dette usædvanlige barn var meget glad for at lade, som om hun var to personer. »Men det nytter ikke noget at lade, som om man er to personer nu!« tænkte stakkels Alice. »Der er jo knap nok af mig tilbage til at lave _én_ ordentlig person!«",
+      "after": "»Kom nu, det hjælper ikke at græde sådan!« sagde Alice temmelig skarpt til sig selv. »Jeg råder dig til at holde op med det samme!« Hun gav sig selv som regel fremragende råd (selv om hun næsten aldrig fulgte dem), og somme tider skældte hun sig selv så hårdt ud, at hun fik tårer i øjnene. Hun kunne huske, at hun en gang havde prøvet at give sig selv en lussing, fordi hun havde snydt sig selv i et spil kroket, som hun spillede mod sig selv: dette usædvanlige barn var meget glad for at lade, som om hun var to personer. »Men det nytter ikke noget at lade, som om man er to personer nu!« tænkte stakkels Alice. »Der er jo knap nok af mig tilbage til at lave _én_ ordentlig person!«",
+      "reason": "Modern idiomatic Danish; correct croquet spelling and preserve cheating herself explicitly."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 22,
+      "before": "Lidt efter fik hun øje på en lille glaskasse under bordet. Hun åbnede den og fandt en lillebitte kage, hvorpå der med korender smukt stod »SPIS MIG«. »Nå, jeg spiser den,« sagde Alice. »Hvis den gør mig større, kan jeg nå nøglen; hvis den gør mig mindre, kan jeg kravle ind under døren. Uanset hvad kommer jeg ind i haven, og jeg er ligeglad med, hvad der sker!«",
+      "after": "Lidt efter fik hun øje på en lille glasæske under bordet. Hun åbnede den og fandt en lillebitte kage, hvorpå der med korender smukt stod »SPIS MIG«. »Nå, jeg spiser den,« sagde Alice. »Hvis den gør mig større, kan jeg nå nøglen; hvis den gør mig mindre, kan jeg kravle ind under døren. Uanset hvad kommer jeg ind i haven, og jeg er ligeglad med, hvad der sker!«",
+      "reason": "Modern idiomatic Danish; correct croquet spelling and preserve cheating herself explicitly."
+    },
+    {
+      "chapter": 1,
+      "paragraph": 23,
+      "before": "Hun tog en lille bid og spurgte sig selv bekymret: »Hvilken vej? Hvilken vej?« Med en hånd oven på hovedet prøvede hun at mærke, hvilken vej hun voksede. Hun var ganske overrasket over at opdage, at hun forblev præcis lige stor. Det er selvfølgelig, hvad der almindeligvis sker, når man spiser kage; men Alice var blevet så vant til kun at vente sig ekstraordinære ting, at det forekom hende frygtelig kedeligt og dumt, at livet bare gik sin vante gang.",
+      "after": "Hun spiste en lille bid og sagde bekymret til sig selv: »Hvilken vej? Hvilken vej?« Hun holdt hånden oven på hovedet for at mærke, hvilken vej hun voksede, og blev meget overrasket over at opdage, at hun blev ved med at have samme størrelse. Det er ganske vist det, der plejer at ske, når man spiser kage. Men Alice var blevet så vant til kun at vente mærkelige ting, at det virkede kedeligt og dumt, når livet gik sin sædvanlige gang.",
+      "reason": "Modern idiomatic Danish; correct croquet spelling and preserve cheating herself explicitly."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 1,
+      "before": "»Underligere og underligere!« råbte Alice (hun var så forbløffet, at hun et øjeblik helt glemte, hvordan man taler ordentligt dansk). »Nu strækker jeg mig ud som det største teleskop, der nogensinde har eksisteret! Farvel, fødder!« (Da hun så ned på dem, kunne hun næsten ikke se dem mere, så langt væk var de.) »Åh, mine stakkels små fødder! Hvem skal nu tage sko og strømper på jer, mine kære? _Jeg_ kan i hvert fald ikke! Jeg bliver alt for langt væk til at gide jer; I må klare jer, så godt I kan. — Men jeg må være venlig mod dem,« tænkte Alice, »ellers vil de måske ikke gå derhen, hvor jeg vil hen! Lad mig tænke: jeg giver dem et nyt par støvler hver jul.«",
+      "after": "»Underligtere og underligtere!« råbte Alice (hun var så overrasket, at hun et øjeblik helt glemte at tale korrekt). »Nu bliver jeg trukket ud som den største kikkert, der nogensinde har været til! Farvel, fødder!« (Da hun så ned på sine fødder, var de næsten ude af syne, så langt væk kom de.) »Åh, mine stakkels små fødder, hvem skal nu give jer sko og strømper på, mine kære? _Jeg_ kan i hvert fald ikke! Jeg vil være alt for langt væk til at tage mig af jer. I må klare jer, så godt I kan. Men jeg må være god mod dem,« tænkte Alice, »ellers vil de måske ikke gå den vej, jeg vil! Lad mig se: Jeg giver dem et nyt par støvler hver jul.«",
+      "reason": "Restore deliberately incorrect comparative as Underligtere; retain collapsible-kikkert imagery and care versus indifference."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 3,
+      "before": "_Hr. Alices højre fod, Kaminmåtten, ved Kamingitteret,_ (_med\n     kærlig hilsen fra Alice_).",
+      "after": "_Hr. Alices højre fod, Tæppet foran kaminen, ved ildskærmen,_ (_med kærlig hilsen fra Alice_).",
+      "reason": "Natural Danish address joke preserving italics and fireplace location."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 7,
+      "before": "»Du burde skamme dig,« sagde Alice, »en stor pige som dig« (og det havde hun god grund til at sige), »at græde og græde på den måde! Hold op med det med det samme, siger jeg dig!« Men hun blev alligevel ved og græd tårer i liter, indtil en stor dam omgav hende. Den var omkring fire tommer dyb og strakte sig halvvejs ned gennem hallen.",
+      "after": "»Du burde skamme dig,« sagde Alice, »en stor pige som dig« (og det havde hun god grund til at sige), »at græde og græde på den måde! Hold op med det med det samme, siger jeg dig!« Men hun blev alligevel ved og udgød litervis af tårer, indtil en stor dam omgav hende. Den var omkring fire tommer dyb og strakte sig halvvejs ned gennem hallen.",
+      "reason": "Modern Danish; replace obscure glove material, malformed skæl gender and invented 'i stillen'; preserve stanza line count and crocodile imagery."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 8,
+      "before": "Efter en tid hørte hun små fødder trippe i det fjerne og tørrede hurtigt øjnene for at se, hvad der kom. Den Hvide Kanin var på vej tilbage, pragtfuldt klædt på, med hvide glacehandsker i den ene hånd og en stor vifte i den anden. Den travede af sted i frygtelig fart og mumlede: »Åh! Hertuginden, Hertuginden! Åh! bliver hun ikke rasende, hvis jeg har ladet hende vente!« Alice var desperat nok til at bede hvem som helst om hjælp. Da Kaninen kom tæt på, begyndte hun med en lille, bange stemme: »Undskyld, hr. —« Kaninen fór voldsomt sammen, tabte de hvide glacehandsker og viften og flygtede ind i mørket, så hurtigt den kunne.",
+      "after": "Efter en tid hørte hun små fødder trippe i det fjerne og tørrede hurtigt øjnene for at se, hvad der kom. Den Hvide Kanin var på vej tilbage, pragtfuldt klædt på, med hvide handsker af fint gedeskind i den ene hånd og en stor vifte i den anden. Han travede af sted i frygtelig fart og mumlede: »Åh! Hertuginden, Hertuginden! Åh! bliver hun ikke rasende, hvis jeg har ladet hende vente!« Alice var desperat nok til at bede hvem som helst om hjælp. Da Kaninen kom tæt på, begyndte hun med en lille, bange stemme: »Undskyld, hr. —« Kaninen fór voldsomt sammen, tabte de hvide handsker af fint gedeskind og viften og flygtede ind i mørket, så hurtigt han kunne.",
+      "reason": "Modern Danish; replace obscure glove material, malformed skæl gender and invented 'i stillen'; preserve stanza line count and crocodile imagery."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 11,
+      "before": "»Hvor flittigt pudser krokodillen\nsin skinnende, fine hale,\nog øser Nilens vand i stillen\npå hver en gylden skæl!",
+      "after": "»Hvor fint den lille krokodille\npudser sin blanke hale\nog hælder vand fra Nilen ud\npå hvert et gyldent skæl!",
+      "reason": "Modern Danish; replace obscure glove material, malformed skæl gender and invented 'i stillen'; preserve stanza line count and crocodile imagery."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 12,
+      "before": "»Hvor glad den griner, ser man nok,\nhvor pænt den spreder kløerne,\nog byder små fisk velkommen i flok\nmed kæber, der smiler mildt!«",
+      "after": "»Hvor muntert den kan grine,\nhvor pænt den spreder kløer\nog byder små fisk indenfor\nmed kæber, der smiler blidt!«",
+      "reason": "Modern Danish; replace obscure glove material, malformed skæl gender and invented 'i stillen'; preserve stanza line count and crocodile imagery."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 14,
+      "before": "Mens hun talte, kom hun til at kigge på sine hænder, og til sin forbavselse opdagede hun, at hun havde fået en af Kaninens små hvide glacéhandsker på. »Hvordan i alverden _har_ jeg kunnet gøre det?« tænkte hun. »Jeg må være ved at blive mindre igen.« Hun rejste sig og gik hen til bordet for at måle sig. Så vidt hun kunne se, var hun nu omkring to fod høj og skrumpede stadig hurtigt ind. Hun forstod snart, at det var viften i hendes hånd, der gjorde det, og hun smed den hurtigt — lige i tide til ikke at skrumpe helt væk.",
+      "after": "Mens hun talte, kom hun til at kigge på sine hænder, og til sin forbavselse opdagede hun, at hun havde taget en af Kaninens små, hvide handsker af fint gedeskind på, mens hun talte. »Hvordan i alverden _har_ jeg kunnet gøre det?« tænkte hun. »Jeg må være ved at blive mindre igen.« Hun rejste sig og gik hen til bordet for at måle sig. Så vidt hun kunne se, var hun nu omkring to fod høj og skrumpede stadig hurtigt ind. Hun forstod snart, at det var viften i hendes hånd, der gjorde det, og hun smed den hurtigt — lige i tide til ikke at skrumpe helt væk.",
+      "reason": "Correct narrow-escape idiom, preserve simultaneous glove action and make French cat joke understandable without replacing original French."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 15,
+      "before": "»Det _var_ lige på det nærmeste!« sagde Alice. Den pludselige forandring havde skræmt hende slemt, men hun var meget glad for stadig at eksistere. »Og nu — haven!« Hun løb så hurtigt hun kunne tilbage til den lille dør, men ak! den var lukket igen, og den lille gyldne nøgle lå på glasbordet ligesom før. »Nu er det værre end nogensinde,« tænkte det stakkels barn. »Jeg har aldrig før været så lille som nu, aldrig! Det er rigtig for galt, synes jeg!«",
+      "after": "»Det _var_ tæt på!« sagde Alice. Hun var temmelig forskrækket over den pludselige forandring, men meget glad for stadig at være til. »Og nu ind i haven!« Hun løb så hurtigt, hun kunne, tilbage til den lille dør. Men desværre var den lukket igen, og den lille gyldne nøgle lå stadig på glasbordet. »Og nu er det værre end nogensinde,« tænkte det stakkels barn, »for jeg har aldrig været så lille før, aldrig! Det er altså for galt, det er det!«",
+      "reason": "Correct narrow-escape idiom, preserve simultaneous glove action and make French cat joke understandable without replacing original French."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 20,
+      "before": "»Måske forstår den ikke engelsk,« tænkte Alice. »Det kan være en fransk mus, der kom over med Vilhelm Erobreren.« (Trods al sin viden om historie havde Alice kun en løs idé om, hvor længe siden noget var sket.) Hun prøvede igen: »Où est ma chatte?« Det var den første sætning i hendes franskbog. Musen sprang pludselig op af vandet og så ud til at ryste over hele kroppen af skræk. »Åh, undskyld!« råbte Alice hurtigt, bange for at hun havde såret det stakkels dyrs følelser. »Jeg glemte helt, at du ikke bryder dig om katte.«",
+      "after": "»Måske forstår den ikke engelsk,« tænkte Alice. »Det kan være en fransk mus, der kom over med Vilhelm Erobreren.« (Trods al sin viden om historie havde Alice kun en løs idé om, hvor længe siden noget var sket.) Hun prøvede igen: »Où est ma chatte?« — »Hvor er min kat?« Det var den første sætning i hendes franskbog. Musen sprang pludselig op af vandet og så ud til at ryste over hele kroppen af skræk. »Åh, undskyld!« råbte Alice hurtigt, bange for at hun havde såret det stakkels dyrs følelser. »Jeg glemte helt, at du ikke bryder dig om katte.«",
+      "reason": "Correct narrow-escape idiom, preserve simultaneous glove action and make French cat joke understandable without replacing original French."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 23,
+      "before": "»Vi, siger du!« råbte Musen og rystede helt ud i halespidsen. »Som om _jeg_ ville tale om sådan noget! Min familie har altid _hadet_ katte: modbydelige, lave, simple væsner! Nævn aldrig det navn for mig igen!«",
+      "after": "»Vi, siger du!« råbte Musen og rystede helt ud i halespidsen. »Som om _jeg_ ville tale om sådan noget! Min familie har altid _hadet_ katte: modbydelige, tarvelige, grove væsner! Nævn aldrig det navn for mig igen!«",
+      "reason": "Modern Danish; bright eyes describe liveliness not eye colour, natural insult vocabulary and Danish bird name."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 24,
+      "before": "»Det skal jeg bestemt ikke!« sagde Alice ivrigt for at få talen over på noget andet. »Kan du — kan du lide — lide hunde?« Musen svarede ikke, så Alice fortsatte begejstret. »Der er sådan en dejlig lille hund i nærheden af vores hus, som jeg gerne vil have, at du ser! En lille terrier med lyse øjne og åh, så langt, krøllet brunt hår! Den henter ting, når man kaster dem, og sætter sig op og tigger om sin middagsmad, og den kan alle mulige andre kunster — jeg kan ikke huske det halve. Den tilhører en bonde, ved du, som siger, at den er så nyttig, at den er hundrede pund værd! Han siger, at den dræber alle rotter og — åh nej!« råbte Alice bedrøvet. »Jeg er bange for, at jeg har fornærmet den igen!« Musen svømmede væk, så hurtigt den kunne, og pløjede dammen op, mens den fór af sted.",
+      "after": "»Det skal jeg bestemt ikke!« sagde Alice ivrigt for at få talen over på noget andet. »Kan du — kan du lide — lide hunde?« Musen svarede ikke, så Alice fortsatte begejstret. »Der er sådan en dejlig lille hund i nærheden af vores hus, som jeg gerne vil have, at du ser! En lille terrier med livlige øjne og åh, så langt, krøllet brunt hår! Den henter ting, når man kaster dem, og sætter sig op og tigger om sin middagsmad, og den kan alle mulige andre kunster — jeg kan ikke huske det halve. Den tilhører en bonde, ved du, som siger, at den er så nyttig, at den er hundrede pund værd! Han siger, at den dræber alle rotter og — åh nej!« råbte Alice bedrøvet. »Jeg er bange for, at jeg har fornærmet den igen!« Musen svømmede væk, så hurtigt den kunne, og pløjede dammen op, mens den fór af sted.",
+      "reason": "Modern Danish; bright eyes describe liveliness not eye colour, natural insult vocabulary and Danish bird name."
+    },
+    {
+      "chapter": 2,
+      "paragraph": 26,
+      "before": "Det var i hvert fald på høje tid at komme af sted: dammen var ved at fyldes med fugle og dyr, der var faldet i. Der var en And, en Dodo, en Lori, en Ørneunge og flere andre sælsomme væsner. Med Alice i spidsen svømmede hele flokken mod bredden.",
+      "after": "Det var i hvert fald på høje tid at komme af sted: dammen var ved at fyldes med fugle og dyr, der var faldet i. Der var en And, en Dronte, en Lori, en Ørneunge og flere andre mærkelige skabninger. Med Alice i spidsen svømmede hele flokken mod bredden.",
+      "reason": "Modern Danish; bright eyes describe liveliness not eye colour, natural insult vocabulary and Danish bird name."
+    }
+  ],
+  "englishChanges": [],
+  "metadataChanges": [],
+  "textualNotes": [
+    {
+      "chapter": 2,
+      "paragraph": 1,
+      "note": "Curiouser deliberately malformed comparative translated Underligtere. Narrator's 'good English' rendered 'tale korrekt' to preserve the wordplay without falsely relocating Alice to Denmark."
+    },
+    {
+      "chapter": 2,
+      "paragraphs": [
+        10,
+        11,
+        12
+      ],
+      "note": "Poem preserves image sequence and four-line stanza boundaries; natural, faithful Danish prioritized over forced rhyme. Independent/native verse review specifically requested. Arithmetic and geography errors in preceding paragraph are intentional and retained."
+    }
+  ],
+  "notes": [
+    "Chapters 1–2 fully compared with original. Remaining retained paragraphs not yet reviewed.",
+    "Preserve intentional arithmetic/geography errors, wordplay, italics, poetry stanza boundaries and historical setting. Native/independent review pending.",
+    "Preparation only; Claude owns integration and release."
+  ]
+}
