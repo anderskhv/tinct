@@ -1,5 +1,15 @@
 # Book maps: concept (pilot, 4 November 2026)
 
+> **Direction as of 4 Nov (supersedes the detail below):** desktop first.
+> - **Mockup:** https://claude.ai/artifact/Uf3pWM1ZSqAjTXcMS6KBC3
+> - **The page:** the book, its one question, and four part questions as rows.
+> - **Opening a part** shows "Summarize this part" and "Read this part" (once started: "Recap this part", "Quiz me on this part", "Continue").
+> - **Each chapter** is listed as "Chapter N: Title · minutes" with a one-line synopsis, plus Summarize and Read (once read: Quiz me; once summarized: Read it anyway).
+> - **Summaries** open in place.
+> - **"Your notes · N"** expands that chapter's entries exactly as the Notebook shows them (highlights, notes, AI cards, quiz answers).
+> - **Status marks** for read, summarized, current and ahead.
+> - **Removed:** routes, difficulty labels, "watch for" and listening (listening is a reading mode, not a map action).
+
 This is Anders's idea and is still being discussed: nothing is built yet.
 - **Mockups:** https://claude.ai/artifact/GkGhDrLChUWae5Liptvqg5
 - **Pilot content:** `books/wip/book-maps-pilot/the-prince.map.json` (27 stops, two routes; a draft, not yet reviewed).
