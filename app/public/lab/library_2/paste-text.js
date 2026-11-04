@@ -99,13 +99,146 @@ export function suggestedTitle(source, format='auto') {
  return '';
 }
 
+/* Web-page chrome (4 Nov 2026). An article copied from a web page brings the site with it: its menu,
+ like and comment counters, a paywall prompt, teasers for other articles and the footer. They are left
+ out before the book is made, and only where they clearly are the site's: a run of short menu or footer
+ labels at either end, counters beside their numbers, the site's own paywall and "Continue reading"
+ lines with what follows them, and an image caption repeated in the prose. A sentence of the article is
+ never taken, and the same article pasted without them comes out the same. */
+const folded = text => String(text).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').replace(/\s+/g, ' ').trim();
+const wordsOf = text => (folded(text).match(/\S+/g) || []).length;
+const MENU = /^(?:home|menu|search|subscribe(?: now)?|sign ?in|sign ?up|log ?in|log ?out|register|my account|newsletters?|archive|take archive|about(?: us)?|contact(?: us)?|careers|jobs|store|shop|donate|advertise|gift a sub(?:scription)?|give a gift subscription|skip to (?:main )?content|podcasts?|writers|authors|events|explore|powered by \S+(?: \S+)?|get the app|start writing|upgrade to paid|share)$/i;
+const FOOTER_LINK = /^(?:terms(?: of (?:use|service))?|terms (?:&|and) conditions|privacy(?: policy)?|privacy ∙ terms ∙ collection notice|cookie (?:policy|settings|preferences)|collection notice|accessibility|sitemap|rss|newsletters?|advertise|contact(?: us)?|careers|about(?: us)?|facebook|instagram|x(?: \(twitter\))?|twitter|linkedin|youtube|tiktok|threads|bluesky|mastodon|reddit|get the app|start writing)$/i;
+// A copyright line closes a site's footer, but a book may end on one too: never a footer alone.
+const LEGAL = /^(?:.*\ball rights reserved\b.*|(?:©|\(c\)|copyright ©?) ?\d{4}.*)$/i;
+const COUNTER = /^(?:\d[\d,.]*[km]?\s*)?(?:likes?|comments?|restacks?|shares?|replies)$/i;
+const NUMBER = /^\d[\d,.]*[km]?$/i;
+const BUTTON = /^(?:share|subscribe|subscribe now|leave a comment|share this post|upgrade to paid)$/i;
+// The site's own prompt where its free text ends; what follows it is the site's, not the article's.
+const PAYWALL = /^(?:enter your email to (?:continue|keep) reading|this post is for (?:paid|paying) subscribers(?: only)?|keep reading with a \d+-day free trial|subscribe to (?:continue|keep) reading|continue reading this post for free.*|create a free account to (?:continue|keep) reading.*|you(?:'|’)ve reached your (?:free )?article limit.*)$/i;
+const RELATED = /^(?:continue reading|read (?:more|next)|more (?:from|in|by) .{1,40}|related(?: (?:posts|articles|stories|reading|content))?|recommended(?: for you)?|you (?:may|might) also (?:like|enjoy)|ready for more\??|discussion about this post|more stories|up next|popular(?: posts| now)?|most (?:popular|read))$/i;
+const label = text => { const t = folded(text); return !!t && wordsOf(t) <= 6 && t.length <= 60 && !/[.?!;,:]$/.test(t); };
+
+/** Which of an article's units (lines, or blocks of HTML) are the site's: their indexes. */
+export function chromeUnits(units) {
+ const texts = units.map(unit => folded(typeof unit === 'string' ? unit : unit.text));
+ const caption = units.map(unit => typeof unit === 'object' && !!unit.caption);
+ const drop = new Set();
+ const filled = texts.map((t, i) => t ? i : -1).filter(i => i >= 0);
+ if (!filled.length) return drop;
+ const wordsBetween = (from, to) => filled.filter(i => i >= from && i < to).reduce((n, i) => n + wordsOf(texts[i]), 0);
+ const total = wordsBetween(0, texts.length);
+ // The site's menu: a run of short labels opening the paste, up to its last menu label.
+ { const menus = new Set(), seen = new Set(); let last = -1;
+  for (const i of filled) {
+   if (!label(texts[i])) break;
+   const key = texts[i].toLowerCase();
+   if (MENU.test(texts[i])) { menus.add(key); last = i; } else if (seen.has(key)) last = i;
+   seen.add(key);
+  }
+  // Three different menu labels at least, and most of what they close.
+  const before = filled.filter(i => i <= last);
+  if (menus.size >= 3 && before.filter(i => MENU.test(texts[i]) || texts.slice(0, i).includes(texts[i])).length * 2 >= before.length) before.forEach(i => drop.add(i));
+ }
+ // Where the site's paywall or its teasers for other articles begin, the article has ended.
+ let end = texts.length;
+ for (const i of filled) {
+  if (PAYWALL.test(texts[i]) && wordsBetween(0, i) >= wordsBetween(i, texts.length)) { end = i; break; }
+  const t = texts[i].replace(/:$/, '');
+  if (RELATED.test(t) && wordsBetween(0, i) >= total * 0.4 && wordsBetween(i, texts.length) < wordsBetween(0, i)
+   && filled.filter(j => j > i).every(j => wordsOf(texts[j]) <= 80)) { end = i; break; }
+ }
+ for (const i of filled) if (i >= end) drop.add(i);
+ // The site's footer: a run of short labels closing the paste, from its first footer label.
+ { const links = new Set(); let first = -1;
+  for (const i of [...filled].reverse()) {
+   if (i >= end) continue;
+   if (FOOTER_LINK.test(texts[i])) { links.add(texts[i].toLowerCase()); first = i; continue; }
+   if (LEGAL.test(texts[i])) { first = i; continue; }
+   if (!label(texts[i])) break;
+  }
+  if (links.size >= 2) for (const i of filled) if (i >= first) drop.add(i);
+ }
+ // Like and comment counters ("202", "Likes", "31", "Comments", "Share"), and a lone share button in the prose.
+ for (let k = 0; k < filled.length; k++) {
+  let m = k;
+  while (m < filled.length && (NUMBER.test(texts[filled[m]]) || COUNTER.test(texts[filled[m]]) || BUTTON.test(texts[filled[m]]))) m += 1;
+  const run = filled.slice(k, m);
+  if (run.some(i => COUNTER.test(texts[i]))) run.forEach(i => drop.add(i));
+  else if (run.length === 1 && BUTTON.test(texts[run[0]])) {
+   const before = filled[k - 1], after = filled[m];
+   if ((before === undefined || wordsOf(texts[before]) > 15) && (after === undefined || wordsOf(texts[after]) > 15)) drop.add(run[0]);
+  }
+  if (m > k) k = m - 1;
+ }
+ // An image caption set again in the prose (the same picture placed twice): a figure's caption in HTML;
+ // in plain text, a line on its own among a web page's paragraphs (one to a line, see plainHtml).
+ const lines = !units.some(unit => typeof unit === 'object');
+ const webLine = i => {
+  let from = i, to = i;
+  while (from > 0 && texts[from - 1]) from -= 1;
+  while (to < texts.length - 1 && texts[to + 1]) to += 1;
+  return texts.slice(from, to + 1).some(t => t.length > 240) && [texts[i - 1], texts[i + 1]].every(near => !near || wordsOf(near) > 20);
+ };
+ filled.forEach((i, at) => {
+  if (drop.has(i) || wordsOf(texts[i]) < 5 || wordsOf(texts[i]) > 60) return;
+  const earlier = filled.slice(0, at).find(j => !drop.has(j) && texts[j] === texts[i]);
+  if (earlier === undefined) return;
+  if (caption[i] ? caption[earlier] : lines && webLine(i)) drop.add(i);
+ });
+ return drop;
+}
+
+/** A pasted HTML page without the site around its article (chromeUnits). */
+function withoutHtmlChrome(html) {
+ const template = document.createElement('template');
+ template.innerHTML = html;
+ const leaves = [...template.content.querySelectorAll('p,div,section,article,h1,h2,h3,h4,h5,h6,blockquote,pre,li,dt,dd,figcaption,td,th,caption')]
+  .filter(el => !el.querySelector('p,div,section,article,h1,h2,h3,h4,h5,h6,blockquote,pre,ul,ol,li,dl,dt,dd,figure,figcaption,table,td,th,caption'));
+ const drop = chromeUnits(leaves.map(el => ({ text: el.textContent || '', caption: el.localName === 'figcaption' })));
+ if (!drop.size) return html;
+ for (const i of drop) {
+  const el = leaves[i];
+  const gone = el.localName === 'figcaption' && el.parentElement?.localName === 'figure' ? el.parentElement : el;
+  let parent = gone.parentElement;
+  gone.remove();
+  while (parent && !folded(parent.textContent)) { const up = parent.parentElement; parent.remove(); parent = up; }
+ }
+ return template.innerHTML;
+}
+
+/** A number opening a short line that stands between paragraphs: a section heading ("IV. Signs of the times"), a sub-section ("ii. …"). */
+const SECTION = /^(?:[IVXLC]{1,7}|\d{1,2})[.)]\s+\S/;
+const SUBSECTION = /^(?:[ivxlc]{1,7}|[a-h])[.)]\s+\S/;
+function plainHtml(text) {
+ return text.split(/\n\s*\n/).filter(part => part.trim()).map(part => {
+  const lines = part.split('\n');
+  // Text copied from a web page sets a paragraph on each line; printed text wraps its lines.
+  if (lines.length < 2 || !lines.some(line => line.trim().length > 240)) return `<p>${lines.map(escape).join('<br/>')}</p>`;
+  const filled = lines.map(line => line.trim()).filter(Boolean);
+  return filled.map((line, i) => {
+   const between = [filled[i - 1], filled[i + 1]].every(near => near === undefined || near.length > 160);
+   const heading = between && line.length <= 90 && wordsOf(line) <= 12 && !/[.,;:]$/.test(line);
+   if (heading && SECTION.test(line)) return `<h2>${escape(line)}</h2>`;
+   if (heading && SUBSECTION.test(line)) return `<h3>${escape(line)}</h3>`;
+   return `<p>${escape(line)}</p>`;
+  }).join('\n');
+ }).join('\n');
+}
+
+function withoutPlainChrome(text) {
+ const lines = text.replace(/\r\n?/g, '\n').split('\n');
+ const drop = chromeUnits(lines);
+ return drop.size ? lines.filter((_, i) => !drop.has(i)).join('\n') : text;
+}
+
 export function preview(source, format = 'auto', start = 0, end = 0) {
  const text = trimSource(source, start, end);
  if (!text.trim()) throw new Error('Paste some text to add.');
  if(format==='auto')format=detectFormat(text);
- if (format === 'html') return sanitizeHtml(text);
- if (format === 'markdown') return markdownHtml(text);
- return text.replace(/\r\n?/g, '\n').split(/\n\s*\n/).map(part => `<p>${part.split('\n').map(escape).join('<br/>')}</p>`).join('\n');
+ if (format === 'html') return withoutHtmlChrome(sanitizeHtml(text));
+ if (format === 'markdown') return withoutHtmlChrome(markdownHtml(text));
+ return plainHtml(withoutPlainChrome(text));
 }
 
 const utf8 = new TextEncoder();
