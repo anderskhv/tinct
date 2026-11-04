@@ -44,14 +44,16 @@
   ],
   "apparatus": {
     "sourceArtifact": "source-editorial-notes.json",
-    "anchoredNotes": 229,
-    "paragraphBlocks": 234,
-    "continuationBlocks": 5,
-    "approximateSourceWords": 12001,
-    "status": "Source recovered; modern Danish editorial-note translation pending; note-reference integration pending.",
+    "anchoredNotes": 230,
+    "paragraphBlocks": 247,
+    "continuationBlocks": 17,
+    "approximateSourceWords": 12335,
+    "status": "All 247 blocks translated and editorially reviewed; native Danish review and note-reference integration pending.",
     "scope": "Separate Chase editorial NOTES appendix and its reference markers are absent from all repository editions. These are editorial apparatus, not missing Aristotle main-text prose.",
-    "integrationProposal": "Preserve the existing 1,195 paragraph structure. Attach note reference anchors through existing note support, using sourceHtml and parentAnchor to reconstruct each logical note. Translate and review notes separately; do not append them as unaligned body paragraphs or silently discard them.",
-    "sourceImmutable": true
+    "integrationProposal": "Preserve existing 1195 narrative paragraphs. Use sequence, id and parentAnchor to reconstruct notes; retain all 247 source blocks including 13 poem/formula blocks and starred note fn-7.151. Map source fnref anchors separately; do not insert unaligned narrative slots.",
+    "sourceImmutable": true,
+    "translatedArtifact": "editorial-notes.da.json",
+    "reviewArtifact": "editorial-notes.review.json"
   },
-  "releaseReadiness": "Main-text editorial first pass complete; native Danish review pending; missing figure and editorial apparatus unresolved for a claim of fully restored edition."
+  "releaseReadiness": "Main-text and full recovered-notes Danish editorial passes complete; native review, figure localization/rendering and note-reference integration pending."
 }

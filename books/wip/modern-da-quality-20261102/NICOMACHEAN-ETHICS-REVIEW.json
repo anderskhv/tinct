@@ -1,6 +1,6 @@
 {
   "bookId": "nicomachean-ethics",
-  "status": "main_text_editorial_pass_complete_apparatus_pending",
+  "status": "editorial_complete_integration_pending",
   "sourceShas": {
     "originalEn": "ba1a1b9f028fb953481c3cf63657fe09982c7285",
     "modernEn": "5857c8170fed92c65bc95304b58680877f0bbfcf",
@@ -9580,5 +9580,68 @@
       "after": "As for bodily pleasures, any ordinary person—even a slave—might enjoy them just as well as the best man living. But no one supposes a slave to share in happiness unless they also allow him a share in human life. Happiness consists not in such pastimes but in activities in accordance with excellence, as has also been said.",
       "reason": "Resolve obscure inherited clause using Ross X.6: share in human life. https://classics.mit.edu/Aristotle/nicomachaen.10.x.html"
     }
+  ],
+  "apparatusReview": {
+    "bookId": "nicomachean-ethics",
+    "scope": "D. P. Chase historical editorial NOTES supplement; separate from 1195 narrative paragraphs.",
+    "status": "translated_and_editorially_reviewed_native_review_pending",
+    "counts": {
+      "blocks": 247,
+      "originalFootnoteParagraphs": 234,
+      "additionalExamplesOrTables": 13,
+      "anchoredNotes": 230,
+      "initialAnchoredNotes": 229,
+      "newStarredAnchor": "fn-7.151",
+      "translatedBlocks": 247,
+      "sourceWords": 12335,
+      "sourceRestorationBlocks": 21
+    },
+    "checks": {
+      "allSourceBlocksCompared": true,
+      "original234SourceTextsUnchanged": true,
+      "uniqueSequence": true,
+      "allDanishNonempty": true,
+      "emptyGreekPlaceholdersRemaining": 0,
+      "lengthFlags": [],
+      "allBlocksReadAndTranslated": true
+    },
+    "translationPolicy": [
+      "Historical first person and judgments remain Chase’s, not Aristotle’s or present-day editorial opinion.",
+      "English-language terminology and historical Christian examples retained with an explicit Danish introductory notice.",
+      "Quoted Greek/Latin retained; occasional Danish glosses supplied without replacing original quotation.",
+      "Meaningful emphasis retained; routine italic Latin abbreviations translated as ordinary Danish.",
+      "Page/line citations remain historical edition references; not app paragraph links.",
+      "Clear source corruption restored with per-block provenance and pre-restoration Danish text; Gutenberg sourceText/sourceHtml immutable."
+    ],
+    "sourceRestoration": "editorial-note-restorations.json documents 21 blocks: Greek lacunae, table column, full Plato quote, corrupted OCR and two English transcription errors. 1890 scan visually inspected for notes missing from the later Wikisource edition.",
+    "limitations": [
+      "Native Danish final read pending.",
+      "Greek quotations restored and visually checked where recorded; no claim of a critical Greek edition or exhaustive correction of every inherited Greek accent/transliteration and bibliographic typo.",
+      "App note-reference mapping and rendering pending; do not insert narrative slots.",
+      "Source figure V:49 remains recovered but integration/localization pending."
+    ],
+    "sources": [
+      "https://en.wikisource.org/wiki/Nicomachean_Ethics_(Chase)/Notes",
+      "https://www.survivorlibrary.com/library/the_ethics_of_aristotle_1890.pdf"
+    ],
+    "artifacts": [
+      "editorial-notes.da.json",
+      "editorial-notes.review.json",
+      "editorial-note-restorations.json",
+      "source-editorial-notes.json",
+      "source-wikisource-notes.html",
+      "source-chase-1890.pdf"
+    ],
+    "releaseStatus": "not_released_no_repository_mutations",
+    "parentValidation": {
+      "originalSourceBlocks": "All 234 original sourceText/sourceHtml pairs exactly match immutable recovery; all247 Danish blocks nonempty.",
+      "selectedExamples": "Read all13 additional examples/tables, introductory attribution and final note; source-corrupted hubpis corrected to ὕβρις with separate provenance.",
+      "nativeReview": "pending_user_arranges"
+    }
+  },
+  "remainingIntegration": [
+    "Native Danish review",
+    "Note-reference mapping and rendering without changing narrative paragraph slots",
+    "Localized exchange diagram and image rendering"
   ]
 }
