@@ -183,12 +183,12 @@
       "phase": "Phase 2: four replacements; cumulative 22",
       "status": "editorial_in_progress",
       "publicationAccepted": false,
-      "reviewedChapters": 2,
+      "reviewedChapters": 3,
       "totalChapters": 10,
-      "reviewedParagraphs": 78,
+      "reviewedParagraphs": 95,
       "totalParagraphs": 339,
       "inProgress": {
-        "chapter": 3,
+        "chapter": 4,
         "paragraph": 0
       }
     },
@@ -224,8 +224,11 @@
       "bookId": "the-awakening",
       "title": "The Awakening",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_in_progress",
+      "publicationAccepted": false,
+      "workMode": "parallel_agent_prepare_only",
+      "totalChapters": 39,
+      "totalParagraphs": 1044
     },
     {
       "bookId": "candide",
@@ -246,9 +249,15 @@
       "bookId": "ivan-ilyich",
       "title": "The Death of Ivan Ilyich",
       "phase": "Phase 3: 24 additions; cumulative 46",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "workMode": "parallel_agent_prepare_only"
+      "workMode": "parallel_agent_prepare_only",
+      "reviewedChapters": 12,
+      "totalChapters": 12,
+      "reviewedParagraphs": 298,
+      "totalParagraphs": 298,
+      "nativeReview": "pending_user_arranges",
+      "inProgress": null
     },
     {
       "bookId": "jane-eyre",
