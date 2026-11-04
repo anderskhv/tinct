@@ -1420,7 +1420,7 @@ function savePlaceNow() {
   const hist = store.get('read:' + state.key) || { furthest: 1 };
   if (place.page > hist.furthest) { hist.furthest = place.page; store.set('read:' + state.key, hist) }
   if (moved && state.kind === 'pdf') placeSync.note(hexOf(state.key));
-  if (moved && isEpub()) { if (isPdfText()) pdfTextShare(); else epubShare() }
+  if (moved && isEpub()) { if (isPdfText()) pdfTextShare(); else { epubShare(); epubPlaceSync.note(state.key) } }
   if (moved) justRead.note();
 }
 // The same spot in the PDF's Tinct text (js/pdf-text.js placeOf), or none (the Tinct reader
@@ -1959,7 +1959,7 @@ function ocrShow(status, token) {
 }
 
 // Leaving or hiding the page: the place now, and what is waiting sent at once (keepalive).
-function leavePlace() { if (!hasBook()) return; savePlaceNow(); justRead.leave(); placeSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
+function leavePlace() { if (!hasBook()) return; savePlaceNow(); justRead.leave(); placeSync.flush(); epubPlaceSync.flush(); marksSync.push({ keepalive: true }); cardsSync.push({ keepalive: true }) }
 addEventListener('pagehide', leavePlace);
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leavePlace() });
 
@@ -1998,6 +1998,24 @@ const placeSync = {
     const adopted = await Promise.race([late, new Promise(r => setTimeout(() => r(null), PLACE_SYNC_WAIT_MS))]);
     return { adopted: adopted === true, late: adopted === null ? late : Promise.resolve(false) };
   },
+};
+/* ---------- An EPUB's place on the reader's other devices (Margin view) ----------
+   Signed in, a move in an own EPUB is named in the book's Tinct text as its Tinct reader place and saved
+   to the account a moment later (src/lab/userBook/ownSync.ts noteEpubMarginPlace through /lab/library-add.js),
+   so the account's other devices list it as being read and open it here (4 Nov 2026: a phone that never
+   heard of a book read in Margin view led with the Bible). A Tinct book's preview (`preview:`) never syncs. */
+const epubPlaceSync = {
+  api: null,
+  load() {
+    if (!window.TinctAI?.session?.().userId) return Promise.resolve(null);
+    return switcherApi().then(api => (this.api = api.epubPlaces || null), () => null);
+  },
+  note(key, now = false) {
+    if (!String(key).startsWith('epub:') || state.preview) return;
+    const hex = hexOf(key);
+    if (this.api) this.api.note(hex, now); else this.load().then(api => api?.note(hex, now));
+  },
+  flush() { this.api?.flush() },
 };
 /* ---------- A PDF's highlights and notes on the reader's other devices ----------
    Signed in, a PDF's highlights and their notes are kept privately with the book in the account
