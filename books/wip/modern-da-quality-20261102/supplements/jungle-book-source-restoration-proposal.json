@@ -1,0 +1,26 @@
+{
+  "bookId": "jungle-book",
+  "source": "https://www.gutenberg.org/files/236/236-h/236-h.htm",
+  "mainTextStatus": "Complete; no missing narrative or song text found.",
+  "resolvedAuditDifferences": [
+    "Seven song headings exist in corpus paragraph slots but were excluded as headings from primary extraction.",
+    "Chapter 2 paragraph 100 retains an illustration marker.",
+    "Three apparent primary-only phrases are illustration captions, not missing prose: Ten fathoms deep; Rikki-tikki looked down between the boy’s collar and neck; He came to breakfast riding on Teddy’s shoulder.",
+    "Tailor-bird/tailorbird is a spelling normalization."
+  ],
+  "coldLairs": {
+    "chapter": 2,
+    "paragraph": 100,
+    "sourceAsset": "https://www.gutenberg.org/files/236/236-h/images/%7B5104%7D.jpg",
+    "localAsset": "source-figure-cold-lairs.jpg",
+    "captionOriginal": "The “Cold Lairs”",
+    "captionDanish": "De kolde huler",
+    "proposal": "Associate this image with existing marker slot through the application's illustration mechanism; preserve paragraph indices. If a caption-only edition is chosen, label it explicitly instead of leaving a broken illustration marker.",
+    "integration": "Pending parent/Claude; no application changes made."
+  },
+  "otherIllustrations": {
+    "inventory": "source-illustrations.json",
+    "records": 56,
+    "status": "Inventoried; only explicit surviving Cold Lairs marker asset recovered. Optional full illustrated-edition reconstruction requires separate asset mapping; not claimed complete."
+  }
+}
