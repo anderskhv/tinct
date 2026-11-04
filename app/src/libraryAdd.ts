@@ -12,13 +12,14 @@
  * `tinct-addbook`, this account's records only) and in the account
  * (`/api/user-books`), listed for My shelf, with the places read on the
  * account's other devices (`/api/user-books/places`). Nothing is uploaded here,
- * except Add a book's viewer saving a PDF's place (`pdfPlaces`). `rememberJustRead`
+ * except Add a book's viewer saving a PDF's place (`pdfPlaces`) and an EPUB's
+ * place read in Margin view (`epubPlaces`). `rememberJustRead`
  * names the book the viewer just read in this device's library snapshot (local only).
  */
 import { supabase } from './services/supabase'
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { ownShelfSavedAt, type OwnShelfBook } from './lab/userBook/ownShelf'
-import { flushPdfPlaces, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
+import { flushOwnPlaces, flushPdfPlaces, noteEpubMarginPlace, notePdfPlace, ownShelfWithAccount, reconcilePdfPlace } from './lab/userBook/ownSync'
 import { userBookId } from './lab/userBook/userBookId'
 import { bookCoverSrc } from '../public/lab/book-cover.js'
 import { ocrShelfLines } from './lab/userBook/ownOcrShelf'
@@ -206,6 +207,16 @@ export const pdfPlaces = {
 }
 
 /**
+ * An EPUB's place across the account's devices, for Add a book's viewer in Margin view (userBook/ownSync.ts
+ * noteEpubMarginPlace): each new place saved a moment later as the book's Tinct reader place, and anything
+ * waiting sent when the page is left.
+ */
+export const epubPlaces = {
+  note: (hex: string, now = false) => { void noteEpubMarginPlace(hex, { now }).catch(() => {}) },
+  flush: () => flushOwnPlaces(),
+}
+
+/**
  * The desktop viewer read an own book: it leads the library's first paint
  * (labLibraryBoot.ts, `withJustRead` in libraryTwoReading.ts), so Continue
  * opens it before the account's table arrives. This device's snapshot only;
@@ -227,4 +238,4 @@ export async function assessPdf(bytes: ArrayBuffer) {
   return assessPdfReadability(bytes)
 }
 
-;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { assessPdf, importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, rememberJustRead }
+;(window as Window & { __tinctLibraryAdd?: unknown }).__tinctLibraryAdd = { assessPdf, importWork, ownBooks, canAdd, modernStatus, buyModern, switcherRows, switcherTarget, pdfPlaces, epubPlaces, rememberJustRead }

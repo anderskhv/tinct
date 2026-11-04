@@ -365,6 +365,26 @@ async function convertRecord(record: UserBookRecord, rules: number): Promise<Con
   }
 }
 
+/**
+ * The Tinct text of an EPUB this device keeps, so a place read in Margin view (Add a book's margin reader,
+ * which reads the file its own way) can be named in it and saved to the account (ownSync.ts
+ * noteEpubMarginPlace). The stored conversion, else the file converted now under the rules its place was
+ * read under, as openUserBook would, and kept on the record so the Tinct reader opens it without converting.
+ * Null: not this account's EPUB on this device, or not readable as one.
+ */
+export async function ownEpubEdition(hex: string, owner: string, convert: (record: UserBookRecord, rules: number) => Promise<Converted> = convertRecord): Promise<UserBookEdition | null> {
+  if (typeof indexedDB === 'undefined') return null
+  const key = 'epub:' + hex
+  const record = await readRecord(key, owner).catch(() => null)
+  if (!record || record.kind !== 'epub') return null
+  if (usableUserEdition(record.edition, 'epub')) return record.edition
+  if (!record.bytes) return null
+  const converted = await convert(record, conversionRules(record.edition, storedPlaceConverter(hex)))
+  if ('error' in converted) return null
+  await keepEdition(key, owner, converted.edition, converted.images).catch(() => {})
+  return converted.edition
+}
+
 const refusalCode = (result: Converted): string | undefined => 'error' in result ? (result.error as { code?: string } | null)?.code : undefined
 
 /**
