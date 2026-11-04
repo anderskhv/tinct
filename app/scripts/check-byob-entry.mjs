@@ -20,7 +20,7 @@ import assert from 'node:assert/strict'
 const DIST = path.resolve('dist')
 const ARTIFACTS = process.env.BYOB_ARTIFACTS || ''
 const USER = '00000000-0000-4000-8000-0000000b70b1'
-const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' }
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.mp4': 'video/mp4' }
 
 function serve() {
   const server = createServer(async (req, res) => {
@@ -92,6 +92,8 @@ async function main() {
         assert.equal(await page.locator('h1').innerText(), 'Read your own books in Tinct')
         assert(await page.locator('#choose').isVisible() && await page.locator('#paste').isVisible(), 'Choose a file and Paste text are shown')
         assert.equal(await page.locator('#account').innerText(), 'Sign in')
+        assert.equal(await page.locator('#demo').getAttribute('src'), '/media/byob-margin.mp4')
+        assert((await fs.stat(path.join(DIST, 'media/byob-margin.mp4'))).size > 100000, 'the recording ships')
         assert(await noSideScroll(page), 'no sideways scroll')
         await shot(page, `byob-${name}`)
         await page.locator('#paste').click()
