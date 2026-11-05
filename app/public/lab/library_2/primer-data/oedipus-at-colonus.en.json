@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "oedipus-at-colonus",
   "language": "en",
-  "revision": 5,
+  "revision": 6,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -25,6 +25,13 @@
       "name": "Theseus",
       "role": "King of Athens",
       "text": "His offer of protection has a practical meaning when another ruler turns up prepared to take people by force. Athens is being judged by the welcome it gives a frightened stranger."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Sophocles' Oedipus Rex",
+      "text": "Oedipus arrives at Colonus old, blind and in exile because of what he discovered in the earlier play. Colonus keeps returning to those discoveries and to the question of his guilt, so Oedipus Rex gives it its weight.",
+      "bookId": "oedipus-rex"
     }
   ],
   "context": [

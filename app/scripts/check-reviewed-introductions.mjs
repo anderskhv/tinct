@@ -14,6 +14,9 @@ const catalogue=live?await fetch(origin+'/lab/catalogue.json').then(r=>{assert.e
 const available=new Set(catalogue.books.filter(book=>book.discoveryAvailable!==false).map(book=>book.id))
 const manifest=JSON.parse(fs.readFileSync('public/lab/library_2/author-images.json'))
 const openers=new Map(JSON.parse(fs.readFileSync('public/lab/library_2/book-openers.json')).books.map(book=>[book.workId,book.opening]))
+// Suggested prerequisites (Anders, 5 Nov 2026), from the English primer files the page draws.
+const prerequisites=id=>{const file='public/lab/library_2/primer-data/'+id+'.en.json';return fs.existsSync(file)?JSON.parse(fs.readFileSync(file)).prerequisites||[]:[]}
+assert(prerequisites('divine-comedy').length>0,'the Divine Comedy has suggested prerequisites');assert.equal(prerequisites('frankenstein').length,0,'Frankenstein has none')
 const cases=source.books.filter(book=>available.has(book.id)).map(book=>book.id),report=[]
 const retainedHolds=source.books.filter(book=>!available.has(book.id)).map(book=>book.id)
 assert.equal(source.books.length,101)
@@ -69,7 +72,7 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   });
   console.log('INTRO_STATE '+JSON.stringify({label,engine:engine.name(),id,...state}));
  }
- for(const id of reducedMotion==='reduce'?cases:['frankenstein','bible','federalist-papers','to-the-lighthouse','confessions'].filter(id=>available.has(id))){
+ for(const id of reducedMotion==='reduce'?cases:['frankenstein','divine-comedy','bible','federalist-papers','to-the-lighthouse','confessions'].filter(id=>available.has(id))){
   await page.goto(origin+'/library?view=book-detail&book='+id,{waitUntil:'domcontentloaded'})
   await page.locator('#book-overlay').waitFor()
   await page.locator('#page-back').waitFor()
@@ -120,6 +123,26 @@ for(const [engine,width,height,reducedMotion] of [[chromium,1440,900,'reduce'],[
   // The Characters galleries are retired with the primers (Anders, 3 Nov 2026: "skip character gallery"):
   // People & ideas on the opening page names the main people instead.
   assert.equal(await page.locator('[data-tab=characters]:visible').count(),0,id+' offers no Characters gallery')
+  // Book-level primers (Anders, 5 Nov 2026): no Background and no What to notice; Suggested prerequisites only for
+  // a book with a strong one (the Divine Comedy, not Frankenstein), its library titles opening that book.
+  const rowTitles=(await page.locator('#intro-body .primer-row > summary').allTextContents()).map(t=>t.replace('⌄','').trim())
+  for(const retired of ['Background','What to notice','Helpful context'])assert(!rowTitles.includes(retired),id+' has no '+retired+' row: '+rowTitles.join(' | '))
+  assert.equal(await page.locator('[data-testid=primer-context], [data-testid=primer-notice]').count(),0,id+' draws no context or notice rows')
+  const wanted=prerequisites(id)
+  assert.equal(rowTitles.filter(t=>t==='Suggested prerequisites').length,wanted.length?1:0,id+' Suggested prerequisites row '+(wanted.length?'present':'absent'))
+  if(wanted.length){
+   const row=page.locator('[data-testid=primer-prerequisites]')
+   await row.locator('summary').click()
+   const items=await row.locator('.primer-item').allTextContents()
+   assert.deepEqual(items,wanted.map(item=>item.title+': '+item.text),id+' prerequisites verbatim')
+   assert.deepEqual(await row.locator('.primer-book-link').evaluateAll(links=>links.map(a=>a.dataset.book)),wanted.filter(item=>item.bookId&&available.has(item.bookId)).map(item=>item.bookId),id+' library titles link their book')
+   if(id==='divine-comedy'){
+    if(engine===chromium)await page.screenshot({path:out+'/'+engine.name()+'-'+reducedMotion+'-'+id+'-prerequisites.png'})
+    await row.locator('.primer-book-link').first().click()
+    await page.waitForFunction(()=>/Aeneid/.test(document.getElementById('intro-heading')?.textContent||''),null,{timeout:10000})
+    await page.locator('#book-overlay').waitFor()
+   }
+  }
   assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'no viewport overflow: '+id)
   report.push({engine:engine.name(),reducedMotion,book:id,authorImages:images.length,reviewedCopy:!!accepted})
  }

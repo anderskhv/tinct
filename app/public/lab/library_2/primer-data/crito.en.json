@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "crito",
   "language": "en",
-  "revision": 5,
+  "revision": 6,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -29,6 +29,13 @@
       "name": "The Laws",
       "role": "Speakers invented by Socrates",
       "text": "They speak as parents and as parties to an agreement. Those claims depend on different kinds of obligation, even though Socrates gives them a single voice."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Plato's Apology",
+      "text": "Crito visits Socrates in prison soon after the trial the Apology records. Whether he should escape turns on the stand he took there: refusing to stop philosophising, or to save his life by doing wrong.",
+      "bookId": "apology"
     }
   ],
   "context": [

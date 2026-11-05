@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "ulysses",
   "language": "da",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -38,6 +38,18 @@
       "name": "Molly Bloom",
       "role": "Sanger og Leopolds kone",
       "text": "Koncerterne, aftalerne og manden, der træffer dem, betyder noget for Molly af hendes egne grunde. Hendes erindringer kan ændre betydningen af en scene, der forekom ganske klar, da vi kun kendte hendes mands udlægning."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Homers Odysseen",
+      "text": "Joyce lægger Leopold Blooms almindelige dag i Dublin oven på Odysseus' rejse hjem: episode for episode spejler bogen Homers eventyr, fra kyklopen til sirenerne. Kender man Odysseen, bliver en gåtur, en begravelse eller et skænderi på en pub til en sammenligning.",
+      "bookId": "odyssey"
+    },
+    {
+      "title": "Shakespeares Hamlet",
+      "text": "Stephen Dedalus ser sig selv som Hamlet, en sørgende søn i sort tøj, og i én episode fremlægger han en hel teori om stykket på Nationalbiblioteket i Dublin. Kender man genfærdet, faderen og sønnen, er hans argument langt lettere at følge.",
+      "bookId": "hamlet"
     }
   ],
   "context": [

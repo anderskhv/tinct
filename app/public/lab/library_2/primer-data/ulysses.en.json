@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "ulysses",
   "language": "en",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -38,6 +38,18 @@
       "name": "Molly Bloom",
       "role": "Singer and Leopold's wife",
       "text": "Concerts, professional arrangements and the man arranging them matter to Molly in their own right. Her recollections can quietly overturn a scene that seemed perfectly intelligible when we had only her husband's side of it."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Homer's Odyssey",
+      "text": "Joyce maps Leopold Bloom's ordinary day in Dublin onto Odysseus's journey home: episode by episode it echoes Homer's adventures, from the Cyclops to the Sirens. Knowing the Odyssey turns a walk, a funeral or a pub argument into a running comparison.",
+      "bookId": "odyssey"
+    },
+    {
+      "title": "Shakespeare's Hamlet",
+      "text": "Stephen Dedalus casts himself as Hamlet, a grieving son dressed in black, and in one episode argues a whole theory of the play in Dublin's National Library. Knowing its ghost, father and son makes his argument much easier to follow.",
+      "bookId": "hamlet"
     }
   ],
   "context": [

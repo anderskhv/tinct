@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "the-aeneid",
   "language": "en",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -34,6 +34,18 @@
       "name": "Turnus and Lavinia",
       "role": "A local claimant and the king's daughter",
       "text": "Their expected marriage has implications for Italian power. A new claimant from overseas turns a family decision into a dispute about whose descendants will rule. Lavinia herself gets little say in the negotiations."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Homer's Odyssey",
+      "text": "The first six books follow the Odyssey's pattern: a hero driven across the sea by a god's anger, a shipwreck, a welcoming queen, past wanderings told at a banquet, a visit to the dead. Virgil expects you to hear Homer underneath.",
+      "bookId": "odyssey"
+    },
+    {
+      "title": "Homer's Iliad",
+      "text": "Aeneas is a survivor of the losing side of Homer's war, and the last six books replay the Iliad in Italy: a new Achilles, a war over a bride, single combat before the walls.",
+      "bookId": "iliad"
     }
   ],
   "context": [

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "the-aeneid",
   "language": "da",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -34,6 +34,18 @@
       "name": "Turnus og Lavinia",
       "role": "En lokal bejler og kongens datter",
       "text": "Deres forventede ægteskab har betydning for magten i Italien. En ny bejler fra den anden side af havet gør familiens beslutning til et spørgsmål om, hvis efterkommere der skal herske. Lavinia selv har kun lidt at skulle have sagt."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Homers Odysseen",
+      "text": "De første seks sange følger Odysseens mønster: en helt, som en guds vrede driver over havet, et skibbrud, en gæstfri dronning, tidligere rejser fortalt ved et gilde og et besøg hos de døde. Vergil regner med, at man hører Homer nedenunder.",
+      "bookId": "odyssey"
+    },
+    {
+      "title": "Homers Iliaden",
+      "text": "Æneas er en af de overlevende fra den tabende side i Homers krig, og de sidste seks sange gentager Iliaden i Italien: en ny Achilleus, en krig om en brud og tvekamp foran murene.",
+      "bookId": "iliad"
     }
   ],
   "context": [
