@@ -57,7 +57,7 @@ describe('reader boot script', () => {
 
   it('the compact boot table preserves every registered shard identity', () => {
     for (const id of CHAPTER_SHARDED_EDITION_IDS) {
-      const match = id.match(/^(.*)-((?:original|modern|kjv|web|webc|bsb)-[a-z]+)$/)!
+      const match = id.match(/^(.*)-((?:original|modern|verse|kjv|web|webc|bsb)-[a-z]+)$/)!
       page()
       const handoff = { kind: 'open-reader', bookId: match[1], primaryEditionKey: match[2], savedPlace: { chapterNumber: 1 } }
       sessionStorage.setItem('tinct:lab-reader-handoff', JSON.stringify(handoff))

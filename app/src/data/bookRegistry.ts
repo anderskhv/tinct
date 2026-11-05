@@ -36,6 +36,18 @@ export const ODYSSEY: Book = {
       aligned: true,
       hasAudio: true,
     },
+    {
+      // Optional verse translation (re-added at Anders's request, 5 Nov 2026).
+      // Pope's verse paragraphs do not match Butler's prose (1,047 against
+      // Butler's 1,027), so it is never paired in Compare or chosen as a default.
+      key: 'verse-en',
+      language: 'en',
+      style: 'verse',
+      label: 'Pope (Verse, 1726)',
+      translator: 'Alexander Pope',
+      year: 1726,
+      aligned: false,
+    },
   ],
 }
 
