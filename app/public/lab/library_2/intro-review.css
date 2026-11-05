@@ -75,3 +75,8 @@
 #intro-body .primer-inner .primer-item:last-child{margin-bottom:4px}
 .primer-item strong{font-weight:600}
 .primer-inner{padding:0 2px 14px}
+/* Book introduction type, one step smaller and tighter (Anders, 5 Nov 2026: "the font and line spacing a little too big"). */
+#intro-body .intro-opening{font-size:18.5px;line-height:1.45;margin-bottom:22px}
+#intro-body .primer-inner p,#intro-body .primer-inner .primer-item{font-size:15.5px;line-height:1.45;margin-bottom:9px}
+#intro-body .primer-person h3{font-size:18px}
+@media(max-width:699px){#intro-body .intro-opening{font-size:17px;line-height:1.45}#intro-body .primer-inner p,#intro-body .primer-inner .primer-item{font-size:15px}}
