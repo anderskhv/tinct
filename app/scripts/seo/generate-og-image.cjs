@@ -12,7 +12,7 @@ async function main() {
   const { chromium } = require('@playwright/test')
   const templatePath = path.join(__dirname, 'og-image-template.html')
   const legacyPath = path.resolve(__dirname, '../../public/og-image.png')
-  const currentPath = path.resolve(__dirname, '../../public/og-image-v2.jpg')
+  const currentPath = path.resolve(__dirname, '../../public/og-image-v3.jpg')
 
   const browser = await markInternal(await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {}))
   const page = await browser.newPage({

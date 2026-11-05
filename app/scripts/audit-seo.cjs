@@ -21,14 +21,14 @@ const READ_DIR = path.join(PUBLIC_DIR, 'read')
 const EDITIONS_DIR = path.join(PUBLIC_DIR, 'data/editions')
 const SITEMAP = path.join(PUBLIC_DIR, 'sitemap.xml')
 const ORIGIN = 'https://tinct.app'
-const SHARED_SOCIAL_IMAGE = `${ORIGIN}/og-image-v2.jpg`
+const SHARED_SOCIAL_IMAGE = `${ORIGIN}/og-image-v3.jpg`
 
 const HOLD_BACK_BOOK_IDS = new Set([])
 
 const GENERIC_TITLES = new Set([
   'Tinct — A New Way to Read',
   'Tinct - A New Way to Read',
-  'Tinct — Fall in love with the books that matter',
+  'Tinct — No text is beyond you',
 ])
 
 let failures = 0
@@ -209,7 +209,7 @@ function auditSharedSocialPreviews() {
   const aboutHtml = read(path.join(PUBLIC_DIR, 'about.html'))
   if (!attr(aboutHtml, 'og:description')) fail('about has no og:description')
 
-  const imagePath = path.join(PUBLIC_DIR, 'og-image-v2.jpg')
+  const imagePath = path.join(PUBLIC_DIR, 'og-image-v3.jpg')
   if (!fs.existsSync(imagePath) || fs.statSync(imagePath).size < 10_000) fail('shared social image is missing or empty')
   else pass('shared social previews use the versioned 1200x630 JPEG')
 }
