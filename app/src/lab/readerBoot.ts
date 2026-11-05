@@ -72,9 +72,10 @@ export function readerBootHandoff(raw: string | null): ReaderBootHandoff | null 
  * (`/reader?book=<id>&chapter=<n>[&edition=<key>]`, see
  * `readerHandoffFromUrlParams`), for the boot preload; null when the boot
  * cannot know it exactly and the app is left to ask. `primaryExceptions` is
- * the build's table of books whose new-reader default is not Modern English
- * (`readerBootPrimaryExceptions`, computed from `defaultPrimaryEditionKey`);
- * an empty value means nothing is offered to open. A link without a chapter
+ * the build's table of books whose new-reader default is not Modern English,
+ * or that have no English original to name (`readerBootPrimaryExceptions`,
+ * computed from `defaultPrimaryEditionKey`); an empty value means nothing is
+ * offered to open. A link without a chapter
  * resumes the reader's own place, so it is the app's to resolve.
  */
 export function readerBootDeepLink(search: string, primaryExceptions: Readonly<Record<string, string>>): ReaderBootHandoff | null {
@@ -179,7 +180,7 @@ export function readerBootMarginPreview(search: string, stored: (key: string) =>
   if (flag === '0' || (flag !== '1' && stored('tinct:margin-preview') !== '1') || !ID.test(bookId)) return []
   try {
     const place = (JSON.parse(stored('tinct-lab-position') || '{}').books || {})[bookId]
-    const key = place ? place.primaryEditionKey || '' : (primaryExceptions[bookId] || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
+    const key = place ? place.primaryEditionKey || '' : ((primaryExceptions[bookId] && primaryExceptions[bookId] !== 'modern-en') || /"primaryEdition":"(?!modern-en")/.test(prefs || '')) ? '' : 'modern-en'
     return ID.test(key) ? [editionWholeUrl(bookId, key, version), editionPatchesPath(bookId, key)] : []
   } catch {
     return []

@@ -18,22 +18,25 @@ describe('reversible edition discovery availability', () => {
     // (streamed narration, 2026-10-03); 217 with the five Conjecture books
     // (2026-10-08: listed so they stay discoverable; no narration is offered
     // because their editions carry no hasAudio); 221 with Grimms' Fairy Tales and
-    // The Arabian Nights (streamed narration, 2026-10-19).
-    expect(new Set(reviewed).size).toBe(221)
+    // The Arabian Nights (streamed narration, 2026-10-19); 222 with The Master and
+    // Margarita (modern-en only, streamed narration, 2026-11-05).
+    expect(new Set(reviewed).size).toBe(222)
     // Art of War modern-en text changed on 2026-11-02; its old recording is held.
-    expect(manifest.eligible_editions).toHaveLength(173)
+    // 174 with The Master and Margarita modern-en (2026-11-05).
+    expect(manifest.eligible_editions).toHaveLength(174)
     expect(manifest.held_editions).toHaveLength(48)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
     // 105 with the four books published 2026-10-03; 110 with the five
-    // Conjecture books (2026-10-08); 112 with Grimm and the Arabian Nights (2026-10-19).
-    expect(PRE_READER_CATALOGUE.books).toHaveLength(112)
+    // Conjecture books (2026-10-08); 112 with Grimm and the Arabian Nights (2026-10-19);
+    // 113 with The Master and Margarita (2026-11-05).
+    expect(PRE_READER_CATALOGUE.books).toHaveLength(113)
     // 2026-10-02 rights holds: gilgamesh, social-contract, discourse-on-inequality,
     // symposium and second-treatise leave discovery (94 -> 89); 93 with the
     // four books published 2026-10-03; 98 with the five Conjecture books;
-    // 100 with Grimm and the Arabian Nights.
-    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(100)
+    // 100 with Grimm and the Arabian Nights; 101 with The Master and Margarita.
+    expect(listableBooks(PRE_READER_CATALOGUE)).toHaveLength(101)
     for (const id of manifest.held_books) {
       expect(isBookDiscoverable(id)).toBe(id === 'faust-part-1')
       const book = PRE_READER_CATALOGUE.booksById.get(id)!

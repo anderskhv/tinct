@@ -106,7 +106,9 @@ export const reviewedHooks = {
   "alice-in-wonderland": "How do you make sense of a world that keeps changing the rules?",
   "wuthering-heights": "What does a family pass on besides its name?",
   "middlemarch": "What happens when a good intention meets another person’s life?",
-  "sense-and-sensibility": "How much can you know about a feeling someone chooses not to show?"
+  "sense-and-sensibility": "How much can you know about a feeling someone chooses not to show?",
+  // Content package accepted 2026-11-05 (books/wip/master-and-margarita/package/intro-data).
+  "master-and-margarita": "What would the devil find if he came to Moscow to see how people live?"
 };
 const pending = new Map();
 export async function loadReviewedIntroduction(book) {
