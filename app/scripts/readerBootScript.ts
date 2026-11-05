@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs'
 import { buildSync } from 'esbuild'
 
 /**
- * The books whose new-reader default edition is not Modern English, with that
+ * The books whose new-reader default edition is not Modern English, or that
+ * have no English original (so a link naming one cannot be trusted), with that
  * default ('' when nothing is offered), worked out by the app's own
  * `defaultPrimaryEditionKey` over the registry and the edition holds as they
  * are at build time. The boot script uses it to preload a deep link's text
@@ -18,7 +19,8 @@ export function readerBootPrimaryExceptions(root = process.cwd()): Record<string
         "import { BOOKS } from './src/data/bookRegistry'",
         "import { defaultPrimaryEditionKey } from './src/data/editionDefaults'",
         'const exceptions: Record<string, string> = {}',
-        "for (const book of BOOKS) { const key = defaultPrimaryEditionKey(book.id, book.editions) ?? ''; if (key !== 'modern-en') exceptions[book.id] = key }",
+        // A book without an English original (The Master and Margarita) is listed with its default too, so a link naming an edition is the app's to resolve.
+        "for (const book of BOOKS) { const key = defaultPrimaryEditionKey(book.id, book.editions) ?? ''; if (key !== 'modern-en' || !book.editions.some(edition => edition.key === 'original-en')) exceptions[book.id] = key }",
         'export default exceptions',
       ].join('\n'),
       resolveDir: root,

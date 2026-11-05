@@ -14,6 +14,9 @@ const RELEASE_BOOKS = ['alice-in-wonderland', 'wuthering-heights', 'middlemarch'
 // Only Jane Austen has an existing reviewed portrait; Carroll, Emily Brontë and
 // Eliot have none, so their flaps show no image (no manifest entry).
 const RELEASE_IMAGES: Record<string, string[]> = { 'sense-and-sensibility': ['jane-austen'] }
+// Books published from a book package (books/wip/<id>/package), with their
+// own preface; no reviewed portrait yet, so their flaps show no image.
+const PACKAGE_BOOKS = ['master-and-margarita']
 
 describe('reviewed library introductions', () => {
   it('preserves all supplied prose exactly and retains the ten existing book identities', () => {
@@ -112,7 +115,7 @@ describe('remaining ninety reviewed introductions', () => {
     const allIds=[...source.books,...batch.books].map(book=>book.id)
     expect(new Set(allIds).size).toBe(101)
     expect([...allIds].sort()).toEqual(images.books.map(book=>book.bookId).filter(id=>!RELEASE_BOOKS.includes(id)).sort())
-    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds, ...RELEASE_BOOKS].sort())
+    expect(Object.keys(reviewedHooks).sort()).toEqual([...allIds, ...RELEASE_BOOKS, ...PACKAGE_BOOKS].sort())
     for(const accepted of batch.books){
       const copy=json('../public/lab/library_2/intro-data/'+accepted.id+'.json')
       expect(copy.id).toBe(accepted.id)
@@ -158,5 +161,19 @@ describe('release-package introductions (published 2026-10-03)', () => {
     const book = { id, characters: [] as unknown[] }
     applyReviewedIntroduction(book, copy)
     expect(book).toMatchObject({ reviewedIntroduction: true, hook })
+  })
+})
+
+describe('book-package introductions', () => {
+  it.each(PACKAGE_BOOKS)('%s uses the package hook, author note, preface and orientation verbatim', id => {
+    const accepted = json('../../books/wip/' + id + '/package/intro-data/' + id + '.json')
+    const copy = json('../public/lab/library_2/intro-data/' + id + '.json')
+    expect(copy).toEqual(accepted)
+    expect(reviewedHooks[id]).toBe(accepted.hook.text)
+    expect(readFileSync(resolve(__dirname, 'data/prefaces/' + id + '.txt'), 'utf8')).toBe(readFileSync(resolve(__dirname, '../../books/wip/' + id + '/package/preface/' + id + '.txt'), 'utf8'))
+    expect(json('../public/lab/library_2/author-images.json').books.some((book: { bookId: string }) => book.bookId === id)).toBe(false)
+    const book = { id, characters: [] as unknown[] }
+    applyReviewedIntroduction(book, copy)
+    expect(book).toMatchObject({ reviewedIntroduction: true, hook: accepted.hook.text, preface: accepted.preface.paragraphs })
   })
 })

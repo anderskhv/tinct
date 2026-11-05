@@ -1,0 +1,134 @@
+{
+  "_status": "Proposal for the integration step. Nothing in app/ or the registry has been changed.",
+  "basedOn": {
+    "branch": "content/master-and-margarita",
+    "commit": "1fc9ef027b0669a0be2858b76a92dd3683929ae2",
+    "editions": {
+      "original-ru": "9a2cf57330f217a157f9081f6b982467873369dbdc93a7e1da8a24f5c96c5b3d",
+      "modern-en": "c067c7bf19ad3cc094e6ad236b01bd12a905b54a506033d95e55f416023028ee",
+      "modern-da": "6ce1f882cb3f4d2e37c1f9209dfa9cf60912d6d31487356532835337f07a45cc"
+    }
+  },
+  "book": {
+    "id": "master-and-margarita",
+    "constName": "MASTER_AND_MARGARITA",
+    "title": "The Master and Margarita",
+    "altTitles": [
+      "Master i Margarita",
+      "Мастер и Маргарита"
+    ],
+    "author": "Mikhail Bulgakov",
+    "authorYears": "1891–1940",
+    "originalLanguage": "ru",
+    "composition": "1928–1940",
+    "firstPublished": "1966–67 (censored, in the magazine Moskva); first full Soviet edition 1973",
+    "textFollowed": "L. M. Yanovskaya's text, Sobranie sochinenii v 5 tomakh, vol. 5, Moscow: Khudozhestvennaya literatura, 1990",
+    "year": 1967,
+    "description": "Bulgakov's great comic novel: the devil and his retinue spend a few spring days turning 1930s Moscow upside down, while a persecuted writer's novel tells how Pontius Pilate judged a wandering philosopher. A love story, a satire and a fable about cowardice and mercy.",
+    "wordCount": 150000,
+    "coverColor": "#17151f",
+    "coverAccent": "#c9a45c",
+    "cover": "No cover art; the reader's paper cover fallback applies. No cover generation was done.",
+    "editions": [
+      {
+        "key": "original-ru",
+        "language": "ru",
+        "style": "original",
+        "label": "Original (Russian)",
+        "year": 1990,
+        "aligned": true
+      },
+      {
+        "key": "modern-en",
+        "language": "en",
+        "style": "modern",
+        "label": "Tinct Modern English",
+        "aligned": true
+      },
+      {
+        "key": "modern-da",
+        "language": "da",
+        "style": "modern",
+        "label": "Tinct Modern Danish",
+        "aligned": true
+      }
+    ],
+    "defaults": {
+      "primary": "modern-en",
+      "compare": "original-ru",
+      "basis": "Anders, 5 Nov 2026: no human English translation may be used, so Compare defaults to the Russian original. With original-ru listed first and no human English edition, defaultCompareEditionKey() already returns original-ru (comparable[0]); no code change is needed for the default."
+    },
+    "structure": {
+      "units": 33,
+      "paragraphs": 3958,
+      "sections": [
+        {
+          "title": "Part One",
+          "chapters": "1–18"
+        },
+        {
+          "title": "Part Two",
+          "chapters": "19–32"
+        }
+      ],
+      "epilogue": "chapter 33, outside both sections",
+      "wordCounts": {
+        "modern-en": 149643,
+        "modern-da": 143433,
+        "original-ru": 117678
+      }
+    }
+  },
+  "libraryTaxonomy": {
+    "id": "master-and-margarita",
+    "title": "The Master and Margarita",
+    "author": "Mikhail Bulgakov",
+    "year": "1928–1940",
+    "ySort": 1940,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 265,
+    "blurb": "The devil comes to 1930s Moscow; a procurator cannot forget a prisoner.",
+    "themes": [
+      "devil",
+      "cowardice",
+      "love"
+    ],
+    "shelves": [
+      "russian-novels"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "RU"
+    ],
+    "house": "novel (Fiction)",
+    "notes": "Shelf russian-novels ('The Russians', sub 'Dostoevsky and Tolstoy'; the sub may need 'Dostoevsky, Tolstoy and Bulgakov'). Optional second shelf satirical-novels, for Anders to decide. Era 'contemporary' = 20th century & beyond. year is the composition range, like the existing '1776–1791' entry."
+  },
+  "taxonomyJs": {
+    "master-and-margarita": {
+      "form": "novel",
+      "era": "contemporary"
+    }
+  },
+  "compositionYear": {
+    "master-and-margarita": 1940
+  },
+  "canonLists": {
+    "memberships": [],
+    "basis": "No membership in Yale DS, Columbia Core, St. John's, Bloom's Western Canon or The Well-Educated Mind was verified against those lists' published sources in this session; none is inferred from reputation."
+  },
+  "danish": {
+    "offered": "Add 'master-and-margarita/modern-da' to OFFERED_DANISH_EDITIONS (app/src/data/editionAvailability.ts); Anders requested this edition on 5 Nov 2026. Without it the Danish edition is held."
+  },
+  "characterRelease": {
+    "master-and-margarita": {
+      "editions": [
+        "modern-en"
+      ],
+      "revision": "2026-11-05.1"
+    }
+  },
+  "hook": "What would the devil find if he came to Moscow to see how people live?",
+  "rights": "Public domain in Denmark/EU since 1 Jan 2011. Anders accepted the possible US copyright risk (5 Nov 2026)."
+}
