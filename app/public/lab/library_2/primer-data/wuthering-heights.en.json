@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "wuthering-heights",
   "language": "en",
-  "revision": 3,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "A visitor hears a history",
-      "text": "Lockwood's arrival leads into Nelly Dean's account of the households and relationships that preceded him."
+      "title": "Chapters I–III · A tenant visits his landlord",
+      "text": "Lockwood arrives at Wuthering Heights confident he can identify a wife, a servant and the master of a house by looking round a room. He gets almost every relationship wrong. Snow forces him to spend the night with names scratched into a window ledge and a good deal of explaining still to come."
     },
     {
-      "title": "Consequences across generations",
-      "text": "The narrative follows attachments, property, and injuries as they enter younger lives. Repeated names require attention to family position."
+      "title": "Chapters IV–XVII · Nelly tells the children's history",
+      "text": "Back at the Grange, the housekeeper begins with a child brought home from Liverpool. Heathcliff and Catherine Earnshaw form an alliance within a household whose authority can pass overnight to the person who hates them. A visit to the neighbouring Lintons introduces another household's standards of beauty, manners and marriage."
+    },
+    {
+      "title": "Chapters XVIII–XXXIV · The next children inherit the houses",
+      "text": "The same few names begin to recur among a second generation. The people receiving the children, deciding whom they may visit and controlling their education can remember exactly where their own injuries were sustained. Crossing the short distance between the two houses acquires consequences all over again."
     }
   ],
   "people": [
     {
       "name": "Heathcliff",
-      "role": "Outsider",
-      "text": "A dark, ragged orphan found in the streets of Liverpool and brought home by old Mr Earnshaw, to the resentment of his son Hindley."
+      "role": "Child taken into the Earnshaw household",
+      "text": "Old Earnshaw can give the boy shelter and preference without giving him a secure legal position or an account of his origins. Heathcliff grows up knowing precisely how much of a child's everyday life can depend on the private likes of the person who owns the house."
     },
     {
       "name": "Catherine Earnshaw",
-      "role": "Childhood companion",
-      "text": "Mr Earnshaw's wild, spirited daughter, who runs free on the moors with Heathcliff and is closer to him than to anyone."
+      "role": "Heathcliff's companion",
+      "text": "She knows the ease of running wild with Heathcliff and the pleasures of being welcomed as a lady at the Grange. When she tries to explain what both futures mean to her, who happens to overhear which part of the explanation becomes desperately important."
     },
     {
-      "name": "Nelly Dean",
-      "role": "Witness and storyteller",
-      "text": "The housekeeper who grew up at Wuthering Heights and tells its story to Lockwood, the new tenant, over the long winter evenings."
+      "name": "Nelly Dean and Lockwood",
+      "role": "Household witness and paying guest",
+      "text": "Nelly has washed, nursed, carried messages and sometimes refused to carry them. She knows much that an outsider could never discover. Lockwood puts that knowledge into his own written account, despite the social misjudgments we have already watched him make."
     }
   ],
   "context": [
     {
-      "title": "Stories through witnesses",
-      "level": "recommended",
-      "text": "The reader rarely receives an entirely unmediated event. Nelly and Lockwood have interests, limitations, and different distances from the people described.",
-      "takeaway": "Ask who saw what is being reported."
-    },
-    {
-      "title": "Property and dependence",
-      "level": "optional",
-      "text": "Houses and inheritance organise practical power. Passion acts through legal and domestic arrangements as well as declarations.",
-      "takeaway": "Track who can remain in a home."
+      "title": "Two houses and repeated names",
+      "text": "Wuthering Heights belongs to the Earnshaw story, Thrushcross Grange to the Lintons. Marriages carry names and claims between them. A child can bear the surname of a family whose house is entirely strange to her, a difficulty Lockwood shares with a first-time reader.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Compare repeated situations between generations.",
-      "why": "An inherited pattern may be repeated or resisted."
+      "text": "Attend to the moments Nelly leaves a room.",
+      "why": "She may hear the beginning of a conversation, miss its end and supply an interpretation years later. At other times she is the person who opens a door or delays a letter. Her account includes decisions she made herself."
     },
     {
-      "text": "Notice thresholds, windows, and weather.",
-      "why": "The landscape makes belonging and exclusion physically felt."
+      "text": "Follow who can read a name or a letter.",
+      "why": "A carved word can summon a history. An unopened or inaccessible letter can keep two people apart. Denying a child the chance to learn to read is one way the adults can extend the life of a quarrel.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "quote": "it was covered with writing scratched on the paint"
+        }
+      ]
     }
   ],
   "opening": "Heathcliff arrives at a Yorkshire farmhouse as a child nobody there knows what to do with. Catherine becomes his closest companion; her brother makes sure he understands his inferior place. The attachment growing between them absorbs the injuries around it, until love and the desire to hurt become dangerously entangled. Emily Brontë follows what happens when people refuse to let a grievance end with them, across houses, marriages, and children who inherit arrangements made long before they had any chance to object."

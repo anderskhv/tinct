@@ -2,58 +2,72 @@
   "schemaVersion": 1,
   "workId": "odyssey",
   "language": "en",
-  "revision": 3,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "A household waiting",
-      "text": "Books 1–4 follow the family awaiting Odysseus and the pressures gathering around his absence."
+      "title": "Books 1–4 · A house full of men",
+      "text": "The poem takes four books to bring its hero onstage. Meanwhile strangers eat his cattle, his wife runs out of ways to postpone a marriage, and his son sets out to discover what anybody actually knows about his father. Home already has a history of its own."
     },
     {
-      "title": "Travel and return",
-      "text": "Books 5–12 bring Odysseus into view and let him recount his travels. Books 13–24 concentrate on returning and establishing who belongs at home."
+      "title": "Books 5–8 · A stranger comes ashore",
+      "text": "When Odysseus finally appears he is crying on a beach. Among the Phaeacians he must obtain clothes, a hearing and a passage home while deciding how much of himself it is safe to disclose. A singer at dinner knows stories about Troy that move one guest to tears."
+    },
+    {
+      "title": "Books 9–12 · The guest tells his name",
+      "text": "Odysseus takes over the storytelling. The Cyclops, Circe and the dead belong to an account delivered to the very people from whom he needs a lift. He recalls his companions' mistakes and some costly decisions of his own."
+    },
+    {
+      "title": "Books 13–24 · A man returns as a stranger",
+      "text": "Ithaca proves dangerous ground for a man announcing his identity too soon. Shepherds, servants, son and wife have different grounds for knowing him. Coming ashore takes a moment. Discovering what sort of household he has come back to occupies half the poem."
     }
   ],
   "people": [
     {
-      "name": "Odysseus",
-      "role": "Absent king",
-      "text": "The king of Ithaca, famous for his cunning, still trying to get home ten years after the fall of Troy."
+      "name": "Odysseus (Ulysses)",
+      "role": "King of Ithaca",
+      "text": "His gift for inventing a plausible past can save his life. It also creates a peculiar difficulty for a man who wants his family to believe him."
     },
     {
-      "name": "Penelope",
-      "role": "Wife and household ruler",
-      "text": "Odysseus's wife, who has waited twenty years, putting off a crowd of suitors in her house with her own patient cunning."
+      "name": "Penelope and Telemachus",
+      "role": "Wife and son",
+      "text": "She must judge proposals in a house the suitors effectively occupy. He remembers almost nothing of his father. They have lived through the same absence in quite different ways."
     },
     {
-      "name": "Telemachus",
-      "role": "Son and heir",
-      "text": "Their son, born just before the war, now a young man who must stand up to the suitors and go in search of news of his father."
+      "name": "Athena (Minerva)",
+      "role": "A divine ally in disguise",
+      "text": "She can change what somebody looks like, supply a travelling companion and choose the moment for a meeting. Her affection for Odysseus has something to do with their shared enjoyment of a good stratagem."
     }
   ],
   "context": [
     {
-      "title": "Hospitality",
-      "level": "recommended",
-      "text": "A stranger should receive food and shelter before being interrogated. Hosts and guests both have obligations, and their conduct reveals what kind of society this is.",
-      "takeaway": "Meals are tests of character."
+      "title": "The obligations of host and guest",
+      "text": "A traveller arrives without a passport or a hotel. Who feeds him, who asks his name and when he may leave are matters of life and death. The suitors know the conventions well enough to exploit them.",
+      "level": "recommended"
     },
     {
-      "title": "After Troy",
-      "level": "recommended",
-      "text": "The Trojan War is over. Odysseus has not returned, and his household lacks the certainty of either a living ruler or a confirmed death.",
-      "takeaway": "Absence creates a political crisis."
+      "title": "The war is over in Ithaca too",
+      "text": "For the people at home the long emergency is uncertainty. Penelope cannot behave as a widow without conceding that her husband is dead. Telemachus has grown into a young man in a household whose future remains unsettled.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Identify who tells each adventure.",
-      "why": "The speaker's purpose shapes the account."
+      "text": "Who gets supper before having to explain himself?",
+      "why": "Meals give time and protection to the helpless. Compare an unknown guest being handed a chair with men eating their way through another family's livestock.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 1,
+          "paragraphIndex": 8,
+          "quote": "when you have partaken of food you shall tell us what you have come for"
+        }
+      ]
     },
     {
-      "text": "Follow disguises, introductions, and recognitions.",
-      "why": "Identity must be demonstrated as well as announced."
+      "text": "Listen for the little things that establish identity.",
+      "why": "A public tale of Troy can travel anywhere. A shared piece of domestic knowledge belongs to very few people, and the person doing the recognising sometimes has good reason to demand it."
     }
   ],
   "opening": "Odysseus has survived the Trojan War, but ten years later his wife still does not know whether he is alive. Men crowd his house, eat his livestock, and compete to replace him. Their son has grown up waiting for a father he barely knows. Meanwhile, Odysseus is stranded with a goddess who wants to keep him forever. Getting home will require the cunning that helped destroy Troy; reclaiming his place there means facing people who have spent twenty years learning to live without him."

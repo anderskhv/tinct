@@ -2,58 +2,50 @@
   "schemaVersion": 1,
   "workId": "the-art-of-war",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Forberedelse",
-      "text": "De første kapitler undersøger omkostninger, beregning og betingelserne for at handle effektivt."
+      "title": "Kapitel 1–3 · Regn efter, før prisen betales",
+      "text": "De første kapitler sammenligner herskere, hærførere, terræn, forsyninger og disciplin, før hæren bevæger sig. En sejr, der tømmer statskassen eller ødelægger byen, man ville vinde, kan se ringere ud fra herskerens stol end fra slagmarken."
     },
     {
-      "title": "Tilpasning",
-      "text": "Senere kapitler behandler bevægelse, terræn, ild og efterretninger: omstændigheder afgør, hvilke principper der virker."
+      "title": "Kapitel 4–8 · Tilrettelæg mødet",
+      "text": "Stilling, koncentration og overraskelse ændrer oddsene, før modstanderne mødes. Fjendens forventninger indgår i regnestykket på linje med soldaternes antal. Et truet punkt kan få ham til at marchere netop dér, hvor hærføreren ønsker."
+    },
+    {
+      "title": "Kapitel 9–13 · Læs jorden og folkene på den",
+      "text": "Støv, fugle, veje, floder og afstand til hjemmet kan alle bære oplysninger. Ilden og spionerne afslutter en bog, der gentagne gange fremstiller pålidelig viden som billigere end at sende en hel hær ud for at opdage noget for sent."
     }
   ],
   "people": [
     {
-      "name": "Feltherren",
-      "role": "Beslutningstager",
-      "text": "Ansvarlig for dømmekraft såvel som disciplin."
+      "name": "Hærføreren",
+      "role": "En dommer med ansvar for liv og midler",
+      "text": "Mod er kun én egenskab i regnskabet. Kan en hærfører provokeres, smigres eller skammes til kamp, har fjenden fået del i beslutningen om, hvornår tropperne skal sættes ind."
     },
     {
-      "name": "Vildledning",
-      "role": "Kontrol med oplysninger",
-      "text": "At ændre fjendens forestillinger."
-    },
-    {
-      "name": "Terræn",
-      "role": "Fysiske betingelser",
-      "text": "De fysiske forhold, der begrænser planen."
+      "name": "Modstanderen",
+      "role": "En iagttager, der selv kan vildledes",
+      "text": "Skjul og skinangreb virker, fordi også den anden hærfører drager slutninger. Råd om at vildlede fjenden har ofte et spejlbillede i rådene om at efterprøve, hvad egne spejdere mener at have set."
     }
   ],
   "context": [
     {
-      "title": "Militære råd",
-      "level": "recommended",
-      "text": "Teksten handler om organiseret krigsførelse. Anvendelse på virksomheder eller personlige forhold ændrer sammenhængen og undertiden betydningen.",
-      "takeaway": "Begynd med det militære problem."
-    },
-    {
-      "title": "Fortættede anvisninger",
-      "level": "optional",
-      "text": "Korte maksimer kan virke modstridende, fordi de gælder forskellige forhold. Feltherren skal afgøre, hvornår hver gælder.",
-      "takeaway": "Rådene afhænger af situationen."
+      "title": "De korte sentenser deler et problem",
+      "text": "En sentens kan lyde almengyldig, når den løsrives fra drøftelsen af forsyninger, veje eller moral. Situationen viser som regel, hvis valg forfatteren undersøger, og hvad vedkommende har råd til at miste.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Følg omkostningerne ved forsinkelse.",
-      "why": "Sejr kan blive ødelæggende, før et slag tabes."
+      "text": "Hvad gør en lang forsyningslinje ved madens værdi?",
+      "why": "Den samme sæk korn koster vidt forskelligt alt efter, hvor langt hæren har fragtet den. De tilsyneladende afstikkere til regnskabet måler, hvor længe felttoget kan fortsætte, før noget slag er vundet."
     },
     {
-      "text": "Bemærk vægten på oplysninger.",
-      "why": "Viden kan ændre behovet for magt."
+      "text": "Læs et tegn i mere end én retning.",
+      "why": "Uorden kan røbe svaghed eller blive fremvist for at lokke til angreb. Den oplysning, der lover en fordel, kan gøre fortolkeren sårbar over for en fjende, som ved, hvad iagttageren håber at se."
     }
   ],
   "opening": "En hær kan vinde sine slag og ruinere det land, der betaler for dem. Sun Tzu begynder med krigens omkostninger: udmattede soldater, tømte lagre og beslutninger, der bliver sværere at omgøre for hver kilometer. Hans feltherre må forstå terræn, vildledning, kampånd og fjenden godt nok til ikke alene at bero på mod. De knappe anvisninger giver intelligensen et ubarmhjertigt praktisk formål. Den fineste sejr efterlader kun lidt til heltefortællingen, fordi modstanderens stilling er brudt sammen, før kampen begynder."

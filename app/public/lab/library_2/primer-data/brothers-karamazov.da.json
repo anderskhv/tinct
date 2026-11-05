@@ -2,58 +2,72 @@
   "schemaVersion": 1,
   "workId": "brothers-karamazov",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Familien samles",
-      "text": "De første bøger fører faderens hjem, brødrene og deres stridende tilknytninger sammen i konflikt."
+      "title": "Bog 1–4 · Familien tager en strid med til klosteret",
+      "text": "En strid om penge fører en far og hans sønner til et møde med en åndelig vejleder i klosteret. Besøget giver Fjodor Pavlovitj et nyt publikum til hans klovnerier. De, der ville stifte fred, må nu afgøre, hvis ydmygelse de vil være tilskuere til."
     },
     {
-      "title": "Argumenter får følger",
-      "text": "Senere bøger presser tro, anklage og ansvar. Lange taler står ved siden af scener, der modsætter sig forklaringerne."
+      "title": "Bog 5–7 · Ivan og Aljosja ved bordet",
+      "text": "Under et måltid gør Ivan sin bror rede for, hvorfor han ikke vil godtage en verden, der er købt med børns lidelser. Fortællingen om storinkvisitoren fører Kristus tilbage til mænd, der har bygget deres autoritet i hans navn. Aljosja skal svare et menneske, han elsker."
+    },
+    {
+      "title": "Bog 8–9 · En desperat jagt på penge",
+      "text": "Dmitrij farer fra den ene mulige redningsmand til den næste. Løfter, trusler og pengebeløb efterlader et spor af vidner. Hvad hvert vidne egentlig så, får langt større betydning, end nogen forestiller sig i aftenens ophidselse."
+    },
+    {
+      "title": "Bog 10 – epilog · En retssag og en flok skoledrenge",
+      "text": "Advokaterne giver byen to påfaldende overbevisende historier om den samme familie. Ved siden af den offentlige sag løber Aljosjas mere stilfærdige forhold til en gruppe drenge. Også de ved, hvad det vil sige at slutte sig til flertallet mod én."
     }
   ],
   "people": [
     {
       "name": "Dmitrij",
       "role": "Ældste bror",
-      "text": "Ældste bror, drevet af penge og begær."
+      "text": "Han vil gøre rede for penge, han skylder, og tro på, at han er en hæderlig mand. Netop de mennesker, der skal bekræfte hans hæderlighed, har hørt ham prale, true og modsige sig selv."
     },
     {
-      "name": "Ivan",
-      "role": "Mellemste bror",
-      "text": "En intellektuel anfægtet af lidelse."
+      "name": "Ivan og Aljosja",
+      "role": "Brødre, der tager hinanden alvorligt",
+      "text": "Ivan stoler på sin vægring ved at undskylde grusomhed. Hos starets Zosima har Aljosja lært at begynde med mennesket inden for rækkevidde. Ingen af dem kan afskrive den anden som dum eller ligeglad. Deres hengivenhed gør det svært at slippe fra uenigheden."
     },
     {
-      "name": "Aljosja",
-      "role": "Yngste bror",
-      "text": "Den yngste, draget mod religiøst liv."
+      "name": "Smerdjakov",
+      "role": "Tjener i faderens hus",
+      "text": "Han hører familiens diskussioner fra en plads, brødrene knap skænker en tanke. En idé, der lyder strålende hypotetisk ved middagsbordet, kan åbne for konkrete handlinger hos den mand, der skal servere."
     }
   ],
   "context": [
     {
-      "title": "Én person, flere navne",
-      "level": "recommended",
-      "text": "Mitja er Dmitrij; Aljosja er Aleksej. Tiltaleformer viser ømhed, fjendtlighed eller højtidelighed snarere end nye personer.",
-      "takeaway": "Hold styr på de nærmeste relationer."
+      "title": "Hvad en starets gør",
+      "text": "Folk søger Zosima for at få vejledning i sorg, huslige stridigheder og samvittighedsspørgsmål. Hans myndighed beror på deres vilje til at fortælle det skamfulde. Fjodor Pavlovitj ser en lejlighed til at spille skamfuld for et publikum.",
+      "level": "recommended"
     },
     {
-      "title": "Tro og indvending",
+      "title": "Ivans adgangsbillet",
+      "text": "Ivan beder sin bror forestille sig en endelig harmoni, der skulle forsone al verdens lidelse. Hans afvisning gælder den pris, som børn uden mulighed for at samtykke har betalt. Han henvender sig til Aljosja, hvis svar hænger sammen med, hvordan han behandler de børn, han faktisk kender.",
       "level": "optional",
-      "text": "Romanen giver plads til både religiøst håb og argumenter mod en retfærdig guddommelig orden. Ingen af delene kan reduceres til et slogan.",
-      "takeaway": "Lad de modstående stemmer beholde deres styrke."
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 35,
+          "paragraphIndex": 22,
+          "quote": "Jeg har indskrænket mit emne med vilje."
+        }
+      ]
     }
   ],
   "notice": [
     {
-      "text": "Skeln mellem ønske, handling og ansvar.",
-      "why": "Bogen afprøver gentagne gange skyldens rækkevidde."
+      "text": "Sammenlign tilståelsen af et ønske med tilståelsen af en handling.",
+      "why": "En bror kan tage ansvar for et ønske eller et forslag, en anden handlede på. En sådan bekendelse har stor moralsk vægt og kan være dybt misvisende som svar på en politimands spørgsmål."
     },
     {
-      "text": "Bemærk børn og små omsorgshandlinger.",
-      "why": "De afprøver store påstande om det rette liv."
+      "text": "Følg tilhørerne ud af stuen.",
+      "why": "En idé, Ivan har formuleret, ændrer sig i andres udlægning af, hvad han gav dem lov til. Hos Dostojevskij kan en tilhører bruge et argument til noget, dets ophavsmand aldrig selv ville have valgt."
     }
   ],
   "opening": "Karamazovbrødrenes far finder underholdning i ydmygelse og giver dem rigelig grund til had. Den ene bror fortæres af jalousi, den anden kan ikke acceptere en verden, der tillader børns lidelse, og den yngste forsøger at leve efter kærligheden. Penge og begær bringer argumenterne faretruende tæt på handling. Dostojevskij lader striden om Gud udspille sig mellem mennesker, der stadig skal møde hinanden ved morgenbordet, skylde penge, fremsætte anklager og spekulere på, hvad de i hemmelighed ønskede ville ske."

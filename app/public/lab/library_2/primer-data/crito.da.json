@@ -2,58 +2,50 @@
   "schemaVersion": 1,
   "workId": "crito",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Den foreslåede flugt",
-      "text": "Kriton kommer med praktiske forberedelser og presserende grunde til at flygte. Samtalen begynder med et venskab under pres."
+      "title": "Besøget ved daggry · Besøg før daggry",
+      "text": "Kriton kan skaffe en flugtvej og bringer nyt om skibet, hvis hjemkomst bestemmer dagen for Sokrates' død. Tid, penge og hjælpere taler for at handle. Sokrates beder sin ven lægge fordelene til side længe nok til at undersøge, om flugten er retfærdig."
     },
     {
-      "title": "Pligten afprøves",
-      "text": "Sokrates spørger, hvilke grunde der bør styre handlingen, og forestiller sig derefter byens love tale til ham. Også den tænkte tale må undersøges."
+      "title": "Bønnen og argumentet · Vennerne vender tilbage til en gammel aftale",
+      "text": "Kriton frygter skammen ved at svigte sin ven og sorgen hos de efterladte børn. Sokrates tager udgangspunkt i deres tidligere enighed om aldrig at handle uret, også i det vanskelige tilfælde, hvor andre først har gjort én uret."
+    },
+    {
+      "title": "Athens love taler · Forestil dig Athen stille spørgsmålene",
+      "text": "Sokrates låner lovene en stemme. De påberåber sig opdragelse, modtagne goder og beslutningen om at blive i byen. En flugt, der syntes at være vennernes private sag, har nu en tænkt tredjepart, som vil høres."
     }
   ],
   "people": [
     {
       "name": "Kriton",
-      "role": "Ven",
-      "text": "En ven, der organiserer flugten."
-    },
-    {
-      "name": "Sokrates",
-      "role": "Fange",
-      "text": "Den dødsdømte fange."
+      "role": "Vennen med midlerne til at hjælpe",
+      "text": "Han har tænkt over bestikkelse og risikoen for medhjælperne. Al den omsorg, han allerede har lagt i planen, forklarer, hvorfor det er så vanskeligt at høre Sokrates afvise dens praktiske fordele som udgangspunkt."
     },
     {
       "name": "Lovene",
-      "role": "Tænkt samtalepartner",
-      "text": "En personificeret stemme, der taler for pligterne mod byen."
+      "role": "Stemmer, Sokrates opfinder",
+      "text": "De taler som forældre og som parter i en aftale. De to krav hviler på forskellige slags forpligtelse, selv om Sokrates lader dem tale med én stemme."
     }
   ],
   "context": [
     {
-      "title": "Uret og modsvar",
-      "level": "recommended",
-      "text": "Sokrates skelner mellem at lide uret og at have ret til at begå den. Kriton må vise, at flugt er rigtig, ikke blot forståelig.",
-      "takeaway": "En forkert dom afgør ikke alle spørgsmål."
-    },
-    {
-      "title": "Samtykke til byen",
-      "level": "optional",
-      "text": "Lovene forbinder ophold og borgerlige goder med forpligtelser. Om forbindelsen udgør samtykke, er en del af argumentets vanskelighed.",
-      "takeaway": "Undersøg den påståede aftales vilkår."
+      "title": "Byen har netop dømt ham",
+      "text": "Spørgsmålet gælder retfærdigheden af en bestemt flugt efter en retssag. Sokrates og Kriton må undersøge, hvad en uretfærdig dom betyder for vurderingen af det svar, de overvejer.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Skeln mellem omdømme og gode grunde.",
-      "why": "Kriton og Sokrates giver den offentlige mening forskellig vægt."
+      "text": "Lyt efter de fraværende tilskuere.",
+      "why": "Kriton hører allerede, hvad folk vil sige efter vennens død. Sokrates spørger, om mængden har mere at skulle have sagt end tilskuerne over en atlets træning."
     },
     {
-      "text": "Bemærk personificeringen.",
-      "why": "Lovenes stemme ændrer argumentets følelsesmæssige kraft."
+      "text": "Hvornår begynder bopæl at ligne samtykke?",
+      "why": "Lovene peger på alle de år, Sokrates kunne have tilbragt andetsteds. Hvad hans beslutning om at blive forpligter ham til, afhænger af, hvad en borger med rimelighed kan lægge i det valg."
     }
   ],
   "opening": "Flugten er arrangeret. Der er penge, venner vil hjælpe, og Sokrates kan forlade fængslet før henrettelsen. Kriton forstår ikke hans tøven: bliver han, svigter han børnene og får vennerne til at ligne kujoner. Sokrates insisterer på, at en uretfærdig dom ikke afgør, om flugt er rigtig. I en samtale, hvor der knap er plads til abstraktion længere, lader Platon et menneske redegøre for sine pligter mod byen, der har dømt ham, mens én, der elsker ham, beder ham leve."

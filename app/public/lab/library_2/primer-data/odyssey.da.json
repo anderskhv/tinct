@@ -2,58 +2,72 @@
   "schemaVersion": 1,
   "workId": "odyssey",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Et ventende hjem",
-      "text": "Sang 1–4 følger familien, der venter på Odysseus, og presset omkring hans fravær."
+      "title": "Sang 1–4 · Et hus fuldt af mænd",
+      "text": "Der går fire sange, før helten selv træder frem. Imens spiser fremmede hans kvæg, hans kone leder efter nye måder at udskyde et ægteskab på, og hans søn rejser ud for at finde nogen, der faktisk ved noget om hans far."
     },
     {
-      "title": "Rejse og hjemkomst",
-      "text": "Sang 5–12 fører Odysseus ind i fortællingen og lader ham berette om rejsen. Sang 13–24 samles om hjemkomsten og tilhørsforholdet."
+      "title": "Sang 5–8 · En fremmed går i land",
+      "text": "Da Odysseus endelig viser sig, sidder han grædende på en strand. Hos faiakerne behøver han tøj, nogen der vil høre ham, og en plads på et skib. Under måltidet synger en skjald om Troja. En af gæsterne kan ikke holde tårerne tilbage."
+    },
+    {
+      "title": "Sang 9–12 · Gæsten siger sit navn",
+      "text": "Odysseus overtager fortællingen. Kyklopen, Kirke og de døde optræder i en beretning fortalt til netop de mennesker, der kan sejle ham hjem. Han husker både kammeraternes fejltagelser og nogle dyre beslutninger, han selv traf."
+    },
+    {
+      "title": "Sang 13–24 · En fremmed i sit eget hus",
+      "text": "På Ithaka er det farligt at sige sit navn for tidligt. Hyrder, tjenestefolk, søn og hustru har hver deres grund til at kende ham. Selve landgangen tager et øjeblik. Det tager det halve digt at finde ud af, hvad det er for et hjem, han er kommet tilbage til."
     }
   ],
   "people": [
     {
       "name": "Odysseus",
-      "role": "Fraværende konge",
-      "text": "En fraværende konge med talent for overtalelse."
+      "role": "Ithakas konge",
+      "text": "Hans evne til at opfinde en troværdig fortid kan redde hans liv. Den giver også en mand, der gerne vil tros af sin familie, et ganske særligt problem."
     },
     {
-      "name": "Penelope",
-      "role": "Hustru og husets leder",
-      "text": "Hans hustru, der presses til at gifte sig igen."
+      "name": "Penelope og Telemachos",
+      "role": "Hustru og søn",
+      "text": "Hun må tage stilling til frierier i et hus, som frierne nærmest har besat. Han husker næsten intet om sin far. De to har gennemlevet det samme fravær på ganske forskellige måder."
     },
     {
-      "name": "Telemachos",
-      "role": "Søn og arving",
-      "text": "Deres søn, der lærer at tale med myndighed."
+      "name": "Athene",
+      "role": "Guddommelig hjælper i forklædning",
+      "text": "Hun kan ændre et udseende, skaffe en rejsefælle og vælge det rette øjeblik til et møde. Hendes forkærlighed for Odysseus hænger også sammen med deres fælles glæde ved en vellykket list."
     }
   ],
   "context": [
     {
-      "title": "Gæstevenskab",
-      "level": "recommended",
-      "text": "En fremmed bør få mad og husly, før han udspørges. Både værter og gæster har pligter; deres adfærd viser, hvilket samfund vi befinder os i.",
-      "takeaway": "Måltider afprøver karakteren."
+      "title": "Pligterne mellem vært og gæst",
+      "text": "En rejsende ankommer uden pas og uden udsigt til et hotelværelse. Hvem der giver ham mad, hvornår han skal sige sit navn, og om han får lov at rejse, kan afgøre hans liv. Frierne kender skikkene godt nok til at misbruge dem.",
+      "level": "recommended"
     },
     {
-      "title": "Efter Troja",
-      "level": "recommended",
-      "text": "Den trojanske krig er forbi. Odysseus er ikke vendt hjem, og hans husstand har hverken en levende hersker hos sig eller vished om hans død.",
-      "takeaway": "Fraværet skaber en politisk krise."
+      "title": "Også på Ithaka er krigen forbi",
+      "text": "For de hjemmeværende er uvisheden den langvarige krise. Penelope kan ikke optræde som enke uden at medgive, at hendes mand er død. Telemachos er vokset op i et hus, hvis fremtid stadig står hen i det uvisse.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Se, hvem der fortæller hvert eventyr.",
-      "why": "Talerens formål former beretningen."
+      "text": "Hvem får aftensmad, før han skal forklare sig?",
+      "why": "Et måltid giver den hjælpeløse tid og beskyttelse. Sammenlign den fremmede, der får en stol stillet frem, med de mænd, der er ved at spise sig gennem en anden families kvæg.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 1,
+          "paragraphIndex": 8,
+          "quote": "Når du har delt vores mad, kan du fortælle os, hvad der bringer dig hertil."
+        }
+      ]
     },
     {
-      "text": "Følg forklædninger, præsentationer og genkendelser.",
-      "why": "Identitet må bevises såvel som erklæres."
+      "text": "Hvilke småting kan røbe et menneskes identitet?",
+      "why": "En beretning om Troja kan rejse verden rundt. Et minde fra hjemmet tilhører ganske få mennesker, og den, der skal genkende en anden, kan have gode grunde til at kræve den slags bevis."
     }
   ],
   "opening": "Odysseus har overlevet Trojakrigen, men ti år senere ved hans hustru stadig ikke, om han lever. Mænd fylder huset, æder husdyrene og konkurrerer om hans plads. Sønnen er vokset op i venten på en far, han knap kender. Imens er Odysseus strandet hos en gudinde, der vil beholde ham for altid. Hjemkomsten kræver den snilde, der hjalp med at ødelægge Troja; at genvinde pladsen kræver mødet med dem, der i tyve år har lært at leve uden ham."

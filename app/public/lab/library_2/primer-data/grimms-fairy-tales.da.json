@@ -2,58 +2,67 @@
   "schemaVersion": 1,
   "workId": "grimms-fairy-tales",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Selvstændige eventyr",
-      "text": "Hver historie etablerer familie, fare og regler. Samlingen kræver ikke fælles persongalleri eller handling."
+      "title": "Den gyldne fugl og Hans i lykke · De to første eventyr leger forskelligt med lykken",
+      "text": "I Guldfuglen tæller en konge sine æbler og opdager, at en tyv tager ét hver nat. Det gælder om at opdage tabet i tide. I Hans og lykken gør en ung mand den ene handel efter den anden. For tilskueren ser de stadig dårligere ud, for Hans stadig bedre. På få sider har lykken skiftet betydning."
     },
     {
-      "title": "Gentagne mønstre",
-      "text": "Løfter, forvandlinger, søskende og usandsynlige hjælpere vender tilbage. Sammenligning viser mønstrenes forskellige brug."
+      "title": "Jorinde og Joringel – Den gyldne gås · Et nyt eventyr kan som regel begynde fra bar bund",
+      "text": "En sulten familie, en låst dør eller en dronning, der ønsker sig et barn, giver vanskeligheder nok til en ny verden. Personerne går sjældent igen. En undtagelse er tre eventyr i træk om en hane og en høne, hvor det samme fjerklædte pars huslige anliggender får følger langt uden for hønsegården."
+    },
+    {
+      "title": "Livets Vand – Snehvide og Rosenrød · Senere eventyr vender tilbage til velkendte problemer med en ny spilleregel",
+      "text": "I Livets vand får brødre endnu en gang en opgave og lejlighed til at lytte til én, der ikke ser ud af meget. I eventyret om den unge mand, der drog ud for at lære frygt at kende, søger drengen netop den oplevelse, andre rejsende ville flygte fra. Genkendelsens glæde bliver særlig stor, når helten gør noget andet end ventet."
     }
   ],
   "people": [
     {
       "name": "Det yngste barn",
-      "role": "Tilbagevendende hovedperson",
-      "text": "Ofte undervurderet."
+      "role": "Den, der kommer til efter to mislykkede forsøg",
+      "text": "Det kan ligne en ulempe at komme sidst, når en far eller en konge har sine yndlinge. Men den yngste har også en anden opgave end den kloge storebror. En smule venlighed over for et dyr eller en fremmed kan skaffe en oplysning, som ingen af de andre gjorde sig den ulejlighed at få."
     },
     {
-      "name": "Den fremmede hjælper",
-      "role": "Tilbagevendende møde",
-      "text": "Afprøver adfærd før hjælp."
-    },
-    {
-      "name": "Aftalen",
-      "role": "Tilbagevendende forpligtelse",
-      "text": "Et løfte, hvis vilkår kan overstige forståelsen."
+      "name": "Dyret, der kender vejen",
+      "role": "En hjælper med besværlige anvisninger",
+      "text": "Ræven i Guldfuglen ved nøjagtig, hvad man skal vælge, og hvilken prægtig ting man skal lade stå. Rådet er svært at følge, fordi det forkerte valg ligner det, et fornuftigt menneske ville træffe. En hjælper kan give helten glimrende oplysninger uden at kunne vælge på hans vegne."
     }
   ],
   "context": [
     {
-      "title": "Eventyrets logik",
-      "level": "recommended",
-      "text": "Magi har følger inden for historiens vilkår. En lille anvisning kan betyde mere end styrke.",
-      "takeaway": "Husk løfter og forbud."
+      "title": "Gentagelsen giver tilhøreren et forspring",
+      "text": "Når nogen aflægger tre besøg på det samme sted, kan tilhøreren begynde at forudse det næste spørgsmål eller ønske. Et barn, der får historien læst højt, kan vide præcis, hvad der skal siges, og alligevel vente spændt på det ene ord eller den ene bevægelse, som denne gang vil ændre udfaldet.",
+      "level": "recommended"
     },
     {
-      "title": "En udvalgt samling",
-      "level": "optional",
-      "text": "Udgaver varierer i udvalg og ordlyd. Primeren beskriver fællestræk uden at forudsætte alle kendte eventyr.",
-      "takeaway": "Lad indholdet styre sammenligningen."
+      "title": "Kendte fortællinger kan have uvante engelske titler",
+      "text": "I det engelske udvalg hedder Askepot Ashputtel, og eventyret om Snehvide har titlen Snowdrop. Selv i en fortælling, man kender, kan en scene overraske. Askepots tidlige besøg ved morens grav giver hendes senere bønner om hjælp en tilhører, som hun allerede har en historie med.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk prøver med én ændret detalje.",
-      "why": "Gentagelse lærer læseren at se forskellen."
+      "text": "Se på skoene i De tolv dansende prinsesser.",
+      "why": "Kongen har låst døren og tror, han ved, hvor hans døtre har tilbragt natten. Deres opslidte sko er sværere at forklare. En hel anden tilværelse kan komme ind i et eventyr gennem en dagligdags genstand, som burde have været i bedre stand om morgenen.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 9,
+          "paragraphIndex": 0,
+          "quote": "fandt man hver morgen deres sko slidt helt igennem"
+        }
+      ]
     },
     {
-      "text": "Følg mad og husly som gaver.",
-      "why": "Hverdagsgavmildhed kan få usædvanlige følger."
+      "text": "Læg mærke til, hvad der kan bo i et køkken.",
+      "why": "En mus, en fugl og en pølse kan holde hus og fordele arbejdet. Det vidunderlige bliver overstået på en sætning. Striden om, hvem der arbejder hårdest, får langt mere plads. Man kan nå at genkende et ganske almindeligt husskænderi, før man kommer i tanke om, hvem der skændes."
+    },
+    {
+      "text": "Lyt til havet, når fiskeren kommer tilbage med endnu et ønske.",
+      "why": "Fiskeren må vende tilbage til det samme vand og tale til den samme fortryllede fisk. Med ganske få ord om havets farve og overflade lader fortælleren os mærke, hvor meget der har ændret sig siden sidste ønske, før fisken svarer."
     }
   ],
   "opening": "Børn sendes ud i skove, aftaler indgås med fremmede, og et sultent hjem kan blive farligere end væsnerne udenfor. Hos brødrene Grimm kommer faren hurtigt, og overlevelse afhænger ofte af en bemærket regel, et holdt løfte eller hjælp fra noget overset. Fortællingerne bevæger sig med en ligefrem sikkerhed, der gør undere almindelige. Få sider rummer forladthed, rædsel, opfindsomhed og et lykkeomslag stort nok til at besvare et ønske, hverdagen knap ville give plads til."

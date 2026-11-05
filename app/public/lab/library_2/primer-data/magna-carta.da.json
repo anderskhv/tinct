@@ -2,58 +2,50 @@
   "schemaVersion": 1,
   "workId": "magna-carta",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Konkrete klager",
-      "text": "Chartret behandler arv, gæld, kongelige krav og forvaltning gennem bestemte løfter frem for en almen rettighedsteori."
+      "title": "Indledning og bestemmelse 1–11 · De første tilsagn · Hvem arver hvad?",
+      "text": "Kongen stadfæster kirkens friheder, før han vender sig mod den kostbare sag at arve jord. Arvingers afgifter, værgers behandling af godset og enkens stilling fylder bestemmelser, der kan overraske den, som venter en indledende teori om frihed."
     },
     {
-      "title": "Dom og håndhævelse",
-      "text": "Bestemmelser om retsproces og overholdelse søger at begrænse kongens adfærd. Rækkevidden må læses præcist."
+      "title": "Bestemmelse 12–48 · Penge, domstole og kongens folk",
+      "text": "Regler om afgifter, bøder, beviser og rekvisitioner gør klagen over vilkårligt styre usædvanligt håndgribelig. For ejeren af en kærre eller et kornlager kan grænsen for en embedsmands magt måles i det, der stadig står i gården."
+    },
+    {
+      "title": "Bestemmelse 49–63 · Oprejsning og håndhævelse · Hvad hvis kongen bryder sit ord?",
+      "text": "Den afsluttende ordning drejer sig om tab, gidsler og midler til at sikre opfyldelsen. Femogtyve baroner får til opgave at håndhæve løfterne. Det viser, hvor lidt kongens segl alene kunne afgøre tillidsspørgsmålet."
     }
   ],
   "people": [
     {
       "name": "Kong Johan",
-      "role": "Kronen",
-      "text": "Herskeren, der giver indrømmelser."
+      "role": "Den talende konge begrænser sine egne embedsmænd",
+      "text": "Charteret taler med kongens stemme, også hvor det nedfælder indrømmelser aftvunget ham. Et tilsyneladende nådigt tilsagn kan derfor vise præcis, hvor hans styre var kommet under pres."
     },
     {
-      "name": "Baroner",
-      "role": "Magtfulde undersåtter",
-      "text": "Magtfulde undersåtter med krav."
-    },
-    {
-      "name": "Frie mænd",
-      "role": "Beskyttet retskategori",
-      "text": "En juridisk kategori mindre end hele befolkningen."
+      "name": "Den frie mand",
+      "role": "En modtager med bestemt retlig status",
+      "text": "Flere af de berømteste værn gælder den frie mand. Andre bestemmelser skelner mellem købmænd, enker, baroner og ufri bønder. Pligter og retsmidler fordeles i et samfund med retligt forskellige stænder."
     }
   ],
   "context": [
     {
-      "title": "Et middelalderligt forlig",
-      "level": "recommended",
-      "text": "Teksten besvarer konkrete konflikter i et hierarkisk samfund. Den senere symbolske rolle er bredere end de oprindelige beskyttelser.",
-      "takeaway": "Erstat ikke middelalderens kategorier med universelle rettigheder."
-    },
-    {
-      "title": "Senere efterliv",
-      "level": "optional",
-      "text": "Senere læsere brugte chartrets sprog til nye forfatningskrav. De er vigtige, men står ikke alle i denne version.",
-      "takeaway": "Skeln ordlyd fra senere fortolkning."
+      "title": "Her læses charteret fra 1215",
+      "text": "Aftalen hører til en strid mellem kongen og oprørske baroner. Senere genudstedelser og tolkninger gav udvalgte bestemmelser et vældigt efterliv. Reglerne om håndhævelse og jordbesiddelse viser den konkrete strid, eftertiden arvede.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Se, hvem der får hvert løfte.",
-      "why": "Beskyttelse varierer med status og omstændigheder."
+      "text": "Hvornår får et løfte en frist eller en pris?",
+      "why": "Et almindeligt tilsagn kan udhules gennem forhaling eller en overdreven betaling. Tallene og fristerne viser ofte en modtager, der forsøger at lukke netop denne udvej."
     },
     {
-      "text": "Følg midlerne til overholdelse.",
-      "why": "Et løfte begrænser kun magt, hvis det får praktisk betydning."
+      "text": "Følg stedordene ned gennem magtens kæde.",
+      "why": "Et sted skal de friheder, kongen overholder, også overholdes af gejstlige og verdslige herrer over for deres egne folk. En baron, som kræver mådehold ovenfra, kan selv være forpligtet nedadtil."
     }
   ],
   "opening": "En konge behøver penge og lydighed. Baronerne har fået nok af hans metoder. Forliget, de påtvinger Johan i 1215, handler om gæld, arv, enker, domstole og det praktiske arbejde med at hindre kongemagten i at opsluge andres tryghed. Blandt de konkrete klager findes løfter, som senere generationer skulle lægge langt mere i. Chartret viser den snævre, omstridte begyndelse på en mægtig idé: selv en hersker kan afkræves ansvar efter regler, han ikke blot selv har dikteret."

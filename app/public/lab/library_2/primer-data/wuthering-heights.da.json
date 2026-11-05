@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "wuthering-heights",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "En gæst hører historien",
-      "text": "Lockwoods ankomst fører ind i Nelly Deans beretning om hjemmene og relationerne før ham."
+      "title": "Kapitel I–III · En lejer besøger sin udlejer",
+      "text": "Lockwood ankommer til Wuthering Heights i tillid til, at han kan udpege hustru, tjenestefolk og husets herre ved at se sig omkring. Han tager fejl af næsten alle forhold. Sneen tvinger ham til at overnatte blandt navne ridset i en vindueskarm og mange ubesvarede spørgsmål."
     },
     {
-      "title": "Følger gennem generationer",
-      "text": "Tilknytning, ejendom og krænkelser går ind i yngre liv. Gentagne navne kræver opmærksomhed på slægtskab."
+      "title": "Kapitel IV–XVII · Nelly fortæller om børnene",
+      "text": "Tilbage på Grange begynder husholdersken med et barn, der bliver bragt hjem fra Liverpool. Heathcliff og Catherine Earnshaw slutter sig sammen i et hus, hvor myndigheden fra én dag til den næste kan tilfalde den, der hader dem. Hos naboerne Linton møder de andre mål for skønhed, manerer og ægteskab."
+    },
+    {
+      "title": "Kapitel XVIII–XXXIV · De næste børn arver husene",
+      "text": "De samme få navne går igen i næste slægtled. De voksne, der tager imod børnene, bestemmer over deres besøg og styrer deres opdragelse, husker nøjagtigt, hvor de selv blev såret. Den korte vej mellem husene får på ny vidtrækkende følger."
     }
   ],
   "people": [
     {
       "name": "Heathcliff",
-      "role": "Udefrakommende",
-      "text": "En fremmed i Earnshawhjemmet."
+      "role": "Barn optaget i familien Earnshaw",
+      "text": "Gamle Earnshaw kan give drengen husly og særbehandling uden at give ham en sikker juridisk stilling eller en historie om hans ophav. Heathcliff lærer, hvor meget af et barns hverdag der kan afhænge af den personlige velvilje hos den, der ejer huset."
     },
     {
       "name": "Catherine Earnshaw",
-      "role": "Barndomsfælle",
-      "text": "Hans barndomsfælle."
+      "role": "Heathcliffs følgesvend",
+      "text": "Hun kender friheden ved at strejfe om med Heathcliff og glæden ved at blive modtaget som dame på Grange. Da hun prøver at forklare, hvad de to fremtider betyder for hende, bliver det afgørende, hvem der tilfældigvis overhører hvilken del af forklaringen."
     },
     {
-      "name": "Nelly Dean",
-      "role": "Vidne og fortæller",
-      "text": "Tjener og central fortæller."
+      "name": "Nelly Dean og Lockwood",
+      "role": "Vidne i huset og betalende gæst",
+      "text": "Nelly har vasket, plejet og båret beskeder og somme tider nægtet at bringe dem videre. Hun ved meget, en udenforstående aldrig kunne opdage. Lockwood fører hendes viden ind i sin skriftlige beretning trods de fejlvurderinger, vi allerede har set ham begå."
     }
   ],
   "context": [
     {
-      "title": "Historier gennem vidner",
-      "level": "recommended",
-      "text": "Hændelser kommer sjældent uformidlede. Nelly og Lockwood har interesser, begrænsninger og forskellig afstand til personerne.",
-      "takeaway": "Spørg, hvem der så det berettede."
-    },
-    {
-      "title": "Ejendom og afhængighed",
-      "level": "optional",
-      "text": "Huse og arv organiserer magt. Lidenskab virker gennem juridiske og hjemlige ordninger såvel som erklæringer.",
-      "takeaway": "Følg, hvem der kan blive i hjemmet."
+      "title": "To huse og tilbagevendende navne",
+      "text": "Wuthering Heights hører til Earnshaws historie og Thrushcross Grange til Lintons. Gennem ægteskaber vandrer navne og krav mellem dem. Et barn kan have efternavn efter en familie, hvis hus er hende ganske fremmed. Den vanskelighed deler Lockwood med en førstegangslæser.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Sammenlign gentagelser mellem generationer.",
-      "why": "Et arvet mønster kan gentages eller modstås."
+      "text": "Læg mærke til de øjeblikke, hvor Nelly forlader stuen.",
+      "why": "Hun kan høre begyndelsen af en samtale, gå glip af afslutningen og mange år senere levere en fortolkning. Andre gange er det hende, der åbner en dør eller holder et brev tilbage. Beretningen omfatter hendes egne afgørelser."
     },
     {
-      "text": "Bemærk tærskler, vinduer og vejr.",
-      "why": "Landskabet gør tilhørsforhold og udelukkelse mærkbare."
+      "text": "Følg, hvem der kan læse et navn eller et brev.",
+      "why": "Et indridset ord kan fremkalde en historie. Et uåbnet eller utilgængeligt brev kan holde to mennesker adskilt. At nægte et barn muligheden for at lære at læse er én måde, de voksne kan forlænge en strids levetid på.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "quote": "malingen var dækket af ridsede skrifttegn"
+        }
+      ]
     }
   ],
   "opening": "Heathcliff kommer som barn til en gård i Yorkshire, hvor ingen ved, hvad de skal stille op med ham. Catherine bliver hans nærmeste ven; broderen sørger for, at han kender sin underordnede plads. Tilknytningen optager krænkelserne omkring dem, indtil kærlighed og ønsket om at såre bliver farligt sammenvævede. Emily Brontë følger det, der sker, når mennesker nægter at lade et nag dø med dem, gennem huse, ægteskaber og børn, der arver ordninger, de aldrig kunne protestere imod."

@@ -2,54 +2,56 @@
   "schemaVersion": 1,
   "workId": "meditations",
   "language": "en",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Debts to others",
-      "text": "Book 1 recalls people from whom Marcus learned habits and values. It gives the later self-admonitions a social background."
+      "title": "Book I · An education made of people",
+      "text": "Marcus opens by assigning credit. A grandfather's temper, a teacher's plain living and a ruler's patience supply the details of a good life before Marcus has offered a single argument for it."
     },
     {
-      "title": "Repeated practice",
-      "text": "Books 2–12 return to judgment, duty, mortality, and other people without forming a continuous treatise. Read the repetitions as renewed exercises."
+      "title": "Books II–XII · Return to the scene of the difficulty",
+      "text": "The remaining books move among mornings, irritations, illness, praise and death. An insight about other people in one entry may have to be worked out all over again the next time someone is ungrateful. The repetitions preserve how much practice that costs."
     }
   ],
   "people": [
     {
-      "name": "Judgment",
-      "role": "Interpretation",
-      "text": "Marcus's reminder to himself that what disturbs us is not events but our opinions about them, and that those opinions are in our power."
+      "name": "Marcus addressing Marcus",
+      "role": "The voice on both sides of an argument",
+      "text": "A second-person command can sound severe until you remember who will have to obey it. Marcus gives himself excuses, diagnoses their appeal and occasionally writes the answer he would like to have ready tomorrow."
     },
     {
-      "name": "Duty",
-      "role": "Social obligation",
-      "text": "The work an emperor owes to others and to Rome, which Marcus treats as his part in a shared life rather than as a burden."
+      "name": "Antoninus Pius",
+      "role": "Adoptive father and imperial example",
+      "text": "Marcus remembers a man who could sit through a long investigation and let somebody else take credit. Such recollections put a day's administrative choices beside the more imposing claims the book makes about virtue."
     },
     {
-      "name": "Nature",
-      "role": "Larger order",
-      "text": "The ordered whole of which, as a Stoic, Marcus sees himself as a small part, and with which he tries to keep his own will in step."
+      "name": "Rusticus",
+      "role": "The teacher who lent Marcus a book",
+      "text": "In the first book Marcus thanks Rusticus for lending him his copy of the writings of Epictetus. He remembers other lessons from the same man, among them how to read carefully and how to be reconciled with someone after a quarrel. The name of a philosopher comes attached to a memory of how an older man behaved."
     }
   ],
   "context": [
     {
-      "title": "Notes to himself",
-      "level": "recommended",
-      "text": "Marcus is repeatedly addressing his own failures of attention and conduct. A severe sentence may be a corrective aimed at a particular weakness.",
-      "takeaway": "Hear the self-address before turning it into advice."
+      "title": "An impression and what you add",
+      "text": "A colleague may actually have spoken rudely. Marcus asks how much of his distress comes from a further judgment about insult, injury or status. Separating those steps gives him something to do while the colleague remains difficult.",
+      "level": "recommended"
     },
     {
-      "title": "Stoic belonging",
-      "level": "optional",
-      "text": "Stoicism joins discipline of judgment to obligations towards other people. Detachment from praise does not automatically mean withdrawal from public life.",
-      "takeaway": "Self-command serves shared life."
+      "title": "Why Marcus keeps starting over",
+      "level": "recommended",
+      "text": "An argument addressed to another person can stop once that person agrees. Marcus often addresses the version of himself who will soon be tired or irritated again. Repetition can therefore tell us something a single polished statement could conceal, including which of his own convictions he found hardest to keep hold of during a working day."
     }
   ],
   "notice": [
     {
-      "text": "Notice repeated irritations.",
-      "why": "Repetition reveals how difficult the desired habits remain.",
+      "text": "Watch a luxury get taken apart.",
+      "why": "Marcus describes costly things by their physical ingredients. Momentarily seeing coloured cloth or a dead fish where a dinner guest sees distinction is an exercise in loosening the thing's hold."
+    },
+    {
+      "text": "Follow him back to other people.",
+      "why": "A view from high above can make today's quarrel look absurdly small. Marcus still has to go downstairs and work with the person who annoyed him. His insistence on human cooperation gives that change of scale a destination.",
       "passages": [
         {
           "editionKey": "original-en",
@@ -60,8 +62,16 @@
       ]
     },
     {
-      "text": "Follow changes of scale.",
-      "why": "Images of cosmic time loosen the hold of immediate anxieties."
+      "text": "Hear the objection from under the bedclothes.",
+      "why": "Marcus has told himself to get up and do the work of a human being. The next voice in the argument points out that staying warm is pleasanter. He gives that voice only a few words, but allows it to state the difficulty exactly. A principle he accepts while writing has to defeat a very comfortable bed when morning comes.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "quote": "to lie in the bed-clothes and keep myself warm"
+        }
+      ]
     }
   ],
   "opening": "Marcus Aurelius commanded an empire, but he still had to talk himself into getting out of bed. Stoic philosophy gave him arguments for doing his work, enduring discomfort, and dealing with people who annoyed him. In these private notes he returns to the same difficulties, sometimes patiently, sometimes with the severity of someone tired of his own excuses. An emperor’s authority could make other people obey; it could not spare him the daily effort of governing his own temper and desires."

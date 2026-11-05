@@ -2,59 +2,106 @@
   "schemaVersion": 1,
   "workId": "the-prince",
   "language": "en",
-  "revision": 3,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "opening": "A ruler who keeps his promises may be destroyed by someone who does not. One who tries to be generous can end up taxing his people until they hate him. Machiavelli examines these predicaments with the attention of a man who has watched governments fall and lost his own position with one of them. His advice forces the question that respectable accounts of leadership often evade: what happens when the conduct that earns admiration is not the conduct that keeps you in power?",
+  "revision": 4,
+  "authoredOn": "2026-11-04",
   "structure": [
     {
-      "title": "Acquiring and securing rule",
-      "text": "Early chapters distinguish kinds of principalities and the difficulties of gaining dependable military and political support."
+      "title": "Chapters 1–11 · Getting power is only the beginning",
+      "text": "Machiavelli distinguishes inherited states from newly acquired ones. A new ruler must contend with people who expected to benefit from his arrival, people loyal to the old order, and allies whose help comes with conditions."
     },
     {
-      "title": "Conduct and circumstance",
-      "text": "Later chapters test familiar virtues against political outcomes, then return to fortune and Italy's predicament."
+      "title": "Chapters 12–14 · Whose soldiers are defending you?",
+      "text": "Mercenaries and borrowed armies promise strength while leaving the ruler dependent on someone else. Military organisation becomes a test of whether his power is actually his."
+    },
+    {
+      "title": "Chapters 15–19 · When good conduct produces bad results",
+      "text": "Generosity can require taxes that make subjects hate their ruler. Mercy can permit disorder. Keeping promises can leave him exposed to people who break theirs. These chapters examine the uncomfortable distance between admirable intentions and their consequences."
+    },
+    {
+      "title": "Chapters 20–23 · Governing through other people",
+      "text": "Fortresses, public reputation, ministers, and advisers offer different kinds of protection. The ruler needs reliable information while occupying a position that encourages everyone around him to flatter him."
+    },
+    {
+      "title": "Chapters 24–26 · What can a ruler do about fortune?",
+      "text": "Machiavelli returns to the failures of Italian rulers and the limits of preparation. A method that once worked may become disastrous when circumstances change. The book closes by turning its analysis into an urgent appeal to act."
     }
   ],
   "people": [
     {
       "name": "The new prince",
-      "role": "Problem of legitimacy",
-      "text": "A ruler who has just won power by force, luck or others' help, and must hold it without the habits of obedience a long-established family enjoys."
+      "role": "A ruler without settled authority",
+      "text": "He cannot rely on generations of obedience. He has displaced people, rewarded others, and created expectations he may be unable to satisfy. Much of the book asks how someone in this exposed position can make his rule last."
     },
     {
-      "name": "Virtù",
-      "role": "Political capacity",
-      "text": "Machiavelli's word for the boldness, skill and readiness to act that a ruler needs to master events, which has little to do with goodness."
+      "name": "Cesare Borgia",
+      "role": "A case Machiavelli keeps testing",
+      "text": "Borgia appears as an example of calculated action under dangerous conditions. Follow what Machiavelli admires, what he thinks Borgia secured for himself, and what still depended on another person. An impressive operator can remain vulnerable."
     },
     {
-      "name": "Fortuna",
-      "role": "Uncontrolled circumstances",
-      "text": "Chance, which Machiavelli compares to a flooding river that controls half of what we do, and which a prepared ruler can dam in advance."
+      "name": "The people and the nobles",
+      "role": "Two sources of support with different demands",
+      "text": "The nobles want to command; the people want to avoid oppression. Machiavelli argues that these ambitions give a ruler different problems. His advice often turns on which group he needs and what keeping its support will cost."
     }
   ],
   "context": [
     {
-      "title": "Effective conduct",
+      "title": "A fractured political world",
       "level": "recommended",
-      "text": "Praiseworthy intentions and successful rule can diverge. Machiavelli examines that divergence without making every cruel act useful.",
-      "takeaway": "Follow the claimed consequence of each recommendation."
+      "text": "The Italy of the book consists of competing states exposed to powerful neighbours and shifting alliances. A ruler can lose his position through military dependence, domestic opposition, or a change in someone else’s fortunes. This helps explain the urgency behind advice that can otherwise sound like a celebration of ruthlessness."
     },
     {
-      "title": "An unstable Italy",
-      "level": "optional",
-      "text": "Competing states and outside powers form the background to the examples. Dependence on another ruler's force is a recurring vulnerability.",
-      "takeaway": "Independence requires means, not declarations alone."
+      "title": "Virtù does not simply mean moral virtue",
+      "level": "recommended",
+      "text": "Machiavelli’s virtù includes the capacity to judge circumstances, act decisively, and secure results. It can require qualities that ordinary moral praise leaves out. English translations vary, so words such as ability, prowess, or virtue may carry this larger meaning."
+    },
+    {
+      "title": "Fortune can make yesterday’s wisdom fail",
+      "level": "recommended",
+      "text": "Fortuna includes changes a ruler cannot command. Machiavelli compares it to a flooding river: preparation can limit damage, even though it cannot prevent the rain. He also worries that people cling to the habits that made them successful after the circumstances favouring those habits have disappeared.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 26,
+          "paragraphIndex": 2,
+          "quote": "I compare her to one of those raging rivers"
+        }
+      ]
     }
   ],
   "notice": [
     {
-      "text": "Distinguish fear from hatred.",
-      "why": "Machiavelli does not treat all forms of submission as equally secure."
+      "text": "Follow the money in the chapter on generosity.",
+      "why": "The prince wants to be seen giving, exhausts his resources, and then makes his subjects pay for the display. Machiavelli follows a praised quality through its costs. Keep asking who finances a ruler’s reputation.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 17,
+          "paragraphIndex": 0,
+          "quote": "will be compelled in the end"
+        }
+      ]
     },
     {
-      "text": "Watch historical examples resist neat rules.",
-      "why": "Circumstance repeatedly complicates imitation."
+      "text": "Keep “feared” and “hated” separate.",
+      "why": "The famous discussion does not give unlimited permission to terrorise. Machiavelli worries about conduct that turns obedience into hostility. Notice how much of his advice concerns avoiding the resentment a careless reading of his argument might encourage."
+    },
+    {
+      "text": "Look for the people left outside each calculation.",
+      "why": "A measure may secure the ruler and injure someone else. Sometimes Machiavelli claims that harsh action prevents wider suffering. Examine both the proposed result and whose losses make that result possible."
+    },
+    {
+      "text": "Watch how tightly he controls the permission to tell the truth.",
+      "why": "The prince should welcome frank advice, but from chosen advisers and on matters he asks about. The arrangement reveals a difficulty that remains unresolved by simply hiring honest people: how does someone who controls the questions discover what he has failed to ask?",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 24,
+          "paragraphIndex": 1,
+          "quote": "only of those things of which he inquires"
+        }
+      ]
     }
-  ],
-  "opening": "A ruler who keeps his promises may be destroyed by someone who does not. One who tries to be generous can end up taxing his people until they hate him. Machiavelli examines these predicaments with the attention of a man who has watched governments fall and lost his own position with one of them. His advice forces the question that respectable accounts of leadership often evade: what happens when the conduct that earns admiration is not the conduct that keeps you in power?"
+  ]
 }

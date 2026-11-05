@@ -2,58 +2,62 @@
   "schemaVersion": 1,
   "workId": "the-farthest-reaches",
   "language": "en",
-  "revision": 3,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Establishing explanatory universality",
-      "text": "The opening chapters develop the proposed capacity of people to understand explanations beyond a fixed subject boundary."
+      "title": "Chapters 1–3 · A falling person and an idea with reach",
+      "text": "Einstein imagines what it would feel like to fall. Hall begins here because an explanation invented to solve one problem can say something about situations its inventor never encountered. He then makes a larger claim about the kind of mind capable of inventing such explanations."
     },
     {
-      "title": "Extending the argument",
-      "text": "Later chapters apply the idea to education, intelligence, culture, psychology, and artificial intelligence, before summarising its implications."
+      "title": "Chapters 4–7 · What a pupil's score can tell a teacher",
+      "text": "Hall brings his premise into the classroom. Children differ conspicuously in what they can do today. He asks what would entitle someone to infer a lasting limit from that difference. His treatment of IQ turns on whether a test can separate the workings of a brain from the knowledge a person brings to the test."
+    },
+    {
+      "title": "Chapters 8–14 · The argument enters public disputes",
+      "text": "Hall applies the same premise to immigration, culture, identity and mental illness. The difficulty changes with the subject. A claim about what a person could learn in principle does not by itself establish why a particular person is suffering, or which policy would improve a particular society. The chapters contain separate arguments for those steps."
+    },
+    {
+      "title": "Chapters 15–20 · Who else could give an explanation?",
+      "text": "The possibility of an artificial person makes Hall state what he thinks is distinctive about a human one. Freedom of speech, evolutionary explanations of behaviour and the persistence of individual differences then put pressure on different parts of his account. The concluding chapter gathers claims that have travelled a long way from Einstein's falling observer."
     }
   ],
   "people": [
     {
-      "name": "Explanatory universality",
-      "role": "Central philosophical claim",
-      "text": "The book's central claim, from David Deutsch: people can in principle understand anything that can be understood, so there is no limit to human knowledge."
+      "name": "Brett Hall",
+      "role": "Author applying Deutsch's idea of universality",
+      "text": "Hall owns the steps between the philosophical premise and his conclusions about schools, tests and public life. His most revealing examples often involve two people making the same observation about someone's ability and drawing sharply different conclusions about the person's future."
     },
     {
-      "name": "Reach",
-      "role": "Applicability of an idea",
-      "text": "The way a good explanation solves more than the problem it was made for, as Newton's laws accounted for both falling apples and planetary orbits."
-    },
-    {
-      "name": "Creativity",
-      "role": "Source of new knowledge",
-      "text": "The ability to come up with new explanations by guessing and criticising them, which the book argues is what makes people unique."
+      "name": "The universal computer",
+      "role": "Analogy for a capacity with no fixed subject boundary",
+      "text": "A small computer can take much longer than a large one to perform the same calculation. Hall draws on the distinction between the class of tasks a machine can perform and its resources for performing one. He wants to know what a comparable distinction would mean for people trying to understand something difficult."
     }
   ],
   "context": [
     {
-      "title": "Capacity and achievement",
-      "level": "recommended",
-      "text": "A claim about what people can in principle understand does not mean that every person already knows it or learns without difficulty.",
-      "takeaway": "Keep possibility distinct from present accomplishment."
-    },
-    {
-      "title": "Applications need scrutiny",
-      "level": "optional",
-      "text": "Hall extends one philosophical account into several contested fields. Each extension needs its own reasoning and evidence.",
-      "takeaway": "Agreement with the premise need not settle every application."
+      "title": "What Hall means by reach",
+      "text": "The origin of an explanation can be local and its consequences unexpectedly broad. A mind shaped on Earth can account for events elsewhere in the universe. Hall calls on that gap between origin and application when he asks whether someone's upbringing or present circumstances can put a boundary around what they might understand.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Notice the step from an example to a universal claim.",
-      "why": "That step carries much of the argumentative burden."
+      "text": "Keep the time available to the learner in view.",
+      "why": "A pupil may have a term before an exam, a worker an afternoon to learn a procedure. Hall's argument concerns a capacity in principle. The distance between that capacity and what someone can accomplish by Friday becomes especially consequential when he turns to schools and assessments."
     },
     {
-      "text": "Follow qualifications about knowledge and resources.",
-      "why": "They prevent possibility from becoming a promise of effortless success."
+      "text": "Watch the example of the fast mental calculator.",
+      "why": "Someone produces an answer long before the rest of the room. Is the brain faster, or has the calculator learnt a shortcut? The observable feat stays the same under both descriptions, which makes it a good example of the problem Hall faces in identifying its cause.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 20,
+          "paragraphIndex": 6,
+          "quote": "shortcuts for getting to the answer to arithmetic questions faster"
+        }
+      ]
     }
   ],
   "opening": "A brain evolved on one planet can explain stars it will never visit. Brett Hall takes that familiar achievement as evidence for a startling claim: human understanding has no fixed subject boundary. Building on David Deutsch's account of explanatory universality, he follows the implications into education, intelligence, and judgments about what other people can learn. The argument presses against the habit of treating present difficulty as a permanent limit, asking how much of what seems impossible is a problem for which the explanation has yet to be created."

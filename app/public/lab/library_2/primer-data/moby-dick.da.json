@@ -2,58 +2,72 @@
   "schemaVersion": 1,
   "workId": "moby-dick",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Rejsens begyndelse",
-      "text": "Ishmaels ankomst, venskaber og ansættelse etablerer et samfund om bord, før kaptajnens formål bliver dominerende."
+      "title": "Kapitel 1–27 · En seng, en ven og et skib",
+      "text": "Ishmael går til søs, når livet på land bliver surt. Før han overhovedet ser en hval, må han dele seng med en fremmed og forhandle om hyren. Queequeg viser sig lettere at stole på end de fromme redere, der vil betale dem begge en brøkdel af fangsten."
     },
     {
-      "title": "En voksende jagt",
-      "text": "Sejlads veksler med hvalstudier, dramatiske scener, prædikener og overvejelser. Formskiftene udvider jagtens betydning."
+      "title": "Kapitel 28–47 · Akab røber sit mål",
+      "text": "Kaptajnen træder sent frem og samler besætningen om en mønt, han sømmer til masten. Jagten på hvalolie og hævntogtet mod én bestemt hval skal nu rummes på samme skib. Kun det ene foretagende indgik i den aftale, sømændene skrev under på."
+    },
+    {
+      "title": "Kapitel 48–99 · Arbejdet mellem observationerne",
+      "text": "Kapitler om hud, spæk, tovværk og partering afbryder forfølgelsen. De leverer alt det, besættelsen udelader. Det samme dyr er en levende krop for naturforskeren, en formue for rederen og en række højst konkrete farer for folkene, der læner sig over rælingen."
+    },
+    {
+      "title": "Kapitel 100 – epilog · Andre skibe og jagten",
+      "text": "Møder med andre kaptajner giver brudstykker af nyt om den hvide hval og forskellige grunde til at vende om. Da eftersøgningen samler sig om flere dages jagt, har vi set, hvor mange slags arbejde, viden og loyalitet Akab må bøje ind under én vilje."
     }
   ],
   "people": [
     {
       "name": "Ishmael",
-      "role": "Fortæller",
-      "text": "Den fortællende sømand."
+      "role": "Sømand med hang til forklaringer",
+      "text": "Han kan beskrive arbejdet med hvalolie blandt kammeraterne med næsten religiøs henrykkelse og derpå lyde som en bibliotekar, der skændes om, hvor en hval skal stå. Hans glæde ved stadig nye sammenligninger gør ham til et mærkeligt vidne til en kaptajn, der kun anerkender én."
     },
     {
       "name": "Queequeg",
-      "role": "Harpuner",
-      "text": "Harpuner og hans ven."
+      "role": "Harpunér og Ishmaels ven",
+      "text": "Manden, der skræmmer Ishmael på kroen, viser sig at være en hensynsfuld sengekammerat. På skibet holder hans kunnen folk i live, der på land uden videre ville have afskrevet ham."
     },
     {
-      "name": "Ahab",
-      "role": "Kaptajn",
-      "text": "Kaptajn på Pequod."
+      "name": "Akab og Starbuck",
+      "role": "Kaptajn og førstestyrmand",
+      "text": "Akab ser sin legemlige skade som noget, han kan besvare ved at slå igen. Starbuck har taget hyre for at tjene penge til rederne og komme hjem til sin familie. Vil han trodse kaptajnen, må han bryde med den lydighed, hans fag bygger på."
     }
   ],
   "context": [
     {
-      "title": "Et arbejdende skib",
-      "level": "recommended",
-      "text": "Hvalfangst indebærer arbejde, rang, fagkundskab og økonomiske interesser. Besætningens hverdag forbliver til stede under kaptajnens private formål.",
-      "takeaway": "Skibet rummer mange grunde til at sejle."
+      "title": "Hyren afhænger af fangsten",
+      "text": "Hver sømand får en andel af udbyttet. Redernes forhandlinger får betydning, da kaptajnen lancerer sit private felttog. Alle på dækket har allerede sat arbejde og fremtidig indtægt ind på en rejse, hvis formål én mand kan ændre.",
+      "level": "recommended"
     },
     {
-      "title": "Mange former i én bog",
-      "level": "optional",
-      "text": "Encyklopædiske passager og teaterscener ændrer afstanden til handlingen. De tilsyneladende sidespring er en del af formen.",
-      "takeaway": "Se, hvad et formskift muliggør."
+      "title": "Hvad sker der med en hval langs skibssiden?",
+      "text": "Besætningen skærer spækket af kroppen i lange spiraler, deler det i mindre stykker og smelter det i ovne om bord. Om natten oplyser arbejdet dækket nedefra. Et enkelt dyr kan gøre sejlskibet til en flydende fabrik, før jagten fortsætter.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Sammenlign Ishmaels nysgerrighed med Ahabs vished.",
-      "why": "De to vaner giver forskellige møder med det ukendte."
+      "text": "Følg et reb fra én krop til en anden.",
+      "why": "Harpunlinen kan rive en sømand ud af båden. Et reb mellem to mænd kan gøre den enes fodfæste afhængigt af den andens. Ishmaels tanker om menneskers samhørighed begynder gang på gang med et ganske håndgribeligt stykke tovværk.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 72,
+          "paragraphIndex": 2,
+          "quote": "abetovet var fastgjort i begge ender"
+        }
+      ]
     },
     {
-      "text": "Se arbejdet og samarbejdet.",
-      "why": "Jagten afhænger af mennesker, hvis liv rækker ud over dens symbolik."
+      "text": "Lyt til mændene foran guldmønten.",
+      "why": "Mønten bliver siddende på masten, mens hver iagttager opdager et privat budskab i prægningen. Masten bliver en lille udgave af det hav, hvor de alle hævder at se den samme hval."
     }
   ],
   "opening": "Ishmael tager til søs, fordi livet på land er ved at gøre ham til farligt selskab. En hvalfangstrejse lover arbejde, afstand og fremmede værd at møde. Så afslører kaptajnen et formål, besætningen ikke meldte sig til: Ahab vil have den hvide hval, der tog hans ben. Melville giver plads til venskab, sjofle vittigheder, prædikener og forbløffende mængder hvalviden, mens en privat besættelse overtager kommandoen over skibet. Mændene har hver deres grund til at sejle; kaptajnen vil give dem sin."
