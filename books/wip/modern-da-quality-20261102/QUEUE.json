@@ -8,8 +8,11 @@
       "bookId": "to-the-lighthouse",
       "title": "To the Lighthouse",
       "phase": "Phase 1: existing 18, re-accept",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_in_progress",
+      "publicationAccepted": false,
+      "totalChapters": 42,
+      "totalParagraphs": 495,
+      "nativeReview": "pending_user_arranges"
     },
     {
       "bookId": "the-art-of-war",
@@ -609,8 +612,13 @@
       "bookId": "oresteia",
       "title": "The Oresteia",
       "phase": "Phase 4: 24 additions; cumulative 70",
-      "status": "queued_not_accepted",
-      "publicationAccepted": false
+      "status": "editorial_in_progress",
+      "publicationAccepted": false,
+      "totalChapters": 26,
+      "totalParagraphs": 771,
+      "reviewedChapters": 7,
+      "reviewedParagraphs": 155,
+      "nativeReview": "pending_user_arranges"
     },
     {
       "bookId": "comedy-of-errors",
@@ -976,9 +984,17 @@
       "bookId": "vindication-rights-of-woman",
       "title": "A Vindication of the Rights of Woman",
       "phase": "Full-corpus extension authorized 2026-11-03",
-      "status": "editorial_in_progress",
+      "status": "editorial_complete_integration_pending",
       "publicationAccepted": false,
-      "nativeReview": "pending_user_arranges"
+      "nativeReview": "pending_user_arranges",
+      "totalChapters": 15,
+      "reviewedChapters": 15,
+      "totalParagraphs": 778,
+      "reviewedParagraphs": 778,
+      "danishChangedParagraphs": 764,
+      "englishChangedParagraphs": 2,
+      "reviewFile": "VINDICATION-RIGHTS-OF-WOMAN-REVIEW.json",
+      "notes": "Full main text and inline notes;13-block historical biography supplement requires integration;6 short-ratio cases manually reviewed."
     },
     {
       "bookId": "as-you-like-it",
