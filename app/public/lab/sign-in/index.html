@@ -58,7 +58,8 @@ html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=passwor
 html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-card .auth-status[data-tone=success]{background:#1e3021;color:#b9dcbf}
 .auth-file{display:flex;gap:14px;align-items:center;margin:4px 0 22px;padding:12px;border-radius:12px;background:#1a2119;border:1px solid rgba(238,231,208,.14);min-width:0}.auth-file[hidden]{display:none}
 .auth-file img{width:46px;aspect-ratio:2/3;flex:none;border-radius:2px;display:block;object-fit:cover}
-.auth-file div{min-width:0}.auth-file b{display:block;font:600 15px/1.3 var(--sans);color:#eee7d0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.auth-file span{font:13px/1.4 var(--sans);color:#a9ad9a}
+.auth-file div{min-width:0}.auth-file b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-bottom:2px;font:600 15px/1.3 var(--sans);color:#eee7d0;overflow:hidden;overflow-wrap:anywhere;text-wrap:pretty}
+.auth-page:not([data-mode=signin]):not([data-mode=password]):not([data-mode=code]) [data-signin-rights]{display:none}[data-signin-rights][hidden]{display:none}[data-signin-rights]:not([hidden])+[data-auth-legal]{margin-top:4px}.auth-file span{font:13px/1.4 var(--sans);color:#a9ad9a}
 html[data-eink="true"] .auth-file{background:#fff;border-color:#777}html[data-eink="true"] .auth-file b{color:#111}
 @media(max-width:520px){html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-main{padding:12px 0 0}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-card{border-radius:20px 20px 0 0;border-bottom:0;padding:26px max(20px,env(safe-area-inset-right,0px)) calc(30px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-card h1{font-size:30px}html:not([data-eink="true"]) .auth-logo{font-size:28px}.auth-file img{width:38px}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]){padding-bottom:0}}
   </style>
@@ -95,6 +96,7 @@ html[data-eink="true"] .auth-file{background:#fff;border-color:#777}html[data-ei
           <a class="auth-secondary auth-open-mail" data-open-gmail href="https://mail.google.com/mail/u/0/#search/from%3Atinct.app" target="_blank" rel="noopener" hidden>Open Gmail</a>
           <p class="auth-note auth-resend">No email? <button class="auth-inline" type="button" data-code-resend disabled>Send a new code</button><span data-code-wait></span></p>
         </div>
+        <p class="auth-legal" data-signin-rights hidden>By continuing you confirm you may read this file.</p>
         <p class="auth-legal" data-auth-legal>By continuing you accept the <a href="/terms">Terms</a> and confirm you’ve read the <a href="/privacy">Privacy notice</a>.</p>
         <p class="auth-status" data-auth-status hidden></p>
       </section>

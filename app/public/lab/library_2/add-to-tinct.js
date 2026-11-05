@@ -6,14 +6,16 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261105ttl30';
+import {putHandoff,HANDOFF_PARAM,clearPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
 import {eraLabel} from './book-metadata.js?v=20261009rel10';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
-import {pasteEpub,preview as pastePreview,suggestedTitle} from './paste-text.js?v=20261023paste1';
+import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded} from './own-add.js?v=20261105flow';
+import {pasteBox} from './paste-box.js?v=20261105flow';
+export {addEngine,loadFileEngine};
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
 export const signedIn=()=>document.documentElement.classList.contains('signed-in');
@@ -29,7 +31,6 @@ export const ADD_FILE_HANDOFF_PAGE=`/lab/addbook/?mode=file&${HANDOFF_PARAM}=1`;
 /** Signed out (an internal device): sign in, then back to My shelf. */
 export const SIGN_IN_FOR_FILE=`/sign-in?returnTo=${encodeURIComponent(MY_SHELF_URL)}`;
 const pasteEnabled=()=>sharedReaderEnabled(location.search);
-const PASTE_MAX_CHARS=240000;
 const pasteShelf=()=>'/library?sharedReader=1#my-shelf';
 const signInForEntry=()=>pasteEnabled()?`/sign-in?returnTo=${encodeURIComponent(pasteShelf())}`:SIGN_IN_FOR_FILE;
 /** The add a signed-out reader asked for resumes here after sign-in. */
@@ -100,13 +101,7 @@ export function linkedPublicBook(){
  try{const id=new URLSearchParams(location.search).get('book')||location.pathname.match(/^\/read\/([a-z0-9-]+)\/?$/)?.[1]||null;return isPublicBookId(id)?id:null;}catch{return null;}
 }
 
-// ---- The engine (import, own books) ----
-const ENGINE='/lab/library-add.js?v=20261014talkwake';let engine=null;
-export function addEngine(){
- if(!engine)engine=import(/* @vite-ignore */ENGINE).then(()=>{if(!window.__tinctLibraryAdd)throw new Error('add engine unavailable');return window.__tinctLibraryAdd;});
- engine.catch(()=>{engine=null;});
- return engine;
-}
+// ---- The engine (import, own books): own-add.js addEngine ----
 
 // ---- Premium: adding books (Add, a PDF or EPUB) is Premium or the 30-day trial (Anders, 2026-10-07) ----
 /** The account page with its Premium offer: where a free account's Add and file entries lead. */
@@ -140,15 +135,7 @@ const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF, EPUB or text file f
 export const FILE_ACCEPT='application/pdf,.pdf,application/epub+zip,.epub,text/plain,.txt';
 export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
-const FILE_ENGINE=['/lab/addbook/js/tinct-api.js?v=20261023paste1','/lab/addbook/js/epub.js','/lab/addbook/js/add-engine.js?v=20261029titles1'];
-function loadScript(src){return new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=()=>resolve();script.onerror=()=>reject(new Error('could not load '+src));document.head.append(script);});}
-let fileEngine=null;
-/** Add a book's engine on this page (window.TinctAddEngine), loaded on first use. */
-export function loadFileEngine(load=loadScript){
- if(window.TinctAddEngine&&window.TinctAI&&window.TinctEpub)return Promise.resolve(window.TinctAddEngine);
- if(!fileEngine){fileEngine=Promise.all(FILE_ENGINE.map(src=>load(src))).then(()=>{if(!window.TinctAddEngine)throw new Error('add engine unavailable');return window.TinctAddEngine;});fileEngine.catch(()=>{fileEngine=null;});}
- return fileEngine;
-}
+// Add a book's engine on this page: own-add.js loadFileEngine.
 let openDialog=null;
 /** Close the pop-up (if open), focus back on what opened it. */
 export function closeFileDialog(){
@@ -188,9 +175,11 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
  let pastePending=null,pasteDraft=null;
+ // The plain heading ("Your own book"), as before the Paste window made the title the heading.
+ const plainHead=()=>{box.classList.remove('paste-dialog');title.className='tui-dialog__title';delete title.dataset.empty;title.textContent=OWN_BOOK_COPY.title;};
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
-  title.textContent=OWN_BOOK_COPY.title;
+  plainHead();
   const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
   choose.onclick=()=>input.click();
@@ -230,69 +219,50 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   step('rights',intro,label,actions(no,ok));
   check.focus({preventScroll:true});
  });
- // Keep this draft only in the dialog. Pasting rich clipboard HTML is opt-in to this private
- // switch; preview is rebuilt from the editable source, never rendered from raw clipboard HTML.
+ // The slim Paste window (approved mockup 01, 5 Nov 2026): the title is the heading, edited in place;
+ // the byline and word count under it; the cleaned text in the box (paste-box.js); one Add button and
+ // a quiet "Choose a file instead". No rights step for pasted text. The draft lives only in the dialog
+ // (and, from /byob, in this browser's handoff until it is added).
  function pasteStep(message=''){
   delete box.dataset.busy;
-  title.textContent='Paste text';
-  const source=make('textarea','own-paste-source');source.rows=9;source.placeholder='Paste your text here';source.setAttribute('aria-label','Text to add');
-  const titleField=make('input','own-paste-title');titleField.type='text';titleField.placeholder='Pasted text';titleField.maxLength=200;titleField.setAttribute('aria-label','Title');
-  const author=make('input','own-paste-author');author.type='text';author.placeholder='Author (optional)';author.maxLength=200;author.setAttribute('aria-label','Author (optional)');
-  const start=make('input','own-paste-trim-start');start.type='number';start.min='0';start.value='0';start.setAttribute('aria-label','Lines to trim from beginning');
-  const end=make('input','own-paste-trim-end');end.type='number';end.min='0';end.value='0';end.setAttribute('aria-label','Lines to trim from end');
+  box.classList.add('paste-dialog');
+  const paste=pasteBox({heading:title,placeholder:'Paste text'});
   const alert=make('p','own-paste-error',message);alert.setAttribute('role','alert');
-  const sample=make('div','own-paste-preview');sample.setAttribute('aria-label','Preview of text to add');
-  const richNotice=make('p','tui-dialog__fine own-paste-rich-note','Rich formatting was found. Review the preview before adding; the text box shows the words.');richNotice.hidden=true;
-  let richHtml=null,titleEdited=false;
-  const parsed=()=>richHtml!==null?{source:richHtml,format:'html'}:{source:source.value,format:'auto'};
-  const render=()=>{try{const data=parsed();const html=pastePreview(data.source,data.format,Number(start.value),Number(end.value));const fragment=document.createElement('template');fragment.innerHTML=html;sample.replaceChildren(fragment.content);alert.textContent='';}catch(error){sample.replaceChildren();alert.textContent=source.value?error.message:'';}};
-  source.addEventListener('paste',event=>{const html=event.clipboardData?.getData('text/html'),plain=event.clipboardData?.getData('text/plain');if(html&&!source.value&&plain){event.preventDefault();source.value=plain;richHtml=html;richNotice.hidden=false;details.open=true;if(!titleEdited)titleField.value=suggestedTitle(html,'html');render();}});
-  source.addEventListener('input',()=>{if(richHtml!==null){richHtml=null;richNotice.hidden=true;}if(!titleEdited)titleField.value=suggestedTitle(source.value);render();});
-  titleField.addEventListener('input',()=>{titleEdited=true;});
-  for(const field of [start,end])field.addEventListener('input',render);
-  const save=button('tui-btn tui-btn--primary own-paste-save','Add to my books');
+  const save=button('tui-btn tui-btn--primary tui-btn--lg own-paste-save','Add');
+  const other=button('paste-quiet-link own-paste-file','Choose a file instead');other.onclick=()=>input.click();
+  const sync=()=>{save.disabled=paste.empty()||save.dataset.busy==='1';};
+  paste.onChange(()=>{alert.textContent='';sync();});
   save.onclick=async()=>{
    if(save.disabled)return;
-   save.disabled=true;
-   if(!await authorize()||!layer.isConnected){save.disabled=false;return;}
-   // Readable size only: larger pastes take too long to lay out (29 Oct 2026: 250k characters opens in about 3.5 s on desktop, 8 s on phone).
-   if(source.value.length>PASTE_MAX_CHARS){alert.textContent=`This text is too long to paste: ${(source.value.match(/\S+/g)||[]).length.toLocaleString('en-US')} words, ${source.value.length.toLocaleString('en-US')} characters. The limit is ${PASTE_MAX_CHARS.toLocaleString('en-US')} characters (about 40,000 words). Trim it, or save it as an EPUB or PDF and add the file.`;save.disabled=false;return;}
-   let file;const details={...parsed(),title:titleField.value||'Pasted text',author:author.value,start:Number(start.value),end:Number(end.value)};
+   save.dataset.busy='1';sync();
+   const release=()=>{delete save.dataset.busy;sync();};
+   if(!await authorize()||!layer.isConnected){release();return;}
+   const draft=paste.read();
+   const tooLong=pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
+   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||''};
    const signature=JSON.stringify(details);
-   try{
-    if(pastePending?.signature!==signature)pastePending={signature,file:pasteEpub(details),account:null};
-    file=pastePending.file;
-    if(file.size>50*1024*1024)throw new Error('This text exceeds the private book size limit. Trim it before adding.');
-   }
-   catch(error){alert.textContent=error.message;save.disabled=false;return;}
-   const draft={source:source.value,richHtml,title:titleField.value,author:author.value,start:start.value,end:end.value};
+   try{if(pastePending?.signature!==signature)pastePending={signature,file:pasteBook(details),account:null};}
+   catch(error){alert.textContent=error.message;release();return;}
+   const file=pastePending.file;
+   pasteDraft={...pasteDraft,...draft};
+   paste.title.contentEditable='false';
    progress(.08);
    try{
     const engineApi=await api();
-    if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,draft.title))return;
-    progress(.3);
-    const read=await engineApi.readFile(file);if(read.error)throw new Error(read.error);
-    // Parse with the actual EPUB engine before creating an account object. Otherwise
-    // a malformed generated package would be saved while the dialog said it failed.
-    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
-    // Account persistence is required for Paste. Unlike the existing file flow, an
-    // offline/failed upload stays in the editable dialog and cannot look "saved".
-    const account=pastePending.account||await window.TinctAI.books.upload(file,{kind:'epub',name:file.name,title:details.title.trim(),author:draft.author.trim(),rights:engineApi.store.get('rights:'+engineApi.accountId())});
-    if(!account?.id||account.sha256?.slice(0,24)!==read.key.slice(5))throw new Error('The account could not confirm this book. Try again.');
-    pastePending.account=account;
-    engineApi.cloud.mine().set(read.key,account);
-    progress(.7);
-    if(await engineApi.keepFile(file,read,details.title.trim()))await engineApi.library.touch(read.key,{cloudId:account.id});
-    // Validation and metadata use the same EPUB path as a selected private file.
-    await engineApi.prepareEpub(read.bytes,file.name,read.key,null);
-    progress(1);go('/reader?userBook='+encodeURIComponent(read.key.slice(5))+'&sharedReader=1');
-   }catch(error){pasteDraft=draft;pasteStep(error?.message||'This text could not be added. Try again.');}
+    const added=await savePastedText(engineApi,file,{title:details.title,author:details.author,account:pastePending.account,progress,onAccount:account=>{pastePending.account=account;}});
+    if(pasteDraft?.fromHandoff)await clearPasteHandoff();
+    noteAdded(added.key);go(added.href);
+   }catch(error){box.classList.remove('paste-dialog');pasteStep(error?.message||'This text could not be added. Try again.');}
   };
-  const field=(label,control)=>{const wrap=make('label','own-paste-field');wrap.append(make('span','',label),control);return wrap;};
-  const details=make('details','own-paste-details');const summary=make('summary','','Review details');details.append(summary,field('Title',titleField),field('Author',author),make('p','tui-dialog__fine','Optional: remove lines from the beginning or end before adding.'),field('Trim beginning (lines)',start),field('Trim end (lines)',end));
-  step('paste',alert,field('Text',source),richNotice,details,make('p','tui-dialog__fine','Preview'),sample,actions(save));
-  if(pasteDraft){source.value=pasteDraft.source;richHtml=pasteDraft.richHtml;richNotice.hidden=!richHtml;details.open=!!richHtml;titleField.value=pasteDraft.title;author.value=pasteDraft.author;start.value=pasteDraft.start;end.value=pasteDraft.end;titleEdited=!!pasteDraft.title;render();alert.textContent=message;}
-  source.focus({preventScroll:true});
+  const row=actions(other,save);row.classList.add('paste-actions');
+  step('paste',paste.wrap,alert,row);
+  content.prepend(paste.meta);
+  if(pasteDraft?.plain!==undefined)paste.showPasted(pasteDraft.plain,pasteDraft.title);
+  else if(pasteDraft)paste.restore(pasteDraft);
+  if(pasteDraft?.plain!==undefined)pasteDraft={uid:pasteDraft.uid,...paste.read()};
+  sync();
+  if(message)alert.textContent=message;
+  paste.focus();
  }
  async function addFile(file){
   if(!await authorize()||!layer.isConnected)return;
@@ -301,11 +271,12 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
    try {
     const text = await file.text();
     if (!text.trim()) throw new Error('This text file is empty.');
-    pasteDraft = { source: text, richHtml: null, title: file.name.replace(/\.txt$/i, ''), author: '', start: '0', end: '0' };
+    pasteDraft = { plain: text, title: file.name.replace(/\.txt$/i, '') };
     pasteStep();
    } catch (error) { chooseStep(error?.message || 'This text file could not be read.'); }
    return;
   }
+  plainHead();
   progress(.08);
   let engineApi;
   try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
@@ -313,13 +284,11 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   if(read.error){chooseStep(read.error);return;}
   if(!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,file.name))return;
   progress(.3);
-  const kept=await engineApi.keepFile(file,read);
-  // Unkept (storage full or blocked): Add a book's PDF reader takes the file and opens it unkept, as before.
-  if(!kept){note(OWN_BOOK_COPY.unkept);go(await keep(file)?fallback:MY_SHELF_URL);return;}
-  progress(.6);
   try{
-   const opened=read.kind==='epub'?await engineApi.prepareEpub(read.bytes,file.name,read.key,file,{notify:note}):await engineApi.preparePdf(file,read.key,{notify:note});
-   progress(1);
+   const {kept,opened}=await keepOwnFile(engineApi,file,read,{notify:note,progress});
+   // Unkept (storage full or blocked): Add a book's PDF reader takes the file and opens it unkept, as before.
+   if(!kept){note(OWN_BOOK_COPY.unkept);go(await keep(file)?fallback:MY_SHELF_URL);return;}
+   noteAdded(read.key);
    if(read.kind==='pdf'){
     delete box.dataset.busy;
     const original=button('tui-btn tui-btn--secondary','Open original PDF');
@@ -343,7 +312,7 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  else chooseStep();
  layer.showReady=chooseStep;
  layer.addFile=addFile;
- layer.showPaste=()=>{if(!pasteEnabled())return;pasteDraft=null;pasteStep();};
+ layer.showPaste=(draft=null)=>{if(!pasteEnabled())return;pasteDraft=draft?{...draft,fromHandoff:true}:null;pasteStep();};
  return layer;
 }
 /**

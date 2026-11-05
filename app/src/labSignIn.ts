@@ -47,6 +47,8 @@ const initialParams = new URLSearchParams(location.search)
 // out, they sign in first and land on it.
 const accountLink = initialParams.get('mode') === 'account'
 const returnTo = accountLink ? cardUrl('account', safeLabReturnTo(initialParams.get('returnTo'))) : safeLabReturnTo(initialParams.get('returnTo'))
+// Back from sign-in, a text or file kept on /byob goes back to /byob, where it still is.
+const preparingReturn = /^\/preparing(?:[/?#]|$)/.test(returnTo)
 // Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes.
 const social = enhanceSignInPage(root ?? null)
 const allowedModes = new Set<Mode>(['signin', 'password', 'reset', 'welcome', ...(social ? ['profile', 'reading'] as Mode[] : [])])
@@ -140,6 +142,8 @@ async function completeSignIn(session: Session, newAccount = false, method: stri
     setFunnelToken(session.access_token)
     trackSignupCompleted(session.user.id, method)
     if (social && root) await startSocialSteps(session)
+    // A text or file chosen on /byob opens straight away (approved paste flow, 5 Nov 2026): no "Explore the library" card first.
+    else if (preparingReturn) returnToLibrary()
     else setMode('welcome')
     setBusy(false)
   }
@@ -439,8 +443,8 @@ form?.addEventListener('submit', submitAuth)
 async function initialize() {
   const back = root?.querySelector<HTMLAnchorElement>('[data-auth-back]')
   if (back) {
-    back.href = returnTo
-    back.textContent = /\/(?:reader|read\/|phone|desktop)/.test(returnTo) ? '← Back to reading' : '← Library'
+    back.href = preparingReturn ? '/byob' : returnTo
+    back.textContent = preparingReturn ? '← Back' : /\/(?:reader|read\/|phone|desktop)/.test(returnTo) ? '← Back to reading' : '← Library'
   }
   root?.querySelectorAll<HTMLElement>('[data-return]').forEach(button => {
     button.textContent = button.closest('[data-mode-copy="welcome"]')
@@ -472,7 +476,7 @@ async function initialize() {
       else if (social && (mode === 'profile' || mode === 'reading')) void startSocialSteps(data.session)
       else if (mode === 'welcome') setMode('welcome')
       // Signed in already: the account is the cards, over the page the reader came from.
-      else { navigateAfterAuth(accountLink ? returnTo : cardUrl('you', returnTo), true); return }
+      else { navigateAfterAuth(accountLink || preparingReturn ? returnTo : cardUrl('you', returnTo), true); return }
       rememberPendingProvider(null)
     } else {
       setMode(mode === 'welcome' || mode === 'profile' || mode === 'reading' || mode === 'reset' ? 'signin' : mode)

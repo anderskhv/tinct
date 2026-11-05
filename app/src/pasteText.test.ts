@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { epubToEdition } from './lab/userBook/epubEdition'
 import { SHARED_READER_DEFAULT } from './lab/sharedReader/sharedReaderFlag'
 // @ts-expect-error -- shared browser module
-import { detectFormat, markdownHtml, pasteEpub, preview, sanitizeHtml, suggestedTitle, trimSource } from '../public/lab/library_2/paste-text.js'
+import { cleanPaste, detectFormat, markdownHtml, pasteEpub, preview, sanitizeHtml, suggestedTitle, trimSource, wordCount } from '../public/lab/library_2/paste-text.js'
 import '../public/lab/wait-ring.js'
 // @ts-expect-error -- shared browser module
 import * as add from '../public/lab/library_2/add-to-tinct.js'
@@ -141,6 +141,28 @@ describe('private pasted source', () => {
   expect(() => pasteEpub({ source: 'a\u0000b', title: 'Invalid' })).toThrow(/cannot preserve/)
   expect(() => pasteEpub({ source: 'a\uD800b', title: 'Invalid' })).toThrow(/cannot preserve/)
  })
+ // The paste flow (5 Nov 2026): what the box shows is what is added, the title out of the text, the byline found.
+ it('cleans a paste for the box: title from an opening heading or short first line, byline kept in the text', () => {
+  const rich = cleanPaste({ html: '<h1>A Title</h1><p>By Mary Shelley</p><p>The first paragraph of the essay, long enough to be prose.</p>' })
+  expect(rich.title).toBe('A Title')
+  expect(rich.author).toBe('Mary Shelley')
+  expect(rich.html).not.toContain('A Title')
+  expect(rich.html).toContain('By Mary Shelley')
+  const plain = cleanPaste({ plain: 'Inside the Lectures\nG. B. Rango\nOct 25, 2026\n\nStarting on a Monday, the lectures began.' })
+  expect(plain.title).toBe('Inside the Lectures')
+  expect(plain.author).toBe('G. B. Rango')
+  expect(plain.html.startsWith('<p>G. B. Rango<br>Oct 25, 2026</p>')).toBe(true)
+  // A sentence is never a title, and a heading-less text has none.
+  expect(cleanPaste({ plain: 'It was a dark night.\n\nThe rain fell.' })).toMatchObject({ title: '', author: '' })
+  expect(cleanPaste({ plain: 'One single line of text' }).title).toBe('')
+  // Words of separate blocks are counted apart.
+  expect(wordCount('<p>one two</p><p>three</p>')).toBe(3)
+ })
+ it('builds identical EPUB bytes for the same kept text, so a retry after sign-in is one account book', async () => {
+  const details = { source: '<p>Same words.</p>', format: 'html', title: 'Same', uid: '22222222-2222-4222-8222-222222222222' }
+  const [a, b] = await Promise.all([data(pasteEpub(details)), data(pasteEpub(details))])
+  expect(Buffer.compare(Buffer.from(a), Buffer.from(b))).toBe(0)
+ })
 })
 
 describe('private Paste entry', () => {
@@ -164,46 +186,69 @@ describe('private Paste entry', () => {
   const go = vi.fn(); add.openFileDialog({engine: async () => engine, go})
   return {go, upload, engine}
  }
+ // The slim Paste window (approved paste-flow mockup 01, 5 Nov 2026): the title is the heading, one text box
+ // with the cleaned text, one Add button, a quiet "Choose a file instead"; no trims, no preview, no rights step.
+ const box = () => dialog().querySelector('.own-paste-source') as HTMLElement
+ const heading = () => dialog().querySelector('.paste-title__text') as HTMLElement
+ const type = (html: string) => { box().innerHTML = html; box().dispatchEvent(new Event('input')) }
+ const rename = (text: string) => { heading().textContent = text; heading().dispatchEvent(new Event('input')) }
+ const addText = () => (dialog().querySelector('.own-paste-save') as HTMLButtonElement).click()
+ const pasteInto = (target: HTMLElement, html: string, plain: string) => {
+  const event = new Event('paste', {cancelable: true}) as Event & { clipboardData?: {getData(type: string): string} }
+  Object.defineProperty(event, 'clipboardData', {value: {getData: (kind: string) => kind === 'text/html' ? html : kind === 'text/plain' ? plain : ''}})
+  target.dispatchEvent(event)
+  return event
+ }
  it('follows the build default and URL overrides, and opens the common private reader after confirmed account save', async () => {
   open('')
   expect(Boolean(dialog().querySelector('.own-file-paste'))).toBe(SHARED_READER_DEFAULT); add.closeFileDialog()
   open('?sharedReader=0')
   expect(dialog().querySelector('.own-file-paste')).toBeNull(); add.closeFileDialog()
-  const {go,upload} = open('?sharedReader=1')
+  const {go,upload,engine} = open('?sharedReader=1')
+  engine.rightsConfirmed = () => false
+  const confirm = vi.fn(); Object.assign(engine, {confirmRights: confirm})
   ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
-  const source = dialog().querySelector('.own-paste-source') as HTMLTextAreaElement
-  source.value = 'Start\n\nActual\n\nEnd'; source.dispatchEvent(new Event('input'))
-  const title = dialog().querySelector('.own-paste-title') as HTMLInputElement; title.value = 'A private text'; title.dispatchEvent(new Event('input'))
-  ;(dialog().querySelector('.own-paste-trim-start') as HTMLInputElement).value = '2'
-  ;(dialog().querySelector('.own-paste-trim-end') as HTMLInputElement).value = '2'
-  source.dispatchEvent(new Event('input'))
-  expect(dialog().querySelector('.own-paste-preview')?.textContent).toBe('Actual')
-  ;(dialog().querySelector('.own-paste-save') as HTMLButtonElement).click()
+  expect(dialog().querySelector('.own-file-dialog')?.classList.contains('paste-dialog')).toBe(true)
+  // The title is the dialog's heading; nothing else of the old window is left.
+  expect(dialog().querySelector('#own-file-title .paste-title__text')).not.toBeNull()
+  for (const gone of ['.own-paste-details', '.own-paste-preview', '.own-paste-trim-start', '.own-paste-rich-note', 'textarea']) expect(dialog().querySelector(gone)).toBeNull()
+  expect(dialog().querySelector('.own-paste-file')?.textContent).toBe('Choose a file instead')
+  expect((dialog().querySelector('.own-paste-save') as HTMLButtonElement).disabled).toBe(true)
+  type('<p>Actual</p>')
+  rename('A private text')
+  expect(dialog().querySelector('.paste-meta')?.textContent).toBe('1 word')
+  expect(dialog().querySelector('.own-paste-save')?.textContent).toBe('Add')
+  addText()
   await vi.waitFor(() => expect(go).toHaveBeenCalledWith('/reader?userBook=' + 'a'.repeat(24) + '&sharedReader=1'))
   expect(upload).toHaveBeenCalledTimes(1)
   expect(upload.mock.calls[0][1]).toMatchObject({kind:'epub',title:'A private text'})
+  // Pasted text asks no rights confirmation (approved 5 Nov 2026) and records none.
+  expect(confirm).not.toHaveBeenCalled()
+  expect(dialog().querySelector('.own-file-rights-box')).toBeNull()
+  // "Added to your shelf" waits for the reader.
+  expect(JSON.parse(sessionStorage.getItem('tinct:added-to-shelf') || 'null')).toMatchObject({hex: 'a'.repeat(24)})
   vi.unstubAllGlobals()
  })
- it('opens a text file in the visible editable preview before account upload', async () => {
+ it('opens a text file in the editable box before account upload', async () => {
   const {upload,go}=open('?sharedReader=1')
   const file=new File(['First paragraph.\n\nSecond paragraph.'],'Full text.txt',{type:'text/plain'})
   Object.defineProperty(file,'text',{value:async()=> 'First paragraph.\n\nSecond paragraph.'})
   const input=dialog().querySelector('input[type=file]') as HTMLInputElement
   Object.defineProperty(input,'files',{value:[file]});input.dispatchEvent(new Event('change'))
-  await vi.waitFor(()=>expect(dialog().querySelector('.own-paste-preview')?.textContent).toContain('Second paragraph.'))
-  expect(dialog().querySelector('.own-paste-preview')?.closest('details')).toBeNull()
-  expect(dialog().querySelector<HTMLInputElement>('.own-paste-title')?.value).toBe('Full text')
+  await vi.waitFor(()=>expect(box()?.textContent).toContain('Second paragraph.'))
+  expect(heading().textContent).toBe('Full text')
+  expect(dialog().querySelector('.paste-meta')?.textContent).toBe('4 words')
   expect(upload).not.toHaveBeenCalled();expect(go).not.toHaveBeenCalled()
   vi.unstubAllGlobals()
  })
  it('stays editable and never navigates after account refusal', async () => {
   const upload = vi.fn(async () => { throw new Error('Account is full') }); const {go} = open('?sharedReader=1', upload)
   ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
-  ;(dialog().querySelector('.own-paste-source') as HTMLTextAreaElement).value = 'Actual text'
-  ;(dialog().querySelector('.own-paste-title') as HTMLInputElement).value = 'My draft'
-  ;(dialog().querySelector('.own-paste-save') as HTMLButtonElement).click()
+  type('<p>Actual text</p>'); rename('My draft')
+  addText()
   await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toBe('Account is full'))
-  expect(dialog().querySelector<HTMLTextAreaElement>('.own-paste-source')?.value).toBe('Actual text')
+  expect(box().textContent).toBe('Actual text')
+  expect(heading().textContent).toBe('My draft')
   expect(go).not.toHaveBeenCalled()
   vi.unstubAllGlobals()
  })
@@ -212,28 +257,33 @@ describe('private Paste entry', () => {
   const upload=vi.fn(() => new Promise<{id:string;sha256:string}>(resolve => { finish=resolve }))
   const {go}=open('?sharedReader=1',upload)
   ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
-  ;(dialog().querySelector('.own-paste-source') as HTMLTextAreaElement).value='A whole paragraph.'
+  type('<p>A whole paragraph.</p>')
   const save=dialog().querySelector('.own-paste-save') as HTMLButtonElement
   save.click();save.click()
   await vi.waitFor(() => expect(upload).toHaveBeenCalledTimes(1))
-  expect(save.disabled).toBe(true)
   finish({id:'book-id',sha256:'a'.repeat(64)})
   await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
   vi.unstubAllGlobals()
  })
- it('shows the sanitized rich clipboard preview when its textarea displays plain words', () => {
+ it('shows the cleaned rich clipboard text in the box, its heading as the title and its byline under it', () => {
   open('?sharedReader=1')
   ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
-  const source=dialog().querySelector('.own-paste-source') as HTMLTextAreaElement
-  const event=new Event('paste',{cancelable:true}) as Event & { clipboardData?: {getData(type:string):string} }
-  Object.defineProperty(event,'clipboardData',{value:{getData:(type:string)=>type==='text/html'?'<h1>My title</h1><p><em>Words</em><img src="https://example.org/spy.jpg" alt="Map"></p>':'My title\nWords'}})
-  source.dispatchEvent(event)
+  const article = 'Starting on September 28, Peter Thiel gave a series of four off-the-record lectures about the Antichrist, held in Nashville on four consecutive Mondays. '.repeat(3)
+  const page = '<p>Home</p><p>Archive</p><p>About</p><p>Subscribe</p><h1>Inside the Lectures</h1><p>G. B. Rango</p><p>Oct 25, 2026</p>'
+   + `<p><em>${article}</em><img src="https://example.org/spy.jpg" alt="Map"></p><p>202</p><p>Likes</p><p>31</p><p>Comments</p><p>${article}</p>`
+  const event = pasteInto(box(), page, 'plain words')
   expect(event.defaultPrevented).toBe(true)
-  expect(source.value).toBe('My title\nWords')
-  expect(dialog().querySelector<HTMLDetailsElement>('.own-paste-details')?.open).toBe(true)
-  expect(dialog().querySelector('.own-paste-rich-note')?.hasAttribute('hidden')).toBe(false)
-  expect(dialog().querySelector('.own-paste-preview')?.textContent).toContain('[Image: Map]')
-  expect(dialog().querySelector('.own-paste-preview img')).toBeNull()
+  expect(heading().textContent).toBe('Inside the Lectures')
+  const shown = box().textContent || ''
+  for (const chrome of ['Archive', 'Subscribe', 'Likes', 'Comments', 'Inside the Lectures']) expect(shown).not.toContain(chrome)
+  expect(shown.startsWith('G. B. Rango')).toBe(true)
+  expect(shown).toContain('[Image: Map]')
+  expect(box().querySelector('img')).toBeNull()
+  expect(box().querySelector('em')).not.toBeNull()
+  expect(dialog().querySelector('.paste-meta')?.textContent).toMatch(/^G\. B\. Rango · \d[\d,]* words$/)
+  // A second paste goes in cleaned, without taking the title again.
+  pasteInto(box(), '', 'More words.')
+  expect(heading().textContent).toBe('Inside the Lectures')
   vi.unstubAllGlobals()
  })
  it('validates the EPUB before uploading and retries the same saved file after a late local failure', async () => {
@@ -241,15 +291,23 @@ describe('private Paste entry', () => {
   let calls = 0
   engine.prepareEpub = async () => { if (++calls === 2) throw new Error('Temporary local failure'); return {} }
   ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
-  ;(dialog().querySelector('.own-paste-source') as HTMLTextAreaElement).value = 'Actual text'
-  ;(dialog().querySelector('.own-paste-title') as HTMLInputElement).value = 'My draft'
-  ;(dialog().querySelector('.own-paste-save') as HTMLButtonElement).click()
+  type('<p>Actual text</p>'); rename('My draft')
+  addText()
   await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toBe('Temporary local failure'))
   expect(upload).toHaveBeenCalledTimes(1)
   expect(go).not.toHaveBeenCalled()
-  ;(dialog().querySelector('.own-paste-save') as HTMLButtonElement).click()
+  addText()
   await vi.waitFor(() => expect(go).toHaveBeenCalledTimes(1))
   expect(upload).toHaveBeenCalledTimes(1)
+  vi.unstubAllGlobals()
+ })
+ it('refuses a text over the limit in the window, before anything is uploaded', async () => {
+  const {upload} = open('?sharedReader=1')
+  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  type('<p>' + 'word '.repeat(50000) + '</p>')
+  addText()
+  await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toMatch(/^This text is too long to paste: 50,000 words/))
+  expect(upload).not.toHaveBeenCalled()
   vi.unstubAllGlobals()
  })
  it('edits only display title and author with the fetched revision and generation, then refreshes the shelf', async () => {

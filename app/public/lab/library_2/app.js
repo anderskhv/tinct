@@ -17,7 +17,8 @@ import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry,OWN_BOOKS_PAGE} from './add-to-tinct.js?v=20261014talkwake';
-import {takeHandoff} from '../addbook/js/file-handoff.js?v=20261105ttl30';
+import {takeHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
+import {openOwnStart} from './own-start.js?v=20261105flow';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
@@ -170,13 +171,20 @@ function ownBooksBand(){
  band.append(glyph,text,add);return band;
 }
 /**
- * /library?own=file|paste (from /byob): the "Your own book" pop-up, at Paste text for paste. A file
- * /byob kept for the library (file-handoff.js) is added at once, as if chosen in the pop-up.
+ * /library?own=file|paste (from /byob, or the Preparing page's way back): the "Your own book" pop-up,
+ * at Paste text for paste, holding the text /byob kept (file-handoff.js) if there is one. A file
+ * /byob kept for the library is added at once, as if chosen in the pop-up.
  */
+// The hero's "Add your own book or text" (signed out): the add sheet here, not /byob (Anders, 5 Nov 2026). href="/byob" is the no-script fallback.
+$('hero-own')?.addEventListener('click',event=>{
+ if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+ if(document.documentElement.classList.contains('signed-in'))return;
+ event.preventDefault();openOwnStart({from:event.currentTarget});
+});
 function openOwnEntryFromParam(){
  const params=new URLSearchParams(location.search),own=params.get('own');if(own!=='file'&&own!=='paste')return;
  params.delete('own');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}
- void (async()=>{const file=own==='file'?await takeHandoff():null;const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(file)layer.addFile?.(file);else if(own==='paste')layer.showPaste?.();})();
+ void (async()=>{const file=own==='file'?await takeHandoff():null;const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(file)layer.addFile?.(file);else if(own==='paste')layer.showPaste?.(await peekPasteHandoff());})();
 }
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
 $('shelves').append(ownBooksBand());

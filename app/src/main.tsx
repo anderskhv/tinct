@@ -5,6 +5,8 @@ import { READER_HANDOFF_KEY, preparePublicBooksForReader } from './utils/publicB
 import { nativeEntryDestination } from './utils/nativeEntry'
 import { registerReaderOffline } from './utils/registerReaderOffline'
 import { readEinkProfile } from '../public/lab/display-profile.js'
+// "Added to your shelf", once, when a just-added own book opens here (approved paste flow, 5 Nov 2026).
+import '../public/lab/added-toast.js'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { LabApp } from './lab/LabApp'

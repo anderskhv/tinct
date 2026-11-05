@@ -1,14 +1,17 @@
-// Sign-in names why you are here (approved S1/S3 mockups, 5 Nov 2026). Arriving from /byob
-// with a chosen file (returnTo …own=file): "Sign in to add your book" and the file itself,
-// read from this browser's handoff without taking it, so the library still opens it after
-// sign-in. Pasted text: "Sign in to add your text". Anything else keeps "Sign in to Tinct".
-import { peekHandoff } from '/lab/addbook/js/file-handoff.js';
+// Sign-in names why you are here (approved S1/S3 mockups and the paste flow's 03, 5 Nov 2026). Arriving
+// from /byob (returnTo …own=file|paste, the Preparing page or the library): with a chosen file, "Sign in to
+// add your book" and the file itself; with pasted text, "Sign in to add your text" and the text by its
+// title. Both are read from this browser's handoff without taking them, so the Preparing page still adds
+// them after sign-in. A file also carries the rights line ("By continuing you confirm you may read this
+// file."). Anything else keeps "Sign in to Tinct".
+import { peekHandoff, peekPasteHandoff } from '/lab/addbook/js/file-handoff.js';
 import { paperCoverUrl } from '/lab/book-cover.js';
 
 const root = document.getElementById('tinct-lab-sign-in');
 const title = root?.querySelector('[data-signin-title]');
 const copy = root?.querySelector('[data-signin-copy]');
 const chip = root?.querySelector('[data-signin-file]');
+const rights = root?.querySelector('[data-signin-rights]');
 
 function ownFromReturnTo() {
   try {
@@ -22,26 +25,33 @@ function titleFromName(name) {
     .replace(/^./, c => c.toUpperCase()) || 'Your book';
 }
 
+function showChip(name, coverUrl) {
+  if (!chip) return;
+  chip.querySelector('b').textContent = name;
+  const img = chip.querySelector('img');
+  if (coverUrl) img.src = coverUrl; else img.remove();
+  copy.hidden = true;
+  chip.hidden = false;
+}
+
 async function apply() {
   if (!root || !title || !copy) return;
   const own = ownFromReturnTo();
   if (own === 'paste') {
     title.textContent = 'Sign in to add your text';
     copy.textContent = 'Your text opens in Tinct as soon as you are in.';
+    const draft = await peekPasteHandoff();
+    if (draft) showChip(draft.title || 'Pasted text', paperCoverUrl(draft.title || 'Pasted text', draft.author || '', ''));
     return;
   }
   if (own !== 'file') return;
   title.textContent = 'Sign in to add your book';
   copy.textContent = 'Your book opens as soon as you are in.';
+  if (rights) rights.hidden = false;
   const file = await peekHandoff();
-  if (!file || !chip) return;
+  if (!file) return;
   const ext = (String(file.name).match(/\.([a-z0-9]{1,5})$/i)?.[1] || '').toUpperCase();
-  chip.querySelector('b').textContent = file.name || 'Your file';
-  const img = chip.querySelector('img');
-  const url = paperCoverUrl(titleFromName(file.name), '', ext);
-  if (url) img.src = url; else img.remove();
-  copy.hidden = true;
-  chip.hidden = false;
+  showChip(file.name || 'Your file', paperCoverUrl(titleFromName(file.name), '', ext));
 }
 
 void apply();
