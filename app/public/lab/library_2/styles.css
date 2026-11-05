@@ -536,3 +536,10 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 .own-books-add{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(238,231,208,.35);font:500 14px/1 system-ui,-apple-system,sans-serif;color:var(--cream)}
 .own-books-add:hover{background:rgba(238,231,208,.08)}
 @media(max-width:699px){.own-books-band{margin:0 20px 26px;flex-wrap:wrap;gap:12px 14px;padding:16px}.own-books-add{width:100%}}
+
+/* Signed-out first visit (Anders chose mockup B, 5 Nov 2026): next to Read, a way in for your own book or text. It leads to /byob (choose, drop or paste, then sign in). boot.js marks html.signed-in from the tinct_auth cookie before first paint, so a signed-in reader never sees it. */
+.hero-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}
+.hero-own{display:inline-flex;align-items:center;padding:0 22px;border-radius:999px;border:1px solid rgba(238,231,208,.4);background:rgba(11,14,11,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--cream);font:500 17px/1 system-ui,-apple-system,sans-serif;text-decoration:none;white-space:nowrap}
+.hero-own:hover{background:rgba(238,231,208,.08)}
+html.signed-in .hero-own{display:none}
+@media(max-width:699px){.hero-actions{gap:10px}.hero-own{font-size:14px;padding:0 17px}}

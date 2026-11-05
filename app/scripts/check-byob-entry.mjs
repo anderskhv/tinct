@@ -9,6 +9,8 @@
 // 2b. Sign-in names why you came (approved S1/S3): a chosen file shows "Sign in to add your book"
 //    and the file's name (the handoff is only peeked, so the library still gets it), Paste text
 //    shows "Sign in to add your text", and anything else "Sign in to Tinct".
+// 2c. Signed out, the library hero offers "Add your own book or text" beside Read, leading to /byob;
+//    signed in, it is not shown.
 // 3. The library shows the band right under Featured; signed out it leads to /byob, signed in it
 //    opens the "Your own book" pop-up.
 //
@@ -196,6 +198,31 @@ async function main() {
         await c.close()
       })
     }
+    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
+      await run(`library hero, signed out, ${name}: "Add your own book or text" beside Read leads to /byob`, async () => {
+        const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
+        await page.goto('/library')
+        await libraryReady(page)
+        const own = page.locator('#hero-own')
+        assert(await own.isVisible(), 'the button shows to a signed-out visitor')
+        assert.equal(await own.innerText(), 'Add your own book or text')
+        const [r, o] = await Promise.all([page.locator('#read-featured').boundingBox(), own.boundingBox()])
+        assert(Math.abs(r.height - o.height) < 2, `Read and the new button share a height (${r.height} / ${o.height})`)
+        assert(o.x + o.width <= viewport.width - 8, 'the button sits inside the screen')
+        assert(await noSideScroll(page), 'no sideways scroll')
+        await shot(page, `library-hero-own-${name}`)
+        await own.click()
+        await page.waitForURL(url => url.pathname === '/byob')
+        await c.close()
+      })
+    }
+    await run('library hero, signed in: no "Add your own book or text"', async () => {
+      const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
+      await page.goto('/library')
+      await libraryReady(page)
+      assert.equal(await page.locator('#hero-own').isVisible(), false)
+      await c.close()
+    })
     await run('library band, signed in: Add a book opens the pop-up', async () => {
       const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
       await page.goto('/library')

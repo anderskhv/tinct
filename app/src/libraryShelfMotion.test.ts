@@ -157,12 +157,12 @@ describe('every removal path uses the motion', () => {
     // again (20261021stack4). The room drawn once with only its moving parts repainted each frame
     // (20261021still) changed scene-life.js and app.js (20261021stack5). An account known to have an empty
     // desk opening on Frankenstein, and an early tap on Read kept (20261102empty), changed boot.js,
-    // bookshelf.js and app.js.
+    // bookshelf.js and app.js. The signed-out "Add your own book or text" beside Read (20261105own) changed styles.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
     expect(lib('index.html')).toContain('app.js?v=20261102empty')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
-    expect(lib('index.html')).toContain('styles.css?v=20261021stack1')
+    expect(lib('index.html')).toContain('styles.css?v=20261105own')
     expect(lib('index.html')).toContain('boot.js?v=20261102empty')
     expect(lib('app.js')).toContain('bookshelf.js?v=20261102empty')
     expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
