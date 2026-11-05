@@ -42,7 +42,7 @@ Each occurrence was checked in context against the Russian. The counts are the r
 
 ## Totals
 
-- **English:** 85 review entries and 20 book-wide changes. 98 paragraphs changed, in chapters 1–8, 10–19, 21–30, 32 and 33 (not 9, 20 or 31).
+- **English:** 85 review entries and 20 book-wide changes. 99 paragraphs changed, in chapters 1–8, 10–19, 21–30, 32 and 33 (not 9, 20 or 31).
 - **Danish:** 159 review entries and 33 book-wide changes. 174 paragraphs changed, in all 33 chapters.
 
 ## Validation
