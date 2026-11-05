@@ -373,7 +373,8 @@ describe('completed authentication', () => {
     expect(auth.signInWithOtp).toHaveBeenCalledExactlyOnceWith({ email: 'new@example.com', options: { shouldCreateUser: true } })
     expect(mode()).toBe('code')
     const input = document.querySelector<HTMLInputElement>('[data-code-input]')!
-    expect([input.autocomplete, input.inputMode, input.maxLength]).toEqual(['one-time-code', 'numeric', 6])
+    // No maxlength (5 Nov 2026): it cut a pasted "123 456" or "Your code is 123456" before the digits were read.
+    expect([input.autocomplete, input.inputMode, input.maxLength]).toEqual(['one-time-code', 'numeric', -1])
     expect(document.querySelector('[data-code-email]')!.textContent).toBe('new@example.com')
     expect(document.querySelector<HTMLElement>('[data-auth-legal]')!.hidden).toBe(false)
     auth.verifyOtp.mockResolvedValueOnce({ data: { session: { access_token: 't', user: { id: 'new-reader', created_at: '2026-11-02T10:00:00Z', last_sign_in_at: '2026-11-02T10:04:00Z' } } }, error: null })
@@ -383,6 +384,19 @@ describe('completed authentication', () => {
     expect(auth.verifyOtp).toHaveBeenCalledExactlyOnceWith({ email: 'new@example.com', token: '123456', type: 'email' })
     // Four minutes between sending and typing is still a new account: the welcome, not a silent return.
     expect(mode()).toBe('welcome')
+  })
+
+  it('a pasted code signs in, whatever surrounds it (5 Nov 2026: a reader could not paste theirs)', async () => {
+    await signedOut()
+    await submitEmail('back@example.com')
+    auth.verifyOtp.mockResolvedValue({ data: { session: { access_token: 't', user: { id: 'old-reader', created_at: '2026-01-01T00:00:00Z', last_sign_in_at: '2026-11-02T10:00:00Z' } } }, error: null })
+    const input = document.querySelector<HTMLInputElement>('[data-code-input]')!
+    const paste = new Event('paste', { bubbles: true, cancelable: true }) as Event & { clipboardData: { getData: () => string } }
+    paste.clipboardData = { getData: () => 'Your Tinct code is 482 913\n' }
+    input.dispatchEvent(paste)
+    await flush()
+    expect(paste.defaultPrevented).toBe(true)
+    expect(auth.verifyOtp).toHaveBeenCalledExactlyOnceWith({ email: 'back@example.com', token: '482913', type: 'email' })
   })
 
   it('an existing reader signing in by code goes straight back to their place', async () => {

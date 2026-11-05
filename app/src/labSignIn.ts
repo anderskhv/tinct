@@ -24,7 +24,7 @@ import { setSignedInCookie } from './utils/authCookie'
 import { cardUrl } from './cards/cardRoutes'
 import { enhanceSignInPage, startProfileSteps, updateStepCounter } from './social/signUpSteps'
 import { fetchOwnProfile } from './social/socialClient'
-import { EMAIL_CODE_LENGTH, EMAIL_CODE_RESEND_SECONDS, emailCodeErrorMessage, isGmailAddress, looksLikeEmail } from './lab/labEmailCode'
+import { EMAIL_CODE_LENGTH, EMAIL_CODE_RESEND_SECONDS, codeFromText, emailCodeErrorMessage, isGmailAddress, looksLikeEmail } from './lab/labEmailCode'
 
 /** signin: Google or an email code. code: the code for signing in. confirm: the one-time code that confirms an
  * older password account's address. password: password accounts (kept for now). reset: an old recovery link. */
@@ -292,12 +292,29 @@ async function verifyCode() {
   }
 }
 
-codeInput?.addEventListener('input', () => {
-  const digits = codeInput.value.replace(/\D/g, '').slice(0, EMAIL_CODE_LENGTH)
+function takeCode(text: string) {
+  if (!codeInput || codeInput.readOnly) return
+  const digits = codeFromText(text)
   if (codeInput.value !== digits) codeInput.value = digits
   paintCode()
   if (digits.length === EMAIL_CODE_LENGTH) void verifyCode()
+}
+codeInput?.addEventListener('input', () => takeCode(codeInput.value))
+// A pasted code arrives whole, spaces, words and line breaks included: read it before the field trims it.
+codeInput?.addEventListener('paste', event => {
+  const text = event.clipboardData?.getData('text')
+  if (!text) return
+  event.preventDefault()
+  takeCode(text)
 })
+// "Paste code": a visible way in for phones whose press-and-hold menu does not appear on the boxes.
+const codePaste = root?.querySelector<HTMLButtonElement>('[data-code-paste]')
+if (codePaste && typeof navigator.clipboard?.readText === 'function') {
+  codePaste.hidden = false
+  codePaste.addEventListener('click', () => {
+    navigator.clipboard.readText().then(takeCode, () => codeInput?.focus())
+  })
+}
 codeInput?.addEventListener('focus', () => paintCode())
 codeInput?.addEventListener('blur', () => paintCode())
 

@@ -20,7 +20,9 @@
 .auth-inline{padding:0;border:0;background:none;color:#1f4a5c;font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}.auth-inline:disabled{color:#8a8274;text-decoration:none;cursor:default}
 .auth-code b{color:#1d1a16;font-weight:600;overflow-wrap:anywhere}
 .auth-code-boxes{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0 6px}
-.auth-code-boxes input{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;font-size:16px;letter-spacing:2em;caret-color:transparent;color:transparent;background:transparent;z-index:1}
+/* Not opacity:0 (5 Nov 2026): iOS skips the press-and-hold Paste menu on an invisible field. The text is transparent instead. */
+.auth-code-boxes input{position:absolute;inset:0;width:100%;height:100%;opacity:1;border:0;outline:0;font-size:16px;letter-spacing:2em;caret-color:transparent;color:transparent;-webkit-text-fill-color:transparent;background:transparent;z-index:1}.auth-code-boxes input::selection{background:transparent}
+.auth-note:has(>[data-code-paste][hidden]){display:none}
 .auth-code-box{display:grid;place-items:center;height:58px;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px rgba(29,26,22,.14);color:#1d1a16;font:600 26px/1 var(--sans)}
 .auth-code-box.is-next{box-shadow:inset 0 0 0 2px #1d1a16}.auth-code-boxes[data-error=true] .auth-code-box{box-shadow:inset 0 0 0 1.5px #a04a3a}
 .auth-open-mail{display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:14px;border-radius:14px;color:#1d1a16;text-decoration:none;font-weight:600}.auth-open-mail[hidden]{display:none}
@@ -87,8 +89,9 @@ html[data-eink="true"] .auth-file{background:#fff;border-color:#777}html[data-ei
         <div class="auth-code" data-code hidden>
           <h1 data-code-title>Check your email</h1>
           <p class="auth-copy"><span data-code-lead>We sent a 6-digit code to</span> <b data-code-email></b> · <button class="auth-inline" type="button" data-code-change>Change</button></p>
-          <label class="auth-code-boxes"><span class="auth-visually-hidden">6-digit code</span><input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6" data-code-input><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span></label>
+          <label class="auth-code-boxes"><span class="auth-visually-hidden">6-digit code</span><input name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" data-code-input><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span><span class="auth-code-box" aria-hidden="true"></span></label>
           <p class="auth-note" data-code-hint>It signs you in as soon as the last digit is in.</p>
+          <p class="auth-note"><button class="auth-inline" type="button" data-code-paste hidden>Paste code</button></p>
           <a class="auth-secondary auth-open-mail" data-open-gmail href="https://mail.google.com/mail/u/0/#search/from%3Atinct.app" target="_blank" rel="noopener" hidden>Open Gmail</a>
           <p class="auth-note auth-resend">No email? <button class="auth-inline" type="button" data-code-resend disabled>Send a new code</button><span data-code-wait></span></p>
         </div>

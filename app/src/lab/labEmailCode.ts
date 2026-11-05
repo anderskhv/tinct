@@ -9,6 +9,16 @@ export const EMAIL_CODE_LENGTH = 6
 /** How long "Send a new code" waits after a code was sent. */
 export const EMAIL_CODE_RESEND_SECONDS = 30
 
+/**
+ * The code in whatever was typed or pasted (5 Nov 2026: a reader could not paste theirs). A run of exactly six digits
+ * wins ("Your code is 123456"); otherwise the digits in order, so "123 456" and "12-34-56" work. At most six.
+ */
+export function codeFromText(text: string): string {
+  const whole = /(?:^|\D)(\d{6})(?!\d)/.exec(text)
+  if (whole) return whole[1]
+  return text.replace(/\D/g, '').slice(0, EMAIL_CODE_LENGTH)
+}
+
 export function looksLikeEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim())
 }
