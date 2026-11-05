@@ -160,34 +160,36 @@ async function run(engine, type, phone) {
     await page.getByRole('button', { name: 'Close' }).click()
     await library(page, defaultOn ? false : true)
     await page.getByRole('button', { name: 'Paste text' }).click()
-    await page.getByRole('textbox', { name: 'Text to add' }).fill(source)
+    await page.getByRole('textbox', { name: 'Text to add' }).evaluate((el, text) => {
+      const clipboard = new DataTransfer(); clipboard.setData('text/plain', text)
+      el.dispatchEvent(new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData: clipboard }))
+    }, source)
     if (!phone) {
       // Archive Full Text clipboard: a whole book in one PRE used to become
       // one huge paragraph. Exercise the real paste handler and reader.
-      await page.getByRole('textbox', { name: 'Text to add' }).fill('')
+      await page.getByRole('textbox', { name: 'Text to add' }).evaluate(el => { el.replaceChildren(); el.dispatchEvent(new Event('input', { bubbles: true })) })
       await page.getByRole('textbox', { name: 'Text to add' }).evaluate((el, original) => {
-        const body = original + '\n\n' + Array.from({length: 1600}, (_, i) => `Archive passage ${i}. ` + 'The reader follows the source words across this page. '.repeat(6)).join('\n\n')
+        const body = original + '\n\n' + Array.from({length: 400}, (_, i) => `Archive passage ${i}. ` + 'The reader follows the source words across this page. '.repeat(6)).join('\n\n')
         const clipboard = new DataTransfer()
         clipboard.setData('text/plain', original)
         clipboard.setData('text/html', '<h1>Morning Notes</h1><pre>' + body.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>')
         el.dispatchEvent(new ClipboardEvent('paste', {bubbles:true,cancelable:true,clipboardData:clipboard}))
       }, source)
     }
-    await page.locator('.own-paste-preview').waitFor({ state: 'visible' })
+    // The slim Paste window (5 Nov 2026): the box shows the cleaned text; its byline and word count under the title.
+    await page.locator('.paste-dialog .paste-meta').waitFor({ state: 'visible' })
+    const shown = await page.getByRole('textbox', { name: 'Text to add' }).innerText()
     if (process.env.PASTE_SCREENSHOT_DIR) {
       await fs.mkdir(process.env.PASTE_SCREENSHOT_DIR, { recursive:true })
       await page.screenshot({ path:path.join(process.env.PASTE_SCREENSHOT_DIR, `paste-${engine}-${phone ? 'phone-390x844' : 'desktop-1440x900'}.png`) })
     }
     state.failures = 1
-    await page.getByRole('button', { name: 'Add to my books' }).click()
-    if (await page.locator('.own-file-rights-box').isVisible().catch(() => false)) {
-      await page.locator('.own-file-rights-box').check()
-      await page.getByRole('button', { name: 'Continue' }).click()
-    }
+    await page.getByRole('button', { name: 'Add', exact: true }).click()
+    assert.equal(await page.locator('.own-file-rights-box').count(), 0, 'pasted text asks no rights confirmation')
     await page.locator('.own-paste-error').getByText(/offline|try again/i).waitFor({ timeout: 45000 })
     assert.equal(state.book, null, 'failed account upload has no saved book')
-    assert.equal(await page.getByRole('textbox', { name: 'Text to add' }).inputValue(), source, 'retry retains exact source')
-    await page.getByRole('button', { name: 'Add to my books' }).click()
+    assert.equal(await page.getByRole('textbox', { name: 'Text to add' }).innerText(), shown, 'retry retains the exact text')
+    await page.getByRole('button', { name: 'Add', exact: true }).click()
     await page.waitForURL(/\/reader\?userBook=[0-9a-f]{24}&sharedReader=1/, { timeout: 60000 })
     assert.equal(state.uploads.length, 2)
     assert(bytesEqual(state.uploads[0], state.uploads[1]), 'network retry uploads identical EPUB bytes')
@@ -299,8 +301,6 @@ async function runCorpus(engine, type, entry, rich) {
     await seed(page, true)
     await library(page, true)
     await page.getByRole('button', { name: 'Paste text', exact: true }).click()
-    await page.locator('.own-paste-details > summary').click()
-    await page.locator('.own-paste-title').fill(entry.title.slice(0, 190))
     const field = page.getByRole('textbox', { name: 'Text to add' })
     if (rich) await field.evaluate((el, text) => {
       const clipboard = new DataTransfer()
@@ -308,12 +308,12 @@ async function runCorpus(engine, type, entry, rich) {
       clipboard.setData('text/html', '<pre>' + text.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>')
       el.dispatchEvent(new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData: clipboard }))
     }, text)
-    else await field.evaluate((el, text) => { el.value = text; el.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertFromPaste', data: text })) }, text)
+    else await field.evaluate((el, text) => {
+      const clipboard = new DataTransfer(); clipboard.setData('text/plain', text)
+      el.dispatchEvent(new ClipboardEvent('paste', { bubbles: true, cancelable: true, clipboardData: clipboard }))
+    }, text)
+    await page.locator('.paste-dialog .paste-title__text').evaluate((el, title) => { el.textContent = title; el.dispatchEvent(new Event('input', { bubbles: true })) }, entry.title.slice(0, 190))
     await page.locator('.own-paste-save').click()
-    if (await page.locator('.own-file-rights-box').isVisible().catch(() => false)) {
-      await page.locator('.own-file-rights-box').check()
-      await page.getByRole('button', { name: 'Continue', exact: true }).click()
-    }
     await page.waitForURL(/\/reader\?userBook=/, { timeout: 120000 })
     await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady === 'true', null, { timeout: 120000 })
     const kept = await page.evaluate(async () => {

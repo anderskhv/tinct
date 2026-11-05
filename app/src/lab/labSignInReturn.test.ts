@@ -21,6 +21,12 @@ describe('safeLabReturnTo', () => {
     expect(safe('/read/bible/40?voice=v2')).toBe('/read/bible/40?voice=v2')
   })
 
+  it('returns to the Preparing page, which adds a text or file kept on /byob (5 Nov 2026)', () => {
+    expect(safe('/preparing?own=paste')).toBe('/preparing?own=paste')
+    expect(safe('/preparing?own=file')).toBe('/preparing?own=file')
+    expect(safe('/preparingx')).toBe(LAB_DEFAULT_RETURN_TO)
+  })
+
   it('maps old /lab page URLs to the canonical page, never to an asset folder', () => {
     expect(safe('/lab/reader')).toBe('/reader')
     expect(safe('/lab/phone?voice=v2')).toBe('/reader?voice=v2&layout=phone')

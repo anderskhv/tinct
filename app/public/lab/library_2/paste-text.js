@@ -260,7 +260,57 @@ function zip(files) {
  return bytes;
 }
 
-export function pasteEpub({source, format = 'auto', title, author = '', start = 0, end = 0}) {
+/** The words of an HTML fragment, its blocks kept apart (a paragraph's last word never runs into the next). */
+export function htmlText(html) {
+ const template = document.createElement('template');
+ template.innerHTML = String(html).replace(/<\/(?:p|div|h[1-6]|li|blockquote|pre|dt|dd|figcaption|td|th|caption)>|<br\s*\/?>/gi, '$& ');
+ return (template.content.textContent || '').replace(/\s+/g, ' ').trim();
+}
+export const wordCount = html => (htmlText(html).match(/\S+/g) || []).length;
+
+// A byline: two to four capitalised names or initials ("G. B. Rango", "By Mary Shelley"), nothing else on the line.
+const BYLINE = /^(?:[Bb]y\s+)?((?:\p{Lu}[\p{L}'’-]*\.?|\p{Lu}\.)(?:\s+(?:(?:van|von|de|da|del|der|le|la|du)\s+)?(?:\p{Lu}[\p{L}'’-]*\.?|\p{Lu}\.)){1,3})$/u;
+/**
+ * A paste as the reader will see it in the text box and in the book (approved paste flow, 5 Nov 2026):
+ * the cleaned HTML (preview: sanitised, the site's menus, counters and paywall lines left out), its
+ * title (an opening heading or short first line, taken out of the text because it becomes the
+ * heading), and a byline when one opens the text (it stays in the text). Rich clipboard HTML is
+ * preferred; plain text is read as plain, Markdown or HTML as before.
+ */
+export function cleanPaste({html = '', plain = ''} = {}) {
+ const rich = !!String(html).trim();
+ const cleaned = rich ? preview(html, 'html') : preview(plain, 'auto');
+ const template = document.createElement('template');
+ template.innerHTML = cleaned;
+ const blocks = () => [...template.content.querySelectorAll('p,div,h1,h2,h3,h4,h5,h6,blockquote,pre,li')].filter(el => !el.querySelector('p,div,h1,h2,h3,h4,h5,h6,blockquote,pre,li') && folded(el.textContent));
+ let title = '';
+ const first = blocks()[0];
+ const short = text => text.length <= 140 && wordsOf(text) <= 18 && !/[.,;:]$/.test(text);
+ const lines = el => el.innerHTML.split(/<br\s*\/?>/i);
+ const lineText = part => { const t = document.createElement('template'); t.innerHTML = part; return folded(t.content.textContent); };
+ if (first && /^h[1-3]$/.test(first.localName) && blocks().length > 1) {
+  title = folded(first.textContent).slice(0, 200);
+  let parent = first.parentElement; first.remove();
+  while (parent && !folded(parent.textContent)) { const up = parent.parentElement; parent.remove(); parent = up; }
+ } else if (first && !rich && first.localName === 'p') {
+  // Plain text: a short opening line is its title ("Title\nBy line\n\nText…" or a line of its own).
+  const parts = lines(first), head = lineText(parts[0]);
+  if (head && short(head) && (parts.length > 1 || blocks().length > 1)) {
+   title = head.slice(0, 200);
+   if (parts.length > 1) first.innerHTML = parts.slice(1).join('<br/>').replace(/^\s+/, ''); else first.remove();
+  }
+ }
+ if (!title) title = (rich ? suggestedTitle(html, 'html') : suggestedTitle(plain)) || '';
+ let author = '';
+ for (const el of blocks().slice(0, 2)) {
+  if (/^h[1-6]$/.test(el.localName)) continue;
+  const found = BYLINE.exec(lineText(lines(el)[0]));
+  if (found && found[1].length <= 48) { author = found[1]; break; }
+ }
+ return {html: template.innerHTML.trim(), title, author};
+}
+
+export function pasteEpub({source, format = 'auto', title, author = '', start = 0, end = 0, uid = ''}) {
  title = String(title || suggestedTitle(source,format) || 'Pasted text').trim(); author = String(author || '').trim();
  if (!title) throw new Error('Give this text a title.');
  // XML 1.0 cannot carry these characters verbatim. Refuse instead of silently
@@ -269,7 +319,7 @@ export function pasteEpub({source, format = 'auto', title, author = '', start = 
  const body = preview(source, format, start, end);
  const x = value => escape(value);
  const chapter = `<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>${x(title)}</title></head><body><h1>${x(title)}</h1>${body}</body></html>`;
- const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">urn:uuid:${crypto.randomUUID()}</dc:identifier><dc:title>${x(title)}</dc:title><dc:creator>${x(author)}</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="chapter"/></spine></package>`;
+ const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">urn:uuid:${/^[0-9a-f-]{36}$/i.test(uid) ? uid : crypto.randomUUID()}</dc:identifier><dc:title>${x(title)}</dc:title><dc:creator>${x(author)}</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="chapter"/></spine></package>`;
  const bytes = zip([['mimetype', 'application/epub+zip'], ['META-INF/container.xml', '<?xml version="1.0"?><container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'], ['OEBPS/content.opf', opf], ['OEBPS/chapter.xhtml', chapter]]);
  const filename = (title.replace(/[\\/:*?"<>|\x00-\x1f]/g, '').slice(0, 100).trim() || 'Pasted text') + '.epub';
  return new File([bytes], filename, {type: 'application/epub+zip'});
