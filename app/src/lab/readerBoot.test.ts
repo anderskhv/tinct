@@ -190,6 +190,10 @@ describe('readerBootDeepLink', () => {
     expect(readerBootDeepLink('?book=odyssey&chapter=0', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&chapter=x', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&edition=modern-da&chapter=1', exceptions)).toBeNull()
+    // No English original: a plain link preloads Modern English, a named edition is left to the app.
+    expect(exceptions['master-and-margarita']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=master-and-margarita&chapter=2', exceptions)).toEqual({ bookId: 'master-and-margarita', primaryEditionKey: 'modern-en', chapterNumber: 2 })
+    expect(readerBootDeepLink('?book=master-and-margarita&edition=original-en&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&chapter=1&modern=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?heldBook=gilgamesh&book=gilgamesh&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=pd-abc&chapter=1', exceptions)).toBeNull()
@@ -293,6 +297,8 @@ describe('readerBootMarginPreview (round 3)', () => {
     expect(at('?book=frankenstein')).toEqual([])
     expect(at('?book=frankenstein&margin=0', { sticky: '1' })).toEqual([])
     expect(at('?book=bible&margin=1', {}, readerBootPrimaryExceptions())).toEqual([])
+    // Listed only for its missing English original, a Modern English book still previews Modern English.
+    expect(at('?book=master-and-margarita&margin=1', {}, readerBootPrimaryExceptions())).toEqual(urls('modern-en', 'master-and-margarita'))
     expect(at('?margin=1')).toEqual([])
     // In doubt: another chosen main edition, a book whose default is not Modern English, a place without a usable edition, unreadable storage.
     expect(at('?book=frankenstein&margin=1', { prefs: JSON.stringify({ version: 2, shared: { primaryEdition: 'original-en' } }) })).toEqual([])

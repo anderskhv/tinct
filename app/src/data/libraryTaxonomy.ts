@@ -3007,6 +3007,30 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "EN",
       "DA"
     ]
+  },
+  {
+    "id": "master-and-margarita",
+    "title": "The Master and Margarita",
+    "author": "Mikhail Bulgakov",
+    "year": "1928–1940",
+    "ySort": 1940,
+    "form": "novel",
+    "era": "contemporary",
+    "hue": 265,
+    "blurb": "The devil comes to 1930s Moscow; a procurator cannot forget a prisoner.",
+    "themes": [
+      "devil",
+      "cowardice",
+      "love"
+    ],
+    "shelves": [
+      "russian-novels"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "RU"
+    ]
   }
 ]
 
@@ -3088,7 +3112,7 @@ export const LIBRARY_SHELVES: Record<string, LibraryShelf> = {
   },
   "russian-novels": {
     "title": "The Russians",
-    "sub": "Dostoevsky and Tolstoy",
+    "sub": "Dostoevsky, Tolstoy and Bulgakov",
     "hue": 355
   },
   "english-novels": {

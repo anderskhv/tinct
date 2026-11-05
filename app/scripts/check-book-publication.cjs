@@ -3,10 +3,14 @@ const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
-const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights']
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita']
 // Text-only editions published beside the English pair: To the Lighthouse in
 // Danish (OFFERED_DANISH_EDITIONS, 2026-10-10). No narration, no character cards.
-const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da']}[book]||[]
+const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da'],'master-and-margarita':['modern-da','original-ru']}[book]||[]
+// Narrated English editions. The Master and Margarita is translated by Tinct from the
+// Russian: no English original, and Compare defaults to the Russian (Anders, 2026-11-05).
+const NARRATED_EDITIONS={'master-and-margarita':['modern-en']}[book]||['modern-en','original-en']
+const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru'}[book]||'original-en'):'modern-en'
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))
@@ -35,18 +39,18 @@ async function boot(browser,phone,ed,fixture={}){
   }
   return route.continue()
  })
- await page.addInitScript(({book,ed,fixture})=>{
+ await page.addInitScript(({book,ed,fixture,compare})=>{
   localStorage.setItem('tinct:wipe-v1-done','1')
-  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:ed==='modern-en'?'original-en':'modern-en',compareOpen:true,voicePersona:'female',voicePersonaChosen:true}))
+  localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:ed,compareEdition:compare,compareOpen:true,voicePersona:'female',voicePersonaChosen:true}))
   // Reads the main version first: a new book on a phone opens with Compare's view on (2026-10-14).
   localStorage.setItem('tinct:reader-compare-view',JSON.stringify({['phone:'+book]:false,['desktop:'+book]:false}))
   if(fixture.position){
    if(!localStorage.getItem('tinct-lab-position'))localStorage.setItem('tinct-lab-position',JSON.stringify(fixture.position))
    if(!localStorage.getItem('tinct-lab-highlights'))localStorage.setItem('tinct-lab-highlights',JSON.stringify(fixture.highlights))
-  }else sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:ed,compareEditionKey:ed==='modern-en'?'original-en':'modern-en',savedPlace:{bookId:book,chapterNumber:fixture.chapter||1,paragraphIndex:0,wordIndex:0,page:0}}))
+  }else sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:ed,compareEditionKey:compare,savedPlace:{bookId:book,chapterNumber:fixture.chapter||1,paragraphIndex:0,wordIndex:0,page:0}}))
   HTMLMediaElement.prototype.play=async function(){this.muted=true}
   if(navigator.mediaDevices)Object.defineProperty(navigator.mediaDevices,'getUserMedia',{configurable:true,value:async()=>{throw Error('Microphone disabled')}})
- },{book,ed,fixture})
+ },{book,ed,fixture,compare:compareFor(ed)})
  await page.goto(origin+(phone?'/reader?layout=phone':'/reader'),{waitUntil:'domcontentloaded'})
  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.readerReady==='true',null,{timeout:60000})
  await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(700)
@@ -67,12 +71,12 @@ async function toggleCompare(page,phone){
 }
 async function main(){
  if(live){
-  const files=[...['original-en','modern-en',...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/onboarding/'+book+'.json']
+  const files=[...[...NARRATED_EDITIONS,...TEXT_ONLY_EDITIONS].map(ed=>'data/editions/'+book+'-'+ed+'.json'),'data/onboarding/'+book+'.json']
   // Character cards and Cast are optional: anthologies such as Grimm and the Arabian Nights have neither.
   for(const optional of ['data/characters/'+book+'.v1.json','data/editions/'+book+'-threads.json'])if(fs.existsSync('public/'+optional))files.push(optional)
   for(const asset of ['covers/v2/'+book+'.webp','brand/20260921/books/'+book+'.jpg'])if(fs.existsSync('public/'+asset))files.push(asset)
   if(book==='symposium')files.push('brand/20260921/books/to-the-lighthouse.jpg')
-  for(const ed of ['original-en','modern-en',...TEXT_ONLY_EDITIONS]){
+  for(const ed of [...NARRATED_EDITIONS,...TEXT_ONLY_EDITIONS]){
    const dir='data/editions-chapters/'+book+'-'+ed
    // Small editions (Alice's original) are served whole and have no shards.
    if(fs.existsSync('public/'+dir))files.push(...fs.readdirSync('public/'+dir).map(f=>dir+'/'+f))
@@ -126,7 +130,7 @@ async function main(){
  for(const [device,engine,phone] of [['phone',phoneEngine,true],['desktop',chromium,false]]){
   const browser=await markInternal(await engine.launch({headless:true,...(engine===chromium?{args:['--mute-audio'],...(executablePath?{executablePath}:{})}:{})}))
   try{
-   for(const ed of ['modern-en','original-en']){
+   for(const ed of NARRATED_EDITIONS){
     const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')
     assert.equal(await root.getAttribute('data-chapter'),'1')
     const first=page.locator('.lab-page-wrap [data-paragraph-index="0"][data-word-index="0"]').first()

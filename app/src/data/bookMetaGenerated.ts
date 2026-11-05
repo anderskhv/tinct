@@ -652,4 +652,10 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Arabian Nights Entertainments',
     author: 'Andrew Lang',
   },
+  'master-and-margarita': {
+    title: 'Read The Master and Margarita Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Master and Margarita.',
+    bookName: 'The Master and Margarita',
+    author: 'Mikhail Bulgakov',
+  },
 }

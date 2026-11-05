@@ -40,6 +40,7 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
   'bible/webc-en',
   'grimms-fairy-tales/modern-en',
   'grimms-fairy-tales/original-en',
+  'master-and-margarita/modern-en',
   'middlemarch/modern-en',
   'middlemarch/original-en',
   'sense-and-sensibility/modern-en',
@@ -77,6 +78,7 @@ export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
   'the-art-of-war/modern-da',
   'the-manual/modern-da',
   'wuthering-heights/modern-da',
+  'master-and-margarita/modern-da',
 ])
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
 export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !TEXT_ONLY_EDITIONS.has(`${bookId}/${editionKey}`)

@@ -1,7 +1,7 @@
 import { isBookTemporarilyHeld } from './editionAvailability'
 import { describe, expect, it } from 'vitest'
 import { BOOKS, getBook } from './bookRegistry'
-import { defaultCompareEditionKey, defaultPrimaryEditionKey, isMachineMadeOriginal, savedPlaceFallbackEditionKey } from './editionDefaults'
+import { defaultCompareEditionKey, defaultPrimaryEditionKey, humanPrimaryEditionKey, isMachineMadeOriginal, savedPlaceFallbackEditionKey } from './editionDefaults'
 import { PRE_READER_CATALOGUE } from '../preReader/catalogue'
 import { continueHandoff } from '../preReader/continueHandoff'
 
@@ -58,6 +58,17 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(savedPlaceFallbackEditionKey('fear-and-trembling', getBook('fear-and-trembling')!.editions)).toBe('modern-en')
     expect(continueHandoff({ bookId: 'fear-and-trembling', editionKey: null, chapterNumber: 1, chapterLabel: 'Preface', pageIndex: 0, paragraphIndex: 0, wordIndex: 0, paragraphCount: null, source: 'memory', at: 1 })?.primaryEditionKey).toBe('modern-en')
     expect(savedPlaceFallbackEditionKey('crito', getBook('crito')!.editions)).toBe('original-en')
+  })
+
+  it('The Master and Margarita: Tinct Modern English, Compare in the Russian original (Anders, 5 Nov 2026)', () => {
+    // No human English translation may be used, so the Russian original is the first comparable edition.
+    expect(defaults('master-and-margarita')).toEqual({ primary: 'modern-en', compare: 'original-ru' })
+    const editions = getBook('master-and-margarita')!.editions
+    expect(humanPrimaryEditionKey('master-and-margarita', editions)).toBe('modern-en')
+    expect(savedPlaceFallbackEditionKey('master-and-margarita', editions)).toBe('modern-en')
+    const book = PRE_READER_CATALOGUE.booksById.get('master-and-margarita')!
+    expect(book.defaultEditionKey).toBe('modern-en')
+    expect(book.defaultCompareEditionKey).toBe('original-ru')
   })
 
   it('knows of exactly one machine-made "original" English edition', () => {
