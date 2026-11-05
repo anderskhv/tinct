@@ -405,7 +405,7 @@ function renderOpening(body){
  // "Name – the ruler of Thebes…": an ordinary first word is lowercased after the dash; a name ("Socrates, who…",
  // "Mill's rule…") keeps its capital.
  const personLine=text=>/^(?:The|A|An|His|Her|Their|Its|One|Two|Three|Four|Five|For|In|On|Old|Ancient|Born|Twin|Spirits|Learning|Ordinary|Life|Chance|Forcing|Goodness|Exclusive)\b/.test(text)?text.replace(/^./,c=>c.toLowerCase()):text;
- const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',`${title}: `),document.createTextNode(text));return p;};
+ const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',/[?!:]$/.test(String(title).trim())?`${String(title).trim()} `:`${title}: `),document.createTextNode(text));return p;};
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
  // People read as a plain cast list: name, then who they are; no bold, no role line (Anders, 2 Nov 2026).
  if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${personLine(item.text)}`)))));

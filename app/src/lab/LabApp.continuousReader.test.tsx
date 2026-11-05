@@ -222,6 +222,8 @@ it('Margin: "Continue from last position" leaves once the reader scrolls on (5 N
   expect(pill.textContent).toBe('Continue from last position')
   fireEvent.wheel(screen.getByTestId('continuous-reader'), { deltaY: 120 })
   await waitFor(() => expect(screen.queryByTestId('lab-continue-chapter')).toBeNull())
+})
+
 // Anders, 5 Nov 2026: he read 2 Maccabees 11 to its end in Margin and Contents
 // showed it neither finished nor started. Margin is read by scrolling, so the
 // chapter's progress is the last word in view, and scrolling the chapter's last
