@@ -198,7 +198,7 @@ async function main() {
         await c.close()
       })
     }
-    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
+    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE], ['narrow phone', { width: 320, height: 640 }]]) {
       await run(`library hero, signed out, ${name}: "Add your own book or text" beside Read leads to /byob`, async () => {
         const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
         await page.goto('/library')
@@ -210,7 +210,7 @@ async function main() {
         assert(Math.abs(r.height - o.height) < 2, `Read and the new button share a height (${r.height} / ${o.height})`)
         assert(o.x + o.width <= viewport.width - 8, 'the button sits inside the screen')
         assert(await noSideScroll(page), 'no sideways scroll')
-        await shot(page, `library-hero-own-${name}`)
+        await shot(page, `library-hero-own-${name.replace(' ', '-')}`)
         await own.click()
         await page.waitForURL(url => url.pathname === '/byob')
         await c.close()
