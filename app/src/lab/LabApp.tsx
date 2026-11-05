@@ -6897,6 +6897,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onVisible={onContinuousVisible}
             onLanded={onContinuousLanded}
             onUserBrowse={() => {
+              // The Margin reader has no pages, so "Continue from last position" (shown while on
+              // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
+              setRecentChapterReturn(null)
               if (!listen.playing) return
               browseWhileListeningRef.current = true
               setBrowseWhileListening(true)

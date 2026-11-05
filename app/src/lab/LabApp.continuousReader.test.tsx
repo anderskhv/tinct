@@ -209,3 +209,17 @@ it('highlights only a fresh dragged subrange without recoloring its wider existi
   expect(marks).toContainEqual(expect.objectContaining({ paragraphIndex: 13, fromWord: 4, endParagraphIndex: 13, toWord: 7, text: 'words to hold', color: 'rose' }))
   expect(marks).toHaveLength(2)
 })
+
+it('Margin: "Continue from last position" leaves once the reader scrolls on (5 Nov 2026: it never went away)', async () => {
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  const root = screen.getByTestId('lab-root')
+  await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+  expect(root.getAttribute('data-continuous-reader')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-header-chapter'))
+  fireEvent.click(await screen.findByTestId('lab-tree-chapter-1'))
+  const pill = await screen.findByTestId('lab-continue-chapter')
+  expect(pill.textContent).toBe('Continue from last position')
+  fireEvent.wheel(screen.getByTestId('continuous-reader'), { deltaY: 120 })
+  await waitFor(() => expect(screen.queryByTestId('lab-continue-chapter')).toBeNull())
+})
