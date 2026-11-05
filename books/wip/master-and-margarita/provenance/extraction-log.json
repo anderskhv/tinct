@@ -1394,5 +1394,169 @@
    "new": "помню его наизусть.",
    "why": "paragraph-final punctuation lost in A; B reads it"
   }
+ ],
+ "harmonisation_fixes_note": "Mechanical OCR fixes applied during harmonisation of the full translation (5 Nov 2026), after the batch translators flagged them: lost hyphens and lost spaces only, each checked in context. Same convention as above: 'para' is 0-based within the chapter (no chapter-1 entries). Period spellings («галстух», «придти», «приобревшим») and every doubtful reading were left as printed; see HARMONISATION.md.",
+ "harmonisation_fixes": [
+  {
+   "ch": 5,
+   "para": 34,
+   "old": "Глухаревсценарист",
+   "new": "Глухарев-сценарист",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 8,
+   "para": 21,
+   "old": "волейневолей",
+   "new": "волей-неволей",
+   "why": "hyphen lost (collation log ch8 para21 had wrongly joined it)"
+  },
+  {
+   "ch": 9,
+   "para": 7,
+   "old": "Нои тогда",
+   "new": "Но и тогда",
+   "why": "space lost"
+  },
+  {
+   "ch": 12,
+   "para": 30,
+   "old": "ФаготКоровьев",
+   "new": "Фагот-Коровьев",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 13,
+   "para": 68,
+   "old": "Какнибудь",
+   "new": "Как-нибудь",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 13,
+   "para": 134,
+   "old": "— Ия вышел",
+   "new": "— И я вышел",
+   "why": "space lost"
+  },
+  {
+   "ch": 16,
+   "para": 1,
+   "old": "северозападной",
+   "new": "северо-западной",
+   "why": "hyphen lost (same paragraph has «северо-западная»)"
+  },
+  {
+   "ch": 18,
+   "para": 77,
+   "old": "экономистаплановика",
+   "new": "экономиста-плановика",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 18,
+   "para": 207,
+   "old": "Ноя не могу",
+   "new": "Но я не могу",
+   "why": "space lost"
+  },
+  {
+   "ch": 19,
+   "para": 78,
+   "old": "— Ая вас",
+   "new": "— А я вас",
+   "why": "space lost"
+  },
+  {
+   "ch": 21,
+   "para": 53,
+   "old": "конекгорбунок",
+   "new": "конек-горбунок",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 22,
+   "para": 47,
+   "old": "посуфлерски",
+   "new": "по-суфлерски",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 22,
+   "para": 72,
+   "old": "пешкиландскнехты",
+   "new": "пешки-ландскнехты",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 23,
+   "para": 14,
+   "old": "какомнибудь",
+   "new": "каком-нибудь",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 23,
+   "para": 18,
+   "old": "виртуозджазбандист",
+   "new": "виртуоз-джазбандист",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 25,
+   "para": 32,
+   "old": "Опятьтаки",
+   "new": "Опять-таки",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 25,
+   "para": 83,
+   "old": "вас,— продолжал",
+   "new": "вас, — продолжал",
+   "why": "space lost before dash"
+  },
+  {
+   "ch": 26,
+   "para": 72,
+   "old": "КрысобояВеликана",
+   "new": "Крысобоя-Великана",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 28,
+   "para": 60,
+   "old": "— Ия тоже",
+   "new": "— И я тоже",
+   "why": "space lost"
+  },
+  {
+   "ch": 30,
+   "para": 13,
+   "old": "— Ая этого",
+   "new": "— А я этого",
+   "why": "space lost"
+  },
+  {
+   "ch": 30,
+   "para": 51,
+   "old": "какнибудь",
+   "new": "как-нибудь",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 32,
+   "para": 8,
+   "old": "демонубийца",
+   "new": "демон-убийца",
+   "why": "hyphen lost"
+  },
+  {
+   "ch": 33,
+   "para": 28,
+   "old": "профессионалгипнотизер",
+   "new": "профессионал-гипнотизер",
+   "why": "hyphen lost"
+  }
  ]
 }
