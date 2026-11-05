@@ -9,6 +9,13 @@ Conventions:
 - **Speaking names** (Bezdomny, Tuzbuben, Podlozhnaya, Bogokhulsky…) are transliterated, not translated, in both languages. This is an open question for Anders (README, question 7).
 - **Forms of address.** "hegemon", "messire" and "donna" are lower case except at the start of a sentence, in both languages. "Knight" (Hella's «Рыцарь») stays capitalised as a title of address.
 - **Danish address.** *De/Dem/Deres* for Russian *вы* between strangers and in service relations; *du* for *ты* (intimates, Pilate to prisoners, Woland to his retinue). Plural *вы* → *I/jer*.
+- **English spelling.** US spelling, and the US form of a term where the two differ: theater, mustache, truck (not lorry), checkers (the game), drafts (of a drink), elevator. The one exception is **"rouble"** (see Money). Words that US readers also use (queue, pavement, autumn, tram) are left alone.
+- **"Professor" in direct address** is capitalised in English ("You see, Professor", "How much do I owe you, Professor?"), like "Procurator". In narration it is lower case ("the professor answered"). "citizen" stays lower case in address ("citizen Professor").
+- **No grammatical gender in English pronouns.** Russian gender agreement does not carry over: Banga (собака) is "he"; abstract nouns (болезнь, смерть) are "it".
+- **Danish apostrophe.** Only the straight `'` (Berlioz', hva', be'), as in the approved sample; never the curly `’`.
+- **Danish plural address.** Plural *вы* → *I/jer* includes every address to a group or crowd (Граждане!, господа): the bandits in 10:133, Bengalsky's audience in 12:26 and 12:72, Woland's toast in 23:114, the police squad in 27:97, the shoppers in 28:41–45, the writers in 28:76.
+- **«О» in invocations.** The solemn vocative «О» is "O" / «O» (O gods, O guder, O Gud). Conversational «О» ("Oh no, procurator", «Åh nej, prokurator») is unaffected.
+- **«убедиться».** EN "realized", "saw", "was convinced"; "made sure" only where the Russian means checking (8:2, 9:69, 13:3, 19:142, 21:16, 26:87, 27:4).
 - **Floors.** English keeps the Russian numbering (второй этаж = second floor). Danish counts from the ground: первый/нижний этаж = stueetagen, второй этаж = første sal, третий = anden sal, … восьмой = syvende sal. A building's total number of storeys is not shifted (восьмиэтажный = otte etager).
 
 ## People: Moscow
@@ -16,7 +23,8 @@ Conventions:
 | Russian | English | Danish | Note |
 |---|---|---|---|
 | Воланд | Woland | Woland | Card shows "W" |
-| профессор, консультант, иностранец (Woland) | the professor, the consultant, the foreigner | professoren, konsulenten, udlændingen | |
+| профессор, консультант, иностранец (Woland) | the professor, the consultant, the foreigner | professoren, konsulenten, udlændingen | EN "Professor" capitalised in direct address |
+| артист (Woland; the compère of ch. 15) | the artiste | artisten | **«artist»** throughout DA (ch. 18 «kunstner» replaced, review 5 Nov 2026). гастролер = «gæstekunstner»; an actor (Kurolesov, ch. 33) = «skuespiller» |
 | мессир | messire | messire | Lower case mid-sentence (**decided**: batches mixed "Messire") |
 | Коровьев; Фагот; Фагот-Коровьев | Koroviev; Fagot; Fagot-Koroviev | Korovjev; Fagot; Fagot-Korovjev | |
 | регент (Koroviev's former trade) | choirmaster | korleder | **korleder** (b1, b10) over «kordirigent» (b5) |
@@ -55,10 +63,10 @@ Conventions:
 | Прохор Петрович | Prokhor Petrovich | Prokhor Petrovitj | |
 | Анна Ричардовна | Anna Richardovna | Anna Richardovna | |
 | Карпов (курьер) | Karpov (the messenger) | Karpov (budet) | |
-| Груня (домработница) | Grunya (the housekeeper) | Grunja | |
+| Груня (домработница) | Grunya (the housekeeper) | Grunja | домработница = DA **«husassistent»** throughout («hushjælp», «husholderske» replaced) |
 | Анна Францевна де Фужере; Беломут; Анфиса | Anna Frantsevna de Fougeray; Belomut; Anfisa | Anna Frantsevna de Fougeray; Belomut; Anfisa | |
 | Наталья Прокофьевна (Наташа, Наташка) | Natalya Prokofyevna (Natasha, Natashka) | Natalja Prokofjevna (Natasja, Natasjka) | |
-| Николай Иванович (боров) | Nikolai Ivanovich (the hog) | Nikolaj Ivanovitj (galten) | |
+| Николай Иванович (боров) | Nikolai Ivanovich (the hog) | Nikolaj Ivanovitj (galten) | DA **«galt»** for every боров (ch. 21–22 «svin» replaced, pronoun «den»; 4:35 «orne» replaced) |
 | Латунский (О. Латунский) | Latunsky | Latunskij | |
 | Мстислав Лаврович | Mstislav Lavrovich | Mstislav Lavrovitj | |
 | Ариман; Лапшённикова | Ariman; Lapshennikova | Ariman; Lapsjennikova | |
@@ -101,7 +109,7 @@ Conventions:
 | прокуратор Иудеи; пятый прокуратор Иудеи | the procurator of Judea; the fifth procurator of Judea | Judæas prokurator; Judæas femte prokurator | |
 | всадник (Золотое Копье) | the knight (Golden Spear) | ridderen (Den Gyldne Lanse) | |
 | игемон | hegemon | hegemon | Lower case |
-| Банга | Banga | Banga | |
+| Банга | Banga | Banga | Male dog: EN "he/him" |
 | Иешуа Га-Ноцри | Yeshua Ha-Notsri | Jeshua Ha-Notsri | |
 | Левий Матвей | Levi Matvei | Levi Matvej | |
 | Иуда из Кириафа | Judas from Kiriath | Judas fra Kiriat | |
@@ -186,7 +194,7 @@ Conventions:
 | Госбанк | the State Bank | Statsbanken (statsbanken) | |
 | экономист-плановик | economic planner | planøkonom | |
 | переводчик | interpreter | tolk | |
-| гражданин / гражданка | citizen | borger / borgerinde | |
+| гражданин / гражданка | citizen; "Citizeness" where "citizen" would be taken for the husband (3:3, 4:49, 7:11) | borger / borgerinde | |
 | кентурия; кентурион; когорта; ала; турма; манипул; трибун | century; centurion; cohort; ala; turma; maniple; tribune | centurie; centurion; kohorte; ala; turma; manipel; tribun | |
 | Двенадцатый Молниеносный легион; легион Фульмината | the Twelfth Lightning Legion; the Fulminata legion | Den Tolvte Lynlegion; Fulminata-legionen | |
 | себастийская / итурейская / каппадокийская когорта | the Sebastian / Ituraean / Cappadocian cohort | den sebastiske / itureiske / kappadokiske kohorte | |
@@ -214,6 +222,11 @@ Conventions:
 | «Литературная газета» | the Literary Gazette | »Litteraturnaja Gazeta« | |
 | фалернское вино; «Фалерно», «Цекуба» | Falernian wine; ‘Falerno’, ‘Caecuba’ | falernervin; ›Falerno‹, ›Caecuba‹ | |
 | гемикрания | hemicrania | hemikrani | |
+| шпага (Woland's, and every шпага) | sword | kårde | DA **«kårde»** throughout («sværd» replaced at 22:46, 22:73) |
+| бельмо (Azazello) | a (white) film over one eye | en (hvid) hinde | Not "cataract" / «grå stær» (30:44) |
+| трамвай; грузовик | tram; truck | sporvogn; lastbil | EN "tram", not "streetcar" |
+| хрип, хрипеть, хриплый | hoarse(ly), croak, wheeze | hæs, hæst («sagde hæst») | Not «hvæse» (hiss), which belongs to шипеть |
+| зарезать (Judas: ch. 2, 25, 26) | knife, be knifed | stikke ihjel (also «stikke ned») | Not "cut his throat": Judas is stabbed (26:62). Pilate's prediction (25:107, 118, 119) and Aphranius's report (26:88, 102, 231) use the same verb. Exceptions: the idiom «Хоть зарежьте!» (10:71, kept as "Not if you cut my throat!" / «Om så I skærer halsen over på mig!»), the hog «Зарезать?» = "slaughtered" / «slagtes» (22:122), and the tram that «зарезало» Berlioz (8:51, 18:2–4) |
 | нечистая сила | the unclean powers | de urene magter | **unified**; singular kept only where one person is called it (15:10) |
 
 ## Motifs and recurring phrases (worded identically wherever Bulgakov repeats them)
@@ -225,8 +238,10 @@ Conventions:
 | Было около десяти часов утра | It was about ten o’clock in the morning | Klokken var omkring ti om morgenen | 2:261 → 3:1 |
 | Солнце уже снижалось над Лысой Горой, и была эта гора оцеплена двойным оцеплением | the sun was already descending over Bald Mountain, and this mountain was cordoned off by a double cordon | solen var allerede ved at gå ned over Det Skaldede Bjerg, og dette bjerg var afspærret af en dobbelt afspærring | 15:143 → 16:1 |
 | За мной, читатель! | Follow me, reader! | Følg mig, læser! | 18:228 → 19:1 |
-| Тьма, пришедшая со Средиземного моря, накрыла ненавидимый прокуратором город. Исчезли висячие мосты… Пропал Ершалаим — великий город, как будто не существовал на свете | The darkness that came from the Mediterranean Sea covered the city the procurator hated. The hanging bridges … vanished, an abyss descended from the sky … Yershalaim, the great city, was gone, as if it had never existed in the world | Mørket, der kom fra Middelhavet, dækkede den by, som prokuratoren hadede. De hængende broer … forsvandt, en afgrund sænkede sig ned fra himlen … Jersjalaim var borte, den store by, som om den aldrig havde eksisteret i verden | 19:21, 19:93, 24:301 → 25:1 |
+| Тьма, пришедшая со Средиземного моря, накрыла ненавидимый прокуратором город. Исчезли висячие мосты… Пропал Ершалаим — великий город, как будто не существовал на свете | The darkness that came from the Mediterranean Sea covered the city the procurator hated. The hanging bridges … vanished, an abyss descended from the sky … Yershalaim, the great city, was gone, as if it had never existed in the world | Mørket, der kom fra Middelhavet, dækkede den by, som prokuratoren hadede. De hængende broer … forsvandt, en afgrund sænkede sig ned fra himlen … Jersjalaim var borte, den store by, som om den aldrig havde eksisteret i verden | 19:21, 19:93, 24:301 → 25:1; the participle also in 29:66 ("This darkness, which came from the west" / «der kom fra vest») and 30:1 |
 | Так встретил рассвет пятнадцатого нисана пятый прокуратор Иудеи Понтий Пилат | Thus did the fifth procurator of Judea, Pontius Pilate, meet the dawn of the fifteenth of Nisan | Således mødte Judæas femte prokurator, Pontius Pilatus, daggryet den femtende nisan | 26:243 → 27:1 |
+| плохая должность | a bad office | et dårligt embede | 26:79, 32:18 |
+| гроза (Banga's one fear) | storm | uvejr | 26:5, 32:16 |
 | …жестокий пятый прокуратор Иудеи всадник Понтий Пилат | …the cruel fifth procurator of Judea, the knight Pontius Pilate | …Judæas grusomme femte prokurator, ridderen Pontius Pilatus | 13:94 (without «жестокий»), 32:33, 33:81 |
 | исколотая (иглами) память | memory pricked all over by needles / needle-pricked memory | af nåle gennemstukne hukommelse / gennemstukne hukommelse | 32:33, 33:81 |
 | Аннушка уже купила подсолнечное масло, и не только купила, но даже и разлила | Annushka has already bought the sunflower oil, and not only bought it, but spilled it too | Annusjka allerede har købt solsikkeolien, og ikke bare købt den, men også spildt den | 1:106; echoed 4:10, 8:53, 24:270 |
@@ -239,7 +254,7 @@ Conventions:
 | трусость — один из самых страшных пороков / самый страшный порок / самый тяжкий порок | cowardice … one of the most terrible vices / the most terrible vice / the gravest vice | fejhed … en af de frygteligste laster / den frygteligste last / den alvorligste last | 25:69 ("one of the very chief"), 26:72, 26:215, 32:16 |
 | прошу заметить | kindly note | læg vel mærke til | 1:16, 24:208, 30:61 |
 | Правду говорить легко и приятно | Telling the truth is easy and pleasant | Det er let og behageligt at tale sandt | 2 |
-| добрые люди / добрый человек | good people / good man | gode mennesker / godt menneske | 2, 30 |
+| добрые люди / добрый человек | good people / good man | gode mennesker / godt menneske | 2, 30 (30:44 «gode mennesker», not «gode folk») |
 | Свободен! Свободен! Он ждет тебя! | Free! Free! He is waiting for you! | Fri! Fri! Han venter på dig! | 32 |
 | Невидима и свободна! | Invisible and free! | Usynlig og fri! | 21 |
 | Шах королю | Check to the king | Skak for kongen | 22 |

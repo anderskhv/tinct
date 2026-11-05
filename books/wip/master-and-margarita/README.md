@@ -11,13 +11,15 @@
 | File | What it is | SHA-256 |
 |---|---|---|
 | `editions/master-and-margarita-original-ru.json` | Bulgakov's Russian text, complete: 33 units, 3,958 paragraphs (23 mechanical OCR fixes at harmonisation) | `9a2cf57330f217a157f9081f6b982467873369dbdc93a7e1da8a24f5c96c5b3d` |
-| `editions/master-and-margarita-modern-en.json` | Tinct Modern English, full draft, harmonised, aligned 1:1 | `7583970e11a7d7cc6abad9c56d99f2ec330eca6720cdca54089cfc1d8603196b` |
-| `editions/master-and-margarita-modern-da.json` | Tinct Modern Danish, full draft, harmonised, aligned 1:1, translated from the Russian | `8a6b02feb0023e48d9c22ee5d85f07a674c40f5f10fff786386b07a6e7877aee` |
+| `editions/master-and-margarita-modern-en.json` | Tinct Modern English. Full translation, independently reviewed, fixes applied (`REVIEW-APPLIED.md`); harmonised, aligned 1:1 | `c067c7bf19ad3cc094e6ad236b01bd12a905b54a506033d95e55f416023028ee` |
+| `editions/master-and-margarita-modern-da.json` | Tinct Modern Danish. Full translation, independently reviewed, fixes applied (`REVIEW-APPLIED.md`); harmonised, aligned 1:1, translated from the Russian | `6ce1f882cb3f4d2e37c1f9209dfa9cf60912d6d31487356532835337f07a45cc` |
 | `editions/master-and-margarita-modern-en.sample-ch1-2.json` | Tinct Modern English, chapters 1–2 (sample), aligned 1:1 | `1fd83f7278ba2179856d6d5f61bfdd6b80273cf788758ef092f652a870e88b09` |
 | `editions/master-and-margarita-modern-da.sample-ch1.json` | Tinct Modern Danish, chapter 1 (sample), aligned 1:1, translated from the Russian | `576dcac4bb98d28a72bd452136cfb949ad756db4e87771a6c0d95498a043029f` |
 | `provenance/extraction-log.json` | Every correction made to the OCR text layer during collation, plus `harmonisation_fixes` | `45b1d582514e429b267ee3ab4218a59bf347e91ebd96f62b7492987303432fdd` |
 | `GLOSSARY.md` | Master glossary (Russian / English / Danish), binding for both translations | |
 | `HARMONISATION.md` | Every global change made in the harmonisation pass, with counts, and the open questions | |
+| `reviews/revEN-A…D`, `reviews/revDA-A…D` (`.json` + `.md`) | The eight independent reviews against the Russian (EN and DA, ch. 1–9, 10–18, 19–25, 26–33) | |
+| `REVIEW-APPLIED.md` | How the 244 review fixes and the book-wide review decisions were applied, with counts and validation | |
 
 The edition files use the house shape (`chapters[]` with `number`, `title`, `section`, `paragraphs`; `sections[]`). No third-party web page or scan is stored in the repo.
 
@@ -200,8 +202,8 @@ Danish forms for names that do not occur in chapter 1 are proposed and will be f
 | Edition | Key | Status |
 |---|---|---|
 | Russian original | `original-ru` | Complete candidate (33 units, 3,958 paragraphs); OCR-collated; final proofread during translation |
-| Tinct Modern English | `modern-en` | Full draft, harmonised; independent review pending |
-| Tinct Modern Danish | `modern-da` | Full draft, harmonised; independent review pending |
+| Tinct Modern English | `modern-en` | Full translation, independently reviewed, fixes applied |
+| Tinct Modern Danish | `modern-da` | Full translation, independently reviewed, fixes applied |
 | Human English translation | none | None permitted; Compare default to be decided |
 
 ## Remaining volume and plan to finish
