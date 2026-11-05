@@ -61,6 +61,7 @@ export const CHAPTER_SHARDED_EDITION_IDS = [
   "moby-dick-original-en",
   "odyssey-modern-en",
   "odyssey-original-en",
+  "odyssey-verse-en",
   "peloponnesian-war-modern-da",
   "peloponnesian-war-modern-en",
   "peloponnesian-war-original-en",

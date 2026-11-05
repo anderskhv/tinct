@@ -7,6 +7,7 @@ export type EditionDifficulty = 'Easy' | 'Medium' | 'Hard'
 // Ratings are reading guidance, not a measured reading age or a quality judgement.
 const reviewed: Record<string, EditionDifficulty> = {
   "odyssey:original-en": "Medium",
+  "odyssey:verse-en": "Hard",
   "ulysses:original-en": "Hard",
   "war-and-peace:original-en": "Medium",
   "bible:kjv-en": "Hard",
