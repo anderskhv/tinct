@@ -2,58 +2,72 @@
   "schemaVersion": 1,
   "workId": "middlemarch",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Håb placeret hos andre",
-      "text": "De første bøger indfører ambitioner om ægteskab, lærdom og lægekunst samt antagelserne bag."
+      "title": "Første og anden bog · Et livsværk vælges",
+      "text": "Dorothea Brooke tror, at et ægteskab med en lærd vil give hende del i et stort intellektuelt arbejde. Tertius Lydgate ankommer med planer om at reformere lægekunsten. Begge har oprigtige ambitioner og bemærkelsesværdigt lidt nysgerrighed efter, hvordan planerne ser ud for dem, de vil leve sammen med."
     },
     {
-      "title": "Et net af følger",
-      "text": "Otte bøger fletter hjem og erhverv og viser, hvordan valg ændrer ukendte liv."
+      "title": "Tredje og fjerde bog · Løfter på kredit",
+      "text": "Fred Vincy regner med at arve penge. Den, der kautionerer, må stå inde for Freds tillid, når regningen kommer. Frierier og faglige ambitioner trækker forskellige husholdninger ind i samme net af forventninger, tjenester og nyt fra byen."
+    },
+    {
+      "title": "Femte og sjette bog · Hvad de døde stadig kan bestemme",
+      "text": "Et testamente kan styre de levendes adfærd mere effektivt, end afdøde selv formåede. Et nygift par opdager prisen på at opretholde facaden. De samme dyre genstande kan rumme to vidt forskellige opfattelser af, hvad mand og kone har lovet hinanden."
+    },
+    {
+      "title": "Syvende og ottende bog samt finalen · Byen dømmer",
+      "text": "Efterretninger vandrer mellem tilsyneladende adskilte historier, indtil én mands ry kan true en andens udkomme. Eliot følger de offentlige anklager ind i stuer, hvor nogen må vælge, om de vil aflægge besøg, stille et pinligt spørgsmål eller nøjes med byens dom."
     }
   ],
   "people": [
     {
-      "name": "Dorothea Brooke",
-      "role": "Ung idealist",
-      "text": "En ung kvinde, der søger et meningsfuldt kald."
+      "name": "Dorothea og Casaubon",
+      "role": "Vordende hjælper og lærd",
+      "text": "Dorothea tager forskningens vanskelighed som bevis på dens betydning. Casaubon forestiller sig, at en ung hustru vil forstå hans behov for hjælp uden at forstyrre hans vaner. De har til dels valgt hinanden for et arbejdes skyld, som ingen af dem frit kan tale om."
     },
     {
-      "name": "Lydgate",
-      "role": "Læge",
-      "text": "En ambitiøs læge."
+      "name": "Lydgate og Rosamond Vincy",
+      "role": "Læge og fabrikantens datter",
+      "text": "Han læser hendes dannede manerer som et løfte om ro i hjemmet. Hun læser hans herkomst og ambition som et løfte om at slippe ud af provinslivet. Begge indtryk bygger på reelle oplysninger. Begge overser noget, den anden sætter højere end ro."
     },
     {
-      "name": "Casaubon",
-      "role": "Lærd",
-      "text": "En lærd, hvis arbejde tiltrækker Dorothea."
+      "name": "Mary Garth og Fred Vincy",
+      "role": "Venner med ulige midler",
+      "text": "Fred har råd til at vente på penge og mening. I Marys hjem ved man, hvem der gør arbejdet, mens en ung gentleman venter. Hendes hengivenhed giver hende god grund til at nægte ham at forveksle tålmodighed med tilladelse."
     }
   ],
   "context": [
     {
-      "title": "Byen som netværk",
-      "level": "recommended",
-      "text": "Ry, kredit, ægteskab og arbejde går gennem fælles relationer. Ingen hovedperson styrer hele nettet.",
-      "takeaway": "Følg følgerne ud over hovedparret."
+      "title": "En reform kræver lokale penge",
+      "text": "Lydgates ambitioner kræver hospital, patienter, instrumenter og en velgører. Afgørelser, han selv oplever som lægefaglige, kan se økonomiske eller politiske ud for de borgere, han behøver støtte fra. Eliot placerer et fagligt ideal i gåafstand fra alle dem, der kan hindre det.",
+      "level": "recommended"
     },
     {
-      "title": "Reform og profession",
-      "level": "optional",
-      "text": "Politisk og medicinsk forandring udfordrer vaner. Nye ideer kræver stadig penge, samarbejde og tillid.",
-      "takeaway": "Gode hensigter kræver brugbare vilkår."
+      "title": "Den hellige Teresa i en provinsby",
+      "text": "Forspillet mindes en pige, der drog ud for at blive martyr og senere grundlagde klostre. Dorothea har en lignende trang til meningsfuldt arbejde og intet kloster, der kan bruge den. At tegne huse til fæstere eller tage noter for en lærd ligner to mulige steder at begynde.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk fortællerens rettelser af hurtige domme.",
-      "why": "Andres vilkår kan ændre handlingens betydning."
+      "text": "Vent på skiftet til den anden stol.",
+      "why": "Eliot lader os dele en ung hustrus skuffelse og går så over til den mand, hun finder uudholdelig. Den nye synsvinkel ophæver ikke hans handling. Den lader os se ham frygte et sår, hun knap ved, hun kan tilføje ham.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 30,
+          "paragraphIndex": 1,
+          "quote": "Var hendes det eneste synspunkt, hvorfra man kunne se på dette ægteskab?"
+        }
+      ]
     },
     {
-      "text": "Følg gæld og små kompromiser.",
-      "why": "Ambition omformes gennem praktiske valg."
+      "text": "Se, hvis navn der står på papiret.",
+      "why": "Underskrifter på gældsbreve og betingelser i testamenter lader én husholdning hæfte for en andens ønsker. En abstrakt dom over et menneskes karakter bliver vanskeligere, når en bestemt familie må finde pengene."
     }
   ],
   "opening": "Dorothea vil vie livet til noget større og tror, at ægteskab med en lærd mand åbner vejen. Lydgate kommer til byen for at forandre lægekunsten, sikker på at provinsens kompromiser ikke fanger ham. Begge har beundringsværdige ambitioner og ufuldstændig viden om dem, de behøver. George Eliot følger håbet ind i ægteskaber, gæld, sladder og daglige forhandlinger og giver bipersonerne liv, der er store nok til at vælte en enkel forklaring på, hvorfor en andens fremtid gik galt."

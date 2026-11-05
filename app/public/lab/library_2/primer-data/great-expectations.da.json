@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "great-expectations",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "At lære at føle sig mindreværdig",
-      "text": "Pips barndom forbinder hengivenhed, frygt og skam med hans første møder med rigdom."
+      "title": "Kapitel 1–19 · En lærling lærer at skamme sig",
+      "text": "Pip stjæler mad til en straffefange og besøger et tillukket hus, hvor en pige ler ad hans hænder. Først skammer han sig over noget, han har gjort. Dernæst skammer han sig over Joes smedje og mennesker, der aldrig har gjort ham fortræd."
     },
     {
-      "title": "At blive gentleman",
-      "text": "Nye muligheder afprøver, hvad Pip tror, penge og dannede manerer kan reparere. Den voksne fortæller vender tilbage til sit yngre jegs antagelser."
+      "title": "Kapitel 20–39 · Prisen for at være gentleman",
+      "text": "En apanage fører Pip til London. Han lærer at bestille middage, købe møbler på kredit og grue for de besøg, han skylder folk derhjemme. At velgøreren er anonym, giver ham rig lejlighed til at finde på en smigrende forklaring på sine fremtidsudsigter."
+    },
+    {
+      "title": "Kapitel 40–59 · Gammel gæld",
+      "text": "Pip får noget at vide, som hans opdragelse i gode manerer overhovedet ikke har forberedt ham på. Mennesker, han regnede for hjemmehørende i hver sin verden, har krav på hinanden. Nu må han afgøre, hvad han skylder én, hvis selskab ikke giver ham den mindste anseelse."
     }
   ],
   "people": [
     {
-      "name": "Pip",
-      "role": "Fortæller",
-      "text": "Smedens myndling, der fortæller om sin ungdom."
+      "name": "Pip og Joe Gargery",
+      "role": "Lærling og smed",
+      "text": "Pip fortæller historien mange år senere. Hver gang den unge Pip krymper sig over Joes tale eller manerer, kan den ældre mand gengive sin egen forlegenhed med pinagtig nøjagtighed. Joe har intet tilsvarende behov for at dele sin hengivenhed mellem fortid og nutid."
     },
     {
-      "name": "Joe Gargery",
-      "role": "Smed",
-      "text": "Smeden, der tager sig af ham."
-    },
-    {
-      "name": "Estella og Miss Havisham",
-      "role": "Hjemmet, der former Pips håb",
-      "text": "Beboere i huset, der omformer hans ambitioner."
+      "name": "Miss Havisham og Estella",
+      "role": "En velhavende eneboer og hendes myndling",
+      "text": "Miss Havisham bestemmer vilkårene for børnenes møder. Pip tror, han er ved at lære at elske Estella. Først falder det ham knap ind at spørge, hvad Estella gennem sin opdragelse har lært at forstå ved kærlighed."
     }
   ],
   "context": [
     {
-      "title": "Fornemhed",
-      "level": "recommended",
-      "text": "At blive gentleman kræver manerer, indtægt og social anerkendelse. Moralsk godhed og fornem fremtræden behøver ikke følges.",
-      "takeaway": "Spørg, hvad Pip mener med forbedring."
+      "title": "En gentleman kan leve af forventninger",
+      "text": "Et underhold ændrer Pips tøj og adresse, længe før han har sin egen formue eller et erhverv. Folk vil yde kredit med hans forestillede fremtid som sikkerhed. Deres villighed kan let ligne et bevis på, at hans egne gæt holder.",
+      "level": "recommended"
     },
     {
-      "title": "Tilbageblik",
-      "level": "optional",
-      "text": "Den ældre Pip kan blotlægge en fejl og samtidig genskabe, hvor overbevisende den føltes. Skam og medfølelse findes sammen i fortællingen.",
-      "takeaway": "Skeln barnets dom fra fortællerens."
+      "title": "Fangeskibene ud for marsken",
+      "text": "Straffefanger er indespærret på gamle skibe, der ligger fortøjet nær kysten. Kanonerne, Pip hører som barn, og lænken om en fremmeds ben hører til en institution inden for hørevidde af smedjen. En fil, der ubemærket forsvinder blandt Joes værktøj, kan forbinde de to verdener på en enkelt nat.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Følg hænder, tøj og bordskik.",
-      "why": "Kropslige detaljer bliver bevis i Pips private rangordning."
+      "text": "Se, hvem der vasker hænder, og hvem der betragter dem.",
+      "why": "Smedearbejdet efterlader mærker, som gør Pip forlegen. Advokaten Jaggers vasker hænder med usædvanlig grundighed. Begge lever af andres behov, men kun det ene erhverv udelukker sin udøver fra det pæne selskab.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 8,
+          "paragraphIndex": 66,
+          "quote": "Og sikke grove hænder han har!"
+        }
+      ]
     },
     {
-      "text": "Bemærk omsorg uden selvreklame.",
-      "why": "Loyalitet overses let, når den ikke giver prestige."
+      "text": "Hør, hvornår fortælleren lader drengens slutning stå.",
+      "why": "Pip kan gengive en samtale nøjagtigt og alligevel tilskrive den forkerte person æren for at have arrangeret den. Dickens lader drengen samle en historie af beviser, der hver for sig er ganske ægte."
     }
   ],
   "opening": "Pip skammer sig over de hænder, der opfostrede ham. Et besøg i en rig kvindes forfaldne hus har lært smedens dreng, at hans tøj, sprog og familie er pinlige, og at en smuk pige kan få ham til at være taknemmelig for hendes foragt. Da penge uventet kommer til ham, tror han, at det virkelige liv kan begynde. Dickens følger glæden ved at blive imponerende og de små svigt, det kræver, mens Pip forveksler dem, han vil ligne, med dem, han bør stole på."

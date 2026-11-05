@@ -209,3 +209,80 @@ it('highlights only a fresh dragged subrange without recoloring its wider existi
   expect(marks).toContainEqual(expect.objectContaining({ paragraphIndex: 13, fromWord: 4, endParagraphIndex: 13, toWord: 7, text: 'words to hold', color: 'rose' }))
   expect(marks).toHaveLength(2)
 })
+
+it('Margin: "Continue from last position" leaves once the reader scrolls on (5 Nov 2026: it never went away)', async () => {
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  const root = screen.getByTestId('lab-root')
+  await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+  expect(root.getAttribute('data-continuous-reader')).toBe('true')
+  fireEvent.click(screen.getByTestId('lab-header-chapter'))
+  fireEvent.click(await screen.findByTestId('lab-tree-chapter-1'))
+  const pill = await screen.findByTestId('lab-continue-chapter')
+  expect(pill.textContent).toBe('Continue from last position')
+  fireEvent.wheel(screen.getByTestId('continuous-reader'), { deltaY: 120 })
+  await waitFor(() => expect(screen.queryByTestId('lab-continue-chapter')).toBeNull())
+})
+
+// Anders, 5 Nov 2026: he read 2 Maccabees 11 to its end in Margin and Contents
+// showed it neither finished nor started. Margin is read by scrolling, so the
+// chapter's progress is the last word in view, and scrolling the chapter's last
+// line into view finishes it, as turning past the last page does in Two-page.
+// Neither moves the saved reading place.
+it('Margin counts a chapter scrolled to its end as finished, and shows the share read before that', async () => {
+  window.history.replaceState(null, '', '/reader?book=bible&sharedReader=1')
+  const words = chapter.map(paragraph => paragraph.split(' ').length)
+  const before = words.map((_, index) => words.slice(0, index).reduce((sum, count) => sum + count, 0))
+  const total = before.at(-1)! + words.at(-1)!
+  let top = 0
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const y = (before[Number(this.dataset.paragraphIndex)] + Number(this.dataset.wordIndex)) * 20 - this.closest<HTMLElement>('.continuous-reader')!.scrollTop
+      return { top: y, bottom: y + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  render(<LabApp pathname="/reader" authToken={null} sharedReader />)
+  const root = screen.getByTestId('lab-root')
+  await waitFor(() => expect(root.getAttribute('data-reader-ready')).toBe('true'))
+  await waitFor(() => expect(screen.getByTestId('continuous-reader').querySelector('[data-paragraph-index="13"][data-word-index="4"]')).toBeTruthy())
+  const host = screen.getByTestId('continuous-reader')
+  const max = total * 20 + 200 - 600
+  top = host.scrollTop
+  Object.defineProperties(host, { clientHeight: { value: 600 }, scrollHeight: { value: total * 20 + 200 },
+    scrollTop: { configurable: true, get: () => top, set: value => { top = Math.max(0, Math.min(max, value)) } } })
+  const scrollTo = (target: number) => {
+    for (let next = top + 120; next < target + 120; next += 120) { fireEvent.wheel(host, { deltaY: 120 }); host.scrollTop = Math.min(next, target); fireEvent.scroll(host) }
+  }
+  const contentsLabel = async () => {
+    fireEvent.click(screen.getByTestId('lab-header-chapter'))
+    const label = await waitFor(() => screen.getByTestId('lab-tree-chapter-1').getAttribute('aria-label'))
+    fireEvent.keyDown(document, { key: 'Escape' })
+    await waitFor(() => expect(screen.queryByTestId('lab-tree-chapter-1')).toBeNull())
+    return label
+  }
+  try {
+    // Halfway: the last word in view sits about 3,600px down of 6,600.
+    // The saved place stays the word on the reader's top line (24% down, at
+    // most 140px), as the scroll left it, and the stored pin agrees.
+    const placeOnTopLine = async () => {
+      const [paragraphIndex, wordIndex] = root.getAttribute('data-place')!.split(':').map(Number)
+      const y = (before[paragraphIndex] + wordIndex) * 20
+      expect(y + 20).toBeGreaterThan(top)
+      expect(y).toBeLessThanOrEqual(top + 140)
+      await waitFor(() => expect(readLabPositionLocal().books.genesis).toMatchObject({ sequentialChapter: 1, paragraphIndex, wordIndex }))
+    }
+    // Halfway: the last word in view sits 3,600px down of 6,600.
+    scrollTo(3000)
+    expect(await contentsLabel()).toMatch(/^Genesis 1, currently reading, 5\d% read$/)
+    await placeOnTopLine()
+    expect(readLabPositionLocal().finished.bible ?? []).not.toContain(1)
+    // On to the end: the last line comes into view.
+    scrollTo(max)
+    expect(readLabPositionLocal().finished.bible).toContain(1)
+    expect(await contentsLabel()).toBe('Genesis 1, currently reading, 100% read')
+    // Finishing records the chapter; it never moves the reading place.
+    await placeOnTopLine()
+  } finally { rect.mockRestore() }
+})

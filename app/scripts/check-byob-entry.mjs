@@ -6,6 +6,9 @@
 // 2. Signed in (a faked account): a file chosen on /byob opens the library's "Your own book"
 //    pop-up and is added at once (the pop-up leaves its Choose step); Paste text opens the pop-up
 //    at Paste text.
+// 2b. Sign-in names why you came (approved S1/S3): a chosen file shows "Sign in to add your book"
+//    and the file's name (the handoff is only peeked, so the library still gets it), Paste text
+//    shows "Sign in to add your text", and anything else "Sign in to Tinct".
 // 3. The library shows the band right under Featured; signed out it leads to /byob, signed in it
 //    opens the "Your own book" pop-up.
 //
@@ -30,7 +33,7 @@ function serve() {
     let pathname = decodeURIComponent(new URL(req.url, 'http://local').pathname)
     if (['/library', '/library/'].includes(pathname)) pathname = '/lab/library_2/index.html'
     if (['/byob', '/byob/'].includes(pathname)) pathname = '/byob.html'
-    if (pathname === '/sign-in') { res.writeHead(200, { 'content-type': 'text/html' }); res.end('<!doctype html><title>Sign in</title>'); return }
+    if (pathname === '/sign-in') pathname = '/lab/sign-in/index.html'
     if (pathname.endsWith('/')) pathname += 'index.html'
     const file = path.join(DIST, path.normalize(pathname))
     try {
@@ -96,11 +99,17 @@ async function main() {
         await page.goto('/byob')
         await page.waitForLoadState('networkidle')
         assert.deepEqual(refused, [], 'nothing on /byob is refused by the site\'s Content-Security-Policy')
-        assert.equal(await page.locator('h1').innerText(), 'Read your own books in Tinct')
+        assert.equal(await page.locator('h1').innerText(), 'Your own books, texts and PDFs.')
         assert(await page.locator('#choose').isVisible() && await page.locator('#paste').isVisible(), 'Choose a file and Paste text are shown')
-        assert.equal(await page.locator('#account').innerText(), 'Sign in')
-        assert.equal(await page.locator('#demo').getAttribute('src'), '/media/byob-margin.mp4')
-        assert((await fs.stat(path.join(DIST, 'media/byob-margin.mp4'))).size > 100000, 'the recording ships')
+        const account = page.locator(name === 'phone' ? '#account-phone' : '#account')
+        assert(await account.isVisible(), 'the sign-in link is shown')
+        assert.equal(await account.innerText(), 'Sign in')
+        assert.equal(await page.locator('.drop-title').isVisible(), name === 'desktop', 'the drag box shows on desktop only')
+        assert.equal(await page.locator('.foot a').getAttribute('href'), '/library')
+        assert.equal(await page.locator('video').count(), 0, 'no recording on the page')
+        const room = await page.evaluate(() => { const r = document.querySelector('.room').getBoundingClientRect(), p = document.querySelector('.page').getBoundingClientRect(); return { roomW: r.width, pageTop: p.top, pageLeft: p.left, vw: innerWidth, vh: innerHeight } })
+        if (name === 'phone') assert(room.roomW >= room.vw - 1 && room.pageTop > room.vh * 0.3, `the room fills the phone and the sheet sits below it (${JSON.stringify(room)})`)
+        else assert(room.pageLeft < 1 && room.roomW > room.vw * 0.4, `the page column sits left of the room (${JSON.stringify(room)})`)
         assert(await noSideScroll(page), 'no sideways scroll')
         await shot(page, `byob-${name}`)
         await page.locator('#paste').click()
@@ -113,11 +122,45 @@ async function main() {
         await c.close()
       })
     }
+    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
+      await run(`sign-in names the reason, ${name}: your book, your text, or Tinct`, async () => {
+        const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
+        const refused = [], errors = []
+        page.on('console', m => { if (/Content Security Policy/i.test(m.text())) refused.push(m.text().slice(0, 160)) })
+        page.on('pageerror', e => errors.push(e.message))
+        const ready = () => page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true', null, { timeout: 30000 })
+        await page.goto('/byob')
+        await page.locator('#file').setInputFiles(TEXT)
+        await page.waitForURL(/\/sign-in\?/)
+        await ready()
+        await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to add your book')
+        assert.equal(await page.locator('[data-signin-file] b').innerText(), TEXT.name)
+        assert(await page.getByRole('button', { name: 'Continue with Google' }).isVisible(), 'Google stays')
+        assert(await noSideScroll(page), 'no sideways scroll')
+        const sheet = await page.locator('.auth-card').evaluate(n => getComputedStyle(n).backgroundColor)
+        assert.equal(sheet, 'rgb(21, 27, 20)', 'the dark library sheet')
+        await shot(page, `sign-in-file-${name}`)
+        assert(await page.evaluate(async () => !!(await import('/lab/addbook/js/file-handoff.js')).peekHandoff().then(f => f)), 'the file still waits for the library')
+        await page.goto('/sign-in?returnTo=' + encodeURIComponent('/library?sharedReader=1&own=paste'))
+        await ready()
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to add your text')
+        await page.goto('/sign-in?returnTo=%2Flibrary')
+        await ready()
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to Tinct')
+        assert.equal(await page.locator('[data-signin-file]').isVisible(), false)
+        await shot(page, `sign-in-${name}`)
+        assert.deepEqual(refused, [], 'nothing on sign-in is refused by the Content-Security-Policy')
+        assert.deepEqual(errors, [])
+        await c.close()
+      })
+    }
     await run('/byob signed in: a chosen file is added in the library pop-up at once', async () => {
       const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
       const errors = []; page.on('pageerror', e => errors.push(e.message))
       await page.goto('/byob')
       assert.equal(await page.locator('#account').innerText(), 'My shelf')
+      assert.equal(await page.locator('#account-phone').innerText(), 'My shelf')
       await page.locator('#file').setInputFiles(TEXT)
       await page.waitForURL(url => url.pathname === '/library')
       await page.waitForFunction(() => { const s = document.querySelector('[data-testid="own-file-dialog"] .own-file-dialog')?.dataset.step; return s && s !== 'choose' && s !== 'checking' }, null, { timeout: 30000 })

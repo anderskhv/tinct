@@ -2,58 +2,76 @@
   "schemaVersion": 1,
   "workId": "king-lear",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Kærlighed gøres offentlig",
-      "text": "Lears deling af riget gør familietale til politisk prøve. Gloucesters hjem indfører en parallel forstyrrelse."
+      "title": "Første akt, scene 1 · Kortet · At give et kongerige væk",
+      "text": "Lear vil give døtrene land efter styrken af deres kærlighedserklæringer. Samtidig vil han beholde kongenavnet og et anseligt følge. Ceremonien går galt, før nogen har regnet ud, hvem der skal betale for hestene og bespise mændene."
     },
     {
-      "title": "Myndighed afklædes og afprøves",
-      "text": "Rejser gennem hjem og åbne landskaber afprøver loyalitet, når status ikke længere sikrer lydighed."
+      "title": "Første akt, scene 2 · To fædre tyder deres børn",
+      "text": "Lear hører Cordelia nægte at kappes med søstrene. Gloucester læser et brev om sønnen Edgar, som hans anden søn Edmund giver ham. I begge huse har det barn, der hjælper med at tyde beviserne, selv noget på spil i tolkningen."
+    },
+    {
+      "title": "Første akt, scene 3 – tredje akt · Stormen · Hvem kan komme ind?",
+      "text": "Striden om størrelsen på Lears følge bliver et spørgsmål om ly. Udenfor opdager en gammel mand, der er vant til at befale andre at opvarte ham, hvem der længe har stået udsat for vejret uden følge eller tag."
+    },
+    {
+      "title": "Fjerde og femte akt · Dover · Møder under ændrede vilkår",
+      "text": "På vejen leder folk fremmede, bringer bud og møder mennesker, de kendte under andre forhold. En omsorgshandling kan kræve, at man skjuler sin identitet. Nyt om hærene trænger ind i de usikre møder."
     }
   ],
   "people": [
     {
-      "name": "Lear",
-      "role": "Konge og far",
-      "text": "Aldrende konge, der fordeler magt."
+      "name": "Cordelia, Goneril og Regan",
+      "role": "Lears døtre og kommende værter",
+      "text": "De ældre søstre giver de veltalende svar, faren belønner. Cordelia modsætter sig kravet. Senere bliver det at huse en konge, der stadig opfører sig som hersker, et dagligt problem ud over alt, hvad der blev sagt under ceremonien."
     },
     {
-      "name": "Cordelia",
-      "role": "Datter",
-      "text": "Hans yngste datter."
+      "name": "Edmund og Edgar",
+      "role": "Gloucesters sønner",
+      "text": "Edgar har en retmæssig arvings tryghed. Edmund har hørt faren spøge offentligt om hans fødsel. Hans vrede over en reel uret giver ham et virksomt middel til at vinde sympati for de handlinger, han vælger."
     },
     {
-      "name": "Gloucester",
-      "role": "Far i parallelhandlingen",
-      "text": "Adelsmand med egen familiekonflikt."
+      "name": "Kent og narren",
+      "role": "Tjenere, som siger kongen imod",
+      "text": "Kent risikerer landflygtighed ved at modsige Lear. Narren når lidt længere ved at forklæde kritik som sang eller spøg. Også han må stadig afprøve, hvor megen sandhed kongen kan tåle på én gang."
     }
   ],
   "context": [
     {
-      "title": "Magt og afhængighed",
-      "level": "recommended",
-      "text": "Overdraget styre ophæver ikke behovet for husly, tjeneste og kærlighed. Lear vil bevare forventninger efter at have ændret grundlaget.",
-      "takeaway": "Spørg, hvad hvert krav bygger på."
+      "title": "Hvad Lear venter sig af sit otium",
+      "text": "Lear deler regeringsmagten, mens han forbeholder sig en herskers hædersbevisninger og bevæbnede følge. Døtrene arver reelt ansvar uden fælles forståelse af den tilhørende myndighed. Striden kan begynde med opførslen i én larmende husholdning.",
+      "level": "recommended"
     },
     {
-      "title": "Parallelle hjem",
-      "level": "optional",
-      "text": "Familiehandlingerne spejler hinanden uden at være ens. Sammenligningen viser forskellige fejldomme og loyaliteter.",
-      "takeaway": "Se forskelle i ligheden."
+      "title": "Forklædningen flytter ind i familien",
+      "text": "Forvisning og anklager gør et genkendeligt ansigt farligt. Publikum kan vide, hvornår et barn hjælper en forælder, som kun ser en fremmed. Forskellen giver et tilsyneladende almindeligt tilbud om hjælp en usædvanlig ømhed.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Følg tøj, husly og udsatte kroppe.",
-      "why": "Rang bliver sårbar over for materielle behov."
+      "text": "Hvornår spørger Lear en anden, om han fryser?",
+      "why": "Et lille spørgsmål om en andens krop kan vise en stor ændring i, hvad kongen er i stand til at bemærke. Hans skarpeste politiske opdagelser kommer, efter at han har mistet magten til at føre politik."
     },
     {
-      "text": "Lyt til ligefrem tale og smiger.",
-      "why": "Sandhed og belønning skilles ofte."
+      "text": "Hør, hvordan tallene skrumper.",
+      "why": "Et rige deles, følget tælles, og parterne spørger, hvor mange mænd kongen egentlig behøver. Et tilsyneladende praktisk regnestykke kommer tæt på spørgsmålet om, hvad ethvert menneske behøver for at leve menneskeligt.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 9,
+          "paragraphIndex": 104,
+          "quote": "ræsonnér ikke om behovet"
+        }
+      ]
+    },
+    {
+      "text": "Hvem løber risikoen ved at sige stop?",
+      "why": "Befalinger kræver stadig nogen til at udføre dem. En beskeden biperson kan vise en ordres moralske pris ved at protestere, mens det endnu er muligt at handle."
     }
   ],
   "opening": "Lear fordeler riget efter døtrenes overdådige kærlighedserklæringer. Han vil opgive regeringsarbejdet og beholde respekt, komfort og myndighed. Én datter nægter den forventede tale. Følgerne spreder sig fra familieceremonien til et land, hvor mennesker må vælge mellem sandhed og sikkerhed. Shakespeare fratager den gamle konge de ordninger, der fik ham til at føle sig elsket, og lader andre opdage, hvad de skylder ham uden kronen, når hans krav ikke længere støttes af den magt, han har givet væk."

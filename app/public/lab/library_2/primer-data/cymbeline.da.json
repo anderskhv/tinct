@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "cymbeline",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Et bestridt ægteskab",
-      "text": "Hoffets modstand skiller Imogen og Posthumus og lader andre styre deres viden om hinanden."
+      "title": "Første og anden akt · Et sovekammer i Britannien og et væddemål i Rom",
+      "text": "Imogens far landsforviser hendes mand. I udlandet indgår Posthumus et væddemål om den hustru, han netop har måttet forlade. Med Iachimos rejse kommer vi på begge sider af havet. Vi ser, hvordan han skaffer sig sin viden, før vi hører, hvad han bruger den til i Rom."
     },
     {
-      "title": "Spredte rejser",
-      "text": "Intriger, rejser og krig udvikles forskellige steder, før beretningerne må samles."
+      "title": "Tredje og fjerde akt · Beskeder fører folk bort fra hoffet",
+      "text": "Et brev har lettere ved at krydse afstanden mellem Italien og Britannien, end ægtefællerne har ved at spørge hinanden til råds. Ordrer, løfter og forklædninger fører handlingen til Wales. I en hule møder en prinsesse en gæstfrihed, som hun har haft ringe grund til at vente af folk på sin fars slot."
+    },
+    {
+      "title": "Femte akt · Slagmarken bringer fremmede ind i hinandens historier",
+      "text": "Britannien og Rom har deres egen strid om tribut. Da hærene mødes, befinder mennesker, der er rejst af dybt personlige grunde, sig pludselig i den samme begivenhed. Publikum har kunnet følge flere rejser. Personerne må endnu finde ud af, hvis historie de hver især er havnet i."
     }
   ],
   "people": [
     {
       "name": "Imogen",
-      "role": "Prinsesse",
-      "text": "Cymbelines datter."
+      "role": "Cymbelines datter og Posthumus' hustru",
+      "text": "Hun har allerede trodset kongen ved at gifte sig med den mand, hun stoler på. En stor del af handlingen opstår derefter ved, at andre taler om hende i rum, hvor hun ikke er til stede. Hendes egen opfindsomhed træder frem, da hun må rejse og selv afgøre, hvis hjælp hun tør tage imod."
     },
     {
-      "name": "Posthumus",
-      "role": "Landsforvist ægtemand",
-      "text": "Hendes mand, forvist fra hoffet."
+      "name": "Posthumus og Iachimo",
+      "role": "Ægtemanden og den fremmede, han vædder med",
+      "text": "Posthumus opfatter sin vished om Imogens troskab som en hyldest til hende. Iachimo ser, at den kan gøres til en dyst mellem mænd. De diskuterer værdien af en ring og en kvindes troskab uden at spørge, hvem der gav nogen af dem ret til at sætte den sidste på spil."
     },
     {
-      "name": "Iachimo",
-      "role": "Udfordrer",
-      "text": "Vædder på at kunne miskreditere hendes troskab."
+      "name": "Pisanio",
+      "role": "Tjener med begge ægtefællers tillid",
+      "text": "Pisanio kan bringe et brev frem, læse det og tage stilling til, hvad lydighed mod afsenderen vil indebære. Netop fordi hans herre er så sikker på at blive adlydt, kommer tjeneren i en situation, hvor han selv må dømme."
     }
   ],
   "context": [
     {
-      "title": "Beviser på afstand",
-      "level": "recommended",
-      "text": "Adskillelse lader beretninger og ting erstatte direkte viden. En troværdig detalje kan indgå i en falsk forklaring.",
-      "takeaway": "Skeln sand iagttagelse fra sand beretning."
-    },
-    {
-      "title": "Romance frem for realisme",
-      "level": "optional",
-      "text": "Tilfældighed, forklædning og usandsynlig overlevelse hører til formen. Genkendelse og fejltagelse er centrale glæder.",
-      "takeaway": "Følg relationerne gennem usandsynlighederne."
+      "title": "Hvad en oplysning kan bevise",
+      "text": "En fremmed, der kender møblerne i et sovekammer, kan lyde overbevisende, når han påstår at kende den, der sover der, intimt. Men kendskab til møblerne kan have en anden forklaring. Stykket viser både, hvordan en mand skaffer sig en oplysning, og hvordan han får en anden til at tro på sin udlægning af den.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Følg tegn og breve.",
-      "why": "Flytbare beviser får betydninger, ejeren ikke tilsigtede."
+      "text": "Følg armbåndet og ringen, da de elskende skilles.",
+      "why": "I begyndelsen får tingene deres værdi i en privat udveksling mellem to mennesker. Senere kan en genstand vises frem for en mand, der ikke aner, hvordan den er kommet til stede. Vi husker den følelse, der var knyttet til den, mens vi ser den få en ganske anden værdi som bevis.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 2,
+          "paragraphIndex": 15,
+          "quote": "Han lægger et armbånd om hendes arm."
+        }
+      ]
     },
     {
-      "text": "Se, hvem der tror vidnesbyrd for hurtigt.",
-      "why": "Sikkerhed kan udtrykke utryghed frem for forståelse."
+      "text": "Hør, hvad Imogen hører i navnet Milford Haven.",
+      "why": "For en hærfører er det et sted på et kort. For Imogen rummer det et løfte om en person, hun håber at se. Et stednavn fører kærlighedshistorien og krigen ad samme vej, mens de rejsende forestiller sig vidt forskellige mål."
     }
   ],
   "opening": "Imogen gifter sig mod sin fars ønske og stoler på en mand, hvis tillid snart prøves grotesk. En anden vædder på at kunne bevise hendes utroskab. Han behøver ikke vinde hendes kærlighed, hvis han kan fremstille beviser overbevisende nok til at sende bort. Shakespeare placerer faren i et Britannien med hofintriger, forklædninger og krigstrusler. Eventyrene vokser omkring en enkel krænkelse: den, der siger, han elsker en kvinde, kan lettere tro en fremmeds fremstilling end hendes egen."

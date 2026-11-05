@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "macbeth",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "En mulighed får greb",
-      "text": "Begyndelsen følger en forudsigelse ind i private overvejelser og mulig handling."
+      "title": "Første akt · Et løfte uden anvisninger",
+      "text": "Heksene forudsiger en kongekrone. De siger aldrig, at Macbeth skal dræbe kongen. Fra spådommen lyder, til Duncan kommer som gæst, finder Macbeth og hans hustru selv på en god del af det, der skal til."
     },
     {
-      "title": "At beholde magten",
-      "text": "Resten undersøger arbejdet med at bevare myndighed, mens frygt ændrer Macbeths verden."
+      "title": "Anden og tredje akt · En krone uden søvn",
+      "text": "Mordet, som skulle gøre ende på uvisheden, gør hver lyd i huset uudholdelig. Macbeth opdager, at han kan give ordrer bag selv sin hustrus ryg. Ved et middagsselskab skal det nye kongepar for første gang rigtigt stå sin prøve."
+    },
+    {
+      "title": "Fjerde og femte akt · Landet uden for slottet",
+      "text": "Macbeth søger nye forsikringer. Imens viser en familie, landflygtige mænd og soldater, hvad hans jagt på sikkerhed koster mennesker, som aldrig har hørt en spådom. Skotland træder frem som et land, der skal overleve sin konge."
     }
   ],
   "people": [
     {
-      "name": "Macbeth",
-      "role": "Soldat og than",
-      "text": "En hyldet soldat."
-    },
-    {
       "name": "Lady Macbeth",
-      "role": "Hustru og fortrolig",
-      "text": "Hans hustru og første fortrolige."
+      "role": "Macbeths nærmeste medspiller",
+      "text": "Hun kender sin mands indvendinger og ved, hvordan hun får ham til at skamme sig over dem. Hendes blik for tøj, miner og døre gør forehavendet muligt. Et værelse viser sig lettere at bringe i orden end et ansigt."
     },
     {
       "name": "Banquo",
-      "role": "Våbenfælle",
-      "text": "Hans våbenfælle, der også hører heksenes ord."
+      "role": "Den anden tilhører til spådommen",
+      "text": "Han hører løfter om sine efterkommere. Fordi der er to soldater til stede, kan stykket vise dem høre de samme stemmer og drage vidt forskellige slutninger om, hvad de selv skal gøre."
     }
   ],
   "context": [
     {
-      "title": "Profeti og valg",
-      "level": "recommended",
-      "text": "Forudsigelser giver Macbeth viden uden at fortælle, hvad han skal gøre. Afstanden mellem at høre et løfte og handle på det betyder noget hele vejen.",
-      "takeaway": "Se, hvornår fortolkning bliver tilladelse."
+      "title": "En konge på overnatning",
+      "text": "Duncan kommer som Macbeths konge, slægtning og gæst. Hvert forhold forpligter værten til at beskytte ham. Forberedelserne til at svigte alle tre pligter ligner påfaldende arbejdet med at få et besøg til at lykkes.",
+      "level": "recommended"
     },
     {
-      "title": "Kongemagt og gæstfrihed",
+      "title": "Hvad en spådom lader stå åbent",
+      "text": "Macbeth hører en spådom om en titel, han endnu ikke har. Den første forudsigelse opfyldes næsten omgående ved en andens beslutning. Det giver ham grund til at tro på den næste uden at afgøre, hvad han selv behøver at foretage sig.",
       "level": "optional",
-      "text": "En gæst under ens tag har krav på beskyttelse. Kongens besøg forstærker pligten og gør hjemmet til en del af magtens legitimitet.",
-      "takeaway": "Huset er mere end en kulisse."
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 3,
+          "paragraphIndex": 20,
+          "quote": "Hil dig, Macbeth! Du skal blive konge herefter!"
+        }
+      ]
     }
   ],
   "notice": [
     {
-      "text": "Følg søvn, blod og tøj.",
-      "why": "Gentagne billeder gør ambitionens erfaring kropslig og nær."
+      "text": "Hvem bestemmer, hvad en mand er?",
+      "why": "Macbeth blev rost for sit mod i krig. Hjemme kan det samme ideal bruges til at få ham til at dræbe en sovende gæst. Senere finder en anden ægtemand ord for en mandighed, der levner plads til sorg."
     },
     {
-      "text": "Bemærk Macbeths sprog om usikkerhed.",
-      "why": "Mulighed kan gå fra invitation til trussel."
+      "text": "Lyt til bankningen efter mordet.",
+      "why": "Nogen udenfor forventer ganske enkelt, at døren bliver åbnet. Det viser sig at kræve en foruroligende indsats at få huset tilbage i hverdagens rytme."
     }
   ],
   "opening": "Macbeth er en succesfuld soldat, da tre fremmede fortæller ham, at han skal være konge. Han kunne vente og se, om de får ret. I stedet begynder han at forestille sig, hvad der må ske for at give dem ret, og hans hustru ser en mulighed, han knap tør nævne. Shakespeare følger ambitionen fra dens første private tilladelse ind i det praktiske arbejde med at beholde magten. Den uhyggelige nærhed ligger i, at Macbeth kan se, hvad han bliver til, mens han stadig vælger det."

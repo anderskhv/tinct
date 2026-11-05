@@ -2,67 +2,107 @@
   "schemaVersion": 1,
   "workId": "frankenstein",
   "language": "en",
-  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "opening": "Victor Frankenstein dreams of a species that will love and bless him. He works in secret, neglects his family, and discovers how to create life, only to flee when the being he has made opens its eyes. Abandoned, the creature learns to speak and watches a family offer one another the affection he wants for himself. When he finally finds Victor, he can explain what his creator has done to him, and the scientist who wanted gratitude must answer a demand.",
+  "revision": 6,
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Letters around a confession",
-      "text": "Walton's Arctic letters contain Victor's account. The reader encounters an ambitious listener before hearing the ambitious man he admires."
+      "title": "Letters 1–4 · Walton’s letters · An ambition looking for an audience",
+      "text": "An explorer writes to his sister about the discovery he hopes will justify a dangerous voyage. He also wants a friend capable of understanding him. Before Victor speaks, Shelley establishes the ambitions and needs of the man who will listen."
     },
     {
-      "title": "A voice within a voice",
-      "text": "The creature's account enters Victor's narrative, before the enclosing voices resume. Each speaker asks someone else to understand him."
+      "title": "Chapters 1–10 · Victor’s account · The achievement and the life around it",
+      "text": "Victor tells how his childhood interests become an absorbing scientific project. Family, friendship, health, and ordinary obligations recede as success approaches. His account asks us to understand how he arrived at his choices; it also reveals what those choices kept out of view."
+    },
+    {
+      "title": "Chapters 11–16 · The creature’s account · Someone described begins to speak",
+      "text": "Inside Victor’s story, the creature receives room to tell his own. Learning, bodily need, and encounters with other people give substance to a life previously presented through its creator’s horror. Listen for how the same events change when the person experiencing them can explain them."
+    },
+    {
+      "title": "Chapters 17–24 · The enclosing stories resume · What will the listeners do?",
+      "text": "The novel returns through the voices that brought us inward. Each man has heard an account that asks something of him. The frame gives listening a consequence: understanding a story and acting differently because of it are separate achievements."
     }
   ],
   "people": [
     {
       "name": "Victor Frankenstein",
-      "role": "Student and creator",
-      "text": "A gifted young Genevan who becomes obsessed with discovering the secret of life, and works alone in his rooms at university to master it."
+      "role": "Student of natural philosophy and creator",
+      "text": "Victor wants the distinction of discovering something nobody else has achieved. He narrates much of the novel himself, so the reader encounters both his suffering and his explanation of it. Notice when he describes a choice as though it were something that simply happened to him."
     },
     {
       "name": "The creature",
-      "role": "Created being",
-      "text": "The being Victor makes, who wakes alone and must learn to speak, read and understand what he is, mostly by watching others."
+      "role": "The life Victor brings into being",
+      "text": "He must learn what his senses mean, how language works, and what people expect of one another. His appearance reaches others before his intentions do. Giving him a voice allows the novel to test judgments made before anyone has heard him."
     },
     {
       "name": "Robert Walton",
-      "role": "Explorer and correspondent",
-      "text": "A young English explorer bound for the North Pole, whose letters to his sister frame the whole story and who shares Victor's ambition."
+      "role": "Explorer and first listener",
+      "text": "Walton’s letters open the book. He hopes discovery will bring glory and human benefit, and he longs for someone who shares his aspirations. His admiration matters: Victor’s account arrives before a listener who already wants to find greatness in him."
+    },
+    {
+      "name": "Elizabeth Lavenza and Henry Clerval",
+      "role": "The people with claims on Victor’s attention",
+      "text": "Elizabeth belongs to Victor’s family life; Henry is his close friend. Their letters, visits, interests, and acts of care make the life outside his project substantial. They also show how little the people closest to someone may know about what occupies him."
     }
   ],
   "context": [
     {
-      "title": "Creation and care",
+      "title": "Creation creates a dependent life",
       "level": "recommended",
-      "text": "Victor's achievement creates a dependent being. The novel follows needs that discovering a scientific technique does not itself answer.",
-      "takeaway": "Making life begins an obligation.",
-      "passages": [
-        {
-          "editionKey": "original-en",
-          "chapterNumber": 9,
-          "paragraphIndex": 0,
-          "quote": "I might infuse a spark of being into the lifeless thing"
-        }
-      ]
+      "text": "Victor imagines the gratitude of the beings he will create before he has met one. The creature’s arrival introduces needs that admiration cannot satisfy: care, guidance, protection, and companionship. Reading with those needs in view makes it harder to treat the experiment as a finished achievement followed by an unrelated problem."
     },
     {
-      "title": "Paradise Lost",
+      "title": "Natural philosophy and the promise of discovery",
       "level": "optional",
-      "text": "Milton's account of creation and rebellion gives the creature language for thinking about his maker. No prior reading is required.",
-      "takeaway": "Literary models help him describe his position."
+      "text": "Natural philosophy studied nature and its causes, encompassing much of what we now call science. Victor moves between older speculative writers and newer experimental study. No scientific preparation is needed: follow what he wants knowledge to let him do, and how his teachers and reading change that ambition."
+    },
+    {
+      "title": "Paradise Lost gives the creature a family story",
+      "level": "optional",
+      "text": "Milton’s poem offers figures through whom a created being can understand his relation to a creator: Adam, made and cared for, and Satan, estranged and rebellious. The creature finds both comparison and difficulty in these models. You can follow the novel without having read Milton."
     }
   ],
   "notice": [
     {
-      "text": "Notice who controls each account.",
-      "why": "Being allowed to speak changes the apparent balance of responsibility."
+      "text": "Listen for admiration where someone needs care.",
+      "why": "Walton wants a kindred spirit; Victor imagines a grateful species. Both can picture an audience for achievement more readily than the daily work of a relationship. Notice what happens when another person’s needs interrupt that picture.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 2,
+          "paragraphIndex": 3,
+          "quote": "I have no friend, Margaret"
+        }
+      ]
     },
     {
-      "text": "Compare admiration with acts of care.",
-      "why": "Grand ambitions can coexist with neglected immediate obligations."
+      "text": "Watch the names Victor gives the creature.",
+      "why": "Terms of disgust can make a judgment feel settled before the creature speaks. Compare those labels with the actions and experiences being described. Language can help Victor explain his response while keeping the being who provoked it at a distance.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 9,
+          "paragraphIndex": 1,
+          "quote": "How can I describe my emotions at this catastrophe"
+        }
+      ]
+    },
+    {
+      "text": "Follow the ordinary work of sustaining life.",
+      "why": "Food, shelter, warmth, language, and company occupy the creature’s attention. These needs give creation a scale that the spectacular moment in the laboratory cannot contain. Small acts of help or refusal can matter as much as grand declarations."
+    },
+    {
+      "text": "Notice what the landscapes can and cannot relieve.",
+      "why": "Mountains and ice offer beauty, exhilaration, and temporary release. They can quiet a feeling without resolving the relationship behind it. Shelley repeatedly places people in enormous spaces while leaving their need for another person painfully close.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 14,
+          "paragraphIndex": 0,
+          "quote": "although they did not remove my grief"
+        }
+      ]
     }
-  ],
-  "opening": "Victor Frankenstein dreams of a species that will love and bless him. He works in secret, neglects his family, and discovers how to create life, only to flee when the being he has made opens its eyes. Abandoned, the creature learns to speak and watches a family offer one another the affection he wants for himself. When he finally finds Victor, he can explain what his creator has done to him, and the scientist who wanted gratitude must answer a demand."
+  ]
 }

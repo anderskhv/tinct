@@ -2,58 +2,50 @@
   "schemaVersion": 1,
   "workId": "phaedo",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "En husket samtale",
-      "text": "Faidon fortæller om Sokrates' sidste dag. Fængslet danner ramme om argumenter om døden og sjælen."
+      "title": "Den sidste dag – Filosoffen og døden · En ven husker den sidste dag",
+      "text": "Faidon beskriver fængslet for en mand, der ikke var til stede. Før argumenterne begynder, ved vi, at nogen måtte bære dem ud af rummet sammen med minderne om gråd, latter og lænkerne, der blev taget af Sokrates."
     },
     {
-      "title": "Indvending og svar",
-      "text": "Venner udfordrer argumenterne og tvinger skellet frem mellem trøstende tro og holdbar forklaring. Slutscenen fører argumentet tilbage til kroppen."
+      "title": "Argumentet fra modsætninger – Affinitetsargumentet · Flere grunde til, at sjælen kan overleve",
+      "text": "Sokrates forsøger sig med modsætninger, erindring og sjælens lighed med det uforanderlige. Argumenterne besvarer forskellige spørgsmål. At sjælen fandtes før kroppen, lader for eksempel dens skæbne efter døden stå åben."
+    },
+    {
+      "title": "Indvendingerne – Sokrates’ død · Indvendingerne når frem til sengen",
+      "text": "To venner siger det, alle helst vil skåne en døende for at høre. Sokrates tager imod indvendingerne, fortæller om sin egen fejlslagne søgen efter årsager og prøver et nyt argument, før døden kræver praktiske forberedelser."
     }
   ],
   "people": [
     {
-      "name": "Sokrates",
-      "role": "Dødsdømt filosof",
-      "text": "Forbereder sig på døden."
+      "name": "Simmias",
+      "role": "Vennen med den musikalske indvending",
+      "text": "Et stemt instrument frembringer en harmoni, der er vanskeligere at gribe end træ og strenge. Knuses instrumentet, kan harmonien alligevel gå til grunde. Eksemplet udfordrer slutningen fra sjælens usynlighed til dens varighed."
     },
     {
-      "name": "Simmias og Kebes",
-      "role": "Spørgende venner",
-      "text": "Venner, der fremsætter indvendinger."
-    },
-    {
-      "name": "Faidon",
-      "role": "Vidne og fortæller",
-      "text": "Vidnet, der genfortæller samtalen."
+      "name": "Kebes",
+      "role": "Vennen, der forestiller sig en væver",
+      "text": "En væver kan overleve mange kapper og alligevel dø, før den sidste er slidt op. Kebes indrømmer Sokrates langt mere end Simmias og viser, hvorfor selv denne indrømmelse lader hovedspørgsmålet stå åbent."
     }
   ],
   "context": [
     {
-      "title": "Krop og sjæl",
-      "level": "recommended",
-      "text": "Dialogen undersøger, om sjælen kan skilles fra kroppens liv. Den fremfører flere argumenter i stedet for at behandle overlevelse som bevist.",
-      "takeaway": "Hold argumenternes konklusioner adskilt."
-    },
-    {
-      "title": "Former",
-      "level": "optional",
-      "text": "Lighed, skønhed og andre stabile tankeobjekter understøtter påstande om viden og sjæl. De er filosofiske forslag, ikke almindelige synlige ting.",
-      "takeaway": "Spørg, hvad det foreslåede objekt forklarer."
+      "title": "Hvad tæller som årsag?",
+      "text": "Knogler og muskler gør det fysisk muligt for Sokrates at sidde i fængslet. Hans beslutning om at acceptere dommen forklarer, hvorfor han sidder netop her i dag. Det jordnære skel åbner den senere undersøgelse af forklaringens natur.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk tøven med at gøre indsigelse.",
-      "why": "Venskab kan gøre intellektuel ærlighed følelsesmæssigt svær."
+      "text": "Hvem tøver med at tale?",
+      "why": "Vennernes omsorg kan friste dem til at tie med en indvending. I rummet mærkes prisen for en ærlig undersøgelse, når både svaret og de andre betyder så meget."
     },
     {
-      "text": "Skeln mellem bevis og mytisk beskrivelse.",
-      "why": "Samtalen bruger forskellige former for forsikring."
+      "text": "Hold øje med fortælleren.",
+      "why": "Faidon husker følelsen, da et argument så ud til at bryde sammen. Tilhørernes modløshed bliver selv en begivenhed, der kræver opmærksomhed, før bevisførelsen kan fortsætte."
     }
   ],
   "opening": "Sokrates' venner kommer til fængslet og ved, at han skal dø den dag. Han vil diskutere, om døden bør skræmme dem, og om sjælen kan overleve kroppen. De lytter, protesterer og frygter, at hengivenheden gør dem for villige til at tro ham. Platon stiller et argument om udødelighed ved siden af det konkrete tab af en ven. Hver indvending bærer to pres: behovet for et svar, der holder, og ønsket om, at det kan trøste, før tiden løber ud."

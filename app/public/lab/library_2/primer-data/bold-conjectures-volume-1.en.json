@@ -2,42 +2,50 @@
   "schemaVersion": 1,
   "workId": "bold-conjectures-volume-1",
   "language": "en",
-  "revision": 4,
+  "revision": 6,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Interviews and short questions",
-      "text": "Opening conversations examine quantum theory, reality, truth, and computation through focused exchanges with David Deutsch."
+      "title": "Robert Lawrence Kuhn: Closer To Truth · Kuhn keeps the first conversations short",
+      "text": "Robert Lawrence Kuhn can spend an entire exchange on what Deutsch means by a world. Just when the answer begins to make sense, Kuhn tries to restate it in his own terms. Deutsch's correction often marks the place where an everyday picture of space or time has slipped back into the question."
     },
     {
-      "title": "Connections across subjects",
-      "text": "Longer interviews extend into creativity, knowledge, politics, and human possibilities. Different interviewers bring different assumptions to recurring ideas."
+      "title": "Micah Redding – Logan Chipkin · Longer interviews give objections time to develop",
+      "text": "The format opens out with Micah Redding, John Horgan and Logan Chipkin. A question about humanity's future can lead back to what counts as an explanation. Chipkin takes the opposite route and asks what a precise idea in physics might allow someone to do with information."
+    },
+    {
+      "title": "Bruce Nielson – Peter Boghossian · Several people put the same philosophy to different uses",
+      "text": "An economist, a computer scientist and a parent can each hear something different in the claim that people create knowledge. The later conversations range from mathematics to child-rearing. Their company matters. Bédard's discussion includes another physicist, Charles Bennett, as well as an audience able to press the speakers on what they mean."
     }
   ],
   "people": [
     {
       "name": "David Deutsch",
-      "role": "Physicist and philosopher",
-      "text": "An Oxford physicist, pioneer of quantum computation and author of The Fabric of Reality and The Beginning of Infinity, interviewed here over several years."
+      "role": "Physicist answering across several decades of conversations",
+      "text": "Deutsch has to explain his position anew to each host. A phrase that passes without comment in one interview can take up much of another. The recordings also come from different dates, so a later formulation may give a different account of a question that seemed settled earlier in the volume."
     },
     {
-      "name": "Explanation",
-      "role": "Object of inquiry",
-      "text": "The idea Deutsch keeps returning to: knowledge grows by conjecturing explanations of how the world works and criticising them, not by piling up observations."
+      "name": "Robert Lawrence Kuhn",
+      "role": "Interviewer at Closer To Truth",
+      "text": "Kuhn often gives Deutsch the benefit of a proposed analogy, then asks whether he has it right. The exchange gives the reader a rare opportunity to hear two people locate the exact point where their pictures of the same universe come apart."
     },
     {
-      "name": "Universality",
-      "role": "General capacity",
-      "text": "Deutsch's claim that people, as creators of explanations, can in principle understand anything that can be understood; the reach of explanation has no fixed limit."
+      "name": "Logan Chipkin",
+      "role": "Editor and one of the interviewers",
+      "text": "Chipkin assembled conversations originally addressed to separate audiences. He also appears asking about constructor theory, so the reader can see what interests the editor when he has an opportunity to put a question to Deutsch himself."
     }
   ],
   "context": [
     {
-      "title": "Conversations across time",
-      "level": "recommended",
-      "text": "These interviews were recorded at different dates. An answer represents its conversation and may not express the speaker's latest position.",
-      "takeaway": "Keep dates and questions attached to answers.",
+      "title": "The job Deutsch gives an explanation",
+      "text": "Two people can agree on what an instrument will register and disagree about what makes it register that way. In the interviews about quantum physics, Deutsch wants the second question pursued even when the first has an excellent answer. His dissatisfaction with a prediction alone carries over into other subjects.",
+      "level": "recommended"
+    },
+    {
+      "title": "A transcript holds on to the false start",
+      "text": "Time stamps, interruptions and restatements preserve the circumstances of a remark. Reading an answer together with the next speaker's attempt to repeat it can clear up an apparent contradiction more quickly than studying the answer by itself.",
+      "level": "optional",
       "passages": [
         {
           "editionKey": "original-en",
@@ -46,22 +54,24 @@
           "quote": "David Deutsch’s views may have changed since the times"
         }
       ]
-    },
-    {
-      "title": "A connected worldview",
-      "level": "optional",
-      "text": "Ideas from physics and knowledge theory recur in discussions of other subjects. Their reach is part of what the interviews invite readers to test.",
-      "takeaway": "A connection needs an argument."
     }
   ],
   "notice": [
     {
-      "text": "Compare answers to similar questions.",
-      "why": "Repetition can reveal a distinction obscured in a single formulation."
+      "text": "Listen for the small word Kuhn hesitates to use about time.",
+      "why": "In one early exchange he wants to say that worlds exist at the same time and catches himself. Deutsch's reply makes time a feature to be explained within the multiverse. A hesitation lasting a few seconds exposes the difficulty better than another definition could.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 3,
+          "paragraphIndex": 42,
+          "quote": "I don’t want to say co-temporally because that may confuse everything"
+        }
+      ]
     },
     {
-      "text": "Notice interviewers' objections.",
-      "why": "The question often determines what requires explanation."
+      "text": "Compare the questions that bring Deutsch back to computers.",
+      "why": "One host wants to know what the cosmos is made of. Another asks what a machine can calculate. The same vocabulary enters both answers, although establishing a limit on calculation and describing physical reality are different undertakings."
     }
   ],
   "opening": "David Deutsch takes the human ability to explain things seriously enough to give it consequences far beyond science. In these interviews, questions about knowledge open into arguments about computation, creativity, and what people might become capable of doing. The conversational form lets interviewers pause over claims a finished philosophical system might carry past too quickly. Across conversations recorded at different times, a reader can follow a powerful set of ideas being explained, challenged, and developed by someone willing to make unusually large claims for their reach."

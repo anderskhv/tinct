@@ -2,58 +2,68 @@
   "schemaVersion": 1,
   "workId": "wealth-of-nations",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Produktion og fordeling",
-      "text": "Begyndelsen undersøger arbejdsdeling, bytte, priser og indkomst og derefter kapitalens ophobning og anvendelse."
+      "title": "Bog I · En knappenål har mange magere",
+      "text": "Smith begynder i produktionen, hvor arbejdsdelingen ændrer en dags udbytte. Han følger varen gennem bytte og pris til arbejderens, kapitalejerens og jordbesidderens indkomster. Deres interesser kan skilles, selv når produktionen vokser."
     },
     {
-      "title": "Systemer og stat",
-      "text": "Senere bøger behandler historisk udvikling, konkurrerende økonomiske politikker samt offentlige udgifter og indtægter."
+      "title": "Bog II–III · Hvor kommer næste års arbejde fra?",
+      "text": "Beholdninger, der bevares og ophobes i dag, understøtter fremtidig produktion. Undersøgelsen bliver historisk. Forholdet mellem landbrug, byer og handel i Europa udviklede sig under institutioner, der ofte styrede investeringerne i uventede retninger."
+    },
+    {
+      "title": "Bog IV · Hvem vinder, når nationen siges at vinde?",
+      "text": "Handelsbegrænsninger, kolonier og rivaliserende økonomiske læresystemer prøves indgående. Købmanden kan fremstille en privat fordel som offentlig nødvendighed. Smith spørger igen og igen, hvem der skal betale mere for den lovede velstand."
+    },
+    {
+      "title": "Bog V · Nogen skal betale",
+      "text": "Forsvar, ret, veje, skoler og statsgæld bringer staten ind i regnskabet. Betalingen for en bro eller en lærer kan både ændre adgangen til ydelsen og leverandørens tilskyndelse til at udføre arbejdet godt."
     }
   ],
   "people": [
     {
       "name": "Arbejdsdeling",
-      "role": "Produktionsorganisering",
-      "text": "Specialisering i produktionen."
+      "role": "En kilde til udbytte med en menneskelig pris",
+      "text": "Specialisering øger færdigheden og sparer tid ved skift mellem opgaver. Langt senere vender Smith tilbage til arbejderen, hvis dag består af få greb, og til det ansvar, indsnævringen kan lægge på den offentlige undervisning."
     },
     {
-      "name": "Kapital",
-      "role": "Produktionsressourcer",
-      "text": "Opsamlede ressourcer anvendt i videre produktion."
+      "name": "Købmænd og fabrikanter",
+      "role": "Kyndige fortalere med egne interesser",
+      "text": "Deres praktiske viden gør dem overbevisende som vidner om handelslovene. Den investering, der giver dem indsigt, kan samtidig få en indskrænkning af konkurrenternes adgang til at ligne god offentlig politik."
     },
     {
-      "name": "Monopol",
-      "role": "Konkurrencebegrænsning",
-      "text": "Beskyttet magt, der begrænser konkurrence."
+      "name": "Den almindelige arbejder",
+      "role": "En målestok for, hvad rigdom kan købe",
+      "text": "Smith ser på de redskaber, klæder og dagligvarer, der forbinder én persons liv med fjerne håndværk. Arbejderens købekraft giver en anden målestok for nationens rigdom end skatten i statens besiddelse."
     }
   ],
   "context": [
     {
-      "title": "Politisk økonomi",
-      "level": "recommended",
-      "text": "Smith undersøger produktion inden for love, institutioner og sociale relationer. Bogen er bredere end et forsvar for ureguleret handel.",
-      "takeaway": "Følg institutioner sammen med individuelle interesser."
+      "title": "Kapital, løn, profit og jordrente",
+      "text": "Kapital omfatter ophobede midler til at opretholde eller udruste produktionen. Løn, profit og jordrente er forskellige krav på udbyttet. En vareprisstigning kan gavne én modtager og stille en anden dårligere.",
+      "level": "recommended"
     },
     {
-      "title": "Historisk ordforråd",
-      "level": "optional",
-      "text": "Ord som kapitalbeholdning og produktivt arbejde har bestemte funktioner hos Smith. Nutidige hverdagsbetydninger kan vildlede.",
-      "takeaway": "Lær definitionen, før du vurderer påstanden."
+      "title": "Guld over en landegrænse",
+      "text": "En regering, der vil beholde ædelmetaller, kan se udførsel som tab for landet. Smith spørger, hvilke varer, produktive evner og byttemuligheder der kommer den anden vej. Striden gælder, hvad der overhovedet skal føres i regnskabet.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk købmænds krav om særrettigheder.",
-      "why": "Egeninteresse kan modarbejde konkurrencens fælles goder."
+      "text": "Følg frakker og knappenåle ud af værkstedet.",
+      "why": "Specialisering afhænger af købere til en produktion langt ud over én husholdnings behov. En sejlbar flod eller en god vej kan ændre, hvor fint arbejdet i et fjernt værksted kan opdeles."
     },
     {
-      "text": "Følg arbejdernes vilkår.",
-      "why": "Stigende produktion besvarer ikke alle samfundsspørgsmål."
+      "text": "Hvem kan vente i en lønstrid?",
+      "why": "Arbejdere og arbejdsgivere kan begge frit afvise vilkår. Deres reserver og mulighed for at organisere sig kan alligevel give dem meget forskellig tid, før et afslag bliver umuligt."
+    },
+    {
+      "text": "Hvilken gruppe formulerede reglen?",
+      "why": "Smiths fremstilling af tolden skifter ofte karakter, når forslagsstillerne træder frem. Købere spredt over hele landet har måske ikke haft en lige så velformuleret stemme."
     }
   ],
   "opening": "En knappenål er ubetydelig, indtil Adam Smith undersøger fremstillingen. Arbejdsdeling lader en lille gruppe producere mængder, ingen enkeltperson kunne nærme sig, og iagttagelsen åbner mod hele samfunds rigdom. Smith følger arbejde, handel, priser og stat gennem de ordninger, der fylder middagsbordet. Han ser også købmænd søge særrettigheder og arbejdere betale fremskridtets pris. Økonomien bliver en menneskelig konstruktion, hvis bemærkelsesværdige produktivitet ikke garanterer, at gevinsterne bliver retfærdigt fordelt mellem dem, der er med til at skabe dem."

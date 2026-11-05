@@ -7,7 +7,8 @@ const DB = 'tinct-addbook-handoff';
 const STORE = 'file';
 const KEY = 'pending';
 export const HANDOFF_PARAM = 'handoff';
-export const HANDOFF_TTL_MS = 2 * 60 * 1000;
+// 30 minutes (5 Nov 2026): a file chosen on /byob waits through sign-in, and an emailed code can take minutes.
+export const HANDOFF_TTL_MS = 30 * 60 * 1000;
 
 function open() {
   return new Promise((resolve, reject) => {
@@ -37,6 +38,15 @@ export async function takeHandoff(now = Date.now()) {
   try {
     const record = await run('readonly', store => store.get(KEY));
     if (record) await run('readwrite', store => store.delete(KEY));
+    if (!record?.file || !(now - record.at >= 0 && now - record.at < HANDOFF_TTL_MS)) return null;
+    return record.file;
+  } catch { return null }
+}
+
+/** The handed-over File without taking it (sign-in shows its name), or null. */
+export async function peekHandoff(now = Date.now()) {
+  try {
+    const record = await run('readonly', store => store.get(KEY));
     if (!record?.file || !(now - record.at >= 0 && now - record.at < HANDOFF_TTL_MS)) return null;
     return record.file;
   } catch { return null }

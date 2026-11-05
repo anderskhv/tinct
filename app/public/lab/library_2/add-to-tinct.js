@@ -6,7 +6,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261009rel10';
+import {putHandoff,HANDOFF_PARAM} from '../addbook/js/file-handoff.js?v=20261105ttl30';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
 import {eraLabel} from './book-metadata.js?v=20261009rel10';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';

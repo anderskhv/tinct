@@ -17,7 +17,7 @@ import {categories,eras,metadata} from './taxonomy.js?v=20261009rel10';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261009rel10';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry,OWN_BOOKS_PAGE} from './add-to-tinct.js?v=20261014talkwake';
-import {takeHandoff} from '../addbook/js/file-handoff.js?v=20261009rel10';
+import {takeHandoff} from '../addbook/js/file-handoff.js?v=20261105ttl30';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
@@ -405,7 +405,7 @@ function renderOpening(body){
  // "Name – the ruler of Thebes…": an ordinary first word is lowercased after the dash; a name ("Socrates, who…",
  // "Mill's rule…") keeps its capital.
  const personLine=text=>/^(?:The|A|An|His|Her|Their|Its|One|Two|Three|Four|Five|For|In|On|Old|Ancient|Born|Twin|Spirits|Learning|Ordinary|Life|Chance|Forcing|Goodness|Exclusive)\b/.test(text)?text.replace(/^./,c=>c.toLowerCase()):text;
- const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',`${title}: `),document.createTextNode(text));return p;};
+ const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',/[?!:]$/.test(String(title).trim())?`${String(title).trim()} `:`${title}: `),document.createTextNode(text));return p;};
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
  // People read as a plain cast list: name, then who they are; no bold, no role line (Anders, 2 Nov 2026).
  if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${personLine(item.text)}`)))));

@@ -2,66 +2,50 @@
   "schemaVersion": 1,
   "workId": "apology",
   "language": "da",
-  "revision": 3,
+  "revision": 6,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Forsvar",
-      "text": "Sokrates svarer på gamle mistanker og formelle anklager ved at forklare sin udspørgen af angiveligt kyndige borgere."
+      "title": "Forsvaret · Et rygte står for retten",
+      "text": "Før Sokrates svarer på anklagerne, tager han fat på et ældre billede af sig selv blandt dommerne. Beretningen om spørgsmål til politikere, digtere og håndværkere forklarer både hans virke og de mange menneskers modvilje mod ham."
     },
     {
-      "title": "Straf og afsked",
-      "text": "De senere taler overvejer en passende straf og henvender sig til dem, der dømmer ham. Hans optræden forbliver en del af argumentet."
+      "title": "Straffen · Sæt selv en pris",
+      "text": "Et nyt spørgsmål fra retten tvinger Sokrates til at sige, hvilken behandling hans liv fortjener. Hans forslag viser, hvor langt han vil gå i retning af rettens vurdering af den tjeneste, han har gjort Athen."
+    },
+    {
+      "title": "De sidste ord · To tilhørerskarer",
+      "text": "Sokrates taler forskelligt til de borgere, der stemte imod ham, og dem, der støttede ham. Døden kunne have været det stærkeste argument for at trygle. Nu bliver den endnu et emne, nogen måske hævder at vide for meget om."
     }
   ],
   "people": [
     {
-      "name": "Sokrates",
-      "role": "Anklaget",
-      "text": "Den anklagede."
-    },
-    {
       "name": "Meletos",
-      "role": "Anklager",
-      "text": "En af anklagerne."
+      "role": "En anklager må selv svare",
+      "text": "Sokrates er anklaget for at fordærve de unge. I den korte udveksling spørger han, hvem der egentlig gør dem bedre. Anklagen mod én mands indflydelse bliver til en langt større påstand om opdragelse."
     },
     {
-      "name": "Dommerne",
-      "role": "Borgerdommere",
-      "text": "Borgere med myndighed til at afgøre sagen."
+      "name": "Chairefon",
+      "role": "Vennen, der spurgte Delfi",
+      "text": "Hans spørgsmål til oraklet stiller Sokrates over for en gåde om visdom. Undersøgelsen afhænger af forskellen på at være dygtig til noget og at vide, hvor ens kunnen hører op."
     }
   ],
   "context": [
     {
-      "title": "Forsvar, ikke beklagelse",
-      "level": "recommended",
-      "text": "Titlen betegner en forsvarstale. Sokrates lover ikke en undskyldning, der søger tilgivelse ved at indrømme skyld.",
-      "takeaway": "Forvent begrundelse snarere end formildelse."
-    },
-    {
-      "title": "Platons fremstilling",
-      "level": "optional",
-      "text": "Platon giver et filosofisk portræt af forsvaret. Læs det som en formet fremstilling, ikke et moderne retsreferat.",
-      "takeaway": "Formen er med til at definere Sokrates som forbillede."
+      "title": "Titlen betyder en forsvarstale",
+      "text": "Platon lader Sokrates tale til borgere, der dømmer i sagen. Taleren må igen og igen afgøre, om det middel, der bedst kunne redde ham, ville modsige det liv, han forsvarer.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Sammenlign uvidenhed med foregivet viden.",
-      "why": "Sokrates' skel forklarer, hvorfor spørgsmålene vækker fjendskab."
+      "text": "Lyt til bønnen om at få tale på sin måde.",
+      "why": "Sokrates beder dommerne tåle den dagligdags samtales tone. Dermed sætter han også rettens forestilling om, hvordan et sandfærdigt menneske skal lyde, under prøvelse."
     },
     {
-      "text": "Bemærk hans afvisning af smiger.",
-      "why": "Opførslen afprøver de værdier, han siger, han forsvarer.",
-      "passages": [
-        {
-          "editionKey": "modern-da",
-          "chapterNumber": 1,
-          "paragraphIndex": 0,
-          "quote": "Og dog har de næppe sagt et sandt ord."
-        }
-      ]
+      "text": "Følg de gange, frygt kunne afgøre sagen.",
+      "why": "Krigstjeneste, politiske ordrer og udsigten til døden giver forskellige grunde til at bøje sig. Sokrates fører dem sammen for at undersøge, hvad frygt overhovedet kan bevise om det rette."
     }
   ],
   "opening": "Sokrates står anklaget med livet på spil, og en mere medgørlig mand ville måske undskylde. I stedet forklarer han, hvorfor Athen har brug for én, der bliver ved med at bringe byens mest selvsikre borgere i forlegenhed. I årevis har han bedt folk begrunde det, de hævder at vide; nu kan byen få ham til at standse. Platons forsvarstale gør retssalen til en sidste offentlig demonstration af netop den vane, der er under anklage, med mere på spil end at vinde en diskussion."

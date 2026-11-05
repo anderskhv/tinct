@@ -14,6 +14,10 @@ type Props = {
   anchor: ContinuousReaderAnchor
   onVisible: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
   onLanded: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
+  /** The last source word in view: Margin's page tail, for the chapter's share read. Display only. */
+  onTail?: (epoch: ContinuousReaderEpoch, tail: ContinuousReaderAnchor) => void
+  /** The reader's own forward scroll has the chapter's last word in view. Repeats while they scroll on there. */
+  onReadToEnd?: (epoch: ContinuousReaderEpoch, last: ContinuousReaderAnchor) => void
   cards?: readonly SourceMapCard[]
   bookMap?: SourceBookMap
   onUserBrowse?: () => void
@@ -73,7 +77,7 @@ const sameAnchor = (a: ContinuousReaderAnchor | undefined, b: ContinuousReaderAn
   a?.paragraphIndex === b.paragraphIndex && a.wordIndex === b.wordIndex
 
 /** A native chapter scroller. No position storage lives in this component. */
-export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onUserBrowse, bookMap, cards }: Props) {
+export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, onTail, onReadToEnd, onUserBrowse, bookMap, cards }: Props) {
   const hostRef = useRef<HTMLDivElement>(null)
   const nativeDragEpoch = useRef<string | null>(null)
   const epochKey = `${epoch.bookId}/${epoch.editionKey}/${epoch.chapterNumber}/${epoch.navigation}`
@@ -201,6 +205,13 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const { last } = continuousViewportWords(sourceWords(), host.scrollTop, host.clientHeight)
     if (last) setMapEnd(previous => sameAnchor(previous, last.anchor) ? previous : last.anchor)
   }
+  // The tail is reported for display (the chapter's share read in Contents);
+  // it never becomes the saved place, which stays the top-line word.
+  const onTailRef = useRef(onTail)
+  onTailRef.current = onTail
+  // The epoch is fixed for a mount (the reader is keyed on it).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { if (mapEnd) onTailRef.current?.(epoch, mapEnd) }, [mapEnd])
   useLayoutEffect(() => {
     const frame = requestAnimationFrame(measureMapEnd)
     return () => cancelAnimationFrame(frame)
@@ -223,6 +234,11 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
       if (movement === 0) return
     }
     if (!userBrowseRef.current || !viewport.hasInk || !viewport.first) return
+    // Scrolling on until the chapter's last line is in view is reading it to
+    // the end, as turning past the last page is in Two-page. A landing, a
+    // layout correction or a minimap jump never gets here as forward movement.
+    const end = words[words.length - 1]
+    if (movement > 0 && end && viewport.last === end) onReadToEnd?.(epoch, end.anchor)
     let visible = viewport.first.anchor
     // Retain the semantic saved word while it is still on the top line.
     const held = words.find(word => sameAnchor(word.anchor, visibleRef.current))
