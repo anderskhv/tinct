@@ -91,7 +91,7 @@ async function addFile(entry){
     const read=await engineApi.readFile(file);
     if(read.error){fail(read.error,{back:'/byob',backLabel:'Choose another file'});return;}
     if(!engineApi.rightsConfirmed()){
-      // The line "By continuing you confirm you may read this file." was shown on /byob or sign-in (entry.rights):
+      // The line "Adding it confirms you may read this file." was shown on /byob or sign-in (entry.rights):
       // recorded as the rights dialog records it, and sent with the account copy. Otherwise the library asks.
       if(entry.rights)engineApi.confirmRights();
       else{location.replace('/library?sharedReader=1&own=file');return;}

@@ -45,7 +45,7 @@ export function openOwnStart({from=null,go=href=>location.assign(href)}={}){
   if(!file)return;
   if(!OK.test(file.name)){status.textContent='Choose a PDF, an EPUB or a .txt file.';return;}
   box.dataset.busy='1';status.textContent=`Opening ${file.name}…`;
-  // rights: sign-in carries the line "By continuing you confirm you may read this file."
+  // rights: sign-in carries the line "Adding it confirms you may read this file."
   if(!await putHandoff(file,{rights:true})){delete box.dataset.busy;status.textContent='This browser could not keep the file. Sign in first, then choose it again.';return;}
   go(toSignIn('file'));
  }

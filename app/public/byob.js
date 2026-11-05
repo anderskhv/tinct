@@ -15,7 +15,7 @@ const preparing=own=>`/preparing?own=${own}`;
 const go=own=>location.assign(signedIn?preparing(own):`/sign-in?returnTo=${encodeURIComponent(preparing(own))}`);
 if(signedIn){
   for(const id of ['account','account-phone']){const a=$(id);if(a){a.textContent='My shelf';a.href='/library#my-shelf';}}
-  // Signed out, sign-in says it ("By continuing you confirm you may read this file."); signed in, it is said here.
+  // Signed out, sign-in says it ("Adding it confirms you may read this file."); signed in, it is said here.
   $('rights').hidden=false;
   $('paste-note').hidden=true;
 }

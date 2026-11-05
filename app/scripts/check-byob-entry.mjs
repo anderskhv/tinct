@@ -308,7 +308,7 @@ async function main() {
         await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
         assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to add your book')
         assert.equal(await page.locator('[data-signin-file] b').innerText(), 'harbour-almanac.epub')
-        assert.equal(await page.locator('[data-signin-rights]').innerText(), 'By continuing you confirm you may read this file.')
+        assert.equal(await page.locator('[data-signin-rights]').innerText(), 'Adding it confirms you may read this file.')
         await shot(page, `03b-sign-in-file-${name}`)
         await signInHere(page, supabase)
         await page.reload()
