@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "phaedo",
   "language": "en",
-  "revision": 5,
+  "revision": 6,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -29,6 +29,13 @@
       "name": "Cebes",
       "role": "The friend who imagines a weaver",
       "text": "A weaver can outlast many cloaks and still die before the last wears out. Cebes grants Socrates considerably more than Simmias does and shows why even that concession leaves the central question unsettled."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Plato's Apology",
+      "text": "The Phaedo takes place on the day of Socrates' death. The Apology is his defence at the trial that condemned him, where he tells the jury why death need not be feared; the Phaedo puts that calm to the test.",
+      "bookId": "apology"
     }
   ],
   "context": [

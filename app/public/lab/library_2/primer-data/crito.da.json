@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "crito",
   "language": "da",
-  "revision": 5,
+  "revision": 6,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -29,6 +29,13 @@
       "name": "Lovene",
       "role": "Stemmer, Sokrates opfinder",
       "text": "De taler som forældre og som parter i en aftale. De to krav hviler på forskellige slags forpligtelse, selv om Sokrates lader dem tale med én stemme."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Platons Sokrates' forsvarstale",
+      "text": "Kriton besøger Sokrates i fængslet kort efter den retssag, Forsvarstalen gengiver. Om han bør flygte, afhænger af det standpunkt, han indtog dér: han ville hverken holde op med at filosofere eller redde livet ved at gøre uret.",
+      "bookId": "apology"
     }
   ],
   "context": [

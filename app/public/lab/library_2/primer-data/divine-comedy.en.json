@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "divine-comedy",
   "language": "en",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -34,6 +34,13 @@
       "name": "Beatrice",
       "role": "Beloved and teacher",
       "text": "She has taken an interest in the journey long before Dante can see her. Her teaching may involve a searching question or a rebuke. Being loved by her gives him considerable work to do."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Virgil's Aeneid",
+      "text": "Virgil himself guides Dante through Hell and Purgatory, and Aeneas's descent to the underworld in Book 6 is the model for the journey. Many of the places and figures Dante meets come from Virgil's poem; Dante calls Virgil his master and his author.",
+      "bookId": "the-aeneid"
     }
   ],
   "context": [

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "workId": "divine-comedy",
   "language": "da",
-  "revision": 4,
+  "revision": 5,
   "origin": "codex-app",
   "authoredOn": "2026-11-05",
   "structure": [
@@ -34,6 +34,13 @@
       "name": "Beatrice",
       "role": "Elsket kvinde og lærer",
       "text": "Hun har interesseret sig for rejsen, længe før Dante kan se hende. Hendes undervisning kan bestå i et nærgående spørgsmål eller en irettesættelse. At være elsket af hende giver ham en hel del at bestille."
+    }
+  ],
+  "prerequisites": [
+    {
+      "title": "Vergils Æneiden",
+      "text": "Vergil er selv Dantes fører gennem Helvede og Skærsilden, og Æneas' nedstigning til underverdenen i sjette sang er forbilledet for hele rejsen. Mange af de steder og skikkelser, Dante møder, stammer fra Vergils digt; Dante kalder Vergil sin mester og sin forfatter.",
+      "bookId": "the-aeneid"
     }
   ],
   "context": [

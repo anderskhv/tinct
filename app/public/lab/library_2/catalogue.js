@@ -94,13 +94,14 @@ const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
 /** The supporting rows as the page draws them; anything malformed is left out, never guessed. */
 export function primerRows(data) {
   if (!data || data.schemaVersion !== 1) return null;
-  const passages = value => list(value, 6).flatMap(p => (p && text(p.quote) && Number.isInteger(p.chapterNumber) && Number.isInteger(p.paragraphIndex) && text(p.editionKey) ? [{ editionKey: p.editionKey, chapterNumber: p.chapterNumber, paragraphIndex: p.paragraphIndex, quote: p.quote.trim() }] : []));
   return {
     opening: text(data.opening),
     structure: list(data.structure, 6).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim() }] : [])),
     people: list(data.people, 8).flatMap(item => (text(item?.name) && text(item?.text) ? [{ name: item.name.trim(), role: text(item.role), text: item.text.trim() }] : [])),
-    context: list(data.context, 4).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), level: ['essential', 'recommended', 'optional'].includes(item.level) ? item.level : 'optional', text: item.text.trim(), passages: passages(item.passages) }] : [])),
-    notice: list(data.notice, 6).flatMap(item => (text(item?.text) ? [{ text: item.text.trim(), why: text(item.why), passages: passages(item.passages) }] : [])),
+    // Suggested prerequisites (Anders, 5 Nov 2026): only books with a strong one carry the list. `bookId` names a
+    // catalogue book whose introduction the title opens. The files' older `context` and `notice` rows (Background,
+    // What to notice) are no longer drawn and are not read here.
+    prerequisites: list(data.prerequisites, 3).flatMap(item => (text(item?.title) && text(item?.text) ? [{ title: item.title.trim(), text: item.text.trim(), bookId: text(item.bookId) }] : [])),
   };
 }
 export async function loadPrimer(book, language = 'en') {

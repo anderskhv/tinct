@@ -3,6 +3,9 @@
 //   node scripts/check-primer-data.mjs
 // Checks, against the local editions in public/data/editions:
 //  - every file: schema, field limits, word counts, no retired `takeaway`, English opening = book-openers.json;
+//  - Suggested prerequisites (optional `prerequisites`, Anders 5 Nov 2026): at most 3 items of {title, text, bookId?},
+//    non-empty plain strings, text at most 45 words, bookId a library book other than this one; en and da list the
+//    same books in the same order. (`context` and `notice` are still checked but no longer shown.)
 //  - every passage link: the edition, chapter and paragraph exist and the paragraph contains the quote;
 //  - every Structure item: its title starts with the range recorded in scripts/primer-structure-ranges.json
 //    (en and da), the recorded chapters are contiguous, do not overlap and lie within the edition, only front
@@ -154,12 +157,37 @@ function resolve(label, chapters, fromIndex) {
 const FRONT = /^(preface|prologue|prolog|introduction|the introduction|indledning|dedication|letter of dedication|preface to the reader|synopsis|prelude|forord|tilegnelse)/i
 
 // ---- files --------------------------------------------------------------------------------------------------
-const ALLOWED = { top: ['schemaVersion', 'workId', 'language', 'revision', 'origin', 'authoredOn', 'opening', 'structure', 'people', 'context', 'notice'],
+const ALLOWED = { top: ['schemaVersion', 'workId', 'language', 'revision', 'origin', 'authoredOn', 'opening', 'structure', 'people', 'prerequisites', 'context', 'notice'],
   structure: ['title', 'text'], people: ['name', 'role', 'text'], context: ['title', 'level', 'text', 'passages'], notice: ['text', 'why', 'passages'],
   passage: ['editionKey', 'chapterNumber', 'paragraphIndex', 'quote'] }
 const LIMITS = { structure: [2, 6], people: [0, 8], context: [0, 4], notice: [2, 6] }
 const files = fs.readdirSync(dataDir).filter(f => f.endsWith('.json')).sort()
 let passageCount = 0, rangeCount = 0, checkedByContents = 0
+const prerequisiteBooks = new Map()
+function checkPrerequisites(file, workId, language, value) {
+  if (value === undefined) return
+  if (!Array.isArray(value)) return err(file, 'prerequisites is not a list')
+  if (value.length < 1 || value.length > 3) err(file, `prerequisites has ${value.length} items (allowed 1–3; leave the field out when there are none)`)
+  value.forEach((item, i) => {
+    const where = `prerequisites[${i}]`
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return err(file, `${where} is not an object`)
+    for (const k of Object.keys(item)) if (!['title', 'text', 'bookId'].includes(k)) err(file, `${where} unknown field ${k}`)
+    for (const k of ['title', 'text']) {
+      if (typeof item[k] !== 'string' || !item[k].trim()) err(file, `${where}.${k} must be a non-empty string`)
+      else if (/[<>*_`]|\]\(|https?:/.test(item[k])) err(file, `${where}.${k} is not plain text`)
+    }
+    if (typeof item.title === 'string' && words(item.title) > 10) err(file, `${where}.title over 10 words`)
+    if (typeof item.text === 'string' && words(item.text) > 45) err(file, `${where}.text has ${words(item.text)} words (at most 45)`)
+    if ('bookId' in item) {
+      if (typeof item.bookId !== 'string' || !books.has(item.bookId) || books.get(item.bookId).discoveryAvailable === false) err(file, `${where}.bookId ${JSON.stringify(item.bookId)} is not a library book`)
+      else if (item.bookId === workId) err(file, `${where}.bookId is this book`)
+    }
+  })
+  const key = value.map(item => item?.bookId ?? '-').join(',')
+  const other = prerequisiteBooks.get(workId)
+  if (other && other.key !== key) err(file, `prerequisites differ from ${workId}.${other.language}.json (${other.key} against ${key})`)
+  prerequisiteBooks.set(workId, { language, key })
+}
 for (const file of files) {
   const j = JSON.parse(fs.readFileSync(path.join(dataDir, file), 'utf8'))
   const [workId, language] = file.replace(/\.json$/, '').split('.')
@@ -168,6 +196,7 @@ for (const file of files) {
   if (j.schemaVersion !== 1 || j.origin !== 'codex-app' || !Number.isInteger(j.revision)) err(file, 'schemaVersion/origin/revision')
   for (const k of Object.keys(j)) if (!ALLOWED.top.includes(k)) err(file, `unknown field ${k}`)
   if (JSON.stringify(j).includes('"takeaway"')) err(file, 'retired takeaway field present')
+  checkPrerequisites(file, workId, language, j.prerequisites)
   if (j.opening != null) {
     const n = words(j.opening); if (n < 60 || n > 90) err(file, `opening has ${n} words`)
     if (language === 'en' && openers.has(workId) && sha(j.opening) !== sha(openers.get(workId))) err(file, 'English opening differs from book-openers.json')
@@ -245,6 +274,13 @@ for (const file of files) {
   })
 }
 for (const id of books.keys()) if (!files.includes(`${id}.en.json`)) warnings.push(`${id}: catalogue book without a primer`)
+// A book with prerequisites in one language has them in the other.
+for (const file of files) {
+  const [workId, language] = file.replace(/\.json$/, '').split('.')
+  const twin = `${workId}.${language === 'en' ? 'da' : 'en'}.json`
+  if (prerequisiteBooks.has(workId) && files.includes(twin) && !('prerequisites' in JSON.parse(fs.readFileSync(path.join(dataDir, twin), 'utf8')))) err(twin, `no prerequisites, ${file} has them`)
+}
+console.log(`PRIMER_PREREQUISITES ${prerequisiteBooks.size} books`)
 console.log(`PRIMER_FILES ${files.length} · passages ${passageCount} · structure ranges ${rangeCount} (${checkedByContents} resolved against the contents)`)
 for (const t of tails) console.log('TAIL ' + t)
 for (const w of warnings) console.log('WARN ' + w)

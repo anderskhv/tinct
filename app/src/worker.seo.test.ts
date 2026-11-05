@@ -332,7 +332,7 @@ describe('worker SEO routing', () => {
       expect(html).toContain('<meta property="og:title" content="Read Wuthering Heights Free Online | Tinct">')
       expect(html).toContain('<meta property="og:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
       expect(html).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20260921/books/wuthering-heights.jpg">')
-      expect(html).not.toContain('og-image-v2.jpg')
+      expect(html).not.toContain('og-image-v3.jpg')
       expect(html.match(/<title>/g)).toHaveLength(1)
       expect(html).toContain('"@type":"Book"')
       // The library experience, with this book from the first paint.
@@ -481,10 +481,10 @@ describe('worker SEO routing', () => {
       expect(body).toContain('approved cinematic library')
       expect(body).not.toContain('noindex')
       expect(body).toContain('href="https://tinct.app/"')
-      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20261001/share-tinct-1200x630.jpg">')
-      expect(body).toContain('<meta property="og:description" content="Read, listen and talk with the world&#39;s great books. The original and a modern English edition side by side, narration, and a companion you can ask anything.">')
-      expect(body).toContain('<title>Tinct — Fall in love with the books that matter</title>')
+      expect(body).toContain('<meta property="og:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta name="twitter:image" content="https://tinct.app/brand/20261105/share-tinct-1200x630.jpg">')
+      expect(body).toContain('<meta property="og:description" content="Read, listen and talk with the world&#39;s great books, or your own PDFs and articles. The original beside a modern edition, narration, and a companion you can ask anything.">')
+      expect(body).toContain('<title>Tinct — No text is beyond you</title>')
       for (const tag of ['twitter:card', 'og:image"', 'twitter:image"']) expect(body.split(tag).length - 1, tag).toBe(1)
     }
   })
