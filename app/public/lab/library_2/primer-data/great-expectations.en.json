@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "great-expectations",
   "language": "en",
-  "revision": 3,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Learning to feel inferior",
-      "text": "Pip's childhood joins affection, fear, and shame to his first encounters with wealth."
+      "title": "Chapters 1–19 · An apprentice acquires a grievance",
+      "text": "Pip steals food for a convict and visits a shut-up house where a girl laughs at his hands. The first act makes him ashamed of what he has done. The second teaches him to be ashamed of Joe's forge and people who have done him no harm."
     },
     {
-      "title": "Becoming a gentleman",
-      "text": "New opportunities test what Pip thinks money and social polish can repair. His adult narration keeps revisiting the younger self's assumptions."
+      "title": "Chapters 20–39 · Learning what a gentleman costs",
+      "text": "An allowance takes Pip to London. He learns to order dinners, buy furniture on credit and feel uneasy about the visits he owes people at home. His benefactor's anonymity gives him ample room to invent a flattering explanation of his prospects."
+    },
+    {
+      "title": "Chapters 40–59 · Existing obligations",
+      "text": "Knowledge arrives for which an education in good manners has left Pip quite unprepared. People he thought belonged to separate worlds turn out to have claims on one another. He starts having to decide what he owes someone whose company confers no distinction whatever."
     }
   ],
   "people": [
     {
-      "name": "Pip",
-      "role": "Narrator",
-      "text": "An orphan boy raised by his sister and her blacksmith husband in the Kent marshes, who tells his own story as an older man looking back."
+      "name": "Pip and Joe Gargery",
+      "role": "Apprentice and blacksmith",
+      "text": "Pip tells the story years after it happened. Whenever young Pip flinches at Joe's speech or manners, the older man can reproduce his own embarrassment with painful accuracy. Joe himself has no such need to divide his loyalty between past and present."
     },
     {
-      "name": "Joe Gargery",
-      "role": "Blacksmith",
-      "text": "Pip's kind, unlettered brother-in-law, who loves him like a son and whose decency Pip learns to be ashamed of."
-    },
-    {
-      "name": "Estella and Miss Havisham",
-      "role": "Household shaping Pip's hopes",
-      "text": "A rich, eccentric recluse who never leaves her decaying house, and the proud, beautiful girl she is raising, with whom Pip falls in love."
+      "name": "Miss Havisham and Estella",
+      "role": "A wealthy recluse and her ward",
+      "text": "Miss Havisham sets the terms on which the children meet. Pip thinks he is learning to love Estella. He has little reason at first to ask what Estella may have been brought up to understand by love."
     }
   ],
   "context": [
     {
-      "title": "Gentility",
-      "level": "recommended",
-      "text": "Becoming a gentleman involves manners, income, and social recognition. Moral goodness and genteel appearance need not coincide.",
-      "takeaway": "Ask what Pip means by improvement."
+      "title": "A gentleman can live on expectations",
+      "text": "An allowance changes Pip's clothes and where he can live before he possesses an independent fortune or a profession. People will extend credit against his imagined future. Their willingness can look remarkably like proof that his own guesses are sound.",
+      "level": "recommended"
     },
     {
-      "title": "Retrospective narration",
-      "level": "optional",
-      "text": "The older Pip can expose a mistake while recreating how convincing it once felt. Shame and sympathy coexist in the telling.",
-      "takeaway": "Separate the child's judgment from the narrator's."
+      "title": "The hulks off the marshes",
+      "text": "Convicts are confined aboard old ships moored near the shore. The guns Pip hears as a child and the irons on a stranger’s leg belong to an institution within earshot of the family forge. A file quietly removed from Joe’s tools can connect these two worlds in a single night.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Follow hands, clothing, and table manners.",
-      "why": "Bodily details become evidence in Pip's private ranking of people."
+      "text": "Notice who washes and who looks at hands.",
+      "why": "Forge work leaves marks that embarrass Pip. The lawyer Jaggers washes his hands with extraordinary thoroughness. Both men make a living out of other people's needs, but only one of their occupations disqualifies its practitioner from polite society.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 8,
+          "paragraphIndex": 66,
+          "quote": "And what coarse hands he has!"
+        }
+      ]
     },
     {
-      "text": "Notice acts of unadvertised care.",
-      "why": "Loyalty can be easy to overlook when it offers no prestige."
+      "text": "Hear when the narrator lets a boy's conclusion stand.",
+      "why": "Pip can report a conversation accurately while giving the wrong person credit for arranging it. Dickens lets the boy assemble a story from quite genuine pieces of evidence."
     }
   ],
   "opening": "Pip is ashamed of the hands that raised him. A visit to a rich woman's decaying house has taught the blacksmith's boy that his clothes, speech, and family are embarrassments, and that a beautiful girl can make him feel grateful for her contempt. When money unexpectedly arrives, he thinks his real life can begin. Dickens follows the pleasures of becoming impressive alongside the small betrayals it requires, as Pip learns to mistake the people he wants to resemble for the people he should trust."

@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "jerusalem",
   "language": "en",
-  "revision": 3,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "The family and the parish",
-      "text": "The opening establishes the Ingmar family and a community whose work, memory, and authority are rooted in the land."
+      "title": "Book One · The Ingmar farm",
+      "text": "A farmer tries to decide what is right by imagining how an ancestor would judge him. The opening gives the farm a voice in family decisions. In later disputes, selling a piece of land can feel like answering back to several generations of the dead."
     },
     {
-      "title": "The decision to leave",
-      "text": "Religious conviction reorganises relationships and property. This edition ends with the pilgrims' departure, rather than their later life in Jerusalem."
+      "title": "Book Two · The mission house",
+      "text": "A schoolmaster hopes to give religious enthusiasm a home in the village. A flood, a recovery and the arrival of a preacher alter whom people trust to speak for God. The same event acquires different meanings depending on which household tells it."
+    },
+    {
+      "title": "Book Three · The decision to leave",
+      "text": "A story of disaster at sea draws the Swedish households into the orbit of believers abroad. In this volume the pilgrimage is felt chiefly in the village it will empty. Lovers, farms and family expectations must all find a price when departure becomes a practical undertaking."
     }
   ],
   "people": [
     {
-      "name": "The Ingmar family",
-      "role": "Farming dynasty",
-      "text": "An old farming family in a Swedish parish, proud of their name and of always doing what they believe is right in God's eyes."
-    },
-    {
       "name": "Karin",
-      "role": "Family member",
-      "text": "The eldest daughter of the Ingmar family, who holds the farm together through hard choices about love, duty and inheritance."
+      "role": "Keeper of the Ingmar household",
+      "text": "Karin has obligations to a family name, an estate and the people who come to worship. When her religious allegiance changes, all three come with her into a decision someone less established could have made privately."
     },
     {
       "name": "Hellgum",
-      "role": "Religious leader",
-      "text": "A preacher back from America who brings a new, demanding faith to the parish and divides families who join him from those who do not."
+      "role": "Preacher",
+      "text": "People attach enormous hopes to the signs surrounding Hellgum. His influence grows through the work of followers who must continue interpreting his wishes even when the preacher himself is elsewhere."
+    },
+    {
+      "name": "Young Ingmar and Gertrude",
+      "role": "Heir to the farm and schoolmaster’s daughter",
+      "text": "Their attachment might once have looked like a village matter for two families to settle. The sale of the farm and the prospect of emigration put a second question inside any promise they make. Where would they have to live in order to keep it?"
     }
   ],
   "context": [
     {
-      "title": "Inherited land",
-      "level": "recommended",
-      "text": "A farm supports livelihoods, family continuity, and status. Selling it alters promises made to people who may not share the seller's faith.",
-      "takeaway": "Property carries relationships as well as value."
-    },
-    {
-      "title": "Religious awakening",
-      "level": "optional",
-      "text": "A demand for changed life can challenge settled church and household authority. The novel follows how conviction spreads through a community.",
-      "takeaway": "Belief has practical neighbours."
+      "title": "Faith has a local economy",
+      "text": "For people who live on family land, leaving for Jerusalem entails the sale of tools, furniture and farms. A neighbour who declines to share the revelation may nevertheless have to buy something, lose someone or watch a claim on an inheritance disappear.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Notice who must bear another person's sacrifice.",
-      "why": "An act of faith can transfer costs to others."
+      "text": "Listen for a change from one person's story to the village's version.",
+      "why": "A private experience can travel as rumour, warning or miracle. By the time it reaches another kitchen it may be evidence in a dispute the person concerned never intended to enter."
     },
     {
-      "text": "Follow the farm's sensory presence.",
-      "why": "Attachment to place becomes more than an abstract tradition."
+      "text": "Notice the onlookers at a sale or a departure.",
+      "why": "The spectacle brings believers and doubters into the same physical space. A familiar object crossing from one pair of hands to another can register what the prospect of the Holy Land means to the people staying behind.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 14,
+          "paragraphIndex": 0,
+          "quote": "there was an auction sale at the Ingmar Farm"
+        }
+      ]
     }
   ],
   "opening": "The farms in this Swedish valley carry generations of work, family pride, and promises about who will inherit. Then a religious awakening persuades some of their owners that God wants them somewhere else. Leaving for Jerusalem sounds like an act of faith until the land must be sold and the people staying behind discover what devotion will cost them. Lagerlöf makes the pull of the ancestral home powerful enough that the decision to abandon it cannot be understood simply as courage or delusion."

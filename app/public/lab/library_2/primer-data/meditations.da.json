@@ -2,54 +2,56 @@
   "schemaVersion": 1,
   "workId": "meditations",
   "language": "da",
-  "revision": 3,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Gæld til andre",
-      "text": "Bog 1 mindes mennesker, som Marcus lærte vaner og værdier af. Den giver de senere formaninger en social baggrund."
+      "title": "Bog I · Hvad andre lærte ham",
+      "text": "Markus begynder med at fordele æren. En bedstefars sindelag, en lærers nøjsomhed og en regents tålmodighed viser ham et godt liv i enkeltheder, længe før han fører et argument for det."
     },
     {
-      "title": "Gentagen øvelse",
-      "text": "Bog 2–12 vender tilbage til dømmekraft, pligt, dødelighed og andre mennesker uden at danne en sammenhængende afhandling. Gentagelserne er fornyede øvelser."
+      "title": "Bog II–XII · Tilbage til det, der volder besvær",
+      "text": "Resten af bøgerne bevæger sig mellem morgener, ærgrelser, sygdom, ros og død. En indsigt om andre mennesker kan kræve en ny gennemgang, næste gang nogen viser sig utaknemmelig. Gentagelserne lader os mærke, hvor meget øvelse det kræver."
     }
   ],
   "people": [
     {
-      "name": "Dom",
-      "role": "Fortolkning",
-      "text": "Den fortolkning, en begivenhed får."
+      "name": "Markus taler til Markus",
+      "role": "Den samme stemme på begge sider",
+      "text": "En befaling i anden person kan lyde barsk, indtil man husker, hvem der skal adlyde. Markus giver sig selv undskyldninger, undersøger deres tiltrækning og skriver undertiden det svar, han vil have parat i morgen."
     },
     {
-      "name": "Pligt",
-      "role": "Social forpligtelse",
-      "text": "Handling, der passer til ens plads blandt andre."
+      "name": "Antoninus Pius",
+      "role": "Adoptivfar og kejserligt forbillede",
+      "text": "Markus husker en mand, der kunne sidde en lang undersøgelse igennem og lade en anden få æren. Minderne stiller dagens beslutninger som regent ved siden af bogens større påstande om dyd."
     },
     {
-      "name": "Natur",
-      "role": "Større orden",
-      "text": "Den større orden, Marcus forstår menneskelivet inden for."
+      "name": "Rusticus",
+      "role": "Læreren, der lånte Marcus en bog",
+      "text": "I første bog takker Marcus Rusticus for at have lånt ham sit eksemplar af Epiktets skrifter. Han husker andre ting, samme mand lærte ham, blandt andet at læse omhyggeligt og finde tilbage til hinanden efter et skænderi. Navnet på en filosof hænger for Marcus sammen med erindringen om, hvordan en ældre mand levede."
     }
   ],
   "context": [
     {
-      "title": "Noter til sig selv",
-      "level": "recommended",
-      "text": "Marcus henvender sig igen og igen til sine egne svigt i opmærksomhed og opførsel. En streng sætning kan rette sig mod en bestemt svaghed.",
-      "takeaway": "Hør selvhenvendelsen, før du gør den til et råd."
+      "title": "Et indtryk og det, man selv føjer til",
+      "text": "En kollega kan virkelig have talt uforskammet. Markus spørger, hvor meget af ubehaget der skyldes hans videre dom om fornærmelse, skade eller anseelse. Skellet giver ham noget at gøre, mens kollegaen fortsat er besværlig.",
+      "level": "recommended"
     },
     {
-      "title": "Stoisk samhørighed",
-      "level": "optional",
-      "text": "Stoicismen forbinder disciplineret dømmekraft med forpligtelser over for andre. Uafhængighed af ros betyder ikke automatisk tilbagetrækning fra samfundet.",
-      "takeaway": "Selvbeherskelse tjener det fælles liv."
+      "title": "Hvorfor Marcus bliver ved med at begynde forfra",
+      "level": "recommended",
+      "text": "Et argument, der henvender sig til en anden, kan slutte, når den anden er enig. Marcus skriver ofte til den udgave af sig selv, som snart vil være træt eller irriteret igen. Gentagelserne røber derfor noget, en fuldendt formulering kunne skjule, blandt andet hvilke af hans egne overbevisninger det var sværest at holde fast i på en arbejdsdag."
     }
   ],
   "notice": [
     {
-      "text": "Bemærk tilbagevendende irritationer.",
-      "why": "Gentagelsen viser, hvor svære de ønskede vaner stadig er.",
+      "text": "Se, hvordan luksus skilles ad.",
+      "why": "Markus beskriver kostbarheder gennem deres bestanddele. Et øjeblik ser han farvet stof eller en død fisk dér, hvor middagsgæsten ser fornemhed. Det er en øvelse i at løsne tingens greb."
+    },
+    {
+      "text": "Følg ham tilbage til de andre.",
+      "why": "Set fra stor højde kan dagens skænderi se latterligt småt ud. Markus skal stadig ned og arbejde med den, der irriterede ham. Hans insisteren på menneskeligt samarbejde giver perspektivskiftet en retning.",
       "passages": [
         {
           "editionKey": "modern-da",
@@ -60,8 +62,16 @@
       ]
     },
     {
-      "text": "Følg skiftene i målestok.",
-      "why": "Billeder af kosmisk tid løsner hverdagens bekymringers greb."
+      "text": "Lyt til indvendingen nede under tæppet.",
+      "why": "Marcus har sagt til sig selv, at han skal op og udføre et menneskes arbejde. Den næste stemme påpeger, at det er mere behageligt at blive liggende i varmen. Den får kun få ord, men sætter præcist fingeren på problemet. Et princip, han kan tilslutte sig, mens han skriver, skal næste morgen vinde over en meget behagelig seng.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 5,
+          "paragraphIndex": 0,
+          "quote": "at ligge under tæppet og holde mig varm"
+        }
+      ]
     }
   ],
   "opening": "Marcus Aurelius herskede over et imperium, men måtte stadig overtale sig selv til at stå ud af sengen. Stoisk filosofi gav ham argumenter for at gøre sit arbejde, udholde ubehag og håndtere irriterende mennesker. I disse private noter vender han tilbage til de samme vanskeligheder, undertiden tålmodigt, undertiden med strengheden hos én, der er træt af sine egne undskyldninger. Kejsermagten kunne få andre til at adlyde; den sparede ham ikke for det daglige arbejde med at styre sit eget temperament og begær."

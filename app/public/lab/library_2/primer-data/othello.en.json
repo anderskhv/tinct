@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "othello",
   "language": "en",
-  "revision": 3,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "A marriage defended",
-      "text": "The opening establishes the couple's mutual commitment amid objections and a move from Venice to military Cyprus."
+      "title": "Act I · Venice · An accusation meets a public hearing",
+      "text": "Iago and Roderigo wake a father to announce his daughter's marriage. Before the Senate, Othello and Desdemona get to tell the story themselves. Their account establishes what is possible when both parties to a marriage receive a hearing."
     },
     {
-      "title": "Interpretation manipulated",
-      "text": "Iago arranges conversations and apparent evidence, allowing suspicion to acquire the force of discovery."
+      "title": "Act II · Cyprus · The enemy fails to arrive",
+      "text": "A storm removes the immediate military threat. In a garrison dependent on discipline and reputation, a drinking bout can wreck a career. Iago offers good practical advice to precisely the people he means to damage."
+    },
+    {
+      "title": "Acts III–V · A private trial",
+      "text": "Othello asks for proof and Iago supplies opportunities to overhear, to glimpse, to draw conclusions. The accused woman is close at hand throughout. The difficulty is getting her account into the little tribunal her husband and his officer have constituted."
     }
   ],
   "people": [
     {
-      "name": "Othello",
-      "role": "General and husband",
-      "text": "A Moorish general trusted by Venice to defend Cyprus, proud of his service and newly married, who is at ease on the battlefield and less so in Venetian society."
+      "name": "Othello and Desdemona",
+      "role": "General and newly married wife",
+      "text": "Each has taken a considerable risk in marrying. Their early accounts of courtship dwell on listening. That makes the gradual disappearance of ordinary, answerable conversation between them especially disturbing."
     },
     {
-      "name": "Desdemona",
-      "role": "Wife",
-      "text": "A Venetian senator's daughter who has married Othello secretly and defends her choice before the Senate, loving him for the stories of his life."
+      "name": "Iago and Emilia",
+      "role": "Husband and wife in military service",
+      "text": "He serves Othello, she attends Desdemona. Objects and information can cross the distance between the two households through this marriage. Emilia has observations about husbands which deserve a hearing independently of his plans."
     },
     {
-      "name": "Iago",
-      "role": "Officer and manipulator",
-      "text": "Othello's ensign, passed over for promotion, who is known to everyone as honest Iago and tells the audience early on that he is not what he seems."
+      "name": "Cassio",
+      "role": "Recently promoted lieutenant",
+      "text": "Losing his standing with Othello feels like losing a part of himself. Asking Desdemona to speak on his behalf is a perfectly intelligible decision that gives a hostile observer exactly the meetings he wants."
     }
   ],
   "context": [
     {
-      "title": "An outsider's standing",
-      "level": "recommended",
-      "text": "Othello's military value coexists with racial hostility and social insecurity. Recognition in one role does not guarantee trust in another.",
-      "takeaway": "Listen to how others describe his belonging."
-    },
-    {
-      "title": "Unequal knowledge",
-      "level": "optional",
-      "text": "The audience hears Iago's planning while his targets hear his performance. Suspense comes from watching interpretation go wrong.",
-      "takeaway": "Separate what is seen from what is inferred."
+      "title": "A general who can still be treated as an outsider",
+      "text": "Venice needs Othello's military command. Racial abuse greets his marriage to a senator's daughter. His public authority and vulnerability in private life coexist from the opening street scene.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Notice unfinished suggestions.",
-      "why": "Reluctance can make a speaker seem trustworthy."
+      "text": "Which accusations does Iago actually make?",
+      "why": "A hesitation or echoed question can send Othello ahead to invent the conclusion himself. An accuser who seems unwilling to accuse can be exceptionally difficult to contradict."
     },
     {
-      "text": "Follow ordinary objects becoming evidence.",
-      "why": "Meaning depends on a story attached to possession."
+      "text": "Who sees the handkerchief change hands?",
+      "why": "The audience can keep a much better record of its movements than Othello can. Possession of an object and knowledge of how it got there gradually become two entirely different kinds of evidence.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 9,
+          "paragraphIndex": 141,
+          "quote": "Give me the ocular proof"
+        }
+      ]
     }
   ],
   "opening": "Othello and Desdemona have married against her father's wishes, trusting each other enough to withstand the scandal. Iago begins with suggestions so slight that they scarcely sound like accusations. He knows which questions to leave unfinished and when to appear reluctant to speak. Shakespeare makes the destruction of trust unfold through gestures that could mean anything and a listener increasingly desperate for certainty. The audience can see the deception working while the person inside it experiences each new suspicion as an advance towards the truth."

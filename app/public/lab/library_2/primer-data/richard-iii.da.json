@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "richard-iii",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Publikum hverves",
-      "text": "Richard fremlægger planer og inddrager andre gennem tilpasset loyalitet, krænkelse og beskedenhed."
+      "title": "Første akt · Richard lærer os at se ham spille",
+      "text": "Han betror os sin plan for at skaffe sin bror af vejen, møder derefter broren og taler til ham med den største omsorg. Vi hører begge dele. Snart gør han ved et begravelsesfølge noget så uhørt, at han knap kan vente med at blive alene og fortælle os, hvor godt det gik."
     },
     {
-      "title": "Følgerne styres",
-      "text": "Offentlig fremvisning og privat tvang virker sammen, mens ambitionen ændrer venners og fjenders muligheder."
+      "title": "Anden og tredje akt · En privat plan kræver offentlig medvirken",
+      "text": "En syg konge ønsker fred i familien. En ung prins skal ledsages til London. Der må holdes møder, træffes beslutninger og findes nogen til at bekendtgøre dem. Richard og Buckingham udnytter hvert af disse behov, indtil Londons borgere opfordres til at tilslutte sig en ordning, de aldrig har haft indflydelse på."
+    },
+    {
+      "title": "Fjerde og femte akt · Nogen holder regnskab",
+      "text": "De kvinder, Richard har passeret på sin vej gennem hoffet, kan sætte navne på hans politiske nødvendigheder. Gennem deres tab ser vi et andet London end det, han har spillet for os. Da handlingen rykker mod Bosworth, skal han give ordrer til mennesker, hvis hensigter han ikke længere kan gennemskue."
     }
   ],
   "people": [
     {
-      "name": "Richard",
-      "role": "Ambitiøs hertug",
-      "text": "Hertugen af Gloucester."
+      "name": "Richard, hertug af Gloucester",
+      "role": "Edvard IV's lillebror",
+      "text": "Richard nyder tidsrummet mellem det øjeblik, hvor han beslutter sig for noget, og det øjeblik, hvor en anden opdager det. Hans beskrivelse af sin egen krop indgår i den fortælling, han giver om den mand, han har valgt at blive. Hans ofre har haft meget lidt at skulle have sagt i den fortælling."
     },
     {
       "name": "Buckingham",
-      "role": "Allieret",
-      "text": "En nyttig allieret."
+      "role": "Richards medspiller i det politiske teater",
+      "text": "Richard kan overtale et enkelt menneske. Buckingham hjælper med at samle et publikum, levere en tale og iscenesætte beskeden tilbageholdenhed hos en mand, som brændende ønsker sig kronen. Gennem deres samarbejde ser vi, hvor meget arbejde det kræver at få en beslutning til at se spontan ud."
     },
     {
-      "name": "Kongefamilien",
-      "role": "Dynastiske konkurrenter",
-      "text": "Slægtninge, hvis krav og frygt komplicerer tronfølgen."
+      "name": "Margaret og Elizabeth",
+      "role": "En forhenværende dronning og den regerende konges hustru",
+      "text": "Margaret husker sine tab under de krige, der bragte Edvard på tronen. Elizabeth har børn, hvis sikkerhed afhænger af, at freden holder. I begyndelsen har de gode grunde til at misbillige hinanden. Når de taler sammen, bliver slægtskabet et mere præcist mål for tabene end navnene på de sejrende kongehuse."
     }
   ],
   "context": [
     {
-      "title": "Omstridt tronfølge",
-      "level": "recommended",
-      "text": "Slægtskab bærer herskerkrav. Død, ægteskab og børn bliver derfor nationale magtspørgsmål.",
-      "takeaway": "Hold de nærmeste relationer klare."
-    },
-    {
-      "title": "Historie som drama",
-      "level": "optional",
-      "text": "Shakespeares Richard er en dramatisk skikkelse i en partisk tradition, ikke en neutral biografi.",
-      "takeaway": "Skeln teaterfigur fra historisk dom."
+      "title": "Én familie er nok at begynde med",
+      "text": "Edvard IV, Clarence og Richard er brødre af huset York. Edvards børn står mellem Richard og kronen. Dronning Elizabeths slægtninge har fået indflydelse gennem hendes ægteskab. Den, der ønsker enighed i denne familie, kan udmærket have en bestemt mening om, hvilke slægtninge der først må opgive deres magt.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk publikums forspring.",
-      "why": "Richards vid kan skabe ubehageligt medskyldig nydelse."
+      "text": "Lyt til borgerne, da jubelen udebliver.",
+      "why": "Buckingham har en historie parat om folkets ønske om en konge. Borgerne står der til hans forlegenhed og giver ham meget lidt at berette. Tavsheden lader os høre forskellen mellem det, London ønsker, og det, der kan bekendtgøres på byens vegne.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 15,
+          "paragraphIndex": 6,
+          "quote": "som stumme statuer eller åndende sten"
+        }
+      ]
     },
     {
-      "text": "Følg tilsyneladende frivillig støtte.",
-      "why": "Politisk samtykke kan iscenesættes nøje."
+      "text": "Læg mærke til, hvem der husker en forbandelse.",
+      "why": "Margaret taler til mennesker, der mener at have styr på deres situation. En sætning, de affejer, kan senere vende tilbage til dem med hendes egne ord. Selvom hun står uden for magten, kan hun blive hørt i et rum, længe efter at hun har forladt det."
     }
   ],
   "opening": "Richard fortæller publikum sin hensigt, går ind i næste rum og siger, hvad de andre behøver at høre. Han smigrer, sørger, truer og spiller modvillig med forbløffende hast. Det er fornøjeligt nok til at gøre fornøjelsen ubehagelig: viddet inviterer os ind i planer, ofrene ikke kan gennemskue. Shakespeare følger kongens tilblivelse gennem et samfund fuldt af mennesker, der vil acceptere endnu et overgreb, hvis blot det ser ud til at tjene deres egne interesser og ikke ramme dem selv."

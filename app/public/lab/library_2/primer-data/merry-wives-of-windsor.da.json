@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "merry-wives-of-windsor",
   "language": "da",
-  "revision": 2,
+  "revision": 4,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Et gentaget forslag",
-      "text": "Falstaffs tilnærmelse giver to kvinder mulighed for at sammenligne hensigter og planlægge svar."
+      "title": "Første og anden akt · To eksemplarer af et kærlighedsbrev",
+      "text": "Falstaff håber at bedre sin økonomi ved at gøre kur til to velstående koner. Han sparer på skrivearbejdet, og kvinderne sammenligner brevene. Før han har fået lejlighed til at spille elsker, er de to, han ville narre, allerede begyndt at tilrettelægge hans besøg."
     },
     {
-      "title": "Hjemlige modplaner",
-      "text": "Jalousi, bejlen og drillerier flettes, mens flere styrer uden at kende andres planer."
+      "title": "Tredje og fjerde akt · Hvordan får man en gæst ud igen?",
+      "text": "Hver gang Falstaff kommer, står konerne med et praktisk problem. Ford kan styrte ind, folkene skal passe deres arbejde, og en omfangsrig ridder skal skaffes af vejen. Imens overvejer familien Page mulige ægtemænd til datteren Anne. I Windsor tror flere, at den, der kan sætte et møde i stand, også kan bestemme, hvem en kvinde vil vælge."
+    },
+    {
+      "title": "Femte akt · Windsor opfører sin egen spøgelseshistorie",
+      "text": "Parken giver mere plads, og et lokalt sagn leverer kostumerne. Forskellige parter giver forskellige beskeder om, hvem der skal møde hvem i mørket. Noget af fornøjelsen ligger i, at hver af de voksne tror, at en forklædning vil gøre netop deres plan herligt enkel."
     }
   ],
   "people": [
     {
-      "name": "Falstaff",
-      "role": "Rænkesmedende ridder",
-      "text": "Ridder, der søger penge gennem forførelse."
+      "name": "Fru Page og fru Ford",
+      "role": "Veninder med beviset i to eksemplarer",
+      "text": "Hver for sig kunne de have tilbragt en ubehagelig eftermiddag med at spekulere over ridderens tilnærmelser. Så snart de mødes, ændrer sagen karakter. Brevene kan blive til komedie, fordi hver kvinde tør betro den anden noget, som en jaloux ægtemand kunne have taget helt anderledes."
     },
     {
-      "name": "Fru Ford og fru Page",
-      "role": "Veninder med modplan",
-      "text": "Veninder, der sammenligner brevene."
+      "name": "Falstaff og Ford",
+      "role": "En fattig intrigemager og hans betalende kunde",
+      "text": "Under falsk navn hyrer Ford Falstaff til at gøre kur til fru Ford. Sandheden om sin kone håber han at få fra en mand, som han selv betaler for at bedrage hende. Falstaff har udmærkede økonomiske grunde til at lade kunden tro, at det går glimrende med forførelsen."
     },
     {
-      "name": "Ford",
-      "role": "Jaloux ægtemand",
-      "text": "En jaloux ægtemand."
+      "name": "Anne Page",
+      "role": "Datter af forældre, som foretrækker hver sin bejler",
+      "text": "Ægteparret Page kan sagtens gennemskue Falstaffs forfængelighed. De har sværere ved at se, at deres datter har sine egne ønsker. Med Annes bejlere får komedien endnu en generation af mennesker med gode grunde til at holde noget for sig selv."
     }
   ],
   "context": [
     {
-      "title": "Hjemlig kløgt",
-      "level": "recommended",
-      "text": "Kvinderne kender hjem og naboer bedre end Falstaff forventer. Almindeligt samarbejde bliver en magtkilde.",
-      "takeaway": "Kundskab behøver ikke se storslået ud."
-    },
-    {
-      "title": "Bykomedie",
-      "level": "optional",
-      "text": "Penge, ægteskab og lokalt ry betyder mere end rigspolitik. Personerne konkurrerer om hjemmenes ressourcer.",
-      "takeaway": "Følg hver plans praktiske formål."
+      "title": "En by, der er lille nok til en fælles spøg",
+      "text": "Værtshuset, de to hjem og parken ligger så tæt, at nyheder og forklædninger hurtigt kommer rundt. Folk kender hinandens fag, vaner og måde at tale på. Derfor kan de både gennemskue en forklædning og samarbejde om en forestilling, der er indviklet nok til at narre en nabo.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk nye forklædte forsøg.",
-      "why": "Falstaffs selvtillid overlever korrigerende beviser."
+      "text": "Se, hvad vasketøjskurven betyder for hver enkelt.",
+      "why": "For tjenestefolkene er den noget, der skal bæres. For konerne er den en vej ud af de næste minutters knibe. Ford ser et rum, han skal gennemsøge. På scenen kan flere mennesker se på samme stykke husgeråd og befinde sig i vidt forskellige udgaver af den samme begivenhed.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 10,
+          "paragraphIndex": 8,
+          "quote": "tag denne kurv på jeres skuldre"
+        }
+      ]
     },
     {
-      "text": "Sammenlign begrundet mistanke med jaloux fantasi.",
-      "why": "Samme anklage kan have forskellige grunde."
+      "text": "Lyt efter overdrivelserne, når Falstaff fortæller den forklædte Ford om sine fremskridt.",
+      "why": "Han beretter om en forestående erobring for en mand, som både vil finansiere og forhindre den. Jo mere han overbeviser kunden om sine evner, desto mere beslutter ægtemanden sig for at gribe ham på fersk gerning. Begge tilhørere sidder på samme stol."
     }
   ],
   "opening": "Falstaff vil forbedre økonomien ved at forføre to gifte kvinder med adgang til mændenes penge. Han sparer arbejde ved at sende næsten ens breve. Uheldigvis sammenligner kvinderne dem og finder forslaget mere underholdende end fristende. Shakespeare anbringer sin store opportunist i en by, hvor hjemlig kløgt kan besejre pral, mens en jaloux ægtemand øger forvirringen. Komedien tilhører dem, der præcis forstår, hvordan de bliver undervurderet, og beslutter at gøre oplevelsen kostbar for manden, som regnede med en let gevinst."

@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "othello",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Et ægteskab forsvares",
-      "text": "Begyndelsen etablerer parrets engagement blandt indvendinger og flytningen fra Venedig til militære Cypern."
+      "title": "Første akt · Venedig · En anklage bliver hørt offentligt",
+      "text": "Jago og Roderigo vækker en far med nyt om datterens ægteskab. Foran senatet får Othello og Desdemona lov at fortælle selv. Deres beretning viser, hvad der kan ske, når begge parter i et ægteskab kommer til orde."
     },
     {
-      "title": "Fortolkning manipuleres",
-      "text": "Iago arrangerer samtaler og tilsyneladende beviser, så mistanken får opdagelsens kraft."
+      "title": "Anden akt · Cypern · Fjenden udebliver",
+      "text": "En storm fjerner den umiddelbare militære fare. I en garnison, som afhænger af disciplin og omdømme, kan et drikkelag ødelægge en karriere. Jago tilbyder brugbare råd til netop de mennesker, han vil skade."
+    },
+    {
+      "title": "Tredje til femte akt · En privat retssag",
+      "text": "Othello beder om bevis, og Jago skaffer lejligheder til at lytte i skjul, skimte og drage slutninger. Den anklagede kvinde er lige i nærheden. Vanskeligheden er at få hendes beretning ind i den lille domstol, manden og officeren har dannet."
     }
   ],
   "people": [
     {
-      "name": "Othello",
-      "role": "General og ægtemand",
-      "text": "General og Desdemonas mand."
+      "name": "Othello og Desdemona",
+      "role": "General og nygift hustru",
+      "text": "Begge har løbet en betydelig risiko ved at gifte sig. Når de fortæller om frieriet, lægger de vægt på at lytte. Derfor er det særligt foruroligende, da almindelige samtaler, hvor den anden kan svare igen, begynder at forsvinde."
     },
     {
-      "name": "Desdemona",
-      "role": "Hustru",
-      "text": "Har valgt ham trods modstand."
+      "name": "Jago og Emilia",
+      "role": "Ægtepar i hærens følge",
+      "text": "Han tjener Othello, hun er hos Desdemona. Genstande og oplysninger kan gennem deres ægteskab vandre mellem de to husstande. Emilia har sine egne iagttagelser om ægtemænd, som fortjener at blive hørt uafhængigt af hans planer."
     },
     {
-      "name": "Iago",
-      "role": "Officer og manipulator",
-      "text": "Officer med tilsyneladende loyale råd."
+      "name": "Cassio",
+      "role": "Nyligt forfremmet løjtnant",
+      "text": "At miste Othellos agtelse oplever han som at miste en del af sig selv. At bede Desdemona tale hans sag er en forståelig beslutning, som giver en fjendtlig iagttager netop de møder, han ønsker sig."
     }
   ],
   "context": [
     {
-      "title": "Den udefrakommendes stilling",
-      "level": "recommended",
-      "text": "Othellos militære værdi eksisterer med racemæssigt fjendskab og social usikkerhed. Anerkendelse i én rolle sikrer ikke tillid i en anden.",
-      "takeaway": "Hør, hvordan andre beskriver hans tilhørsforhold."
-    },
-    {
-      "title": "Ulige viden",
-      "level": "optional",
-      "text": "Publikum hører Iagos plan, mens ofrene hører optrædenen. Spændingen ligger i fortolkningens forløb.",
-      "takeaway": "Skeln det sete fra det udledte."
+      "title": "En general, der stadig regnes for fremmed",
+      "text": "Venedig behøver Othello som hærfører. Hans ægteskab med en senators datter mødes af racistisk hån. Hans offentlige myndighed og private udsathed findes side om side fra den første gadescene.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Bemærk ufuldendte antydninger.",
-      "why": "Tøven kan få en taler til at virke troværdig."
+      "text": "Hvilke anklager fremsætter Jago egentlig?",
+      "why": "En tøven eller et gentaget spørgsmål kan få Othello til selv at drage slutningen. En anklager, der tilsyneladende nødig vil anklage, kan være usædvanlig svær at modsige."
     },
     {
-      "text": "Følg hverdagsting, der bliver beviser.",
-      "why": "Betydning afhænger af historien om besiddelsen."
+      "text": "Hvem ser lommetørklædet skifte hænder?",
+      "why": "Publikum kan føre langt bedre regnskab med dets vandring end Othello. At have en genstand og at vide, hvordan den kom derhen, bliver efterhånden to ganske forskellige slags bevis.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 9,
+          "paragraphIndex": 141,
+          "quote": "Giv mig det øjenvidne bevis"
+        }
+      ]
     }
   ],
   "opening": "Othello og Desdemona er blevet gift imod hendes fars vilje og stoler nok på hinanden til at bære skandalen. Iago begynder med antydninger så små, at de næppe lyder som anklager. Han ved, hvilke spørgsmål der skal stå åbne, og hvornår han bør tøve. Shakespeare lader tilliden ødelægges gennem tvetydige gestus og en tilhører desperat efter vished. Publikum ser bedraget virke, mens mennesket indeni oplever hver ny mistanke som et skridt mod sandheden."

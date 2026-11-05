@@ -2,58 +2,63 @@
   "schemaVersion": 1,
   "workId": "jerusalem",
   "language": "da",
-  "revision": 2,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "Familien og sognet",
-      "text": "Begyndelsen etablerer Ingmarfamilien og et samfund, hvis arbejde, hukommelse og myndighed er rodfæstet i jorden."
+      "title": "Første bog · Ingmarsgården",
+      "text": "En bonde prøver at afgøre, hvad der er rigtigt, ved at forestille sig en forfaders dom. Fra begyndelsen får gården en stemme i familiens afgørelser. Senere kan det at sælge et stykke jord føles som at modsige flere slægtled af døde."
     },
     {
-      "title": "Beslutningen om at rejse",
-      "text": "Religiøs overbevisning omordner relationer og ejendom. Denne udgave ender med pilgrimmenes afrejse, ikke med deres senere liv i Jerusalem."
+      "title": "Anden bog · Missionshuset",
+      "text": "En skolelærer vil give den religiøse begejstring et hjem i bygden. En oversvømmelse, en helbredelse og en prædikants ankomst ændrer, hvem folk tør stole på som Guds talerør. Den samme begivenhed får forskellig betydning fra hus til hus."
+    },
+    {
+      "title": "Tredje bog · Beslutningen om at rejse",
+      "text": "En fortælling om en ulykke til søs knytter de svenske hjem til troende i udlandet. I dette bind mærkes pilgrimsfærden især i den bygd, de rejsende vil efterlade. Kærlighed, gårde og familieforventninger får alle en pris, da afrejsen skal føres ud i livet."
     }
   ],
   "people": [
     {
-      "name": "Ingmarfamilien",
-      "role": "Bondeslægt",
-      "text": "Bønder med nedarvet anseelse."
-    },
-    {
       "name": "Karin",
-      "role": "Familiemedlem",
-      "text": "En datter, hvis overbevisning påvirker hjemmet."
+      "role": "Den ansvarlige på Ingmarsgården",
+      "text": "Karin har forpligtelser over for slægtsnavnet, gården og de mennesker, der kommer for at dyrke deres tro. Da hendes religiøse tilhørsforhold ændrer sig, følger alle tre med ind i en afgørelse, et mindre fremtrædende menneske kunne have truffet i enrum."
     },
     {
       "name": "Hellgum",
-      "role": "Religiøs leder",
-      "text": "En religiøs leder med et nyt krav."
+      "role": "Prædikant",
+      "text": "Folk knytter store forhåbninger til tegnene omkring Hellgum. Hans indflydelse vokser gennem tilhængerne, som må blive ved med at tolke hans ønsker, også når prædikanten selv befinder sig et andet sted."
+    },
+    {
+      "name": "Unge Ingmar og Gertrud",
+      "role": "Gårdens arving og skolemesterens datter",
+      "text": "Deres kærlighed kunne engang se ud som en sag, to familier i bygden kunne afgøre. Gårdens salg og udsigten til udvandring lægger et ekstra spørgsmål ind i ethvert løfte mellem dem. Hvor skulle de bo for at kunne holde det?"
     }
   ],
   "context": [
     {
-      "title": "Arvet jord",
-      "level": "recommended",
-      "text": "En gård bærer levebrød, slægt og status. Salget ændrer løfter til mennesker, der ikke nødvendigvis deler sælgerens tro.",
-      "takeaway": "Ejendom bærer relationer såvel som værdi."
-    },
-    {
-      "title": "Religiøs vækkelse",
-      "level": "optional",
-      "text": "Kravet om et nyt liv kan udfordre kirkens og hjemmets autoritet. Romanen følger overbevisningens spredning gennem fællesskabet.",
-      "takeaway": "Tro har konkrete naboer."
+      "title": "Troen har en lokal økonomi",
+      "text": "For folk, der lever af slægtens jord, indebærer en rejse til Jerusalem salg af redskaber, møbler og gårde. En nabo, som ikke deler åbenbaringen, kan alligevel blive nødt til at købe noget, miste nogen eller se udsigten til en arv forsvinde.",
+      "level": "recommended"
     }
   ],
   "notice": [
     {
-      "text": "Se, hvem der bærer andres offer.",
-      "why": "En troshandling kan overføre omkostninger til andre."
+      "text": "Lyt efter skiftet fra den enkeltes historie til bygdens udgave.",
+      "why": "En privat oplevelse kan vandre videre som rygte, advarsel eller mirakel. I det næste køkken kan den blive bevis i en strid, hovedpersonen aldrig havde tænkt sig at deltage i."
     },
     {
-      "text": "Følg gårdens sanselige nærvær.",
-      "why": "Tilknytningen til stedet bliver mere end abstrakt tradition."
+      "text": "Se på tilskuerne ved salg og afrejse.",
+      "why": "Troende og tvivlere står fysisk side om side. Når en velkendt genstand skifter hænder, bliver det synligt, hvad udsigten til det hellige land betyder for dem, der bliver hjemme.",
+      "passages": [
+        {
+          "editionKey": "modern-da",
+          "chapterNumber": 15,
+          "paragraphIndex": 0,
+          "quote": "En dag i maj var der auktion på Ingmargården"
+        }
+      ]
     }
   ],
   "opening": "Gårdene i denne svenske dal bærer generationers arbejde, familiestolthed og løfter om, hvem der skal arve. Så overbeviser en religiøs vækkelse nogle ejere om, at Gud vil have dem et andet sted. At rejse til Jerusalem lyder som en troshandling, indtil jorden skal sælges, og de tilbageblevne opdager hengivelsens pris. Lagerlöf gør det nedarvede hjems tiltrækning så stærk, at beslutningen om at forlade det hverken kan forstås som blot mod eller blot vildfarelse."

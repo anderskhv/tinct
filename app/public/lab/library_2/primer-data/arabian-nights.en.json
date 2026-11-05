@@ -2,58 +2,67 @@
   "schemaVersion": 1,
   "workId": "arabian-nights",
   "language": "en",
-  "revision": 3,
+  "revision": 5,
   "origin": "codex-app",
-  "authoredOn": "2026-11-02",
+  "authoredOn": "2026-11-05",
   "structure": [
     {
-      "title": "A story to prolong life",
-      "text": "The frame establishes Scheherazade's nightly narration and the need to leave a listener wanting continuation."
+      "title": "The Arabian Nights · An hour before daybreak",
+      "text": "Scheherazade's first calculation concerns the time. Her sister must be in the room and awake early enough to ask for a story. The sultan can then permit one sister a last kindness to the other. Before he knows what the tale is about, he has already agreed to become its listener."
     },
     {
-      "title": "Stories within stories",
-      "text": "Lang's selection moves through embedded accounts and separate adventures. A character can become a storyteller addressing another character's immediate decision."
+      "title": "The Merchant and the Genie – The Third Calender · A merchant, a fisherman and stories offered in payment",
+      "text": "A merchant sits down to eat dates and finds himself charged with a killing he never knew he had committed. People who meet him begin telling stories that may help save his life. The fisherman sequence takes the device further. Someone in a tale can tell a tale of his own to persuade a listener that it would be a terrible mistake to trust someone."
+    },
+    {
+      "title": "Sindbad the Sailor · Seven voyages for a man with a load on his back",
+      "text": "The porter Hindbad stops outside a rich man's house, worn out by the heat and the weight he carries. Inside, the sailor Sindbad offers hospitality and an account of how his fortune was made. The seven voyages repeatedly return an extraordinary adventure to a very ordinary dispute about who had to work for what he owns."
+    },
+    {
+      "title": "The Little Hunchback – Two Sisters Who Were Jealous · From the barber's family to Aladdin and the streets of Bagdad",
+      "text": "Lang's later selections vary the rhythm. A swift sequence of misadventures can give way to a long tale about a lamp. A ruler in search of diversion can go into the city and find strangers who owe him an explanation. Each change of scale raises the possibility of another life hidden behind a curious sight."
     }
   ],
   "people": [
     {
-      "name": "Scheherazade",
-      "role": "Frame narrator",
-      "text": "A vizier's daughter who volunteers to marry a king who kills each bride the morning after, and who survives by telling him a story each night and leaving it unfinished."
+      "name": "Scheherazade and Dinarzade",
+      "role": "Storyteller and the sister who gives her the cue",
+      "text": "Dinarzade's first request sounds like a frightened sister's wish for comfort. Scheherazade has rehearsed it with her. A woman who commands a library's worth of stories has still had to enlist someone who knows exactly when to ask to hear one."
     },
     {
-      "name": "The king",
-      "role": "Listener and ruler",
-      "text": "A sultan so embittered by betrayal that he has decided no wife will see a second morning, until he finds he cannot stop listening."
-    },
-    {
-      "name": "Genies",
-      "role": "Supernatural powers",
-      "text": "Spirits of enormous power, bound in lamps, rings and bottles, who can grant a fortune or ruin a life, and keep the strict letter of every bargain."
+      "name": "Schahriar",
+      "role": "The sultan who can interrupt",
+      "text": "The listener has power over the storyteller's life, and for a little while the storyteller has power over his attention. Again and again the people in the stories encounter a larger, richer or more violent listener and have to discover whether that second power will buy them any time."
     }
   ],
   "context": [
     {
-      "title": "Nested narration",
-      "level": "recommended",
-      "text": "A story can pause while one of its characters tells another. Keep track of the current speaker and the listener being addressed.",
-      "takeaway": "Each telling has an audience and a purpose."
+      "title": "What to remember when a story opens inside another",
+      "text": "It helps to keep hold of the last unfinished action. A life was threatened, a judgment requested, or a strange sight demanded an explanation. When the inner story ends, the person who heard it still has a decision to make. Remembering that listener often matters more than remembering the exact route into the tale.",
+      "level": "recommended"
     },
     {
-      "title": "Lang's selection",
-      "level": "optional",
-      "text": "This is a selected English retelling rather than the entire tradition of the Nights. Selection and wording mediate the reader's encounter.",
-      "takeaway": "Avoid treating one edition as the whole tradition."
+      "title": "Andrew Lang's selection",
+      "text": "This volume offers a selection in English, with a preface and its own sequence of tales. The title describes a storytelling tradition larger than this book. The arrangement here gives some individual adventures a great deal of room, including seven separately marked voyages for Sindbad.",
+      "level": "optional"
     }
   ],
   "notice": [
     {
-      "text": "Notice stories offered as arguments.",
-      "why": "Narration can seek mercy, prove a claim, or delay an action."
+      "text": "Keep an eye on the date stones.",
+      "why": "The merchant regards them as the remains of a snack. Someone else describes the same throw as the cause of a death. The terrible gap between those accounts opens a space for further testimony, where another wonder or another witness might change what the judge is prepared to do.",
+      "passages": [
+        {
+          "editionKey": "original-en",
+          "chapterNumber": 3,
+          "paragraphIndex": 8,
+          "quote": "whilst you were throwing about the stones, my son passed by"
+        }
+      ]
     },
     {
-      "text": "Track the exact terms of wishes and bargains.",
-      "why": "Fortunes can turn on what a speaker failed to specify."
+      "text": "Count the people who must be entertained before anyone goes free.",
+      "why": "Sometimes a character needs a hearing from a king. Sometimes he must interest a genie before a bargain can even begin. Pleasure has a practical consequence in this collection. A delighted listener may grant a request he would scarcely have allowed the speaker to finish making a moment earlier."
     }
   ],
   "opening": "A king has made marriage a death sentence, and Scheherazade volunteers to become his next wife. She tells a story and leaves it unfinished at dawn, giving him a reason to postpone her execution. In Andrew Lang's selection, that desperate bargain opens onto merchants, sailors, genies, and fortunes transformed by an incautious wish or an unexpected encounter. Each adventure offers the pleasure on which the storyteller's life depends: the feeling that, whatever else must happen, the next part cannot be missed."
