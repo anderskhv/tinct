@@ -334,3 +334,60 @@ it.each([180, -180])('preserves all mounted nodes and %spx native momentum witho
 
   } finally { rect.mockRestore() }
 })
+
+// Anders, 5 Nov 2026: "I had actually finished 2 Maccabees 11 but it looks like
+// I haven't even started it." In Margin a chapter is read by scrolling, so the
+// reader reports the last word in view (its page tail) and, once their own
+// forward scroll brings the chapter's last word into view, that it was read to
+// the end. A landing, a layout correction or a minimap jump is not reading.
+describe('reading a chapter through to its end', () => {
+  const paragraphs = Array.from({ length: 10 }, (_, p) => Array.from({ length: 10 }, (_, w) => `p${p}w${w}`).join(' '))
+  const lastWord = { paragraphIndex: 9, wordIndex: 9 }
+  const geometry = () => vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 200, height: 200 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = (Number(this.dataset.paragraphIndex) * 10 + Number(this.dataset.wordIndex)) * 20 - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  const mount = (anchor = { paragraphIndex: 0, wordIndex: 0 }) => {
+    const onTail = vi.fn(), onReadToEnd = vi.fn()
+    render(<ContinuousReader epoch={first} anchor={anchor}
+      passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={vi.fn()} onLanded={vi.fn()} onTail={onTail} onReadToEnd={onReadToEnd} />)
+    const host = screen.getByTestId('continuous-reader')
+    let top = 0
+    Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 2400 },
+      scrollTop: { get: () => top, set: value => { top = Math.max(0, Math.min(2200, value)) } } })
+    return { host, onTail, onReadToEnd }
+  }
+
+  it('reports the last word in view and the end once the reader scrolls the last line into view', () => {
+    const rect = geometry()
+    try {
+      const { host, onTail, onReadToEnd } = mount()
+      for (let scroll = 160; scroll <= 1600; scroll += 160) { fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      expect(onTail).toHaveBeenLastCalledWith(first, { paragraphIndex: 8, wordIndex: 9 })
+      expect(onReadToEnd).not.toHaveBeenCalled()
+      for (let scroll = 1760; scroll <= 2200; scroll += 160) { fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onTail).toHaveBeenLastCalledWith(first, lastWord)
+      expect(onReadToEnd).toHaveBeenCalled()
+      expect(onReadToEnd).toHaveBeenLastCalledWith(first, lastWord)
+    } finally { rect.mockRestore() }
+  })
+
+  it('does not count a chapter opened at its end, or scrolled back to it, as read through', () => {
+    const rect = geometry()
+    try {
+      const { host, onReadToEnd } = mount({ paragraphIndex: 9, wordIndex: 0 })
+      // The landing scroll and the browser's echo of it are not the reader's.
+      host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onReadToEnd).not.toHaveBeenCalled()
+      fireEvent.wheel(host, { deltaY: -120 }); host.scrollTop -= 120; fireEvent.scroll(host)
+      expect(onReadToEnd).not.toHaveBeenCalled()
+    } finally { rect.mockRestore() }
+  })
+})

@@ -1907,6 +1907,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (watch?.chapterKey === labRestoreChapterKey(book.bookId, book.chapterNumber)
       && watch.paragraphIndex === anchor.paragraphIndex && watch.wordIndex === anchor.wordIndex) restoreWatchRef.current = null
   }
+  // Margin keeps no page list: the chapter's share read is the last word in
+  // view (the page tail Two-page uses), and scrolling the chapter's last line
+  // into view finishes it (Anders, 5 Nov 2026: 2 Maccabees 11 read to its end
+  // showed 0% in Contents). Neither touches the saved place.
+  const [continuousTail, setContinuousTail] = useState<{ key: string; paragraphIndex: number; wordIndex: number } | null>(null)
+  const continuousContentKey = `${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${continuousEpoch.chapterNumber}`
+  const continuousPercent = continuousTail?.key === continuousContentKey
+    ? labChapterProgress({ paragraphs: book.paragraphs, pages: [], pageIndex: 0, paragraphIndex: continuousTail.paragraphIndex, wordIndex: continuousTail.wordIndex + 1 }).percent
+    : undefined
+  const onContinuousTail = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, false, anchor, book.paragraphs)) return
+    const key = `${reported.bookId}/${reported.editionKey}/${reported.chapterNumber}`
+    setContinuousTail(previous => previous?.key === key && previous.paragraphIndex === anchor.paragraphIndex && previous.wordIndex === anchor.wordIndex ? previous : { key, ...anchor })
+  }
+  const onContinuousReadToEnd = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
+    if (finishedChapters.has(book.chapterNumber)) return
+    if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, placeWritesSuspended, anchor, book.paragraphs)) return
+    markChapterFinished(book.chapterNumber)
+  }
   const onContinuousVisible = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
     if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, placeWritesSuspended, anchor, book.paragraphs)) return
     continuousVisibleRef.current = anchor
@@ -6896,6 +6915,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             anchor={continuousAnchor}
             onVisible={onContinuousVisible}
             onLanded={onContinuousLanded}
+            onTail={onContinuousTail}
+            onReadToEnd={onContinuousReadToEnd}
             onUserBrowse={() => {
               // The Margin reader has no pages, so "Continue from last position" (shown while on
               // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
@@ -7450,7 +7471,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         currentChapter={book.chapterNumber}
         currentPage={chapterProgress.currentPage}
         totalPages={chapterProgress.totalPages}
-        currentPercent={chapterProgress.percent}
+        currentPercent={continuousReader ? continuousPercent : chapterProgress.percent}
         statuses={pickerStatuses}
         modernStates={prefs.primaryEdition === MODERN_EDITION_KEY && modern.status?.state === 'paid' ? modern.status.chapters : undefined}
         conversations={ask.conversations}
