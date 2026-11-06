@@ -113,3 +113,32 @@ it('keeps Play visibly busy until voice configuration is known, without claiming
  await waitFor(()=>expect(play.disabled).toBe(false))
  expect(play.getAttribute('aria-busy')).toBeNull()
 })
+
+// Design change (Anders, 2026-11-06, after a Grok sample in Danish): an offered
+// Danish edition is narrated by streaming, in Danish. Before, Play said audio was
+// unavailable for it. The Worker derives the language from the edition, so the
+// request names the Danish edition and never carries a language of its own.
+it('narrates an offered Danish edition by streaming instead of saying audio is unavailable',async()=>{
+ vi.stubGlobal('Audio',class {play=vi.fn(async()=>{});pause(){};addEventListener(){};removeEventListener(){};removeAttribute(){}})
+ localStorage.setItem('tinct-lab-prefs',JSON.stringify({primaryEdition:'modern-da',compareEdition:'modern-en',voicePersona:'female',voicePersonaChosen:true}))
+ const ensures:Array<Record<string,unknown>>=[], legacy:string[]=[]
+ vi.stubGlobal('fetch',vi.fn(async(input:RequestInfo|URL,init?:RequestInit)=>{
+  const url=String(input)
+  if(url.includes('/api/narration/voices'))return new Response(JSON.stringify({enabled:true,provider:'grok',voices:[{key:'f',label:'Ara',persona:'female'},{key:'m',label:'Helios',persona:'male'}]}),{status:200})
+  if(url.includes('/api/narration/ensure')){ensures.push(JSON.parse(String(init?.body)));return new Response('',{status:401})}
+  if(url.includes('audio-manifest')||url.includes('audio-file'))legacy.push(url)
+  return new Response('',{status:404})
+ }))
+ const text='»Ja, selvfølgelig, hvis det er fint i morgen,« sagde fru Ramsay.'
+ const base=fallbackLabSource()
+ const source={...base,bookId:'to-the-lighthouse',paragraphs:[text],followParagraphs:[{index:0,text}]}
+ render(<LabApp pathname="/lab/phone" source={source} authToken={null}/>)
+ await waitFor(()=>expect(vi.mocked(fetch).mock.calls.some(call=>String(call[0]).includes('/api/narration/voices'))).toBe(true))
+ await act(async()=>{await new Promise(resolve=>setTimeout(resolve,30))})
+ fireEvent.click(screen.getByTestId('lab-v2-play'))
+ await waitFor(()=>expect(ensures.length).toBeGreaterThan(0))
+ expect(ensures[0]).toMatchObject({bookId:'to-the-lighthouse',editionKey:'modern-da',chapter:1,voice:'f'})
+ expect(ensures[0]).not.toHaveProperty('language')
+ expect(screen.queryByText('Audio is temporarily unavailable for this edition. You can keep reading.')).toBeNull()
+ expect(legacy).toEqual([])
+})

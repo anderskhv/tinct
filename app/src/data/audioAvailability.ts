@@ -1,4 +1,4 @@
-import { editionHold, isBookTemporarilyHeld, isEditionLanguageOffered } from './editionAvailability'
+import { OFFERED_DANISH_EDITIONS, editionHold, isBookTemporarilyHeld, isEditionLanguageOffered } from './editionAvailability'
 import manifest from './audioAvailability.json'
 /** Reversible discovery policy. Never use this to reject saved text locations. */
 const held = new Set(manifest.held_editions.map(edition => edition.key))
@@ -51,34 +51,14 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
   'wuthering-heights/original-en',
 ])
 /**
- * Text-only editions: no recording and no narration (`hasAudio: false`).
- * Offered Danish editions, including the reviewed 2026-10-24 additions: narration is disabled
- * (docs/audiobook-architecture-2026-09-21.md), so nothing is ever recorded.
+ * The offered Danish editions (OFFERED_DANISH_EDITIONS) are narrated by
+ * streaming only, in Danish (Grok, `language: 'da'`; Anders, 2026-11-06,
+ * after a sample). Until then they were text-only by design (DECISIONS
+ * 2026-10-10, 2026-10-19). Nothing was ever recorded for them: no chapter
+ * manifest, word sidecar or MP3 on R2, so the reader never asks for one.
+ * Their registry `hasAudio` stays false: it names a recorded audio edition
+ * to select, and narration is decided by `narrationLanguage` (narrationCore).
  */
-export const TEXT_ONLY_EDITIONS: ReadonlySet<string> = new Set([
-  'to-the-lighthouse/modern-da',
-  'a-little-princess/modern-da',
-  'around-the-world-80-days/modern-da',
-  'jungle-book/modern-da',
-  'grimms-fairy-tales/modern-da',
-  'arabian-nights/modern-da',
-  'moby-dick/modern-da',
-  'crime-and-punishment/modern-da',
-  'apology/modern-da',
-  'us-founding-documents/modern-da',
-  'crito/modern-da',
-  'the-prince/modern-da',
-  'confessions/modern-da',
-  'alice-in-wonderland/modern-da',
-  'bacchae/modern-da',
-  'magna-carta/modern-da',
-  'medea/modern-da',
-  'meditations/modern-da',
-  'middlemarch/modern-da',
-  'the-art-of-war/modern-da',
-  'the-manual/modern-da',
-  'wuthering-heights/modern-da',
-  'master-and-margarita/modern-da',
-])
+export const STREAMED_ONLY_DANISH_EDITIONS: ReadonlySet<string> = OFFERED_DANISH_EDITIONS
 /** Whether an edition has recorded chapter audio (manifest, sidecar, MP3s) to ask for. */
-export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !TEXT_ONLY_EDITIONS.has(`${bookId}/${editionKey}`)
+export const hasRecordedAudio = (bookId: string, editionKey: string): boolean => !STREAMED_ONLY_AUDIO_EDITIONS.has(`${bookId}/${editionKey}`) && !STREAMED_ONLY_DANISH_EDITIONS.has(`${bookId}/${editionKey}`)

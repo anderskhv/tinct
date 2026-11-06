@@ -790,6 +790,79 @@ describe('Grok narration rollout', () => {
     expect((await ensure(h, catholic)).status).toBe(200)
     expect(h.fish.calls).toHaveLength(1)
   })
+  // Design change (Anders, 2026-11-06, after a Grok sample in Danish): the offered
+  // Danish editions are narrated in Danish. Until then they were text-only and
+  // the Worker refused them; these pin the new contract instead.
+  describe('Danish narration of the offered Danish editions', () => {
+    const DANISH = ['»Ja, selvfølgelig, hvis det er fint i morgen,« sagde fru Ramsay. »Men du må stå op med lærken,« tilføjede hun.']
+    function danishHarness(provider: 'grok' | 'fish' = 'grok') {
+      const result = grokHarness()
+      if (provider === 'fish') { result.h.env.NARRATION_PROVIDER = 'fish' }
+      result.h.env.ASSETS = { fetch: async (request: Request) => {
+        const path = new URL(request.url).pathname
+        // The same characters in both editions: only the language tells them apart.
+        if (path === '/data/editions/to-the-lighthouse-modern-da.json' || path === '/data/editions/to-the-lighthouse-modern-en.json'
+          || path === '/data/editions/frankenstein-modern-da.json') {
+          return Response.json({ chapters: [{ number: 1, title: '1', paragraphs: DANISH }] })
+        }
+        return new Response('Not found', { status: 404 })
+      } }
+      return result
+    }
+    const lighthouse = { bookId: 'to-the-lighthouse', chapter: 1, voice: 'f', mode: 'all', paragraphs: [{ index: 0 }] }
+    it('sends language "da" to Grok for a Danish edition and "en" for an English one', async () => {
+      const { h } = danishHarness()
+      const da = await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      expect(da.status).toBe(200)
+      expect(da.json.paragraphs[0].status).toBe('ready')
+      const daCalls = h.fish.calls.length
+      expect(daCalls).toBeGreaterThan(0)
+      for (const call of h.fish.calls) expect(JSON.parse(call.body).language).toBe('da')
+      await ensure(h, { ...lighthouse, editionKey: 'modern-en' })
+      const enCalls = h.fish.calls.slice(daCalls)
+      expect(enCalls.length).toBeGreaterThan(0)
+      for (const call of enCalls) expect(JSON.parse(call.body).language).toBe('en')
+    })
+    it('derives the language from the edition, never from the request', async () => {
+      const { h } = danishHarness()
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da', language: 'en' })
+      await ensure(h, { ...lighthouse, editionKey: 'modern-en', language: 'da' })
+      expect(h.fish.calls.map(call => JSON.parse(call.body).language)).toEqual(['da', 'en'])
+    })
+    it('never lets Danish and English share a recording, even for the same characters', async () => {
+      const { h } = danishHarness()
+      const da = await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      const en = await ensure(h, { ...lighthouse, editionKey: 'modern-en' })
+      // Each edition paid for its own recording: nothing was adopted across languages.
+      expect(h.fish.calls).toHaveLength(2)
+      const daHash = String((da.json.paragraphs[0] as Result).chunks![0].hash)
+      const enHash = String((en.json.paragraphs[0] as Result).chunks![0].hash)
+      expect(daHash).toMatch(/^[a-f0-9]{64}$/)
+      expect(daHash).not.toBe(enHash)
+      const daMeta = await (await h.env.AUDIO_BUCKET.get(narrationBlobKeys(daHash, 'grok').meta))!.json()
+      const enMeta = await (await h.env.AUDIO_BUCKET.get(narrationBlobKeys(enHash, 'grok').meta))!.json()
+      expect(daMeta).toMatchObject({ language: 'da', editionKey: 'modern-da', text: enMeta.text })
+      expect(enMeta.language).toBeUndefined()
+      // A second Danish request is a cache hit.
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      expect(h.fish.calls).toHaveLength(2)
+    })
+    it('lists a Danish chapter like an English one', async () => {
+      const { h } = danishHarness()
+      await ensure(h, { ...lighthouse, editionKey: 'modern-da' })
+      const listing = await chapter(h, 'bookId=to-the-lighthouse&editionKey=modern-da&chapter=1&voice=f')
+      expect(listing.status).toBe(200)
+      expect(listing.json.paragraphs[0]).toMatchObject({ status: 'ready' })
+    })
+    it('narrates only offered Danish editions, and only with Grok', async () => {
+      const { h } = danishHarness()
+      expect((await ensure(h, { ...lighthouse, bookId: 'frankenstein', editionKey: 'modern-da' })).status).not.toBe(200)
+      const fish = danishHarness('fish').h
+      expect((await ensure(fish, { ...lighthouse, editionKey: 'modern-da', voice: 'a' })).status).toBe(403)
+      expect(h.fish.calls).toHaveLength(0)
+      expect(fish.fish.calls).toHaveLength(0)
+    })
+  })
   it('offers only the four approved voices and keeps provider identities separate', () => {
     const { h } = grokHarness()
     expect(narrationConfig(h.env).voices.map(v => v.id)).toEqual(['ara','helios','orion','eve'])

@@ -43,6 +43,7 @@ import {
   type NarrationPilotInfo,
   type NarrationParagraphResult,
 } from './labNarration'
+import { narrationLanguage } from '../narration/narrationCore'
 import { readSupabaseAccessToken } from './labAuth'
 import { useLabFunnel } from './useLabFunnel'
 import { useLabListenReport } from './useLabListenReport'
@@ -846,6 +847,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     && narrationVoice != null
     && narrationPilotApplies(prefs, book.bookId || 'bible', prefs.primaryEdition, book.chapterNumber, narrationInfo.provider)
   const retainedBella = narrationInfo?.provider !== 'grok' && usesRetainedBella(book.bookId || 'bible', prefs.primaryEdition, prefs.voicePersona)
+  // The edition's narrated language: English editions, and the offered Danish
+  // editions since 2026-11-06 (Anders, after a Grok sample). Null: not narrated.
+  const editionNarrationLanguage = privateBook ? null : narrationLanguage(book.bookId || 'bible', prefs.primaryEdition)
+  const streamedNarrationEdition = editionNarrationLanguage !== null
   const prefsProfileRef = useRef(appearanceProfile)
   useLayoutEffect(() => {
     if (prefsProfileRef.current === appearanceProfile) return
@@ -1571,13 +1576,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const narrationOption = useMemo(
     () => ((narrationApplies || ownNarration) && narrationVoice ? {
       voice: narrationVoice, ensure: narrationEnsure, prepared: narrationPrepared,
+      // Own books are cut as the own-book route cuts them (English rules).
+      language: editionNarrationLanguage ?? 'en',
       endingCue: bookTransition ? { text: bookTransition.text, ensure: narrationEndingEnsure } : undefined,
     } : null),
-    [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure],
+    [narrationApplies, ownNarration, narrationVoice, narrationEnsure, narrationPrepared, bookTransition, narrationEndingEnsure, editionNarrationLanguage],
   )
   const listen = useLabListen({
     guardPlaybackRequests: true,
-    playbackUnavailable: (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
+    playbackUnavailable: (privateBook && !ownNarration) || Boolean(temporaryHold) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition ? !narrationOption : narrationOption || retainedBella ? false : audioUnavailable),
     bookId: listenSource.bookId,
     bookTitle: book.bookTitle,
     chapterTitle: book.chapterLabel,
@@ -4918,10 +4925,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (temporaryHold || narrationInfo?.loading) return
     // An edition with no audio at all (To the Lighthouse in Danish) says so,
     // rather than asking a signed-out reader to sign in for audio.
-    if (audioUnavailable && !narrationOption && !retainedBella && !prefs.primaryEdition.endsWith('-en') && !listen.isPending()) { setAudioUnavailableNotice(true); return }
+    if (audioUnavailable && !narrationOption && !retainedBella && !streamedNarrationEdition && !listen.isPending()) { setAudioUnavailableNotice(true); return }
     if (audioAccountRequiredRef.current && !signedIn) { setAccountPrompt({ action: 'audio' }); return }
     if (listen.isPending()) { listen.pause(); return }
-    if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && prefs.primaryEdition.endsWith('-en') && !narrationOption)) { setAudioUnavailableNotice(true); return }
+    if ((audioUnavailable && !narrationOption && !retainedBella) || (narrationInfo?.provider === 'grok' && streamedNarrationEdition && !narrationOption)) { setAudioUnavailableNotice(true); return }
     setAudioUnavailableNotice(false)
     mobileCompareReturnPlaceRef.current = null
     setChapterCoverTitle(null)
@@ -5014,7 +5021,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setInTheBookOpen(false)
     notePlace('play')
     void listen.startAtPlace(place)
-  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, book, chrome, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome, continuousReader])
+  }, [temporaryHold, signedIn, audioUnavailable, narrationOption, narrationInfo, prefs.primaryEdition, retainedBella, streamedNarrationEdition, book, chrome, listen, listenSource.bookId, listenSource.chapterNumber, measuredPaging, notePlace, pausedTransportVisible, readingPageIndex, readingPages, resumeListeningPlace, showPhoneChrome, continuousReader])
 
   startHearingRef.current = () => startHearing({ force: true })
 
