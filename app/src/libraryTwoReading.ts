@@ -35,7 +35,7 @@ import { newBooksOpenIn, readingLanguages } from './social/socialClient'
 import { recapCacheKey, type LabRecapRequest } from './recapSummary'
 import { readStoredRecapSummary, recapSummaryPermission, requestLabRecapSummary, storeRecapSummary } from './preReader/recapSummaryClient'
 import { LAB_CATALOGUE_URL, readReaderOrigin, writeReaderOrigin } from '../public/lab/library-model.js'
-import { readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
+import { forgetLabLibraryBootBook, readLabLibraryBootSnapshot } from './lab/labLibraryBoot'
 import { wholeBookProgress } from '../public/lab/library-2-model.js'
 import { catalogueBookIdForPlace, positionPlacesByBook, heroHeadline, libraryModeFor, type LibraryBookInfo, type LibraryMode, type ReadingListRow } from './preReader/libraryRecap'
 import { mergeReadingNow, readingNowList } from './preReader/readingNow'
@@ -686,6 +686,7 @@ export async function removeFromShelf(bookId: string) {
   const at = removalTime(bookId)
   const result = at > Date.now() ? await setSavedBook(bookId, false, { at }) : await setSavedBook(bookId, false)
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  forgetLabLibraryBootBook(bookId)
   lastRows.delete(bookId)
   return result
 }
@@ -705,6 +706,7 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
     await setSavedBook(bookId, saved, { tableHidden: true, ...(auth.userId ? { expectedOwner: auth.userId } : {}), at })
     if ((await readAuth()).userId !== auth.userId) throw new Error('Account changed')
     storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+    forgetLabLibraryBootBook(bookId)
     return
   }
   const local = readLabPositionLocal(LIBRARY_POSITION_DEVICE_ID)
@@ -716,6 +718,7 @@ export async function hideFromReadingNow(bookId: string, { saved = true }: { sav
   const stored = writeLabPositionLocal(next)
   // Invalidate only this viewer's fast-paint snapshot before the next fresh load.
   storage('local')?.removeItem('tinct:library-2-table:' + (auth.userId ?? 'guest'))
+  forgetLabLibraryBootBook(bookId)
   lastRows.delete(bookId)
   if (auth.token && isOnline()) await putLabPositionCloud(auth.token, stored)
 }

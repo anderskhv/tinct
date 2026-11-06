@@ -161,14 +161,15 @@ describe('every removal path uses the motion', () => {
     // The Master and Margarita's reviewed introduction, taxonomy and browse groups (20261106mm) changed
     // reviewed-introductions.js, taxonomy.js and browse-groups.js without new tags, so returning readers kept
     // the old files; the new tag goes on them and every module above them on the way to index.html. People & ideas drawn like Structure
-    // (20261106people) changed app.js alone.
+    // (20261106people) changed app.js alone. A linked book (?book=) leaving the desk with its × or My shelf
+    // not coming back without its × (20261106deskgone) changed bookshelf.js, so app.js and index.html too.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain('app.js?v=20261106people')
+    expect(lib('index.html')).toContain('app.js?v=20261106deskgone')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261105own')
     expect(lib('index.html')).toContain('boot.js?v=20261102empty')
-    expect(lib('app.js')).toContain(`bookshelf.js?v=${mm}`)
+    expect(lib('app.js')).toContain('bookshelf.js?v=20261106deskgone')
     expect(lib('app.js')).toContain(`catalogue.js?v=${mm}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${mm}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
