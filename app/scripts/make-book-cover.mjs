@@ -43,7 +43,12 @@ for (let k = 1; k <= Number(a.n); k++) {
   const art = path.join(out, `${a.id}-${k}-painting.jpg`)
   await fs.writeFile(art, Buffer.from((await response.json()).data[0].b64_json, 'base64'))
   const p = await browser.newPage({ viewport: { width: 540, height: 810 } })
-  await p.setContent(page(art)); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(300)
+  // A page loaded from a file, so the painting and the font (file:// URLs) are allowed to load.
+  const html = path.join(out, `${a.id}-${k}.html`)
+  await fs.writeFile(html, page(art))
+  await p.goto('file://' + html); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(300)
+  if (!(await p.evaluate(() => document.querySelector('img').naturalWidth > 0 && document.fonts.check('36px EBG')))) throw new Error('painting or font did not load')
+  await fs.rm(html)
   const png = await p.locator('#c').screenshot(); await p.close()
   const file = path.join(out, `${a.id}-${k}.webp`)
   await sharp(png).webp({ quality: 86 }).toFile(file)
