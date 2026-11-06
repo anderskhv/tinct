@@ -8,7 +8,7 @@
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
 import {putHandoff,HANDOFF_PARAM,clearPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
-import {eraLabel} from './book-metadata.js?v=20261009rel10';
+import {eraLabel} from './book-metadata.js?v=20261106mm';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
