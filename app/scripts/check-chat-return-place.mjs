@@ -204,7 +204,7 @@ const browser = await markInternal(await chromium.launch({ executablePath, args:
 const results = []
 let failed = false
 try {
-  // Read, and Compare (swiped to the other edition). Every Chat entry point
+  // Read, and Compare (switched to the other edition). Every Chat entry point
   // returns by "Back to book"; the menu entry also by Escape and after a reply.
   const views = process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'compare']
   const cases = views.flatMap(view => Object.entries(entries).flatMap(([entry, open]) => Object.entries(returns)
@@ -214,10 +214,11 @@ try {
     const { context, page, errors, cspViolations } = await boot(browser)
     try {
       if (view === 'compare') {
-        await page.getByTestId('lab-book').evaluate(el => {
-          el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 400 }))
-          el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerId: 71, pointerType: 'touch', clientX: 190, clientY: 270 }))
-        })
+        // The vertical swipe was removed (6 Nov 2026); Compare opens from Book settings.
+        await page.getByTestId('lab-super').click()
+        await page.getByTestId('lab-super-row-editions').click()
+        await page.getByTestId('lab-v2-show-compare').click()
+        await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-compare-active') === 'true')
         await page.waitForTimeout(1500)
       }
       await turnForward(page, turns)
