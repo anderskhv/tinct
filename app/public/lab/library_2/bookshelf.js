@@ -4,6 +4,7 @@ import { readingApi, loadCatalogueData } from './catalogue.js?v=20261106mm';
 import { createBookshelf } from './bookshelf-view.js?v=20261106mm';
 import { readVisit, rememberVisit, visitMode } from './visit.js?v=20261001visit';
 import { bookCoverSrc } from '../book-cover.js?v=20261009owncover';
+import { deskWithLink, addressWithoutLink } from './desk-link.js?v=20261106deskgone';
 
 export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notice}) {
  const params=new URLSearchParams(location.search),sample=params.get('demo')==='reading';
@@ -17,9 +18,19 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
  // A book link puts its book in focus on the desk. A book the reader is not
  // reading stands at the front for this visit only; nothing is saved, and
  // their own books keep their order.
- const linked=sample||shelfStudy?null:window.__library2Boot?.book||null;
+ let linked=sample||shelfStudy?null:window.__library2Boot?.book||null;
+ // The reader took the linked book off their desk (its × here, or My shelf): the link has
+ // done its work. It must not stand at the front again as a book with no × (Anders, 6 Nov
+ // 2026: /library?book=frankenstein, Frankenstein removed, back at the front without its ×),
+ // nor after a reload, so the address loses the link too (/read/<id> becomes /library).
+ function dropLink(id){
+  if(!linked||id!==linked)return;
+  linked=null;
+  const address=addressWithoutLink(location.href,id);
+  if(address)try{history.replaceState(history.state,'',address);}catch{}
+ }
  function deskBook(id){const entry=catalogue.find(b=>b.id===id&&b.discoveryAvailable!==false);if(!entry)return null;return {bookId:entry.id,title:entry.title,author:entry.author||'',cover:bookCoverSrc({bookId:entry.id,art:entry.art}),tone:entry.cover?.background||null,wordCount:entry.wordCount??null,displayYear:entry.displayYear||'',chapterLabel:'',headline:'',percent:null,recap:reviewedHooks[entry.id]||entry.blurb||entry.summary||'',linked:true};}
- function desk(){if(!linked||table.reading.some(b=>b.bookId===linked))return table;const book=deskBook(linked);return book?{...table,reading:[book,...table.reading]}:table;}
+ function desk(){return linked&&!table.reading.some(b=>b.bookId===linked)?deskWithLink(table,linked,deskBook(linked)):table;}
  function settle(){loading.hidden=true;html.classList.remove('returning-pending');if(!html.classList.contains('returning')||shelfStudy)html.classList.remove('returning-scene-pending');}
  function show(key){
   html.classList.add('returning');html.dataset.returningView=shelfStudy?'shelf':'table';root.hidden=!shelfStudy;
@@ -29,6 +40,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
    summaryFor:sample?null:(id,options)=>api.summaryFor(id,options),onError:notice,
    onRemoveReading:async id=>{
     if(sample){table={...table,reading:table.reading.filter(b=>b.bookId!==id)};present();return;}
+    dropLink(id);
     // The book leaves the table at once, as an app does on iOS, while the removal is written;
     // the desk's own state follows only once it is kept (a last book leaves the desk then). Should
     // the write fail, the account's table is read again (the book returns) and the error is shown.
@@ -99,7 +111,7 @@ export function mountBookshelf({hero,enabled,openBook,prepareCover,onSaved,notic
   }finally{loadingNow=false;}
  }
  addEventListener('library2:saved',e=>{if(sample)return;saved=e.detail;if(view){if(enabled())view.update(desk(),saved,catalogue);else pendingUpdate=true;}});
- addEventListener('library2:shelf-removed',event=>{const id=event.detail;table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
+ addEventListener('library2:shelf-removed',event=>{const id=event.detail;dropLink(id);table={...table,reading:table.reading.filter(book=>book.bookId!==id),finished:table.finished.filter(book=>book.bookId!==id),shelfReading:(table.shelfReading||table.reading).filter(book=>book.bookId!==id)};present();ready=load(true);});
  // A refresh that lands behind the menu, search, a book or My shelf is applied as
  // soon as the desk is visible again, so the desk and My shelf never disagree.
  // A change made elsewhere (My shelf) is simply there on return: no removal plays out on the desk.
