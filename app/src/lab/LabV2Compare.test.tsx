@@ -4,7 +4,7 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { LabApp } from './LabApp'
 import { fallbackLabSource, resetLabBibleManifestCache, resetLabChapterTextCache } from './labSource'
-import { labSwipeCompareSwap, labSwipePageDirection } from './labChrome'
+import { labSwipePageDirection } from './labChrome'
 import { LAB_PREFS_KEY, storeCompareView } from './labPrefs'
 import { labSuperMenuRows } from './labSuperMenu'
 import { bibleEditions, editionLabelFor } from './labPrefs'
@@ -67,21 +67,25 @@ function swipe(node: Element, dx: number, dy: number, pointerType = 'touch') {
   fireEvent.pointerUp(node, { pointerId: 1, pointerType, clientX: 180 + dx, clientY: 400 + dy, timeStamp: 220 })
 }
 
+/** The reader's way to swap editions on the phone: the Book settings switch. */
+function swapEditions() {
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  fireEvent.click(screen.getByTestId('lab-v2-show-compare'))
+}
+
 describe('the compare gesture', () => {
-  it('is vertical, decisive, and can never fire on the same swipe as a page turn', () => {
-    // Up and down both swap.
-    expect(labSwipeCompareSwap(0, -90)).toBe(true)
-    expect(labSwipeCompareSwap(0, 90)).toBe(true)
-    // A short flick is not a swap.
-    expect(labSwipeCompareSwap(0, 30)).toBe(false)
-    // A diagonal is neither gesture.
-    expect(labSwipeCompareSwap(80, 80)).toBe(false)
+  it('is gone: a vertical swipe never swaps editions (Anders, 2026-11-06)', () => {
+    // Readers scrolling up and down kept swapping translations by accident.
+    withCompare()
+    renderPhone()
+    swipe(screen.getByTestId('lab-book'), 0, -110)
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    swipe(screen.getByTestId('lab-book'), 0, 110)
+    expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
+    // A diagonal is not a page turn; a sideways swipe still is.
     expect(labSwipePageDirection(80, 80)).toBeNull()
-    // And a page turn is never a swap.
-    for (const dx of [-200, -60, 60, 200]) {
-      expect(labSwipeCompareSwap(dx, 0)).toBe(false)
-      expect(labSwipePageDirection(dx, 0)).not.toBeNull()
-    }
+    for (const dx of [-200, -60, 60, 200]) expect(labSwipePageDirection(dx, 0)).not.toBeNull()
   })
 
   it('swaps the whole page and back again', () => {
@@ -90,11 +94,11 @@ describe('the compare gesture', () => {
     const page = screen.getByTestId('lab-book')
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
 
-    swipe(page, 0, -110)
+    swapEditions()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
     expect(screen.getByTestId('lab-book').textContent).toContain('Modern wording')
 
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
     expect(screen.getByTestId('lab-book').textContent).toContain('Old wording')
   })
@@ -131,12 +135,12 @@ describe('what Compare says about itself', () => {
   it('carries no running head and identifies the actual comparison edition', () => {
     withCompare()
     renderPhone()
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     expect(screen.queryByTestId('lab-v2-edition-name')).toBeNull()
     expect(screen.getByTestId('lab-chapter-progress').textContent).toBe('World English Bible')
     expect(screen.getByTestId('lab-chapter-progress').textContent).not.toMatch(/\d/)
     // Back on the primary page the line is the progress line it always was.
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     expect(screen.getByTestId('lab-chapter-progress').textContent).toMatch(/of (book|chapter)/)
   })
 
@@ -145,11 +149,11 @@ describe('what Compare says about itself', () => {
     withCompare()
     renderPhone()
     expect(screen.queryByTestId('lab-v2-version-pill')).toBeNull()
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     const pill = screen.getByTestId('lab-v2-version-pill')
     expect(pill.textContent).toBe(editionLabelFor('web-en', bibleEditions()))
     // Every swap, on the page landed on: back again names the primary.
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     expect(screen.getByTestId('lab-v2-version-pill').textContent).toBe(editionLabelFor('kjv-en', bibleEditions()))
     expect(editionLabelFor('kjv-en', bibleEditions())).not.toBe(editionLabelFor('web-en', bibleEditions()))
     // And it never persists: about a second, then gone.
@@ -160,7 +164,7 @@ describe('what Compare says about itself', () => {
   it('never explains the swipe', () => {
     withCompare()
     renderPhone()
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     const chrome = screen.getByTestId('lab-root').textContent ?? ''
     expect(chrome).not.toMatch(/swipe/i)
     expect(chrome).not.toMatch(/swap/i)
@@ -229,14 +233,14 @@ describe('where the compare page begins', () => {
     const leftParagraph = Number(left.match(/Paragraph (\d+)/)![1])
     expect(leftParagraph).toBeGreaterThan(0)
 
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
     // Same paragraph as the primary page's first word — not page 4 of the compare.
     expect(firstLine()).toBe(compare[leftParagraph])
     expect(screen.getByTestId('lab-book').textContent).toContain(compare[leftParagraph])
     expect(screen.getByTestId('lab-book').textContent).not.toContain(compare[leftParagraph - 1])
 
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
     expect(firstLine()).toBe(left)
     expect(screen.getByTestId('lab-chapter-progress').textContent).toBe(leftProgress)
@@ -248,13 +252,13 @@ describe('where the compare page begins', () => {
     for (let i = 0; i < 4; i += 1) fireEvent.click(screen.getByTestId('lab-page-next'))
     const left = firstLine()
     const place = screen.getByTestId('lab-root').getAttribute('data-place')
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     const opened = firstLine()
     fireEvent.click(screen.getByTestId('lab-page-next'))
     expect(firstLine()).not.toBe(opened)
     fireEvent.click(screen.getByTestId('lab-page-prev'))
     expect(firstLine()).toBe(opened)
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('false')
     expect(firstLine()).toBe(left)
     expect(screen.getByTestId('lab-root').getAttribute('data-place')).toBe(place)
@@ -279,7 +283,7 @@ describe('where the compare page ends', () => {
     fireEvent.click(screen.getByTestId('lab-page-next'))
     const mainWords = visibleWords()
     const lastVerse = [...mainWords].reverse().find(word => /^p\d+w/.test(word))!.match(/^p(\d+)w/)![1]
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     const shown = visibleWords()
     // Shorter: the passage fits and the page is exactly it, from the verse the
     // primary page began in through the whole of the verse it ended in.
@@ -287,14 +291,14 @@ describe('where the compare page ends', () => {
     expect(shown.find(word => /^c\d+w/.test(word))).toBe(`c${firstVerse}w0`)
     expect(shown[shown.length - 1]).toBe(`c${lastVerse}w3.`)
     expect(shown.some(word => word === `c${Number(lastVerse) + 1}w0`)).toBe(false)
-    swipe(screen.getByTestId('lab-book'), 0, 110)
+    swapEditions()
     cleanup()
 
     // Twice as long: normal pages, and nothing is drawn where the passage
     // ends (Anders, 2026-10-19: the end-of-page mark was distracting).
     withCompare()
     renderPhone({ source: { ...fallbackLabSource(), paragraphs: primary, compareParagraphs: group(verses(14, 'c')) } })
-    swipe(screen.getByTestId('lab-book'), 0, -110)
+    swapEditions()
     const firstComparePage = visibleWords()
     expect(firstComparePage.some(word => /^c\d+w/.test(word))).toBe(true)
     for (let i = 0; i < 4; i += 1) {

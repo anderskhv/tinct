@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, labSwipeCompareSwap, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -628,14 +628,3 @@ describe('touch on a scrolling passage', () => {
   })
 })
 
-// Documents the phone Compare swap as it stands (6 Nov 2026): any decisive
-// vertical swipe swaps, so a reader's ordinary scroll gesture does too. A
-// change here is Anders's call (see DECISIONS.md).
-describe('phone Compare swap gesture', () => {
-  it('fires on a mostly vertical swipe of 52px or more, in either direction', () => {
-    expect(labSwipeCompareSwap(0, -60)).toBe(true)
-    expect(labSwipeCompareSwap(10, 120)).toBe(true)
-    expect(labSwipeCompareSwap(0, 40)).toBe(false)
-    expect(labSwipeCompareSwap(80, 90)).toBe(false)
-  })
-})

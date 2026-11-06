@@ -750,12 +750,12 @@ describe('tap to move while listening', () => {
 })
 
 describe('touch selection owns the gesture', () => {
-  it('blocks native selection/panning and never turns or swaps at a page edge', () => {
+  it('blocks native selection/panning and never turns at a page edge', () => {
     vi.useFakeTimers()
     try {
-      const select = vi.fn(), turn = vi.fn(), swap = vi.fn()
+      const select = vi.fn(), turn = vi.fn()
       render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })}
-        onSelectRange={select} onPageTurn={turn} onCompareSwap={swap} />)
+        onSelectRange={select} onPageTurn={turn} />)
       const word = screen.getAllByTestId('lab-word')[0]
       const surface = screen.getByTestId('lab-book')
       vi.spyOn(surface, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 390, top: 0, bottom: 700, width: 390, height: 700 } as DOMRect)
@@ -771,7 +771,6 @@ describe('touch selection owns the gesture', () => {
       fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 400 })
       expect(select).toHaveBeenCalledOnce()
       expect(turn).not.toHaveBeenCalled()
-      expect(swap).not.toHaveBeenCalled()
       expect(fireEvent(word, new Event('selectstart', { bubbles: true, cancelable: true }))).toBe(true)
     } finally { vi.useRealTimers() }
   })
@@ -815,15 +814,16 @@ describe('touch selection owns the gesture', () => {
     } finally { vi.useRealTimers() }
   })
 
-  it('still permits a quick swipe starting on a word', () => {
-    const swap = vi.fn(), select = vi.fn()
+  it('treats a quick vertical swipe on a word as neither a selection nor a page turn', () => {
+    // The vertical Compare swap was removed (Anders, 2026-11-06).
+    const turn = vi.fn(), select = vi.fn()
     render(<LabPassage {...passageProps(['one two'], { paragraphIndex: 0, from: 0, to: 2 })}
-      onSelectRange={select} onCompareSwap={swap} />)
+      onSelectRange={select} onPageTurn={turn} />)
     const word = screen.getAllByTestId('lab-word')[0]
     fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
     fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
     fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 310 })
-    expect(swap).toHaveBeenCalledOnce()
+    expect(turn).not.toHaveBeenCalled()
     expect(select).not.toHaveBeenCalled()
   })
 })
