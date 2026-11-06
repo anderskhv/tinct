@@ -412,13 +412,11 @@ function renderOpening(body){
  if(book.opening)body.append(el('p','intro-opening',book.opening));
  const list=el('div','primer-rows');
  // Each item is one paragraph with a bold lead-in ("Title: text"), never a heading over a heading (Anders, 2 Nov 2026).
- // "Name – the ruler of Thebes…": an ordinary first word is lowercased after the dash; a name ("Socrates, who…",
- // "Mill's rule…") keeps its capital.
- const personLine=text=>/^(?:The|A|An|His|Her|Their|Its|One|Two|Three|Four|Five|For|In|On|Old|Ancient|Born|Twin|Spirits|Learning|Ordinary|Life|Chance|Forcing|Goodness|Exclusive)\b/.test(text)?text.replace(/^./,c=>c.toLowerCase()):text;
  const lead=(title,text)=>{const p=el('p','primer-item');p.append(el('strong','',/[?!:]$/.test(String(title).trim())?`${String(title).trim()} `:`${title}: `),document.createTextNode(text));return p;};
  if(rows?.structure.length)list.append(primerRow('Structure','primer-structure',inner=>rows.structure.forEach(item=>inner.append(lead(item.title,item.text)))));
- // People read as a plain cast list: name, then who they are; no bold, no role line (Anders, 2 Nov 2026).
- if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>inner.append(el('p','primer-item primer-person-line',`${item.name} – ${personLine(item.text)}`)))));
+ // People read like Structure: a bold lead-in, "Name · role:", then the text (Anders, 6 Nov 2026; it was a plain
+ // "Name – text" cast list from 2 Nov).
+ if(rows?.people.length)list.append(primerRow('People & ideas','primer-people',inner=>rows.people.forEach(item=>{const p=lead(item.role?`${item.name} · ${item.role}`:item.name,item.text);p.classList.add('primer-person-line');inner.append(p);})));
  // Suggested prerequisites (Anders, 5 Nov 2026) replace Background and What to notice: drawn only for a book with a
  // strong one. A title naming a book in the library opens that book's introduction, as the librarian's links do.
  if(rows?.prerequisites?.length)list.append(primerRow('Suggested prerequisites','primer-prerequisites',inner=>rows.prerequisites.forEach(item=>{

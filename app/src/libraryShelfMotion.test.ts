@@ -160,9 +160,10 @@ describe('every removal path uses the motion', () => {
     // bookshelf.js and app.js. The signed-out "Add your own book or text" beside Read (20261105own) changed styles.css.
     // The Master and Margarita's reviewed introduction, taxonomy and browse groups (20261106mm) changed
     // reviewed-introductions.js, taxonomy.js and browse-groups.js without new tags, so returning readers kept
-    // the old files; the new tag goes on them and every module above them on the way to index.html.
+    // the old files; the new tag goes on them and every module above them on the way to index.html. People & ideas drawn like Structure
+    // (20261106people) changed app.js alone.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain(`app.js?v=${mm}`)
+    expect(lib('index.html')).toContain('app.js?v=20261106people')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261105own')
