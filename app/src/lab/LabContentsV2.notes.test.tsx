@@ -81,7 +81,9 @@ it('a chapter note opens its chapter, and the chapter’s tag counts it', async 
 })
 
 // The phone's Notebook (22 Oct 2026): one list, newest first, of the book's cards and the reader's marks, as the
-// desktop margin reader's Notebook lists them, with its filters All · My notes · AI.
+// desktop margin reader's Notebook lists them. Its filters were All · My notes · AI; on 6 Nov 2026 Anders asked for
+// AI · Highlights · Notes · All ("so notes are notes"): a highlight with a note, and a chapter note, list under Notes
+// only; a plain highlight under Highlights only. The design changed, so these assertions changed with it.
 it('as the Notebook, lists cards and highlights and notes newest first, filters them, and opens each', async () => {
   const card = (id: string, at: number, extra: object = {}) => ({ id, bookId: 'emma', chapterNumber: 1, paragraphIndex: 1, startTimestamp: at, endTimestamp: at, preview: 'Why the youngest?', messages: [
     { role: 'user' as const, content: 'Why the youngest?', timestamp: at }, { role: 'assistant' as const, content: 'Because she is indulged.', timestamp: at }], ...extra })
@@ -91,10 +93,17 @@ it('as the Notebook, lists cards and highlights and notes newest first, filters 
   expect(screen.getByText('Notebook')).toBeTruthy()
   await screen.findByText('Emma Woodhouse,')
   expect(rows()).toEqual(['contents-chat-mc_explain', `contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`])
+  // It opens on All, as before.
+  expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
   fireEvent.click(screen.getByTestId('contents-notebook-ai'))
   expect(rows()).toEqual(['contents-chat-mc_explain'])
-  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
-  expect(rows()).toEqual([`contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`, `contents-highlight-hl-${T + 1}-daughter`])
+  expect(Array.from(document.querySelectorAll('.overlay nav.scopes button')).map(b => [b.getAttribute('data-testid'), b.textContent]))
+    .toEqual([['contents-notebook-ai', 'AI'], ['contents-notebook-highlights', 'Highlights'], ['contents-notebook-notes', 'Notes'], ['contents-notebook-all', 'All']])
+  fireEvent.click(screen.getByTestId('contents-notebook-highlights'))
+  expect(rows()).toEqual([`contents-highlight-hl-${T + 3}-weston`, `contents-highlight-hl-${T + 2}-emma`])
+  fireEvent.click(screen.getByTestId('contents-notebook-notes'))
+  expect(rows()).toEqual([`contents-chapter-note-hl-${T + 4}-cn`, `contents-highlight-hl-${T + 1}-daughter`])
+  fireEvent.click(screen.getByTestId('contents-notebook-highlights'))
   // A mark opens its detail; back returns to the Notebook, and the Notebook's close returns to the book.
   fireEvent.click(screen.getByTestId(`contents-highlight-hl-${T + 2}-emma`))
   expect(screen.getByRole('button', { name: 'Open passage' })).toBeTruthy()
@@ -124,8 +133,11 @@ it('preserves unmappable original EPUB annotations in the Notebook without a fal
   expect(markRow.querySelector('button')).toBeNull()
   fireEvent.click(markRow)
   expect(p.onOpenPassage).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
+  fireEvent.click(screen.getByTestId('contents-notebook-notes'))
   expect(rows()).toEqual(['contents-legacy-epub-old-mark'])
+  fireEvent.click(screen.getByTestId('contents-notebook-highlights'))
+  expect(rows()).toEqual([])
+  expect(screen.getByText('No highlights saved for this edition.')).toBeTruthy()
   fireEvent.click(screen.getByTestId('contents-notebook-ai'))
   expect(rows()).toEqual(['contents-legacy-epub-old-card'])
   expect(screen.getByText('Original EPUB page 17 · Saved AI card')).toBeTruthy()
@@ -183,14 +195,14 @@ it('keeps a deleted Notebook row hidden and Undo available when owner storage ca
 it('the private Notebook reopens on its last filter, but starts All for a different book', () => {
   const p = { ...props(), notebook: true, sharedNotebook: true }
   const rendered = render(<LabContentsV2 {...p} />)
-  fireEvent.click(screen.getByTestId('contents-notebook-mine'))
+  fireEvent.click(screen.getByTestId('contents-notebook-notes'))
   const results = document.querySelector<HTMLElement>('.overlay .results')!
   results.scrollTop = 115
   fireEvent.scroll(results)
-  expect(screen.getByTestId('contents-notebook-mine').getAttribute('aria-pressed')).toBe('true')
+  expect(screen.getByTestId('contents-notebook-notes').getAttribute('aria-pressed')).toBe('true')
   rendered.rerender(<LabContentsV2 {...p} open={false} />)
   rendered.rerender(<LabContentsV2 {...p} open />)
-  expect(screen.getByTestId('contents-notebook-mine').getAttribute('aria-pressed')).toBe('true')
+  expect(screen.getByTestId('contents-notebook-notes').getAttribute('aria-pressed')).toBe('true')
   expect(document.querySelector<HTMLElement>('.overlay .results')?.scrollTop).toBe(115)
   rendered.rerender(<LabContentsV2 {...p} bookId="different-book" />)
   expect(screen.getByTestId('contents-notebook-all').getAttribute('aria-pressed')).toBe('true')
