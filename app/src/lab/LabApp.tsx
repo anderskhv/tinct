@@ -446,16 +446,6 @@ function FullscreenIcon({ on }: { on?: boolean }) {
 }
 
 
-function CompareIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2.75" y="4.25" width="8" height="15.5" rx="1.65" />
-      <rect x="13.25" y="4.25" width="8" height="15.5" rx="1.65" />
-      <path d="M5.25 8h3M5.25 11h3M15.75 8h3M15.75 11h3" />
-    </svg>
-  )
-}
-
 export interface LabAppProps {
   pathname?: string
   /** Query string. Only `?voice=v2` on `/reader` selects the Voice V2 preview. */
@@ -7309,7 +7299,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       )}
       {showPhoneBar && (
         <footer className={`lab-phone-bar${phonePausedCloseAllowed ? ' is-swipe-closable' : ''}`} data-testid="lab-phone-bar" ref={phoneBarSwipe.ref} {...phoneBarSwipe.handlers}>
-          <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : `is-read ${mobileCompareEnabled ? 'has-4' : 'has-3'}`}`}>
+          <div className={`lab-phone-bar-row ${audioBarActive ? 'is-audio has-5' : 'is-read has-3'}`}>
             {audioBarActive ? (
               // Speed · back · pause · forward · Talk, with the pause where a
               // thumb sits.
@@ -7374,19 +7364,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                   )}
                   {barPrimaryLabel}
                 </button>
-                {mobileCompareEnabled && (
-                  <button
-                    type="button"
-                    className={`lab-phone-fat ${mobileCompareActive ? 'is-active' : ''}`}
-                    onClick={toggleMobileCompareByReader}
-                    aria-label={mobileCompareActive ? `Return to ${primaryEditionLabel}` : `Compare with ${compareEditionLabel}`}
-                    aria-pressed={mobileCompareActive}
-                    data-testid="lab-phone-compare"
-                  >
-                    <CompareIcon />
-                    {LAB_COPY.compare}
-                  </button>
-                )}
+                {/* Compare has no bar button on a phone: it is reached from Book settings only (Anders, 2026-11-06). */}
                 <button
                   type="button"
                   className={`lab-phone-fat ${phoneAsk && !ask.voiceActive ? 'is-active' : ''}`}

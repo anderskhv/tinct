@@ -4,7 +4,7 @@
 // upright) and drives real finger drags (Chromium CDP touch events): a drag on
 // the text scrolls the book and moves the saved place, a finger that rests
 // before it moves still scrolls, a long press still selects, and a tap or drag
-// in the blank margin makes no note. With WebKit installed it also checks the
+// in the blank margin makes no note while a still hold there starts one. With WebKit installed it also checks the
 // iPad in WebKit (taps and the text's touch-action; Playwright has no WebKit
 // touch drag). The mouse's blank-margin note is checked in the desktop loop.
 import assert from 'node:assert/strict'
@@ -437,11 +437,28 @@ async function touchMargin() {
       await finger({ x: blank.x, y: blank.y + d }, { x: blank.x, y: blank.y - d })
       assert(await top() - top3 > d, `${name}: a finger drag in the margin scrolls too`)
       assert.deepEqual(await notes(), { editors: 0, saved: 0 }, `${name}: a drag in the margin makes no note`)
-      const press = await word()
+      // Press a word with more words to its right on the same line, so the
+      // 70px slide reaches them. A long press on a line's last word that slides
+      // into the margin stays one word, and one word opens Define by design.
+      const press = await host.locator('[data-testid="lab-word"]').evaluateAll(nodes => {
+        const boxes = nodes.map(node => node.getBoundingClientRect()).filter(box => box.width > 18 && box.top > innerHeight * .3 && box.bottom < innerHeight * .7)
+        // A word with another word at least 90px further along its own visual line.
+        const pick = boxes.find(box => boxes.some(other => Math.abs(other.top - box.top) < 4 && other.left - (box.x + box.width / 2) >= 90))
+        return pick && { x: pick.x + pick.width / 2, y: pick.y + pick.height / 2 }
+      })
+      assert(press, `${name}: a full line to long-press`)
       await finger(press, { x: press.x + 70, y: press.y }, { holdMs: 700, steps: 8 })
       await page.getByTestId('lab-dbar-highlight').waitFor({ timeout: 5000 })
       await page.screenshot({ path: `${output}/touch-${name}-long-press.png` })
-      out.push({ touch: name, textAction, scrolled: [top0, top1, top2], marginTap: 'no note', longPress: 'selection bar' })
+      // A finger held still in the blank margin starts a note (Anders, 6 Nov 2026).
+      await page.keyboard.press('Escape')
+      await page.getByTestId('lab-dbar-highlight').waitFor({ state: 'hidden', timeout: 5000 })
+      const held = { x: blank.x, y: Math.round(device.viewport.height * .45) }
+      assert(String(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.className || '', held)).includes('source-margin-room'), `${name}: the hold lands in the blank margin`)
+      await finger(held, held, { holdMs: 800, steps: 1 })
+      await page.waitForFunction(() => document.querySelectorAll('textarea[aria-label="Highlight note"], .lab-pcard-note').length > 0, null, { timeout: 5000 })
+      await page.screenshot({ path: `${output}/touch-${name}-margin-hold-note.png` })
+      out.push({ touch: name, textAction, scrolled: [top0, top1, top2], marginTap: 'no note', longPress: 'selection bar', marginHold: 'note' })
       assert.deepEqual(errors, [])
       await context.close()
     } finally { await touchBrowser.close() }

@@ -643,7 +643,7 @@ export function storeCompareView(profile: LabAppearanceProfile, bookId: string, 
 /**
  * Whether a book opens with Compare's view on (Anders, 2026-10-14, option B):
  * a book this device has no place for opens on its main edition in every
- * layout, with the compare edition chosen and, on a phone, one swipe away.
+ * layout, with the compare edition chosen (on a phone, behind Book settings).
  * The reader's own toggle for the book wins; a book already read keeps the
  * view its saved place was left in.
  */

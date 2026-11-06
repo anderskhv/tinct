@@ -3310,11 +3310,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.lab.is-phone .lab-phone-bar-row.has-4,
-.lab.has-phone-chrome .lab-phone-bar-row.has-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .lab.is-phone .lab-phone-bar-row.has-5,
 .lab.has-phone-chrome .lab-phone-bar-row.has-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));

@@ -60,16 +60,11 @@ async function boot(browser,phone,ed,fixture={}){
  if(process.env.TINCT_EXPECTED_BUNDLE)assert.equal(bundle,process.env.TINCT_EXPECTED_BUNDLE)
  return {context,page,calls,errors,legacy,bundle,network,started}
 }
-async function toggleCompare(page,phone){
- if(!phone){
-  await page.getByTestId('lab-super').click()
-  await page.getByTestId('lab-super-row-editions').click()
-  return page.getByTestId('lab-v2-show-compare').click()
- }
- await page.getByTestId('lab-book').evaluate(el=>{
-  el.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:400}))
-  el.dispatchEvent(new PointerEvent('pointerup',{bubbles:true,pointerId:71,pointerType:'touch',clientX:190,clientY:270}))
- })
+async function toggleCompare(page){
+ // Compare opens from Book settings on every layout; the phone swipe was removed (6 Nov 2026).
+ await page.getByTestId('lab-super').click()
+ await page.getByTestId('lab-super-row-editions').click()
+ return page.getByTestId('lab-v2-show-compare').click()
 }
 async function main(){
  if(live){

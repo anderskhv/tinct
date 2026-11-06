@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { SourceMarginRail, sourceMarginBlankNoteAllowed, sourceMarginLayout, sourceMarginLeaderPath, type SourceMarginEntry } from './SourceMarginRail'
+import { SourceMarginRail, SOURCE_MARGIN_NOTE_HOLD_MS, sourceMarginBlankNoteGesture, sourceMarginLayout, sourceMarginLeaderPath, type SourceMarginEntry } from './SourceMarginRail'
 afterEach(() => { cleanup(); vi.restoreAllMocks(); document.querySelectorAll('[data-fixture-host]').forEach(host => host.remove()) })
 it('sorts by source order and pushes long answers down without constraining their height', () => {
   const layout = sourceMarginLayout([{ id: 'later', y: 140, height: 200, order: 2 }, { id: 'first', y: 100, height: 1800, order: 1 }])
@@ -142,28 +142,52 @@ it('covers the full reading document with the blank note hit surface at top, mid
   expect(readingDown.defaultPrevented).toBe(false)
 })
 
-// Surface Duo, 6 Nov 2026: a note on every touch in the margin. The blank
-// margin's note is a mouse affordance; a finger or pen there is scrolling.
-it('starts a blank-margin note for a mouse press only, never for a finger or pen', () => {
-  expect(sourceMarginBlankNoteAllowed('mouse', 0)).toBe(true)
-  expect(sourceMarginBlankNoteAllowed(undefined, 0)).toBe(true)
-  expect(sourceMarginBlankNoteAllowed('mouse', 2)).toBe(false)
-  expect(sourceMarginBlankNoteAllowed('touch', 0)).toBe(false)
-  expect(sourceMarginBlankNoteAllowed('pen', 0)).toBe(false)
-  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
-  Object.defineProperty(host, 'clientWidth', { value: 1100 }); Object.defineProperty(host, 'clientHeight', { value: 700 })
-  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, right: 1100, bottom: 700 } as DOMRect)
-  const page = document.createElement('div'); page.className = 'continuous-reader-window'; host.append(page)
-  vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 60, right: 760, top: 0, bottom: 3000 } as DOMRect)
-  const blank = vi.fn()
-  render(<SourceMarginRail host={host} entries={[]} onBlankNote={blank} />)
-  const room = host.querySelector<HTMLElement>('.source-margin-room')!
-  // Not cancelled either: the browser keeps the finger's scroll.
-  expect(fireEvent.pointerDown(room, { pointerType: 'touch', button: 0, clientY: 400 })).toBe(true)
-  expect(fireEvent.pointerDown(room, { pointerType: 'pen', button: 0, clientY: 400 })).toBe(true)
-  expect(blank).not.toHaveBeenCalled()
-  expect(fireEvent.pointerDown(room, { pointerType: 'mouse', button: 0, clientY: 400 })).toBe(false)
-  expect(blank).toHaveBeenCalledOnce()
+// Surface Duo, 6 Nov 2026: a note on every touch in the margin. A mouse press
+// starts a note at once; a finger or pen must hold still (Anders: "you need to
+// long press to create a note with touch"). A touch that moves is a scroll.
+it('starts a blank-margin note on a mouse press, and on touch only after a still hold', () => {
+  expect(sourceMarginBlankNoteGesture('mouse', 0)).toBe('press')
+  expect(sourceMarginBlankNoteGesture(undefined, 0)).toBe('press')
+  expect(sourceMarginBlankNoteGesture('mouse', 2)).toBeNull()
+  expect(sourceMarginBlankNoteGesture('touch', 0)).toBe('long-press')
+  expect(sourceMarginBlankNoteGesture('pen', 0)).toBe('long-press')
+  vi.useFakeTimers()
+  try {
+    const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+    Object.defineProperty(host, 'clientWidth', { value: 1100 }); Object.defineProperty(host, 'clientHeight', { value: 700 })
+    vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, right: 1100, bottom: 700 } as DOMRect)
+    const page = document.createElement('div'); page.className = 'continuous-reader-window'; host.append(page)
+    vi.spyOn(page, 'getBoundingClientRect').mockReturnValue({ left: 60, right: 760, top: 0, bottom: 3000 } as DOMRect)
+    const blank = vi.fn()
+    render(<SourceMarginRail host={host} entries={[]} onBlankNote={blank} />)
+    const room = host.querySelector<HTMLElement>('.source-margin-room')!
+    // A quick touch: not cancelled (the browser keeps the scroll) and no note.
+    expect(fireEvent.pointerDown(room, { pointerId: 1, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })).toBe(true)
+    fireEvent.pointerUp(room, { pointerId: 1, pointerType: 'touch' })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A finger that moves is scrolling: no note.
+    fireEvent.pointerDown(room, { pointerId: 2, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.pointerMove(room, { pointerId: 2, pointerType: 'touch', clientX: 900, clientY: 360 })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A scroll of the book cancels a hold too.
+    fireEvent.pointerDown(room, { pointerId: 3, pointerType: 'pen', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.scroll(host)
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS + 50) })
+    expect(blank).not.toHaveBeenCalled()
+    // A finger held still (a small wobble allowed) starts a note where it rests.
+    fireEvent.pointerDown(room, { pointerId: 4, pointerType: 'touch', button: 0, clientX: 900, clientY: 400 })
+    fireEvent.pointerMove(room, { pointerId: 4, pointerType: 'touch', clientX: 904, clientY: 403 })
+    act(() => { vi.advanceTimersByTime(SOURCE_MARGIN_NOTE_HOLD_MS - 50) })
+    expect(blank).not.toHaveBeenCalled()
+    act(() => { vi.advanceTimersByTime(100) })
+    expect(blank).toHaveBeenCalledOnce()
+    expect(blank).toHaveBeenCalledWith({ clientY: 400, sourceY: 400 })
+    // The mouse still starts one at once.
+    expect(fireEvent.pointerDown(room, { pointerType: 'mouse', button: 0, clientY: 400 })).toBe(false)
+    expect(blank).toHaveBeenCalledTimes(2)
+  } finally { vi.useRealTimers() }
 })
 
 it('uses the complete PDF source container height when only nearby page canvases are mounted', () => {
