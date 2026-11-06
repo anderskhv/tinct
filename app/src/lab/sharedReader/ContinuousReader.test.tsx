@@ -239,6 +239,52 @@ it('reuses scroll geometry and remeasures after the paper reflows', () => {
 })
 
 
+// Offline, the book face comes from the service worker's cache a moment after
+// the chapter lands: the text above the saved word reflows taller. The landed
+// word must stay on its line, not drift down the screen (6 Nov 2026).
+it('keeps the landed word on its line through a late reflow, until the reader moves', () => {
+  const observers: { callback: () => void; targets: Element[] }[] = []
+  vi.stubGlobal('ResizeObserver', class {
+    record: { callback: () => void; targets: Element[] }
+    constructor(callback: () => void) { this.record = { callback, targets: [] }; observers.push(this.record) }
+    observe(target: Element) { this.record.targets.push(target) }
+    disconnect() {}
+  })
+  let grown = 0
+  const rect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function(this: HTMLElement) {
+    if (this.dataset.testid === 'continuous-reader') return { top: 0, bottom: 600, height: 600 } as DOMRect
+    if (this.dataset.testid === 'lab-word') {
+      const host = this.closest<HTMLElement>('.continuous-reader')!
+      const top = Number(this.dataset.paragraphIndex) * 400 + Number(this.dataset.wordIndex) * 20 + grown - host.scrollTop
+      return { top, bottom: top + 20, height: 20 } as DOMRect
+    }
+    return { top: 0, bottom: 0, height: 0 } as DOMRect
+  })
+  const height = vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(600)
+  try {
+    const onVisible = vi.fn()
+    const paragraphs = Array.from({ length: 12 }, (_, p) => Array.from({ length: 10 }, (_, w) => `p${p}w${w}`).join(' '))
+    render(<ContinuousReader epoch={first} anchor={{ paragraphIndex: 8, wordIndex: 3 }}
+      passage={{ chapterTitle: 'Source', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+      onVisible={onVisible} onLanded={vi.fn()} />)
+    const host = screen.getByTestId('continuous-reader')
+    const word = host.querySelector<HTMLElement>('[data-paragraph-index="8"][data-word-index="3"]')!
+    const landed = word.getBoundingClientRect().top
+    expect(landed).toBe(140)
+    const paperObserver = observers.find(observer => observer.targets.some(target => target.classList.contains('continuous-reader-paper')))!
+    grown = 311
+    act(() => paperObserver.callback())
+    expect(word.getBoundingClientRect().top).toBe(landed)
+    expect(onVisible).not.toHaveBeenCalled()
+    // Once the reader scrolls, a reflow no longer moves the page.
+    fireEvent.wheel(host)
+    const scrolled = host.scrollTop
+    grown = 500
+    act(() => paperObserver.callback())
+    expect(host.scrollTop).toBe(scrolled)
+  } finally { rect.mockRestore(); height.mockRestore(); vi.unstubAllGlobals() }
+})
+
 it('keeps a long paragraph and its verse marker together without artificial chunk boundaries', () => {
   const paragraph = [...Array.from({ length: 449 }, (_, i) => `word${i}`), '¹', 'Paul', 'continues'].join(' ')
   const windows = continuousReaderWindows([paragraph])

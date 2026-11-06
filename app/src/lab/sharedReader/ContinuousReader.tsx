@@ -96,6 +96,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
   const lastScrollTop = useRef(0)
   const restoring = useRef(true)
   const pendingJump = useRef<{ anchor: ContinuousReaderAnchor; offset: number } | null>(null)
+  /** From a landing until the reader (or read-aloud) moves: a late reflow keeps the landed word on its line. */
+  const holdLanding = useRef(false)
 
   const geometryRef = useRef<WordGeometry[] | null>(null)
   const sourceWords = () => {
@@ -114,6 +116,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     geometryRef.current = null
     if (navigationKey.current !== destinationKey) {
       pendingJump.current = null
+      holdLanding.current = false
       lastReported.current = ''
       visibleRef.current = anchor
       setMapVisible(anchor)
@@ -152,6 +155,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     host.scrollTop += target.getBoundingClientRect().top - host.getBoundingClientRect().top - Math.min(host.clientHeight * .24, 140)
     lastScrollTop.current = host.scrollTop
     restoring.current = false
+    holdLanding.current = true
     if (landedKey.current !== destinationKey) {
       landedKey.current = destinationKey
       onLanded(epoch, anchor)
@@ -175,7 +179,13 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     observer?.observe(host)
     // Font/image/paragraph reflow can change word coordinates without changing
     // the scroll viewport. Observe the paper separately; do not move the place.
-    const paperObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => { geometryRef.current = null })
+    // Right after a landing, before the reader moves, a reflow above the place
+    // (the book face swapping in late, as it does from the offline cache) would
+    // push the landed word down the screen: keep it on its line instead.
+    const paperObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(() => {
+      if (holdLanding.current && !userBrowseRef.current) keepVisible()
+      else geometryRef.current = null
+    })
     const paper = host.querySelector('.continuous-reader-paper')
     if (paper) paperObserver?.observe(paper)
     window.addEventListener('resize', keepVisible)
@@ -194,6 +204,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     if (!host || !word) return
     const top = word.getBoundingClientRect().top - host.getBoundingClientRect().top
     if (top >= host.clientHeight * .2 && top < host.clientHeight * .7) return
+    holdLanding.current = false
     suppressScrollRef.current = true
     host.scrollTop += top - host.clientHeight * .24
     lastScrollTop.current = host.scrollTop
@@ -262,13 +273,13 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     const pointer = (event: PointerEvent) => { if (cardTarget(event)) userBrowseRef.current = false }
     const wheel = (event: globalThis.WheelEvent) => {
       if (!cardTarget(event)) return
-      userBrowseRef.current = true; suppressScrollRef.current = false; onUserBrowse?.()
+      userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.()
     }
     host.addEventListener('pointerdown', pointer, true)
     host.addEventListener('wheel', wheel, { capture: true, passive: true })
     return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', wheel, true) }
   }, [onUserBrowse])
-  const userBrowse = () => { userBrowseRef.current = true; suppressScrollRef.current = false; onUserBrowse?.() }
+  const userBrowse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
   // A mouse drag can begin on paper outside LabPassage. Let the browser
   // select naturally, then translate only this reader's source words into the
   // same range used by drags that began on a word.
