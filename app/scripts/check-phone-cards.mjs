@@ -433,7 +433,7 @@ async function run(engineName) {
   await page.locator('[data-testid="lab-contents-v2"] .overlay-title').waitFor({ timeout: 4000 })
   await page.waitForTimeout(500)
   const nb = await page.evaluate(() => ({ title: document.querySelector('[data-testid="lab-contents-v2"] .overlay-title')?.textContent, filters: [...document.querySelectorAll('[data-testid^="contents-notebook-"]')].map(b => b.textContent), rows: [...document.querySelectorAll('[data-testid="lab-contents-v2"] .overlay .results .result')].map(r => r.dataset.testid) }))
-  ok(`${tag}: Notebook lists the book's cards and the reader's highlights in one list (${nb.rows.length} entries), filtered All · My notes · AI`, nb.title === 'Notebook' && nb.filters.join('|') === 'All|My notes|AI' && nb.rows.some(r => /^contents-chat-/.test(r)) && nb.rows.some(r => /^contents-highlight-/.test(r)), nb)
+  ok(`${tag}: Notebook lists the book's cards and the reader's highlights in one list (${nb.rows.length} entries), filtered AI · Highlights · Notes · All`, nb.title === 'Notebook' && nb.filters.join('|') === 'AI|Highlights|Notes|All' && nb.rows.some(r => /^contents-chat-/.test(r)) && nb.rows.some(r => /^contents-highlight-/.test(r)), nb)
   shots.push(await shot(page, `${tag}-notebook`))
   await page.locator('[data-testid="lab-contents-v2"] [data-close]').click()
   await page.waitForTimeout(300)
