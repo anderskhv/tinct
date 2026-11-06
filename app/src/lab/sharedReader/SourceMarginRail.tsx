@@ -75,7 +75,19 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
   sourcePointer.current = ownsSourcePointer
   const heldNote = useRef<{ pointerId: number, x: number, y: number, timer: ReturnType<typeof setTimeout> } | null>(null)
   const cancelHeldNote = () => { if (heldNote.current) clearTimeout(heldNote.current.timer); heldNote.current = null }
-  useEffect(() => () => { if (heldNote.current) clearTimeout(heldNote.current.timer) }, [])
+  // The note opens under the resting finger; lifting it then taps whatever is
+  // there now (the new card's header, which folds it). Swallow that one tap.
+  const liftTap = useRef<(() => void) | null>(null)
+  const swallowLiftTap = () => {
+    liftTap.current?.()
+    const swallow = (event: Event) => { event.preventDefault(); event.stopPropagation(); done() }
+    const done = () => { clearTimeout(timer); window.removeEventListener('click', swallow, true); window.removeEventListener('pointerdown', done, true); liftTap.current = null }
+    const timer = setTimeout(done, 1500)
+    window.addEventListener('click', swallow, true)
+    window.addEventListener('pointerdown', done, true)
+    liftTap.current = done
+  }
+  useEffect(() => () => { if (heldNote.current) clearTimeout(heldNote.current.timer); liftTap.current?.() }, [])
   // A scroll means the finger was browsing, not holding still.
   useEffect(() => {
     if (!host) return
@@ -172,7 +184,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
         // Left to the browser, so a finger that moves scrolls the book; only a
         // finger held still starts a note.
         cancelHeldNote()
-        heldNote.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, timer: setTimeout(() => { heldNote.current = null; onBlankNote?.(at) }, SOURCE_MARGIN_NOTE_HOLD_MS) }
+        heldNote.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, timer: setTimeout(() => { heldNote.current = null; swallowLiftTap(); onBlankNote?.(at) }, SOURCE_MARGIN_NOTE_HOLD_MS) }
         return
       }
       // Starting a note in blank paper must not start a native drag selection

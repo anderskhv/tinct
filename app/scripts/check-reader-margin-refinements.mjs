@@ -457,6 +457,9 @@ async function touchMargin() {
       assert(String(await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.className || '', held)).includes('source-margin-room'), `${name}: the hold lands in the blank margin`)
       await finger(held, held, { holdMs: 800, steps: 1 })
       await page.waitForFunction(() => document.querySelectorAll('textarea[aria-label="Highlight note"], .lab-pcard-note').length > 0, null, { timeout: 5000 })
+      // Still open after the finger has lifted (its tap once folded the new card).
+      await page.waitForTimeout(800)
+      assert((await notes()).editors > 0, `${name}: the held note stays open after the finger lifts`)
       await page.screenshot({ path: `${output}/touch-${name}-margin-hold-note.png` })
       out.push({ touch: name, textAction, scrolled: [top0, top1, top2], marginTap: 'no note', longPress: 'selection bar', marginHold: 'note' })
       assert.deepEqual(errors, [])
