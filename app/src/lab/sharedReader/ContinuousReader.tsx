@@ -264,20 +264,23 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     }
   }
 
-  // Rail cards are React portals: their pointer/wheel events do not bubble
-  // through this component's React tree, although they share its DOM scroller.
+  // The margin rail (its cards and the blank room beside the text, which
+  // covers the whole margin) is a React portal: its events do not bubble
+  // through this component's React tree, although they share its DOM
+  // scroller. So a wheel or touch anywhere in the host is the reader's own
+  // scroll, heard natively here: with the pointer resting in the margin, a
+  // chapter scrolled to its end saved no place and was never finished
+  // (Anders, 6 Nov 2026: 2 Maccabees 11-13, each with margin cards).
   useEffect(() => {
     const host = hostRef.current
     if (!host) return
     const cardTarget = (event: Event) => event.target instanceof Element && !!event.target.closest('.source-margin-item')
     const pointer = (event: PointerEvent) => { if (cardTarget(event)) userBrowseRef.current = false }
-    const wheel = (event: globalThis.WheelEvent) => {
-      if (!cardTarget(event)) return
-      userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.()
-    }
+    const browse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
     host.addEventListener('pointerdown', pointer, true)
-    host.addEventListener('wheel', wheel, { capture: true, passive: true })
-    return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', wheel, true) }
+    host.addEventListener('wheel', browse, { capture: true, passive: true })
+    host.addEventListener('touchstart', browse, { capture: true, passive: true })
+    return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', browse, true); host.removeEventListener('touchstart', browse, true) }
   }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
   // A mouse drag can begin on paper outside LabPassage. Let the browser
@@ -339,7 +342,7 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     </div>), [windows, passage])
   return <><SourceMinimap cards={cards} highlights={passage.highlights?.filter(mark => mark.chapterNumber === passage.chapterNumber)} bookMap={bookMap} paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} />
   <div className="continuous-reader" data-testid="continuous-reader" ref={hostRef} onScroll={onScroll}
-    onWheel={userBrowse} onTouchStart={userBrowse} onPointerDown={event => { beginNativeDrag(event); if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
+    onPointerDown={event => { beginNativeDrag(event); if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
     onPointerUp={finishNativeDrag} onPointerCancel={() => { nativeDragEpoch.current = null }}
     onKeyDown={event => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ', 'Home', 'End'].includes(event.key)) userBrowse() }}>
     <div className="continuous-reader-paper">
