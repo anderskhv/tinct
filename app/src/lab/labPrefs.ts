@@ -9,12 +9,15 @@ import { clampTalkSpeed } from './labTalkSpeed'
 /** Lab library route. Full navigation, never /app or a book id. */
 export const LAB_LIBRARY_URL = '/library'
 /**
- * A book's introduction in the library (library_2 opens the book on its
- * introduction tab). `preview` is an optional `?name=value` query of preview
+ * A book's introduction in the library: library_2 opens the 3D book on its
+ * introduction (view=book-detail). `preview` is an optional `?name=value` query of preview
  * flags to carry along, such as `?voiceTrial=mini`.
  */
 export function labLibraryIntroductionUrl(bookId: string, editionKey?: string, preview = ''): string {
-  const params = new URLSearchParams({ book: bookId })
+  // view=book-detail opens the 3D book on its introduction; without it the library only
+  // features the book (6 Nov 2026: Contents' "Introduction" landed on the hero, whose Continue
+  // went straight back into the reader).
+  const params = new URLSearchParams({ book: bookId, view: 'book-detail' })
   if (editionKey) params.set('edition', editionKey)
   new URLSearchParams(preview).forEach((value, name) => { if (!params.has(name)) params.set(name, value) })
   return `${LAB_LIBRARY_URL}?${params}`
