@@ -1102,6 +1102,55 @@ export function labNativeSelectionBlocksTurn(
   return surface.contains(selection.anchorNode) || surface.contains(selection.focusNode)
 }
 
+/**
+ * How long a finger rests on a word before it starts a selection. A paginated
+ * page has nothing to scroll, so it can answer quickly. In the Margin reader
+ * the text is a scroller and a finger that settles before it moves is
+ * scrolling, so the press is held about as long as the platform's own long
+ * press (Surface Duo, 6 Nov 2026: every touch on the text was taken).
+ */
+export const LAB_PAGE_LONG_PRESS_MS = 160
+export const LAB_SCROLL_LONG_PRESS_MS = 420
+export function labLongPressMs(touchScroll: boolean): number {
+  return touchScroll ? LAB_SCROLL_LONG_PRESS_MS : LAB_PAGE_LONG_PRESS_MS
+}
+
+/**
+ * Whether the passage cancels a native touch event (which stops the browser
+ * panning and its own long-press selection).
+ *
+ * A paginated page owns every touch on a word: there is nothing to scroll and
+ * the reader's swipes and long press must arrive whole. A passage inside a
+ * scroller (the Margin reader) owns only the drag that extends a selection
+ * its long press already started; every other touch, with a selection on
+ * screen or not, is the browser's scroll.
+ */
+export function labPassageBlocksNativeTouch(input: {
+  type: 'touchstart' | 'touchmove'
+  touchScroll: boolean
+  /** A pointer gesture on this passage is in progress. */
+  dragging: boolean
+  /** That gesture has become a selection (long press fired). */
+  selecting: boolean
+  /** A selection is on screen. */
+  selectionShown: boolean
+  /** The touch landed on a word. */
+  onWord: boolean
+}): boolean {
+  if (input.touchScroll) return input.type === 'touchmove' && input.dragging && input.selecting
+  return input.dragging || input.selectionShown || input.onWord
+}
+
+/**
+ * A touch that moved before its long press fired is not a press. On a page
+ * only a quick flick cancels it (a slow drag still selects when the timer
+ * fires); in a scroller any movement past the slop is a scroll.
+ */
+export function labLongPressCancelledByMove(input: { touchScroll: boolean, distance: number, elapsedMs: number }): boolean {
+  if (input.distance <= 10) return false
+  return input.touchScroll || input.elapsedMs < 100
+}
+
 /** Short taps in the outer thirds turn pages; the centre remains selection-safe. */
 export function labTapPageDirection(
   clientX: number,

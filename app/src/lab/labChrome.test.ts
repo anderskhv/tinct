@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, labSwipeCompareSwap, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -596,5 +596,46 @@ describe('labNeedsGestureAudioUnlock (opening Chat must not take a phone\'s head
     expect(labNeedsGestureAudioUnlock({ userAgent: ANDROID, maxTouchPoints: 5, primaryCoarse: true, primaryHoverNone: true })).toBe(true)
     expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryCoarse: true })).toBe(true)
     expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryHoverNone: true })).toBe(true)
+  })
+})
+
+// Surface Duo / iPad, 6 Nov 2026: the Margin reader's text is a scroller.
+describe('touch on a scrolling passage', () => {
+  const base = { dragging: false, selecting: false, selectionShown: false, onWord: true }
+  it('keeps every touch on a paginated word for the reader', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, selectionShown: true, type: 'touchmove', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, type: 'touchstart', touchScroll: false })).toBe(false)
+  })
+  it('leaves a scroller touch to the browser unless it extends a long-press selection', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, selectionShown: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchmove', touchScroll: true })).toBe(true)
+  })
+  it('holds the long press about as long as the platform does in a scroller', () => {
+    expect(labLongPressMs(false)).toBe(LAB_PAGE_LONG_PRESS_MS)
+    expect(LAB_PAGE_LONG_PRESS_MS).toBe(160)
+    expect(labLongPressMs(true)).toBe(LAB_SCROLL_LONG_PRESS_MS)
+    expect(LAB_SCROLL_LONG_PRESS_MS).toBeGreaterThanOrEqual(400)
+  })
+  it('cancels a pending press on any movement past the slop in a scroller, only a quick flick on a page', () => {
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 8, elapsedMs: 50 })).toBe(false)
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 14, elapsedMs: 300 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 50 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 300 })).toBe(false)
+  })
+})
+
+// Documents the phone Compare swap as it stands (6 Nov 2026): any decisive
+// vertical swipe swaps, so a reader's ordinary scroll gesture does too. A
+// change here is Anders's call (see DECISIONS.md).
+describe('phone Compare swap gesture', () => {
+  it('fires on a mostly vertical swipe of 52px or more, in either direction', () => {
+    expect(labSwipeCompareSwap(0, -60)).toBe(true)
+    expect(labSwipeCompareSwap(10, 120)).toBe(true)
+    expect(labSwipeCompareSwap(0, 40)).toBe(false)
+    expect(labSwipeCompareSwap(80, 90)).toBe(false)
   })
 })
