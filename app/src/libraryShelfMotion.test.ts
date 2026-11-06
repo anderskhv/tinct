@@ -158,27 +158,30 @@ describe('every removal path uses the motion', () => {
     // (20261021still) changed scene-life.js and app.js (20261021stack5). An account known to have an empty
     // desk opening on Frankenstein, and an early tap on Read kept (20261102empty), changed boot.js,
     // bookshelf.js and app.js. The signed-out "Add your own book or text" beside Read (20261105own) changed styles.css.
-    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261020open'
-    expect(lib('index.html')).toContain('app.js?v=20261102empty')
+    // The Master and Margarita's reviewed introduction, taxonomy and browse groups (20261106mm) changed
+    // reviewed-introductions.js, taxonomy.js and browse-groups.js without new tags, so returning readers kept
+    // the old files; the new tag goes on them and every module above them on the way to index.html.
+    const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
+    expect(lib('index.html')).toContain(`app.js?v=${mm}`)
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261105own')
     expect(lib('index.html')).toContain('boot.js?v=20261102empty')
-    expect(lib('app.js')).toContain('bookshelf.js?v=20261102empty')
-    expect(lib('app.js')).toContain(`catalogue.js?v=${ocr}`)
-    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${ocr}`)
+    expect(lib('app.js')).toContain(`bookshelf.js?v=${mm}`)
+    expect(lib('app.js')).toContain(`catalogue.js?v=${mm}`)
+    expect(lib('app.js')).toContain(`add-to-tinct.js?v=${mm}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
     expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
-    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${ocr}`)
+    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${mm}`)
     expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${latest}`)
     expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)
-    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${ocr}`)
+    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${mm}`)
     expect(lib('reading-table.js')).toContain(`cover-assets.js?v=${tag}`)
     expect(lib('catalogue.js')).toContain(`cover-assets.js?v=${tag}`)
-    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${ocr}`)
+    expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${mm}`)
     expect(lib('catalogue.js')).toContain(`library-2-reading.js?v=${ocr}`)
     expect(lib('boot.js')).toContain(`library-2-reading.js?v=${ocr}`)
     // A module imported under two tags would load twice: every importer names the same one.

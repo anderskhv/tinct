@@ -41,6 +41,10 @@ Before committing, inspect the diff: every changed file must be a content artifa
 
 Push the package and record the branch, exact commit, package path, acceptance status and integration requirements for the integration step. “Content accepted / handed off” and “published” are distinct statuses. The integration step (Claude, when assigned) performs integration, required app verification and serialized release.
 
+## Every new book gets a painted cover
+
+A book is not ready to publish with the plain paper cover (Anders, 6 Nov 2026). At integration, make its cover in the series style with `app/scripts/make-book-cover.mjs` (xAI image model, `XAI_API_KEY`; about $0.04 per painting): describe one quiet symbolic scene from the book, generate three candidates, choose the one that sits best beside the shelf's painted covers, and copy it to `app/public/covers/v2/<id>.webp` (540×810). Show Anders the chosen cover with the release. The author flap needs the reviewed introduction's `author` block (name, years, occupation, biography); never ship a book whose flap would fall back to the book's description.
+
 ## Explicit coding assignments remain possible
 
 This is not a global ban on Claude coding. If Anders explicitly assigns Claude a coding or release task, follow the normal code/release rules and coordinate with the current deployment owner. Treat that as a separately scoped task/branch. Do not silently turn a book assignment into a coding task to achieve publication.
