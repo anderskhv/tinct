@@ -9,7 +9,11 @@
 //  - 2 Maccabees 11 scrolled to its end: finished, a full dot, and the saved
 //    place is the one the scroll left (finishing never moves it);
 //  - then left through Contents for chapter 12: 11 stays finished;
-//  - 2 Maccabees 12 scrolled halfway: a partial dot, not finished.
+//  - 2 Maccabees 12 scrolled halfway: a partial dot, not finished;
+//  - 2 Maccabees 13 scrolled to its end with the pointer resting in the margin
+//    (the margin rail's blank room, a portal outside the reader's React tree):
+//    finished, and the place saved (Anders, 6 Nov 2026: 2 Maccabees 11-13, each
+//    with margin cards, showed nothing; the old build left 0:0 and no finish).
 // MARGIN_SHOTS=<dir> writes a screenshot of each Contents panel.
 import { chromium } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
@@ -50,9 +54,9 @@ async function open(browser, chapter) {
 }
 
 /** Wheel down until `share` of the chapter's scroll height is above the viewport top. */
-async function wheelTo(page, share) {
+async function wheelTo(page, share, across = .5) {
   const box = await page.getByTestId('continuous-reader').boundingBox()
-  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+  await page.mouse.move(box.x + box.width * across, box.y + box.height / 2)
   for (let i = 0; i < 200; i++) {
     const { top, max } = await page.getByTestId('continuous-reader').evaluate(host => ({ top: host.scrollTop, max: host.scrollHeight - host.clientHeight }))
     if (top >= max * share - 2) break
@@ -111,6 +115,24 @@ try {
     assert.equal(await place(page), left)
     assert.deepEqual(errors, [])
     results.push({ case: '2 Maccabees 12 halfway', place: left, mark })
+    await context.close()
+  }
+  {
+    const chapter = MACCABEES_11 + 2
+    const { context, page, errors } = await open(browser, chapter)
+    const box = await page.getByTestId('continuous-reader').boundingBox()
+    const hovered = await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.className, [box.x + box.width * .85, box.y + box.height / 2])
+    assert.equal(hovered, 'source-margin-room', 'the pointer rests in the margin, not on the text')
+    await wheelTo(page, 1, .85)
+    const left = await place(page)
+    assert.notEqual(left, '0:0', 'a wheel in the margin saves the place it scrolled to')
+    const mark = await contents(page, chapter, 'maccabees-13-end-from-margin')
+    assert.equal(mark.label, '2 Maccabees 13, currently reading, 100% read')
+    const record = await stored(page)
+    assert.deepEqual(record.finished, [chapter])
+    assert.deepEqual(record.pins, [`${chapter}@${left}`])
+    assert.deepEqual(errors, [])
+    results.push({ case: '2 Maccabees 13 to its end, pointer in the margin', place: left, mark })
     await context.close()
   }
 } finally { await browser.close() }

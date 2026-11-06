@@ -1,6 +1,8 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { useLayoutEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { ContinuousReader, continuousReaderWindows, measureContinuousWords, continuousViewportWords } from './ContinuousReader'
 import { acceptContinuousReaderPlace, type ContinuousReaderEpoch } from './continuousReaderEpoch'
 
@@ -375,6 +377,36 @@ describe('reading a chapter through to its end', () => {
       fireEvent.wheel(host, { deltaY: 160 }); host.scrollTop = 2200; fireEvent.scroll(host)
       expect(onTail).toHaveBeenLastCalledWith(first, lastWord)
       expect(onReadToEnd).toHaveBeenCalled()
+      expect(onReadToEnd).toHaveBeenLastCalledWith(first, lastWord)
+    } finally { rect.mockRestore() }
+  })
+
+  // Anders, 6 Nov 2026: 2 Maccabees 11-13, each with margin cards, read to their
+  // ends showed nothing in Contents. The margin rail is a portal from outside this
+  // reader's React tree; its blank room covers the whole margin, so a wheel with
+  // the pointer resting there never reached React's onWheel on the host. The
+  // chapter scrolled to its end, but no place was saved and it was not finished.
+  it('counts a wheel over the margin rail portal as the reader scrolling', () => {
+    const rect = geometry()
+    try {
+      function Rail() {
+        const [host, setHost] = useState<HTMLElement | null>(null)
+        useLayoutEffect(() => { setHost(document.querySelector<HTMLElement>('[data-testid="continuous-reader"]')) }, [])
+        return host ? createPortal(<div className="source-margin-rail"><div className="source-margin-room" data-testid="margin-room" /></div>, host) : null
+      }
+      const onVisible = vi.fn(), onReadToEnd = vi.fn(), onUserBrowse = vi.fn()
+      render(<><ContinuousReader epoch={first} anchor={{ paragraphIndex: 0, wordIndex: 0 }}
+        passage={{ chapterTitle: 'Short', paragraphs, follow: { kind: 'none' }, followParagraphs: [], markedIndexes: new Set() }}
+        onVisible={onVisible} onLanded={vi.fn()} onReadToEnd={onReadToEnd} onUserBrowse={onUserBrowse} /><Rail /></>)
+      const host = screen.getByTestId('continuous-reader')
+      let top = 0
+      Object.defineProperties(host, { clientHeight: { value: 200 }, scrollHeight: { value: 2400 },
+        scrollTop: { get: () => top, set: value => { top = Math.max(0, Math.min(2200, value)) } } })
+      const room = screen.getByTestId('margin-room')
+      for (let scroll = 160; scroll <= 2200; scroll += 160) { fireEvent.wheel(room, { deltaY: 160 }); host.scrollTop = scroll; fireEvent.scroll(host) }
+      fireEvent.wheel(room, { deltaY: 160 }); host.scrollTop = 2200; fireEvent.scroll(host)
+      expect(onUserBrowse).toHaveBeenCalled()
+      expect(onVisible).toHaveBeenCalled()
       expect(onReadToEnd).toHaveBeenLastCalledWith(first, lastWord)
     } finally { rect.mockRestore() }
   })
