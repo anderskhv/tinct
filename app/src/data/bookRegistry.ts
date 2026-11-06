@@ -2809,7 +2809,7 @@ export const A_LITTLE_PRINCESS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2846,7 +2846,7 @@ export const THE_JUNGLE_BOOK: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -2884,7 +2884,7 @@ export const AROUND_THE_WORLD_IN_80_DAYS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: false, // Text only: Danish narration is disabled.
+      hasAudio: false, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
     },
   ],
 }
@@ -3266,7 +3266,7 @@ export const MASTER_AND_MARGARITA: Book = {
     // Listed first: with no human English edition, defaultCompareEditionKey takes the first comparable edition.
     { key: 'original-ru', language: 'ru', style: 'original', label: 'Мастер и Маргарита (1940)', year: 1990, aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
   ],
 }
 
@@ -3283,7 +3283,7 @@ export const TO_THE_LIGHTHOUSE: Book = {
     { key: 'original-en', language: 'en', style: 'original', label: 'Woolf (1927)', year: 1927, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
     // The only Danish edition Tinct offers (Anders, 2026-10-10; OFFERED_DANISH_EDITIONS).
-    // Translated 1:1 from modern-en. Text only: Danish narration is disabled.
+    // Translated 1:1 from modern-en. Streamed Danish narration since 2026-11-06; no recorded audio.
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
@@ -3479,7 +3479,7 @@ export const THE_FARTHEST_REACHES: Book = {
 // Grimms' Fairy Tales and The Arabian Nights (Lang), integrated 2026-10-19 from the
 // content packages in books/wip/grimms-fairy-tales and books/wip/arabian-nights
 // (branch claude/inspiring-ritchie-zi00fu, 6f4ab42cf). Danish (modern-da) is an
-// offered text-only edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19). No cast. Chapters
+// offered edition (OFFERED_DANISH_EDITIONS, Anders 2026-10-19), narrated in Danish by streaming since 2026-11-06. No cast. Chapters
 // are numbered 1-65 and 1-35, one reading unit per tale (Lang's preface is 1).
 export const GRIMMS_FAIRY_TALES: Book = {
   id: 'grimms-fairy-tales',
@@ -3494,7 +3494,7 @@ export const GRIMMS_FAIRY_TALES: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Taylor & Edwardes', translator: 'Edgar Taylor and Marian Edwardes', aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
   ],
 }
 
@@ -3511,7 +3511,7 @@ export const ARABIAN_NIGHTS: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Lang (1898)', year: 1898, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Text only: Danish narration is disabled.
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false }, // Streamed Danish narration since 2026-11-06 (narrationLanguage); no recorded audio.
   ],
 }
 

@@ -200,7 +200,7 @@ async function checkBook(browser, id, device, phone) {
     assert.equal(restored.edition, 'modern-da')
     assert.equal(restored.place, place, 'Reload retains Danish place')
     assert.deepEqual(errors, [], id + ' page errors')
-    assert.deepEqual(requests, [], id + ' text-only edition asks for no narration or recordings')
+    assert.deepEqual(requests, [], id + ' reading alone asks for no narration or recordings (Danish narration streams only on Play, 2026-11-06)')
     const result = { id, device, continuous: continuousOnly, engine: browser.browserType().name(), pages: cases.length, cases, issues, compare: true, reload: true, errors, audioRequests: requests }
     fs.writeFileSync(path.join(dir, compareOnly ? 'compare-results.json' : 'results.json'), JSON.stringify(result, null, 2))
     assert.deepEqual(issues, [], id + ' text inside page bounds')
