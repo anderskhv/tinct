@@ -212,11 +212,12 @@ describe('lab prefs', () => {
     expect(LAB_LIBRARY_URL).not.toBe('/read?view=library')
   })
 
+  // view=book-detail: the library opens the 3D book on its introduction, not only the hero (Anders, 6 Nov 2026).
   it('links a book introduction to the library book overlay for the reader edition', () => {
-    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&edition=original-en')
-    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible')
-    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&edition=modern-en&voiceTrial=mini')
-    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&edition=modern-en')
+    expect(labLibraryIntroductionUrl('to-the-lighthouse', 'original-en')).toBe('/library?book=to-the-lighthouse&view=book-detail&edition=original-en')
+    expect(labLibraryIntroductionUrl('bible', '')).toBe('/library?book=bible&view=book-detail')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?voiceTrial=mini')).toBe('/library?book=crito&view=book-detail&edition=modern-en&voiceTrial=mini')
+    expect(labLibraryIntroductionUrl('crito', 'modern-en', '?book=bible')).toBe('/library?book=crito&view=book-detail&edition=modern-en')
   })
 
   it('defaults to page of chapter and persists every knob', () => {
