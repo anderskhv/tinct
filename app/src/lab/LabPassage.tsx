@@ -27,7 +27,7 @@ import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, i
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-import { labNativeSelectionBlocksTurn, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipeCompareSwap, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
+import { labNativeSelectionBlocksTurn, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
  *  that turns it, and how long the finger rests there first. 24px / 700ms
@@ -105,7 +105,6 @@ interface LabPassageProps {
    */
   tapZones?: LabTapTurnZones
   /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
-  onCompareSwap?: () => void
   onToggleControls?: () => void
   /**
    * Identity of the reader typography (font, size, alignment, spacing,
@@ -508,7 +507,6 @@ export function LabPassage({
   onSelectionPageTurn,
   onSelectingChange,
   tapZones = 'all',
-  onCompareSwap,
   onToggleControls,
   layoutKey = '',
   onOpenFigure,
@@ -935,23 +933,6 @@ export function LabPassage({
         if (savedHighlight) onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup', savedHighlight.id)
         else onSelectRange(range, event.clientX, event.clientY, drag.comparison ? 'compare' : undefined, 'lookup')
       }
-      return
-    }
-    // Compare's whole-page swap is the vertical swipe, and it is checked
-    // first: the two gestures are on different axes and must never both fire.
-    // A swipe is a finger. A mouse dragged down the page is selecting text,
-    // and always has been; the menu's Compare row is the pointer's way in.
-    if (
-      onCompareSwap
-      && drag.pointerType !== 'mouse'
-      && !selectingRange
-      && !drag.selecting
-      && !nativeSelecting
-      && labSwipeCompareSwap(deltaX, deltaY)
-    ) {
-      dragRef.current = null
-      setLocalSelecting(null)
-      onCompareSwap()
       return
     }
     const swipe = onPageTurn && !selectingRange && !drag.selecting && !nativeSelecting

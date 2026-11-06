@@ -7055,9 +7055,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                   else goPrev()
                 }
               : undefined}
-            onCompareSwap={showPhoneChrome && mobileCompareEnabled && !phoneAsk && !selectionPopup
-              ? toggleMobileCompareByReader
-              : undefined}
             onToggleControls={showPhoneChrome && !phoneAsk && !selectionPopup
               ? () => setReaderControlsVisible(visible => !visible)
               : undefined}

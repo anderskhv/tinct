@@ -1038,23 +1038,6 @@ export function labSwipePageDirection(
 }
 
 /**
- * The Compare swap: a decisive vertical swipe, up or down.
- *
- * Vertical because horizontal already means the next page, and the two must
- * never be able to fire on the same gesture — a swipe that is not clearly one
- * axis is neither. The chrome never says any of this: the swipe is learned in
- * the edition picker, not on the page.
- */
-export function labSwipeCompareSwap(
-  deltaX: number,
-  deltaY: number,
-  threshold = 52,
-): boolean {
-  if (Math.abs(deltaY) < threshold) return false
-  return Math.abs(deltaY) > Math.abs(deltaX) * 1.2
-}
-
-/**
  * The page-turn zone a selection drag is in: the outer horizontal edges of a
  * desktop spread, the top and bottom of a phone page. Holding the finger there
  * extends the selection across the page.
