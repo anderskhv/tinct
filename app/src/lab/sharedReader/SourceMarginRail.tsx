@@ -51,6 +51,17 @@ export function sourceMarginLeaderPath(sourceX:number, sourceY:number, railLeft:
   return `M${sourceX} ${sourceY}H${channel}V${headerY}H${end}`
 }
 /** A layer in the source scroller, never another scrolling panel. */
+/**
+ * A press in the Margin reader's blank margin starts a note: a mouse
+ * affordance. A finger (or a pen, which pans like one) there is scrolling or
+ * resting; on touch, notes come from the selection bar's Note (Surface Duo,
+ * 6 Nov 2026: a note on every touch in the margin).
+ */
+export function sourceMarginBlankNoteAllowed(pointerType: string | undefined, button: number | undefined): boolean {
+  if (pointerType === 'touch' || pointerType === 'pen') return false
+  return button == null || button === 0
+}
+
 export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
   const layer = useRef<HTMLDivElement>(null)
   const latest = useRef(entries)
@@ -139,7 +150,9 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
   if (!host) return null
   return createPortal(<div ref={layer} className="source-margin-rail" data-testid="source-margin-rail" style={{ height: layout.height }}>
     <div className="source-margin-room" aria-hidden="true" style={{ left: Math.max(0, layout.left - 18), width: Math.max(layout.width + 18, host.clientWidth - Math.max(0, layout.left - 18)), height: layout.height }} onPointerDown={event => {
-      if (event.target !== event.currentTarget || event.button !== 0) return
+      // A finger (or a pen, which pans like one) in the margin is scrolling,
+      // never asking for a note: the press is left to the browser's scroll.
+      if (event.target !== event.currentTarget || !sourceMarginBlankNoteAllowed(event.pointerType, event.button)) return
       // Starting a note in blank paper must not start a native drag selection
       // extending into the reading column. Card bodies remain selectable.
       event.preventDefault()

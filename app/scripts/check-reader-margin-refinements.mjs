@@ -1,10 +1,18 @@
 // Isolated, muted visual acceptance for the wider margin reader and quiet header.
+// The touch section (Surface Duo report, 6 Nov 2026) opens the Margin reader on
+// touch screens with no mouse (Surface Duo spanned, phone landscape, iPad
+// upright) and drives real finger drags (Chromium CDP touch events): a drag on
+// the text scrolls the book and moves the saved place, a finger that rests
+// before it moves still scrolls, a long press still selects, and a tap or drag
+// in the blank margin makes no note. With WebKit installed it also checks the
+// iPad in WebKit (taps and the text's touch-action; Playwright has no WebKit
+// touch drag). The mouse's blank-margin note is checked in the desktop loop.
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { createServer } from 'node:http'
 import { enforceReaderBundle } from './lib/readerParityAssertions.mjs'
-import { chromium } from '@playwright/test'
+import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 const dist = path.resolve(process.env.TINCT_DIST || 'dist')
 const server = createServer(async (req, res) => {
@@ -318,6 +326,125 @@ try {
     results.push({ width, theme, geometry, idle: idle.actual, scrolling: scrolling.actual, opacity })
     await context.close()
   }
+  results.push(...await touchMargin())
   await fs.writeFile(`${output}/results.json`, JSON.stringify(results, null, 2))
   console.log(JSON.stringify({ passed: results.length, output, results }))
 } finally { await browser.close(); await new Promise(resolve => server.close(resolve)) }
+
+async function touchMargin() {
+  const duoUA = 'Mozilla/5.0 (Linux; Android 11.0; Surface Duo) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36'
+  const touchDevices = [
+    ['duo-spanned', chromium, { viewport: { width: 1114, height: 705 }, screen: { width: 1114, height: 705 }, deviceScaleFactor: 2.5, isMobile: true, hasTouch: true, userAgent: duoUA }],
+    ['pixel-7-landscape', chromium, devices['Pixel 7 landscape']],
+    ['ipad-pro-11-portrait', chromium, devices['iPad Pro 11']],
+    ['ipad-pro-11-portrait-webkit', webkit, devices['iPad Pro 11']],
+    ['duo-single-phone', chromium, { viewport: { width: 540, height: 720 }, screen: { width: 540, height: 720 }, deviceScaleFactor: 2.5, isMobile: true, hasTouch: true, userAgent: duoUA }],
+  ]
+  const out = []
+  for (const [name, engine, { defaultBrowserType, ...device }] of touchDevices) {
+    let touchBrowser
+    try { touchBrowser = await markInternal(await engine.launch({ headless: true })) } catch (error) {
+      if (engine === webkit) { console.log(`touch: ${name} skipped, WebKit is not installed`); continue }
+      throw error
+    }
+    try {
+      const context = await touchBrowser.newContext({ ...device, reducedMotion: 'reduce', serviceWorkers: 'block' })
+      const page = await context.newPage()
+      const errors = []
+      page.on('pageerror', error => errors.push(error.message))
+      await page.route('**/*', async route => {
+        const url = new URL(route.request().url())
+        if (url.origin !== origin) return route.abort()
+        if (await enforceReaderBundle(route, expectedBundle)) return
+        if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
+        return route.continue()
+      })
+      await page.addInitScript(() => localStorage.setItem('tinct-lab-prefs', JSON.stringify({ theme: 'light', primaryEdition: 'original-en' })))
+      // No layout in the link: the device's own default decides (4 Nov 2026).
+      await page.goto(`${origin}/reader?book=frankenstein&chapter=2&paragraph=3&word=4&sharedReader=1`)
+      await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true'
+        && document.querySelectorAll('[data-testid="lab-word"]').length > 40)
+      await page.evaluate(() => document.fonts.ready)
+      await page.waitForTimeout(1200)
+      if (name === 'duo-single-phone') {
+        // The paginated phone page is unchanged: its words own the touch (swipes, long press).
+        assert.equal(await page.getByTestId('continuous-reader').count(), 0, `${name}: a single Duo screen keeps the phone reader`)
+        const action = await page.locator('.lab-passage [data-testid="lab-word"]').first().evaluate(node => getComputedStyle(node).touchAction)
+        assert.equal(action, 'pinch-zoom', `${name}: phone page words still own the touch`)
+        out.push({ touch: name, action })
+        await context.close()
+        continue
+      }
+      const host = page.getByTestId('continuous-reader')
+      await host.waitFor()
+      await page.screenshot({ path: `${output}/touch-${name}-open.png` })
+      const textAction = await host.locator('[data-testid="lab-word"]').first().evaluate(node => getComputedStyle(node).touchAction)
+      assert.equal(textAction, 'pan-y pinch-zoom', `${name}: Margin text lets a finger scroll`)
+      const word = async () => host.locator('[data-testid="lab-word"]').evaluateAll(nodes => {
+        const box = nodes.map(node => node.getBoundingClientRect()).filter(box => box.width > 18 && box.top > innerHeight * .4 && box.bottom < innerHeight * .6)
+        const pick = box[Math.floor(box.length / 2)]
+        return pick && { x: pick.x + pick.width / 2, y: pick.y + pick.height / 2 }
+      })
+      const room = await page.locator('.source-margin-room').boundingBox()
+      assert(room, `${name}: the margin has its blank room`)
+      const blank = { x: Math.min(device.viewport.width - 24, room.x + room.width * .6), y: Math.round(device.viewport.height * .55) }
+      const hit = await page.evaluate(({ x, y }) => document.elementFromPoint(x, y)?.className || '', blank)
+      assert(String(hit).includes('source-margin-room'), `${name}: the probe lands in the blank margin (${hit})`)
+      const notes = () => page.evaluate(() => ({ editors: document.querySelectorAll('textarea[aria-label="Highlight note"], .lab-pcard-note').length, saved: JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').length }))
+      const selected = () => page.evaluate(() => document.querySelectorAll('[data-testid="continuous-reader"] .is-selecting').length + document.querySelectorAll('[data-testid^="lab-dbar-"]').length)
+      await page.touchscreen.tap(blank.x, blank.y)
+      await page.waitForTimeout(600)
+      assert.deepEqual(await notes(), { editors: 0, saved: 0 }, `${name}: a finger tap in the blank margin makes no note`)
+      if (engine === webkit) {
+        await page.screenshot({ path: `${output}/touch-${name}-margin-tap.png` })
+        out.push({ touch: name, textAction, marginTap: 'no note' })
+        assert.deepEqual(errors, [])
+        await context.close()
+        continue
+      }
+      const cdp = await context.newCDPSession(page)
+      const finger = async (from, to, { holdMs = 0, steps = 12 } = {}) => {
+        const at = (x, y) => [{ x, y, id: 1, radiusX: 4, radiusY: 4, force: 1 }]
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: at(from.x, from.y) })
+        if (holdMs) await page.waitForTimeout(holdMs)
+        for (let i = 1; i <= steps; i++) {
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: at(from.x + (to.x - from.x) * i / steps, from.y + (to.y - from.y) * i / steps) })
+          await page.waitForTimeout(16)
+        }
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] })
+        await page.waitForTimeout(700)
+      }
+      const top = () => host.evaluate(node => node.scrollTop)
+      const d = Math.round(Math.min(130, device.viewport.height * .25))
+      const place0 = await page.locator('.lab').getAttribute('data-place')
+      const start = await word(); assert(start, `${name}: a word to touch`)
+      const top0 = await top()
+      await finger({ x: start.x, y: start.y + d }, { x: start.x + 6, y: start.y - d })
+      const top1 = await top()
+      assert(top1 - top0 > d, `${name}: a finger drag on the text scrolls the book (${top0} -> ${top1})`)
+      assert.equal(await selected(), 0, `${name}: scrolling the text selects nothing`)
+      await page.waitForFunction(place => document.querySelector('.lab')?.dataset.place !== place, place0)
+      // A finger that settles on a word before it moves is still scrolling (the page's 160 ms press would select here).
+      const rest = await word()
+      await finger({ x: rest.x, y: rest.y + d }, { x: rest.x, y: rest.y - d }, { holdMs: 250 })
+      const top2 = await top()
+      assert(top2 - top1 > d, `${name}: a drag after a short rest still scrolls (${top1} -> ${top2})`)
+      assert.equal(await selected(), 0, `${name}: a short rest before the drag selects nothing`)
+      await finger({ x: rest.x, y: rest.y - d }, { x: rest.x - 4, y: rest.y + d }, { steps: 6 })
+      assert(await top() < top2 - d, `${name}: a drag down scrolls back`)
+      await page.screenshot({ path: `${output}/touch-${name}-scrolled.png` })
+      const top3 = await top()
+      await finger({ x: blank.x, y: blank.y + d }, { x: blank.x, y: blank.y - d })
+      assert(await top() - top3 > d, `${name}: a finger drag in the margin scrolls too`)
+      assert.deepEqual(await notes(), { editors: 0, saved: 0 }, `${name}: a drag in the margin makes no note`)
+      const press = await word()
+      await finger(press, { x: press.x + 70, y: press.y }, { holdMs: 700, steps: 8 })
+      await page.getByTestId('lab-dbar-highlight').waitFor({ timeout: 5000 })
+      await page.screenshot({ path: `${output}/touch-${name}-long-press.png` })
+      out.push({ touch: name, textAction, scrolled: [top0, top1, top2], marginTap: 'no note', longPress: 'selection bar' })
+      assert.deepEqual(errors, [])
+      await context.close()
+    } finally { await touchBrowser.close() }
+  }
+  return out
+}
