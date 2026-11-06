@@ -291,8 +291,32 @@ export function shouldAutoSaveBookOffline(bookId: string, editionKeys: string[])
   return !offlineBookSaved(bookId, editionKeys, buildVersion())
 }
 
-async function activeServiceWorker(): Promise<boolean> {
-  try { return !!(await navigator.serviceWorker.getRegistration())?.active } catch { return false }
+/** How long the background save waits for the service worker of a first visit to finish installing. */
+export const AUTO_OFFLINE_WORKER_WAIT_MS = 120000
+
+/**
+ * Whether a service worker is active, waiting for it while it installs. On a
+ * first visit it installs alongside the first page (precaching the reader
+ * shell), often for longer than the reader waits before saving: asking only
+ * once left that visit's book unsaved until the next one (desktop Master and
+ * Margarita, 6 Nov 2026).
+ */
+export async function waitForActiveServiceWorker(
+  container: Pick<ServiceWorkerContainer, 'getRegistration' | 'ready'> = navigator.serviceWorker,
+  timeoutMs = AUTO_OFFLINE_WORKER_WAIT_MS,
+): Promise<boolean> {
+  try {
+    if ((await container.getRegistration())?.active) return true
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const active = await Promise.race([
+      container.ready.then(registration => !!registration?.active, () => false),
+      new Promise<boolean>(resolve => { timer = setTimeout(() => resolve(false), timeoutMs) }),
+    ])
+    clearTimeout(timer)
+    return active
+  } catch {
+    return false
+  }
 }
 
 const autoSaves = new Map<string, Promise<boolean>>()
@@ -308,8 +332,8 @@ export function autoSaveBookOffline({ bookId, editionKeys, hasVerseLines, signal
   const running = autoSaves.get(key)
   if (running) return running
   // Saved files are only served offline by an active service worker: without one, nothing to save for.
-  const save = activeServiceWorker()
-    .then(active => active
+  const save = waitForActiveServiceWorker()
+    .then(active => active && shouldAutoSaveBookOffline(bookId, editionKeys)
       ? saveBookOffline({ bookId, editionKeys, hasVerseLines, onProgress: () => {}, background: { signal } }).then(() => true)
       : false)
     .catch(() => false)

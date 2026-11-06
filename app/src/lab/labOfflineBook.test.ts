@@ -8,6 +8,7 @@ import {
   offlineEditionEntry,
   offlineEditionIsSharded,
   offlineEditionKeys,
+  waitForActiveServiceWorker,
 } from './labOfflineBook'
 
 // The download list must be exactly what the loaders request, or the service
@@ -81,5 +82,31 @@ describe('offline book download list', () => {
     expect(offlineBookSaved('bible', ['bsb-en', 'kjv-en'], 'b1', record)).toBe(false)
     expect(offlineBookSaved('bible', ['bsb-en'], 'b2', record)).toBe(false)
     expect(offlineBookSaved('bible', ['bsb-en'], 'b1', undefined)).toBe(false)
+  })
+})
+
+describe('background save and the service worker', () => {
+  const registration = (active: boolean) => ({ active: active ? {} : null }) as unknown as ServiceWorkerRegistration
+
+  it('saves at once when the service worker is already active', async () => {
+    const container = { getRegistration: async () => registration(true), ready: new Promise<ServiceWorkerRegistration>(() => {}) }
+    await expect(waitForActiveServiceWorker(container, 50)).resolves.toBe(true)
+  })
+
+  // A first visit: the worker is still installing when the reader is ready to save.
+  it('waits for a first visit’s service worker to finish installing', async () => {
+    let activate!: (r: ServiceWorkerRegistration) => void
+    const container = { getRegistration: async () => undefined, ready: new Promise<ServiceWorkerRegistration>(resolve => { activate = resolve }) }
+    const result = waitForActiveServiceWorker(container, 5000)
+    setTimeout(() => activate(registration(true)), 20)
+    await expect(result).resolves.toBe(true)
+  })
+
+  it('gives up quietly when no service worker ever becomes active', async () => {
+    const container = { getRegistration: async () => undefined, ready: new Promise<ServiceWorkerRegistration>(() => {}) }
+    await expect(waitForActiveServiceWorker(container, 20)).resolves.toBe(false)
+    const broken = { getRegistration: async () => { throw new Error('denied') }, ready: Promise.reject(new Error('denied')) }
+    broken.ready.catch(() => {})
+    await expect(waitForActiveServiceWorker(broken, 20)).resolves.toBe(false)
   })
 })

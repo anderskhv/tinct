@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
+  AUTO_OFFLINE_WORKER_WAIT_MS,
   autoSaveBookOffline,
   OFFLINE_BOOK_SAVED_EVENT,
   offlineBookRemoved,
@@ -147,7 +148,13 @@ describe('background whole-book save', () => {
     const calls: string[] = []
     vi.stubGlobal('fetch', vi.fn(async (url: string) => { calls.push(String(url)); return new Response('{}') }))
     Object.defineProperty(navigator, 'serviceWorker', { configurable: true, value: { ready: new Promise(() => {}), getRegistration: () => Promise.resolve(undefined) } })
-    expect(await autoSaveBookOffline({ bookId: 'frankenstein', editionKeys: ['original-en'], hasVerseLines: false })).toBe(false)
+    // A first visit's worker may still be installing: the save waits for it (6 Nov 2026), then gives up.
+    vi.useFakeTimers()
+    try {
+      const save = autoSaveBookOffline({ bookId: 'frankenstein', editionKeys: ['original-en'], hasVerseLines: false })
+      await vi.advanceTimersByTimeAsync(AUTO_OFFLINE_WORKER_WAIT_MS)
+      expect(await save).toBe(false)
+    } finally { vi.useRealTimers() }
     expect(calls).toEqual([])
   })
 
