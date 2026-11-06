@@ -191,7 +191,7 @@ Preview URLs are enabled in code (`"workers_dev": true, "preview_urls": true` in
 
 ### Cache tags
 
-`app/public/lab/addbook` (the margin reader and Add a book) is the only source of those pages; the old `addbooks/web/src` mirror is gone. Its `?v=` tags are all the literal `?v=__TINCT_BUILD__`: never hand-bump them. `npm run build` (`scripts/stamp-lab-entry-tags.cjs`) replaces it with the build's `index-*.js` hash, references to built `/lab` entries get content-derived tags, and `verify-bundle` fails if a placeholder is left in `dist/`. Other `/lab` files (library_2, `tinct-ui.css`) still carry hand tags.
+`app/public/lab/addbook` (the margin reader and Add a book) is the only source of those pages; the old `addbooks/web/src` mirror is gone. Its `?v=` tags are all the literal `?v=__TINCT_BUILD__`: never hand-bump them. `npm run build` (`scripts/stamp-lab-entry-tags.cjs`) replaces it with the build's `index-*.js` hash (new on every build), which Add a book keeps except on references to a built `/lab` entry or a file on a chain to one, and `verify-bundle` fails if a placeholder is left in `dist/`. Everywhere else in `dist/` (library_2, `tinct-ui.css`, `/omarchy`, the pages), every `?v=` on a reference to a `/lab` or `/omarchy` js/css file in dist is replaced with a tag derived from that file's content, up the chain to the pages, and `verify-bundle` fails on any tag that does not match (6 Nov 2026: unbumped hand tags kept library_2/reviewed-introductions.js stale). The hand tags in `public/` are development values only; no need to bump them. Tags written in compiled code (`src/`, the Worker) are not rewritten and still need bumping.
 
 ### Rollback
 

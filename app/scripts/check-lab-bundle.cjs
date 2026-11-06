@@ -7,9 +7,10 @@
  *    (static `from`, side-effect `import`, `import()`, `new URL(..., import.meta.url)`
  *    and Vite's preload lists). A missing chunk is the 15 Oct 2026 outage: a
  *    stale lab/library-add.js importing ownSwitcher-*.js that no longer existed.
- * 2. No dist file references a built entry (or a file on a chain to one) with
- *    a cache tag other than the one scripts/stamp-lab-entry-tags.cjs derives
- *    from the content.
+ * 2. No dist file references a tag-cached file (/lab/**.js|css,
+ *    /omarchy/**.js|css) in dist with a cache tag other than the one
+ *    scripts/stamp-lab-entry-tags.cjs derives from that file's content (or,
+ *    in Add a book, the per-build stamp it keeps off an entry chain).
  *
  * Usage: node scripts/check-lab-bundle.cjs [dist]
  */
@@ -78,9 +79,9 @@ function checkDist(dist, publicDir) {
   for (const { file, missing } of missingImports(servedModules(dist), exists)) {
     lines.push(`/${file} imports /${missing}, which is not in dist`)
   }
-  const { files, entries } = readDist(dist, publicDir)
+  const { files, entries, stamp } = readDist(dist, publicDir)
   if (!entries.length) lines.push('no built entries found under dist/lab/')
-  for (const { file, ref, tag, expected } of staleTags(files, entries)) {
+  for (const { file, ref, tag, expected } of staleTags(files, entries, stamp)) {
     lines.push(`/${file} references ${ref}?v=${tag}; the built file's tag is ${expected}`)
   }
   return lines
@@ -97,5 +98,5 @@ if (require.main === module) {
     for (const line of problems) console.error('  •', line)
     process.exit(1)
   }
-  console.log('✓ lab bundle: every import exists and every entry tag matches its content')
+  console.log('✓ lab bundle: every import exists and every /lab and /omarchy tag matches its content')
 }

@@ -81,17 +81,19 @@ if (leaks.length) {
 console.log(`✓ bundle ${bundle} contains all expected env vars and no leaked secrets`)
 
 // Every module a served /lab/*.js or /assets/*.js imports must be in dist, and
-// every cache tag on a built /lab entry must match its content (2026-10-15:
-// a stale /lab/library-add.js imported chunks the deploy had removed).
+// every cache tag on a reference to a /lab or /omarchy js/css file in dist must
+// be the one derived from that file's content (2026-10-15: a stale
+// /lab/library-add.js imported chunks the deploy had removed; 2026-11-06: an
+// unbumped hand tag kept library_2/reviewed-introductions.js stale).
 const { checkDist } = require('./check-lab-bundle.cjs')
 const labProblems = checkDist(path.join(__dirname, '..', 'dist'), path.join(__dirname, '..', 'public'))
 if (labProblems.length) {
   console.error('\n✗ LAB BUNDLE CHECK FAILED:')
   for (const line of labProblems) console.error('  •', line)
-  console.error('\nRe-run `npm run build` (it stamps the /lab entry tags). Do NOT deploy.\n')
+  console.error('\nRe-run `npm run build` (it stamps the /lab and /omarchy tags). Do NOT deploy.\n')
   process.exit(1)
 }
-console.log('✓ lab bundle: every import exists and every entry tag matches its content')
+console.log('✓ lab bundle: every import exists and every /lab and /omarchy tag matches its content')
 
 // Add a book's `?v=__TINCT_BUILD__` (public/lab/addbook) is replaced with the
 // build's bundle hash by scripts/stamp-lab-entry-tags.cjs; one left in dist
