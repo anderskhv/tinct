@@ -27,7 +27,7 @@ import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, i
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-import { labNativeSelectionBlocksTurn, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
+import { labLongPressCancelledByMove, labLongPressMs, labNativeSelectionBlocksTurn, labPassageBlocksNativeTouch, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
  *  that turns it, and how long the finger rests there first. 24px / 700ms
@@ -84,6 +84,9 @@ interface LabPassageProps {
   readingPage?: ChapterHearingPage
   chapterPages?: ChapterHearingPage[]
   keyboardSelection?: boolean
+  /** The passage sits in a native scroller (the Margin reader): a finger drag
+   *  scrolls the text and a long press selects, as the paginated phone page does. */
+  touchScroll?: boolean
   compareHighlights?: LabHighlight[]
   selectingComparison?: boolean
   highlights?: LabHighlight[]
@@ -493,6 +496,7 @@ export function LabPassage({
   readingPage,
   chapterPages,
   keyboardSelection = false,
+  touchScroll = false,
   compareHighlights = [],
   selectingComparison = false,
   highlights = [],
@@ -620,7 +624,14 @@ export function LabPassage({
       if (event.touches.length > 1) return
       const target = event.target as Element | null
       if (target?.closest('button, a, input, textarea, select')) return
-      if (dragRef.current || selectingRange || wordPlaceFromTarget(target)) {
+      if (labPassageBlocksNativeTouch({
+        type: event.type === 'touchmove' ? 'touchmove' : 'touchstart',
+        touchScroll,
+        dragging: !!dragRef.current,
+        selecting: !!dragRef.current?.selecting,
+        selectionShown: !!selectingRange,
+        onWord: !!wordPlaceFromTarget(target),
+      })) {
         event.preventDefault()
       }
     }
@@ -635,7 +646,7 @@ export function LabPassage({
       article.removeEventListener('touchmove', preventNativeTouch)
       article.removeEventListener('selectstart', preventNativeSelection)
     }
-  }, [hearing, onSelectRange, onSeekToWord, selectingRange])
+  }, [hearing, onSelectRange, onSeekToWord, selectingRange, touchScroll])
 
   // The tail measurement strips `is-tail-full`, forces a layout with the tail
   // start-aligned, then puts the class back. Doing that after every commit
@@ -762,7 +773,7 @@ export function LabPassage({
         const native = window.getSelection()
         if (native?.anchorNode && articleRef.current?.contains(native.anchorNode)) native.removeAllRanges()
         setLocalSelecting(buildHighlightRange(drag.comparison ? compareParagraphs : paragraphs, selectionPlace, selectionPlace))
-      }, 160)
+      }, labLongPressMs(touchScroll))
     }
   }
 
@@ -771,8 +782,8 @@ export function LabPassage({
     if (!drag) return
     if (!drag.selecting) {
       const distance = Math.max(Math.abs(event.clientX - drag.startX), Math.abs(event.clientY - drag.startY))
-      if (drag.touch && distance > 10 && longPressRef.current
-        && event.timeStamp - drag.startedAt < 100) {
+      if (drag.touch && longPressRef.current
+        && labLongPressCancelledByMove({ touchScroll, distance, elapsedMs: event.timeStamp - drag.startedAt })) {
         clearTimeout(longPressRef.current)
         longPressRef.current = null
         drag.start = null
@@ -1119,6 +1130,7 @@ export function LabPassage({
         'is-reading',
         appliedSelection ? 'has-applied-selection' : '',
         !hearing && onSelectRange ? 'owns-text-selection' : '',
+        touchScroll ? 'is-touch-scroll' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',

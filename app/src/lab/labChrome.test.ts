@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -598,3 +598,33 @@ describe('labNeedsGestureAudioUnlock (opening Chat must not take a phone\'s head
     expect(labNeedsGestureAudioUnlock({ userAgent: WIN, primaryHoverNone: true })).toBe(true)
   })
 })
+
+// Surface Duo / iPad, 6 Nov 2026: the Margin reader's text is a scroller.
+describe('touch on a scrolling passage', () => {
+  const base = { dragging: false, selecting: false, selectionShown: false, onWord: true }
+  it('keeps every touch on a paginated word for the reader', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, selectionShown: true, type: 'touchmove', touchScroll: false })).toBe(true)
+    expect(labPassageBlocksNativeTouch({ ...base, onWord: false, type: 'touchstart', touchScroll: false })).toBe(false)
+  })
+  it('leaves a scroller touch to the browser unless it extends a long-press selection', () => {
+    expect(labPassageBlocksNativeTouch({ ...base, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, selectionShown: true, type: 'touchmove', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchstart', touchScroll: true })).toBe(false)
+    expect(labPassageBlocksNativeTouch({ ...base, dragging: true, selecting: true, type: 'touchmove', touchScroll: true })).toBe(true)
+  })
+  it('holds the long press about as long as the platform does in a scroller', () => {
+    expect(labLongPressMs(false)).toBe(LAB_PAGE_LONG_PRESS_MS)
+    expect(LAB_PAGE_LONG_PRESS_MS).toBe(160)
+    expect(labLongPressMs(true)).toBe(LAB_SCROLL_LONG_PRESS_MS)
+    expect(LAB_SCROLL_LONG_PRESS_MS).toBeGreaterThanOrEqual(400)
+  })
+  it('cancels a pending press on any movement past the slop in a scroller, only a quick flick on a page', () => {
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 8, elapsedMs: 50 })).toBe(false)
+    expect(labLongPressCancelledByMove({ touchScroll: true, distance: 14, elapsedMs: 300 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 50 })).toBe(true)
+    expect(labLongPressCancelledByMove({ touchScroll: false, distance: 14, elapsedMs: 300 })).toBe(false)
+  })
+})
+

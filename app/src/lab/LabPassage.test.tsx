@@ -775,6 +775,45 @@ describe('touch selection owns the gesture', () => {
     } finally { vi.useRealTimers() }
   })
 
+  // The Margin reader's text is a scroller (Surface Duo / iPad, 6 Nov 2026):
+  // a finger on a word scrolls the book; only a long press selects.
+  it('leaves a finger on a word to the browser scroll in a touch-scroll passage', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn()
+      render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })} onSelectRange={select} touchScroll />)
+      const word = screen.getAllByTestId('lab-word')[1]
+      expect(screen.getByTestId('lab-book').classList.contains('is-touch-scroll')).toBe(true)
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(fireEvent.touchStart(word, { touches: [{ clientX: 100, clientY: 200 }] })).toBe(true)
+      // A rest longer than the page's 160 ms press is still not a selection here.
+      act(() => vi.advanceTimersByTime(250))
+      expect(word.classList.contains('is-selecting')).toBe(false)
+      fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 100, clientY: 140 })
+      expect(fireEvent.touchMove(word, { touches: [{ clientX: 100, clientY: 140 }] })).toBe(true)
+      act(() => vi.advanceTimersByTime(1000))
+      expect(word.classList.contains('is-selecting')).toBe(false)
+      fireEvent.pointerCancel(word, { pointerType: 'touch' })
+      expect(select).not.toHaveBeenCalled()
+    } finally { vi.useRealTimers() }
+  })
+
+  it('selects by long press in a touch-scroll passage and then owns the drag that extends it', () => {
+    vi.useFakeTimers()
+    try {
+      const select = vi.fn()
+      render(<LabPassage {...passageProps(['one two three four'], { paragraphIndex: 0, from: 0, to: 4 })} onSelectRange={select} touchScroll />)
+      const word = screen.getAllByTestId('lab-word')[1]
+      fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(fireEvent.touchStart(word, { touches: [{ clientX: 100, clientY: 200 }] })).toBe(true)
+      act(() => vi.advanceTimersByTime(430))
+      expect(word.classList.contains('is-selecting')).toBe(true)
+      expect(fireEvent.touchMove(word, { touches: [{ clientX: 104, clientY: 200 }] })).toBe(false)
+      fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 100, clientY: 200 })
+      expect(select).toHaveBeenCalledWith(expect.objectContaining({ text: 'two' }), 100, 200, undefined)
+    } finally { vi.useRealTimers() }
+  })
+
   it('treats a quick vertical swipe on a word as neither a selection nor a page turn', () => {
     // The vertical Compare swap was removed (Anders, 2026-11-06).
     const turn = vi.fn(), select = vi.fn()

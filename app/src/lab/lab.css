@@ -1235,6 +1235,13 @@
   touch-action: pinch-zoom;
   -webkit-touch-callout: none;
 }
+/* The Margin reader's text is a scroller: a finger on it scrolls the book, as
+   the margin beside it does; a long press still selects (LabPassage
+   touchScroll). Surface Duo spanned and iPad upright, 6 Nov 2026. */
+.lab .lab-passage.owns-text-selection.is-touch-scroll,
+.lab .lab-passage.owns-text-selection.is-touch-scroll * {
+  touch-action: pan-y pinch-zoom;
+}
 /* The collapsed card is as tall as its opener: no clamp, no inner scroll,
    never a cut sentence. Only the expanded card scrolls. */
 .lab .lab-contextual-explain-scroll { box-sizing: border-box; }
