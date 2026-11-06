@@ -21,7 +21,7 @@ import { acquireBrowserAudioSession } from '../utils/browserAudioSession'
 import { LAB_COPY } from './labCopy'
 import { CLIP_BUFFER_DRY_SECONDS, CLIP_BUFFER_WEAK_FACTOR, NarrationClipBuffer, repeatWhilePlaying, clipBufferSeconds, clipsToBuffer, connectionSavesData, sourcePlaysClip, type BufferCandidate } from './narrationClipBuffer'
 import { NarrationEnsureError, narrationFailureMessage, type NarrationEnsureRequest, type NarrationParagraphNotReady, type NarrationParagraphResult } from './labNarration'
-import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex } from '../narration/narrationCore'
+import { chunkNarrationTokens, narrationTextForParagraph, narrationTokens, sha256Hex, type NarrationLanguage } from '../narration/narrationCore'
 import {
   alignTimedWordsToText,
   followParagraphFromManifest,
@@ -235,6 +235,8 @@ export interface UseLabListenOptions {
 }
 
 export interface LabNarrationOption {
+  /** Spoken language of the narrated edition (narrationLanguage): the sentence groups are cut as the Worker cuts them. English when absent. */
+  language?: NarrationLanguage
   /** Audio-only tail, prepared by the ordinary bounded look-ahead after Play. */
   endingCue?: {
     text: string
@@ -648,7 +650,7 @@ export function useLabListen(options: UseLabListenOptions) {
       const textHash = hashes.get(paragraph.index)
       if (textHash == null) continue
       const entry = narrationPreparedRef.current.get(paragraph.index)
-      const layout = chunkNarrationTokens(narrationTokens(paragraph.text))
+      const layout = chunkNarrationTokens(narrationTokens(paragraph.text), undefined, optionsRef.current.narration?.language)
       for (const expected of layout) {
         const chunk = entry?.textHash === textHash ? entry.chunks[expected.index] : undefined
         clips.push({

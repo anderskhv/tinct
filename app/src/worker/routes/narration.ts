@@ -47,6 +47,7 @@ import {
   chunkNarrationTokens,
   isGuestNarrationVoice,
   isPilotScope,
+  narrationLanguage,
   narrationAudioPath,
   narrationBlobKeys,
   narrationChunkTextCandidates,
@@ -67,6 +68,7 @@ import {
   type NarrationMapEntry,
   type NarrationSynthesisSettings,
   type NarrationProvider,
+  type NarrationLanguage,
   type TimingSegment,
   type TokenAlignmentStats,
 } from '../../narration/narrationCore'
@@ -487,8 +489,8 @@ interface ParagraphState {
  * request: today's identity first, then the pre-dash-rules recording where
  * the rules changed the chunk's spoken text (narrationChunkTextCandidates).
  */
-async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings): Promise<NarrationChunkCandidate[][]> {
-  return Promise.all(chunks.map(chunk => narrationChunkTextCandidates(chunk, { provider, model, voiceId, settings })))
+async function chunkIdentities(chunks: NarrationChunk[], provider: NarrationProvider, model: string, voiceId: string, settings: NarrationSynthesisSettings, language: NarrationLanguage): Promise<NarrationChunkCandidate[][]> {
+  return Promise.all(chunks.map(chunk => narrationChunkTextCandidates(chunk, { provider, model, voiceId, settings, language })))
 }
 
 /** The candidate a listed recording is, if any: only then is the listing trusted. */
@@ -530,11 +532,11 @@ function mapEntryMatches(entry: NarrationMapEntry | null, textHash: string, chun
   return !!entry && entry.textHash === textHash && entry.chunkCount === chunkCount && entry.voiceId === voiceId && entry.model === model
 }
 
-async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, identities?: string[]): Promise<ParagraphState> {
+async function readParagraphState(bucket: R2Bucket, provider: NarrationProvider, mapKey: string, textHash: string, chunks: NarrationChunk[], voiceId: string, model: string, settings: NarrationSynthesisSettings, language: NarrationLanguage, identities?: NarrationChunkCandidate[][]): Promise<ParagraphState> {
   const state: ParagraphState = { textHash, chunks, ready: [] }
   const entry = await readMapEntry(bucket, mapKey)
   if (!mapEntryMatches(entry, textHash, chunks.length, voiceId, model)) return state
-  const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings)
+  const hashes = identities ?? await chunkIdentities(chunks, provider, model, voiceId, settings, language)
   // Every listed chunk is validated side by side (2026-10-20: one chunk after
   // another made a cached three-paragraph ensure 1.4–15 s in production and
   // failed the post-deploy check). The bucket bounds how many run at once.
@@ -680,6 +682,8 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   }
   if (!config.enabled || !env.AUDIO_BUCKET) return jsonResponse({ ...publicConfig(config), paragraphs: [] }, 200, request)
   if (isPrivateBook(scope.bookId) || !isPilotScope(scope.bookId, scope.editionKey, scope.chapter)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
+  const language = narrationLanguage(scope.bookId, scope.editionKey)
+  if (!language || !providerSpeaks(config.provider, language)) return jsonResponse({ error: 'Outside the pilot scope' }, 403, request)
   const voice = config.voices.find(item => item.key === scope.voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   const text = await loadChapterParagraphs(request, env, scope.bookId, scope.editionKey, scope.chapter)
@@ -691,7 +695,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
   const present = new Set(listed.objects.map((object: { key: string }) => object.key))
   const paragraphs = await Promise.all(text.paragraphs.map(async (raw, index) => {
     const tokens = narrationTokens(raw)
-    const chunks = chunkNarrationTokens(tokens)
+    const chunks = chunkNarrationTokens(tokens, undefined, language)
     const textHash = await sha256Hex(tokens.join(' '))
     const mapKey = narrationMapKey(scope.bookId, scope.editionKey, scope.chapter, voice.key, index, config.provider)
     if (!present.has(mapKey)) return { paragraph: index, status: 'missing' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
@@ -699,7 +703,7 @@ async function handleChapter(request: Request, env: NarrationEnv, deps: Narratio
     // settings; it does not open every blob (a 430-paragraph chapter would
     // exceed the Worker's subrequest budget). The ensure path validates the
     // audio and metadata of each chunk before anything plays.
-    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings, language)
     const entry = await readMapEntry(bucket, mapKey)
     const listedChunks = listedChunksForMap(entry, [], chunks, identities, textHash, voice.id, config.model)
     if (listedChunks.length === 0) return { paragraph: index, status: 'stale' as const, textHash, chunkCount: chunks.length, readyChunks: 0 }
@@ -1006,8 +1010,19 @@ export async function synthesizeWithGoogle(input: {
 
 
 /** Every paid attempt reserves its maximum text cost before sending bytes. */
+/**
+ * Only Grok narrates Danish: Google is asked for an en-US voice and Fish
+ * guesses the language from the text, so a Danish edition stays outside
+ * their scope.
+ */
+export function providerSpeaks(provider: NarrationProvider, language: NarrationLanguage): boolean {
+  return language === 'en' || provider === 'grok'
+}
+
 export async function synthesizeWithGrok(input: {
   apiKey: string; baseUrl: string; voiceId: string; text: string
+  /** The edition's spoken language (narrationLanguage); English when absent (own books). */
+  language?: NarrationLanguage
   settings: NarrationSynthesisSettings; fetchImpl: typeof fetch
   sleep: (ms: number) => Promise<void>; now: () => number; deadlineAt?: number
   reserve: () => Promise<boolean>
@@ -1023,7 +1038,7 @@ export async function synthesizeWithGrok(input: {
     const exchange = fetchWithDeadline(input.fetchImpl, input.baseUrl + '/v1/tts', {
       method: 'POST',
       headers: { Authorization: 'Bearer ' + input.apiKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: input.text, voice_id: input.voiceId, language: 'en',
+      body: JSON.stringify({ text: input.text, voice_id: input.voiceId, language: input.language ?? 'en',
         with_timestamps: true, text_normalization: input.settings.normalize, speed: input.settings.speed,
         output_format: { codec: 'mp3', sample_rate: 24000, bit_rate: input.settings.mp3Bitrate * 1000 } }),
     }, PROVIDER_TIMEOUT_MS)
@@ -1125,6 +1140,9 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
   }
   if (editionHold(bookId, editionKey)) return heldNarrationResponse(request)
   if (isPrivateBook(bookId) || isEditionWithheld(bookId, editionKey) || !isPilotScope(bookId, editionKey, chapter)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
+  // The spoken language comes from the edition on the server's allowlist, never from the request.
+  const language = narrationLanguage(bookId, editionKey)
+  if (!language || !providerSpeaks(config.provider, language)) return jsonResponse({ error: 'Outside the narration scope' }, 403, request)
   const voice = config.voices.find(item => item.key === voiceKey)
   if (!voice) return jsonResponse({ error: 'Unknown voice' }, 400, request)
   // Guests hear Ara and Helios only (the voices with recorded openings); Orion and Eve need an account.
@@ -1180,7 +1198,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       return { result: { paragraph: index, status: 'failed', textHash: '', reason: 'unknown_paragraph' } as EnsureParagraphResult }
     }
     const tokens = narrationTokens(text.paragraphs[index])
-    const chunks = chunkNarrationTokens(tokens)
+    const chunks = chunkNarrationTokens(tokens, undefined, language)
     const textHash = await sha256Hex(tokens.join(' '))
     const fromChunk = Number.isInteger(item.fromChunk) && Number(item.fromChunk) >= 0 && Number(item.fromChunk) < chunks.length ? Number(item.fromChunk) : 0
     if (typeof item.textHash === 'string' && item.textHash !== textHash) {
@@ -1193,8 +1211,8 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
     const mapKey = bookTransition
       ? `narration/grok/announcements/v1/${bookId}/${editionKey}/ch${chapter}/${voice.key}/to${body.nextChapter}.json`
       : narrationMapKey(bookId, editionKey, chapter, voice.key, index, config.provider)
-    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings)
-    const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, identities)
+    const identities = await chunkIdentities(chunks, config.provider, config.model, voice.id, config.settings, language)
+    const state = await readParagraphState(bucket, config.provider, mapKey, textHash, chunks, voice.id, config.model, config.settings, language, identities)
     return { index, chunks, textHash, fromChunk, mapKey, identities, state }
   }))
   const cacheMs = Date.now() - cacheStartedAt
@@ -1269,7 +1287,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
       let locked = false
       if (config.provider !== 'grok') { try { locked = !!(kv && await kv.get(lockKey)) } catch { locked = false } }
       if (locked) {
-        const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, now, sleep)
+        const arrived = await waitForChunk(bucket, config.provider, mapKey, state, voice.id, config.model, config.settings, language, now, sleep)
         if (arrived) { extra.waited = true; countNewReadyDuration(); if (mode === 'next') generationDone = true; continue }
         extra.retryAfterMs = 1500
         break
@@ -1309,7 +1327,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
         const synthesis = config.provider === 'grok'
           ? await synthesizeWithGrok({
             apiKey: env.XAI_API_KEY as string, baseUrl: config.baseUrl, voiceId: voice.id,
-            text: chunk.text, settings: config.settings, fetchImpl, sleep, now,
+            text: chunk.text, language, settings: config.settings, fetchImpl, sleep, now,
             deadlineAt: requestStartedAt + REQUEST_TIME_BUDGET_MS + PROVIDER_TIMEOUT_MS,
             reserve: async () => {
               if (!env.NARRATION_COORDINATOR) return false
@@ -1352,6 +1370,7 @@ async function handleEnsure(request: Request, env: NarrationEnv, ctx: ExecutionC
           voiceId: voice.id,
           voiceKey: voice.key,
           settings: config.settings,
+          ...(language === 'en' ? {} : { language }),
           hash: identity.hash,
           textHash,
           text: chunk.text,
@@ -1481,6 +1500,7 @@ async function waitForChunk(
   voiceId: string,
   model: string,
   settings: NarrationSynthesisSettings,
+  language: NarrationLanguage,
   now: () => number,
   sleep: (ms: number) => Promise<void>,
 ): Promise<boolean> {
@@ -1493,7 +1513,7 @@ async function waitForChunk(
     // otherwise cost dozens of subrequests).
     const entry = await readMapEntry(bucket, mapKey)
     if (!entry || entry.chunks.length <= wanted) continue
-    const fresh = await readParagraphState(bucket, provider, mapKey, state.textHash, state.chunks, voiceId, model, settings)
+    const fresh = await readParagraphState(bucket, provider, mapKey, state.textHash, state.chunks, voiceId, model, settings, language)
     if (fresh.ready.length > wanted) {
       state.ready.splice(0, state.ready.length, ...fresh.ready)
       return true

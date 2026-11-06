@@ -4,12 +4,14 @@ const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
 const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita']
-// Text-only editions published beside the English pair: To the Lighthouse in
-// Danish (OFFERED_DANISH_EDITIONS, 2026-10-10). No narration, no character cards.
-const TEXT_ONLY_EDITIONS={'to-the-lighthouse':['modern-da'],'grimms-fairy-tales':['modern-da'],'arabian-nights':['modern-da'],'master-and-margarita':['modern-da','original-ru']}[book]||[]
-// Narrated English editions. The Master and Margarita is translated by Tinct from the
+// Text-only editions published beside the narrated ones: the Russian source of The
+// Master and Margarita. No narration, no character cards.
+const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru']}[book]||[]
+// Narrated editions. The Master and Margarita is translated by Tinct from the
 // Russian: no English original, and Compare defaults to the Russian (Anders, 2026-11-05).
-const NARRATED_EDITIONS={'master-and-margarita':['modern-en']}[book]||['modern-en','original-en']
+// The offered Danish editions (OFFERED_DANISH_EDITIONS) are narrated by streaming in
+// Danish since 2026-11-06 (Anders, after a Grok sample); until then they were text-only.
+const NARRATED_EDITIONS={'master-and-margarita':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
 const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru'}[book]||'original-en'):'modern-en'
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
@@ -167,6 +169,8 @@ async function main(){
     if(!calls.length)await page.screenshot({path:out+'/'+device+'-'+ed+'-play-failure.png'})
     assert(requestObserved&&calls.length>0,'Play must use streaming narration within the bounded request wait')
     const request=calls[0];assert.equal(request.bookId,book);assert.equal(request.editionKey,ed);assert.equal(request.chapter,1)
+    // The narrated text is the edition's own (Danish text for a Danish edition); the language is the Worker's to derive.
+    assert.equal(await root.getAttribute('lang'),ed.slice(-2))
     assert(request.paragraphs.some(p=>p.index===0&&/^[a-f0-9]{64}$/.test(p.textHash)),'Streaming must carry opening text identity')
     assert.equal(legacy.filter(url=>url.startsWith('/api/audio-file')).length,0,'Must not load obsolete recordings')
     assert.deepEqual(errors,[])
@@ -174,8 +178,8 @@ async function main(){
     await state.context.close()
    }
    for(const ed of TEXT_ONLY_EDITIONS){
-    // Opens 1:1 beside Modern English; Play says audio is unavailable and never
-    // narrates (no Danish narration, no English audio for Danish text).
+    // Opens 1:1 beside the narrated edition; Play says audio is unavailable and
+    // never narrates (no narration in this language, no English audio for it).
     const state=await boot(browser,phone,ed),{page,calls,errors,legacy}=state,root=page.getByTestId('lab-root')
     assert.equal(await root.getAttribute('data-chapter'),'1')
     assert.equal(await root.getAttribute('lang'),ed.slice(-2))
