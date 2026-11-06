@@ -184,6 +184,16 @@ it('starts a blank-margin note on a mouse press, and on touch only after a still
     act(() => { vi.advanceTimersByTime(100) })
     expect(blank).toHaveBeenCalledOnce()
     expect(blank).toHaveBeenCalledWith({ clientY: 400, sourceY: 400 })
+    // Lifting that finger taps whatever the new note put under it: swallowed,
+    // once, so the card it opened is not folded straight away.
+    const under = vi.fn()
+    document.body.addEventListener('click', under)
+    fireEvent.pointerUp(room, { pointerId: 4, pointerType: 'touch' })
+    expect(fireEvent.click(document.body)).toBe(false)
+    expect(under).not.toHaveBeenCalled()
+    fireEvent.click(document.body)
+    expect(under).toHaveBeenCalledOnce()
+    document.body.removeEventListener('click', under)
     // The mouse still starts one at once.
     expect(fireEvent.pointerDown(room, { pointerType: 'mouse', button: 0, clientY: 400 })).toBe(false)
     expect(blank).toHaveBeenCalledTimes(2)
