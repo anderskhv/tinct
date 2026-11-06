@@ -52,15 +52,20 @@ export function sourceMarginLeaderPath(sourceX:number, sourceY:number, railLeft:
 }
 /** A layer in the source scroller, never another scrolling panel. */
 /**
- * A press in the Margin reader's blank margin starts a note: a mouse
- * affordance. A finger (or a pen, which pans like one) there is scrolling or
- * resting; on touch, notes come from the selection bar's Note (Surface Duo,
- * 6 Nov 2026: a note on every touch in the margin).
+ * How a press in the Margin reader's blank margin starts a note. A mouse
+ * press starts one at once. A finger (or a pen, which pans like one) must
+ * hold still for a moment: a touch that moves, lifts early or becomes a
+ * scroll makes no note (Surface Duo, 6 Nov 2026: a note on every touch in the
+ * margin; Anders: "you need to long press to create a note with touch").
  */
-export function sourceMarginBlankNoteAllowed(pointerType: string | undefined, button: number | undefined): boolean {
-  if (pointerType === 'touch' || pointerType === 'pen') return false
-  return button == null || button === 0
+export function sourceMarginBlankNoteGesture(pointerType: string | undefined, button: number | undefined): 'press' | 'long-press' | null {
+  if (pointerType === 'touch' || pointerType === 'pen') return 'long-press'
+  return button == null || button === 0 ? 'press' : null
 }
+/** How long a finger holds still in the blank margin before a note starts. */
+export const SOURCE_MARGIN_NOTE_HOLD_MS = 500
+/** Movement that turns a held finger into a scroll instead of a note. */
+export const SOURCE_MARGIN_NOTE_SLOP_PX = 10
 
 export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
   const layer = useRef<HTMLDivElement>(null)
@@ -68,6 +73,16 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
   latest.current = entries
   const sourcePointer = useRef(ownsSourcePointer)
   sourcePointer.current = ownsSourcePointer
+  const heldNote = useRef<{ pointerId: number, x: number, y: number, timer: ReturnType<typeof setTimeout> } | null>(null)
+  const cancelHeldNote = () => { if (heldNote.current) clearTimeout(heldNote.current.timer); heldNote.current = null }
+  useEffect(() => () => { if (heldNote.current) clearTimeout(heldNote.current.timer) }, [])
+  // A scroll means the finger was browsing, not holding still.
+  useEffect(() => {
+    if (!host) return
+    const onScroll = () => { if (heldNote.current) { clearTimeout(heldNote.current.timer); heldNote.current = null } }
+    host.addEventListener('scroll', onScroll, { passive: true })
+    return () => host.removeEventListener('scroll', onScroll)
+  }, [host])
   const [layout, setLayout] = useState<{ left: number; width: number; height: number; items: Array<{ id: string; top: number; y: number; sourceX: number | null }> }>({ left: 0, width: 380, height: 0, items: [] })
   useLayoutEffect(() => {
     if (!host || !layer.current) return
@@ -150,15 +165,26 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
   if (!host) return null
   return createPortal(<div ref={layer} className="source-margin-rail" data-testid="source-margin-rail" style={{ height: layout.height }}>
     <div className="source-margin-room" aria-hidden="true" style={{ left: Math.max(0, layout.left - 18), width: Math.max(layout.width + 18, host.clientWidth - Math.max(0, layout.left - 18)), height: layout.height }} onPointerDown={event => {
-      // A finger (or a pen, which pans like one) in the margin is scrolling,
-      // never asking for a note: the press is left to the browser's scroll.
-      if (event.target !== event.currentTarget || !sourceMarginBlankNoteAllowed(event.pointerType, event.button)) return
+      const gesture = sourceMarginBlankNoteGesture(event.pointerType, event.button)
+      if (event.target !== event.currentTarget || !gesture) return
+      const at = { clientY: event.clientY, sourceY: event.clientY - host.getBoundingClientRect().top + host.scrollTop }
+      if (gesture === 'long-press') {
+        // Left to the browser, so a finger that moves scrolls the book; only a
+        // finger held still starts a note.
+        cancelHeldNote()
+        heldNote.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, timer: setTimeout(() => { heldNote.current = null; onBlankNote?.(at) }, SOURCE_MARGIN_NOTE_HOLD_MS) }
+        return
+      }
       // Starting a note in blank paper must not start a native drag selection
       // extending into the reading column. Card bodies remain selectable.
       event.preventDefault()
       event.stopPropagation()
-      onBlankNote?.({ clientY: event.clientY, sourceY: event.clientY - host.getBoundingClientRect().top + host.scrollTop })
-    }} />
+      onBlankNote?.(at)
+    }} onPointerMove={event => {
+      const held = heldNote.current
+      if (held?.pointerId === event.pointerId && Math.max(Math.abs(event.clientX - held.x), Math.abs(event.clientY - held.y)) > SOURCE_MARGIN_NOTE_SLOP_PX) cancelHeldNote()
+    }} onPointerUp={cancelHeldNote} onPointerCancel={cancelHeldNote} onPointerLeave={cancelHeldNote}
+      onContextMenu={event => event.preventDefault()} />
     <svg className="source-margin-leaders" data-testid="source-margin-leaders" width="100%" height={layout.height} aria-hidden="true">
       {layout.items.map(at => { const entry = entries.find(item => item.id === at.id); if (!entry || entry.free || at.sourceX === null) return null
         const endY = at.top + 16
