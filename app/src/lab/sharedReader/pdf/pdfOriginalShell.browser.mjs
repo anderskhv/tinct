@@ -15,12 +15,83 @@ const fixture = makePdf({ pages: [
   { images: [{ x: 55, y: 120, w: 300, h: 500 }] },
 ],outline:[{title:'These pages',page:1}] }).toString('base64')
 await fs.mkdir('artifacts/pdf-original-shell', { recursive: true })
+const shots = [`artifacts/pdf-original-shell`, ...(process.env.PDF_SHELL_SHOTS ? [process.env.PDF_SHELL_SHOTS] : [])]
+for (const dir of shots) await fs.mkdir(dir, { recursive: true })
+const shoot = async (page, file) => { for (const dir of shots) await page.screenshot({ path: `${dir}/${file}` }) }
+const openFixture = async (context, errors, search = '') => {
+  const page = await context.newPage()
+  page.on('pageerror', error => errors.push(error.message))
+  await page.route('**/*', route => { const url = new URL(route.request().url()); return url.origin === origin && !url.pathname.startsWith('/api/') ? route.continue() : route.abort() })
+  await page.addInitScript(value => { window.__pdfFixture = value }, fixture)
+  await page.goto(`${origin}/src/lab/sharedReader/pdf/pdfOriginalShell.browser.html${search}`, { waitUntil: 'domcontentloaded' })
+  await page.locator('.pdf-original__text').getByText('Original selectable words').waitFor({ timeout: 30000 })
+  return page
+}
+// Read as Tinct book (Anders, 6 Nov 2026): accepting the offer kept nothing on screen while the PDF converted.
+// The bar stays and shows the conversion, a failure offers Try again or Keep pages, success opens at the same place.
+const offerCheck = async (browser, name, errors) => {
+  const context = await browser.newContext({ viewport: { width: 1024, height: 768 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  try {
+    const page = await openFixture(context, errors, '?offer=1')
+    await page.locator('.pdf-original__scroll').evaluate(el => {
+      const second = el.querySelector('.pdf-original__slot:nth-child(2)')
+      el.scrollTop = second.offsetTop + second.clientHeight * .25
+      el.dispatchEvent(new Event('scroll', { bubbles: true }))
+    })
+    await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 2 of 2"]').waitFor()
+    const bar = page.getByTestId('pdf-text-offer')
+    await bar.getByText('You last read this as a Tinct book.').waitFor()
+    await shoot(page, `${name}-offer-1-offered.png`)
+    const place = await page.evaluate(() => window.__pdfPlace)
+    await bar.getByRole('button', { name: 'Read as Tinct book' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await page.evaluate(() => window.__conversion.progress({ stage: 'text', done: 1, total: 2 }))
+    await page.waitForTimeout(100)
+    await shoot(page, `${name}-offer-2-converting.png`)
+    await bar.getByText('Preparing pages 1 of 2').waitFor({ timeout: 2000 })
+    assert.equal(await bar.getByRole('progressbar').getAttribute('value'), '1', 'the bar shows the conversion\'s own progress')
+    assert.equal(await bar.getByRole('button').count(), 0, 'conversion cannot be cancelled, so no button pretends to')
+    await page.evaluate(() => { const done = window.__conversion; window.__conversion = null; done.finish(false) })
+    await bar.getByText('The Tinct book could not be prepared.', { exact: false }).waitFor()
+    await shoot(page, `${name}-offer-3-failed.png`)
+    await bar.getByRole('button', { name: 'Try again' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await bar.getByText('Opening the PDF…').waitFor()
+    await page.evaluate(() => window.__conversion.finish(true))
+    await page.getByTestId('tinct-book-opened').waitFor()
+    await shoot(page, `${name}-offer-4-opened.png`)
+    const opens = (await page.evaluate(() => window.__pdfCalls)).filter(call => call.kind === 'open-text')
+    assert.equal(opens.length, 2)
+    assert(opens.every(call => call.place.page === place.page && Math.abs(call.place.frac - place.frac) < .02), `Tinct book opens at the PDF place: ${JSON.stringify({ place, opens })}`)
+  } finally { await context.close() }
+  const phoneContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block', reducedMotion: 'reduce' })
+  try {
+    const page = await openFixture(phoneContext, errors, '?offer=1')
+    await page.getByRole('button', { name: 'Menu', exact: true }).click()
+    await page.getByRole('button', { name: 'Book settings' }).click()
+    await page.getByRole('button', { name: 'Convert to EPUB' }).click()
+    await page.waitForFunction(() => !!window.__conversion)
+    await page.getByRole('button', { name: 'Close panel' }).click()
+    await page.evaluate(() => window.__conversion.progress({ stage: 'scanning' }))
+    await page.waitForTimeout(100)
+    await shoot(page, `${name}-offer-5-phone-converting.png`)
+    const bar = page.getByTestId('pdf-text-offer')
+    await bar.getByText('Checking the text and chapters…').waitFor({ timeout: 2000 })
+    const box = await bar.boundingBox(), rail = await page.locator('.pdf-original-reader__footer').boundingBox()
+    assert(box.x >= 16 && box.x + box.width <= 390 - 16 && box.y + box.height <= rail.y, `phone progress sits inside the gutter, above the page rail: ${JSON.stringify({ box, rail })}`)
+    await page.evaluate(() => window.__conversion.finish(true))
+    await page.getByTestId('tinct-book-opened').waitFor()
+  } finally { await phoneContext.close() }
+}
 
 try {
   const engines = [['chromium', chromium], ...(process.env.PDF_BROWSER_WEBKIT === '1' ? [['webkit', webkit]] : [])]
   for (const [name, engine] of engines) {
     const browser = await markInternal(await engine.launch({ headless: true, args: name === 'chromium' ? ['--mute-audio', '--no-sandbox'] : [] }))
     try {
+      const offerErrors = []
+      await offerCheck(browser, name, offerErrors)
+      assert.deepEqual(offerErrors, [])
       const context = await browser.newContext({ viewport: { width: 1024, height: 768 }, serviceWorkers: 'block', reducedMotion: 'reduce' })
       const page = await context.newPage(), errors = []
       page.on('pageerror', error => errors.push(error.message))
@@ -200,7 +271,7 @@ try {
         await phonePage.screenshot({ path: `artifacts/pdf-original-shell/${name}-phone-card.png` })
       } finally { await phoneContext.close() }
       assert.deepEqual(errors, [])
-      process.stdout.write(`${name}: original PDF shell selection, rects, Ask, Notebook, Contents, scan and themes passed\n`)
+      process.stdout.write(`${name}: original PDF shell selection, rects, Ask, Notebook, Contents, scan, themes and Tinct book progress passed\n`)
     } finally { await browser.close() }
   }
 } finally { await vite.close() }
