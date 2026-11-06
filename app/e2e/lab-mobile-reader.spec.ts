@@ -106,11 +106,14 @@ test('mobile Compare flips editions at the same primary anchor and returns witho
   const primaryAnchor = await page.getByTestId('lab-root').getAttribute('data-place')
   expect(primaryAnchor).not.toBe('0:0')
 
-  const bookBox = await page.getByTestId('lab-book').boundingBox()
-  if (!bookBox) throw new Error('Reading surface has no visible bounds')
-  await page.touchscreen.tap(bookBox.x + bookBox.width / 2, bookBox.y + bookBox.height / 2)
-  await expect(page.getByTestId('lab-phone-compare')).toBeVisible()
-  await page.getByTestId('lab-phone-compare').tap()
+  // Compare is reached from Book settings only on a phone (Anders, 2026-11-06).
+  const toggleCompare = async () => {
+    await page.getByTestId('lab-super').tap()
+    await page.getByTestId('lab-super-row-editions').tap()
+    await page.getByTestId('lab-v2-show-compare').tap()
+  }
+  await expect(page.getByTestId('lab-phone-compare')).toHaveCount(0)
+  await toggleCompare()
 
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'modern-en')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-compare-active', 'true')
@@ -121,7 +124,7 @@ test('mobile Compare flips editions at the same primary anchor and returns witho
   expect(await page.getByTestId('lab-root').getAttribute('data-place')).toBe(primaryAnchor)
   await page.screenshot({ path: join(ARTIFACT_DIR, 'mobile-compare-modern-390x844.png') })
 
-  await page.getByTestId('lab-phone-compare').tap()
+  await toggleCompare()
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'kjv-en')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-compare-active', 'false')
   await expect.poll(() => stageText(page)).toBe(settledPrimaryText)
