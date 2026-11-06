@@ -223,7 +223,7 @@ try {
       await page.mouse.click(400, 300)
       await page.getByRole('button', { name: 'Notebook', exact: true }).click()
       await page.getByText('Original PDF page 1 · ask').waitFor()
-      await page.getByRole('button', { name: 'My notes' }).click()
+      await page.getByRole('button', { name: 'Notes', exact: true }).click()
       assert.equal(await page.getByText('Original PDF page 1 · ask').count(), 0)
       await page.getByRole('button', { name: 'AI', exact: true }).click()
       await page.getByText('Original PDF page 1 · ask').waitFor()

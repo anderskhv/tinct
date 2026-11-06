@@ -4764,10 +4764,17 @@ async function notebookCheck(browser, origin) {
     const whole = await a.evaluate(id => { const e = document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`); return { full: e.classList.contains('is-full'), h: e.getBoundingClientRect().height, sh: e.scrollHeight } }, exId)
     ok(`${tag}: "Read the whole answer" shows all of it`, whole.full && Math.abs(whole.h - whole.sh) < 2, whole)
     // The filter.
-    await a.click('.nb [data-f="mine"]'); await a.waitForTimeout(150)
+    // The filter: AI · Highlights · Notes · All (Anders, 6 Nov 2026; was All · My notes · AI). A noted highlight is a Note only.
+    const seg = await a.evaluate(() => [...document.querySelectorAll('.nb [data-f]')].map(b => b.dataset.f + ':' + b.textContent))
+    ok(`${tag}: the filter reads AI · Highlights · Notes · All, in that order`, seg.join('|') === 'ai:AI|highlights:Highlights|notes:Notes|all:All', seg)
+    await a.click('.nb [data-f="highlights"]'); await a.waitForTimeout(150)
     s = await a.evaluate(nbState)
-    ok(`${tag}: My notes: the reader's own notes and highlights only`, s.filter === 'My notes' && s.entries.length === 2 && s.entries.every(e => ['Note', 'Highlight'].includes(e.kind)) && s.count === '2 entries', s)
-    await shot(a, `${tag}-mine`)
+    ok(`${tag}: Highlights: the reader's plain highlights only`, s.filter === 'Highlights' && s.entries.length === 1 && s.entries.every(e => e.kind === 'Highlight') && s.count === '1 entry', s)
+    await shot(a, `${tag}-highlights`)
+    await a.click('.nb [data-f="notes"]'); await a.waitForTimeout(150)
+    s = await a.evaluate(nbState)
+    ok(`${tag}: Notes: the reader's written notes only`, s.filter === 'Notes' && s.entries.length === 1 && s.entries.every(e => e.kind === 'Note') && s.count === '1 entry', s)
+    await shot(a, `${tag}-notes`)
     await a.click('.nb [data-f="ai"]'); await a.waitForTimeout(150)
     s = await a.evaluate(nbState)
     ok(`${tag}: AI: the companion's answers only`, s.filter === 'AI' && s.entries.length === seeded - 2 && s.entries.every(e => !['Note', 'Highlight'].includes(e.kind)) && s.count === `${seeded - 2} entries`, s)
@@ -4838,7 +4845,7 @@ async function notebookCheck(browser, origin) {
     await A.ctx.close()
   }
   // The margin batch (19 Oct 2026): the core branch's new cards in the Notebook. A margin note and a unit's note under
-  // "My notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Evaluate under "AI", Evaluate as its card shows it.
+  // "Notes"; a unit's pill cards (Catch me up, Recap, its quiz) and a Evaluate under "AI", Evaluate as its card shows it.
   {
     const tag = 'notebook-batch-1440x900'
     const hexL = addBook(LONG_BOOK)
@@ -4874,13 +4881,13 @@ async function notebookCheck(browser, origin) {
     ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
     const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Evaluate')[0]?.id)
     ok(`${tag}: Evaluate is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
-    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
     const mine = await b.evaluate(nbState)
     const notes = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => n.textContent))
     const noteStyles = await b.evaluate(() => [...document.querySelectorAll('.nb-entry .nb-note')].map(n => getComputedStyle(n).fontStyle))
     ok(`${tag}: the Notebook sets every note's text upright (font-style normal)`, noteStyles.length >= 2 && noteStyles.every(v => v === 'normal'), noteStyles)
-    ok(`${tag}: My notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
-    await shot(b, `${tag}-mine`)
+    ok(`${tag}: Notes: the margin note and the unit's note (no passage quoted)`, mine.entries.length === 2 && mine.entries.every(e => e.kind === 'Note' && !e.quote) && notes.includes('My margin thought for the Notebook.') && notes.includes('My note on the whole chapter.'), { entries: mine.entries, notes })
+    await shot(b, `${tag}-notes`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
     const ai = await b.evaluate(nbState)
     ok(`${tag}: AI: Catch me up, Recap, Quiz and Evaluate, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
@@ -4895,7 +4902,7 @@ async function notebookCheck(browser, origin) {
     await shot(b, `${tag}-jump-recap`)
     await b.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(500)
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry')
-    await b.click('.nb [data-f="mine"]'); await b.waitForTimeout(150)
+    await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
     const noteId = await b.evaluate(() => [...document.querySelectorAll('.nb-entry')].find(e => /My margin thought/.test(e.textContent))?.dataset.id)
     await b.click(`.nb-entry[data-id="${noteId}"] .nb-kind`); await b.waitForTimeout(1400)
     const nj = await seenCard(noteId)

@@ -2,7 +2,8 @@
 // Tinct · Add a book: the Notebook (Anders, 19 Oct 2026), after Gloss's. One panel, opened from the top
 // bar, listing what the reader has made in this book, newest first: the companion's answers (the margin's
 // cards: Explain, Ask, Simplify, Define, Fact-check, Counterpoint, Quiz me, Related, a figure's thread) and
-// the reader's own notes and highlights. "All · My notes · AI" filters it. Each entry jumps to its passage
+// the reader's own notes and highlights. "AI · Highlights · Notes · All" filters it (Anders, 6 Nov 2026: Notes are
+// what the reader wrote, a highlight with a note; Highlights are plain highlights). Each entry jumps to its passage
 // and opens its card; its bin deletes it, with the margin's "Deleted · Undo". Copy all and Download
 // (a Markdown file made on this device; nothing is sent anywhere).
 // It reads the same store as the margin (the reader's `cards:` and `hl:` records) and keeps nothing of its
@@ -18,7 +19,8 @@
   const MINE = ['note', 'highlight'];
   // A unit's pill cards (the wide column's Recap and Catch me up: Ask cards on the unit, data.pill) go by their pill's name.
   const PILLS = { recap: 'Recap', catchup: 'Catch me up' };
-  const FILTERS = [['all', 'All'], ['mine', 'My notes'], ['ai', 'AI']];
+  const FILTERS = [['ai', 'AI'], ['highlights', 'Highlights'], ['notes', 'Notes'], ['all', 'All']];
+  const EMPTY = { highlights: 'No highlights saved for this book.', notes: 'No notes saved for this book.' };
   const UNDO_MS = 6000;
 
   /** An answer as plain prose: citation tags as "(p. 3)", links as their words, no Markdown marks. */
@@ -87,8 +89,13 @@
     }
     return out.sort((a, b) => b.at - a.at || String(b.id).localeCompare(String(a.id)));
   }
-  /** "All", "My notes" (the reader's own notes and highlights) or "AI" (the companion's answers). */
+  /**
+   * "AI" (the companion's answers), "Highlights" (plain highlights, no note), "Notes" (a highlight carrying the
+   * reader's note) or "All". 'mine' is kept for older callers: notes and highlights together.
+   */
   function filterEntries(list, filter = 'all') {
+    if (filter === 'highlights') return list.filter(e => e.kind === 'highlight');
+    if (filter === 'notes') return list.filter(e => e.kind === 'note');
     if (filter === 'mine') return list.filter(e => MINE.includes(e.kind));
     if (filter === 'ai') return list.filter(e => !MINE.includes(e.kind));
     return list.slice();
@@ -176,7 +183,7 @@
     const scroll = nb.list.scrollTop;
     const parts = shown.map(e => entryHtml(e, now));
     if (nb.undo) parts.splice(Math.min(nb.undo.index, parts.length), 0, undoHtml());
-    nb.list.innerHTML = parts.length ? parts.join('') : '<p class="nb-empty">Nothing here yet.</p>';
+    nb.list.innerHTML = parts.length ? parts.join('') : `<p class="nb-empty">${EMPTY[nb.filter] || 'Nothing here yet.'}</p>`;
     nb.list.scrollTop = scroll;
     // An answer longer than four lines is cut with a fade and "Read the whole answer".
     for (const a of nb.list.querySelectorAll('.nb-answer:not(.is-full)')) {
