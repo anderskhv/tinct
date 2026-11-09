@@ -128,3 +128,6 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-snip__hint { position:absolute; left:50%; top:12px; transform:translateX(-50%); margin:0; display:flex; align-items:center; gap:10px; width:max-content; max-width:calc(100% - 32px); box-sizing:border-box; padding:6px 6px 6px 14px; border-radius:999px; background:var(--lab-ink); color:var(--lab-surface); font:14px system-ui,sans-serif; box-shadow:0 6px 18px rgba(0,0,0,.18); cursor:default; }
 .pdf-original-snip__hint button { min-height:32px; border:0; border-radius:999px; padding:0 14px; background:var(--lab-surface); color:var(--lab-ink); font:inherit; cursor:pointer; }
 .pdf-original-snip__box { position:absolute; pointer-events:none; border:1.5px solid var(--lab-ink); border-radius:3px; background:color-mix(in srgb,var(--lab-ink) 6%,transparent); box-shadow:0 0 0 9999px color-mix(in srgb,var(--lab-ink) 14%,transparent); }
+/* A folded PDF note's words in the place and type its saved note reopens in (.pdf-note-field__saved, 17px/1.45,
+   measured 10px below the header), so opening only reveals more (tester, 9 Nov 2026). */
+.pdf-original-reader .source-margin-preview[data-preview="note"] { padding-top:10px!important; line-height:1.45!important; }

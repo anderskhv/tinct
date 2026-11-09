@@ -9,7 +9,7 @@ import path from 'node:path'
 import { chromium, webkit } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
-import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
+import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle, openFoldedCardInPlace } from './lib/readerParityAssertions.mjs'
 
 const dist = path.resolve(process.env.PDF_ORIGINAL_DIST || 'dist')
 const originalBytes = makePdf({ pages: [
@@ -148,7 +148,9 @@ async function sourceParity(page, calls, output) {
   await item.getByTestId('source-margin-minimise').click()
   const folded = host.locator(`[data-testid="source-margin-item"][data-card-id="${id}"]`)
   assert.equal(await folded.getAttribute('data-open'), 'false')
-  await folded.getByTestId('source-margin-open').click()
+  await page.screenshot({ path: path.join(output, 'pdf-source-rail-recap-folded.png') })
+  // One place opens and minimises; opening keeps the folded line's type and place (tester, 9 Nov 2026).
+  await openFoldedCardInPlace(page, folded)
   assert.equal(await folded.getAttribute('data-open'), 'true')
   await page.screenshot({ path: path.join(output, 'pdf-source-rail-recap.png') })
   const scrollBefore = await host.evaluate(node => node.scrollTop)
@@ -169,7 +171,7 @@ async function sourceParity(page, calls, output) {
   assert(noteId)
   await noteItem.getByTestId('source-margin-minimise').click()
   const savedNote = host.locator(`[data-testid="source-margin-item"][data-card-id="${noteId}"]`)
-  await savedNote.getByTestId('source-margin-open').click()
+  await openFoldedCardInPlace(page, savedNote)
   // A saved note reopens as the words written; a tap edits them (approved mockup, 2 Nov 2026).
   const savedText = page.getByTestId('pdf-note-saved')
   assert.equal(await savedText.textContent(), 'A free note beside the original printed page.', 'original-PDF free note autosaves and reopens as its words')
@@ -756,6 +758,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.keyboard.press('Escape')
     // The passage stays painted while its question is typed (Anders, 3 Nov 2026), and only while its card is open.
     const sourceTints = () => page.locator('.pdf-original__page[data-page="1"] .pdf-original__highlight').evaluateAll(nodes => nodes.filter(node => getComputedStyle(node).backgroundColor === 'rgba(100, 150, 230, 0.3)').length)
+    // Folded cards are taller since they take the open card's type (9 Nov 2026), so revealing the Define card
+    // can scroll page 1's passage away; the selection bar only shows for a passage on screen.
+    await page.locator('.pdf-original__scroll').evaluate(el=>{el.scrollTop=0;el.dispatchEvent(new Event('scroll',{bubbles:true}))})
     await selectPdfSource(page, 'First original page with selectable source words.')
     await page.getByTestId('lab-dbar-ask').click()
     await page.keyboard.type('What does this page claim?')
