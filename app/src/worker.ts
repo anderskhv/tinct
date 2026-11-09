@@ -89,6 +89,7 @@ import {
   serveNotFoundPage,
 } from './worker/routes/seo'
 import { handleReadingTime } from './worker/routes/readingTime'
+import { handleGoogleAuth, isGoogleAuthPath } from './worker/routes/googleAuth'
 import { BEAT_MIN_GAP_MS } from './readingTime/model'
 
 
@@ -115,6 +116,9 @@ interface Env {
   /** The $10 top-up under the name the Cloudflare secret was created with; read as STRIPE_PRICE_TOP_UP_10. */
   STRIPE_PRICE_TOPUP_10?: string
   STRIPE_AUTOMATIC_TAX?: string
+  /** Google sign-in on tinct.app (routes/googleAuth.ts). Both set turns it on; the secret never leaves the Worker. */
+  GOOGLE_OAUTH_CLIENT_ID?: string
+  GOOGLE_OAUTH_CLIENT_SECRET?: string
   SUPABASE_URL?: string
   SUPABASE_SERVICE_ROLE_KEY?: string
   BREVO_API_KEY?: string
@@ -321,6 +325,8 @@ const worker = {
     // Signed unsubscribe / confirm links from lifecycle emails. Without
     // EMAIL_LINK_SECRET (no such link was ever sent) this never matches.
     if (isEmailLinkRequest(url, env)) return handleEmailLink(request, env)
+    // Google sign-in on tinct.app: config switch, Google's redirect_uri, and the code exchange.
+    if (isGoogleAuthPath(url.pathname)) return handleGoogleAuth(request, env, { checkRateLimit })
 
     if (url.pathname === '/api/share' || url.pathname.startsWith('/api/share/')) {
       return handleShareApi(request, env, ctx, { verifyUser: req => verifyUser(env, req), checkRateLimit })

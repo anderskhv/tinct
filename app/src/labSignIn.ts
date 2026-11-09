@@ -24,6 +24,7 @@ import { setSignedInCookie } from './utils/authCookie'
 import { cardUrl } from './cards/cardRoutes'
 import { enhanceSignInPage, startProfileSteps, updateStepCounter } from './social/signUpSteps'
 import { fetchOwnProfile } from './social/socialClient'
+import { GOOGLE_FAILED_MESSAGE, GOOGLE_RETURN_CALLBACK, finishGoogleReturn, googleClientId, googleClientIdKnown, parseGoogleReturn, peekGoogleReturnTo, startGoogleSignIn, takeGoogleFlow } from './lab/googleSignIn'
 import { EMAIL_CODE_LENGTH, EMAIL_CODE_RESEND_SECONDS, codeFromText, emailCodeErrorMessage, isGmailAddress, looksLikeEmail } from './lab/labEmailCode'
 
 /** signin: Google or an email code. code: the code for signing in. confirm: the one-time code that confirms an
@@ -46,7 +47,9 @@ const initialParams = new URLSearchParams(location.search)
 // signed in, the reader goes straight to it over the page they came from; signed
 // out, they sign in first and land on it.
 const accountLink = initialParams.get('mode') === 'account'
-const returnTo = accountLink ? cardUrl('account', safeLabReturnTo(initialParams.get('returnTo'))) : safeLabReturnTo(initialParams.get('returnTo'))
+// Back from Google through the Worker (lab/googleSignIn.ts): the place was kept with the round trip.
+const googleReturn = initialParams.get('callback') === GOOGLE_RETURN_CALLBACK
+const returnTo = accountLink ? cardUrl('account', safeLabReturnTo(initialParams.get('returnTo'))) : safeLabReturnTo(initialParams.get('returnTo') ?? (googleReturn ? peekGoogleReturnTo() : null))
 // Back from sign-in, a text or file kept on /byob goes back to /byob, where it still is.
 const preparingReturn = /^\/preparing(?:[/?#]|$)/.test(returnTo)
 // Profiles (social ship 2): only when the Worker marks the page; otherwise nothing changes.
@@ -412,6 +415,9 @@ async function signInWithProvider(button: HTMLElement) {
   let failure: unknown = null
   try {
     if (await startNativeOAuth(supabase, provider, returnTo)) { setBusy(false); return }
+    // Google on tinct.app's own redirect when the Worker is set up for it; Supabase's flow otherwise.
+    // A Worker that already said "not set up" costs the tap nothing.
+    if (provider === 'google' && googleClientIdKnown() !== null && await startGoogleSignIn({ returnTo })) return
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: labOAuthRedirectTo(location.origin, returnTo) },
@@ -427,6 +433,43 @@ async function signInWithProvider(button: HTMLElement) {
   if (!failure) return
   rememberPendingProvider(null)
   setStatus(labOAuthErrorMessage(provider, messageOf(failure)), 'error')
+  setBusy(false)
+}
+
+/**
+ * Google came back through the Worker's callback. The code is swapped for an
+ * ID token there, Supabase gets that token and the raw nonce, and the reader
+ * continues exactly as after any other sign-in. A cancelled screen or a
+ * failed step leaves the sign-in sheet with a short notice, never a blank page.
+ */
+async function finishGoogleSignIn() {
+  const returned = parseGoogleReturn(location.hash)
+  const flow = takeGoogleFlow()
+  // A reload of this URL must not try the same code twice.
+  const clean = new URL(location.href)
+  clean.searchParams.delete('callback')
+  clean.hash = ''
+  clean.searchParams.set('returnTo', returnTo)
+  history.replaceState(null, '', clean)
+  setMode('signin')
+  setBusy(true)
+  setStatus('Signing you in with Google…')
+  rememberPendingProvider('google')
+  let message = GOOGLE_FAILED_MESSAGE
+  try {
+    const outcome = await finishGoogleReturn(returned, flow)
+    if (outcome.kind === 'fallback' && supabase) {
+      // The Worker can no longer finish it (switched off meanwhile): Supabase's own flow, as before.
+      const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: labOAuthRedirectTo(location.origin, returnTo) } })
+      if (!error) return
+    } else if (outcome.kind === 'error') message = outcome.message
+    else if (outcome.kind === 'token' && supabase) {
+      const { data, error } = await supabase.auth.signInWithIdToken({ provider: 'google', token: outcome.idToken, access_token: outcome.accessToken, nonce: outcome.nonce })
+      if (!error && data.session) { await completeSignIn(data.session, false, 'oauth'); return }
+    }
+  } catch { /* the notice below */ }
+  rememberPendingProvider(null)
+  setStatus(message, 'error')
   setBusy(false)
 }
 
@@ -454,6 +497,9 @@ async function initialize() {
   applyProviderCapabilities()
   try {
     if (!supabase) throw new Error('Sign in is temporarily unavailable.')
+    if (googleReturn) { await finishGoogleSignIn(); return }
+    // Ask early whether Google can run on tinct.app, so the tap does not wait for it.
+    void googleClientId().catch(() => null)
     const { data, error } = await supabase.auth.getSession()
     if (error) throw error
     // Report a failed callback even if the browser still holds an older session.
