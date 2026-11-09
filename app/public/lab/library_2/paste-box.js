@@ -3,7 +3,9 @@
 // (the byline found, the word count); one text box showing the CLEANED text right after a paste
 // (paste-text.js cleanPaste: the site's menus, counters and paywall lines already gone), so what
 // you see is what is added. The box is editable; what it holds is sanitised again when added.
-import {cleanPaste,preview,sanitizeHtml,wordCount,htmlText} from './paste-text.js?v=20261105flow';
+// A link pasted alone (9 Nov 2026) stays a link in the box, and the line under the title says the article
+// is imported from that site when it is added (read().url; own-add.js draftFromLink).
+import {cleanPaste,preview,sanitizeHtml,wordCount,htmlText,articleUrl,linkHtml} from './paste-text.js?v=20261109link';
 
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const PENCIL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="m13.5 6.5 4 4"/></svg>';
@@ -19,16 +21,20 @@ export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel=
  const pencil=make('span','paste-title__pencil');pencil.innerHTML=PENCIL;
  heading.append(title,pencil);
  const meta=make('p','paste-meta');meta.hidden=true;
- const box=make('div','paste-box own-paste-source');box.contentEditable='true';box.setAttribute('role','textbox');box.setAttribute('aria-multiline','true');box.setAttribute('aria-label',boxLabel);box.dataset.placeholder='Paste your text here';
+ const box=make('div','paste-box own-paste-source');box.contentEditable='true';box.setAttribute('role','textbox');box.setAttribute('aria-multiline','true');box.setAttribute('aria-label',boxLabel);box.dataset.placeholder='Paste your text or a link here';
  const wrap=make('div','paste-wrap');wrap.append(box);
  let author='',titleEdited=false;const listeners=[];
  const changed=()=>{
-  const words=empty()?0:wordCount(box.innerHTML);
-  meta.textContent=[author,words?`${words.toLocaleString('en-US')} ${words===1?'word':'words'}`:''].filter(Boolean).join(' · ');
+  const words=empty()?0:wordCount(box.innerHTML),url=link();
+  let host='';try{host=url?new URL(url).hostname.replace(/^www\./,''):'';}catch{/* not a link */}
+  meta.textContent=url?`Link · Tinct imports the article from ${host}`:[author,words?`${words.toLocaleString('en-US')} ${words===1?'word':'words'}`:''].filter(Boolean).join(' · ');
+  meta.dataset.link=url?'1':'';
   meta.hidden=!meta.textContent;heading.dataset.empty=title.textContent.trim()?'false':'true';
   for(const fn of listeners)fn();
  };
  function empty(){return !htmlText(box.innerHTML);}
+ /** The box holds one link and nothing else: the article is imported (or ''). */
+ function link(){return articleUrl(htmlText(box.innerHTML));}
  function show({html,title:found,author:by}){
   box.innerHTML=html;
   if(!titleEdited||!title.textContent.trim()){title.textContent=found||'';titleEdited=false;}
@@ -41,7 +47,11 @@ export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel=
   const html=event.clipboardData?.getData('text/html')||'',plain=event.clipboardData?.getData('text/plain')||'';
   if(!html.trim()&&!plain.trim())return;
   event.preventDefault();
-  if(empty()){let cleaned;try{cleaned=cleanPaste({html,plain});}catch{return;}show(cleaned);return;}
+  if(empty()){
+   const url=articleUrl(plain)||(!plain.trim()&&articleUrl(htmlText(html)));
+   if(url){author='';show({html:linkHtml(url),title:'',author:''});return;}
+   let cleaned;try{cleaned=cleanPaste({html,plain});}catch{return;}show(cleaned);return;
+  }
   let fragment;try{fragment=html.trim()?preview(html,'html'):preview(plain,'auto');}catch{return;}
   if(!(document.execCommand&&document.execCommand('insertHTML',false,fragment)))box.insertAdjacentHTML('beforeend',fragment);
   changed();
@@ -55,7 +65,7 @@ export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel=
  return {
   title,meta,wrap,box,empty,
   /** What is added: the box's text sanitised (and cleaned again: the same text comes out the same), its title and byline. */
-  read:()=>({html:sanitizeHtml(box.innerHTML).trim(),title:title.textContent.replace(/\s+/g,' ').trim(),author,text:htmlText(box.innerHTML)}),
+  read:()=>({html:sanitizeHtml(box.innerHTML).trim(),title:title.textContent.replace(/\s+/g,' ').trim(),author,text:htmlText(box.innerHTML),url:link()}),
   /** Show a kept draft again ({html, title, author}), as the reader left it. */
   restore:draft=>{if(!draft)return;titleEdited=!!draft.title;title.textContent=draft.title||'';author=draft.author||'';box.innerHTML=sanitizeHtml(String(draft.html||''));changed();},
   /** Show text as if just pasted (a .txt file chosen in the pop-up). */

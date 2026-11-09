@@ -13,8 +13,9 @@ import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
-import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded} from './own-add.js?v=20261105flow';
-import {pasteBox} from './paste-box.js?v=20261105flow';
+import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink} from './own-add.js?v=20261109link';
+import {pasteBox} from './paste-box.js?v=20261109link';
+import {htmlText} from './paste-text.js?v=20261109link';
 import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109bulk';
 export {addEngine,loadFileEngine};
 
@@ -247,14 +248,25 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
    save.dataset.busy='1';sync();
    const release=()=>{delete save.dataset.busy;sync();};
    if(!await authorize()||!layer.isConnected){release();return;}
-   const draft=paste.read();
-   const tooLong=pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
-   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||''};
+   let draft=paste.read();
+   pasteDraft={...pasteDraft,...draft};
+   // A link alone: the article is imported first (own-add.js draftFromLink), then added as pasted text is.
+   let source='';
+   if(draft.url){
+    progress(.05);
+    let host='';try{host=new URL(draft.url).hostname.replace(/^www\./,'');}catch{/* checked by the server */}
+    note(`Importing the article from ${host}…`);
+    try{await api();const article=await draftFromLink({url:draft.url,title:draft.title,uid:pasteDraft?.uid||''});source=article.source;draft={...draft,html:article.html,title:article.title,author:article.author};}
+    catch(error){box.classList.remove('paste-dialog');pasteStep(error?.message||'Tinct could not import this page. Paste the article text instead.');return;}
+    const tooLongArticle=pasteTooLong(htmlText(draft.html),{imported:true});
+    if(tooLongArticle){box.classList.remove('paste-dialog');pasteStep(tooLongArticle);return;}
+   }
+   const tooLong=draft.url?'':pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
+   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||'',source};
    const signature=JSON.stringify(details);
    try{if(pastePending?.signature!==signature)pastePending={signature,file:pasteBook(details),account:null};}
    catch(error){alert.textContent=error.message;release();return;}
    const file=pastePending.file;
-   pasteDraft={...pasteDraft,...draft};
    paste.title.contentEditable='false';
    progress(.08);
    try{
