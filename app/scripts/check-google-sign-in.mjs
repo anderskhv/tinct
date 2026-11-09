@@ -100,6 +100,10 @@ async function run(name, { configured, googleAnswer }) {
         try {
           const workerRequest = new Request(url, { method: request.method(), headers: request.headers(), body })
           const response = await handleGoogleAuth(workerRequest, env, { checkRateLimit: async () => true, fetcher: googleTokenFetch })
+          // Playwright does not route the request a fulfilled redirect leads to (it went to the real
+          // tinct.app): the page sends the browser on instead, so the next page is this build's too.
+          const location = response.status >= 300 && response.status < 400 ? response.headers.get('location') : null
+          if (location) return await route.fulfill({ contentType: 'text/html', body: `<script>location.replace(${JSON.stringify(new URL(location, url).toString())})</script>` })
           return await route.fulfill({ status: response.status, headers: Object.fromEntries(response.headers), body: Buffer.from(await response.arrayBuffer()) })
         } catch (error) {
           seen.errors.push(`route ${url.pathname}: ${error.message}`)

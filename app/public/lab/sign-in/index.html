@@ -62,9 +62,11 @@ html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=passwor
 .auth-page:not([data-mode=signin]):not([data-mode=password]):not([data-mode=code]) [data-signin-rights]{display:none}[data-signin-rights][hidden]{display:none}[data-signin-rights]:not([hidden])+[data-auth-legal]{margin-top:4px}.auth-file span{font:13px/1.4 var(--sans);color:#a9ad9a}
 html[data-eink="true"] .auth-file{background:#fff;border-color:#777}html[data-eink="true"] .auth-file b{color:#111}
 @media(max-width:520px){html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-main{padding:12px 0 0}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-card{border-radius:20px 20px 0 0;border-bottom:0;padding:26px max(20px,env(safe-area-inset-right,0px)) calc(30px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]) .auth-card h1{font-size:30px}html:not([data-eink="true"]) .auth-logo{font-size:28px}.auth-file img{width:38px}html:not([data-eink="true"]) .auth-page:is([data-mode=signin],[data-mode=password],[data-mode=code],[data-mode=confirm],[data-mode=reset]){padding-bottom:0}}
+html[data-sign-in-busy] .auth-card>:not([data-mode-copy=busy]){display:none!important}html[data-sign-in-busy] .auth-card>[data-mode-copy=busy]{display:block}
   </style>
   <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <link rel="stylesheet" href="/lab/display-profile.css" data-display-profile>
+  <script src="/lab/sign-in/first-paint.js"></script>
   <script type="module" src="/lab/display-profile.js"></script>
   <script type="module" src="/lab/internal-traffic.js"></script>
 </head>
@@ -73,6 +75,7 @@ html[data-eink="true"] .auth-file{background:#fff;border-color:#777}html[data-ei
     <header class="auth-top"><a class="auth-back" data-auth-back href="/library">← Library</a><div class="auth-logo">Tinct</div><span></span></header>
     <main class="auth-main">
       <section class="auth-card" aria-live="polite">
+        <div data-mode-copy="busy" hidden><h1>Signing you in…</h1><p class="auth-copy">Finishing your Google sign-in.</p></div>
         <div data-mode-copy="signin"><h1 data-signin-title>Sign in or join Tinct</h1><p class="auth-copy" data-signin-copy>Read the library and your own books, with your place, highlights and notes on every device.</p><div class="auth-file" data-signin-file hidden><img alt=""><div><b></b><span>Opens as soon as you are in</span></div></div></div>
         <div data-mode-copy="password" hidden><h1>Sign in with your password</h1><p class="auth-copy">For accounts made with a password. New here? Use an email code instead.</p></div>
         <div data-mode-copy="reset" hidden><h1>Set a new password</h1><p class="auth-copy">Choose a new password, then return to your library.</p></div>
