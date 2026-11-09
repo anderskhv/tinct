@@ -79,7 +79,18 @@ export function labReadingFont(family: LabFontFamily | null): LabFontFamily {
   return family ?? LAB_DEFAULT_FONT
 }
 
-export type LabTheme = 'system' | 'light' | 'dark' | 'book'
+export type LabTheme = 'system' | 'light' | 'white' | 'dark' | 'book'
+
+/**
+ * White (9 Nov 2026) is Light's page on pure white paper. It is stored as
+ * `theme: 'light'` plus `paper: 'white'`, so a client that predates it (a
+ * stale tab, a cached bundle, the PDF viewer's own reader) reads Light rather
+ * than an unknown theme, which those clients treat as Match system.
+ */
+export function labStoredTheme(theme: LabTheme): { theme: Exclude<LabTheme, 'white'>; paper?: 'white' } {
+  return theme === 'white' ? { theme: 'light', paper: 'white' } : { theme }
+}
+
 export type LabTextAlignment = 'left' | 'justify'
 export type LabLineSpacing = 'compact' | 'comfortable' | 'open' | number
 export type LabMargins = 'narrow' | 'medium' | 'wide' | number
@@ -199,7 +210,7 @@ export function markLabSeenOnce(what: string, accountId: string | null | undefin
     const current = readLabStoredPrefs()
     if (current.seenOnce[key] === true) return
     const next: LabStoredPrefs = { ...current, seenOnce: { ...current.seenOnce, [key]: true } }
-    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
+    localStorage.setItem(LAB_PREFS_KEY, serializeLabStoredPrefs(next))
   } catch {
     /* quota / private mode */
   }
@@ -327,7 +338,13 @@ function isFamily(value: unknown): value is LabFontFamily {
 }
 
 function isTheme(value: unknown): value is LabTheme {
-  return value === 'system' || value === 'light' || value === 'dark' || value === 'book'
+  return value === 'system' || value === 'light' || value === 'white' || value === 'dark' || value === 'book'
+}
+
+/** The stored theme, White read from Light plus its paper (see `labStoredTheme`). */
+function storedLabTheme(src: Record<string, unknown>): LabTheme | null {
+  if (!isTheme(src.theme)) return null
+  return src.theme === 'light' && src.paper === 'white' ? 'white' : src.theme
 }
 
 function parseAppearance(
@@ -343,9 +360,8 @@ function parseAppearance(
     ? Math.max(LAB_MIN_FONT_SIZE, Math.min(LAB_MAX_FONT_SIZE, src.fontSize))
     : fallback.fontSize
   return {
-    theme: isTheme(src.theme)
-      ? src.theme
-      : (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
+    theme: storedLabTheme(src)
+      ?? (legacy && Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : fallback.theme),
     fontFamily: isFamily(src.fontFamily) ? src.fontFamily : fallback.fontFamily,
     fontSize,
     // Older records stored the size on every write. The old default (1.3) is
@@ -436,6 +452,12 @@ const DEFAULT_LAB_SHARED: LabSharedPrefs = {
   voicePersona: DEFAULT_LAB_PREFS.voicePersona,
 }
 
+/** The stored JSON: each profile's theme as `labStoredTheme` writes it. */
+export function serializeLabStoredPrefs(prefs: LabStoredPrefs): string {
+  const profile = (appearance: LabAppearancePrefs) => ({ ...appearance, ...labStoredTheme(appearance.theme) })
+  return JSON.stringify({ ...prefs, phone: profile(prefs.phone), desktop: profile(prefs.desktop) })
+}
+
 export function parseLabStoredPrefs(raw: unknown): LabStoredPrefs {
   const src = raw && typeof raw === 'object' ? raw as Record<string, unknown> : {}
   if (src.version === 2 && src.shared && typeof src.shared === 'object') {
@@ -513,7 +535,7 @@ export function writeLabPrefs(prefs: LabPrefs, profile: LabAppearanceProfile = '
       desktop: profile === 'desktop' ? appearance : current.desktop,
       seenOnce: current.seenOnce,
     }
-    localStorage.setItem(LAB_PREFS_KEY, JSON.stringify(next))
+    localStorage.setItem(LAB_PREFS_KEY, serializeLabStoredPrefs(next))
   } catch {
     /* quota / private mode */
   }

@@ -3078,6 +3078,48 @@
   color: var(--lab-ink);
 }
 
+/* White (9 Nov 2026): Light's page on pure white paper. Near-black ink and neutral greys,
+   a touch warm so the accents and highlight tints still sit on it. */
+.lab.is-white-theme {
+  --lab-paper: #ffffff;
+  --lab-ink: #1a1a1a;
+  --lab-ink-muted: #5f5a52;
+  --lab-ink-faint: #757067;
+  --lab-surface: #f3f1ed;
+  --lab-border: #dcd8d0;
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+}
+
+.lab.is-white-theme .lab-header,
+.lab.is-white-theme .lab-page-turn,
+.lab.is-white-theme .lab-phone-bar,
+.lab.is-white-theme .lab-ask,
+.lab.is-white-theme .lab-ask-composer,
+.lab.is-white-theme .lab-body,
+.lab.is-white-theme .lab-page-wrap,
+.lab.is-white-theme .lab-book,
+.lab.is-white-theme .lab-passage,
+.lab.is-white-theme .lab-hearing,
+.lab.is-white-theme .lab-hearing-stage,
+.lab.is-white-theme .lab-passage-header {
+  background: var(--lab-paper);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-header-chapter,
+.lab.is-white-theme .lab-speed-popover,
+.lab.is-white-theme .lab-speed-popover::after {
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  border-color: var(--lab-border);
+}
+
+.lab.is-white-theme .lab-passage-headline,.lab.is-white-theme h1.lab-passage-headline,.lab.is-white-theme .lab-hearing-line,.lab.is-white-theme .lab-hearing-line > span,.lab.is-white-theme .lab-header-work,.lab.is-white-theme .lab-page-turn-btn,.lab.is-white-theme .lab-ask-input,.lab.is-white-theme .lab-ask-send,.lab.is-white-theme .lab-ask-voice-status{
+  color: var(--lab-ink);
+}
+
 /* Terminal night ink — reading words must not stay on paper black (#0b0b0b). */
 .lab.is-night .lab-passage .lab-hearing-line,
 .lab.is-night .lab-passage .lab-hearing-line > span:not(.lab-mark-btn),
@@ -5079,6 +5121,9 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   --lab-v2-disc-open: rgba(232, 214, 185, 0.12);
 }
 
+/* White: the panels take the page's own white. */
+.lab[data-chrome-version="v2"].is-white-theme { --lab-v2-panel-ink: 255, 255, 255; }
+
 /* The one surface. Panel, transport and compare card all draw on it: a fill
    of the paper colour over a blur the panel carries itself, denser at the top
    so the first row's label never sits on the thinnest part of it. */
@@ -5563,10 +5608,11 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
   padding: 8px 16px 14px;
 }
 
-/* Theme cards. Book, Light and Dark — the reader picks a page, not a system. */
+/* Theme cards. Book, Light, White and Dark (and E-ink on e-readers) in one row — the reader picks a page, not a system. */
 .lab[data-chrome-version="v2"] .lab-v2-themes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 10px;
   padding: 2px 0 12px;
 }
@@ -5597,6 +5643,7 @@ html[data-eink="true"] .lab-modern-ready { box-shadow: none; }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-book .lab-v2-theme-face { background: #d8c8a7; color: #201a13; }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-light .lab-v2-theme-face { background: #f4f0e7; color: #201a13; }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-white .lab-v2-theme-face { background: #ffffff; color: #1a1a1a; box-shadow: inset 0 0 0 1px rgba(32, 26, 19, 0.2); }
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-dark .lab-v2-theme-face { background: #2e2a24; color: #faf6ee; }
 
 .lab[data-chrome-version="v2"] .lab-v2-theme.is-active .lab-v2-theme-face {

@@ -55,6 +55,12 @@ export function pdfPrimerPages(unit: PdfOriginalUnit): number[] {
   return Array.from({ length: Math.min(PDF_SOURCE_PAGES, unit.to - unit.start + 1) }, (_, index) => unit.start + index)
 }
 
+/** The whole file as one source unit, for the menu's Summarize; null without pages. Its title is the file's (the saved card's bound). */
+export function pdfDocumentUnit(title: string, count: number): PdfOriginalUnit | null {
+  if (!Number.isInteger(count) || count < 1 || count > PDF_SOURCE_PAGES) return null
+  return { key: `document-1-${count}`, title: title.replace(/\s+/g, ' ').trim().slice(0, 300) || `Pages 1–${count}`, from: 1, start: 1, to: count }
+}
+
 /** After-unit actions require every page of the finished unit, without pretending a partial recap is complete. */
 export function pdfCompleteUnitPages(unit: PdfOriginalUnit, includeMatter = false): number[] {
   if (unit.matter && !includeMatter || unit.from < 1 || unit.to < unit.from || unit.to - unit.from + 1 > PDF_SOURCE_PAGES) return []

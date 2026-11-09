@@ -8,6 +8,7 @@
   --pdf-sheet-shadow: 0 1px 2px rgba(40,34,20,.12), 0 6px 18px rgba(40,34,20,.10); --pdf-accent: #1f4a5c;
 }
 html[data-pdf-theme="book"] { --pdf-paper: #e7dcc7; --pdf-room: #e7dcc7; --pdf-ink: #201a13; --pdf-muted: #675b4b; --pdf-surface: #efe6d3; --pdf-line: rgba(103, 91, 75, .32); }
+html[data-pdf-theme="white"] { --pdf-paper: #ffffff; --pdf-room: #ffffff; --pdf-ink: #1a1a1a; --pdf-muted: #5f5a52; --pdf-surface: #f6f5f2; --pdf-line: rgba(26, 26, 26, .18); }
 html[data-pdf-theme="dark"] { color-scheme: dark; --pdf-paper: #171411; --pdf-room: #100e0c; --pdf-ink: #bdb3a7; --pdf-muted: #8f857a; --pdf-surface: #211d18; --pdf-line: rgba(189, 179, 167, .2); --pdf-sheet-shadow: 0 0 0 1px #2a251f, 0 8px 24px rgba(0,0,0,.35); --pdf-accent: #78aabd; --pdf-hl: rgba(214, 186, 112, .30); }
 html[data-pdf-theme="dark"] body:not([data-view="reader"]) { --pdf-room: #171411; }
 html[data-pdf-theme="eink"] { --pdf-paper: #fff; --pdf-room: #fff; --pdf-ink: #111; --pdf-muted: #444; --pdf-surface: #fff; --pdf-line: #777; --pdf-sheet-shadow: 0 0 0 1px #777; }
@@ -291,3 +292,12 @@ html[data-pdf-theme="dark"] .hl-layer i { mix-blend-mode: normal; opacity: .7; }
 /* A picture in the chat's thread: at most 120px tall, opening it large (Anders, 19 Oct 2026, night). */
 .tc .tc-imgs .tc-img { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 8px; }
 .tc .tc-imgs .tc-img img { display: block; max-width: 220px; max-height: 120px; border-radius: 8px; background: #fff; }
+/* White (9 Nov 2026): the reader's White theme, as src/lab/lab.css .lab.is-white-theme draws it (css/tinct-app.css
+   predates it), and its card in Aa beside Light; Aa's cards share one row. */
+.lab.is-white-theme { --lab-paper: #ffffff; --lab-ink: #1a1a1a; --lab-ink-muted: #5f5a52; --lab-ink-faint: #757067; --lab-surface: #f3f1ed; --lab-border: #dcd8d0; background: var(--lab-paper); color: var(--lab-ink); }
+.lab.is-white-theme :is(.lab-header, .lab-page-turn, .lab-phone-bar, .lab-ask, .lab-ask-composer, .lab-body, .lab-page-wrap, .lab-book, .lab-passage, .lab-hearing, .lab-hearing-stage, .lab-passage-header) { background: var(--lab-paper); color: var(--lab-ink); border-color: var(--lab-border); }
+.lab.is-white-theme :is(.lab-header-chapter, .lab-speed-popover, .lab-speed-popover::after) { background: var(--lab-surface); color: var(--lab-ink); border-color: var(--lab-border); }
+.lab.byob.is-white-theme.is-desktop .lab-header-chapter { background: color-mix(in srgb, var(--lab-surface) 70%, transparent); }
+.lab[data-chrome-version="v2"].is-white-theme { --lab-v2-panel-ink: 255, 255, 255; }
+.lab[data-chrome-version="v2"] .lab-v2-themes { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.lab[data-chrome-version="v2"] .lab-v2-theme.is-white .lab-v2-theme-face { background: #ffffff; color: #1a1a1a; box-shadow: inset 0 0 0 1px rgba(32, 26, 19, .2); }

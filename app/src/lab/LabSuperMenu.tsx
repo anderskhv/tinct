@@ -53,6 +53,8 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       <path d="M11 5h9M11 11h9M11 18h5" />
     </svg>
   )
+  // Explain a figure: the margin reader's Snip glyph (public/lab/addbook/js/reader.js ICONS.snip), two crop corners.
+  if (id === 'snip') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3v14h14" /><path d="M3 7h14v14" /></svg>
   if (id === 'library') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="m10 5-7 7 7 7M3 12h18" /></svg>
   if (id === 'editions') {
     return (

@@ -3,7 +3,7 @@
    lab/addbook/index.html). Values from docs/chat/mockup.html, "The thread,
    measured". The book's own type: EB Garamond for every word, the system face
    only for the 12px time and the 11px hint. Follows the reader's look: Paper,
-   Night (.is-night), Book (.is-book-theme) and e-ink (no fills or shadows).
+   Night (.is-night), Book (.is-book-theme), White (.is-white-theme) and e-ink (no fills or shadows).
 
    The homes keep their geometry (.lab-ask's box in the book reader, the
    .byob-dock in the PDF reader, the phone sheet); this file only dresses the
@@ -20,6 +20,7 @@
   --tc-pad: 20px; --tc-answer: 18px; --tc-question: 17px;
 }
 .lab.is-book-theme .tc { --tc-paper: #e7dcc7; --tc-ink: #201a13; --tc-muted: #675b4b; --tc-bubble: #dacdb3; --tc-bar: #b3a586; }
+.lab.is-white-theme .tc { --tc-paper: #ffffff; --tc-ink: #1a1a1a; --tc-muted: #5f5a52; --tc-bubble: #efede8; --tc-bar: #c9c4ba; }
 .lab.is-night .tc {
   --tc-paper: #171411; --tc-ink: #d6ccbf; --tc-muted: #9a9083; --tc-faint: #6f675d;
   --tc-bubble: #2a241e; --tc-hair: rgba(214, 204, 191, .14); --tc-wash: rgba(214, 204, 191, .1); --tc-bar: #5a5146;

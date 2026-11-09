@@ -1,5 +1,5 @@
 'use strict';
-// Tinct · Add a book: the PDF viewer follows the reader's theme (Light, Book, Dark, and the
+// Tinct · Add a book: the PDF viewer follows the reader's theme (Light, White, Book, Dark, and the
 // e-ink display profile). The theme is the Tinct reader's own setting: localStorage
 // `tinct-lab-prefs` (app/src/lab/labPrefs.ts, one appearance per layout: phone, desktop),
 // and `tinct:display-profile` for e-ink (public/lab/display-profile.js). Choosing a theme
@@ -14,12 +14,17 @@
   // The reader's papers and inks (app/src/lab/lab.css: .lab, .lab.is-book-theme, .lab.is-night).
   const PALETTE = {
     light: { paper: '#ece7db', ink: '#0b0b0b' },
+    white: { paper: '#ffffff', ink: '#1a1a1a' },
     book: { paper: '#e7dcc7', ink: '#201a13' },
     dark: { paper: '#171411', ink: '#bdb3a7' },
     eink: { paper: '#ffffff', ink: '#111111' },
   };
-  const THEMES = ['book', 'light', 'dark'];
-  const isTheme = v => v === 'system' || v === 'light' || v === 'dark' || v === 'book';
+  const THEMES = ['book', 'light', 'white', 'dark'];
+  const isTheme = v => v === 'system' || v === 'light' || v === 'white' || v === 'dark' || v === 'book';
+  // White is stored as Light plus paper: 'white' (labPrefs.ts labStoredTheme), so a viewer or
+  // reader that predates it reads Light.
+  const themeOf = a => a.theme === 'light' && a.paper === 'white' ? 'white' : a.theme;
+  const storedFields = theme => theme === 'white' ? { theme: 'light', paper: 'white', darkMode: false } : { theme, paper: undefined, darkMode: theme === 'dark' };
 
   function parse(raw) { try { const v = JSON.parse(raw || 'null'); return v && typeof v === 'object' ? v : null } catch { return null } }
   // The stored theme for this layout, as labPrefs.ts reads it ('system' when none is stored).
@@ -28,9 +33,9 @@
     if (!src) return 'system';
     if (src.version === 2 && src.shared && typeof src.shared === 'object') {
       const a = src[layout === 'phone' ? 'phone' : 'desktop'];
-      return a && isTheme(a.theme) ? a.theme : 'system';
+      return a && isTheme(a.theme) ? themeOf(a) : 'system';
     }
-    if (isTheme(src.theme)) return src.theme;
+    if (isTheme(src.theme)) return themeOf(src);
     return Object.keys(src).length ? (src.darkMode === true ? 'dark' : 'light') : 'system';
   }
   // The theme the viewer paints: 'light' | 'book' | 'dark' | 'eink'.
@@ -48,10 +53,10 @@
     const profile = layout === 'phone' ? 'phone' : 'desktop';
     if (!src || src.version !== 2 || !src.shared) {
       // Version 1 (one flat object) or none: the reader reads it for both layouts, so it is kept flat.
-      src = Object.assign({}, src || {}, { theme, darkMode: theme === 'dark' });
+      src = Object.assign({}, src || {}, storedFields(theme));
       return JSON.stringify(src);
     }
-    src[profile] = Object.assign({}, src[profile] || {}, { theme, darkMode: theme === 'dark' });
+    src[profile] = Object.assign({}, src[profile] || {}, storedFields(theme));
     return JSON.stringify(src);
   }
   function readEink(search, stored) {

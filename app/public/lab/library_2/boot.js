@@ -226,19 +226,20 @@ function signedInUser() {
   return null;
 }
 // The veil drawn on leaving for the reader takes the reader's own paper, so a
-// reader in dark or book paper never passes through a light screen. Same
+// reader in dark, book or white paper never passes through a light screen. Same
 // resolution as src/lab/readerBoot.ts; unknown or layout-dependent keeps #efe6cc.
 try {
   const prefs = JSON.parse(localStorage.getItem('tinct-lab-prefs') || 'null') || {};
-  const valid = theme => ['system','light','dark','book'].includes(theme) ? theme : null;
+  // White is stored as Light plus paper:'white' (src/lab/labPrefs.ts labStoredTheme).
+  const valid = a => a && a.theme === 'light' && a.paper === 'white' ? 'white' : a && ['system','light','dark','book'].includes(a.theme) ? a.theme : null;
   // The layout the reader will use (src/lab/labChrome.ts isLabPhoneSurface, as readerBootProfile applies it) picks the phone or desktop theme.
   const phone = /iPhone|iPod/i.test(navigator.userAgent || '') || ((navigator.maxTouchPoints || 0) > 0 && typeof screen !== 'undefined' && screen.width <= 430) || innerWidth <= 430 || (typeof matchMedia === 'function' && matchMedia('(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))').matches);
   const themes = prefs.version === 2 && prefs.shared && typeof prefs.shared === 'object'
-    ? [valid((phone ? prefs.phone : prefs.desktop)?.theme) || 'system']
-    : [valid(prefs.theme) || (Object.keys(prefs).length ? (prefs.darkMode === true ? 'dark' : 'light') : 'system')];
+    ? [valid(phone ? prefs.phone : prefs.desktop) || 'system']
+    : [valid(prefs) || (Object.keys(prefs).length ? (prefs.darkMode === true ? 'dark' : 'light') : 'system')];
   const dark = typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches;
   const resolved = [...new Set(themes.map(theme => theme === 'system' ? (dark ? 'dark' : 'light') : theme))];
-  const paper = resolved.length === 1 ? {dark:'#171411',book:'#e7dcc7'}[resolved[0]] : null;
+  const paper = resolved.length === 1 ? {dark:'#171411',book:'#e7dcc7',white:'#ffffff'}[resolved[0]] : null;
   if (paper && localStorage.getItem('tinct:display-profile') !== 'eink') document.documentElement.style.setProperty('--reader-paper', paper);
 } catch {}
 // Preserve the existing recent-reader shortcut only at the bare home entry.

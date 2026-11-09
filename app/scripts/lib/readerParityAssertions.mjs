@@ -121,3 +121,48 @@ export async function enforceReaderBundle(route, expected) {
   if (/^\/assets\/index-[\w-]+\.js$/.test(url.pathname)) assert.equal(url.pathname, expected)
   return false
 }
+/**
+ * Open a folded margin card from its header toggle and prove nothing already shown moved or changed type
+ * (tester, 9 Nov 2026: the open click sat apart from the minimise, and opening restyled the preview).
+ * The toggle keeps its box, and each folded line (an Ask's question, the bottom line, a note's words)
+ * reappears in the open card at the same place in the same face, size, weight and style.
+ */
+export async function openFoldedCardInPlace(page, card) {
+  assert.equal(await card.getAttribute('data-open'), 'false', 'card starts folded')
+  const toggle = card.locator('.source-margin-toggle')
+  const before = await toggle.boundingBox()
+  const lines = await card.locator('.source-margin-preview').evaluate(button => [...button.querySelectorAll('.source-margin-preview-question, .source-margin-preview-lead')].map(node => {
+    const text = node.firstChild, range = document.createRange(), probe = Math.min(24, text.textContent.length)
+    range.setStart(text, 0); range.setEnd(text, probe)
+    const box = range.getClientRects()[0], style = getComputedStyle(node)
+    return { needle: text.textContent.slice(0, probe), top: box.top, left: box.left, height: box.height, font: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+  }).filter(line => line.needle.trim() && !line.needle.endsWith('…')))
+  assert(lines.length, 'folded card shows a preview line')
+  await card.getByTestId('source-margin-expand').click()
+  await page.waitForFunction(node => node.dataset.open === 'true', await card.elementHandle())
+  await settlePaint(page)
+  const after = await card.getByTestId('source-margin-minimise').boundingBox()
+  assert(before && after && Math.abs(before.x - after.x) <= 1 && Math.abs(before.y - after.y) <= 1, `open and minimise share one place: ${JSON.stringify({ before, after })}`)
+  const found = await card.locator('.source-margin-content').evaluate((content, lines) => lines.map(line => {
+    const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT)
+    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+      const at = text.textContent.indexOf(line.needle)
+      if (at < 0 || !text.parentElement?.getClientRects().length) continue
+      const range = document.createRange(); range.setStart(text, at); range.setEnd(text, at + line.needle.length)
+      const box = range.getClientRects()[0], style = getComputedStyle(text.parentElement)
+      return { ...line, openTop: box.top, openLeft: box.left, openFont: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+    }
+    const field = [...content.querySelectorAll('textarea')].find(node => node.value.startsWith(line.needle))
+    if (field) {
+      const style = getComputedStyle(field), box = field.getBoundingClientRect(), lineHeight = parseFloat(style.lineHeight)
+      return { ...line, openTop: box.top + parseFloat(style.borderTopWidth) + parseFloat(style.paddingTop) + (lineHeight - line.height) / 2, openLeft: box.left + parseFloat(style.borderLeftWidth) + parseFloat(style.paddingLeft), openFont: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight].join('|') }
+    }
+    return { ...line, openTop: null }
+  }), lines)
+  for (const line of found) {
+    assert(line.openTop !== null, `folded line is still shown when open: ${JSON.stringify(line)}`)
+    assert(Math.abs(line.openTop - line.top) <= 1.5 && Math.abs(line.openLeft - line.left) <= 1.5, `opening does not move a folded line: ${JSON.stringify(line)}`)
+    assert.equal(line.openFont, line.font, `opening keeps a folded line's type: ${line.needle}`)
+  }
+  return found
+}

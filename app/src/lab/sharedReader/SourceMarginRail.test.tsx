@@ -242,3 +242,37 @@ it('places an entry once its page is marked ready, even when that mark is the la
   await act(async () => { page.dataset.ready = 'true'; await new Promise(resolve => setTimeout(resolve, 0)); await new Promise(resolve => requestAnimationFrame(resolve)) })
   expect(screen.getByRole('button', { name: 'Catch me up' })).toBeTruthy()
 })
+
+/** Tester, 9 Nov 2026: the open click sat below the header while the minimise sat at its right. */
+it('opens and minimises a card from one header control in one place, and folds its line in the open card\'s type', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const toggle = vi.fn()
+  const entry: SourceMarginEntry = { id: 'e1', label: 'Explain', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: false, content: <p>Whole answer</p>, preview: 'One sentence only.', previewStyle: 'whole', onToggle: toggle, onDelete: vi.fn() }
+  const { rerender } = render(<SourceMarginRail host={host} entries={[entry]} />)
+  const head = () => screen.getByTestId('source-margin-item').querySelector('.source-margin-head')!
+  const folded = screen.getByTestId('source-margin-expand')
+  expect(folded).toHaveProperty('textContent', '+')
+  expect(folded.getAttribute('aria-label')).toBe('Open')
+  expect(folded.getAttribute('aria-expanded')).toBe('false')
+  expect(screen.queryByTestId('source-margin-minimise')).toBeNull()
+  expect(screen.getByTestId('source-margin-item').querySelector('.source-margin-preview')?.getAttribute('data-preview')).toBe('whole')
+  const order = () => [...head().children].map(node => node.getAttribute('data-testid') || node.getAttribute('aria-label'))
+  expect(order()).toEqual(['source-margin-open', 'source-margin-expand', 'Delete Explain'])
+  fireEvent.click(folded); expect(toggle).toHaveBeenCalledOnce()
+  rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: true }]} />)
+  const open = screen.getByTestId('source-margin-minimise')
+  // The same element in the same slot: React keeps the node, so it cannot move.
+  expect(open).toBe(folded)
+  expect(open.textContent).toBe('−'); expect(open.getAttribute('aria-label')).toBe('Minimise'); expect(open.getAttribute('aria-expanded')).toBe('true')
+  expect(order()).toEqual(['source-margin-open', 'source-margin-minimise', 'Delete Explain'])
+  fireEvent.click(open); expect(toggle).toHaveBeenCalledTimes(2)
+})
+
+it('gives a chapter\'s actions no open or minimise control', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  const entry: SourceMarginEntry = { id: 'u1', label: 'Chapter 1', actions: true, source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <button>Primer</button>, onToggle: vi.fn() }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  expect(screen.getByRole('button', { name: 'Primer' })).toBeTruthy()
+  expect(document.querySelector('.source-margin-toggle')).toBeNull()
+})

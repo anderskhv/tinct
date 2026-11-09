@@ -68,9 +68,11 @@ const STYLE = `
 .social-hero-picture .tinct-avatar{width:92px;height:92px;font-size:36px;box-shadow:0 0 0 4px var(--paper)}
 .social-badge{position:absolute;right:-2px;bottom:0;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.25);color:#1d1a16}
 .social-badge svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.3}
-.social-name{flex:1;min-width:0;display:flex;align-items:center;height:50px;border-bottom:1.5px solid rgba(29,26,22,.25)}
+/* The name wraps instead of scrolling out of sight (tester, 9 Nov 2026): a one-row textarea that grows; past two lines at 28px it drops to 22px. */
+.social-name{flex:1;min-width:0;display:flex;align-items:flex-end;min-height:50px;padding-bottom:6px;border-bottom:1.5px solid rgba(29,26,22,.25)}
 .social-name:focus-within{border-bottom-color:#1d1a16}
-.social-name-input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#1d1a16;font:600 28px/1.2 'Playfair Display',Georgia,serif;padding:0}
+.social-name-input{display:block;width:100%;min-width:0;height:auto;border:0;outline:0;background:transparent;color:#1d1a16;font:600 28px/1.2 'Playfair Display',Georgia,serif;padding:0;resize:none;overflow:hidden;overflow-wrap:break-word}
+.social-name-input.is-long{font-size:22px}
 .social-name-input::placeholder{color:#a39a8b;font-weight:500}
 .social-add-background{display:block;margin:12px 0 0;min-height:40px;padding:0;border:0;background:none;color:#1f4a5c;font-size:15px;cursor:pointer}
 .social-add-background[hidden]{display:none}
@@ -242,8 +244,30 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
   const pendingPhotos: Partial<Record<'picture' | 'background', Blob>> = {}
   const previewUrls: string[] = []
 
-  const nameInput = el('input', { name: 'profileName', type: 'text', value: profile.name === 'Reader' ? '' : profile.name, placeholder: 'Your name', maxLength: 40, autocomplete: 'name', className: 'social-name-input' })
+  // A one-row textarea, not an input, so a long name wraps and stays readable; Enter and pasted line breaks never make a second paragraph.
+  const nameInput = el('textarea', { name: 'profileName', rows: 1, value: profile.name === 'Reader' ? '' : profile.name, placeholder: 'Your name', maxLength: 40, autocomplete: 'name', className: 'social-name-input' })
   nameInput.setAttribute('aria-label', 'Your name')
+  nameInput.setAttribute('enterkeyhint', 'done')
+  const fitName = () => {
+    if (!nameInput.isConnected || !nameInput.clientWidth) return
+    nameInput.classList.remove('is-long')
+    nameInput.style.height = 'auto'
+    const line = parseFloat(getComputedStyle(nameInput).lineHeight) || 34
+    if (nameInput.scrollHeight > line * 2.5) nameInput.classList.add('is-long')
+    nameInput.style.height = 'auto'
+    nameInput.style.height = `${nameInput.scrollHeight}px`
+  }
+  nameInput.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); nameInput.blur() } })
+  nameInput.addEventListener('input', () => {
+    if (/[\r\n]/.test(nameInput.value)) nameInput.value = nameInput.value.replace(/\s*[\r\n]+\s*/g, ' ')
+    fitName()
+  })
+  // The step starts hidden, so it is fitted when it gets a width (and again when the width changes).
+  if (typeof ResizeObserver !== 'undefined') {
+    let width = 0
+    // Fitted in the next frame: changing the height inside the callback would be a ResizeObserver loop.
+    new ResizeObserver(() => { if (nameInput.clientWidth !== width) { width = nameInput.clientWidth; requestAnimationFrame(fitName) } }).observe(nameInput)
+  }
   const heroAvatar = el('span', { className: 'social-hero-avatar' })
   const paintHero = () => {
     if (picture.kind === 'google' && googlePhoto) { heroAvatar.className = 'tinct-avatar social-hero-avatar'; heroAvatar.dataset.kind = 'photo'; heroAvatar.textContent = ''; heroAvatar.style.backgroundImage = `url("${googlePhoto}")`; heroAvatar.style.backgroundSize = 'cover'; return }
