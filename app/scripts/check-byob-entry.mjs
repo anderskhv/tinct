@@ -10,7 +10,7 @@
 //    the rights line -> "Preparing your book…" -> its reader. Signed in, Paste text on /byob goes straight to
 //    Preparing and the reader. A failed upload keeps the text and shows the way back to /byob, where it still is.
 // 3. The library pop-up (signed in) shows the slim Paste window and adds the text into the reader.
-// 4. Sign-in names why you came for anything else ("Sign in to Tinct").
+// 4. Sign-in names why you came for anything else ("Sign in or join Tinct").
 // 5. Signed out, the library hero offers "Add your own book or text" beside Read; it opens the add sheet on the
 //    library (Choose a file, a desktop drop area, Paste text into the same slim window), then sign-in naming the
 //    text or file, Preparing and the reader (href="/byob" is the no-script fallback). Signed in it is not shown. The band sits right under Featured; signed out it leads to /byob, signed in it opens the pop-up.
@@ -189,7 +189,7 @@ async function main() {
         assert(await page.locator('#choose').isVisible() && await page.locator('#paste').isVisible(), 'Choose a file and Paste text are shown')
         const account = page.locator(name === 'phone' ? '#account-phone' : '#account')
         assert(await account.isVisible(), 'the sign-in link is shown')
-        assert.equal(await account.innerText(), 'Sign in')
+        assert.equal(await account.innerText(), 'Sign in or join')
         assert.equal(await page.locator('.drop-title').isVisible(), name === 'desktop', 'the drag box shows on desktop only')
         assert.equal(await page.locator('#foot-library a').getAttribute('href'), '/library')
         assert.equal(await page.locator('#rights').isVisible(), false, 'signed out, the rights line is on sign-in')
@@ -232,7 +232,7 @@ async function main() {
         assert.equal(new URL(page.url()).searchParams.get('returnTo'), '/preparing?own=paste')
         await signInReady(page)
         await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
-        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to add your text')
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in or join to add your text')
         assert.equal(await page.locator('[data-signin-file] b').innerText(), TITLE, 'the chip names the text by its title')
         const chip = await page.locator('[data-signin-file] b').evaluate(el => ({ lines: Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight)), clipped: el.scrollHeight > el.clientHeight + 1 }))
         assert(chip.lines <= 2, `the chip's title takes at most two lines (${JSON.stringify(chip)})`)
@@ -306,7 +306,7 @@ async function main() {
         await page.waitForURL(/\/sign-in\?/)
         await signInReady(page)
         await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
-        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to add your book')
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in or join to add your book')
         assert.equal(await page.locator('[data-signin-file] b').innerText(), 'harbour-almanac.epub')
         assert.equal(await page.locator('[data-signin-rights]').innerText(), 'Adding it confirms you may read this file.')
         await shot(page, `03b-sign-in-file-${name}`)
@@ -368,11 +368,11 @@ async function main() {
     }
 
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
-      await run(`sign-in names the reason, ${name}: anything else says "Sign in to Tinct"`, async () => {
+      await run(`sign-in names the reason, ${name}: anything else says "Sign in or join Tinct"`, async () => {
         const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
         await page.goto('/sign-in?returnTo=%2Flibrary')
         await signInReady(page)
-        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in to Tinct')
+        assert.equal(await page.locator('[data-signin-title]').innerText(), 'Sign in or join Tinct')
         assert.equal(await page.locator('[data-signin-file]').isVisible(), false)
         assert.equal(await page.locator('[data-signin-rights]').isVisible(), false)
         await shot(page, `sign-in-${name}`)
