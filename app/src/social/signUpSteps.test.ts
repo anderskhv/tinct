@@ -102,7 +102,8 @@ describe('sign-up with profiles off', () => {
     expect(document.querySelector('[data-social-steps]')).toBeNull()
     await signInByCode()
     expect(mode()).toBe('welcome')
-    expect(api).not.toHaveBeenCalled()
+    // The only request is the page's Google sign-in check (lab/googleSignIn.ts), never a profile one.
+    expect(api.mock.calls.map(call => String((call as unknown[])[0])).filter(url => !url.endsWith('/api/auth/google/config'))).toEqual([])
   })
 })
 
