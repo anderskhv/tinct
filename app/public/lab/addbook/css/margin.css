@@ -540,6 +540,11 @@ svg.mr-leads.mr-doc-leads { position: absolute; left: 0; top: 0; width: 1px; hei
    The follow-up line loses its hairline: the box is the line. A link ("Show answer") wraps under the box. */
 .mr { --mr-field: #fdfbf7; --mr-field-line: rgba(32, 26, 19, .26); }   /* a shade lighter than the card; a border seen without the focus */
 .lab.is-book-theme .mr { --mr-field: #f8f2e6; }
+/* White (9 Nov 2026): the reader's White paper (src/lab/lab.css .lab.is-white-theme), Light's structure. */
+.lab.is-white-theme .mr {
+  --mr-room: #ffffff; --mr-ink: #1a1a1a; --mr-muted: #5f5a52; --mr-faint: #8f897f; --mr-hint: #57524a;
+  --mr-card: #f6f5f2; --mr-bubble: #ebe8e2; --mr-field: #ffffff;
+}
 .lab.is-night .mr { --mr-field: #171411; --mr-field-line: rgba(214, 204, 191, .26); }
 html[data-eink="true"] .mr, html[data-pdf-theme="eink"] .mr { --mr-field: #fff; --mr-field-line: #111; }
 .mr-follow { flex-wrap: wrap; gap: 8px 12px; padding-top: 0; border-top: 0; }

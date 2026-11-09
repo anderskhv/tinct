@@ -66,6 +66,7 @@ function readTheme() {
 function themeHost(el, theme) {
   el.classList.toggle('is-night', theme === 'dark');
   el.classList.toggle('is-book-theme', theme === 'book');
+  el.classList.toggle('is-white-theme', theme === 'white');
   el.dataset.theme = theme === 'dark' ? 'dark' : 'light';
 }
 function applyTheme() {
@@ -2504,7 +2505,7 @@ function previewNav(kind) {
   savePlaceNow();
   // The chapter the pill names (readingPage: the next one once its heading has passed the upper third).
   const place = currentPlace(), reading = readingPage(place), ch = toc.ready ? chapterAt(reading) : null;
-  const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : 'light';
+  const theme = root.classList.contains('is-night') ? 'dark' : root.classList.contains('is-book-theme') ? 'book' : root.classList.contains('is-white-theme') ? 'white' : 'light';
   if (own) {
     const { leaves, chapters } = ownNavChapters(), at = ch ? leaves.indexOf(ch) + 1 : 1;
     const label = ch ? ch.label : isEpub() ? '' : `p. ${place.page} of ${state.pages.length}`;
@@ -2605,7 +2606,7 @@ function openDisplay() {
     <section class="lab-v2-sheet" data-testid="lab-v2-sheet" data-layer="reading" aria-label="${MENU_LABEL.aa}">
       <div class="lab-v2-head is-titled"><h2 class="lab-v2-title">${MENU_LABEL.aa}</h2><button type="button" class="lab-v2-dismiss" aria-label="Close">×</button></div>
       <div class="lab-v2-sheet-body">
-        <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
+        <div class="lab-v2-themes" data-testid="lab-v2-themes">${[['book', 'Book'], ['light', 'Light'], ['white', 'White'], ['dark', 'Dark']].map(([t, l]) => `<button type="button" class="lab-v2-theme is-${t}${!eink && pageTheme === t ? ' is-active' : ''}" data-theme-choice="${t}" data-testid="lab-v2-theme-${t}" aria-pressed="${!eink && pageTheme === t}"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">${l}</span></button>`).join('')}${eink ? '<button type="button" class="lab-v2-theme is-eink is-active" aria-pressed="true" data-testid="lab-v2-theme-eink"><span class="lab-v2-theme-face">Aa</span><span class="lab-v2-theme-label">E-ink</span></button>' : ''}</div>
         ${zoomPanel() ? zoomRowHtml() : typePanel() ? typeRowsHtml() : `<div class="lab-v2-size"><span class="lab-v2-size-small" aria-hidden="true">A</span><input class="lab-v2-slider" type="range" aria-label="${isEpub() ? 'Text size' : 'Page size'}" data-testid="lab-v2-size" min="0.5" max="3" step="0.05" value="${state.zoom}"><span class="lab-v2-size-large" aria-hidden="true">A</span></div>`}
         <div class="lab-v2-rows">
           ${toggleRow('trim', 'Trim page margins', !!state.trim, isEpub())}

@@ -164,12 +164,13 @@ describe('every removal path uses the motion', () => {
     // (20261106people) changed app.js alone. A linked book (?book=) leaving the desk with its × or My shelf
     // not coming back without its × (20261106deskgone) changed bookshelf.js, so app.js and index.html too.
     // The signed-out header button saying "Sign in or join" (20261109join) changed app.js, so index.html too.
+    // The leave veil in the White theme's paper (20261109white) changed boot.js.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
     expect(lib('index.html')).toContain('app.js?v=20261109join')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261105own')
-    expect(lib('index.html')).toContain('boot.js?v=20261102empty')
+    expect(lib('index.html')).toContain('boot.js?v=20261109white')
     expect(lib('app.js')).toContain('bookshelf.js?v=20261106deskgone')
     expect(lib('app.js')).toContain(`catalogue.js?v=${mm}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${mm}`)

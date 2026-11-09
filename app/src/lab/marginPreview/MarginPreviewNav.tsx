@@ -43,7 +43,7 @@ import '../lab.css'
 /** What the frame asks for: Reading now (the title) or Contents (the chapter pill), with its place and its ways back. */
 export interface MarginNavRequest {
   kind: 'switcher' | 'contents'
-  theme: 'light' | 'dark' | 'book'
+  theme: 'light' | 'white' | 'dark' | 'book'
   /** The frame's place: its page (one per chapter) and how far into it (0–100). */
   page: number
   percent: number
@@ -219,7 +219,7 @@ export function MarginPreviewNav({ model, request, onDone }: { model: MarginNavB
   const cover = own
     ? { src: ('cover' in model && model.cover) || '', srcSet: null }
     : resolveBookCover({ bookId, art: isPublicBookId(bookId) ? registeredPublicCover(bookId) : `/covers/v2/${bookId}.webp` })
-  const theme = request.theme === 'dark' ? ' is-night' : request.theme === 'book' ? ' is-book-theme' : ''
+  const theme = request.theme === 'dark' ? ' is-night' : request.theme === 'book' ? ' is-book-theme' : request.theme === 'white' ? ' is-white-theme' : ''
   return <div
     className={`lab is-desktop margin-preview-nav${theme}`}
     data-chrome-version="v2"
