@@ -581,7 +581,8 @@ describe('email confirmation (one route: ship 4\'s signed /confirm)', () => {
 
   it('the welcome link confirms the address and profiles read the same email_confirmed_at', async () => {
     const store = new MemoryStore(); seed(store)
-    const url = await confirmUrl(secret, A, 'anders.h@example.com', Date.parse('2026-10-08T09:00:00Z'))
+    // Issued now: links expire after 30 days, so a fixed issue date turned this test red on 2026-11-07.
+    const url = await confirmUrl(secret, A, 'anders.h@example.com', Date.now())
     expect(url).toMatch(/^https:\/\/tinct\.app\/confirm\?t=/)
     // The Worker's /confirm writes profiles.email_confirmed_at; route its PostgREST calls into the store.
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
