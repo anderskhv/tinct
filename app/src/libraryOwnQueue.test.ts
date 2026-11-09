@@ -240,14 +240,15 @@ describe('the "Your own book" pop-up with several files', () => {
 
   it('a free account choosing several files is offered Premium and nothing is read', async () => {
     document.documentElement.classList.add('signed-in')
-    let resolve!: (yes: boolean) => void
+    let resolve: ((yes: boolean) => void) | undefined
     const go = vi.fn(), fake = fakeEngine()
     const opening = addToTinct.openFileEntry(null, { access: () => new Promise<boolean>(r => { resolve = r }), go, engine: fake.engine })
     choose(file('a.epub'), file('b.epub'))
-    await Promise.resolve(); await Promise.resolve()
-    resolve(false); await opening; await new Promise(r => setTimeout(r, 0))
+    // Wait for the access check itself rather than a fixed number of ticks (it failed under CI load).
+    await vi.waitFor(() => expect(resolve).toBeTypeOf('function'))
+    resolve!(false); await opening
+    await vi.waitFor(() => expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE))
     expect(fake.steps).toEqual([])
-    expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
     expect(addToTinct.ownQueue()).toBeNull()
   })
 

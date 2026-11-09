@@ -637,7 +637,7 @@ export function LabAskPane({
       )}
       {onBackToContents && <button type="button" className="tc-older" onClick={onBackToContents}>← Back to contents</button>}
       <div className="tc-body">
-        <div className="tc-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden}>
+        <div className="tc-thread" data-testid="lab-ask-thread" ref={threadRef} onScroll={onThreadScroll} data-hidden-turns={hidden} aria-busy={typedLoading || undefined}>
           {hidden > 0 && (
             <button type="button" className="tc-older" data-testid="lab-ask-older" onClick={revealOlder}>
               {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}

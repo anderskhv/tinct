@@ -52,7 +52,7 @@ export function DefinitionFallback({ word, request, dictionaryDefinitions, onCha
   if (status === 'error') return dictionaryDefinitions?.length
     ? <ContextualLookupView answer={null} dictionaryDefinitions={dictionaryDefinitions} />
     : <div className="popup-define-status">Lookup unavailable. <button type="button" onClick={() => setAttempt(value => value + 1)}>Try again</button></div>
-  return <div className="popup-define-status" role="status">Looking up…</div>
+  return <div className="popup-define-status" role="status" aria-busy="true">Looking up…</div>
 }
 
 /** The same already-resolved contextual card in a passage popup or a saved original-page card. */

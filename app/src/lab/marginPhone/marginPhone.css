@@ -132,9 +132,13 @@ html[data-eink="true"] .lab[data-shared-reader="true"].is-desktop .lab-pcard { b
 .lab .lab-pcard.is-tall[data-keyboard] { height: calc(var(--lab-pcard-room, 100dvh) - 12px); }
 /* A field in a card has the focus: the narration bar is put away (it sat on the keyboard, over the card's room). */
 html[data-pcard-typing] .lab .lab-phone-bar { visibility: hidden; }
+/* An AI card opens at its kind's expected height and holds it while the answer streams (LabPhoneCard, inline
+   height, data-held): the text fills it downward from the top and a longer answer scrolls in the body; the
+   follow-up field stays at the foot. An answer that ends shorter settles the card to fit once, in one step. */
+.lab .lab-pcard.is-settling { transition: height .28s cubic-bezier(.2, .8, .2, 1); }
 @keyframes lab-pcard-up { from { transform: translateY(100%); } to { transform: none; } }
-@media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } }
-html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; }
+@media (prefers-reduced-motion: reduce) { .lab .lab-pcard { animation: none; } .lab .lab-pcard.is-settling { transition: none; } }
+html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: none; transition: none; }
 .lab .lab-pcard button { margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab .lab-pcard-drag { flex: none; touch-action: none; cursor: grab; }
 .lab .lab-pcard-grab { width: 36px; height: 5px; margin: 0 auto 8px; border-radius: 3px; background: var(--lab-pcard-hair); }
@@ -280,6 +284,10 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat.is-empty .tc-body { display: none; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread { flex: 0 1 auto; max-height: calc(var(--lab-pcard-room, 100dvh) * .5); padding: 4px 12px 8px 0; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-thread > :first-child { margin-top: 0; }
+/* Held while an answer streams (LabPhoneCard): the thread takes the card's height, the composer stays at its foot,
+   and the answer fills downward under the held question (LabAskPane's spacer) instead of raising the card. */
+.lab .lab-pcard[data-kind="chat"][data-held] .is-phone-card-chat .tc-body { flex: 1 1 auto; }
+.lab .lab-pcard[data-kind="chat"][data-held] .is-phone-card-chat .tc-thread { flex: 1 1 auto; max-height: none; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-fade { display: none; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-chrome { flex: none; padding: 0; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-compose { padding: 8px 0 0; }

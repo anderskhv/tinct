@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type Muta
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
-import { PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
+import { PHONE_CARD_BUSY_ATTR, PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
 import { subtitleRepeatsBody } from '../../services/characters/cardSubtitle'
@@ -141,7 +141,8 @@ export function PhonePassageBody({ lead, turns, pending }: { lead?: ReactNode; t
     <>
       {lead}
       <PhoneThread turns={turns} pending={pending} />
-      <div ref={end} />
+      {/* While a follow-up is answered, the card holds its height (LabPhoneCard, phoneCardHeight.ts). */}
+      <div ref={end} {...(pending ? { [PHONE_CARD_BUSY_ATTR]: '' } : {})} />
     </>
   )
 }
@@ -303,7 +304,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done, attempt])
   const body = status === 'loading' || waitingNext
-    ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing"><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
+    ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing" {...{ [PHONE_CARD_BUSY_ATTR]: '' }}><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
     : status === 'error' || !questions ? <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>
     : done ? <div className="lab-pcard-answer"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
     : (
