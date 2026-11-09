@@ -17,7 +17,7 @@ import {categories,eras,metadata} from './taxonomy.js?v=20261106mm';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261106mm';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry,OWN_BOOKS_PAGE} from './add-to-tinct.js?v=20261106mm';
-import {takeHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
+import {takeHandoffFiles,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {openOwnStart} from './own-start.js?v=20261105flow';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
@@ -173,7 +173,7 @@ function ownBooksBand(){
 /**
  * /library?own=file|paste (from /byob, or the Preparing page's way back): the "Your own book" pop-up,
  * at Paste text for paste, holding the text /byob kept (file-handoff.js) if there is one. A file
- * /byob kept for the library is added at once, as if chosen in the pop-up.
+ * /byob kept for the library is added at once, as if chosen in the pop-up; several go to its queue.
  */
 // The hero's "Add your own book or text" (signed out): the add sheet here, not /byob (Anders, 5 Nov 2026). href="/byob" is the no-script fallback.
 $('hero-own')?.addEventListener('click',event=>{
@@ -184,7 +184,7 @@ $('hero-own')?.addEventListener('click',event=>{
 function openOwnEntryFromParam(){
  const params=new URLSearchParams(location.search),own=params.get('own');if(own!=='file'&&own!=='paste')return;
  params.delete('own');const rest=params.toString();try{history.replaceState(history.state,'',location.pathname+(rest?'?'+rest:'')+location.hash);}catch{}
- void (async()=>{const file=own==='file'?await takeHandoff():null;const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(file)layer.addFile?.(file);else if(own==='paste')layer.showPaste?.(await peekPasteHandoff());})();
+ void (async()=>{const files=own==='file'?await takeHandoffFiles():[];const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(files.length)layer.addFiles?.(files);else if(own==='paste')layer.showPaste?.(await peekPasteHandoff());})();
 }
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
 $('shelves').append(ownBooksBand());
@@ -887,6 +887,10 @@ function drawMyBooks(){
   if(leavingShelf.has(node.dataset.flipKey))markGone(node);
  }
 }
+// Several files added at once (add-to-tinct.js queue): each book on My shelf as it is ready, then My shelf
+// itself once the queue is done, unless a book's introduction is open over the page.
+addEventListener('library2:own-added',()=>{if(addEnabled())refreshOwnShelf();});
+addEventListener('library2:my-shelf',()=>{if(activeBook||searchOpen)return;if(collectionChoice!=='saved')selectCollection('saved');else refreshOwnShelf();});
 addEventListener('library2:reading',()=>{if(collectionChoice==='saved')renderMyBooks();persistSaved();if(addEnabled())refreshOwnShelf();});
 // Back from a book (the page restored as it was left): its cover or place may have changed since.
 // Back to the library always lands on the reading table, never on My shelf as the page was left
