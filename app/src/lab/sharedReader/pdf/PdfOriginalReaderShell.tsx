@@ -35,6 +35,8 @@ import { type PdfOriginalHighlight, type PdfOriginalOutlineEntry, type PdfOrigin
 import { PdfContinuousSurface } from './PdfContinuousSurface'
 import { PdfNoteField } from './PdfNoteField'
 import { PdfRotateHint } from './PdfRotateHint'
+import { PdfSnipLayer } from './PdfSnipLayer'
+import { snipSource } from './pdfOriginalSnip'
 import { pdfCatchUpPages, pdfCompleteUnitPages, pdfDocumentUnit, pdfOriginalUnits, pdfPrimerPages, pdfUnitAt, type PdfOriginalScanOutline, type PdfOriginalUnit, type PdfOriginalUnitRules } from './pdfOriginalUnits'
 import '../../lab.css'
 import './pdfOriginalReaderShell.css'
@@ -202,6 +204,9 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const [highlightedSelection, setHighlightedSelection] = useState<PdfOriginalSelection | null>(null)
   const [barState, setBarState] = useState<'menu' | 'colors'>('menu')
   const [card, setCard] = useState<Card | null>(null)
+  // Explain a figure: the crosshair layer is up (PdfSnipLayer); a dragged box is explained as a figure.
+  const [snipping, setSnipping] = useState(false)
+  useEffect(() => { if (pane) setSnipping(false) }, [pane])
   const [note, setNote] = useState('')
   const [foldedDraft, setFoldedDraft] = useState<{ card: Card; note: string; question: string; follow: string } | null>(null)
   const noteDrafts = useRef(new Map<string, string>())
@@ -646,6 +651,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     <LabSuperMenu open={pane === 'menu'} phone={phone} privateBook ownPdf sharedReader onClose={() => setPane(null)}
       rows={labSuperMenuRows({phone, privateBook:true, ownPdf:true, sharedReader:true}).flatMap(row => {
         if (row.id === 'conversation') return currentText ? [{...row, modes: services?.TalkCard ? row.modes : ['chat' as const]}] : []
+        if (row.id === 'catchup' && services?.captureRegion) return [...(catchupPages.length && currentText && services.askUnit && services.getPageText && services.saveUnitCard ? [row] : []), { id: 'snip' as const, label: 'Explain a figure' }]
         if (row.id === 'summarize' && !currentText || row.id === 'catchup' && !(catchupPages.length && currentText && services?.askUnit && services.getPageText && services.saveUnitCard) || row.id === 'audio' && !services?.audio) return []
         return [row]
       })}
@@ -655,6 +661,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
         else if (id === 'audio') setPane('audio')
         else if (id === 'notebook') setPane('notebook')
         else if (id === 'catchup') void runUnit('catchup', catchupPages)
+        else if (id === 'snip') { if (card) minimiseCard(); setSelection(null); setPane(null); setSnipping(true) }
         // Summarize is the whole file (tester, 9 Nov 2026: a paper's first unit is often page 1 alone); the unit the
         // reader is in when the file is over the send bound. A heading's Recap stays that unit's.
         else if (id === 'summarize' && unit) { const whole = pdfDocumentUnit(title, pages); void (whole ? runUnit('recap', pdfCompleteUnitPages(whole), whole, undefined, { unit, pages: pdfCompleteUnitPages(unit, true) }) : runUnit('recap', pdfCompleteUnitPages(unit, true))) }
@@ -705,7 +712,11 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       <button className="lab-page-turn-btn" aria-label="Next PDF page" disabled={!pages || place.page >= pages} onClick={() => jump(place.page + 1)}>›</button>
     </nav>}
     {selection && !handheld && !card && <SelectionDeskBar sharedReader onAskOpenChange={setAskingSelection} getAnchor={() => sourceAnchor(selection)} state={barState} color={highlightColor} marked={highlightedSelection === selection} noted={false} moreRows={[[ 'define', 'factcheck', 'counterpoint', ...(services?.askQuizCheck ? ['quiz' as const] : []) ], ['copy']]} fallback={selectionPoint} onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }} onAskQuestion={question => void run('ask', selection, question)} onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)} onMore={more} onHighlight={() => { if (highlightedSelection === selection) setBarState('colors'); else highlight(highlightColor, true) }} onSwatch={highlight} onNote={() => { setNote(''); setCard({ kind: 'note', selection, text: '' }) }} onRemove={() => setSelection(null)} />}
-    {!selection && !card && !pane && !conversionBar && <PdfRotateHint bookId={bookId} handheld={device.handheld} landscape={device.landscape} ready={pages > 0} />}
+    {snipping && !pane && <PdfSnipLayer host={scrollHost} onCancel={() => setSnipping(false)} onPick={pick => {
+      setSnipping(false)
+      if (services?.captureRegion) void run('explain', snipSource(pick.page, pick.region, pick.caption, services.captureRegion))
+    }} />}
+    {!selection && !card && !pane && !snipping && !conversionBar && <PdfRotateHint bookId={bookId} handheld={device.handheld} landscape={device.landscape} ready={pages > 0} />}
     {selection && handheld && !card && <LabPhoneBar withDefine existingColor={highlightedSelection === selection ? highlightColor : undefined} text={selection.text} fallbackX={selectionPoint.x} fallbackY={selectionPoint.y}
       onAsk={() => { setQuestion(''); setCard({ kind: 'ask-compose', selection, text: '' }) }}
       onExplain={() => void run('explain', selection)} onSimplify={() => void run('simplify', selection)}
