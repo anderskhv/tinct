@@ -217,6 +217,20 @@ it('hands real visible page text to the existing own-book narration player witho
   service.dispose()
 })
 
+it('tells the shell when read aloud is starting, and when this PDF cannot be read aloud at all', () => {
+  let snap: Record<string, unknown> = { available: true, playing: false, pending: true, speed: 1 }
+  const player = { attachOwn: vi.fn(), play: vi.fn(), snapshot: vi.fn(() => snap) }
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null, vi.fn() as typeof fetch, player as never)
+  expect(service.audio).toMatchObject({ available: true, pending: true })
+  expect(service.audio?.unavailable).toBeUndefined()
+  snap = { available: null, playing: false, pending: false, speed: 1 }
+  expect(service.audio?.unavailable).toBeUndefined()
+  snap = { available: false, playing: false, pending: false, speed: 1 }
+  expect(service.audio).toMatchObject({ available: false, unavailable: true })
+  expect(service.listen).toBeUndefined()
+  service.dispose()
+})
+
 it('saves a page recap without invented geometry and rejects oversize source or answer intact', () => {
   const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => null)
   const page = { page: 3, text: 'Printed page content.', rects: [] }

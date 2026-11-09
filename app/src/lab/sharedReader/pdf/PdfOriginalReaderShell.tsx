@@ -31,6 +31,7 @@ import { readLabPrefs, writeLabPrefs, type LabTheme } from '../../labPrefs'
 import { useReaderWindow } from '../../useReaderWindow'
 import { LAB_V2_THEMES } from '../../labV2Sheet'
 import { loadPdfEngine } from '../../userBook/pdfEdition'
+import { USER_BOOKS_SHELF_URL } from '../../userBook/userBookId'
 import { type PdfOriginalHighlight, type PdfOriginalOutlineEntry, type PdfOriginalPlace, type PdfOriginalSelection, type PdfOriginalSurfaceProps } from './PdfOriginalSurface'
 import { PdfContinuousSurface } from './PdfContinuousSurface'
 import { PdfNoteField } from './PdfNoteField'
@@ -52,7 +53,9 @@ export interface PdfOriginalReaderServices {
   captureRegion?: PdfRegionCapture
   marks: PdfOriginalMark[]; cards: PdfOriginalCard[]; talkConversations?: PdfOriginalTalkConversation[]
   recoverableTalkCount?: number; adoptRecoverableTalk?: () => boolean
-  audio?: { speed: number; setSpeed: (speed: number) => void; playing: boolean; pause: () => void; available: boolean; resume?: () => boolean }
+  /** `unavailable`: this PDF cannot be read aloud here (narration off, or it failed once: Anders, 22 Oct 2026, no retry
+   *  and never the browser's voice), so Play is not shown; `available` false alone is still being decided. */
+  audio?: { speed: number; setSpeed: (speed: number) => void; playing: boolean; pending?: boolean; pause: () => void; available: boolean; unavailable?: boolean; resume?: () => boolean }
   heardPage?: number | null
   follow?: PdfOriginalSurfaceProps['follow']
   subscribe?: (notify: () => void) => () => void
@@ -108,6 +111,10 @@ export interface PdfOriginalReaderShellProps extends Pick<PdfOriginalSurfaceProp
 /** The Notebook's filters, in the margin reader's order (public/lab/addbook/js/notebook.js FILTERS). */
 type PdfNotebookFilter = 'ai' | 'highlights' | 'notes' | 'all'
 const PDF_NOTEBOOK_FILTERS: Array<[PdfNotebookFilter, string]> = [['ai', 'AI'], ['highlights', 'Highlights'], ['notes', 'Notes'], ['all', 'All']]
+// Back from an own PDF is to My shelf, where the reader's own books are ("My private uploads"), not the library's front
+// (tester, 9 Nov 2026: "dropped back to the main page with all the books").
+const OWN_SHELF_HREF = USER_BOOKS_SHELF_URL.replace('#', '?sharedReader=1#')
+const LISTEN_GONE = 'Read aloud is not available for this book right now.'
 type Pane = 'menu' | 'contents' | 'reading' | 'book' | 'audio' | 'notebook' | 'switcher' | null
 type Card = { question?: string; pendingFollow?: { question: string; answer: string }; talkReference?: string; kind: string; selection: PdfOriginalSelection; text: string; busy?: boolean; saved?: boolean; id?: string; turns?: PdfOriginalCard['turns']; sourceRange?: { from: number; to: number }; sourceUnverified?: boolean; quizToken?: number; unitSource?: PdfOriginalUnitSource; noteUnit?: { key: string; title: string; from: number; to: number }; freeY?: number; markId?: string; /** The text is a failure reason, shown as a plain status line, not as an answer. */ failed?: boolean }
 const filename = (title: string) => `${title.replace(/[\\/:*?"<>|\u0000-\u001f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80) || 'Notebook'} notebook.md`
@@ -210,6 +217,18 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   const [followDraft, setFollowDraft] = useState('')
   const dictation = useLabDictation('own-pdf', setFollowDraft, { signedIn: !!services?.dictation, getAuthToken: () => services?.dictation?.getAuthToken(), getKeyterms: () => [], language: 'en' })
   useEffect(() => { if (dictation.notice) setStatus(dictation.notice) }, [dictation.notice])
+  // The place is kept before the page goes (as the book switcher keeps it), then My shelf.
+  const leaveForShelf = () => { if (onBeforeLeave) onBeforeLeave(place); else onVisiblePlace(place); window.location.assign(OWN_SHELF_HREF) }
+  // Play is a toggle while a page is heard or starting (the margin reader's top Play, tinct-listen.js topPlay).
+  const listening = !!(services?.audio?.playing || services?.audio?.pending)
+  // Read aloud tried and then gone (its route failed): Play goes away and the reader is told once, as in the margin reader.
+  const listenTried = useRef(false)
+  const listenGone = !!services?.audio?.unavailable
+  useEffect(() => {
+    if (!listenGone || !listenTried.current) return
+    listenTried.current = false
+    setStatus(LISTEN_GONE)
+  }, [listenGone])
   const [quizDraft, setQuizDraft] = useState('')
   const quizAnswer = useRef('')
   const quizToken = useRef(0)
@@ -219,6 +238,11 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   useEffect(() => {
     // A completed action must not sit over a later answer. Keep failure messages
     // available; only the successful highlight acknowledgement is transient.
+    // Read aloud's one notice is said, not kept: it goes on its own after a while (as the margin reader's say()).
+    if (status === LISTEN_GONE) {
+      const timer = window.setTimeout(() => setStatus(current => current === LISTEN_GONE ? '' : current), 6000)
+      return () => window.clearTimeout(timer)
+    }
     if (status !== 'Highlight saved.') return
     if (card) { setStatus(''); return }
     const timer = window.setTimeout(() => setStatus(current => current === 'Highlight saved.' ? '' : current), 3000)
@@ -636,8 +660,10 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     }]
   })
   return <div ref={root} className={`lab pdf-original-reader ${phone ? 'is-phone' : 'is-desktop'}${marginLayout ? ' is-sideways' : ''} ${theme === 'dark' ? 'is-night' : ''} ${theme === 'book' ? 'is-book-theme' : ''}`} style={marginLayout ? { '--pdf-sideways-margin': marginWidth + 'px' } as CSSProperties : undefined} data-testid="lab-root" data-shared-reader="true" data-reader-ready="true" data-pdf-original="true" data-reading-scroll={readingScrollActive ? 'true' : undefined} data-chrome-version="v2" data-theme={theme}>
-    <header className="lab-header"><a className="lab-v2-library-back" href="/library?sharedReader=1" aria-label="Back to library"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></a><div className="lab-header-brand"><h1 className="lab-header-work"><button type="button" className="lab-header-book" data-testid="lab-header-book" aria-label={`Switch books, currently ${title}`} aria-expanded={pane === 'switcher'} aria-haspopup="dialog" onClick={() => setPane(pane === 'switcher' ? null : 'switcher')}><span>{title}</span></button></h1><span className="lab-title-sep" aria-hidden="true"> · </span><button type="button" className="lab-header-chapter" aria-label="Contents" onClick={() => setPane(pane === 'contents' ? null : 'contents')}>{chapterTitle}</button></div>
-      <div className="lab-header-controls pdf-original-reader__head-actions"><button className="lab-v2-aa" aria-label="Appearance" onClick={() => setPane(pane === 'reading' ? null : 'reading')}>Aa</button>{!phone && <button className="lab-header-notebook" data-testid="lab-header-notebook" aria-label="Notebook" title="Notebook" onClick={() => setPane(pane === 'notebook' ? null : 'notebook')}><ReaderNotebookIcon /></button>}<button className="lab-v2-play" aria-label="Listen" disabled={!services?.listen || !services.audio?.available || !currentText} onClick={() => services?.listen?.(place.page, currentText)}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.6 6.4v11.2L17.8 12 8.6 6.4Z" fill="currentColor" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" /></svg></button><LabSuperButton open={pane === 'menu'} onToggle={() => setPane(pane === 'menu' ? null : 'menu')} reducedMotion /></div></header>
+    <header className="lab-header"><a className="lab-v2-library-back" href={OWN_SHELF_HREF} aria-label="Back to library" title="Your books" onClick={event => { if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); leaveForShelf() }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></a><div className="lab-header-brand"><h1 className="lab-header-work"><button type="button" className="lab-header-book" data-testid="lab-header-book" aria-label={`Switch books, currently ${title}`} aria-expanded={pane === 'switcher'} aria-haspopup="dialog" onClick={() => setPane(pane === 'switcher' ? null : 'switcher')}><span>{title}</span></button></h1><span className="lab-title-sep" aria-hidden="true"> · </span><button type="button" className="lab-header-chapter" aria-label="Contents" onClick={() => setPane(pane === 'contents' ? null : 'contents')}>{chapterTitle}</button></div>
+      <div className="lab-header-controls pdf-original-reader__head-actions"><button className="lab-v2-aa" aria-label="Appearance" onClick={() => setPane(pane === 'reading' ? null : 'reading')}>Aa</button>{!phone && <button className="lab-header-notebook" data-testid="lab-header-notebook" aria-label="Notebook" title="Notebook" onClick={() => setPane(pane === 'notebook' ? null : 'notebook')}><ReaderNotebookIcon /></button>}{!services?.audio?.unavailable && (listening
+        ? <button className="lab-v2-play" aria-label="Pause" title="Pause" onClick={() => { services?.audio?.pause(); setRevision(n => n + 1) }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.4 6.5v11M15.6 6.5v11" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" /></svg></button>
+        : <button className="lab-v2-play" aria-label="Listen" title={services?.listen && services.audio?.available && !currentText ? 'This page has no text to read aloud' : undefined} disabled={!services?.listen || !services.audio?.available || !currentText} onClick={() => { listenTried.current = true; services?.listen?.(place.page, currentText) }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.6 6.4v11.2L17.8 12 8.6 6.4Z" fill="currentColor" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" /></svg></button>)}<LabSuperButton open={pane === 'menu'} onToggle={() => setPane(pane === 'menu' ? null : 'menu')} reducedMotion /></div></header>
     {pane === 'switcher' && <PdfBookSwitcher owner={owner} bookId={bookId} title={title} chapterLabel={chapterTitle} onClose={() => setPane(null)} beforeLeave={() => { if (onBeforeLeave) onBeforeLeave(place); else onVisiblePlace(place) }} />}
     {pane === 'contents' && <LabContentsV2 open bookId={bookId} title={title} editionKey="pdf-original" editionLabel="Original PDF pages" chapters={units.map((entry, index) => ({ number: index + 1, title: entry.title || `Pages ${entry.from}–${entry.to}` }))} chaptersReady={pages > 0} currentChapter={unitIndex + 1} currentPage={place.page - (unit?.from ?? 1) + 1} totalPages={unit ? unit.to - unit.from + 1 : pages} statuses={new Map()} conversations={contentsConversations} historyStatus="ready" highlights={(services?.marks ?? []).filter(mark => !hidden.has('highlight:' + mark.id)).map(mark => ({ id: mark.id, bookId, editionKey: 'pdf-original', chapterNumber: Math.max(0, units.findIndex(entry => mark.page >= entry.from && mark.page <= entry.to)) + 1, paragraphIndex: mark.page - 1, endParagraphIndex: mark.page - 1, fromWord: 0, toWord: mark.text.split(/\s+/).length, text: mark.text, color: mark.color as HighlightColor, note: mark.note, updatedAt: mark.at }))} unassignedHighlights={[]} onOpenHighlight={highlight => { const mark = services?.marks.find(mark => mark.id === highlight.id); if (mark) jump(mark.page, mark.rects[0]?.[1] ?? 0) }} onClose={() => setPane(null)} onSwitchBook={() => setPane('switcher')} onSelectChapter={number => { const entry = units[number - 1]; if (entry) jump(entry.start) }} onWarmChapter={() => {}} onOpenPassage={source => { const entry = units[source.chapterNumber - 1]; if (entry) jump(entry.start) }} onContinueConversation={conversation => contentsSources.find(item => item.id === conversation.id)?.open()} navigationFooter={<form className="pdf-original-reader__page-jump" onSubmit={event => { event.preventDefault(); const target = Number(pageInput); if (Number.isInteger(target) && target >= 1 && target <= pages) { jump(target); setPageInput('') } }}><label htmlFor="pdf-page-number">Go to page</label><input id="pdf-page-number" type="number" min="1" max={pages || undefined} value={pageInput} onChange={event => setPageInput(event.target.value)} /><button type="submit" disabled={!pageInput}>Go</button></form>} />}
     <LabSuperMenu open={pane === 'menu'} phone={phone} privateBook ownPdf sharedReader onClose={() => setPane(null)}
@@ -654,7 +680,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
         else if (id === 'catchup') void runUnit('catchup', catchupPages)
         else if (id === 'summarize' && unit) void runUnit('recap', pdfCompleteUnitPages(unit, true))
         else if (id === 'talk') { if (card) minimiseCard(); setCard({kind:'talk', selection:pageSelection(), text:''}); setPane(null) }
-        else if (id === 'library') window.location.assign('/library?sharedReader=1')
+        else if (id === 'library') leaveForShelf()
         else if (id === 'account') window.location.assign('/library?card=you&sharedReader=1')
         else if (id === 'chat') {
         const source: PdfOriginalSelection = { page: place.page, text: currentText, rects: [[place.page, .1, Math.min(.999, place.frac), .001, .001]] }

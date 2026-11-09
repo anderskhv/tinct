@@ -5593,8 +5593,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       else if (id === 'audio') setSuperSheet('audio')
       else if (id === 'account') setSuperSheet('account')
       else if (id === 'editions' && ownEditions) setSuperSheet('editions')
-      // Back to the library from an own book lands on the reading table, as from Tinct's (Anders, 2026-10-12).
-      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(privateLibraryDestination('/library', sharedReader))
+      // Back from an own book is to My shelf, where the reader's own books are (tester, 9 Nov 2026: the reading table
+      // read as "the main page with all the books"; this replaces Anders's 2026-10-12 reading-table rule).
+      else if (id === 'library' && typeof window !== 'undefined') leaveForLibrary(privateLibraryDestination(USER_BOOKS_SHELF_URL, sharedReader))
       return
     }
     if (id === 'talk') { handleTalk(); return }

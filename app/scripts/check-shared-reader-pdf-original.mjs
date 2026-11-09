@@ -790,7 +790,12 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByRole('button', { name: 'Audio settings' }).click()
     await page.getByLabel('Narration speed').selectOption('1.5')
     assert.equal(await page.getByLabel('Narration speed').inputValue(), '1.5')
-    if (narrationSuccess) await page.getByRole('button', { name: 'Pause', exact: true }).click()
+    if (narrationSuccess) {
+      // The header's Play is Pause while a page is heard; the Audio settings panel has its own Pause.
+      assert.equal(await page.locator('.pdf-original-reader .lab-header .lab-v2-play').getAttribute('aria-label'), 'Pause', 'header Play is Pause while heard')
+      await page.getByRole('dialog', { name: 'Audio settings' }).getByRole('button', { name: 'Pause', exact: true }).click()
+      await page.locator('.pdf-original-reader .lab-header .lab-v2-play[aria-label="Listen"]').waitFor()
+    }
     assert.equal(await page.evaluate(() => window.__speechCalls), 0, 'browser speech voice was not touched')
     await page.getByRole('button', { name: 'Close panel' }).click()
     await page.getByTestId('lab-super').click()
