@@ -162,7 +162,11 @@ export async function openFoldedCardInPlace(page, card) {
   for (const line of found) {
     assert(line.openTop !== null, `folded line is still shown when open: ${JSON.stringify(line)}`)
     assert(Math.abs(line.openTop - line.top) <= 1.5 && Math.abs(line.openLeft - line.left) <= 1.5, `opening does not move a folded line: ${JSON.stringify(line)}`)
-    assert.equal(line.openFont, line.font, `opening keeps a folded line's type: ${line.needle}`)
+    // Family, size, style and line height stay; the weight may rise on opening, because a folded card is
+    // always regular (passive) and an open answer bolds its lead line (Anders, 9 Nov 2026).
+    const face = font => { const [family, size, , style, lineHeight] = font.split('|'); return [family, size, style, lineHeight].join('|') }
+    assert.equal(face(line.openFont), face(line.font), `opening keeps a folded line's type: ${line.needle}`)
+    assert.equal(line.font.split('|')[2], '400', `a folded line is regular weight: ${line.needle}`)
   }
   return found
 }
