@@ -1017,3 +1017,34 @@ it('shows conversion started from a pane in the same bar once the pane closes, w
   view.rerender(<PdfOriginalReaderShell {...props} />)
   expect(screen.queryByTestId('pdf-text-offer')).toBeNull()
 })
+
+it('names a paper’s detected sections in Contents and the header, jumps to their headings and offers each its actions', async () => {
+  const sections = [
+    { title: 'Abstract', page: 1, frac: .2, level: 1 }, { title: '1 Introduction', page: 1, frac: .45, level: 1 },
+    { title: '2 Method', page: 2, frac: .5, level: 1 }, { title: '2.1 Setup', page: 2, frac: .7, level: 2 }, { title: '3 Results', page: 3, frac: .1, level: 1 },
+  ]
+  const detector = vi.fn(async () => sections)
+  render(<PdfOriginalReaderShell title="Own paper" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} sectionDetector={detector} />)
+  // The place (page 1, 30% down) is under the Abstract's heading, above the Introduction's.
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('Abstract'), { timeout: 3000 })
+  expect(detector).toHaveBeenCalledTimes(1)
+  expect(screen.getAllByTestId('mock-heading-actions').map(node => node.getAttribute('aria-label'))).toEqual(['Abstract actions', '1 Introduction actions', '2 Method actions', '3 Results actions'])
+  expect(screen.getByRole('button', { name: 'Quiz me for 2 Method' })).toBeTruthy()
+  fireEvent.click(screen.getByRole('button', { name: 'Contents', exact: true }))
+  const toc = screen.getByTestId('lab-toc')
+  expect(toc.textContent).toContain('1 Introduction')
+  expect(toc.textContent).toContain('3 Results')
+  expect(toc.textContent).not.toContain('2.1 Setup')
+  fireEvent.click(screen.getByRole('button', { name: /^2 Method/ }))
+  expect(screen.getByTestId('requested-pdf-place').textContent).toBe('2')
+  expect(Number(screen.getByTestId('requested-pdf-frac').textContent)).toBeCloseTo(.48)
+  expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('2 Method')
+})
+
+it('keeps page units when section detection finds nothing', async () => {
+  const detector = vi.fn(async () => null)
+  render(<PdfOriginalReaderShell title="Own notes" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} unitRules={margin} sectionDetector={detector} />)
+  await waitFor(() => expect(detector).toHaveBeenCalled(), { timeout: 3000 })
+  expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('Page 1')
+  expect(screen.queryAllByTestId('mock-heading-actions')).toHaveLength(0)
+})

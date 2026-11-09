@@ -52,7 +52,9 @@ export type PdfContinuousProps = PdfOriginalSurfaceProps & { initialZoom?: numbe
    * surface's own limit, from `zoomBase` instead of the drawn size. Zooming past Fit there narrows the margin, then
    * turns the margin into cards; the drawn sheet stays at Fit meanwhile.
    */
-  onZoomRequest?: (zoom: number) => void; zoomBase?: number; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; /** The margin draws the chapter actions; the page keeps its headings clear. */ headingActionsInMargin?: boolean; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void }
+  onZoomRequest?: (zoom: number) => void; zoomBase?: number; cards?: Array<{ id: string; page: number; rects?: number[][]; kind?: string; text?: string }>; activeCardId?: string; headingActions?: PdfHeadingActions[]; /** The margin draws the chapter actions; the page keeps its headings clear. */ headingActionsInMargin?: boolean; onScrollHost?: (host: HTMLElement | null) => void; onRegionCapture?: (capture: PdfRegionCapture | null) => void; onFigureAction?: (action: PdfFigureAction, source: PdfOriginalSelection) => void; onSourceActivate?: (source: { kind: 'card' | 'mark'; id: string }) => void
+  /** Detected sections, marked on the overview strip where their headings stand. */
+  sections?: Array<{ key: string; title: string; page: number; frac: number }> }
 
 function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSelection, onSize, onReady, onError, cards, activeCardId, headings, inlineActions = true, figures, onFigureAction }: {
   pdf: PdfOriginalDocument; number: number; width: number; height: number
@@ -167,7 +169,7 @@ function PdfSheet({ pdf, number, width, height, highlights, follow, onText, onSe
 
 /** Continuous source pages, with three nearby source pages, retaining native selection pages until the range clears. */
 export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVisiblePlace, onDocument, onOutline, onPageText, onPageEnd,
-  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, onZoomRequest, zoomBase, phone = false, cards = [], activeCardId, headingActions = [], headingActionsInMargin = false, onScrollHost, onSourceActivate, onRegionCapture, onFigureAction }: PdfContinuousProps) {
+  onSelection, highlights = [], follow = null, openDocument = openExistingPdf, initialZoom = 1, requestedZoom, onZoom, onZoomLimit, onZoomRequest, zoomBase, phone = false, cards = [], activeCardId, headingActions = [], headingActionsInMargin = false, onScrollHost, onSourceActivate, onRegionCapture, onFigureAction, sections = [] }: PdfContinuousProps) {
   const [pdf, setPdf] = useState<PdfOriginalDocument | null>(null)
   const [overview, setOverview] = useState<{ document: PdfOriginalDocument; pages: PdfSourceLine[][]; ratios: number[] } | null>(null)
   // Read the lightweight text overview independently of virtualised canvases.
@@ -456,6 +458,18 @@ export function PdfContinuousSurface({ bytes, initialPlace, requestedPlace, onVi
       {mapLines.map((line, index) => <line key={index} x1={line.left} x2={line.right} y1={line.y + .5} y2={line.y + .5} className="pdf-original__map-line" />)}
       <rect x={.5} y={mapPosition * 600} width={33} height={Math.max(4, Math.min(600 - mapPosition * 600, viewportHeight / sourceMap.total * 600))} rx={4} className="pdf-original__map-window" />
       </g>
+      {sections.filter(section => section.page >= 1 && section.page <= pdf.numPages).map(section => {
+        // A section's start: a rule across the strip, its name on hover, a jump to its heading on click.
+        const y = ((sourceMap.starts[section.page - 1] ?? 0) + section.frac * (sourceMap.heights[section.page - 1] ?? 0)) / sourceMap.total * 600
+        const go = () => jump(section.page, Math.max(0, section.frac - .02))
+        return <g key={section.key} role="button" tabIndex={0} aria-label={`${section.title} · Page ${section.page}`} className="pdf-original__map-section" data-testid="pdf-map-section"
+          onPointerDown={event => { event.stopPropagation(); event.preventDefault(); go() }}
+          onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); go() } }}>
+          <title>{section.title}</title>
+          <rect className="pdf-original__map-hit" x={0} y={Math.max(0, y - 4)} width={24} height={8} />
+          <line className="pdf-original__map-section-rule" x1={0} x2={23} y1={y} y2={y} />
+        </g>
+      })}
       {mapActivities.map(activity => {
         const y = ((sourceMap.starts[activity.page - 1] ?? 0) + activity.frac * sourceMap.heights[activity.page - 1]) / sourceMap.total * 600
         const height = Math.max(2.5, (activity.end - activity.frac) * sourceMap.heights[activity.page - 1] / sourceMap.total * 600)

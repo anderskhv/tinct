@@ -546,6 +546,119 @@ export function sectionPaper() {
   return makePdf({ info: { Title: 'A Theory of Constructions' }, pages, outline });
 }
 
+// 10. A research paper without bookmarks (tester feedback, 9 Nov 2026: "create chapters to skip more easily"): a title,
+//     authors, affiliations and e-mails, an Abstract, numbered sections and subsections that start mid-page in either
+//     column, figure and table captions (a bold chart title and a bold table header among them), a running head and page
+//     numbers, Acknowledgments, References and an appendix. `columns`: 1 or 2. `numbered: false` sets the headings
+//     without numbers. `caps: true` sets IEEE-style headings: "I. INTRODUCTION" in the body's own face and size.
+//     researchPaper({ meta: true }) also returns where each heading was set: { text, page, y, level }.
+export const RESEARCH_SECTIONS = [
+  ['1', 'Introduction', 9], ['2', 'Related Work', 7], ['3', 'Method', 2], ['3.1', 'Problem Setup', 6, 'figure'],
+  ['3.2', 'Training Objective', 7], ['4', 'Experiments', 3, 'table'], ['4.1', 'Datasets', 5], ['4.2', 'Baselines', 4],
+  ['5', 'Results', 8, 'figure'], ['6', 'Discussion', 5], ['7', 'Conclusion', 3],
+];
+export function researchPaper({ columns = 2, numbered = true, caps = false, meta = false } = {}) {
+  breaks = 0;
+  const W = 612, H = 792, top = 720, bottom = 72, body = 10, lead = 12.4;
+  const cols = columns === 2 ? [54, 318] : [72];
+  const chars = columns === 2 ? 52 : 92;
+  const pages = [];
+  const heads = [];
+  let page = null, col = 0, y = 0, para = 0, figures = 0, tables = 0;
+  const roman = n => ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'][n - 1];
+  const newPage = () => {
+    page = { lines: [], images: [], draw: '' }; pages.push(page); col = 0; y = top;
+    const n = pages.length;
+    if (n > 1) page.lines.push({ x: 72, y: 752, size: 8, font: 'Times-Italic', text: 'Preprint. Under review.' });
+    page.lines.push({ x: 300, y: 40, size: 9, font: 'Times-Roman', text: String(n) });
+  };
+  const room = need => { if (y - need >= bottom) return; if (col + 1 < cols.length) { col++; y = pageTop } else { newPage(); pageTop = top } };
+  let pageTop = top;
+  newPage();
+  // The title block across the page.
+  const centre = (text, size) => Math.round((W - text.length * size * 0.46) / 2);
+  const title = 'Sparse Attention for Long-Document Reading';
+  page.lines.push({ x: centre(title, 17), y: 724, size: 17, font: 'Times-Bold', text: title });
+  page.lines.push({ x: centre('Ann Example 1 and Bo Sample 2', 11), y: 700, size: 11, font: 'Times-Roman', text: 'Ann Example 1 and Bo Sample 2' });
+  page.lines.push({ x: centre('1 University of Somewhere, 2 Institute of Elsewhere', 9), y: 686, size: 9, font: 'Times-Italic', text: '1 University of Somewhere, 2 Institute of Elsewhere' });
+  page.lines.push({ x: centre('ann@example.org, bo@example.org', 9), y: 674, size: 9, font: 'Times-Roman', text: 'ann@example.org, bo@example.org' });
+  const abstractHead = caps ? 'ABSTRACT' : 'Abstract';
+  page.lines.push({ x: centre(abstractHead, 11), y: 648, size: 11, font: 'Times-Bold', text: abstractHead });
+  heads.push({ text: abstractHead, page: 1, y: 648, column: 0, level: 1 });
+  let ay = 632;
+  for (const l of setParagraph(paragraphText(700, 120), { x: 90, indent: 0, width: 96, indentChars: 0, size: 9 })) { page.lines.push({ ...l, y: ay }); ay -= 11 }
+  pageTop = y = ay - 18;
+  const heading = (num, name, level) => {
+    const text = caps ? (level === 1 ? `${roman(Number(num))}. ${name.toUpperCase()}` : `${String.fromCharCode(64 + Number(num.split('.')[1]))}. ${name}`) : numbered ? `${num} ${name}` : name;
+    const size = caps ? body : level === 1 ? 12 : body;
+    const font = caps ? (level === 1 ? 'Times-Roman' : 'Times-Italic') : 'Times-Bold';
+    room(size * 2 + lead * 3);
+    y -= level === 1 ? 8 : 4;
+    page.lines.push({ x: cols[col], y, size, font, text });
+    heads.push({ text, page: pages.length, y: Math.round(y * 10) / 10, column: col, level });
+    y -= size * 1.7;
+  };
+  // Paragraph lines are set at the column they were made for; a column break mid-paragraph moves the rest.
+  const paragraphIn = n => {
+    const lines = setParagraph(paragraphText(para++, n * 8), { x: 0, indent: 10, width: chars, indentChars: 2, size: body });
+    for (const l of lines) { room(lead); page.lines.push({ ...l, x: cols[col] + l.x, y }); y -= lead }
+    y -= 2;
+  };
+  const figure = () => {
+    const w = columns === 2 ? 230 : 380, h = 120;
+    room(h + 50);
+    const x = cols[col] + 6;
+    page.images.push({ x, y: y - h, w, h, pw: 46, ph: 24 });
+    // A bold chart title inside the figure, and a caption sentence under it.
+    page.lines.push({ x: x + 20, y: y - 14, size: 9, font: 'Helvetica-Bold', text: 'Accuracy by Document Length' });
+    y -= h + 14;
+    figures++;
+    page.lines.push({ x: cols[col], y, size: 9, font: 'Times-Roman', text: `Figure ${figures}: Accuracy of each model on documents of growing length.` });
+    y -= 22;
+  };
+  const table = () => {
+    room(110);
+    tables++;
+    page.lines.push({ x: cols[col], y, size: 9, font: 'Times-Roman', text: `Table ${tables}: Results on the long-document benchmark.` });
+    y -= 16;
+    const rows = [['Model', 'Accuracy', 'Recall'], ['Dense', '71.2', '64.0'], ['Local', '73.9', '66.1'], ['Sparse (ours)', '78.4', '70.3']];
+    rows.forEach((row, r) => { row.forEach((cell, k) => page.lines.push({ x: cols[col] + k * 70, y, size: 9, font: r === 0 ? 'Times-Bold' : 'Times-Roman', text: cell })); y -= 12 });
+    y -= 10;
+  };
+  for (const [num, name, paras, extra] of RESEARCH_SECTIONS) {
+    heading(num, name, num.includes('.') ? 2 : 1);
+    for (let k = 0; k < paras; k++) { paragraphIn(5 + ((para * 3) % 5)); if (k === 1 && extra === 'figure') figure(); if (k === 0 && extra === 'table') table() }
+  }
+  // Acknowledgments, References and an appendix.
+  const plain = (text, level = 1) => {
+    room(body * 2 + lead * 3);
+    y -= 8;
+    const shown = caps ? text.toUpperCase() : text;
+    page.lines.push({ x: cols[col], y, size: caps ? body : 12, font: caps ? 'Times-Roman' : 'Times-Bold', text: shown });
+    heads.push({ text: shown, page: pages.length, y: Math.round(y * 10) / 10, column: col, level });
+    y -= 20;
+  };
+  plain('Acknowledgments'); paragraphIn(3);
+  plain('References');
+  for (let i = 1; i <= 18; i++) {
+    for (const l of setParagraph(`[${i}] A. Author and B. Writer. On reading long documents, part ${i}. In Proceedings of the Conference on Reading ${2000 + i}, pages ${i * 10}–${i * 10 + 9}.`, { x: 0, indent: 0, width: chars + 6, indentChars: 0, size: 8.5 })) {
+      room(10); page.lines.push({ ...l, x: cols[col] + l.x, y }); y -= 10;
+    }
+    y -= 2;
+  }
+  if (numbered || caps) {
+    // The appendix starts a page of its own.
+    newPage(); pageTop = top;
+    const a = caps ? 'APPENDIX A. PROOFS' : 'A Additional Proofs';
+    page.lines.push({ x: cols[0], y, size: caps ? body : 12, font: caps ? 'Times-Roman' : 'Times-Bold', text: a });
+    heads.push({ text: a, page: pages.length, y, column: 0, level: 1 });
+    y -= 22;
+    for (let k = 0; k < 6; k++) paragraphIn(6);
+  }
+  const bytes = makePdf({ pages });
+  return meta ? { bytes, heads, pages: pages.length } : bytes;
+}
+
 export function pdfFixtures() {
   // 1. A report with document info and bookmarks, under an unhelpful file name; a picture on page 4.
   const report = makePdf({
