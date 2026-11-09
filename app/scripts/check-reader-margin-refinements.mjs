@@ -11,7 +11,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { createServer } from 'node:http'
-import { enforceReaderBundle } from './lib/readerParityAssertions.mjs'
+import { enforceReaderBundle, openFoldedCardInPlace } from './lib/readerParityAssertions.mjs'
 import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 const dist = path.resolve(process.env.TINCT_DIST || 'dist')
@@ -160,6 +160,11 @@ try {
         assert(leader.borders.some(border => Math.abs(border - start) <= 1), `source connector begins at page border: ${JSON.stringify(leader)}`)
       }
       assert.equal(await page.locator('.source-margin-leaders circle').count(), 0, 'source connector has no dot inside reading text')
+      // One place opens and minimises, and opening keeps the folded line's type and place (tester, 9 Nov 2026).
+      const explainCard = page.locator(`[data-testid="source-margin-item"][data-card-id="${await page.locator('[data-testid="source-margin-item"][data-open="true"]').getAttribute('data-card-id')}"]`)
+      await explainCard.getByTestId('source-margin-minimise').click()
+      await page.screenshot({ path: `${output}/book-1440-explain-folded.png` })
+      await openFoldedCardInPlace(page, explainCard)
       await page.screenshot({ path: `${output}/book-1440-activity.png` })
       assert.equal(await page.locator('[data-testid="source-margin-item"][data-open="true"]').count(), 1, 'existing explanation is open before selecting the next source')
       await select()
@@ -179,6 +184,10 @@ try {
       assert.equal(await askRail.count(), 1, 'Ask keeps one margin card open')
       assert.equal(await askChat.count(), 0, 'margin Ask does not open Chat')
       assert.equal(await page.locator('.lab').getAttribute('data-place'), placeBeforeAsk, 'margin Ask preserves reading place')
+      const askCard = page.locator(`[data-testid="source-margin-item"][data-card-id="${await askRail.getAttribute('data-card-id')}"]`)
+      await askCard.getByTestId('source-margin-minimise').click()
+      await openFoldedCardInPlace(page, askCard)
+      assert.equal(await page.locator('.lab').getAttribute('data-place'), placeBeforeAsk, 'folding and opening an Ask keeps the reading place')
       await page.waitForFunction(question => (localStorage.getItem('tinct:chat-history:frankenstein') || '').includes(question), question)
       const askId = await page.evaluate(question => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.messages.some(message => message.content === question))?.id, question)
       assert(askId, 'Ask persists a source discussion')

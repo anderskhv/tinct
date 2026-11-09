@@ -123,3 +123,6 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-reader__text-offer-stage { color:var(--lab-ink-muted); font-variant-numeric:tabular-nums; }
 .pdf-original-reader__text-offer progress { width:96px; height:6px; accent-color:var(--lab-ink-muted); }
 .pdf-original-reader.is-phone .pdf-original-reader__text-offer { left:calc(16px + env(safe-area-inset-left,0px)); right:calc(16px + env(safe-area-inset-right,0px)); bottom:calc(54px + env(safe-area-inset-bottom,0px)); transform:none; max-width:none; }
+/* A folded PDF note's words in the place and type its saved note reopens in (.pdf-note-field__saved, 17px/1.45,
+   measured 10px below the header), so opening only reveals more (tester, 9 Nov 2026). */
+.pdf-original-reader .source-margin-preview[data-preview="note"] { padding-top:10px!important; line-height:1.45!important; }

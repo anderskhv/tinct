@@ -16,9 +16,16 @@ it('folds an Ask to its first question, its first answer\'s bottom line whole, a
 it('names no question for an action card, and counts only questions after the first answer', () => {
   expect(foldedPreview('explain', [{ role: 'user', content: 'The selected passage.' }, { role: 'assistant', content: '**Metzger counts copies.** He compares them.' }])).toEqual({ preview: 'Metzger counts copies.' })
   expect(foldedPreview('explain', [{ role: 'assistant', content: 'One sentence only.' }, { role: 'user', content: 'Why?' }, { role: 'assistant', content: 'Because.' }]).previewMore).toBe(1)
-  expect(foldedPreview('ask', [])).toEqual({ preview: '' })
-  // A note has no answer: it folds to its own words.
-  expect(foldedPreview('margin-note', [{ role: 'user', content: 'Check this against Bruce.' }])).toEqual({ preview: 'Check this against Bruce.' })
+  expect(foldedPreview('ask', [])).toEqual({ preview: '', previewStyle: 'note' })
+  // A note has no answer: it folds to its own words, styled as they reopen in the note's field.
+  expect(foldedPreview('margin-note', [{ role: 'user', content: 'Check this against Bruce.' }])).toEqual({ preview: 'Check this against Bruce.', previewStyle: 'note' })
+})
+
+/** Tester, 9 Nov 2026: opening a card restyled the line it had shown. The fold says how that line reopens. */
+it('marks a one-sentence answer whole, since it reopens unbolded, and leaves a longer answer\'s bold bottom line unmarked', () => {
+  expect(foldedPreview('explain', [{ role: 'assistant', content: 'One sentence only.' }])).toEqual({ preview: 'One sentence only.', previewStyle: 'whole' })
+  expect(foldedPreview('explain', [{ role: 'assistant', content: 'First line. More follows.' }]).previewStyle).toBeUndefined()
+  expect(foldedPreview('ask', turns).previewStyle).toBeUndefined()
 })
 
 it('takes the bottom line as plain text and cuts a long one at a word, with an ellipsis', () => {
