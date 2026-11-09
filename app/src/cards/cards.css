@@ -101,9 +101,10 @@ button.tc-av { padding: 0; }
 .tc-cam { position: absolute; right: -2px; bottom: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--tc-ink); color: var(--tc-cell); display: grid; place-items: center; box-shadow: 0 0 0 3px var(--tc-ground); }
 .tc-cam svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
 .tc-nm { padding-bottom: 6px; line-height: 1.2; min-width: 0; flex: 1 1 auto; }
-.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: block; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: lining-nums; }
+/* A long name wraps to a second line before it is cut (tester, 9 Nov 2026: "Christian Vester…"). */
+.tc-nm b { font-family: var(--tc-play); font-weight: 700; font-size: 24px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; letter-spacing: -.01em; overflow: hidden; overflow-wrap: break-word; text-wrap: balance; font-variant-numeric: lining-nums; }
 .tc-nm span { font-size: 15px; color: var(--tc-sec); }
-/* The name and its pencil on one line (onboarding v3, Anders 2 Nov 2026): a long name ellipsises, the pencil stays. */
+/* The name and its pencil side by side (onboarding v3, Anders 2 Nov 2026): a long name takes two lines, then ellipsises; the pencil stays. */
 .tc-nm-b { display: flex; align-items: center; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: text; }
 .tc-nm-b b { min-width: 0; }
 .tc-nm-b .tc-name-pencil { flex: none; }

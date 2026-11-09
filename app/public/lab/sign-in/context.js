@@ -1,9 +1,9 @@
 // Sign-in names why you are here (approved S1/S3 mockups and the paste flow's 03, 5 Nov 2026). Arriving
-// from /byob (returnTo …own=file|paste, the Preparing page or the library): with a chosen file, "Sign in to
-// add your book" and the file itself; with pasted text, "Sign in to add your text" and the text by its
+// from /byob (returnTo …own=file|paste, the Preparing page or the library): with a chosen file, "Sign in or join to
+// add your book" and the file itself; with pasted text, "Sign in or join to add your text" and the text by its
 // title. Both are read from this browser's handoff without taking them, so the Preparing page still adds
 // them after sign-in. A file also carries the rights line ("By continuing you confirm you may read this
-// file."). Anything else keeps "Sign in to Tinct".
+// file."). Anything else keeps "Sign in or join Tinct". (Since 9 Nov 2026 every title says "or join": a new reader gets an account the same way.)
 import { peekHandoff, peekPasteHandoff } from '/lab/addbook/js/file-handoff.js';
 import { paperCoverUrl } from '/lab/book-cover.js';
 
@@ -38,14 +38,14 @@ async function apply() {
   if (!root || !title || !copy) return;
   const own = ownFromReturnTo();
   if (own === 'paste') {
-    title.textContent = 'Sign in to add your text';
+    title.textContent = 'Sign in or join to add your text';
     copy.textContent = 'Your text opens in Tinct as soon as you are in.';
     const draft = await peekPasteHandoff();
     if (draft) showChip(draft.title || 'Pasted text', paperCoverUrl(draft.title || 'Pasted text', draft.author || '', ''));
     return;
   }
   if (own !== 'file') return;
-  title.textContent = 'Sign in to add your book';
+  title.textContent = 'Sign in or join to add your book';
   copy.textContent = 'Your book opens as soon as you are in.';
   if (rights) rights.hidden = false;
   const file = await peekHandoff();
