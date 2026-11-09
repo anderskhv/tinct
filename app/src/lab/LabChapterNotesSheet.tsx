@@ -100,7 +100,7 @@ export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, 
   }, [onClose, embedded])
 
   const timeline = (
-        <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined}>
+        <div className="lab-v2-sheet-body lab-catch-up-body" data-testid={card ? 'lab-chapter-notes' : undefined} data-kind={card ? request.kind : undefined} data-state={card ? state : undefined} aria-busy={card && state === 'loading' ? true : undefined}>
           <ol className="lab-catch-up-timeline">
             {state === 'ok' && beats ? <LabChapterNotesEntries beats={beats} /> : state === 'error' ? (
               <li className="lab-catch-up-entry" data-state="error">
