@@ -26,6 +26,10 @@ html[data-eink="true"] .lab { --lab-pbar: #111; --lab-pbar-ink: #fff; --lab-pbar
   --lab-pbar: #252525; --lab-pbar-ink: #f4f2ed; --lab-pbar-soft: #b5b0a8;
   --lab-pbar-sep: rgba(244, 242, 237, .19); --lab-selection-tint: #e4d4a9;
 }
+.lab[data-shared-reader="true"][data-theme="white"] {
+  --lab-pbar: #252525; --lab-pbar-ink: #f4f2ed; --lab-pbar-soft: #b5b0a8;
+  --lab-pbar-sep: rgba(244, 242, 237, .19); --lab-selection-tint: #ecdfb8;
+}
 .lab[data-shared-reader="true"][data-theme="book"] {
   --lab-pbar: #382a20; --lab-pbar-ink: #f2e5ce; --lab-pbar-soft: #c2b4a0;
   --lab-pbar-sep: rgba(242, 229, 206, .2); --lab-selection-tint: #d9bf86;

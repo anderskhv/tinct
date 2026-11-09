@@ -27,6 +27,7 @@
 .pdf-original__size input { width: 104px; accent-color: #6a6256; }
 .pdf-original-reader .pdf-original__page { background: var(--lab-paper); }
 .pdf-original-reader[data-theme=light] .pdf-original__page canvas,
+.pdf-original-reader[data-theme=white] .pdf-original__page canvas,
 .pdf-original-reader[data-theme=book] .pdf-original__page canvas { mix-blend-mode: multiply; }
 .pdf-original-reader[data-theme=dark] .pdf-original__page canvas { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
 html[data-eink=true] .pdf-original-reader .pdf-original__page { background: #fff; }

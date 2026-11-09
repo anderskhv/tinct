@@ -2,7 +2,7 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { PdfOriginalGeometry } from './usePdfOriginalServices'
 import type { PdfOriginalSelection } from '../sharedReader/pdf/PdfOriginalSurface'
-import { parseCompanionRequest } from '../../companion/companionRequest'
+import { buildMarginSystemParts, parseCompanionRequest } from '../../companion/companionRequest'
 import { appendLabChatTurnTo } from '../labChatHistory'
 import { userBookId } from './userBookId'
 
@@ -511,6 +511,31 @@ it('sends every page of a long chapter through the complete document context', a
   expect(parsed?.document?.units).toEqual(pages.map(page => ({label:String(page.n),text:page.text})))
   expect(parsed?.document?.cut).toBe(false)
   expect(parsed?.document?.units[34].text).toContain('End of page 35.')
+  service.dispose()
+})
+
+it('sends a whole-file Summarize as the whole document, not as a part of a longer one (9 Nov 2026)', async () => {
+  const requests: unknown[] = []
+  const api = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url) === '/api/user-books') return json({ books: [{ id: FILE, type: 'pdf', sha256: HEX + '0'.repeat(40) }] })
+    requests.push(JSON.parse(String(init?.body)).companion)
+    return json({ content: [{ text: 'Whole paper summary.' }], stop_reason: 'end_turn' })
+  })
+  const service = new PdfOriginalGeometry(HEX, OWNER, FILE, async () => 'token', api as typeof fetch)
+  const pages = Array.from({ length: 12 }, (_, i) => ({ n: i + 1, text: `Paper page ${i + 1}.` }))
+  for (const page of pages) service.setPdfPageText(page.n, page.text, 12)
+  const whole = { unit: { key: 'document-1-12', title: 'A research paper', from: 1, to: 12 }, pages, atPage: 1 }
+  expect(await service.askUnit(whole, 'recap')).toBe('Whole paper summary.')
+  const parsed = parseCompanionRequest(requests[0])!
+  expect(parsed.document?.units.map(unit => unit.label)).toEqual(pages.map(page => String(page.n)))
+  expect(parsed.document?.part).toBeUndefined()
+  const system = buildMarginSystemParts(parsed)!
+  expect(system.stable).toContain('Paper page 12.')
+  expect(system.stable).not.toContain('too long to include whole')
+  expect(service.saveUnitCard(whole, 'recap', 'Whole paper summary.')).toBe(true)
+  const section = { unit: { key: 'outline-1', title: '2 Method', from: 4, to: 12 }, pages: pages.slice(3), atPage: 4 }
+  expect(await service.askUnit(section, 'recap')).toBe('Whole paper summary.')
+  expect(parseCompanionRequest(requests[1])?.document?.part).toMatchObject({ total: 12 })
   service.dispose()
 })
 

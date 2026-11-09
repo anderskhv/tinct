@@ -10,6 +10,12 @@ export interface FoldedPreview {
   preview: string
   previewQuestion?: string
   previewMore?: number
+  /**
+   * How the folded line opens (SourceMarginRail): 'note' for a note's own words (they reopen in the note's
+   * field), 'whole' for a one-sentence answer (it reopens unbolded). Absent: the bold bottom line of a longer
+   * answer. The folded line takes the open card's type and place, so opening only reveals more (9 Nov 2026).
+   */
+  previewStyle?: 'note' | 'whole'
 }
 
 const MAX_LEAD = 220
@@ -46,9 +52,11 @@ export function foldedPreview(kind: string, turns: ReadonlyArray<{ role: string;
   const question = kind === 'ask' ? turns.slice(0, Math.max(0, at)).find(turn => turn.role === 'user')?.content?.trim() : ''
   const more = at >= 0 ? turns.slice(at + 1).filter(turn => turn.role === 'user').length : 0
   // A note (no answer yet): its own words.
-  if (at < 0) return { preview: clampWords(turns.find(turn => turn.role === 'user')?.content ?? '', MAX_LEAD) }
+  if (at < 0) return { preview: clampWords(turns.find(turn => turn.role === 'user')?.content ?? '', MAX_LEAD), previewStyle: 'note' }
+  const preview = answer(first)
   return {
-    preview: answer(first),
+    preview,
+    ...(preview && preview === first.replace(/\s+/g, ' ').trim() ? { previewStyle: 'whole' as const } : {}),
     ...(question ? { previewQuestion: clampWords(question, MAX_QUESTION) } : {}),
     ...(more ? { previewMore: more } : {}),
   }
