@@ -197,6 +197,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!this.trusted() || !Number.isInteger(page) || page < 1 || page > this.pages) return ''
     return this.pageTexts.get(page) ?? this.loadPageText(page)
   }
+  /** A unit's pages as the margin document; `part` (the prompt's "too long to include whole") only when they are not the whole file. */
+  private unitDocument = (source: PdfOriginalUnitSource) => source.pages.length === this.pages && source.pages[0]?.n === 1
+    ? { kind: 'pdf', units: source.pages }
+    : { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
   askUnit = async (source: PdfOriginalUnitSource, action: PdfOriginalUnitAction, signal?: AbortSignal, onDelta?: (text: string) => void): Promise<string | null> => {
     this.lastUnitAnswer = null
     if (!this.trusted() || !validUnitSource(source, action)) return null
@@ -208,7 +212,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
       : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
         : `Summarize ${source.unit.title}.`
-    const document = { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }
+    const document = this.unitDocument(source)
     const companion = action === 'primer'
       ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title } } }
       : { intent: 'ask', context, document }
@@ -250,7 +254,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
-          companion: { intent: 'quiz', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+          companion: { intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
             pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } } }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
@@ -267,7 +271,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
-          companion: { intent: 'quiz_check', document: { kind: 'pdf', units: source.pages, part: { toc: [{ title: source.unit.title, n: source.unit.from }], total: this.pages } }, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+          companion: { intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
             pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz } }) })
       if (!response.ok || !this.trusted()) return null
       return await readAnthropicResponse(response)

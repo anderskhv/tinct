@@ -27,7 +27,7 @@ vi.mock('./PdfContinuousSurface', () => ({
     useEffect(() => { onScrollHost?.(document.querySelector('.pdf-original__scroll')); onDocument(3); onPageText(1, 'A page with usable text.'); onVisiblePlace({ page: 1, frac: .3 }) }, [])
     const openFinal = () => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(30, 'Last text on unit page 30.'); onVisiblePlace({ page: 30, frac: 0 }); onPageEnd?.(30, false) }
     const pageBounds = (node: HTMLElement | null) => { if (node) node.getBoundingClientRect = () => ({ left: 50, right: 950, top: 100, bottom: 1300, width: 900, height: 1200 } as DOMRect) }
-    return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button>{headingActions?.map(heading => <div key={heading.key} data-testid="mock-heading-actions" aria-label={`${heading.title} actions`}>{heading.actions.map(action => <button key={action.id} onClick={() => heading.onAction(action.id, { page: heading.page, text: heading.title, rects: [[heading.page, .1, .1, .3, .03]] })}>{action.label} for {heading.title}</button>)}</div>)}<output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
+    return <div className="pdf-original__scroll" ref={node => { if (node) node.getBoundingClientRect = () => ({ left: 40, right: 970, top: 90, bottom: 800, width: 930, height: 710 } as DOMRect) }}>{[1, 2, 14, 30].map(page => <div key={page} className="pdf-original__page" data-page={page} ref={pageBounds} />)}<button onClick={() => onSelection({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] })}>Select PDF text</button><button onClick={() => onVisiblePlace({ page: 2, frac: 0 })}>Move to PDF page 2</button><button onClick={() => { onDocument(60); onOutline?.([{ title: 'Introduction', page: 1, items: [] }, { title: 'Chapter One', page: 11, items: [] }, { title: 'Chapter Two', page: 31, items: [] }]); onPageText(14, 'Real extracted text on page 14.'); onVisiblePlace({ page: 14, frac: 0 }); onPageEnd?.(14, false) }}>Open outlined page 14</button><button onClick={() => { onDocument(12); onOutline?.([{ title: '1 Introduction', page: 2, items: [] }, { title: '2 Method', page: 4, items: [] }]); onPageText(1, 'Title and abstract of the paper.'); onVisiblePlace({ page: 1, frac: 0 }) }}>Open research paper</button><button onClick={openFinal}>Open final page top</button><button onClick={() => { openFinal(); onPageEnd?.(30, true) }}>Finish outlined unit</button>{headingActions?.map(heading => <div key={heading.key} data-testid="mock-heading-actions" aria-label={`${heading.title} actions`}>{heading.actions.map(action => <button key={action.id} onClick={() => heading.onAction(action.id, { page: heading.page, text: heading.title, rects: [[heading.page, .1, .1, .3, .03]] })}>{action.label} for {heading.title}</button>)}</div>)}<output data-testid="requested-pdf-place">{requestedPlace?.page || 0}</output><output data-testid="requested-pdf-frac">{requestedPlace?.frac ?? 0}</output></div>
   },
 }))
 vi.mock('../../../components/reader/SelectionDeskBar', () => ({
@@ -355,6 +355,47 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   expect(catchup.atPage).toBe(14)
   expect(saveUnitCard).toHaveBeenCalledWith(catchup, 'catchup', 'catchup from original pages.')
   expect(saveUnitCard).toHaveBeenCalledTimes(2)
+})
+
+it('summarizes the whole PDF from the menu, not only the unit the reader is on (tester report, 9 Nov 2026)', async () => {
+  const askUnit = vi.fn(async () => 'A summary of the whole paper.')
+  const saveUnitCard = vi.fn(() => true)
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => `Paper text on page ${page}.`), askUnit, saveUnitCard,
+  }
+  render(<PdfOriginalReaderShell title="A research paper" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open research paper'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+  expect(await screen.findByText('A summary of the whole paper.')).toBeTruthy()
+  expect(askUnit).toHaveBeenCalledOnce()
+  const [source, action] = askUnit.mock.calls[0] as unknown as [Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], string]
+  expect(action).toBe('recap')
+  expect(source.pages.map(page => page.n)).toEqual(Array.from({ length: 12 }, (_, index) => index + 1))
+  expect(source.unit).toEqual(expect.objectContaining({ title: 'A research paper', from: 1, to: 12 }))
+  expect(saveUnitCard).toHaveBeenCalledWith(source, 'recap', 'A summary of the whole paper.')
+  expect(screen.getByText('Source · Original PDF pages 1–12')).toBeTruthy()
+})
+
+it('summarizes the current unit from the menu when the whole PDF is over the send bound', async () => {
+  const askUnit = vi.fn(async () => 'A summary of these pages.')
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => page === 10 ? 'x'.repeat(199_000) : page > 3 ? 'y'.repeat(190_000) : `Opening text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true),
+  }
+  render(<PdfOriginalReaderShell title="A long book" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open research paper'))
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
+  expect(await screen.findByText('A summary of these pages.')).toBeTruthy()
+  expect(askUnit).toHaveBeenCalledOnce()
+  const source = askUnit.mock.calls[0][0] as unknown as Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0]
+  expect(source.pages.map(page => page.n)).toEqual([1])
+  expect(source.unit).toEqual(expect.objectContaining({ title: 'Page 1', from: 1, to: 1 }))
+  expect(screen.getByText('Source · Original PDF page 1')).toBeTruthy()
 })
 
 it('does not send or save a Primer when a later required page exceeds the full-page bound', async () => {
