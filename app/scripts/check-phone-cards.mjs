@@ -262,7 +262,8 @@ async function run(engineName) {
   ok(`${tag}: ••• is compact (${more.w}px for ${more.widest}px of name) and whole on screen`, whole(more) && more.w <= more.widest + 40 && more.names.join('|') === 'Define|Evaluate|Counterpoint|Quiz me|Copy', more)
   shots.push(await shot(page, `${tag}-more`))
   await tapOutside(page)
-  await select(page, 150, 156).catch(() => select(page, 120, 126))
+  // The chapter's start pill (approved mockup, 9 Nov 2026) leaves fewer words on a chapter's first page.
+  await select(page, 150, 156).catch(() => select(page, 120, 126)).catch(() => select(page, 100, 106))
   more = await moreBox()
   ok(`${tag}: ••• for a selection low on the page is still whole on screen (${more.below ? 'below' : 'above'} the bar)`, whole(more) && (more.below || more.m[3] <= more.bar[0]), more)
   shots.push(await shot(page, `${tag}-more-low`))
@@ -504,9 +505,10 @@ async function run(engineName) {
     const el = document.querySelector('[data-testid="lab-unit-start"]'), head = el?.parentElement?.querySelector('.lab-passage-headline')
     if (!el || !head) return null
     const p = el.getBoundingClientRect(), h = head.getBoundingClientRect()
-    return { text: el.textContent.replace(/\s+/g, ' ').trim(), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length, sameLine: p.top < h.bottom && p.bottom > h.top && p.left >= h.right - 1, starting: /Starting/.test(document.querySelector('.lab-passage-header').textContent) }
+    return { text: [...el.querySelectorAll('.lab-start-seg')].map(seg => seg.textContent.trim()).join('·'), primerChip: document.querySelectorAll('.lab-passage-header > .lab-chapter-preview').length, under: p.top >= h.bottom - 1, full: Math.round(p.width) >= Math.round(head.parentElement.getBoundingClientRect().width) - 1, starting: /Starting/.test(document.querySelector('.lab-passage-header').textContent) }
   })
-  ok(`${tag}: the start pills sit on the heading's line, beside it (✧ Primer · ✧ Catch me up), no "Starting" line`, !!startPill && /^✧Primer✧Catch me up$/.test(startPill.text) && startPill.primerChip === 0 && startPill.sameLine && !startPill.starting, startPill)
+  // The start actions (approved mockup, Anders 9 Nov 2026) replace the ✧ Primer · ✧ Catch me up chips beside the heading.
+  ok(`${tag}: the chapter's pill sits under the heading, full width (Primer · Summary · Quiz), no "Starting" line`, !!startPill && startPill.text === 'Primer·Summary·Quiz' && startPill.primerChip === 0 && startPill.under && startPill.full && !startPill.starting, startPill)
   shots.push(await shot(sp, `${tag}-start-pills`))
   const pillGaps = sel => sp.evaluate(sel => {
     const pills = [...document.querySelectorAll(sel)].filter(el => el.getBoundingClientRect().height > 0)
@@ -514,7 +516,7 @@ async function run(engineName) {
     return { gaps: spans.slice(1).map((b, i) => Math.round(b.left - spans[i].right)), heights: pills.map(el => Math.round(el.getBoundingClientRect().height)) }
   }, sel)
   const startGaps = await pillGaps('[data-testid="lab-unit-start"] button')
-  ok(`${tag}: the start pills sit 8px apart (${startGaps.gaps.join(', ')}), each 44px tall to tap`, startGaps.gaps.length >= 1 && startGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && startGaps.heights.every(h => h >= 44), startGaps)
+  ok(`${tag}: the start pill's segments, each 44px tall to tap`, startGaps.heights.length === 3 && startGaps.heights.every(h => h >= 44), startGaps)
   const pillCard = async (testId, kind, label) => {
     await sp.getByTestId(testId).click()
     await sp.getByTestId('lab-phone-card').waitFor()
@@ -550,7 +552,7 @@ async function run(engineName) {
   await tapOutside(sp)
   await sp.waitForTimeout(300)
   ok(`${tag}: Primer, follow-up and Talk: the place is unchanged`, same(await placeOf(sp), startHome), await placeOf(sp))
-  await pillCard('lab-unit-catchup', 'catchup', 'Catch me up')
+  await pillCard('lab-unit-summary', 'catchup', 'Summary')
   // Turn to the chapter's end.
   for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
   await sp.waitForTimeout(600)
@@ -598,8 +600,8 @@ async function run(engineName) {
   // The book's first chapter: nothing to catch up on yet (Anders, 20 Oct 2026): ✧ Primer only, no Catch me up in the t menu.
   const firstState = await boot(engine, `?book=${BOOK}&margin=1`, { chapterNumber: 1, paragraphIndex: 0 })
   const fp = firstState.page
-  const first = await fp.evaluate(() => document.querySelector('[data-testid="lab-unit-start"]')?.textContent.replace(/\s+/g, ' ').trim() ?? null)
-  ok(`${tag}: the first chapter's start pill has ✧ Primer and no ✧ Catch me up ("${first}")`, first === '✧Primer', first)
+  const first = await fp.evaluate(() => [...document.querySelectorAll('[data-testid="lab-unit-start"] .lab-start-seg')].map(seg => seg.textContent.trim()).join('·') || null)
+  ok(`${tag}: the first chapter's pill has Primer and Quiz, no Summary ("${first}")`, first === 'Primer·Quiz', first)
   await showControls(fp)
   await fp.getByTestId('lab-super').click()
   await fp.getByTestId('lab-super-menu').waitFor()

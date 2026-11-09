@@ -3,13 +3,15 @@ import { useReaderWindow } from '../useReaderWindow'
 import { LabBalanceEmptyLine } from '../LabAiUsageBar'
 import { CATCH_UP_COOLDOWN_MS, catchUpContextText, catchUpShouldCoolDown } from '../labCatchUp'
 import { RowIcon } from '../LabSuperMenu.tsx'
-import { CATCH_UP_TITLE } from '../LabCatchUpSheet'
+import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE } from '../LabCatchUpSheet'
 import { buildOwnCatchUp, ownCatchUpPlan } from './ownCatchUp'
 import type { UserBookChapter } from './userEdition'
 import '../labCatchUp.css'
 
 /** The one entry's title: everything read so far, in one recap. */
 export const OWN_CATCH_UP_ENTRY_TITLE = 'So far'
+/** The whole book's one entry. */
+export const OWN_BOOK_SUMMARY_ENTRY_TITLE = 'The whole book'
 
 export interface LabOwnCatchUpSheetProps {
   bookHex: string
@@ -31,6 +33,8 @@ export interface LabOwnCatchUpSheetProps {
   thread?: ReactNode
   embedded?: boolean
   onReady?: (text: string) => void
+  /** The whole book's Summary (start actions, 9 Nov 2026): every chapter, recapped as one, ending at the book's end. */
+  wholeBook?: boolean
 }
 
 type State =
@@ -46,8 +50,15 @@ type State =
  * at open, and never writes one.
  */
 export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
-  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread, embedded = false, onReady } = props
-  const [steps] = useState(() => ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed }))
+  const { bookHex, bookTitle, chapters, chapterNumber, paragraphIndex, completed, readToken, onClose, onChat, onTalk, onTopUp, follow, thread, embedded = false, onReady, wholeBook = false } = props
+  const [steps] = useState(() => {
+    const last = chapters[chapters.length - 1]
+    return wholeBook
+      ? (last ? ownCatchUpPlan({ chapters, chapterNumber: last.number, paragraphIndex: last.paragraphs.length - 1, completed: true }) : [])
+      : ownCatchUpPlan({ chapters, chapterNumber, paragraphIndex, completed })
+  })
+  const entryTitle = wholeBook ? OWN_BOOK_SUMMARY_ENTRY_TITLE : OWN_CATCH_UP_ENTRY_TITLE
+  const sheetTitle = wholeBook ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE
   const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
   const [attempt, setAttempt] = useState(0)
   const windowRef = useReaderWindow<HTMLElement>('catchup', true)
@@ -92,7 +103,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   }, [status])
 
   const retry = useCallback(() => setAttempt(n => n + 1), [])
-  const shownText = () => catchUpContextText([{ title: OWN_CATCH_UP_ENTRY_TITLE, summary: status.state === 'ok' ? status.recap : undefined }])
+  const shownText = () => catchUpContextText([{ title: entryTitle, summary: status.state === 'ok' ? status.recap : undefined }])
 
   const readyRef = useRef(onReady); readyRef.current = onReady
   const readyText = status.state === 'ok' ? shownText() : ''
@@ -100,9 +111,9 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   const content = (
     <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
       <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={CATCH_UP_TITLE}>
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={sheetTitle}>
         <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{CATCH_UP_TITLE}</h2>
+          <h2 className="lab-v2-title">{sheetTitle}</h2>
           <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
         </div>
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body">
@@ -111,7 +122,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
             {!(status.state === 'ok' && !status.recap) && (
               <li className="lab-catch-up-entry is-current" data-state={status.state} data-testid="lab-catch-up-entry">
                 <span className="lab-catch-up-dot" aria-hidden="true" />
-                <h3 className="lab-catch-up-title">{OWN_CATCH_UP_ENTRY_TITLE}</h3>
+                <h3 className="lab-catch-up-title">{entryTitle}</h3>
                 {status.state === 'ok' ? (
                   <p className="lab-catch-up-text">{status.recap}</p>
                 ) : status.state === 'error' ? (<>
@@ -127,10 +138,10 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
                 </>)}
               </li>
             )}
-            <li className="lab-catch-up-here" data-testid="lab-catch-up-here">
+            {!wholeBook && <li className="lab-catch-up-here" data-testid="lab-catch-up-here">
               <span className="lab-catch-up-dot" aria-hidden="true" />
               You are here
-            </li>
+            </li>}
           </ol>
           {thread}
         </div>

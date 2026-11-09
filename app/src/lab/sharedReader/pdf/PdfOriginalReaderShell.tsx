@@ -19,6 +19,8 @@ import { foldedPreview } from '../cardPreview'
 import type { QuizTurn } from '../../../companion/companionRequest'
 import { useLabDictation } from '../../useLabDictation'
 import { SourceMarginRail, type SourceMarginEntry } from '../SourceMarginRail'
+import { ReadingAngleField } from '../../LabReadingAngleField'
+import { useReadingAngle } from '../../labReadingAngle'
 import type { PdfRegionCapture } from './pdfOriginalFigures'
 import { findPdfHeading, type PdfHeadingActions } from './pdfHeadingGeometry'
 import { LabDesktopCard } from '../LabDesktopCard'
@@ -192,6 +194,8 @@ export function withCardSource(marks: PdfOriginalHighlight[] | undefined, card: 
 const detectSections = pdfSectionDetector(loadPdfEngine)
 export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textOffer = false, textBusy = false, autoConvert = false, textProgress, textError, textRetry = true, initialZoom = 1, onZoom, services, serviceStatus, onRetryServices, scanOutline, unitRules, sectionDetector }: PdfOriginalReaderShellProps) {
   const root = useRef<HTMLDivElement>(null)
+  // The document's reading angle: the same stored value as its Tinct text's (labReadingAngle.ts).
+  const [angle, setAngle] = useReadingAngle(bookId)
   const [scrollHost, setScrollHost] = useState<HTMLElement | null>(null)
   const [pane, setPane] = useState<Pane>(null)
   const panelRef = useReaderWindow<HTMLElement>('settings', !!pane && pane !== 'menu' && pane !== 'contents' && pane !== 'switcher')
@@ -600,7 +604,9 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
   }
   const headingActions: PdfHeadingActions[] = units.filter(unit => !unit.matter && unit.title.trim()).map((target, index) => ({ key: target.key, title: target.title, page: target.start,
     // Acknowledgments, contents, an index: nothing to prepare for or recap, only a Note.
-    actions: isApparatus(target.title) ? [{ id: 'note', label: 'Note' }] : [{ id: 'primer', label: 'Primer' }, ...(index ? [{ id: 'catchup' as const, label: 'Catch me up' }] : []), { id: 'recap', label: 'Recap' }, { id: 'quiz', label: 'Quiz me' }, { id: 'note', label: 'Note' }],
+    // The start actions (approved mockup, Anders 9 Nov 2026): Primer · Summary · Quiz me first; Summary is what came
+    // before this section (Catch me up's pages), so none on the first. Recap and Note follow, as before.
+    actions: isApparatus(target.title) ? [{ id: 'note', label: 'Note' }] : [{ id: 'primer', label: 'Primer' }, ...(index ? [{ id: 'catchup' as const, label: 'Summary' }] : []), { id: 'quiz', label: 'Quiz me' }, { id: 'recap', label: 'Recap' }, { id: 'note', label: 'Note' }],
     onAction: (action, source) => {
       if (action === 'note') openUnitNote(target, source)
       else if (action === 'quiz') void runUnitQuiz(target, source)
@@ -617,15 +623,30 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
     const layer = root.current?.querySelector<HTMLElement>(`.pdf-original__page[data-page="${heading.page}"][data-ready="true"] .pdf-original__text`)
     return layer ? findPdfHeading(layer, heading) : null
   }
-  const chapterEntries: SourceMarginEntry[] = phone ? [] : headingActions.map(heading => ({
-    id: 'unit:' + heading.key, label: heading.title, actions: true as const, open: true, onToggle: () => {},
+  // The whole document's Summary: every page as one document when it fits the send bound (#761), else the first unit.
+  const summarizeWhole = (source: PdfOriginalSelection) => { const first = units.find(unit => !unit.matter) ?? units[0]; if (!first) return; const whole = pdfDocumentUnit(title, pages); void (whole ? runUnit('recap', pdfCompleteUnitPages(whole), whole, source, { unit: first, pages: pdfCompleteUnitPages(first, true) }) : runUnit('recap', pdfCompleteUnitPages(first, true), first, source)) }
+  const chapterEntries: SourceMarginEntry[] = phone ? [] : headingActions.map((heading, index) => ({
+    id: 'unit:' + heading.key, label: index === 0 ? 'Before you start' : heading.title, actions: true as const, variant: index === 0 ? 'start' as const : 'start-later' as const, open: true, onToggle: () => {},
     source: () => { const found = headingSelection(heading); return found ? sourceAnchor(found, false, true) : null },
     // Ordered by the heading's own line, as every card is by its passage, and just ahead of a card on that line.
     order: heading.page * 1_000_000 + (headingSelection(heading)?.rects[0]?.[2] ?? 0) * 100_000 - 1,
-    content: <div className="pdf-original__margin-actions" role="group" aria-label={`${heading.title} actions`} data-testid="pdf-heading-actions" data-unit-key={heading.key}>
-      {heading.actions.map(action => <button key={action.id} type="button" data-action={action.id}
-        onClick={() => heading.onAction(action.id, headingSelection(heading) ?? { page: heading.page, text: heading.title, rects: [] })}>{action.label}</button>)}
-    </div>,
+    content: (() => {
+      const acts = <div className="pdf-original__margin-actions" role="group" aria-label={`${heading.title} actions`} data-testid="pdf-heading-actions" data-unit-key={heading.key}>
+        {heading.actions.map(action => <button key={action.id} type="button" data-action={action.id}
+          onClick={() => heading.onAction(action.id, headingSelection(heading) ?? { page: heading.page, text: heading.title, rects: [] })}>{action.label}</button>)}
+      </div>
+      if (index !== 0) return acts
+      // "Before you start" beside the document's first heading: the reading angle, the whole document, then this section.
+      return <div className="lab-start-card" data-testid="pdf-start-card">
+        <div className="lab-start-angle"><ReadingAngleField value={angle} onChange={setAngle} testId="pdf-reading-angle" /></div>
+        <p className="lab-start-head">The whole document</p>
+        <div className="pdf-original__margin-actions" role="group" aria-label="The whole document">
+          <button type="button" data-action="summary-whole" data-testid="pdf-whole-summary" onClick={() => summarizeWhole(headingSelection(heading) ?? { page: heading.page, text: heading.title, rects: [] })}>Summary</button>
+        </div>
+        <p className="lab-start-head">{heading.title}</p>
+        {acts}
+      </div>
+    })(),
   }))
   const railEntries: SourceMarginEntry[] = [
     ...chapterEntries,

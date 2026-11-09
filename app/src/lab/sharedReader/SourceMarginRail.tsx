@@ -31,6 +31,11 @@ export interface SourceMarginEntry {
    * the chapter, never folded or deleted. Its leader starts at the page border, like every card's.
    */
   actions?: true
+  /**
+   * The start actions (approved mockup, Anders 9 Nov 2026): 'start' is the book's "Before you start" card; 'start-later'
+   * a later chapter's greyed card (dashed, muted) until one of its actions is chosen.
+   */
+  variant?: 'start' | 'start-later'
 }
 export interface SourceMarginRailProps {
   host: HTMLElement | null
@@ -164,13 +169,14 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
     }
     const key = (event: KeyboardEvent) => {
       if (event.key !== 'Escape' || event.defaultPrevented || event.isComposing || event.keyCode === 229 || covered(event.target)) return
-      const open = latest.current.filter(entry => entry.open)
+      // A chapter's actions are always shown, never an open card: Escape is not theirs to take (start actions, 9 Nov 2026).
+      const open = latest.current.filter(entry => entry.open && !entry.actions)
       if (open.length) { event.preventDefault(); event.stopPropagation(); open.forEach(entry => entry.onToggle()) }
     }
     const outside = (event: PointerEvent) => {
       const target = event.target instanceof Element ? event.target : null
       if (!target || covered(target) || target.closest('.source-margin-item, .source-margin-room, [data-source-card-id], [data-source-mark-id], .pdf-original__minimap, .source-minimap') || sourcePointer.current?.(event)) return
-      latest.current.filter(entry => entry.open).forEach(entry => entry.onToggle())
+      latest.current.filter(entry => entry.open && !entry.actions).forEach(entry => entry.onToggle())
     }
     window.addEventListener('keydown', key, true)
     window.addEventListener('pointerdown', outside, true)
@@ -208,7 +214,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
     {entries.map(entry => { const at = layout.items.find(item => item.id === entry.id)
       // A chapter's actions appear only once its heading is on a drawn page; a card is measured hidden first.
       if (entry.actions && !at) return null
-      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
+      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}${entry.variant ? ` is-${entry.variant}` : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
         <header className="source-margin-head">{entry.actions ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
           {/* One place opens and minimises (tester, 9 Nov 2026: the open click and the minimise sat apart). */}
           {!entry.actions && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
