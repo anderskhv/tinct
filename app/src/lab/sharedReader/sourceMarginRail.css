@@ -14,8 +14,9 @@
    .lab-pcard-note), so opening a card reveals more without restyling or moving what was shown (tester, 9 Nov 2026). */
 .source-margin-preview { width:100%; display:block; text-align:left; font-size:17px!important; line-height:1.5!important; color:var(--lab-ink-muted)!important; padding:8px 0 0!important; }
 .source-margin-preview-question { display:block; margin:2px 0 18px; font-size:16px; line-height:1.4; font-style:italic; }
-.source-margin-preview-lead { color:var(--lab-ink); font-weight:600; }
-.source-margin-preview:is([data-preview="whole"],[data-preview="note"]) .source-margin-preview-lead { font-weight:400; }
+/* A folded card is passive: regular weight in the muted ink, so it never pulls the eye from the page
+   (Anders, 9 Nov 2026). Opening it may bold the answer's lead line; the words stay in place. */
+.source-margin-preview-lead { color:inherit; font-weight:400; }
 .source-margin-preview[data-preview="note"] { padding-top:12px!important; }
 .source-margin-preview-more { white-space:nowrap; }
 .source-margin-content[hidden] { display:none; }
