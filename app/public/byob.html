@@ -16,7 +16,7 @@
 <meta name="theme-color" content="#13110e">
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" href="/fonts/tinct-fonts.css">
-<link rel="stylesheet" href="/lab/library_2/paste-text.css?v=20261105flow">
+<link rel="stylesheet" href="/lab/library_2/paste-text.css?v=20261109add3">
 <script type="module" src="/lab/internal-traffic.js"></script>
 <style>
 /* Anders's "Book spread" design (approved 5 Nov 2026): a dark page on the left, the library's room on the right.
@@ -40,8 +40,7 @@ h1{font:400 clamp(52px,5vw,72px)/1.02 var(--serif);letter-spacing:-.025em;margin
 .drop{border:1px dashed var(--line);border-radius:12px;padding:20px 24px 22px;max-width:472px;transition:border-color .15s,background .15s}
 .drop.over{border-color:var(--ink);background:#eee7d00d}
 .drop-title{display:flex;align-items:center;gap:14px;font:400 22px var(--serif);margin:0 0 16px}
-.drop-title svg,.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.btns{display:flex;gap:10px}
+.drop-title svg,.btn svg,.add-own-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 16px;border-radius:7px;font:500 15px/1 var(--ui);cursor:pointer;border:1px solid transparent}
 .btn.primary{background:var(--btn);color:var(--btn-ink)}
 .btn.secondary{background:none;color:var(--ink);border-color:var(--line2)}
@@ -66,30 +65,37 @@ h1{font:400 clamp(52px,5vw,72px)/1.02 var(--serif);letter-spacing:-.025em;margin
   .drop-title{display:none}
   .foot{margin-top:22px}
 }
-/* Paste text (approved mockup 02, 5 Nov 2026): the drop box becomes the text box in place, the intro line
-   goes, "Continue" is the one action and "Choose a file" moves to the foot. paste-box.js draws the box. */
-.paste[hidden],.rights[hidden],.foot[hidden]{display:none}
+/* The three choices (Anders, 9 Nov 2026: Upload, Insert link, Paste text; add-choices.js draws the same in the
+   library's pop-up; their tiles and rows are in paste-text.css). Paste text (approved mockup 02, 5 Nov 2026) and
+   Insert link turn the drop box into their step in place: the intro line goes, a back chevron leads back to the
+   three choices, and the step's own button is the one action. paste-box.js draws the paste box. */
+.paste[hidden],.link-area[hidden],.rights[hidden],.foot[hidden]{display:none}
 .rights{margin:12px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}
-.pasting .sub,.pasting .drop-title,.pasting .btns,.pasting .drop>.status,.pasting .rights{display:none}
-.pasting h1{margin-bottom:28px}
-.pasting .drop{border:1px solid var(--line2);padding:18px 20px 20px;background:#eee7d005}
-.pasting .drop.over{border-color:var(--ink)}
+:is(.pasting,.linking) :is(.sub,.drop-title,.add-choices,.drop>.status,.rights,.foot){display:none}
+:is(.pasting,.linking) h1{margin-bottom:28px}
+:is(.pasting,.linking) .drop{border:1px solid var(--line2);padding:18px 20px 20px;background:#eee7d005}
+:is(.pasting,.linking) .drop.over{border-color:var(--ink)}
+.step-head{display:flex;align-items:flex-start;gap:4px;margin:0 0 4px}
+.step-head>:last-child{flex:1;min-width:0}
+.step-title{margin:0;font:400 23px/1.25 var(--serif);color:var(--ink)}
+.link-area .step-head{margin-bottom:14px}
 .drop .paste-title{font-size:23px;margin:0 0 4px}
 .drop .paste-meta{margin:0 0 12px}
 .drop .paste-box{height:min(300px,calc(100dvh - 420px));padding:12px 14px}
 .paste-error{margin:10px 0 0;font-size:14px;color:#ffb7a3}.paste-error:empty{display:none}
-.paste-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.paste-row{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:16px}
+.paste-row .note{margin-right:auto}
+.drop .add-choice{padding:16px 14px 14px}
 .paste-row .note{font:13px/1.4 var(--ui);color:var(--muted)}.paste-row .note[hidden]{display:none}
 .paste-row .btn{flex:none;padding:0 28px}
-.link{padding:0;border:0;background:none;color:var(--ink);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 @media (max-width:860px){
-  .pasting .page{margin-top:64px}
-  .pasting h1{font-size:34px;margin-bottom:18px}
-  .pasting .drop{border:0;padding:0;background:none}
+  :is(.pasting,.linking) .page{margin-top:64px}
+  :is(.pasting,.linking) h1{font-size:34px;margin-bottom:18px}
+  :is(.pasting,.linking) .drop{border:0;padding:0;background:none}
   .drop .paste-title{font-size:22px}
   .drop .paste-box{height:min(350px,calc(100dvh - 380px))}
   .paste-row{flex-direction:column-reverse;align-items:stretch;gap:12px}
-  .paste-row .note{text-align:center}
+  .paste-row .note{text-align:center;margin-right:0}
   .paste-row .btn{width:100%}
   .foot{text-align:center}
 }
@@ -108,11 +114,14 @@ h1{font:400 clamp(52px,5vw,72px)/1.02 var(--serif);letter-spacing:-.025em;margin
       <p class="sub">Bring any PDF, EPUB or simply paste text from an article. Explain any passage, listen to it, talk it through.</p>
       <div class="drop" id="drop">
         <p class="drop-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>Drag your file here</p>
-        <div class="btns"><button class="btn primary" id="choose" type="button">Choose a file</button><button class="btn secondary" id="paste" type="button">Paste text</button></div>
+        <div class="add-choices" role="group" aria-label="Add your own"><button class="add-choice" id="choose" type="button" data-choice="upload" aria-labelledby="choose-label" aria-describedby="choose-line"><span class="add-choice__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M4 14.5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.5"/></svg></span><span class="add-choice__label" id="choose-label">Upload</span><span class="add-choice__line" id="choose-line">PDF, EPUB, text</span></button><button class="add-choice" id="link" type="button" data-choice="link" aria-labelledby="link-label" aria-describedby="link-line"><span class="add-choice__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg></span><span class="add-choice__label" id="link-label">Insert link</span><span class="add-choice__line" id="link-line">An article online</span></button><button class="add-choice" id="paste" type="button" data-choice="paste" aria-labelledby="paste-label" aria-describedby="paste-line"><span class="add-choice__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.5H7a2 2 0 0 0-2 2V19a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6.5a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="3.5" rx="1"/></svg></span><span class="add-choice__label" id="paste-label">Paste text</span><span class="add-choice__line" id="paste-line">Any text you copied</span></button></div>
         <p class="rights" id="rights" hidden>By choosing a file you confirm you may read it.</p>
         <p class="status" id="status" role="status"></p>
+        <div class="link-area" id="link-area" hidden>
+          <div class="step-head"><button class="add-own-back" id="link-back" type="button" aria-label="Back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><h2 class="step-title" id="link-title">Insert link</h2></div>
+        </div>
         <div class="paste" id="paste-area" hidden>
-          <div id="paste-title"></div>
+          <div class="step-head"><button class="add-own-back" id="paste-back" type="button" aria-label="Back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><div id="paste-title"></div></div>
           <p class="paste-error" id="paste-error" role="alert"></p>
           <div class="paste-row"><span class="note" id="paste-note">Kept on this device until you sign in.</span><button class="btn primary" id="continue" type="button">Continue</button></div>
         </div>
@@ -120,9 +129,8 @@ h1{font:400 clamp(52px,5vw,72px)/1.02 var(--serif);letter-spacing:-.025em;margin
       </div>
     </div>
     <p class="foot" id="foot-library">Already reading? <a href="/library">Open your Library</a></p>
-    <p class="foot" id="foot-file" hidden>Have a PDF or EPUB? <button class="link" id="choose-foot" type="button">Choose a file</button></p>
   </main>
 </div>
-<script type="module" src="/byob.js?v=20261109link"></script>
+<script type="module" src="/byob.js?v=20261109add3"></script>
 </body>
 </html>

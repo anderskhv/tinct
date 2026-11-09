@@ -7,8 +7,8 @@
 // A file here because the site's Content-Security-Policy refuses inline scripts.
 import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {paperCoverUrl} from '/lab/book-cover.js?v=20261009owncover';
-import {cleanPaste,htmlText} from '/lab/library_2/paste-text.js?v=20261109link';
-import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong} from '/lab/library_2/own-add.js?v=20261109link';
+import {cleanPaste,htmlText} from '/lab/library_2/paste-text.js?v=20261109add3';
+import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong} from '/lab/library_2/own-add.js?v=20261109add3';
 
 const $=id=>document.getElementById(id);
 const own=new URLSearchParams(location.search).get('own')==='file'?'file':'paste';

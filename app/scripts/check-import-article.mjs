@@ -1,12 +1,14 @@
-// A link pasted into Paste text imports the article (Anders, 9 Nov 2026: "import articles rather than
-// pasting text via link").
+// A link imports the article (Anders, 9 Nov 2026: "import articles rather than pasting text via link"), from
+// "Insert link", one of the three choices of "Add your own" (Anders, 9 Nov 2026: "3 options, upload, insert
+// link, paste text… no extra links, keep it clean"). A link pasted alone into Paste text goes to Insert link.
 //
 // Loads the built site (dist/) in headless Chromium, desktop and phone, and asserts:
-// 1. Signed in, the library pop-up: a pasted link stays a link ("Link · Tinct imports the article from …"),
-//    Add imports it ("Importing the article from …") and the reader opens the article: its title, its
-//    "From <site>" line and its paragraphs, without the site's menu, ads or comments.
-// 2. Signed out, /byob: the link waits on the device; sign-in names the article by its site; after a faked
-//    sign-in /preparing imports it and the reader opens it.
+// 1. Signed in, the library pop-up: Insert link (a back chevron, one field "Link to an article", Add) takes a
+//    link; nothing is fetched until Add; Add imports it ("Importing the article from …") and the reader opens
+//    the article: its title, its "From <site>" line and its paragraphs, without the site's menu, ads or
+//    comments. A link pasted into Paste text lands in Insert link, as pasted, and imports the same way.
+// 2. Signed out, /byob: Insert link (and a link pasted into Paste text) keeps the link on the device; sign-in
+//    names the article by its site; after a faked sign-in /preparing imports it and the reader opens it.
 // 3. A page that shares no text (a JavaScript-only page, a paywall): the honest message, the link kept, no
 //    book and no upload. In the pop-up and on /preparing (with the way back to /byob, where the link still is).
 // 4. Pasted text behaves as before: no import request, the text in the reader.
@@ -166,14 +168,28 @@ async function showsArticle(page, { title, site, first, chrome }) {
   const last = site.split(' ').pop()
   return page.locator('[data-testid="lab-root"] a.lab-link', { hasText: last }).first().getAttribute('href', { timeout: 5000 }).catch(() => null)
 }
-async function openPastePopUp(page) {
+async function openAddPopUp(page) {
   await page.goto('/library?sharedReader=1')
   await libraryReady(page)
   await page.locator('#library-add:visible').click()
   await page.locator('.own-file-dialog[data-step="choose"]').waitFor()
-  await page.getByRole('button', { name: 'Paste text' }).click()
+  assert.equal(await page.locator('.own-file-dialog h2').innerText(), 'Add your own')
+  assert.deepEqual(await page.locator('.own-file-dialog .add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'])
+}
+async function openPastePopUp(page) {
+  await openAddPopUp(page)
+  await page.getByRole('button', { name: 'Paste text', exact: true }).click()
   await page.locator('.own-file-dialog.paste-dialog[data-step="paste"]').waitFor()
 }
+async function openLinkPopUp(page) {
+  await openAddPopUp(page)
+  await page.getByRole('button', { name: 'Insert link', exact: true }).click()
+  await page.locator('.own-file-dialog[data-step="link"]').waitFor()
+  assert.equal(await page.locator('.own-file-dialog h2').innerText(), 'Insert link')
+  assert(await page.locator('.own-file-dialog .tui-dialog__head .add-own-back').isVisible(), 'a back chevron to the three choices')
+  assert.equal(await page.locator('.own-file-dialog .add-link__label').innerText(), 'Link to an article')
+}
+const LINK_FIELD = '.own-file-dialog .add-link__input'
 const NEWS_CHROME = ['Accept all', 'Advertisement', 'Share on', 'Herons nest', 'morning briefing', 'Wonderful news', 'Council approves', 'All rights reserved']
 
 async function main() {
@@ -186,27 +202,34 @@ async function main() {
   const reset = () => { account.books = []; account.uploads = 0; account.imports = []; account.siteFetches = []; account.importHold = 0 }
   try {
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
-      await run(`library pop-up, ${name}: a pasted link -> importing -> the reader shows the article`, async () => {
+      for (const via of ['Insert link', 'a link pasted into Paste text']) await run(`library pop-up, ${name}, ${via}: the link -> importing -> the reader shows the article`, async () => {
         reset(); account.importHold = 1500
         const c = await context(browser, origin, supabase, { signedIn: true, viewport }), page = await c.newPage()
         const errors = []; page.on('pageerror', e => errors.push(e.message))
-        await openPastePopUp(page)
-        assert.equal(await page.locator('.paste-dialog .paste-box').getAttribute('data-placeholder'), 'Paste your text or a link here')
-        await pasteInto(page, '.paste-dialog .paste-box', NEWS, `<a href="${NEWS}">${NEWS}</a>`)
-        await page.locator('.paste-dialog .paste-meta').waitFor({ state: 'visible' })
-        assert.equal(await page.locator('.paste-dialog .paste-meta').innerText(), 'Link · Tinct imports the article from news.example.org')
-        assert.equal((await page.locator('.paste-dialog .paste-box').innerText()).trim(), NEWS, 'the box keeps the link as it was pasted')
+        const tag = via === 'Insert link' ? 'link' : 'pasted'
+        if (via === 'Insert link') {
+          await openLinkPopUp(page)
+          await page.locator(LINK_FIELD).fill(NEWS)
+        } else {
+          await openPastePopUp(page)
+          assert.equal(await page.locator('.paste-dialog .paste-box').getAttribute('data-placeholder'), 'Paste your text here')
+          assert.equal(await page.locator('.paste-dialog').getByText('Tinct imports the article', { exact: false }).count(), 0, 'no link line in the paste box')
+          await pasteInto(page, '.paste-dialog .paste-box', NEWS, `<a href="${NEWS}">${NEWS}</a>`)
+          await page.locator('.own-file-dialog[data-step="link"]').waitFor()
+          assert.equal(await page.locator('.own-file-dialog h2').innerText(), 'Insert link', 'a pasted link goes to Insert link')
+        }
+        assert.equal(await page.locator(LINK_FIELD).inputValue(), NEWS, 'the field holds the link as it was given')
         assert.equal(account.imports.length, 0, 'nothing is fetched until Add')
         assert(await noSideScroll(page))
-        await page.locator('.paste-dialog .paste-box').evaluate(el => el.blur())
-        await shot(page, `01-link-pasted-${name}`)
+        await page.locator(LINK_FIELD).evaluate(el => el.blur())
+        await shot(page, `01-${tag}-${name}`)
         await page.getByRole('button', { name: 'Add', exact: true }).click()
         await page.locator('.own-file-note', { hasText: 'Importing the article from news.example.org…' }).waitFor({ timeout: 10000 })
-        await shot(page, `02-importing-${name}`)
+        await shot(page, `02-importing-${tag}-${name}`)
         const href = await showsArticle(page, { title: 'The quiet return of the river otter', site: 'The Northern Ledger', first: 'For most of the last century', chrome: NEWS_CHROME })
         assert.equal(href, NEWS, 'the "From" line links the article\'s own page')
         await page.getByText('Many of them, Brand suspects', { exact: false }).first().waitFor({ state: 'attached' })
-        await shot(page, `03-reader-article-${name}`)
+        if (via === 'Insert link') await shot(page, `03-reader-article-${name}`)
         assert.deepEqual(account.imports, [NEWS], 'one import request, carrying the link')
         assert.deepEqual(account.siteFetches, [NEWS], 'the server fetched the page once')
         assert.equal(account.uploads, 1)
@@ -225,13 +248,27 @@ async function main() {
         page.on('pageerror', e => errors.push(e.message))
         page.on('console', m => { if (/Content Security Policy/i.test(m.text())) refused.push(m.text().slice(0, 160)) })
         await page.goto('/byob')
-        await page.locator('#paste').click()
-        await page.locator('#paste-area').waitFor()
-        await pasteInto(page, '#paste-area .paste-box', BLOG)
-        assert.equal(await page.locator('#paste-area .paste-meta').innerText(), 'Link · Tinct imports the article from fieldnotes.example.net')
-        await page.locator('#paste-area .paste-box').evaluate(el => el.blur())
+        assert.deepEqual(await page.locator('.drop .add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'])
+        if (name === 'desktop') {
+          await page.locator('#link').click()
+          await page.locator('#link-area').waitFor()
+          assert.equal(await page.locator('#link-title').innerText(), 'Insert link')
+          await page.locator('#link-area .add-link__input').fill(BLOG)
+        } else {
+          // A link pasted into Paste text goes to Insert link, as pasted.
+          await page.locator('#paste').click()
+          await page.locator('#paste-area').waitFor()
+          await pasteInto(page, '#paste-area .paste-box', BLOG)
+          await page.locator('#link-area').waitFor()
+          assert.equal(await page.locator('#paste-area').isVisible(), false)
+          assert.equal(await page.locator('#link-area .add-link__input').inputValue(), BLOG)
+        }
+        assert(await page.locator('#link-back').isVisible(), 'a back chevron to the three choices')
+        assert.equal(await page.locator('.add-choices').isVisible(), false, 'the choices give way to the step')
+        assert(await noSideScroll(page))
+        await page.locator('#link-area .add-link__input').evaluate(el => el.blur())
         await shot(page, `04-byob-link-${name}`)
-        await page.locator('#continue').click()
+        await page.locator('#link-area .add-link__add').click()
         await page.waitForURL(/\/sign-in\?/)
         assert.equal(new URL(page.url()).searchParams.get('returnTo'), '/preparing?own=paste')
         await signInReady(page)
@@ -259,13 +296,15 @@ async function main() {
       await run(`a page with no text, ${name}: the honest message in the pop-up, the link kept, no book`, async () => {
         reset()
         const c = await context(browser, origin, supabase, { signedIn: true, viewport }), page = await c.newPage()
-        await openPastePopUp(page)
-        await pasteInto(page, '.paste-dialog .paste-box', 'https://app.example.org/read/1')
+        await openLinkPopUp(page)
+        await page.locator(LINK_FIELD).fill('https://app.example.org/read/1')
         await page.getByRole('button', { name: 'Add', exact: true }).click()
-        await page.locator('.own-paste-error', { hasText: NO_TEXT }).waitFor({ timeout: 20000 })
-        assert.equal((await page.locator('.paste-dialog .paste-box').innerText()).trim(), 'https://app.example.org/read/1', 'the link is still in the box')
+        await page.locator('.own-link-error', { hasText: NO_TEXT }).waitFor({ timeout: 20000 })
+        assert.equal(await page.locator('.own-file-dialog').getAttribute('data-step'), 'link', 'back on Insert link')
+        assert.equal(await page.locator(LINK_FIELD).inputValue(), 'https://app.example.org/read/1', 'the link is still in the field')
         assert.equal(account.uploads, 0, 'no book is made')
         assert(await page.getByRole('button', { name: 'Add', exact: true }).isEnabled(), 'the reader can try again or paste the text')
+        assert(await noSideScroll(page))
         await shot(page, `08-refused-popup-${name}`)
         await c.close()
       })
@@ -275,9 +314,9 @@ async function main() {
       reset()
       const c = await context(browser, origin, supabase, { signedIn: true, viewport: PHONE }), page = await c.newPage()
       await page.goto('/byob')
-      await page.locator('#paste').click()
-      await pasteInto(page, '#paste-area .paste-box', 'https://review.example.org/census')
-      await page.locator('#continue').click()
+      await page.locator('#link').click()
+      await page.locator('#link-area .add-link__input').fill('https://review.example.org/census')
+      await page.locator('#link-area .add-link__add').click()
       await page.waitForURL(url => url.pathname === '/preparing')
       await page.locator('#problem').waitFor({ timeout: 30000 })
       assert.equal(await page.locator('#problem').innerText(), NO_TEXT)
@@ -286,8 +325,8 @@ async function main() {
       await shot(page, '09-refused-preparing-phone')
       await page.locator('#back').click()
       await page.waitForURL(url => url.pathname === '/byob')
-      await page.locator('#paste-area').waitFor()
-      await page.waitForFunction(() => document.querySelector('#paste-area .paste-box')?.innerText.trim() === 'https://review.example.org/census', null, { timeout: 10000 })
+      await page.locator('#link-area').waitFor()
+      await page.waitForFunction(() => document.querySelector('#link-area .add-link__input')?.value === 'https://review.example.org/census', null, { timeout: 10000 })
       await c.close()
     })
 

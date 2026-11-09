@@ -34,14 +34,23 @@ describe('a pasted link or pasted text', () => {
       expect(articleUrl(text)).toBe('')
   })
 
-  it('the paste box keeps a pasted link as a link and says the article will be imported', () => {
-    const box = pasteBox()
+  it('the paste box hands a pasted link to Insert link (9 Nov 2026), and says nothing about links itself', () => {
+    const onLink = vi.fn()
+    const box = pasteBox({ onLink })
     document.body.append(box.wrap, box.meta)
     const event = paste(box.box, 'https://news.example.org/otters', '<a href="https://news.example.org/otters">https://news.example.org/otters</a>')
     expect(event.defaultPrevented).toBe(true)
-    expect(box.read()).toMatchObject({ url: 'https://news.example.org/otters', title: '' })
-    expect(box.meta.textContent).toBe('Link · Tinct imports the article from news.example.org')
-    expect(box.box.dataset.placeholder).toBe('Paste your text or a link here')
+    expect(onLink).toHaveBeenCalledWith('https://news.example.org/otters')
+    expect(box.empty()).toBe(true)
+    expect(box.meta.textContent).toBe('')
+    expect(box.box.dataset.placeholder).toBe('Paste your text here')
+    // Without Insert link to hand it to, the link stays in the box and is imported when added; still no hint line.
+    const plain = pasteBox()
+    document.body.append(plain.wrap, plain.meta)
+    paste(plain.box, 'https://news.example.org/otters')
+    expect(plain.read()).toMatchObject({ url: 'https://news.example.org/otters', title: '' })
+    expect(plain.meta.textContent).toBe('')
+    expect(plain.meta.hidden).toBe(true)
   })
 
   it('pasted text behaves as before: cleaned, titled, no link', () => {

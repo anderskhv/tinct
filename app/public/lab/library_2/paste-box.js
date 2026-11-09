@@ -3,9 +3,10 @@
 // (the byline found, the word count); one text box showing the CLEANED text right after a paste
 // (paste-text.js cleanPaste: the site's menus, counters and paywall lines already gone), so what
 // you see is what is added. The box is editable; what it holds is sanitised again when added.
-// A link pasted alone (9 Nov 2026) stays a link in the box, and the line under the title says the article
-// is imported from that site when it is added (read().url; own-add.js draftFromLink).
-import {cleanPaste,preview,sanitizeHtml,wordCount,htmlText,articleUrl,linkHtml} from './paste-text.js?v=20261109link';
+// A link pasted alone into the empty box (9 Nov 2026) goes to Insert link, which imports the article
+// (`onLink`, add-choices.js): links have their own choice, so the box says nothing about them. Without
+// `onLink` it stays a link in the box and is imported when added (read().url; own-add.js draftFromLink).
+import {cleanPaste,preview,sanitizeHtml,wordCount,htmlText,articleUrl,linkHtml} from './paste-text.js?v=20261109add3';
 
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const PENCIL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="m13.5 6.5 4 4"/></svg>';
@@ -15,20 +16,18 @@ const editable=el=>{try{el.contentEditable='plaintext-only';}catch{/* older engi
  * Build the paste box. `heading` is the element the title sits in (the dialog's h2, or a div on /byob).
  * Returns {title, meta, wrap, box, read(), restore(draft), empty(), focus(), onChange(fn)}.
  */
-export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel='Text to add'}={}){
+export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel='Text to add',onLink=null}={}){
  heading.classList.add('paste-title');heading.replaceChildren();
  const title=make('span','paste-title__text');editable(title);title.setAttribute('role','textbox');title.setAttribute('aria-label','Title');title.dataset.placeholder=placeholder;title.spellcheck=false;
  const pencil=make('span','paste-title__pencil');pencil.innerHTML=PENCIL;
  heading.append(title,pencil);
  const meta=make('p','paste-meta');meta.hidden=true;
- const box=make('div','paste-box own-paste-source');box.contentEditable='true';box.setAttribute('role','textbox');box.setAttribute('aria-multiline','true');box.setAttribute('aria-label',boxLabel);box.dataset.placeholder='Paste your text or a link here';
+ const box=make('div','paste-box own-paste-source');box.contentEditable='true';box.setAttribute('role','textbox');box.setAttribute('aria-multiline','true');box.setAttribute('aria-label',boxLabel);box.dataset.placeholder='Paste your text here';
  const wrap=make('div','paste-wrap');wrap.append(box);
  let author='',titleEdited=false;const listeners=[];
  const changed=()=>{
   const words=empty()?0:wordCount(box.innerHTML),url=link();
-  let host='';try{host=url?new URL(url).hostname.replace(/^www\./,''):'';}catch{/* not a link */}
-  meta.textContent=url?`Link · Tinct imports the article from ${host}`:[author,words?`${words.toLocaleString('en-US')} ${words===1?'word':'words'}`:''].filter(Boolean).join(' · ');
-  meta.dataset.link=url?'1':'';
+  meta.textContent=url?'':[author,words?`${words.toLocaleString('en-US')} ${words===1?'word':'words'}`:''].filter(Boolean).join(' · ');
   meta.hidden=!meta.textContent;heading.dataset.empty=title.textContent.trim()?'false':'true';
   for(const fn of listeners)fn();
  };
@@ -49,6 +48,7 @@ export function pasteBox({heading=make('div'),placeholder='Paste text',boxLabel=
   event.preventDefault();
   if(empty()){
    const url=articleUrl(plain)||(!plain.trim()&&articleUrl(htmlText(html)));
+   if(url&&typeof onLink==='function'){onLink(url);return;}
    if(url){author='';show({html:linkHtml(url),title:'',author:''});return;}
    let cleaned;try{cleaned=cleanPaste({html,plain});}catch{return;}show(cleaned);return;
   }

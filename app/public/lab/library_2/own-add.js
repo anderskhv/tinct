@@ -2,7 +2,7 @@
 // pop-up (add-to-tinct.js) and the Preparing page after /byob and sign-in (/preparing, preparing.js),
 // so a text or file is checked, kept, saved and opened the same way wherever it was chosen.
 // No page UI here: callers draw progress and messages.
-import {pasteEpub,importedArticle} from './paste-text.js?v=20261109link';
+import {pasteEpub,importedArticle} from './paste-text.js?v=20261109add3';
 
 // ---- The engines, loaded on first use ----
 const ENGINE='/lab/library-add.js?v=20261014talkwake';let engine=null;
