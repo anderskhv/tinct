@@ -1,5 +1,6 @@
 // A private, local-only text source. The generated EPUB goes through the existing own-book
-// file/ownership/export/deletion path. No pasted URL or image is fetched while preparing it.
+// file/ownership/export/deletion path. No URL or image inside pasted text is fetched while preparing it;
+// a paste that is only a link is imported on request instead (articleUrl, own-add.js importArticle).
 const escape = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const allowedUrl = value => /^https?:\/\//i.test(value) || /^mailto:/i.test(value) || /^#[^#]/.test(value);
 const BLOCK = new Set(['p', 'div', 'section', 'article', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre', 'ul', 'ol', 'li', 'dl', 'dt', 'dd', 'figure', 'figcaption', 'hr', 'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'caption', 'br']);
@@ -310,7 +311,33 @@ export function cleanPaste({html = '', plain = ''} = {}) {
  return {html: template.innerHTML.trim(), title, author};
 }
 
-export function pasteEpub({source, format = 'auto', title, author = '', start = 0, end = 0, uid = ''}) {
+/** A paste that is a single http(s) link and nothing else (import the article, 9 Nov 2026): the link, or ''. */
+export function articleUrl(text) {
+ const t = String(text || '').trim();
+ if (!t || t.length > 2048 || /\s/.test(t) || !/^https?:\/\/[^/]/i.test(t)) return '';
+ try { const url = new URL(t); return /^https?:$/.test(url.protocol) && url.hostname.includes('.') && !url.username && !url.password ? url.href : ''; } catch { return ''; }
+}
+/** The link as the text box shows it before it is imported. */
+export const linkHtml = url => `<p>${escape(url)}</p>`;
+const hostOf = url => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+/**
+ * An imported article (the server's reply, routes/importArticle.ts) as a paste: {html, title, author, source}.
+ * Its first line names where it came from, linked to the page, so the reader can always find the source; the
+ * rest is the article's text, cleaned again exactly as pasted text is when the EPUB is made (pasteEpub).
+ * Plain text from a link is read as a plain-text paste (cleanPaste).
+ */
+export function importedArticle(reply) {
+ const url = String(reply?.url || '');
+ const site = String(reply?.siteName || hostOf(url) || 'the web').trim();
+ const from = `<p>From <a href="${escape(url)}">${escape(site)}</a></p>`;
+ if (reply?.kind === 'text') {
+  const cleaned = cleanPaste({plain: String(reply.text || '')});
+  return {html: from + cleaned.html, title: cleaned.title || site, author: cleaned.author || '', source: url};
+ }
+ return {html: from + String(reply?.html || ''), title: String(reply?.title || '').trim() || site, author: String(reply?.author || '').trim(), source: url};
+}
+
+export function pasteEpub({source, format = 'auto', title, author = '', start = 0, end = 0, uid = '', sourceUrl = ''}) {
  title = String(title || suggestedTitle(source,format) || 'Pasted text').trim(); author = String(author || '').trim();
  if (!title) throw new Error('Give this text a title.');
  // XML 1.0 cannot carry these characters verbatim. Refuse instead of silently
@@ -319,7 +346,7 @@ export function pasteEpub({source, format = 'auto', title, author = '', start = 
  const body = preview(source, format, start, end);
  const x = value => escape(value);
  const chapter = `<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>${x(title)}</title></head><body><h1>${x(title)}</h1>${body}</body></html>`;
- const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">urn:uuid:${/^[0-9a-f-]{36}$/i.test(uid) ? uid : crypto.randomUUID()}</dc:identifier><dc:title>${x(title)}</dc:title><dc:creator>${x(author)}</dc:creator><dc:language>en</dc:language></metadata><manifest><item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="chapter"/></spine></package>`;
+ const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="id"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="id">urn:uuid:${/^[0-9a-f-]{36}$/i.test(uid) ? uid : crypto.randomUUID()}</dc:identifier><dc:title>${x(title)}</dc:title><dc:creator>${x(author)}</dc:creator><dc:language>en</dc:language>${allowedUrl(sourceUrl) && /^https?:/i.test(sourceUrl) ? `<dc:source>${x(sourceUrl)}</dc:source>` : ''}</metadata><manifest><item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/></manifest><spine><itemref idref="chapter"/></spine></package>`;
  const bytes = zip([['mimetype', 'application/epub+zip'], ['META-INF/container.xml', '<?xml version="1.0"?><container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'], ['OEBPS/content.opf', opf], ['OEBPS/chapter.xhtml', chapter]]);
  const filename = (title.replace(/[\\/:*?"<>|\x00-\x1f]/g, '').slice(0, 100).trim() || 'Pasted text') + '.epub';
  return new File([bytes], filename, {type: 'application/epub+zip'});

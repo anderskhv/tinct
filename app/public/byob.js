@@ -6,8 +6,8 @@
 // until the reader is signed in; then the Preparing page (/preparing) adds it through the library's
 // own path (own-add.js) and opens the reader. Signed in, Continue goes straight there.
 import {putHandoff,putPasteHandoff,peekPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261105flow';
-import {pasteBox} from '/lab/library_2/paste-box.js?v=20261105flow';
-import {pasteTooLong} from '/lab/library_2/own-add.js?v=20261105flow';
+import {pasteBox} from '/lab/library_2/paste-box.js?v=20261109link';
+import {pasteTooLong} from '/lab/library_2/own-add.js?v=20261109link';
 const signedIn=/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
 const $=id=>document.getElementById(id);
 const OK=/\.(pdf|epub|txt)$/i;
@@ -56,10 +56,11 @@ $('continue').onclick=async()=>{
   if(!paste||$('continue').disabled)return;
   const draft=paste.read();
   if(!draft.text){$('paste-error').textContent='Paste some text to add.';paste.focus();return;}
-  const tooLong=pasteTooLong(draft.text);if(tooLong){$('paste-error').textContent=tooLong;return;}
+  const tooLong=draft.url?'':pasteTooLong(draft.text);if(tooLong){$('paste-error').textContent=tooLong;return;}
   busy(true);
   uid||=crypto.randomUUID();
-  if(!await putPasteHandoff({html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid})){
+  // A link alone is kept as a link: /preparing imports the article once the reader is signed in.
+  if(!await putPasteHandoff({html:draft.html,title:draft.title||(draft.url?'':'Pasted text'),author:draft.author,uid,...(draft.url?{url:draft.url}:{})})){
     busy(false);$('paste-error').textContent='This browser could not keep your text. Sign in first, then paste it again.';return;
   }
   go('paste');

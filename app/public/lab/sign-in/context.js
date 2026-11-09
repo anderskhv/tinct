@@ -41,7 +41,12 @@ async function apply() {
     title.textContent = 'Sign in or join to add your text';
     copy.textContent = 'Your text opens in Tinct as soon as you are in.';
     const draft = await peekPasteHandoff();
-    if (draft) showChip(draft.title || 'Pasted text', paperCoverUrl(draft.title || 'Pasted text', draft.author || '', ''));
+    // A link alone (9 Nov 2026): named by its site until the article is imported after sign-in.
+    let host = '';
+    try { host = draft?.url ? new URL(draft.url).hostname.replace(/^www\./, '') : '' } catch { host = '' }
+    if (host) { title.textContent = 'Sign in or join to add this article'; copy.textContent = 'Tinct imports it and opens it as soon as you are in.' }
+    const name = draft?.title || (host ? `Article from ${host}` : 'Pasted text');
+    if (draft) showChip(name, paperCoverUrl(name, draft.author || '', ''));
     return;
   }
   if (own !== 'file') return;

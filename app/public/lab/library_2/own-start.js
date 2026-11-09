@@ -5,8 +5,8 @@
 // sign-in, which names it; the Preparing page (/preparing) then adds it and opens the reader. The hero link's
 // href="/byob" stays as the no-script fallback.
 import {putHandoff,putPasteHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
-import {pasteBox} from './paste-box.js?v=20261105flow';
-import {pasteTooLong} from './own-add.js?v=20261105flow';
+import {pasteBox} from './paste-box.js?v=20261109link';
+import {pasteTooLong} from './own-add.js?v=20261109link';
 
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
@@ -79,10 +79,11 @@ export function openOwnStart({from=null,go=href=>location.assign(href)}={}){
   next.onclick=async()=>{
    if(next.disabled)return;
    const read=paste.read();
-   const tooLong=pasteTooLong(read.text);if(tooLong){alert.textContent=tooLong;return;}
+   const tooLong=read.url?'':pasteTooLong(read.text);if(tooLong){alert.textContent=tooLong;return;}
    box.dataset.busy='1';sync();
    uid||=crypto.randomUUID();
-   if(!await putPasteHandoff({html:read.html,title:read.title||'Pasted text',author:read.author,uid})){delete box.dataset.busy;sync();alert.textContent='This browser could not keep your text. Sign in first, then paste it again.';return;}
+   // A link alone is kept as a link: /preparing imports the article once the reader is signed in.
+   if(!await putPasteHandoff({html:read.html,title:read.title||(read.url?'':'Pasted text'),author:read.author,uid,...(read.url?{url:read.url}:{})})){delete box.dataset.busy;sync();alert.textContent='This browser could not keep your text. Sign in first, then paste it again.';return;}
    go(toSignIn('paste'));
   };
   const foot=make('div','own-start-foot');foot.append(note,next);
