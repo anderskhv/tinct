@@ -4,7 +4,7 @@
 // title. Both are read from this browser's handoff without taking them, so the Preparing page still adds
 // them after sign-in. A file also carries the rights line ("By continuing you confirm you may read this
 // file."). Anything else keeps "Sign in or join Tinct". (Since 9 Nov 2026 every title says "or join": a new reader gets an account the same way.)
-import { peekHandoff, peekPasteHandoff } from '/lab/addbook/js/file-handoff.js';
+import { peekHandoffEntry, peekPasteHandoff } from '/lab/addbook/js/file-handoff.js';
 import { paperCoverUrl } from '/lab/book-cover.js';
 
 const root = document.getElementById('tinct-lab-sign-in');
@@ -48,10 +48,20 @@ async function apply() {
   title.textContent = 'Sign in or join to add your book';
   copy.textContent = 'Your book opens as soon as you are in.';
   if (rights) rights.hidden = false;
-  const file = await peekHandoff();
+  const entry = await peekHandoffEntry();
+  const file = entry?.file;
   if (!file) return;
   const ext = (String(file.name).match(/\.([a-z0-9]{1,5})$/i)?.[1] || '').toUpperCase();
-  showChip(file.name || 'Your file', paperCoverUrl(titleFromName(file.name), '', ext));
+  // Several files kept together (bulk adding, 9 Nov 2026): they go to My shelf, the first named with the count.
+  const more = (entry.files?.length || 1) - 1;
+  if (more > 0) {
+    title.textContent = 'Sign in or join to add your books';
+    copy.textContent = 'Your books go to My shelf as soon as you are in.';
+    if (rights) rights.textContent = 'Adding them confirms you may read these files.';
+    const note = chip?.querySelector('span');
+    if (note) note.textContent = 'Added to My shelf as soon as you are in';
+  }
+  showChip(more > 0 ? `${file.name} and ${more} more` : file.name || 'Your file', paperCoverUrl(titleFromName(file.name), '', ext));
 }
 
 void apply();

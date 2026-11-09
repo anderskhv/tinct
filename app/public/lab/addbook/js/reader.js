@@ -293,7 +293,20 @@ async function openFromUrl(hex) {
   $('column').innerHTML = `<div class="pdf-status" role="alert">That book is no longer on this device or in your account. <a href="${SHELF_URL}">Go to My shelf</a></div>`;
   return false;
 }
-$('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
+// Several files at once (bulk adding, 9 Nov 2026): kept for the library, whose queue on My shelf adds them one
+// after another (/library?own=file, add-to-tinct.js); one file opens here as before.
+async function chooseFiles(list) {
+  const files = [...(list || [])].filter(Boolean);
+  if (files.length < 2) return chooseFile(files[0]);
+  if (needsAccount()) return;
+  try {
+    const { putHandoffFiles } = await import('/lab/addbook/js/file-handoff.js?v=__TINCT_BUILD__');
+    if (await putHandoffFiles(files)) { location.assign('/library?sharedReader=1&own=file'); return }
+  } catch { /* below */ }
+  toast('This browser could not keep these files. Add them from My shelf.');
+}
+$('fileInput').multiple = true;
+$('fileInput').onchange = e => { const files = [...(e.target.files || [])]; e.target.value = ''; chooseFiles(files) };
 // In the reader's frame (a Tinct book, or a reader's own book at /reader?userBook=): the book reader's Reading now
 // (previewNav); this page on its own (a phone's PDF pages): its switcher here.
 $('bookBtn').onclick = () => (navHost() ? previewNav('switcher') : openSwitcher());
@@ -301,7 +314,7 @@ let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
 addEventListener('dragover', e => e.preventDefault());
-addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFile(e.dataTransfer?.files?.[0]) });
+addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFiles(e.dataTransfer?.files) });
 
 /* ---------- Reader ↔ start page ---------- */
 const readerShown = () => document.body.dataset.view === 'reader';
@@ -4147,12 +4160,31 @@ async function jumpToLabel(value) {
   if (!n) n = pageOfLabel(value);
   if (n) goTo({ page: n, frac: 0 });
 }
-/** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. */
-async function pdfPages(focus, { before = 1, after = 1, budget = 9000 } = {}) {
+/**
+ * `text` cut to `budget` characters: around `near` (the selected passage) when it is found in it, else from its start.
+ * "[…]" marks each cut, so the companion reads it as an excerpt (labAskPrompt LAB_EXCERPT_CHAPTER_LEAD).
+ */
+function excerptAround(text, budget, near) {
+  if (text.length <= budget) return text;
+  const at = near ? passageOffset(text, near) : -1;
+  if (at < 0) return text.slice(0, budget) + ' […]';
+  const from = Math.max(0, Math.min(text.length - budget, at - Math.floor((budget - Math.min(near.length, budget)) / 2)));
+  return (from > 0 ? '[…] ' : '') + text.slice(from, from + budget) + (from + budget < text.length ? ' […]' : '');
+}
+/** Where `near` starts in `text`, white space aside (a selection's line breaks are not the text's); -1 when not found. */
+function passageOffset(text, near) {
+  const words = String(near).trim().split(/\s+/).slice(0, 12).filter(Boolean);
+  if (!words.length) return -1;
+  const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = new RegExp(words.map(esc).join('\\s+')).exec(text);
+  return m ? m.index : -1;
+}
+/** The pages around `focus` as the companion receives a PDF: [{ n: printed label, text }] and the focus's index. `near`: the passage asked about, which the focus's window is centred on. */
+async function pdfPages(focus, { before = 1, after = 1, budget = 9000, near = '' } = {}) {
   const from = Math.max(1, focus - before), to = Math.min(state.pages.length || focus, focus + after);
   const pages = []; let at = 0, used = 0;
   for (let n = from; n <= to && used < budget * (to - from + 1); n++) {
-    const text = (await pageText(n)).text.slice(0, budget);
+    const text = excerptAround((await pageText(n)).text, budget, n === focus ? near : '');
     if (n === focus) at = pages.length;
     pages.push({ n: pageLabel(n), text: text || ' ' }); used += text.length;
   }
@@ -4269,6 +4301,19 @@ function readDocument() {
     let chars = 0;
     for (let n = 1; n <= t.pages; n++) { const text = texts.get(n) || ''; chars += text.length; pages.push({ n: pdfTextLabel(n), text }) }
     return Promise.resolve(chars > limit ? { pages: null, limit, label: pdfTextLabel } : { pages, limit, label: pdfTextLabel });
+  }
+  if (isEpub()) {
+    // A reader's own EPUB: its chapters as this reader holds them (state.texts, every chapter's text from the open), the
+    // whole book when it fits, else the long-EPUB part (marginDocument). Until 9 Nov 2026 readBook (a PDF's read) gave
+    // an EPUB nothing, so its Ask had no document and only the first 9,000 characters of the chapter (pdfPages).
+    const limit = window.TinctAI?.DOCUMENT_CHARS || 560000, pages = [];
+    let chars = 0;
+    for (let n = 1; n <= state.pages.length; n++) {
+      const text = state.texts.get(n)?.text || '';
+      if ((chars += text.length) > limit) return Promise.resolve({ pages: null, limit, label: pageLabel });
+      pages.push({ n: pageLabel(n), text });
+    }
+    return Promise.resolve({ pages, limit, label: pageLabel });
   }
   if (docCache.key === state.key && docCache.task) return docCache.task;
   const key = state.key, limit = window.TinctAI?.DOCUMENT_CHARS || 560000;
@@ -5625,7 +5670,7 @@ function cardTurns(card, image, fig = {}) {
   const imageLine = !image ? '' : fig.named ? ` The attached image is ${fig.named.label} on page ${pageLabel(fig.named.page)}, as printed, which the passage or question refers to: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the text for context.` : ' ' + MP.P.PASSAGE_IMAGE_LINE;
   // A chat that began as a note in the margin has no passage: the note is its first message.
   const about = card.text ? `\n\nThe passage they selected on ${at}:\n${card.text.slice(0, 3000)}` : `\n\nThis conversation began as a note they wrote in the margin beside ${at}; the note is their first message.`;
-  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text; say when something is not in it. Plain prose only.${imageLine}${about}`;
+  const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
   const pill = card.data?.pill;
   const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Evaluate this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
@@ -5667,7 +5712,7 @@ function figureRules(card, image, sketch) {
     ? `The attached image is that ${what} as printed: look at it carefully (axes, labels, curves, colours, notation) and answer about it first, using the document for context.`
     : `You cannot see it. Below are its caption (if one was found), the labels inside it and a rough text sketch of its shape (often unreadable for drawings or photos). Explain it from these and from where the text refers to it. If none of this identifies it, say in one sentence that you cannot see it and ask the reader what it shows; do not guess.`;
   const parts = [card.text ? 'Caption: ' + card.text.slice(0, 600) : '', d.labels ? 'Labels and text inside it: ' + String(d.labels).slice(0, 600) : '', !image && sketch ? 'Rough sketch of its shape (# dark ink, + grey, . faint; unreliable for drawings and photos):\n```\n' + sketch + '\n```' : ''].filter(Boolean).join('\n');
-  return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document; say when something is not in it. Plain prose only.${parts ? '\n\n' + parts : ''}`;
+  return `You are Tinct's reading companion. ${bookLine()} They are on page ${at} of ${state.pages.length}.\nThis conversation is about one ${what} on page ${at}${d.label ? ` (${d.label})` : ''}. ${seen} Only this ${what} has been asked about in this conversation: never say another figure was asked about earlier.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the document. Plain prose only.${parts ? '\n\n' + parts : ''}`;
 }
 /* The passage's picture: cropped to the passage, grown to take in a table or a displayed formula it touches or a table on
    its page it names (TinctMargin.mathBox; morning retest 16 Oct, superscripts lost from Table 1). */
@@ -5782,7 +5827,7 @@ async function runCardNow(id, question, run) {
   if (!s) { setLive(id, { status: AI_OFF, done: true }); return }
   // Quiz me on a whole unit (from the primer): the unit's pages, no passage and no picture.
   const unit = card.data?.unit ? (unitByKey(card.data.unit.key) || { key: card.data.unit.key, from: card.page, to: card.page }) : null;
-  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page);
+  const pdf = unit ? await unitPages(card.data?.pill === 'catchup' ? catchRange(unit) : unit) : await pdfPages(card.page, { near: card.text || '' });
   // One picture of the passage, cropped to it (FIXES-2026-10-15 A4); none for a whole unit, or when the page is not drawn.
   // A figure's card sends its figure; a selected caption, or a question naming "Figure N" on the card's page, sends that figure (items 4, 7).
   const figBox = card.kind === 'figure' ? TinctMargin.anchorOfCard(card)[0] : null;

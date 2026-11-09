@@ -4,7 +4,7 @@
 // chosen or pasted is kept in this browser (file-handoff.js, 30 minutes), sent nowhere, and the reader goes to
 // sign-in, which names it; the Preparing page (/preparing) then adds it and opens the reader. The hero link's
 // href="/byob" stays as the no-script fallback.
-import {putHandoff,putPasteHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
+import {putHandoff,putHandoffFiles,putPasteHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {pasteBox} from './paste-box.js?v=20261105flow';
 import {pasteTooLong} from './own-add.js?v=20261105flow';
 
@@ -49,11 +49,22 @@ export function openOwnStart({from=null,go=href=>location.assign(href)}={}){
   if(!await putHandoff(file,{rights:true})){delete box.dataset.busy;status.textContent='This browser could not keep the file. Sign in first, then choose it again.';return;}
   go(toSignIn('file'));
  }
- input.onchange=()=>{const file=input.files?.[0];input.value='';void take(file);};
- // A file dropped anywhere on the sheet (desktop).
+ // Several files at once (9 Nov 2026): all kept together; after sign-in the library's queue adds them
+ // one after another (/preparing, add-to-tinct.js) and says why any could not be added. One file is `take`.
+ async function takeAll(list){
+  const files=[...(list||[])].filter(Boolean);
+  if(files.length<2){void take(files[0]);return;}
+  if(!files.some(file=>OK.test(file.name))){status.textContent='Choose PDFs, EPUBs or .txt files.';return;}
+  box.dataset.busy='1';status.textContent=`Opening ${files.length} files…`;
+  if(!await putHandoffFiles(files,{rights:true})){delete box.dataset.busy;status.textContent='This browser could not keep the files. Sign in first, then choose them again.';return;}
+  go(toSignIn('file'));
+ }
+ input.multiple=true;
+ input.onchange=()=>{const files=[...(input.files||[])];input.value='';void takeAll(files);};
+ // Files dropped anywhere on the sheet (desktop).
  for(const type of ['dragenter','dragover'])box.addEventListener(type,e=>{if(!e.dataTransfer?.types?.includes('Files'))return;e.preventDefault();box.classList.add('is-over');});
  for(const type of ['dragleave','drop'])box.addEventListener(type,()=>box.classList.remove('is-over'));
- box.addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();void take(e.dataTransfer.files[0]);});
+ box.addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();void takeAll(e.dataTransfer.files);});
 
  function chooseStep(){
   box.classList.remove('paste-dialog');title.className='tui-dialog__title';delete title.dataset.empty;title.textContent='Your own book or text';

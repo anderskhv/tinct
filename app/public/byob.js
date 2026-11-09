@@ -5,7 +5,7 @@
 // text, or a chosen file, is kept in this browser (file-handoff.js, 30 minutes) and sent nowhere
 // until the reader is signed in; then the Preparing page (/preparing) adds it through the library's
 // own path (own-add.js) and opens the reader. Signed in, Continue goes straight there.
-import {putHandoff,putPasteHandoff,peekPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261105flow';
+import {putHandoff,putHandoffFiles,putPasteHandoff,peekPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {pasteBox} from '/lab/library_2/paste-box.js?v=20261105flow';
 import {pasteTooLong} from '/lab/library_2/own-add.js?v=20261105flow';
 const signedIn=/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);
@@ -29,9 +29,20 @@ async function take(file){
   if(!await putHandoff(file,{rights:true})){busy(false);$('status').textContent='This browser could not keep the file. Sign in first, then choose it again.';return;}
   go('file');
 }
+// Several files at once (9 Nov 2026): kept together; /preparing hands them to the library's queue, which
+// adds them one after another and says why any could not be added. One file is `take`, as before.
+async function takeAll(list){
+  const files=[...(list||[])].filter(Boolean);
+  if(files.length<2){void take(files[0]);return;}
+  if(!files.some(file=>OK.test(file.name))){const why='Choose PDFs, EPUBs or .txt files.';$('status').textContent=why;if(pasting)$('paste-error').textContent=why;return;}
+  busy(true);$('status').textContent=`Opening ${files.length} files…`;
+  if(!await putHandoffFiles(files,{rights:true})){busy(false);$('status').textContent='This browser could not keep the files. Sign in first, then choose them again.';return;}
+  go('file');
+}
+$('file').multiple=true;
 $('choose').onclick=()=>$('file').click();
 $('choose-foot').onclick=()=>$('file').click();
-$('file').onchange=()=>{const file=$('file').files?.[0];$('file').value='';void take(file);};
+$('file').onchange=()=>{const files=[...($('file').files||[])];$('file').value='';void takeAll(files);};
 
 // ---- Paste text: the drop box becomes the text box in place ----
 function startPaste(draft=null,{push=true}={}){
@@ -69,9 +80,9 @@ const drop=$('drop');
 const files=e=>!!e.dataTransfer?.types?.includes('Files');
 for(const type of ['dragenter','dragover'])drop.addEventListener(type,e=>{if(!files(e))return;e.preventDefault();drop.classList.add('over');});
 for(const type of ['dragleave','drop'])drop.addEventListener(type,()=>drop.classList.remove('over'));
-drop.addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();void take(e.dataTransfer.files[0]);});
+drop.addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();void takeAll(e.dataTransfer.files);});
 addEventListener('dragover',e=>{if(files(e))e.preventDefault();});
-addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();if(!drop.contains(e.target))void take(e.dataTransfer.files[0]);});
+addEventListener('drop',e=>{if(!e.dataTransfer?.files?.length)return;e.preventDefault();if(!drop.contains(e.target))void takeAll(e.dataTransfer.files);});
 addEventListener('pageshow',e=>{if(e.persisted){busy(false);$('status').textContent='';}});
 // Text kept here earlier and not yet added (back from sign-in, or a failed add): shown again as it was left.
 void peekPasteHandoff().then(draft=>{if(draft&&!pasting)startPaste(draft,{push:false});});
