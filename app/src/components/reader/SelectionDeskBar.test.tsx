@@ -314,3 +314,90 @@ describe('the desktop Ask field: mic, send and Enter (30 Oct 2026)', () => {
     expect(input.onAskQuestion).toHaveBeenCalledExactlyOnceWith('Why this phrase?')
   })
 })
+
+describe('the selection bar\'s keys run its buttons\' actions (E, A, N, H)', () => {
+  const press = (key: string, extra: KeyboardEventInit = {}) => {
+    const event = new KeyboardEvent('keydown', { key, code: /^[a-z]$/i.test(key) ? `Key${key.toUpperCase()}` : undefined, bubbles: true, cancelable: true, ...extra })
+    act(() => { document.body.dispatchEvent(event) })
+    return event
+  }
+
+  it('classic bar: bare letters do what a click does', () => {
+    for (const [key, testId] of [['e', 'lab-dbar-explain'], ['h', 'lab-dbar-highlight']]) {
+      const clicked = props(), keyed = props()
+      render(<Harness {...clicked} />)
+      fireEvent.click(screen.getByTestId(testId))
+      cleanup()
+      render(<Harness {...keyed} />)
+      expect(press(key).defaultPrevented).toBe(true)
+      cleanup()
+      const calls = (input: SelectionPopupProps) => ({
+        mode: vi.mocked(input.setPopupMode).mock.calls,
+        explain: vi.mocked(input.onRequestExplanation!).mock.calls.map(call => call.slice(1)),
+        color: vi.mocked(input.onColorClick).mock.calls,
+      })
+      expect(calls(keyed)).toEqual(calls(clicked))
+      expect(calls(keyed).mode.length + calls(keyed).color.length).toBeGreaterThan(0)
+    }
+  })
+
+  it('classic bar: A asks and N opens the note, like their buttons', () => {
+    const input = props()
+    render(<Harness {...input} />)
+    press('a')
+    expect(input.onExplain).toHaveBeenCalledWith()
+    cleanup()
+    const noted = props()
+    render(<Harness {...noted} />)
+    press('n')
+    expect(noted.onRequestNote).toHaveBeenCalledOnce()
+  })
+
+  it('shared bar: Alt/Option letters act and bare letters still start the question, except N', () => {
+    const input = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...input} />)
+    press('Dead', { altKey: true, code: 'KeyH' })
+    expect(input.onColorClick).toHaveBeenCalledExactlyOnceWith('gold')
+    cleanup()
+    const asking = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...asking} />)
+    press('h')
+    expect(asking.onColorClick).not.toHaveBeenCalled()
+    expect((screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement).value).toBe('h')
+    cleanup()
+    const noting = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...noting} />)
+    press('n')
+    expect(noting.onRequestNote).toHaveBeenCalledOnce()
+    expect(screen.queryByTestId('lab-dbar-ask-field')).toBeNull()
+    cleanup()
+    const opening = props({ sharedReader: true, onAskQuestion: vi.fn() })
+    render(<Harness {...opening} />)
+    press('å', { altKey: true, code: 'KeyA' })
+    expect((screen.getByTestId('lab-dbar-ask-field') as HTMLTextAreaElement).value).toBe('')
+  })
+
+  it('acts only where the button is shown, and never from a field', () => {
+    const input = props({ selection: selection({ existingHighlightId: 'h1' }), currentHighlightColor: 'rose' })
+    render(<Harness {...input} />)
+    press('h')
+    expect(input.onColorClick).not.toHaveBeenCalled()
+    const field = document.createElement('textarea'); document.body.append(field)
+    fireEvent.keyDown(field, { key: 'e' })
+    expect(input.setPopupMode).not.toHaveBeenCalled()
+    field.remove()
+  })
+
+  it('names each key in its button\'s tooltip and aria-keyshortcuts', () => {
+    render(<Harness {...props()} />)
+    expect(screen.getByTestId('lab-dbar-explain').getAttribute('aria-keyshortcuts')).toBe('E Alt+E')
+    expect(screen.getByTestId('lab-dbar-explain').title).toBe('Explain (E)')
+    expect(screen.getByTestId('lab-dbar-highlight').title).toBe('Highlight in Gold (H)')
+    expect(screen.getByTestId('lab-dbar-note').title).toBe('Add note (N)')
+    cleanup()
+    render(<Harness {...props({ sharedReader: true, onAskQuestion: vi.fn() })} />)
+    expect(screen.getByTestId('lab-dbar-ask').getAttribute('aria-keyshortcuts')).toBe('Alt+A')
+    expect(screen.getByTestId('lab-dbar-ask').title).toMatch(/^Ask \((Alt\+|⌥)A\)$/)
+    expect(screen.getByTestId('lab-dbar-note').getAttribute('aria-keyshortcuts')).toBe('N Alt+N')
+  })
+})
