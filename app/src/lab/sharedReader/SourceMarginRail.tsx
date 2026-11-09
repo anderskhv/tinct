@@ -215,7 +215,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{entry.previewQuestion && <span className="source-margin-preview-question">{entry.previewQuestion}</span>}<span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>{entry.previewMore ? <span className="source-margin-preview-more"> +{entry.previewMore} follow-up{entry.previewMore === 1 ? '' : 's'}</span> : null}</button>}
+        {!entry.open && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. */}{entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}
