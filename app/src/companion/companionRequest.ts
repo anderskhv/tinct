@@ -14,6 +14,7 @@ import { buildChapterChatInstructions, parseChapterChatAction, type PrimerChapte
 import { buildLabAskInstructionParts, type LabAskContext, type LabAskInstructionOptions, type LabAskInstructionParts, type ShownExplanation } from './labAskPrompt'
 import {
   ASK_DOCUMENT_LINE,
+  ASK_LEAD_RULE,
   COUNTERPOINT_PROMPT,
   DEFINE_SENSE_PROMPT,
   FACTCHECK_NO_SEARCH_NOTE,
@@ -609,7 +610,7 @@ function marginTask(request: CompanionRequest, extras: CompanionBuildExtras): st
     case 'quiz_check': return [QUIZ_CHECK_PROMPT]
     // A question in the PDF reader's margin: the document before our own explanation; on a PDF passage, the image line, as Explain has it.
     // About the whole PDF: its own rules too (WHOLE_PDF_PROMPT).
-    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
+    case 'ask': return request.pdf ? [...(request.whole ? [WHOLE_PDF_PROMPT] : []), ASK_DOCUMENT_LINE, ASK_LEAD_RULE, ...(extras.sourceSearch ? [ASK_SOURCE_SEARCH_LINE] : []), ...(extras.image ? [PASSAGE_IMAGE_LINE] : [])] : []
     default: return []
   }
 }
@@ -620,17 +621,20 @@ function instructionOptions(request: CompanionRequest, extras: CompanionBuildExt
   // citation rule for a PDF (an EPUB has no page numbers).
   const plain = request.pdf ? [...MARGIN_ANSWER_RULES, ...(isPdfFile(request) ? [PDF_DOCUMENT_WORDING] : [])] : []
   const citations = [...(isPdfFile(request) && (request.intent === 'ask' || PASSAGE_INTENTS.has(request.intent)) ? [PDF_CITATION_RULE] : []), ...plain]
+  // The margin reader without its document sends the chapters (or pages) around the reader, each cut to a window:
+  // an excerpt, never the full chapter (labAskPrompt LAB_EXCERPT_CHAPTER_LEAD).
+  const excerpt = request.pdf ? { excerpt: true } : {}
   switch (request.intent) {
     case 'explain':
     case 'define':
       return { nearby: COMPANION_NEARBY_PARAGRAPHS, ...(plain.length ? { rules: plain } : {}) }
     case 'ask':
-      return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras) }
+      return { shownExplanations: request.shownExplanations, rules: citations, task: marginTask(request, extras), ...excerpt }
     case 'quiz':
       // A chapter quiz needs the whole chapter; a passage quiz, the passage's neighbourhood.
-      return { ...(request.selection ? { nearby: COMPANION_NEARBY_PARAGRAPHS } : {}), rules: citations, task: marginTask(request, extras) }
+      return { ...(request.selection ? { nearby: COMPANION_NEARBY_PARAGRAPHS } : {}), rules: citations, task: marginTask(request, extras), ...excerpt }
     default:
-      return { nearby: COMPANION_NEARBY_PARAGRAPHS, rules: citations, task: marginTask(request, extras) }
+      return { nearby: COMPANION_NEARBY_PARAGRAPHS, rules: citations, task: marginTask(request, extras), ...excerpt }
   }
 }
 

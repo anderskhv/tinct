@@ -5,7 +5,7 @@
 // (/lab/added-toast.js). Nothing is taken from the handoff until the book is in: on a failure the
 // message shows with a way back to /byob (the text is still there) or the library (the file is added there).
 // A file here because the site's Content-Security-Policy refuses inline scripts.
-import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261105flow';
+import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {paperCoverUrl} from '/lab/book-cover.js?v=20261009owncover';
 import {cleanPaste} from '/lab/library_2/paste-text.js?v=20261105flow';
 import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded} from '/lab/library_2/own-add.js?v=20261105flow';
@@ -106,9 +106,25 @@ async function addFile(entry){
   }catch(error){fail(message(error,'This file could not be opened. Choose another file.'),back);}
 }
 
+/**
+ * Several files kept together (bulk adding, 9 Nov 2026): the library's own queue adds them
+ * (/library?own=file takes them all; add-to-tinct.js), after the same account checks as one file,
+ * with the rights line shown on /byob or sign-in recorded as for one file. It ends on My shelf.
+ */
+async function addFiles(entry){
+  $('line').textContent='Preparing your books…';document.title='Preparing your books · Tinct';
+  progress(.08);
+  let engineApi;
+  try{engineApi=await ready();}catch{fail('These files could not be opened. Choose them again.',{back:'/byob',backLabel:'Choose files again'});return;}
+  if(!engineApi)return;
+  if(!engineApi.rightsConfirmed()&&entry.rights)engineApi.confirmRights();
+  location.replace('/library?sharedReader=1&own=file');
+}
+
 async function main(){
   if(own==='file'){
     const entry=await peekHandoffEntry();
+    if(entry?.files?.length>1){await addFiles(entry);return;}
     if(entry){await addFile(entry);return;}
   }else{
     const draft=await peekPasteHandoff();
