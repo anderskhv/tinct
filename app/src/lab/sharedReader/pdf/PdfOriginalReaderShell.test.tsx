@@ -376,7 +376,8 @@ it('summarizes the whole PDF from the menu, not only the unit the reader is on (
   expect(source.pages.map(page => page.n)).toEqual(Array.from({ length: 12 }, (_, index) => index + 1))
   expect(source.unit).toEqual(expect.objectContaining({ title: 'A research paper', from: 1, to: 12 }))
   expect(saveUnitCard).toHaveBeenCalledWith(source, 'recap', 'A summary of the whole paper.')
-  expect(screen.getByText('Source · Original PDF pages 1–12')).toBeTruthy()
+  // An AI card shows only its answer (30 Oct 2026): no source-range line.
+  expect(screen.queryByText(/Source · Original PDF page/)).toBeNull()
 })
 
 it('summarizes the current unit from the menu when the whole PDF is over the send bound', async () => {
@@ -395,7 +396,7 @@ it('summarizes the current unit from the menu when the whole PDF is over the sen
   const source = askUnit.mock.calls[0][0] as unknown as Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0]
   expect(source.pages.map(page => page.n)).toEqual([1])
   expect(source.unit).toEqual(expect.objectContaining({ title: 'Page 1', from: 1, to: 1 }))
-  expect(screen.getByText('Source · Original PDF page 1')).toBeTruthy()
+  expect(screen.queryByText(/Source · Original PDF page/)).toBeNull()
 })
 
 it('does not send or save a Primer when a later required page exceeds the full-page bound', async () => {
