@@ -293,7 +293,20 @@ async function openFromUrl(hex) {
   $('column').innerHTML = `<div class="pdf-status" role="alert">That book is no longer on this device or in your account. <a href="${SHELF_URL}">Go to My shelf</a></div>`;
   return false;
 }
-$('fileInput').onchange = e => { chooseFile(e.target.files[0]); e.target.value = '' };
+// Several files at once (bulk adding, 9 Nov 2026): kept for the library, whose queue on My shelf adds them one
+// after another (/library?own=file, add-to-tinct.js); one file opens here as before.
+async function chooseFiles(list) {
+  const files = [...(list || [])].filter(Boolean);
+  if (files.length < 2) return chooseFile(files[0]);
+  if (needsAccount()) return;
+  try {
+    const { putHandoffFiles } = await import('/lab/addbook/js/file-handoff.js?v=__TINCT_BUILD__');
+    if (await putHandoffFiles(files)) { location.assign('/library?sharedReader=1&own=file'); return }
+  } catch { /* below */ }
+  toast('This browser could not keep these files. Add them from My shelf.');
+}
+$('fileInput').multiple = true;
+$('fileInput').onchange = e => { const files = [...(e.target.files || [])]; e.target.value = ''; chooseFiles(files) };
 // In the reader's frame (a Tinct book, or a reader's own book at /reader?userBook=): the book reader's Reading now
 // (previewNav); this page on its own (a phone's PDF pages): its switcher here.
 $('bookBtn').onclick = () => (navHost() ? previewNav('switcher') : openSwitcher());
@@ -301,7 +314,7 @@ let dragDepth = 0;
 addEventListener('dragenter', e => { if ([...(e.dataTransfer?.types || [])].includes('Files')) { dragDepth++; $('drop').hidden = false } });
 addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; $('drop').hidden = true } });
 addEventListener('dragover', e => e.preventDefault());
-addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFile(e.dataTransfer?.files?.[0]) });
+addEventListener('drop', e => { e.preventDefault(); dragDepth = 0; $('drop').hidden = true; if (e.target.closest?.('.lab-ask')) return; chooseFiles(e.dataTransfer?.files) });
 
 /* ---------- Reader ↔ start page ---------- */
 const readerShown = () => document.body.dataset.view === 'reader';

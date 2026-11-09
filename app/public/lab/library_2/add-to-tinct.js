@@ -6,7 +6,7 @@
 // the library is unchanged. The catalogue search is Add a book's own worker and
 // catalogue, loaded when search first opens; importing and the own-books list are
 // /lab/library-add.js (src/libraryAdd.ts), loaded on first use.
-import {putHandoff,HANDOFF_PARAM,clearPasteHandoff} from '../addbook/js/file-handoff.js?v=20261105flow';
+import {putHandoff,HANDOFF_PARAM,clearPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {normalize,includedWork,altTitlesFor,cleanName} from '../addbook/js/search.js?v=20261009rel10';
 import {eraLabel} from './book-metadata.js?v=20261106mm';
 import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
@@ -15,6 +15,7 @@ import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResult
 import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
 import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded} from './own-add.js?v=20261105flow';
 import {pasteBox} from './paste-box.js?v=20261105flow';
+import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109bulk';
 export {addEngine,loadFileEngine};
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -137,12 +138,20 @@ export const FILE_ACCEPT_ANDROID=FILE_ACCEPT+',application/octet-stream';
 export const fileAccept=(ua=globalThis.navigator?.userAgent||'')=>/\bAndroid\b/i.test(ua)?FILE_ACCEPT_ANDROID:FILE_ACCEPT;
 // Add a book's engine on this page: own-add.js loadFileEngine.
 let openDialog=null;
-/** Close the pop-up (if open), focus back on what opened it. */
+/**
+ * Several files chosen or dropped at once (9 Nov 2026): their queue (own-queue.js), kept while the pop-up
+ * is closed, so the reader can go on using the page and see it again from any +. {queue, done, draw}.
+ */
+let batch=null;
+/** Close the pop-up (if open), focus back on what opened it. A queue still running carries on. */
 export function closeFileDialog(){
  if(!openDialog)return;
  const {layer,from,onKey}=openDialog;openDialog=null;
+ if(batch){batch.draw=null;if(batch.done)batch=null;}
  removeEventListener('keydown',onKey,true);layer.remove();from?.focus?.({preventScroll:true});
 }
+/** The queue, for tests and the page: its items ({name, status, reason, note, key}) or null. */
+export const ownQueue=()=>batch?.queue?.items||null;
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
 /**
@@ -150,7 +159,7 @@ const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return
  * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
-export function openFileDialog({from=null,onSearch=null,checking=false,authorize=async()=>true,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE}={}){
+export function openFileDialog({from=null,onSearch=null,checking=false,authorize=async()=>true,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE,showShelf=showMyShelf}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
@@ -161,7 +170,8 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  const close=button('tui-close own-file-close','');close.setAttribute('aria-label',OWN_BOOK_COPY.close);
  close.innerHTML='<svg viewBox="0 0 14 14" aria-hidden="true"><path d="m3 3 8 8M11 3l-8 8"/></svg>';
  close.onclick=()=>{if(!box.dataset.busy)closeFileDialog();};head.append(close);
- const input=make('input');input.type='file';input.accept=fileAccept();input.hidden=true;input.className='own-file-input';
+ // Several at once (9 Nov 2026): one file keeps the one-file path below exactly; more go to the queue.
+ const input=make('input');input.type='file';input.accept=fileAccept();input.multiple=true;input.hidden=true;input.className='own-file-input';
  const content=make('div','own-file-content');
  box.append(head,content,input);layer.append(box);document.body.append(layer);
  // While a file is being added, the pop-up stays until the book opens.
@@ -307,14 +317,88 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
    go(opened.href);
   }catch(error){chooseStep(error?.message||OWN_BOOK_COPY.failed);}
  }
- input.onchange=()=>{const file=input.files?.[0];input.value='';if(file)void addFile(file);};
- if(checking) step('checking',make('p','tui-dialog__body','Checking your account…'));
+ // A queue already running takes more at its end; else one file is the one-file path, several the queue.
+ function takeFiles(list){
+  const files=[...(list||[])].filter(Boolean);if(!files.length)return;
+  if(batch?.queue&&!batch.done){batch.queue.add(files);return;}
+  if(box.dataset.busy)return;
+  if(files.length===1)void addFile(files[0]);else void addFiles(files);
+ }
+ input.onchange=()=>{const files=[...(input.files||[])];input.value='';takeFiles(files);};
+ // Files dropped anywhere on the pop-up (a desktop), as on the signed-out sheet (own-start.js).
+ const dragging=event=>[...(event.dataTransfer?.types||[])].includes('Files');
+ const dropReady=()=>box.dataset.step==='choose'||box.dataset.step==='queue'&&!batch?.done;
+ for(const type of ['dragenter','dragover'])box.addEventListener(type,event=>{if(!dragging(event)||!dropReady())return;event.preventDefault();box.classList.add('is-over');});
+ for(const type of ['dragleave','drop'])box.addEventListener(type,()=>box.classList.remove('is-over'));
+ box.addEventListener('drop',event=>{if(!event.dataTransfer?.files?.length||!dropReady())return;event.preventDefault();takeFiles(event.dataTransfer.files);});
+ // The queue in the pop-up: a compact list (name, then its status or the reason it failed) and the
+ // pop-up's own hairline for the whole batch. Not busy: the × closes it and the queue carries on.
+ const queueList=make('ol','own-queue');queueList.setAttribute('aria-live','polite');
+ const queueBar=make('span','own-file-progress');queueBar.setAttribute('aria-hidden','true');queueBar.append(make('i'));
+ const queueFine=make('p','tui-dialog__fine own-queue-fine');
+ function drawQueue(){
+  if(!batch?.queue||!layer.isConnected)return;
+  const items=batch.queue.items;
+  if(box.dataset.step!=='queue'){delete box.dataset.busy;plainHead();queueList.replaceChildren();step('queue',queueList,queueBar,queueFine);}
+  const added=items.filter(item=>item.status==='ready').length;
+  title.textContent=batch.done?`Added ${added} of ${items.length} ${items.length===1?'book':'books'}`:`Adding ${items.length} books`;
+  while(queueList.children.length<items.length){
+   const row=make('li','own-queue__item');row.append(make('span','own-queue__name'),make('span','own-queue__status'));queueList.append(row);
+  }
+  items.forEach((item,index)=>{
+   const row=queueList.children[index],name=row.firstChild,status=row.lastChild;
+   if(name.textContent!==item.name){name.textContent=item.name;name.title=item.name;}
+   if(row.dataset.status!==item.status){
+    row.dataset.status=item.status;
+    if(item.status==='preparing'){const ring=globalThis.TinctWait?.waitRing('',{size:13,live:false,delayMs:0});status.replaceChildren(...(ring?[ring]:[]),make('span','',QUEUE_COPY.preparing));}
+    else status.textContent=item.status==='ready'?QUEUE_COPY.ready:item.status==='waiting'?QUEUE_COPY.waiting:item.reason;
+   }
+   if(item.status==='ready'&&item.note&&status.textContent!==`${QUEUE_COPY.ready}. ${item.note}`)status.textContent=`${QUEUE_COPY.ready}. ${item.note}`;
+  });
+  const done=items.reduce((sum,item)=>sum+(item.status==='waiting'?0:item.status==='preparing'?item.progress:1),0);
+  const value=items.length?done/items.length:0;
+  queueBar.style.setProperty('--p',String(value));queueBar.dataset.value=String(value);
+  queueBar.hidden=batch.done;
+  queueFine.textContent=batch.done?'':'You can close this. Each book goes to My shelf as soon as it is ready.';
+ }
+ async function addFiles(files,{rights=false}={}){
+  if(!await authorize()||!layer.isConnected)return;
+  let engineApi;
+  try{engineApi=await api();}catch{chooseStep(OWN_BOOK_COPY.failed);return;}
+  // The rights confirmation, once for the whole batch (none for text files, as for pasted text).
+  if(rights&&!engineApi.rightsConfirmed())engineApi.confirmRights();
+  if(files.some(file=>!isTextFile(file))&&!engineApi.rightsConfirmed()&&!await confirmRights(engineApi,`${files.length} files`))return;
+  if(!layer.isConnected)return;
+  if(batch?.queue&&!batch.done){batch.queue.add(files);return;}
+  const seen=new Set();
+  const still=async()=>signedIn()&&await authorize();
+  batch={done:false,draw:drawQueue,queue:null};
+  const current=batch;
+  current.queue=createQueue(files,{
+   prepare:(file,{progress})=>prepareQueuedFile(engineApi,file,{seen,authorize:still,progress}),
+   onChange:(_items,item)=>{if(item?.status==='ready'&&item.key)dispatchEvent(new CustomEvent('library2:own-added',{detail:{key:item.key}}));current.draw?.();},
+   onSettled:items=>{
+    current.done=true;
+    showShelf();
+    // All added: the pop-up goes and My shelf shows them. Otherwise the list stays (or comes back) with each reason.
+    if(items.every(item=>item.status==='ready')){if(current.draw)closeFileDialog();if(batch===current)batch=null;return;}
+    if(current.draw)current.draw();else if(batch===current)openFileDialog({go,engine,showShelf});
+   },
+  });
+  drawQueue();
+ }
+ if(batch){batch.draw=drawQueue;drawQueue();}
+ else if(checking) step('checking',make('p','tui-dialog__body','Checking your account…'));
  else chooseStep();
  layer.showReady=chooseStep;
  layer.addFile=addFile;
+ // Several files (from /byob or the signed-out sheet via /preparing): `rights` when the line was shown there.
+ layer.addFiles=(files,options)=>{const list=[...(files||[])].filter(Boolean);if(!list.length)return;return list.length===1?addFile(list[0]):addFiles(list,options);};
  layer.showPaste=(draft=null)=>{if(!pasteEnabled())return;pasteDraft=draft?{...draft,fromHandoff:true}:null;pasteStep();};
  return layer;
 }
+/** After a batch: My shelf on this page (app.js listens), not a book. */
+export function showMyShelf(){dispatchEvent(new Event('library2:my-shelf'));}
 /**
  * A file entry (the search field's +, "Add a PDF or EPUB", the top bar's and My shelf's +):
  * for Premium and trial, the "Your own book" pop-up (signed in) or sign-in first (an internal

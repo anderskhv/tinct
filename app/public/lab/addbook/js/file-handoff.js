@@ -35,9 +35,19 @@ export async function putHandoff(file, extra = {}) {
   try { await run('readwrite', store => store.put({ ...extra, file, at: Date.now() }, KEY)); return true }
   catch { return false }
 }
+/**
+ * Several files chosen together (9 Nov 2026, bulk adding): kept as one record, the first also as `file`, so
+ * older readers of the handoff (sign-in's name, Add a book's PDF reader) still find one. One file is putHandoff.
+ */
+export async function putHandoffFiles(files, extra = {}) {
+  const list = [...(files || [])].filter(Boolean);
+  if (list.length <= 1) return list.length ? putHandoff(list[0], extra) : false;
+  try { await run('readwrite', store => store.put({ ...extra, file: list[0], files: list, at: Date.now() }, KEY)); return true }
+  catch { return false }
+}
 const fresh = (record, now) => !!record && now - record.at >= 0 && now - record.at < HANDOFF_TTL_MS;
 
-/** The whole kept record ({ file, at, rights? }) without taking it, or null. */
+/** The whole kept record ({ file, files?, at, rights? }) without taking it, or null. */
 export async function peekHandoffEntry(now = Date.now()) {
   try {
     const record = await run('readonly', store => store.get(KEY));
@@ -73,6 +83,16 @@ export async function takeHandoff(now = Date.now()) {
     if (!record?.file || !fresh(record, now)) return null;
     return record.file;
   } catch { return null }
+}
+
+/** Every handed-over File (once: they are deleted as they are taken): one or several, or []. */
+export async function takeHandoffFiles(now = Date.now()) {
+  try {
+    const record = await run('readonly', store => store.get(KEY));
+    if (record) await run('readwrite', store => store.delete(KEY));
+    if (!record?.file || !fresh(record, now)) return [];
+    return Array.isArray(record.files) && record.files.length ? record.files : [record.file];
+  } catch { return [] }
 }
 
 /** The handed-over File without taking it (sign-in shows its name), or null. */
