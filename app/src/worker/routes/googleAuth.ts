@@ -8,7 +8,7 @@
  *                                    the fragment, which never reaches a server.
  * - POST /api/auth/google/exchange  code + PKCE verifier -> Google's token
  *                                    endpoint with the client secret; answers
- *                                    with the ID token only.
+ *                                    with the ID and access tokens only.
  *
  * Nothing is stored and no token, code or verifier is ever logged.
  */
@@ -120,13 +120,14 @@ async function googleExchange(request: Request, env: GoogleAuthEnv, deps: { chec
       }).toString(),
       signal: controller.signal,
     })
-    const answer = await response.json().catch(() => null) as { id_token?: unknown; error?: unknown } | null
+    const answer = await response.json().catch(() => null) as { id_token?: unknown; access_token?: unknown; error?: unknown } | null
     if (!response.ok || typeof answer?.id_token !== 'string' || !answer.id_token) {
       // Google's error code (e.g. invalid_grant) names no one; nothing else is logged.
       console.warn(JSON.stringify({ event: 'google_exchange_failed', status: response.status, error: typeof answer?.error === 'string' ? answer.error.slice(0, 40) : null }))
       return noStore(jsonResponse({ error: 'exchange_failed' }, 400, request))
     }
-    return noStore(jsonResponse({ idToken: answer.id_token }, 200, request))
+    // The access token goes along so Supabase can check the ID token's at_hash; the refresh token never does.
+    return noStore(jsonResponse({ idToken: answer.id_token, ...(typeof answer.access_token === 'string' && answer.access_token ? { accessToken: answer.access_token } : {}) }, 200, request))
   } catch {
     console.warn(JSON.stringify({ event: 'google_exchange_failed', status: controller.signal.aborted ? 'timeout' : 'network', error: null }))
     return noStore(jsonResponse({ error: 'exchange_failed' }, 502, request))

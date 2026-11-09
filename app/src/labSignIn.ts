@@ -464,7 +464,7 @@ async function finishGoogleSignIn() {
       if (!error) return
     } else if (outcome.kind === 'error') message = outcome.message
     else if (outcome.kind === 'token' && supabase) {
-      const { data, error } = await supabase.auth.signInWithIdToken({ provider: 'google', token: outcome.idToken, nonce: outcome.nonce })
+      const { data, error } = await supabase.auth.signInWithIdToken({ provider: 'google', token: outcome.idToken, access_token: outcome.accessToken, nonce: outcome.nonce })
       if (!error && data.session) { await completeSignIn(data.session, false, 'oauth'); return }
     }
   } catch { /* the notice below */ }

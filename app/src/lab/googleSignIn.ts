@@ -14,8 +14,9 @@
  *    carrying Google's code and state in the fragment, and later swaps the
  *    code for an ID token at Google with the client secret
  *    (`/api/auth/google/exchange`, src/worker/routes/googleAuth.ts). Only the
- *    ID token comes back; nothing is stored.
- * 3. The page checks the state and hands the ID token and raw nonce to
+ *    ID and access tokens come back (Supabase checks the ID token's at_hash
+ *    against the access token); nothing is stored.
+ * 3. The page checks the state and hands both tokens and the raw nonce to
  *    `supabase.auth.signInWithIdToken`.
  *
  * Switched by the Worker: `/api/auth/google/config` names the client id only
@@ -213,7 +214,7 @@ export async function startGoogleSignIn(options: {
 }
 
 export type GoogleExchangeResult =
-  | { kind: 'token'; idToken: string }
+  | { kind: 'token'; idToken: string; accessToken?: string }
   | { kind: 'not_configured' }
   | { kind: 'failed' }
 
@@ -227,8 +228,10 @@ export async function exchangeGoogleCode(code: string, flow: GoogleFlow, fetcher
       cache: 'no-store',
       body: JSON.stringify({ code, codeVerifier: flow.verifier, redirectUri: flow.redirectUri }),
     })
-    const body = await response.json().catch(() => null) as { idToken?: unknown; error?: unknown } | null
-    if (response.ok && typeof body?.idToken === 'string' && body.idToken) return { kind: 'token', idToken: body.idToken }
+    const body = await response.json().catch(() => null) as { idToken?: unknown; accessToken?: unknown; error?: unknown } | null
+    if (response.ok && typeof body?.idToken === 'string' && body.idToken) {
+      return { kind: 'token', idToken: body.idToken, ...(typeof body.accessToken === 'string' && body.accessToken ? { accessToken: body.accessToken } : {}) }
+    }
     if (body?.error === 'not_configured') return { kind: 'not_configured' }
     return { kind: 'failed' }
   } catch {
@@ -237,7 +240,7 @@ export async function exchangeGoogleCode(code: string, flow: GoogleFlow, fetcher
 }
 
 export type GoogleReturnOutcome =
-  | { kind: 'token'; idToken: string; nonce: string; returnTo: string }
+  | { kind: 'token'; idToken: string; accessToken?: string; nonce: string; returnTo: string }
   /** The Worker cannot finish it (secret removed meanwhile): use Supabase's flow. */
   | { kind: 'fallback'; returnTo: string }
   | { kind: 'error'; message: string }
@@ -250,7 +253,7 @@ export async function finishGoogleReturn(returned: GoogleReturn, flow: GoogleFlo
     return { kind: 'error', message: GOOGLE_FAILED_MESSAGE }
   }
   const exchanged = await exchangeGoogleCode(returned.code, flow, options.fetcher ?? fetch, options.origin ?? location.origin)
-  if (exchanged.kind === 'token') return { kind: 'token', idToken: exchanged.idToken, nonce: flow.nonce, returnTo: flow.returnTo }
+  if (exchanged.kind === 'token') return { kind: 'token', idToken: exchanged.idToken, ...(exchanged.accessToken ? { accessToken: exchanged.accessToken } : {}), nonce: flow.nonce, returnTo: flow.returnTo }
   if (exchanged.kind === 'not_configured') return { kind: 'fallback', returnTo: flow.returnTo }
   return { kind: 'error', message: GOOGLE_FAILED_MESSAGE }
 }

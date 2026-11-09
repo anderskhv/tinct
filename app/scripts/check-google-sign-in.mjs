@@ -9,7 +9,8 @@
  *
  *   configured   Continue with Google -> accounts.google.com URL (redirect_uri
  *                on this origin, S256, hashed nonce) -> Google answers with a
- *                code -> exchange -> signInWithIdToken (raw nonce) -> the
+ *                code -> exchange -> signInWithIdToken (ID + access token,
+ *                raw nonce) -> the
  *                reader is signed in at the exact place they came from.
  *   cancelled    Google answers access_denied -> the sign-in sheet with a notice.
  *   unconfigured The Worker has no client id/secret -> Supabase's own OAuth.
@@ -164,12 +165,12 @@ async function run(name, { configured, googleAnswer }) {
     assert.equal(sent.provider, 'google')
     assert.equal(sent.id_token, `fixture.id-token.${google.searchParams.get('nonce')}`)
     assert.equal(sha256Hex(sent.nonce), google.searchParams.get('nonce'), 'Supabase gets the raw nonce whose SHA-256 Google got')
-    assert.equal(sent.access_token, undefined, 'only the ID token reaches the browser and Supabase')
+    assert.equal(sent.access_token, 'ya29.fixture', 'Supabase gets the access token too, for the at_hash check')
     const stored = await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('sb-') && key.endsWith('-auth-token')))
     const cookie = (await context.cookies(origin)).find(item => item.name === 'tinct_auth')
     await page.screenshot({ path: path.join(output, `${name}-2-landed.png`) })
     assert.ok(cookie, 'signed-in cookie set (landing page redirect rule)')
-    return { name, ok: true, landed: landed.toString(), google: google.toString(), supabaseBody: { ...sent, id_token: '(fixture)', nonce: `(raw, ${sent.nonce.length} chars)` }, stored, external: seen.external, errors: seen.errors }
+    return { name, ok: true, landed: landed.toString(), google: google.toString(), supabaseBody: { ...sent, id_token: '(fixture)', access_token: '(fixture)', nonce: `(raw, ${sent.nonce.length} chars)` }, stored, external: seen.external, errors: seen.errors }
   } catch (error) {
     const page = browser.contexts()[0]?.pages()[0]
     if (page) {

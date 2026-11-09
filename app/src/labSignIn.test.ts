@@ -535,13 +535,13 @@ describe('Google sign-in on tinct.app', () => {
   })
 
   it('finishes the return: exchange, signInWithIdToken with the raw nonce, then back to the exact place', async () => {
-    workerFetch.mockImplementation(async () => Response.json({ idToken: 'id.token.value' }))
+    workerFetch.mockImplementation(async () => Response.json({ idToken: 'id.token.value', accessToken: 'ya29.access' }))
     auth.signInWithIdToken.mockResolvedValueOnce({ data: { session: { access_token: 't', user: existing } }, error: null })
     await back('#code=4%2F0A-code&state=state-1')
     const [url, init] = workerFetch.mock.calls[0]
     expect(url).toBe(`${location.origin}/api/auth/google/exchange`)
     expect(JSON.parse(String(init?.body))).toMatchObject({ code: '4/0A-code', codeVerifier: 'v'.repeat(43) })
-    expect(auth.signInWithIdToken).toHaveBeenCalledWith({ provider: 'google', token: 'id.token.value', nonce: 'raw-nonce' })
+    expect(auth.signInWithIdToken).toHaveBeenCalledWith({ provider: 'google', token: 'id.token.value', access_token: 'ya29.access', nonce: 'raw-nonce' })
     expect(navigation).toHaveBeenCalledWith('/reader?book=bible#p12')
     expect(location.hash).toBe('')
     expect(location.search).not.toContain('callback')

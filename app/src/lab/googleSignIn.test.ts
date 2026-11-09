@@ -131,9 +131,9 @@ describe('the switch (Worker config)', () => {
 
 describe('finishing the return', () => {
   it('exchanges the code with the verifier and hands back the token and raw nonce', async () => {
-    const fetcher = vi.fn(async (_url: string, _init?: RequestInit) => json({ idToken: 'id.token.value' }))
+    const fetcher = vi.fn(async (_url: string, _init?: RequestInit) => json({ idToken: 'id.token.value', accessToken: 'ya29.access' }))
     const outcome = await finishGoogleReturn({ code: 'code-1', state: 'state-1', error: null }, flow(), { fetcher: fetcher as never, origin })
-    expect(outcome).toEqual({ kind: 'token', idToken: 'id.token.value', nonce: 'raw-nonce', returnTo: '/reader?book=bible#p12' })
+    expect(outcome).toEqual({ kind: 'token', idToken: 'id.token.value', accessToken: 'ya29.access', nonce: 'raw-nonce', returnTo: '/reader?book=bible#p12' })
     const [url, init] = fetcher.mock.calls[0]
     expect(url).toBe('https://tinct.app/api/auth/google/exchange')
     expect(JSON.parse(String(init?.body))).toEqual({ code: 'code-1', codeVerifier: 'v'.repeat(43), redirectUri: 'https://tinct.app/auth/google/callback' })

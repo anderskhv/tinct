@@ -49,7 +49,7 @@ describe('GET /auth/google/callback', () => {
 })
 
 describe('POST /api/auth/google/exchange', () => {
-  it('swaps the code and verifier at Google with the secret and returns only the ID token', async () => {
+  it('swaps the code and verifier at Google with the secret and returns only the ID and access tokens (never the refresh token)', async () => {
     const google = vi.fn(async (_url: string, _init?: RequestInit) => Response.json({ access_token: 'ya29.access', id_token: 'eyJ.id.token', expires_in: 3599, token_type: 'Bearer', refresh_token: 'never-asked' }))
     vi.stubGlobal('fetch', google)
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
@@ -58,7 +58,7 @@ describe('POST /api/auth/google/exchange', () => {
     const response = await worker.fetch(exchange(good), { ...configured, USAGE_COORDINATOR: usage } as never, ctx)
     expect(response.status).toBe(200)
     expect(response.headers.get('Cache-Control')).toBe('no-store')
-    expect(await response.json()).toEqual({ idToken: 'eyJ.id.token' })
+    expect(await response.json()).toEqual({ idToken: 'eyJ.id.token', accessToken: 'ya29.access' })
     const [url, init] = google.mock.calls[0]
     expect(url).toBe(GOOGLE_TOKEN_URL)
     expect(init?.method).toBe('POST')
