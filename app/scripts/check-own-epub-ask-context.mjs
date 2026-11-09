@@ -10,6 +10,7 @@
 // fallback context (pdfPages) centres the reader's chapter on the selection and marks its cuts "[…]"; the card's
 // instructions no longer ask to "say when something is not in it".
 import { chromium } from 'playwright'
+import { markInternal } from './lib/internalTraffic.cjs'
 import { zip } from '../../addbooks/web/test/make-epub.mjs'
 import { createHash } from 'node:crypto'
 import fs from 'node:fs/promises'
@@ -31,7 +32,7 @@ const opf = `<?xml version="1.0" encoding="utf-8"?><package xmlns="http://www.id
 const bytes = zip([['mimetype', 'application/epub+zip'], ['META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>'], ['OEBPS/content.opf', opf], ...docs.map(([id, p, b]) => [`OEBPS/${p}`, id === 'nav' ? nav : x(b), { deflate: true }])])
 const sha256 = createHash('sha256').update(bytes).digest('hex'), hex = sha256.slice(0, 24)
 const chats = []
-const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined })
+const browser = await markInternal(await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined }))
 const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' })
 const json = (route, status, b) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(b) })
 await context.route('**/*', async route => {
