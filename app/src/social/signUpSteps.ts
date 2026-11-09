@@ -1,6 +1,7 @@
 import { ICONS } from '../cards/cardStack'
 /** Approved 22 October profile and reading steps. Choices stay on this
- * device until Continue / Start reading. Skip performs no account write. */
+ * device until Continue / Start reading. Skip saves no profile choice; it records only that the step
+ * was offered (prompted_at), so it is not offered again by itself (profileStepOffer.ts). */
 import {
   EMAIL_CONSENT_TEXT,
   EMAIL_CONSENT_VERSION,
@@ -26,6 +27,7 @@ import {
 } from './socialClient'
 import { initialReadingLanguages, toggleReadingLanguage, type ReadingLanguage } from './readingLanguages'
 import { photoAccept } from './photoAccept'
+import { markProfileStepOffered } from './profileStepOffer'
 import { PHOTO_COPY } from './photoFile'
 import { CARDS_COPY } from '../cards/cardsCopy'
 
@@ -222,6 +224,8 @@ export function visibilityChoices(visibility: 'everyone' | 'only_me'): { visibil
 export interface ProfileStepsOptions {
   /** The Google account's own photo (session user_metadata), shown first when there is one. */
   googlePhotoUrl?: string | null
+  /** The account, for this device's "offered" mark (profileStepOffer.ts). */
+  userId?: string | null
 }
 
 /**
@@ -461,6 +465,9 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
 
   card.querySelector('[data-auth-status]')?.before(step2, step3)
   hooks.setMode('profile')
+  // Offered once (profileStepOffer.ts): this device remembers it now, the account on Skip.
+  markProfileStepOffered(options.userId)
+  let offered: Promise<boolean> | null = null
 
   // ---- Saving, behind the steps ----
   let profileSave: Promise<boolean> | null = null
@@ -488,13 +495,16 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     hooks.setMode('reading')
   })
   skipProfile.addEventListener('click', () => {
+    // Skip saves no profile choice (the name, the picture, the Google photo included, and visibility stay as
+    // they were); it records only that the step was offered, so the library does not bring it back.
+    if (profile.shouldPrompt && !offered) offered = withRetry(() => saveProfile(token, { prompted: true }))
     releasePreviews()
     hooks.setStatus()
     hooks.setMode('reading')
   })
   readingSkip.addEventListener('click', async () => {
     readingSkip.disabled = startButton.disabled = true
-    if (profileSave) await Promise.race([profileSave, new Promise(resolve => setTimeout(resolve, UPLOAD_GRACE_MS))])
+    await Promise.race([Promise.all([offered, profileSave]), new Promise(resolve => setTimeout(resolve, UPLOAD_GRACE_MS))])
     hooks.finish()
   })
   startButton.addEventListener('click', async () => {
@@ -502,7 +512,7 @@ export async function startProfileSteps(root: HTMLElement, token: string, hooks:
     rememberNewBooksOpenIn(newBooks)
     // Small and sent with keepalive: it completes even as the page goes back to the book.
     void saveProfile(token, { newBooksOpenIn: newBooks, readingLanguages: languages }, (input, init) => fetch(input, { ...init, keepalive: true }))
-    if (profileSave) await Promise.race([profileSave, new Promise(resolve => setTimeout(resolve, UPLOAD_GRACE_MS))])
+    await Promise.race([Promise.all([offered, profileSave]), new Promise(resolve => setTimeout(resolve, UPLOAD_GRACE_MS))])
     hooks.finish()
   })
 }

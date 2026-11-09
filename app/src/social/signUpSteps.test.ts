@@ -245,7 +245,34 @@ describe('onboarding v3 steps (approved mockup, 2 Nov 2026)', () => {
     expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
   })
 
-  it('skipping both steps saves nothing and returns to the book', async () => {
+  it('skipping both steps saves no profile choice, only that the step was offered, and returns to the book', async () => {
+    await start()
+    q<HTMLButtonElement>('[data-social-skip]').click()
+    q<HTMLButtonElement>('[data-social-reading-skip]').click()
+    await flush()
+    // prompted_at only (Anders, 9 Nov 2026: after Skip the library offered the step again): no name,
+    // picture, Google photo, visibility or reading choice is sent.
+    expect(posts).toEqual([{ url: '/api/profile', body: { prompted: true }, keepalive: undefined }])
+    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
+  })
+
+  it('Skip waits for the offer to be recorded (retried) before leaving, and the device remembers it from the first sight', async () => {
+    const { LEGACY_SETUP_KEY_PREFIX } = await import('./profileStepOffer')
+    await start()
+    expect(localStorage.getItem(LEGACY_SETUP_KEY_PREFIX + newUser.id)).toBe('1')
+    failNextPosts = 1
+    q<HTMLButtonElement>('[data-social-skip]').click()
+    q<HTMLButtonElement>('[data-social-reading-skip]').click()
+    await flush()
+    expect(navigation).not.toHaveBeenCalled()
+    await new Promise(resolve => setTimeout(resolve, 700))
+    await flush()
+    expect(profilePosts().map(post => post.body)).toEqual([{ prompted: true }, { prompted: true }])
+    expect(navigation).toHaveBeenCalledWith('/reader?book=odyssey')
+  })
+
+  it('an account already offered the step: Skip sends nothing at all', async () => {
+    profile = { ...baseProfile, shouldPrompt: false }
     await start()
     q<HTMLButtonElement>('[data-social-skip]').click()
     q<HTMLButtonElement>('[data-social-reading-skip]').click()
