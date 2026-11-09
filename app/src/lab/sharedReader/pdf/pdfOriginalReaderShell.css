@@ -123,3 +123,8 @@ html[data-eink=true] .pdf-original-reader__panel,html[data-eink=true] .pdf-origi
 .pdf-original-reader__text-offer-stage { color:var(--lab-ink-muted); font-variant-numeric:tabular-nums; }
 .pdf-original-reader__text-offer progress { width:96px; height:6px; accent-color:var(--lab-ink-muted); }
 .pdf-original-reader.is-phone .pdf-original-reader__text-offer { left:calc(16px + env(safe-area-inset-left,0px)); right:calc(16px + env(safe-area-inset-right,0px)); bottom:calc(54px + env(safe-area-inset-bottom,0px)); transform:none; max-width:none; }
+/* Explain a figure (PdfSnipLayer): a crosshair layer over the pages; the box is drawn while dragging. */
+.pdf-original-snip { position:fixed; z-index:105; cursor:crosshair; touch-action:none; user-select:none; -webkit-user-select:none; background:color-mix(in srgb,var(--lab-ink) 5%,transparent); }
+.pdf-original-snip__hint { position:absolute; left:50%; top:12px; transform:translateX(-50%); margin:0; display:flex; align-items:center; gap:10px; width:max-content; max-width:calc(100% - 32px); box-sizing:border-box; padding:6px 6px 6px 14px; border-radius:999px; background:var(--lab-ink); color:var(--lab-surface); font:14px system-ui,sans-serif; box-shadow:0 6px 18px rgba(0,0,0,.18); cursor:default; }
+.pdf-original-snip__hint button { min-height:32px; border:0; border-radius:999px; padding:0 14px; background:var(--lab-surface); color:var(--lab-ink); font:inherit; cursor:pointer; }
+.pdf-original-snip__box { position:absolute; pointer-events:none; border:1.5px solid var(--lab-ink); border-radius:3px; background:color-mix(in srgb,var(--lab-ink) 6%,transparent); box-shadow:0 0 0 9999px color-mix(in srgb,var(--lab-ink) 14%,transparent); }

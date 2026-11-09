@@ -6,7 +6,8 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
+/** Explain a figure (`snip`) is added by the Original PDF reader itself (PdfOriginalReaderShell), never by labSuperMenuRows. */
 
 export interface LabSuperMenuRow {
   id: LabSuperMenuId

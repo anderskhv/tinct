@@ -362,6 +362,18 @@ describe('Explain on a PDF and the passage picture', () => {
     expect(JSON.stringify(last.content)).toContain('Explain this figure.')
   })
 
+  it('Explain a figure (a dragged box, no label or caption) reaches Claude as one image before its text and counts as an Explain', async () => {
+    const { anthropic, rows } = stubFetch()
+    const { status } = await send({ companion: { intent: 'explain', context: pdfContext(3), document, figure: true, selection: '[The reader selected a figure on page 3. It is the attached image.]' },
+      messages: [{ role: 'user', content: [image(1568, 1100), { type: 'text', text: 'Explain this figure.' }] }] })
+    expect(status).toBe(200)
+    expect(anthropic[0].model).toBe('claude-haiku-5-5')
+    const last = (anthropic[0].messages as Array<{ content: Array<{ type: string; source?: { type: string; media_type: string } }> }>).at(-1)!
+    expect(last.content.filter(block => block.type === 'image')).toEqual([{ type: 'image', source: expect.objectContaining({ type: 'base64', media_type: 'image/png' }) }])
+    expect(last.content[0].type).toBe('image')
+    expect(rows.map(row => row.feature)).toEqual(['explain'])
+  })
+
   it('refuses a picture over 1568 px on its long side', async () => {
     const { anthropic } = stubFetch()
     const { status, text } = await send(withImages(margin('explain', 1, { selection: 'a passage' }), [image(1569, 300)]))
