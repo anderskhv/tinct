@@ -23,9 +23,12 @@ const FLOOR_PROOF = 'src/worker.rollbackFloor.test.ts'
 const releaseDir = path.join(__dirname, '..', 'release')
 const floorManifest = path.join(releaseDir, 'shared-reader-floor.json')
 const rolloutState = path.join(releaseDir, 'shared-reader-rollout.json')
-// Accepted reader: deploy run 41634475749, source 6b5121f0fd36b13320074f3b221e4c5f0b0a0ea4 (#714 train + #716; all six production acceptance groups passed).
-// All six acceptance groups passed without rollback; preserve the reader-ON release path.
-const ACCEPTED_READER_VERSION = '319befd9-57d4-4e76-b82d-55b488d4fe14'
+// Accepted reader: be9d6e31, the Worker version Cloudflare made when Anders added the Worker secrets
+// GOOGLE_OAUTH_CLIENT_ID and GOOGLE_OAUTH_CLIENT_SECRET in the dashboard (9 Nov 2026, "Add variables and deploy").
+// It serves the same code and bundle (index-BvKx_My0.js) as the last accepted release fc28e86b (deploy run
+// 42620672206, main c30b8dcaa2, #767 + #768, all production acceptance groups passed); only the secrets differ.
+// Before: 319befd9 (deploy run 41634475749, #714 train + #716).
+const ACCEPTED_READER_VERSION = 'be9d6e31-4d8c-434b-893e-c7b1808923da'
 
 function validatedVersion(value, label) {
   if (!VERSION_ID.test(value || '')) throw new Error(`${label} must be an explicit Worker Version UUID`)
