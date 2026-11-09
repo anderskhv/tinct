@@ -4,7 +4,7 @@
  * every trigger and suppression rule is testable without a database.
  */
 
-import { TRIAL_RESET_AT } from '../lib/aiAllowance'
+import { PREMIUM_EXTENDED_UNTIL, PREMIUM_EXTENSION_FROM, TRIAL_RESET_AT } from '../lib/aiAllowance'
 
 export const HOUR = 3600 * 1000
 export const DAY = 24 * HOUR
@@ -134,9 +134,21 @@ export function trialResetAccount(facts: Pick<ReaderFacts, 'createdAt'>, now: nu
   return now >= reset && !(facts.createdAt >= reset)
 }
 
+/**
+ * The Premium extension (lib/aiAllowance.ts PREMIUM_EXTENDED_UNTIL, 9 Nov 2026):
+ * an account whose 30-day trial ends before 4 Jan 2027 keeps Premium until then,
+ * so its sign-up schedule ("Your free month ends on …") would be wrong. It gets
+ * no trial notice, as the reset's accounts; whether to announce the end of the
+ * extension is a separate choice for Anders.
+ */
+export function extendedTrialAccount(facts: Pick<ReaderFacts, 'createdAt'>, now: number): boolean {
+  return now >= PREMIUM_EXTENSION_FROM.getTime() && facts.createdAt + TRIAL_DAYS * DAY < PREMIUM_EXTENDED_UNTIL.getTime()
+}
+
 export function planTrialNotice(facts: ReaderFacts, now: number): TrialPlan | null {
   if (facts.subscribed) return null
   if (trialResetAccount(facts, now)) return null
+  if (extendedTrialAccount(facts, now)) return null
   const day = (now - facts.createdAt) / DAY
   if (day >= TRIAL_DAYS && day < TRIAL_ENDED_LAST_DAY + 1) {
     return alreadySent(facts.log, 'trial-ended:-') ? null : { template: 'trial-ended', dedupeKey: 'trial-ended:-' }
