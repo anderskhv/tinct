@@ -234,12 +234,20 @@ describe('a user book in the Tinct reader', () => {
     expect(body.messages[body.messages.length - 1].content).toContain('Recap this chapter.')
   })
 
-  it('goes back to the library\'s reading table, as from Tinct\'s books (Anders, 12 Oct)', () => {
+  // Supersedes the 12 Oct reading-table rule (tester, 9 Nov 2026: back from an own book "dropped me on the main page").
+  it('goes back to My shelf, where the reader\'s own books are', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
     const back = screen.getByTestId('lab-library-back')
     expect(back.getAttribute('aria-label')).toBe('Back to library')
+    expect(back.getAttribute('title')).toBe('Your books')
     fireEvent.click(back)
-    expect(leave).toHaveBeenCalledWith('/library')
+    expect(leave).toHaveBeenCalledWith('/library#my-shelf')
+  })
+
+  it('keeps the shared reader flag on the way back to My shelf', () => {
+    render(<LabApp pathname="/reader" authToken={null} userBook={loaded()} sharedReader />)
+    fireEvent.click(screen.getByTestId('lab-library-back'))
+    expect(leave).toHaveBeenCalledWith('/library?sharedReader=1#my-shelf')
   })
 
   it('names its chapters and text only from this device', async () => {

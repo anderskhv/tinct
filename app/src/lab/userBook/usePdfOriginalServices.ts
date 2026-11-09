@@ -2,7 +2,7 @@ import { PDF_SOURCE_PAGES, PDF_SOURCE_PAGE_CHARS, PDF_SOURCE_CHARS } from '../sh
 /** Owner-bound Original PDF page geometry, separate from PDF Tinct-text anchors. */
 import type { PdfRegionCapture } from '../sharedReader/pdf/pdfOriginalFigures'
 import { isPdfFreeNoteData, isPdfSourceAnchor } from '../../shared/pdfOriginalCardMetadata'
-import { createElement, useEffect, useRef, useState } from 'react'
+import { createElement, useEffect, useMemo, useRef, useState } from 'react'
 import type { HighlightColor } from '../../types'
 import type { OwnCard, OwnMark, OwnMarkGone } from '../../worker/routes/userBooks'
 import type { PdfOriginalReaderServices } from '../sharedReader/pdf/PdfOriginalReaderShell'
@@ -328,7 +328,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   get audio(): PdfOriginalReaderServices['audio'] {
     if (!this.trusted() || !this.player) return undefined
     const snapshot = this.player.snapshot()
-    return { speed: snapshot.speed, playing: snapshot.playing, available: snapshot.available === true,
+    return { speed: snapshot.speed, playing: snapshot.playing, pending: snapshot.pending === true, available: snapshot.available === true,
+      ...(snapshot.available === false ? { unavailable: true } : {}),
       setSpeed: speed => { if (this.trusted() && Number.isFinite(speed) && speed >= .5 && speed <= 2) this.player?.setSpeed?.(speed) },
       pause: () => { if (this.trusted()) this.player?.pause?.() },
       resume: () => this.trusted() && this.player?.resume?.() === true }
@@ -656,7 +657,15 @@ export function usePdfOriginalServices(hex: string, owner: string | null, enable
   statusRef.current = onStatus
   const metadataRef = useRef(metadata)
   metadataRef.current = metadata
-  const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own: enabled ? { hex } : null })
+  // Not Premium (402): the account cards, with their Premium offer, open over the PDF, as for an own EPUB in the
+  // margin reader (MarginOwnBook) and an own book in the Tinct reader (LabApp's account sheet). Without this the
+  // request was put away and Play did nothing at all.
+  const own = useMemo(() => enabled ? { hex, onPremiumRequired: () => {
+    void import('../../cards/openCards').then(cards => cards.accountCardsOpen() || cards.openAccountCards({ start: 'you',
+      dark: typeof document !== 'undefined' && !!document.querySelector('.pdf-original-reader.is-night'), deskTop: 76 }))
+      .catch(() => { /* offline: nothing opened */ })
+  } } : null, [hex, enabled])
+  const player = useMarginListen({ bookId: userBookId(hex), editionKey: enabled ? 'own' : null, own })
   useEffect(() => { service?.setBookMetadata(metadata) }, [service, metadata?.title, metadata?.author])
   useEffect(() => {
     if (!enabled || !owner || !HEX.test(hex) || userBookOwner() !== owner) { setService(null); return }
