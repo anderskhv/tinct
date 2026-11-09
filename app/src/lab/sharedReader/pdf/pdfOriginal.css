@@ -82,6 +82,10 @@ html[data-eink=true] .pdf-original-reader .pdf-original__page { box-shadow:0 0 0
 .pdf-original__map-activity[data-color="sky"] { color:#6e9cbe; }
 .pdf-original__map-activity[data-color="lavender"] { color:#9d84bd; }
 .pdf-original__map-hit { fill:transparent; }
+.pdf-original__map-section { cursor:pointer; }
+.pdf-original__map-section-rule { stroke:currentColor; stroke-width:2.2; opacity:.85; pointer-events:none; }
+.pdf-original__map-section:hover .pdf-original__map-section-rule,
+.pdf-original__map-section:focus-visible .pdf-original__map-section-rule { opacity:1; stroke-width:3; }
 .pdf-original__map-ink { fill:currentColor; opacity:.85; pointer-events:none; }
 .pdf-original__map-activity:hover .pdf-original__map-ink,
 .pdf-original__map-activity:focus-visible .pdf-original__map-ink { opacity:1; filter:brightness(1.18); }

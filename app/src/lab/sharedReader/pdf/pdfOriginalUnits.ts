@@ -1,8 +1,10 @@
 import { PDF_SOURCE_PAGES } from './pdfOriginalSourceLimits'
 import type { PdfScan, PdfSizedUnit, PdfUnitEntry } from '../../userBook/pdfEdition'
+import { PDF_SECTION_PAGES, type PdfDetectedSection } from './pdfSectionHeadings'
 
 export type PdfOriginalScanOutline = Pick<PdfScan, 'entries' | 'nav' | 'pages'>
-export type PdfOriginalUnit = PdfSizedUnit
+/** frac: where a detected section's heading stands on its first page (pdfSectionHeadings), for the exact jump. */
+export type PdfOriginalUnit = PdfSizedUnit & { frac?: number }
 export interface PdfOriginalUnitRules {
   PRIMER: { units: number }
   sizeUnits: (entries: PdfUnitEntry[], count: number, options?: { min?: number; split?: number }) => PdfOriginalUnit[]
@@ -20,12 +22,15 @@ export function pdfUnitKey(key: string): string {
 
 /** The same pure size rules as Original pages in the existing margin reader. */
 export function pdfOriginalUnits(rules: PdfOriginalUnitRules, count: number,
-  outline: PdfUnitEntry[] = [], scan: PdfOriginalScanOutline | null = null): PdfOriginalUnit[] {
+  outline: PdfUnitEntry[] = [], scan: PdfOriginalScanOutline | null = null, sections: PdfDetectedSection[] | null = null): PdfOriginalUnit[] {
   if (!Number.isInteger(count) || count < 1 || count > 5000) return []
   const validEntry = (entry: PdfUnitEntry): boolean =>
     (Number.isInteger(entry.page) && entry.page! >= 1 && entry.page! <= count)
     || (entry.items ?? []).some(validEntry)
   const validOutline = outline.some(validEntry)
+  // A paper without bookmarks: its detected sections, each from its heading's place (bookmarks still come first).
+  const detected = validOutline ? [] : pdfSectionUnits(sections, count)
+  if (detected.length) return withOpeningPages(detected)
   let entries = validOutline ? outline : []
   if (!validOutline && scan?.pages === count && Array.isArray(scan.entries)) {
     if (scan.nav === 'contents' || scan.nav === 'headings' || scan.nav === 'outline')
@@ -34,6 +39,10 @@ export function pdfOriginalUnits(rules: PdfOriginalUnitRules, count: number,
   }
   const units = rules.sizeUnits(entries, count, entries.length ? { min: 1, split: PDF_SOURCE_PAGES } : undefined).filter(unit => Number.isInteger(unit.from) && Number.isInteger(unit.to)
     && unit.from >= 1 && unit.from <= unit.to && unit.to <= count).map(unit => ({ ...unit, key: pdfUnitKey(unit.key) }))
+  return withOpeningPages(units)
+}
+
+function withOpeningPages(units: PdfOriginalUnit[]): PdfOriginalUnit[] {
   // The shared sizing rules attach leading pages to the first bookmark. Those
   // pages have no known chapter title: do not show a later heading on the cover
   // or include them in an action claiming to summarize that named chapter.
@@ -46,8 +55,38 @@ export function pdfOriginalUnits(rules: PdfOriginalUnitRules, count: number,
   return units
 }
 
-export const pdfUnitAt = (units: PdfOriginalUnit[], page: number): PdfOriginalUnit | null =>
-  units.find(unit => page >= unit.from && page <= unit.to) ?? null
+/** A jump to a detected heading lands this far above it, so the heading is not cut at the top of the view. */
+const HEADING_LEAD = 0.02
+/** Detected sections share pages: the unit at a place is the last one whose heading stands at or just below it. */
+export function pdfUnitAt(units: PdfOriginalUnit[], page: number, frac = 0): PdfOriginalUnit | null {
+  const here = units.filter(unit => page >= unit.from && page <= unit.to)
+  if (here.length < 2) return here[0] ?? null
+  return here.filter(unit => unit.start < page || (unit.frac ?? 0) <= frac + HEADING_LEAD + 0.01).at(-1) ?? here[0]
+}
+
+/** Where a unit's jump lands: just above a detected heading, else its page's top. */
+export const pdfUnitFrac = (unit: PdfOriginalUnit): number => unit.frac === undefined ? 0 : Math.max(0, unit.frac - HEADING_LEAD)
+
+const SECTION_BACK = /^(?:references|bibliography|works cited|literature cited)$/i
+/**
+ * Units for detected sections: the top-level sections in reading order, each from its heading's page to the page
+ * where the next one starts (the page before, when the next heading opens its page). Subsections stay inside their
+ * section, so a unit is a paper's section, never a paragraph. A section beginning on the page another one ends on
+ * shares it; pdfUnitAt tells them apart by the place on the page.
+ */
+export function pdfSectionUnits(sections: PdfDetectedSection[] | null, count: number): PdfOriginalUnit[] {
+  if (!sections?.length || count > PDF_SECTION_PAGES) return []
+  const top = sections.filter(section => section.level === 1 && Number.isInteger(section.page) && section.page >= 1 && section.page <= count
+    && Number.isFinite(section.frac) && section.title.trim())
+  if (top.length < 2) return []
+  return top.map((section, index) => {
+    const next = top[index + 1]
+    const to = !next ? count : Math.max(section.page, next.frac <= 0.12 && next.page > section.page ? next.page - 1 : next.page)
+    const title = section.title.replace(/\s+/g, ' ').trim().slice(0, 300)
+    return { key: pdfUnitKey(`section-${index}`), title, from: index === 0 ? 1 : section.page, start: section.page, to, frac: section.frac,
+      ...(SECTION_BACK.test(title.replace(/^(?:\d+|[IVX]+)\.?\s+/, '')) ? { matter: 'back' } : {}) }
+  })
+}
 
 /** Every page of the current source unit, including its later sections. */
 export function pdfPrimerPages(unit: PdfOriginalUnit): number[] {
