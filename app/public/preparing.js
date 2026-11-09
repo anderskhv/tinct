@@ -7,8 +7,8 @@
 // A file here because the site's Content-Security-Policy refuses inline scripts.
 import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {paperCoverUrl} from '/lab/book-cover.js?v=20261009owncover';
-import {cleanPaste} from '/lab/library_2/paste-text.js?v=20261105flow';
-import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded} from '/lab/library_2/own-add.js?v=20261105flow';
+import {cleanPaste,htmlText} from '/lab/library_2/paste-text.js?v=20261109add3';
+import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong} from '/lab/library_2/own-add.js?v=20261109add3';
 
 const $=id=>document.getElementById(id);
 const own=new URLSearchParams(location.search).get('own')==='file'?'file':'paste';
@@ -31,7 +31,7 @@ function message(error,fallback){
   return text&&!/^[a-z_]+$/.test(text)?text:fallback;
 }
 function fail(text,{back,backLabel}){
-  $('line').textContent=own==='file'?'Your book is not added yet':'Your text is not added yet';
+  $('line').textContent=own==='file'?'Your book is not added yet':importing?'The article is not added yet':'Your text is not added yet';
   $('bar').hidden=true;$('problem').textContent=text;$('problem').hidden=false;
   $('back').href=back;$('back').textContent=backLabel;$('actions').hidden=false;
   $('retry').focus({preventScroll:true});
@@ -52,14 +52,25 @@ async function ready(){
   return engineApi;
 }
 
+let importing=false;
+const hostOf=url=>{try{return new URL(url).hostname.replace(/^www\./,'');}catch{return '';}};
 async function addText(draft,{fromFile=false}={}){
-  $('line').textContent='Preparing your text…';document.title='Preparing your text · Tinct';
-  cover(draft.title,draft.author);
+  const link=typeof draft.url==='string'&&draft.url?draft.url:'';
+  importing=!!link;
+  $('line').textContent=link?`Importing the article from ${hostOf(link)}…`:'Preparing your text…';
+  document.title=(link?'Importing the article':'Preparing your text')+' · Tinct';
+  cover(draft.title||hostOf(link),draft.author);
   const back=fromFile?{back:'/library?sharedReader=1&own=file',backLabel:'Open the library'}:{back:'/byob',backLabel:'Back to your text'};
   progress(.08);
   let engineApi;
   try{engineApi=await ready();}catch{fail('This text could not be added. Try again.',back);return;}
   if(!engineApi)return;
+  // A link: the article is imported now (own-add.js draftFromLink); a page with no text says so, and the link stays kept.
+  if(link){
+    try{draft=await draftFromLink(draft);}catch(error){fail(message(error,'Tinct could not import this page. Paste the article text instead.'),back);return;}
+    const tooLong=pasteTooLong(htmlText(draft.html),{imported:true});if(tooLong){fail(tooLong,back);return;}
+    importing=false;$('line').textContent='Preparing your text…';cover(draft.title,draft.author);progress(.2);
+  }
   try{
     const file=pasteBook(draft);
     const added=await savePastedText(engineApi,file,{title:draft.title,author:draft.author,progress});
