@@ -22,6 +22,8 @@
  *
  * No secret lives here or anywhere else in the repo: OAuth client ids and
  * secrets are entered in the Supabase dashboard and never reach the client.
+ * Google can also run on tinct.app's own redirect (lab/googleSignIn.ts); its
+ * client secret is a Worker secret, likewise never sent to a browser.
  */
 export type LabOAuthProvider = 'google' | 'apple' | 'github'
 

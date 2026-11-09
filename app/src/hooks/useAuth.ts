@@ -1,6 +1,7 @@
 import { LAB_AUTH_CALLBACK_PATH, labOAuthRedirectTo } from '../lab/labSignInProviders'
 import { safeLabReturnTo } from '../lab/labSignInReturn'
 import { authRedirectTo, startNativeOAuth } from '../utils/nativeAuth'
+import { startGoogleSignIn } from '../lab/googleSignIn'
 import { useState, useEffect, useCallback } from 'react'
 import type { User, Session } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured } from '../services/supabase'
@@ -205,6 +206,9 @@ export function useAuth(): UseAuthReturn {
     const path = window.location.pathname === '/' || window.location.pathname === '/read' ? '/reader' : window.location.pathname
     trackEvent('signup_started', { method: 'google', path })
     if (await startNativeOAuth(supabase, 'google', safeLabReturnTo(path + window.location.search + window.location.hash))) return
+    // Google on tinct.app's own redirect when the Worker is set up for it (lab/googleSignIn.ts); the page
+    // that finishes it is the sign-in page. Supabase's own flow otherwise.
+    if (await startGoogleSignIn({ returnTo: safeLabReturnTo(path + window.location.search + window.location.hash) })) return
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: labOAuthRedirectTo(window.location.origin, safeLabReturnTo(path + window.location.search + window.location.hash)) },
