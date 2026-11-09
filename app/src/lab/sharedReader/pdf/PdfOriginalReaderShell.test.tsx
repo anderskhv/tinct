@@ -605,7 +605,7 @@ it('uses the current chapter in the header and the normal appearance themes with
   fireEvent.click(screen.getByRole('button', { name: 'Go', exact: true }))
   expect(screen.getByTestId('requested-pdf-place').textContent).toBe('15')
   fireEvent.click(screen.getByRole('button', { name: 'Appearance' }))
-  expect(screen.getByRole('group', { name: 'Theme' }).querySelectorAll('.lab-v2-theme')).toHaveLength(3)
+  expect(screen.getByRole('group', { name: 'Theme' }).querySelectorAll('.lab-v2-theme')).toHaveLength(4)
   const appearance = screen.getByRole('dialog', { name: 'Appearance' })
   expect(appearance.classList.contains('lab-v2-sheet')).toBe(true)
   expect(appearance.querySelector('.lab-v2-sheet-body .lab-v2-themes')).toBeTruthy()

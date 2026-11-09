@@ -2151,7 +2151,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     root.setAttribute('data-theme', resolvedTheme)
     root.style.colorScheme = resolvedDarkMode ? 'dark' : 'light'
-    themeColor.content = LAB_THEME_PAPER[resolvedTheme === 'dark' || resolvedTheme === 'book' ? resolvedTheme : 'light']
+    themeColor.content = LAB_THEME_PAPER[resolvedTheme]
     root.style.backgroundColor = themeColor.content
     document.body.style.backgroundColor = themeColor.content
     return () => {
@@ -6511,7 +6511,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     <div
       ref={labRootRef}
       lang={userBook ? userBookLangAttribute(userBook.edition) : allBookEditions.find(edition => edition.key === readerEditionKey)?.language || 'en'}
-      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
+      className={`lab ${isPhone ? 'is-phone' : 'is-desktop'}${frontispieceVisible ? ' is-frontispiece' : ''}${showPhoneChrome ? ' has-phone-chrome' : ''}${showPhoneChrome && phoneReaderControlsVisible ? ' has-reader-controls' : ''}${ask.notice ? ' has-notice' : ''}${phoneAskOpen && !marginPhone ? ' has-phone-ask' : ''}${marginPhone ? ' is-margin-phone' : ''}${phoneKeyboardOpen ? ' has-phone-keyboard' : ''}${resolvedDarkMode ? ' is-night' : ''}${prefs.theme === 'book' ? ' is-book-theme' : ''}${resolvedTheme === 'white' ? ' is-white-theme' : ''}${fullscreen ? ' is-fullscreen' : ''}${pageTurnAffordance.buttons ? ' has-page-buttons' : ''}`}
       data-testid="lab-root"
       data-shared-reader={sharedReader ? 'true' : undefined}
       data-reading-scroll={readingScrollActive ? 'true' : undefined}

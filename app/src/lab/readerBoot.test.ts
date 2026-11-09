@@ -211,6 +211,14 @@ describe('readerBootTheme', () => {
     expect(readerBootTheme(v2('system', 'system'), false, false)).toBe('light')
   })
 
+  it('reads White, stored as Light on white paper, and nothing else as White', () => {
+    const white = JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light', paper: 'white' } })
+    expect(readerBootTheme(white, true, false)).toBe('white')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'light', paper: 'white' }, desktop: { theme: 'light' } }), false, false, 'desktop')).toBe('light')
+    expect(readerBootTheme(JSON.stringify({ version: 2, shared: {}, phone: { theme: 'dark', paper: 'white' }, desktop: { theme: 'dark', paper: 'white' } }), false, false)).toBe('dark')
+    expect(readerBootTheme(JSON.stringify({ theme: 'light', paper: 'white' }), true, false)).toBe('white')
+  })
+
   it('a new reader follows the system', () => {
     expect(readerBootTheme(null, true, false)).toBe('dark')
     expect(readerBootTheme(null, false, false)).toBe('light')
@@ -245,7 +253,7 @@ describe('readerBootTheme', () => {
   })
 
   it('paints LabApp’s own paper colours', () => {
-    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', book: '#e7dcc7', dark: '#171411' })
+    expect(LAB_THEME_PAPER).toEqual({ light: '#ece7db', white: '#ffffff', book: '#e7dcc7', dark: '#171411' })
   })
 
   // The status bar of a home-screen app takes this colour, so it must be the
@@ -255,6 +263,7 @@ describe('readerBootTheme', () => {
     const paper = (selector: string) => css.match(new RegExp(`^${selector.replace(/\./g, '\\.')} \\{\\s*--lab-paper: (#[0-9a-f]{6});`, 'm'))?.[1]
     expect(paper('.lab')).toBe(LAB_THEME_PAPER.light)
     expect(paper('.lab.is-book-theme')).toBe(LAB_THEME_PAPER.book)
+    expect(paper('.lab.is-white-theme')).toBe(LAB_THEME_PAPER.white)
     expect(paper('.lab.is-night')).toBe(LAB_THEME_PAPER.dark)
   })
 })

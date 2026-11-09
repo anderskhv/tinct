@@ -647,7 +647,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         if (visual) await page.screenshot({ path: path.join(visual, `pdf-appearance-${theme}.png`) })
         await page.getByRole('button', { name: 'Close panel' }).click()
       }
-      for (const width of [1440, 1100]) for (const theme of ['light', 'book', 'dark']) {
+      for (const width of [1440, 1100]) for (const theme of ['light', 'white', 'book', 'dark']) {
         await page.setViewportSize({ width, height: 900 })
         await chooseAppearance(theme)
         await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
@@ -708,7 +708,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
         await page.keyboard.press('Home')
         await page.locator('[data-testid="pdf-source-progress"][aria-label="Page 1 of 4"]').waitFor()
       }
-      for (const theme of ['light', 'book', 'dark']) {
+      for (const theme of ['light', 'white', 'book', 'dark']) {
         await page.setViewportSize({ width: 390, height: 844 })
         await chooseAppearance(theme)
         await page.locator('.pdf-original__scroll').evaluate(el => { el.scrollTop = 0; el.dispatchEvent(new Event('scroll', { bubbles: true })) })
@@ -726,7 +726,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       }
       await page.setViewportSize({ width: 1100, height: 820 })
       await chooseAppearance('light')
-      console.log('chromium: PDF desktop 1440/1100 light/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
+      console.log('chromium: PDF desktop 1440/1100 light/white/book/dark, source-anchored toolbar, stable page/card margin, minimap navigation and phone cards passed')
     }
     await page.locator('.pdf-original__scroll').evaluate(el=>{el.scrollTop=0;el.dispatchEvent(new Event('scroll',{bubbles:true}))})
     const primer=page.locator('[data-testid="pdf-heading-actions"]').first().getByRole('button',{name:'Primer',exact:true})

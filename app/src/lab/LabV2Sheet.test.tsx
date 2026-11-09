@@ -86,17 +86,20 @@ describe('the sheet', () => {
 })
 
 describe('reading settings', () => {
-  it('offers Book, Light and Dark — and no pill row across the top', () => {
+  it('offers Book, Light, White and Dark — and no pill row across the top', () => {
     openSheet()
     for (const { theme } of LAB_V2_THEMES) expect(screen.getByTestId(`lab-v2-theme-${theme}`)).toBeTruthy()
     expect(screen.queryByTestId('lab-v2-theme-system')).toBeNull()
-    expect(LAB_V2_THEMES.map(entry => entry.theme)).toEqual(['book', 'light', 'dark'])
+    expect(LAB_V2_THEMES.map(entry => entry.theme)).toEqual(['book', 'light', 'white', 'dark'])
     // The head carries the title and the ×, and nothing else.
     expect(screen.getByTestId('lab-v2-sheet').querySelectorAll('.lab-v2-head button')).toHaveLength(1)
   })
 
   it('writes a theme, a size and the two editions straight through to the store', () => {
     openSheet()
+    fireEvent.click(screen.getByTestId('lab-v2-theme-white'))
+    expect(readLabPrefs().theme).toBe('white')
+    expect(screen.getByTestId('lab-v2-theme-white').getAttribute('aria-pressed')).toBe('true')
     fireEvent.click(screen.getByTestId('lab-v2-theme-dark'))
     expect(readLabPrefs().theme).toBe('dark')
 
