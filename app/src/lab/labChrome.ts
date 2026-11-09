@@ -1026,6 +1026,20 @@ export function labKeyboardPageDirection(key: string): LabPageTurnDirection | nu
   return null
 }
 
+/**
+ * Ctrl+Z (Cmd+Z on a Mac) undoes the reader's last highlight or note action.
+ * Never while typing: a text field keeps its own native undo. Shift (redo)
+ * and Alt are left to the browser. Matched by the key's position too, so a
+ * layout whose Z key types another letter still undoes.
+ */
+export function labUndoShortcut(event: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'shiftKey' | 'isComposing' | 'defaultPrevented' | 'repeat'>, active?: Element | null): boolean {
+  if (event.defaultPrevented || event.isComposing || event.repeat || event.altKey || event.shiftKey) return false
+  if (!(event.ctrlKey || event.metaKey) || (event.ctrlKey && event.metaKey)) return false
+  const key = event.key.toLowerCase()
+  if (key !== 'z' && !(event.code === 'KeyZ' && !/^[a-z]$/.test(key))) return false
+  return !labTextEntryFocused(active) && !active?.closest?.('[contenteditable]:not([contenteditable="false"]),[role="textbox"],select')
+}
+
 /** Horizontal swipes turn one page only when horizontal intent is unambiguous. */
 export function labSwipePageDirection(
   deltaX: number,

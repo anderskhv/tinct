@@ -35,6 +35,7 @@ import {
   type LabHighlightCloudWriter,
   type LabHighlightSet,
 } from './labHighlightSync'
+import { labHighlightRestoreIds, pushLabHighlightUndo, type LabHighlightUndoEntry } from './labHighlightUndo'
 
 function bucketSignatures(list: LabHighlight[]): Map<string, string> {
   const grouped = new Map<string, LabHighlight[]>()
@@ -202,6 +203,19 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     [shownHighlights, chapterNumber],
   )
 
+  // Undo (Ctrl+Z / Cmd+Z): the reader's own actions on marks in this book,
+  // newest last (labHighlightUndo). Undoing applies the inverse through the
+  // same functions, without recording it again.
+  const undoStackRef = useRef<LabHighlightUndoEntry[]>([])
+  const replayingRef = useRef(false)
+  /** Marks brought back under a new id (labHighlightRestoreIds): old id → new id. */
+  const restoredAsRef = useRef(new Map<string, string>())
+  const record = (entry: LabHighlightUndoEntry) => {
+    if (!replayingRef.current) undoStackRef.current = pushLabHighlightUndo(undoStackRef.current, entry)
+  }
+  useEffect(() => { undoStackRef.current = [] }, [bookId, userId])
+  const markById = (id: string) => highlightsRef.current.find(h => h.id === id)
+
   const addOrReuse = useCallback((range: LabHighlightRange, color: LabHighlightColor = 'gold', editionKey = scope?.editionKey, targetChapter = chapterNumber) => {
     const list = highlightsRef.current.filter(h => inScope(h, editionKey) && !highlightOffCurrentText(h) && !isLabChapterNote(h))
     const existing = list.find(h => sameHighlightRange(h, range, targetChapter))
@@ -225,6 +239,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
       Object.assign(created, { bookId: scope.bookId, editionKey, ...(contentRevision ? { contentRevision } : {}) })
     }
     setHighlights(current => mergeLabHighlight(current, created))
+    record({ kind: 'create', ids: [created.id] })
     return created
   }, [chapterNumber, scope?.bookId, scope?.editionKey])
 
@@ -236,6 +251,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
       return {...mark,groupId,groupText,...(scope?{bookId:scope.bookId,editionKey,...(contentRevision?{contentRevision}:{})}:{})}
     })
     setHighlights(current=>[...current,...created])
+    record({ kind: 'create', ids: created.map(mark => mark.id) })
     return created
   },[scope?.bookId,scope?.editionKey])
 
@@ -250,10 +266,14 @@ export function useLabHighlights(chapterNumber: number, scope?: {
   ), [chapterNumber, scope?.bookId, scope?.editionKey, scope?.paragraphs, scope?.compareEditionKey, scope?.compareParagraphs, sources, highlights])
 
   const setColor = useCallback((id: string, color: LabHighlightColor) => {
+    const before = markById(id)
+    if (before && before.color !== color) record({ kind: 'color', id, color: before.color })
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,color,updatedAt}:h)})
   }, [])
 
-  const setNote = useCallback((id: string, note: string) => {
+  const setNote = useCallback((id: string, note: string, options?: { undoable?: boolean }) => {
+    const before = markById(id)
+    if (options?.undoable !== false && before && (before.note ?? '') !== note) record({ kind: 'note', id, note: before.note ?? '' })
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,note,updatedAt}:h)})
   }, [])
 
@@ -262,9 +282,10 @@ export function useLabHighlights(chapterNumber: number, scope?: {
    * passage in the same list, so it syncs through the same versioned rows.
    * Clearing its text removes it.
    */
-  const setChapterNote = useCallback((targetChapter: number, note: string) => {
+  const setChapterNote = useCallback((targetChapter: number, note: string, options?: { undoable?: boolean }) => {
     const text = note.trim()
     const existing = chapterNotesRef.current.find(h => h.chapterNumber === targetChapter)
+    if (options?.undoable !== false && (existing?.note ?? '') !== text) record({ kind: 'chapter-note', chapterNumber: targetChapter, note: existing?.note ?? '' })
     if (existing) {
       if (!text) {
         recordLabHighlightDeletions([existing])
@@ -289,27 +310,41 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     setHighlights(current => { const group = current.find(h => h.id === id)?.groupId; const updatedAt = Date.now(); return current.map(h => h.id === id || group && h.groupId === group ? { ...h, kept: true, updatedAt } : h) })
   }, [])
 
-  const remove = useCallback((id: string) => {
+  /** Delete a mark (and the rest of its group). `undoable: false` for a draft discarded unsaved (an empty new note). */
+  const remove = useCallback((id: string, options?: { undoable?: boolean }) => {
     const group = highlightsRef.current.find(h => h.id === id)?.groupId
     const hex = bookId && isUserBookId(bookId) ? userBookHex(bookId) : null
+    const removed = highlightsRef.current.filter(h => h.id === id || (group && h.groupId === group))
     const next = highlightsRef.current.filter(h => h.id !== id && (!group || h.groupId !== group))
+    const undoable = options?.undoable !== false
     if (hex && ownTextMarksCanonical(hex)) {
       if (!noteOwnTextMarks(hex, next)) return false
       setHighlights(next)
+      if (undoable) record({ kind: 'delete', marks: removed })
       return true
     }
     // Tombstones first, so the push that follows carries the deletion.
     recordLabHighlightDeletions(highlightsRef.current.filter(h => h.id === id || (group && h.groupId === group)))
     if (hex) noteOwnTextMarks(hex, next)
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;return current.filter(h=>h.id!==id && (!group || h.groupId!==group))})
+    if (undoable) record({ kind: 'delete', marks: removed })
     return true
   }, [bookId])
 
-  const restore = useCallback((saved: LabHighlight[]) => {
+  /**
+   * Bring deleted marks back. True when they were restored, false on failure,
+   * null when there was nothing to do (they are back already). A mark whose
+   * deletion left a tombstone returns under a new id (labHighlightRestoreIds),
+   * so the next sync keeps it; restoring the same marks twice adds nothing.
+   */
+  const restoreMarks = useCallback((input: LabHighlight[]): boolean | null => {
     const hex = bookId && isUserBookId(bookId) ? userBookHex(bookId) : null
+    const live = new Set(highlightsRef.current.map(h => h.id))
+    const saved = input.filter(entry => { const again = restoredAsRef.current.get(entry.id); return !live.has(entry.id) && !(again && live.has(again)) })
+    if (!saved.length) return null
     const updatedAt = Math.max(Date.now() + 1, ...saved.map(entry => (entry.updatedAt || 0) + 1))
-    const entries = saved.map(entry => ({ ...entry, updatedAt }))
     if (hex && ownTextMarksCanonical(hex)) {
+      const entries = saved.map(entry => ({ ...entry, updatedAt }))
       const owner = userBookOwner()
       if (!owner || !importOwnTextMarks(hex, owner, entries)) return false
       const actual = new Map(readOwnedTextMarks(hex, owner).map(mark => [mark.id, mark]))
@@ -318,9 +353,65 @@ export function useLabHighlights(chapterNumber: number, scope?: {
         ...entries.map(entry => actual.get(entry.id)!)])
       return true
     }
-    setHighlights(current => [...current.filter(entry => !saved.some(prior => prior.id === entry.id)), ...entries])
+    const ids = labHighlightRestoreIds(saved, new Set(readLabHighlightTombstones().map(tombstone => tombstone.id)))
+    const entries = saved.map(entry => ({ ...entry, id: ids.get(entry.id) ?? entry.id, updatedAt }))
+    for (const [from, to] of ids) if (from !== to) restoredAsRef.current.set(from, to)
+    setHighlights(current => [...current.filter(entry => !entries.some(prior => prior.id === entry.id)), ...entries])
     return true
   }, [bookId])
+  const restore = useCallback((saved: LabHighlight[]) => restoreMarks(saved) !== false, [restoreMarks])
+
+  /** Where a mark is now: its id, or the id it was restored under. */
+  const currentId = (id: string) => {
+    let at = id
+    for (let hops = 0; hops < 8 && restoredAsRef.current.has(at) && restoredAsRef.current.get(at) !== at; hops++) at = restoredAsRef.current.get(at)!
+    return at
+  }
+
+  /**
+   * Undo the latest action on marks in this book. Returns what was undone, or
+   * null when nothing was left. A step that no longer applies (its mark was
+   * deleted some other way since) is skipped for the one before it.
+   */
+  const undo = useCallback((): LabHighlightUndoEntry | null => {
+    const apply = (entry: LabHighlightUndoEntry): boolean => {
+      switch (entry.kind) {
+        case 'create': {
+          const present = entry.ids.map(currentId).filter(id => markById(id))
+          if (!present.length) return false
+          const group = markById(present[0])?.groupId
+          let removed = false
+          for (const id of present) if (id === present[0] || !group || markById(id)?.groupId !== group) removed = remove(id) !== false || removed
+          return removed
+        }
+        case 'delete': return restoreMarks(entry.marks) === true
+        case 'color': {
+          const id = currentId(entry.id), mark = markById(id)
+          if (!mark || mark.color === entry.color) return false
+          setColor(id, entry.color)
+          return true
+        }
+        case 'note': {
+          const id = currentId(entry.id), mark = markById(id)
+          if (!mark || (mark.note ?? '') === entry.note) return false
+          setNote(id, entry.note)
+          return true
+        }
+        case 'chapter-note': {
+          if ((chapterNotesRef.current.find(h => h.chapterNumber === entry.chapterNumber)?.note ?? '') === entry.note) return false
+          setChapterNote(entry.chapterNumber, entry.note)
+          return true
+        }
+      }
+    }
+    while (undoStackRef.current.length) {
+      const entry = undoStackRef.current[undoStackRef.current.length - 1]
+      undoStackRef.current = undoStackRef.current.slice(0, -1)
+      replayingRef.current = true
+      try { if (apply(entry)) return entry } finally { replayingRef.current = false }
+    }
+    return null
+  }, [remove, restoreMarks, setColor, setNote, setChapterNote])
 
   return {
     highlights: shownHighlights,
@@ -339,6 +430,8 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     keep,
     remove,
     restore,
+    undo,
+    canUndo: () => undoStackRef.current.length > 0,
     setHighlights,
   }
 }

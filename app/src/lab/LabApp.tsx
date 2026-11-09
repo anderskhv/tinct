@@ -92,6 +92,7 @@ import {
   labPaginationPaintRoot,
   stabilizeLabPageMetrics,
   labKeyboardPageDirection,
+  labUndoShortcut,
   nextPaintShrinkTo,
   type LabPageAdjust,
   type LabPageMetrics,
@@ -211,6 +212,7 @@ import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
+import { labHighlightUndoMessage } from './labHighlightUndo'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
 import { markReaderLoadTrace } from '../utils/readerLoadTrace'
@@ -284,6 +286,8 @@ function headFirstPending(since: number): boolean {
 const LAB_HYPHENATION_WAIT_MS = 300
 /** How long "Deleted. Undo" stays after a margin card or note is deleted. */
 const MARGIN_UNDO_MS = 6000
+/** How long the line saying what Ctrl+Z undid stays. */
+const HIGHLIGHT_UNDO_NOTICE_MS = 2500
 
 /** The account cards' code (views, styles), fetched the first time a card opens. */
 let accountCardsModule: Promise<typeof import('../cards/openCards')> | null = null
@@ -887,6 +891,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const timer = window.setTimeout(() => setMarginUndo(null), MARGIN_UNDO_MS)
     return () => window.clearTimeout(timer)
   }, [marginUndo])
+  const [highlightUndoNotice, setHighlightUndoNotice] = useState<{ text: string; at: number } | null>(null)
+  useEffect(() => {
+    if (!highlightUndoNotice) return
+    const timer = window.setTimeout(() => setHighlightUndoNotice(null), HIGHLIGHT_UNDO_NOTICE_MS)
+    return () => window.clearTimeout(timer)
+  }, [highlightUndoNotice])
   const [notebookCard, setNotebookCard] = useState<ChatConversation | null>(null)
   const [contentsConversation, setContentsConversation] = useState<ChatConversation | null>(null)
   const [recentChapterReturn, setRecentChapterReturn] = useState<(LabBookPlace & { libraryBookId: string }) | null>(null)
@@ -4880,6 +4890,28 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return () => window.removeEventListener('keydown', onKey)
   }, [goNext, goPrev, keyboardPageTurnsBlocked, desktopAskOpen, callOpen, bookSwitcherOpen, superMenuOpen, superSheet, accountPrompt])
 
+  // Ctrl+Z / Cmd+Z undoes the reader's last highlight or note action in this
+  // book (useLabHighlights undo). A focused field keeps its native undo. The
+  // page stays where it is: an undo never moves the reader.
+  const highlightUndoRef = useRef<() => boolean>(() => false)
+  highlightUndoRef.current = () => {
+    const undone = highlightsApi.undo()
+    if (!undone) return false
+    if (selectionPopup) dismissSelectionPopup()
+    if (undone.kind === 'delete') setMarginUndo(null)
+    setHighlightUndoNotice({ text: labHighlightUndoMessage(undone), at: Date.now() })
+    return true
+  }
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (document.documentElement.dataset.tinctCommandsOpen === 'true') return
+      if (!labUndoShortcut(event, document.activeElement)) return
+      if (highlightUndoRef.current()) event.preventDefault()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   const audioAccountRequiredRef = useRef(false)
   // An own book read aloud needs Premium (trial included): the account sheet, with its Premium offer, says the rest.
   const ownNarrationPremiumRequired = listen.narration.status === 'error' && listen.narration.reason === 'own_book_premium'
@@ -5769,7 +5801,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (current?.kind === 'note') {
       const note = phoneNoteRef.current.trim()
       const mark = highlightsApi.allHighlights.find(item => item.id === current.highlightId)
-      if (current.created && !note) { highlightsApi.remove(current.highlightId); setDesktopLiveCards(cards => cards.filter(card => !(card.kind === 'note' && card.highlightId === current.highlightId))) }
+      if (current.created && !note) { highlightsApi.remove(current.highlightId, { undoable: false }); setDesktopLiveCards(cards => cards.filter(card => !(card.kind === 'note' && card.highlightId === current.highlightId))) }
       else if (mark && note !== (mark.note || '').trim()) highlightsApi.setNote(current.highlightId, note)
     }
     if (current?.kind === 'chapter-note') {
@@ -6055,6 +6087,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
+      { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
   })
 
@@ -6305,7 +6338,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         id:`react_${card.openedAt}`, kind:'ask', chapterNumber:card.passage.chapterNumber, text:card.passage.text,
         ...askCardSource(range, card.passage.editionKey, card.passage.chapterNumber),
         turns:savedTurns, at:card.openedAt, u:Date.now() })
-      if (saved && convertedNote) { if (convertedNote.highlightId) { if (convertedNote.created) highlightsApi.remove(convertedNote.highlightId); else highlightsApi.setNote(convertedNote.highlightId, ''); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'note' && item.highlightId === convertedNote.highlightId))) }; if (convertedNote.chapterNumber != null) { highlightsApi.setChapterNote(convertedNote.chapterNumber, ''); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'chapter-note' && item.chapterNumber === convertedNote.chapterNumber))) } }
+      if (saved && convertedNote) { if (convertedNote.highlightId) { if (convertedNote.created) highlightsApi.remove(convertedNote.highlightId, { undoable: false }); else highlightsApi.setNote(convertedNote.highlightId, '', { undoable: false }); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'note' && item.highlightId === convertedNote.highlightId))) }; if (convertedNote.chapterNumber != null) { highlightsApi.setChapterNote(convertedNote.chapterNumber, '', { undoable: false }); setDesktopLiveCards(cards => cards.filter(item => !(item.kind === 'chapter-note' && item.chapterNumber === convertedNote.chapterNumber))) } }
     }
   // The store mutation is guarded by completed content equality.
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -7555,7 +7588,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       )}
       {(marginPhone || sharedReader) && !continuousReader && phoneCard && renderPhoneCard(phoneCard)}
       {continuousReader && <SourceMarginRail host={marginHost} entries={desktopMarginEntries} onBlankNote={openBlankMarginNote} />}
-      {continuousReader && marginUndo && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
+      {continuousReader && marginUndo && !highlightUndoNotice && <div className="source-margin-undo" role="status">Deleted. <button onClick={() => { marginUndo(); setMarginUndo(null) }}>Undo</button></div>}
+      {highlightUndoNotice && <div key={highlightUndoNotice.at} className="source-margin-undo is-undone" role="status" data-testid="lab-undo-notice">{highlightUndoNotice.text}</div>}
       <LabFigurePreview chapterNumber={book.chapterNumber} figures={book.figures ?? []} enabled={!showPhoneChrome} />
       {notebookCard && (() => {
         const Card = showPhoneChrome ? LabPhoneCard : LabDesktopCard
