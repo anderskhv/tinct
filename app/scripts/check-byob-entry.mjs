@@ -1,18 +1,21 @@
 // /byob, the paste flow and the library's "Read your own books" band (Anders approved the mockups, 4 and 5 Nov 2026).
 //
 // Loads the built site (dist/) in headless Chromium and asserts:
-// 1. /byob, signed out, at desktop and phone width: the page, its two actions, no sideways scroll. Paste text turns
-//    the drop box into the text box in place (the cleaned text, its title and byline, "Continue", "Kept on this
-//    device until you sign in."); a chosen file leads to sign-in returning to /preparing?own=file.
+// 1. /byob, signed out, at desktop and phone width: the page, its three choices (Upload, Insert link, Paste text;
+//    Anders, 9 Nov 2026), no sideways scroll. Paste text turns the drop box into the text box in place (the cleaned
+//    text, its title and byline, a back chevron, "Continue", "Kept on this device until you sign in."; no
+//    "Choose a file" link); a chosen file leads to sign-in returning to /preparing?own=file.
 // 2. The first-run journey (desktop and phone): text pasted on /byob signed out -> sign-in names the text (its
 //    chip, peeked not taken) -> a faked sign-in -> "Preparing your text…" -> the reader opens the new text with
 //    "Added to your shelf" once. The same for an EPUB (and, on desktop, a PDF): sign-in names the file and carries
 //    the rights line -> "Preparing your book…" -> its reader. Signed in, Paste text on /byob goes straight to
 //    Preparing and the reader. A failed upload keeps the text and shows the way back to /byob, where it still is.
-// 3. The library pop-up (signed in) shows the slim Paste window and adds the text into the reader.
+// 3. The library pop-up (signed in), "Add your own" with its three choices, shows the slim Paste window (a back
+//    chevron, no "Choose a file instead") and adds the text into the reader.
 // 4. Sign-in names why you came for anything else ("Sign in or join Tinct").
 // 5. Signed out, the library hero offers "Add your own book or text" beside Read; it opens the add sheet on the
-//    library (Choose a file, a desktop drop area, Paste text into the same slim window), then sign-in naming the
+//    library ("Add your own": Upload, Insert link, Paste text into the same slim window; files dropped on it, with
+//    no line saying so), then sign-in naming the
 //    text or file, Preparing and the reader (href="/byob" is the no-script fallback). Signed in it is not shown. The band sits right under Featured; signed out it leads to /byob, signed in it opens the pop-up.
 //
 // Every account call is answered here: nothing leaves the machine. Run after `npm run build` from app/:
@@ -186,7 +189,13 @@ async function main() {
         await page.waitForLoadState('networkidle')
         assert.deepEqual(refused, [], 'nothing on /byob is refused by the site\'s Content-Security-Policy')
         assert.equal(await page.locator('h1').innerText(), 'Your own books, texts and PDFs.')
-        assert(await page.locator('#choose').isVisible() && await page.locator('#paste').isVisible(), 'Choose a file and Paste text are shown')
+        assert.deepEqual(await page.locator('.drop .add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'], 'the three choices')
+        assert.deepEqual(await page.locator('.drop .add-choice .add-choice__line').allInnerTexts(), ['PDF, EPUB, text', 'An article online', 'Any text you copied'])
+        for (const id of ['#choose', '#link', '#paste']) assert(await page.locator(id).isVisible(), `${id} is shown`)
+        const tiles = await page.locator('.drop .add-choice').evaluateAll(els => els.map(e => { const r = e.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) } }))
+        if (name === 'desktop') assert(tiles.every(t => t.y === tiles[0].y && Math.abs(t.w - tiles[0].w) <= 1), `three equal tiles in a row (${JSON.stringify(tiles)})`)
+        else assert(tiles.every((t, i) => i === 0 || (t.y > tiles[i - 1].y && t.x === tiles[0].x && t.w === tiles[0].w)), `three full-width rows (${JSON.stringify(tiles)})`)
+        assert.equal(await page.locator('#foot-file, #choose-foot').count(), 0, 'no "Choose a file" link')
         const account = page.locator(name === 'phone' ? '#account-phone' : '#account')
         assert(await account.isVisible(), 'the sign-in link is shown')
         assert.equal(await account.innerText(), 'Sign in or join')
@@ -215,11 +224,18 @@ async function main() {
         page.on('console', m => { if (/Content Security Policy/i.test(m.text())) refused.push(m.text().slice(0, 160)) })
         await page.goto('/byob')
         await page.locator('#paste').click()
-        // The drop box is the text box now: the intro line goes, Continue is the one action, Choose a file is at the foot.
+        // The drop box is the text box now: the intro line and the choices go, Continue is the one action, a back
+        // chevron leads back to the three choices (9 Nov 2026: no "Choose a file" link).
         await page.locator('#paste-area').waitFor()
         assert.equal(await page.locator('.sub').isVisible(), false, 'the intro line goes while pasting')
         assert.equal(await page.locator('#choose').isVisible(), false)
-        assert(await page.locator('#foot-file').isVisible(), '"Choose a file" moves to the foot')
+        assert.equal(await page.locator('.foot:visible').count(), 0, 'no link at the foot')
+        assert(await page.locator('#paste-back').isVisible(), 'a back chevron')
+        await page.locator('#paste-back').click()
+        await page.locator('#paste-area').waitFor({ state: 'hidden' })
+        assert(await page.locator('#choose').isVisible(), 'back on the three choices')
+        await page.locator('#paste').click()
+        await page.locator('#paste-area').waitFor()
         assert.equal(await page.locator('#paste-note').innerText(), 'Kept on this device until you sign in.')
         await pasteArticle(page, '#paste-area .paste-box')
         await assertCleaned(page, '#paste-area')
@@ -349,10 +365,12 @@ async function main() {
         await libraryReady(page)
         await page.locator('#library-add:visible').click()
         await page.locator('.own-file-dialog[data-step="choose"]').waitFor()
+        assert.equal(await page.locator('.own-file-dialog h2').innerText(), 'Add your own')
+        assert.deepEqual(await page.locator('.own-file-dialog .add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'])
         await page.getByRole('button', { name: 'Paste text' }).click()
         await page.locator('.own-file-dialog.paste-dialog[data-step="paste"]').waitFor()
-        for (const gone of ['Review details', 'Preview', 'Rich formatting was found', 'Trim']) assert.equal(await page.locator('.paste-dialog').getByText(gone, { exact: false }).count(), 0, `no "${gone}"`)
-        assert(await page.getByRole('button', { name: 'Choose a file instead' }).isVisible())
+        for (const gone of ['Review details', 'Preview', 'Rich formatting was found', 'Trim', 'Choose a file']) assert.equal(await page.locator('.paste-dialog').getByText(gone, { exact: false }).count(), 0, `no "${gone}"`)
+        assert(await page.locator('.paste-dialog .tui-dialog__head .add-own-back').isVisible(), 'a back chevron to the three choices')
         await pasteArticle(page, '.paste-dialog .paste-box')
         await assertCleaned(page, '.paste-dialog')
         await page.locator('.paste-dialog .paste-box').evaluate(el => { el.scrollTop = 0; el.blur() })
@@ -416,8 +434,10 @@ async function main() {
         const sheet = page.locator('[data-testid="own-start"] .own-start')
         await sheet.waitFor()
         assert.equal(new URL(page.url()).pathname, '/library', 'the click stays on tinct.app\'s library')
-        assert(await page.getByRole('button', { name: 'Choose a file' }).isVisible() && await page.getByRole('button', { name: 'Paste text' }).isVisible(), 'Choose a file and Paste text')
-        assert.equal(await page.locator('.own-start-drop').isVisible(), name === 'desktop', 'the drop area shows on a desktop only')
+        assert.equal(await sheet.locator('h2').innerText(), 'Add your own')
+        assert.deepEqual(await sheet.locator('.add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'], 'the three choices')
+        for (const label of ['Upload', 'Insert link', 'Paste text']) assert(await page.getByRole('button', { name: label, exact: true }).isVisible(), label)
+        assert.equal((await sheet.innerText()).replace(/\s+/g, ' ').trim(), 'Add your own Upload PDF, EPUB, text Insert link An article online Paste text Any text you copied', 'nothing but the title and the three choices')
         const box = await sheet.boundingBox()
         assert(box.x >= -1 && box.x + box.width <= viewport.width + 1, `the sheet fits the screen (${JSON.stringify(box)})`)
         await shot(page, `hero-sheet-${name.replace(' ', '-')}`)
@@ -451,13 +471,35 @@ async function main() {
       await page.goto('/library')
       await libraryReady(page)
       await page.locator('#hero-own').click()
-      await page.locator('[data-testid="own-start"] input[type=file]').setInputFiles({ name: 'attention-to-the-weather.pdf', mimeType: 'application/pdf', buffer: pdfBytes() })
+      // Upload opens the picker; the file chosen there goes on as before.
+      const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.getByRole('button', { name: 'Upload', exact: true }).click()])
+      assert.equal(chooser.isMultiple(), true, 'the picker takes several files')
+      await chooser.setFiles({ name: 'attention-to-the-weather.pdf', mimeType: 'application/pdf', buffer: pdfBytes() })
       await page.waitForURL(/\/sign-in\?/)
       assert.equal(new URL(page.url()).searchParams.get('returnTo'), '/preparing?own=file')
       await signInReady(page)
       await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
       assert.equal(await page.locator('[data-signin-file] b').innerText(), 'attention-to-the-weather.pdf')
       assert(await page.locator('[data-signin-rights]').isVisible(), 'the rights line')
+      await c.close()
+    })
+    await run('library hero, signed out: a file dropped on the sheet goes to sign-in naming it, with no line saying so', async () => {
+      const c = await context(browser, origin, supabase, { signedIn: false, viewport: DESKTOP }), page = await c.newPage()
+      await page.goto('/library')
+      await libraryReady(page)
+      await page.locator('#hero-own').click()
+      const sheet = page.locator('[data-testid="own-start"] .own-start')
+      await sheet.waitFor()
+      assert.equal(await sheet.getByText(/drag|drop/i).count(), 0, 'no text about dropping')
+      await sheet.evaluate(el => {
+        const data = new DataTransfer(); data.items.add(new File(['%PDF-1.4 a'], 'dropped-notes.pdf', { type: 'application/pdf' }))
+        for (const type of ['dragenter', 'dragover', 'drop']) el.querySelector('.add-choice').dispatchEvent(new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: data }))
+      })
+      await page.waitForURL(/\/sign-in\?/)
+      assert.equal(new URL(page.url()).searchParams.get('returnTo'), '/preparing?own=file')
+      await signInReady(page)
+      await page.waitForFunction(() => !document.querySelector('[data-signin-file]')?.hidden, null, { timeout: 10000 })
+      assert.equal(await page.locator('[data-signin-file] b').innerText(), 'dropped-notes.pdf')
       await c.close()
     })
     await run('library hero, signed in: no "Add your own book or text"', async () => {

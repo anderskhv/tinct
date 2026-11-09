@@ -39,6 +39,7 @@ import { handleAdminDeleteUser, handleAdminExportUser } from './worker/routes/ad
 import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accountDelete'
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
+import { handleImportArticle } from './worker/routes/importArticle'
 import { handleLabVoiceRelay, handleLabVoiceSession, handleVoiceSession, handleVoiceUsage, LAB_VOICE_RELAY_PATH } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
@@ -429,6 +430,8 @@ const worker = {
       case '/api/voice-session': return handleVoiceSession(request, env, ctx, verifyUser, checkRateLimit, allowanceGate)
       case '/api/events': return handleEvents(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/dictation': return handleDictation(request, env, ctx, verifyUser, checkRateLimit)
+      // A link pasted into Paste text: the article's text, fetched once and not kept (importArticle.ts).
+      case '/api/import-article': return handleImportArticle(request, env, { verifyUser, checkRateLimit })
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, checkRateLimit, holdGuestSpend)
       case LAB_VOICE_RELAY_PATH: return handleLabVoiceRelay(request, env, ctx, checkRateLimit)

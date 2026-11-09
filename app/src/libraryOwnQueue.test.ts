@@ -238,16 +238,22 @@ describe('the "Your own book" pop-up with several files', () => {
     expect(rows()).toEqual(['a.epub | Added', 'b.epub | Added', 'c.pdf | Choose a PDF or EPUB file.'])
   })
 
-  it('a free account choosing several files is offered Premium and nothing is read', async () => {
+  // The Premium return depends on the shared reader (the deploy's npm test runs with VITE_SHARED_READER_DEFAULT=1),
+  // so pin it both ways as libraryAddToTinct.test.ts does.
+  it.each(['0', '1'])('a free account choosing several files is offered Premium and nothing is read (sharedReader=%s)', async shared => {
+    window.history.replaceState(null, '', `/library?sharedReader=${shared}`)
+    const shelf = shared === '1' ? '/library?sharedReader=1#my-shelf' : '/library#my-shelf'
+    const premium = shared === '1' ? `/sign-in?mode=account&returnTo=${encodeURIComponent(shelf)}` : addToTinct.PREMIUM_PAGE
     document.documentElement.classList.add('signed-in')
-    let resolve!: (yes: boolean) => void
+    let resolve: ((yes: boolean) => void) | undefined
     const go = vi.fn(), fake = fakeEngine()
     const opening = addToTinct.openFileEntry(null, { access: () => new Promise<boolean>(r => { resolve = r }), go, engine: fake.engine })
     choose(file('a.epub'), file('b.epub'))
-    await Promise.resolve(); await Promise.resolve()
-    resolve(false); await opening; await new Promise(r => setTimeout(r, 0))
+    // Wait for the access check itself rather than a fixed number of ticks (it failed under CI load).
+    await vi.waitFor(() => expect(resolve).toBeTypeOf('function'))
+    resolve!(false); await opening
+    await vi.waitFor(() => expect(go).toHaveBeenCalledWith(premium))
     expect(fake.steps).toEqual([])
-    expect(go).toHaveBeenCalledWith(addToTinct.PREMIUM_PAGE)
     expect(addToTinct.ownQueue()).toBeNull()
   })
 
