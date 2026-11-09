@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNod
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
 import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
+import { deskBarShortcut, deskBarShortcutLabel, type DeskBarShortcut } from './deskBarShortcuts'
 import '../../lab/marginPhone/marginPhone.css'
 import './selectionDeskBar.css'
 
@@ -177,8 +178,20 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     setAskOpen(true)
   }
 
+  // Typing over a shared desktop selection starts a question (type-to-ask).
+  const typeToAsk = !!props.sharedReader && !!(props.onAskQuestion || props.onComposeAsk)
+  // The bar's keys (deskBarShortcuts) run the same handlers as its buttons, and only where the button is shown.
+  const shortcutRef = useRef<(action: DeskBarShortcut) => boolean>(() => false)
+  shortcutRef.current = action => {
+    if (action === 'note') { if (!props.onNote) return false; props.onNote(); return true }
+    if (action === 'highlight') { if (state !== 'menu') return false; props.onHighlight(); return true }
+    if (state === 'colors') return false
+    if (action === 'explain') props.onExplain()
+    else openAsk()
+    return true
+  }
   useEffect(() => {
-    if (!props.sharedReader || askOpen || moreOpen || !place || (!props.onAskQuestion && !props.onComposeAsk)) return
+    if (askOpen || moreOpen || !place) return
     const available = (target: EventTarget | null) => {
       const element = target instanceof Element ? target : null
       if (element?.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"]')) return false
@@ -188,6 +201,9 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       return ref.current?.style.visibility !== 'hidden'
     }
     const type = (event: KeyboardEvent) => {
+      const shortcut = deskBarShortcut(event, typeToAsk)
+      if (shortcut && available(event.target) && shortcutRef.current(shortcut)) { event.preventDefault(); event.stopPropagation(); return }
+      if (!typeToAsk) return
       if (event.defaultPrevented || event.isComposing || event.keyCode === 229 || event.ctrlKey || event.metaKey || event.altKey
         || Array.from(event.key).length !== 1 || !event.key.trim() || !available(event.target)) return
       event.preventDefault()
@@ -197,7 +213,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     // IME keydowns use Process/229; only the committed composition is text.
     // Editable targets already receive composition normally and are untouched.
     const compose = (event: CompositionEvent) => {
-      if (!event.data || !available(event.target)) return
+      if (!typeToAsk || !event.data || !available(event.target)) return
       event.preventDefault()
       event.stopPropagation()
       openAsk(event.data)
@@ -205,7 +221,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     window.addEventListener('keydown', type, true)
     window.addEventListener('compositionend', compose, true)
     return () => { window.removeEventListener('keydown', type, true); window.removeEventListener('compositionend', compose, true) }
-  }, [props.sharedReader, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
+  }, [typeToAsk, props.onAskQuestion, props.onComposeAsk, askOpen, moreOpen, place])
 
   const keep = (event: React.PointerEvent | React.MouseEvent) => { if (!(event.target instanceof Element) || !event.target.closest('input,textarea')) event.preventDefault() }
   const sep = <span className="lab-pbar-sep" aria-hidden="true" />
@@ -214,16 +230,17 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     <button key={item.key} type="button" className="lab-pbar-swatch" data-testid={`lab-dbar-color-${item.key}`} aria-label={item.label}
       aria-pressed={marked && item.key === color} style={{ background: DESK_SWATCH[item.key] }} onClick={() => props.onSwatch(item.key)} />
   ))
-  const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} onClick={props.onNote}><PhoneIcon name="note" /></button>
+  const keyHint = (action: DeskBarShortcut, label: string) => { const key = deskBarShortcutLabel(action, typeToAsk); return { title: `${label} (${key.hint})`, 'aria-keyshortcuts': key.aria } }
+  const note = props.onNote && <button type="button" className="lab-pbar-item" data-testid="lab-dbar-note" aria-label={noted ? 'Edit note' : 'Add note'} {...keyHint('note', noted ? 'Edit note' : 'Add note')} onClick={props.onNote}><PhoneIcon name="note" /></button>
   const more = (rows: DeskMoreId[][]) => rows.some(group => group.length)
     ? <button type="button" className="lab-pbar-item" data-testid="lab-dbar-more" aria-label="More" aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => setMoreOpen(open => !open)}><PhoneIcon name="more" /></button>
     : null
   let body: ReactNode
   if (state === 'existing') {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask</button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask</button>
       {sep}
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
+      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
       {more(moreRows)}
       {sep}
       {swatches}
@@ -241,13 +258,13 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     </>
   } else {
     body = <>
-      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
+      <button ref={askButtonRef} type="button" className="lab-pbar-item is-ask" data-testid="lab-dbar-ask" {...keyHint('ask', 'Ask')} onClick={() => openAsk()}>Ask<span className="lab-dbar-caret" aria-hidden="true" /></button>
       {sep}
-      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" onClick={props.onExplain}>Explain</button>
+      <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-explain" {...keyHint('explain', 'Explain')} onClick={props.onExplain}>Explain</button>
       {props.onSimplify && <button type="button" className="lab-pbar-item is-text" data-testid="lab-dbar-simplify" onClick={props.onSimplify}>Simplify</button>}
       {more(moreRows)}
       {sep}
-      <button type="button" className="lab-pbar-item is-hl" data-testid="lab-dbar-highlight" aria-label={`Highlight in ${current.label}`} onClick={props.onHighlight}>
+      <button type="button" className="lab-pbar-item is-hl" data-testid="lab-dbar-highlight" aria-label={`Highlight in ${current.label}`} {...keyHint('highlight', `Highlight in ${current.label}`)} onClick={props.onHighlight}>
         <span className="lab-pbar-hl"><PhoneIcon name="highlight" /><span className="lab-pbar-dot" style={{ background: DESK_SWATCH[current.key] }} /></span>
       </button>
       {note}

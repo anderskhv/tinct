@@ -28,6 +28,7 @@ import {
   requestAllowsAiFeature,
   topUpCreditMicros,
   trialEndsAt,
+  PREMIUM_EXTENDED_UNTIL,
   trialStartsAt,
   type AllowanceGate,
   type AllowanceView,
@@ -458,9 +459,13 @@ describe('trial reset (Anders, 15 Oct 2026: every free account gets a fresh mont
     expect(premiumTier(profile, after)).toBe('trial')
     // The last instant of the fresh month, then standard with no allowance, windows from its end.
     expect(billingPeriod(profile, new Date('2026-11-13T23:59:59Z')).kind).toBe('trial')
+    // The 9 Nov 2026 extension (PREMIUM_EXTENDED_UNTIL) then keeps Premium to 4 Jan 2027 with a monthly
+    // allowance from the fresh month's end; standard with no allowance follows, windows from 4 Jan.
     const later = billingPeriod(profile, new Date('2026-11-14T00:00:00Z'))
-    expect(later).toMatchObject({ kind: 'standard', start: new Date(resetEnd), allowanceMicros: 0 })
-    expect(hasPremiumAccess(profile, new Date('2026-11-14T00:00:00Z'))).toBe(false)
+    expect(later).toMatchObject({ kind: 'trial', start: new Date(resetEnd), end: new Date('2026-12-14T00:00:00Z'), allowanceMicros: 3_000_000 })
+    expect(hasPremiumAccess(profile, new Date('2026-11-14T00:00:00Z'))).toBe(true)
+    expect(billingPeriod(profile, new Date('2027-01-04T00:00:00Z'))).toMatchObject({ kind: 'standard', start: PREMIUM_EXTENDED_UNTIL, allowanceMicros: 0 })
+    expect(hasPremiumAccess(profile, new Date('2027-01-04T00:00:00Z'))).toBe(false)
   })
 
   it('does not count usage before the reset: the settlement sums from the reset', async () => {
@@ -526,6 +531,36 @@ it('a thirty-day granted month starts with fresh allowance at its exact start an
   const profile = { created_at: '2026-01-01T00:00:00Z', subscription_status: 'canceled', subscription_period_end: end.toISOString(), period_start: start.toISOString() }
   expect(billingPeriod(profile, start)).toMatchObject({ start, end, allowanceMicros: 3000000 })
   expect(hasPremiumAccess(profile, start)).toBe(true)
-  expect(hasPremiumAccess(profile, end)).toBe(false)
-  expect(billingPeriod(profile, end).allowanceMicros).toBe(0)
+  // The grant ends inside the 9 Nov 2026 extension, which keeps Premium to 4 Jan 2027; then it expires.
+  expect(hasPremiumAccess(profile, end)).toBe(true)
+  expect(hasPremiumAccess(profile, PREMIUM_EXTENDED_UNTIL)).toBe(false)
+  expect(billingPeriod(profile, PREMIUM_EXTENDED_UNTIL).allowanceMicros).toBe(0)
+})
+
+describe('Premium extension (Anders, 9 Nov 2026: "extend the premium for next 8 weeks")', () => {
+  const free = (created_at: string) => ({ subscription_status: null, subscription_period_end: null, created_at })
+  const today = new Date('2026-11-09T12:00:00Z')
+
+  it('keeps every free account on Premium until 4 January 2027', () => {
+    for (const created of ['2026-01-01T00:00:00Z', '2026-10-20T08:00:00Z', '2026-11-09T09:00:00Z']) {
+      expect(trialEndsAt(free(created), today)?.toISOString()).toBe('2027-01-04T00:00:00.000Z')
+      expect(hasPremiumAccess(free(created), new Date('2027-01-03T23:59:59Z'))).toBe(true)
+      expect(hasPremiumAccess(free(created), PREMIUM_EXTENDED_UNTIL)).toBe(false)
+    }
+  })
+
+  it('leaves a trial that ends later anyway on its 30 days', () => {
+    expect(trialEndsAt(free('2026-12-20T10:00:00Z'), new Date('2026-12-21T00:00:00Z'))?.toISOString()).toBe('2027-01-19T10:00:00.000Z')
+  })
+
+  it('renews the allowance monthly from the sign-up trial end, the last window cut at 4 January', () => {
+    const profile = free('2026-10-20T08:00:00Z') // 30-day trial to 19 Nov 08:00
+    expect(billingPeriod(profile, today)).toMatchObject({ kind: 'trial', start: new Date('2026-10-20T08:00:00Z'), end: new Date('2026-11-19T08:00:00Z') })
+    expect(billingPeriod(profile, new Date('2026-11-25T00:00:00Z'))).toMatchObject({ kind: 'trial', start: new Date('2026-11-19T08:00:00Z'), end: new Date('2026-12-19T08:00:00Z'), allowanceMicros: 3_000_000 })
+    expect(billingPeriod(profile, new Date('2026-12-25T00:00:00Z'))).toMatchObject({ kind: 'trial', start: new Date('2026-12-19T08:00:00Z'), end: PREMIUM_EXTENDED_UNTIL })
+  })
+
+  it('changes nothing before the decision', () => {
+    expect(trialEndsAt(free('2026-09-01T10:00:00Z'), new Date('2026-11-08T23:59:59Z'))?.toISOString()).toBe('2026-11-14T00:00:00.000Z')
+  })
 })

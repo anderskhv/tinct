@@ -161,9 +161,27 @@ export function trialStartsAt(profile: AllowanceProfile, now: Date): Date | null
   return resetReached && created.getTime() < TRIAL_RESET_AT.getTime() ? TRIAL_RESET_AT : created
 }
 
-export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
+/**
+ * Premium extended for every account (Anders, 9 Nov 2026: "extend the premium
+ * for next 8 weeks"). From PREMIUM_EXTENSION_FROM, a free account's trial runs
+ * at least until PREMIUM_EXTENDED_UNTIL; a trial that would end later anyway
+ * (an account created from 5 Dec 2026) is unchanged. Before the decision the
+ * trial ends exactly as it did. While extended, the AI allowance renews monthly
+ * from the account's sign-up trial end (billingPeriod), as Premium's does.
+ */
+export const PREMIUM_EXTENSION_FROM = new Date('2026-11-09T00:00:00Z')
+export const PREMIUM_EXTENDED_UNTIL = new Date('2027-01-04T00:00:00Z')
+
+/** The 30-day trial's end before any extension. */
+export function signUpTrialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
   const start = trialStartsAt(profile, now)
   return start ? new Date(start.getTime() + TRIAL_DAYS * DAY_MS) : null
+}
+
+export function trialEndsAt(profile: AllowanceProfile, now: Date): Date | null {
+  const end = signUpTrialEndsAt(profile, now)
+  if (!end) return null
+  return now.getTime() >= PREMIUM_EXTENSION_FROM.getTime() && end.getTime() < PREMIUM_EXTENDED_UNTIL.getTime() ? PREMIUM_EXTENDED_UNTIL : end
 }
 
 /**
@@ -252,9 +270,16 @@ export function billingPeriod(profile: AllowanceProfile, now: Date, allowanceUsd
     return { kind: 'subscription', ...monthlyWindow(anchor, now), allowanceMicros }
   }
   const trialStart = trialStartsAt(profile, now)
+  const signUpEnd = signUpTrialEndsAt(profile, now)
   const trialEnd = trialEndsAt(profile, now)
-  if (trialStart && trialEnd && now.getTime() < trialEnd.getTime()) {
-    return { kind: 'trial', start: trialStart, end: trialEnd, allowanceMicros }
+  if (trialStart && signUpEnd && now.getTime() < signUpEnd.getTime()) {
+    return { kind: 'trial', start: trialStart, end: signUpEnd, allowanceMicros }
+  }
+  // The extension (PREMIUM_EXTENDED_UNTIL): monthly windows from the sign-up
+  // trial's end, the last one cut at the extension's end.
+  if (signUpEnd && trialEnd && now.getTime() < trialEnd.getTime()) {
+    const window = monthlyWindow(signUpEnd, now)
+    return { kind: 'trial', start: window.start, end: window.end.getTime() > trialEnd.getTime() ? trialEnd : window.end, allowanceMicros }
   }
   const anchor = trialEnd ?? new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1))
   return { kind: 'standard', ...monthlyWindow(anchor, now), allowanceMicros: 0 }

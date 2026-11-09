@@ -1048,3 +1048,47 @@ it('keeps page units when section detection finds nothing', async () => {
   expect(screen.getByRole('button', { name: 'Contents', exact: true }).textContent).toBe('Page 1')
   expect(screen.queryAllByTestId('mock-heading-actions')).toHaveLength(0)
 })
+
+const listenServices = (audio: NonNullable<PdfOriginalReaderServices['audio']>, listen = vi.fn()): PdfOriginalReaderServices => ({ marks: [], cards: [],
+  saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null),
+  ask: vi.fn(async () => ''), saveCard: vi.fn(() => true), listen, audio })
+const idleAudio = (extra: Partial<NonNullable<PdfOriginalReaderServices['audio']>> = {}) => ({ speed: 1, setSpeed: vi.fn(), playing: false, pause: vi.fn(), available: true, ...extra })
+
+it('reads the page aloud from Play, and Play pauses while a page is heard', () => {
+  const listen = vi.fn()
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio(), listen)} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Listen' }))
+  expect(listen).toHaveBeenCalledWith(1, 'A page with usable text.')
+  const pause = vi.fn()
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ playing: true, pause }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Pause' }))
+  expect(pause).toHaveBeenCalledTimes(1)
+  expect(listen).toHaveBeenCalledTimes(1)
+})
+
+it('takes Play away and says so once when read aloud fails for this PDF, and never shows a dead Play', () => {
+  const listen = vi.fn()
+  const { rerender } = render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio(), listen)} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Listen' }))
+  rerender(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ available: false, unavailable: true }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  expect(screen.getByText('Read aloud is not available for this book right now.').closest('[role="status"]')).toBeTruthy()
+  cleanup()
+  // Unavailable from the start (never tapped): no Play and nothing said.
+  render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={listenServices(idleAudio({ available: false, unavailable: true }), listen)} />)
+  expect(screen.queryByRole('button', { name: 'Listen' })).toBeNull()
+  expect(screen.queryByText('Read aloud is not available for this book right now.')).toBeNull()
+})
+
+it('goes back to My shelf with the place kept', () => {
+  const assign = vi.fn()
+  vi.stubGlobal('location', { ...window.location, assign })
+  const onBeforeLeave = vi.fn()
+  render(<PdfOriginalReaderShell title="Own PDF" owner="o" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} onBeforeLeave={onBeforeLeave} services={listenServices(idleAudio())} />)
+  const back = screen.getByRole('link', { name: 'Back to library' })
+  expect(back.getAttribute('href')).toBe('/library?sharedReader=1#my-shelf')
+  fireEvent.click(back)
+  expect(onBeforeLeave).toHaveBeenCalledWith({ page: 1, frac: .3 })
+  expect(assign).toHaveBeenCalledWith('/library?sharedReader=1#my-shelf')
+})
