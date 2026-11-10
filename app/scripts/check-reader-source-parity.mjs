@@ -5,6 +5,8 @@ import fs from 'node:fs/promises'
 import { chromium, webkit, devices } from '@playwright/test'
 import { markInternal } from './lib/internalTraffic.cjs'
 import { assertBareDesktopHeader, assertNaturalCardBody, assertNoRepeatedQuote, assertRailScrollsWithSource, sourceRailGeometry, settlePaint, enforceReaderBundle } from './lib/readerParityAssertions.mjs'
+// Saved and live cards; the chapter's start actions card (approved mockup, Anders 9 Nov 2026) is not one of them.
+const SAVED_CARDS = '[data-testid="source-margin-item"]:not(.is-start):not(.is-start-later)'
 const origin = process.env.TINCT_ORIGIN || 'http://127.0.0.1:5175'
 const expectedBundle = process.env.TINCT_EXPECTED_BUNDLE || ''
 const output = process.env.TINCT_PARITY_OUTPUT || '/tmp/tinct-reader-restored-parity'
@@ -159,7 +161,7 @@ try {
       await select(host, 18, 28)
       await page.getByTestId('lab-dbar-explain').click()
       await host.locator('[data-testid="source-margin-item"][data-open="true"]').getByText('A complete local answer remains attached to this source passage.').waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 2, 'separate answers retain two source cards')
+      assert.equal(await host.locator(SAVED_CARDS).count(), 2, 'separate answers retain two source cards')
       assert.equal(await first.getAttribute('data-open'), 'false')
       await first.getByTestId('source-margin-open').click()
       assert.equal(await first.getAttribute('data-open'), 'true', 'folded row reopens its original answer')
@@ -184,10 +186,10 @@ try {
       assert.equal(await first.getAttribute('data-open'), 'true', 'tapping saved source words reopens that card')
       const requestCountBeforeReload = requests.length
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready()
-      await host.getByTestId('source-margin-item').nth(1).waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 2, 'source rail restores saved cards after reload')
+      await host.locator(SAVED_CARDS).nth(1).waitFor()
+      assert.equal(await host.locator(SAVED_CARDS).count(), 2, 'source rail restores saved cards after reload')
       assert.equal(requests.length, requestCountBeforeReload, 'reopening saved answers never generates them again')
-      const secondId = await host.getByTestId('source-margin-item').nth(1).getAttribute('data-card-id')
+      const secondId = await host.locator(SAVED_CARDS).nth(1).getAttribute('data-card-id')
       const savedSecond = await page.evaluate(id => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]').find(row => row.id === id), secondId)
       assert(savedSecond?.card?.anchor, 'saved explanation retains its exact source anchor')
       const beforeNotebookCard = await root.getAttribute('data-place')
@@ -232,7 +234,7 @@ try {
       assert(freeId, 'Undo restores the free note')
       foldedFree = host.locator(`[data-testid="source-margin-item"][data-card-id="${freeId}"]`)
       await foldedFree.waitFor()
-      assert.equal(await host.getByTestId('source-margin-item').count(), 3, 'Undo restores the same free note beside both saved answers')
+      assert.equal(await host.locator(SAVED_CARDS).count(), 3, 'Undo restores the same free note beside both saved answers')
       await page.reload({ waitUntil: 'domcontentloaded' }); await ready()
       await foldedFree.getByTestId('source-margin-open').click()
       const restoredFreeEditor = foldedFree.getByRole('textbox', { name: 'Highlight note', exact: true })
@@ -297,8 +299,9 @@ try {
       observations.push({ layout, firstGeometry, finalGeometry, wheelRead })
       // Text start/end actions are always visible, unlike PDF heading-hover actions.
       await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
-      await page.getByTestId('lab-unit-primer').waitFor()
-      await page.getByTestId('lab-unit-catchup').waitFor()
+      // The chapter's start actions sit in the margin's start card (approved mockup, Anders 9 Nov 2026), not by the heading.
+      await page.getByTestId('margin-start-primer').waitFor()
+      await page.getByTestId('margin-start-summary').waitFor()
       const minimap = page.getByRole('slider', { name: 'Book position', exact: true })
       await minimap.waitFor()
       assert(Number(await minimap.getAttribute('aria-valuenow')) < 100, 'whole-book map has later chapters beyond the current source')

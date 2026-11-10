@@ -95,7 +95,7 @@ describe('a user book in the Tinct reader', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
     // Book settings: an EPUB on the desktop has Margin view too (19 Oct 2026, epubView.ts).
-    expect(rows).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(rows).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'account'])
     // Chat and Talk share the same menu row as the standard reader.
     expect(screen.getByTestId('lab-super-row-chat')).toBeTruthy()
     expect(screen.getByTestId('lab-super-row-talk')).toBeTruthy()
@@ -223,18 +223,6 @@ describe('a user book in the Tinct reader', () => {
     expect(localStorage.getItem(`tinct:chat-history:${BOOK_ID}`)).toContain('What is lit?')
   })
 
-  it('Summarize recaps the chapter in the chat instead of the server-cached notes', async () => {
-    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    await waitFor(() => expect(requests.some(request => request.url.endsWith('/api/lab-chat'))).toBe(true))
-    expect(requests.some(request => /chapter-notes|catch-up/.test(request.url))).toBe(false)
-    const body = requests.find(request => request.url.endsWith('/api/lab-chat'))!.body as { companion: { intent: string }; messages: Array<{ content: string }> }
-    expect(body.companion.intent).toBe('ask')
-    expect(body.messages[body.messages.length - 1].content).toContain('Recap this chapter.')
-  })
-
-  // Supersedes the 12 Oct reading-table rule (tester, 9 Nov 2026: back from an own book "dropped me on the main page").
   it('goes back to My shelf, where the reader\'s own books are', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={loaded()} />)
     const back = screen.getByTestId('lab-library-back')
@@ -292,15 +280,6 @@ describe('what of a user book reaches the companion', () => {
     expect(context.paragraphs[context.paragraphIndex]).toBe(long[0])
   })
 
-  it('Recap this chapter sends the chapter, capped at 120,000 characters', async () => {
-    render(<LabApp pathname="/lab/desktop" authToken={null} userBook={longBook()} />)
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    await waitFor(() => expect(sent().length).toBe(1))
-    const context = sent()[0].companion.context
-    expect(size(context.paragraphs)).toBe(USER_BOOK_CHAPTER_CHARS)
-    expect(context.paragraphs[0]).toBe(long[0])
-  })
 })
 
 describe('Listen for a user book', () => {
@@ -381,7 +360,7 @@ describe('a PDF read as its Tinct text', () => {
     render(<LabApp pathname="/lab/desktop" authToken={null} userBook={pdfBook({ chapterNumber: 1, paragraphIndex: 2, wordIndex: 45 })} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...document.querySelectorAll('.lab-super-row')].map(row => row.getAttribute('data-row'))
-    expect(rows).toEqual(['conversation', 'summarize', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(rows).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'account'])
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     const sheet = await screen.findByRole('heading', { name: 'Book settings' })
     const body = sheet.closest('section, [role="dialog"], .lab-v2-sheet') ?? document.body

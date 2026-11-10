@@ -51,7 +51,6 @@ const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) 
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
     ...SETTINGS_ROWS,
@@ -64,21 +63,25 @@ function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
  * Chapter actions (Catch me up, approved 2026-09-30, sits right under
  * Summarize), the settings groups, then library (phone only) and account.
  */
-export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false }: {
+export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = false, sharedReader = false, summarize = false }: {
   phone?: boolean; privateBook?: boolean; ownPdf?: boolean
+  /**
+   * Summarize the whole document: the Original PDF pages reader keeps it (Christian's whole-PDF summary). The book
+   * reader has none (Anders, 10 Nov 2026): its start and chapter pills hold Summary, and Catch me up is "up to here".
+   */
+  summarize?: boolean
   /** Shared source identity; Notebook uses its dedicated desktop button. */
   sharedReader?: boolean
 } = {}): LabSuperMenuRow[] {
   const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // Match the phone: two explicit actions, with their existing destinations.
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
     { id: 'account', label: 'Profile', chevron: true, ruleBefore: true },
   ]
-  const rows = all
+  const rows = summarize ? all.flatMap(row => row.id === 'conversation' ? [row, { id: 'summarize' as const, label: 'Summarize' }] : [row]) : all
   // A reader's own book (userBook/): Chat, Talk and Catch me up as for any
   // book (2026-10-08; its recap is built from this device's text, one chapter
   // at a time). Book settings appears only for separate source choices (PDF

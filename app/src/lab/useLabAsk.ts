@@ -38,6 +38,7 @@ import {
   type LabAskTurn,
   type LabPlaybackSkip,
 } from './labAsk'
+import { useReadingAngle } from './labReadingAngle'
 import {
   LabChatError,
   labChatErrorType,
@@ -328,7 +329,7 @@ export function useLabAsk(options: UseLabAskOptions) {
       editionLabel: current.editionLabel,
       paragraphs: scoped.paragraphs,
       paragraphIndex: scoped.paragraphIndex,
-      readingAngle: labReadingAngle(),
+      readingAngle: labReadingAngle(current.bookId),
       // A reader's own book is named by its text only: no id, no edition, so
       // the Worker never looks it up (or meters it) and answers from the
       // paragraphs sent here, as Add a book does.
@@ -581,6 +582,8 @@ export function useLabAsk(options: UseLabAskOptions) {
   const askEditionKey = options.bookId && options.editionKey
     ? migrateWithheldEdition(options.bookId, options.editionKey)
     : options.editionKey
+  // The book's reading angle, kept current when the reader edits it (Book settings, the desktop's start card).
+  const [readingAngle] = useReadingAngle(options.bookId)
   const askContext = useMemo(() => ({
     bookTitle: options.bookTitle,
     bookAuthor: options.bookAuthor,
@@ -590,7 +593,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     editionLabel: options.editionLabel,
     paragraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
-    readingAngle: labReadingAngle(),
+    readingAngle: readingAngle.trim() || undefined,
     bookId: privateBook ? undefined : options.bookId,
     editionKey: privateBook ? undefined : askEditionKey,
   }), [
@@ -605,6 +608,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     options.paragraphs,
     options.bookId,
     options.editionKey,
+    readingAngle,
   ])
   const selectedConversationTurns = useMemo(() => {
     const selected = options.conversationId ? conversations.find(item => item.id === options.conversationId && item.bookId === chatBookId) : null
@@ -699,7 +703,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     authorship: askContext.authorship,
     chapterNumber: options.chapterNumber ?? 1,
     chapterTitle: options.chapterLabel,
-    readingObjective: labReadingAngle(),
+    readingObjective: readingAngle.trim() || undefined,
     chapterParagraphs: options.paragraphs,
     paragraphIndex: options.paragraphIndex,
     visibleText: '',
@@ -1219,7 +1223,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(requestBookId), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,

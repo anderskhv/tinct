@@ -309,17 +309,23 @@ export function catchUpPlan(input: {
   currentParagraphs?: readonly string[] | null
   /** How many chapters before the current one keep an entry each (CATCH_UP_RECENT_CHAPTERS). */
   recent?: number
+  /**
+   * The whole book's Summary (the start actions, Anders 9 Nov 2026): every chapter, the last ones included, grouped
+   * as the timeline groups them, asked for without a reader's place (the reader chose to see the whole book).
+   * `chapterNumber` is then the book's last chapter.
+   */
+  wholeBook?: boolean
 }): CatchUpEntry[] {
   const here = input.chapters.findIndex(chapter => chapter.number === input.chapterNumber)
   if (here < 0) return []
   const base = {
     bookId: input.bookId, editionKey: input.editionKey,
     ...(input.bookTitle ? { bookTitle: input.bookTitle } : {}),
-    placeChapter: input.chapterNumber,
+    ...(input.wholeBook ? {} : { placeChapter: input.chapterNumber }),
   }
-  // Strictly before the current chapter, in reading order.
-  let earlier = input.chapters.slice(0, here)
-  if (input.separateWorks) {
+  // Strictly before the current chapter, in reading order (the whole book: every chapter).
+  let earlier = input.wholeBook ? input.chapters.slice() : input.chapters.slice(0, here)
+  if (input.separateWorks && !input.wholeBook) {
     // Only the work the reader is in.
     const work = input.units.find(unit => unit.chapters.includes(input.chapterNumber))
     const inWork = new Set(work?.chapters ?? [input.chapterNumber])

@@ -125,8 +125,14 @@ async function sourceParity(page, calls, output) {
   const pills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${key}"]`)
   await pills.waitFor()
   for (const label of ['Primer', 'Recap', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
-  assert.equal(await pills.getByRole('button', { name: 'Catch me up', exact: true }).count(), 0, 'first source unit never offers previous-content catch-up')
-  const headingBox = await heading.boundingBox(), pillBox = await pills.boundingBox()
+  // Summary is the section's what-came-before (Catch me up's pages), renamed with the start actions (Anders, 9 Nov 2026).
+  assert.equal(await pills.getByRole('button', { name: 'Summary', exact: true }).count(), 0, 'first source unit never offers previous-content catch-up')
+  // The first heading's actions sit in its "Before you start" card (reading angle, the whole document, then the section).
+  const startCard = page.locator('[data-testid="source-margin-item"]').filter({ has: pills })
+  assert.equal(await startCard.locator('.source-margin-label').innerText(), 'Before you start', 'the first heading carries the Before you start card')
+  await startCard.getByTestId('pdf-reading-angle').waitFor()
+  await startCard.getByTestId('pdf-whole-summary').waitFor()
+  const headingBox = await heading.boundingBox(), pillBox = await startCard.boundingBox()
   const pageRight = await host.locator('.pdf-original__page').evaluateAll(nodes => Math.max(...nodes.map(node => node.getBoundingClientRect().right)))
   assert(headingBox && pillBox && pillBox.x >= pageRight + 10 && Math.abs(pillBox.y - headingBox.y) < 70,
     `PDF chapter actions sit in the margin level with their heading: ${JSON.stringify({ headingBox, pillBox, pageRight })}`)
@@ -225,9 +231,27 @@ async function sourceParity(page, calls, output) {
   await secondHeading.waitFor()
   const secondKey = await secondHeading.getAttribute('data-pdf-heading')
   const secondPills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${secondKey}"]`)
-  await secondPills.getByRole('button', { name: 'Catch me up', exact: true }).waitFor()
+  await secondPills.getByRole('button', { name: 'Summary', exact: true }).waitFor()
   assert.equal(await page.locator('canvas').count() <= 3, true, 'heading controls preserve bounded original-page canvases')
   await page.screenshot({ path: path.join(output, 'pdf-second-heading-catch-up.png') })
+  // The start card: the reading angle is the document's one stored value, sent with its requests; the whole
+  // document's Summary asks once for every page and opens as a margin card, the page unmoved (Anders, 9 Nov 2026).
+  await host.evaluate(node => { node.scrollTop = 0; node.dispatchEvent(new Event('scroll')) })
+  await startCard.waitFor({ timeout: 45000 })
+  await startCard.getByTestId('pdf-reading-angle').fill('What the method assumes')
+  assert.equal(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('tinct:reading-angle:userbook-')).map(key => JSON.parse(localStorage.getItem(key))).join('|')), 'What the method assumes', 'the PDF reading angle is stored for its book')
+  const beforeWhole = await host.evaluate(node => node.scrollTop), asked = calls.length
+  await startCard.getByTestId('pdf-whole-summary').click()
+  await page.locator('[data-testid="source-margin-item"][data-open="true"]').first().waitFor()
+  // An earlier Summarize already saved the whole-document recap, so it reopens without asking again; the angle goes
+  // with the next request, the section's Quiz me from the same card.
+  assert(calls.slice(asked).every(call => !['/api/chat', '/api/lab-chat'].includes(call.path) || call.body.includes('What the method assumes')), 'any whole-document request carries the reading angle')
+  const quizAsked = calls.length
+  await startCard.locator('[data-testid="pdf-heading-actions"]').getByRole('button', { name: 'Quiz me', exact: true }).click()
+  for (let tick = 0; tick < 100 && !calls.slice(quizAsked).some(call => call.path === '/api/chat'); tick++) await page.waitForTimeout(50)
+  assert(calls.slice(quizAsked).some(call => call.path === '/api/chat' && call.body.includes('What the method assumes')), `the section's Quiz me carries the reading angle: ${JSON.stringify(calls.slice(quizAsked).map(call => call.path))}`)
+  assert(Math.abs(await host.evaluate(node => node.scrollTop) - beforeWhole) < 2, 'the whole-document Summary leaves the page where it was')
+  await page.screenshot({ path: path.join(output, 'pdf-start-card-whole-summary.png') })
   await fs.writeFile(path.join(output, 'pdf-source-parity.json'), JSON.stringify({ geometry, headingBox, pillBox, calls: calls.map(call => ({ path: call.path, method: call.method })) }, null, 2))
   console.log(`Original PDF source contracts passed: heading-hover/focus, real rail, natural cards, notes/Undo, figure image/follow-up, earlier-unit catch-up. ${output}`)
 }

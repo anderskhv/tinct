@@ -7849,3 +7849,19 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --
   font: 14px/1 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-variant-numeric: tabular-nums;
 }
+
+/* Book settings' reading angle (and the desktop's "Before you start" card): the reader's own words, in the UI face. */
+.lab[data-chrome-version="v2"] .lab-reading-angle { display: flex; flex-direction: column; gap: 6px; padding: 6px 0 4px; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-label { font: 500 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* One soft box (approved mockup): the field without its own frame, the mic inside on the right; the box takes the focus ring. */
+.lab[data-chrome-version="v2"] .lab-reading-angle-box { display: flex; align-items: flex-start; gap: 4px; border: 1px solid var(--lab-v2-hairline, rgba(0,0,0,.14));
+  border-radius: 12px; background: color-mix(in srgb, currentColor 3%, transparent); padding: 2px 4px 2px 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-box:focus-within { border-color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input { flex: 1; min-width: 0; width: 100%; box-sizing: border-box; min-height: 52px; padding: 10px 12px; border: 0;
+  border-radius: 12px; background: transparent; color: inherit; font: 16px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; resize: none; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input::placeholder { color: inherit; opacity: .5; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-input:focus { outline: 0; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic { flex: none; display: grid; place-items: center; width: 36px; height: 36px; margin: 6px 0 0; padding: 0; border: 0; border-radius: 50%;
+  background: none; color: inherit; opacity: .6; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic[aria-pressed="true"] { opacity: 1; color: var(--tui-accent, #1f6f78); }
+.lab[data-chrome-version="v2"] .lab-reading-angle-mic .lab-picon { width: 18px; height: 18px; }

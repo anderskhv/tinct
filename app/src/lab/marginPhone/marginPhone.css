@@ -307,3 +307,28 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input::placeholder { color: var(--lab-ink-muted); opacity: .8; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field .tc-mark { margin-bottom: 2px; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-latest { bottom: 8px; }
+
+/* ---------- the start actions (approved option C, Anders 9 Nov 2026) ---------- */
+/* One soft pill under the book's title and author (Primer · Summary · Reading angle) and a smaller, lighter one under
+   each chapter heading (Primer · Summary · Quiz): paper-tone fill, no border, hairlines between segments, full width.
+   Measured with the heading by the paginators (the same markup in their copies), so the page never reflows. */
+.lab[data-chrome-version="v2"] .lab-start-pill {
+  display: flex; align-items: stretch; width: 100%; box-sizing: border-box; margin: 14px 0 0;
+  border-radius: 999px; overflow: hidden;
+  background: color-mix(in srgb, var(--lab-ink, #1b1712) 6%, transparent);
+}
+.lab[data-chrome-version="v2"] .lab-start-seg {
+  flex: 1 1 auto; min-width: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 0 8px; border: 0; background: transparent; color: var(--lab-ink, #1b1712);
+  font: 500 14px/1.2 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: normal; text-transform: none;
+  cursor: pointer; -webkit-tap-highlight-color: transparent; white-space: nowrap;
+}
+.lab[data-chrome-version="v2"] .lab-start-seg + .lab-start-seg { box-shadow: inset 1px 0 0 color-mix(in srgb, var(--lab-ink, #1b1712) 12%, transparent); }
+.lab[data-chrome-version="v2"] .lab-start-seg:active { background: color-mix(in srgb, var(--lab-ink, #1b1712) 6%, transparent); }
+.lab[data-chrome-version="v2"] .lab-start-seg:focus-visible { outline: 2px solid var(--tui-accent, #1f6f78); outline-offset: -2px; }
+.lab[data-chrome-version="v2"] .lab-start-seg:disabled { opacity: .5; cursor: wait; }
+.lab[data-chrome-version="v2"] .lab-start-seg > span { white-space: nowrap; }
+.lab[data-chrome-version="v2"] .lab-start-icon { flex: 0 0 auto; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.lab[data-chrome-version="v2"] .lab-start-icon circle[r=".6"], .lab[data-chrome-version="v2"] .lab-start-icon circle[r=".5"] { fill: currentColor; }
+/* A Tinct book's opening on the phone: its title and author over the pill, as an own book's opening is drawn. */
+.lab[data-chrome-version="v2"] .lab-book-opening.is-tinct .lab-book-opening-title { font-family: 'EB Garamond', Georgia, serif; }

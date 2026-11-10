@@ -260,13 +260,13 @@ describe('the super-menu', () => {
     await waitFor(() => expect(screen.queryByTestId('lab-super-menu')).toBeNull())
   })
 
-  it('lists Chat · Talk, Summarize, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
+  it('lists Chat · Talk, Catch me up, Notebook, Aa, Book settings, Audio settings, Library and Profile — and no Play row', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
     // The fixture is the book's first chapter: Catch me up stays available.
-    expect(labels).toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
@@ -288,7 +288,7 @@ describe('the super-menu', () => {
 
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['conversation', 'summarize', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
+      .toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -402,19 +402,20 @@ describe('the super-menu', () => {
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.getByTestId('lab-super-row-catchup')).toBeTruthy()
-    expect(screen.getByTestId('lab-super-row-summarize')).toBeTruthy()
+    // No Summarize (Anders, 10 Nov 2026): the start and chapter pills hold Summary.
+    expect(screen.queryByTestId('lab-super-row-summarize')).toBeNull()
     cleanup()
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Chat', 'Talk', 'Summarize', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'Profile'])
+      .toEqual(['Chat', 'Talk', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'Profile'])
   })
 
-  it('puts Catch me up right under Summarize, with its timeline icon', () => {
+  it('puts Catch me up right under Chat · Talk, with its timeline icon', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     const rows = [...screen.getByTestId('lab-super-menu').querySelectorAll('[data-row]')].map(node => node.getAttribute('data-row'))
-    expect(rows.indexOf('catchup')).toBe(rows.indexOf('summarize') + 1)
+    expect(rows.indexOf('catchup')).toBe(rows.indexOf('conversation') + 1)
     const icon = screen.getByTestId('lab-super-row-catchup').querySelector('svg')!
     expect(icon.getAttribute('viewBox')).toBe('0 0 24 24')
     expect(icon.getAttribute('stroke-width')).toBe('1.6')
@@ -450,20 +451,6 @@ describe('the super-menu', () => {
     expect(root().getAttribute('data-super-sheet')).toBe('closed')
     expect(root().getAttribute('data-chapter')).toBe(before.chapter)
     expect(screen.getByTestId('lab-super').closest('.lab')?.querySelector('.lab-header')?.textContent).toBe(before.header)
-  })
-
-  it('summarizes the whole current chapter, not the reading so far (Catch me up does that)', async () => {
-    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => ({ ok: false, status: 502, json: async () => ({}) }))
-    vi.stubGlobal('fetch', fetchMock)
-    renderPhone()
-    fireEvent.click(screen.getByTestId('lab-super'))
-    fireEvent.click(screen.getByTestId('lab-super-row-summarize'))
-    const card = await screen.findByTestId('lab-chapter-notes')
-    expect(card.textContent).toMatch(/Recap · /)
-    await waitFor(() => expect(fetchMock.mock.calls.some(call => String(call[0]).includes('/api/lab-chapter-notes'))).toBe(true))
-    const bodies = fetchMock.mock.calls.filter(call => String(call[0]).includes('/api/lab-chapter-notes')).map(call => JSON.parse(String(call[1]?.body)))
-    expect(bodies.every(body => body.kind === 'end')).toBe(true)
-    expect(bodies.some(body => 'paragraphIndex' in body)).toBe(false)
   })
 
   it('opens the account cards over the book (Profile) rather than leaving it', async () => {

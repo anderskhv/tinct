@@ -117,7 +117,10 @@ import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
-import { CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
+import { ReadingAngleField } from './LabReadingAngleField'
+import { PhoneIcon } from './marginPhone/LabPhoneCard'
+import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
+import { BOOK_PRIMER_TITLE, LabBookPrimerSheet, useBookPrimerAvailable } from './LabBookPrimerSheet'
 import { LabOwnCatchUpSheet } from './userBook/LabOwnCatchUpSheet'
 import { getLibraryMeta } from '../data/libraryTaxonomy'
 import { LabFigureCard } from './LabFigure'
@@ -249,6 +252,7 @@ import { ownReadingNowWithAccount } from './userBook/ownSync'
 import { loadShelfMembership, readShelfMembership } from '../libraryTwoSaved'
 import { resolveBookCover } from '../../public/lab/book-cover.js'
 import { fetchPublicBooksIndex, mentionsPublicBook, registeredPublicCover, registeredPublicEntries } from '../utils/publicBooks'
+import { useReadingAngle } from './labReadingAngle'
 import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills } from './marginPhone/marginPhoneContext'
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard, PhoneAnswer } from './marginPhone/LabPhoneCard'
@@ -906,10 +910,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   const [compareFromLayout, setCompareFromLayout] = useState(false)
+  // The book's reading angle (labReadingAngle.ts): Book settings' first field; the reading-angle pill opens it focused.
+  const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
+  const [angleFocus, setAngleFocus] = useState(false)
+  useEffect(() => { if (superSheet !== 'editions') setAngleFocus(false) }, [superSheet])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
   const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor } | null>(null)
   const [desktopChapterCards, setDesktopChapterCards] = useState<Array<NonNullable<typeof chapterNotes>>>([])
   const [desktopCatchup, setDesktopCatchup] = useState(false)
+  // The whole book's Primer or Summary, from the book's start actions (approved mockup, Anders 9 Nov 2026).
+  const [bookAction, setBookAction] = useState<{ kind: 'primer' | 'summary'; openedAt: number } | null>(null)
+  // The desktop Margin reader: the whole book's Primer and Summary as margin cards beside the book's opening.
+  const [desktopBookCards, setDesktopBookCards] = useState<Array<'primer' | 'summary'>>([])
+  const [desktopBookPreviews, setDesktopBookPreviews] = useState<{ primer?: string; summary?: string }>({})
+  const [angleDictating, setAngleDictating] = useState(false)
+  const [desktopCatchupAsSummary, setDesktopCatchupAsSummary] = useState(false)
+  useEffect(() => { setDesktopBookCards([]); setDesktopBookPreviews({}) }, [book.bookId])
+  // Catch me up opened as a chapter's Summary: its card is named for the pill.
+  const [catchUpAsSummary, setCatchUpAsSummary] = useState(false)
+  useEffect(() => { if (superSheet !== 'catchup') setCatchUpAsSummary(false) }, [superSheet])
   const [superFirstView, setSuperFirstView] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
@@ -1002,6 +1021,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useEffect(() => () => closeLoadedAccountCards(), [])
   useBackCloses(bookSwitcherOpen, () => setBookSwitcherOpen(false))
   useBackCloses(chapterNotes !== null, () => setChapterNotes(null))
+  useBackCloses(bookAction !== null, () => setBookAction(null))
   useBackCloses(inTheBookOpen, () => { setInTheBookOpen(false); setPeekBook(false) })
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
@@ -2588,8 +2608,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [phoneNote, setPhoneNote] = useState('')
   const phoneFieldRef = useRef<HTMLTextAreaElement | null>(null)
   const phoneAnswerRef = useRef<{ card: PhoneCard; answer: string; kept: boolean } | null>(null)
-  const quizChapterRef = useRef<(anchor?: DOMRect) => void>(() => {})
+  const quizChapterRef = useRef<(anchor?: DOMRect, atStart?: boolean) => void>(() => {})
   const desktopQuizAnchorRef = useRef<DOMRect | null>(null)
+  /** The chapter's quiz was started from its start card (desktop Margin): its card sits at the chapter's start. */
+  const desktopQuizAtStartRef = useRef(false)
   /** The phone's margin mode: the chapter's Note pill opens its card (true), not the editor beside the pill. */
   const marginPhoneNoteRef = useRef<(chapterNumber: number) => boolean>(() => false)
   const pageMetricsRef = useRef<LabPageMetrics | null>(pageMetrics)
@@ -5083,6 +5105,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     deskDictationRef.current = null
     dictation.toggle(draft)
   }, [dictation, draft])
+  useEffect(() => { if (dictation.state === 'idle') setAngleDictating(false) }, [dictation.state])
   const dictateDeskAsk = useCallback((current: string, onText: (text: string) => void) => {
     if (dictation.state !== 'idle' && deskDictationRef.current) { dictation.stop(); deskDictationRef.current = null; return }
     deskDictationRef.current = onText
@@ -5575,7 +5598,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
     // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
-    const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Recap · ${label} so far`
+    // 'sofar' is the chapter pill's Summary (start actions, 9 Nov 2026).
+    const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Summary · ${label} so far`
     dictation.stop()
     setSuperMenuOpen(false)
     setChapterNotes({
@@ -6044,11 +6068,56 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     openPhoneCard({ kind, passage, openedAt: Date.now() })
   }
   const marginCatchUp = catchUpAvailable(book.chapters, book.chapterNumber)
+  // The start actions (approved mockup, Anders 9 Nov 2026). The whole book: Primer (a Tinct book's introduction),
+  // Summary (every chapter, through the catch-up timeline) and Reading angle (Book settings, the field focused).
+  const openBookAction = (kind: 'primer' | 'summary') => {
+    if (initialResolving || book.chaptersProvisional) return
+    closePhoneCard(); setChapterNotes(null); setSuperSheet(null); setSuperMenuOpen(false)
+    setBookAction({ kind, openedAt: Date.now() })
+  }
+  const openBookActionRef = useRef(openBookAction)
+  openBookActionRef.current = openBookAction
+  const openDesktopBookCard = (kind: 'primer' | 'summary') => {
+    if (initialResolving || book.chaptersProvisional) return
+    setDesktopBookCards(current => current.includes(kind) ? current : [...current, kind])
+    const id = `mc_book_${kind}_${book.bookId || 'bible'}`
+    setDesktopOpenId(id); setDesktopContinuationId(id)
+  }
+  const openReadingAngle = () => { closePhoneCard(); setChapterNotes(null); setBookAction(null); setAngleFocus(true); setSuperSheet('editions') }
+  const openReadingAngleRef = useRef(openReadingAngle)
+  openReadingAngleRef.current = openReadingAngle
+  // A chapter's Summary: the chapter up to the reader's place once they are into it; at its start, what came before
+  // it (Catch me up's timeline). Nothing past the place either way. A reader's own book: its own Catch me up, which
+  // covers the chapters before and this one through the place.
+  const chapterSummaryRef = useRef<() => void>(() => {})
+  chapterSummaryRef.current = () => {
+    if (initialResolving || book.chaptersProvisional) return
+    closePhoneCard(); setBookAction(null)
+    if (!privateBook && placeRef.current.paragraphIndex > 0) { openChapterNotes('sofar', book.chapterNumber, 'pill'); return }
+    // The first chapter at its start has nothing before it: its Summary is the chapter's own.
+    if (!privateBook && !catchUpAvailable(book.chapters, book.chapterNumber)) { openChapterNotes('end', book.chapterNumber, 'pill'); return }
+    setCatchUpAsSummary(true); setDesktopCatchupAsSummary(true)
+    marginCatchUpRef.current()
+  }
+  const marginCatchUpRef = useRef<() => void>(() => {})
+  const bookPrimer = useBookPrimerAvailable(privateBook ? null : book.bookId || null)
+  const firstChapterTitle = book.chapters[0]?.title ?? ''
   const marginPills: MarginPhonePills | null = useMemo(() => (marginPhone || sharedReader) ? {
+    ...(marginPhone ? {
+      layout: 'phone' as const,
+      onSummary: () => chapterSummaryRef.current(),
+      // Every chapter has its Summary, the first included (Anders, 10 Nov 2026).
+      summary: true,
+      book: firstChapterTitle ? {
+        firstChapterTitle, title: book.bookTitle, author: book.bookAuthor || undefined, primer: bookPrimer,
+        onPrimer: () => openBookActionRef.current('primer'), onSummary: () => openBookActionRef.current('summary'), onAngle: () => openReadingAngleRef.current(),
+      } : null,
+    } : continuousReader ? { layout: 'desktop' as const } : {}),
     catchUp: marginCatchUp,
     onCatchUp: () => { if (!initialResolving && !book.chaptersProvisional) { if (continuousReader) { if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard(); desktopUnitAnchorsRef.current.set(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`, {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}); setDesktopCatchup(true); setDesktopOpenId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`); setDesktopContinuationId(`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`) } else setSuperSheet('catchup') } },
     onQuiz: anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor) },
-  } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey])
+  } : null, [marginPhone, sharedReader, marginCatchUp, initialResolving, book.chaptersProvisional, continuousReader, book.chapterNumber, readerEditionKey, privateBook, firstChapterTitle, book.bookTitle, book.bookAuthor, bookPrimer])
+  marginCatchUpRef.current = () => marginPills?.onCatchUp?.()
   marginPhoneNoteRef.current = (chapterNumber: number) => {
     if (!(marginPhone || sharedReader)) return false
     const chapter = book.chapters.find(item => item.number === chapterNumber)
@@ -6056,7 +6125,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     openPhoneCard({ kind: 'chapter-note', chapterNumber, chapterLabel: chapter?.title || book.chapterLabel })
     return true
   }
-  quizChapterRef.current = anchor => { desktopQuizAnchorRef.current = anchor ?? null; setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
+  quizChapterRef.current = (anchor, atStart = false) => { desktopQuizAnchorRef.current = anchor ?? null; desktopQuizAtStartRef.current = atStart; setDraft(''); openPhoneCard({ kind: 'quiz', passage: null, chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel, openedAt: Date.now() }) }
 
   const commandOverlay = tocOpen || inTheBookOpen || speedPopoverOpen || phoneCard !== null
     || selectionPopup !== null || superMenuOpen || superSheet !== null || bookSwitcherOpen || accountPrompt !== null
@@ -6356,7 +6425,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const id=`mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
     desktopUnitAnchorsRef.current.set(id,{paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0})
     if (marginHost) desktopUnitPositionsRef.current.set(id,marginHost.scrollTop+Math.min(140,marginHost.clientHeight*.24))
-    setDesktopCatchup(true); setDesktopOpenId(id); setDesktopContinuationId(id); setSuperSheet(null)
+    setDesktopCatchup(true); setDesktopCatchupAsSummary(false); setDesktopOpenId(id); setDesktopContinuationId(id); setSuperSheet(null)
   // A menu activation is a free unit companion at this reading position, even if a boundary is virtualised away.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [continuousReader,superSheet])
@@ -6407,8 +6476,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const passage = 'passage' in live ? live.passage : null
     const range = passage?.ranges?.find(part => part.chapterNumber === book.chapterNumber)?.range
     const saved = marginConversations.find(item => item.id === id)
-    desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, live.kind === 'chapter-note' || live.kind === 'quiz' && !passage),
-      order: live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
+    // A chapter's Quiz me from its start card sits at the chapter's start; from its end, at its end.
+    const quizAtStart = live.kind === 'quiz' && !passage && desktopQuizAtStartRef.current
+    desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, !quizAtStart && (live.kind === 'chapter-note' || live.kind === 'quiz' && !passage)),
+      order: quizAtStart ? -3 : live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
       open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const } : {}),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
@@ -6440,9 +6511,62 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {desktopOpenId === id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === id && (turn.timestamp ?? 0) > (saved?.endTimestamp ?? Infinity))} pending={ask.typedLoading} />}
     </>
   }
+  // The desktop Margin reader's start actions (approved mockup, Anders 9 Nov 2026): beside the book's opening, one
+  // "Before you start" card (the reading angle, the whole book's Primer and Summary, then the first chapter's
+  // Primer, Summary and Quiz me); at every later chapter's start, the same chapter actions in a greyed card. Nothing
+  // is asked for until an action is chosen; it then becomes an ordinary margin card there.
+  if (continuousReader && !book.chaptersProvisional && !initialResolving) {
+    const first = book.chapters[0]?.number === book.chapterNumber
+    const chapterTitle = unitName(book.chapterLabel || '') || book.chapterLabel || 'This chapter'
+    const act = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
+      onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
+    const chapterActs = <div className="lab-start-acts" role="group" aria-label={`${chapterTitle} actions`}>
+      {act('Primer', 'margin-start-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}
+      {act('Summary', 'margin-start-summary', () => chapterSummaryRef.current())}
+      {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
+    </div>
+    desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
+      source: sourceForMargin(undefined), order: -10, open: true, free: true, onToggle: () => {},
+      content: first ? <div className="lab-start-card" data-testid="margin-start-card">
+        <div className="lab-start-angle">
+          <ReadingAngleField value={bookAngle} onChange={setBookAngle} testId="margin-reading-angle" />
+          <button type="button" className="lab-start-mic" data-testid="margin-reading-angle-mic" aria-label={dictation.state !== 'idle' && angleDictating ? 'Stop dictation' : 'Dictate your reading angle'} aria-pressed={dictation.state !== 'idle' && angleDictating}
+            onClick={() => { setAngleDictating(true); dictateDeskAsk(bookAngle, text => setBookAngle(text)) }}><PhoneIcon name="mic" /></button>
+        </div>
+        <p className="lab-start-head">The whole book</p>
+        <div className="lab-start-acts" role="group" aria-label="The whole book">
+          {bookPrimer && act('Primer', 'margin-book-primer', () => openDesktopBookCard('primer'))}
+          {act('Summary', 'margin-book-summary', () => openDesktopBookCard('summary'))}
+        </div>
+        <p className="lab-start-head">{chapterTitle}</p>
+        {chapterActs}
+      </div> : <div className="lab-start-card is-later" data-testid="margin-start-card">{chapterActs}</div> })
+  }
+  if (continuousReader) for (const kind of desktopBookCards) {
+    const id = `mc_book_${kind}_${book.bookId || 'bible'}`
+    const title = book.bookTitle || 'This book'
+    const close = () => { setDesktopBookCards(current => current.filter(item => item !== kind)); if (desktopOpenId === id) setDesktopOpenId(null) }
+    const keep = (text: string) => { if (!text) return false; ask.keepExplanation(`${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true }
+    const follow = (shown: () => string) => <PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft}
+      onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
+      onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
+    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: sourceForMargin(undefined), order: kind === 'primer' ? -9 : -8, free: true,
+      open: desktopOpenId === id, preview: desktopBookPreviews[kind], onToggle: () => toggleMargin(id), onDelete: close,
+      content: kind === 'primer'
+        ? <LabBookPrimerSheet embedded bookId={book.bookId || 'bible'} bookTitle={title} onClose={() => setDesktopOpenId(null)} follow={follow} onReady={text => setDesktopBookPreviews(current => current.primer === text ? current : { ...current, primer: text })} />
+        : userBook
+          ? <LabOwnCatchUpSheet embedded wholeBook bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed readToken={ownCatchUpToken}
+              onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} follow={follow}
+              onReady={text => setDesktopBookPreviews(current => current.summary === text ? current : { ...current, summary: text })} />
+          : <LabCatchUpSheet embedded wholeBook bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
+              onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} follow={follow}
+              onReady={text => setDesktopBookPreviews(current => current.summary === text ? current : { ...current, summary: text })} /> })
+  }
   if (continuousReader) for (const notes of desktopChapterCards) {
-    const id = unitRailId(notes), kind = notes.request.kind === 'end' ? 'recap' : 'primer'
-    desktopMarginEntries.push({ id, label: kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, kind === 'recap'), order: kind === 'recap' ? 1e12 - 2 : -2, open: desktopOpenId === id,
+    const id = unitRailId(notes), kind = notes.request.kind === 'end' || notes.request.kind === 'sofar' ? 'recap' : 'primer'
+    // 'sofar' is a chapter's Summary from its start card: at the chapter's start, named for the action.
+    const atStart = notes.request.kind !== 'end'
+    desktopMarginEntries.push({ id, label: notes.request.kind === 'sofar' ? BOOK_SUMMARY_TITLE : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, !atStart), order: atStart ? -2 : 1e12 - 2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
       content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
@@ -6451,7 +6575,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader && desktopCatchup && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
@@ -6468,7 +6592,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader && desktopCatchup && userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}
@@ -6792,6 +6916,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}
+          readingAngle={{ value: bookAngle, onChange: setBookAngle, focus: angleFocus,
+            mic: { on: dictation.state !== 'idle' && angleDictating, onToggle: () => { setAngleDictating(true); dictateDeskAsk(bookAngle, text => setBookAngle(text)) } } }}
         />
       )}
       {figureCard && (
@@ -6829,10 +6955,30 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onChat={text => continueCatchUp('chat', text)}
           onTalk={text => continueCatchUp('talk', text)}
           onTopUp={() => setSuperSheet('account')}
-          card={marginPhone ? { label: phoneCardLabel(CATCH_UP_TITLE) } : undefined}
+          card={marginPhone ? { label: phoneCardLabel(catchUpAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE) } : undefined}
           {...(showPhoneChrome ? catchUpFollowProps : {})}
         />
       )}
+      {!frontispieceVisible && bookAction && !continuousReader && (() => {
+        // The whole book's Primer or Summary (start actions): a card over the page, which it never moves.
+        const title = book.bookTitle || 'This book'
+        const name = bookAction.kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE
+        const keep = (text: string) => { if (!text) return false; ask.keepExplanation(`${name} · ${title}`, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true }
+        const phoneFollow = showPhoneChrome ? {
+          follow: (shown: () => string) => pillCardFollow(`book:${bookAction.openedAt}`, () => keep(shown()), () => continueCatchUp('talk', shown())),
+          thread: pillCardThread(bookAction.openedAt),
+        } : {}
+        const close = () => setBookAction(null)
+        if (bookAction.kind === 'primer') return <LabBookPrimerSheet key={bookAction.openedAt} bookId={book.bookId || 'bible'} bookTitle={title} onClose={close}
+          card={marginPhone ? { label: `${name} · ${title}` } : undefined} {...phoneFollow} />
+        if (userBook) return <LabOwnCatchUpSheet key={bookAction.openedAt} wholeBook bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters}
+          chapterNumber={book.chapterNumber} paragraphIndex={0} completed readToken={ownCatchUpToken} onClose={close}
+          onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onTopUp={() => { close(); setSuperSheet('account') }} {...phoneFollow} />
+        return <LabCatchUpSheet key={bookAction.openedAt} wholeBook bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle}
+          chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false}
+          readToken={readSupabaseAccessToken} onClose={close} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)}
+          onTopUp={() => { close(); setSuperSheet('account') }} card={marginPhone ? { label: `${name} · ${title}` } : undefined} {...phoneFollow} />
+      })()}
       {!frontispieceVisible && chapterNotes && !continuousReader && (
         <LabChapterNotesSheet
           key={JSON.stringify(chapterNotes.request)}
