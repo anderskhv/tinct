@@ -341,6 +341,15 @@ async function desktopOwn() {
   ok(`${tag}: an own EPUB's "Before you start": the whole book's Summary (no primer), then the chapter's Primer · Summary · Quiz me`, JSON.stringify(acts) === JSON.stringify(['✧Summary', '✧Primer', '✧Summary', '✧Quiz me']), acts)
   await shot(page, `${tag}-before-you-start`)
   await desktopAction(page, tag, 'margin-book-summary', 'Summary · The Lighthouse Log', home)
+  // Catch me up from the menu is a margin card in the Margin reader, never also a sheet across the page
+  // (Anders, 10 Nov 2026: an own book's catch-up also opened as an unstyled overlay over the text).
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-catchup').click()
+  await marginItem(page, 'Catch me up').waitFor()
+  await page.waitForTimeout(1200)
+  await shot(page, `${tag}-catch-up`)
+  const stray = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-catch-up-layer"]')].filter(node => !node.closest('.source-margin-content .lab-catch-up-embedded')).length)
+  ok(`${tag}: Catch me up opens as a margin card only, with no sheet over the page`, stray === 0, stray)
   ok(`${tag}: no page errors`, state.errors.length === 0, state.errors)
   await state.browser.close()
 }
