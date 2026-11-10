@@ -42,6 +42,7 @@ export const STREAMED_ONLY_AUDIO_EDITIONS: ReadonlySet<string> = new Set([
   'grimms-fairy-tales/original-en',
   'master-and-margarita/modern-en',
   'middlemarch/modern-en',
+  'pinocchio/modern-en',
   'middlemarch/original-en',
   'sense-and-sensibility/modern-en',
   'sense-and-sensibility/original-en',

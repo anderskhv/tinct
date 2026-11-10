@@ -3031,6 +3031,31 @@ export const LIBRARY_BOOK_META: LibraryBookMeta[] = [
       "DA",
       "RU"
     ]
+  },
+  {
+    "id": "pinocchio",
+    "title": "The Adventures of Pinocchio",
+    "author": "Carlo Collodi",
+    "year": "1881–1883",
+    "ySort": 1883,
+    "form": "novel",
+    "era": "modern",
+    "hue": 40,
+    "blurb": "A runaway wooden puppet lies, boasts and trusts every swindler on the road home to his father.",
+    "themes": [
+      "tales",
+      "transformation",
+      "family"
+    ],
+    "shelves": [
+      "folk-and-fairy-tales",
+      "adventure"
+    ],
+    "langs": [
+      "EN",
+      "DA",
+      "IT"
+    ]
   }
 ]
 

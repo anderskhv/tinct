@@ -113,7 +113,8 @@ const reviewed: Record<string, EditionDifficulty> = {
   "essays-montaigne:original-en": "Hard",
   "ivan-ilyich:original-ru": "Medium",
   "ivan-ilyich:original-en": "Medium",
-  "master-and-margarita:original-ru": "Medium"
+  "master-and-margarita:original-ru": "Medium",
+  "pinocchio:original-it": "Medium"
 }
 
 export function editionDifficulty(bookId: string, edition: Edition): EditionDifficulty | undefined {

@@ -29,6 +29,7 @@ export const BOOKS_WITHOUT_THREADS: ReadonlySet<string> = new Set([
   'nicomachean-ethics',
   'notes-from-underground',
   'on-liberty',
+  'pinocchio',
   'poetics',
   'second-treatise',
   'social-contract',

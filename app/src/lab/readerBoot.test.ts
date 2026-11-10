@@ -194,6 +194,9 @@ describe('readerBootDeepLink', () => {
     expect(exceptions['master-and-margarita']).toBe('modern-en')
     expect(readerBootDeepLink('?book=master-and-margarita&chapter=2', exceptions)).toEqual({ bookId: 'master-and-margarita', primaryEditionKey: 'modern-en', chapterNumber: 2 })
     expect(readerBootDeepLink('?book=master-and-margarita&edition=original-en&chapter=1', exceptions)).toBeNull()
+    // Pinocchio has no English original either (Tinct Modern English from the Italian, 10 Nov 2026).
+    expect(exceptions['pinocchio']).toBe('modern-en')
+    expect(readerBootDeepLink('?book=pinocchio&edition=original-en&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=odyssey&chapter=1&modern=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?heldBook=gilgamesh&book=gilgamesh&chapter=1', exceptions)).toBeNull()
     expect(readerBootDeepLink('?book=pd-abc&chapter=1', exceptions)).toBeNull()

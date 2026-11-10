@@ -144,6 +144,8 @@ export const characterReleases: Record<string, { editions: string[]; revision: s
   'fear-and-trembling': { editions: ['modern-en'], revision: '2026-09-30.1' },
   // 2026-11-05.1 — translated by Tinct from the Russian; no English original, so modern-en only.
   'master-and-margarita': { editions: ['modern-en'], revision: '2026-11-05.1' },
+  // 2026-11-10.1 — translated by Tinct from the Italian; no English original, so modern-en only.
+  pinocchio: { editions: ['modern-en'], revision: '2026-11-10.1' },
 }
 /** Public path of the character package a reader needs for one edition. */
 export const characterAssetPath = (bookId: string, editionKey: string) =>

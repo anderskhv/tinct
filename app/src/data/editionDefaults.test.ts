@@ -60,6 +60,17 @@ describe('default editions (approved 2026-09-25)', () => {
     expect(savedPlaceFallbackEditionKey('crito', getBook('crito')!.editions)).toBe('original-en')
   })
 
+  it('Pinocchio: Tinct Modern English, Compare in the Italian original (10 Nov 2026)', () => {
+    // No human English translation is offered, so Collodi's Italian is the first comparable edition.
+    expect(defaults('pinocchio')).toEqual({ primary: 'modern-en', compare: 'original-it' })
+    const editions = getBook('pinocchio')!.editions
+    expect(humanPrimaryEditionKey('pinocchio', editions)).toBe('modern-en')
+    expect(savedPlaceFallbackEditionKey('pinocchio', editions)).toBe('modern-en')
+    const book = PRE_READER_CATALOGUE.booksById.get('pinocchio')!
+    expect(book.defaultEditionKey).toBe('modern-en')
+    expect(book.defaultCompareEditionKey).toBe('original-it')
+  })
+
   it('The Master and Margarita: Tinct Modern English, Compare in the Russian original (Anders, 5 Nov 2026)', () => {
     // No human English translation may be used, so the Russian original is the first comparable edition.
     expect(defaults('master-and-margarita')).toEqual({ primary: 'modern-en', compare: 'original-ru' })
