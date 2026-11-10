@@ -912,6 +912,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [compareFromLayout, setCompareFromLayout] = useState(false)
   // The book's reading angle (labReadingAngle.ts): Book settings' first field; the reading-angle pill opens it focused.
   const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
+  // The book's "Before you start" card opens folded (Anders, 10 Nov 2026); the reader opens it with its +.
+  const [startCardOpen, setStartCardOpen] = useState(false)
   const [angleFocus, setAngleFocus] = useState(false)
   useEffect(() => { if (superSheet !== 'editions') setAngleFocus(false) }, [superSheet])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
@@ -6436,6 +6438,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [continuousReader,superSheet])
   const marginConversations = ask.conversations.filter(item => item.bookId === (book.bookId || 'bible') && item.card && !item.card.gone && item.chapterNumber === book.chapterNumber && (!item.card.anchor || item.card.anchor.editionKey === readerEditionKey))
+  // A Catch me up card sorts by the place it was opened at, like every card by its passage (Anders, 10 Nov 2026:
+  // ordered first, it pushed every earlier passage's card below it into one stack).
+  const catchUpOrder = (id: string) => { const at = desktopUnitAnchorsRef.current.get(id); return at ? at.paragraphIndex * 100000 + at.fromWord : -1 }
   const sourceForMargin = (anchor?: { paragraphIndex: number; fromWord: number }, atEnd = false) => () => {
     const host = marginHost
     if (!host) return null
@@ -6468,7 +6473,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const marginActionLabel = (kind: string) => ({ catchup: CATCH_UP_TITLE, primer: 'Primer', recap: 'Recap', ...PHONE_CARD_NAMES } as Record<string, string>)[kind] || kind.charAt(0).toUpperCase() + kind.slice(1)
   const desktopMarginEntries: SourceMarginEntry[] = continuousReader ? marginConversations.filter(item => !liveIds.has(item.id) && cardInMargin(item.card!.kind, item.messages)).map(item => ({
     id: item.id, label: marginActionLabel(item.card!.kind),
-    source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : item.card!.kind === 'catchup' ? -1 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
+    source: sourceForMargin(item.card!.anchor || (item.card!.data as {freeAnchor?: MarginSourceAnchor; unitAnchor?:MarginSourceAnchor} | undefined)?.freeAnchor || (item.card!.data as {unitAnchor?:MarginSourceAnchor} | undefined)?.unitAnchor, item.card!.kind === 'recap'), order: item.card!.kind === 'recap' ? 1e12 - 2 : item.card!.kind === 'primer' ? -2 : (item.card!.anchor?.paragraphIndex ?? (item.card!.data as {freeAnchor?: {paragraphIndex:number}} | undefined)?.freeAnchor?.paragraphIndex ?? 0) * 100000 + (item.card!.anchor?.fromWord ?? (item.card!.data as {freeAnchor?: {fromWord:number}} | undefined)?.freeAnchor?.fromWord ?? 0) + item.startTimestamp / 1e16,
     free: !item.card!.anchor, open: desktopOpenId === item.id, ...foldedPreview(item.card!.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
@@ -6523,6 +6528,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // is asked for until an action is chosen; it then becomes an ordinary margin card there.
   if (continuousReader && !book.chaptersProvisional && !initialResolving) {
     const first = book.chapters[0]?.number === book.chapterNumber
+    // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
+    // not at the first line of text below it.
+    const startCardSource = () => {
+      const head = marginHost?.querySelector<HTMLElement>('[data-testid="lab-passage-headline"]')
+      const rect = head?.getBoundingClientRect()
+      return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
+    }
     const chapterTitle = unitName(book.chapterLabel || '') || book.chapterLabel || 'This chapter'
     const act = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
       onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
@@ -6532,7 +6544,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
     </div>
     desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
-      source: sourceForMargin(undefined), order: -10, open: true, free: true, onToggle: () => {},
+      source: first ? startCardSource : sourceForMargin(undefined), order: -10, free: true,
+      // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
+      ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
         <div className="lab-start-angle">
           <ReadingAngleField value={bookAngle} onChange={setBookAngle} testId="margin-reading-angle" />
@@ -6581,7 +6595,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader && desktopCatchup && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: catchUpOrder(id), open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
@@ -6598,7 +6612,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   if (continuousReader && desktopCatchup && userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
-    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: -1, open: desktopOpenId === id, free: true,
+    desktopMarginEntries.push({ id, label: desktopCatchupAsSummary ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE, source: () => sourceForMargin(desktopUnitAnchorsRef.current.get(id))() ?? sourceForFreeUnit(id)(), order: catchUpOrder(id), open: desktopOpenId === id, free: true,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}
@@ -6934,7 +6948,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             ? figure => openPdfPages({ chapterNumber: figure.chapterNumber!, paragraphIndex: figure.paragraphIndex!, wordIndex: 0 })
             : undefined} />
       )}
-      {!frontispieceVisible && superSheet === 'catchup' && userBook && (
+      {!frontispieceVisible && superSheet === 'catchup' && !continuousReader && userBook && (
+        // The Margin reader shows Catch me up as a margin card (the effect above), never also as this sheet (10 Nov 2026).
         // A reader's own book: one cumulative recap, built from this device's text a chapter at a time.
         <LabOwnCatchUpSheet
           bookHex={userBook.hex} bookTitle={book.bookTitle}

@@ -251,6 +251,15 @@ async function phoneOwn(engine) {
 }
 
 const marginItem = (page, label) => page.locator('[data-testid="source-margin-item"]').filter({ has: page.locator('.source-margin-label', { hasText: label }) })
+// "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026): check that, then open it.
+async function openStartCard(page, tag) {
+  const item = marginItem(page, 'Before you start')
+  await item.getByTestId('source-margin-expand').waitFor()
+  ok(`${tag}: "Before you start" opens folded, its actions hidden until its + is pressed`, await item.evaluate(node => node.classList.contains('is-folded') && node.querySelector('[data-testid="margin-start-card"]')?.closest('[hidden]') !== null))
+  await shot(page, `${tag}-start-folded`)
+  await item.getByTestId('source-margin-expand').click()
+  await page.getByTestId('margin-start-card').waitFor()
+}
 async function desktopAction(page, tag, testId, label, home) {
   await page.getByTestId(testId).click()
   await marginItem(page, label).first().waitFor()
@@ -266,7 +275,7 @@ async function desktopCatalogue() {
   const tag = 'desktop'
   let state = await boot(chromium, { phone: false, chapterNumber: 1 })
   let page = state.page
-  await page.getByTestId('margin-start-card').waitFor()
+  await openStartCard(page, tag)
   const home = await placeOf(page)
   const card = await page.evaluate(() => {
     const item = document.querySelector('[data-testid="margin-start-card"]').closest('[data-testid="source-margin-item"]')
@@ -326,12 +335,21 @@ async function desktopOwn() {
   const tag = 'desktop-own'
   const state = await boot(chromium, { phone: false, own: true })
   const page = state.page
-  await page.getByTestId('margin-start-card').waitFor()
+  await openStartCard(page, tag)
   const home = await placeOf(page)
   const acts = await page.evaluate(() => [...document.querySelectorAll('[data-testid="margin-start-card"] .lab-start-acts button')].map(node => node.textContent.trim()))
   ok(`${tag}: an own EPUB's "Before you start": the whole book's Summary (no primer), then the chapter's Primer · Summary · Quiz me`, JSON.stringify(acts) === JSON.stringify(['✧Summary', '✧Primer', '✧Summary', '✧Quiz me']), acts)
   await shot(page, `${tag}-before-you-start`)
   await desktopAction(page, tag, 'margin-book-summary', 'Summary · The Lighthouse Log', home)
+  // Catch me up from the menu is a margin card in the Margin reader, never also a sheet across the page
+  // (Anders, 10 Nov 2026: an own book's catch-up also opened as an unstyled overlay over the text).
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-catchup').click()
+  await marginItem(page, 'Catch me up').waitFor()
+  await page.waitForTimeout(1200)
+  await shot(page, `${tag}-catch-up`)
+  const stray = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-catch-up-layer"]')].filter(node => !node.closest('.source-margin-content .lab-catch-up-embedded')).length)
+  ok(`${tag}: Catch me up opens as a margin card only, with no sheet over the page`, stray === 0, stray)
   ok(`${tag}: no page errors`, state.errors.length === 0, state.errors)
   await state.browser.close()
 }
