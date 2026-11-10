@@ -540,12 +540,6 @@ html.signed-in.own-avatar #sign-in:not(.cards-you)::before{content:'';width:24px
 #book-overlay.book-flat #turning-cover>.cover-front{display:none!important}
 #book-overlay.book-flat #turning-cover>.cover-back{transform:translateX(-100%)}
 /* "Read your own books" under Featured (app.js ownBooksBand; approved mockup 4 Nov 2026). */
-.own-books-band{margin:4px max(28px,2.5vw) 34px;display:flex;align-items:center;gap:18px;padding:16px 18px 16px 20px;border:1px solid var(--line);border-radius:18px;background:#151b14;font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
-.own-books-glyph{width:44px;height:44px;flex:none;border-radius:12px;background:#1a2119;display:grid;place-items:center}
-.own-books-text{flex:1;min-width:0}.own-books-text strong{display:block;font-size:16px;font-weight:600;line-height:1.3}.own-books-text span{display:block;font-size:13.5px;line-height:1.4;color:var(--muted)}
-.own-books-add{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(238,231,208,.35);font:500 14px/1 system-ui,-apple-system,sans-serif;color:var(--cream)}
-.own-books-add:hover{background:rgba(238,231,208,.08)}
-@media(max-width:699px){.own-books-band{margin:0 20px 26px;flex-wrap:wrap;gap:12px 14px;padding:16px}.own-books-add{width:100%}}
 
 /* Signed-out first visit (Anders chose mockup B, 5 Nov 2026): next to Read, a way in for your own book or text. It leads to /byob (choose, drop or paste, then sign in). boot.js marks html.signed-in from the tinct_auth cookie before first paint, so a signed-in reader never sees it. */
 .hero-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}

@@ -140,7 +140,7 @@ function pdfBytes() {
 }
 const shot = async (page, name) => { if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${name}.png`) }) }
 const noSideScroll = page => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)
-const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready') || document.querySelector('.own-books-band'), null, { timeout: 60000 })
+const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready'), null, { timeout: 60000 })
 const ownStep = page => page.waitForFunction(() => document.querySelector('[data-testid="own-file-dialog"] .own-file-dialog')?.dataset.step || null, null, { timeout: 30000 }).then(h => h.jsonValue())
 const signInReady = page => page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true', null, { timeout: 30000 })
 /** Paste the web page into a paste box as a browser does: text/html and text/plain on the clipboard. */
@@ -398,23 +398,13 @@ async function main() {
       })
     }
 
-    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
-      await run(`library band under Featured, signed out, ${name}: leads to /byob`, async () => {
-        const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
-        await page.goto('/library')
-        await libraryReady(page)
-        const band = page.locator('#shelves .own-books-band')
-        await band.waitFor()
-        assert(await page.evaluate(() => { const b = document.querySelector('#shelves .own-books-band'); return b?.previousElementSibling?.querySelector('h2')?.textContent === 'Featured' }), 'the band follows Featured')
-        assert.equal(await band.locator('strong').innerText(), 'Read your own books')
-        assert(await noSideScroll(page), 'no sideways scroll')
-        await band.scrollIntoViewIfNeeded()
-        await shot(page, `library-band-${name}`)
-        await band.locator('.own-books-add').click()
-        await page.waitForURL(url => url.pathname === '/byob')
-        await c.close()
-      })
-    }
+    await run('library: no "Read your own books" band (removed 10 Nov 2026)', async () => {
+      const c = await context(browser, origin, supabase, { signedIn: false, viewport: DESKTOP }), page = await c.newPage()
+      await page.goto('/library')
+      await libraryReady(page)
+      assert.equal(await page.locator('.own-books-band').count(), 0)
+      await c.close()
+    })
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE], ['narrow phone', { width: 320, height: 640 }]]) {
       await run(`library hero, signed out, ${name}: "Add your own book or text" opens the add sheet on tinct.app`, async () => {
         const c = await context(browser, origin, supabase, { signedIn: false, viewport }), page = await c.newPage()
@@ -507,18 +497,6 @@ async function main() {
       await page.goto('/library')
       await libraryReady(page)
       assert.equal(await page.locator('#hero-own').isVisible(), false)
-      await c.close()
-    })
-    await run('library band, signed in: Add a book opens the pop-up', async () => {
-      const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
-      await page.goto('/library')
-      await libraryReady(page)
-      const add = page.locator('#shelves .own-books-band .own-books-add')
-      await add.scrollIntoViewIfNeeded()
-      await add.click()
-      const step = await ownStep(page)
-      assert(['choose', 'checking'].includes(step), `the pop-up opens (step ${step})`)
-      assert.equal(new URL(page.url()).pathname, '/library')
       await c.close()
     })
   } finally {

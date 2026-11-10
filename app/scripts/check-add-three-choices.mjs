@@ -78,7 +78,7 @@ async function context(browser, origin, supabase, { signedIn, viewport }) {
 }
 const shot = async (page, name) => { if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${name}.png`) }) }
 const noSideScroll = page => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)
-const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready') || document.querySelector('.own-books-band'), null, { timeout: 60000 })
+const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready'), null, { timeout: 60000 })
 const rect = loc => loc.evaluate(el => { const r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height), b: Math.round(r.bottom) } })
 const rects = loc => loc.evaluateAll(els => els.map(el => { const r = el.getBoundingClientRect(); return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height) } }))
 const family = loc => loc.evaluate(el => getComputedStyle(el).fontFamily)
