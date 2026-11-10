@@ -40,8 +40,10 @@ describe('reader boot script', () => {
   it('is a small content-hashed classic script, never an index-* bundle', () => {
     expect(fileName).toMatch(/^assets\/reader-boot-[0-9a-f]{10}\.js$/)
     expect(script).not.toMatch(/\bimport\b|\bexport\b/)
-    // Owner-scoped resume adds under 1 KB; keep the synchronous head script bounded.
-    expect(script.length).toBeLessThan(8500)
+    // Owner-scoped resume adds under 1 KB; keep the synchronous head script bounded. The inlined
+    // catalogue tables (sharded editions, books with no English original) grow with each book: main was
+    // at 8,488 when Pinocchio (no English original, three sharded editions) took it to 8,581 (10 Nov 2026).
+    expect(script.length).toBeLessThan(9000)
   })
 
   it('preloads the handoff’s opening text and leaves the handoff for the app', () => {

@@ -3,16 +3,17 @@ const { markInternal } = require('./lib/internalTraffic.cjs')
 const {chromium,webkit}=require('playwright'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto')
 const book=process.env.TEST_BOOK,live=process.env.READER_LIVE==='1',origin=(process.env.TINCT_ORIGIN||'https://tinct.app').replace(/\/+$/,''),out=process.env.ARTIFACT_DIR||'artifacts/book-publication'
 // Books published through a reviewed release package (books/wip/<id>/release).
-const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita']
+const PUBLICATION_BOOKS=['to-the-lighthouse','symposium','alice-in-wonderland','wuthering-heights','middlemarch','sense-and-sensibility','grimms-fairy-tales','arabian-nights','master-and-margarita','pinocchio']
 // Text-only editions published beside the narrated ones: the Russian source of The
-// Master and Margarita. No narration, no character cards.
-const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru']}[book]||[]
+// Master and Margarita and the Italian of Pinocchio. No narration, no character cards.
+const TEXT_ONLY_EDITIONS={'master-and-margarita':['original-ru'],'pinocchio':['original-it']}[book]||[]
 // Narrated editions. The Master and Margarita is translated by Tinct from the
 // Russian: no English original, and Compare defaults to the Russian (Anders, 2026-11-05).
+// Pinocchio likewise, from the Italian (2026-11-10).
 // The offered Danish editions (OFFERED_DANISH_EDITIONS) are narrated by streaming in
 // Danish since 2026-11-06 (Anders, after a Grok sample); until then they were text-only.
-const NARRATED_EDITIONS={'master-and-margarita':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
-const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru'}[book]||'original-en'):'modern-en'
+const NARRATED_EDITIONS={'master-and-margarita':['modern-en','modern-da'],'pinocchio':['modern-en','modern-da'],'to-the-lighthouse':['modern-en','original-en','modern-da'],'grimms-fairy-tales':['modern-en','original-en','modern-da'],'arabian-nights':['modern-en','original-en','modern-da']}[book]||['modern-en','original-en']
+const compareFor=ed=>ed==='modern-en'?({'master-and-margarita':'original-ru','pinocchio':'original-it'}[book]||'original-en'):'modern-en'
 assert(PUBLICATION_BOOKS.includes(book),'TEST_BOOK must be one of '+PUBLICATION_BOOKS.join(', '));fs.mkdirSync(out,{recursive:true})
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex')
 const source=ed=>JSON.parse(fs.readFileSync('public/data/editions/'+book+'-'+ed+'.json','utf8'))

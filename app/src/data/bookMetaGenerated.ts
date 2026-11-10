@@ -658,4 +658,10 @@ export const GENERATED_BOOK_META: Record<string, BookMetaEntry> = {
     bookName: 'The Master and Margarita',
     author: 'Mikhail Bulgakov',
   },
+  'pinocchio': {
+    title: 'Read The Adventures of Pinocchio Free Online | Tinct',
+    description: 'Read free, no ads. Modern English compare, AI companion, cast guide, and audio for The Adventures of Pinocchio.',
+    bookName: 'The Adventures of Pinocchio',
+    author: 'Carlo Collodi',
+  },
 }

@@ -16,7 +16,7 @@ const RELEASE_BOOKS = ['alice-in-wonderland', 'wuthering-heights', 'middlemarch'
 const RELEASE_IMAGES: Record<string, string[]> = { 'sense-and-sensibility': ['jane-austen'] }
 // Books published from a book package (books/wip/<id>/package), with their
 // own preface; no reviewed portrait yet, so their flaps show no image.
-const PACKAGE_BOOKS = ['master-and-margarita']
+const PACKAGE_BOOKS = ['master-and-margarita', 'pinocchio']
 
 describe('reviewed library introductions', () => {
   it('preserves all supplied prose exactly and retains the library’s book identities (ten, plus the Bible since 10 Nov 2026)', () => {
