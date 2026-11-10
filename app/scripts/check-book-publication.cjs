@@ -62,10 +62,30 @@ async function boot(browser,phone,ed,fixture={}){
  return {context,page,calls,errors,legacy,bundle,network,started}
 }
 async function toggleCompare(page){
- // Compare opens from Book settings on every layout; the phone swipe was removed (6 Nov 2026).
+ // Compare opens from Book settings on the desktop; the phone swipe was removed (6 Nov 2026).
  await page.getByTestId('lab-super').click()
  await page.getByTestId('lab-super-row-editions').click()
  return page.getByTestId('lab-v2-show-compare').click()
+}
+// The phone has no Compare (10 Nov 2026): Book settings offer the Main version only, and the place is kept.
+async function compareRoundTrip(page,phone,shot){
+ const root=page.getByTestId('lab-root'),place=await root.getAttribute('data-place')
+ if(phone){
+  await page.getByTestId('lab-super').click()
+  await page.getByTestId('lab-super-row-editions').click()
+  await page.getByTestId('lab-v2-main-edition').waitFor()
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(),0,'The phone offers no Compare')
+  assert.equal(await page.getByTestId('lab-v2-compare-edition').count(),0,'The phone offers no Compare version')
+  await page.getByTestId('lab-v2-sheet-close').click()
+ }else{
+  await toggleCompare(page)
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
+  await page.waitForTimeout(300)
+  await page.screenshot({path:shot})
+  await toggleCompare(page)
+  await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
+ }
+ assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
 }
 async function main(){
  if(live){
@@ -137,13 +157,7 @@ async function main(){
     await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
     const place=await root.getAttribute('data-place')
     console.log(JSON.stringify({device,ed,stage:'opening',place,buttons:await page.locator('button:visible').allTextContents()}))
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
-    await page.waitForTimeout(300)
-    await page.screenshot({path:out+'/'+device+'-'+ed+'-compare.png'})
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
-    assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
+    await compareRoundTrip(page,phone,out+'/'+device+'-'+ed+'-compare.png')
     const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
     const diagnostics=async()=>({calls:calls.length,network:state.network.map(event=>({...event})),errors:[...errors],screen:await page.evaluate(()=>({
       root:{...document.querySelector('[data-testid="lab-root"]')?.dataset},
@@ -184,13 +198,7 @@ async function main(){
     assert.equal(await page.getByTestId('edition-hold').count(),0,'An offered edition is not held')
     await page.screenshot({path:out+'/'+device+'-'+ed+'-opening.png'})
     const place=await root.getAttribute('data-place')
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='true')
-    await page.waitForTimeout(300)
-    await page.screenshot({path:out+'/'+device+'-'+ed+'-compare.png'})
-    await toggleCompare(page,phone)
-    await page.waitForFunction(()=>document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive==='false')
-    assert.equal(await root.getAttribute('data-place'),place,'Compare must retain primary place')
+    await compareRoundTrip(page,phone,out+'/'+device+'-'+ed+'-compare.png')
     const play=page.locator('[data-testid="lab-v2-play"]:visible,[data-testid="lab-listen"]:visible,[data-testid="lab-desktop-play"]:visible').first()
     if(await play.count()){
      await play.click()

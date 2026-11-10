@@ -95,7 +95,7 @@ describe('reading settings', () => {
     expect(screen.getByTestId('lab-v2-sheet').querySelectorAll('.lab-v2-head button')).toHaveLength(1)
   })
 
-  it('writes a theme, a size and the two editions straight through to the store', () => {
+  it('writes a theme, a size and the main edition straight through to the store', () => {
     openSheet()
     fireEvent.click(screen.getByTestId('lab-v2-theme-white'))
     expect(readLabPrefs().theme).toBe('white')
@@ -121,15 +121,14 @@ describe('reading settings', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    const option = screen.getByTestId('lab-v2-sheet').querySelector<HTMLButtonElement>('[data-edition]')!
-    const other = option.dataset.edition
+    // Compare is desktop-only (10 Nov 2026): the phone's Book settings switch the Main version.
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-main-edition'))
+    const options = [...screen.getByTestId('lab-v2-sheet').querySelectorAll<HTMLButtonElement>('[data-edition]')]
+    const option = options.find(button => !button.disabled && button.dataset.edition !== readLabPrefs().primaryEdition)!
     fireEvent.click(option)
-    expect(readLabPrefs().compareEdition).toBe(other)
-    expect(readLabPrefs().compareOpen).toBe(true)
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    fireEvent.click(screen.getByRole('button', { name: 'None' }))
-    expect(readLabPrefs().compareOpen).toBe(false)
+    expect(readLabPrefs().primaryEdition).toBe(option.dataset.edition)
     expect(localStorage.getItem(LAB_PREFS_KEY)).toBeTruthy()
   })
 })

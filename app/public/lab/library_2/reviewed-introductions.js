@@ -11,7 +11,7 @@ export const reviewedHooks = {
   "candide": "Do we live in the best possible world?",
   "julius-caesar": "Would you kill a friend to save your country?",
   "jane-eyre": "What would you refuse to give up, even for love?",
-  "bible": "The book of books. The stories behind the world you know.",
+  "bible": "The book of books.",
   "to-the-lighthouse": "What would you give to have one ordinary day back?",
   "ulysses": "What if your ordinary day were an epic?",
   "war-and-peace": "How much of your life is really yours to decide?",

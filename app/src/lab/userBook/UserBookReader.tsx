@@ -18,7 +18,6 @@ import type { PdfConversionProgress } from './pdfEdition'
  */
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { LabApp } from '../LabApp'
-import { LabWait } from '../LabWait'
 import { ownBookFrameUrl, USER_BOOKS_SHELF_URL } from './userBookId'
 import { MARGIN_PREVIEW_KEY, MARGIN_PREVIEW_PARAM } from '../marginPreview/marginPreviewFlag'
 import { registerUserBook } from './userBookSource'
@@ -430,10 +429,10 @@ export function UserBookReader({ hex, owner, phone = false, sharedReader = false
           <a href={USER_BOOKS_SHELF_URL}>Return to your books</a>
         </div>
       ) : (
-        // The whole page is what is loading: the reader's ring on the paper, no card (Anders, 10 Oct:
-        // no pop-up saying "Opening…"); the wording stays for screen readers (LabWait).
+        // The paper alone until the page is there: no ring (Anders, 10 Nov 2026; on 10 Oct no "Opening…" card).
+        // The wording stays for screen readers.
         <div className="lab-reader-load-wait">
-          <LabWait label="Opening…" testId="user-book-opening" />
+          <span className="lab-visually-hidden" role="status" data-testid="user-book-opening">Opening…</span>
         </div>
       )}
     </div>

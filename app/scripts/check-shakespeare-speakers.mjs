@@ -89,13 +89,18 @@ for (const [engine, browserType] of Object.entries({ chromium, webkit })) {
         if (scenario.compare) {
           await page.getByTestId('lab-super').click()
           await page.getByTestId('lab-super-menu').waitFor()
-          // Book settings holds Show compare, on the phone and the desktop (22 Oct 2026).
           await page.getByTestId('lab-super-row-editions').click()
-          await page.getByTestId('lab-v2-show-compare').click()
-          await page.waitForFunction(edition => {
+          if (scenario.phone) {
+            // No Compare on the phone (10 Nov 2026): the other edition is read as the Main version.
+            assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+            await page.getByTestId('lab-v2-main-edition').click()
+            await page.locator(`[data-edition="${visibleEdition}"]`).click()
+            await page.getByTestId('lab-v2-sheet-close').click()
+          } else await page.getByTestId('lab-v2-show-compare').click()
+          await page.waitForFunction(({edition, phone}) => {
             const root=document.querySelector('[data-testid="lab-root"]')
-            return root?.dataset.compareActive==='true' && root.dataset.readerEdition===edition
-          }, visibleEdition)
+            return (phone || root?.dataset.compareActive==='true') && root?.dataset.readerEdition===edition
+          }, {edition: visibleEdition, phone: !!scenario.phone})
           await page.waitForTimeout(800)
         }
         if (scenario.reportedPhone) {
