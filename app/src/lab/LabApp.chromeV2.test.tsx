@@ -295,7 +295,7 @@ describe('the super-menu', () => {
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
   })
 
-  it('keeps Compare out of the menu once a second version is picked; the switch is in Book settings', () => {
+  it('keeps Compare off the phone even with a stored compare choice: no row, no switch', () => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({ compareOpen: true }))
     render(<LabApp
       pathname="/lab/phone"
@@ -310,7 +310,8 @@ describe('the super-menu', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     expect(screen.queryByTestId('lab-super-row-compare')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
-    expect(screen.getByTestId('lab-v2-show-compare').getAttribute('aria-checked')).toBe('false')
+    expect(screen.queryByTestId('lab-v2-show-compare')).toBeNull()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
   })
 
   it('opens Aa (themes, size, Advanced), Book settings (editions) and Audio settings (voice, speed) from their rows', () => {
@@ -336,7 +337,7 @@ describe('the super-menu', () => {
     expect(book.getAttribute('data-layer')).toBe('editions')
     expect(book.getAttribute('aria-label')).toBe('Book settings')
     expect(screen.getByTestId('lab-v2-main-edition')).toBeTruthy()
-    expect(screen.getByTestId('lab-v2-compare-edition')).toBeTruthy()
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
     expect(screen.queryByTestId('lab-v2-themes')).toBeNull()
     fireEvent.click(screen.getByTestId('lab-v2-sheet-close'))

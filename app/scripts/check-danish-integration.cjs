@@ -75,11 +75,16 @@ async function open(page, id, chapter, paragraphIndex, phone) {
   return state
 }
 
-async function compare(page) {
-  // Compare opens from Book settings on every layout; the phone swipe was removed (6 Nov 2026).
+async function compare(page, phone, edition) {
+  // Compare opens from Book settings on the desktop. The phone has no Compare (10 Nov 2026):
+  // there the other edition is read as the Main version, and the round trip keeps the place.
   await page.getByTestId('lab-super').click()
   await page.getByTestId('lab-super-row-editions').click()
-  await page.getByTestId('lab-v2-show-compare').click()
+  if (!phone) return page.getByTestId('lab-v2-show-compare').click()
+  assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+  await page.getByTestId('lab-v2-main-edition').click()
+  await page.locator(`[data-edition="${edition}"]`).click()
+  await page.getByTestId('lab-v2-sheet-close').click()
 }
 
 async function checkBook(browser, id, device, phone) {
@@ -165,8 +170,11 @@ async function checkBook(browser, id, device, phone) {
     }
     await open(page, id, data.chapters[0].number, 0, phone)
     const place = await page.getByTestId('lab-root').getAttribute('data-place')
-    await compare(page, phone)
-    await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive === 'true')
+    await compare(page, phone, 'modern-en')
+    await page.waitForFunction(phone => {
+      const root = document.querySelector('[data-testid="lab-root"]')
+      return phone ? root?.dataset.readerEdition === 'modern-en' : root?.dataset.compareActive === 'true'
+    }, phone)
     // The mode flag changes before pagination has painted. Require the real
     // English comparison words, visible after the transition, before capture.
     const english = JSON.parse(fs.readFileSync('public/data/editions/' + id + '-modern-en.json', 'utf8'))
@@ -186,8 +194,11 @@ async function checkBook(browser, id, device, phone) {
     }, { phone, firstWords })
     await page.waitForTimeout(200)
     await page.screenshot({ path: path.join(dir, 'compare.png') })
-    await compare(page, phone)
-    await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.dataset.compareActive === 'false')
+    await compare(page, phone, 'modern-da')
+    await page.waitForFunction(phone => {
+      const root = document.querySelector('[data-testid="lab-root"]')
+      return phone ? root?.dataset.readerEdition === 'modern-da' : root?.dataset.compareActive === 'false'
+    }, phone)
     assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'), place, 'Compare retains Danish place')
     await page.reload()
     const restored = await settled(page)
