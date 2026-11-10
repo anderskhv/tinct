@@ -1156,4 +1156,15 @@ describe('Chat embedded in the mobile reader card', () => {
     expect(screen.getByTestId('lab-ask-turn-assistant').textContent).toContain('Ben Sira')
     expect(parseFloat(document.querySelector<HTMLElement>('.tc-spacer')?.style.height || '0')).toBe(screen.getByTestId('lab-ask-thread').clientHeight)
   })
+
+  it('has no opening divider when the thread starts in the open chapter: the card title names it (iPhone, 10 Nov 2026)', () => {
+    render(<LabAskPane
+      conversationState="idle" voiceActive={false} typedLoading={false}
+      turns={[{ id: 'q', role: 'user', content: 'Why were they angry?', source: 'typed', chapterNumber: 977 }, { id: 'a', role: 'assistant', content: 'Because.', source: 'typed', chapterNumber: 977 }]}
+      chapterLabels={{ 977: 'Luke 4' }} currentChapterNumber={977}
+      embeddedPhoneCard composerPlaceholder="Ask about Luke 4…"
+      draft="" onDraftChange={vi.fn()} onSubmit={vi.fn()} onMic={vi.fn()} onVoiceMode={vi.fn()}
+    />)
+    expect(screen.queryByTestId('lab-ask-initial-location')).toBeNull()
+  })
 })

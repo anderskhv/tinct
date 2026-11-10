@@ -44,6 +44,8 @@ interface LabAskPaneProps {
   /** The host focuses this inside the Chat tap; iOS only raises the keyboard for a gesture-synchronous focus(). */
   inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>
   chapterLabels?: Record<number, string>
+  /** The open chapter: the phone card's title names it, so a thread that starts there needs no opening divider. */
+  currentChapterNumber?: number
   desktopCompanion?: 'chat' | 'talk'
   /**
    * Where this device's copy of the thread stands against the account's row.
@@ -121,6 +123,7 @@ export function LabAskPane({
   onKeyboardOpenChange,
   inputRef,
   chapterLabels = {},
+  currentChapterNumber,
   desktopCompanion,
   historyStatus = 'ready',
   minimized: minimizedProp,
@@ -643,7 +646,7 @@ export function LabAskPane({
               {hidden === 1 ? '1 earlier message' : `${hidden} earlier messages`}
             </button>
           )}
-          {embeddedPhoneCard && visibleTurns[0] && placeOf(visibleTurns[0]) && <p className="tc-divider" data-testid="lab-ask-initial-location">{placeOf(visibleTurns[0])}</p>}
+          {embeddedPhoneCard && visibleTurns[0] && placeOf(visibleTurns[0]) && visibleTurns[0].chapterNumber !== currentChapterNumber && <p className="tc-divider" data-testid="lab-ask-initial-location">{placeOf(visibleTurns[0])}</p>}
           {rows.map(row => {
             if (row.type === 'divider') return <p key={row.key} className="tc-divider" data-testid="lab-ask-location">{row.label}</p>
             const index = hidden + row.index

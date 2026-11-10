@@ -368,17 +368,25 @@ export function labKeyboardInsetPx(
  * panning it down the (unchanged) layout viewport. The shell is already
  * sized to the visible box, so the pan only hides the header under the URL
  * bar and leaves dead paper above the keyboard. Reset it while the keyboard
- * is up; a pinch-zoom pan with nothing focused is left alone.
+ * is up.
+ *
+ * The shell never scrolls the document, so a document still scrolled once the
+ * keyboard is down is a pan iOS forgot to undo: the header sat above the
+ * screen, the foot rose with blank paper under it, and taps on the selection
+ * bar missed until a reload (iPhone, 10 Nov 2026, after a follow-up typed in
+ * an Explain card). Reset that too. A pinch-zoom pan (scale above 1) with
+ * nothing focused is the reader's own and is left alone.
  */
 export function labShouldResetViewportPan(input: {
   offsetTop?: number
   scrollY?: number
   textEntryFocused: boolean
+  scale?: number
 }): boolean {
-  if (!input.textEntryFocused) return false
   const offsetTop = typeof input.offsetTop === 'number' ? input.offsetTop : 0
   const scrollY = typeof input.scrollY === 'number' ? input.scrollY : 0
-  return offsetTop > 0 || scrollY > 0
+  if (input.textEntryFocused) return offsetTop > 0 || scrollY > 0
+  return scrollY > 0 && (input.scale ?? 1) <= 1.01
 }
 
 /**
@@ -400,6 +408,7 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
       offsetTop: viewport?.offsetTop,
       scrollY: window.scrollY,
       textEntryFocused,
+      scale: viewport?.scale,
     })
     if (panned) window.scrollTo(0, 0)
   }
@@ -427,6 +436,9 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
     window.addEventListener('focus', returned)
   }
   if (typeof document !== 'undefined') document.addEventListener('visibilitychange', returned)
+  // The keyboard going down: iOS may restore (or forget) its pan after the
+  // field loses focus, with no viewport event after it.
+  if (typeof document !== 'undefined') document.addEventListener('focusout', settle)
   return () => {
     viewport?.removeEventListener('resize', apply)
     viewport?.removeEventListener('scroll', apply)
@@ -437,7 +449,10 @@ export function bindLabVisualViewportHeight(host: HTMLElement): () => void {
       window.removeEventListener('focus', returned)
     }
     settling.forEach(clearTimeout)
-    if (typeof document !== 'undefined') document.removeEventListener('visibilitychange', returned)
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('visibilitychange', returned)
+      document.removeEventListener('focusout', settle)
+    }
     host.style.removeProperty(LAB_VVH_VAR)
   }
 }

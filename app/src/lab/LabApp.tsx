@@ -6151,6 +6151,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             onKeyboardOpenChange={marginPhone ? undefined : setPhoneKeyboardOpen}
             inputRef={askInputRef}
             chapterLabels={Object.fromEntries(book.chapters.map(chapter => [chapter.number, chapter.title]))}
+            currentChapterNumber={book.chapterNumber}
             minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
             onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
 
@@ -7611,7 +7612,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         </Card>
       })()}
       {marginPhone && phoneAsk && (
-        <LabPhoneCard label="Chat" kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
+        <LabPhoneCard label={phoneCardLabel('Chat')} kind="chat" closeLabel="Close chat" onClose={() => { dictation.stop(); closePhoneAsk() }}>
           {askPaneElement}
         </LabPhoneCard>
       )}
