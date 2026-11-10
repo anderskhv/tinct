@@ -13,8 +13,8 @@ Instruction revision: `books/BOOK-TASK-WORKFLOW.md` on main at `9360a313ea`. Own
   | Edition | sha256 |
   |---|---|
   | `pinocchio-original-it.json` (Collodi's Italian, 1902 Bemporad text) | `74e62151dd56065747527de41732775a549f0e10edc165ba6b4eb81845555e5e` |
-  | `pinocchio-modern-en.json` (a fresh English translation from the Italian) | `14bb4f79ffee1ae4a2a7909fd7cd957f46e252d8a86a7052d73566b5c8da92bd` |
-  | `pinocchio-modern-da.json` (a fresh Danish translation from the Italian; Danish authorised by Anders) | `6f6a55322652908aff41fb9b084818dc7db801b40635fa46e5f1738e2d6a80b1` |
+  | `pinocchio-modern-en.json` (a fresh English translation from the Italian) | `e715f1ff1da0c874352d0325a6703429d26eb95ad16dfa89e8992619be00fde7` (apostrophes curled; package original `14bb4f79…`) |
+  | `pinocchio-modern-da.json` (a fresh Danish translation from the Italian; Danish authorised by Anders) | `8cfb7aa6aa2918fa344611e2d083d4d13eb1ffb44312c06e2420e46b9a712a8d` (1 apostrophe curled; package original `6f6a5532…`) |
 
 - `illustrations/`: three original illustrations, with `illustrations.json` giving their placements (1-based chapter, 0-based `afterParagraphIndex`). They are shared by both translations:
   - ch 1 after p 8;
@@ -32,9 +32,9 @@ Instruction revision: `books/BOOK-TASK-WORKFLOW.md` on main at `9360a313ea`. Own
 
 ## Editorial issues: reported, not fixed
 
-1. **Mixed apostrophes in the English.** It has 352 straight `'` and 648 curly `’`, for example ch 35 p 5, "aren't". Danish has 1 straight against 34 curly; the Italian is straight throughout, as in the source. A typographic normalisation (straight to curly, outside quotes) needs Anders's OK, because it changes the text.
+1. **Apostrophes: resolved 10 Nov 2026 (Anders: "whatever you like").** The English had 352 straight `'` among 648 curly `’`, and the Danish had 1. All were apostrophes (350 inside words, plus possessives such as "families'"), so all are now `’`. Nothing else changed: checked paragraph by paragraph against the package. The Italian stays straight, as in the source.
 2. **Reader-age wording.** Codex's brief says "vocabulary accessible to a reader around 11". Per Anders, the book must **not** be labelled by age ("age 9+", "child-safe") anywhere in Tinct. This wording stays internal.
-3. **Illustrations are AI-generated** (Codex's built-in image tool), not historical. A credit or acknowledgement line needs a decision at integration.
+3. **Illustrations are AI-generated** (Codex's built-in image tool), not historical. Anders, 10 Nov 2026: no credit line.
 4. **No human English Compare edition.** Codex notes that a separately cleared human English translation would be the usual Compare partner. The Italian can serve as the original/Compare edition.
 
 ## Integration requirements (separate, assigned step)
