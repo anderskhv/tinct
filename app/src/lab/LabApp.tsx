@@ -6094,6 +6094,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (initialResolving || book.chaptersProvisional) return
     closePhoneCard(); setBookAction(null)
     if (!privateBook && placeRef.current.paragraphIndex > 0) { openChapterNotes('sofar', book.chapterNumber, 'pill'); return }
+    // The first chapter at its start has nothing before it: its Summary is the chapter's own.
+    if (!privateBook && !catchUpAvailable(book.chapters, book.chapterNumber)) { openChapterNotes('end', book.chapterNumber, 'pill'); return }
     setCatchUpAsSummary(true); setDesktopCatchupAsSummary(true)
     marginCatchUpRef.current()
   }
@@ -6104,7 +6106,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ...(marginPhone ? {
       layout: 'phone' as const,
       onSummary: () => chapterSummaryRef.current(),
-      summary: privateBook || marginCatchUp,
+      // Every chapter has its Summary, the first included (Anders, 10 Nov 2026).
+      summary: true,
       book: firstChapterTitle ? {
         firstChapterTitle, title: book.bookTitle, author: book.bookAuthor || undefined, primer: bookPrimer,
         onPrimer: () => openBookActionRef.current('primer'), onSummary: () => openBookActionRef.current('summary'), onAngle: () => openReadingAngleRef.current(),
@@ -6519,7 +6522,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
     const chapterActs = <div className="lab-start-acts" role="group" aria-label={`${chapterTitle} actions`}>
       {act('Primer', 'margin-start-primer', () => openChapterNotes('primer', book.chapterNumber, 'pill'))}
-      {(privateBook || marginCatchUp || placeRef.current.paragraphIndex > 0) && act('Summary', 'margin-start-summary', () => chapterSummaryRef.current())}
+      {act('Summary', 'margin-start-summary', () => chapterSummaryRef.current())}
       {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
     </div>
     desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
@@ -6907,13 +6910,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 onChoose: chooseSharedDesktopLayout }
             : null}
           compareFromLayout={compareFromLayout}
+          compareChoice={!showPhoneChrome}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}
-          readingAngle={{ value: bookAngle, onChange: setBookAngle, focus: angleFocus }}
+          readingAngle={{ value: bookAngle, onChange: setBookAngle, focus: angleFocus,
+            mic: { on: dictation.state !== 'idle' && angleDictating, onToggle: () => { setAngleDictating(true); dictateDeskAsk(bookAngle, text => setBookAngle(text)) } } }}
         />
       )}
       {figureCard && (

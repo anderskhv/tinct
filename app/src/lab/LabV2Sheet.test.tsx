@@ -121,15 +121,13 @@ describe('reading settings', () => {
     fireEvent.click(screen.getByTestId('lab-super'))
     fireEvent.click(screen.getByTestId('lab-super-row-editions'))
     expect(screen.queryByTestId('lab-v2-narration-voice')).toBeNull()
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    const option = screen.getByTestId('lab-v2-sheet').querySelector<HTMLButtonElement>('[data-edition]')!
+    // Compare is a desktop view (Anders, 10 Nov 2026): the phone's Book settings has no Compare version row.
+    expect(screen.queryByTestId('lab-v2-compare-edition')).toBeNull()
+    fireEvent.click(screen.getByTestId('lab-v2-main-edition'))
+    const option = [...screen.getByTestId('lab-v2-sheet').querySelectorAll<HTMLButtonElement>('[data-edition]')].find(node => node.dataset.edition !== readLabPrefs().primaryEdition)!
     const other = option.dataset.edition
     fireEvent.click(option)
-    expect(readLabPrefs().compareEdition).toBe(other)
-    expect(readLabPrefs().compareOpen).toBe(true)
-    fireEvent.click(screen.getByTestId('lab-v2-compare-edition'))
-    fireEvent.click(screen.getByRole('button', { name: 'None' }))
-    expect(readLabPrefs().compareOpen).toBe(false)
+    expect(readLabPrefs().primaryEdition).toBe(other)
     expect(localStorage.getItem(LAB_PREFS_KEY)).toBeTruthy()
   })
 })

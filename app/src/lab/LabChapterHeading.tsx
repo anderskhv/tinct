@@ -62,7 +62,7 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
   // The phone's margin mode before the start actions: ✧ Primer · ✧ Catch me up on the heading's line, beside it.
   const chips = preview && !!margin && !margin.layout
   const book = phone && margin?.book && margin.book.firstChapterTitle === title ? margin.book : null
-  return <header className={`lab-passage-header${chips || (preview && !margin) ? ' has-preview' : ''}${phone ? ' has-start-pills' : ''}${preview && title.length > 64 ? ' is-long-title' : ''}${opening || book ? ' has-book-opening' : ''}`}>
+  return <header className={`lab-passage-header${chips || phone || (preview && !margin) ? ' has-preview' : ''}${preview && title.length > 64 ? ' is-long-title' : ''}${opening || book ? ' has-book-opening' : ''}`}>
     {opening && <div className="lab-book-opening" data-testid={measuring ? undefined : 'lab-book-opening'}>
       <p className="lab-book-opening-title">{opening.title}</p>
       {opening.subtitle && <p className="lab-book-opening-subtitle">{opening.subtitle}</p>}
@@ -76,11 +76,24 @@ export function LabChapterHeading({ title, preview = false, busy = false, measur
     </div>}
     {/* Kept, hidden, when it repeats the opening: the paginators read its face from it. */}
     <h1 className="lab-passage-headline" data-testid={measuring ? undefined : "lab-passage-headline"} hidden={repeats || undefined}>{title}</h1>
-    {phone && margin && <StartPill kind="chapter" measuring={measuring} busy={busy} testId="lab-unit-start" segments={[
-      { key: 'primer', icon: 'primer', label: 'Primer', aria: `Primer for ${title}`, testId: 'lab-unit-primer', run: () => onPreview?.() },
-      ...(margin.summary !== false ? [{ key: 'summary', icon: 'summary' as const, label: 'Summary', aria: `Summary of ${unitName(title)} so far`, testId: 'lab-unit-summary', run: () => margin.onSummary?.() }] : []),
-      { key: 'quiz', icon: 'quiz', label: 'Quiz', aria: `Quiz me on ${unitName(title)}`, testId: 'lab-unit-start-quiz', run: (anchor: DOMRect) => margin.onQuiz?.(anchor) },
-    ]} />}
+    {/* Each chapter keeps the reader's existing chips (Anders, 10 Nov 2026): ✧ Primer · ✧ Summary. No Quiz on the
+        phone; the desktop Margin reader keeps Quiz me in its chapter cards. */}
+    {phone && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>
+      <div className="lab-unit-acts">
+        <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-primer'} disabled={busy}
+          tabIndex={measuring ? -1 : 0} aria-label={`Primer for ${title}`}
+          onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}
+          onClick={event => { event.stopPropagation(); if (!measuring) onPreview?.() }}>
+          <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Primer</span>
+        </button>
+        {margin.summary !== false && <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-summary'} disabled={busy}
+          tabIndex={measuring ? -1 : 0} aria-label={`Summary of ${unitName(title)}`}
+          onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()}
+          onClick={event => { event.stopPropagation(); if (!measuring) margin.onSummary?.() }}>
+          <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Summary</span>
+        </button>}
+      </div>
+    </div>}
     {chips && margin && <div className="lab-unit-pills is-start" data-testid={measuring ? undefined : 'lab-unit-start'}>
       <div className="lab-unit-acts">
         <button type="button" className="lab-chapter-preview" data-testid={measuring ? undefined : 'lab-unit-primer'} disabled={busy}

@@ -137,7 +137,7 @@ async function tapOutside(page) {
   await page.waitForTimeout(400)
 }
 const shot = async (page, name) => { await page.screenshot({ path: path.join(OUT, `${name}.png`) }); return name }
-const pillText = (page, testId) => page.evaluate(id => [...document.querySelectorAll(`[data-testid="${id}"] .lab-start-seg`)].map(node => node.textContent.trim()), testId)
+const pillText = (page, testId) => page.evaluate(id => [...document.querySelectorAll(`[data-testid="${id}"] .lab-start-seg, [data-testid="${id}"] .lab-chapter-preview`)].map(node => node.textContent.replace('✧', '').trim()), testId)
 
 async function phoneCard(page, tag, testId, kind, home, check) {
   await page.getByTestId(testId).click()
@@ -158,14 +158,14 @@ async function phoneCatalogue(engine) {
   let page = state.page
   const home = await placeOf(page)
   ok(`${tag}: the book's pill under its title and author: Primer · Summary · Reading angle`, JSON.stringify(await pillText(page, 'lab-book-start')) === JSON.stringify(['Primer', 'Summary', 'Reading angle']), await pillText(page, 'lab-book-start'))
-  ok(`${tag}: the first chapter's pill: Primer · Quiz (nothing to summarise yet)`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Quiz']), await pillText(page, 'lab-unit-start'))
+  ok(`${tag}: the first chapter keeps the existing chips: ✧ Primer · ✧ Summary, no Quiz on the phone (Anders, 10 Nov 2026)`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary']) && (await page.locator('.lab-start-pill.is-chapter').count()) === 0, await pillText(page, 'lab-unit-start'))
   const layout = await page.evaluate(() => {
     const title = document.querySelector('[data-testid="lab-book-opening"] .lab-book-opening-title')?.getBoundingClientRect(), pill = document.querySelector('[data-testid="lab-book-start"]')?.getBoundingClientRect()
     const head = document.querySelector('[data-testid="lab-passage-headline"]')?.getBoundingClientRect(), unit = document.querySelector('[data-testid="lab-unit-start"]')?.getBoundingClientRect()
     const segs = [...document.querySelectorAll('[data-testid="lab-book-start"] .lab-start-seg span')].map(node => node.scrollWidth <= node.clientWidth + 1)
-    return { order: !!(title && pill && head && unit) && title.bottom <= pill.top && pill.bottom <= head.top && head.bottom <= unit.top, full: pill && unit ? [Math.round(pill.width), Math.round(unit.width)] : null, written: segs.every(Boolean) }
+    return { order: !!(title && pill && head && unit) && title.bottom <= pill.top && pill.bottom <= head.top && head.top <= unit.bottom, full: pill ? Math.round(pill.width) : null, written: segs.every(Boolean) }
   })
-  ok(`${tag}: title, book pill, chapter heading, chapter pill in that order, both pills the text's full width, labels written out`, layout.order && layout.full?.[0] === layout.full?.[1] && layout.full[0] > 300 && layout.written, layout)
+  ok(`${tag}: title, book pill, then the chapter heading with its chips; the book pill the text's full width, labels written out`, layout.order && layout.full > 300 && layout.written, layout)
   await shot(page, `${tag}-book-start`)
   await phoneCard(page, tag, 'lab-book-primer', 'book-primer', home, async card => ok(`${tag}: the book's Primer is the book's introduction`, /Victor Frankenstein/.test(card.text), card))
   const before = log.catchUp.length
@@ -186,12 +186,21 @@ async function phoneCatalogue(engine) {
   await page.waitForTimeout(500)
   ok(`${tag}: the angle is saved for this book`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'Watch who is listening to whom')
   ok(`${tag}: Book settings closed, the place and the page are unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
+  // The first chapter's Summary: nothing came before it, so it is the chapter's own.
+  const notesBefore = log.notes.length
+  await phoneCard(page, tag, 'lab-unit-summary', 'chapter-notes-end', home, async () => ok(`${tag}: the first chapter's Summary is the chapter's own`, log.notes.slice(notesBefore).includes('end'), log.notes.slice(notesBefore)))
+  // The angle goes with the next AI request: an Explain on the page.
   const asked = log.ai.length
-  await phoneCard(page, tag, 'lab-unit-start-quiz', 'quiz', home, async () => {
-    await page.waitForTimeout(400)
-    const quiz = log.ai.slice(asked).find(item => item.intent === 'quiz')
-    ok(`${tag}: the chapter's Quiz asks the quiz route with the book's reading angle`, !!quiz && quiz.raw.includes('Watch who is listening to whom'), quiz?.raw.slice(0, 300))
-  })
+  const words = page.locator('[data-testid="lab-word"]:visible')
+  const a = await words.nth(4).boundingBox(), b = await words.nth(10).boundingBox()
+  await page.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await page.mouse.down(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 10 }); await page.mouse.up()
+  await page.getByTestId('lab-phone-bar').getByRole('button', { name: 'Explain', exact: true }).click()
+  await page.getByTestId('lab-phone-card').waitFor()
+  await page.waitForTimeout(600)
+  const explain = log.ai.slice(asked)[0]
+  ok(`${tag}: the next AI request (Explain) carries the book's reading angle`, !!explain && explain.raw.includes('Watch who is listening to whom'), explain?.raw.slice(0, 300))
+  await tapOutside(page)
+  await page.waitForTimeout(300)
   await phoneCard(page, tag, 'lab-unit-primer', 'chapter-notes-primer', home)
   // The angle reopens with the value it was given (one stored value).
   await page.getByTestId('lab-book-angle').click()
@@ -204,8 +213,7 @@ async function phoneCatalogue(engine) {
   state = await boot(engine, { phone: true, chapterNumber: 5 })
   page = state.page
   const later = await placeOf(page)
-  ok(`${tag}: a later chapter's pill: Primer · Summary · Quiz, and no book pill`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary', 'Quiz']) && (await page.getByTestId('lab-book-start').count()) === 0, await pillText(page, 'lab-unit-start'))
-  ok(`${tag}: no heading chips beside the heading`, (await page.locator('.lab-passage-header .lab-chapter-preview').count()) === 0)
+  ok(`${tag}: a later chapter's chips: ✧ Primer · ✧ Summary, and no book pill`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary']) && (await page.getByTestId('lab-book-start').count()) === 0, await pillText(page, 'lab-unit-start'))
   await shot(page, `${tag}-chapter-start`)
   await phoneCard(page, tag, 'lab-unit-summary', 'catchup', later, async card => ok(`${tag}: a chapter's Summary at its start is what came before, named Summary`, /^Summary · /.test(card.label) && /You are here/.test(card.text), card))
   await phoneCard(page, tag, 'lab-unit-primer', 'chapter-notes-primer', later)
@@ -220,7 +228,7 @@ async function phoneOwn(engine) {
   await page.getByTestId('lab-book-start').waitFor()
   const home = await placeOf(page)
   ok(`${tag}: an own book's pill under its opening: Summary · Reading angle (no book primer)`, JSON.stringify(await pillText(page, 'lab-book-start')) === JSON.stringify(['Summary', 'Reading angle']), await pillText(page, 'lab-book-start'))
-  ok(`${tag}: its chapter pill: Primer · Summary · Quiz`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary', 'Quiz']), await pillText(page, 'lab-unit-start'))
+  ok(`${tag}: its chapter chips: ✧ Primer · ✧ Summary`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary']), await pillText(page, 'lab-unit-start'))
   await shot(page, `${tag}-book-start`)
   const before = log.own.length
   await page.getByTestId('lab-book-summary').click()
@@ -267,8 +275,8 @@ async function desktopCatalogue() {
       acts: [...item.querySelectorAll('.lab-start-acts button')].map(node => node.textContent.trim()), heads: [...item.querySelectorAll('.lab-start-head')].map(node => node.textContent), mic: !!item.querySelector('[data-testid="margin-reading-angle-mic"]'),
       chips: document.querySelectorAll('[data-testid="continuous-reader"] .lab-passage-header :is(.lab-chapter-preview,.lab-start-pill)').length }
   })
-  ok(`${tag}: "Before you start" beside the book's opening: angle with mic, the whole book's Primer · Summary, the first chapter's Primer · Quiz me; no chips by the heading`,
-    card.label === 'Before you start' && card.start && card.beside && card.mic && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
+  ok(`${tag}: "Before you start" beside the book's opening: angle with mic, the whole book's Primer · Summary, the first chapter's Primer · Summary · Quiz me; no chips by the heading`,
+    card.label === 'Before you start' && card.start && card.beside && card.mic && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Summary', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
   await shot(page, `${tag}-before-you-start`)
   await page.getByTestId('margin-reading-angle').fill('The cost of ambition')
   await page.waitForTimeout(300)

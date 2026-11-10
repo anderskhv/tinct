@@ -29,8 +29,8 @@ describe('A reader’s own book opens with its title once (Constructor Theory, 1
 })
 
 describe('the start actions (approved mockup, Anders 9 Nov 2026)', () => {
-  const pills = (testId: string) => [...document.querySelectorAll(`[data-testid="${testId}"] .lab-start-seg`)].map(node => node.textContent)
-  it('the phone: the book pill under the title and author on the first chapter, the chapter pill under the heading', async () => {
+  const pills = (testId: string) => [...document.querySelectorAll(`[data-testid="${testId}"] .lab-start-seg, [data-testid="${testId}"] .lab-chapter-preview`)].map(node => node.textContent?.replace('✧', ''))
+  it('the phone: the book pill under the title and author on the first chapter; each chapter keeps the existing ✧ chips, Primer and Summary, no Quiz (Anders, 10 Nov 2026)', async () => {
     const { MarginPhoneContext } = await import('./marginPhone/marginPhoneContext')
     const calls: string[] = []
     const value = { layout: 'phone' as const, summary: true, onSummary: () => calls.push('summary'), onQuiz: () => calls.push('quiz'),
@@ -38,15 +38,16 @@ describe('the start actions (approved mockup, Anders 9 Nov 2026)', () => {
     render(<MarginPhoneContext.Provider value={value}><LabChapterHeading title="Letter 1" preview onPreview={() => calls.push('primer')} /></MarginPhoneContext.Provider>)
     expect(screen.getByTestId('lab-book-opening').textContent).toContain('Mary Shelley')
     expect(pills('lab-book-start')).toEqual(['Primer', 'Summary', 'Reading angle'])
-    expect(pills('lab-unit-start')).toEqual(['Primer', 'Summary', 'Quiz'])
-    for (const id of ['lab-book-primer', 'lab-book-summary', 'lab-book-angle', 'lab-unit-primer', 'lab-unit-summary', 'lab-unit-start-quiz']) screen.getByTestId(id).click()
-    expect(calls).toEqual(['book-primer', 'book-summary', 'angle', 'primer', 'summary', 'quiz'])
-    expect(document.querySelector('.lab-chapter-preview')).toBeNull()
-    cleanup()
-    // A later chapter: its own pill only; a measuring copy has the same markup and no test ids.
-    render(<MarginPhoneContext.Provider value={{ ...value, summary: false }}><LabChapterHeading title="Chapter 5" preview measuring /></MarginPhoneContext.Provider>)
+    expect(pills('lab-unit-start')).toEqual(['Primer', 'Summary'])
+    expect(screen.queryByTestId('lab-unit-start-quiz')).toBeNull()
+    for (const id of ['lab-book-primer', 'lab-book-summary', 'lab-book-angle', 'lab-unit-primer', 'lab-unit-summary']) screen.getByTestId(id).click()
+    expect(calls).toEqual(['book-primer', 'book-summary', 'angle', 'primer', 'summary'])
     expect(document.querySelectorAll('.lab-start-pill')).toHaveLength(1)
-    expect([...document.querySelectorAll('.lab-start-seg')].map(node => node.textContent)).toEqual(['Primer', 'Quiz'])
+    cleanup()
+    // A later chapter: its chips only; a measuring copy has the same markup and no test ids.
+    render(<MarginPhoneContext.Provider value={value}><LabChapterHeading title="Chapter 5" preview measuring /></MarginPhoneContext.Provider>)
+    expect(document.querySelectorAll('.lab-start-pill')).toHaveLength(0)
+    expect([...document.querySelectorAll('.lab-chapter-preview')].map(node => node.textContent?.replace('✧', ''))).toEqual(['Primer', 'Summary'])
     expect(document.querySelector('[data-testid]')).toBeNull()
   })
 

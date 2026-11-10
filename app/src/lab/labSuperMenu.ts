@@ -51,7 +51,6 @@ const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) 
 function phoneRows(privateBook: boolean): LabSuperMenuRow[] {
   return [
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     { id: 'notebook', label: LAB_NOTEBOOK_LABEL },
     ...SETTINGS_ROWS,
@@ -72,7 +71,6 @@ export function labSuperMenuRows({ phone = false, privateBook = false, ownPdf = 
   const all: LabSuperMenuRow[] = phone ? phoneRows(privateBook) : [
     // Match the phone: two explicit actions, with their existing destinations.
     { id: 'conversation', label: '', modes: ['chat', 'talk'] },
-    { id: 'summarize', label: 'Summarize' },
     { id: 'catchup', label: 'Catch me up' },
     ...SETTINGS_ROWS,
     // Desktop has the back arrow at the top left instead of a Library row (2026-10-01).
