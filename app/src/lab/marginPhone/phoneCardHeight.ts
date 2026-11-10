@@ -24,7 +24,7 @@ export const PHONE_CARD_EXPECTED_SHARE: Record<PhoneCardLength, Readonly<Record<
     explain: 0.55, simplify: 0.5, figure: 0.55, related: 0.55,
     ask: 0.6, chat: 0.6, factcheck: 0.6, counterpoint: 0.6,
     quiz: 0.55, 'unit-quiz': 0.55, 'unit-quiz-preparing': 0.55,
-    primer: 0.7, recap: 0.7, summary: 0.7, catchup: 0.7,
+    primer: 0.7, recap: 0.7, summary: 0.7, catchup: 0.7, 'book-summary': 0.7,
     'chapter-notes-primer': 0.7, 'chapter-notes-end': 0.7, 'chapter-notes-sofar': 0.7,
   },
 }

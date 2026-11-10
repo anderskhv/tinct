@@ -1,0 +1,30 @@
+import { useEffect, useRef } from 'react'
+import { READING_ANGLE_MAX_CHARS } from './labReadingAngle'
+import { PhoneIcon } from './marginPhone/LabPhoneCard'
+
+/** Book settings' first field: the reader's reading angle for this book, saved as it is typed. Always optional. */
+export function ReadingAngleField({ value, onChange, focus = false, testId = 'lab-reading-angle', mic }: {
+  value: string; onChange: (value: string) => void; focus?: boolean; testId?: string
+  /** Dictation into the field (Anders, 10 Nov 2026: the mic as everywhere else you type to Tinct). */
+  mic?: { on: boolean; onToggle: () => void }
+}) {
+  const ref = useRef<HTMLTextAreaElement>(null)
+  useEffect(() => {
+    if (!focus) return
+    const field = ref.current
+    if (!field) return
+    field.focus({ preventScroll: true })
+    field.setSelectionRange(field.value.length, field.value.length)
+  }, [focus])
+  return (
+    <label className="lab-reading-angle" data-testid={`${testId}-row`}>
+      <span className="lab-reading-angle-label">Reading angle</span>
+      <span className={`lab-reading-angle-box${mic ? ' has-mic' : ''}`}>
+        <textarea ref={ref} className="lab-reading-angle-input" data-testid={testId} rows={2} maxLength={READING_ANGLE_MAX_CHARS}
+          value={value} placeholder="What you want to notice in this book" onChange={event => onChange(event.target.value)} />
+        {mic && <button type="button" className="lab-reading-angle-mic" data-testid={`${testId}-mic`} aria-pressed={mic.on}
+          aria-label={mic.on ? 'Stop dictation' : 'Dictate your reading angle'} onClick={event => { event.preventDefault(); mic.onToggle() }}><PhoneIcon name="mic" /></button>}
+      </span>
+    </label>
+  )
+}

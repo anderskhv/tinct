@@ -1,5 +1,6 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
 import { useEffect, useState, type ReactNode } from 'react'
+import { ReadingAngleField } from './LabReadingAngleField'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { useReaderWindow } from './useReaderWindow'
@@ -63,6 +64,8 @@ export interface LabV2SheetProps {
    * 'paragraphs': an edition whose paragraphs do not match the other's.
    */
   compareUnavailable?: false | 'verses' | 'paragraphs' | 'chapter' | 'numbering'
+  /** Compare is a desktop view (Anders, 10 Nov 2026): false on the phone hides its version row and switch. */
+  compareChoice?: boolean
   /** The Bible chapter open in the reader: versions without it are shown but cannot be chosen as the main version. */
   chapterNumber?: number
   /**
@@ -85,6 +88,11 @@ export interface LabV2SheetProps {
   ownPdf?: boolean
   /** False for a reader's own book with one edition: no Book settings, and no Audiobook version in Audio settings. */
   editionRows?: boolean
+  /**
+   * The book's reading angle (labReadingAngle.ts), first in Book settings. `focus` puts the caret in it when the
+   * sheet opens from the reading-angle pill.
+   */
+  readingAngle?: { value: string; onChange: (value: string) => void; focus?: boolean; mic?: { on: boolean; onToggle: () => void } } | null
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -206,7 +214,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, chapterNumber, modernOffer, ownPdf = false, editionRows = true }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -417,9 +425,13 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
 
           {layer === 'editions' && (
             <div className="lab-v2-editions">
+              {readingAngle && <>
+                <ReadingAngleField value={readingAngle.value} onChange={readingAngle.onChange} focus={readingAngle.focus} mic={readingAngle.mic} />
+                {editionRows && <div className="lab-v2-edition-divider" />}
+              </>}
               {editionRows && <>
               {editionRow('Main version', 'mainEdition', editionName(prefs.primaryEdition), 'lab-v2-main-edition')}
-              {!ownPdf && <>
+              {!ownPdf && compareChoice && <>
               <div className="lab-v2-edition-divider" />
               {editionRow('Compare version', 'compareEdition', prefs.compareOpen ? editionName(prefs.compareEdition) : 'None', 'lab-v2-compare-edition')}
               {compare && prefs.compareOpen && (

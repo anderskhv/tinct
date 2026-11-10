@@ -27,3 +27,33 @@ describe('A reader’s own book opens with its title once (Constructor Theory, 1
     expect(screen.getByTestId('lab-passage-headline').textContent).toBe('Genesis 1')
   })
 })
+
+describe('the start actions (approved mockup, Anders 9 Nov 2026)', () => {
+  const pills = (testId: string) => [...document.querySelectorAll(`[data-testid="${testId}"] .lab-start-seg, [data-testid="${testId}"] .lab-chapter-preview`)].map(node => node.textContent?.replace('✧', ''))
+  it('the phone: the book pill under the title and author on the first chapter; each chapter keeps the existing ✧ chips, Primer and Summary, no Quiz (Anders, 10 Nov 2026)', async () => {
+    const { MarginPhoneContext } = await import('./marginPhone/marginPhoneContext')
+    const calls: string[] = []
+    const value = { layout: 'phone' as const, summary: true, onSummary: () => calls.push('summary'), onQuiz: () => calls.push('quiz'),
+      book: { firstChapterTitle: 'Letter 1', title: 'Frankenstein', author: 'Mary Shelley', primer: true, onPrimer: () => calls.push('book-primer'), onSummary: () => calls.push('book-summary'), onAngle: () => calls.push('angle') } }
+    render(<MarginPhoneContext.Provider value={value}><LabChapterHeading title="Letter 1" preview onPreview={() => calls.push('primer')} /></MarginPhoneContext.Provider>)
+    expect(screen.getByTestId('lab-book-opening').textContent).toContain('Mary Shelley')
+    expect(pills('lab-book-start')).toEqual(['Primer', 'Summary', 'Reading angle'])
+    expect(pills('lab-unit-start')).toEqual(['Primer', 'Summary'])
+    expect(screen.queryByTestId('lab-unit-start-quiz')).toBeNull()
+    for (const id of ['lab-book-primer', 'lab-book-summary', 'lab-book-angle', 'lab-unit-primer', 'lab-unit-summary']) screen.getByTestId(id).click()
+    expect(calls).toEqual(['book-primer', 'book-summary', 'angle', 'primer', 'summary'])
+    expect(document.querySelectorAll('.lab-start-pill')).toHaveLength(1)
+    cleanup()
+    // A later chapter: its chips only; a measuring copy has the same markup and no test ids.
+    render(<MarginPhoneContext.Provider value={value}><LabChapterHeading title="Chapter 5" preview measuring /></MarginPhoneContext.Provider>)
+    expect(document.querySelectorAll('.lab-start-pill')).toHaveLength(0)
+    expect([...document.querySelectorAll('.lab-chapter-preview')].map(node => node.textContent?.replace('✧', ''))).toEqual(['Primer', 'Summary'])
+    expect(document.querySelector('[data-testid]')).toBeNull()
+  })
+
+  it('the desktop Margin reader keeps the heading bare (its actions are margin cards)', async () => {
+    const { MarginPhoneContext } = await import('./marginPhone/marginPhoneContext')
+    render(<MarginPhoneContext.Provider value={{ layout: 'desktop' }}><LabChapterHeading title="Chapter 5" preview onPreview={() => {}} /></MarginPhoneContext.Provider>)
+    expect(document.querySelector('.lab-chapter-preview, .lab-start-pill')).toBeNull()
+  })
+})

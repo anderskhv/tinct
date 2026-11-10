@@ -16,6 +16,7 @@ import { openPdfOriginalBytes } from '../sharedReader/pdf/PdfOriginalSurface'
 import { loadPdfEngine } from './pdfEdition'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
 import { userBookId } from './userBookId'
+import { readingAngleForAi } from '../labReadingAngle'
 import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
 import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
 
@@ -148,6 +149,11 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
   private pages = 0
   private unsubscribePlayer: (() => void) | null = null
   private unsubscribeChat: (() => void) | null = null
+  /** The document's reading angle (labReadingAngle.ts), sent with every request as the text reader's are. */
+  angleContext(): { readingAngle?: string } {
+    const angle = readingAngleForAi(userBookId(this.hex))
+    return angle ? { readingAngle: angle } : {}
+  }
   constructor(readonly hex: string, readonly owner: string, readonly fileId: string,
     private readonly token: () => Promise<string | null> = ownBookToken, private readonly fetchImpl: FetchLike = fetch,
     private readonly player?: Pick<MarginListenApi, 'attachOwn' | 'play' | 'snapshot'> & Partial<Pick<MarginListenApi, 'subscribe' | 'pause' | 'resume' | 'setSpeed'>>,
@@ -207,7 +213,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const token = await this.token()
     if (!token || !await this.currentGeneration(token)) return null
     for (const page of source.pages) if (await this.getPageText(page.n) !== page.text || !this.trusted()) return null
-    const context = { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+    const context = { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
       pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }
     const question = action === 'primer' ? `Prepare me to read ${source.unit.title}.`
       : action === 'catchup' ? `Catch me up before original PDF page ${source.atPage}.`
@@ -254,7 +260,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
-          companion: { intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+          companion: { intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
             pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } } }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
@@ -271,7 +277,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
-          companion: { intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+          companion: { intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
             pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz } }) })
       if (!response.ok || !this.trusted()) return null
       return await readAnthropicResponse(response)
@@ -483,7 +489,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
-          companion: { intent: 'ask', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
+          companion: { intent: 'ask', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
             pageNumber: card.page, pages: pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false },
             document: { kind: 'pdf', units: pages, part: { toc: [], total: this.pages } },
@@ -589,7 +595,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const request = {
       stream: true,
       messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
-      companion: { intent: action, context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
+      companion: { intent: action, context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
         pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
         selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) },
     }
@@ -631,7 +637,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: {
-          intent: 'quiz_check', context: { kind: 'pdf', bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
+          intent: 'quiz_check', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
             pages: selection.pages ?? [{ n: selection.page, text: selection.text }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
         } }),
       })

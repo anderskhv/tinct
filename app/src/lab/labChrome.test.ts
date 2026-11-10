@@ -118,12 +118,18 @@ describe('lab keyboard pan reset', () => {
     expect(labTextEntryFocused(null)).toBe(false)
   })
 
-  it('resets the pan only while a text field owns the keyboard', () => {
+  it('resets the keyboard pan, and a document scroll iOS left behind once the keyboard is down, but not a pinch-zoom pan', () => {
     expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 0, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 300, textEntryFocused: true })).toBe(true)
     expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: true })).toBe(false)
-    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false })).toBe(false)
     expect(labShouldResetViewportPan({ textEntryFocused: true })).toBe(false)
+    // Keyboard down, document still scrolled (iPhone, 10 Nov 2026): the header above the screen, taps missing.
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false, scale: 1 })).toBe(true)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 62, textEntryFocused: false })).toBe(true)
+    // The reader's own pinch-zoom pan stays.
+    expect(labShouldResetViewportPan({ offsetTop: 444, scrollY: 300, textEntryFocused: false, scale: 2 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 120, scrollY: 0, textEntryFocused: false, scale: 1.6 })).toBe(false)
+    expect(labShouldResetViewportPan({ offsetTop: 0, scrollY: 0, textEntryFocused: false })).toBe(false)
   })
 
   it('measures the height again when the page comes back to the front, and takes the window over a stale shorter visual viewport', () => {

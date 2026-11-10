@@ -957,7 +957,7 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     // Desktop: Library lives in the icon-only back arrow at the top left.
     // The phone (20 Oct 2026): Chat · Talk on one row, no Librarian label; Catch me up stays on a book's first
     // chapter (this is chapter 1); then Notebook and the settings groups: Appearance, Book settings, Audio settings.
-    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Summarize','Catch me up','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Summarize','Catch me up','Appearance','Book settings','Audio settings',accountRow])
+    assert.deepEqual(await page.locator('.lab-super-row-label').allTextContents(),phone?['Chat','Talk','Catch me up','Notebook','Appearance','Book settings','Audio settings','Library',accountRow]:['Chat','Talk','Catch me up','Appearance','Book settings','Audio settings',accountRow])
     // Desktop and phone share two explicitly labelled Chat and Talk actions.
     assert.equal(await page.getByTestId('lab-super-row-librarian').count(),0)
     assert.equal(await page.getByTestId('lab-super-row-notebook').count(),phone?1:0,'Notebook remains accessible on phone without duplicating the desktop toolbar')
@@ -1014,46 +1014,9 @@ async function menuRedesign(engine,name,phone,explicitShared=false) {
     assert.equal(await page.getByTestId('lab-v2-main-edition').count(),0)
     await page.screenshot({path:output+'/'+name+'-'+result.layout+'-appearance.png'})
     await page.getByTestId('lab-v2-sheet-close').click()
-    await clickMenu(page,'summarize')
-    // Summarize is a card of beats in its own sheet, not a chat answer.
-    await page.getByTestId('lab-chapter-notes').getByText('A compact opening grounded in the chapter.').waitFor()
-    // Summarize is the whole current chapter; the reading so far is Catch me up.
-    assert(requests.some(body=>body.chapterNotes?.kind==='end'),'summary asks for the whole chapter')
-    assert(!requests.some(body=>body.chapterNotes?.kind==='sofar'),'summary never asks for a so-far card')
-    assert(!requests.some(body=>body.companion?.chapter?.action?.kind==='discuss'),'summary no longer runs a chat recap')
-    // The phone's summary ends with the follow-up field (mic, Talk, send; 21 Oct 2026); the desktop keeps Chat and Talk.
-    assert.equal(await page.getByTestId('lab-chapter-notes-chat').count(),phone?0:1)
-    assert.equal(await page.getByTestId('lab-chapter-notes-talk').count(),phone?0:1)
-    if(sharedPhone){
-      // The beats live in the card body; its follow-up field is the card's
-      // sibling foot, not a descendant of the beats' lab-chapter-notes node.
-      const sheet=page.getByTestId('lab-phone-card')
-      assert.equal(await sheet.getByTestId('lab-chapter-notes').count(),1,'the summary beats are inside the bottom card')
-      await sheet.evaluate(async node=>{await Promise.all(node.getAnimations().map(animation=>animation.finished.catch(()=>{})))})
-      const fit=await sheet.evaluate(node=>{
-        const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect()
-        const last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom))
-        const top=window.visualViewport?.offsetTop??0, bottom=top+(window.visualViewport?.height??innerHeight)
-        const controls=['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'].map(id=>{
-          const el=node.querySelector(`[data-testid="${id}"]`),r=el?.getBoundingClientRect()
-          return {id,count:node.querySelectorAll(`[data-testid="${id}"]`).length,top:r?.top,bottom:r?.bottom,width:r?.width,height:r?.height,visibility:el&&getComputedStyle(el).visibility}
-        })
-        return {height:s.height,gap:f.top-last,cardBottom:s.bottom,viewportBottom:bottom,viewportTop:top,controls}
-      })
-      assert(fit.gap<=24&&fit.height<452&&fit.cardBottom<=fit.viewportBottom+1,'the summary sheet fits above the visible viewport foot: '+JSON.stringify(fit))
-      assert(fit.controls.every(item=>item.count===1&&item.width>0&&item.height>0&&item.visibility==='visible'&&item.top>=fit.viewportTop&&item.bottom<=fit.viewportBottom+1),
-        'the summary follow-up controls are visible inside the viewport: '+JSON.stringify(fit))
-    } else if(phone) {
-      // The default-off phone reader retains the older chapter-notes sheet:
-      // its follow-up field is inside the sheet rather than a card foot.
-      const sheet=page.getByTestId('lab-chapter-notes')
-      for(const id of ['lab-phone-card-input','lab-phone-card-mic','lab-phone-card-talk','lab-phone-card-send'])assert.equal(await sheet.locator(`[data-testid="${id}"]`).count(),1,id+' in the legacy summary sheet')
-      const fit=await sheet.evaluate(node=>{const s=node.getBoundingClientRect(),f=node.querySelector('.lab-pcard-follow').getBoundingClientRect(),last=Math.max(...[...node.querySelectorAll('.lab-catch-up-body li, .lab-catch-up-body p')].map(e=>e.getBoundingClientRect().bottom));return {height:s.height,gap:f.top-last}})
-      assert(fit.gap<=24&&fit.height<452,'the legacy summary sheet is as tall as its content: '+JSON.stringify(fit))
-    }
-    if(sharedPhone) { await page.keyboard.press('Escape'); await page.getByTestId('lab-phone-card').waitFor({state:'hidden'}) }
-    else await page.getByTestId('lab-chapter-notes-close').click()
-    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'summary never advances the book')
+    // No Summarize in the book reader's menu (Anders, 10 Nov 2026): the start and chapter pills hold Summary.
+    assert.equal(await page.getByTestId('lab-super-row-summarize').count(),0)
+    assert.equal(await page.getByTestId('lab-root').getAttribute('data-place'),place,'the panels never advance the book')
     assert.deepEqual(state.errors,[])
     result.passed=true
   } catch(error) {

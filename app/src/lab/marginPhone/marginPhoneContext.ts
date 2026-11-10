@@ -12,8 +12,33 @@ export interface MarginPhonePills {
   onCatchUp?: () => void
   /** ✧ Catch me up is offered: false on the book's first chapter and its front matter (nothing before them to recap). */
   catchUp?: boolean
-  /** ✧ Quiz me, at a chapter's end. */
+  /** ✧ Quiz me, at a chapter's end (and Quiz in the phone's chapter pill). */
   onQuiz?: (anchor?: DOMRect) => void
+  /**
+   * Where the start actions live (approved mockup, Anders 9 Nov 2026). 'phone': soft pills under the book's
+   * opening (Primer · Summary · Reading angle) and under each chapter heading (Primer · Summary · Quiz).
+   * 'desktop': in the margin's cards (start actions), so the heading stays bare. Absent: today's chips.
+   */
+  layout?: 'phone' | 'desktop'
+  /** The chapter pill's Summary: this chapter up to the reader's place, or what came before it (LabApp). */
+  onSummary?: () => void
+  /** Summary is offered here: false where there is nothing yet to summarise (the book's first chapter, at its start). */
+  summary?: boolean
+  /** The book's start: the pill under its title and author, on the heading of the book's first chapter. */
+  book?: MarginBookStart | null
+}
+
+export interface MarginBookStart {
+  /** The first chapter's title: the heading that carries the book's start. */
+  firstChapterTitle: string
+  /** Shown above the pill when the text has no opening of its own (a Tinct book). */
+  title: string
+  author?: string
+  /** A whole-book primer exists (a Tinct book's introduction); a reader's own book has none. */
+  primer: boolean
+  onPrimer?: () => void
+  onSummary?: () => void
+  onAngle?: () => void
 }
 
 export const MarginPhoneContext = createContext<MarginPhonePills | null>(null)

@@ -276,3 +276,18 @@ it('gives a chapter\'s actions no open or minimise control', () => {
   expect(screen.getByRole('button', { name: 'Primer' })).toBeTruthy()
   expect(document.querySelector('.source-margin-toggle')).toBeNull()
 })
+
+it('leaves Escape and outside presses alone for a chapter\'s always-shown actions (start actions, 9 Nov 2026)', () => {
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  Object.defineProperty(host, 'clientWidth', { value: 1400 }); Object.defineProperty(host, 'clientHeight', { value: 800 })
+  vi.spyOn(host, 'getBoundingClientRect').mockReturnValue({ left: 0, right: 1400, top: 60, bottom: 860, width: 1400, height: 800 } as DOMRect)
+  const toggle = vi.fn()
+  const actions: SourceMarginEntry = { id: 'start:2', label: 'Chapter 2', actions: true, variant: 'start-later', source: () => ({ left: 200, right: 400, top: 300, bottom: 320 }), order: -10, open: true, content: <button type="button">Primer</button>, onToggle: toggle }
+  render(<SourceMarginRail host={host} entries={[actions]} />)
+  expect(screen.getByTestId('source-margin-item').className).toContain('is-start-later')
+  const escape = new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true })
+  window.dispatchEvent(escape)
+  fireEvent.pointerDown(document.body)
+  expect(escape.defaultPrevented).toBe(false)
+  expect(toggle).not.toHaveBeenCalled()
+})
