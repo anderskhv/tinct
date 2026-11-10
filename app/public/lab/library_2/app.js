@@ -930,7 +930,7 @@ all('[data-collection]').forEach(b=>b.onclick=()=>selectCollection(b.dataset.col
 
 // Warm the optional artwork only after the landing page has finished loading.
 // A book's character sketches load when the book is opened, before the Characters tab is shown.
-const warmedSheets=new Set(),sheetsNeeded=new Set();function warmSheet(id,signal){const art=signature[id];const src=art&&(art.sheet||`assets/${id}-character-ink.png`);if(src&&!signal)sheetsNeeded.add(src);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';const loaded=new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;});loaded.catch(()=>{});im.src=src;if(!signal)return loaded;const stopped=stopOnAbort(im,signal,()=>sheetsNeeded.has(src));stopped.catch(()=>warmedSheets.delete(src));return Promise.race([loaded,stopped]);}
+const warmedSheets=new Set(),sheetsNeeded=new Set();function warmSheet(id,signal){const art=signature[id];const src=art?.sketches?.length&&(art.sheet||`assets/${id}-character-ink.png`);if(src&&!signal)sheetsNeeded.add(src);if(!src||warmedSheets.has(src))return;warmedSheets.add(src);const im=new Image();im.decoding='async';const loaded=new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;});loaded.catch(()=>{});im.src=src;if(!signal)return loaded;const stopped=stopOnAbort(im,signal,()=>sheetsNeeded.has(src));stopped.catch(()=>warmedSheets.delete(src));return Promise.race([loaded,stopped]);}
 function warmCharacterArt(){
  const warm=()=>featuredBooks.forEach(b=>{quiet.run('sheet:'+b.id,signal=>warmSheet(b.id,signal));quiet.run('cover:'+b.id,signal=>ensureCover(b,COVER_HERO_PX,signal));if(sceneIds.has(b.id))quiet.run('scene:'+b.id,signal=>loadScene(b.id,true,signal));});
  const whenModeKnown=()=>{
