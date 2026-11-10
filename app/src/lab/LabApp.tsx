@@ -6525,6 +6525,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // is asked for until an action is chosen; it then becomes an ordinary margin card there.
   if (continuousReader && !book.chaptersProvisional && !initialResolving) {
     const first = book.chapters[0]?.number === book.chapterNumber
+    // "Before you start" sits at the very top of the book, level with the opening heading (Anders, 10 Nov 2026),
+    // not at the first line of text below it.
+    const startCardSource = () => {
+      const head = marginHost?.querySelector<HTMLElement>('[data-testid="lab-passage-headline"]')
+      const rect = head?.getBoundingClientRect()
+      return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
+    }
     const chapterTitle = unitName(book.chapterLabel || '') || book.chapterLabel || 'This chapter'
     const act = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
       onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
@@ -6534,7 +6541,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
     </div>
     desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
-      source: sourceForMargin(undefined), order: -10, free: true,
+      source: first ? startCardSource : sourceForMargin(undefined), order: -10, free: true,
       // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
       ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
