@@ -36,6 +36,8 @@ export interface SourceMarginEntry {
    * a later chapter's greyed card (dashed, muted) until one of its actions is chosen.
    */
   variant?: 'start' | 'start-later'
+  /** An actions card that folds to its label alone, greyed with a +, until opened (Anders, 10 Nov 2026: "Before you start"). */
+  collapsible?: boolean
 }
 export interface SourceMarginRailProps {
   host: HTMLElement | null
@@ -214,14 +216,14 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
     {entries.map(entry => { const at = layout.items.find(item => item.id === entry.id)
       // A chapter's actions appear only once its heading is on a drawn page; a card is measured hidden first.
       if (entry.actions && !at) return null
-      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}${entry.variant ? ` is-${entry.variant}` : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
-        <header className="source-margin-head">{entry.actions ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
+      return <section key={entry.id} data-testid="source-margin-item" data-card-id={entry.id} data-source-order={entry.order} data-open={entry.actions ? undefined : entry.open} className={`source-margin-item ${entry.open ? 'is-open' : 'is-folded'}${entry.actions ? ' is-actions' : ''}${entry.collapsible ? ' is-collapsible' : ''}${entry.variant ? ` is-${entry.variant}` : ''}`} aria-describedby={entry.sourceText ? `source-about-${entry.id}` : undefined} style={{ left: layout.left, width: layout.width, top: at?.top ?? 0, visibility: at ? undefined : 'hidden' }}>
+        <header className="source-margin-head">{entry.actions && !entry.collapsible ? <span className="source-margin-label">{entry.label}</span> : <button type="button" data-testid="source-margin-open" className="source-margin-label" onClick={entry.onToggle} aria-expanded={entry.open}>{entry.label}</button>}
           {/* One place opens and minimises (tester, 9 Nov 2026: the open click and the minimise sat apart). */}
-          {!entry.actions && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
+          {(!entry.actions || entry.collapsible) && <button type="button" data-testid={entry.open ? 'source-margin-minimise' : 'source-margin-expand'} className="source-margin-toggle" aria-label={entry.open ? 'Minimise' : 'Open'} aria-expanded={entry.open} onClick={entry.onToggle}>{entry.open ? '−' : '+'}</button>}
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. */}{entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
+        {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. */}{entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}

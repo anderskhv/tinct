@@ -912,6 +912,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [compareFromLayout, setCompareFromLayout] = useState(false)
   // The book's reading angle (labReadingAngle.ts): Book settings' first field; the reading-angle pill opens it focused.
   const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
+  // The book's "Before you start" card opens folded (Anders, 10 Nov 2026); the reader opens it with its +.
+  const [startCardOpen, setStartCardOpen] = useState(false)
   const [angleFocus, setAngleFocus] = useState(false)
   useEffect(() => { if (superSheet !== 'editions') setAngleFocus(false) }, [superSheet])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
@@ -6532,7 +6534,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
     </div>
     desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
-      source: sourceForMargin(undefined), order: -10, open: true, free: true, onToggle: () => {},
+      source: sourceForMargin(undefined), order: -10, free: true,
+      // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
+      ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
         <div className="lab-start-angle">
           <ReadingAngleField value={bookAngle} onChange={setBookAngle} testId="margin-reading-angle" />
