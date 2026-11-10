@@ -14,6 +14,7 @@ import { getBook } from '../../data/bookRegistry'
 import { useAuth } from '../../hooks/useAuth'
 import { readSupabaseAccessToken } from '../labAuth'
 import { useLabReadingYear } from '../useLabReadingYear'
+import { useLabFunnelVisibleTime } from '../useLabFunnel'
 import { ownBookFrameUrl, userBookId } from '../userBook/userBookId'
 import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import { marginPreviewAtForPage } from './marginPreviewFlag'
@@ -81,6 +82,8 @@ export interface MarginOwnBridge {
   opened(): void
   /** The reader did something in the frame (a tap, key, wheel or touch), or it is reading aloud: active reading. */
   active(): void
+  /** The text moved three quarters of a screen (forward or back): a page turn for reading time. */
+  turn?(key: number): void
 }
 
 export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi, first?: Promise<MarginPreviewBook | null>): NonNullable<Window['TinctMarginPreview']> {
@@ -193,13 +196,18 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
   const listeningRef = useRef(false)
   // Reading time: the book reader's own counter, as LabApp runs it for an own book (onCover: no pages; the
   // private bucket). Paused until the frame has opened the book; it never reads a place.
-  useLabReadingYear({ userId: user?.id ?? null, bookId, chapter: 1, page: 0, onCover: true, paused: !opened, listeningRef, privateBook: true })
+  // Each three quarters of a screen the frame scrolls is a page turn for reading time (js/tinct-book.js).
+  const [turn, setTurn] = useState(0)
+  useLabReadingYear({ userId: user?.id ?? null, bookId, chapter: 1, page: 0, onCover: true, paused: !opened, listeningRef, privateBook: true, turn })
+  // The same visible-time beats as /reader (they were missing for own books in this frame).
+  useLabFunnelVisibleTime()
   const src = useMemo(() => ownBookFrameUrl(hex, search), [hex, search])
   const [navRequest, setNavRequest] = useState<MarginNavRequest | null>(null)
   const nav = useMemo<MarginNavApi>(() => ({ open: request => setNavRequest(request) }), [])
   const closeNav = useCallback(() => setNavRequest(null), [])
   const own = useMemo<MarginOwnBridge>(() => ({
     opened: () => setOpened(true),
+    turn: () => setTurn(count => count + 1),
     // The reading year hears the reader's actions on this window; the frame's are its own (as useMarginPreviewPlace).
     active: () => { window.dispatchEvent(new Event('pointerdown')) },
   }), [])

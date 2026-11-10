@@ -1605,6 +1605,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   listenPlayingRef.current = listen.playing
   // Listening to an own book is not reported: the report would carry its id.
   useLabListenReport(listen.playing && !privateBook, listenSource.bookId || book.bookId || 'bible')
+  /** The Margin reader's newest paragraph in view at the foot: its page turns for reading time. */
+  const [continuousTailParagraph, setContinuousTailParagraph] = useState<number | undefined>(undefined)
   useLabReadingYear({
     userId: authUser?.id ?? null,
     bookId: book.bookId || 'bible',
@@ -1617,6 +1619,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     paused: tocOpen,
     listeningRef: listenPlayingRef,
     privateBook,
+    // Margin keeps no pages: a new paragraph scrolled into view at the foot is its page turn (10 Nov 2026).
+    turn: continuousReader ? continuousTailParagraph : undefined,
   })
   // Warm narration ahead of the listener: the next chapter's opening when the
   // chapter being heard nears its end. It follows the chapter playing
@@ -1926,6 +1930,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const onContinuousTail = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
     if (!acceptContinuousReaderPlace(reported, currentContinuousEpoch(), continuousReady, false, anchor, book.paragraphs)) return
     const key = `${reported.bookId}/${reported.editionKey}/${reported.chapterNumber}`
+    setContinuousTailParagraph(anchor.paragraphIndex)
     setContinuousTail(previous => previous?.key === key && previous.paragraphIndex === anchor.paragraphIndex && previous.wordIndex === anchor.wordIndex ? previous : { key, ...anchor })
   }
   const onContinuousReadToEnd = (reported: ContinuousReaderEpoch, anchor: { paragraphIndex: number; wordIndex: number }) => {
