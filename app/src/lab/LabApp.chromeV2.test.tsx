@@ -801,7 +801,8 @@ it('uses the compact Explain card surface for mobile Chat and discards its draft
   const card = document.querySelector('.lab-pcard[data-kind="chat"]')!
   expect(card).toBeTruthy()
   expect(card.className).not.toContain('is-tall')
-  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat')
+  // The title names the chapter, as an Explain card's does; the thread then needs no opening divider (10 Nov 2026).
+  expect(card.querySelector('.lab-pcard-label')?.textContent).toBe('Chat · Book 1')
   expect(screen.getByTestId('lab-ask-input').getAttribute('placeholder')).toMatch(/^Ask about /)
   fireEvent.change(screen.getByTestId('lab-ask-input'), { target: { value: 'My unfinished question' } })
   fireEvent.click(screen.getByRole('button', { name: 'Close chat' }))
