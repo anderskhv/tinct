@@ -7865,3 +7865,9 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --
   background: none; color: inherit; opacity: .6; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .lab[data-chrome-version="v2"] .lab-reading-angle-mic[aria-pressed="true"] { opacity: 1; color: var(--tui-accent, #1f6f78); }
 .lab[data-chrome-version="v2"] .lab-reading-angle-mic .lab-picon { width: 18px; height: 18px; }
+
+/* Compare: the heading belongs to the left page. It spanned both columns, so a long title's Primer chip sat on the
+   right page (Anders, 10 Nov 2026, Hamlet 1.1); held to the left column, the chip wraps under the title. */
+.lab[data-chrome-version="v2"] .lab-passage.is-compare > .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-book.is-aligned-compare .lab-passage-header,
+.lab[data-chrome-version="v2"] .lab-desktop-measure.is-paired .lab-desktop-measure-page > .lab-passage-header { max-width: calc((100% - var(--desktop-gutter, 56px)) / 2); }
