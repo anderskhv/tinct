@@ -146,7 +146,9 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-style: italic; color: var(--lab-ink-muted); }
 .lab .lab-pcard .lab-pcard-bin { display: grid; place-items: center; min-width: 32px; min-height: 32px; color: var(--lab-ink-faint); }
 .lab .lab-picon { width: 16px; height: 16px; fill: none !important; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
-.lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; }
+.lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+/* No scroll bar over the answer: iOS drew its indicator into the text (iPhone, 10 Nov 2026). The card still scrolls. */
+.lab .lab-pcard-body::-webkit-scrollbar, .lab .lab-pcard-body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .lab .lab-pcard-body-inner { display: flex; flex-direction: column; gap: 12px; }
 .lab .lab-pcard-answer { font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
 .lab .lab-pcard-answer p, .lab .lab-pcard-answer .lab-markdown p { margin: 0 0 .55em; }
@@ -270,6 +272,14 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Chat lives in the same paper card as Explain. Its thread scrolls within
    that card; it does not bring a second panel or a blank screen of padding. */
 .lab .lab-pcard[data-kind="chat"] > .lab-pcard-body { overflow: hidden; gap: 0; }
+/* Chat's top is one slim row: the grip, then the title and close on 28px (Anders, 10 Nov 2026: the top "eats too
+   much"). Typing, the grip goes: the card is not dragged then. The thread's opening chapter divider stays: without it
+   the thread's spacer sizing loops (ResizeObserver, check-reader-mobile-chat-cards). */
+.lab .lab-pcard[data-kind="chat"] { padding-top: 6px; gap: 4px; }
+.lab .lab-pcard[data-kind="chat"] .lab-pcard-grab { margin-bottom: 2px; }
+.lab .lab-pcard[data-kind="chat"] .lab-pcard-head { min-height: 28px; }
+.lab .lab-pcard[data-kind="chat"] .lab-pcard-head .lab-pcard-bin { min-height: 28px; }
+.lab .lab-pcard[data-kind="chat"][data-keyboard] .lab-pcard-grab { display: none; }
 .lab .lab-pcard[data-kind="chat"] .lab-ask.tc.tc.is-phone-card-chat {
   --tc-paper: var(--lab-pcard-fill); --tc-ink: var(--lab-ink); --tc-muted: var(--lab-ink-muted);
   --tc-faint: var(--lab-ink-faint); --tc-pad: 0px; --tc-answer: 17px; --tc-question: 16px;
@@ -292,7 +302,8 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-chrome { flex: none; padding: 0; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-compose { padding: 8px 0 0; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field { gap: 4px; min-height: 42px; padding: 5px 5px 5px 12px; border: 1px solid var(--lab-pcard-hair); border-radius: 12px; background: var(--lab-pcard-field); }
-.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { min-height: 22px; padding: 0; font: 400 16px/22px 'EB Garamond', Georgia, serif; }
+.lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input { align-self: center; min-height: 22px; padding: 0; font: 400 16px/22px 'EB Garamond', Georgia, serif; }
+/* One line of text sits in the middle of the field, as in a card's follow-up box; it sat on the field's foot under the 30px icons (iPhone, 10 Nov 2026). */
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-input::placeholder { color: var(--lab-ink-muted); opacity: .8; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-field .tc-mark { margin-bottom: 2px; }
 .lab .lab-pcard[data-kind="chat"] .is-phone-card-chat .tc-latest { bottom: 8px; }
