@@ -187,7 +187,7 @@ describe('private Paste entry', () => {
   return {go, upload, engine}
  }
  // The slim Paste window (approved paste-flow mockup 01, 5 Nov 2026): the title is the heading, one text box
- // with the cleaned text, one Add button, a quiet "Choose a file instead"; no trims, no preview, no rights step.
+ // with the cleaned text, one Add button and (9 Nov 2026) a back chevron; no trims, no preview, no rights step.
  const box = () => dialog().querySelector('.own-paste-source') as HTMLElement
  const heading = () => dialog().querySelector('.paste-title__text') as HTMLElement
  const type = (html: string) => { box().innerHTML = html; box().dispatchEvent(new Event('input')) }
@@ -201,18 +201,20 @@ describe('private Paste entry', () => {
  }
  it('follows the build default and URL overrides, and opens the common private reader after confirmed account save', async () => {
   open('')
-  expect(Boolean(dialog().querySelector('.own-file-paste'))).toBe(SHARED_READER_DEFAULT); add.closeFileDialog()
+  expect(Boolean(dialog().querySelector('.add-choice[data-choice="paste"]'))).toBe(SHARED_READER_DEFAULT); add.closeFileDialog()
   open('?sharedReader=0')
-  expect(dialog().querySelector('.own-file-paste')).toBeNull(); add.closeFileDialog()
+  expect(dialog().querySelector('.add-choice[data-choice="paste"]')).toBeNull(); add.closeFileDialog()
   const {go,upload,engine} = open('?sharedReader=1')
   engine.rightsConfirmed = () => false
   const confirm = vi.fn(); Object.assign(engine, {confirmRights: confirm})
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   expect(dialog().querySelector('.own-file-dialog')?.classList.contains('paste-dialog')).toBe(true)
   // The title is the dialog's heading; nothing else of the old window is left.
   expect(dialog().querySelector('#own-file-title .paste-title__text')).not.toBeNull()
   for (const gone of ['.own-paste-details', '.own-paste-preview', '.own-paste-trim-start', '.own-paste-rich-note', 'textarea']) expect(dialog().querySelector(gone)).toBeNull()
-  expect(dialog().querySelector('.own-paste-file')?.textContent).toBe('Choose a file instead')
+  // Since 9 Nov 2026 no "Choose a file instead" (links have their own choice too): a back chevron to the three choices.
+  expect(dialog().querySelector('.own-paste-file, .paste-quiet-link')).toBeNull()
+  expect(dialog().querySelector('.tui-dialog__head .add-own-back')?.getAttribute('aria-label')).toBe('Back')
   expect((dialog().querySelector('.own-paste-save') as HTMLButtonElement).disabled).toBe(true)
   type('<p>Actual</p>')
   rename('A private text')
@@ -243,7 +245,7 @@ describe('private Paste entry', () => {
  })
  it('stays editable and never navigates after account refusal', async () => {
   const upload = vi.fn(async () => { throw new Error('Account is full') }); const {go} = open('?sharedReader=1', upload)
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   type('<p>Actual text</p>'); rename('My draft')
   addText()
   await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toBe('Account is full'))
@@ -256,7 +258,7 @@ describe('private Paste entry', () => {
   let finish!: (value: {id:string;sha256:string}) => void
   const upload=vi.fn(() => new Promise<{id:string;sha256:string}>(resolve => { finish=resolve }))
   const {go}=open('?sharedReader=1',upload)
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   type('<p>A whole paragraph.</p>')
   const save=dialog().querySelector('.own-paste-save') as HTMLButtonElement
   save.click();save.click()
@@ -267,7 +269,7 @@ describe('private Paste entry', () => {
  })
  it('shows the cleaned rich clipboard text in the box, its heading as the title and its byline under it', () => {
   open('?sharedReader=1')
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   const article = 'Starting on September 28, Peter Thiel gave a series of four off-the-record lectures about the Antichrist, held in Nashville on four consecutive Mondays. '.repeat(3)
   const page = '<p>Home</p><p>Archive</p><p>About</p><p>Subscribe</p><h1>Inside the Lectures</h1><p>G. B. Rango</p><p>Oct 25, 2026</p>'
    + `<p><em>${article}</em><img src="https://example.org/spy.jpg" alt="Map"></p><p>202</p><p>Likes</p><p>31</p><p>Comments</p><p>${article}</p>`
@@ -290,7 +292,7 @@ describe('private Paste entry', () => {
   const {go, upload, engine} = open('?sharedReader=1')
   let calls = 0
   engine.prepareEpub = async () => { if (++calls === 2) throw new Error('Temporary local failure'); return {} }
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   type('<p>Actual text</p>'); rename('My draft')
   addText()
   await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toBe('Temporary local failure'))
@@ -303,7 +305,7 @@ describe('private Paste entry', () => {
  })
  it('refuses a text over the limit in the window, before anything is uploaded', async () => {
   const {upload} = open('?sharedReader=1')
-  ;(dialog().querySelector('.own-file-paste') as HTMLButtonElement).click()
+  ;(dialog().querySelector('.add-choice[data-choice="paste"]') as HTMLButtonElement).click()
   type('<p>' + 'word '.repeat(50000) + '</p>')
   addText()
   await vi.waitFor(() => expect(dialog().querySelector('.own-paste-error')?.textContent).toMatch(/^This text is too long to paste: 50,000 words/))

@@ -23,9 +23,11 @@ const FLOOR_PROOF = 'src/worker.rollbackFloor.test.ts'
 const releaseDir = path.join(__dirname, '..', 'release')
 const floorManifest = path.join(releaseDir, 'shared-reader-floor.json')
 const rolloutState = path.join(releaseDir, 'shared-reader-rollout.json')
-// Accepted reader: deploy run 41634475749, source 6b5121f0fd36b13320074f3b221e4c5f0b0a0ea4 (#714 train + #716; all six production acceptance groups passed).
-// All six acceptance groups passed without rollback; preserve the reader-ON release path.
-const ACCEPTED_READER_VERSION = '319befd9-57d4-4e76-b82d-55b488d4fe14'
+// Accepted reader: e30e413c, deployed by run 42667815004 (main 0c7c12e986: bulk upload, own-EPUB Ask, phone card
+// heights, Add your own, Google return fixes; bundle index-Dx0Ox1Ml.js). Its deploy and all six check groups passed, but
+// GitHub never started the run's later jobs (record-accepted included), so the release was not recorded; pinned by hand.
+// Before: be9d6e31 (the dashboard version with the Google secrets), and 319befd9 before that.
+const ACCEPTED_READER_VERSION = 'e30e413c-d1a5-409b-a9e3-4b1f74ac128e'
 
 function validatedVersion(value, label) {
   if (!VERSION_ID.test(value || '')) throw new Error(`${label} must be an explicit Worker Version UUID`)

@@ -23,6 +23,11 @@ const auth = {
 }
 vi.mock('./services/supabase', () => ({ supabase: { auth }, isSupabaseConfigured: () => true }))
 
+/** public/lab/sign-in/first-paint.js, the classic head script that runs before the body paints. */
+function runFirstPaint() {
+  new Function(readFileSync(resolve(__dirname, '../public/lab/sign-in/first-paint.js'), 'utf8'))()
+}
+
 function mountSignInShell() {
   const html = readFileSync(resolve(__dirname, '../public/lab/sign-in/index.html'), 'utf8')
   const shell = new DOMParser().parseFromString(html, 'text/html')
@@ -61,6 +66,7 @@ beforeEach(() => {
 afterEach(() => {
   vi.unstubAllGlobals()
   document.body.innerHTML = ''
+  document.documentElement.removeAttribute('data-sign-in-busy')
   localStorage.clear()
   vi.restoreAllMocks()
   history.replaceState(null, '', '/')
@@ -493,10 +499,70 @@ describe('Google sign-in on tinct.app', () => {
     if (flow) sessionStorage.setItem('tinct:google-sign-in', JSON.stringify(flow))
     auth.getSession.mockResolvedValue({ data: { session: null } } as never)
     history.replaceState(null, '', `/sign-in?callback=google${hash}`)
+    runFirstPaint()
     mountSignInShell()
     await import('./labSignIn')
     await settle()
   }
+  const signingIn = () => document.documentElement.getAttribute('data-sign-in-busy')
+
+  it('says "Signing you in…" from the first paint when Google sends the reader back, never the sign-in form (Anders, 9 Nov 2026)', () => {
+    vi.useFakeTimers()
+    try {
+      for (const [search, expected] of [['?callback=google', 'google'], ['?returnTo=%2Flibrary&callback=google', 'google'], ['', null], ['?callback=oauth', null], ['?callback=googled', null], ['?mode=profile', null]] as const) {
+        document.documentElement.removeAttribute('data-sign-in-busy')
+        history.replaceState(null, '', `/sign-in${search}#code=c&state=s`)
+        runFirstPaint()
+        expect(signingIn(), search).toBe(expected)
+      }
+      // Never stuck on it: a runtime that never took over gives the form back.
+      history.replaceState(null, '', '/sign-in?callback=google')
+      document.documentElement.removeAttribute('data-sign-in-busy')
+      runFirstPaint()
+      vi.advanceTimersByTime(30_000)
+      expect(signingIn()).toBeNull()
+    } finally {
+      vi.useRealTimers()
+    }
+    // The page's own CSS shows only the busy copy while the mark is on, before any module has run.
+    const html = readFileSync(resolve(__dirname, '../public/lab/sign-in/index.html'), 'utf8')
+    expect(html).toContain('html[data-sign-in-busy] .auth-card>:not([data-mode-copy=busy]){display:none!important}')
+    const head = html.slice(0, html.indexOf('<body'))
+    expect(head).toMatch(/<script src="\/lab\/sign-in\/first-paint\.js"><\/script>/)
+    mountSignInShell()
+    expect(document.querySelector('.auth-card > [data-mode-copy="busy"] h1')?.textContent).toBe('Signing you in…')
+  })
+
+  it('keeps "Signing you in…" through the exchange, without the form or a notice, until the next screen', async () => {
+    let answer!: (response: Response) => void
+    workerFetch.mockImplementation(() => new Promise<Response>(resolve => { answer = resolve }))
+    auth.signInWithIdToken.mockResolvedValueOnce({ data: { session: { access_token: 't', user: fresh } }, error: null })
+    await back('#code=c&state=state-1')
+    expect(signingIn()).toBe('google')
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('signin')
+    expect(status().hidden).toBe(true)
+    answer(Response.json({ idToken: 'id.token.value' }))
+    await settle()
+    // The next screen (the welcome here; the profile step with profiles on) takes the mark off.
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('welcome')
+    expect(signingIn()).toBeNull()
+  })
+
+  it('a returning reader goes back to the book still on "Signing you in…"; a failure gives the form back with the notice', async () => {
+    workerFetch.mockImplementation(async () => Response.json({ idToken: 'id.token.value' }))
+    auth.signInWithIdToken.mockResolvedValueOnce({ data: { session: { access_token: 't', user: existing } }, error: null })
+    await back('#code=c&state=state-1')
+    expect(navigation).toHaveBeenCalledWith('/reader?book=bible#p12')
+    expect(signingIn()).toBe('google')
+
+    vi.resetModules(); document.body.innerHTML = ''; document.documentElement.removeAttribute('data-sign-in-busy')
+    workerFetch.mockImplementation(async () => Response.json({ error: 'exchange_failed' }, { status: 400 }))
+    await back('#code=c&state=state-1')
+    expect(signingIn()).toBeNull()
+    expect(document.querySelector<HTMLElement>('#tinct-lab-sign-in')!.dataset.mode).toBe('signin')
+    expect(status().hidden).toBe(false)
+    expect(status().dataset.tone).toBe('error')
+  })
 
   it('goes to Google on this origin with S256 and a hashed nonce once the Worker is set up', async () => {
     workerFetch.mockImplementation(async () => Response.json({ clientId: 'client-1.apps.googleusercontent.com' }))

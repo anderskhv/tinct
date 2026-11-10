@@ -87,8 +87,18 @@ function setBusy(busy: boolean) {
   root?.querySelectorAll<HTMLButtonElement>('[data-oauth]').forEach(button => { button.disabled = busy })
 }
 
+/**
+ * "Signing you in…" over the card while the Google code is exchanged (public/lab/sign-in/first-paint.js sets it
+ * before the first paint). Whatever screen comes next takes it off; a page that goes on to the reader keeps it.
+ */
+const SIGNING_IN_ATTRIBUTE = 'data-sign-in-busy'
+function endSigningIn() {
+  document.documentElement.removeAttribute(SIGNING_IN_ATTRIBUTE)
+}
+
 function setMode(next: Mode) {
   mode = next
+  endSigningIn()
   if (!root) return
   root.dataset.mode = mode
   root.querySelectorAll<HTMLElement>('[data-mode-copy]').forEach(node => {
@@ -162,7 +172,7 @@ function startSocialSteps(session: Session) {
     setStatus,
     finish: returnToLibrary,
     fallbackWelcome: () => setMode('welcome'),
-  }, { googlePhotoUrl })
+  }, { googlePhotoUrl, userId: session.user?.id ?? null })
 }
 
 function credentials() {
@@ -451,9 +461,9 @@ async function finishGoogleSignIn() {
   clean.hash = ''
   clean.searchParams.set('returnTo', returnTo)
   history.replaceState(null, '', clean)
-  setMode('signin')
+  // No setMode here: the page keeps "Signing you in…" (first-paint.js) until the next screen, never the form.
+  document.documentElement.setAttribute(SIGNING_IN_ATTRIBUTE, 'google')
   setBusy(true)
-  setStatus('Signing you in with Google…')
   rememberPendingProvider('google')
   let message = GOOGLE_FAILED_MESSAGE
   try {
@@ -469,6 +479,7 @@ async function finishGoogleSignIn() {
     }
   } catch { /* the notice below */ }
   rememberPendingProvider(null)
+  setMode('signin')
   setStatus(message, 'error')
   setBusy(false)
 }

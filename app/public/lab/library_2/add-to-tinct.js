@@ -13,9 +13,11 @@ import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
-import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded} from './own-add.js?v=20261105flow';
-import {pasteBox} from './paste-box.js?v=20261105flow';
-import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109bulk';
+import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink} from './own-add.js?v=20261109add3';
+import {pasteBox} from './paste-box.js?v=20261109add3';
+import {htmlText} from './paste-text.js?v=20261109add3';
+import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109add3';
+import {ADD_TITLE,LINK_COPY,choiceList,filesRoute,linkForm,backButton} from './add-choices.js?v=20261109add3';
 export {addEngine,loadFileEngine};
 
 /** The page's account state: boot.js sets the class from the signed-in cookie; the reading bridge keeps it in step with Supabase (library2:auth). */
@@ -128,7 +130,9 @@ export function resetAddAccess(){access=null;}
 // confirmation asked once per account (the same recorded confirmation), kept in this browser,
 // saved privately to the account, then the book opens: an EPUB in the Tinct reader, a PDF in
 // Add a book's PDF reader. Nothing goes through Add a book's page.
-const OWN_BOOK_COPY={title:'Your own book',lede:'Open a PDF, EPUB or text file from this device: a textbook, lecture notes, a DRM-free ebook. It stays private to your account.',fine:'Kept privately in your account, never shared. When you ask Tinct’s reading companion about it, its text is sent to answer. DRM-protected files can’t be opened.',choose:'Choose a file',close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
+// "Add your own" (approved mockup, Anders 9 Nov 2026): three equal choices, Upload, Insert link and Paste text
+// (add-choices.js), and nothing else on the first step.
+const OWN_BOOK_COPY={title:ADD_TITLE,close:'Close',cancel:'Cancel',keep:'Continue',opening:'Opening…',unkept:'This browser could not keep a copy, so you will need to open the file again next time.',failed:'This file could not be opened. Choose another file.'};
 // Both the extensions and the types: iOS Files greys an EPUB out when only a type it does not map is
 // named. No spaces: Android's WebView hands each piece to the picker untrimmed. On Android some file
 // managers and cloud apps report an EPUB as application/octet-stream, which the picker would grey out,
@@ -155,15 +159,15 @@ export const ownQueue=()=>batch?.queue?.items||null;
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
 const button=(cls,text)=>{const b=make('button',cls,text);b.type='button';return b;};
 /**
- * The "Your own book" pop-up: one button for the file and a × to close (Anders, 15 Oct 2026);
- * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file
+ * The "Add your own" pop-up: Upload, Insert link and Paste text, and a × to close (Anders, 9 Nov 2026);
+ * `onSearch` is still accepted from the + buttons but no longer shown. A chosen file, link or text
  * is added in the pop-up, with its progress there; `go` then opens the book.
  */
 export function openFileDialog({from=null,onSearch=null,checking=false,authorize=async()=>true,assessPdf=bytes=>addEngine().then(api=>api.assessPdf?.(bytes)),engine=loadFileEngine,go=href=>location.assign(href),keep=putHandoff,fallback=ADD_FILE_HANDOFF_PAGE,showShelf=showMyShelf}={}){
  closeFileDialog();
  // Tinct UI's dialog (/lab/tinct-ui.css, docs/design-system.md) in the library's dark room.
  const layer=make('div','tui-scrim own-file-layer');layer.dataset.testid='own-file-dialog';layer.dataset.tuiTheme='dark';
- const box=make('div','tui-dialog own-file-dialog');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
+ const box=make('div','tui-dialog own-file-dialog add-own');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','own-file-title');
  const title=make('h2','tui-dialog__title',OWN_BOOK_COPY.title);title.id='own-file-title';
  const head=make('div','tui-dialog__head');head.append(title);
  // Closed with the × (Tinct UI's .tui-close), not a Cancel button (Anders, 15 Oct 2026).
@@ -185,24 +189,26 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  const step=(name,...children)=>{box.dataset.step=name;content.replaceChildren(...children);};
  const actions=(...list)=>{const row=make('div','tui-dialog__actions own-file-actions');row.append(...list);return row;};
  let pastePending=null,pasteDraft=null;
- // The plain heading ("Your own book"), as before the Paste window made the title the heading.
- const plainHead=()=>{box.classList.remove('paste-dialog');title.className='tui-dialog__title';delete title.dataset.empty;title.textContent=OWN_BOOK_COPY.title;};
+ // The back chevron before the title (Insert link, Paste text), or none.
+ let back=null;
+ const setBack=onBack=>{back?.remove();back=onBack?backButton(onBack):null;if(back)head.prepend(back);};
+ // The plain heading ("Add your own"), as before the Paste window made the title the heading.
+ const plainHead=(text=OWN_BOOK_COPY.title)=>{setBack(null);box.classList.remove('paste-dialog');title.className='tui-dialog__title';delete title.dataset.empty;title.textContent=text;};
+ // The three choices and nothing else (Anders, 9 Nov 2026); the × in the head closes. Insert link and Paste
+ // text go through the shared reader's pasted-text path, so they are offered where it is on.
  const chooseStep=(message='')=>{
   delete box.dataset.busy;
   plainHead();
-  const choose=button('tui-btn tui-btn--primary own-file-choose',OWN_BOOK_COPY.choose);
-  // The picker opens on this tap (browsers allow a file picker only from a user's own click).
-  choose.onclick=()=>input.click();
-  // Only the file button; the × in the head closes (Anders, 15 Oct 2026).
-  const row=actions(choose);
-  const parts=[make('p','tui-dialog__body own-file-lede',OWN_BOOK_COPY.lede),make('p','tui-dialog__fine own-file-fine',OWN_BOOK_COPY.fine)];
-  if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.unshift(alert);}
-  if(pasteEnabled()){
-   const paste=button('tui-btn tui-btn--secondary own-file-paste','Paste text');
-   paste.onclick=()=>{pasteDraft=null;pasteStep();};row.append(paste);
-  }
-  step('choose',...parts,row);
-  choose.focus({preventScroll:true});
+  const parts=[];
+  if(message){const alert=make('p','tui-dialog__body own-file-message',message);alert.setAttribute('role','alert');parts.push(alert);}
+  parts.push(choiceList({
+   // The picker opens on this tap (browsers allow a file picker only from a user's own click).
+   upload:()=>input.click(),
+   link:pasteEnabled()?()=>{linkDraft=null;linkStep();}:null,
+   paste:pasteEnabled()?()=>{pasteDraft=null;pasteStep();}:null,
+  }));
+  step('choose',...parts);
+  content.querySelector('.add-choice')?.focus({preventScroll:true});
  };
  const progress=value=>{
   box.dataset.busy='1';
@@ -229,42 +235,81 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   step('rights',intro,label,actions(no,ok));
   check.focus({preventScroll:true});
  });
+ // A text or an imported article as the EPUB that is added (own-add.js), then the reader. The file and any
+ // confirmed account copy are reused on a retry of the same text. `retry(message)` shows the step again.
+ async function addPasted(details,{fromHandoff=false,retry}){
+  const signature=JSON.stringify(details);
+  try{if(pastePending?.signature!==signature)pastePending={signature,file:pasteBook(details),account:null};}
+  catch(error){retry(error.message);return;}
+  const file=pastePending.file;
+  progress(.08);
+  try{
+   const engineApi=await api();
+   const added=await savePastedText(engineApi,file,{title:details.title,author:details.author,account:pastePending.account,progress,onAccount:account=>{pastePending.account=account;}});
+   if(fromHandoff)await clearPasteHandoff();
+   noteAdded(added.key);go(added.href);
+  }catch(error){retry(error?.message||'This text could not be added. Try again.');}
+ }
+ // Insert link (approved mockup, 9 Nov 2026): a back chevron, one field "Link to an article" and Add. The
+ // article is fetched once by Tinct's server (own-add.js draftFromLink) and added as pasted text is. On a
+ // failure the step comes back with the reason and the link still in the field.
+ let linkDraft=null;
+ function linkStep(message='',value=linkDraft?.url||''){
+  delete box.dataset.busy;
+  plainHead(LINK_COPY.title);setBack(()=>{linkDraft=null;chooseStep();});
+  const form=linkForm({value,message,onSubmit:url=>void addLink(url),buttonClass:'tui-btn tui-btn--primary',inputClass:'tui-input',actionsClass:'tui-dialog__actions'});
+  step('link',form.el);
+  form.focus();
+ }
+ let linking=false;
+ async function addLink(url){
+  if(linking)return;
+  linking=true;
+  const again=message=>{linking=false;linkStep(message,url);};
+  content.querySelector('.add-link__add')?.setAttribute('disabled','');
+  if(!await authorize()||!layer.isConnected){linking=false;if(layer.isConnected)linkStep('',url);return;}
+  linkDraft={...linkDraft,url};
+  plainHead(LINK_COPY.title);
+  progress(.05);
+  let host='';try{host=new URL(url).hostname.replace(/^www\./,'');}catch{/* checked by the server */}
+  note(`Importing the article from ${host}…`);
+  let article;
+  try{await api();article=await draftFromLink({url,title:linkDraft?.title||'',uid:linkDraft?.uid||''});}
+  catch(error){again(error?.message||'Tinct could not import this page. Paste the article text instead.');return;}
+  const tooLong=pasteTooLong(htmlText(article.html),{imported:true});
+  if(tooLong){again(tooLong);return;}
+  await addPasted({html:article.html,title:article.title||'Pasted text',author:article.author,uid:linkDraft?.uid||'',source:article.source},{fromHandoff:!!linkDraft?.fromHandoff,retry:again});
+ }
  // The slim Paste window (approved mockup 01, 5 Nov 2026): the title is the heading, edited in place;
- // the byline and word count under it; the cleaned text in the box (paste-box.js); one Add button and
- // a quiet "Choose a file instead". No rights step for pasted text. The draft lives only in the dialog
+ // the byline and word count under it; the cleaned text in the box (paste-box.js); one Add button and,
+ // since 9 Nov 2026, a back chevron to the three choices instead of "Choose a file instead". A link pasted
+ // alone goes to Insert link. No rights step for pasted text. The draft lives only in the dialog
  // (and, from /byob, in this browser's handoff until it is added).
  function pasteStep(message=''){
   delete box.dataset.busy;
+  setBack(null);
   box.classList.add('paste-dialog');
-  const paste=pasteBox({heading:title,placeholder:'Paste text'});
+  const paste=pasteBox({heading:title,placeholder:'Paste text',onLink:url=>{linkDraft={uid:pasteDraft?.uid||'',fromHandoff:!!pasteDraft?.fromHandoff};linkStep('',url);}});
+  setBack(()=>{pasteDraft=null;chooseStep();});
   const alert=make('p','own-paste-error',message);alert.setAttribute('role','alert');
   const save=button('tui-btn tui-btn--primary tui-btn--lg own-paste-save','Add');
-  const other=button('paste-quiet-link own-paste-file','Choose a file instead');other.onclick=()=>input.click();
   const sync=()=>{save.disabled=paste.empty()||save.dataset.busy==='1';};
   paste.onChange(()=>{alert.textContent='';sync();});
   save.onclick=async()=>{
    if(save.disabled)return;
+   let draft=paste.read();
+   // A link typed into the box: imported as Insert link imports it.
+   if(draft.url){linkDraft={uid:pasteDraft?.uid||'',title:draft.title,fromHandoff:!!pasteDraft?.fromHandoff};void addLink(draft.url);return;}
    save.dataset.busy='1';sync();
    const release=()=>{delete save.dataset.busy;sync();};
    if(!await authorize()||!layer.isConnected){release();return;}
-   const draft=paste.read();
-   const tooLong=pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
-   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||''};
-   const signature=JSON.stringify(details);
-   try{if(pastePending?.signature!==signature)pastePending={signature,file:pasteBook(details),account:null};}
-   catch(error){alert.textContent=error.message;release();return;}
-   const file=pastePending.file;
    pasteDraft={...pasteDraft,...draft};
+   const tooLong=pasteTooLong(draft.text);if(tooLong){alert.textContent=tooLong;release();return;}
+   const details={html:draft.html,title:draft.title||'Pasted text',author:draft.author,uid:pasteDraft?.uid||'',source:''};
    paste.title.contentEditable='false';
-   progress(.08);
-   try{
-    const engineApi=await api();
-    const added=await savePastedText(engineApi,file,{title:details.title,author:details.author,account:pastePending.account,progress,onAccount:account=>{pastePending.account=account;}});
-    if(pasteDraft?.fromHandoff)await clearPasteHandoff();
-    noteAdded(added.key);go(added.href);
-   }catch(error){box.classList.remove('paste-dialog');pasteStep(error?.message||'This text could not be added. Try again.');}
+   await addPasted(details,{fromHandoff:!!pasteDraft?.fromHandoff,retry:text=>{box.classList.remove('paste-dialog');pasteStep(text);}});
   };
-  const row=actions(other,save);row.classList.add('paste-actions');
+  const row=actions(save);row.classList.add('paste-actions');
   step('paste',paste.wrap,alert,row);
   content.prepend(paste.meta);
   if(pasteDraft?.plain!==undefined)paste.showPasted(pasteDraft.plain,pasteDraft.title);
@@ -322,12 +367,12 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   const files=[...(list||[])].filter(Boolean);if(!files.length)return;
   if(batch?.queue&&!batch.done){batch.queue.add(files);return;}
   if(box.dataset.busy)return;
-  if(files.length===1)void addFile(files[0]);else void addFiles(files);
+  if(filesRoute(files)==='one')void addFile(files[0]);else void addFiles(files);
  }
  input.onchange=()=>{const files=[...(input.files||[])];input.value='';takeFiles(files);};
- // Files dropped anywhere on the pop-up (a desktop), as on the signed-out sheet (own-start.js).
+ // Files dropped anywhere on the pop-up (a desktop), as on the signed-out sheet (own-start.js); no line says so.
  const dragging=event=>[...(event.dataTransfer?.types||[])].includes('Files');
- const dropReady=()=>box.dataset.step==='choose'||box.dataset.step==='queue'&&!batch?.done;
+ const dropReady=()=>box.dataset.step==='choose'||box.dataset.step==='link'||box.dataset.step==='queue'&&!batch?.done;
  for(const type of ['dragenter','dragover'])box.addEventListener(type,event=>{if(!dragging(event)||!dropReady())return;event.preventDefault();box.classList.add('is-over');});
  for(const type of ['dragleave','drop'])box.addEventListener(type,()=>box.classList.remove('is-over'));
  box.addEventListener('drop',event=>{if(!event.dataTransfer?.files?.length||!dropReady())return;event.preventDefault();takeFiles(event.dataTransfer.files);});
@@ -394,7 +439,13 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
  layer.addFile=addFile;
  // Several files (from /byob or the signed-out sheet via /preparing): `rights` when the line was shown there.
  layer.addFiles=(files,options)=>{const list=[...(files||[])].filter(Boolean);if(!list.length)return;return list.length===1?addFile(list[0]):addFiles(list,options);};
- layer.showPaste=(draft=null)=>{if(!pasteEnabled())return;pasteDraft=draft?{...draft,fromHandoff:true}:null;pasteStep();};
+ // A kept text (from /byob or the signed-out sheet) shown again; a kept link in Insert link.
+ layer.showPaste=(draft=null)=>{
+  if(!pasteEnabled())return;
+  if(draft?.url){pasteDraft=null;linkDraft={url:draft.url,title:draft.title||'',uid:draft.uid||'',fromHandoff:true};linkStep();return;}
+  pasteDraft=draft?{...draft,fromHandoff:true}:null;pasteStep();
+ };
+ layer.showLink=(url='')=>{if(!pasteEnabled())return;linkDraft=url?{url}:null;linkStep();};
  return layer;
 }
 /** After a batch: My shelf on this page (app.js listens), not a book. */

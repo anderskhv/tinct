@@ -18,7 +18,7 @@ import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261106mm';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry,OWN_BOOKS_PAGE} from './add-to-tinct.js?v=20261106mm';
 import {takeHandoffFiles,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
-import {openOwnStart} from './own-start.js?v=20261105flow';
+import {openOwnStart} from './own-start.js?v=20261109add3';
 import {librarySearch} from './library-search.js?v=20261009rel10';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';

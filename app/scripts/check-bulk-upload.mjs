@@ -1,15 +1,16 @@
 // Several own books at once (Anders, 9 Nov 2026: "Lets do bulk uploads, yes").
 //
 // Loads the built site (dist/) in headless Chromium, signed in with a synthetic account, at desktop 1440 and
-// phone 390, and asserts in the library's "Your own book" pop-up (add-to-tinct.js, own-queue.js):
-// 1. The picker takes several files. Three chosen together (a PDF, an EPUB and a text file renamed .pdf):
+// phone 390, and asserts in the library's "Add your own" pop-up (add-to-tinct.js, own-queue.js; its three choices,
+// Anders 9 Nov 2026, add-choices.js):
+// 1. Upload opens the picker, which takes several files. Three chosen together (a PDF, an EPUB and a text file renamed .pdf):
 //    the rights confirmation is asked once for all three, then a queue lists each file with its status
 //    (waiting, preparing, added, or the reason it failed), one after another; the page is not blocked.
 // 2. The two good books are on My shelf (and in the account) and the page lands on My shelf, not in a book;
 //    the failed file keeps the engine's reason ("This file could not be opened as a PDF. Choose another file.").
-// 3. Desktop only: the same EPUB again with a new .txt file: the EPUB is skipped ("Already on My shelf"),
-//    the text is added.
-// 4. Signed out on /byob (desktop): two files chosen together are kept on the device; sign-in names them
+// 3. Desktop only: the same EPUB again with a new .txt file, dropped on the pop-up (no line says it can be): the EPUB
+//    is skipped ("Already on My shelf"), the text is added.
+// 4. Signed out on /byob (desktop): two files chosen together with Upload are kept on the device; sign-in names them
 //    ("… and 1 more"); after sign-in, Preparing hands them to the library's queue, which ends on My shelf.
 // Every account call is answered here (in memory) and no AI, OCR or other provider is called: nothing leaves
 // the machine. Run after `npm run build`, from app/ or app/scripts: node scripts/check-bulk-upload.mjs.
@@ -124,7 +125,21 @@ async function openAdd(page) {
   await add.waitFor({ state: 'visible', timeout: 60000 })
   await add.click()
   await page.locator('.own-file-dialog[data-step="choose"]').waitFor({ timeout: 30000 })
+  assert.equal(await page.locator('[data-testid="own-file-dialog"] h2').innerText(), 'Add your own')
+  assert.deepEqual(await page.locator('.own-file-dialog .add-choice .add-choice__label').allInnerTexts(), ['Upload', 'Insert link', 'Paste text'])
 }
+/** Upload: the picker opens from the tile; the files are chosen there. */
+async function upload(page, files) {
+  const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.locator('.own-file-dialog .add-choice[data-choice="upload"]').click()])
+  assert.equal(chooser.isMultiple(), true, 'the picker takes several files')
+  await chooser.setFiles(files)
+}
+/** Files dropped on the pop-up, as a desktop does. */
+const dropFiles = (page, files) => page.locator('.own-file-dialog').evaluate((el, files) => {
+  const data = new DataTransfer()
+  for (const f of files) data.items.add(new File([Uint8Array.from(f.bytes)], f.name, { type: f.mimeType }))
+  for (const type of ['dragenter', 'dragover', 'drop']) el.dispatchEvent(new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: data }))
+}, files.map(f => ({ name: f.name, mimeType: f.mimeType, bytes: [...f.buffer] })))
 
 async function main() {
   if (ARTIFACTS) await fs.mkdir(ARTIFACTS, { recursive: true })
@@ -149,7 +164,8 @@ async function main() {
         await openAdd(page)
         const input = page.locator('[data-testid="own-file-dialog"] .own-file-input')
         assert.equal(await input.evaluate(el => el.multiple), true, 'the picker takes several files')
-        await input.setInputFiles([
+        await shot(page, `00-add-your-own-${name}`)
+        await upload(page, [
           { name: 'weather-notes.pdf', mimeType: 'application/pdf', buffer: pdfBytes() },
           { name: 'not-really.pdf', mimeType: 'application/pdf', buffer: Buffer.from('Just a few words of plain text, renamed to look like a PDF.') },
           { name: 'harbour-almanac.epub', mimeType: 'application/epub+zip', buffer: Buffer.from(epub) },
@@ -192,7 +208,8 @@ async function main() {
           // The same EPUB again, with a new text file: the EPUB is skipped, the text added.
           await page.locator('#library-add').click()
           await page.locator('.own-file-dialog[data-step="choose"]').waitFor({ timeout: 30000 })
-          await page.locator('[data-testid="own-file-dialog"] .own-file-input').setInputFiles([
+          assert.equal(await page.locator('.own-file-dialog').getByText(/drag|drop/i).count(), 0, 'no line about dropping')
+          await dropFiles(page, [
             { name: 'harbour-almanac.epub', mimeType: 'application/epub+zip', buffer: Buffer.from(epub) },
             { name: 'evening-walk.txt', mimeType: 'text/plain', buffer: Buffer.from('Evening walk\n\n' + 'The path follows the sea wall past the lamps. '.repeat(40)) },
           ])
@@ -216,7 +233,9 @@ async function main() {
       page.on('pageerror', error => errors.push(error.message))
       await page.goto('/byob')
       assert.equal(await page.locator('#file').evaluate(el => el.multiple), true, '/byob\'s picker takes several files')
-      await page.locator('#file').setInputFiles([
+      const [chooser] = await Promise.all([page.waitForEvent('filechooser'), page.getByRole('button', { name: 'Upload', exact: true }).click()])
+      assert.equal(chooser.isMultiple(), true)
+      await chooser.setFiles([
         { name: 'tide-tables.pdf', mimeType: 'application/pdf', buffer: pdfBytes() },
         { name: 'lamp-log.txt', mimeType: 'text/plain', buffer: Buffer.from('Lamp log\n\n' + 'The lamp was lit at dusk and trimmed at midnight. '.repeat(40)) },
       ])
