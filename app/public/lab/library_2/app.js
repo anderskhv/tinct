@@ -16,7 +16,7 @@ import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261106mm';
 import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261106mm';
-import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry,OWN_BOOKS_PAGE} from './add-to-tinct.js?v=20261106mm';
+import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry} from './add-to-tinct.js?v=20261106mm';
 import {takeHandoffFiles,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {openOwnStart} from './own-start.js?v=20261109add3';
 import {librarySearch} from './library-search.js?v=20261009rel10';
@@ -159,18 +159,6 @@ function coverButton(book,cls='book-card cover-button'){const b=el('button',cls)
  // Shelf covers carry a + for Want to read, beside (not inside) the cover button.
  const wrap=el('div','card-wrap');const save=el('button','save-toggle');save.dataset.book=book.id;save.dataset.title=book.title;paintSaveToggle(save);save.onclick=e=>{e.stopPropagation();toggleSaved(book.id);};wrap.append(b,save,coverMetadata(book));return wrap;}
 /**
- * "Read your own books" under Featured (Anders approved the mockup, 4 Nov 2026): signed in where
- * Add to Tinct is on, Add a book opens the "Your own book" pop-up; otherwise it leads to /byob.
- */
-function ownBooksBand(){
- const band=el('section','own-books-band');band.setAttribute('aria-label','Read your own books');
- const glyph=el('span','own-books-glyph');glyph.setAttribute('aria-hidden','true');glyph.innerHTML='<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg>';
- const text=el('div','own-books-text');text.append(el('strong','','Read your own books'),el('span','','Add a PDF, an EPUB or text you paste. Private to you.'));
- const add=el('button','own-books-add','Add a book');add.type='button';
- add.onclick=()=>{if(addEnabled()&&document.documentElement.classList.contains('signed-in'))void openFileEntry(add,{onSearch:()=>setSearch(true)});else location.assign(OWN_BOOKS_PAGE);};
- band.append(glyph,text,add);return band;
-}
-/**
  * /library?own=file|paste (from /byob, or the Preparing page's way back): the "Your own book" pop-up,
  * at Paste text for paste, holding the text /byob kept (file-handoff.js) if there is one. A file
  * /byob kept for the library is added at once, as if chosen in the pop-up; several go to its queue.
@@ -187,7 +175,7 @@ function openOwnEntryFromParam(){
  void (async()=>{const files=own==='file'?await takeHandoffFiles():[];const layer=await openFileEntry($('library-add'),{onSearch:()=>setSearch(true)});if(!layer)return;if(files.length)layer.addFiles?.(files);else if(own==='paste')layer.showPaste?.(await peekPasteHandoff());})();
 }
 [['Featured',books.map((_,i)=>i)]].forEach(([title,indices])=>{const section=el('section','shelf');section.append(el('h2','',title));const row=el('div','book-row');row.setAttribute('aria-label',title);indices.forEach(i=>row.append(coverButton(books[i])));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
-$('shelves').append(ownBooksBand());
+// No "Read your own books" band (Anders, 10 Nov 2026: removed): "Add your own" is the + on the shelves and the hero.
 // The rest of the library: every discoverable book, shelved by house.
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
 loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);if(entry.altTitles?.length)book.altTitles=entry.altTitles;searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});

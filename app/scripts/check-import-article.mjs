@@ -146,7 +146,7 @@ const DESKTOP = { width: 1440, height: 900 }, PHONE = { width: 390, height: 844 
 const NO_TEXT = 'This page didn’t share its text. Paste the article text instead.'
 const shot = async (page, name) => { if (ARTIFACTS) await page.screenshot({ path: path.join(ARTIFACTS, `${name}.png`) }) }
 const noSideScroll = page => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)
-const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready') || document.querySelector('.own-books-band'), null, { timeout: 60000 })
+const libraryReady = page => page.waitForFunction(() => document.documentElement.classList.contains('library-ready'), null, { timeout: 60000 })
 const signInReady = page => page.waitForFunction(() => document.querySelector('#tinct-lab-sign-in')?.dataset.ready === 'true', null, { timeout: 30000 })
 /** Paste as a browser does: text/plain, and the link as text/html too when `html` is set. */
 const pasteInto = (page, selector, plain, html = '') => page.locator(selector).evaluate((el, { plain, html }) => {
