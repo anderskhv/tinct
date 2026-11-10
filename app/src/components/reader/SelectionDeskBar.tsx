@@ -2,14 +2,19 @@ import { forwardRef, useEffect, useLayoutEffect, useRef, useState, type ReactNod
 import { HIGHLIGHT_COLORS, type HighlightColor } from '../../types'
 import { PhoneIcon } from '../../lab/marginPhone/LabPhoneCard'
 import { deskBarPlace, deskMorePlace, firstAndLastLine, type DeskBox } from './deskBarPlace'
+import { labKeyboardInsetPx } from '../../lab/labChrome'
 import { deskBarShortcut, deskBarShortcutLabel, type DeskBarShortcut } from './deskBarShortcuts'
 import '../../lab/marginPhone/marginPhone.css'
 import './selectionDeskBar.css'
+
+/** Less than this between the window's foot and what the reader sees is browser chrome, not a keyboard. */
+const DESK_KEYBOARD_MIN_PX = 80
 
 /**
  * The bar's states, as the margin reader names them (margin.js barHtml): a fresh selection ('menu'), its colours once
  * it is highlighted ('colors'), and a saved highlight clicked ('existing').
  */
+
 export type DeskBarState = 'menu' | 'colors' | 'existing'
 export type DeskMoreId = 'define' | 'factcheck' | 'counterpoint' | 'quiz' | 'gallery' | 'copy' | 'share' | 'page'
 
@@ -149,6 +154,25 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     // A typed first character seeds the field: the caret follows it (a textarea starts its caret at 0).
     field.setSelectionRange(field.value.length, field.value.length)
   }, [askOpen])
+  // A touch screen's keyboard (an iPhone held sideways shows this desktop bar): the bar's place by the passage is
+  // measured in the window, which the keyboard covers without shrinking, and iOS then pans the page, so the field
+  // floated over the text at the top left (iPhone, 10 Nov 2026). While the keyboard is up, the open Ask bar stands
+  // on it instead, across the screen, where the question is typed in view.
+  const [keyboardInset, setKeyboardInset] = useState(0)
+  useEffect(() => {
+    const viewport = typeof window !== 'undefined' ? window.visualViewport : null
+    if (!askOpen || !viewport) { setKeyboardInset(0); return }
+    const measure = () => {
+      const inset = labKeyboardInsetPx(window.visualViewport, window.innerHeight)
+      setKeyboardInset(inset >= DESK_KEYBOARD_MIN_PX ? inset : 0)
+    }
+    measure()
+    viewport.addEventListener('resize', measure)
+    viewport.addEventListener('scroll', measure)
+    window.addEventListener('resize', measure)
+    return () => { viewport.removeEventListener('resize', measure); viewport.removeEventListener('scroll', measure); window.removeEventListener('resize', measure) }
+  }, [askOpen])
+  const onKeyboard = askOpen && keyboardInset > 0
   // The Ask field grows with its question, up to three lines, then scrolls (Anders, 30 Oct 2026). The bar is placed
   // again at its new height, so it grows away from the passage.
   useLayoutEffect(() => {
@@ -279,9 +303,12 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
       data-testid="lab-desk-bar"
       data-bar-state={state}
       data-ask-open={askOpen ? 'true' : undefined}
+      data-keyboard={onKeyboard ? 'true' : undefined}
       role="toolbar"
       aria-label={props.ariaLabel ?? "Selection"}
-      style={{ position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
+      style={onKeyboard
+        ? { position: 'fixed', top: 'auto', bottom: keyboardInset + 8, left: 12, right: 12, width: 'auto', maxWidth: 'none' }
+        : { position: 'fixed', top: place?.top ?? -999, left: place?.left ?? 16, ['--tip' as string]: `${place?.tip ?? 40}px`, visibility: place ? undefined : 'hidden' }}
       onPointerDown={keep}
       onMouseDown={keep}
     >
