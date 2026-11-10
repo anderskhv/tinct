@@ -87,7 +87,7 @@ test('mobile edge taps and swipes turn the visible page without exposing arrow c
   await context.close()
 })
 
-test('mobile Compare flips editions at the same primary anchor and returns without blank text', async ({ browser }) => {
+test('the phone has no Compare: a Main version round trip returns to the same anchor without blank text', async ({ browser }) => {
   const { context, page } = await mobileReader(browser)
   await context.addInitScript(() => {
     localStorage.setItem('tinct-lab-prefs', JSON.stringify({
@@ -106,30 +106,32 @@ test('mobile Compare flips editions at the same primary anchor and returns witho
   const primaryAnchor = await page.getByTestId('lab-root').getAttribute('data-place')
   expect(primaryAnchor).not.toBe('0:0')
 
-  // Compare is reached from Book settings only on a phone (Anders, 2026-11-06).
-  const toggleCompare = async () => {
+  // The phone has no Compare (Anders, 10 Nov 2026): Book settings switch the Main version,
+  // and a round trip through the other edition returns to the same place.
+  const readMain = async (edition: string) => {
     await page.getByTestId('lab-super').tap()
     await page.getByTestId('lab-super-row-editions').tap()
-    await page.getByTestId('lab-v2-show-compare').tap()
+    await expect(page.getByTestId('lab-v2-show-compare')).toHaveCount(0)
+    await page.getByTestId('lab-v2-main-edition').tap()
+    await page.locator(`[data-edition="${edition}"]`).tap()
+    await page.getByTestId('lab-v2-sheet-close').tap()
   }
   await expect(page.getByTestId('lab-phone-compare')).toHaveCount(0)
-  await toggleCompare()
+  await readMain('modern-en')
 
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'modern-en')
-  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-compare-active', 'true')
-  await expect.poll(() => stageText(page)).not.toBe(settledPrimaryText)
-  const compareText = await stageText(page)
-  expect(compareText.length).toBeGreaterThan(100)
-  expect(compareText).toContain('God')
-  expect(await page.getByTestId('lab-root').getAttribute('data-place')).toBe(primaryAnchor)
-  await page.screenshot({ path: join(ARTIFACT_DIR, 'mobile-compare-modern-390x844.png') })
-
-  await toggleCompare()
-  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'kjv-en')
   await expect(page.getByTestId('lab-root')).toHaveAttribute('data-compare-active', 'false')
+  await expect.poll(() => stageText(page)).not.toBe(settledPrimaryText)
+  const otherText = await stageText(page)
+  expect(otherText.length).toBeGreaterThan(100)
+  expect(otherText).toContain('God')
+  await page.screenshot({ path: join(ARTIFACT_DIR, 'mobile-main-modern-390x844.png') })
+
+  await readMain('kjv-en')
+  await expect(page.getByTestId('lab-root')).toHaveAttribute('data-reader-edition', 'kjv-en')
   await expect.poll(() => stageText(page)).toBe(settledPrimaryText)
   expect(await page.getByTestId('lab-root').getAttribute('data-place')).toBe(primaryAnchor)
-  await page.screenshot({ path: join(ARTIFACT_DIR, 'mobile-compare-return-kjv-390x844.png') })
+  await page.screenshot({ path: join(ARTIFACT_DIR, 'mobile-main-return-kjv-390x844.png') })
 
   await context.close()
 })

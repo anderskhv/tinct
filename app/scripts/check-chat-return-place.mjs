@@ -188,21 +188,25 @@ const browser = await markInternal(await chromium.launch({ executablePath, args:
 const results = []
 let failed = false
 try {
-  // Read, and Compare (switched to the other edition). Every Chat entry point
-  // returns by "Back to book"; the menu entry also by Escape and after a reply.
-  const views = process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'compare']
+  // Read, and the other edition read as the Main version (the phone has no Compare
+  // since 10 Nov 2026). Every Chat entry point returns by "Back to book"; the menu
+  // entry also by Escape and after a reply. TEST_VIEWS=compare is an alias for edition.
+  const views = (process.env.TEST_VIEWS ? process.env.TEST_VIEWS.split(',') : ['read', 'edition']).map(view => view === 'compare' ? 'edition' : view)
   const cases = views.flatMap(view => Object.entries(entries).flatMap(([entry, open]) => Object.entries(returns)
     .filter(([back]) => entry === 'menu' || back === 'done')
     .map(([back, close]) => [`${view}/${entry}/${back}`, view, open, close])))
   for (const [name, view, open, close] of cases) {
     const { context, page, errors, cspViolations } = await boot(browser)
     try {
-      if (view === 'compare') {
-        // The vertical swipe was removed (6 Nov 2026); Compare opens from Book settings.
+      if (view === 'edition') {
+        // No Compare on the phone (10 Nov 2026): Book settings switch the Main version instead.
         await page.getByTestId('lab-super').click()
         await page.getByTestId('lab-super-row-editions').click()
-        await page.getByTestId('lab-v2-show-compare').click()
-        await page.waitForFunction(() => document.querySelector('[data-testid="lab-root"]')?.getAttribute('data-compare-active') === 'true')
+        assert.equal(await page.getByTestId('lab-v2-show-compare').count(), 0, 'The phone offers no Compare')
+        await page.getByTestId('lab-v2-main-edition').click()
+        await page.locator(`[data-edition="${compareEdition}"]`).click()
+        await page.getByTestId('lab-v2-sheet-close').click()
+        await page.waitForFunction(edition => document.querySelector('[data-testid="lab-root"]')?.dataset.readerEdition === edition, compareEdition)
         await page.waitForTimeout(1500)
       }
       await turnForward(page, turns)

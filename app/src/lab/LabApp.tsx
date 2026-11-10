@@ -1061,7 +1061,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     && !bibleEditionHasChapter(prefs.compareEdition, book.chapterNumber)
   const compareNumberingDiffers = (book.bookId || 'bible') === 'bible' && prefs.compareOpen
     && !bibleVerseNumbersCorrespond(prefs.primaryEdition, prefs.compareEdition, book.chapterNumber)
-  const mobileCompareEnabled = showPhoneChrome && prefs.compareOpen && book.compareParagraphs.length > 0 && !unalignedCompare && !compareNumberingDiffers
+  // Compare is a desktop view (Anders, 10 Nov 2026): the phone reads one edition, chosen as Main version in Book settings.
+  const mobileCompareEnabled = false
   const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && prefs.primaryEdition !== prefs.compareEdition
     && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
   // Aa can offer Compare before a second edition has been chosen. Choosing it
@@ -6915,6 +6916,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 onChoose: chooseSharedDesktopLayout }
             : null}
           compareFromLayout={compareFromLayout}
+          compareChoice={!showPhoneChrome}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
