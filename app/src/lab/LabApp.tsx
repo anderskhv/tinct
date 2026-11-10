@@ -6910,7 +6910,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 onChoose: chooseSharedDesktopLayout }
             : null}
           compareFromLayout={compareFromLayout}
-          compareChoice={!showPhoneChrome}
           compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}

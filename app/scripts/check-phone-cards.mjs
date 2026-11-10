@@ -418,7 +418,7 @@ async function run(engineName) {
   await page.getByTestId('lab-super-menu').waitFor()
   const menu = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-super-menu"] .lab-super-row-label')].map(n => n.textContent))
   // The settings groups and Notebook (22 Oct 2026): the phone has no top-bar Aa or Notebook, so all are t menu rows.
-  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Summarize|Catch me up|Notebook|Aa|Book settings|Audio settings|Library|Profile', menu)
+  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Catch me up|Notebook|Aa|Book settings|Audio settings|Library|Profile', menu)
   shots.push(await shot(page, `${tag}-menu`))
   // Notebook (one Notebook on every interface): the book's cards (section 3's) and the reader's marks in one list,
   // newest first, with the desktop Notebook's filters; its × goes back to the book, the place kept.
@@ -605,7 +605,7 @@ async function run(engineName) {
   await showControls(fp)
   await fp.getByTestId('lab-super').click()
   await fp.getByTestId('lab-super-menu').waitFor()
-  ok(`${tag}: the first chapter's t menu has no Catch me up`, (await fp.getByTestId('lab-super-row-catchup').count()) === 0 && (await fp.getByTestId('lab-super-row-summarize').count()) === 1)
+  ok(`${tag}: the first chapter's t menu has no Catch me up`, (await fp.getByTestId('lab-super-row-catchup').count()) === 0 && (await fp.getByTestId('lab-super-row-summarize').count()) === 0)
   shots.push(await shot(fp, `${tag}-first-chapter-menu`))
   await close(firstState)
   return shots
