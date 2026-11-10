@@ -248,7 +248,9 @@ async function sourceParity(page, calls, output) {
   assert(calls.slice(asked).every(call => !['/api/chat', '/api/lab-chat'].includes(call.path) || call.body.includes('What the method assumes')), 'any whole-document request carries the reading angle')
   const quizAsked = calls.length
   await startCard.locator('[data-testid="pdf-heading-actions"]').getByRole('button', { name: 'Quiz me', exact: true }).click()
-  for (let tick = 0; tick < 100 && !calls.slice(quizAsked).some(call => call.path === '/api/chat'); tick++) await page.waitForTimeout(50)
+  // The tap lands at once (the card shows its preparing state); the request follows once every page of the section
+  // has its text. After the reload above only drawn pages are cached, so that took 5.0-5.7 s here: wait for it.
+  for (const deadline = Date.now() + 45000; Date.now() < deadline && !calls.slice(quizAsked).some(call => call.path === '/api/chat');) await page.waitForTimeout(50)
   assert(calls.slice(quizAsked).some(call => call.path === '/api/chat' && call.body.includes('What the method assumes')), `the section's Quiz me carries the reading angle: ${JSON.stringify(calls.slice(quizAsked).map(call => call.path))}`)
   assert(Math.abs(await host.evaluate(node => node.scrollTop) - beforeWhole) < 2, 'the whole-document Summary leaves the page where it was')
   await page.screenshot({ path: path.join(output, 'pdf-start-card-whole-summary.png') })
