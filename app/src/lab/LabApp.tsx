@@ -181,7 +181,7 @@ import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
-import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors, type EditionAnchorFile } from './labEditionAnchors'
+import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors } from './labEditionAnchors'
 import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
@@ -226,7 +226,7 @@ import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
-import { buildVerseAlignment, compareSidesSwapped, needsVerseAlignment } from './labVerseAlignment'
+import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -1056,34 +1056,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const pairedCompareUnavailable = useMemo(() => (book.bookId || 'bible') === 'bible'
     && needsVerseAlignment(book.paragraphs, book.compareParagraphs)
     && !buildVerseAlignment(book.paragraphs, book.compareParagraphs), [book.bookId, book.paragraphs, book.compareParagraphs])
-  // Outside the Bible, compare pairs paragraph by paragraph. A pair with an edition marked unaligned (Pope's verse
-  // Odyssey; Jane Eyre / Pride and Prejudice Danish keep the paragraphing the English editions left on 2026-09-25)
-  // has no paragraphs to pair: its rows are set by share of the chapter instead (labVerseAlignment
-  // buildProportionalAlignment; Anders, 11 Nov 2026: "pope should also work OK in compare mode").
+  // Outside the Bible, compare pairs paragraph by paragraph: an edition marked
+  // unaligned (Jane Eyre / Pride and Prejudice Danish keep the paragraphing
+  // the English editions left on 2026-09-25) cannot be paired on any device.
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
     && [prefs.primaryEdition, prefs.compareEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
-  // The book's anchors between its unaligned editions (labEditionAnchors.ts; most books have none): Compare sets its
-  // rows through them. One object for the paginator and the page, so both pair the same words.
-  const [editionAnchors, setEditionAnchors] = useState<EditionAnchorFile | null>(null)
-  const anchorsBookId = book.bookId || 'bible'
-  useEffect(() => {
-    let cancelled = false
-    setEditionAnchors(null)
-    if (anchorsBookId === 'bible' || privateBook) return
-    void loadEditionAnchors(anchorsBookId).then(file => { if (!cancelled) setEditionAnchors(file) })
-    return () => { cancelled = true }
-  }, [anchorsBookId, privateBook])
-  const compareAnchors = useMemo(() => {
-    if (!unalignedCompare || !editionAnchors || !book.compareParagraphs.length) return null
-    const count = (text: string) => tokenizeHearingWords(text).length
-    return chapterAnchorMap(editionAnchors, {
-      bookId: anchorsBookId, chapterNumber: book.chapterNumber,
-      from: { edition: chapterEditionKey(book.paragraphs) ?? prefs.primaryEdition, counts: book.paragraphs.map(count) },
-      to: { edition: prefs.compareEdition, counts: book.compareParagraphs.map(count) },
-      aligned: key => allBookEditions.find(edition => edition.key === key)?.aligned !== false,
-    })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [unalignedCompare, editionAnchors, anchorsBookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition])
   // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
   // the others do not), and Greek Daniel 3 numbers its verses differently from
   // the Hebrew: Compare says so rather than pairing different passages.
@@ -1094,21 +1071,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // Compare is a desktop view (Anders, 10 Nov 2026): the phone reads one edition, chosen as Main version in Book settings.
   const mobileCompareEnabled = false
   const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && prefs.primaryEdition !== prefs.compareEdition
-    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !compareNumberingDiffers
+    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
   // Aa can offer Compare before a second edition has been chosen. Choosing it
   // then opens the existing version picker instead of comparing the main text
   // with itself or mounting an unavailable pair.
   const desktopCompareChoiceAvailable = !showPhoneChrome && !privateBook && bookEditions.some(edition =>
-    edition.key !== prefs.primaryEdition
+    edition.key !== prefs.primaryEdition && edition.aligned !== false
+    && allBookEditions.find(main => main.key === prefs.primaryEdition)?.aligned !== false
     && ((book.bookId || 'bible') !== 'bible' || bibleEditionHasChapter(edition.key, book.chapterNumber)
       && bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, book.chapterNumber)))
-  // Verse as the Compare edition of a prose main edition is set on the left, where the full page belongs
-  // (compareSidesSwapped). On screen only: the main edition, its place and everything addressed to it are unchanged.
-  const compareSwapped = desktopCompareEnabled && compareSidesSwapped({
-    unaligned: unalignedCompare,
-    mainStyle: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.style,
-    compareStyle: allBookEditions.find(edition => edition.key === prefs.compareEdition)?.style,
-  })
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -6842,7 +6813,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         : showPhoneChrome || desktopPaging ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
-      data-compare-sides={compareSwapped && desktopCompareActive ? 'swapped' : 'main-left'}
       data-desktop-paging={desktopPaging ? 'true' : undefined}
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
       data-desktop-panel={desktopVoiceOpen
@@ -7056,8 +7026,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             : null}
           compareFromLayout={compareFromLayout}
           compareChoice={!showPhoneChrome}
-          compareSwapped={compareSidesSwapped({ unaligned: unalignedCompare, mainStyle: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.style, compareStyle: allBookEditions.find(edition => edition.key === prefs.compareEdition)?.style }) && prefs.compareOpen && !showPhoneChrome}
-          compareUnavailable={!prefs.compareOpen ? false : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
+          compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
@@ -7316,9 +7285,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             } : undefined}
             nextReadingPage={desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
-            approximateCompare={unalignedCompare}
-            compareAnchors={compareAnchors}
-            compareSwapped={compareSwapped}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -7381,14 +7347,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               : undefined}
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
-            {/* Sides swapped: each foot says which edition it is, since the main one is not where it usually is. */}
-            {compareSwapped && desktopCompareActive ? <>
-              <span data-testid="lab-compare-foot-left"><b>Compare · {editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></span>
-              <span data-testid="lab-compare-foot-right"><b>Main version · {primaryEditionLabel.replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></span>
-            </> : <>
             <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(openingOnRight && carriedEndingCurrent ? carriedEndingCurrent.folio : bookPageEstimate.page)}</span></span>
             <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : openingOnRight ? <span>{labPageFolio(bookPageEstimate.page)}</span> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
-            </>}
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator
@@ -7411,8 +7371,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterActions hasNextChapter={canNextChapter}
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
-            approximateCompare={unalignedCompare}
-            compareAnchors={compareAnchors}
             editionKey={readerEditionKey}
             language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}

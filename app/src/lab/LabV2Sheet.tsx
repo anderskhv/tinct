@@ -54,17 +54,16 @@ export interface LabV2SheetProps {
   /** Desktop reading layouts. The caller keeps the same source-word anchor when switching. */
   readerLayout?: {
     active: 'margin' | 'two-page' | 'compare'
-    /** Compare is offered only when a distinct version can be read. */
+    /** Compare is offered only when a distinct, aligned version can be read. */
     compareAvailable?: boolean
     onChoose: (layout: 'margin' | 'two-page' | 'compare') => void
   } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
+   * 'paragraphs': an edition whose paragraphs do not match the other's.
    */
-  compareUnavailable?: false | 'verses' | 'chapter' | 'numbering'
-  /** Compare shows the Compare version on the left for this pair (labVerseAlignment compareSidesSwapped). */
-  compareSwapped?: boolean
+  compareUnavailable?: false | 'verses' | 'paragraphs' | 'chapter' | 'numbering'
   /** Compare is a desktop view (Anders, 10 Nov 2026): false on the phone hides its version row and switch. */
   compareChoice?: boolean
   /** The Bible chapter open in the reader: versions without it are shown but cannot be chosen as the main version. */
@@ -215,7 +214,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareSwapped = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -442,18 +441,15 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
               )}
-              {compareSwapped && !compareUnavailable && (
-                <p className="lab-v2-row-note" data-testid="lab-v2-compare-sides">
-                  {`In Compare the ${editionName(prefs.compareEdition)} is on the left, because verse fills the page; your place stays in the ${editionName(prefs.primaryEdition)}.`}
-                </p>
-              )}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">
                   {compareUnavailable === 'verses'
                     ? 'Side by side isn’t available for these two versions: they share no verse numbers to pair.'
                     : compareUnavailable === 'chapter'
                       ? `The ${editionName(prefs.compareEdition)} doesn’t include this book, so there is nothing to compare here.`
-                      : 'These versions number this chapter differently (the Greek text adds verses), so Compare isn’t available here.'}
+                      : compareUnavailable === 'numbering'
+                        ? 'These versions number this chapter differently (the Greek text adds verses), so Compare isn’t available here.'
+                        : 'Compare isn’t available for these two versions: their paragraphs don’t line up.'}
                 </p>
               )}
               </>}
@@ -497,13 +493,9 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                     ? 'Doesn’t include this book'
                     : bookId === 'bible' && chapterNumber != null && !bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, chapterNumber)
                       ? 'Verse numbers differ'
-                      : null
-                  : null
-                // A pair whose paragraphs do not line up is still compared: its rows are matched by how far into the
-                // chapter they are (labVerseAlignment), and the row says so.
-                const compareNote = layer === 'compareEdition' && !compareReason && bookId !== 'bible'
-                  && (edition.aligned === false || editions.find(item => item.key === prefs.primaryEdition)?.aligned === false)
-                  ? 'Matched by position'
+                      : bookId !== 'bible' && (edition.aligned === false || editions.find(item => item.key === prefs.primaryEdition)?.aligned === false)
+                        ? 'Paragraphs don’t line up'
+                        : null
                   : null
                 return <button key={edition.key} type="button" className="lab-v2-edition-option" aria-pressed={selected === edition.key}
                   data-edition={edition.key} disabled={missing || !!compareReason} onClick={() => choose(edition.key)}>
@@ -512,7 +504,6 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                     {edition.style === 'modern' && <span className="lab-v2-difficulty">AI-generated</span>}
                     {missing && <span className="lab-v2-difficulty" data-testid="lab-v2-edition-missing-chapter">Doesn’t include this book</span>}
                     {compareReason && <span className="lab-v2-difficulty">{compareReason}</span>}
-                    {compareNote && <span className="lab-v2-difficulty" data-testid="lab-v2-compare-by-position" title="These versions are paragraphed differently, so Compare matches them by how far into the chapter they are">{compareNote}</span>}
                   </span>
                   <span className="lab-v2-edition-check" aria-hidden="true">{selected === edition.key ? '✓' : ''}</span>
                 </button>

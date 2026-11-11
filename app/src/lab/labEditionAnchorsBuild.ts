@@ -1,7 +1,7 @@
 /**
  * Anchors between two editions of a book whose paragraphs do not line up (Butler's prose Odyssey and Pope's verse).
  *
- * Share of the chapter alone drifts: one translation dwells where the other hurries, and in Compare a row a
+ * Share of the chapter alone drifts: one translation dwells where the other hurries, and a place a
  * paragraph out reads as wrong (Anders, 11 Nov 2026). Both translations name the same people and things in the same
  * order, so the words they share (Laodamas, Pontonous, ewer, hearth) say which passage answers which paragraph.
  * `buildChapterAnchors` finds that (no model, no network: word counts and shared words only);
@@ -119,7 +119,7 @@ export function buildChapterAnchors(a: string[], b: string[], weight: (token: st
       for (let begin = 0; begin <= end; begin += 1) {
         if (best[begin] === NEG) continue
         const length = endAt - (begin < units ? unitStart[begin] : totalB)
-        // A paragraph with nothing opposite it reads as a gap in Compare: only when there is no sentence left to give it.
+        // A paragraph with nothing opposite it has no place to carry to: only when there is no sentence left to give it.
         const score = best[begin] + shared[end] - shared[begin] - LENGTH_WEIGHT * Math.abs(length - want) / (want + 40) - (begin === end ? EMPTY_RUN : 0)
           // A translator's own paragraph break is the likeliest place for the passage to begin (a speech, a new scene).
           + (begin < units && unitOpensParagraph[begin] ? PARAGRAPH_START : 0)

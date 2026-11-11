@@ -1,5 +1,5 @@
 import { registerLoadedChapter } from './labPoetry'
-import { noteChapterEdition } from './labEditionSwitch'
+import { leadingPreface, noteChapterEdition } from './labEditionSwitch'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
@@ -15,7 +15,7 @@ import { hasRecordedAudio } from '../data/audioAvailability'
 import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
 import { loadVerseLines, registerVerseLines, registerNewlineVerseLines, registerShakespeareSpeakers } from './labVerseLines'
-import { registerChapterStructure } from './labParagraphStyle'
+import { registerChapterStructure, registerArgument } from './labParagraphStyle'
 import { bookFigures, type LabFigure } from './labFigures'
 import { isUserBookId } from './userBook/userBookId'
 import { loadUserBookSource } from './userBook/userBookSource'
@@ -658,6 +658,8 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
   // A verse edition ends each verse line with a newline in its own text.
   if (primaryEdition.style === 'verse') registerNewlineVerseLines(entry.paragraphs)
   if (compareEdition?.style === 'verse') registerNewlineVerseLines(compareParagraphs)
+  // ... and opens each book with a prose argument, set apart from the verse (labParagraphStyle registerArgument).
+  if (primaryEdition.style === 'verse' && leadingPreface(entry.paragraphs)) registerArgument(entry.paragraphs[0])
   const supplement = onceCalled(() => Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)

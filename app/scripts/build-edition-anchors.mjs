@@ -8,7 +8,7 @@
 // `editionA` is the one the book's other aligned editions are paragraphed like (they read through it).
 // Output: src/data/editionAnchors/<bookId>.json. src/lab/labEditionAnchors.test.ts holds that file to what
 // this gives for the served texts, so a changed edition text fails the test until the anchors are rebuilt.
-// Ship a file only after reading its Compare rows (the PR that added Odyssey lists them).
+// Ship a file only after reading where its switches land, chapter by chapter (the PR that added Odyssey lists them).
 import { build } from 'esbuild'
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'

@@ -4,7 +4,6 @@ import { describe, expect, it } from 'vitest'
 import { chapterAnchorMap, mapPlaceThroughAnchors, placeAtWordOffset, wordOffsetOfPlace, type EditionAnchorFile } from './labEditionAnchors'
 import { anchorToken, buildChapterAnchors, buildEditionAnchorFile } from './labEditionAnchorsBuild'
 import { tokenizeHearingWords } from './labHearing'
-import { buildProportionalAlignment } from './labVerseAlignment'
 import odysseyAnchors from '../data/editionAnchors/odyssey.json'
 
 const edition = (name: string) => JSON.parse(readFileSync(resolve(__dirname, `../../public/data/editions/${name}.json`), 'utf8')) as { chapters: Array<{ number: number; paragraphs: string[] }> }
@@ -135,7 +134,7 @@ describe('the Odyssey’s anchors (Butler and Pope)', () => {
     expect(chapterAnchorMap(null, { bookId: 'odyssey', chapterNumber: 7, aligned, from: { edition: 'original-en', counts: counts(a) }, to: { edition: 'verse-en', counts: counts(b) } })).toBeNull()
   })
 
-  it('a place carried through the anchors stays in the chapter; Compare still shows every word once', () => {
+  it('a place carried through the anchors stays in the chapter', () => {
     const a = chapterOf(butler, 7)
     const b = chapterOf(pope, 7)
     const map = mapOf(7, ['original-en', a], ['verse-en', b])!
@@ -143,17 +142,5 @@ describe('the Odyssey’s anchors (Butler and Pope)', () => {
     const last = mapPlaceThroughAnchors(map, counts(a), counts(b), { paragraphIndex: 999, wordIndex: 99999 })
     expect(last.paragraphIndex).toBe(b.length - 1)
     expect(wordOffsetOfPlace(counts(a), { paragraphIndex: 1, wordIndex: 3 })).toBe(counts(a)[0] + 3)
-    for (const [primary, compare, anchors] of [[a, b, map], [b, a, mapOf(7, ['verse-en', b], ['original-en', a])!]] as const) {
-      const alignment = buildProportionalAlignment(primary, compare, anchors)!
-      const target = compare.map(text => tokenizeHearingWords(text).map(word => word.text))
-      // Any page slicing: every nine words.
-      const shown = primary.flatMap((text, paragraphIndex) => {
-        const n = tokenizeHearingWords(text).length
-        const out: string[] = []
-        for (let from = 0; from < n; from += 9) for (const piece of alignment.pieces({ paragraphIndex, from, to: Math.min(n, from + 9) })) out.push(...target[piece.paragraphIndex].slice(piece.from, piece.to))
-        return out
-      })
-      expect(shown).toEqual(target.flat())
-    }
   })
 })

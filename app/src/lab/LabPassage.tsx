@@ -8,8 +8,7 @@ import { LabFigureView } from './LabFigure'
 import { LabChapterHeading } from './LabChapterHeading'
 import { paintsTextRanges, useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
-import { compareRowAlignment, verseGroups } from './labVerseAlignment'
-import type { AnchorMap } from './labEditionAnchors'
+import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import type { PlacedFootnote } from './labFootnotes'
@@ -59,12 +58,6 @@ interface LabPassageProps {
   /** Outgoing left leaf retained while narration enters the already visible right opening. */
   previousChapterEnding?: NonNullable<LabPassageProps['nextChapterOpening']> & { chapterEnd?: ReactNode }
   alignCompare?: boolean
-  /** The pair's paragraphs do not line up: rows are set by share of the chapter, as the paginator measured them. */
-  approximateCompare?: boolean
-  /** The book's anchors for this pair (labEditionAnchors.ts), the same object the paginator measured with. */
-  compareAnchors?: AnchorMap | null
-  /** Compare shows the Compare edition on the left and this (main) text on the right (labVerseAlignment compareSidesSwapped). */
-  compareSwapped?: boolean
   chapterTitle: string
   paragraphs: string[]
   compareParagraphs: string[]
@@ -477,9 +470,6 @@ export function LabPassage({
   nextChapterOpening,
   previousChapterEnding,
   alignCompare = false,
-  approximateCompare = false,
-  compareAnchors = null,
-  compareSwapped = false,
   chapterTitle,
   paragraphs,
   compareParagraphs,
@@ -578,15 +568,13 @@ export function LabPassage({
   // Editions paragraphed differently (BSB beside KJV) pair verse by verse; the
   // paginator measures the same cells (LabDesktopPaginator).
   const verseAlignment = useMemo(
-    () => (alignCompare ? compareRowAlignment(paragraphs, compareParagraphs, approximateCompare, compareAnchors) : null),
-    [alignCompare, approximateCompare, compareAnchors, paragraphs, compareParagraphs],
+    () => (alignCompare && needsVerseAlignment(paragraphs, compareParagraphs) ? buildVerseAlignment(paragraphs, compareParagraphs) : null),
+    [alignCompare, paragraphs, compareParagraphs],
   )
   const verseGroupAt = verseAlignment
     ? new Map(verseGroups(readingLines.map(line => {
       const from = line.from ?? readingPage?.from ?? 0
-      // A word hyphenated over the page edge leaves its opening here as a fragment: not a word of this page (it is
-      // the next page's first), so it is not counted, as the paginator measured the cell (segment.to).
-      return { paragraphIndex: line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0, from, to: from + line.words.filter(word => !word.fragment).length }
+      return { paragraphIndex: line.paragraphIndex ?? readingPage?.paragraphIndex ?? 0, from, to: from + line.words.length }
     }), verseAlignment).map(group => [group.start, group]))
     : null
   const pageStageRef = useRef<HTMLDivElement>(null)
@@ -1153,7 +1141,6 @@ export function LabPassage({
         chapterEnd ? 'has-chapter-end' : '',
         endOverflow ? 'has-overflowing-end' : '',
         alignCompare && compare ? 'is-aligned-compare' : '',
-        alignCompare && compare && compareSwapped ? 'is-compare-swapped' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"

@@ -49,9 +49,7 @@ it('keeps the older public Margin handoff discoverable from Aa', () => {
   expect(onOpen).toHaveBeenCalledOnce()
 })
 
-// 11 Nov 2026 (Anders: "pope should also work OK in compare mode"): a version whose paragraphs do not line up is
-// offered for Compare, marked as matched by position; it used to be disabled with "Paragraphs don’t line up".
-it('returns a first Compare version pick to Aa and offers a differently paragraphed source, matched by position', () => {
+it('returns a first Compare version pick to Aa and disables paragraph-incompatible sources', () => {
   const onLayer = vi.fn(), onPrefs = vi.fn()
   const editions = [
     { key: 'original-en', language: 'en' as const, style: 'original' as const, label: 'Original', aligned: true },
@@ -61,9 +59,8 @@ it('returns a first Compare version pick to Aa and offers a differently paragrap
   render(<LabV2Sheet {...base} bookId="frankenstein" layer="compareEdition" editions={editions}
     prefs={{ ...DEFAULT_LAB_PREFS, primaryEdition: 'original-en', compareOpen: false }}
     compareFromLayout onPrefs={onPrefs} onLayer={onLayer} />)
-  expect(screen.getByRole<HTMLButtonElement>('button', { name: /Unaligned/ }).disabled).toBe(false)
-  expect(screen.getByTestId('lab-v2-compare-by-position').textContent).toBe('Matched by position')
-  expect(screen.queryByText('Paragraphs don’t line up')).toBeNull()
+  expect(screen.getByRole<HTMLButtonElement>('button', { name: /Unaligned/ }).disabled).toBe(true)
+  expect(screen.getByText('Paragraphs don’t line up')).toBeTruthy()
   fireEvent.click(screen.getByRole('button', { name: /Modern translation/ }))
   expect(onPrefs).toHaveBeenCalledWith(expect.objectContaining({ compareEdition: 'modern-en', compareOpen: true }))
   expect(onLayer).toHaveBeenCalledWith('reading')

@@ -3,8 +3,7 @@ import { measureRowsState, paintRows, type MeasureRow } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
 import { LabChapterEnd } from './LabChapterEnd'
 import { cleanPageStarts, fitChapterEnd } from './labChapterEndPaging'
-import { compareRowAlignment, verseGroups } from './labVerseAlignment'
-import type { AnchorMap } from './labEditionAnchors'
+import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { hyphenLangForEdition, hyphenatorReady, loadHyphenator, pageEdgeBreaks } from './labHyphenate'
 import { chapterPageSegments, segmentWordTexts, tokenizeHearingWords, type ChapterHearingPage, type ChapterPageSegment } from './labHearing'
@@ -298,13 +297,8 @@ export function measuredLeafCapacity(page: HTMLElement, probe: HTMLElement, word
   return { wordsPerPage: Math.max(1, Math.round((words / lines) * linesPerLeaf)), leafHeight: Math.round(leafHeight) }
 }
 
-export function LabDesktopPaginator({ paragraphs, comparison, approximateCompare = false, compareAnchors = null, chapterTitle, layoutKey, editionKey, language, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
-  paragraphs: string[]; comparison?: string[]
-  /** The pair's paragraphs do not line up: rows are set by share of the chapter (labVerseAlignment). */
-  approximateCompare?: boolean
-  /** The book's anchors for this pair (labEditionAnchors.ts), or null: share of the chapter alone. */
-  compareAnchors?: AnchorMap | null
-  chapterTitle: string; layoutKey: string
+export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layoutKey, editionKey, language, chapterActions = false, hasNextChapter = false, pageLimit, onPages }: {
+  paragraphs: string[]; comparison?: string[]; chapterTitle: string; layoutKey: string
   chapterActions?: boolean; hasNextChapter?: boolean
   /** Bound a next-chapter opening measurement without truncating its source. */
   pageLimit?: number
@@ -351,7 +345,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, approximateCompare
     const source = paragraphs.map(tokenizeHearingWords)
     const target = comparison?.map(tokenizeHearingWords)
     // Editions paragraphed differently (BSB beside KJV) pair verse by verse.
-    const alignment = comparison ? compareRowAlignment(paragraphs, comparison, approximateCompare, compareAnchors) : null
+    const alignment = comparison && needsVerseAlignment(paragraphs, comparison) ? buildVerseAlignment(paragraphs, comparison) : null
     // Emphasised words paint in the italic face. Requested with the upright one
     // so the map is measured with it: arriving mid-measurement, it restarted
     // the measurement (and before that, re-measured the whole chapter once the
@@ -587,7 +581,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, approximateCompare
     observer.observe(host)
     document.fonts?.addEventListener('loadingdone', schedule)
     return () => { cancelled = true; cancelAnimationFrame(frame); window.clearTimeout(slice); observer.disconnect(); document.fonts?.removeEventListener('loadingdone', schedule) }
-  }, [paragraphs, comparison, approximateCompare, compareAnchors, chapterTitle, layoutKey, chapterActions, hasNextChapter, pageLimit, hyphenLang, hyphensReady])
+  }, [paragraphs, comparison, chapterTitle, layoutKey, chapterActions, hasNextChapter, pageLimit, hyphenLang, hyphensReady])
   return <div ref={hostRef} className={`lab-desktop-measure lab-page-measure${comparison ? ' is-paired' : ''}`} aria-hidden="true">
     <div className="lab-desktop-measure-page">
       <LabChapterHeading title={chapterTitle} preview={chapterActions} measuring />
