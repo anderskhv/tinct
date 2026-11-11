@@ -5643,8 +5643,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     else { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
+  // AI settings: its own dialog (openAiSettingsLayer), from the t menu's row and the desktop command alike.
+  const openAiSettings = useCallback(() => {
+    void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null }))
+  }, [resolvedDarkMode, showPhoneChrome, authUser?.id])
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
+    if (id === 'ai') { openAiSettings(); return }
     // The Librarian row's body sends its mode; a bare 'librarian' never leaves the reader.
     if (id === 'chat' || id === 'librarian') { if (continuousReader) menuMarginChatRef.current(); else handleChat(); return }
     // Notebook: the existing Contents list of highlights and notes (no position write: Contents suspends them).
@@ -5678,7 +5683,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     rememberLibraryPlace()
     if (typeof window === 'undefined') return
     leaveForLibrary(privateLibraryDestination(`${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}`, sharedReader))
-  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader])
+  }, [handleChat, handleTalk, handleChapterChat, rememberLibraryPlace, privateBook, ownEditions, openChapterNotes, signedIn, sharedReader, continuousReader, openAiSettings])
 
   // A PDF's Original pages, picked in Book editions: the same spot, kept as the
   // place it shares with its Tinct text and sent at once, opens in Add a book's viewer.
@@ -6166,7 +6171,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
       { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
-      { id: 'ai-settings', label: 'AI settings', run: () => { void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null })) } },
+      { id: 'ai-settings', label: 'AI settings', run: openAiSettings },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
       { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),

@@ -227,7 +227,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
             onPointerDown={event => event.stopPropagation()} onClick={onDelete}><PhoneIcon name="trash" /></button>}
         </header>
       </div>
-      <div className="lab-pcard-body" data-testid="lab-phone-card-body">{children}</div>
+      <div className="lab-pcard-body" data-testid="lab-phone-card-body" onScroll={event => { const body = event.currentTarget; body.toggleAttribute('data-scrolled', body.scrollTop > 2) }}>{children}</div>
       {foot}
     </section>
     </div>

@@ -83,6 +83,8 @@ export function RowIcon({ id }: { id: LabSuperMenuId }) {
       </svg>
     )
   }
+  // AI settings: the ✧ the reader's AI pills carry (Primer, Summary), as a monoline four-point star.
+  if (id === 'ai') return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" data-icon="ai-settings"><path d="M12 3.5c.6 5.1 3.4 7.9 8.5 8.5-5.1.6-7.9 3.4-8.5 8.5-.6-5.1-3.4-7.9-8.5-8.5 5.1-.6 7.9-3.4 8.5-8.5z" /></svg>
   // Audio settings: a speaker.
   if (id === 'audio') {
     return (

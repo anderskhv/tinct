@@ -266,7 +266,7 @@ describe('the super-menu', () => {
     const labels = [...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')]
       .map(node => node.textContent)
     // The fixture is the book's first chapter: Catch me up stays available.
-    expect(labels).toEqual(['Chat', 'Talk', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(labels).toEqual(['Chat', 'Talk', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Library', 'Profile'])
     expect(labels).not.toContain('Librarian')
     // Chat and Talk are one row, each half a button with its own icon and name.
     const pair = screen.getByTestId('lab-super-menu').querySelector('[data-row="conversation"]')!
@@ -286,9 +286,20 @@ describe('the super-menu', () => {
     expect(screen.getByTestId('lab-super-menu').querySelectorAll('h1, h2, h3, h4')).toHaveLength(0)
   })
 
+  it('AI settings is a settings row with a chevron, and opens the AI settings dialog over the reader (11 Nov 2026)', async () => {
+    renderPhone()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    const row = screen.getByTestId('lab-super-row-ai')
+    expect(row.querySelector('svg[data-icon="ai-settings"]')).toBeTruthy()
+    fireEvent.click(row)
+    await waitFor(() => expect(document.querySelector('[data-testid="ai-settings-host"]')).toBeTruthy())
+    expect(screen.queryByTestId('lab-super-menu')).toBeNull()
+    fireEvent.keyDown(window, { key: 'Escape' })
+  })
+
   it('has no Compare row, with or without a compare edition', () => {
     expect(labSuperMenuRows({ phone: true }).map(row => row.id))
-      .toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
+      .toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'ai', 'library', 'account'])
 
     renderPhone()
     fireEvent.click(screen.getByTestId('lab-super'))
@@ -409,7 +420,7 @@ describe('the super-menu', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} authToken={null} />)
     fireEvent.click(screen.getByTestId('lab-super'))
     expect([...screen.getByTestId('lab-super-menu').querySelectorAll('.lab-super-row-label')].map(node => node.textContent))
-      .toEqual(['Chat', 'Talk', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'Profile'])
+      .toEqual(['Chat', 'Talk', 'Catch me up', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Profile'])
   })
 
   it('puts Catch me up right under Chat · Talk, with its timeline icon', () => {

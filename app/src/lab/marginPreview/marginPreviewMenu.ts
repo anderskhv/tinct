@@ -8,6 +8,7 @@
 import { getBook } from '../../data/bookRegistry'
 import { editionHold } from '../../data/editionAvailability'
 import { labCurrentPath } from '../labAccountPrompt'
+import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { LAB_PREFS_KEY, labSignInUrl, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
 import { marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPreviewBook } from './marginPreviewModel'
 
@@ -26,6 +27,8 @@ export interface MarginFramePlace { page: number; para: number; word: number }
 
 export interface MarginPreviewMenuApi {
   openProfile: (opts: { dark: boolean }) => void
+  /** The t menu's AI settings row: the dialog opens over this page (openAiSettingsLayer.tsx). */
+  openAiSettings: (opts: { dark: boolean }) => void
   reading: () => Promise<MarginReadingChoices | null>
   /** Read in another edition: the preview opens again at the same chapter, paragraph and word. */
   setEdition: (editionKey: string, at: MarginFramePlace) => void
@@ -62,6 +65,10 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
         // Signed out: the account lives behind sign-in.
         if (!opened) window.location.assign(labSignInUrl(labCurrentPath()))
       }, () => { /* the cards' code could not load (offline before first use): nothing opened */ })
+    },
+    openAiSettings: ({ dark }) => {
+      void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: readCachedSupabaseUser()?.id ?? null }))
+        .catch(() => { /* offline before first use: nothing opened */ })
     },
     reading: () => pending.then(model => (book ? marginReadingChoices(book, model.editionKey, readPrefs()) : null), () => null),
     setEdition: (editionKey, at) => {

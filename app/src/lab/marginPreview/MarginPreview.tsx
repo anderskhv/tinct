@@ -84,6 +84,8 @@ export interface MarginOwnBridge {
   active(): void
   /** The text moved three quarters of a screen (forward or back): a page turn for reading time. */
   turn?(key: number): void
+  /** The t menu's AI settings row: the dialog opens over this page (openAiSettingsLayer.tsx). */
+  openAiSettings?(opts: { dark: boolean }): void
 }
 
 export function marginPreviewBridge(bookId: string, pending: Promise<MarginPreviewBook>, listen?: MarginListenApi, first?: Promise<MarginPreviewBook | null>): NonNullable<Window['TinctMarginPreview']> {
@@ -191,6 +193,8 @@ export function marginOwnAddress(search: string): string {
 export function MarginOwnBook({ hex, search }: { hex: string; search: string }) {
   const bookId = userBookId(hex)
   const { user } = useAuth()
+  const userIdRef = useRef<string | null>(null)
+  userIdRef.current = user?.id ?? null
   const frameRef = useRef<HTMLIFrameElement | null>(null)
   const [opened, setOpened] = useState(false)
   const listeningRef = useRef(false)
@@ -210,6 +214,7 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
     turn: () => setTurn(count => count + 1),
     // The reading year hears the reader's actions on this window; the frame's are its own (as useMarginPreviewPlace).
     active: () => { window.dispatchEvent(new Event('pointerdown')) },
+    openAiSettings: ({ dark }) => { void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: userIdRef.current })).catch(() => { /* offline: nothing opened */ }) },
   }), [])
   // Listen: the book reader's player and Tinct's voice for an own book too (Anders, 22 Oct 2026), its text handed over by
   // the frame (js/tinct-listen.js, reader.js ownListen); its listening counts as reading time, as in the book reader.
