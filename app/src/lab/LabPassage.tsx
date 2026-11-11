@@ -88,6 +88,9 @@ interface LabPassageProps {
   /** The passage sits in a native scroller (the Margin reader): a finger drag
    *  scrolls the text and a long press selects, as the paginated phone page does. */
   touchScroll?: boolean
+  /** Whether a chapter-end card running past the page is tracked. Off where the text is one long scroll (book
+   *  scroll): there nothing clips the end, and the flip re-rendered every word of the chapter after it mounted. */
+  measureEndOverflow?: boolean
   compareHighlights?: LabHighlight[]
   selectingComparison?: boolean
   highlights?: LabHighlight[]
@@ -498,6 +501,7 @@ export function LabPassage({
   chapterPages,
   keyboardSelection = false,
   touchScroll = false,
+  measureEndOverflow = true,
   compareHighlights = [],
   selectingComparison = false,
   highlights = [],
@@ -663,6 +667,7 @@ export function LabPassage({
     const article = articleRef.current
     if (!article) return
     article.scrollTop = 0
+    if (!measureEndOverflow) return
     const check = () => {
       const card = article.querySelector<HTMLElement>('.lab-chapter-end')
       const overflow = Boolean(card && card.getBoundingClientRect().bottom > article.getBoundingClientRect().bottom - 8)

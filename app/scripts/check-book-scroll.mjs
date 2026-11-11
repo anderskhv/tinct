@@ -63,6 +63,19 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
     const result = { engine: name, run: 'admin', passed: false }
     const { page } = s
     try {
+      // Opening deep in a long unit lands on the chapter asked for, after the placeholders above it take their
+      // measured heights (11 Nov 2026, default edition: Genesis 30 opened on Genesis 19, Psalm 22 on Psalm 1).
+      for (const [chapter, unit] of [[30, 'bible/Genesis/1'], [500, 'bible/Psalms/479']]) {
+        await page.goto(`${origin}/reader?book=bible&chapter=${chapter}&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
+        assert.equal(await page.locator('[data-book-scroll-unit]').getAttribute('data-book-scroll-unit'), unit)
+        await page.waitForTimeout(2500)
+        const atLine = await page.locator('[data-book-scroll-unit]').evaluate(node => {
+          const box = node.getBoundingClientRect()
+          const word = [...node.querySelectorAll('[data-testid="lab-word"], [data-testid="lab-opening-word"]')].find(item => item.getBoundingClientRect().top >= box.top + 60)
+          return word ? `${word.closest('[data-book-scroll-chapter]')?.getAttribute('data-book-scroll-chapter')}/${word.dataset.paragraphIndex}:${word.dataset.wordIndex}` : 'none'
+        })
+        assert.equal(atLine, `${chapter}/0:0`, `chapter ${chapter} opens at its first word`)
+      }
       await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
       const host = page.locator('[data-book-scroll-unit]')
       await host.waitFor()

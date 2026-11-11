@@ -83,6 +83,10 @@ const WORDS = '[data-paragraph-index][data-word-index]:is([data-testid="lab-word
 const HANDOFF_RETRY_MS = 3000
 /** How long the scrolling rests before the chapter at the reading line becomes the reader's own. */
 const CROSS_REST_MS = 160
+/** A chapter the reading line has stayed in this long while the reader keeps scrolling is being read: it becomes
+ *  the reader's own without waiting for a rest. A short chapter scrolled through slowly never rested at the line
+ *  (WebKit, 11 Nov 2026) and passed without ever being the reader's. */
+const CROSS_DWELL_MS = 900
 
 type WordGeometry = { node: HTMLElement; top: number; bottom: number; height: number; anchor: ContinuousReaderAnchor }
 
@@ -95,13 +99,17 @@ const lineOffset = (host: HTMLElement) => Math.min(host.clientHeight * .24, 140)
 const NeighbourChapter = memo(function NeighbourChapter({ number, title, paragraphs, highlights, layoutKey, onOpenFigure, end }: {
   number: number; title: string; paragraphs: string[]; highlights: LabHighlight[]; layoutKey?: string; onOpenFigure?: Passage['onOpenFigure']; end?: ReactNode
 }) {
-  const page = continuousReaderWindows(paragraphs)[0]?.page
+  // Every word of the chapter: kept as one element so a new chapter end (each swap renders one) does not repaint them.
+  const text = useMemo(() => {
+    const page = continuousReaderWindows(paragraphs)[0]?.page
+    return page ? <LabPassage openingOnly chapterTitle={title} chapterNumber={number} paragraphs={paragraphs} readingPage={page}
+      compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={NO_FOLLOW} followParagraphs={NO_FOLLOW_PARAGRAPHS}
+      markedIndexes={NO_MARKS} highlights={highlights} tapZones="none" plannedHyphens={false} layoutKey={layoutKey} onOpenFigure={onOpenFigure} /> : null
+  }, [number, title, paragraphs, highlights, layoutKey, onOpenFigure])
   return <div className="lab-passage lab-book is-reading is-touch-scroll book-scroll-neighbour">
     <LabChapterHeading title={title} measuring />
     <div className="lab-book-columns"><div className="lab-book-col">
-      {page && <LabPassage openingOnly chapterTitle={title} chapterNumber={number} paragraphs={paragraphs} readingPage={page}
-        compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" follow={NO_FOLLOW} followParagraphs={NO_FOLLOW_PARAGRAPHS}
-        markedIndexes={NO_MARKS} highlights={highlights} tapZones="none" plannedHyphens={false} layoutKey={layoutKey} onOpenFigure={onOpenFigure} />}
+      {text}
       {end}
     </div></div>
   </div>
@@ -126,7 +134,12 @@ function useStablePassage(passage: PassageProps): PassageProps {
   }
   const entries = Object.entries(passage).filter(([key]) => key !== 'chapterEnd')
   const signature = entries.map(([key, value]) => typeof value === 'function' ? `${key}:fn` : key)
-  const values = entries.map(([, value]) => typeof value === 'function' ? true : value)
+  // The own chapter paints in reading mode; the audio follow only reaches its words through inline hearing paint.
+  // Without it, a new follow object (the narration source catching up after a chapter swap) changes nothing on
+  // the page, so it does not re-render every word. The props still carry the latest follow whenever they are rebuilt.
+  const followPaints = !!passage.inlineHearingPaint
+  const values = entries.map(([key, value]) => typeof value === 'function' ? true
+    : !followPaints && (key === 'follow' || key === 'followParagraphs') ? followPaints : value)
   const hasEnd = passage.chapterEnd != null && passage.chapterEnd !== false
   const memo = useRef<{ signature: string; values: unknown[]; hasEnd: boolean; props: PassageProps } | null>(null)
   const key = signature.join('|')
@@ -190,6 +203,8 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
   /** The reader made a neighbour its own by acting on it: it stays so until the reader scrolls again. */
   const adoptedHold = useRef(false)
   const crossTimer = useRef(0)
+  /** The chapter at the reading line that is not the reader's own, and since when it is there. */
+  const lineSince = useRef<{ chapter: number; at: number } | null>(null)
   const clearCross = () => { if (crossTimer.current) { window.clearTimeout(crossTimer.current); crossTimer.current = 0 } }
   useEffect(() => clearCross, [])
   const lineReported = useRef<number | null>(null)
@@ -272,8 +287,12 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     if (Math.abs(delta) < .5) return 0
     held.y = y
     suppressScrollRef.current = true
-    host.scrollTop += delta
-    lastScrollTop.current += delta
+    // Text that shrank above can leave the scroller pinned at its new end before this runs: the browser has clamped
+    // the scroll then, and the place the page was at is the last one noted, not the clamped one.
+    const pinned = host.scrollTop >= host.scrollHeight - host.clientHeight - 1 && lastScrollTop.current > host.scrollTop
+    const base = pinned ? lastScrollTop.current : host.scrollTop
+    host.scrollTop = base + delta
+    lastScrollTop.current = base + delta
     invalidate()
     return delta
   }
@@ -524,6 +543,7 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     reportLine(lineChapter === own || adoptedHold.current ? null : lineChapter)
     if (lineChapter === own) {
       handoff.current = null
+      lineSince.current = null
       clearCross()
       if (!viewport.hasInk || !viewport.first) return
       if (movement > 0 && end && viewport.last === end) onReadToEnd?.(epochRef.current, end.anchor)
@@ -547,7 +567,11 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     if (adoptedHold.current) return
     // The chapter becomes the reader's own once the scrolling rests (CROSS_REST_MS): making it the reader's own
     // re-renders the whole reader, which mid-scroll was the hitch at every chapter line. Only the top bar follows at once.
+    // A chapter that stays at the line while the scrolling goes on (CROSS_DWELL_MS) is being read: it is handed over then.
     clearCross()
+    const now = performance.now()
+    if (lineSince.current?.chapter !== lineChapter) lineSince.current = { chapter: lineChapter, at: now }
+    else if (now - lineSince.current.at >= CROSS_DWELL_MS) { crossNow(); return }
     crossTimer.current = window.setTimeout(() => { crossTimer.current = 0; crossNow() }, CROSS_REST_MS)
   }
   /** Hand the reader the chapter at the reading line, at the first word on screen there. */
@@ -695,7 +719,7 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
 
   // Every chapter ends with its own pills (Anders, 11 Nov 2026), not only the unit's last.
   const livePassage = useMemo(() => windows[0] ? <LabPassage {...passage} readingPage={windows[0].page}
-    compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" desktopSpread={false} plannedHyphens={false} tapZones="none" keyboardSelection touchScroll /> : null,
+    compareParagraphs={EMPTY_COMPARE_PARAGRAPHS} compare={false} mode="reading" desktopSpread={false} plannedHyphens={false} tapZones="none" keyboardSelection touchScroll measureEndOverflow={false} /> : null,
   [windows, passage])
   const highlightsByChapter = useMemo(() => {
     const map = new Map<number, LabHighlight[]>()
