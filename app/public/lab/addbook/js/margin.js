@@ -1372,14 +1372,29 @@
   const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
   /**
    * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
-   * then "The gist and a map of {unit}." It names no other section: what follows the gist depends
-   * on the document's kind, known only once the primer is made. The B key is in its title, not a keycap.
+   * then the primer's three parts (prompt v5, 11 Nov 2026): "Where chapter 1 fits, how it is built, what to
+   * watch for." (a whole document has no place in a larger one: "How the whole PDF is built and what to watch
+   * for."). The B key is in its title, not a keycap.
    */
   function triggerHtml(unit) {
     return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">${esc(triggerLine(unit))}</span>`;
   }
-  /** The trigger's line, also its accessible name: "The gist and a map of chapter 1." */
-  const triggerLine = unit => `The gist and a map of ${unitPhrase(unit)}.`;
+  /** The trigger's line, also its accessible name: "Where chapter 1 fits, how it is built, what to watch for." */
+  const triggerLine = unit => (unit?.key === 'all' || unit?.key === 'book'
+    ? `How ${unitPhrase(unit)} is built and what to watch for.`
+    : `Where ${unitPhrase(unit)} ${/^pages\b/.test(unitPhrase(unit)) ? 'fit' : 'fits'}, how it is built, what to watch for.`);
+  /**
+   * The document's contents nearest the unit at `index` (titles only, at most `max`), as the primer request's
+   * `outline` (companion/chapterChatPrompt.ts primerOutline, its twin): { titles, at, first, total }, or null
+   * without at least two titles.
+   */
+  function primerOutline(titles, index, max = 60) {
+    const list = Array.isArray(titles) ? titles : [];
+    if (list.length < 2 || !Number.isInteger(index) || index < 0 || index >= list.length) return null;
+    const from = Math.max(0, Math.min(index - Math.floor(max / 2), list.length - max));
+    const shown = list.slice(from, from + max).map(t => String(t || '').replace(/\s+/g, ' ').trim().slice(0, 200) || '(untitled)');
+    return { titles: shown, at: index - from, first: from + 1, total: list.length };
+  }
   /**
    * A primer's sections after the gist: its own, or, for a primer stored before kinds (Anders, 15
    * Oct), its claims and cautions as Key claims and Keep in mind. -> [{ title, items: [{ text, cite } | { term, meaning }] }]
@@ -1391,7 +1406,9 @@
     return [claims.length ? { title: 'Key claims', items: claims } : null, keep.length ? { title: 'Keep in mind', items: keep } : null].filter(Boolean);
   }
   /**
-   * The primer. p: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
+   * The primer (prompt v5, 11 Nov 2026): { kind, role, gist, sections, map? }: its role in the document under the
+   * italic label `role` ("In Deep Learning"; none for a whole document), then How it's built (numbered) and Watch
+   * for, a map only when an older primer has one. Before v5: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
    * stored before kinds: { gist, claims, keepInMind, map }), or null while it is made (`wait`) or when
    * it could not be (`status`, then Redo). The gist first, then each section under its italic label:
    * a paper's, a textbook's or other's first section and any steps numbered, as Key claims always
@@ -1411,7 +1428,9 @@
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
     const sections = primerSections(p).map((sec, k) => {
       // Numbered: a paper's claims, a textbook's outcomes, other's points (the first section, as Key claims was) and steps; a story's situation and a guide's scope are not a sequence.
-      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b/i.test(sec.title) || (k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
+      // v5: How it's built is the chapter's parts in order, numbered; Watch for is not a sequence.
+      const v5 = typeof p.role === 'string';
+      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b|^how it['’]s built$/i.test(sec.title) || (!v5 && k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
       const list = numbered
         ? `<ol class="mr-primer__claims">${sec.items.map((it, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${line(it)}</span></li>`).join('')}</ol>`
         : `<ul class="mr-primer__keep">${sec.items.map(it => `<li>${line(it)}</li>`).join('')}</ul>`;
@@ -1425,11 +1444,15 @@
       const cls = 'mr-map__row' + (own ? ' is-own' : '');
       return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
+    // The first part: v5's role under its label ("In Deep Learning"), an older primer's gist as it was; a whole document has none.
+    const first = !p.gist ? ''
+      : p.role ? `<div><p class="mr-primer__head">${esc(p.role)}</p><p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p></div>`
+        : `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`;
     return head
       + (o.unit ? `<p class="mr-primer__unit">${esc(o.unit)}</p>` : '')
-      + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
+      + first
       + sections
-      + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
+      + (rows ? `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>` : '')
       + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
       + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
@@ -1923,5 +1946,5 @@
     const space = cut.search(/\s\S*$/);
     return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
   }
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, primerOutline, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
 });

@@ -99,15 +99,45 @@ describe('the trigger and the primer’s markup', () => {
     keepInMind: ['Natural logs, then base 2.'],
     map: [{ title: 'Why probability first', pages: 'pp. 9–10' }, { title: 'Exercises', pages: 'p. 19' }, { title: 'Unprinted', pages: '' }],
   }
-  it('the trigger, a folded card: the label "Before you start", then the line about the unit, naming no section (the kind is known only once made); no keycap', () => {
+  it('the trigger, a folded card: the label "Before you start", then the primer\'s three parts for the unit (v5, 11 Nov 2026); no keycap', () => {
     const unit = { key: 'outline-0', title: 'Chapter 1. Of Ideas', from: 1, start: 2, to: 4 }
     const div = document.createElement('div')
     div.innerHTML = M.html.triggerHtml(unit)
     expect(div.querySelector('.mr-trigger__title')?.textContent).toBe('Before you start')
-    expect(div.querySelector('.mr-trigger__sub')?.textContent).toBe('The gist and a map of chapter 1.')
+    expect(div.querySelector('.mr-trigger__sub')?.textContent).toBe('Where chapter 1 fits, how it is built, what to watch for.')
     expect(div.querySelector('.mr-key')).toBeNull()
     div.innerHTML = M.html.triggerHtml({ key: 'all', title: '', from: 1, start: 1, to: 15 })
-    expect(div.textContent).toBe('Before you startThe gist and a map of the whole PDF.')
+    expect(div.textContent).toBe('Before you startHow the whole PDF is built and what to watch for.')
+  })
+  it('a v5 primer (11 Nov 2026): its role under the label "In …", How it\'s built numbered with cite tags, Watch for, no map, then Quiz me; a whole document has no first part', () => {
+    const v5 = { kind: 'textbook', role: 'In Information Theory', gist: 'The opening chapter sets up the noisy channel the rest of the book returns to.',
+      sections: [{ title: "How it's built", items: [{ text: 'Sections 1.1–1.2: the binary symmetric channel.', cite: '{p. 4}' }, { text: 'Section 1.3: repetition codes.', cite: '{p. 7}' }] },
+        { title: 'Watch for', items: [{ text: 'The flip probability f.', cite: '{p. 4}' }] }], map: [] }
+    const div = document.createElement('div')
+    div.innerHTML = M.html.primerHtml(v5, { P, resolve: resolveCite, unit: 'Chapter 1: Introduction' })
+    expect([...div.querySelectorAll('.mr-primer__head')].map(h => h.textContent)).toEqual(['In Information Theory', "How it's built", 'Watch for'])
+    expect(div.querySelector('.mr-primer__gist')?.textContent).toBe(v5.gist)
+    expect([...div.querySelectorAll('ol.mr-primer__claims li')].map(li => li.textContent)).toEqual(['1Sections 1.1–1.2: the binary symmetric channel. p. 4', '2Section 1.3: repetition codes. p. 7'])
+    expect(div.querySelector('ol.mr-primer__claims .mr-cite')?.getAttribute('data-page')).toBe('4')
+    expect(div.querySelector('ul.mr-primer__keep')?.textContent).toBe('The flip probability f. p. 4')
+    expect(div.querySelector('.mr-map')).toBeNull()
+    expect(div.querySelector('.mr-quiz-row')?.textContent).toBe('Quiz me on this chapter→')
+    // A whole document: How it's built and Watch for only.
+    div.innerHTML = M.html.primerHtml({ ...v5, role: '', gist: '' }, { P, resolve: resolveCite })
+    expect([...div.querySelectorAll('.mr-primer__head')].map(h => h.textContent)).toEqual(["How it's built", 'Watch for'])
+    expect(div.querySelector('.mr-primer__gist')).toBeNull()
+    // The role is escaped like everything else.
+    div.innerHTML = M.html.primerHtml({ ...v5, role: '<b>In x</b>' }, { P, resolve: resolveCite })
+    expect(div.querySelector('b')).toBeNull()
+  })
+  it('the outline a primer request carries: the nearest 60 titles, the unit\'s index, its number and the total (twin of chapterChatPrompt.ts primerOutline)', () => {
+    const titles = Array.from({ length: 90 }, (_, i) => `Chapter ${i + 1}`)
+    expect(M.primerOutline(titles, 0)).toMatchObject({ at: 0, first: 1, total: 90 })
+    const late = M.primerOutline(titles, 85)
+    expect(late).toMatchObject({ at: 55, first: 31, total: 90 })
+    expect(late.titles).toHaveLength(60)
+    expect(M.primerOutline(['One'], 0)).toBeNull()
+    expect(M.primerOutline(titles, 90)).toBeNull()
   })
   it('a primer stored before kinds still renders as it did: title with Minimise and the bin (21 Oct 2026, no ×), gist, numbered Key claims with cite tags, Keep in mind, Map rows, the quiz row, the footer', () => {
     const div = document.createElement('div')

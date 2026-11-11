@@ -9,7 +9,11 @@ import { answerLead } from '../cardPreview'
 
 /** Folded source entries show prose, while their full structured answer stays unchanged in storage. */
 export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
-  if (kind === 'primer') return parsePrimer(raw)?.gist || 'Open saved Primer'
+  if (kind === 'primer') {
+    // A whole document's primer (v5) has no first part: its first part of How it's built instead.
+    const primer = parsePrimer(raw), item = primer?.sections[0]?.items[0]
+    return primer?.gist || (item && ('term' in item ? item.term : item.text.replace(/\s*\{[^}]*\}\s*/g, ' ').trim())) || 'Open saved Primer'
+  }
   if (kind === 'define') {
     const answer = parseContextualLookup(raw)
     return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : answer.definition : 'Open saved definition'

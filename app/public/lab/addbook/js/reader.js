@@ -5497,7 +5497,8 @@ function primerShown() {
   const p = primer.data; if (!p) return null;
   const sections = TinctMargin.html.primerSections(p).map(sec => `${sec.title}\n${sec.items.map(it => '- ' + (it.term ? `${it.term} — ${it.meaning}` : it.text)).join('\n')}`).join('\n\n');
   const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
-  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${p.gist || ''}\n\n${sections}`.trim() };
+  const first = p.gist ? (p.role ? `${p.role}\n${p.gist}` : p.gist) : '';
+  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${first}\n\n${sections}`.trim() };
 }
 /** Talk in a card's field: Chat with Talk on, about what the card shows (the whole file's Chat: Talk on there). */
 function talkAbout(id) {
@@ -6252,13 +6253,20 @@ async function primerRemote(method, unit, content = null) {
       method, credentials: 'same-origin', cache: 'no-store',
       headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
       // Its content only (a primer kept here before kinds has claims and keepInMind; the Worker reads both shapes).
-      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
+      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'role', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
     });
     if (!r.ok) return null;
-    return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    const kept = PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    // A primer an earlier prompt made (before v5, 11 Nov 2026) is not served: the unit's primer is made again.
+    return method === 'GET' && !PP.isCurrentPrimer(kept) ? null : kept;
   } catch { return null }
 }
 const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
+/**
+ * The unit's primer kept on this device, when the current prompt made it (v5, 11 Nov 2026: it has a `role`; as
+ * primer-parse.js isCurrentPrimer). One made before is not served: opening the unit makes it again.
+ */
+const keptPrimer = unit => { const p = store.get(primerKey(unit)); return p && typeof p.role === 'string' ? p : null };
 /* Making a primer (the Gloss test, 15 Oct 2026: 2 failures in 3). One request per unit at a time:
    reopening while it is made waits for the same one. A reply that does not parse, or a failed
    one, is asked for once more. It gives up after 45 s in all ("taking too long"). What it makes is
@@ -6271,6 +6279,16 @@ const primerMaking = new Map();
 const primerStoring = new Set();
 // A cut-off primer is asked for once more, as one that does not parse.
 const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
+/**
+ * The document's contents for a unit's primer (its first part: where the unit sits; 11 Nov 2026): the units'
+ * titles in order, the nearest 60, titles only. None for a unit that is the whole document or book, for blocks
+ * of pages (no contents to go by), or when the document sent already carries its table of contents (a long file's part).
+ */
+function primerOutlineFor(unit, doc) {
+  const units = primer.units || [];
+  if (unit.key === 'all' || unit.key === BOOK_UNIT || units.length < 2 || units.some(u => u.pages) || doc?.part?.toc?.length) return null;
+  return TinctMargin.primerOutline(units.map(unitTitle), units.findIndex(u => u.key === unit.key));
+}
 function makePrimer(unit, { speculative = false } = {}) {
   const id = primerKey(unit);
   if (primerMaking.has(id)) return primerMaking.get(id);
@@ -6280,10 +6298,11 @@ function makePrimer(unit, { speculative = false } = {}) {
     if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
     const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), PRIMER_WAIT_MS);
     const pdf = await unitPages(unit), title = unitTitle(unit), wholeDoc = await marginDocument(unit.from);
+    const outline = primerOutlineFor(unit, wholeDoc);
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit) } }, stream: false, signal: ctl.signal, retry: false, speculative });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit), ...(outline ? { outline } : {}) } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -6332,11 +6351,11 @@ function primerPrefetch() {
       const key = state.key, unit = currentUnit();
       if (!unit || state.key + '#' + state.token !== open) return;
       const id = primerKey(unit);
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       const remote = await primerRemote('GET', unit);
       if (state.key !== key) return;
       if (remote) { store.set(id, remote); return }
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       await makePrimer(unit, { speculative: true }).catch(() => { /* opened later, it is made then */ });
       // Done once the account holds its copy as well (a check, or a second device, then sees it there).
       await Promise.all([...primerStoring]);
@@ -6347,7 +6366,7 @@ function primerPrefetch() {
 async function loadPrimer(unit, { redo = false } = {}) {
   const token = ++primer.token, key = state.key;
   const live = () => token === primer.token && state.key === key && primer.open && primer.unit?.key === unit.key;
-  const before = store.get(primerKey(unit));
+  const before = keptPrimer(unit);
   const show = patch => { Object.assign(primer, { data: null, wait: false, status: '' }, patch); marginLayout() };
   if (!redo) {
     if (before) {

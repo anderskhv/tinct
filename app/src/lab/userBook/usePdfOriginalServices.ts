@@ -18,12 +18,15 @@ import { useMarginListen, type MarginListenApi } from '../marginPreview/useMargi
 import { userBookId } from './userBookId'
 import { readingAngleForAi } from '../labReadingAngle'
 import { withAiPrefs } from '../labAiPrefs'
+import type { PrimerOutline } from '../../companion/chapterChatPrompt'
 import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
 import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
 
 type Item = OwnMark | OwnCard | OwnMarkGone
 type SetName = 'marks' | 'cards'
-export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number } }
+export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number }
+  /** A primer's: the PDF's sections nearest the unit, titles only (the Worker bounds it; chapterChatPrompt.ts). */
+  outline?: PrimerOutline }
 export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
 type SavedSet<T extends Item> = { items: T[]; rev: number; dirty: boolean }
 const FILE_ID = /^[0-9a-f]{32}$/
@@ -221,7 +224,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
         : `Summarize ${source.unit.title}.`
     const document = this.unitDocument(source)
     const companion = action === 'primer'
-      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title } } }
+      ? { intent: 'chapter', context, document, chapter: { action: { kind: 'primer', unitKey: source.unit.key, unitTitle: source.unit.title, ...(source.outline ? { outline: source.outline } : {}) } } }
       : { intent: 'ask', context, document }
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,

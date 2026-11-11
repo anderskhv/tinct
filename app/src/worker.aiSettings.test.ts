@@ -234,5 +234,7 @@ describe('AI settings on the chapter-notes cards (Summary and Primer)', () => {
     const brief = chapterNotesSystem('primer', { length: 'brief', row: 'primer' })
     expect(brief).toContain(CHAPTER_NOTES_LENGTH_LINES.brief)
     expect(brief).toContain('"Watch for"')
+    // A shorter or longer card is still the primer: role in the book first, "Watch for" last.
+    expect(brief).toMatch(/the first beat is still the chapter's role in its book, then how it is built .*the last beat is still titled "Watch for"/)
   })
 })

@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { COMPANION_MODEL, RECAP_FAST_MODEL } from './companionModel'
 import { CHAPTER_NOTES_PROMPT_VERSIONS, chapterNotesCacheKey, clipBeatText, parseChapterNotesBeats } from './chapterNotes'
 import { resetBookRetrievalCache, type ChapterText } from './worker/lib/bookRetrieval'
-import { CHAPTER_NOTES_MAX_TOKENS, CHAPTER_NOTES_MODEL, CHAPTER_NOTES_SYSTEM, handleLabChapterNotes, parseChapterNotesRequest } from './worker/routes/labChapterNotes'
+import { CHAPTER_NOTES_MAX_TOKENS, CHAPTER_NOTES_MODEL, CHAPTER_NOTES_SYSTEM, CHAPTER_PLACE_MAX_TITLES, chapterPlace, handleLabChapterNotes, parseChapterNotesRequest } from './worker/routes/labChapterNotes'
 import type { RecapCache } from './worker/routes/labRecap'
 
 const chapters: Record<number, ChapterText> = {
@@ -67,31 +67,71 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(payload).toMatchObject({ model: COMPANION_MODEL, max_tokens: CHAPTER_NOTES_MAX_TOKENS.primer, output_config: { effort: 'low' } })
   })
 
-  it('a primer prepares the reader: why the chapter is interesting, what to expect, what to watch for; at most one line on before; spoiler-free', () => {
+  it('a primer (v4) says what the chapter does for its book, how it is built and what to watch for; a story stays spoiler-free', () => {
     const primer = CHAPTER_NOTES_SYSTEM.primer
-    expect(primer).toMatch(/prepare them to read it: why this chapter is interesting, what to expect, and what to watch for\. It is not a recap\./)
-    expect(primer).toMatch(/Give exactly two beats, in this order\. Never more than two beats\./)
-    expect(primer).toMatch(/The first beat is about the coming chapter\./)
-    expect(primer).toMatch(/what kind of chapter it is/)
-    expect(primer).toMatch(/at most one short sentence, at most 15 words, on where the story stands, taken from the PREVIOUS chapter only/)
-    expect(primer).toMatch(/Never more than one sentence about what came before\./)
+    expect(primer).toMatch(/what this chapter does for the book it belongs to, how the chapter is built, and what to watch for\. It is not a recap\./)
+    expect(primer).toMatch(/Give exactly three beats, in this order\. Never more than three beats\./)
+    // The Bible's "book" is Luke, never the whole Bible.
+    expect(primer).toMatch(/for a collection such as the Bible it is the single book the chapter belongs to \(Luke, not the whole Bible\)/)
+    expect(primer).toContain('"In Luke" or "In Frankenstein"')
+    expect(primer).toMatch(/at most one short sentence, at most 15 words, on where things stand, taken from the PREVIOUS chapter/)
+    // Grounded: the chapter list, the two chapters, and general knowledge of a known work; never a guess.
+    expect(primer).toMatch(/the chapter list under WHERE THIS CHAPTER SITS, the previous chapter and the coming chapter/)
+    expect(primer).toMatch(/Never guess at chapters you have not been given/)
+    expect(primer).toMatch(/titled "How it's built" and lays the chapter out as two to four parts, in order/)
+    expect(primer).toMatch(/give its range when the text carries numbers \(verses, sections, numbered paragraphs\)/)
     expect(primer).toMatch(/titled "Watch for" and gives one or two concrete things to notice while reading/)
-    expect(primer).toContain('{"beats":[{"title":"…","text":"…"},{"title":"Watch for","text":"…"}]}')
-    expect(primer).toMatch(/Strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter/)
-    expect(primer).toMatch(/never how it develops or ends/)
+    expect(primer).toContain('{"beats":[{"title":"In …","text":"…"},{"title":"How it\'s built","text":"…"},{"title":"Watch for","text":"…"}]}')
+    expect(primer).toMatch(/For a story \(a novel, a play, a narrative poem\) stay strictly spoiler-free: never state or hint at any event, outcome, turn, decision or discovery in the coming chapter or later ones/)
     expect(primer).toContain('"Watch the borrowed umbrella Anna leaves by the door", never "The umbrella\'s importance is revealed"')
+    expect(primer).toMatch(/Scripture, history, philosophy, essays, laws, letters, proverbs, poems and other non-fiction have no surprise to protect/)
     expect(primer).toMatch(/Never use the verbs list, record, document, establish, detail, reveal or examine/)
     expect(primer).toMatch(/Do not invent meaning, motives or symbolism/)
-    expect(primer).toMatch(/State only facts the text gives; when unsure of a name or number, leave it out\./)
+    expect(primer).toMatch(/when unsure of a name or number, leave it out\./)
     expect(primer).toMatch(/no morals or aphorisms, no "we" or "us" in the text/)
-    // The old recap-first beat is gone.
     expect(primer).not.toMatch(/"Where we are"/)
-    expect(primer).not.toMatch(/"And"/)
   })
 
-  it('the sheet takes a two-beat primer as it comes', () => {
-    const two = { beats: [{ title: 'Where we are', text: 'Victor has fled the room.' }, { title: 'Watch for', text: 'Watch Clerval at the coach.' }] }
-    expect(parseChapterNotesBeats(two)).toEqual(two.beats)
+  it('a primer is told where the chapter sits: its own book in a collection (Luke, not the Bible), else the whole chapter list', async () => {
+    const bible = {
+      chapters: [...Array.from({ length: 3 }, (_, i) => ({ number: i + 1, title: `Mark ${i + 14}` })), ...Array.from({ length: 24 }, (_, i) => ({ number: i + 4, title: `Luke ${i + 1}` })), { number: 28, title: 'John 1' }],
+      sections: [{ title: 'New Testament', sections: [{ title: 'The Gospels', sections: [{ title: 'Mark', chapters: [1, 2, 3] }, { title: 'Luke', chapters: Array.from({ length: 24 }, (_, i) => i + 4) }, { title: 'John', chapters: [28] }] }] }],
+    }
+    const luke = chapterPlace(bible, 17, 'The Bible', 'bible')
+    expect(luke).toContain('WHERE THIS CHAPTER SITS: the book is Luke (a book of The Bible). The coming chapter is number 14 of 24 in it.')
+    expect(luke).toContain('> Luke 14  (the coming chapter)')
+    expect(luke).toContain('  Luke 24')
+    expect(luke).not.toMatch(/Mark|John/)
+    // Any other book: the whole list; its sections are parts of the book, never the book (even nested ones).
+    const novel = { chapters: [1, 2, 3, 4].map(number => ({ number, title: `Chapter ${number}` })) }
+    expect(chapterPlace(novel, 2, 'Frankenstein')).toContain('the book is Frankenstein. The coming chapter is number 2 of 4 in it.')
+    const parts = chapterPlace({ ...novel, sections: [{ title: 'Volume I', chapters: [1, 2] }, { title: 'Volume II', chapters: [3, 4] }] }, 3, 'Frankenstein')
+    expect(parts).toContain('the book is Frankenstein. The coming chapter is number 3 of 4 in it. It is in the part "Volume II".')
+    expect(chapterPlace({ ...novel, sections: [{ title: 'Volume 1', sections: [{ title: 'Part 1', chapters: [1, 2] }, { title: 'Part 2', chapters: [3, 4] }] }] }, 3, 'Democracy in America', 'democracy-in-america'))
+      .toContain('the book is Democracy in America. The coming chapter is number 3 of 4 in it. It is in the part "Volume 1 › Part 2".')
+    expect(chapterPlace(novel, 2, null)).toContain('the book is this book.')
+    // A long book shows the titles nearest the chapter, and says so.
+    const long = { chapters: Array.from({ length: 200 }, (_, i) => ({ number: i + 1, title: `Chapter ${i + 1}` })) }
+    const middle = chapterPlace(long, 100, 'Long')
+    expect(middle).toContain(`(${CHAPTER_PLACE_MAX_TITLES} of 200 shown)`)
+    expect(middle.split('\n').filter(line => /Chapter \d+/.test(line))).toHaveLength(CHAPTER_PLACE_MAX_TITLES)
+    expect(middle).toContain('> Chapter 100  (the coming chapter)')
+    // The request carries it before the two chapters, titles only.
+    const fetchAnthropic = anthropic()
+    await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'primer', bookTitle: 'Frankenstein' }), env, ctx().ctx, allow, { cache: null, fetchAnthropic, reserveGuestSpend: spend })
+    const user = ((fetchAnthropic.mock.calls[0] as unknown as [Record<string, unknown>])[0].messages as Array<{ content: string }>)[0].content
+    expect(user).toMatch(/WHERE THIS CHAPTER SITS: the book is Frankenstein\. The coming chapter is number 2 of \d+ in it\./)
+    expect(user.indexOf('WHERE THIS CHAPTER SITS')).toBeLessThan(user.indexOf('PREVIOUS CHAPTER'))
+    // "In brief" is told nothing of the kind.
+    const end = anthropic()
+    await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind: 'end' }), env, ctx().ctx, allow, { cache: null, fetchAnthropic: end, reserveGuestSpend: spend })
+    expect((((end.mock.calls[0] as unknown as [Record<string, unknown>])[0].messages as Array<{ content: string }>)[0].content)).not.toContain('WHERE THIS CHAPTER SITS')
+  })
+
+  it('the sheet takes a three-beat primer as it comes (and an older two-beat one)', () => {
+    const three = { beats: [{ title: 'In Frankenstein', text: 'The story moves from Geneva to Ingolstadt.' }, { title: "How it's built", text: 'A journey, then a first lecture.' }, { title: 'Watch for', text: 'Watch Clerval at the coach.' }] }
+    expect(parseChapterNotesBeats(three)).toEqual(three.beats)
+    expect(parseChapterNotesBeats({ beats: three.beats.slice(1) })).toEqual(three.beats.slice(1))
   })
 
   it('malformed model output is a 502, never cached; no spend reservation is a calm 503', async () => {
@@ -152,13 +192,13 @@ describe('POST /api/lab-chapter-notes', () => {
     expect(clipBeatText('Short and whole.')).toBe('Short and whole.')
   })
 
-  it('new prompts are new cache versions: old In brief and three-beat primers are never served', async () => {
-    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v2', end: 'notes-v4', primer: 'notes-v4' })
+  it('new prompts are new cache versions: old In brief cards and older primers are never served', async () => {
+    expect(CHAPTER_NOTES_PROMPT_VERSIONS).toEqual({ sofar: 'notes-v2', end: 'notes-v4', primer: 'notes-v5' })
     const base = { bookId: 'bible', editionKey: 'original-en', chapterNumber: 12 }
     expect(chapterNotesCacheKey({ ...base, kind: 'end' })).toBe('notes-v4/bible/original-en/12/end/all')
-    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v4/bible/original-en/12/primer/all')
+    expect(chapterNotesCacheKey({ ...base, kind: 'primer' })).toBe('notes-v5/bible/original-en/12/primer/all')
     const threeBeatPrimer = JSON.stringify({ beats: [{ title: 'Where we are', text: 'a' }, { title: 'Watch for', text: 'b' }, { title: 'And', text: 'c' }] })
-    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2', 'notes-v3']], ['primer', ['notes-v1', 'notes-v2', 'notes-v3']]] as const) {
+    for (const [kind, old] of [['end', ['notes-v1', 'notes-v2', 'notes-v3']], ['primer', ['notes-v1', 'notes-v2', 'notes-v3', 'notes-v4']]] as const) {
       const cache = fakeCache(); const fetchAnthropic = anthropic(); const { ctx: c, pending } = ctx()
       for (const version of old) cache.entries.set(`https://tinct.app/__lab-chapter-notes/${version}/frank/original-en/2/${kind}/all`, kind === 'primer' ? threeBeatPrimer : beatsJson)
       const response = await handleLabChapterNotes(post({ bookId: 'frank', editionKey: 'original-en', chapterNumber: 2, kind }), env, c, allow, { cache, fetchAnthropic, reserveGuestSpend: spend })
