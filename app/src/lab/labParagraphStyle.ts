@@ -26,10 +26,12 @@ import type { Chapter, ParagraphKind } from '../types'
 import { isFigureToken, registerFigures } from './labFigures'
 
 /**
- * A book's own kinds, and one the reader derives from the text itself:
- * `index`, a run of short items separated by bullets (isSeparatedList).
+ * A book's own kinds, and two the reader derives from the text itself:
+ * `index`, a run of short items separated by bullets (isSeparatedList), and
+ * `argument`, the prose argument a verse translation opens a book with
+ * (registerArgument).
  */
-export type LabParagraphKind = ParagraphKind | 'index'
+export type LabParagraphKind = ParagraphKind | 'index' | 'argument'
 
 const KINDS = new Set<LabParagraphKind>(['heading', 'label', 'item', 'subtitle', 'byline', 'line'])
 
@@ -54,6 +56,18 @@ export function registerParagraphKinds(paragraphs: string[], list: ReadonlyArray
   })
 }
 
+/**
+ * The prose argument at the head of a chapter of a verse edition (Pope gives every book of the Odyssey one): set
+ * apart from the verse as print editions set it, under a small "Argument" label (lab.css `.is-kind-argument`).
+ * Found by the chapter's shape, never by its words (labEditionSwitch leadingPreface: a first paragraph not set in
+ * verse lines in a chapter otherwise set in them); the caller registers it as the chapter loads. The text, its word
+ * indexes and positions are untouched.
+ */
+export function registerArgument(text: string | undefined): void {
+  if (!text || (kinds.has(text) && kinds.get(text) !== 'argument')) return
+  kinds.set(text, 'argument')
+}
+
 export function paragraphKind(text: string | undefined): LabParagraphKind | null {
   if (!text) return null
   return kinds.get(text) ?? (isSeparatedList(text) ? 'index' : null)
@@ -67,7 +81,8 @@ export function paragraphKind(text: string | undefined): LabParagraphKind | null
  */
 export function paragraphSetRagged(text: string | undefined): boolean {
   const kind = paragraphKind(text)
-  return !!kind && kind !== 'item'
+  // An argument is prose like a paragraph: justified and hyphenated.
+  return !!kind && kind !== 'item' && kind !== 'argument'
 }
 
 /** Separators between items of a keyword or index line. */

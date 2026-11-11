@@ -101,7 +101,7 @@ describe('plays and verse-sidecar books open in the classic reader (launch, 22 O
   })
 
   it('an epic whose lines are in its own text (no sidecar) reads in margin view, as prose books do', () => {
-    // Paradise Lost and the Divine Comedy store each verse paragraph with its line breaks; margin view keeps them (white-space: pre-line).
+    // Their verse paragraphs carry line breaks but the editions are not `style: 'verse'`: they flow here as in the book reader.
     for (const id of ['paradise-lost', 'divine-comedy', 'frankenstein']) {
       expect(getBook(id), id).toBeTruthy()
       expect(isMarginPreviewBook(getBook(id)), id).toBe(true)
