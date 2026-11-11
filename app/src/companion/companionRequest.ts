@@ -241,9 +241,24 @@ export function companionMaxTokens(request: CompanionRequest, base?: number): nu
   return fallback ? aiPrefsMaxTokens(bound, request.ai, fallback) : bound
 }
 
+/**
+ * A primer's length as the reader set it (AI settings' Primer row), in its own parts: the generic line ("a
+ * sentence or two") would fight its JSON. As the catalogue Primer's PRIMER_LAST_BEAT, the three parts keep their
+ * order and the JSON its shape.
+ */
+export const PRIMER_LENGTH_LINES: Readonly<Record<AiLength, string>> = Object.freeze({
+  brief: 'Length, as the reader set it: brief. gist one sentence of at most 25 words; "How it\'s built" two or three parts and "Watch for" one item, each at most 18 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
+  standard: 'Length, as the reader set it: standard. The lengths above stand; keep the JSON shape and the three parts in their order.',
+  detailed: 'Length, as the reader set it: detailed. gist up to four sentences, at most 80 words; "How it\'s built" three to six parts and "Watch for" two or three items, each at most 45 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
+})
+
 /** The reader's settings as prompt lines; the length line only for a request with a length row. Explain's goes in its user turn. */
 function companionAiLines(request: CompanionRequest): string[] {
   const length = companionLength(request)
+  if (isPrimerRequest(request)) {
+    // The primer's own length line, then the language and the reader's instructions as for any request.
+    return [...(length ? [PRIMER_LENGTH_LINES[length]] : []), ...aiPrefsPromptLines(request.ai, { length: false })]
+  }
   return aiPrefsPromptLines(request.ai, { length: Boolean(length) && request.intent !== 'explain' })
 }
 

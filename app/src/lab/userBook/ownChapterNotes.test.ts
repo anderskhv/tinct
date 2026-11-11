@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { fetchOwnChapterNotes, ownChapterNotesBody, ownChapterPages, primerBeats, recapBeats, type OwnChapterNotesSource } from './ownChapterNotes'
 import { parsePrimer } from '../../companion/primerParse'
-import { parseCompanionRequest } from '../../companion/companionRequest'
+import { buildCompanionSystem, parseCompanionRequest } from '../../companion/companionRequest'
 
 const HEX = 'aa11bb22cc33dd44ee55ff66'
 const source: OwnChapterNotesSource = {
@@ -29,6 +29,22 @@ describe("an own book's Primer and Recap, made from this device's text (One Tinc
     expect(parseCompanionRequest(body.companion)).toMatchObject({ intent: 'chapter', epub: true })
   })
 
+  it('sends the book\'s contents nearest the chapter with its Primer, titles only (its first part: where the chapter sits; 11 Nov 2026)', () => {
+    const chapters = Array.from({ length: 5 }, (_, i) => ({ number: i + 1, title: `${i} Chapter title ${i}` }))
+    const body = ownChapterNotesBody('primer', { ...source, chapters }) as { companion: Record<string, unknown> }
+    const outline = { titles: chapters.map(chapter => chapter.title), at: 2, first: 1, total: 5 }
+    expect(body).toMatchObject({ companion: { chapter: { action: { kind: 'primer', unitKey: 'chapter-3', outline } } } })
+    // Never a chapter's text: titles only.
+    expect(JSON.stringify((body.companion.chapter as { action: unknown }).action)).not.toContain('lamp')
+    const parsed = parseCompanionRequest(body.companion)!
+    expect(buildCompanionSystem(parsed)).toContain('> 2 Chapter title 2  (this chapter)')
+    // No list, or a book of one chapter: none sent, and the prompt says so.
+    expect(JSON.stringify(ownChapterNotesBody('primer', source))).not.toContain('outline')
+    expect(buildCompanionSystem(parseCompanionRequest((ownChapterNotesBody('primer', source) as { companion: unknown }).companion)!)).toContain('CONTENTS: none given.')
+    // Recap carries no primer action, so no outline.
+    expect(ownChapterNotesBody('end', { ...source, chapters })).not.toHaveProperty('companion.chapter')
+  })
+
   it('asks the margin reader’s Recap of the chapter as an ask, with the same context', () => {
     const body = ownChapterNotesBody('end', source) as { messages: Array<{ content: string }>; companion: { intent: string } }
     expect(body.companion.intent).toBe('ask')
@@ -49,6 +65,16 @@ describe("an own book's Primer and Recap, made from this device's text (One Tinc
       { title: 'Where we are', text: 'The lamp and the shade disagree.' },
       { title: 'Threads to watch', text: 'Where the light falls' },
     ])
+    // v5 (11 Nov 2026): the role under its own title, then How it's built (one part a line) and Watch for, as a Tinct book's Primer.
+    const v5 = { kind: 'narrative', role: 'In Lamplit Conjectures', gist: 'The second essay turns from the lamp to the room it lights.',
+      sections: [{ title: "How it's built", items: [{ text: 'An exchange between lamp and shade.', cite: '{p. 1}' }, { text: 'A closing view of the room.', cite: '{p. 1}' }] }, { title: 'Watch for', items: [{ text: 'Where the light falls.', cite: '{p. 1}' }] }] }
+    expect(primerBeats(parsePrimer(JSON.stringify(v5))!)).toEqual([
+      { title: 'In Lamplit Conjectures', text: 'The second essay turns from the lamp to the room it lights.' },
+      { title: "How it's built", text: 'An exchange between lamp and shade. · A closing view of the room.', items: ['An exchange between lamp and shade.', 'A closing view of the room.'] },
+      { title: 'Watch for', text: 'Where the light falls.' },
+    ])
+    // A whole document has no first part.
+    expect(primerBeats(parsePrimer(JSON.stringify({ ...v5, role: '', gist: '' }))!)!.map(beat => beat.title)).toEqual(["How it's built", 'Watch for'])
     expect(recapBeats('**The lamp** explains.\n\nWhat the shade sets up next.')).toEqual([
       { title: 'Main points', text: 'The lamp explains.' },
       { title: 'What it sets up', text: 'What the shade sets up next.' },

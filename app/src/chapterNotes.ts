@@ -25,6 +25,9 @@ export type ChapterNotesKind = 'sofar' | 'end' | 'primer'
  * cap was cut mid-word ("muttered self-a"); those cached notes are rewritten.
  * 2026-11-11: `primer` prompt v4 (key notes-v5): the chapter's role in its book, how it
  * is built, then "Watch for" (three beats; v3 was why it is interesting + "Watch for").
+ * A reader's own book's Primer cards (userBook/ownChapterNotes.ts, the companion's v5 own-book
+ * primer with the same three parts) are kept on the device under this key too, so notes-v5 also
+ * retires the own-book cards made by the earlier gist-and-sections primer.
  */
 export const CHAPTER_NOTES_PROMPT_VERSIONS: Readonly<Record<ChapterNotesKind, string>> = Object.freeze({
   sofar: 'notes-v2',

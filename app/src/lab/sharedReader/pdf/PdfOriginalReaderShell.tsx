@@ -18,6 +18,8 @@ import { LabInlineMarkdown } from '../../LabMarkdown'
 import { PdfOriginalAnswer, pdfOriginalAnswerPreview } from './PdfOriginalAnswer'
 import { foldedPreview } from '../cardPreview'
 import type { QuizTurn } from '../../../companion/companionRequest'
+import { primerOutline, type PrimerOutline } from '../../../companion/chapterChatPrompt'
+import { isCurrentPrimer, parsePrimer } from '../../../companion/primerParse'
 import { useLabDictation } from '../../useLabDictation'
 import { SourceMarginRail, type SourceMarginEntry } from '../SourceMarginRail'
 import { ReadingAngleField } from '../../LabReadingAngleField'
@@ -52,7 +54,9 @@ export type PdfOriginalCard = { id: string; page: number; text: string; kind: st
 export type PdfOriginalTalkConversation = { id: string; page: number | null; turns: PdfOriginalCard['turns']; at: number; localOnly: true }
 export type PdfOriginalCardOptions = { question?: string; turns?: PdfOriginalCard['turns']; data?: Record<string, unknown> }
 export type PdfOriginalQuizCheck = { question: string; expected: string; why?: string; answer: string; turns?: QuizTurn[] }
-export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number } }
+export type PdfOriginalUnitSource = { unit: { key: string; title: string; from: number; to: number }; pages: Array<{ n: number; text: string }>; atPage: number; anchor?: { page: number; frac: number }
+  /** A primer's: the PDF's sections nearest the unit, titles only (its first part, where the unit sits; 11 Nov 2026). */
+  outline?: PrimerOutline }
 export type PdfOriginalUnitAction = 'primer' | 'catchup' | 'recap'
 /** The owner-qualified service handles private geometry, storage, and companion requests. */
 export interface PdfOriginalReaderServices {
@@ -389,6 +393,8 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       const saved = item.data?.unit as typeof unit | undefined
       return item.data?.action === action && saved && unit && saved.key === unit.key
         && saved.from === unit.from && saved.to === unit.to && saved.title === unit.title
+        // A primer an earlier prompt made (before v5, 11 Nov 2026) stays among the saved cards but is made again here.
+        && (action !== 'primer' || isCurrentPrimer(parsePrimer(item.turns.find(turn => turn.role === 'assistant')?.content ?? '')))
     })
     if (cached) { openSavedCard(cached); return }
     if (!unit || !services?.getPageText || !services.askUnit || !services.saveUnitCard || !pageNumbers.length) return
@@ -423,7 +429,10 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
         setCard(previous => previous?.selection === sourceSelection ? { ...previous, text: message, busy: false } : previous)
         return
       }
-      const source: PdfOriginalUnitSource = { unit: { key: unit.key, title, from: unit.from, to: unit.to }, pages: bounded, atPage, ...(sourceAnchor ? { anchor: { page: sourceAnchor.page, frac: sourceAnchor.rects[0]?.[2] ?? 0 } } : {}) }
+      // A primer's outline: the sections' titles in order, nearest the unit (none for the whole file, or with one section).
+      const titled = units.filter(item => item.title.trim())
+      const outline = action === 'primer' ? primerOutline(titled.map(item => item.title.trim()), titled.findIndex(item => item.key === unit.key)) : null
+      const source: PdfOriginalUnitSource = { unit: { key: unit.key, title, from: unit.from, to: unit.to }, pages: bounded, atPage, ...(sourceAnchor ? { anchor: { page: sourceAnchor.page, frac: sourceAnchor.rects[0]?.[2] ?? 0 } } : {}), ...(outline ? { outline } : {}) }
       setCard(previous => previous?.selection === sourceSelection ? { ...previous, sourceRange: { from: bounded[0].n, to: bounded[bounded.length - 1].n } } : previous)
       const answer = await services.askUnit(source, action, controller.signal, delta => { if (!controller.signal.aborted) setCard(previous => previous?.selection === sourceSelection ? { ...previous, text: delta } : previous) })
       if (controller.signal.aborted) return

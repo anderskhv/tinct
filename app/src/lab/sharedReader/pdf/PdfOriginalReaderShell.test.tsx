@@ -322,8 +322,29 @@ it('requires an explicit owner claim before older unassigned Talk turns appear',
   expect(adoptRecoverableTalk).toHaveBeenCalledOnce()
 })
 
+it('serves a saved Primer for the unit only when the current prompt made it (v5, 11 Nov 2026); an older one is made again', async () => {
+  const unit = { key: 'outline-1', title: 'Chapter One', from: 11, to: 30 }
+  const legacy = JSON.stringify({ gist: 'Old gist.', claims: ['A.', 'B.', 'C.'], keepInMind: ['D.'], map: [{ title: 'x', pages: 'p. 11' }, { title: 'y', pages: 'p. 12' }, { title: 'z', pages: 'p. 13' }] })
+  const current = JSON.stringify({ kind: 'paper', role: 'In Outlined PDF', gist: 'Saved role.', sections: [{ title: "How it's built", items: ['One.', 'Two.'] }, { title: 'Watch for', items: ['Three.'] }] })
+  for (const [saved, made] of [[legacy, true], [current, false]] as const) {
+    const askUnit = vi.fn(async () => current)
+    const services: PdfOriginalReaderServices = {
+      marks: [], cards: [{ id: 'saved-primer', page: 11, text: 'Chapter One', kind: 'primer', at: 1, turns: [{ role: 'user', content: 'Prepare me to read Chapter One.' }, { role: 'assistant', content: saved }], data: { action: 'primer', unit } }],
+      saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true), removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+      getPageText: vi.fn(async page => `Real extracted text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true),
+    }
+    const view = render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+    fireEvent.click(screen.getByText('Open outlined page 14'))
+    fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
+    if (made) await waitFor(() => expect(askUnit).toHaveBeenCalledOnce())
+    else { expect(await screen.findByText('Saved role.')).toBeTruthy(); expect(askUnit).not.toHaveBeenCalled() }
+    view.unmount()
+  }
+})
+
 it('grounds Primer and Catch me up in real contiguous unit pages and saves exact page ranges once', async () => {
-  const structuredPrimer = JSON.stringify({ gist: 'These pages introduce the central argument.', claims: ['First claim.', 'Second claim.', 'Third claim.'], keepInMind: ['Watch the distinction.'], map: [{ title: 'Opening', pages: 'p. 11' }, { title: 'Middle', pages: 'p. 12' }, { title: 'Close', pages: 'p. 30' }] })
+  // Prompt v5 (11 Nov 2026): the unit's role in the PDF, How it's built, Watch for.
+  const structuredPrimer = JSON.stringify({ kind: 'paper', role: 'In Outlined PDF', gist: 'These pages introduce the central argument.', sections: [{ title: "How it's built", items: [{ text: 'Opening: the question.', cite: '{p. 11}' }, { text: 'Close: the claim.', cite: '{p. 30}' }] }, { title: 'Watch for', items: [{ text: 'Watch the distinction.', cite: '{p. 12}' }] }] })
   const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], action: string) => action === 'primer' ? structuredPrimer : `${action} from original pages.`)
   const saveUnitCard = vi.fn(() => true)
   const services: PdfOriginalReaderServices = {
@@ -339,12 +360,18 @@ it('grounds Primer and Catch me up in real contiguous unit pages and saves exact
   fireEvent.click(screen.getByRole('button', { name: 'Back to book' }))
   fireEvent.click(screen.getByRole('button', { name: 'Primer for Chapter One' }))
   expect(await screen.findByText('These pages introduce the central argument.')).toBeTruthy()
-  expect(screen.getByText('Key claims')).toBeTruthy()
-  expect(screen.getByText('Keep in mind')).toBeTruthy()
+  expect(screen.getByText('In Outlined PDF')).toBeTruthy()
+  expect(screen.getByText("How it's built")).toBeTruthy()
+  expect(screen.getByText('Watch for')).toBeTruthy()
   expect(screen.queryByText(structuredPrimer)).toBeNull()
   const primer = askUnit.mock.calls[0][0]
+  // The PDF's sections nearest the unit go with it, titles only (the primer's first part: where it sits).
+  const outline = primer.outline!
+  expect(outline.titles).toEqual(expect.arrayContaining(['Chapter One', 'Chapter Two']))
+  expect(outline.titles[outline.at]).toBe('Chapter One')
+  expect(outline).toMatchObject({ first: 1, total: outline.titles.length })
   expect(primer).toEqual({ unit: { key: 'outline-1', title: 'Chapter One', from: 11, to: 30 },
-    atPage: 11, anchor: {page:11,frac:.1}, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })) })
+    atPage: 11, anchor: {page:11,frac:.1}, pages: Array.from({ length: 20 }, (_, index) => ({ n: index + 11, text: `Real extracted text on page ${index + 11}.` })), outline })
   expect(saveUnitCard).toHaveBeenCalledWith(primer, 'primer', structuredPrimer)
   fireEvent.keyDown(window, { key: 'Escape' })
   fireEvent.click(screen.getByTestId('lab-super'))
