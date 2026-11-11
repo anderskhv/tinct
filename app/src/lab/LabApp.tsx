@@ -60,7 +60,8 @@ import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
 import { BookScrollReader, type BookScrollControl } from './sharedReader/BookScrollReader'
-import { bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
+import { BOOK_SCROLL_DEVICE_KEY, bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
+import { cachedSiteAdmin, refreshSiteAdmin } from './labSiteAdmin'
 import { useBookScrollChapters } from './sharedReader/useBookScrollChapters'
 import { answerLead, foldedPreview } from './sharedReader/cardPreview'
 import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
@@ -830,6 +831,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
   // AI settings and the books' reading angles follow the reader's account (labAiAccount.ts).
   useAiSettingsAccountSync(authUser?.id ?? null)
+  // Refresh the cached site-admin answer for the next visit (admin try-outs read it at first paint).
+  useEffect(() => { if (authUser?.id) void refreshSiteAdmin(authUser.id) }, [authUser?.id])
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
@@ -1104,8 +1107,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
   // Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls a whole scroll unit (a biblical book, a
   // titled division, else the whole book). Tinct library books; phone, two-page, Compare and own books as before.
-  // `?bookScroll=0` switches it off for the session (QA only).
-  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, (() => { try { return window.sessionStorage } catch { return null } })()))
+  // An admin try-out for now (Anders, 11 Nov 2026): off for everyone else. Decided once, at first paint, from the
+  // cached admin answer, so the surface never changes mid-read; `?bookScroll=0` switches it off for the session.
+  const [siteAdminAtOpen] = useState(() => typeof window !== 'undefined' && cachedSiteAdmin(readCachedSupabaseUser()?.id))
+  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, siteAdminAtOpen,
+    (() => { try { return window.sessionStorage } catch { return null } })(), (() => { try { return window.localStorage } catch { return null } })()))
   const bookScroll = bookScrollOn && continuousReader && !privateBook && !book.chaptersProvisional
   const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber) : null,
     [bookScroll, book.bookId, book.chapters, book.chapterNumber])
@@ -7156,6 +7162,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             ? { active: desktopCompareActive ? 'compare' : continuousReader ? 'margin' : 'two-page',
                 compareAvailable: desktopCompareChoiceAvailable,
                 onChoose: chooseSharedDesktopLayout }
+            : null}
+          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin && !privateBook
+            ? { on: bookScrollOn, onToggle: () => {
+                try { window.localStorage.setItem(BOOK_SCROLL_DEVICE_KEY, bookScrollOn ? 'off' : 'on'); window.sessionStorage.removeItem('tinct-book-scroll-off') } catch { /* storage blocked */ }
+                notePlace('hide')
+                const url = new URL(window.location.href); url.searchParams.delete('bookScroll')
+                window.location.replace(url.toString())
+              } }
             : null}
           compareFromLayout={compareFromLayout}
           compareChoice={!showPhoneChrome}

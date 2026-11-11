@@ -57,6 +57,8 @@ export interface LabV2SheetProps {
     compareAvailable?: boolean
     onChoose: (layout: 'margin' | 'two-page' | 'compare') => void
   } | null
+  /** Admin try-out (Anders, 11 Nov 2026): whole-book scroll in the desktop Margin reader, on this device. */
+  bookScroll?: { on: boolean; onToggle: () => void } | null
   /**
    * Compare needs something to pair; say so instead of hiding the switch.
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
@@ -213,7 +215,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, bookScroll = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -365,6 +367,13 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                         </button>}
                   </div>
                 </div>
+              )}
+              {bookScroll && (
+                <button type="button" className="lab-v2-row is-toggle" role="switch" aria-checked={bookScroll.on}
+                  data-testid="lab-v2-book-scroll" onClick={bookScroll.onToggle}>
+                  <span className="lab-v2-row-label">Whole-book scroll</span>
+                  <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
+                </button>
               )}
               <div className="lab-v2-themes" data-testid="lab-v2-themes">
                 {LAB_V2_THEMES.map(({ theme, label }) => (

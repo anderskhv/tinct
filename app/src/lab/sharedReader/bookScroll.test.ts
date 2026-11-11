@@ -10,19 +10,33 @@ const chapters = (titles: string[], from = 1) => titles.map((title, index) => ({
 describe('the book scroll switch', () => {
   it('is on unless switched off; ?bookScroll=0 turns it off for the session and ?bookScroll=1 on again', () => {
     const storage = memory()
-    expect(bookScrollSwitch('', storage)).toBe(true)
-    expect(bookScrollSwitch('?book=odyssey', storage)).toBe(true)
-    expect(bookScrollSwitch('?book=odyssey&bookScroll=0', storage)).toBe(false)
-    expect(bookScrollSwitch('?book=odyssey', storage)).toBe(false)
-    expect(bookScrollSwitch('?bookScroll=1', storage)).toBe(true)
-    expect(bookScrollSwitch('', storage)).toBe(true)
+    expect(bookScrollSwitch('', true, storage)).toBe(true)
+    expect(bookScrollSwitch('?book=odyssey', true, storage)).toBe(true)
+    expect(bookScrollSwitch('?book=odyssey&bookScroll=0', true, storage)).toBe(false)
+    expect(bookScrollSwitch('?book=odyssey', true, storage)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=1', true, storage)).toBe(true)
+    expect(bookScrollSwitch('', true, storage)).toBe(true)
+  })
+  it('is off for everyone but an admin, whatever the link says', () => {
+    const storage = memory()
+    expect(bookScrollSwitch('', false, storage)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=1', false, storage)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=1', false, null)).toBe(false)
+  })
+  it("keeps an admin's Appearance choice on this device; a link can still turn it on for the session", () => {
+    const device = memory(); device.setItem('tinct-book-scroll', 'off')
+    expect(bookScrollSwitch('', true, memory(), device)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=1', true, memory(), device)).toBe(true)
+    device.setItem('tinct-book-scroll', 'on')
+    expect(bookScrollSwitch('', true, memory(), device)).toBe(true)
   })
   it('works for the one page without session storage, and never throws', () => {
-    expect(bookScrollSwitch('?bookScroll=0', null)).toBe(false)
-    expect(bookScrollSwitch('', null)).toBe(true)
+    expect(bookScrollSwitch('?bookScroll=0', true, null)).toBe(false)
+    expect(bookScrollSwitch('', true, null)).toBe(true)
     const broken = { getItem: () => { throw new Error('blocked') }, setItem: () => { throw new Error('blocked') }, removeItem: () => { throw new Error('blocked') } }
-    expect(bookScrollSwitch('?bookScroll=0', broken)).toBe(false)
-    expect(bookScrollSwitch('', broken)).toBe(true)
+    expect(bookScrollSwitch('?bookScroll=0', true, broken, broken)).toBe(false)
+    expect(bookScrollSwitch('', true, broken, broken)).toBe(true)
+    expect(bookScrollSwitch('', false, broken, broken)).toBe(false)
   })
 })
 

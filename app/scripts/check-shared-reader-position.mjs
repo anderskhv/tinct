@@ -178,12 +178,10 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   assert.equal(await page.getByTestId('lab-page-next').count(), 0, 'scrolling Margin has no fixed page-turn footer')
   // Use the real source overview to reach the chapter's end, then the in-flow
   // chapter control. The source coordinate still crosses Genesis -> Exodus.
-  // Book scroll (11 Nov 2026): a Bible chapter's overview is its biblical book's ("Book position"), as other books' are.
-  const chapterMap = page.getByRole('slider', { name: /^(Chapter|Book) position$/ })
+  const chapterMap = page.getByRole('slider', { name: 'Chapter position' })
   await chapterMap.focus()
   await page.keyboard.press('End')
-  // Book scroll paints every chapter's end: Genesis 50's is the last on the page.
-  const nextChapter = host.getByRole('button', { name: 'Next chapter', exact: true }).last()
+  const nextChapter = host.getByRole('button', { name: 'Next chapter', exact: true })
   await nextChapter.waitFor({ state: 'attached', timeout: 10000 })
   await nextChapter.scrollIntoViewIfNeeded()
   await nextChapter.click()
@@ -229,8 +227,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   const sourceFrame = await host.boundingBox()
   assert(marginRoom && sourceFrame, 'blank margin has a hit surface')
   // Blank paper: below the chapter's start card (approved mockup, Anders 9 Nov 2026), which now sits at the chapter's top.
-  // Book scroll also lays out later chapters' cards further down the unit: only the cards on screen count.
-  const cardsBottom = await page.locator('.source-margin-item').evaluateAll(nodes => Math.max(0, ...nodes.map(node => node.getBoundingClientRect()).filter(box => box.top < innerHeight).map(box => box.bottom)))
+  const cardsBottom = await page.locator('.source-margin-item').evaluateAll(nodes => Math.max(0, ...nodes.map(node => node.getBoundingClientRect().bottom)))
   await page.mouse.click(marginRoom.x + marginRoom.width / 2, Math.max(sourceFrame.y + 160, cardsBottom + 40))
   await page.keyboard.type('A note on blank paper')
   assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A note on blank paper', 'blank margin focuses its new note')
@@ -356,8 +353,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.goto(`${origin}/reader?book=bible&edition=web-en&chapter=1048&paragraph=0&word=0&sharedReader=1`, {waitUntil:'domcontentloaded'})
   await host.waitFor({timeout:45000})
   await page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true' && document.querySelector('.lab')?.dataset.chapter === '1048')
-  // Book scroll paints Romans 1 above as well: the numeral is the reader's own chapter's (Romans 2's).
-  const numeralBox = await host.locator('.lab-verse-mark:not(.is-neighbour .lab-verse-mark)').first().boundingBox()
+  const numeralBox = await host.locator('.lab-verse-mark').first().boundingBox()
   const verseEndBox = await host.getByTestId('lab-word').nth(35).boundingBox()
   assert(numeralBox && verseEndBox)
   await page.mouse.move(numeralBox.x + numeralBox.width / 2, numeralBox.y + numeralBox.height / 2)
@@ -367,17 +363,9 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.getByTestId('lab-desk-bar').waitFor({state:'visible'})
   await page.screenshot({path:`${output}/romans-2-verse-number-selection.png`})
   await page.keyboard.press('Escape')
-  // The overview is Romans's in book scroll ("Book position"), the chapter's without it. On a book's overview the
-  // first End opens the last chapter (Romans 16), as it always has for books with chapter marks; the second ends it.
-  const overview = page.getByRole('slider', {name:/^(Chapter|Book) position$/})
-  await overview.focus()
+  await page.getByRole('slider', {name:'Chapter position'}).focus()
   await page.keyboard.press('End')
-  if (await overview.getAttribute('aria-label') === 'Book position') {
-    await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '1062' && document.querySelector('.lab')?.dataset.readerReady === 'true')
-    await overview.focus()
-    await page.keyboard.press('End')
-  }
-  await page.waitForFunction(() => document.querySelector('[role="slider"][aria-label$=" position"]')?.getAttribute('aria-valuenow') === '100')
+  await page.waitForFunction(() => document.querySelector('[role="slider"][aria-label="Chapter position"]')?.getAttribute('aria-valuenow') === '100')
   await page.screenshot({path:`${output}/romans-2-complete.png`})
 
   // The private switch leaves the known phone Read/Compare path and flag-off
