@@ -1,3 +1,4 @@
+import { transcriptTurns } from './labTranscript'
 import { proseRuns, sliceJoinsPrevious } from './labPoetry'
 import { measureRowsState, paintRows, type MeasureRow } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
@@ -418,6 +419,7 @@ export function LabDesktopPaginator({ paragraphs, comparison, chapterTitle, layo
               p,
               segmentWordTexts(words[segment.paragraphIndex] || [], segment),
               { text: texts[segment.paragraphIndex], from: segment.from },
+              { turn: transcriptTurns(texts)?.get(segment.paragraphIndex) },
             )
           }
           const end = page.querySelector<HTMLElement>('.lab-chapter-end')

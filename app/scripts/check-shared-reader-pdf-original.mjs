@@ -207,6 +207,21 @@ async function sourceParity(page, calls, output) {
   await figureCard.getByText(/A grounded local fixture answer\./).waitFor({ timeout: 5000 })
   const hasImage = call => { const messages = JSON.parse(call.body || '{}').messages; return messages?.some(message => Array.isArray(message.content) && message.content.some(block => block.type === 'image' && block.source?.data)) }
   assert(hasImage(calls.filter(call => call.path === '/api/chat').at(-1)), 'rendered figure Explain sends the actual source image block')
+  // The Worker refuses a passage picture over 1568 px on its long side (image_rejected, a 400): the capture stays within it.
+  const sentImageSide = call => {
+    const block = JSON.parse(call.body || '{}').messages.flatMap(message => Array.isArray(message.content) ? message.content : []).find(item => item.type === 'image')
+    const bytes = Buffer.from(block.source.data, 'base64')
+    if (block.source.media_type === 'image/png') return Math.max(bytes.readUInt32BE(16), bytes.readUInt32BE(20))
+    for (let i = 2; i + 9 < bytes.length;) {
+      if (bytes[i] !== 0xff) { i += 1; continue }
+      const marker = bytes[i + 1]
+      if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) return Math.max(bytes.readUInt16BE(i + 5), bytes.readUInt16BE(i + 7))
+      i += 2 + bytes.readUInt16BE(i + 2)
+    }
+    return NaN
+  }
+  const figureSide = sentImageSide(calls.filter(call => call.path === '/api/chat').at(-1))
+  assert(figureSide > 0 && figureSide <= 1568, `the figure's picture is at most 1568 px on its long side (${figureSide})`)
   const figureCardId = await figureCard.getAttribute('data-card-id')
   assert(figureCardId)
   assert.equal(await figureCard.locator('.pdf-original__figure-thumb').count(), 0, 'figure answers do not quote the picture again')

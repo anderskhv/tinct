@@ -924,7 +924,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // AI settings' This book reads the open book here (its own lengths ride on this book's requests: labAiPrefs.ts).
   useEffect(() => { setAiSettingsBook(book.bookId || 'bible'); return () => setAiSettingsBook(null) }, [book.bookId])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
-  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor; /** The chapter pill's Summary: the chapter-end request under the pill's name, at the chapter's start. */ as?: 'summary' } | null>(null)
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor; /** The chapter pill's Summary: the chapter-end request under the pill's name, at the chapter's start. */ as?: 'summary'; /** Summary opened from the chapter's end (11 Nov 2026): the same card, beside the chapter end. */ atEnd?: boolean } | null>(null)
   const [desktopChapterCards, setDesktopChapterCards] = useState<Array<NonNullable<typeof chapterNotes>>>([])
   const [desktopCatchup, setDesktopCatchup] = useState(false)
   // The whole book's Primer or Summary, from the book's start actions (approved mockup, Anders 9 Nov 2026).
@@ -4787,7 +4787,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         previousAnchor: readingPageIndex > 0 ? pageAnchorOf(readingPages[Math.max(0, readingPageIndex - 2)]) : null,
         folio: bookPageEstimate.page, onPrimer: privateBook ? undefined : () => openChapterNotes('primer', endedChapter),
         chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle} docked={desktopEndInFooter} hasNext recap={!privateBook}
-          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes('end', endedChapter)}
+          onContinue={() => goNextRef.current()} busy={false} onDiscuss={privateBook ? undefined : () => openChapterNotes(CHAPTER_SUMMARY_KIND, endedChapter, 'pill', 'summary', 'end')}
           onNote={pill => openChapterNoteRef.current(endedChapter, pill)} />,
       })
     } else setCarriedEnding(null)
@@ -5698,7 +5698,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
-  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu', as?: 'summary') => {
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu', as?: 'summary', at?: 'end') => {
     if (initialResolving || book.chaptersProvisional) return
     const chapter = book.chapters.find(item => item.number === chapterNumber)
     // A reader's own book: Primer and Recap are made from this device's text of the chapter (userBook/ownChapterNotes.ts),
@@ -5718,9 +5718,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     dictation.stop()
     setSuperMenuOpen(false)
     setChapterNotes({
-      ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end' && as !== 'summary') ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
+      ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end' && (as !== 'summary' || at === 'end')) ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
       title,
       ...(as ? { as } : {}),
+      ...(at === 'end' ? { atEnd: true } : {}),
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
@@ -6507,7 +6508,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const id = unitRailId(chapterNotes)
     if (chapterNotes.railAnchor) desktopUnitAnchorsRef.current.set(id, chapterNotes.railAnchor)
     if (phoneCardRef.current?.kind === 'note' || phoneCardRef.current?.kind === 'chapter-note') closePhoneCard()
-    setDesktopChapterCards(current => current.some(item => unitRailId(item) === id) ? current : [...current, chapterNotes])
+    // One card per chapter Summary: opened again from the other end of the chapter, it moves there (never a second card).
+    setDesktopChapterCards(current => current.some(item => unitRailId(item) === id) ? current.map(item => unitRailId(item) === id && !!item.atEnd !== !!chapterNotes.atEnd ? chapterNotes : item) : [...current, chapterNotes])
     setDesktopOpenId(current => current === id ? null : id)
     setDesktopContinuationId(id)
   // A deliberate pill activation opens or minimises its retained unit card.
@@ -6697,7 +6699,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const notes of desktopChapterCards) {
     const id = unitRailId(notes), kind = notes.request.kind === 'end' || notes.request.kind === 'sofar' ? 'recap' : 'primer'
     // 'sofar' is a chapter's Summary from its start card: at the chapter's start, named for the action.
-    const atStart = notes.request.kind !== 'end' || notes.as === 'summary'
+    const atStart = notes.request.kind !== 'end' || (notes.as === 'summary' && !notes.atEnd)
     desktopMarginEntries.push({ id, label: notes.request.kind === 'sofar' || notes.as === 'summary' ? BOOK_SUMMARY_TITLE : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, !atStart), order: atStart ? -2 : 1e12 - 2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
@@ -7251,7 +7253,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
                 hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
                 onContinue={goNext} busy={false}
-                onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
+                onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
                 onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
                 finishedCard={finishedCard} />,
               follow: listen.follow,
@@ -7275,7 +7277,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               chapterTitle={book.chapterTitle}
               docked={desktopPaging && desktopEndInFooter}
               hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
-              busy={false} onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
+              busy={false} onDiscuss={() => openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end')}
               onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
               finishedCard={finishedCard}
             /> : undefined}

@@ -13,7 +13,7 @@ import {paperCover,ownCoverImage} from '../book-cover.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
 import {addToTinctEnabled,isPublicBookId,modernEditionsEnabled,groupSearchResults,freeRow,importSource,personName,inTinct,mergePublicBooks,PUBLIC_BOOKS_INDEX_URL,PUBLIC_BOOKS_INDEX_FETCH,IMPORT_LANGUAGES,REGISTRY_GUTENBERG_IDS} from '../public-books.js?v=20261009rel10';
 import {sharedReaderEnabled} from '../shared-reader-activation.js?v=20261023activate';
-import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink} from './own-add.js?v=20261109add3';
+import {addEngine,loadFileEngine,pasteTooLong,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,isFileLink,importFile} from './own-add.js?v=20261111link';
 import {pasteBox} from './paste-box.js?v=20261109add3';
 import {htmlText} from './paste-text.js?v=20261109add3';
 import {createQueue,prepareQueuedFile,isTextFile,QUEUE_COPY} from './own-queue.js?v=20261109add3';
@@ -275,7 +275,19 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   note(`Importing the article from ${host}…`);
   let article;
   try{await api();article=await draftFromLink({url,title:linkDraft?.title||'',uid:linkDraft?.uid||''});}
-  catch(error){again(error?.message||'Tinct could not import this page. Paste the article text instead.');return;}
+  catch(error){
+   // A link to a PDF or EPUB (Anders, 11 Nov 2026): the file is fetched once and added as a chosen file is,
+   // the rights step included; on a failure the link step comes back with the reason.
+   if(isFileLink(error)){
+    note(`Downloading the file from ${host}…`);
+    let file;try{file=await importFile(url);}catch(failed){again(failed?.message||'Tinct could not open this file. Download it and add it instead.');return;}
+    linking=false;
+    if(linkDraft?.fromHandoff)await clearPasteHandoff().catch(()=>{});
+    await addFile(file,{authorized:true});
+    return;
+   }
+   again(error?.message||'Tinct could not import this page. Paste the article text instead.');return;
+  }
   const tooLong=pasteTooLong(htmlText(article.html),{imported:true});
   if(tooLong){again(tooLong);return;}
   await addPasted({html:article.html,title:article.title||'Pasted text',author:article.author,uid:linkDraft?.uid||'',source:article.source},{fromHandoff:!!linkDraft?.fromHandoff,retry:again});
@@ -319,8 +331,8 @@ export function openFileDialog({from=null,onSearch=null,checking=false,authorize
   if(message)alert.textContent=message;
   paste.focus();
  }
- async function addFile(file){
-  if(!await authorize()||!layer.isConnected)return;
+ async function addFile(file,{authorized=false}={}){
+  if(!authorized&&!await authorize()||!layer.isConnected)return;
   if (/\.txt$/i.test(file.name) || file.type === 'text/plain') {
    if (file.size > 50 * 1024 * 1024) { chooseStep('This text file exceeds the 50 MB limit.'); return; }
    try {

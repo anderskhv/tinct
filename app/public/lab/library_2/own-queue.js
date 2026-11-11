@@ -6,7 +6,7 @@
 // The Premium/trial gate and the rights confirmation are the caller's, once, before the queue starts.
 // One file chosen on its own never comes here: it keeps the one-file path exactly.
 // No page UI here: the caller draws the queue from `items`.
-import {keepOwnFile,pasteBook,savePastedText,pasteTooLong} from './own-add.js?v=20261109add3';
+import {keepOwnFile,pasteBook,savePastedText,pasteTooLong} from './own-add.js?v=20261111link';
 import {cleanPaste} from './paste-text.js?v=20261109add3';
 
 export const QUEUE_COPY={
