@@ -16,6 +16,7 @@ export const CARDS_COPY = {
   topUp: 'Top up',
   findReaders: 'Find readers',
   settings: 'Settings',
+  aiSettings: 'AI settings',
   premium: 'Premium',
   free: 'Free',
   uploadPicture: 'Upload a picture',

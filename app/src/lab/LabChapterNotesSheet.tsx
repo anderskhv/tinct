@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { ChapterNotesBeat, ChapterNotesRequest } from '../chapterNotes'
 import { chapterNotesPlainText, fetchChapterNotes, keepChapterNotes, storedChapterNotes, type ChapterNotesResult } from './labChapterNotes'
 import { isUserBookId } from './userBook/userBookId'
@@ -8,6 +8,7 @@ import { CopyIcon } from '../components/reader/SelectionPopup'
 import { useReaderWindow } from './useReaderWindow'
 import { LabBalanceEmptyLine } from './LabAiUsageBar'
 import { LAB_COPY } from './labCopy'
+import { aiPrefsFor } from './labAiPrefs'
 import './labCatchUp.css'
 import { LabPhoneCard } from './marginPhone/LabPhoneCard'
 
@@ -44,7 +45,13 @@ export interface LabChapterNotesSheetProps {
  * titled beats in the Catch me up sheet, never a chat answer. Chat and Talk
  * continue from it; closing it leaves the reader where it was.
  */
-export function LabChapterNotesSheet({ request, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
+export function LabChapterNotesSheet({ request: asked, title, onClose, onChat, onTalk, readToken, onTopUp, card = false, follow, thread, own, embedded = false, onReady }: LabChapterNotesSheetProps) {
+  // The reader's AI settings for the card (labAiPrefs.ts): Primer's row for a primer, Summary's otherwise.
+  // A card written to them is kept apart from the shared one (chapterNotesCacheKey).
+  const request = useMemo<ChapterNotesRequest>(() => {
+    const ai = aiPrefsFor(asked.kind === 'primer' ? 'primer' : 'summary')
+    return ai ? { ...asked, ai } : asked
+  }, [asked])
   const [beats, setBeats] = useState<ChapterNotesBeat[] | null>(() => storedChapterNotes(request))
   const [state, setState] = useState<'loading' | 'ok' | 'error'>(() => (beats ? 'ok' : 'loading'))
   // Refused at zero (402 allowance_used, only while the AI allowance is on).

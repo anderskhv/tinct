@@ -6,6 +6,8 @@
  * reopen is instant and the notes can be reused elsewhere (they never enter
  * the chat feed).
  */
+import { AI_LENGTH_DEFAULTS, aiPrefsSignature, type AiLength, type AiRequestPrefs } from './aiSettings'
+
 export const CHAPTER_NOTES_ROUTE = '/api/lab-chapter-notes'
 export const CHAPTER_NOTES_CACHE_TTL_SECONDS = 30 * 24 * 60 * 60
 
@@ -38,6 +40,12 @@ export interface ChapterNotesRequest {
   /** "So far" only: the paragraph the reader is in. */
   paragraphIndex?: number
   bookTitle?: string
+  /**
+   * The reader's AI settings for this card (aiSettings.ts): Summary's row for
+   * "so far" and "in brief", Primer's for a primer. A card with settings is
+   * the reader's own: its cache key carries them (chapterNotesCacheKey).
+   */
+  ai?: AiRequestPrefs
 }
 
 export interface ChapterNotesResponse {
@@ -50,6 +58,18 @@ export interface ChapterNotesResponse {
 }
 
 const MAX_BEATS = 4
+/** A Detailed card (AI settings) has up to eight beats. */
+export const DETAILED_MAX_BEATS = 8
+
+/** The length row a card kind reads in AI settings, and its default there. */
+export function chapterNotesLengthDefault(kind: ChapterNotesKind): AiLength {
+  return kind === 'primer' ? AI_LENGTH_DEFAULTS.primer : AI_LENGTH_DEFAULTS.summary
+}
+
+/** How many beats a card may keep: four, or eight for a reader who set Detailed. */
+export function chapterNotesMaxBeats(ai: AiRequestPrefs | undefined): number {
+  return ai?.length === 'detailed' ? DETAILED_MAX_BEATS : MAX_BEATS
+}
 const MAX_TITLE = 60
 // The prompts ask for 35–45 words; this only guards against a runaway answer.
 const MAX_TEXT = 700
@@ -66,7 +86,7 @@ export function clipBeatText(text: string, max = MAX_TEXT): string {
 }
 
 /** Accepts `{beats:[{title,text}]}` with 1–4 non-empty beats; anything else is null. */
-export function parseChapterNotesBeats(raw: unknown): ChapterNotesBeat[] | null {
+export function parseChapterNotesBeats(raw: unknown, maxBeats = MAX_BEATS): ChapterNotesBeat[] | null {
   const list = raw && typeof raw === 'object' ? (raw as { beats?: unknown }).beats : null
   if (!Array.isArray(list)) return null
   const beats = list.flatMap(item => {
@@ -76,10 +96,12 @@ export function parseChapterNotesBeats(raw: unknown): ChapterNotesBeat[] | null 
     const t = title.replace(/\s+/g, ' ').trim().slice(0, MAX_TITLE)
     const x = clipBeatText(text.replace(/\s+/g, ' ').trim())
     return t && x ? [{ title: t, text: x }] : []
-  }).slice(0, MAX_BEATS)
+  }).slice(0, maxBeats)
   return beats.length ? beats : null
 }
 
-export function chapterNotesCacheKey(input: { bookId: string; editionKey: string; chapterNumber: number; kind: ChapterNotesKind; through?: number | null }): string {
-  return `${CHAPTER_NOTES_PROMPT_VERSIONS[input.kind]}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${input.kind}/${input.through ?? 'all'}`
+export function chapterNotesCacheKey(input: { bookId: string; editionKey: string; chapterNumber: number; kind: ChapterNotesKind; through?: number | null; ai?: AiRequestPrefs }): string {
+  // A card written to a reader's AI settings is kept apart from the shared one; without settings the key is unchanged.
+  const prefs = aiPrefsSignature(input.ai)
+  return `${CHAPTER_NOTES_PROMPT_VERSIONS[input.kind]}/${input.bookId}/${input.editionKey}/${input.chapterNumber}/${input.kind}/${input.through ?? 'all'}${prefs ? `/${prefs}` : ''}`
 }
