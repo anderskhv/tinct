@@ -21,11 +21,13 @@ describe('reversible edition discovery availability', () => {
     // The Arabian Nights (streamed narration, 2026-10-19); 222 with The Master and
     // Margarita (modern-en only, streamed narration, 2026-11-05).
     // 223 with Pinocchio (modern-en, streamed narration, 2026-11-10).
-    expect(new Set(reviewed).size).toBe(223)
+    // 224 with Pope's verse Odyssey (2026-11-11: listed so it stays discoverable; no hasAudio, so no narration).
+    expect(new Set(reviewed).size).toBe(224)
     // Art of War modern-en text changed on 2026-11-02; its old recording is held.
     // 174 with The Master and Margarita modern-en (2026-11-05).
     // 175 with Pinocchio modern-en (2026-11-10).
-    expect(manifest.eligible_editions).toHaveLength(175)
+    // 176 with Pope's verse Odyssey (2026-11-11).
+    expect(manifest.eligible_editions).toHaveLength(176)
     expect(manifest.held_editions).toHaveLength(48)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })

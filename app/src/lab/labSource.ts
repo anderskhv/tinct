@@ -13,7 +13,7 @@ import { labAudioManifestUrl, type LabAudioTitleClip } from './labListen'
 import { hasRecordedAudio } from '../data/audioAvailability'
 import { bookHasThreads } from '../data/threadsAvailability'
 import { LAB_COPY } from './labCopy'
-import { loadVerseLines, registerVerseLines, registerShakespeareSpeakers } from './labVerseLines'
+import { loadVerseLines, registerVerseLines, registerNewlineVerseLines, registerShakespeareSpeakers } from './labVerseLines'
 import { registerChapterStructure } from './labParagraphStyle'
 import { bookFigures, type LabFigure } from './labFigures'
 import { isUserBookId } from './userBook/userBookId'
@@ -654,6 +654,9 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     [primaryEdition.key, entry.paragraphs],
     ...(compareEdition ? [[compareEdition.key, compareParagraphs] as const] : []),
   ])
+  // A verse edition ends each verse line with a newline in its own text.
+  if (primaryEdition.style === 'verse') registerNewlineVerseLines(entry.paragraphs)
+  if (compareEdition?.style === 'verse') registerNewlineVerseLines(compareParagraphs)
   const supplement = onceCalled(() => Promise.all([
     audioEdition
       ? loadAudioFollowMetadata(entry.paragraphs, entry.number, audioEdition.key, registryBook.id)

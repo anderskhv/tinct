@@ -52,7 +52,7 @@ export function buildReaderBootScript(buildVersion: string, root = process.cwd()
   const registry = readFileSync(path.resolve(root, 'src/data/editionShardRegistry.ts'), 'utf8')
   const groups = new Map<string, string[]>()
   for (const [, id] of registry.matchAll(/"([a-z0-9-]+)"/g)) {
-    const match = id.match(/^(.*)-(original|modern|kjv|web|webc|bsb)-([a-z]+)$/)
+    const match = id.match(/^(.*)-(original|modern|verse|kjv|web|webc|bsb)-([a-z]+)$/)
     if (!match) throw new Error('Unrecognised chapter-shard identity: ' + id)
     const suffix = '-' + match[2] + '-' + match[3]
     groups.set(suffix, [...(groups.get(suffix) || []), match[1]])
