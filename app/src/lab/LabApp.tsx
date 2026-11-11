@@ -57,6 +57,9 @@ import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
 import { sharedReaderDestination } from './sharedReader/sharedReaderFlag'
 import { ContinuousReader } from './sharedReader/ContinuousReader'
+import { BookScrollReader } from './sharedReader/BookScrollReader'
+import { bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
+import { useBookScrollChapters } from './sharedReader/useBookScrollChapters'
 import { answerLead, foldedPreview } from './sharedReader/cardPreview'
 import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
@@ -1096,6 +1099,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const primaryEditionLabel = editionLabelFor(prefs.primaryEdition, allBookEditions)
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
+  // Book scroll (try-out, ?bookScroll=1): the Margin reader scrolls a whole scroll unit. Tinct books only, off by default.
+  const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, (() => { try { return window.sessionStorage } catch { return null } })()))
+  const bookScroll = bookScrollOn && continuousReader && !privateBook && !book.chaptersProvisional
+  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber) : null,
+    [bookScroll, book.bookId, book.chapters, book.chapterNumber])
+  const bookScrollTexts = useBookScrollChapters(bookScroll, book.bookId || 'bible', prefs.primaryEdition)
   const desktopPaging = !continuousReader && !showPhoneChrome && browserHasNativePaging()
   const desktopSpread = desktopPaging && !desktopCompareActive
   const measuredPaging = !continuousReader && (showPhoneChrome || desktopPaging) && browserHasNativePaging()
@@ -2541,6 +2550,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
   const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
+  // Book scroll (try-out): a neighbouring chapter paints its own highlights.
+  const bookScrollHighlights = useMemo(() => bookScroll
+    ? highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.editionKey === prefs.primaryEdition)
+    : undefined, [bookScroll, highlightsApi.allHighlights, book.bookId, prefs.primaryEdition])
   // The Compare edition of a cold open, once the first page is up. Only the
   // load that asked for it receives it; a newer load has its own.
   useEffect(() => {
@@ -4558,7 +4571,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setOpenAtEnd(landing === 'end')
   }, [book.bookId, bookEditions, listen.playing, notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition, audioEditionKey])
 
-  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }) => {
+  const goToChapter = useCallback(async (number: number, landing: 'start' | 'end', preserveAudioSession = false, continuation?: { paragraphIndex: number; wordIndex: number }, scrolledInto = false) => {
     setRecentChapterReturn(null)
     const navigation = ++chapterNavigationRef.current
     browseWhileListeningRef.current = false
@@ -4625,7 +4638,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     setReaderLoadError('')
     setChapterCoverTitle(
-      !preserveAudioSession && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
+      // Book scroll (try-out): a chapter scrolled into is already on the page; no opening page covers it.
+      !preserveAudioSession && !scrolledInto && landing === 'start' && loaded.bookTitle === LAB_COPY.bookTitle
         ? bibleBookOpeningTitle(loaded.chapters, number)
         : null,
     )
@@ -7114,7 +7128,68 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
             />
-          ) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
+          ) : bookScroll && bookScrollUnitNow ? (initialResolving || handoffWritesSuspended ? null : <BookScrollReader
+            cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+              label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
+            key={`${continuousEpoch.bookId}/${continuousEpoch.editionKey}/${bookScrollUnitNow.key}`}
+            unit={bookScrollUnitNow}
+            texts={bookScrollTexts.texts}
+            onRequestChapters={bookScrollTexts.request}
+            bookHighlights={bookScrollHighlights}
+            onJumpChapter={number => { void goToChapter(number, 'start') }}
+            onCrossChapter={(number, anchor) => {
+              // The reading line is in another chapter of the unit: that chapter becomes the reader's own, at the
+              // word on the line. Never behind an overlay, during a restore, or while narration reads this chapter.
+              if (!continuousReady || placeWritesSuspended || listen.playing || number === book.chapterNumber) return
+              if (!bookScrollUnitNow.chapters.some(chapter => chapter.number === number)) return
+              void goToChapter(number, 'start', false, anchor, true)
+            }}
+            epoch={continuousEpoch}
+            anchor={continuousAnchor}
+            onVisible={onContinuousVisible}
+            onLanded={onContinuousLanded}
+            onTail={onContinuousTail}
+            onReadToEnd={onContinuousReadToEnd}
+            onUserBrowse={() => {
+              // The Margin reader has no pages, so "Continue from last position" (shown while on
+              // page one) would never leave: reading on yourself dismisses it (5 Nov 2026).
+              setRecentChapterReturn(null)
+              if (!listen.playing) return
+              browseWhileListeningRef.current = true
+              setBrowseWhileListening(true)
+            }}
+            passage={{
+              chapterTitle: book.chapterTitle,
+              paragraphs: book.paragraphs,
+              chapterNumber: book.chapterNumber,
+              footnotes: chapterFootnotes,
+              onFootnote: showFootnote,
+              onOpenFigure: setFigureCard,
+              highlights: highlightsApi.chapterHighlights,
+              selectingRange: selectionPopup?.chapterNumber === book.chapterNumber ? selectionPopup.range : null,
+              onSelectRange: handleSelectRange,
+              onSelectingChange: handleSelectingChange,
+              onPreviewChapter: () => openChapterNotes('primer', book.chapterNumber, 'pill'),
+              chapterActionsBusy: ask.typedLoading,
+              chapterEnd: <LabChapterEnd chapterTitle={book.chapterTitle}
+                hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null}
+                onContinue={goNext} busy={false}
+                onDiscuss={() => openChapterNotes('end', book.chapterNumber, 'pill')}
+                onNote={pill => openChapterNoteRef.current(book.chapterNumber, pill)}
+                finishedCard={finishedCard} />,
+              follow: listen.follow,
+              followParagraphs: listen.followParagraphs,
+              playing: listen.playing,
+              browseWhileListening,
+              onSeekToWord: listen.playing || listen.pending ? seekAudioToWord : undefined,
+              inlineHearingPaint: showHearing && listen.playing,
+              markedIndexes,
+              onMark: handleMark,
+              focusParagraph,
+              discussedParagraph: desktopVoiceOpen ? callParagraph : null,
+              layoutKey: readerLayoutKey,
+            }}
+          />) : continuousReader ? (initialResolving || handoffWritesSuspended ? null : <ContinuousReader
             cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
               label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || book.chapterLabel}`, onOpen: () => toggleMargin(item.id) }] : [])}
             bookMap={(book.bookId || 'bible') === 'bible' ? undefined : { chapters: book.chapters, chapterNumber: book.chapterNumber, onJumpChapter: (number, anchor) => { if (anchor) openContentsPassage({ chapterNumber: number, ...anchor }); else void goToChapter(number, 'start') } }}
