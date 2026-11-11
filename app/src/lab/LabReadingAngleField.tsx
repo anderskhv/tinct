@@ -3,7 +3,7 @@ import { READING_ANGLE_MAX_CHARS } from './labReadingAngle'
 import { PhoneIcon } from './marginPhone/LabPhoneCard'
 import { SavedNote, useSavedNote } from './LabSavedNote'
 
-/** Book settings' first field: the reader's reading angle for this book, saved as it is typed. Always optional. */
+/** The reader's reading angle for this book, saved as it is typed, in the "Before you start" card (AI settings' This book has its own field for the same value). Always optional. */
 export function ReadingAngleField({ value, onChange, focus = false, testId = 'lab-reading-angle', mic }: {
   value: string; onChange: (value: string) => void; focus?: boolean; testId?: string
   /** Dictation into the field (Anders, 10 Nov 2026: the mic as everywhere else you type to Tinct). */

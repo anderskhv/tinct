@@ -958,8 +958,9 @@
         // Never the passage again, never a note about the rewrite (retest after train 2): when nothing else came back, say so.
         // While it streams, a first paragraph that is the passage so far shows as written (the rewrite may follow).
         const s = P.simplifyAnswer(t.content, card.text, o.source);
-        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
-        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
+        // A rewrite has no bottom line: no sentence of it is bold (Anders, 11 Nov 2026), a saved one's too.
+        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${replyHtml(t.content, P, { resolve: o.resolve })}</div>`;
+        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : replyHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
       else {
         // An answer that searched sources (Ask, 20 Oct 2026: the model decides) ends with a "Sources:" line: shown as

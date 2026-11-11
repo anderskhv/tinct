@@ -1345,7 +1345,6 @@ export async function handleChat(
       const messages = selectionMessage !== null
         ? [{ role: 'user', content: passageImages.length ? [...passageImages, { type: 'text', text: selectionMessage }] : selectionMessage }]
         : rawMessages
-      // A longer length in the reader's AI settings raises the bound (aiSettings.ts aiPrefsMaxTokens).
       const maxTokens = marginRoute && companion
         ? companionMaxTokens(companion, marginRoute.maxTokens)
         : companion

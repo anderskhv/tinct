@@ -8,7 +8,8 @@ import { LabChapterHeading } from '../LabChapterHeading'
 import { LabChapterEnd } from '../LabChapterEnd'
 import { MarginPhoneContext, catchUpAvailable, isFrontMatter } from './marginPhoneContext'
 import { labSuperMenuRows } from '../labSuperMenu'
-import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { LabPhoneCard, PHONE_CARD_TYPING_ATTR, PhoneAnswer, phoneCardRoom, splitLead } from './LabPhoneCard'
+import { PdfOriginalAnswer } from '../sharedReader/pdf/PdfOriginalAnswer'
 import { LabPhoneBar, PHONE_MORE_ROWS, phoneBarLeft, phoneMorePlace } from './LabPhoneBar'
 import { PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, parsePhoneQuiz, parsePhoneQuizMark, parsePhoneQuizPartial } from './LabPhoneCards'
 import { PHONE_CARD_PASSAGE_CLASS, markPhoneCardPassage } from './phoneCardPassage'
@@ -92,6 +93,29 @@ describe('the cards', () => {
     expect(splitLead('The point is simple. Then more follows.')).toEqual({ lead: 'The point is simple.', tail: 'Then more follows.' })
     expect(splitLead('One sentence only')).toEqual({ lead: 'One sentence only', tail: '' })
     expect(splitLead('“Quoted.” And after.')).toEqual({ lead: '“Quoted.”', tail: 'And after.' })
+  })
+  it('Simplify has no bold first sentence: it is the passage rewritten, live and saved (Anders, 11 Nov 2026)', () => {
+    const text = 'Call me Ishmael. Some years ago I went to sea.\n\nIt keeps me from killing myself.'
+    const answer = render(<PhoneAnswer text={text} />)
+    expect(answer.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    answer.unmount()
+    const plain = render(<PhoneAnswer text={text} plain />)
+    expect(plain.container.querySelector('.lab-pcard-lead')).toBeNull()
+    expect(plain.container.querySelector('strong')).toBeNull()
+    expect(plain.container.textContent).toContain('Call me Ishmael. Some years ago I went to sea.')
+    expect(plain.container.textContent).toContain('It keeps me from killing myself.')
+    plain.unmount()
+    // A saved rewrite whose first paragraph was wrapped in ** loses the bold too.
+    const saved = render(<PhoneAnswer text={'**Call me Ishmael.**\n\nMore.'} plain />)
+    expect(saved.container.querySelector('strong')).toBeNull()
+    expect(saved.container.textContent).toContain('Call me Ishmael.')
+    saved.unmount()
+    const pdf = render(<PdfOriginalAnswer kind="simplify" raw={text} />)
+    expect(pdf.container.querySelector('.lab-pcard-lead')).toBeNull()
+    pdf.unmount()
+    const explain = render(<PdfOriginalAnswer kind="explain" raw={text} />)
+    expect(explain.container.querySelector('.lab-pcard-lead')?.textContent).toBe('Call me Ishmael.')
+    explain.unmount()
   })
   it('Quiz me reads its questions and a marked answer', () => {
     expect(parsePhoneQuiz('```json\n{"questions":[{"q":"Q1","answer":"A1","why":"W"},{"q":2}]}\n```')).toEqual([{ q: 'Q1', answer: 'A1', why: 'W' }])

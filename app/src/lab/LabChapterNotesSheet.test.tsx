@@ -18,7 +18,8 @@ const expected = [
 ].join('\n\n')
 
 function store() {
-  localStorage.setItem(CHAPTER_NOTES_STORAGE_KEY, JSON.stringify({ [chapterNotesKey(request)]: { beats, at: Date.now() } }))
+  // The sheet asks for the card at the reader's length: Standard for a reader who set none (AI settings).
+  localStorage.setItem(CHAPTER_NOTES_STORAGE_KEY, JSON.stringify({ [chapterNotesKey({ ...request, ai: { length: 'standard', row: 'summary' } })]: { beats, at: Date.now() } }))
 }
 
 function renderSheet() {

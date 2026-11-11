@@ -15,13 +15,11 @@ import {
   CHAPTER_NOTES_CACHE_TTL_SECONDS,
   CHAPTER_NOTES_ROUTE,
   chapterNotesCacheKey,
-  chapterNotesLengthDefault,
-  chapterNotesMaxBeats,
   parseChapterNotesBeats,
   type ChapterNotesKind,
   type ChapterNotesResponse,
 } from '../../chapterNotes'
-import { AI_LANGUAGE_LINES, aiPrefsMaxTokens, aiPrefsPromptLines, parseAiRequestPrefs, type AiLength, type AiRequestPrefs } from '../../aiSettings'
+import { aiPrefsPromptLines, aiShorterLength, parseAiRequestPrefs, type AiRequestPrefs } from '../../aiSettings'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterEntry, type ChapterText, type SectionNode } from '../lib/bookRetrieval'
 import { AI_RESTING_TYPE, aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
@@ -139,25 +137,35 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
 }
 
 /**
- * A card's length in the reader's AI settings, as beats. Replaces the kind's
- * own count and length; the JSON shape stays.
+ * A card's length in the reader's AI settings, in its own beats (the generic line would fight the JSON).
+ * Detailed is the kind's prompt as written; Standard is about 30% shorter; Brief shorter still. The JSON
+ * shape stays.
  */
-export const CHAPTER_NOTES_LENGTH_LINES: Readonly<Record<AiLength, string>> = Object.freeze({
-  brief: 'Length, as the reader set it: brief. Two or three beats, each text one sentence of at most 20 words. This replaces any other beat count or length above; keep the JSON shape.',
-  standard: 'Length, as the reader set it: standard. Three or four beats, each text two or three sentences, at most 60 words. This replaces any other beat count or length above; keep the JSON shape.',
-  detailed: 'Length, as the reader set it: detailed. Five to eight beats, each text two to four sentences with context, at most 90 words. This replaces any other beat count or length above; keep the JSON shape.',
+const CARD_LENGTH_TAIL = 'This replaces any other beat count or length above; keep the JSON shape.'
+export const CHAPTER_NOTES_LENGTH_LINES: Readonly<Record<ChapterNotesKind, Readonly<Record<'brief' | 'standard', string>>>> = Object.freeze({
+  sofar: Object.freeze({
+    brief: `Length, as the reader set it: brief. Two beats, each text one sentence of at most 20 words. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Two or three beats, never more; each text one or two sentences, at most 28 words. ${CARD_LENGTH_TAIL}`,
+  }),
+  end: Object.freeze({
+    brief: `Length, as the reader set it: brief. Two beats, each text one sentence of at most 20 words. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Three beats, never more; each text one or two sentences, at most 28 words together. ${CARD_LENGTH_TAIL}`,
+  }),
+  primer: Object.freeze({
+    brief: `Length, as the reader set it: brief. Three beats, each text one sentence of at most 20 words; "How it's built" names two or three parts. ${CARD_LENGTH_TAIL}`,
+    standard: `Length, as the reader set it: standard. Three beats: the first text at most 35 words, the second at most 42 words with two or three parts, the third one sentence of at most 25 words. ${CARD_LENGTH_TAIL}`,
+  }),
 })
-const PRIMER_LAST_BEAT = 'The card keeps the primer\'s order: the first beat is still the chapter\'s role in its book, then how it is built (over more than one beat when the card is longer), and the last beat is still titled "Watch for". The spoiler rule above still holds.'
+const PRIMER_LAST_BEAT = 'The card keeps the primer\'s order: the first beat is still the chapter\'s role in its book, the second is still titled "How it\'s built", and the last is still titled "Watch for". The spoiler rule above still holds.'
 
-/** The kind's system prompt with the reader's settings after it (unchanged without any). */
+/** The kind's system prompt with the reader's settings after it (unchanged for Detailed without instructions). */
 export function chapterNotesSystem(kind: ChapterNotesKind, ai: AiRequestPrefs | undefined): string {
   const base = CHAPTER_NOTES_SYSTEM[kind]
   if (!ai) return base
-  const length = ai.length && ai.length !== chapterNotesLengthDefault(kind) ? ai.length : null
+  const length = aiShorterLength(ai)
   const lines = [
-    ...(length ? [CHAPTER_NOTES_LENGTH_LINES[length], ...(kind === 'primer' ? [PRIMER_LAST_BEAT] : [])] : []),
-    // The cards are English; the language line asks for the reader's language in the JSON's values.
-    ...aiPrefsPromptLines(ai, { length: false }).map(line => line === AI_LANGUAGE_LINES.da || line === AI_LANGUAGE_LINES.en ? `${line} Write the titles and texts in that language.` : line),
+    ...(length ? [CHAPTER_NOTES_LENGTH_LINES[kind][length], ...(kind === 'primer' ? [PRIMER_LAST_BEAT] : [])] : []),
+    ...aiPrefsPromptLines(ai, { length: false }),
   ]
   return lines.length ? `${base}\n${lines.join('\n')}` : base
 }
@@ -321,7 +329,7 @@ export async function handleLabChapterNotes(
     try {
       const hit = await cache.match(cacheKey)
       if (hit) {
-        const beats = parseChapterNotesBeats(await hit.json(), chapterNotesMaxBeats(parsed.ai))
+        const beats = parseChapterNotesBeats(await hit.json())
         if (beats) return respond(beats, 'cache')
       }
     } catch { /* a cache failure is never a user-facing failure */ }
@@ -346,7 +354,8 @@ export async function handleLabChapterNotes(
   const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
   const system = chapterNotesSystem(parsed.kind, parsed.ai)
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
-  const maxTokens = aiPrefsMaxTokens(CHAPTER_NOTES_MAX_TOKENS[parsed.kind], parsed.ai, chapterNotesLengthDefault(parsed.kind))
+  // No length setting raises the bound: Detailed is the prompt as written.
+  const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   // Cached and prepared entries above cost nothing and are always served.
   if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
@@ -374,7 +383,7 @@ export async function handleLabChapterNotes(
     const text = message.stop_reason === 'refusal' ? '' : (message.content ?? []).filter(block => block?.type === 'text').map(block => block.text ?? '').join('')
     const json = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)
     let beats: ChapterNotesResponse['beats'] | null = null
-    try { beats = parseChapterNotesBeats(JSON.parse(json), chapterNotesMaxBeats(parsed.ai)) } catch { beats = null }
+    try { beats = parseChapterNotesBeats(JSON.parse(json)) } catch { beats = null }
     if (!beats) {
       logChapterNotesFailure('unparseable', parsed.kind)
       return jsonResponse({ error: 'Notes unavailable' }, 502, request)

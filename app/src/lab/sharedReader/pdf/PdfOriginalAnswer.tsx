@@ -36,7 +36,8 @@ export function PdfOriginalAnswer({ kind, raw, busy = false }: { kind: string; r
       : busy ? null : /^[\s]*(?:\{|```)/.test(raw) ? <UnreadableAnswer label="primer" raw={raw} /> : <LabInlineMarkdown>{raw}</LabInlineMarkdown>
   }
   // An answer reads as the text reader's cards do: its first sentence bold, then paragraphs, lists and headings.
-  return <PhoneAnswer text={raw} />
+  // Simplify is the passage rewritten: no sentence of it is bold.
+  return <PhoneAnswer text={raw} plain={kind === 'simplify'} />
 }
 
 function UnreadableAnswer({ label, raw }: { label: string; raw: string }) {

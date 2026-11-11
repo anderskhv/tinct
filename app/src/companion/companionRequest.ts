@@ -40,7 +40,7 @@ import {
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
 import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
-import { AI_LENGTH_DEFAULTS, AI_LENGTH_LINES, aiPrefsMaxTokens, aiPrefsPromptLines, parseAiRequestPrefs, type AiLength, type AiRequestPrefs } from '../aiSettings'
+import { AI_EXPLAIN_LENGTH_LINES, aiPrefsPromptLines, aiShorterLength, parseAiRequestPrefs, type AiRequestPrefs } from '../aiSettings'
 
 /**
  * `simplify` … `related` are the margin reader's actions (docs/margin/PROMPTS.md),
@@ -212,51 +212,38 @@ export function isPrimerRequest(request: CompanionRequest): request is Companion
   return request.intent === 'chapter' && request.chapter?.action.kind === 'primer'
 }
 
-/**
- * The length a request's action gives when the reader set none (AI settings'
- * Length grid): Explain brief, Ask standard, a primer or chapter preview
- * standard, a chapter summary brief. Null for an action with no length row.
- */
-export function companionLengthDefault(request: CompanionRequest): AiLength | null {
+/** Whether a request's action has a row in AI settings' Length grid (Explain, Ask, Primer, Summary and Recap). */
+export function companionHasLengthRow(request: CompanionRequest): boolean {
   // The row the reader set the length in, when the client names it (a recap sent as a question reads Summary's).
-  if (request.ai?.row) return AI_LENGTH_DEFAULTS[request.ai.row]
-  switch (request.intent) {
-    case 'explain': return AI_LENGTH_DEFAULTS.explain
-    case 'ask': return AI_LENGTH_DEFAULTS.ask
-    case 'chapter': return request.chapter?.action.kind === 'discuss' ? AI_LENGTH_DEFAULTS.summary : AI_LENGTH_DEFAULTS.primer
-    default: return null
-  }
+  if (request.ai?.row) return true
+  return request.intent === 'explain' || request.intent === 'ask' || request.intent === 'chapter'
 }
 
-/** The reader's length for this request, when it has a row and differs from its default. */
-function companionLength(request: CompanionRequest): AiLength | null {
-  const fallback = companionLengthDefault(request)
-  return fallback && request.ai?.length && request.ai.length !== fallback ? request.ai.length : null
+/** The shorter length the reader set for this request (Brief or Standard); null for Detailed, which is the prompt as written. */
+function companionLength(request: CompanionRequest): 'brief' | 'standard' | null {
+  return companionHasLengthRow(request) ? aiShorterLength(request.ai) : null
 }
 
-/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's; a longer length setting raises it. */
+/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. No length setting raises it. */
 export function companionMaxTokens(request: CompanionRequest, base?: number): number {
-  const bound = base ?? (isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent])
-  const fallback = companionLengthDefault(request)
-  return fallback ? aiPrefsMaxTokens(bound, request.ai, fallback) : bound
+  return base ?? (isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent])
 }
 
 /**
- * A primer's length as the reader set it (AI settings' Primer row), in its own parts: the generic line ("a
- * sentence or two") would fight its JSON. As the catalogue Primer's PRIMER_LAST_BEAT, the three parts keep their
- * order and the JSON its shape.
+ * A primer's length as the reader set it (AI settings' Primer row), in its own parts: the generic line would
+ * fight its JSON. Detailed is the prompt as written (gist at most 50 words, items at most 30); Standard is about
+ * 30% shorter. The three parts keep their order and the JSON its shape.
  */
-export const PRIMER_LENGTH_LINES: Readonly<Record<AiLength, string>> = Object.freeze({
+export const PRIMER_LENGTH_LINES: Readonly<Record<'brief' | 'standard', string>> = Object.freeze({
   brief: 'Length, as the reader set it: brief. gist one sentence of at most 25 words; "How it\'s built" two or three parts and "Watch for" one item, each at most 18 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
-  standard: 'Length, as the reader set it: standard. The lengths above stand; keep the JSON shape and the three parts in their order.',
-  detailed: 'Length, as the reader set it: detailed. gist up to four sentences, at most 80 words; "How it\'s built" three to six parts and "Watch for" two or three items, each at most 45 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
+  standard: 'Length, as the reader set it: standard. gist two sentences, at most 35 words; "How it\'s built" two or three parts and "Watch for" one or two items, each at most 21 words. This replaces any other length guidance above; keep the JSON shape and the three parts in their order.',
 })
 
 /** The reader's settings as prompt lines; the length line only for a request with a length row. Explain's goes in its user turn. */
 function companionAiLines(request: CompanionRequest): string[] {
   const length = companionLength(request)
   if (isPrimerRequest(request)) {
-    // The primer's own length line, then the language and the reader's instructions as for any request.
+    // The primer's own length line, then the reader's instructions as for any request.
     return [...(length ? [PRIMER_LENGTH_LINES[length]] : []), ...aiPrefsPromptLines(request.ai, { length: false })]
   }
   return aiPrefsPromptLines(request.ai, { length: Boolean(length) && request.intent !== 'explain' })
@@ -750,7 +737,7 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
     case 'explain': {
       // The reader's Explain length (AI settings), last, so it replaces the prompt's own word counts.
       const length = companionLength(request)
-      const tail = length ? `\n\n${AI_LENGTH_LINES[length]}` : ''
+      const tail = length ? `\n\n${AI_EXPLAIN_LENGTH_LINES[request.pdf ? 'pdf' : 'book'][length]}` : ''
       // The PDF reader's Explain (FIXES-2026-10-15 A2); the book reader's is unchanged.
       return request.pdf
         ? `${request.figure ? PDF_FIGURE_EXPLAIN_PROMPT : PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>${tail}`

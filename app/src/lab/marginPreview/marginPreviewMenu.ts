@@ -67,7 +67,7 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
       }, () => { /* the cards' code could not load (offline before first use): nothing opened */ })
     },
     openAiSettings: ({ dark }) => {
-      void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: readCachedSupabaseUser()?.id ?? null }))
+      void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: readCachedSupabaseUser()?.id ?? null, book: { id: bookId, title: book?.title ?? '' } }))
         .catch(() => { /* offline before first use: nothing opened */ })
     },
     reading: () => pending.then(model => (book ? marginReadingChoices(book, model.editionKey, readPrefs()) : null), () => null),

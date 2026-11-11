@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { CHAPTER_CHAT_INSTRUCTIONS, PRIMER_OUTLINE_MAX_TITLES, parseChapterChatAction, primerOutline, type PrimerChapterAction } from './companion/chapterChatPrompt'
-import { AI_LANGUAGE_LINES, AI_LENGTH_LINES } from './aiSettings'
+import { AI_LENGTH_LINES } from './aiSettings'
 import {
   COMPANION_MAX_TOKENS,
   buildCompanionSystem,
@@ -309,23 +309,27 @@ describe('primer: the chat route', () => {
   it('without contents says only where the chapter comes; a long file\'s part uses its table of contents; the whole document drops the first part', () => {
     expect(buildCompanionSystem(parseCompanionRequest(primerBody())!)).toContain('CONTENTS: none given. Say only where the chapter comes (by its title, number or pages) and what it takes up; claim nothing about later parts.')
     const whole = buildCompanionSystem(parseCompanionRequest(primerBody({ chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'Chemical Kinetics' } } }))!)
-    expect(whole).toContain('CONTENTS: the chapter is the whole document, so it has no place in a larger one. Write role and gist as "" and only the other two parts.')
+    expect(whole).toContain('CONTENTS: the chapter is the whole document, so it has no place in a larger one. Its first part says what the document is instead: write role as "In brief" and gist as two or three plain sentences in the present tense, at most 50 words, on what the document is, what it sets out to do and for whom (for narrative: its premise and how it opens, nothing that happens later). Then the other two parts.')
     const book = buildCompanionSystem(parseCompanionRequest(primerBody({ chapter: { action: { kind: 'primer', unitKey: 'book', unitTitle: 'Essays', unitKind: 'book' } } }))!)
-    expect(book).toContain('Write role and gist as ""')
+    expect(book).toContain('write role as "In brief"')
     const part = { kind: 'pdf', units: [{ n: 9, text: 'The rate of a reaction…' }], part: { toc: [{ title: '1 Rates', n: 9 }, { title: '2 Order', n: 30 }], total: 640 } }
     expect(buildMarginSystemParts(parseCompanionRequest(primerBody({ document: part }))!)!.volatile).toContain('CONTENTS: the document\'s table of contents above; place the chapter by it.')
     // A long file's part sent for the whole-file key is not the whole document: it keeps its first part.
-    expect(buildMarginSystemParts(parseCompanionRequest(primerBody({ document: part, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'Chemical Kinetics' } } }))!)!.volatile).not.toContain('Write role and gist as ""')
+    expect(buildMarginSystemParts(parseCompanionRequest(primerBody({ document: part, chapter: { action: { kind: 'primer', unitKey: 'all', unitTitle: 'Chemical Kinetics' } } }))!)!.volatile).not.toContain('write role as "In brief"')
   })
 
-  it('the reader\'s Primer length keeps the three parts and the JSON (its own line, never the generic one); language and instructions still go', () => {
-    for (const length of ['brief', 'detailed'] as const) {
-      const request = parseCompanionRequest({ ...primerBody(), ai: { length, row: 'primer', language: 'da', instructions: ['Use plain words.'] } })!
+  it('the reader\'s Primer length keeps the three parts and the JSON (its own line, never the generic one); Detailed is the prompt as written; instructions still go', () => {
+    const plain = buildCompanionSystem(parseCompanionRequest(primerBody())!)
+    expect(buildCompanionSystem(parseCompanionRequest({ ...primerBody(), ai: { length: 'detailed', row: 'primer' } })!)).toBe(plain)
+    // Standard is about 30% shorter than the prompt's own lengths (gist 50 words, items 30).
+    expect(PRIMER_LENGTH_LINES.standard).toContain('gist two sentences, at most 35 words')
+    expect(PRIMER_LENGTH_LINES.standard).toContain('each at most 21 words')
+    for (const length of ['brief', 'standard'] as const) {
+      const request = parseCompanionRequest({ ...primerBody(), ai: { length, row: 'primer', instructions: ['Use plain words.'] } })!
       const system = buildCompanionSystem(request)
       expect(system).toContain(PRIMER_LENGTH_LINES[length])
       expect(PRIMER_LENGTH_LINES[length]).toContain('keep the JSON shape and the three parts in their order')
       expect(system).not.toContain(AI_LENGTH_LINES[length])
-      expect(system).toContain(AI_LANGUAGE_LINES.da)
       expect(system).toContain('Use plain words.')
       const document = { kind: 'pdf', units: [{ n: 9, text: 'The rate of a reaction…' }] }
       const parts = buildMarginSystemParts(parseCompanionRequest({ ...primerBody({ document }), ai: { length, row: 'primer' } })!)!

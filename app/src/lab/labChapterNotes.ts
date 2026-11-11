@@ -4,7 +4,7 @@
  * `tinct:` namespace (so sign-out wipes them) and never enter the chat feed;
  * they are stored so other surfaces can reuse them.
  */
-import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, chapterNotesMaxBeats, parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesRequest } from '../chapterNotes'
+import { CHAPTER_NOTES_ROUTE, chapterNotesCacheKey, parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesRequest } from '../chapterNotes'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
 import { AI_ALLOWANCE_ENFORCED } from '../aiAllowanceSwitch'
 import { allowanceAuthHeaders, isAllowanceUsedResponse } from './labAiAllowance'
@@ -31,7 +31,7 @@ export function chapterNotesKey(request: ChapterNotesRequest): string {
 
 export function storedChapterNotes(request: ChapterNotesRequest): ChapterNotesBeat[] | null {
   const entry = readMap<{ beats: ChapterNotesBeat[]; at: number }>(CHAPTER_NOTES_STORAGE_KEY)[chapterNotesKey(request)]
-  return entry ? parseChapterNotesBeats(entry, chapterNotesMaxBeats(request.ai)) : null
+  return entry ? parseChapterNotesBeats(entry) : null
 }
 
 /**
@@ -54,7 +54,7 @@ export async function fetchChapterNotes(request: ChapterNotesRequest, options: {
       if (response.status === 503 && await labChatErrorType(response) === AI_RESTING_ERROR_TYPE) return { ok: false, status: response.status, resting: true }
       return { ok: false, status: response.status }
     }
-    const beats = parseChapterNotesBeats(await response.json(), chapterNotesMaxBeats(request.ai))
+    const beats = parseChapterNotesBeats(await response.json())
     if (!beats) return { ok: false, status: response.status }
     keepChapterNotes(request, beats)
     return { ok: true, beats }

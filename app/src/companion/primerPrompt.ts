@@ -123,10 +123,12 @@ const wholeUnit = (action: PrimerChapterAction) => action.unitKey === 'all' || a
  * Where the chapter sits, for the primer's first part (prompt v5, as the catalogue Primer's WHERE THIS CHAPTER
  * SITS): the document's contents as the client sent them, titles only, the nearest PRIMER_OUTLINE_MAX_TITLES;
  * the table of contents already in the document (`toc`); or none, when the model may say only where the chapter
- * comes. A unit that is the whole document drops the first part: the primer is How it's built and Watch for.
+ * comes. A unit that is the whole document has no place to describe: its first part says what the document is
+ * ("In brief"), then How it's built and Watch for (three parts, as the library's book-level primer opens with what
+ * the book is).
  */
 export function primerPlace(action: PrimerChapterAction, documentTitle: string, options: { whole?: boolean; toc?: boolean } = {}): string {
-  if (options.whole ?? wholeUnit(action)) return 'CONTENTS: the chapter is the whole document, so it has no place in a larger one. Write role and gist as "" and only the other two parts.'
+  if (options.whole ?? wholeUnit(action)) return 'CONTENTS: the chapter is the whole document, so it has no place in a larger one. Its first part says what the document is instead: write role as "In brief" and gist as two or three plain sentences in the present tense, at most 50 words, on what the document is, what it sets out to do and for whom (for narrative: its premise and how it opens, nothing that happens later). Then the other two parts.'
   const o = action.outline
   if (o) {
     const lines = o.titles.map((title, i) => `${i === o.at ? '> ' : '  '}${title}${i === o.at ? '  (this chapter)' : ''}`)

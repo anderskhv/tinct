@@ -53,6 +53,7 @@ import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
 import { useAiSettingsAccountSync } from './labAiAccount'
+import { setAiSettingsBook } from './labAiPrefs'
 import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
@@ -913,12 +914,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   const [compareFromLayout, setCompareFromLayout] = useState(false)
-  // The book's reading angle (labReadingAngle.ts): Book settings' first field; the reading-angle pill opens it focused.
+  // The book's reading angle (labReadingAngle.ts): the "Before you start" card's field; the reading-angle pill and Book
+  // settings' row open it in AI settings' This book tab.
   const [bookAngle, setBookAngle] = useReadingAngle(book.bookId || 'bible')
   // The book's "Before you start" card opens folded (Anders, 10 Nov 2026); the reader opens it with its +.
   const [startCardOpen, setStartCardOpen] = useState(false)
-  const [angleFocus, setAngleFocus] = useState(false)
-  useEffect(() => { if (superSheet !== 'editions') setAngleFocus(false) }, [superSheet])
+  // AI settings' This book reads the open book here (its own lengths ride on this book's requests: labAiPrefs.ts).
+  useEffect(() => { setAiSettingsBook(book.bookId || 'bible'); return () => setAiSettingsBook(null) }, [book.bookId])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
   const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor; /** The chapter pill's Summary: the chapter-end request under the pill's name, at the chapter's start. */ as?: 'summary' } | null>(null)
   const [desktopChapterCards, setDesktopChapterCards] = useState<Array<NonNullable<typeof chapterNotes>>>([])
@@ -5663,9 +5665,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [ask, book.bookId, book.chapterNumber, handleChat, handleTalk])
 
   // AI settings: its own dialog (openAiSettingsLayer), from the t menu's row and the desktop command alike.
-  const openAiSettings = useCallback(() => {
-    void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null }))
-  }, [resolvedDarkMode, showPhoneChrome, authUser?.id])
+  // `angle`: a "Set reading angle" entry opens on This book with the caret in the reading angle (Anders, 11 Nov 2026).
+  const openAiSettings = useCallback((angle = false) => {
+    void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({
+      dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null,
+      book: { id: book.bookId || 'bible', title: book.bookTitle || '' },
+      ...(angle ? { tab: 'book' as const, focusAngle: true } : {}),
+      dictation: { signedIn, getAuthToken: () => authToken ?? readSupabaseAccessToken() },
+    }))
+  }, [resolvedDarkMode, showPhoneChrome, authUser?.id, book.bookId, book.bookTitle, signedIn, authToken])
   const handleSuperMenuSelect = useCallback((id: LabSuperMenuId) => {
     setSuperMenuOpen(false)
     if (id === 'ai') { openAiSettings(); return }
@@ -6118,7 +6126,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const id = `mc_book_${kind}_${book.bookId || 'bible'}`
     setDesktopOpenId(id); setDesktopContinuationId(id)
   }
-  const openReadingAngle = () => { closePhoneCard(); setChapterNotes(null); setBookAction(null); setAngleFocus(true); setSuperSheet('editions') }
+  const openReadingAngle = () => { closePhoneCard(); setChapterNotes(null); setBookAction(null); setSuperSheet(null); openAiSettings(true) }
   const openReadingAngleRef = useRef(openReadingAngle)
   openReadingAngleRef.current = openReadingAngle
   // A chapter's Summary is a summary of that chapter, the whole of it, wherever the reader is in it (Anders,
@@ -6186,7 +6194,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
       { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
-      { id: 'ai-settings', label: 'AI settings', run: openAiSettings },
+      { id: 'ai-settings', label: 'AI settings', run: () => openAiSettings() },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
       { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),
@@ -6374,7 +6382,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
         </div>
       )
-      : <PhoneStreamAnswer key={`${card.kind}:${card.openedAt}`} request={onDelta => phoneCompanion(card.passage, card.kind === 'explain' ? undefined : card.kind, onDelta)} onReady={keep} />
+      : <PhoneStreamAnswer key={`${card.kind}:${card.openedAt}`} request={onDelta => phoneCompanion(card.passage, card.kind === 'explain' ? undefined : card.kind, onDelta)} onReady={keep} plain={card.kind === 'simplify'} />
     return (
       <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.passage.chapterLabel)} kind={card.kind} onClose={fromSelection ? () => leaveSelectionInfo() : closePhoneCard} onDelete={fromSelection ? () => leaveSelectionInfo() : closePhoneCard}
         foot={follow(card.passage, card.kind === 'ask' ? 'Ask about this passage' : undefined)}>
@@ -6501,7 +6509,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     free: !item.card!.anchor, open: desktopOpenId === item.id, ...foldedPreview(item.card!.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card!.text,
     onToggle: () => toggleMargin(item.id), onDelete: () => deleteMarginConversation(item),
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
-      {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
+      {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} plain={item.card!.kind === 'simplify'} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
       <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
@@ -6961,8 +6969,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
             ? { price: formatModernPrice(modern.status.offer.cents), busy: modernCheckoutBusy, onBuy: () => { void buyModernEdition() } }
             : undefined}
-          readingAngle={{ value: bookAngle, onChange: setBookAngle, focus: angleFocus,
-            mic: { on: dictation.state !== 'idle' && angleDictating, onToggle: () => { setAngleDictating(true); dictateDeskAsk(bookAngle, text => setBookAngle(text)) } } }}
+          readingAngle={{ onOpen: openReadingAngle }}
         />
       )}
       {figureCard && (

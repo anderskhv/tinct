@@ -57,8 +57,32 @@
     const at = Number.isInteger(pdf.at) ? Math.max(0, Math.min(pages.length - 1, pdf.at)) : 0;
     return { kind: pdf.kind === 'epub' ? 'epub' : 'pdf', pages, paragraphIndex: at };
   }
+  // The reader's AI settings and the book's reading angle, as the book reader keeps them on this device
+  // (src/lab/labAiPrefs.ts `tinct:ai-settings`, src/lab/labReadingAngle.ts `tinct:reading-angle:<book id>`), so an own
+  // book's margin gets the same lengths, instructions and angle as any book (src/aiSettings.ts aiPrefsForAction).
+  const AI_LENGTH_ROW = { explain: 'explain', ask: 'ask', primer: 'primer', summary: 'summary', recap: 'summary' };
+  const AI_INTENT_ACTION = { explain: 'explain', ask: 'ask', quiz: 'quiz', counterpoint: 'counterpoint', chapter: 'primer' };
+  const stored = key => { try { return JSON.parse(localStorage.getItem('tinct:' + key) || 'null') } catch { return null } };
+  const isLength = v => v === 'brief' || v === 'standard' || v === 'detailed';
+  /** action: explain, ask, primer, summary, recap, quiz, counterpoint, or null (the general instructions only). -> the request's `ai`, or undefined */
+  function aiPrefs(action, bookId) {
+    const settings = stored('ai-settings')?.settings || {};
+    const row = action ? AI_LENGTH_ROW[action] : null;
+    const own = bookId && settings.books?.[bookId]?.[row], general = settings.length?.[row];
+    const length = row ? (isLength(own) ? own : isLength(general) ? general : 'standard') : null;
+    const instructions = [settings.instructions, action && settings.perAction?.[action]].map(t => typeof t === 'string' ? t.trim().slice(0, 400) : '').filter(Boolean);
+    const ai = { ...(length ? { length, row } : {}), ...(instructions.length ? { instructions } : {}) };
+    return Object.keys(ai).length ? ai : undefined;
+  }
+  function readingAngle(bookId) {
+    const angle = bookId ? stored('reading-angle:' + bookId) : null;
+    return typeof angle === 'string' && angle.trim() ? angle.trim().slice(0, 240) : undefined;
+  }
+
   function bookContext(book) {
+    const angle = readingAngle(book?.id);
     return {
+      ...(angle ? { readingAngle: angle } : {}),
       bookTitle: (book?.title || 'Your book').slice(0, 300),
       bookAuthor: (book?.author || '').slice(0, 300),
       chapterLabel: (book?.chapter || book?.title || 'Your book').slice(0, 300),
@@ -136,7 +160,9 @@
       messages: trimmed.length ? trimmed : [{ role: 'user', content: 'Please answer.' }],
       companion: { intent: 'ask', context: pdf
         ? { ...bookContext(book), ...pdf, lookups: false }
-        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false }, ...(pdf && o.whole ? { scope: 'whole' } : {}) },
+        : { ...bookContext(book), paragraphs: paragraphs.length ? paragraphs : [' '], lookups: false }, ...(pdf && o.whole ? { scope: 'whole' } : {}),
+        // o.aiAction: what the reader asked for when it is sent as a question (a Summary or Recap reads Summary's length).
+        ...(aiPrefs(o.aiAction || 'ask', book?.id) ? { ai: aiPrefs(o.aiAction || 'ask', book?.id) } : {}) },
     };
   }
   const PASSAGE_INTENTS = new Set(['simplify', 'factcheck', 'counterpoint', 'quiz', 'related']);
@@ -162,6 +188,8 @@
     if (intent === 'quiz_check' && o.quiz) companion.quiz = { question: String(o.quiz.question || '').slice(0, 1000), expected: String(o.quiz.expected || '').slice(0, 1000), ...(o.quiz.why ? { why: String(o.quiz.why).slice(0, 1000) } : {}), answer: String(o.quiz.answer || '').slice(0, 2000), ...(o.quiz.thesis ? { thesis: String(o.quiz.thesis).slice(0, 300) } : {}), ...(Array.isArray(o.quiz.ideas) && o.quiz.ideas.length ? { ideas: o.quiz.ideas.slice(0, 8).map(i => String(i).slice(0, 200)) } : {}), ...(o.quiz.idea ? { idea: String(o.quiz.idea).slice(0, 300) } : {}), ...(o.quiz.passage ? { passage: String(o.quiz.passage).slice(0, 4000) } : {}), ...(Array.isArray(o.quiz.turns) && o.quiz.turns.length ? { turns: o.quiz.turns.slice(0, 6).map(t => ({ role: t.role === 'grader' ? 'grader' : 'reader', text: String(t.text || '').slice(0, 600), ...(t.verdict ? { verdict: String(t.verdict) } : {}) })) } : {}) };
     // "Try new questions": the questions asked before on this text, each with its key idea and whether it was missed (Anders, 20 Oct 2026).
     if (intent === 'quiz' && Array.isArray(o.asked) && o.asked.length) companion.asked = o.asked.slice(-24).map(a => ({ q: String(a.q || '').slice(0, 300), ...(a.idea ? { idea: String(a.idea).slice(0, 300) } : {}), ...(a.missed ? { missed: true } : {}) }));
+    const ai = aiPrefs(AI_INTENT_ACTION[intent] || null, o.book?.id);
+    if (ai) companion.ai = ai;
     // The Worker writes the one user turn; a passage action's picture rides on it (withImages).
     return { stream: !!o.stream, max_tokens: 1600, messages: [{ role: 'user', content: PASSAGE_INTENTS.has(intent) ? 'The selected passage.' : 'Please answer.' }], companion };
   }

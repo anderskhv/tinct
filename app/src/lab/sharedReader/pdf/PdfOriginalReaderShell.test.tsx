@@ -508,7 +508,30 @@ it('explains why a saved unit follow-up was not sent when its full source is una
   expect(appendCardTurn).not.toHaveBeenCalled()
 })
 
-it('offers after-unit Recap and Note on the finished source unit, retaining its complete page range', async () => {
+it('a section has the library\'s pills (Primer, Summary, Quiz me) and Note; Summary summarises that section, the first included', async () => {
+  const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], _action: string) => 'This section sets out the method.')
+  const services: PdfOriginalReaderServices = {
+    marks: [], cards: [], saveHighlight: vi.fn(() => true), saveNote: vi.fn(() => true),
+    removeMark: vi.fn(() => null), removeCard: vi.fn(() => null), saveCard: vi.fn(() => false), ask: vi.fn(async () => null),
+    getPageText: vi.fn(async page => `Real extracted text on page ${page}.`), askUnit, saveUnitCard: vi.fn(() => true), saveUnitCardWithId: vi.fn(() => 'summary-1'), saveUnitNote: vi.fn(() => 'note-1'),
+    askUnitQuiz: vi.fn(async () => null), askUnitQuizCheck: vi.fn(async () => null), saveUnitQuizCardWithId: vi.fn(() => 'quiz-1'),
+  }
+  render(<PdfOriginalReaderShell title="Outlined PDF" bytes={async () => new ArrayBuffer(4)} onVisiblePlace={() => {}} services={services} unitRules={margin} />)
+  fireEvent.click(screen.getByText('Open outlined page 14'))
+  for (const heading of ['Introduction', 'Chapter One']) {
+    const words = [...screen.getByLabelText(`${heading} actions`).querySelectorAll('button')].map(button => button.textContent)
+    expect(words).toEqual(['Primer', 'Summary', 'Quiz me', 'Note'].map(label => `${label} for ${heading}`))
+  }
+  // No "what came before" pill and no separate Recap: Catch me up is the t menu's.
+  expect(screen.queryByRole('button', { name: 'Recap for Chapter One' })).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: 'Summary for Chapter One' }))
+  expect(await screen.findByText('This section sets out the method.')).toBeTruthy()
+  expect(askUnit.mock.calls[0][1]).toBe('recap')
+  // The section's own pages (11–30), not the pages before it.
+  expect(askUnit.mock.calls[0][0].pages.map(page => page.n)).toEqual(Array.from({ length: 20 }, (_, index) => index + 11))
+})
+
+it('offers after-unit Summary and Note on the finished source unit, retaining its complete page range', async () => {
   vi.stubGlobal('matchMedia', (query: string) => ({ matches: query === '(max-width: 700px)', addEventListener: vi.fn(), removeEventListener: vi.fn() }))
   const askUnit = vi.fn(async (_source: Parameters<NonNullable<PdfOriginalReaderServices['askUnit']>>[0], _action: string) => 'Complete chapter recap.')
   const saveUnitCardWithId = vi.fn(() => 'recap-1')
@@ -525,7 +548,7 @@ it('offers after-unit Recap and Note on the finished source unit, retaining its 
   expect(screen.queryByRole('complementary', { name: 'After Chapter One' })).toBeNull()
   fireEvent.click(screen.getByText('Finish outlined unit'))
   expect(screen.getByRole('complementary', { name: 'After Chapter One' })).toBeTruthy()
-  fireEvent.click(screen.getByRole('button', { name: 'Recap' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Summary' }))
   expect(await screen.findByText('Complete chapter recap.')).toBeTruthy()
   expect(askUnit.mock.calls[0][0].pages.map(page => page.n)).toEqual(Array.from({ length: 20 }, (_, index) => index + 11))
   expect(askUnit.mock.calls[0][1]).toBe('recap')

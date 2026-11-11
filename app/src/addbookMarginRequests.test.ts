@@ -8,6 +8,7 @@
 import { createRequire } from 'node:module'
 import { resolve } from 'node:path'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import { aiPrefsForAction, defaultAiSettings, normalizeAiSettings } from './aiSettings'
 import { parseCompanionRequest } from './companion/companionRequest'
 
 const require = createRequire(import.meta.url)
@@ -52,6 +53,35 @@ describe('the requests the PDF reader sends (fetch mocked)', () => {
       expect(parsed!.context!.paragraphs[1]).toBe('<page n="12">\nThe passage on page 12.\n</page>')
       expect(parsed!.context!.paragraphIndex).toBe(1)
     }
+  })
+  it('carries the reader’s AI settings and the book’s reading angle, as the book reader does (own books as the library)', async () => {
+    const own = { ...book, id: 'userbook-abc' }
+    // Nothing stored: Standard for an action with a length row, nothing for the others; no angle.
+    let sent = capture('MOCK.')
+    await A.companion('explain', { book: own, pdf, selection: 'The passage on page 12.' })
+    await A.companion('simplify', { book: own, pdf, selection: 'The passage on page 12.' })
+    expect((sent[0].body.companion as Record<string, unknown>).ai).toEqual(aiPrefsForAction(defaultAiSettings(), 'explain'))
+    expect((sent[1].body.companion as Record<string, unknown>).ai).toBeUndefined()
+    expect(((sent[0].body.companion as Record<string, unknown>).context as Record<string, unknown>).readingAngle).toBeUndefined()
+    // The settings as src/lab/labAiPrefs.ts keeps them, and this book's angle as src/lab/labReadingAngle.ts does.
+    const settings = normalizeAiSettings({ length: { explain: 'brief', primer: 'detailed' }, books: { 'userbook-abc': { explain: 'detailed' } }, instructions: 'Plain words.', perAction: { quiz: 'Ask why.' } })
+    localStorage.setItem('tinct:ai-settings', JSON.stringify({ settings, at: 1 }))
+    localStorage.setItem('tinct:reading-angle:userbook-abc', JSON.stringify('What the method assumes'))
+    sent = capture('MOCK.')
+    await A.companion('explain', { book: own, pdf, selection: 'The passage on page 12.' })
+    await A.companion('explain', { book: { ...book, id: 'userbook-other' }, pdf, selection: 'The passage on page 12.' })
+    await A.companion('quiz', { book: own, pdf, selection: 'The passage on page 12.' })
+    await A.companion('chapter', { book: own, pdf, chapter: { action: { kind: 'primer', unitKey: 'outline-1', unitTitle: 'Chapter 1' } } })
+    const ai = (i: number) => (sent[i].body.companion as Record<string, unknown>).ai
+    expect(ai(0)).toEqual(aiPrefsForAction(settings, 'explain', 'userbook-abc'))
+    expect(ai(0)).toEqual({ length: 'detailed', row: 'explain', instructions: ['Plain words.'] })
+    expect(ai(1)).toEqual(aiPrefsForAction(settings, 'explain', 'userbook-other'))
+    expect(ai(2)).toEqual(aiPrefsForAction(settings, 'quiz', 'userbook-abc'))
+    expect(ai(3)).toEqual(aiPrefsForAction(settings, 'primer', 'userbook-abc'))
+    const parsed = parseCompanionRequest(sent[0].body.companion)!
+    expect(parsed.ai).toEqual(ai(0))
+    expect(parsed.context!.readingAngle).toBe('What the method assumes')
+    expect(parseCompanionRequest(sent[1].body.companion)!.context!.readingAngle).toBeUndefined()
   })
   it('define_sense sends the word and its senses; quiz_check the question, expected answer, why and the reader’s answer', async () => {
     let sent = capture('{"sense": 2}')

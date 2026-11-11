@@ -495,6 +495,14 @@ describe('Simplify cards: never the passage again, no note about the rewrite', (
     expect(answer(c)).toEqual(['The generator is trained to make the discriminator wrong as often as it can.'])
     expect(M.html.foldText(c, P)).toBe('The generator is trained to make the discriminator wrong as often as it can.')
   })
+  it('no sentence of a rewrite is bold: it has no bottom line, live or kept (Anders, 11 Nov 2026); an Explain keeps its own', () => {
+    const html = (c: Card, o: Record<string, unknown> = {}) => M.html.cardHtml(c, { open: true, P, pageLabel: '1', ...o })
+    const rewrite = 'The generator is trained to fool the other network. It does this as often as it can.\n\nThat is the whole game.'
+    expect(html(card(rewrite))).not.toContain('is-bottom-line')
+    expect(answer(card(rewrite))[0]).toBe('The generator is trained to fool the other network. It does this as often as it can.')
+    expect(html({ ...card(''), turns: [] }, { live: rewrite })).not.toContain('is-bottom-line')
+    expect(html({ ...card(rewrite), kind: 'explain' })).toContain('<span class="is-bottom-line">The generator is trained to fool the other network.</span>')
+  })
   it('says so in one short line when only the passage came back; while it streams, shows what has come', () => {
     const c = card('The training procedure for G is to maximize the probability of D making a mistake.')
     expect(answer(c)).toEqual(['This passage is already in plain words.'])

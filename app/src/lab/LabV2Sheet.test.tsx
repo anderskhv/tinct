@@ -286,3 +286,23 @@ describe('the settings groups (22 Oct 2026): the same on the phone and the deskt
     expect(screen.getByLabelText('Shakespeare layout')).toBeTruthy()
   })
 })
+
+it('Book settings points to AI settings for the reading angle: the row opens This book with the caret in the field (Anders, 11 Nov 2026)', async () => {
+  render(<LabApp pathname="/lab/phone" source={{ ...fallbackLabSource(), bookId: 'the-histories', bookTitle: 'The Histories', editions: THE_HISTORIES.editions }} authToken={null} />)
+  fireEvent.click(screen.getByTestId('lab-super'))
+  fireEvent.click(screen.getByTestId('lab-super-row-editions'))
+  // No field here any more: one quiet row.
+  expect(screen.queryByTestId('lab-reading-angle')).toBeNull()
+  const row = screen.getByTestId('lab-reading-angle-link')
+  expect(row.textContent).toContain('Reading angle')
+  expect(row.textContent).toContain('In AI settings')
+  fireEvent.click(row)
+  const angle = await screen.findByTestId('ai-settings-angle', undefined, { timeout: 5000 })
+  expect(screen.queryByTestId('lab-v2-sheet')).toBeNull()
+  expect(screen.getByRole('tab', { name: 'This book' }).getAttribute('aria-selected')).toBe('true')
+  expect(screen.getByTestId('ai-settings-book-scope').textContent).toContain('The Histories.')
+  await waitFor(() => expect(document.activeElement).toBe(angle))
+  fireEvent.change(angle, { target: { value: 'Who tells the story' } })
+  expect(JSON.parse(localStorage.getItem('tinct:reading-angle:the-histories') || 'null')).toBe('Who tells the story')
+  fireEvent.click(screen.getByTestId('ai-settings-close'))
+})

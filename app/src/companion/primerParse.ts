@@ -16,8 +16,8 @@
  * Since 11 Nov 2026 (prompt v5, the catalogue Primer's v4 structure for own books) the primer is three parts:
  *   {"kind":"textbook","role":"In Deep Learning","gist":"<its role in the document>",
  *    "sections":[{"title":"How it's built","items":[…]},{"title":"Watch for","items":[…]}]}
- * `role` (the first part's title, "In <document>") marks it: "" with an empty gist for a unit that is the whole
- * document (two parts). Its map is optional. A primer without `role` was made by an earlier prompt: it still reads
+ * `role` (the first part's title, "In <document>") marks it: "In brief" with what the document is for a unit that is the whole
+ * document. Its map is optional. A primer without `role` was made by an earlier prompt: it still reads
  * (a saved card), but isCurrentPrimer says it is not to be served as the unit's primer any more.
  * Pure: no browser or Worker APIs.
  */

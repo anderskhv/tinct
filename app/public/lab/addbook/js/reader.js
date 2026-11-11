@@ -3100,7 +3100,7 @@ const SKIP = dir => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
 let sample = null, sampleImages = null, imgNote = 'Pictures you attach or snip are sent to the reading companion when you are signed in.';
 function aiBook() {
   const pl = hasBook() ? currentPlace() : null, ch = pl && toc.ready ? chapterAt(pl.page) : null;
-  return { title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
+  return { id: state.preview ? state.preview.bookId : 'userbook-' + hexOf(state.key), title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
 }
 async function ai() {
   if (sample) return sample;

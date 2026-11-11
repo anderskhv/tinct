@@ -84,7 +84,7 @@ export function PhoneCharacterBody({ character, renderFollow }: { character: Cha
  * An answer that streams in from the companion, shown as it arrives. `onReady`
  * hears the whole answer once (it is then carried into a follow-up).
  */
-export function PhoneStreamAnswer({ request, onReady }: { request: (onDelta: (text: string) => void) => Promise<string>; onReady?: (answer: string) => void }) {
+export function PhoneStreamAnswer({ request, onReady, plain = false }: { request: (onDelta: (text: string) => void) => Promise<string>; onReady?: (answer: string) => void; /** No bold first sentence (Simplify). */ plain?: boolean }) {
   const [answer, setAnswer] = useState('')
   const [status, setStatus] = useState<'loading' | 'streaming' | 'ready' | 'error' | 'resting'>('loading')
   const [attempt, setAttempt] = useState(0)
@@ -104,7 +104,7 @@ export function PhoneStreamAnswer({ request, onReady }: { request: (onDelta: (te
   }, [attempt])
   return (
     <div className="lab-pcard-stream" data-state={status} data-testid="lab-phone-card-stream" aria-live="polite" aria-busy={status === 'loading' || status === 'streaming'}>
-      {answer ? <PhoneAnswer text={answer} /> : status === 'loading' ? <PhoneWait /> : null}
+      {answer ? <PhoneAnswer text={answer} plain={plain} /> : status === 'loading' ? <PhoneWait /> : null}
       {status === 'resting' && <p className="lab-pcard-status">{LAB_COPY.aiResting}</p>}
       {status === 'error' && <p className="lab-pcard-status">{failure} <button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>}
     </div>

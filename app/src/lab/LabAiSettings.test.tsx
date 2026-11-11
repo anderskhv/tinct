@@ -3,26 +3,32 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { AI_INSTRUCTIONS_MAX_CHARS, defaultAiSettings } from '../aiSettings'
 import { AI_SETTINGS_COPY, LabAiSettings } from './LabAiSettings'
-import { aiPrefsFor, readAiSettings, withAiPrefs, writeAiSettings } from './labAiPrefs'
+import { aiPrefsFor, readAiSettings, setAiSettingsBook, withAiPrefs, writeAiSettings } from './labAiPrefs'
 import { readAccountAiValue, reconcileAccountAiValue } from './labAiAccount'
 import { readReadingAngle, writeReadingAngle } from './labReadingAngle'
 import { ownChapterNotesBody } from './userBook/ownChapterNotes'
 
-afterEach(() => { cleanup(); localStorage.clear() })
+afterEach(() => { cleanup(); localStorage.clear(); setAiSettingsBook(null) })
 
-describe('AI settings: the dialog (approved mock)', () => {
-  it('opens on General with today’s defaults, the mock’s words, and the allowance note', () => {
+const bible = { id: 'bible', title: 'The Bible' }
+
+describe('AI settings: the dialog (General and This book, 11 Nov 2026)', () => {
+  it('opens on General: every length on Standard, then the reader’s instructions; no answer language, no Custom tab', () => {
     render(<LabAiSettings onClose={() => {}} />)
     expect(screen.getByRole('heading', { name: 'AI settings' })).toBeTruthy()
     expect(screen.getByRole('tab', { name: 'General' }).getAttribute('aria-selected')).toBe('true')
-    for (const [row, on] of [['explain', 'brief'], ['ask', 'standard'], ['primer', 'standard'], ['summary', 'brief']] as const) {
-      expect(screen.getByTestId(`ai-length-${row}-${on}`).getAttribute('aria-pressed')).toBe('true')
+    for (const row of ['explain', 'ask', 'primer', 'summary'] as const) {
+      expect(screen.getByTestId(`ai-length-${row}-standard`).getAttribute('aria-pressed')).toBe('true')
     }
     expect(screen.getByText('Summary and Recap')).toBeTruthy()
-    expect(screen.getByTestId('ai-settings-detailed-note').textContent).toBe(AI_SETTINGS_COPY.detailedNote)
-    expect((screen.getByTestId('ai-settings-language') as HTMLSelectElement).value).toBe('auto')
-    expect(screen.getByRole('option', { name: 'The language I ask in' })).toBeTruthy()
     expect(screen.getByText('Reset to defaults')).toBeTruthy()
+    expect(screen.getByTestId('ai-settings-instructions')).toBeTruthy()
+    expect(screen.queryByTestId('ai-settings-language')).toBeNull()
+    expect(screen.queryByText('Answer in')).toBeNull()
+    expect(screen.queryByTestId('ai-settings-tab-custom')).toBeNull()
+    // Without a book (Profile from the library) there is General only.
+    expect(screen.queryByTestId('ai-settings-tab-book')).toBeNull()
+    expect(screen.getAllByRole('tab')).toHaveLength(1)
   })
 
   it('the length headings are plain column labels: no hint, no tooltip (Anders, 11 Nov 2026)', () => {
@@ -44,32 +50,67 @@ describe('AI settings: the dialog (approved mock)', () => {
     expect(readAiSettings().length.ask).toBe('brief')
   })
 
-  it('a length or a language is kept at once and rides on the next request', () => {
+  it('a length is kept at once and rides on the next request', () => {
     render(<LabAiSettings onClose={() => {}} />)
     fireEvent.click(screen.getByTestId('ai-length-explain-detailed'))
     expect(screen.getByTestId('ai-length-explain-detailed').getAttribute('aria-pressed')).toBe('true')
-    expect(screen.getByTestId('ai-length-explain-brief').getAttribute('aria-pressed')).toBe('false')
-    fireEvent.change(screen.getByTestId('ai-settings-language'), { target: { value: 'da' } })
+    expect(screen.getByTestId('ai-length-explain-standard').getAttribute('aria-pressed')).toBe('false')
     expect(readAiSettings().length.explain).toBe('detailed')
-    expect(aiPrefsFor('explain')).toEqual({ length: 'detailed', row: 'explain', language: 'da' })
-    expect(withAiPrefs({ intent: 'explain', selection: 'x' })).toEqual({ intent: 'explain', selection: 'x', ai: { length: 'detailed', row: 'explain', language: 'da' } })
+    expect(aiPrefsFor('explain')).toEqual({ length: 'detailed', row: 'explain' })
+    expect(withAiPrefs({ intent: 'explain', selection: 'x' })).toEqual({ intent: 'explain', selection: 'x', ai: { length: 'detailed', row: 'explain' } })
     // The librarian never takes them.
     expect(withAiPrefs({ intent: 'library' })).toEqual({ intent: 'library' })
   })
 
-  it('Reset to defaults puts General back and keeps the reader’s instructions', () => {
-    writeAiSettings({ ...defaultAiSettings(), length: { explain: 'detailed', ask: 'brief', primer: 'brief', summary: 'detailed' }, language: 'en', instructions: 'Keep it plain.' })
+  it('Reset to defaults puts General’s lengths back and keeps the reader’s instructions and each book’s own lengths', () => {
+    writeAiSettings({ ...defaultAiSettings(), length: { explain: 'detailed', ask: 'brief', primer: 'brief', summary: 'detailed' }, books: { bible: { ask: 'detailed' } }, instructions: 'Keep it plain.' })
     render(<LabAiSettings onClose={() => {}} />)
     fireEvent.click(screen.getByTestId('ai-settings-reset'))
     const after = readAiSettings()
     expect(after.length).toEqual(defaultAiSettings().length)
-    expect(after.language).toBe('auto')
     expect(after.instructions).toBe('Keep it plain.')
+    expect(after.books).toEqual({ bible: { ask: 'detailed' } })
   })
 
-  it('Custom: the reader’s instructions, held to 400 characters, and one box per action', () => {
+  it('This book: each row follows General until set; the book’s own length rides on that book’s requests only', () => {
+    setAiSettingsBook('bible')
+    render(<LabAiSettings onClose={() => {}} book={bible} />)
+    fireEvent.click(screen.getByTestId('ai-settings-tab-book'))
+    expect(screen.getByTestId('ai-settings-book-scope').textContent).toBe('The Bible. Anything set here applies to this book only.')
+    for (const row of ['explain', 'ask', 'primer', 'summary'] as const) expect(screen.getByTestId(`ai-book-length-${row}-same`).getAttribute('aria-pressed')).toBe('true')
+    expect(screen.getByLabelText('Explain: Same as General')).toBeTruthy()
+    fireEvent.click(screen.getByTestId('ai-book-length-explain-detailed'))
+    expect(readAiSettings().books).toEqual({ bible: { explain: 'detailed' } })
+    expect(aiPrefsFor('explain')).toEqual({ length: 'detailed', row: 'explain' })
+    expect(aiPrefsFor('ask')).toEqual({ length: 'standard', row: 'ask' })
+    // Another book, and no book, read General.
+    expect(aiPrefsFor('explain', 'odyssey')).toEqual({ length: 'standard', row: 'explain' })
+    setAiSettingsBook(null)
+    expect(aiPrefsFor('explain')).toEqual({ length: 'standard', row: 'explain' })
+    fireEvent.click(screen.getByTestId('ai-book-length-explain-same'))
+    expect(readAiSettings().books).toEqual({})
+  })
+
+  it('This book holds the reading angle; "Reset this book" clears its lengths and keeps the angle', () => {
+    writeReadingAngle('bible', 'How the Old and New Testament point to each other')
+    writeAiSettings({ ...defaultAiSettings(), books: { bible: { primer: 'brief' }, odyssey: { ask: 'brief' } } })
+    render(<LabAiSettings onClose={() => {}} book={bible} tab="book" focusAngle />)
+    expect(screen.getByRole('tab', { name: 'This book' }).getAttribute('aria-selected')).toBe('true')
+    const angle = screen.getByTestId('ai-settings-angle') as HTMLTextAreaElement
+    expect(angle.value).toBe('How the Old and New Testament point to each other')
+    // A "Set reading angle" entry lands with the caret in the field.
+    expect(document.activeElement).toBe(angle)
+    fireEvent.change(angle, { target: { value: 'Who is speaking' } })
+    expect(readReadingAngle('bible')).toBe('Who is speaking')
+    fireEvent.click(screen.getByTestId('ai-settings-reset-book'))
+    expect(readAiSettings().books).toEqual({ odyssey: { ask: 'brief' } })
+    expect(readReadingAngle('bible')).toBe('Who is speaking')
+    // No dictation on a page without it.
+    expect(screen.queryByTestId('ai-settings-angle-mic')).toBeNull()
+  })
+
+  it('General: the reader’s instructions, held to 400 characters, and one box per action', () => {
     render(<LabAiSettings onClose={() => {}} />)
-    fireEvent.click(screen.getByTestId('ai-settings-tab-custom'))
     expect(screen.getByText(AI_SETTINGS_COPY.instructionsHint)).toBeTruthy()
     const box = screen.getByTestId('ai-settings-instructions') as HTMLTextAreaElement
     expect(box.maxLength).toBe(AI_INSTRUCTIONS_MAX_CHARS)
@@ -83,7 +124,6 @@ describe('AI settings: the dialog (approved mock)', () => {
 
   it('Upload .md fills the box; a longer file keeps its first 400 characters and says so', async () => {
     render(<LabAiSettings onClose={() => {}} />)
-    fireEvent.click(screen.getByTestId('ai-settings-tab-custom'))
     const file = new File([`# Me\n\n${'y'.repeat(600)}`], 'tinct.md', { type: 'text/markdown' })
     if (!('text' in file)) Object.defineProperty(file, 'text', { value: () => Promise.resolve(`# Me\n\n${'y'.repeat(600)}`) })
     await act(async () => { fireEvent.change(screen.getByTestId('ai-settings-file'), { target: { files: [file] } }) })
@@ -105,20 +145,25 @@ describe('AI settings: the dialog (approved mock)', () => {
     expect(screen.queryByLabelText('Close')).toBeNull()
     expect(screen.getByLabelText('Back')).toBeTruthy()
     expect(screen.getByTestId('ai-settings-layer').className).toContain('is-phone')
-    expect(screen.getByText('Summary')).toBeTruthy()
+    expect(screen.getByText('Summary', { selector: '.lab-ai-row' })).toBeTruthy()
   })
 })
 
 describe('AI settings and reading angles follow the account', () => {
-  it('a newer account copy replaces this device’s; an older one is overwritten', () => {
+  it('a newer account copy replaces this device’s, its books’ lengths with it; an older one is overwritten', () => {
     writeAiSettings({ ...defaultAiSettings(), instructions: 'Here' }, 1_000)
-    const newer = { aiSettings: { settings: { ...defaultAiSettings(), instructions: 'There', language: 'da' as const }, at: 2_000 } }
+    const newer = { aiSettings: { settings: { ...defaultAiSettings(), instructions: 'There', books: { bible: { explain: 'detailed' as const } } }, at: 2_000 } }
     expect(reconcileAccountAiValue(newer)).toBe(false)
-    expect(readAiSettings()).toMatchObject({ instructions: 'There', language: 'da' })
+    expect(readAiSettings()).toMatchObject({ instructions: 'There', books: { bible: { explain: 'detailed' } } })
     // The account's copy keeps its time, so it is not written back as a new change.
     writeAiSettings({ ...defaultAiSettings(), instructions: 'Later here' }, 3_000)
     expect(reconcileAccountAiValue(newer)).toBe(true)
     expect(readAiSettings().instructions).toBe('Later here')
+  })
+
+  it('an account row written before 11 Nov 2026 still reads: its answer language is dropped, its lengths kept as they were named', () => {
+    const old = readAccountAiValue({ aiSettings: { settings: { length: { explain: 'brief', ask: 'standard', primer: 'standard', summary: 'detailed' }, language: 'da', instructions: 'Plain words.', perAction: {} }, at: 9 } })
+    expect(old.aiSettings!.settings).toEqual({ length: { explain: 'brief', ask: 'standard', primer: 'standard', summary: 'detailed' }, books: {}, instructions: 'Plain words.', perAction: {} })
   })
 
   it('reading angles: the newer side wins, removed angles included', () => {
@@ -132,12 +177,12 @@ describe('AI settings and reading angles follow the account', () => {
     expect(readReadingAngle('dracula')).toBe('')
   })
 
-  it('an own book’s Recap and Primer carry the settings for their own boxes', () => {
+  it('an own book’s Recap and Primer carry their lengths and the settings for their own boxes', () => {
     writeAiSettings({ ...defaultAiSettings(), length: { ...defaultAiSettings().length, summary: 'detailed' }, perAction: { recap: 'Short words.' } })
     const source = { bookTitle: 'Notes', bookAuthor: '', chapterTitle: 'One', chapterNumber: 1, paragraphs: ['A first paragraph of text.'] }
     const recap = ownChapterNotesBody('end', source) as { companion: { ai?: unknown } }
     expect(recap.companion.ai).toEqual({ length: 'detailed', row: 'summary', instructions: ['Short words.'] })
     const primer = ownChapterNotesBody('primer', source) as { companion: { ai?: unknown } }
-    expect(primer.companion.ai).toBeUndefined()
+    expect(primer.companion.ai).toEqual({ length: 'standard', row: 'primer' })
   })
 })
