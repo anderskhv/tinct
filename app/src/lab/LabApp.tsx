@@ -51,6 +51,7 @@ import { trackFunnel, trackFunnelOnce } from '../utils/funnel'
 import { apiUrl } from '../utils/apiUrl'
 import { useNarrationPrefetch } from './useNarrationPrefetch'
 import { useVoicePersonaSync } from './useVoicePersonaSync'
+import { useAiSettingsAccountSync } from './labAiAccount'
 import { useSwipeDownClose } from './useSwipeDownClose'
 import { flushSync } from 'react-dom'
 import { readerPreviewSearch } from '../../public/lab/library-model.js'
@@ -821,6 +822,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     })
   }, [appearanceProfile, persistPrefs])
   useVoicePersonaSync({ userId: authUser?.id ?? null, value: prefs.voicePersona, chosen: prefs.voicePersonaChosen === true, onRemote: applyRemoteVoicePersona })
+  // AI settings and the books' reading angles follow the reader's account (labAiAccount.ts).
+  useAiSettingsAccountSync(authUser?.id ?? null)
   // English narration is available across the published catalogue. Female
   // original editions on the verified retention list stay on Bella; all
   // other tuples resolve to the exact on-demand voice returned by the Worker.
@@ -6163,6 +6166,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       { id: 'settings', label: 'Aa', key: 's', run: () => handleSuperMenuSelect('text') },
       { id: 'audio', label: 'Audio settings', key: 'v', run: () => handleSuperMenuSelect('audio') },
       { id: 'account', label: 'Profile', key: 'a', run: () => handleSuperMenuSelect('account') },
+      { id: 'ai-settings', label: 'AI settings', run: () => { void import('./openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: resolvedDarkMode, phone: showPhoneChrome, userId: authUser?.id ?? null })) } },
       { id: 'fullscreen', label: 'Toggle full screen', key: 'f', run: () => { void toggleFullscreen() } },
       { id: 'undo-highlight', label: 'Undo last highlight or note change', enabled: highlightsApi.canUndo, run: () => { highlightUndoRef.current() } },
     ].filter(command => !privateBook || !USER_BOOK_HIDDEN_COMMANDS.has(command.id) || (command.id === 'listen' && ownNarration) || (command.id === 'editions' && ownEditions)),

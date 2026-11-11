@@ -5,6 +5,8 @@ import { authorshipNote, bookByline, type Authorship } from '../companion/author
 import { LAB_COPY } from './labCopy'
 import type { LabReadingTrailEntry } from './labReadingTrail'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { aiPrefsPromptLines } from '../aiSettings'
+import { aiPrefsFor } from './labAiPrefs'
 
 export interface LabTalkContext {
   bookTitle: string
@@ -182,6 +184,8 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
   if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
+  // The reader's own instructions and answer language (AI settings), after the angle; Talk keeps its spoken length.
+  lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {
     lines.push(`Nearby paragraphs:\n${nearby.map(text => `- "${text}"`).join('\n')}`)

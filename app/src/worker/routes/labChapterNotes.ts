@@ -15,10 +15,13 @@ import {
   CHAPTER_NOTES_CACHE_TTL_SECONDS,
   CHAPTER_NOTES_ROUTE,
   chapterNotesCacheKey,
+  chapterNotesLengthDefault,
+  chapterNotesMaxBeats,
   parseChapterNotesBeats,
   type ChapterNotesKind,
   type ChapterNotesResponse,
 } from '../../chapterNotes'
+import { AI_LANGUAGE_LINES, aiPrefsMaxTokens, aiPrefsPromptLines, parseAiRequestPrefs, type AiLength, type AiRequestPrefs } from '../../aiSettings'
 import { createBookRetrieval, parseBookRef, type AssetsBinding, type BookRetrieval, type ChapterText } from '../lib/bookRetrieval'
 import { AI_RESTING_TYPE, aiRestingBody, estimateAiCostMicros, type ReserveGuestSpend } from '../lib/aiSpend'
 import { allowanceUsedBody } from '../lib/aiAllowance'
@@ -71,7 +74,8 @@ export const CHAPTER_NOTES_MAX_TOKENS: Readonly<Record<ChapterNotesKind, number>
 export const CHAPTER_NOTES_MAX_PASSAGE_CHARS = 28_000
 export const CHAPTER_NOTES_LOOKUP_RATE_LIMIT_PER_MINUTE = 60
 export const CHAPTER_NOTES_GENERATE_RATE_LIMIT_PER_MINUTE = 10
-const MAX_BODY_BYTES = 2_048
+// Room for the reader's AI settings: two instruction boxes of 400 characters.
+const MAX_BODY_BYTES = 4_096
 const MAX_TITLE_CHARS = 120
 const MAX_PARAGRAPH_INDEX = 100_000
 
@@ -130,6 +134,30 @@ export const CHAPTER_NOTES_SYSTEM: Record<ChapterNotesKind, string> = {
   ].join('\n'),
 }
 
+/**
+ * A card's length in the reader's AI settings, as beats. Replaces the kind's
+ * own count and length; the JSON shape stays.
+ */
+export const CHAPTER_NOTES_LENGTH_LINES: Readonly<Record<AiLength, string>> = Object.freeze({
+  brief: 'Length, as the reader set it: brief. Two or three beats, each text one sentence of at most 20 words. This replaces any other beat count or length above; keep the JSON shape.',
+  standard: 'Length, as the reader set it: standard. Three or four beats, each text two or three sentences, at most 60 words. This replaces any other beat count or length above; keep the JSON shape.',
+  detailed: 'Length, as the reader set it: detailed. Five to eight beats, each text two to four sentences with context, at most 90 words. This replaces any other beat count or length above; keep the JSON shape.',
+})
+const PRIMER_LAST_BEAT = 'The last beat is still titled "Watch for", and the card stays spoiler-free.'
+
+/** The kind's system prompt with the reader's settings after it (unchanged without any). */
+export function chapterNotesSystem(kind: ChapterNotesKind, ai: AiRequestPrefs | undefined): string {
+  const base = CHAPTER_NOTES_SYSTEM[kind]
+  if (!ai) return base
+  const length = ai.length && ai.length !== chapterNotesLengthDefault(kind) ? ai.length : null
+  const lines = [
+    ...(length ? [CHAPTER_NOTES_LENGTH_LINES[length], ...(kind === 'primer' ? [PRIMER_LAST_BEAT] : [])] : []),
+    // The cards are English; the language line asks for the reader's language in the JSON's values.
+    ...aiPrefsPromptLines(ai, { length: false }).map(line => line === AI_LANGUAGE_LINES.da || line === AI_LANGUAGE_LINES.en ? `${line} Write the titles and texts in that language.` : line),
+  ]
+  return lines.length ? `${base}\n${lines.join('\n')}` : base
+}
+
 export interface ParsedChapterNotesRequest {
   bookId: string
   editionKey: string
@@ -137,6 +165,7 @@ export interface ParsedChapterNotesRequest {
   kind: ChapterNotesKind
   paragraphIndex: number
   bookTitle: string | null
+  ai?: AiRequestPrefs
 }
 
 export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesRequest | null {
@@ -152,7 +181,8 @@ export function parseChapterNotesRequest(raw: unknown): ParsedChapterNotesReques
     : 0
   if (paragraphIndex < 0) return null
   const bookTitle = typeof value.bookTitle === 'string' && value.bookTitle.trim() ? value.bookTitle.trim().slice(0, MAX_TITLE_CHARS) : null
-  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle }
+  const ai = parseAiRequestPrefs(value.ai)
+  return { bookId: book.bookId, editionKey: book.editionKey, chapterNumber: book.chapterNumber, kind, paragraphIndex, bookTitle, ...(ai ? { ai } : {}) }
 }
 
 function cleanParagraph(text: string): string {
@@ -244,7 +274,7 @@ export async function handleLabChapterNotes(
     try {
       const hit = await cache.match(cacheKey)
       if (hit) {
-        const beats = parseChapterNotesBeats(await hit.json())
+        const beats = parseChapterNotesBeats(await hit.json(), chapterNotesMaxBeats(parsed.ai))
         if (beats) return respond(beats, 'cache')
       }
     } catch { /* a cache failure is never a user-facing failure */ }
@@ -265,9 +295,9 @@ export async function handleLabChapterNotes(
   }
   const where = parsed.bookTitle ? `${parsed.bookTitle}, ${chapter.title}` : chapter.title
   const content = `Location: ${where}.\n\n${passage}\n\nWrite the card as JSON.`
-  const system = CHAPTER_NOTES_SYSTEM[parsed.kind]
+  const system = chapterNotesSystem(parsed.kind, parsed.ai)
   const model = CHAPTER_NOTES_MODEL[parsed.kind]
-  const maxTokens = CHAPTER_NOTES_MAX_TOKENS[parsed.kind]
+  const maxTokens = aiPrefsMaxTokens(CHAPTER_NOTES_MAX_TOKENS[parsed.kind], parsed.ai, chapterNotesLengthDefault(parsed.kind))
   const estimate = estimateAiCostMicros({ inputChars: system.length + content.length, maxTokens })
   // Cached and prepared entries above cost nothing and are always served.
   if (deps.allowsAi && !await deps.allowsAi(request)) return jsonResponse(allowanceUsedBody(), 402, request)
@@ -295,7 +325,7 @@ export async function handleLabChapterNotes(
     const text = message.stop_reason === 'refusal' ? '' : (message.content ?? []).filter(block => block?.type === 'text').map(block => block.text ?? '').join('')
     const json = text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)
     let beats: ChapterNotesResponse['beats'] | null = null
-    try { beats = parseChapterNotesBeats(JSON.parse(json)) } catch { beats = null }
+    try { beats = parseChapterNotesBeats(JSON.parse(json), chapterNotesMaxBeats(parsed.ai)) } catch { beats = null }
     if (!beats) {
       logChapterNotesFailure('unparseable', parsed.kind)
       return jsonResponse({ error: 'Notes unavailable' }, 502, request)

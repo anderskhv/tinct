@@ -97,6 +97,8 @@ export interface CardsEnv {
   clipboard?: (text: string) => Promise<boolean>
   /** Send this device's pending reading time and read Your reading again (openCards syncOwnTime); the board does not wait for it. */
   syncOwnTime?: () => void
+  /** Profile › AI settings: closes the cards and opens AI settings over the page (lab/openAiSettingsLayer.tsx). */
+  openAiSettings?: () => void
 }
 
 // ===== Pictures =====
@@ -425,6 +427,7 @@ export function youCard(env: CardsEnv): CardSpec {
       const moreGroup = group(
         env.social && profile ? row({ label: CARDS_COPY.findReaders, value: badge, chevron: true, onClick: () => card.stack.push(findCard(env)), testid: 'you-find' })
           : env.social && waitingProfile ? row({ label: CARDS_COPY.findReaders, testid: 'you-find-skeleton' }) : null,
+        env.openAiSettings ? row({ label: CARDS_COPY.aiSettings, chevron: true, onClick: env.openAiSettings, testid: 'you-ai-settings' }) : null,
         row({ label: CARDS_COPY.settings, chevron: true, onClick: () => card.stack.push(settingsCard(env)), testid: 'you-settings' }),
       )
       body.append(...[requestsGroup(env, card), readingGroup, data.allowance ? creditsGroup(env, card, credits) : null, moreGroup].filter(Boolean) as Node[], statusLine(status))
