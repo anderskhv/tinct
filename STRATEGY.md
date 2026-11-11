@@ -1,6 +1,6 @@
 # Tinct — Strategy
 
-**Last updated:** 2026-11-11 (positioning and launch plan approved by Anders; sections 1–10 rewritten). The dated sections directly below are earlier approved decisions and are unchanged.
+**Last updated:** 2026-11-11 (positioning and launch plan approved by Anders; sections 1–11 rewritten). The dated sections directly below are earlier approved decisions and are unchanged.
 
 The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). The earlier emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md). This document says what Tinct is, for whom, how it is described, and what happens next.
 
