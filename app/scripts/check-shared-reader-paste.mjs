@@ -242,7 +242,7 @@ async function run(engine, type, phone) {
       // this hashed cover URL. WebKit also aborts background account reads when
       // this test immediately leaves a whole document for the next route.
       if (/^HTTP 404 http:\/\/127\.0\.0\.1:\d+\/covers\/v2\/userbook-[0-9a-f]{24}\.webp$/.test(error)) return false
-      if (engine === 'webkit' && /^Fetch API cannot load (?:http:\/\/127\.0\.0\.1:\d+\/api\/user-books(?:\/places)?|https:\/\/[a-z0-9]+\.supabase\.co\/rest\/v1\/(?:profiles|user_data|rpc\/commit_user_data))\b[\s\S]*due to access control checks\./.test(error)) return false
+      if (engine === 'webkit' && /^Fetch API cannot load (?:http:\/\/127\.0\.0\.1:\d+\/api\/user-books(?:\/places)?|https:\/\/[a-z0-9]+\.supabase\.co\/rest\/v1\/(?:profiles|user_data|site_admins|rpc\/commit_user_data))\b[\s\S]*due to access control checks\./.test(error)) return false
       return true
     })
     assert.deepEqual(appErrors, [], 'browser has no uncaught app errors')

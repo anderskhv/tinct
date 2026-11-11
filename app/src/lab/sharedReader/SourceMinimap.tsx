@@ -12,10 +12,12 @@ export interface SourceBookMap {
 export type SourceMapCard = { id: string; paragraphIndex: number; wordIndex: number; label: string; onOpen: () => void }
 
 /** Source paragraphs and the visible range, without annotation dots or ebook-page guesses. */
-export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highlights = [], cards = [], onJump }: {
+export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highlights = [], cards = [], onJump, chapterMarks = false }: {
   paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor;
   bookMap?: SourceBookMap; highlights?: readonly LabHighlight[]; cards?: readonly SourceMapCard[];
   onJump: (place: ContinuousReaderAnchor) => void
+  /** Book scroll (try-out): a tick at every chapter's start, the reader's own included. */
+  chapterMarks?: boolean
 }) {
   const model = useMemo(() => {
     const weights = paragraphs.map(p => Math.max(1, tokenizeHearingWords(p).length))
@@ -106,6 +108,7 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       })}
     </g>)}
     {lines.map((line, i) => <line key={i} x1={4} x2={4 + line.width} y1={line.y + .5} y2={line.y + .5} className="source-minimap-line" />)}
+    {chapterMarks && book?.chapters.map(chapter => <line key={`mark-${chapter.number}`} x1={0} x2={3} y1={chapter.start / total * mapHeight + .5} y2={chapter.start / total * mapHeight + .5} className="source-minimap-chapter-mark" data-map-chapter-mark={chapter.number} />)}
     <rect x={.5} y={Math.min(mapHeight - 8, position * mapHeight)} width={33} height={Math.max(8, Math.min(mapHeight - position * mapHeight, visibleEnd ? (((model.starts[visibleEnd.paragraphIndex] ?? 0) + visibleEnd.wordIndex + 1 + offset) / total - position) * mapHeight : 24))} rx={5} className="source-minimap-window" />
     </g>
     {cards.filter(card => card.paragraphIndex >= 0 && card.paragraphIndex < paragraphs.length).map(card => {

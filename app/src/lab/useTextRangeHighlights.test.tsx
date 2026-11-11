@@ -19,12 +19,29 @@ it('paints one range including internal spaces but excluding outside spaces and 
   expect(range).toHaveLength(1)
   expect(range[0].toString()).toBe('If I')
   expect(first.container.textContent).toBe('before If I after')
+  // One named highlight per colour for the document: each passage contributes its ranges to it.
   const second = render(<Passage />)
-  expect(registry.size).toBe(10)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(2)
   first.unmount()
-  expect(registry.size).toBe(5)
+  expect(registry.size).toBe(1)
+  expect([...registry.values()][0].ranges).toHaveLength(1)
+  expect([...registry.values()][0].ranges[0].toString()).toBe('If I')
   second.unmount()
   expect(registry.size).toBe(0)
+})
+
+it('installs one stylesheet for every passage and never removes it, so a passage mounting or leaving restyles nothing', () => {
+  vi.stubGlobal('CSS', { highlights: new Map() })
+  vi.stubGlobal('Highlight', class { ranges: Range[]; constructor(...ranges: Range[]) { this.ranges = ranges } })
+  const sheets = () => document.head.querySelectorAll('style[data-tinct-range-highlights]').length
+  const a = render(<Passage />)
+  const b = render(<Passage />)
+  expect(sheets()).toBe(1)
+  a.unmount(); b.unmount()
+  expect(sheets()).toBe(1)
+  render(<Passage />)
+  expect(sheets()).toBe(1)
 })
 
 it('bridges fractional row cracks only where both rows are highlighted', () => {
@@ -183,7 +200,8 @@ it('reveals a committed mark color after applying it, while a fresh drag still p
     return <article ref={ref}><p className="lab-hearing-line"><span data-testid="lab-word" className="is-selecting is-hl-lavender">Selected</span>{' '}<span data-testid="lab-word" className="is-selecting is-hl-lavender">words</span></p></article>
   }
   const view = render(<Selected applied={false} />)
-  const paint = (color: string) => [...registry].find(([key]) => key.endsWith(`-${color}`))![1].ranges.map(range => range.toString())
+  // A colour no passage paints has no named highlight at all.
+  const paint = (color: string) => ([...registry].find(([key]) => key.endsWith(`-${color}`))?.[1].ranges ?? []).map(range => range.toString())
   expect(paint('warm')).toEqual(['Selected words'])
   expect(paint('lavender')).toEqual([])
   view.rerender(<Selected applied />)
