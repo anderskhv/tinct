@@ -418,7 +418,7 @@ async function run(engineName) {
   await page.getByTestId('lab-super-menu').waitFor()
   const menu = await page.evaluate(() => [...document.querySelectorAll('[data-testid="lab-super-menu"] .lab-super-row-label')].map(n => n.textContent))
   // The settings groups and Notebook (22 Oct 2026): the phone has no top-bar Aa or Notebook, so all are t menu rows.
-  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Catch me up|Notebook|Aa|Book settings|Audio settings|Library|Profile', menu)
+  ok(`${tag}: the t menu: ${menu.join(' · ')}`, menu.join('|') === 'Chat|Talk|Catch me up|Notebook|Aa|Book settings|Audio settings|AI settings|Library|Profile', menu)
   shots.push(await shot(page, `${tag}-menu`))
   // Notebook (one Notebook on every interface): the book's cards (section 3's) and the reader's marks in one list,
   // newest first, with the desktop Notebook's filters; its × goes back to the book, the place kept.
