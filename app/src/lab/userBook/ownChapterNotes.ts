@@ -10,6 +10,7 @@
  * margin reader's recap instruction as an `ask` (reader.js pillRules). Both are shown as the same titled beats.
  * The beats are kept on this device only (labChapterNotes.ts, under the book's local key).
  */
+import { withAiPrefs } from '../labAiPrefs'
 import { parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesKind } from '../../chapterNotes'
 import { parsePrimer, type Primer } from '../../companion/primerParse'
 import { apiUrl } from '../../utils/apiUrl'
@@ -80,13 +81,14 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
     return {
       stream: false, max_tokens: 1600,
       messages: [{ role: 'user', content: 'Please answer.' }],
-      companion: { intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter' } } },
+      // The reader's AI settings for this card (labAiPrefs.ts), only what differs from Tinct's defaults.
+      companion: withAiPrefs({ intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter' } } }),
     }
   }
   return {
     stream: false, max_tokens: 1600,
     messages: [{ role: 'user', content: `${ownRecapInstruction(source)}\n\nPlease answer.` }],
-    companion: { intent: 'ask', context },
+    companion: withAiPrefs({ intent: 'ask', context }, 'recap'),
   }
 }
 

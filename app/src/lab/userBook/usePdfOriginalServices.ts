@@ -17,6 +17,7 @@ import { loadPdfEngine } from './pdfEdition'
 import { useMarginListen, type MarginListenApi } from '../marginPreview/useMarginListen'
 import { userBookId } from './userBookId'
 import { readingAngleForAi } from '../labReadingAngle'
+import { withAiPrefs } from '../labAiPrefs'
 import { PdfOriginalTalkCard, pdfTalkConversations } from './PdfOriginalTalkCard'
 import { OwnTextCardsSync, unassignedOwnTextCardCount } from './ownTextCardsSync'
 
@@ -225,7 +226,7 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
-        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: question }], companion }) })
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: question }], companion: withAiPrefs(companion, action === 'primer' ? 'primer' : action === 'catchup' ? 'recap' : 'summary') }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       if (!answer?.trim() || !this.trusted()) return null
@@ -260,8 +261,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: `Quiz me on ${source.unit.title}.` }],
-          companion: { intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } } }) })
+          companion: withAiPrefs({ intent: 'quiz', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false } }) }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       if (!answer?.trim() || signal?.aborted || !this.trusted()) return null
@@ -277,8 +278,8 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }],
-          companion: { intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
-            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz } }) })
+          companion: withAiPrefs({ intent: 'quiz_check', document: this.unitDocument(source), context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: source.unit.title,
+            pageNumber: source.atPage, pages: source.pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false }, quiz }) }) })
       if (!response.ok || !this.trusted()) return null
       return await readAnthropicResponse(response)
     } catch { return null }
@@ -489,11 +490,11 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', signal,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
         body: JSON.stringify({ stream: true, messages: [...prior, { role: 'user', content: figure ? [figure.block, { type: 'text', text: question }] : question }],
-          companion: { intent: 'ask', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
+          companion: withAiPrefs({ intent: 'ask', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author,
             chapterLabel: source ? String((card.data?.unit as { title?: string } | undefined)?.title || `Original PDF pages ${first}–${last}`) : `Original PDF page ${card.page}`,
             pageNumber: card.page, pages: pages.map(page => ({ n: page.n, text: page.text.slice(0, 200) })), paragraphIndex: 0, lookups: false },
             document: { kind: 'pdf', units: pages, part: { toc: [], total: this.pages } },
-            selection: card.pageOnly ? undefined : card.text.slice(0, 4000) } }) })
+            selection: card.pageOnly ? undefined : card.text.slice(0, 4000) }) }) })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response, onDelta)
       return !signal?.aborted && this.trusted() ? answer : null
@@ -595,9 +596,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     const request = {
       stream: true,
       messages: [{ role: 'user', content: figure ? [figure.block, { type: 'text', text: question || `Explain this ${selection.region?.kind || 'figure'}.` }] : question || (intent === 'recap' ? `Summarize original PDF page ${selection.page}.` : intent === 'catchup' ? `Catch me up through original PDF page ${selection.page}.` : 'Please answer.') }],
-      companion: { intent: action, context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
+      // A Recap or Catch me up is sent as a question: its own settings (labAiPrefs.ts).
+      companion: withAiPrefs({ intent: action, context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`,
         pageNumber: selection.page, pages: selectedPages, paragraphIndex: 0, lookups: false },
-        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) },
+        selection: text, ...(region && region.kind !== 'equation' && action === 'explain' ? { figure: true } : {}) }, intent === 'recap' ? 'summary' : intent === 'catchup' ? 'recap' : undefined),
     }
     // Every failure says what happened (Anders, 2 Nov 2026: a bare "No answer was returned." covered six causes).
     // A dropped connection or a server error before any answer is tried once more.
@@ -636,10 +638,10 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
     if (!token || !await this.currentGeneration(token)) return null
     try {
       const response = await this.fetchImpl(apiUrl('/api/chat'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...internalTrafficHeaders() },
-        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: {
+        body: JSON.stringify({ stream: true, messages: [{ role: 'user', content: 'Please mark my answer.' }], companion: withAiPrefs({
           intent: 'quiz_check', context: { kind: 'pdf', ...this.angleContext(), bookTitle: this.bookMetadata.title, bookAuthor: this.bookMetadata.author, chapterLabel: `Original PDF page ${selection.page}`, pageNumber: selection.page,
             pages: selection.pages ?? [{ n: selection.page, text: selection.text }], paragraphIndex: 0, lookups: false }, selection: selection.text.slice(0, 4000), quiz,
-        } }),
+        }) }),
       })
       if (!response.ok || !this.trusted()) return null
       const answer = await readAnthropicResponse(response)

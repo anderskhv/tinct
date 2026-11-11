@@ -40,6 +40,8 @@ import {
   type LabTalkContext,
 } from './labCompanion'
 import { internalTrafficHeaders } from '../utils/internalTraffic'
+import { aiPrefsPromptLines } from '../aiSettings'
+import { aiPrefsFor } from './labAiPrefs'
 
 export const LAB_ASK_COMPANION_TOOL_V2 = {
   type: 'function',
@@ -103,6 +105,8 @@ export function buildLabTalkInstructionsV2(input: LabTalkContext): string {
   if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
+  // The reader's own instructions and answer language (AI settings), after the angle; Talk keeps its spoken length.
+  lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {
     lines.push(`Nearby paragraphs:\n${nearby.map(text => `- "${text}"`).join('\n')}`)

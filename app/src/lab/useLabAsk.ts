@@ -39,6 +39,7 @@ import {
   type LabPlaybackSkip,
 } from './labAsk'
 import { useReadingAngle } from './labReadingAngle'
+import { readAiSettings, withAiPrefs } from './labAiPrefs'
 import {
   LabChatError,
   labChatErrorType,
@@ -996,7 +997,8 @@ export function useLabAsk(options: UseLabAskOptions) {
       if (!stillHere()) return
       let assistantId = nextId()
       // Structured context only: the Worker builds the prompt from it.
-      const companion: CompanionRequest = chapterRequest
+      // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+      const companion: CompanionRequest = withAiPrefs<CompanionRequest>(chapterRequest
         ? {
             intent: 'chapter',
             context,
@@ -1010,7 +1012,7 @@ export function useLabAsk(options: UseLabAskOptions) {
             intent: 'ask',
             context: { ...context, ...(personalEvidence ? { personalHistory: personalEvidence } : {}) },
             ...(shownSplit?.shown.length ? { shownExplanations: shownSplit.shown } : {}),
-          }
+          })
       const messages: Array<{ role: string; content: string | unknown[] }> = history.map((message, index) => index === history.length - 1 && !chapterRequest ? { ...message, content: `[Current reading location for this question: ${context.bookTitle}, ${context.chapterLabel}, edition ${context.editionLabel || context.editionKey}. Historical messages do not change this location.]\n\n${message.content}` } : message)
       // A figure asked about goes with the question, signed in only (the
       // Worker's picture path: images in the latest user turn; chatImages.ts).
@@ -1223,7 +1225,7 @@ export function useLabAsk(options: UseLabAskOptions) {
     if ((!text && !textless) || (input.speculative && !signedIn)) throw new LabChatError('unavailable')
     const requestBookId = chatBookIdRef.current
     const requestChapter = input.chapterNumber ?? optionsRef.current.chapterNumber
-    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(requestBookId), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
+    const key = JSON.stringify([viewerId, COMPANION_MODEL, labReadingAngle(requestBookId), readAiSettings(), requestBookId, requestChapter, input.editionKey, input.paragraphIndex, input.paragraphs, text, input.intent, input.quiz])
     const cached = explanationRef.current
     if (cached?.key === key && Date.now() - cached.time < 60_000) {
       // The reader asked for it: this is the moment the action is charged,
@@ -1282,10 +1284,11 @@ export function useLabAsk(options: UseLabAskOptions) {
         // The Worker builds the prompt and the question from this context.
         body: JSON.stringify({
           stream: true,
-          companion: input.intent && input.intent !== 'define'
+          // The reader's AI settings ride with every request (labAiPrefs.ts), as the reading angle does in the context.
+          companion: withAiPrefs(input.intent && input.intent !== 'define'
             // The margin's actions: the Worker builds each prompt from its intent (companionRequest.ts).
             ? { intent: input.intent, context, ...(text && input.intent !== 'quiz_check' ? { selection: text } : {}), ...(input.intent === 'quiz_check' && input.quiz ? { quiz: input.quiz } : {}) }
-            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest,
+            : { intent: input.intent === 'define' ? 'define' : 'explain', context, selection: text, ...(input.speculative ? { speculative: true } : {}) } satisfies CompanionRequest),
         }),
       })
       progress()

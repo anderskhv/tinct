@@ -40,6 +40,7 @@ import {
 import { PRIMER_MAX_TOKENS, buildPrimerInstructions, buildPrimerTask, primerPages, primerUserTurn } from './primerPrompt'
 import { buildMarginPrefixParts, buildMarginVolatile, parseMarginDocument, parseMarginPassages, type MarginDocument, type MarginPassage } from './marginContext'
 import { MARGIN_ROUTES, marginRouteKey, type MarginRoute } from './marginRoutes'
+import { AI_LENGTH_DEFAULTS, AI_LENGTH_LINES, aiPrefsMaxTokens, aiPrefsPromptLines, parseAiRequestPrefs, type AiLength, type AiRequestPrefs } from '../aiSettings'
 
 /**
  * `simplify` … `related` are the margin reader's actions (docs/margin/PROMPTS.md),
@@ -138,6 +139,12 @@ export interface CompanionRequest {
    * (FIXES-2026-10-15, long books, item 8). Never set otherwise.
    */
   passages?: MarginPassage[]
+  /**
+   * The reader's AI settings for this action (aiSettings.ts), only what differs
+   * from Tinct's defaults: length, answer language, their own instructions.
+   * Appended to Tinct's rules, never in place of them. Never on `library`.
+   */
+  ai?: AiRequestPrefs
 }
 
 /** The card shows the first paragraph whole, then "More". The opener's word
@@ -205,9 +212,39 @@ export function isPrimerRequest(request: CompanionRequest): request is Companion
   return request.intent === 'chapter' && request.chapter?.action.kind === 'primer'
 }
 
-/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's. */
-export function companionMaxTokens(request: CompanionRequest): number {
-  return isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent]
+/**
+ * The length a request's action gives when the reader set none (AI settings'
+ * Length grid): Explain brief, Ask standard, a primer or chapter preview
+ * standard, a chapter summary brief. Null for an action with no length row.
+ */
+export function companionLengthDefault(request: CompanionRequest): AiLength | null {
+  // The row the reader set the length in, when the client names it (a recap sent as a question reads Summary's).
+  if (request.ai?.row) return AI_LENGTH_DEFAULTS[request.ai.row]
+  switch (request.intent) {
+    case 'explain': return AI_LENGTH_DEFAULTS.explain
+    case 'ask': return AI_LENGTH_DEFAULTS.ask
+    case 'chapter': return request.chapter?.action.kind === 'discuss' ? AI_LENGTH_DEFAULTS.summary : AI_LENGTH_DEFAULTS.primer
+    default: return null
+  }
+}
+
+/** The reader's length for this request, when it has a row and differs from its default. */
+function companionLength(request: CompanionRequest): AiLength | null {
+  const fallback = companionLengthDefault(request)
+  return fallback && request.ai?.length && request.ai.length !== fallback ? request.ai.length : null
+}
+
+/** The output bound for a parsed request: a primer has its own (PROMPTS.md), every other request its intent's; a longer length setting raises it. */
+export function companionMaxTokens(request: CompanionRequest, base?: number): number {
+  const bound = base ?? (isPrimerRequest(request) ? PRIMER_MAX_TOKENS : COMPANION_MAX_TOKENS[request.intent])
+  const fallback = companionLengthDefault(request)
+  return fallback ? aiPrefsMaxTokens(bound, request.ai, fallback) : bound
+}
+
+/** The reader's settings as prompt lines; the length line only for a request with a length row. Explain's goes in its user turn. */
+function companionAiLines(request: CompanionRequest): string[] {
+  const length = companionLength(request)
+  return aiPrefsPromptLines(request.ai, { length: Boolean(length) && request.intent !== 'explain' })
 }
 
 /** Paragraphs on each side of the reader's place sent with Explain and Define. */
@@ -466,6 +503,13 @@ function parsePrimerRequest(r: Record<string, unknown>, chapter: Record<string, 
 
 /** Validates and bounds a structured request. `null` = not a valid companion request. */
 export function parseCompanionRequest(raw: unknown): CompanionRequest | null {
+  const request = parseCompanionRequestBody(raw)
+  if (!request || request.intent === 'library') return request
+  const ai = parseAiRequestPrefs((raw as Record<string, unknown>).ai)
+  return ai ? { ...request, ai } : request
+}
+
+function parseCompanionRequestBody(raw: unknown): CompanionRequest | null {
   if (!raw || typeof raw !== 'object') return null
   const r = raw as Record<string, unknown>
   const intent = r.intent as CompanionIntent
@@ -647,9 +691,11 @@ export function buildCompanionSystem(request: CompanionRequest, extras: Companio
       const chapter = request.chapter!
       const context = request.context!
       // Before you start (a user's PDF only): its own builder, so a book's chapter actions are untouched.
-      if (chapter.action.kind === 'primer') return buildPrimerInstructions(chapter.action, context)
+      const ai = companionAiLines(request)
+      const tail = ai.length ? `\n\n${ai.join('\n\n')}` : ''
+      if (chapter.action.kind === 'primer') return `${buildPrimerInstructions(chapter.action, context)}${tail}`
       const target = chapter.action.kind === 'prepare' ? chapter.target ?? [] : context.paragraphs
-      return buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)
+      return `${buildChapterChatInstructions({ action: chapter.action, context, activity: chapter.activity }, target)}${tail}`
     }
     default: {
       const parts = buildCompanionSystemParts(request, extras)!
@@ -670,7 +716,9 @@ export function buildCompanionSystemParts(request: CompanionRequest, extras: Com
   if (request.intent === 'library' || request.intent === 'chapter') return null
   // The PDF reader's margin opens with its own wording of the policy (no "supplied"); the book reader's is unchanged.
   const options = instructionOptions(request, extras)
-  return buildLabAskInstructionParts(request.context!, request.pdf ? { ...options, policy: MARGIN_LAB_ASK_POLICY } : options)
+  const parts = buildLabAskInstructionParts(request.context!, request.pdf ? { ...options, policy: MARGIN_LAB_ASK_POLICY } : options)
+  const ai = companionAiLines(request)
+  return ai.length ? { ...parts, volatile: [parts.volatile, ...ai].filter(Boolean).join('\n\n') } : parts
 }
 
 /** The reader's data inside our own wrapper tags cannot close or open one of them. */
@@ -684,11 +732,15 @@ export function companionSelectionMessage(request: CompanionRequest): string | n
   switch (request.intent) {
     case 'define':
       return `${request.pdf ? PDF_CONTEXTUAL_LOOKUP_PROMPT : CONTEXTUAL_LOOKUP_PROMPT}\n<word>${request.selection}</word>`
-    case 'explain':
+    case 'explain': {
+      // The reader's Explain length (AI settings), last, so it replaces the prompt's own word counts.
+      const length = companionLength(request)
+      const tail = length ? `\n\n${AI_LENGTH_LINES[length]}` : ''
       // The PDF reader's Explain (FIXES-2026-10-15 A2); the book reader's is unchanged.
       return request.pdf
-        ? `${request.figure ? PDF_FIGURE_EXPLAIN_PROMPT : PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>`
-        : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>`
+        ? `${request.figure ? PDF_FIGURE_EXPLAIN_PROMPT : PDF_EXPLAIN_PROMPT}\n\n<selected_passage>\n${tagData(request.selection!)}\n</selected_passage>${tail}`
+        : `${LAB_EXPLAIN_PROMPT}\n\n<selected_passage>\n${request.selection}\n</selected_passage>${tail}`
+    }
     case 'simplify':
     case 'factcheck':
     case 'counterpoint':
@@ -764,6 +816,7 @@ export function buildMarginSystemParts(request: CompanionRequest, extras: Compan
   const image = extras.image && (request.intent === 'explain' || request.intent === 'define') ? [PASSAGE_IMAGE_LINE] : []
   const task = primer ? [buildPrimerTask(request.chapter.action, context, doc)] : [...marginTask(request, extras), ...image]
   task.push('If the edition or the reader’s question is Danish, answer in Danish unless they request another language. This includes Simplify; keep structured response keys unchanged.')
+  task.push(...companionAiLines(request))
   const volatile = buildMarginVolatile({
     kind: doc.kind,
     place: primer ? null : contextPlace(context),
