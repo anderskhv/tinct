@@ -18,7 +18,7 @@
   const CARD_KINDS = ['explain', 'ask', 'simplify', 'define', 'factcheck', 'counterpoint', 'quiz', 'related', 'figure'];
   const MINE = ['note', 'highlight'];
   // A unit's pill cards (the wide column's Recap and Catch me up: Ask cards on the unit, data.pill) go by their pill's name.
-  const PILLS = { recap: 'Recap', catchup: 'Catch me up' };
+  const PILLS = { recap: 'Summary', catchup: 'Catch me up' };
   const FILTERS = [['ai', 'AI'], ['highlights', 'Highlights'], ['notes', 'Notes'], ['all', 'All']];
   const EMPTY = { highlights: 'No highlights saved for this book.', notes: 'No notes saved for this book.' };
   const UNDO_MS = 6000;

@@ -711,10 +711,12 @@
    * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
    * They sit in the unit's marks (markHtml).
    */
-  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
-  const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
+  // The library's pills (Anders, 11 Nov 2026: own books as the library): Primer, Summary (the unit's own, the id stays
+  // 'recap' for saved cards), Quiz me, Note. Catch me up is the t menu's; its name stays for cards saved from its old pill.
+  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Summary', quiz: 'Quiz me', note: 'Note' };
+  const PILL_SETS = { start: ['primer'], end: ['recap', 'quiz', 'note'] };
   function pillsHtml(where, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
   }
   /**
@@ -733,7 +735,7 @@
    * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
    */
   function headPillsHtml(ids, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
   }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */

@@ -30,3 +30,21 @@ export function ReadingAngleField({ value, onChange, focus = false, testId = 'la
     </label>
   )
 }
+
+/**
+ * The start cards' way to the reading angle (Anders, 11 Nov 2026): "Set reading angle" opens AI settings on This
+ * book with the caret in the field; once an angle is set the card shows it, cut to one line, and the same press edits it.
+ */
+export function ReadingAngleLink({ value, onOpen, testId }: { value: string; onOpen: () => void; testId: string }) {
+  const angle = value.trim()
+  return (
+    <button type="button" className="lab-start-angle-link" data-testid={testId} data-set={angle ? 'true' : 'false'} onClick={onOpen}
+      aria-label={angle ? `Reading angle: ${angle}. Edit in AI settings` : 'Set reading angle in AI settings'}>
+      <span className="lab-start-angle-text">
+        <span className="lab-start-angle-label">{angle ? 'Reading angle' : 'Set reading angle'}</span>
+        {angle && <span className="lab-start-angle-value">{angle}</span>}
+      </span>
+      <span className="lab-start-angle-chevron" aria-hidden="true">›</span>
+    </button>
+  )
+}

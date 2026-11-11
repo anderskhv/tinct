@@ -238,7 +238,14 @@ async function sourceParity(page, calls, output) {
   // document's Summary asks once for every page and opens as a margin card, the page unmoved (Anders, 9 Nov 2026).
   await host.evaluate(node => { node.scrollTop = 0; node.dispatchEvent(new Event('scroll')) })
   await startCard.waitFor({ timeout: 45000 })
-  await startCard.getByTestId('pdf-reading-angle').fill('What the method assumes')
+  await startCard.getByTestId('pdf-reading-angle').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-testid')), 'ai-settings-angle', 'the start card opens AI settings on This book with the caret in the reading angle')
+  await page.getByTestId('ai-settings-angle').fill('What the method assumes')
+  await page.waitForTimeout(300)
+  await page.getByTestId('ai-settings-close').click()
+  await page.getByTestId('ai-settings-layer').waitFor({ state: 'detached' })
+  assert.match(await startCard.getByTestId('pdf-reading-angle').textContent(), /Reading angle.*What the method assumes/, 'the start card shows the angle that was set')
   assert.equal(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('tinct:reading-angle:userbook-')).map(key => JSON.parse(localStorage.getItem(key))).join('|')), 'What the method assumes', 'the PDF reading angle is stored for its book')
   const beforeWhole = await host.evaluate(node => node.scrollTop), asked = calls.length
   await startCard.getByTestId('pdf-whole-summary').click()

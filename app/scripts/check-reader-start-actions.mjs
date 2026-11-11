@@ -284,17 +284,24 @@ async function desktopCatalogue() {
     const item = document.querySelector('[data-testid="margin-start-card"]').closest('[data-testid="source-margin-item"]')
     const head = document.querySelector('[data-testid="continuous-reader"] [data-testid="lab-passage-headline"]').getBoundingClientRect(), box = item.getBoundingClientRect()
     return { label: item.querySelector('.source-margin-label')?.textContent, start: item.classList.contains('is-start'), beside: box.left > head.right && box.top < head.bottom + 160,
-      acts: [...item.querySelectorAll('.lab-start-acts button')].map(node => node.textContent.trim()), heads: [...item.querySelectorAll('.lab-start-head')].map(node => node.textContent), mic: !!item.querySelector('[data-testid="margin-reading-angle-mic"]'),
+      acts: [...item.querySelectorAll('.lab-start-acts button')].map(node => node.textContent.trim()), heads: [...item.querySelectorAll('.lab-start-head')].map(node => node.textContent), angleRow: item.querySelector('[data-testid="margin-reading-angle"]')?.textContent, field: !!item.querySelector('textarea'),
       chips: document.querySelectorAll('[data-testid="continuous-reader"] .lab-passage-header :is(.lab-chapter-preview,.lab-start-pill)').length }
   })
-  ok(`${tag}: "Before you start" beside the book's opening: angle with mic, the whole book's Primer · Summary, the first chapter's Primer · Summary · Quiz me; no chips by the heading`,
-    card.label === 'Before you start' && card.start && card.beside && card.mic && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Summary', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
+  ok(`${tag}: "Before you start" beside the book's opening: a Set reading angle row (no field in the card), the whole book's Primer · Summary, the first chapter's Primer · Summary · Quiz me; no chips by the heading`,
+    card.label === 'Before you start' && card.start && card.beside && /^Set reading angle/.test(card.angleRow || '') && !card.field && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Summary', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
   await shot(page, `${tag}-before-you-start`)
-  await page.getByTestId('margin-reading-angle').fill('The cost of ambition')
+  // Set reading angle opens AI settings on This book, the caret in the field (Anders, 11 Nov 2026); the card then shows the angle.
+  await page.getByTestId('margin-reading-angle').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  const angleSheet = await page.evaluate(() => ({ focused: document.activeElement?.getAttribute('data-testid'), tab: document.querySelector('[data-testid="ai-settings-tab-book"]')?.getAttribute('aria-selected') }))
+  ok(`${tag}: the card's Set reading angle opens AI settings on This book with the caret in the field`, angleSheet.focused === 'ai-settings-angle' && angleSheet.tab === 'true', angleSheet)
+  await page.getByTestId('ai-settings-angle').fill('The cost of ambition')
   await page.waitForTimeout(300)
-  ok(`${tag}: the angle typed in the card is the book's one stored angle`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'The cost of ambition')
-  ok(`${tag}: typing the angle leaves the page where it was`, same(await placeOf(page), home), { now: await placeOf(page), home })
-  await page.getByTestId('margin-reading-angle').blur()
+  await page.getByTestId('ai-settings-close').click()
+  await page.getByTestId('ai-settings-layer').waitFor({ state: 'detached' })
+  ok(`${tag}: the angle set there is the book's one stored angle`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'The cost of ambition')
+  ok(`${tag}: the card shows the angle on its row`, /Reading angle.*The cost of ambition/.test(await page.getByTestId('margin-reading-angle').textContent() || ''))
+  ok(`${tag}: setting the angle leaves the page where it was`, same(await placeOf(page), home), { now: await placeOf(page), home })
   await desktopAction(page, tag, 'margin-book-primer', 'Primer · Frankenstein', home)
   await desktopAction(page, tag, 'margin-book-summary', 'Summary · Frankenstein', home)
   ok(`${tag}: the whole book's Summary in the margin has its timeline`, (await marginItem(page, 'Summary · Frankenstein').locator('[data-testid="lab-catch-up-entry"]').count()) > 1)

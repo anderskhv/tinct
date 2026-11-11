@@ -4543,7 +4543,7 @@ async function unitMarks(browser, origin) {
   await hoverHead(a, units[0].key)
   const s1 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(1, '1 Introduction'), headH: [...state.pages[0].layer.querySelectorAll('span')].find(sp => /Introduction/.test(sp.textContent))?.getBoundingClientRect().height }), units[0].key)
   // The first unit offers no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
-  ok('1. hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note (nothing to catch up on yet), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Recap|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
+  ok('1. hovered: ✧ Primer · ✧ Summary · ✧ Quiz me · Note (the library\'s pills), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
   await shot(a, 'unit-marks-start-1440x900')
   // The pills are part of the page: they scroll with it.
   const scroll = await a.evaluate(async k => { const s = document.getElementById('scroll'), t0 = __pills(k).top; s.scrollBy({ top: 200 }); await new Promise(r => setTimeout(r, 300)); const t1 = __pills(k).top; s.scrollBy({ top: -200 }); await new Promise(r => setTimeout(r, 300)); return { moved: Math.round(t0 - t1) } }, units[0].key)
@@ -4555,27 +4555,23 @@ async function unitMarks(browser, origin) {
   await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
   await hoverHead(a, units[1].key)
   const s2 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(4, '2 Motivations'), col: __colMarks() }), units[1].key)
-  ok('2. a heading mid-page: ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note beside it; no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
+  ok('2. a heading mid-page: ✧ Primer · ✧ Summary · ✧ Quiz me · Note beside it (Catch me up is the t menu\'s); no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
   await shot(a, 'unit-marks-end-1440x900')
   // 3. Cards from the pills open in the column level with the heading; their requests carry the unit's pages.
   const cardAt = () => a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), sr = document.getElementById('scroll').getBoundingClientRect(), r = el?.getBoundingClientRect(); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', top: r.top, inView: r.top < sr.bottom && r.bottom > sr.top } })
   const r1 = account.requests.length
   await clickPill(a, 'recap', units[1].key); await a.waitForTimeout(1300)
   const rc = await cardAt(), headNow = await a.evaluate(() => __spanTop(4, '2 Motivations'))
-  const rcReq = chatsOf(r1).find(r => /Recap it for them/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Recap opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
+  const rcReq = chatsOf(r1).find(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || '')))
+  ok('3. Summary opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Summary · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
   // Quiz me in the same row while Recap is open (a hand's click, its pause): the quiz opens (21 Oct 2026, item A).
   const press = async sel => { const bx = await (await a.$(sel)).boundingBox(); await a.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2); await a.mouse.down(); await a.waitForTimeout(160); await a.mouse.up() }
   await hoverHead(a, units[1].key); await press(`.mr-hp[data-unit="${units[1].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1300)
   const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: c.data?.unit?.key, count: el?.querySelector('.mr-card__count')?.textContent } })
   ok('3. Quiz me (Recap still open) opens the unit\'s quiz', qz && qz.kind === 'quiz' && qz.unit === units[1].key && qz.count === '1 of 3', qz)
   await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
-  const r2 = account.requests.length
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1300)
-  const cu = await cardAt()
-  const cuReq = chatsOf(r2).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Catch me up opens its card level with the heading, on the pages before the unit (1–3)', cu && /^Catch me up · /.test(cu.label || '') && Math.abs(cu.top - headNow) <= 16 && !!cuReq && /\(pages 1–3\)/.test(JSON.stringify(cuReq.body.messages)), { cu, headNow, sent: !!cuReq })
-  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  // No Catch me up pill by a heading (Anders, 11 Nov 2026: own books carry the library's pills; Catch me up is the t menu's).
+  ok('3. no Catch me up pill beside the heading', !(await a.$(`.mr-hp[data-unit="${units[1].key}"] [data-pill="catchup"]`)))
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(500)
   const pm = await a.evaluate(k => { const p = document.querySelector('.mr-doc .mr-primer'); return p && { top: p.getBoundingClientRect().top, unit: primer.unit?.key, pressed: document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).getAttribute('aria-expanded') } }, units[1].key)
   ok('3. Primer opens Before you start for the unit, level with its heading, its button pressed', pm && Math.abs(pm.top - headNow) <= 16 && pm.unit === units[1].key && pm.pressed === 'true', { pm, headNow })
@@ -4583,19 +4579,19 @@ async function unitMarks(browser, origin) {
   ok('3. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
   await clickPill(a, 'note', units[1].key); await a.waitForTimeout(500)
   const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, top: el.getBoundingClientRect().top } })
-  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded recap, quiz, catch-up), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
+  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded summary and quiz), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
   await a.keyboard.press('Escape'); await a.waitForTimeout(300)
   // 4. The chapter menu: the unit the reader is in, marked, with Recap, Quiz me and Catch me up.
   await a.evaluate(() => { openCard(null); goTo({ page: 6, frac: 0.3 }) }); await a.waitForTimeout(800)
   await a.evaluate(() => openContents()); await a.waitForTimeout(300)
   const menu = await a.evaluate(() => { const s = document.querySelector('.lab-contents-v2 .byob-unit-now'); return s && { name: s.querySelector('[aria-current]')?.textContent, acts: [...s.querySelectorAll('[data-unit-act]')].map(b => b.textContent.trim()) } })
-  ok('4. the chapter menu marks the unit being read and offers ✧ Recap · ✧ Quiz me · ✧ Catch me up', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Recap|✧Quiz me|✧Catch me up', menu)
+  ok('4. the chapter menu marks the unit being read and offers ✧ Summary · ✧ Quiz me', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Summary|✧Quiz me', menu)
   await shot(a, 'unit-marks-menu-1440x900')
   const r3 = account.requests.length
   await a.click('.lab-contents-v2 [data-unit-act="recap"]'); await a.waitForTimeout(1500)
   const fromMenu = { ...await cardAt(), unit: await a.evaluate(() => cardById(col.open || '')?.data?.unit?.key) }
   // (The unit's recap made from its pills above: the same card, opened again, nothing asked again.)
-  ok('4. Recap from the menu opens the unit\'s recap, brought into view', fromMenu.label && /^Recap · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
+  ok('4. Summary from the menu opens the unit\'s summary, brought into view', fromMenu.label && /^Summary · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   // 5. The long book's chapters start at a page's top: the pills beside the chapter's heading there.
@@ -4865,11 +4861,6 @@ async function notebookCheck(browser, origin) {
     const B = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'paper' })
     const b = B.page
     await prefetchSettled(b)
-    // Catch me up from the second unit's start (the first has none since 20 Oct 2026: nothing to catch up on yet).
-    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: primer.units[1].start, frac: 0 }) }); await b.waitForTimeout(800)
-    // (Since 21 Oct 2026 a unit's pills sit beside its heading, shown on hover.)
-    await clickPill(b, 'catchup', await b.evaluate(() => primer.units[1].key)); await b.waitForTimeout(1300)
-    await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
     await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.start, frac: 0 }) }); await b.waitForTimeout(900)
     const k0 = await b.evaluate(() => primer.units[0].key)
     await clickPill(b, 'recap', k0); await b.waitForTimeout(1300)
@@ -4888,9 +4879,8 @@ async function notebookCheck(browser, origin) {
     const all = await b.evaluate(nbState)
     const named = k => all.entries.filter(e => e.kind === k)
     const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
-    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
-    // (Catch me up is the second unit's since 20 Oct 2026: the first has none.)
-    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
+    ok(`${tag}: All lists the margin note, the unit's note, Summary, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Summary').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '5 entries', all.entries.map(e => [e.kind, e.chip]))
+    ok(`${tag}: a pill card's place chip is its unit`, named('Summary')[0]?.chip && named('Summary')[0].chip === named('Quiz')[0]?.chip, { chip: named('Summary')[0]?.chip, unitLabel })
     const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Evaluate')[0]?.id)
     ok(`${tag}: Evaluate is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
     await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
@@ -4902,15 +4892,15 @@ async function notebookCheck(browser, origin) {
     await shot(b, `${tag}-notes`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
     const ai = await b.evaluate(nbState)
-    ok(`${tag}: AI: Catch me up, Recap, Quiz and Evaluate, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
+    ok(`${tag}: AI: Summary, Quiz and Evaluate, no notes`, ai.entries.length === 3 && ['Summary', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
     await shot(b, `${tag}-ai`)
     // Jump: a Recap entry opens its card under the unit's end pills; a margin note's entry opens the note.
     await b.evaluate(() => goTo({ page: 1, frac: 0 })); await b.waitForTimeout(500)
-    const recapId = ai.entries.find(e => e.kind === 'Recap').id
+    const recapId = ai.entries.find(e => e.kind === 'Summary').id
     await b.click(`.nb-entry[data-id="${recapId}"] .nb-kind`); await b.waitForTimeout(1400)
     const seenCard = id => b.evaluate(id => { const el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, Math.max(r.top, sr.top) + 10); return { open: col.open, shown: !!r && r.width > 0 && r.top < sr.bottom - 40 && r.bottom > sr.top + 40, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb'), name: el?.querySelector('.mr-card__name')?.textContent } }, id)
     const rj = await seenCard(recapId)
-    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Recap · /.test(rj.name || ''), rj)
+    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Summary · /.test(rj.name || ''), rj)
     await shot(b, `${tag}-jump-recap`)
     await b.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(500)
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry')
@@ -5043,7 +5033,7 @@ async function pdfTextCheck(browser, origin) {
       const e = document.querySelector(`.mr-hp.is-end[data-unit="${u.key}"]`)
       return { unit: u.title, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), head: head?.textContent.trim().slice(0, 60), inline: !!s?.classList.contains('is-inline'), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label) }
     })
-    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Recap · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Recap|Quiz me|Note', unitPills)
+    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Summary · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Summary|Quiz me|Note', unitPills)
     if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
     // A request from here reads the document as the PDF's pages, and its answer cites them.
     const r0 = account.requests.length
@@ -5375,7 +5365,7 @@ async function epubUnitsCheck(browser, origin) {
   const paras0 = await e.evaluate(n => { const p = state.pages[n - 1]; p.paras = null; return epubParas(p).length }, n)
   await e.evaluate(n => { const p = state.pages[n - 1]; const last = epubParas(p).at(-1); last.scrollIntoView({ block: 'center' }) }, n); await e.waitForTimeout(700)
   const end = await e.evaluate(endOf, [n, key])
-  ok('1. the first essay\'s end: ✧ Recap · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, inside its sheet (never clipped), shown with the pointer away', end && end.shown && end.sheetBottom != null && end.bottom <= end.sheetBottom - 2 && end.pills.join('|') === 'Recap|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
+  ok('1. the first essay\'s end: ✧ Summary · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, inside its sheet (never clipped), shown with the pointer away', end && end.shown && end.sheetBottom != null && end.bottom <= end.sheetBottom - 2 && end.pills.join('|') === 'Summary|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
   ok('1. the end pills add no text and no paragraph to the chapter', end && end.textFree && end.paraCount === paras0, { end, paras0 })
   await epubShot(e, 'unit-pills-end')
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
@@ -5387,12 +5377,11 @@ async function epubUnitsCheck(browser, origin) {
   const n2 = await essayPage(e, '2 Controversial'), key2 = await e.evaluate(n => primer.units.find(u => u.start === n).key, n2)
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   const second = await e.evaluate(pillsOf, [n2, key2])
-  ok('1. the next essay\'s heading offers ✧ Primer · ✧ Catch me up, shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer|Catch me up', second)
-  // Keyboard: the pills are in the tab order (the heading no longer needs the focus to show them).
+  ok('1. the next essay\'s heading offers ✧ Primer alone (Catch me up is the t menu\'s), shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer', second)
+  // Keyboard: the pill is in the tab order (the heading no longer needs the focus to show it).
   await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).focus(), key2); await e.waitForTimeout(100)
-  await e.keyboard.press('Tab')
   const tabbed = await e.evaluate(() => document.activeElement?.dataset?.pill || document.activeElement?.tagName)
-  ok('1. Tab goes from its Primer to its Catch me up', tabbed === 'catchup', { tabbed })
+  ok('1. its Primer takes the keyboard focus', tabbed === 'primer', { tabbed })
   await e.evaluate(() => document.activeElement?.blur())
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // 21 Oct 2026 (A): Recap, then Quiz me in the same row, clicked as a hand does (a pause between press and release):
@@ -5403,7 +5392,7 @@ async function epubUnitsCheck(browser, origin) {
   await e.evaluate(n => epubParas(state.pages[n - 1]).at(-1).scrollIntoView({ block: 'center' }), n); await e.waitForTimeout(700)
   await press(`${rowSel} [data-pill="recap"]`); await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
   const recap = await e.evaluate(k => { const el = document.querySelector('.mr-card.is-open'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key } }, key)
-  ok('1. Recap from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Recap/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
+  ok('1. Summary from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Summary/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
   await press(`${rowSel} [data-pill="quiz"]`); await e.waitForTimeout(1200)
   const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key }), key)
   ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens, on that chapter; the pills never moved', /^Quiz me/.test(quiz.name) && quiz.unit === key && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
@@ -5468,15 +5457,15 @@ async function epubHeadsCheck(browser, origin) {
       ok(`${tag}: the Introduction's heading${heads === 'p' ? ' (a paragraph, no <h1>)' : ''}: ✧ Primer on its line`, s0 && s0.shown && s0.headText === 'Introduction' && s0.pills[0] === 'Primer' && Math.abs(s0.mid - s0.lineMid) <= 3 && s0.textFree, s0)
       await go(intro.to, true)
       const e0 = await endOf([intro.to, intro.key])
-      ok(`${tag}: the Introduction's end: Recap · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Recap|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
+      ok(`${tag}: the Introduction's end: Summary · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Summary|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
       await epubShot(e, `${tag}-intro-end`)
       await go(ch1.start, false)
       const s1 = await startOf(ch1.key)
-      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer · ✧ Catch me up after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer|Catch me up' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
+      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
       await epubShot(e, `${tag}-chapter1-start`)
       await go(ch1.to, true)
       const e1 = await endOf([ch1.to, ch1.key])
-      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Recap|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
+      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Summary|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
       // The place: the reader's spot at chapter 2's start, read before and after its pills are drawn again (a layout).
       await go(ch2.start, false)
       const spot0 = await e.evaluate(() => JSON.stringify(epubSpot()))
@@ -5488,7 +5477,7 @@ async function epubHeadsCheck(browser, origin) {
       await e.click(`.mr-hp.is-end[data-unit="${ch1.key}"] [data-pill="recap"]`, { timeout: 5000 }).catch(() => {})
       await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
       const recap = await e.evaluate(() => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', unit: cardById(col.open || '')?.data?.unit?.key }))
-      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Recap/.test(recap.name) && recap.unit === ch1.key, recap)
+      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Summary/.test(recap.name) && recap.unit === ch1.key, recap)
       await e.evaluate(() => openCard(null))
     }
     const texts1 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
@@ -5908,11 +5897,6 @@ async function cardsRound2(browser, origin) {
   await a.click('.mr-doc .mr-card.is-open [data-c="talk"]'); await a.waitForTimeout(800)
   ok('Recap: Talk in the field opens Chat with Talk on', await a.evaluate(() => chat.talk === true))
   await a.evaluate(() => { setTalk(false); openCard(null) }); await a.waitForTimeout(300)
-  // Catch me up.
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1500)
-  s = await shape('.mr-doc .mr-card.is-open')
-  ok(`Catch me up: as tall as its answer (${s?.height}px, ${s?.gap}px), the field, minimise and bin, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
-  await outside()
   // Primer: sized to its content, the field, minimise and bin; a click outside minimises it.
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(900)
   s = await shape('.mr-doc .mr-primer')

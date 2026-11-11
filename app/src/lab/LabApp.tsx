@@ -120,7 +120,7 @@ import { useLabReadingYear } from './useLabReadingYear'
 import { LabSuperButton } from './LabSuperButton'
 import { LabSuperMenu } from './LabSuperMenu.tsx'
 import { LabV2Sheet } from './LabV2Sheet.tsx'
-import { ReadingAngleField } from './LabReadingAngleField'
+import { ReadingAngleLink } from './LabReadingAngleField'
 import { PhoneIcon } from './marginPhone/LabPhoneCard'
 import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE, LabCatchUpSheet } from './LabCatchUpSheet'
 import { BOOK_PRIMER_TITLE, LabBookPrimerSheet, useBookPrimerAvailable } from './LabBookPrimerSheet'
@@ -932,7 +932,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // The desktop Margin reader: the whole book's Primer and Summary as margin cards beside the book's opening.
   const [desktopBookCards, setDesktopBookCards] = useState<Array<'primer' | 'summary'>>([])
   const [desktopBookPreviews, setDesktopBookPreviews] = useState<{ primer?: string; summary?: string }>({})
-  const [angleDictating, setAngleDictating] = useState(false)
   const [desktopCatchupAsSummary, setDesktopCatchupAsSummary] = useState(false)
   useEffect(() => { setDesktopBookCards([]); setDesktopBookPreviews({}) }, [book.bookId])
   // Catch me up opened as a chapter's Summary: its card is named for the pill.
@@ -5221,7 +5220,6 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     deskDictationRef.current = null
     dictation.toggle(draft)
   }, [dictation, draft])
-  useEffect(() => { if (dictation.state === 'idle') setAngleDictating(false) }, [dictation.state])
   const dictateDeskAsk = useCallback((current: string, onText: (text: string) => void) => {
     if (dictation.state !== 'idle' && deskDictationRef.current) { dictation.stop(); deskDictationRef.current = null; return }
     deskDictationRef.current = onText
@@ -6666,11 +6664,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
       ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
-        <div className="lab-start-angle">
-          <ReadingAngleField value={bookAngle} onChange={setBookAngle} testId="margin-reading-angle" />
-          <button type="button" className="lab-start-mic" data-testid="margin-reading-angle-mic" aria-label={dictation.state !== 'idle' && angleDictating ? 'Stop dictation' : 'Dictate your reading angle'} aria-pressed={dictation.state !== 'idle' && angleDictating}
-            onClick={() => { setAngleDictating(true); dictateDeskAsk(bookAngle, text => setBookAngle(text)) }}><PhoneIcon name="mic" /></button>
-        </div>
+        <ReadingAngleLink value={bookAngle} onOpen={() => openAiSettings(true)} testId="margin-reading-angle" />
         <p className="lab-start-head">The whole book</p>
         <div className="lab-start-acts" role="group" aria-label="The whole book">
           {bookPrimer && act('Primer', 'margin-book-primer', () => openDesktopBookCard('primer'))}

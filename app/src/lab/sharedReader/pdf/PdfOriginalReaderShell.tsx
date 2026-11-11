@@ -22,7 +22,7 @@ import { primerOutline, type PrimerOutline } from '../../../companion/chapterCha
 import { isCurrentPrimer, parsePrimer } from '../../../companion/primerParse'
 import { useLabDictation } from '../../useLabDictation'
 import { SourceMarginRail, type SourceMarginEntry } from '../SourceMarginRail'
-import { ReadingAngleField } from '../../LabReadingAngleField'
+import { ReadingAngleLink } from '../../LabReadingAngleField'
 import { useReadingAngle } from '../../labReadingAngle'
 import { setAiSettingsBook } from '../../labAiPrefs'
 import type { PdfRegionCapture } from './pdfOriginalFigures'
@@ -201,7 +201,11 @@ const detectSections = pdfSectionDetector(loadPdfEngine)
 export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, onBeforeLeave, bytes, initialPlace, onVisiblePlace, onDocument, onSelection, onOpenText, textAvailable = false, textOffer = false, textBusy = false, autoConvert = false, textProgress, textError, textRetry = true, initialZoom = 1, onZoom, services, serviceStatus, onRetryServices, scanOutline, unitRules, sectionDetector }: PdfOriginalReaderShellProps) {
   const root = useRef<HTMLDivElement>(null)
   // The document's reading angle: the same stored value as its Tinct text's (labReadingAngle.ts).
-  const [angle, setAngle] = useReadingAngle(bookId)
+  const [angle] = useReadingAngle(bookId)
+  // AI settings: the t menu's row, and the start card's reading angle (This book, the caret in the field).
+  const openAiSettings = (toAngle = false) => { void import('../../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({
+    dark: theme === 'dark', phone, userId: owner ?? null, book: { id: bookId, title }, ...(toAngle ? { tab: 'book' as const, focusAngle: true } : {}),
+    ...(services?.dictation ? { dictation: { signedIn: true, getAuthToken: () => services.dictation!.getAuthToken() } } : {}) })) }
   // This book's own lengths (AI settings) ride on this document's requests (labAiPrefs.ts).
   useEffect(() => { setAiSettingsBook(bookId); return () => setAiSettingsBook(null) }, [bookId])
   const [scrollHost, setScrollHost] = useState<HTMLElement | null>(null)
@@ -657,7 +661,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
       if (index !== 0) return acts
       // "Before you start" beside the document's first heading: the reading angle, the whole document, then this section.
       return <div className="lab-start-card" data-testid="pdf-start-card">
-        <div className="lab-start-angle"><ReadingAngleField value={angle} onChange={setAngle} testId="pdf-reading-angle" /></div>
+        <ReadingAngleLink value={angle} onOpen={() => openAiSettings(true)} testId="pdf-reading-angle" />
         <p className="lab-start-head">The whole document</p>
         <div className="pdf-original__margin-actions" role="group" aria-label="The whole document">
           <button type="button" data-action="summary-whole" data-testid="pdf-whole-summary" onClick={() => summarizeWhole(headingSelection(heading) ?? { page: heading.page, text: heading.title, rects: [] })}>Summary</button>
@@ -731,7 +735,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
         if (id === 'text') setPane('reading')
         else if (id === 'editions') setPane('book')
         else if (id === 'audio') setPane('audio')
-        else if (id === 'ai') { setPane(null); void import('../../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: theme === 'dark', phone, userId: owner ?? null, book: { id: bookId, title } })) }
+        else if (id === 'ai') { setPane(null); openAiSettings() }
         else if (id === 'notebook') setPane('notebook')
         else if (id === 'catchup') void runUnit('catchup', catchupPages)
         else if (id === 'snip') { if (card) minimiseCard(); setSelection(null); setPane(null); setSnipping(true) }
