@@ -20,7 +20,7 @@ async function main(){const results=[];for(const desktop of [false,true]){const 
  const before=await p.getByTestId('lab-root').getAttribute('data-place')
  const overflow=await p.locator('.lab-passage.has-overflowing-end').count()>0
  if(overflow){
-   assert.equal(await p.getByRole('button',{name:'Recap this chapter'}).isVisible(),false)
+   assert.equal(await p.getByRole('button',{name:'Summary of this chapter'}).isVisible(),false)
    await p.screenshot({path:path.join(dir,(desktop?'desktop':'phone')+'-final-text.png')})
    await p.keyboard.press('ArrowRight');await p.getByTestId('lab-chapter-end-page').waitFor()
    assert.equal(await p.getByTestId('lab-root').getAttribute('data-place'),before)
@@ -32,7 +32,7 @@ async function main(){const results=[];for(const desktop of [false,true]){const 
  assert.ok(bounds.bottom<=bounds.article,'Entire end card fits without scrolling');assert.equal(bounds.scroll,0)
  await p.screenshot({path:path.join(dir,(desktop?'desktop':'phone')+'-end.png')})
  if(!desktop){
-   await p.getByRole('button',{name:'Recap this chapter'}).click();await p.getByTestId('lab-ask-turn-assistant').waitFor()
+   await p.getByRole('button',{name:'Summary of this chapter'}).click();await p.getByTestId('lab-ask-turn-assistant').waitFor()
    await p.getByTestId('lab-ask-input').fill('Why is Baruch weary?')
    await p.setViewportSize({width:390,height:400})
    assert.equal(await p.locator('.lab-header').isVisible(),false)

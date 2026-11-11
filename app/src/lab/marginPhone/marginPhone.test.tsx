@@ -20,7 +20,7 @@ const appSource = readFileSync(resolve(__dirname, '../LabApp.tsx'), 'utf8')
 afterEach(cleanup)
 
 describe('the chapter pills in the phone margin mode', () => {
-  it('without the mode the heading keeps its Primer chip and the end its Recap and Note', () => {
+  it('without the mode the heading keeps its Primer chip and the end its Summary and Note', () => {
     const { container } = render(<><LabChapterHeading title="Chapter 1" preview onPreview={() => {}} /><LabChapterEnd chapterTitle="Chapter 1" hasNext onDiscuss={() => {}} onNote={() => {}} /></>)
     expect(container.querySelector('.lab-passage-header > .lab-chapter-preview')).not.toBeNull()
     expect(container.querySelector('.lab-unit-pills, .lab-unit-k')).toBeNull()
@@ -45,10 +45,10 @@ describe('the chapter pills in the phone margin mode', () => {
     expect(onCatchUp).toHaveBeenCalledTimes(1)
   })
 
-  it('at a chapter end: ✧ Recap, ✧ Quiz me and Note, with no "End of" label', () => {
+  it('at a chapter end: ✧ Summary, ✧ Quiz me and Note, with no "End of" label', () => {
     const onQuiz = vi.fn()
     render(<MarginPhoneContext.Provider value={{ onQuiz }}><LabChapterEnd chapterTitle="Chapter 3" hasNext onDiscuss={() => {}} onNote={() => {}} /></MarginPhoneContext.Provider>)
-    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Recap✧Quiz meNoteNext chapter/)
+    expect(screen.getByTestId('lab-chapter-end').textContent).toMatch(/^✧Summary✧Quiz meNoteNext chapter/)
     expect(screen.queryByTestId('lab-unit-end')).toBeNull()
     const trigger = screen.getByTestId('lab-unit-quiz')
     const anchor = { left: 500, right: 590, top: 640, bottom: 670 } as DOMRect

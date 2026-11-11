@@ -369,7 +369,7 @@ try {
         await page.mouse.wheel(0, await host.evaluate(node => Math.floor(node.clientHeight * .8)))
         await page.waitForTimeout(80)
       }
-      for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
+      for (const name of ['Summary of this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
       await page.screenshot({ path: `${output}/ebook-end-actions.png` })
       await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
       const reference = host.locator('[data-testid="lab-word"][data-paragraph-index="8"]').filter({ hasText: /^Fig\.?$/ }).first()

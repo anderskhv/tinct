@@ -181,6 +181,56 @@ describe('the library pop-up, signed in', () => {
     expect(upload.mock.calls[0][1]).toMatchObject({ kind: 'epub', title: 'The quiet return of the river otter', author: 'Maren Holt' })
   })
 
+  it('Insert link: a link to a PDF is downloaded by Tinct and opened as a chosen file, through the rights step (11 Nov 2026)', async () => {
+    window.history.replaceState(null, '', '/library?sharedReader=1')
+    document.documentElement.classList.add('signed-in')
+    const pdf = new Uint8Array([0x25, 0x50, 0x44, 0x46, 0x2d, 0x31])
+    fetchImpl = vi.fn(async (path: string) => path === '/api/import-article'
+      ? new Response(JSON.stringify({ error: 'This link is a PDF. Download it and add it as a book.', code: 'pdf' }), { status: 415, headers: { 'content-type': 'application/json' } })
+      : new Response(pdf, { headers: { 'content-type': 'application/pdf', 'x-file-name': encodeURIComponent('Variational Bayes.pdf'), 'x-file-url': encodeURIComponent('https://papers.example.org/vb.pdf') } }))
+    vi.stubGlobal('fetch', fetchImpl)
+    vi.stubGlobal('TinctAI', { books: { upload: vi.fn() }, session: () => ({ token: 'token' }) })
+    let rights = false
+    const read = vi.fn(async (file: File) => ({ key: 'pdf:' + key, kind: 'pdf', bytes: new Uint8Array(await file.arrayBuffer()), name: file.name }))
+    const preparePdf = vi.fn(async () => ({ href: '/reader?userBook=' + key + '&sharedReader=1' }))
+    const engine = { RIGHTS_COPY: 'I may read this file.', rightsConfirmed: () => rights, confirmRights: () => { rights = true }, readFile: read, keepFile: async () => true, preparePdf, prepareEpub: async () => ({}), library: { touch: vi.fn() }, cloud: { mine: () => new Map() }, store: { get: () => null }, accountId: () => 'owner' }
+    const go = vi.fn()
+    add.openFileDialog({ engine: async () => engine, go, assessPdf: async () => null })
+    tap(dialog(), 'link')
+    typeLink(dialog(), 'https://papers.example.org/vb.pdf')
+    submit(dialog())
+    // The same rights confirmation as a chosen file.
+    await vi.waitFor(() => expect(box().dataset.step).toBe('rights'))
+    expect(dialog().querySelector('.own-file-rights-intro strong')?.textContent).toBe('Variational Bayes.pdf')
+    const check = dialog().querySelector('.own-file-rights-box') as HTMLInputElement
+    check.checked = true; check.dispatchEvent(new Event('change'))
+    ;(dialog().querySelector('.own-file-continue') as HTMLButtonElement).click()
+    await vi.waitFor(() => expect(go).toHaveBeenCalledWith('/reader?userBook=' + key + '&sharedReader=1'))
+    expect(fetchImpl.mock.calls.map(call => call[0])).toEqual(['/api/import-article', '/api/import-file'])
+    expect(JSON.parse(fetchImpl.mock.calls[1][1].body)).toEqual({ url: 'https://papers.example.org/vb.pdf' })
+    const file = read.mock.calls[0][0] as File
+    expect([file.name, file.type, file.size]).toEqual(['Variational Bayes.pdf', 'application/pdf', pdf.length])
+    expect(preparePdf).toHaveBeenCalledTimes(1)
+  })
+
+  it('Insert link: a linked file that cannot be fetched comes back with its own reason and the link kept', async () => {
+    window.history.replaceState(null, '', '/library?sharedReader=1')
+    document.documentElement.classList.add('signed-in')
+    fetchImpl = vi.fn(async (path: string) => path === '/api/import-article'
+      ? new Response(JSON.stringify({ error: 'x', code: 'pdf' }), { status: 415, headers: { 'content-type': 'application/json' } })
+      : new Response(JSON.stringify({ error: 'This file is larger than 50 MB, the limit for your own books.', code: 'too_large' }), { status: 413, headers: { 'content-type': 'application/json' } }))
+    vi.stubGlobal('fetch', fetchImpl)
+    vi.stubGlobal('TinctAI', { books: { upload: vi.fn() }, session: () => ({ token: 'token' }) })
+    const go = vi.fn()
+    add.openFileDialog({ engine: async () => ({ readFile: vi.fn() }), go })
+    tap(dialog(), 'link')
+    typeLink(dialog(), 'https://example.org/huge.pdf')
+    submit(dialog())
+    await vi.waitFor(() => expect(dialog().querySelector('.own-link-error')?.textContent).toBe('This file is larger than 50 MB, the limit for your own books.'))
+    expect((dialog().querySelector('.add-link__input') as HTMLInputElement).value).toBe('https://example.org/huge.pdf')
+    expect(go).not.toHaveBeenCalled()
+  })
+
   it('Insert link: a page with no text comes back with the reason and the link still in the field; nothing is uploaded', async () => {
     const reason = 'This page didn’t share its text. Paste the article text instead.'
     const { go, upload } = openDialog({ importReply: { error: reason, code: 'no_text' }, importStatus: 422 })

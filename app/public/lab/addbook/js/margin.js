@@ -1941,6 +1941,15 @@
     for (let start = 1; start <= p; start += band) blocks.push({ from: start, to: Math.min(p, start + band - 1), partial: start + band - 1 >= p });
     return blocks;
   }
+  /**
+   * A saved highlight's bar goes when the mouse leaves it, on the desktop (Anders, 11 Nov 2026), as in the book reader
+   * (src/lab/labHighlightMenuLeave.ts, the same numbers): a short grace that coming back cancels, a few pixels of slack.
+   */
+  const MENU_LEAVE = { ms: 280, slack: 12 };
+  /** (x, y) inside any of the boxes, each grown by the slack. */
+  function insideMenu(x, y, boxes, slack = MENU_LEAVE.slack) {
+    return (boxes || []).some(b => b.right > b.left && b.bottom > b.top && x >= b.left - slack && x <= b.right + slack && y >= b.top - slack && y <= b.bottom + slack);
+  }
   /** The part of the reader's page they have read: its text up to `frac` of it, cut at a word. */
   function seenText(text, frac) {
     const t = String(text || ''), f = Math.max(0, Math.min(1, Number(frac) || 0));
@@ -1949,5 +1958,5 @@
     const space = cut.search(/\s\S*$/);
     return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
   }
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, primerOutline, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, primerOutline, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText, MENU_LEAVE, insideMenu };
 });

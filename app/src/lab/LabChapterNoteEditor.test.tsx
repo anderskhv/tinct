@@ -22,7 +22,7 @@ function Harness({ save, initialNote = '', keyboardDock = false }: { save: (note
 it('the chapter-end Note pill opens the note editor with no passage, focused, and Save note stores it', () => {
   const save = vi.fn()
   render(<Harness save={save} />)
-  expect(screen.getAllByRole('button').map(b => b.getAttribute('aria-label') ?? b.textContent?.trim())).toEqual(['page', 'Recap this chapter', 'Chapter note', 'Next chapter →'])
+  expect(screen.getAllByRole('button').map(b => b.getAttribute('aria-label') ?? b.textContent?.trim())).toEqual(['page', 'Summary of this chapter', 'Chapter note', 'Next chapter →'])
   fireEvent.click(screen.getByRole('button', { name: 'Chapter note' }))
   const field = screen.getByRole('textbox', { name: 'Chapter note' })
   expect(document.activeElement).toBe(field)

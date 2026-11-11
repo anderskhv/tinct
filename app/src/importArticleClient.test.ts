@@ -14,7 +14,7 @@ import { articleUrl, importedArticle, pasteEpub } from '../public/lab/library_2/
 // @ts-expect-error -- shared browser module
 import { pasteBox } from '../public/lab/library_2/paste-box.js'
 // @ts-expect-error -- shared browser module
-import { draftFromLink, importArticle, pasteBook, pasteTooLong } from '../public/lab/library_2/own-add.js'
+import { draftFromLink, importArticle, importFile, isFileLink, pasteBook, pasteTooLong } from '../public/lab/library_2/own-add.js'
 
 const data = (file: File) => new Promise<Uint8Array>((resolve, reject) => {
   const reader = new FileReader(); reader.onload = () => resolve(new Uint8Array(reader.result as ArrayBuffer)); reader.onerror = () => reject(reader.error); reader.readAsArrayBuffer(file)
@@ -110,6 +110,19 @@ describe('a pasted link or pasted text', () => {
     await expect(importArticle('https://example.org/a', { fetchImpl: refused, token: 'tok' })).rejects.toThrow('This page didn’t share its text. Paste the article text instead.')
     await expect(importArticle('https://example.org/a', { fetchImpl: ok, token: '' })).rejects.toMatchObject({ code: 'signed_out' })
     await expect(importArticle('https://example.org/a', { fetchImpl: async () => { throw new TypeError('offline') }, token: 'tok' })).rejects.toMatchObject({ code: 'offline' })
+  })
+
+  it('importFile posts the link signed in and answers a File named by the server; a refusal keeps its words', async () => {
+    const ok = vi.fn(async () => new Response(new Uint8Array([0x25, 0x50, 0x44, 0x46]), { headers: { 'content-type': 'application/pdf', 'x-file-name': encodeURIComponent('Gründe.pdf'), 'x-file-url': encodeURIComponent('https://x.org/g.pdf') } }))
+    const file = await importFile('https://x.org/g', { fetchImpl: ok, token: 'tok' })
+    expect([file.name, file.type, file.size, (file as File & { source?: string }).source]).toEqual(['Gründe.pdf', 'application/pdf', 4, 'https://x.org/g.pdf'])
+    const [path, init] = ok.mock.calls[0] as unknown as [string, RequestInit]
+    expect(path).toBe('/api/import-file')
+    expect((init.headers as Record<string, string>).Authorization).toBe('Bearer tok')
+    const refused = vi.fn(async () => new Response(JSON.stringify({ error: 'This link is not a PDF or an EPUB.', code: 'unsupported_type' }), { status: 415, headers: { 'content-type': 'application/json' } }))
+    await expect(importFile('https://x.org/g', { fetchImpl: refused, token: 'tok' })).rejects.toMatchObject({ message: 'This link is not a PDF or an EPUB.', code: 'unsupported_type' })
+    await expect(importFile('https://x.org/g', { fetchImpl: ok, token: '' })).rejects.toMatchObject({ code: 'signed_out' })
+    expect(isFileLink({ code: 'pdf' }) && isFileLink({ code: 'epub' }) && !isFileLink({ code: 'no_text' })).toBe(true)
   })
 
   it('an article over the paste limit is refused with its own words', () => {

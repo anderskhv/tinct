@@ -14,13 +14,14 @@ export function LabChapterEnd({ hasNext, busy = false, measuring = false, docked
   /** Social ship 3: at the end of a book, the "Finished {book}" reading card to share. Absent while the switch is off. */
   finishedCard?: { label: string; busy: boolean; note: string; onShare: () => void }
 }) {
-  // The phone's margin mode: ✧ Recap · ✧ Quiz me · Note, with no label above them.
+  // The phone's margin mode: ✧ Summary · ✧ Quiz me · Note, with no label above them. Summary is the chapter's own
+  // (Anders, 11 Nov 2026: the same card as the chapter start's Summary pill; "Recap" was its old name here).
   const margin = useMarginPhone()
   return <section className={`lab-chapter-end${docked ? ' is-docked' : ''}`} data-testid={measuring ? undefined : "lab-chapter-end"} aria-label="Chapter finished"
     onPointerDown={event => event.stopPropagation()} onPointerUp={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="lab-chapter-end-actions">
-      {recap && <button type="button" className="lab-chapter-recap" disabled={busy} tabIndex={onDiscuss ? 0 : -1} aria-label="Recap this chapter" onClick={onDiscuss}>
-        <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Recap</span>
+      {recap && <button type="button" className="lab-chapter-recap" disabled={busy} tabIndex={onDiscuss ? 0 : -1} aria-label="Summary of this chapter" onClick={onDiscuss}>
+        <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Summary</span>
       </button>}
       {margin && recap && <button type="button" className="lab-chapter-recap" data-testid={measuring ? undefined : 'lab-unit-quiz'} tabIndex={measuring ? -1 : 0} aria-label="Quiz me on this chapter" onClick={event => { if (!measuring) margin.onQuiz?.(event.currentTarget.getBoundingClientRect()) }}>
         <span><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>Quiz me</span>

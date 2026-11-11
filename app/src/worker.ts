@@ -40,6 +40,7 @@ import { ACCOUNT_DELETE_PATH, handleAccountDelete } from './worker/routes/accoun
 import { handleChat, handleLabChat } from './worker/routes/chat'
 import { handleDictation } from './worker/routes/dictation'
 import { handleImportArticle } from './worker/routes/importArticle'
+import { handleImportFile } from './worker/routes/importFile'
 import { handleLabVoiceRelay, handleLabVoiceSession, handleVoiceSession, handleVoiceUsage, LAB_VOICE_RELAY_PATH } from './worker/routes/voice'
 import { handleLabPosition } from './worker/routes/labPosition'
 import { handleLabChatHistory } from './worker/routes/labChatHistory'
@@ -432,6 +433,8 @@ const worker = {
       case '/api/dictation': return handleDictation(request, env, ctx, verifyUser, checkRateLimit)
       // A link pasted into Paste text: the article's text, fetched once and not kept (importArticle.ts).
       case '/api/import-article': return handleImportArticle(request, env, { verifyUser, checkRateLimit })
+      // A link to a PDF or EPUB: the file, fetched once and not kept; the browser adds it as a chosen file (importFile.ts).
+      case '/api/import-file': return handleImportFile(request, env, { verifyUser, checkRateLimit })
       case '/api/voice-usage': return handleVoiceUsage(request, env, ctx, verifyUser, checkRateLimit)
       case '/api/lab-voice-session': return handleLabVoiceSession(request, env, checkRateLimit, holdGuestSpend)
       case LAB_VOICE_RELAY_PATH: return handleLabVoiceRelay(request, env, ctx, checkRateLimit)

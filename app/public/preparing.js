@@ -5,10 +5,10 @@
 // (/lab/added-toast.js). Nothing is taken from the handoff until the book is in: on a failure the
 // message shows with a way back to /byob (the text is still there) or the library (the file is added there).
 // A file here because the site's Content-Security-Policy refuses inline scripts.
-import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
+import {peekHandoffEntry,takeHandoff,peekPasteHandoff,clearPasteHandoff,putHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {paperCoverUrl} from '/lab/book-cover.js?v=20261009owncover';
 import {cleanPaste,htmlText} from '/lab/library_2/paste-text.js?v=20261109add3';
-import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong} from '/lab/library_2/own-add.js?v=20261109add3';
+import {addEngine,loadFileEngine,pasteBook,savePastedText,keepOwnFile,noteAdded,draftFromLink,pasteTooLong,isFileLink,importFile} from '/lab/library_2/own-add.js?v=20261111link';
 
 const $=id=>document.getElementById(id);
 const own=new URLSearchParams(location.search).get('own')==='file'?'file':'paste';
@@ -67,7 +67,20 @@ async function addText(draft,{fromFile=false}={}){
   if(!engineApi)return;
   // A link: the article is imported now (own-add.js draftFromLink); a page with no text says so, and the link stays kept.
   if(link){
-    try{draft=await draftFromLink(draft);}catch(error){fail(message(error,'Tinct could not import this page. Paste the article text instead.'),back);return;}
+    try{draft=await draftFromLink(draft);}
+    catch(error){
+      // A link to a PDF or EPUB (Anders, 11 Nov 2026): the file is fetched once, kept as /byob keeps a chosen
+      // file, and added on the file path (the library asks for the rights confirmation when it is still owed).
+      if(isFileLink(error)){
+        $('line').textContent=`Downloading the file from ${hostOf(link)}…`;
+        let file;try{file=await importFile(link);}catch(failed){fail(message(failed,'Tinct could not open this file. Download it and add it instead.'),back);return;}
+        if(!await putHandoff(file)){fail('This browser could not keep the file. Download it and add it instead.',back);return;}
+        await clearPasteHandoff();importing=false;
+        await addFile({file});
+        return;
+      }
+      fail(message(error,'Tinct could not import this page. Paste the article text instead.'),back);return;
+    }
     const tooLong=pasteTooLong(htmlText(draft.html),{imported:true});if(tooLong){fail(tooLong,back);return;}
     importing=false;$('line').textContent='Preparing your text…';cover(draft.title,draft.author);progress(.2);
   }

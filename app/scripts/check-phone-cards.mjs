@@ -557,7 +557,7 @@ async function run(engineName) {
   for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
   await sp.waitForTimeout(600)
   const endPill = await sp.evaluate(() => { const el = document.querySelector('[data-testid="lab-chapter-end"]'); return el ? el.textContent.replace(/\s+/g, ' ').trim() : null })
-  ok(`${tag}: the end pills (✧ Recap · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Recap✧Quiz meNote/.test(endPill), endPill)
+  ok(`${tag}: the end pills (✧ Summary · ✧ Quiz me · Note), no "End of" label`, !!endPill && /^✧Summary✧Quiz meNote/.test(endPill), endPill)
   shots.push(await shot(sp, `${tag}-end-pills`))
   const endGaps = await pillGaps('[data-testid="lab-chapter-end"] .lab-chapter-recap, [data-testid="lab-chapter-end"] .lab-chapter-note')
   ok(`${tag}: the end pills sit 8px apart (${endGaps.gaps.join(', ')}), each 44px tall to tap`, endGaps.gaps.length >= 2 && endGaps.gaps.every(g => g <= 8.5 && g >= 7.5) && endGaps.heights.every(h => h >= 44), endGaps)
