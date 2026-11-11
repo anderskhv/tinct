@@ -9,6 +9,7 @@ import { LabChapterHeading } from './LabChapterHeading'
 import { paintsTextRanges, useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { compareRowAlignment, verseGroups } from './labVerseAlignment'
+import type { AnchorMap } from './labEditionAnchors'
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import type { PlacedFootnote } from './labFootnotes'
@@ -60,6 +61,8 @@ interface LabPassageProps {
   alignCompare?: boolean
   /** The pair's paragraphs do not line up: rows are set by share of the chapter, as the paginator measured them. */
   approximateCompare?: boolean
+  /** The book's anchors for this pair (labEditionAnchors.ts), the same object the paginator measured with. */
+  compareAnchors?: AnchorMap | null
   chapterTitle: string
   paragraphs: string[]
   compareParagraphs: string[]
@@ -473,6 +476,7 @@ export function LabPassage({
   previousChapterEnding,
   alignCompare = false,
   approximateCompare = false,
+  compareAnchors = null,
   chapterTitle,
   paragraphs,
   compareParagraphs,
@@ -571,8 +575,8 @@ export function LabPassage({
   // Editions paragraphed differently (BSB beside KJV) pair verse by verse; the
   // paginator measures the same cells (LabDesktopPaginator).
   const verseAlignment = useMemo(
-    () => (alignCompare ? compareRowAlignment(paragraphs, compareParagraphs, approximateCompare) : null),
-    [alignCompare, approximateCompare, paragraphs, compareParagraphs],
+    () => (alignCompare ? compareRowAlignment(paragraphs, compareParagraphs, approximateCompare, compareAnchors) : null),
+    [alignCompare, approximateCompare, compareAnchors, paragraphs, compareParagraphs],
   )
   const verseGroupAt = verseAlignment
     ? new Map(verseGroups(readingLines.map(line => {

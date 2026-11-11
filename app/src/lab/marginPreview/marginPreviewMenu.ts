@@ -12,6 +12,7 @@ import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { LAB_PREFS_KEY, labSignInUrl, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
 import { marginParagraphWords, marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPreviewBook } from './marginPreviewModel'
 import { chapterWordFraction, editionSwitchReturn, leadingPreface, rememberEditionSwitch } from '../labEditionSwitch'
+import { chapterAnchorMap, loadEditionAnchors, placeAtWordOffset, wordOffsetOfPlace } from '../labEditionAnchors'
 
 export interface MarginMenuChoice { value: string; label: string }
 
@@ -73,7 +74,7 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
     },
     reading: () => pending.then(model => (book ? marginReadingChoices(book, model.editionKey, readPrefs()) : null), () => null),
     setEdition: (editionKey, at) => {
-      void pending.then(model => {
+      void pending.then(async model => {
         if (!book || editionKey === model.editionKey || !book.editions.some(e => e.key === editionKey)) return
         const chapter = model.chapters[Math.max(0, at.page - 1)]
         if (!chapter) return
@@ -90,9 +91,19 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
           if (back) { place = back; rememberEditionSwitch(null) }
           else {
             place = { paragraphIndex: 0, wordIndex: 0 }
+            const counts = chapter.paragraphs.map(marginParagraphWords)
+            // Through the book's anchors when it has them for these two editions; else by share of the chapter.
+            const file = await loadEditionAnchors(bookId).catch(() => null)
+            const target = file?.chapters?.[String(chapter.number)]?.[editionKey === file.b ? 'b' : 'a']
+            const anchors = file && target && (editionKey === file.a || editionKey === file.b)
+              ? chapterAnchorMap(file, { bookId, chapterNumber: chapter.number, from: { edition: model.editionKey, counts }, to: { edition: editionKey, counts: target }, aligned: lineUp })
+              : null
+            // With anchors the other edition's word counts are known (the file's), so the place is named in the link
+            // and whichever reader opens it lands there; without, the page that opens the edition lands the share.
+            if (anchors && target) place = placeAtWordOffset(target, anchors.map(wordOffsetOfPlace(counts, here)))
             rememberEditionSwitch({
-              bookId, chapterNumber: chapter.number, fraction: chapterWordFraction(chapter.paragraphs.map(marginParagraphWords), here, leadingPreface(chapter.paragraphs.map(p => p.text))),
-              from: { editionKey: model.editionKey, ...here }, to: { editionKey },
+              bookId, chapterNumber: chapter.number, fraction: chapterWordFraction(counts, here, leadingPreface(chapter.paragraphs.map(p => p.text))),
+              from: { editionKey: model.editionKey, ...here }, to: anchors && target ? { editionKey, ...place } : { editionKey },
             })
           }
         } else rememberEditionSwitch(null)

@@ -181,6 +181,7 @@ import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
+import { chapterAnchorMap, loadEditionAnchors, mapPlaceThroughAnchors, type EditionAnchorFile } from './labEditionAnchors'
 import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
@@ -1061,6 +1062,28 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // buildProportionalAlignment; Anders, 11 Nov 2026: "pope should also work OK in compare mode").
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
     && [prefs.primaryEdition, prefs.compareEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
+  // The book's anchors between its unaligned editions (labEditionAnchors.ts; most books have none): Compare sets its
+  // rows through them. One object for the paginator and the page, so both pair the same words.
+  const [editionAnchors, setEditionAnchors] = useState<EditionAnchorFile | null>(null)
+  const anchorsBookId = book.bookId || 'bible'
+  useEffect(() => {
+    let cancelled = false
+    setEditionAnchors(null)
+    if (anchorsBookId === 'bible' || privateBook) return
+    void loadEditionAnchors(anchorsBookId).then(file => { if (!cancelled) setEditionAnchors(file) })
+    return () => { cancelled = true }
+  }, [anchorsBookId, privateBook])
+  const compareAnchors = useMemo(() => {
+    if (!unalignedCompare || !editionAnchors || !book.compareParagraphs.length) return null
+    const count = (text: string) => tokenizeHearingWords(text).length
+    return chapterAnchorMap(editionAnchors, {
+      bookId: anchorsBookId, chapterNumber: book.chapterNumber,
+      from: { edition: chapterEditionKey(book.paragraphs) ?? prefs.primaryEdition, counts: book.paragraphs.map(count) },
+      to: { edition: prefs.compareEdition, counts: book.compareParagraphs.map(count) },
+      aligned: key => allBookEditions.find(edition => edition.key === key)?.aligned !== false,
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [unalignedCompare, editionAnchors, anchorsBookId, book.chapterNumber, book.paragraphs, book.compareParagraphs, prefs.primaryEdition, prefs.compareEdition])
   // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
   // the others do not), and Greek Daniel 3 numbers its verses differently from
   // the Hebrew: Compare says so rather than pairing different passages.
@@ -2288,7 +2311,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       compareEditionKey,
       compareAfterFirstPage: !firstPageShownRef.current && !compareOnScreenRef.current,
       audioEditionKey: bookEditions.some(edition => edition.key === audioEditionKey && edition.hasAudio) ? audioEditionKey : undefined,
-    }), () => !cancelled && navigation === chapterNavigationRef.current).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded).then((loaded) => {
+    }), () => !cancelled && navigation === chapterNavigationRef.current).then(loaded => hyphensSettled ? hyphensSettled.then(() => loaded) : loaded)
+    // The book's edition anchors, for a switch between editions whose paragraphs do not line up (cached per book).
+    .then(loaded => (activeBookId === 'bible' ? [loaded, null] as const : loadEditionAnchors(activeBookId).then(anchors => [loaded, anchors] as const, () => [loaded, null] as const)))
+    .then(([loaded, anchorFile]) => {
       if (cancelled || navigation !== chapterNavigationRef.current) return
       // Bible's legacy loader has a Genesis fallback for network failures;
       // never let that replace a requested Bible chapter. Generic books may
@@ -2309,7 +2335,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const fromEdition = chapterEditionKey(shown.paragraphs)
       const toEdition = chapterEditionKey(loaded.paragraphs)
       const paragraphsAlign = (key: string) => (getBook(activeBookId)?.editions || bookEditions).find(edition => edition.key === key)?.aligned !== false
-      if (activeBookId !== 'bible' && !loadedTarget && fromEdition && toEdition && fromEdition !== toEdition
+      // A saved place still being restored into this chapter owns the place. The Margin reader keeps its opening
+      // target for the visit (nothing paginates to consume it), so there only a watched restore counts.
+      const restoring = continuousReader
+        ? restoreWatchRef.current?.chapterKey === labRestoreChapterKey(loaded.bookId, loaded.chapterNumber)
+        : Boolean(loadedTarget)
+      if (activeBookId !== 'bible' && !restoring && fromEdition && toEdition && fromEdition !== toEdition
         && shown.bookId === loaded.bookId && shown.chapterNumber === loaded.chapterNumber
         && shown.paragraphs.length > 0 && loaded.paragraphs.length > 0
         && !(paragraphsAlign(fromEdition) && paragraphsAlign(toEdition))) {
@@ -2324,7 +2355,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         })
         const inText = back && back.paragraphIndex < loaded.paragraphs.length ? back : null
         const preface = { source: leadingPreface(shown.paragraphs), target: leadingPreface(loaded.paragraphs) }
-        const place = inText ?? mapPlaceByWords(sourceCounts, loaded.paragraphs.map(count), left, preface)
+        const targetCounts = loaded.paragraphs.map(count)
+        const anchors = inText ? null : chapterAnchorMap(anchorFile, {
+          bookId: activeBookId, chapterNumber: loaded.chapterNumber,
+          from: { edition: fromEdition, counts: sourceCounts }, to: { edition: toEdition, counts: targetCounts },
+          aligned: paragraphsAlign,
+        })
+        const place = inText ?? (anchors
+          ? mapPlaceThroughAnchors(anchors, sourceCounts, targetCounts, left)
+          : mapPlaceByWords(sourceCounts, targetCounts, left, preface))
         editionSwitchPlaceRef.current = { content: loaded.paragraphs, place }
         rememberEditionSwitch(inText ? null : {
           bookId: activeBookId, chapterNumber: loaded.chapterNumber, fraction: chapterWordFraction(sourceCounts, left, preface.source),
@@ -2430,6 +2469,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       placeRef.current = { ...switched }
       pageAnchorRef.current = { ...switched }
       restorePageRef.current = null
+      // The opening target belonged to the edition left: it must not be read against this text.
+      restorePlaceRef.current = null
       editionSwitchNoteRef.current = true
     }
     if (continuousReader) {
@@ -7267,6 +7308,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             nextReadingPage={desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
             approximateCompare={unalignedCompare}
+            compareAnchors={compareAnchors}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -7354,6 +7396,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
             approximateCompare={unalignedCompare}
+            compareAnchors={compareAnchors}
             editionKey={readerEditionKey}
             language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}

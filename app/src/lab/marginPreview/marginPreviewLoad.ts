@@ -184,7 +184,7 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
   })
   const full = placed.then(async ({ place, editionKey }) => {
     const data = await (editionKey === guess && early ? early : load(bookId, editionKey))
-    const chapters = marginPreviewChapters(data)
+    const chapters = marginPreviewChapters(data, { verse: edition(editionKey).style === 'verse' })
     if (!chapters.length) throw new Error(`${bookId} ${editionKey} has no chapters`)
     return modelOf(place, editionKey, chapters)
   })
@@ -194,7 +194,7 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
     if (!task) return null
     // The whole book first (cached, or quicker): no window is needed.
     const data = await Promise.race([task, full.then(() => null, () => null)])
-    const chapters = data ? marginPreviewWindowChapters(data) : null
+    const chapters = data ? marginPreviewWindowChapters(data, { verse: edition(editionKey).style === 'verse' }) : null
     if (!chapters?.length) return null
     const model = modelOf(place, editionKey, chapters)
     // The place's chapter must be one with its text; a place outside the window opens with the whole book.

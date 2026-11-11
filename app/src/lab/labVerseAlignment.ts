@@ -1,3 +1,4 @@
+import type { AnchorMap } from './labEditionAnchors'
 import { leadingPreface } from './labEditionSwitch'
 import { isLabVerseMarker, labVerseMarkerDisplay, tokenizeHearingWords, type ChapterPageSegment } from './labHearing'
 
@@ -127,7 +128,7 @@ const SENTENCE_END = /[.!?;:]["'”’)\]]*$/
  * where it can be helped. The compare text is tiled exactly: every word appears once, in order, beside whichever
  * primary segments cover the chapter.
  */
-export function buildProportionalAlignment(primary: string[], compare: string[]): VerseAlignment | null {
+export function buildProportionalAlignment(primary: string[], compare: string[], anchors?: AnchorMap | null): VerseAlignment | null {
   const mainCounts = primary.map(text => tokenizeHearingWords(text).length)
   const otherWords = compare.map(text => tokenizeHearingWords(text))
   const mainStart: number[] = []
@@ -177,18 +178,26 @@ export function buildProportionalAlignment(primary: string[], compare: string[])
   const otherPreface = leadingPreface(compare) ? otherWords[0].length : 0
   const mainBody = mainTotal - mainPreface
   const otherBody = otherTotal - otherPreface
-  const share = mainBody > 0 && otherBody > 0
+  const byShare = mainBody > 0 && otherBody > 0
     ? (offset: number) => (offset <= mainPreface
       ? (mainPreface > 0 ? offset * otherPreface / mainPreface : 0)
       : otherPreface + (offset - mainPreface) * otherBody / mainBody)
     : (offset: number) => offset * otherTotal / mainTotal
+  // The book's anchors (labEditionAnchors.ts), when it has them for these two texts: the compare word opposite is
+  // found through the rare words both translations share, and share of the text is used only between two of them.
+  const share = anchors ? (offset: number) => anchors.map(offset) : byShare
 
   // Each primary paragraph's compare start, never before the one above it.
   const paragraphAt: number[] = []
   mainStart.forEach((start, index) => {
     const raw = share(start)
-    const at = index === 0 ? 0 : nearest(paragraphBreaks, raw, PARAGRAPH_SNAP_WORDS) ?? nearest(softBreaks, raw, BREAK_SNAP_WORDS) ?? Math.round(raw)
-    paragraphAt.push(Math.max(paragraphAt[index - 1] ?? 0, Math.min(otherTotal, at)))
+    const previous = paragraphAt[index - 1] ?? 0
+    // A break the paragraph above already begins at is not this one's: two paragraphs that fall in one compare
+    // paragraph (a question and its answer) would otherwise share its start, and the first would show nothing.
+    const free = (at: number | null) => (at !== null && (at > previous || raw <= previous) ? at : null)
+    // Through anchors the start is already a sentence of the compare text: it is not moved to a paragraph further off.
+    const at = index === 0 ? 0 : (anchors ? null : free(nearest(paragraphBreaks, raw, PARAGRAPH_SNAP_WORDS))) ?? free(nearest(softBreaks, raw, BREAK_SNAP_WORDS)) ?? Math.round(raw)
+    paragraphAt.push(Math.max(previous, Math.min(otherTotal, at)))
   })
   paragraphAt.push(otherTotal)
   // A point inside a primary paragraph: its own share, on a line or sentence start when one is near, within the
@@ -222,9 +231,9 @@ export function buildProportionalAlignment(primary: string[], compare: string[])
 
 /**
  * The pairing Compare sets its rows by, or null for paragraph beside paragraph: verse by verse where a Bible pair
- * is paragraphed differently, by share of the chapter where the pair is marked unaligned (`approximate`).
+ * is paragraphed differently, by anchors and share of the chapter where the pair is marked unaligned (`approximate`).
  */
-export function compareRowAlignment(primary: string[], compare: string[], approximate = false): VerseAlignment | null {
+export function compareRowAlignment(primary: string[], compare: string[], approximate = false, anchors?: AnchorMap | null): VerseAlignment | null {
   const verses = needsVerseAlignment(primary, compare) ? buildVerseAlignment(primary, compare) : null
-  return verses ?? (approximate && compare.length > 0 ? buildProportionalAlignment(primary, compare) : null)
+  return verses ?? (approximate && compare.length > 0 ? buildProportionalAlignment(primary, compare, anchors) : null)
 }
