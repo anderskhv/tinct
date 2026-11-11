@@ -12,6 +12,9 @@
 // 3. A page that shares no text (a JavaScript-only page, a paywall): the honest message, the link kept, no
 //    book and no upload. In the pop-up and on /preparing (with the way back to /byob, where the link still is).
 // 4. Pasted text behaves as before: no import request, the text in the reader.
+// 5. A link to a PDF (Anders, 11 Nov 2026: "when someone inserts a pdf link we shud just open it"): in the
+//    pop-up and via /byob, Tinct's server fetches the file once (/api/import-file, the real route) and it is
+//    added as a chosen file (the rights step, then the reader). Too large and not-a-PDF links say why.
 //
 // /api/import-article is the real Worker route (src/worker/routes/importArticle.ts, loaded through Vite's
 // SSR loader), whose page fetch is answered from src/worker/__fixtures__/articles: nothing leaves the
@@ -25,6 +28,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import assert from 'node:assert/strict'
 import { createServer as createViteServer } from 'vite'
+import { makePdf } from '../../addbooks/web/test/make-pdf.mjs'
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(APP, 'dist')
@@ -42,13 +46,40 @@ const WEB = {
   'https://app.example.org/read/1': 'spa.html',
   'https://review.example.org/census': 'paywall.html',
 }
+const PAPER = 'https://papers.example.org/files/variational-bayes.pdf'
+const HUGE = 'https://papers.example.org/files/atlas.pdf'
+const NOT_PDF = 'https://papers.example.org/files/data.zip'
+const PAPER_BYTES = Buffer.from(makePdf({ pages: [
+  { lines: [{ x: 72, y: 740, size: 24, text: 'Variational Bayes' }, { x: 72, y: 700, size: 14, text: 'A linked paper opened straight from its address.' }] },
+  { lines: [{ x: 72, y: 700, size: 14, text: 'Its second page keeps the reader company.' }] },
+] }))
 const NEWS = 'https://news.example.org/2026/11/otters'
 const BLOG = 'https://fieldnotes.example.net/commonplace'
 
 const vite = await createViteServer({ root: APP, configFile: false, logLevel: 'silent', server: { middlewareMode: true, hmr: false }, appType: 'custom', optimizeDeps: { noDiscovery: true, include: [] } })
 const { handleImportArticle } = await vite.ssrLoadModule('/src/worker/routes/importArticle.ts')
+const { handleImportFile } = await vite.ssrLoadModule('/src/worker/routes/importFile.ts')
 
-const account = { books: [], uploads: 0, imports: [], importHold: 0, siteFetches: [] }
+const account = { books: [], uploads: 0, imports: [], importHold: 0, siteFetches: [], fileImports: [] }
+/** The web's files: the paper, one over the 50 MB cap (its length only) and a ZIP. */
+async function webFile(url) {
+  if ([PAPER, HUGE, NOT_PDF].includes(url)) account.siteFetches.push(url)
+  if (url === PAPER) return new Response(PAPER_BYTES, { headers: { 'content-type': 'application/pdf' } })
+  if (url === HUGE) return new Response(PAPER_BYTES, { headers: { 'content-type': 'application/pdf', 'content-length': String(60 * 1024 * 1024) } })
+  if (url === NOT_PDF) return new Response(Buffer.from([0x50, 0x4b, 0x03, 0x04, 0, 0, 0, 0]), { headers: { 'content-type': 'application/zip' } })
+  return null
+}
+async function fileRoute(req, res, body) {
+  const request = new Request('http://127.0.0.1/api/import-file', { method: 'POST', headers: { 'content-type': 'application/json', authorization: req.headers.authorization || '', 'content-length': String(body.length) }, body })
+  account.fileImports.push(JSON.parse(body.toString() || '{}').url)
+  const response = await handleImportFile(request, {}, {
+    verifyUser: async (_env, r) => (/^Bearer \S+/.test(r.headers.get('authorization') || '') ? { id: USER, email: 'reader@example.com' } : null),
+    checkRateLimit: async () => true,
+    fetchOptions: { fetchImpl: async url => (await webFile(url)) || new Response('Not found', { status: 404 }) },
+  })
+  res.writeHead(response.status, Object.fromEntries(response.headers))
+  res.end(Buffer.from(await response.arrayBuffer()))
+}
 async function importRoute(req, res, body) {
   const request = new Request('http://127.0.0.1/api/import-article', { method: 'POST', headers: { 'content-type': 'application/json', authorization: req.headers.authorization || '', 'content-length': String(body.length) }, body })
   account.imports.push(JSON.parse(body.toString() || '{}').url)
@@ -57,6 +88,8 @@ async function importRoute(req, res, body) {
     verifyUser: async (_env, r) => (/^Bearer \S+/.test(r.headers.get('authorization') || '') ? { id: USER, email: 'reader@example.com' } : null),
     checkRateLimit: async () => true,
     fetchOptions: { fetchImpl: async url => {
+      const linked = await webFile(url)
+      if (linked) return linked
       account.siteFetches.push(url)
       const name = WEB[url]
       if (!name) return new Response('Not found', { status: 404 })
@@ -74,12 +107,16 @@ function serve() {
       const chunks = []; for await (const chunk of req) chunks.push(chunk)
       return importRoute(req, res, Buffer.concat(chunks))
     }
+    if (url.pathname === '/api/import-file' && req.method === 'POST') {
+      const chunks = []; for await (const chunk of req) chunks.push(chunk)
+      return fileRoute(req, res, Buffer.concat(chunks))
+    }
     if (url.pathname === '/api/user-books' && req.method === 'POST') {
       const chunks = []; for await (const chunk of req) chunks.push(chunk)
       const bytes = Buffer.concat(chunks)
       account.uploads += 1
       const sha256 = createHash('sha256').update(bytes).digest('hex')
-      const book = { id: sha256.slice(0, 24), sha256, type: 'epub', size: bytes.length, name: decodeURIComponent(req.headers['x-book-name'] || 'Book'), title: decodeURIComponent(req.headers['x-book-title'] || ''), author: decodeURIComponent(req.headers['x-book-author'] || ''), createdAt: new Date(0).toISOString(), rev: 0, bytes }
+      const book = { id: sha256.slice(0, 24), sha256, type: bytes.subarray(0, 4).toString('latin1') === '%PDF' ? 'pdf' : 'epub', size: bytes.length, name: decodeURIComponent(req.headers['x-book-name'] || 'Book'), title: decodeURIComponent(req.headers['x-book-title'] || ''), author: decodeURIComponent(req.headers['x-book-author'] || ''), createdAt: new Date(0).toISOString(), rev: 0, bytes }
       if (!account.books.some(b => b.sha256 === sha256)) account.books.push(book)
       res.writeHead(201, { 'content-type': 'application/json' }); res.end(JSON.stringify({ book: { ...book, bytes: undefined } })); return
     }
@@ -118,12 +155,12 @@ async function context(browser, origin, supabase, { signedIn, viewport }) {
   await c.route('**/*.mp4', route => route.abort())
   await c.route(`${origin}/api/**`, route => {
     const request = route.request(), p = new URL(request.url()).pathname, method = request.method()
-    if (p === '/api/import-article' || (p === '/api/user-books' && method === 'POST')) return route.continue()
+    if (p === '/api/import-article' || p === '/api/import-file' || (p === '/api/user-books' && method === 'POST')) return route.continue()
     if (p === '/api/lab-position') return route.fulfill({ json: { books: {}, finished: {}, owner: USER, hidden: {}, updatedAt: 0 } })
     if (p === '/api/public-books/import/access') return route.fulfill({ json: { canAdd: true } })
     if (p === '/api/user-books' && method === 'GET') return route.fulfill({ json: { books: account.books.map(b => ({ ...b, bytes: undefined })) } })
     const own = account.books.find(b => p === `/api/user-books/${b.id}`)
-    if (own && method === 'GET') return route.fulfill({ status: 200, contentType: 'application/epub+zip', body: own.bytes })
+    if (own && method === 'GET') return route.fulfill({ status: 200, contentType: own.type === 'pdf' ? 'application/pdf' : 'application/epub+zip', body: own.bytes })
     if (p === '/api/user-books/places') return route.fulfill({ json: { places: {} } })
     if (/^\/api\/user-books\/(places|covers)\//.test(p)) return route.fulfill({ json: { place: null, cover: null } })
     if (/^\/api\/user-books\/(marks|cards)\//.test(p)) return route.fulfill({ json: { marks: [], cards: [], rev: 0 } })
@@ -199,7 +236,7 @@ async function main() {
   const browser = await chromium.launch({ args: ['--mute-audio'] })
   const failures = []
   const run = async (label, fn) => { try { await fn(); console.log(`ok   ${label}`) } catch (error) { failures.push(label); console.log(`FAIL ${label}\n     ${error.message.split('\n').slice(0, 8).join('\n     ')}`) } }
-  const reset = () => { account.books = []; account.uploads = 0; account.imports = []; account.siteFetches = []; account.importHold = 0 }
+  const reset = () => { account.books = []; account.uploads = 0; account.imports = []; account.siteFetches = []; account.fileImports = []; account.importHold = 0 }
   try {
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
       for (const via of ['Insert link', 'a link pasted into Paste text']) await run(`library pop-up, ${name}, ${via}: the link -> importing -> the reader shows the article`, async () => {
@@ -329,6 +366,74 @@ async function main() {
       await page.waitForFunction(() => document.querySelector('#link-area .add-link__input')?.value === 'https://review.example.org/census', null, { timeout: 10000 })
       await c.close()
     })
+
+    for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
+      await run(`a PDF link in the pop-up, ${name}: downloaded once, the rights step, then the PDF opens`, async () => {
+        reset()
+        const c = await context(browser, origin, supabase, { signedIn: true, viewport }), page = await c.newPage()
+        const errors = []; page.on('pageerror', e => errors.push(e.message))
+        await openLinkPopUp(page)
+        await page.locator(LINK_FIELD).fill(PAPER)
+        await page.getByRole('button', { name: 'Add', exact: true }).click()
+        // The rights step a chosen file gets, naming the file by the server's answer.
+        await page.locator('.own-file-dialog[data-step="rights"]').waitFor({ timeout: 20000 })
+        assert.equal(await page.locator('.own-file-rights-intro strong').innerText(), 'variational-bayes.pdf')
+        await shot(page, `11-pdf-link-rights-${name}`)
+        await page.locator('.own-file-rights-box').check()
+        await page.locator('.own-file-continue').click()
+        await page.waitForURL(/\/(reader|lab\/addbook\/)\?userBook=[0-9a-f]{24}/, { timeout: 60000 })
+        await page.getByText('Variational Bayes', { exact: false }).first().waitFor({ timeout: 60000 })
+        await shot(page, `12-pdf-link-reader-${name}`)
+        assert.deepEqual(account.imports, [PAPER], 'the article import saw a PDF')
+        assert.deepEqual(account.fileImports, [PAPER], 'then one file import')
+        assert.equal(account.siteFetches.filter(u => u === PAPER).length, 2, 'the article check reads only the head; the file is fetched once')
+        assert.deepEqual(errors, [])
+        await c.close()
+      })
+    }
+
+    await run('a PDF link via /byob, signed in: /preparing downloads it and adds it as a file', async () => {
+      reset()
+      const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
+      const errors = []; page.on('pageerror', e => errors.push(e.message))
+      // The rights confirmation already given in this account (as for a returning reader).
+      await c.addInitScript(() => { try { for (const k of Object.keys(localStorage)) if (/^tinct:addbook:rights/.test(k)) return } catch {} })
+      await page.goto('/byob')
+      await page.locator('#link').click()
+      await page.locator('#link-area .add-link__input').fill(PAPER)
+      await page.locator('#link-area .add-link__add').click()
+      await page.waitForURL(url => url.pathname === '/preparing' || url.pathname === '/library', { timeout: 30000 })
+      // With no rights confirmation yet, the library asks for it with the file kept; otherwise the reader opens.
+      await page.waitForURL(url => url.pathname === '/reader' || url.pathname === '/lab/addbook/' || url.pathname === '/library', { timeout: 60000 })
+      if (new URL(page.url()).pathname === '/library') {
+        await page.locator('.own-file-dialog[data-step="rights"]').waitFor({ timeout: 30000 })
+        await shot(page, '13-pdf-link-byob-rights')
+        await page.locator('.own-file-rights-box').check()
+        await page.locator('.own-file-continue').click()
+        await page.waitForURL(/\/(reader|lab\/addbook\/)\?userBook=[0-9a-f]{24}/, { timeout: 60000 })
+      }
+      await page.getByText('Variational Bayes', { exact: false }).first().waitFor({ timeout: 60000 })
+      await shot(page, '14-pdf-link-byob-reader')
+      assert.deepEqual(account.fileImports, [PAPER])
+      assert.equal(await page.evaluate(async () => (await import('/lab/addbook/js/file-handoff.js')).peekPasteHandoff()), null, 'the kept link is gone')
+      assert.deepEqual(errors, [])
+      await c.close()
+    })
+
+    for (const [url, reason] of [[HUGE, 'This file is larger than 50 MB, the limit for your own books.'], [NOT_PDF, 'This link is not a PDF or an EPUB.']]) {
+      await run(`a linked file that cannot be added (${reason}): the reason, the link kept, no book`, async () => {
+        reset()
+        const c = await context(browser, origin, supabase, { signedIn: true, viewport: DESKTOP }), page = await c.newPage()
+        await openLinkPopUp(page)
+        await page.locator(LINK_FIELD).fill(url)
+        await page.getByRole('button', { name: 'Add', exact: true }).click()
+        await page.locator('.own-link-error', { hasText: reason }).waitFor({ timeout: 20000 })
+        assert.equal(await page.locator(LINK_FIELD).inputValue(), url)
+        assert.equal(account.uploads, 0)
+        await shot(page, url === HUGE ? '15-pdf-link-too-large' : '16-link-not-a-pdf')
+        await c.close()
+      })
+    }
 
     for (const [name, viewport] of [['desktop', DESKTOP], ['phone', PHONE]]) {
       await run(`pasted text, ${name}: as before, no import request`, async () => {

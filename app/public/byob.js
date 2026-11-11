@@ -9,7 +9,7 @@
 // (own-add.js) and opens the reader. Signed in, Continue and Add go straight there.
 import {putHandoff,putHandoffFiles,putPasteHandoff,peekPasteHandoff} from '/lab/addbook/js/file-handoff.js?v=20261109bulk';
 import {pasteBox} from '/lab/library_2/paste-box.js?v=20261109add3';
-import {pasteTooLong} from '/lab/library_2/own-add.js?v=20261109add3';
+import {pasteTooLong} from '/lab/library_2/own-add.js?v=20261111link';
 import {linkHtml} from '/lab/library_2/paste-text.js?v=20261109add3';
 import {filesRoute,linkForm} from '/lab/library_2/add-choices.js?v=20261109add3';
 const signedIn=/(?:^|;\s*)tinct_auth=1(?:;|$)/.test(document.cookie);

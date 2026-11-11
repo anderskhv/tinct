@@ -4388,6 +4388,88 @@ async function highlightBar(browser, origin) {
   return results
 }
 
+/* highlight-leave (Anders, 11 Nov 2026): a saved highlight's bar goes at the first scroll or turn of the wheel, and on
+   the desktop when the mouse leaves it (280 ms, 12 px of slack, only once the mouse has been on it), as in the book
+   reader (src/lab/labHighlightMenuLeave.ts). A PDF and an EPUB on the desktop; on the phone a scroll still closes it. */
+async function highlightLeave(browser, origin) {
+  const results = [], ok = okList(results)
+  for (const [kind, width, height] of [['pdf', 1440, 900], ['epub', 1440, 900], ['pdf', 390, 844]]) {
+    const tag = `highlight-leave-${kind}-${width}x${height}`, phone = width < 700
+    account.marks.clear(); account.cards.clear()
+    const A = kind === 'epub' ? await openEpubHere(browser, origin, { width, height, look: 'paper' }) : await readerPage(browser, origin, addBook(PDFS[0]), { width, height, look: 'paper', startPage: 3 })
+    const a = A.page
+    if (kind === 'pdf') await prefetchSettled(a)
+    const barUp = () => a.evaluate(() => !!document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar'))
+    const barBox = () => a.evaluate(() => { const r = document.querySelector('.mr-float.mr-bar, .mr-float.mr-pbar').getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height } })
+    const select = () => kind === 'epub' ? a.evaluate(selectEpub) : selectText(a)
+    // Highlight a fresh selection with the bar's dot: the bar stays, now a saved highlight's.
+    const make = async () => {
+      await select(); await a.waitForSelector('.mr-float [data-m="dot"]', { timeout: 5000 }).catch(() => {})
+      const dot = await a.$('.mr-float [data-m="dot"]'); if (!dot) return false
+      const r = await dot.boundingBox(); await a.mouse.move(r.x + r.width / 2, r.y + r.height / 2, { steps: 3 }); await a.mouse.down(); await a.mouse.up()
+      await a.waitForTimeout(250); return true
+    }
+    const clickHl = async () => { const p = await a.evaluate(() => { let r = [...document.querySelectorAll('.hl-layer i')].at(-1)?.getBoundingClientRect(); if (!r && window.CSS?.highlights) for (const [k, h] of CSS.highlights) if (k.startsWith('tinct-hl-')) for (const range of h) r = range.getClientRects()[0] || r; if (!r) return null; return { x: r.left + Math.min(20, r.width / 2), y: r.top + r.height / 2 } }); if (!p) return false; await a.mouse.click(p.x, p.y); await a.waitForTimeout(400); return true }
+    // A point 160 px off the bar, inside the window (a pointer outside the window sends no events).
+    const away = (r, by = 160) => ({ x: r.x + r.w / 2, y: r.y - by > 60 ? r.y - by : Math.min(height - 10, r.y + r.h + by) })
+    const clear = async () => { await a.keyboard.press('Escape'); await a.keyboard.press('Escape'); await a.evaluate(() => { getSelection().removeAllRanges(); if (typeof marginClose === 'function') marginClose() }); await a.waitForTimeout(200) }
+    if (!phone) {
+      // 1. Made with the mouse on the bar, the mouse leaves: gone after the grace, not before.
+      ok(`${tag}: a highlight made from the bar keeps the bar`, await make() && await barUp())
+      const b = await barBox()
+      await a.mouse.move(b.x + b.w / 2, b.y + b.h + 8, { steps: 2 })
+      await a.waitForTimeout(350)
+      ok(`${tag}: inside the 12 px of slack it stays`, await barUp())
+      { const p = away(b); await a.mouse.move(p.x, p.y, { steps: 3 }) }
+      await a.waitForTimeout(120)
+      const early = await barUp()
+      await a.waitForTimeout(400)
+      ok(`${tag}: once the mouse leaves it goes after a short grace (still there at 120 ms, gone by 520 ms)`, early && !(await barUp()), { early })
+      if (kind === 'epub') {
+        // An EPUB: the same bar on a fresh highlight goes with a turn of the wheel (clicking an EPUB highlight is
+        // the epub-marks check's).
+        await clear(); ok(`${tag}: a second highlight keeps its bar`, await make() && await barUp())
+        { const e = await barBox(), p = away(e); await a.mouse.move(p.x, p.y) }
+        await a.mouse.wheel(0, 60); await a.waitForTimeout(80)
+        ok(`${tag}: a turn of the wheel closes it at once`, !(await barUp()))
+        ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+        await A.ctx.close(); continue
+      }
+      // 2. Coming back within the grace cancels it.
+      await clear(); ok(`${tag}: a click on the highlight opens its bar`, await clickHl() && await barUp())
+      const c = await barBox()
+      await a.mouse.move(c.x + c.w / 2, c.y + c.h / 2, { steps: 3 })
+      { const p = away(c); await a.mouse.move(p.x, p.y, { steps: 2 }) } await a.waitForTimeout(120)
+      await a.mouse.move(c.x + c.w / 2, c.y + c.h / 2, { steps: 2 }); await a.waitForTimeout(500)
+      ok(`${tag}: coming back within the grace keeps it`, await barUp())
+      // 3. A highlight clicked in the text: the mouse never on the bar, it stays (not armed).
+      await clear(); await clickHl()
+      const d = await barBox()
+      { const p = away(d, 220); await a.mouse.move(Math.min(width - 10, p.x + 300), p.y, { steps: 3 }) } await a.waitForTimeout(600)
+      ok(`${tag}: a clicked highlight's bar waits for the mouse to come to it first`, await barUp())
+      // 5. A turn of the wheel closes it at once.
+      await a.mouse.move(d.x + d.w / 2, d.y - 140 > 80 ? d.y - 140 : d.y + d.h + 140)
+      await a.mouse.wheel(0, 60); await a.waitForTimeout(80)
+      ok(`${tag}: a turn of the wheel closes it at once`, !(await barUp()))
+      // 6. A fresh selection's bar still follows its passage on a small scroll.
+      await clear(); await select(); await a.waitForSelector('.mr-float.mr-bar', { timeout: 5000 }).catch(() => {})
+      await a.evaluate(() => { $('scroll').scrollTop += 20 }); await a.waitForTimeout(200)
+      ok(`${tag}: a fresh selection's bar is not closed by a small scroll`, await barUp())
+    } else {
+      // The phone: no mouse; a saved highlight's bar goes at the first scroll.
+      await clear(); const made = await make()
+      ok(`${tag}: a highlight made from the bar keeps it`, made && await barUp())
+      await a.waitForTimeout(700)
+      ok(`${tag}: on the phone it never closes by itself`, await barUp())
+      await a.evaluate(() => { $('scroll').scrollTop += 30 }); await a.waitForTimeout(150)
+      ok(`${tag}: the first scroll closes it`, !(await barUp()))
+    }
+    ok(`${tag}: no page errors`, !A.problems.length, A.problems)
+    await A.ctx.close()
+  }
+  return results
+}
+
 /* zoom-panel (19 Oct 2026, evening, item 6): a PDF's Aa panel on the desktop has Zoom (−, the percentage, +, Fit width,
    100% by default) instead of the A—A slider, and a line pointing to Convert to Tinct book; the page never grows past
    its room (never under the margin column, no sideways scroll), by the buttons, the keys or a pinch; "Full width" is
@@ -6094,6 +6176,7 @@ const RUNS = {
   'define-card': [defineCard, rows => rows.some(r => !r.pass)],
   'figure-chip': [figureChip, rows => rows.some(r => !r.pass)],
   'highlight-bar': [highlightBar, rows => rows.some(r => !r.pass)],
+  'highlight-leave': [highlightLeave, rows => rows.some(r => !r.pass)],
   'zoom-panel': [zoomPanel, rows => rows.some(r => !r.pass)],
   'margin-notes': [marginNotes, rows => rows.some(r => !r.pass)],
   'unit-marks': [unitMarks, rows => rows.some(r => !r.pass)],
@@ -6167,7 +6250,7 @@ try {
   else if (mode === 'card-safety') { const rows = await cardSafety(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'card-safety-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'latency') { const rows = await askLatency(browser, origin, args.length ? args : null); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'latency-results.json'), JSON.stringify(rows, null, 2)) }
   else if (mode === 'justified') { const rows = await justifiedCheck(browser, origin); failed = rows.some(r => !r.pass); writeFileSync(join(OUT, 'justified-results.json'), JSON.stringify(rows, null, 2)) }
-  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-heads', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
+  else if (RUNS[mode === 'unit-pills' ? 'unit-marks' : mode] && ['primer-anchor', 'wait-dots', 'chat-scroll', 'highlight-place', 'card-fold', 'cross-page', 'column-page', 'figure-race', 'cards-gloss', 'pause-dots', 'passage-mark', 'stray-menu', 'whole-words', 'primer-top', 'define-card', 'figure-chip', 'highlight-bar', 'highlight-leave', 'zoom-panel', 'margin-notes', 'unit-pills', 'unit-marks', 'table-crop', 'notebook', 'epub-view', 'epub-open', 'epub-units', 'epub-heads', 'epub-marks', 'epub-quiz', 'epub-ask', 'pdf-text', 'desk-polish', 'cards-round2', 'settings'].includes(mode)) { const [run, bad] = RUNS[mode === 'unit-pills' ? 'unit-marks' : mode]; const rows = await run(browser, origin); failed = bad(rows); writeFileSync(join(OUT, `${mode}-results.json`), JSON.stringify(rows, null, 2)) }
   else if (mode === 'pairs') { const list = await pairs(browser, origin); console.log(list.join('\n')) }
   else throw new Error('unknown mode: ' + mode)
 } finally { await browser.close(); server.close() }

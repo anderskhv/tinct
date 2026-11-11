@@ -623,7 +623,9 @@ export class PdfOriginalGeometry implements PdfOriginalReaderServices {
       console.warn('[pdf ask] refused', reply.status, said)
       throw new PdfAskError(reply.status === 401 ? 'Sign in again to ask about this PDF.'
         : reply.status === 429 || reply.status === 402 ? said || 'Too many questions at once. Give it a few seconds.'
-          : `Tinct could not answer this time (error ${reply.status}). Try again.`)
+          // The Worker refused the picture itself (chatImages.ts): trying again sends the same one.
+          : said === 'image_rejected' ? 'This figure could not be sent as a picture. Select a smaller part of it.'
+            : `Tinct could not answer this time (error ${reply.status}). Try again.`)
     }
     if (!response) return null
     try {

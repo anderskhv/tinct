@@ -567,6 +567,13 @@
   background: none;
 }
 
+/* Transcripts (labTranscript, 11 Nov 2026): the time muted, the speaker bold. Display
+   only; the paginators measure the same classes. */
+.lab .lab-transcript-time,
+.lab .lab-passage .lab-hearing-word.lab-transcript-time { color: var(--lab-ink-muted); font-variant-numeric: tabular-nums; }
+.lab .lab-transcript-speaker,
+.lab .lab-passage .lab-hearing-word.lab-transcript-speaker { font-weight: 600; }
+
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-current,
 .lab-passage.is-reading.is-hearing .lab-hearing-word.is-line {
   color: var(--lab-ink);
@@ -7902,3 +7909,4 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] { --lab-call-end: #111; --
 .lab[data-chrome-version="v2"] .lab-passage.is-compare > .lab-passage-header,
 .lab[data-chrome-version="v2"] .lab-book.is-aligned-compare .lab-passage-header,
 .lab[data-chrome-version="v2"] .lab-desktop-measure.is-paired .lab-desktop-measure-page > .lab-passage-header { max-width: calc((100% - var(--desktop-gutter, 56px)) / 2); }
+

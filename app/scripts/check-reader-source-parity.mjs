@@ -377,7 +377,7 @@ try {
         await page.waitForTimeout(80)
       }
       // Book scroll paints every chapter's end; the reader's own chapter's is the first one past the reading line.
-      for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).first().waitFor()
+      for (const name of ['Summary of this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).first().waitFor()
       await page.screenshot({ path: `${output}/ebook-end-actions.png` })
       await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
       const reference = host.locator('[data-testid="lab-word"][data-paragraph-index="8"]').filter({ hasText: /^Fig\.?$/ }).first()

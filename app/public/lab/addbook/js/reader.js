@@ -3532,6 +3532,7 @@ function marginClose() {
   clearTimeout(m.press); dictation.stop();
   const field = m.el?.querySelector('.mr-note__field');
   if (field && m.ids[0] && field.value.trim() !== (highlights().find(h => h.id === m.ids[0])?.note || '')) noteDrafts.set(m.ids[0], field.value);
+  m.leaveStop?.();
   m.el?.remove(); m.moreEl?.remove();
   mr = null;
   paintSelection();
@@ -3583,6 +3584,7 @@ function mrShow(mode, { question = '' } = {}) {
     el.innerHTML = MH.barHtml(mode, mrOpts({ question }));
   }
   mrPlace();
+  if (savedBar()) watchBarLeave(); else mr.leaveStop?.();
   if (mode === 'asking') { const t = el.querySelector('.mr-ask'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); fitAsk() }
   if (mode === 'note') { const t = el.querySelector('.mr-note__field'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
   paintSelection();
@@ -3615,7 +3617,53 @@ function mrPlace() {
   if (mr.moreEl) placeMoreEl();
 }
 let mrFrameReq = 0;
-$('scroll').addEventListener('scroll', () => { if (!mr || mrFrameReq) return; mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() }) }, { passive: true });
+/*
+ * A saved highlight's bar (its colours and note, waiting for a change; a highlight clicked in the text) goes at the
+ * reader's first scroll or turn of the wheel, and on the desktop when the mouse leaves it (Anders, 11 Nov 2026), as in
+ * the book reader (src/lab/labHighlightMenuLeave.ts). A fresh selection's bar still follows its passage. Never while a
+ * finger or the mouse is down (dragging a selection's handle scrolls the page too), never while the keyboard is in it.
+ */
+const savedBar = () => !!mr?.el && mr.ids.length > 0 && (mr.mode === 'menu' || mr.mode === 'colors' || mr.mode === 'existing');
+let mrPointerDown = false;
+addEventListener('pointerdown', () => { mrPointerDown = true }, true);
+for (const t of ['pointerup', 'pointercancel']) addEventListener(t, () => { mrPointerDown = false }, true);
+$('scroll').addEventListener('scroll', () => {
+  if (!mr) return;
+  if (savedBar() && !mrPointerDown) { marginClose(); return }
+  if (mrFrameReq) return;
+  mrFrameReq = requestAnimationFrame(() => { mrFrameReq = 0; mrPlace() });
+}, { passive: true });
+$('scroll').addEventListener('wheel', e => {
+  if (!savedBar() || mrPointerDown || !(e.deltaY || e.deltaX)) return;
+  if (e.target?.closest?.('.mr-bar, .mr-pbar, .mr-more')) return;
+  marginClose();
+}, { passive: true });
+function barBoxes() {
+  return [mr?.el, mr?.moreEl].filter(Boolean).map(n => n.getBoundingClientRect()).map(r => ({ left: r.left, top: r.top, right: r.right, bottom: r.bottom }));
+}
+function barHasKeyboard() {
+  const a = document.activeElement;
+  if (!a || !(mr?.el?.contains(a) || mr?.moreEl?.contains(a))) return false;
+  if (a.matches('input, textarea, [contenteditable="true"]')) return true;
+  try { return a.matches(':focus-visible') } catch { return false }
+}
+/** Watches the mouse while a saved highlight's bar is up (armed by mrShow, stopped by marginClose). */
+function watchBarLeave() {
+  if (mr.leaveStop || isPhone() || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const m = mr, { ms, slack } = TinctMargin.MENU_LEAVE;
+  let entered = false, timer = 0, buttons = 0;
+  const cancel = () => { clearTimeout(timer); timer = 0 };
+  const see = e => {
+    if (e.pointerType !== 'mouse') return;
+    buttons = e.type === 'pointerup' ? 0 : e.buttons;
+    if (TinctMargin.insideMenu(e.clientX, e.clientY, barBoxes(), slack)) { entered = true; cancel(); return }
+    if (!entered || buttons || timer) return;
+    timer = setTimeout(() => { timer = 0; if (mr === m && savedBar() && !buttons && !barHasKeyboard()) marginClose() }, ms);
+  };
+  const types = ['pointermove', 'pointerdown', 'pointerup'];
+  for (const t of types) addEventListener(t, see, true);
+  m.leaveStop = () => { cancel(); for (const t of types) removeEventListener(t, see, true); m.leaveStop = null };
+}
 addEventListener('resize', () => { if (mr && mr.mode !== 'asking' && mr.mode !== 'note') marginClose() });
 function mrAction(m) {
   // The phone: Ask is the bottom card, the passage quoted and its field ready above the keyboard (phoneAsk).

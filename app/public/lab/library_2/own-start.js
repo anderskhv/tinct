@@ -7,7 +7,7 @@
 // the reader. The hero link's href="/byob" stays as the no-script fallback.
 import {putHandoff,putHandoffFiles,putPasteHandoff,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {pasteBox} from './paste-box.js?v=20261109add3';
-import {pasteTooLong} from './own-add.js?v=20261109add3';
+import {pasteTooLong} from './own-add.js?v=20261111link';
 import {linkHtml} from './paste-text.js?v=20261109add3';
 import {ADD_TITLE,LINK_COPY,choiceList,filesRoute,linkForm,backButton} from './add-choices.js?v=20261109add3';
 

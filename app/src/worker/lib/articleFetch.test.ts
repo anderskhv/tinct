@@ -63,7 +63,11 @@ describe('fetching the page to import', () => {
   it('names PDFs, other files and the site refusing', async () => {
     expect(await code(fetchArticlePage(new URL('https://example.org/a.pdf'), { fetchImpl: async () => page('%PDF-1.7', { headers: { 'content-type': 'application/pdf' } }) }))).toBe('pdf')
     expect(await code(fetchArticlePage(new URL('https://example.org/a'), { fetchImpl: async () => page('%PDF-1.4 ...', { headers: { 'content-type': '' } }) }))).toBe('pdf')
-    expect(await code(fetchArticlePage(new URL('https://example.org/a.zip'), { fetchImpl: async () => page('PK', { headers: { 'content-type': 'application/zip' } }) }))).toBe('unsupported_type')
+    // Another file (11 Nov 2026): 'file', so the browser asks the file import, which decides by the bytes.
+    expect(await code(fetchArticlePage(new URL('https://example.org/a.zip'), { fetchImpl: async () => page('PK', { headers: { 'content-type': 'application/zip' } }) }))).toBe('file')
+    expect(await code(fetchArticlePage(new URL('https://example.org/dl?id=4'), { fetchImpl: async () => page('%PDF', { headers: { 'content-type': 'application/octet-stream' } }) }))).toBe('file')
+    expect(await code(fetchArticlePage(new URL('https://example.org/book.epub'), { fetchImpl: async () => page('PK', { headers: { 'content-type': 'application/octet-stream' } }) }))).toBe('epub')
+    expect(await code(fetchArticlePage(new URL('https://example.org/b'), { fetchImpl: async () => page('PK', { headers: { 'content-type': 'application/epub+zip' } }) }))).toBe('epub')
     expect(await code(fetchArticlePage(new URL('https://example.org/a'), { fetchImpl: async () => page('no', { status: 403 }) }))).toBe('refused_by_site')
     expect(await code(fetchArticlePage(new URL('https://example.org/a'), { fetchImpl: async () => page('no', { status: 404 }) }))).toBe('not_found')
     expect(await code(fetchArticlePage(new URL('https://example.org/a'), { fetchImpl: async () => { throw new TypeError('network') } }))).toBe('unreachable')

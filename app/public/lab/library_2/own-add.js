@@ -64,6 +64,32 @@ export async function draftFromLink(draft,{importer=importArticle}={}){
  return {html:article.html,title:String(draft.title||'').trim()||article.title,author:article.author,uid:draft.uid||'',source:article.source};
 }
 
+// ---- A link to a PDF or EPUB: opened as a chosen file (Anders, 11 Nov 2026) ----
+/** The import's answer for a link that is a file: the caller then asks importFile and adds the file. */
+export const isFileLink=error=>error?.code==='pdf'||error?.code==='epub'||error?.code==='file';
+const FILE_FAILED='Tinct could not open this file. Download it and add it instead.';
+/**
+ * The PDF or EPUB at `url`, fetched once by Tinct's server (POST /api/import-file, signed in; the server keeps
+ * neither the file nor the link), as a File named from the server's answer; `file.source` is the final address.
+ * Throws an Error with the reader-facing message.
+ */
+export async function importFile(url,{fetchImpl=(...args)=>fetch(...args),token=globalThis.TinctAI?.session?.().token||''}={}){
+ if(!token){const error=new Error('Your Tinct sign-in has expired. Sign in again, then try again.');error.code='signed_out';throw error;}
+ let response;
+ try{response=await fetchImpl('/api/import-file',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({url})});}
+ catch{const error=new Error('No connection. Check your internet and try again.');error.code='offline';throw error;}
+ const type=(response.headers.get('content-type')||'').split(';')[0].trim();
+ if(!response.ok||(type!=='application/pdf'&&type!=='application/epub+zip')){
+  let reply=null;try{reply=await response.json();}catch{/* below */}
+  const error=new Error(typeof reply?.error==='string'&&reply.error?reply.error:FILE_FAILED);error.code=reply?.code||'failed';error.httpStatus=response.status;throw error;
+ }
+ const decoded=value=>{try{return decodeURIComponent(value||'');}catch{return '';}};
+ const name=decoded(response.headers.get('x-file-name'))||(type==='application/pdf'?'Linked document.pdf':'Linked document.epub');
+ const file=new File([await response.arrayBuffer()],name,{type});
+ try{Object.defineProperty(file,'source',{value:decoded(response.headers.get('x-file-url'))||url});}catch{/* the name is enough */}
+ return file;
+}
+
 /** Where a pasted text opens: the Tinct reader, as My shelf opens it. */
 export const pastedReaderHref=key=>'/reader?userBook='+encodeURIComponent(String(key).slice(String(key).indexOf(':')+1))+'&sharedReader=1';
 /**

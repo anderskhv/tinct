@@ -17,8 +17,10 @@ import { extractArticle } from '../lib/articleExtract'
  *
  * A page that shares no readable text (paywalled, blocked, built by JavaScript, not an article) is
  * refused with NO_TEXT_MESSAGE, never turned into an empty book. Plain text is returned as text for the
- * browser's own plain-text reading. A PDF is refused with PDF_MESSAGE: Add a book reads PDFs from the
- * reader's device, with its rights step, and a server-fetched PDF would skip both.
+ * browser's own plain-text reading. A link to a file is answered with its code ('pdf', 'epub', or 'file' when
+ * only its bytes can tell): since
+ * 11 Nov 2026 the browser then asks POST /api/import-file for the file itself (routes/importFile.ts) and adds
+ * it as a chosen file, rights step included. PDF_MESSAGE is what an older page shows.
  */
 
 export const ARTICLE_IMPORT_PER_MINUTE = 10
@@ -47,6 +49,8 @@ const REFUSALS: Record<FetchFailure | 'no_text' | 'paywall', { status: number; e
   refused_by_site: { status: 422, error: NO_TEXT_MESSAGE },
   unsupported_type: { status: 415, error: 'This link is not a web page. If it is a file, download it and add it as a book.' },
   pdf: { status: 415, error: PDF_MESSAGE },
+  epub: { status: 415, error: 'This link is an EPUB. Download it and add it as a book.' },
+  file: { status: 415, error: 'This link is not a web page. If it is a file, download it and add it as a book.' },
   no_text: { status: 422, error: NO_TEXT_MESSAGE },
   paywall: { status: 422, error: NO_TEXT_MESSAGE },
 }

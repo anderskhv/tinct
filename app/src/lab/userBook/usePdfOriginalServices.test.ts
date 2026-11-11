@@ -596,6 +596,10 @@ it('says why a question failed instead of returning nothing, and retries a dropp
   chat = () => json({ error: 'Invalid message content' }, 400)
   expect(await reason(service.ask(selection, 'explain'))).toBe('Tinct could not answer this time (error 400). Try again.')
 
+  // The Worker refused the picture: the reason, not a bare status (a second try sends the same picture).
+  chat = () => json({ error: 'image_rejected' }, 400)
+  expect(await reason(service.ask(selection, 'explain'))).toBe('This figure could not be sent as a picture. Select a smaller part of it.')
+
   chat = () => json({ content: [], stop_reason: 'end_turn' })
   expect(await reason(service.ask(selection, 'explain'))).toBe('The answer stopped before it was finished. Try again.')
 
