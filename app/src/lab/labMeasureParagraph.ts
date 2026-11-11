@@ -1,3 +1,4 @@
+import { transcriptTurnClass, type TranscriptTurn } from './labTranscript'
 import { HARD_BREAK_FRAGMENT_RE } from './labHyphenate'
 import { isLabVerseMarker, LAB_VERSE_SEPARATOR, labVerseMarkerDisplay } from './labHearing'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
@@ -76,6 +77,8 @@ export interface LabMeasureOptions {
   plans?: boolean
   /** This plan instead of the stored one (while a plan is being made). */
   plan?: HyphenPlan
+  /** A transcript turn's time and speaker (labTranscript): measured with the weight they paint in. */
+  turn?: TranscriptTurn
 }
 
 /**
@@ -120,7 +123,7 @@ export function labMeasureParagraphInto(
       span.append(figureElement(figure))
       return span
     }
-    span.className = 'lab-hearing-word'
+    span.className = `lab-hearing-word${transcriptTurnClass(options.turn, (lineation?.from ?? 0) + index)}`
     // A link paints its label (a bare address shows its domain and an arrow),
     // so it is measured as painted.
     const link = lineation ? wordLink(lineation.text, lineation.from + index, word.text) : null

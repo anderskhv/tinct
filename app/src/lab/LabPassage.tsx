@@ -1,4 +1,5 @@
 import {buildChapterSelection,type SelectionChapter,type ChapterSelectionPart} from './labChapterSelection'
+import { transcriptTurns, transcriptWordClass } from './labTranscript'
 import { lineSlice, proseRuns, sliceJoinsPrevious, sliceRunContinues } from './labPoetry'
 import { LAB_CONTINUED_TAIL_MAX_GAP_EM, continuedTailJustifiedGap, labFragmentClass, labWordSpacing, measuredTailGapEm, type LabTailRect } from './labMeasureParagraph'
 import { paragraphKindClass, wordLink } from './labParagraphStyle'
@@ -980,6 +981,8 @@ export function LabPassage({
     setLocalSelecting(null)
   }
 
+  // A transcript's turns: the time muted and the speaker bold (display only).
+  const transcript = useMemo(() => transcriptTurns(paragraphs), [paragraphs])
   const footnotesAt = useMemo(() => {
     const at = new Map<string, PlacedFootnote[]>()
     for (const note of footnotes ?? []) at.set(`${note.paragraphIndex}:${note.wordIndex}`, [...(at.get(`${note.paragraphIndex}:${note.wordIndex}`) ?? []), note])
@@ -1031,7 +1034,7 @@ export function LabPassage({
                       return (
                         <Fragment key={`${lineIndex}-${wordIndex}`}>
                         <span
-                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}`}
+                          className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}${transcriptWordClass(transcript, paragraphIndex, absoluteWord)}`}
                           data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
