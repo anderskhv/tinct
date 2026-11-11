@@ -311,7 +311,14 @@ try {
       await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '1')
       await ready()
       assert.equal(await root.getAttribute('data-chapter'), '1', 'whole-book Home reaches the first chapter')
+      // Book scroll (11 Nov 2026): the Bible's desktop Margin reader scrolls a whole biblical book, and its overview is that
+      // book's, a mark at every chapter's start.
       await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.getByRole('slider', { name: 'Book position', exact: true }).waitFor()
+      assert.equal(await host.getAttribute('data-book-scroll-unit'), 'bible/Genesis/1', 'the Bible scrolls one biblical book')
+      assert.equal(await page.locator('[data-map-chapter-mark]').count(), 50, "Genesis's overview marks its fifty chapters")
+      // The one-chapter overview (the reader without book scroll: ?bookScroll=0, also the phone's and own books' reader).
+      await page.goto(`${origin}/reader?book=bible&edition=kjv-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=0`, { waitUntil: 'domcontentloaded' }); await ready()
       const chapterMap = page.getByRole('slider', { name: 'Chapter position', exact: true })
       await chapterMap.waitFor()
       assert.equal(await root.getAttribute('data-book-id'), 'bible')
@@ -363,13 +370,14 @@ try {
       assert.equal(await root.getAttribute('data-chapter'), '2', 'backward keys cannot leave the Bible chapter')
       assert.equal(await biblePlace(), '2/0:0', 'backward keys clamp at the first source word')
       await page.screenshot({ path: `${output}/bible-chapter-minimap.png` })
-      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
+      await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop&bookScroll=1`, { waitUntil: 'domcontentloaded' }); await ready()
       await host.hover()
       for (let step = 0; step < 24 && !(await host.getByTestId('lab-unit-quiz').count()); step++) {
         await page.mouse.wheel(0, await host.evaluate(node => Math.floor(node.clientHeight * .8)))
         await page.waitForTimeout(80)
       }
-      for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).waitFor()
+      // Book scroll paints every chapter's end; the reader's own chapter's is the first one past the reading line.
+      for (const name of ['Recap this chapter', 'Quiz me on this chapter', 'Chapter note']) await host.getByRole('button', { name, exact: true }).first().waitFor()
       await page.screenshot({ path: `${output}/ebook-end-actions.png` })
       await page.goto(`${origin}/reader?book=bold-conjectures-volume-2&edition=original-en&chapter=7&paragraph=8&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await ready()
       const reference = host.locator('[data-testid="lab-word"][data-paragraph-index="8"]').filter({ hasText: /^Fig\.?$/ }).first()

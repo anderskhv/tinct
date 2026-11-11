@@ -1,28 +1,31 @@
 /**
- * Book scroll (try-out, 11 Nov 2026): the desktop Margin reader scrolls through a whole
- * "scroll unit" instead of stopping at each chapter. Off unless the session switch is on
- * (`?bookScroll=1`), and nothing here is read while it is off.
+ * Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls through a whole "scroll unit"
+ * instead of stopping at each chapter. On for Tinct library books; phone, two-page, Compare and a
+ * reader's own books keep the one-chapter reader for now.
  *
- * The saved place is unchanged: chapter + paragraph + word. Only the view changes; the
- * reader's chapter follows the chapter at the reading line (BookScrollReader.tsx).
+ * The saved place is unchanged: chapter + paragraph + word. Only the view changes; the reader's
+ * chapter follows the chapter at the reading line (BookScrollReader.tsx).
+ *
+ * A pasted article can join later as one scroll unit whose sections are its chapters, with no gap
+ * between them (`BookScrollUnit.gap`).
  */
 import { parseBibleChapterTitle, type LabChapter } from '../labSource'
 
-const SWITCH_KEY = 'tinct-book-scroll'
+const SWITCH_KEY = 'tinct-book-scroll-off'
 
 /**
- * The session switch. `?bookScroll=1` turns it on for this tab's session, `?bookScroll=0` off.
- * There is no menu entry: it is a try-out only Anders opens.
+ * On unless switched off. `?bookScroll=0` turns it off for this tab's session (a QA escape hatch, no
+ * menu entry), `?bookScroll=1` on again.
  */
 export function bookScrollSwitch(search: string, storage?: Pick<Storage, 'getItem' | 'setItem' | 'removeItem'> | null): boolean {
   let asked: string | null = null
   try { asked = new URLSearchParams(search).get('bookScroll') } catch { asked = null }
   try {
-    if (asked === '1') storage?.setItem(SWITCH_KEY, '1')
-    else if (asked === '0') storage?.removeItem(SWITCH_KEY)
-    return asked === '1' || (asked !== '0' && storage?.getItem(SWITCH_KEY) === '1')
+    if (asked === '0') storage?.setItem(SWITCH_KEY, '1')
+    else if (asked === '1') storage?.removeItem(SWITCH_KEY)
+    return asked === '1' || (asked !== '0' && storage?.getItem(SWITCH_KEY) !== '1')
   } catch {
-    return asked === '1'
+    return asked !== '0'
   }
 }
 
@@ -33,6 +36,11 @@ export interface BookScrollUnit {
   label: string
   /** The unit's chapters, in reading order. */
   chapters: LabChapter[]
+  /**
+   * The space before a chapter's heading inside the unit: 'scripture' (short chapters, a smaller
+   * gap), 'book' (a novel's chapter ending is a pause), 'none' (a pasted article's sections, later).
+   */
+  gap: 'scripture' | 'book' | 'none'
 }
 
 /** The higher division a chapter title carries: "Book Two (1805) — Chapter 3" -> "Book Two (1805)". */
@@ -62,21 +70,21 @@ function runAround<T>(items: readonly T[], index: number, group: (item: T) => st
  */
 export function bookScrollUnit(bookId: string, chapters: readonly LabChapter[], chapterNumber: number): BookScrollUnit {
   const index = chapters.findIndex(chapter => chapter.number === chapterNumber)
-  if (index < 0) return { key: `${bookId}/chapter:${chapterNumber}`, label: '', chapters: chapters.filter(chapter => chapter.number === chapterNumber) }
+  if (index < 0) return { key: `${bookId}/chapter:${chapterNumber}`, label: '', chapters: chapters.filter(chapter => chapter.number === chapterNumber), gap: bookId === 'bible' ? 'scripture' : 'book' }
   if (bookId === 'bible') {
     const group = (chapter: LabChapter) => parseBibleChapterTitle(chapter.title).book
     const run = runAround(chapters, index, group)
-    return { key: `${bookId}/${group(chapters[index])}/${run[0].number}`, label: group(chapters[index]), chapters: run }
+    return { key: `${bookId}/${group(chapters[index])}/${run[0].number}`, label: group(chapters[index]), chapters: run, gap: 'scripture' }
   }
   const divisions = chapters.map(chapter => chapterDivision(chapter.title))
   const named = new Set(divisions.filter((division): division is string => division != null))
   // A real division names several chapters: more than one division, and far fewer divisions than chapters.
   // "Chapter 1 — The Letter" style titles give one division per chapter and stay a whole-book scroll.
   const divided = named.size > 1 && named.size <= chapters.length * 0.6
-  if (!divided) return { key: `${bookId}/book`, label: '', chapters: [...chapters] }
+  if (!divided) return { key: `${bookId}/book`, label: '', chapters: [...chapters], gap: 'book' }
   const group = (chapter: LabChapter) => chapterDivision(chapter.title) ?? ''
   const run = runAround(chapters, index, group)
-  return { key: `${bookId}/${group(chapters[index])}/${run[0].number}`, label: group(chapters[index]), chapters: run }
+  return { key: `${bookId}/${group(chapters[index])}/${run[0].number}`, label: group(chapters[index]), chapters: run, gap: 'book' }
 }
 
 export interface BookScrollBlock { chapterNumber: number; top: number }

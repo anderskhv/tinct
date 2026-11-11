@@ -1,10 +1,15 @@
-/* Book scroll (try-out, ?bookScroll=1): a page break between the chapters of one scroll unit. */
+/* Book scroll (Anders, 11 Nov 2026): a thin rule, space, then the next chapter's heading. A novel's chapter ending is
+   a pause, so it has a little more room than a short scripture chapter; a pasted article's sections (later) none. */
 .lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-chapter + .book-scroll-chapter {
   margin-top: 4.5rem; padding-top: 2.5rem;
   border-top: 1px solid color-mix(in srgb, currentColor 16%, transparent);
 }
-/* A neighbour is the reader's text, not yet the reader's own chapter: it selects nothing and opens nothing. */
-.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-neighbour { user-select: none; -webkit-user-select: none; }
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll-gap="book"] .book-scroll-chapter + .book-scroll-chapter {
+  margin-top: 6rem; padding-top: 3.5rem;
+}
+.lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll-gap="none"] .book-scroll-chapter + .book-scroll-chapter {
+  margin-top: 0; padding-top: 0; border-top: 0;
+}
 .lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-chapter.is-placeholder { box-sizing: border-box; }
 /* A neighbour's lines sit exactly where they will as the reader's own chapter (the reader's .lab-hearing-stage is a
    flex column, so its paragraph margins never collapse): nothing moves when the chapter becomes the reader's. */

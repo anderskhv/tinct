@@ -8,21 +8,21 @@ const memory = () => {
 const chapters = (titles: string[], from = 1) => titles.map((title, index) => ({ number: from + index, title }))
 
 describe('the book scroll switch', () => {
-  it('is off unless asked for, on for the session once asked, and off again on ?bookScroll=0', () => {
+  it('is on unless switched off; ?bookScroll=0 turns it off for the session and ?bookScroll=1 on again', () => {
     const storage = memory()
-    expect(bookScrollSwitch('', storage)).toBe(false)
-    expect(bookScrollSwitch('?book=odyssey', storage)).toBe(false)
-    expect(bookScrollSwitch('?book=odyssey&bookScroll=1', storage)).toBe(true)
+    expect(bookScrollSwitch('', storage)).toBe(true)
     expect(bookScrollSwitch('?book=odyssey', storage)).toBe(true)
-    expect(bookScrollSwitch('?bookScroll=0', storage)).toBe(false)
-    expect(bookScrollSwitch('', storage)).toBe(false)
+    expect(bookScrollSwitch('?book=odyssey&bookScroll=0', storage)).toBe(false)
+    expect(bookScrollSwitch('?book=odyssey', storage)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=1', storage)).toBe(true)
+    expect(bookScrollSwitch('', storage)).toBe(true)
   })
   it('works for the one page without session storage, and never throws', () => {
-    expect(bookScrollSwitch('?bookScroll=1', null)).toBe(true)
-    expect(bookScrollSwitch('', null)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=0', null)).toBe(false)
+    expect(bookScrollSwitch('', null)).toBe(true)
     const broken = { getItem: () => { throw new Error('blocked') }, setItem: () => { throw new Error('blocked') }, removeItem: () => { throw new Error('blocked') } }
-    expect(bookScrollSwitch('?bookScroll=1', broken)).toBe(true)
-    expect(bookScrollSwitch('', broken)).toBe(false)
+    expect(bookScrollSwitch('?bookScroll=0', broken)).toBe(false)
+    expect(bookScrollSwitch('', broken)).toBe(true)
   })
 })
 
@@ -31,6 +31,7 @@ describe('the scroll unit', () => {
   it('is one biblical book for the Bible', () => {
     const unit = bookScrollUnit('bible', bible, 1003)
     expect(unit.label).toBe('Luke')
+    expect(unit.gap).toBe('scripture')
     expect(unit.chapters.map(chapter => chapter.number)).toEqual([1002, 1003, 1004])
     expect(bookScrollUnit('bible', bible, 1002).key).toBe(unit.key)
     expect(bookScrollUnit('bible', bible, 1004).key).toBe(unit.key)
@@ -56,6 +57,7 @@ describe('the scroll unit', () => {
     const anna = chapters(Array.from({ length: 12 }, (_, index) => `Chapter ${index + 1}`))
     const unit = bookScrollUnit('anna-karenina', anna, 7)
     expect(unit.label).toBe('')
+    expect(unit.gap).toBe('book')
     expect(unit.chapters).toHaveLength(12)
     expect(bookScrollUnit('anna-karenina', anna, 1).key).toBe(unit.key)
   })

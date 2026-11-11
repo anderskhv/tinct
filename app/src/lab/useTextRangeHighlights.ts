@@ -41,7 +41,6 @@ const COLORS = {
 type Registry = Map<string, unknown>
 type Mounted = {
   root: HTMLElement
-  style: HTMLStyleElement
   observer: ResizeObserver | null
   onReflow: () => void
   frame: number
@@ -65,6 +64,41 @@ export function paintsTextRanges(): boolean {
 }
 
 /**
+ * One stylesheet and one named highlight per colour for the whole document (book scroll, 11 Nov 2026).
+ * Each passage used to install its own stylesheet of `::highlight()` rules and remove it when it went;
+ * adding or removing a stylesheet restyles every element in the document, which held the main thread
+ * for hundreds of milliseconds each time a chapter scrolled in or out of the Margin reader. Now the
+ * rules are written once and never removed; each passage only contributes its ranges, and a colour's
+ * highlight is the union of every mounted passage's ranges of that colour.
+ */
+export const RANGE_HIGHLIGHT_PREFIX = 'tinct-mark'
+const contributions = new Map<string, Record<string, Range[]>>()
+let sharedStyle: HTMLStyleElement | null = null
+
+function ensureSharedStyle(): void {
+  if (sharedStyle?.isConnected) return
+  sharedStyle = document.createElement('style')
+  sharedStyle.dataset.tinctRangeHighlights = ''
+  sharedStyle.textContent = Object.entries(COLORS).map(([color, [token, light, dark]]) => {
+    const name = `${RANGE_HIGHLIGHT_PREFIX}-${color}`
+    return `.lab ::highlight(${name}){background-color:var(--highlight-${token},${light});color:inherit}.lab.is-night ::highlight(${name}){background-color:var(--highlight-${token},${dark})}`
+  }).join('\n')
+  document.head.append(sharedStyle)
+}
+
+/** Register the union of every passage's ranges for the colours `colors` (all when omitted). */
+function publish(registry: Registry, colors: readonly string[] = Object.keys(COLORS)): void {
+  const HighlightClass = (globalThis as unknown as { Highlight: new (...ranges: Range[]) => unknown }).Highlight
+  for (const color of colors) {
+    const name = `${RANGE_HIGHLIGHT_PREFIX}-${color}`
+    const all: Range[] = []
+    for (const ranges of contributions.values()) if (ranges[color]) all.push(...ranges[color])
+    if (all.length) registry.set(name, new HighlightClass(...all))
+    else registry.delete(name)
+  }
+}
+
+/**
  * Paint a single text range across words and spaces, without changing line layout.
  *
  * The page re-renders on every spoken word. The stylesheet, the root class
@@ -82,19 +116,13 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layou
     const root = ref.current
     if (!paintsTextRanges()) return
     const registry = (globalThis.CSS as typeof CSS & { highlights: Registry }).highlights
-    const HighlightClass = (globalThis as unknown as { Highlight: new (...ranges: Range[]) => unknown }).Highlight
     if (mountedRef.current && mountedRef.current.root !== root) { unmount(mountedRef.current, prefix); mountedRef.current = null }
     if (!root) return
     let mounted = mountedRef.current
     if (!mounted) {
-      const style = document.createElement('style')
-      style.textContent = Object.entries(COLORS).map(([color, [token, light, dark]]) => {
-        const name = `${prefix}-${color}`
-        return `.lab ::highlight(${name}){background-color:var(--highlight-${token},${light});color:inherit}.lab.is-night ::highlight(${name}){background-color:var(--highlight-${token},${dark})}`
-      }).join('\n')
-      document.head.append(style)
+      ensureSharedStyle()
       root.classList.add('has-text-range-highlights')
-      const created: Mounted = { root, style, observer: null, onReflow: () => {}, frame: 0, signature: '', layoutKey, inputs: null, runs: [], layers: [], registry }
+      const created: Mounted = { root, observer: null, onReflow: () => {}, frame: 0, signature: '', layoutKey, inputs: null, runs: [], layers: [], registry }
       // Continued-tail alignment and reflow move the rows: measure them again.
       created.onReflow = () => schedulePaint(created)
       created.observer = typeof ResizeObserver === 'function' ? new ResizeObserver(created.onReflow) : null
@@ -169,7 +197,10 @@ export function useTextRangeHighlights(ref: RefObject<HTMLElement | null>, layou
     if (rangesChanged) {
       mounted.signature = key
       mounted.runs = runs
-      for (const color of Object.keys(COLORS)) registry.set(`${prefix}-${color}`, new HighlightClass(...(ranges[color] ?? [])))
+      const before = contributions.get(prefix) ?? {}
+      contributions.set(prefix, ranges)
+      // Only the colours this passage had or has now change.
+      publish(registry, Object.keys(COLORS).filter(color => before[color]?.length || ranges[color]?.length))
     }
     mounted.layoutKey = layoutKey
     if (!rangesChanged && !layoutChanged) return
@@ -237,6 +268,7 @@ function unmount(mounted: Mounted | null, prefix: string): void {
   document.fonts?.removeEventListener?.('loadingdone', mounted.onReflow)
   mounted.layers.forEach(layer => layer.remove())
   mounted.root.classList.remove('has-text-range-highlights')
-  for (const color of Object.keys(COLORS)) mounted.registry.delete(`${prefix}-${color}`)
-  mounted.style.remove()
+  const had = contributions.get(prefix)
+  contributions.delete(prefix)
+  if (had) publish(mounted.registry, Object.keys(COLORS).filter(color => had[color]?.length))
 }

@@ -43,11 +43,6 @@ interface LabPassageProps {
   onCrossChapterSelect?: (parts: ChapterSelectionPart[], x: number, y: number) => void
   onCrossChapterSelecting?: (parts: ChapterSelectionPart[] | null) => void
   openingOnly?: boolean
-  /**
-   * Book scroll (try-out): a neighbouring chapter paints its highlights on the words and gaps themselves and installs
-   * no highlight stylesheet of its own (adding or removing one restyles the whole document). Off everywhere else.
-   */
-  plainHighlights?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
   onPreviewChapter?: () => void
@@ -461,11 +456,8 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
 
 const EMPTY_COMPARE_PARAGRAPHS: string[] = []
 
-const NO_HIGHLIGHT_ROOT: { current: HTMLElement | null } = { current: null }
-
 export function LabPassage({
   openingOnly = false,
-  plainHighlights = false,
   pendingLayout = false,
   chapterEnd,
   onPreviewChapter,
@@ -596,7 +588,7 @@ export function LabPassage({
   const selectionPaintKey = activeSelecting
     ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
     : ''
-  useTextRangeHighlights(plainHighlights ? NO_HIGHLIGHT_ROOT : articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey, appliedSelection], appliedSelection)
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey, appliedSelection], appliedSelection)
   // A tint never moves a word. Wrapping the space between two marked words in
   // its own span (to carry the mark's background) makes Chromium rebreak and
   // rehyphenate a justified `hyphens: auto` paragraph: selecting, asking about
@@ -605,7 +597,7 @@ export function LabPassage({
   // ranges the range already covers the bare space, so the separator stays a
   // bare space and a mark changes only the words' classes. Only a browser
   // without the Highlight API still gets the separator span.
-  const markedGaps = plainHighlights || !paintsTextRanges()
+  const markedGaps = !paintsTextRanges()
   const selectingChangeRef = useRef(onSelectingChange)
   selectingChangeRef.current = onSelectingChange
   useEffect(() => { selectingChangeRef.current?.(localSelecting) }, [localSelecting])
