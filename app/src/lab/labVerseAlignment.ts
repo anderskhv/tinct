@@ -237,3 +237,19 @@ export function compareRowAlignment(primary: string[], compare: string[], approx
   const verses = needsVerseAlignment(primary, compare) ? buildVerseAlignment(primary, compare) : null
   return verses ?? (approximate && compare.length > 0 ? buildProportionalAlignment(primary, compare, anchors) : null)
 }
+
+/**
+ * Compare shows the Compare edition on the LEFT and the reader's main edition on the right (Anders, 11 Nov 2026).
+ *
+ * Rows are paired top to top and a page ends when either side is full, so the taller text fills its page and the
+ * other follows with white space. Verse set line by line runs about 1.8 times as tall as the prose opposite it
+ * (Butler | Pope, Book 7: the left page 28 to 76 per cent filled). The left page should be the full one, so the
+ * verse goes there. A change of sides on screen only: the main edition is still the main edition (the saved place,
+ * audio, Explain, what Compare returns to).
+ *
+ * The rule: the pair's paragraphs do not line up, the Compare edition is `style: 'verse'`, and the main edition is not.
+ * Aligned pairs, verse as the main edition, and two prose or two verse editions keep their sides.
+ */
+export function compareSidesSwapped(pair: { unaligned: boolean; mainStyle: string | undefined; compareStyle: string | undefined }): boolean {
+  return pair.unaligned && pair.compareStyle === 'verse' && pair.mainStyle !== 'verse'
+}

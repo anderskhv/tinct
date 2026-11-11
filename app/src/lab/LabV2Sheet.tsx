@@ -63,6 +63,8 @@ export interface LabV2SheetProps {
    * 'verses': a Bible pair with no shared verse numbers (desktop side by side).
    */
   compareUnavailable?: false | 'verses' | 'chapter' | 'numbering'
+  /** Compare shows the Compare version on the left for this pair (labVerseAlignment compareSidesSwapped). */
+  compareSwapped?: boolean
   /** Compare is a desktop view (Anders, 10 Nov 2026): false on the phone hides its version row and switch. */
   compareChoice?: boolean
   /** The Bible chapter open in the reader: versions without it are shown but cannot be chosen as the main version. */
@@ -213,7 +215,7 @@ const TuneIcon = () => (
  * over a page that is dimmed and never blurred, so the words of the page read
  * through it while a setting is being changed.
  */
-export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
+export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', phoneShakespeare = false, layer, onLayer, onClose, prefs, onPrefs, editions, audioEditions = matchingAudioEditions(prefs.primaryEdition, editions), compare = null, compareFromLayout = false, margin = null, readerLayout = null, pdfSource, compareUnavailable = false, compareSwapped = false, compareChoice = true, chapterNumber, modernOffer, ownPdf = false, editionRows = true, readingAngle = null }: LabV2SheetProps) {
   const [eink, updateEink] = useState(readEinkProfile)
   const [einkOffered] = useState(readEinkProfile)
   useEffect(() => {
@@ -439,6 +441,11 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
                   <span className="lab-v2-row-label">Show compare</span>
                   <span className="lab-v2-switch" aria-hidden="true"><span className="lab-v2-switch-knob" /></span>
                 </button>
+              )}
+              {compareSwapped && !compareUnavailable && (
+                <p className="lab-v2-row-note" data-testid="lab-v2-compare-sides">
+                  {`In Compare the ${editionName(prefs.compareEdition)} is on the left, because verse fills the page; your place stays in the ${editionName(prefs.primaryEdition)}.`}
+                </p>
               )}
               {compareUnavailable && (
                 <p className="lab-v2-row-note" data-testid="lab-v2-compare-unavailable">

@@ -226,7 +226,7 @@ import { LabAccountSheet } from './LabAccountPrompt.tsx'
 import { clearLabAiActionCount, labCurrentPath, type LabAccountPromptRequest } from './labAccountPrompt'
 import { narrationBridgeUrls, useLabListen, type NextChapterAudio } from './useLabListen'
 import { labComparePassagePages, mapLabCompareAnchor, mapLabCompareEnd, type LabCompareAnchor } from './labCompare'
-import { buildVerseAlignment, needsVerseAlignment } from './labVerseAlignment'
+import { buildVerseAlignment, compareSidesSwapped, needsVerseAlignment } from './labVerseAlignment'
 import {
   createLabVoiceToolAdapter,
   getLabVoiceReadingHistory,
@@ -1102,6 +1102,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     edition.key !== prefs.primaryEdition
     && ((book.bookId || 'bible') !== 'bible' || bibleEditionHasChapter(edition.key, book.chapterNumber)
       && bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, book.chapterNumber)))
+  // Verse as the Compare edition of a prose main edition is set on the left, where the full page belongs
+  // (compareSidesSwapped). On screen only: the main edition, its place and everything addressed to it are unchanged.
+  const compareSwapped = desktopCompareEnabled && compareSidesSwapped({
+    unaligned: unalignedCompare,
+    mainStyle: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.style,
+    compareStyle: allBookEditions.find(edition => edition.key === prefs.compareEdition)?.style,
+  })
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
     ? book.compareParagraphs
     : book.paragraphs
@@ -6835,6 +6842,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
         : showPhoneChrome || desktopPaging ? (phoneReaderControlsVisible ? 'visible' : 'hidden') : 'desktop'}
       data-reader-edition={readerEditionKey}
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
+      data-compare-sides={compareSwapped && desktopCompareActive ? 'swapped' : 'main-left'}
       data-desktop-paging={desktopPaging ? 'true' : undefined}
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
       data-desktop-panel={desktopVoiceOpen
@@ -7048,6 +7056,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             : null}
           compareFromLayout={compareFromLayout}
           compareChoice={!showPhoneChrome}
+          compareSwapped={compareSidesSwapped({ unaligned: unalignedCompare, mainStyle: allBookEditions.find(edition => edition.key === prefs.primaryEdition)?.style, compareStyle: allBookEditions.find(edition => edition.key === prefs.compareEdition)?.style }) && prefs.compareOpen && !showPhoneChrome}
           compareUnavailable={!prefs.compareOpen ? false : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
@@ -7309,6 +7318,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             alignCompare={desktopPaging}
             approximateCompare={unalignedCompare}
             compareAnchors={compareAnchors}
+            compareSwapped={compareSwapped}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -7371,8 +7381,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
               : undefined}
           />}
           {desktopPaging && !chapterCoverTitle && !initialResolving && desktopMeasuredKey === desktopLayoutKey && nativeMeasuredContent === readerParagraphs && <div className="lab-desktop-page-footers" data-testid="lab-desktop-page-footers">
+            {/* Sides swapped: each foot says which edition it is, since the main one is not where it usually is. */}
+            {compareSwapped && desktopCompareActive ? <>
+              <span data-testid="lab-compare-foot-left"><b>Compare · {editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></span>
+              <span data-testid="lab-compare-foot-right"><b>Main version · {primaryEditionLabel.replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></span>
+            </> : <>
             <span>{desktopCompareActive && <b>{bookEditions.find(edition => edition.key === prefs.primaryEdition)?.style === 'original' ? 'Original' : 'Read'} · {primaryEditionLabel}</b>}<span>{labPageFolio(openingOnRight && carriedEndingCurrent ? carriedEndingCurrent.folio : bookPageEstimate.page)}</span></span>
             <span>{desktopCompareActive ? <><b>{editionLabelFor(prefs.compareEdition, allBookEditions).replace(/^Modern English$/i, 'Tinct Modern English')}</b><span>{labPageFolio(bookPageEstimate.page)}</span></> : openingOnRight ? <span>{labPageFolio(bookPageEstimate.page)}</span> : chapterProgress.currentPage < chapterProgress.totalPages ? <span>{labPageFolio(bookPageEstimate.page + 1)}</span> : null}</span>
+            </>}
           </div>}
           {!chapterCoverTitle && measuredPaging && !desktopPaging && (
             <LabNativePaginator

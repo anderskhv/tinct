@@ -6890,6 +6890,11 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-book-col,
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare .lab-hearing-stage { display: contents; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-compare .lab-book-columns::after { grid-column: auto; grid-row: auto; height: auto; }
+/* Sides swapped (labVerseAlignment compareSidesSwapped): the Compare edition's cells in the left column, the main
+   edition's lines in the right. The rows and everything that addresses a word are unchanged; only the columns are. */
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare.is-compare-swapped .lab-book-col:not(.lab-book-col-compare) .lab-hearing-stage > * { grid-column: 2 !important; }
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare.is-compare-swapped .lab-book-col-compare > *,
+.lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-book.is-aligned-compare.is-compare-swapped .lab-book-col-compare .lab-hearing-stage > * { grid-column: 1 !important; }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-desktop-measure {
   position: absolute; inset: var(--desktop-pad-top) var(--desktop-pad-x) var(--desktop-pad-bottom);
   visibility: hidden; opacity: 0; pointer-events: none;

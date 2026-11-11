@@ -63,6 +63,8 @@ interface LabPassageProps {
   approximateCompare?: boolean
   /** The book's anchors for this pair (labEditionAnchors.ts), the same object the paginator measured with. */
   compareAnchors?: AnchorMap | null
+  /** Compare shows the Compare edition on the left and this (main) text on the right (labVerseAlignment compareSidesSwapped). */
+  compareSwapped?: boolean
   chapterTitle: string
   paragraphs: string[]
   compareParagraphs: string[]
@@ -477,6 +479,7 @@ export function LabPassage({
   alignCompare = false,
   approximateCompare = false,
   compareAnchors = null,
+  compareSwapped = false,
   chapterTitle,
   paragraphs,
   compareParagraphs,
@@ -1150,6 +1153,7 @@ export function LabPassage({
         chapterEnd ? 'has-chapter-end' : '',
         endOverflow ? 'has-overflowing-end' : '',
         alignCompare && compare ? 'is-aligned-compare' : '',
+        alignCompare && compare && compareSwapped ? 'is-compare-swapped' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
       data-testid="lab-book"

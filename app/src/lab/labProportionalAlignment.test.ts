@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { tokenizeHearingWords } from './labHearing'
-import { buildProportionalAlignment, compareRowAlignment, verseGroups } from './labVerseAlignment'
+import { buildProportionalAlignment, compareRowAlignment, compareSidesSwapped, verseGroups } from './labVerseAlignment'
 
 const sentence = (n: number, tag: string) => Array.from({ length: n }, (_, i) => `${tag}${i}`).join(' ') + '.'
 // Prose: 5 paragraphs, 3 sentences of 20 words each. Verse: 9 paragraphs of 6 lines of 8 words.
@@ -86,5 +86,23 @@ describe('Compare between editions whose paragraphs do not line up', () => {
     const alignment = buildProportionalAlignment(prose, verse)!
     const whole = prose.map((text, paragraphIndex) => ({ paragraphIndex, from: 0, to: tokenizeHearingWords(text).length }))
     expect(verseGroups(whole, alignment)).toHaveLength(5)
+  })
+})
+
+describe('which side Compare shows the main edition on', () => {
+  it('verse as the Compare edition of a prose main edition goes on the left (Butler | Pope, Modern English | Pope)', () => {
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: 'original', compareStyle: 'verse' })).toBe(true)
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: 'modern', compareStyle: 'verse' })).toBe(true)
+  })
+  it('every other pair keeps the main edition on the left', () => {
+    // Pope as the main edition: already the full left page.
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: 'verse', compareStyle: 'original' })).toBe(false)
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: 'verse', compareStyle: 'verse' })).toBe(false)
+    // Two prose editions that do not line up (The Prince, English beside Italian).
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: 'original', compareStyle: 'original' })).toBe(false)
+    // Aligned pairs, whatever their styles.
+    expect(compareSidesSwapped({ unaligned: false, mainStyle: 'original', compareStyle: 'verse' })).toBe(false)
+    expect(compareSidesSwapped({ unaligned: false, mainStyle: 'original', compareStyle: 'modern' })).toBe(false)
+    expect(compareSidesSwapped({ unaligned: true, mainStyle: undefined, compareStyle: undefined })).toBe(false)
   })
 })
