@@ -209,7 +209,7 @@ try {
         await frame.click('#superBtn'); await frame.waitForSelector('.lab-super-panel')
         const rows = await frame.evaluate(() => [...document.querySelectorAll('.lab-super-panel > .lab-super-row')].map(r => r.dataset.row))
         const audio = await frame.evaluate(() => audioSettingsApply())
-        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Book settings${audio ? ', Audio settings' : ''}, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'book', ...(audio ? ['audio'] : []), 'export', 'library', 'account']), rows)
+        ok(`${tag}: the t menu is Chat · Talk, Summarize, Catch me up, Book settings${audio ? ', Audio settings' : ''}, AI settings, Export notes, Library, Profile`, JSON.stringify(rows) === JSON.stringify(['conversation', 'summarize', 'catchup', 'book', ...(audio ? ['audio'] : []), 'ai', 'export', 'library', 'account']), rows)
         ok(`${tag}: the top bar's Aa is never selected as text`, await frame.evaluate(() => getComputedStyle(document.getElementById('aaBtn')).userSelect) === 'none')
         shots.push(join(OUT, `${tag}-tmenu.png`)); await page.screenshot({ path: shots.at(-1) })
         await frame.click('.lab-super-row[data-row="book"]')

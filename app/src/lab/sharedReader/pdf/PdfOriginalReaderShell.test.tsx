@@ -871,7 +871,7 @@ it('uses the normal grouped PDF menu and routes settings without duplicate deskt
   render(<PdfOriginalReaderShell title="Own PDF" bytes={async()=>new ArrayBuffer(4)} onVisiblePlace={()=>{}} />)
   fireEvent.click(screen.getByTestId('lab-super'))
   const menu = screen.getByRole('navigation',{name:'Menu'})
-  expect([...menu.querySelectorAll('.lab-super-row-label')].map(node=>node.textContent)).toEqual(['Chat','Summarize','Appearance','Book settings','Profile'])
+  expect([...menu.querySelectorAll('.lab-super-row-label')].map(node=>node.textContent)).toEqual(['Chat','Summarize','Appearance','Book settings','AI settings','Profile'])
   expect(menu.querySelector('.is-pair')).toBeTruthy()
   expect(screen.queryByRole('dialog',{name:'Reader menu'})).toBeNull()
   expect(screen.getByTestId('lab-header-notebook')).toBeTruthy()

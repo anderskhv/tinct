@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { LAB_NOTEBOOK_LABEL, LAB_SETTINGS_GROUPS, labSuperMenuRows } from './labSuperMenu'
+import { LAB_AI_SETTINGS_LABEL, LAB_NOTEBOOK_LABEL, LAB_SETTINGS_GROUPS, labSuperMenuRows } from './labSuperMenu'
 import { LAB_V2_SHEET_TITLES } from './labV2Sheet'
 
 const GROUPS = [['text', 'Appearance'], ['editions', 'Book settings'], ['audio', 'Audio settings']]
@@ -29,7 +29,9 @@ describe('one settings model for the book reader and the margin reader (22 Oct 2
     const labels = literal('MENU_LABEL') as Record<string, string>
     for (const group of LAB_SETTINGS_GROUPS) expect(labels[group.frame]).toBe(group.label)
     const groups = literal('MENU_GROUPS') as string[][]
-    expect(groups).toContainEqual(LAB_SETTINGS_GROUPS.map(group => group.frame))
+    // AI settings closes the settings group in both menus (Anders, 11 Nov 2026), under the same name.
+    expect(groups).toContainEqual([...LAB_SETTINGS_GROUPS.map(group => group.frame), 'ai'])
+    expect(labels.ai).toBe(LAB_AI_SETTINGS_LABEL)
     expect(Object.values(labels)).not.toContain('Reading settings')
     // The panels' titles come from MENU_LABEL, never a second copy of the names (Aa is also the theme swatches' face).
     const rest = readerJs.replace(/^const MENU_LABEL = .+$/m, '')
@@ -45,8 +47,8 @@ describe('one settings model for the book reader and the margin reader (22 Oct 2
 describe('labSuperMenuRows', () => {
   it('the phone: Chat · Talk, Catch me up, Notebook, Aa, Book settings, Audio settings, Library, Profile (22 Oct 2026)', () => {
     const phone = labSuperMenuRows({ phone: true })
-    expect(phone.map(row => row.id)).toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
-    expect(phone.map(row => row.label)).toEqual(['', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'Library', 'Profile'])
+    expect(phone.map(row => row.id)).toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'ai', 'library', 'account'])
+    expect(phone.map(row => row.label)).toEqual(['', 'Catch me up', 'Notebook', 'Appearance', 'Book settings', 'Audio settings', 'AI settings', 'Library', 'Profile'])
     expect(phone[0].modes).toEqual(['chat', 'talk'])
     expect(phone.some(row => (row.id as string) === 'settings' || (row.id as string) === 'reading' || row.id === 'librarian')).toBe(false)
   })
@@ -69,24 +71,24 @@ describe('labSuperMenuRows', () => {
     const desktop = labSuperMenuRows({ phone: false })
     // The desktop's Notebook is the margin reader's top-bar button, not a t menu row.
     expect(desktop.some(row => row.id === 'notebook')).toBe(false)
-    expect(desktop.map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'account'])
+    expect(desktop.map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'ai', 'account'])
     expect(desktop.find(row => row.id === 'account')?.ruleBefore).toBe(true)
     expect(labSuperMenuRows().map(row => row.id)).toEqual(desktop.map(row => row.id))
     expect(desktop[0]).toEqual({ id: 'conversation', label: '', modes: ['chat', 'talk'] })
   })
 
   it('leaves Notebook to its dedicated desktop icon for public and private books', () => {
-    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'account'])
-    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'audio', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'ai', 'account'])
+    expect(labSuperMenuRows({ sharedReader: true, privateBook: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'audio', 'ai', 'account'])
     expect(labSuperMenuRows({ sharedReader: false }).some(row => row.id === 'notebook')).toBe(false)
   })
 
   it('gives a reader’s own book Catch me up, Aa and Audio settings (no Book settings but a PDF’s), Your books for Library', () => {
     expect(labSuperMenuRows({ phone: true, privateBook: true }).map(row => [row.id, row.label])).toEqual([
-      ['conversation', ''], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Appearance'], ['audio', 'Audio settings'], ['library', 'Your books'], ['account', 'Profile'],
+      ['conversation', ''], ['catchup', 'Catch me up'], ['notebook', 'Notebook'], ['text', 'Appearance'], ['audio', 'Audio settings'], ['ai', 'AI settings'], ['library', 'Your books'], ['account', 'Profile'],
     ])
-    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'audio', 'account'])
-    expect(labSuperMenuRows({ privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'account'])
-    expect(labSuperMenuRows({ phone: true, privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'library', 'account'])
+    expect(labSuperMenuRows({ privateBook: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'audio', 'ai', 'account'])
+    expect(labSuperMenuRows({ privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'text', 'editions', 'audio', 'ai', 'account'])
+    expect(labSuperMenuRows({ phone: true, privateBook: true, ownPdf: true }).map(row => row.id)).toEqual(['conversation', 'catchup', 'notebook', 'text', 'editions', 'audio', 'ai', 'library', 'account'])
   })
 })

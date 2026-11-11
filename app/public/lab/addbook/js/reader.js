@@ -2389,19 +2389,31 @@ const ICON = {
  * (a PDF), Export notes and Open another book (a reader's own book); then Library and Profile. Each group after the
  * first opens with a rule.
  */
-const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['aa', 'book', 'audio'], ['snip', 'export', 'open'], ['library', 'account']];
-const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Appearance', book: 'Book settings', audio: 'Audio settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
-const MENU_CHEVRON = new Set(['aa', 'book', 'audio', 'account']);
+const MENU_GROUPS = [['chat', 'summarize', 'catchup'], ['aa', 'book', 'audio', 'ai'], ['snip', 'export', 'open'], ['library', 'account']];
+const MENU_LABEL = { summarize: 'Summarize', catchup: 'Catch me up', aa: 'Appearance', book: 'Book settings', audio: 'Audio settings', ai: 'AI settings', snip: 'Snip a figure', export: 'Export notes', open: 'Open another book', library: 'Library', account: 'Profile' };
+const MENU_CHEVRON = new Set(['aa', 'book', 'audio', 'ai', 'account']);
 // The settings groups' glyphs, as the book reader's t menu draws them (src/lab/LabSuperMenu.tsx RowIcon): a small and a large A
 // (the row's own name is Aa), Book editions' books, a speaker.
 ICON.aa = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 19 8 5l5.5 14M4.6 14h6.8"></path><path d="m14.5 19 3.5-9 3.5 9M15.7 16h4.6"></path></svg>';
 ICON.book = ICON.editions;
 ICON.audio = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"></path><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.6a7.6 7.6 0 0 1 0 10.8"></path></svg>';
+// AI settings: the ✧ of the reader's AI pills as a monoline four-point star (LabSuperMenu.tsx RowIcon 'ai').
+ICON.ai = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.5c.6 5.1 3.4 7.9 8.5 8.5-5.1.6-7.9 3.4-8.5 8.5-.6-5.1-3.4-7.9-8.5-8.5 5.1-.6 7.9-3.4 8.5-8.5z"></path></svg>';
 ICON.account = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5c1.2-3.2 3.8-4.8 7-4.8s5.8 1.6 7 4.8"></path></svg>';
 /** The page that frames this one (src/lab/marginPreview/MarginPreview.tsx), for a Tinct book's preview: its menu and player. */
 function previewHost() {
   if (!state.preview) return null;
   try { const p = window.parent !== window && window.parent.TinctMarginPreview; return p && p.bookId === state.preview.bookId ? p : null } catch { return null }
+}
+/** AI settings (Anders, 11 Nov 2026): the dialog the framing page opens over the book (a Tinct book's preview: its menu;
+    a reader's own book: its own bridge). Not framed, no row. */
+function aiSettingsHost() {
+  try {
+    const p = window.parent !== window && window.parent.TinctMarginPreview;
+    if (!p) return null;
+    if (state.preview && p.bookId === state.preview.bookId && p.menu?.openAiSettings) return p.menu;
+    return p.own?.openAiSettings ? p.own : null;
+  } catch { return null }
 }
 /** Book settings has something to offer: a layout to choose (Margin view, Focus view, Convert to Tinct book; a Tinct text's
     Original pages; a preview's views) or a Tinct book's editions. An EPUB on a phone has none. */
@@ -2417,6 +2429,7 @@ function menuShows(id) {
   if (id === 'aa') return isPhone();
   if (id === 'book') return bookSettingsApply();
   if (id === 'audio') return audioSettingsApply();
+  if (id === 'ai') return !!aiSettingsHost();
   if (id === 'snip') return state.kind === 'pdf';
   if (id === 'open') return !state.preview;
   return true;
@@ -2454,6 +2467,7 @@ function menuAction(id) {
   }
   if (id === 'library') { leaveToShelf(); return }
   if (id === 'account') return openProfile();
+  if (id === 'ai') { aiSettingsHost()?.openAiSettings({ dark: root.classList.contains('is-night') }); return }
   if (!hasBook() && !['open', 'aa', 'book', 'audio'].includes(id)) { toast('Open a book first.'); return }
   if (id === 'chat') return openChat();
   // Talk: Chat with Talk on (answers read aloud), the margin's whole-file Chat where the margin is on (as a card's Talk).

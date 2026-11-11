@@ -718,6 +718,7 @@ export function PdfOriginalReaderShell({ title, bookId = 'pdf-original', owner, 
         if (id === 'text') setPane('reading')
         else if (id === 'editions') setPane('book')
         else if (id === 'audio') setPane('audio')
+        else if (id === 'ai') { setPane(null); void import('../../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark: theme === 'dark', phone, userId: owner ?? null })) }
         else if (id === 'notebook') setPane('notebook')
         else if (id === 'catchup') void runUnit('catchup', catchupPages)
         else if (id === 'snip') { if (card) minimiseCard(); setSelection(null); setPane(null); setSnipping(true) }

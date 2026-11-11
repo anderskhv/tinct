@@ -146,6 +146,15 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 .lab .lab-pcard-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-style: italic; color: var(--lab-ink-muted); }
 .lab .lab-pcard .lab-pcard-bin { display: grid; place-items: center; min-width: 32px; min-height: 32px; color: var(--lab-ink-faint); }
 .lab .lab-picon { width: 16px; height: 16px; fill: none !important; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; display: block; }
+/* Every card's top is one slim row, as Chat's (Anders, 11 Nov 2026: Explain's top still "ate" the card): the grip, the
+   title and its bin on 28px, the answer right under it. The bin keeps a 44px tap area around its 28px row. */
+.lab .lab-pcard { padding-top: 6px; }
+.lab .lab-pcard .lab-pcard-grab { margin-bottom: 2px; }
+.lab .lab-pcard:not([data-kind="chat"]) > .lab-pcard-drag { margin-bottom: -6px; }
+.lab .lab-pcard .lab-pcard-head .lab-pcard-bin { position: relative; min-height: 28px; }
+.lab .lab-pcard .lab-pcard-head .lab-pcard-bin::before { content: ""; position: absolute; inset: -8px -6px; }
+/* Text scrolled up under the title fades out instead of showing a half-cut line (LabPhoneCard sets data-scrolled). */
+.lab .lab-pcard-body[data-scrolled] { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px); mask-image: linear-gradient(to bottom, transparent 0, #000 22px); }
 .lab .lab-pcard-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 /* No scroll bar over the answer: iOS drew its indicator into the text (iPhone, 10 Nov 2026). The card still scrolls. */
 .lab .lab-pcard-body::-webkit-scrollbar, .lab .lab-pcard-body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
@@ -275,10 +284,7 @@ html[data-eink="true"] .lab .lab-pcard { box-shadow: 0 0 0 1px #111; animation: 
 /* Chat's top is one slim row: the grip, then the title and close on 28px (Anders, 10 Nov 2026: the top "eats too
    much"). Typing, the grip goes: the card is not dragged then. The thread's opening chapter divider stays: without it
    the thread's spacer sizing loops (ResizeObserver, check-reader-mobile-chat-cards). */
-.lab .lab-pcard[data-kind="chat"] { padding-top: 6px; gap: 4px; }
-.lab .lab-pcard[data-kind="chat"] .lab-pcard-grab { margin-bottom: 2px; }
-.lab .lab-pcard[data-kind="chat"] .lab-pcard-head { min-height: 28px; }
-.lab .lab-pcard[data-kind="chat"] .lab-pcard-head .lab-pcard-bin { min-height: 28px; }
+.lab .lab-pcard[data-kind="chat"] { gap: 4px; }
 .lab .lab-pcard[data-kind="chat"][data-keyboard] .lab-pcard-grab { display: none; }
 .lab .lab-pcard[data-kind="chat"] .lab-ask.tc.tc.is-phone-card-chat {
   --tc-paper: var(--lab-pcard-fill); --tc-ink: var(--lab-ink); --tc-muted: var(--lab-ink-muted);

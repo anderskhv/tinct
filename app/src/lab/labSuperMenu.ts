@@ -6,7 +6,7 @@
  * and Play already sits in the top bar. No section headers, no sub-labels.
  */
 
-export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'library' | 'account'
+export type LabSuperMenuId = 'librarian' | 'conversation' | 'chat' | 'talk' | 'summarize' | 'catchup' | 'snip' | 'notebook' | 'text' | 'editions' | 'audio' | 'ai' | 'library' | 'account'
 /** Explain a figure (`snip`) is added by the Original PDF reader itself (PdfOriginalReaderShell), never by labSuperMenuRows. */
 
 export interface LabSuperMenuRow {
@@ -41,7 +41,17 @@ export const LAB_SETTINGS_GROUPS = [
 /** The reader's highlights, notes and cards: the desktop margin reader's top-bar button, the phone's t menu row. */
 export const LAB_NOTEBOOK_LABEL = 'Notebook'
 
-const SETTINGS_ROWS: LabSuperMenuRow[] = LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) }))
+/**
+ * AI settings (Anders, 11 Nov 2026): a row at the same level as the three groups, after Audio settings. It opens its
+ * own dialog (openAiSettingsLayer.tsx), not a V2 sheet, so it is not one of LAB_SETTINGS_GROUPS' sheet layers.
+ * The margin reader's t menu (reader.js MENU_LABEL.ai) carries the same name.
+ */
+export const LAB_AI_SETTINGS_LABEL = 'AI settings'
+
+const SETTINGS_ROWS: LabSuperMenuRow[] = [
+  ...LAB_SETTINGS_GROUPS.map((group, index) => ({ id: group.id, label: group.label, chevron: true, ...(index === 0 ? { ruleBefore: true } : {}) })),
+  { id: 'ai', label: LAB_AI_SETTINGS_LABEL, chevron: true },
+]
 
 /**
  * The phone's t menu (iPhone feedback, 20 Oct 2026; the settings groups of 22 Oct): Chat · Talk on one row;
