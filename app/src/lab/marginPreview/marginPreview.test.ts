@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { decideMarginPreview, handoffBookIdOf, marginPreviewBookForPage, MARGIN_PREVIEW_KEY, NO_PREVIEW } from './marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewChapters, marginPreviewEditionKey, marginPreviewStart, normalReaderHref } from './marginPreviewModel'
 import { loadMarginPreviewBook } from './marginPreviewLoad'
+import { readEditionSwitch, rememberEditionSwitch } from '../labEditionSwitch'
 import { getBook } from '../../data/bookRegistry'
 import { LAB_POSITION_STORAGE_KEY, type LabBookPlace } from '../labPosition'
 import type { EditionData } from '../../types'
@@ -117,6 +118,33 @@ describe('the book as the margin reader’s text', () => {
     expect(marginPreviewEditionKey(book, { placeEdition: 'original-en', prefsEdition: 'modern-en' })).toBe('original-en')
     expect(marginPreviewEditionKey(book, { placeEdition: 'no-such', prefsEdition: 'bsb-en' })).toBe('modern-en')
     expect(normalReaderHref('to-the-lighthouse')).toBe('/reader?book=to-the-lighthouse&margin=0')
+  })
+})
+
+describe('loading the preview after a switch between versions whose paragraphs do not line up', () => {
+  beforeEach(() => { localStorage.clear(); rememberEditionSwitch(null) })
+  const chapter = (number: number, paragraphs: string[]) => ({ number, title: `Book ${number}`, paragraphs })
+  const pope = { chapters: [chapter(6, ['x y']), chapter(7, ['a b', 'c d', 'e f', 'g h'])] } as unknown as EditionData
+  const at = { editionKey: 'verse-en', chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 }
+  const deps = { fetchImpl: vi.fn() as unknown as typeof fetch, readToken: async () => null, loadEditionImpl: async () => pope, at }
+
+  it('opens at the same share of the chapter, and remembers where it landed', async () => {
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 6 / 8, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    const loaded = await loadMarginPreviewBook('odyssey', deps)
+    expect(loaded.editionKey).toBe('verse-en')
+    expect(loaded.start).toMatchObject({ chapterNumber: 7, paragraphIndex: 3, wordIndex: 0 })
+    expect(readEditionSwitch()?.to).toEqual({ editionKey: 'verse-en', paragraphIndex: 3, wordIndex: 0 })
+  })
+  it('a switch noted for another chapter, book or version does not move the link’s place', async () => {
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 6, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    expect((await loadMarginPreviewBook('odyssey', deps)).start).toMatchObject({ chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 })
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'modern-en' } })
+    expect((await loadMarginPreviewBook('odyssey', deps)).start).toMatchObject({ chapterNumber: 7, paragraphIndex: 0, wordIndex: 0 })
+    // Without a link (an ordinary open), a remembered switch is not consulted at all.
+    rememberEditionSwitch({ bookId: 'odyssey', chapterNumber: 7, fraction: 0.75, from: { editionKey: 'original-en', paragraphIndex: 1, wordIndex: 2 }, to: { editionKey: 'verse-en' } })
+    const plain = await loadMarginPreviewBook('odyssey', { ...deps, at: undefined })
+    expect(plain.start).toMatchObject({ paragraphIndex: 0, wordIndex: 0 })
+    expect(readEditionSwitch()?.to).toEqual({ editionKey: 'verse-en' })
   })
 })
 

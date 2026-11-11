@@ -195,6 +195,8 @@ export function newerPlace(a: LabBookPlace | null | undefined, b: LabBookPlace |
 }
 
 const words = (text: string) => text.match(/\S+/g)?.length ?? 0
+/** A paragraph's words as the margin view counts them (a figure is one word; its caption's words are not counted). */
+export const marginParagraphWords = (paragraph: MarginPreviewParagraph): number => (paragraph.figure ? 1 : words(paragraph.text))
 
 /**
  * The book reader's place as a place in the preview's text: the same chapter,

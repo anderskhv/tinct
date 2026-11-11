@@ -544,7 +544,9 @@ export function createReaderHandoffIntent(
   }
   if (selection.compareEditionKey) {
     const compare = book.editions.find(edition => edition.key === selection.compareEditionKey)
-    if (!primary.aligned || !compare || compare.key === primary.key || !compare.availability.compare) return null
+    // Any other readable edition: the reader pairs editions whose paragraphs do not line up by share of the chapter
+    // (labVerseAlignment buildProportionalAlignment; Anders, 11 Nov 2026). The library still offers aligned pairs only.
+    if (!compare || compare.key === primary.key || !compare.availability.chapterText) return null
     intent.compareEditionKey = compare.key
   }
   if (selection.compareChosen === true) intent.compareChosen = true

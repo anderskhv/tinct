@@ -10,7 +10,8 @@ import { editionHold } from '../../data/editionAvailability'
 import { labCurrentPath } from '../labAccountPrompt'
 import { readCachedSupabaseUser } from '../labLibraryBoot'
 import { LAB_PREFS_KEY, labSignInUrl, parseLabPrefs, writeLabPrefs, type LabPrefs } from '../labPrefs'
-import { marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPreviewBook } from './marginPreviewModel'
+import { marginParagraphWords, marginPreviewCompareEdition, marginPreviewReturnHref, type MarginPreviewBook } from './marginPreviewModel'
+import { chapterWordFraction, editionSwitchReturn, leadingPreface, rememberEditionSwitch } from '../labEditionSwitch'
 
 export interface MarginMenuChoice { value: string; label: string }
 
@@ -77,7 +78,25 @@ export function marginPreviewMenu(bookId: string, pending: Promise<MarginPreview
         const chapter = model.chapters[Math.max(0, at.page - 1)]
         if (!chapter) return
         writeLabPrefs({ ...readPrefs(), primaryEdition: editionKey }, 'desktop')
-        window.location.assign(marginPreviewReturnHref(bookId, { editionKey, chapterNumber: chapter.number, paragraphIndex: at.para || 0, wordIndex: at.word || 0 }))
+        const here = { paragraphIndex: at.para || 0, wordIndex: at.word || 0 }
+        const lineUp = (key: string) => book.editions.find(e => e.key === key)?.aligned !== false
+        let place = here
+        if (!(lineUp(model.editionKey) && lineUp(editionKey)) && chapter.paragraphs.length) {
+          // Editions whose paragraphs do not line up share only the chapter (labEditionSwitch.ts): going straight
+          // back opens the very place left; otherwise the place is carried as how far into the chapter it is, and
+          // the page that opens the other edition lands it (marginPreviewLoad).
+          const back = editionSwitchReturn({ bookId, chapterNumber: chapter.number, editionKey: model.editionKey, targetEditionKey: editionKey, place: here },
+            { samePlace: (landed, current) => landed.paragraphIndex === current.paragraphIndex })
+          if (back) { place = back; rememberEditionSwitch(null) }
+          else {
+            place = { paragraphIndex: 0, wordIndex: 0 }
+            rememberEditionSwitch({
+              bookId, chapterNumber: chapter.number, fraction: chapterWordFraction(chapter.paragraphs.map(marginParagraphWords), here, leadingPreface(chapter.paragraphs.map(p => p.text))),
+              from: { editionKey: model.editionKey, ...here }, to: { editionKey },
+            })
+          }
+        } else rememberEditionSwitch(null)
+        window.location.assign(marginPreviewReturnHref(bookId, { editionKey, chapterNumber: chapter.number, ...place }))
       }, () => {})
     },
     setCompareEdition: editionKey => {

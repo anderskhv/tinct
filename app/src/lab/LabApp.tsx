@@ -181,6 +181,7 @@ import type { CardName } from '../cards/cardRoutes'
 import { savedPlaceFallbackEditionKey } from '../data/editionDefaults'
 import { matchingAudioEditions, resolvedAudioIsAvailable } from '../utils/audioEditionSelection'
 import { labLayoutOverride } from './labRoute'
+import { chapterEditionKey, chapterWordFraction, editionSwitchReturn, leadingPreface, mapPlaceByWords, rememberEditionSwitch } from './labEditionSwitch'
 import { holdPlaceWrite, labRestoreChapterKey, restoreLanded, restoreRetryIndex, restoreTargetFor, restoreTargetIn, type LabRestoreView, type LabRestoreWatch } from './labRestoreTarget'
 import { useLabDictation } from './useLabDictation'
 import { cardInMargin, cardShownMessages } from './marginPreview/marginPreviewCards'
@@ -1054,9 +1055,10 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const pairedCompareUnavailable = useMemo(() => (book.bookId || 'bible') === 'bible'
     && needsVerseAlignment(book.paragraphs, book.compareParagraphs)
     && !buildVerseAlignment(book.paragraphs, book.compareParagraphs), [book.bookId, book.paragraphs, book.compareParagraphs])
-  // Outside the Bible, compare pairs paragraph by paragraph: an edition marked
-  // unaligned (Jane Eyre / Pride and Prejudice Danish keep the paragraphing
-  // the English editions left on 2026-09-25) cannot be paired on any device.
+  // Outside the Bible, compare pairs paragraph by paragraph. A pair with an edition marked unaligned (Pope's verse
+  // Odyssey; Jane Eyre / Pride and Prejudice Danish keep the paragraphing the English editions left on 2026-09-25)
+  // has no paragraphs to pair: its rows are set by share of the chapter instead (labVerseAlignment
+  // buildProportionalAlignment; Anders, 11 Nov 2026: "pope should also work OK in compare mode").
   const unalignedCompare = (book.bookId || 'bible') !== 'bible'
     && [prefs.primaryEdition, prefs.compareEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
   // Bible editions do not all have the same chapters (WEB Catholic has Tobit;
@@ -1069,13 +1071,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // Compare is a desktop view (Anders, 10 Nov 2026): the phone reads one edition, chosen as Main version in Book settings.
   const mobileCompareEnabled = false
   const desktopCompareEnabled = !showPhoneChrome && prefs.compareOpen && prefs.primaryEdition !== prefs.compareEdition
-    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !unalignedCompare && !compareNumberingDiffers
+    && book.compareParagraphs.length > 0 && !pairedCompareUnavailable && !compareNumberingDiffers
   // Aa can offer Compare before a second edition has been chosen. Choosing it
   // then opens the existing version picker instead of comparing the main text
   // with itself or mounting an unavailable pair.
   const desktopCompareChoiceAvailable = !showPhoneChrome && !privateBook && bookEditions.some(edition =>
-    edition.key !== prefs.primaryEdition && edition.aligned !== false
-    && allBookEditions.find(main => main.key === prefs.primaryEdition)?.aligned !== false
+    edition.key !== prefs.primaryEdition
     && ((book.bookId || 'bible') !== 'bible' || bibleEditionHasChapter(edition.key, book.chapterNumber)
       && bibleVerseNumbersCorrespond(prefs.primaryEdition, edition.key, book.chapterNumber)))
   const readerParagraphs = mobileCompareActive && mobileCompareEnabled
@@ -1215,15 +1216,25 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   useLayoutEffect(() => { setNativeMeasuredContent(null); setNativeHeadContent(null); nativeHeadOnlyRef.current = 0 }, [desktopPaging])
   const nativeContentRef = useRef(readerParagraphs)
   nativeContentRef.current = readerParagraphs
+  // The edition a saved place is numbered in. A switch between editions whose paragraphs do not line up changes the
+  // preference first and the text a moment later; until that text is on screen the place still counts the outgoing
+  // edition's paragraphs, and is saved as that edition's (a coherent tuple), never as the incoming one's.
+  const shownEditionKey = chapterEditionKey(book.paragraphs)
+  const placeEditionKey = shownEditionKey && shownEditionKey !== prefs.primaryEdition && (book.bookId || 'bible') !== 'bible'
+    && [shownEditionKey, prefs.primaryEdition].some(key => allBookEditions.find(edition => edition.key === key)?.aligned === false)
+    ? shownEditionKey
+    : prefs.primaryEdition
+  const placeEditionKeyRef = useRef(placeEditionKey)
+  placeEditionKeyRef.current = placeEditionKey
   const readerStateRef = useRef<LabReaderStateSnapshot>({
     pageIndex: readingPageIndex,
-    primaryEditionKey: prefs.primaryEdition,
+    primaryEditionKey: placeEditionKey,
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   })
   readerStateRef.current = {
     pageIndex: readingPageIndex,
-    primaryEditionKey: prefs.primaryEdition,
+    primaryEditionKey: placeEditionKey,
     compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition ? prefs.compareEdition : undefined,
     readerMode: (showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'compare' : 'read',
   }
@@ -1379,6 +1390,12 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       ? (handoffPlace.paragraphIndex || handoffPlace.wordIndex ? handoffPlace : null)
       : (boot.place.paragraphIndex || boot.place.wordIndex ? boot.place : null),
   )
+  // The book on screen, for the edition switch (below): the place is carried from its text.
+  const shownBookRef = useRef(book)
+  shownBookRef.current = book
+  // An edition whose paragraphs do not line up with the one on screen: the place as the incoming text numbers it
+  // (labEditionSwitch.ts), applied in the commit that shows that text and never before it.
+  const editionSwitchPlaceRef = useRef<{ content: string[]; place: { paragraphIndex: number; wordIndex: number } } | null>(null)
   const restorePageRef = useRef<number | null>(
     readerHandoff
       ? (readerHandoff.savedPlace?.paragraphIndex === undefined ? (readerHandoff.savedPlace?.page ?? null) : null)
@@ -2138,13 +2155,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     editionTupleRef.current = next
     readerStateRef.current = {
       ...readerStateRef.current,
-      primaryEditionKey: prefs.primaryEdition,
+      primaryEditionKey: placeEditionKeyRef.current,
       compareEditionKey: prefs.compareOpen && prefs.compareEdition !== prefs.primaryEdition
         ? prefs.compareEdition
         : undefined,
     }
     notePlace('mode-change')
   }, [notePlace, prefs.compareEdition, prefs.compareOpen, prefs.primaryEdition])
+  // The carried place of an edition switch between unaligned editions, saved once its text is on screen.
+  const editionSwitchNoteRef = useRef(false)
+  useEffect(() => {
+    if (!editionSwitchNoteRef.current) return
+    editionSwitchNoteRef.current = false
+    notePlace('mode-change')
+  }, [notePlace, book.paragraphs])
 
   useLayoutEffect(() => {
     if (!readerHandoff || positionWritesSuspended || handoffActivatedRef.current) return
@@ -2278,6 +2302,35 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           placeRef.current = restorePlaceRef.current
         }
       }
+      // Editions whose paragraphs do not line up share only the chapter: the place is carried as how far into the
+      // chapter the reader is, by words (Anders, 11 Nov 2026). Going straight back restores the place left, exactly.
+      editionSwitchPlaceRef.current = null
+      const shown = shownBookRef.current
+      const fromEdition = chapterEditionKey(shown.paragraphs)
+      const toEdition = chapterEditionKey(loaded.paragraphs)
+      const paragraphsAlign = (key: string) => (getBook(activeBookId)?.editions || bookEditions).find(edition => edition.key === key)?.aligned !== false
+      if (activeBookId !== 'bible' && !loadedTarget && fromEdition && toEdition && fromEdition !== toEdition
+        && shown.bookId === loaded.bookId && shown.chapterNumber === loaded.chapterNumber
+        && shown.paragraphs.length > 0 && loaded.paragraphs.length > 0
+        && !(paragraphsAlign(fromEdition) && paragraphsAlign(toEdition))) {
+        const left = { paragraphIndex: placeRef.current.paragraphIndex, wordIndex: placeRef.current.wordIndex }
+        const count = (text: string) => tokenizeHearingWords(text).length
+        const sourceCounts = shown.paragraphs.map(count)
+        const pages = readingPagesRef.current
+        const back = editionSwitchReturn({ bookId: activeBookId, chapterNumber: loaded.chapterNumber, editionKey: fromEdition, targetEditionKey: toEdition, place: left }, {
+          // Still on the page the switch landed on: the reader has not moved.
+          samePlace: (landed, current) => (landed.paragraphIndex === current.paragraphIndex && landed.wordIndex === current.wordIndex)
+            || (pages.length > 0 && pageIndexForPlace(pages, landed.paragraphIndex, landed.wordIndex) === pageIndexForPlace(pages, current.paragraphIndex, current.wordIndex)),
+        })
+        const inText = back && back.paragraphIndex < loaded.paragraphs.length ? back : null
+        const preface = { source: leadingPreface(shown.paragraphs), target: leadingPreface(loaded.paragraphs) }
+        const place = inText ?? mapPlaceByWords(sourceCounts, loaded.paragraphs.map(count), left, preface)
+        editionSwitchPlaceRef.current = { content: loaded.paragraphs, place }
+        rememberEditionSwitch(inText ? null : {
+          bookId: activeBookId, chapterNumber: loaded.chapterNumber, fraction: chapterWordFraction(sourceCounts, left, preface.source),
+          from: { editionKey: fromEdition, ...left }, to: { editionKey: toEdition, ...place },
+        })
+      }
       setReaderLoadError('')
       setBook(loaded)
       markReaderLoadTrace('required_text_ready', { endOf: 'required_text', outcome: 'success' })
@@ -2370,6 +2423,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const chapterPagingRef = useRef(measuredPaging)
 
   useLayoutEffect(() => {
+    // An edition switch between unaligned editions: its place takes effect with its text, in this commit.
+    const switched = editionSwitchPlaceRef.current?.content === book.paragraphs ? editionSwitchPlaceRef.current.place : null
+    if (switched) {
+      editionSwitchPlaceRef.current = null
+      placeRef.current = { ...switched }
+      pageAnchorRef.current = { ...switched }
+      restorePageRef.current = null
+      editionSwitchNoteRef.current = true
+    }
     if (continuousReader) {
       shownChapterKeyRef.current = labRestoreChapterKey(book.bookId, book.chapterNumber)
       if (chapterKeyRef.current !== chapterKey || chapterContentRef.current !== readerParagraphs) {
@@ -2440,6 +2502,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       if (page) placeRef.current = { paragraphIndex: page.paragraphIndex, wordIndex: page.from }
       readingPageIndexRef.current = last
       setReadingPageIndex(last)
+    } else if (switched && !chapterChanged) {
+      // The draft map's page for the carried place; the measured map keeps it by the same anchor.
+      const idx = pageIndexForPlace(next, switched.paragraphIndex, switched.wordIndex)
+      readingPageIndexRef.current = idx
+      setReadingPageIndex(idx)
     } else if (chapterChanged) {
       const target = restoreTargetFor(restorePlaceRef.current, shownChapterKeyRef.current)
       if (target) {
@@ -6940,7 +7007,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             : null}
           compareFromLayout={compareFromLayout}
           compareChoice={!showPhoneChrome}
-          compareUnavailable={!prefs.compareOpen ? false : unalignedCompare ? 'paragraphs' : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
+          compareUnavailable={!prefs.compareOpen ? false : compareChapterMissing ? 'chapter' : compareNumberingDiffers ? 'numbering' : !showPhoneChrome && pairedCompareUnavailable ? 'verses' : false}
           narrationPilot={{ info: narrationInfo, voice: narrationVoice }}
           onAccountVoice={signedIn ? undefined : () => { setSuperSheet(null); setAccountPrompt({ action: 'audio' }) }}
           modernOffer={signedIn && modern.status?.offer && !bookEditions.some(edition => edition.key === MODERN_EDITION_KEY)
@@ -7199,6 +7266,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             } : undefined}
             nextReadingPage={desktopSpread && !openingOnRight ? readingPages[readingPageIndex + 1] : undefined}
             alignCompare={desktopPaging}
+            approximateCompare={unalignedCompare}
             chapterTitle={book.chapterTitle}
             paragraphs={readerParagraphs}
             compareParagraphs={book.compareParagraphs}
@@ -7285,6 +7353,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             chapterActions hasNextChapter={canNextChapter}
             chapterTitle={book.chapterTitle} paragraphs={readerParagraphs}
             comparison={desktopCompareActive && desktopCompareEnabled ? book.compareParagraphs : undefined}
+            approximateCompare={unalignedCompare}
             editionKey={readerEditionKey}
             language={userBook ? userBookLangAttribute(userBook.edition) : undefined}
             layoutKey={desktopLayoutKey} onPages={applyDesktopPages}

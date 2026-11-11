@@ -144,10 +144,22 @@ describe('pre-reader catalogue layer', () => {
       startAtSavedPlace: true,
     })).not.toHaveProperty('startAtSavedPlace')
     expect(createReaderHandoffIntent({ bookId: 'odyssey', primaryEditionKey: 'original-en', audioEditionKey: 'original-ru' })).toBeNull()
+    // 11 Nov 2026 (Anders: "pope should also work OK in compare mode"): a pair whose paragraphs do not line up opens
+    // in Compare, matched by share of the chapter; it used to be refused. An edition beside itself still is.
     expect(createReaderHandoffIntent({
       bookId: 'ivan-ilyich',
       primaryEditionKey: 'original-ru',
       compareEditionKey: 'modern-en',
+    })).toMatchObject({ primaryEditionKey: 'original-ru', compareEditionKey: 'modern-en' })
+    expect(createReaderHandoffIntent({
+      bookId: 'ivan-ilyich',
+      primaryEditionKey: 'original-ru',
+      compareEditionKey: 'original-ru',
+    })).toBeNull()
+    expect(createReaderHandoffIntent({
+      bookId: 'ivan-ilyich',
+      primaryEditionKey: 'original-ru',
+      compareEditionKey: 'no-such-edition',
     })).toBeNull()
     expect(createReaderHandoffIntent({
       bookId: 'odyssey',

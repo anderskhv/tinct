@@ -1,4 +1,5 @@
 import { registerLoadedChapter } from './labPoetry'
+import { noteChapterEdition } from './labEditionSwitch'
 import { bibleEditionHasChapter } from '../data/bibleEditionChapters'
 import type { Edition, Section, ThreadCharacter } from '../types'
 import { ensureNativeBook } from '../utils/nativeBooks'
@@ -667,7 +668,7 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ? { followParagraphs: entry.paragraphs.map((text, index) => ({ index, text })), cast: [] }
     : await supplement()
 
-  return houseStyleSource({
+  const loaded = houseStyleSource({
     bookId: registryBook.id,
     editions: registryBook.editions,
     bookTitle: registryBook.title,
@@ -700,6 +701,9 @@ export async function loadLabBookSource(input: LabBookSourceSelection): Promise<
     ...(selection.readingFirst ? { supplement } : {}),
     ...(pendingCompare ? { compareLater: pendingCompare } : {}),
   }, primaryEdition.language)
+  // An edition switch carries the place from the text on screen: which edition that text is (labEditionSwitch.ts).
+  noteChapterEdition(loaded.paragraphs, primaryEdition.key)
+  return loaded
 }
 
 /** Bible chapter titles and biblical-book sections, for reading-history summaries. */
