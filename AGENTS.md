@@ -320,6 +320,8 @@ For non-trivial bugs:
 
 ## Product And UX Notes
 
+- **Own books: same experience as the library (Anders, 11 Nov 2026).** PDFs, EPUBs and pasted text must feel the same to the reader as Tinct library books: same primer structure, chapter pills, cards, t menu, settings and gestures. A feature built for one is built for the other in the same change, or the gap is named in the report. Expected differences only: library books carry extra editions (Modern English, translations, narration); a PDF opens as its original pages by default. A separate own-book variant of a feature (a different primer, a different card) is a bug to remove, not a design.
+
 - Tinct should feel warm, literary, clean, and focused.
 - Design system: build UI from `app/public/lab/tinct-ui.css` (`tui-` classes, `--tui-*` tokens); rules in `docs/design-system.md`, live reference at `/lab/design-system.html`.
 - Anders prefers faithful previews of the actual result. Before presenting a
