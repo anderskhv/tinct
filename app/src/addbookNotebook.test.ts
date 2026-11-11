@@ -59,7 +59,7 @@ describe('the margin batch\'s cards in the Notebook (19 Oct 2026)', () => {
   it('names a unit\'s pill cards by their pill, under AI, their chip the unit', () => {
     const ai = N.filterEntries(list, 'ai')
     expect(ai.map(e => e.id)).toEqual(['p1', 'p2'])
-    expect(N.toMarkdown(ai)).toContain('## Recap · Chapter 2')
+    expect(N.toMarkdown(ai)).toContain('## Summary · Chapter 2')
     expect(N.toMarkdown(ai)).toContain('## Catch me up · Chapter 2')
     expect(ai.map(e => e.unit)).toEqual(['Chapter 2', 'Chapter 2'])
   })

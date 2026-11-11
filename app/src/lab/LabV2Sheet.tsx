@@ -1,6 +1,5 @@
 import { readEinkProfile, setEinkProfile } from '../../public/lab/display-profile.js'
 import { useEffect, useState, type ReactNode } from 'react'
-import { ReadingAngleField } from './LabReadingAngleField'
 import { editionDifficulty, readerEditionLabel } from './editionDifficulty'
 import { bibleEditionHasChapter, bibleVerseNumbersCorrespond } from '../data/bibleEditionChapters'
 import { useReaderWindow } from './useReaderWindow'
@@ -89,10 +88,10 @@ export interface LabV2SheetProps {
   /** False for a reader's own book with one edition: no Book settings, and no Audiobook version in Audio settings. */
   editionRows?: boolean
   /**
-   * The book's reading angle (labReadingAngle.ts), first in Book settings. `focus` puts the caret in it when the
-   * sheet opens from the reading-angle pill.
+   * The book's reading angle lives in AI settings' This book tab (Anders, 11 Nov 2026): Book settings keeps one
+   * quiet row that opens it there.
    */
-  readingAngle?: { value: string; onChange: (value: string) => void; focus?: boolean; mic?: { on: boolean; onToggle: () => void } } | null
+  readingAngle?: { onOpen: () => void } | null
 }
 
 /** A row's value and chevron, right-aligned in the mono the canvas uses. */
@@ -426,7 +425,10 @@ export function LabV2Sheet({ narrationPilot, onAccountVoice, bookId = 'bible', p
           {layer === 'editions' && (
             <div className="lab-v2-editions">
               {readingAngle && <>
-                <ReadingAngleField value={readingAngle.value} onChange={readingAngle.onChange} focus={readingAngle.focus} mic={readingAngle.mic} />
+                <button type="button" className="lab-v2-row lab-v2-edition-link" data-testid="lab-reading-angle-link" onClick={readingAngle.onOpen}>
+                  <span className="lab-v2-edition-text"><span className="lab-v2-row-label">Reading angle</span><span className="lab-v2-edition-current">In AI settings</span></span>
+                  <span aria-hidden="true">›</span>
+                </button>
                 {editionRows && <div className="lab-v2-edition-divider" />}
               </>}
               {editionRows && <>

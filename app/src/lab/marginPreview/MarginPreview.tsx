@@ -214,8 +214,8 @@ export function MarginOwnBook({ hex, search }: { hex: string; search: string }) 
     turn: () => setTurn(count => count + 1),
     // The reading year hears the reader's actions on this window; the frame's are its own (as useMarginPreviewPlace).
     active: () => { window.dispatchEvent(new Event('pointerdown')) },
-    openAiSettings: ({ dark }) => { void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: userIdRef.current })).catch(() => { /* offline: nothing opened */ }) },
-  }), [])
+    openAiSettings: ({ dark }) => { void import('../openAiSettingsLayer').then(layer => layer.openAiSettingsLayer({ dark, userId: userIdRef.current, book: { id: bookId, title: document.title.split(' · ')[0] || '' } })).catch(() => { /* offline: nothing opened */ }) },
+  }), [bookId])
   // Listen: the book reader's player and Tinct's voice for an own book too (Anders, 22 Oct 2026), its text handed over by
   // the frame (js/tinct-listen.js, reader.js ownListen); its listening counts as reading time, as in the book reader.
   // Not Premium (402): the account cards, with their Premium offer, open over the book (the book reader's account sheet).

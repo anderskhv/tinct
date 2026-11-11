@@ -170,6 +170,29 @@ describe.each(copies)('primer parser (%s)', (_name, m) => {
     expect(m.normalizeStoredPrimer(answer)).toBeNull()
   })
 
+  it('reads a v5 primer (11 Nov 2026): its role, How it\'s built and Watch for, the map optional; it is the current one, an older one is not', () => {
+    const v5 = { kind: 'textbook', role: 'In Chemical Kinetics', gist: 'The opening chapter builds the rate equations the later chapters use.',
+      sections: [{ title: "How it's built", items: claims }, { title: 'Watch for', items: [{ text: 'Units of k change with the order.', cite: '{p. 14}' }] }] }
+    expect(m.parsePrimer(JSON.stringify(v5))).toEqual({ ...v5, map: [] })
+    expect(m.isCurrentPrimer(m.parsePrimer(JSON.stringify(v5)))).toBe(true)
+    expect(m.parsePrimer(JSON.stringify({ ...v5, map }))).toEqual({ ...v5, map })
+    // The whole document: two parts, no role and no gist.
+    expect(m.parsePrimer(JSON.stringify({ ...v5, role: '', gist: '' }))).toEqual({ ...v5, role: '', gist: '', map: [] })
+    // A role without a gist is dropped; a v5 primer missing its role key still reads by its How it's built.
+    expect(m.parsePrimer(JSON.stringify({ ...v5, gist: '' }))!.role).toBe('')
+    const { role: _role, ...noRole } = v5
+    expect(m.parsePrimer(JSON.stringify(noRole))).toEqual({ ...v5, role: '', map: [] })
+    expect(m.parsePrimer(JSON.stringify({ ...v5, role: 'R'.repeat(90) }))!.role).toHaveLength(m.PRIMER_LIMITS.roleChars)
+    expect(m.parsePrimer(JSON.stringify({ ...v5, sections: [] }))).toBeNull()
+    expect(m.primerFailure(JSON.stringify(v5))).toBeNull()
+    // Before v5: still reads (a saved card), never current.
+    expect(m.isCurrentPrimer(m.parsePrimer(JSON.stringify(answers.paper)))).toBe(false)
+    expect(m.isCurrentPrimer(m.parsePrimer(JSON.stringify(oldAnswer)))).toBe(false)
+    expect(m.isCurrentPrimer(null)).toBe(false)
+    const stored = { ...v5, map: [], madeAt: '2026-11-11T09:30:00.000Z', unitKey: 'outline-3' }
+    expect(m.normalizeStoredPrimer(stored)).toEqual(stored)
+  })
+
   it('accepts only short, path-safe unit keys', () => {
     for (const key of ['all', 'outline-3', 'o.12_a', 'A'.repeat(64)]) expect(m.PRIMER_UNIT_KEY_RE.test(key), key).toBe(true)
     for (const key of ['', '-a', '.x', 'a/b', '../a', 'a b', 'A'.repeat(65), 'ü']) expect(m.PRIMER_UNIT_KEY_RE.test(key), key).toBe(false)
@@ -177,9 +200,12 @@ describe.each(copies)('primer parser (%s)', (_name, m) => {
 })
 
 it('the two copies agree on every case above, value for value', () => {
-  const inputs = [...Object.values(answers).map(a => JSON.stringify(a)), JSON.stringify(oldAnswer), '```json\n' + JSON.stringify({ ...oldAnswer, claims: [...claims, ...claims] }) + '\n```', JSON.stringify({ ...answer, kind: 'poem' }), 'nothing']
+  const inputs = [...Object.values(answers).map(a => JSON.stringify(a)), JSON.stringify(oldAnswer), '```json\n' + JSON.stringify({ ...oldAnswer, claims: [...claims, ...claims] }) + '\n```', JSON.stringify({ ...answer, kind: 'poem' }), 'nothing',
+    JSON.stringify({ kind: 'paper', role: 'In X', gist, sections: [{ title: "How it's built", items: claims }, { title: 'Watch for', items: ['One.'] }] }),
+    JSON.stringify({ kind: 'other', role: '', gist: '', sections: [{ title: 'How it’s built', items: claims }], map })]
   for (const input of inputs) expect(pageCopy.parsePrimer(input)).toEqual(appCopy.parsePrimer(input))
   expect(pageCopy.PRIMER_LIMITS).toEqual(appCopy.PRIMER_LIMITS)
   expect(pageCopy.PRIMER_KINDS).toEqual(appCopy.PRIMER_KINDS)
   expect(pageCopy.PRIMER_UNIT_KEY_RE.source).toBe(appCopy.PRIMER_UNIT_KEY_RE.source)
+  expect(pageCopy.PRIMER_BUILT_TITLE).toBe(appCopy.PRIMER_BUILT_TITLE)
 })

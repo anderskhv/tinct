@@ -124,9 +124,9 @@ async function sourceParity(page, calls, output) {
   // A chapter's actions live in the margin beside its heading, always shown (Anders, 3 Nov 2026): no hover, the heading stays clear.
   const pills = page.locator(`[data-testid="pdf-heading-actions"][data-unit-key="${key}"]`)
   await pills.waitFor()
-  for (const label of ['Primer', 'Recap', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
-  // Summary is the section's what-came-before (Catch me up's pages), renamed with the start actions (Anders, 9 Nov 2026).
-  assert.equal(await pills.getByRole('button', { name: 'Summary', exact: true }).count(), 0, 'first source unit never offers previous-content catch-up')
+  // The library's pills, then Note; Summary is the section's own summary, the first section's too (Anders, 11 Nov 2026).
+  for (const label of ['Primer', 'Summary', 'Quiz me', 'Note']) await pills.getByRole('button', { name: label, exact: true }).waitFor()
+  assert.deepEqual(await pills.getByRole('button').allTextContents(), ['Primer', 'Summary', 'Quiz me', 'Note'], 'a section has Primer, Summary, Quiz me and Note, and no separate Recap')
   // The first heading's actions sit in its "Before you start" card (reading angle, the whole document, then the section).
   const startCard = page.locator('[data-testid="source-margin-item"]').filter({ has: pills })
   assert.equal(await startCard.locator('.source-margin-label').innerText(), 'Before you start', 'the first heading carries the Before you start card')
@@ -140,7 +140,7 @@ async function sourceParity(page, calls, output) {
   await page.mouse.move(3, 3)
   assert(await pills.isVisible(), 'chapter actions stay shown without hovering the heading')
   await page.screenshot({ path: path.join(output, 'pdf-real-heading-hover.png') })
-  await pills.getByRole('button', { name: 'Recap', exact: true }).click()
+  await pills.getByRole('button', { name: 'Summary', exact: true }).click()
   const item = host.locator('[data-testid="source-margin-item"][data-open="true"]:not(.is-actions)')
   await item.waitFor()
   await item.getByText(/A grounded local fixture answer|These printed pages introduce/).first().waitFor()
@@ -238,7 +238,14 @@ async function sourceParity(page, calls, output) {
   // document's Summary asks once for every page and opens as a margin card, the page unmoved (Anders, 9 Nov 2026).
   await host.evaluate(node => { node.scrollTop = 0; node.dispatchEvent(new Event('scroll')) })
   await startCard.waitFor({ timeout: 45000 })
-  await startCard.getByTestId('pdf-reading-angle').fill('What the method assumes')
+  await startCard.getByTestId('pdf-reading-angle').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute('data-testid')), 'ai-settings-angle', 'the start card opens AI settings on This book with the caret in the reading angle')
+  await page.getByTestId('ai-settings-angle').fill('What the method assumes')
+  await page.waitForTimeout(300)
+  await page.getByTestId('ai-settings-close').click()
+  await page.getByTestId('ai-settings-layer').waitFor({ state: 'detached' })
+  assert.match(await startCard.getByTestId('pdf-reading-angle').textContent(), /Reading angle.*What the method assumes/, 'the start card shows the angle that was set')
   assert.equal(await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('tinct:reading-angle:userbook-')).map(key => JSON.parse(localStorage.getItem(key))).join('|')), 'What the method assumes', 'the PDF reading angle is stored for its book')
   const beforeWhole = await host.evaluate(node => node.scrollTop), asked = calls.length
   await startCard.getByTestId('pdf-whole-summary').click()
@@ -565,7 +572,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
       const after = page.getByRole('complementary', { name: 'After Chapter One' })
       await after.waitFor()
       const chatBefore = calls.filter(call => call.path === '/api/chat').length
-      await after.getByRole('button', { name: 'Recap' }).click()
+      await after.getByRole('button', { name: 'Summary' }).click()
       await page.getByText('A grounded local fixture answer.', {exact:false}).waitFor()
       assert.equal(calls.filter(call => call.path === '/api/chat').length, chatBefore + 1)
       const recap=JSON.parse(calls.filter(call => call.path === '/api/chat').at(-1).body)
@@ -884,7 +891,7 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await finishOriginalPage(2)
     const after = page.getByRole('complementary', { name: 'After Chapter One' })
     await after.waitFor()
-    await after.getByRole('button', { name: 'Recap' }).click()
+    await after.getByRole('button', { name: 'Summary' }).click()
     await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('A grounded local fixture answer.', { exact: false }).waitFor()
     // An AI card shows only its answer (30 Oct 2026): no source-range line, no You/Tinct labels.
     assert.equal(await page.locator('[data-testid="lab-phone-card-body"]:visible').getByText('Source · Original PDF pages', { exact: false }).count(), 0)

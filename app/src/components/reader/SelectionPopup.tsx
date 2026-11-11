@@ -477,6 +477,7 @@ export function SelectionPopup({
         noted={!!selection.existingNote}
         moreRows={moreRows}
         fallback={{ x: selection.x, y: selection.y }}
+        cursor={{ x: selection.x, y: selection.y + (selection.showBelow ? -12 : 12) }}
         containerProps={{ tabIndex: -1, onKeyDown: trapKeys, 'data-popup-home': homeMode, onClick: (e: React.MouseEvent) => e.stopPropagation(), onMouseUp: (e: React.MouseEvent) => e.stopPropagation(), onTouchEnd: (e: React.TouchEvent) => e.stopPropagation() }}
         onAsk={() => onExplain()}
         onAskQuestion={sharedReader ? onAskQuestion : undefined}

@@ -193,7 +193,7 @@ describe('Before you start on a long book: which part it covers (Anders, 15 Oct:
   it('with an outline: from the preface, chapter 1, named "Chapter 1: Introduction" and "chapter 1"; a part\'s chapters are named as chapters', async () => {
     const units = M.primerUnits(await outlineEntries(), book.meta.pages)
     const one = M.primerUnitAt(units, 8)!
-    expect([one.title, one.label, M.unitPhrase(one), M.triggerLine(one)]).toEqual(['1 Introduction', 'Chapter 1: Introduction', 'chapter 1', 'The gist and a map of chapter 1.'])
+    expect([one.title, one.label, M.unitPhrase(one), M.triggerLine(one)]).toEqual(['1 Introduction', 'Chapter 1: Introduction', 'chapter 1', 'Where chapter 1 fits, how it is built, what to watch for.'])
     expect(one.to).toBe(book.meta.chapters[0].to)
     const sixteen = M.primerUnitAt(units, book.meta.figurePage)!
     expect([sixteen.label, M.unitPhrase(sixteen)]).toEqual(['Chapter 16: Applications and Case Studies', 'chapter 16'])
@@ -262,9 +262,9 @@ describe('Before you start on a long book: which part it covers (Anders, 15 Oct:
   it('a long PDF with nothing to go by: blocks of 40 pages, named by their pages; a short one stays "the whole PDF"', () => {
     const blocks = M.primerBlocks(95)
     expect(blocks.map(b => [b.key, b.from, b.to])).toEqual([['pages-1', 1, 40], ['pages-41', 41, 80], ['pages-81', 81, 95]])
-    expect(M.triggerLine(M.primerUnitAt(blocks, 50))).toBe('The gist and a map of pages 41–80.')
+    expect(M.triggerLine(M.primerUnitAt(blocks, 50))).toBe('Where pages 41–80 fit, how it is built, what to watch for.')
     for (const b of blocks) expect(b.key).toMatch(/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/)
-    expect(M.triggerLine(M.primerUnits([], 12)[0])).toBe('The gist and a map of the whole PDF.')
+    expect(M.triggerLine(M.primerUnits([], 12)[0])).toBe('How the whole PDF is built and what to watch for.')
   })
   it('headings found by size become units only when chapter-sized; an outline-less file\'s scan without chapters gives none', () => {
     const heads = Array.from({ length: 10 }, (_, i) => ({ id: 'h' + i, label: `Heading ${i}`, page: i * 3 + 1, kind: 'chapter', parent: null }))

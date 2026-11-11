@@ -11,6 +11,8 @@ export interface PrimerSection { title: string; pages: string }
 export type PrimerKind = 'paper' | 'textbook' | 'narrative' | 'practical' | 'other'
 export interface Primer {
     kind: PrimerKind;
+    /** Prompt v5 on: the first part's title, "In <document>" ('' when the unit is the whole document). */
+    role?: string;
     gist: string;
     sections: PrimerPart[];
     map: PrimerSection[];
@@ -27,12 +29,14 @@ export declare const PRIMER_LIMITS: Readonly<{
     sections: Readonly<{ min: number; max: number }>;
     items: Readonly<{ min: number; max: number }>;
     map: Readonly<{ min: number; max: number }>;
+    mapV5: Readonly<{ min: number; max: number }>;
     claims: Readonly<{ min: number; max: number }>;
     keepInMind: Readonly<{ min: number; max: number }>;
     gistChars: number;
     itemChars: number;
     titleChars: number;
     sectionTitleChars: number;
+    roleChars: number;
     termChars: number;
     citeChars: number;
     pagesChars: number;
@@ -47,3 +51,7 @@ export declare function parsePrimer(text: unknown): Primer | null;
 export declare function normalizeStoredPrimer(value: unknown): StoredPrimer | null;
 /** Why an answer is not a primer (for the Worker's log, never the text): null when it is one. */
 export declare function primerFailure(text: unknown): 'empty' | 'no_json' | 'invalid_json' | 'shape' | null;
+/** The second part's title in a v5 primer. */
+export declare const PRIMER_BUILT_TITLE: string;
+/** A primer the current prompt (v5) made: the one to serve as a unit's primer. */
+export declare function isCurrentPrimer(primer: Primer | null | undefined): boolean;

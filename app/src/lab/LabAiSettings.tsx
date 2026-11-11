@@ -3,78 +3,114 @@ import {
   AI_INSTRUCTIONS_MAX_CHARS,
   AI_LENGTHS,
   AI_LENGTH_ACTIONS,
+  AI_LENGTH_DEFAULTS,
   AI_INSTRUCTION_ACTIONS,
   cleanInstruction,
-  defaultAiSettings,
-  type AiAnswerLanguage,
+  type AiBookLengths,
   type AiInstructionAction,
   type AiLength,
   type AiLengthAction,
   type AiSettings,
 } from '../aiSettings'
 import { useAiSettings } from './labAiPrefs'
+import { READING_ANGLE_MAX_CHARS, useReadingAngle } from './labReadingAngle'
+import { SavedNote, useSavedNote } from './LabSavedNote'
+import { PhoneIcon } from './marginPhone/LabPhoneCard'
+import { useLabDictation, type LabDictationOptions } from './useLabDictation'
 import './aiSettingsDialog.css'
 
-/** The approved mock's words (10 Nov 2026). */
+/** The dialog's words (two tabs, Anders, 11 Nov 2026). */
 export const AI_SETTINGS_COPY = {
   title: 'AI settings',
   general: 'General',
-  custom: 'Custom',
+  book: 'This book',
   length: 'Length',
   lengths: { brief: 'Brief', standard: 'Standard', detailed: 'Detailed' } as Record<AiLength, string>,
-  lengthHints: { brief: 'A sentence or two', standard: 'A short paragraph or a short page', detailed: 'Section by section, with context' } as Record<AiLength, string>,
+  same: 'Same',
+  sameAsGeneral: 'Same as General',
   rows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary and Recap' } as Record<AiLengthAction, string>,
   phoneRows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
   rowLabel: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
-  detailedNote: 'Detailed uses more of your monthly AI allowance.',
-  answerIn: 'Answer in',
-  languages: { auto: 'The language I ask in', en: 'English', da: 'Dansk' } as Record<AiAnswerLanguage, string>,
   reset: 'Reset to defaults',
+  resetBook: 'Reset this book',
+  bookScope: 'Anything set here applies to this book only.',
   yourInstructions: 'Your instructions',
   upload: 'Upload .md',
   instructionsHint: 'Loaded as context in every AI interaction: answers, explanations, summaries, quizzes and Talk.',
   perAction: 'Per action (optional): Explain, Ask, Primer, Summary, Recap, Quiz me, Counterpoint',
   actions: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary', recap: 'Recap', quiz: 'Quiz me', counterpoint: 'Counterpoint' } as Record<AiInstructionAction, string>,
+  readingAngle: 'Reading angle',
+  readingAngleHint: 'What you want to notice in this book. Loaded with every AI interaction in it.',
+  readingAnglePlaceholder: 'What you want to notice in this book',
   uploadCut: `The file was longer than ${AI_INSTRUCTIONS_MAX_CHARS} characters: its first ${AI_INSTRUCTIONS_MAX_CHARS} are kept.`,
   uploadFailed: 'That file could not be read. Choose a .md or .txt file.',
   close: 'Close',
   back: 'Back',
 }
 
-type Tab = 'general' | 'custom'
+export type AiSettingsTab = 'general' | 'book'
 
 export interface LabAiSettingsProps {
   onClose: () => void
   /** The phone: a full screen with a back arrow instead of the desktop dialog. */
   phone?: boolean
   dark?: boolean
+  /** The open book: its id as its reading angle is kept, and its title. Without one (Profile from the library) there is General only. */
+  book?: { id: string; title: string } | null
+  /** The tab to open on; 'book' needs a book. */
+  tab?: AiSettingsTab
+  /** Put the caret in the reading angle (a "Set reading angle" entry). */
+  focusAngle?: boolean
+  /** Dictation into the reading angle, where the reader's page has it (useLabDictation's own options). */
+  dictation?: Pick<LabDictationOptions, 'signedIn' | 'getAuthToken'> | null
 }
 
 /**
- * AI settings, as mocked and approved (10 Nov 2026): General (Length per
- * action, Answer in, Reset to defaults) and Custom (the reader's own
- * instructions, an optional box per action). A dialog on the desktop, a full
- * screen on the phone. Every change is kept at once (labAiPrefs.ts, labAiAccount.ts), on this
- * device and, signed in, with the account.
+ * AI settings (Anders, 11 Nov 2026): General (Length per action, then the
+ * reader's own instructions) and This book (the same Length grid, each row
+ * "Same as General" until set, then the book's reading angle). A dialog on
+ * the desktop, a full screen on the phone. Every change is kept at once
+ * (labAiPrefs.ts, labAiAccount.ts, labReadingAngle.ts), on this device and,
+ * signed in, with the account.
  */
-export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSettingsProps) {
+export function LabAiSettings({ onClose, phone = false, dark = false, book = null, tab: firstTab = 'general', focusAngle = false, dictation = null }: LabAiSettingsProps) {
   const [settings, setSettings] = useAiSettings()
-  const [tab, setTab] = useState<Tab>('general')
+  const [tab, setTab] = useState<AiSettingsTab>(book && firstTab === 'book' ? 'book' : 'general')
   const [notice, setNotice] = useState('')
+  const [angle, setAngle] = useReadingAngle(book?.id ?? null)
+  // Every change is saved as it is made; the dialog says so once, quietly, by its tabs.
+  const saved = useSavedNote(JSON.stringify([settings, angle]))
   const fileRef = useRef<HTMLInputElement | null>(null)
   const closeRef = useRef<HTMLButtonElement | null>(null)
   const closeLatest = useRef(onClose); closeLatest.current = onClose
 
   useEffect(() => {
-    closeRef.current?.focus({ preventScroll: true })
+    if (!(focusAngle && book && firstTab === 'book')) closeRef.current?.focus({ preventScroll: true })
     const key = (event: KeyboardEvent) => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeLatest.current() } }
     window.addEventListener('keydown', key, true)
     return () => window.removeEventListener('keydown', key, true)
+    // The first focus only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const change = (patch: Partial<AiSettings>) => setSettings({ ...settings, ...patch })
   const setLength = (action: AiLengthAction, length: AiLength) => change({ length: { ...settings.length, [action]: length } })
   const setPerAction = (action: AiInstructionAction, text: string) => change({ perAction: { ...settings.perAction, [action]: cleanInstruction(text) } })
+  const bookLengths: AiBookLengths = (book && settings.books[book.id]) || {}
+  const setBookLengths = (next: AiBookLengths) => {
+    if (!book) return
+    const books = { ...settings.books }
+    // Set again, a book moves to the end: the newest are the ones kept (AI_BOOK_LENGTHS_MAX).
+    delete books[book.id]
+    if (Object.keys(next).length) books[book.id] = next
+    change({ books })
+  }
+  const setBookLength = (action: AiLengthAction, length: AiLength | null) => {
+    const next = { ...bookLengths }
+    if (length) next[action] = length
+    else delete next[action]
+    setBookLengths(next)
+  }
 
   const upload = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -92,23 +128,14 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
     <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.general} data-testid="ai-settings-general">
       <div className="lab-ai-grid" role="group" aria-label={AI_SETTINGS_COPY.length}>
         <span className="lab-ai-heading">{AI_SETTINGS_COPY.length}</span>
-        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col" title={AI_SETTINGS_COPY.lengthHints[length]}>{AI_SETTINGS_COPY.lengths[length]}</span>)}
+        {/* Plain column labels: no hint, no tooltip (Anders, 11 Nov 2026). */}
+        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col" data-testid={`ai-length-head-${length}`}>{AI_SETTINGS_COPY.lengths[length]}</span>)}
         {AI_LENGTH_ACTIONS.map(action => <LengthRow key={action} label={rows[action]} action={action} value={settings.length[action]} onChange={setLength} />)}
       </div>
-      <p className="lab-ai-note" data-testid="ai-settings-detailed-note">{AI_SETTINGS_COPY.detailedNote}</p>
-      <label className="lab-ai-language">
-        <span className="lab-ai-heading">{AI_SETTINGS_COPY.answerIn}</span>
-        <select value={settings.language} onChange={event => change({ language: event.target.value as AiAnswerLanguage })} data-testid="ai-settings-language">
-          {(['auto', 'en', 'da'] as const).map(value => <option key={value} value={value}>{AI_SETTINGS_COPY.languages[value]}</option>)}
-        </select>
-      </label>
       <div className="lab-ai-reset">
-        <button type="button" className="lab-ai-link" data-testid="ai-settings-reset" onClick={() => { const fresh = defaultAiSettings(); setSettings({ ...fresh, instructions: settings.instructions, perAction: settings.perAction }) }}>{AI_SETTINGS_COPY.reset}</button>
+        <button type="button" className="lab-ai-link" data-testid="ai-settings-reset" onClick={() => change({ length: { ...AI_LENGTH_DEFAULTS } })}>{AI_SETTINGS_COPY.reset}</button>
       </div>
-    </div>
-  )
-  const custom = (
-    <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.custom} data-testid="ai-settings-custom">
+      <div className="lab-ai-rule" />
       <div className="lab-ai-field">
         <div className="lab-ai-field-top">
           <label htmlFor="lab-ai-instructions" className="lab-ai-heading">{AI_SETTINGS_COPY.yourInstructions}</label>
@@ -116,7 +143,7 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
           <input ref={fileRef} type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden onChange={upload} data-testid="ai-settings-file" />
         </div>
         <span className="lab-ai-hint">{AI_SETTINGS_COPY.instructionsHint}</span>
-        <textarea id="lab-ai-instructions" rows={5} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.instructions}
+        <textarea id="lab-ai-instructions" rows={4} maxLength={AI_INSTRUCTIONS_MAX_CHARS} value={settings.instructions}
           onChange={event => { setNotice(''); change({ instructions: cleanInstruction(event.target.value) }) }} data-testid="ai-settings-instructions" />
         {notice && <span className="lab-ai-notice" role="status" data-testid="ai-settings-notice">{notice}</span>}
       </div>
@@ -132,14 +159,31 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
       </details>
     </div>
   )
+  const thisBook = book && (
+    <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.book} data-testid="ai-settings-book">
+      <p className="lab-ai-note" data-testid="ai-settings-book-scope">{book.title ? `${book.title}. ` : ''}{AI_SETTINGS_COPY.bookScope}</p>
+      <div className="lab-ai-grid is-book" role="group" aria-label={AI_SETTINGS_COPY.length}>
+        <span className="lab-ai-heading">{AI_SETTINGS_COPY.length}</span>
+        <span className="lab-ai-col" data-testid="ai-book-head-same">{AI_SETTINGS_COPY.same}</span>
+        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col">{AI_SETTINGS_COPY.lengths[length]}</span>)}
+        {AI_LENGTH_ACTIONS.map(action => <BookLengthRow key={action} label={AI_SETTINGS_COPY.phoneRows[action]} action={action} value={bookLengths[action] ?? null} onChange={setBookLength} />)}
+      </div>
+      <div className="lab-ai-reset">
+        <button type="button" className="lab-ai-link" data-testid="ai-settings-reset-book" onClick={() => setBookLengths({})}>{AI_SETTINGS_COPY.resetBook}</button>
+      </div>
+      <div className="lab-ai-rule" />
+      <AngleField value={angle} onChange={setAngle} focus={focusAngle && firstTab === 'book'} bookId={book.id} dictation={dictation} />
+    </div>
+  )
 
   const tabs = (
     <div role="tablist" aria-label={AI_SETTINGS_COPY.title} className="lab-ai-tabs">
-      {(['general', 'custom'] as const).map(id => (
+      {(book ? ['general', 'book'] as const : ['general'] as const).map(id => (
         <button key={id} type="button" role="tab" aria-selected={tab === id} className="lab-ai-tab" data-testid={`ai-settings-tab-${id}`} onClick={() => setTab(id)}>
-          {id === 'general' ? AI_SETTINGS_COPY.general : AI_SETTINGS_COPY.custom}
+          {id === 'general' ? AI_SETTINGS_COPY.general : AI_SETTINGS_COPY.book}
         </button>
       ))}
+      <SavedNote shown={saved} testId="ai-settings-saved" />
     </div>
   )
 
@@ -151,7 +195,7 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
         {!phone && <button ref={closeRef} type="button" className="lab-ai-close" aria-label={AI_SETTINGS_COPY.close} data-testid="ai-settings-close" onClick={onClose}>×</button>}
       </div>
       {tabs}
-      {tab === 'general' ? general : custom}
+      {tab === 'book' && thisBook ? thisBook : general}
     </section>
   )
 
@@ -168,7 +212,7 @@ function LengthRow({ label, action, value, onChange }: { label: string; action: 
     {AI_LENGTHS.map(length => {
       const on = value === length
       return (
-        <button key={length} type="button" className="lab-ai-choice" aria-pressed={on} title={AI_SETTINGS_COPY.lengthHints[length]}
+        <button key={length} type="button" className="lab-ai-choice" aria-pressed={on}
           aria-label={`${AI_SETTINGS_COPY.rowLabel[action]}: ${AI_SETTINGS_COPY.lengths[length]}`} data-testid={`ai-length-${action}-${length}`}
           onClick={() => onChange(action, length)}>
           <span aria-hidden="true">{on ? '●' : '○'}</span>
@@ -176,4 +220,53 @@ function LengthRow({ label, action, value, onChange }: { label: string; action: 
       )
     })}
   </>
+}
+
+/** This book's row: "Same as General" first (the row follows General until the reader sets it), then the three lengths. */
+function BookLengthRow({ label, action, value, onChange }: { label: string; action: AiLengthAction; value: AiLength | null; onChange: (action: AiLengthAction, length: AiLength | null) => void }) {
+  return <>
+    <span className="lab-ai-row">{label}</span>
+    {([null, ...AI_LENGTHS] as const).map(length => {
+      const on = value === length
+      return (
+        <button key={length ?? 'same'} type="button" className="lab-ai-choice" aria-pressed={on}
+          aria-label={`${AI_SETTINGS_COPY.rowLabel[action]}: ${length ? AI_SETTINGS_COPY.lengths[length] : AI_SETTINGS_COPY.sameAsGeneral}`} data-testid={`ai-book-length-${action}-${length ?? 'same'}`}
+          onClick={() => onChange(action, length)}>
+          <span aria-hidden="true">{on ? '●' : '○'}</span>
+        </button>
+      )
+    })}
+  </>
+}
+
+/** The book's reading angle (labReadingAngle.ts): the one place it is set, saved as it is typed, with dictation where the page has it. */
+function AngleField({ value, onChange, focus, bookId, dictation }: { value: string; onChange: (value: string) => void; focus: boolean; bookId: string; dictation: LabAiSettingsProps['dictation'] }) {
+  const ref = useRef<HTMLTextAreaElement>(null)
+  useEffect(() => {
+    if (!focus) return
+    const field = ref.current
+    if (!field) return
+    field.focus({ preventScroll: true })
+    field.setSelectionRange(field.value.length, field.value.length)
+  }, [focus])
+  return (
+    <div className="lab-ai-field">
+      <label htmlFor="lab-ai-angle" className="lab-ai-heading">{AI_SETTINGS_COPY.readingAngle}</label>
+      <span className="lab-ai-hint">{AI_SETTINGS_COPY.readingAngleHint}</span>
+      <span className={`lab-ai-angle-box${dictation ? ' has-mic' : ''}`}>
+        <textarea ref={ref} id="lab-ai-angle" rows={3} maxLength={READING_ANGLE_MAX_CHARS} value={value} placeholder={AI_SETTINGS_COPY.readingAnglePlaceholder}
+          onChange={event => onChange(event.target.value)} data-testid="ai-settings-angle" />
+        {dictation && <AngleMic bookId={bookId} value={value} onChange={onChange} dictation={dictation} />}
+      </span>
+    </div>
+  )
+}
+
+function AngleMic({ bookId, value, onChange, dictation }: { bookId: string; value: string; onChange: (value: string) => void; dictation: NonNullable<LabAiSettingsProps['dictation']> }) {
+  const mic = useLabDictation(bookId, text => onChange(text.slice(0, READING_ANGLE_MAX_CHARS)), { signedIn: dictation.signedIn, getAuthToken: dictation.getAuthToken })
+  const on = mic.state !== 'idle'
+  return (
+    <button type="button" className="lab-ai-mic" data-testid="ai-settings-angle-mic" aria-pressed={on}
+      aria-label={on ? 'Stop dictation' : 'Dictate your reading angle'} onClick={() => mic.toggle(value)}><PhoneIcon name="mic" /></button>
+  )
 }

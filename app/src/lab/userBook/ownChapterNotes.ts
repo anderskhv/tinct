@@ -13,6 +13,7 @@
 import { withAiPrefs } from '../labAiPrefs'
 import { parseChapterNotesBeats, type ChapterNotesBeat, type ChapterNotesKind } from '../../chapterNotes'
 import { parsePrimer, type Primer } from '../../companion/primerParse'
+import { primerOutline } from '../../companion/chapterChatPrompt'
 import { apiUrl } from '../../utils/apiUrl'
 import { internalTrafficHeaders } from '../../utils/internalTraffic'
 import { readableParagraph } from '../labFigures'
@@ -27,6 +28,8 @@ export interface OwnChapterNotesSource {
   chapterNumber: number
   chapterTitle: string
   paragraphs: readonly string[]
+  /** The book's chapters in order (number and title), for the Primer's first part: where this chapter sits. Titles only are sent. */
+  chapters?: ReadonlyArray<{ number: number; title: string }>
 }
 
 /** The kinds made this way: Primer (the heading's pill) and Recap (the chapter end's). */
@@ -78,11 +81,14 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
     lookups: false,
   }
   if (kind === 'primer') {
+    // The book's contents nearest the chapter, titles only (the Primer's first part; 11 Nov 2026).
+    const chapters = source.chapters ?? []
+    const outline = primerOutline(chapters.map(chapter => chapter.title || `Chapter ${chapter.number}`), chapters.findIndex(chapter => chapter.number === source.chapterNumber))
     return {
       stream: false, max_tokens: 1600,
       messages: [{ role: 'user', content: 'Please answer.' }],
       // The reader's AI settings for this card (labAiPrefs.ts), only what differs from Tinct's defaults.
-      companion: withAiPrefs({ intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter' } } }),
+      companion: withAiPrefs({ intent: 'chapter', context, chapter: { action: { kind: 'primer', unitKey: `chapter-${source.chapterNumber}`, unitTitle: context.chapterLabel, unitKind: 'chapter', ...(outline ? { outline } : {}) } } }),
     }
   }
   return {
@@ -94,10 +100,14 @@ export function ownChapterNotesBody(kind: OwnChapterNotesKind, source: OwnChapte
 
 const itemText = (item: Primer['sections'][number]['items'][number]) => 'term' in item ? `${item.term}: ${item.meaning}` : item.text.replace(/\s*\{[^}]*\}\s*/g, ' ').trim()
 
-/** A primer as the card's beats: its gist, then each section's items in one line (the map is the Contents' job). */
+/**
+ * A primer as the card's beats: its first part, then each section's items in one line (the map is the Contents' job).
+ * Since prompt v5 (11 Nov 2026) the first is the chapter's role under its own title ("In Deep Learning"), then How
+ * it's built and Watch for, as a Tinct book's Primer; a whole document has no first part. An older primer's gist is "In brief".
+ */
 export function primerBeats(primer: Primer): ChapterNotesBeat[] | null {
   const beats = parseChapterNotesBeats({ beats: [
-    { title: 'In brief', text: primer.gist },
+    ...(primer.gist ? [{ title: primer.role || 'In brief', text: primer.gist }] : []),
     ...primer.sections.map(section => ({ title: section.title, text: section.items.map(itemText).filter(Boolean).join(' · ') })),
   ] })
   // A section of several items reads one item a line, not one run joined by dots (Anders, 30 Oct 2026).

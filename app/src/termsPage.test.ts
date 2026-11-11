@@ -101,7 +101,7 @@ describe('own books and the AI features', () => {
 
   // AI settings (approved line, Anders, 10 Nov 2026): own instructions and reading angles go with the account and the AI requests.
   it('privacy: own AI instructions and reading angles are stored with the account and sent as context', () => {
-    expect(privacyText).toContain('If you write your own instructions for Tinct’s AI or set a reading angle for a book, we store them with your account so they apply on every device, and send them with your AI requests as context. You can change or delete them at any time in AI settings and Book settings.')
+    expect(privacyText).toContain('If you write your own instructions for Tinct’s AI or set a reading angle for a book, we store them with your account so they apply on every device, and send them with your AI requests as context. You can change or delete them at any time in AI settings.')
   })
 
   // Findable profiles and follow requests (Anders, 19 Oct 2026; an in-app notice instead of an email).

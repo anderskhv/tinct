@@ -48,6 +48,8 @@ export interface SelectionDeskBarProps {
   moreRows: DeskMoreId[][]
   /** Where the press ended, used only when no selected word is painted. */
   fallback: { x: number; y: number }
+  /** Where the pointer let go of the selection: the bar stands on that side of it, its tip there (deskBarPlace). */
+  cursor?: { x: number; y: number }
   /** Original PDF geometry; null means that passage is outside the visible reader. */
   getAnchor?: () => DeskBox | null
   onAsk: () => void
@@ -100,6 +102,9 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
   const [morePlace, setMorePlace] = useState<{ left: number; top: number } | null>(null)
   const moreRef = useRef<HTMLDivElement | null>(null)
   const observedSelection = useRef({ x: fallback.x, y: fallback.y, seen: false })
+  // Which end of the selection the pointer let go at, and how far along that line: read once per selection, so a
+  // later scroll moves the bar with the passage and never to its other side.
+  const cursorSide = useRef<{ key: string; end: boolean; dx: number } | null>(null)
   const frame = (): DeskBox => ({ left: 0, right: window.innerWidth, top: document.querySelector('.lab-header')?.getBoundingClientRect().bottom ?? 60, bottom: window.innerHeight })
   useLayoutEffect(() => {
     const native = window.getSelection()
@@ -124,7 +129,16 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
         .map(boxOf)
       if (observedSelection.current.seen && !boxes.length) { setPlace(null); return }
       const lines = firstAndLastLine(boxes) ?? { first: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y }, last: { left: fallback.x, right: fallback.x, top: fallback.y, bottom: fallback.y } }
-      setPlace(deskBarPlace(lines.first, lines.last, bounds, el.offsetWidth, el.offsetHeight))
+      const mid = (box: DeskBox) => (box.top + box.bottom) / 2
+      const pointer = props.cursor
+      if (!pointer) cursorSide.current = null
+      else if (boxes.length && cursorSide.current?.key !== `${pointer.x},${pointer.y}`) {
+        const end = lines.last.top > lines.first.top && Math.abs(pointer.y - mid(lines.last)) < Math.abs(pointer.y - mid(lines.first))
+        cursorSide.current = { key: `${pointer.x},${pointer.y}`, end, dx: pointer.x - (end ? lines.last : lines.first).left }
+      }
+      const side = cursorSide.current
+      const cursor = side && boxes.length ? { x: (side.end ? lines.last : lines.first).left + side.dx, y: mid(side.end ? lines.last : lines.first) } : null
+      setPlace(deskBarPlace(lines.first, lines.last, bounds, el.offsetWidth, el.offsetHeight, cursor))
     }
     let frameId = 0
     const schedule = () => { if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; at() }) }
@@ -132,7 +146,7 @@ export const SelectionDeskBar = forwardRef<HTMLDivElement, SelectionDeskBarProps
     window.addEventListener('resize', schedule)
     window.addEventListener('scroll', schedule, true)
     return () => { cancelAnimationFrame(frameId); window.removeEventListener('resize', schedule); window.removeEventListener('scroll', schedule, true) }
-  }, [state, marked, askOpen, askLines, fallback.x, fallback.y, props.getAnchor])
+  }, [state, marked, askOpen, askLines, fallback.x, fallback.y, props.cursor?.x, props.cursor?.y, props.getAnchor])
   useLayoutEffect(() => {
     if (!moreOpen || !place) { setMorePlace(null); return }
     const bar = ref.current, menu = moreRef.current

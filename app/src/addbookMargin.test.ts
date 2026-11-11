@@ -14,7 +14,7 @@ const ROOT = resolve(__dirname, '../..') + '/'
 type Rect = { left: number; top: number; right: number; bottom: number }
 type Mark = { id: string; u?: number; at?: number; gone?: boolean; page?: number; note?: string; color?: string }
 interface MarginApi {
-  placeBar(o: { first: Rect; last?: Rect; frame: Rect; w: number; h?: number; phone?: boolean }): { left: number; top: number; width: number; below: boolean; tip: number }
+  placeBar(o: { first: Rect; last?: Rect; frame: Rect; w: number; h?: number; phone?: boolean; cursor?: { x: number; y: number } | null }): { left: number; top: number; width: number; below: boolean; tip: number }
   placeMore(o: { bar: Rect & { below: boolean }; dots: Rect; frame: Rect; w: number; h: number; phone?: boolean }): { left: number; top: number; below: boolean }
   placeCard(o: { first: Rect; last?: Rect; frame: Rect; w: number; h: number; phone?: boolean }): { left: number; top: number; width: number; below: boolean }
   typedChar(e: Partial<KeyboardEvent>, o?: { inField?: boolean }): string | null
@@ -56,6 +56,14 @@ describe('the selection bar’s place', () => {
   it('clamps 16px inside the reader on both sides', () => {
     expect(M.placeBar({ first: box(5, 400, 50, 420), frame: FRAME, w: 360 }).left).toBe(16)
     expect(M.placeBar({ first: box(1200, 400, 1270, 420), frame: FRAME, w: 360 }).left).toBe(1280 - 16 - 360)
+  })
+  it('with the cursor, the desktop bar stands on the cursor\u2019s side of the selection, its tip there (11 Nov 2026)', () => {
+    const first = box(500, 400, 1100, 420), last = box(250, 440, 540, 460)
+    expect(M.placeBar({ first, last, frame: FRAME, w: 360, h: 44, cursor: { x: 520, y: 450 } })).toMatchObject({ left: 480, top: 472, below: true, tip: 40 })
+    expect(M.placeBar({ first, last, frame: FRAME, w: 360, h: 44, cursor: { x: 500, y: 410 } })).toMatchObject({ left: 460, top: 344, below: false, tip: 40 })
+    // No room below: above, never off the frame.
+    const low = M.placeBar({ first: box(500, 700, 1100, 720), last: box(250, 740, 540, 760), frame: { ...FRAME, bottom: 800 }, w: 360, h: 44, cursor: { x: 520, y: 750 } })
+    expect(low.below).toBe(false)
   })
   it('with less than 64px above the selection: 12px below its last line, tip up', () => {
     const p = M.placeBar({ first: box(300, 100, 600, 118), last: box(100, 140, 400, 160), frame: FRAME, w: 360, h: 44 })

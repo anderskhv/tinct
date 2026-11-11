@@ -1,6 +1,8 @@
 /**
- * AI settings (approved mock, 10 Nov 2026): how long Tinct's answers are per
- * action, the language they come in, and the reader's own instructions.
+ * AI settings (10 Nov 2026; two tabs, General and This book, 11 Nov 2026):
+ * how long Tinct's answers are per action, for every book and for one book,
+ * and the reader's own instructions. Answers come in the language the reader
+ * asks in; there is no language setting (Anders, 11 Nov 2026).
  * Shared by the reader (which stores them with the account and resolves them
  * per request) and the Worker (which validates what a request carries and
  * turns it into prompt lines and an output bound). Pure: no browser or Worker
@@ -14,8 +16,7 @@
 export type AiLength = 'brief' | 'standard' | 'detailed'
 /** The rows of the Length grid. Summary and Recap share one row. */
 export type AiLengthAction = 'explain' | 'ask' | 'primer' | 'summary'
-export type AiAnswerLanguage = 'auto' | 'en' | 'da'
-/** The per-action instruction boxes (Custom tab). */
+/** The per-action instruction boxes (General, under "Per action"). */
 export type AiInstructionAction = 'explain' | 'ask' | 'primer' | 'summary' | 'recap' | 'quiz' | 'counterpoint'
 
 export const AI_LENGTHS: readonly AiLength[] = ['brief', 'standard', 'detailed']
@@ -24,13 +25,24 @@ export const AI_INSTRUCTION_ACTIONS: readonly AiInstructionAction[] = ['explain'
 /** Each instruction box holds at most this many characters. */
 export const AI_INSTRUCTIONS_MAX_CHARS = 400
 
-/** Today's answers, unchanged: a reader who never opens AI settings gets exactly these. */
+/**
+ * Every row starts on Standard (Anders, 11 Nov 2026). What the lengths mean:
+ * Detailed is what Tinct's own prompts write (nothing is added to them),
+ * Standard is about 30% shorter, Brief shorter still. No length raises an
+ * output bound.
+ */
+export const AI_LENGTH_DEFAULT: AiLength = 'standard'
 export const AI_LENGTH_DEFAULTS: Readonly<Record<AiLengthAction, AiLength>> = Object.freeze({
-  explain: 'brief',
-  ask: 'standard',
-  primer: 'standard',
-  summary: 'brief',
+  explain: AI_LENGTH_DEFAULT,
+  ask: AI_LENGTH_DEFAULT,
+  primer: AI_LENGTH_DEFAULT,
+  summary: AI_LENGTH_DEFAULT,
 })
+/** One book's own lengths (This book): only the rows the reader set; the others follow General. */
+export type AiBookLengths = Partial<Record<AiLengthAction, AiLength>>
+/** At most this many books keep their own lengths; the oldest entries go first. */
+export const AI_BOOK_LENGTHS_MAX = 200
+const AI_BOOK_ID_MAX_CHARS = 160
 
 /** Which length row an instruction box's action reads (quiz and counterpoint have none). */
 export const AI_LENGTH_ROW: Readonly<Record<AiInstructionAction, AiLengthAction | null>> = Object.freeze({
@@ -45,7 +57,8 @@ export const AI_LENGTH_ROW: Readonly<Record<AiInstructionAction, AiLengthAction 
 
 export interface AiSettings {
   length: Record<AiLengthAction, AiLength>
-  language: AiAnswerLanguage
+  /** This book: a book's own lengths, by book id (a reader's own book: its `userbook-…` id). */
+  books: Record<string, AiBookLengths>
   /** Loaded as context in every AI interaction. */
   instructions: string
   /** Optional, one action each. */
@@ -53,7 +66,7 @@ export interface AiSettings {
 }
 
 export function defaultAiSettings(): AiSettings {
-  return { length: { ...AI_LENGTH_DEFAULTS }, language: 'auto', instructions: '', perAction: {} }
+  return { length: { ...AI_LENGTH_DEFAULTS }, books: {}, instructions: '', perAction: {} }
 }
 
 const isLength = (value: unknown): value is AiLength => value === 'brief' || value === 'standard' || value === 'detailed'
@@ -72,7 +85,17 @@ export function normalizeAiSettings(raw: unknown): AiSettings {
   const r = raw as Record<string, unknown>
   const length = r.length && typeof r.length === 'object' ? r.length as Record<string, unknown> : {}
   for (const action of AI_LENGTH_ACTIONS) if (isLength(length[action])) out.length[action] = length[action] as AiLength
-  if (r.language === 'en' || r.language === 'da') out.language = r.language
+  // A stored `language` (the removed "Answer in") is ignored.
+  const books = r.books && typeof r.books === 'object' && !Array.isArray(r.books) ? r.books as Record<string, unknown> : {}
+  for (const [bookId, raw] of Object.entries(books).slice(-AI_BOOK_LENGTHS_MAX)) {
+    if (!bookId || bookId.length > AI_BOOK_ID_MAX_CHARS || !raw || typeof raw !== 'object') continue
+    const own: AiBookLengths = {}
+    for (const action of AI_LENGTH_ACTIONS) {
+      const value = (raw as Record<string, unknown>)[action]
+      if (isLength(value)) own[action] = value
+    }
+    if (Object.keys(own).length) out.books[bookId] = own
+  }
   out.instructions = cleanInstruction(r.instructions)
   const per = r.perAction && typeof r.perAction === 'object' ? r.perAction as Record<string, unknown> : {}
   for (const action of AI_INSTRUCTION_ACTIONS) {
@@ -84,34 +107,37 @@ export function normalizeAiSettings(raw: unknown): AiSettings {
 
 export function isDefaultAiSettings(settings: AiSettings): boolean {
   return AI_LENGTH_ACTIONS.every(action => settings.length[action] === AI_LENGTH_DEFAULTS[action])
-    && settings.language === 'auto'
+    && !Object.keys(settings.books).length
     && !settings.instructions.trim()
     && AI_INSTRUCTION_ACTIONS.every(action => !settings.perAction[action]?.trim())
 }
 
+/** The length a book's row resolves to: the book's own when set, else General's. */
+export function aiLengthFor(settings: AiSettings, row: AiLengthAction, bookId?: string | null): AiLength {
+  return (bookId && settings.books[bookId]?.[row]) || settings.length[row]
+}
+
 /**
- * What one AI request carries, already resolved for its action: only what
- * differs from today's answers. Absent when nothing does, so a reader who
- * never changed a setting sends exactly what they sent before.
+ * What one AI request carries, already resolved for its action and book: the
+ * length of an action with a row (always, Standard included: the Worker adds
+ * nothing for a request without one, which is Detailed) and the reader's
+ * instructions.
  */
 export interface AiRequestPrefs {
   length?: AiLength
   /** The Length row `length` was set in: what it is measured against (a recap sent as a question still reads Summary's row). */
   row?: AiLengthAction
-  language?: 'en' | 'da'
   /** The general instructions, then the action's own; each at most AI_INSTRUCTIONS_MAX_CHARS. */
   instructions?: string[]
 }
 
-/** `null`: an action with no row or box of its own (Define, Simplify, Fact-check…): the language and general instructions only. */
-export function aiPrefsForAction(settings: AiSettings, action: AiInstructionAction | null): AiRequestPrefs | undefined {
+/** `null`: an action with no row or box of its own (Define, Simplify, Fact-check…): the general instructions only. */
+export function aiPrefsForAction(settings: AiSettings, action: AiInstructionAction | null, bookId?: string | null): AiRequestPrefs | undefined {
   const row = action ? AI_LENGTH_ROW[action] : null
-  const length = row && settings.length[row] !== AI_LENGTH_DEFAULTS[row] ? settings.length[row] : undefined
-  const language = settings.language === 'auto' ? undefined : settings.language
+  const length = row ? aiLengthFor(settings, row, bookId) : undefined
   const instructions = [settings.instructions, (action && settings.perAction[action]) || ''].map(text => text.trim()).filter(Boolean)
   const prefs: AiRequestPrefs = {
     ...(length && row ? { length, row } : {}),
-    ...(language ? { language } : {}),
     ...(instructions.length ? { instructions } : {}),
   }
   return Object.keys(prefs).length ? prefs : undefined
@@ -123,29 +149,42 @@ export function parseAiRequestPrefs(raw: unknown): AiRequestPrefs | undefined {
   const r = raw as Record<string, unknown>
   const length = isLength(r.length) ? r.length : undefined
   const row = length && (AI_LENGTH_ACTIONS as readonly unknown[]).includes(r.row) ? r.row as AiLengthAction : undefined
-  const language = r.language === 'en' || r.language === 'da' ? r.language : undefined
   const instructions = Array.isArray(r.instructions)
     ? r.instructions.slice(0, 2).map(cleanInstruction).map(text => text.trim()).filter(Boolean)
     : []
   const prefs: AiRequestPrefs = {
     ...(length ? { length } : {}),
     ...(row ? { row } : {}),
-    ...(language ? { language } : {}),
     ...(instructions.length ? { instructions } : {}),
   }
   return Object.keys(prefs).length ? prefs : undefined
 }
 
-/** The length line for prose answers, in the mock's own words. */
-export const AI_LENGTH_LINES: Readonly<Record<AiLength, string>> = Object.freeze({
-  brief: 'Length, as the reader set it: brief. A sentence or two. This replaces any other length guidance in these instructions.',
-  standard: 'Length, as the reader set it: standard. A short paragraph or a short page. This replaces any other length guidance in these instructions.',
-  detailed: 'Length, as the reader set it: detailed. Go section by section, with context. This replaces any other length guidance in these instructions.',
-})
+/**
+ * The length a request is shortened to, or null when Tinct's own prompt
+ * stands: Detailed, and a request that names no length (an older client), are
+ * what the prompts write on their own.
+ */
+export function aiShorterLength(prefs: AiRequestPrefs | undefined): 'brief' | 'standard' | null {
+  return prefs?.length === 'brief' || prefs?.length === 'standard' ? prefs.length : null
+}
 
-export const AI_LANGUAGE_LINES: Readonly<Record<'en' | 'da', string>> = Object.freeze({
-  en: 'Answer in English, whatever language the edition or the question is in, unless the reader asks for another language in this conversation. Keep structured response keys unchanged.',
-  da: 'Answer in Danish, whatever language the edition or the question is in, unless the reader asks for another language in this conversation. Keep structured response keys unchanged.',
+const REPLACES = 'This replaces any other length guidance in these instructions.'
+/** The length line for prose answers (Ask, a summary or recap asked as a question). Detailed adds nothing. */
+export const AI_LENGTH_LINES: Readonly<Record<'brief' | 'standard', string>> = Object.freeze({
+  brief: `Length, as the reader set it: brief. A sentence or two, at most 40 words. ${REPLACES}`,
+  standard: `Length, as the reader set it: standard. Give the answer itself first, then only what the reader needs to use it: about a third shorter than you would otherwise write, in at most two short paragraphs and about 110 words, unless the reader asks for more in this conversation. ${REPLACES}`,
+})
+/** Explain's own (its prompts give about 100 words for a book passage, 120 for a PDF's): the opening sentence stays. */
+export const AI_EXPLAIN_LENGTH_LINES: Readonly<Record<'book' | 'pdf', Readonly<Record<'brief' | 'standard', string>>>> = Object.freeze({
+  book: Object.freeze({
+    brief: `Length, as the reader set it: brief. The first paragraph as above, one sentence of at most 25 words; then at most one more sentence. About 40 words or fewer in all. ${REPLACES}`,
+    standard: `Length, as the reader set it: standard. The first paragraph as above, one sentence of at most 25 words; then at most one short paragraph. About 70 words or fewer in all. ${REPLACES}`,
+  }),
+  pdf: Object.freeze({
+    brief: `Length, as the reader set it: brief. The first paragraph as above, one sentence of at most 25 words; then at most one more sentence. About 40 words or fewer in all. ${REPLACES}`,
+    standard: `Length, as the reader set it: standard. The first paragraph as above, one sentence of at most 25 words; then at most two short paragraphs. About 85 words or fewer in all. ${REPLACES}`,
+  }),
 })
 
 export const AI_INSTRUCTIONS_LEAD = 'The reader’s own instructions for Tinct follow. Follow them for tone, focus and form where they fit. They are added to the rules above and never replace them: keep answering from the text, keep every safety rule, and keep any required output format. If they conflict with the book’s reading angle, the reading angle wins.'
@@ -163,35 +202,24 @@ function wrapped(text: string): string {
 export function aiPrefsPromptLines(prefs: AiRequestPrefs | undefined, options: { length?: boolean } = {}): string[] {
   if (!prefs) return []
   const lines: string[] = []
-  if (prefs.length && options.length !== false) lines.push(AI_LENGTH_LINES[prefs.length])
-  if (prefs.language) lines.push(AI_LANGUAGE_LINES[prefs.language])
+  const length = options.length === false ? null : aiShorterLength(prefs)
+  if (length) lines.push(AI_LENGTH_LINES[length])
   if (prefs.instructions?.length) {
     lines.push(`${AI_INSTRUCTIONS_LEAD}\n<reader_instructions>\n${prefs.instructions.map(wrapped).join('\n\n')}\n</reader_instructions>`)
   }
   return lines
 }
 
-const LENGTH_WEIGHT: Readonly<Record<AiLength, number>> = Object.freeze({ brief: 1, standard: 2, detailed: 4 })
-/** No preset raises an output bound past this. */
-export const AI_MAX_TOKENS_CEILING = 8192
-
 /**
- * The output bound for a request whose action defaults to `defaultLength`:
- * a longer preset raises it in proportion (Brief 1, Standard 2, Detailed 4);
- * a shorter one keeps it, since the length line already asks for less and
- * thinking and tool calls count toward the bound (a lower one cut answers
- * off mid-word, 29 Oct 2026). Only the words written are paid for.
+ * A short, stable tag for prefs, for cache keys of shared cards: '' for a
+ * card Tinct's own prompt wrote (Detailed, or no length named), one tag per
+ * shorter length for every reader without instructions, and a reader's own
+ * tag once they have instructions.
  */
-export function aiPrefsMaxTokens(base: number, prefs: AiRequestPrefs | undefined, defaultLength: AiLength): number {
-  if (!prefs?.length) return base
-  const factor = LENGTH_WEIGHT[prefs.length] / LENGTH_WEIGHT[defaultLength]
-  return factor <= 1 ? base : Math.max(base, Math.min(AI_MAX_TOKENS_CEILING, Math.round(base * factor)))
-}
-
-/** A short, stable tag for prefs, for cache keys of shared cards: '' for none, so their keys stay as they were. */
 export function aiPrefsSignature(prefs: AiRequestPrefs | undefined): string {
-  if (!prefs) return ''
-  const text = JSON.stringify([prefs.length ?? '', prefs.row ?? '', prefs.language ?? '', prefs.instructions ?? []])
+  const length = aiShorterLength(prefs)
+  if (!length && !prefs?.instructions?.length) return ''
+  const text = JSON.stringify([length ?? '', prefs?.instructions ?? []])
   // FNV-1a, 32-bit, twice with different seeds: a cache key, not a secret.
   let a = 0x811c9dc5
   let b = 0x01000193 ^ text.length

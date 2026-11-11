@@ -34,9 +34,17 @@ export function writeAiSettings(settings: AiSettings, at = Date.now()): void {
   if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent(AI_SETTINGS_EVENT))
 }
 
-/** What an AI request for `action` carries (only what differs from Tinct's defaults), or nothing. */
-export function aiPrefsFor(action: AiInstructionAction | null): AiRequestPrefs | undefined {
-  return aiPrefsForAction(readAiSettings(), action)
+/**
+ * The book the reader has open, as AI settings names it (This book's own lengths: the id its reading angle is kept
+ * under). One book is open per page; the reader sets it, and every request builder reads it here.
+ */
+let openBookId: string | null = null
+export function setAiSettingsBook(bookId: string | null): void { openBookId = bookId }
+export function aiSettingsBook(): string | null { return openBookId }
+
+/** What an AI request for `action` carries: its length (the open book's own, else General's) and the reader's instructions. */
+export function aiPrefsFor(action: AiInstructionAction | null, bookId: string | null = openBookId): AiRequestPrefs | undefined {
+  return aiPrefsForAction(readAiSettings(), action, bookId)
 }
 
 /** The AI settings action a structured companion request is (its Length row and instruction box), or null (general only). */
@@ -55,7 +63,7 @@ export function companionAiAction(companion: { intent?: unknown; chapter?: { act
  * A companion request with the reader's AI settings on it (`ai`), as the
  * reading angle rides in its context. `action` when the request's intent is
  * not what the reader asked for (a Recap or Summary sent as a question).
- * The librarian never takes them. Unchanged when nothing differs from Tinct's defaults.
+ * The librarian never takes them.
  */
 export function withAiPrefs<T extends { intent?: unknown; chapter?: { action?: { kind?: unknown } } }>(companion: T, action?: AiInstructionAction | null): T {
   if (companion.intent === 'library') return companion

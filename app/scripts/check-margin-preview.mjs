@@ -155,7 +155,7 @@ try {
           const last = u && epubParas(state.pages[u.to - 1]).at(-1), lb = last?.getBoundingClientRect()
           return { unit: u?.key, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label), shown: vis(s) && vis(e), inHead: !!s?.closest('.tb-head, h1, h2, h3'), onLine: (() => { const h = s?.closest('.tb-title, .tb-head, h1, h2, h3'); if (!h) return null; const r = document.createRange(); r.selectNodeContents(h); const l = textRects(r).filter(b => b.width).at(-1), b = s.getBoundingClientRect(); return l ? Math.round((b.top + b.bottom) / 2 - (l.top + l.bottom) / 2) : null })(), under: e && lb ? Math.round(e.getBoundingClientRect().top - lb.bottom) : null, headText: s?.closest('.tb-head, h1, h2, h3')?.textContent.trim().slice(0, 60) }
         }, still.page)
-        ok(`${tag}: the chapter's heading carries ✧ Primer · ✧ Catch me up inline on its line (within 3 px), its end ✧ Recap · ✧ Quiz me · Note under its last paragraph, both shown`, pills.start?.join('|') === 'Primer|Catch me up' && pills.end?.join('|') === 'Recap|Quiz me|Note' && pills.shown && pills.inHead && pills.onLine != null && Math.abs(pills.onLine) <= 3 && pills.under != null && pills.under >= -12 && pills.under <= 24, pills)
+        ok(`${tag}: the chapter's heading carries ✧ Primer inline on its line (within 3 px), its end ✧ Summary · ✧ Quiz me · Note under its last paragraph, both shown`, pills.start?.join('|') === 'Primer' && pills.end?.join('|') === 'Summary|Quiz me|Note' && pills.shown && pills.inHead && pills.onLine != null && Math.abs(pills.onLine) <= 3 && pills.under != null && pills.under >= -12 && pills.under <= 24, pills)
         const fb = await (await page.$('iframe[data-testid="margin-preview-frame"]')).boundingBox()
         const box = await frame.evaluate(() => { const p = [...document.querySelectorAll('.epub-pg p')].find(q => { const r = q.getBoundingClientRect(); return r.top > 150 && r.bottom < innerHeight - 60 && q.textContent.length > 120 }); const r = p?.getBoundingClientRect(); return r && { x: r.left + 120, y: r.top + 8 } })
         if (box) { await page.mouse.move(fb.x + box.x, fb.y + box.y); await page.waitForTimeout(400); await page.mouse.move(fb.x + box.x + 30, fb.y + box.y + 2); await page.waitForTimeout(400) }
@@ -258,8 +258,7 @@ try {
         shots.push(join(OUT, `${tag}-primer.png`)); await page.screenshot({ path: shots.at(-1) })
         ok(`${tag}: Before you start shows the chapter's primer`, await frame.evaluate(() => !!document.querySelector('.mr-primer') && /MOCK gist/.test(document.querySelector('.mr-primer').textContent)))
         await frame.evaluate(() => closePrimer())
-        await sent('Catch me up', pill('catchup'), 'ask')
-        await sent('Recap', pill('recap'), 'ask')
+        await sent('Summary', pill('recap'), 'ask')
         await sent('Quiz me on the chapter', pill('quiz'), 'quiz')
         const primerReq = log.ai.find(r => r.intent === 'chapter')
         ok(`${tag}: Before you start is about the chapter (one unit per chapter)`, !!primerReq, primerReq)

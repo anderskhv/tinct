@@ -68,6 +68,7 @@ Rules live in `docs/design-system.md`. The ones Anders cares about most:
 - Signed-in users never see the landing page (`app/public/landing.html` redirects before render). A regression is P0.
 - Supabase email confirmation is off: sign-up lands straight in the reader.
 - Every book and edition is visually QA'd page by page before shipping.
+- **Own books feel like the Tinct library.** A reader's own PDF, EPUB or pasted text gets the same reading experience as a library book: the same primers, pills, cards, menus, settings, gestures and layout. Build each reader feature for both, or say why not. Expected differences only: library books have extra editions (Modern English, translations, narration), and a PDF opens as its original pages by default.
 
 ## Decisions
 

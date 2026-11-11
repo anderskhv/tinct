@@ -184,7 +184,7 @@ export function buildLabTalkInstructions(input: LabTalkContext): string {
   if (authorship) lines.push(authorship)
 
   if (input.readingAngle) lines.push(`Reading angle: ${input.readingAngle}`)
-  // The reader's own instructions and answer language (AI settings), after the angle; Talk keeps its spoken length.
+  // The reader's own instructions (AI settings), after the angle; Talk keeps its spoken length.
   lines.push(...aiPrefsPromptLines(aiPrefsFor(null), { length: false }))
   if (current) lines.push(`Current paragraph [${idx + 1}]:\n"${current}"`)
   if (nearby.length > 0) {

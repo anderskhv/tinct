@@ -22,7 +22,7 @@
    * from each edge, 12px below the last line (tip up), else 12px above the first line.
    * -> { left, top, width, below, tip } (tip: the tip's x inside the bar).
    */
-  function placeBar({ first, last, frame, w, h, phone = false }) {
+  function placeBar({ first, last, frame, w, h, phone = false, cursor = null }) {
     last = last || first;
     if (phone) {
       const height = h || PHONE.barH;
@@ -34,17 +34,24 @@
     }
     const height = h || DESK.barH;
     const width = Math.min(w, frame.right - frame.left - DESK.inset * 2);
-    const left = clamp(first.left - DESK.lead, frame.left + DESK.inset, frame.right - DESK.inset - width);
-    const roomAbove = first.top - frame.top;
     // 64px of room leaves the bar 8px clear of the top bar; that is the least it keeps above it.
     const topGap = DESK.room - DESK.above;
-    let below = roomAbove < DESK.room, top;
     // A bar taller than the 44px menu (Ask wrapping to three lines) grows upward from where the menu ends.
-    if (!below) top = first.top - DESK.above + DESK.barH - height;
-    else top = last.bottom + DESK.gap;
-    if (!below && top < frame.top + topGap) { below = true; top = last.bottom + DESK.gap }
-    top = clamp(top, frame.top + topGap, frame.bottom - DESK.inset - height);
-    return { left, top, width, below, tip: clamp(first.left - left + DESK.tipLead, DESK.tipMin, width - DESK.tipMin) };
+    const aboveTop = first.top - DESK.above + DESK.barH - height, belowTop = last.bottom + DESK.gap;
+    const fitsAbove = first.top - frame.top >= DESK.room && aboveTop >= frame.top + topGap;
+    const fitsBelow = belowTop + height <= frame.bottom - DESK.inset;
+    // Never off the frame first, then as close to the cursor as it can be (Anders, 11 Nov 2026): with `cursor` (where
+    // the pointer let go), the bar stands on the cursor's side of the selection, its tip at the cursor's x; the other
+    // side when its own has no room. Without one: above the first line, at the selection's start.
+    // (src/components/reader/deskBarPlace.ts holds the same rule for the book reader.)
+    const mid = b => (b.top + b.bottom) / 2;
+    const towardsEnd = !!cursor && last.top > first.top && Math.abs(cursor.y - mid(last)) < Math.abs(cursor.y - mid(first));
+    const below = towardsEnd ? fitsBelow || !fitsAbove : !fitsAbove;
+    const line = below ? last : first;
+    const point = cursor ? clamp(cursor.x, line.left, line.right) : null;
+    const left = clamp(point === null ? first.left - DESK.lead : point - DESK.tipLead, frame.left + DESK.inset, frame.right - DESK.inset - width);
+    const top = clamp(below ? belowTop : aboveTop, frame.top + topGap, frame.bottom - DESK.inset - height);
+    return { left, top, width, below, tip: clamp(point === null ? first.left - left + DESK.tipLead : point - left, DESK.tipMin, width - DESK.tipMin) };
   }
 
   /**
@@ -704,10 +711,12 @@
    * Each opens a margin card. o: { unit (its key), name (its phrase, for screen readers), open (the open pill's id) }.
    * They sit in the unit's marks (markHtml).
    */
-  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Recap', quiz: 'Quiz me', note: 'Note' };
-  const PILL_SETS = { start: ['primer', 'catchup'], end: ['recap', 'quiz', 'note'] };
+  // The library's pills (Anders, 11 Nov 2026: own books as the library): Primer, Summary (the unit's own, the id stays
+  // 'recap' for saved cards), Quiz me, Note. Catch me up is the t menu's; its name stays for cards saved from its old pill.
+  const PILLS = { primer: 'Primer', catchup: 'Catch me up', recap: 'Summary', quiz: 'Quiz me', note: 'Note' };
+  const PILL_SETS = { start: ['primer'], end: ['recap', 'quiz', 'note'] };
   function pillsHtml(where, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return PILL_SETS[where].map(id => `<button type="button" class="mr-pill${id === 'note' ? ' is-note' : ''}" data-pill="${id}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}><span>${id === 'note' ? '' : '<span class="mr-pill__mark" aria-hidden="true">✧</span>'}${PILLS[id]}</span></button>`).join('');
   }
   /**
@@ -726,7 +735,7 @@
    * ids: the pills to show; o: { name (the unit's phrase), line (the primer's), open (the open pill's id) }.
    */
   function headPillsHtml(ids, o = {}) {
-    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Recap ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
+    const label = { primer: `Before you start: ${o.line || ''}`.trim(), catchup: `Catch me up on what came before ${o.name || 'this chapter'}`, recap: `Summary of ${o.name || 'this chapter'}`, quiz: `Quiz me on ${o.name || 'this chapter'}`, note: `Note on ${o.name || 'this chapter'}` };
     return ids.map(id => `<button type="button" class="mr-pill mr-hp__pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(label[id])}" aria-expanded="${o.open === id}"${id === 'primer' ? ' title="Before you start (B)"' : ''}></button>`).join('');
   }
   /** A unit's name in its marks and the chapter menu: its title as printed, a band's without its pages ("Pages 11–20" stays). */
@@ -951,8 +960,9 @@
         // Never the passage again, never a note about the rewrite (retest after train 2): when nothing else came back, say so.
         // While it streams, a first paragraph that is the passage so far shows as written (the rewrite may follow).
         const s = P.simplifyAnswer(t.content, card.text, o.source);
-        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${answerHtml(t.content, P, { resolve: o.resolve })}</div>`;
-        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : answerHtml(s.text, P, { resolve: o.resolve })}</div>`;
+        // A rewrite has no bottom line: no sentence of it is bold (Anders, 11 Nov 2026), a saved one's too.
+        if (s.unchanged && o.live != null && k === turns.length - 1) body += `<div class="mr-answer">${replyHtml(t.content, P, { resolve: o.resolve })}</div>`;
+        else body += `<div class="mr-answer">${s.unchanged ? `<p><span class="is-bottom-line">${SIMPLIFY_UNCHANGED}</span></p>` : replyHtml(s.text, P, { resolve: o.resolve })}</div>`;
       }
       else {
         // An answer that searched sources (Ask, 20 Oct 2026: the model decides) ends with a "Sources:" line: shown as
@@ -1365,14 +1375,29 @@
   const OWN_NUMBER = /^\s*(?:\d+(?:\.\d+)*\.?|[A-Z](?:\.\d+)+\.?|[A-Z]\.|[IVXLC]+\.|(?:chapter|part|section|appendix|lecture|unit)\s+[\p{L}\p{N}]+(?:\.\d+)*[.:]?)\s+\S/iu;
   /**
    * The trigger's words, a folded margin card's (Anders, 15 Oct): the italic label "Before you start",
-   * then "The gist and a map of {unit}." It names no other section: what follows the gist depends
-   * on the document's kind, known only once the primer is made. The B key is in its title, not a keycap.
+   * then the primer's three parts (prompt v5, 11 Nov 2026): "Where chapter 1 fits, how it is built, what to
+   * watch for." (a whole document has no place in a larger one: "How the whole PDF is built and what to watch
+   * for."). The B key is in its title, not a keycap.
    */
   function triggerHtml(unit) {
     return `<span class="mr-trigger__title">Before you start</span><span class="mr-trigger__sub">${esc(triggerLine(unit))}</span>`;
   }
-  /** The trigger's line, also its accessible name: "The gist and a map of chapter 1." */
-  const triggerLine = unit => `The gist and a map of ${unitPhrase(unit)}.`;
+  /** The trigger's line, also its accessible name: "Where chapter 1 fits, how it is built, what to watch for." */
+  const triggerLine = unit => (unit?.key === 'all' || unit?.key === 'book'
+    ? `How ${unitPhrase(unit)} is built and what to watch for.`
+    : `Where ${unitPhrase(unit)} ${/^pages\b/.test(unitPhrase(unit)) ? 'fit' : 'fits'}, how it is built, what to watch for.`);
+  /**
+   * The document's contents nearest the unit at `index` (titles only, at most `max`), as the primer request's
+   * `outline` (companion/chapterChatPrompt.ts primerOutline, its twin): { titles, at, first, total }, or null
+   * without at least two titles.
+   */
+  function primerOutline(titles, index, max = 60) {
+    const list = Array.isArray(titles) ? titles : [];
+    if (list.length < 2 || !Number.isInteger(index) || index < 0 || index >= list.length) return null;
+    const from = Math.max(0, Math.min(index - Math.floor(max / 2), list.length - max));
+    const shown = list.slice(from, from + max).map(t => String(t || '').replace(/\s+/g, ' ').trim().slice(0, 200) || '(untitled)');
+    return { titles: shown, at: index - from, first: from + 1, total: list.length };
+  }
   /**
    * A primer's sections after the gist: its own, or, for a primer stored before kinds (Anders, 15
    * Oct), its claims and cautions as Key claims and Keep in mind. -> [{ title, items: [{ text, cite } | { term, meaning }] }]
@@ -1384,7 +1409,9 @@
     return [claims.length ? { title: 'Key claims', items: claims } : null, keep.length ? { title: 'Keep in mind', items: keep } : null].filter(Boolean);
   }
   /**
-   * The primer. p: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
+   * The primer (prompt v5, 11 Nov 2026): { kind, role, gist, sections, map? }: its role in the document under the
+   * italic label `role` ("In Deep Learning"; none for a whole document), then How it's built (numbered) and Watch
+   * for, a map only when an older primer has one. Before v5: { kind, gist, sections: [{ title, items }], map: [{ title, pages }] } (or a primer
    * stored before kinds: { gist, claims, keepInMind, map }), or null while it is made (`wait`) or when
    * it could not be (`status`, then Redo). The gist first, then each section under its italic label:
    * a paper's, a textbook's or other's first section and any steps numbered, as Key claims always
@@ -1404,7 +1431,9 @@
     const line = it => (it.term ? `${esc(it.term)} — ${inlineHtml(it.meaning, o.P, o.resolve)}` : `${inlineHtml(it.text, o.P, o.resolve)}${tag(it.cite)}`);
     const sections = primerSections(p).map((sec, k) => {
       // Numbered: a paper's claims, a textbook's outcomes, other's points (the first section, as Key claims was) and steps; a story's situation and a guide's scope are not a sequence.
-      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b/i.test(sec.title) || (k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
+      // v5: How it's built is the chapter's parts in order, numbered; Watch for is not a sequence.
+      const v5 = typeof p.role === 'string';
+      const numbered = !sec.items.some(it => it.term) && sec.items.length > 1 && (/^steps\b|^how it['’]s built$/i.test(sec.title) || (!v5 && k === 0 && p.kind !== 'narrative' && p.kind !== 'practical'));
       const list = numbered
         ? `<ol class="mr-primer__claims">${sec.items.map((it, i) => `<li><span class="mr-primer__n" aria-hidden="true">${i + 1}</span><span>${line(it)}</span></li>`).join('')}</ol>`
         : `<ul class="mr-primer__keep">${sec.items.map(it => `<li>${line(it)}</li>`).join('')}</ul>`;
@@ -1418,11 +1447,15 @@
       const cls = 'mr-map__row' + (own ? ' is-own' : '');
       return target ? `<button type="button" class="${cls}" data-page="${target.page}">${inner}</button>` : `<div class="${cls}">${inner}</div>`;
     }).join('');
+    // The first part: v5's role under its label ("In Deep Learning"), an older primer's gist as it was; a whole document has none.
+    const first = !p.gist ? ''
+      : p.role ? `<div><p class="mr-primer__head">${esc(p.role)}</p><p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p></div>`
+        : `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`;
     return head
       + (o.unit ? `<p class="mr-primer__unit">${esc(o.unit)}</p>` : '')
-      + `<p class="mr-primer__gist">${inlineHtml(p.gist, o.P, o.resolve)}</p>`
+      + first
       + sections
-      + `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>`
+      + (rows ? `<div><p class="mr-primer__head">Map</p><div class="mr-map">${rows}</div></div>` : '')
       + `<button type="button" class="mr-quiz-row" data-c="quiz"><span>Quiz me on this chapter</span><small>${o.quizCount > 0 ? `${o.quizCount} questions ` : ''}→</small></button>`
       + '<div class="mr-primer__foot"><button type="button" data-c="redo">Redo</button></div>';
   }
@@ -1916,5 +1949,5 @@
     const space = cut.search(/\s\S*$/);
     return (space > 0 ? cut.slice(0, space) : cut).trimEnd();
   }
-  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
+  return { html, sizeAsk, parseLookup, DESK, PHONE, COL, PRIMER, COLUMN_RESERVE, KINDS, CARD_KINDS, CARD_LIMITS, QUIZ_ANSWER_CHARS, QUIZ_MAX_QUESTIONS, QUIZ_FOLLOW_UPS, QUIZ_REPLY_CHARS, quizCanReply, quizTurns, placeBar, placeMore, placeCard, placeCards, leadPath, columnBox, citeTarget, cardView, cardAnswered, firstRect, mergeCards, newCard, anchorOfCard, quizScore, quizLine, quizReread, quizAsked, typedChar, selectionKey, oneWord, hyphenWord, nameMidSentence, defineAsks, copyQuote, defaultColor, chooseColor, mergeMarks, splitMarks, tombstone, sameMarks, stampOf, primerUnits, sizeUnits, epubUnits, EPUB_PAGE_CHARS, scanTree, UNIT_SIZE, unitAt, atUnitStart, noteSpot, noteBox, unitPhrase, mapPages, wholeName, captionOf, figureRef, figureFor, snapFigure, SNAP, mathBox, overlapOf, figureCardFor, placeChip, findFigures, matterOf, pageMatter, primerUnitAt, deletePlan, chapterRefs, namedUnits, withoutRefs, primerBox, numberedChapter, primerBlocks, primerOutline, scanEntries, triggerLine, CATCH_UP_GROUNDING, CATCH_UP_BAND, catchUpSpan, catchUpParts, catchUpBlocks, seenText };
 });

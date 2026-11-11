@@ -130,6 +130,11 @@ const PUBLIC = join(APP, 'public')
 const require = createRequire(join(APP, 'package.json'))
 const { chromium } = require('@playwright/test')
 const { checkLayout, DEFAULT_SELECTORS } = await import(pathToFileURL(join(REPO, 'docs/margin/layout-check.mjs')).href)
+// A primer as the current prompt makes it (v5, 11 Nov 2026): the chapter's role under its label, How it's built (its parts in
+// order), Watch for. A reply without `role` is an older primer's: the reader makes it again rather than serve it.
+const mockPrimer = (title, n = 1, gist = `MOCK gist of ${title}. It says what the unit sets out to do.`) => ({ kind: 'paper', role: 'In MOCK book', gist,
+  sections: [{ title: "How it's built", items: [1, 2, 3].map(i => ({ text: `MOCK part ${i} of the unit.`, cite: `{p. ${n}}` })) }, { title: 'Watch for', items: [{ text: 'MOCK caution: a convention that changes later.', cite: `{p. ${n}}` }] }] })
+const PRIMER_HEADS = ['In MOCK book', "How it's built", 'Watch for']
 const OUT = process.env.OUT || join(APP, 'artifacts/margin')
 mkdirSync(OUT, { recursive: true })
 const EXEC = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined)
@@ -348,7 +353,7 @@ function mockText(body) {
     { q: 'MOCK Q3. Where would a new case go?', answer: 'Matters of fact', why: 'It depends on experience.', cite: '{p. 2}' } ] })
   if (intent === 'quiz_check') { const a = String(c.quiz?.answer || '').toLowerCase(); return JSON.stringify(a.includes(String(c.quiz?.expected || '').toLowerCase().split(' ')[0]) ? { verdict: 'right', feedback: 'MOCK: that is the key step.' } : { verdict: 'not_yet', feedback: 'MOCK: reread how the two kinds differ.' }) }
   // Before you start (chapter action `primer`): the primer's JSON, with citations to the unit's first page.
-  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || { gist: `MOCK gist of ${c.chapter.action.unitTitle}. It says what the unit sets out to do.`, claims: [1, 2, 3].map(i => ({ text: `MOCK claim ${i} of the unit.`, cite: `{p. ${n}}` })), keepInMind: ['MOCK caution: a convention that changes later.'], map: [1, 2, 3].map(i => ({ title: `MOCK section ${i}`, pages: `p. ${n}` })) }) }
+  if (intent === 'chapter' && c.chapter?.action?.kind === 'primer') { const n = c.context?.pages?.[0]?.n ?? 1; return JSON.stringify(mock.primer || mockPrimer(c.chapter.action.unitTitle, n)) }
   // Related: the thread, then its places (a PDF cites pages; an EPUB quotes a few words of the fixture's chapters).
   if (intent === 'related') return c.document?.kind === 'epub'
     ? 'MOCK thread. The evening runs through the book.\n\n“Modern lamps consist of two pillars” The second essay opens on it.\n“Wax, Wick and the Long Evening” The third takes it up again.'
@@ -1113,7 +1118,7 @@ async function primerBehaviour(browser, origin) {
     const hr = head?.getBoundingClientRect(), br = row.getBoundingClientRect()
     return { text: t.getAttribute('aria-label'), words: span.content, mid: (br.top + br.bottom) / 2, headMid: hr ? (hr.top + hr.bottom) / 2 : NaN, after: hr ? br.left - hr.right : NaN, top: br.top, bottom: br.bottom, tip: t.title, radius: span.borderRadius, border: span.borderTopWidth, font: getComputedStyle(t).fontFamily }
   })
-  ok('at the PDF\'s start its Primer (Before you start) is beside the unit\'s heading, on its line, after it (21 Oct): "✧ Primer", named for the unit ("Before you start: The gist and a map of chapter 1."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: The gist and a map of chapter 1.' && /✧\s*"\s*attr\(data-label\)|"✧ " attr\(data-label\)|✧/.test(trig.words) && Math.abs(trig.mid - trig.headMid) <= 6 && trig.after >= 0 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
+  ok('at the PDF\'s start its Primer (Before you start) is beside the unit\'s heading, on its line, after it (21 Oct): "✧ Primer", named for the unit ("Before you start: Where chapter 1 fits, how it is built, what to watch for."), "Before you start (B)" in its title, the book reader\'s pill', trig && trig.text === 'Before you start: Where chapter 1 fits, how it is built, what to watch for.' && /✧\s*"\s*attr\(data-label\)|"✧ " attr\(data-label\)|✧/.test(trig.words) && Math.abs(trig.mid - trig.headMid) <= 6 && trig.after >= 0 && trig.tip === 'Before you start (B)' && trig.radius === '999px' && trig.border === '1px' && /EB Garamond/.test(trig.font), trig)
   // Made ahead as the file opens (Anders, 19 Oct 2026): one request, for the reader's unit, marked speculative (never charged).
   const req = primers(0)[0]
   ok('as the file opens (signed in), the primer of the reader\'s unit is made once, ahead, marked speculative', primers(0).length === 1 && req.body.companion.speculative === true, { requests: primers(0).length, speculative: req?.body?.companion?.speculative })
@@ -1123,7 +1128,7 @@ async function primerBehaviour(browser, origin) {
   ok('B opens the primer in place, made nothing more: the one chapter request (ahead), action primer for the unit, the unit\'s pages as a PDF', primers(r0).length === 0 && primers(0).length === 1 && req.body.companion.chapter?.action?.kind === 'primer' && req.body.companion.chapter.action.unitKey === 'outline-0' && req.body.companion.chapter.action.unitTitle === 'Chapter 1. Of Ideas' && req.body.companion.context.kind === 'pdf' && req.body.companion.context.pages.length === unitPages(units[0]) && units.length === 5 && !req.body.companion.selection && !req.body.system, req?.body?.companion && { ...req.body.companion, context: { ...req.body.companion.context, pages: req.body.companion.context.pages.length } })
   const shown = await a.evaluate(() => { const p = document.querySelector('.mr-col .mr-primer'); return { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), claims: p.querySelectorAll('.mr-primer__claims li').length, cites: p.querySelectorAll('.mr-primer__claims .mr-cite').length, rows: p.querySelectorAll('.mr-map__row').length, quiz: p.querySelector('.mr-quiz-row')?.innerText.replace(/\s+/g, ' '), foot: p.querySelector('.mr-primer__foot')?.innerText.replace(/\s+/g, ' '), cards: [...document.querySelectorAll('.mr-col .mr-card')].filter(c => !c.hidden).length, top: p.getBoundingClientRect().top, bottom: p.parentElement.clientHeight - p.offsetTop - p.offsetHeight, pressed: document.querySelector('.mr-hp .mr-pill[data-pill="primer"]')?.getAttribute('aria-expanded') } })
   // (Since 19 Oct 2026 the column is part of the page: the primer opens in place, under its unit's pills, its Primer pill pressed.)
-  ok('the primer: gist, Key claims (numbered, cite tags), Keep in mind, Map, the quiz row and its footer, in the column level with its heading (21 Oct)', JSON.stringify(shown.heads) === '["Key claims","Keep in mind","Map"]' && shown.claims === 3 && shown.cites === 3 && shown.rows === 3 && shown.quiz === 'Quiz me on this chapter →' && shown.foot === 'Redo' && shown.cards === 0 && shown.top >= (trig?.top ?? 1e9) - 16 && shown.top <= (trig?.bottom ?? 0) + 4 && shown.pressed === 'true', { ...shown, trig })
+  ok('the primer: its role and gist, How it\'s built (numbered, cite tags), Watch for, no Map, the quiz row and its footer, in the column level with its heading (21 Oct; three parts since 11 Nov)', JSON.stringify(shown.heads) === JSON.stringify(PRIMER_HEADS) && shown.claims === 3 && shown.cites === 3 && shown.rows === 0 && shown.quiz === 'Quiz me on this chapter →' && shown.foot === 'Redo' && shown.cards === 0 && shown.top >= (trig?.top ?? 1e9) - 16 && shown.top <= (trig?.bottom ?? 0) + 4 && shown.pressed === 'true', { ...shown, trig })
   await a.waitForTimeout(600)
   const stored = account.primers.get(hex + '?outline-0')
   ok('signed in with the book in the account, the primer is stored with it (PUT /api/user-books/primers)', stored && /MOCK gist/.test(stored.gist) && stored.unitKey === 'outline-0' && !!stored.madeAt, stored)
@@ -1141,10 +1146,10 @@ async function primerBehaviour(browser, origin) {
   await a.keyboard.press('b'); await a.waitForSelector('.mr-col .mr-primer .mr-primer__gist', { timeout: 8000 }).catch(() => {})
   ok('on another device (opened there, and B) the account\'s primer opens; nothing is made again', primers(r1).length === 0 && /MOCK gist/.test(await a.innerText('.mr-col .mr-primer')))
   // Redo: a new one, stored again.
-  mock.primer = { gist: 'MOCK redone gist. Second sentence.', claims: [1, 2, 3, 4, 5].map(i => ({ text: `Redone claim ${i}.`, cite: '{p. 2}' })), keepInMind: ['One', 'Two'], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
+  mock.primer = { ...mockPrimer('', 2, 'MOCK redone gist. Second sentence.'), sections: [{ title: "How it's built", items: [1, 2, 3, 4].map(i => ({ text: `Redone part ${i}.`, cite: '{p. 2}' })) }, { title: 'Watch for', items: [{ text: 'One' }, { text: 'Two' }] }], map: [1, 2, 3, 4, 5, 6, 7, 8].map(i => ({ title: `Redone section ${i}`, pages: `p. ${i + 1}` })) }
   await a.click('.mr-col .mr-primer [data-c="redo"]'); await a.waitForTimeout(1200); mock.primer = null
   ok('Redo makes a new one (one request) and stores it with the book', primers(r1).length === 1 && /redone gist/.test(await a.innerText('.mr-col .mr-primer')) && /redone gist/.test(account.primers.get(hex + '?outline-0')?.gist || ''))
-  ok('a long primer (five claims, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
+  ok('a long primer (four parts, eight map rows) has no layout problems in the column', (await checkMargin(a)).length === 0, await checkMargin(a))
   // A map row scrolls the PDF to its page.
   // The scroll is smooth; newer Chromium takes about 1.2 s, so wait for it to settle, then check where it landed.
   await a.click('.mr-col .mr-map__row[data-page="6"]'); await a.waitForFunction(() => { const s = document.getElementById('scroll'), t = s.scrollTop, settled = window.__mrLastTop === t; window.__mrLastTop = t; return settled }, null, { polling: 300, timeout: 5000 }).catch(() => {})
@@ -1164,7 +1169,7 @@ async function primerBehaviour(browser, origin) {
   await a.evaluate(n => goTo({ page: n, frac: 0.3 }), units[1].start + 1); await a.waitForTimeout(700)
   // (The trigger is part of the page at its unit's start since 19 Oct 2026: in the middle of a unit none is in view.)
   const t6 = await a.evaluate(() => { const t = [...document.querySelectorAll('.mr-hp .mr-pill[data-pill="primer"]')].find(x => { const r = x.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom }); if (!t) return false; const r = t.getBoundingClientRect(), s = document.getElementById('scroll').getBoundingClientRect(); return r.bottom > Math.max(s.top, document.getElementById('hdr').getBoundingClientRect().bottom) && r.top < s.bottom })
-  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /map of chapter 2\.$/.test(t5 || '') && !t6, { t5, t6 })
+  ok('each top-level outline entry\'s start offers its unit; the middle of a unit offers none in view', /^Before you start: Where chapter 2 fits, /.test(t5 || '') && !t6, { t5, t6 })
   const r3 = chats().length
   await a.keyboard.press('b'); await a.waitForTimeout(1000)
   const req3 = primers(r3)[0]
@@ -1182,7 +1187,7 @@ async function primerBehaviour(browser, origin) {
   const ts = await S.page.evaluate(() => ({ trig: document.querySelector('.mr-hp .mr-pill[data-pill="primer"]')?.getAttribute('aria-label'), units: primer.units.map(u => u.key), pages: primer.units[0].to - primer.units[0].start + 1 }))
   await S.page.keyboard.press('b'); await S.page.waitForTimeout(1000)
   const reqs = primers(rs)[0]
-  ok('a PDF under 40 pages with chapters: its chapters are its units; the first chapter\'s pages go', /map of chapter 1\.$/.test(ts.trig || '') && ts.units.join() === 'outline-0,outline-1,outline-2,outline-3,outline-4' && reqs?.body?.companion?.chapter?.action?.unitKey === 'outline-0' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
+  ok('a PDF under 40 pages with chapters: its chapters are its units; the first chapter\'s pages go', /^Before you start: Where chapter 1 fits, /.test(ts.trig || '') && ts.units.join() === 'outline-0,outline-1,outline-2,outline-3,outline-4' && reqs?.body?.companion?.chapter?.action?.unitKey === 'outline-0' && reqs.body.companion.context.pages.length === ts.pages, { ts, action: reqs?.body?.companion?.chapter, pages: reqs?.body?.companion?.context?.pages?.length })
   await S.ctx.close()
   // A PDF without an outline is one unit, "all".
   const rb = chats().length
@@ -1195,7 +1200,7 @@ async function primerBehaviour(browser, origin) {
   const reqb = primers(rb)[0]
   // Since 19 Oct 2026, night (TinctMargin.sizeUnits), a short paper's headings found by the scan are its units too (the
   // two-column paper's numbered sections); one with none is one unit, "all" (unit sizing's tests).
-  ok('a PDF without an outline: its scanned headings as units, the first unit\'s pages sent', ub.length > 1 && /map of chapter 1\.$/.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === ub[0].key && reqb.body.companion.context.pages.length === ub[0].pages, { tb, ub, action: reqb?.body?.companion?.chapter, pages: reqb?.body?.companion?.context?.pages?.length })
+  ok('a PDF without an outline: its scanned headings as units, the first unit\'s pages sent', ub.length > 1 && /^Before you start: Where chapter 1 fits, /.test(tb || '') && reqb?.body?.companion?.chapter?.action?.unitKey === ub[0].key && reqb.body.companion.context.pages.length === ub[0].pages, { tb, ub, action: reqb?.body?.companion?.chapter, pages: reqb?.body?.companion?.context?.pages?.length })
   // Not in the account (signed out): kept in this browser only; reopening uses it.
   await B.ctx.close()
   const C = await readerPage(browser, origin, hex2, { width: 1440, height: 900, look: 'paper' })
@@ -1225,7 +1230,7 @@ async function primerBehaviour(browser, origin) {
 }
 
 /* ---------- Before you start per kind (Anders, 15 Oct, option A): the model names the document's kind
-   and writes that kind's sections; a primer stored before kinds still shows; and on a long book without
+   and writes that kind's sections; a primer stored by an earlier prompt (no role) is made again, not served; and on a long book without
    an outline, the chapter (MacKay's 640 pages: "a map of the whole PDF", chapters 1 and 2 blended). ---------- */
 const KIND_PRIMERS = {
   paper: { kind: 'paper', gist: 'MOCK paper gist. The paper argues one thing and tests it.', sections: [
@@ -1282,15 +1287,16 @@ async function primerKinds(browser, origin) {
       ok(`${tag}: a ${kind}'s primer has no layout problems`, problems.length === 0, problems.slice(0, 5))
       if (look === 'paper' || !SAMPLE) await shot(a, `${tag}-${kind}`)
     }
-    // A primer made before kinds, in this browser and in the account: shown as it was (Key claims, Keep in mind).
+    // A primer an earlier prompt made (no `role`), in this browser and in the account: made again in the three parts, never
+    // served as the unit's primer (Anders, 11 Nov 2026: the old primers go; reader.js keptPrimer, primerParse.ts isCurrentPrimer).
     const old = { gist: 'MOCK old gist. Made before kinds.', claims: [1, 2, 3].map(i => ({ text: `MOCK old claim ${i}.`, cite: `{p. ${i}}` })), keepInMind: ['MOCK old caution.'], map: [1, 2, 3].map(i => ({ title: `Old section ${i}`, pages: `p. ${i}` })) }
     await a.evaluate(o => { for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k); closePrimer(); store.set(primerKey(currentUnit()), { ...o, madeAt: '2026-10-14T09:30:00.000Z', unitKey: currentUnit().key }) }, old)
     account.primers.set(hex + '?outline-0', { ...old, madeAt: '2026-10-14T09:30:00.000Z', unitKey: 'outline-0' })
     const r1 = account.requests.length
     await a.evaluate(() => openPrimer(currentUnit())); await a.waitForSelector(`${where} .mr-primer__gist`, { timeout: 8000 }).catch(() => {}); await a.waitForTimeout(500)
     const oldShown = await a.evaluate(sel => { const p = document.querySelector(sel); return p && { heads: [...p.querySelectorAll('.mr-primer__head')].map(h => h.textContent), text: p.innerText } }, where)
-    ok(`${tag}: a primer stored before kinds still shows, as Key claims and Keep in mind, and is not made again`, oldShown && JSON.stringify(oldShown.heads) === '["Key claims","Keep in mind","Map"]' && /MOCK old claim 3/.test(oldShown.text) && /MOCK old caution/.test(oldShown.text) && !chats(r1).some(r => r.body?.companion?.chapter), oldShown?.heads)
-    ok(`${tag}: no layout problems with the old primer`, (await checkMargin(a)).length === 0, await checkMargin(a))
+    ok(`${tag}: a primer stored by an earlier prompt is made again (one request), in the three parts; the old one is not shown`, oldShown && JSON.stringify(oldShown.heads) === JSON.stringify(PRIMER_HEADS) && !/MOCK old/.test(oldShown.text) && chats(r1).filter(r => r.body?.companion?.chapter).length === 1, oldShown?.heads)
+    ok(`${tag}: no layout problems with the primer made again`, (await checkMargin(a)).length === 0, await checkMargin(a))
     ok(`${tag}: no page errors`, !A.problems.length, A.problems)
     await A.ctx.close()
   }
@@ -1309,7 +1315,7 @@ async function primerKinds(browser, origin) {
     const units = await a.evaluate(() => primer.units.map(u => ({ key: u.key, title: u.title, label: u.label || null, from: u.from, start: u.start, to: u.to, matter: u.matter || null })))
     ok(`${tag}: no outline: the units are the printed contents' chapters, not one unit for the whole PDF`, units.length >= 17 && units.every(u => u.key !== 'all') && units.some(u => u.label === 'Chapter 1: Introduction' && u.start === ch1.from && u.to === ch1.to), units.slice(0, 3))
     const lines = await a.evaluate(n => { const out = []; for (let p = 1; p <= n; p += 9) out.push(TinctMargin.triggerLine(TinctMargin.primerUnitAt(primer.units, p))); return out }, m.pages)
-    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^The gist and a map of chapter \d+\.$/.test(l)), [...new Set(lines)].slice(0, 6))
+    ok(`${tag}: the trigger names its chapter on every page, never "the whole PDF"`, lines.every(l => /^Where chapter \d+ fits, how it is built, what to watch for\.$/.test(l)), [...new Set(lines)].slice(0, 6))
     await a.evaluate(() => { goTo({ page: 8, frac: 0.1 }); onScroll() }); await a.waitForTimeout(600)
     // The phone has no B key: the same call.
     if (phone) await a.evaluate(() => openPrimer()); else await a.keyboard.press('b')
@@ -1338,10 +1344,12 @@ async function primerReliability(browser, origin) {
   const hex = addBook(PDFS[1])
   const chats = () => account.requests.filter(r => r.path === '/api/chat' || r.path === '/api/lab-chat')
   const primers = from => chats().slice(from).filter(r => r.body?.companion?.intent === 'chapter')
-  // A primer of the size the paper's real one had: five claims, three cautions, eight map rows of the paper's own headings.
-  const real = { gist: 'The paper introduces the Transformer, a sequence model built on attention alone, and shows it trains faster and translates better than recurrent and convolutional models.',
-    claims: ['Recurrence precludes parallel training within a sequence.', 'Attention alone can draw global dependencies in a constant number of steps.', 'Scaled dot-product attention divides by the square root of the key size.', 'Multi-head attention attends to several subspaces at once.', 'The big model reaches 28.4 BLEU on English-to-German.'].map((text, i) => ({ text, cite: `{p. ${i + 2}}` })),
-    keepInMind: ['The prose and Table 2 give different English-to-French BLEU.', 'Training costs are estimates from GPU time.', 'Positional encodings are one of two variants tried.'],
+  // A primer of the size the paper's real one had, in the current three parts (role and gist, How it's built, Watch for),
+  // with the eight map rows of the paper's own headings (a map is still drawn when a reply gives one).
+  const realParts = { claims: ['Recurrence precludes parallel training within a sequence.', 'Attention alone can draw global dependencies in a constant number of steps.', 'Scaled dot-product attention divides by the square root of the key size.', 'Multi-head attention attends to several subspaces at once.', 'The big model reaches 28.4 BLEU on English-to-German.'].map((text, i) => ({ text, cite: `{p. ${i + 2}}` })),
+    keepInMind: ['The prose and Table 2 give different English-to-French BLEU.', 'Training costs are estimates from GPU time.', 'Positional encodings are one of two variants tried.'] }
+  const real = { kind: 'paper', role: 'In Attention Is All You Need', gist: 'The paper introduces the Transformer, a sequence model built on attention alone, and shows it trains faster and translates better than recurrent and convolutional models.',
+    sections: [{ title: "How it's built", items: realParts.claims }, { title: 'Watch for', items: realParts.keepInMind.map(text => ({ text })) }],
     map: ['Abstract', '1 Introduction', '2 Background', '3 Model Architecture', '4 Why Self-Attention', '5 Training', '6 Results', '7 Conclusion'].map((title, i) => ({ title, pages: `p. ${i + 1}` })) }
   const good = JSON.stringify(real), pretty = JSON.stringify(real, null, 2)
   const cases = [
@@ -1351,7 +1359,7 @@ async function primerReliability(browser, origin) {
     ['prose with braces of its own before the JSON', [{ text: 'Citations are written {p. n} as asked.\n' + good }]],
     ['a reply cut off by the output limit, then a whole one (one retry)', [{ text: pretty.slice(0, Math.floor(pretty.length * 0.6)), stop: 'max_tokens' }, { text: good }]],
     ['an empty reply (502), then a whole one (one retry)', [{ status: 502, body: { error: 'The answer stopped.' } }, { text: good }]],
-    ['a reply of the wrong shape, then a whole one (one retry)', [{ text: JSON.stringify({ gist: real.gist, claims: real.claims }) }, { text: good }]],
+    ['a reply of the wrong shape, then a whole one (one retry)', [{ text: JSON.stringify({ gist: real.gist, claims: realParts.claims }) }, { text: good }]],
     ['a slow reply (4 s)', [{ text: good, delay: 4000 }]],
     ['closed while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'close'],
     ['another card opened while it was made: kept, and reopening shows it without a new request', [{ text: good, delay: 1500 }], 'card'],
@@ -1536,11 +1544,15 @@ const COLUMN_VIEWPORTS = (process.env.COLUMN_VIEWPORTS || '1440x900,1280x800,118
 const ZOOMS = (process.env.ZOOMS || '1,1.25').split(',').map(Number)
 const LONG = Array.from({ length: 60 }, (_, i) => `Sentence ${i + 1} of a long answer runs on with several more words in it.`).join(' ').split(' ').slice(0, 600).join(' ')
 const WORD60 = 'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'
-// The longest primer PROMPTS.md allows: a 45-word gist, five 25-word claims, three cautions (one a 60-character word), eight map rows.
+// A long primer in the current three parts (11 Nov 2026): a long role, a 45-word gist, five long parts under How it's built,
+// three things to watch for (one a 60-character word), and a reply's own map of eight rows (still drawn when given).
 const LONG_PRIMER = {
+  kind: 'textbook', role: 'In Information Theory, Inference, and Learning Algorithms',
   gist: 'The chapter sets up the two tools the rest of the book leans on, the binomial distribution for counting outcomes and Stirling’s approximation for the factorials it produces, and shows why both return in every later chapter on inference and coding.',
-  claims: Array.from({ length: 5 }, (_, i) => ({ text: `Claim ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })),
-  keepInMind: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`],
+  sections: [
+    { title: "How it's built", items: Array.from({ length: 5 }, (_, i) => ({ text: `Part ${i + 1} runs to its full length of twenty-five words so that the primer is as long as a primer can be, with its page.`, cite: '{p. 1}' })) },
+    { title: 'Watch for', items: ['The exercises use natural logs throughout, but later chapters switch to base 2.', 'The text writes f for a probability where many courses write p.', `${'Pneumonoultramicroscopicsilicovolcanoconiosisandmuchmorebeyond'}: long words still wrap.`].map(text => ({ text })) },
+  ],
   map: Array.from({ length: 8 }, (_, i) => ({ title: i === 6 ? 'Further reading and a note on the notation used in the later chapters of the book' : `Section ${i + 1}`, pages: `pp. ${i + 1}–${i + 2}` })),
 }
 const LONG_URL = 'https://example.org/a-very-long-path/without-any-breaks/stirling-approximation-error-bounds-for-small-x-values'
@@ -3499,7 +3511,7 @@ async function waitDots(browser, origin) {
     await a.evaluate(() => chat.ctl?.abort()); mock.stall = false; await a.waitForTimeout(300)
     // Before you start being made.
     await a.evaluate(() => { closeChat?.(); openCard(null); closePrimer(); for (const k of Object.keys(localStorage)) if (k.includes(':primer:')) localStorage.removeItem(k) })
-    account.primers.clear(); mock.primers = [{ text: JSON.stringify({ gist: 'MOCK gist. Second.', claims: [1, 2, 3].map(i => ({ text: `Claim ${i}.`, cite: '{p. 1}' })), keepInMind: ['One.'], map: [{ title: 'One', pages: 'p. 1' }] }), delay: 1500 }]
+    account.primers.clear(); mock.primers = [{ text: JSON.stringify(mockPrimer('the unit', 1, 'MOCK gist. Second.')), delay: 1500 }]
     await prefetchSettled(a)
     await a.evaluate(() => openPrimer(currentUnit())); await a.waitForTimeout(400)
     const primerDots = await dots(a, '.mr-primer .tc-wait')
@@ -4531,7 +4543,7 @@ async function unitMarks(browser, origin) {
   await hoverHead(a, units[0].key)
   const s1 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(1, '1 Introduction'), headH: [...state.pages[0].layer.querySelectorAll('span')].find(sp => /Introduction/.test(sp.textContent))?.getBoundingClientRect().height }), units[0].key)
   // The first unit offers no Catch me up (Anders, 20 Oct 2026: "there shouldnt be a 'catch me up' on the first page").
-  ok('1. hovered: ✧ Primer · ✧ Recap · ✧ Quiz me · Note (nothing to catch up on yet), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Recap|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
+  ok('1. hovered: ✧ Primer · ✧ Summary · ✧ Quiz me · Note (the library\'s pills), shown, on the heading\'s line', s1.pills && s1.pills.shown && s1.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s1.head != null && Math.abs(s1.pills.mid - (s1.head + s1.headH / 2)) <= 6, s1)
   await shot(a, 'unit-marks-start-1440x900')
   // The pills are part of the page: they scroll with it.
   const scroll = await a.evaluate(async k => { const s = document.getElementById('scroll'), t0 = __pills(k).top; s.scrollBy({ top: 200 }); await new Promise(r => setTimeout(r, 300)); const t1 = __pills(k).top; s.scrollBy({ top: -200 }); await new Promise(r => setTimeout(r, 300)); return { moved: Math.round(t0 - t1) } }, units[0].key)
@@ -4543,27 +4555,23 @@ async function unitMarks(browser, origin) {
   await a.evaluate(() => goTo({ page: 4, frac: 0.25 })); await a.waitForTimeout(900)
   await hoverHead(a, units[1].key)
   const s2 = await a.evaluate(k => ({ pills: __pills(k), head: __spanTop(4, '2 Motivations'), col: __colMarks() }), units[1].key)
-  ok('2. a heading mid-page: ✧ Primer · ✧ Catch me up · ✧ Recap · ✧ Quiz me · Note beside it; no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Catch me up|Recap|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
+  ok('2. a heading mid-page: ✧ Primer · ✧ Summary · ✧ Quiz me · Note beside it (Catch me up is the t menu\'s); no marks or rules in the column', s2.pills && s2.pills.shown && s2.pills.words.join('|') === 'Primer|Summary|Quiz me|Note' && s2.head != null && s2.pills.mid > s2.head && s2.pills.mid - s2.head <= 30 && s2.col.marks === 0 && s2.col.rules === 0, s2)
   await shot(a, 'unit-marks-end-1440x900')
   // 3. Cards from the pills open in the column level with the heading; their requests carry the unit's pages.
   const cardAt = () => a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), sr = document.getElementById('scroll').getBoundingClientRect(), r = el?.getBoundingClientRect(); return el && { label: el.querySelector('.mr-card__name')?.textContent, answer: el.querySelector('.mr-answer')?.innerText || '', top: r.top, inView: r.top < sr.bottom && r.bottom > sr.top } })
   const r1 = account.requests.length
   await clickPill(a, 'recap', units[1].key); await a.waitForTimeout(1300)
   const rc = await cardAt(), headNow = await a.evaluate(() => __spanTop(4, '2 Motivations'))
-  const rcReq = chatsOf(r1).find(r => /Recap it for them/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Recap opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Recap · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
+  const rcReq = chatsOf(r1).find(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || '')))
+  ok('3. Summary opens its card level with the heading, answered on tap, about the unit\'s pages (4–8)', rc && /^Summary · /.test(rc.label || '') && /MOCK ANSWER/.test(rc.answer) && Math.abs(rc.top - headNow) <= 16 && !!rcReq && /\(pages 4–8\)/.test(JSON.stringify(rcReq.body.messages)), { rc, headNow, sent: !!rcReq })
   // Quiz me in the same row while Recap is open (a hand's click, its pause): the quiz opens (21 Oct 2026, item A).
   const press = async sel => { const bx = await (await a.$(sel)).boundingBox(); await a.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2); await a.mouse.down(); await a.waitForTimeout(160); await a.mouse.up() }
   await hoverHead(a, units[1].key); await press(`.mr-hp[data-unit="${units[1].key}"] .mr-pill[data-pill="quiz"]`); await a.waitForTimeout(1300)
   const qz = await a.evaluate(() => { const c = cardById(col.open || ''), el = document.querySelector('.mr-doc .mr-card.is-open'); return c && { kind: c.kind, unit: c.data?.unit?.key, count: el?.querySelector('.mr-card__count')?.textContent } })
   ok('3. Quiz me (Recap still open) opens the unit\'s quiz', qz && qz.kind === 'quiz' && qz.unit === units[1].key && qz.count === '1 of 3', qz)
   await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
-  const r2 = account.requests.length
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1300)
-  const cu = await cardAt()
-  const cuReq = chatsOf(r2).find(r => /Catch them up/.test(JSON.stringify(r.body.messages || '')))
-  ok('3. Catch me up opens its card level with the heading, on the pages before the unit (1–3)', cu && /^Catch me up · /.test(cu.label || '') && Math.abs(cu.top - headNow) <= 16 && !!cuReq && /\(pages 1–3\)/.test(JSON.stringify(cuReq.body.messages)), { cu, headNow, sent: !!cuReq })
-  await a.evaluate(() => openCard(null)); await a.waitForTimeout(200)
+  // No Catch me up pill by a heading (Anders, 11 Nov 2026: own books carry the library's pills; Catch me up is the t menu's).
+  ok('3. no Catch me up pill beside the heading', !(await a.$(`.mr-hp[data-unit="${units[1].key}"] [data-pill="catchup"]`)))
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(500)
   const pm = await a.evaluate(k => { const p = document.querySelector('.mr-doc .mr-primer'); return p && { top: p.getBoundingClientRect().top, unit: primer.unit?.key, pressed: document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).getAttribute('aria-expanded') } }, units[1].key)
   ok('3. Primer opens Before you start for the unit, level with its heading, its button pressed', pm && Math.abs(pm.top - headNow) <= 16 && pm.unit === units[1].key && pm.pressed === 'true', { pm, headNow })
@@ -4571,19 +4579,19 @@ async function unitMarks(browser, origin) {
   ok('3. Primer again folds it', !(await a.$('.mr-doc .mr-primer')))
   await clickPill(a, 'note', units[1].key); await a.waitForTimeout(500)
   const nt = await a.evaluate(() => { const el = document.querySelector('.mr-doc .mr-card.is-open'), f = el?.querySelector('.mr-note-edit'); return el && { field: !!f, focused: document.activeElement === f, top: el.getBoundingClientRect().top } })
-  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded recap, quiz, catch-up), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
+  ok('3. Note opens the reader\'s own note on the unit, with its cards from the heading down (after the folded summary and quiz), its field ready, in view', nt && nt.field && nt.focused && nt.top >= headNow - 16 && nt.top < 860, { nt, headNow })
   await a.keyboard.press('Escape'); await a.waitForTimeout(300)
   // 4. The chapter menu: the unit the reader is in, marked, with Recap, Quiz me and Catch me up.
   await a.evaluate(() => { openCard(null); goTo({ page: 6, frac: 0.3 }) }); await a.waitForTimeout(800)
   await a.evaluate(() => openContents()); await a.waitForTimeout(300)
   const menu = await a.evaluate(() => { const s = document.querySelector('.lab-contents-v2 .byob-unit-now'); return s && { name: s.querySelector('[aria-current]')?.textContent, acts: [...s.querySelectorAll('[data-unit-act]')].map(b => b.textContent.trim()) } })
-  ok('4. the chapter menu marks the unit being read and offers ✧ Recap · ✧ Quiz me · ✧ Catch me up', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Recap|✧Quiz me|✧Catch me up', menu)
+  ok('4. the chapter menu marks the unit being read and offers ✧ Summary · ✧ Quiz me', menu && menu.name === '2 Motivations · pp. 4–8' && menu.acts.join('|') === '✧Summary|✧Quiz me', menu)
   await shot(a, 'unit-marks-menu-1440x900')
   const r3 = account.requests.length
   await a.click('.lab-contents-v2 [data-unit-act="recap"]'); await a.waitForTimeout(1500)
   const fromMenu = { ...await cardAt(), unit: await a.evaluate(() => cardById(col.open || '')?.data?.unit?.key) }
   // (The unit's recap made from its pills above: the same card, opened again, nothing asked again.)
-  ok('4. Recap from the menu opens the unit\'s recap, brought into view', fromMenu.label && /^Recap · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Recap it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
+  ok('4. Summary from the menu opens the unit\'s summary, brought into view', fromMenu.label && /^Summary · /.test(fromMenu.label) && fromMenu.inView && fromMenu.unit === units[1].key && !chatsOf(r3).some(r => /Summarise it for them/.test(JSON.stringify(r.body.messages || ''))), fromMenu)
   ok('no page errors', !A.problems.length, A.problems)
   await A.ctx.close()
   // 5. The long book's chapters start at a page's top: the pills beside the chapter's heading there.
@@ -4853,11 +4861,6 @@ async function notebookCheck(browser, origin) {
     const B = await readerPage(browser, origin, hexL, { width: 1440, height: 900, look: 'paper' })
     const b = B.page
     await prefetchSettled(b)
-    // Catch me up from the second unit's start (the first has none since 20 Oct 2026: nothing to catch up on yet).
-    await b.evaluate(() => { openCard(null); closePrimer(); goTo({ page: primer.units[1].start, frac: 0 }) }); await b.waitForTimeout(800)
-    // (Since 21 Oct 2026 a unit's pills sit beside its heading, shown on hover.)
-    await clickPill(b, 'catchup', await b.evaluate(() => primer.units[1].key)); await b.waitForTimeout(1300)
-    await b.evaluate(() => openCard(null)); await b.waitForTimeout(200)
     await b.evaluate(() => { const u = primer.units[0]; goTo({ page: u.start, frac: 0 }) }); await b.waitForTimeout(900)
     const k0 = await b.evaluate(() => primer.units[0].key)
     await clickPill(b, 'recap', k0); await b.waitForTimeout(1300)
@@ -4876,9 +4879,8 @@ async function notebookCheck(browser, origin) {
     const all = await b.evaluate(nbState)
     const named = k => all.entries.filter(e => e.kind === k)
     const unitLabel = await b.evaluate(() => TinctMargin.unitPhrase(primer.units[0]))
-    ok(`${tag}: All lists the margin note, the unit's note, Catch me up, Recap, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Catch me up').length === 1 && named('Recap').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '6 entries', all.entries.map(e => [e.kind, e.chip]))
-    // (Catch me up is the second unit's since 20 Oct 2026: the first has none.)
-    ok(`${tag}: a pill card's place chip is its unit`, named('Recap')[0]?.chip && named('Recap')[0].chip === named('Quiz')[0]?.chip && !!named('Catch me up')[0]?.chip && named('Catch me up')[0].chip !== named('Recap')[0].chip, { chip: named('Recap')[0]?.chip, catchup: named('Catch me up')[0]?.chip, unitLabel })
+    ok(`${tag}: All lists the margin note, the unit's note, Summary, the unit's quiz and the Evaluate`, named('Note').length === 2 && named('Summary').length === 1 && named('Quiz').length === 1 && named('Evaluate').length === 1 && all.count === '5 entries', all.entries.map(e => [e.kind, e.chip]))
+    ok(`${tag}: a pill card's place chip is its unit`, named('Summary')[0]?.chip && named('Summary')[0].chip === named('Quiz')[0]?.chip, { chip: named('Summary')[0]?.chip, unitLabel })
     const fc = await b.evaluate(id => document.querySelector(`.nb-entry[data-id="${id}"] .nb-answer`)?.innerText || '', named('Evaluate')[0]?.id)
     ok(`${tag}: Evaluate is listed as its card shows it: the verdict first, no restating opening, no empty Sources line`, /^(Answer:\s*)?Holds\. MOCK verdict first\./.test(fc) && !/passage claims|none searched/i.test(fc), fc)
     await b.click('.nb [data-f="notes"]'); await b.waitForTimeout(150)
@@ -4890,15 +4892,15 @@ async function notebookCheck(browser, origin) {
     await shot(b, `${tag}-notes`)
     await b.click('.nb [data-f="ai"]'); await b.waitForTimeout(150)
     const ai = await b.evaluate(nbState)
-    ok(`${tag}: AI: Catch me up, Recap, Quiz and Evaluate, no notes`, ai.entries.length === 4 && ['Catch me up', 'Recap', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
+    ok(`${tag}: AI: Summary, Quiz and Evaluate, no notes`, ai.entries.length === 3 && ['Summary', 'Quiz', 'Evaluate'].every(k => ai.entries.some(e => e.kind === k)) && !ai.entries.some(e => e.kind === 'Note'), ai.entries.map(e => e.kind))
     await shot(b, `${tag}-ai`)
     // Jump: a Recap entry opens its card under the unit's end pills; a margin note's entry opens the note.
     await b.evaluate(() => goTo({ page: 1, frac: 0 })); await b.waitForTimeout(500)
-    const recapId = ai.entries.find(e => e.kind === 'Recap').id
+    const recapId = ai.entries.find(e => e.kind === 'Summary').id
     await b.click(`.nb-entry[data-id="${recapId}"] .nb-kind`); await b.waitForTimeout(1400)
     const seenCard = id => b.evaluate(id => { const el = document.querySelector(`.mr-card.is-open[data-id="${id}"]`), r = el?.getBoundingClientRect(), sr = document.getElementById('scroll').getBoundingClientRect(), top = r && document.elementFromPoint(r.left + r.width / 2, Math.max(r.top, sr.top) + 10); return { open: col.open, shown: !!r && r.width > 0 && r.top < sr.bottom - 40 && r.bottom > sr.top + 40, seen: !!top && el.contains(top), panel: !!document.querySelector('.nb'), name: el?.querySelector('.mr-card__name')?.textContent } }, id)
     const rj = await seenCard(recapId)
-    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Recap · /.test(rj.name || ''), rj)
+    ok(`${tag}: a Recap entry jumps to the unit's end and opens its card there, seen`, rj.open === recapId && rj.shown && rj.seen && !rj.panel && /^Summary · /.test(rj.name || ''), rj)
     await shot(b, `${tag}-jump-recap`)
     await b.evaluate(() => { openCard(null); goTo({ page: 1, frac: 0 }) }); await b.waitForTimeout(500)
     await b.click('#notebookBtn'); await b.waitForSelector('.nb .nb-entry')
@@ -5031,7 +5033,7 @@ async function pdfTextCheck(browser, origin) {
       const e = document.querySelector(`.mr-hp.is-end[data-unit="${u.key}"]`)
       return { unit: u.title, start: s && [...s.querySelectorAll('.mr-pill')].map(b => b.dataset.label), head: head?.textContent.trim().slice(0, 60), inline: !!s?.classList.contains('is-inline'), end: e && [...e.querySelectorAll('.mr-pill')].map(b => b.dataset.label) }
     })
-    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Recap · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Recap|Quiz me|Note', unitPills)
+    ok(`${tag}: a chapter of the Tinct text: Primer on its heading's line, Summary · Quiz me · Note under its last paragraph`, unitPills.start?.[0] === 'Primer' && unitPills.inline && !!unitPills.head && unitPills.end?.join('|') === 'Summary|Quiz me|Note', unitPills)
     if (label === 'figures') ok(`${tag}: the PDF's figures stand in the text as crisp crops of the page`, view.figs.length >= 1 && view.figs.every(f => f.w >= f.shown && f.w > 0), view.figs)
     // A request from here reads the document as the PDF's pages, and its answer cites them.
     const r0 = account.requests.length
@@ -5363,7 +5365,7 @@ async function epubUnitsCheck(browser, origin) {
   const paras0 = await e.evaluate(n => { const p = state.pages[n - 1]; p.paras = null; return epubParas(p).length }, n)
   await e.evaluate(n => { const p = state.pages[n - 1]; const last = epubParas(p).at(-1); last.scrollIntoView({ block: 'center' }) }, n); await e.waitForTimeout(700)
   const end = await e.evaluate(endOf, [n, key])
-  ok('1. the first essay\'s end: ✧ Recap · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, inside its sheet (never clipped), shown with the pointer away', end && end.shown && end.sheetBottom != null && end.bottom <= end.sheetBottom - 2 && end.pills.join('|') === 'Recap|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
+  ok('1. the first essay\'s end: ✧ Summary · ✧ Quiz me · Note just under its last paragraph (4–20 px), at the text\'s left edge, inside its sheet (never clipped), shown with the pointer away', end && end.shown && end.sheetBottom != null && end.bottom <= end.sheetBottom - 2 && end.pills.join('|') === 'Summary|Quiz me|Note' && end.top - end.lastBottom >= 4 && end.top - end.lastBottom <= 20 && Math.abs(end.left - end.textLeft) <= 2, end)
   ok('1. the end pills add no text and no paragraph to the chapter', end && end.textFree && end.paraCount === paras0, { end, paras0 })
   await epubShot(e, 'unit-pills-end')
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
@@ -5375,12 +5377,11 @@ async function epubUnitsCheck(browser, origin) {
   const n2 = await essayPage(e, '2 Controversial'), key2 = await e.evaluate(n => primer.units.find(u => u.start === n).key, n2)
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n2); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   const second = await e.evaluate(pillsOf, [n2, key2])
-  ok('1. the next essay\'s heading offers ✧ Primer · ✧ Catch me up, shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer|Catch me up', second)
-  // Keyboard: the pills are in the tab order (the heading no longer needs the focus to show them).
+  ok('1. the next essay\'s heading offers ✧ Primer alone (Catch me up is the t menu\'s), shown with the pointer away', second?.shown && second.pills.join('|') === 'Primer', second)
+  // Keyboard: the pill is in the tab order (the heading no longer needs the focus to show it).
   await e.evaluate(k => document.querySelector(`.mr-hp[data-unit="${k}"] [data-pill="primer"]`).focus(), key2); await e.waitForTimeout(100)
-  await e.keyboard.press('Tab')
   const tabbed = await e.evaluate(() => document.activeElement?.dataset?.pill || document.activeElement?.tagName)
-  ok('1. Tab goes from its Primer to its Catch me up', tabbed === 'catchup', { tabbed })
+  ok('1. its Primer takes the keyboard focus', tabbed === 'primer', { tabbed })
   await e.evaluate(() => document.activeElement?.blur())
   await e.evaluate(n => goTo({ page: n, frac: 0 }), n); await e.evaluate(() => document.getElementById('scroll').scrollBy(0, -200)); await e.waitForTimeout(900)
   // 21 Oct 2026 (A): Recap, then Quiz me in the same row, clicked as a hand does (a pause between press and release):
@@ -5391,7 +5392,7 @@ async function epubUnitsCheck(browser, origin) {
   await e.evaluate(n => epubParas(state.pages[n - 1]).at(-1).scrollIntoView({ block: 'center' }), n); await e.waitForTimeout(700)
   await press(`${rowSel} [data-pill="recap"]`); await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
   const recap = await e.evaluate(k => { const el = document.querySelector('.mr-card.is-open'); return { name: el?.querySelector('.mr-card__name')?.textContent || '', top: el?.getBoundingClientRect().top, pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key } }, key)
-  ok('1. Recap from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Recap/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
+  ok('1. Summary from the chapter\'s end opens that chapter\'s card in the column level with its end pills (within 12 px); the view stays', /^Summary/.test(recap.name) && recap.unit === key && Math.abs(recap.top - recap.pills) <= 12 && recap.pills > 0 && recap.pills < 900, recap)
   await press(`${rowSel} [data-pill="quiz"]`); await e.waitForTimeout(1200)
   const quiz = await e.evaluate(k => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', pills: document.querySelector(`.mr-hp.is-end[data-unit="${k}"]`).getBoundingClientRect().top, unit: cardById(col.open || '')?.data?.unit?.key }), key)
   ok('A. Recap, then Quiz me (a hand\'s click): the quiz card opens, on that chapter; the pills never moved', /^Quiz me/.test(quiz.name) && quiz.unit === key && Math.abs(quiz.pills - recap.pills) <= 0.5, { recap, quiz })
@@ -5456,15 +5457,15 @@ async function epubHeadsCheck(browser, origin) {
       ok(`${tag}: the Introduction's heading${heads === 'p' ? ' (a paragraph, no <h1>)' : ''}: ✧ Primer on its line`, s0 && s0.shown && s0.headText === 'Introduction' && s0.pills[0] === 'Primer' && Math.abs(s0.mid - s0.lineMid) <= 3 && s0.textFree, s0)
       await go(intro.to, true)
       const e0 = await endOf([intro.to, intro.key])
-      ok(`${tag}: the Introduction's end: Recap · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Recap|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
+      ok(`${tag}: the Introduction's end: Summary · Quiz me · Note just under its last paragraph, at the text's left edge, inside its sheet`, e0 && e0.shown && e0.pills.join('|') === 'Summary|Quiz me|Note' && e0.gap >= 4 && e0.gap <= 20 && Math.abs(e0.left) <= 2 && e0.inSheet && e0.textFree, e0)
       await epubShot(e, `${tag}-intro-end`)
       await go(ch1.start, false)
       const s1 = await startOf(ch1.key)
-      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer · ✧ Catch me up after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer|Catch me up' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
+      ok(`${tag}: chapter 1's split heading ("1", then its title): ✧ Primer after the title's last word, on its line, never beside the number or the epigraph`, s1 && s1.shown && s1.headText === 'The Span of Accounts' && s1.pills.join('|') === 'Primer' && Math.abs(s1.mid - s1.lineMid) <= 3 && s1.after >= 6 && s1.after <= 20 && s1.textFree, s1)
       await epubShot(e, `${tag}-chapter1-start`)
       await go(ch1.to, true)
       const e1 = await endOf([ch1.to, ch1.key])
-      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Recap|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
+      ok(`${tag}: chapter 1's end pills under its last paragraph`, e1 && e1.shown && e1.pills.join('|') === 'Summary|Quiz me|Note' && e1.gap >= 4 && e1.gap <= 20 && Math.abs(e1.left) <= 2 && e1.inSheet, e1)
       // The place: the reader's spot at chapter 2's start, read before and after its pills are drawn again (a layout).
       await go(ch2.start, false)
       const spot0 = await e.evaluate(() => JSON.stringify(epubSpot()))
@@ -5476,7 +5477,7 @@ async function epubHeadsCheck(browser, origin) {
       await e.click(`.mr-hp.is-end[data-unit="${ch1.key}"] [data-pill="recap"]`, { timeout: 5000 }).catch(() => {})
       await e.waitForFunction(() => /MOCK/.test(document.querySelector('.mr-card.is-open')?.innerText || ''), null, { timeout: 8000 }).catch(() => {})
       const recap = await e.evaluate(() => ({ name: document.querySelector('.mr-card.is-open .mr-card__name')?.textContent || '', unit: cardById(col.open || '')?.data?.unit?.key }))
-      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Recap/.test(recap.name) && recap.unit === ch1.key, recap)
+      ok(`${tag}: chapter 1's Recap opens that chapter's recap card`, /^Summary/.test(recap.name) && recap.unit === ch1.key, recap)
       await e.evaluate(() => openCard(null))
     }
     const texts1 = await e.evaluate(() => state.pages.map(p => { p.paras = null; return epubParas(p).map(el => el.textContent) }))
@@ -5896,11 +5897,6 @@ async function cardsRound2(browser, origin) {
   await a.click('.mr-doc .mr-card.is-open [data-c="talk"]'); await a.waitForTimeout(800)
   ok('Recap: Talk in the field opens Chat with Talk on', await a.evaluate(() => chat.talk === true))
   await a.evaluate(() => { setTalk(false); openCard(null) }); await a.waitForTimeout(300)
-  // Catch me up.
-  await clickPill(a, 'catchup', units[1].key); await a.waitForTimeout(1500)
-  s = await shape('.mr-doc .mr-card.is-open')
-  ok(`Catch me up: as tall as its answer (${s?.height}px, ${s?.gap}px), the field, minimise and bin, no copy, no ×`, fieldRow(s) && s.gap <= 24, s)
-  await outside()
   // Primer: sized to its content, the field, minimise and bin; a click outside minimises it.
   await clickPill(a, 'primer', units[1].key); await a.waitForTimeout(900)
   s = await shape('.mr-doc .mr-primer')

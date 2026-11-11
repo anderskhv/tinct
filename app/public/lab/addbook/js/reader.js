@@ -2953,7 +2953,7 @@ function openContents() {
   const tops = toc.entries.filter(e => !e.parent);
   // The wide column: the unit the reader is in, marked, with its Recap, Quiz me and Catch me up (as its marks offer them).
   const unit = marginMode() === 'column' && primerHasText() ? currentUnit() : null;
-  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Recap'], ['quiz', 'Quiz me'], ...(nothingBefore(unit) ? [] : [['catchup', 'Catch me up']])].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
+  const unitNow = unit ? `<section class="mr byob-unit-now" aria-label="The part you are reading"><p class="byob-unit-now__name" aria-current="true">${esc(TinctMargin.html.unitName(unit, state.title))}${unitPagesLabel(unit) ? ` · ${esc(unitPagesLabel(unit))}` : ''}</p><div class="byob-unit-now__acts">${[['recap', 'Summary'], ['quiz', 'Quiz me']].map(([id, w]) => `<button type="button" class="mr-pill" data-unit-act="${id}"><span><span class="mr-pill__mark" aria-hidden="true">✧</span>${w}</span></button>`).join('')}</div></section>` : '';
   layer.innerHTML = `<button class="lc-scrim" aria-label="Close contents" tabindex="-1"></button>
     <div class="menu" role="dialog" aria-modal="true" aria-label="Contents">
       <header><button class="title" aria-label="${esc(state.title)}, close contents">${esc(state.title)}</button><div class="actions"><button aria-label="Back to book" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg></button></div></header>${unitNow}
@@ -3100,7 +3100,7 @@ const SKIP = dir => `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"
 let sample = null, sampleImages = null, imgNote = 'Pictures you attach or snip are sent to the reading companion when you are signed in.';
 function aiBook() {
   const pl = hasBook() ? currentPlace() : null, ch = pl && toc.ready ? chapterAt(pl.page) : null;
-  return { title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
+  return { id: state.preview ? state.preview.bookId : 'userbook-' + hexOf(state.key), title: state.title, author: state.author, chapter: ch?.label || (pl ? (isEpub() ? state.title : 'Page ' + pl.page) : ''), page: pl?.page, pages: state.pages.length };
 }
 async function ai() {
   if (sample) return sample;
@@ -3245,7 +3245,7 @@ function snapWords() {
   } catch { /* the selection stays as made */ }
 }
 const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
-document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
+document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; gesture.up = { x: e.clientX, y: e.clientY, at: Date.now() }; setTimeout(selectionMade, 30) }, true);
 document.addEventListener('touchend', () => setTimeout(selectionMade, 60), { passive: true, capture: true });
 document.addEventListener('keyup', e => {
   if (e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
@@ -3520,6 +3520,8 @@ function marginOpen(info, { existing = null, asking = false, own: ownSel = false
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
   // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
   mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, own: ownSel, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
+  // Where the pointer let go of this selection: the bar stands on that side of it (mrPlace, TinctMargin.placeBar).
+  if (!existing && !ownSel && gesture.up && Date.now() - gesture.up.at < 600) mr.up = { x: gesture.up.x, y: gesture.up.y };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
   mrShow(mr.base || 'menu');
@@ -3595,7 +3597,15 @@ function mrPlace() {
     pos = TinctMargin.placeCard({ first, last, frame, w: 360, h: el.offsetHeight, phone });
   } else {
     if (phone) el.style.width = (frame.right - frame.left - TinctMargin.PHONE.edge * 2) + 'px';
-    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone });
+    // Read once per selection (which end the pointer let go at, how far along that line), so a scroll or a zoom
+    // moves the bar with the passage and never to its other side.
+    const mid = b => (b.top + b.bottom) / 2;
+    if (mr.up && !mr.side) {
+      const end = last.top > first.top && Math.abs(mr.up.y - mid(last)) < Math.abs(mr.up.y - mid(first));
+      mr.side = { end, dx: mr.up.x - (end ? last : first).left };
+    }
+    const cursor = mr.side && !phone ? { x: (mr.side.end ? last : first).left + mr.side.dx, y: mid(mr.side.end ? last : first) } : null;
+    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone, cursor });
   }
   el.style.left = pos.left + 'px'; el.style.top = pos.top + 'px';
   el.classList.toggle('is-below', !!pos.below);
@@ -5487,7 +5497,8 @@ function primerShown() {
   const p = primer.data; if (!p) return null;
   const sections = TinctMargin.html.primerSections(p).map(sec => `${sec.title}\n${sec.items.map(it => '- ' + (it.term ? `${it.term} — ${it.meaning}` : it.text)).join('\n')}`).join('\n\n');
   const unit = primer.unit && primer.unit.key !== 'all' ? unitTitle(primer.unit) : '';
-  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${p.gist || ''}\n\n${sections}`.trim() };
+  const first = p.gist ? (p.role ? `${p.role}\n${p.gist}` : p.gist) : '';
+  return { key: `primer:${primer.unit?.key}:${p.madeAt || ''}`, label: `Before you start${unit ? ' · ' + unit : ''}`, text: `${first}\n\n${sections}`.trim() };
 }
 /** Talk in a card's field: Chat with Talk on, about what the card shows (the whole file's Chat: Talk on there). */
 function talkAbout(id) {
@@ -5687,7 +5698,7 @@ function cardTurns(card, image, fig = {}) {
   const rules = card.kind === 'figure' ? figureRules(card, image, fig.sketch) : `You are Tinct's reading companion. ${bookLine()} They are on ${at} of ${state.pages.length}.\nAnswer conversationally and concisely (usually under 150 words unless asked for more). Ground answers in the text. Plain prose only.${imageLine}${about}`;
   const what = card.data?.region === 'formula' ? 'formula' : 'figure';
   const pill = card.data?.pill;
-  const lead = pill ? { recap: 'Recap this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Evaluate this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
+  const lead = pill ? { recap: 'Summarise this chapter.', catchup: 'Catch me up.' }[pill] : { explain: 'Explain this passage.', simplify: 'Simplify this passage.', factcheck: 'Evaluate this passage.', related: 'Where else does the text take this up?', counterpoint: 'Give the strongest objection to this passage.', define: 'Define this word.', figure: `Explain this ${what}.` }[card.kind];
   const turns = (card.turns || []).slice(-11).map(t => ({ role: t.role, content: t.content }));
   if (lead && (turns[0]?.role === 'assistant' || ((card.kind === 'figure' || pill) && !turns.length))) turns.unshift({ role: 'user', content: lead });
   return [{ role: 'user', content: pill ? pillRules(card) : rules }, ...turns];
@@ -5705,7 +5716,7 @@ function pillRules(card) {
   const head = `You are Tinct's reading companion. ${bookLine()}`;
   // The reader's words for the text: what it is or its title, never our word "unit" (Anders, 20 Oct 2026).
   const form = `Write two short paragraphs of plain prose, no headings, lists or preamble, at most 160 words in all. ${isEpub() && !isPdfText() ? 'Ground it in the book and cite no pages; say nothing that is not in it.' : 'Ground it in the document and cite its pages as you do elsewhere; say nothing that is not in it.'} ${NAME_THE_TEXT}`;
-  if (card.data.pill === 'recap') return `${head} They have just finished ${name} (${pages(unit)}).\nRecap it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
+  if (card.data.pill === 'recap') return `${head} The reader asks for a summary of ${name} (${pages(unit)}).\nSummarise it for them: its main points and how they connect, then what it leaves open or sets up for what follows. ${form}`;
   const before = catchRange(unit);
   // The book reader's Catch me up rules (TinctMargin.catchUpSpan, catchUpParts): only what the reader has read, a
   // paragraph for each part it runs through, the most recent reading in the most detail, and the chat's grounding.
@@ -6242,13 +6253,20 @@ async function primerRemote(method, unit, content = null) {
       method, credentials: 'same-origin', cache: 'no-store',
       headers: { Authorization: 'Bearer ' + TinctAI.session().token, ...(content ? { 'Content-Type': 'application/json' } : {}) },
       // Its content only (a primer kept here before kinds has claims and keepInMind; the Worker reads both shapes).
-      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
+      body: content ? JSON.stringify({ primer: Object.fromEntries(['kind', 'role', 'gist', 'sections', 'claims', 'keepInMind', 'map'].filter(k => k in content).map(k => [k, content[k]])) }) : undefined,
     });
     if (!r.ok) return null;
-    return PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    const kept = PP.normalizeStoredPrimer((await r.json().catch(() => ({}))).primer);
+    // A primer an earlier prompt made (before v5, 11 Nov 2026) is not served: the unit's primer is made again.
+    return method === 'GET' && !PP.isCurrentPrimer(kept) ? null : kept;
   } catch { return null }
 }
 const primerKey = unit => 'primer:' + state.key + ':' + unit.key;
+/**
+ * The unit's primer kept on this device, when the current prompt made it (v5, 11 Nov 2026: it has a `role`; as
+ * primer-parse.js isCurrentPrimer). One made before is not served: opening the unit makes it again.
+ */
+const keptPrimer = unit => { const p = store.get(primerKey(unit)); return p && typeof p.role === 'string' ? p : null };
 /* Making a primer (the Gloss test, 15 Oct 2026: 2 failures in 3). One request per unit at a time:
    reopening while it is made waits for the same one. A reply that does not parse, or a failed
    one, is asked for once more. It gives up after 45 s in all ("taking too long"). What it makes is
@@ -6261,6 +6279,16 @@ const primerMaking = new Map();
 const primerStoring = new Set();
 // A cut-off primer is asked for once more, as one that does not parse.
 const PRIMER_RETRY = new Set(['failed', 'busy', 'unparsed', 'cut_off']);
+/**
+ * The document's contents for a unit's primer (its first part: where the unit sits; 11 Nov 2026): the units'
+ * titles in order, the nearest 60, titles only. None for a unit that is the whole document or book, for blocks
+ * of pages (no contents to go by), or when the document sent already carries its table of contents (a long file's part).
+ */
+function primerOutlineFor(unit, doc) {
+  const units = primer.units || [];
+  if (unit.key === 'all' || unit.key === BOOK_UNIT || units.length < 2 || units.some(u => u.pages) || doc?.part?.toc?.length) return null;
+  return TinctMargin.primerOutline(units.map(unitTitle), units.findIndex(u => u.key === unit.key));
+}
 function makePrimer(unit, { speculative = false } = {}) {
   const id = primerKey(unit);
   if (primerMaking.has(id)) return primerMaking.get(id);
@@ -6270,10 +6298,11 @@ function makePrimer(unit, { speculative = false } = {}) {
     if (!PP || !window.TinctAI?.companion) throw Object.assign(new Error('offline'), { code: 'offline' });
     const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), PRIMER_WAIT_MS);
     const pdf = await unitPages(unit), title = unitTitle(unit), wholeDoc = await marginDocument(unit.from);
+    const outline = primerOutlineFor(unit, wholeDoc);
     try {
       for (let attempt = 0; ; attempt++) {
         try {
-          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit) } }, stream: false, signal: ctl.signal, retry: false, speculative });
+          const res = await TinctAI.companion('chapter', { book: { ...aiBook(), chapter: title }, pdf, document: wholeDoc, chapter: { action: { kind: 'primer', unitKey: unit.key, unitTitle: title, unitKind: unitKind(unit), ...(outline ? { outline } : {}) } }, stream: false, signal: ctl.signal, retry: false, speculative });
           const content = PP.parsePrimer(res.text);
           if (!content) throw Object.assign(new Error('unparsed'), { code: 'unparsed' });
           return { content, kept: { ...content, madeAt: new Date().toISOString(), unitKey: unit.key } };
@@ -6322,11 +6351,11 @@ function primerPrefetch() {
       const key = state.key, unit = currentUnit();
       if (!unit || state.key + '#' + state.token !== open) return;
       const id = primerKey(unit);
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       const remote = await primerRemote('GET', unit);
       if (state.key !== key) return;
       if (remote) { store.set(id, remote); return }
-      if (store.get(id) || primerMaking.has(id)) return;
+      if (keptPrimer(unit) || primerMaking.has(id)) return;
       await makePrimer(unit, { speculative: true }).catch(() => { /* opened later, it is made then */ });
       // Done once the account holds its copy as well (a check, or a second device, then sees it there).
       await Promise.all([...primerStoring]);
@@ -6337,7 +6366,7 @@ function primerPrefetch() {
 async function loadPrimer(unit, { redo = false } = {}) {
   const token = ++primer.token, key = state.key;
   const live = () => token === primer.token && state.key === key && primer.open && primer.unit?.key === unit.key;
-  const before = store.get(primerKey(unit));
+  const before = keptPrimer(unit);
   const show = patch => { Object.assign(primer, { data: null, wait: false, status: '' }, patch); marginLayout() };
   if (!redo) {
     if (before) {
@@ -6568,14 +6597,14 @@ function headPills(u, p, at, seen) {
     // Its end pills never wait on its heading: a chapter whose heading is not found still has its end (22 Oct 2026).
     const end = endPills(u); if (end) seen?.add(end);
     const head = unitHeadEl(u); if (!head) { dropHeadPill(u.key); return end }
-    const el = headPillEl(u, nothingBefore(u) ? ['primer'] : ['primer', 'catchup'], u.key);
+    const el = headPillEl(u, ['primer'], u.key);
     if (el.parentElement !== head) { el.classList.remove('is-page'); el.classList.add('is-inline'); head.append(el) }
     head.classList.add('mr-hp-head'); // (position: relative: the pills are placed in the heading's own box)
     placeHeadPills(el, head);
     seen?.add(el);
     return el;
   }
-  const el = headPillEl(u, nothingBefore(u) ? ['primer', 'recap', 'quiz', 'note'] : ['primer', 'catchup', 'recap', 'quiz', 'note'], u.key);
+  const el = headPillEl(u, ['primer', 'recap', 'quiz', 'note'], u.key);
   if (el.parentElement !== p.pg) { el.classList.add('is-page'); p.pg.append(el) }
   placePagePills(el, p, at.head.y);
   seen?.add(el);
@@ -8411,8 +8440,8 @@ function flowMarks() {
       el.className = 'tb-mark is-' + where; el.setAttribute('role', 'group'); el.dataset.unit = u.key;
       el.setAttribute('aria-label', `${where === 'start' ? 'Start' : 'End'} of ${phrase}`);
       el.dataset.k = where === 'start' ? 'Starting' : 'End of'; el.dataset.n = name;
-      const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Recap ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
-      el.innerHTML = (where === 'start' ? (nothingBefore(u) ? ['primer'] : ['primer', 'catchup']) : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
+      const said = { primer: `Before you start: ${TinctMargin.triggerLine(u)}`, catchup: `Catch me up on what came before ${phrase}`, recap: `Summary of ${phrase}`, quiz: `Quiz me on ${phrase}`, note: `Note on ${phrase}` };
+      el.innerHTML = (where === 'start' ? ['primer'] : ['recap', 'quiz', 'note']).map(id => `<button type="button" class="tb-pill" data-pill="${id}" data-label="${esc(PILLS[id])}" aria-label="${esc(said[id])}"></button>`).join('');
       return el;
     };
     const head = ch.querySelector(':scope > .tb-head');

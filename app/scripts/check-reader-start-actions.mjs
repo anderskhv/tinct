@@ -174,18 +174,18 @@ async function phoneCatalogue(engine) {
     const asked = log.catchUp.slice(before)
     ok(`${tag}: the whole book's Summary: a timeline with no "You are here", asked without a place`, entries > 1 && here === 0 && asked.length > 0 && asked.every(request => request.placeChapter === undefined), { entries, here, asked: asked.slice(0, 2) })
   })
-  // Reading angle: Book settings opens with the field focused at its top; the Edition rows stay below.
+  // Reading angle: AI settings opens on This book with the caret in the field (Anders, 11 Nov 2026).
   await page.getByTestId('lab-book-angle').click()
-  await page.getByTestId('lab-reading-angle').waitFor()
+  await page.getByTestId('ai-settings-angle').waitFor()
   await page.waitForTimeout(400)
-  const sheet = await page.evaluate(() => ({ focused: document.activeElement?.getAttribute('data-testid'), layer: document.querySelector('[data-testid="lab-v2-sheet"]')?.dataset.layer, title: document.querySelector('[data-testid="lab-v2-sheet"] .lab-v2-title')?.textContent, first: document.querySelector('.lab-v2-editions > *')?.getAttribute('data-testid'), main: !!document.querySelector('[data-testid="lab-v2-main-edition"]') }))
-  ok(`${tag}: Reading angle opens Book settings, its field first and focused, the Edition rows below`, sheet.focused === 'lab-reading-angle' && sheet.layer === 'editions' && sheet.first === 'lab-reading-angle-row' && sheet.main, sheet)
-  await page.getByTestId('lab-reading-angle').fill('Watch who is listening to whom')
-  await shot(page, `${tag}-book-settings-angle`)
-  await page.getByTestId('lab-v2-sheet-close').click()
+  const sheet = await page.evaluate(() => ({ focused: document.activeElement?.getAttribute('data-testid'), tab: document.querySelector('[data-testid="ai-settings-tab-book"]')?.getAttribute('aria-selected'), scope: document.querySelector('[data-testid="ai-settings-book-scope"]')?.textContent, bookSheet: !!document.querySelector('[data-testid="lab-v2-sheet"]'), same: [...document.querySelectorAll('button[data-testid^="ai-book-length-"][data-testid$="-same"]')].every(node => node.getAttribute('aria-pressed') === 'true') }))
+  ok(`${tag}: Reading angle opens AI settings on This book, the caret in its field, every length "Same as General"`, sheet.focused === 'ai-settings-angle' && sheet.tab === 'true' && /Frankenstein\./.test(sheet.scope || '') && !sheet.bookSheet && sheet.same, sheet)
+  await page.getByTestId('ai-settings-angle').fill('Watch who is listening to whom')
+  await shot(page, `${tag}-ai-settings-angle`)
+  await page.getByTestId('ai-settings-close').click()
   await page.waitForTimeout(500)
   ok(`${tag}: the angle is saved for this book`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'Watch who is listening to whom')
-  ok(`${tag}: Book settings closed, the place and the page are unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
+  ok(`${tag}: AI settings closed, the place and the page are unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
   // The first chapter's Summary: nothing came before it, so it is the chapter's own.
   const notesBefore = log.notes.length
   await phoneCard(page, tag, 'lab-unit-summary', 'chapter-notes-end', home, async () => ok(`${tag}: the first chapter's Summary is the chapter's own`, log.notes.slice(notesBefore).includes('end'), log.notes.slice(notesBefore)))
@@ -204,9 +204,9 @@ async function phoneCatalogue(engine) {
   await phoneCard(page, tag, 'lab-unit-primer', 'chapter-notes-primer', home)
   // The angle reopens with the value it was given (one stored value).
   await page.getByTestId('lab-book-angle').click()
-  await page.getByTestId('lab-reading-angle').waitFor()
-  ok(`${tag}: Book settings shows the saved angle`, await page.getByTestId('lab-reading-angle').inputValue() === 'Watch who is listening to whom')
-  await page.getByTestId('lab-v2-sheet-close').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  ok(`${tag}: AI settings shows the saved angle`, await page.getByTestId('ai-settings-angle').inputValue() === 'Watch who is listening to whom')
+  await page.getByTestId('ai-settings-close').click()
   ok(`${tag}: no page errors (chapter 1)`, state.errors.length === 0, state.errors)
   await state.browser.close()
 
@@ -215,7 +215,9 @@ async function phoneCatalogue(engine) {
   const later = await placeOf(page)
   ok(`${tag}: a later chapter's chips: ✧ Primer · ✧ Summary, and no book pill`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary']) && (await page.getByTestId('lab-book-start').count()) === 0, await pillText(page, 'lab-unit-start'))
   await shot(page, `${tag}-chapter-start`)
-  await phoneCard(page, tag, 'lab-unit-summary', 'catchup', later, async card => ok(`${tag}: a chapter's Summary at its start is what came before, named Summary`, /^Summary · /.test(card.label) && /You are here/.test(card.text), card))
+  // A chapter's Summary is that chapter's own, the whole of it (Anders, 11 Nov 2026), never Catch me up's "what came before".
+  const laterNotes = log.notes.length
+  await phoneCard(page, tag, 'lab-unit-summary', 'chapter-notes-end', later, async card => ok(`${tag}: a later chapter's Summary at its start is that chapter's own, named Summary`, /^Summary · /.test(card.label) && !/You are here/.test(card.text) && log.notes.slice(laterNotes).includes('end'), { card, notes: log.notes.slice(laterNotes) }))
   await phoneCard(page, tag, 'lab-unit-primer', 'chapter-notes-primer', later)
   ok(`${tag}: no page errors (chapter 5)`, state.errors.length === 0, state.errors)
   await state.browser.close()
@@ -241,11 +243,12 @@ async function phoneOwn(engine) {
   await page.waitForTimeout(400)
   ok(`${tag}: closed, the place and the page are unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
   await page.getByTestId('lab-book-angle').click()
-  await page.getByTestId('lab-reading-angle').waitFor()
-  ok(`${tag}: Reading angle opens Book settings with its field focused`, await page.evaluate(() => document.activeElement?.getAttribute('data-testid')) === 'lab-reading-angle')
-  await page.getByTestId('lab-v2-sheet-close').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  await page.waitForTimeout(300)
+  ok(`${tag}: Reading angle opens AI settings' This book with its field focused`, await page.evaluate(() => document.activeElement?.getAttribute('data-testid')) === 'ai-settings-angle')
+  await page.getByTestId('ai-settings-close').click()
   await page.waitForTimeout(400)
-  ok(`${tag}: Book settings closed, the place is unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
+  ok(`${tag}: AI settings closed, the place is unchanged`, same(await placeOf(page), home), { now: await placeOf(page), home })
   ok(`${tag}: no page errors`, state.errors.length === 0, state.errors)
   await state.browser.close()
 }
@@ -281,17 +284,24 @@ async function desktopCatalogue() {
     const item = document.querySelector('[data-testid="margin-start-card"]').closest('[data-testid="source-margin-item"]')
     const head = document.querySelector('[data-testid="continuous-reader"] [data-testid="lab-passage-headline"]').getBoundingClientRect(), box = item.getBoundingClientRect()
     return { label: item.querySelector('.source-margin-label')?.textContent, start: item.classList.contains('is-start'), beside: box.left > head.right && box.top < head.bottom + 160,
-      acts: [...item.querySelectorAll('.lab-start-acts button')].map(node => node.textContent.trim()), heads: [...item.querySelectorAll('.lab-start-head')].map(node => node.textContent), mic: !!item.querySelector('[data-testid="margin-reading-angle-mic"]'),
+      acts: [...item.querySelectorAll('.lab-start-acts button')].map(node => node.textContent.trim()), heads: [...item.querySelectorAll('.lab-start-head')].map(node => node.textContent), angleRow: item.querySelector('[data-testid="margin-reading-angle"]')?.textContent, field: !!item.querySelector('textarea'),
       chips: document.querySelectorAll('[data-testid="continuous-reader"] .lab-passage-header :is(.lab-chapter-preview,.lab-start-pill)').length }
   })
-  ok(`${tag}: "Before you start" beside the book's opening: angle with mic, the whole book's Primer · Summary, the first chapter's Primer · Summary · Quiz me; no chips by the heading`,
-    card.label === 'Before you start' && card.start && card.beside && card.mic && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Summary', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
+  ok(`${tag}: "Before you start" beside the book's opening: a Set reading angle row (no field in the card), the whole book's Primer · Summary, the first chapter's Primer · Summary · Quiz me; no chips by the heading`,
+    card.label === 'Before you start' && card.start && card.beside && /^Set reading angle/.test(card.angleRow || '') && !card.field && card.chips === 0 && JSON.stringify(card.acts) === JSON.stringify(['✧Primer', '✧Summary', '✧Primer', '✧Summary', '✧Quiz me']) && card.heads[0] === 'The whole book', card)
   await shot(page, `${tag}-before-you-start`)
-  await page.getByTestId('margin-reading-angle').fill('The cost of ambition')
+  // Set reading angle opens AI settings on This book, the caret in the field (Anders, 11 Nov 2026); the card then shows the angle.
+  await page.getByTestId('margin-reading-angle').click()
+  await page.getByTestId('ai-settings-angle').waitFor()
+  const angleSheet = await page.evaluate(() => ({ focused: document.activeElement?.getAttribute('data-testid'), tab: document.querySelector('[data-testid="ai-settings-tab-book"]')?.getAttribute('aria-selected') }))
+  ok(`${tag}: the card's Set reading angle opens AI settings on This book with the caret in the field`, angleSheet.focused === 'ai-settings-angle' && angleSheet.tab === 'true', angleSheet)
+  await page.getByTestId('ai-settings-angle').fill('The cost of ambition')
   await page.waitForTimeout(300)
-  ok(`${tag}: the angle typed in the card is the book's one stored angle`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'The cost of ambition')
-  ok(`${tag}: typing the angle leaves the page where it was`, same(await placeOf(page), home), { now: await placeOf(page), home })
-  await page.getByTestId('margin-reading-angle').blur()
+  await page.getByTestId('ai-settings-close').click()
+  await page.getByTestId('ai-settings-layer').waitFor({ state: 'detached' })
+  ok(`${tag}: the angle set there is the book's one stored angle`, await page.evaluate(() => JSON.parse(localStorage.getItem('tinct:reading-angle:frankenstein') || 'null')) === 'The cost of ambition')
+  ok(`${tag}: the card shows the angle on its row`, /Reading angle.*The cost of ambition/.test(await page.getByTestId('margin-reading-angle').textContent() || ''))
+  ok(`${tag}: setting the angle leaves the page where it was`, same(await placeOf(page), home), { now: await placeOf(page), home })
   await desktopAction(page, tag, 'margin-book-primer', 'Primer · Frankenstein', home)
   await desktopAction(page, tag, 'margin-book-summary', 'Summary · Frankenstein', home)
   ok(`${tag}: the whole book's Summary in the margin has its timeline`, (await marginItem(page, 'Summary · Frankenstein').locator('[data-testid="lab-catch-up-entry"]').count()) > 1)

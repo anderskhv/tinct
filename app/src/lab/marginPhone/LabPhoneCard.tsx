@@ -274,10 +274,14 @@ export function splitLead(paragraph: string): { lead: string; tail: string } {
 /**
  * An answer: its first sentence bold when more follows (the margin reader's
  * bottom line), then the rest as the reader's small Markdown vocabulary.
+ * `plain`: no bottom line (Simplify, which is the passage rewritten, not an answer with a point to lead with).
  */
-export function PhoneAnswer({ text }: { text: string }) {
+export function PhoneAnswer({ text, plain = false }: { text: string; plain?: boolean }) {
   const blocks = text.trim().split(/\n{2,}/).filter(Boolean)
   if (!blocks.length) return null
+  // A rewrite of the passage (Simplify) has no bottom line: no sentence of it is bold, a saved one's own ** included
+  // (Anders, 11 Nov 2026: Simplify bolded an arbitrary first sentence).
+  if (plain) return <div className="lab-pcard-answer" data-testid="lab-phone-card-answer" data-plain="true"><LabMarkdown>{blocks.map((block, index) => index ? block : block.replace(/^\*\*(.+)\*\*$/s, '$1')).join('\n\n')}</LabMarkdown></div>
   const { lead, tail } = splitLead(blocks[0].replace(/^\*\*(.+)\*\*$/s, '$1'))
   const more = tail || blocks.length > 1
   return (

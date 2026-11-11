@@ -5,8 +5,8 @@ import { storage } from '../services/storage'
  * The reader's reading angle for one book: what they want to notice, set
  * before or while reading and always optional (free for everyone). One value
  * per book, on this device (`reading-angle:{bookId}`, the key the legacy
- * reader used), read by every AI request for that book and edited from Book
- * settings and the desktop's "Before you start" card. Never another book's
+ * reader used), read by every AI request for that book and edited in AI
+ * settings' This book tab and the desktop's "Before you start" card. Never another book's
  * angle: a book with none sends none. Signed in, the angles also go with the
  * account (labAiAccount.ts), so a book's angle applies on every device.
  */

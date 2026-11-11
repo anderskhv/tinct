@@ -8,7 +8,8 @@
  * preview's key (`tinct-addbook:*:preview:<bookId>`, js/tinct-book.js). Here
  * the device's position record is parsed straight from localStorage (no
  * migration write-back, no device id minted) and the account's record is a
- * plain GET of /api/lab-position (no PUT, no merge stored).
+ * plain GET of /api/lab-position (no PUT, no merge stored). The one thing noted is this tab's own edition switch
+ * (sessionStorage, labEditionSwitch.ts): where a switch between unaligned editions landed, so going back is exact.
  */
 import { getBook } from '../../data/bookRegistry'
 import { isChapterShardedEdition, loadEdition, loadEditionWindow } from '../../data/editionLoader'
@@ -18,8 +19,10 @@ import { LAB_PREFS_KEY, parseLabPrefs } from '../labPrefs'
 import type { EditionData } from '../../types'
 import type { MarginPreviewAt } from './marginPreviewFlag'
 import { READER_BOOT_POSITION_PREFETCH, type ReaderBootPositionPrefetch } from '../readerBoot'
+import { landEditionSwitch, leadingPreface, pendingEditionSwitch, placeAtWordFraction } from '../labEditionSwitch'
 import {
   isMarginPreviewBook,
+  marginParagraphWords,
   marginPreviewChapters,
   marginPreviewEditionKey,
   marginPreviewStart,
@@ -153,6 +156,21 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
   })()
   const edition = (editionKey: string) => book.editions.find(e => e.key === editionKey)!
   const aligned = (key: string) => book.editions.find(e => e.key === key)?.aligned !== false
+  // A switch from an edition whose paragraphs do not line up with this one (labEditionSwitch.ts): the link names
+  // the chapter, and the place is how far into it the reader was. Read once, so both parts open at the same place.
+  const switching = named?.primaryEditionKey
+    ? pendingEditionSwitch({ bookId, chapterNumber: named.chapterNumber, editionKey: named.primaryEditionKey })
+    : null
+  const startOf = (place: LabBookPlace | null, editionKey: string, chapters: MarginPreviewBook['chapters']) => {
+    const start = marginPreviewStart(place, chapters, { editionKey, aligned })
+    const chapter = switching && place === named && editionKey === switching.to.editionKey
+      ? chapters.find(c => c.number === switching.chapterNumber && !c.pending && c.paragraphs.length > 0)
+      : undefined
+    if (!chapter || start.chapterNumber !== chapter.number) return start
+    const landed = placeAtWordFraction(chapter.paragraphs.map(marginParagraphWords), switching!.fraction, leadingPreface(chapter.paragraphs.map(p => p.text)))
+    landEditionSwitch(switching!, landed)
+    return { ...start, ...landed }
+  }
   const modelOf = (place: LabBookPlace | null, editionKey: string, chapters: MarginPreviewBook['chapters']): MarginPreviewBook => ({
     bookId,
     editionKey,
@@ -161,12 +179,12 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
     author: book.author,
     language: edition(editionKey).language || 'en',
     chapters,
-    start: marginPreviewStart(place, chapters, { editionKey, aligned }),
+    start: startOf(place, editionKey, chapters),
     normalHref: normalReaderHref(bookId),
   })
   const full = placed.then(async ({ place, editionKey }) => {
     const data = await (editionKey === guess && early ? early : load(bookId, editionKey))
-    const chapters = marginPreviewChapters(data)
+    const chapters = marginPreviewChapters(data, { verse: edition(editionKey).style === 'verse' })
     if (!chapters.length) throw new Error(`${bookId} ${editionKey} has no chapters`)
     return modelOf(place, editionKey, chapters)
   })
@@ -176,7 +194,7 @@ export function loadMarginPreviewBookParts(bookId: string, deps: MarginPreviewDe
     if (!task) return null
     // The whole book first (cached, or quicker): no window is needed.
     const data = await Promise.race([task, full.then(() => null, () => null)])
-    const chapters = data ? marginPreviewWindowChapters(data) : null
+    const chapters = data ? marginPreviewWindowChapters(data, { verse: edition(editionKey).style === 'verse' }) : null
     if (!chapters?.length) return null
     const model = modelOf(place, editionKey, chapters)
     // The place's chapter must be one with its text; a place outside the window opens with the whole book.
