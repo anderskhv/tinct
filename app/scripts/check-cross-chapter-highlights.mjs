@@ -30,7 +30,10 @@ for(const engine of [chromium,webkit]){
     localStorage.setItem('tinct-lab-prefs',JSON.stringify({fontFamily:'garamond',fontSize:1.3,fontSizeExplicit:true,theme:'book',compareOpen:false}))
     sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:'bible',primaryEditionKey:'kjv-en',savedPlace:{bookId:'bible',chapterNumber:595,paragraphIndex:0,wordIndex:0,page:0}}))
    })
-   await page.goto(origin+'/reader',{waitUntil:'domcontentloaded'})
+   // Desktop opens in the Margin reader by default (#721, 4 Nov 2026), which shows one chapter at a time.
+   // A selection can cross into the next chapter only in the two-page spread, whose right column previews
+   // the next chapter's opening, so open that view explicitly.
+   await page.goto(origin+'/reader?view=two-page',{waitUntil:'domcontentloaded'})
    await page.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true',null,{timeout:45000})
    await page.evaluate(()=>document.fonts.ready)
    if(await page.getByTestId('lab-chapter-cover').isVisible())await page.keyboard.press('ArrowRight')
