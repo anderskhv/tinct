@@ -2,6 +2,8 @@
 
 > **Language scope — 2026-09-21:** English is the current delivery strategy. Danish is no longer a launch, publication, translation, audio, QA or marketing requirement; older Danish tasks below are superseded. Keep future localization straightforward without starting another language rollout. See [the approved language strategy](STRATEGY.md#language-scope). Existing assets and historical findings are preserved; this note does not change shipped behavior.
 
+> **Superseded in part, 2026-11-11:** positioning and the current launch sequence are in [STRATEGY.md](STRATEGY.md) sections 4 and 7; where this plan disagrees, STRATEGY.md wins.
+
 **Created:** 2026-06-10. Owner: Anders. Companion docs: `SEO-STRATEGY.md` (search harvest), `REMEDIATION-PLAN.md` Phase 5 (mechanical SEO), `STRATEGY.md` (positioning).
 **Budget posture:** Anders is willing to spend. This plan caps experimental spend at ~**DKK 3,500/mo (~$500)** plus one-offs, reviewed monthly — enough to move every lever below; more money than this does not buy more fame at Tinct's stage.
 

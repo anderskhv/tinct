@@ -1,8 +1,12 @@
 # Tinct — Strategy
 
-**Last updated:** 2026-04-21
+**Last updated:** 2026-11-11 (positioning and launch plan approved by Anders; sections 1–10 rewritten). The dated sections directly below are earlier approved decisions and are unchanged.
 
-The full emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md). The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). This document is the strategic machinery behind both — what we're building, for whom, against whom, and how the economics work.
+The one-minute version is in [ELEVATOR-PITCH.md](./ELEVATOR-PITCH.md). The earlier emotional argument is in [MANIFESTO.md](./archive/old-docs/MANIFESTO.md). This document says what Tinct is, for whom, how it is described, and what happens next.
+
+## Positioning in one paragraph
+
+**Approved by Anders, 2026-11-11.** Tinct is the reader for hard texts. The promise is **"No text is beyond you."** The classics library is the free front door: it needs no upload, works in seconds, and is the one thing nobody else has. Reading your own books, papers and articles with the same margin is the paid depth. The product does both; the message leads with one. A stranger hears about a book they always meant to finish, and meets "bring your own" after the margin has earned their trust.
 
 ---
 
@@ -69,193 +73,170 @@ Opening-audio planning follows [the audiobook plan](docs/audiobook-architecture-
 
 ## 1. Mission
 
-The books that shaped the West — Homer, Dante, Dostoevsky, Shakespeare, the Bible — have been passed hand to hand for thirty centuries. They survived because each generation read them, argued with them, and handed them on.
+Deliver the world's best reading experience for texts that are worth the effort.
 
-That chain is breaking. Not because the books got worse. Because accessing them got harder. The translations are a century old. The names are confusing. Most readers give up in the first fifty pages and go back to a feed that asks nothing of them.
-
-**Tinct exists to repair this transmission mechanism.** Every classic in an authoritative English translation, with an AI companion and modern comparison translation to help you understand it. A character tracker that never spoils. An audiobook that picks up where you stopped reading. The books remain as interesting as they have always been. Tinct is the way back to them.
+The books that shaped the West have been handed on for thirty centuries because each generation read them and argued with them. Today most readers who open Homer or Dostoevsky stop in the first fifty pages, and the same happens with a demanding modern book or a dense paper. The texts did not get worse. Reading them alone got harder to sustain. Tinct exists so that a willing reader finishes what they start and understands it.
 
 ---
 
 ## 2. Product
 
-**One sentence:** A new way to read the classics — every book in an authoritative English translation, with an AI companion, comparison translation, and audiobook that all read with you.
+**One sentence:** Read the books you always meant to finish, in modern English beside the original, with a guide in the margin who knows your page. Then bring your own.
 
-**Free (forever, no account required):**
-- Every classic in an authoritative English translation, with a modern comparison translation for side-by-side comprehension
-- Read on phone, tablet, desktop, or e-reader — cross-device sync with a free account
-- Highlights, notes, reading journal that builds over time
+**The front door: the public library (free).**
+- 114 books live on 11 Nov 2026: the Western canon, plus books published with their rights holders' permission (the Critical Rationalism shelf).
+- A Tinct Modern English edition beside the original or a human translation, aligned so Compare shows the same passage.
+- Primers, spoiler-safe character cards, highlights, notes and sync across devices.
 
-**Premium — $5/month (first month free, no card required):**
-- An AI companion that knows your current page and your reading angle
-- A character tracker that shows who everyone is, only as far as you've read
-- A synced audiobook that picks up where you stopped reading
-- Reading journal export and search
-- 200 AI chat messages per month (top-up packs: $3 / 100 messages, account-level balance)
+**The depth: Premium ($5 a month).**
+- The AI margin: explain, ask, summarize, catch me up, quiz, Talk. Metered as a monthly allowance shown as a usage bar.
+- Narration that follows the text.
+- Add any book: your own PDF, EPUB, pasted text or article, and books from Gutenberg and other free libraries, read with the same margin.
+
+The pricing table at tinct.app/about is the source of truth for what each tier includes; keep this section in step with it.
 
 **What Tinct is not:**
-- An ebook store — doesn't sell books, doesn't compete with Amazon's catalogue
-- A summary service — doesn't replace reading, supports it
-- A social reading platform — the relationship is between reader and book, not reader and other readers
-- Content-agnostic — built for the Western canon, not for whatever EPUB someone uploads
+- A summary service. It supports reading the text; it does not replace it.
+- An ebook store. It sells no books.
+- A general "chat with your PDF" tool. Own documents are for reading start to finish, with the margin as help. The message never leads with them.
+- A social network. Reading time and friends exist to bring readers back to a book, not as a feed.
 
 ---
 
 ## 3. Target reader
 
-Specific and recognisable:
+**They gave up on a book they still want to have read.** *War and Peace* at page seventy, the *Odyssey* at book three, *The Beginning of Infinity* at the chapter on quantum theory. They are adults with contested attention who believe there is something in these texts for them.
 
-**They tried to read *War and Peace* and gave up at page seventy.** They want to have read Homer. They respect Dostoevsky without having finished him. They believe there's something in these books they need — and they are tired of the cycle of opening, bouncing, giving up, reaching for the feed instead.
+They arrive wanting a specific book, not a reading app. The entry is therefore always a book.
 
-They are not literature professors. They are not undergraduates getting paid to read. They are adults whose time is constrained, whose attention is contested, and whose intuition keeps pulling them back to the books they couldn't quite finish.
+Evidence the audience exists (figures from April 2026, not reverified):
+- [37.6% of US adults read a novel in 2022](https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/93659-nea-finds-worrying-drop-in-reading-participation.html), the lowest rate since tracking began in 1992.
+- Daily reading time fell [43% over 20 years](https://pmc.ncbi.nlm.nih.gov/articles/PMC12496190/).
+- [Audiobook sales grew strongly in 2024](https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/97920-audiobook-sales-rose-13-in-2024-to-2-2-billion.html), and BookTok made *Pride and Prejudice* and *Wuthering Heights* mainstream reads again.
 
-**What the data says about the size of this audience:**
-- [37.6% of US adults read a novel in 2022](https://www.publishersweekly.com/pw/by-topic/industry-news/bookselling/article/93659-nea-finds-worrying-drop-in-reading-participation.html) — the lowest rate since tracking began in 1992
-- Daily reading time fell [43% over 20 years](https://pmc.ncbi.nlm.nih.gov/articles/PMC12496190/)
-- English majors [down 33% since 2009](https://hechingerreport.org/proof-points-the-number-of-college-graduates-in-the-humanities-drops-for-the-eighth-consecutive-year)
-- But: [audiobook sales grew 22.5% in 2024](https://www.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/97920-audiobook-sales-rose-13-in-2024-to-2-2-billion.html) — largest jump ever recorded
-- And: BookTok revived *Pride and Prejudice* and *Wuthering Heights* as mainstream reads
-
-**Interpretation:** The audience for classics is alive. The access mechanism is broken. The readers who would engage these books if engaging them felt possible are still there, and they are reachable. This is a repair job, not a revival.
+**What our own readers show (Supabase aggregates, 11 Nov 2026, Anders and test accounts excluded):** 39 accounts; 25 with recorded reading since 6 Sep; 15 of those read on one day only; 6 read on four or more days; median total reading nine minutes. The most-opened books are the *Odyssey* and the Bible. Readers start and are not pulled back. The sample is small because Tinct has not launched; it does not show whether the product retains.
 
 ---
 
-## 4. Competitive position
+## 4. Messaging
 
-No competitor offers a reading experience purpose-built for classics + AI + multiple editions at anywhere near Tinct's price.
+| Use | Words |
+|---|---|
+| Promise | No text is beyond you. |
+| Under it | Read the books you always meant to finish, in modern English beside the original, with a guide in the margin who knows your page. |
+| Second beat | Then bring your own. Any book, paper or article gets the same margin. |
+| Launch headline | I put 114 classics into modern English, side by side with the originals, in a free reader. |
 
-| Platform | What they offer | Monthly cost |
-|---|---|---|
-| **Tinct** | Classics in authoritative translation + AI comparison translation, AI companion, audiobook, character tracker | **$5** |
-| Kindle + Audible (full equivalent) | Classics reading + professional audio, no AI, no modern translation | ~$8–21 |
-| Kindle Unlimited | Ebook library, no AI, no translations | $11.99 |
-| Audible Plus | Classic audiobooks in catalogue, no text sync, no AI | $7.95 |
-| Local book platforms (Saxo, Thalia, Fnac, Kobo Plus) | Big libraries including new copyrighted books, no AI, no modern translations | $10–20 |
-| No Fear Shakespeare / SparkNotes | Side-by-side Shakespeare only, no AI | $2.08 annual |
-| **[Rebind](https://rebind.ai/)** | AI companion with celebrity author guides (Atwood, Rushdie) — only true head-to-head competitor | Unlisted |
-| Standard Ebooks / Project Gutenberg | Free public domain text, no reader app, no AI | Free |
-| Library apps (Libby, Ereolen) | Free loans from real libraries | Free |
-
-**The structural moats:**
-
-- **Against free alternatives** (Gutenberg, Standard Ebooks, Libby): Tinct is a reading platform, not a text archive. Free works for the most motivated; it doesn't work for the reader who keeps giving up. The reading angle, the AI companion, the character tracker, the translations — these are the reasons a reader finishes the book at all.
-
-- **Against Amazon:** Tinct is ~85% cheaper than the Kindle + Audible equivalent and offers what they don't (modern translations, AI companion, reading angle). Amazon has no incentive to build this — their model is selling you the book twice (Kindle + Audible), not helping you finish one.
-
-- **Against local platforms:** Their advantage is new copyrighted books. The classics reader doesn't need those.
-
-- **Against Rebind:** Tinct covers more books, has modern translations, and costs less. Rebind's advantage is celebrity author voices — a genuine marketing hook, but one that limits catalogue growth. They can only scale as fast as they can record conversations with living authors.
-
-**The AI gap is the structural moat.** Any text reader can add an AI chat button. The moat is the book-specific context: reading angles, character trackers trained per book, chapter-aware responses, cast cards that respect spoilers. These compound with every book we add. A generic "ChatGPT your ebook" alternative will never have this context.
+Rules:
+1. **Lead with a book, never with the reader.** Every link, post and invitation names one book and lands on it (`/read/{bookId}`).
+2. **Show the comparison.** The same passage in the original and in Modern English is the proof; use it wherever a picture is allowed.
+3. **Ask for a commitment with a date.** "Read the *Odyssey* with me from 1 December" works where "try my app" does not. The invitations that worked so far (a book club, Anders's children) were people reading one book together.
+4. **Own books are the second sentence.** Exception: an audience that arrives for a specific non-classic (the critical-rationalist community) is led with that book.
 
 ---
 
-## 5. Revenue model
+## 5. Competitive position
 
-**Free** — every book, every edition, cross-device sync, highlights, notes, reading journal.
-**Premium — $5/month** — AI companion (200 messages), audiobook, adding any book (your own or from Gutenberg and other free libraries), character tracker, journal export. First month free, no card required. Cancel anytime.
+Prices and competitor details below were last checked in April 2026.
 
-**Why $5 (was $3 until 2026-10-05):**
-- **Less than a cup of coffee** — positions the price as trivial in the reader's head
-- **Less than a single ebook on Kindle** — positions it as an obvious bargain
-- 2–3× cheaper than Kindle Unlimited, Audible Plus, Scribd, Readwise
-- 4–7× cheaper than local platforms (Saxo, Thalia, Fnac, Kobo Plus)
-- Technically viable at ~70% chat utilisation (~$2.80 API cost + $0.40 Stripe; thin margin but sustainable)
+| Alternative | What it lacks |
+|---|---|
+| Project Gutenberg, Standard Ebooks | The text only. No modern edition, no help, no reason to come back. |
+| Kindle and Audible | Sell the book twice; no modern edition, no margin. |
+| SparkNotes, No Fear Shakespeare | Replace the reading, or cover Shakespeare only. |
+| Rebind | Guided classics with celebrity commentary; a small catalogue. |
+| AI document readers (Gloss and similar) | A margin for your own files; no library, no editions, nothing to read on arrival. |
 
-**Mission-priced, not profit-maximised.** The lowest defensible price, because the mission is to remove barriers. If AI costs drop (they will), margins expand. If usage patterns require it, tiered pricing comes later. For now, tiny price is the whole point.
-
-**Top-up packs** ($3 / 100 additional messages) handle the heaviest users without forcing a subscription upsell.
+**What is hard to copy:** the Modern English editions, aligned to their sources and reviewed book by book, with primers and spoiler-safe character cards. The margin itself can be copied; a reviewed library cannot be copied quickly. The margin reader for own books keeps a reader in Tinct after the first classic; it is not the reason they come.
 
 ---
 
-## 6. Library
+## 6. Revenue model
 
-**Current language scope:** original/authoritative English editions and modern-English reading editions, with aligned reading and narration where available. Danish coverage is not a publication requirement. Use the current registry and inventory tooling for book and audio coverage; the former April count and universal EN/DA completion claim are not a current inventory.
+**Free:** every book in the public library, original and modern editions side by side, highlights, notes and sync.
+**Premium, $5 a month or $50 a year:** the AI margin (a monthly allowance, with top-ups), narration, and adding any book. New accounts get a free month without a card.
 
-**End of 2026: 100+ titles.** Expansion across the Western canon — more Plato, more Shakespeare, additional 19th-century fiction (Flaubert, Austen, Dickens), more devotional/philosophical works (Calvin, Aquinas, early Christian writings), more 20th-century modernists where public domain permits.
+Priced near cost so price is never the barrier. That leaves no margin to buy readers, so growth has to come from channels that cost time rather than money (section 7).
 
-**Long-term: the Western canon end-to-end.** Homer to Kafka, Genesis to the Church Fathers, Greek tragedy to Russian modernism. Anything that has survived a century of readers and still has something to give.
-
-**Classics first, but open to other books** (Anders, 2026-10-08). The canon remains the core of the library. Other books, including contemporary non-fiction, may join when their rights holders permit it; the first are the five Conjecture Institute books on the Critical Rationalism shelf, published with Logan Chipkin's permission. Such books are never labelled public domain, keep their publisher and copyright lines, and get no Modern English edition when they are already written in modern English.
-
-**Out of scope:**
-- **Kids editions** — dropped 2026-03-25. Diluted the product without growing the audience.
-- **User-uploaded EPUBs (BYOB)** — a separate product if we ever build it. Not a feature on the side.
+Every signed-in account has Premium until **4 January 2027**. That date is the first real test of whether readers pay. Pricing does not change before 20 readers who are strangers to Anders have paid.
 
 ---
 
-## 7. Current phase — content expansion + launch
+## 7. Launch plan — now to 4 January 2027
 
-**Phase 1 (Dec 2025 – March 2026): Product — DONE.**
-Reader, multi-edition, AI chat, highlights, notes, reading journal, character tracker, audiobook, auth (Supabase, Google OAuth), Stripe billing, cross-device sync, offline mode, Android wrap, 34 books live at tinct.app.
+**The problem to solve:** readers open a book once and nothing brings them back. Features are frozen until the launch is out; the only building allowed is what this plan names, each as an explicitly assigned task.
 
-**Phase 2 (April 2026 – ongoing): Content expansion + design refresh + launch.**
-- Design refresh per new design system (Playfair Display / EB Garamond / IBM Plex Mono, teal accent, refined layouts) — landing page, reader, onboarding
-- Book additions: 50–100 more titles across the canon
-- Onboarding overhaul centred on the reading angle — research confirmed personal connection before reading begins is the single strongest completion driver
-- Marketing: manifesto goes public at `/about`, elevator pitch for live conversations, landing page aligned with both
-- Growth channel: SEO-driven traffic to per-book landing pages, each with the reading-angle onboarding as conversion mechanism
-- First paying users beyond friends and family
+**The one number:** of the readers who start a book, how many read again in their second week.
 
-**Phase 3 (late 2026 / 2027): Scale.**
-Decisions deferred until we get there: whether to raise price, introduce tiers, introduce additional target languages after explicit approval, explore B2B distribution (schools, book clubs). None of these are committed.
+**Week of 11 November: learn and prepare.**
+- Anders talks to the readers who came back on four or more days and to three who read once. Two questions: which book did you want to read, and what stopped or brought you back?
+- Walk the signed-out first five minutes on a phone, from a `/read/odyssey` link to the first page turn, and fix only what blocks it.
+- Record a 45-second screen capture: a hard passage, Modern English beside it, one question asked in the margin.
 
----
+**Week of 18 November: the warm audiences, one book each.**
+- Critical-rationalist chat: lead with the five Conjecture Institute books, free on Tinct with the publisher's permission, and "bring *The Beginning of Infinity* and read it with the same margin".
+- N3Q chat and the book club: no general announcement. One invitation to the December read below.
+- X (@FallibleMusings, 2,600 followers): the demo video pinned, then a recurring post three times a week: one passage, original against Modern English.
 
-## 8. Future bets — named, not committed
+**1–24 December: "The Odyssey in 24 days".** One book of the poem a day, about half an hour in Modern English, ending on Christmas Eve. It is the most-opened book in the library. First version needs no code: a daily post with the day's link, and replies as the discussion. A daily email with the day's portion is the one build worth assigning if sign-ups justify it.
 
-**BYOB (Bring Your Own Book).** Expand from curated classics to any EPUB. The 2026-03-24 strategy session outlined a three-tier library model (free public domain / DRM-free / user's own files). Revisit only after the classics-only product retains users.
+**Early December: Show HN,** with the launch headline, on a weekday when Anders is free for 72 hours. Product Hunt on a separate day.
 
-**Hardware.** Custom e-reader with voice interaction. Software must validate first. Currently parked indefinitely — building consumer hardware is company-scale work and a distraction from the real product.
+**1 January: "War and Peace in a year".** 361 chapters, one a day. Announced to everyone who joined the December read.
 
-**Additional languages.** Deferred, with no committed first language, cost estimate or launch sequence. Current work should preserve the localization and translation flexibility described in [Language scope](#language-scope).
+**4 January: Premium ends for free accounts.** Count who pays.
 
-**School / book-club tier.** Teacher dashboards, group reading, shared notes, angle suggestions for classrooms. Potentially the strongest distribution moat (institutional adoption) but requires a different product surface. The strongest candidate for Phase 3.
+**Targets for 4 January (first guesses, to be corrected by the first two weeks):** 300 accounts; 60 readers active in their second week; 100 people in the December read; 5 paying strangers.
 
-**Author-guided editions.** Rebind's celebrity-author approach at lower cost — pay a living author for a 2-hour conversation about a classic that influenced them, generate the AI companion from it. Interesting; distracting until core product is proven.
+**Not now:** new reader features, more books beyond those in progress, pricing changes, paid advertising, Android release, social features. [GROWTH-PLAN.md](./GROWTH-PLAN.md) keeps the longer list of ideas; where it disagrees with this section, this section wins.
 
 ---
 
-## 9. Open questions
+## 8. Library
 
-**1. What's the launch floor for book count?**
-Current thinking: 50 titles. Enough to feel like a library; not so many that QA becomes a bottleneck. 100+ by year end.
+**Core:** the Western canon in original or authoritative English editions with a Tinct Modern English reading edition, as set out in the approved sections above. Use the registry and `books/wip_inventory.py` for current counts.
 
-**2. What's the first real growth channel?**
-- **SEO** — one landing page per book, indexable, converts via reading-angle onboarding. Most defensible long-term.
-- **Twitter/X** — @FallibleMusings audience is the right demographic (Deutsch-adjacent, literary, optimistic-about-civilisation). Slower but pre-qualified.
-- **Paid acquisition** — likely unprofitable at $5/mo. Deprioritised.
-- **Word of mouth** — slow but compounds. Reading angle + character tracker are the kind of features readers tell each other about.
+**Classics first, open to other books** (Anders, 2026-10-08). Other books join when their rights holders permit it; the first are the five Conjecture Institute books, published with Logan Chipkin's permission. They are never labelled public domain, keep their publisher and copyright lines, and get no Modern English edition when already written in modern English.
 
-**3. What's the retention mechanism beyond the first book?**
-- Reading journal, highlights, and character tracker build switching costs
-- 50–100 book library gives runway
-- No data yet — retention is the Phase 2 question to answer empirically
+**Readers' own books** (reverses the April position that this was a separate product). Private to the reader, never part of the public library, covered by account export and deletion.
 
-**4. What happens when AI costs drop 10×?**
-Unit economics become trivial. $5/mo becomes a ~90% margin product. Good for Tinct. Likely within 18 months.
+**Danish:** a few explicitly allowlisted Danish editions are offered as exceptions; the language scope above is otherwise unchanged.
 
-**5. How do we measure mission success?**
-Not subscriber count alone. The better proxy: books finished per user. If a reader finishes three classics they'd never finished before, the transmission mechanism worked for them. Build telemetry to track this early.
+**Out of scope:** kids editions as a separate line (dropped 2026-03-25).
 
 ---
 
-## 10. Design principles
+## 9. Future bets — named, not committed
 
-1. **Reading comes first.** The text is the hero. Everything else is in service of understanding.
-2. **The reading angle is the product.** Not a feature — the mechanism that makes classics completable. Free for everyone. Set before reading begins.
-3. **Available but not pushy.** AI chat, reflection prompts, annotations — present when you want them, invisible when you don't.
-4. **Beautiful typography.** Warm, literary aesthetic. Playfair Display, EB Garamond, IBM Plex Mono. Not clinical, not techy.
-5. **Honest translations.** Modern translations focus on comprehension. They do not editorialise or moralise. Readers get the author's mind, not the translator's.
-6. **Free at the point of reading.** Never charge for access to public domain text. Premium is for the enhancement layer (AI, audio, cast), not the books themselves.
-7. **Cross-device from day one.** Phone, tablet, desktop, e-reader. The reader's place in the book is always preserved.
+- **Reading programmes as a product:** daily portions, a guide's note and a cohort calendar, if the December and January reads retain.
+- **Schools and book clubs:** group reading and teacher views. The strongest institutional route, and a different product surface.
+- **Additional languages:** deferred, per the language scope.
+- **Hardware and author-guided editions:** parked.
+
+---
+
+## 10. Open questions
+
+1. **Does a dated group read bring readers back?** The December read answers this.
+2. **Which door converts better for which audience,** a classic or their own book? Own-book reading time has been counted only since 10 Nov 2026.
+3. **Will anyone pay at $5?** 4 January answers this.
+4. **Is Tinct a business or a mission project priced at cost?** Decide after the first paying cohort, not before.
+
+---
+
+## 11. Design principles
+
+1. **Reading comes first.** The text is the hero; everything else serves understanding.
+2. **Available but not pushy.** The margin is there when wanted and invisible otherwise. The reading angle is free and always skippable.
+3. **Never lose the reader's place.**
+4. **Typography:** Playfair Display for titles, EB Garamond for book text, system UI for controls; never mono. Rules in `docs/design-system.md`.
+5. **Honest editions.** Modern English serves comprehension. It does not editorialise, and provenance is recorded.
+6. **Free at the point of reading.** Public-library text is never charged for.
 
 ---
 
 ## Appendix — Related documents
 
-- [`MANIFESTO.md`](./archive/old-docs/MANIFESTO.md) — the public argument for Tinct. Goes live at `/about`.
-- [`ELEVATOR-PITCH.md`](./ELEVATOR-PITCH.md) — 60-second spoken version for conversations.
-- [`BACKLOG.md`](./BACKLOG.md) — current work items and priorities.
-- [`CLAUDE.md`](./CLAUDE.md) — project CEO operating file.
-- [`SESSION.md`](./SESSION.md) — current session state.
+- [`ELEVATOR-PITCH.md`](./ELEVATOR-PITCH.md) — spoken version; to be brought in line with section 4.
+- [`GROWTH-PLAN.md`](./GROWTH-PLAN.md) — longer list of growth ideas (June 2026).
+- [`BACKLOG.md`](./BACKLOG.md), [`DECISIONS.md`](./DECISIONS.md), [`AGENTS.md`](./AGENTS.md), [`CLAUDE.md`](./CLAUDE.md).
