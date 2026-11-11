@@ -22,7 +22,7 @@
    * from each edge, 12px below the last line (tip up), else 12px above the first line.
    * -> { left, top, width, below, tip } (tip: the tip's x inside the bar).
    */
-  function placeBar({ first, last, frame, w, h, phone = false }) {
+  function placeBar({ first, last, frame, w, h, phone = false, cursor = null }) {
     last = last || first;
     if (phone) {
       const height = h || PHONE.barH;
@@ -34,17 +34,24 @@
     }
     const height = h || DESK.barH;
     const width = Math.min(w, frame.right - frame.left - DESK.inset * 2);
-    const left = clamp(first.left - DESK.lead, frame.left + DESK.inset, frame.right - DESK.inset - width);
-    const roomAbove = first.top - frame.top;
     // 64px of room leaves the bar 8px clear of the top bar; that is the least it keeps above it.
     const topGap = DESK.room - DESK.above;
-    let below = roomAbove < DESK.room, top;
     // A bar taller than the 44px menu (Ask wrapping to three lines) grows upward from where the menu ends.
-    if (!below) top = first.top - DESK.above + DESK.barH - height;
-    else top = last.bottom + DESK.gap;
-    if (!below && top < frame.top + topGap) { below = true; top = last.bottom + DESK.gap }
-    top = clamp(top, frame.top + topGap, frame.bottom - DESK.inset - height);
-    return { left, top, width, below, tip: clamp(first.left - left + DESK.tipLead, DESK.tipMin, width - DESK.tipMin) };
+    const aboveTop = first.top - DESK.above + DESK.barH - height, belowTop = last.bottom + DESK.gap;
+    const fitsAbove = first.top - frame.top >= DESK.room && aboveTop >= frame.top + topGap;
+    const fitsBelow = belowTop + height <= frame.bottom - DESK.inset;
+    // Never off the frame first, then as close to the cursor as it can be (Anders, 11 Nov 2026): with `cursor` (where
+    // the pointer let go), the bar stands on the cursor's side of the selection, its tip at the cursor's x; the other
+    // side when its own has no room. Without one: above the first line, at the selection's start.
+    // (src/components/reader/deskBarPlace.ts holds the same rule for the book reader.)
+    const mid = b => (b.top + b.bottom) / 2;
+    const towardsEnd = !!cursor && last.top > first.top && Math.abs(cursor.y - mid(last)) < Math.abs(cursor.y - mid(first));
+    const below = towardsEnd ? fitsBelow || !fitsAbove : !fitsAbove;
+    const line = below ? last : first;
+    const point = cursor ? clamp(cursor.x, line.left, line.right) : null;
+    const left = clamp(point === null ? first.left - DESK.lead : point - DESK.tipLead, frame.left + DESK.inset, frame.right - DESK.inset - width);
+    const top = clamp(below ? belowTop : aboveTop, frame.top + topGap, frame.bottom - DESK.inset - height);
+    return { left, top, width, below, tip: clamp(point === null ? first.left - left + DESK.tipLead : point - left, DESK.tipMin, width - DESK.tipMin) };
   }
 
   /**

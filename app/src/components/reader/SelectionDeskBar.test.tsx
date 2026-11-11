@@ -164,6 +164,47 @@ describe('where the dark bar sits (margin.js placeBar, desktop)', () => {
     const line = { left: 1400, right: 1430, top: 400, bottom: 424 }
     expect(deskBarPlace(line, line, frame, 340, 44).left).toBe(1440 - 16 - 340)
   })
+  describe('with the cursor: on screen first, then as close to the cursor as it can be (11 Nov 2026)', () => {
+    const first = { left: 500, right: 1100, top: 400, bottom: 424 }, last = { left: 250, right: 540, top: 460, bottom: 484 }
+    it('a forward selection (let go on the last line): below the last line, its tip at the cursor', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 520, y: 472 })).toEqual({ left: 480, top: 496, below: true, tip: 40 })
+    })
+    it('a backward selection (let go on the first line): above the first line, its tip at the cursor', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 500, y: 412 })).toEqual({ left: 460, top: 344, below: false, tip: 40 })
+    })
+    it('one line: above it, at the cursor rather than the selection’s start', () => {
+      const line = { left: 300, right: 900, top: 400, bottom: 424 }
+      expect(deskBarPlace(line, line, frame, 340, 44, { x: 880, y: 412 })).toEqual({ left: 840, top: 344, below: false, tip: 40 })
+    })
+    it('near the bottom edge a forward selection’s bar goes above instead of off the frame', () => {
+      const f = { left: 500, right: 1100, top: 800, bottom: 824 }, l = { left: 250, right: 540, top: 850, bottom: 874 }
+      const at = deskBarPlace(f, l, frame, 340, 44, { x: 520, y: 862 })
+      expect(at).toMatchObject({ below: false, top: 744 })
+      expect(at.top + 44).toBeLessThanOrEqual(frame.bottom - 16)
+    })
+    it('near the top edge a backward selection’s bar goes below instead of under the header', () => {
+      const f = { left: 500, right: 1100, top: 90, bottom: 114 }, l = { left: 250, right: 540, top: 150, bottom: 174 }
+      expect(deskBarPlace(f, l, frame, 340, 44, { x: 500, y: 102 })).toMatchObject({ below: true, top: 186 })
+    })
+    it('near the right edge it is held 16px inside, the tip still at the cursor', () => {
+      const line = { left: 1000, right: 1420, top: 400, bottom: 424 }
+      expect(deskBarPlace(line, line, frame, 340, 44, { x: 1410, y: 412 })).toEqual({ left: 1440 - 16 - 340, top: 344, below: false, tip: 316 })
+    })
+    it('near the left edge it is held 16px inside', () => {
+      const f = { left: 400, right: 900, top: 400, bottom: 424 }, l = { left: 20, right: 300, top: 460, bottom: 484 }
+      expect(deskBarPlace(f, l, frame, 340, 44, { x: 30, y: 472 })).toEqual({ left: 16, top: 496, below: true, tip: 24 })
+    })
+    it('a cursor past the line’s end (let go in the margin) is held to the line', () => {
+      expect(deskBarPlace(first, last, frame, 340, 44, { x: 1300, y: 472 }).left).toBe(540 - 40)
+    })
+    it('never covers the selection, and stays inside the frame, wherever the cursor is', () => {
+      for (const x of [0, 300, 720, 1439]) for (const y of [70, 412, 440, 472, 890]) {
+        const at = deskBarPlace(first, last, frame, 340, 44, { x, y })
+        expect(at.left).toBeGreaterThanOrEqual(16); expect(at.left + 340).toBeLessThanOrEqual(1440 - 16)
+        expect(at.top + 44 <= first.top || at.top >= last.bottom).toBe(true)
+      }
+    })
+  })
   it('puts ••• above a bar that is above the selection, and below one that is below', () => {
     const dots = { left: 500, right: 534, top: 349, bottom: 383 }
     expect(deskMorePlace({ left: 280, right: 620, top: 344, bottom: 388, below: false }, dots, frame, 300, 250)).toEqual({ left: 380, top: 86, below: false })

@@ -10,19 +10,32 @@ const DESK = { barH: 44, above: 56, lead: 20, inset: 16, room: 64, gap: 12, tipM
 const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, value))
 
 /**
- * The bar: 56px above the selection's first line, its left edge 20px left of the selection's start, kept 16px inside
- * the frame; with less than 64px above the selection it sits 12px below the last line, its tip up.
- * -> { left, top, below, tip } (tip: the tip's x inside the bar).
+ * The bar. Never off the frame first, then as close to the cursor as it can be (Anders, 11 Nov 2026).
+ * With `cursor` (where the pointer let go of the selection): on the cursor's side of the selection, above the
+ * first line when the cursor ended there, below the last line when it ended there, its tip at the cursor's x. It
+ * never covers the selection; the other side is taken when its own has no room.
+ * Without one (a keyboard selection, a figure's anchor): 56px above the first line, its left edge 20px left of the
+ * selection's start; with less than 64px above the selection, 12px below the last line.
+ * Kept 16px inside the frame either way. -> { left, top, below, tip } (tip: the tip's x inside the bar).
  */
-export function deskBarPlace(first: DeskBox, last: DeskBox, frame: DeskBox, width: number, height = DESK.barH) {
+export function deskBarPlace(first: DeskBox, last: DeskBox, frame: DeskBox, width: number, height = DESK.barH, cursor?: { x: number; y: number } | null) {
   const w = Math.min(width, frame.right - frame.left - DESK.inset * 2)
-  const left = clamp(first.left - DESK.lead, frame.left + DESK.inset, frame.right - DESK.inset - w)
   const topGap = DESK.room - DESK.above
-  let below = first.top - frame.top < DESK.room
-  let top = below ? last.bottom + DESK.gap : first.top - DESK.above + DESK.barH - height
-  if (!below && top < frame.top + topGap) { below = true; top = last.bottom + DESK.gap }
-  top = clamp(top, frame.top + topGap, frame.bottom - DESK.inset - height)
-  return { left: Math.round(left), top: Math.round(top), below, tip: Math.round(clamp(first.left - left + DESK.tipLead, DESK.tipMin, w - DESK.tipMin)) }
+  const aboveTop = first.top - DESK.above + DESK.barH - height
+  const belowTop = last.bottom + DESK.gap
+  const fitsAbove = first.top - frame.top >= DESK.room && aboveTop >= frame.top + topGap
+  const fitsBelow = belowTop + height <= frame.bottom - DESK.inset
+  // The cursor's side: the line it is nearer to. One line, or a tie: above, as before.
+  const towardsEnd = !!cursor && last.top > first.top
+    && Math.abs(cursor.y - (last.top + last.bottom) / 2) < Math.abs(cursor.y - (first.top + first.bottom) / 2)
+  const below = towardsEnd ? fitsBelow || !fitsAbove : !fitsAbove
+  // The tip's place in the window: the cursor, held to the line the bar stands by; else the selection's start.
+  const line = below ? last : first
+  const point = cursor ? clamp(cursor.x, line.left, line.right) : null
+  const left = clamp(point === null ? first.left - DESK.lead : point - DESK.tipLead, frame.left + DESK.inset, frame.right - DESK.inset - w)
+  const top = clamp(below ? belowTop : aboveTop, frame.top + topGap, frame.bottom - DESK.inset - height)
+  const tip = point === null ? first.left - left + DESK.tipLead : point - left
+  return { left: Math.round(left), top: Math.round(top), below, tip: Math.round(clamp(tip, DESK.tipMin, w - DESK.tipMin)) }
 }
 
 /**

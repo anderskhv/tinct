@@ -25,6 +25,25 @@ describe('AI settings: the dialog (approved mock)', () => {
     expect(screen.getByText('Reset to defaults')).toBeTruthy()
   })
 
+  it('the length headings are plain column labels: no hint, no tooltip (Anders, 11 Nov 2026)', () => {
+    render(<LabAiSettings onClose={() => {}} />)
+    for (const length of ['brief', 'standard', 'detailed'] as const) {
+      const head = screen.getByTestId(`ai-length-head-${length}`)
+      expect(head.textContent).toBe(AI_SETTINGS_COPY.lengths[length])
+      expect(head.getAttribute('title')).toBeNull()
+      expect(screen.getByTestId(`ai-length-explain-${length}`).getAttribute('title')).toBeNull()
+    }
+    expect(document.querySelector('[role="tooltip"]')).toBeNull()
+  })
+
+  it('says "Saved" a moment after a change, and nothing before one', async () => {
+    render(<LabAiSettings onClose={() => {}} />)
+    expect(screen.getByTestId('ai-settings-saved').textContent).toBe('')
+    fireEvent.click(screen.getByTestId('ai-length-ask-brief'))
+    await waitFor(() => expect(screen.getByTestId('ai-settings-saved').textContent).toBe('Saved'), { timeout: 2000 })
+    expect(readAiSettings().length.ask).toBe('brief')
+  })
+
   it('a length or a language is kept at once and rides on the next request', () => {
     render(<LabAiSettings onClose={() => {}} />)
     fireEvent.click(screen.getByTestId('ai-length-explain-detailed'))

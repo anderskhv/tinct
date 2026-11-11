@@ -13,6 +13,7 @@ import {
   type AiSettings,
 } from '../aiSettings'
 import { useAiSettings } from './labAiPrefs'
+import { SavedNote, useSavedNote } from './LabSavedNote'
 import './aiSettingsDialog.css'
 
 /** The approved mock's words (10 Nov 2026). */
@@ -22,7 +23,6 @@ export const AI_SETTINGS_COPY = {
   custom: 'Custom',
   length: 'Length',
   lengths: { brief: 'Brief', standard: 'Standard', detailed: 'Detailed' } as Record<AiLength, string>,
-  lengthHints: { brief: 'A sentence or two', standard: 'A short paragraph or a short page', detailed: 'Section by section, with context' } as Record<AiLength, string>,
   rows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary and Recap' } as Record<AiLengthAction, string>,
   phoneRows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
   rowLabel: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
@@ -61,6 +61,8 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
   const [settings, setSettings] = useAiSettings()
   const [tab, setTab] = useState<Tab>('general')
   const [notice, setNotice] = useState('')
+  // Every change is saved as it is made; the dialog says so once, quietly, by its tabs.
+  const saved = useSavedNote(JSON.stringify(settings))
   const fileRef = useRef<HTMLInputElement | null>(null)
   const closeRef = useRef<HTMLButtonElement | null>(null)
   const closeLatest = useRef(onClose); closeLatest.current = onClose
@@ -92,7 +94,8 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
     <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.general} data-testid="ai-settings-general">
       <div className="lab-ai-grid" role="group" aria-label={AI_SETTINGS_COPY.length}>
         <span className="lab-ai-heading">{AI_SETTINGS_COPY.length}</span>
-        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col" title={AI_SETTINGS_COPY.lengthHints[length]}>{AI_SETTINGS_COPY.lengths[length]}</span>)}
+        {/* Plain column labels: no hint, no tooltip (Anders, 11 Nov 2026). */}
+        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col" data-testid={`ai-length-head-${length}`}>{AI_SETTINGS_COPY.lengths[length]}</span>)}
         {AI_LENGTH_ACTIONS.map(action => <LengthRow key={action} label={rows[action]} action={action} value={settings.length[action]} onChange={setLength} />)}
       </div>
       <p className="lab-ai-note" data-testid="ai-settings-detailed-note">{AI_SETTINGS_COPY.detailedNote}</p>
@@ -140,6 +143,7 @@ export function LabAiSettings({ onClose, phone = false, dark = false }: LabAiSet
           {id === 'general' ? AI_SETTINGS_COPY.general : AI_SETTINGS_COPY.custom}
         </button>
       ))}
+      <SavedNote shown={saved} testId="ai-settings-saved" />
     </div>
   )
 
@@ -168,7 +172,7 @@ function LengthRow({ label, action, value, onChange }: { label: string; action: 
     {AI_LENGTHS.map(length => {
       const on = value === length
       return (
-        <button key={length} type="button" className="lab-ai-choice" aria-pressed={on} title={AI_SETTINGS_COPY.lengthHints[length]}
+        <button key={length} type="button" className="lab-ai-choice" aria-pressed={on}
           aria-label={`${AI_SETTINGS_COPY.rowLabel[action]}: ${AI_SETTINGS_COPY.lengths[length]}`} data-testid={`ai-length-${action}-${length}`}
           onClick={() => onChange(action, length)}>
           <span aria-hidden="true">{on ? '●' : '○'}</span>

@@ -3245,7 +3245,7 @@ function snapWords() {
   } catch { /* the selection stays as made */ }
 }
 const sameRange = (r, n) => r.startContainer === n.sc && r.startOffset === n.so && r.endContainer === n.ec && r.endOffset === n.eo;
-document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; setTimeout(selectionMade, 30) }, true);
+document.addEventListener('pointerup', e => { if (e.button > 0 || gesture.inUi) return; gesture.up = { x: e.clientX, y: e.clientY, at: Date.now() }; setTimeout(selectionMade, 30) }, true);
 document.addEventListener('touchend', () => setTimeout(selectionMade, 60), { passive: true, capture: true });
 document.addEventListener('keyup', e => {
   if (e.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
@@ -3520,6 +3520,8 @@ function marginOpen(info, { existing = null, asking = false, own: ownSel = false
   const anchor = existing ? existing.rects.map(([x, y, w, h]) => ({ n: existing.page, x, y, w, h })) : anchorOf(info.rects || [info.box]);
   // A highlight clicked (Anders, 19 Oct 2026): its own bar, Ask and Explain, its colours, its note, Remove highlight.
   mr = { info, anchor, ids: existing ? [existing.id] : [], held: !!existing, own: ownSel, mode: null, el: null, moreEl: null, base: existing ? 'existing' : null, before: word && info.range ? textBefore(info.range) : '' };
+  // Where the pointer let go of this selection: the bar stands on that side of it (mrPlace, TinctMargin.placeBar).
+  if (!existing && !ownSel && gesture.up && Date.now() - gesture.up.at < 600) mr.up = { x: gesture.up.x, y: gesture.up.y };
   sel = info;
   if (word && !asking) { mrDefine(word); return }
   mrShow(mr.base || 'menu');
@@ -3595,7 +3597,15 @@ function mrPlace() {
     pos = TinctMargin.placeCard({ first, last, frame, w: 360, h: el.offsetHeight, phone });
   } else {
     if (phone) el.style.width = (frame.right - frame.left - TinctMargin.PHONE.edge * 2) + 'px';
-    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone });
+    // Read once per selection (which end the pointer let go at, how far along that line), so a scroll or a zoom
+    // moves the bar with the passage and never to its other side.
+    const mid = b => (b.top + b.bottom) / 2;
+    if (mr.up && !mr.side) {
+      const end = last.top > first.top && Math.abs(mr.up.y - mid(last)) < Math.abs(mr.up.y - mid(first));
+      mr.side = { end, dx: mr.up.x - (end ? last : first).left };
+    }
+    const cursor = mr.side && !phone ? { x: (mr.side.end ? last : first).left + mr.side.dx, y: mid(mr.side.end ? last : first) } : null;
+    pos = TinctMargin.placeBar({ first, last, frame, w: el.offsetWidth, h: el.offsetHeight, phone, cursor });
   }
   el.style.left = pos.left + 'px'; el.style.top = pos.top + 'px';
   el.classList.toggle('is-below', !!pos.below);

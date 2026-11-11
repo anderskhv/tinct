@@ -88,3 +88,17 @@ export function chapterNotesText(title: string, beats: ChapterNotesBeat[]): stri
 export function chapterNotesPlainText(title: string, beats: ChapterNotesBeat[]): string {
   return [title, ...beats.map(beat => `${beat.title}\n${beat.text}`)].join('\n\n')
 }
+
+/**
+ * The chapter pill's Summary (the phone's ✧ Summary chip, the desktop margin's start card): a summary of that
+ * chapter, the whole of it, wherever the reader is in it (Anders, 11 Nov 2026). It is the chapter-end card's request
+ * (`end`) under the pill's own name; never the chapter "so far", and never Catch me up's "what came before".
+ */
+export const CHAPTER_SUMMARY_KIND = 'end' as const
+
+/** A chapter card's title: the page's own names for them (✧ Primer, ✧ Recap, ✧ Summary). */
+export function chapterNotesTitle(kind: 'primer' | 'end' | 'sofar', label: string, as?: 'summary'): string {
+  if (kind === 'primer') return `Primer · ${label}`
+  if (kind === 'end') return `${as === 'summary' ? 'Summary' : 'Recap'} · ${label}`
+  return `Summary · ${label} so far`
+}

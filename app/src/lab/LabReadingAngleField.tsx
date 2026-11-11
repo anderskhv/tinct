@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { READING_ANGLE_MAX_CHARS } from './labReadingAngle'
 import { PhoneIcon } from './marginPhone/LabPhoneCard'
+import { SavedNote, useSavedNote } from './LabSavedNote'
 
 /** Book settings' first field: the reader's reading angle for this book, saved as it is typed. Always optional. */
 export function ReadingAngleField({ value, onChange, focus = false, testId = 'lab-reading-angle', mic }: {
@@ -9,6 +10,7 @@ export function ReadingAngleField({ value, onChange, focus = false, testId = 'la
   mic?: { on: boolean; onToggle: () => void }
 }) {
   const ref = useRef<HTMLTextAreaElement>(null)
+  const saved = useSavedNote(value)
   useEffect(() => {
     if (!focus) return
     const field = ref.current
@@ -18,7 +20,7 @@ export function ReadingAngleField({ value, onChange, focus = false, testId = 'la
   }, [focus])
   return (
     <label className="lab-reading-angle" data-testid={`${testId}-row`}>
-      <span className="lab-reading-angle-label">Reading angle</span>
+      <span className="lab-reading-angle-top"><span className="lab-reading-angle-label">Reading angle</span><SavedNote shown={saved} testId={`${testId}-saved`} /></span>
       <span className={`lab-reading-angle-box${mic ? ' has-mic' : ''}`}>
         <textarea ref={ref} className="lab-reading-angle-input" data-testid={testId} rows={2} maxLength={READING_ANGLE_MAX_CHARS}
           value={value} placeholder="What you want to notice in this book" onChange={event => onChange(event.target.value)} />

@@ -2,6 +2,7 @@ import { readingChatTurns, readingChatFocusTurn } from './readingChatTurns'
 import { useReadingScrollActivity } from './sharedReader/useReadingScrollActivity'
 import { ReaderNotebookIcon } from './ReaderNotebookIcon'
 import { bibleBookTransition } from '../narration/bookTransition'
+import { highlightMenuBoxes, highlightMenuHasKeyboard, selectionMenuScrollGone, watchHighlightMenuLeave } from './labHighlightMenuLeave'
 import { consumeDismissGesture } from '../utils/consumeDismissGesture'
 import { useRecapPreparation } from './useRecapPreparation'
 import type {ChapterSelectionPart,SelectionChapter} from './labChapterSelection'
@@ -130,7 +131,7 @@ import { figureImageBlock } from './labFigureImage'
 import { LabShareSheet, type LabShareTarget } from './LabShareSheet'
 import type { OwnChapterNotesSource } from './userBook/ownChapterNotes'
 import { LabChapterNotesSheet } from './LabChapterNotesSheet'
-import { chapterNotesText, saveExplanation } from './labChapterNotes'
+import { CHAPTER_SUMMARY_KIND, chapterNotesText, chapterNotesTitle, saveExplanation } from './labChapterNotes'
 import type { ChapterNotesBeat, ChapterNotesKind, ChapterNotesRequest } from '../chapterNotes'
 import { LAB_V2_VERSION_PILL_MS, labPrefsForMainEdition, type LabV2SheetLayer } from './labV2Sheet'
 import { formatModernPrice, markPendingPurchase, MODERN_EDITION_KEY, MODERN_PREMIUM_REQUIRED, startModernCheckout, useLabModernEdition, type ModernVisible } from './labModernEdition'
@@ -542,7 +543,6 @@ function privateLibraryDestination(destination: string, enabled: boolean): strin
 }
 
 /** How far the reader scrolls on before the highlight menu goes (LabApp's selection menu). */
-const SELECTION_MENU_SCROLL_PX = 48
 
 export function LabApp({ pathname, search, online, source, authToken, userBook, marginPhone: marginPhoneRequested = false, sharedReader = false, legacyOwnEpubItems, ownNotebookRecovery, ownCardController }: LabAppProps) {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '/reader')
@@ -920,7 +920,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const [angleFocus, setAngleFocus] = useState(false)
   useEffect(() => { if (superSheet !== 'editions') setAngleFocus(false) }, [superSheet])
   // Summarize, chapter-end summary and Primer: a card of beats, kept out of the chat feed.
-  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor } | null>(null)
+  const [chapterNotes, setChapterNotes] = useState<{ request: ChapterNotesRequest; title: string; own?: OwnChapterNotesSource; railAnchor?: MarginSourceAnchor; /** The chapter pill's Summary: the chapter-end request under the pill's name, at the chapter's start. */ as?: 'summary' } | null>(null)
   const [desktopChapterCards, setDesktopChapterCards] = useState<Array<NonNullable<typeof chapterNotes>>>([])
   const [desktopCatchup, setDesktopCatchup] = useState(false)
   // The whole book's Primer or Summary, from the book's start actions (approved mockup, Anders 9 Nov 2026).
@@ -4148,12 +4148,20 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     ask.discardSpeculativeExplanation()
   }, [ask.discardSpeculativeExplanation, define])
 
-  // The highlight menu stays while the reader is still (to change a colour) and goes once they scroll on: a scroll of
-  // more than a few lines, never one made while a finger or the mouse is still down (dragging a selection's handle
-  // scrolls the page too). An answer the menu opened into stays (Anders, 2 Nov 2026).
+  // The selection menu stays while the reader is still and goes once they scroll on: a fresh selection's after more
+  // than a few lines (Anders, 2 Nov 2026); a saved highlight's (its colours, waiting for a change) at once, and on
+  // the desktop also when the mouse leaves it (Anders, 11 Nov 2026; labHighlightMenuLeave.ts). Never on a scroll made
+  // while a finger or the mouse is still down (dragging a selection's handle scrolls the page too). An answer the
+  // menu opened into stays.
   const scrollDismissRef = useRef(dismissSelectionPopup)
   scrollDismissRef.current = dismissSelectionPopup
   const selectionMenuOpen = !!selectionPopup && (popupMode === 'main' || popupMode === 'colors')
+  const highlightMenuOpen = selectionMenuOpen && !!selectionPopup?.existingHighlightId
+  useEffect(() => {
+    if (!highlightMenuOpen || showPhoneChrome) return
+    if (typeof window.matchMedia === 'function' && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    return watchHighlightMenuLeave({ boxes: () => highlightMenuBoxes(), keyboardInside: () => highlightMenuHasKeyboard(), onLeave: () => scrollDismissRef.current() })
+  }, [highlightMenuOpen, showPhoneChrome])
   useEffect(() => {
     if (!selectionMenuOpen) return
     const start = new Map<EventTarget, number>()
@@ -4166,8 +4174,16 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const target = event.target ?? document
       if (target instanceof Element && target.closest('[role="toolbar"], .selection-popup, [data-testid="lab-phone-bar"]')) return
       if (!start.has(target)) { start.set(target, offset(target)); return }
-      if (!down && Math.abs(offset(target) - (start.get(target) ?? 0)) > SELECTION_MENU_SCROLL_PX) scrollDismissRef.current()
+      if (!down && selectionMenuScrollGone(offset(target) - (start.get(target) ?? 0), highlightMenuOpen)) scrollDismissRef.current()
     }
+    // A turn of the wheel over the page is the reader scrolling on: a saved highlight's menu goes with it at once,
+    // before the page has moved two frames.
+    const onWheel = (event: WheelEvent) => {
+      if (!highlightMenuOpen || down || !(event.deltaY || event.deltaX)) return
+      if (event.target instanceof Element && event.target.closest('[role="toolbar"], .selection-popup, [data-testid="lab-phone-bar"]')) return
+      scrollDismissRef.current()
+    }
+    window.addEventListener('wheel', onWheel, { capture: true, passive: true })
     window.addEventListener('pointerdown', onDown, true)
     window.addEventListener('pointerup', onUp, true)
     window.addEventListener('pointercancel', onUp, true)
@@ -4177,8 +4193,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       window.removeEventListener('pointerup', onUp, true)
       window.removeEventListener('pointercancel', onUp, true)
       window.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('wheel', onWheel, true)
     }
-  }, [selectionMenuOpen])
+  }, [selectionMenuOpen, highlightMenuOpen])
 
   // Rendered inside the pill's tap (flushSync), so the editor's field takes
   // focus within the gesture and iOS raises the keyboard.
@@ -5595,7 +5612,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
   }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights, privateBook])
 
-  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu') => {
+  const openChapterNotes = useCallback((kind: ChapterNotesKind, chapterNumber = book.chapterNumber, from: 'pill' | 'menu' = 'menu', as?: 'summary') => {
     if (initialResolving || book.chaptersProvisional) return
     const chapter = book.chapters.find(item => item.number === chapterNumber)
     // A reader's own book: Primer and Recap are made from this device's text of the chapter (userBook/ownChapterNotes.ts),
@@ -5610,12 +5627,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const label = (chapter?.title || `Chapter ${chapterNumber}`).split(/\s+[—–:]\s+/)[0]
     // The sheets carry the names the page uses for them: the heading's ✧ Primer, the chapter end's ✧ Recap (Anders, 10 Oct 2026).
     // 'sofar' is the chapter pill's Summary (start actions, 9 Nov 2026).
-    const title = kind === 'primer' ? `Primer · ${label}` : kind === 'end' ? `Recap · ${label}` : `Summary · ${label} so far`
+    // The chapter pill's Summary is the whole chapter, the chapter end's Recap under the pill's own name (Anders, 11 Nov 2026).
+    const title = chapterNotesTitle(kind, label, as)
     dictation.stop()
     setSuperMenuOpen(false)
     setChapterNotes({
-      ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end') ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
+      ...(continuousReader ? {railAnchor: from === 'pill' ? marginChapterBoundary(readerParagraphs, kind === 'end' && as !== 'summary') ?? undefined : {paragraphIndex:placeRef.current.paragraphIndex,fromWord:placeRef.current.wordIndex ?? 0}} : {}),
       title,
+      ...(as ? { as } : {}),
       request: {
         bookId: book.bookId || 'bible', editionKey: readerEditionKey, chapterNumber, kind, bookTitle: book.bookTitle,
         ...(kind === 'sofar' ? { paragraphIndex: Math.max(0, placeRef.current.paragraphIndex) } : {}),
@@ -6102,18 +6121,14 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const openReadingAngle = () => { closePhoneCard(); setChapterNotes(null); setBookAction(null); setAngleFocus(true); setSuperSheet('editions') }
   const openReadingAngleRef = useRef(openReadingAngle)
   openReadingAngleRef.current = openReadingAngle
-  // A chapter's Summary: the chapter up to the reader's place once they are into it; at its start, what came before
-  // it (Catch me up's timeline). Nothing past the place either way. A reader's own book: its own Catch me up, which
-  // covers the chapters before and this one through the place.
+  // A chapter's Summary is a summary of that chapter, the whole of it, wherever the reader is in it (Anders,
+  // 11 Nov 2026: it had been the chapter so far, and at a chapter's start Catch me up's "what came before"). What
+  // came before stays Catch me up's own job, in the t menu. A reader's own book: the chapter from this device's text.
   const chapterSummaryRef = useRef<() => void>(() => {})
   chapterSummaryRef.current = () => {
     if (initialResolving || book.chaptersProvisional) return
     closePhoneCard(); setBookAction(null)
-    if (!privateBook && placeRef.current.paragraphIndex > 0) { openChapterNotes('sofar', book.chapterNumber, 'pill'); return }
-    // The first chapter at its start has nothing before it: its Summary is the chapter's own.
-    if (!privateBook && !catchUpAvailable(book.chapters, book.chapterNumber)) { openChapterNotes('end', book.chapterNumber, 'pill'); return }
-    setCatchUpAsSummary(true); setDesktopCatchupAsSummary(true)
-    marginCatchUpRef.current()
+    openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary')
   }
   const marginCatchUpRef = useRef<() => void>(() => {})
   const bookPrimer = useBookPrimerAvailable(privateBook ? null : book.bookId || null)
@@ -6394,7 +6409,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     return turns.length ? <div className="lab-pcard-thread" data-testid="lab-pill-card-thread"><PhonePassageBody turns={turns} pending={ask.typedLoading} /></div> : null
   }
 
-  const unitRailId = (notes: NonNullable<typeof chapterNotes>) => `mc_unit_${notes.request.kind === 'end' ? 'recap' : notes.request.kind}_${notes.request.chapterNumber}_${notes.request.editionKey}`
+  const unitRailId = (notes: NonNullable<typeof chapterNotes>) => `mc_unit_${notes.as === 'summary' ? 'summary' : notes.request.kind === 'end' ? 'recap' : notes.request.kind}_${notes.request.chapterNumber}_${notes.request.editionKey}`
   useEffect(() => {
     if (!continuousReader || !chapterNotes) return
     const id = unitRailId(chapterNotes)
@@ -6594,8 +6609,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const notes of desktopChapterCards) {
     const id = unitRailId(notes), kind = notes.request.kind === 'end' || notes.request.kind === 'sofar' ? 'recap' : 'primer'
     // 'sofar' is a chapter's Summary from its start card: at the chapter's start, named for the action.
-    const atStart = notes.request.kind !== 'end'
-    desktopMarginEntries.push({ id, label: notes.request.kind === 'sofar' ? BOOK_SUMMARY_TITLE : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, !atStart), order: atStart ? -2 : 1e12 - 2, open: desktopOpenId === id,
+    const atStart = notes.request.kind !== 'end' || notes.as === 'summary'
+    desktopMarginEntries.push({ id, label: notes.request.kind === 'sofar' || notes.as === 'summary' ? BOOK_SUMMARY_TITLE : kind === 'recap' ? 'Recap' : 'Primer', source: sourceForMargin(notes.railAnchor, !atStart), order: atStart ? -2 : 1e12 - 2, open: desktopOpenId === id,
       preview: marginConversations.find(item => item.id === id)?.messages.find(message => message.role === 'assistant')?.content,
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
       content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}

@@ -552,7 +552,7 @@ async function run(engineName) {
   await tapOutside(sp)
   await sp.waitForTimeout(300)
   ok(`${tag}: Primer, follow-up and Talk: the place is unchanged`, same(await placeOf(sp), startHome), await placeOf(sp))
-  await pillCard('lab-unit-summary', 'catchup', 'Summary')
+  await pillCard('lab-unit-summary', 'chapter-notes-end', 'Summary')
   // Turn to the chapter's end.
   for (let i = 0; i < 60 && !(await sp.getByTestId('lab-unit-quiz').count()); i++) { await sp.keyboard.press('ArrowRight'); await sp.waitForTimeout(260) }
   await sp.waitForTimeout(600)

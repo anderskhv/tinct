@@ -215,7 +215,9 @@ async function phoneCatalogue(engine) {
   const later = await placeOf(page)
   ok(`${tag}: a later chapter's chips: ✧ Primer · ✧ Summary, and no book pill`, JSON.stringify(await pillText(page, 'lab-unit-start')) === JSON.stringify(['Primer', 'Summary']) && (await page.getByTestId('lab-book-start').count()) === 0, await pillText(page, 'lab-unit-start'))
   await shot(page, `${tag}-chapter-start`)
-  await phoneCard(page, tag, 'lab-unit-summary', 'catchup', later, async card => ok(`${tag}: a chapter's Summary at its start is what came before, named Summary`, /^Summary · /.test(card.label) && /You are here/.test(card.text), card))
+  // A chapter's Summary is that chapter's own, the whole of it (Anders, 11 Nov 2026), never Catch me up's "what came before".
+  const laterNotes = log.notes.length
+  await phoneCard(page, tag, 'lab-unit-summary', 'chapter-notes-end', later, async card => ok(`${tag}: a later chapter's Summary at its start is that chapter's own, named Summary`, /^Summary · /.test(card.label) && !/You are here/.test(card.text) && log.notes.slice(laterNotes).includes('end'), { card, notes: log.notes.slice(laterNotes) }))
   await phoneCard(page, tag, 'lab-unit-primer', 'chapter-notes-primer', later)
   ok(`${tag}: no page errors (chapter 5)`, state.errors.length === 0, state.errors)
   await state.browser.close()
