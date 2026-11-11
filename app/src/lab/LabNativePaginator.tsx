@@ -1,3 +1,4 @@
+import { transcriptTurns } from './labTranscript'
 import { proseJoins, proseRuns } from './labPoetry'
 import { measureRowsState, paintRows } from './labMeasureRows'
 import { LabChapterHeading } from './LabChapterHeading'
@@ -542,8 +543,9 @@ export const LabNativePaginator = memo(function LabNativePaginator({
               const segment = segments[index]
               const words = segmentWordTexts(sourceWords[segment.paragraphIndex], segment)
               const lineation = { text: paragraphs[segment.paragraphIndex], from: segment.from }
-              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true })
-              else labMeasureJoinInto(p, words, lineation, { plans: true })
+              const turn = transcriptTurns(paragraphs)?.get(segment.paragraphIndex)
+              if (position === 0) labMeasureParagraphInto(p, words, lineation, { plans: true, turn })
+              else labMeasureJoinInto(p, words, lineation, { plans: true, turn })
             })
             return p
           } })))
