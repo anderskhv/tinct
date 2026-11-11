@@ -1,4 +1,4 @@
-import { consumeDismissGesture } from '../../utils/consumeDismissGesture'
+import { consumeDismissClick } from '../../utils/consumeDismissClick'
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 import { PhoneIcon } from '../marginPhone/LabPhoneCard'
@@ -78,10 +78,10 @@ export const SOURCE_MARGIN_NOTE_HOLD_MS = 500
 export const SOURCE_MARGIN_NOTE_SLOP_PX = 10
 
 /**
- * Whether the click that folds an open margin card is consumed whole, so it does nothing else (no word definition,
- * no selection, no highlight menu). A mouse's main button on the page: yes. A control (the top bar, a button, a
- * link, a field) still acts on the same click, so the reader never clicks a button twice. A finger or a pen is left
- * alone: there the same touch scrolls the page, and a tap on a word defines nothing.
+ * Whether the click that folds an open margin card does nothing else (no word definition, no highlight menu;
+ * consumeDismissClick). A mouse's main button on the page: yes. A control (the top bar, a button, a link, a field)
+ * still acts on the same click, so the reader never clicks a button twice. A finger or a pen is left alone: there
+ * the same touch scrolls the page, and a tap on a word defines nothing.
  */
 export function sourceMarginDismissConsumes(pointerType: string, button: number, target: Element | null): boolean {
   if (pointerType !== 'mouse' || button !== 0 || !target) return false
@@ -193,8 +193,8 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
       const open = latest.current.filter(entry => entry.open && !entry.actions)
       if (!open.length) return
       // Clicking away is one whole click that only dismisses (Anders, 11 Nov 2026: folding a card by clicking the
-      // page also opened the clicked word's definition). The rest of the gesture is consumed.
-      if (sourceMarginDismissConsumes(event.pointerType, event.button, target)) consumeDismissGesture(event)
+      // page also opened the clicked word's definition). A press that becomes a drag still selects.
+      if (sourceMarginDismissConsumes(event.pointerType, event.button, target)) consumeDismissClick(event)
       open.forEach(entry => entry.onToggle())
     }
     window.addEventListener('keydown', key, true)

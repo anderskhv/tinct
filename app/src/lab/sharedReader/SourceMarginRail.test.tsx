@@ -293,29 +293,51 @@ it('leaves Escape and outside presses alone for a chapter\'s always-shown action
 })
 
 // Anders, 11 Nov 2026: clicking the page to fold an open margin card also opened the clicked word's definition.
-it('a mouse click that folds an open card is consumed whole: the page under it gets no pointerup and no click', () => {
+it('a mouse click that folds an open card does nothing else: the page under it gets no pointerup and no click', async () => {
   const host = document.createElement('div'); document.body.append(host)
   const word = document.createElement('span'); word.textContent = 'merchant'; host.append(word)
-  const toggle = vi.fn(), wordUp = vi.fn(), wordClick = vi.fn()
-  word.addEventListener('pointerup', wordUp); word.addEventListener('click', wordClick)
+  const toggle = vi.fn(), wordUp = vi.fn(), wordClick = vi.fn(), wordCancel = vi.fn()
+  word.addEventListener('pointerup', wordUp); word.addEventListener('click', wordClick); word.addEventListener('pointercancel', wordCancel)
   const entry: SourceMarginEntry = { id: 'c1', label: 'Summary', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <p>Answer</p>, onToggle: toggle, onDelete: () => {} }
+  const press = (x: number, y: number) => {
+    const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientX: x, clientY: y })
+    Object.defineProperty(down, 'pointerType', { value: 'mouse' })
+    word.dispatchEvent(down)
+    return down
+  }
   const view = render(<SourceMarginRail host={host} entries={[entry]} />)
-  const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
+  const down = press(200, 300)
+  expect(toggle).toHaveBeenCalledTimes(1)
+  // The press itself is the page's (a drag may start on it); only its click is taken.
+  expect(down.defaultPrevented).toBe(false)
+  fireEvent.pointerUp(word, { clientX: 201, clientY: 300 }); fireEvent.click(word, { clientX: 201, clientY: 300 })
+  expect(wordUp).not.toHaveBeenCalled(); expect(wordClick).not.toHaveBeenCalled()
+  // The page is told the gesture ended, so its own drag state is not left waiting for a release.
+  expect(wordCancel).toHaveBeenCalledTimes(1)
+  // The next click is the reader's own again (a definition, a selection): nothing is held back.
+  view.rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: false }]} />)
+  await Promise.resolve()
+  press(200, 300)
+  fireEvent.pointerUp(word, { clientX: 200, clientY: 300 }); fireEvent.click(word, { clientX: 200, clientY: 300 })
+  expect(wordUp).toHaveBeenCalledTimes(1); expect(wordClick).toHaveBeenCalledTimes(1)
+  expect(toggle).toHaveBeenCalledTimes(1)
+  host.remove()
+})
+
+it('a press that folds an open card and becomes a drag still selects: its release reaches the page', () => {
+  const host = document.createElement('div'); document.body.append(host)
+  const word = document.createElement('span'); host.append(word)
+  const toggle = vi.fn(), wordUp = vi.fn(), wordCancel = vi.fn()
+  word.addEventListener('pointerup', wordUp); word.addEventListener('pointercancel', wordCancel)
+  const entry: SourceMarginEntry = { id: 'c2', label: 'Explain', source: () => ({ left: 10, right: 100, top: 100, bottom: 120 }), order: 1, open: true, content: <p>Answer</p>, onToggle: toggle, onDelete: () => {} }
+  render(<SourceMarginRail host={host} entries={[entry]} />)
+  const down = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0, clientX: 200, clientY: 300 })
   Object.defineProperty(down, 'pointerType', { value: 'mouse' })
   word.dispatchEvent(down)
   expect(toggle).toHaveBeenCalledTimes(1)
-  expect(down.defaultPrevented).toBe(true)
-  fireEvent.pointerUp(word); fireEvent.click(word)
-  expect(wordUp).not.toHaveBeenCalled(); expect(wordClick).not.toHaveBeenCalled()
-  // The next click is the reader's own again (a definition, a selection): nothing is held back.
-  view.rerender(<SourceMarginRail host={host} entries={[{ ...entry, open: false }]} />)
-  const again = new MouseEvent('pointerdown', { bubbles: true, cancelable: true, button: 0 })
-  Object.defineProperty(again, 'pointerType', { value: 'mouse' })
-  word.dispatchEvent(again)
-  fireEvent.pointerUp(word); fireEvent.click(word)
-  expect(again.defaultPrevented).toBe(false)
-  expect(wordUp).toHaveBeenCalledTimes(1); expect(wordClick).toHaveBeenCalledTimes(1)
-  expect(toggle).toHaveBeenCalledTimes(1)
+  fireEvent.pointerMove(word, { clientX: 320, clientY: 340 })
+  fireEvent.pointerUp(word, { clientX: 320, clientY: 340 })
+  expect(wordUp).toHaveBeenCalledTimes(1); expect(wordCancel).not.toHaveBeenCalled()
   host.remove()
 })
 
