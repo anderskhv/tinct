@@ -10,11 +10,18 @@ export interface SourceBookMap {
 }
 
 export type SourceMapCard = { id: string; paragraphIndex: number; wordIndex: number; label: string; onOpen: () => void }
+/**
+ * Book scroll: a highlight or card in another chapter of the unit, placed by its share of that chapter (`from`/`to`,
+ * 0–1); choosing it goes to that chapter at `anchor`.
+ */
+export type SourceUnitMark = { id: string; kind: 'highlight' | 'card'; chapterNumber: number; from: number; to: number; anchor: ContinuousReaderAnchor; label: string; color?: string }
 
 /** Source paragraphs and the visible range, without annotation dots or ebook-page guesses. */
-export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highlights = [], cards = [], onJump, chapterMarks = false }: {
+export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highlights = [], cards = [], unitMarks, onJump, chapterMarks = false }: {
   paragraphs: readonly string[]; visible: ContinuousReaderAnchor; visibleEnd?: ContinuousReaderAnchor;
   bookMap?: SourceBookMap; highlights?: readonly LabHighlight[]; cards?: readonly SourceMapCard[];
+  /** Book scroll: the marks of the unit's other chapters. */
+  unitMarks?: readonly SourceUnitMark[]
   onJump: (place: ContinuousReaderAnchor) => void
   /** Book scroll (try-out): a tick at every chapter's start, the reader's own included. */
   chapterMarks?: boolean
@@ -72,6 +79,26 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
       return lines
     })
   }, [paragraphs, model, offset, total, mapHeight])
+  // Built once per set of marks and chapter layout, not on every scroll (the window rectangle moves alone).
+  const unitMarkNodes = useMemo(() => {
+    if (!book || !bookMap || !unitMarks?.length) return null
+    const chapters = new Map(book.chapters.map(chapter => [chapter.number, chapter]))
+    return unitMarks.map(mark => {
+      const chapter = chapters.get(mark.chapterNumber)
+      if (!chapter || chapter.number === bookMap.chapterNumber) return null
+      const y = (chapter.start + mark.from * chapter.weight) / book.total * mapHeight
+      const height = Math.max(0, mark.to - mark.from) * chapter.weight / book.total * mapHeight
+      const go = (event: { preventDefault: () => void; stopPropagation: () => void }) => { event.stopPropagation(); event.preventDefault(); bookMap.onJumpChapter(mark.chapterNumber, mark.anchor) }
+      const shared = { role: 'button', tabIndex: 0, 'aria-label': mark.label, 'data-map-unit-mark': mark.chapterNumber, onPointerDown: go,
+        onKeyDown: (event: { key: string; preventDefault: () => void; stopPropagation: () => void }) => { if (event.key === 'Enter' || event.key === ' ') go(event) } }
+      return mark.kind === 'card'
+        ? <g key={mark.id} {...shared} className="source-minimap-card"><title>{mark.label}</title>
+          <rect x={26} y={Math.max(0, y - 3)} width={8} height={9} fill="transparent" /><rect x={29} y={y} width={3} height={3} rx={.7} fill="currentColor" /></g>
+        : <g key={mark.id} {...shared} className="source-minimap-activity" data-color={mark.color}><title>{mark.label}</title>
+          <rect x={2} y={Math.max(0, y - 3)} width={23} height={Math.max(8, height + 6)} fill="transparent" />
+          <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, height)} rx={.7} /></g>
+    })
+  }, [book, bookMap, unitMarks, mapHeight])
   return <svg className="source-minimap" data-testid="source-minimap" style={{ height: `min(calc(100dvh - 200px), ${mapHeight}px)` }} viewBox={`0 0 34 ${mapHeight}`} preserveAspectRatio="none" role="group" aria-label="Chapter reading overview">
     <g role="slider" tabIndex={0} aria-label={book ? "Book position" : "Chapter position"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}
     aria-valuetext={`${Math.round(progress * 100)}% through ${book ? "this book" : "this chapter"}`}
@@ -134,7 +161,7 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
         <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, (end - start) / total * mapHeight)} rx={.7} />
       </g>
     })}
-
+    {unitMarkNodes}
     <text x={17} y={mapHeight + 20} className="source-minimap-progress" data-testid="source-map-progress" aria-label={`${Math.round(progress * 100)}% through ${book ? 'this book' : 'this chapter'}`}>{Math.round(progress * 100)}%</text>
   </svg>
 }

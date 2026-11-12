@@ -5,6 +5,7 @@ import { PhoneIcon } from '../marginPhone/LabPhoneCard'
 import type { CardBox } from './desktopCardPlace'
 import { clampWords } from './cardPreview'
 import './sourceMarginRail.css'
+import { onlyFieldEdits } from '../marginPhone/phoneCardPassage'
 
 export interface SourceMarginEntry {
   id: string
@@ -88,7 +89,21 @@ export function sourceMarginDismissConsumes(pointerType: string, button: number,
   return !target.closest('button, a, input, textarea, select, summary, [role="button"], [role="slider"], [role="tab"], [contenteditable="true"], .lab-header')
 }
 
-export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
+/**
+ * One entry per card id, the first kept. Each entry is a keyed section: two with one id (book scroll, 12 Nov 2026: a
+ * chapter swap rendered the outgoing chapter's card and its folded neighbour entry together for one render) made React
+ * lose track of one section, which then stayed painted over the live card for good ("Open this card" over its lead
+ * line, a dead follow-up field over the live one).
+ */
+export function uniqueMarginEntries<T extends { id: string }>(entries: T[]): T[] {
+  const seen = new Set<string>()
+  if (entries.every(entry => !seen.has(entry.id) && !!seen.add(entry.id))) return entries
+  seen.clear()
+  return entries.filter(entry => !seen.has(entry.id) && !!seen.add(entry.id))
+}
+
+export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
+  const entries = uniqueMarginEntries(given)
   const layer = useRef<HTMLDivElement>(null)
   const latest = useRef(entries)
   latest.current = entries
@@ -154,7 +169,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
       for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, .pdf-original__pages, section[data-card-id]')) observer?.observe(el)
     }
     observeGeometry()
-    const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(() => { observeGeometry(); schedule() })
+    const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(records => { if (onlyFieldEdits(records)) return; observeGeometry(); schedule() })
     // A page marked drawn (data-ready) is often the last change: an entry found only on a drawn page (a chapter's
     // actions) waited for it, and the CI release of 3 Nov 2026 rolled back on that race.
     mutation?.observe(host, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ready'] })

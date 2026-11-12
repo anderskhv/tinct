@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { SourceMarginRail, SOURCE_MARGIN_NOTE_HOLD_MS, sourceMarginBlankNoteGesture, sourceMarginDismissConsumes, sourceMarginLayout, sourceMarginLeaderPath, type SourceMarginEntry } from './SourceMarginRail'
+import { SourceMarginRail, SOURCE_MARGIN_NOTE_HOLD_MS, uniqueMarginEntries, sourceMarginBlankNoteGesture, sourceMarginDismissConsumes, sourceMarginLayout, sourceMarginLeaderPath, type SourceMarginEntry } from './SourceMarginRail'
 afterEach(() => { cleanup(); vi.restoreAllMocks(); document.querySelectorAll('[data-fixture-host]').forEach(host => host.remove()) })
 it('sorts by source order and pushes long answers down without constraining their height', () => {
   const layout = sourceMarginLayout([{ id: 'later', y: 140, height: 200, order: 2 }, { id: 'first', y: 100, height: 1800, order: 1 }])
@@ -350,4 +350,17 @@ it('only a mouse click on the page is consumed: a control still acts, and a fing
   expect(sourceMarginDismissConsumes('mouse', 2, page)).toBe(false)
   expect(sourceMarginDismissConsumes('touch', 0, page)).toBe(false)
   expect(sourceMarginDismissConsumes('pen', 0, page)).toBe(false)
+})
+
+it('paints one section per card id, the first entry kept (a book-scroll chapter swap listed one card twice)', () => {
+  expect(uniqueMarginEntries([{ id: 'a', n: 1 }, { id: 'b', n: 2 }, { id: 'a', n: 3 }])).toEqual([{ id: 'a', n: 1 }, { id: 'b', n: 2 }])
+  const unique = [{ id: 'a' }, { id: 'b' }]
+  expect(uniqueMarginEntries(unique)).toBe(unique)
+  const host = document.createElement('div'); host.dataset.fixtureHost = 'true'; document.body.append(host)
+  const card = (open: boolean, preview: string): SourceMarginEntry => ({ id: 'mc_1', label: 'Explain', source: () => ({ left: 0, right: 10, top: 100, bottom: 120 }), order: 1, open, preview, content: <p>The open card</p>, onToggle: () => {} })
+  const { rerender } = render(<SourceMarginRail host={host} entries={[card(true, 'Lead'), card(false, 'Folded copy')]} />)
+  expect(screen.getAllByTestId('source-margin-item')).toHaveLength(1)
+  rerender(<SourceMarginRail host={host} entries={[card(false, 'Lead')]} />)
+  expect(screen.getAllByTestId('source-margin-item')).toHaveLength(1)
+  expect(screen.queryByText('Folded copy')).toBeNull()
 })

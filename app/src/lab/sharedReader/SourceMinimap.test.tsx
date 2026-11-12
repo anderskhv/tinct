@@ -112,3 +112,19 @@ it('does not jump forward when the chapter end is visible above an earlier top p
   fireEvent.keyDown(map, { key: 'Home' })
   expect(jump).toHaveBeenCalledExactlyOnceWith({ paragraphIndex: 0, wordIndex: 0 })
 })
+it('book scroll: marks highlights and cards in the unit\'s other chapters and goes to them at their word', () => {
+  const chapter = vi.fn(), jump = vi.fn()
+  const bookMap = { chapterNumber: 2, chapters: [{ number: 1, title: 'First', wordCount: 100 }, { number: 2, title: 'Second', wordCount: 4 }, { number: 3, title: 'Third', wordCount: 100 }], onJumpChapter: chapter }
+  const { container } = render(<SourceMinimap paragraphs={['one two', 'three four']} visible={{ paragraphIndex: 0, wordIndex: 0 }} onJump={jump} bookMap={bookMap}
+    unitMarks={[
+      { id: 'h:a', kind: 'highlight', chapterNumber: 1, from: .5, to: .6, color: 'green', label: 'Highlight: in the first', anchor: { paragraphIndex: 3, wordIndex: 2 } },
+      { id: 'c:b', kind: 'card', chapterNumber: 3, from: .25, to: .25, label: 'Explain · in the third', anchor: { paragraphIndex: 1, wordIndex: 7 } },
+      { id: 'h:own', kind: 'highlight', chapterNumber: 2, from: 0, to: .5, label: 'Highlight: own chapter, drawn from its own highlights', anchor: { paragraphIndex: 0, wordIndex: 0 } },
+    ]} />)
+  expect([...container.querySelectorAll('[data-map-unit-mark]')].map(node => node.getAttribute('data-map-unit-mark'))).toEqual(['1', '3'])
+  fireEvent.pointerDown(screen.getByRole('button', { name: 'Explain · in the third' }))
+  expect(chapter).toHaveBeenLastCalledWith(3, { paragraphIndex: 1, wordIndex: 7 })
+  fireEvent.keyDown(screen.getByRole('button', { name: 'Highlight: in the first' }), { key: 'Enter' })
+  expect(chapter).toHaveBeenLastCalledWith(1, { paragraphIndex: 3, wordIndex: 2 })
+  expect(jump).not.toHaveBeenCalled()
+})
