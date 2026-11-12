@@ -166,8 +166,9 @@ describe('every removal path uses the motion', () => {
     // The signed-out header button saying "Sign in or join" (20261109join) changed app.js, so index.html too.
     // The leave veil in the White theme's paper (20261109white) changed boot.js.
     // Adding several own books at once (20261109bulk) changed styles.css (the queue's rows).
+    // The author's biography cut to about three lines with a More (20261112bio) changed app.js and intro-review.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain('app.js?v=20261109join')
+    expect(lib('index.html')).toContain('app.js?v=20261112bio')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261109bulk')
