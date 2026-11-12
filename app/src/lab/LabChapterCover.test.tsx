@@ -14,3 +14,21 @@ it('shows a Bible book opening as a plain title page that turns with the keyboar
   fireEvent.keyDown(cover, { key: 'ArrowLeft' })
   expect(turn.mock.calls).toEqual([[1], [-1]])
 })
+// Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+it('turns on a vertical swipe only on the phone page', () => {
+  const turn = vi.fn()
+  const swipe = (cover: Element, dy: number) => {
+    fireEvent.pointerDown(cover, { pointerType: 'touch', clientX: 200, clientY: 400 })
+    fireEvent.pointerUp(cover, { pointerType: 'touch', clientX: 202, clientY: 400 + dy })
+  }
+  const { unmount } = render(<LabChapterCover title="Exodus" series="The Bible" editionLabel="KJV" onPageTurn={turn} onToggleControls={vi.fn()} />)
+  swipe(screen.getByTestId('lab-chapter-cover'), -100)
+  expect(turn).not.toHaveBeenCalled()
+  unmount()
+  render(<LabChapterCover title="Exodus" series="The Bible" editionLabel="KJV" onPageTurn={turn} onToggleControls={vi.fn()} verticalSwipeTurns />)
+  const cover = screen.getByTestId('lab-chapter-cover')
+  expect(cover.classList.contains('has-vertical-swipe')).toBe(true)
+  swipe(cover, -100)
+  swipe(cover, 100)
+  expect(turn.mock.calls).toEqual([[1], [-1]])
+})

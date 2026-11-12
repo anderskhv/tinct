@@ -684,6 +684,75 @@ describe('mouse word lookup and dragging', () => {
     })
   })
 
+  // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+  describe('vertical swipe on the phone page', () => {
+    const swipe = (target: Element, from: [number, number], to: [number, number], pointerType = 'touch') => {
+      fireEvent.pointerDown(target, { pointerType, button: 0, clientX: from[0], clientY: from[1] })
+      fireEvent.pointerMove(target, { pointerType, clientX: (from[0] + to[0]) / 2, clientY: (from[1] + to[1]) / 2 })
+      fireEvent.pointerUp(target, { pointerType, clientX: to[0], clientY: to[1] })
+    }
+
+    it('turns forward on a swipe up and back on a swipe down, through onPageTurn', () => {
+      const select = vi.fn(), turn = vi.fn(), toggle = vi.fn()
+      render(<LabPassage {...props()} verticalSwipeTurns onSelectRange={select} onPageTurn={turn} onToggleControls={toggle} />)
+      expect(screen.getByTestId('lab-book').classList.contains('has-vertical-swipe')).toBe(true)
+      const word = screen.getAllByTestId('lab-word')[1]
+      swipe(word, [200, 400], [205, 300])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      swipe(word, [200, 300], [196, 400])
+      expect(turn).toHaveBeenLastCalledWith(-1)
+      // In the margin, off any word, too.
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 320])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      expect(turn).toHaveBeenCalledTimes(3)
+      expect(select).not.toHaveBeenCalled()
+      expect(toggle).not.toHaveBeenCalled()
+    })
+
+    it('leaves sideways, diagonal, short and mouse drags as they were', () => {
+      const turn = vi.fn(), toggle = vi.fn()
+      render(<LabPassage {...props()} verticalSwipeTurns onPageTurn={turn} onToggleControls={toggle} />)
+      const surface = screen.getByTestId('lab-book')
+      swipe(surface, [300, 400], [200, 410])
+      expect(turn).toHaveBeenLastCalledWith(1)
+      turn.mockClear()
+      swipe(surface, [300, 400], [240, 330])
+      swipe(surface, [200, 400], [200, 375])
+      swipe(surface, [200, 400], [200, 300], 'mouse')
+      expect(turn).not.toHaveBeenCalled()
+    })
+
+    it('is off without the flag, inside a scroller and on a desktop spread', () => {
+      const turn = vi.fn()
+      const { unmount } = render(<LabPassage {...props()} onPageTurn={turn} />)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      unmount()
+      const scroller = render(<LabPassage {...props()} verticalSwipeTurns touchScroll onPageTurn={turn} />)
+      expect(screen.getByTestId('lab-book').classList.contains('has-vertical-swipe')).toBe(false)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      scroller.unmount()
+      render(<LabPassage {...props()} verticalSwipeTurns desktopSpread onPageTurn={turn} />)
+      swipe(screen.getByTestId('lab-book'), [200, 400], [200, 300])
+      expect(turn).not.toHaveBeenCalled()
+    })
+
+    it('never turns while a long press is selecting', () => {
+      vi.useFakeTimers()
+      try {
+        const select = vi.fn(), turn = vi.fn()
+        render(<LabPassage {...props()} verticalSwipeTurns onSelectRange={select} onPageTurn={turn} />)
+        const word = screen.getAllByTestId('lab-word')[1]
+        fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 200, clientY: 400 })
+        act(() => vi.advanceTimersByTime(200))
+        expect(word.classList.contains('is-selecting')).toBe(true)
+        fireEvent.pointerMove(word, { pointerType: 'touch', clientX: 200, clientY: 300 })
+        fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 200, clientY: 300 })
+        expect(turn).not.toHaveBeenCalled()
+        expect(select).toHaveBeenCalledOnce()
+      } finally { vi.useRealTimers() }
+    })
+  })
+
   it('leaves short touch taps and secondary mouse buttons out of lookup', () => {
     const select = vi.fn()
     render(<LabPassage {...props()} onSelectRange={select} />)
