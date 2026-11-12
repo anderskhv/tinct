@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ece7db">
+<title>Tinct — No text is beyond you</title>
+<link rel="stylesheet" href="/fonts/tinct-fonts.css">
+<link rel="stylesheet" href="/lab/tinct-ui.css">
+<style>
+  html { background: var(--tui-paper); }
+  body { margin: 0; background: var(--tui-paper); color: var(--tui-ink); font: 400 17px/1.5 var(--tui-font-ui); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { box-sizing: border-box; width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font: 400 30px/1 var(--tui-font-serif); letter-spacing: -.045em; text-decoration: none; }
+  .top nav { display: flex; align-items: center; gap: 22px; font: 500 15px/1 var(--tui-font-ui); }
+  .top nav a { text-decoration: none; color: var(--tui-ink-muted); }
+  .top nav a:hover { color: var(--tui-ink); }
+
+  .hero { padding: 44px 0 0; text-align: center; }
+  .hero h1 { margin: 0; font: 400 clamp(44px, 7.4vw, 92px)/1.02 var(--tui-font-display); letter-spacing: -.022em; }
+  .hero h1 em { font-style: italic; }
+  .brk { display: none; }
+  .lede { max-width: 34em; margin: 22px auto 0; font: 400 clamp(19px, 1.7vw, 23px)/1.45 var(--tui-font-serif); color: #2b261e; text-wrap: balance; }
+
+  .picker { position: relative; max-width: 620px; margin: 34px auto 0; text-align: left; }
+  .field { display: flex; align-items: center; gap: 10px; padding: 7px 7px 7px 20px; border: 1px solid var(--tui-line-strong); border-radius: 999px; background: var(--tui-surface); box-shadow: 0 1px 2px rgba(20,15,8,.05), 0 10px 30px rgba(20,15,8,.07); transition: border-color .16s ease; }
+  .field:focus-within { border-color: var(--tui-accent); }
+  .field svg { flex: none; width: 20px; height: 20px; fill: none; stroke: var(--tui-ink-faint); stroke-width: 1.7; stroke-linecap: round; }
+  .field input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--tui-ink); font: 400 17px/1.3 var(--tui-font-ui); padding: 10px 0; }
+  .field input::placeholder { color: var(--tui-ink-faint); }
+  .field .tui-btn { min-height: 46px; padding: 0 22px; font-size: 15px; }
+  .results { position: absolute; z-index: 5; left: 0; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none; border: 1px solid var(--tui-line-strong); border-radius: 18px; background: var(--tui-surface); box-shadow: var(--tui-shadow-pop); }
+  .results[hidden] { display: none; }
+  .results a { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 12px; text-decoration: none; }
+  .results a:hover, .results a.on { background: var(--tui-hover); }
+  .results img { width: 30px; height: 45px; object-fit: cover; border-radius: 2px; background: #d9d2c2; box-shadow: var(--tui-shadow-sm); }
+  .results b { display: block; font: 500 18px/1.2 var(--tui-font-serif); }
+  .results small { display: block; margin-top: 2px; font: 400 13px/1.2 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .results .none { padding: 12px 12px; font: 400 15px/1.4 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .results .none a { display: inline; padding: 0; color: var(--tui-accent); text-decoration: underline; }
+
+  .starts { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; max-width: 760px; margin: 22px auto 0; }
+  .starts span { font: 400 14px/1 var(--tui-font-ui); color: var(--tui-ink-muted); margin-right: 2px; }
+  .start { display: inline-flex; align-items: center; gap: 9px; height: 40px; padding: 0 15px 0 5px; border: 1px solid var(--tui-line-strong); border-radius: 999px; background: var(--tui-surface); font: 500 14.5px/1 var(--tui-font-ui); text-decoration: none; transition: border-color .16s ease, background-color .16s ease; }
+  .start:hover { border-color: var(--tui-ink-faint); background: #fbf8f1; }
+  .start img { width: 22px; height: 30px; object-fit: cover; border-radius: 3px 999px 999px 3px / 3px 16px 16px 3px; border-radius: 3px; margin-left: 6px; box-shadow: 0 1px 2px rgba(20,15,8,.25); }
+  .more { margin: 18px 0 0; font: 400 14.5px/1.4 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .more a { color: var(--tui-ink); text-underline-offset: 3px; text-decoration-color: var(--tui-line-strong); }
+  .more i { font-style: normal; margin: 0 8px; color: var(--tui-line-strong); }
+
+  .demo { margin: 64px auto 0; }
+  .demo-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 4px 14px; }
+  .demo-head h2 { margin: 0; font: 600 15px/1.2 var(--tui-font-ui); }
+  .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(32,26,19,.07); }
+  .seg button { height: 34px; padding: 0 15px; border: 0; border-radius: 999px; background: none; color: var(--tui-ink-muted); font: 500 14px/1 var(--tui-font-ui); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--tui-surface); color: var(--tui-ink); box-shadow: 0 1px 3px rgba(20,15,8,.16); }
+  .sheet { display: grid; grid-template-columns: minmax(0, 1fr) 340px; border: 1px solid var(--tui-line); border-radius: 18px; background: #e9e3d2; box-shadow: 0 1px 2px rgba(20,15,8,.05), 0 24px 60px rgba(20,15,8,.10); overflow: hidden; }
+  .leaf { padding: 40px 48px 44px; border-right: 1px solid var(--tui-line); }
+  .leaf h3 { margin: 0 0 14px; font: 600 21px/1.3 var(--tui-font-serif); }
+  .leaf p { margin: 0 0 16px; font: 400 20px/1.52 var(--tui-font-serif); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .leaf p:last-child { margin-bottom: 0; }
+  .mark { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgba(11,11,11,.75); }
+  .notes { display: flex; flex-direction: column; gap: 26px; padding: 96px 26px 30px; }
+  .note { padding-left: 14px; border-left: 1px solid var(--tui-line-strong); }
+  .note h4 { margin: 0 0 7px; font: italic 400 15px/1.2 var(--tui-font-serif); color: var(--tui-ink-muted); }
+  .note .q { margin: 0 0 7px; font: italic 400 16px/1.4 var(--tui-font-serif); }
+  .note p { margin: 0; font: 400 16.5px/1.48 var(--tui-font-serif); }
+  .notes .same { margin: 0; font: 400 15px/1.5 var(--tui-font-ui); color: var(--tui-ink-muted); }
+  .sheet[data-edition="modern"] .note { display: none; }
+  .sheet[data-edition="original"] .same { display: none; }
+  .demo-foot { display: flex; justify-content: center; margin-top: 26px; }
+  .demo-foot .tui-btn { min-height: 50px; padding: 0 26px; font-size: 15.5px; }
+
+  .how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 72px auto 0; border-top: 1px solid var(--tui-line); }
+  .how div { padding: 26px 28px 0 0; }
+  .how div + div { padding-left: 28px; border-left: 1px solid var(--tui-line); }
+  .how b { display: block; font: 400 26px/1.15 var(--tui-font-display); }
+  .how p { margin: 9px 0 0; font: 400 18px/1.45 var(--tui-font-serif); color: #2b261e; }
+
+  .price { max-width: 40em; margin: 64px auto 0; text-align: center; font: 400 19px/1.5 var(--tui-font-serif); color: #2b261e; text-wrap: balance; }
+  .foot { display: flex; justify-content: center; gap: 22px; margin: 44px 0 0; padding: 22px 0 40px; border-top: 1px solid var(--tui-line); font: 400 14px/1 var(--tui-font-ui); }
+  .foot a { color: var(--tui-ink-muted); text-decoration: none; }
+  .foot a:hover { color: var(--tui-ink); }
+
+  @media (max-width: 860px) {
+    .sheet { grid-template-columns: 1fr; }
+    .leaf { padding: 26px 22px 26px; border-right: 0; border-bottom: 1px solid var(--tui-line); }
+    .leaf p { font-size: 19px; }
+    .notes { padding: 22px 22px 24px; gap: 20px; }
+  }
+  @media (max-width: 640px) {
+    .top { height: 56px; }
+    .logo { font-size: 28px; }
+    .top nav { gap: 16px; font-size: 14.5px; }
+    .hero { padding-top: 26px; }
+    .field { padding-left: 16px; }
+    .field .tui-btn { padding: 0 16px; }
+    .brk { display: inline; }
+    .hero h1 { font-size: clamp(46px, 13.2vw, 60px); }
+    .starts { flex-wrap: nowrap; justify-content: flex-start; margin: 20px -20px 0; padding: 2px 20px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .starts::-webkit-scrollbar { display: none; }
+    .starts span, .start { flex: none; }
+    .leaf p + p { display: none; }
+    .demo { margin-top: 44px; }
+    .demo-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .how { grid-template-columns: 1fr; margin-top: 48px; }
+    .how div, .how div + div { padding: 20px 0; border-left: 0; }
+    .how div + div { border-top: 1px solid var(--tui-line); }
+    .price { margin-top: 28px; font-size: 18px; }
+  }
+</style>
+</head>
+<body class="tui-root">
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="/" aria-label="Tinct">tinct</a>
+    <nav><a href="/library">Library</a><a href="/sign-in">Sign in or join</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>No text is <br class="brk"><em>beyond you.</em></h1>
+      <p class="lede">The great books in modern English, beside the original. Select any passage to simplify it or ask about it. Free to read, no account.</p>
+
+      <form class="picker" id="picker" autocomplete="off">
+        <label class="field">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+          <input id="q" type="search" placeholder="Which book have you always meant to read?" aria-label="Find a book" aria-controls="results">
+          <button class="tui-btn tui-btn--primary" type="submit">Read<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </label>
+        <ul class="results" id="results" hidden></ul>
+      </form>
+
+      <div class="starts">
+        <span>Or start with</span>
+        <a class="start" href="/reader?book=odyssey&chapter=1"><img src="/covers/v2/odyssey.webp" alt="">The Odyssey</a>
+        <a class="start" href="/reader?book=moby-dick&chapter=1"><img src="/covers/v2/moby-dick.webp" alt="">Moby-Dick</a>
+        <a class="start" href="/reader?book=hamlet&chapter=1"><img src="/covers/v2/hamlet.webp" alt="">Hamlet</a>
+        <a class="start" href="/reader?book=meditations&chapter=1"><img src="/covers/v2/meditations.webp" alt="">Meditations</a>
+        <a class="start" href="/reader?book=frankenstein&chapter=1"><img src="/covers/v2/frankenstein.webp" alt="">Frankenstein</a>
+        <a class="start" href="/reader?book=pride-and-prejudice&chapter=1"><img src="/covers/v2/pride-and-prejudice.webp" alt="">Pride and Prejudice</a>
+      </div>
+      <p class="more"><a href="/library">Browse all 114 books</a><i>·</i><a href="/byob">Add your own book or text</a></p>
+    </section>
+
+    <section class="demo" aria-labelledby="demo-title">
+      <div class="demo-head">
+        <h2 id="demo-title">Page one of Moby-Dick, as you read it on Tinct</h2>
+        <div class="seg" role="group" aria-label="Edition">
+          <button type="button" data-edition="original" aria-pressed="true">Original (1851)</button>
+          <button type="button" data-edition="modern" aria-pressed="false">Modern English</button>
+        </div>
+      </div>
+      <div class="sheet" id="sheet" data-edition="original">
+        <article class="leaf">
+          <h3>Chapter 1 — Loomings</h3>
+          <p id="p1">Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. <span class="mark" id="mark-simplify">Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.</span> <span class="mark" id="mark-ask">With a philosophical flourish Cato throws himself upon his sword;</span> I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.</p>
+          <p id="p2">There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.</p>
+        </article>
+        <aside class="notes" aria-label="Margin">
+          <div class="note"><h4>Simplify</h4><p>Whenever I get depressed—when life feels gray and dead, when I catch myself staring at coffin shops and following funerals, or when despair gets so bad I have to force myself not to go out and hit people just to feel something—that’s when I know I need to leave for the ocean. It keeps me from killing myself.</p></div>
+          <div class="note"><h4>Ask</h4><p class="q">who is Cato?</p><p>Cato the Younger: Roman senator, Stoic, famous opponent of Caesar, who fell on his sword at Utica rather than live under Caesar’s rule. Melville uses him as the emblem of suicide on philosophical principle, which Ishmael contrasts with his own, gentler escape: going to sea instead of dying.</p></div>
+          <p class="same">The same page in Tinct’s Modern English edition. Every chapter is aligned with the original, so you can switch at any line.</p>
+        </aside>
+      </div>
+      <div class="demo-foot"><a class="tui-btn tui-btn--primary" href="/reader?book=moby-dick&chapter=1">Read Moby-Dick<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </section>
+
+    <section class="how" aria-label="How it works">
+      <div><b>Pick a book</b><p>114 classics, from Homer to Woolf. Or add your own book, paper or article.</p></div>
+      <div><b>Read it your way</b><p>Modern English, the original, or both side by side. Listen when your eyes are tired.</p></div>
+      <div><b>Never stay stuck</b><p>Select any passage to simplify it, have it explained, or ask your own question. The answer appears beside the text.</p></div>
+    </section>
+
+    <p class="price">Reading every book is free, with no ads. Premium is $5 a month for the AI margin, listening and your own books, and every account has it free until 4 January.</p>
+  </main>
+
+  <footer class="foot"><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a></footer>
+</div>
+
+<script>
+const BOOKS = [{"id": "odyssey", "t": "The Odyssey", "a": "Homer"}, {"id": "ulysses", "t": "Ulysses", "a": "James Joyce"}, {"id": "war-and-peace", "t": "War and Peace", "a": "Leo Tolstoy"}, {"id": "bible", "t": "The Bible", "a": "Various"}, {"id": "gilgamesh", "t": "The Epic of Gilgamesh", "a": "Anonymous"}, {"id": "hamlet", "t": "Hamlet", "a": "William Shakespeare"}, {"id": "macbeth", "t": "Macbeth", "a": "William Shakespeare"}, {"id": "midsummer", "t": "A Midsummer Night's Dream", "a": "William Shakespeare"}, {"id": "romeo-and-juliet", "t": "Romeo and Juliet", "a": "William Shakespeare"}, {"id": "the-tempest", "t": "The Tempest", "a": "William Shakespeare"}, {"id": "othello", "t": "Othello", "a": "William Shakespeare"}, {"id": "king-lear", "t": "King Lear", "a": "William Shakespeare"}, {"id": "julius-caesar", "t": "Julius Caesar", "a": "William Shakespeare"}, {"id": "twelfth-night", "t": "Twelfth Night", "a": "William Shakespeare"}, {"id": "merchant-of-venice", "t": "The Merchant of Venice", "a": "William Shakespeare"}, {"id": "much-ado-about-nothing", "t": "Much Ado About Nothing", "a": "William Shakespeare"}, {"id": "as-you-like-it", "t": "As You Like It", "a": "William Shakespeare"}, {"id": "taming-of-the-shrew", "t": "The Taming of the Shrew", "a": "William Shakespeare"}, {"id": "antony-and-cleopatra", "t": "Antony and Cleopatra", "a": "William Shakespeare"}, {"id": "richard-iii", "t": "Richard III", "a": "William Shakespeare"}, {"id": "henry-v", "t": "Henry V", "a": "William Shakespeare"}, {"id": "coriolanus", "t": "Coriolanus", "a": "William Shakespeare"}, {"id": "comedy-of-errors", "t": "The Comedy of Errors", "a": "William Shakespeare"}, {"id": "measure-for-measure", "t": "Measure for Measure", "a": "William Shakespeare"}, {"id": "cymbeline", "t": "Cymbeline", "a": "William Shakespeare"}, {"id": "henry-iv-part-2", "t": "Henry IV, Part 2", "a": "William Shakespeare"}, {"id": "merry-wives-of-windsor", "t": "The Merry Wives of Windsor", "a": "William Shakespeare"}, {"id": "pride-and-prejudice", "t": "Pride and Prejudice", "a": "Jane Austen"}, {"id": "the-art-of-war", "t": "The Art of War", "a": "Sun Tzu"}, {"id": "crime-and-punishment", "t": "Crime and Punishment", "a": "Fyodor Dostoevsky"}, {"id": "the-republic", "t": "The Republic", "a": "Plato"}, {"id": "meditations", "t": "Meditations", "a": "Marcus Aurelius"}, {"id": "divine-comedy", "t": "The Divine Comedy", "a": "Dante Alighieri"}, {"id": "jane-eyre", "t": "Jane Eyre", "a": "Charlotte Brontë"}, {"id": "the-aeneid", "t": "The Aeneid", "a": "Virgil"}, {"id": "paradise-lost", "t": "Paradise Lost", "a": "John Milton"}, {"id": "frankenstein", "t": "Frankenstein", "a": "Mary Shelley"}, {"id": "the-manual", "t": "The Manual", "a": "Epictetus"}, {"id": "confessions", "t": "Confessions", "a": "Augustine"}, {"id": "imitation-of-christ", "t": "The Imitation of Christ", "a": "Thomas à Kempis"}, {"id": "jerusalem", "t": "Jerusalem", "a": "Selma Lagerlöf"}, {"id": "apology", "t": "Apology", "a": "Plato"}, {"id": "symposium", "t": "Symposium", "a": "Plato"}, {"id": "phaedo", "t": "Phaedo", "a": "Plato"}, {"id": "poetics", "t": "Poetics", "a": "Aristotle"}, {"id": "crito", "t": "Crito", "a": "Plato"}, {"id": "phaedrus", "t": "Phaedrus", "a": "Plato"}, {"id": "moby-dick", "t": "Moby Dick", "a": "Herman Melville"}, {"id": "great-expectations", "t": "Great Expectations", "a": "Charles Dickens"}, {"id": "the-histories", "t": "The Histories", "a": "Herodotus"}, {"id": "niels-lyhne", "t": "Niels Lyhne", "a": "J.P. Jacobsen"}, {"id": "the-awakening", "t": "The Awakening", "a": "Kate Chopin"}, {"id": "brothers-karamazov", "t": "The Brothers Karamazov", "a": "Fyodor Dostoevsky"}, {"id": "notes-from-underground", "t": "Notes from Underground", "a": "Fyodor Dostoevsky"}, {"id": "iliad", "t": "The Iliad", "a": "Homer"}, {"id": "nicomachean-ethics", "t": "Nicomachean Ethics", "a": "Aristotle"}, {"id": "oresteia", "t": "The Oresteia", "a": "Aeschylus"}, {"id": "bacchae", "t": "The Bacchae", "a": "Euripides"}, {"id": "medea", "t": "Medea", "a": "Euripides"}, {"id": "communist-manifesto", "t": "The Communist Manifesto", "a": "Karl Marx & Friedrich Engels"}, {"id": "second-treatise", "t": "Second Treatise of Government", "a": "John Locke"}, {"id": "social-contract", "t": "The Social Contract", "a": "Jean-Jacques Rousseau"}, {"id": "faust-part-1", "t": "Faust, Part One", "a": "Johann Wolfgang von Goethe"}, {"id": "fear-and-trembling", "t": "Fear and Trembling", "a": "Søren Kierkegaard"}, {"id": "peloponnesian-war", "t": "History of the Peloponnesian War", "a": "Thucydides"}, {"id": "aristotle-politics", "t": "Politics", "a": "Aristotle"}, {"id": "the-prince", "t": "The Prince", "a": "Niccolò Machiavelli"}, {"id": "candide", "t": "Candide", "a": "Voltaire"}, {"id": "beowulf", "t": "Beowulf", "a": "Anonymous"}, {"id": "beyond-good-and-evil", "t": "Beyond Good and Evil", "a": "Friedrich Nietzsche"}, {"id": "genealogy-of-morals", "t": "On the Genealogy of Morals", "a": "Friedrich Nietzsche"}, {"id": "descartes-meditations", "t": "Meditations on First Philosophy", "a": "René Descartes"}, {"id": "on-liberty", "t": "On Liberty", "a": "John Stuart Mill"}, {"id": "utilitarianism", "t": "Utilitarianism", "a": "John Stuart Mill"}, {"id": "oedipus-rex", "t": "Oedipus Rex", "a": "Sophocles"}, {"id": "oedipus-at-colonus", "t": "Oedipus at Colonus", "a": "Sophocles"}, {"id": "antigone", "t": "Antigone", "a": "Sophocles"}, {"id": "democracy-in-america", "t": "Democracy in America", "a": "Alexis de Tocqueville"}, {"id": "magna-carta", "t": "Magna Carta", "a": "Anonymous (sealed by King John)"}, {"id": "us-founding-documents", "t": "The US Founding Documents", "a": "Various (Jefferson, Madison, et al.)"}, {"id": "federalist-papers", "t": "The Federalist Papers", "a": "Hamilton, Madison, Jay (as \"Publius\")"}, {"id": "a-little-princess", "t": "A Little Princess", "a": "Frances Hodgson Burnett"}, {"id": "jungle-book", "t": "The Jungle Book", "a": "Rudyard Kipling"}, {"id": "around-the-world-80-days", "t": "Around the World in Eighty Days", "a": "Jules Verne"}, {"id": "walden", "t": "Walden", "a": "Henry David Thoreau"}, {"id": "heart-of-darkness", "t": "Heart of Darkness", "a": "Joseph Conrad"}, {"id": "discourse-on-inequality", "t": "Discourse on the Origin of Inequality", "a": "Jean-Jacques Rousseau"}, {"id": "vindication-rights-of-woman", "t": "A Vindication of the Rights of Woman", "a": "Mary Wollstonecraft"}, {"id": "leviathan", "t": "Leviathan", "a": "Thomas Hobbes"}, {"id": "jekyll-and-hyde", "t": "Strange Case of Dr Jekyll and Mr Hyde", "a": "Robert Louis Stevenson"}, {"id": "don-quixote", "t": "Don Quixote", "a": "Miguel de Cervantes"}, {"id": "essays-montaigne", "t": "Essays", "a": "Michel de Montaigne"}, {"id": "hume-enquiry", "t": "An Enquiry Concerning Human Understanding", "a": "David Hume"}, {"id": "kant-groundwork", "t": "Groundwork of the Metaphysics of Morals", "a": "Immanuel Kant"}, {"id": "wealth-of-nations", "t": "The Wealth of Nations", "a": "Adam Smith"}, {"id": "werther", "t": "The Sorrows of Young Werther", "a": "Johann Wolfgang von Goethe"}, {"id": "anna-karenina", "t": "Anna Karenina", "a": "Leo Tolstoy"}, {"id": "frederick-douglass", "t": "Narrative of the Life of Frederick Douglass", "a": "Frederick Douglass"}, {"id": "ivan-ilyich", "t": "The Death of Ivan Ilyich", "a": "Leo Tolstoy"}, {"id": "master-and-margarita", "t": "The Master and Margarita", "a": "Mikhail Bulgakov"}, {"id": "pinocchio", "t": "The Adventures of Pinocchio", "a": "Carlo Collodi"}, {"id": "to-the-lighthouse", "t": "To the Lighthouse", "a": "Virginia Woolf"}, {"id": "alice-in-wonderland", "t": "Alice's Adventures in Wonderland", "a": "Lewis Carroll"}, {"id": "wuthering-heights", "t": "Wuthering Heights", "a": "Emily Brontë"}, {"id": "middlemarch", "t": "Middlemarch", "a": "George Eliot"}, {"id": "sense-and-sensibility", "t": "Sense and Sensibility", "a": "Jane Austen"}, {"id": "the-sovereign-child", "t": "The Sovereign Child", "a": "Aaron Stupple with Logan Chipkin"}, {"id": "lords-of-the-cosmos", "t": "Lords of the Cosmos", "a": "Arjun Khemani and Logan Chipkin"}, {"id": "bold-conjectures-volume-1", "t": "Bold Conjectures, Volume I", "a": "Logan Chipkin (ed.)"}, {"id": "bold-conjectures-volume-2", "t": "Bold Conjectures, Volume II", "a": "Logan Chipkin (ed.)"}, {"id": "the-farthest-reaches", "t": "The Farthest Reaches", "a": "Brett Hall"}, {"id": "grimms-fairy-tales", "t": "Grimms' Fairy Tales", "a": "Jacob and Wilhelm Grimm"}, {"id": "arabian-nights", "t": "The Arabian Nights Entertainments", "a": "Andrew Lang"}];
+const TEXT = {"original": ["Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. <span class=\"mark\" id=\"mark-simplify\">Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball.</span> <span class=\"mark\" id=\"mark-ask\">With a philosophical flourish Cato throws himself upon his sword;</span> I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.", "There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there."], "modern": ["Call me Ishmael. Some years ago — never mind exactly how long — with little or no money in my purse and nothing in particular to hold my interest on land, I decided I would sail around for a while and see the watery part of the world. It&#x27;s my way of chasing off the gloom and keeping my circulation in order. Whenever I notice my mouth setting into a grim line; whenever it&#x27;s a damp, drizzly November in my soul; whenever I catch myself stopping without meaning to in front of coffin warehouses, and tagging along at the back of every funeral I pass; and above all whenever my low spirits get such a grip on me that only a strong moral principle keeps me from walking deliberately into the street and methodically knocking people&#x27;s hats off — then I know it&#x27;s high time to get to sea as fast as I can. This is my substitute for pistol and bullet. Cato, with a philosophical flourish, throws himself on his sword; I quietly go to sea. There&#x27;s nothing surprising in this. If they only realized it, nearly all men, each in his own degree, at one time or another feel almost exactly what I feel toward the ocean.", "There now is your island city of the Manhattoes, belted around by wharves as the Indian isles are by coral reefs — commerce surrounds it with her surf. Right and left, the streets lead you toward the water. Its farthest downtown point is the Battery, where that noble mole, or seawall, is washed by waves and cooled by breezes that a few hours earlier were out of sight of land. Look at the crowds of water-gazers there."]};
+const fold = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+const href = id => '/reader?book=' + id + '&chapter=1';
+const q = document.getElementById('q'), list = document.getElementById('results');
+let hits = [], on = 0;
+function search(text) {
+  const words = fold(text).split(' ').filter(Boolean);
+  if (!words.length) return [];
+  return BOOKS.map(b => {
+    const t = fold(b.t), a = fold(b.a);
+    if (!words.every(w => t.includes(w) || a.includes(w))) return null;
+    const score = (t.startsWith(words[0]) || t.startsWith('the ' + words[0]) ? 0 : t.includes(words[0]) ? 1 : 2);
+    return { b, score };
+  }).filter(Boolean).sort((x, y) => x.score - y.score).slice(0, 6).map(x => x.b);
+}
+function draw() {
+  const text = q.value.trim();
+  if (!text) { list.hidden = true; return; }
+  hits = search(text); on = 0;
+  list.innerHTML = hits.length
+    ? hits.map((b, i) => '<li><a class="' + (i === 0 ? 'on' : '') + '" href="' + href(b.id) + '"><img src="/covers/v2/' + b.id + '.webp" alt="" loading="lazy"><span><b></b><small></small></span></a></li>').join('')
+    : '<li class="none">Not in the library yet. <a href="/byob">Add it from Project Gutenberg or your own file</a>.</li>';
+  hits.forEach((b, i) => { const a = list.children[i]; a.querySelector('b').textContent = b.t; a.querySelector('small').textContent = b.a; });
+  list.hidden = false;
+}
+q.addEventListener('input', draw);
+q.addEventListener('focus', draw);
+q.addEventListener('keydown', e => {
+  if (list.hidden || !hits.length) return;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault(); on = (on + (e.key === 'ArrowDown' ? 1 : hits.length - 1)) % hits.length;
+    [...list.querySelectorAll('a')].forEach((a, i) => a.classList.toggle('on', i === on));
+  }
+});
+document.getElementById('picker').addEventListener('submit', e => {
+  e.preventDefault();
+  if (hits.length && !list.hidden) location.href = href(hits[on].id); else if (!q.value.trim()) q.focus();
+});
+document.addEventListener('click', e => { if (!e.target.closest('#picker')) list.hidden = true; });
+if (matchMedia('(max-width: 640px)').matches) q.placeholder = 'Find a book or author';
+const sheet = document.getElementById('sheet');
+document.querySelectorAll('.seg button').forEach(button => button.addEventListener('click', () => {
+  const edition = button.dataset.edition;
+  sheet.dataset.edition = edition;
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+  document.getElementById('p1').innerHTML = TEXT[edition][0];
+  document.getElementById('p2').innerHTML = TEXT[edition][1];
+}));
+</script>
+</body>
+</html>
