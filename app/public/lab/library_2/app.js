@@ -370,7 +370,7 @@ let resolveBookAnimation,resolveTourAnimation,closing=false;
 const lowMemoryOpen=(()=>{try{const memory=navigator.deviceMemory;if(typeof memory==='number')return memory<=2;const ua=navigator.userAgent||'',w=Math.min(screen.width,screen.height),h=Math.max(screen.width,screen.height);if(/iPhone|iPod/.test(ua))return w<=375&&h<=667;if(/iPad/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1))return w<=810&&h<=1080;}catch{}return false;})();
 function animateBook(to){if(bookAnim)cancelAnimationFrame(bookAnim);resolveBookAnimation?.();const from=bookProgress,start=performance.now(),duration=reduced.matches||lowMemoryOpen?0:(to?1500:650)*Math.abs(to-from);return new Promise(resolve=>{resolveBookAnimation=resolve;function frame(now){const t=duration?clamp((now-start)/duration,0,1):1;drawBook(t===1?to:mix(from,to,t));if(t<1)bookAnim=requestAnimationFrame(frame);else{bookAnim=null;resolveBookAnimation=null;resolve();}}bookAnim=requestAnimationFrame(frame);});}
 
-const shelleyBiography='Mary Shelley’s mother, feminist Mary Wollstonecraft, died days after her birth. She ran off with Percy Bysshe Shelley at sixteen and began <i>Frankenstein</i> at eighteen, inspired by Lord Byron’s ghost-story challenge.';
+const shelleyBiography='Daughter of Mary Wollstonecraft, she began <i>Frankenstein</i> at eighteen after Byron’s ghost-story challenge.';
 function appendEditorialText(target,copy){target.replaceChildren();String(copy||'').split(/(\*[^*]+\*)/g).forEach(part=>{target.append(part.startsWith('*')&&part.endsWith('*')?el('em','',part.slice(1,-1)):document.createTextNode(part));});}
 function setSlip(book){
  const mary=book.id==='frankenstein',flap=book.authorFlap;
@@ -380,18 +380,6 @@ function setSlip(book){
  $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
  if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
  if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.preface[0]||'';
- clampSlipCopy();
-}
-// A long biography pushed the edition choice below the fold (user test, 12 Nov 2026): the flap shows about three
-// lines and a quiet More, so Your edition is in view on arrival. The toggle is drawn only when the text is cut.
-let slipCopyObserver=null;
-function clampSlipCopy(){
- const copy=$('slip-copy');let more=$('slip-more');
- if(!more){more=el('button','slip-more');more.id='slip-more';more.type='button';more.setAttribute('aria-controls','slip-copy');more.dataset.testid='slip-more';copy.after(more);more.onclick=()=>{const open=copy.classList.toggle('is-clamped');more.textContent=open?'More':'Less';more.setAttribute('aria-expanded',String(!open));};}
- copy.classList.add('is-clamped');more.textContent='More';more.setAttribute('aria-expanded','false');
- const fit=()=>{if(!copy.classList.contains('is-clamped'))return;more.hidden=copy.scrollHeight<=copy.clientHeight+1;};
- more.hidden=true;requestAnimationFrame(fit);
- if(!slipCopyObserver&&typeof ResizeObserver==='function'){slipCopyObserver=new ResizeObserver(()=>fit());slipCopyObserver.observe(copy);}
 }
 let introExpanded=false,introProgress=null;
 
