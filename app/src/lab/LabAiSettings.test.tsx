@@ -72,38 +72,24 @@ describe('AI settings: the dialog (General and This book, 11 Nov 2026)', () => {
     expect(after.books).toEqual({ bible: { ask: 'detailed' } })
   })
 
-  it('This book: each row follows General until set; the book’s own length rides on that book’s requests only', () => {
-    setAiSettingsBook('bible')
-    render(<LabAiSettings onClose={() => {}} book={bible} />)
-    fireEvent.click(screen.getByTestId('ai-settings-tab-book'))
-    expect(screen.getByTestId('ai-settings-book-scope').textContent).toBe('The Bible. Anything set here applies to this book only.')
-    for (const row of ['explain', 'ask', 'primer', 'summary'] as const) expect(screen.getByTestId(`ai-book-length-${row}-same`).getAttribute('aria-pressed')).toBe('true')
-    expect(screen.getByLabelText('Explain: Same as General')).toBeTruthy()
-    fireEvent.click(screen.getByTestId('ai-book-length-explain-detailed'))
-    expect(readAiSettings().books).toEqual({ bible: { explain: 'detailed' } })
-    expect(aiPrefsFor('explain')).toEqual({ length: 'detailed', row: 'explain' })
-    expect(aiPrefsFor('ask')).toEqual({ length: 'standard', row: 'ask' })
-    // Another book, and no book, read General.
-    expect(aiPrefsFor('explain', 'odyssey')).toEqual({ length: 'standard', row: 'explain' })
-    setAiSettingsBook(null)
-    expect(aiPrefsFor('explain')).toEqual({ length: 'standard', row: 'explain' })
-    fireEvent.click(screen.getByTestId('ai-book-length-explain-same'))
-    expect(readAiSettings().books).toEqual({})
-  })
-
-  it('This book holds the reading angle; "Reset this book" clears its lengths and keeps the angle', () => {
+  it('This book holds only the reading angle, with what it is for; lengths are General’s (Anders, 12 Nov 2026)', () => {
     writeReadingAngle('bible', 'How the Old and New Testament point to each other')
-    writeAiSettings({ ...defaultAiSettings(), books: { bible: { primer: 'brief' }, odyssey: { ask: 'brief' } } })
+    // A book length saved before 12 Nov 2026 no longer applies: nothing hidden overrides General.
+    writeAiSettings({ ...defaultAiSettings(), books: { bible: { primer: 'brief' } } })
+    setAiSettingsBook('bible')
     render(<LabAiSettings onClose={() => {}} book={bible} tab="book" focusAngle />)
     expect(screen.getByRole('tab', { name: 'This book' }).getAttribute('aria-selected')).toBe('true')
+    expect(screen.getByTestId('ai-settings-book-scope').textContent).toBe('The Bible. Anything set here applies to this book only.')
+    const panel = screen.getByTestId('ai-settings-book')
+    expect(panel.querySelector('[data-testid^="ai-book-length-"]')).toBeNull()
+    expect(screen.queryByTestId('ai-settings-reset-book')).toBeNull()
+    expect(panel.textContent).toContain(AI_SETTINGS_COPY.readingAngleHint)
+    expect(aiPrefsFor('primer')).toEqual({ length: 'standard', row: 'primer' })
     const angle = screen.getByTestId('ai-settings-angle') as HTMLTextAreaElement
     expect(angle.value).toBe('How the Old and New Testament point to each other')
     // A "Set reading angle" entry lands with the caret in the field.
     expect(document.activeElement).toBe(angle)
     fireEvent.change(angle, { target: { value: 'Who is speaking' } })
-    expect(readReadingAngle('bible')).toBe('Who is speaking')
-    fireEvent.click(screen.getByTestId('ai-settings-reset-book'))
-    expect(readAiSettings().books).toEqual({ odyssey: { ask: 'brief' } })
     expect(readReadingAngle('bible')).toBe('Who is speaking')
     // No dictation on a page without it.
     expect(screen.queryByTestId('ai-settings-angle-mic')).toBeNull()
