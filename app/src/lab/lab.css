@@ -7398,7 +7398,7 @@ html[data-eink="true"] .lab[data-chrome-version="v2"] .lab-audio-handle::before 
 /* One sense is not numbered: its meaning, then its sense here, each a paragraph flush with the headword. */
 .lab[data-chrome-version="v2"] .popup-define-result > p.popup-define-list { margin:0; padding-left:0; list-style:none; }
 /* "tetrarch (noun)": the part of speech after the word, quieter than it. */
-.lab[data-chrome-version="v2"] .popup-define-pos { color:var(--lab-ink-muted); font-style:normal; white-space:nowrap; }
+.lab[data-chrome-version="v2"] .popup-define-pos { color:var(--lab-ink-muted); font-style:normal; font-size:0.8em; white-space:nowrap; }
 /* The header's own controls sit beside the title, so the old popup's room for a floating More button is not needed. */
 .lab[data-chrome-version="v2"] .selection-popup.is-compact .popup-define .lab-reader-window-title.popup-define-word { padding-right:0; }
 .lab[data-chrome-version="v2"] .selection-popup.is-lab.is-dark .popup-define-pos { color:var(--lab-pbar-soft); }
