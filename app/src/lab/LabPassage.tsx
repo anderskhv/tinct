@@ -28,7 +28,7 @@ import { hearingFollowPaintActive, hearingReadingPageLines, hearingStageLines, i
 import type { ChapterHearingPage } from './labHearing'
 import { followGranularity, followWordRole, type FollowParagraph, type FollowTarget } from './labFollow'
 import { presentationLineRanges, verseLineStarts, verseSpeakerEnd, isInternalVerseBreak } from './labVerseLines'
-import { labLongPressCancelledByMove, labLongPressMs, labNativeSelectionBlocksTurn, labPassageBlocksNativeTouch, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipePageDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
+import { labLongPressCancelledByMove, labLongPressMs, labNativeSelectionBlocksTurn, labPassageBlocksNativeTouch, labSelectionEdgeArmedAt, labSelectionEdgeDirection, labSwipeTurnDirection, labTapPageDirection, labTapTurnAllowed, type LabPageTurnDirection, type LabTapTurnZones } from './labChrome'
 
 /** Drag-to-select page turns: the strip at the top and bottom of the page
  *  that turns it, and how long the finger rests there first. 24px / 700ms
@@ -111,7 +111,12 @@ interface LabPassageProps {
    * previous/next buttons instead, 'touch' on a machine that has both.
    */
   tapZones?: LabTapTurnZones
-  /** Compare's whole-page swap. A vertical swipe, and nothing that says so. */
+  /**
+   * The paginated phone page also turns on a vertical swipe: up is the next
+   * page, down the previous one, through the same `onPageTurn` as a sideways
+   * swipe. Never on a passage inside a scroller (`touchScroll`).
+   */
+  verticalSwipeTurns?: boolean
   onToggleControls?: () => void
   /**
    * Identity of the reader typography (font, size, alignment, spacing,
@@ -516,6 +521,7 @@ export function LabPassage({
   onSelectionPageTurn,
   onSelectingChange,
   tapZones = 'all',
+  verticalSwipeTurns = false,
   onToggleControls,
   layoutKey = '',
   onOpenFigure,
@@ -585,6 +591,8 @@ export function LabPassage({
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
   const [endOverflow, setEndOverflow] = useState(false)
+  // Up/down turns only on a paginated single page that turns at all.
+  const verticalPageSwipe = verticalSwipeTurns && !touchScroll && !desktopSpread && !!onPageTurn
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
   const appliedSelection = !localSelecting && !!selectingRange && (selectingComparison ? compareHighlights ?? [] : highlights ?? []).some(mark => mark.chapterNumber === chapterNumber
@@ -953,7 +961,7 @@ export function LabPassage({
       return
     }
     const swipe = onPageTurn && !selectingRange && !drag.selecting && !nativeSelecting
-      ? labSwipePageDirection(deltaX, deltaY)
+      ? labSwipeTurnDirection({ deltaX, deltaY, durationMs: duration, vertical: verticalPageSwipe, pointerType: drag.pointerType })
       : null
     const direction = swipe ?? tap
     if (direction != null) {
@@ -1139,6 +1147,7 @@ export function LabPassage({
         appliedSelection ? 'has-applied-selection' : '',
         !hearing && onSelectRange ? 'owns-text-selection' : '',
         touchScroll ? 'is-touch-scroll' : '',
+        verticalPageSwipe ? 'has-vertical-swipe' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
         (followActive || inlineHearingPaint) && linesFollow.kind === 'paragraph' ? 'has-paragraph-follow' : '',
         inlineHearingPaint ? 'is-inline-hearing' : '',

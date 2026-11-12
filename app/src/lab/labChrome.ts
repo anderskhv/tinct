@@ -1067,6 +1067,47 @@ export function labSwipePageDirection(
 }
 
 /**
+ * The phone page's vertical page turn: swipe up for the next page, down for
+ * the previous one (Anders, 12 Nov 2026: a Kindle reader swiped up and
+ * nothing happened). Only a clearly vertical, quick swipe counts, so a
+ * diagonal or sideways swipe stays exactly what it was: sideways is
+ * `labSwipePageDirection`, and a swipe that is neither axis turns nothing.
+ * A slow drag is not a swipe (a long press there selects text instead).
+ */
+export const LAB_VERTICAL_SWIPE_MIN_PX = 40
+export const LAB_VERTICAL_SWIPE_RATIO = 1.5
+export const LAB_VERTICAL_SWIPE_MAX_MS = 700
+export function labVerticalSwipePageDirection(
+  deltaX: number,
+  deltaY: number,
+  durationMs: number,
+): LabPageTurnDirection | null {
+  if (!(durationMs <= LAB_VERTICAL_SWIPE_MAX_MS)) return null
+  if (Math.abs(deltaY) <= LAB_VERTICAL_SWIPE_MIN_PX) return null
+  if (Math.abs(deltaY) <= Math.abs(deltaX) * LAB_VERTICAL_SWIPE_RATIO) return null
+  return deltaY < 0 ? 1 : -1
+}
+
+/**
+ * The page turn a released swipe asks for, if any: sideways everywhere it is
+ * offered, up/down only where `vertical` is on (the paginated phone page,
+ * touch or pen; never a mouse, whose vertical drag selects text, and never a
+ * reader that scrolls).
+ */
+export function labSwipeTurnDirection(input: {
+  deltaX: number
+  deltaY: number
+  durationMs: number
+  vertical: boolean
+  pointerType?: string
+}): LabPageTurnDirection | null {
+  const sideways = labSwipePageDirection(input.deltaX, input.deltaY)
+  if (sideways != null) return sideways
+  if (!input.vertical || input.pointerType === 'mouse') return null
+  return labVerticalSwipePageDirection(input.deltaX, input.deltaY, input.durationMs)
+}
+
+/**
  * The page-turn zone a selection drag is in: the outer horizontal edges of a
  * desktop spread, the top and bottom of a phone page. Holding the finger there
  * extends the selection across the page.
