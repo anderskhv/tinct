@@ -38,7 +38,9 @@ function plain(text: string): string {
 /** An answer's bottom line: the first sentence of its first paragraph, as plain text. */
 export function answerLead(raw: string): string {
   const first = raw.trim().split(/\n{2,}/).find(block => block.trim()) ?? ''
-  return clampWords(plain(splitLead(plain(first.split('\n')[0] ?? '')).lead), MAX_LEAD)
+  const line = plain(first.split('\n')[0] ?? '')
+  // No clean first sentence: the line itself, clamped.
+  return clampWords(plain(splitLead(line).lead || line), MAX_LEAD)
 }
 
 /**

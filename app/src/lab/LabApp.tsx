@@ -266,10 +266,11 @@ import { MarginPhoneContext, catchUpAvailable, unitName, type MarginPhonePills }
 import { LabPhoneBar, lastHighlightColor, type PhoneMoreId } from './marginPhone/LabPhoneBar'
 import { LabPhoneCard, PhoneAnswer } from './marginPhone/LabPhoneCard'
 import { flashNotebookPassage } from './marginPhone/flashNotebookPassage'
-import { markPhoneCardPassage, type PhoneCardRange } from './marginPhone/phoneCardPassage'
+import { markPhoneCardPassage, onlyFieldEdits, type PhoneCardRange } from './marginPhone/phoneCardPassage'
+import { createDraftStore, WithDraft } from './labDraftStore'
 import { liveCardFollowupTurns, PHONE_CARD_NAMES, PhoneCharacterBody, PhoneFollowField, PhoneNoteBody, PhonePassageBody, PhoneQuizBody, PhoneStreamAnswer, PhoneTalkFrame, type PhoneCard, type PhonePassage } from './marginPhone/LabPhoneCards'
 import { contextualLookupPreview, parseContextualLookup } from '../components/reader/contextualLookup'
-import { ContextualLookupView, DefinitionFallback } from '../components/reader/DefinitionFallback'
+import { ContextualLookupView, DefinitionWithHeadword } from '../components/reader/DefinitionFallback'
 import './lab.css'
 
 const PHONE_QUERY = LAB_PHONE_QUERY
@@ -1130,7 +1131,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const measuredPaging = !continuousReader && (showPhoneChrome || desktopPaging) && browserHasNativePaging()
   const [desktopMeasuredKey, setDesktopMeasuredKey] = useState('')
   const [returnTo, setReturnTo] = useState<LabReturnTo>('reading')
-  const [draft, setDraft] = useState('')
+  // The composer draft lives outside this component's state, so a keystroke renders only the field (labDraftStore).
+  const [draftStore] = useState(() => createDraftStore())
+  const setDraft = draftStore.set
   const [askAttachment, setAskAttachment] = useState<{ bookId: string; text: string; figure?: LabFigure; sourceLocation?: { chapterNumber: number; chapterLabel: string; paragraphIndex: number } } | null>(null)
   // The figure card over the page (LabFigure.tsx); an overlay only, it never moves the reader.
   const [figureCard, setFigureCard] = useState<LabFigure | null>(null)
@@ -5253,8 +5256,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   const handleMic = useCallback(() => {
     deskDictationRef.current = null
-    dictation.toggle(draft)
-  }, [dictation, draft])
+    dictation.toggle(draftStore.get())
+  }, [dictation, draftStore])
   const dictateDeskAsk = useCallback((current: string, onText: (text: string) => void) => {
     if (dictation.state !== 'idle' && deskDictationRef.current) { dictation.stop(); deskDictationRef.current = null; return }
     deskDictationRef.current = onText
@@ -6015,7 +6018,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     setDesktopContinuationId(null)
     setChapterNotes(null)
     setDraft('')
-  }, [continuousReader, desktopOpenId, draft, closePhoneCard])
+  }, [continuousReader, desktopOpenId, closePhoneCard])
   useEffect(() => {
     if (!continuousReader || !phoneCard || !['note','chapter-note'].includes(phoneCard.kind)) return
     const timer = window.setTimeout(() => {
@@ -6374,7 +6377,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
 
   // The chat's thread and composer: the desktop panel, the phone's Chat sheet, or (margin mode) the Chat card.
   const askPaneElement = (
-          <LabAskPane
+          <WithDraft store={draftStore}>{draft => <LabAskPane
             focusTurnId={readingChatFocusTurn(ask.turns, contentsConversation)}
             onBackToContents={contentsConversation ? returnToContents : undefined}
             dictationState={dictation.state}
@@ -6408,7 +6411,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             minimized={!showPhoneChrome ? desktopChatMinimized : undefined}
             onMinimizedChange={!showPhoneChrome ? setDesktopChatMinimized : undefined}
 
-          />
+          />}</WithDraft>
   )
 
 
@@ -6434,13 +6437,13 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       requestAnimationFrame(() => handleTalk())
     }
     const follow = (passage: PhonePassage | null, placeholder?: string) => (
-      <><PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
+      <><PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }} onSend={text => sendPhoneFollow(passage, text)}
         onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(passage)} inputRef={phoneFieldRef} placeholder={placeholder} disabled={ask.typedLoading} /></>
     )
     const name = PHONE_CARD_NAMES[card.kind]
     if (card.kind === 'note' || card.kind === 'chapter-note') {
       return (
-        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField value={draft} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
+        <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} label={phoneCardLabel(name, card.kind === 'note' ? card.passage.chapterLabel : card.chapterLabel)} kind={card.kind} onClose={closePhoneCard} onDelete={() => deletePhoneCard(card)} deleteLabel={card.kind === 'note' ? 'Delete note' : 'Delete chapter note'} foot={continuousReader ? <PhoneFollowField draft={draftStore} onChange={setDraft} placeholder="Ask about this note" onSend={question => {
           const text = phoneNoteRef.current.trim()
           if (!text) return
           const openedAt = Date.now()
@@ -6459,7 +6462,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       const passage = card.passage ?? phoneChapterPassage()
       return (
         <ResponseCard {...(continuousReader ? { embedded: true } : {})} {...(sharedReader && !showPhoneChrome && 'passage' in card ? { passageText: card.passage?.text } : {})} {...(sharedReader && !showPhoneChrome ? { hasPassage: 'passage' in card && !!card.passage?.ranges?.length } : {})} {...(sharedReader && !showPhoneChrome && !card.passage && desktopQuizAnchorRef.current ? { getAnchor: () => desktopQuizAnchorRef.current } : {})} label={phoneCardLabel(name, card.chapterLabel)} kind="quiz" onClose={closePhoneCard} onDelete={closePhoneCard}>
-          <PhoneQuizBody
+          <WithDraft store={draftStore}>{draft => <PhoneQuizBody
             request={onDelta => phoneCompanion(passage, 'quiz', onDelta)}
             mark={(question, answer, turns) => phoneCompanion({ ...passage, text: '' }, 'quiz_check', () => {}, { question: question.q, expected: question.answer, why: question.why, answer, turns })}
             onComplete={summary => {
@@ -6488,7 +6491,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 requestAnimationFrame(() => handleTalk())
               })
             }}
-            thread={pillCardThread(card.openedAt)} />
+            thread={pillCardThread(card.openedAt)} />}</WithDraft>
           {sharedReader && cardSaveWarning && <p role="status">This quiz is here for now. It could not be saved on this device. Copy it before leaving the reader.</p>}
         </ResponseCard>
       )
@@ -6521,8 +6524,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const lead = card.kind === 'ask' ? null
       : card.kind === 'define' ? (
         <div className="lab-pcard-define" data-testid="lab-phone-define">
-          {!/\s/.test(card.word.trim()) && <p className="lab-pcard-headword popup-define-word">{define.result?.word || card.word}</p>}
-          <DefinitionFallback key={card.word} word={card.word} namesakes={card.namesakes}
+          <DefinitionWithHeadword key={card.word} className="lab-pcard-headword popup-define-word" headword={!/\s/.test(card.word.trim()) ? define.result?.word || card.word : undefined} word={card.word} namesakes={card.namesakes}
             request={(onDelta, word) => phoneCompanion({ ...card.passage, text: word }, 'define', onDelta).then(answer => { keep(answer); return answer })}
             dictionaryDefinitions={define.loading ? undefined : define.result?.definitions} />
         </div>
@@ -6549,7 +6551,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // first (as Chat from the card did); Talk starts the voice conversation about it.
   const pillCardKeptRef = useRef<string | null>(null)
   const pillCardFollow = (key: string, keep: () => boolean, talk: () => void) => (
-    <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }}
+    <PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }}
       onSend={question => {
         if (pillCardKeptRef.current !== key && keep()) pillCardKeptRef.current = key
         dictation.stop()
@@ -6658,7 +6660,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     content: <LabDesktopCard embedded label={item.card!.kind} kind={item.card!.kind} onClose={() => setDesktopOpenId(null)}>
       {cardShownMessages(item.card!.kind, item.messages).map(message => <div key={message.id} className={message.role === 'user' ? 'lab-pcard-you' : 'lab-pcard-answer'}>{item.card!.kind === 'define' && message.role === 'assistant' ? <ContextualLookupView answer={parseContextualLookup(message.content)} /> : message.role === 'assistant' ? <PhoneAnswer text={message.content} plain={item.card!.kind === 'simplify'} /> : <LabInlineMarkdown>{message.content}</LabInlineMarkdown>}</div>)}
       {desktopOpenId === item.id && <PhonePassageBody turns={ask.turns.filter(turn => !turn.shownExplanation && turn.conversationId === item.id && (turn.timestamp ?? 0) > item.endTimestamp)} pending={ask.typedLoading} />}
-      <PhoneFollowField value={desktopOpenId === item.id ? draft : ''} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
+      <PhoneFollowField draft={draftStore} active={desktopOpenId === item.id} onChange={setDraft} onSend={question => discussSavedCard(item.id, question, item.card!.text)} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => { ask.primeVoice(); requestAnimationFrame(() => handleTalk()) }} disabled={ask.typedLoading} />
     </LabDesktopCard>,
   })) : []
   if (continuousReader) for (const live of desktopLiveCards) {
@@ -6801,7 +6803,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const title = book.bookTitle || 'This book'
     const close = () => { setDesktopBookCards(current => current.filter(item => item !== kind)); if (desktopOpenId === id) setDesktopOpenId(null) }
     const keep = (text: string) => { if (!text) return false; ask.keepExplanation(`${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, text, Math.max(0, placeRef.current.paragraphIndex), { bookId: book.bookId || 'bible', chapterNumber: book.chapterNumber }); return true }
-    const follow = (shown: () => string) => <PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft}
+    const follow = (shown: () => string) => <PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft}
       onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
       onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
     desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: sourceForMargin(undefined), order: kind === 'primer' ? -9 : -8, free: true,
@@ -6825,7 +6827,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopChapterCards(current => current.filter(item => unitRailId(item) !== id)); setDesktopOpenId(null) }, free: true,
       content: <LabChapterNotesSheet embedded request={notes.request} title={notes.title} own={notes.own} onClose={() => setDesktopOpenId(null)} onChat={(title, beats) => continueChapterNotes('chat', title, beats)} onTalk={(title, beats) => continueChapterNotes('talk', title, beats)} readToken={readSupabaseAccessToken}
         onReady={beats => saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats), notes.request.chapterNumber)}
-        follow={beats => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
+        follow={beats => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { if (beats) saveUnitRailAnswer(id, kind, chapterNotesText(notes.title, beats)); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueChapterNotes('talk', notes.title, beats)} disabled={ask.typedLoading} /></>} /> })
   }
   if (continuousReader && desktopCatchup && !userBook) {
     const id = `mc_unit_catchup_${book.chapterNumber}_${readerEditionKey}`
@@ -6835,7 +6837,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       content: <LabCatchUpSheet embedded bookId={book.bookId || 'bible'} editionKey={readerEditionKey} bookTitle={book.bookTitle} chapters={book.chapters} sections={book.sections} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={readSupabaseAccessToken}
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)}
         onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
-        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
@@ -6851,7 +6853,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       onToggle: () => toggleMargin(id), onDelete: () => { const saved = marginConversations.find(item => item.id === id); if (saved) deleteMarginConversation(saved); setDesktopCatchup(false); setDesktopOpenId(null) },
       content: <LabOwnCatchUpSheet embedded bookHex={userBook.hex} bookTitle={book.bookTitle} chapters={userBook.edition.chapters} chapterNumber={book.chapterNumber} paragraphIndex={0} completed={false} readToken={ownCatchUpToken}
         onClose={() => setDesktopOpenId(null)} onChat={text => continueCatchUp('chat', text)} onTalk={text => continueCatchUp('talk', text)} onReady={text => saveUnitRailAnswer(id, 'catchup', text)}
-        follow={shown => <>{unitRailThread(id)}<PhoneFollowField value={desktopOpenId === id ? draft : ''} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
+        follow={shown => <>{unitRailThread(id)}<PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft} onSend={question => { saveUnitRailAnswer(id, 'catchup', shown()); discussSavedCard(id, question) }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} /></>} /> })
   }
   const openBlankMarginNote = ({ clientY }: { clientY: number; sourceY: number }) => {
     if (desktopOpenId) { toggleMargin(desktopOpenId, desktopLiveCards.find(card => desktopCardId(card) === desktopOpenId)); return }
@@ -6880,7 +6882,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     paint()
     let frame = 0
-    const observer = new MutationObserver(() => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; paint() }) })
+    const observer = new MutationObserver(records => { if (!frame && !onlyFieldEdits(records)) frame = requestAnimationFrame(() => { frame = 0; paint() }) })
     observer.observe(marginHost, { childList: true, subtree: true })
     const start = (event: PointerEvent) => { marginPointerDownRef.current = { x: event.clientX, y: event.clientY, cardId: (event.target as Element)?.closest<HTMLElement>('[data-source-card-id]')?.dataset.sourceCardId || '' } }
     const click = (event: MouseEvent) => {
@@ -8033,7 +8035,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 turns: [{ role: 'assistant', content: `${shown.name}: ${shown.subtitle}\n\n${shown.body}` }], at, u: Date.now() })
               return ask.revealConversation(conversationId)
             }
-            return <PhoneFollowField value={draft} onChange={text => { dictation.stop(); setDraft(text) }}
+            return <PhoneFollowField draft={draftStore} onChange={text => { dictation.stop(); setDraft(text) }}
               onSend={question => {
                 const saved = keep()
                 dictation.stop()
@@ -8087,7 +8089,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             rememberNotebookOrigin()
             openContentsPassage({ chapterNumber: saved.chapterNumber, paragraphIndex: saved.card?.anchor?.paragraphIndex ?? saved.paragraphIndex ?? 0, wordIndex: saved.card?.anchor?.fromWord ?? 0 }, undefined, false, saved.card?.anchor)
           }}>Show passage</button>
-          {saved.card?.kind !== 'quiz' && <PhoneFollowField value={draft} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
+          {saved.card?.kind !== 'quiz' && <PhoneFollowField draft={draftStore} onChange={setDraft} disabled={ask.typedLoading} onSend={question => {
             ask.revealConversation(saved.id)
             void ask.sendTyped(question, undefined, undefined, { conversationId: saved.id, highlightedText: saved.card?.text,
               onAccepted: () => { setNotebookCard(null); setContentsConversation(saved); setDesktopContinuationId(saved.id); setDraft(''); setPhoneAskOpen(showPhoneChrome); setDesktopAskOpen(!showPhoneChrome) } })

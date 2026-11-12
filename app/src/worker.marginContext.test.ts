@@ -15,7 +15,7 @@ vi.mock('./companion/marginRoutes', async importOriginal => {
 import { FACTCHECK_OPENING_ROUTE, MARGIN_HAIKU_MODEL, MARGIN_ROUTES, MARGIN_SONNET_MODEL } from './companion/marginRoutes'
 import { MARGIN_DOCUMENT_CHARS, MARGIN_RULES, buildMarginPrefixParts, marginRules, parseMarginDocument } from './companion/marginContext'
 import { PASSAGE_IMAGE_LINE, PDF_EXPLAIN_FORMAT } from './companion/marginPrompts'
-import { CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
+import { CONTEXTUAL_LOOKUP_DEFINITION_LINE, CONTEXTUAL_LOOKUP_GROUNDING_LINE } from './components/reader/contextualLookup'
 import { LAB_ASK_CHECKED_SPECIFICS_RULE, LAB_ASK_GROUND_FIRST_RULE, LAB_ASK_LENGTH_RULE, LAB_ASK_RECHECK_RULE } from './companion/labAskPrompt'
 import { createAllowanceGate } from './worker/lib/aiAllowance'
 import { anthropicCostUsd } from './worker/lib/aiUsage'
@@ -657,6 +657,12 @@ describe('the book reader is unchanged', () => {
       unchanged = { ...unchanged, max_tokens: 1024 }
     }
     if (name === 'define') {
+      // Nov12: a word's definition is the part of speech, one short sentence and its sense here (Anders, "tetrarch");
+      // that template and its one line are the only change.
+      const definitionNow = `or {"kind":"definition","definition":"Part of speech. One short sentence of meaning. Here, its sense in this passage."}\n${CONTEXTUAL_LOOKUP_DEFINITION_LINE}\n`
+      const definitionBefore = 'or {"kind":"definition","definition":"Part of speech. Concise meaning."}\n'
+      expect(JSON.stringify(unchanged.messages)).toContain(JSON.stringify(definitionNow).slice(1, -1))
+      unchanged = { ...unchanged, messages: (unchanged.messages as Array<{role: string; content: unknown}>).map(message => typeof message.content === 'string' ? { ...message, content: message.content.replace(definitionNow, definitionBefore) } : message) }
       // Oct27: quick lookups are now at most40 words; all other request fields remain frozen.
       expect(sha(unchanged)).toBe('32025d2cec69540ed2f2d52e0cee46c9a3f35b9bf8ded220215e100e91c85bd5')
       const brevity = 'Keep this a quick lookup: at most 40 words of explanation in one or two short sentences. Give only the identity or meaning needed here; leave extended background for a follow-up question.\n'

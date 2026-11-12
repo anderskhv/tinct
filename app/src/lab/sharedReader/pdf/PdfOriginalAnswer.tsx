@@ -1,5 +1,5 @@
 import { ContextualLookupView } from '../../../components/reader/DefinitionFallback'
-import { parseContextualLookup, parsePartialContextualLookup } from '../../../components/reader/contextualLookup'
+import { parseContextualLookup, parsePartialContextualLookup, splitDefinition } from '../../../components/reader/contextualLookup'
 import { parsePrimer } from '../../../companion/primerParse'
 import { LabInlineMarkdown } from '../../LabMarkdown'
 import { LabChapterNotesEntries } from '../../LabChapterNotesSheet'
@@ -16,7 +16,7 @@ export function pdfOriginalAnswerPreview(kind: string, raw: string): string {
   }
   if (kind === 'define') {
     const answer = parseContextualLookup(raw)
-    return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : answer.definition : 'Open saved definition'
+    return answer ? answer.kind === 'person' ? answer.subtitle : answer.kind === 'place' ? answer.description : splitDefinition(answer.definition).sense : 'Open saved definition'
   }
   // A plain answer folds to its bottom line, whole (cardPreview.ts).
   return /^[\s]*(?:\{|\[|```)/.test(raw) ? 'Open saved answer' : answerLead(raw)

@@ -4,6 +4,7 @@ import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
 import { phoneCardExpectedHeight, phoneCardHoldStep } from './phoneCardHeight'
+import { leadSentenceEnd } from './leadSentence'
 import './marginPhone.css'
 
 /** The margin reader's card icons (public/lab/addbook/js/margin.js ICONS), drawn on an 18px grid. */
@@ -264,11 +265,15 @@ export function phoneCardRoom(
   return { top: Math.round(top), height: Math.round(visible), keyboard: typing || layout - visible > KEYBOARD_MIN_PX }
 }
 
-/** The first sentence of the first paragraph, and what follows it. */
+/**
+ * The first sentence of the first paragraph, and what follows it (leadSentence.ts says where a sentence ends).
+ * No clean first sentence (a bracket or quotation left open): no lead, the paragraph is all tail.
+ */
 export function splitLead(paragraph: string): { lead: string; tail: string } {
-  const match = /^(.+?[.!?][”"’')\]]*)(\s+|$)/s.exec(paragraph.trim())
-  if (!match) return { lead: paragraph.trim(), tail: '' }
-  return { lead: match[1], tail: paragraph.trim().slice(match[0].length).trim() }
+  const text = paragraph.trim()
+  const end = leadSentenceEnd(text)
+  if (end === null) return { lead: '', tail: text }
+  return { lead: text.slice(0, end).trim(), tail: text.slice(end).trim() }
 }
 
 /**
@@ -283,10 +288,10 @@ export function PhoneAnswer({ text, plain = false }: { text: string; plain?: boo
   // (Anders, 11 Nov 2026: Simplify bolded an arbitrary first sentence).
   if (plain) return <div className="lab-pcard-answer" data-testid="lab-phone-card-answer" data-plain="true"><LabMarkdown>{blocks.map((block, index) => index ? block : block.replace(/^\*\*(.+)\*\*$/s, '$1')).join('\n\n')}</LabMarkdown></div>
   const { lead, tail } = splitLead(blocks[0].replace(/^\*\*(.+)\*\*$/s, '$1'))
-  const more = tail || blocks.length > 1
+  const more = !!lead && (tail || blocks.length > 1)
   return (
     <div className="lab-pcard-answer" data-testid="lab-phone-card-answer">
-      <p>{more ? <strong className="lab-pcard-lead"><LabInlineMarkdown>{lead.replace(/\*\*/g, '')}</LabInlineMarkdown></strong> : <LabInlineMarkdown>{lead}</LabInlineMarkdown>}{tail ? <> <LabInlineMarkdown>{tail}</LabInlineMarkdown></> : null}</p>
+      <p>{more ? <strong className="lab-pcard-lead"><LabInlineMarkdown>{lead.replace(/\*\*/g, '')}</LabInlineMarkdown></strong> : lead ? <LabInlineMarkdown>{lead}</LabInlineMarkdown> : null}{tail ? <>{lead ? ' ' : null}<LabInlineMarkdown>{tail}</LabInlineMarkdown></> : null}</p>
       {blocks.length > 1 && <LabMarkdown>{blocks.slice(1).join('\n\n')}</LabMarkdown>}
     </div>
   )

@@ -3,6 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type Muta
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError, LabChatError } from '../labCompanion'
 import { LAB_COPY } from '../labCopy'
+import { useDraft, type DraftStore } from '../labDraftStore'
 import { PHONE_CARD_BUSY_ATTR, PhoneAnswer, PhoneFollow, PhoneWait, type PhoneFollowProps } from './LabPhoneCard'
 import type { PhoneCardRange } from './phoneCardPassage'
 import type { CharacterSelection, NamesakeNotice, ReleasedCard } from '../../services/characters/characterCards'
@@ -147,8 +148,20 @@ export function PhonePassageBody({ lead, turns, pending }: { lead?: ReactNode; t
   )
 }
 
-export function PhoneFollowField(props: PhoneFollowProps) {
-  return <PhoneFollow {...props} />
+/**
+ * The follow-up field with its draft: given as `value`, or read from the reader's draft store (`draft`), so a
+ * keystroke renders this field and not the reader around it (labDraftStore). `active` false: another card's
+ * field, shown empty.
+ */
+export function PhoneFollowField(props: PhoneFollowProps | (Omit<PhoneFollowProps, 'value'> & { draft: DraftStore; active?: boolean })) {
+  if (!('draft' in props)) return <PhoneFollow {...props} />
+  const { draft, active, ...rest } = props
+  return <StoreFollow store={draft} active={active !== false} {...rest} />
+}
+
+function StoreFollow({ store, active, ...rest }: Omit<PhoneFollowProps, 'value'> & { store: DraftStore; active: boolean }) {
+  const value = useDraft(store)
+  return <PhoneFollow {...rest} value={active ? value : ''} />
 }
 
 interface QuizQuestion { q: string; answer: string; why?: string }

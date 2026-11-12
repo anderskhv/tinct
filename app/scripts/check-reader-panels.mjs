@@ -297,7 +297,9 @@ async function run(engine,name,phone) {
     await lookupWord.click()
     await page.getByText(definition,{exact:true}).waitFor({timeout:10000})
     const definePanel=sharedPhone?page.locator('[data-testid="lab-phone-card"][data-kind="define"]'):page.locator('.popup-define')
-    assert.equal(await definePanel.locator('.popup-define-result ol li').count(),1)
+    // One sense is shown unnumbered (Anders, 12 Nov 2026): no list, one meaning paragraph.
+    assert.equal(await definePanel.locator('.popup-define-result ol').count(),0)
+    assert.equal(await definePanel.locator('[data-testid="popup-define-single"] .popup-define-sense').count(),1)
     if(sharedPhone) {
       assert.equal(await definePanel.getByTestId('lab-phone-define').locator('.lab-pcard-headword').count(),1,'the lookup word heads the Define card')
       assert.match(await definePanel.getByTestId('lab-phone-card-label').innerText(),/^Define · /)

@@ -5,6 +5,7 @@ import { PhoneIcon } from '../marginPhone/LabPhoneCard'
 import type { CardBox } from './desktopCardPlace'
 import { clampWords } from './cardPreview'
 import './sourceMarginRail.css'
+import { onlyFieldEdits } from '../marginPhone/phoneCardPassage'
 
 export interface SourceMarginEntry {
   id: string
@@ -154,7 +155,7 @@ export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer
       for (const el of host.querySelectorAll<HTMLElement>('.continuous-reader-window, .pdf-original__page, .pdf-original__pages, section[data-card-id]')) observer?.observe(el)
     }
     observeGeometry()
-    const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(() => { observeGeometry(); schedule() })
+    const mutation = typeof MutationObserver === 'undefined' ? null : new MutationObserver(records => { if (onlyFieldEdits(records)) return; observeGeometry(); schedule() })
     // A page marked drawn (data-ready) is often the last change: an entry found only on a drawn page (a chapter's
     // actions) waited for it, and the CI release of 3 Nov 2026 rolled back on that race.
     mutation?.observe(host, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-ready'] })
