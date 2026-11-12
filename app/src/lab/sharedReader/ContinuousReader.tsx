@@ -5,6 +5,7 @@ import { tokenizeHearingWords } from '../labHearing'
 import { buildHighlightRange } from '../labHighlights'
 import { type ContinuousReaderAnchor, type ContinuousReaderWindow } from './continuousReaderWindow'
 import type { ContinuousReaderEpoch } from './continuousReaderEpoch'
+import { useReaderScrollKeys } from './readerScrollKeys'
 import './continuousReader.css'
 
 type Passage = ComponentProps<typeof LabPassage>
@@ -283,6 +284,8 @@ export function ContinuousReader({ passage, epoch, anchor, onVisible, onLanded, 
     return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', browse, true); host.removeEventListener('touchstart', browse, true) }
   }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
+  // Arrow, Page, Space, Home and End scroll the chapter as they scroll a page, wherever focus rests (12 Nov 2026).
+  useReaderScrollKeys(hostRef, { browse: userBrowse })
   // A mouse drag can begin on paper outside LabPassage. Let the browser
   // select naturally, then translate only this reader's source words into the
   // same range used by drags that began on a word.

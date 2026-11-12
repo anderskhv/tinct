@@ -10,6 +10,7 @@ import type { ContinuousReaderEpoch } from './continuousReaderEpoch'
 import { bookScrollMounted, chapterAtReadingLine, chapterWordEstimate, type BookScrollBlock, type BookScrollUnit } from './bookScroll'
 import type { BookScrollChapterText } from './useBookScrollChapters'
 import type { FollowTarget } from '../labFollow'
+import { useReaderScrollKeys } from './readerScrollKeys'
 import './continuousReader.css'
 import './bookScroll.css'
 
@@ -671,6 +672,18 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', browse, true); host.removeEventListener('touchstart', browse, true) }
   }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
+  // Arrow, Page, Space, Home and End scroll the book as they scroll a page, wherever focus rests (12 Nov 2026).
+  // Home and End go to the start and end of the chapter on the reading line, not of the whole book.
+  useReaderScrollKeys(hostRef, {
+    browse: () => { adoptedHold.current = false; userBrowse() },
+    edge: (which, host) => {
+      const chapter = chapterAtReadingLine(blocks(), host.scrollTop + lineOffset(host)) ?? liveRef.current
+      const node = blockNode(chapter)
+      if (!node) return null
+      const top = node.getBoundingClientRect().top - host.getBoundingClientRect().top + host.scrollTop
+      return which === 'start' ? top : Math.max(top, top + node.offsetHeight - host.clientHeight)
+    },
+  })
 
   // A card held the reader's chapter and is closed now: the chapter at the reading line becomes the reader's once the
   // page rests, as it would have when the scrolling did.
