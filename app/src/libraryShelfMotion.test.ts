@@ -168,7 +168,8 @@ describe('every removal path uses the motion', () => {
     // Adding several own books at once (20261109bulk) changed styles.css (the queue's rows).
     // The author's biography cut to about three lines with a More (20261112bio) changed app.js and intro-review.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain('app.js?v=20261112bio')
+    // "Your edition" showing the edition Begin reading opens (20261112pref) changed app.js alone.
+    expect(lib('index.html')).toContain('app.js?v=20261112pref')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261109bulk')

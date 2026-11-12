@@ -290,6 +290,46 @@ export async function introductionProgress(bookId: string): Promise<{ chapterNum
 }
 
 /**
+ * The edition "Begin reading" opens, the one rule for readerDestination and
+ * the introduction's "Your edition" picker: an explicit pick, else the saved
+ * place's edition, else "New books open in" (and Danish reading languages)
+ * for a book this reader has never opened, else the introduction's default,
+ * else the approved default.
+ */
+async function openingEdition(
+  bookId: string,
+  preferredEdition?: string | null,
+  choice?: { explicit?: boolean },
+) {
+  await ensureNativeBook(bookId)
+  await ensurePublicBook(bookId).catch(() => {})
+  const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
+  const book = books.get(bookId)
+  const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
+  const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
+  const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
+  // "New books open in" (profiles, social ship 2): only a book this reader has
+  // never opened, and only without an explicit pick. Null while profiles are off.
+  const preferredDefault = !place && !choice?.explicit && (newBooksOpenIn() === 'human' || readingLanguages().includes('da'))
+    ? newBookPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never, newBooksOpenIn(), readingLanguages()) ?? null
+    : null
+  const order = choice?.explicit ? [preferred, saved] : [saved, preferredDefault, preferred]
+  const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  return { book, place, readable, edition }
+}
+
+/**
+ * The edition the introduction's "Your edition" picker shows before the
+ * reader picks one: exactly what Begin reading opens with no explicit pick.
+ * Null for a reader's own book or a book with no readable edition.
+ */
+export async function initialEdition(bookId: string): Promise<string | null> {
+  if (isUserBookId(bookId)) return null
+  const { book, edition } = await openingEdition(bookId, null, { explicit: false })
+  return book && edition ? edition : null
+}
+
+/**
  * Hand a book straight to the production reader, at the reader's place
  * (device merged with the account's cloud copy) in the edition it was read
  * in, else from the beginning in `preferredEdition`. Writes the same session
@@ -305,20 +345,7 @@ export async function readerDestination(
   // A reader's own book opens at its own URL; the reader restores the place kept on this device.
   // A PDF read in its pages opens in Add a book's viewer (pdfEditions.ts).
   if (isUserBookId(bookId)) { const hex = userBookHex(bookId)!; return ownBookHref(hex, null, pdfEditionChoice(hex)) }
-  await ensureNativeBook(bookId)
-  await ensurePublicBook(bookId).catch(() => {})
-  const [books, place] = await Promise.all([loadCatalogue(), placeFor(bookId).catch(() => null)])
-  const book = books.get(bookId)
-  const readable = (book?.editions ?? []).filter(edition => edition.availability?.chapterText !== false)
-  const saved = place?.editionKey ? migrateWithheldEdition(bookId, place.editionKey) : null
-  const preferred = preferredEdition && !editionHold(bookId, preferredEdition) ? preferredEdition : null
-  // "New books open in" (profiles, social ship 2): only a book this reader has
-  // never opened, and only without an explicit pick. Null while profiles are off.
-  const preferredDefault = !place && !choice?.explicit && (newBooksOpenIn() === 'human' || readingLanguages().includes('da'))
-    ? newBookPrimaryEditionKey(bookId, readable.map(edition => ({ key: edition.key, style: edition.style ?? '', language: edition.language ?? '' })) as never, newBooksOpenIn(), readingLanguages()) ?? null
-    : null
-  const order = choice?.explicit ? [preferred, saved] : [saved, preferredDefault, preferred]
-  const edition = order.find(key => key && readable.some(item => item.key === key)) ?? defaultEditionKey(book, Boolean(place && !place.editionKey))
+  const { book, place, readable, edition } = await openingEdition(bookId, preferredEdition, choice)
   if (!book || !edition) return `/library?book=${encodeURIComponent(bookId)}&view=book-detail`
   const compare = choice?.compare && choice.compare !== edition && readable.some(item => item.key === choice.compare) && !editionHold(bookId, choice.compare) ? choice.compare : null
   const intent = {
@@ -754,4 +781,4 @@ if (supabase && typeof document !== 'undefined') {
 
 // Loaded as a standalone script by public/lab/library_2/reading-table.js; the
 // production build strips unused entry exports, so the API is published here.
-;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }
+;(window as Window & { __tinctLibraryTwoReading?: unknown }).__tinctLibraryTwoReading = { loadReadingTable, summaryFor, readerDestination, initialEdition, loadSavedBooks, setSavedBook, removeFromShelf, hideFromReadingNow, introductionProgress, addCatalogueBook }

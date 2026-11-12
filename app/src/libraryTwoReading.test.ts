@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { beforeEach, afterEach, expect, it, vi } from 'vitest'
+import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 import { emptyLabPositionState } from './lab/labPosition'
 import type { RecapLoadDeps } from './readingMemory/recapLoad'
 
@@ -586,4 +586,86 @@ it('Remove from shelf and Read later hold against a place stamped ahead of this 
   // Reading them again (a newer place) brings them back.
   rows = [row('the-prince', ahead + 1000), row('hamlet', ahead + 2000)]
   expect(await load()).toEqual(['the-prince', 'hamlet'])
+})
+
+// "Your edition" on the book page (user test, 12 Nov 2026): the picker showed Modern English for a reader who
+// chose Original under "New books open in", then Begin reading opened the original. It now asks initialEdition,
+// the rule readerDestination follows, so what it shows is what opens.
+describe('the introduction picker shows the edition Begin reading opens', () => {
+  const books = [
+    { id: 'the-prince', title: 'The Prince', author: 'Niccolò Machiavelli', defaultEditionKey: 'modern-en', editions: [{ key: 'modern-en', language: 'en', style: 'modern' }, { key: 'original-en', language: 'en', style: 'original' }], readingStructure: { chapters: [{ number: 1, title: 'Chapter 1', paragraphCount: 10 }] } },
+    { id: 'frankenstein', title: 'Frankenstein', author: 'Mary Shelley', defaultEditionKey: 'modern-en', editions: [{ key: 'original-en', language: 'en', style: 'original' }, { key: 'modern-en', language: 'en', style: 'modern' }], readingStructure: { chapters: [{ number: 1, title: 'Letter 1', paragraphCount: 10 }] } },
+    { id: 'jungle-book', title: 'The Jungle Book', author: 'Rudyard Kipling', defaultEditionKey: 'modern-en', editions: [{ key: 'original-en', language: 'en', style: 'original' }, { key: 'modern-en', language: 'en', style: 'modern' }, { key: 'modern-da', language: 'da', style: 'modern' }], readingStructure: { chapters: [{ number: 1, title: 'Chapter 1', paragraphCount: 10 }] } },
+  ]
+  let meta: HTMLMetaElement
+  beforeEach(() => {
+    calls.auth.mockResolvedValue({ data: { session: null } })
+    calls.localPositions.mockResolvedValue(emptyLabPositionState('device-a', null))
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ books }))))
+    meta = Object.assign(document.createElement('meta'), { name: 'tinct-social', content: '1' })
+    document.head.append(meta)
+  })
+  afterEach(() => { meta.remove(); sessionStorage.clear() })
+  const opened = async (api: typeof import('./libraryTwoReading'), bookId: string, main: string | null) => {
+    expect(await api.readerDestination(bookId, main, { compare: null, explicit: false })).toBe('/reader')
+    return JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).primaryEditionKey
+  }
+
+  it('Original: a never-opened book shows and opens its original (the author’s words or a human translation)', async () => {
+    localStorage.setItem('tinct:new-books-open-in', 'human')
+    const api = await import('./libraryTwoReading')
+    for (const id of ['the-prince', 'frankenstein']) {
+      const shown = await api.initialEdition(id)
+      expect(shown, id).toBe('original-en')
+      expect(await opened(api, id, shown)).toBe(shown)
+    }
+  })
+
+  it('Modern translation (or no choice): a never-opened book shows and opens Modern English', async () => {
+    for (const choice of ['modern', null]) {
+      if (choice) localStorage.setItem('tinct:new-books-open-in', choice); else localStorage.removeItem('tinct:new-books-open-in')
+      const api = await import('./libraryTwoReading')
+      for (const id of ['the-prince', 'frankenstein']) {
+        const shown = await api.initialEdition(id)
+        expect(shown, `${id} ${choice}`).toBe('modern-en')
+        expect(await opened(api, id, shown)).toBe(shown)
+      }
+    }
+  })
+
+  it('a Danish reading language shows and opens the offered Danish edition', async () => {
+    localStorage.setItem('tinct:reading-languages', JSON.stringify(['en', 'da']))
+    const api = await import('./libraryTwoReading')
+    expect(await api.initialEdition('jungle-book')).toBe('modern-da')
+    expect(await opened(api, 'jungle-book', 'modern-da')).toBe('modern-da')
+  })
+
+  it('without the profiles marker the preference is inert, as in readerDestination', async () => {
+    meta.remove()
+    localStorage.setItem('tinct:new-books-open-in', 'human')
+    const api = await import('./libraryTwoReading')
+    expect(await api.initialEdition('frankenstein')).toBe('modern-en')
+  })
+
+  it('a saved place keeps its edition and an explicit pick still wins over the preference', async () => {
+    localStorage.setItem('tinct:new-books-open-in', 'human')
+    calls.memory.mockResolvedValue(null)
+    calls.readMemory.mockReturnValue({ version: 1, sessions: {}, updatedAt: 0 })
+    const target = { chapterNumber: 1, pageIndex: 2, paragraphIndex: 3, wordIndex: 4, editionKey: 'modern-en', chapterLabel: 'Letter 1', at: Date.now() }
+    calls.readingList.mockReturnValue({ readingNow: [{ bookId: 'frankenstein', target, finishedChapters: [], progress: 'middle', lastActiveAt: Date.now(), session: null }], finished: [] })
+    const api = await import('./libraryTwoReading')
+    await api.loadReadingTable({ catalogue: Promise.resolve({ books }) })
+    // Read before in Modern English: it shows and reopens Modern English, not the preference.
+    expect(await api.initialEdition('frankenstein')).toBe('modern-en')
+    expect(await opened(api, 'frankenstein', 'modern-en')).toBe('modern-en')
+    // A never-opened book with an explicit Modern pick opens Modern despite "Original".
+    expect(await api.readerDestination('the-prince', 'modern-en', { compare: null, explicit: true })).toBe('/reader')
+    expect(JSON.parse(sessionStorage.getItem('tinct:lab-reader-handoff')!).primaryEditionKey).toBe('modern-en')
+    expect(await api.initialEdition('the-prince')).toBe('original-en')
+  })
+
+  it('a reader’s own book has no catalogue edition to show', async () => {
+    const api = await import('./libraryTwoReading')
+    expect(await api.initialEdition('userbook-' + 'c'.repeat(24))).toBeNull()
+  })
 })
