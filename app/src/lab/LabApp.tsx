@@ -2661,6 +2661,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const bookScrollHighlights = useMemo(() => bookScroll
     ? highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.editionKey === prefs.primaryEdition)
     : undefined, [bookScroll, highlightsApi.allHighlights, book.bookId, prefs.primaryEdition])
+  // Book scroll: the cards of the unit's other chapters, for the overview (the reader's own chapter's come with `cards`).
+  const bookScrollCards = useMemo(() => {
+    if (!bookScrollUnitNow) return undefined
+    const unit = new Set(bookScrollUnitNow.chapters.map(chapter => chapter.number))
+    return ask.conversations.flatMap(item => item.bookId === (book.bookId || 'bible') && item.chapterNumber !== book.chapterNumber && unit.has(item.chapterNumber)
+      && item.card?.anchor && !item.card.gone && item.card.anchor.editionKey === readerEditionKey && cardInMargin(item.card.kind, item.messages)
+      ? [{ id: item.id, chapterNumber: item.chapterNumber, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
+        label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || ''}` }] : [])
+  }, [bookScrollUnitNow, ask.conversations, book.bookId, book.chapterNumber, readerEditionKey])
   // The Compare edition of a cold open, once the first page is up. Only the
   // load that asked for it receives it; a newer load has its own.
   useEffect(() => {
@@ -6731,8 +6740,15 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       {act('Summary', 'margin-start-summary', () => chapterSummaryRef.current())}
       {act('Quiz me', 'margin-start-quiz', anchor => { if (!initialResolving && !book.chaptersProvisional) quizChapterRef.current(anchor, true) })}
     </div>
+    // Book scroll: level with the chapter's heading, where they stood while the chapter was a neighbour; anchored to
+    // the first line of text they dropped by the heading's height at every chapter swap (Anders, 12 Nov 2026).
+    const ownHeadingSource = () => {
+      const head = marginHost?.querySelector<HTMLElement>(`[data-book-scroll-chapter="${book.chapterNumber}"][data-book-scroll-painted="true"] .lab-passage-headline:not([hidden])`)
+      const rect = head?.getBoundingClientRect()
+      return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : sourceForMargin(undefined)()
+    }
     desktopMarginEntries.push({ id: `start:${book.chapterNumber}`, label: first ? 'Before you start' : chapterTitle, actions: true, variant: first ? 'start' : 'start-later',
-      source: first ? startCardSource : sourceForMargin(undefined), order: -10, free: true,
+      source: first ? startCardSource : bookScroll ? ownHeadingSource : sourceForMargin(undefined), order: -10, free: true,
       // "Before you start" opens folded to its greyed label and a + (Anders, 10 Nov 2026); later chapters' actions stay open.
       ...(first ? { collapsible: true, open: startCardOpen, onToggle: () => setStartCardOpen(open => !open) } : { open: true, onToggle: () => {} }),
       content: first ? <div className="lab-start-card" data-testid="margin-start-card">
@@ -6764,6 +6780,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     }
     const neighbourAct = (label: string, testId: string, run: (anchor: DOMRect) => void) => <button type="button" data-testid={testId}
       onClick={event => run(event.currentTarget.getBoundingClientRect())}><span className="lab-chapter-primer-mark" aria-hidden="true">✧</span>{label}</button>
+    // A card already in the margin is not added again as a neighbour's folded entry (one id, one section).
+    const placed = new Set(desktopMarginEntries.map(entry => entry.id))
     for (const number of bookScrollPainted) {
       const index = unitChapters.findIndex(chapter => chapter.number === number)
       if (number === book.chapterNumber || index < 0 || ownIndex < 0) continue
@@ -6783,7 +6801,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       for (const item of ask.conversations) {
         if (item.bookId !== (book.bookId || 'bible') || item.chapterNumber !== number || !item.card || item.card.gone) continue
         if (item.card.anchor && item.card.anchor.editionKey !== readerEditionKey) continue
-        if (!cardInMargin(item.card.kind, item.messages)) continue
+        if (!cardInMargin(item.card.kind, item.messages) || placed.has(item.id)) continue
         const data = item.card.data as { freeAnchor?: MarginSourceAnchor; unitAnchor?: MarginSourceAnchor } | undefined
         const place = item.card.anchor || data?.freeAnchor || data?.unitAnchor || null
         const local = item.card.kind === 'recap' ? 1e12 - 2 : item.card.kind === 'primer' ? -2 : (place?.paragraphIndex ?? 0) * 100000 + (place?.fromWord ?? 0) + item.startTimestamp / 1e16
@@ -6792,7 +6810,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           onToggle: () => actOnChapter(number, () => toggleMarginRef.current(item.id)), content: null })
       }
       for (const mark of highlightsApi.allHighlights) {
-        if (mark.bookId !== (book.bookId || 'bible') || mark.chapterNumber !== number || (mark.editionKey && mark.editionKey !== readerEditionKey) || !mark.note || mark.kind === 'chapter') continue
+        if (mark.bookId !== (book.bookId || 'bible') || mark.chapterNumber !== number || (mark.editionKey && mark.editionKey !== readerEditionKey) || !mark.note || mark.kind === 'chapter' || placed.has(`highlight:${mark.id}`)) continue
         desktopMarginEntries.push({ id: `highlight:${mark.id}`, label: 'Note', source: neighbourSource(number, mark), order: base + mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
           onToggle: () => actOnChapter(number, () => openNoteRef.current(mark.id)), content: null })
       }
@@ -7356,7 +7374,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             texts={bookScrollTexts.texts}
             onRequestChapters={bookScrollTexts.request}
             bookHighlights={bookScrollHighlights}
-            onJumpChapter={number => { void goToChapter(number, 'start') }}
+            bookCards={bookScrollCards}
+            cardOpen={desktopOpenId != null}
+            onJumpChapter={(number, anchor) => { void goToChapter(number, 'start', false, anchor, !!anchor) }}
             onCrossChapter={(number, anchor) => {
               // The reading line is in another chapter of the unit: that chapter becomes the reader's own, at the
               // word on the line. Never behind an overlay, during a restore, or while narration reads this chapter

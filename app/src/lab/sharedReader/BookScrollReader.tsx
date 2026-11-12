@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore, type ComponentProps, type MutableRefObject, type ReactNode } from 'react'
-import { SourceMinimap, type SourceMapCard } from './SourceMinimap'
+import { SourceMinimap, type SourceMapCard, type SourceUnitMark } from './SourceMinimap'
+import { tokenizeHearingWords } from '../labHearing'
 import { LabPassage } from '../LabPassage'
 import { LabChapterHeading } from '../LabChapterHeading'
 import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from '../labHighlights'
@@ -44,7 +45,8 @@ type Props = {
   onRequestChapters: (numbers: readonly number[]) => void
   /** The reading line is in another chapter of the unit: make it the reader's own, at this word. */
   onCrossChapter: (chapterNumber: number, anchor: ContinuousReaderAnchor) => void
-  onJumpChapter: (chapterNumber: number) => void
+  /** Go to a chapter of the unit (its start, or a place in it: a mark on the overview). */
+  onJumpChapter: (chapterNumber: number, anchor?: ContinuousReaderAnchor) => void
   /** Every highlight in the book: a neighbour paints its own. */
   bookHighlights?: readonly LabHighlight[]
   onVisible: (epoch: ContinuousReaderEpoch, anchor: ContinuousReaderAnchor) => void
@@ -52,6 +54,8 @@ type Props = {
   onTail?: (epoch: ContinuousReaderEpoch, tail: ContinuousReaderAnchor) => void
   onReadToEnd?: (epoch: ContinuousReaderEpoch, last: ContinuousReaderAnchor) => void
   cards?: readonly SourceMapCard[]
+  /** The cards of the unit's other chapters (the overview marks the whole unit). */
+  bookCards?: readonly { id: string; chapterNumber: number; paragraphIndex: number; wordIndex: number; label: string }[]
   onUserBrowse?: () => void
   /** A neighbouring chapter's end: its pills, acting on that chapter (LabApp). */
   neighbourEnd?: (chapterNumber: number) => ReactNode
@@ -63,6 +67,8 @@ type Props = {
   controlRef?: MutableRefObject<BookScrollControl | null>
   /** The chapter at the reading line while the reader still owns another (the top bar names it at once); null once they agree. */
   onLineChapter?: (chapterNumber: number | null) => void
+  /** A margin card is open: the reader's chapter is held while the card or that chapter is on screen (cardHolds). */
+  cardOpen?: boolean
 }
 
 export interface BookScrollControl {
@@ -166,7 +172,7 @@ function ChapterEndSlot({ store }: { store: { node: ReactNode; listeners: Set<()
   return <>{node}</>
 }
 
-export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, texts, onRequestChapters, onCrossChapter, onJumpChapter, bookHighlights, onVisible, onLanded, onTail, onReadToEnd, onUserBrowse, cards, neighbourEnd, onSelectInChapter, onPaintedChange, controlRef, onLineChapter }: Props) {
+export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, texts, onRequestChapters, onCrossChapter, onJumpChapter, bookHighlights, onVisible, onLanded, onTail, onReadToEnd, onUserBrowse, cards, bookCards, neighbourEnd, onSelectInChapter, onPaintedChange, controlRef, onLineChapter, cardOpen }: Props) {
   const passage = useStablePassage(passageProps)
   const hostRef = useRef<HTMLDivElement>(null)
   const nativeDragEpoch = useRef<string | null>(null)
@@ -574,13 +580,31 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     else if (now - lineSince.current.at >= CROSS_DWELL_MS) { crossNow(); return }
     crossTimer.current = window.setTimeout(() => { crossTimer.current = 0; crossNow() }, CROSS_REST_MS)
   }
+  /**
+   * An open margin card belongs to the reader's chapter, and a chapter swap closes it. While the card, or the chapter it
+   * is about, is still on screen, the reader keeps that chapter (Anders, 12 Nov 2026: a long Explain in Luke 10 reached
+   * past Luke 11's heading, and scrolling on to read it closed it). The top bar still names the chapter at the reading
+   * line; the swap happens once both have left the screen or the card is closed. Focus in the card does not hold it:
+   * a wheel does not blur the field, and the place would stop following the reader for as long as they read on.
+   */
+  function cardHolds() {
+    const host = hostRef.current
+    if (!host) return false
+    const open = host.querySelectorAll<HTMLElement>('.source-margin-item.is-open:not(.is-actions)')
+    if (!open.length) return false
+    const view = host.getBoundingClientRect()
+    const onScreen = (box: DOMRect) => box.height > 0 && box.bottom > view.top && box.top < view.bottom
+    for (const card of open) if (onScreen(card.getBoundingClientRect())) return true
+    const own = blockNode(liveRef.current)
+    return !!own && onScreen(own.getBoundingClientRect())
+  }
   /** Hand the reader the chapter at the reading line, at the first word on screen there. */
   function crossNow() {
     const host = hostRef.current
     if (!host || restoring.current || playingRef.current) return
     const own = liveRef.current
     const lineChapter = chapterAtReadingLine(blocks(), host.scrollTop + lineOffset(host)) ?? own
-    if (lineChapter === own) return
+    if (lineChapter === own || cardHolds()) return
     const first = continuousViewportWords(wordsOf(lineChapter), host.scrollTop, host.clientHeight).first
     if (!first) return
     const asked = handoff.current
@@ -647,6 +671,15 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     return () => { host.removeEventListener('pointerdown', pointer, true); host.removeEventListener('wheel', browse, true); host.removeEventListener('touchstart', browse, true) }
   }, [onUserBrowse])
   const userBrowse = () => { userBrowseRef.current = true; holdLanding.current = false; suppressScrollRef.current = false; onUserBrowse?.() }
+
+  // A card held the reader's chapter and is closed now: the chapter at the reading line becomes the reader's once the
+  // page rests, as it would have when the scrolling did.
+  useEffect(() => {
+    if (cardOpen || lineReported.current == null || !userBrowseRef.current || adoptedHold.current) return
+    clearCross()
+    crossTimer.current = window.setTimeout(() => { crossTimer.current = 0; crossNow() }, CROSS_REST_MS)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardOpen])
 
   /** Make a painted neighbour the reader's own where it stands: the handoff scrolling into it makes. */
   const adopt = (chapter: number, where: 'start' | 'end' = 'start') => {
@@ -730,6 +763,41 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
     }
     return map
   }, [bookHighlights])
+  // The overview marks the reader's highlights and cards in every chapter of the unit (Anders, 12 Nov 2026: only the
+  // reader's own chapter's showed). A loaded chapter places them at their word; one not loaded by its paragraph.
+  const wordStarts = useRef(new Map<number, { paragraphs: string[]; starts: number[]; total: number }>())
+  const unitMarks = useMemo(() => {
+    const inUnit = new Map(unit.chapters.map(chapter => [chapter.number, chapter]))
+    const at = (chapterNumber: number, paragraphIndex: number, wordIndex: number) => {
+      const paragraphs = texts.get(chapterNumber)?.paragraphs
+      if (paragraphs) {
+        let model = wordStarts.current.get(chapterNumber)
+        if (model?.paragraphs !== paragraphs) {
+          const starts: number[] = []
+          let total = 0
+          for (const paragraph of paragraphs) { starts.push(total); total += Math.max(1, tokenizeHearingWords(paragraph).length) }
+          model = { paragraphs, starts, total: total || 1 }
+          wordStarts.current.set(chapterNumber, model)
+        }
+        return Math.min(1, ((model.starts[paragraphIndex] ?? model.total) + wordIndex) / model.total)
+      }
+      const count = Math.max(1, inUnit.get(chapterNumber)?.paragraphCount ?? 1)
+      return Math.min(1, paragraphIndex / count)
+    }
+    const marks: SourceUnitMark[] = []
+    for (const mark of bookHighlights ?? []) {
+      if (mark.chapterNumber === live || !inUnit.has(mark.chapterNumber) || mark.kind === 'chapter') continue
+      marks.push({ id: `h:${mark.id}`, kind: 'highlight', chapterNumber: mark.chapterNumber, color: mark.color, label: `${mark.note ? 'Note' : 'Highlight'}: ${mark.note || mark.text || ''}`.slice(0, 120),
+        from: at(mark.chapterNumber, mark.paragraphIndex, mark.fromWord), to: at(mark.chapterNumber, mark.endParagraphIndex, mark.toWord),
+        anchor: { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord } })
+    }
+    for (const card of bookCards ?? []) {
+      if (card.chapterNumber === live || !inUnit.has(card.chapterNumber)) continue
+      const from = at(card.chapterNumber, card.paragraphIndex, card.wordIndex)
+      marks.push({ id: `c:${card.id}`, kind: 'card', chapterNumber: card.chapterNumber, label: card.label, from, to: from, anchor: { paragraphIndex: card.paragraphIndex, wordIndex: card.wordIndex } })
+    }
+    return marks
+  }, [unit, live, texts, bookHighlights, bookCards])
   const mountedSet = useMemo(() => new Set(mounted), [mounted])
   const perWord = metrics.current.words > 0 ? metrics.current.px / metrics.current.words : 3.4
   const wordsPerParagraph = metrics.current.paragraphs > 0 ? metrics.current.words / metrics.current.paragraphs : 80
@@ -763,9 +831,13 @@ export function BookScrollReader({ passage: passageProps, epoch, anchor, unit, t
   // `measured` stands for the heights and metrics refs: it moves when a chapter is first measured.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }), [unit, live, mountedSet, texts, layoutKey, highlightsByChapter, onOpenFigure, measured, endsKey])
+  const onJumpRef = useRef(onJumpChapter)
+  onJumpRef.current = onJumpChapter
+  const bookMap = useMemo(() => unit.chapters.length > 1
+    ? { chapters: unit.chapters, chapterNumber: live, onJumpChapter: (number: number, place?: ContinuousReaderAnchor) => onJumpRef.current(number, place) } : undefined, [unit, live])
   const chapters = others.map((section, index) => section ?? <section className="book-scroll-chapter is-own" data-book-scroll-chapter={live} data-book-scroll-painted="true" key={unit.chapters[index].number}>{livePassage}</section>)
   return <><SourceMinimap cards={cards} highlights={passage.highlights?.filter(mark => mark.chapterNumber === passage.chapterNumber)}
-    bookMap={unit.chapters.length > 1 ? { chapters: unit.chapters, chapterNumber: live, onJumpChapter: number => onJumpChapter(number) } : undefined}
+    bookMap={bookMap} unitMarks={unitMarks}
     paragraphs={passage.paragraphs} visible={mapVisible} visibleEnd={mapEnd} onJump={jumpFromMap} chapterMarks />
   <div className="continuous-reader" data-testid="continuous-reader" data-book-scroll="true" data-book-scroll-unit={unit.key} data-book-scroll-gap={unit.gap} ref={hostRef} onScroll={() => handleScroll()}
     onPointerDown={event => { beginNativeDrag(event); if (!(event.target instanceof Element && event.target.closest('.source-margin-item'))) userBrowse() }}
