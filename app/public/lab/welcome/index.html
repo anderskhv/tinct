@@ -19,14 +19,13 @@
   .room { position: relative; min-height: 100svh; display: flex; flex-direction: column; isolation: isolate; }
   .room::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url('/lab/library_2/assets/room-wide-v2.jpg') 72% 0 / cover no-repeat; }
   .room::after { content: ''; position: absolute; inset: 0; z-index: -1; background:
-      linear-gradient(180deg, rgba(13,18,14,.5) 0, rgba(13,18,14,0) 16%, rgba(13,18,14,.1) 34%, rgba(13,18,14,.86) 62%, var(--ground) 84%),
-      linear-gradient(90deg, rgba(13,18,14,.55), rgba(13,18,14,0) 70%); }
+      linear-gradient(180deg, rgba(13,18,14,.35) 0, rgba(13,18,14,.05) 14%, rgba(13,18,14,.55) 30%, rgba(13,18,14,.96) 44%, var(--ground) 52%); }
   .bar { display: flex; align-items: center; justify-content: space-between; padding: 18px var(--gut) 0; }
   .logo { font: 400 32px/1 var(--serif); letter-spacing: -.045em; text-decoration: none; color: var(--cream); }
   .bar a.in { font: 400 17px/1 var(--serif); text-decoration: none; color: var(--cream); }
   .say { margin-top: auto; padding: 0 var(--gut); }
   h1 { margin: 0; font: 400 clamp(54px, 15vw, 132px)/.96 var(--display); letter-spacing: -.028em; color: #f4eeda; }
-  h1 em { display: block; font-style: italic; }
+  h1 em { display: block; font-style: normal; }
   .lede { max-width: 21em; margin: 20px 0 0; font: 400 clamp(20px, 2vw, 27px)/1.34 var(--serif); color: var(--cream); }
   .lede b { font-weight: 400; color: #fff; border-bottom: 1px solid rgba(238,231,208,.5); }
 
@@ -35,7 +34,7 @@
   .find label:focus-within { border-color: #fff; }
   .find svg { flex: none; width: 21px; height: 21px; fill: none; stroke: var(--dim); stroke-width: 1.6; stroke-linecap: round; }
   .find input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 4px 0; background: none; color: #fff; font: 400 21px/1.3 var(--serif); }
-  .find input::placeholder { color: var(--dim); font-style: italic; }
+  .find input::placeholder { color: var(--dim); }
   .find input::-webkit-search-cancel-button { display: none; }
   .hits { position: absolute; z-index: 9; left: -10px; right: -10px; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none; border: 1px solid var(--rule); border-radius: 14px; background: rgba(18,24,19,.97); box-shadow: 0 24px 60px rgba(0,0,0,.6); }
   .hits[hidden] { display: none; }
@@ -57,7 +56,7 @@
   /* Sections */
   section.show { padding: clamp(54px, 9vw, 120px) var(--gut) 0; max-width: 1240px; margin: 0 auto; }
   .show h2 { margin: 0; max-width: 13em; font: 400 clamp(34px, 5.2vw, 62px)/1.04 var(--display); letter-spacing: -.02em; color: #f4eeda; }
-  .show h2 em { font-style: italic; }
+  .show h2 em { display: block; font-style: normal; color: var(--dim); }
   .show .sub { max-width: 30em; margin: 14px 0 0; font: 400 clamp(19px, 1.6vw, 22px)/1.4 var(--serif); color: var(--dim); }
 
   /* The open book: original and modern */
@@ -81,21 +80,23 @@
   .note .q { margin: 0 0 6px; font: italic 400 18px/1.35 var(--serif); }
   .note p { margin: 0; font: 400 clamp(17px, 1.45vw, 19px)/1.46 var(--serif); }
 
+  .fine { max-width: 1240px; margin: clamp(40px, 6vw, 72px) auto 0; padding: 0 var(--gut); font: 400 clamp(19px, 1.6vw, 22px)/1.45 var(--serif); color: var(--dim); }
+  .fine a { color: var(--cream); text-underline-offset: 4px; text-decoration-color: rgba(238,231,208,.4); }
   /* Close */
   .end { max-width: 1240px; margin: 0 auto; padding: clamp(60px, 9vw, 120px) var(--gut) 0; }
   .end p { max-width: 24em; margin: 0; font: 400 clamp(24px, 3vw, 38px)/1.24 var(--display); color: #f4eeda; }
-  .end p em { font-style: italic; }
+  .end p em { font-style: normal; }
   .end small { display: block; max-width: 34em; margin-top: 18px; font: 400 clamp(18px, 1.5vw, 21px)/1.42 var(--serif); color: var(--dim); }
   .go { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
   .btn { display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 26px; border: 1px solid rgba(238,231,208,.5); border-radius: 999px; font: 600 16px/1 var(--ui); text-decoration: none; color: var(--cream); }
   .btn.main { background: var(--cream); border-color: var(--cream); color: #12170f; }
   .btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  footer { display: flex; gap: 24px; max-width: 1240px; margin: clamp(54px, 8vw, 96px) auto 0; padding: 22px var(--gut) 40px; border-top: 1px solid var(--rule); font: 400 14px/1 var(--ui); }
+  footer { display: flex; gap: 24px; max-width: 1240px; margin: clamp(36px, 5vw, 60px) auto 0; padding: 22px var(--gut) 40px; border-top: 1px solid var(--rule); font: 400 14px/1 var(--ui); }
   footer a { color: var(--faint); text-decoration: none; }
 
   @media (min-width: 900px) {
     .room::before { background-position: 50% 30%; }
-    .room::after { background: linear-gradient(180deg, rgba(13,18,14,.45) 0, rgba(13,18,14,0) 14%, rgba(13,18,14,.2) 44%, rgba(13,18,14,.9) 74%, var(--ground) 92%), linear-gradient(90deg, rgba(13,18,14,.78), rgba(13,18,14,.3) 46%, rgba(13,18,14,0) 70%); }
+    .room::after { background: linear-gradient(90deg, var(--ground) 0, rgba(13,18,14,.94) 34%, rgba(13,18,14,.25) 62%, rgba(13,18,14,0) 78%), linear-gradient(180deg, rgba(13,18,14,.3) 0, rgba(13,18,14,0) 20%, rgba(13,18,14,0) 52%, var(--ground) 80%); }
     .bar { padding-top: 26px; }
     .shelf { gap: 20px; }
     .shelf a { width: clamp(132px, 10.4vw, 168px); }
@@ -118,7 +119,7 @@
     <header class="bar"><a class="logo" href="/" aria-label="Tinct">tinct</a><a class="in" href="/sign-in">Sign in or join</a></header>
     <div class="say">
       <h1>No text is <em>beyond you.</em></h1>
-      <p class="lede">The great books in modern English, beside the original. <b>Free to read.</b></p>
+      <p class="lede">The great books in modern English, beside the original.</p>
     </div>
     <form class="find" id="find" autocomplete="off">
       <label>
@@ -144,33 +145,13 @@
 
   <section class="show">
     <h2>Shakespeare wrote it. <em>You can read it.</em></h2>
-    <p class="sub">Every book has its original text and a modern English edition, aligned line by line. Read either, or both at once.</p>
     <div class="book">
       <div class="pg"><h3>Hamlet, 1603</h3><p class="who">Hamlet</p><p class="verse"><span>To be, or not to be, that is the question:</span><span>Whether ’tis nobler in the mind to suffer</span><span>The slings and arrows of outrageous fortune,</span><span>Or to take arms against a sea of troubles,</span><span>And by opposing end them?</span></p></div>
       <div class="pg"><h3>Modern English</h3><p class="who">Hamlet</p><p>To be, or not to be — that is the question. Is it nobler to endure the attacks and insults of outrageous fortune, or to take up arms against a sea of troubles and, by fighting, end them?</p></div>
     </div>
   </section>
 
-  <section class="show">
-    <h2>Stuck on a sentence? <em>Select it.</em></h2>
-    <p class="sub">Simplify it, have it explained, or ask your own question. The answer appears in the margin, beside the line you were reading.</p>
-    <div class="leaf">
-      <div class="text"><p><span class="rest lead">Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. </span><span class="u">Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can.</span><span class="rest"> This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship.</span></p></div>
-      <div class="margin">
-        <div class="note"><h4>Simplify</h4><p>Whenever I get depressed—when life feels gray and dead, when I catch myself staring at coffin shops and following funerals, or when despair gets so bad I have to force myself not to go out and hit people just to feel something—that’s when I know I need to leave for the ocean.</p></div>
-        <div class="note cato"><h4>Ask</h4><p class="q">who is Cato?</p><p>Cato the Younger: Roman senator, Stoic, famous opponent of Caesar, who fell on his sword at Utica rather than live under Caesar’s rule.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="end">
-    <p>114 classics, from Homer to Woolf. <em>Or bring your own book.</em></p>
-    <small>Reading every book is free, with no ads and no account. Premium is $5 a month for the margin, listening and your own books, and every account has it free until 4 January.</small>
-    <div class="go">
-      <a class="btn main" href="/library">Browse the library<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn" href="/byob">Add your own book or text</a>
-    </div>
-  </div>
+  <p class="fine">Free to read, with no ads and no account. <a href="/library">Browse all 114 books</a> or <a href="/byob">add your own</a>.</p>
   <footer><a href="/library">Library</a><a href="/about">About</a><a href="/privacy">Privacy</a></footer>
 
 <script>
