@@ -162,6 +162,10 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
   const thisBook = book && (
     <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.book} data-testid="ai-settings-book">
       <p className="lab-ai-note" data-testid="ai-settings-book-scope">{book.title ? `${book.title}. ` : ''}{AI_SETTINGS_COPY.bookScope}</p>
+      {/* The reading angle leads: it is what makes this tab the book's own, and "Set reading angle" opens straight to it
+          (user test 12 Nov 2026: on the phone the length grid came first and read as the wrong place). */}
+      <AngleField value={angle} onChange={setAngle} focus={focusAngle && firstTab === 'book'} bookId={book.id} dictation={dictation} />
+      <div className="lab-ai-rule" />
       <div className="lab-ai-grid is-book" role="group" aria-label={AI_SETTINGS_COPY.length}>
         <span className="lab-ai-heading">{AI_SETTINGS_COPY.length}</span>
         <span className="lab-ai-col" data-testid="ai-book-head-same">{AI_SETTINGS_COPY.same}</span>
@@ -171,8 +175,6 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
       <div className="lab-ai-reset">
         <button type="button" className="lab-ai-link" data-testid="ai-settings-reset-book" onClick={() => setBookLengths({})}>{AI_SETTINGS_COPY.resetBook}</button>
       </div>
-      <div className="lab-ai-rule" />
-      <AngleField value={angle} onChange={setAngle} focus={focusAngle && firstTab === 'book'} bookId={book.id} dictation={dictation} />
     </div>
   )
 
