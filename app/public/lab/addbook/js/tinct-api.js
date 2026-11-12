@@ -68,8 +68,9 @@
   function aiPrefs(action, bookId) {
     const settings = stored('ai-settings')?.settings || {};
     const row = action ? AI_LENGTH_ROW[action] : null;
-    const own = bookId && settings.books?.[bookId]?.[row], general = settings.length?.[row];
-    const length = row ? (isLength(own) ? own : isLength(general) ? general : 'standard') : null;
+    // Lengths are General's only (Anders, 12 Nov 2026); a book's own lengths saved before then no longer apply.
+    const general = settings.length?.[row];
+    const length = row ? (isLength(general) ? general : 'standard') : null;
     const instructions = [settings.instructions, action && settings.perAction?.[action]].map(t => typeof t === 'string' ? t.trim().slice(0, 400) : '').filter(Boolean);
     const ai = { ...(length ? { length, row } : {}), ...(instructions.length ? { instructions } : {}) };
     return Object.keys(ai).length ? ai : undefined;
