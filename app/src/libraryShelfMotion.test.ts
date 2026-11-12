@@ -168,23 +168,28 @@ describe('every removal path uses the motion', () => {
     // Adding several own books at once (20261109bulk) changed styles.css (the queue's rows).
     // The author's biography cut to about three lines with a More (20261112bio) changed app.js and intro-review.css.
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
-    expect(lib('index.html')).toContain('app.js?v=20261112bio')
+    // "Your edition" showing the edition Begin reading opens (20261112pref) changed app.js alone.
+    // The biography's clamp and More/Less removed, one-sentence bios instead (20261112nomore), changed app.js and intro-review.css.
+    expect(lib('index.html')).toContain('app.js?v=20261112nomore')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261109bulk')
     expect(lib('index.html')).toContain('boot.js?v=20261109white')
-    expect(lib('app.js')).toContain('bookshelf.js?v=20261106deskgone')
-    expect(lib('app.js')).toContain(`catalogue.js?v=${mm}`)
+    // The one-sentence author bios (20261112bios) changed the intro-data tag in reviewed-introductions.js, so every
+    // module importing it, and their importers in turn: catalogue.js, reading-table.js, bookshelf-view.js, bookshelf.js.
+    const bios = '20261112bios'
+    expect(lib('app.js')).toContain(`bookshelf.js?v=${bios}`)
+    expect(lib('app.js')).toContain(`catalogue.js?v=${bios}`)
     expect(lib('app.js')).toContain(`add-to-tinct.js?v=${mm}`)
     expect(lib('app.js')).toContain(`shelf-motion.js?v=${motion}`)
-    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${latest}`)
-    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${latest}`)
-    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${mm}`)
-    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${latest}`)
+    expect(lib('bookshelf.js')).toContain(`reading-table.js?v=${bios}`)
+    expect(lib('bookshelf.js')).toContain(`bookshelf-view.js?v=${bios}`)
+    expect(lib('bookshelf.js')).toContain(`catalogue.js?v=${bios}`)
+    expect(lib('bookshelf-view.js')).toContain(`reading-table.js?v=${bios}`)
     expect(lib('bookshelf-view.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`shelf-motion.js?v=${motion}`)
     expect(lib('reading-table.js')).toContain(`table-window.js?v=${motion}`)
-    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${mm}`)
+    expect(lib('reading-table.js')).toContain(`catalogue.js?v=${bios}`)
     expect(lib('reading-table.js')).toContain(`cover-assets.js?v=${tag}`)
     expect(lib('catalogue.js')).toContain(`cover-assets.js?v=${tag}`)
     expect(lib('catalogue.js')).toContain(`add-to-tinct.js?v=${mm}`)

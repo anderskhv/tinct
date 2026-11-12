@@ -80,9 +80,3 @@
 #intro-body .primer-inner p,#intro-body .primer-inner .primer-item{font-size:15.5px;line-height:1.45;margin-bottom:9px}
 #intro-body .primer-person h3{font-size:18px}
 @media(max-width:699px){#intro-body .intro-opening{font-size:17px;line-height:1.45}#intro-body .primer-inner p,#intro-body .primer-inner .primer-item{font-size:15px}}
-/* The author's biography: about three lines, then a quiet More (user test, 12 Nov 2026), so Your edition shows on arrival. */
-#slip-copy.is-clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;padding-bottom:0}
-.slip-more{display:block;font:12px/1.4 system-ui,sans-serif;color:var(--page-soft);background:none;border:0;padding:6px 0;margin:2px 0 0;min-height:28px;cursor:pointer;text-decoration:underline;text-decoration-color:var(--page-rule);text-decoration-thickness:1px;text-underline-offset:3px}
-.slip-more:hover{color:var(--page-ink)}
-.slip-more:focus-visible{outline:2px solid var(--page-soft);outline-offset:2px;border-radius:3px}
-.slip-more[hidden]{display:none}
