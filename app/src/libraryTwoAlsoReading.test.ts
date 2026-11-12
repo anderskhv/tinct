@@ -6,7 +6,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 // The page's data engine is not needed to draw a given table.
-vi.mock('../public/lab/library_2/catalogue.js?v=20261106mm', () => ({ readingApi: async () => ({}), loadCatalogueData: async () => ({ books: [] }) }))
+vi.mock('../public/lab/library_2/catalogue.js?v=20261112bios', () => ({ readingApi: async () => ({}), loadCatalogueData: async () => ({ books: [] }) }))
 
 const row = (bookId: string, extra: Record<string, unknown> = {}) => ({ bookId, title: bookId, author: '', cover: `/lab/library_2/assets/${bookId}.jpg`, tone: null, chapterLabel: 'Chapter 1', headline: '', percent: 10, recap: null, ...extra })
 const OWN = 'userbook-' + 'a'.repeat(24)
