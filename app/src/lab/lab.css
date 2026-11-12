@@ -1249,6 +1249,18 @@
 .lab .lab-passage.owns-text-selection.is-touch-scroll * {
   touch-action: pan-y pinch-zoom;
 }
+/* The phone page turns on a vertical swipe too (Anders, 12 Nov 2026), so the
+   browser must not claim the vertical drag as a pan: that ends the gesture in
+   pointercancel and, on iOS, pulls the page down with it. The page is
+   paginated to fit and never scrolls; pinch zoom stays the reader's. Listening
+   drops `owns-text-selection` (and the stage's own rule says pan-y), so this
+   reaches every element of the page, words included. */
+.lab .lab-passage.is-reading.has-vertical-swipe,
+.lab .lab-passage.is-reading.has-vertical-swipe *,
+.lab .lab-chapter-cover.has-vertical-swipe,
+.lab .lab-chapter-cover.has-vertical-swipe * {
+  touch-action: pinch-zoom;
+}
 /* The collapsed card is as tall as its opener: no clamp, no inner scroll,
    never a cut sentence. Only the expanded card scrolls. */
 .lab .lab-contextual-explain-scroll { box-sizing: border-box; }

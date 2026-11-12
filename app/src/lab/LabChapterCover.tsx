@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { labSwipePageDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
+import { labSwipeTurnDirection, labTapPageDirection, type LabPageTurnDirection } from './labChrome'
 
 interface LabChapterCoverProps {
   title: string
@@ -9,6 +9,8 @@ interface LabChapterCoverProps {
   accent?: string
   onPageTurn: (direction: LabPageTurnDirection) => void
   onToggleControls: () => void
+  /** The phone page: a vertical swipe turns too (see LabPassage). */
+  verticalSwipeTurns?: boolean
 }
 
 export function labCoverTone(title: string): number {
@@ -18,9 +20,9 @@ export function labCoverTone(title: string): number {
 }
 
 /** The Bible's book-opening page (Genesis, Exodus, ...) between two books. */
-export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls }: LabChapterCoverProps) {
+export function LabChapterCover({ title, series, editionLabel, ground, accent, onPageTurn, onToggleControls, verticalSwipeTurns = false }: LabChapterCoverProps) {
   const coverRef = useRef<HTMLElement>(null)
-  const pointerRef = useRef<{ x: number; y: number; at: number } | null>(null)
+  const pointerRef = useRef<{ x: number; y: number; at: number; pointerType: string } | null>(null)
 
   useLayoutEffect(() => {
     coverRef.current?.focus({ preventScroll: true })
@@ -29,7 +31,7 @@ export function LabChapterCover({ title, series, editionLabel, ground, accent, o
   return (
     <article
       ref={coverRef}
-      className={`lab-chapter-cover is-book-opening is-tone-${labCoverTone(title)}`}
+      className={`lab-chapter-cover is-book-opening is-tone-${labCoverTone(title)}${verticalSwipeTurns ? ' has-vertical-swipe' : ''}`}
       style={{
         ...(ground ? { ['--lab-cover-ground' as string]: ground } : {}),
         ...(ground ? { ['--lab-cover-shade' as string]: `color-mix(in srgb, ${ground} 72%, black)` } : {}),
@@ -49,7 +51,7 @@ export function LabChapterCover({ title, series, editionLabel, ground, accent, o
         }
       }}
       onPointerDown={(event) => {
-        pointerRef.current = { x: event.clientX, y: event.clientY, at: event.timeStamp }
+        pointerRef.current = { x: event.clientX, y: event.clientY, at: event.timeStamp, pointerType: event.pointerType }
         try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
       }}
       onPointerUp={(event) => {
@@ -58,7 +60,7 @@ export function LabChapterCover({ title, series, editionLabel, ground, accent, o
         if (!start) return
         const deltaX = event.clientX - start.x
         const deltaY = event.clientY - start.y
-        const swipe = labSwipePageDirection(deltaX, deltaY)
+        const swipe = labSwipeTurnDirection({ deltaX, deltaY, durationMs: event.timeStamp - start.at, vertical: verticalSwipeTurns, pointerType: start.pointerType })
         const rect = event.currentTarget.getBoundingClientRect()
         const tap = Math.abs(deltaX) <= 10
           && Math.abs(deltaY) <= 10

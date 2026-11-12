@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
+import { LAB_PAGE_LONG_PRESS_MS, LAB_SCROLL_LONG_PRESS_MS, labLongPressMs, labPassageBlocksNativeTouch, labLongPressCancelledByMove, LAB_PHONE_QUERY, labNeedsGestureAudioUnlock, bindLabVisualViewportHeight, labShouldResetViewportPan, labTextEntryFocused, isIosHandheldUserAgent, isLabPhoneSurface, labAfterTalk, labBottomSlot, labChromeInsetPx, labPhoneBarMode, labPageGeometryChanged, labPaginationPaintRoot, labReadablePageHeightPx, labShowPageTurn, labShowPhoneBar, labShowReaderRail, labStatusLine, labSwipePageDirection, labSwipeTurnDirection, labVerticalSwipePageDirection, labSelectionEdgeDirection, labSelectionEdgeArmedAt, labNativeSelectionBlocksTurn, labTapPageDirection, labKeyboardPageDirection, labVisibleChrome, labVisualViewportHeightPx, labVisibleBottomPx, labVoicePhaseLabel, lastContentClearsChrome, labPageFitsPaint, labScrollportOverflows, labChromeJumped, labBarMoved, lastPaintedTextBottom, measureLabBarTop, measureLabOnScreenBarTop, measureLabPageMetrics, measurePaintedOverflow, nextPaintShrinkTo, settlePageTotal, shouldGrowPaintedPage, stabilizeLabPageMetrics,
   labShouldAutofocusComposer,
 } from './labChrome'
 
@@ -243,6 +243,39 @@ describe('lab page gestures', () => {
     expect(labSwipePageDirection(70, -8)).toBe(-1)
     expect(labSwipePageDirection(30, 2)).toBeNull()
     expect(labSwipePageDirection(70, 65)).toBeNull()
+  })
+
+  // Phone: swipe up/down turns pages like left/right (Anders, 12 Nov 2026).
+  it('maps a clear, quick vertical swipe: up is next, down is previous', () => {
+    expect(labVerticalSwipePageDirection(4, -80, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(-4, 80, 200)).toBe(-1)
+    // Too short, too slow, or not clearly vertical: nothing.
+    expect(labVerticalSwipePageDirection(0, -40, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(0, 41, 200)).toBe(-1)
+    expect(labVerticalSwipePageDirection(0, -120, 701)).toBeNull()
+    expect(labVerticalSwipePageDirection(60, -90, 200)).toBeNull()
+    expect(labVerticalSwipePageDirection(59, -90, 200)).toBe(1)
+    expect(labVerticalSwipePageDirection(0, -120, Number.NaN)).toBeNull()
+  })
+
+  it('keeps sideways and diagonal swipes exactly as before, and vertical only where offered', () => {
+    const turn = (deltaX: number, deltaY: number, vertical = true, pointerType = 'touch', durationMs = 200) =>
+      labSwipeTurnDirection({ deltaX, deltaY, durationMs, vertical, pointerType })
+    for (const [dx, dy] of [[-70, 8], [70, -8], [30, 2], [70, 65], [-200, 0], [60, 0], [80, 80]]) {
+      expect(turn(dx, dy)).toBe(labSwipePageDirection(dx, dy))
+    }
+    // A slow sideways swipe still turns, as it always has.
+    expect(turn(-70, 8, true, 'touch', 3000)).toBe(1)
+    // Diagonal: neither axis.
+    expect(turn(-60, -70)).toBeNull()
+    expect(turn(60, 85)).toBeNull()
+    expect(turn(0, -90)).toBe(1)
+    expect(turn(0, 90)).toBe(-1)
+    expect(turn(0, -90, true, 'pen')).toBe(1)
+    // Off the phone page, and for a mouse (a vertical drag selects text).
+    expect(turn(0, -90, false)).toBeNull()
+    expect(turn(0, -90, true, 'mouse')).toBeNull()
+    expect(turn(-70, 8, true, 'mouse')).toBe(1)
   })
 
   it('turns only from the outer thirds', () => {

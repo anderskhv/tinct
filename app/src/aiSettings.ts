@@ -112,9 +112,11 @@ export function isDefaultAiSettings(settings: AiSettings): boolean {
     && AI_INSTRUCTION_ACTIONS.every(action => !settings.perAction[action]?.trim())
 }
 
-/** The length a book's row resolves to: the book's own when set, else General's. */
-export function aiLengthFor(settings: AiSettings, row: AiLengthAction, bookId?: string | null): AiLength {
-  return (bookId && settings.books[bookId]?.[row]) || settings.length[row]
+/** The length a row resolves to: General's. Per-book lengths were removed (Anders, 12 Nov 2026: "this book should only
+ * have reading angle; the rest is a general setting"); lengths saved per book before then are kept in storage but no
+ * longer apply, so nothing hidden overrides General. */
+export function aiLengthFor(settings: AiSettings, row: AiLengthAction, _bookId?: string | null): AiLength {
+  return settings.length[row]
 }
 
 /**

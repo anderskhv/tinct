@@ -14,7 +14,7 @@ import {loadCatalogueData,loadCatalogue,libraryBook,attachCatalogue,loadIntroduc
 import {drawSceneLife,drawSceneFilm,scenePainting,sceneLifeBoxes} from './scene-life.js?v=20261021still';
 import {mountSceneVideo} from './scene-video.js?v=20261001v4';
 import {categories,eras,metadata} from './taxonomy.js?v=20261106mm';
-import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261014talkwake';
+import {clamp,ease,mix,destination,bookPages,orbFrame,sceneCrop,panelBounds,TUCK,tuckAt,tuckStep,tuckRelease,tuckSettled,tuckShape,tuckRestY,tuckCovers} from './motion.js?v=20261112winopen';
 import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=20261106mm';
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry} from './add-to-tinct.js?v=20261106mm';
 import {takeHandoffFiles,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
@@ -376,6 +376,18 @@ function setSlip(book){
  $('slip-caption').replaceChildren(el('span','',flap?[flap.name,flap.years].filter(Boolean).join(' · '):mary?book.author+' · 1797–1851':book.author));
  if(flap?.occupation)$('slip-caption').append(el('span','',flap.occupation));else if(mary)$('slip-caption').append(el('span','','English novelist'));
  if(flap)appendEditorialText($('slip-copy'),flap.biography);else if(mary)$('slip-copy').innerHTML=shelleyBiography;else $('slip-copy').textContent=book.preface[0]||'';
+ clampSlipCopy();
+}
+// A long biography pushed the edition choice below the fold (user test, 12 Nov 2026): the flap shows about three
+// lines and a quiet More, so Your edition is in view on arrival. The toggle is drawn only when the text is cut.
+let slipCopyObserver=null;
+function clampSlipCopy(){
+ const copy=$('slip-copy');let more=$('slip-more');
+ if(!more){more=el('button','slip-more');more.id='slip-more';more.type='button';more.setAttribute('aria-controls','slip-copy');more.dataset.testid='slip-more';copy.after(more);more.onclick=()=>{const open=copy.classList.toggle('is-clamped');more.textContent=open?'More':'Less';more.setAttribute('aria-expanded',String(!open));};}
+ copy.classList.add('is-clamped');more.textContent='More';more.setAttribute('aria-expanded','false');
+ const fit=()=>{if(!copy.classList.contains('is-clamped'))return;more.hidden=copy.scrollHeight<=copy.clientHeight+1;};
+ more.hidden=true;requestAnimationFrame(fit);
+ if(!slipCopyObserver&&typeof ResizeObserver==='function'){slipCopyObserver=new ResizeObserver(()=>fit());slipCopyObserver.observe(copy);}
 }
 let introExpanded=false,introProgress=null;
 

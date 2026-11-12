@@ -74,7 +74,8 @@ describe('the requests the PDF reader sends (fetch mocked)', () => {
     await A.companion('chapter', { book: own, pdf, chapter: { action: { kind: 'primer', unitKey: 'outline-1', unitTitle: 'Chapter 1' } } })
     const ai = (i: number) => (sent[i].body.companion as Record<string, unknown>).ai
     expect(ai(0)).toEqual(aiPrefsForAction(settings, 'explain', 'userbook-abc'))
-    expect(ai(0)).toEqual({ length: 'detailed', row: 'explain', instructions: ['Plain words.'] })
+    // A book's own length saved before 12 Nov 2026 no longer applies: General's Brief (Anders, 12 Nov 2026).
+    expect(ai(0)).toEqual({ length: 'brief', row: 'explain', instructions: ['Plain words.'] })
     expect(ai(1)).toEqual(aiPrefsForAction(settings, 'explain', 'userbook-other'))
     expect(ai(2)).toEqual(aiPrefsForAction(settings, 'quiz', 'userbook-abc'))
     expect(ai(3)).toEqual(aiPrefsForAction(settings, 'primer', 'userbook-abc'))

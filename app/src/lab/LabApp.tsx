@@ -7365,6 +7365,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 }
               }}
               onToggleControls={() => setReaderControlsVisible(visible => !visible)}
+              verticalSwipeTurns={showPhoneChrome}
             />
           ) : bookScroll && bookScrollUnitNow ? (initialResolving || handoffWritesSuspended ? null : <BookScrollReader
             cards={marginConversations.flatMap(item => item.card?.anchor && cardInMargin(item.card.kind, item.messages) ? [{ id: item.id, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
@@ -7569,6 +7570,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             selectingRange={crossChapterRange(book.chapterNumber) ?? (selectionPopup?.range && selectionPopup.chapterNumber === book.chapterNumber ? { ...selectionPopup.range, lookupWord: popupMode === 'define' ? selectionPopup.defineText : undefined } : null)}
             selectingComparison={desktopCompareActive && selectionPopup?.side === 'compare'}
             tapZones={pageTurnAffordance.tapZones}
+            verticalSwipeTurns={showPhoneChrome}
             onSelectRange={phoneAsk ? undefined : handleSelectRange}
             onSelectingChange={phoneAsk ? undefined : handleSelectingChange}
             onSelectionPageTurn={!phoneAsk && !selectionPopup && !mobileCompareActive && !desktopCompareActive ? direction => { if (direction > 0) goNext(); else goPrev() } : undefined}

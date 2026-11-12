@@ -6,7 +6,6 @@ import {
   AI_LENGTH_DEFAULTS,
   AI_INSTRUCTION_ACTIONS,
   cleanInstruction,
-  type AiBookLengths,
   type AiInstructionAction,
   type AiLength,
   type AiLengthAction,
@@ -26,13 +25,10 @@ export const AI_SETTINGS_COPY = {
   book: 'This book',
   length: 'Length',
   lengths: { brief: 'Brief', standard: 'Standard', detailed: 'Detailed' } as Record<AiLength, string>,
-  same: 'Same',
-  sameAsGeneral: 'Same as General',
   rows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary and Recap' } as Record<AiLengthAction, string>,
   phoneRows: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
   rowLabel: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary' } as Record<AiLengthAction, string>,
   reset: 'Reset to defaults',
-  resetBook: 'Reset this book',
   bookScope: 'Anything set here applies to this book only.',
   yourInstructions: 'Your instructions',
   upload: 'Upload .md',
@@ -40,8 +36,8 @@ export const AI_SETTINGS_COPY = {
   perAction: 'Per action (optional): Explain, Ask, Primer, Summary, Recap, Quiz me, Counterpoint',
   actions: { explain: 'Explain', ask: 'Ask', primer: 'Primer', summary: 'Summary', recap: 'Recap', quiz: 'Quiz me', counterpoint: 'Counterpoint' } as Record<AiInstructionAction, string>,
   readingAngle: 'Reading angle',
-  readingAngleHint: 'What you want to notice in this book. Loaded with every AI interaction in it.',
-  readingAnglePlaceholder: 'What you want to notice in this book',
+  readingAngleHint: 'Why you are reading this book, or what you want to get out of it. Every Explain, Ask, Primer and Summary in this book is written with it in mind.',
+  readingAnglePlaceholder: 'For example: I\u2019m preparing a seminar on this book. Or: I want to follow how the main character changes.',
   uploadCut: `The file was longer than ${AI_INSTRUCTIONS_MAX_CHARS} characters: its first ${AI_INSTRUCTIONS_MAX_CHARS} are kept.`,
   uploadFailed: 'That file could not be read. Choose a .md or .txt file.',
   close: 'Close',
@@ -96,22 +92,6 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
   const change = (patch: Partial<AiSettings>) => setSettings({ ...settings, ...patch })
   const setLength = (action: AiLengthAction, length: AiLength) => change({ length: { ...settings.length, [action]: length } })
   const setPerAction = (action: AiInstructionAction, text: string) => change({ perAction: { ...settings.perAction, [action]: cleanInstruction(text) } })
-  const bookLengths: AiBookLengths = (book && settings.books[book.id]) || {}
-  const setBookLengths = (next: AiBookLengths) => {
-    if (!book) return
-    const books = { ...settings.books }
-    // Set again, a book moves to the end: the newest are the ones kept (AI_BOOK_LENGTHS_MAX).
-    delete books[book.id]
-    if (Object.keys(next).length) books[book.id] = next
-    change({ books })
-  }
-  const setBookLength = (action: AiLengthAction, length: AiLength | null) => {
-    const next = { ...bookLengths }
-    if (length) next[action] = length
-    else delete next[action]
-    setBookLengths(next)
-  }
-
   const upload = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     event.target.value = ''
@@ -162,16 +142,8 @@ export function LabAiSettings({ onClose, phone = false, dark = false, book = nul
   const thisBook = book && (
     <div className="lab-ai-panel" role="tabpanel" aria-label={AI_SETTINGS_COPY.book} data-testid="ai-settings-book">
       <p className="lab-ai-note" data-testid="ai-settings-book-scope">{book.title ? `${book.title}. ` : ''}{AI_SETTINGS_COPY.bookScope}</p>
-      <div className="lab-ai-grid is-book" role="group" aria-label={AI_SETTINGS_COPY.length}>
-        <span className="lab-ai-heading">{AI_SETTINGS_COPY.length}</span>
-        <span className="lab-ai-col" data-testid="ai-book-head-same">{AI_SETTINGS_COPY.same}</span>
-        {AI_LENGTHS.map(length => <span key={length} className="lab-ai-col">{AI_SETTINGS_COPY.lengths[length]}</span>)}
-        {AI_LENGTH_ACTIONS.map(action => <BookLengthRow key={action} label={AI_SETTINGS_COPY.phoneRows[action]} action={action} value={bookLengths[action] ?? null} onChange={setBookLength} />)}
-      </div>
-      <div className="lab-ai-reset">
-        <button type="button" className="lab-ai-link" data-testid="ai-settings-reset-book" onClick={() => setBookLengths({})}>{AI_SETTINGS_COPY.resetBook}</button>
-      </div>
-      <div className="lab-ai-rule" />
+      {/* The reading angle leads: it is what makes this tab the book's own, and "Set reading angle" opens straight to it
+          (user test 12 Nov 2026: on the phone the length grid came first and read as the wrong place). */}
       <AngleField value={angle} onChange={setAngle} focus={focusAngle && firstTab === 'book'} bookId={book.id} dictation={dictation} />
     </div>
   )
@@ -214,23 +186,6 @@ function LengthRow({ label, action, value, onChange }: { label: string; action: 
       return (
         <button key={length} type="button" className="lab-ai-choice" aria-pressed={on}
           aria-label={`${AI_SETTINGS_COPY.rowLabel[action]}: ${AI_SETTINGS_COPY.lengths[length]}`} data-testid={`ai-length-${action}-${length}`}
-          onClick={() => onChange(action, length)}>
-          <span aria-hidden="true">{on ? '●' : '○'}</span>
-        </button>
-      )
-    })}
-  </>
-}
-
-/** This book's row: "Same as General" first (the row follows General until the reader sets it), then the three lengths. */
-function BookLengthRow({ label, action, value, onChange }: { label: string; action: AiLengthAction; value: AiLength | null; onChange: (action: AiLengthAction, length: AiLength | null) => void }) {
-  return <>
-    <span className="lab-ai-row">{label}</span>
-    {([null, ...AI_LENGTHS] as const).map(length => {
-      const on = value === length
-      return (
-        <button key={length ?? 'same'} type="button" className="lab-ai-choice" aria-pressed={on}
-          aria-label={`${AI_SETTINGS_COPY.rowLabel[action]}: ${length ? AI_SETTINGS_COPY.lengths[length] : AI_SETTINGS_COPY.sameAsGeneral}`} data-testid={`ai-book-length-${action}-${length ?? 'same'}`}
           onClick={() => onChange(action, length)}>
           <span aria-hidden="true">{on ? '●' : '○'}</span>
         </button>

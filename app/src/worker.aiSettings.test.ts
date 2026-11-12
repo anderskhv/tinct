@@ -66,13 +66,13 @@ describe('AI settings: what a request carries', () => {
     expect(aiPrefsForAction(settings, 'quiz')).toEqual({ instructions: ['I am a classicist.'] })
   })
 
-  it('This book: a book’s own length wins for that book only; a row it leaves follows General', () => {
+  it('a book length saved before 12 Nov 2026 is still read but no longer applies: every book follows General (Anders, 12 Nov 2026)', () => {
     const settings = normalizeAiSettings({
       length: { explain: 'brief' },
       books: { bible: { explain: 'detailed', nope: 'brief', ask: 'huge' }, '': { explain: 'brief' }, empty: {} },
     })
     expect(settings.books).toEqual({ bible: { explain: 'detailed' } })
-    expect(aiPrefsForAction(settings, 'explain', 'bible')).toEqual({ length: 'detailed', row: 'explain' })
+    expect(aiPrefsForAction(settings, 'explain', 'bible')).toEqual({ length: 'brief', row: 'explain' })
     expect(aiPrefsForAction(settings, 'explain', 'odyssey')).toEqual({ length: 'brief', row: 'explain' })
     expect(aiPrefsForAction(settings, 'explain')).toEqual({ length: 'brief', row: 'explain' })
     expect(aiPrefsForAction(settings, 'ask', 'bible')).toEqual({ length: 'standard', row: 'ask' })
