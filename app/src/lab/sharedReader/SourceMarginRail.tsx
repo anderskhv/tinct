@@ -88,7 +88,21 @@ export function sourceMarginDismissConsumes(pointerType: string, button: number,
   return !target.closest('button, a, input, textarea, select, summary, [role="button"], [role="slider"], [role="tab"], [contenteditable="true"], .lab-header')
 }
 
-export function SourceMarginRail({ host, entries, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
+/**
+ * One entry per card id, the first kept. Each entry is a keyed section: two with one id (book scroll, 12 Nov 2026: a
+ * chapter swap rendered the outgoing chapter's card and its folded neighbour entry together for one render) made React
+ * lose track of one section, which then stayed painted over the live card for good ("Open this card" over its lead
+ * line, a dead follow-up field over the live one).
+ */
+export function uniqueMarginEntries<T extends { id: string }>(entries: T[]): T[] {
+  const seen = new Set<string>()
+  if (entries.every(entry => !seen.has(entry.id) && !!seen.add(entry.id))) return entries
+  seen.clear()
+  return entries.filter(entry => !seen.has(entry.id) && !!seen.add(entry.id))
+}
+
+export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSourcePointer }: SourceMarginRailProps) {
+  const entries = uniqueMarginEntries(given)
   const layer = useRef<HTMLDivElement>(null)
   const latest = useRef(entries)
   latest.current = entries

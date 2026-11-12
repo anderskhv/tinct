@@ -2,7 +2,9 @@
 // Non-admin: no book-scroll DOM, even with ?bookScroll=1. Admin (a cached Supabase session plus the cached
 // site_admins answer for that user, all network to Supabase refused): book scroll on by default, the Bible scrolls
 // one biblical book, chapter ends say Summary, transcripts keep their bold speakers, reload keeps the exact word,
-// and Appearance › Whole-book scroll turns it off and on for this device at the same place.
+// and Appearance › Whole-book scroll turns it off and on for this device at the same place. Margin cards across chapter
+// swaps in Luke (12 Nov 2026): one section per card, an open card keeps its chapter while it is on screen, the overview
+// marks every chapter's highlights and cards, and a chapter's start actions stay level with its heading.
 // Run against a dev or preview server: TINCT_ORIGIN=http://127.0.0.1:5175 node scripts/check-book-scroll.mjs
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -16,6 +18,8 @@ const ADMIN = '00000000-0000-4000-8000-00000000ad01'
 const results = []
 
 async function open(engine, name, admin) {
+  // Explain answers (no Anthropic call): a bold lead line, then a body; `long` makes one reach far down the margin.
+  const mock = { long: false, count: 0 }
   const browser = await markInternal(await engine.launch({ headless: true }))
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce', serviceWorkers: 'block' })
   const page = await context.newPage(), errors = []
@@ -23,6 +27,10 @@ async function open(engine, name, admin) {
   await page.route('**/*', route => {
     const url = new URL(route.request().url())
     if (url.origin !== origin) return route.fulfill({ status: 401, json: {} })
+    if (url.pathname === '/api/lab-chat' || url.pathname === '/api/chat') {
+      const answer = `**Lead line ${++mock.count} of this explanation.** A body sentence about the passage.${mock.long ? ' It goes on about the passage, its setting and its words, so that the card reaches far down the margin.'.repeat(14) : ''}`
+      return route.fulfill({ contentType: 'text/event-stream', body: `data: ${JSON.stringify({ type: 'content_block_delta', delta: { type: 'text_delta', text: answer } })}\n\ndata: {"type":"message_stop"}\n\n` })
+    }
     if (url.pathname.startsWith('/api/')) return route.fulfill({ status: 404, json: {} })
     return route.continue()
   })
@@ -36,7 +44,77 @@ async function open(engine, name, admin) {
     }
   }, { admin, id: ADMIN })
   const ready = () => page.waitForFunction(() => document.querySelector('.lab')?.dataset.readerReady === 'true', null, { timeout: 45000 })
-  return { browser, page, errors, ready, name }
+  return { browser, page, errors, ready, name, mock }
+}
+
+// Default edition: Luke 9, 10 and 11 are the Bible's chapters 982, 983 and 984.
+async function lukeCards(s) {
+  const { page, mock, name } = s
+  const own = () => page.locator('.lab').evaluate(node => node.dataset.chapter)
+  const select = async (from, to, button) => {
+    const words = page.locator('.book-scroll-chapter.is-own [data-testid="lab-word"]')
+    const a = await words.nth(from).boundingBox(), b = await words.nth(to).boundingBox()
+    await page.mouse.move(a.x + 2, a.y + a.height / 2); await page.mouse.down()
+    await page.mouse.move(b.x + 2, b.y + b.height / 2, { steps: 6 }); await page.mouse.up()
+    await page.getByTestId(button).click()
+    if (button === 'lab-dbar-explain') await page.locator('[data-testid="source-margin-item"][data-open="true"] .lab-pcard-answer').first().waitFor({ timeout: 15000 })
+    else await page.waitForTimeout(300)
+  }
+  const scrollUntil = async (dy, done, pause = 120) => {
+    await page.locator('[data-book-scroll-unit]').hover({ position: { x: 300, y: 400 } })
+    for (let step = 0; step < 80 && !(await done()); step++) { await page.mouse.wheel(0, dy); await page.waitForTimeout(pause) }
+    assert.ok(await done(), 'the scroll reached its place')
+    await page.waitForTimeout(1200)
+  }
+  const sectionsPerCard = () => page.evaluate(() => {
+    const ids = [...document.querySelectorAll('[data-testid="source-margin-item"]')].map(item => item.dataset.cardId)
+    return ids.filter((id, index) => ids.indexOf(id) !== index)
+  })
+  // A chapter's start actions against its heading, in px (0: level with it).
+  const startOffset = chapter => page.evaluate(chapter => {
+    const item = document.querySelector(`[data-testid="source-margin-item"][data-card-id="start:${chapter}"]`)
+    const head = document.querySelector(`[data-book-scroll-chapter="${chapter}"] .lab-passage-headline:not([hidden])`)
+    return item && head ? Math.round(item.getBoundingClientRect().top - head.getBoundingClientRect().top) : null
+  }, chapter)
+  await page.goto(`${origin}/reader?book=bible&chapter=982&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
+  await page.waitForTimeout(1500)
+  assert.equal(await page.locator('[data-book-scroll-unit]').getAttribute('data-book-scroll-unit'), 'bible/Luke/974')
+  await select(3, 8, 'lab-dbar-highlight'); await page.keyboard.press('Escape')
+  await select(20, 26, 'lab-dbar-explain'); await page.keyboard.press('Escape')
+  await select(40, 46, 'lab-dbar-explain')
+  // Into Luke 10: the overview still marks Luke 9's highlight and both its cards; Luke 10's actions stay by its heading.
+  await scrollUntil(400, async () => await own() === '983')
+  assert.ok(await page.locator('[data-map-unit-mark="982"]').count() >= 3, "the overview marks Luke 9's highlight and cards from Luke 10")
+  // As a neighbour and as the reader's own chapter alike (they dropped by the heading's height at every swap).
+  for (const chapter of [983, 984]) {
+    const offset = await startOffset(chapter)
+    assert.ok(offset !== null && Math.abs(offset) <= 2, `Luke ${chapter - 973}'s start actions are level with its heading (${offset} px)`)
+  }
+  // And back: every card is one section (a swap painted a stale copy over the live card: "Open this card" over its lead).
+  await scrollUntil(-400, async () => await own() === '982')
+  assert.deepEqual(await sectionsPerCard(), [], 'one margin section per card after chapter swaps')
+  await page.screenshot({ path: `${output}/${name}-luke-cards-back.png` })
+  // A long Explain near Luke 10's end reaches past Luke 11's heading: scrolling on to read it keeps it open and typable
+  // while it is on screen (the reader keeps Luke 10, the top bar names Luke 11); further on, the place follows again.
+  await page.goto(`${origin}/reader?book=bible&chapter=983&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
+  await page.waitForTimeout(1500)
+  const luke11 = () => page.evaluate(() => document.querySelector('[data-book-scroll-chapter="984"]')?.getBoundingClientRect().top ?? 1e9)
+  await scrollUntil(300, async () => await luke11() < 800)
+  const near = await page.locator('.book-scroll-chapter.is-own [data-testid="lab-word"]').evaluateAll(words => words.findIndex(word => word.getBoundingClientRect().top > 200))
+  mock.long = true
+  await select(near, near + 5, 'lab-dbar-explain')
+  mock.long = false
+  const card = page.locator('[data-testid="source-margin-item"][data-open="true"]')
+  await scrollUntil(150, async () => await luke11() < 0)
+  assert.ok(await card.evaluate(node => node.getBoundingClientRect().bottom > 200), 'the open card still reaches down the screen')
+  assert.equal(await own(), '983', 'the reader keeps Luke 10 while its open card is on screen')
+  assert.match(await page.locator('.lab-header').innerText(), /Luke 11/, 'the top bar names the chapter at the reading line')
+  const field = card.locator('.lab-pcard-follow-input')
+  await field.click(); await page.keyboard.type('a follow-up typed here')
+  assert.equal(await field.inputValue(), 'a follow-up typed here', 'the open card takes typing past the next heading')
+  await page.screenshot({ path: `${output}/${name}-luke-card-held.png` })
+  await scrollUntil(500, async () => await own() !== '983')
+  assert.equal(await card.count(), 0, 'the card folds once it and its chapter have left the screen')
 }
 
 for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
@@ -82,6 +160,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
       assert.equal(await host.getAttribute('data-book-scroll-unit'), 'bible/Genesis/1', 'the Bible scrolls one biblical book')
       await page.getByRole('slider', { name: 'Book position', exact: true }).waitFor()
       assert.equal(await page.locator('[data-map-chapter-mark]').count(), 50, "Genesis's overview marks its fifty chapters")
+      await lukeCards(s)
       // Chapter ends say Summary.
       await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
       const scroller = page.locator('[data-book-scroll-unit]')
