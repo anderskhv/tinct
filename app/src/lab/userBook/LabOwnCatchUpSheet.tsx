@@ -4,7 +4,7 @@ import { LabBalanceEmptyLine } from '../LabAiUsageBar'
 import { CATCH_UP_COOLDOWN_MS, catchUpContextText, catchUpShouldCoolDown } from '../labCatchUp'
 import { RowIcon } from '../LabSuperMenu.tsx'
 import { BOOK_SUMMARY_TITLE, CATCH_UP_TITLE } from '../LabCatchUpSheet'
-import { buildOwnCatchUp, ownCatchUpPlan } from './ownCatchUp'
+import { buildOwnCatchUp, ownCatchUpFailureReason, ownCatchUpPlan } from './ownCatchUp'
 import type { UserBookChapter } from './userEdition'
 import '../labCatchUp.css'
 
@@ -40,7 +40,7 @@ export interface LabOwnCatchUpSheetProps {
 type State =
   | { state: 'loading'; done: number; total: number }
   | { state: 'ok'; recap: string }
-  | { state: 'error'; allowanceUsed?: true; status: number }
+  | { state: 'error'; allowanceUsed?: true; status: number; reason: string | null }
 
 /**
  * Catch me up on a reader's own book: the same sheet and timeline as the
@@ -61,7 +61,9 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   const sheetTitle = wholeBook ? BOOK_SUMMARY_TITLE : CATCH_UP_TITLE
   const [status, setStatus] = useState<State>({ state: 'loading', done: 0, total: steps.length })
   const [attempt, setAttempt] = useState(0)
-  const windowRef = useReaderWindow<HTMLElement>('catchup', true)
+  // A floating reader window only as a sheet of its own. Embedded in a margin card it is laid out by the card: as a
+  // window it was placed at the screen's left, over the overview rail and the text (Anders, 13 Nov 2026).
+  const windowRef = useReaderWindow<HTMLElement>('catchup', !embedded)
   const mounted = useRef(true)
   useEffect(() => {
     mounted.current = true
@@ -90,7 +92,9 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
         onProgress: (done, total) => { if (!cancelled) setStatus({ state: 'loading', done, total }) },
       })
       if (cancelled || !mounted.current) return
-      setStatus(result.ok ? { state: 'ok', recap: result.recap } : { state: 'error', status: result.status, ...(result.allowanceUsed ? { allowanceUsed: true as const } : {}) })
+      setStatus(result.ok ? { state: 'ok', recap: result.recap } : {
+        state: 'error', status: result.status, reason: ownCatchUpFailureReason(result), ...(result.allowanceUsed ? { allowanceUsed: true as const } : {}),
+      })
     })()
     return () => { cancelled = true }
   }, [attempt, bookHex, bookTitle, readToken, steps])
@@ -108,14 +112,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
   const readyRef = useRef(onReady); readyRef.current = onReady
   const readyText = status.state === 'ok' ? shownText() : ''
   useEffect(() => { if (readyText) readyRef.current?.(readyText) }, [readyText])
-  const content = (
-    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
-      <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
-      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={sheetTitle}>
-        <div className="lab-v2-head is-titled" data-reader-window-handle>
-          <h2 className="lab-v2-title">{sheetTitle}</h2>
-          <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
-        </div>
+  const timeline = (
         <div className="lab-v2-sheet-body lab-catch-up-body" data-testid="lab-catch-up-body">
           <ol className="lab-catch-up-timeline">
             {/* Nothing read yet that has anything to summarise: no entry, only "You are here". */}
@@ -127,6 +124,7 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
                   <p className="lab-catch-up-text">{status.recap}</p>
                 ) : status.state === 'error' ? (<>
                   {status.allowanceUsed && <LabBalanceEmptyLine onTopUp={onTopUp} testId="lab-catch-up-balance" />}
+                  {status.reason && <p className="lab-catch-up-balance" role="status" data-testid="lab-catch-up-reason">{status.reason}</p>}
                   <button type="button" className="lab-catch-up-retry" data-testid="lab-catch-up-retry" onClick={retry}>Retry</button>
                 </>) : (<>
                   <span className="lab-catch-up-placeholder" aria-hidden="true"><i /><i /><i /></span>
@@ -145,6 +143,18 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
           </ol>
           {thread}
         </div>
+  )
+  // Embedded (a margin card) the card is the window: the timeline and the follow-up only, as the built-in sheet does.
+  if (embedded) return <>{timeline}{follow?.(shownText)}</>
+  const content = (
+    <div className="lab-v2-sheet-layer lab-catch-up-layer" data-testid="lab-catch-up-layer">
+      <button type="button" className="lab-super-scrim" data-testid="lab-catch-up-scrim" aria-label="Close" onClick={onClose} />
+      <section ref={windowRef} className="lab-v2-sheet lab-catch-up" data-testid="lab-catch-up" data-layer="catchup" data-own-book="true" aria-label={sheetTitle}>
+        <div className="lab-v2-head is-titled" data-reader-window-handle>
+          <h2 className="lab-v2-title">{sheetTitle}</h2>
+          <button type="button" className="lab-v2-dismiss" data-testid="lab-catch-up-close" aria-label="Close" onClick={onClose}>×</button>
+        </div>
+        {timeline}
         {follow ? <div className="lab-catch-up-foot is-follow">{follow(shownText)}</div> : <div className="lab-catch-up-foot lab-chapter-notes-foot">
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-chat" aria-label="Chat" onClick={() => onChat(shownText())}><RowIcon id="chat" /></button>
           <button type="button" className="lab-chapter-notes-tool" data-testid="lab-catch-up-talk" aria-label="Talk" onClick={() => onTalk(shownText())}><RowIcon id="talk" /></button>
@@ -152,5 +162,5 @@ export function LabOwnCatchUpSheet(props: LabOwnCatchUpSheetProps) {
       </section>
     </div>
   )
-  return embedded ? <div className="lab-catch-up-embedded">{content}</div> : content
+  return content
 }
