@@ -1359,6 +1359,7 @@ export const PHAEDO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1397,7 +1398,7 @@ export const POETICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1474,7 +1475,7 @@ export const PHAEDRUS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -1965,7 +1966,7 @@ export const COMMUNIST_MANIFESTO: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2214,7 +2215,7 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -2448,7 +2449,7 @@ export const DESCARTES_MEDITATIONS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2485,7 +2486,7 @@ export const ON_LIBERTY: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
 ],
 }
@@ -2522,7 +2523,7 @@ export const UTILITARIANISM: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3086,7 +3087,7 @@ export const JEKYLL_AND_HYDE: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3135,7 +3136,7 @@ export const HUME_ENQUIRY: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Hume (1748)', year: 1748, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3152,7 +3153,7 @@ export const KANT_GROUNDWORK: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Abbott (1879)', translator: 'Thomas Kingsmill Abbott', year: 1879, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3184,7 +3185,7 @@ export const WERTHER: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Boylan (1779)', translator: 'R. D. Boylan', year: 1779, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
@@ -3257,7 +3258,7 @@ export const IVAN_ILYICH: Book = {
     { key: 'original-ru', language: 'ru', style: 'original', label: 'Смерть Ивана Ильича (1886)', year: 1886, aligned: false },
     { key: 'original-en', language: 'en', style: 'original', label: 'Maude', translator: 'Louise & Aylmer Maude', aligned: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 
