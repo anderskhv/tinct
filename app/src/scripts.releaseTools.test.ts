@@ -8,6 +8,7 @@ import { describe, expect, it } from 'vitest'
 const helper = fileURLToPath(new URL('../scripts/release-tools.cjs', import.meta.url))
 const activationCheck = fileURLToPath(new URL('../scripts/check-release-activation.mjs', import.meta.url))
 const deploy = readFileSync(fileURLToPath(new URL('../../.github/workflows/deploy.yml', import.meta.url)), 'utf8')
+const verify = readFileSync(fileURLToPath(new URL('../../.github/workflows/verify.yml', import.meta.url)), 'utf8')
 const voice = readFileSync(fileURLToPath(new URL('../../.github/workflows/voice-lab-acceptance.yml', import.meta.url)), 'utf8')
 const previous = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'
 const promoted = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'
@@ -19,7 +20,7 @@ const run = (args: string[], env: Record<string, string> = {}) => spawnSync(proc
     ...process.env,
     // Each case models its own caller, including when the parent test process
     // runs inside an approved production dispatch. Never inherit its approval.
-    GITHUB_ACTIONS: '', GITHUB_EVENT_NAME: '', GITHUB_SHA: '', TINCT_RELEASE_PHASE: '',
+    GITHUB_ACTIONS: '', GITHUB_EVENT_NAME: '', GITHUB_REF: '', GITHUB_SHA: '', TINCT_RELEASE_PHASE: '',
     TINCT_RELEASE_APPROVED: '', TINCT_RELEASE_EXPECTED_SHA: '', VITE_SHARED_READER_DEFAULT: '',
     ...env,
   },
@@ -216,5 +217,41 @@ describe('release rollback guards (offline)', () => {
     expect(deploy).toContain('npx vitest run src/worker.rollbackFloor.test.ts src/worker.userBooks.test.ts src/worker.adminAccounts.test.ts')
     expect(deploy).toContain('node scripts/release-tools.cjs verify-reader-floor "$PREVIOUS_VERSION"')
     expect(deploy.match(/verify-reader-floor "\$PREVIOUS_VERSION"/g)).toHaveLength(3)
+  })
+
+  it('deploys a merge to main as the repair of exactly that commit, and nothing else automatically (13 Nov 2026)', () => {
+    expect(run(['push-release-phase']).stdout.trim()).toBe('phase=repair')
+    const push = { GITHUB_ACTIONS: 'true', GITHUB_EVENT_NAME: 'push', GITHUB_REF: 'refs/heads/main', GITHUB_SHA: currentSource,
+      TINCT_RELEASE_PHASE: 'repair', TINCT_RELEASE_APPROVED: 'true', TINCT_RELEASE_EXPECTED_SHA: currentSource, VITE_SHARED_READER_DEFAULT: '1' }
+    expect(run(['assert-release-command'], push).status).toBe(0)
+    // Another branch, another commit, an OFF build or a missing approval is still refused.
+    expect(run(['assert-release-command'], { ...push, GITHUB_REF: 'refs/heads/feature' }).stderr).toContain('blocks deploy/upload')
+    expect(run(['assert-release-command'], { ...push, TINCT_RELEASE_EXPECTED_SHA: 'f'.repeat(40) }).stderr).toContain('exact approved merge SHA')
+    expect(run(['assert-release-command'], { ...push, GITHUB_SHA: 'f'.repeat(40) }).stderr).toContain('exact approved merge SHA')
+    expect(run(['assert-release-command'], { ...push, VITE_SHARED_READER_DEFAULT: '0' }).stderr).toContain('requires VITE_SHARED_READER_DEFAULT=1')
+    expect(run(['assert-release-command'], { ...push, TINCT_RELEASE_APPROVED: '' }).status).toBe(1)
+    expect(run(['assert-release-command'], { ...push, TINCT_RELEASE_PHASE: 'reader' }).status).toBe(1)
+    // The workflow: a push derives its phase from the rollout state and releases exactly the pushed main commit.
+    expect(deploy).toMatch(/on:\s+push:\s+branches:\s+- main\s+workflow_dispatch:/)
+    expect(deploy).toContain('phase=$(node scripts/release-tools.cjs push-release-phase')
+    expect(deploy).toContain('echo "TINCT_RELEASE_EXPECTED_SHA=$GITHUB_SHA"')
+    expect(deploy).toContain('node app/scripts/release-tools.cjs push-release-phase')
+    // One release at a time; a started run is never cancelled by a newer one.
+    expect(deploy).toMatch(/concurrency:\s+group: deploy-tinct-production\s+cancel-in-progress: false/)
+  })
+
+  it('skips only the pre-go-live npm test, and only for a tree a passing verify run tested (CI once)', () => {
+    expect(deploy).toMatch(/deploy:\s+needs: gate\s/)
+    expect(deploy).toContain("- name: npm test\n        if: needs.gate.outputs.ci_once != 'true'\n        run: npm test")
+    expect(deploy).toContain('actions/artifacts?name=verified-tree-$tree')
+    expect(deploy).toContain('.conclusion == "success" and .path == ".github/workflows/verify.yml" and .head_repository.full_name == $repo')
+    // A push no passing verify run covers waits for verify on its own commit and never deploys a failed one.
+    expect(deploy).toContain('actions/workflows/verify.yml/runs?head_sha=$GITHUB_SHA&event=push')
+    expect(deploy).toContain('verify did not pass on $GITHUB_SHA')
+    // Nothing else is gated on CI once: acceptance and rollback are unconditional on it.
+    expect(deploy.match(/needs\.gate\.outputs\.ci_once/g)).toHaveLength(1)
+    // verify.yml records the tree it tested, only after ci-summary judged every suite.
+    expect(verify).toContain("tree: ${{ steps.tree.outputs.tree }}")
+    expect(verify.indexOf('name: verified-tree-${{ needs.changes.outputs.tree }}')).toBeGreaterThan(verify.indexOf("if (problems.length) { console.log('::error::'"))
   })
 })
