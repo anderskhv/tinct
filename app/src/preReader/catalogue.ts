@@ -3,6 +3,7 @@ import { isAudioHeld, isBookDiscoverable, isBookSearchable, isEditionDiscoverabl
 import { BOOKS } from '../data/bookRegistry'
 import { isEditionWithheld } from '../data/withheldEditions'
 import { publisherPermission } from '../data/publisherPermissions'
+import { danishAuthorNamesFor, danishTitlesFor } from '../data/danishTitles'
 import {
   LIBRARY_BOOK_META_BY_ID,
   LIBRARY_HOUSES,
@@ -122,6 +123,10 @@ export interface PreReaderBookViewModel {
   author: string
   /** Other titles readers know the book by (registry `altTitles`), searched as titles in the library. */
   altTitles?: string[]
+  /** The book's titles in other languages (data/danishTitles.ts), searched as titles; the first is the one to show. */
+  localTitles?: { da: string[] }
+  /** The author's name as other languages spell it ("Platon"), searched as the author's name. */
+  localAuthors?: { da: string[] }
   summary: string
   /** One-line description from the library taxonomy (falls back to the first sentence of the summary). */
   blurb: string
@@ -351,6 +356,8 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     title: book.title.trim(),
     author: book.author.trim(),
     ...(book.altTitles?.length ? { altTitles: book.altTitles.map(title => title.trim()) } : {}),
+    ...(danishTitlesFor(book.id).length ? { localTitles: { da: danishTitlesFor(book.id) } } : {}),
+    ...(danishAuthorNamesFor(book.author).length ? { localAuthors: { da: danishAuthorNamesFor(book.author) } } : {}),
     summary,
     blurb,
     displayYear: getBookDisplayYear(book, meta),

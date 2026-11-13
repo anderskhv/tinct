@@ -19,7 +19,7 @@ import {renderBookMetadata,readingTime,bookCategory} from './book-metadata.js?v=
 import {enabled as addEnabled,warmFreeSearch,borrowFromCatalogue,renderSearchGroups,tinctRow,addEngine,paperCover,appendOwnShelf,setAddBusy,syncSearchAddFile,syncLibraryAdd,syncShelfAdd,confirmDeleteUpload,deleteUpload,editOwnBookDetails,ownTableId,ownBookCard,shelfMenu,shelfMenuOpenIn,afterShelfMenu,closeShelfMenus,shelfAction,READ_LATER,OFF_READING,ADD_PARAM,PREMIUM_PAGE,resetAddAccess,canAdd,finishAdd,openFileEntry} from './add-to-tinct.js?v=20261106mm';
 import {takeHandoffFiles,peekPasteHandoff} from '../addbook/js/file-handoff.js?v=20261109bulk';
 import {openOwnStart} from './own-start.js?v=20261109add3';
-import {librarySearch} from './library-search.js?v=20261009rel10';
+import {librarySearch} from './library-search.js?v=20261113dasearch';
 import {recordRects,playFlip,fadeOut,markGone} from './shelf-motion.js?v=20261009cover';
 import {coverSources} from './cover-assets.js?v=20261009owncover';
 import {shortTitle} from '../book-title.js?v=20261009owncover';
@@ -178,9 +178,12 @@ function openOwnEntryFromParam(){
 // No "Read your own books" band (Anders, 10 Nov 2026: removed): "Add your own" is the + on the shelves and the hero.
 // The rest of the library: every discoverable book, shelved by house.
 function searchPool(){const extra=searchOnlyBooks.filter(s=>!books.some(b=>b.id===s.id));return extra.length?[...books,...extra]:books;}
-loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);if(entry.altTitles?.length)book.altTitles=entry.altTitles;searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
- // Other titles the registry gives a book (altTitles) are searched as titles.
- for(const book of books){const alt=byId.get(book.id)?.altTitles;if(alt?.length)book.altTitles=alt;}
+// The names a typed search finds a book by besides its title: the registry's other titles (altTitles),
+// its Danish titles and the Danish spellings of its author (localTitles, localAuthors; 2026-11-13).
+function searchNames(book,entry){if(entry.altTitles?.length)book.altTitles=entry.altTitles;if(entry.localTitles)book.localTitles=entry.localTitles;if(entry.localAuthors)book.localAuthors=entry.localAuthors;}
+loadCatalogue().then(({books:entries,searchOnly=[],houses})=>{for(const entry of searchOnly){const book=libraryBook(entry);attachCatalogue(book,entry);searchNames(book,entry);searchOnlyBooks.push(book);}const byId=new Map(entries.map(e=>[e.id,e]));entries.forEach(placePublicBook);books.forEach(book=>{const entry=byId.get(book.id);if(entry)attachCatalogue(book,entry);});entries.forEach(entry=>{if(books.some(b=>b.id===entry.id))return;const book=libraryBook(entry);attachCatalogue(book,entry);books.push(book);});
+ // Other titles the registry gives a book (altTitles), and its Danish ones, are searched as titles.
+ for(const book of books){const entry=byId.get(book.id);if(entry)searchNames(book,entry);}
  houses.forEach(house=>{const ids=[...new Set(house.shelves.flatMap(shelf=>shelf.bookIds||[]))].filter(id=>byId.has(id));if(!ids.length)return;const section=el('section','shelf');section.append(el('h2','',house.title));const row=el('div','book-row');row.setAttribute('aria-label',house.title);ids.forEach(id=>row.append(coverButton(books.find(b=>b.id===id))));section.append(row);$('shelves').append(section);shelfMemory?.observe(section);});
  libraryHouses=houses;renderBrowseMenus();
  refreshMetadata();

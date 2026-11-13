@@ -170,7 +170,10 @@ describe('every removal path uses the motion', () => {
     const motion = '20261009cover', tag = '20261009owncover', ocr = '20261014talkwake', latest = '20261106mm', mm = '20261106mm'
     // "Your edition" showing the edition Begin reading opens (20261112pref) changed app.js alone.
     // The biography's clamp and More/Less removed, one-sentence bios instead (20261112nomore), changed app.js and intro-review.css.
-    expect(lib('index.html')).toContain('app.js?v=20261112nomore')
+    // Search by Danish titles and authors' Danish names (20261113dasearch) changed library-search.js, so app.js and index.html too.
+    expect(lib('index.html')).toContain('app.js?v=20261113dasearch')
+    expect(lib('app.js')).toContain('library-search.js?v=20261113dasearch')
+    expect(lib('index.html')).toContain('library-search.js?v=20261113dasearch')
     expect(lib('app.js')).toContain('scene-life.js?v=20261021still')
     expect(lib('index.html')).toContain('quiet-loads.js?v=20261015quietopen')
     expect(lib('index.html')).toContain('styles.css?v=20261109bulk')
