@@ -226,9 +226,12 @@ export const PHONE_QUIZ_LENGTH = 3
 /**
  * Quiz me (the margin reader's quiz card): three questions, one at a time.
  * The reader answers in the field (marked by the companion) or shows the
- * answer, then goes on; the end line counts the right answers. The card opens
- * at once ("Writing questions…") and the first question shows as soon as it
- * is whole in the stream. The end ends with the follow-up field, as every card.
+ * answer, then goes on. Once the last question has its result, the score and
+ * "Try another quiz" show under it at once (no "See your score" step: Anders,
+ * 13 Nov 2026). The card opens at once ("Writing questions…") and the first
+ * question shows as soon as it is whole in the stream. The end ends with the
+ * follow-up field, as every card; while the last answer can still be discussed,
+ * that question's own field stands in for it, above the score.
  */
 export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, inputRef, follow, thread, onComplete }: {
   request: (onDelta: (text: string) => void) => Promise<string>
@@ -242,7 +245,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   follow?: (summary: string) => ReactNode
   /** The follow-ups asked from the end and their answers. */
   thread?: ReactNode
-  /** One completed result, after the reader has marked or revealed every question. */
+  /** One completed result, as soon as the last question is marked or revealed (once per quiz). */
   onComplete?: (summary: string) => void
 }) {
   const [questions, setQuestions] = useState<QuizQuestion[] | null>(null)
@@ -277,14 +280,19 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   // While the quiz is still being written its length is the one it will have.
   const total = writing ? PHONE_QUIZ_LENGTH : questions?.length ?? 0
   const waitingNext = !!questions && writing && index >= questions.length
-  const done = !!questions && !writing && index >= questions.length
-  const result = results[index] ?? null
+  // The question on show. Writing that stopped early, after the reader went on, ends with the last that arrived.
+  const at = questions && !writing && index >= questions.length ? questions.length - 1 : index
+  const result = results[at] ?? null
+  const last = !!questions && !writing && at === questions.length - 1
+  // The quiz is done as soon as its last question has a result: the score shows under it at once.
+  const done = last && !!result
+  const canReply = !!result && result.verdict !== 'right' && result.verdict !== 'shown' && (result.replies ?? 0) < 3
   const right = results.filter(item => item?.verdict === 'right').length
   const answered = results.filter(item => item && item.verdict !== 'shown').length
   const submit = (answer: string) => {
-    const question = questions?.[index]
+    const question = questions?.[at]
     if (!question || markingRef.current || !answer.trim()) return
-    const previous = results[index]
+    const previous = results[at]
     if (previous && (previous.verdict === 'right' || previous.verdict === 'shown' || (previous.replies ?? 0) >= 3)) return
     markingRef.current = true
     setMarking(true)
@@ -297,7 +305,7 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
     void checked.then(text => {
       const parsed = parsePhoneQuizMark(text)
       if (!parsed) { failed(); return }
-      setResults(current => { const next = [...current]; next[index] = { ...parsed,
+      setResults(current => { const next = [...current]; next[at] = { ...parsed,
         replies: previous ? (previous.replies ?? 0) + 1 : 0,
         turns: [...(previous?.turns ?? []), { role: 'reader', text: answer.slice(0, 600) }, { role: 'grader', text: parsed.feedback.slice(0, 600), verdict: parsed.verdict }],
       }; return next })
@@ -319,17 +327,16 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   const body = status === 'loading' || waitingNext
     ? <div className="lab-pcard-quiz-writing" data-testid="lab-phone-quiz-writing" {...{ [PHONE_CARD_BUSY_ATTR]: '' }}><p className="lab-pcard-status">Writing questions…</p><PhoneWait /></div>
     : status === 'error' || !questions ? <p className="lab-pcard-status"><button type="button" className="lab-pcard-link" data-testid="lab-phone-card-retry" onClick={() => setAttempt(value => value + 1)}>Retry</button></p>
-    : done ? <div className="lab-pcard-answer"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
     : (
       <div className="lab-pcard-quiz" data-testid="lab-phone-quiz">
-        <p className="lab-pcard-count">{index + 1} of {total}</p>
-        <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[index].q}</p>
+        <p className="lab-pcard-count">{at + 1} of {total}</p>
+        <p className="lab-pcard-question" data-testid="lab-phone-quiz-question">{questions[at].q}</p>
         {result && (result.turns?.length ?? 0) > 0 && <div className="lab-pcard-quiz-history" data-testid="lab-phone-quiz-history">
           {result.turns!.slice(0, -1).map((turn, turnIndex) => <p key={turnIndex} className={turn.role === 'reader' ? 'lab-pcard-question' : undefined}>{turn.text}</p>)}
         </div>}
         {result && <div className="lab-pcard-answer">
           {result.verdict === 'shown'
-            ? <p><strong className="lab-pcard-lead">{questions[index].answer}</strong>{questions[index].why ? ` ${questions[index].why}` : ''}</p>
+            ? <p><strong className="lab-pcard-lead">{questions[at].answer}</strong>{questions[at].why ? ` ${questions[at].why}` : ''}</p>
             : <p><strong className="lab-pcard-lead">{VERDICT_WORD[result.verdict]}</strong>{result.feedback ? ` ${result.feedback}` : ''}</p>}
         </div>}
         {pendingAnswer && <p className="lab-pcard-question" data-testid="lab-phone-quiz-pending-answer">{pendingAnswer}</p>}
@@ -337,27 +344,33 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
         {markError && <p role="status">Couldn’t check that answer. Please try again.</p>}
       </div>
     )
-  const asking = (status === 'ready' || writing) && !!questions && index < questions.length
+  const asking = (status === 'ready' || writing) && !!questions && at < questions.length
   return (
     <>
       <div className="lab-pcard-body-inner">
         {body}
-        {done && thread}
       </div>
-      {asking && (
+      {asking && (!done || canReply) && (
         <div className="lab-pcard-quiz-foot">
           {!result
             ? <>
                 <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Your answer" label="Your answer" inputRef={inputRef} disabled={marking} />
-                <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-show" disabled={marking} onClick={() => setResults(current => { const next = [...current]; next[index] = { verdict: 'shown', feedback: '' }; return next })}>Show answer</button>
+                <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-show" disabled={marking} onClick={() => setResults(current => { const next = [...current]; next[at] = { verdict: 'shown', feedback: '' }; return next })}>Show answer</button>
               </>
-            : <>{result.verdict !== 'right' && result.verdict !== 'shown' && (result.replies ?? 0) < 3 && <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Ask about your answer" label="Ask about your answer" inputRef={inputRef} disabled={marking} />}
-              <button type="button" disabled={marking} className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => { setIndex(value => value + 1); setDraft(''); setMarkError(false) }}>{index + 1 < total ? 'Next question →' : 'See your score →'}</button></>}
+            : <>{canReply && <PhoneFollow value={draft} onChange={setDraft} onSend={submit} onMic={onMic} micOn={micOn} placeholder="Ask about your answer" label="Ask about your answer" inputRef={inputRef} disabled={marking} />}
+              {!last && <button type="button" disabled={marking} className="lab-pcard-link" data-testid="lab-phone-quiz-next" onClick={() => { setIndex(value => value + 1); setDraft(''); setMarkError(false) }}>Next question →</button>}</>}
         </div>
       )}
+      {done && questions && <div className="lab-pcard-body-inner">
+        <div className="lab-pcard-answer" data-testid="lab-phone-quiz-score"><p><strong className="lab-pcard-lead">{answered ? `${right} of ${answered}` : `${questions.length} of ${questions.length} shown`}</strong></p></div>
+        {thread}
+      </div>}
       {done && <div className="lab-pcard-quiz-foot">
-        {follow?.(summary())}
-        <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-again" onClick={() => setAttempt(value => value + 1)}>Try another quiz</button>
+        {!canReply && follow?.(summary())}
+        <button type="button" className="lab-pcard-link" data-testid="lab-phone-quiz-again" onClick={() => {
+          // Cleared in the same render as the new attempt, so the finished one is not completed again under its number.
+          setStatus('loading'); setQuestions(null); setIndex(0); setResults([]); setMarkError(false); setDraft(''); setAttempt(value => value + 1)
+        }}>Try another quiz</button>
       </div>}
     </>
   )

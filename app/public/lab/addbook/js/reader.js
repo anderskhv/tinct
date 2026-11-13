@@ -5498,7 +5498,11 @@ function followUp(id, text) {
     return;
   }
   const card = cardById(id); if (!card) return;
-  if (card.kind === 'quiz') return card.data?.done ? chatAbout(cardShown(card), { question: text }) : quizCheck(card, text);
+  if (card.kind === 'quiz') {
+    // The end's field asks Chat about the quiz; the last question's reply field (above its score) still marks the reply.
+    const q = col.quiz.get(id) || card.data || {}, r = q.results?.[Math.min(q.i || 0, (q.questions?.length || 1) - 1)];
+    return (q.done && !r) || (r && !TinctMargin.quizCanReply(r)) ? chatAbout(cardShown(card), { question: text }) : quizCheck(card, text);
+  }
   if (card.kind === 'note' || id.startsWith('n-')) {
     // A follow-up on a note asks about its passage: an Ask card for it.
     const v = viewCards().find(c => c.id === id); if (!v) return;
@@ -5994,7 +5998,8 @@ async function runCardNow(id, question, run) {
 function quizEnded(live, questions, stopped) {
   const i = Math.min(live.i || 0, questions.length);
   const ideas = live.ideas?.length ? { ideas: live.ideas } : {}, asked = live.asked?.length ? { asked: live.asked } : {}, thesis = live.thesis ? { thesis: live.thesis } : {};
-  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
+  // Done once the last question that arrived has its result (13 Nov 2026: the score shows under it, no "See your score").
+  return { ...(live.unit ? { unit: live.unit } : {}), ...ideas, ...thesis, ...asked, questions, i: Math.min(i, questions.length - 1), results: live.results.slice(0, questions.length), ...(live.done || i >= questions.length || i === questions.length - 1 && live.results[i] ? { done: true } : {}), ...(stopped && questions.length < quizTotal(live, true) ? { ended: true } : {}) };
 }
 /** How many questions a quiz has: one per key idea once they are known; while it streams without them, as many as may come. */
 const quizTotal = (q, streaming = false) => (q.ideas?.length ? Math.max(q.ideas.length, q.questions?.length || 0) : streaming ? TinctMargin.QUIZ_MAX_QUESTIONS : q.questions?.length || 0);
@@ -6038,8 +6043,10 @@ function quizStep(id, step) {
     saveCard(card); openCard(id); runCard(id);
     return;
   }
-  if (step === 'show') q.results[i] = { shown: true };
-  else if (i + 1 >= (live ? quizTotal(live, true) : q.questions.length)) q.done = true;
+  const last = i + 1 >= (live ? quizTotal(live, true) : q.questions.length);
+  // The last question's result ends the quiz at once: its score shows under it (Anders, 13 Nov 2026: no "See your score").
+  if (step === 'show') { q.results[i] = { shown: true }; if (last) q.done = true }
+  else if (last) q.done = true;
   else q.i = i + 1;
   if (live) marginLayout(); else saveCard(card);
   if (step === 'next') openCard(id, { focus: !q.done && !!q.questions[q.i || 0] });
@@ -6062,11 +6069,13 @@ async function quizCheck(card, answer) {
     const result = { answer, verdict: mark.verdict, feedback: mark.feedback };
     // A reply joins its question's thread; the question's own verdict (its score) stays the first answer's.
     const keep = results => { if (prior) { const r = results[i]; if (r) { r.thread = [...(r.thread || []), { reply: answer, verdict: mark.verdict, feedback: mark.feedback }] } } else results[i] = result };
+    // The last question's first mark ends the quiz at once (its score under it, 13 Nov 2026); a reply changes nothing.
+    const end = d => { if (!prior && (d.i || 0) === i && i + 1 >= (d === live ? quizTotal(live, true) : d.questions.length)) d.done = true };
     // Still streaming: the mark joins the quiz in memory; else the saved card takes it.
     const live = col.quiz.get(card.id);
-    if (live) { keep(live.results); col.pending.delete(card.id); marginLayout(); return }
+    if (live) { keep(live.results); end(live); col.pending.delete(card.id); marginLayout(); return }
     const c = cardById(card.id); if (!c) return;
-    c.data.results = c.data.results || []; keep(c.data.results); quizFit(c.data, i);
+    c.data.results = c.data.results || []; keep(c.data.results); end(c.data); quizFit(c.data, i);
     col.pending.delete(card.id); saveCard(c);
   } catch (e) {
     // The error shows in the card, and the reader's answer goes back into its field to send again.

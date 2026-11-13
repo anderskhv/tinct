@@ -570,7 +570,8 @@ async function run(engineName) {
     ok(`${tag}: ${label} opens as a card (${c.label})`, c.kind === kind, c)
     if (kind === 'quiz') ok(`${tag}: the chapter's quiz asks the quiz route without a passage`, startState.log.ai.some(a => a.intent === 'quiz' && !a.selection))
     if (kind === 'quiz') {
-      for (let i = 0; i < 3; i++) { await sp.getByTestId('lab-phone-quiz-show').click(); await sp.getByTestId('lab-phone-quiz-next').click() }
+      // The last answer shown: the score at once (13 Nov 2026: no "See your score").
+      for (let i = 0; i < 3; i++) { await sp.getByTestId('lab-phone-quiz-show').click(); if (i < 2) await sp.getByTestId('lab-phone-quiz-next').click() }
       await sp.waitForTimeout(300)
       const end = await shapeOf(sp)
       ok(`${tag}: Quiz me's end ends with the field (mic, Talk, send) right under the score, Try another quiz below it, ${end?.gap}px from the score`, followRow(end) && end.gap <= 24 && (await sp.getByTestId('lab-phone-quiz-again').count()) === 1, end)

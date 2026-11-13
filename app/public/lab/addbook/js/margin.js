@@ -879,18 +879,22 @@
     if (card.kind === 'quiz') {
       const qs = q.questions || [];
       let body = '', foot = '';
+      // The end: the score, "2/3", and new questions on the same passage or unit (Anders, 20 Oct 2026); the follow-up field
+      // as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
+      const score = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
+      const again = '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>';
+      const at = Math.min(q.i || 0, qs.length - 1), r0 = (q.results || [])[at];
       if (!qs.length) body = status;
-      else if (q.done) {
-        // The end card is minimal (Anders, 20 Oct 2026): the score, "2/3", and new questions on the same passage or unit;
-        // the follow-up field under the score, as every card ends (21 Oct 2026): a question about the quiz goes to Chat.
-        body = `<div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">${esc(quizLine(q))}</span></p></div>`;
-        foot = followHtml({ link: '<button type="button" class="mr-follow__link" data-c="again">Try new questions</button>' });
-      } else if (!qs[q.i || 0]) {
+      else if (q.done && !r0) {
+        // A quiz kept before the score came under its last question (13 Nov 2026): the score alone.
+        body = score;
+        foot = followHtml({ link: again });
+      } else if (!qs[q.i || 0] && !q.done) {
         // Answered ahead of the stream (FIXES-2026-10-15 A7): a quiet line until the next question arrives.
         body = '<p class="mr-status mr-writing" role="status">Writing the next question…</p>';
         foot = '';
       } else {
-        const i = q.i || 0, item = qs[i], r = (q.results || [])[i];
+        const i = at, item = qs[i], r = r0;
         const cite = item.cite ? ' ' + inlineHtml(item.cite, P, o.resolve) : '';
         body = `<div class="mr-question">${esc(item.q)}</div>`;
         if (r) {
@@ -904,8 +908,15 @@
           else body += status;
           // The last question once the quiz is written (a quiz whose writing stopped early ends with the questions it has, FIXES-2026-10-15 A7).
           const last = i + 1 >= qs.length && (q.ended || !o.writing || i + 1 >= (q.ideas?.length || Infinity));
-          // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
-          foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: `<button type="button" class="mr-follow__link" data-c="next">${last ? 'See your score' : 'Next question'} →</button>` });
+          if (q.done || last) {
+            // The last question marked: its score at once, no "See your score" step (Anders, 13 Nov 2026). While the answer
+            // can still be discussed, its reply field stays above the score; after that, the follow-up field about the quiz.
+            if (quizCanReply(r)) foot = followHtml({ field: o.pending == null, talk: false, label: 'Your reply' }) + score.replace('mr-quiz-score', 'mr-quiz-score mr-quiz-end') + followHtml({ field: false, link: again });
+            else { body += score; foot = followHtml({ link: again }) }
+          } else {
+            // "Next question →" stays in view throughout; the reply field under the newest marking while it is not Right.
+            foot = followHtml({ field: o.pending == null && quizCanReply(r), talk: false, label: 'Your reply', link: '<button type="button" class="mr-follow__link" data-c="next">Next question →</button>' });
+          }
         } else if (o.pending != null) { body += `<div class="mr-you">${esc(o.pending)}</div>${status}<p class="mr-status mr-wait"></p>`; foot = '' }
         // A marking that failed shows its error here; the reader's answer stays in the field (the reader puts it back).
         else { body += status; foot = followHtml({ label: 'Your answer', placeholder: 'Your answer', talk: false, link: '<button type="button" class="mr-follow__link" data-c="show">Show answer</button>' }) }

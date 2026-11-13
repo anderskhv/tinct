@@ -142,8 +142,11 @@ it('uses the existing interactive quiz body and saves only after a completed sou
   await screen.findByText('Exactly.')
   expect(check).toHaveBeenCalledWith({ page: 1, text: 'Selected PDF sentence.', rects: [[1, .1, .2, .3, .04]] },
     { question: 'What was selected?', expected: 'A sentence.', why: undefined, answer: 'A sentence.' })
-  fireEvent.click(screen.getByText('See your score →'))
+  // The last question marked: saved at once, its score and Try another quiz under it (no "See your score", 13 Nov 2026).
   await waitFor(() => expect(saveCard).toHaveBeenCalledOnce())
+  expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('1 of 1')
+  expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
+  expect(screen.queryByText(/See your score/)).toBeNull()
   expect(saveCard.mock.calls[0][1]).toBe('quiz')
   expect(saveCard.mock.calls[0][2]).toContain('What was selected?')
   expect(saveCard.mock.calls[0][3]).toEqual({ data: { generatedQuiz: quiz } })
@@ -582,8 +585,11 @@ it('checks a finished-unit quiz against its actual full source and saves only th
   fireEvent.click(screen.getByRole('button', { name: 'Send' }))
   expect(await screen.findByText('Correct.')).toBeTruthy()
   expect(askUnitQuizCheck).toHaveBeenCalledOnce()
-  fireEvent.click(screen.getByText('See your score →'))
+  // The last question marked: saved at once, its score and Try another quiz under it (no "See your score", 13 Nov 2026).
   await waitFor(() => expect(saveUnitQuizCardWithId).toHaveBeenCalledOnce())
+  expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('1 of 1')
+  expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
+  expect(screen.queryByText(/See your score/)).toBeNull()
   expect(saveUnitQuizCardWithId.mock.calls[0][1]).toContain('What ends the unit?')
   expect(saveUnitQuizCardWithId.mock.calls[0][2]).toBe(quiz)
 })
