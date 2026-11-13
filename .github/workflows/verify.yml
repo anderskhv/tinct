@@ -345,7 +345,7 @@ jobs:
       - name: Prepare calibration requests without inference
         run: node benchmarks/reading-companion/benchmark.mjs prepare benchmarks/reading-companion/cases.json benchmarks/reading-companion/candidates.json /tmp/tinct-benchmark-ci calibration
 
-  featured-preview:
+  audio-and-menu:
     needs: changes
     if: ${{ needs.changes.outputs.audio == 'true' || needs.changes.outputs.featured == 'true' }}
     runs-on: ubuntu-24.04
@@ -367,9 +367,6 @@ jobs:
           retention-days: 3
           name: inline-audio-loading
           path: app/artifacts/inline-audio-loading
-      - name: Verify the featured-book preview
-        if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
-        run: node scripts/check-featured-preview.mjs
       - name: Verify compact reader menu
         if: ${{ !cancelled() && steps.prepare.outcome == 'success' && needs.changes.outputs.featured == 'true' }}
         run: READER_MENU_ONLY=1 node scripts/check-reader-panels.mjs
@@ -383,19 +380,12 @@ jobs:
           path: |
             app/artifacts/reader-panels
             app/artifacts/reader-feedback-20260928
-      - uses: actions/upload-artifact@v4
-        continue-on-error: true
-        if: always()
-        with:
-          retention-days: 3
-          name: featured-preview-acceptance
-          path: app/artifacts/featured-preview
 
   # The one check to wait for (and to require, should main ever be protected): green only when the suite choice ran,
   # every suite that ran passed, and every skipped suite was one this change did not need.
   ci-summary:
     if: ${{ always() }}
-    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, featured-preview]
+    needs: [changes, app, reader-panels, library, profile-flow-sql, page-layout, margin-layout, reading-benchmark, audio-and-menu]
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -409,7 +399,7 @@ jobs:
           const on = (...names) => names.some(n => s[n] === 'true')
           // Which suites a job carries: it may be skipped only when none of them was needed.
           const carries = { 'reader-panels': on('panels'), library: on('signin', 'library'), 'profile-flow-sql': on('signin', 'library'), 'page-layout': on('shakespeare', 'typeset'),
-            'margin-layout': on('margin'), 'featured-preview': on('audio', 'featured'), app: true, 'reading-benchmark': true }
+            'margin-layout': on('margin'), 'audio-and-menu': on('audio', 'featured'), app: true, 'reading-benchmark': true }
           const problems = []
           if (needs.changes.result !== 'success') problems.push(`changes: ${needs.changes.result} (the suites could not be chosen)`)
           for (const [job, { result }] of Object.entries(needs)) {

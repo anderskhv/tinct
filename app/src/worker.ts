@@ -1,7 +1,6 @@
 import type { ReaderPositionCoordinator } from './worker/readerPositionCoordinator'
 import { handleRecapPreparation } from './worker/routes/recapPreparation'
 import type { RecapPreparationCoordinator } from './worker/recapPreparationCoordinator'
-import { handleFeaturedPreview } from './worker/routes/featuredPreview'
 import { handleVoiceResearch } from './worker/routes/voiceResearch'
 /**
  * Cloudflare Worker entry point.
@@ -424,7 +423,6 @@ const worker = {
     }
 
     switch (url.pathname) {
-      case '/api/featured-preview': return handleFeaturedPreview(request, env, verifySiteAdmin)
       case '/api/chat': return handleChat(request, env, ctx, verifyUser, checkRateLimit, { allowanceGate })
       case '/api/lab-chat': return handleLabChat(request, env, ctx, checkRateLimit, reserveGuestSpend, holdGuestSpend)
       case '/api/voice-research': return handleVoiceResearch(request, env, verifyUser, checkRateLimit, ctx, allowanceGate)

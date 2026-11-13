@@ -188,8 +188,6 @@ function isLabPathname(pathname: string): boolean {
 // Public page URL -> the static asset page that answers it. The address bar
 // keeps the public URL; the asset folder is never a navigation target.
 const LAB_PRE_READER_PATHS = new Map([
-  ['/featured', '/lab/featured/'],
-  ['/featured/', '/lab/featured/'],
   ['/library', LIBRARY_ENTRY_PATH],
   ['/library/', LIBRARY_ENTRY_PATH],
   ['/sign-in', '/lab/sign-in/'],

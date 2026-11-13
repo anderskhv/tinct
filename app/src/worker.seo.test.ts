@@ -104,8 +104,6 @@ describe('worker SEO routing', () => {
     ['/lab/sign-in', '/sign-in'],
     ['/lab/sign-in/', '/sign-in'],
     ['/lab/sign-in/index.html', '/sign-in'],
-    ['/lab/featured', '/featured'],
-    ['/lab/featured/', '/featured'],
   ])('redirects the old page URL %s permanently to %s', async (pathname, target) => {
     for (const method of ['GET', 'HEAD']) {
       const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`, { method }), routerEnv() as never, ctx)
