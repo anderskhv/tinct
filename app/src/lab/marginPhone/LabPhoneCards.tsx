@@ -1,4 +1,5 @@
 import type { QuizTurn } from '../../companion/companionRequest'
+import { NoteField } from '../notes/NoteField'
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type MutableRefObject } from 'react'
 import type { LabAskTurn } from '../labAsk'
 import { isAiRestingError, LabChatError } from '../labCompanion'
@@ -376,21 +377,14 @@ export function PhoneQuizBody({ request, mark, draft, setDraft, onMic, micOn, in
   )
 }
 
-/** A note: the reader's words in an always editable field (the passage stays underlined on the page). */
-export function PhoneNoteBody({ value, onChange, inputRef, chapter = false }: { value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLTextAreaElement | null>; chapter?: boolean }) {
-  const own = useRef<HTMLTextAreaElement | null>(null)
-  const field = inputRef ?? own
-  useEffect(() => {
-    const el = field.current
-    if (!el) return
-    el.style.height = 'auto'
-    el.style.height = `${Math.max(72, el.scrollHeight)}px`
-  }, [value, field])
+/**
+ * A note: the reader's words in an always editable field (the passage stays underlined on the page), with bullets,
+ * bold and italic (notes/NoteField.tsx, Anders 13 Nov 2026). On the phone its B / I / • row sits above the keyboard.
+ */
+export function PhoneNoteBody({ value, onChange, inputRef, chapter = false, phone = false }: { value: string; onChange: (text: string) => void; inputRef?: MutableRefObject<HTMLElement | null>; chapter?: boolean; phone?: boolean }) {
   return (
-    <>
-      <textarea ref={field} className="lab-pcard-note" data-testid="lab-phone-card-note" rows={3} placeholder={chapter ? 'A note on this chapter' : 'Add a note…'} aria-label={chapter ? 'Chapter note' : 'Highlight note'}
-        value={value} onChange={event => onChange(event.target.value)} />
-    </>
+    <NoteField value={value} onChange={onChange} inputRef={inputRef} keyboardBar={phone}
+      placeholder={chapter ? 'A note on this chapter' : 'Add a note…'} ariaLabel={chapter ? 'Chapter note' : 'Highlight note'} />
   )
 }
 

@@ -937,7 +937,7 @@ async function behaviour(browser, origin) {
   // Removed on B (the note editor's Remove highlight), gone on A after its next open.
   await B.page.evaluate(id => { const rec = JSON.parse(localStorage.getItem('tinct-addbook:hl:pdf:' + location.search.slice(10, 34))).find(h => h.id === id); marginOpen({ text: rec.text, page: rec.page, box: { left: 0, top: 0, right: 0, bottom: 0 } }, { existing: rec }) }, noted.id)
   await B.page.click('.mr-float [data-m="note"]'); await B.page.waitForSelector('.mr-note')
-  ok('an existing note opens in the editor', (await B.page.inputValue('.mr-note__field')) === 'Try it with x = 10 before the exercises.')
+  ok('an existing note opens in the editor', (await B.page.$eval('.mr-note__field', el => el.value)) === 'Try it with x = 10 before the exercises.')
   await B.page.click('.mr-note [data-m="remove"]'); await B.page.waitForTimeout(2500)
   ok('a removal is kept as a tombstone in the account', account.marks.get(hex).marks.some(m => m.id === noted.id && m.gone))
   await a.reload(); await a.waitForFunction(() => document.querySelectorAll('.pdf-sheet .text-layer span').length > 20); await a.waitForTimeout(1500)

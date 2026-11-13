@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { NoteView } from './notes/NoteView'
 import type { ChatConversation, EditionData, Section } from '../types'
 import { loadEdition } from '../data/editionLoader'
 import { registeredUserBook, userBookEditionKey } from './userBook/userBookSource'
@@ -326,9 +327,10 @@ export function LabContentsV2(props: Props) {
     <p className="excerpt"><Match text={contentsExcerpt((view === 'search' && query.trim() ? chat.messages.find(m => m.content.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()))?.content : null) || chat.messages.find(m => m.role === 'assistant')?.content || chat.summary || '', query)} query={view === 'search' ? query : ''} /></p>
   </button>
   // The note is the reader's own words, shown whole beneath the book's.
-  const noteText = (h: LabHighlight) => h.note?.trim() ? <p className="note">{h.note.trim()}</p> : null
+  // A note keeps its formatting (bullets, bold, italic; notes/NoteView.tsx).
+  const noteText = (h: LabHighlight) => h.note?.trim() ? <NoteView className="note" testId="contents-note">{h.note.trim()}</NoteView> : null
   // Notes only (approved mockup, 12 Oct): the reader's takeaway leads, the passage it came from beneath it.
-  const noteLead = (h: LabHighlight) => <p className="note-lead">{h.note?.trim()}</p>
+  const noteLead = (h: LabHighlight) => <NoteView className="note-lead" testId="contents-note">{h.note?.trim() ?? ''}</NoteView>
   const highlightRow = (h: LabHighlight) => isLabChapterNote(h)
     ? <button className="result is-chapter-note" key={h.id} data-testid={'contents-chapter-note-' + h.id} onClick={() => { setSelection(h); setView('highlight') }}>
       <small>{chapterTitle(h.chapterNumber)} · Chapter note</small>{notesFilter ? noteLead(h) : noteText(h)}
@@ -343,7 +345,7 @@ export function LabContentsV2(props: Props) {
   const legacyOwnEpubRow = (item: LegacyOwnEpubNotebookItem) => <article className="result" key={'legacy-epub-' + item.id} data-testid={'contents-legacy-epub-' + item.id}>
     <small>Original EPUB page {item.page} · {item.kind === 'card' ? 'Saved AI card' : 'Saved highlight'}</small>
     <p>{item.text}</p>
-    {item.note?.trim() && <p className="note">{item.note.trim()}</p>}
+    {item.note?.trim() && <NoteView className="note" testId="contents-note">{item.note.trim()}</NoteView>}
     {item.turns?.map((turn, index) => <p className="legacy-turn" key={index}><strong>{turn.role === 'assistant' ? 'A.' : 'Q.'}</strong> {turn.content}</p>)}
     {savedCardDetails(item.data) && <details className="legacy-card-state"><summary>Saved card details</summary><pre>{savedCardDetails(item.data)}</pre></details>}
   </article>

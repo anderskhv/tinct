@@ -1,0 +1,44 @@
+/* A note's formatting (Anders, 13 Nov 2026): the field and the note shown, in the same lines, so a note looks the same
+   being written, folded, open and in the Notebook. One line per line of the note; a bullet's level indents 1.15em. */
+.tn-md, .tn-editor { --tn-indent: 1.15em; overflow-wrap: anywhere; }
+.tn-md p, .tn-editor .tn-line { margin: 0; }
+.tn-md ul { margin: 0; padding: 0 0 0 var(--tn-indent); list-style: none; }
+.tn-md li { position: relative; margin: 0; }
+.tn-md li::before { content: "•"; position: absolute; left: -.95em; color: var(--lab-ink-muted, currentColor); }
+.tn-editor .tn-line:not([data-depth="-1"])::before { content: "•"; position: absolute; color: var(--lab-ink-muted, currentColor); }
+.tn-md strong, .tn-editor strong { font-weight: 650; }
+.tn-md.is-clamped { --tn-line: 1.5em; overflow: hidden; }
+
+.tn-editor { white-space: pre-wrap; cursor: text; }
+.tn-editor .tn-line { position: relative; min-height: 1.5em; }
+.tn-editor .tn-line[data-depth="0"] { padding-left: var(--tn-indent); }
+.tn-editor .tn-line[data-depth="1"] { padding-left: calc(var(--tn-indent) * 2); }
+.tn-editor .tn-line[data-depth="2"] { padding-left: calc(var(--tn-indent) * 3); }
+.tn-editor .tn-line[data-depth="3"] { padding-left: calc(var(--tn-indent) * 4); }
+.tn-editor .tn-line[data-depth="0"]::before { left: calc(var(--tn-indent) - .95em); }
+.tn-editor .tn-line[data-depth="1"]::before { left: calc(var(--tn-indent) * 2 - .95em); }
+.tn-editor .tn-line[data-depth="2"]::before { left: calc(var(--tn-indent) * 3 - .95em); }
+.tn-editor .tn-line[data-depth="3"]::before { left: calc(var(--tn-indent) * 4 - .95em); }
+.tn-editor.is-empty::after { content: attr(data-placeholder); position: absolute; left: 0; top: 4px; color: var(--lab-ink-faint, #8a8a8a); pointer-events: none; font-style: normal; }
+.tn-wrap { position: relative; display: flex; flex-direction: column; gap: 6px; }
+.tn-wrap .tn-editor { position: relative; }
+
+/* The quiet B / I / • row: only while the note is being written. UI chrome in the system face. */
+.tn-fmt { display: flex; align-items: center; gap: 2px; margin-top: -2px; }
+.tn-fmt[hidden] { display: none; }
+.tn-fmt button { display: grid; place-items: center; min-width: 30px; height: 28px; padding: 0 6px; border: 0; border-radius: 7px; background: none; color: var(--lab-ink-muted, #777); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.tn-fmt button:hover { color: var(--lab-ink, inherit); }
+.tn-fmt .tn-b { font: 700 14px system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.tn-fmt .tn-i { font: italic 15px Georgia, serif; }
+.tn-fmt .tn-u { font: 17px/1 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.tn-fmt button[aria-pressed="true"] { background: color-mix(in srgb, var(--lab-ink, #222) 9%, transparent); color: var(--lab-ink, inherit); }
+.tn-fmt button:focus-visible { outline: 1px solid var(--lab-accent, currentColor); outline-offset: 1px; }
+/* The phone: above the keyboard, the width of the screen, with Done. */
+.tn-wrap.is-phone .tn-fmt { position: fixed; left: 0; right: 0; z-index: 2147483000; height: 44px; margin: 0; padding: 0 12px; gap: 4px; background: var(--lab-surface, var(--lab-paper, #fff)); border-top: 1px solid var(--lab-border, rgba(0,0,0,.12)); }
+.tn-wrap.is-phone .tn-fmt button { min-width: 44px; height: 36px; border-radius: 9px; }
+.tn-wrap.is-phone .tn-fmt .tn-b { font-size: 16px; }
+.tn-wrap.is-phone .tn-fmt .tn-i { font-size: 18px; }
+.tn-wrap.is-phone .tn-fmt .tn-u { font-size: 20px; }
+.tn-wrap.is-phone .tn-fmt .tn-done { margin-left: auto; font: 600 16px system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--lab-accent, #1f4a5c); padding: 0 6px; }
+/* The row is laid over the card's foot: the note keeps room under its last line to be scrolled clear of it. */
+.tn-wrap.is-phone.is-editing { padding-bottom: 52px; }

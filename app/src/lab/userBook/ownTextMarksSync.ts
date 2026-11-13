@@ -1,6 +1,6 @@
 /** Owned EPUB text marks. One account/file controller, never the PDF page-mark set. */
-import type { LabHighlight } from '../labHighlights'
-import { readLabHighlights, writeLabHighlights } from '../labHighlights'
+import type { LabHighlight, LabNoteCardPlace } from '../labHighlights'
+import { readLabHighlights, validNoteCardPlace, writeLabHighlights } from '../labHighlights'
 import { ownBookToken, type FetchLike } from './ownAccount'
 import { userBookId } from './userBookId'
 import { userBookOwner } from './userBookStore'
@@ -11,7 +11,7 @@ type Anchor = { editionKey: string; converter: number; chapterNumber: number } &
   | { kind: 'chapter' }
   | { kind: 'range'; paragraphIndex: number; fromWord: number; endParagraphIndex: number; toWord: number }
 )
-export type TextMark = { v: 'text-v1'; id: string; anchor: Anchor; text: string; color: string; at: number; u?: number; note?: string; groupId?: string; groupText?: string }
+export type TextMark = { v: 'text-v1'; id: string; anchor: Anchor; text: string; color: string; at: number; u?: number; note?: string; groupId?: string; groupText?: string; cardPlace?: LabNoteCardPlace }
 export type EpubPageMark = { v: 'epub-page-v1'; id: string; page: number; start?: number; end?: number; text: string; color: string; note?: string; at: number; u?: number }
 export type Gone = { id: string; gone: true; u: number }
 export type TextItem = TextMark | EpubPageMark | Gone
@@ -31,7 +31,7 @@ function validCanonicalMarks(value: unknown, hex: string): value is CanonicalMar
   if (!value || typeof value !== 'object') return false
   const record = value as Partial<CanonicalMarks>
   if (!Array.isArray(record.marks) || !Array.isArray(record.items) || !Number.isInteger(record.rev) || record.rev! < 0 || typeof record.dirty !== 'boolean') return false
-  const markKeys = new Set(['id', 'groupId', 'groupText', 'bookId', 'editionKey', 'chapterNumber', 'paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord', 'color', 'note', 'text', 'kept', 'updatedAt', 'kind'])
+  const markKeys = new Set(['id', 'groupId', 'groupText', 'bookId', 'editionKey', 'chapterNumber', 'paragraphIndex', 'fromWord', 'endParagraphIndex', 'toWord', 'color', 'note', 'text', 'kept', 'updatedAt', 'kind', 'cardPlace'])
   if (record.marks.some(mark => !mark || typeof mark !== 'object' || Object.keys(mark).some(key => !markKeys.has(key))
     || mark.bookId !== userBookId(hex) || !ID.test(mark.id) || !COLORS.has(mark.color)
     || !Number.isInteger(mark.chapterNumber) || mark.chapterNumber < 1
@@ -79,7 +79,8 @@ export function textMarkOf(highlight: LabHighlight, hex: string, edition: UserBo
     ...(highlight.updatedAt && highlight.updatedAt > at ? { u: highlight.updatedAt } : {}),
     ...(highlight.note ? { note: highlight.note } : {}),
     ...(highlight.groupId ? { groupId: highlight.groupId } : {}),
-    ...(highlight.groupId && highlight.groupText ? { groupText: highlight.groupText } : {}) }
+    ...(highlight.groupId && highlight.groupText ? { groupText: highlight.groupText } : {}),
+    ...(validNoteCardPlace(highlight.cardPlace) ? { cardPlace: validNoteCardPlace(highlight.cardPlace)! } : {}) }
 }
 
 function labMarkOf(item: TextMark | EpubPageMark, hex: string, edition: UserBookEdition): LabHighlight | null {
@@ -91,7 +92,7 @@ function labMarkOf(item: TextMark | EpubPageMark, hex: string, edition: UserBook
     endParagraphIndex: a.kind === 'chapter' ? 0 : a.endParagraphIndex, toWord: a.kind === 'chapter' ? 0 : a.toWord,
     color: item.color as LabHighlight['color'], text: item.text, ...(a.kind === 'chapter' ? { kind: 'chapter' as const } : {}),
     ...(item.note ? { note: item.note } : {}), ...(item.groupId ? { groupId: item.groupId } : {}),
-    ...(item.groupText ? { groupText: item.groupText } : {}), updatedAt: item.u ?? item.at }
+    ...(item.groupText ? { groupText: item.groupText } : {}), ...(validNoteCardPlace(item.cardPlace) ? { cardPlace: validNoteCardPlace(item.cardPlace)! } : {}), updatedAt: item.u ?? item.at }
 }
 
 export function mergeTextItems(a: TextItem[], b: TextItem[]): TextItem[] {

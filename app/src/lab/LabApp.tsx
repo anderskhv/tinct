@@ -30,7 +30,7 @@ import { LabChapterNoteEditor } from './LabChapterNoteEditor'
 import { useFinishedCard } from '../social/useFinishedCard'
 import { CHAPTER_CHAT_MESSAGES, createChapterChatRequest, recapHighlightPassages } from './labChapterChat'
 import { LabDesktopPaginator, type LabLeafCapacity } from './LabDesktopPaginator'
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type MutableRefObject, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { sourceAuthorship, withAuthorship } from '../companion/authorship'
 import {
   applyNarrationPilotFlag,
@@ -69,6 +69,7 @@ import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
 import { withConvertedNote, askCardSource, isSourcePoint } from './sharedReader/sharedReaderCards'
 import { SourceMarginRail, type SourceMarginEntry } from './sharedReader/SourceMarginRail'
+import { noteYFromPlace, notePlaceFromY, orderOfPlace, placeApplies } from './notes/notePlace'
 import { LabFigurePreview } from './LabFigurePreview'
 import { LabInlineMarkdown } from './LabMarkdown'
 import { LabDesktopCard } from './sharedReader/LabDesktopCard'
@@ -6479,7 +6480,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           setDraft('')
           void ask.sendTyped(question, undefined, undefined, {highlightedText:text, conversationId:`mc_react_${openedAt}`})
         }} onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={talkAbout(card.kind === 'note' ? card.passage : null)} disabled={ask.typedLoading} /> : undefined}>
-          <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef} chapter={card.kind === 'chapter-note'} />
+          <PhoneNoteBody value={phoneNote} onChange={text => { setPhoneNote(text); if (continuousReader) { if (card.kind === 'note') highlightsApi.setNote(card.highlightId, text); else highlightsApi.setChapterNote(card.chapterNumber, text) } }} inputRef={phoneFieldRef as unknown as MutableRefObject<HTMLElement | null>} chapter={card.kind === 'chapter-note'} phone={showPhoneChrome} />
         </ResponseCard>
       )
     }
@@ -6656,6 +6657,23 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (!rect.height) return null
     return { left: rect.left, right: rect.right, top: rect.top + rect.height * .75, bottom: rect.bottom }
   }
+  /**
+   * A note's card moved in the desktop margin (Anders, 13 Nov 2026): its kept place (labHighlights cardPlace, in this
+   * edition's paragraphs), where that is now, its sort key, and the drop that moves it (notes/notePlace.ts).
+   */
+  const notePlacing = (mark: LabHighlight | undefined): Pick<SourceMarginEntry, 'placeTop' | 'placeKey' | 'onMove'> & { order?: number } => {
+    if (!mark || showPhoneChrome) return {}
+    const place = placeApplies(mark.cardPlace, readerEditionKey) ? mark.cardPlace : undefined
+    const onMove = (top: number) => {
+      const host = marginHost
+      const next = host ? notePlaceFromY(host, top, readerEditionKey) : null
+      if (next) highlightsApi.setCardPlace(mark.id, next)
+    }
+    if (!place) return { onMove }
+    const words = String(book.paragraphs[place.paragraphIndex] ?? '').split(/\s+/).filter(Boolean).length
+    return { onMove, placeKey: `${place.paragraphIndex}:${place.fraction}`, order: orderOfPlace(place, words),
+      placeTop: () => marginHost ? noteYFromPlace(marginHost, place) : null }
+  }
   const toggleMargin = (id: string, live?: PhoneCard) => {
     if (desktopOpenId) delete desktopDraftsRef.current[desktopOpenId]
     if (desktopOpenId === id) { setDraft(''); if (live?.kind === 'note' || live?.kind === 'chapter-note') closePhoneCard(); setPhoneCard(null); setDesktopOpenId(null); setDesktopContinuationId(null); return }
@@ -6697,8 +6715,9 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const quizAtStart = live.kind === 'quiz' && !passage && desktopQuizAtStartRef.current
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, !quizAtStart && (live.kind === 'chapter-note' || live.kind === 'quiz' && !passage)),
       order: quizAtStart ? -3 : live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const } : {}),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const, previewNote: true } : {}),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
+      ...(live.kind === 'note' ? notePlacing(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)) : live.kind === 'chapter-note' ? notePlacing(highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)) : {}),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
         if (saved) deleteMarginConversation(saved)
         else if (live.kind === 'note') { const marks = highlightsApi.allHighlights.filter(mark => mark.id === live.highlightId); highlightsApi.remove(live.highlightId); setMarginUndo(() => () => { highlightsApi.restore(marks) }); setDesktopLiveCards(current => current.filter(card => desktopCardId(card) !== id)); setDesktopOpenId(null); setPhoneCard(null) }
@@ -6711,7 +6730,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (liveIds.has(id)) continue
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
     const live: PhoneCard = { kind: 'note', passage, highlightId: mark.id, created: false }
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, previewStyle: 'note', previewNote: true, free: isSourcePoint(mark), ...notePlacing(highlightsApi.allHighlights.find(item => item.id === mark.id) ?? mark),
       onToggle: () => { setPhoneNote(mark.note || ''); openPhoneCard(live) }, onDelete: () => { highlightsApi.remove(mark.id); setMarginUndo(() => () => { highlightsApi.restore([mark]) }) }, content: null })
   }
   // A note's card in the reader's own chapter, opened by its highlight id (book scroll: after its chapter was adopted).
@@ -6901,7 +6920,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
     if (liveIds.has(id)) continue
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, free: true,
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, previewStyle: 'note', previewNote: true, free: true, ...notePlacing(note),
       onToggle: () => { setPhoneNote(note.note || ''); openPhoneCard({ kind: 'chapter-note', chapterNumber: note.chapterNumber, chapterLabel: book.chapterLabel }) },
       onDelete: () => { highlightsApi.setChapterNote(note.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(note.chapterNumber, note.note || '') }) }, content: null })
   }
