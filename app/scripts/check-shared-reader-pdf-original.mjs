@@ -944,8 +944,9 @@ async function run(name, browserType, narrationSuccess = false, sourceBytes = or
     await page.getByTestId('lab-phone-quiz-question').getByText('Which page has its own spoken words?').waitFor()
     const quizCall = calls.filter(call => call.path === '/api/chat').map(call => JSON.parse(call.body)).find(call => call.companion?.intent === 'quiz')
     assert.deepEqual(quizCall?.companion.context.pages, recapCall.companion.context.pages, 'unit Quiz uses both exact pages')
+    // Its only question shown: the score at once, saved then (13 Nov 2026: no "See your score").
     await page.getByTestId('lab-phone-quiz-show').click()
-    await page.getByTestId('lab-phone-quiz-next').click()
+    await page.getByTestId('lab-phone-quiz-score').waitFor()
     for (let i = 0; i < 60 && !sets.cards.list.some(item => item.data?.action === 'quiz' && item.data?.source?.to === 2); i++) await page.waitForTimeout(100)
     assert(sets.cards.list.some(item => item.data?.action === 'quiz' && item.data?.source?.from === 1 && item.data?.source?.to === 2),
       'completed Quiz saves one complete-unit card')

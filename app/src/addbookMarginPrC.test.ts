@@ -129,12 +129,33 @@ describe('Quiz me (FIXES-2026-10-15 PR C and the deep test)', () => {
     expect(many.at(-1)).toEqual({ q: 'Q three?', missed: true })
   })
 
-  it('the last question\'s link is "See your score"; the others "Next question"', () => {
+  it('the others link to "Next question"; the last question, once marked, shows its score and Try new questions at once (Anders, 13 Nov 2026)', () => {
     const marked = { answer: 'a', verdict: 'right', feedback: 'Yes.' }
     expect(M.html.cardHtml(quiz({ i: 0, results: [marked] }), { open: true, P, pageLabel: '12' })).toContain('data-c="next">Next question →</button>')
-    const last = M.html.cardHtml(quiz({ i: 2, results: [marked, marked, marked] }), { open: true, P, pageLabel: '12' })
-    expect(last).toContain('data-c="next">See your score →</button>')
-    expect(last).not.toContain('Next question')
+    const last = M.html.cardHtml(quiz({ i: 2, done: true, results: [marked, marked, marked] }), { open: true, P, pageLabel: '12' })
+    expect(last).toContain('<div class="mr-question">Q three?</div>')
+    expect(last).toMatch(/Right\.<\/span> Yes\.<\/p><\/div><div class="mr-answer mr-quiz-score"><p><span class="is-bottom-line">3\/3<\/span>/)
+    expect(last).toContain('data-c="again">Try new questions</button>')
+    expect(last).toContain('placeholder="Ask a follow-up"')
+    expect(last).not.toContain('data-c="next"')
+    expect(last).not.toContain('See your score')
+    // Not right yet: the reply field stays, above the score.
+    const nearly = M.html.cardHtml(quiz({ i: 2, done: true, results: [marked, marked, { answer: 'c', verdict: 'nearly', feedback: 'Close.' }] }), { open: true, P, pageLabel: '12' })
+    expect(nearly).toMatch(/aria-label="Your reply".*<div class="mr-answer mr-quiz-score mr-quiz-end"><p><span class="is-bottom-line">2\/3<\/span><\/p><\/div><div class="mr-follow"><button type="button" class="mr-follow__link" data-c="again">Try new questions<\/button><\/div>$/)
+    expect(nearly).not.toContain('data-c="next"')
+    // While that reply is marked: its bubble and the wait, no field, the score still there.
+    const waiting = M.html.cardHtml(quiz({ i: 2, done: true, results: [marked, marked, { answer: 'c', verdict: 'nearly', feedback: 'Close.' }] }), { open: true, P, pageLabel: '12', pending: 'Is it C?' })
+    expect(waiting).toContain('<div class="mr-you">Is it C?</div>')
+    expect(waiting).not.toContain('mr-follow__input')
+    expect(waiting).toContain('mr-quiz-end')
+    // A quiz whose writing stopped after its first question ends there.
+    const cut = M.html.cardHtml(quiz({ questions: questions.slice(0, 1), ended: true, i: 0, done: true, results: [marked] }), { open: true, P, pageLabel: '12' })
+    expect(cut).toContain('<span class="is-bottom-line">1/1</span>')
+    expect(cut).not.toContain('data-c="next"')
+    // A quiz kept with its end but no result on its last question (before 13 Nov 2026): the score alone.
+    const old = M.html.cardHtml(quiz({ i: 2, done: true, results: [marked] }), { open: true, P, pageLabel: '12' })
+    expect(old).toContain('<span class="is-bottom-line">1/3</span>')
+    expect(old).not.toContain('Q three?')
   })
 
   it('a marking that failed shows its error with the answer field still there', () => {

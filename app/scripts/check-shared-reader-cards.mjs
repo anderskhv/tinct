@@ -71,8 +71,10 @@ try {
   for (let number = 1; number <= 3; number++) {
     await page.getByTestId('lab-phone-quiz-question').getByText(`Question ${number} from this source?`).waitFor()
     await page.getByTestId('lab-phone-quiz-show').click()
-    await page.getByTestId('lab-phone-quiz-next').click()
+    // The last answer shown: its score at once (13 Nov 2026: no "See your score").
+    if (number < 3) await page.getByTestId('lab-phone-quiz-next').click()
   }
+  await page.getByTestId('lab-phone-quiz-score').waitFor()
   await page.waitForFunction(() => JSON.parse(localStorage.getItem('tinct:chat-history:frankenstein') || '[]')
     .some(item => item.card?.kind === 'quiz' && item.card.anchor?.fromWord > 0 && item.messages?.at(-1)?.content?.includes('Question 3 from this source?')), null, { timeout: 15000 })
   await page.keyboard.press('Escape')
