@@ -6923,10 +6923,19 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const active = marginConversations.find(item => item.id === desktopOpenId)
     const range = active?.card?.anchor
     const undoMark = range ? markPhoneCardPassage(marginHost, [{ chapterNumber: active.chapterNumber, range }], book.chapterNumber) : undefined
+    // Runs again after every change of the page's nodes (a book-scroll chapter painted or released): the newest card
+    // first, and with no card anchored only the words still marked are touched, never a long chapter's every word.
     const paint = () => {
+      const anchored = [...marginConversations].reverse().filter(item => item.card?.anchor)
+      // A neighbour's words (book scroll) are no card's targets, though they were while the chapter was the reader's.
+      for (const word of marginHost.querySelectorAll<HTMLElement>('[data-source-card-id]:not([data-testid="lab-word"])')) delete word.dataset.sourceCardId
+      if (!anchored.length) {
+        for (const word of marginHost.querySelectorAll<HTMLElement>('[data-testid="lab-word"][data-source-card-id]')) delete word.dataset.sourceCardId
+        return
+      }
       for (const word of marginHost.querySelectorAll<HTMLElement>('[data-testid="lab-word"]')) {
         const p = Number(word.dataset.paragraphIndex), w = Number(word.dataset.wordIndex)
-        const item = [...marginConversations].reverse().find(item => { const a = item.card?.anchor; return a && p >= a.paragraphIndex && p <= a.endParagraphIndex && (p > a.paragraphIndex || w >= a.fromWord) && (p < a.endParagraphIndex || w < a.toWord) })
+        const item = anchored.find(item => { const a = item.card?.anchor; return a && p >= a.paragraphIndex && p <= a.endParagraphIndex && (p > a.paragraphIndex || w >= a.fromWord) && (p < a.endParagraphIndex || w < a.toWord) })
         if (item) word.dataset.sourceCardId = item.id
         else delete word.dataset.sourceCardId
       }
@@ -6934,7 +6943,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     paint()
     let frame = 0
     const observer = new MutationObserver(records => { if (!frame && !onlyFieldEdits(records)) frame = requestAnimationFrame(() => { frame = 0; paint() }) })
-    observer.observe(marginHost, { childList: true, subtree: true })
+    // A book-scroll chapter changing role keeps its words and only rewrites their test ids: their card targets follow.
+    observer.observe(marginHost, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-testid'] })
     const start = (event: PointerEvent) => { marginPointerDownRef.current = { x: event.clientX, y: event.clientY, cardId: (event.target as Element)?.closest<HTMLElement>('[data-source-card-id]')?.dataset.sourceCardId || '' } }
     const click = (event: MouseEvent) => {
       const word = (event.target as Element)?.closest<HTMLElement>('[data-source-card-id]')
@@ -7774,7 +7784,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
-              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
+              className={`${pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'} lab-page-prev`}
               data-testid="lab-page-prev"
               aria-label={LAB_COPY.previous}
               onClick={goPrev}
@@ -7812,7 +7822,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
-              className={pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'}
+              className={`${pageTurnAffordance.buttons ? 'lab-page-turn-btn' : 'lab-visually-hidden'} lab-page-next`}
               data-testid="lab-page-next"
               aria-label={LAB_COPY.next}
               onClick={() => goNext()}

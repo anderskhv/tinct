@@ -11,12 +11,5 @@
   margin-top: 0; padding-top: 0; border-top: 0;
 }
 .lab[data-continuous-reader="true"] .continuous-reader[data-book-scroll="true"] .book-scroll-chapter.is-placeholder { box-sizing: border-box; }
-/* A neighbour's lines sit exactly where they will as the reader's own chapter (the reader's .lab-hearing-stage is a
-   flex column, so its paragraph margins never collapse): nothing moves when the chapter becomes the reader's. */
-.lab .continuous-reader[data-book-scroll="true"] .book-scroll-neighbour .lab-opening-passage {
-  display: flex; flex-direction: column; justify-content: flex-start; width: 100%; min-width: 0;
-}
-.lab .continuous-reader[data-book-scroll="true"] .book-scroll-neighbour .lab-opening-passage > .lab-hearing-line:last-child { margin-bottom: 0; }
-.lab .continuous-reader[data-book-scroll="true"] .book-scroll-neighbour .lab-opening-passage > .lab-hearing-line.is-kind-heading:first-child { margin-top: 0; }
 /* The tracker shows the whole unit: a tick where each chapter starts. */
 .lab .source-minimap-chapter-mark { stroke: currentColor; stroke-width: 1.6; opacity: .9; pointer-events: none; }

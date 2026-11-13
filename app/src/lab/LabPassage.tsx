@@ -10,7 +10,7 @@ import { LabChapterHeading } from './LabChapterHeading'
 import { paintsTextRanges, useTextRangeHighlights } from './useTextRangeHighlights'
 import { comparisonSegment } from './LabDesktopPaginator'
 import { buildVerseAlignment, needsVerseAlignment, verseGroups } from './labVerseAlignment'
-import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { Fragment, memo, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { LAB_COPY } from './labCopy'
 import type { PlacedFootnote } from './labFootnotes'
 import {
@@ -44,6 +44,18 @@ interface LabPassageProps {
   onCrossChapterSelect?: (parts: ChapterSelectionPart[], x: number, y: number) => void
   onCrossChapterSelecting?: (parts: ChapterSelectionPart[] | null) => void
   openingOnly?: boolean
+  /**
+   * Book scroll: a chapter painted beside the reader's own. The page is the reader's own page in every node (so the
+   * chapter keeps its DOM when it becomes the reader's, BookScrollReader), but its words are inert
+   * "lab-opening-word"s, its heading and stage carry no test ids, its paragraphs no ids, and it shows no footnotes.
+   */
+  inertWords?: boolean
+  /**
+   * Book scroll: each line's words re-render only when something they show changes (a mark, the selection, the
+   * spoken word, a footnote), and a change of role (`inertWords`) only rewrites the words' test ids. A whole long
+   * chapter otherwise re-renders on every reader render, and twice at each chapter line.
+   */
+  stableWords?: boolean
   pendingLayout?: boolean
   chapterEnd?: ReactNode
   onPreviewChapter?: () => void
@@ -465,8 +477,18 @@ function nearestWordPlaceIn(line: Element, clientX: number, clientY: number): La
 
 const EMPTY_COMPARE_PARAGRAPHS: string[] = []
 
+/** One line's words, rendered again only when its `signature` (everything the words show) changes. */
+const StableLine = memo(function StableLine({ render }: { signature: string; render: () => ReactNode }) {
+  return <>{render()}</>
+}, (before, after) => before.signature === after.signature)
+let stableLinesEpoch = 0
+const highlightsKey = (marks: readonly LabHighlight[]) => marks.map(mark =>
+  `${mark.id}:${mark.chapterNumber}:${mark.paragraphIndex}:${mark.fromWord}:${mark.endParagraphIndex}:${mark.toWord}:${mark.color}`).join('|')
+
 export function LabPassage({
   openingOnly = false,
+  inertWords = false,
+  stableWords = false,
   pendingLayout = false,
   chapterEnd,
   onPreviewChapter,
@@ -540,7 +562,7 @@ export function LabPassage({
   const paragraph = linesFollow.kind === 'none'
     ? followParagraphs[clipIndex] || followParagraphs[0]
     : followParagraphs.find(item => item.index === linesFollow.paragraphIndex) || followParagraphs[clipIndex]
-  const readingLines = readingPageLines(paragraphs, readingPage)
+  const readingLines = useMemo(() => readingPageLines(paragraphs, readingPage), [paragraphs, readingPage])
   const showHeadline = followActive && linesFollow.kind === 'word'
     ? (readingPage
         ? isChapterFirstReadingPage(readingPage)
@@ -601,7 +623,11 @@ export function LabPassage({
   const selectionPaintKey = activeSelecting
     ? `${activeSelecting.paragraphIndex}:${activeSelecting.fromWord}:${activeSelecting.endParagraphIndex}:${activeSelecting.toWord}:${activeSelecting.lookupWord ?? ''}`
     : ''
-  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, highlights, compareHighlights, selectionPaintKey, appliedSelection], appliedSelection)
+  // The marks as text, not as arrays: the same marks in a new array (a parent's render, a book-scroll chapter changing
+  // role) paint the same ranges, so the passage's words are not scanned again.
+  const marksKey = useMemo(() => highlightsKey(highlights), [highlights])
+  const compareMarksKey = useMemo(() => highlightsKey(compareHighlights), [compareHighlights])
+  useTextRangeHighlights(articleRef, layoutKey, [paragraphs, compareParagraphs, readingPage, marksKey, compareMarksKey, selectionPaintKey, appliedSelection], appliedSelection)
   // A tint never moves a word. Wrapping the space between two marked words in
   // its own span (to carry the mark's background) makes Chromium rebreak and
   // rehyphenate a justified `hyphens: auto` paragraph: selecting, asking about
@@ -690,6 +716,15 @@ export function LabPassage({
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
   }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
+  // `stableWords`: a line whose words did not change keeps its nodes when the chapter changes role, test ids included.
+  // They are set here, so every word says what it is now; a line rendered again writes the same value.
+  const wordTestId = openingOnly || inertWords ? 'lab-opening-word' : 'lab-word'
+  useLayoutEffect(() => {
+    const stage = pageStageRef.current
+    if (!stableWords || !stage) return
+    const other = wordTestId === 'lab-word' ? 'lab-opening-word' : 'lab-word'
+    for (const word of stage.querySelectorAll(`[data-testid="${other}"]`)) word.setAttribute('data-testid', wordTestId)
+  }, [stableWords, wordTestId])
 
   useEffect(() => {
     const article = articleRef.current
@@ -1001,7 +1036,18 @@ export function LabPassage({
     for (const note of footnotes ?? []) at.set(`${note.paragraphIndex}:${note.wordIndex}`, [...(at.get(`${note.paragraphIndex}:${note.wordIndex}`) ?? []), note])
     return at
   }, [footnotes])
-  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false, ownChapter = true) => {
+  const onFootnoteRef = useRef(onFootnote)
+  onFootnoteRef.current = onFootnote
+  // `stableWords`: what every line's words take from the passage besides its marks, selection, spoken word and footnotes.
+  // A new key re-renders every line.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const stableLinesKey = useMemo(() => ++stableLinesEpoch, [paragraphs, readingPage, chapterNumber, plannedHyphens, compare, alignCompare, onOpenFigure, transcript])
+  const footnotesInParagraph = useMemo(() => {
+    const at = new Map<number, string>()
+    for (const note of footnotes ?? []) at.set(note.paragraphIndex, `${at.get(note.paragraphIndex) ?? ''}${note.id}:${note.wordIndex}:${note.number};`)
+    return at
+  }, [footnotes])
+  const renderReadingLines = (pageLines: ReturnType<typeof readingPageLines>, secondary = false, ownChapter = true, stable = false) => {
     // Verse-paired Compare lays each primary line in its own grid row, so
     // lines are never joined there; a joined BSB line only sits tight.
     const gridRows = alignCompare && compare
@@ -1048,7 +1094,7 @@ export function LabPassage({
                         <Fragment key={`${lineIndex}-${wordIndex}`}>
                         <span
                           className={`${labHighlightCssClass(color, selecting)}${inlineRole && (playing || inlineRole === 'current') ? ` is-${inlineRole}` : ''}${isFigureToken(word.text) ? ' lab-figure-word' : ''}${transcriptWordClass(transcript, paragraphIndex, absoluteWord)}`}
-                          data-testid={openingOnly ? "lab-opening-word" : "lab-word"}
+                          data-testid={wordTestId}
                           data-paragraph-index={paragraphIndex}
                           data-word-index={absoluteWord}
                           data-highlight-id={mark?.id}
@@ -1059,7 +1105,7 @@ export function LabPassage({
                         </span>
                         {ownChapter && footnotesAt.get(`${paragraphIndex}:${absoluteWord}`)?.map(note => (
                           <span key={note.id} className="lab-footnote-anchor">
-                            <button type="button" className="lab-footnote-mark" data-testid="lab-footnote-mark" data-footnote-id={note.id} onClick={event => onFootnote?.(note, event.currentTarget)}>{note.number}</button>
+                            <button type="button" className="lab-footnote-mark" data-testid="lab-footnote-mark" data-footnote-id={note.id} onClick={event => onFootnoteRef.current?.(note, event.currentTarget)}>{note.number}</button>
                           </span>
                         ))}
                         </Fragment>
@@ -1077,6 +1123,28 @@ export function LabPassage({
                       const className = labHighlightGapCssClass(color, selecting, previousColor, previousSelecting)
                       return className ? <span className={className} data-highlight-id={mark?.id}>{spacing}</span> : spacing
                     })
+    }
+    // A stable line is painted again only when its signature changes: the marks on its paragraph (in order: the topmost
+    // owns a word), the selection over it, the spoken word while narration paints the text, and its footnotes.
+    let body: (lineIndex: number) => ReactNode = lineBody
+    if (stable) {
+      const marksIn = new Map<number, string>()
+      for (const mark of highlights) {
+        if (mark.chapterNumber !== chapterNumber) continue
+        for (let index = mark.paragraphIndex; index <= mark.endParagraphIndex; index++) {
+          marksIn.set(index, `${marksIn.get(index) ?? ''}${mark.id}:${mark.color}:${mark.paragraphIndex}:${mark.fromWord}:${mark.endParagraphIndex}:${mark.toWord};`)
+        }
+      }
+      const onPrimary = !((localSelecting && dragRef.current?.comparison) || (!localSelecting && selectingComparison))
+      const selected = activeSelecting && onPrimary ? activeSelecting : null
+      const selectedKey = selected ? `${selected.paragraphIndex}:${selected.fromWord}:${selected.endParagraphIndex}:${selected.toWord}:${selected.lookupWord ?? ''}` : ''
+      const spoken = inlineHearingPaint ? `${JSON.stringify(follow)}:${playing}` : ''
+      body = (lineIndex: number) => {
+        const paragraphIndex = lineParagraph(lineIndex)
+        const inSelection = selected && paragraphIndex >= selected.paragraphIndex && paragraphIndex <= selected.endParagraphIndex
+        const signature = `${stableLinesKey}|${lineIndex}|${paragraphIndex}|${marksIn.get(paragraphIndex) ?? ''}|${inSelection ? selectedKey : ''}|${spoken}|${ownChapter ? footnotesInParagraph.get(paragraphIndex) ?? '' : ''}`
+        return <StableLine signature={signature} render={() => lineBody(lineIndex)} />
+      }
     }
     return proseRuns(paragraphs, slices, !gridRows).map((run) => {
                 const lineIndex = run[0]
@@ -1098,7 +1166,7 @@ export function LabPassage({
                     style={gridRows ? { gridColumn: 1, gridRow: lineIndex + 1 } : undefined}
                     data-follow-granularity={inlineHearingPaint ? followGranularityAttr(followParagraphs, paragraphIndex) : undefined}
                   >
-                    {joinedLines(run, lineBody, index => ({
+                    {joinedLines(run, body, index => ({
                       id: secondary ? undefined : `lab-p-${lineParagraph(index)}`,
                       'data-follow-granularity': inlineHearingPaint ? followGranularityAttr(followParagraphs, lineParagraph(index)) : undefined,
                     }))}
@@ -1145,7 +1213,8 @@ export function LabPassage({
         'lab-book',
         'is-reading',
         appliedSelection ? 'has-applied-selection' : '',
-        !hearing && onSelectRange ? 'owns-text-selection' : '',
+        // An inert chapter keeps the class it has as the reader's own: its words are not restyled when it changes role.
+        !hearing && (onSelectRange || inertWords) ? 'owns-text-selection' : '',
         touchScroll ? 'is-touch-scroll' : '',
         verticalPageSwipe ? 'has-vertical-swipe' : '',
         hearing && !browseWhileListening ? 'is-hearing' : '',
@@ -1160,7 +1229,8 @@ export function LabPassage({
         alignCompare && compare ? 'is-aligned-compare' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
-      data-testid="lab-book"
+      data-testid={inertWords ? undefined : 'lab-book'}
+      data-chapter-number={inertWords ? chapterNumber : undefined}
       data-selection-chapter={selectionChapters ? chapterNumber : undefined}
       data-passage-mode={mode}
       tabIndex={keyboardSelection && onSelectRange ? 0 : undefined}
@@ -1189,7 +1259,7 @@ export function LabPassage({
       }}
     >
             {showHeadline && !desktopSpread && (
-        <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} />
+        <LabChapterHeading title={chapterTitle} preview={!!onPreviewChapter} busy={chapterActionsBusy} onPreview={onPreviewChapter} measuring={inertWords} />
       )}
       <div className="lab-book-columns">
         <div className="lab-book-col">
@@ -1219,12 +1289,12 @@ export function LabPassage({
           ) : (
             <div
               className="lab-hearing-stage"
-              data-testid="lab-reading-stage"
+              data-testid={inertWords ? undefined : 'lab-reading-stage'}
               data-page-turn={pageTurn?.direction}
               data-page-turn-nonce={pageTurn?.nonce}
               ref={pageStageRef}
             >
-              {renderReadingLines(readingLines)}
+              {renderReadingLines(readingLines, inertWords, !inertWords, stableWords)}
             </div>
           )}
           {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}

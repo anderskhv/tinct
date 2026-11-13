@@ -75,15 +75,42 @@ export const RANGE_HIGHLIGHT_PREFIX = 'tinct-mark'
 const contributions = new Map<string, Record<string, Range[]>>()
 let sharedStyle: HTMLStyleElement | null = null
 
+/** The rules on `.lab` itself (` `: on every element inside it as well). */
+function sharedRules(scope: '' | ' '): string {
+  return Object.entries(COLORS).map(([color, [token, light, dark]]) => {
+    const name = `${RANGE_HIGHLIGHT_PREFIX}-${color}`
+    return `.lab${scope}::highlight(${name}){background-color:var(--highlight-${token},${light});color:inherit}.lab.is-night${scope}::highlight(${name}){background-color:var(--highlight-${token},${dark})}`
+  }).join('\n')
+}
+
+/** Whether a word inside `.lab` takes the highlight style set on `.lab` (CSS highlight inheritance: Chromium, not WebKit). */
+function inheritsHighlightStyle(): boolean {
+  try {
+    const root = document.createElement('div')
+    root.className = 'lab'
+    root.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none'
+    const word = document.createElement('span')
+    word.textContent = 'x'
+    root.append(word)
+    document.body.append(root)
+    const shown = getComputedStyle(word, `::highlight(${RANGE_HIGHLIGHT_PREFIX}-warm)`).backgroundColor
+    root.remove()
+    return !!shown && shown !== 'transparent' && shown !== 'rgba(0, 0, 0, 0)'
+  } catch {
+    return false
+  }
+}
+
 function ensureSharedStyle(): void {
   if (sharedStyle?.isConnected) return
   sharedStyle = document.createElement('style')
   sharedStyle.dataset.tinctRangeHighlights = ''
-  sharedStyle.textContent = Object.entries(COLORS).map(([color, [token, light, dark]]) => {
-    const name = `${RANGE_HIGHLIGHT_PREFIX}-${color}`
-    return `.lab ::highlight(${name}){background-color:var(--highlight-${token},${light});color:inherit}.lab.is-night ::highlight(${name}){background-color:var(--highlight-${token},${dark})}`
-  }).join('\n')
+  // Where highlight styles inherit, the rules sit on `.lab` alone and every word paints with them (pixel for pixel the
+  // same). A rule on every element made each element of the reader compute five highlight styles of its own: two
+  // thirds of the style time of every chapter painted in book scroll (13 Nov 2026). WebKit keeps the rule on every element.
+  sharedStyle.textContent = sharedRules('')
   document.head.append(sharedStyle)
+  if (!inheritsHighlightStyle()) sharedStyle.textContent = sharedRules(' ')
 }
 
 /** Register the union of every passage's ranges for the colours `colors` (all when omitted). */
