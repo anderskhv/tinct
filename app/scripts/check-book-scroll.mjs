@@ -4,7 +4,10 @@
 // one biblical book, chapter ends say Summary, transcripts keep their bold speakers, reload keeps the exact word,
 // and Appearance › Whole-book scroll turns it off and on for this device at the same place. Margin cards across chapter
 // swaps in Luke (12 Nov 2026): one section per card, an open card keeps its chapter while it is on screen, the overview
-// marks every chapter's highlights and cards, and a chapter's start actions stay level with its heading.
+// marks every chapter's highlights and cards, and a chapter's start actions stay level with its heading. Across editions
+// (13 Nov 2026: Luke 2 and 3 cards made in the World English Bible were missing from the King James overview and margin;
+// switching to the BSB hid every mark): a card or highlight made in one edition shows on the same verses in another, in
+// the overview, the margin and the text, in book scroll and in the one-chapter reader alike.
 // Run against a dev or preview server: TINCT_ORIGIN=http://127.0.0.1:5175 node scripts/check-book-scroll.mjs
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
@@ -117,6 +120,91 @@ async function lukeCards(s) {
   assert.equal(await card.count(), 0, 'the card folds once it and its chapter have left the screen')
 }
 
+// Select words `from`..`to` of the reader's own chapter and press a selection bar button.
+async function selectWords(page, from, to, button, scope = '.book-scroll-chapter.is-own') {
+  const words = page.locator(`${scope} [data-testid="lab-word"]`)
+  const a = await words.nth(from).boundingBox(), b = await words.nth(to).boundingBox()
+  await page.mouse.move(a.x + 2, a.y + a.height / 2); await page.mouse.down()
+  await page.mouse.move(b.x + 2, b.y + b.height / 2, { steps: 6 }); await page.mouse.up()
+  await page.getByTestId(button).click()
+  if (button === 'lab-dbar-explain') await page.locator('[data-testid="source-margin-item"][data-open="true"] .lab-pcard-answer').first().waitFor({ timeout: 15000 })
+  else await page.waitForTimeout(300)
+  await page.keyboard.press('Escape'); await page.waitForTimeout(300)
+}
+const storedMarks = page => page.evaluate(() => ({
+  cards: JSON.parse(localStorage.getItem('tinct:chat-history:bible') || '[]').filter(item => item.card?.anchor).map(item => ({ id: item.id, chapter: item.chapterNumber, edition: item.card.anchor.editionKey })),
+  highlights: JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]').map(mark => ({ id: mark.id, chapter: mark.chapterNumber, edition: mark.editionKey })),
+}))
+const openBible = async (s, edition, chapter) => {
+  await s.page.goto(`${origin}/reader?book=bible&edition=${edition}&chapter=${chapter}&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
+  await s.page.waitForTimeout(1500)
+}
+const marginIds = page => page.evaluate(() => [...document.querySelectorAll('[data-testid="source-margin-item"]')].map(item => item.dataset.cardId))
+const paintedIn = (page, chapter, id) => page.evaluate(([chapter, id]) => {
+  const scope = chapter == null ? document : document.querySelector(`[data-book-scroll-chapter="${chapter}"]`)
+  return scope ? scope.querySelectorAll(`[data-highlight-id="${id}"]`).length : 0
+}, [chapter, id])
+
+// Book scroll: Luke 2 marked in the World English Bible, Luke 9 in the King James Version, read in KJV and then the BSB.
+async function editionMarks(s) {
+  const { page, name } = s
+  const own = () => page.locator('.lab').evaluate(node => node.dataset.chapter)
+  await openBible(s, 'web-en', 975)
+  await selectWords(page, 3, 8, 'lab-dbar-highlight'); await selectWords(page, 20, 26, 'lab-dbar-explain')
+  await openBible(s, 'kjv-en', 982)
+  await selectWords(page, 3, 8, 'lab-dbar-highlight'); await selectWords(page, 20, 26, 'lab-dbar-explain')
+  const stored = await storedMarks(page)
+  const webCard = stored.cards.find(item => item.chapter === 975 && item.edition === 'web-en')
+  const webMark = stored.highlights.find(item => item.chapter === 975 && item.edition === 'web-en')
+  const kjvCard = stored.cards.find(item => item.chapter === 982 && item.edition === 'kjv-en')
+  const kjvMark = stored.highlights.find(item => item.chapter === 982 && item.edition === 'kjv-en')
+  assert.ok(webCard && webMark && kjvCard && kjvMark, 'the cards and highlights are stored in their own editions')
+  // Luke 1 in KJV: the overview marks Luke 2's WEB highlight and card as well as Luke 9's.
+  await openBible(s, 'kjv-en', 974)
+  await page.waitForFunction(() => document.querySelectorAll('[data-map-unit-mark="975"]').length >= 2, null, { timeout: 10000 }).catch(() => {})
+  assert.ok(await page.locator('[data-map-unit-mark="975"]').count() >= 2, "the KJV overview marks Luke 2's highlight and card made in the WEB")
+  assert.ok(await page.locator('[data-map-unit-mark="982"]').count() >= 2, "the KJV overview marks Luke 9's highlight and card")
+  await page.screenshot({ path: `${output}/${name}-editions-kjv-luke1.png` })
+  // Down into Luke 2: its WEB card is in the margin, its highlight painted on the same words in KJV.
+  await page.locator('[data-book-scroll-unit]').hover({ position: { x: 300, y: 400 } })
+  for (let step = 0; step < 120 && await own() !== '975'; step++) { await page.mouse.wheel(0, 500); await page.waitForTimeout(100) }
+  await page.waitForTimeout(1500)
+  assert.ok((await marginIds(page)).includes(webCard.id), "Luke 2's WEB card is in the KJV margin")
+  assert.ok(await paintedIn(page, 975, webMark.id) > 0, "Luke 2's WEB highlight is painted in KJV")
+  await page.screenshot({ path: `${output}/${name}-editions-kjv-luke2.png` })
+  // The BSB, Luke 10: Luke 9's KJV marks in the overview; Luke 9 itself: its card in the margin, its highlight painted.
+  await openBible(s, 'bsb-en', 983)
+  await page.waitForFunction(() => document.querySelectorAll('[data-map-unit-mark="982"]').length >= 2, null, { timeout: 10000 }).catch(() => {})
+  assert.ok(await page.locator('[data-map-unit-mark="982"]').count() >= 2, "the BSB overview marks Luke 9's KJV highlight and card")
+  assert.ok(await page.locator('[data-map-unit-mark="975"]').count() >= 2, "the BSB overview marks Luke 2's WEB highlight and card")
+  await openBible(s, 'bsb-en', 982)
+  await page.waitForFunction(id => [...document.querySelectorAll('[data-testid="source-margin-item"]')].some(item => item.dataset.cardId === id), kjvCard.id, { timeout: 10000 }).catch(() => {})
+  assert.ok((await marginIds(page)).includes(kjvCard.id), "Luke 9's KJV card is in the BSB margin")
+  assert.ok(await paintedIn(page, 982, kjvMark.id) > 0, "Luke 9's KJV highlight is painted in the BSB")
+  await page.screenshot({ path: `${output}/${name}-editions-bsb-luke9.png` })
+  // And back in KJV: exactly as stored, nothing rewritten.
+  await openBible(s, 'kjv-en', 982)
+  assert.ok((await marginIds(page)).includes(kjvCard.id), "Luke 9's card is in the KJV margin again")
+  assert.deepEqual(await storedMarks(page), stored, 'showing marks in other editions stores nothing')
+}
+
+// The one-chapter Margin reader (everyone but an admin): a KJV card and highlight in the BSB.
+async function editionMarksOneChapter(s) {
+  const { page, name } = s
+  const scope = '[data-testid="continuous-reader"]'
+  await openBible(s, 'kjv-en', 982)
+  await selectWords(page, 3, 8, 'lab-dbar-highlight', scope); await selectWords(page, 20, 26, 'lab-dbar-explain', scope)
+  const stored = await storedMarks(page)
+  const card = stored.cards.find(item => item.chapter === 982), mark = stored.highlights.find(item => item.chapter === 982)
+  assert.ok(card && mark, 'stored in KJV')
+  await openBible(s, 'bsb-en', 982)
+  await page.waitForFunction(id => [...document.querySelectorAll('[data-testid="source-margin-item"]')].some(item => item.dataset.cardId === id), card.id, { timeout: 10000 }).catch(() => {})
+  assert.ok((await marginIds(page)).includes(card.id), 'the KJV card is in the BSB margin (one-chapter reader)')
+  assert.ok(await paintedIn(page, null, mark.id) > 0, 'the KJV highlight is painted in the BSB (one-chapter reader)')
+  await page.screenshot({ path: `${output}/${name}-editions-one-chapter-bsb.png` })
+  assert.deepEqual(await storedMarks(page), stored, 'showing marks in another edition stores nothing')
+}
+
 for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
   // Everyone else: the one-chapter reader, whatever the link says.
   {
@@ -130,6 +218,8 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
       }
       await s.page.getByTestId('lab-header-aa').click()
       assert.equal(await s.page.getByTestId('lab-v2-book-scroll').count(), 0, 'no Whole-book scroll switch for a non-admin')
+      await s.page.keyboard.press('Escape')
+      await editionMarksOneChapter(s)
       assert.deepEqual(s.errors, [])
       result.passed = true
     } catch (error) { result.error = error.stack; await s.page.screenshot({ path: `${output}/${name}-non-admin-failure.png` }).catch(() => {}) }
@@ -161,6 +251,7 @@ for (const [name, engine] of [['chromium', chromium], ['webkit', webkit]]) {
       await page.getByRole('slider', { name: 'Book position', exact: true }).waitFor()
       assert.equal(await page.locator('[data-map-chapter-mark]').count(), 50, "Genesis's overview marks its fifty chapters")
       await lukeCards(s)
+      await editionMarks(s)
       // Chapter ends say Summary.
       await page.goto(`${origin}/reader?book=frankenstein&edition=original-en&chapter=2&paragraph=0&word=0&view=margin&sharedReader=1&layout=desktop`, { waitUntil: 'domcontentloaded' }); await s.ready()
       const scroller = page.locator('[data-book-scroll-unit]')

@@ -63,6 +63,7 @@ import { BookScrollReader, type BookScrollControl } from './sharedReader/BookScr
 import { BOOK_SCROLL_DEVICE_KEY, bookScrollSwitch, bookScrollUnit } from './sharedReader/bookScroll'
 import { cachedSiteAdmin, refreshSiteAdmin } from './labSiteAdmin'
 import { useBookScrollChapters } from './sharedReader/useBookScrollChapters'
+import { useCrossEditionMarks } from './sharedReader/crossEditionMarks'
 import { answerLead, foldedPreview } from './sharedReader/cardPreview'
 import { pdfReaderViewUrl } from './userBook/pdfReaderHandoff'
 import { marginChapterBoundary, marginSourceWord, type MarginSourceAnchor } from './sharedReader/marginSource'
@@ -2657,19 +2658,31 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }, [])
   const [shareTarget, setShareTarget] = useState<LabShareTarget | null>(null)
   const highlightsApi = useLabHighlights(book.chapterNumber, { shared: sharedHighlight, bookId: book.bookId || 'bible', editionKey: prefs.primaryEdition, paragraphs: book.paragraphs, compareEditionKey: prefs.compareEdition, compareParagraphs: book.compareParagraphs, userId: userBook ? null : authToken !== undefined ? (authToken ? (authUser?.id ?? null) : null) : (authUser?.id ?? null) })
+  // Cards and highlights made in another edition, at their passage in this one (crossEditionMarks.ts; Anders, 13 Nov
+  // 2026: Luke 2 and 3 cards made in the World English Bible were missing from the King James margin and overview).
+  // The Margin reader's own chapter, and in book scroll every chapter of the unit.
+  const crossEditionTarget = useCallback((chapterNumber: number) => chapterNumber === book.chapterNumber ? readerParagraphs : bookScrollTexts.texts.get(chapterNumber)?.paragraphs,
+    [book.chapterNumber, readerParagraphs, bookScrollTexts.texts])
+  const crossEdition = useCrossEditionMarks({
+    enabled: continuousReader, bookId: book.bookId || 'bible', editionKey: readerEditionKey, editions: allBookEditions,
+    chapters: bookScroll && bookScrollUnitNow ? bookScrollUnitNow.chapters.map(chapter => chapter.number) : [book.chapterNumber],
+    conversations: ask.conversations, highlights: highlightsApi.allHighlights, target: crossEditionTarget, targetKey: crossEditionTarget,
+  })
+  /** A conversation as the margin shows it: a card of another edition with its anchor in this one. */
+  const inReaderEdition = (item: ChatConversation) => crossEdition.cards.get(item.id) ?? item
   // Book scroll (try-out): a neighbouring chapter paints its own highlights.
   const bookScrollHighlights = useMemo(() => bookScroll
-    ? highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.editionKey === prefs.primaryEdition)
-    : undefined, [bookScroll, highlightsApi.allHighlights, book.bookId, prefs.primaryEdition])
+    ? [...highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.editionKey === prefs.primaryEdition), ...crossEdition.highlights]
+    : undefined, [bookScroll, highlightsApi.allHighlights, book.bookId, prefs.primaryEdition, crossEdition.highlights])
   // Book scroll: the cards of the unit's other chapters, for the overview (the reader's own chapter's come with `cards`).
   const bookScrollCards = useMemo(() => {
     if (!bookScrollUnitNow) return undefined
     const unit = new Set(bookScrollUnitNow.chapters.map(chapter => chapter.number))
-    return ask.conversations.flatMap(item => item.bookId === (book.bookId || 'bible') && item.chapterNumber !== book.chapterNumber && unit.has(item.chapterNumber)
+    return ask.conversations.map(item => crossEdition.cards.get(item.id) ?? item).flatMap(item => item.bookId === (book.bookId || 'bible') && item.chapterNumber !== book.chapterNumber && unit.has(item.chapterNumber)
       && item.card?.anchor && !item.card.gone && item.card.anchor.editionKey === readerEditionKey && cardInMargin(item.card.kind, item.messages)
       ? [{ id: item.id, chapterNumber: item.chapterNumber, paragraphIndex: item.card.anchor.paragraphIndex, wordIndex: item.card.anchor.fromWord,
         label: `${item.card.kind.charAt(0).toUpperCase() + item.card.kind.slice(1)} · ${item.card.text || ''}` }] : [])
-  }, [bookScrollUnitNow, ask.conversations, book.bookId, book.chapterNumber, readerEditionKey])
+  }, [bookScrollUnitNow, ask.conversations, crossEdition.cards, book.bookId, book.chapterNumber, readerEditionKey])
   // The Compare edition of a cold open, once the first page is up. Only the
   // load that asked for it receives it; a newer load has its own.
   useEffect(() => {
@@ -6626,7 +6639,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   // A menu activation is a free unit companion at this reading position, even if a boundary is virtualised away.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [continuousReader,superSheet])
-  const marginConversations = ask.conversations.filter(item => item.bookId === (book.bookId || 'bible') && item.card && !item.card.gone && item.chapterNumber === book.chapterNumber && (!item.card.anchor || item.card.anchor.editionKey === readerEditionKey))
+  const marginConversations = ask.conversations.map(inReaderEdition).filter(item => item.bookId === (book.bookId || 'bible') && item.card && !item.card.gone && item.chapterNumber === book.chapterNumber && (!item.card.anchor || item.card.anchor.editionKey === readerEditionKey))
   // A Catch me up card sorts by the place it was opened at, like every card by its passage (Anders, 10 Nov 2026:
   // ordered first, it pushed every earlier passage's card below it into one stack).
   const catchUpOrder = (id: string) => { const at = desktopUnitAnchorsRef.current.get(id); return at ? at.paragraphIndex * 100000 + at.fromWord : -1 }
@@ -6690,7 +6703,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
       }, content: renderPhoneCard(live),
     })
   }
-  if (continuousReader) for (const mark of highlightsApi.allHighlights.filter(mark => mark.bookId === (book.bookId || 'bible') && mark.chapterNumber === book.chapterNumber && (!mark.editionKey || mark.editionKey === readerEditionKey) && !!mark.note && mark.kind !== 'chapter')) {
+  if (continuousReader) for (const mark of [...highlightsApi.allHighlights, ...crossEdition.highlights].filter(mark => mark.bookId === (book.bookId || 'bible') && mark.chapterNumber === book.chapterNumber && (!mark.editionKey || mark.editionKey === readerEditionKey || crossEdition.highlights.includes(mark)) && !!mark.note && mark.kind !== 'chapter')) {
     const id = `highlight:${mark.id}`
     if (liveIds.has(id)) continue
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
@@ -6700,7 +6713,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   }
   // A note's card in the reader's own chapter, opened by its highlight id (book scroll: after its chapter was adopted).
   openNoteRef.current = (markId: string) => {
-    const mark = highlightsApi.allHighlights.find(item => item.id === markId && item.chapterNumber === book.chapterNumber)
+    const mark = crossEdition.highlights.find(item => item.id === markId && item.chapterNumber === book.chapterNumber)
+      ?? highlightsApi.allHighlights.find(item => item.id === markId && item.chapterNumber === book.chapterNumber)
     if (!mark) return
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
     setPhoneNote(mark.note || ''); openPhoneCard({ kind: 'note', passage, highlightId: mark.id, created: false })
@@ -6798,7 +6812,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
             {neighbourAct('Quiz me', 'margin-neighbour-start-quiz', anchor => actOnChapter(number, () => quizChapterRef.current(anchor, true)))}
           </div>
         </div> })
-      for (const item of ask.conversations) {
+      for (const item of ask.conversations.map(inReaderEdition)) {
         if (item.bookId !== (book.bookId || 'bible') || item.chapterNumber !== number || !item.card || item.card.gone) continue
         if (item.card.anchor && item.card.anchor.editionKey !== readerEditionKey) continue
         if (!cardInMargin(item.card.kind, item.messages) || placed.has(item.id)) continue
@@ -6809,7 +6823,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
           free: !item.card.anchor, open: false, ...foldedPreview(item.card.kind, item.messages, raw => marginAnswerPreview(item.card!.kind, raw)), sourceText: item.card.text,
           onToggle: () => actOnChapter(number, () => toggleMarginRef.current(item.id)), content: null })
       }
-      for (const mark of highlightsApi.allHighlights) {
+      for (const mark of bookScrollHighlights ?? []) {
         if (mark.bookId !== (book.bookId || 'bible') || mark.chapterNumber !== number || (mark.editionKey && mark.editionKey !== readerEditionKey) || !mark.note || mark.kind === 'chapter' || placed.has(`highlight:${mark.id}`)) continue
         desktopMarginEntries.push({ id: `highlight:${mark.id}`, label: 'Note', source: neighbourSource(number, mark), order: base + mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, free: isSourcePoint(mark),
           onToggle: () => actOnChapter(number, () => openNoteRef.current(mark.id)), content: null })
