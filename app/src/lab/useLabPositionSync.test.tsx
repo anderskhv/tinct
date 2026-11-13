@@ -891,3 +891,93 @@ it('library Continue keeps the settled Bible book over a newer short peek, as th
   expect(resumePlaceForLibrary(state, 'bible')?.bookId).toBe('hebrews')
   expect(resumePlaceForLibrary({ ...state, lastSettledBookId: 'crito' }, 'bible')?.bookId).toBe('romans')
 })
+
+describe('a stale reader on the same device (12 Nov 2026, two tabs on one iPhone)', () => {
+  /** What another tab on this device stored after this reader last wrote: Proverbs 17, further on. */
+  function storeFromOtherTab(over: Partial<LabBookPlace> = {}) {
+    const record = readLabPositionLocal(PHONE)
+    const place = proverbs17({ paragraphIndex: 9, wordIndex: 2, updatedAt: Date.now() + 5_000, rev: 9, ...over })
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({
+      ...record, books: { ...record.books, proverbs: place }, lastSettledBookId: 'proverbs', lastSettledAt: place.updatedAt, updatedAt: place.updatedAt,
+    }))
+    return place
+  }
+
+  async function mountCurrent(props: { onRemoteResume?: (place: LabBookPlace) => void; onResolvedPlace?: (place: LabBookPlace) => void } = {}) {
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...settledProverbsLocal(), owner: READER }))
+    const api = stubPositionApi(Promise.resolve(null))
+    const placeRef = { current: { paragraphIndex: 3, wordIndex: 7 } }
+    render(<Harness book={manifestBook(645)} placeRef={placeRef} onRemoteResume={props.onRemoteResume ?? (() => {})} onResolvedPlace={props.onResolvedPlace} />)
+    await settle()
+    expect(harness.initialPositionResolved).toBe(true)
+    return { api, placeRef }
+  }
+
+  it('a page turn from the stale page moves to the newer place and never writes the stale one', async () => {
+    const onResolvedPlace = vi.fn()
+    const { api, placeRef } = await mountCurrent({ onResolvedPlace })
+    const newer = storeFromOtherTab()
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 4, wordIndex: 0 }) })
+    await settle()
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ paragraphIndex: 9, wordIndex: 2, updatedAt: newer.updatedAt })
+    expect(onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2 }))
+    expect(placeRef.current).toEqual({ paragraphIndex: 9, wordIndex: 2 })
+    expect(api.puts().some(put => JSON.parse(String(put.init?.body)).books.proverbs?.paragraphIndex === 4)).toBe(false)
+  })
+
+  it('reads on from the adopted place: the next turn is written, newer than the place it followed', async () => {
+    await mountCurrent()
+    const newer = storeFromOtherTab()
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 4, wordIndex: 0 }) })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 10, wordIndex: 0 }) })
+    const stored = readLabPositionLocal(PHONE).books.proverbs
+    expect(stored).toMatchObject({ paragraphIndex: 10, wordIndex: 0 })
+    expect(stored.updatedAt).toBeGreaterThan(newer.updatedAt)
+    expect(stored.rev).toBeGreaterThan(newer.rev)
+  })
+
+  it('a chosen destination (Contents) is still written by a stale reader', async () => {
+    await mountCurrent()
+    storeFromOtherTab()
+    act(() => { harness.notePlace!('chapter-jump', { sequentialChapter: 646, paragraphIndex: 0, wordIndex: 0 }) })
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ sequentialChapter: 646, paragraphIndex: 0 })
+  })
+
+  it('coming back to the tab shows the newer place at once, before any tap', async () => {
+    const onResolvedPlace = vi.fn()
+    await mountCurrent({ onResolvedPlace })
+    storeFromOtherTab()
+    act(() => { document.dispatchEvent(new Event('visibilitychange')) })
+    expect(onResolvedPlace).toHaveBeenCalledWith(expect.objectContaining({ paragraphIndex: 9, wordIndex: 2 }))
+  })
+
+  it('a page restored from the back/forward cache loads the chapter another tab read on into', async () => {
+    const onRemoteResume = vi.fn()
+    await mountCurrent({ onRemoteResume })
+    storeFromOtherTab({ sequentialChapter: 646, chapterNumber: 18, paragraphIndex: 1, wordIndex: 0 })
+    act(() => { window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true })) })
+    expect(onRemoteResume).toHaveBeenCalledWith(expect.objectContaining({ sequentialChapter: 646, paragraphIndex: 1 }))
+  })
+
+  it('a current reader writes its own page turns and its hide flush as before', async () => {
+    const onResolvedPlace = vi.fn()
+    const { api } = await mountCurrent({ onResolvedPlace })
+    act(() => { harness.notePlace!('page-turn', { paragraphIndex: 5, wordIndex: 0 }) })
+    act(() => { harness.notePlace!('hide') })
+    await settle()
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+    expect(readLabPositionLocal(PHONE).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+    expect(api.puts().length).toBeGreaterThan(0)
+    expect(JSON.parse(String(api.puts().at(-1)!.init?.body)).books.proverbs).toMatchObject({ paragraphIndex: 5, wordIndex: 0 })
+  })
+
+  it('another account\'s record on the device is never adopted', async () => {
+    const onResolvedPlace = vi.fn()
+    await mountCurrent({ onResolvedPlace })
+    const record = readLabPositionLocal(PHONE)
+    localStorage.setItem(LAB_POSITION_STORAGE_KEY, JSON.stringify({ ...record, owner: OTHER_ACCOUNT,
+      books: { proverbs: proverbs17({ paragraphIndex: 9, updatedAt: Date.now() + 5_000 }) } }))
+    act(() => { document.dispatchEvent(new Event('visibilitychange')) })
+    expect(onResolvedPlace).not.toHaveBeenCalled()
+  })
+})
