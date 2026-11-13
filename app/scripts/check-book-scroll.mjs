@@ -167,7 +167,15 @@ async function editionMarks(s) {
   await page.screenshot({ path: `${output}/${name}-editions-kjv-luke1.png` })
   // Down into Luke 2: its WEB card is in the margin, its highlight painted on the same words in KJV.
   await page.locator('[data-book-scroll-unit]').hover({ position: { x: 300, y: 400 } })
-  for (let step = 0; step < 120 && await own() !== '975'; step++) { await page.mouse.wheel(0, 500); await page.waitForTimeout(100) }
+  // Until Luke 2's heading passes the reading line, then rest: the reader takes a chapter over once the scrolling rests
+  // in it (or stays in it). Wheeling on without a rest went through the short chapters of Luke and on to Luke 12 and
+  // further whenever the steps came faster than the rest (CI and loaded hosts), and Luke 2's card was rightly gone.
+  const atLine = () => page.evaluate(() => {
+    const host = document.querySelector('[data-book-scroll-unit]'), block = host?.querySelector('[data-book-scroll-chapter="975"]')
+    return !!block && block.getBoundingClientRect().top < host.getBoundingClientRect().top + 100
+  })
+  for (let step = 0; step < 120 && !(await atLine()) && await own() !== '975'; step++) { await page.mouse.wheel(0, 300); await page.waitForTimeout(100) }
+  await page.waitForFunction(() => document.querySelector('.lab')?.dataset.chapter === '975', null, { timeout: 10000 })
   await page.waitForTimeout(1500)
   assert.ok((await marginIds(page)).includes(webCard.id), "Luke 2's WEB card is in the KJV margin")
   assert.ok(await paintedIn(page, 975, webMark.id) > 0, "Luke 2's WEB highlight is painted in KJV")
