@@ -12,10 +12,10 @@
     "modernEnglishSha256": "18be4155497ebdf78013d1a26ce2fad86839aaa00c036cf9970954af550888eb"
   },
   "the-prince": {
-    "package": "books/wip/the-prince/editions/the-prince-modern-da.json",
-    "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
-    "danishSha256": "4d0efe429d27e14db2f05745acc240fadc7e9cb32d237b5e33297c5d154d61a9",
-    "modernEnglishSha256": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582"
+    "package": "books/wip/modern-da-quality-20261102/editions/the-prince-modern-da.json",
+    "packageCommit": "a1e7bc94edccdc1551d5629c1618a08059ddfcfe",
+    "danishSha256": "3b4a608cb0c5bb122e0dd4b1120188ade53b61f067f9975317102cf1221d5268",
+    "modernEnglishSha256": "14393ff56819809a54f9f69662249b0182771339103f977092a817510aaae9a5"
   },
   "confessions": {
     "package": "books/wip/confessions/editions/confessions-modern-da.json",
@@ -30,9 +30,9 @@
     "modernEnglishSha256": "ce04a1b4bae3fdaeb2fd8ca8881ccc2815dba76fc1dbf24b92757e88682a6ff7"
   },
   "bacchae": {
-    "package": "books/wip/bacchae/editions/bacchae-modern-da.json",
-    "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
-    "danishSha256": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
+    "package": "books/wip/modern-da-quality-20261102/editions/bacchae-modern-da.json",
+    "packageCommit": "d5be8d27c25f68c4c7c88be6d802936bb9abc596",
+    "danishSha256": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209",
     "modernEnglishSha256": "7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8"
   },
   "magna-carta": {
@@ -42,16 +42,21 @@
     "modernEnglishSha256": "cfa05de4109362a5889816ea4a06071944189da833907f3f916f9c323797cabb"
   },
   "medea": {
-    "package": "books/wip/medea/editions/medea-modern-da.json",
-    "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
-    "danishSha256": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
-    "modernEnglishSha256": "573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b"
+    "package": "books/wip/modern-da-quality-20261102/editions/medea-modern-da.json",
+    "packageCommit": "68f75575a9acd83c2d8feb8c7b510f8c3cbef526",
+    "danishSha256": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4",
+    "modernEnglishSha256": "63964726748e98d1a7cd465f68cbb4663f395c0e552879a54c8c2d065a8f6514"
   },
   "meditations": {
-    "package": "books/wip/meditations/editions/meditations-modern-da.json",
-    "packageCommit": "959296ff926d6fb2b106455074c6227aa1d09600",
-    "danishSha256": "c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c",
-    "modernEnglishSha256": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f"
+    "package": "books/wip/modern-da-quality-20261102/editions/meditations-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a",
+    "modernEnglishSha256": "4623d1191fbd1c09f9257acf7e73b49d5467e35fa0d9979e35c910bb24b9cc9f",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/meditations-modern-en.json",
+      "sha256": "a01029a9226e8cda8ff1bd7baf208e2015e9b455662c48c80e1956822bb9459b",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
   },
   "middlemarch": {
     "package": "books/wip/middlemarch/editions/middlemarch-modern-da.json",
@@ -100,5 +105,180 @@
     "packageCommit": "d84a071a54ff793929bb8b7dc476567238765c34",
     "danishSha256": "369bac28503274314566ac6877ae04ea55ec4b39ef7ed3d00f3a0dbf501a6123",
     "modernEnglishSha256": "488c6a486b89d577c24d629e8118f1854c95134565a5687b12d758ca5a2929e4"
+  },
+  "a-little-princess": {
+    "package": "books/wip/modern-da-quality-20261102/editions/a-little-princess-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b",
+    "modernEnglishSha256": "c47540c17dd567bafe0934392b31a8d236e15e809244e419080e8abf3c4fa1b6",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/a-little-princess-modern-en.json",
+      "sha256": "4af55bb751cefb17c95a2d9cedae337ef1e26660fef67a1e816debca177c69b9",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "jungle-book": {
+    "package": "books/wip/modern-da-quality-20261102/editions/jungle-book-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "38ed0329dcd2cc276c51c3149e264c51430826336fca965e7ce329cb06b00f73",
+    "modernEnglishSha256": "9eaf20289bbc99281feeae0310ffb4f434c6808c6943b986df07722dcd9debd0",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/jungle-book-modern-en.json",
+      "sha256": "3ab69e13379c0c3dd42d7f9d661d4641fbdbc460bbccf63b08e7dc499e0aae41",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "around-the-world-80-days": {
+    "package": "books/wip/modern-da-quality-20261102/editions/around-the-world-80-days-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "202820448ffeab82bcdab08c525204c9a3c366054e330c6138fe4eca9ba1247c",
+    "modernEnglishSha256": "a2d94a65fb3f0a3872f105b6300e8c3ab4c61ca0ac84614822a17ff91c05f426",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/around-the-world-80-days-modern-en.json",
+      "sha256": "b0ed142aef04c14aa5ee56882a368318834d29338479b07d1a08ed9d1743f303",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "ivan-ilyich": {
+    "package": "books/wip/modern-da-quality-20261102/editions/ivan-ilyich-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac",
+    "modernEnglishSha256": "1bb15d1bc0758feadd7ccd239ecc5f8b87d53b9676915d4b3e222d9235e0d5a6",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/ivan-ilyich-modern-en.json",
+      "sha256": "e1e2f43ef5faa177afcdc5bd5f57c4ff5617daa5f818958738f4d2844bdadb28",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "werther": {
+    "package": "books/wip/modern-da-quality-20261102/editions/werther-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "71a255b799d50b1e048a6302ae5058e837e7859e9cc4ccc356000d1be2b25627",
+    "modernEnglishSha256": "f45d353204e356b34bd473e250ed557c8ec899d83cfd8076aeb7ee16b1a05bc0",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/werther-modern-en.json",
+      "sha256": "f5cde9e0648bcb9bc9a108c75b6bacd38a4fe0a5ba19f5ba514752a403723d20",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "communist-manifesto": {
+    "package": "books/wip/modern-da-quality-20261102/editions/communist-manifesto-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "c4798893134511db4e2479af47f07436f2f73db2aadcc040048cff0e9cd84698",
+    "modernEnglishSha256": "5cccffe12e998383856f3d80ba64eddfb5371bbfe0b01cf04d0df503fe6760eb",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/communist-manifesto-modern-en.json",
+      "sha256": "9d8c931d1b35a483d17c990fa77bae81ace9d33706cbdba7ce184e149056cbf6",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "poetics": {
+    "package": "books/wip/modern-da-quality-20261102/editions/poetics-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5",
+    "modernEnglishSha256": "c14bf2d099284fad9b2801ba2272ef92ce9be3ba3e1eb43dfa789febd2f17323",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/poetics-modern-en.json",
+      "sha256": "d74a723c742c3b2b7beddbfcc80f80c080389f443aefb479e3fd662095bf6e63",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "phaedrus": {
+    "package": "books/wip/modern-da-quality-20261102/editions/phaedrus-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "7577d9822136dcade54ca1d9b1c43d53e6bbd56d33ebd9790912d6c9e9c04951",
+    "modernEnglishSha256": "5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/phaedrus-modern-en.json",
+      "sha256": "c3626febffab5e2b70e70b37468ea8d68dafc84fee6d8ae82aea3f1729ccc8db",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "phaedo": {
+    "package": "books/wip/modern-da-quality-20261102/editions/phaedo-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "fcf25859f3c7c690aa9edcfd11e1e4077d4ba7aa9260629462e8331f83eacb11",
+    "modernEnglishSha256": "2c46156a475567697bb7aadb6a66d362e08ea37cc23fc80d124c2be7e0cff8c7",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/phaedo-modern-en.json",
+      "sha256": "292e913a74cab766b876fc8aa7d33b08b45d107f98fd6a2683ae9c08074da154",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "utilitarianism": {
+    "package": "books/wip/modern-da-quality-20261102/editions/utilitarianism-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "4c4f8541617137907aa7ddc4c7c1de06a3958b4027c2646c10a6e914595e1758",
+    "modernEnglishSha256": "534c43afa8af1f7dea12997361cd568a0569261d241e72c3fd6f961950a26fa1",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/utilitarianism-modern-en.json",
+      "sha256": "368d97d3a2eba99d954fc8c93c5f8670b0c1c8faf9a8fcd430d043f9b713d973",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "on-liberty": {
+    "package": "books/wip/modern-da-quality-20261102/editions/on-liberty-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "e5c88f693a3261252fb08e973d920cfddf8fcb8a828703be216682fa84ca6fce",
+    "modernEnglishSha256": "cb1b3de53726abe48a58157067c78c72a7f8c99bc9708ad9a804f485a2d00ebb",
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "kant-groundwork": {
+    "package": "books/wip/modern-da-quality-20261102/editions/kant-groundwork-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c",
+    "modernEnglishSha256": "57c821d775792c3950f94a6d394e0d556310b21422e2c3bb2e6b63e77b249a9d",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/kant-groundwork-modern-en.json",
+      "sha256": "49e357fe69f5a375f9cee57bc32f6e70c597671c632800ecf3590d6dc70731e5",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "descartes-meditations": {
+    "package": "books/wip/modern-da-quality-20261102/editions/descartes-meditations-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "1200b5db1b31c45270899db9096fa4164a76dc5a75b95ef7c3e0a5b44ffcb876",
+    "modernEnglishSha256": "789863ff9c80db5b86ba5d351db4ad2b1067dab0539bd118a7d66a2aba65ea51",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/descartes-meditations-modern-en.json",
+      "sha256": "9873976da48cdfd9b1255023c10a02eccd52301c79dc3dc4755a2911b1db5f53",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "jekyll-and-hyde": {
+    "package": "books/wip/modern-da-quality-20261102/editions/jekyll-and-hyde-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "e75dd3c83aeebedea8e771685ebdc6614623fe99a010c541448e30951fc73865",
+    "modernEnglishSha256": "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d",
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "aristotle-politics": {
+    "package": "books/wip/modern-da-quality-20261102/editions/aristotle-politics-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf",
+    "modernEnglishSha256": "eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/aristotle-politics-modern-en.json",
+      "sha256": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "hume-enquiry": {
+    "package": "books/wip/modern-da-quality-20261102/editions/hume-enquiry-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6",
+    "modernEnglishSha256": "cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/hume-enquiry-modern-en.json",
+      "sha256": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    },
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
   }
 }

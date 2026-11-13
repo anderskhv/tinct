@@ -5,18 +5,54 @@
 // What the catalogue knows of the same book (borrowFor: popularity, the author's other names,
 // other titles) is lent once the catalogue search has loaded; until then books rank on their own.
 // Approved by Anders, 2026-10-07 (library search quality).
-import {createSearch, hydrate} from '../addbook/js/search.js?v=20261009rel10';
+// Danish (Anders, 2026-11-13): a book's Danish titles ("Den lille prinsesse") rank as titles and
+// Danish spellings of its author ("Platon") as the author's name (catalogue `localTitles`,
+// `localAuthors`, from src/data/danishTitles.ts). The engine folds æ to ae, ø to o and å to a;
+// Danish keyboards without them also write ø as oe and å as aa, so those spellings are indexed too.
+import {createSearch, hydrate, normalize} from '../addbook/js/search.js?v=20261009rel10';
+
+/** A name as typed without æ, ø and å: "Brødrene" is also "Broedrene", "Håndbogen" "Haandbogen". */
+export function danishSpellings(text) {
+  const value = String(text || '');
+  if (!/[øØåÅ]/.test(value)) return [];
+  return [value.replace(/ø/g, 'oe').replace(/Ø/g, 'Oe').replace(/å/g, 'aa').replace(/Å/g, 'Aa')];
+}
+
+/**
+ * Text folded the way Danish is typed: the engine's fold (case, accents, æ to ae, ø to o, å to a),
+ * then aa and oe as a and o, so "Haandbogen", "Håndbogen" and "Handbogen" are one word.
+ */
+export function foldDanish(text) {
+  return normalize(String(text || '')).replace(/aa/g, 'a').replace(/oe/g, 'o');
+}
+
+/** A book's Danish titles (catalogue `localTitles.da`), the one to show first. */
+export const danishTitles = book => book?.localTitles?.da || [];
+const danishAuthors = book => book?.localAuthors?.da || [];
+const unique = values => [...new Set(values.filter(Boolean))];
 
 /** A Tinct book as a catalogue work the engine can rank (`book` keeps the library's own object). */
 export function tinctWork(book, borrowed = null) {
-  const authors = [{name: book.author || '', aliases: borrowed?.aliases || []}];
+  const titles = [...(book.altTitles || []), ...danishTitles(book), ...(borrowed?.titles || [])];
+  const named = [book.author || '', ...danishAuthors(book)];
+  // A Danish spelling is the author's own name ("Sofokles" alone finds Sophocles), not only one of
+  // their other names, which count only when they hold two of a query's words.
+  const authors = unique([...named, ...named.flatMap(danishSpellings)]).map((name, i) => ({name, aliases: i ? [] : borrowed?.aliases || []}));
   const translators = (borrowed?.translators || []).map(name => ({name}));
   const popularity = borrowed?.popularity || 0;
-  return {id: 'tinct:' + book.id, book, title: book.title || '', altTitles: [...(book.altTitles || []), ...(borrowed?.titles || [])],
+  const altTitles = unique([...titles, ...[book.title, ...titles].flatMap(danishSpellings)]);
+  return {id: 'tinct:' + book.id, book, title: book.title || '', altTitles,
     authors, translators, language: ['en'], popularity, editions: [{title: book.title || '', authors, translators, popularity}]};
 }
 
-const plainMatch = (book, words) => words.every(word => `${book.title} ${book.author}`.toLocaleLowerCase().includes(word));
+// Every word typed is inside the book's title, other titles or author's names: as typed
+// (lower case), or folded the way Danish is typed ("kunsten at foere krig").
+const plainText = book => {
+  const text = [book.title, ...(book.altTitles || []), ...danishTitles(book), book.author, ...danishAuthors(book)].join(' | ');
+  return {raw: text.toLocaleLowerCase(), folded: foldDanish(text)};
+};
+const plainMatch = (text, raw, folded) => (raw.length && raw.every(word => text.raw.includes(word)))
+  || (folded.length && folded.every(word => text.folded.includes(word)));
 
 /**
  * Ranks `books` for a query: the engine's matches first, in its order, then any book only the
@@ -25,12 +61,14 @@ const plainMatch = (book, words) => words.every(word => `${book.title} ${book.au
  */
 export function createLibrarySearch(books, borrowed = {}) {
   const search = createSearch(hydrate(books.map(book => tinctWork(book, borrowed[book.id]))));
+  const folded = new Map();
+  const plain = book => { if (!folded.has(book)) folded.set(book, plainText(book)); return folded.get(book); };
   return query => {
     if (!String(query || '').trim()) return books.slice();
     const ranked = search(query, {}, books.length).results.map(work => work.book);
     const seen = new Set(ranked);
-    const words = query.toLocaleLowerCase().trim().split(/\s+/);
-    for (const book of books) if (!seen.has(book) && plainMatch(book, words)) ranked.push(book);
+    const raw = query.toLocaleLowerCase().trim().split(/\s+/), folded = foldDanish(query).split(' ').filter(Boolean);
+    for (const book of books) if (!seen.has(book) && plainMatch(plain(book), raw, folded)) ranked.push(book);
     return ranked;
   };
 }
@@ -43,15 +81,15 @@ export function createLibrarySearch(books, borrowed = {}) {
 export function librarySearch(books) {
   let engine = null, key = '', borrowed = {};
   const list = typeof books === 'function' ? books : () => books;
-  const keyOf = () => list().map(book => `${book.id}:${(book.altTitles || []).length}`).join(',');
+  const keyOf = () => list().map(book => `${book.id}:${(book.altTitles || []).length}:${danishTitles(book).length}`).join(',');
   return {
     filter(query) {
       const now = keyOf();
       if (!engine || now !== key) { engine = createLibrarySearch(list(), borrowed); key = now; }
       return engine(query);
     },
-    /** The other titles a book borrowed from the catalogue (borrowFor), for "also known as". */
-    titlesFor(id) { return borrowed[id]?.titles || []; },
+    /** A book's other titles for "also known as": its Danish ones, then those borrowed from the catalogue (borrowFor). */
+    titlesFor(id) { return unique([...danishTitles(list().find(book => book.id === id)), ...(borrowed[id]?.titles || [])]); },
     lend(map) {
       const fresh = Object.keys(map || {}).filter(id => !borrowed[id]);
       if (!fresh.length) return false;

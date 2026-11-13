@@ -14,7 +14,9 @@
       "sourceDirectory": "books/wip/review-codex-content-followup/reviewed/the-prince",
       "baselineFile": "baseline.json",
       "paragraphHashesFile": "candidate-paragraph-hashes.tsv",
-      "changesFile": "changes.json"
+      "changesFile": "changes.json",
+      "supersededBy": "books/wip/modern-da-train-20261113/release-the-prince.json",
+      "supersededNote": "2026-11-13: Anders approved publishing the Danish updates (\"let's publish the Danish updates too so we have a fuller Danish library\"); The Prince's modern-en meaning repairs ship with them (PR #817). This entry stays as the record of the 2026-09-24 acceptance; the 13 Nov config starts from exactly the text accepted here."
     },
     {
       "id": "julius-caesar",

@@ -20,6 +20,80 @@ export interface ContentRelease {
 }
 
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
+  'the-prince': {
+  "revision": "text-2026-11-03.the-prince.1",
+  "releasedAt": 1794579300000,
+  "editions": {
+    "modern-en": {
+      "before": "d99629fa3c3e1a345c92e1b9749115111985bfdff520fd7a37037d6a3731d582",
+      "after": "14393ff56819809a54f9f69662249b0182771339103f977092a817510aaae9a5"
+    },
+    "modern-da": {
+      "before": "4d0efe429d27e14db2f05745acc240fadc7e9cb32d237b5e33297c5d154d61a9",
+      "after": "3b4a608cb0c5bb122e0dd4b1120188ade53b61f067f9975317102cf1221d5268"
+    }
+  }
+},
+  meditations: {
+    revision: 'text-2026-11-13.meditations-da.1',
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+    editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c',
+        after: '2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
+    },
+  },
+  'ivan-ilyich': {
+    revision: 'text-2026-11-13.ivan-ilyich-da.1',
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+    editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '7b420f9e7d3d8a477ae024fb20aa0f8746a62aeec9839c42e007e0af9098093a',
+        after: '3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
+    },
+  },
+  werther: {
+    revision: 'text-2026-11-13.werther-da.1',
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+    editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'e97c294c690fe118eb1a5556a5b399de7a1a7689f658a650d25deebb2b446916',
+        after: '71a255b799d50b1e048a6302ae5058e837e7859e9cc4ccc356000d1be2b25627',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
+    },
+  },
+  phaedo: {
+    revision: 'text-2026-11-13.phaedo-da.1',
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+    editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '087b269dcd42ffb7d3677cb5bf78d9a3bc06e7602b8020467f17e1777d096e93',
+        after: 'fcf25859f3c7c690aa9edcfd11e1e4077d4ba7aa9260629462e8331f83eacb11',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
+    },
+  },
+  'descartes-meditations': {
+    revision: 'text-2026-11-13.descartes-meditations-da.1',
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+    editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '1327a6cd7eed7244bbb345cb49a1972debf6fabbb84bcc37762255969f6627d6',
+        after: '1200b5db1b31c45270899db9096fa4164a76dc5a75b95ef7c3e0a5b44ffcb876',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
+    },
+  },
   'us-founding-documents': {
   "revision": "text-2026-11-02.us-founding-documents.1",
   "releasedAt": 1793646717234,
@@ -91,9 +165,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   }
 },
   'aristotle-politics': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.aristotle-politics-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '57d699612aa360b08a72c2a5c6c800e0eae6c838b69f91a648295c389d1865fa',
+        after: '2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
         after: 'eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511',
@@ -254,9 +334,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'communist-manifesto': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.communist-manifesto-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '6c4fafb667b40f265943a6bb531a4246a92f7c47192c0e2247abc1e6a7c5485e',
+        after: 'c4798893134511db4e2479af47f07436f2f73db2aadcc040048cff0e9cd84698',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62',
         after: '5cccffe12e998383856f3d80ba64eddfb5371bbfe0b01cf04d0df503fe6760eb',
@@ -265,9 +351,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   // Text-only modern-en repairs (2026-10-21): paragraphs unchanged, wording new in the changed paragraphs.
   utilitarianism: {
-    revision: 'text-2026-10-21.5',
+    revision: 'text-2026-11-13.utilitarianism-da.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '46ed443acf9c23bbce899a7a2b67b938192b6e4f6f1828e165e27594dc21cc94',
+        after: '4c4f8541617137907aa7ddc4c7c1de06a3958b4027c2646c10a6e914595e1758',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361',
         after: '534c43afa8af1f7dea12997361cd568a0569261d241e72c3fd6f961950a26fa1',
@@ -275,9 +367,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   poetics: {
-    revision: 'text-2026-10-21.5',
+    revision: 'text-2026-11-13.poetics-da.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '98b7db8373b61d59aaecb9a77afb2241f163245b76ac692cf9cda44185d61ee9',
+        after: '4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e',
         after: 'c14bf2d099284fad9b2801ba2272ef92ce9be3ba3e1eb43dfa789febd2f17323',
@@ -295,9 +393,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'kant-groundwork': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.kant-groundwork-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '1ec3983ff14eba1aed249aae2c85a4c53fb79546a8db14acdd3b2b82a5039da6',
+        after: '85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d',
         after: '57c821d775792c3950f94a6d394e0d556310b21422e2c3bb2e6b63e77b249a9d',
@@ -346,9 +450,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'jungle-book': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.jungle-book-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '3e63c88be5d4ea74e09498608ba267fcee9d20f1293851584983299ced54470f',
+        after: '38ed0329dcd2cc276c51c3149e264c51430826336fca965e7ce329cb06b00f73',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
         after: '9eaf20289bbc99281feeae0310ffb4f434c6808c6943b986df07722dcd9debd0',
@@ -356,9 +466,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'hume-enquiry': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.hume-enquiry-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '228687c99a0293b8c616763c55a336081117e47d5154ae2fe79ed86e5aa74f3a',
+        after: '26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
         after: 'cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633',
@@ -366,9 +482,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'around-the-world-80-days': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.around-the-world-80-days-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'c6c87d873d08fb8dd98d8ab0e48619383dc0f97bab830c412b7c750df4150496',
+        after: '202820448ffeab82bcdab08c525204c9a3c366054e330c6138fe4eca9ba1247c',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
         after: 'a2d94a65fb3f0a3872f105b6300e8c3ab4c61ca0ac84614822a17ff91c05f426',
@@ -376,9 +498,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'a-little-princess': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.a-little-princess-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'ce3adc75e9e7cba629e901c716b551933cd855e06d4cac830d261603dbc62571',
+        after: '33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
         after: 'c47540c17dd567bafe0934392b31a8d236e15e809244e419080e8abf3c4fa1b6',
@@ -439,9 +567,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   // Text-only modern-en repair (2026-10-21): chapters 1, 2, 5, 7, 8 and 9 re-rendered; paragraphs unchanged.
   'jekyll-and-hyde': {
-    revision: 'text-2026-10-21.2',
+    revision: 'text-2026-11-13.jekyll-and-hyde-da.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '5cf16e3333eefe1e73a96609acf6087e83f7fd726c9f9d2860d5777f7e00e105',
+        after: 'e75dd3c83aeebedea8e771685ebdc6614623fe99a010c541448e30951fc73865',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b',
         after: '640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d',
@@ -449,9 +583,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'on-liberty': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.on-liberty-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'd6e0ac08b19b767231d3c75a72b1a261e9d27905d63427578dee04a5db92d6e8',
+        after: 'e5c88f693a3261252fb08e973d920cfddf8fcb8a828703be216682fa84ca6fce',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: '12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7',
         after: 'cb1b3de53726abe48a58157067c78c72a7f8c99bc9708ad9a804f485a2d00ebb',
@@ -490,9 +630,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   phaedrus: {
-    revision: 'text-2026-10-21.1',
+    revision: 'text-2026-11-13.phaedrus-da.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: 'f779e3b14e3a18803657bcfde238eb90b554fe67c263e401fc02c0f34fcde66b',
+        after: '7577d9822136dcade54ca1d9b1c43d53e6bbd56d33ebd9790912d6c9e9c04951',
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
+      },
       'modern-en': {
         before: 'a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c',
         after: '5ad44b8b4dbd819c14936e91514f25d8f02a0c81f728ae7d666adaedf8e9575b',
@@ -530,33 +676,50 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   }
 },
   medea: {
-    revision: 'text-2026-10-01.2',
-    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
-    editions: {
-      'original-en': {
-        before: '6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731',
-        after: 'f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb',
-      },
-      'modern-en': {
-        before: '2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae',
-        after: '573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b',
-      },
+  "revision": "text-2026-11-02.medea.1",
+  "releasedAt": 1790863200000,
+  "editions": {
+    "original-en": {
+      "before": "6e6e27372c778b45fc9512196746a88cf8c3bbbdcd67ab0cf4145c9e3df01731",
+      "after": "f988ee4537a1b824f9526c580d8cb1fb7bc11315e16b6aff9177f91c00b5f3bb"
     },
-  },
+    "modern-en": {
+      "before": "573e56ea9bf089db0c9340edd70034a37e78ac4a07e9ca868ff11e5ca96a7e7b",
+      "after": "63964726748e98d1a7cd465f68cbb4663f395c0e552879a54c8c2d065a8f6514",
+      "releasedAt": 1794579300000,
+      "previous": [
+        {
+          "before": "2d30ac0eb7fa802a6e5eef0b25e921ed119ef97a12d99622c118afac3978b3ae",
+          "releasedAt": 1790863200000
+        }
+      ]
+    },
+    "modern-da": {
+      "before": "5f7d1fa5c4013fd9482cd4ee4e1ecfa68fafcdbf0911cfda5516b943d91859df",
+      "after": "ffd12cb3fb19c1ff904542c68985d657b415da8df201b0d707c3c411bcb4a7e4",
+      "releasedAt": 1794579300000
+    }
+  }
+},
   bacchae: {
-    revision: 'text-2026-10-01.2',
-    releasedAt: Date.parse('2026-10-01T14:00:00Z'),
-    editions: {
-      'original-en': {
-        before: 'fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539',
-        after: 'cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc',
-      },
-      'modern-en': {
-        before: '9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3',
-        after: '7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8',
-      },
+  "revision": "text-2026-11-03.bacchae.1",
+  "releasedAt": 1790863200000,
+  "editions": {
+    "original-en": {
+      "before": "fd89db94d47b8a03eb008a7b94752c13145a9d2dcfb17e4e00adff5e474c8539",
+      "after": "cea1d64ee2dcc2cb9c3dcc39b1e1f9f52c120a8c6f1ff33cfd22ecf623e5fdcc"
     },
-  },
+    "modern-en": {
+      "before": "9d205d8b021e5028bcd59cfc5d4b6754cd9bfdf3df13e41348780f064f3322c3",
+      "after": "7531e554cbd2ece775f219fad7df9d66cdcf0d2111d54f979afccce5216320a8"
+    },
+    "modern-da": {
+      "before": "a83da6b0cf8bf1fde94bef50c362b02b73b48d72ee967eb005199b07919d1003",
+      "after": "bc9cf5e29e95848ca24e002f60760d9c2719d87d5409f7cfdef6be054c569209",
+      "releasedAt": 1794579300000
+    }
+  }
+},
   'magna-carta': {
     revision: 'text-2026-11-02.magna-da.1',
     releasedAt: Date.parse('2026-10-01T14:00:00Z'),
