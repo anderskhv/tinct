@@ -12,6 +12,16 @@ name: deploy
 # Direct mode (the default): every group runs at once against production. Staged mode: the pre-promote groups
 # run against the preview, then promote, then the production groups. `rollback` returns production to the version
 # that served it before whenever the new build went live and any check did not pass.
+#
+# Auto-deploy (Anders, 13 Nov 2026): a merge to main releases itself. During the repair rollout a push releases as
+# an approved repair of exactly that commit (the accepted-reader pin and every guard still apply); the floor and
+# reader phases stay manual dispatches. `gate` decides first:
+#   - CI once: when a verify.yml run that passed tested this exact tree (artifact verified-tree-<tree>, written by
+#     its ci-summary), the deploy job skips its own `npm test`; it still builds, runs verify-bundle, deploys, and
+#     every acceptance group and the automatic rollback run as before.
+#   - Otherwise a push waits for verify.yml on this commit to pass (it never deploys a tree no CI passed) and then
+#     runs the full deploy job, `npm test` included. A manual dispatch runs the full deploy job at once, as before.
+#   - A push whose commit is no longer the head of main cancels its own run: the newer commit's run deploys.
 
 on:
   push:
@@ -53,12 +63,111 @@ permissions:
   # The last fully accepted release's version (artifact 'accepted-reader') is read before a repair release.
   actions: read
 
+# One release at a time, and a run that has started is never cancelled (it may be live, checking, or rolling back).
+# GitHub keeps at most one run waiting in this group: a newer push or dispatch replaces the waiting one, so after a
+# burst of merges only the newest commit deploys. A dispatch made while a push waits replaces that push.
 concurrency:
   group: deploy-tinct-production
   cancel-in-progress: false
 
 jobs:
+  # Before anything is built: is this commit's tree already verified (CI once), and may a push deploy at all?
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    permissions:
+      contents: read
+      # actions: read for the verify runs and artifacts; write only to cancel this run when a newer main supersedes it.
+      actions: write
+    outputs:
+      ci_once: ${{ steps.decide.outputs.ci_once }}
+      tree: ${{ steps.decide.outputs.tree }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse a push the rollout does not release automatically
+        if: github.event_name == 'push'
+        run: |
+          test "$GITHUB_REF" = refs/heads/main
+          node app/scripts/release-tools.cjs push-release-phase
+      - name: Decide the release path (CI once, or wait for verify)
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          tree=$(git rev-parse 'HEAD^{tree}')
+          echo "tree=$tree" >> "$GITHUB_OUTPUT"
+          echo "Commit $GITHUB_SHA ($EVENT_NAME), tree $tree"
+          # A verify.yml run of this repository that passed and recorded this exact tree (pull request or main).
+          verified_run() {
+            local ids id
+            ids=$(gh api "repos/$REPO/actions/artifacts?name=verified-tree-$tree&per_page=30" \
+              --jq '.artifacts[] | select(.expired | not) | .workflow_run.id') || return 0
+            for id in $ids; do
+              gh api "repos/$REPO/actions/runs/$id" 2>/dev/null | jq -r --arg repo "$REPO" \
+                'select(.status == "completed" and .conclusion == "success" and .path == ".github/workflows/verify.yml" and .head_repository.full_name == $repo) | "\(.html_url) (\(.event), head \(.head_sha))"' \
+                | head -1 | grep . && return 0
+            done
+            return 0
+          }
+          superseded() {
+            local head
+            head=$(gh api "repos/$REPO/git/ref/heads/main" --jq .object.sha) || return 1
+            [ "$head" != "$GITHUB_SHA" ] && echo "$head"
+          }
+          stand_down() {
+            echo "::notice::main moved on to $1; this run deploys nothing and cancels itself. The run for $1 deploys."
+            echo "Superseded by main $1: nothing deployed; the newer run releases." >> "$GITHUB_STEP_SUMMARY"
+            gh run cancel "$GITHUB_RUN_ID" -R "$REPO"
+            sleep 300
+            exit 1
+          }
+          ci_once() {
+            echo 'ci_once=true' >> "$GITHUB_OUTPUT"
+            echo "Path: CI once. verify passed on this exact tree: $1. The deploy job skips npm test; build, verify-bundle, acceptance and rollback run as always."
+            { echo "Release path: **CI once** (verify passed on tree \`$tree\`: $1)."; echo 'Pre-go-live npm test skipped; build, verify-bundle, every acceptance group and automatic rollback run.'; } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          }
+          if [ "$EVENT_NAME" = push ] && newer=$(superseded); then stand_down "$newer"; fi
+
+          evidence=$(verified_run)
+          if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+          if [ "$EVENT_NAME" != push ]; then
+            echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+            echo "Path: full. No passing verify run recorded tree $tree; the deploy job runs npm test before go-live, as before."
+            echo "Release path: **full** (manual dispatch; no passing verify run for tree \`$tree\`): npm test runs before go-live." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # A push no passing verify run covers (main moved after the pull request's CI, or a direct push): never deploy
+          # a tree no CI passed. Wait for verify.yml on this commit, then run the full deploy job (npm test included).
+          # A pull request run that was still finishing when the merge landed is picked up here too (CI once).
+          echo "Path: not yet known. No passing verify run recorded tree $tree; waiting for verify on $GITHUB_SHA."
+          for attempt in $(seq 1 90); do
+            sleep 30
+            if newer=$(superseded); then stand_down "$newer"; fi
+            run=$(gh api "repos/$REPO/actions/workflows/verify.yml/runs?head_sha=$GITHUB_SHA&event=push&per_page=10" \
+              --jq '[.workflow_runs[] | select(.head_sha == "'"$GITHUB_SHA"'")] | sort_by(.run_number) | last | select(. != null) | "\(.status) \(.conclusion) \(.html_url)"' || true)
+            case "$run" in
+              'completed success '*)
+                echo 'ci_once=false' >> "$GITHUB_OUTPUT"
+                echo "Path: full. verify passed on this commit: ${run#completed success }; the deploy job runs npm test before go-live."
+                echo "Release path: **full** (verify passed on main commit \`$GITHUB_SHA\`; no pull request run covered tree \`$tree\`): npm test runs before go-live." >> "$GITHUB_STEP_SUMMARY"
+                exit 0 ;;
+              completed*)
+                echo "::error::verify did not pass on $GITHUB_SHA ($run); not deploying. Fix forward, or dispatch deploy by hand."
+                exit 1 ;;
+            esac
+            evidence=$(verified_run)
+            if [ -n "$evidence" ]; then ci_once "$evidence"; fi
+            echo "waiting for verify on $GITHUB_SHA (${run:-not started}), attempt $attempt/90"
+          done
+          echo "::error::verify on $GITHUB_SHA did not finish within 45 minutes; not deploying. Dispatch deploy by hand once it passes."
+          exit 1
+
   deploy:
+    needs: gate
     runs-on: ubuntu-24.04
     # 30: the acceptance checks (and their browser installs) now run in their own jobs.
     timeout-minutes: 30
@@ -113,7 +222,20 @@ jobs:
           EXPECTED_REPAIR_SHA: ${{ inputs.approved_source_sha }}
           EVENT_NAME: ${{ github.event_name }}
         run: |
-          phase=${REQUESTED_PHASE:-normal}
+          if [ "$EVENT_NAME" = push ]; then
+            # A merge to main (auto-deploy, 13 Nov 2026). During the repair rollout it is the approved repair of exactly
+            # this commit, built reader-ON; the floor and reader phases refuse here and stay manual dispatches.
+            test "$GITHUB_REF" = refs/heads/main
+            phase=$(node scripts/release-tools.cjs push-release-phase | sed 's/^phase=//')
+            if [ "$phase" = repair ]; then
+              EXPECTED_REPAIR_SHA=$GITHUB_SHA
+              VITE_SHARED_READER_DEFAULT=1
+              { echo 'TINCT_RELEASE_PHASE=repair'; echo 'TINCT_RELEASE_APPROVED=true'
+                echo "TINCT_RELEASE_EXPECTED_SHA=$GITHUB_SHA"; echo 'VITE_SHARED_READER_DEFAULT=1'; } >> "$GITHUB_ENV"
+            fi
+          else
+            phase=${REQUESTED_PHASE:-normal}
+          fi
           case "$phase" in
             normal) node scripts/release-tools.cjs assert-normal-release ;;
             floor)
@@ -127,7 +249,9 @@ jobs:
               test "$VITE_SHARED_READER_DEFAULT" = 1
               ;;
             repair)
-              test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_REPAIR_RELEASE" = true
+              if [ "$EVENT_NAME" != push ]; then
+                test "$EVENT_NAME" = workflow_dispatch && test "$APPROVED_REPAIR_RELEASE" = true
+              fi
               test "$VITE_SHARED_READER_DEFAULT" = 1
               [[ "$EXPECTED_REPAIR_SHA" =~ ^[0-9a-f]{40}$ ]]
               test "$GITHUB_SHA" = "$EXPECTED_REPAIR_SHA"
@@ -136,8 +260,11 @@ jobs:
             *) echo "::error::unknown release phase $phase"; exit 1 ;;
           esac
           echo "phase=$phase" >> "$GITHUB_OUTPUT"
-          echo "Release phase: **$phase**" >> "$GITHUB_STEP_SUMMARY"
-      - run: npm test
+          echo "Release phase: **$phase** ($EVENT_NAME)" >> "$GITHUB_STEP_SUMMARY"
+      # CI once: skipped only when a passing verify.yml run tested this exact tree (its app job ran npm test).
+      - name: npm test
+        if: needs.gate.outputs.ci_once != 'true'
+        run: npm test
 
       - name: Choose release mode
         id: plan
@@ -307,9 +434,9 @@ jobs:
           echo "origin=$TINCT_ORIGIN" >> "$GITHUB_OUTPUT"
           # Direct: production is already live, so every group runs now. Staged: only the pre-promote groups.
           if [ "$STAGED" = true ]; then
-            echo 'groups=["reader-panels","page-layout","publication","audio-smoke"]' >> "$GITHUB_OUTPUT"
+            echo 'groups=["reader-panels","page-layout","layout-and-source","publication","audio-smoke"]' >> "$GITHUB_OUTPUT"
           else
-            echo 'groups=["reader-panels","page-layout","publication","audio-smoke","library","production"]' >> "$GITHUB_OUTPUT"
+            echo 'groups=["reader-panels","page-layout","layout-and-source","publication","audio-smoke","library","production"]' >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/upload-artifact@v4
         with:
@@ -439,15 +566,16 @@ jobs:
           node scripts/check-shared-reader-menu.mjs
           node scripts/check-shared-reader-position.mjs
 
-      # -- page-layout
+      # -- page-layout (every Shakespeare edition, the emitted ON reader) and layout-and-source (Shakespeare layout,
+      # hyphenation, source-connected behaviour): one group took 16 min, so it runs as two side by side.
       - name: Verify Shakespeare layout
-        if: ${{ matrix.group == 'page-layout' }}
+        if: ${{ matrix.group == 'layout-and-source' }}
         env:
           SHAKESPEARE_LIVE: '1'
           SHAKESPEARE_NETLOG: '1'
         run: node scripts/check-shakespeare-layout.mjs
       - name: Verify hyphenation hardening
-        if: ${{ !cancelled() && matrix.group == 'page-layout' }}
+        if: ${{ !cancelled() && matrix.group == 'layout-and-source' }}
         env:
           HYPHENATION_LIVE: '1'
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
@@ -470,7 +598,7 @@ jobs:
           node scripts/check-shared-reader-pdf-original.mjs
 
       - name: Verify restored source-connected reader behavior
-        if: ${{ !cancelled() && matrix.group == 'page-layout' && needs.deploy.outputs.release_phase == 'repair' }}
+        if: ${{ !cancelled() && matrix.group == 'layout-and-source' && needs.deploy.outputs.release_phase == 'repair' }}
         env:
           TINCT_EXPECTED_BUNDLE: ${{ needs.deploy.outputs.bundle }}
           PDF_ORIGINAL_DIST: dist
