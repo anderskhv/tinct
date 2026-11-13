@@ -6,14 +6,22 @@
  *
  * Every title is either the one Tinct's own Danish text already uses (`source` names the file
  * under app/public, and danishTitles.test.ts checks the title is in it) or a long-established
- * Danish title (`source: 'established'`). Never invent one: a title not certain is left out and
- * listed for Anders to check instead.
+ * Danish title (`source: 'established'`), with `checked` naming a page that shows a Danish edition
+ * or reference under that title where one was found. Never invent one: a title not certain is
+ * left out and listed for Anders to check instead. (Saxo, the bookshop Anders suggested, refuses
+ * automated lookups, so it could not be checked from here on 2026-11-13.)
+ *
+ * The catalogue gives a book its Danish titles only while it has a Danish edition readers can open
+ * (preReader/catalogue.ts), so the whole list stays here and each book is found by its Danish title
+ * from the day its Danish edition publishes.
  */
 export interface DanishTitle {
   /** The Danish titles; the first is the one to show. */
   titles: string[]
   /** A file under app/public whose Danish text uses the first title, or 'established'. */
   source: string
+  /** A page showing a Danish edition or reference work under the title, where one was found. */
+  checked?: string
 }
 
 const repo = (bookId: string) => `data/onboarding/${bookId}.da.json`
@@ -24,7 +32,7 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'crito': { titles: ['Kriton'], source: repo('crito') },
   'grimms-fairy-tales': { titles: ['Grimms eventyr'], source: repo('grimms-fairy-tales') },
   'pinocchio': { titles: ['Pinocchios eventyr'], source: repo('pinocchio') },
-  'the-art-of-war': { titles: ['Krigskunsten', 'Kunsten at føre krig'], source: repo('the-art-of-war') },
+  'the-art-of-war': { titles: ['Krigskunsten', 'Kunsten at føre krig'], source: repo('the-art-of-war'), checked: 'https://nextory.com/at-en/book/kunsten-at-fre-krig-den-vigtigste-bog-om-strategi-verden-endnu-har-set-339897' },
   'the-manual': { titles: ['Håndbogen'], source: repo('the-manual') },
   'us-founding-documents': { titles: ['USA\'s grundlæggende dokumenter', 'USA’s grundlæggende dokumenter'], source: repo('us-founding-documents') },
   // Named by the Danish introductions' own text.
@@ -80,13 +88,13 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'heart-of-darkness': { titles: ['Mørkets hjerte'], source: 'established' },
   'to-the-lighthouse': { titles: ['Til fyret'], source: 'established' },
   'ivan-ilyich': { titles: ['Ivan Iljitjs død'], source: 'established' },
+  'notes-from-underground': { titles: ['Kældermennesket', 'Kældermennesket: optegnelser fra en undergrund'], source: 'established', checked: 'https://litteratursiden.dk/anmeldelser/kaeldermennesket-af-fjodor-m-dostojevskij' },
   'jekyll-and-hyde': { titles: ['Dr. Jekyll og Mr. Hyde'], source: 'established' },
   'communist-manifesto': { titles: ['Det kommunistiske manifest'], source: 'established' },
-  'wealth-of-nations': { titles: ['Nationernes velstand'], source: 'established' },
-  'peloponnesian-war': { titles: ['Den peloponnesiske krig'], source: 'established' },
-  'imitation-of-christ': { titles: ['Kristi efterfølgelse', 'Om Kristi efterfølgelse'], source: 'established' },
+    'peloponnesian-war': { titles: ['Den peloponnesiske krig'], source: 'established', checked: 'https://www.igl.ku.dk/aigis/2016,1/AS-Thuk4.pdf' },
+  'imitation-of-christ': { titles: ['Kristi efterfølgelse', 'Om Kristi efterfølgelse', 'Fire bøger om Kristi efterfølgelse'], source: 'established', checked: 'https://lex.dk/Thomas_%C3%A0_Kempis' },
   'on-liberty': { titles: ['Om friheden'], source: 'established' },
-  'kant-groundwork': { titles: ['Grundlæggelse af moralens metafysik'], source: 'established' },
+  'kant-groundwork': { titles: ['Grundlæggelse af moralens metafysik'], source: 'established' }, // Hans Reitzels Klassikere (Danish translation 1993); no page found to cite
   'oresteia': { titles: ['Orestien'], source: 'established' },
   'bacchae': { titles: ['Bakkantinderne'], source: 'established' },
   'midsummer': { titles: ['En skærsommernats drøm', 'Skærsommernatsdrøm'], source: 'established' },
@@ -94,7 +102,7 @@ export const DANISH_TITLES: Record<string, DanishTitle> = {
   'winters-tale': { titles: ['Et vintereventyr'], source: 'established' },
   'as-you-like-it': { titles: ['Som man behager'], source: 'established' },
   'measure-for-measure': { titles: ['Lige for lige'], source: 'established' },
-  'henry-iv-part-2': { titles: ['Henrik IV, del 2', 'Henrik IV'], source: 'established' },
+  'henry-iv-part-2': { titles: ['Henrik IV'], source: 'established' },
 }
 
 /**

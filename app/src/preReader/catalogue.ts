@@ -123,9 +123,9 @@ export interface PreReaderBookViewModel {
   author: string
   /** Other titles readers know the book by (registry `altTitles`), searched as titles in the library. */
   altTitles?: string[]
-  /** The book's titles in other languages (data/danishTitles.ts), searched as titles; the first is the one to show. */
+  /** The book's titles in a language it can be read in (data/danishTitles.ts: only with a live Danish edition), searched as titles; the first is the one to show. */
   localTitles?: { da: string[] }
-  /** The author's name as other languages spell it ("Platon"), searched as the author's name. */
+  /** The author's name as other languages spell it ("Platon"), searched as the author's name (every book, Danish edition or not). */
   localAuthors?: { da: string[] }
   summary: string
   /** One-line description from the library taxonomy (falls back to the first sentence of the summary). */
@@ -356,7 +356,11 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     title: book.title.trim(),
     author: book.author.trim(),
     ...(book.altTitles?.length ? { altTitles: book.altTitles.map(title => title.trim()) } : {}),
-    ...(danishTitlesFor(book.id).length ? { localTitles: { da: danishTitlesFor(book.id) } } : {}),
+    // Danish titles find a book only while readers can read it in Danish (an offered, unheld
+    // Danish edition: OFFERED_DANISH_EDITIONS via isEditionDiscoverable), so a book lights up
+    // by its Danish title the day its Danish edition publishes (Anders, 2026-11-13).
+    ...(danishTitlesFor(book.id).length && editions.some(edition => edition.language === 'da' && edition.discoveryAvailable)
+      ? { localTitles: { da: danishTitlesFor(book.id) } } : {}),
     ...(danishAuthorNamesFor(book.author).length ? { localAuthors: { da: danishAuthorNamesFor(book.author) } } : {}),
     summary,
     blurb,

@@ -11,7 +11,9 @@ import path from 'node:path'
 const base = process.env.LIBRARY_URL || 'http://localhost:5270/library'
 const shots = process.env.SHOTS || ''
 
-// [query, the book expected first, or {author} when any book by that author is right]
+// [query, the book expected first, {author} when any book by that author is right, or {absent}
+// for a book Tinct has no Danish text for yet: its Danish title must not find it (Anders,
+// 2026-11-13), only its English title and author do. Move a book up when its Danish edition publishes.
 export const QUERIES = [
   ['Den lille prinsesse', 'a-little-princess'],
   ['den lille', 'a-little-princess'],
@@ -22,9 +24,6 @@ export const QUERIES = [
   ['Forbrydelse og straf', 'crime-and-punishment'],
   ['forbrydelse', 'crime-and-punishment'],
   ['Crime and Punishment', 'crime-and-punishment'],
-  ['Odysseen', 'odyssey'],
-  ['Iliaden', 'iliad'],
-  ['Bibelen', 'bible'],
   ['Fyrsten', 'the-prince'],
   ['Krigskunsten', 'the-art-of-war'],
   ['Kunsten at føre krig', 'the-art-of-war'],
@@ -33,24 +32,20 @@ export const QUERIES = [
   ['Håndbogen', 'the-manual'],
   ['Haandbogen', 'the-manual'],
   ['Handbogen', 'the-manual'],
-  ['Brødrene Karamasov', 'brothers-karamazov'],
-  ['Broedrene Karamasov', 'brothers-karamazov'],
-  ['brodrene karamasov', 'brothers-karamazov'],
-  ['Stolthed og fordom', 'pride-and-prejudice'],
-  ['Den guddommelige komedie', 'divine-comedy'],
-  ['Frygt og Bæven', 'fear-and-trembling'],
-  ['frygt og baeven', 'fear-and-trembling'],
   ['Stormfulde højder', 'wuthering-heights'],
   ['stormfulde hoejder', 'wuthering-heights'],
   ['stormfulde hojder', 'wuthering-heights'],
-  ['Købmanden i Venedig', 'merchant-of-venice'],
-  ['Koebmanden i Venedig', 'merchant-of-venice'],
-  ['Æneiden', 'the-aeneid'],
-  ['Aeneiden', 'the-aeneid'],
   ['Selvbetragtninger', 'meditations'],
   ['Alice i Eventyrland', 'alice-in-wonderland'],
   ['Jorden rundt i 80 dage', 'around-the-world-80-days'],
   ['Mesteren og Margarita', 'master-and-margarita'],
+  ['Pride and Prejudice', 'pride-and-prejudice'],
+  ['Stolthed og fordom', { absent: 'pride-and-prejudice' }],
+  ['Den guddommelige komedie', { absent: 'divine-comedy' }],
+  ['Brødrene Karamasov', { absent: 'brothers-karamazov' }],
+  ['Bibelen', { absent: 'bible' }],
+  ['Købmanden i Venedig', { absent: 'merchant-of-venice' }],
+  ['Frygt og Bæven', { absent: 'fear-and-trembling' }],
   ['Søren Kierkegaard', 'fear-and-trembling'],
   ['Soeren Kierkegaard', 'fear-and-trembling'],
   ['Platon', { author: 'Plato' }],
@@ -99,7 +94,9 @@ try {
   for (const [query, expected] of QUERIES) {
     const ids = await search(page, query)
     const first = ids[0] || null
-    const ok = typeof expected === 'string' ? first === expected : authorOf.get(first) === expected.author
+    const ok = typeof expected === 'string' ? first === expected
+      : expected.absent ? !ids.includes(expected.absent)
+      : authorOf.get(first) === expected.author
     console.log(`${ok ? 'PASS' : 'FAIL'} ${JSON.stringify(query)} -> ${first}${ok ? '' : ` (expected ${JSON.stringify(expected)}; top: ${ids.slice(0, 4).join(', ')})`}`)
     if (!ok) failures.push(query)
   }
