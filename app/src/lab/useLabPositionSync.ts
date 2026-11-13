@@ -15,6 +15,8 @@ import {
   biblicalBookId,
   createLabPositionController,
   finishedChaptersFor,
+  mergeLabPositionStatesByTime,
+  newerStoredPlace,
   parseBiblicalPlaceTitle,
   placeFromChapterRef,
   resumePlace,
@@ -522,6 +524,41 @@ export function useLabPositionSync(args: {
     return () => { cancelled = true }
   }, [args.authToken, args.book.chapters, args.interactedRef, args.placeRef, args.sourceLocked, args.resumeLibraryBookId, armWrites, cloudRecord, liveToken, ownerId, settleInitial])
 
+  /**
+   * Another reader on this device (a second tab, or the library) stored a
+   * newer place in this book after this reader last wrote or adopted one
+   * (`newerStoredPlace`). Take the device record into memory and return that
+   * place, so the caller moves the page there instead of writing from the
+   * page this reader was still showing. Null when this reader is current.
+   */
+  const adoptNewerStoredPlace = useCallback((): LabBookPlace | null => {
+    const controller = controllerRef.current
+    if (!controller || !initialResolvedRef.current) return null
+    const current = bookRef.current
+    if (current.chaptersProvisional) return null
+    const bookId = current.bookId && current.bookId !== 'bible' ? current.bookId : biblicalBookId(current.headerBook)
+    const own = controller.state()
+    const stored = readLabPositionLocal(deviceIdRef.current)
+    const newer = newerStoredPlace(own, stored, bookId)
+    if (!newer) return null
+    controller.replace({ ...mergeLabPositionStatesByTime(own, stored), owner: own.owner ?? null, deviceId: own.deviceId })
+    revRef.current = Math.max(revRef.current, newer.rev)
+    setFinishedRevision(value => value + 1)
+    return newer
+  }, [])
+
+  /** Show an adopted place: in this chapter without a reload, else load its chapter. */
+  const showAdoptedPlace = useCallback((place: LabBookPlace) => {
+    const current = bookRef.current
+    if (place.sequentialChapter !== current.chapterNumber
+      || !current.chapters.some(chapter => chapter.number === place.sequentialChapter)) {
+      if (current.chapters.some(chapter => chapter.number === place.sequentialChapter)) onRemoteResumeRef.current?.(place)
+      return
+    }
+    latestArgsRef.current.placeRef.current = { paragraphIndex: place.paragraphIndex, wordIndex: place.wordIndex }
+    onResolvedPlaceRef.current?.(place)
+  }, [])
+
   const notePlace = useCallback((reason: LabPlaceReason, at?: { sequentialChapter?: number; paragraphIndex?: number; wordIndex?: number }) => {
     // Nothing is painted while the first place is still being resolved; a
     // note now would persist the provisional tuple. And a signed-in reader
@@ -535,6 +572,16 @@ export function useLabPositionSync(args: {
       // Flush genuine pending activity without making tab dismissal a new
       // reading event that can outrank another device's newer bookmark.
       controller.flush('hide')
+      return
+    }
+    // A stale reader never writes from the page it was still showing: a turn
+    // from ¶158 must not outrank the ¶180 another tab saved meanwhile. It
+    // moves to the newer place instead. A chosen destination (Contents, a
+    // book opened at a place) is not derived from the stale page: it is
+    // written, after the device record is taken in.
+    const adopted = adoptNewerStoredPlace()
+    if (adopted && reason !== 'chapter-jump' && reason !== 'open-book') {
+      showAdoptedPlace(adopted)
       return
     }
     activityRevisionRef.current += 1
@@ -557,7 +604,35 @@ export function useLabPositionSync(args: {
           readerState: args.readerStateRef?.current,
         })
     controller.note({ place, reason })
-  }, [args.placeRef, args.readerStateRef, args.writesSuspended])
+  }, [adoptNewerStoredPlace, args.placeRef, args.readerStateRef, args.writesSuspended, showAdoptedPlace])
+
+  // A reader coming back (tab shown, focused, restored from the back/forward
+  // cache) first takes any newer place this device stored while it slept, at
+  // once and before the reader can tap the stale page. The account read below
+  // may still bring a newer one from another device.
+  const storedCheckDeferredRef = useRef(false)
+  const followNewerStoredPlace = useCallback(() => {
+    if (latestArgsRef.current.writesSuspended) { storedCheckDeferredRef.current = true; return }
+    const adopted = adoptNewerStoredPlace()
+    if (adopted) showAdoptedPlace(adopted)
+  }, [adoptNewerStoredPlace, showAdoptedPlace])
+  useEffect(() => {
+    const onVisibility = () => { if (document.visibilityState !== 'hidden') followNewerStoredPlace() }
+    const onPageShow = (event: PageTransitionEvent) => { if (event.persisted) followNewerStoredPlace() }
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('focus', followNewerStoredPlace)
+    window.addEventListener('pageshow', onPageShow)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('focus', followNewerStoredPlace)
+      window.removeEventListener('pageshow', onPageShow)
+    }
+  }, [followNewerStoredPlace])
+  useEffect(() => {
+    if (args.writesSuspended || !storedCheckDeferredRef.current) return
+    storedCheckDeferredRef.current = false
+    followNewerStoredPlace()
+  }, [args.writesSuspended, followNewerStoredPlace])
 
   useEffect(() => {
     if (!liveToken || !ownerId) return
