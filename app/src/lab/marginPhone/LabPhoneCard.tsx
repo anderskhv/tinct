@@ -4,7 +4,7 @@ import { LAB_KEYBOARD_SHEET_ATTR } from '../labChrome'
 import { LabInlineMarkdown, LabMarkdown } from '../LabMarkdown'
 import { TalkIcon } from '../LabReaderIcons'
 import type { AiLength } from '../../aiSettings'
-import { PHONE_CARD_GROW_HEADROOM, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
+import { PHONE_CARD_GROW_HEADROOM, PHONE_CARD_MAX_SHARE, type PhoneCardHeights, phoneCardExpectedHeight, phoneCardHoldStep, phoneCardLength, readPhoneCardHeights, recordPhoneCardHeight } from './phoneCardHeight'
 import { leadSentenceEnd } from './leadSentence'
 import './marginPhone.css'
 
@@ -76,8 +76,17 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
     const state = holdRef.current
     const apply = (height: number | null) => {
       state.held = height
-      if (height === null) { el.style.height = ''; el.removeAttribute('data-held') }
-      else { el.style.height = `${height}px`; el.setAttribute('data-held', '') }
+      if (height === null) { el.style.height = ''; el.removeAttribute('data-held'); return }
+      el.setAttribute('data-held', '')
+      // While the keyboard is up the room is small: blank space may take at most PHONE_CARD_MAX_SHARE of it, so the
+      // page above stays in view and a tap there still closes the card. The text itself may use the whole room.
+      // The held height is kept and comes back when the keyboard goes.
+      let shown = height
+      if (el.hasAttribute('data-keyboard') && state.base > 0) {
+        el.style.height = ''
+        shown = Math.min(height, Math.max(el.offsetHeight, Math.round(state.base * PHONE_CARD_MAX_SHARE)))
+      }
+      el.style.height = `${shown}px`
     }
     // As tall as its content (at most its max-height), measured in the same frame: no paint between.
     const naturalHeight = () => {
@@ -107,7 +116,7 @@ export function LabPhoneCard({ label, kind, onClose, onDelete, deleteLabel = 'De
         expected, busy: answering, current: el.offsetHeight, natural,
         cap: Number.isFinite(cap) ? cap : undefined, headroom: state.base * PHONE_CARD_GROW_HEADROOM,
       })
-      if (step.held !== state.held || (step.held === null && el.hasAttribute('data-held'))) apply(step.held)
+      if (step.held !== state.held || step.held !== null || el.hasAttribute('data-held')) apply(step.held)
     }
     holdNow.current = hold
     const observer = typeof MutationObserver === 'undefined' ? null : new MutationObserver(hold)
