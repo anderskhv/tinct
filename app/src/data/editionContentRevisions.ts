@@ -22,61 +22,61 @@ export interface ContentRelease {
 export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   meditations: {
     revision: 'text-2026-11-13.meditations-da.1',
-    releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
     editions: {
       'modern-da': {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'c8abc04f4a30589f29c202be7182d220a0ff76b7165c674400884c0c3cfd773c',
         after: '2cbd0ad0a098c1a1c41b1be2d48f33eea585f75d6537652c0be0084403f5145a',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
     },
   },
   'ivan-ilyich': {
     revision: 'text-2026-11-13.ivan-ilyich-da.1',
-    releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
     editions: {
       'modern-da': {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '7b420f9e7d3d8a477ae024fb20aa0f8746a62aeec9839c42e007e0af9098093a',
         after: '3bbf6181daf6e268093ca9601e00b4b986585b789114b149221d88945d3246ac',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
     },
   },
   werther: {
     revision: 'text-2026-11-13.werther-da.1',
-    releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
     editions: {
       'modern-da': {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'e97c294c690fe118eb1a5556a5b399de7a1a7689f658a650d25deebb2b446916',
         after: '71a255b799d50b1e048a6302ae5058e837e7859e9cc4ccc356000d1be2b25627',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
     },
   },
   phaedo: {
     revision: 'text-2026-11-13.phaedo-da.1',
-    releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
     editions: {
       'modern-da': {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '087b269dcd42ffb7d3677cb5bf78d9a3bc06e7602b8020467f17e1777d096e93',
         after: 'fcf25859f3c7c690aa9edcfd11e1e4077d4ba7aa9260629462e8331f83eacb11',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
     },
   },
   'descartes-meditations': {
     revision: 'text-2026-11-13.descartes-meditations-da.1',
-    releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+    releasedAt: Date.parse('2026-11-13T13:45:00Z'),
     editions: {
       'modern-da': {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '1327a6cd7eed7244bbb345cb49a1972debf6fabbb84bcc37762255969f6627d6',
         after: '1200b5db1b31c45270899db9096fa4164a76dc5a75b95ef7c3e0a5b44ffcb876',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
     },
   },
@@ -158,7 +158,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '57d699612aa360b08a72c2a5c6c800e0eae6c838b69f91a648295c389d1865fa',
         after: '2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
@@ -327,7 +327,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '6c4fafb667b40f265943a6bb531a4246a92f7c47192c0e2247abc1e6a7c5485e',
         after: 'c4798893134511db4e2479af47f07436f2f73db2aadcc040048cff0e9cd84698',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '909c7496f66b1314666a2053ca056d1f2defc2cdf50ad44719208b38c153fc62',
@@ -344,7 +344,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '46ed443acf9c23bbce899a7a2b67b938192b6e4f6f1828e165e27594dc21cc94',
         after: '4c4f8541617137907aa7ddc4c7c1de06a3958b4027c2646c10a6e914595e1758',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '7457e909ce911b5043c692ccf51e7ce30266b5824aec22c10997931dfb737361',
@@ -360,7 +360,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '98b7db8373b61d59aaecb9a77afb2241f163245b76ac692cf9cda44185d61ee9',
         after: '4a6d7e49f024c2ea7da2697da770aca89b224c20d1f9c1d4209cc3f33df784e5',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '20c7f0695e0360b9ea800ae11c0720bfe38d1e7e85b828d0a19bed542a9b175e',
@@ -386,7 +386,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '1ec3983ff14eba1aed249aae2c85a4c53fb79546a8db14acdd3b2b82a5039da6',
         after: '85cd0b815b9bccf03a0b1db825a9eb1281f2aba7a6bc948bda27fc8737ae0d5c',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '2ac2fce500388299d084ecf5b8e3be84c6f06bfc3747aa7262a4bacc7459d84d',
@@ -443,7 +443,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '3e63c88be5d4ea74e09498608ba267fcee9d20f1293851584983299ced54470f',
         after: '38ed0329dcd2cc276c51c3149e264c51430826336fca965e7ce329cb06b00f73',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '821357c6bb7dc016b819f89fd9f857ffcc78b057f5718cf0e66068b3f249c640',
@@ -459,7 +459,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '228687c99a0293b8c616763c55a336081117e47d5154ae2fe79ed86e5aa74f3a',
         after: '26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
@@ -475,7 +475,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'c6c87d873d08fb8dd98d8ab0e48619383dc0f97bab830c412b7c750df4150496',
         after: '202820448ffeab82bcdab08c525204c9a3c366054e330c6138fe4eca9ba1247c',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '13b90c0526762af96d550fa512941dff043473c31c55efa877bb9465770745af',
@@ -491,7 +491,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'ce3adc75e9e7cba629e901c716b551933cd855e06d4cac830d261603dbc62571',
         after: '33f8e5b5a5434ce52ef48ba906d306ef130b43374fb48f72893ae0573598d40b',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '5e359e936c37e8e79ea7738597da244b7356369558e59ada48fc0f32fde8a020',
@@ -560,7 +560,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: '5cf16e3333eefe1e73a96609acf6087e83f7fd726c9f9d2860d5777f7e00e105',
         after: 'e75dd3c83aeebedea8e771685ebdc6614623fe99a010c541448e30951fc73865',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b',
@@ -576,7 +576,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'd6e0ac08b19b767231d3c75a72b1a261e9d27905d63427578dee04a5db92d6e8',
         after: 'e5c88f693a3261252fb08e973d920cfddf8fcb8a828703be216682fa84ca6fce',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: '12be1b0b5132554b0e19863654e4c0fa077e0cc267962106ed5e6e80eb6f1ff7',
@@ -623,7 +623,7 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
         // Danish revision, 13 Nov 2026 (modern-da-quality package).
         before: 'f779e3b14e3a18803657bcfde238eb90b554fe67c263e401fc02c0f34fcde66b',
         after: '7577d9822136dcade54ca1d9b1c43d53e6bbd56d33ebd9790912d6c9e9c04951',
-        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+        releasedAt: Date.parse('2026-11-13T13:45:00Z'),
       },
       'modern-en': {
         before: 'a246a86ca83ff33521735c1ff70681037ed4d956f87e71d0812ddf864979e06c',
