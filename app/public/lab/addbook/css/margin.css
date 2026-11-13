@@ -430,7 +430,7 @@ button.mr-swatch { width: 28px; height: 28px; margin: 0 1px; padding: 4px; backg
 .mr-card__acts button { width: 28px; height: 28px; margin: -9px -6px -3px; }
 .mr-card__acts button svg { transform: translateY(3px); }
 .mr-follow__mic { flex: none; width: 28px; height: 28px; margin: 0; place-items: center; }   /* inside the field, before send */
-/* "Show answer", "Next question →", "See your score →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
+/* "Show answer", "Next question →", "Try another quiz": 28px tall round their 16px line, which the follow-up line keeps. */
 .mr-follow__link { display: inline-flex; align-items: center; min-height: 28px; margin: -9px 0 -3px; padding-top: 6px; }
 /* The bottom card's handle: a 56 × 28px target round the 36 × 5px bar, in its place. */
 .mr-sheet__grab { width: 56px; height: 28px; margin: -11px auto -8px; background: none; }

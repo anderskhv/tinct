@@ -782,12 +782,11 @@ async function behaviour(browser, origin) {
   mock.fail = null
   ok('a failed marking shows its error and keeps the typed answer', /could not be loaded/.test(await a.innerText('.mr-card.is-open')) && (await a.inputValue('.mr-card.is-open .mr-follow__input')) === 'a failed try', { card: await a.innerText('.mr-card.is-open'), field: await a.inputValue('.mr-card.is-open .mr-follow__input').catch(() => null) })
   await a.fill('.mr-card.is-open .mr-follow__input', ''); await a.click('.mr-card.is-open .mr-follow__input'); await a.keyboard.type('no idea'); await a.keyboard.press('Enter'); await a.waitForTimeout(900)
-  ok('the last question\'s link reads "See your score →"', (await a.innerText('.mr-card.is-open [data-c="next"]')) === 'See your score →')
-  await a.click('.mr-card.is-open [data-c="next"]'); await a.waitForTimeout(300)
-  const score = await a.innerText('.mr-card.is-open')
-  // Q1 right, Q2 shown, Q3 not yet. Since 20 Oct 2026 (Anders: "maybe could just say 2/3, try new questions?") the end card
-  // is the score alone, right answers of all the questions (a shown answer is not right), and Try new questions.
-  ok('after question 3: the score alone, "1/3", and Try new questions', /^Quiz me · p\. \S+\s*1\/3\s*Try new questions\s*$/.test(score.replace(/\n+/g, '\n')) && (await a.evaluate(() => getComputedStyle(document.querySelector('.mr-card.is-open .is-bottom-line')).fontWeight)) === '600', score)
+  // Q1 right, Q2 shown, Q3 not yet. Since 13 Nov 2026 (Anders: "I think we should skip 'see your score'") the last
+  // question's marking shows the score at once under it: right answers of all the questions (a shown answer is not
+  // right), and Try new questions; Q3's reply field stays above the score while it is not right.
+  const score = await a.evaluate(() => { const el = document.querySelector('.mr-card.is-open'), field = el.querySelector('.mr-follow__input'), line = el.querySelector('.mr-quiz-score'); return { next: !!el.querySelector('[data-c="next"]'), text: el.innerText, score: line?.innerText.trim(), weight: line && getComputedStyle(line.querySelector('.is-bottom-line')).fontWeight, again: el.querySelector('[data-c="again"]')?.textContent, reply: field?.getAttribute('aria-label'), fieldAbove: !!(field && line && field.compareDocumentPosition(line) & Node.DOCUMENT_POSITION_FOLLOWING) } })
+  ok('after question 3 is marked: no "See your score"; the question, its marking, the reply field, then "1/3" and Try new questions', !score.next && !/See your score/.test(score.text) && /no idea[\s\S]*Not quite\./.test(score.text) && score.score === '1/3' && score.weight === '600' && score.again === 'Try new questions' && score.reply === 'Your reply' && score.fieldAbove, score)
   if (!process.env.NO_SHOTS) await shot(a, 'prc-quiz-end-1440x900')
   const q2 = account.requests.length
   await a.click('.mr-card.is-open [data-c="again"]'); await a.waitForTimeout(1200)
@@ -841,10 +840,9 @@ async function behaviour(browser, origin) {
     await a.waitForTimeout(700)
     const cut = (await saved()).slice(before)
     const txt = await a.innerText('.mr-card.is-open').catch(() => '')
-    ok('stopped after question 1: it stays, "1 of 1", "See your score", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
+    ok('stopped after question 1: it stays, "1 of 1", no error; saved with one question', cut.length === 1 && cut[0].n === 1 && cut[0].ended && /MOCK streamed Q1/.test(txt) && /1 of 1/.test(txt) && !/could not be loaded/.test(txt), { cut, txt })
     await a.click('.mr-card.is-open [data-c="show"]').catch(() => {}); await a.waitForTimeout(200)
-    ok('"See your score" on the last question that arrived', /See your score/.test(await a.innerText('.mr-card.is-open')))
-    await a.click('.mr-card.is-open [data-c="next"]').catch(() => {}); await a.waitForTimeout(300)
+    ok('the last question that arrived, shown: its score at once, no "See your score" and no "Next question"', !/See your score/.test(await a.innerText('.mr-card.is-open')) && !(await a.$('.mr-card.is-open [data-c="next"]')))
     // PR C: a "Show answer" question is not scored, and the end card says so.
     ok('the score counts right answers of all the questions (a shown answer is not right): "0/1", and "Try new questions"', /(^|\s)0\/1(\s|$)/.test(await a.innerText('.mr-card.is-open')) && !!(await a.$('.mr-card.is-open [data-c="again"]')), await a.innerText('.mr-card.is-open'))
     await fresh(a)
@@ -5630,9 +5628,9 @@ async function epubQuizCheck(browser, origin) {
   await answer('They are known in different ways')
   await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(300)
   await answer('no idea at all')
-  await e.click('.mr-card.is-open [data-c="next"]'); await e.waitForTimeout(400)
-  const endCard = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { body: el.querySelector('.mr-card__body').innerText.trim(), links: [...el.querySelectorAll('.mr-follow__link')].map(b => b.textContent), count: !!el.querySelector('.mr-card__count') } })
-  ok('6/c. the end screen: "2/3" and "Try new questions", nothing else (two right of three)', endCard.body === '2/3' && endCard.links.join('|') === 'Try new questions' && !endCard.count, endCard)
+  // The last question marked: its score at once under it (13 Nov 2026: no "See your score").
+  const endCard = await e.evaluate(() => { const el = document.querySelector('.mr-card.is-open'); return { score: el.querySelector('.mr-quiz-score')?.innerText.trim(), links: [...el.querySelectorAll('.mr-follow__link')].map(b => b.textContent), count: !!el.querySelector('.mr-card__count') } })
+  ok('6/c. the end: "2/3" and "Try new questions" under the last question, no other link (two right of three)', endCard.score === '2/3' && endCard.links.join('|') === 'Try new questions' && !endCard.count, endCard)
   await epubShot(e, 'quiz-end')
   const r1 = account.requests.length
   await e.click('.mr-card.is-open [data-c="again"]'); await e.waitForTimeout(1300)

@@ -319,7 +319,11 @@ describe('Quiz me arrives fast (iPhone feedback, 21 Oct 2026)', () => {
     const follow = vi.fn((summary: string) => <p data-testid="follow">{summary.split('\n')[0]}</p>)
     render(<div className="lab"><PhoneQuizBody request={async onDelta => { onDelta(quiz); return quiz }} mark={async () => ''} draft="" setDraft={() => {}} follow={follow} /></div>)
     await act(async () => {})
-    for (let i = 0; i < 3; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    for (let i = 0; i < 2; i++) { fireEvent.click(screen.getByTestId('lab-phone-quiz-show')); fireEvent.click(screen.getByTestId('lab-phone-quiz-next')) }
+    // The last question's answer shown: the score at once, no "See your score" (Anders, 13 Nov 2026).
+    fireEvent.click(screen.getByTestId('lab-phone-quiz-show'))
+    expect(screen.queryByTestId('lab-phone-quiz-next')).toBeNull()
+    expect(screen.getByTestId('lab-phone-quiz-score').textContent).toBe('3 of 3 shown')
     expect(screen.getByTestId('follow').textContent).toBe('1. Q1 {braces} "quoted"?')
     expect(screen.getByTestId('lab-phone-quiz-again')).toBeTruthy()
   })
