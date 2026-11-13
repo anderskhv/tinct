@@ -17,8 +17,10 @@ import {
   mergeLabHighlight,
   readLabHighlights,
   sameHighlightRange,
+  withNoteCardPlace,
   writeLabHighlights,
   type LabHighlight,
+  type LabNoteCardPlace,
   type LabHighlightColor,
   type LabHighlightRange,
 } from './labHighlights'
@@ -271,6 +273,11 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     setHighlights(current => {const group=current.find(h=>h.id===id)?.groupId;const updatedAt=Date.now();return current.map(h=>h.id===id || group && h.groupId===group ? {...h,color,updatedAt}:h)})
   }, [])
 
+  /** A note's card moved in the desktop margin (labHighlights withNoteCardPlace); null puts it back at its passage. */
+  const setCardPlace = useCallback((id: string, place: LabNoteCardPlace | null) => {
+    setHighlights(current => current.map(h => h.id === id ? withNoteCardPlace(h, place) : h))
+  }, [])
+
   const setNote = useCallback((id: string, note: string, options?: { undoable?: boolean }) => {
     const before = markById(id)
     if (options?.undoable !== false && before && (before.note ?? '') !== note) record({ kind: 'note', id, note: before.note ?? '' })
@@ -427,6 +434,7 @@ export function useLabHighlights(chapterNumber: number, scope?: {
     addGroup,
     setColor,
     setNote,
+    setCardPlace,
     keep,
     remove,
     restore,

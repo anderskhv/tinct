@@ -3530,7 +3530,7 @@ function marginClose() {
   if (!mr) return;
   const m = mr;
   clearTimeout(m.press); dictation.stop();
-  const field = m.el?.querySelector('.mr-note__field');
+  const field = noteFieldReady(m.el?.querySelector('.mr-note__field'));
   if (field && m.ids[0] && field.value.trim() !== (highlights().find(h => h.id === m.ids[0])?.note || '')) noteDrafts.set(m.ids[0], field.value);
   m.leaveStop?.();
   m.el?.remove(); m.moreEl?.remove();
@@ -3539,7 +3539,7 @@ function marginClose() {
 }
 function mrPiece() {
   const el = document.createElement('div');
-  el.addEventListener('mousedown', e => { if (!e.target.closest('textarea')) e.preventDefault() });
+  el.addEventListener('mousedown', e => { if (!e.target.closest('textarea, [contenteditable="true"]')) e.preventDefault() });
   el.addEventListener('click', e => {
     const b = e.target.closest('[data-m], [data-color]'); if (!b || b.disabled || !mr) return;
     if (b.dataset.color) mrPick(b.dataset.color); else mrAction(b.dataset.m);
@@ -3586,7 +3586,7 @@ function mrShow(mode, { question = '' } = {}) {
   mrPlace();
   if (savedBar()) watchBarLeave(); else mr.leaveStop?.();
   if (mode === 'asking') { const t = el.querySelector('.mr-ask'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length); fitAsk() }
-  if (mode === 'note') { const t = el.querySelector('.mr-note__field'); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
+  if (mode === 'note') { const t = noteFieldReady(el.querySelector('.mr-note__field')); t.focus({ preventScroll: true }); t.setSelectionRange(t.value.length, t.value.length) }
   paintSelection();
 }
 function mrPlace() {
@@ -3762,7 +3762,7 @@ function dropPhoneDraft(id, { mark = false } = {}) {
   return true;
 }
 function mrSaveNote() {
-  const t = mr.el.querySelector('.mr-note__field'), id = mr.ids[0];
+  const t = noteFieldReady(mr.el.querySelector('.mr-note__field')), id = mr.ids[0];
   const list = highlights(), h = list.find(x => x.id === id); if (!h) return marginClose();
   const v = t.value.trim();
   if (v) { if (!h.note && mr.noteMade) h.withNote = true; h.note = v.slice(0, 4000) } else { delete h.note; delete h.withNote }
@@ -3944,7 +3944,7 @@ addEventListener('keydown', e => {
     e.preventDefault(); e.stopImmediatePropagation();
     if (mr.moreEl) { const had = mr.moreEl.contains(document.activeElement); closeMore(); if (had) mr.el.querySelector('[data-m="more"]')?.focus({ preventScroll: true }); return }
     if (mr.mode === 'asking' || mr.mode === 'colors' || mr.mode === 'note') {
-      if (mr.mode === 'note') { const f = mr.el.querySelector('.mr-note__field'); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
+      if (mr.mode === 'note') { const f = noteFieldReady(mr.el.querySelector('.mr-note__field')); if (f && mr.ids[0]) noteDrafts.set(mr.ids[0], f.value) }
       dictation.stop(); mrShow(mr.base || (mr.def ? 'define' : 'menu'))
       // Ask and the note took the focus, and with it the page's selection: select the passage again,
       // so a late selectionchange finds it and the bar stays (it closed the bar on a slow machine).
@@ -4803,11 +4803,13 @@ function drawCard(el, card, open) {
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
   const before = card.kind === 'quiz' && open ? el.offsetHeight : 0, kept = open ? bodyTop(el) : null;
   // A margin note's field being written keeps its words, caret and focus through a redraw (and is not kept meanwhile).
-  const noteField = el.querySelector('.mr-note-edit'), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
+  const noteField = noteFieldReady(el.querySelector('.mr-note-edit')), noteText = noteField?.value, noteFocus = noteField && document.activeElement === noteField ? [noteField.selectionStart, noteField.selectionEnd] : null;
   if (noteFocus) noteCommitting = true;
   try {
     el.innerHTML = cardHtmlSafe(card, open);
-    const nf = el.querySelector('.mr-note-edit');
+    // A note's card on the wide column can be moved (its ⋮⋮ handle); one being written cannot yet.
+    if (card.kind === 'note' && card.mark && !card.draft && col.doc && el.parentElement === col.doc) el.insertAdjacentHTML('afterbegin', NOTE_GRIP);
+    const nf = noteFieldReady(el.querySelector('.mr-note-edit'));
     if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) { nf.focus({ preventScroll: true }); nf.setSelectionRange(...noteFocus) } }
   } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
@@ -4933,6 +4935,7 @@ function docLayer() {
     const el = col.doc = document.createElement('div');
     el.className = 'mr mr-col mr-doc is-reader'; el.setAttribute('role', 'complementary'); el.setAttribute('aria-label', 'Margin');
     bindCardEvents(el);
+    bindNoteMoves(el);
     const svg = col.docLeads = document.createElementNS(SVGNS, 'svg');
     svg.setAttribute('class', 'mr mr-leads mr-doc-leads'); svg.setAttribute('aria-hidden', 'true');
     col.docLines = '';
@@ -4941,6 +4944,100 @@ function docLayer() {
   if (col.doc.parentElement !== s) s.append(col.doc);
   if (col.docLeads.parentElement !== col.doc) col.doc.prepend(col.docLeads);
   return col.doc;
+}
+/* -- Moving a note's card (Anders, 13 Nov 2026; the wide desktop column only, never the phone) --
+   A ⋮⋮ handle on a note's card drags it to any height in the margin, and ⌥↑ / ⌥↓ on a focused card nudge it. The card
+   stays where it is dropped (neighbours are pushed as always). Its place is kept on its highlight record (`place`):
+   in an EPUB or Tinct text, the paragraph beside it (its start as an offset in the chapter's text) and a fraction of
+   that paragraph's height; on a PDF page, a fraction of the page. Never pixels: it holds through a reload, sync, a
+   font or size change and a resize. A note with no passage moves its own box there too. */
+const NOTE_GRIP = '<button type="button" class="mr-grip" aria-label="Move note" title="Drag to move (⌥↑ ⌥↓)" aria-keyshortcuts="Alt+ArrowUp Alt+ArrowDown"><svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="2.5" cy="3" r="1.4"/><circle cx="7.5" cy="3" r="1.4"/><circle cx="2.5" cy="8" r="1.4"/><circle cx="7.5" cy="8" r="1.4"/><circle cx="2.5" cy="13" r="1.4"/><circle cx="7.5" cy="13" r="1.4"/></svg></button>';
+const NOTE_BLOCKS = 'p, li, h1, h2, h3, h4, h5, h6, blockquote, pre, figure, figcaption, dd, dt, td, th';
+const NOTE_NUDGE = 24;
+const r4 = v => Math.round(v * 10000) / 10000;
+/** Where a moved note's card top is now (viewport y), or null: not moved, or its paragraph is not drawn. */
+function notePlaceY(card) {
+  const pl = card?.place; if (!pl || !Number.isFinite(pl.f)) return null;
+  const p = state.pages[(card.page || 0) - 1]; if (!p) return null;
+  if (p.kind === 'epub') {
+    if (!isNear(p) || !Number.isInteger(pl.at)) return null;
+    const range = rangeFromOffsets(p.pg, pl.at + 1, pl.at + 1); if (!range) return null;
+    const node = range.startContainer.nodeType === 1 ? range.startContainer : range.startContainer.parentElement;
+    const block = node?.closest?.(NOTE_BLOCKS); if (!block || !p.pg.contains(block)) return null;
+    const b = block.getBoundingClientRect();
+    return b.top + pl.f * Math.max(1, b.height);
+  }
+  const b = p.pg.getBoundingClientRect();
+  return b.height ? b.top + pl.f * b.height : null;
+}
+/** The place a card's top at viewport y keeps, on its own page (chapter): the paragraph there, or the page. */
+function notePlaceAt(page, y) {
+  const p = state.pages[page - 1]; if (!p) return null;
+  const f = (top, height) => r4(Math.max(-1, Math.min(2, (y - top) / Math.max(1, height))));
+  if (p.kind === 'epub') {
+    const blocks = [...p.pg.querySelectorAll(NOTE_BLOCKS)].filter(b => !b.querySelector(NOTE_BLOCKS) && b.textContent.length && b.getBoundingClientRect().height);
+    if (!blocks.length) return null;
+    const block = blocks.find(b => b.getBoundingClientRect().bottom >= y) || blocks[blocks.length - 1];
+    const first = document.createTreeWalker(block, NodeFilter.SHOW_TEXT).nextNode(); if (!first) return null;
+    const b = block.getBoundingClientRect();
+    return { at: textOffset(p.pg, first, 0), f: f(b.top, b.height) };
+  }
+  const b = p.pg.getBoundingClientRect();
+  return { f: f(b.top, b.height) };
+}
+/** A note's card moved so its top is at viewport y: its highlight keeps the place, and is synced as every change. */
+function moveNote(cardId, top) {
+  const card = viewCards().find(c => c.id === cardId); if (!card || card.kind !== 'note' || !card.mark) return;
+  const place = notePlaceAt(card.page, top); if (!place) return;
+  const spot = pagePoint(top);
+  const apply = h => {
+    const next = { ...h, place, u: Date.now() };
+    // A note with no passage keeps its box at the same height (TinctMargin.noteBox).
+    const own = TinctMargin.noteSpot(h);
+    if (own && !own.unit && spot && spot.n === h.page) next.rects = [TinctMargin.noteBox(spot.frac)];
+    return next;
+  };
+  if (changeTextHighlight(card.mark, list => list.map(x => (x.id === card.mark ? apply(x) : x)))) { col.view = null; marginLayout({ fresh: true }); return }
+  const list = highlights(), k = list.findIndex(h => h.id === card.mark); if (k < 0) return;
+  list[k] = apply(list[k]);
+  col.view = null;
+  putHighlights(list); strip?.marksChanged();
+}
+function bindNoteMoves(host) {
+  let drag = null;
+  host.addEventListener('pointerdown', e => {
+    const grip = e.target.closest?.('.mr-grip'); if (!grip || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    const el = grip.closest('.mr-card'); if (!el?.dataset.id) return;
+    e.preventDefault(); e.stopPropagation();
+    grip.setPointerCapture?.(e.pointerId);
+    drag = { el, id: el.dataset.id, pointerId: e.pointerId, y0: e.clientY, top0: el.getBoundingClientRect().top, moved: false };
+  });
+  host.addEventListener('pointermove', e => {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const dy = e.clientY - drag.y0;
+    if (!drag.moved && Math.abs(dy) <= 3) return;
+    drag.moved = true;
+    drag.el.classList.add('is-lifted');
+    drag.el.style.transform = `translateY(${dy}px)`;
+  });
+  const end = e => {
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    const d = drag; drag = null;
+    d.el.classList.remove('is-lifted'); d.el.style.transform = '';
+    if (d.moved && e.type === 'pointerup') moveNote(d.id, d.top0 + (e.clientY - d.y0));
+  };
+  host.addEventListener('pointerup', end);
+  host.addEventListener('pointercancel', end);
+  // The handle is not the card: a press on it never opens or folds the card.
+  host.addEventListener('click', e => { if (e.target.closest?.('.mr-grip')) { e.preventDefault(); e.stopPropagation() } }, true);
+  host.addEventListener('keydown', e => {
+    if (!e.altKey || e.metaKey || e.ctrlKey || (e.key !== 'ArrowUp' && e.key !== 'ArrowDown')) return;
+    if (e.target.closest?.('input, textarea, [contenteditable="true"]')) return;
+    const el = e.target.closest?.('.mr-card.is-note'); if (!el?.dataset.id || !el.querySelector('.mr-grip')) return;
+    e.preventDefault(); e.stopPropagation();
+    moveNote(el.dataset.id, el.getBoundingClientRect().top + (e.key === 'ArrowUp' ? -NOTE_NUDGE : NOTE_NUDGE));
+    requestAnimationFrame(() => col.els.get(el.dataset.id)?.querySelector('.mr-grip')?.focus({ preventScroll: true }));
+  });
 }
 function dropDocLayer() { col.doc?.remove(); col.docLeads?.remove(); col.docLines = ''; if (col.docLeads) col.docLeads.innerHTML = '' }
 /** The pages' right edge for the column: the widest page's (kept per zoom and width, so it never moves with a scroll). */
@@ -5020,7 +5117,7 @@ function layoutColumn() {
     // A text unit's Recap, Quiz me and notes open level with its end's pills (22 Oct 2026: they belong to the chapter's
     // end, and the view never leaves the place the reader pressed them); its catch-up with its heading.
     const endEl = col.heads.get(u.key + ':end'), endY = endEl?.isConnected ? Y(endEl.getBoundingClientRect().top) : ey;
-    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id), y = c.data?.pill === 'catchup' ? ey : endY; drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey: y, top: y, order: -0.8 + k * 0.001 }) });
+    [...['catchup', 'recap', 'quiz'].map(k => unitCard(u, k)), ...notes].filter(Boolean).forEach((c, k) => { const ce = take(c.id), placed = c.kind === 'note' ? notePlaceY(c) : null, y = placed != null ? Y(placed) : c.data?.pill === 'catchup' ? ey : endY; drawCard(ce, c, col.open === c.id); ce.classList.add('is-unit'); items.push({ el: ce, ey: y, top: y, order: -0.8 + k * 0.001 }) });
   }
   for (const [k, el] of col.pills) if (!seenMarks.has(el)) { el.remove(); col.pills.delete(k) }
   for (const [k, el] of col.heads) if (!seenHeads.has(el)) dropHeadPill(k);
@@ -5036,7 +5133,9 @@ function layoutColumn() {
     const mid = lab ? Math.round(lab.offsetTop + lab.offsetHeight / 2) : 12;
     // The passage's line; a figure's card starts level with the figure's top (less 4px), its line at its label.
     const ey = card.kind === 'figure' ? Y(b.top + f[2] * b.height) - 4 + mid : Y(b.top + f[2] * b.height + h / 2);
-    items.push({ el, ey, top: ey - mid, mid, card, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot, order: 1 });
+    // A moved note sits where it was put (notePlaceY); its leader still starts at its passage.
+    const placed = card.kind === 'note' ? notePlaceY(card) : null;
+    items.push({ el, ey, top: placed != null ? Y(placed) : ey - mid, ...(placed != null ? { key: Y(placed) + mid } : {}), mid, card, x0: X(Math.min(pageEdge(p), sr.left + area)) + C.dot, order: 1 });
   }
   // "Deleted · Undo" keeps the deleted card's place for a few seconds.
   if (undo.el && undo.rect && !undo.el.classList.contains('is-float')) {
@@ -5045,7 +5144,7 @@ function layoutColumn() {
   }
   for (const [id, el] of col.els) if (!keep.has(id)) { el.remove(); col.els.delete(id) }
   // Pushed down in page order, never over the card before.
-  items.sort((a, b) => a.ey - b.ey || a.order - b.order);
+  items.sort((a, b) => (a.key ?? a.ey) - (b.key ?? b.ey) || a.order - b.order);
   let floor = 0;
   const lines = [];
   for (let i = 0; i < items.length; i++) {
@@ -5230,13 +5329,13 @@ function drawSheet() {
   if (el.dataset.sig === sig) return;
   const field = el.querySelector('.mr-follow__input'), draft = field?.value, focused = field && document.activeElement === field;
   const closeFocused = !!document.activeElement?.matches?.('.mr-card__close') && el.contains(document.activeElement);
-  const nf0 = el.querySelector('.mr-note-edit'), noteText = nf0?.value, noteFocus = nf0 && document.activeElement === nf0;
+  const nf0 = noteFieldReady(el.querySelector('.mr-note-edit')), noteText = nf0?.value, noteFocus = nf0 && document.activeElement === nf0;
   el.dataset.sig = sig;
   const before = card.kind === 'quiz' ? el.offsetHeight : 0, keptTop = bodyTop(el);
   if (noteFocus) noteCommitting = true;
   try {
     el.innerHTML = TinctMargin.html.sheetHtml(cardHtmlSafe(card, true));
-    const nf = el.querySelector('.mr-note-edit');
+    const nf = noteFieldReady(el.querySelector('.mr-note-edit'));
     if (nf) { if (noteText != null) nf.value = noteText; fitNote(nf); if (noteFocus) nf.focus({ preventScroll: true }) }
   } finally { if (noteFocus) noteCommitting = false }
   if (card.kind === 'quiz') holdQuizHeight(el, before);
@@ -5273,7 +5372,7 @@ function closeSheet2() {
 function sheetSwipe(el) {
   let y0 = null, full = false;
   // A drag in a body that scrolls is the body's (as the browser's pan always made it), never the card's.
-  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, a, .mr-card__body button, .mr-follow') || ownScroll(e.target, el.parentElement)) return; y0 = e.clientY; full = el.classList.contains('is-full') });
+  el.addEventListener('pointerdown', e => { if (e.target.closest('textarea, [contenteditable="true"], tinct-note, a, .mr-card__body button, .mr-follow') || ownScroll(e.target, el.parentElement)) return; y0 = e.clientY; full = el.classList.contains('is-full') });
   el.addEventListener('pointerup', e => {
     if (y0 == null) return;
     const dy = e.clientY - y0; y0 = null;
@@ -5387,7 +5486,7 @@ function openWhole(opts = {}) {
 
 /* -- What a card does: open, close, copy, follow up, quiz, citations, dictation -- */
 function bindCardEvents(host) {
-  host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea')) e.preventDefault() });
+  host.addEventListener('mousedown', e => { if (e.target.closest('.mr-cite, [data-c]') && !e.target.closest('textarea, [contenteditable="true"]')) e.preventDefault() });
   host.addEventListener('click', e => {
     // A host inside another (the primer in the column) handles its click once.
     if (e.mrDone) return; e.mrDone = true;
@@ -5608,13 +5707,15 @@ function newMarginNote(y, { unit = null } = {}) {
   requestAnimationFrame(() => requestAnimationFrame(focus));
   return id;
 }
+/** A note field from margin.js's HTML, made the formatted field now when it is not yet (js/note-md.js; <tinct-note>). */
+function noteFieldReady(f) { if (f && !f.noteEditor) { const host = f.closest?.('tinct-note'); if (host) self.TinctNoteMd?.upgrade(host) } return f }
 /** The note field drawn again keeps its words, its caret and its focus. */
-function fitNote(t) { t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
+function fitNote(t) { if (!t || t.tagName !== 'TEXTAREA') return; t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight, 320) + 'px' }
 let noteCommitting = false;
 /** Keep (or let go) the open margin note's words: a new one becomes a note; an emptied one goes. */
 function commitNoteEdit(field = null) {
   if (noteCommitting) return;
-  const t = field || document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit');
+  const t = field || noteFieldReady(document.querySelector('.mr-card.is-open .mr-note-edit, .mr-sheet .mr-note-edit'));
   const host = t?.closest('[data-id]'); if (!t || !host) return;
   noteCommitting = true;
   try {
@@ -5650,7 +5751,7 @@ function commitNoteEdit(field = null) {
 function noteAsk(id) {
   holdPlace();
   const view = viewCards().find(c => c.id === id) || (col.draft?.id === id ? col.draft : null); if (!view) return;
-  const t = document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`), v = (t ? t.value : view.note || '').trim();
+  const t = noteFieldReady(document.querySelector(`[data-id="${CSS.escape(id)}"] .mr-note-edit`)), v = (t ? t.value : view.note || '').trim();
   if (!v) { t?.focus({ preventScroll: true }); return }
   const [n, x, y] = view.rects[0];
   const card = TinctMargin.newCard({ kind: 'ask', page: n, anchor: [{ n, x, y, w: 0, h: 0 }], text: '', turns: [{ role: 'user', content: v, at: Date.now() }], data: { fromNote: true } });

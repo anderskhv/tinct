@@ -705,3 +705,53 @@ html[data-eink="true"] .mr-unit .mr-pill, html[data-pdf-theme="eink"] .mr-unit .
 .mr-col:not(.mr-doc) .mr-primer { bottom: auto; max-height: calc(100% - 86px); }
 .mr-primer > .mr-follow { margin-top: 0; }
 :where(.mr-card__delete) { --mr-min: 28px; }
+
+/* ---------- A note's formatting (Anders, 13 Nov 2026; js/note-md.js) ----------
+   One line per line of the note; a bullet's level indents 1.15em. The field and the note shown use the same lines. */
+.mr .tn-md, .mr .tn-editor { --tn-indent: 1.15em; overflow-wrap: anywhere; }
+.mr .tn-md p, .mr .tn-editor .tn-line { margin: 0; }
+.mr .tn-md ul { margin: 0; padding: 0 0 0 var(--tn-indent); list-style: none; }
+.mr .tn-md li { position: relative; margin: 0; }
+.mr .tn-md li::before { content: "•"; position: absolute; left: -.95em; color: var(--mr-muted); }
+.mr .tn-editor .tn-line:not([data-depth="-1"])::before { content: "•"; position: absolute; color: var(--mr-muted); }
+.mr .tn-md strong, .mr .tn-editor strong { font-weight: 650; }
+.mr .tn-editor { position: relative; white-space: pre-wrap; cursor: text; }
+.mr .tn-editor .tn-line { position: relative; min-height: 1.4em; }
+.mr .tn-editor .tn-line[data-depth="0"] { padding-left: var(--tn-indent); }
+.mr .tn-editor .tn-line[data-depth="1"] { padding-left: calc(var(--tn-indent) * 2); }
+.mr .tn-editor .tn-line[data-depth="2"] { padding-left: calc(var(--tn-indent) * 3); }
+.mr .tn-editor .tn-line[data-depth="3"] { padding-left: calc(var(--tn-indent) * 4); }
+.mr .tn-editor .tn-line[data-depth="0"]::before { left: calc(var(--tn-indent) - .95em); }
+.mr .tn-editor .tn-line[data-depth="1"]::before { left: calc(var(--tn-indent) * 2 - .95em); }
+.mr .tn-editor .tn-line[data-depth="2"]::before { left: calc(var(--tn-indent) * 3 - .95em); }
+.mr .tn-editor .tn-line[data-depth="3"]::before { left: calc(var(--tn-indent) * 4 - .95em); }
+.mr .tn-editor.is-empty::after { content: attr(data-placeholder); position: absolute; left: 0; top: 4px; color: var(--mr-hint); pointer-events: none; }
+.mr .mr-note__field.tn-editor.is-empty::after { left: 12px; top: 10px; color: var(--mr-bar-soft); }
+.mr .mr-note__field.tn-editor { min-height: 72px; max-height: 30vh; overflow-y: auto; }
+.mr .mr-note__field.tn-editor:focus { outline: none; border-color: var(--mr-bar-soft); }
+.mr .mr-note__field .tn-line::before { color: var(--mr-bar-soft); }
+tinct-note.tn-wrap { display: flex; flex-direction: column; gap: 6px; }
+/* The quiet B / I / • row: only while the note is being written. UI chrome in the system face. */
+.mr .tn-fmt { display: flex; align-items: center; gap: 2px; margin-top: -2px; }
+.mr tinct-note:not(:focus-within) .tn-fmt { display: none; }
+.mr .tn-fmt button { display: grid; place-items: center; min-width: 30px; height: 28px; padding: 0 6px; border: 0; border-radius: 7px; background: none; color: var(--mr-muted); cursor: pointer; }
+.mr .mr-note .tn-fmt button { color: var(--mr-bar-soft); }
+.mr .tn-fmt button:hover { color: var(--mr-ink); }
+.mr .mr-note .tn-fmt button:hover, .mr .mr-note .tn-fmt button[aria-pressed="true"] { color: var(--mr-bar-ink); }
+.mr .tn-fmt .tn-b { font: 700 14px var(--mr-ui); }
+.mr .tn-fmt .tn-i { font: italic 15px Georgia, serif; }
+.mr .tn-fmt .tn-u { font: 17px/1 var(--mr-ui); }
+.mr .tn-fmt button[aria-pressed="true"] { background: var(--mr-wash, rgba(0,0,0,.06)); color: var(--mr-ink); }
+.mr .tn-fmt button:focus-visible { outline: 1px solid var(--mr-accent); outline-offset: 1px; }
+/* Folded, a note keeps its formatting, up to six lines. */
+.mr-card.is-folded .mr-card__text.is-note-md { display: block; -webkit-line-clamp: unset; max-height: calc(6 * 1.4em); overflow: hidden; white-space: normal; }
+.mr-card.is-folded.is-row .mr-card__text.is-note-md { max-height: 1.4em; }
+
+/* ---------- Moving a note (desktop column only; Anders, 13 Nov 2026) ----------
+   A ⋮⋮ handle in the gutter on hover or focus drags the card to any height; ⌥↑ / ⌥↓ nudge it. */
+.mr-doc .mr-card .mr-grip { position: absolute; left: -22px; top: 2px; width: 18px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--mr-muted); cursor: grab; opacity: 0; touch-action: none; }
+.mr-doc .mr-card .mr-grip svg { width: 10px; height: 16px; fill: currentColor; }
+.mr-doc .mr-card.is-note:hover .mr-grip, .mr-doc .mr-card.is-note:focus-within .mr-grip, .mr-doc .mr-card.is-lifted .mr-grip { opacity: 1; }
+.mr-doc .mr-card .mr-grip:hover, .mr-doc .mr-card.is-lifted .mr-grip { background: var(--mr-wash, rgba(0,0,0,.06)); color: var(--mr-ink); }
+.mr-doc .mr-card.is-lifted { z-index: 10; cursor: grabbing; background: var(--mr-card); border-radius: 0 12px 12px 0; box-shadow: var(--mr-card-shadow); }
+:is(html[data-eink="true"], html[data-pdf-theme="eink"]) .mr-doc .mr-card.is-lifted { box-shadow: none; outline: 1px solid var(--mr-hair); }

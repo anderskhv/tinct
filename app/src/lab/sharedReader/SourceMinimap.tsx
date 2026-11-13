@@ -1,4 +1,5 @@
 import { useMemo, useState, type PointerEvent } from 'react'
+import { notePlainText } from '../notes/noteMarkdown'
 import { tokenizeHearingWords } from '../labHearing'
 import type { LabHighlight } from '../labHighlights'
 import type { ContinuousReaderAnchor } from './continuousReaderWindow'
@@ -156,7 +157,7 @@ export function SourceMinimap({ paragraphs, visible, visibleEnd, bookMap, highli
         className="source-minimap-activity" data-color={mark.color}
         onPointerDown={event => { event.stopPropagation(); event.preventDefault(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) }}
         onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); onJump({ paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }) } }}>
-        <title>{mark.note || mark.text || 'Highlight'}</title>
+        <title>{mark.note ? notePlainText(mark.note) : mark.text || 'Highlight'}</title>
         <rect x={2} y={Math.max(0, y - 3)} width={23} height={Math.max(8, (end - start) / total * mapHeight + 6)} fill="transparent" />
         <rect className="source-minimap-activity-ink" x={5} y={y} width={21} height={Math.max(2.5, (end - start) / total * mapHeight)} rx={.7} />
       </g>

@@ -67,3 +67,20 @@
 .source-margin-item.is-collapsible.is-folded { padding-bottom:0; }
 .source-margin-item.is-collapsible .source-margin-label { background:none; border:0; padding:0; cursor:pointer; text-align:left; }
 .source-margin-item.is-collapsible.is-folded .source-margin-label, .source-margin-item.is-collapsible.is-folded .source-margin-toggle { color:var(--lab-ink-muted); opacity:.75; }
+
+/* A note's formatting folded (Anders, 13 Nov 2026): bullets, bold and italic, up to six lines, in the note field's
+   type and place, passive in the muted ink. */
+.source-margin-preview .source-margin-preview-note { font-size:17px; line-height:1.5; color:inherit; white-space:normal; }
+.source-margin-preview .source-margin-preview-note strong { color:color-mix(in srgb,var(--lab-ink) 88%,var(--lab-ink-muted)); }
+
+/* Moving a note (desktop only): a ⋮⋮ handle in the gutter on hover or focus drags the card to any height in the
+   margin; ⌥↑ / ⌥↓ nudge it. The card stays where it is dropped; neighbours are pushed as always. */
+.source-margin-grip { position:absolute; left:-22px; top:3px; width:18px; height:28px; display:grid; place-items:center; padding:0; border-radius:6px!important; color:var(--lab-ink-muted)!important; cursor:grab!important; opacity:0; touch-action:none; transition:opacity .12s; }
+.source-margin-grip svg { width:10px; height:16px; fill:currentColor; }
+.source-margin-item.is-movable:hover .source-margin-grip, .source-margin-item.is-movable:focus-within .source-margin-grip, .source-margin-item.is-lifted .source-margin-grip { opacity:1; }
+.source-margin-grip:hover, .source-margin-item.is-lifted .source-margin-grip { background:color-mix(in srgb,var(--lab-ink) 8%,transparent)!important; color:var(--lab-ink)!important; }
+.source-margin-item.is-lifted { z-index:10; cursor:grabbing; background:var(--lab-paper,var(--lab-bg,#fff)); box-shadow:0 0 0 1px var(--lab-border),0 18px 40px rgba(0,0,0,.25); border-radius:0 12px 12px 0; }
+.source-margin-item.is-lifted .source-margin-grip { cursor:grabbing!important; }
+@media (hover:none) { .source-margin-grip { opacity:.6; } }
+html[data-eink="true"] .source-margin-item.is-lifted { box-shadow:none; outline:1px solid #777; }
+html[data-eink="true"] .source-margin-grip { transition:none; }

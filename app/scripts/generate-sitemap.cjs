@@ -9,8 +9,9 @@
  *   - app/public/data/editions/{bookId}-modern-en.json → chapter count
  *
  * The sitemap lists only real pages: /, /about, /credits, /story, /privacy, /terms,
- * /read/ and one /read/{bookId} per public book. Each <lastmod> changes only when that
- * page's content does (see sitemap-lastmod.json).
+ * /read/, one /read/{bookId} per public book and the scene pages the build wrote
+ * (/read/{bookId}/{scene}, scripts/seo/build-scene-pages.mjs, which runs first). Each
+ * <lastmod> changes only when that page's content does (see sitemap-lastmod.json).
  *
  * Why static rather than worker-generated: keeping the sitemap in
  * public/sitemap.xml means it ships unchanged through the existing build →
@@ -176,12 +177,43 @@ function cappedWithFixedParts(prefix, middle, suffix, maxChars) {
   return `${cleanPrefix}${clipAtWord(cleanMiddle, room)}${cleanSuffix}`
 }
 
+// --- Scene pages (scripts/seo/build-scene-pages.mjs) ----------------------
+
+const SCENE_MANIFEST = path.join(APP_DIR, 'src/data/scenePages.generated.json')
+let sceneManifest = null
+/** The scenes the build wrote a page for, in reading order; [] for a book without scene pages. */
+function scenePagesOf(bookId) {
+  if (!sceneManifest) {
+    try { sceneManifest = JSON.parse(fs.readFileSync(SCENE_MANIFEST, 'utf8')).books || {} } catch { sceneManifest = {} }
+  }
+  return (sceneManifest[bookId] || []).filter(scene => fs.existsSync(path.join(READ_DIR, bookId, `${scene.slug}.html`)))
+}
+
+/** Whether readers get a Modern English edition of the book (served and not held). */
+function hasModernEdition(book) {
+  if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) return false
+  const holds = require('../src/data/editionAvailability.json').editions
+  return !holds[`${book.id}/modern-en`] && fs.existsSync(path.join(EDITIONS_DIR, `${book.id}-modern-en.json`))
+}
+
+/**
+ * The book page's title leads with what only Tinct has: the book in modern English (13 Nov 2026; it read
+ * "Read Hamlet Free Online | Tinct"). A play with scene pages says so.
+ */
 function seoBookTitle(book) {
   const manual = MANUAL_BOOK_META[book.id]
   if (manual?.title) return manual.title
-  const full = `Read ${plainText(book.title)} Free Online | Tinct`
-  if (full.length <= MAX_META_TITLE_CHARS) return full
-  return cappedWithFixedParts('Free Classic Reader: ', book.title, ' | Tinct', MAX_META_TITLE_CHARS)
+  const title = plainText(book.title)
+  const candidates = hasModernEdition(book)
+    ? [
+        ...(scenePagesOf(book.id).length ? [`${title} in modern English, scene by scene | Tinct`] : []),
+        `${title} in modern English, free to read | Tinct`,
+        `${title} in modern English | Tinct`,
+      ]
+    : [`Read ${title} Free Online | Tinct`]
+  const fits = candidates.find(candidate => candidate.length <= MAX_META_TITLE_CHARS)
+  if (fits) return fits
+  return cappedWithFixedParts(hasModernEdition(book) ? '' : 'Free Classic Reader: ', book.title, hasModernEdition(book) ? ' in modern English | Tinct' : ' | Tinct', MAX_META_TITLE_CHARS)
 }
 
 function seoChapterTitle(book, chapterTitle) {
@@ -195,6 +227,19 @@ function seoBookDescription(book) {
   // No Modern English, narration or cast guide to advertise, and never "classic".
   if (book.noModernEdition || PUBLISHER_PERMISSIONS[book.id]) {
     return clipAtWord(`Read ${book.title} free, no ads, with an AI reading companion. On Tinct with the publisher's permission.`, MAX_META_DESCRIPTION_CHARS)
+  }
+  if (scenePagesOf(book.id).length && hasModernEdition(book)) {
+    const play = `${book.title} scene by scene in modern English, with Shakespeare's original text. Read free, no ads, with an AI companion that explains any line.`
+    if (play.length <= MAX_META_DESCRIPTION_CHARS) return play
+  }
+  if (hasModernEdition(book)) {
+    const options = [
+      `${book.title} by ${book.author} in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.`,
+      `${book.title} in modern English, with the original edition to compare. Read free, no ads, with an AI companion that explains any passage.`,
+      `${book.title} in modern English, with the original to compare. Read free, no ads, with an AI companion.`,
+    ]
+    const fits = options.find(option => option.length <= MAX_META_DESCRIPTION_CHARS)
+    if (fits) return fits
   }
   const full = `Read free, no ads. Modern English compare, AI companion, cast guide, and audio for ${book.title}.`
   if (full.length <= MAX_META_DESCRIPTION_CHARS) return full
@@ -483,9 +528,16 @@ function buildBookIndexPage(book, edition) {
   const readerHref = `/library?book=${book.id}`
   const description = seoBookDescription(book)
   const languageLabel = editionKey.endsWith("-de") ? "Original German" : "Original English translation"
-  const chapterLinks = chapters
-    .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
-    .join('\n')
+  // A play with scene pages lists its scenes, each linking to its page; other books link chapters into the reader.
+  const scenes = scenePagesOf(book.id)
+  const chapterLinks = scenes.length
+    ? scenes.map(scene => {
+        const [where, ...place] = scene.title.split(' — ')
+        return `<li><a href="/read/${book.id}/${scene.slug}"><span class="glance-num">${escapeHtml(where)}</span><span class="glance-text">${escapeHtml(place.join(' — ') || where)}</span></a></li>`
+      }).join('\n')
+    : chapters
+      .map((chapter, index) => `<li><a href="${bookChapterHref(book.id, index + 1)}"><span class="glance-num">Chapter ${index + 1}</span><span class="glance-text">${escapeHtml(chapter.title || `Chapter ${index + 1}`)}</span></a></li>`)
+      .join('\n')
   const scene = bookSceneSrc(book.id)
   const cover = bookCoverSrc(book.id)
   const blurb = libraryBlurb(book.id)
@@ -512,8 +564,8 @@ function buildBookIndexPage(book, edition) {
     <a href="/">Tinct</a> · <a href="/read/">Library</a> · <span>${escapeHtml(book.title)}</span>
   </div>
 
-  ${book.id === 'bible' ? '' : `<section class="glance-section" aria-label="Chapters">
-    <div class="glance-label">Chapters</div>
+  ${book.id === 'bible' ? '' : `<section class="glance-section" aria-label="${scenes.length ? 'Scenes in modern English' : 'Chapters'}">
+    <div class="glance-label">${scenes.length ? 'Scenes in modern English' : 'Chapters'}</div>
     <ol class="glance">
 ${chapterLinks}
     </ol>
@@ -589,6 +641,16 @@ function contentLastmod(state, next, loc, ...files) {
   return lastmod
 }
 
+/** As contentLastmod, for a scene page: its text, not the versioned script addresses a code change rewrites. */
+function sceneLastmod(state, next, loc, file) {
+  let html = ''
+  try { html = fs.readFileSync(file, 'utf8') } catch { html = `missing:${path.basename(file)}` }
+  const digest = require('crypto').createHash('sha256').update(html.replace(/\/read\/scene-[a-z]+\.js\?v=[0-9a-f]+/g, '')).digest('hex').slice(0, 16)
+  const lastmod = state[loc]?.hash === digest ? state[loc].lastmod : BUILD_DATE
+  next[loc] = { hash: digest, lastmod }
+  return lastmod
+}
+
 function urlEntry(loc, opts = {}) {
   const { changefreq = 'monthly', priority = 0.5, lastmod = BUILD_DATE } = opts
   return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority.toFixed(1)}</priority>\n  </url>`
@@ -610,6 +672,11 @@ function buildSitemap(books, state = loadLastmodState(), next = {}) {
     const page = path.join(READ_DIR, b.id, 'book.html')
     if (!fs.existsSync(page)) continue
     entry(`${ORIGIN}/read/${b.id}`, { changefreq: 'monthly', priority: 0.9 }, page)
+    // The book's scene pages, each only once the build has written it (and the Worker serves it, 200).
+    for (const scene of scenePagesOf(b.id)) {
+      const loc = `${ORIGIN}/read/${b.id}/${scene.slug}`
+      lines.push(urlEntry(loc, { changefreq: 'monthly', priority: 0.7, lastmod: sceneLastmod(state, next, loc, path.join(READ_DIR, b.id, `${scene.slug}.html`)) }))
+    }
   }
   lines.push('</urlset>')
   lines.push('')
@@ -686,6 +753,7 @@ if (require.main === module) {
 
 module.exports = {
   loadPublicBooks,
+  scenePagesOf,
   buildSitemap,
   buildBookMeta,
   chapterCount,
