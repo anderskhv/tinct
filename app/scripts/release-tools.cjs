@@ -14,6 +14,7 @@
 //   verify-repair-predecessor <id> require the accepted reader still serving production
 //   assert-repair-live            recheck the accepted predecessor immediately before Worker mutation
 //   assert-normal-release         refuse an accidental push while the shared reader rollout is pending
+//   push-release-phase            the phase a merge to main releases as (auto-deploy, Anders 13 Nov 2026)
 // Read-only: nothing here changes Cloudflare state.
 const fs = require('node:fs')
 const path = require('node:path')
@@ -59,11 +60,26 @@ function assertNormalRelease() {
   }
 }
 
+// A merge to main deploys itself (Anders, 13 Nov 2026: "we need to work faster"). Only the repair phase may: its
+// predecessor pin and exact-SHA checks still apply. The floor and reader phases stay manual, approved dispatches.
+function pushReleasePhase() {
+  const phase = rolloutPhase()
+  if (phase === 'repair-pending') return 'repair'
+  if (phase === 'none' || phase === 'released') return 'normal'
+  throw new Error(`shared reader rollout is ${phase}; a merge to main does not deploy it: use an explicitly approved floor or reader dispatch`)
+}
+
+// Merged to main and pushed: the automatic repair release of that exact commit.
+function automaticMainRepair(requested) {
+  return requested === 'repair' && process.env.GITHUB_EVENT_NAME === 'push' && process.env.GITHUB_REF === 'refs/heads/main'
+}
+
 function assertReleaseCommand() {
   const phase = rolloutPhase()
   if (phase !== 'pending' && phase !== 'floor-pending' && phase !== 'repair-pending') return
   const requested = phase === 'floor-pending' ? 'floor' : phase === 'pending' ? 'reader' : 'repair'
-  if (process.env.GITHUB_ACTIONS !== 'true' || process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch' ||
+  if (process.env.GITHUB_ACTIONS !== 'true' ||
+      (process.env.GITHUB_EVENT_NAME !== 'workflow_dispatch' && !automaticMainRepair(requested)) ||
       process.env.TINCT_RELEASE_PHASE !== requested || process.env.TINCT_RELEASE_APPROVED !== 'true') {
     throw new Error(`${phase} blocks deploy/upload outside an explicitly approved ${requested} workflow dispatch`)
   }
@@ -197,6 +213,7 @@ try {
   else if (cmd === 'validate-version') console.log(`version_id=${validatedVersion(arg, 'rollback target')}`)
   else if (cmd === 'assert-release-command') assertReleaseCommand()
   else if (cmd === 'assert-normal-release') assertNormalRelease()
+  else if (cmd === 'push-release-phase') console.log(`phase=${pushReleasePhase()}`)
   else if (cmd === 'assert-floor-source') assertFloorSource()
   else if (cmd === 'verify-reader-floor') verifyReaderFloor(arg, current || floorManifest)
   else if (cmd === 'verify-repair-predecessor') verifyRepairPredecessor(arg)
@@ -211,7 +228,7 @@ try {
   }
   else if (cmd === 'rollback-decision') console.log(`rollback=${rollbackDecision(arg, current, expectedNew)}`)
   else {
-    console.error('usage: release-tools.cjs migrations-changed <baseSha> | parse-upload <file> | parse-deploy <file> | current-version | validate-version <id> | assert-current-version <id> | rollback-decision <prev> <current> <new> | assert-release-command | assert-floor-source | verify-reader-floor <id> | verify-repair-predecessor <id> | assert-repair-live | assert-normal-release')
+    console.error('usage: release-tools.cjs migrations-changed <baseSha> | parse-upload <file> | parse-deploy <file> | current-version | validate-version <id> | assert-current-version <id> | rollback-decision <prev> <current> <new> | assert-release-command | assert-floor-source | verify-reader-floor <id> | verify-repair-predecessor <id> | assert-repair-live | assert-normal-release | push-release-phase')
     process.exit(2)
   }
 } catch (error) {
