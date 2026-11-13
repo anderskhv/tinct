@@ -1,7 +1,7 @@
 import { supabase } from '../services/supabase'
 import { coerceRev, versionedWriteApplied, type VersionedStorageRow } from '../services/supabaseStorage.versioning'
 import { highlightWrittenAt } from './labHighlightContentMigration'
-import { readLabHighlights, writeLabHighlights, type LabHighlight } from './labHighlights'
+import { readLabHighlights, validNoteCardPlace, writeLabHighlights, type LabHighlight } from './labHighlights'
 import { isUserBookId } from './userBook/userBookId'
 
 /**
@@ -117,6 +117,12 @@ function parseHighlight(raw: unknown, bucket: string): LabHighlight | null {
   }
   const bookId = typeof src.bookId === 'string' && src.bookId ? src.bookId : undefined
   if ((bookId ?? LAB_HIGHLIGHTS_UNASSIGNED) !== bucket) return null
+  // A moved note's card place (labHighlights.cardPlace) is kept only when it is one; anything else is dropped.
+  if ('cardPlace' in src) {
+    const place = validNoteCardPlace(src.cardPlace)
+    const { cardPlace: _drop, ...rest } = src
+    return (place ? { ...rest, cardPlace: place } : rest) as unknown as LabHighlight
+  }
   return src as unknown as LabHighlight
 }
 

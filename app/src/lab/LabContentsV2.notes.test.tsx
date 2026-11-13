@@ -48,13 +48,14 @@ it('shows each note in full under its passage, in ink, and filters to Notes only
   const row = await screen.findByTestId(`contents-highlight-hl-${T + 1}-daughter`)
   await within(row).findByText('youngest daughter.')
   const note = row.querySelector('.note')!
-  expect(note.textContent).toBe('Youngest, and so the indulged one.\nSee her father.')
+  // Each line of the note is its own line (notes/NoteView.tsx: one <p> per line, as typed).
+  expect([...note.querySelectorAll('p')].map(p => p.textContent)).toEqual(['Youngest, and so the indulged one.', 'See her father.'])
   expect(row.querySelector('.excerpt')).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Notes only' }))
   expect(rows()).toEqual([`contents-highlight-hl-${T + 1}-daughter`, `contents-chapter-note-hl-${T + 4}-cn`])
   // Approved mockup (12 Oct): under Notes only the note leads and its passage follows, quoted.
   const first = screen.getByTestId(`contents-highlight-hl-${T + 1}-daughter`)
-  expect(first.querySelector('.note-lead')?.textContent).toBe('Youngest, and so the indulged one.\nSee her father.')
+  expect([...first.querySelector('.note-lead')!.querySelectorAll('p')].map(p => p.textContent)).toEqual(['Youngest, and so the indulged one.', 'See her father.'])
   expect(first.querySelector('.note-source')?.textContent).toMatch(/^“.*youngest daughter\.”$/)
   expect(first.querySelector('.note-lead')!.compareDocumentPosition(first.querySelector('.note-source')!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   expect(document.querySelector('.note-count')?.textContent).toMatch(/^2 notes in /)

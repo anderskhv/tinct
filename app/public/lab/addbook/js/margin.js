@@ -245,6 +245,15 @@
      The fixture (margin-fixture.html) and the reader draw them with these same builders, so what
      was compared with the mockup is what the reader shows. Icons are the mockup's own. */
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  /**
+   * A note's formatting (Anders, 13 Nov 2026): bullets, bold and italic as Markdown in the note (js/note-md.js, built
+   * from the reader's src/lab/notes). Shown: its HTML, every character escaped; written: a <tinct-note> field, whose
+   * words are the note's Markdown as text (the element makes the field when it is drawn). Without note-md.js (an
+   * old cached page) a note shows as its plain words.
+   */
+  const noteMd = () => (typeof self !== 'undefined' ? self : globalThis).TinctNoteMd || null;
+  const noteShown = note => { const md = noteMd(); return md ? md.noteHtml(String(note || '')) : `<p>${esc(note)}</p>` };
+  const noteField = ({ cls, note = '', placeholder, label }) => `<tinct-note class="tn-wrap"><div class="${cls} tn-editor" data-note-field data-placeholder="${esc(placeholder)}" aria-label="${esc(label)}">${esc(note)}</div></tinct-note>`;
   const svg = body => `<svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">${body}</svg>`;
   const ICONS = {
     // Remove (a highlight): a ✕, in the bar's stroke.
@@ -349,7 +358,7 @@
   function noteHtml({ quote, note = '' }) {
     // A passage that opens or closes on its own quotation mark is not quoted twice (round 3: ““Yes, of course, if”).
     const bare = String(quote || '').trim().replace(/^["“‘']+|["”’']+$/g, '');
-    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p><textarea class="mr-note__field" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(note)}</textarea></div>`
+    return `<div class="mr-note__body"><p class="mr-note__quote">“${esc(cut(bare))}”</p>${noteField({ cls: 'mr-note__field', note, placeholder: 'Add a note…', label: 'Highlight note' })}</div>`
       + `<div class="mr-note__foot"><button type="button" class="mr-bar__item is-quiet" data-m="remove">Remove highlight</button><button type="button" class="mr-bar__item" data-m="save"${note ? '' : ' disabled'}>Save note</button></div>`;
   }
   /**
@@ -525,7 +534,7 @@
     for (const c of cards || []) if (c && !c.gone && CARD_KINDS.includes(c.kind) && c.rects?.length && !c.data?.unit && (cardAnswered(c) || (c.at || 0) >= since)) out.push(c);
     // A note in the margin (a click on the empty column) or a unit's own note (its end's Note) has no passage: its one
     // box has no size (noteSpot). It is "free": no underline, no leader line, its field always editable.
-    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
+    for (const m of marks || []) if (m && !m.gone && m.note && m.rects?.length) { const spot = noteSpot(m); out.push({ id: 'n-' + m.id, kind: 'note', mark: m.id, page: m.page, rects: m.rects.map(r => [m.page, ...r]), text: m.text, note: m.note, color: m.color, at: m.at, u: m.u || m.at, ...(m.place && typeof m.place === 'object' ? { place: m.place } : {}), ...(spot ? { free: true, ...(spot.unit ? { unitNote: true } : {}) } : {}) }) }
     return out.sort((a, b) => { const fa = firstRect(a), fb = firstRect(b); return fa[0] - fb[0] || (Math.abs(fa[2] - fb[2]) > 0.005 ? fa[2] - fb[2] : fa[1] - fb[1]) || (a.at || 0) - (b.at || 0) });
   }
   /**
@@ -688,7 +697,7 @@
   /** The words a folded card shows (two lines of them): plain, no tags. */
   function foldText(card, P) {
     const plain = t => String(t || '').replace(/\{[^{}\n]{1,40}\}/g, m => (P.parseCitations(m)[0]?.type === 'cite' ? '' : m)).replace(/\*\*/g, '').replace(/(^|[^\w*])\*(?=[^\s*])([^*\n]{0,200}?[^\s*])\*(?![\w*])/g, '$1$2').replace(/^\s*Sources:.*$/gim, '').replace(/```/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
-    if (card.kind === 'note') return plain(card.note);
+    if (card.kind === 'note') { const md = noteMd(); return plain(md ? md.notePlainText(card.note || '').replace(/^ *• /gm, '') : card.note) }
     if (card.kind === 'define') { const d = card.data || {}; return plain(d.inText || (d.senses || [])[0]?.text || d.line || '') }
     if (card.kind === 'quiz') {
       const q = card.data || {};
@@ -858,6 +867,8 @@
    */
   function cardHtml(card, o) {
     const P = o.P, label = esc(cardLabel(card, o.pageLabel, o.where));
+    // A folded note keeps its formatting, up to six lines (Anders, 13 Nov 2026).
+    if (!o.open && card.kind === 'note') return `<button type="button" class="mr-card__label" data-c="open">${label}</button><div class="mr-card__text tn-md is-note-md">${noteShown(card.note)}</div>`;
     if (!o.open) return `<button type="button" class="mr-card__label" data-c="open">${card.kind === 'related' ? esc(relatedFoldLabel(card, P) || cardLabel(card, o.pageLabel, o.where)) : label}</button><div class="mr-card__text">${esc(foldText(card, P))}</div>`;
     const q = card.data || {};
     // "x of n": n is the quiz's real number of questions, one per key idea (known as soon as the ideas have streamed).
@@ -936,13 +947,13 @@
     // A margin note (or a unit's note): its words in a field, always editable; Ask turns it into a chat; the bin.
     // The phone's note on a passage (reader.js phoneNote): the passage, its note in a field, the bin.
     if (card.kind === 'note' && !card.free && o.sheet) {
-      return head + `<div class="mr-card__body">${quote}<textarea class="mr-note-edit" rows="3" placeholder="Add a note…" aria-label="Highlight note">${esc(card.note || '')}</textarea></div>`;
+      return head + `<div class="mr-card__body">${quote}${noteField({ cls: 'mr-note-edit', note: card.note || '', placeholder: 'Add a note…', label: 'Highlight note' })}</div>`;
     }
     if (card.kind === 'note' && card.free) {
-      const field = `<textarea class="mr-note-edit" rows="2" placeholder="${card.unitNote ? 'A note on this chapter' : 'Write a note'}" aria-label="${card.unitNote ? 'Chapter note' : 'Note'}">${esc(card.note || '')}</textarea>`;
+      const field = noteField({ cls: 'mr-note-edit', note: card.note || '', placeholder: card.unitNote ? 'A note on this chapter' : 'Write a note', label: card.unitNote ? 'Chapter note' : 'Note' });
       return head + `<div class="mr-card__body">${field}<div class="mr-card__acts"><button type="button" class="mr-card__ask" data-c="note-ask">Ask</button></div></div>`;
     }
-    if (card.kind === 'note') body += `<div class="mr-answer is-note"><p>${esc(card.note)}</p></div>`;
+    if (card.kind === 'note') body += `<div class="mr-answer is-note tn-md">${noteShown(card.note)}</div>`;
     else if (card.kind === 'define') {
       const senses = q.senses || [];
       body += q.inText
