@@ -27,8 +27,9 @@ describe('reversible edition discovery availability', () => {
     // 174 with The Master and Margarita modern-en (2026-11-05).
     // 175 with Pinocchio modern-en (2026-11-10).
     // 176 with Pope's verse Odyssey (2026-11-11).
-    expect(manifest.eligible_editions).toHaveLength(176)
-    expect(manifest.held_editions).toHaveLength(48)
+    // Medea modern-en text repaired 2026-11-13; its old recording is held.
+    expect(manifest.eligible_editions).toHaveLength(175)
+    expect(manifest.held_editions).toHaveLength(49)
     expect(BOOKS.filter(book => !book.editions.some(e => e.language === 'en' && !isAudioHeld(book.id, e.key))).map(b=>b.id).sort()).toEqual([...manifest.held_books].sort())
   })
   it('removes held books only from discovery, retaining direct text handoffs and exact places', () => {
