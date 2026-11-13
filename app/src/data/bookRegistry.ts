@@ -2215,7 +2215,7 @@ export const ARISTOTLE_POLITICS: Book = {
       style: 'modern',
       label: 'Moderne Dansk',
       aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3087,7 +3087,7 @@ export const JEKYLL_AND_HYDE: Book = {
       hasAudio: true,
     },
     { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true,
-      hasAudio: true,
+      hasAudio: false,
     },
   ],
 }
@@ -3136,7 +3136,7 @@ export const HUME_ENQUIRY: Book = {
   editions: [
     { key: 'original-en', language: 'en', style: 'original', label: 'Hume (1748)', year: 1748, aligned: true, hasAudio: true },
     { key: 'modern-en', language: 'en', style: 'modern', label: 'Modern English', aligned: true, hasAudio: true },
-    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true },
+    { key: 'modern-da', language: 'da', style: 'modern', label: 'Moderne Dansk', aligned: true, hasAudio: false },
   ],
 }
 

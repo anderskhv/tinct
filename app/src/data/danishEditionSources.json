@@ -249,6 +249,35 @@
       "package": "books/wip/modern-da-quality-20261102/editions/descartes-meditations-modern-en.json",
       "sha256": "9873976da48cdfd9b1255023c10a02eccd52301c79dc3dc4755a2911b1db5f53",
       "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "jekyll-and-hyde": {
+    "package": "books/wip/modern-da-quality-20261102/editions/jekyll-and-hyde-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "e75dd3c83aeebedea8e771685ebdc6614623fe99a010c541448e30951fc73865",
+    "modernEnglishSha256": "640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d",
+    "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
+  },
+  "aristotle-politics": {
+    "package": "books/wip/modern-da-quality-20261102/editions/aristotle-politics-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf",
+    "modernEnglishSha256": "eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/aristotle-politics-modern-en.json",
+      "sha256": "42af363809c2be2b66482d3ddbbe6c7330badd514cf2d264a9a8152a1ff2ea89",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
+    }
+  },
+  "hume-enquiry": {
+    "package": "books/wip/modern-da-quality-20261102/editions/hume-enquiry-modern-da.json",
+    "packageCommit": "dd7d22437633d57d624f18ff93cd88f33845857c",
+    "danishSha256": "26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6",
+    "modernEnglishSha256": "cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633",
+    "translatedFromEnglish": {
+      "package": "books/wip/modern-da-quality-20261102/editions/hume-enquiry-modern-en.json",
+      "sha256": "09c385a08b6a1b9bc470f0a1afb604f71e34b363e26bfdc11bbb1ab70971e531",
+      "note": "Codex modern-en candidate the Danish follows; not published. The live modern-en is pinned above."
     },
     "integrationAdjustments": "books/wip/modern-da-quality-20261102/INTEGRATION-2026-11-13.json"
   }

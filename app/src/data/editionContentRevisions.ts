@@ -151,9 +151,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   }
 },
   'aristotle-politics': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.aristotle-politics-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '57d699612aa360b08a72c2a5c6c800e0eae6c838b69f91a648295c389d1865fa',
+        after: '2dea810ddab3a318e58387d35e31cfa2d7e64e87b432f8e66dd238bd760270bf',
+        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+      },
       'modern-en': {
         before: '8ce0b1f6570584b4ba8168b25cb6ae365afcd0cc157cc4a0f15cd2d3efc62224',
         after: 'eec87f405113c665c38fd1edfc940a94c524c2c631a09c652e7fb21c0c05e511',
@@ -446,9 +452,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
     },
   },
   'hume-enquiry': {
-    revision: 'text-2026-10-01.1',
+    revision: 'text-2026-11-13.hume-enquiry-da.1',
     releasedAt: Date.parse('2026-10-01T09:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '228687c99a0293b8c616763c55a336081117e47d5154ae2fe79ed86e5aa74f3a',
+        after: '26db5929b2988232f5de6b6d074b2a0ffcd49c2e87925e0c4b6216aafba50cf6',
+        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+      },
       'modern-en': {
         before: '8b9b306e32e35f9047f4f5247d07562b601024e014d9e93a373e6104204d3290',
         after: 'cd8a4daab2bed38c816b79ca74c7d464bbcce9bcc2ef8e1a9ee1f374f0977633',
@@ -541,9 +553,15 @@ export const CONTENT_RELEASES: Record<string, ContentRelease> = {
   },
   // Text-only modern-en repair (2026-10-21): chapters 1, 2, 5, 7, 8 and 9 re-rendered; paragraphs unchanged.
   'jekyll-and-hyde': {
-    revision: 'text-2026-10-21.2',
+    revision: 'text-2026-11-13.jekyll-and-hyde-da.1',
     releasedAt: Date.parse('2026-10-21T12:00:00Z'),
     editions: {
+      'modern-da': {
+        // Danish revision, 13 Nov 2026 (modern-da-quality package).
+        before: '5cf16e3333eefe1e73a96609acf6087e83f7fd726c9f9d2860d5777f7e00e105',
+        after: 'e75dd3c83aeebedea8e771685ebdc6614623fe99a010c541448e30951fc73865',
+        releasedAt: Date.parse('2026-11-14T00:00:00Z'),
+      },
       'modern-en': {
         before: '7bcc0ee81b68635f017b8324fab9dc2e4cc3fc0febb827e0431ce876a2d0ac6b',
         after: '640dc4ea5d7d56f4b015b000404b5275c5cf9223b9979ed6bfb3765155c4883d',

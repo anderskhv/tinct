@@ -43,6 +43,9 @@ export const OFFERED_DANISH_EDITIONS: ReadonlySet<string> = new Set([
   'on-liberty/modern-da',
   'kant-groundwork/modern-da',
   'descartes-meditations/modern-da',
+  'jekyll-and-hyde/modern-da',
+  'aristotle-politics/modern-da',
+  'hume-enquiry/modern-da',
 ])
 export const isOfferedDanishEdition = (bookId: string, editionKey: string | undefined): boolean =>
   Boolean(editionKey) && OFFERED_DANISH_EDITIONS.has(bookId + '/' + editionKey)
