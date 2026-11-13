@@ -14,7 +14,7 @@ import { useBackCloses } from './useBackCloses'
 import { editionHold, TEMPORARY_HOLD_NOTICE } from '../data/editionAvailability'
 import { EditionHoldPanel } from './EditionHoldPanel'
 import { usesRetainedBella } from '../narration/bellaRetention'
-import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon } from './LabReaderIcons'
+import { ReadIcon, ChatIcon, TalkIcon, LoadingIcon, LibraryBackIcon } from './LabReaderIcons'
 import { useDesktopDockPlacement } from './labAudioDock'
 import { isAudioHeld } from '../data/audioAvailability'
 import { useCharacterCards } from '../services/characters/useCharacterCards'
@@ -212,7 +212,8 @@ import { bootLabReading, remoteResumeSelection, useLabPositionSync } from './use
 import { readCachedSupabaseUser, readLabLibraryBootSnapshot, snapshotWithReaderPlace, writeLabLibraryBootSnapshot } from './labLibraryBoot'
 import { LAB_THEME_PAPER } from './readerBoot'
 import { hyphenLangForEdition, loadHyphenator } from './labHyphenate'
-import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage } from './labReaderHandoff'
+import { LAB_READER_HANDOFF_KEY, consumeLabReaderHandoffForPage, deepLinkViewForPage, modernReturnForPage, sharedLinkForPage, pendingLabSourceForHandoff, prefsFromLabReaderHandoff, prefsFromLabResumePlace, releaseLabReaderHandoffForPage, sceneHandoffForPage, type PageSceneHandoff } from './labReaderHandoff'
+import { SCENE_HANDOFF_EDITION } from './labSceneHandoff'
 import { chosenDesktopReaderLayout, defaultDesktopReaderLayout, desktopLayoutDevice, initialDesktopReaderLayout, marginReaderRoom, readsMarginOnHandheld, storeDesktopReaderLayout, type DesktopLayoutDevice, type DesktopReaderLayout } from './labDesktopLayout'
 import { marginPreviewOptedIn } from './marginPreview/marginPreviewFlag'
 import { isMarginPreviewBook, marginPreviewReturnHref } from './marginPreview/marginPreviewModel'
@@ -428,14 +429,6 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   )
 }
 
-function LibraryBackIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M19 12H5.6M11 6.2 5.2 12l5.8 5.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
 function SkipIcon({ direction, seconds = 15 }: { direction: 'back' | 'forward'; seconds?: number }) {
   const path = direction === 'back'
     ? 'M8.25 7.15H4.7v-3.5M4.9 7.05A8 8 0 1 1 4.15 15'
@@ -559,6 +552,8 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const voiceVersion = 'v2'
   const [pageTurnAffordance, setPageTurnAffordance] = useState(() => readPageTurnAffordance(layoutOverride))
   const [readerHandoff] = useState(() => source || userBook ? null : consumeLabReaderHandoffForPage())
+  // A static scene page's hand-over (labSceneHandoff.ts), run once the deep-linked chapter is open (runSceneHandoff below).
+  const sceneHandoffRef = useRef(readerHandoff ? sceneHandoffForPage() : null)
   // Back from Checkout without paying: the buyer's own session is ended at once, so the
   // book is not held from other buyers until it lapses (the Worker checks it is theirs).
   useEffect(() => {
@@ -6283,6 +6278,67 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     closePhoneCard(); setBookAction(null)
     openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary')
   }
+  // A static scene page (/read/{bookId}/{scene}) handed over to do one thing here, in the chapter it linked to: what
+  // its margin, its selection bar, its ask field or its top bar asked for, run through the reader's own actions, as
+  // if the reader had pressed them. A passage is words by index in the scene page's edition (modern-en); anything
+  // that does not fit this chapter's text is dropped, never guessed at. Nothing here writes the reading place: the
+  // deep link already opened the chapter.
+  const runSceneHandoffRef = useRef<(intent: PageSceneHandoff) => void>(() => {})
+  runSceneHandoffRef.current = intent => {
+    const chapter = { chapterNumber: book.chapterNumber, chapterLabel: book.chapterLabel }
+    const passageAt = (range: LabHighlightRange): PhonePassage => ({ text: range.text, paragraphIndex: range.paragraphIndex, ...chapter,
+      editionKey: readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: book.chapterNumber, range }] })
+    const selected = () => {
+      const s = intent.selection
+      if (!s || readerEditionKey !== SCENE_HANDOFF_EDITION) return null
+      const words = (index: number) => (book.paragraphs[index] || '').split(/\s+/).filter(Boolean).length
+      if (s.endParagraphIndex >= book.paragraphs.length || s.wordIndex >= words(s.paragraphIndex) || s.endWordIndex >= words(s.endParagraphIndex)) return null
+      return buildHighlightRange(book.paragraphs, { paragraphIndex: s.paragraphIndex, wordIndex: s.wordIndex }, { paragraphIndex: s.endParagraphIndex, wordIndex: s.endWordIndex })
+    }
+    switch (intent.action) {
+      case 'explain': case 'simplify': case 'ask': case 'more': {
+        if (intent.question) {
+          // A question about the scene: an Ask card at the scene's opening, answered in the margin.
+          const openedAt = Date.now()
+          const point: LabHighlightRange = { paragraphIndex: 0, fromWord: 0, endParagraphIndex: 0, toWord: 0, text: '' }
+          openPhoneCard({ kind: 'ask', passage: { ...passageAt(point), text: '' }, openedAt })
+          dictation.stop()
+          void ask.sendTyped(intent.question, undefined, undefined, {
+            conversationId: `mc_react_${openedAt}`, sourceLocation: { ...chapter, paragraphIndex: 0 },
+          })
+          return
+        }
+        const range = selected()
+        if (!range) return
+        if (intent.action === 'more') {
+          // The reader's own selection bar over the passage, with its full menu.
+          const word = marginHost?.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+            ?? document.querySelector<HTMLElement>(`[data-testid="lab-word"][data-paragraph-index="${range.paragraphIndex}"][data-word-index="${range.fromWord}"]`)
+          const box = word?.getBoundingClientRect()
+          handleSelectRange(range, box ? box.left + box.width / 2 : window.innerWidth / 2, box ? box.top : window.innerHeight / 3)
+          return
+        }
+        openPhoneCard({ kind: intent.action, passage: passageAt(range), openedAt: Date.now() })
+        return
+      }
+      case 'primer': openChapterNotes('primer', book.chapterNumber, 'pill'); return
+      case 'summary': chapterSummaryRef.current(); return
+      case 'recap': openChapterNotes(CHAPTER_SUMMARY_KIND, book.chapterNumber, 'pill', 'summary', 'end'); return
+      case 'quiz': quizChapterRef.current(undefined, true); return
+      case 'contents': setReaderControlsVisible(true); setTocOpen(true); return
+      case 'notebook': handleSuperMenuSelect('notebook'); return
+      case 'appearance': setSuperMenuOpen(false); setCompareFromLayout(false); setSuperSheet('reading'); return
+      case 'menu': openSuperMenu(); return
+    }
+  }
+  useEffect(() => {
+    const intent = sceneHandoffRef.current
+    if (!intent || !readerReady || initialResolving || book.chaptersProvisional) return
+    // Once, and only in the chapter the scene page linked to.
+    sceneHandoffRef.current = null
+    if ((book.bookId || 'bible') !== intent.bookId || book.chapterNumber !== intent.chapterNumber) return
+    runSceneHandoffRef.current(intent)
+  }, [readerReady, initialResolving, book.chaptersProvisional, book.bookId, book.chapterNumber])
   // Book scroll: an action on a neighbouring chapter (its pills, a selection in it, one of its margin cards) first makes
   // that chapter the reader's own where it stands (nothing on the page moves), then runs as in any chapter. The action
   // reads the reader's state through refs, so it sees the adopted chapter, not the one it was asked from.

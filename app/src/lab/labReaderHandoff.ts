@@ -8,6 +8,7 @@ import { syncLabAudioEdition } from './labPrefs'
 import { libraryResumePlace, resumePlace, type LabBookPlace, type LabPositionState } from './labPosition'
 import { readLabPositionLocal } from './labPositionStore'
 import type { LabSource } from './labSource'
+import { parseSceneHandoff, type SceneHandoff } from './labSceneHandoff'
 
 export const LAB_READER_HANDOFF_KEY = 'tinct:lab-reader-handoff'
 
@@ -17,6 +18,15 @@ let pageSharedLink: { id: string; ref: string } | null = null
 let pageModernReturn: ModernReturn | null = null
 
 let pageDeepLinkView: LabDeepLinkView | null = null
+
+/** A static scene page's hand-over (labSceneHandoff.ts): what to do once the deep-linked chapter is open. */
+export type PageSceneHandoff = SceneHandoff & { bookId: string; chapterNumber: number }
+let pageSceneHandoff: PageSceneHandoff | null = null
+
+/** The scene page hand-over this page was opened with, read with the deep link before the address is cleaned. */
+export function sceneHandoffForPage(): PageSceneHandoff | null {
+  return pageSceneHandoff
+}
 
 /**
  * The desktop layout a deep link asks for (`view=margin|two-page|compare`): the margin preview's Layout choices
@@ -199,6 +209,12 @@ export function consumeLabReaderHandoffForPage(): ReaderHandoffIntent | null {
     const shareId = params?.get('share')
     if (pageHandoff && shareId && /^[a-hj-km-np-z2-9]{7}$/.test(shareId)) pageSharedLink = { id: shareId, ref: (params?.get('ref') || '').slice(0, 80) }
     pageDeepLinkView = pageHandoff && params?.has('chapter') ? deepLinkView(params) : null
+    // A scene page's action rides on its deep link only: the hash names what to do, the link where.
+    const sceneHash = typeof window === 'undefined' ? null : parseSceneHandoff(window.location.hash)
+    pageSceneHandoff = sceneHash && !heldBook && pageHandoff && params?.has('chapter') && pageHandoff.bookId === params.get('book')
+      && pageHandoff.savedPlace?.chapterNumber === Number(params.get('chapter'))
+      ? { ...sceneHash, bookId: pageHandoff.bookId, chapterNumber: pageHandoff.savedPlace.chapterNumber }
+      : null
     if (!heldBook && pageHandoff && params?.has('chapter') && readerHandoffFromUrlParams(params)) forgetDeepLinkParams(params)
   }
   return pageHandoff
@@ -218,7 +234,9 @@ function forgetParams(params: URLSearchParams, keys: string[]): void {
     const rest = new URLSearchParams(params)
     for (const key of keys) rest.delete(key)
     const query = rest.toString()
-    window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash)
+    // A scene page's hand-over (#scene=…) is read once with the link and leaves with it, so a reload never repeats it.
+    const hash = parseSceneHandoff(window.location.hash) ? '' : window.location.hash
+    window.history.replaceState(window.history.state, '', window.location.pathname + (query ? `?${query}` : '') + hash)
   } catch { /* the place still opens; only a reload would differ */ }
 }
 
@@ -226,6 +244,7 @@ export function releaseLabReaderHandoffForPage(handoff: ReaderHandoffIntent | nu
   if (pageHandoff === handoff) {
     pageHandoff = null
     pageHandoffRead = false
+    pageSceneHandoff = null
   }
 }
 
