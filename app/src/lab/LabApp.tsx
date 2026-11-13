@@ -6712,7 +6712,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const quizAtStart = live.kind === 'quiz' && !passage && desktopQuizAtStartRef.current
     desktopMarginEntries.push({ id, label: PHONE_CARD_NAMES[live.kind], source: sourceForMargin(range, !quizAtStart && (live.kind === 'chapter-note' || live.kind === 'quiz' && !passage)),
       order: quizAtStart ? -3 : live.kind === 'chapter-note' || live.kind === 'quiz' && !passage ? 1e12 : (range?.paragraphIndex ?? 0) * 100000 + (range?.fromWord ?? 0),
-      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const } : {}),
+      open: desktopOpenId === id, focusEditor: live.kind === 'note' || live.kind === 'chapter-note' || live.kind === 'ask', ...(saved ? foldedPreview(live.kind, saved.messages, raw => marginAnswerPreview(live.kind, raw)) : {}), ...(!saved?.messages.some(message => message.role === 'assistant') && live.kind === 'note' ? { preview: highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)?.note, previewStyle: 'note' as const, previewNote: true } : {}),
       sourceText: passage?.text, free: live.kind === 'chapter-note' || (live.kind === 'note' || live.kind === 'ask') && isSourcePoint(range),
       ...(live.kind === 'note' ? notePlacing(highlightsApi.allHighlights.find(mark => mark.id === live.highlightId)) : live.kind === 'chapter-note' ? notePlacing(highlightsApi.chapterNotes.find(note => note.chapterNumber === live.chapterNumber)) : {}),
       onToggle: () => toggleMargin(id, live), onDelete: () => {
@@ -6727,7 +6727,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     if (liveIds.has(id)) continue
     const passage: PhonePassage = { text: mark.text || '', paragraphIndex: mark.paragraphIndex, chapterNumber: mark.chapterNumber, chapterLabel: book.chapterLabel, editionKey: mark.editionKey || readerEditionKey, paragraphs: book.paragraphs, ranges: [{ chapterNumber: mark.chapterNumber, range: mark }] }
     const live: PhoneCard = { kind: 'note', passage, highlightId: mark.id, created: false }
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, previewStyle: 'note', free: isSourcePoint(mark), ...notePlacing(highlightsApi.allHighlights.find(item => item.id === mark.id) ?? mark),
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(mark), order: mark.paragraphIndex * 100000 + mark.fromWord, open: false, preview: mark.note, previewStyle: 'note', previewNote: true, free: isSourcePoint(mark), ...notePlacing(highlightsApi.allHighlights.find(item => item.id === mark.id) ?? mark),
       onToggle: () => { setPhoneNote(mark.note || ''); openPhoneCard(live) }, onDelete: () => { highlightsApi.remove(mark.id); setMarginUndo(() => () => { highlightsApi.restore([mark]) }) }, content: null })
   }
   // A note's card in the reader's own chapter, opened by its highlight id (book scroll: after its chapter was adopted).
@@ -6912,7 +6912,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   if (continuousReader) for (const note of highlightsApi.chapterNotes.filter(note => note.chapterNumber === book.chapterNumber)) {
     const id = `chapter-note:${note.chapterNumber}`
     if (liveIds.has(id)) continue
-    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, previewStyle: 'note', free: true, ...notePlacing(note),
+    desktopMarginEntries.push({ id, label: 'Note', source: sourceForMargin(undefined, true), order: 1e12, open: false, preview: note.note, previewStyle: 'note', previewNote: true, free: true, ...notePlacing(note),
       onToggle: () => { setPhoneNote(note.note || ''); openPhoneCard({ kind: 'chapter-note', chapterNumber: note.chapterNumber, chapterLabel: book.chapterLabel }) },
       onDelete: () => { highlightsApi.setChapterNote(note.chapterNumber, ''); setMarginUndo(() => () => { highlightsApi.setChapterNote(note.chapterNumber, note.note || '') }) }, content: null })
   }

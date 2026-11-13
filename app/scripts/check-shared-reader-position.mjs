@@ -219,7 +219,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   await page.keyboard.press('Escape')
   await page.getByTestId('lab-dbar-note').click()
   await page.keyboard.type('A temporary synthetic note')
-  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A temporary synthetic note', 'new desktop note focuses immediately')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).evaluate(field => field.value), 'A temporary synthetic note', 'new desktop note focuses immediately')
   await page.screenshot({path:`${output}/verse-note-focus.png`})
   await page.getByRole('button', {name:'Delete Note',exact:true}).click()
   assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0, 'deleted note leaves no editor')
@@ -230,7 +230,7 @@ if (!process.env.SHARED_POSITION_ACTIONS_ONLY) {
   const cardsBottom = await page.locator('.source-margin-item').evaluateAll(nodes => Math.max(0, ...nodes.map(node => node.getBoundingClientRect().bottom)))
   await page.mouse.click(marginRoom.x + marginRoom.width / 2, Math.max(sourceFrame.y + 160, cardsBottom + 40))
   await page.keyboard.type('A note on blank paper')
-  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).inputValue(), 'A note on blank paper', 'blank margin focuses its new note')
+  assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).evaluate(field => field.value), 'A note on blank paper', 'blank margin focuses its new note')
   await page.getByRole('button', {name:'Delete Note',exact:true}).click()
   await page.waitForTimeout(600) // Include the note autosave debounce: deletion must remain final.
   assert.equal(await page.getByRole('textbox', {name:'Highlight note'}).count(), 0)

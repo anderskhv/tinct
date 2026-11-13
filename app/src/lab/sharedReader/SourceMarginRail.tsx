@@ -22,6 +22,8 @@ export interface SourceMarginEntry {
   previewMore?: number
   /** How the folded line opens (cardPreview.ts FoldedPreview.previewStyle). */
   previewStyle?: 'note' | 'whole'
+  /** The preview is the reader's own note (Markdown): shown formatted, up to six lines (Anders, 13 Nov 2026). */
+  previewNote?: boolean
   sourceText?: string
   onToggle: () => void
   onDelete?: () => void
@@ -303,7 +305,7 @@ export function SourceMarginRail({ host, entries: given, onBlankNote, ownsSource
           {entry.onDelete && <button type="button" aria-label={`Delete ${entry.label}`} onClick={entry.onDelete}><PhoneIcon name="trash" /></button>}
         </header>
         {entry.sourceText && <span className="lab-visually-hidden" id={`source-about-${entry.id}`}>{entry.sourceText}</span>}
-        {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. A note keeps its formatting, up to six lines (13 Nov 2026). */}{entry.previewStyle === 'note' && entry.preview ? <NoteView lines={6} className="source-margin-preview-note" testId="source-margin-note">{entry.preview}</NoteView> : entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
+        {!entry.open && !entry.actions && <button type="button" className="source-margin-preview" data-preview={entry.previewStyle} onClick={entry.onToggle}>{/* Folded is one line, enough to recall the card (Anders, 9 Nov 2026): an Ask shows its question, every other card its first words. A note keeps its formatting, up to six lines (13 Nov 2026). */}{entry.previewNote && entry.preview ? <NoteView lines={6} className="source-margin-preview-note" testId="source-margin-note">{entry.preview}</NoteView> : entry.previewQuestion ? <span className="source-margin-preview-question">{entry.previewQuestion}</span> : <span className="source-margin-preview-lead">{entry.preview ? clampWords(entry.preview, 220) : 'Open this card'}</span>}</button>}
         <div className="source-margin-content" hidden={!entry.open}>{entry.content}</div>
       </section>
     })}
