@@ -1103,15 +1103,18 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
   const compareEditionLabel = editionLabelFor(prefs.compareEdition, allBookEditions)
   const continuousReader = sharedReader && !showPhoneChrome && !desktopCompareActive && !privateDesktopClassic
   // Book scroll (Anders, 11 Nov 2026): the desktop Margin reader scrolls a whole scroll unit (a biblical book, a
-  // titled division, else the whole book). Tinct library books; phone, two-page, Compare and own books as before.
+  // titled division, else the whole book). Library books and, since 13 Nov 2026, a reader's own EPUBs, pasted texts
+  // (no gap between their sections) and PDFs read as Tinct text; phone, two-page and Compare as before. A PDF's
+  // original pages are read in their own viewer and never reach this reader.
   // An admin try-out for now (Anders, 11 Nov 2026): off for everyone else. Decided once, at first paint, from the
   // cached admin answer, so the surface never changes mid-read; `?bookScroll=0` switches it off for the session.
   const [siteAdminAtOpen] = useState(() => typeof window !== 'undefined' && cachedSiteAdmin(readCachedSupabaseUser()?.id))
   const [bookScrollOn] = useState(() => typeof window !== 'undefined' && bookScrollSwitch(search ?? window.location.search, siteAdminAtOpen,
     (() => { try { return window.sessionStorage } catch { return null } })(), (() => { try { return window.localStorage } catch { return null } })()))
-  const bookScroll = bookScrollOn && continuousReader && !privateBook && !book.chaptersProvisional
-  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber) : null,
-    [bookScroll, book.bookId, book.chapters, book.chapterNumber])
+  const bookScroll = bookScrollOn && continuousReader && !book.chaptersProvisional
+  const pastedSections = userBook?.pasted === true
+  const bookScrollUnitNow = useMemo(() => bookScroll ? bookScrollUnit(book.bookId || 'bible', book.chapters, book.chapterNumber, { sections: pastedSections }) : null,
+    [bookScroll, book.bookId, book.chapters, book.chapterNumber, pastedSections])
   const bookScrollTexts = useBookScrollChapters(bookScroll, book.bookId || 'bible', prefs.primaryEdition)
   /** The chapters book scroll paints now, the reader's own included: their start actions and margin cards are shown. */
   const [bookScrollPainted, setBookScrollPainted] = useState<readonly number[]>([])
@@ -6905,6 +6908,11 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const rect = head?.getBoundingClientRect()
     return rect?.height ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom } : null
   }
+  // In book scroll, from a later chapter, the first chapter is a neighbour above the reader's: the whole book's cards
+  // sit in its band of the margin (the neighbours' orders above), not after the reader's own chapter's start actions,
+  // which pushed them down beside a later chapter (13 Nov 2026, own EPUB with short front matter).
+  const bookCardBand = bookScroll && book.chapters[0] != null && book.chapters[0].number !== book.chapterNumber
+    && (bookScrollUnitNow?.chapters[0]?.number === book.chapters[0].number) ? -1e16 : 0
   if (continuousReader) for (const kind of desktopBookCards) {
     const id = `mc_book_${kind}_${book.bookId || 'bible'}`
     const title = book.bookTitle || 'This book'
@@ -6913,7 +6921,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
     const follow = (shown: () => string) => <PhoneFollowField draft={draftStore} active={desktopOpenId === id} onChange={setDraft}
       onSend={question => { keep(shown()); dictation.stop(); void ask.sendTyped(question, undefined, undefined, { onAccepted: () => setDraft('') }) }}
       onMic={handleMic} micOn={dictation.state !== 'idle'} onTalk={() => continueCatchUp('talk', shown())} disabled={ask.typedLoading} />
-    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: kind === 'primer' ? -9 : -8, free: true,
+    desktopMarginEntries.push({ id, label: `${kind === 'primer' ? BOOK_PRIMER_TITLE : BOOK_SUMMARY_TITLE} · ${title}`, source: bookStartSource, order: bookCardBand + (kind === 'primer' ? -9 : -8), free: true,
       open: desktopOpenId === id, preview: desktopBookPreviews[kind], onToggle: () => toggleMargin(id), onDelete: close,
       content: kind === 'primer'
         ? <LabBookPrimerSheet embedded bookId={book.bookId || 'bible'} bookTitle={title} onClose={() => setDesktopOpenId(null)} follow={follow} onReady={text => setDesktopBookPreviews(current => current.primer === text ? current : { ...current, primer: text })} />
@@ -7272,7 +7280,7 @@ export function LabApp({ pathname, search, online, source, authToken, userBook, 
                 compareAvailable: desktopCompareChoiceAvailable,
                 onChoose: chooseSharedDesktopLayout }
             : null}
-          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin && !privateBook
+          bookScroll={siteAdminAtOpen && sharedReader && !showPhoneChrome && !handheldMargin
             ? { on: bookScrollOn, onToggle: () => {
                 try { window.localStorage.setItem(BOOK_SCROLL_DEVICE_KEY, bookScrollOn ? 'off' : 'on'); window.sessionStorage.removeItem('tinct-book-scroll-off') } catch { /* storage blocked */ }
                 notePlace('hide')

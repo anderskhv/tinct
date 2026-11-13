@@ -87,6 +87,23 @@ describe('the scroll unit', () => {
   it('makes a chapter the list does not hold its own unit', () => {
     expect(bookScrollUnit('a-book', chapters(['One', 'Two']), 9).chapters).toEqual([])
   })
+  it('is the whole book for a reader\'s own EPUB, front matter and all, with a book\'s gap', () => {
+    const own = chapters(['Dedication', 'About the Author', 'Preface', ...Array.from({ length: 20 }, (_, index) => `Chapter ${index + 1}`), 'Bibliography'])
+    const unit = bookScrollUnit('userbook-0123456789abcdef01234567', own, 1)
+    expect(unit.key).toBe('userbook-0123456789abcdef01234567/book')
+    expect(unit.gap).toBe('book')
+    expect(unit.chapters).toHaveLength(24)
+    expect(bookScrollUnit('userbook-0123456789abcdef01234567', own, 10).key).toBe(unit.key)
+  })
+  it('runs a pasted text\'s sections on with no gap, as one unit', () => {
+    const essay = chapters(['A Pasted Essay', 'II. A section', 'III. A section', 'IV. A section'])
+    const unit = bookScrollUnit('userbook-0123456789abcdef01234567', essay, 3, { sections: true })
+    expect(unit.gap).toBe('none')
+    expect(unit.chapters).toHaveLength(4)
+    expect(bookScrollUnit('userbook-0123456789abcdef01234567', essay, 9, { sections: true }).gap).toBe('none')
+    // The Bible keeps its own gap whatever is asked.
+    expect(bookScrollUnit('bible', chapters(['Luke 1', 'Luke 2']), 1, { sections: true }).gap).toBe('scripture')
+  })
   it('reads the division from the title', () => {
     expect(chapterDivision('Book Two (1805) — Chapter 3')).toBe('Book Two (1805)')
     expect(chapterDivision('Chapter 3')).toBeNull()
