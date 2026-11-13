@@ -12,20 +12,19 @@
 import { parseBibleChapterTitle, type LabChapter } from '../labSource'
 
 const SWITCH_KEY = 'tinct-book-scroll-off'
-/** An admin's own choice on this device (Appearance › Whole-book scroll): 'off' turns it off, anything else leaves it on. */
+/** A reader's own choice on this device (Appearance › Whole-book scroll): 'off' turns it off, anything else leaves it on. */
 export const BOOK_SCROLL_DEVICE_KEY = 'tinct-book-scroll'
 
 type SwitchStorage = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>
 
 /**
- * Book scroll is an admin try-out (Anders, 11 Nov 2026): off for everyone else, whatever the link says.
- * For an admin it is on unless switched off: `?bookScroll=0` turns it off for this tab's session (a QA escape
- * hatch), `?bookScroll=1` on again, and Appearance › Whole-book scroll keeps the choice on this device.
+ * Book scroll is on for every reader (Anders, 13 Nov 2026; an admin try-out from 11 Nov) unless switched off:
+ * `?bookScroll=0` turns it off for this tab's session (a QA escape hatch), `?bookScroll=1` on again, and
+ * Appearance › Whole-book scroll keeps the reader's choice on this device.
  */
-export function bookScrollSwitch(search: string, admin: boolean, session?: SwitchStorage | null, device?: Pick<Storage, 'getItem'> | null): boolean {
+export function bookScrollSwitch(search: string, session?: SwitchStorage | null, device?: Pick<Storage, 'getItem'> | null): boolean {
   let asked: string | null = null
   try { asked = new URLSearchParams(search).get('bookScroll') } catch { asked = null }
-  if (!admin) return false
   let deviceOff = false
   try { deviceOff = device?.getItem(BOOK_SCROLL_DEVICE_KEY) === 'off' } catch { deviceOff = false }
   try {
