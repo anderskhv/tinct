@@ -87,7 +87,6 @@ export default defineConfig(({ mode, command }) => {
     rollupOptions: {
       input: {
         index: path.resolve(process.cwd(), 'index.html'),
-        labFeaturedAccess: path.resolve(process.cwd(), 'src/labFeaturedAccess.ts'),
         labAuthStatus: path.resolve(process.cwd(), 'src/labAuthStatus.ts'),
         labSignIn: path.resolve(process.cwd(), 'src/labSignIn.ts'),
         libraryTwoAssistant: path.resolve(process.cwd(), 'src/libraryTwoAssistant.tsx'),
@@ -105,7 +104,7 @@ export default defineConfig(({ mode, command }) => {
         // also use index.ts; their lazy chunks must not impersonate the app
         // in shell stamping, production checks or offline registration.
         chunkFileNames: chunk => chunk.name === 'index' ? 'assets/shared-index-[hash].js' : 'assets/[name]-[hash].js',
-        entryFileNames: chunk => chunk.name === 'labFeaturedAccess' ? 'lab/featured-access.js' : chunk.name === 'labAuthStatus'
+        entryFileNames: chunk => chunk.name === 'labAuthStatus'
           ? 'lab/auth-status.js'
           : chunk.name === 'labSignIn'
             ? 'lab/sign-in-runtime.js'
@@ -237,11 +236,6 @@ export default defineConfig(({ mode, command }) => {
           const url = req.url || ''
           // Strip query string for the path comparison
           const pathOnly = url.split('?')[0]
-          if (pathOnly === '/lab/featured-access.js') {
-            req.url = `/src/labFeaturedAccess.ts${url.slice(pathOnly.length)}`
-            next()
-            return
-          }
           if (pathOnly === '/lab/auth-status.js') {
             req.url = `/src/labAuthStatus.ts${url.slice(pathOnly.length)}`
             next()
@@ -296,8 +290,6 @@ export default defineConfig(({ mode, command }) => {
           const pageAssets: Record<string, string> = {
             '/sign-in': '/lab/sign-in/index.html',
             '/sign-in/': '/lab/sign-in/index.html',
-            '/featured': '/lab/featured/index.html',
-            '/featured/': '/lab/featured/index.html',
             '/': '/lab/library_2/index.html',
             '/index.html': '/lab/library_2/index.html',
             '/library': '/lab/library_2/index.html',
